@@ -892,7 +892,6 @@ This section covers how to execute queries against your database.
            os.Exit(1)
        }
 
-
     }
     ```
 
