@@ -9,7 +9,7 @@ and `pacman` package manager to install the `psql` tool.
 
 <procedure>
 
-#### Installing psql using the apt package manager
+### Installing psql using the apt package manager
 
 1.  Make sure your `apt` repository is up to date:
 
