@@ -256,7 +256,7 @@ other tasks can and should all be executed on the hypertable.
 
 1.  Formulate the `SELECT` statement to convert the table into a hypertable. You
     must specify the table name to convert to a hypertable, and its time column
-    name as the two. For more information, see the
+    name as the second argument. For more information, see the
     [`create_hypertable` docs][create-hypertable-docs]:
 
     ```go
