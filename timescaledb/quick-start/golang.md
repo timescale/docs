@@ -251,7 +251,12 @@ other tasks can and should all be executed on the hypertable.
     Notice how the hypertable has the compulsory time column:
 
     ```go
-    FIXME
+    queryCreateTable := `CREATE TABLE sensor_data (
+           time TIMESTAMPTZ NOT NULL,
+           sensor_id INTEGER,
+           temperature DOUBLE PRECISION,
+           cpu DOUBLE PRECISION,
+           FOREIGN KEY (sensor_id) REFERENCES sensors (id));`
     ```
 
 1.  Formulate the `SELECT` statement to convert the table into a hypertable. You
@@ -260,21 +265,13 @@ other tasks can and should all be executed on the hypertable.
     [`create_hypertable` docs][create-hypertable-docs]:
 
     ```go
-    queryCreateHypertable := `CREATE TABLE sensor_data (
-           time TIMESTAMPTZ NOT NULL,
-           sensor_id INTEGER,
-           temperature DOUBLE PRECISION,
-           cpu DOUBLE PRECISION,
-           FOREIGN KEY (sensor_id) REFERENCES sensors (id)
-           );
-           SELECT create_hypertable('sensor_data', 'time');
-           `
+    queryCreateHypertable := `SELECT create_hypertable('sensor_data', 'time');`
     ```
 
 1.  Execute the `CREATE TABLE` statement and `SELECT` statement which converts
     the table into a hypertable. You can do this by calling the `Exec()`
     function on the `dbpool` object, using the arguments of the current context,
-    and the `queryCreateHypertable` statement string:
+    and the `queryCreateTable` and `queryCreateHypertable` statement strings:
 
     ```go
     package main
@@ -305,18 +302,17 @@ other tasks can and should all be executed on the hypertable.
        // Create hypertable of time-series data called sensor_data
 
        //formulate statement
-       queryCreateHypertable := `CREATE TABLE sensor_data (
+       queryCreateTable := `CREATE TABLE sensor_data (
                time TIMESTAMPTZ NOT NULL,
                sensor_id INTEGER,
                temperature DOUBLE PRECISION,
                cpu DOUBLE PRECISION,
-               FOREIGN KEY (sensor_id) REFERENCES sensors (id)
-               );
-               SELECT create_hypertable('sensor_data', 'time');
-               `
+               FOREIGN KEY (sensor_id) REFERENCES sensors (id));`
+
+        queryCreateHypertable := `SELECT create_hypertable('sensor_data', 'time');`
 
        //execute statement
-       _, err = dbpool.Exec(ctx, queryCreateHypertable)
+       _, err = dbpool.Exec(ctx, queryCreateTable + queryCreateHypertable)
        if err != nil {
            fmt.Fprintf(os.Stderr, "Unable to create the `sensor_data` hypertable: %v\n", err)
            os.Exit(1)
