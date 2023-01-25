@@ -6,10 +6,10 @@ subsection: timeline_agg()
 Given a system or value that switches between discrete states, track transitions
 between the states. For example, you can use `timeline_agg` to create a timeline
 of state transitions, or to calculate the durations of states. `timeline_agg`
-extends the functionality of [`state_agg`][state_agg].
+extends the capabilities of [`state_agg`][state_agg].
 
 `timeline_agg` is designed to work with a relatively small number of states. It
-might not perform well on data sets where states are mostly distinct between
+might not perform well on datasets where states are mostly distinct between
 rows.
 
 Because `timeline_agg` tracks more information, it uses more memory than

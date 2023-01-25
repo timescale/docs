@@ -9,7 +9,7 @@ functions to track how much time a system spends in `error`, `running`, or
 `starting` states.
 
 `state_agg` is designed to work with a relatively small number of states. It
-might not perform well on data sets where states are mostly distinct between
+might not perform well on datasets where states are mostly distinct between
 rows.
 
 If you need to track when each state is entered and exited, use the

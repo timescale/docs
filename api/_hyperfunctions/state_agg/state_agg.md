@@ -15,7 +15,7 @@ hyperfunction:
   aggregates:
     - state_agg()
 api_details:
-  summary: Aggregate a data set containing state data into a state aggregate to track the time spent in each state.
+  summary: Aggregate a dataset containing state data into a state aggregate to track the time spent in each state.
   signatures:
     - language: sql
       code: |
