@@ -918,9 +918,9 @@ your Go application, be sure to check out these advanced TimescaleDB tutorials:
 [pgx-docs]: https://pkg.go.dev/github.com/jackc/pgx
 [pgx-driver-github]: https://github.com/jackc/pgx
 [install]: /install/latest/
-[connect]: /timescaledb/:currentVersion:/quick-start/golang/#connect-to-database
-[create-table]: /timescaledb/:currentVersion:/quick-start/golang/#create-a-table
-[create-hypertable]: /timescaledb/:currentVersion:/quick-start/golang/#generate-a-hypertable
+[connect]: #connect-to-database/
+[create-table]: #create-a-table
+[create-hypertable]: #generate-a-hypertable
 [create-hypertable-docs]: /timescaledb/:currentVersion:/how-to-guides/hypertables/create/
 [insert]: /timescaledb/:currentVersion:/quick-start/golang/#insert-a-row-into-your-timescale-database
 [query]: /timescaledb/:currentVersion:/quick-start/golang/#execute-a-query-on-your-timescale-database
