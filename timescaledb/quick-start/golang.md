@@ -912,15 +912,16 @@ your Go application, be sure to check out these advanced TimescaleDB tutorials:
 
 [getting-started]: /getting-started/:currentVersion:/
 [golang-install]: https://golang.org/doc/install
-[hypertable-docs]: /api/:currentVersion:/hypertable/create_hypertable
 [libpq-docs]: https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING
 [parallel-copy-tool]: https://github.com/timescale/timescaledb-parallel-copy
 [pgx-docs]: https://pkg.go.dev/github.com/jackc/pgx
 [pgx-driver-github]: https://github.com/jackc/pgx
 [install]: /install/:currentVersion:/installation-cloud/
-[connect]: #connect-to-database/
-[create-table]: #create-a-table
+[connect]: #connect-to-timescaledb
+[create-table]: #create-a-relational-table
 [create-hypertable]: #generate-a-hypertable
+[insert]: #insert-rows-of-data
+[query]: #execute-a-query
 [create-hypertable-docs]: /timescaledb/:currentVersion:/how-to-guides/hypertables/create/
 [insert]: /timescaledb/:currentVersion:/quick-start/golang/#insert-a-row-into-your-timescale-database
 [query]: /timescaledb/:currentVersion:/quick-start/golang/#execute-a-query-on-your-timescale-database
