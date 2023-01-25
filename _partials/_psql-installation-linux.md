@@ -31,7 +31,7 @@ and `pacman` package manager to install the `psql` tool.
 
 <procedure>
 
-#### Installing psql using the yum package manager
+### Installing psql using the yum package manager
 
 1.  Make sure your `yum` repository is up to date:
 
