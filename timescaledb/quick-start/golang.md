@@ -300,8 +300,6 @@ other tasks can and should all be executed on the hypertable.
        /* Create Hypertable                        */
        /********************************************/
        // Create hypertable of time-series data called sensor_data
-
-       //formulate statement
        queryCreateTable := `CREATE TABLE sensor_data (
                time TIMESTAMPTZ NOT NULL,
                sensor_id INTEGER,
