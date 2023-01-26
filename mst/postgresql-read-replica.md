@@ -11,7 +11,7 @@ the replica and reduce the load on the primary server. You can optimize query
 response times across different geographical locations because the replica can
 be created in different regions or on different cloud providers.
 For information about creating a read-only replica using the Aiven client,
-see [create read-replica][read-replica-cli].
+see the documentation on [creating a read replica using the CLI][read-replica-cli].
 
 <highlight type="note">
 If you are running a Managed Service for TimescaleDB 
