@@ -75,37 +75,37 @@ You can use it to help your Go application interact directly with TimescaleDB.
     package main
 
     import (
-       "context"
-       "fmt"
-       "os"
+        "context"
+        "fmt"
+        "os"
 
-       "github.com/jackc/pgx/v5"
+        "github.com/jackc/pgx/v5"
     )
 
     //connect to database using a single connection
     func main() {
         /***********************************************/
-       /* Single Connection to TimescaleDB/ PostresQL */
-       /***********************************************/
-       ctx := context.Background()
-       connStr := "yourConnectionStringHere"
-       conn, err := pgx.Connect(ctx, connStr)
-       if err != nil {
-           fmt.Fprintf(os.Stderr, "Unable to connect to database: %v\n", err)
-           os.Exit(1)
-       }
-       defer conn.Close(ctx)
+        /* Single Connection to TimescaleDB/ PostresQL */
+        /***********************************************/
+        ctx := context.Background()
+        connStr := "yourConnectionStringHere"
+        conn, err := pgx.Connect(ctx, connStr)
+        if err != nil {
+            fmt.Fprintf(os.Stderr, "Unable to connect to database: %v\n", err)
+            os.Exit(1)
+        }
+        defer conn.Close(ctx)
 
-    //run a simple query to check our connection
-       var greeting string
-       err = conn.QueryRow(ctx, "select 'Hello, Timescale!'").Scan(&greeting)
-       if err != nil {
-           fmt.Fprintf(os.Stderr, "QueryRow failed: %v\n", err)
-           os.Exit(1)
-       }
-
-       fmt.Println(greeting)
+        //run a simple query to check our connection
+        var greeting string
+        err = conn.QueryRow(ctx, "select 'Hello, Timescale!'").Scan(&greeting)
+        if err != nil {
+            fmt.Fprintf(os.Stderr, "QueryRow failed: %v\n", err)
+            os.Exit(1)
+        }
+        fmt.Println(greeting)
     }
+
     ```
 
     If you'd like to specify your connection string as an environment variable,
@@ -137,33 +137,32 @@ result in faster database queries:
     package main
 
     import (
-     "context"
-     "fmt"
-     "os"
+        "context"
+        "fmt"
+        "os"
 
-     "github.com/jackc/pgx/v5/pgxpool"
+        "github.com/jackc/pgx/v5/pgxpool"
     )
 
     func main() {
 
-       ctx := context.Background()
-       connStr := "yourConnectionStringHere"
-       dbpool, err := pgxpool.New(ctx, connStr)
-       if err != nil {
-           fmt.Fprintf(os.Stderr, "Unable to connect to database: %v\n", err)
-           os.Exit(1)
-       }
-       defer dbpool.Close()
+        ctx := context.Background()
+        connStr := "yourConnectionStringHere"
+        dbpool, err := pgxpool.New(ctx, connStr)
+        if err != nil {
+            fmt.Fprintf(os.Stderr, "Unable to connect to database: %v\n", err)
+            os.Exit(1)
+        }
+        defer dbpool.Close()
 
-       //run a simple query to check our connection
-       var greeting string
-       err = dbpool.QueryRow(ctx, "select 'Hello, Timescale (but concurrently)'").Scan(&greeting)
-       if err != nil {
-           fmt.Fprintf(os.Stderr, "QueryRow failed: %v\n", err)
-           os.Exit(1)
-       }
-
-       fmt.Println(greeting)
+        //run a simple query to check our connection
+        var greeting string
+        err = dbpool.QueryRow(ctx, "select 'Hello, Timescale (but concurrently)'").Scan(&greeting)
+        if err != nil {
+            fmt.Fprintf(os.Stderr, "QueryRow failed: %v\n", err)
+            os.Exit(1)
+        }
+        fmt.Println(greeting)
     }
     ```
 
@@ -199,39 +198,37 @@ percentage of the sensors.
     package main
 
     import (
-       "context"
-       "fmt"
-       "os"
+        "context"
+        "fmt"
+        "os"
 
-       "github.com/jackc/pgx/v5"
-       "github.com/jackc/pgx/v5/pgxpool"
+        "github.com/jackc/pgx/v5/pgxpool"
     )
 
     func main() {
+        ctx := context.Background()
+        connStr := "yourConnectionStringHere"
+        dbpool, err := pgxpool.New(ctx, connStr)
+        if err != nil {
+            fmt.Fprintf(os.Stderr, "Unable to connect to database: %v\n", err)
+            os.Exit(1)
+        }
+        defer dbpool.Close()
 
-       ctx := context.Background()
-       connStr := "yourConnectionStringHere"
-       dbpool, err := pgxpool.New(ctx, connStr)
-       if err != nil {
-           fmt.Fprintf(os.Stderr, "Unable to connect to database: %v\n", err)
-           os.Exit(1)
-       }
-       defer dbpool.Close()
+        /********************************************/
+        /* Create relational table                      */
+        /********************************************/
 
-       /********************************************/
-       /* Create relational table                      */
-       /********************************************/
-
-       //Create relational table called sensors
-       queryCreateTable := `CREATE TABLE sensors (id SERIAL PRIMARY KEY, type VARCHAR(50), location VARCHAR(50));`
-       _, err = dbpool.Exec(ctx, queryCreateTable)
-       if err != nil {
-           fmt.Fprintf(os.Stderr, "Unable to create SENSORS table: %v\n", err)
-           os.Exit(1)
-       }
-       fmt.Println("Successfully created relational table SENSORS")
+        //Create relational table called sensors
+        queryCreateTable := `CREATE TABLE sensors (id SERIAL PRIMARY KEY, type VARCHAR(50), location VARCHAR(50));`
+        _, err = dbpool.Exec(ctx, queryCreateTable)
+        if err != nil {
+            fmt.Fprintf(os.Stderr, "Unable to create SENSORS table: %v\n", err)
+            os.Exit(1)
+        }
+        fmt.Println("Successfully created relational table SENSORS")
     }
-       ```
+    ```
 
 </Collapsible>
 
@@ -251,12 +248,13 @@ other tasks can and should all be executed on the hypertable.
     Notice how the hypertable has the compulsory time column:
 
     ```go
-    queryCreateTable := `CREATE TABLE sensor_data (
-           time TIMESTAMPTZ NOT NULL,
-           sensor_id INTEGER,
-           temperature DOUBLE PRECISION,
-           cpu DOUBLE PRECISION,
-           FOREIGN KEY (sensor_id) REFERENCES sensors (id));`
+	queryCreateTable := `CREATE TABLE sensor_data (
+        time TIMESTAMPTZ NOT NULL,
+        sensor_id INTEGER,
+        temperature DOUBLE PRECISION,
+        cpu DOUBLE PRECISION,
+        FOREIGN KEY (sensor_id) REFERENCES sensors (id));
+        `
     ```
 
 1.  Formulate the `SELECT` statement to convert the table into a hypertable. You
@@ -277,47 +275,44 @@ other tasks can and should all be executed on the hypertable.
     package main
 
     import (
-       "context"
-       "fmt"
-       "os"
+        "context"
+        "fmt"
+        "os"
 
-       "github.com/jackc/pgx/v5"
-       "github.com/jackc/pgx/v5/pgxpool"
+        "github.com/jackc/pgx/v5/pgxpool"
     )
 
     func main() {
+        ctx := context.Background()
+        connStr := "yourConnectionStringHere"
+        dbpool, err := pgxpool.New(ctx, connStr)
+        if err != nil {
+            fmt.Fprintf(os.Stderr, "Unable to connect to database: %v\n", err)
+            os.Exit(1)
+        }
+        defer dbpool.Close()
 
-       ctx := context.Background()
-       connStr := "yourConnectionStringHere"
-       dbpool, err := pgxpool.New(ctx, connStr)
-       if err != nil {
-           fmt.Fprintf(os.Stderr, "Unable to connect to database: %v\n", err)
-           os.Exit(1)
-       }
-       defer dbpool.Close()
-
-       /********************************************/
-       /* Create Hypertable                        */
-       /********************************************/
-       // Create hypertable of time-series data called sensor_data
-       queryCreateTable := `CREATE TABLE sensor_data (
-               time TIMESTAMPTZ NOT NULL,
-               sensor_id INTEGER,
-               temperature DOUBLE PRECISION,
-               cpu DOUBLE PRECISION,
-               FOREIGN KEY (sensor_id) REFERENCES sensors (id));`
+        /********************************************/
+        /* Create Hypertable                        */
+        /********************************************/
+        // Create hypertable of time-series data called sensor_data
+        queryCreateTable := `CREATE TABLE sensor_data (
+            time TIMESTAMPTZ NOT NULL,
+            sensor_id INTEGER,
+            temperature DOUBLE PRECISION,
+            cpu DOUBLE PRECISION,
+            FOREIGN KEY (sensor_id) REFERENCES sensors (id));
+            `
 
         queryCreateHypertable := `SELECT create_hypertable('sensor_data', 'time');`
 
-       //execute statement
-       _, err = dbpool.Exec(ctx, queryCreateTable + queryCreateHypertable)
-       if err != nil {
-           fmt.Fprintf(os.Stderr, "Unable to create the `sensor_data` hypertable: %v\n", err)
-           os.Exit(1)
-       }
-
-       fmt.Println("Successfully created hypertable `sensor_data`")
-
+        //execute statement
+        _, err = dbpool.Exec(ctx, queryCreateTable+queryCreateHypertable)
+        if err != nil {
+            fmt.Fprintf(os.Stderr, "Unable to create the `sensor_data` hypertable: %v\n", err)
+            os.Exit(1)
+        }
+        fmt.Println("Successfully created hypertable `sensor_data`")
     }
     ```
 
@@ -346,49 +341,46 @@ the process.
     package main
 
     import (
-       "context"
-       "fmt"
-       "os"
+        "context"
+        "fmt"
+        "os"
 
-       "github.com/jackc/pgx/v5"
-       "github.com/jackc/pgx/v5/pgxpool"
+        "github.com/jackc/pgx/v5/pgxpool"
     )
 
     func main() {
-       ctx := context.Background()
-       connStr := "yourConnectionStringHere"
-       dbpool, err := pgxpool.New(ctx, connStr)
-       if err != nil {
-           fmt.Fprintf(os.Stderr, "Unable to connect to database: %v\n", err)
-           os.Exit(1)
-       }
-       defer dbpool.Close()
+        ctx := context.Background()
+        connStr := "yourConnectionStringHere"
+        dbpool, err := pgxpool.New(ctx, connStr)
+        if err != nil {
+            fmt.Fprintf(os.Stderr, "Unable to connect to database: %v\n", err)
+            os.Exit(1)
+        }
+        defer dbpool.Close()
 
-       /********************************************/
-       /* INSERT into  relational table            */
-       /********************************************/
-       //Insert data into relational table
+        /********************************************/
+        /* INSERT into  relational table            */
+        /********************************************/
+        //Insert data into relational table
 
-       // Slices of sample data to insert
-       // observation i has type sensorTypes[i] and location sensorLocations[i]
-       sensorTypes := []string{"a", "a", "b", "b"}
-       sensorLocations := []string{"floor", "ceiling", "floor", "ceiling"}
+        // Slices of sample data to insert
+        // observation i has type sensorTypes[i] and location sensorLocations[i]
+        sensorTypes := []string{"a", "a", "b", "b"}
+        sensorLocations := []string{"floor", "ceiling", "floor", "ceiling"}
 
-       for i := range sensorTypes {
-           //INSERT statement in SQL
-           queryInsertMetadata := `INSERT INTO sensors (type, location) VALUES ($1, $2);`
+        for i := range sensorTypes {
+            //INSERT statement in SQL
+            queryInsertMetadata := `INSERT INTO sensors (type, location) VALUES ($1, $2);`
 
-           //Execute INSERT command
-           _, err := dbpool.Exec(ctx, queryInsertMetadata, sensorTypes[i], sensorLocations[i])
-           if err != nil {
-               fmt.Fprintf(os.Stderr, "Unable to insert data into database: %v\n", err)
-               os.Exit(1)
-           }
-           fmt.Printf("Inserted sensor (%s, %s) into database \n", sensorTypes[i], sensorLocations[i])
-
-       }
-       fmt.Println("Successfully inserted all sensors into database")
-
+            //Execute INSERT command
+            _, err := dbpool.Exec(ctx, queryInsertMetadata, sensorTypes[i], sensorLocations[i])
+            if err != nil {
+                fmt.Fprintf(os.Stderr, "Unable to insert data into database: %v\n", err)
+                os.Exit(1)
+            }
+            fmt.Printf("Inserted sensor (%s, %s) into database \n", sensorTypes[i], sensorLocations[i])
+        }
+        fmt.Println("Successfully inserted all sensors into database")
     }
     ```
 
@@ -411,80 +403,105 @@ to insert multiple rows of data, instead:
     source to insert data into the hypertable:
 
     ```go
-       // Generate data to insert
+    package main
 
-       //SQL query to generate sample data
-       queryDataGeneration := `
-           SELECT generate_series(now() - interval '24 hour', now(), interval '5 minute') AS time,
-           floor(random() * (3) + 1)::int as sensor_id,
-           random()*100 AS temperature,
-           random() AS cpu
-           `
-       //Execute query to generate samples for sensor_data hypertable
-       rows, err := dbpool.Query(ctx, queryDataGeneration)
-       if err != nil {
-           fmt.Fprintf(os.Stderr, "Unable to generate sensor data: %v\n", err)
-           os.Exit(1)
-       }
-       defer rows.Close()
-       fmt.Println("Successfully generated sensor data")
+    import (
+        "context"
+        "fmt"
+        "os"
+        "time"
 
-       //Store data generated in slice results
-       type result struct {
-           Time        time.Time
-           SensorId    int
-           Temperature float64
-           CPU         float64
-       }
-       var results []result
-       for rows.Next() {
-           var r result
-           err = rows.Scan(&r.Time, &r.SensorId, &r.Temperature, &r.CPU)
-           if err != nil {
-               fmt.Fprintf(os.Stderr, "Unable to scan %v\n", err)
-               os.Exit(1)
-           }
-           results = append(results, r)
-       }
-       // Any errors encountered by rows.Next or rows.Scan are returned here
-       if rows.Err() != nil {
-           fmt.Fprintf(os.Stderr, "rows Error: %v\n", rows.Err())
-           os.Exit(1)
-       }
+        "github.com/jackc/pgx/v5/pgxpool"
+    )
 
-       // Check contents of results slice
-       fmt.Println("Contents of RESULTS slice")
-       for i := range results {
-           var r result
-           r = results[i]
-           fmt.Printf("Time: %s | ID: %d | Temperature: %f | CPU: %f |\n", &r.Time, r.SensorId, r.Temperature, r.CPU)
-       }
+    func main() {
+        ctx := context.Background()
+        connStr := "yourConnectionStringHere"
+        dbpool, err := pgxpool.New(ctx, connStr)
+        if err != nil {
+            fmt.Fprintf(os.Stderr, "Unable to connect to database: %v\n", err)
+            os.Exit(1)
+        }
+        defer dbpool.Close()
+
+        // Generate data to insert
+
+        //SQL query to generate sample data
+        queryDataGeneration := `
+            SELECT generate_series(now() - interval '24 hour', now(), interval '5 minute') AS time,
+            floor(random() * (3) + 1)::int as sensor_id,
+            random()*100 AS temperature,
+            random() AS cpu
+            `
+        //Execute query to generate samples for sensor_data hypertable
+        rows, err := dbpool.Query(ctx, queryDataGeneration)
+        if err != nil {
+            fmt.Fprintf(os.Stderr, "Unable to generate sensor data: %v\n", err)
+            os.Exit(1)
+        }
+        defer rows.Close()
+
+        fmt.Println("Successfully generated sensor data")
+
+        //Store data generated in slice results
+        type result struct {
+            Time        time.Time
+            SensorId    int
+            Temperature float64
+            CPU         float64
+        }
+
+        var results []result
+        for rows.Next() {
+            var r result
+            err = rows.Scan(&r.Time, &r.SensorId, &r.Temperature, &r.CPU)
+            if err != nil {
+                fmt.Fprintf(os.Stderr, "Unable to scan %v\n", err)
+                os.Exit(1)
+            }
+            results = append(results, r)
+        }
+
+        // Any errors encountered by rows.Next or rows.Scan are returned here
+        if rows.Err() != nil {
+            fmt.Fprintf(os.Stderr, "rows Error: %v\n", rows.Err())
+            os.Exit(1)
+        }
+
+        // Check contents of results slice
+        fmt.Println("Contents of RESULTS slice")
+        for i := range results {
+            var r result
+            r = results[i]
+            fmt.Printf("Time: %s | ID: %d | Temperature: %f | CPU: %f |\n", &r.Time, r.SensorId, r.Temperature, r.CPU)
+        }
+    }
     ```
 
 1.  Formulate an SQL insert statement for the `sensor_data` hypertable:
 
     ```go
     //SQL query to generate sample data
-       queryInsertTimeseriesData := `
-       INSERT INTO sensor_data (time, sensor_id, temperature, cpu) VALUES ($1, $2, $3, $4);
-       `
+    queryInsertTimeseriesData := `
+        INSERT INTO sensor_data (time, sensor_id, temperature, cpu) VALUES ($1, $2, $3, $4);
+        `
     ```
 
 1.  Execute the SQL statement for each sample in the results slice:
 
     ```go
     //Insert contents of results slice into TimescaleDB
-       for i := range results {
-           var r result
-           r = results[i]
-           _, err := dbpool.Exec(ctx, queryInsertTimeseriesData, r.Time, r.SensorId, r.Temperature, r.CPU)
-           if err != nil {
-               fmt.Fprintf(os.Stderr, "Unable to insert sample into Timescale %v\n", err)
-               os.Exit(1)
-           }
-           defer rows.Close()
-       }
-       fmt.Println("Successfully inserted samples into sensor_data hypertable")
+    for i := range results {
+        var r result
+        r = results[i]
+        _, err := dbpool.Exec(ctx, queryInsertTimeseriesData, r.Time, r.SensorId, r.Temperature, r.CPU)
+        if err != nil {
+            fmt.Fprintf(os.Stderr, "Unable to insert sample into Timescale %v\n", err)
+            os.Exit(1)
+        }
+        defer rows.Close()
+    }
+    fmt.Println("Successfully inserted samples into sensor_data hypertable")
     ```
 
 1.  [](#)<Optional />This example `main.go` generates sample data and inserts it into
@@ -494,98 +511,98 @@ to insert multiple rows of data, instead:
     package main
 
     import (
-       "context"
-       "fmt"
-       "os"
-       "time"
+        "context"
+        "fmt"
+        "os"
+        "time"
 
-        "github.com/jackc/pgx/v5"
-       "github.com/jackc/pgx/v5/pgxpool"
+        "github.com/jackc/pgx/v5/pgxpool"
     )
 
     func main() {
-       /********************************************/
-       /* Connect using Connection Pool            */
-       /********************************************/
-       ctx := context.Background()
-       connStr := "yourConnectionStringHere"
-       dbpool, err := pgxpool.New(ctx, connStr)
-       if err != nil {
-           fmt.Fprintf(os.Stderr, "Unable to connect to database: %v\n", err)
-           os.Exit(1)
-       }
-       defer dbpool.Close()
+        /********************************************/
+        /* Connect using Connection Pool            */
+        /********************************************/
+        ctx := context.Background()
+        connStr := "yourConnectionStringHere"
+        dbpool, err := pgxpool.New(ctx, connStr)
+        if err != nil {
+            fmt.Fprintf(os.Stderr, "Unable to connect to database: %v\n", err)
+            os.Exit(1)
+        }
+        defer dbpool.Close()
 
-       /********************************************/
-       /* Insert data into hypertable              */
-       /********************************************/
-       // Generate data to insert
+        /********************************************/
+        /* Insert data into hypertable              */
+        /********************************************/
+        // Generate data to insert
 
-       //SQL query to generate sample data
-       queryDataGeneration := `
-           SELECT generate_series(now() - interval '24 hour', now(), interval '5 minute') AS time,
-           floor(random() * (3) + 1)::int as sensor_id,
-           random()*100 AS temperature,
-           random() AS cpu
-           `
-       //Execute query to generate samples for sensor_data hypertable
-       rows, err := dbpool.Query(ctx, queryDataGeneration)
-       if err != nil {
-           fmt.Fprintf(os.Stderr, "Unable to generate sensor data: %v\n", err)
-           os.Exit(1)
-       }
-       defer rows.Close()
-       fmt.Println("Successfully generated sensor data")
+        //SQL query to generate sample data
+        queryDataGeneration := `
+            SELECT generate_series(now() - interval '24 hour', now(), interval '5 minute') AS time,
+            floor(random() * (3) + 1)::int as sensor_id,
+            random()*100 AS temperature,
+            random() AS cpu
+            `
+        //Execute query to generate samples for sensor_data hypertable
+        rows, err := dbpool.Query(ctx, queryDataGeneration)
+        if err != nil {
+            fmt.Fprintf(os.Stderr, "Unable to generate sensor data: %v\n", err)
+            os.Exit(1)
+        }
+        defer rows.Close()
 
-       //Store data generated in slice results
-       type result struct {
-           Time        time.Time
-           SensorId    int
-           Temperature float64
-           CPU         float64
-       }
-       var results []result
-       for rows.Next() {
-           var r result
-           err = rows.Scan(&r.Time, &r.SensorId, &r.Temperature, &r.CPU)
-           if err != nil {
-               fmt.Fprintf(os.Stderr, "Unable to scan %v\n", err)
-               os.Exit(1)
-           }
-           results = append(results, r)
-       }
-       // Any errors encountered by rows.Next or rows.Scan are returned here
-       if rows.Err() != nil {
-           fmt.Fprintf(os.Stderr, "rows Error: %v\n", rows.Err())
-           os.Exit(1)
-       }
+        fmt.Println("Successfully generated sensor data")
 
-       // Check contents of results slice
-       fmt.Println("Contents of RESULTS slice")
-       for i := range results {
-           var r result
-           r = results[i]
-           fmt.Printf("Time: %s | ID: %d | Temperature: %f | CPU: %f |\n", &r.Time, r.SensorId, r.Temperature, r.CPU)
-       }
+        //Store data generated in slice results
+        type result struct {
+            Time        time.Time
+            SensorId    int
+            Temperature float64
+            CPU         float64
+        }
+        var results []result
+        for rows.Next() {
+            var r result
+            err = rows.Scan(&r.Time, &r.SensorId, &r.Temperature, &r.CPU)
+            if err != nil {
+                fmt.Fprintf(os.Stderr, "Unable to scan %v\n", err)
+                os.Exit(1)
+            }
+            results = append(results, r)
+        }
+        // Any errors encountered by rows.Next or rows.Scan are returned here
+        if rows.Err() != nil {
+            fmt.Fprintf(os.Stderr, "rows Error: %v\n", rows.Err())
+            os.Exit(1)
+        }
 
-       //Insert contents of results slice into TimescaleDB
-       //SQL query to generate sample data
-       queryInsertTimeseriesData := `
-       INSERT INTO sensor_data (time, sensor_id, temperature, cpu) VALUES ($1, $2, $3, $4);
-       `
+        // Check contents of results slice
+        fmt.Println("Contents of RESULTS slice")
+        for i := range results {
+            var r result
+            r = results[i]
+            fmt.Printf("Time: %s | ID: %d | Temperature: %f | CPU: %f |\n", &r.Time, r.SensorId, r.Temperature, r.CPU)
+        }
 
-       //Insert contents of results slice into TimescaleDB
-       for i := range results {
-           var r result
-           r = results[i]
-           _, err := dbpool.Exec(ctx, queryInsertTimeseriesData, r.Time, r.SensorId, r.Temperature, r.CPU)
-           if err != nil {
-               fmt.Fprintf(os.Stderr, "Unable to insert sample into Timescale %v\n", err)
-               os.Exit(1)
-           }
-           defer rows.Close()
-       }
-       fmt.Println("Successfully inserted samples into sensor_data hypertable")
+        //Insert contents of results slice into TimescaleDB
+        //SQL query to generate sample data
+        queryInsertTimeseriesData := `
+            INSERT INTO sensor_data (time, sensor_id, temperature, cpu) VALUES ($1, $2, $3, $4);
+            `
+
+        //Insert contents of results slice into TimescaleDB
+        for i := range results {
+            var r result
+            r = results[i]
+            _, err := dbpool.Exec(ctx, queryInsertTimeseriesData, r.Time, r.SensorId, r.Temperature, r.CPU)
+            if err != nil {
+                fmt.Fprintf(os.Stderr, "Unable to insert sample into Timescale %v\n", err)
+                os.Exit(1)
+            }
+            defer rows.Close()
+        }
+        fmt.Println("Successfully inserted samples into sensor_data hypertable")
     }
     ```
 
@@ -610,121 +627,121 @@ the previous procedure. It uses the pgx `Batch` object:
     package main
 
     import (
-       "context"
-       "fmt"
-       "os"
-       "time"
+        "context"
+        "fmt"
+        "os"
+        "time"
 
-       "github.com/jackc/pgx/v5"
-       "github.com/jackc/pgx/v5/pgxpool"
+        "github.com/jackc/pgx/v5"
+        "github.com/jackc/pgx/v5/pgxpool"
     )
 
     func main() {
-       /********************************************/
-       /* Connect using Connection Pool            */
-       /********************************************/
-       ctx := context.Background()
-       connStr := "yourConnectionStringHere"
-       dbpool, err := pgxpool.New(ctx, connStr)
-       if err != nil {
-           fmt.Fprintf(os.Stderr, "Unable to connect to database: %v\n", err)
-           os.Exit(1)
-       }
-       defer dbpool.Close()
+        /********************************************/
+        /* Connect using Connection Pool            */
+        /********************************************/
+        ctx := context.Background()
+        connStr := "yourConnectionStringHere"
+        dbpool, err := pgxpool.New(ctx, connStr)
+        if err != nil {
+            fmt.Fprintf(os.Stderr, "Unable to connect to database: %v\n", err)
+            os.Exit(1)
+        }
+        defer dbpool.Close()
 
-       // Generate data to insert
+        // Generate data to insert
 
-       //SQL query to generate sample data
-       queryDataGeneration := `
-           SELECT generate_series(now() - interval '24 hour', now(), interval '5 minute') AS time,
-           floor(random() * (3) + 1)::int as sensor_id,
-           random()*100 AS temperature,
-           random() AS cpu
-           `
-       //Execute query to generate samples for sensor_data hypertable
-       rows, err := dbpool.Query(ctx, queryDataGeneration)
-       if err != nil {
-           fmt.Fprintf(os.Stderr, "Unable to generate sensor data: %v\n", err)
-           os.Exit(1)
-       }
-       defer rows.Close()
-       fmt.Println("Successfully generated sensor data")
+        //SQL query to generate sample data
+        queryDataGeneration := `
+            SELECT generate_series(now() - interval '24 hour', now(), interval '5 minute') AS time,
+            floor(random() * (3) + 1)::int as sensor_id,
+            random()*100 AS temperature,
+            random() AS cpu
+            `
 
-       //Store data generated in slice results
-       type result struct {
-           Time        time.Time
-           SensorId    int
-           Temperature float64
-           CPU         float64
-       }
-       var results []result
-       for rows.Next() {
-           var r result
-           err = rows.Scan(&r.Time, &r.SensorId, &r.Temperature, &r.CPU)
-           if err != nil {
-               fmt.Fprintf(os.Stderr, "Unable to scan %v\n", err)
-               os.Exit(1)
-           }
-           results = append(results, r)
-       }
-       // Any errors encountered by rows.Next or rows.Scan are returned here
-       if rows.Err() != nil {
-           fmt.Fprintf(os.Stderr, "rows Error: %v\n", rows.Err())
-           os.Exit(1)
-       }
+        //Execute query to generate samples for sensor_data hypertable
+        rows, err := dbpool.Query(ctx, queryDataGeneration)
+        if err != nil {
+            fmt.Fprintf(os.Stderr, "Unable to generate sensor data: %v\n", err)
+            os.Exit(1)
+        }
+        defer rows.Close()
 
-       // Check contents of results slice
-       /*fmt.Println("Contents of RESULTS slice")
-       for i := range results {
-           var r result
-           r = results[i]
-           fmt.Printf("Time: %s | ID: %d | Temperature: %f | CPU: %f |\n", &r.Time, r.SensorId, r.Temperature, r.CPU)
-       }*/
+        fmt.Println("Successfully generated sensor data")
 
-       //Insert contents of results slice into TimescaleDB
-       //SQL query to generate sample data
-       queryInsertTimeseriesData := `
-       INSERT INTO sensor_data (time, sensor_id, temperature, cpu) VALUES ($1, $2, $3, $4);
-       `
+        //Store data generated in slice results
+        type result struct {
+            Time        time.Time
+            SensorId    int
+            Temperature float64
+            CPU         float64
+        }
+        var results []result
+        for rows.Next() {
+            var r result
+            err = rows.Scan(&r.Time, &r.SensorId, &r.Temperature, &r.CPU)
+            if err != nil {
+                fmt.Fprintf(os.Stderr, "Unable to scan %v\n", err)
+                os.Exit(1)
+            }
+            results = append(results, r)
+        }
+        // Any errors encountered by rows.Next or rows.Scan are returned here
+        if rows.Err() != nil {
+            fmt.Fprintf(os.Stderr, "rows Error: %v\n", rows.Err())
+            os.Exit(1)
+        }
 
-       /********************************************/
-       /* Batch Insert into TimescaleDB            */
-       /********************************************/
-       //create batch
-       batch := &pgx.Batch{}
-       numInserts := len(results)
-       //load insert statements into batch queue
-       for i := range results {
-           var r result
-           r = results[i]
-           batch.Queue(queryInsertTimeseriesData, r.Time, r.SensorId, r.Temperature, r.CPU)
-       }
-       batch.Queue("select count(*) from sensor_data")
+        // Check contents of results slice
+        /*fmt.Println("Contents of RESULTS slice")
+        for i := range results {
+            var r result
+            r = results[i]
+            fmt.Printf("Time: %s | ID: %d | Temperature: %f | CPU: %f |\n", &r.Time, r.SensorId, r.Temperature, r.CPU)
+        }*/
 
-       //send batch to connection pool
-       br := dbpool.SendBatch(ctx, batch)
-       //execute statements in batch queue
-       _, err := br.Exec()
-       if err != nil {
-           fmt.Fprintf(os.Stderr, "Unable to execute statement in batch queue %v\n", err)
-           os.Exit(1)
-       }
-       fmt.Println("Successfully batch inserted data")
+        //Insert contents of results slice into TimescaleDB
+        //SQL query to generate sample data
+        queryInsertTimeseriesData := `
+            INSERT INTO sensor_data (time, sensor_id, temperature, cpu) VALUES ($1, $2, $3, $4);
+            `
 
-       //Compare length of results slice to size of table
-       fmt.Printf("size of results: %d\n", len(results))
-       //check size of table for number of rows inserted
-       // result of last SELECT statement
-       var rowsInserted int
-       err = br.QueryRow().Scan(&rowsInserted)
-       fmt.Printf("size of table: %d\n", rowsInserted)
+        /********************************************/
+        /* Batch Insert into TimescaleDB            */
+        /********************************************/
+        //create batch
+        batch := &pgx.Batch{}
+        //load insert statements into batch queue
+        for i := range results {
+            var r result
+            r = results[i]
+            batch.Queue(queryInsertTimeseriesData, r.Time, r.SensorId, r.Temperature, r.CPU)
+        }
+        batch.Queue("select count(*) from sensor_data")
 
-       err = br.Close()
-       if err != nil {
-           fmt.Fprintf(os.Stderr, "Unable to closer batch %v\n", err)
-           os.Exit(1)
-       }
+        //send batch to connection pool
+        br := dbpool.SendBatch(ctx, batch)
+        //execute statements in batch queue
+        _, err = br.Exec()
+        if err != nil {
+            fmt.Fprintf(os.Stderr, "Unable to execute statement in batch queue %v\n", err)
+            os.Exit(1)
+        }
+        fmt.Println("Successfully batch inserted data")
 
+        //Compare length of results slice to size of table
+        fmt.Printf("size of results: %d\n", len(results))
+        //check size of table for number of rows inserted
+        // result of last SELECT statement
+        var rowsInserted int
+        err = br.QueryRow().Scan(&rowsInserted)
+        fmt.Printf("size of table: %d\n", rowsInserted)
+
+        err = br.Close()
+        if err != nil {
+            fmt.Fprintf(os.Stderr, "Unable to closer batch %v\n", err)
+            os.Exit(1)
+        }
     }
     ```
 
@@ -746,30 +763,31 @@ This section covers how to execute queries against your database.
     location `ceiling` and of type `a`:
 
     ```go
-       // Formulate query in SQL
-       // Note the use of prepared statement placeholders $1 and $2
-       queryTimebucketFiveMin := `
-           SELECT time_bucket('5 minutes', time) AS five_min, avg(cpu)
-           FROM sensor_data
-           JOIN sensors ON sensors.id = sensor_data.sensor_id
-           WHERE sensors.location = $1 AND sensors.type = $2
-           GROUP BY five_min
-           ORDER BY five_min DESC;
-           `
+    // Formulate query in SQL
+    // Note the use of prepared statement placeholders $1 and $2
+    queryTimebucketFiveMin := `
+        SELECT time_bucket('5 minutes', time) AS five_min, avg(cpu)
+        FROM sensor_data
+        JOIN sensors ON sensors.id = sensor_data.sensor_id
+        WHERE sensors.location = $1 AND sensors.type = $2
+        GROUP BY five_min
+        ORDER BY five_min DESC;
+        `
     ```
 
 1.  Use the `.Query()` function to execute the query string. Make sure you
     specify the relevant placeholders:
 
     ```go
-       //Execute query on TimescaleDB
-       rows, err := dbpool.Query(ctx, queryTimebucketFiveMin, "ceiling", "a")
-       if err != nil {
-           fmt.Fprintf(os.Stderr, "Unable to execute query %v\n", err)
-           os.Exit(1)
-       }
-       defer rows.Close()
-       fmt.Println("Successfully executed query")
+    //Execute query on TimescaleDB
+    rows, err := dbpool.Query(ctx, queryTimebucketFiveMin, "ceiling", "a")
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Unable to execute query %v\n", err)
+        os.Exit(1)
+    }
+    defer rows.Close()
+    
+    fmt.Println("Successfully executed query")
     ```
 
 1.  Access the rows returned by `.Query()`. Create a struct with fields
@@ -784,30 +802,31 @@ This section covers how to execute queries against your database.
     like.
 
     ```go
-       //Do something with the results of query
-       // Struct for results
-       type result2 struct {
-           Bucket time.Time
-           Avg    float64
-       }
+    //Do something with the results of query
+    // Struct for results
+    type result2 struct {
+        Bucket time.Time
+        Avg    float64
+    }
 
-       // Print rows returned and fill up results slice for later use
-       var results []result2
-       for rows.Next() {
-           var r result2
-           err = rows.Scan(&r.Bucket, &r.Avg)
-           if err != nil {
-               fmt.Fprintf(os.Stderr, "Unable to scan %v\n", err)
-               os.Exit(1)
-           }
-           results = append(results, r)
-           fmt.Printf("Time bucket: %s | Avg: %f\n", &r.Bucket, r.Avg)
-       }
-       // Any errors encountered by rows.Next or rows.Scan are returned here
-       if rows.Err() != nil {
-           fmt.Fprintf(os.Stderr, "rows Error: %v\n", rows.Err())
-           os.Exit(1)
-       }
+    // Print rows returned and fill up results slice for later use
+    var results []result2
+    for rows.Next() {
+        var r result2
+        err = rows.Scan(&r.Bucket, &r.Avg)
+        if err != nil {
+            fmt.Fprintf(os.Stderr, "Unable to scan %v\n", err)
+            os.Exit(1)
+        }
+        results = append(results, r)
+        fmt.Printf("Time bucket: %s | Avg: %f\n", &r.Bucket, r.Avg)
+    }
+
+    // Any errors encountered by rows.Next or rows.Scan are returned here
+    if rows.Err() != nil {
+        fmt.Fprintf(os.Stderr, "rows Error: %v\n", rows.Err())
+        os.Exit(1)
+    }
 
     // use results here…
     ```
@@ -819,72 +838,73 @@ This section covers how to execute queries against your database.
     package main
 
     import (
-       "context"
-       "fmt"
-       "os"
-       "time"
+        "context"
+        "fmt"
+        "os"
+        "time"
 
-       "github.com/jackc/pgx/v5/pgxpool"
+        "github.com/jackc/pgx/v5/pgxpool"
     )
 
     func main() {
-       ctx := context.Background()
-       connStr := "yourConnectionStringHere"
-       dbpool, err := pgxpool.New(ctx, connStr)
-       if err != nil {
-           fmt.Fprintf(os.Stderr, "Unable to connect to database: %v\n", err)
-           os.Exit(1)
-       }
-       defer dbpool.Close()
+        ctx := context.Background()
+        connStr := "yourConnectionStringHere"
+        dbpool, err := pgxpool.New(ctx, connStr)
+        if err != nil {
+            fmt.Fprintf(os.Stderr, "Unable to connect to database: %v\n", err)
+            os.Exit(1)
+        }
+        defer dbpool.Close()
 
-    /********************************************/
-       /* Execute a query                          */
-       /********************************************/
+        /********************************************/
+        /* Execute a query                          */
+        /********************************************/
 
-       // Formulate query in SQL
-       // Note the use of prepared statement placeholders $1 and $2
-       queryTimebucketFiveMin := `
-           SELECT time_bucket('5 minutes', time) AS five_min, avg(cpu)
-           FROM sensor_data
-           JOIN sensors ON sensors.id = sensor_data.sensor_id
-           WHERE sensors.location = $1 AND sensors.type = $2
-           GROUP BY five_min
-           ORDER BY five_min DESC;
-           `
+        // Formulate query in SQL
+        // Note the use of prepared statement placeholders $1 and $2
+        queryTimebucketFiveMin := `
+            SELECT time_bucket('5 minutes', time) AS five_min, avg(cpu)
+            FROM sensor_data
+            JOIN sensors ON sensors.id = sensor_data.sensor_id
+            WHERE sensors.location = $1 AND sensors.type = $2
+            GROUP BY five_min
+            ORDER BY five_min DESC;
+            `
 
-       //Execute query on TimescaleDB
-       rows, err := dbpool.Query(ctx, queryTimebucketFiveMin, "ceiling", "a")
-       if err != nil {
-           fmt.Fprintf(os.Stderr, "Unable to execute query %v\n", err)
-           os.Exit(1)
-       }
-       defer rows.Close()
-       fmt.Println("Successfully executed query")
+        //Execute query on TimescaleDB
+        rows, err := dbpool.Query(ctx, queryTimebucketFiveMin, "ceiling", "a")
+        if err != nil {
+            fmt.Fprintf(os.Stderr, "Unable to execute query %v\n", err)
+            os.Exit(1)
+        }
+        defer rows.Close()
 
-       //Do something with the results of query
-       // Struct for results
-       type result2 struct {
-           Bucket time.Time
-           Avg    float64
-       }
+        fmt.Println("Successfully executed query")
 
-       // Print rows returned and fill up results slice for later use
-       var results []result2
-       for rows.Next() {
-           var r result2
-           err = rows.Scan(&r.Bucket, &r.Avg)
-           if err != nil {
-               fmt.Fprintf(os.Stderr, "Unable to scan %v\n", err)
-               os.Exit(1)
-           }
-           results = append(results, r)
-           fmt.Printf("Time bucket: %s | Avg: %f\n", &r.Bucket, r.Avg)
-       }
-       // Any errors encountered by rows.Next or rows.Scan are returned here
-       if rows.Err() != nil {
-           fmt.Fprintf(os.Stderr, "rows Error: %v\n", rows.Err())
-           os.Exit(1)
-       }
+        //Do something with the results of query
+        // Struct for results
+        type result2 struct {
+            Bucket time.Time
+            Avg    float64
+        }
+
+        // Print rows returned and fill up results slice for later use
+        var results []result2
+        for rows.Next() {
+            var r result2
+            err = rows.Scan(&r.Bucket, &r.Avg)
+            if err != nil {
+                fmt.Fprintf(os.Stderr, "Unable to scan %v\n", err)
+                os.Exit(1)
+            }
+            results = append(results, r)
+            fmt.Printf("Time bucket: %s | Avg: %f\n", &r.Bucket, r.Avg)
+        }
+        // Any errors encountered by rows.Next or rows.Scan are returned here
+        if rows.Err() != nil {
+            fmt.Fprintf(os.Stderr, "rows Error: %v\n", rows.Err())
+            os.Exit(1)
+        }
     }
     ```
 
