@@ -9,7 +9,7 @@ api:
   type: view
 ---
 
-## timescaledb_information.compression_settings
+# timescaledb_information.compression_settings
 
 Get information about compression-related settings for hypertables.
 Each row of the view provides information about individual orderby

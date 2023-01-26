@@ -12,7 +12,7 @@ hyperfunction:
   type: one-step aggregate
 ---
 
-## histogram()
+# histogram()
 
 The `histogram()` function represents the distribution of a set of
 values as an array of equal-width buckets. It partitions the dataset

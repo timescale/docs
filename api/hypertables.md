@@ -9,7 +9,7 @@ api:
   type: view
 ---
 
-## timescaledb_information.hypertables
+# timescaledb_information.hypertables
 
 Get metadata information about hypertables.
 

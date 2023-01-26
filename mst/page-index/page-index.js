@@ -59,6 +59,10 @@ module.exports = [
         href: "extensions",
       },
       {
+        title: "Use PostgreSQL dblink extension",
+        href: "dblink-extension",
+      },
+      {
         title: "Security",
         href: "security",
       },
