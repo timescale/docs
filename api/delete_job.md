@@ -9,7 +9,7 @@ api:
   type: function
 ---
 
-## delete_job() <tag type="community">Community</tag>
+# delete_job() <tag type="community">Community</tag>
 
 Delete a job registered with the automation framework.
 This works for user-defined actions as well as policies.

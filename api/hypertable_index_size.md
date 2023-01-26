@@ -9,7 +9,7 @@ api:
   type: function
 ---
 
-## hypertable_index_size()  
+# hypertable_index_size()  
 
 Get the disk space used by an index on a hypertable, including the
 disk space needed to provide the index on all chunks. The size is

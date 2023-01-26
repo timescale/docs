@@ -460,6 +460,10 @@ module.exports = [
             excerpt: "Create continuous aggregates",
           },
           {
+            title: "Hierarchical continuous aggregates",
+            href: "hierarchical-continuous-aggregates",
+          },
+          {
             title: "Refresh policies for continuous aggregates",
             href: "refresh-policies",
             excerpt: "Manage refresh policies for continuous aggregates",
@@ -832,7 +836,7 @@ module.exports = [
               "Automatically configure your TimescaleDB instance with `timescaledb-tune`",
           },
           {
-            title: "About timescaledb-parallel-copy",
+            title: "Install and use timescaledb-parallel-copy",
             href: "about-timescaledb-parallel-copy",
             excerpt:
               "Quickly insert bulk data by parallelizing `COPY` operations",
@@ -847,8 +851,7 @@ module.exports = [
           {
             title: "Uninstall TimescaleDB on macOS",
             href: "uninstall-timescaledb",
-            excerpt:
-              "Uninstall TimescaleDB on macOS",
+            excerpt: "Uninstall TimescaleDB on macOS",
           },
         ],
       },
