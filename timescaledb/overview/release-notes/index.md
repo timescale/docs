@@ -21,6 +21,20 @@ Want to stay up-to-date with new releases? Subscribe to get
 * Introduce fixed schedules for background jobs and the ability to check job errors.
 * Use `alter_data_node()` to change the data node configuration. This function introduces the option to configure the availability of the data node.
 
+## 2.9.2 (2023-01-27)
+
+This release contains bug fixes since the 2.9.1 release.
+We recommend that you upgrade at the next available opportunity.
+
+**Bugfixes**
+* #5114 Fix issue with deleting data node and dropping the database on multi-node
+* #5133 Fix creating a CAgg on a CAgg where the time column is in a different order of the original hypertable
+* #5152 Fix adding column with NULL constraint to compressed hypertable
+* #5170 Fix CAgg on CAgg variable bucket size validation
+* #5180 Fix default data node availability status on multi-node
+* #5181 Fix ChunkAppend and ConstraintAwareAppend with TidRangeScan child subplan
+* #5193 Fix repartition behavior when attaching data node on multi-node
+
 ## 2.9.1 (2022-12-23)
 
 This release contains bug fixes since the 2.9.0 release.

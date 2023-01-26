@@ -10,7 +10,7 @@ api:
   version:
     experimental: 1.13.0
 hyperfunction:
-  family: state aggregates
+  family: state tracking
   type: accessor
   aggregates:
     - heartbeat_agg()
@@ -54,3 +54,4 @@ api_details:
           -----------------
           6 days 23:55:35
 ---
+
