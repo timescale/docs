@@ -4,7 +4,7 @@ excerpt: Learn how hypertables are partitioned into chunks
 keywords: [hypertables, chunks, partitions]
 ---
 
-### Partitioning in hypertables with chunks
+# Partitioning in hypertables with chunks
 
 Chunks are created by partitioning a hypertable's data into one
 (or potentially multiple) dimensions. All hypertables are partitioned

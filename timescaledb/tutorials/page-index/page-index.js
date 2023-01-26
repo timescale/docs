@@ -12,17 +12,17 @@ module.exports = [
           {
             title: "Time-series tutorial - set up",
             href: "dataset-nyc",
-            excerpt: "Set up a dataset so you can query NYC data]",
+            excerpt: "Set up a dataset so you can query NYC data",
           },
           {
             title: "Time-series tutorial - query data",
             href: "query-nyc",
-            excerpt: "Query NYC data]",
+            excerpt: "Query NYC data",
           },
           {
             title: "Time-series tutorial - advanced queries",
             href: "advanced-nyc",
-            excerpt: "Advanced queries NYC data]",
+            excerpt: "Advanced queries NYC data",
           },
         ],
       },
@@ -57,28 +57,18 @@ module.exports = [
       },
       {
         title: "Store financial tick data in TimescaleDB",
-        href: "financial-candlestick-tick-data",
+        href: "financial-tick-data",
         excerpt: "Use TimescaleDB to store financial tick data",
         children: [
           {
-            title: "Design schema and ingest tick data",
-            href: "design-tick-schema",
-            excerpt: "Design a relational schema for real-time tick data",
+            title: "Financial tick data - set up",
+            href: "financial-tick-dataset",
+            excerpt: "Set up a dataset so you can query financial tick data",
           },
           {
-            title: "Create candlestick aggregates",
-            href: "create-candlestick-aggregates",
-            excerpt: "Use continuous aggregates to create candlestick views",
-          },
-          {
-            title: "Query the candlestick views",
-            href: "query-candlestick-views",
-            excerpt: "Query the continuous aggregates for candlestick data",
-          },
-          {
-            title: "Advanced data management",
-            href: "advanced-data-management",
-            excerpt: "Advanced data management techniques",
+            title: "Financial tick data - query",
+            href: "financial-tick-query",
+            excerpt: "Query and visualize financial tick data",
           },
         ],
       },

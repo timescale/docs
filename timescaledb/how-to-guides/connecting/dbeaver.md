@@ -49,7 +49,7 @@ services.
     it is marked as `Running`.
 1.  Click the name of the service you want to connect to, and take a note
      of the `Host`, `Port`, `Database name`, and `Username`.
-1.  **OPTIONAL** If you do not know the password for the service, navigate to the
+1.  <Optional />If you do not know the password for the service, navigate to the
     `Operations` tab, and click `Reset password`. You can choose
     your own password for the service, or allow Timescale Cloud to generate a
     secure password for you. Take a note of your new password.

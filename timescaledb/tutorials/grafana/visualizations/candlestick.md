@@ -10,6 +10,7 @@ seo:
 import GrafanaVizPrereqs from 'versionContent/_partials/_grafana-viz-prereqs.mdx';
 
 # Build a candlestick chart in Grafana
+
 Candlestick charts show the opening, closing, high, and low prices
 of financial assets, such as stocks, currencies, and securities.
 They are mainly used in technical analysis, to predict how prices will change.
@@ -27,10 +28,10 @@ The figure above shows the structure of a candlestick. A candlestick covers a
 specific time interval, for example 5 minutes, 10 minutes, or 1 hour. For this
 period, it plots four values:
 
-* **Open**: The starting price
-* **Close**: The closing price
-* **High**: The highest price
-* **Low**: The lowest price
+*   **Open**: The starting price
+*   **Close**: The closing price
+*   **High**: The highest price
+*   **Low**: The lowest price
 
 A candlestick chart can show many candlesticks over time. This helps you see
 patterns in the changing price of an asset. For example, you can tell whether an
@@ -51,6 +52,7 @@ candlestick visualizations in Grafana:
 <video url="https://www.youtube-nocookie.com/embed/08CydeL9lIk"/>
 
 ## Create a candlestick with raw data
+
 Create a candlestick visualization using the raw data in the table `stocks_real_time`.
 
 <procedure>
@@ -59,6 +61,7 @@ Create a candlestick visualization using the raw data in the table `stocks_real_
 
   1.  In the query editor, use this SQL to query a Candlestick dataset. Use the variable `$bucket interval`
       for the time period covered by each candlestick.
+
       ```sql
       SELECT
           time_bucket('$bucket_interval', time) AS time,
@@ -72,6 +75,7 @@ Create a candlestick visualization using the raw data in the table `stocks_real_
           AND time > $__timeFrom()::timestamptz and time < $__timeTo()::timestamptz
       GROUP BY time_bucket('$bucket_interval', time), symbol;
       ```
+
   1.  Click outside of the query editor, or click the refresh icon to
       update the Grafana chart.
 
@@ -131,6 +135,7 @@ difference gives the traded volume for that bucket.
 ### Showing transaction volumes in a candlestick plot
 
 1.  Create a new candlestick panel with the following query:
+
     ```sql
     SELECT
         time_bucket('$bucket_interval', time) AS time,
@@ -165,5 +170,5 @@ shows you how to query the traded volume for each time interval.
 To see other examples of how you can use TimescaleDB and Grafana, check out
 all the [Grafana tutorials][grafana-tutorials].
 
-[continuous-aggregrate]: /timescaledb/:currentVersion:/tutorials/financial-candlestick-tick-data/create-candlestick-aggregates/#create-candlestick-aggregates
+[continuous-aggregrate]: /timescaledb/:currentVersion:/tutorials/financial-tick-data/
 [grafana-tutorials]: /timescaledb/:currentVersion:/tutorials/grafana/

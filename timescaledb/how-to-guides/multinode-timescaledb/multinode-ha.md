@@ -89,7 +89,7 @@ SELECT create_distributed_hypertable('conditions', 'time', 'location',
 Alternatively, you can use the
 [`set_replication_factor`][set_replication_factor] call to change the
 replication factor on an existing distributed hypertable. Note,
-however, that only new chunks will be replicated according to the
+however, that only new chunks are replicated according to the
 updated replication factor. Existing chunks need to be re-replicated
 by copying those chunks to new data nodes (see the [node
 failures section](#node-failures) below).
@@ -103,14 +103,42 @@ includes one replica of each chunk in the query plan.
 
 ### Node failures
 When a data node fails, inserts that attempt to write to the failed
-node will result in an error. This is to preserve data consistency in
-case the data node becomes available again. If writes would be allowed
-while a data node is not available, its chunks would diverge from
-other replicas in the cluster. If waiting for the data node to come
-back is not an option, either because it takes to long or the node is
-permanently failed, one can delete it instead. To be able to delete a
-data node, all of its chunks must have at least one replica on other
-data nodes. For example:
+node result in an error. This is to preserve data consistency in
+case the data node becomes available again. You can use the
+[`alter_data_node`][alter_data_node] call to mark a failed data node
+as unavailable by running this query:
+
+```sql
+SELECT alter_data_node('data_node_2', available => false);
+```
+
+Setting `available => false` means that the data node is no longer
+used for reads and writes queries.
+
+To fail over reads, the [`alter_data_node`][alter_data_node] call finds
+all the chunks for which the unavailable data node is the primary query
+target and fails over to a chunk replica on another data node.
+However, if some chunks do not have a replica to fail over to, a warning
+is raised. Reads continue to fail for chunks that do not have a chunk
+replica on any other data nodes.
+
+To fail over writes, any activity that intends to write to the failed
+node marks the involved chunk as stale for the specific failed
+node by changing the metadata on the access node. This is only done
+for natively replicated chunks. This allows you to continue to write
+to other chunk replicas on other data nodes while the failed node has
+been marked as unavailable. Writes continue to fail for chunks that do
+not have a chunk replica on any other data nodes. Also note that chunks
+on the failed node which do not get written into are not affected.
+
+When you mark a chunk as stale, the chunk becomes under-replicated.
+When the failed data node becomes available then such chunks can be
+re-balanced using the [`copy_chunk`][copy_chunk] API.
+
+If waiting for the data node to come back is not an option, either because
+it takes too long or the node is permanently failed, one can delete it instead.
+To be able to delete a data node, all of its chunks must have at least one
+replica on other data nodes. For example:
 
 ```sql
 SELECT delete_data_node('data_node_2', force => true);
@@ -128,13 +156,13 @@ You cannot force the deletion of a data node if it would mean that a multi-node
 cluster permanently loses data.
 </highlight>
 
-When you have successfully removed a failed data node, some data
-chunks might lack replicas, but queries and inserts work as normal
-again. However, the cluster stays in a vulnerable state until all
-chunks are fully replicated again.
+When you have successfully removed a failed data node, or marked a
+failed data node unavailable, some data chunks might lack replicas but
+queries and inserts work as normal again. However, the cluster stays in
+a vulnerable state until all chunks are fully replicated.
 
-When you have restored a failed data node, you can see the chunks that need to
-be replicated with this query:
+When you have restored a failed data node or marked it available again, you can
+see the chunks that need to be replicated with this query:
 
 <!--- Still experimental? --LKB 2021-10-20-->
 
@@ -176,3 +204,5 @@ CALL timescaledb_experimental.cleanup_copy_chunk_operation('ts_copy_1_31');
 
 [set_replication_factor]:  /api/:currentVersion:/distributed-hypertables/set_replication_factor
 [single-ha]: /timescaledb/:currentVersion:/how-to-guides/replication-and-ha/
+[alter_data_node]: /api/:currentVersion:/distributed-hypertables/alter_data_node/
+[copy_chunk]:/api/:currentVersion:/distributed-hypertables/copy_chunk_experimental

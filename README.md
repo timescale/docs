@@ -4,8 +4,9 @@ This is the source for content for docs.timescale.com, starting with release 2.0
 All documentation for previous versions is in the deprecated repository called
 [docs.timescale.com-content](https://github.com/timescale/docs.timescale.com-content).
 
-The docs website site uses this repo as a submodule and converts the files directly into
-pages using a bash script and markdown parser.
+The documentation site is statically generated with
+[Gatsby](https://www.gatsbyjs.com/). The source code is in a separate
+repository, which pulls in content from this repository on each build.
 
 **All files are written in standard markdown.**
 
@@ -23,15 +24,6 @@ Before we accept any contributions, Timescale contributors need to
 sign the [Contributor License Agreement](https://cla-assistant.io/timescale/docs) (CLA).
 By signing a CLA, we can ensure that the community is free and confident in its
 ability to use your contributions.
-
-## Docs versions
-
-There is a version of the docs for each supported version of the database, stored in
-a separate git branch. Our docs site parses those branches to allow users to choose
-what version of the docs they want to see. When submitting pull requests, you should determine
-what versions of the docs your changes will apply to and attach a label to the pull request
-that denotes the earliest version that your changes should apply to (`2.0`, `2.1`, etc.)
-The admin for the docs will use that as a guide when updating version branches.
 
 ## Docs review
 
@@ -65,114 +57,61 @@ have the content and layout for the "landing page" of that parent folder.
 The format of this file is generally self explanatory, but the following
 rules should be understood to ensure you get the results you expect.
 
- - **href**: The minimum detail for any node in the tree is the `href` element. This
-is used as both the name of the Markdown file (eg. `example-file.md`) to utilize for this URL and as
-the text in the tree (Camel Case and all hyphens replaced by spaces).
+|Key|Type|Required|Description|
+|-|-|-|-|
+|`href`|string|Yes|The URL segment to use for the page. If there is a corresponding Markdown file, `href` must also match the name of the Markdown file, minus the file extension.|
+|`title`|string|Yes|The title of the page, used as the page name within the navigation tree|
+|`type`|One of `[directory, placeholder, redirect-to-child-page]`|No|If no type is specified, the page is built as a default page, turning the corresponding Markdown file into a webpage. If the type is `directory`, the corresponding file is turned into a webpage, _and_ the page becomes a directory. `directory` pages are the exception to the rule that the page index matches the file directory structure. Child pages of `directory` pages sit on the same level as the `directory` page inside the repository. They only become children during the site build. If the type is `placeholder`, an entry is made in the navigation tree, but a Markdown file is not converted into a webpage. The Markdown file doesn't even need to exist. Rather, the corresponding page is produced programmatically upon site build. If not produced, the link in the navigation tree returns a 404. If the type is `redirect-to-child-page`, an entry is made in the navigation tree, no page is built, and the link in the navigation tree goes directly to the first child.|
+|`children`|Array of page entries|No|Child pages of the current page. If the parent page's type is not `directory`, the children should be located in a directory with the same name as the parent. The parent is the `index.md` file in that directory. If the parent page's type is `directory`, the children should be located in the same directory as the parent.|
+|`pageComponents`|One of `[['featured-cards'], ['content-list']]`|No|Any page that has child pages can list its children in either card or list style at the bottom of the page. Specify the desired style with this key.|
 
- - **title**: If the navigation tree text should be anything other than the `href`
-as described above, add a `title` tag provide the exact text you would like to
-appear in the tree (and browser `Title` area).
+**Example**
 
-- **pageComponents**: Any page that has children pages can list the children titles
-in a "card" or "list" style at the bottom of any other content for the parent page. To
-direct how a parent page should format links to the child object, use a value of
-either `['featured-cards']` or `['content-list']`
-
- - **children**: An array of additional `title`/`href` objects, assumed to be inside
-of an on-disk folder with the same name as the parent.
-
- - **type**: In some special cases, a tree element may have a special `type` associated
-with it. This is rarely needed in day-to-day documentation updates, but when
-specific functionality is required, it may be necessary to inquire about other page types. Currently `page` and `directory` the two major supported types in documentation.
-
- - **excerpt**: Excerpt displayed in the related content cards at the bottom of each page.
-
- - **keywords**: An array of keywords to be displayed at the bottom of the given page.
-
- - **relatedPages**: An array of pathnames will be displayed in the related content section of the given page. For example: "/promscale/:currentVersion:/installation/" - note the slashes and the use of :currentVersion:.
- 
- - **"NEW" label**: To add a "NEW" label to content in the sidebar, include the key newLabel and the value 
- of a date string when the "NEW" label is set to expire. Use the format `"Month Day Year"` or `"YYYY-MM-DD"`.
-
-__Example__
 ```js
     href: "overview",
     pageComponents: ["featured-cards"],
     children: [
         {
-        title: "What is time-series data?",
-        href: "what-is-time-series-data",
-        newLabel: "October 21 2022"
+            title: "What is time-series data?",
+            href: "what-is-time-series-data",
         },
         {
-        href: "core-concepts",
-        children : [
-            {
-            title: "Hypertables & Chunks",
-            href: "hypertables-and-chunks"
-            },
-            {
-            href: "scaling"
-            },
-            ...
-        ]
-        }
+            title: "Core concepts",
+            href: "core-concepts",
+            children : [
+                {
+                    title: "Hypertables & Chunks",
+                    href: "hypertables-and-chunks",
+                },
+                {
+                    title: "Scaling",
+                    href: "scaling",
+                },
+                ...
+            ],
+        },
     ]
 ```
-
-In this example:
-
-- `overview` is a parent and has no unique navigation title. If you look at the
-tree under the **TimescaleDB** section in a browser, you will see the output is **Overview**
-(Camel Case)
-
-- **Overview** will have a visual indicator in the browser that it has children,
-in this case at least **What is time-series data?** and **Core Concepts** (among
-others)
-
-- The content for the **Overview** page will be displayed first, and then all `title` elements
-for the children will be displayed as "cards" below any content because of the **pageComponents**
-setting
-
-- Two of the examples above display a  navigation and page title text that is different from
-the name of their source Markdown files. For instance, the content for **Hypertables
-& Chunks** is found in the Markdown file `hypertables-and-chunks.md`.
-
 
 ## Formatting and content rules
 
 ### Internal page links
 
-None of the internal page links within these files will work on GitHub inside of
+None of the internal page links within these files work on GitHub inside of
 the raw Markdown files that are being reviewed. Instead, the review link discussed
 above should be utilized for verifying all internal links.
 
-Links should be formatted according to their target.
+Internal links do not need to include the domain name, <https://docs.timescale.com>.
 
 ### External links:
 
 Input as-is.
 
-### Internal links pointing to urls outside the current page's product and/or version:
-
-The link used does not need to include https://docs.timescale.com/, but should contain 
-the appropriate product and version. 
-
-### Internal links pointing to urls within the same product and version:
-
-The link does not require the current product and version. If a product is used
-in the url, there must be an accompanying version.
-
 ### Anchor tags
 
-By default, any H2 or H3 heading ('##' and '###' respectively in Markdown) will
-have an anchor tag generated automatically. You can set the anchor and table of 
-contents text by using `[custom_table_of_contents_label](custom_anchor_tag)`
-
-If you want to link to a specific part of the page elsewhere in your document, you
-need to use special anchor Markdown next to your anchor text; eg. `[](anchor_name)`.
-
-**Your anchor name must be unique** in order for the highlight scrolling to work properly.
+By default, H1, H2, H3, and H4 headings have automatically generated anchor
+tags. H2 headings also show up in the Table of Contents (on the right side of
+the screen on wide windows).
 
 ### Code blocks
 
@@ -186,11 +125,13 @@ some_command
 ```
 
 instead of this:
+
 ```bash
-$ some_command
+some_command
 ```
 
 or this:
+
 ```bash
 > some_command
 ```
@@ -203,7 +144,7 @@ When using a code block, add the appropriate language identifier after the
 initial three backticks to provide the appropriate highlighting on the
 rendered documentation site.
 
-Programming language samples aside, most code blocks will usually be one of:
+Programming language samples aside, most code blocks are one of:
 `bash`, `sql`, `json`.
 
 ### Partials
@@ -216,83 +157,144 @@ To insert the partial in another document, put an import statement in the
 document. The import statement goes before the content and after any
 frontmatter. For example:
 
-`import Component from 'versionContent/_partials/_partial-name.mdx';`
+`import PartialName from 'versionContent/_partials/_partial-name.mdx';`
 
-`Component` can be any CamelCased name. For consistency, make it the CamelCased
-version of your partial's filename.
+`PartialName` can be any CamelCased name, but it is recommended to use the
+CamelCased filename to prevent name clashes, because partial names are global
+across all MDX files.
 
 Where you need the partial to display, insert it as a self-closing tag:
 
-`<Component />`
+`<PartialName />`
 
 ### General formatting conventions
 
 To maintain consistency, please follow these general rules.
 
- * Maintain text editor width for paragraphs at 80 characters. We ask you to do
+*   Maintain text editor width for paragraphs at 80 characters. We ask you to do
 this to assist in reviewing documentation changes. When text is very wide, it
 is difficult to visually see where text has changed within a paragraph and keeping
 a narrow width on text assists in making PRs easier to review. **Most editors such
 as Visual Studio Code have settings to do this visually.**
- * Most links should be reference-style links where the link address is at the
+*   Most links should be reference-style links where the link address is at the
 bottom of the page. The two exceptions are:
-   * Links within Tip/Warning Callouts. These must be inline links for now
-   * Links to anchors on the same page as the link itself.
- * All functions, commands and standalone function arguments (ex. `SELECT`,
+    *   Links within highlight blocks (Note, Important, or Warning). These must be inline links for now
+    *   Links to anchors on the same page as the link itself.
+*   All functions, commands and standalone function arguments (ex. `SELECT`,
 `time_bucket`) should be set as inline code within backticks ("\`command\`").
- * Functions should not be written with parentheses unless the function is
+*   Functions should not be written with parentheses unless the function is
 being written with arguments within the parentheses.
- * "PostgreSQL" is the way to write the elephant database name, rather than
+*   "PostgreSQL" is the way to write the elephant database name, rather than
 "Postgres." "TimescaleDB" refers to the database, "Timescale" refers to the
 company.
- * Use single quotes when referring to the object of a user interface action.
-For example: Click 'Get started' to proceed with the tutorial.
+*   Use backticks when referring to the object of a user interface action.
+For example: Click `Get started` to proceed with the tutorial.
 
 ### Callout and highlight blocks
+
 To create a callout around a paragraph of text, wrap it with the following custom
 React component tag. **Reminder**, any links within the callout text MUST have
 inline link styles.
 
-The `type` can currently support a value of `"tip"`, `"warning"`, `"important"`, `"deprecation"` or `"note`".
+The `type` can currently support a value of `"note"`, `"warning"`,
+`"important"`, `"deprecation"` or `"cloud"`". `cloud` produces a Cloud callout
+for content specifically referring to Timescale Cloud.
 
 ```html
-<highlight type="tip">
+<highlight type="note">
 Callout text goes here...
 
 Example link style would [look like this](http://example.com/)
 </highlight>
 ```
 
-### Special formatting helpers
-There are some custom modifications to the markdown parser to allow for special
-formatting within the docs.
+### Tags
 
-+ Adding `sss` to the start of every list item in an ordered list will result in
-  a switch to "steps" formatting which is used to denote instructional steps, as
-  for a tutorial.
-+ Adding `:FOOTER_LINK: ` to the start of a paragraph(line) will format it as a "footer link."
-+ Adding `x.y.z` anywhere in the text will be replaced by the version number of the branch. Ex. `look at file foo-x.y.z` >> `look at file foo-0.4.2`.
-+ Adding `:pg_version:` to text displayed in an installation section (that is, any page with a filename beginning `installation-`) will display the PostgreSQL version number. This is primarily to be used for displayed filenames in install instructions that need to be modular based on the version.
-+ Wrapping a link with `<tag type="download">[file link here](https://link-to-file.com)</tag>` will create a tag "bubble" wrapper around the link and append a 'download link' icon to the end of the link inline.
-+ Designating functions
-    + Adding `<tag type="community">Community</tag>` next to a header (for example, in the api section) adds decorator text "Community."
-    + Adding `<tag type="function">TSDB Function</tag>` next to a header (for example, in the api section) adds decorator text "TSDB Function."
+You can use tags to indicate links to downloadable files, or to indicate
+metadata about functions. Available tags:
 
-_Make sure to include the space after the formatting command._
+*   Download tags: `<tag type="download">Markdown link to download</tag>`
+*   Experimental tags: `<tag type="experimental" content="Experimental" />` or
+    `<tag type="experimental-toolkit" content="Experimental" />`
+*   Toolkit tag: `<tag type="toolkit" content="Toolkit" />`
+*   Community tag: `<tag type="community" content="Community" />`
 
+### Procedures
+
+Procedures are used to indicate a sequence of steps. For syntax, see [the
+procedure example](./_procedure-block.md).
+
+### Optional label
+
+Used to indicate an optional step within a procedure. Syntax: `<Optional />`
+
+### Multi-code blocks
+
+Multi-code blocks are code blocks with a language or OS selector. For syntax,
+see [the multi-code-block example](./_multi-code-block.md).
+
+### Tabs
+
+Tabs can be used to display content that differs based on a user selection. The
+syntax is:
+
+```md
+<Tabs label="Description of section, used for accessibility">
+
+<Tab title="Title that is displayed on first tab">
+
+Content goes here
+
+</Tab>
+
+<Tab title="Title that is displayed on second tab">
+
+Content goes here
+
+</Tab>
+
+</Tabs>
+```
+
+Note that spacing is important.
+
+### Editing troubleshooting sections
+
+Troubleshooting pages are not written as whole Markdown files, but are
+programmatically assembled from troubleshooting entries in the
+`_troubleshooting` folder. Each entry describes a single troubleshooting case
+and its solution, and contains the following frontmatter:
+
+|Key|Type|Required|Description|
+|-|-|-|-|
+|`title`|string|Yes|The title of the troubleshooting entry, displayed as a heading above it|
+|`section`|the literal string `troubleshooting`|Yes|Must be `troubleshooting`, used to identify troubleshooting entries during site build|
+|`products` or `topics`|array of strings|Yes (can have either or both, but must have at least one)|The products or topics related to the entry. The entry will show up on the troubleshooting pages for the listed products and topics.|
+|`errors`|object of form `{language: string, message: string}`|No|The error, if any, related to the troubleshooting entry. Displayed as a code block right underneath the title. `language` is the programming language to use for syntax highlighting.|
+|`keywords`|array of strings|No|These are displayed at the bottom of every troubleshooting page. Each keyword links to a collection of all pages associated with that keyword.|
+|`tags`|array of strings|No|Concepts, actions, or things associated with the troubleshooting entry. These are not displayed in the UI, but they affect the calculation of related pages.|
+
+Beneath the frontmatter, describe the error and its solution in normal Markdown.
+You can also use any other components allowed within the docs site.
+
+The entry shows up on the troubleshooting pages for its associated products and
+topics. If the page doesn't already exist, add an entry for it in the page
+index, setting `type` to `placeholder`. For more information, see the section on
+[page index layout](#page-indexjs-layout).
 
 ### Editing the API section
 
 There is a specific format for the API section which consists of:
-- **Function name** with empty parentheses (if function takes arguments). Ex. `add_dimension()`
-- A brief, specific description of the function
-- Any warnings necessary
-- **Required Arguments**
-    - A table with columns for "Name," "Type," and "Description"
-- **Optional Arguments**
-    - A table with columns for "Name," "Type," and "Description"
-- Any specific instructions about the arguments, including valid types
-- **Sample Usage**
-    - One or two literal examples of the function being used to demonstrate argument syntax.
+
+*   **Function name** with empty parentheses (if function takes arguments). Ex. `add_dimension()`
+*   A brief, specific description of the function
+*   Any warnings necessary
+*   **Required Arguments**
+    *   A table with columns for "Name," "Type," and "Description"
+*   **Optional Arguments**
+    *   A table with columns for "Name," "Type," and "Description"
+*   Any specific instructions about the arguments, including valid types
+*   **Sample Usage**
+    *   One or two literal examples of the function being used to demonstrate argument syntax.
 
 See the API file to get an idea.
