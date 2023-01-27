@@ -9,7 +9,7 @@ api:
   type: function
 ---
 
-## chunks_detailed_size()
+# chunks_detailed_size()
 
 Get information about the disk space used by the chunks belonging to a
 hypertable, returning size information for each chunk table, any

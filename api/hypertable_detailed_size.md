@@ -9,7 +9,7 @@ api:
   type: function
 ---
 
-## hypertable_detailed_size()  
+# hypertable_detailed_size()  
 
 Get detailed information about disk space used by a hypertable,
 returning size information for the table itself, any indexes on the

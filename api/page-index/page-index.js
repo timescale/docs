@@ -194,7 +194,7 @@ module.exports = [
       },
       {
         title: "Continuous aggregates",
-        type: "directory",
+        type: "redirect-to-child-page",
         href: "continuous-aggregates",
         children: [
           {
@@ -620,45 +620,19 @@ module.exports = [
             ],
           },
           {
-            title: "State aggregates",
-            type: "directory",
-            href: "state-aggregates",
+            title: "State tracking",
+            type: "redirect-to-child-page",
+            href: "state-tracking",
             children: [
               {
                 title: "state_agg",
                 href: "state_agg",
+                type: "placeholder",
               },
               {
-                title: "duration_in",
-                href: "duration_in",
-              },
-              {
-                title: "interpolated_duration_in",
-                href: "interpolated_duration_in",
-              },
-              {
-                title: "into_values (for state_agg)",
-                href: "into_values-state_agg",
-              },
-              {
-                title: "rollup (for state_agg)",
-                href: "rollup-state_agg",
-              },
-              {
-                title: "state_timeline",
-                href: "state_timeline",
-              },
-              {
-                title: "state_periods",
-                href: "state_periods",
-              },
-              {
-                title: "interpolated_state_periods",
-                href: "interpolated_state_periods",
-              },
-              {
-                title: "interpolated_state_timeline",
-                href: "interpolated_state_timeline",
+                title: "timeline_agg",
+                href: "timeline_agg",
+                type: "placeholder",
               },
               {
                 title: "heartbeat_agg",
@@ -705,6 +679,10 @@ module.exports = [
           {
             title: "timescaledb_information.job_stats",
             href: "job_stats",
+          },
+          {
+            title: "timescaledb_information.job_errors",
+            href: "job_errors",
           },
           {
             title: "timescaledb_experimental.policies",
