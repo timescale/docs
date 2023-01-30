@@ -157,13 +157,15 @@ To insert the partial in another document, put an import statement in the
 document. The import statement goes before the content and after any
 frontmatter. For example:
 
-`import Component from 'versionContent/_partials/_partial-name.mdx';`
+`import PartialName from 'versionContent/_partials/_partial-name.mdx';`
 
-`Component` can be any CamelCased name.
+`PartialName` can be any CamelCased name, but it is recommended to use the
+CamelCased filename to prevent name clashes, because partial names are global
+across all MDX files.
 
 Where you need the partial to display, insert it as a self-closing tag:
 
-`<Component />`
+`<PartialName />`
 
 ### General formatting conventions
 
