@@ -10,7 +10,7 @@ api:
   version:
     experimental: 1.13.0
 hyperfunction:
-  family: state aggregates
+  family: state tracking
   type: accessor
   aggregates:
     - heartbeat_agg()
@@ -54,3 +54,4 @@ api_details:
           ("2022-01-09 00:00:30+00","2022-01-12 15:27:22+00")
           ("2022-01-12 15:31:17+00","2022-01-16 00:00:00+00")
 ---
+
