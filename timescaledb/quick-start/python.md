@@ -161,13 +161,9 @@ percentage of the sensors.
 
 ## Create a hypertable
 
-Virtually all user interactions with TimescaleDB are with hypertables. Creating
-tables and indexes, altering tables, inserting data, selecting data, and most
-other tasks can and should all be executed on the hypertable.
-
-A hypertable is defined by a standard schema with column names and types, with
-at least one column specifying a time value. For more information about
-hypertables, see the [hypertables documentation][hypertable-howto].
+When you have created the relational table, you can create a hypertable.
+Creating tables and indexes, altering tables, inserting data, selecting data,
+and most other tasks are executed on the hypertable.
 
 <procedure>
 
@@ -188,7 +184,7 @@ hypertables, see the [hypertables documentation][hypertable-howto].
                                         """
     ```
 
-1.  Formulate a `SELECT` statement that converts the `sensor_data` table to a
+2.  Formulate a `SELECT` statement that converts the `sensor_data` table to a
     hypertable. You must specify the table name to convert to a hypertable, and
     the name of the time column as the two arguments. For more information, see
     the [`create_hypertable` docs][create-hypertable-docs]:
@@ -197,7 +193,7 @@ hypertables, see the [hypertables documentation][hypertable-howto].
     query_create_sensordata_hypertable = "SELECT create_hypertable('sensor_data', 'time');"
     ```
 
-1.  Open a cursor with the connection, execute the statements from the previous
+3.  Open a cursor with the connection, execute the statements from the previous
     steps, commit your changes, and close the cursor:
 
     ```python
@@ -240,7 +236,7 @@ section, you can use `psycopg2` with prepared statements, or you can use
     conn.commit()
     ```
 
-2.  <Optional />Alternatively, you can pass variables to the `cursor.execute`
+1.  <Optional />Alternatively, you can pass variables to the `cursor.execute`
     function and separate the formulation of the SQL statement, `SQL`, from the
     data being passed with it into the prepared statement, `data`:
 
@@ -469,7 +465,6 @@ advanced TimescaleDB tutorials:
 [continuous-aggregates]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/
 [create-hypertable-docs]: /api/:currentVersion:/hypertable/create_hypertable
 [dictcursor-docs]: https://www.psycopg.org/docs/extras.html#dictionary-like-cursor
-[hypertable-howto]: /timescaledb/:currentVersion:/how-to-guides/hypertables/
 [migrate]: /timescaledb/:currentVersion:/how-to-guides/migrate-data/
 [other-samples]: /timescaledb/:currentVersion:/tutorials/sample-datasets/
 [pg-libpq-string]: https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING

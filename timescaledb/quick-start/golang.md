@@ -22,10 +22,9 @@ This quick start guide walks you through:
 
 Before you start, make sure you have:
 
-*   Installed TimescaleDB. For more information, see the
-    [installation documentation][install].
-*   Installed Go. For more information, see the [Go documentation][golang-install].
-*   Installed the [PGX driver][pgx-driver-github] for Go.
+*   Installed [TimescaleDB][install].
+*   Installed [Go][golang-install].
+*   Installed the [PGX driver for Go][pgx-driver-github].
 
 <highlight type="cloud" header="Run all tutorials free" button="Try for free">
 Your Timescale Cloud trial is completely free for you to use for the first
@@ -236,9 +235,9 @@ percentage of the sensors.
 
 ## Generate a hypertable
 
-Virtually all user interactions with TimescaleDB are with hypertables. Creating
-tables and indexes, altering tables, inserting data, selecting data, and most
-other tasks can and should all be executed on the hypertable.
+When you have created the relational table, you can create a hypertable.
+Creating tables and indexes, altering tables, inserting data, selecting data,
+and most other tasks are executed on the hypertable.
 
 <procedure>
 
@@ -248,13 +247,13 @@ other tasks can and should all be executed on the hypertable.
     Notice how the hypertable has the compulsory time column:
 
     ```go
-	queryCreateTable := `CREATE TABLE sensor_data (
-        time TIMESTAMPTZ NOT NULL,
-        sensor_id INTEGER,
-        temperature DOUBLE PRECISION,
-        cpu DOUBLE PRECISION,
-        FOREIGN KEY (sensor_id) REFERENCES sensors (id));
-        `
+    queryCreateTable := `CREATE TABLE sensor_data (
+            time TIMESTAMPTZ NOT NULL,
+            sensor_id INTEGER,
+            temperature DOUBLE PRECISION,
+            cpu DOUBLE PRECISION,
+            FOREIGN KEY (sensor_id) REFERENCES sensors (id));
+            `
     ```
 
 1.  Formulate the `SELECT` statement to convert the table into a hypertable. You
@@ -786,7 +785,7 @@ This section covers how to execute queries against your database.
         os.Exit(1)
     }
     defer rows.Close()
-    
+
     fmt.Println("Successfully executed query")
     ```
 
