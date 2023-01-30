@@ -24,13 +24,14 @@ running, see the [Timescale Cloud installation section][cloud-install].
 
 1.  Sign in to the [Timescale Cloud portal][cloud-console].
 1.  Click `Create service`.
-1.  In the `Create a service` dialog, under `Choose your service type`, check
-    `PostgreSQL`. Complete the other fields according to your environment.
-1.  Click `Create service` to build your PostrgeSQL service.
+1.  In the `Create a service` dialog, click `Advanced configuration`.
+1.  In the `Choose your service type` section, check `PostgreSQL`.
+1.  Complete the other fields according to your environment.
+1.  Click `Create service` to build your PostgreSQL service.
 
     <img
         class="main-content__illustration"
-        src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-create-pgsidecloud.png"
+        src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-create-pgservice.png"
         alt="Create a new PostgreSQL service in the Timescale Cloud portal"
     />
 
@@ -42,7 +43,7 @@ time-series services:
 
 <img
     class="main-content__illustration"
-    src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-view-pgsidecloud.png"
+    src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-view-FIXME.png"
     alt="A running PostgreSQL service in the Timescale Cloud portal"
 />
 
