@@ -22,7 +22,7 @@ Continuous aggregates use hypertables in the background, which means that they
 also use chunk time intervals. By default, the continuous aggregate's chunk time
 interval is 10 times what the original hypertable's chunk time interval is. For
 example, if the original hypertable's chunk time interval is 7 days, the
-continuous aggregates that are on top of it will have a 70 day chunk time
+continuous aggregates that are on top of it have a 70 day chunk time
 interval.
 
 ## Create a continuous aggregate
@@ -142,14 +142,31 @@ queries to run efficiently.
 
 </procedure>
 
+## Create a continuous aggregate on JOINed tables
+
+In TimescaleDB 2.9 and later, with PostgreSQL 13 or later, you can create a
+continuous aggregate on tables that are connected with a `JOIN`. For example:
+
+```sql
+CREATE MATERIALIZED VIEW conditions_summary_daily_3
+WITH (timescaledb.continuous) AS
+SELECT time_bucket(INTERVAL '1 day', day) AS bucket,
+   AVG(temperature),
+   MAX(temperature),
+   MIN(temperature),
+   name
+FROM devices JOIN conditions USING (device_id)
+GROUP BY name, bucket;
+```
+
 ## Query continuous aggregates
 
 When you have created a continuous aggregate and set a refresh policy, you can
 query the view with a `SELECT` query. You can only specify a single hypertable
-in the `FROM` clause. Including more hypertables, joins, tables, views, or
-subqueries in your `SELECT` query is not supported. Additionally, make sure that
-the hypertable you are querying does not have [row-level-security
-policies][postgres-rls] enabled.
+in the `FROM` clause. Including more hypertables, tables, views, or subqueries
+in your `SELECT` query is not supported. Additionally, make sure that the
+hypertable you are querying does not have [row-level-security policies][postgres-rls]
+enabled.
 
 <procedure>
 
