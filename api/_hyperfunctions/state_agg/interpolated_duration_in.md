@@ -25,7 +25,7 @@ api_details:
       code: |
         interpolated_duration_in(
           state {TEXT | BIGINT},
-          tws StateAgg,
+          agg StateAgg,
           start TIMESTAMPTZ,
           interval INTERVAL
           [, prev StateAgg]
@@ -36,7 +36,7 @@ api_details:
       - name: state
         type: TEXT | BIGINT
         description: The state to query
-      - name: tws
+      - name: agg
         type: StateAgg
         description: A state aggregate created with [`state_agg`](#state_agg)
       - name: start
