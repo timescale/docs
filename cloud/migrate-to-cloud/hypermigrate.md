@@ -6,7 +6,7 @@ keywords: [data migration, hypermigrate]
 tags: [ingest, hypermigrate, postgresql]
 ---
 
-# Migrate the entire database at once
+# Migrate with hypermigrate
 
 Migrate smaller PostgreSQL databases by dumping and restoring the entire
 database at once. Hypermigrate also allows you to enable compression and
