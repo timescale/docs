@@ -37,13 +37,15 @@ thirty days. This gives you enough time to complete all the tutorials and run
 a few test projects of your own.
 </highlight>
 
+## Download hypermigrate
+
 <Tabs label="Download hypermigrate">
 
 <Tab title="MacOS">
 
 <procedure>
 
-### Download hypermigrate on MacOS
+### Downloading hypermigrate on MacOS
 
 1.  Download the hypermigrate tool for MacOS:
 
@@ -65,7 +67,7 @@ a few test projects of your own.
 
 <procedure>
 
-### Download hypermigrate on Linux
+### Downloading hypermigrate on Linux
 
 1.  Download the hypermigrate tool for MacOS:
 
@@ -105,13 +107,15 @@ a few test projects of your own.
 
 </Tabs>
 
+## Run hypermigrate
+
 <Tabs label="Run hypermigrate">
 
 <Tab title="MacOS">
 
 <procedure>
 
-### Run hypermigrate on MacOS
+### Running hypermigrate on MacOS
 
 1.  Determine which tables need to be converted to hypertables, and which tables
     need to be compressed during the migration. Hypertables must have a unique
@@ -139,7 +143,7 @@ a few test projects of your own.
 
 <procedure>
 
-### Run hypermigrate on Linux
+### Running hypermigrate on Linux
 
 1.  Determine which tables need to be converted to hypertables, and which tables
     need to be compressed during the migration. Hypertables must have a unique
