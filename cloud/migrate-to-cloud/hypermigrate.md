@@ -11,7 +11,8 @@ tags: [ingest, hypermigrate, postgresql]
 Migrate smaller PostgreSQL databases by dumping and restoring the entire
 database at once. Hypermigrate also allows you to enable compression and
 hypertable creation on the fly. This method works best on databases smaller than
-100&nbsp;GB. For larger databases, consider [migrating your schema and data separately][migrate-separately].
+100&nbsp;GB. For larger databases, consider
+[migrating your schema and data separately][migrate-separately].
 
 <highlight type="warning">
 Depending on your database size and network speed, migration can take a very
@@ -184,3 +185,4 @@ a few test projects of your own.
 
 [cloud-install]: /install/:currentVersion:/installation-cloud/
 [docker-install]: https://docs.docker.com/get-docker/
+[migrate-separately]: /cloud/:currentVersion:/migrate-to-cloud/schema-then-data/
