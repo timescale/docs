@@ -109,6 +109,10 @@ a few test projects of your own.
 
 ## Run hypermigrate
 
+In preparation for running hypermigrate, you need to determine which tables need
+to be converted to hypertables, and which tables need to be compressed during
+the migration. Hypertables must have a unique column labelled `time`.
+
 <Tabs label="Run hypermigrate">
 
 <Tab title="MacOS">
@@ -116,10 +120,6 @@ a few test projects of your own.
 <procedure>
 
 ### Running hypermigrate on MacOS
-
-1.  Determine which tables need to be converted to hypertables, and which tables
-    need to be compressed during the migration. Hypertables must have a unique
-    column labelled `time`.
 
 1.  Open the `hypermigrate.yml` configuration file, and adjust parameters
     accordingly. For example:
