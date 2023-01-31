@@ -145,7 +145,7 @@ queries to run efficiently.
 ## Create a continuous aggregate on JOINed tables
 
 In TimescaleDB 2.9 and later, with PostgreSQL 13 or later, you can create a
-continuous aggregate on tables that are connected with a `JOIN`. For example:
+continuous aggregate from a query that uses a `JOIN`. For example:
 
 ```sql
 CREATE MATERIALIZED VIEW conditions_summary_daily_3
