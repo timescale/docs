@@ -43,8 +43,8 @@ time-series services:
 
 <img
     class="main-content__illustration"
-    src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-view-FIXME.png"
-    alt="A running PostgreSQL service in the Timescale Cloud portal"
+    src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-view-pgservice.png"
+    alt="A running PostgreSQL service with a running TimescaleDB service in the Timescale Cloud portal"
 />
 
 [cloud-install]: /install/:currentVersion:/installation-cloud/
