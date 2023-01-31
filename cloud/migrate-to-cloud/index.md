@@ -13,8 +13,11 @@ Managed Service for TimescaleDB. This allows you to use Timescale Cloud's
 exclusive features, including separate scaling for compute and storage
 requirements, first-class multi-node support, and more.
 
-There are two methods for migrating your data:
+There are several methods for migrating your data:
 
+*   [Migrate an existing PostgreSQL database][hypermigrate]: Use our
+    hypermigrate tool to migrate an existing PostgreSQL database in one step,
+    creating hypertables on the fly, and compressing data during migration.
 *   [Migrate your entire database at once][migrate-entire]: This method
     directly transfers all data and schemas, including TimescaleDB-specific
     features. Your hypertables, continuous aggregates, and policies are
@@ -33,7 +36,10 @@ download speeds, existing continuous aggregates, and tolerance for failure
 recovery.
 
 If your database is smaller than 100&nbsp;GB, choose to migrate your entire
-database at once. You can also migrate larger databases using this method, but
+database at once. If your source database is PostgreSQL, use the hypermigrate
+tool to avoid having to dump your data to a directory before restoring it.
+
+You can also migrate larger databases using this method, but
 the copying process must keep running, potentially over days or weeks. If the
 copy is interrupted, the process needs to be restarted. If you think an
 interruption in the copy is possible, choose to migrate your schema and data

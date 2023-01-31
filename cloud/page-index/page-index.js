@@ -188,6 +188,12 @@ module.exports = [
         excerpt: "Migrate a TimescaleDB database to Timescale Cloud",
         children: [
           {
+            title: "Migrate with hypermigrate",
+            href: "hypermigrate",
+            excerpt:
+              "Migrate an existing PostgreSQL database to Timescale Cloud in a single step",
+          },
+          {
             title: "Migrate the entire database at once",
             href: "entire-database",
             excerpt:
