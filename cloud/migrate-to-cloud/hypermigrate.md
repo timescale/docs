@@ -90,13 +90,13 @@ a few test projects of your own.
 
     </tab>
 
+    </terminal>
+
 1.  You can check the file has been installed correctly with this command:
 
     ```bash
     hypermigrate --version
     ```
-
-    </terminal>
 
 </procedure>
 
