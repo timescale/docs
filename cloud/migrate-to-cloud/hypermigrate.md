@@ -113,6 +113,13 @@ In preparation for running hypermigrate, you need to determine which tables need
 to be converted to hypertables, and which tables need to be compressed during
 the migration. Hypertables must have a unique column labelled `time`.
 
+Hypermigrate uses a YAML configuration file to determine how to set up your new
+Timescale database. You can create your own file, or use our example file as a
+starting point. You need these details to complete your configuration file:
+
+*   FIXME
+*   FIXME
+
 <Tabs label="Run hypermigrate">
 
 <Tab title="MacOS">
