@@ -1,7 +1,7 @@
 ---
 title: Reindex hypertables to fix large indexes
 section: troubleshooting
-topics: [hypertables, chunks, index, data retention, compression]
+topics: [hypertables, distributed hypertables, schema management, data retention, compression]
 errors:
   - language: bash
     message: |-
@@ -14,7 +14,7 @@ apis:
   - [hypertables, hypertable_index_size()]
   - [hypertables, chunks_detailed_size()]
 keywords: [jobs, policies, actions]
-tags: [hypertables, chunks, index, data retention, compression]
+tags: [hypertables, chunks, index, scheme management, data retention, compression]
 ---
 
 <!---
