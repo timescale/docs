@@ -1,15 +1,15 @@
 ---
-title: Migrate with hypermigrate
+title: Migrate with hypershift
 excerpt: Migrate an existing PostgreSQL database to Timescale Cloud in a single step
 product: cloud
-keywords: [data migration, hypermigrate]
-tags: [ingest, hypermigrate, postgresql]
+keywords: [data migration, hypershift]
+tags: [ingest, hypershift, postgresql]
 ---
 
-# Migrate with hypermigrate
+# Migrate with hypershift
 
 Migrate smaller PostgreSQL databases by dumping and restoring the entire
-database at once. Hypermigrate also allows you to enable compression and
+database at once. Hypershift also allows you to enable compression and
 hypertable creation on the fly. This method works best on databases smaller than
 100&nbsp;GB. For larger databases, consider
 [migrating your schema and data separately][migrate-separately].
@@ -37,17 +37,17 @@ thirty days. This gives you enough time to complete all the tutorials and run
 a few test projects of your own.
 </highlight>
 
-## Download hypermigrate
+## Download hypershift
 
-<Tabs label="Download hypermigrate">
+<Tabs label="Download hypershift">
 
 <Tab title="MacOS">
 
 <procedure>
 
-### Downloading hypermigrate on MacOS
+### Downloading hypershift on MacOS
 
-1.  Download the hypermigrate tool for MacOS:
+1.  Download the hypershift tool for MacOS:
 
     <tag type="download">[FIXME](https://timescale,com/FIXME)</tag>
 
@@ -56,7 +56,7 @@ a few test projects of your own.
 1.  You can check the file has been installed correctly with this command:
 
     ```bash
-    hypermigrate --version
+    hypershift --version
     ```
 
 </procedure>
@@ -67,9 +67,9 @@ a few test projects of your own.
 
 <procedure>
 
-### Downloading hypermigrate on Linux
+### Downloading hypershift on Linux
 
-1.  Download the hypermigrate tool for MacOS:
+1.  Download the hypershift tool for MacOS:
 
     <tag type="download">[FIXME](https://timescale,com/FIXME)</tag>
 
@@ -98,7 +98,7 @@ a few test projects of your own.
 1.  You can check the file has been installed correctly with this command:
 
     ```bash
-    hypermigrate --version
+    hypershift --version
     ```
 
 </procedure>
@@ -107,39 +107,39 @@ a few test projects of your own.
 
 </Tabs>
 
-## Run hypermigrate
+## Run hypershift
 
-In preparation for running hypermigrate, you need to determine which tables need
+In preparation for running hypershift, you need to determine which tables need
 to be converted to hypertables, and which tables need to be compressed during
 the migration. Hypertables must have a unique column labelled `time`.
 
-Hypermigrate uses a YAML configuration file to determine how to set up your new
+hypershift uses a YAML configuration file to determine how to set up your new
 Timescale database. You can create your own file, or use our example file as a
 starting point. You need these details to complete your configuration file:
 
 *   FIXME
 *   FIXME
 
-<Tabs label="Run hypermigrate">
+<Tabs label="Run hypershift">
 
 <Tab title="MacOS">
 
 <procedure>
 
-### Running hypermigrate on MacOS
+### Running hypershift on MacOS
 
-1.  Open the `hypermigrate.yml` configuration file, and adjust parameters
+1.  Open the `hypershift.yml` configuration file, and adjust parameters
     accordingly. For example:
 
     ```yml
     FIXME
     ```
 
-1.  At the command prompt, run hypermigrate. Include the source and destination
-    database names, and the path to your `hypermigrate.yml` configuration file:
+1.  At the command prompt, run hypershift. Include the source and destination
+    database names, and the path to your `hypershift.yml` configuration file:
 
     ```bash
-    hypermigrate --source-dsn SOURCE_DB --target-dsn TARGET_DB --hypertable
+    hypershift --source-dsn SOURCE_DB --target-dsn TARGET_DB --hypertable
     ```
 
 </procedure>
@@ -150,21 +150,21 @@ starting point. You need these details to complete your configuration file:
 
 <procedure>
 
-### Running hypermigrate on Linux
+### Running hypershift on Linux
 
 1.  Determine which tables need to be converted to hypertables, and which tables
     need to be compressed during the migration. Hypertables must have a unique
     column labelled `time`.
 
-1.  Open the `hypermigrate.yml` configuration file, and adjust parameters
+1.  Open the `hypershift.yml` configuration file, and adjust parameters
     accordingly. For example:
 
     ```yml
     FIXME
     ```
 
-1.  At the command prompt, run hypermigrate. Include the source and destination
-    database names, and the path to your `hypermigrate.yml` configuration file:
+1.  At the command prompt, run hypershift. Include the source and destination
+    database names, and the path to your `hypershift.yml` configuration file:
 
 1.  At the command prompt, install the file:
 
@@ -173,7 +173,7 @@ starting point. You need these details to complete your configuration file:
     <tab label="Debian-based">
 
     ```bash
-    hypermigrate --source-dsn SOURCE_DB --target-dsn TARGET_DB --hypertable
+    hypershift --source-dsn SOURCE_DB --target-dsn TARGET_DB --hypertable
     ```
 
     </tab>
@@ -181,7 +181,7 @@ starting point. You need these details to complete your configuration file:
     <tab label="Red Hat-based">
 
     ```bash
-    hypermigrate --source-dsn SOURCE_DB --target-dsn TARGET_DB --hypertable
+    hypershift --source-dsn SOURCE_DB --target-dsn TARGET_DB --hypertable
     ```
 
     </tab>
