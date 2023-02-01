@@ -7,18 +7,20 @@ tags: [user-defined actions, background jobs, scheduled jobs, automation framewo
 
 # About user-defined actions
 
-You can create user-defined actions that periodically run custom functions on
-your database.
+You can create user-defined actions that periodically run custom functions or
+procedures on your database.
 
 ## PostgreSQL functions
 
-You can use PostgreSQL functions, sometimes called stored procedures, to
-create database operations that would normally take several queries or steps.
-Functions can also be used by other applications that interact with your
-database to perform tasks without requiring additional code.
+You can use PostgreSQL functions to create database operations that would
+normally take several queries or steps. Functions can also be used by other
+applications that interact with your database to perform tasks without requiring
+additional code.
 
-User-defined actions can be written in any language you choose. This guide
-uses the SQL procedural language [PL/pgSQL][plpgsql].
+Your function needs to be wrapped in a `CREATE OR REPLACE` statement. This
+statement also allows you to define the language of your commands in this
+statement. User-defined actions can be written in any language you choose. This
+guide uses the SQL procedural language [PL/pgSQL][plpgsql].
 
 The basic syntax of a function suitable for a user-defined action is:
 
