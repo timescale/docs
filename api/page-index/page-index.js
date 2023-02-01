@@ -468,10 +468,11 @@ module.exports = [
                 href: "counter_agg",
                 type: "placeholder",
               },
-              /* {
+              {
                 title: "gauge_agg",
                 href: "gauge_agg",
-              }, */
+                type: "placeholder",
+              },
             ],
           },
           {

@@ -9,4 +9,4 @@ decreases are treated as resets.
 If it's valid for your reading to decrease, use [`gauge_agg`][gauge_agg]
 instead.
 
-[gauge_agg]: /api/:currentVersion:/counters-ang-gauges/gauge_agg/
+[gauge_agg]: /api/:currentVersion:/hyperfunctions/counters-and-gauges/gauge_agg/
