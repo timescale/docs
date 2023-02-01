@@ -4,6 +4,10 @@ excerpt: Save on storage costs by tiering older data to separate storage
 product: cloud
 keywords: [data tiering]
 tags: [storage, data management]
+cloud_ui:
+    path:
+        - [services, :serviceID, operations, data-tiering]
+    priority: 1
 ---
 
 import ExperimentalPrivateBeta from 'versionContent/_partials/_experimental-private-beta.mdx';
