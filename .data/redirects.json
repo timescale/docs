@@ -202,6 +202,7 @@
   "^/main": "https://docs.timescale.com/timescaledb/latest/",
   "^/mst/latest/create-a-service": "https://docs.timescale.com/mst/latest/about-mst/",
   "^/mst$": "https://docs.timescale.com/mst/latest/",
+  "^/promscale/latest/installation/promscale-with-timescale-cloud/": "https://docs.timescale.com/promscale/latest/",
   "^/release-notes": "https://docs.timescale.com/timescaledb/latest/overview/release-notes/",
   "^/release-notes/changes-in-timescaledb-2": "https://docs.timescale.com/timescaledb/latest/overview/release-notes/changes-in-timescaledb-2/",
   "^/timescale-cloud": "https://docs.timescale.com/mst/latest/",
