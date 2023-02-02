@@ -26,7 +26,7 @@ api_details:
     - language: sql
       code: |
         interpolated_state_timeline(
-            tws TimelineAgg,
+            agg TimelineAgg,
             start TIMESTAMPTZ,
             interval INTERVAL,
             [, prev TimelineAgg]
@@ -37,7 +37,7 @@ api_details:
       - name: state
         type: TEXT | BIGINT
         description: The state to query
-      - name: tws
+      - name: agg
         type: TimelineAgg
         description: A timeline aggregate created with [`timeline_agg`](#timeline_agg)
       - name: start
