@@ -5,13 +5,18 @@ product: cloud
 keywords: [services, PostgreSQL, create, install]
 ---
 
+import EarlyAccess from "versionContent/_partials/_early_access.mdx";
+
 # Create a PostgreSQL service
+
+<EarlyAccess />
 
 Timescale Cloud is a hosted, cloud-native TimescaleDB service that allows you to
 quickly spin up new TimescaleDB instances. In addition to your TimescaleDB
 databases, you can also create services that run standard PostgreSQL, without
-Timescale's time-series capabilities, if you need to handle other data alongside
-your time-series data.
+Timescale's time-series capabilities. PostgreSQL services are cheaper to run
+than TimescaleDB services, so they are a great option if you're running
+relational databases alongside your time-series databases.
 
 You can [try Timescale Cloud for free][sign-up], no credit card required.
 
