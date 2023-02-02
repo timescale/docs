@@ -95,7 +95,7 @@ instead.
 1.  Install TimescaleDB:
 
     ```bash
-    apt install timescaledb-2-postgresql-15
+    apt install timescaledb-2-postgresql-14
     ```
 
     <highlight type="note">
