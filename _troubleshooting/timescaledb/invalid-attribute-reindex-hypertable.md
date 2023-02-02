@@ -14,7 +14,7 @@ apis:
   - [hypertables, hypertable_index_size()]
   - [hypertables, chunks_detailed_size()]
 keywords: [jobs, policies, actions]
-tags: [hypertables, chunks, index, scheme management, data retention, compression]
+tags: [hypertables, chunks, index, schema management, data retention, compression]
 ---
 
 <!---
@@ -27,7 +27,7 @@ tags: [hypertables, chunks, index, scheme management, data retention, compressio
 * Copy this comment at the top of every troubleshooting page
 -->
 
-You might see this error if your hypertables indexes have become very large. To
+You might see this error if your hypertable indexes have become very large. To
 resolve the problem, reindex your hypertables with this command:
 
 ```sql
@@ -36,4 +36,4 @@ reindex table _timescaledb_internal._hyper_2_1523284_chunk
 
 For more information, see the [hypertable documentation][hypertables].
 
-[hypertables]: [/timescaledb/latest/how-to-guides/configuration/about-configuration/#workers](https://docs.timescale.com/timescaledb/latest/how-to-guides/hypertables/)
+[hypertables]: /timescaledb/:currentVersion:/how-to-guides/hypertables/
