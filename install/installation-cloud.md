@@ -27,7 +27,7 @@ automated upgrades and backups.
 
 ## Create your first service
 
-<CreateService demoData={true} />
+<CreateService demoData={false} />
 
 ## Connect to your service from the command prompt
 
