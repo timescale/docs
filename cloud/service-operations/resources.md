@@ -4,11 +4,16 @@ excerpt: Manage your service resources
 product: cloud
 keywords: [services, operation, storage]
 tags: [disk space, resources, oom, memory]
+cloud_ui:
+    path:
+        - [services, :serviceID, operations, resources]
 ---
 
 # Service operation - Resources
+
 Timescale Cloud contains several mechanisms for managing disk space on your
 services. There are four key tasks that Cloud performs to handle disk space:
+
 1.  Detect if storage capacity begins to fill up
 1.  Notify you about the growth of storage consumption
 1.  Automatically activate overload protections
@@ -21,10 +26,10 @@ the maximum limit, or turning autoscaling off, see the
 [autoscaling][autoscaling] section.
 
 <highlight type="cloud" header="Sign up for Timescale Cloud" button="Try for free">
-
 </highlight>
 
 ## Online storage resizing
+
 You can increase your storage size in the Timescale Cloud console.
 
 <highlight type="warning">
@@ -35,6 +40,7 @@ cannot currently decrease your storage size once set.
 <procedure>
 
 ### Increasing service resources
+
 1.  In the Timescale Cloud console, navigate to `Services` and click the service
     you want to adjust. Navigate to the `Operations` tab, and go to
     the `Resources` section.
@@ -53,6 +59,7 @@ cannot currently decrease your storage size once set.
 </procedure>
 
 ## Storage recovery
+
 If you need to perform actions on your database to reduce your data usage, you
 can turn off read-only mode. For example, you need read-write access if you want
 to compress data, delete rows or tables, or drop old data using data retention
@@ -68,17 +75,23 @@ leaving the database in read-only mode.
 <procedure>
 
 ### Enabling read-write access on an individual session
+
 1.  Connect to your database using `psql` and turn off read-only protection
     for the current session:
+
     ```sql
     SET default_transaction_read_only TO off;
     ```
+
 1.  Create a data retention policy to only retain, for example, data for 90
     days. This starts working immediately on old data:
+
     ```sql
     SELECT add_retention_policy('<table_name>', interval '90 days');
     ```
+
 1.  Turn on compression:
+
     ```sql
     ALTER TABLE <table_name> SET (
       timescaledb.compress,
@@ -93,6 +106,7 @@ As soon as the storage consumption drops below the threshold, the read-only
 protection is automatically removed, and you can start writing data again.
 
 ## Out of memory errors
+
 If you run intensive queries on your Timescale Cloud services, you might
 encounter out of memory (OOM) errors. This occurs if your query consumes more
 memory than is available.
@@ -106,6 +120,7 @@ problematic query does not run, but that your PostgreSQL service continues to
 operate normally.
 
 If the normal OOM killer is triggered, the error log looks like this:
+
 ```yml
 2021-09-09 18:15:08 UTC [560567]:TimescaleDB: LOG: server process (PID 2351983) was terminated by signal 9: Killed
 ```
@@ -116,6 +131,7 @@ If Timescale Cloud successfully guards the service against the OOM killer, it sh
 down only the client connection that was using too much memory. This prevents
 the entire PostgreSQL service from shutting down, so you can reconnect
 immediately. The error log looks like this:
+
 ```yml
 2022-02-03 17:12:04 UTC [2253150]:TimescaleDB: tsdbadmin@tsdb,app=psql [53200] ERROR: out of memory
 ```

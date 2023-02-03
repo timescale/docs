@@ -3,6 +3,10 @@ title: Service operations - Configure database parameters
 excerpt: Customize the configuration of your TimescaleDB database
 product: cloud
 keywords: [configure, services, settings]
+cloud_ui:
+    path:
+        - [services, :serviceID, operations, database_parameters]
+    priority: 1
 ---
 
 # Service operations - Configure database parameters

@@ -3,6 +3,9 @@ title: Service explorer
 excerpt: Get insight into the performance and structure of your database
 product: cloud
 keywords: [services, hypertables, schemas, indexes, policies]
+cloud_ui:
+    path:
+        - [services, :serviceID, overview]
 ---
 
 # Service explorer
@@ -45,7 +48,7 @@ aggregates, and policies such as data retention policies and data reordering.
 You can also inspect individual hypertables, including their sizes, dimension
 ranges, and compression status.
 
-You can also set a compression policy from this section. For more information, see the 
+You can also set a compression policy from this section. For more information, see the
 [Setting a compression policy from Timescale Cloud console][set-compression] section.
 
 <img class="main-content__illustration"
