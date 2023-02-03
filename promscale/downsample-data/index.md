@@ -6,7 +6,12 @@ keywords: [Prometheus, downsample]
 tags: [continuous aggregates, metrics, recording rules]
 ---
 
+import PromscaleDeprecation from "versionContent/_partials/_deprecated-promscale.mdx";
+
 # Downsample metric data in Promscale
+
+<PromscaleDeprecation />
+
 Downsampling is the term used when reducing the rate of a signal. When you
 downsample data, the size of the data on disk is reduced, but so is the
 resolution of the data. This means that you have fewer entries in your source
@@ -16,10 +21,11 @@ the size of the data decreases.
 
 The two downsampling methods are:
 
-* [PromQL based recording rules][recording] offered by Prometheus
-* [Continuous aggregates][caggs] offered by TimescaleDB
+*   [PromQL based recording rules][recording] offered by Prometheus
+*   [Continuous aggregates][caggs] offered by TimescaleDB
 
 ## Choose a downsampling method
+
 There are a few things to take into account when deciding on a downsampling
 method:
 
