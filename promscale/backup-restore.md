@@ -10,6 +10,7 @@ import PromscaleDeprecation from "versionContent/_partials/_deprecated-promscale
 # Back up and restore Promscale
 
 <PromscaleDeprecation />
+
 ## Prerequisites
 
 Trusted extensions were introduced in PostgreSQL 13. If using a PostgreSQL
