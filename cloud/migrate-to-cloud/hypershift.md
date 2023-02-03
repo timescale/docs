@@ -8,11 +8,9 @@ tags: [ingest, hypershift, postgresql]
 
 # Migrate with hypershift
 
-Migrate smaller PostgreSQL databases by dumping and restoring the entire
+Migrate existing PostgreSQL databases by dumping and restoring the entire
 database at once. Hypershift also allows you to enable compression and
-hypertable creation on the fly. This method works best on databases smaller than
-100&nbsp;GB. For larger databases, consider
-[migrating your schema and data separately][migrate-separately].
+hypertable creation on the fly.
 
 <highlight type="warning">
 Depending on your database size and network speed, migration can take a very
