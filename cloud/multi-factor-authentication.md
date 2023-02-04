@@ -9,7 +9,7 @@ tags: [two-factor user authentication]
 ## Multi-factor user authentication
 
 You can use two-factor authentication also known as 2-Step verification or 2FA
-to log in to your Timescale Cloud account.This enables secure logins that
+to log in to your Timescale Cloud account. This enables secure logins that
 requires a second authentication code in addition to the user password. You
 require an authentication code, provided by the Google Authenticator app on
 your mobile device.
@@ -36,7 +36,7 @@ your mobile device.
     recovery codes that appear.
 1.  Click `ok, i saved my recovery codes` after you have saved the recovery codes.
     <highlight type="important">
-    A recovery code is a backup way to log in to Timescale Cloud when you can’t
+    A recovery code is a backup way to log in to Timescale Cloud when you can't
     get your verification code from  your authenticator app. If you enable
     two-factor authentication, save your recovery codes.
     </highlight>
@@ -55,11 +55,11 @@ regained access to your account, reconfigure multi-factor authentication.
 
 ### Regenerating recovery codes
 
-If you do not have access to your autheticator app and need to login to
+If you do not have access to your authenticator app and need to log in to
 Timescale Cloud you may need the recovery codes. After you use a recovery code
 to regain access to your account, it cannot be reused. If you've used all 10
 recovery codes, you can generate another list of codes. Generating a new set of
-recovery codes invalidate sany codes you previously generated.
+recovery codes invalidates any codes you previously generated.
 
 <procedure>
 
