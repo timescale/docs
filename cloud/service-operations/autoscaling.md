@@ -4,9 +4,13 @@ excerpt: Set up Timescale Cloud to automatically resize your compute and storage
 product: cloud
 keywords: [scaling, services, operations]
 tags: [cpu, storage, disk space]
+cloud_ui:
+    path:
+        - [services, :serviceID, operations, autoscaling]
 ---
 
 # Service operations - Autoscaling
+
 Timescale Cloud allows you to resize compute (CPU/RAM) and storage independently
 at any time. This is useful when you need to do something like increasing your
 storage capacity, but not your compute size. You can resize compute and storage
@@ -15,6 +19,7 @@ clusters.
 
 Storage changes are applied with no downtime, and the new storage capacity is
 usually available for use within a few seconds.
+
 *   Storage can only be increased in size. You cannot decrease the amount of
     storage capacity your service has available.
 *   Storage size changes can only be made once every six hours.
@@ -23,6 +28,7 @@ usually available for use within a few seconds.
 
 You can increase or decrease the compute size of your service at any time, with
 a short downtime.
+
 *   There is momentary downtime while the new compute settings are applied.
     In most cases, this downtime is less than 30 seconds.
 *   Because compute changes require an interruption to your service, plan
@@ -44,9 +50,11 @@ resources your service has available, as well as change the disk size for your
 service. You can adjust this manually as required, or for disk size you can use autoscaling.
 
 ## Change resource allocations manually
+
 You can manually change both storage and compute resources.
 
 ### Storage resources
+
 When you change the disk size, the changes are applied with no downtime. The
 new size generally becomes available within a few seconds. You can only increase
 your disk size, not decrease it, up to a maximum of 16&nbsp;TB.
@@ -65,6 +73,7 @@ documentation. To prevent this, wait for the recommended time between resizes.
 </highlight>
 
 ### Compute resources
+
 You can change the CPU and memory allocation for your service at any time, with
 minimal downtime, usually less than thirty seconds. The new resources become
 available as soon as the service restarts. You can change the CPU and memory
@@ -78,6 +87,7 @@ plan for this before you begin!
 <procedure>
 
 ### Changing resource allocations manually
+
 1.  In the Timescale Cloud console, from the `Services` list, click the name of
     the service you want to modify.
 1.  In the `Service details` page, navigate to the `Operations` tab, and click
@@ -93,6 +103,7 @@ plan for this before you begin!
 </procedure>
 
 ## Configure autoscaling for disk size
+
 Disk size autoscaling is enabled by default on most services. When you consume
 85% or more of your existing disk space, disk size is automatically increased to
 the next size available, up to a configurable limit.
@@ -125,6 +136,7 @@ have a single scaling threshold that applies across all the data nodes.
 <procedure>
 
 ### Configuring autoscaling for disk size
+
 1.  In the Timescale Cloud console, from the `Services` list, click the name of
     the service you want to modify.
 1.  In the `Service overview` page, navigate to the `Operations` tab, and click
@@ -141,6 +153,7 @@ have a single scaling threshold that applies across all the data nodes.
 </procedure>
 
 ### Limitations of autoscaling
+
 Under very heavy data ingest loads, your data might grow faster than your new
 storage can be optimized. There must be a gap of at least 6 hours between
 resizes. For larger databases, there should be a gap of 6 to 24 hours for each
@@ -164,7 +177,9 @@ If you expect your data to grow from 85&nbsp;GB to 118&nbsp;GB within a day, you
 should manually resize your storage to accommodate the heavy load.
 
 ### Size increase gradations
+
 Size increases occur with these gradations:
+
 *   10&nbsp;GB
 *   25&nbsp;GB
 *   50&nbsp;GB

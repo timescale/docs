@@ -3,6 +3,10 @@ title: Create a service
 excerpt: Create a service in Timescale Cloud
 product: cloud
 keywords: [services, create, installation]
+cloud_ui:
+    path:
+        - [services]
+    priority: 2
 ---
 
 # Create a service
