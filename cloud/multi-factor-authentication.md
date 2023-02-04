@@ -1,0 +1,107 @@
+---
+title: Multi-factor user authentication
+excerpt: Manage Multi-factor user authentication for your Timescale Cloud account
+product: cloud
+keywords: [mfa, accounts, admin]
+tags: [two-factor user authentication]
+---
+
+## Multi-factor user authentication
+
+You can use two-factor authentication also known as 2-Step verification or 2FA
+to log in to your Timescale Cloud account.This enables secure logins that
+requires a second authentication code in addition to the user password. You
+require an authentication code, provided by the Google Authenticator app on
+your mobile device.
+
+### Before you begin:
+
+*   Install the [Google Authenticator application][install-google-authenticator]
+  on your mobile device.
+
+<procedure>
+
+### Configuring two-factor authentication
+
+1.  [Log in to your Timescale Cloud account][cloud-login].
+1.  Click the `User name` icon in the top-right of the console and select `Account`.
+1.  In the `Account` page, click `Add two-factor authentication` button.
+1.  On your mobile device, open the Google Authenticator app, tap `+` and select
+    `Scan a QR code`.
+1.  On your mobile device, scan the QR code provided by Timescale Cloud in the
+    `Connect to an authenticator app` dialog and click `Next`.
+1.  Type the verification code provided by the Google Authenticator app, and click
+    `Next`.
+1.  In the `Save your recovery codes` dialog, you can copy, download, or print the
+    recovery codes that appear.
+1.  Click `ok, i saved my recovery codes` after you have saved the recovery codes.
+    <highlight type="important">
+    A recovery code is a backup way to log in to Timescale Cloud when you can’t
+    get your verification code from  your authenticator app. If you enable
+    two-factor authentication, save your recovery codes.
+    </highlight>
+
+    After you add two-factor authentication, an email notification is sent to you.
+
+</procedure>
+
+<highlight type="warning">
+If you lose access to the mobile device you use for multi-factor
+authentication, you cannot sign in to your TimescaleDB Cloud
+account. To regain access to your account, on the login screen, click
+`Forgot password?` and follow the step to reset your password. When you have
+regained access to your account, reconfigure multi-factor authentication.
+</highlight>
+
+### Regenerating recovery codes
+
+If you do not have access to your autheticator app and need to login to
+Timescale Cloud you may need the recovery codes. After you use a recovery code
+to regain access to your account, it cannot be reused. If you've used all 10
+recovery codes, you can generate another list of codes. Generating a new set of
+recovery codes invalidate sany codes you previously generated.
+
+<procedure>
+
+1.  [Log in to your Timescale Cloud account][cloud-login].
+1.  Click the `User name` icon in the top-right of the console and select `Account`.
+1.  In the `Account` page, go to `Two-factor authentication` section.
+1.  Click `Regenerate recovery codes`. 
+1.  In the `Two-factor authentication` dialog, type the verification code from
+    your authenticator application.
+    Alternatively, if you do not have access to the authenticator application,
+    click `Use recovery code instead` to type the recovery code.
+1.  Click `Next`.
+1.  In the `Save your recovery codes` dialog, you can copy, download, or print the
+    recovery codes that appear.
+1.  Click `ok, i saved my recovery codes` after you have saved the recovery codes.
+    <highlight type="important">
+    A recovery code is a backup way to log in to Timescale Cloud when you can’t
+    get your verification code from  your authenticator app. If you enable
+    two-factor authentication, save your recovery codes.
+    </highlight>
+
+</procedure>
+
+### Removing two-factor authentication
+
+If you need to enroll a new device for two-factor authentication, you may need
+to remove two-factor authentication settings from your account and then add it
+again.
+
+<procedure>
+
+1.  [Log in to your Timescale Cloud account][cloud-login].
+1.  Click the `User name` icon in the top-right of the console and select `Account`.
+1.  In the `Account` page, go to `Two-factor authentication` section.
+1.  Click `Remove two-factor authentication`.
+1.  In the `Are you sure` dialog, type the verification code from your
+1.  authenticator application.
+    Alternatively, if you do not have access to the authenticator application,
+    click `Use recovery code instead` to type the recovery code.
+1.  Click `Remove`.
+
+</procedure>
+
+[cloud-login]: https://console.cloud.timescale.com/
+[install-google-authenticator]: https://support.google.com/accounts/answer/1066447
