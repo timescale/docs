@@ -3,6 +3,9 @@ title: Service operations - Maintenance
 excerpt: How your Timescale Cloud service is kept up-to-date
 product: cloud
 keywords: [updates, upgrades, maintenance]
+cloud_ui:
+    path:
+        - [services, :serviceID, operations, maintenance]
 ---
 
 # Service operations - Maintenance

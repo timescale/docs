@@ -4,6 +4,9 @@ excerpt: Configure advanced parameters for your Timescale Cloud service
 product: cloud
 keywords: [services, settings]
 tags: [configuration, schemas]
+cloud_ui:
+    path:
+        - [services, :serviceID, operations, database_parameters]
 ---
 
 # Service settings - advanced parameters
