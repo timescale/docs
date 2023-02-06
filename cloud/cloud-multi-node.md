@@ -4,6 +4,9 @@ excerpt: Horizontally scale your database by setting up multi-node on Timescale 
 product: cloud
 keywords: [multi-node, scaling]
 tags: [cluster, distributed hypertables]
+cloud_ui:
+    path:
+        - [services]
 ---
 
 # Multi-node on Timescale Cloud
