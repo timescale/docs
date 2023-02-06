@@ -1,9 +1,12 @@
 ---
-title: Members
+title: Manage members
 excerpt: Add or remove members from a project, or leave a project
 product: cloud
 keywords: [members, projects, admin, roles]
 tags: [users]
+cloud_ui:
+    path:
+        - [members]
 ---
 
 # Members
