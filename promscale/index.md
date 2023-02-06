@@ -4,7 +4,12 @@ excerpt: Promscale is the open source observability backend for metrics and trac
 product: promscale
 ---
 
+import PromscaleDeprecation from "versionContent/_partials/_deprecated-promscale.mdx";
+
 # Promscale
+
+<PromscaleDeprecation />
+
 Promscale is a unified metric and trace observability backend for Prometheus,
 Jaeger, and OpenTelemetry. It is built on PostgreSQL and TimescaleDB.
 
@@ -14,7 +19,7 @@ and scalable.
 
 Unlike other observability backends, it has a simple and easy-to-manage
 architecture with just two components: the Promscale Connector and the
-Promscale database. The Promscale database consists of PostgreSQL with the 
+Promscale database. The Promscale database consists of PostgreSQL with the
 TimescaleDB and Promscale extensions.
 
 <highlight type="cloud" header="Promscale with Timescale Cloud" button="Get started for free"
@@ -27,7 +32,7 @@ much more. Get cost savings of up to 94% compared to managed Prometheus offering
 from AWS, GCP and Grafana.
 </highlight>
 
-For more information about using Promscale with Timescale Cloud, see the 
+For more information about using Promscale with Timescale Cloud, see the
 [Promscale installation guide][ptc-install] for details.
 
 *   [Quick start Promscale][quick-start] to get started with Promscale in no time.
@@ -39,7 +44,7 @@ For more information about using Promscale with Timescale Cloud, see the
 *   [Learn about tobs][about-tobs] to understand how to install a complete
     observability stack on Kubernetes.
 *   Configure Promscale for [scaling and high availability][scaling-ha].
-*   [Send metrics and traces][send-data] to Promscale    
+*   [Send metrics and traces][send-data] to Promscale
 *   Use Promscale to [run queries][query-data].
 *   Use Promscale with [visualization tools][visualize-data].
 

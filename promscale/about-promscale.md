@@ -6,7 +6,12 @@ keywords: [analytics]
 tags: [learn, prometheus]
 ---
 
+import PromscaleDeprecation from "versionContent/_partials/_deprecated-promscale.mdx";
+
 # About Promscale
+
+<PromscaleDeprecation />
+
 Promscale is an open source observability backend for metrics and traces
 powered by SQL.
 
@@ -29,6 +34,7 @@ If you have any questions, join the `#promscale` channel on the
 [TimescaleDB Community Slack][slack].
 
 ## Architecture
+
 Promscale includes two components:
 
 **Promscale Connector**: a stateless service that provides the ingest interfaces
@@ -36,7 +42,7 @@ for observability data, processes that data and stores it in TimescaleDB. It
 also provides an interface to query the data with PromQL. The Promscale
 Connector automatically sets up the data structures in TimescaleDB to store the
 data and handles changes in those data structures if required for upgrading to
-newer versions of Promscale. 
+newer versions of Promscale.
 
 The Promscale Connector is a translator that natively support integrations with OSS
 standards such as Prometheus and OpenTelemetry. It includes features that are native
@@ -54,7 +60,7 @@ as specific performance and query experience improvements for observability
 data.
 
 TimecaleDB stores the data and offers the TimescaleDB functionalities to the Promscale
-connector. If you have custom metrics data, that is not in the Prometheus 
+connector. If you have custom metrics data, that is not in the Prometheus
 data model format, you can use the Promscale JSON streaming format
 to store data in Promscale. This offers PromQL for querying metrics from
 the connector, and SQL querying from the database.
@@ -87,12 +93,14 @@ example, Grafana supports querying data in Promscale using SQL out of the box
 through the PostgreSQL data source.
 
 ## Promscale PostgreSQL extension
+
 Promscale has a dependency on the
 [Promscale PostgreSQL extension][promscale-extension], which contains support
 functions to improve the performance of Promscale. If you are using
 Promscale&nbsp;0.11.0 or later, this extension is required.
 
 ## Promscale schema for metric data
+
 To achieve high ingestion, query performance, and optimal storage the Promscale
 schema writes the data in the most optimal format for storage and querying in
 TimescaleDB. Promscale translates data from the
@@ -109,6 +117,7 @@ For more information about compression, see the
 see the [hypertables section][tsdb-hypertables].
 
 ### Metrics storage schema
+
 Each metric is stored in a separate hypertable. In particular, the schema
 decouples individual metrics, allowing for the collection of metrics with vastly
 different cardinalities and retention periods. At the same time, Promscale
@@ -130,11 +139,12 @@ optimized.
 For example, the hypertables for each metric use the following schema, using `cpu_usage` as an example metric:
 
 The `cpu_usage` table schema:
+
 ```sql
 CREATE TABLE cpu_usage (
-	time 		TIMESTAMPTZ,
-	value 	DOUBLE PRECISION,
-	series_id 	BIGINT,
+ time   TIMESTAMPTZ,
+ value  DOUBLE PRECISION,
+ series_id  BIGINT,
 )
 CREATE INDEX ON cpu_usage (series_id, time) INCLUDE (value)
 ```
@@ -150,6 +160,7 @@ series_id | BIGINT                   |
 In this example, `series_id` is a foreign key to the `series` table described in the next section.
 
 ### Series storage schema
+
 Conceptually, each row in the series table stores a set of key-value pairs. In
 Prometheus, a series like this is represented as a one-level JSON string, such
 as `{ "key1":"value1", "key2":"value2" }`. But the strings representing keys and
@@ -157,6 +168,7 @@ values are often long and repeating. So, to save space, we store a series as an
 array of integer `foreign keys` to a normalized labels table.
 
 The definition of these two tables is:
+
 ```sql
 CREATE TABLE _prom_catalog.series (
     id serial,
@@ -176,6 +188,7 @@ CREATE TABLE _prom_catalog.label (
 ```
 
 ### Promscale views
+
 You interact with Prometheus data in Promscale through views. These views are
 automatically created and are used to interact with metrics and labels.
 
@@ -185,12 +198,14 @@ querying the view named `label`. These views are found in the `prom_info`
 schema.
 
 Querying the `metric` view returns all metrics collected by Prometheus:
+
 ```SQL
 SELECT *
 FROM prom_info.metric;
 ```
 
 Here is one row of a sample output for the query shown earlier:
+
 ```
 id                | 16
 metric_name       | process_cpu_seconds_total
@@ -214,12 +229,14 @@ you more control over your metrics data.
 
 Querying the `label` view returns all labels associated with metrics collected
 by Prometheus:
+
 ```SQL
 SELECT *
 FROM prom_info.label;
 ```
 
 Here is one row of a sample output for the query shown earlier:
+
 ```
 key               | collector
 value_column_name | collector

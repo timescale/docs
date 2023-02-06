@@ -5,29 +5,39 @@ product: promscale
 keywords: [maintenance, data]
 ---
 
+import PromscaleDeprecation from "versionContent/_partials/_deprecated-promscale.mdx";
+
 # Maintenance jobs
+
+<PromscaleDeprecation />
+
 Promscale implements [retention][retention] and [compression][compression]
-through maintenance jobs. These jobs are automatically created when you install 
+through maintenance jobs. These jobs are automatically created when you install
 Promscale and meet the basic requirements, but may require tuning.
 
 ## Inspect the maintenance jobs
+
 The Promscale maintenance jobs leverage the [user-defined
 actions][user-defined-actions] in the TimescaleDB framework so that you can use
 the TimescaleDB interfaces to inspect the maintenance jobs.
 
-* The [`timescaledb_information.jobs`][timescaledb_information.jobs]
+*   The [`timescaledb_information.jobs`][timescaledb_information.jobs]
 informational view provides information about the maintenance jobs, their
 schedule, and count.
-* The [`timescaledb_information.job_stats`][timescaledb_information.job_stats]
+*   The [`timescaledb_information.job_stats`][timescaledb_information.job_stats]
 informational view provides additional information about when the job last ran.
 
 ### Inspecting the maintenance
+
 To view the maintenance jobs:
+
 ```sql
 SELECT * FROM timescaledb_information.jobs
 WHERE proc_schema IN ('_prom_catalog', '_ps_trace');
 ```
+
 The output is simialr to:
+
 ```sql
 
  job_id |      application_name      | schedule_interval | max_runtime | max_retries | retry_period |  proc_schema  |            proc_name            |  owner   | scheduled |                       config                       |          next_start           | hypertable_schema | hypertable_name
@@ -44,24 +54,26 @@ In the sample output there are five maintenance jobs, two instances of
 `_prom_catalog.execute_maintenance_job`, and three instances of
 `_ps_trace.execute_tracing_compression_job`.
 
- * The `execute_maintenance_job` performs metric retention, metric compression,
+*   The `execute_maintenance_job` performs metric retention, metric compression,
    and trace retention.
 
- * The `execute_tracing_compression_job` performs compression on one of the
-   trace hypertables `span`, `event`, and `link`. 
+*   The `execute_tracing_compression_job` performs compression on one of the
+   trace hypertables `span`, `event`, and `link`.
 
- * When a job is currently running, the value in the `next_start` column is
+*   When a job is currently running, the value in the `next_start` column is
    `-infinity`.
 
-
 To view additional information about the jobs:
+
 ```sql
 SELECT js.* FROM timescaledb_information.jobs j
 JOIN timescaledb_information.job_stats js USING (job_id)
 WHERE j.proc_schema IN ('_prom_catalog', '_ps_trace');
 
 ```
+
 The output is simialr to:
+
 ```sql
  hypertable_schema | hypertable_name | job_id |      last_run_started_at      |    last_successful_finish     | last_run_status | job_status | last_run_duration |          next_start           | total_runs | total_successes | total_failures
 -------------------+-----------------+--------+-------------------------------+-------------------------------+-----------------+------------+-------------------+-------------------------------+------------+-----------------+----------------
@@ -74,6 +86,7 @@ The output is simialr to:
 ```
 
 ## Tuning the number of jobs
+
 As `execute_maintenance_job` is single-threaded, and runs in a single process,
 one maintenance job uses a maximum of one CPU. On systems with high throughput,
 it's possible that the default of two maintenance jobs is not sufficient to keep
@@ -84,6 +97,7 @@ the last run with the interval. If the most recent run is larger than the
 interval, then the job is lagging behind.
 
 To compare the duration of the last run with the interval:
+
 ```sql
 SELECT job_id, schedule_interval, last_run_duration
 FROM timescaledb_information.jobs

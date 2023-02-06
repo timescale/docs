@@ -24,6 +24,10 @@ tags: [promscale, tracing, spans]
 * Copy this comment at the top of every troubleshooting page
 -->
 
+import PromscaleDeprecation from "versionContent/_partials/_deprecated-promscale.mdx";
+
+<PromscaleDeprecation />
+
 If OpenTelemetry Tracing is not recording all Promscale spans, it is usually due
 to an error in the batch processor. The trace could be attempting to send
 batches of spans that are larger than allowed, so the span is not sent.

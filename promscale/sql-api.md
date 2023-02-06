@@ -6,7 +6,11 @@ keywords: [API]
 tags: [reference]
 ---
 
+import PromscaleDeprecation from "versionContent/_partials/_deprecated-promscale.mdx";
+
 # SQL functions API Reference
+
+<PromscaleDeprecation />
 
 This page is a reference for the functions available in Promscale.
 

@@ -6,7 +6,11 @@ keywords: [OpenTelemetry]
 tags: [configure, traces]
 ---
 
+import PromscaleDeprecation from "versionContent/_partials/_deprecated-promscale.mdx";
+
 # Send OpenTelemetry data to Promscale
+
+<PromscaleDeprecation />
 
 Promscale natively supports the OpenTelemetry Line Protocol (OTLP) for traces
 and Prometheus remote write protocol for metrics. You can send traces to
@@ -92,7 +96,7 @@ service:
 Where:
 
 *   `<PROMSCALE_HOST>`: hostname of Promscale
-*   `<gRPC_PORT>`: gRPC port of Promscale. The default port is 9202.  
+*   `<gRPC_PORT>`: gRPC port of Promscale. The default port is 9202.
 *   `<HTTP_PORT>` : HTTP port of Promscale. The default port is 9201.
 
 If you are running the OTLP Collector and the Promscale Connector on a
