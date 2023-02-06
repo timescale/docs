@@ -9,7 +9,11 @@ related_pages:
   - /promscale/:currentVersion:/send-data/
 ---
 
+import PromscaleDeprecation from "versionContent/_partials/_deprecated-promscale.mdx";
+
 # Install Promscale
+
+<PromscaleDeprecation />
 
 You can install Promscale in several different ways. The method you choose
 depends on if your system is instrumented and collecting telemetry, or if you

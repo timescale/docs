@@ -2,7 +2,11 @@
 title: Write data to Promscale using the remote-write API
 ---
 
+import PromscaleDeprecation from "versionContent/_partials/_deprecated-promscale.mdx";
+
 # Write data to Promscale using the remote-write API
+
+<PromscaleDeprecation />
 
 Promscale provides a remote-write endpoint for ingesting data. The endpoint is
 compatible with Prometheus. You can also push data to Promscale from a custom

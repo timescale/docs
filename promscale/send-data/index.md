@@ -4,7 +4,11 @@ excerpt: Send data to Promscale from Prometheus, OpenTelemetry, and other tools
 product: promscale
 ---
 
+import PromscaleDeprecation from "versionContent/_partials/_deprecated-promscale.mdx";
+
 # Send data to Promscale
+
+<PromscaleDeprecation />
 
 Promscale has native support for ingesting Prometheus and OpenTelemetry data.
 It also has APIs that you can use to send metrics in a variety of formats.
