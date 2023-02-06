@@ -1,9 +1,13 @@
 ---
 title: Service operations - VPC
-excerpt: Peer to Timescale Cloud with VPC to isolate your database
+excerpt: Use VPC peering to secure your Timescale Cloud database
 product: cloud
 keywords: [vpc, services, operations]
 tags: [aws]
+cloud_ui:
+    path:
+        - [services, :serviceID, operations, vpc]
+        - [vpc]
 ---
 
 # Service operations - VPC
