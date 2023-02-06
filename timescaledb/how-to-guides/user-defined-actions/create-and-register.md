@@ -18,15 +18,16 @@ To create an action, begin by defining the
 [function][postgres-createfunction] or
 [procedure][postgres-createprocedure] that you want your database to execute.
 
-Your function needs to be wrapped in a `CREATE OR REPLACE` statement. This
-statement also allows you to define the language of your commands in this
-statement. User-defined actions can be written in any language you choose. This
-guide uses the SQL procedural language [PL/pgSQL][plpgsql].
+Your function needs to be wrapped in a `CREATE` statement. You can also use
+`CREATE OR REPLACE`, although this is not recommended. This statement also
+allows you to define the language of your commands in this statement.
+User-defined actions can be written in any language you choose. This guide uses
+the SQL procedural language [PL/pgSQL][plpgsql].
 
 This example defines a simple procedure that raises a notice:
 
 ```sql
-CREATE OR REPLACE PROCEDURE user_defined_action(job_id INT, config JSONB)
+CREATE PROCEDURE user_defined_action(job_id INT, config JSONB)
     LANGUAGE PLPGSQL AS
     $$
     BEGIN
