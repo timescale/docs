@@ -6,10 +6,15 @@ keywords: [Grafana]
 tags: [configure, prometheus, metrics]
 ---
 
+import PromscaleDeprecation from "versionContent/_partials/_deprecated-promscale.mdx";
+
 # Connect Promscale and Grafana
+
+<PromscaleDeprecation />
+
 Grafana ships with built-in Prometheus, PostgreSQL, Jaeger, and other data source
 plugins that allow you to query and visualize data from a compatible database.
-To add a data source in Grafana you must be signed as a user with organization 
+To add a data source in Grafana you must be signed as a user with organization
 administration role privileges.
 
 To connect Grafana with Promscale, install and run Grafana version 5.3 or later.
@@ -20,6 +25,7 @@ This section shows you how to connect Promscale to Prometheus, Jaeger, and
 PostgreSQL data sources in [Grafana][grafana-homepage].
 
 ## Configure Promscale as Prometheus data source
+
 Prometheus collects and stores metrics as time-series data. To configure
 Promscale as Prometheus data source you need the IP address of the Promscale
 instance.
@@ -47,11 +53,11 @@ can create panels that are populated with data using PromQL.
 src="https://s3.amazonaws.com/assets.timescale.com/images/misc/getting-started-with-promscale-grafana-dashboard.png"
 alt="Sample output for PromQl query"/>
 
-
 ## Configure Promscale as Jaeger data source
+
 Jaeger is an open source distributed tracing system used for monitoring and
 troubleshooting microservices-based distributed systems. To configure Promscale
-as Jaeger data source you need the IP address of the Promscale instance. 
+as Jaeger data source you need the IP address of the Promscale instance.
 
 <procedure>
 
@@ -91,11 +97,11 @@ TimescaleDB or PostgreSQL database used by Promscale.
 1.  Navigate to `Configuration` → `Data sources`. The data sources page lists
     previously configured data sources for the Grafana instance.
 1.  Click `Add data source` to see a list of all supported data sources.
-1.  Type *PostgreSQL* in the search field and click `Select`. 
+1.  Type *PostgreSQL* in the search field and click `Select`.
 1.  Configure the data source settings:
     *   In the `Name` field, type `Promscale-SQL`.
     *   In the `Host` field, type the IP address or hostname and optional port of
-        your TimescaleDB or PostgreSQL instance. 
+        your TimescaleDB or PostgreSQL instance.
     *   In the `Database` field, type the name of the PostgreSQL database. The
         default database is `tsdb`.
     *   In the `User`and `Password` fields, type the `user name` and the

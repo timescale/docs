@@ -6,13 +6,18 @@ keywords: [CLI]
 tags: [reference]
 ---
 
+import PromscaleDeprecation from "versionContent/_partials/_deprecated-promscale.mdx";
+
 # Promscale command line interface (CLI) reference
+
+<PromscaleDeprecation />
 
 This document gives you information about the configuration flags and arguments
 supported by the Promscale Connector. You can also find information on flags
 with `promscale_<version> -help`.
 
-<highlight type="note"> Flags can be set as environment variables by converting lowercase to
+<highlight type="note">
+ Flags can be set as environment variables by converting lowercase to
 uppercase, `-` and `.`to `_` (if any), and prefixing with `PROMSCALE_`. For
 example, `db.host` can be set as an environment variable as `PROMSCALE_DB_HOST`.
 </highlight>
@@ -31,6 +36,7 @@ db.port: 5432
 db.password: password
 db.name: postgres
 ```
+
 If the file is named `config.yml`, Promscale will pick it up
 automatically, otherwise you can specify the config file with `./promscale
 -config /path/to/your-config.yml`.
@@ -89,7 +95,7 @@ automatically, otherwise you can specify the config file with `./promscale
 | telemetry.trace.otel-endpoint | string | "" (empty) | OpenTelemetry tracing collector GRPC URL endpoint to send telemetry to otel-collector:4317 |
 | telemetry.trace.otel-tls-cert-file | string | "" (empty) | TLS Certificate file used for client authentication against the OTEL tracing collector GRPC endpoint. Leave blank to disable TLS. |
 | telemetry.trace.otel-tls-key-file | string | "" (empty) | TLS Key file for client authentication against the OTEL tracing collector GRPC endpoint. Leave blank to disable TLS. |
-| telemetry.trace.jaeger-endpoint | string | "" (empty) | Jaeger tracing collector thrift HTTP URL endpoint to send telemetry to (for example: https://jaeger-collector:14268/api/traces). |
+| telemetry.trace.jaeger-endpoint | string | "" (empty) | Jaeger tracing collector thrift HTTP URL endpoint to send telemetry to (for example: <https://jaeger-collector:14268/api/traces>). |
 | telemetry.trace.sample-ratio | float | 1.0 | Trace sampling ratio, amount of spans to send to collector. Valid values from 0.0 (none) to 1.0 (all). |
 
 <!-- markdown-link-check-enable -->
@@ -115,14 +121,15 @@ automatically, otherwise you can specify the config file with `./promscale
 | metrics.promql.max-samples | integer64 | 50000000 | Maximum number of samples a single query can load into memory. Note that queries will fail if they try to load more samples than this into memory, so this also limits the number of samples a query can return. |
 | metrics.promql.query-timeout | duration | 2 minutes | Maximum time a query may take before being aborted. This option sets both the default and maximum value of the 'timeout' parameter in '/api/v1/query.*' endpoints. |
 
-## Recording and Alerting rules flags 
+## Recording and Alerting rules flags
+
 | Flag | Type | Default | Description |
 |------|:-----:|:-------:|:-----------|
 | metrics.alertmanager.notification-queue-capacity | integer | 10000 | The capacity of the queue for pending Alertmanager notifications. |
 | metrics.rules.alert.for-grace-period | duration | 10 minutes | Minimum duration between alert and restored "for" state. This is maintained only for alerts with configured "for" time greater than the grace period.|
 | metrics.rules.alert.for-outage-tolerance | duration | 1 hour | Max time to tolerate Promscale outage for restoring "for" state of alert. |
 | metrics.rules.alert.resend-delay | duration |  1 minute  | Minimum amount of time to wait before resending an alert to Alertmanager. |
-| metrics.rules.config-file | string | "" | Path to configuration file in Prometheus-format, containing rule_files and optional `alerting` and `global` fields. For more details, see https://prometheus.io/docs/prometheus/latest/configuration/configuration/. Note: If this flag is missing or `rule_files` is empty, Promscale rule-manager does not start. If `alertmanagers` is empty, alerting is not initialized. |
+| metrics.rules.config-file | string | "" | Path to configuration file in Prometheus-format, containing rule_files and optional `alerting` and `global` fields. For more details, see <https://prometheus.io/docs/prometheus/latest/configuration/configuration/>. Note: If this flag is missing or `rule_files` is empty, Promscale rule-manager does not start. If `alertmanagers` is empty, alerting is not initialized. |
 
 ## Startup process flags
 

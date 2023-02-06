@@ -17,6 +17,10 @@ tags: [promscale, locks, memory, out-of-memory, OOM, resources, performance]
 * Copy this comment at the top of every troubleshooting page
 -->
 
+import PromscaleDeprecation from "versionContent/_partials/_deprecated-promscale.mdx";
+
+<PromscaleDeprecation />
+
 Promscale creates a table for each metric. When you run `pg_dump` and
 `pg_restore`, they lock each table to work on it. This can require a lot of
 locks in a single transaction, which can quickly grow higher than the maximum
