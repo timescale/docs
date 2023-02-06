@@ -7,7 +7,7 @@ keywords: [Grafana, visualizations, analytics]
 # Creating a Grafana dashboard and panel
 
 Grafana is organized into `Dashboards` and `Panels`. A dashboard represents a
-view onto the performance of a system, and each dashboard consists of one or
+view into the performance of a system, and each dashboard consists of one or
 more panels, which represents information about a specific metric related to
 that system.
 
@@ -33,7 +33,7 @@ menu, within which is a `Dashboard` option. Select that `Dashboard` option.
 
 After creating a new dashboard, you'll see a `New Panel` screen, with options
 for `Add Query` and `Choose Visualization`. In the future, if you already have a
-dashboard with panels, you can click on the `+` icon at the top of the
+dashboard with panels, you can click the `+` icon at the top of the
 Grafana user interface, which enables you to add a panel to an existing
 dashboard.
 
@@ -53,11 +53,11 @@ In the far left section of the Grafana user interface, select the 'Queries' tab.
 <img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/screenshots-for-grafana-tutorial/create_grafana_query.png" alt="How to create a new Grafana query"/>
 
 Instead of using the Grafana query builder, edit the query directly. In the
-view, click on the `Edit SQL` button at the bottom.
+view, click the `Edit SQL` button at the bottom.
 
 <img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/screenshots-for-grafana-tutorial/edit_sql_in_grafana.png" alt="Edit custom SQL queries in Grafana"/>
 
-Before you can begin authoring our query, you also want to set the query database
+Before you can begin authoring your query, you also want to set the query database
 to the New York City taxi cab datasource you connected to earlier:
 
 <img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/screenshots-for-grafana-tutorial/set_data_source.png" alt="Switching data sources in Grafana"/>
@@ -111,7 +111,7 @@ FROM rides
 
 #### The Grafana timeFilter function
 
-Grafana time-series panels include a tool thatlets you filter on a given time
+Grafana time-series panels include a tool that lets you filter on a given time
 range, called a time filter. Not surprisingly, Grafana has a way to link the
 user interface construct in a Grafana panel with the query itself; in this case,
 the `$__timefilter()` function.
