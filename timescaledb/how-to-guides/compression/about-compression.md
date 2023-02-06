@@ -45,7 +45,7 @@ best possible compression ratio.
 You can enable compression on individual hypertables, by declaring which column
 you want to segment by. This procedure uses an example table, called `example`,
 and segments it by the `device_id` column. Every chunk that is more than seven
-days old is then intructed to be automatically compressed.
+days old is then marked to be automatically compressed.
 
 |time|device_id|cpu|disk_io|energy_consumption|
 |-|-|-|-|-|
