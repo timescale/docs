@@ -1,6 +1,6 @@
 ---
 api_name: irate_left()
-excerpt: Calculate the instantaneous rate of change at the left edge of a gauge aggregate
+excerpt: Calculate the instantaneous rate of change at the left, or earliest, edge of a gauge aggregate
 topics: [hyperfunctions]
 api:
   license: community

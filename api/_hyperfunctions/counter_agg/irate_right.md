@@ -1,6 +1,6 @@
 ---
 api_name: irate_right()
-excerpt: Calculate the instantaneous rate of change at the right edge of a counter aggregate
+excerpt: Calculate the instantaneous rate of change at the right, or latest, edge of a counter aggregate
 topics: [hyperfunctions]
 api:
   license: community

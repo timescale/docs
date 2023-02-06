@@ -1,6 +1,6 @@
 ---
 api_name: idelta_left()
-excerpt: Calculate the instantaneous change at the left edge of a counter aggregate
+excerpt: Calculate the instantaneous change at the left, or earliest, edge of a counter aggregate
 topics: [hyperfunctions]
 api:
   license: community

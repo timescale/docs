@@ -3,8 +3,9 @@ section: hyperfunction
 subsection: counter_agg()
 ---
 
-Analyze data coming from counters. Counters are always increasing, and any
-decreases are treated as resets.
+Analyze data whose values are designed to monotonically increase, and where any
+decreases are treated as resets. The `counter_agg` functions simplify this task,
+which can be difficult to do in pure SQL.
 
 If it's valid for your reading to decrease, use [`gauge_agg`][gauge_agg]
 instead.
