@@ -82,7 +82,7 @@ previous codes.
 1.  In the `Save your recovery codes` dialog, copy, download, or print the
     recovery codes, and save them in a safe place. These are used to recover your 
     account if you lose your device.
-1.  Click `ok, i saved my recovery codes` after you have saved the recovery codes.
+1.  Verify that you have saved your recovery codes, by clicking `OK, I saved my recovery codes`.
 
 </procedure>
 
