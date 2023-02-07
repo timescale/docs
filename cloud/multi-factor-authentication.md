@@ -42,7 +42,7 @@ is provided by an app on your mobile device, such as Google Authenticator.
     two-factor authentication, save your recovery codes.
     </highlight>
 
-    After you add two-factor authentication, an email notification is sent to you.
+1.  If two-factor authentication is enabled correctly, an email notification is sent to you.
 
 </procedure>
 
