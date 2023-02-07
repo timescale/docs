@@ -30,7 +30,7 @@ is provided by an app on your mobile device, such as Google Authenticator.
     `Scan a QR code`.
 1.  On your mobile device, scan the QR code provided by Timescale Cloud in the
     `Connect to an authenticator app` dialog and click `Next`.
-1.  Type the verification code provided by the Google Authenticator app, and click
+1.  In the dashboard, type the verification code provided by Google Authenticator, and click
     `Next`.
 1.  In the `Save your recovery codes` dialog, you can copy, download, or print the
     recovery codes that appear.
