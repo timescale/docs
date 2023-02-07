@@ -60,7 +60,9 @@ If you do not have access to your authenticator app and need to log in to
 Timescale Cloud you can use your recovery codes. After you use a recovery code
 to regain access to your account, it cannot be reused. If you've used all 10
 recovery codes, you can generate another list of codes. Generating a new set of
-recovery codes invalidates any codes you previously generated.
+recovery codes invalidates all previously generated codes. You
+can also regenerate your codes if you lose access to your 
+previous codes.
 
 <procedure>
 
