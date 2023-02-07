@@ -25,7 +25,7 @@ is provided by an app on your mobile device, such as Google Authenticator.
 
 1.  [Log in to your Timescale Cloud account][cloud-login].
 1.  Click the `User name` icon in the top-right of the console and select `Account`.
-1.  In the `Account` page, click `Add two-factor authentication` button.
+1.  In the `Account` page, click `Add two-factor authentication`.
 1.  On your mobile device, open the Google Authenticator app, tap `+` and select
     `Scan a QR code`.
 1.  On your mobile device, scan the QR code provided by Timescale Cloud in the
