@@ -98,9 +98,9 @@ again with your new device.
 1.  In the `Account` page, go to `Two-factor authentication` section.
 1.  Click `Remove two-factor authentication`.
 1.  In the `Are you sure` dialog, type the verification code from your
-1.  authenticator application.
-    Alternatively, if you do not have access to the authenticator application,
-    click `Use recovery code instead` to type the recovery code.
+    authenticator application. Alternatively, if you do not have access 
+    to the authenticator application, click `Use recovery code instead` 
+    to type the recovery code.
 1.  Click `Remove`.
 
 </procedure>
