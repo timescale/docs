@@ -8,8 +8,9 @@ tags: [two-factor user authentication]
 
 ## Multi-factor user authentication
 
-You can use two-factor authentication also known as 2-Step verification or 2FA
-to log in to your Timescale Cloud account. This enables secure logins that
+You can use two-factor authentication to log in to your Timescale Cloud 
+account. Two-factor authentication, also known as two-step verification 
+or 2FA, enables secure logins that
 requires a second authentication code in addition to the user password. You
 require an authentication code, provided by the Google Authenticator app on
 your mobile device.
