@@ -58,7 +58,7 @@ view, click the `Edit SQL` button at the bottom.
 <img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/screenshots-for-grafana-tutorial/edit_sql_in_grafana.png" alt="Edit custom SQL queries in Grafana"/>
 
 Before you can begin authoring your query, you also want to set the query database
-to the New York City taxi cab datasource you connected to earlier:
+to the New York City taxi cab dataset you connected to earlier:
 
 <img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/screenshots-for-grafana-tutorial/set_data_source.png" alt="Switching data sources in Grafana"/>
 
@@ -69,7 +69,7 @@ If you are visualizing time series data in Grafana, make sure you select
 
 ### Visualize metrics stored in TimescaleDB
 
-Let's start by creating a visualization that answers the question "How many
+Start by creating a visualization that answers the question "How many
 rides took place on each day?" from the [NYC Taxi Cab][nyc-taxi] tutorial.
 
 From the tutorial, you can see the standard SQL syntax for our query:
@@ -94,7 +94,7 @@ for more information on how to use it properly.
 Take a look at the `SELECT` portion of this query. First, bucket the results
 into one day groupings using the `time_bucket` function. If you set the `Format`
 of a Grafana panel to be `Time series`, for use in the graph panel for example,
-then the query must return a column named `time` that returns either a SQL
+then the query must return a column named `time` that returns either an SQL
 `datetime` or any numeric datatype representing a Unix epoch.
 
 So, part 1 of this new query is modified so that the output of the `time_bucket`
