@@ -83,7 +83,7 @@ recovery codes invalidates any codes you previously generated.
 
 </procedure>
 
-### Removing two-factor authentication
+## Remove two-factor authentication
 
 If you need to enroll a new device for two-factor authentication, you may need
 to remove two-factor authentication settings from your account and then add it
