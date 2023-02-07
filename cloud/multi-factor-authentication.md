@@ -79,8 +79,9 @@ previous codes.
     Alternatively, if you do not have access to the authenticator application,
     click `Use recovery code instead` to type the recovery code.
 1.  Click `Next`.
-1.  In the `Save your recovery codes` dialog, you can copy, download, or print the
-    recovery codes that appear.
+1.  In the `Save your recovery codes` dialog, copy, download, or print the
+    recovery codes, and save them in a safe place. These are used to recover your 
+    account if you lose your device.
 1.  Click `ok, i saved my recovery codes` after you have saved the recovery codes.
 
 </procedure>
