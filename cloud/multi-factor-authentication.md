@@ -48,7 +48,7 @@ is provided by an app on your mobile device, such as Google Authenticator.
 
 <highlight type="warning">
 If you lose access to the mobile device you use for multi-factor
-authentication, you cannot sign in to your TimescaleDB Cloud
+authentication, and you do not have access to your recovery codes, you cannot sign in to your TimescaleDB Cloud
 account. To regain access to your account, on the login screen, click
 `Forgot password?` and follow the step to reset your password. When you have
 regained access to your account, reconfigure multi-factor authentication.
