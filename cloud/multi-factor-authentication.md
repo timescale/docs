@@ -57,7 +57,7 @@ regained access to your account, reconfigure multi-factor authentication.
 ### Regenerating recovery codes
 
 If you do not have access to your authenticator app and need to log in to
-Timescale Cloud you may need the recovery codes. After you use a recovery code
+Timescale Cloud you can use your recovery codes. After you use a recovery code
 to regain access to your account, it cannot be reused. If you've used all 10
 recovery codes, you can generate another list of codes. Generating a new set of
 recovery codes invalidates any codes you previously generated.
