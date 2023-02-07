@@ -76,11 +76,6 @@ recovery codes invalidates any codes you previously generated.
 1.  In the `Save your recovery codes` dialog, you can copy, download, or print the
     recovery codes that appear.
 1.  Click `ok, i saved my recovery codes` after you have saved the recovery codes.
-    <highlight type="important">
-    A recovery code is a backup way to log in to Timescale Cloud when you can't
-    get your verification code from  your authenticator app. If you enable
-    two-factor authentication, save your recovery codes.
-    </highlight>
 
 </procedure>
 
