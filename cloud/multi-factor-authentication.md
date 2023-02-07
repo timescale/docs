@@ -85,9 +85,9 @@ recovery codes invalidates any codes you previously generated.
 
 ## Remove two-factor authentication
 
-If you need to enroll a new device for two-factor authentication, you may need
-to remove two-factor authentication settings from your account and then add it
-again.
+If you need to enroll a new device for two-factor authentication, you can 
+remove two-factor authentication from your account and then add it 
+again with your new device.
 
 <procedure>
 
