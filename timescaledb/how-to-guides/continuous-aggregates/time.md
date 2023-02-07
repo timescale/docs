@@ -16,7 +16,8 @@ use an integer time column.
 
 ## Declare an explicit timezone
 
-The most common method of working with timezones is to declare an explicit timezone in the view query.
+The most common method of working with timezones is to declare an explicit
+timezone in the view query.
 
 <procedure>
 
@@ -53,18 +54,15 @@ Date and time is usually expressed as year-month-day and hours:minutes:seconds.
 Most TimescaleDB databases use a [date/time-type][postgres-date-time] column to
 express the date and time. However, in some cases, you might need to convert
 these common time and date formats to a format that uses an integer. The most
-common of these is Unix time, which is the number of seconds since the Unix
-epoch (1970-01-01), but other types of integer-based time formats are possible.
+common integer time is Unix epoch time, which is the number of seconds since the
+Unix epoch of 1970-01-01, but other types of integer-based time formats are
+possible.
 
-In these examples, we have a hypertable called `devices` that contains CPU and
-disk usage for devices. These devices measure time using microfortnights since
-epoch, under the humorous but impractical system of measurement called the
-[furlong-firkin-fortnight (FFF) system][fff-system].
+These examples use a hypertable called `devices` that contains CPU and disk
+usage information. The devices measure time using the Unix epoch.
 
 To create a hypertable that uses an integer-based column as time, you need to
-provide the chunk time interval. In this case, each chunk consists of a
-millifortnight, which is equivalent to 1000 microfortnights, or about twenty
-minutes.
+provide the chunk time interval. In this case, each chunk is 10 minutes.
 
 <procedure>
 
@@ -74,7 +72,7 @@ minutes.
 
     ```sql
     CREATE TABLE devices(
-      time BIGINT,        -- Time in microfortnights since epoch
+      time BIGINT,        -- Time in minutes since epoch
       cpu_usage INTEGER,  -- Total CPU usage
       disk_usage INTEGER, -- Total disk usage
       PRIMARY KEY (time)
@@ -85,26 +83,33 @@ minutes.
 
     ```sql
     SELECT create_hypertable('devices', 'time',
-      chunk_time_interval => 1000);
+      chunk_time_interval => 10);
     ```
 
 </procedure>
 
-To define a continuous aggregate on a hypertable that uses integer-based time, you need to have a function to get the current time in the correct format, and set it for the hypertable. This is done using the [`set_integer_now_func`][api-set-integer-now-func]. It can be defined as a regular PostgreSQL function, but needs to be [`STABLE`][pg-func-stable], take no arguments, and return an integer value of the same type as the time column in the table. When you have set up the time-handling, you can create the continuous aggregate.
+To define a continuous aggregate on a hypertable that uses integer-based time,
+you need to have a function to get the current time in the correct format, and
+set it for the hypertable. You can do this with the
+[`set_integer_now_func`][api-set-integer-now-func]
+function. It can be defined as a regular PostgreSQL function, but needs to be
+[`STABLE`][pg-func-stable],
+take no arguments, and return an integer value of the same type as the time
+column in the table. When you have set up the time-handling, you can create the
+continuous aggregate.
 
 <procedure>
 
 ### Creating a continuous aggregate with integer-based time
 
-1.  At the `psql` prompt, set up a function to convert the time to the FFF system:
+1.  At the `psql` prompt, set up a function to convert the time to the Unix epoch:
 
     ```sql
-    CREATE FUNCTION current_microfortnight() RETURNS BIGINT
+    CREATE FUNCTION current_epoch() RETURNS BIGINT
     LANGUAGE SQL STABLE AS $$
-    SELECT CAST(1209600 * EXTRACT(EPOCH FROM CURRENT_TIME) / 1000000 AS BIGINT)
-     $$;
+    SELECT EXTRACT(EPOCH FROM CURRENT_EPOCH)::bigint;
 
-     SELECT set_integer_now_func('devices', 'current_microfortnight');
+     SELECT set_integer_now_func('devices', 'current_epoch');
      ```
 
 1.  Create the continuous aggregate for the `devices` table:
@@ -131,7 +136,9 @@ To define a continuous aggregate on a hypertable that uses integer-based time, y
     FROM generate_series(1,10000) AS time;
     ```
 
-    This command uses the `tablefunc` extension to generate a normal distribution, and uses the `row_number` function to turn it into a cumulative sequence.
+    This command uses the `tablefunc` extension to generate a normal
+    distribution, and uses the `row_number` function to turn it into a
+    cumulative sequence.
 1.  Check that the view contains the correct data:
 
     ```sql
