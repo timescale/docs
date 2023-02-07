@@ -23,7 +23,7 @@ Before you begin, make sure you have:
 
 <procedure>
 
-### Configuring two-factor authentication
+### Configuring two-factor authentication with Google Authenticator
 
 1.  [Log in to your Timescale Cloud account][cloud-login].
 1.  Click the `User name` icon in the top-right of the console and select `Account`.
