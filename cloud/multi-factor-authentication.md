@@ -95,7 +95,7 @@ again with your new device.
 
 1.  [Log in to your Timescale Cloud account][cloud-login].
 1.  Click the `User name` icon in the top-right of the console and select `Account`.
-1.  In the `Account` page, go to `Two-factor authentication` section.
+1.  In the `Account` page, navigate to the `Two-factor authentication` section.
 1.  Click `Remove two-factor authentication`.
 1.  In the `Are you sure` dialog, type the verification code from your
     authenticator application. Alternatively, if you do not have access 
