@@ -161,6 +161,5 @@ continuous aggregate.
 </procedure>
 
 [api-set-integer-now-func]: /api/:currentVersion:/hypertable/set_integer_now_func
-[fff-system]: https://en.wikipedia.org/wiki/FFF_system
 [pg-func-stable]: https://www.postgresql.org/docs/current/static/sql-createfunction.html
 [postgres-date-time]: https://www.postgresql.org/docs/current/datatype-datetime.html
