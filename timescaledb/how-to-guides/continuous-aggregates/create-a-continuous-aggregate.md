@@ -4,7 +4,7 @@ excerpt: How to create a continuous aggregate
 keywords: [continuous aggregates, create]
 ---
 
-# Create a continuous aggregate
+# Create continuous aggregates
 
 Creating a continuous aggregate is a two-step process. You need to create the
 view first, then enable a policy to keep the view refreshed. You can create the
@@ -144,8 +144,9 @@ queries to run efficiently.
 
 ## Create a continuous aggregate with a JOIN
 
-In TimescaleDB 2.9 and later, with PostgreSQL 13 or later, you can create a
-continuous aggregate with a query that also includes a `JOIN`. For example:
+In TimescaleDB&nbsp;2.9 and later, with PostgreSQL&nbsp;13 or later, you can
+create a continuous aggregate with a query that also includes a `JOIN`. For
+example:
 
 ```sql
 CREATE MATERIALIZED VIEW conditions_summary_daily_3
@@ -158,6 +159,12 @@ SELECT time_bucket(INTERVAL '1 day', day) AS bucket,
 FROM devices JOIN conditions USING (device_id)
 GROUP BY name, bucket;
 ```
+
+<highlight type="note">
+This also works in Timescale&nbsp;2.9 and later running PostgreSQL&nbsp;12, but
+you cannot also have a `USING` clause in your `JOIN`. If you need a `USING`
+clause, you must have PostgreSQL&nbsp;13 or later.
+</highlight>
 
 ## Query continuous aggregates
 
