@@ -83,7 +83,7 @@ provide the chunk time interval. In this case, each chunk is 10 minutes.
 
     ```sql
     SELECT create_hypertable('devices', 'time',
-      chunk_time_interval => 10);
+      chunk_time_interval => 20);
     ```
 
 </procedure>
@@ -107,7 +107,7 @@ continuous aggregate.
     ```sql
     CREATE FUNCTION current_epoch() RETURNS BIGINT
     LANGUAGE SQL STABLE AS $$
-    SELECT EXTRACT(EPOCH FROM CURRENT_EPOCH)::bigint;
+    SELECT EXTRACT(EPOCH FROM CURRENT_EPOCH)::bigint;$$;
 
      SELECT set_integer_now_func('devices', 'current_epoch');
      ```
