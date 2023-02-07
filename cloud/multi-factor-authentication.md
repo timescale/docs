@@ -16,7 +16,7 @@ is provided by an app on your mobile device, such as Google Authenticator.
 
 Before you begin, make sure you have:
 
-*   Install the [Google Authenticator application][install-google-authenticator]
+*   Installed the [Google Authenticator application][install-google-authenticator]
   on your mobile device.
 
 <procedure>
