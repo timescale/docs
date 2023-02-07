@@ -56,7 +56,7 @@ account. To regain access to your account, on the login screen, click
 regained access to your account, reconfigure multi-factor authentication.
 </highlight>
 
-### Regenerating recovery codes
+## Regenerate recovery codes
 
 If you do not have access to your authenticator app and need to log in to
 Timescale Cloud you can use your recovery codes. After you use a recovery code
