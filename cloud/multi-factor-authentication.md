@@ -6,7 +6,7 @@ keywords: [mfa, accounts, admin]
 tags: [two-factor user authentication]
 ---
 
-## Multi-factor user authentication
+# Multi-factor user authentication
 
 You can use two-factor authentication to log in to your Timescale Cloud 
 account. Two-factor authentication, also known as two-step verification 
