@@ -68,6 +68,8 @@ previous codes.
 
 <procedure>
 
+### Regenerating recovery codes
+
 1.  [Log in to your Timescale Cloud account][cloud-login].
 1.  Click the `User name` icon in the top-right of the console and select `Account`.
 1.  In the `Account` page, navigate to the `Two-factor authentication` section.
