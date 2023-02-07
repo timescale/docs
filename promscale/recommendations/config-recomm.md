@@ -3,7 +3,11 @@ title: Configuration recommendations for Promscale
 excerpt: Learn the recommended way to set up database parameters for Promscale
 ---
 
+import PromscaleDeprecation from "versionContent/_partials/_deprecated-promscale.mdx";
+
 # Configuration recommendations
+
+<PromscaleDeprecation />
 
 This section describes the configuration recommendations for Promscale.
 

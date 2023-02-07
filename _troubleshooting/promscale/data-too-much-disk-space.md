@@ -17,6 +17,10 @@ tags: [promscale, resources, disk, storage, compression]
 * Copy this comment at the top of every troubleshooting page
 -->
 
+import PromscaleDeprecation from "versionContent/_partials/_deprecated-promscale.mdx";
+
+<PromscaleDeprecation />
+
 Promscale keeps metric data in chunks. The most recent chunk is kept
 uncompressed as a cache for faster querying, and chunks are compressed as they
 age. If your data is taking up more disk space than expected, compression might
