@@ -14,7 +14,7 @@ or 2FA, enables secure logins that
 requires an authentication code in addition to your user password. The code 
 is provided by an app on your mobile device, such as Google Authenticator.
 
-### Before you begin:
+Before you begin, make sure you have:
 
 *   Install the [Google Authenticator application][install-google-authenticator]
   on your mobile device.
