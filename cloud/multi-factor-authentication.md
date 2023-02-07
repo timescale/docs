@@ -35,7 +35,7 @@ is provided by an app on your mobile device, such as Google Authenticator.
 1.  In the `Save your recovery codes` dialog, copy, download, or print the
     recovery codes, and save them in a safe place. These are used to 
     recover your account if you lose your device.
-1.  Click `ok, i saved my recovery codes` after you have saved the recovery codes.
+1.  Verify that you have saved your recovery codes, by clicking `OK, I saved my recovery codes`.
     <highlight type="important">
     A recovery code is a backup way to log in to Timescale Cloud when you can't
     get your verification code from  your authenticator app. If you enable
