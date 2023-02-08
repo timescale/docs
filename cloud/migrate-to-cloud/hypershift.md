@@ -178,10 +178,10 @@ Use this format:
     configuration file:
 
     ```bash
-    docker run -v$(pwd)/hypershift.yaml -ti timescale/hypershift:latest clone \
+    docker run -v$(pwd)/hypershift.yml -ti timescale/hypershift:latest clone \
     -s "host=<SOURCE_DB_HOSTNAME> user=postgres port=5431 password=<DB_PASSWORD>" \
     -t "host=<TARGET_DB_HOSTNAME> user=postgres port=5432 password=<DB_PASSWORD>" \
-    --hypertable /conversions.yaml
+    --hypertable /hypershift.yml
     ```
 
     </tab>
