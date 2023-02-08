@@ -35,7 +35,7 @@ thirty days. This gives you enough time to complete all the tutorials and run
 a few test projects of your own.
 </highlight>
 
-## Download hypershift
+## Download the hypershift container
 
 <Tabs label="Download hypershift">
 
@@ -43,18 +43,14 @@ a few test projects of your own.
 
 <procedure>
 
-### Downloading hypershift on MacOS
+### Downloading the hypershift container on MacOS
 
-1.  Download the hypershift tool for MacOS:
+1.  Open the Docker app on your local machine to start the service.
 
-    <tag type="download">[FIXME](https://timescale,com/FIXME)</tag>
-
-1.  Run the file and follow the instructions to compete install.
-
-1.  You can check the file has been installed correctly with this command:
+1.  At the command prompt, pull the latest hypershift container from Dockerhub:
 
     ```bash
-    hypershift --version
+    docker pull timescale/hypershift
     ```
 
 </procedure>
@@ -65,38 +61,18 @@ a few test projects of your own.
 
 <procedure>
 
-### Downloading hypershift on Linux
+### Downloading the hypershift container on Linux
 
-1.  Download the hypershift tool for MacOS:
-
-    <tag type="download">[FIXME](https://timescale,com/FIXME)</tag>
-
-1.  At the command prompt, install the file:
-
-    <terminal>
-
-    <tab label="Debian-based">
+1.  Start the Docker service:
 
     ```bash
-    apt-get install FIXME
+    sudo service docker start
     ```
 
-    </tab>
-
-    <tab label="Red Hat-based">
+1.  At the command prompt, pull the latest hypershift container from Dockerhub:
 
     ```bash
-    dnf install FIXME
-    ```
-
-    </tab>
-
-    </terminal>
-
-1.  You can check the file has been installed correctly with this command:
-
-    ```bash
-    hypershift --version
+    docker pull timescale/hypershift
     ```
 
 </procedure>
@@ -111,12 +87,30 @@ In preparation for running hypershift, you need to determine which tables need
 to be converted to hypertables, and which tables need to be compressed during
 the migration. Hypertables must have a unique column labelled `time`.
 
-hypershift uses a YAML configuration file to determine how to set up your new
+Hypershift uses a YAML configuration file to determine how to set up your new
 Timescale database. You can create your own file, or use our example file as a
 starting point. You need these details to complete your configuration file:
 
-*   FIXME
-*   FIXME
+*   The schema you want to use
+*   The name of the database you are migrating
+*   The name of the `time` column in your database
+*   The chunk time interval to use
+*   The compression policy you want to use
+
+Use this format:
+
+```yml
+- schema: public
+  name: <DATABASE_NAME>
+  time_column_name: <TIME_COLUMN_NAME>
+  chunk_time_interval: "12h"
+  compress:
+    after: "48h"
+    segmentby:
+      - <COLUMN_NAME>
+    orderby:
+      - time desc
+```
 
 <Tabs label="Run hypershift">
 
@@ -130,14 +124,27 @@ starting point. You need these details to complete your configuration file:
     accordingly. For example:
 
     ```yml
-    FIXME
+    - schema: public
+      name: stocks_real_time
+      time_column_name: time
+      chunk_time_interval: "12h"
+      compress:
+        after: "48h"
+        segmentby:
+          - symbol
+        orderby:
+          - time desc
     ```
 
-1.  At the command prompt, run hypershift. Include the source and destination
-    database names, and the path to your `hypershift.yml` configuration file:
+1.  At the command prompt, run the hypershift container. Include the source and
+    destination database connection strings, and the path to your `hypershift.yml`
+    configuration file:
 
     ```bash
-    hypershift --source-dsn SOURCE_DB --target-dsn TARGET_DB --hypertable
+    docker run -v$(pwd)/hypershift.yaml -ti timescale/hypershift:latest clone \
+    -s "host=<SOURCE_DB_HOSTNAME> user=postgres port=5431 password=<DB_PASSWORD>" \
+    -t "host=<TARGET_DB_HOSTNAME> user=postgres port=5432 password=<DB_PASSWORD>" \
+    --hypertable /conversions.yaml
     ```
 
 </procedure>
@@ -150,36 +157,31 @@ starting point. You need these details to complete your configuration file:
 
 ### Running hypershift on Linux
 
-1.  Determine which tables need to be converted to hypertables, and which tables
-    need to be compressed during the migration. Hypertables must have a unique
-    column labelled `time`.
-
 1.  Open the `hypershift.yml` configuration file, and adjust parameters
     accordingly. For example:
 
     ```yml
-    FIXME
+    - schema: public
+      name: stocks_real_time
+      time_column_name: time
+      chunk_time_interval: "12h"
+      compress:
+        after: "48h"
+        segmentby:
+          - symbol
+        orderby:
+          - time desc
     ```
 
-1.  At the command prompt, run hypershift. Include the source and destination
-    database names, and the path to your `hypershift.yml` configuration file:
-
-1.  At the command prompt, install the file:
-
-    <terminal>
-
-    <tab label="Debian-based">
+1.  At the command prompt, run the hypershift container. Include the source and
+    destination database connection strings, and the path to your `hypershift.yml`
+    configuration file:
 
     ```bash
-    hypershift --source-dsn SOURCE_DB --target-dsn TARGET_DB --hypertable
-    ```
-
-    </tab>
-
-    <tab label="Red Hat-based">
-
-    ```bash
-    hypershift --source-dsn SOURCE_DB --target-dsn TARGET_DB --hypertable
+    docker run -v$(pwd)/hypershift.yaml -ti timescale/hypershift:latest clone \
+    -s "host=<SOURCE_DB_HOSTNAME> user=postgres port=5431 password=<DB_PASSWORD>" \
+    -t "host=<TARGET_DB_HOSTNAME> user=postgres port=5432 password=<DB_PASSWORD>" \
+    --hypertable /conversions.yaml
     ```
 
     </tab>
@@ -194,4 +196,3 @@ starting point. You need these details to complete your configuration file:
 
 [cloud-install]: /install/:currentVersion:/installation-cloud/
 [docker-install]: https://docs.docker.com/get-docker/
-[migrate-separately]: /cloud/:currentVersion:/migrate-to-cloud/schema-then-data/
