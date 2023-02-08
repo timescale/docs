@@ -184,10 +184,6 @@ Use this format:
     --hypertable /hypershift.yml
     ```
 
-    </tab>
-
-    </terminal>
-
 </procedure>
 
 </Tab>
