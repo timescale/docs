@@ -13,6 +13,7 @@ account. Two-factor authentication, also known as two-step verification
 or 2FA, enables secure logins that
 requires an authentication code in addition to your user password. The code 
 is provided by an app on your mobile device, such as Google Authenticator.
+
 ## Configure two-factor authentication with Google Authenticator
 
 FIXME Some stem sentence here about Google Authenticator (as opposed to any other auth app).
