@@ -15,8 +15,8 @@ requirements, first-class multi-node support, and more.
 
 There are several methods for migrating your data:
 
-*   [Migrate an existing PostgreSQL database][hypermigrate]: Use our
-    hypermigrate tool to migrate an existing PostgreSQL database in one step,
+*   [Migrate an existing PostgreSQL database][hypershift]: Use the
+    hypershift tool to migrate an existing PostgreSQL database in one step,
     creating hypertables on the fly, and compressing data during migration.
 *   [Migrate your entire database at once][migrate-entire]: This method
     directly transfers all data and schemas, including TimescaleDB-specific
@@ -36,7 +36,7 @@ download speeds, existing continuous aggregates, and tolerance for failure
 recovery.
 
 If your database is smaller than 100&nbsp;GB, choose to migrate your entire
-database at once. If your source database is PostgreSQL, use the hypermigrate
+database at once. If your source database is PostgreSQL, use the hypershift
 tool to avoid having to dump your data to a directory before restoring it.
 
 You can also migrate larger databases using this method, but
@@ -68,3 +68,4 @@ Then backfill your data with one of the two migration methods.
 
 [migrate-entire]: /cloud/:currentVersion:/migrate-to-cloud/entire-database/
 [migrate-separately]: /cloud/:currentVersion:/migrate-to-cloud/schema-then-data/
+[hypershift]: cloud/:currentVersion:/migrate-to-cloud/hypershift/
