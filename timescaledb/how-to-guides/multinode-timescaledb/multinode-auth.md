@@ -58,7 +58,7 @@ this method in production. It is not a secure method of operation.
 
 1.  Open the `pg_hba.conf` file in your preferred text editor, and add this
     line. In this example, the access node is located at IP `192.0.2.20` with a
-    masklength of `32`. You can add one of these two lines:
+    mask length of `32`. You can add one of these two lines:
 
     ```txt
 
@@ -343,7 +343,7 @@ When you have created the certificates and keys, and moved all the files into th
     ssl_key_file = 'server.key'
     ```
 
-1. <optional />If you want the access node to use certificate authentication
+1.  <optional />If you want the access node to use certificate authentication
     for login, make these changes on the access node as well.
 
 1.  On each data node, open the `pg_hba.conf` configuration file, and add or
