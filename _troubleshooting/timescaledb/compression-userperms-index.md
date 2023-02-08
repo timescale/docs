@@ -25,5 +25,11 @@ tags: [hypertables, compression, indexes, security, users]
 If you attempt to compress or decompress a chunk with a non-privileged user
 account, you might get this error. To compress or decompress a chunk, your user
 account must have permissions that allow it to perform `CREATE INDEX` on the
-chunk. To resolve this problem, grant your user account the appropriate
-privileges.
+chunk. You can check the permissions of the current user with this command at
+the `psql` command prompt:
+
+```sql
+\dn+ _timescaledb_internal
+```
+
+To resolve this problem, grant your user account the appropriate privileges.
