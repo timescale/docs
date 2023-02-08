@@ -88,7 +88,7 @@ to be converted to hypertables, and which tables need to be compressed during
 the migration. Hypertables must have a unique column labelled `time`.
 
 Hypershift uses a YAML configuration file to determine how to set up your new
-Timescale database. You can create your own file, or use our example file as a
+Timescale database. You can create your own file, or use the example file as a
 starting point. You need these details to complete your configuration file:
 
 *   The schema you want to use
@@ -141,10 +141,10 @@ Use this format:
     configuration file:
 
     ```bash
-    docker run -v$(pwd)/hypershift.yaml -ti timescale/hypershift:latest clone \
+    docker run -v$(pwd)/hypershift.yml -ti timescale/hypershift:latest clone \
     -s "host=<SOURCE_DB_HOSTNAME> user=postgres port=5431 password=<DB_PASSWORD>" \
     -t "host=<TARGET_DB_HOSTNAME> user=postgres port=5432 password=<DB_PASSWORD>" \
-    --hypertable /conversions.yaml
+    --hypertable /hypershift.yml
     ```
 
 </procedure>
