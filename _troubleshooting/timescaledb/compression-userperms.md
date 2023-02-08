@@ -29,7 +29,19 @@ chunk. You can check the permissions of the current user with this command at
 the `psql` command prompt:
 
 ```sql
-\dn+ _timescaledb_internal
+\dn+ <USERNAME>
 ```
 
-To resolve this problem, grant your user account the appropriate privileges.
+To resolve this problem, grant your user account the appropriate privileges with
+this command:
+
+```sql
+GRANT PRIVILEGES
+    ON TABLE <TABLE_NAME>
+    TO <ROLE_TYPE>;
+```
+
+For more information about the `GRANT` command, see the
+[PostgreSQL documentation][pg-grant].
+
+[pg-grant]: https://www.postgresql.org/docs/current/sql-grant.html
