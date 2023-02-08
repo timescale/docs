@@ -21,7 +21,7 @@ api_details:
     on counter data. Use `counter_agg` to create an intermediate aggregate
     from your data. This intermediate form can then be used
     by one or more accessors in this group to compute final results. Optionally,
-    multiple such intermediate aggregate objects can be combined using
+    you can combine multiple intermediate aggregate objects using
     [`rollup()`](#rollup) before an accessor is applied.
   signatures:
     - language: sql

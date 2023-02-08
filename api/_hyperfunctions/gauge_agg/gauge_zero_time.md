@@ -16,7 +16,7 @@ hyperfunction:
     - gauge_agg()
 api_details:
   summary: >
-    Calculate the time when the gauge value is predicted to have been zero.
+    Calculate the time when the gauge value is modeled to have been zero.
     This is the x-intercept of the linear fit between gauge value and time.
   signatures:
     - language: sql

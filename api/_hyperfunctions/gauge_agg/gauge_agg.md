@@ -20,7 +20,7 @@ api_details:
     on gauge data. Use `gauge_agg` to create an intermediate aggregate
     from your data. This intermediate form can then be used
     by one or more accessors in this group to compute final results. Optionally,
-    multiple such intermediate aggregate objects can be combined using
+    you can combine multiple intermediate aggregate objects with
     [`rollup()`](#rollup) before an accessor is applied.
   signatures:
     - language: sql
