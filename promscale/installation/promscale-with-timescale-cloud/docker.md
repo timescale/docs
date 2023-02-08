@@ -10,8 +10,11 @@ related_pages:
 ---
 
 import PromscaleSendData from "versionContent/_partials/_promscale-send-data.mdx";
+import PromscaleDeprecation from "versionContent/_partials/_deprecated-promscale.mdx";
 
 # Install Promscale Connector using a Docker image with Timescale Cloud
+
+<PromscaleDeprecation />
 
 You can install Promscale Connector from a Docker container using
 Timescale Cloud. This is useful for developing a proof of concept, or

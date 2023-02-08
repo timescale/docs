@@ -10,7 +10,7 @@ api:
   version:
     experimental: 1.13.0
 hyperfunction:
-  family: state aggregates
+  family: state tracking
   type: aggregate
   aggregates:
     - heartbeat_agg()
@@ -62,3 +62,4 @@ api_details:
             '5 min')
           FROM system_health;
 ---
+

@@ -252,8 +252,8 @@ developer documentation][toolkit-gh-docs].
 
 [brew-install]: https://brew.sh
 [cloud]: /cloud/:currentVersion:/
-[debian-install]: /install/latest/self-hosted/installation-debian/
+[debian-install]: /install/latest/self-hosted/installation-linux/
 [docker-install]: /install/latest/installation-docker/
 [mst]: /mst/:currentVersion:/
-[red-hat-install]: /install/latest/self-hosted/installation-redhat/
+[red-hat-install]: /install/latest/self-hosted/installation-linux/
 [toolkit-gh-docs]: https://github.com/timescale/timescaledb-toolkit#-installing-from-source

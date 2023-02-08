@@ -3,6 +3,9 @@ title: Service logs
 excerpt: View your Timescale Cloud service logs
 product: cloud
 keywords: [logs, services]
+cloud_ui:
+    path:
+        - [services, :serviceID, logs]
 ---
 
 # Service logs

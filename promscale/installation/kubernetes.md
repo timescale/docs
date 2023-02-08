@@ -9,10 +9,13 @@ related_pages:
   - /promscale/:currentVersion:/send-data/
 ---
 
-import PromscaleInstallPrerequisite from 'versionContent/_partials/_promscale-install-pre-requisite.mdx';
-import PromscaleSendData from 'versionContent/_partials/_promscale-send-data.mdx';
+import PromscaleInstallPrerequisite from "versionContent/_partials/_promscale-install-pre-requisite.mdx";
+import PromscaleSendData from "versionContent/_partials/_promscale-send-data.mdx";
+import PromscaleDeprecation from "versionContent/_partials/_deprecated-promscale.mdx";
 
 # Install Promscale on Kubernetes
+
+<PromscaleDeprecation />
 
 You can install Promscale on Kubernetes using Helm or using a manifest file.
 
@@ -186,33 +189,6 @@ can provide the database URI, or specify connection parameters.
     <highlight type="note">
     Replace `&lt;RELEASE_NAME&gt;` with the name of your choice
     </highlight>
-
-</procedure>
-
-## Install Promscale with a manifest file
-
-This section includes instructions to install the Promscale Connector using a
-manifest file. To deploy TimescaleDB on Kubernetes use
-[helm charts][install-helm] instead. Alternatively, you can
-[install TimescaleDB on a host][install-binary].
-
-<procedure>
-
-#### Installing the Promscale Connector with a manifest
-
-1.  Download the [template manifest file][template-manifest]:
-
-    ```bash
-    curl https://raw.githubusercontent.com/timescale/promscale/0.13.0/deploy/static/deploy.yaml --output promscale-connector.yaml
-    ```
-
-1.  Edit the manifest and configure the TimescaleDB database details using the
-    parameters starting with <PROMSCALE_DB>.
-1.  Deploy the manifest:
-
-    ```bash
-    kubectl apply -f promscale-connector.yaml
-    ```
 
 </procedure>
 

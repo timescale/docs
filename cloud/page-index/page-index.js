@@ -17,11 +17,6 @@ module.exports = [
             href: "create-a-service",
             excerpt: "Timescale Cloud services",
           },
-          {
-            title: "Create a service demo",
-            href: "create-a-service-demo",
-            excerpt: "Timescale Cloud demo service",
-          },
         ],
       },
       {

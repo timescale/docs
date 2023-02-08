@@ -4,6 +4,10 @@ excerpt: How billing works for Timescale Cloud
 product: cloud
 keywords: [billing, accounts, admin]
 tags: [payment]
+cloud_ui:
+    path:
+        - [billing, details]
+    priority: 1
 ---
 
 # Billing

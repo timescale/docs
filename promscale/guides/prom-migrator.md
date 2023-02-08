@@ -6,7 +6,12 @@ keywords: [analytics]
 tags: [install, data, migrate, prometheus]
 ---
 
+import PromscaleDeprecation from "versionContent/_partials/_deprecated-promscale.mdx";
+
 # Prom-migrator data migration tool
+
+<PromscaleDeprecation />
+
 Prom-migrator is a universal Prometheus data migration tool that migrates your
 data from one storage system to another, using Prometheus remote storage
 endpoints. If you are already using Prometheus for long term storage of metrics,
@@ -14,6 +19,7 @@ you can use Prom-migrator to replace your remote storage system with Promscale.
 Prom-migrator is open source, community-driven, and free-to-use.
 
 ## Migrate to Promscale using Prom-migrator
+
 Before you begin, you must have an already installed and working Prometheus
 environment to migrate. Additionally, you need a
 [self-hosted TimescaleDB instance][tsdb-install-self-hosted] installed.
@@ -21,12 +27,14 @@ environment to migrate. Additionally, you need a
 <procedure>
 
 ### Migrating to Promscale using Prom-migrator
+
 1.  Install Promscale from a [Docker container][promscale-install-docker],
     or [from source][promscale-install-source].
 1.  Install the Prom-migrator tool from
     [the Promscale releases page][promscale-gh-releases].
 1.  Run Prom-migrator to copy the data from the existing Prometheus installation
     to Promscale:
+
     ```bash
     ./prom-migrator -start=<migration-data-start-time> \
     -end=<migration-data-end-time> \
@@ -34,7 +42,9 @@ environment to migrate. Additionally, you need a
     -writer-url=<write_endpoint_url_for_remote_write_storage> \
     -progress-metric-url=<read_endpoint_url_for_remote_write_storage>
     ```
+
     For example:
+
     ```bash
     ./prom-migrator -start=1631007492 \
     -end=1635845892 \
@@ -48,7 +58,7 @@ environment to migrate. Additionally, you need a
 When you have migrated the data into Promscale, you can drop the old data from
 Prometheus and any other remote storage system and use Promscale to query using
 in PromQL and TimescaleDB to query using SQL. You can also configure your existing
-Prometheus [alerting][promscale-alerting] and [recording][promscale-recording] 
+Prometheus [alerting][promscale-alerting] and [recording][promscale-recording]
 rules in Promscale. At that point, Prometheus is only useful for collecting data
 and we recommend you use the Prometheus Agent Mode to reduce resource consumption.
 At the very least you could set the data retention in Prometheus to `1d`.
