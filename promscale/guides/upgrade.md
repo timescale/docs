@@ -7,7 +7,11 @@ related_pages:
   - /promscale/:currentVersion:/send-data/
 ---
 
+import PromscaleDeprecation from "versionContent/_partials/_deprecated-promscale.mdx";
+
 # Upgrade Promscale
+
+<PromscaleDeprecation />
 
 Promscale consists of the Promscale Connector, and the Promscale Database. The
 Promscale Database is PostgreSQL with the TimescaleDB and the Promscale
@@ -42,7 +46,7 @@ locks][transaction-locks].
 <highlight type="warning">
  When you upgrade to Promscale 0.11.0, all previous
 tracing data is dropped. Make a backup of your installation, and test the new
-version before you upgrade. 
+version before you upgrade.
 </highlight>
 
 <procedure>
@@ -65,6 +69,7 @@ TimescaleDB 2.6.1 or later, and Promscale extension version 0.5.0 or later.
    ```
 
    For information about upgrading TimescaleDB and PostgreSQL, see [Update TimescaleDB][update-timescaledb] and [Upgrade PostgreSQL][upgrade-postgresql].
+
 1.  Stop all Promscale Connector instances connected to the database.
 1.  Update the Promscale extension on one instance using the Promscale Connector.
    For more information, see the [Promscale installation
@@ -147,7 +152,7 @@ Migrating to Debian version can be a lengthy process and involves downtime.
    BTREE-based indexes remain incorrect until they are reindexed. It is
    extremely important to execute this step before ingesting new data to avoid
    data corruption. This process can take a long time depending on the indexed
-   textual data in the database.  
+   textual data in the database.
 
 1.  Restart the Promscale Connector
 
@@ -184,7 +189,7 @@ If you are using Kubernetes instead of plain Docker:
         EXECUTE 'REINDEX INDEX ' || r.indclass;
      END LOOP;
    END$$;
-   ```  
+   ```
 
 1.  Restart the Promscale Connector pods.
 

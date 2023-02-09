@@ -6,7 +6,12 @@ keywords: [analytics]
 tags: [learn, prometheus]
 ---
 
+import PromscaleDeprecation from "versionContent/_partials/_deprecated-promscale.mdx";
+
 # Recommendations
+
+<PromscaleDeprecation />
+
 The recommendation guides for Promscale.
 
 *   Resource recommendation [guide][recomm-guide].

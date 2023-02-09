@@ -6,7 +6,12 @@ keywords: [analytics, query, traces]
 tags: [sql]
 ---
 
+import PromscaleDeprecation from "versionContent/_partials/_deprecated-promscale.mdx";
+
 # Query traces in Promscale
+
+<PromscaleDeprecation />
+
 This section covers information about the data model used with traces and the
 different SQL queries you can use for trace data.
 
@@ -16,6 +21,7 @@ For more information about installing and using `psql`, see the
 [installing psql section][install-psql].
 
 ## Span
+
 A span represents a single operation within a trace. The structure of a span is
 similar to:
 
@@ -48,6 +54,7 @@ similar to:
 |`resource_schema_url`|`text`|Resource's schema file URL|
 
 ### `tag_map`
+
 The `tag_map` type is a storage optimization for spans. It can be queried as a
 regular [`jsonb` PostgreSQL type][jsonb-pg-type]. It normalizes the span data
 and can significantly reduce the storage footprint. This is a custom type
@@ -55,29 +62,35 @@ created by Timescale, and it is continuously being improved. While all other
 operators also perform well, these operators have additional performance
 optimizations:
 
-* `->` is used get the value for the given key. For example: `span_tags -> 'pwlen'`.
-* `=` is used to provide value equality for a key. For example: `span_tags -> 'pw_len' = '10'::jsonb`.
-* `!=` is used to provide value inequality for a key. For example: `span_tags -> 'pw_len' != '10'::jsonb`.
+*   `->` is used get the value for the given key. For example: `span_tags -> 'pwlen'`.
+*   `=` is used to provide value equality for a key. For example: `span_tags -> 'pw_len' = '10'::jsonb`.
+*   `!=` is used to provide value inequality for a key. For example: `span_tags -> 'pw_len' != '10'::jsonb`.
 
 ### `trace_id`
+
 The `trace_id` type is a 16-byte type that is a bit like a UUID. It represents
 the `trace_id` in compliance with [Open Telemetry requirements][opentel-spec].
 
 ### `span_kind`
+
 The `span_kind` provides useful performance context in a trace. This information is useful in performance analysis. The possible values for this type are:
 `unspecified`, `internal`, `server`, `client`, `producer`, and `consumer`.
 
 ### `status_code`
+
 The `status_code` is a special, standardized property for a span. The possible values are: `unset`, `ok`, and `error`.
 
 ## Views
+
 Promscale uses views to provide a stable interface. The set of views is provided
 in the `ps_trace` schema. These include:
-* `span`
-* `link`
-* `event`
+
+*   `span`
+*   `link`
+*   `event`
 
 ### Span view
+
 The `span` view joins several tables so that you can see an overview of the data
 relevant for a single span. The span is stored across multiple tables, and data
 is split across several columns for better index support. The table that
@@ -100,6 +113,7 @@ select
 ```
 
 ### Event view
+
 The `event` view provides access to events and their corresponding spans. For
 more information about OpenTelemetry events, see the OpenTelemetry documentation
 for [add events][opentel-add-events] and [span events][opentel-span-events].
@@ -145,6 +159,7 @@ select
 ```
 
 ### Link view
+
 The `link` view allows you to see spans that have originated from the same
 trace. In essence, it is a representation of two related spans, with some extra
 information about the relationship between them. For more information about
@@ -158,6 +173,7 @@ The `link` view adds all the columns in the previous table, as well as these add
 |`dropped_link_tags_count`|`integer`|Number of dropped link tags|
 
 ## Example trace queries in SQL
+
 A trace is a collection of transactions or spans that represents a unique user or API transaction handled by an application and its services.
 
 When you build time series graphs in Grafana, you can use the Grafana [`$__interval`][grafana-interval] variable.
@@ -254,11 +270,14 @@ select
     group by 1
     order by 1
 ```
+
 ## Query resource and span tags
+
 This section contains some example SQL queries that you can use for insight into
 complex systems and interactions.
 
 ### Simple queries
+
 The simplest queries you can perform on spans involve only a single table or
 view. For example, this query returns certain columns of the `span` view, up
 to 50 rows:
@@ -285,6 +304,7 @@ select *
 These simpler queries can be a good way to start learning a new system.
 
 ### Filters
+
 In most cases, the volume and diversity of trace data is very high, so you might
 find that you need to limit the scope of your queries. You can do this with
 filtering.
@@ -353,6 +373,7 @@ JSONB, but the `->>` operator is not supported in the current implementation of
 </highlight>
 
 ### Joins
+
 You can use a `JOIN` to see how the error rate of your service correlates with
 the overall memory consumption of a container. To do this, you need to join the
 corresponding metric table, with the `span` view. For example:
@@ -380,20 +401,22 @@ select
 
 To understand the previous example in more depth, start by looking at the metric
 table and its filters:
-* To retrieve actual memory usage values, the query filters out some misses
+
+*   To retrieve actual memory usage values, the query filters out some misses
   where the value was reported as `NaN`.
-* The query specifies last week as the time window. This allows the
+*   The query specifies last week as the time window. This allows the
   planner to eliminate unnecessary partitions on the planning stage. This should
   also significantly speed up the query.
-* The query limits the metrics to the container and instance you're interested
+*   The query limits the metrics to the container and instance you're interested
   in. This also helps to give the planner more freedom in dealing with the
   query.
-* The join clause itself is matching only on the generated `time_bucket`.
+*   The join clause itself is matching only on the generated `time_bucket`.
 
 Now to look at the `span` view:
-* The only qualification in the `where` clause is the `start_time` matching that
+
+*   The only qualification in the `where` clause is the `start_time` matching that
   of the metric.
-* A number of filters are specified in the join condition instead. This is for a
+*   A number of filters are specified in the join condition instead. This is for a
   couple of reasons. Firstly, you need to filter out irrelevant rows from the
   `span` view. Secondly, you want to keep the entries from the metric table to
   have a good measure of memory consumption regardless if there were errors or
@@ -401,6 +424,7 @@ Now to look at the `span` view:
   rows without errors that match would be filtered out.
 
 ### Grouping
+
 You can use aggregate functions to perform various operations on groups. You can
 group data on any set of columns, including fields of `tag_map` columns.
 
@@ -421,7 +445,9 @@ select
         and service_name = '${service}'
     group by 1, 2
 ```
+
 ### Sorting
+
 You can also sort data based on `tag_map` column fields. This behaves in the
 same way as the standard PostgreSQL `jsonb` type, and the same rules apply when
 sorting. Numeric fields sort using numeric comparison, like `[1, 2, 10, 11]`,
