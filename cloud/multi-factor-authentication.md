@@ -14,7 +14,7 @@ or 2FA, enables secure logins that
 requires an authentication code in addition to your user password. The code 
 is provided by an app on your mobile device, such as Google Authenticator.
 
-## Configure two-factor authentication with Google Authenticator
+## Configure Two-factor authentication with Google Authenticator
 
 FIXME Some stem sentence here about Google Authenticator (as opposed to any other auth app).
 Before you begin, make sure you have:
@@ -24,7 +24,7 @@ Before you begin, make sure you have:
 
 <procedure>
 
-### Configuring two-factor authentication with Google Authenticator
+### Configuring Two-factor authentication with Google Authenticator
 
 1.  [Log in to your Timescale Cloud account][cloud-login].
 1.  Click the `User name` icon in the top-right of the console and select `Account`.
@@ -33,28 +33,25 @@ Before you begin, make sure you have:
     `Scan a QR code`.
 1.  On your mobile device, scan the QR code provided by Timescale Cloud in the
     `Connect to an authenticator app` dialog and click `Next`.
-1.  In the dashboard, type the verification code provided by Google Authenticator, and click
-    `Next`.
+1.  In the dashboard, type the verification code provided by Google
+    Authenticator, and click `Next`.
 1.  In the `Save your recovery codes` dialog, copy, download, or print the
-    recovery codes, and save them in a safe place. These are used to 
-    recover your account if you lose your device.
-1.  Verify that you have saved your recovery codes, by clicking `OK, I saved my recovery codes`.
-    <highlight type="important">
-    A recovery code is a backup way to log in to Timescale Cloud when you can't
-    get your verification code from  your authenticator app. If you enable
-    two-factor authentication, save your recovery codes.
-    </highlight>
-
-1.  If two-factor authentication is enabled correctly, an email notification is sent to you.
+    recovery codes, and save them in a safe place. These are used to recover
+    your account if you lose your device.
+1.  Verify that you have saved your recovery codes, by clicking `OK, I saved my
+    recovery codes`.
+1.  If two-factor authentication is enabled correctly, an email notification is
+    sent to you.
 
 </procedure>
 
 <highlight type="warning">
-If you lose access to the mobile device you use for multi-factor
-authentication, and you do not have access to your recovery codes, you cannot sign in to your TimescaleDB Cloud
-account. To regain access to your account, on the login screen, click
-`Forgot password?` and follow the step to reset your password. When you have
-regained access to your account, reconfigure multi-factor authentication.
+If you lose access to the mobile device you use for multi-factor authentication,
+and you do not have access to your recovery codes, you cannot sign in to your
+TimescaleDB Cloud account. To regain access to your account, on the login
+screen, click `Forgot password?` and follow the step to reset your password.
+When you have regained access to your account, reconfigure multi-factor
+authentication.
 </highlight>
 
 ## Regenerate recovery codes
@@ -63,9 +60,8 @@ If you do not have access to your authenticator app and need to log in to
 Timescale Cloud you can use your recovery codes. After you use a recovery code
 to regain access to your account, it cannot be reused. If you've used all 10
 recovery codes, you can generate another list of codes. Generating a new set of
-recovery codes invalidates all previously generated codes. You
-can also regenerate your codes if you lose access to your 
-previous codes.
+recovery codes invalidates all previously generated codes. You can also
+regenerate your codes if you lose access to your previous codes.
 
 <procedure>
 
@@ -81,13 +77,13 @@ previous codes.
     click `Use recovery code instead` to type the recovery code.
 1.  Click `Next`.
 1.  In the `Save your recovery codes` dialog, copy, download, or print the
-    recovery codes, and save them in a safe place. These are used to recover your 
-    account if you lose your device.
+    recovery codes, and save them in a safe place. These are used to recover
+    your account if you lose your device.
 1.  Verify that you have saved your recovery codes, by clicking `OK, I saved my recovery codes`.
 
 </procedure>
 
-## Remove two-factor authentication
+## Remove Two-factor authentication
 
 If you need to enroll a new device for two-factor authentication, you can 
 remove two-factor authentication from your account and then add it 
@@ -95,16 +91,16 @@ again with your new device.
 
 <procedure>
 
-### Removing two-factor authentication
+### Removing Two-factor authentication
 
 1.  [Log in to your Timescale Cloud account][cloud-login].
 1.  Click the `User name` icon in the top-right of the console and select `Account`.
 1.  In the `Account` page, navigate to the `Two-factor authentication` section.
 1.  Click `Remove two-factor authentication`.
 1.  In the `Are you sure` dialog, type the verification code from your
-    authenticator application. Alternatively, if you do not have access 
-    to the authenticator application, click `Use recovery code instead` 
-    to type the recovery code.
+    authenticator application. Alternatively, if you do not have access to the
+    authenticator application, click `Use recovery code instead` to type the
+    recovery code.
 1.  Click `Remove`.
 
 </procedure>
