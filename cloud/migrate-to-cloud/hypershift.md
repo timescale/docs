@@ -112,50 +112,9 @@ Use this format:
       - time desc
 ```
 
-<Tabs label="Run hypershift">
-
-<Tab title="MacOS">
-
 <procedure>
 
-### Running hypershift on MacOS
-
-1.  Open the `hypershift.yml` configuration file, and adjust parameters
-    accordingly. For example:
-
-    ```yml
-    - schema: public
-      name: stocks_real_time
-      time_column_name: time
-      chunk_time_interval: "12h"
-      compress:
-        after: "48h"
-        segmentby:
-          - symbol
-        orderby:
-          - time desc
-    ```
-
-1.  At the command prompt, run the hypershift container. Include the source and
-    destination database connection strings, and the path to your `hypershift.yml`
-    configuration file:
-
-    ```bash
-    docker run -v$(pwd)/hypershift.yml -ti timescale/hypershift:latest clone \
-    -s "host=<SOURCE_DB_HOSTNAME> user=postgres port=5431 password=<DB_PASSWORD>" \
-    -t "host=<TARGET_DB_HOSTNAME> user=postgres port=5432 password=<DB_PASSWORD>" \
-    --hypertable /hypershift.yml
-    ```
-
-</procedure>
-
-</Tab>
-
-<Tab title="Linux">
-
-<procedure>
-
-### Running hypershift on Linux
+### Running hypershift
 
 1.  Open the `hypershift.yml` configuration file, and adjust parameters
     accordingly. For example:
@@ -188,10 +147,6 @@ Use this format:
     the Docker container exits.
 
 </procedure>
-
-</Tab>
-
-</Tabs>
 
 [cloud-install]: /install/:currentVersion:/installation-cloud/
 [docker-install]: https://docs.docker.com/get-docker/
