@@ -184,6 +184,9 @@ Use this format:
     --hypertable /hypershift.yml
     ```
 
+1.  When the migration has finished, a summary of the migration is shown, and
+    the Docker container exits.
+
 </procedure>
 
 </Tab>
