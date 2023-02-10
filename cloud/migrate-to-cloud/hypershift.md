@@ -14,7 +14,6 @@ hypertable creation on the fly. Because compression is enabled during the
 migration, you do not need to have the maximum amount of storage available in
 the target database.
 
-<highlight type="warning">
 Depending on your database size and network speed, migration can take a very
 long time. You can continue reading from your source database during this time,
 though performance could be slower. If you write to tables in your source
@@ -22,7 +21,13 @@ database during the migration, the new writes might not be transferred to
 Timescale Cloud. To avoid this problem, fork your database and migrate your data
 from the fork. To avoid this problem, see the section on
 [migrating an active database]
-(http://docs.timescale.com/cloud/latest/migrate-to-cloud/#migrate-an-active-database).
+(<http://docs.timescale.com/cloud/latest/migrate-to-cloud/#migrate-an-active-database>).
+
+<highlight type="important">
+If you have a very large database, and hypershift is going to have to run for a
+very long time to migrate it, for example, a day or more, ensure that you have a
+very stable network connection. Hypershift is not able to recover if the network
+connection is interrupted.
 </highlight>
 
 ## Prerequisites

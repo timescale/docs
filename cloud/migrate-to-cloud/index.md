@@ -35,6 +35,12 @@ Which method you choose depends on your database size, network upload and
 download speeds, existing continuous aggregates, and tolerance for failure
 recovery.
 
+<highlight type="note">
+If you are migrating from an Amazon RDS service, Amazon charges for the amount
+of data transferred out of the service. You could be charged by Amazon for all
+data egressed, even if the migration fails.
+</highlight>
+
 If your database is smaller than 100&nbsp;GB, choose to migrate your entire
 database at once. If your source database is PostgreSQL, use the hypershift
 tool to avoid having to dump your data to a directory before restoring it.
