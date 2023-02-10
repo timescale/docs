@@ -14,7 +14,7 @@ or 2FA, enables secure logins that
 requires an authentication code in addition to your user password. The code 
 is provided by an app on your mobile device, such as Google Authenticator.
 
-## Configure Two-Factor authentication with Google Authenticator
+## Configure Two-Factor Authentication with Google Authenticator
 
 FIXME Some stem sentence here about Google Authenticator (as opposed to any other auth app).
 Before you begin, make sure you have:
@@ -24,7 +24,7 @@ Before you begin, make sure you have:
 
 <procedure>
 
-### Configuring Two-Factor authentication with Google Authenticator
+### Configuring Two-Factor Authentication with Google Authenticator
 
 1.  [Log in to your Timescale Cloud account][cloud-login].
 1.  Click the `User name` icon in the top-right of the console and select `Account`.
@@ -83,7 +83,7 @@ regenerate your codes if you lose access to your previous codes.
 
 </procedure>
 
-## Remove Two-Factor authentication
+## Remove Two-Factor Authentication
 
 If you need to enroll a new device for two-factor authentication, you can 
 remove two-factor authentication from your account and then add it 
@@ -91,7 +91,7 @@ again with your new device.
 
 <procedure>
 
-### Removing Two-Factor authentication
+### Removing Two-Factor Authentication
 
 1.  [Log in to your Timescale Cloud account][cloud-login].
 1.  Click the `User name` icon in the top-right of the console and select `Account`.
