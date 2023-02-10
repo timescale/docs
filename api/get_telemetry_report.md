@@ -11,12 +11,13 @@ api:
 
 # get_telemetry_report()
 
-Returns the background [telemetry][telemetry] string sent to our servers
-(or that would be, if telemetry is disabled).
+Returns the background [telemetry][telemetry] string sent to Timescale 
+servers. If telemetry is disabled, it sends the string that would be sent 
+if telemetry was enabled.
 
 ### Sample usage
 
-View the telemetry report.
+View the telemetry report:
 
 ```sql
 SELECT get_telemetry_report();
