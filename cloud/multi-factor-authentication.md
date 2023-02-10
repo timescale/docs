@@ -8,15 +8,17 @@ tags: [two-factor user authentication]
 
 # Multi-factor user authentication
 
-You can use two-factor authentication to log in to your Timescale Cloud 
+You can use two-factor authentication (2FA) to log in to your Timescale Cloud 
 account. Two-factor authentication, also known as two-step verification 
 or 2FA, enables secure logins that
 requires an authentication code in addition to your user password. The code 
 is provided by an app on your mobile device, such as Google Authenticator.
 
-## Configure two-factor authentication with Google Authenticator
+## Configure 2FA with Google Authenticator
 
-FIXME Some stem sentence here about Google Authenticator (as opposed to any other auth app).
+Google Authenticator is a useful app for keeping track of your two-factor
+authentication keys. However, you want something more open-source, there
+are other authenticators available to suit your needs.
 Before you begin, make sure you have:
 
 *   Installed the [Google Authenticator application][install-google-authenticator]
@@ -24,7 +26,7 @@ Before you begin, make sure you have:
 
 <procedure>
 
-### Configuring two-factor authentication with Google Authenticator
+### Configuring 2FA with Google Authenticator
 
 1.  [Log in to your Timescale Cloud account][cloud-login].
 1.  Click the `User name` icon in the top-right of the console and select `Account`.
@@ -83,7 +85,7 @@ regenerate your codes if you lose access to your previous codes.
 
 </procedure>
 
-## Remove two-factor authentication
+## Remove 2FA
 
 If you need to enroll a new device for two-factor authentication, you can 
 remove two-factor authentication from your account and then add it 
@@ -91,7 +93,7 @@ again with your new device.
 
 <procedure>
 
-### Removing two-factor authentication
+### Removing 2FA
 
 1.  [Log in to your Timescale Cloud account][cloud-login].
 1.  Click the `User name` icon in the top-right of the console and select `Account`.
