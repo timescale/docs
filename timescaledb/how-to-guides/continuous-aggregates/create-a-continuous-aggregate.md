@@ -4,7 +4,7 @@ excerpt: How to create a continuous aggregate
 keywords: [continuous aggregates, create]
 ---
 
-# Create a continuous aggregate
+# Create continuous aggregates
 
 Creating a continuous aggregate is a two-step process. You need to create the
 view first, then enable a policy to keep the view refreshed. You can create the
@@ -22,7 +22,7 @@ Continuous aggregates use hypertables in the background, which means that they
 also use chunk time intervals. By default, the continuous aggregate's chunk time
 interval is 10 times what the original hypertable's chunk time interval is. For
 example, if the original hypertable's chunk time interval is 7 days, the
-continuous aggregates that are on top of it will have a 70 day chunk time
+continuous aggregates that are on top of it have a 70 day chunk time
 interval.
 
 ## Create a continuous aggregate
@@ -142,14 +142,38 @@ queries to run efficiently.
 
 </procedure>
 
+## Create a continuous aggregate with a JOIN
+
+In TimescaleDB&nbsp;2.9 and later, with PostgreSQL&nbsp;13 or later, you can
+create a continuous aggregate with a query that also includes a `JOIN`. For
+example:
+
+```sql
+CREATE MATERIALIZED VIEW conditions_summary_daily_3
+WITH (timescaledb.continuous) AS
+SELECT time_bucket(INTERVAL '1 day', day) AS bucket,
+   AVG(temperature),
+   MAX(temperature),
+   MIN(temperature),
+   name
+FROM devices JOIN conditions USING (device_id)
+GROUP BY name, bucket;
+```
+
+<highlight type="note">
+This also works in Timescale&nbsp;2.9 and later running PostgreSQL&nbsp;12, but
+you cannot also have a `USING` clause in your `JOIN`. If you need a `USING`
+clause, you must have PostgreSQL&nbsp;13 or later.
+</highlight>
+
 ## Query continuous aggregates
 
 When you have created a continuous aggregate and set a refresh policy, you can
 query the view with a `SELECT` query. You can only specify a single hypertable
-in the `FROM` clause. Including more hypertables, joins, tables, views, or
-subqueries in your `SELECT` query is not supported. Additionally, make sure that
-the hypertable you are querying does not have [row-level-security
-policies][postgres-rls] enabled.
+in the `FROM` clause. Including more hypertables, tables, views, or subqueries
+in your `SELECT` query is not supported. Additionally, make sure that the
+hypertable you are querying does not have [row-level-security policies][postgres-rls]
+enabled.
 
 <procedure>
 
