@@ -6,7 +6,7 @@ tags: [hyperfunctions, finance, candlestick, low]
 api:
   license: community
   type: function
-  experimental: true
+  experimental: false
   toolkit: true
   version:
     experimental: 1.12.0
