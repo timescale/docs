@@ -6,7 +6,11 @@ keywords: [Jaeger, monitor]
 tags: [configure, opentelemetry, traces]
 ---
 
+import PromscaleDeprecation from "versionContent/_partials/_deprecated-promscale.mdx";
+
 # Application performance monitoring (APM) with traces
+
+<PromscaleDeprecation />
 
 Promscale provides application performance monitoring with traces data using SQL. Import the
 Grafana dashboards that are published by the Promscale team using traces.
@@ -15,7 +19,7 @@ Before you begin importing the dashboards:
 
 *   Add these data sources in Grafana:
     *   [Jaeger data source][promscale-as-jaeger]
-    *   [PostgreSQL data source][promscale-as-postgresql]  
+    *   [PostgreSQL data source][promscale-as-postgresql]
 *   Check that the `timescaledb_toolkit` extension is installed.
   To verify if the extension is installed, run this SQL query:
   `SELECT * FROM pg_extension WHERE extname='timescaledb_toolkit';`
@@ -43,6 +47,7 @@ You can use one of these methods to import dashboards:
      If the query returns no results, the extension is not available for installation
      in your database. To make it available follow
      [these instructions][install-toolkit].
+
 1.  Install the extension using:
 
    ```sql

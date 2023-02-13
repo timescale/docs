@@ -9,10 +9,13 @@ related_pages:
   - /promscale/:currentVersion:/send-data/
 ---
 
-import PromscaleInstallPrerequisite from 'versionContent/_partials/_promscale-install-pre-requisite.mdx';
-import PromscaleSendData from 'versionContent/_partials/_promscale-send-data.mdx';
+import PromscaleInstallPrerequisite from "versionContent/_partials/_promscale-install-pre-requisite.mdx";
+import PromscaleSendData from "versionContent/_partials/_promscale-send-data.mdx";
+import PromscaleDeprecation from "versionContent/_partials/_deprecated-promscale.mdx";
 
 # Install Promscale on Kubernetes
+
+<PromscaleDeprecation />
 
 You can install Promscale on Kubernetes using Helm or using a manifest file.
 

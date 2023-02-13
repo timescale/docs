@@ -5,7 +5,11 @@ product: promscale
 keywords: [Prometheus, alert, Alert Manager]
 ---
 
+import PromscaleDeprecation from "versionContent/_partials/_deprecated-promscale.mdx";
+
 # Monitor Promscale
+
+<PromscaleDeprecation />
 
 Promscale includes a set of out-of-the-box alerts, runbooks, and a Grafana
 dashboard that you can use to monitor it.

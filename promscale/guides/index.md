@@ -6,7 +6,11 @@ keywords: [data migration, upgrades]
 tags: [docker, kubernetes]
 ---
 
+import PromscaleDeprecation from "versionContent/_partials/_deprecated-promscale.mdx";
+
 # How-to Guides
+
+<PromscaleDeprecation />
 
 How-to guides for Promscale provide information related to tasks
 such as migrating, upgrading, integrating and others.

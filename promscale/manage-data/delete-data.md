@@ -6,7 +6,11 @@ keywords: [delete]
 tags: [metrics]
 ---
 
+import PromscaleDeprecation from "versionContent/_partials/_deprecated-promscale.mdx";
+
 # Delete data in Promscale
+
+<PromscaleDeprecation />
 
 Promscale provides several methods for deleting data. You can delete metric data
 by series, by metric name, or by time. You can also delete trace data.

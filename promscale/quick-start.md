@@ -3,7 +3,11 @@ title: Get started with Promscale
 excerpt: Get start with Promscale to handle your observability data
 ---
 
+import PromscaleDeprecation from "versionContent/_partials/_deprecated-promscale.mdx";
+
 # Promscale quick start
+
+<PromscaleDeprecation />
 
 You can use Docker Compose to easily run Promscale in an isolated environment built
 with Docker containers. This quick start guide demonstrates how to use Docker Compose to set

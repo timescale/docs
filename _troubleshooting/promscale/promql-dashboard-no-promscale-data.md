@@ -16,6 +16,10 @@ keywords: [PromQL, disk, memory, CPU, backfilling]
 * Copy this comment at the top of every troubleshooting page
 -->
 
+import PromscaleDeprecation from "versionContent/_partials/_deprecated-promscale.mdx";
+
+<PromscaleDeprecation />
+
 Backfilling data which has not been ingested into Prometheus can cause the
 PromQL dashboard to not show Promscale data.
 
