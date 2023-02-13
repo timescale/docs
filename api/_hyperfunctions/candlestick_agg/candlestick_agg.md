@@ -10,6 +10,7 @@ api:
   toolkit: true
   version:
     experimental: 1.12.0
+    stable: 1.14.0
 hyperfunction:
   family: financial analysis
   type: aggregate
