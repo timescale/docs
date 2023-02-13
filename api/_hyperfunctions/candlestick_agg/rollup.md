@@ -6,7 +6,7 @@ tags: [hyperfunctions, finance, candlestick]
 api:
   license: community
   type: function
-  experimental: true
+  experimental: false
   toolkit: true
   version:
     experimental: 1.12.0
@@ -29,11 +29,11 @@ api_details:
         ) RETURNS Candlestick
   parameters:
     required:
-      - name: ohlc
+      - name: candlestick
         type: Candlestick
         description: The aggregate produced by a `candlestick` or `candlestick_agg` call
     returns:
-      - column: ohlc
+      - column: candlestick
         type: Candlestick
         description: >
           A new candlestick aggregate produced by combining the input candlestick aggregates
