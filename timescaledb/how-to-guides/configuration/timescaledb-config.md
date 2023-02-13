@@ -65,7 +65,7 @@ by the network connection and availability of data nodes. It is by default disab
 ### `timescaledb.remote_data_fetcher (enum)`
 
 Pick data fetcher type based on type of queries you plan to run, which
-can be either `rowbyrow` or `cursor`. The default is `rowbyrow`.
+can be either `copy`, `cursor`, or `auto`. The default is `auto`.
 
 ### `timescaledb.ssl_dir (string)`
 
