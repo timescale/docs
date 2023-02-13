@@ -77,8 +77,8 @@ settings are applied to newly created chunks. Because of this behavior, you do
 not need to move data between data nodes when the cluster size is increased, and
 can simply update how data is distributed for the next time interval. Writes for
 new incoming data leverage the new partitioning settings, while the access node
-can still support queries across all chunks (even those that were created using
-the old partitioning settings). Do note that although the number of space
+can still support queries across all chunks, even if they eere created using
+the old partitioning settings. Do note that although the number of space
 partitions can be changed, the column on which the data is partitioned can not
 be changed.
 
