@@ -13,7 +13,7 @@ distributed hypertables.
 
 ## Add a column to a hypertable
 
-You can add a column tyo a hypertable using the `ALTER TABLE` command. In this
+You can add a column to a hypertable using the `ALTER TABLE` command. In this
 example, the hypertable is named `conditions` and the new column is named
 `humidity`:
 
