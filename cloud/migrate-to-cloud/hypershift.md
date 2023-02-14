@@ -30,7 +30,7 @@ In preliminary testing, Hypershift migrated 60&nbsp;GB of data in 9 to 12 minute
 and 1&nbsp;TB of data in under 4 hours. You can continue reading from your
 source database during this time, though performance could be slower. If you
 write to tables in your source database during the migration, the new writes
-might not be transferred to Timescale Cloud. To avoid this problem, fork your
+are not transferred to Timescale Cloud. To avoid this problem, fork your
 database and migrate your data from the fork. To avoid this problem, see the
 section on [migrating an active database]
 (<http://docs.timescale.com/cloud/latest/migrate-to-cloud/#migrate-an-active-database>).
@@ -111,9 +111,9 @@ Hypershift uses a YAML configuration file to determine how to set up your new
 Timescale database. You can create your own file, or use the example file as a
 starting point. You need these details to complete your configuration file:
 
-*   The schema you want to use
-*   The name of the database you are migrating
-*   The name of the `time` column in your database
+*   The schema which contains the table
+*   The name of the table to be converted to a hypertable
+*   The name of the `time` column of that table
 *   The chunk time interval to use
 *   The compression policy you want to use
 
@@ -121,7 +121,7 @@ Use this format:
 
 ```yml
 - schema: public
-  name: <DATABASE_NAME>
+  name: <TABLE_NAME>
   time_column_name: <TIME_COLUMN_NAME>
   chunk_time_interval: "12h"
   compress:
