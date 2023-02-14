@@ -16,7 +16,6 @@ tags: [continuous aggregates, query]
 import CaggsFunctionSupport from '../../_partials/_caggs-function-support.mdx';
 
 <!---
-* Keep this section in alphabetical order
 * Use this format for writing troubleshooting sections:
  - Cause: What causes the problem?
  - Consequence: What does the user see when they hit this problem?

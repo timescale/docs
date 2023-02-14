@@ -15,7 +15,6 @@ tags: [continuous aggregates, real-time aggregates, materialized views]
 import CaggsRealTimeHistoricalDataRefreshes from 'versionContent/_partials/_caggs-real-time-historical-data-refreshes.mdx';
 
 <!---
-* Keep this section in alphabetical order
 * Use this format for writing troubleshooting sections:
  - Cause: What causes the problem?
  - Consequence: What does the user see when they hit this problem?
@@ -72,7 +71,7 @@ FROM conditions
 GROUP BY city, bucket
 WITH NO DATA;
 
-The select query returns data as real time aggregates are enabled. The query on 
+The select query returns data as real time aggregates are enabled. The query on
 the continuous aggregate fetches data directly from the hypertable:
 SELECT * FROM conditions_summary ORDER BY bucket;
   city  |   bucket   | min | max
@@ -86,7 +85,7 @@ Materialize data into the continuous aggregate:
 ```sql
 CALL refresh_continuous_aggregate('conditions_summary', '2021-06-14', '2021-06-21');
 
-The select query returns the same data, as expected, but this time the data is 
+The select query returns the same data, as expected, but this time the data is
 fetched from the underlying materialized table
 SELECT * FROM conditions_summary ORDER BY bucket;
   city  |   bucket   | min | max

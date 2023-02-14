@@ -5,7 +5,7 @@ topics: [hypertables, distributed hypertables, data migration]
 errors:
   - language: text
     message: |-
-      ERROR: cannot create a unique index without the column "<COLUMN_NAME>" (used in partitioning) 
+      ERROR: cannot create a unique index without the column "<COLUMN_NAME>" (used in partitioning)
 apis:
   - [hypertables, create_hypertable()]
   - [distributed hypertables, create_distributed_hypertable()]
@@ -14,7 +14,6 @@ tags: [hypertables, distributed hypertables, indexes, primary keys, partitions]
 ---
 
 <!---
-* Keep this section in alphabetical order
 * Use this format for writing troubleshooting sections:
  - Cause: What causes the problem?
  - Consequence: What does the user see when they hit this problem?
