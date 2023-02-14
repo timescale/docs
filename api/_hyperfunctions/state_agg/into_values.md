@@ -1,6 +1,6 @@
 ---
 api_name: into_values()
-excerpt: Expand a state aggregate into a set of rows displaying the duration of each state
+excerpt: Expand the state aggregate into a set of rows, displaying the duration of each state
 topics: [hyperfunctions]
 api:
   license: community
@@ -8,7 +8,7 @@ api:
   toolkit: true
   experimental: true
   version:
-    experimental: 1.6.0
+    experimental: 1.13.0
 hyperfunction:
   family: state tracking
   type: accessor
@@ -16,9 +16,9 @@ hyperfunction:
     - state_agg()
 api_details:
   summary: >
-    Unpack the state aggregate into a set of rows with two columns, displaying the duration of each state. By
-    default, the columns are named `state` and `duration`. You can rename
-    them as you can do with any table.
+    Unpack the state aggregate into a set of rows with two columns,
+    displaying the duration of each state. By default, the columns are named
+    `state` and `duration`. You can rename them as you can do with any table.
   signatures:
     - language: sql
       code: |

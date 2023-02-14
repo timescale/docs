@@ -8,7 +8,7 @@ api:
   toolkit: true
   experimental: true
   version:
-    experimental: 1.8.0
+    experimental: 1.13.0
 hyperfunction:
   family: state tracking
   type: accessor
@@ -16,7 +16,7 @@ hyperfunction:
     - state_agg()
 api_details:
   summary: >
-    Calculate the total duration in the given state.
+    Calculate the total duration in a given state.
     Unlike [`duration_in`](#duration_in), you can use this function across multiple state
     aggregates that cover multiple time buckets. Any missing values at the time bucket
     boundaries are interpolated from adjacent state aggregates.

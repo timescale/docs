@@ -1,6 +1,6 @@
 ---
 api_name: duration_in()
-excerpt: Calculate the total time spent in a given state from a timeline aggregate
+excerpt: Calculate the total time spent in a given state from a state aggregate
 topics: [hyperfunctions]
 api:
   license: community
@@ -8,15 +8,15 @@ api:
   toolkit: true
   experimental: true
   version:
-    experimental: 1.13.0
+    experimental: 1.5.0
 hyperfunction:
   family: state tracking
   type: accessor
   aggregates:
-    - timeline_agg()
+    - compact_state_agg()
 api_details:
   summary: >
-    Given a timeline aggregate, calculate the total time spent in a state. If you
+    Given a state aggregate, calculate the total time spent in the given state. If you
     need to interpolate missing values across time bucket boundaries, use
     [`interpolated_duration_in`](#interpolated_duration_in).
   signatures:
@@ -24,7 +24,7 @@ api_details:
       code: |
         duration_in(
           state {TEXT | BIGINT},
-          aggregate TimelineAgg
+          aggregate StateAgg
         ) RETURNS INTERVAL
   parameters:
     required:
@@ -32,8 +32,8 @@ api_details:
         type: TEXT | BIGINT
         description: The state to query
       - name: aggregate
-        type: TimelineAgg
-        description: A timeline aggregate created with [`timeline_agg`](#timeline_agg)
+        type: StateAgg
+        description: A state aggregate created with [`compact_state_agg`](#compact_state_agg)
     returns:
       - column: duration_in
         type: INTERVAL
@@ -61,7 +61,7 @@ api_details:
 
           SELECT toolkit_experimental.duration_in(
             'running',
-            toolkit_experimental.timeline_agg(time, state)
+            toolkit_experimental.compact_state_agg(time, state)
           ) FROM states;
       return:
         code: |

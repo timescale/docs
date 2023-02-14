@@ -8,7 +8,7 @@ api:
   toolkit: true
   experimental: true
   version:
-    experimental: 1.5.0
+    experimental: 1.13.0
 hyperfunction:
   family: state tracking
   type: accessor
@@ -16,7 +16,7 @@ hyperfunction:
     - state_agg()
 api_details:
   summary: >
-    Given a state aggregate, calculate the total time spent in the given state. If you
+    Given a state aggregate, calculate the total time spent in a state. If you
     need to interpolate missing values across time bucket boundaries, use
     [`interpolated_duration_in`](#interpolated_duration_in).
   signatures:

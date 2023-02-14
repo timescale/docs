@@ -1,6 +1,6 @@
 ---
 api_name: into_values()
-excerpt: Expand the timeline aggregate into a set of rows, displaying the duration of each state
+excerpt: Expand a state aggregate into a set of rows displaying the duration of each state
 topics: [hyperfunctions]
 api:
   license: community
@@ -8,49 +8,49 @@ api:
   toolkit: true
   experimental: true
   version:
-    experimental: 1.13.0
+    experimental: 1.6.0
 hyperfunction:
   family: state tracking
   type: accessor
   aggregates:
-    - timeline_agg()
+    - compact_state_agg()
 api_details:
   summary: >
-    Unpack the timeline aggregate into a set of rows with two columns,
-    displaying the duration of each state. By default, the columns are named
-    `state` and `duration`. You can rename them as you can do with any table.
+    Unpack the state aggregate into a set of rows with two columns, displaying the duration of each state. By
+    default, the columns are named `state` and `duration`. You can rename
+    them as you can do with any table.
   signatures:
     - language: sql
       code: |
         into_values(
-          agg TimelineAgg
+          agg StateAgg
         ) RETURNS (TEXT, BIGINT)
 
         into_int_values(
-          agg TimelineAgg
+          agg StateAgg
         ) RETURNS (INT, BIGINT)
   parameters:
     required:
       - name: agg
-        type: TimelineAgg
-        description: A timeline aggregate created with [`timeline_agg`](#timeline_agg)
+        type: StateAgg
+        description: A state aggregate created with [`compact_state_agg`](#compact_state_agg)
     returns:
       - column: state
         type: TEXT | BIGINT
-        description: A state found in the timeline aggregate
+        description: A state found in the state aggregate
       - column: duration
         type: BIGINT
         description: The total time spent in that state
   examples:
     - description: >
-        Create a timeline aggregate from the table `states_test`. The time column is named
+        Create a state aggregate from the table `states_test`. The time column is named
         `time`, and the `state` column contains text values corresponding to different
         states of a system. Use `into_values` to display the data from the state
         aggregate.
       command:
         code: |
           SELECT state, duration FROM toolkit_experimental.into_values(
-            (SELECT toolkit_experimental.timeline_agg(time, state) FROM states_test)
+            (SELECT toolkit_experimental.compact_state_agg(time, state) FROM states_test)
           );
       return:
         code: |

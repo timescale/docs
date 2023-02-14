@@ -542,13 +542,13 @@ module.exports = [
             href: "state-tracking",
             children: [
               {
-                title: "state_agg",
-                href: "state_agg",
+                title: "compact_state_agg",
+                href: "compact_state_agg",
                 type: "placeholder",
               },
               {
-                title: "timeline_agg",
-                href: "timeline_agg",
+                title: "state_agg",
+                href: "state_agg",
                 type: "placeholder",
               },
               {
