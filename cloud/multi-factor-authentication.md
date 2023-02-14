@@ -17,8 +17,8 @@ Authenticator.
 ## Configure two-factor authentication with Google Authenticator
 
 Google Authenticator is a useful app for keeping track of your two-factor
-authentication keys. However, there
-are other authenticators available to suit your needs.
+authentication keys. However, there are other authenticators available to suit
+your needs.
 
 Before you begin, make sure you have:
 
@@ -51,10 +51,8 @@ Before you begin, make sure you have:
 <highlight type="warning">
 If you lose access to the mobile device you use for multi-factor authentication,
 and you do not have access to your recovery codes, you cannot sign in to your
-TimescaleDB Cloud account. To regain access to your account, on the login
-screen, click `Forgot password?` and follow the step to reset your password.
-When you have regained access to your account, reconfigure multi-factor
-authentication.
+TimescaleDB Cloud account. To regain access to your account contact
+support@timescale.com.
 </highlight>
 
 ## Regenerate recovery codes
