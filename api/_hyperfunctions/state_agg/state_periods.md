@@ -26,17 +26,17 @@ api_details:
     - language: sql
       code: |
         state_periods(
-            state [TEXT | BIGINT],
-            agg StateAgg
+            agg StateAgg,
+            state [TEXT | BIGINT]
         ) RETURNS (TIMESTAMPTZ, TIMESTAMPTZ)
   parameters:
     required:
-      - name: state
-        type: TEXT | BIGINT
-        description: The target state to get data for.
       - name: agg
         type: StateAgg
         description: A state aggregate created using [`state_agg`](#state_agg).
+      - name: state
+        type: TEXT | BIGINT
+        description: The target state to get data for.
     returns:
       - column: start_time
         type: TIMESTAMPTZ
@@ -51,8 +51,8 @@ api_details:
       command:
         code: |
           SELECT start_time, end_time FROM toolkit_experimental.state_periods(
+            (SELECT toolkit_experimental.state_agg(ts, state) FROM states_test),
             'OK',
-            (SELECT toolkit_experimental.state_agg(ts, state) FROM states_test)
           );
       return:
         code: |2

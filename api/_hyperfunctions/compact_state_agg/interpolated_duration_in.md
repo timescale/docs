@@ -24,21 +24,20 @@ api_details:
     - language: sql
       code: |
         interpolated_duration_in(
-          state {TEXT | BIGINT},
           agg StateAgg,
+          state {TEXT | BIGINT},
           start TIMESTAMPTZ,
           interval INTERVAL
           [, prev StateAgg]
-          [, next StateAgg]
         ) RETURNS DOUBLE PRECISION
   parameters:
     required:
-      - name: state
-        type: TEXT | BIGINT
-        description: The state to query
       - name: agg
         type: StateAgg
         description: A state aggregate created with [`compact_state_agg`](#compact_state_agg)
+      - name: state
+        type: TEXT | BIGINT
+        description: The state to query
       - name: start
         type: TIMESTAMPTZ
         description: The start of the interval to be calculated
@@ -52,12 +51,6 @@ api_details:
           The state aggregate from the prior interval, used to interpolate
           the value at `start`. If `NULL`, the first timestamp in `aggregate` is used
           as the start of the interval.
-      - name: next
-        type: StateAgg
-        description: >
-          The state aggregate from the following interval, used to interpolate
-          the value at `start + interval`. If `NULL`, the last timestamp in `aggregate` is used
-          as the end of the interval.
     returns:
       - column: interpolated_duration_in
         type: INTERVAL
@@ -77,8 +70,8 @@ api_details:
           SELECT 
             time,
             toolkit_experimental.interpolated_duration_in(
-              'running',
               agg,
+              'running',
               time,
               '1 day',
               LAG(agg) OVER (ORDER BY time),

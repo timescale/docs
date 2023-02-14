@@ -24,11 +24,11 @@ api_details:
       code: |
         into_values(
           agg StateAgg
-        ) RETURNS (TEXT, BIGINT)
+        ) RETURNS (TEXT, INTERVAL)
 
         into_int_values(
           agg StateAgg
-        ) RETURNS (INT, BIGINT)
+        ) RETURNS (INT, INTERVAL)
   parameters:
     required:
       - name: agg
@@ -39,7 +39,7 @@ api_details:
         type: TEXT | BIGINT
         description: A state found in the state aggregate
       - column: duration
-        type: BIGINT
+        type: INTERVAL
         description: The total time spent in that state
   examples:
     - description: >
@@ -55,9 +55,9 @@ api_details:
       return:
         code: |
           state | duration
-          ------+-----------
-          ERROR |   3000000
-          OK    | 106000000
-          START |  11000000
+          ------+----------
+          ERROR | 00:00:03
+          OK    | 00:01:46
+          START | 00:00:11
 ---
 

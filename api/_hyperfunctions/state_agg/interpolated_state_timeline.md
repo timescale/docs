@@ -30,13 +30,9 @@ api_details:
             start TIMESTAMPTZ,
             interval INTERVAL,
             [, prev StateAgg]
-            [, next StateAgg]
         ) RETURNS (TIMESTAMPTZ, TIMESTAMPTZ)
   parameters:
     required:
-      - name: state
-        type: TEXT | BIGINT
-        description: The state to query
       - name: agg
         type: StateAgg
         description: A state aggregate created with [`state_agg`](#state_agg)
@@ -53,12 +49,6 @@ api_details:
           The state aggregate from the prior interval, used to interpolate
           the value at `start`. If `NULL`, the first timestamp in `aggregate` is used
           as the start of the interval.
-      - name: next
-        type: StateAgg
-        description: >
-          The state aggregate from the following interval, used to interpolate
-          the value at `start + interval`. If `NULL`, the last timestamp in `aggregate` is used
-          as the end of the interval.
     returns:
       - column: state
         type: TEXT | BIGINT

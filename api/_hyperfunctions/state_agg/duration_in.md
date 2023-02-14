@@ -23,17 +23,17 @@ api_details:
     - language: sql
       code: |
         duration_in(
-          state {TEXT | BIGINT},
-          aggregate StateAgg
+          agg StateAgg,
+          state {TEXT | BIGINT}
         ) RETURNS INTERVAL
   parameters:
     required:
+      - name: agg
+        type: StateAgg
+        description: A state aggregate created with [`state_agg`](#state_agg)
       - name: state
         type: TEXT | BIGINT
         description: The state to query
-      - name: aggregate
-        type: StateAgg
-        description: A state aggregate created with [`state_agg`](#state_agg)
     returns:
       - column: duration_in
         type: INTERVAL
@@ -60,8 +60,8 @@ api_details:
             ('1-5-2020 12:00', 'stopping');
 
           SELECT toolkit_experimental.duration_in(
-            'running',
-            toolkit_experimental.state_agg(time, state)
+            toolkit_experimental.state_agg(time, state),
+            'running'
           ) FROM states;
       return:
         code: |
