@@ -6,10 +6,11 @@ tags: [hyperfunctions, finance, candlestick, close]
 api:
   license: community
   type: function
-  experimental: true
+  experimental: false
   toolkit: true
   version:
     experimental: 1.12.0
+    stable: 1.14.0
 hyperfunction:
   family: financial analysis
   type: accessor
