@@ -1,18 +1,22 @@
 ---
-title: Migrate with hypershift
+title: Migrate with Hypershift
 excerpt: Migrate an existing PostgreSQL database to Timescale Cloud in a single step
 product: cloud
-keywords: [data migration, hypershift]
-tags: [ingest, hypershift, postgresql]
+keywords: [data migration, Hypershift]
+tags: [ingest, Hypershift, postgresql]
 ---
 
-# Migrate with hypershift
+import Experimental from 'versionContent/_partials/_experimental.md';
+
+# Migrate with Hypershift
 
 Migrate existing PostgreSQL databases by dumping and restoring the entire
-database at once. Hypershift also allows you to enable compression and
-hypertable creation on the fly. Because compression is enabled during the
-migration, you do not need to have the maximum amount of storage available in
-the target database.
+database at once. Hypershift&nbsp;0.2&nbsp;(beta) also allows you to enable
+compression and hypertable creation on the fly. Because compression is enabled
+during the migration, you do not need to have the maximum amount of storage
+available in the target database.
+
+<Experimental />
 
 Depending on your database size and network speed, migration can take a very
 long time. You can continue reading from your source database during this time,
@@ -24,7 +28,7 @@ from the fork. To avoid this problem, see the section on
 (<http://docs.timescale.com/cloud/latest/migrate-to-cloud/#migrate-an-active-database>).
 
 <highlight type="important">
-If you have a very large database, and hypershift is going to have to run for a
+If you have a very large database, and Hypershift is going to have to run for a
 very long time to migrate it, for example, a day or more, ensure that you have a
 very stable network connection. Hypershift is not able to recover if the network
 connection is interrupted.
@@ -43,19 +47,19 @@ thirty days. This gives you enough time to complete all the tutorials and run
 a few test projects of your own.
 </highlight>
 
-## Download the hypershift container
+## Download the Hypershift container
 
-<Tabs label="Download hypershift">
+<Tabs label="Download Hypershift">
 
 <Tab title="MacOS">
 
 <procedure>
 
-### Downloading the hypershift container on MacOS
+### Downloading the Hypershift container on MacOS
 
 1.  Open the Docker app on your local machine to start the service.
 
-1.  At the command prompt, pull the latest hypershift container from Dockerhub:
+1.  At the command prompt, pull the latest Hypershift container from Dockerhub:
 
     ```bash
     docker pull timescale/hypershift
@@ -69,7 +73,7 @@ a few test projects of your own.
 
 <procedure>
 
-### Downloading the hypershift container on Linux
+### Downloading the Hypershift container on Linux
 
 1.  Start the Docker service:
 
@@ -77,7 +81,7 @@ a few test projects of your own.
     sudo service docker start
     ```
 
-1.  At the command prompt, pull the latest hypershift container from Dockerhub:
+1.  At the command prompt, pull the latest Hypershift container from Dockerhub:
 
     ```bash
     docker pull timescale/hypershift
@@ -89,9 +93,9 @@ a few test projects of your own.
 
 </Tabs>
 
-## Run hypershift
+## Run Hypershift
 
-In preparation for running hypershift, you need to determine which tables need
+In preparation for running Hypershift, you need to determine which tables need
 to be converted to hypertables, and which tables need to be compressed during
 the migration. Hypertables must have a unique column labelled `time`.
 
@@ -122,7 +126,7 @@ Use this format:
 
 <procedure>
 
-### Running hypershift
+### Running Hypershift
 
 1.  Open the `hypershift.yml` configuration file, and adjust parameters
     accordingly. For example:
@@ -140,7 +144,7 @@ Use this format:
           - time desc
     ```
 
-1.  At the command prompt, run the hypershift container. Include the source and
+1.  At the command prompt, run the Hypershift container. Include the source and
     destination database connection strings, and the path to your `hypershift.yml`
     configuration file:
 
