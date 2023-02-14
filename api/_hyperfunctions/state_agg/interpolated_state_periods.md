@@ -79,8 +79,7 @@ api_details:
                   'OK',
                   bucket,
                   '15 min',
-                  LAG(summary) OVER (ORDER by bucket),
-                  LEAD(summary) OVER (ORDER by bucket)
+                  LAG(summary) OVER (ORDER by bucket)
               )).*
           FROM (
               SELECT

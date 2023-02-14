@@ -74,8 +74,7 @@ api_details:
               'running',
               time,
               '1 day',
-              LAG(agg) OVER (ORDER BY time),
-              LEAD(agg) OVER (ORDER BY time)
+              LAG(agg) OVER (ORDER BY time)
           ) FROM (
             SELECT
               time_bucket('1 day', time) as time,
