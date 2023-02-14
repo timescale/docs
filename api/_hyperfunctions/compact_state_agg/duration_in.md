@@ -25,6 +25,8 @@ api_details:
         duration_in(
           agg StateAgg,
           state {TEXT | BIGINT}
+          [, start TIMESTAMPTZ]
+          [, interval INTERVAL]
         ) RETURNS INTERVAL
   parameters:
     required:
@@ -34,6 +36,13 @@ api_details:
       - name: state
         type: TEXT | BIGINT
         description: The state to query
+    optional:
+      - name: start
+        type: TIMESTAMPTZ
+        description: If specified, only the time in the state after this time is returned.
+      - name: interval
+        type: INTERVAL
+        description: If specified, only the time in the state from the start time to the end of the interval is returned.
     returns:
       - column: duration_in
         type: INTERVAL
