@@ -17,7 +17,7 @@ Authenticator.
 ## Configure two-factor authentication with Google Authenticator
 
 Google Authenticator is a useful app for keeping track of your two-factor
-authentication keys. However, if you want something more open-source, there
+authentication keys. However, there
 are other authenticators available to suit your needs.
 
 Before you begin, make sure you have:
