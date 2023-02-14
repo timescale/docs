@@ -10,21 +10,29 @@ import Experimental from 'versionContent/_partials/_experimental.mdx';
 
 # Migrate with Hypershift
 
-Migrate existing PostgreSQL databases by dumping and restoring the entire
-database at once. Hypershift&nbsp;0.2&nbsp;(beta) also allows you to enable
-compression and hypertable creation on the fly. Because compression is enabled
-during the migration, you do not need to have the maximum amount of storage
-available in the target database.
+You can use Hypershift&nbsp;0.2&nbsp;(beta) to migrate existing PostgreSQL
+databases in one step, and enable compression and hypertable creation on the
+fly.
+
+Hypershift can migrate your data in Timescale Cloud from these sources:
+
+*   Standard PostgreSQL databases
+*   Amazon RDS databases
+*   Other TimescaleDB databases, including Managed Service for Timescale
+
+Because compression is enabled during the migration, you do not need to have the
+maximum amount of storage available in the target database before you start
+migration.
 
 <Experimental />
 
-Depending on your database size and network speed, migration can take a very
-long time. You can continue reading from your source database during this time,
-though performance could be slower. If you write to tables in your source
-database during the migration, the new writes might not be transferred to
-Timescale Cloud. To avoid this problem, fork your database and migrate your data
-from the fork. To avoid this problem, see the section on
-[migrating an active database]
+In preliminary testing, Hypershift migrated 60&nbsp;GB of data in 9 to 12 minutes,
+and 1&nbsp;TB of data in under 4 hours. You can continue reading from your
+source database during this time, though performance could be slower. If you
+write to tables in your source database during the migration, the new writes
+might not be transferred to Timescale Cloud. To avoid this problem, fork your
+database and migrate your data from the fork. To avoid this problem, see the
+section on [migrating an active database]
 (<http://docs.timescale.com/cloud/latest/migrate-to-cloud/#migrate-an-active-database>).
 
 <highlight type="important">
