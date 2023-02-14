@@ -6,7 +6,7 @@ keywords: [data migration, Hypershift]
 tags: [ingest, Hypershift, postgresql]
 ---
 
-import Experimental from 'versionContent/_partials/_experimental.md';
+import Experimental from 'versionContent/_partials/_experimental.mdx';
 
 # Migrate with Hypershift
 
