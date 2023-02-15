@@ -18,7 +18,7 @@ api_details:
   summary: >
     Unpack the state aggregate into a set of rows with two columns,
     displaying the duration of each state. By default, the columns are named
-    `state` and `duration`. You can rename them as you can do with any table.
+    `state` and `duration`. You can rename them using the same method as renaming a table.
   signatures:
     - language: sql
       code: |
