@@ -15,7 +15,7 @@ hyperfunction:
 api_details:
   summary: >
     Downsample your data with the [ASAP smoothing algorithm](https://arxiv.org/pdf/1703.00983.pdf).
-    This algorithm preserves the rough shape and larger trends of the input data, while minimizing the local variance between points.
+    This algorithm preserves the approximate shape and larger trends of the input data, while minimizing the local variance between points.
   signatures:
     - language: sql
       code: |
@@ -44,7 +44,7 @@ api_details:
           For more information, see the documentation on [timevectors](/timescaledb/:currentVersion:/how-to-guides/hyperfunctions/function-pipelines/#timevectors).
   examples:
     - description: >
-        This example uses a table called metrics, with columns for date and reading that contain measurements that have been accumulated over a large interval of time.
+        This example uses a table called `metrics`, with columns for `date` and `reading`. The columns contain measurements that have been accumulated over a large interval of time.
         This example takes that data and provides a smoothed representation of approximately 10 points, but that still shows any anomalous readings:
       command:
         code: |
