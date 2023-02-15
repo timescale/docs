@@ -110,6 +110,11 @@ module.exports = [
         ],
       },
       {
+        title: "Multi-factor Authentication",
+        href: "multi-factor-authentication",
+        excerpt: "Multi-factor authentication for Timescale Cloud account",
+      },
+      {
         title: "Integrations",
         href: "integrations",
         excerpt: "Export telemetry data to a third-party monitoring service",
