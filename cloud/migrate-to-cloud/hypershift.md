@@ -14,6 +14,8 @@ You can use Hypershift&nbsp;0.2&nbsp;(beta) to migrate existing PostgreSQL
 databases in one step, and enable compression and hypertable creation on the
 fly.
 
+<Experimental />
+
 Hypershift can migrate your data in Timescale Cloud from these sources:
 
 *   Standard PostgreSQL databases
@@ -23,8 +25,6 @@ Hypershift can migrate your data in Timescale Cloud from these sources:
 Because compression is enabled during the migration, you do not need to have the
 maximum amount of storage available in the target database before you start
 migration.
-
-<Experimental />
 
 In preliminary testing, Hypershift migrated 60&nbsp;GB of data in 9 to 12 minutes,
 and 1&nbsp;TB of data in under 4 hours. You can continue reading from your
