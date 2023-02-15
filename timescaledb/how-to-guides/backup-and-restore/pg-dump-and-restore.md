@@ -168,10 +168,10 @@ partitions, or the chunk interval sizes.
 
 </procedure>
 
-On a self hosted TimescaleDb instance with `postgres` superuser access you can
+On a self hosted TimescaleDB instance with `postgres` superuser access you can
 take a complete dump of all PostgreSQL databases in a cluster including global
 objects that are common to all databases, namely database roles, tablespaces,
-and privilege grants for configuration parameters using `pg_dumpall`. For more
+and privilege grants using `pg_dumpall`. For more
 information about how to use the `pg_dumpall` utility, see
 [PostgreSQL documentation][postgres-docs].  
 

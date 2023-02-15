@@ -18,5 +18,5 @@ keywords: [backups, restore]
 * Copy this comment at the top of every troubleshooting page
 -->
  You might see the errors above when running `pg_restore`. When loading from a
- logical dump make sure you set `timescaledb.restoring` to true before loading
+ logical dump make sure that you set `timescaledb.restoring` to true before loading
  the dump.
