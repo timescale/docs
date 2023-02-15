@@ -168,6 +168,13 @@ partitions, or the chunk interval sizes.
 
 </procedure>
 
+On a self hosted TimescaleDb instance with `postgres` superuser access you can
+take a complete dump of all PostgreSQL databases in a cluster including global
+objects that are common to all databases, namely database roles, tablespaces,
+and privilege grants for configuration parameters using `pg_dumpall`. For more
+information about how to use the `pg_dumpall` utility, see
+[PostgreSQL documentation][postgres-docs].  
+
 [parallel importer]: https://github.com/timescale/timescaledb-parallel-copy
 [pg_dump]: https://www.postgresql.org/docs/current/static/app-pgdump.html
 [pg_restore]: https://www.postgresql.org/docs/current/static/app-pgrestore.html
@@ -175,3 +182,4 @@ partitions, or the chunk interval sizes.
 [timescaledb_post_restore]: /api/:currentVersion:/administration/timescaledb_post_restore/
 [timescaledb-upgrade]: /timescaledb/:currentVersion:/how-to-guides/upgrades/
 [troubleshooting]: /timescaledb/:currentVersion:/how-to-guides/backup-and-restore/troubleshooting/
+[postgres-docs]: https://www.postgresql.org/docs/current/app-pg-dumpall.html
