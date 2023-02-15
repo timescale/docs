@@ -19,7 +19,7 @@ the [upgrading instructions][timescaledb-upgrade].
 <highlight type="warning">
 If you are using this `pg_dump` backup method regularly, make sure you keep
 track of which versions of PostgreSQL and TimescaleDB you are running. For more
-information, see "Versions are mismatched when dumping and restoring a database" 
+information, see "Versions are mismatched when dumping and restoring a database"
 in the [Troubleshooting section](https://docs.timescale.com/timescaledb/latest/how-to-guides/backup-and-restore/troubleshooting/).
 </highlight>
 
@@ -80,12 +80,6 @@ database and restore the data.
 
     ```sql
     SELECT timescaledb_post_restore();
-    ```
-
-1.  <Optional />Reindex your database to improve query performance:
-
-    ```sql
-    REINDEX DATABASE tsdb;
     ```
 
 </procedure>
