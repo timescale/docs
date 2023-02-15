@@ -415,11 +415,6 @@ module.exports = [
                 href: "candlestick_agg",
                 type: "placeholder",
               },
-              {
-                title: "ohlc",
-                href: "ohlc",
-                type: "placeholder",
-              },
             ],
           },
           {
@@ -488,23 +483,9 @@ module.exports = [
             ],
           },
           {
-            title: "Downsample",
-            type: "directory",
-            href: "downsample",
-            children: [
-              {
-                title: "asap",
-                href: "asap",
-              },
-              {
-                title: "lttb",
-                href: "lttb",
-              },
-              {
-                title: "gp_lttb",
-                href: "gp_lttb",
-              },
-            ],
+            title: "Downsampling",
+            type: "placeholder",
+            href: "downsampling",
           },
           {
             title: "Frequency Analysis",

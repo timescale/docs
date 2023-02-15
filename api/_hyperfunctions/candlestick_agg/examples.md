@@ -12,11 +12,11 @@ the trading volume, for each 1 hour period in the last day:
 SELECT
     time_bucket('1 hour'::interval, "time") AS ts,
     symbol,
-    toolkit_experimental.open(toolkit_experimental.candlestick_agg("time", price, volume)),
-    toolkit_experimental.high(toolkit_experimental.candlestick_agg("time", price, volume)),
-    toolkit_experimental.low(toolkit_experimental.candlestick_agg("time", price, volume)),
-    toolkit_experimental.close(toolkit_experimental.candlestick_agg("time", price, volume)),
-    toolkit_experimental.volume(toolkit_experimental.candlestick_agg("time", price, volume))
+    open(candlestick_agg("time", price, volume)),
+    high(candlestick_agg("time", price, volume)),
+    low(candlestick_agg("time", price, volume)),
+    close(candlestick_agg("time", price, volume)),
+    volume(candlestick_agg("time", price, volume))
 FROM stocks_real_time
 WHERE "time" > now() - '1 day'::interval
 GROUP BY ts, symbol
@@ -27,18 +27,18 @@ GROUP BY ts, symbol
 WITH cs AS (
     SELECT time_bucket('1 hour'::interval, "time") AS hourly_bucket,
       symbol,
-      toolkit_experimental.candlestick_agg("time", price, volume) AS candlestick
+      candlestick_agg("time", price, volume) AS candlestick
     FROM stocks_real_time
     WHERE "time" > now() - '1 day'::interval
     GROUP BY hourly_bucket, symbol
 )
 SELECT hourly_bucket,
   symbol,
-  toolkit_experimental.open(candlestick),
-  toolkit_experimental.high(candlestick),
-  toolkit_experimental.low(candlestick),
-  toolkit_experimental.close(candlestick),
-  toolkit_experimental.volume(candlestick)
+  open(candlestick),
+  high(candlestick),
+  low(candlestick),
+  close(candlestick),
+  volume(candlestick)
 FROM cs
 ;
 ```
@@ -52,7 +52,7 @@ CREATE MATERIALIZED VIEW candlestick
 WITH (timescaledb.continuous) AS
 SELECT time_bucket('1 minute'::interval, "time") AS ts,
   symbol,
-  toolkit_experimental.candlestick_agg("time", price, volume) AS candlestick
+  candlestick_agg("time", price, volume) AS candlestick
 FROM stocks_real_time
 GROUP BY ts, symbol
 ;
@@ -65,14 +65,14 @@ hour:
 ``` sql
 SELECT ts,
   symbol,
-    toolkit_experimental.open_time(candlestick),
-    toolkit_experimental.open(candlestick),
-    toolkit_experimental.high_time(candlestick),
-    toolkit_experimental.high(candlestick),
-    toolkit_experimental.low_time(candlestick),
-    toolkit_experimental.low(candlestick),
-    toolkit_experimental.close_time(candlestick),
-    toolkit_experimental.close(candlestick)
+    open_time(candlestick),
+    open(candlestick),
+    high_time(candlestick),
+    high(candlestick),
+    low_time(candlestick),
+    low(candlestick),
+    close_time(candlestick),
+    close(candlestick)
 FROM candlestick
 WHERE ts > now() - '1 hour'::interval
 ;
@@ -85,7 +85,7 @@ Volume Weighted Average Price for `AAPL` for the last month:
 SELECT
     time_bucket('1 day'::interval, ts) AS daily_bucket,
     symbol,
-    toolkit_experimental.vwap(toolkit_experimental.rollup(candlestick))
+    vwap(rollup(candlestick))
 FROM candlestick
 WHERE symbol = 'AAPL'
       AND ts > now() - '1 month'::interval
@@ -102,11 +102,11 @@ in the last day:
 SELECT
     time_bucket('1 hour'::interval, ts) AS hourly_bucket,
     symbol,
-    toolkit_experimental.open(toolkit_experimental.rollup(candlestick)),
-    toolkit_experimental.high(toolkit_experimental.rollup(candlestick)),
-    toolkit_experimental.low(toolkit_experimental.rollup(candlestick)),
-    toolkit_experimental.close(toolkit_experimental.rollup(candlestick)),
-    toolkit_experimental.volume(toolkit_experimental.rollup(candlestick))
+    open(rollup(candlestick)),
+    high(rollup(candlestick)),
+    low(rollup(candlestick)),
+    close(rollup(candlestick)),
+    volume(rollup(candlestick))
 FROM candlestick
 WHERE ts > now() - '1 day'::interval
 GROUP BY hourly_bucket
@@ -155,16 +155,16 @@ shows how these accessors return a table that looks just like your data:
 SELECT
     ts,
     symbol,
-    toolkit_experimental.open(candlestick),
-    toolkit_experimental.high(candlestick),
-    toolkit_experimental.low(candlestick),
-    toolkit_experimental.close(candlestick),
-    toolkit_experimental.volume(candlestick)
+    open(candlestick),
+    high(candlestick),
+    low(candlestick),
+    close(candlestick),
+    volume(candlestick)
 FROM (
     SELECT
         ts,
         symbol,
-        toolkit_experimental.candlestick(ts, open, high, low, close, volume)
+        candlestick(ts, open, high, low, close, volume)
     FROM historical_data
 ) AS _(ts, symbol, candlestick);
 ;
@@ -174,17 +174,17 @@ FROM (
 WITH cs AS (
     SELECT ts
       symbol,
-      toolkit_experimental.candlestick(ts, open, high, low, close, volume)
+      candlestick(ts, open, high, low, close, volume)
     FROM historical_data
 )
 SELECT 
     ts
     symbol,
-    toolkit_experimental.open(candlestick),
-    toolkit_experimental.high(candlestick),
-    toolkit_experimental.low(candlestick),
-    toolkit_experimental.close(candlestick),
-    toolkit_experimental.volume(candlestick)
+    open(candlestick),
+    high(candlestick),
+    low(candlestick),
+    close(candlestick),
+    volume(candlestick)
 FROM cs
 ;
 ```
@@ -200,12 +200,12 @@ Weighted Average Price:
 SELECT
     time_bucket('1 week'::interval, ts) AS weekly_bucket,
     symbol,
-    toolkit_experimental.vwap(toolkit_experimental.rollup(candlestick))
+    vwap(rollup(candlestick))
 FROM (
     SELECT
         ts,
         symbol,
-        toolkit_experimental.candlestick(ts, open, high, low, close, volume)
+        candlestick(ts, open, high, low, close, volume)
     FROM historical_data
 ) AS _(ts, symbol, candlestick)
 GROUP BY weekly_bucket, symbol

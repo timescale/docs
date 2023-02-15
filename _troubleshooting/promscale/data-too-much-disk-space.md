@@ -7,8 +7,9 @@ keywords: [disk, storage]
 tags: [promscale, resources, disk, storage, compression]
 ---
 
+import PromscaleDeprecation from "versionContent/_partials/_deprecated-promscale.mdx";
+
 <!---
-* Keep this section in alphabetical order
 * Use this format for writing troubleshooting sections:
  - Cause: What causes the problem?
  - Consequence: What does the user see when they hit this problem?
@@ -16,8 +17,6 @@ tags: [promscale, resources, disk, storage, compression]
  - Result: When the user applies the fix, what is the result when the same action is applied?
 * Copy this comment at the top of every troubleshooting page
 -->
-
-import PromscaleDeprecation from "versionContent/_partials/_deprecated-promscale.mdx";
 
 <PromscaleDeprecation />
 
