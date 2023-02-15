@@ -36,10 +36,13 @@ section on [migrating an active database]
 (<http://docs.timescale.com/cloud/latest/migrate-to-cloud/#migrate-an-active-database>).
 
 <highlight type="important">
-If you have a very large database, and Hypershift is going to have to run for a
-very long time to migrate it, for example, a day or more, ensure that you have a
-very stable network connection. Hypershift is not able to recover if the network
-connection is interrupted.
+If you have a large database, and Hypershift is going to have to run for a very
+long time to migrate it, for example, a day or more, ensure that you have a
+stable network connection. Hypershift is not able to recover if the network
+connection is interrupted. Additionally, when Hypershift is running, it holds a
+single transaction open for the entire duration of the migration. This prevents
+any autovacuum tasks from running, which can cause a range of different
+problems.
 </highlight>
 
 ## Prerequisites
@@ -109,13 +112,17 @@ the migration. Hypertables must have a unique column labelled `time`.
 
 Hypershift uses a YAML configuration file to determine how to set up your new
 Timescale database. You can create your own file, or use the example file as a
-starting point. You need these details to complete your configuration file:
+starting point. To complete your file, you need these details for the tables
+that you want to convert to hypertables:
 
 *   The schema which contains the table
-*   The name of the table to be converted to a hypertable
+*   The name of the table
 *   The name of the `time` column of that table
 *   The chunk time interval to use
 *   The compression policy you want to use
+
+If you are not sure what chunk time interval to use, see the
+[time partitioning section][chunk-time].
 
 Use this format:
 
@@ -170,3 +177,4 @@ Use this format:
 
 [cloud-install]: /install/:currentVersion:/installation-cloud/
 [docker-install]: https://docs.docker.com/get-docker/
+[chunk-time]: /timescaledb/:currentVersion:/how-to-guides/hypertables/about-hypertables#best-practices-for-time-partitioning
