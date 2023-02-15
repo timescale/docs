@@ -52,7 +52,7 @@ Before you begin, make sure you have:
 If you lose access to the mobile device you use for multi-factor authentication,
 and you do not have access to your recovery codes, you cannot sign in to your
 TimescaleDB Cloud account. To regain access to your account 
-[contact the support team](https://www.timescale.com/support).
+contact support@timescale.com.
 </highlight>
 
 ## Regenerate recovery codes
