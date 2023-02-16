@@ -13,9 +13,14 @@ module.exports = [
         excerpt: "Timescale Cloud services",
         children: [
           {
-            title: "Create a service",
+            title: "Create a TimescaleDB service",
             href: "create-a-service",
             excerpt: "Timescale Cloud services",
+          },
+          {
+            title: "Create a PostgreSQL service",
+            href: "create-a-pg-service",
+            excerpt: "PostgreSQL services",
           },
         ],
       },
