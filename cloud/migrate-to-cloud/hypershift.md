@@ -73,7 +73,7 @@ a few test projects of your own.
 1.  At the command prompt, pull the latest Hypershift container from Dockerhub:
 
     ```bash
-    docker pull timescale/hypershift
+    docker pull timescale/hypershift:0.2
     ```
 
 </procedure>
@@ -95,7 +95,7 @@ a few test projects of your own.
 1.  At the command prompt, pull the latest Hypershift container from Dockerhub:
 
     ```bash
-    docker pull timescale/hypershift
+    docker pull timescale/hypershift:0.2
     ```
 
 </procedure>
