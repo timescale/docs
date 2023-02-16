@@ -483,23 +483,9 @@ module.exports = [
             ],
           },
           {
-            title: "Downsample",
-            type: "directory",
-            href: "downsample",
-            children: [
-              {
-                title: "asap",
-                href: "asap",
-              },
-              {
-                title: "lttb",
-                href: "lttb",
-              },
-              {
-                title: "gp_lttb",
-                href: "gp_lttb",
-              },
-            ],
+            title: "Downsampling",
+            type: "placeholder",
+            href: "downsampling",
           },
           {
             title: "Frequency Analysis",
