@@ -8,7 +8,7 @@ api:
   toolkit: true
   experimental: true
   version:
-    experimental: 1.5.0
+    experimental: 1.13.0
 hyperfunction:
   family: state tracking
   type: accessor
@@ -16,24 +16,33 @@ hyperfunction:
     - state_agg()
 api_details:
   summary: >
-    Given a state aggregate, calculate the total time spent in the given state. If you
+    Given a state aggregate, calculate the total time spent in a state. If you
     need to interpolate missing values across time bucket boundaries, use
     [`interpolated_duration_in`](#interpolated_duration_in).
   signatures:
     - language: sql
       code: |
         duration_in(
-          state {TEXT | BIGINT},
-          aggregate StateAgg
+          agg StateAgg,
+          state {TEXT | BIGINT}
+          [, start TIMESTAMPTZ]
+          [, interval INTERVAL]
         ) RETURNS INTERVAL
   parameters:
     required:
+      - name: agg
+        type: StateAgg
+        description: A state aggregate created with [`state_agg`](#state_agg)
       - name: state
         type: TEXT | BIGINT
         description: The state to query
-      - name: aggregate
-        type: StateAgg
-        description: A state aggregate created with [`state_agg`](#state_agg)
+    optional:
+      - name: start
+        type: TIMESTAMPTZ
+        description: If specified, only the time in the state after this time is returned.
+      - name: interval
+        type: INTERVAL
+        description: If specified, only the time in the state from the start time to the end of the interval is returned.
     returns:
       - column: duration_in
         type: INTERVAL
@@ -60,8 +69,8 @@ api_details:
             ('1-5-2020 12:00', 'stopping');
 
           SELECT toolkit_experimental.duration_in(
-            'running',
-            toolkit_experimental.state_agg(time, state)
+            toolkit_experimental.state_agg(time, state),
+            'running'
           ) FROM states;
       return:
         code: |
