@@ -41,7 +41,7 @@ href
 [Hh]yperloglog
 [Hh]yperfunctions?
 [Hh]ypertables?
-[Hh]ypershift?
+[Hh]ypershift
 img
 Indri
 [Ii]nserter

@@ -31,9 +31,8 @@ and 1&nbsp;TB of data in under 4 hours. You can continue reading from your
 source database during this time, though performance could be slower. If you
 write to tables in your source database during the migration, the new writes
 are not transferred to Timescale Cloud. To avoid this problem, fork your
-database and migrate your data from the fork. To avoid this problem, see the
-section on [migrating an active database]
-(<http://docs.timescale.com/cloud/latest/migrate-to-cloud/#migrate-an-active-database>).
+database and migrate your data from the fork. See the
+section on [migrating an active database](http://docs.timescale.com/cloud/latest/migrate-to-cloud/#migrate-an-active-database) to learn more.
 
 <highlight type="important">
 If you have a large database, and Hypershift is going to have to run for a very
@@ -42,7 +41,7 @@ stable network connection. Hypershift is not able to recover if the network
 connection is interrupted. Additionally, when Hypershift is running, it holds a
 single transaction open for the entire duration of the migration. This prevents
 any autovacuum tasks from running, which can cause a range of different
-problems.
+problems on a busy source database.
 </highlight>
 
 ## Prerequisites
