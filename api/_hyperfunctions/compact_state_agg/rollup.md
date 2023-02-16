@@ -1,6 +1,6 @@
 ---
 api_name: rollup()
-excerpt: Combine multiple timeline aggregates
+excerpt: Combine multiple state aggregates
 topics: [hyperfunctions]
 api:
   license: community
@@ -13,39 +13,39 @@ hyperfunction:
   family: state tracking
   type: rollup
   aggregates:
-    - timeline_agg()
+    - compact_state_agg()
 api_details:
   summary: >
-    Combine multiple timeline aggregates into a single timeline aggregate. For
-    example, you can use `rollup` to combine timeline aggregates from 15-minute
+    Combine multiple state aggregates into a single state aggregate. For
+    example, you can use `rollup` to combine state aggregates from 15-minute
     buckets into daily buckets.
   signatures:
     - language: sql
       code: |
         rollup(
-            agg TimelineAgg
-        ) RETURNS TimelineAgg
+            agg StateAgg
+        ) RETURNS StateAgg
   parameters:
     required:
       - name: agg
-        type: Timeline
-        description: Timeline aggregates created using `timeline_agg`
+        type: StateAgg
+        description: State aggregates created using `compact_state_agg`
     returns:
       - column: agg
-        type: TimelineAgg
-        description: A new timeline aggregate that combines the input timeline aggregates
+        type: StateAgg
+        description: A new state aggregate that combines the input state aggregates
   examples:
-    - description: Combine multiple timeline aggregates and calculate the duration spent in the `START` state.
+    - description: Combine multiple state aggregates and calculate the duration spent in the `START` state.
       command:
         code: |
           WITH buckets AS (SELECT
               time_bucket('1 minute', ts) as dt,
-              toolkit_experimental.timeline_agg(ts, state) AS ta
+              toolkit_experimental.compact_state_agg(ts, state) AS sa
           FROM states_test
           GROUP BY time_bucket('1 minute', ts))
           SELECT toolkit_experimental.duration_in(
               'START',
-              toolkit_experimental.rollup(buckets.ta)
+              toolkit_experimental.rollup(buckets.sa)
           )
           FROM buckets;
 ---

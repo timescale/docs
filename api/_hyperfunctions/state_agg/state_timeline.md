@@ -1,6 +1,6 @@
 ---
 api_name: state_timeline()
-excerpt: Get a timeline of all states from a timeline aggregate
+excerpt: Get a state of all states from a state aggregate
 topics: [hyperfunctions]
 api:
   license: community
@@ -13,32 +13,32 @@ hyperfunction:
   family: state tracking
   type: accessor
   aggregates:
-    - timeline_agg()
+    - state_agg()
 api_details:
   summary: |
-    Get a timeline of all states, showing each time a state is entered and exited.
+    Get a state of all states, showing each time a state is entered and exited.
 
-    If you have multiple timeline aggregates and need to interpolate the state
+    If you have multiple state aggregates and need to interpolate the state
     across interval boundaries, use [`interpolated_state_timeline`](#interpolated_state_timeline).
   signatures:
     - language: sql
       code: |
         state_timeline(
-            agg TimelineAgg
+            agg StateAgg
         ) RETURNS (TEXT, TIMESTAMPTZ, TIMESTAMPTZ)
 
-        state_int_timeline(
-            agg TimelineAgg
+        state_int_state(
+            agg StateAgg
         ) RETURNS (BIGINT, TIMESTAMPTZ, TIMESTAMPTZ)
   parameters:
     required:
       - name: agg
-        type: TimelineAgg
-        description: The aggregate from which to get a timeline
+        type: StateAgg
+        description: The aggregate from which to get a state
     returns:
       - column: state
         type: TEXT | BIGINT
-        description: A state found in the timeline aggregate
+        description: A state found in the state aggregate
       - column: start_time
         type: TIMESTAMPTZ
         description: The time when the state started (inclusive)
@@ -46,12 +46,12 @@ api_details:
         type: TIMESTAMPTZ
         description: The time when the state ended (exclusive)
   examples:
-    - description: Get the history of states from a timeline aggregate.
+    - description: Get the history of states from a state aggregate.
       command:
         code: |
           SELECT state, start_time, end_time
             FROM toolkit_experimental.state_timeline(
-              (SELECT toolkit_experimental.timeline_agg(ts, state) FROM states_test)
+              (SELECT toolkit_experimental.state_agg(ts, state) FROM states_test)
             );
       return:
         code: |2
