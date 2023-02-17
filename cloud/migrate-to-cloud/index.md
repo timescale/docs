@@ -1,12 +1,12 @@
 ---
-title: Migrate your TimescaleDB database to Timescale Cloud
-excerpt: Migrate from self-hosted TimescaleDB or Managed Service for TimescaleDB
+title: Migrate your PostgreSQL database to Timescale Cloud
+excerpt: Migrate an existing PostgreSQL database to Timescale Cloud
 product: cloud
-keywords: [data migration, self-hosted, mst]
-tags: [ingest]
+keywords: [data migration, self-hosted, postgresql, hypershift]
+tags: [ingest, migrate]
 ---
 
-# Migrate your TimescaleDB database to Timescale Cloud
+# Migrate your PostgreSQL database to Timescale Cloud
 
 You can migrate your data to Timescale Cloud from self-hosted TimescaleDB or
 Managed Service for TimescaleDB. This allows you to use Timescale Cloud's
