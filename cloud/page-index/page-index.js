@@ -13,9 +13,14 @@ module.exports = [
         excerpt: "Timescale Cloud services",
         children: [
           {
-            title: "Create a service",
+            title: "Create a TimescaleDB service",
             href: "create-a-service",
             excerpt: "Timescale Cloud services",
+          },
+          {
+            title: "Create a PostgreSQL service",
+            href: "create-a-pg-service",
+            excerpt: "PostgreSQL services",
           },
         ],
       },
@@ -187,6 +192,12 @@ module.exports = [
         href: "migrate-to-cloud",
         excerpt: "Migrate a TimescaleDB database to Timescale Cloud",
         children: [
+          {
+            title: "Migrate with Hypershift",
+            href: "hypershift",
+            excerpt:
+              "Migrate an existing PostgreSQL database to Timescale Cloud in a single step with Hypershift",
+          },
           {
             title: "Migrate the entire database at once",
             href: "entire-database",
