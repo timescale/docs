@@ -1,6 +1,6 @@
 ---
 api_name: duration_in()
-excerpt: Calculate the total time spent in a given state from a timeline aggregate
+excerpt: Calculate the total time spent in a given state from a state aggregate
 topics: [hyperfunctions]
 api:
   license: community
@@ -8,32 +8,41 @@ api:
   toolkit: true
   experimental: true
   version:
-    experimental: 1.13.0
+    experimental: 1.5.0
 hyperfunction:
   family: state tracking
   type: accessor
   aggregates:
-    - timeline_agg()
+    - compact_state_agg()
 api_details:
   summary: >
-    Given a timeline aggregate, calculate the total time spent in a state. If you
+    Given a state aggregate, calculate the total time spent in the given state. If you
     need to interpolate missing values across time bucket boundaries, use
     [`interpolated_duration_in`](#interpolated_duration_in).
   signatures:
     - language: sql
       code: |
         duration_in(
-          state {TEXT | BIGINT},
-          aggregate TimelineAgg
+          agg StateAgg,
+          state {TEXT | BIGINT}
+          [, start TIMESTAMPTZ]
+          [, interval INTERVAL]
         ) RETURNS INTERVAL
   parameters:
     required:
+      - name: agg
+        type: StateAgg
+        description: A state aggregate created with [`compact_state_agg`](#compact_state_agg)
       - name: state
         type: TEXT | BIGINT
         description: The state to query
-      - name: aggregate
-        type: TimelineAgg
-        description: A timeline aggregate created with [`timeline_agg`](#timeline_agg)
+    optional:
+      - name: start
+        type: TIMESTAMPTZ
+        description: If specified, only the time in the state after this time is returned.
+      - name: interval
+        type: INTERVAL
+        description: If specified, only the time in the state from the start time to the end of the interval is returned.
     returns:
       - column: duration_in
         type: INTERVAL
@@ -60,8 +69,8 @@ api_details:
             ('1-5-2020 12:00', 'stopping');
 
           SELECT toolkit_experimental.duration_in(
-            'running',
-            toolkit_experimental.timeline_agg(time, state)
+            toolkit_experimental.compact_state_agg(time, state),
+            'running'
           ) FROM states;
       return:
         code: |
