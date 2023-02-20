@@ -2,7 +2,11 @@
 title: Write data to Promscale using the remote-write API
 ---
 
+import PromscaleDeprecation from "versionContent/_partials/_deprecated-promscale.mdx";
+
 # Write data to Promscale using the remote-write API
+
+<PromscaleDeprecation />
 
 Promscale provides a remote-write endpoint for ingesting data. The endpoint is
 compatible with Prometheus. You can also push data to Promscale from a custom
@@ -255,10 +259,10 @@ http_request_duration_seconds_count 144320
 Each sample entry is a single line in this format:
 
 *   Metric name
-*   **OPTIONAL** Collection label name and value, in curly braces, immediately
+*   <Optional />Collection label name and value, in curly braces, immediately
     following the metric name
 *   Floating point number that represents the actual measured value
-*   **OPTIONAL** An integer timestamp in milliseconds since the UNIX epoch. In
+*   <Optional />An integer timestamp in milliseconds since the UNIX epoch. In
     other words, the number of milliseconds since `1970-01-01 00:00:00 UTC`,
     excluding leap seconds. This should be represented as required by Go's
     [ParseInt][parseint] function.

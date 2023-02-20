@@ -9,7 +9,7 @@ api:
   type: function
 ---
 
-## attach_data_node() <tag type="community">Community</tag>
+# attach_data_node() <tag type="community">Community</tag>
 
 Attach a data node to a hypertable. The data node should have been
 previously created using [`add_data_node`][add_data_node].

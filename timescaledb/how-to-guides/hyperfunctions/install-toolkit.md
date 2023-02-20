@@ -158,6 +158,11 @@ installing or using Homebrew, see [the `brew` homepage][brew-install].
 
 </procedure>
 
+### Install Toolkit on Windows
+
+TimescaleDB Toolkit isn't currently supported on Windows. As a workaround, you
+can run PostgreSQL in a Docker container.
+
 ## Update Toolkit on self-hosted TimescaleDB
 
 Update Toolkit by installing the latest version and running `ALTER EXTENSION`.
@@ -247,8 +252,8 @@ developer documentation][toolkit-gh-docs].
 
 [brew-install]: https://brew.sh
 [cloud]: /cloud/:currentVersion:/
-[debian-install]: /install/latest/self-hosted/installation-debian/
+[debian-install]: /install/latest/self-hosted/installation-linux/
 [docker-install]: /install/latest/installation-docker/
 [mst]: /mst/:currentVersion:/
-[red-hat-install]: /install/latest/self-hosted/installation-redhat/
+[red-hat-install]: /install/latest/self-hosted/installation-linux/
 [toolkit-gh-docs]: https://github.com/timescale/timescaledb-toolkit#-installing-from-source

@@ -13,15 +13,21 @@ automated backups in Timescale Cloud are created using the `pgBackRest` tool.
 There is no need for you to manually perform backups for your Timescale Cloud
 service.
 
-Timescale Cloud allows point-in-time recovery to any time since the service was
-created, regardless of when a failure occurs. To achieve this, Timescale Cloud
-automatically creates one full backup every week. We also take incremental
-backups every day using a WAL ([Write-Ahead Log][wal]), which stores any changes
-since the last full backup. All generated WAL files are streamed to S3. The two
-most recent full backups are also stored securely on an Amazon S3 service with
-the most recent incremental backups. This means that you always have a full
-"base" backup for the current and the previous week, and we can restore your
-backup to any point up to the point of failure.
+Timescale Cloud automatically creates one full backup every week, and
+incremental backups every day. Incremental backups use a WAL
+([Write-Ahead Log][wal]), which stores any changes since the last full backup.
+The two most recent full backups are stored securely on an Amazon S3 service
+along with the most recent incremental backups. This means that you always have
+a full backup available for the current and the previous week, and your backup
+can be restored to any day up to the point of failure.
+
+For example, your database has a full backup created every Sunday, with the
+files retained for a full two weeks. Each day on Monday to Saturday, an
+incremental backup WAL is created, and the files retained. All WAL files
+necessary to restore to the oldest full backup are kept until the oldest full
+backup is removed and replaced with a new one.
+
+If you want to restore your database at any time, [contact support][support].
 
 To perform a point-in-time recovery, your database is first restored using the
 full backup, then any available incremental backups, and finally by replaying

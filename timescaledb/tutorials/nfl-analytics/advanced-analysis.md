@@ -4,7 +4,8 @@ excerpt: Use continuous aggregates and hyperfunctions to perform advanced analys
 keywords: [continuous aggregates, hyperfunctions, analytics]
 ---
 
-## Advanced analysis using continuous aggregates and hyperfunctions
+# Advanced analysis using continuous aggregates and hyperfunctions
+
 So far in this tutorial, you have ingested the data and run an aggregate query.
 Then you improved the performance of your analysis with continuous aggregates.
 
@@ -19,6 +20,7 @@ Python module, which is one of many great visualization tools.
 </highlight>
 
 ### Average yards run for a player over a game
+
 This query uses a percentile approximation [hyperfunction][api-hyperfunctions]
 to find the mean yards run per game by a single player.
 
@@ -34,6 +36,7 @@ FROM sum_yards
 GROUP BY player_id, displayname
 ORDER BY yards DESC
 ```
+
 Your data should look like this:
 
 |player_id|displayname|yards|
@@ -49,6 +52,7 @@ are null for the first row. This row represents the average yard data for the
 football.
 
 ### Average and median yards run per game by type of player
+
 For this query, you use another one of the TimescaleDB percentile functions
 called `percentile_agg`. You can use the `percentile_agg` function to find the
 fiftieth percentile, which is the approximate median.
@@ -83,6 +87,7 @@ very much during passing plays. However, the mean data implies that some of the
 DE players must be running a significant amount.
 
 ### Number of snap plays by player where they were on the offense
+
 In this query, you are counting the number of passing events a player was
 involved in while playing offense. You might notice how much slower this
 query runs than the ones above which use continuous aggregates. The speed you
@@ -93,15 +98,15 @@ continuous aggregates.
 WITH snap_events AS (
 -- Create a table that filters the play events to show only snap plays
 -- and display the players team information
-	SELECT DISTINCT player_id, t.event, t.gameid, t.playid,
-		CASE
-			WHEN t.team = 'away' THEN g.visitor_team
-			WHEN t.team = 'home' THEN g.home_team
-			ELSE NULL
-			END AS team_name
-	FROM tracking t
-	LEFT JOIN game g ON t.gameid = g.game_id
-	WHERE t.event LIKE '%snap%'
+ SELECT DISTINCT player_id, t.event, t.gameid, t.playid,
+  CASE
+   WHEN t.team = 'away' THEN g.visitor_team
+   WHEN t.team = 'home' THEN g.home_team
+   ELSE NULL
+   END AS team_name
+ FROM tracking t
+ LEFT JOIN game g ON t.gameid = g.game_id
+ WHERE t.event LIKE '%snap%'
 )
 -- Count these events and filter results to only display data when the player was
 -- on the offensive
@@ -125,6 +130,7 @@ Pittsburgh Steelers.
 |2533031|Andrew Luck|683|IND|
 
 ### Number of plays vs points scored
+
 Use this query to get data on the number of plays and final score for each game
 during the 2018 season. This data is separated by team so that we can compare
 the number of plays with a team's win or loss.
@@ -168,6 +174,7 @@ in the game tend to pass more. There are many interesting facts which you could
 glean from this type of query, this scatter plot is just one possibility.
 
 ### Average yards per game for top three players of each position
+
 You can use this PostgreSQL query to extract the average yards run by an individual
 player over one game. This query only includes the top three highest players'
 average yard values per position type. The data is ordered by the average yards
@@ -182,15 +189,15 @@ and Defensive Tackle
 ```sql
 WITH total_yards AS (
 -- This table sums the yards a player runs over each game
-	SELECT t.player_id, SUM(yards) AS yards, t.gameid
-	FROM player_yards_by_game t
-	GROUP BY t.player_id, t.gameid
+ SELECT t.player_id, SUM(yards) AS yards, t.gameid
+ FROM player_yards_by_game t
+ GROUP BY t.player_id, t.gameid
 ), avg_yards AS (
 -- This table takes the average of the yards run by each player and calls out thier position
-	SELECT p.player_id, p.displayname, AVG(yards) AS avg_yards, p."position"
-	FROM total_yards t
-	LEFT JOIN player p ON t.player_id = p.player_id
-	GROUP BY p.player_id, p.displayname, p."position"
+ SELECT p.player_id, p.displayname, AVG(yards) AS avg_yards, p."position"
+ FROM total_yards t
+ LEFT JOIN player p ON t.player_id = p.player_id
+ GROUP BY p.player_id, p.displayname, p."position"
 ), ranked_vals AS (
     -- This table ranks each player by the average yards they run per game
     SELECT a.*, RANK() OVER (PARTITION BY a."position" ORDER BY avg_yards DESC)
@@ -218,10 +225,11 @@ However, individual Wide Receivers run more yards on average per game. Also, not
 that Kyle Juszczyk runs far more on average than other Fullback players.
 
 ## It's only halftime!
+
 These example queries are just the beginning examples of the analysis you can
 perform on any time-series data with regular SQL and helpful features like continuous
 aggregates. Consider joining in stadium data that we provided to see if teams
 tend to score or run less at Mile High Stadium. Does natural or artificial turf
 affect any teams consistently?
 
-[api-hyperfunctions]: /api/:currentVersion:/hyperfunctions/percentile-approximation/
+[api-hyperfunctions]: /api/:currentVersion:/hyperfunctions/percentile-approximation/uddsketch/

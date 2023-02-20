@@ -3,13 +3,12 @@ title: Queries using `locf()` don't treat `NULL` values as missing
 section: troubleshooting
 topics: [continuous aggregates, hyperfunctions]
 apis:
-  - [hyperfunctions, gapfilling and interpolation, locf()] 
+  - [hyperfunctions, gapfilling and interpolation, locf()]
 keywords: [continuous aggregates, hyperfunctions, gapfilling]
 tags: [continuous aggregates, hyperfunctions, gapfilling, locf, queries]
 ---
 
 <!---
-* Keep this section in alphabetical order
 * Use this format for writing troubleshooting sections:
  - Cause: What causes the problem?
  - Consequence: What does the user see when they hit this problem?

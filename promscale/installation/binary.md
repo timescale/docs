@@ -9,7 +9,12 @@ related_pages:
   - /promscale/:currentVersion:/send-data/
 ---
 
+import PromscaleDeprecation from "versionContent/_partials/_deprecated-promscale.mdx";
+
 # Install Promscale from binary
+
+<PromscaleDeprecation />
+
 You can install Promscale from a pre-complied binary on any operating systems. The
 Promscale binary file is available at [GitHub releases page][gh-promscale-download].
 
@@ -17,6 +22,7 @@ Before you begin, you must have an already installed and working Prometheus or
 OpenTelemetry collector environment.
 
 ## Install TimescaleDB and Promscale extension
+
 To use Promscale, you need a TimescaleDB database, as well as the Promscale
 extension. The Promscale extension contains support functions to improve
 performance of Promscale.
@@ -25,7 +31,7 @@ performance of Promscale.
 
 ### Compiling and installing TimescaleDB
 
-1.  Install TimescaleDB following the instructions in the 
+1.  Install TimescaleDB following the instructions in the
     [TimescaleDB install page][tsdb-install-self-hosted]
 1.  Compile and install the Promscale extension from source that is available on
     the [Promscale extension page][promscale-extension]
@@ -33,22 +39,29 @@ performance of Promscale.
 </procedure>
 
 ## Install the Promscale pre-compiled binary
+
 Download the Promscale binary file and run the file.
 
 <procedure>
 
 ### Installing Promscale from binary
+
 1.  At the command prompt, as a root user, download the appropriate file
     for your operating system (get the URL from the [GitHub repository releases page][releases]):
+
     ```bash
     curl -L -o promscale https://github.com/timescale/promscale/releases/download/<VERSION>/<PROMSCALE_DISTRIBUTION>
     ```
+
 1.  Grant executable permissions to the `promscale` directory:
+
     ```bash
     chmod +x promscale
     ```
+
 1.  Run Promscale by providing the connection details for your TimescaleDB
     service:
+
     ```bash
     ./promscale --db-host <DB_HOSTNAME> --db-port <DB_PORT> --db-name <DBNAME> --db-password <DBPASSWORD> --db-ssl-mode allow
     ```
