@@ -21,6 +21,23 @@ Want to stay up-to-date with new releases? Subscribe to get
 * Introduce fixed schedules for background jobs and the ability to check job errors.
 * Use `alter_data_node()` to change the data node configuration. This function introduces the option to configure the availability of the data node.
 
+## 2.9.3 (2023-02-06)
+
+This release contains bug fixes since the 2.9.2 release and a fix for a security vulnerability (#5259). You can check the [security advisory](https://github.com/timescale/timescaledb/security/advisories/GHSA-44jh-j22r-33wq) for more information on the vulnerability and the platforms that are affected.
+
+This release is high priority for upgrade. We strongly recommend that you upgrade as soon as possible.
+
+**Bug fixes**
+* #4804 Skip bucketing when start or end of refresh job is null
+* #5108 Fix column ordering in compressed table index not following the order of a multi-column segment by definition
+* #5187 Don't enable clang-tidy by default
+* #5255 Fix year not being considered as a multiple of day/month in hierarchical continuous aggregates
+* #5259 Lock down search_path in SPI calls
+
+**Thanks**
+* @ssmoss for reporting issues on continuous aggregates
+* @jaskij for reporting the compilation issue that occurred with clang
+
 ## 2.9.2 (2023-01-27)
 
 This release contains bug fixes since the 2.9.1 release.

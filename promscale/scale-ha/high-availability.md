@@ -5,7 +5,12 @@ product: promscale
 keywords: [high availability, Prometheus]
 ---
 
+import PromscaleDeprecation from "versionContent/_partials/_deprecated-promscale.mdx";
+
 # Promscale and Prometheus high availability
+
+<PromscaleDeprecation />
+
 Promscale supports high availability alongside Prometheus high availability.
 Promscale is a stateless service, so it can use multiple replicas to run in a
 high availability (HA) mode. In this mode, a load balancer routes Promscale
@@ -28,6 +33,7 @@ data to the same set of Promscale instances, and in this case one leader is
 elected for each cluster.
 
 ## Leader election using external labels
+
 To process data from Prometheus running in HA mode, Prometheus must be
 configured to communicate which cluster it belongs to. This is done using
 external labels. In particular, each Prometheus instance sends a `cluster` label
@@ -43,6 +49,7 @@ the pod name, and the cluster name as the Prometheus deployment or `statefulset`
 name. If you are using the [Prometheus
 Operator](https://github.com/prometheus-operator/prometheus-operator#prometheus-operator),
 you can set it with these configuration parameters:
+
 ```yaml
   replicaExternalLabelName: "__replica__"
   prometheusExternalLabelName: "cluster"
@@ -51,6 +58,7 @@ you can set it with these configuration parameters:
 In bare metal environments, and any environment where you are not using
 Kubernetes, you can configure external labels with the cluster and replica names
 in each Prometheus instance configuration, like this:
+
 ```yaml
 global:
   external_labels:
@@ -60,6 +68,7 @@ global:
 
 When you have configured your Prometheus instances to send the correct labels,
 you can start Promscale with the `--metrics.high-availability` CLI flag, like this:
+
 ```bash
 promscale --metrics.high-availability
 ```

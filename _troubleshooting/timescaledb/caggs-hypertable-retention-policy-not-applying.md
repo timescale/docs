@@ -3,13 +3,12 @@ title: Hypertable retention policy isn't applying to continuous aggregates
 section: troubleshooting
 topics: [continuous aggregates, data retention]
 apis:
-  - [data retention, add_retention_policy()] 
+  - [data retention, add_retention_policy()]
 keywords: [continuous aggregates, data retention]
 tags: [continuous aggregates, data retention]
 ---
 
 <!---
-* Keep this section in alphabetical order
 * Use this format for writing troubleshooting sections:
  - Cause: What causes the problem?
  - Consequence: What does the user see when they hit this problem?

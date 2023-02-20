@@ -4,7 +4,12 @@ excerpt: Manage the data stored in Promscale
 product: promscale
 ---
 
+import PromscaleDeprecation from "versionContent/_partials/_deprecated-promscale.mdx";
+
 # Manage data in Promscale
+
+<PromscaleDeprecation />
+
 Promscale provides different methods to manage your data and reduce disk space.
 
 *   Configure [retention policies][retention] on metrics

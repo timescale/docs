@@ -4,7 +4,12 @@ excerpt: Configure Promscale for scaling and high availability
 product: promscale
 ---
 
+import PromscaleDeprecation from "versionContent/_partials/_deprecated-promscale.mdx";
+
 # Scalability and high availability
+
+<PromscaleDeprecation />
+
 Promscale consists of the Promscale Connector, and TimescaleDB. Promscale
 benefits from the scalability and high availability capabilities that
 TimescaleDB and PostgreSQL provide.

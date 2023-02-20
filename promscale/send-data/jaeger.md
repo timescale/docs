@@ -6,19 +6,25 @@ keywords: [Jaeger]
 tags: [configure, traces]
 ---
 
+import PromscaleDeprecation from "versionContent/_partials/_deprecated-promscale.mdx";
+
 # Send Jaeger traces to Promscale
-On Promscale&nbsp;0.14.0 and above, you can natively use Jaeger gRPC 
-based remote storage. On Promscale&nbsp;0.11.0 and above, you can natively 
+
+<PromscaleDeprecation />
+
+On Promscale&nbsp;0.14.0 and above, you can natively use Jaeger gRPC
+based remote storage. On Promscale&nbsp;0.11.0 and above, you can natively
 use OpenTelemetry Protocol (OTLP) for traces.
 To ingest Jaeger traces to Promscale, you can either:
 
-* Use the Jaeger Collector to ingest Jaeger spans directly to configured 
-   remote storage. This avoids using any non-Jaeger components, including 
+*   Use the Jaeger Collector to ingest Jaeger spans directly to configured
+   remote storage. This avoids using any non-Jaeger components, including
    the OpenTelemetry collector.
-* Use the OpenTelemetry Collector to convert Jaeger traces to OpenTelemetry traces.
+*   Use the OpenTelemetry Collector to convert Jaeger traces to OpenTelemetry traces.
 
 # Send data using the Jaeger Collector
-You can configure the Jaeger Collector to store the traces using Promscale's native 
+
+You can configure the Jaeger Collector to store the traces using Promscale's native
 implementation of [Jaeger gRPC storage specification][jaeger-grpc-storage].
 
 Here's an example configuration to enable the Jaeger collector to forward traces
@@ -31,9 +37,10 @@ docker run \
   jaegertracing/jaeger-collector:1.37.0
 ```
 
-Where: 
-* `<PROMSCALE_HOST>`: hostname of Promscale.
-* `<gRPC_PORT>`: gRPC port of Promscale. The default port is 9202.
+Where:
+
+*   `<PROMSCALE_HOST>`: hostname of Promscale.
+*   `<gRPC_PORT>`: gRPC port of Promscale. The default port is 9202.
 
 If you are running the Jaeger Collector and the Promscale Connector on a
 Kubernetes cluster, the endpoint parameter is similar to `endpoint:
@@ -45,6 +52,7 @@ of the [OpenTelemetry collector][otelcol-config].
 </highlight>
 
 # Send data using the OpenTelemetry Collector
+
 You can configure the OpenTelemetry Collector to forward Jaeger traces to Promscale
 using the [Jaeger receiver][jaeger-receiver] and the OpenTelemetry exporter.
 
@@ -80,20 +88,22 @@ service:
       processors: [batch]
 ```
 
-Where: 
-* `<PROMSCALE_HOST>`: hostname of Promscale.
-* `<gRPC_PORT>`: gRPC port of Promscale. The default port is 9202.
+Where:
+
+*   `<PROMSCALE_HOST>`: hostname of Promscale.
+*   `<gRPC_PORT>`: gRPC port of Promscale. The default port is 9202.
 
 If you are running the OTLP Collector and the Promscale Connector on a
 Kubernetes cluster, the endpoint parameter is similar to `endpoint:
 "promscale-connector.default.svc.cluster.local:<PORT>"`
 
 The default ports exposed by the OpenTelemetry Collector Jaeger receiver are:
-* `14250` : gRPC
-* `6832`  : thrift_binary
-These are the ports where you should send your Jaeger traces. 
-* `6831`  : thrift_compact
-* `14268` : thrift_http
+
+*   `14250` : gRPC
+*   `6832`  : thrift_binary
+These are the ports where you should send your Jaeger traces.
+*   `6831`  : thrift_compact
+*   `14268` : thrift_http
 
 For more information about the OpenTelemetry Collector, see the
 [OpenTelemetry documentation][otelcol-docs].
