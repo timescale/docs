@@ -16,9 +16,9 @@ when starting PostgreSQL.
 
 ### `timescaledb.max_background_workers (int)`
 
-Max background worker processes allocated to TimescaleDB.  Set to at
-least 1 + number of databases in Postgres instance to use background
-workers. Default value is 16.
+Max background worker processes allocated to TimescaleDB. Set to at least 1 +
+the number of databases loaded with a TimescaleDB extension in a PostgreSQL
+instance. Default value is 16.
 
 ## Distributed hypertables
 
@@ -65,7 +65,7 @@ by the network connection and availability of data nodes. It is by default disab
 ### `timescaledb.remote_data_fetcher (enum)`
 
 Pick data fetcher type based on type of queries you plan to run, which
-can be either `rowbyrow` or `cursor`. The default is `rowbyrow`.
+can be either `copy`, `cursor`, or `auto`. The default is `auto`.
 
 ### `timescaledb.ssl_dir (string)`
 

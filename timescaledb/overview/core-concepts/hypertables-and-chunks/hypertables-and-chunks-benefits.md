@@ -1,6 +1,7 @@
 ---
 title: Benefits of hypertables
 excerpt: Hypertables help you achieve high performance and improved workflows when working with time-series data
+keywords: [hypertables]
 ---
 
 # Benefits of hypertables
@@ -24,7 +25,7 @@ disk.
 <highlight type="note">
 For more information about chunk sizing for improved performance, see the
 section on
-[chunk sizing](/timescaledb/latest/how-to-guides/hypertables/about-hypertables/#best-practices-for-time-partitioning).
+[chunk sizing](/timescaledb/latest/how-to-guides/hypertables/about-hypertables/).
 </highlight>
 
 Though fitting chunks in memory gives the best performance, TimescaleDB doesn't

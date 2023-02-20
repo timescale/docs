@@ -2,7 +2,7 @@
 api_name: interpolate()
 excerpt: Linearly interpolate missing values when gapfilling
 topics: [hyperfunctions]
-keywords: [gapfill, interpolate, hyperfunctions, toolkit]
+keywords: [gapfilling, interpolate, hyperfunctions, Toolkit]
 tags: [missing values]
 api:
   license: community

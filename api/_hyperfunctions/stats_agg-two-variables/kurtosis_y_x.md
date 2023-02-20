@@ -2,7 +2,7 @@
 api_name: kurtosis_y() | kurtosis_x()
 excerpt: Calculate the kurtosis from a two-dimensional statistical aggregate for the dimension specified
 topics: [hyperfunctions]
-keywords: [statistics, statistical aggregate, hyperfunctions, toolkit]
+keywords: [statistics, hyperfunctions, Toolkit]
 tags: [skew]
 api:
   license: community

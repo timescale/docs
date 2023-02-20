@@ -4,6 +4,9 @@ excerpt: Manage billing information for your Timescale Cloud account
 product: cloud
 keywords: [billing, accounts, admin]
 tags: [payment]
+cloud_ui:
+    path:
+        - [billing, details]
 ---
 
 # Billing - Account management

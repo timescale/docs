@@ -2,12 +2,11 @@
 title: A particular query executes more slowly than expected
 section: troubleshooting
 topics: [queries]
-keywords: [query, explain]
+keywords: [EXPLAIN]
 tags: [queries, query, explain, performance]
 ---
 
 <!---
-* Keep this section in alphabetical order
 * Use this format for writing troubleshooting sections:
  - Cause: What causes the problem?
  - Consequence: What does the user see when they hit this problem?

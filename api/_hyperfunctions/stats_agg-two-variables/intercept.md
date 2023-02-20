@@ -2,7 +2,7 @@
 api_name: intercept()
 excerpt: Calculate the intercept from a two-dimensional statistical aggregate
 topics: [hyperfunctions]
-keywords: [statistics, statistical aggregate, hyperfunctions, toolkit]
+keywords: [statistics, hyperfunctions, Toolkit]
 tags: [intercept, least squares, linear regression]
 api:
   license: community

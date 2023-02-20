@@ -2,7 +2,7 @@
 api_name: sum()
 excerpt: Calculate the sum from a one-dimensional statistical aggregate
 topics: [hyperfunctions]
-keywords: [statistics, statistical aggregate, hyperfunctions, toolkit]
+keywords: [statistics, hyperfunctions, Toolkit]
 tags: [sum]
 api:
   license: community

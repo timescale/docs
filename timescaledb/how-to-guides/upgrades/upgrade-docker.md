@@ -1,7 +1,7 @@
 ---
 title: Upgrades within a Docker container
 excerpt: Upgrade TimescaleDB within a Docker container
-keywords: [upgrade, Docker]
+keywords: [upgrades, Docker]
 ---
 
 # Upgrades within a Docker container
@@ -137,6 +137,10 @@ data.
     CREATE EXTENSION IF NOT EXISTS timescaledb_toolkit;
     ALTER EXTENSION timescaledb_toolkit UPDATE;
     ```
+
+<highlight type="note">
+If you have multiple databases, you need to update each database separately.
+</highlight>
 
 </procedure>
 

@@ -523,7 +523,7 @@ print the results to the console.
                 using(var cmd = new NpgsqlCommand(sql, conn))
                 {
                     using(NpgsqlDataReader rdr = cmd.ExecuteReader()) {
-                        while (rdr.Read()) Console.WriteLine($"{rdr.GetDouble(0)} - {rdr.GetTimeStamp(1)} - {rdr.GetDouble(2)}");
+                        while (rdr.Read()) Console.WriteLine($"{rdr.GetDouble(0)} - {rdr.GetDateTime(1)} - {rdr.GetDouble(2)}");
                     }
                 }
 

@@ -1,10 +1,11 @@
 ---
 title: Upgrade PostgreSQL
 excerpt: Upgrade the PostgreSQL installation associated with TimescaleDB
-keywords: [upgrade, PostgreSQL]
+keywords: [upgrades, PostgreSQL, versions, compatibility]
 ---
 
 # Upgrade PostgreSQL
+
 Because TimescaleDB is a PostgreSQL extension, you need to ensure you keep your
 underlying PotsgreSQL installation up to date. When you upgrade your TimescaleDB
 extension to a new version, always take the time to check if you need to also
@@ -31,26 +32,28 @@ that you can make sure each upgrade completes properly. For example, if you are
 running PostgreSQL&nbsp;10 and TimescaleDB&nbsp;1.7.5, and you want to upgrade
 to PostgreSQL&nbsp;13 and TimescaleDB&nbsp;2.2, upgrade in this order:
 
-1. Upgrade PostgreSQL&nbsp;10 to PostgreSQL&nbsp;12
-1. Upgrade TimescaleDB&nbsp;1.7.5 to TimescaleDB&nbsp;2.2 on PostgreSQL&nbsp;12
-1. Upgrade PostgreSQL&nbsp;12 to PostgreSQL&nbsp;13 with TimescaleDB&nbsp;2.2
+1.  Upgrade PostgreSQL&nbsp;10 to PostgreSQL&nbsp;12
+1.  Upgrade TimescaleDB&nbsp;1.7.5 to TimescaleDB&nbsp;2.2 on PostgreSQL&nbsp;12
+1.  Upgrade PostgreSQL&nbsp;12 to PostgreSQL&nbsp;13 with TimescaleDB&nbsp;2.2
    installed
 
 ## Plan your upgrade
+
 You can upgrade your PostgreSQL installation in-place. This means
 that you do not need to dump and restore your data. However, it is still
 important that you plan for your upgrade ahead of time.
 
 Before you upgrade:
 
-* Read [the release notes][pg-relnotes] for the PostgreSQL version you are
+*   Read [the release notes][pg-relnotes] for the PostgreSQL version you are
   upgrading to.
-* [Perform a backup][backup] of your database. While PostgreSQL and
+*   [Perform a backup][backup] of your database. While PostgreSQL and
   TimescaleDB upgrades are performed in-place, upgrading is an intrusive
   operation. Always make sure you have a backup on hand, and that the backup is
   readable in the case of disaster.
 
 ## Upgrade PostgreSQL
+
 You can use the [`pg_upgrade`][pg_upgrade] tool to upgrade PostgreSQL in-place.
 This means that you do not need to dump and restore your data. Instead,
 `pg_upgrade` allows you to retain the data files of your current PostgreSQL
@@ -64,6 +67,7 @@ supported for PostgreSQL&nbsp;8.4 and higher.
 1.  Before you begin, determine the location of the PostgreSQL binary and your
     data directory on your local system.
 1.  At the psql prompt, perform the upgrade:
+
     ```sql
     pg_upgrade -b <OLD_BIN_DIR> -B <NEW_BIN_DIR> -d <OLD_DATA_DIR> -D <NEW_DATA_DIR>
     ```

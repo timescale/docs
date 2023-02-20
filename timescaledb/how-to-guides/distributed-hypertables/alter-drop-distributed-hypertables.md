@@ -1,7 +1,7 @@
 ---
 title: Alter and drop distributed hypertables
 excerpt: How to alter and drop distributed hypertables
-keywords: [distributed hypertables, alter, drop]
+keywords: [distributed hypertables, alter, delete]
 tags: [change, delete]
 ---
 

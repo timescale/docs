@@ -1,12 +1,10 @@
 ---
 title: Error updating TimescaleDB when using a third-party PostgreSQL admin tool
 topics: [upgrades]
-keywords: [update, third-party tools]
-tags: [update, third-party tools]
+keywords: [updates, third-party tools]
 ---
 
 <!---
-* Keep this section in alphabetical order
 * Use this format for writing troubleshooting sections:
  - Cause: What causes the problem?
  - Consequence: What does the user see when they hit this problem?

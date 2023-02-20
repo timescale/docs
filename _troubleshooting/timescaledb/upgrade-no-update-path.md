@@ -6,12 +6,11 @@ errors:
   - language: sql
     message: |-
       ERROR: extension "timescaledb_toolkit" has no update path from version "1.2" to version "1.3"
-keywords: [upgrade]
+keywords: [upgrades]
 tags: [upgrade]
 ---
 
 <!---
-* Keep this section in alphabetical order
 * Use this format for writing troubleshooting sections:
  - Cause: What causes the problem?
  - Consequence: What does the user see when they hit this problem?

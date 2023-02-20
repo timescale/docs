@@ -9,7 +9,7 @@ api:
   type: view
 ---
 
-## timescaledb_information.dimensions
+# timescaledb_information.dimensions
 
 Get metadata about the dimensions of hypertables, returning one row of metadata
 for each dimension of a hypertable. For a time-and-space-partitioned

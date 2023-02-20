@@ -55,7 +55,11 @@ SELECT * FROM stocks_real_time srt
 WHERE symbol='AMZN'
 ORDER BY time DESC, day_volume desc
 LIMIT 10;
+```
 
+The results look like this:
+
+```sql
 
 time                         |symbol|price    |day_volume|
 -----------------------------+------+---------+----------+
@@ -115,6 +119,11 @@ FROM stocks_real_time srt
 WHERE time > now() - INTERVAL '3 days'
 GROUP BY symbol
 ORDER BY symbol;
+```
+
+The results look like this:
+
+```sql
 
 symbol|first   |last    |
 ------+--------+--------+
@@ -165,7 +174,11 @@ FROM stocks_real_time srt
 WHERE time > now() - INTERVAL '1 week'
 GROUP BY bucket, symbol
 ORDER BY bucket, symbol;
+```
 
+The results look like this:
+
+```sql
 bucket                       |symbol|avg               |
 -----------------------------+------+------------------+
 2022-04-26 20:00:00.000 -0400|AAPL  |157.16595920217668|

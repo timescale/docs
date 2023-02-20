@@ -2,7 +2,7 @@
 api_name: sum_y() | sum_x()
 excerpt: Calculate the sum from a two-dimensional statistical aggregate for the dimension specified
 topics: [hyperfunctions]
-keywords: [statistics, statistical aggregate, hyperfunctions, toolkit]
+keywords: [statistics, hyperfunctions, Toolkit]
 tags: [sum]
 api:
   license: community

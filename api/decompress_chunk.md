@@ -2,23 +2,24 @@
 api_name: decompress_chunk()
 excerpt: Decompress a compressed chunk
 topics: [compression]
-keywords: [compression, decompression, chunks]
+keywords: [compression, decompression, chunks, backfilling]
 api:
   license: community
   type: function
 ---
 
-## decompress_chunk() <tag type="community">Community</tag>
+# decompress_chunk() <tag type="community">Community</tag>
 
 If you need to modify or add data to a chunk that has already been
 compressed, you need to decompress the chunk first. This is especially
 useful for backfilling old data.
 
-<highlight type="note">
-Before decompressing chunks, stop any compression policy
-on the hypertable you are decompressing. When you finish backfilling or updating
-data, turn the policy back on. The database automatically recompresses your
-chunks in the next scheduled job.
+<highlight type="important">
+Before decompressing chunks, stop any compression policy on the hypertable you
+are decompressing. You can use `SELECT alter_job(JOB_ID, scheduled => false);`
+to prevent scheduled execution. When you finish backfilling or updating data,
+turn the policy back on. The database automatically recompresses your chunks in
+the next scheduled job.
 </highlight>
 
 ### Required arguments

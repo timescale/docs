@@ -3,12 +3,12 @@ title: PromQL dashboard doesn't show Promscale data
 section: troubleshooting
 products: [promscale]
 topics: [visualization]
-tags: [PromQL]
-keywords: [promscale, PromQL, dashboard, disk, memory, CPU]
+keywords: [PromQL, disk, memory, CPU, backfilling]
 ---
 
+import PromscaleDeprecation from "versionContent/_partials/_deprecated-promscale.mdx";
+
 <!---
-* Keep this section in alphabetical order
 * Use this format for writing troubleshooting sections:
  - Cause: What causes the problem?
  - Consequence: What does the user see when they hit this problem?
@@ -16,6 +16,8 @@ keywords: [promscale, PromQL, dashboard, disk, memory, CPU]
  - Result: When the user applies the fix, what is the result when the same action is applied?
 * Copy this comment at the top of every troubleshooting page
 -->
+
+<PromscaleDeprecation />
 
 Backfilling data which has not been ingested into Prometheus can cause the
 PromQL dashboard to not show Promscale data.

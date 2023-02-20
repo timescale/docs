@@ -3,7 +3,7 @@ title: Install TimescaleDB
 excerpt: Install TimescaleDB, the PostgreSQL database for time series and data analysis
 section: install
 nav-hidden: true
-keywords: [install]
+keywords: [installation]
 ---
 
 # Install TimescaleDB
@@ -37,5 +37,5 @@ guide][mst-install].
 [self-hosted-install]: /install/:currentVersion:/self-hosted/
 [self-hosted-source]: /install/:currentVersion:/self-hosted/installation-source/
 [self-hosted-container]: /install/:currentVersion:/installation-docker/
-[self-hosted-cloud]: /install/:currentVersion:/self-hosted/installation-debian/
+[self-hosted-cloud]: /install/:currentVersion:/self-hosted/installation-linux/
 [tsc-install]: /install/:currentVersion:/installation-cloud/
