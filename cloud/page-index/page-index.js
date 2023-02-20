@@ -13,9 +13,14 @@ module.exports = [
         excerpt: "Timescale Cloud services",
         children: [
           {
-            title: "Create a service",
+            title: "Create a TimescaleDB service",
             href: "create-a-service",
             excerpt: "Timescale Cloud services",
+          },
+          {
+            title: "Create a PostgreSQL service",
+            href: "create-a-pg-service",
+            excerpt: "PostgreSQL services",
           },
         ],
       },
@@ -110,6 +115,11 @@ module.exports = [
         ],
       },
       {
+        title: "Multi-factor Authentication",
+        href: "multi-factor-authentication",
+        excerpt: "Multi-factor authentication for Timescale Cloud account",
+      },
+      {
         title: "Integrations",
         href: "integrations",
         excerpt: "Export telemetry data to a third-party monitoring service",
@@ -178,10 +188,16 @@ module.exports = [
         ],
       },
       {
-        title: "Migrate a TimescaleDB database to Cloud",
+        title: "Migrate a PostgreSQL database to Cloud",
         href: "migrate-to-cloud",
-        excerpt: "Migrate a TimescaleDB database to Timescale Cloud",
+        excerpt: "Migrate a PostgreSQL database to Timescale Cloud",
         children: [
+          {
+            title: "Migrate with Hypershift",
+            href: "hypershift",
+            excerpt:
+              "Migrate an existing PostgreSQL database to Timescale Cloud in a single step with Hypershift",
+          },
           {
             title: "Migrate the entire database at once",
             href: "entire-database",

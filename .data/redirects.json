@@ -23,6 +23,8 @@
   "^/api/latest/hyperfunctions/frequency-analysis/state_agg": "https://docs.timescale.com/api/latest/hyperfunctions/state-aggregates/state_agg/",
   "^/api/latest/hyperfunctions/percentile-approximation/num_vals/$": "https://docs.timescale.com/api/latest/hyperfunctions/percentile-approximation/num_vals-percentile/",
   "^/api/latest/hyperfunctions/state-aggregates/.*": "https://docs.timescale.com/api/latest/hyperfunctions/state-tracking/state_agg/",
+  "^/api/latest/hyperfunctions/state-tracking/timeline_agg$": "https://docs.timescale.com/api/latest/hyperfunctions/state-tracking/state_agg/",
+  "^/api/latest/hyperfunctions/state-tracking/timeline_agg/$": "https://docs.timescale.com/api/latest/hyperfunctions/state-tracking/state_agg/",
   "^/api/latest/hyperfunctions/statistical-aggregates": "https://docs.timescale.com/api/latest/hyperfunctions/statistical-and-regression-analysis/stats_agg-one-variable",
   "^/api/latest/hyperfunctions/time-weighted-averages": "https://docs.timescale.com/api/latest/hyperfunctions/time-weighted-calculations/time_weight/",
   "^/api/latest$": "https://docs.timescale.com/api/latest/",

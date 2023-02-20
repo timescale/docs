@@ -1,20 +1,23 @@
 ---
-title: Migrate your TimescaleDB database to Timescale Cloud
-excerpt: Migrate from self-hosted TimescaleDB or Managed Service for TimescaleDB
+title: Migrate your PostgreSQL database to Timescale Cloud
+excerpt: Migrate an existing PostgreSQL database to Timescale Cloud
 product: cloud
-keywords: [data migration, self-hosted, mst]
-tags: [ingest]
+keywords: [data migration, self-hosted, postgresql, hypershift]
+tags: [ingest, migrate]
 ---
 
-# Migrate your TimescaleDB database to Timescale Cloud
+# Migrate your PostgreSQL database to Timescale Cloud
 
 You can migrate your data to Timescale Cloud from self-hosted TimescaleDB or
 Managed Service for TimescaleDB. This allows you to use Timescale Cloud's
 exclusive features, including separate scaling for compute and storage
 requirements, first-class multi-node support, and more.
 
-There are two methods for migrating your data:
+There are several methods for migrating your data:
 
+*   [Migrate an existing PostgreSQL database][hypershift]: Use the
+    hypershift tool to migrate an existing PostgreSQL database in one step,
+    creating hypertables on the fly, and compressing data during migration.
 *   [Migrate your entire database at once][migrate-entire]: This method
     directly transfers all data and schemas, including TimescaleDB-specific
     features. Your hypertables, continuous aggregates, and policies are
@@ -32,8 +35,17 @@ Which method you choose depends on your database size, network upload and
 download speeds, existing continuous aggregates, and tolerance for failure
 recovery.
 
+<highlight type="note">
+If you are migrating from an Amazon RDS service, Amazon charges for the amount
+of data transferred out of the service. You could be charged by Amazon for all
+data egressed, even if the migration fails.
+</highlight>
+
 If your database is smaller than 100&nbsp;GB, choose to migrate your entire
-database at once. You can also migrate larger databases using this method, but
+database at once. If your source database is PostgreSQL, use the hypershift
+tool to avoid having to dump your data to a directory before restoring it.
+
+You can also migrate larger databases using this method, but
 the copying process must keep running, potentially over days or weeks. If the
 copy is interrupted, the process needs to be restarted. If you think an
 interruption in the copy is possible, choose to migrate your schema and data
@@ -62,3 +74,4 @@ Then backfill your data with one of the two migration methods.
 
 [migrate-entire]: /cloud/:currentVersion:/migrate-to-cloud/entire-database/
 [migrate-separately]: /cloud/:currentVersion:/migrate-to-cloud/schema-then-data/
+[hypershift]: cloud/:currentVersion:/migrate-to-cloud/hypershift/
