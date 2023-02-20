@@ -19,7 +19,7 @@ the [upgrading instructions][timescaledb-upgrade].
 <highlight type="warning">
 If you are using this `pg_dump` backup method regularly, make sure you keep
 track of which versions of PostgreSQL and TimescaleDB you are running. For more
-information, see "Versions are mismatched when dumping and restoring a database" 
+information, see "Versions are mismatched when dumping and restoring a database"
 in the [Troubleshooting section](https://docs.timescale.com/timescaledb/latest/how-to-guides/backup-and-restore/troubleshooting/).
 </highlight>
 
@@ -80,12 +80,6 @@ database and restore the data.
 
     ```sql
     SELECT timescaledb_post_restore();
-    ```
-
-1.  <Optional />Reindex your database to improve query performance:
-
-    ```sql
-    REINDEX DATABASE tsdb;
     ```
 
 </procedure>
@@ -168,6 +162,13 @@ partitions, or the chunk interval sizes.
 
 </procedure>
 
+On a self hosted TimescaleDB instance with `postgres` superuser access you can
+take a complete dump of all PostgreSQL databases in a cluster including global
+objects that are common to all databases, namely database roles, tablespaces,
+and privilege grants using `pg_dumpall`. For more
+information about how to use the `pg_dumpall` utility, see
+[PostgreSQL documentation][postgres-docs].  
+
 [parallel importer]: https://github.com/timescale/timescaledb-parallel-copy
 [pg_dump]: https://www.postgresql.org/docs/current/static/app-pgdump.html
 [pg_restore]: https://www.postgresql.org/docs/current/static/app-pgrestore.html
@@ -175,3 +176,4 @@ partitions, or the chunk interval sizes.
 [timescaledb_post_restore]: /api/:currentVersion:/administration/timescaledb_post_restore/
 [timescaledb-upgrade]: /timescaledb/:currentVersion:/how-to-guides/upgrades/
 [troubleshooting]: /timescaledb/:currentVersion:/how-to-guides/backup-and-restore/troubleshooting/
+[postgres-docs]: https://www.postgresql.org/docs/current/app-pg-dumpall.html

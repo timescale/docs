@@ -6,7 +6,11 @@ keywords: [analytics, query, metrics]
 tags: [sql, prometheus]
 ---
 
+import PromscaleDeprecation from "versionContent/_partials/_deprecated-promscale.mdx";
+
 # Query metric data with SQL
+
+<PromscaleDeprecation />
 
 This section covers information about the different SQL queries you can use for
 metric data.

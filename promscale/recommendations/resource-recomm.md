@@ -3,7 +3,11 @@ title: Resource recommendations
 excerpt: Compute and disk requirements recommended for Promscale, based on ingest rate and retention
 ---
 
+import PromscaleDeprecation from "versionContent/_partials/_deprecated-promscale.mdx";
+
 # Resource recommendations
+
+<PromscaleDeprecation />
 
 This section describes the compute and disk requirements that are
 recommended for Promscale, based on the ingest rate and retention.
@@ -93,7 +97,7 @@ processors:
 Where:
 
 *   `<PROMSCALE_HOST>`: hostname of Promscale
-*   `<gRPC_PORT>`: gRPC port of Promscale. The default port is 9202.  
+*   `<gRPC_PORT>`: gRPC port of Promscale. The default port is 9202.
 
 Compute recommendations for the Promscale connector and TimescaleDB are:
 
