@@ -3,17 +3,26 @@ title: Maintenance
 excerpt: Learn how maintenance is automatically handled on Managed Service for TimescaleDB
 product: mst
 keywords: [maintenance, updates, upgrades]
-tags: [maintenace window]
+tags: [maintenance window]
 ---
 
 # Maintenance
 
-On Managed Service for TimescaleDB, software updates are handled automatically
-by us, and you do not need to perform any actions to keep up to date.
+On Managed Service for TimescaleDB, software updates are handled automatically,
+and you do not need to perform any actions to keep up to date.
 
-Non-critical software updates are applied during a maintenance window that you can define to suit your workload.
-If we detect a security vulnerability that affects you, we might need to perform maintenance outside of
-the scheduled maintenance window.
+Non-critical software updates are applied during a maintenance window that you
+can define to suit your workload. If a security vulnerability is found that
+affects you, maintenance might be performed outside of your scheduled
+maintenance window.
+
+After maintenance updates have been applied, if a new version of the TimescaleDB
+binary has been installed, you need to update the extension to use the new
+version. To do this, use this command:
+
+```sql
+ALTER EXTENSION timescaledb UPDATE;
+```
 
 <highlight type="important">
 After a maintenance update, the DNS name remains the same, but the IP address
@@ -55,8 +64,8 @@ system during the upgrade.
 
 ## Critical updates
 
-Critical upgrades and security fixes are installed outside normal maintenance windows when
-necessary, and sometimes require a short outage.
+Critical upgrades and security fixes are installed outside normal maintenance
+windows when necessary, and sometimes require a short outage.
 
 Upgrades are performed as rolling upgrades where completely new server instances
 are built alongside the old ones. When the new instances are up and running they

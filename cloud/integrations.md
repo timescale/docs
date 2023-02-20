@@ -4,6 +4,10 @@ excerpt: Export telemetry metrics to Datadog or AWS CloudWatch
 product: cloud
 keywords: [integration, metrics, Datadog, AWS CloudWatch]
 tags: [telemetry, monitor]
+cloud_ui:
+    path:
+        - [integrations]
+        - [services, :serviceID, operations, integrations]
 ---
 
 import ExporterRegionNote from 'versionContent/_partials/_cloud-integrations-exporter-region.mdx';

@@ -6,7 +6,12 @@ keywords: [continuous aggregates, downsample]
 tags: [recording]
 ---
 
+import PromscaleDeprecation from "versionContent/_partials/_deprecated-promscale.mdx";
+
 # Continuous aggregates in Promscale
+
+<PromscaleDeprecation />
+
 Promscale can use [TimescaleDB continuous aggregates][tsdb-caggs] to manage data
 downsampling and materialization.
 
@@ -18,6 +23,7 @@ do not use any experimental features in production. Help us improve Promscale by
 </highlight>
 
 Benefits of continuous aggregates:
+
 *   Timeliness: continuous aggregates use real-time aggregates by default. The
     database automatically combines the materialized results with a query over
     the newest not-yet-materialized data to provide an accurate up-to-the-second
@@ -30,12 +36,11 @@ Benefits of continuous aggregates:
     multi-purpose. For example, the TimescaleDB toolkit extension supports
     percentile queries on any percentile, and statistical aggregates with
     multiple summary aggregates. The aggregates that you define when you
-    configure the materialization allow you to derive a range of different data 
+    configure the materialization allow you to derive a range of different data
     types at query time.
 *   Backfilling: continuous aggregates automatically downsample all data
     available, including past data, so that performance improvements on the
-    aggregated metric are seen as soon as it is created.  
-
+    aggregated metric are seen as soon as it is created.
 
 For Promscale to be able to use a continuous aggregate as a metric view, the
 continuous aggregate must:
@@ -59,6 +64,7 @@ For more information about continuous aggregates, see the
 [TimescaleDB continuous aggregates documentation][tsdb-caggs].
 
 ### Example of a Promscale continuous aggregate
+
 Creating a continuous aggregate in Promscale requires two operations. Start by
 creating a TimescaleDB continuous aggregate, and then register the new metric so
 it's available to PromQL queries and other Promscale functions. This section
@@ -67,13 +73,14 @@ includes a worked example.
 This example uses a metric called `node_memory_MemFree`, and shows you how to
 create a continuous aggregate to derive some summary statistics about the metric
 on an hourly basis. Run this query on the underlying TimescaleDB database:
+
 ```sql
 CREATE MATERIALIZED VIEW node_memfree_1hour
 WITH (timescaledb.continuous) AS
   SELECT
-        timezone('UTC', 
-          time_bucket('1 hour', time) AT TIME ZONE 'UTC' +'1 hour')  
-            as time, 
+        timezone('UTC',
+          time_bucket('1 hour', time) AT TIME ZONE 'UTC' +'1 hour')
+            as time,
         series_id,
         min(value) as min,
         max(value) as max,
@@ -92,6 +99,7 @@ bucket.
 This continuous aggregate can now be queried using SQL. To make it possible to
 query the data with PromQL, you need to register it with Promscale as a metric
 view, including the view schema and the view name in Postgres:
+
 ```sql
 SELECT register_metric_view('public', 'node_memfree_1hour');
 ```
@@ -100,18 +108,18 @@ You can now use this data as a regular metric in both SQL and PromQL.
 
 To query the average in the new aggregated metric with SQL, and show it in a
 time series chart in Grafana, use this query:
+
 ```sql
 SELECT time, jsonb(labels) as metric, avg
 FROM node_memfree_1hour m
-INNER JOIN prom_series.node_memory_MemFree s 
+INNER JOIN prom_series.node_memory_MemFree s
     ON (m.series_id=s.series_id)
 WHERE $__timeFilter(time)
 ORDER BY time asc
 ```
 
-The join with the original metric is currently required in SQL queries to 
+The join with the original metric is currently required in SQL queries to
 retrieve the labels for a specific series.
-
 
 To do the same with PromQL, you need to use the `__column__` label. The
 aggregated metric stores the data for `min`, `max`, and `avg` in different
@@ -120,6 +128,7 @@ metrics independently. Promscale uses the `__column__` label to identify which
 column to return. If no `__column__` label is specified, Promscale returns the
 `value` column by default. To query the average in the new aggregated metric
 with PromQL, use this query:
+
 ```promql
 node_memfree_1hour{__column__="avg"}
 ```
@@ -132,13 +141,14 @@ which would then make Promscale return that metric even if no `__column__` label
 is specified. To do this with the previous example, you can create a continuous
 aggregate that sets the average as the default to be returned in PromQL queries,
 like this:
+
 ```sql
 CREATE MATERIALIZED VIEW node_memfree_1hour
 WITH (timescaledb.continuous) AS
   SELECT
-        timezone('UTC', 
-          time_bucket('1 hour', time) AT TIME ZONE 'UTC' +'1 hour')  
-            as time, 
+        timezone('UTC',
+          time_bucket('1 hour', time) AT TIME ZONE 'UTC' +'1 hour')
+            as time,
         series_id,
         min(value) as min,
         max(value) as max,
@@ -148,6 +158,7 @@ WITH (timescaledb.continuous) AS
 ```
 
 Now you can query the average without the `__column__` label, like this:
+
 ```promql
 node_memfree_1hour
 ```
@@ -164,20 +175,24 @@ Both the `__schema__` and `__column__` label matchers support exact matching. Yo
 </highlight>
 
 ### Deleting continuous aggregates
+
 To delete a Promscale continuous aggregate, delete the metric view first, and
 then remove the continuous aggregate.
 
 Remove the metric view:
+
 ```sql
 SELECT unregister_metric_view('public', 'node_memfree_1hour');
 ```
 
 Delete the continuous aggregate:
+
 ```sql
 DROP MATERIALIZED VIEW node_memfree_1hour;
 ```
 
 ## Data retention
+
 All metrics in Promscale use the default retention period when they are created.
 You can change both the default retention period, and the retention period for
 individual metrics. This feature is provided by Promscale, not Prometheus. A

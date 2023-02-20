@@ -1,11 +1,15 @@
 ---
-title: Create a service
-excerpt: Create a service in Timescale Cloud
+title: Create a TimescaleDB service
+excerpt: Create a TimecaleDB service in Timescale Cloud
 product: cloud
 keywords: [services, create, installation]
+cloud_ui:
+    path:
+        - [services]
+    priority: 2
 ---
 
-# Create a service
+# Create a TimescaleDB service
 
 Timescale Cloud is a hosted, cloud-native TimescaleDB service that allows you to
 quickly spin up new TimescaleDB instances. You can
