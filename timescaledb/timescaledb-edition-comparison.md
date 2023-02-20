@@ -5,7 +5,7 @@ keywords: [Apache, community, license]
 tags: [learn, contribute]
 ---
 
-## TimescaleDB Apache 2 and TimescaleDB Community Edition
+# TimescaleDB Apache 2 and TimescaleDB Community Edition
 
 There are two versions of TimescaleDB available:
 
@@ -175,6 +175,11 @@ for TimescaleDB. MST is offered in AWS, Azure, and Google Cloud.
   </tr>
   <tr>
     <td><a href="https://docs.timescale.com/api/latest/distributed-hypertables/add_data_node/">add_data_node</a></td>
+    <td>❌</td>
+    <td>✅</td>
+  </tr>
+  <tr>
+    <td><a href="https://docs.timescale.com/api/latest/distributed-hypertables/alter_data_node/">alter_data_node</a></td>
     <td>❌</td>
     <td>✅</td>
   </tr>

@@ -12,8 +12,11 @@ related_pages:
 import Install from "versionContent/_partials/_cloud-installation.mdx";
 import CreateServicePromscale from "versionContent/_partials/_cloud-create-service-promscale.mdx";
 import CloudIntro from "versionContent/_partials/_cloud-intro.mdx";
+import PromscaleDeprecation from "versionContent/_partials/_deprecated-promscale.mdx";
 
 # Install Promscale with Timescale cloud
+
+<PromscaleDeprecation />
 
 You can install Promscale with Timescale Cloud by running Promscale Connector.
 This allows you to use Timescale Cloud as the storage layer for your

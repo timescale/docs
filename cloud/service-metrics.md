@@ -4,6 +4,9 @@ excerpt: View metrics for your Timescale Cloud service, such as CPU, memory, and
 product: cloud
 keywords: [metrics, monitoring, services]
 tags: [dashboard, cpu, memory, storage, disk space]
+cloud_ui:
+    path:
+        - [services, :serviceID, metrics]
 ---
 
 # Service metrics

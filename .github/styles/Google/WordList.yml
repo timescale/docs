@@ -37,6 +37,8 @@ swap:
   functionality: capability|feature
   grayed-out: unavailable
   HTTPs: HTTPS
+  Hypershit: Hypershift
+  hypershit: hypershift
   in order to: to
   k8s: Kubernetes
   login to: log in to

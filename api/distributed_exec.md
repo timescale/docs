@@ -9,7 +9,7 @@ api:
   type: procedure
 ---
 
-## distributed_exec() <tag type="community">Community</tag>
+# distributed_exec() <tag type="community">Community</tag>
 
 This procedure is used on an access node to execute a SQL command
 across the data nodes of a distributed database. For instance, one use

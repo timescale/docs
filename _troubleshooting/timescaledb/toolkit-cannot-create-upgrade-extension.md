@@ -10,7 +10,6 @@ keywords: [hyperfunctions, Toolkit, installation, upgrades, updates]
 ---
 
 <!---
-* Keep this section in alphabetical order
 * Use this format for writing troubleshooting sections:
  - Cause: What causes the problem?
  - Consequence: What does the user see when they hit this problem?
@@ -62,5 +61,5 @@ again.
 
 </procedure>
 
-[deb-install]: /install/:currentVersion:/self-hosted/installation-debian/
-[rhel-install]: /install/:currentVersion:/self-hosted/installation-redhat/
+[deb-install]: /install/:currentVersion:/self-hosted/installation-linux/
+[rhel-install]: /install/:currentVersion:/self-hosted/installation-linux/

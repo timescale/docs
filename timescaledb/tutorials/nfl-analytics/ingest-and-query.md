@@ -4,7 +4,7 @@ excerpt: Ingest some data from CSV files into your database
 keywords: [continuous aggregates, hyperfunctions, analytics]
 ---
 
-## Ingest data and run your first query
+# Ingest data and run your first query
 
 The main dataset is provided by [Kaggle as multiple CSV files][kaggle-download].
 Additionally, we have gathered
@@ -14,35 +14,34 @@ to provide you with additional data to analyze.
 The data is provided in multiple CSV files, each corresponding to a table in the database
 that contains the following information:
 
-* **game**
-  * Information about each game (home team, visitor team, week of play, and more)
-  * `game_id` is a primary key
+*   **game**
+    *   Information about each game (home team, visitor team, week of play, and more)
+    *   `game_id` is a primary key
 
-* **player**
-  * Player information (display_name, college, position, and more)
-  * `player_id` is a primary key.
+*   **player**
+    *   Player information (display_name, college, position, and more)
+    *   `player_id` is a primary key.
 
-* **play**
-  * Play information (game, play, quarter, down, pass result). Lots of good
+*   **play**
+    *   Play information (game, play, quarter, down, pass result). Lots of good
   overall play information to analyze.
-  * To query a specific play, you need to use `gameid` and `playid` together, as some
+    *   To query a specific play, you need to use `gameid` and `playid` together, as some
   `playid`'s are reused from game-to-game.
 
-* **tracking**
-  * Player tracking information from each play sampled multiple times a second.
-  * Fields include acceleration, X/Y coordinates on the field, and others.
-  * `x` and `y` indicate the physical positions of the players on the field using
+*   **tracking**
+    *   Player tracking information from each play sampled multiple times a second.
+    *   Fields include acceleration, X/Y coordinates on the field, and others.
+    *   `x` and `y` indicate the physical positions of the players on the field using
   the coordinates outlined in the data description on the Kaggle website.
-  * This is the largest table (18M+ row) in the database.
+    *   This is the largest table (18M+ row) in the database.
 
-* **scores**
-  * Final result of each game.
-  * This table can be joined with the tracking table using the `home_team_abb` and
+*   **scores**
+    *   Final result of each game.
+    *   This table can be joined with the tracking table using the `home_team_abb` and
   `visitor_team_abb` fields.
 
-* **stadium_info**
-  * Home stadium of each team and additional information like `surface`, `roof_type`, `location`.
-
+*   **stadium_info**
+    *   Home stadium of each team and additional information like `surface`, `roof_type`, `location`.
 
 Create the tables with this SQL:
 
@@ -151,6 +150,7 @@ CREATE INDEX idx_playid ON tracking (playid);
 ```
 
 **Create hypertable from `tracking` table**
+
 ```sql
 /*
 tracking: name of the table
@@ -236,6 +236,7 @@ LEFT JOIN player p ON t.player_id = p.player_id
 GROUP BY t.player_id, p.displayname, t.gameid
 ORDER BY t.gameid ASC, yards DESC;
 ```
+
 Your data should look like this:
 
 |player_id |        displayname         |       yards        |   gameid   |
@@ -254,6 +255,7 @@ when it needs to scan 20 million rows. On our small test machine this query
 often takes 25-30 seconds to run.
 
 ## Faster queries with continuous aggregates
+
 Most of the data we were interested in are based on this aggregation of the
 `tracking` data. We wanted to know how far a player traveled on each play
 or throughout each game. Rather than asking TimescaleDB to query and aggregate
@@ -266,8 +268,8 @@ to significantly improve the speed of queries and analysis.
 CREATE MATERIALIZED VIEW player_yards_by_game
 WITH (timescaledb.continuous) AS
 SELECT t.player_id, t.gameid, t.position, t.team,
-	time_bucket(INTERVAL '1 day', t."time") AS bucket,
-	SUM(t.dis) AS yards,
+ time_bucket(INTERVAL '1 day', t."time") AS bucket,
+ SUM(t.dis) AS yards,
   AVG(t.a) AS acc
 FROM tracking t
 GROUP BY t.player_id, t.gameid, t.position, t.team, bucket;
