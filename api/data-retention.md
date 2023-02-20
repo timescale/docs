@@ -7,10 +7,15 @@ tags: [drop]
 
 # Data Retention <tag type="community">Community</tag>
 
-An intrinsic part of time-series data is that new data is accumulated
-and old data is rarely, if ever, updated and the relevance of the data
-diminishes over time. It is therefore often desirable to delete old
-data to save disk space.
+An intrinsic part of time-series data is that new data is accumulated and old
+data is rarely, if ever, updated. This means that the relevance of the data
+diminishes over time. It is therefore often desirable to delete old data to save
+disk space.
 
-With TimescaleDB, you can manually remove old chunks of data or implement 
-policies using the following APIs.
+With TimescaleDB, you can manually remove old chunks of data or implement
+policies using these APIs.
+
+For more information about creating a data retention policy, see the
+[data retention section][data-retention-howto].
+
+[data-retention-howto]: /timescaledb/:currentVersion:/how-to-guides/data-retention/create-a-retention-policy/
