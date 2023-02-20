@@ -74,4 +74,4 @@ Then backfill your data with one of the two migration methods.
 
 [migrate-entire]: /cloud/:currentVersion:/migrate-to-cloud/entire-database/
 [migrate-separately]: /cloud/:currentVersion:/migrate-to-cloud/schema-then-data/
-[hypershift]: cloud/:currentVersion:/migrate-to-cloud/hypershift/
+[hypershift]: /cloud/:currentVersion:/migrate-to-cloud/hypershift/
