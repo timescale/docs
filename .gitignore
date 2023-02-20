@@ -4,3 +4,5 @@
 _notes/
 .github/workflows/update-search.yml
 *.swp
+.helper-scripts/hyperfunctions/target/
+.vscode/settings.json

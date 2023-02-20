@@ -4,6 +4,9 @@ excerpt: Manage your service from the Operations dashboard
 product: cloud
 keywords: [services, operations, forks]
 tags: [manage, admin, passwords, pause, stop, terminate]
+cloud_ui:
+    path:
+        - [services, :serviceID, operations, management]
 ---
 
 # Services operations - General

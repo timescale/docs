@@ -415,11 +415,6 @@ module.exports = [
                 href: "candlestick_agg",
                 type: "placeholder",
               },
-              {
-                title: "ohlc",
-                href: "ohlc",
-                type: "placeholder",
-              },
             ],
           },
           {
@@ -459,97 +454,19 @@ module.exports = [
             ],
           },
           {
-            title: "Metric aggregation (counters and gauges)",
-            type: "directory",
-            href: "counter_aggs",
+            title: "Counters and gauges",
+            type: "redirect-to-child-page",
+            href: "counters-and-gauges",
             children: [
               {
-                title: "counter_agg (point form)",
-                href: "counter_agg_point",
+                title: "counter_agg",
+                href: "counter_agg",
+                type: "placeholder",
               },
               {
                 title: "gauge_agg",
                 href: "gauge_agg",
-              },
-              {
-                title: "rollup",
-                href: "rollup-counter",
-              },
-              {
-                title: "corr",
-                href: "corr-counter",
-              },
-              {
-                title: "counter_zero_time",
-                href: "counter_zero_time",
-              },
-              {
-                title: "delta",
-                href: "delta",
-              },
-              {
-                title: "extrapolated_delta",
-                href: "extrapolated_delta",
-              },
-              {
-                title: "extrapolated_rate",
-                href: "extrapolated_rate",
-              },
-              {
-                title: "first_time, last_time",
-                href: "first-last-time-counter",
-              },
-              {
-                title: "first_val, last_val",
-                href: "first-last-val-counter",
-              },
-              {
-                title: "interpolated_delta",
-                href: "interpolated_delta",
-              },
-              {
-                title: "interpolated_rate",
-                href: "interpolated_rate",
-              },
-              {
-                title: "idelta",
-                href: "idelta",
-              },
-              {
-                title: "intercept",
-                href: "intercept-counter",
-              },
-              {
-                title: "irate",
-                href: "irate",
-              },
-              {
-                title: "num_changes",
-                href: "num_changes",
-              },
-              {
-                title: "num_elements",
-                href: "num_elements",
-              },
-              {
-                title: "num_resets",
-                href: "num_resets",
-              },
-              {
-                title: "rate",
-                href: "rate",
-              },
-              {
-                title: "slope",
-                href: "slope-counter",
-              },
-              {
-                title: "time_delta",
-                href: "time_delta",
-              },
-              {
-                title: "with_bounds",
-                href: "with_bounds",
+                type: "placeholder",
               },
             ],
           },
@@ -566,23 +483,9 @@ module.exports = [
             ],
           },
           {
-            title: "Downsample",
-            type: "directory",
-            href: "downsample",
-            children: [
-              {
-                title: "asap",
-                href: "asap",
-              },
-              {
-                title: "lttb",
-                href: "lttb",
-              },
-              {
-                title: "gp_lttb",
-                href: "gp_lttb",
-              },
-            ],
+            title: "Downsampling",
+            type: "placeholder",
+            href: "downsampling",
           },
           {
             title: "Frequency Analysis",
@@ -620,45 +523,19 @@ module.exports = [
             ],
           },
           {
-            title: "State aggregates",
-            type: "directory",
-            href: "state-aggregates",
+            title: "State tracking",
+            type: "redirect-to-child-page",
+            href: "state-tracking",
             children: [
+              {
+                title: "compact_state_agg",
+                href: "compact_state_agg",
+                type: "placeholder",
+              },
               {
                 title: "state_agg",
                 href: "state_agg",
-              },
-              {
-                title: "duration_in",
-                href: "duration_in",
-              },
-              {
-                title: "interpolated_duration_in",
-                href: "interpolated_duration_in",
-              },
-              {
-                title: "into_values (for state_agg)",
-                href: "into_values-state_agg",
-              },
-              {
-                title: "rollup (for state_agg)",
-                href: "rollup-state_agg",
-              },
-              {
-                title: "state_timeline",
-                href: "state_timeline",
-              },
-              {
-                title: "state_periods",
-                href: "state_periods",
-              },
-              {
-                title: "interpolated_state_periods",
-                href: "interpolated_state_periods",
-              },
-              {
-                title: "interpolated_state_timeline",
-                href: "interpolated_state_timeline",
+                type: "placeholder",
               },
               {
                 title: "heartbeat_agg",

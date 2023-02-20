@@ -6,7 +6,11 @@ keywords: [tobs, Kubernetes, installation]
 tags: [k8s, monitor]
 ---
 
+import PromscaleDeprecation from "versionContent/_partials/_deprecated-promscale.mdx";
+
 # About the observability stack (tobs) for Kubernetes
+
+<PromscaleDeprecation />
 
 The observability stack (tobs) for Kubernetes is a tool that aims to make it
 simpler to install a full observability stack into a Kubernetes cluster.

@@ -137,6 +137,13 @@ specific deployment:
   "data_volume": 381903727,
   "db_metadata": {},
   "build_os_name": "Linux",
+  "functions_used": {
+    "pg_catalog.int8(integer)": 8,
+    "pg_catalog.count(pg_catalog.\"any\")": 20,
+    "pg_catalog.int4eq(integer,integer)": 7,
+    "pg_catalog.textcat(pg_catalog.text,pg_catalog.text)": 10,
+    "pg_catalog.chareq(pg_catalog.\"char\",pg_catalog.\"char\")": 6,
+  },
   "install_method": "docker",
   "installed_time": "2022-02-17T19:55:14+00",
   "os_name_pretty": "Alpine Linux v3.15",
