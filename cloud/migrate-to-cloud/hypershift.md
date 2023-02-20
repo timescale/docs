@@ -6,15 +6,11 @@ keywords: [data migration, Hypershift]
 tags: [ingest, Hypershift, postgresql]
 ---
 
-import Experimental from 'versionContent/_partials/_experimental.mdx';
-
 # Migrate with Hypershift
 
 You can use Hypershift&nbsp;0.2&nbsp;(beta) to migrate existing PostgreSQL
 databases in one step, and enable compression and hypertable creation on the
 fly.
-
-<Experimental />
 
 Hypershift can migrate your data in Timescale Cloud from these sources:
 
