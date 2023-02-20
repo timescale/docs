@@ -8,7 +8,7 @@ api:
   toolkit: true
   experimental: true
   version:
-    experimental: 1.8.0
+    experimental: 1.13.0
 hyperfunction:
   family: state tracking
   type: accessor
@@ -16,7 +16,7 @@ hyperfunction:
     - state_agg()
 api_details:
   summary: >
-    Calculate the total duration in the given state.
+    Calculate the total duration in a given state.
     Unlike [`duration_in`](#duration_in), you can use this function across multiple state
     aggregates that cover multiple time buckets. Any missing values at the time bucket
     boundaries are interpolated from adjacent state aggregates.
@@ -24,21 +24,20 @@ api_details:
     - language: sql
       code: |
         interpolated_duration_in(
+          agg StateAgg,
           state {TEXT | BIGINT},
-          tws StateAgg,
           start TIMESTAMPTZ,
           interval INTERVAL
           [, prev StateAgg]
-          [, next StateAgg]
         ) RETURNS DOUBLE PRECISION
   parameters:
     required:
+      - name: agg
+        type: StateAgg
+        description: A state aggregate created with [`state_agg`](#state_agg)
       - name: state
         type: TEXT | BIGINT
         description: The state to query
-      - name: tws
-        type: StateAgg
-        description: A state aggregate created with [`state_agg`](#state_agg)
       - name: start
         type: TIMESTAMPTZ
         description: The start of the interval to be calculated
@@ -52,12 +51,6 @@ api_details:
           The state aggregate from the prior interval, used to interpolate
           the value at `start`. If `NULL`, the first timestamp in `aggregate` is used
           as the start of the interval.
-      - name: next
-        type: StateAgg
-        description: >
-          The state aggregate from the following interval, used to interpolate
-          the value at `start + interval`. If `NULL`, the last timestamp in `aggregate` is used
-          as the end of the interval.
     returns:
       - column: interpolated_duration_in
         type: INTERVAL
@@ -77,12 +70,11 @@ api_details:
           SELECT 
             time,
             toolkit_experimental.interpolated_duration_in(
-              'running',
               agg,
+              'running',
               time,
               '1 day',
-              LAG(agg) OVER (ORDER BY time),
-              LEAD(agg) OVER (ORDER BY time)
+              LAG(agg) OVER (ORDER BY time)
           ) FROM (
             SELECT
               time_bucket('1 day', time) as time,

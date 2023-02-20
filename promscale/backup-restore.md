@@ -5,7 +5,11 @@ product: promscale
 keywords: [backups, restore]
 ---
 
+import PromscaleDeprecation from "versionContent/_partials/_deprecated-promscale.mdx";
+
 # Back up and restore Promscale
+
+<PromscaleDeprecation />
 
 ## Prerequisites
 

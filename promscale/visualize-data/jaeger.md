@@ -6,7 +6,11 @@ keywords: [Jaeger]
 tags: [configure, opentelemetry, traces, integration]
 ---
 
+import PromscaleDeprecation from "versionContent/_partials/_deprecated-promscale.mdx";
+
 # Visualize Promscale traces in Jaeger
+
+<PromscaleDeprecation />
 
 Jaeger is an open source distributed tracing system used for monitoring and
 troubleshooting microservices-based distributed systems. To visualize traces
@@ -57,6 +61,7 @@ docker inspect <PROMSCALE_CONTAINER_NAME>
 In the output, the IP address is listed under `NetworkSettings` → `Networks` → `IPAddress` section.
 
 You can set the URL as `<PROMSCALE>:9202` where:
+
 *   `<PROMSCALE>` is the name of the container
 *   `9202` is the gRPC port of Promscale
 

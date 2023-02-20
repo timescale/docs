@@ -9,7 +9,11 @@ related_pages:
   - /promscale/:currentVersion:/send-data/
 ---
 
+import PromscaleDeprecation from "versionContent/_partials/_deprecated-promscale.mdx";
+
 # Install Promscale using a Docker image
+
+<PromscaleDeprecation />
 
 You can use Docker to install
 [TimescaleDB with the Promscale extension][timescaledb-docker-image],

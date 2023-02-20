@@ -6,7 +6,12 @@ keywords: [compression]
 tags: [configure, metrics, storage]
 ---
 
+import PromscaleDeprecation from "versionContent/_partials/_deprecated-promscale.mdx";
+
 # Compress data in Promscale
+
+<PromscaleDeprecation />
+
 Telemetry data is stored in Promscale using TimescaleDB [hypertables][hypertables].
 A maintenance job periodically [compresses][tsdb-compression] this data.
 In Timescale DB version 2.0 and later, this maintenance job is automatically scheduled
@@ -22,6 +27,7 @@ after they have been closed and a new chunk has been created. This helps with ha
 late-arriving data. By default, the chunk interval is configured so that a
 new chunk is created every eight hours. You can configure the chunk size with
 the `set_default_chunk_interval` SQL function, like this:
+
 ```sql
 SELECT set_default_chunk_interval(INTERVAL '1h');
 ```
@@ -29,6 +35,7 @@ SELECT set_default_chunk_interval(INTERVAL '1h');
 The new chunk interval is only applied to new chunks created after the setting is changed.
 It does not affect chunks that were created before the setting was changed.
 You can find the current default chunk interval setting with this query:
+
 ```sql
 SELECT get_default_chunk_interval();
 ```
