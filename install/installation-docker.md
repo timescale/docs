@@ -4,7 +4,7 @@ nav-title: Docker
 excerpt: Install self-hosted TimescaleDB from a pre-built Docker container
 section: install
 subsection: self-hosted
-keywords: [install, self-hosted, Docker]
+keywords: [installation, self-hosted, Docker]
 ---
 
 # Install self-hosted TimescaleDB from a pre-built container

@@ -1,7 +1,7 @@
 ---
 title: TimescaleDB release notes and future plans
 excerpt: New features and fixes are released regularly
-keywords: [upgrade, update, releases]
+keywords: [upgrades, updates, releases]
 ---
 
 # TimescaleDB release notes
@@ -14,11 +14,120 @@ Want to stay up-to-date with new releases? Subscribe to get
 [release notes email updates](https://www.timescale.com/signup/release-notes).
 </highlight>
 
-## What's new in TimescaleDB 2.8:
+## What's new in TimescaleDB 2.9:
 
-*   time_bucket now supports bucketing by month, year and timezone
-*   1 step continuous aggregate policy management
-*   Migrate continuous aggregates to the new format
+* Hierarchical Continuous Aggregates (aka Continuous Aggregate on top of another Continuous Aggregate)
+* Improve `time_bucket_gapfill` function to allow specifying the timezone to bucket
+* Introduce fixed schedules for background jobs and the ability to check job errors.
+* Use `alter_data_node()` to change the data node configuration. This function introduces the option to configure the availability of the data node.
+
+## 2.9.3 (2023-02-06)
+
+This release contains bug fixes since the 2.9.2 release and a fix for a security vulnerability (#5259). You can check the [security advisory](https://github.com/timescale/timescaledb/security/advisories/GHSA-44jh-j22r-33wq) for more information on the vulnerability and the platforms that are affected.
+
+This release is high priority for upgrade. We strongly recommend that you upgrade as soon as possible.
+
+**Bug fixes**
+* #4804 Skip bucketing when start or end of refresh job is null
+* #5108 Fix column ordering in compressed table index not following the order of a multi-column segment by definition
+* #5187 Don't enable clang-tidy by default
+* #5255 Fix year not being considered as a multiple of day/month in hierarchical continuous aggregates
+* #5259 Lock down search_path in SPI calls
+
+**Thanks**
+* @ssmoss for reporting issues on continuous aggregates
+* @jaskij for reporting the compilation issue that occurred with clang
+
+## 2.9.2 (2023-01-27)
+
+This release contains bug fixes since the 2.9.1 release.
+We recommend that you upgrade at the next available opportunity.
+
+**Bugfixes**
+* #5114 Fix issue with deleting data node and dropping the database on multi-node
+* #5133 Fix creating a CAgg on a CAgg where the time column is in a different order of the original hypertable
+* #5152 Fix adding column with NULL constraint to compressed hypertable
+* #5170 Fix CAgg on CAgg variable bucket size validation
+* #5180 Fix default data node availability status on multi-node
+* #5181 Fix ChunkAppend and ConstraintAwareAppend with TidRangeScan child subplan
+* #5193 Fix repartition behavior when attaching data node on multi-node
+
+## 2.9.1 (2022-12-23)
+
+This release contains bug fixes since the 2.9.0 release.
+This release is high priority for upgrade. We strongly recommend that you
+upgrade as soon as possible.
+
+**Bugfixes**
+* #5072 Fix CAgg on CAgg bucket size validation
+* #5101 Fix enabling compression on caggs with renamed columns
+* #5106 Fix building against PG15 on Windows
+* #5117 Fix postgres server restart on background worker exit
+* #5121 Fix privileges for job_errors in update script
+
+## 2.9.0 (2022-12-15)
+
+This release adds major new features since the 2.8.1 release.
+We deem it moderate priority for upgrading.
+
+This release includes these noteworthy features:
+* Hierarchical Continuous Aggregates (aka Continuous Aggregate on top of another Continuous Aggregate)
+* Improve `time_bucket_gapfill` function to allow specifying the timezone to bucket
+* Introduce fixed schedules for background jobs and the ability to check job errors.
+* Use `alter_data_node()` to change the data node configuration. This function introduces the option to configure the availability of the data node.
+
+This release also includes several bug fixes.
+
+**Features**
+* #4476 Batch rows on access node for distributed `COPY`
+* #4567 Exponentially backoff when out of background workers
+* #4650 Show warnings when not following best practices
+* #4664 Introduce fixed schedules for background jobs
+* #4668 Hierarchical Continuous Aggregates
+* #4670 Add timezone support to time_bucket_gapfill
+* #4678 Add interface for troubleshooting job failures
+* #4718 Add ability to merge chunks while compressing
+* #4786 Extend the now() optimization to also apply to CURRENT_TIMESTAMP
+* #4820 Support parameterized data node scans in joins
+* #4830 Add function to change configuration of a data nodes
+* #4966 Handle DML activity when datanode is not available
+* #4971 Add function to drop stale chunks on a data node
+
+**Bug fixes**
+* #4663 Don't error when compression metadata is missing
+* #4673 Fix now() constification for VIEWs
+* #4681 Fix compression_chunk_size primary key
+* #4696 Report warning when enabling compression on hypertable
+* #4745 Fix FK constraint violation error while insert into hypertable which references partitioned table
+* #4756 Improve compression job IO performance
+* #4770 Continue compressing other chunks after an error
+* #4794 Fix degraded performance seen on timescaledb_internal.hypertable_local_size() function
+* #4807 Fix segmentation fault during INSERT into compressed hypertable
+* #4822 Fix missing segmentby compression option in CAGGs
+* #4823 Fix a crash that could occur when using nested user-defined functions with hypertables
+* #4840 Fix performance regressions in the copy code
+* #4860 Block multi-statement DDL command in one query
+* #4898 Fix cagg migration failure when trying to resume
+* #4904 Remove BitmapScan support in DecompressChunk
+* #4906 Fix a performance regression in the query planner by speeding up frozen chunk state checks
+* #4910 Fix a typo in process_compressed_data_out
+* #4918 Cagg migration orphans cagg policy
+* #4941 Restrict usage of the old format (pre 2.7) of continuous aggregates in PostgreSQL 15.
+* #4955 Fix cagg migration for hypertables using timestamp without timezone
+* #4968 Check for interrupts in gapfill main loop
+* #4988 Fix cagg migration crash when refreshing the newly created cagg
+* #5054 Fix segfault after second ANALYZE
+* #5086 Reset baserel cache on invalid hypertable cache
+
+**Thanks**
+* @byazici for reporting a problem with segmentby on compressed caggs
+* @jflambert for reporting a crash with nested user-defined functions.
+* @jvanns for reporting hypertable FK reference to vanilla PostgreSQL partitioned table doesn't seem to work
+* @kou for fixing a typo in process_compressed_data_out
+* @kyrias for reporting a crash when ANALYZE is executed on extended query protocol mode with extension loaded.
+* @tobiasdirksen for requesting Continuous aggregate on top of another continuous aggregate
+* @xima for reporting a bug in Cagg migration
+* @xvaara for helping reproduce a bug with bitmap scans in transparent decompression
 
 ## 2.8.1 (2022-10-06)
 
@@ -1394,15 +1503,14 @@ are rolled up into columnar-like arrays on a per chunk basis.
 The query planner then handles transparent decompression for compressed
 chunks at execution time.
 
-This release also adds support for basic data tiering by supporting
-the migration of chunks between tablespaces, as well as support for
-parallel query coordination to the ChunkAppend node.
-Previously ChunkAppend would rely on parallel coordination in the
-underlying scans for parallel plans.
+This release also adds support for migrating of chunks between tablespaces, as
+well as support for parallel query coordination to the ChunkAppend node.
+Previously ChunkAppend would rely on parallel coordination in the underlying
+scans for parallel plans.
 
-For more information on this release, read the
-[announcement blog](https://blog.timescale.com/blog/building-columnar-compression-in-a-row-oriented-database), this [tutorial][compress-data],
-and the [blog on data tiering](https://blog.timescale.com/blog/optimize-your-storage-costs-with-timescaledbs-data-tiering-functionality/).
+For more information on this release, read the [announcement
+blog](https://blog.timescale.com/blog/building-columnar-compression-in-a-row-oriented-database)
+and this [tutorial on data compression][compress-data].
 
 **For this release only**, you need to restart the database before running
 `ALTER EXTENSION`

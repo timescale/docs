@@ -15,6 +15,7 @@ only the data that has changed needs to be computed, not the entire dataset.
 *   [Learn about continuous aggregates][about-caggs] to understand how it works
     before you begin using it.
 *   [Create a continuous aggregate][cagg-create] and query it.
+*   [Create a continuous aggregate on top of another continuous aggregate][cagg-on-cagg]
 *   [Add refresh policies][cagg-autorefresh] to an existing continuous aggregate.
 *   [Manage time][cagg-time] in your continuous aggregates.
 *   [Drop data][cagg-drop] from your continuous aggregates.
@@ -30,6 +31,7 @@ only the data that has changed needs to be computed, not the entire dataset.
 [cagg-autorefresh]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/refresh-policies
 [cagg-compression]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/compression-on-continuous-aggregates
 [cagg-create]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/create-a-continuous-aggregate
+[cagg-on-cagg]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/hierarchical-continuous-aggregates/
 [cagg-drop]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/drop-data
 [cagg-mat-hypertables]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/materialized-hypertables
 [cagg-migrate]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/migrate

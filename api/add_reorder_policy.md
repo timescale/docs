@@ -9,7 +9,7 @@ api:
   type: function
 ---
 
-## add_reorder_policy() <tag type="community">Community</tag>
+# add_reorder_policy() <tag type="community">Community</tag>
 
 Create a policy to reorder chunks on a given hypertable index in the
 background. (See [reorder_chunk][reorder_chunk]). Only one reorder policy may
@@ -30,6 +30,8 @@ and re-create the policy if many older chunks have been affected.
 |---|---|---|
 | `hypertable` | REGCLASS | Hypertable to create the policy for. |
 | `index_name` | TEXT | Existing index by which to order rows on disk. |
+|`initial_start`|TIMESTAMPTZ|Time the policy is first run. Defaults to NULL. If omitted, then the schedule interval is the interval between the finish time of the last execution and the next start. If provided, it serves as the origin with respect to which the next_start is calculated |
+|`timezone`|TEXT|A valid time zone. If `initial_start` is also specified, subsequent executions of the reorder policy are aligned on its initial start. However, daylight savings time (DST) changes might shift this alignment. Set to a valid time zone if this is an issue you want to mitigate. If omitted, UTC bucketing is performed. Defaults to `NULL`.|
 
 ### Optional arguments
 

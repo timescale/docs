@@ -72,9 +72,9 @@ care to check the total size of the chunk and its index. You can do so using the
 [`chunks_detailed_size`](/api/latest/hypertable/chunks_detailed_size) function.
 </highlight>
 
-For a detailed analysis of how to optimize your chunk sizes, see the 
-[blog post on chunk time intervals][blog-chunk-time]. To learn how 
-to view and set your chunk time intervals, see the section on 
+For a detailed analysis of how to optimize your chunk sizes, see the
+[blog post on chunk time intervals][blog-chunk-time]. To learn how
+to view and set your chunk time intervals, see the section on
 [changing hypertable chunk intervals][change-chunk-intervals].
 
 ### Space partitioning
@@ -148,6 +148,13 @@ want a unique index on a hypertable, it must include all the partitioning
 columns for the table. To learn more, see the section on [creating unique
 indexes on a hypertable][hypertables-and-unique-indexes].
 
+## Analyze a hypertable
+
+You can use the PostgreSQL `ANALYZE` command to query all chunks in your
+hypertable. The statistics collected by the `ANALYZE` command are used by the
+PostgreSQL planner to create the best query plan. For more information about the
+`ANALYZE` command, see the [PostgreSQL documentation][pg-analyze].
+
 ## Learn more
 
 *   [Create a hypertable][create-hypertables]
@@ -161,3 +168,4 @@ indexes on a hypertable][hypertables-and-unique-indexes].
 [create-hypertables]: /timescaledb/:currentVersion:/how-to-guides/hypertables/create/
 [hypertable-concepts]: /timescaledb/:currentVersion:/overview/core-concepts/hypertables-and-chunks/
 [hypertables-and-unique-indexes]: /timescaledb/:currentVersion:/how-to-guides/hypertables/hypertables-and-unique-indexes/
+[pg-analyze]: https://www.postgresql.org/docs/current/sql-analyze.html

@@ -1,10 +1,11 @@
 ---
 title: Gapfilling and interpolation
 excerpt: Fill gaps in time-series data
-keywords: [hyperfunctions, Toolkit, gapfill, interpolate]
+keywords: [hyperfunctions, Toolkit, gapfilling, interpolate]
 ---
 
 # Gapfilling and interpolation
+
 Most time-series data analysis techniques aggregate data into fixed time
 intervals, which smooths the data and makes it easier to interpret and analyze.
 When you write queries for data in this form, you need an efficient way to

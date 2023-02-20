@@ -4,6 +4,9 @@ excerpt: Horizontally scale your database by setting up multi-node on Timescale 
 product: cloud
 keywords: [multi-node, scaling]
 tags: [cluster, distributed hypertables]
+cloud_ui:
+    path:
+        - [services]
 ---
 
 # Multi-node on Timescale Cloud
@@ -52,20 +55,14 @@ Timescale Cloud account.
 
 1.  [Log in to your Timescale Cloud account][cloud-login] and click `Create
     Service`.
-1.  Go to the `Without demo data` tab to create the cluster without a data
-    source. You can add your own data source later on. Click `Advanced options`
-    to configure your service as a multi-node cluster.
-1.  In the `Create a service` page, select the `Multi-node` service type.
-1.  If this is your first multi-node service, you see a contact form. Multi-node
-    is currently available on request. A conversation with the Timescale
-    customer support team can help you understand whether multi-node is a good
-    fit for your needs. Click `Contact us.`
+1.  Click `Advanced configuration`.
+1.  Under `Choose your architecture`, click `Mult-node`.
 1.  Our customer support team contacts you. When your request is approved,
     return to the screen for creating a multi-node service.
 1.  Choose your preferred region, or accept the default region of `us-east-1`.
-1.  Accept the default for the data nodes, or click `Change` to choose the
-    number of data nodes, and their compute and disk size.
-1.  Accept the default for the access node, or click `Change` to choose the
+1.  Accept the default for the data nodes, or click `Edit` to choose the number
+    of data nodes, and their compute and disk size.
+1.  Accept the default for the access node, or click `Edit` to choose the
     compute and disk size.
 1.  Click `Create service`. Take a note of the service information, you need
     these details to connect to your multi-node cluster. The service takes a few

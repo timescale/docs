@@ -2,22 +2,17 @@
 api_name: gauge_agg()
 excerpt: Aggregate gauge data into a `GaugeSummary` for further analysis
 topics: [hyperfunctions]
-keywords: [gauges, aggregate, hyperfunctions, toolkit]
+keywords: [gauges, aggregate, hyperfunctions, Toolkit]
 api:
   license: community
   type: function
   experimental: true
   toolkit: true
+  version:
+    experimental: 1.6.0
 hyperfunction:
   family: metric aggregation
   type: aggregate
-# fields below will be deprecated
-api_category: hyperfunction
-api_experimental: true
-toolkit: true
-hyperfunction_family: 'metric aggregation'
-hyperfunction_subfamily: 'counter and gauge aggregation'
-hyperfunction_type: aggregate
 ---
 
 import Experimental from 'versionContent/_partials/_experimental.mdx';

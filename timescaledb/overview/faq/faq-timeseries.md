@@ -1,12 +1,13 @@
 ---
 title: FAQs - About time-series databases
 excerpt: Frequently asked questions about time-series databases
-keywords: [time-series, faq]
+keywords: [time-series, FAQ]
 ---
 
 # FAQs - About time-series databases
 
 ## Why is time-series data important?
+
 At Timescale, we are dedicated to serving developers worldwide, enabling
 them to build exceptional data-driven products that measure everything that
 matters: software applications, industrial equipment, financial markets,
@@ -25,6 +26,7 @@ the thousands of different ways developers are using time-series data
 to measure everything that matters today.
 
 ## Why build another time-series database?
+
 Time-series data is cropping up in more and more places: monitoring and DevOps,
 sensor data and IoT, financial data, logistics data, app usage data, and more.
 Often this data is high in volume and complex in nature (for example, multiple

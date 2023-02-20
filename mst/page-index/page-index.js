@@ -59,6 +59,10 @@ module.exports = [
         href: "extensions",
       },
       {
+        title: "Use PostgreSQL dblink extension",
+        href: "dblink-extension",
+      },
+      {
         title: "Security",
         href: "security",
       },
@@ -74,6 +78,10 @@ module.exports = [
       {
         title: "Maintenance",
         href: "maintenance",
+      },
+      {
+        title: "Failover",
+        href: "failover",
       },
       {
         title: "Backups",
@@ -129,6 +137,14 @@ module.exports = [
       {
         title: "Migrate your data to Timescale Cloud",
         href: "migrate-to-cloud",
+      },
+      {
+        title: "Using REST API on Managed Service for TimescaleDB",
+        href: "restapi",
+      },
+      {
+        title: "Identify and resolve issues with indexes on Managed Service for TimescaleDB",
+        href: "identify-index-issues",
       },
     ],
   },

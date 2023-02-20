@@ -1,12 +1,17 @@
 ---
 title: Service operations - VPC
-excerpt: Peer to Timescale Cloud with VPC to isolate your database
+excerpt: Use VPC peering to secure your Timescale Cloud database
 product: cloud
 keywords: [vpc, services, operations]
 tags: [aws]
+cloud_ui:
+    path:
+        - [services, :serviceID, operations, vpc]
+        - [vpc]
 ---
 
 # Service operations - VPC
+
 Timescale Cloud allows you to create a virtual private cloud (VPC) network
 between an external cloud provider and your Timescale Cloud services. This
 allows you to isolate your Timescale Cloud services so that they are only
@@ -27,25 +32,26 @@ the [Cloud-supported regions][tsc-regions].
 
 You need to have these permissions on your cloud provider account to set up
 VPC peering:
+
 *   Accept VPC peering requests
 *   Configure route table rules
 *   Configure security group and firewall rules
 
 By default, Timescale Cloud allows you to have three VPCs in each project. If
 you need more VPCs, [contact our support team][timescale-support] to ask for a
-quota increase.
+quota increase. Each VPC can have as many peering connections as you need.
 
 <highlight type="warning">
 When you have attached your Timescale Cloud service to a VPC, it is no longer
-accessible using the public internet. It is only accessible using your peered
+accessible using the public internet. It is only accessible using a peered
 AWS VPC.
 </highlight>
 
 <highlight type="cloud" header="Sign up for Timescale Cloud" button="Try for free">
-
 </highlight>
 
 ## Create a new VPC in Timescale Cloud
+
 To begin, you need to create a new VPC in the Timescale Cloud console.
 
 <procedure>
@@ -76,24 +82,28 @@ trial has finished.
 </procedure>
 
 ## Create a peering connection in Timescale Cloud
+
 When you have created a Timescale Cloud VPC, you can create a peering connection
 between your Timescale Cloud VPC and your AWS VPC.
 
 <procedure>
 
 ### Creating a peering connection in Timescale Cloud
+
 1.  [Log in to your Timescale Cloud account][cloud-login] and navigate to
     the `VPC` section. Click the name of the VPC you want to modify.
 1.  In the `VPC Peering` column, click `Add`.
 1.  Provide the AWS account ID, the VPC ID, and the AWS VPC region for the new
     peering connection.
 1.  Click `Add peering connection` to begin the peering process.
+1.  Repeat for each peering connection you require.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-vpc-addpeering.png" alt="Expand the VPC Peering dropdown menu and enter info"/>
 
 </procedure>
 
 ## Complete the VPC connection in AWS
+
 When you create a peering connection in Timescale Cloud, the peering request is sent to your AWS account for you to accept. When you have accepted the request, you need to edit the routing table so that network traffic can flow between the AWS VPC, and your Timescale Cloud services.
 
 <highlight type="warning">
@@ -104,6 +114,7 @@ peering connection from an unknown account.
 <procedure>
 
 ### Completing the VPC connection in AWS
+
 1.  [Log in to your AWS dashboard][aws-dashboard], and navigate
     to `Peering Connections` to accept the new peering connection request sent
     from Timescale Cloud.
@@ -123,6 +134,7 @@ peering connection from an unknown account.
 </procedure>
 
 ## Set up security groups in AWS
+
 You need to create a security group within AWS that allows you to connect to any
 of your Timescale Cloud services from the peered VPC. These instructions show
 you how to create a new security group for your VPC, but you can also use an
@@ -131,6 +143,7 @@ existing security group if you already have one.
 <procedure>
 
 ### Setting up security groups in AWS
+
 1.  [Log in to your AWS dashboard][aws-dashboard], and navigate
     to `Security Groups`.
 1.  Click `Create security group`, and complete these details:
@@ -150,12 +163,14 @@ existing security group if you already have one.
 </procedure>
 
 ## Create a Timescale Cloud service with VPC attachment
+
 Now that your VPC peering connection is set up, you can create a new Timescale
 Cloud service with the VPC attachment.
 
 <procedure>
 
 ### Creating a Timescale Cloud service with VPC attachment
+
 1.  [Log in to your Timescale Cloud account][cloud-login] and navigate to
     the `Services` section. Click `Create service` and select the compute and
     disk size as required for your database.
@@ -166,6 +181,7 @@ Cloud service with the VPC attachment.
 </procedure>
 
 ## Migrating a VPC service between networks
+
 In most cases, when you have connected a service to a VPC, you need to keep it
 attached to ensure that your applications continue to run without interruption.
 However, you can migrate Timescale Cloud services between VPCs within a project,
@@ -182,6 +198,7 @@ Before you begin, ensure you already have your VPC connection set up.
 <procedure>
 
 ### Migrating Timescale Cloud services to or between VPCs
+
 1.  [Log in to your Timescale Cloud account][cloud-login] and navigate to
     the `Services` section. Click the name of the service you want to migrate.
 1.  In the `Operations` tab, navigate to the `VPC` section, and select the new
@@ -195,7 +212,6 @@ complete.
 </highlight>
 
 </procedure>
-
 
 [aws-dashboard]: https://console.aws.amazon.com/vpc/home#PeeringConnections:
 [cloud-vpc]: /cloud/:currentVersion:/vpc-peering/

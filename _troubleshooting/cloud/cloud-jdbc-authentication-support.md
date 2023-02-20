@@ -7,13 +7,12 @@ errors:
     message: |-
       Check that your connection definition references your JDBC database with
       correct URL syntax, username, and password. The authentication type 10 is
-      not supported.    
+      not supported.
 keywords: [authentication, connect]
 tags: [passwords, md5, scram, jdbc]
 ---
 
 <!---
-* Keep this section in alphabetical order
 * Use this format for writing troubleshooting sections:
  - Cause: What causes the problem?
  - Consequence: What does the user see when they hit this problem?
@@ -35,4 +34,4 @@ compatibility with older clients.
 For information on changing your authentication type, see the documentation on
 [resetting your service password][password-reset].
 
-[password-reset]: /cloud/:currentVersion:/service-operations/general/#reset-service-password
+[password-reset]: /cloud/:currentVersion:/service-operations/service-management/#reset-service-password

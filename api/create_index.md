@@ -8,7 +8,7 @@ api:
   type: command
 ---
 
-## CREATE INDEX (Transaction Per Chunk)
+# CREATE INDEX (Transaction Per Chunk)
 
 ```SQL
 CREATE INDEX ... WITH (timescaledb.transaction_per_chunk, ...);

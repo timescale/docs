@@ -1,11 +1,12 @@
 ---
 title: Manual PostgreSQL configuration and tuning
 excerpt: How to manually configure your PostgreSQL instance
-keywords: [configuration]
+keywords: [configuration, settings]
 tags: [tune]
 ---
 
 # Manual PostgreSQL configuration and tuning
+
 If you prefer to tune settings yourself, or for settings not covered by `timescaledb-tune`, you can manually configure your installation using the PostgreSQL configuration file.
 
 For some common configuration settings you might want to adjust, see the
@@ -15,6 +16,7 @@ For more information about the PostgreSQL configuration page, see the
 [PostgreSQL documentation][pg-config].
 
 ## Editing the PostgreSQL configuration file
+
 The location of the PostgreSQL configuration file depends on your operating
 system and installation. You can find the location by querying the database as
 the `postgres` user, from the psql prompt:
@@ -32,6 +34,7 @@ receives a `SIGHUP` signal, or you can manually reload the file uses the
 `pg_ctl` command.
 
 ## Setting parameters at the command prompt
+
 If you don't want to open the configuration file to make changes, you can also
 set parameters directly from the command prompt, using the `postgres` command.
 For example:

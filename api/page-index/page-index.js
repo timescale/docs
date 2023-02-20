@@ -110,6 +110,10 @@ module.exports = [
             href: "attach_data_node",
           },
           {
+            title: "alter_data_node",
+            href: "alter_data_node",
+          },
+          {
             title: "detach_data_node",
             href: "detach_data_node",
           },
@@ -190,7 +194,7 @@ module.exports = [
       },
       {
         title: "Continuous aggregates",
-        type: "directory",
+        type: "redirect-to-child-page",
         href: "continuous-aggregates",
         children: [
           {
@@ -319,29 +323,14 @@ module.exports = [
             href: "month_normalize",
           },
           {
-            title: "Approximate count distincts",
-            type: "directory",
-            href: "approx_count_distincts",
+            title: "Approximate count distinct",
+            href: "approximate-count-distinct",
+            type: "redirect-to-child-page",
             children: [
               {
                 title: "hyperloglog",
                 href: "hyperloglog",
-              },
-              {
-                title: "rollup",
-                href: "rollup-hyperloglog",
-              },
-              {
-                title: "distinct_count",
-                href: "distinct_count",
-              },
-              {
-                title: "stderror",
-                href: "stderror",
-              },
-              {
-                title: "approx_count_distinct",
-                href: "approx_count_distinct",
+                type: "placeholder",
               },
             ],
           },
@@ -373,96 +362,58 @@ module.exports = [
             ],
           },
           {
-            title: "Statistical aggregates",
-            type: "directory",
-            href: "stats_aggs",
+            title: "Statistical and regression analysis",
+            href: "statistical-and-regression-analysis",
+            type: "redirect-to-child-page",
             children: [
               {
-                title: "stats_agg",
-                href: "stats_agg",
+                title: "stats_agg (one variable)",
+                href: "stats_agg-one-variable",
+                type: "placeholder",
               },
               {
-                title: "rolling",
-                href: "rolling-stats",
+                title: "stats_agg (two variables)",
+                href: "stats_agg-two-variables",
+                type: "placeholder",
+              },
+            ],
+          },
+          {
+            title: "Minimum and maximum",
+            href: "minimum-and-maximum",
+            type: "redirect-to-child-page",
+            children: [
+              {
+                title: "min_n",
+                href: "min_n",
+                type: "placeholder",
               },
               {
-                title: "rollup",
-                href: "rollup-stats",
+                title: "max_n",
+                href: "max_n",
+                type: "placeholder",
               },
               {
-                title: "average / average_y / average_x",
-                href: "average-stats",
+                title: "min_n_by",
+                href: "min_n_by",
+                type: "placeholder",
               },
               {
-                title: "corr (correlation coefficient)",
-                href: "corr-stats",
-              },
-              {
-                title: "covariance",
-                href: "covariance",
-              },
-              {
-                title: "determination_coeff (R squared)",
-                href: "determination_coeff",
-              },
-              {
-                title: "intercept",
-                href: "intercept-stats",
-              },
-              {
-                title: "kurtosis / kurtosis_y / kurtosis_x",
-                href: "kurtosis",
-              },
-              {
-                title: "num_vals",
-                href: "num_vals-stats",
-              },
-              {
-                title: "skewness / skewness_y / skewness_x",
-                href: "skewness",
-              },
-              {
-                title: "stddev / stddev_y / stddev_x",
-                href: "stddev",
-              },
-              {
-                title: "slope",
-                href: "slope-stats",
-              },
-              {
-                title: "sum/ sum_y / sum_x",
-                href: "sum-stats",
-              },
-              {
-                title: "variance / variance_y / variance_x",
-                href: "variance",
-              },
-              {
-                title: "x_intercept",
-                href: "x_intercept",
+                title: "max_n_by",
+                href: "max_n_by",
+                type: "placeholder",
               },
             ],
           },
           {
             title: "Financial analysis",
-            type: "directory",
             href: "financial-analysis",
+            type: "redirect-to-child-page",
             children: [
               {
-                title: "ohlc",
-                href: "ohlc",
-              },
-              {
-                title: "open, high, low, close",
-                href: "open-high-low-close",
-              },
-              {
-                title: "open_time, high_time, low_time, close_time",
-                href: "open-high-low-close-time",
-              },
-              {
-                title: "rollup",
-                href: "rollup",
+                title: "candlestick_agg",
+                href: "candlestick_agg",
+                type: "placeholder",
               },
             ],
           },
@@ -487,214 +438,54 @@ module.exports = [
           },
           {
             title: "Percentile approximation",
-            type: "directory",
             href: "percentile-approximation",
+            type: "redirect-to-child-page",
             children: [
               {
-                title: "percentile_agg",
-                href: "percentile_agg",
+                title: "percentile_agg and uddsketch",
+                href: "uddsketch",
+                type: "placeholder",
               },
               {
-                title: "approx_percentile",
-                href: "approx_percentile",
-              },
-              {
-                title: "approx_percentile_rank",
-                href: "approx_percentile_rank",
-              },
-              {
-                title: "rollup",
-                href: "rollup-percentile",
-              },
-              {
-                title: "max_val",
-                href: "max_val",
-              },
-              {
-                title: "mean",
-                href: "mean",
-              },
-              {
-                title: "error",
-                href: "error",
-              },
-              {
-                title: "min_val",
-                href: "min_val",
-              },
-              {
-                title: "num_vals",
-                href: "num_vals-percentile",
-              },
-              {
-                title: "Advanced aggregation methods",
-                type: "directory",
-                href: "percentile-aggregation-methods",
-                children: [
-                  {
-                    title: "uddsketch",
-                    href: "uddsketch",
-                  },
-                  {
-                    title: "tdigest",
-                    href: "tdigest",
-                  },
-                ],
+                title: "tdigest",
+                href: "tdigest",
+                type: "placeholder",
               },
             ],
           },
           {
-            title: "Metric aggregation (counters and gauges)",
-            type: "directory",
-            href: "counter_aggs",
+            title: "Counters and gauges",
+            type: "redirect-to-child-page",
+            href: "counters-and-gauges",
             children: [
               {
-                title: "counter_agg (point form)",
-                href: "counter_agg_point",
+                title: "counter_agg",
+                href: "counter_agg",
+                type: "placeholder",
               },
               {
                 title: "gauge_agg",
                 href: "gauge_agg",
-              },
-              {
-                title: "rollup",
-                href: "rollup-counter",
-              },
-              {
-                title: "corr",
-                href: "corr-counter",
-              },
-              {
-                title: "counter_zero_time",
-                href: "counter_zero_time",
-              },
-              {
-                title: "delta",
-                href: "delta",
-              },
-              {
-                title: "extrapolated_delta",
-                href: "extrapolated_delta",
-              },
-              {
-                title: "extrapolated_rate",
-                href: "extrapolated_rate",
-              },
-              {
-                title: "first_time, last_time",
-                href: "first-last-time-counter",
-              },
-              {
-                title: "first_val, last_val",
-                href: "first-last-val-counter",
-              },
-              {
-                title: "interpolated_delta",
-                href: "interpolated_delta",
-              },
-              {
-                title: "interpolated_rate",
-                href: "interpolated_rate",
-              },
-              {
-                title: "idelta",
-                href: "idelta",
-              },
-              {
-                title: "intercept",
-                href: "intercept-counter",
-              },
-              {
-                title: "irate",
-                href: "irate",
-              },
-              {
-                title: "num_changes",
-                href: "num_changes",
-              },
-              {
-                title: "num_elements",
-                href: "num_elements",
-              },
-              {
-                title: "num_resets",
-                href: "num_resets",
-              },
-              {
-                title: "rate",
-                href: "rate",
-              },
-              {
-                title: "slope",
-                href: "slope-counter",
-              },
-              {
-                title: "time_delta",
-                href: "time_delta",
-              },
-              {
-                title: "with_bounds",
-                href: "with_bounds",
+                type: "placeholder",
               },
             ],
           },
           {
-            title: "Time-weighted averages",
-            type: "directory",
-            href: "time-weighted-averages",
+            title: "Time-weighted calculations",
+            href: "time-weighted-calculations",
+            type: "redirect-to-child-page",
             children: [
               {
                 title: "time_weight",
                 href: "time_weight",
-              },
-              {
-                title: "rollup",
-                href: "rollup-timeweight",
-              },
-              {
-                title: "average",
-                href: "average-time-weight",
-              },
-              {
-                title: "first_time, last_time",
-                href: "first-last-time-timeweight",
-              },
-              {
-                title: "first_val, last_val",
-                href: "first-last-val-timeweight",
-              },
-              {
-                title: "integral",
-                href: "integral-time-weight",
-              },
-              {
-                title: "interpolated_average",
-                href: "interpolated_average",
-              },
-              {
-                title: "interpolated_integral",
-                href: "interpolated_integral",
+                type: "placeholder",
               },
             ],
           },
           {
-            title: "Downsample",
-            type: "directory",
-            href: "downsample",
-            children: [
-              {
-                title: "asap",
-                href: "asap",
-              },
-              {
-                title: "lttb",
-                href: "lttb",
-              },
-              {
-                title: 'gp_lttb',
-                href: 'gp_lttb',
-              },
-            ],
+            title: "Downsampling",
+            type: "placeholder",
+            href: "downsampling",
           },
           {
             title: "Frequency Analysis",
@@ -729,21 +520,27 @@ module.exports = [
                 title: "min_frequency / max_frequency",
                 href: "min_frequency-max_frequency",
               },
+            ],
+          },
+          {
+            title: "State tracking",
+            type: "redirect-to-child-page",
+            href: "state-tracking",
+            children: [
+              {
+                title: "compact_state_agg",
+                href: "compact_state_agg",
+                type: "placeholder",
+              },
               {
                 title: "state_agg",
                 href: "state_agg",
+                type: "placeholder",
               },
               {
-                title: "duration_in",
-                href: "duration_in",
-              },
-              {
-                title: "interpolated_duration_in",
-                href: "interpolated_duration_in",
-              },
-              {
-                title: "into_values (for state_agg)",
-                href: "into_values-state_agg",
+                title: "heartbeat_agg",
+                href: "heartbeat_agg",
+                type: "placeholder",
               },
             ],
           },
@@ -785,6 +582,10 @@ module.exports = [
           {
             title: "timescaledb_information.job_stats",
             href: "job_stats",
+          },
+          {
+            title: "timescaledb_information.job_errors",
+            href: "job_errors",
           },
           {
             title: "timescaledb_experimental.policies",

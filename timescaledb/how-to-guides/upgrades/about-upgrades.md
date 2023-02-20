@@ -1,12 +1,13 @@
 ---
 title: About upgrades
 excerpt: About major and minor upgrades, and best practices for upgrading
-keywords: [upgrade]
+keywords: [upgrades]
 ---
 
 import PlanUpgrade from 'versionContent/_partials/_plan_upgrade.mdx';
 
 # About upgrades
+
 A major upgrade is when you upgrade from one major version of TimescaleDB, to
 the next major version. For example, when you upgrade from TimescaleDB&nbsp;1
 to TimescaleDB&nbsp;2.
@@ -28,9 +29,11 @@ about automatic version upgrades in Timescale Cloud.
 </highlight>
 
 ## Plan your upgrade
+
 <PlanUpgrade />
 
 ## Check your version
+
 You can check which version of TimescaleDB you are running, at the psql command
 prompt. Use this to check which version you are running before you begin your
 upgrade, and again after your upgrade is complete:

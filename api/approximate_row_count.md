@@ -7,11 +7,13 @@ tags: [approximate, rows]
 api:
   license: apache
   type: function
+  version:
+    stable: 0.10.0
 hyperfunction:
   type: one-step aggregate
 ---
 
-## approximate_row_count()
+# approximate_row_count()
 
 Get approximate row count for hypertable, distributed hypertable, or regular PostgreSQL table based on catalog estimates.
 This function supports tables with nested inheritance and declarative partitioning.

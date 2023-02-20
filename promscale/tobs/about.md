@@ -2,11 +2,16 @@
 title: About the observability stack (tobs) for Kubernetes
 excerpt: Install the observability stack for Kubernetes (tobs)
 product: promscale
-keywords: [tobs, Kubernetes, install]
+keywords: [tobs, Kubernetes, installation]
 tags: [k8s, monitor]
 ---
 
+import PromscaleDeprecation from "versionContent/_partials/_deprecated-promscale.mdx";
+
 # About the observability stack (tobs) for Kubernetes
+
+<PromscaleDeprecation />
+
 The observability stack (tobs) for Kubernetes is a tool that aims to make it
 simpler to install a full observability stack into a Kubernetes cluster.
 Currently this stack includes:
@@ -24,7 +29,7 @@ Currently this stack includes:
     long-term and allow analysis with both PromQL and SQL
 *   [TimescaleDB][timescaledb] for long term storage of metrics and provides
     ability to query metrics data using SQL
-*   [Opentelemetry-Operator][opentelemetry-operator] to manage the lifecycle of       
+*   [Opentelemetry-Operator][opentelemetry-operator] to manage the lifecycle of
     OpenTelemetryCollector Custom Resource Definition (CRDs)
 
 You can also use the tobs Helm chart directly, or as sub-charts for other

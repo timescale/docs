@@ -9,7 +9,7 @@ api:
   type: function
 ---
 
-## show_chunks()
+# show_chunks()
 
 Get list of chunks associated with a hypertable.
 

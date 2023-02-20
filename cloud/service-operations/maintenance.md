@@ -3,6 +3,9 @@ title: Service operations - Maintenance
 excerpt: How your Timescale Cloud service is kept up-to-date
 product: cloud
 keywords: [updates, upgrades, maintenance]
+cloud_ui:
+    path:
+        - [services, :serviceID, operations, maintenance]
 ---
 
 # Service operations - Maintenance
@@ -107,7 +110,7 @@ can plan accordingly. However, in some cases, we might not be able to do so.
 ## Upgrade to a new PostgreSQL version
 
 Timescale Cloud currently supports PostgreSQL&nbsp;12, 13, and 14. You can see
-your PostgreSQL and TimescaleDB versions from the Timescale Cloud service 
+your PostgreSQL and TimescaleDB versions from the Timescale Cloud service
 overview page.
 
 <!-- TODO: Add screenshot
@@ -130,8 +133,8 @@ information about feature changes between versions, see the
 [TimescaleDB release notes][timescale-relnotes].
 
 <highlight type="warning">
-Your Timescale Cloud service is unavailable until the upgrade is complete. 
-This can take several hours. To estimate the length of time, it is usually one second of downtime per 
+Your Timescale Cloud service is unavailable until the upgrade is complete.
+This can take several hours. To estimate the length of time, it is usually one second of downtime per
 100&nbsp;MB, but for a better estimate, you can test on a fork first.
 </highlight>
 
@@ -139,7 +142,7 @@ This can take several hours. To estimate the length of time, it is usually one s
 
 For a smooth upgrade experience, make sure you:
 
-*   Plan ahead. Upgrades cause downtime, so ideally perform an upgrade 
+*   Plan ahead. Upgrades cause downtime, so ideally perform an upgrade
     during a low traffic time.
 *   Fork your database, and try out the upgrade on the fork before running it on
     your production system. This gives you a good idea of what happens during
@@ -149,6 +152,11 @@ For a smooth upgrade experience, make sure you:
     worried about losing it. You can fork your database without upgrading the
     fork to keep a duplicate Timescale Cloud service. You can immediately pause
     this fork to only pay for storage until you are comfortable deleting it.
+
+<highlight type="important">
+Timescale Cloud services with replicas cannot be upgraded. To upgrade a service
+with a replica,  you must first delete the replica and then upgrade the service.
+</highlight>
 
 <procedure>
 
@@ -170,7 +178,7 @@ For a smooth upgrade experience, make sure you:
 </highlight>
 
 [cloud-login]: https://cloud.timescale.com
-[operations-forking]: /cloud/:currentVersion:/service-operations/general/#fork-a-service
+[operations-forking]: /cloud/:currentVersion:/service-operations/service-management/#fork-a-service
 [postgres-relnotes]: https://www.postgresql.org/docs/release/
 [replicas-docs]: /cloud/:currentVersion:/service-operations/replicas/
 [status-page]: https://status.timescale.com/

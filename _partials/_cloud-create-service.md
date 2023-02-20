@@ -3,7 +3,7 @@ Each service contains a single database, named `tsdb`.
 
 <procedure>
 
-### Creating your first service
+### Create a Timescale Cloud service
 
 <ol>
   <li>
@@ -14,12 +14,7 @@ Each service contains a single database, named `tsdb`.
   </li>
   <li>
     <p>
-      Click <code>Create service</code>.
-    </p>
-  </li>
-  <li>
-    <p>
-      You can choose to build your service with or without demo data.{" "}
+      {" "}
       {props.demoData ? (
         <>
           If this is your first service, we recommend that you choose the
@@ -29,7 +24,7 @@ Each service contains a single database, named `tsdb`.
         </>
       ) : (
         <>
-          Click <code>Create service</code> to continue with this tutorial.
+          Click <code>Create service</code>.
         </>
       )}
     </p>

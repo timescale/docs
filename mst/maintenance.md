@@ -2,17 +2,27 @@
 title: Maintenance
 excerpt: Learn how maintenance is automatically handled on Managed Service for TimescaleDB
 product: mst
-keywords: [maintenance, update, upgrade]
-tags: [maintenace window]
+keywords: [maintenance, updates, upgrades]
+tags: [maintenance window]
 ---
 
 # Maintenance
-On Managed Service for TimescaleDB, software updates are handled automatically
-by us, and you do not need to perform any actions to keep up to date.
 
-Non-critical software updates are applied during a maintenance window that you can define to suit your workload.
-If we detect a security vulnerability that affects you, we might need to perform maintenance outside of
-the scheduled maintenance window.
+On Managed Service for TimescaleDB, software updates are handled automatically,
+and you do not need to perform any actions to keep up to date.
+
+Non-critical software updates are applied during a maintenance window that you
+can define to suit your workload. If a security vulnerability is found that
+affects you, maintenance might be performed outside of your scheduled
+maintenance window.
+
+After maintenance updates have been applied, if a new version of the TimescaleDB
+binary has been installed, you need to update the extension to use the new
+version. To do this, use this command:
+
+```sql
+ALTER EXTENSION timescaledb UPDATE;
+```
 
 <highlight type="important">
 After a maintenance update, the DNS name remains the same, but the IP address
@@ -20,6 +30,7 @@ it points to changes.
 </highlight>
 
 ## Non-critical maintenance updates
+
 Non-critical upgrades are made available before the upgrade is performed
 automatically. During this time you can click `Apply upgrades` to start the
 upgrade at any time. However, after the time expires, usually around a week,
@@ -39,6 +50,7 @@ system during the upgrade.
 <procedure>
 
 ### Adjusting your maintenance window
+
 1.  [Log in to your account][mst-login]. Click the name of the service that
     you want to manage the maintenance window for.
 1.  In the `Maintenance window` section, click `Change`.
@@ -51,8 +63,9 @@ system during the upgrade.
 </procedure>
 
 ## Critical updates
-Critical upgrades and security fixes are installed outside normal maintenance windows when
-necessary, and sometimes require a short outage.
+
+Critical upgrades and security fixes are installed outside normal maintenance
+windows when necessary, and sometimes require a short outage.
 
 Upgrades are performed as rolling upgrades where completely new server instances
 are built alongside the old ones. When the new instances are up and running they
@@ -62,6 +75,5 @@ retired automatically after the new servers have taken over. The controlled
 failover is a very quick and safe operation and it takes less than a minute to
 get clients connected again. In most cases, there is five to ten second outage
 during this process.
-
 
 [mst-login]: https://portal.managed.timescale.com

@@ -1,11 +1,11 @@
 ---
 title: Compare TimescaleDB editions
 excerpt: Compare different editions of TimescaleDB
-keywords: [Apache, community, features]
+keywords: [Apache, community, license]
 tags: [learn, contribute]
 ---
 
-## TimescaleDB Apache 2 and TimescaleDB Community Edition
+# TimescaleDB Apache 2 and TimescaleDB Community Edition
 
 There are two versions of TimescaleDB available:
 
@@ -175,6 +175,11 @@ for TimescaleDB. MST is offered in AWS, Azure, and Google Cloud.
   </tr>
   <tr>
     <td><a href="https://docs.timescale.com/api/latest/distributed-hypertables/add_data_node/">add_data_node</a></td>
+    <td>❌</td>
+    <td>✅</td>
+  </tr>
+  <tr>
+    <td><a href="https://docs.timescale.com/api/latest/distributed-hypertables/alter_data_node/">alter_data_node</a></td>
     <td>❌</td>
     <td>✅</td>
   </tr>
@@ -374,72 +379,72 @@ for TimescaleDB. MST is offered in AWS, Azure, and Google Cloud.
     <td>✅</td>
   </tr>
   <tr>
-    <td><a href="https://docs.timescale.com/api/latest/hyperfunctions/percentile-approximation/percentile_agg/#percentile-agg">percentile_agg</a></td>
+    <td><a href="https://docs.timescale.com/api/latest/hyperfunctions/percentile-approximation/uddsketch/#percentile-agg">percentile_agg</a></td>
     <td>❌</td>
     <td>✅</td>
   </tr>
   <tr>
-    <td><a href="https://docs.timescale.com/api/latest/hyperfunctions/percentile-approximation/approx_percentile/#required-arguments">approx_percentile</a></td>
+    <td><a href="https://docs.timescale.com/api/latest/hyperfunctions/percentile-approximation/uddsketch/#approx_percentile">approx_percentile</a></td>
     <td>❌</td>
     <td>✅</td>
   </tr>
   <tr>
-    <td><a href="https://docs.timescale.com/api/latest/hyperfunctions/percentile-approximation/approx_percentile_rank/">approx_percentile_rank</a></td>
+    <td><a href="https://docs.timescale.com/api/latest/hyperfunctions/percentile-approximation/uddsketch/#approx_percentile_rank">approx_percentile_rank</a></td>
     <td>❌</td>
     <td>✅</td>
   </tr>
   <tr>
-    <td><a href="https://docs.timescale.com/api/latest/hyperfunctions/percentile-approximation/rollup-percentile/">rollup</a></td>
+    <td><a href="https://docs.timescale.com/api/latest/hyperfunctions/percentile-approximation/uddsketch/#rollup">rollup</a></td>
     <td>❌</td>
     <td>✅</td>
   </tr>
   <tr>
-    <td><a href="https://docs.timescale.com/api/latest/hyperfunctions/percentile-approximation/max_val/#returns">max_val</a></td>
+    <td><a href="https://docs.timescale.com/api/latest/hyperfunctions/percentile-approximation/tdigest/#max_val">max_val</a></td>
     <td>❌</td>
     <td>✅</td>
   </tr>
   <tr>
-    <td><a href="https://docs.timescale.com/api/latest/hyperfunctions/percentile-approximation/mean/">mean</a></td>
+    <td><a href="https://docs.timescale.com/api/latest/hyperfunctions/percentile-approximation/uddsketch/#mean">mean</a></td>
     <td>❌</td>
     <td>✅</td>
   </tr>
   <tr>
-    <td><a href="https://docs.timescale.com/api/latest/hyperfunctions/percentile-approximation/error/">error</a></td>
+    <td><a href="https://docs.timescale.com/api/latest/hyperfunctions/percentile-approximation/uddsketch/#error">error</a></td>
     <td>❌</td>
     <td>✅</td>
   </tr>
   <tr>
-    <td><a href="https://docs.timescale.com/api/latest/hyperfunctions/percentile-approximation/min_val/#required-arguments">min_val</a></td>
+    <td><a href="https://docs.timescale.com/api/latest/hyperfunctions/percentile-approximation/tdigest/#min_val">min_val</a></td>
     <td>❌</td>
     <td>✅</td>
   </tr>
   <tr>
-    <td><a href="https://docs.timescale.com/api/latest/hyperfunctions/percentile-approximation/num_vals-percentile/">num_vals</a></td>
+    <td><a href="https://docs.timescale.com/api/latest/hyperfunctions/percentile-approximation/uddsketch/#num_vals">num_vals</a></td>
     <td>❌</td>
     <td>✅</td>
   </tr>
   <tr>
-    <td><a href="https://docs.timescale.com/api/latest/hyperfunctions/percentile-approximation/percentile-aggregation-methods/uddsketch/#implementation-details">uddsketch</a></td>
+    <td><a href="https://docs.timescale.com/api/latest/hyperfunctions/percentile-approximation/uddsketch/#uddsketch">uddsketch</a></td>
     <td>❌</td>
     <td>✅</td>
   </tr>
   <tr>
-    <td><a href="https://docs.timescale.com/api/latest/hyperfunctions/percentile-approximation/percentile-aggregation-methods/tdigest/#tdigest">tdigest</a></td>
+    <td><a href="https://docs.timescale.com/api/latest/hyperfunctions/percentile-approximation/tdigest/#tdigest">tdigest</a></td>
     <td>❌</td>
     <td>✅</td>
   </tr>
   <tr>
-    <td><a href="https://docs.timescale.com/api/latest/hyperfunctions/time-weighted-averages/time_weight/#required-arguments">time_weight</a></td>
+    <td><a href="https://docs.timescale.com/api/latest/hyperfunctions/time-weighted-calculations/time_weight/">time_weight</a></td>
     <td>❌</td>
     <td>✅</td>
   </tr>
    <tr>
-    <td><a href="https://docs.timescale.com/api/latest/hyperfunctions/time-weighted-averages/rollup-timeweight/">rollup</a></td>
+    <td><a href="https://docs.timescale.com/api/latest/hyperfunctions/time-weighted-calculations/time_weight#rollup">rollup</a></td>
     <td>❌</td>
     <td>✅</td>
   </tr>
   <tr>
-    <td><a href="https://docs.timescale.com/api/latest/hyperfunctions/time-weighted-averages/average-time-weight/">average</a></td>
+    <td><a href="https://docs.timescale.com/api/latest/hyperfunctions/time-weighted-calculations/time_weight#average">average</a></td>
     <td>❌</td>
     <td>✅</td>
   </tr>

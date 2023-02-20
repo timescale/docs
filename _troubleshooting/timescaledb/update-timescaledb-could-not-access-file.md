@@ -6,12 +6,10 @@ errors:
   - language: text
     message: |-
       ERROR: could not access file "timescaledb-<VERSION>": No such file or directory
-keywords: [update]
-tags: [update]
+keywords: [updates]
 ---
 
 <!---
-* Keep this section in alphabetical order
 * Use this format for writing troubleshooting sections:
  - Cause: What causes the problem?
  - Consequence: What does the user see when they hit this problem?

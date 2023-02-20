@@ -1,7 +1,7 @@
 ---
 title: Frequently asked questions
 excerpt: Frequently asked questions about Timescale, TimescaleDB, and the Timescale community
-keywords: [faq]
+keywords: [FAQ]
 ---
 
 # Frequently asked questions

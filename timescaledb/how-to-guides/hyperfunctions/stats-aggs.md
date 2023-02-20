@@ -1,17 +1,18 @@
 ---
 title: Statistical aggregation
 excerpt: Aggregate data to perform common statistical calculations in continuous aggregates and window functions
-keywords: [hyperfunctions, Toolkit, statistics, statistical aggregates]
+keywords: [hyperfunctions, Toolkit, statistics]
 ---
 
 # Statistical aggregation
+
 To make common statistical aggregates easier to work with in window functions
 and continuous aggregates, TimescaleDB provides common statistical aggregates in
 a slightly different form than otherwise available in PostgreSQL and
 TimescaleDB.
 
-
 In this example, we calculate the average, standard deviation, and kurtosis of a value in the `measurements` table:
+
 ```sql
 SELECT 
     time_bucket('10 min'::interval, ts), 
@@ -32,10 +33,11 @@ Additionally, because this query syntax is used in all Timescale Toolkit
 queries, when you are used to it, you can use it to construct more and more
 complicated queries.
 
-A more complex example uses window functions to calculate tumbling window statistical aggregates. 
-The statistical aggregate is first calculated over each minute in the subquery 
-and then the `rolling` aggregate is used to re-aggregate it over each 15 minute period preceding. 
+A more complex example uses window functions to calculate tumbling window statistical aggregates.
+The statistical aggregate is first calculated over each minute in the subquery
+and then the `rolling` aggregate is used to re-aggregate it over each 15 minute period preceding.
 The accessors remain the same as the previous example:
+
 ```sql
 SELECT 
     bucket, 
@@ -50,20 +52,22 @@ FROM (SELECT
 WINDOW fifteen_min as (ORDER BY bucket ASC RANGE '15 minutes' PRECEDING);
 ```
 
-For some more technical details and usage examples of the two-step aggregation 
-method, see the [blog post on aggregates][blog-aggregates] or the 
+For some more technical details and usage examples of the two-step aggregation
+method, see the [blog post on aggregates][blog-aggregates] or the
 [developer documentation][gh-two-step-agg].
 
 # 1D and 2D linear regression with statistical aggregates
-The `stats_agg` aggregate is available in two forms, a one-dimensional 
-aggregate shown earlier in this section, and a two-dimensional aggregate. 
-The two-dimensional aggregate takes in two variables `(Y, X)`, which are 
-dependent and independent variables respectively. The two-dimensional 
-aggregate performs all the same calculations on each individual variable 
-as performing separate one-dimensional aggregates would, and 
-additionally performs linear regression on the two variables. Accessors 
-for one-dimensional values append a `_y` or `_x` to the name. For 
+
+The `stats_agg` aggregate is available in two forms, a one-dimensional
+aggregate shown earlier in this section, and a two-dimensional aggregate.
+The two-dimensional aggregate takes in two variables `(Y, X)`, which are
+dependent and independent variables respectively. The two-dimensional
+aggregate performs all the same calculations on each individual variable
+as performing separate one-dimensional aggregates would, and
+additionally performs linear regression on the two variables. Accessors
+for one-dimensional values append a `_y` or `_x` to the name. For
 example:
+
 ```sql
 SELECT 
     average_y(stats_agg(val2, val1)), -- equivalent to average(stats_agg(val2))
@@ -77,4 +81,4 @@ For more information about statistical aggregation API calls, see the
 
 [blog-aggregates]: https://blog.timescale.com/blog/how-postgresql-aggregation-works-and-how-it-inspired-our-hyperfunctions-design-2/
 [gh-two-step-agg]: https://github.com/timescale/timescaledb-toolkit/blob/main/docs/two-step_aggregation.md
-[hyperfunctions-api-stats-agg]: /api/:currentVersion:/hyperfunctions/stats_aggs/
+[hyperfunctions-api-stats-agg]: /api/:currentVersion:/hyperfunctions/statistical-and-regression-analysis/stats_agg-one-variable/

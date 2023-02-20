@@ -9,7 +9,7 @@ api:
   type: function
 ---
 
-## timescaledb_pre_restore()
+# timescaledb_pre_restore()
 
 Perform the proper operations to allow restoring of the database via `pg_restore` to commence.
 Specifically this sets the `timescaledb.restoring` GUC to `on` and stops any

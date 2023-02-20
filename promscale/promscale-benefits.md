@@ -6,7 +6,11 @@ keywords: [analytics]
 tags: [learn, prometheus]
 ---
 
+import PromscaleDeprecation from "versionContent/_partials/_deprecated-promscale.mdx";
+
 # Promscale benefits
+
+<PromscaleDeprecation />
 
 **Get started in minutes**: deploy a full observability stack for metrics and
 traces in your Kubernetes cluster using [tobs](tobs). Or deploy

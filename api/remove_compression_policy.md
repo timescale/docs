@@ -9,7 +9,7 @@ api:
   type: function
 ---
 
-## remove_compression_policy() <tag type="community" content="community" />
+# remove_compression_policy() <tag type="community" content="community" />
 
 If you need to remove the compression policy. To restart policy-based
 compression you need to add the policy again. To view the policies that

@@ -1,7 +1,7 @@
 ---
 title: Changes in TimescaleDB 2.0
 excerpt: New features and capabilities introduced in TimescaleDB 2.0
-keywords: [upgrade, releases]
+keywords: [upgrades, releases]
 ---
 
 # Changes in TimescaleDB 2.0
@@ -46,7 +46,6 @@ to evaluate the effects on your application and infrastructure. Then, for upgrad
 instructions and recommendations, see the [documentation on upgrading to
 TimescaleDB 2.0][upgrade-timescaledb2].
 
-
 ## Why we've made these changes
 
 It's been two years since we released TimescaleDB 1.0 in October 2018 with the ambition
@@ -84,14 +83,12 @@ to enable user-defined actions. User-defined actions are custom background jobs 
 In the rest of this document, we go through each of the features and API changes in detail, and
 what users migrating from an earlier version of TimescaleDB should consider prior to updating to TimescaleDB 2.0.
 
-
 ## Working with hypertables
 
 In TimescaleDB 2.0, we have made changes to existing APIs for working with hypertables, as well
 as improvements to the related information views and size functions. These views and functions
 provide information about basic configuration, partitioning, data chunks, and disk size, and they
 also have been updated to work for distributed hypertables.
-
 
 ### Creating hypertables and changing configuration
 
@@ -161,7 +158,7 @@ return only a single aggregate value and can be easily applied in queries, while
 the detailed functions return multiple columns and possibly multiple rows of
 information.
 
-*   [`hypertable_detailed_size(hypertable)`](/api/:currentVersion:/hypertable/hypertable_detailed_size):  
+*   [`hypertable_detailed_size(hypertable)`](/api/:currentVersion:/hypertable/hypertable_detailed_size):
 The function has been renamed from `hypertable_relation_size(hypertable)`.  Further, if the hypertable is distributed,
 it returns multiple rows, one per each of the hypertable's data nodes.
 *   [`hypertable_size(hypertable)`](/api/:currentVersion:/hypertable/hypertable_size):  Returns a single
@@ -177,14 +174,13 @@ has been renamed from `hypertable_approximate_row_count`. It can now also be cal
 In previous versions of TimescaleDB, you could get size information for all hypertables in the `hypertable` view.
 In TimescaleDB 2.0, you can now instead combine the new `hypertables` view with size functions to achieve a similar result:
 
-
 ```SQL
 SELECT hypertable_name, hypertable_size(hypertable_name::regclass) FROM timescaledb_information.hypertables;
 
  hypertable_name | hypertable_size
 -----------------+-----------------
- devices         |      	360448
- conditions      |      	253952
+ devices         |       360448
+ conditions      |       253952
 ```
 
 ## Continuous aggregates
@@ -207,11 +203,10 @@ Action API                    | Policy API for Automation
 `compress_chunk`              | `add_compression_policy`
 `refresh_continuous_aggregate`|`add_continuous_aggregate_policy`
 
-
 In practice, this means that creating a continuous aggregate in TimescaleDB 2.0 is now a two-step process:
 
-1. Create via a [`CREATE MATERIALIZED VIEW`](/api/:currentVersion:/continuous-aggregates/create_materialized_view/) statement
-2. Add an (automation) policy on the continuous aggregate via a separate [API function call](/api/:currentVersion:/continuous-aggregates/add_continuous_aggregate_policy)
+1.  Create via a [`CREATE MATERIALIZED VIEW`](/api/:currentVersion:/continuous-aggregates/create_materialized_view/) statement
+2.  Add an (automation) policy on the continuous aggregate via a separate [API function call](/api/:currentVersion:/continuous-aggregates/add_continuous_aggregate_policy)
 
 ```SQL
 CREATE MATERIALIZED VIEW conditions_by_2h
@@ -231,7 +226,7 @@ SELECT add_continuous_aggregate_policy(
   schedule_interval    => '1 hour');
 ```
 
-In the example above, `CREATE MATERIALIZED VIEW `creates a continuous aggregate without any automation yet
+In the example above, `CREATE MATERIALIZED VIEW`creates a continuous aggregate without any automation yet
 associated with it. Notice also that  `WITH NO DATA` is specified at the end. This prevents the view from
 materializing data at creation time, instead deferring the population of aggregated data until the policy runs
 as a background job or as part of a manual refresh. Therefore, we recommend that users create continuous aggregates
@@ -243,7 +238,6 @@ provided. Inputs to the policy function include the continuous aggregate name, a
 schedule interval. The refresh window is specified by the start and end offsets, which are used to calculate
 a new refresh window every time the policy runs by subtracting the offsets from the current time (as normally
 returned by the function `now()`).
-
 
 ### Understanding continuous aggregate policies
 
@@ -267,18 +261,16 @@ about the latest data, and not just aggregated data more than 2 hours old, based
 specified as before with the `timescaledb.materialized_only=false` parameter. Real-time aggregates are still the default
 setting unless otherwise specified.
 
-Finally, it is recommended that the `end_offset` lags the current time by at least one `time_bucket `as defined
+Finally, it is recommended that the `end_offset` lags the current time by at least one `time_bucket`as defined
 in the aggregate SQL, otherwise it might affect performance when inserting new data, which usually is written to
 what would be the latest bucket. In TimescaleDB 1.x, the `refresh_lag` parameter was used for a similar purpose,
 but we found that  using it correctly was more difficult to understand.
-
 
 ### Manually refreshing regions of continuous aggregates
 
 TimescaleDB 2.0 removes support for `REFRESH MATERIALIZED VIEW` in favor of the new, more flexible function,
 [refresh_continuous_aggregate](/api/:currentVersion:/continuous-aggregates/refresh_continuous_aggregate), which enables
 a user to refresh a specific window in a continuous aggregate:
-
 
 ```SQL
 CALL refresh_continuous_aggregate(
@@ -297,7 +289,6 @@ inside the given refresh window and are in a region that has seen changes in the
 Thus, if no changes have occurred in the underlying source data (that is, no data has been backfilled to the
 region or no updates to existing data have been made), no materialization is performed over that
 region. This behavior is similar to the continuous aggregate policy and ensures more efficient operation.
-
 
 ### Using data retention and continuous aggregates together
 
@@ -338,9 +329,11 @@ prior to dropping chunks in the original hypertable. In practice, it often didn'
 In TimescaleDB 2.0 users can ensure that all updates are processed before dropping data by
 combining the following experimental function, which refreshes updates in the given chunk,
 with `drop_chunks`.
+
 ```sql
 _timescaledb_internal.refresh_continuous_aggregate(continuous_aggregate REGCLASS, chunk REGCLASS)
 ```
+
 The example below demonstrates how to use the chunk-based refresh function to define a
 retention policy, which ensures that all updates to data in the original hypertable are
 refreshed in all continuous aggregates prior to dropping chunks older than 2 weeks:
@@ -410,16 +403,18 @@ dropped due to a data retention policy as discussed in the previous section.
 In TimescaleDB 2.0, views surrounding continuous aggregates (and other policies) have been simplified and generalized.
 
 #### Changes and additions
-*   [`timescaledb_information.continuous_aggregates`](/api/:currentVersion:/continuous-aggregates/):
+
+*   [`timescaledb_information.continuous_aggregates`](/api/:currentVersion:/continuous-aggregates/create_materialized_view/):
 now provides information related to the materialized view, which includes the view name and owner, the real
 time aggregation flag, the materialization and the view definition (the select statement defining the view).
 *   [`timescaledb_information.jobs`](/api/:currentVersion:/informational-views/jobs/): displays information for
-all policies including continuous aggregates.  
+all policies including continuous aggregates.
 *   [`timescaledb_information.job_stats`](/api/:currentVersion:/informational-views/job_stats/): displays job
 statistics related to all jobs.
 
 #### Removed
-* [`timescaledb_information.continuous_aggregate_stats`](https://legacy-docs.timescale.com/v1.7/api#timescaledb_information-continuous_aggregate_stats): Removed in favor of the `job_stats` view mentioned above.
+
+*   [`timescaledb_information.continuous_aggregate_stats`](https://legacy-docs.timescale.com/v1.7/api#timescaledb_information-continuous_aggregate_stats): Removed in favor of the `job_stats` view mentioned above.
 
 ### Updating existing continuous aggregates
 
@@ -435,7 +430,7 @@ In particular, the update process should:
 *   Mark all the data older than the interval `ignore_invalidation_older_than` as out-of-date, so that it can be refreshed.
 *   Disable any retention policies that are failing due to being incompatible with the current setting of
 `ignore_invalidation_older_than` on a continuous aggregate (as described above). Disabled policies remain after
-upgrade, but are not scheduled to run (`scheduled=false `in` timescaledb_information.jobs`). If failing policies
+upgrade, but are not scheduled to run (`scheduled=false`in`timescaledb_information.jobs`). If failing policies
 were to be migrated to 2.0 they would start to work again, but likely with unintended consequences. Therefore, any
 retention policies that are disabled post update should have their settings carefully reviewed before being enabled again.
 
@@ -448,28 +443,30 @@ Other minor changes were made to various APIs for greater understandability and 
 ### Data retention
 
 #### Changes and additions
+
 *   [`drop_chunks`](/api/:currentVersion:/hypertable/drop_chunks): This function now requires specifying a
 hypertable or continuous aggregate as the first argument, and does not allow dropping chunks across all hypertables
 in a database. Additionally, the arguments `cascade` and `cascade_to_materializations` were removed (and behave as
 if the arguments were set to `false` in earlier versions). In TimescaleDB 2.0, we instead recommend creating a
 separate retention policy on each continuous aggregate.
-*   [`add_retention_policy`](/api/:currentVersion:/data-retention/add_retention_policy), [`remove_retention_policy`](/api/:currentVersion:/data-retention/remove_retention_policy):  
+*   [`add_retention_policy`](/api/:currentVersion:/data-retention/add_retention_policy), [`remove_retention_policy`](/api/:currentVersion:/data-retention/remove_retention_policy):
 Creating (or removing) a data retention policy now has explicit functions. Additionally, the arguments `cascade`
 and `cascade_to_materializations` were removed (and behave as if the arguments were set to `false` in earlier versions).
 *   [`timescaledb_information.jobs`](/api/:currentVersion:/informational-views/jobs/): General information about data retention
 policies are now available in the main jobs view.
 
 #### Removed
+
 *   [`add_drop_chunks_policy`](https://legacy-docs.timescale.com/v1.7/api#add_drop_chunks_policy): removed in favor of the
 explicit functions above.
 *   [`timescaledb_information.drop_chunks_policies`](https://legacy-docs.timescale.com/v1.7/api#timescaledb_information-drop_chunks_policies):
  view has been removed in favor of the more general jobs view.
 
-
 ### Compression
 
 #### Changes and additions
-*   [`add_compression_policy`](/api/:currentVersion:/compression/add_compression_policy), [`remove_compression_policy`](/api/:currentVersion:/compression/remove_compression_policy):  
+
+*   [`add_compression_policy`](/api/:currentVersion:/compression/add_compression_policy), [`remove_compression_policy`](/api/:currentVersion:/compression/remove_compression_policy):
 Creating (or removing) a compression policy now has explicit functions.
 *   [`hypertable_compression_stats(hypertable)`](/api/:currentVersion:/compression/hypertable_compression_stats): The function
  returns statistics only for hypertables with compression enabled.
@@ -481,11 +478,12 @@ information about currently compressed chunks.
 compression policies are now available in the main jobs view.
 
 #### Removed
-* [`add_compress_chunk_policy`](https://legacy-docs.timescale.com/v1.7/api#add_compress_chunks_policy): Removed in favor of the
+
+*   [`add_compress_chunk_policy`](https://legacy-docs.timescale.com/v1.7/api#add_compress_chunks_policy): Removed in favor of the
 explicit functions above.
-* [`timescaledb_information.compressed_hypertable_stats`](https://legacy-docs.timescale.com/v1.7/api#timescaledb_information-compressed_hypertable_stats):
+*   [`timescaledb_information.compressed_hypertable_stats`](https://legacy-docs.timescale.com/v1.7/api#timescaledb_information-compressed_hypertable_stats):
 Removed in favor of the new `hypertable_compression_stats(hypertable)` function linked above
-* [`timescaledb_information.compressed_chunk_stats`](https://legacy-docs.timescale.com/v1.7/api#timescaledb_information-compressed_chunk_stats):
+*   [`timescaledb_information.compressed_chunk_stats`](https://legacy-docs.timescale.com/v1.7/api#timescaledb_information-compressed_chunk_stats):
 Removed in favor of the new `chunk_compression_stats(hypertable)` function linked above.
 
 ## Managing policies and other jobs
@@ -503,7 +501,6 @@ built-in actions (for example, `remove_retention_policy`).
 *   [`timescaledb_information.jobs`](/api/:currentVersion:/informational-views/jobs):  The new view provides all job settings available, and it replaces all policy-specific views.
 *   [`timescaledb_information.jobs_stats`](/api/:currentVersion:/informational-views/job_stats):  The view presents statistics of executing jobs for policies and actions.
 
-
 ## License information
 
 In TimescaleDB 2.0, all features which had been classified previously as "enterprise" have become "community" features
@@ -518,7 +515,7 @@ longer applicable. The current license used by the extension can instead be view
 *   `timescaledb.license`: This GUC value (which replaces the former [`timescaledb.license_key`](https://legacy-docs.timescale.com/v1.7/api#timescaledb_license-key) GUC)
 can take the value `timescale` or `apache`. It can be set only at startup (in the postgresql.conf configuration file
 or on the server command line), and allows limiting access to certain features
-by license. For example, setting the 
+by license. For example, setting the
 license to `apache` allows access to only Apache-2 licensed features.
 
 [how-to-guides]: /timescaledb/:currentVersion:/how-to-guides/
