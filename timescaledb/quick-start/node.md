@@ -98,7 +98,8 @@ ORM (object relational mapper) called [Sequelize][sequelize-info].
     node index.js
     ```
 
-   In your web browser, navigate to `http://localhost:3000`. If the connection is successful, it shows "Hello World!"
+   In your web browser, navigate to `http://localhost:3000`. If the connection
+   is successful, it shows "Hello World!"
 
 1.  Add Sequelize to your project:
 
@@ -124,7 +125,7 @@ ORM (object relational mapper) called [Sequelize][sequelize-info].
     ```
 
 1.  Open the `index.js` file you created. Require Sequelize in the application,
-    and decalre the connection string:
+    and declare the connection string:
 
     ```java
     const Sequelize = require('sequelize')
@@ -141,12 +142,13 @@ ORM (object relational mapper) called [Sequelize][sequelize-info].
         })
     ```
 
-    Make sure you add the SSL settings in the `dialectOptions` sections. You can't connect to TimescaleDB using SSL without them.
+    Make sure you add the SSL settings in the `dialectOptions` sections. You
+    can't connect to TimescaleDB using SSL without them.
 
 1.  You can test the connection by adding these lines to `index.js` after the
     `app.get` statement:
 
-    ```javascript
+    ```java
     sequelize.authenticate().then(() => {
         console.log('Connection has been established successfully.');
     }).catch(err => {
@@ -336,7 +338,7 @@ This section covers how to insert data into your hypertables.
     `create` method on `PageLoads` model, supplying the user agent and timestamp
     parameters. The `create` call executes an `INSERT` on the database:
 
-    ```javascript
+    ```java
     app.get('/', async (req, res) => {
         // get the user agent and current time
         const userAgent = req.get('user-agent');
@@ -374,7 +376,7 @@ is displayed.
     function and retrieve all data from the `page_loads` table using the
     `PageLoads` model:
 
-    ```javascript
+    ```java
     app.get('/', async (req, res) => {
         // get the user agent and current time
         const userAgent = req.get('user-agent');
@@ -408,17 +410,18 @@ Now that you're able to connect, read, and write to a TimescaleDB instance from
 your Node application, check out these tutorials:
 
 *   [Time Series Forecasting using TimescaleDB, R, Apache MADlib and Python][time-series-forecasting]
-*   [Continuous Aggregates][continuous-aggregates]
 *   [Try Other Sample Datasets][other-samples]
 *   [Migrate your own Data][migrate]
 
-[continuous-aggregates]: /getting-started/:currentVersion:/create-cagg/
-[hypertables]: /timescaledb/:currentVersion:/overview/core-concepts/
-[install-timescale]: /install/latest/
 [migrate]: /timescaledb/:currentVersion:/how-to-guides/migrate-data/
 [node-install]: https://nodejs.org
 [npm-install]: https://www.npmjs.com/get-npm
 [other-samples]: /timescaledb/:currentVersion:/tutorials/sample-datasets/
 [sequelize-info]: https://sequelize.org
-[setup-psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql/
 [time-series-forecasting]: /timescaledb/:currentVersion:/tutorials/time-series-forecast/
+[connect]: #connect-to-timescaledb
+[create-table]: #create-a-relational-table
+[create-hypertable]: #create-hypertable
+[insert]: #insert-rows-of-data
+[query]: #execute-a-query
+[install]: /install/:currentVersion:/installation-cloud/
