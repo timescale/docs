@@ -54,28 +54,6 @@ module.exports = [
             href: "rhel-centos",
             excerpt: "Install Promscale on RPM based Linux",
           },
-          {
-            title: "Promscale with Timescale cloud",
-            href: "promscale-with-timescale-cloud",
-            excerpt: "Install Promscale with Timescale cloud",
-            children: [
-              {
-                title: "Kubernetes",
-                href: "kubernetes",
-                excerpt: "Install Promscale on Kubernetes with Timescale cloud",
-              },
-              {
-                title: "Docker",
-                href: "docker",
-                excerpt: "Install Promscale on Docker with Timesale cloud",
-              },
-              {
-                title: "Binary",
-                href: "binary",
-                excerpt: "Install Promscale as binary with Timesale cloud",
-              },
-            ],
-          },
         ],
       },
       {
