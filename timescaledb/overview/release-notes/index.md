@@ -14,6 +14,43 @@ Want to stay up-to-date with new releases? Subscribe to get
 [release notes email updates](https://www.timescale.com/signup/release-notes).
 </highlight>
 
+## 2.10.0 (2023-02-21)
+
+This release contains new features and bug fixes since the 2.9.3 release.
+We deem it moderate priority for upgrading.
+
+This release includes these noteworthy features:
+* Joins in continuous aggregates
+* Re-architecture of how compression works: ~2x improvement on INSERT rate into compressed chunks.
+* Full PostgreSQL 15 support for all existing features. Support for the newly introduced MERGE command on hypertables will be introduced on a follow-up release.
+
+**PostgreSQL 12 deprecation announcement**
+We will continue supporting PostgreSQL 12 until July 2023. Sooner to that time, we will announce the specific version of TimescaleDB in which PostgreSQL 12 support will not be included going forward.
+
+**Old format of Continuous Aggregates deprecation announcement**
+TimescaleDB 2.7 introduced a new format for continuous aggregates that improves performance.
+All instances with Continuous Aggregates using the old format should [migrate to the new format](https://docs.timescale.com/api/latest/continuous-aggregates/cagg_migrate/) by July 2023,
+when support for the old format will be removed.
+Sooner to that time, we will announce the specific version of TimescaleDB in which support for this feature will not be included going forward.
+
+**Features**
+* #4874 Allow joins in continuous aggregates
+* #4926 Refactor INSERT into compressed chunks
+* #5241 Allow RETURNING clause when inserting into compressed chunks
+* #5245 Manage life-cycle of connections via memory contexts
+* #5246 Make connection establishment interruptible
+* #5253 Make data node command execution interruptible
+* #5262 Extend enabling compression on a continuous aggregrate with 'compress_segmentby' and 'compress_orderby' parameters
+
+**Bugfixes**
+* #5214 Fix use of prepared statement in async module
+* #5218 Add role-level security to job error log
+* #5239 Fix next_start calculation for fixed schedules
+* #5290 Fix enabling compression on continuous aggregates with columns requiring quotation
+
+**Thanks**
+* @henriquegelio for reporting the issue on fixed schedules
+
 ## What's new in TimescaleDB 2.9:
 
 * Hierarchical Continuous Aggregates (aka Continuous Aggregate on top of another Continuous Aggregate)
