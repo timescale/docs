@@ -16,6 +16,7 @@ This section contains four examples of how you can set up automation policies on
 tick data hypertable and your candlestick continuous aggregates. This can help you
 save on disk storage and improve the performance of long-range analytical queries by
 automatically:
+
 {/* <!-- vale Google.LyHyphens = NO --> */}
 
 *   [Deleting older tick data](#automatically-delete-older-tick-data)
