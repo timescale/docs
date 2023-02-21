@@ -15,6 +15,7 @@
     "ol_multi": 2
   },
   "no-inline-html": false,
+  "no-space-in-emphasis": false,
   "no-trailing-punctuation": { "punctuation": "." },
   "ol-prefix": { "style": "one" },
   "single-h1": false,

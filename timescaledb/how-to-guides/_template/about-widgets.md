@@ -1,5 +1,7 @@
-<!-- vale off -->
+{/* <!-- vale off --> */}
+
 # About widgets
+
 This page collects all the concept information about the feature. It answers the
 question "What is it"? This page should not include any procedures, but it can
 contain code samples if they are being used to explain the feature. Break this
@@ -31,6 +33,7 @@ data in the table has not changed significantly, so there is no need to scan the
 entire dataset. Continuous aggregates automatically, and in the background,
 maintain the results from the query, and allow you to retrieve them in the same
 way as any other data.
+
 ```
 
 Include reference-style links at the bottom of the page.

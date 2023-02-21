@@ -76,5 +76,5 @@ FROM t;
 ```
 
 [approx-count]: /api/:currentVersion:/hyperfunctions/frequency-analysis/approx_count/
-<!-- vale Google.EnDash = NO -->
+{/* <!-- vale Google.EnDash = NO --> */}
 [count-min-sketch]: https://en.wikipedia.org/wiki/Count–min_sketch

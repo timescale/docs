@@ -111,7 +111,7 @@ that only indexes data within that chunk. This optimization improves insert
 speed for recent data. For more information, see the section on the
 [benefits of local indexes][hypertable-benefits-indexes].
 
-<!-- TODO: insert local indexes diagram -->
+{/* <!-- TODO: insert local indexes diagram --> */}
 
 Even with multiple local indexes, TimescaleDB can still ensure global uniqueness
 for keys. It enforces an important constraint: any key that requires uniqueness,
@@ -124,7 +124,7 @@ identifies the corresponding time chunk. Using that chunk's unique index, it
 checks for uniqueness within the chunk. Because no other chunk can contain that
 time value, uniqueness within the chunk implies global uniqueness.
 
-<!-- TODO: insert local indexes and time partitioning diagram -->
+{/* <!-- TODO: insert local indexes and time partitioning diagram --> */}
 
 If another column is used for partitioning, the same logic applies. TimescaleDB
 identifies the correct chunk using the time-and-space partitions and checks for

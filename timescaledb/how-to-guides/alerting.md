@@ -16,7 +16,7 @@ Within Grafana, you can [define alert rules][define alert rules] which are time-
 
 To get started, first download and install [Grafana][Grafana-install]. Next, add a new [PostgreSQL datasource][PostgreSQL datasource] that points to your TimescaleDB instance. This data source was built by TimescaleDB engineers, and it is designed to take advantage of the database's time-series capabilities. From there, proceed to your dashboard and set up alert rules as described above.
 
-<!-- -->
+{/* <!-- --> */}
 >:WARNING: Alerting is only available in Grafana v4.0 and above.
 
 ## Other alerting tools

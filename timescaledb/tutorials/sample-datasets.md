@@ -37,7 +37,8 @@ from a variety of locations. Click on the name to download.
 For more details and example usage, see [weather datasets](#weather-datasets).
 
 ## Importing
-<!-- Add steps format-->
+
+{/* <!-- Add steps format--> */}
 Briefly, the import steps are:
 
 1.  Setup a database with TimescaleDB.

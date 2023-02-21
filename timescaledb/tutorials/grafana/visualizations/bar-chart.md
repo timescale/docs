@@ -21,7 +21,7 @@ Bar charts can answer questions like:
 *   What was the transaction volume distribution of stocks last week?
 *   How many students in grade A are above a certain age range?
 
-<!--- Do you have a diagram to use here? --LKB 2022-07-01-->
+{/* <!--- Do you have a diagram to use here? --LKB 2022-07-01--> */}
 
 To plot a bar chart, Grafana requires only one data frame. You need to have at
 least one string field, which is used as the category for an X or Y axis, and

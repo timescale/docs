@@ -21,10 +21,10 @@ To summarize, TimescaleDB offers:
 partitioning is abstracted away behind a hypertable, which users interact with just as
 they would with a PostgreSQL table.
 *   Much higher ingest scale: TimescaleDB sees throughput more than 20 times that of
-<!-- vale Google.Units = NO -->
+{/* <!-- vale Google.Units = NO --> */}
 PostgreSQL once tables reach moderate size (for example, tens of millions of
 rows).
-<!-- vale Google.Units = YES -->
+{/* <!-- vale Google.Units = YES --> */}
 While vanilla PostgreSQL is suitable for time-series data at low volumes, it does
 not scale well to the volume of data that most time-series applications produce, especially
 when running on a single server. In particular, vanilla PostgreSQL has poor write performance
@@ -32,12 +32,12 @@ for moderate tables, and this problem only becomes worse over time as data volum
 linearly in time. These problems emerge when table indexes can no longer fit in memory,
 as each insert translates to many disk fetches to swap in portions of the indexes'
 B-Trees. TimescaleDB solves this through its heavy utilization of
-time-space partitioning, even when running _on a single machine_. So all writes
+time-space partitioning, even when running *on a single machine*. So all writes
 to recent time intervals are only to tables that remain in memory, and updating any
 secondary indexes is also fast as a result.
 
 *   Superior (or similar) query performance: Queries that can reason
-specifically about time ordering can be _much_ more performant (thousands of times faster)
+specifically about time ordering can be *much* more performant (thousands of times faster)
 in TimescaleDB. On single disk machines, at least, many simple queries that just perform
 indexed lookups or table scans are similarly performant between PostgreSQL and TimescaleDB.
 *   Much faster data deletion: To save space or to implement data retention policies,

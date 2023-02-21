@@ -11,7 +11,8 @@ api:
 
 import Experimental from "versionContent/_partials/_experimental.mdx";
 
-<!-- markdownlint-disable-next-line line-length -->
+{/* <!-- markdownlint-disable-next-line line-length --> */}
+
 # show_policies() <Tag type="community" content="Community" /><Tag type="experimental" content="Experimental" />
 
 Show all policies that are currently set on a continuous aggregate.

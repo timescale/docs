@@ -78,10 +78,10 @@ efficiency and query performance. The best choice depends on your application
 query patterns. For more information, see the [how-to guide on
 compression][about-compression].
 
-<!-- TODO: Change when improving compression section is done
+{/* <!-- TODO: Change when improving compression section is done
 For more information, see the section on [improving
 compression][improving-compression].
--->
+--> */}
 
 ### Data ordering with timescaledb.compress_orderby
 
@@ -250,10 +250,10 @@ such situations are rare. Choosing the right `segmentby` column for your query
 patterns can help. For more information, see the [how-to guide on
 compression][about-compression].
 
-<!-- TODO: change reference when improving compression page is done
+{/* <!-- TODO: change reference when improving compression page is done
 For more information, see the section on [optimizing
 compression][improving-compression].
--->
+--> */}
 
 [about-compression]: /timescaledb/:currentVersion:/how-to-guides/compression/about-compression/
 [backfilling]: /timescaledb/:currentVersion:/how-to-guides/compression/backfill-historical-data/

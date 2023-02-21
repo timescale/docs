@@ -14,7 +14,7 @@ import PromscaleDeprecation from "versionContent/_partials/_deprecated-promscale
 
 This page is a reference for the functions available in Promscale.
 
-<!--
+{/* <!--
 SQL To generate
 
 SELECT
@@ -27,7 +27,8 @@ FROM pg_catalog.pg_proc p
      LEFT JOIN pg_catalog.pg_language l ON l.oid = p.prolang
 WHERE n.nspname OPERATOR(pg_catalog.~) '^(prom)$' COLLATE pg_catalog.default
 ORDER BY 1, 2, 4;
--->
+--> */}
+
 ## General
 
 |Name|Arguments|Type|Description|

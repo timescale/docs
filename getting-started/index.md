@@ -29,11 +29,11 @@ can find help from the Timescale community and team.
 
 ## Get started with a TimescaleDB database
 
-<!-- vale Google.We = NO -->
+{/* <!-- vale Google.We = NO --> */}
 To work with TimescaleDB, you need a TimescaleDB database. The easiest way to
 get started is to use Timescale Cloud, our hosted, cloud-native database
 service.
-<!-- vale Google.We = YES -->
+{/* <!-- vale Google.We = YES --> */}
 
 ### Install Timescale Cloud
 
