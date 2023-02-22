@@ -9,20 +9,20 @@ api:
   type: function
 ---
 
-# add_reorder_policy() <tag type="community">Community</tag>
+# add_reorder_policy() <Tag type="community">Community</Tag>
 
 Create a policy to reorder chunks on a given hypertable index in the
 background. (See [reorder_chunk][reorder_chunk]). Only one reorder policy may
 exist per hypertable. Only chunks that are the third from the most recent are
 reordered to avoid reordering chunks that are still being inserted into.
 
-<highlight type="tip">
+<Highlight type="tip">
  Once a chunk has been reordered by the background worker it is not
 reordered again. So if one were to insert significant amounts of data in to
 older chunks that have already been reordered, it might be necessary to manually
 re-run the [reorder_chunk](/api/latest/hypertable/reorder_chunk) function on older chunks, or to drop
 and re-create the policy if many older chunks have been affected.
-</highlight>
+</Highlight>
 
 ### Required arguments
 

@@ -15,12 +15,12 @@ import PromscaleDeprecation from "versionContent/_partials/_deprecated-promscale
 Promscale can use [TimescaleDB continuous aggregates][tsdb-caggs] to manage data
 downsampling and materialization.
 
-<highlight type="warning">
+<Highlight type="warning">
 This feature is currently in development. Use this feature at your own risk, and
 do not use any experimental features in production. Help us improve Promscale by
 [sharing feedback](https://github.com/timescale/promscale/discussions/828) and
 [reporting issues](https://github.com/timescale/promscale/issues/new).
-</highlight>
+</Highlight>
 
 Benefits of continuous aggregates:
 
@@ -54,11 +54,11 @@ continuous aggregate must:
 *   Any number of additional columns of type `double precision`, that correspond
     to the metric values you want to store.
 
-<highlight type="important">
+<Highlight type="important">
 Continuous aggregates supports only one metric in the `FROM` clause, and can
 generate aggregations only within the same `series_id`. This is because
 the `series_id` corresponds to a specific metric name and set of labels.
-</highlight>
+</Highlight>
 
 For more information about continuous aggregates, see the
 [TimescaleDB continuous aggregates documentation][tsdb-caggs].
@@ -89,12 +89,12 @@ WITH (timescaledb.continuous) AS
     GROUP BY time_bucket('1 hour', time), series_id
 ```
 
-<highlight type="note">
+<Highlight type="note">
 In this example, one hour is added to `time_bucket` in the
 `SELECT` clause. This is done to match the PromQL semantics of representing a
 bucket with the timestamp at the end of the bucket instead of the start of the
 bucket.
-</highlight>
+</Highlight>
 
 This continuous aggregate can now be queried using SQL. To make it possible to
 query the data with PromQL, you need to register it with Promscale as a metric
@@ -165,14 +165,14 @@ node_memfree_1hour
 
 Promscale adds a `__schema__` tag, which helps you identify in which schema the metric view is registered. This is useful if you have two metrics with the same name in different schemas, which is strongly discouraged but could happen by mistake. In this case, you can use the `__schema__` tag to select which schema to use. If you don't specify a schema, Promscale queries the metric in the `prom_data` schema, which is the same schema used for all ingested metrics. To avoid those issues, make sure you name your continuous aggregate views in a way that is different to your raw ingested metrics, for example, `node_memfree_1hour`.
 
-<highlight type="note">
+<Highlight type="note">
 Both the `__schema__` and `__column__` label matchers support exact matching. You cannot use regular expressions or other multi-value matchers. Additionally, metric views are excluded from queries that match multiple metrics, such as matching on metric names with a regular expression, like this:
 
 ```sql
 {__name__=~"node_mem*"} // this valid PromQL query will not match our previously created metric view
 ```
 
-</highlight>
+</Highlight>
 
 ### Deleting continuous aggregates
 

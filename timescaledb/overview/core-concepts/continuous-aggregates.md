@@ -7,7 +7,7 @@ tags: [downsample, materialized views]
 
 # Continuous aggregates
 
-Aggregate queries (`min()`, `max()`, `avg()`...) 
+Aggregate queries (`min()`, `max()`, `avg()`...)
 which touch large swathes of time-series data can
 take a long time to compute because the system needs to scan large
 amounts of data on every query execution. To make such queries faster,
@@ -44,8 +44,8 @@ SELECT * FROM create_hypertable('conditions', 'time', 'device', 3);
 INSERT INTO conditions
 SELECT time, (random()*30)::int, random()*80 - 40
 FROM generate_series(TIMESTAMP '2020-01-01 00:00:00',
-     		     TIMESTAMP '2020-06-01 00:00:00',
-		     INTERVAL '10 min') AS time;
+            TIMESTAMP '2020-06-01 00:00:00',
+       INTERVAL '10 min') AS time;
 ```
 
 You can then create a continuous aggregate view to compute the hourly
@@ -68,9 +68,9 @@ aggregate is refreshed on a regular basis.
 
 ```sql
 SELECT add_continuous_aggregate_policy('conditions_summary_hourly',
-	start_offset => INTERVAL '1 month',
-	end_offset => INTERVAL '1 h',
-	schedule_interval => INTERVAL '1 h');
+ start_offset => INTERVAL '1 month',
+ end_offset => INTERVAL '1 h',
+ schedule_interval => INTERVAL '1 h');
 ```
 
 In this case, the continuous aggregate is refreshed every hour
@@ -87,12 +87,12 @@ SELECT bucket, avg
 ORDER BY bucket;
 ```
 
-<highlight type="important">
+<Highlight type="important">
 Continuous aggregates support many PostgreSQL aggregate functions and features.
 Support depends on your TimescaleDB version. For a table of supported features,
 see the
 [how-to guide on continuous aggregates](/timescaledb/latest/how-to-guides/continuous-aggregates/about-continuous-aggregates/#supported-functions).
-</highlight>
+</Highlight>
 
 ## Real-time aggregation
 
@@ -111,11 +111,11 @@ materialized data, add the parameter
 aggregate view or set it on an existing continuous aggregate using
 [`ALTER MATERIALIZED VIEW`][api-alter-cagg].
 
-<highlight type="tip">
+<Highlight type="tip">
 To use real-time aggregation on a continuous aggregate created
 in a version earlier than TimescaleDB 1.7, alter the view to set
 `timescaledb.materialized_only=false`.
-</highlight>
+</Highlight>
 
 ### Automatic refresh with a continuous aggregate policy
 
@@ -124,9 +124,9 @@ time by using continuous aggregate policies. Policies allow you to keep a
 specified window of time within the continuous aggregate updated on a schedule.
 This provides the ability to do things like:
 
-- have the continuous aggregate and the hypertable be in sync, even
+*   have the continuous aggregate and the hypertable be in sync, even
   when data is removed from the hypertable, or
-- keep the aggregate data in the continuous aggregate when removing
+*   keep the aggregate data in the continuous aggregate when removing
   source data from the hypertable.
 
 ### Manually refreshing continuous aggregate ranges

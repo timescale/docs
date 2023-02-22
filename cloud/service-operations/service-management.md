@@ -25,21 +25,21 @@ different password.
 The fork is created by restoring from backup and applying the write-ahead log.
 The data is fetched from Amazon S3, so forking doesn't tax the running instance.
 
-<highlight type="important">
+<Highlight type="important">
 You can fork services that have a status of `Running` or `Paused`. You cannot
 fork services while they have a status of `In progress`. Wait for the service to
 complete the transition before you start forking.
-</highlight>
+</Highlight>
 
-<highlight type="warning">
+<Highlight type="warning">
 Forks only have data up to the point when the original service was forked. Any
 data written to the original service after the time of forking does not appear
 in the fork. If you want the fork to assume operations from the original
 service, pause your main service before forking to avoid any
 data discrepancy between services.
-</highlight>
+</Highlight>
 
-<procedure>
+<Procedure>
 
 ### Forking a service
 
@@ -62,7 +62,7 @@ data discrepancy between services.
 src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-forked-service.png"
 alt="Fork a Timescale Cloud service"/>
 
-</procedure>
+</Procedure>
 
 ### Reset service password
 

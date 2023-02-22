@@ -30,7 +30,7 @@ marked 'experimental' are still under development.
 
 <Experimental />
 
-<hyperfunctionTable
+<HyperfunctionTable
     includeExperimental
 />
 

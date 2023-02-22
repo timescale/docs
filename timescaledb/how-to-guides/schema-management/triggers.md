@@ -5,17 +5,19 @@ keywords: [hypertables, triggers]
 ---
 
 # Triggers
+
 TimescaleDB supports the full range of PostgreSQL triggers. Creating, altering,
 or dropping triggers on a hypertable propagates the changes to all of the
 underlying chunks.
 
 ## Create a trigger
+
 This example creates a new table called `error_conditions` with the same schema
 as `conditions`, but that only stores records which are considered errors. An
 error, in this case, is when an application sends a `temperature` or `humidity`
 reading with a value that is greater than or equal to 1000.
 
-<procedure>
+<Procedure>
 
 ### Creating a trigger
 
@@ -48,7 +50,7 @@ reading with a value that is greater than or equal to 1000.
 1.  All data is inserted into the `conditions` table, but rows that contain errors
     are also added to the `error_conditions` table.
 
-</procedure>
+</Procedure>
 
 TimescaleDB supports the full range of triggers, including `BEFORE INSERT`,
 `AFTER INSERT`, `BEFORE UPDATE`, `AFTER UPDATE`, `BEFORE DELETE`, and

@@ -22,7 +22,7 @@ const errorMessage = highlightTypes.reduce(
  */
 const checkHighlightType = (params, onError) => {
   const { lines } = params;
-  const highlightTags = findPatternInLines(lines, "<highlight[^<]*>");
+  const highlightTags = findPatternInLines(lines, "<Highlight[^<]*>");
 
   for (let tag of highlightTags) {
     const match = tag.line.match('type="([^"]+)"');

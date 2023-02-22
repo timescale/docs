@@ -106,7 +106,7 @@ service is rebuilt in the new region in the background. When the service has
 been rebuilt in the new region, the DNS records are updated. This could cause a
 short interruption to your service while the DNS changes are propagated.
 
-<procedure>
+<Procedure>
 
 ### Migrating to a different cloud or region
 
@@ -119,12 +119,12 @@ short interruption to your service while the DNS changes are propagated.
 1.  In the `Migrate service to another cloud` dialog, select the new cloud
     provider and region. Click `Migrate`.
 
-<highlight type="important">
+<Highlight type="important">
 The service is rebuilt in the new region in the background. When the service has
 been rebuilt in the new region, the DNS records are updated. This could cause a
 short interruption to your service while the DNS changes are propagated.
-</highlight>
+</Highlight>
 
-</procedure>
+</Procedure>
 
 [mst-portal]: https://portal.managed.timescale.com/

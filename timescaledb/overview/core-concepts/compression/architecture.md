@@ -55,23 +55,23 @@ see the [algorithms section][compression-algorithms].
 For simplicity, this example shows only 4 entries. TimescaleDB can combine up to
 1000 entries into a single row.
 
-<highlight type="note">
+<Highlight type="note">
 Behind the scenes, TimescaleDB actually creates a second, under-the-covers,
 hypertable with the compressed data. You shouldn't query this table directly.
 Run your queries against the original hypertable, and TimescaleDB finds any
 compressed data, decompresses it, and returns it to you.
-</highlight>
+</Highlight>
 
 ## Data ordering and segmenting
 
 By default, TimescaleDB orders rows by decreasing time value when compressing.
 Then it combines the rows into columns of up to 1000 entries.
 
-<highlight type="note">
+<Highlight type="note">
 At a first approximation, this means that a chunk with `N` rows turns into a
 compressed chunk with `ceiling(N / 1000)` rows. In practice, the number might
 differ slightly, depending on the start and end ranges of your data and chunks.
-</highlight>
+</Highlight>
 
 You can change the ordering and segmenting behavior to improve compression
 efficiency and query performance. The best choice depends on your application
@@ -156,7 +156,7 @@ some internal metadata on the compressed chunk.
 
 If you decompress a chunk, your old indexes are restored.
 
-<highlight type="note">
+<Highlight type="note">
 Your old indexes are removed because compressed data isn't indexable in the same
 way as uncompressed data. For example, say that you have an index on a column
 named `data`. Before compression, the index points to individual rows with
@@ -164,7 +164,7 @@ individual values for `data`. After compression, the values for `data` are
 stored in array-like structures, so the index can no longer point to individual
 values. Only columns used in `segment_by` can be indexed, since they are stored
 as their original values.
-</highlight>
+</Highlight>
 
 ## Data storage for compressed chunks
 

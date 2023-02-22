@@ -215,7 +215,7 @@ shows you whether there's any correlation between the
 number of Bitcoin transactions and the fees. The time range for this analysis
 is the last day.
 
-<terminal>
+<Terminal>
 
 <tab label='SQL'>
 
@@ -244,7 +244,7 @@ time               |tx volume|fees              |
 
 </tab>
 
-</terminal>
+</Terminal>
 
 ![Hourly transaction volume and fees, plotted over the last day](https://assets.timescale.com/docs/images/tutorials/bitcoin-blockchain/tx_volume_fees.png)
 
@@ -260,7 +260,7 @@ In cryptocurrency trading, there's a lot of speculation. You can adopt
 a data-based trading strategy by looking at correlations between blockchain
 metrics, such as transaction volume and fees.
 
-<terminal>
+<Terminal>
 
 <tab label='SQL'>
 
@@ -289,7 +289,7 @@ time               |tx volume|btc-usd rate      |
 
 </tab>
 
-</terminal>
+</Terminal>
 
 ![Hourly transaction volume and BTC-USD conversion rate, plotted over the last day](https://assets.timescale.com/docs/images/tutorials/bitcoin-blockchain/volume_btc_usd.png)
 
@@ -305,7 +305,7 @@ See how the number of transactions in a block influences the overall block
 mining fee. For this analysis, you might want to look at a larger time frame.
 Change the analyzed time range to the last five days.
 
-<terminal>
+<Terminal>
 
 <tab label='SQL'>
 
@@ -335,7 +335,7 @@ time               |transactions         |mining fee |
 
 </tab>
 
-</terminal>
+</Terminal>
 
 ![Line graph with two lines showing the average number of transactions in a block and the block mining fee, over the last five days](https://assets.timescale.com/docs/images/tutorials/bitcoin-blockchain/tx_in_block_expensive.png)
 
@@ -348,7 +348,7 @@ weight and mining fee. (Block weight is the size measure of a block). More
 transactions should increase the block weight, boosting the miner fee as well.
 This query looks very similar to the previous one:
 
-<terminal>
+<Terminal>
 
 <tab label='SQL'>
 
@@ -378,7 +378,7 @@ time               |block weight        |mining fee            |
 
 </tab>
 
-</terminal>
+</Terminal>
 
 ![Line graph with two lines showing the block weight and the block mining fee, over the last five days](https://assets.timescale.com/docs/images/tutorials/bitcoin-blockchain/weight_fee.png)
 
@@ -399,7 +399,7 @@ Miners are incentivized to keep the network up and running because they earn
 fees and rewards after mining each block. How much of their
 revenue comes from each source?
 
-<terminal>
+<Terminal>
 
 <tab label='SQL'>
 
@@ -433,7 +433,7 @@ time               |fees                  |reward    |
 
 </tab>
 
-</terminal>
+</Terminal>
 
 ![Line graph with two lines showing the average fee and block reward, over the last five days](https://assets.timescale.com/docs/images/tutorials/bitcoin-blockchain/revenue_ratio.png)
 
@@ -459,7 +459,7 @@ be tightly correlated.
 This query uses a 12-hour moving average to calculate the block weight and
 block mining fee over time.
 
-<terminal>
+<Terminal>
 
 <tab label='SQL'>
 
@@ -495,7 +495,7 @@ time               |block weight      |mining fee          |
 
 </tab>
 
-</terminal>
+</Terminal>
 
 ![block weight and fees](https://assets.timescale.com/docs/images/tutorials/bitcoin-blockchain/weight_fees.png)
 
@@ -511,7 +511,7 @@ Now, analyze how much revenue miners actually generate by mining a
 new block on the blockchain, including fees and block rewards. This query
 analyzes the last day with 12-hour moving averages.
 
-<terminal>
+<Terminal>
 
 <tab label='SQL'>
 
@@ -539,14 +539,14 @@ time               |revenue in BTC    |
 
 </tab>
 
-</terminal>
+</Terminal>
 
 ![Average miner revenue per block, plotted over the last day](https://assets.timescale.com/docs/images/tutorials/bitcoin-blockchain/miner_revenue_per_block.png)
 
 To make the chart more interesting, add the BTC-USD rate to the analysis
 and increase the time range:
 
-<terminal>
+<Terminal>
 
 <tab label='SQL'>
 
@@ -575,7 +575,7 @@ time               |revenue in BTC    |revenue in USD    |
 
 </tab>
 
-</terminal>
+</Terminal>
 
 ![Average miner revenue per block, plotted in BTC and USD, over the last five days](https://assets.timescale.com/docs/images/tutorials/bitcoin-blockchain/miner_revenue_per_block_with_btcusd.png)
 

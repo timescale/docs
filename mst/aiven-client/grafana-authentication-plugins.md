@@ -21,7 +21,7 @@ Service for TimecaleDB, you need to create your
 [Google OAuth keys][google-oauth-keys], and make a note of your client
 ID and client secret.
 
-<procedure>
+<Procedure>
 
 ### Integrating Google authentication plugin
 
@@ -63,15 +63,15 @@ ID and client secret.
 1.  Navigate to `Configuration` → `Plugins` and verify that the
     Google OAuth application is listed as a plugin.
 
-<highlight type="note">
+<Highlight type="note">
 When you allow sign-ups using `-c auth_google.allow_sign_up=true` option, by
 default each new user is created with `viewer` permissions, and added to their
 own newly created organizations. To specify different permissions, use
 `-c user_auto_assign_org_role=ROLE_NAME`. To add all new users to the main
 organization, use `-c user_auto_assign_org=true` option.
-</highlight>
+</Highlight>
 
-</procedure>
+</Procedure>
 
 ## Integrate GitHub authentication plugin
 
@@ -80,7 +80,7 @@ for TimecaleDB, you need to create your
 [GitHub OAuth application][github-oauth-keys], and make a note of
 your client ID and client secret.
 
-<procedure>
+<Procedure>
 
 ### Integrating GitHub authentication plugin
 
@@ -121,15 +121,15 @@ your client ID and client secret.
 1.  Navigate to `Configuration` → `Plugins`. The Plugins page lists
     GitHub OAuth application for the Grafana instance.
 
-<highlight type="note">
+<Highlight type="note">
 When you allow sign-ups using `-c auth_github.allow_sign_up=true` option,
 by default each new user is created with `viewer`permission and added to
 their own newly created organizations. To specify different permissions,
 use `-c user_auto_assign_org_role=ROLE_NAME`. To add all new users
 to the main organization, use `-c user_auto_assign_org=true` option.
-</highlight>
+</Highlight>
 
-</procedure>
+</Procedure>
 
 ## Integrate GitLab authentication plugin
 
@@ -145,7 +145,7 @@ set the following:
 *   auth_github.auth_url
 *   auth_github.token_url
 
-<procedure>
+<Procedure>
 
 ### Integrating GitLab authentication plugin
 
@@ -188,15 +188,15 @@ set the following:
 1.  Navigate to `Configuration` → `Plugins`. The Plugins page lists
     GitLab OAuth application for the Grafana instance.
 
-<highlight type="note">
+<Highlight type="note">
 When you allow sign-ups using `-c auth_gitlab.allow_sign_up=true` option,
 by default each new user is created with `viewer`permission and added to
 their own newly created organizations. To specify different permissions,
 use `-c user_auto_assign_org_role=ROLE_NAME`. To add all new users
 to the main organization, use `-c user_auto_assign_org=true` option.
-</highlight>
+</Highlight>
 
-</procedure>
+</Procedure>
 
 [aiven-client-mst]: /mst/:currentVersion:/aiven-client/aiven-client-install
 [google-oauth-keys]: https://grafana.com/docs/grafana/v9.0/setup-grafana/configure-security/configure-authentication/google/

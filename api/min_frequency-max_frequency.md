@@ -19,7 +19,7 @@ hyperfunction:
     - topn_agg()
 ---
 
-# min_frequency() and max_frequency() <tag type="toolkit" content="Toolkit" /><tag type="experimental" content="Experimental" />
+# min_frequency() and max_frequency() <Tag type="toolkit" content="Toolkit" /><Tag type="experimental" content="Experimental" />
 
 Returns the minimum or maximum estimated frequencies of a value within a
 dataset.
@@ -49,11 +49,11 @@ frequency or top N aggregate over the original dataset, then call
 |-|-|-|
 |`min_freq` or `max_freq`|`DOUBLE PRECISION`|The minimum or maximum estimated frequency for the value|
 
-<highlight type="note">
+<Highlight type="note">
 When you create a frequency aggregate, you set a threshold frequency. Values
 that appear with lower-than-threshold frequency are not tracked. Calling
 `min_frequency` or `max_frequency` with such values returns a frequency of `0`.
-</highlight>
+</Highlight>
 
 ## Sample usage
 

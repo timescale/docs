@@ -19,7 +19,7 @@ This is the introduction to the procedure about setting up the dataset. Use one
 or two sentences to explain the procedure. Note the simple verb form in the
 title; the procedure itself uses the gerund-verb form (an `-ing` word) instead.
 
-<procedure>
+<Procedure>
 
 ### Setting up the dataset
 
@@ -39,6 +39,6 @@ title; the procedure itself uses the gerund-verb form (an `-ing` word) instead.
    For example: clicking a button, and a dialog box appearing, are a single step.
 1.  Finish the procedure on the final step. Do not include a result statement.
 
-</procedure>
+</Procedure>
 
 Include any reference-style links at the bottom of the page.

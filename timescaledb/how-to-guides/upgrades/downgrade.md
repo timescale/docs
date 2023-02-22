@@ -43,14 +43,14 @@ instance. This allows you to upgrade and downgrade extensions independently on
 different databases. Run the `ALTER EXTENSION` function on each database to
 downgrade them individually.
 
-<highlight type="important">
+<Highlight type="important">
 The downgrade script is tested and supported for single-step downgrades. That
 is, downgrading from the current version, to the previous minor version.
 Downgrading might not work if you have made changes to your database between
 upgrading and downgrading.
-</highlight>
+</Highlight>
 
-<procedure>
+<Procedure>
 
 ### Downgrading the TimescaleDB extension
 
@@ -77,7 +77,7 @@ upgrading and downgrading.
     \dx timescaledb
     ```
 
-</procedure>
+</Procedure>
 
 [backup]: /timescaledb/:currentVersion:/how-to-guides/backup-and-restore/
 [relnotes]: /timescaledb/:currentVersion:/overview/release-notes/

@@ -27,7 +27,7 @@ writing different types of data written by people who work with that data.
 
 ## Ingest metrics using Telegraf plugin to TimescaleDB
 
-<procedure>
+<Procedure>
 
 ### Generating a configuration file
 
@@ -69,9 +69,9 @@ writing different types of data written by people who work with that data.
     > cpu,cpu=cpu2,host=localhost usage_guest=0,usage_guest_nice=0,usage_idle=91.99999999982538,usage_iowait=0,usage_irq=0,usage_nice=0,usage_softirq=0,usage_steal=0,usage_system=3.999999999996362,usage_user=3.999999999996362 1669640025000000000
     ```
 
-</procedure>
+</Procedure>
 
-<procedure>
+<Procedure>
 
 ### Configuring the PostgreSQL output plugin
 
@@ -100,9 +100,9 @@ writing different types of data written by people who work with that data.
 
     ```
 
-</procedure>
+</Procedure>
 
-<procedure>
+<Procedure>
 
 ### Viewing the metrics collected by Telegraf in TimescaleDB
 
@@ -178,12 +178,12 @@ writing different types of data written by people who work with that data.
       cpu3      |   3.871919066617788
     ```  
 
-</procedure>
+</Procedure>
 
 For more information about the options that you can configure in Telegraf,
 see [PostgreQL output plugin][output-plugin].
 
-<procedure>
+<Procedure>
 
 ### Visualizing data in Grafana
 
@@ -196,14 +196,14 @@ see [PostgreQL output plugin][output-plugin].
     *   In the `Name` field, type the name that you would like to use for the dataset.
     *   In the `PostgreSQL Connection` section, type the  `Database`, `User`,
         and `Password` fields using the `.sql` file that you downloaded when
-        creating the TimescaleDB service. 
+        creating the TimescaleDB service.
     *   In the `Host` field, type `<HOST>:<PORT>` from the `.sql` file that you downloaded.
     *   Set `TLS/SSL Mode` to `require`.
     *   In `PostgreSQL details`, enable `TimescaleDB`
 1.  Click `Save & test`. If the connection is successful,
     `Database Connection OK` is shown.  
 
-</procedure>
+</Procedure>
 
 When you have configured TimescaleDB as a data source in Grafana, you can create
 panels that are populated with data using SQL.

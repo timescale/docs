@@ -39,7 +39,7 @@ queried, you may want to continually remove stock trade data in the underlying
 hypertable `stocks_real_time` after the trade timestamp is older than three
 weeks ago.
 
-<procedure>
+<Procedure>
 
 ### Creating an automated data retention policy
 
@@ -85,7 +85,7 @@ weeks ago.
                         |                          |     1|2022-05-03 21:52:45.068 -0400|2022-05-03 21:52:45.304 -0400|Success        |Scheduled |  00:00:00.235434|2022-05-04 21:52:45.304 -0400|       109|            108|             1|
     ```
 
-</procedure>
+</Procedure>
 
 ## Manually drop older hypertable chunks
 
@@ -118,7 +118,7 @@ SELECT drop_chunks(
 For more details and best practices on data retention and automated data retention
 policies, see the [Data Retention docs][data-retention].
 
-<video url="https://www.youtube.com/embed/BJRIntSAmHM"></video>
+<Video url="https://www.youtube.com/embed/BJRIntSAmHM"></Video>
 
 [data-retention]: /timescaledb/:currentVersion:/how-to-guides/data-retention/
 [drop-chunks]: /api/:currentVersion:/hypertable/drop_chunks/

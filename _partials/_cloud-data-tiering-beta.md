@@ -1,4 +1,4 @@
-<highlight type="cloud" header="Request access and start tiering">
+<Highlight type="cloud" header="Request access and start tiering">
 To request access to the private beta for data tiering:
 
 1.  Sign in to your [Timescale Cloud
@@ -8,4 +8,4 @@ To request access to the private beta for data tiering:
 1.  Click on `Request access`. An email goes to our support team, who can
     help you get access to the private beta.
 
-</highlight>
+</Highlight>

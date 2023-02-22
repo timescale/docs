@@ -27,8 +27,8 @@ To learn more about how replicas work in Timescale Cloud, see the section on
 To learn how to create a replica, see the section on
 [creating replicas](#create-a-database-replica).
 
-<highlight type="cloud" header="Sign up for Timescale Cloud" button="Try for free">
-</highlight>
+<Highlight type="cloud" header="Sign up for Timescale Cloud" button="Try for free">
+</Highlight>
 
 ## How replicas work
 
@@ -88,12 +88,12 @@ over to the replica.
 
 ## Create a database replica
 
-<highlight type="warning">
+<Highlight type="warning">
 If your service was created before June 2022, adding a replica may cause your
 service to restart. Restarts typically take about one minute to complete.
-</highlight>
+</Highlight>
 
-<procedure>
+<Procedure>
 
 ### Creating a database replica
 
@@ -112,7 +112,7 @@ service to restart. Restarts typically take about one minute to complete.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-replication-add.png" alt="Creating a database replica in Timescale Cloud"/>
 
-</procedure>
+</Procedure>
 
 [cloud-login]: https://console.cloud.timescale.com
 [replicas-blog]: https://www.timescale.com/blog/high-availability-for-your-production-environments-introducing-database-replication-in-timescale-cloud/

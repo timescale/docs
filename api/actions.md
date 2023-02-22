@@ -5,7 +5,7 @@ keywords: [actions, jobs]
 tags: [user-defined actions, background jobs, scheduled jobs, automation framework]
 ---
 
-# User-Defined Actions <tag type="community">Community</tag>
+# User-Defined Actions <Tag type="community">Community</Tag>
 
 User-defined actions allow you to run functions and procedures implemented in a
 language of your choice on a schedule within TimescaleDB. This allows

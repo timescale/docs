@@ -20,7 +20,7 @@ services.
 
 ### Connecting to on-premise TimescaleDB using Azure Data Studio
 
-<procedure>
+<Procedure>
 
 1.  Start `Azure Data Studio`.
 1.  In the `SERVERS` page, click `New Connection`.
@@ -36,11 +36,11 @@ services.
     src="https://s3.amazonaws.com/assets.timescale.com/docs/images/local_remote_connection_screen.png"
     alt="Connecting to TimescaleDB using Azure Data Studio"/>
 
-</procedure>
+</Procedure>
 
 ### Connecting to Timescale Cloud with Azure Data Studio
 
-<procedure>
+<Procedure>
 
 1.  Sign in to the [Timescale Cloud portal][tsc-portal].
 1.  In the `Services` tab, find the service you want to connect to, and check
@@ -59,12 +59,12 @@ services.
 1.  Click `Advanced`.
 1.  In the `Port` field, type the port number, and click `OK`.
 
-    <highlight type="note">
+    <Highlight type="note">
     If you configured your Timescale Cloud service to connect using
     [SSL mode](https://docs.timescale.com/cloud/latest/security/strict-ssl/), then set `SSL mode` to `Verify-Full`, and in the
     `SSL root certificate filename` field, type the location of the SSL root
     CA certificate to use.
-    </highlight>
+    </Highlight>
 
 1.  Click `Connect`.
 
@@ -72,19 +72,19 @@ services.
     src="https://s3.amazonaws.com/assets.timescale.com/docs/images/timescale_cloud_connection_screen.png"
     alt="Connecting to Timescale Cloud using Azure Data Studio"/>
 
-</procedure>
+</Procedure>
 
 ### Connecting to Managed Service for TimescaleDB with Azure Data Studio
 
-<highlight type="important">
+<Highlight type="important">
 To ensure a secure network access to your Managed Service for TimescaleDB
 service, make sure you add the IP address of the machine running Azure Data
 Studio to the `Allowed IP Addresses`. For more information about network
 security in Managed Service for TimescaleDB, see
 [the security section](https://docs.timescale.com/mst/latest/security/).
-</highlight>
+</Highlight>
 
-<procedure>
+<Procedure>
 
 1.  Sign in to the [Managed Service for TimescaleDB portal][mst-portal].
 1.  In the `Services` tab, find the service you want to connect to, and check
@@ -107,7 +107,7 @@ security in Managed Service for TimescaleDB, see
     alt="Connecting to Managed Service for TimescaleDB using Azure Data
     Studio"/>
 
-</procedure>
+</Procedure>
 
 ## Settings in the `Connection Details`
 
@@ -130,4 +130,3 @@ appear in the `Connection Details` dialog.
 [tsc-portal]: https://console.cloud.timescale.com/
 [mst-portal]: https://portal.managed.timescale.com
 [connection-details]: /timescaledb/:currentVersion:/how-to-guides/connecting/azure-data-studio/#settings-in-the-connection-details
-

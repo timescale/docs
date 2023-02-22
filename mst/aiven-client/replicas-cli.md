@@ -12,16 +12,15 @@ good way to optimize query response times across different geographical
 locations, because the replica can be placed in different regions or
 even different cloud providers.
 
-
 ## Before you begin
 
-Before you begin, make sure you have: 
+Before you begin, make sure you have:
 
 *   Installed [Aiven Client][aiven-client-install].
 *   Signed in to your [Managed Service for TimescaleDB dashboard][mst-login].
 *   Created a [service][create-service] in Managed Service for TimescaleDB.
 
-<procedure>
+<Procedure>
 
 ## Creating a read-only replica of your service
 
@@ -59,14 +58,15 @@ Before you begin, make sure you have:
     -c pg_version=11 -c variant=timescale
     ```
 
-</procedure>
+</Procedure>
 
 ## Example
 
 To create a fork named `replica-fork` for a service named `timescaledb` with these parameters:
-* PROJECT_ID: `fork-project`
-* CLOUD_NAME: `timescale-aws-us-east-1`
-* PLAN_TYPE: `timescale-basic-100-compute-optimized` 
+
+*   PROJECT_ID: `fork-project`
+*   CLOUD_NAME: `timescale-aws-us-east-1`
+*   PLAN_TYPE: `timescale-basic-100-compute-optimized`
 
 ```bash
 avn service create replica-fork --project fork-project\

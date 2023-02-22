@@ -46,9 +46,9 @@ query from the `psql` prompt:
 SELECT pg_is_in_backup()::text
 ```
 
-<highlight type="cloud" header="Sign up for Timescale Cloud" button="Try for free">
+<Highlight type="cloud" header="Sign up for Timescale Cloud" button="Try for free">
 You can try Timescale Cloud for free, no credit card required.
-</highlight>
+</Highlight>
 
 ## Weekly backups
 

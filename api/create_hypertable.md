@@ -56,12 +56,12 @@ still work on the resulting hypertable.
 |`table_name`|TEXT|Table name of the table converted to hypertable.|
 |`created`|BOOLEAN|TRUE if the hypertable was created, FALSE when `if_not_exists` is true and no hypertable was created.|
 
-<highlight type="tip">
+<Highlight type="tip">
  If you use `SELECT * FROM create_hypertable(...)` you get the return value formatted as a table with column headings.
 
-</highlight>
+</Highlight>
 
-<highlight type="warning">
+<Highlight type="warning">
 The use of the `migrate_data` argument to convert a non-empty table can
 lock the table for a significant amount of time, depending on how much data is
 in the table. It can also run into deadlock if foreign key constraints exist to
@@ -81,7 +81,7 @@ and into the converting table itself. The deadlock can be prevented by manually
 obtaining `SHARE ROW EXCLUSIVE` lock on the referenced tables before calling
 `create_hypertable` in the same transaction, see
 [PostgreSQL documentation](https://www.postgresql.org/docs/current/sql-lock.html) for the syntax.
-</highlight>
+</Highlight>
 
 #### Units
 
@@ -93,17 +93,17 @@ The 'time' column supports the following data types:
 |DATE|
 |Integer (SMALLINT, INT, BIGINT)|
 
-<highlight type="tip">
+<Highlight type="tip">
  The type flexibility of the 'time' column allows the use
 of non-time-based values as the primary chunk partitioning column, as long as
 those values can increment.
-</highlight>
+</Highlight>
 
-<highlight type="tip">
+<Highlight type="tip">
  For incompatible data types (for example, `jsonb`) you can
 specify a function to the `time_partitioning_func` argument which can extract
 a compatible data type
-</highlight>
+</Highlight>
 
 The units of `chunk_time_interval` should be set as follows:
 
@@ -130,13 +130,13 @@ and return a positive `integer` hash value. Note that this hash value
 is *not* a partition ID, but rather the inserted value's position in
 the dimension's key space, which is then divided across the partitions.
 
-<highlight type="tip">
+<Highlight type="tip">
  The time column in `create_hypertable` must be defined as `NOT
  NULL`.  If this is not already specified on table creation,
  `create_hypertable` automatically adds this constraint on the
  table when it is executed.
 
-</highlight>
+</Highlight>
 
 ### Sample usage
 
@@ -218,10 +218,10 @@ partitions) fit into memory. As such, we typically recommend setting
 the interval so that these chunks comprise no more than 25% of main
 memory.
 
-<highlight type="tip">
+<Highlight type="tip">
 Make sure that you are planning for recent chunks from _all_ active hypertables
 to fit into 25% of main memory, rather than 25% per hypertable.
-</highlight>
+</Highlight>
 
 To determine this, you roughly need to understand your data rate. If
 you are writing roughly 2 GB of data per day and have 64 GB of memory,
@@ -235,14 +235,14 @@ While it's generally safer to make chunks smaller rather than too
 large, setting intervals too small can lead to *many* chunks, which
 corresponds to increased planning latency for some types of queries.
 
-<highlight type="tip">
+<Highlight type="tip">
 One caveat is that the total chunk size is actually dependent on
 both the underlying data size *and* any indexes, so some care might be
 taken if you make heavy use of expensive index types (for example, some
 PostGIS geospatial indexes).  During testing, you might check your
 total chunk sizes via the [`chunks_detailed_size`](/api/latest/hypertable/chunks_detailed_size/)
 function.
-</highlight>
+</Highlight>
 
 **Space partitions:** In most cases, it is advised for users not to use
 space partitions. However, if you create a distributed hypertable, it is

@@ -5,7 +5,7 @@ keywords: [data retention, delete]
 tags: [drop]
 ---
 
-# Data Retention <tag type="community">Community</tag>
+# Data Retention <Tag type="community">Community</Tag>
 
 An intrinsic part of time-series data is that new data is accumulated and old
 data is rarely, if ever, updated. This means that the relevance of the data

@@ -14,7 +14,7 @@ hyperfunction:
   type: interpolator
 ---
 
-# interpolate() <tag type="community">Community</tag>
+# interpolate() <Tag type="community">Community</Tag>
 
 The `interpolate` function does linear interpolation for missing values. It can
 only be used in an aggregation query with

@@ -47,7 +47,7 @@ service such as [SolarWinds Loggly][loggly-site].
 This section covers how to create a service integration to Loggly with Managed
 Service for TimescaleDB.
 
-<procedure>
+<Procedure>
 
 ### Creating a Loggly service integration
 
@@ -82,7 +82,7 @@ Service for TimescaleDB.
       src="https://s3.amazonaws.com/assets.timescale.com/docs/images/loggly-view-logs.png" alt="Viewing incoming MST logs in Loggly"
     />
 
-</procedure>
+</Procedure>
 
 [loggly-site]: https://www.loggly.com/
 [mst-portal]: https://portal.managed.timescale.com

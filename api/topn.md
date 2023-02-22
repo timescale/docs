@@ -19,7 +19,7 @@ hyperfunction:
 
 import Experimental from 'versionContent/_partials/_experimental.mdx';
 
-# topn()  <tag type="toolkit">Toolkit</tag><tag type="experimental-toolkit">Experimental</tag>
+# topn()  <Tag type="toolkit">Toolkit</Tag><Tag type="experimental-toolkit">Experimental</Tag>
 
 Returns the most common values accumulated in a [frequency aggregate][freq_agg]
 or [top N aggregate][topn_agg].
@@ -72,11 +72,11 @@ In some cases, the function might return fewer than `n` values. This happens if:
   minimum frequency
 *   The data isn't skewed enough to support `n` values from a top N aggregate
 
-<highlight type="warning">
+<Highlight type="warning">
 Requesting more values from a top N aggregate than it was created for will return an
 error. To get more values, adjust the target `n` in
 [`topn_agg`](/api/latest/hyperfunctions/frequency-analysis/topn_agg).
-</highlight>
+</Highlight>
 
 ## Sample usage
 

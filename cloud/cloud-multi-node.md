@@ -19,7 +19,7 @@ efficient queries for many large workloads.
 This section shows you how to use multi-node on Timescale Cloud. You can also
 set up multi-node on [self-hosted TimescaleDB][multinode-timescaledb].
 
-<highlight type="important">
+<Highlight type="important">
 Multi-node in Timescale Cloud is an early access feature. If you'd like to use
 multi-node, first contact the Timescale customer support team to discuss your
 use case. The team can help you understand if multi-node is a good fit for your
@@ -27,14 +27,14 @@ needs.
 
 You can contact Support from the Cloud Console by clicking `Support` in the main
 menu.
-</highlight>
+</Highlight>
 
-<highlight type="important">
+<Highlight type="important">
 In some cases, your processing speeds could be slower in a multi-node cluster,
 because distributed hypertables need to push operations down to the various data
 nodes. It is important that you understand multi-node architecture before you
 begin, and plan your database according to your specific environment.
-</highlight>
+</Highlight>
 
 For more information about how multi-node works, see the
 [multi-node on TimescaleDB][multinode-timescaledb] section.
@@ -49,7 +49,7 @@ dataset and run queries locally.
 Before you begin, make sure you have [signed up][cloud-signup] for your
 Timescale Cloud account.
 
-<procedure>
+<Procedure>
 
 ### Setting up multi-node on Timescale Cloud
 
@@ -75,7 +75,7 @@ Timescale Cloud account.
 src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-running-service-multinode.png"
 alt="Timescale Cloud running multi-node service"/>
 
-</procedure>
+</Procedure>
 
 For more information about how multi-node works, see the
 [multi-node on TimescaleDB][multinode-timescaledb] section.

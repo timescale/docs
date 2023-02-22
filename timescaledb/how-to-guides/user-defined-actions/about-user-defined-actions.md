@@ -39,12 +39,12 @@ RETURNS <return_datatype> AS $<variable_name>$
 This very simple example of a function returns the total row count of a table
 within a database.
 
-<highlight type="cloud"
+<Highlight type="cloud"
 header="Free demo dataset"
 button="Try Timescale Cloud for free">
 This example uses the Timescale Cloud Allmilk Factory demonstration dataset. You
 can use this educational dataset for free by signing up to Timescale Cloud.
-</highlight>
+</Highlight>
 
 Use this code to create the function:
 
