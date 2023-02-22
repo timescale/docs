@@ -9,7 +9,7 @@ api:
   type: procedure
 ---
 
-# distributed_exec() <tag type="community">Community</tag>
+# distributed_exec() <Tag type="community">Community</Tag>
 
 This procedure is used on an access node to execute a SQL command
 across the data nodes of a distributed database. For instance, one use
@@ -25,11 +25,11 @@ any introduced inconsistency.
 Note that the command is _not_ executed on the access node itself and
 it is not possible to chain multiple commands together in one call.
 
-<highlight type="important">
+<Highlight type="important">
 You cannot run `distributed_exec` with some SQL commands. For example, `ALTER
 EXTENSION` doesn't work because it can't be called after the TimescaleDB
 extension is already loaded.
-</highlight>
+</Highlight>
 
 ### Required arguments
 

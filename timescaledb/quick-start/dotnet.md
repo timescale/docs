@@ -54,15 +54,15 @@ information available, including:
 *   port
 *   database name
 
-<highlight type="important">
+<Highlight type="important">
 Npgsql does not support the shorter URI-based form of a PostgreSQL connection
 string. Instead, the connection string must be in a supported key/value format
 as [described in their documentation](https://www.npgsql.org/doc/connection-string-parameters.html).
 Please see the documentation for additional parameters to enable features such
 as SSL.
-</highlight>
+</Highlight>
 
-<procedure>
+<Procedure>
 
 ### Connecting .NET to TimescaleDB
 
@@ -186,10 +186,10 @@ as SSL.
     }
     ```
 
-<highlight type="warning"> This method of composing a connection string is for
+<Highlight type="warning"> This method of composing a connection string is for
 test or development purposes only. For production applications be sure to make
 sensitive details like your password, hostname, and port number accessible in a
-secure way as supported by .NET. </highlight>
+secure way as supported by .NET. </Highlight>
 
 4.  Run `Program.cs` to verify that .NET can connect to your database and that
     the TimescaleDB extension is installed:
@@ -202,7 +202,7 @@ secure way as supported by .NET. </highlight>
 
 If you don't see the extension, check our troubleshooting section.
 
-</procedure>
+</Procedure>
 
 ## Create a relational table
 
@@ -213,7 +213,7 @@ and executing queries.
 The new functionality to create the table and insert data is added as a method
 to the `TimescaleHelper` class and called from the `Main` method of the program.
 
-<procedure>
+<Procedure>
 
 ### Creating a relational table
 
@@ -292,7 +292,7 @@ to the `TimescaleHelper` class and called from the `Main` method of the program.
     Number of rows inserted=1
     ```
 
-</procedure>
+</Procedure>
 
 ## Create the hypertable
 
@@ -308,7 +308,7 @@ Retention][data-retention]. Learn more about hypertables and
 other key features of TimescaleDB in our [Core
 Concepts][core-concepts] documentation.
 
-<procedure>
+<Procedure>
 
 ### Creating a hypertable
 
@@ -386,7 +386,7 @@ Concepts][core-concepts] documentation.
 Your application is now ready to insert time-series data into the newly created
 TimescaleDB hypertable!
 
-</procedure>
+</Procedure>
 
 ## Insert time-series data into TimescaleDB
 
@@ -400,7 +400,7 @@ playlist][generate-series-yt-playlist]
 and our [corresponding Blog
 series][generate-series-blog].
 
-<procedure>
+<Procedure>
 
 ### Inserting time-series data into TimescaleDB
 
@@ -485,7 +485,7 @@ Congratulations! You have successfully created and inserted time-series data
 into your hypertable. The last step to is to execute your first `time_bucket()`
 query against the hypertable data.
 
-</procedure>
+</Procedure>
 
 ## Query TimescaleDB
 
@@ -497,7 +497,7 @@ inputs that further filter data using a WHERE clause.
 After executing the query, iterate the results using the `NpgsqlDataReader` and
 print the results to the console.
 
-<procedure>
+<Procedure>
 
 ### Querying TimescaleDB
 
@@ -583,7 +583,7 @@ Congratulations! You have successfully queried data from TimescaleDB usig the
 advanced query functionality, please see the [Npgsql
 documentation][npgsql].
 
-</procedure>
+</Procedure>
 
 ## Next Steps
 

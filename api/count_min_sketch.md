@@ -17,7 +17,7 @@ hyperfunction:
 
 import Experimental from 'versionContent/_partials/_experimental.mdx';
 
-# count_min_sketch() <tag type="toolkit" content="Toolkit" /><tag type="experimental-toolkit" content="Experimental" />
+# count_min_sketch() <Tag type="toolkit" content="Toolkit" /><Tag type="experimental-toolkit" content="Experimental" />
 
 Produces a [Count-Min Sketch][count-min-sketch] in the form of an aggregate that can be passed to the [`approx_count` function][approx-count] to estimate how many times a particular value has appeared in a column.
 

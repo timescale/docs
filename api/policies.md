@@ -14,16 +14,16 @@ import Experimental from "versionContent/_partials/_experimental.mdx";
 
 <!-- vale Google.Headings = NO -->
 <!-- markdownlint-disable-next-line line-length -->
-## timescaledb_experimental.policies <tag type="community" content="Community" /><tag type="experimental" content="Experimental" />
+## timescaledb_experimental.policies <Tag type="community" content="Community" /><Tag type="experimental" content="Experimental" />
 <!-- vale Google.Headings = YES -->
 
 The `policies` view provides information on all policies set on continuous
 aggregates.
 
-<highlight type="note">
+<Highlight type="note">
 Only policies applying to continuous aggregates are shown in this view. Policies
 applying to regular hypertables or regular materialized views are not displayed.
-</highlight>
+</Highlight>
 
 <Experimental />
 

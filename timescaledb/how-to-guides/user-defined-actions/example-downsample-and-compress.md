@@ -5,6 +5,7 @@ keywords: [actions, compression, downsample]
 ---
 
 # Use a user-defined action to downsample and compress chunks
+
 TimescaleDB lets you downsample and compress chunks by combining a
 [continuous aggregate refresh policy][cagg-refresh] with a
 [compression policy][compression].
@@ -15,14 +16,16 @@ example downsamples raw data to an average over hourly data. This is an
 illustrative example, which can be done more simply with a continuous aggregate
 policy. But you can make the query arbitrarily complex.
 
-<procedure>
+<Procedure>
 
 ## Using a user-defined action to downsample and compress chunks
+
 1.  Create a procedure that first queries the chunks of a hypertable to
     determine if they are older than the `lag` parameter. The hypertable in this
     example is named `metrics`. If the chunk is not already compressed,
     downsample it by taking the average of the raw data. Then compress it. A
     temporary table is used to store the data while calculating the average.
+
     ```sql
     CREATE OR REPLACE PROCEDURE downsample_compress (job_id int, config jsonb)
     LANGUAGE PLPGSQL
@@ -75,13 +78,15 @@ policy. But you can make the query arbitrarily complex.
     END
     $$;
     ```
+
 1.  Register the job to run daily. In the `config`, set `lag` to 12 months
     to drop chunks containing data older than 12 months.
+
     ```sql
     SELECT add_job('downsample_compress','1d', config => '{"lag":"12 month"}');
     ```
 
-</procedure>
+</Procedure>
 
 [cagg-refresh]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/create-a-continuous-aggregate/
 [compression]: /timescaledb/:currentVersion:/how-to-guides/compression/about-compression/

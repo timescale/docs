@@ -21,13 +21,13 @@ TimescaleDB. This section contains instructions to:
     [directly using a message queue](#insert-data-directly-using-a-message-queue),
     such as Kafka
 
-<highlight type="note">
+<Highlight type="note">
 Before you begin, make sure you have
 [created your Managed Service for TimescaleDB service](/mst/latest/create-a-service/), and
 can connect to it using `psql`.
-</highlight>
+</Highlight>
 
-<procedure>
+<Procedure>
 
 ## Preparing your new database
 
@@ -72,7 +72,7 @@ can connect to it using `psql`.
     SELECT create_hypertable('conditions', 'time');
     ```
 
-</procedure>
+</Procedure>
 
 When you have successfully set up your new database, you can ingest data using
 one of these methods.
@@ -83,12 +83,12 @@ If you have a dataset stored in a `.csv` file, you can import it into an empty
 TimescaleDB hypertable. You need to begin by creating the new table, before you
 import the data.
 
-<highlight type="important">
+<Highlight type="important">
 Before you begin, make sure you have
 [prepared your new database](#procedure-preparing-your-new-database).
-</highlight>
+</Highlight>
 
-<procedure>
+<Procedure>
 
 ### Bulk uploading from a CSV file
 
@@ -118,7 +118,7 @@ Before you begin, make sure you have
     psql '<service_url>/new_db?sslmode=require' -c "\copy conditions FROM <example.csv> WITH (FORMAT CSV, HEADER)"
     ```
 
-</procedure>
+</Procedure>
 
 ## Insert data directly using a client driver
 

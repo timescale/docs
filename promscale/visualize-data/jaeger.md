@@ -23,7 +23,7 @@ Before you begin, deploy the `jaeger-query` component from the Jaeger
 [deployments page][jaeger-deployments]. Ensure that you are using `jaeger-query`
 version 1.30 or later.
 
-<procedure>
+<Procedure>
 
 ## Connecting Jaeger Query with Promscale
 
@@ -39,7 +39,7 @@ version 1.30 or later.
 1.  Start the `jaeger-query` component, it should be successfully connected with
     Promscale to visualize the traces.
 
-</procedure>
+</Procedure>
 
 You can visualize traces from Promscale in `jaeger-query` home page. Use the
 `Search` panel on the left to filter and query traces from Promscale.
@@ -65,7 +65,7 @@ You can set the URL as `<PROMSCALE>:9202` where:
 *   `<PROMSCALE>` is the name of the container
 *   `9202` is the gRPC port of Promscale
 
-<procedure>
+<Procedure>
 
 ### Connecting Promscale and a Jaeger query
 
@@ -85,7 +85,7 @@ You can set the URL as `<PROMSCALE>:9202` where:
 1.  Use the `Search` panel on the left to filter and start querying traces from
     Promscale.
 
-</procedure>
+</Procedure>
 
 [jaeger-ui]: https://github.com/jaegertracing/jaeger-ui#jaeger-ui
 [jaeger-docker]: https://www.jaegertracing.io/docs/latest/deployment/

@@ -1,5 +1,5 @@
 <!-- Note the spacing and labeling are very important! -->
-<terminal>
+<Terminal>
 
 <tab label='ruby'>
 
@@ -34,4 +34,4 @@ def different_python:
 
 </tab>
 
-</terminal>
+</Terminal>

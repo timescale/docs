@@ -5,6 +5,7 @@ keywords: [hyperfunctions, Toolkit, counters]
 ---
 
 # Counter aggregates
+
 When you process counter data, it is usually assumed that if the value of the
 counter goes down, the counter has been reset. For example, if you wanted to
 count the total number of miles travelled in a vehicle, you would expect the
@@ -19,55 +20,63 @@ Accounting for resets can be difficult to do in SQL, so Timescale has developed
 aggregate and accessor functions that handle calculations for counters in a more
 practical way.
 
-<highlight type="note">
+<Highlight type="note">
 Counter aggregates can be used in continuous aggregates, even though they are
 not parallelizable in PostgreSQL. For more information, see the section on
 parallelism and ordering.
-</highlight>
+</Highlight>
 
 ## Run a counter aggregate query using a delta function
+
 In this procedure, we are using an example table called `example` that contains
 counter data.
 
-<procedure>
+<Procedure>
 
 ### Running a counter aggregate query using a delta function
-1.  Create a table called `example`:
-  ```sql
-  CREATE TABLE example (
-      measure_id      BIGINT,
-      ts              TIMESTAMPTZ ,
-      val             DOUBLE PRECISION,
-      PRIMARY KEY (measure_id, ts)
-  );
-  ```
-1.  Create a counter aggregate and the delta accessor function. This gives you 
-the change in the counter's value over the time period, accounting for any resets. 
-This allows you to search for fifteen minute periods where the counter increased
-by a larger or smaller amount:
-  ```sql
-  SELECT measure_id,
-      delta(
-          counter_agg(ts, val)
-      )
-  FROM example
-  GROUP BY measure_id;
-  ```
-1.  You can also use the `time_bucket` function to produce a series of deltas 
-over fifteen minute increments:
-  ```sql
-  SELECT measure_id,
-      time_bucket('15 min'::interval, ts) as bucket,
-      delta(
-          counter_agg(ts, val)
-      )
-  FROM example
-  GROUP BY measure_id, time_bucket('15 min'::interval, ts);
-  ```
 
-</procedure>
+1.  Create a table called `example`:
+
+    ```sql
+    CREATE TABLE example (
+        measure_id      BIGINT,
+        ts              TIMESTAMPTZ ,
+        val             DOUBLE PRECISION,
+        PRIMARY KEY (measure_id, ts)
+    );
+    ```
+
+1.  Create a counter aggregate and the delta accessor function. This gives you
+    the change in the counter's value over the time period, accounting for any
+    resets. This allows you to search for fifteen minute periods where the
+    counter increased by a larger or smaller amount:
+
+    ```sql
+    SELECT measure_id,
+        delta(
+            counter_agg(ts, val)
+        )
+    FROM example
+    GROUP BY measure_id;
+    ```
+
+1.  You can also use the `time_bucket` function to produce a series of deltas
+    over fifteen minute increments:
+
+    ```sql
+    SELECT measure_id,
+        time_bucket('15 min'::interval, ts) as bucket,
+        delta(
+            counter_agg(ts, val)
+        )
+    FROM example
+    GROUP BY measure_id, time_bucket('15 min'::interval, ts);
+    ```
+
+</Procedure>
 
 ## Run a counter aggregate query using an extrapolated delta function
+
 If your series is less regular, the deltas are affected by the number of samples
 in each fifteen minute period. You can improve this by using the
 `extrapolated_delta` function. To do this, you need to provide bounds that
@@ -77,10 +86,12 @@ ended range of all the times in the bucket. This example also uses a CTE to do
 the counter aggregation, which makes it a little easier to understand what's
 going on in each part.
 
-<procedure>
+<Procedure>
 
 ### Running a counter aggregate query using an extrapolated delta function
+
 1.  Create a table called `example`:
+
     ```sql
     CREATE TABLE example (
         measure_id      BIGINT,
@@ -89,7 +100,9 @@ going on in each part.
         PRIMARY KEY (measure_id, ts)
     );
     ```
+
 1.  Create a counter aggregate and the extrapolated delta function:
+
     ```sql
     with t as (
         SELECT measure_id,
@@ -102,27 +115,32 @@ going on in each part.
     FROM t ;
     ```
 
-<highlight type="note">
+<Highlight type="note">
 In this procedure, we used `prometheus` to do the extrapolation. Timescale's
 current `extrapolation` function is built to mimic the Prometheus project's
 `increase` function, which measures the change of a counter extrapolated to the
 edges of the queried region.
-</highlight>
+</Highlight>
 
-</procedure>
+</Procedure>
 
 ## Run a counter aggregate query with a continuous aggregate
+
 Your counter aggregate might be more useful if you make a continuous aggregate
 out of it.
 
-<procedure>
+<Procedure>
 
 ### Running a counter aggregate query with a continuous aggregate
+
 1.  Create a hypertable partitioned on the `ts` column:
+
     ```sql
     SELECT create_hypertable('example', 'ts', chunk_time_interval=> '15 days'::interval, migrate_data => true);
     ```
+
 1.  Create the continuous aggregate:
+
     ```sql
     CREATE MATERIALIZED VIEW example_15
     WITH (timescaledb.continuous)
@@ -132,8 +150,10 @@ out of it.
     FROM example
     GROUP BY measure_id, time_bucket('15 min'::interval, ts);
     ```
+
 1.  You can also re-aggregate from the continuous aggregate into a larger
     bucket size:
+
     ```sql
     SELECT
         measure_id,
@@ -145,9 +165,10 @@ out of it.
     GROUP BY measure_id, time_bucket('1 day'::interval, bucket);
     ```
 
-</procedure>
+</Procedure>
 
 ## Parallelism and ordering
+
 The counter reset calculations require a strict ordering of inputs, which means
 they are not parallelizable in PostgreSQL. This is because PostgreSQL handles
 parallelism by issuing rows randomly to workers. However, if your parallelism

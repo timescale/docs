@@ -9,9 +9,9 @@ tags: [candlestick]
 
 In this step:
 
-* create a configuration file (optional)
-* fetch stock data
-* ingest the data into TimescaleDB
+*   create a configuration file (optional)
+*   fetch stock data
+*   ingest the data into TimescaleDB
 
 ## Create a configuration file
 
@@ -32,6 +32,7 @@ APIKEY = 'alpha_vantage_apikey'
 ```
 
 Later, whenever you need to reference any of the information from this configuration file, you need to import it:
+
 ```python
 import config
 apikey = config.APIKEY
@@ -44,13 +45,13 @@ In order to fetch intraday stock data, you need to know which ticker symbols you
 First, let's collect a list of symbols so that we can fetch their data later.
 In general, you have a few options to gather a list of ticker symbols dynamically:
 
-* Scrape it from a public website ([example code here][scraping-example])
-* Use an API that has this functionality
-* Download it from an open repository
+*   Scrape it from a public website ([example code here][scraping-example])
+*   Use an API that has this functionality
+*   Download it from an open repository
 
 To make things easier, download this CSV file to get started:
 
-* [Download top 100 US ticker symbols (based on market capitalization)][symbols-csv]
+*   [Download top 100 US ticker symbols (based on market capitalization)][symbols-csv]
 
 ## Read symbols from CSV file
 
@@ -69,10 +70,13 @@ with open('symbols.csv') as f:
 ```
 
 Run this code:
+
 ```bash
 python ingest_stock_data.py
 ```
+
 You should see a list of symbols printed out:
+
 ```bash
 ['AAPL', 'MSFT', 'AMZN', 'GOOG', 'FB']
 ```
@@ -108,10 +112,11 @@ Let's start by creating a function in the Python script called
 This function fetches data for one symbol and one month. The function takes
 these two values as parameters:
 
-* `symbol`: the ticker symbol you want to fetch data for (for example, "AMZN" for Amazon).
-* `month`: an integer value between 1-24 indicating which month you want to fetch data from.
+*   `symbol`: the ticker symbol you want to fetch data for (for example, "AMZN" for Amazon).
+*   `month`: an integer value between 1-24 indicating which month you want to fetch data from.
 
 Add the following piece of code to the `ingest_stock_data.py` file:
+
 ```python
 import config
 import pandas as pd
@@ -163,6 +168,7 @@ def fetch_stock_data(symbol, month):
 ```
 
 Run this script:
+
 ```bash
 python ingest_stock_data.py
 ```
@@ -170,6 +176,7 @@ python ingest_stock_data.py
 This function downloads data from the Alpha Vantage API and prepares it for
 database ingestion. Add this piece of code after the function definition to
 test if it works:
+
 ```python
 def test_stock_download():
     test_stock_data = fetch_stock_data("MSFT", 1)
@@ -178,12 +185,14 @@ test_stock_download()
 ```
 
 Run the script:
+
 ```bash
 python ingest_stock_data.py
 ```
 
 You should see a huge list of tuples printed out, each containing the
 timestamp value and the price data (candlestick):
+
 ```text
 [
 (Timestamp('2022-05-23 04:04:00'), 255.8, 255.95, 255.8, 255.8, 771, 'MSFT'),
@@ -208,11 +217,13 @@ love already work with TimescaleDB.
 Install psycopg2 and pgcopy so you can connect to the database and ingest data.
 
 **Install psycopg2**
+
 ```bash
 pip install psycopg2-binary
 ```
 
 **Install pgcopy**
+
 ```bash
 pip install pgcopy
 ```
@@ -220,6 +231,7 @@ pip install pgcopy
 Add the following code at the bottom of the `ingest_stock_data.py` script:
 
 **Ingest with pgcopy**
+
 ```python
 from pgcopy import CopyManager
 import config, psycopg2
@@ -254,6 +266,7 @@ for symbol in symbols:
         mgr.copy(stock_data)
         conn.commit()
 ```
+
 This starts ingesting data for each symbol, one month at a time. You can
 modify the `time_range` if you want to download more data.
 
@@ -276,12 +289,13 @@ time               |symbol|price_open|price_close|price_low|price_high|trading_v
 2022-06-21 21:44:00|AAPL  |    135.62|     135.62|   135.62|    135.62|           526|
 ```
 
-<highlight type="tip">
+<Highlight type="tip">
 Fetching and ingesting intraday data can take a while, so if you want to see results quickly,
 reduce the number of months, or limit the number of symbols.
-</highlight>
+</Highlight>
 
 This is what the final version of `ingest_stock_data.py` looks like:
+
 ```python
 # ingest_stock_data.py:
 import csv

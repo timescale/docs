@@ -26,11 +26,11 @@ Before you start, make sure you have:
 *   Installed [Go][golang-install].
 *   Installed the [PGX driver for Go][pgx-driver-github].
 
-<highlight type="cloud" header="Run all tutorials free" button="Try for free">
+<Highlight type="cloud" header="Run all tutorials free" button="Try for free">
 Your Timescale Cloud trial is completely free for you to use for the first
 thirty days. This gives you enough time to complete all the tutorials and run
 a few test projects of your own.
-</highlight>
+</Highlight>
 
 ## Connect to TimescaleDB
 
@@ -38,7 +38,7 @@ In this section, you create a connection to TimescaleDB using the PGX driver.
 PGX is a toolkit designed to help Go developers work directly with PostgreSQL.
 You can use it to help your Go application interact directly with TimescaleDB.
 
-<procedure>
+<Procedure>
 
 <Collapsible heading="Connecting to TimescaleDB with a connection string" headingLevel={3}>
 
@@ -116,13 +116,13 @@ You can use it to help your Go application interact directly with TimescaleDB.
 
 </Collapsible>
 
-</procedure>
+</Procedure>
 
 Alternatively, you can connect to TimescaleDB using a connection pool.
 Connection pooling is useful to conserve computing resources, and can also
 result in faster database queries:
 
-<procedure>
+<Procedure>
 
 <Collapsible heading="Connecting to TimescaleDB with a connection pool" headingLevel={3} defaultExpanded={false}>
 
@@ -167,7 +167,7 @@ result in faster database queries:
 
 </Collapsible>
 
-</procedure>
+</Procedure>
 
 ## Create a relational table
 
@@ -177,7 +177,7 @@ called `sensor_data` which holds the measurements of those sensors. The
 measurements contain the time, sensor_id, temperature reading, and CPU
 percentage of the sensors.
 
-<procedure>
+<Procedure>
 
 <Collapsible heading="Creating a relational table" headingLevel={3}>
 
@@ -231,7 +231,7 @@ percentage of the sensors.
 
 </Collapsible>
 
-</procedure>
+</Procedure>
 
 ## Generate a hypertable
 
@@ -239,7 +239,7 @@ When you have created the relational table, you can create a hypertable.
 Creating tables and indexes, altering tables, inserting data, selecting data,
 and most other tasks are executed on the hypertable.
 
-<procedure>
+<Procedure>
 
 <Collapsible heading="Generating a hypertable" headingLevel={3}>
 
@@ -317,7 +317,7 @@ and most other tasks are executed on the hypertable.
 
 </Collapsible>
 
-</procedure>
+</Procedure>
 
 ## Insert rows of data
 
@@ -329,7 +329,7 @@ The first example inserts a single row of data at a time. The second example
 inserts multiple rows of data. The third example uses batch inserts to speed up
 the process.
 
-<procedure>
+<Procedure>
 
 <Collapsible heading="Inserting a single row of data" headingLevel={3}>
 
@@ -385,12 +385,12 @@ the process.
 
 </Collapsible>
 
-</procedure>
+</Procedure>
 
 Instead of inserting a single row of data at a time, you can use this procedure
 to insert multiple rows of data, instead:
 
-<procedure>
+<Procedure>
 
 <Collapsible heading="Inserting multiple rows of data" headingLevel={3} defaultExpanded={false}>
 
@@ -607,7 +607,7 @@ to insert multiple rows of data, instead:
 
 </Collapsible>
 
-</procedure>
+</Procedure>
 
 Inserting multiple rows of data using this method executes as many `insert`
 statements as there are samples to be inserted. This can make ingestion of data
@@ -616,7 +616,7 @@ slow. To speed up ingestion, you can batch insert data instead.
 Here's a sample pattern for how to do so, using the sample data you generated in
 the previous procedure. It uses the pgx `Batch` object:
 
-<procedure>
+<Procedure>
 
 <Collapsible heading="Inserting rows of data in batches" headingLevel={3} defaultExpanded={false}>
 
@@ -746,13 +746,13 @@ the previous procedure. It uses the pgx `Batch` object:
 
 </Collapsible>
 
-</procedure>
+</Procedure>
 
 ## Execute a query
 
 This section covers how to execute queries against your database.
 
-<procedure>
+<Procedure>
 
 <Collapsible heading="Executing a query" headingLevel={3}>
 
@@ -909,7 +909,7 @@ This section covers how to execute queries against your database.
 
 </Collapsible>
 
-</procedure>
+</Procedure>
 
 ## Next steps
 

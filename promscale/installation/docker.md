@@ -28,18 +28,18 @@ deploying Promscale and follow the instructions provided by your container
 platform. If you are using Kubernetes follow
 [these instructions][promscale-install-kubernetes] instead.
 
-<highlight type="important">
+<Highlight type="important">
 Running Promscale directly using `docker run` is not recommended for production
 environments. This can be useful for testing purposes and is just provided as an
 example.
-</highlight>
+</Highlight>
 
 ## Install Promscale with Docker
 
 Before you begin, you must have Docker installed on your local system. For
 packages and instructions, see the [Docker installation documentation][docker-install].
 
-<procedure>
+<Procedure>
 
 ### Installing Promscale using Docker
 
@@ -74,7 +74,7 @@ packages and instructions, see the [Docker installation documentation][docker-in
     -db.ssl-mode=allow
     ```
 
-</procedure>
+</Procedure>
 
 <PromscaleSendData />
 

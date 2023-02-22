@@ -21,7 +21,7 @@ storage size or slightly larger than the currently allocated plan. This allows
 you to limit the downtime during the migration process and have a sufficiently
 powerful TimescaleDB plan..
 
-<highlight type="warning">
+<Highlight type="warning">
 Depending on your database size and network speed, migration can take a very
 long time. During this time, any new writes that happen during the dumping
 process are not included. To prevent data loss, turn off all the
@@ -30,7 +30,7 @@ migrate as a cold run without turning off writes on your previous server and
 running the dump concurrently. This gives you an estimate of the time the dump
 process takes. It also helps you in practicing the actual operation when it's
 not causing downtime to your customers.
-</highlight>
+</Highlight>
 
 ## Before you begin
 
@@ -52,15 +52,15 @@ Ensure that you have:
     Managed Service for TimescaleDB and your source database. For more
     information, see the [upgrading TimescaleDB section][upgrading-timescaledb].
 
-<highlight type="note">
+<Highlight type="note">
 To speed up migration, compress your data. You can compress any chunks where
 data is not currently inserted, updated, or deleted. When you finish the
 migration, you can decompress chunks as needed for normal operation. For more
 information about compression and decompression, see the
 [compression section](https://docs.timescale.com/timescaledb/latest/how-to-guides/compression/).
-</highlight>
+</Highlight>
 
-<procedure>
+<Procedure>
 
 ### Migrating the database
 
@@ -94,7 +94,7 @@ information about compression and decompression, see the
     defaultdb=> ANALYZE;
     ```
 
-</procedure>
+</Procedure>
 
 ## Troubleshooting
 

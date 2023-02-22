@@ -16,7 +16,7 @@ Some hyperfunctions are included in the default TimescaleDB product. For
 additional hyperfunctions, you need to install the
 [Timescale Toolkit][install-toolkit] PostgreSQL extension.
 
-<hyperfunctionTable
+<HyperfunctionTable
     hyperfunctionFamily='gapfilling and interpolation'
     includeExperimental
     sortByType

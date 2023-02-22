@@ -12,13 +12,13 @@ resilience. To increase redundancy, parts of the system are replicated, so that
 they are on standby in the event of a failure. To increase resilience, recovery
 processes switch between these standby resources as quickly as possible.
 
-<highlight type="cloud" button="Try Timescale Cloud for free" header="Enable high availability in one click">
+<Highlight type="cloud" button="Try Timescale Cloud for free" header="Enable high availability in one click">
 Timescale Cloud simplifies the process of configuring and maintaining high availability for your databases.
 You can create replicas with a single click and enjoy automatic recovery and fail-over for all your
 replicated instances (including multiple availability zones).
 [Learn more](https://docs.timescale.com/cloud/latest/service-operations/replicas/#create-a-database-replica)
 about HA replicas on Timescale Cloud.
-</highlight>
+</Highlight>
 
 ## Backups
 

@@ -5,6 +5,7 @@ keywords: [configuration, memory, workers, settings]
 ---
 
 # About configuration in TimescaleDB
+
 By default, TimescaleDB uses the default PostgreSQL server configuration
 settings. However, in some cases, these settings are not appropriate, especially
 if you have larger servers that use more hardware resources such as CPU, memory,
@@ -18,7 +19,9 @@ change settings that aren't included in the `timescaledb-tune` tool, you can
 [manually adjust][postgresql-conf] the  `postgresql.conf` configuration file.
 
 ## Memory
+
 Settings:
+
 *   `shared_buffers`
 *   `effective_cache_size`
 *   `work_mem`
@@ -30,12 +33,14 @@ easier, you can use the [PgTune][pgtune] site to work out what settings to use:
 enter your machine details, and select the `data warehouse` DB type to see the
 suggested parameters.
 
-<highlight type="tip">
+<Highlight type="tip">
 You can adjust these settings with `timescaledb-tune`.
-</highlight>
+</Highlight>
 
 ## Workers
+
 Settings:
+
 *   `timescaledb.max_background_workers`
 *   `max_parallel_workers`
 *   `max_worker_processes`
@@ -48,10 +53,10 @@ TimescaleDB background workers are configured with
 `timescaledb.max_background_workers`. Each database needs a background worker
 allocated to schedule jobs. Additional workers run background jobs as required.
 This setting should be the sum of the total number of databases and the total
-number of concurrent background workers you want running at any one time. By 
-default, `timescaledb-tune` sets `timescaledb.max_background_workers` to 16. 
-You can change this setting directly, use the `--max-bg-workers` flag, or adjust 
-the `TS_TUNE_MAX_BG_WORKERS` 
+number of concurrent background workers you want running at any one time. By
+default, `timescaledb-tune` sets `timescaledb.max_background_workers` to 16.
+You can change this setting directly, use the `--max-bg-workers` flag, or adjust
+the `TS_TUNE_MAX_BG_WORKERS`
 [Docker environment variable][docker-conf].
 
 TimescaleDB parallel workers are configured with `max_parallel_workers`. For
@@ -67,12 +72,14 @@ to both background and parallel workers, as well a small number of built-in
 PostgreSQL workers. It should be at least the sum of
 `timescaledb.max_background_workers` and `max_parallel_workers`.
 
-<highlight type="tip">
+<Highlight type="tip">
 You can adjust these settings with `timescaledb-tune`.
-</highlight>
+</Highlight>
 
 ## Disk writes
+
 Settings:
+
 *   `synchronous_commit`
 
 By default, disk writes are performed synchronously, so each transaction must be
@@ -83,19 +90,22 @@ result in some committed transactions being lost. To help reduce the risk, do
 not also change `fsync` setting. For more information about asynchronous commits
 and disk write speed, see the [PostgreSQL documentation][async-commit].
 
-<highlight type="tip">
+<Highlight type="tip">
 You can adjust these settings in the `postgresql.conf` configuration
 file.
-</highlight>
+</Highlight>
 
 ## Transaction locks
+
 Settings:
+
 *   `max_locks_per_transaction`
 
 TimescaleDB relies on table partitioning to scale time-series workloads. A
 hypertable needs to acquire locks on many chunks during queries, which can
 exhaust the default limits for the number of allowed locks held. In some cases,
 you might see a warning like this:
+
 ```sql
 psql: FATAL:  out of shared memory
 HINT:  You might need to increase max_locks_per_transaction.
@@ -115,10 +125,10 @@ Note that `max_locks_per_transaction` is not an exact setting. It only adjusts
 the average number of object locks allocated for each transaction. For more
 about lock management, see the [PostgreSQL documentation][lock-management].
 
-<highlight type="tip">
+<Highlight type="tip">
 You can adjust these settings in the `postgresql.conf` configuration
 file.
-</highlight>
+</Highlight>
 
 [async-commit]: https://www.postgresql.org/docs/current/static/wal-async-commit.html
 [chunk_detailed_size]: /api/:currentVersion:/hypertable/chunks_detailed_size/

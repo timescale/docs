@@ -19,25 +19,25 @@ These instructions use a Homebrew or MacPorts installer on these versions:
 *   Apple macOS 11 Big Sur
 *   Apple macOS 12 Monterey
 
-<highlight type="important">
+<Highlight type="important">
 Before you begin installing TimescaleDB, make sure you have installed PostgreSQL
 version 12 or later.
-</highlight>
+</Highlight>
 
-<highlight type="warning">
+<Highlight type="warning">
 If you have already installed PostgreSQL using a method other than Homebrew, you
 could encounter errors following these instructions. It is safest to remove any
 existing PostgreSQL installations before you begin. If you want to keep your
 current PostgreSQL installation, do not install TimescaleDB using this method.
 [Install from source](/install/latest/self-hosted/installation-source/)
 instead.
-</highlight>
+</Highlight>
 
 ## Install self-hosted TimescaleDB using Homebrew
 
 You can use Homebrew to install TimescaleDB on macOS-based systems.
 
-<procedure>
+<Procedure>
 
 ### Installing self-hosted TimescaleDB using Homebrew
 
@@ -81,7 +81,7 @@ You can use Homebrew to install TimescaleDB on macOS-based systems.
     ./timescaledb_move.sh
     ```
 
-</procedure>
+</Procedure>
 
 When you have PostgreSQL and TimescaleDB installed, you can connect to it from
 your local system using the `psql` command-line utility.
@@ -92,7 +92,7 @@ your local system using the `psql` command-line utility.
 
 You can use MacPorts to install TimescaleDB on macOS-based systems.
 
-<procedure>
+<Procedure>
 
 ### Installing self-hosted TimescaleDB using MacPorts
 
@@ -111,14 +111,14 @@ You can use MacPorts to install TimescaleDB on macOS-based systems.
     port contents timescaledb
     ```
 
-<highlight type="important">
+<Highlight type="important">
 MacPorts does not install the `timescaledb-tools` to run the `timescaledb-tune`
 script. For more information about installing and using the tool, see
 [`timescaledb-tune`](/timescaledb/latest/how-to-guides/configuration/timescaledb-tune/#timescaledb-tuning-tool)
 section.
-</highlight>
+</Highlight>
 
-</procedure>
+</Procedure>
 
 When you have PostgreSQL and TimescaleDB installed, you can connect to it from
 your local system using the `psql` command-line utility.
@@ -130,7 +130,7 @@ your local system using the `psql` command-line utility.
 Connect to PostgreSQL from your local system using the `psql` command-line
 utility and set up the TimescaleDB extension.
 
-<procedure>
+<Procedure>
 
 ### Setting up the TimescaleDB extension
 
@@ -180,7 +180,7 @@ utility and set up the TimescaleDB extension.
     (2 rows)
     ```
 
-</procedure>
+</Procedure>
 
 After you have created the extension and the database, you can connect to your
 database directly using this command:

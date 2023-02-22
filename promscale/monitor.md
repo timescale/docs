@@ -14,7 +14,7 @@ import PromscaleDeprecation from "versionContent/_partials/_deprecated-promscale
 Promscale includes a set of out-of-the-box alerts, runbooks, and a Grafana
 dashboard that you can use to monitor it.
 
-<highlight type="note">
+<Highlight type="note">
  To monitor Promscale, make sure that a Prometheus
 instance is scraping the Promscale HTTP metrics endpoint, which defaults to port `9201`
 port in the `/metrics` API. Use Prometheus to evaluate the Promscale alerting
@@ -22,7 +22,7 @@ rules, and configure Prometheus as a data source in Grafana to visualize the
 Promscale dashboard. This helps to troubleshoot issues when Promscale isn't
 working as expected. You should be using a separate Prometheus instance and not Promscale.
 You don't want your monitoring tool monitoring itself.
-</highlight>
+</Highlight>
 
 ## Dashboard
 
@@ -34,7 +34,7 @@ The Grafana dashboard consists of Promscale metrics grouped in several rows:
 *   Database
 *   Cache
 
-<procedure>
+<Procedure>
 
 ### Importing the Promscale Grafana dashboard
 
@@ -54,7 +54,7 @@ Import the Promscale Grafana dashboard by following the instructions below
     are using to monitor Promcsale in the `Prometheus` drop-down.
 1.  Click `Import`.
 
-</procedure>
+</Procedure>
 
 ## Alerts
 

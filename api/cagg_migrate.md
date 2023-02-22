@@ -9,7 +9,7 @@ api:
   type: procedure
 ---
 
-# cagg_migrate() <tag type="community" content="Community" />
+# cagg_migrate() <Tag type="community" content="Community" />
 
 Migrate a continuous aggregate from the old format to  the new format introduced
 in TimescaleDB 2.7.
@@ -35,10 +35,10 @@ new format.
 
 For more information, see the [migration how-to guide][how-to-migrate].
 
-<highlight type="warning">
+<Highlight type="warning">
 There are known issues with `cagg_migrate()` in version 2.8.0.
 Upgrade to version 2.8.1 or above before using it.
-</highlight>
+</Highlight>
 
 ## Required arguments
 

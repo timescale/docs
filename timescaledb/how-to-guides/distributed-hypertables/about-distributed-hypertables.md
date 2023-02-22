@@ -18,11 +18,11 @@ But certain nuances can affect distributed hypertable performance. This section
 explains how distributed hypertables work, and what you need to consider before
 adopting one.
 
-<highlight type="note">
+<Highlight type="note">
 To create a distributed hypertable, see the [how-to guide on creating
 distributed
 hypertables](/timescaledb/latest/how-to-guides/distributed-hypertables/create-distributed-hypertables/).
-</highlight>
+</Highlight>
 
 ## Architecture of a distributed hypertable
 
@@ -101,7 +101,7 @@ raw or partially processed data and do the processing locally. For more
 information, see the [limitations of pushing down
 queries][limitations-pushing-down].
 
-<highlight type="note">
+<Highlight type="note">
 To learn more and compare performance between distributed and regular
 hypertables, see the [blog post on optimizing multi-node query
 performance](https://www.timescale.com/blog/achieving-optimal-query-performance-with-a-distributed-time-series-database-on-postgresql/).
@@ -110,7 +110,7 @@ performance for an optimized query and a 3 times increase for a less-optimized
 query. It also shows a slight decrease in performance for a single-node
 distributed hypertable compared to a regular hypertable. This reflects the added
 overhead of inter-node communication.
-</highlight>
+</Highlight>
 
 ## Query push down
 

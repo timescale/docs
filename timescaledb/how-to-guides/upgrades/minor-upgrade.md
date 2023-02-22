@@ -29,7 +29,7 @@ instance. This allows you to upgrade extensions independently on different
 databases. Run the `ALTER EXTENSION` function on each database to upgrade them
 individually.
 
-<procedure>
+<Procedure>
 
 ### Upgrading the TimescaleDB extension
 
@@ -50,6 +50,6 @@ individually.
     \dx timescaledb
     ```
 
-</procedure>
+</Procedure>
 
 [upgrade-major]: /timescaledb/:currentVersion:/how-to-guides/upgrades/major-upgrade/

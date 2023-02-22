@@ -30,10 +30,10 @@ remote_read:
     read_recent: true
 ```
 
-<highlight type="important">
+<Highlight type="important">
 We highly recommend that you set Prometheus to query data from Promscale for all
 PromQL queries. To do this, set the `read_recent` parameter to `true`.
-</highlight>
+</Highlight>
 
 ## Configure Prometheus for better performance with Promscale
 

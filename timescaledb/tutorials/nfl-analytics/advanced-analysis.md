@@ -13,11 +13,11 @@ Now, let's go over some ideas on analyzing the data using PostgreSQL and
 TimescaleDB, to help you understand more about player activity during the NFL
 season.
 
-<highlight type="tip">
+<Highlight type="tip">
 Some of this analysis includes visualizations to help you see the potential uses
 of this data. These are created using the [Matplotlib](https://matplotlib.org/)
 Python module, which is one of many great visualization tools.
-</highlight>
+</Highlight>
 
 ### Average yards run for a player over a game
 
@@ -180,11 +180,11 @@ player over one game. This query only includes the top three highest players'
 average yard values per position type. The data is ordered by the average yards
 run across all players for each position. This becomes important later on.
 
-<highlight type="note">
+<Highlight type="note">
 This query excludes some position types from the list due to such low average
 yard values, the excluded positions are Kicker, Punter, Nose Tackle, Long Snapper,
 and Defensive Tackle
-</highlight>
+</Highlight>
 
 ```sql
 WITH total_yards AS (

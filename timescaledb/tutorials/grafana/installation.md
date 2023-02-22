@@ -5,16 +5,19 @@ keywords: [Grafana, visualization, analytics]
 ---
 
 # Set up TimescaleDB and Grafana
+
 This tutorial uses Managed Service for TimescaleDB (MST) to set up your database, and
 to set up Grafana. You can [create a free account][mst-login] to try it out.
 
 ## Create a new service for Grafana
+
 You need to sign in to your MST account to create a
 new service to run Grafana.
 
-<procedure>
+<Procedure>
 
 ### Creating a new service for Grafana
+
 1.  [Log in to your Managed Service for TimescaleDB account][mst-login]. By default, you start in the
     `Services` view, showing any services you currently have in your project.
 1.  Click `Create a new service`.
@@ -36,12 +39,14 @@ new service to run Grafana.
     the list to see more information and make changes.
     <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/mst-buildservice-grafana.png" alt="Building the Grafana service"/>
 
-</procedure>
+</Procedure>
 
 ## Log in to your MST Grafana service
+
 When your service is built, you can log and set up your data services.
 
 ### Logging in to your MST Grafana service
+
 1.  In the [MST account][mst-login] `Services` view, click the name of your new
     Grafana service.
 1.  On the service details page, take a note of the user name and password for
@@ -50,10 +55,12 @@ When your service is built, you can log and set up your data services.
 1.  Log in to Grafana with your service credentials.
 
 ## Connect Grafana to your TimescaleDB instance
+
 Now you have your Grafana service up and running, you can configure Grafana to
 connect to your TimescaleDB instance.
 
 ### Connecting Grafana to your TimescaleDB instance
+
 1.  In Grafana, click `Configuration → Data Sources` in the left menu bar.
 1.  Click `Add Data Source` and choose the `PostgreSQL` option in the SQL group:
     <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/grafana-add-postgresql.png" alt="Adding PostgreSQL to Grafana"/>

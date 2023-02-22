@@ -18,13 +18,13 @@ The `last` aggregate allows you to get the value of one column
 as ordered by another. For example, `last(temperature, time)` returns the
 latest temperature value based on time within an aggregate group.
 
-<highlight type="important">
+<Highlight type="important">
 The `last` and `first` commands do not use indexes, they perform a sequential
 scan through the group. They are primarily used for ordered selection within a
 `GROUP BY` aggregate, and not as an alternative to an
 `ORDER BY time DESC LIMIT 1` clause to find the latest value, which uses
 indexes.
-</highlight>
+</Highlight>
 
 ### Required arguments
 

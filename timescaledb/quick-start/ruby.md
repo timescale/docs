@@ -69,9 +69,9 @@ default: &default
   password: [your password]
 ```
 
-<highlight type="warning">
+<Highlight type="warning">
 Experienced Rails developers might want to set and retrieve environment variables for the username and password of the database. For the purposes of this quick start, we hard code the `host`, `port`, `username`, and `password`. This is *not* advised for code or databases of consequence.
-</highlight>
+</Highlight>
 
 Then configure the database name in the `development`, `test`, and `production` sections. Let's call our
 database `tsdb` like so:
@@ -155,9 +155,9 @@ to our database:
 rails db:migrate
 ```
 
-<highlight type="warning">
+<Highlight type="warning">
 In order for the command to work, you need to make sure there is a database named `postgres` in your TimescaleDB deployment. This database is sometimes not present by default.
-</highlight>
+</Highlight>
 
 With `rails dbconsole` you can test that the extension has been added by running the `\dx`
 command:
@@ -177,11 +177,11 @@ The output should be something like the following:
 (2 rows)
 ```
 
-<highlight type="note">
+<Highlight type="note">
 To ensure that your tests run successfully, add `config.active_record.verify_foreign_keys_for_fixtures = false`
 to your `config/environments/test.rb` file. Otherwise you get an error because TimescaleDB
 uses internal foreign keys.
-</highlight>
+</Highlight>
 
 ### Step 3: Create a table
 
@@ -199,11 +199,11 @@ include all partitioning columns, which in our case is the time column. A new Ra
 includes a `PRIMARY KEY` index for `id` by default, so we need to either remove the
 column or make sure that the index includes time as part of a "composite key."
 
-<highlight type="tip">
+<Highlight type="tip">
 Composite keys aren't supported natively by Rails, but if you need to keep
 your `id` column around for some reason you can add support for them with
 the [`composite_primary_keys` gem](https://github.com/composite-primary-keys/composite_primary_keys).
-</highlight>
+</Highlight>
 
 To satisfy this TimescaleDB requirement, we need to change the migration code to _not_ create a `PRIMARY KEY` using the `id` column when `create_table` is used.
 To do this we can change the migration implementation:
@@ -261,10 +261,10 @@ all be executed on the hypertable.
 A hypertable is defined by a standard schema with column names and types, with at
 least one column specifying a time value.
 
-<highlight type="tip">
+<Highlight type="tip">
 The TimescaleDB documentation on [schema management and indexing](/timescaledb/latest/how-to-guides/schema-management/)
 explains this in further detail.
-</highlight>
+</Highlight>
 
 Let's create this migration to modify the `page_loads` database and create a
 hypertable by first running the following command:

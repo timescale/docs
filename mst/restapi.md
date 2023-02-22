@@ -14,7 +14,7 @@ can use the API for all the tasks that can be performed using the web console.
 To get started you need to first create an authentication token, and then use
 the token in the header to use the API endpoints.
 
-<procedure>
+<Procedure>
 
 ## Creating an authentication token in Managed Service for TimescaleDB
 
@@ -26,9 +26,9 @@ the token in the header to use the API endpoints.
     token and leave the rest of the fields blank.
 1.  Copy the generated authentication token and save it.
 
-</procedure>
+</Procedure>
 
-<procedure>
+<Procedure>
 
 ### Using cURL to get your details
 
@@ -66,7 +66,7 @@ the token in the header to use the API endpoints.
     }
     ```
 
-</procedure>
+</Procedure>
 
 [mst-login]: https://portal.managed.timescale.com
 [aiven-api]: https://api.aiven.io/doc/

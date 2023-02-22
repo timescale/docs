@@ -34,9 +34,9 @@ there are a few other PostgreSQL parameters that you might like to adjust:
   lost. For a monitoring observability use case, it's a reasonable trade-off to
   increase ingest performance.
 
-<highlight type="important">
+<Highlight type="important">
 Make sure that the maximum latency between the
 Promscale connector and the database is no more than 100&nbsp;ms.
-</highlight>
+</Highlight>
 
 [timescale-tune-configuration]: /timescaledb/:currentVersion:/how-to-guides/configuration/timescaledb-tune/#timescaledb-tuning-tool

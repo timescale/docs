@@ -16,18 +16,18 @@ Specifically this sets the `timescaledb.restoring` GUC to `on` and stops any
 background workers which may have been performing tasks until the [`timescaledb_post_restore`][timescaledb_post_restore]
 function is run following the restore. See [backup/restore docs][backup-restore] for more information.
 
-<highlight type="warning">
+<Highlight type="warning">
  Using this function when doing an upgrade could cause issues in TimescaleDB
  versions before 1.7.1.
 
-</highlight>
+</Highlight>
 
-<highlight type="warning">
+<Highlight type="warning">
  After running `SELECT timescaledb_pre_restore()` you must run the
   [`timescaledb_post_restore`](/api/latest/administration/timescaledb_post_restore/) function before using
   the database normally.
 
-</highlight>
+</Highlight>
 
 ### Sample usage  
 

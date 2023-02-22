@@ -18,10 +18,10 @@ a maintenance window that you can define to suit your workload. However, if we
 detect a critical security vulnerability that affects you, we might need to
 perform maintenance outside of the scheduled maintenance window.
 
-<highlight type="important">
+<Highlight type="important">
 After a maintenance update, the DNS name remains the same, but the IP address
 it points to often changes.
-</highlight>
+</Highlight>
 
 In most cases, the updates that occur during your maintenance windows do not
 require any downtime. This means that there is no outage of your services during
@@ -40,11 +40,11 @@ on your workloads.
 To track the status of maintenance events, see the Timescale Cloud
 [status page][status-page].
 
-<highlight type="note">
+<Highlight type="note">
 To apply changes manually instead of waiting for the maintenance window,
 `Pause` then `Resume` your service. Maintenance changes are automatically
 applied when your service is resumed.
-</highlight>
+</Highlight>
 
 ## Replicas and maintenance
 
@@ -81,7 +81,7 @@ impact of a short service interruption. Alternatively, you might prefer to have
 your maintenance window occur during office hours, so that you can monitor your
 system during the upgrade.
 
-<procedure>
+<Procedure>
 
 ### Adjusting your maintenance window
 
@@ -97,7 +97,7 @@ system during the upgrade.
 1.  Click `Apply Changes`.
     <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-maintenance-change.png" alt="Timescale Cloud change maintenance window"/>
 
-</procedure>
+</Procedure>
 
 ## Critical updates
 
@@ -132,11 +132,11 @@ information about feature changes between versions, see the
 [PostgreSQL release notes][postgres-relnotes] and
 [TimescaleDB release notes][timescale-relnotes].
 
-<highlight type="warning">
+<Highlight type="warning">
 Your Timescale Cloud service is unavailable until the upgrade is complete.
 This can take several hours. To estimate the length of time, it is usually one second of downtime per
 100&nbsp;MB, but for a better estimate, you can test on a fork first.
-</highlight>
+</Highlight>
 
 ### Recommended practices for upgrading
 
@@ -153,12 +153,12 @@ For a smooth upgrade experience, make sure you:
     fork to keep a duplicate Timescale Cloud service. You can immediately pause
     this fork to only pay for storage until you are comfortable deleting it.
 
-<highlight type="important">
+<Highlight type="important">
 Timescale Cloud services with replicas cannot be upgraded. To upgrade a service
 with a replica,  you must first delete the replica and then upgrade the service.
-</highlight>
+</Highlight>
 
-<procedure>
+<Procedure>
 
 ### Upgrading to a new PostgreSQL version
 
@@ -172,10 +172,10 @@ with a replica,  you must first delete the replica and then upgrade the service.
     operations. If the upgrade is unsuccessful, the service returns to the state
     it was in before you started the upgrade.
 
-</procedure>
+</Procedure>
 
-<highlight type="cloud" header="Sign up for Timescale Cloud" button="Try for free">
-</highlight>
+<Highlight type="cloud" header="Sign up for Timescale Cloud" button="Try for free">
+</Highlight>
 
 [cloud-login]: https://cloud.timescale.com
 [operations-forking]: /cloud/:currentVersion:/service-operations/service-management/#fork-a-service
