@@ -54,4 +54,4 @@ time-series services:
 
 [cloud-install]: /install/:currentVersion:/installation-cloud/
 [sign-up]: https://www.timescale.com/timescale-signup
-[cloud-console]: /console.cloud.timescale.com/
+[cloud-console]: https://console.cloud.timescale.com/

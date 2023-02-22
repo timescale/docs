@@ -20,18 +20,18 @@ This release contains new features and bug fixes since the 2.9.3 release.
 We deem it moderate priority for upgrading.
 
 This release includes these noteworthy features:
-* Joins in continuous aggregates
+* Joins in continuous aggregates that are defined over hypertables. Support for joins in [hierarchical continuous aggregates](https://docs.timescale.com/timescaledb/latest/how-to-guides/continuous-aggregates/hierarchical-continuous-aggregates/) will be introduced on a follow-up release.
 * Re-architecture of how compression works: ~2x improvement on INSERT rate into compressed chunks.
 * Full PostgreSQL 15 support for all existing features. Support for the newly introduced MERGE command on hypertables will be introduced on a follow-up release.
 
 **PostgreSQL 12 deprecation announcement**
-We will continue supporting PostgreSQL 12 until July 2023. Sooner to that time, we will announce the specific version of TimescaleDB in which PostgreSQL 12 support will not be included going forward.
+We will continue supporting PostgreSQL 12 until July 2023. Before that time, we will announce the specific version of TimescaleDB in which PostgreSQL 12 support will be removed.
 
-**Old format of Continuous Aggregates deprecation announcement**
+**Old format of continuous aggregates deprecation announcement**
 TimescaleDB 2.7 introduced a new format for continuous aggregates that improves performance.
-All instances with Continuous Aggregates using the old format should [migrate to the new format](https://docs.timescale.com/api/latest/continuous-aggregates/cagg_migrate/) by July 2023,
+All instances with continuous aggregates using the old format should [migrate to the new format](https://docs.timescale.com/api/latest/continuous-aggregates/cagg_migrate/) by July 2023,
 when support for the old format will be removed.
-Sooner to that time, we will announce the specific version of TimescaleDB in which support for this feature will not be included going forward.
+Before that time, we will announce the specific version of TimescaleDB in which support for this feature will be removed.
 
 **Features**
 * #4874 Allow joins in continuous aggregates
@@ -42,7 +42,7 @@ Sooner to that time, we will announce the specific version of TimescaleDB in whi
 * #5253 Make data node command execution interruptible
 * #5262 Extend enabling compression on a continuous aggregrate with 'compress_segmentby' and 'compress_orderby' parameters
 
-**Bugfixes**
+**Bug fixes**
 * #5214 Fix use of prepared statement in async module
 * #5218 Add role-level security to job error log
 * #5239 Fix next_start calculation for fixed schedules
@@ -53,7 +53,7 @@ Sooner to that time, we will announce the specific version of TimescaleDB in whi
 
 ## What's new in TimescaleDB 2.9:
 
-* Hierarchical Continuous Aggregates (aka Continuous Aggregate on top of another Continuous Aggregate)
+* Hierarchical continuous aggregates (continuous aggregate on top of another continuous aggregate)
 * Improve `time_bucket_gapfill` function to allow specifying the timezone to bucket
 * Introduce fixed schedules for background jobs and the ability to check job errors.
 * Use `alter_data_node()` to change the data node configuration. This function introduces the option to configure the availability of the data node.
