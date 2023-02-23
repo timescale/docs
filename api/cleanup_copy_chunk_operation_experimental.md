@@ -10,7 +10,7 @@ api:
 
 import Experimental from 'versionContent/_partials/_experimental.mdx';
 
-## cleanup_copy_chunk_operation() <tag type="community">Community</tag> <tag type="experimental">Experimental</tag>
+## cleanup_copy_chunk_operation() <Tag type="community">Community</Tag> <Tag type="experimental">Experimental</Tag>
 
 You can [copy][copy_chunk] or [move][move_chunk] a
 chunk to a new location within a multi-node environment. The

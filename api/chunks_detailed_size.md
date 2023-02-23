@@ -41,10 +41,10 @@ via the `timescaledb_information.chunks` view.
 |total_bytes|BIGINT | Total disk space used by the chunk, including all indexes and TOAST data|
 |node_name| TEXT | Node for which size is reported, applicable only to distributed hypertables|
 
-<highlight type="tip">
+<Highlight type="tip">
 If executed on a relation that is not a hypertable, the function
 returns `NULL`.
-</highlight>
+</Highlight>
 
 ### Sample usage
 

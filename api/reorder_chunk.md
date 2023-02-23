@@ -8,7 +8,7 @@ api:
   type: function
 ---
 
-# reorder_chunk() <tag type="community">Community</tag>
+# reorder_chunk() <Tag type="community">Community</Tag>
 
 Reorder a single chunk's heap to follow the order of an index. This function
 acts similarly to the [PostgreSQL CLUSTER command][postgres-cluster] , however

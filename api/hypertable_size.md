@@ -29,9 +29,9 @@ output of `hypertable_detailed_size` function.
 |---|---|---|
 |hypertable_size| BIGINT | Total disk space used by the specified hypertable, including all indexes and TOAST data. |
 
-<highlight type="tip">
+<Highlight type="tip">
 `NULL` is returned if the function is executed on a non-hypertable relation.
-</highlight>
+</Highlight>
 
 ### Sample usage
 

@@ -14,7 +14,7 @@ hyperfunction:
   type: interpolator
 ---
 
-# locf() <tag type="community">Community</tag>
+# locf() <Tag type="community">Community</Tag>
 
 The `locf` (last observation carried forward) function allows you to carry the
 last seen value in an aggregation group forward. It can only be used in an

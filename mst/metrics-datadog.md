@@ -17,23 +17,23 @@ charge on Managed Service for TimescaleDB.
 You need to create a Datadog API key, and use the key to enable metrics for your
 Managed Service for TimescaleDB service.
 
-<highlight type="note">
+<Highlight type="note">
 We do not currently support Datadog logging on Managed Service for TimescaleDB.
-</highlight>
+</Highlight>
 
 ## Create and upload a Datadog API key
 
 You can create an API key in your Datadog account, and upload it to your Managed
 Service for TimescaleDB account.
 
-<highlight type="important">
+<Highlight type="important">
 Before you begin, you need to have signed up for both Datadog and Managed
 Service for TimescaleDB, and be able to log in to your Datadog and Managed
 Service for TimescaleDB dashboards. You also need a running Managed Service for
 TimescaleDB service.
-</highlight>
+</Highlight>
 
-<procedure>
+<Procedure>
 
 ### Creating a Datadog API key
 
@@ -45,9 +45,9 @@ TimescaleDB service.
 1.  Hover your mouse over the purple bar in the `Key` field to see the key, and
     copy it to use later.
 
-</procedure>
+</Procedure>
 
-<procedure>
+<Procedure>
 
 ### Uploading a Datadog API key to MST
 
@@ -64,13 +64,13 @@ TimescaleDB service.
 1.  Click `Add endpoint` to save the integration.
     <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/add-datadog-integration.png" alt="Add Datadog endpoint"/>
 
-</procedure>
+</Procedure>
 
 ## Activate Datadog integration for a service
 
 When you have successfully added the endpoint, you can set up one of your services to send data to Datadog.
 
-<procedure>
+<Procedure>
 
 ### Activating Datadog integration for a service
 
@@ -83,7 +83,7 @@ When you have successfully added the endpoint, you can set up one of your servic
     integration shows with a green `active` symbol.  
     <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/active-datadog-integration.png" alt="Successful Datadog integration"/>
 
-</procedure>
+</Procedure>
 
 ## Datadog dashboards
 

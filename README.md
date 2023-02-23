@@ -201,11 +201,11 @@ The `type` can currently support a value of `"note"`, `"warning"`,
 for content specifically referring to Timescale Cloud.
 
 ```html
-<highlight type="note">
+<Highlight type="note">
 Callout text goes here...
 
 Example link style would [look like this](http://example.com/)
-</highlight>
+</Highlight>
 ```
 
 ### Tags
@@ -213,11 +213,11 @@ Example link style would [look like this](http://example.com/)
 You can use tags to indicate links to downloadable files, or to indicate
 metadata about functions. Available tags:
 
-*   Download tags: `<tag type="download">Markdown link to download</tag>`
-*   Experimental tags: `<tag type="experimental" content="Experimental" />` or
-    `<tag type="experimental-toolkit" content="Experimental" />`
-*   Toolkit tag: `<tag type="toolkit" content="Toolkit" />`
-*   Community tag: `<tag type="community" content="Community" />`
+*   Download tags: `<Tag type="download">Markdown link to download</Tag>`
+*   Experimental tags: `<Tag type="experimental" content="Experimental" />` or
+    `<Tag type="experimental-toolkit" content="Experimental" />`
+*   Toolkit tag: `<Tag type="toolkit" content="Toolkit" />`
+*   Community tag: `<Tag type="community" content="Community" />`
 
 ### Procedures
 

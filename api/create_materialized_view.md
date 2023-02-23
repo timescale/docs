@@ -9,7 +9,7 @@ api:
   type: command
 ---
 
-# CREATE MATERIALIZED VIEW (Continuous Aggregate) <tag type="community">Community</tag>
+# CREATE MATERIALIZED VIEW (Continuous Aggregate) <Tag type="community">Community</Tag>
 
 The `CREATE MATERIALIZED VIEW` statement is used to create continuous
 aggregates. To learn more, see the [continuous aggregate how-to guides][cagg-how-tos].

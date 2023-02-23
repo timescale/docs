@@ -30,11 +30,11 @@ array, like this:
 |-|-|-|-|
 |[12:00:02, 12:00:02, 12:00:01, 12:00:1]|[1, 2, 1, 2]|[88.2, 300.5, 88.6, 299.1]|[0.8, 0.9, 0.85, 0.95]|
 
-<highlight type="note">
+<Highlight type="note">
 Most indexes set on the hypertable are removed or ignored
 when reading from compressed chunks. TimescaleDB creates and uses custom indexes
 to incorporate the `segmentby` and `orderby` parameters during compression.
-</highlight>
+</Highlight>
 
 This section explains how to enable native compression, and then goes into
 detail on the most important settings for compression, to help you get the
@@ -52,7 +52,7 @@ days old is then marked to be automatically compressed.
 |8/22/2019 0:00|1|88.2|20|0.8|
 |8/22/2019 0:05|2|300.5|30|0.9|
 
-<procedure>
+<Procedure>
 
 ### Enabling compression
 
@@ -71,18 +71,18 @@ days old is then marked to be automatically compressed.
     SELECT add_compression_policy('example', INTERVAL '7 days');
     ```
 
-</procedure>
+</Procedure>
 
 For more information, see the API reference for
 [`ALTER TABLE (compression)`][alter-table-compression] and
 [`add_compression_policy`][add_compression_policy].
 
-<highlight type="cloud" header="Set up compression in a few clicks on Timescale Cloud">
+<Highlight type="cloud" header="Set up compression in a few clicks on Timescale Cloud">
 If you're using Timescale Cloud, you can also set a compression policy through
 the Timescale Cloud console. The compression tool automatically generates and
 runs the compression commands for you. To learn more, see the
 [Timescale Cloud documentation](/cloud/latest/service-explorer/#setting-a-compression-policy-from-timescale-cloud-console).
-</highlight>
+</Highlight>
 
 ## View current compression policy
 

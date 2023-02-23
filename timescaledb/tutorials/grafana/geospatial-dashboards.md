@@ -16,18 +16,18 @@ To complete this tutorial, you need a cursory knowledge of the Structured Query
 Language (SQL). The tutorial walks you through each SQL command, but it is
 helpful if you've seen SQL before.
 
-* To start, [install TimescaleDB][install-timescale].
-* Next [setup Grafana][install-grafana].
+*   To start, [install TimescaleDB][install-timescale].
+*   Next [setup Grafana][install-grafana].
 
 Once your installation of TimescaleDB and Grafana are complete, ingest the data found
 in the [NYC Taxi Cab][nyc-taxi] tutorial and configure Grafana to connect
 to that database. Be sure to follow the full tutorial if you're interested in background
 on how to use TimescaleDB.
 
-<highlight type="tip">
+<Highlight type="tip">
  Be sure to pay close attention to the geospatial query portion
  of the tutorial and complete those steps.
-</highlight>
+</Highlight>
 
 ### Build a geospatial query
 
@@ -76,10 +76,10 @@ In the `WHERE` clause, we are applying a geospatial boundary to look for trips w
 Finally, in the `GROUP BY` clause, we supply the `trip_distance` and location variables
 so that Grafana can plot data properly.
 
-<highlight type="warning">
+<Highlight type="warning">
  This query may take a while, depending on the speed of your Internet connection. This
  is why we're using the `LIMIT` statement for demonstration purposes.
-</highlight>
+</Highlight>
 
 ### Configure the worldmap Grafana panel
 

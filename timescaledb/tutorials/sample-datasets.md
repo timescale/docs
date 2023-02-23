@@ -17,9 +17,9 @@ you are importing them to has already been [set up with the TimescaleDB extensio
 **Device ops**: these datasets include metrics such as CPU, memory, and network,
 that are collected from mobile devices. Click on the name to download.
 
-*   <tag type="download" >[devices_small](https://timescaledata.blob.core.windows.net/datasets/devices_small.tar.gz)</tag> 1,000 devices recorded over 1,000 time intervals - 39&nbsp;MB
-*   <tag type="download" >[devices_med](https://timescaledata.blob.core.windows.net/datasets/devices_med.tar.gz)</tag> 5,000 devices recorded over 2,000 time intervals - 390&nbsp;MB
-*   <tag type="download" >[devices_big](https://timescaledata.blob.core.windows.net/datasets/devices_big.tar.gz)</tag> 3,000 devices recorded over 10,000 time intervals - 1.2&nbsp;GB
+*   <Tag type="download" >[devices_small](https://timescaledata.blob.core.windows.net/datasets/devices_small.tar.gz)</Tag> 1,000 devices recorded over 1,000 time intervals - 39&nbsp;MB
+*   <Tag type="download" >[devices_med](https://timescaledata.blob.core.windows.net/datasets/devices_med.tar.gz)</Tag> 5,000 devices recorded over 2,000 time intervals - 390&nbsp;MB
+*   <Tag type="download" >[devices_big](https://timescaledata.blob.core.windows.net/datasets/devices_big.tar.gz)</Tag> 3,000 devices recorded over 10,000 time intervals - 1.2&nbsp;GB
 
 For more details and example usage, see
 [device ops datasets](#device-ops-datasets).
@@ -27,11 +27,11 @@ For more details and example usage, see
 **Weather**: these datasets include metrics like temperature and humidity data
 from a variety of locations. Click on the name to download.
 
-*   <tag type="download" >[weather_small](https://timescaledata.blob.core.windows.net/datasets/weather_small.tar.gz)</tag>
+*   <Tag type="download" >[weather_small](https://timescaledata.blob.core.windows.net/datasets/weather_small.tar.gz)</Tag>
     1,000 locations over 1,000 two-minute intervals - 8.1&nbsp;MB
-*   <tag type="download" >[weather_med](https://timescaledata.blob.core.windows.net/datasets/weather_med.tar.gz)</tag>
+*   <Tag type="download" >[weather_med](https://timescaledata.blob.core.windows.net/datasets/weather_med.tar.gz)</Tag>
     1,000 locations over 15,000 two-minute intervals - 115&nbsp;MB
-*   <tag type="download" >[weather_big](https://timescaledata.blob.core.windows.net/datasets/weather_big.tar.gz)</tag>
+*   <Tag type="download" >[weather_big](https://timescaledata.blob.core.windows.net/datasets/weather_big.tar.gz)</Tag>
     2,000 locations over 20,000 two-minute intervals - 305&nbsp;MB
 
 For more details and example usage, see [weather datasets](#weather-datasets).
@@ -70,12 +70,12 @@ psql -U postgres -d tsdb -c "\COPY device_info FROM devices_small_device_info.cs
 
 The data is now ready for use.
 
-<highlight type="tip">
+<Highlight type="tip">
 The standard `COPY` command in PostgreSQL is single threaded. To speed up
 importing the larger sample datasets, you can use the
 [parallel importer](https://github.com/timescale/timescaledb-parallel-copy)
 instead.
-</highlight>
+</Highlight>
 
 ```bash
 # To access your database (for example: `tsdb`)

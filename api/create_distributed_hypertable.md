@@ -9,7 +9,7 @@ api:
   type: function
 ---
 
-# create_distributed_hypertable()  <tag type="community">Community</tag>
+# create_distributed_hypertable()  <Tag type="community">Community</Tag>
 
 Creates a TimescaleDB hypertable distributed across a multinode
 environment. Use this function in place of [`create_hypertable`][create-hypertable]

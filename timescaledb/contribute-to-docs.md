@@ -116,11 +116,11 @@ Procedures contain these elements:
 
 1.  Level two section title in simple verb form
 1.  Short introduction
-1.  Open `<procedure>` tag
+1.  Open `<Procedure>` tag
 1.  Level three procedure title in gerund verb form
 1.  Numbered steps
 1.  Screenshot
-1.  Close `</procedure>` tag
+1.  Close `</Procedure>` tag
 
 <!-- markdownlint-enable -->
 
@@ -131,7 +131,7 @@ For example:
 
 This section describes how to install TimescaleDB on premise.
 
-<procedure>
+<Procedure>
 
 ### Installing TimescaleDB
 
@@ -141,7 +141,7 @@ This section describes how to install TimescaleDB on premise.
 
 <Add screenshot here>
 
-</procedure>
+</Procedure>
 
 ```
 

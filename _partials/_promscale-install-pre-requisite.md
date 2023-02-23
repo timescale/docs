@@ -1,4 +1,4 @@
-<highlight type="note">
+<Highlight type="note">
 Before installing Promscale, refer to:
 
 *   Promscale Resource recommendation
@@ -8,4 +8,4 @@ Before installing Promscale, refer to:
     [guide](/promscale/latest/recommendations/config-recomm/) to understand
     configuration requirements.
 
-</highlight>
+</Highlight>

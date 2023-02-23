@@ -41,10 +41,10 @@ Install Timescale Cloud by signing up for an account. It's free for thirty days.
 It's a cloud service, so you don't need to download anything to your own
 machines.
 
-<highlight type="note">
+<Highlight type="note">
 Need to self-host your own database? See the other installation options in the
 [install section](/install/latest/).
-</highlight>
+</Highlight>
 
 <Install />
 

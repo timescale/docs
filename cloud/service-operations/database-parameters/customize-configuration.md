@@ -23,12 +23,12 @@ of the many available TimescaleDB and PostgreSQL parameters. By providing the
 ability to tune various runtime settings, Timescale Cloud provides the balance
 and flexibility you need when running your workloads in our hosted environment.
 
-<highlight type="warning">
+<Highlight type="warning">
 You can modify most parameters without restarting the Timescale Cloud Service.
 However, some changes do require a restart, resulting in some brief downtime
 (usually about 30 seconds). An example of a change that needs a restart is modifying
 the compute resources of a running service.
-</highlight>
+</Highlight>
 
 ### View service operation details
 
@@ -49,11 +49,11 @@ To modify a configured value, hover over the value and click the revealed pencil
 icon. This reveals an editable field to apply your change. Clicking anywhere
 outside of that field saves the value to be applied.
 
-<highlight type="note">
+<Highlight type="note">
 The values for some of the parameters vary depending on the plan. For example,
 the value for `max_connections` is exactly 25 in the smallest compute tier, but
 ranges from 25 to 500 in higher compute tiers.
-</highlight>
+</Highlight>
 
 <img class="main-content__illustration"
 src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-settings-change.png"

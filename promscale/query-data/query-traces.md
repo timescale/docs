@@ -309,11 +309,11 @@ In most cases, the volume and diversity of trace data is very high, so you might
 find that you need to limit the scope of your queries. You can do this with
 filtering.
 
-<highlight type="note">
+<Highlight type="note">
 When you are working with time series data, make sure you define the time window
 that you are interested in. Because data is partitioned based on the time,
 omitting the time filters can drastically hinder the performance of the queries.
-</highlight>
+</Highlight>
 
 To filter the data you're interested in, you can use the SQL `where` clause.
 This example queries spans that happened within last 30 minutes. This type of
@@ -363,14 +363,14 @@ select *
     limit 50
 ```
 
-<highlight type="note">
+<Highlight type="note">
 In the previous example, the `'"opentelemtry"'` string is both single- and
 double-quoted. This is because PostgreSQL's `->` operator returns JSONB, and
 expects JSONB on the right side of the `=`. You could potentially work around
 this by using the `->>` operator instead, so that it returns text instead of
 JSONB, but the `->>` operator is not supported in the current implementation of
 `tag_map` type.
-</highlight>
+</Highlight>
 
 ### Joins
 

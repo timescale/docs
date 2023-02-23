@@ -21,7 +21,7 @@ messages.
     server port`, `Username`, `Password`, `Sender email address`, `Sender name`
     (optional).
 
-<procedure>
+<Procedure>
 
 ## Configuring the SMTP server for Grafana service
 
@@ -68,7 +68,7 @@ messages.
 
 You can now send emails for your Grafana service on MST.
 
-</procedure>
+</Procedure>
 
 [grafana-install]: /timescaledb/:currentVersion:/tutorials/grafana/installation/#create-a-new-service-for-grafana
 [mst-login]: https://portal.managed.timescale.com

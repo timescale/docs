@@ -14,20 +14,20 @@ hyperfunction:
   type: bucket
 ---
 
-# time_bucket_gapfill() <tag type="community">Community</tag>
+# time_bucket_gapfill() <Tag type="community">Community</Tag>
 
 The `time_bucket_gapfill` function works similar to `time_bucket` but also
 activates gap filling for the interval between `start` and `finish`. It can only
 be used with an aggregation query. Values outside of `start` and `finish` pass
 through but no gap filling is done outside of the specified range.
 
-<highlight type="important">
+<Highlight type="important">
 The `time_bucket_gapfill` function must be a top-level expression in a query or
 subquery, as shown in these examples. You cannot, for example, do something like
 `round(time_bucket_gapfill(...))` or cast the result of the gapfill call. The
 only exception is if you use it as a subquery, where the outer query does the
 type cast.
-</highlight>
+</Highlight>
 
 For more information about gapfilling and interpolation functions, see the
 [hyperfunctions documentation][hyperfunctions-gapfilling].

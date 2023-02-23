@@ -5,6 +5,7 @@ keywords: [schemas, tablepsaces]
 ---
 
 # About tablespaces
+
 Tablespaces are used to determine the physical location of the tables and
 indexes in your database. In most cases, you want to use faster storage to store
 data that is accessed frequently, and slower storage for data that is accessed
@@ -23,6 +24,7 @@ new disk. To see the tablespaces for you hypertable, use the
 command.
 
 ## How hypertable chunks are assigned tablespaces
+
 A hypertable can be partitioned in multiple dimensions, but only one of the
 dimensions is used to determine the tablespace assigned to a particular
 hypertable chunk. If a hypertable has one or more hash-partitioned, or space,
@@ -38,12 +40,12 @@ tablespaces, partition number three uses the first tablespace.
 Hypertables that are only time-partitioned add new partitions continuously, and
 therefore have chunks assigned to tablespaces in a way similar to round-robin.
 
-<highlight type="note">
+<Highlight type="note">
 It is possible to attach more tablespaces than there are partitions for the
 hypertable. In this case, some tablespaces remain unused until others are detached
 or additional partitions are added. This is especially true for hash-partitioned
 tables.
-</highlight>
+</Highlight>
 
 [attach_tablespace]: /api/:currentVersion:/hypertable/attach_tablespace/
 [detach_tablespace]: /api/:currentVersion:/hypertable/detach_tablespace/

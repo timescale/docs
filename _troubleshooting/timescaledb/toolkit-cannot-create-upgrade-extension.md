@@ -28,7 +28,7 @@ correctly in the first place. To correct the problem, install the upgrade
 package, restart PostgreSQL, verify the version, and then attempt the update
 again.
 
-<procedure>
+<Procedure>
 
 ### Troubleshooting TimescaleDB Toolkit setup
 
@@ -59,7 +59,7 @@ again.
 
 1.  Retry `CREATE EXTENSION` or `ALTER EXTENSION`.
 
-</procedure>
+</Procedure>
 
 [deb-install]: /install/:currentVersion:/self-hosted/installation-linux/
 [rhel-install]: /install/:currentVersion:/self-hosted/installation-linux/

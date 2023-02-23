@@ -46,11 +46,11 @@ SELECT * FROM timescaledb_information.chunks WHERE hypertable_name = 'metrics';
 Tiering a chunk schedules the chunk for migration to object storage. You can
 continue to query a chunk during migration.
 
-<highlight type="warning">
+<Highlight type="warning">
 There is currently no way to move a chunk back from object storage to primary
 storage. This capability, `untier_chunk`, is planned for a future beta
 release.
-</highlight>
+</Highlight>
 
 ## Automate chunk tiering with a data tiering policy
 

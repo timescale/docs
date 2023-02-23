@@ -43,13 +43,13 @@ For more information about getting your first service up and running, see the
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/mst-services.png" alt="Managed Service for TimescaleDB services list"/>
 
-<highlight type="important">
+<Highlight type="important">
 When you have created, and named, a new Managed Service for TimescaleDB service,
 you cannot rename it. If you need to have your service running under a different
 name, you need to create a new service, and manually migrate the data. For more
 information about migrating data, see
 [migrating your data](https://docs.timescale.com/mst/latest/migrate-to-mst/).
-</highlight>
+</Highlight>
 
 For information about billing on Managed Service for TimescaleDB, see the
 [billing section][mst-billing].
@@ -132,10 +132,10 @@ Either the node starts reporting that its own self-diagnostics is reporting
 problems or the node stops communicating entirely. The monitoring infrastructure
 automatically schedules a new replacement node to be created when this happens.
 
-<highlight type="note">
+<Highlight type="note">
 In case of database failover, the service URL of your service remains the same.
 Only the IP address changes to point at the new master node.
-</highlight>
+</Highlight>
 
 Managed Service for TimescaleDB availability features differ based on the service
 plan:
@@ -200,11 +200,11 @@ connection pooling to limit the number of connections. For more information
 about connection pooling, see the
 [connection pooling section][connection-pooling].
 
-<highlight type="note">
+<Highlight type="note">
 If you have a high number of connections to your database, your service might
 run more slowly, and could run out of memory. Remain aware of how many open
 connections your have to your database at any given time.
-</highlight>
+</Highlight>
 
 If you require a higher maximum number of connections, but cannot use connection
 pooling, contact the
@@ -223,11 +223,11 @@ To enable service termination protection, navigate to the service `Overview`
 tab. Locate the `Termination protection` section, and toggle to enable
 protection.
 
-<highlight type="important">
+<Highlight type="important">
 If you run out of free sign-up credit, and have not entered a valid credit card
 for payment, your service is powered down, even if you have enabled termination
 protection.
-</highlight>
+</Highlight>
 
 ## Idle connections
 

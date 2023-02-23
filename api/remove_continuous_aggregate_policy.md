@@ -9,7 +9,7 @@ api:
   type: function
 ---
 
-# remove_continuous_aggregate_policy() <tag type="community">Community</tag>
+# remove_continuous_aggregate_policy() <Tag type="community">Community</Tag>
 
 Remove the refresh policy from a continuous aggregate.
 
@@ -20,10 +20,10 @@ remove_continuous_aggregate_policy(
 ) RETURNS VOID
 ```
 
-<highlight type="note">
+<Highlight type="note">
 To view the existing continuous aggregate policies, see the [policies
 informational view](/api/latest/informational-views/policies/).
-</highlight>
+</Highlight>
 
 ## Required arguments
 
