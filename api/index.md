@@ -10,4 +10,4 @@ TimescaleDB provides many SQL functions and views to help you interact with and
 manage your data. See a full list below or search by keyword to find reference
 documentation for a specific API.
 
-<apiReference />
+<ApiReference />

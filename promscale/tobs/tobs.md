@@ -30,12 +30,12 @@ charts to configure and update [tobs][tobs] deployments.
 *   Install [kubectl][kubectl] in your local environment and [connect to your cluster][connect-to-cluster].
 *   Install [Helm 3][helm] in your local machine.
 *   Install a certificate manager for your cluster.
-   <highlight type="note">
+   <Highlight type="note">
    For the latest and updated instructions to install, see the
    [certificate manager](https://cert-manager.io/docs/installation/) documentation.
    If you plan to use tobs without OpenTelemetry support, you do not need to
    install certificate manager.
-   </highlight>
+   </Highlight>
 
 ## Installing Promscale with tobs
 
@@ -44,7 +44,7 @@ details for each of the applications, while providing observability for the
 applications running on your cluster. You can deploy tobs on your cluster and
 access it locally with `kubectl` [Port-Forward][port-forward].
 
-<procedure>
+<Procedure>
 
 1.  Create the `observability` namespace on your cluster:
 
@@ -68,11 +68,11 @@ access it locally with `kubectl` [Port-Forward][port-forward].
     kubectl -n observability get pods
     ```
 
-</procedure>
+</Procedure>
 
 ### Accessing the components with port-forward
 
-<procedure>
+<Procedure>
 
 You can use `kubectl` [port-forward][port-forward] to open a connection to a
 service, then access the service by entering the corresponding ports in your web browser.
@@ -114,7 +114,7 @@ service, then access the service by entering the corresponding ports in your web
    3000:80
    ```
 
-</procedure>
+</Procedure>
 
 When accessing Grafana, log in as `admin`. You can get the
 `password` using:

@@ -9,7 +9,7 @@ api:
   type: function
 ---
 
-# recompress_chunk() <tag type="community" content="Community" />
+# recompress_chunk() <Tag type="community" content="Community" />
 
 Recompresses a compressed chunk that had more data inserted after compression.
 
@@ -25,15 +25,15 @@ You can also recompress chunks by
 `recompress_chunk` gives you more fine-grained control by
 allowing you to target a specific chunk.
 
-<highlight type="important">
+<Highlight type="important">
 `recompress_chunk` is implemented as an SQL procedure and not a function. Call
 the procedure with `CALL`. Don't use a `SELECT` statement.
-</highlight>
+</Highlight>
 
-<highlight type="note">
+<Highlight type="note">
 `recompress_chunk` only works on chunks that have previously been compressed. To compress a
 chunk for the first time, use [`compress_chunk`](/api/latest/compression/compress_chunk/).
-</highlight>
+</Highlight>
 
 ## Required arguments
 

@@ -28,7 +28,7 @@ libraries, something that you can't do directly in a Lambda function or layer. A
 workaround to this issue is to download the
 [compiled version of the library][lambda-psycopg2] and use that as a Lambda Layer.
 
-<procedure>
+<Procedure>
 
 ### Adding the psycopg2 library as a Lambda layer
 
@@ -62,7 +62,7 @@ workaround to this issue is to download the
     as a Lambda layer:
     ![aws layers](https://assets.timescale.com/docs/images/tutorials/aws-lambda-tutorial/layers.png)
 
-</procedure>
+</Procedure>
 
 ## Create a function to fetch and return data from the database
 
@@ -70,7 +70,7 @@ When the layer is available to your Lambda function, you can create an API to
 return data from the database. This section shows you how to create the Python
 function that returns data from the database and uploads it to AWS Lambda.
 
-<procedure>
+<Procedure>
 
 ### Creating a function to fetch and return data from the database
 
@@ -122,14 +122,14 @@ function that returns data from the database and uploads it to AWS Lambda.
       }
       ```
 
-</procedure>
+</Procedure>
 
 ## Upload the function in AWS Lambda
 
 When you have created the function, you can zip the Python file and upload it to
 Lambda using the `create-function` AWS command.
 
-<procedure>
+<Procedure>
 
 ## Uploading the function to AWS Lambda
 
@@ -159,15 +159,16 @@ Lambda using the `create-function` AWS command.
     aws lambda update-function-code --function-name simple_api_function --zip-file fileb://function.zip
     ```
 
-</procedure>
+</Procedure>
 
 ## Add database configuration to AWS Lambda
+
 Before you can use the functions, you need to ensure it can connect to the
 database. In the Python code above, you specified retrieving values from
 environment variables, and you also need to specify these within the Lambda
 environment.
 
-<procedure>
+<Procedure>
 
 ### Adding database configuration to AWS Lambda with environment variables
 
@@ -203,14 +204,14 @@ environment.
           'DB_NAME': os.environ['DB_NAME']}
     ```
 
-</procedure>
+</Procedure>
 
 ## Test the database connection
 
 When your function code is uploaded along with the database connection details,
 you can check to see if it retrieves the data you expect it to.
 
-<procedure>
+<Procedure>
 
 ### Testing the database connection
 
@@ -257,7 +258,7 @@ you can check to see if it retrieves the data you expect it to.
     }
     ```
 
-</procedure>
+</Procedure>
 
 ## Create a new API gateway
 
@@ -265,7 +266,7 @@ Now that you have confirmed that the Lambda function works, you can create the
 API gateway. In AWS terms, you are setting up a
 [custom Lambda integration][custom-lambda-integration].
 
-<procedure>
+<Procedure>
 
 ### Creating a new API gateway
 
@@ -367,7 +368,7 @@ API gateway. In AWS terms, you are setting up a
     aws apigateway create-deployment --rest-api-id <API_ID> --stage-name test
     ```
 
-</procedure>
+</Procedure>
 
 ## Test the API
 
@@ -403,7 +404,7 @@ When you have created the `GET` API for your database, you can
 create a `POST` API. This allows you to insert data into the database
 with a JSON payload.
 
-<procedure>
+<Procedure>
 
 ### Creating a Lambda function to insert data into the database
 
@@ -540,7 +541,7 @@ with a JSON payload.
     aws apigateway create-deployment --rest-api-id <API_ID> --stage-name test_post_api
     ```
 
-</procedure>
+</Procedure>
 
 ### Test the API with a JSON payload
 

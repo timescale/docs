@@ -15,10 +15,10 @@ import PromscaleDeprecation from "versionContent/_partials/_deprecated-promscale
 Promscale provides several methods for deleting data. You can delete metric data
 by series, by metric name, or by time. You can also delete trace data.
 
-<highlight type="warning">
+<Highlight type="warning">
 There is no way to undo data deletion. If you need to restore your data,
 you must restore from backup.
-</highlight>
+</Highlight>
 
 Additionally, you can have data automatically deleted by setting retention
 policies. For more information about Promscale retention policies, see the
@@ -33,11 +33,11 @@ labels. This works the same as the Prometheus `delete` HTTP API endpoint, except
 that you need to enable permissions for advanced users. Do this by setting the
 [`web-enable-admin-api`][web-enable-admin-api] flag to `true`.
 
-<highlight type="note">
+<Highlight type="note">
 The `start` and `end` timestamp options are not currently supported. The
 `delete_series` HTTP API endpoint lets you delete the metric series only across an
 entire time range.
-</highlight>
+</Highlight>
 
 This URL query uses a repeated label matcher argument that selects the metric series
 to delete. You need to provide at least one `match[]` argument:
@@ -142,11 +142,11 @@ You can delete all trace data from the database using the
 default state, truncates the tables in the `_ps_trace` schema, and deletes all
 the data. You can only run the function when the Promscale Connector is not
 running.
-<highlight type="note">
+<Highlight type="note">
 To run this function: first stop the Promscale Connector, then connect to the
 database and run `SELECT ps_trace.delete_all_traces();`, finally start the
 Promscale Connector.
-</highlight>
+</Highlight>
 
 [retention]: /promscale/:currentVersion:/manage-data/retention/
 [web-enable-admin-api]: /promscale/:currentVersion:/cli/#web-server-flags

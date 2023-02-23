@@ -24,10 +24,10 @@ version. To do this, use this command:
 ALTER EXTENSION timescaledb UPDATE;
 ```
 
-<highlight type="important">
+<Highlight type="important">
 After a maintenance update, the DNS name remains the same, but the IP address
 it points to changes.
-</highlight>
+</Highlight>
 
 ## Non-critical maintenance updates
 
@@ -47,7 +47,7 @@ impact of a short service interruption. Alternatively, you might prefer to have
 your maintenance window occur during office hours, so that you can monitor your
 system during the upgrade.
 
-<procedure>
+<Procedure>
 
 ### Adjusting your maintenance window
 
@@ -60,7 +60,7 @@ system during the upgrade.
     <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/mst-maintwindow.png" alt="Adjust maintenance window"/>
 1.  Click `Save Changes`.
 
-</procedure>
+</Procedure>
 
 ## Critical updates
 

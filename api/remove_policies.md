@@ -12,7 +12,7 @@ api:
 import Experimental from "versionContent/_partials/_experimental.mdx";
 
 <!-- markdownlint-disable-next-line line-length -->
-# remove_policies() <tag type="community" content="Community" /><tag type="experimental" content="Experimental" />
+# remove_policies() <Tag type="community" content="Community" /><Tag type="experimental" content="Experimental" />
 
 Remove refresh, compression, and data retention policies from a continuous
 aggregate. The removed compression and retention policies apply to the

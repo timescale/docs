@@ -21,7 +21,7 @@ that allow you to query and visualize data from a compatible database.
 You can configure a TimescaleDB service as a data source to a Grafana service
 to query and visualize the data from the database.
 
-<procedure>
+<Procedure>
 
 ### Configuring Managed Service for TimescaleDB as a data source
 
@@ -44,7 +44,7 @@ to query and visualize the data from the database.
 1.  Navigate to `Configuration` → `Data sources`. The data sources page lists
     Managed Service for TimescaleDB as a configured data source for the Grafana instance.
 
-</procedure>
+</Procedure>
 
 When you have configured Managed Service for TimescaleDB as a data source in
 Grafana, you can create panels that are populated with data using SQL.

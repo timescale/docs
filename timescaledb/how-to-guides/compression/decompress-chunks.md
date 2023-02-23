@@ -13,12 +13,12 @@ operation, you should first decompress the chunk. Inserting data into a
 compressed chunk is more computationally expensive than inserting data into an
 uncompressed chunk. This adds up over a lot of rows.
 
-<highlight type="important">
+<Highlight type="important">
 When compressing your data, you can reduce the amount of storage space for your
 TimescaleDB instance. But you should always leave some additional storage
 capacity. This gives you the flexibility to decompress chunks when necessary,
 for actions such as bulk inserts.
-</highlight>
+</Highlight>
 
 This section describes commands to use for decompressing chunks. You can filter
 by time to select the chunks you want to decompress. To learn how to backfill

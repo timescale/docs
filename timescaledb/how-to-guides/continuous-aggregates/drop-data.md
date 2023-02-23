@@ -25,7 +25,7 @@ You can drop a continuous aggregate view using the `DROP MATERIALIZED VIEW`
 command. This command also removes refresh policies defined on the continuous
 aggregate. It does not drop the data from the underlying hypertable.
 
-<procedure>
+<Procedure>
 
 ### Dropping a continuous aggregate view
 
@@ -35,7 +35,7 @@ aggregate. It does not drop the data from the underlying hypertable.
     DROP MATERIALIZED VIEW view_name;
     ```
 
-</procedure>
+</Procedure>
 
 ## Drop raw data from a hypertable
 

@@ -18,19 +18,19 @@ compressed chunks can't be refreshed.
 If you receive historical data and need to refresh a compressed chunk, see
 [the troubleshooting guide][troubleshooting].
 
-<highlight type="warning">
+<Highlight type="warning">
 You can't refresh the compressed regions of a continuous aggregate. To avoid
 conflicts between compression and refresh, make sure you set `compress_after`
 to a larger interval than the `start_offset` of your
 [refresh policy](/api/latest/continuous-aggregates/add_continuous_aggregate_policy).
-</highlight>
+</Highlight>
 
 ## Enable compression on continuous aggregates
 
 You can enable and disable compression on continuous aggregates by setting the
 `compress` parameter when you alter the view.
 
-<procedure>
+<Procedure>
 
 ### Enabling and disabling compression on continuous aggregates
 
@@ -47,7 +47,7 @@ You can enable and disable compression on continuous aggregates by setting the
     ALTER MATERIALIZED VIEW cagg_name set (timescaledb.compress = false);
     ```
 
-</procedure>
+</Procedure>
 
 Disabling compression on a continuous aggregate fails if there are compressed
 chunks associated with the continuous aggregate. In this case, you need to

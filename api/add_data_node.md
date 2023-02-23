@@ -9,7 +9,7 @@ api:
   type: function
 ---
 
-# add_data_node() <tag type="community">Community</tag>
+# add_data_node() <Tag type="community">Community</Tag>
 
 Add a new data node on the access node to be used by distributed
 hypertables. The data node is automatically used by distributed

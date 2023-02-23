@@ -17,7 +17,7 @@ hyperfunction:
     - ohlc()
 ---
 
-# rollup <tag type="toolkit" content="Toolkit" /><tag type="experimental-toolkit" content="Experimental" />
+# rollup <Tag type="toolkit" content="Toolkit" /><Tag type="experimental-toolkit" content="Experimental" />
 
 import Experimental from 'versionContent/_partials/_experimental.mdx';
 

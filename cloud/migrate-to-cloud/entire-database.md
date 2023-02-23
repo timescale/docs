@@ -13,7 +13,7 @@ This method works best on databases smaller than 100&nbsp;GB. For larger
 databases, consider [migrating your schema and data
 separately][migrate-separately].
 
-<highlight type="warning">
+<Highlight type="warning">
 Depending on your database size and network speed, migration can take a very
 long time. You can continue reading from your source database during this time,
 though performance could be slower. To avoid this problem, fork your database
@@ -21,7 +21,7 @@ and migrate your data from the fork. If you write to tables in your source
 database during the migration, the new writes might not be transferred to
 Timescale Cloud. To avoid this problem, see the section on [migrating an active
 database](http://docs.timescale.com/cloud/latest/migrate-to-cloud/#migrate-an-active-database).
-</highlight>
+</Highlight>
 
 ## Prerequisites
 
@@ -46,15 +46,15 @@ Before you begin, check that you have:
     Timescale Cloud and your source database. For more information, see the
     [upgrading TimescaleDB section][upgrading-timescaledb].
 
-<highlight type="note">
+<Highlight type="note">
 To speed up migration, compress your data. You can compress any chunks where
 data is not being currently inserted, updated, or deleted. When you finish the
 migration, you can decompress chunks as needed for normal operation. For more
 information about compression and decompression, see the
 [compression section](https://docs.timescale.com/timescaledb/latest/how-to-guides/compression/).
-</highlight>
+</Highlight>
 
-<procedure>
+<Procedure>
 
 ### Migrating the entire database at once
 
@@ -109,7 +109,7 @@ information about compression and decompression, see the
     ANALYZE;
     ```
 
-</procedure>
+</Procedure>
 
 ## Troubleshooting
 

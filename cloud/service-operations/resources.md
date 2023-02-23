@@ -25,19 +25,19 @@ disk. For more information about autoscaling, including instructions for setting
 the maximum limit, or turning autoscaling off, see the
 [autoscaling][autoscaling] section.
 
-<highlight type="cloud" header="Sign up for Timescale Cloud" button="Try for free">
-</highlight>
+<Highlight type="cloud" header="Sign up for Timescale Cloud" button="Try for free">
+</Highlight>
 
 ## Online storage resizing
 
 You can increase your storage size in the Timescale Cloud console.
 
-<highlight type="warning">
+<Highlight type="warning">
 You can only increase your service's storage once every six hours, and you
 cannot currently decrease your storage size once set.
-</highlight>
+</Highlight>
 
-<procedure>
+<Procedure>
 
 ### Increasing service resources
 
@@ -56,7 +56,7 @@ cannot currently decrease your storage size once set.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-resources-changed.png" alt="Timescale Cloud change resources"/>
 
-</procedure>
+</Procedure>
 
 ## Storage recovery
 
@@ -65,14 +65,14 @@ can turn off read-only mode. For example, you need read-write access if you want
 to compress data, delete rows or tables, or drop old data using data retention
 policies.
 
-<highlight type="warning">
+<Highlight type="warning">
 Do not manually enable read-write access on a database that is over 99%
 capacity. Increase the disk size before you enable read-write access.
 Alternatively, you can enable read-write access on an individual session, while
 leaving the database in read-only mode.
-</highlight>
+</Highlight>
 
-<procedure>
+<Procedure>
 
 ### Enabling read-write access on an individual session
 
@@ -100,7 +100,7 @@ leaving the database in read-only mode.
     SELECT add_compression_policy('<table_name>', interval '1 day');
     ```
 
-</procedure>
+</Procedure>
 
 As soon as the storage consumption drops below the threshold, the read-only
 protection is automatically removed, and you can start writing data again.

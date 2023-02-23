@@ -7,6 +7,7 @@ tags: [connection pools, pgbouncer]
 ---
 
 # Connection pools
+
 When you connect to your database, you consume server resources. If you have a
 lot of connections to your database, you can consume a lot of server resources.
 One way to mitigate this is to use connection pooling, which allows you to have
@@ -36,12 +37,15 @@ connections to aim for is three to five times the available CPU cores, depending
 on your workload.
 
 ## Connection pooling modes
+
 There are several different pool modes:
+
 *   Transaction (default)
 *   Session
 *   Statement
 
 ### Transaction pooling mode
+
 This is the default pooling mode. It allows each client connection to take turns
 using a backend connection during a single transaction. When the transaction is
 committed, the backend connection is returned back into the pool and the next
@@ -50,6 +54,7 @@ quick response times for queries as long as the most transactions are performed
 quickly. This is the most commonly used mode.
 
 ### Session pooling mode
+
 This mode holds a client connection until the client disconnects. When the
 client disconnects, the server connection is returned back into the connection
 pool free connection list, to wait for the next client connection. Client
@@ -61,6 +66,7 @@ useful in most common scenarios because the backend connections are recycled
 very slowly.
 
 ### Statement pooling mode
+
 This mode is similar to the transaction pool mode, except that instead of
 allowing a full transaction to be run, it cycles the server side connections
 after each and every database statement (SELECT, INSERT, UPDATE, DELETE, for
@@ -69,13 +75,15 @@ this mode. This mode is best suited to specialized workloads that use sharding
 front-end proxies.
 
 ## Set up a connection pool
+
 You can set up a connection pool from the Managed Service for TimescaleDB
 portal. Make sure you have already created a service that you want to add
 connection pooling to.
 
-<procedure>
+<Procedure>
 
 ### Setting up a connection pool
+
 1.  In the MST portal, navigate to the
     `Services` list, and click the name of the service you want to add connection pooling to.
 1.  In the `Service overview` page, navigate to the `Pools` tab. When you have
@@ -97,9 +105,9 @@ connection pooling to.
     the list. You can click `Info` next to the pool details to see more
     information, including the URI and port details.
 
-</procedure>
+</Procedure>
 
-<highlight type="note">
+<Highlight type="note">
 Pooled servers use a different port number than regular servers. This allows you
 to use both pooled and un-pooled connections at the same time.
-</highlight>
+</Highlight>

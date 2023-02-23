@@ -34,7 +34,7 @@ You can use one of these methods to import dashboards:
 
 ## Install the TimescaleDB toolkit extension
 
-<procedure>
+<Procedure>
 
 ### Installing the TimescaleDB toolkit extension
 
@@ -54,14 +54,14 @@ You can use one of these methods to import dashboards:
    CREATE EXTENSION timescaledb_toolkit;
    ```
 
-</procedure>
+</Procedure>
 
 ## Import dashboards from the Grafana community
 
 [Grafana community dashboards][promscale-grafana-dashboards] contain all the
 dashboards published by Promscale.
 
-<procedure>
+<Procedure>
 
 ### Importing dashboards from the Grafana community
 
@@ -81,14 +81,14 @@ dashboards published by Promscale.
       as `Promscale-Tracing`.
 1.  Click `Import`.
 
-</procedure>
+</Procedure>
 
 ## Import dashboards as JSON files
 
 [Promscale dashboards][promscale-github-dashboards] repository contains all the
 dashboards published by Promscale.
 
-<procedure>
+<Procedure>
 
 ### Importing dashboards as JSON files
 
@@ -107,7 +107,7 @@ dashboards published by Promscale.
       as `Promscale-Tracing`.
 1.  Click `Import`.
 
-</procedure>
+</Procedure>
 
 [promscale-grafana-dashboards]: https://grafana.com/orgs/promscale/dashboards
 [promscale-as-jaeger]: /promscale/:currentVersion:/visualize-data/grafana/#configure-promscale-as-jaeger-data-source

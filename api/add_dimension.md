@@ -15,11 +15,11 @@ Add an additional partitioning dimension to a TimescaleDB hypertable.
 The column selected as the dimension can either use interval
 partitioning (for example, for a second time partition) or hash partitioning.
 
-<highlight type="warning">
+<Highlight type="warning">
 The `add_dimension` command can only be executed after a table has been
 converted to a hypertable (via `create_hypertable`), but must similarly
 be run only on an empty hypertable.
-</highlight>
+</Highlight>
 
 **Space partitions**: Using space partitions is highly recommended
 for [distributed hypertables][distributed-hypertables] to achieve
@@ -123,12 +123,12 @@ the column's underlying semantics (for example, the
 `chunk_time_interval` should be given in milliseconds if this column
 is the number of milliseconds since the UNIX epoch).
 
-<highlight type="warning">
+<Highlight type="warning">
  Supporting more than **one** additional dimension is currently
  experimental. For any production environments, users are recommended
  to use at most one "space" dimension.
 
-</highlight>
+</Highlight>
 
 ### Sample use
 

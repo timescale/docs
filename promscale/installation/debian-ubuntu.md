@@ -26,7 +26,7 @@ To use Promscale you need a TimescaleDB database, as well as the Promscale
 extension. The Promscale extension contains support functions to improve
 the performance of Promscale.
 
-<procedure>
+<Procedure>
 
 ### Installing TimescaleDB and Promscale extension
 
@@ -40,7 +40,7 @@ the performance of Promscale.
 
     <PromscalePgSupportedVersions />
 
-</procedure>
+</Procedure>
 
 ## Install the Promscale connector
 

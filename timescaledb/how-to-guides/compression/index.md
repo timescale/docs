@@ -5,6 +5,7 @@ keywords: [compression, hypertables]
 ---
 
 # Compression
+
 Time-series data can be compressed to reduce the amount of storage required, and
 increase the speed of some queries. This is a cornerstone feature of
 TimescaleDB. When new data is added to your database, it is in the form of
@@ -24,9 +25,9 @@ hypertables.
 *   [Backfill historical data][backfill-historical] to insert a batch of data into a compressed chunk.
 *   [Modify schema][modify-schema] to modify the table definition for a hypertable with compressed chunks.
 
-<highlight type="warning">
+<Highlight type="warning">
 Compression alters data on your disk, so always back up before you start!
-</highlight>
+</Highlight>
 
 [backfill-historical]: /timescaledb/:currentVersion:/how-to-guides/compression/backfill-historical-data
 [compression]: /timescaledb/:currentVersion:/how-to-guides/compression/about-compression

@@ -28,7 +28,7 @@ Users who can manage existing services can create databases and connect to them,
 on a service that already exists. To create a new service, users need the start
 and stop services permission.
 
-<procedure>
+<Procedure>
 
 ### Adding project members
 
@@ -46,7 +46,7 @@ and stop services permission.
     list. You can edit a member role by selecting a new role in the list. You
     can delete a member by clicking the delete icon in the list.
 
-</procedure>
+</Procedure>
 
 ## Service users
 
@@ -67,11 +67,11 @@ This allows you to use the `tsdbadmin` user to create another user with any
 other roles. For a complete list of roles available, see the
 [PostgreSQL role attributes documentation][pg-roles-doc].
 
-<highlight type="important">
+<Highlight type="important">
 Your service must be running before you can manage users.
-</highlight>
+</Highlight>
 
-<procedure>
+<Procedure>
 
 ### Adding service users
 
@@ -88,7 +88,7 @@ Your service must be running before you can manage users.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/mst-serviceuser.png" alt="Add a new MST service user"/>
 
-</procedure>
+</Procedure>
 
 ## Multi-factor user authentication
 
@@ -105,7 +105,7 @@ Before you begin, install the Google Authenticator app on your mobile device.
 For more information, and installation instructions, see
 [the Google Authenticator documentation][install-google-authenticator].
 
-<procedure>
+<Procedure>
 
 ### Configuring multi-factor authentication
 
@@ -122,15 +122,15 @@ For more information, and installation instructions, see
     code provided by the Google Authenticator app, and click
     `Enable Two-Factor Auth`.
 
-</procedure>
+</Procedure>
 
-<highlight type="warning">
+<Highlight type="warning">
 If you lose access to the mobile device you use for multi-factor
 authentication, you cannot sign in to your Managed Service for TimescaleDB
 account. To regain access to your account, on the login screen, click
 `Forgot password?` and follow the step to reset your password. When you have
 regained access to your account, reconfigure multi-factor authentication.
-</highlight>
+</Highlight>
 
 ## User authentication tokens
 
@@ -158,7 +158,7 @@ an extension policy. Generating authentication tokens in this way allows you to
 use them with monitoring applications that make automatic API calls to Managed
 Service for TimescaleDB.
 
-<highlight type="important">
+<Highlight type="important">
 There is a limit to how many valid authentication tokens are allowed per user.
 This limit is different for tokens that are created as a result of a sign in
 operation, and for tokens created explicitly. For automatically created tokens,
@@ -169,7 +169,7 @@ working, even though they haven't expired or been revoked. To avoid this, make
 sure you sign out at the end of every user session, instead of just discarding
 your authentication token. This is especially important for automation tools
 that automatically sign in.
-</highlight>
+</Highlight>
 
 [mst-login]: https://portal.managed.timescale.com
 [pg-roles-doc]: https://www.postgresql.org/docs/current/role-attributes.html

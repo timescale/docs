@@ -10,7 +10,7 @@
 	 	"scope": "markdown",
 	 	"prefix": ["api"],
 	 	"body": [
-	 		"# ${1:api_call}() <tag type=\"$2\" content=\"$3\" />",
+	 		"# ${1:api_call}() <Tag type=\"$2\" content=\"$3\" />",
 			 "${4:<!--Single sentence description of the API call-->}",
              "```${5:sql}",
              "${6:FIXME: Syntax example}",

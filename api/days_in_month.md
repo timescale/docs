@@ -14,7 +14,7 @@ hyperfunction:
   type: one-step operation
 ---
 
-# days_in_month() <tag type="toolkit" content="Toolkit" /><tag type="experimental" content="Experimental" />
+# days_in_month() <Tag type="toolkit" content="Toolkit" /><Tag type="experimental" content="Experimental" />
 
 Given a timestamptz, returns how many days are in that month.
 

@@ -9,7 +9,7 @@ api:
   type: function
 ---
 
-# remove_reorder_policy() <tag type="community">Community</tag>
+# remove_reorder_policy() <Tag type="community">Community</Tag>
 
 Remove a policy to reorder a particular hypertable.
 

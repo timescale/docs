@@ -22,30 +22,30 @@ project. The price charged for your project includes:
 *   Backups
 *   Setting up
 
-<highlight type="note">
+<Highlight type="note">
 Managed Service for TimescaleDB does not charge you for network traffic used by
 your service. However, your application cloud service provider might charge you
 for the network traffic going to or from your service.
-</highlight>
+</Highlight>
 
 Terminating or powering a service down stops the accumulation of new charges
 immediately. However, the minimum hourly charge unit is one hour. For example,
 if you launch a Managed Service for TimescaleDB service and shut it down after
 40 minutes, you are charged for one full hour.
 
-Migrating to different service plan levels does not incur extra charges for the 
-migration itself. Note, though, that some service plan levels are more costly 
+Migrating to different service plan levels does not incur extra charges for the
+migration itself. Note, though, that some service plan levels are more costly
 per hour, and your new service is charged at the new rate.
 
 Migrating a service to another cloud region or different cloud provider does not
 incur extra charges.
 
-<highlight type="note">
+<Highlight type="note">
 All prices listed for Managed Service for TimescaleDB are inclusive of credit
 card and processing fees. However, in some cases, your credit card provider
 might charge additional fees, such as an international transaction fee. These
 fees are not charged by Timescale or Aiven.
-</highlight>
+</Highlight>
 
 ## Taxation
 

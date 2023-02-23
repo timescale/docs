@@ -49,13 +49,13 @@ This tutorial shows you how to:
 
 Check out this video for a step-by-step walk-through on creating
 candlestick visualizations in Grafana:
-<video url="https://www.youtube-nocookie.com/embed/08CydeL9lIk"/>
+<Video url="https://www.youtube-nocookie.com/embed/08CydeL9lIk"/>
 
 ## Create a candlestick with raw data
 
 Create a candlestick visualization using the raw data in the table `stocks_real_time`.
 
-<procedure>
+<Procedure>
 
 ### Creating a candlestick with raw data
 
@@ -93,7 +93,7 @@ Create a candlestick visualization using the raw data in the table `stocks_real_
        hyperfunctions to query the `stock_real_time` table, with a bucket
        interval of 1 minute.
 
-</procedure>
+</Procedure>
 
 Retrieving this data took about 7+ seconds, over two weeks of data which is
 probably slower than most users would expect when analyzing data. This is where
@@ -102,7 +102,7 @@ applications.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/candlestick/raw_data_exec_time.png" alt="Screenshot of the Grafana query response."/>
 
-<procedure>
+<Procedure>
 
   When you use the `$bucket_interval` variable, you can switch intervals. For
   example, switching to a 15 minute bucket interval gives you this data.
@@ -117,7 +117,7 @@ applications.
 
 The query execution took more than 6 seconds. To decrease query execution time to sub-seconds, use continuous aggregates. See the how-to guide on [continuous aggregrates][continuous-aggregrate] to learn more.
 
-</procedure>
+</Procedure>
 
 ## Show transaction volumes in a candlestick plot
 
@@ -130,7 +130,7 @@ First, find the maximum `day_volume` value for a symbol within a bucket.
 Then, subtract each maximum from the previous bucket's maximum. The
 difference gives the traded volume for that bucket.
 
-<procedure>
+<Procedure>
 
 ### Showing transaction volumes in a candlestick plot
 
@@ -160,7 +160,7 @@ difference gives the traded volume for that bucket.
 
     At the bottom of the plot, you see the trade volume for each time bucket.
 
-</procedure>
+</Procedure>
 
 In conclusion, candlestick charts are a great way to visualize financial data.
 This tutorial shows you how to use TimescaleDB to generate candlestick values

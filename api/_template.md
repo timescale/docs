@@ -1,4 +1,4 @@
-# api_call() <tag type="FIXME" content="FIXME" />
+# api_call() <Tag type="FIXME" content="FIXME" />
 <!--Single sentence description of the API call-->
 ```sql
 FIXME: Syntax example
@@ -7,9 +7,9 @@ FIXME: Syntax example
 <!--Any special notes about the API call-->
 
 <!---
-<highlight type="note"
+<Highlight type="note"
 Use a highlight for any important information. Choose `note`, `important`, or `warning`.
-</highlight>
+</Highlight>
 -->
 
 For more information about `api_call`, see the [ docs][].
@@ -50,6 +50,5 @@ For more information about `api_call`, see the [ docs][].
 ``` sql
 <FIXME>
 ```
-
 
 [link_ref]: timescaledb/:currentVersion:/how-to-guides/<FIXME>/

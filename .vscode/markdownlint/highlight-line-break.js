@@ -21,8 +21,8 @@ const {
  */
 const checkHighlightLineBreak = (params, onError) => {
   const { lines } = params;
-  const openingPattern = "<highlight[^<]*>";
-  const closingPattern = "<\\/highlight>";
+  const openingPattern = "<Highlight[^<]*>";
+  const closingPattern = "<\\/Highlight>";
   const openingTags = findPatternInLines(lines, openingPattern);
   const closingTags = findPatternInLines(lines, closingPattern);
 

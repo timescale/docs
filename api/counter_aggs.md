@@ -17,16 +17,16 @@ Some hyperfunctions are included in the default TimescaleDB product. For
 additional hyperfunctions, you need to install the
 [Timescale Toolkit][install-toolkit] PostgreSQL extension.
 
-<hyperfunctionTable
+<HyperfunctionTable
     hyperfunctionFamily='metric aggregation'
     includeExperimental
     sortByType
 />
 
-<highlight type="important">
+<Highlight type="important">
 All accessors can be used with `CounterSummary`, and all but `num_resets`
 with `GaugeSummary`.
-</highlight>
+</Highlight>
 
 [hyperfunctions-counter-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation/
 [install-toolkit]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/install-toolkit

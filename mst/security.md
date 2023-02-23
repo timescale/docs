@@ -101,7 +101,7 @@ used to simplify initial set up of your service. It is highly recommended that
 you restrict the IP addresses that are allowed to establish connections to your
 services.
 
-<procedure>
+<Procedure>
 
 ### Configure allowed incoming IP addresses for your service
 
@@ -122,7 +122,7 @@ services.
 
    <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/mst-allowed-incomingip.png" alt="Add a new allowed incoming IP address for Managed Service for TimescaleDB services"/>
 
-</procedure>
+</Procedure>
 
 ## Networking with VPC peering
 

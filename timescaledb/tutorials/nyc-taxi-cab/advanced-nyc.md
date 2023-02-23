@@ -29,13 +29,13 @@ with PostGIS. Once you have done that, you can construct a query to return the
 number of rides on New Year's Day that originated in Times Square, by 30-minute
 buckets.
 
-<procedure>
+<Procedure>
 
 ### Finding how many rides on New Year's Day 2016 originated from Times Square
 
-<highlight type="note">
+<Highlight type="note">
 Times Square is located at (40.7589,-73.9851).
-</highlight>
+</Highlight>
 
 1.  Connect to the Timescale Cloud database that contains the NYC taxi dataset.
 1.  At the psql prompt, add the PostGIS extension:
@@ -89,6 +89,6 @@ Times Square is located at (40.7589,-73.9851).
      2016-01-01 02:00:00 |           112
     ```
 
-</procedure>
+</Procedure>
 
 [postgis]: http://postgis.net/

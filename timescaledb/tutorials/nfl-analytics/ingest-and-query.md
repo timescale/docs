@@ -220,9 +220,9 @@ you'll need to aggregate data from the `tracking` table, which
 contains multiple rows per player for each play (because the data is sampled
 multiple times per second during each play)
 
-<highlight type="important">
+<Highlight type="important">
 These queries are examples of hyperfunctions. To access hyperfunctions, you need to have installed the  [Timescale toolkit](https://docs.timescale.com/timescaledb/latest/how-to-guides/install-timescaledb-toolkit/) before you begin.
-</highlight>
+</Highlight>
 
 ### Number of yards run in game for passing plays, by player and game
 

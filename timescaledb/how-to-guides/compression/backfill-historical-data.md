@@ -17,14 +17,14 @@ you through these steps:
 1.  Re-enabling the compression policy. This re-compresses the chunks you worked
     on.
 
-<highlight type="note">
+<Highlight type="note">
 This section shows you how to bulk backfill data using a temporary table.
 Temporary tables only exist for the duration of the database session, and then
 are automatically dropped. If you backfill regularly, you might prefer to use a
 regular table instead, so that multiple writers can insert into the table at the
 same time. In this case, after you are done backfilling the data, clean up by
 truncating your table in preparation for the next backfill.
-</highlight>
+</Highlight>
 
 ## Backfill with a supplied function
 
@@ -33,7 +33,7 @@ To make backfilling easier, you can use the
 [TimescaleDB extras][timescaledb-extras] GitHub repository. In particular, the
 `decompress_backfill` procedure automates many of the backfilling steps for you.
 
-<procedure>
+<Procedure>
 
 ### Backfilling with a supplied function
 
@@ -57,14 +57,14 @@ To make backfilling easier, you can use the
     );
     ```
 
-</procedure>
+</Procedure>
 
 ## Backfill manually
 
 If you don't want to use a supplied function, you can perform the steps
 manually.
 
-<procedure>
+<Procedure>
 
 ### Backfilling manually
 
@@ -113,7 +113,7 @@ manually.
     CALL run_job(<job_id>);
     ```
 
-</procedure>
+</Procedure>
 
 [timescaledb-extras]: https://github.com/timescale/timescaledb-extras
 [timescaledb-extras-backfill]: https://github.com/timescale/timescaledb-extras/blob/master/backfill.sql
