@@ -33,13 +33,13 @@ you need to.
     installation uses.
 *   [Troubleshoot][upgrade-tshoot] upgrading.
 
-<highlight type="cloud" header="Upgrade automatically" button="Try Timescale Cloud for free">
+<Highlight type="cloud" header="Upgrade automatically" button="Try Timescale Cloud for free">
 Timescale Cloud avoids the manual work involved in updating your TimescaleDB
 version. Upgrades take place automatically during a maintenance window picked by
 you.
 [Learn more](https://docs.timescale.com/cloud/latest/service-operations/maintenance/)
 about automatic version upgrades in Timescale Cloud.
-</highlight>
+</Highlight>
 
 [about-upgrades]: /timescaledb/:currentVersion:/how-to-guides/upgrades/about-upgrades/
 [downgrade]: /timescaledb/:currentVersion:/how-to-guides/upgrades/downgrade/

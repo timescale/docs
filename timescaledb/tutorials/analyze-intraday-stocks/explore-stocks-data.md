@@ -7,10 +7,10 @@ tags: [candlestick]
 
 # Explore stock market data
 
-When you've successfully collected 1-min intraday stock data, it's time to have some fun and explore the 
+When you've successfully collected 1-min intraday stock data, it's time to have some fun and explore the
 data.
 
-Because of the high granularity of the dataset, there are numerous ways to explore it. For example, you could analyze stock prices and volumes on a minute-by-minute basis. With TimescaleDB, you could also bucket records into custom intervals (for example, 2 min or 15 min) using TimescaleDB aggregate functions. 
+Because of the high granularity of the dataset, there are numerous ways to explore it. For example, you could analyze stock prices and volumes on a minute-by-minute basis. With TimescaleDB, you could also bucket records into custom intervals (for example, 2 min or 15 min) using TimescaleDB aggregate functions.
 
 Let's see how it's done!
 
@@ -18,15 +18,16 @@ Let's see how it's done!
 
 To get started with data exploration, you need to install a couple of tools first:
 
-* [Pandas][pandas-docs], to query and structure the data (this is already installed if you have completed the steps in the previous sections)
-* [Plotly][plotly-docs], to create visualizations quickly
+*   [Pandas][pandas-docs], to query and structure the data (this is already installed if you have completed the steps in the previous sections)
+*   [Plotly][plotly-docs], to create visualizations quickly
 
 **Install both**
+
 ```bash
 pip install plotly pandas
 ```
 
-When you have those installed, you need to open a new Python file, or use a Jupyter notebook to 
+When you have those installed, you need to open a new Python file, or use a Jupyter notebook to
 start exploring the dataset.
 
 ## Establish database connection
@@ -42,26 +43,26 @@ conn = psycopg2.connect(database=config.DB_NAME,
                         port=config.DB_PORT)
 ```
 
-In each data exploration script, you need to reference this connection object to be able to 
+In each data exploration script, you need to reference this connection object to be able to
 query the database.
 
 ## Generate stock market insights
 
-Let's start off analyzing trading volumes, then have a look at weekly price points, and finally, dig deep on 
+Let's start off analyzing trading volumes, then have a look at weekly price points, and finally, dig deep on
 price changes. The results of the queries shown are visualized using Plotly.
 
-<highlight type="tip">
-Let these queries serve as inspiration to you, and feel free to change things up, like the analyzed `bucket`, 
+<Highlight type="tip">
+Let these queries serve as inspiration to you, and feel free to change things up, like the analyzed `bucket`,
 the `symbol` or other parts of the query. Have fun!
-</highlight>
+</Highlight>
 
-1. Which symbols have the highest transaction volumes?
-1. How did Apple's trading volume change over time?
-1. How did Apple's stock price change over time?
-1. Which symbols had the highest weekly gains?
-1. Weekly FAANG prices over time?
-1. Weekly price changes of Apple, Facebook, Google?
-1. Distribution of daily price changes of Amazon and Zoom
+1.  Which symbols have the highest transaction volumes?
+1.  How did Apple's trading volume change over time?
+1.  How did Apple's stock price change over time?
+1.  Which symbols had the highest weekly gains?
+1.  Weekly FAANG prices over time?
+1.  Weekly price changes of Apple, Facebook, Google?
+1.  Distribution of daily price changes of Amazon and Zoom
 1.  Apple 15-min candlestick chart
 
 ### 1. Which symbols have the highest transaction volumes?
@@ -88,7 +89,7 @@ fig.show()
 
 ### 2. How did Apple's trading volume change over time?
 
-Now let's try a similar query focused on the daily trading volume of one symbol (for example, 'AAPL'). 
+Now let's try a similar query focused on the daily trading volume of one symbol (for example, 'AAPL').
 
 ```python
 import plotly.express as px
@@ -129,7 +130,6 @@ fig.show()
 
 ![apple price over time](https://assets.timescale.com/docs/images/tutorials/intraday-stock-analysis/apple_price.png)
 
-
 ### 4. Which symbols had the highest weekly gains?
 
 Now generate a table containing the symbols with the biggest weekly gains:
@@ -168,9 +168,9 @@ print(df)
 
 `bucket` shows (the first day of) the week.
 
-<highlight type="tip">
+<Highlight type="tip">
 Change `orderby` to "ASC" to query the biggest losses.
-</highlight>
+</Highlight>
 
 ### 5. Weekly FAANG prices over time?
 
@@ -196,8 +196,8 @@ fig.show()
 
 ### 6. Weekly price changes of Apple, Facebook, Google?
 
-Analyzing the price points directly can be useful when you are looking at one specific symbol, but if you want to 
-compare different stocks, it might be better to look at price changes instead. Let's compare the 
+Analyzing the price points directly can be useful when you are looking at one specific symbol, but if you want to
+compare different stocks, it might be better to look at price changes instead. Let's compare the
 price changes of Apple, Facebook, and Google:
 
 ```python
@@ -226,10 +226,9 @@ figure.show()
 
 ![weekly price changes](https://assets.timescale.com/docs/images/tutorials/intraday-stock-analysis/weekly_price_changes.png)
 
-
 ### 7. Distribution of daily price changes of Amazon and Zoom
 
-Now let's generate a scatter chart to look at the distribution of daily price changes of Amazon and Zoom. Analyzing 
+Now let's generate a scatter chart to look at the distribution of daily price changes of Amazon and Zoom. Analyzing
 this data enables you to better understand the volatility of individual stocks and how they compare to each other.
 
 ```python
@@ -257,7 +256,6 @@ figure.show()
 ```
 
 ![distribution of price changes](https://assets.timescale.com/docs/images/tutorials/intraday-stock-analysis/distribution_price_changes.png)
-
 
 ### 8. Apple 15-min candlestick chart
 
@@ -288,21 +286,20 @@ figure.update_layout(title="15-min candlestick chart of Apple, 2021-06-09")
 figure.show()
 ```
 
-<highlight type="tip">
+<Highlight type="tip">
 Change `date` to see the candlesticks for another day.
-</highlight>
+</Highlight>
 
 ![candlestick chart apple](https://assets.timescale.com/docs/images/tutorials/intraday-stock-analysis/candlestick.png)
 
-
 ## Resources
 
-* [Intraday stocks analysis on Github][github-intraday-stocks]
-* [Alpha Vantage API docs][alpha-vantage-api]
-* [Pandas docs][pandas-docs]
-* [Plotly docs][plotly-docs]
-* [Timescale free trial][timescale-signup]
-* [Analyze cryptocurrency data][analyze-cryptocurrency-data]
+*   [Intraday stocks analysis on Github][github-intraday-stocks]
+*   [Alpha Vantage API docs][alpha-vantage-api]
+*   [Pandas docs][pandas-docs]
+*   [Plotly docs][plotly-docs]
+*   [Timescale free trial][timescale-signup]
+*   [Analyze cryptocurrency data][analyze-cryptocurrency-data]
 
 [alpha-vantage-api]: https://www.alphavantage.co/documentation/
 [analyze-cryptocurrency-data]: /timescaledb/:currentVersion:/tutorials/analyze-cryptocurrency-data/

@@ -43,13 +43,13 @@ you might need to increase the PostgreSQL `max_locks_per_transaction` parameter
 before you start the upgrade. For more information, see [Transaction
 locks][transaction-locks].
 
-<highlight type="warning">
+<Highlight type="warning">
  When you upgrade to Promscale 0.11.0, all previous
 tracing data is dropped. Make a backup of your installation, and test the new
 version before you upgrade.
-</highlight>
+</Highlight>
 
-<procedure>
+<Procedure>
 
 ### Upgrading to Promscale 0.11.0
 
@@ -74,13 +74,13 @@ TimescaleDB 2.6.1 or later, and Promscale extension version 0.5.0 or later.
 1.  Update the Promscale extension on one instance using the Promscale Connector.
    For more information, see the [Promscale installation
    instructions][install-promscale] for various installation method.
-   <highlight type="note">
+   <Highlight type="note">
  Do not use the `ALTER EXTENSION promscale UPDATE;` command. to update the extension.
-   </highlight>
+   </Highlight>
 1.  Start one instance with the latest version of the Promscale Connector. The migration happens automatically. After the migration is completed, upgrade the remaining Promscale Connector instances.
 1.  Start the other instances of Promscale Connector.
 
-</procedure>
+</Procedure>
 
 Upgrading to Promscale 0.11.0 creates a lock on your tables. If you have been
 using Promscale for a while, and you have a large number of metrics, this could
@@ -112,11 +112,11 @@ the end of 2022 but you are encouraged to migrate to the
 `timescale/timescaledb-ha`. All new installations should switch to the
 `timescale/timescaledb-ha`image.
 
-<highlight type="note">
+<Highlight type="note">
 Migrating to Debian version can be a lengthy process and involves downtime.
-</highlight>
+</Highlight>
 
-<procedure>
+<Procedure>
 
 1.  Use `docker inspect` to determine the data volumes used by your database for the data directory.
 1.  Shut down all Promscale Connectors.
@@ -156,13 +156,13 @@ Migrating to Debian version can be a lengthy process and involves downtime.
 
 1.  Restart the Promscale Connector
 
-</procedure>
+</Procedure>
 
 ## Upgrading from the previous alpine image on Kubernetes
 
 If you are using Kubernetes instead of plain Docker:
 
-<procedure>
+<Procedure>
 
 1.  Shutdown the Promscale Connector pods
 1.  Change the database pod to use the Debian Docker image.
@@ -193,7 +193,7 @@ If you are using Kubernetes instead of plain Docker:
 
 1.  Restart the Promscale Connector pods.
 
-</procedure>
+</Procedure>
 
 [alpine-image]: https://hub.docker.com/r/timescale/promscale/tags
 [install-promscale]: /promscale/:currentVersion:/installation

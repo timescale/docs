@@ -63,7 +63,7 @@ For more information about hypertables, see our
 You can set a [compression policy][compression] on a hypertable directly from
 Timescale Cloud console.
 
-<procedure>
+<Procedure>
 
 ### Set a compression policy from Timescale Cloud console
 
@@ -83,12 +83,12 @@ Timescale Cloud console.
 1.  Your new compression policy appears in the list of policies. You can expand
     each row to see the policy details and change your configuration.
 
-    <highlight type="note">
+    <Highlight type="note">
     Compression begins immediately if you already have data older than the
     selected interval. The order of compression is from oldest to newest chunks.
-    </highlight>
+    </Highlight>
 
-</procedure>
+</Procedure>
 
 ## Continuous aggregates
 

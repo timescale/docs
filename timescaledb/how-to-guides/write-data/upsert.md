@@ -16,10 +16,10 @@ Upserts only work when you have a unique index or constraint. A matching row is
 one that has identical values for the columns covered by the index or
 constraint.
 
-<highlight type="note">
+<Highlight type="note">
 In PostgreSQL, a primary key is a unique index with a `NOT NULL` constraint.
 If you have a primary key, you automatically have a unique index.
-</highlight>
+</Highlight>
 
 ## Create a table with a unique constraint
 
@@ -52,13 +52,13 @@ the constraint. In other words, if you try to insert data that has identical
 values to another row, within the columns covered by the constraint, you get an
 error.
 
-<highlight type="note">
+<Highlight type="note">
 Unique constraints must include all partitioning columns. That means unique
 constraints on a hypertable must include the time column. If you added other
 partitioning columns to your hypertable, the constraint must include those as
 well. For more information, see the section on
 [hypertables and unique indexes](/timescaledb/latest/how-to-guides/hypertables/hypertables-and-unique-indexes/).
-</highlight>
+</Highlight>
 
 ## Insert or update data to a table with a unique constraint
 

@@ -44,13 +44,13 @@ settings in the [`values.yaml`][timescaledb-single-values-yaml] configuration fi
 *   [TLS Certificates][timescaledb-helm-values-certs]
 *   **Optional:** `pgbackrest` [configuration][timescale-backups]
 
-<highlight type="note">
+<Highlight type="note">
 If you do not configure the user credentials before you start, they are randomly
 generated. When this happens, the `helm upgrade` command does not rotate the
 credentials, to prevent breaking the database by changing the database
 credentials instead it uses the same credentials that are generated during the
 `helm install`.
-</highlight>
+</Highlight>
 
 By default, the `timescaledb-single` Helm chart deploys TimescaleDB in
 high availability mode. This creates three database replicas,
@@ -61,7 +61,7 @@ You can turn off high availability mode by changing the value of `replicaCount`
 to `1` in
 [`values.yaml`][timescaledb-single-values-yaml].
 
-<procedure>
+<Procedure>
 
 #### Disabling TimescaleDB high availability mode
 
@@ -70,9 +70,9 @@ to `1` in
 1.  Use this `values.yaml` file with the `-f` flag when installing the `timescaledb-single` Helm chart.
     For installation instructions, see [the procedures for installing the Helm chart](#installing-the-timescaledb-helm-chart).
 
-</procedure>
+</Procedure>
 
-<procedure>
+<Procedure>
 
 #### Installing the TimescaleDB Helm chart
 
@@ -94,7 +94,7 @@ to `1` in
     helm install <RELEASE_NAME> timescale/timescaledb-single
     ```
 
-</procedure>
+</Procedure>
 
 You can provide arguments to the `helm install` command using this format:
 `--set key=value[,key=value]`. For example, to install the  chart with backups
@@ -117,7 +117,7 @@ When you have your TimescaleDB Helm chart installed, you can install the
 Promscale Helm chart. Promscale needs to access your TimescaleDB database. You
 can provide the database URI, or specify connection parameters.
 
-<procedure>
+<Procedure>
 
 #### Installing the Promscale Helm chart
 
@@ -151,7 +151,7 @@ can provide the database URI, or specify connection parameters.
     [values.yaml][promscale-values-yaml], and update the `connection` section
     with your TimescaleDB connection details.
     Add or edit this section with your TimescaleDB connection details:
-    <terminal>
+    <Terminal>
 
     <tab label='Database URI'>
 
@@ -178,7 +178,7 @@ can provide the database URI, or specify connection parameters.
 
     </tab>
 
-    </terminal>
+    </Terminal>
 
 1.  Install the Promscale Helm chart:
 
@@ -186,11 +186,11 @@ can provide the database URI, or specify connection parameters.
     helm install <RELEASE_NAME> timescale/promscale -f values.yaml
     ```
 
-    <highlight type="note">
+    <Highlight type="note">
     Replace `&lt;RELEASE_NAME&gt;` with the name of your choice
-    </highlight>
+    </Highlight>
 
-</procedure>
+</Procedure>
 
 <PromscaleSendData />
 

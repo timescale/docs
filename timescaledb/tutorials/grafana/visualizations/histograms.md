@@ -43,12 +43,12 @@ formats. Each comes with its own benefits and challenges:
   buckets the aggregated data. It automatically selects a bucket size,
   which is about 10% of your data's total range.
 
-<highlight type="note">
+<Highlight type="note">
 Histograms are great for analyzing the spread or distribution of data, but they
 don't show the change of data over time. If you need to see the distribution of
 your data over time, try a [heatmap](https://grafana.com/docs/grafana/latest/visualizations/heatmap/)
 instead.
-</highlight>
+</Highlight>
 
 ## What you'll learn
 
@@ -65,7 +65,7 @@ This tutorial shows you how to:
 
 Check out this video for a step-by-step walk-through on creating
 histograms in Grafana:
-<video url="https://www.youtube-nocookie.com/embed/h1eTIYOFplA"/>
+<Video url="https://www.youtube-nocookie.com/embed/h1eTIYOFplA"/>
 
 ## Create a price/transaction histogram with raw data
 
@@ -75,7 +75,7 @@ given price range, within some time interval. To make this
 histogram, select the raw
 transactions data from the `stocks_real_time` hypertable.
 
-<procedure>
+<Procedure>
 
 ### Creating a price/transaction histogram with raw data
 
@@ -132,7 +132,7 @@ transactions data from the `stocks_real_time` hypertable.
 
     <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/histograms/simple_histogram_with_bucket_size.png" alt="Screenshot of a histogram in Grafana, showing the price distribution of $AAPL in buckets of $1."/>
 
-</procedure>
+</Procedure>
 
 ## Create a price/transaction histogram with aggregated data
 
@@ -148,7 +148,7 @@ solve this problem, pre-aggregate the data in your query using the TimescaleDB
 `time_bucket` function. With `time_bucket`, you need to add a new variable
 called `bucket_interval`.
 
-<procedure>
+<Procedure>
 
 ### Creating a price/transaction histogram with pre-aggregated data
 
@@ -180,7 +180,7 @@ called `bucket_interval`.
     transaction data. But the query returns only around 1000 rows of data with
     each request. This reduces the network load and Grafana processing time.
 
-</procedure>
+</Procedure>
 
 ## Create a panel with multiple price/transaction histograms
 
@@ -190,7 +190,7 @@ query variable, and enable the multi-value option. This allows you to select
 more than one value for `$symbol`. The database returns the transactions for all
 selected values, and Grafana buckets them in separate histograms.
 
-<procedure>
+<Procedure>
 
 ### Creating a panel with multiple price/transaction histograms
 
@@ -232,7 +232,7 @@ selected values, and Grafana buckets them in separate histograms.
 
     <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/histograms/colored_in_histogram.png" alt="Screenshot of Grafana plot, showing 3 histograms of stock values in blue, red, and green."/>
 
-</procedure>
+</Procedure>
 
 ## Create a price/volume histogram
 
@@ -252,7 +252,7 @@ You can do this with a pre-aggregation query, using:
 *   PostgreSQL's [`lag`][lag] function. Use this to subtract each from the
     previous, when the rows are ordered by descending `time`.
 
-<procedure>
+<Procedure>
 
 ### Creating a price/volume histogram
 
@@ -290,7 +290,7 @@ You can do this with a pre-aggregation query, using:
     *   Use a logarithmic scale. Unfortunately these are not yet supported in
         Grafana histogram panels.
 
-</procedure>
+</Procedure>
 
 [raw-data]: /timescaledb/:currentVersion:/tutorials/grafana/visualizations/histograms/#create-a-price-transaction-histogram-with-raw-data/
 [pre-agg-data]: /timescaledb/:currentVersion:/tutorials/grafana/visualizations/histograms/#create-a-price-transaction-histogram-with-aggregated-data/

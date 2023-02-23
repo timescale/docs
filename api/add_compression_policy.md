@@ -9,7 +9,7 @@ api:
   type: function
 ---
 
-# add_compression_policy() <tag type="community" content="community" />
+# add_compression_policy() <Tag type="community" content="community" />
 
 Allows you to set a policy by which the system compresses a chunk
 automatically in the background after it reaches a given age.
@@ -45,12 +45,12 @@ the [integer_now_func][set_integer_now_func] to be set).
 |---|---|---|
 | `if_not_exists` | BOOLEAN | Setting to true causes the command to fail with a warning instead of an error if a compression policy already exists on the hypertable. Defaults to false.|
 
-<highlight type="important">
+<Highlight type="important">
 Compression policies on continuous aggregates should be set up so that they do
 not overlap with refresh policies on continuous aggregates. This is due to a
 current TimescaleDB limitation that prevents refresh of compressed regions of
 continuous aggregates.
-</highlight>
+</Highlight>
 
 ### Sample usage
 

@@ -14,7 +14,7 @@ Before you start, check that you don't already have `psql` installed. It is
 sometimes installed by default, depending on your operating system and other
 packages you have installed over time:
 
-<terminal>
+<Terminal>
 
 <tab label='Linux/macOS'>
 
@@ -33,14 +33,14 @@ wmic
 
 </tab>
 
-</terminal>
+</Terminal>
 
 ## Install psql on macOS
 
 The `psql` tool is installed by default on macOS systems when you install
 PostgreSQL, and this is the most effective way to install the tool. On macOS you can use Homebrew or MacPorts to install the PostgreSQL package or just the `psql` tool.
 
-<procedure>
+<Procedure>
 
 ### Installing PostgreSQL package using Homebrew
 
@@ -65,9 +65,9 @@ PostgreSQL, and this is the most effective way to install the tool. On macOS you
     brew install postgres
     ```
 
-</procedure>
+</Procedure>
 
-<procedure>
+<Procedure>
 
 ### Installing PostgreSQL package using MacPorts
 
@@ -87,13 +87,13 @@ PostgreSQL, and this is the most effective way to install the tool. On macOS you
     port contents postgresql<xx>
     ```
 
-</procedure>
+</Procedure>
 
 ### Installing psql on macOS
 
 If you do not want to install the entire PostgreSQL package, you can install the `psql` tool on its own. `libpqxx` is the official C++ client API for PostgreSQL.
 
-<procedure>
+<Procedure>
 
 #### Installing psql using Homebrew
 
@@ -127,9 +127,9 @@ If you do not want to install the entire PostgreSQL package, you can install the
     On Intel chips, the symbolic link is added to `/usr/local/bin`. On Apple
     Silicon, the symbolic link is added to `/opt/homebrew/bin`.
 
-</procedure>
+</Procedure>
 
-<procedure>
+<Procedure>
 
 #### Installing psql using MacPorts
 
@@ -147,14 +147,14 @@ If you do not want to install the entire PostgreSQL package, you can install the
     port contents libpqxx
     ```
 
-</procedure>
+</Procedure>
 
 ## Install psql on Debian and Ubuntu
 
 You can use the `apt` package manager on Debian and Ubuntu systems to install
 the `psql` tool.
 
-<procedure>
+<Procedure>
 
 ### Installing psql using the apt package manager
 
@@ -170,7 +170,7 @@ the `psql` tool.
     sudo apt-get install postgresql-client
     ```
 
-</procedure>
+</Procedure>
 
 ## Install psql on Windows
 
@@ -179,7 +179,7 @@ PostgreSQL, and this is the most effective way to install the tool. These
 instructions use the interactive installer provided by PostgreSQL and
 EnterpriseDB.
 
-<procedure>
+<Procedure>
 
 ### Installing psql on Windows
 
@@ -189,7 +189,7 @@ EnterpriseDB.
     any other components you want to install, and click `Next`.
 1.  Complete the installation wizard to install the package.
 
-</procedure>
+</Procedure>
 
 [homebrew]: https://docs.brew.sh/Installation
 [macports]: https://guide.macports.org/#installing.macports

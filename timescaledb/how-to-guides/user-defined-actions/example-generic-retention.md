@@ -5,17 +5,20 @@ keywords: [actions, data retention]
 ---
 
 # Use a user-defined action to create a generic retention policy
+
 TimescaleDB natively supports adding a
 [data retention policy][data-retention-policy] to a hypertable. If you want to
 add a generic data retention policy to _all_ hypertables, you can write a
 user-defined action.
 
-<procedure>
+<Procedure>
 
 ## Using a user-defined action to create a generic retention policy
+
 1.  Create a procedure that drops chunks from any hypertable if they are older
     than the `drop_after` parameter. To get all hypertables, the
     `timescaledb_information.hypertables` table is queried.
+
     ```sql
     CREATE OR REPLACE PROCEDURE generic_retention (job_id int, config jsonb)
     LANGUAGE PLPGSQL
@@ -37,18 +40,20 @@ user-defined action.
     END
     $$;
     ```
+
 1.  Register the job to run daily. In the `config`, set `drop_after` to 12 months
     to drop chunks containing data older than 12 months.
+
     ```sql
     SELECT add_job('generic_retention','1d', config => '{"drop_after":"12 month"}');
     ```
 
-<highlight type="note">
+<Highlight type="note">
 You can further refine this policy by adding filters to your procedure. For
 example, add a `WHERE` clause to the `PERFORM` query to only drop chunks from
 particular hypertables.
-</highlight>
+</Highlight>
 
-</procedure>
+</Procedure>
 
 [data-retention-policy]: /timescaledb/:currentVersion:/how-to-guides/data-retention/create-a-retention-policy/

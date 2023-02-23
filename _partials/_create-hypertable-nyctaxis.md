@@ -6,7 +6,7 @@ standard PostgreSQL tables, indexes, stored procedures and other objects can be
 created alongside your TimescaleDB hypertables. This makes creating and working
 with TimescaleDB tables similar to standard PostgreSQL.
 
-<procedure>
+<Procedure>
 
 ### Creating a hypertable
 
@@ -54,7 +54,7 @@ with TimescaleDB tables similar to standard PostgreSQL.
     CREATE INDEX ON rides (passenger_count, pickup_datetime DESC);
     ```
 
-</procedure>
+</Procedure>
 
 ## Create standard PostgreSQL tables for relational data
 
@@ -62,7 +62,7 @@ When you have other relational data that enhances your time-series data, you can
 create standard PostgreSQL tables just as you would normally. For this dataset,
 there are two other tables of data, called `payment_types` and `rates`.
 
-<procedure>
+<Procedure>
 
 ### Creating standard PostgreSQL tables
 
@@ -98,7 +98,7 @@ there are two other tables of data, called `payment_types` and `rates`.
     (6, 'group ride');
     ```
 
-</procedure>
+</Procedure>
 
 You can confirm that the scripts were successful by running the `\dt` command in
 the `psql` command line. You should see this:

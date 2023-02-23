@@ -10,13 +10,13 @@ TimescaleDB provides a [stored procedure for backfilling data][backfill] into a
 compressed hypertable. To regularly backfill data, you can schedule this stored
 procedure to run periodically.
 
-<highlight type="note">
+<Highlight type="note">
 This action requires the
 [`decompress_backfill`](https://github.com/timescale/timescaledb-extras/blob/master/backfill.sql)
 function from the TimescaleDB extras repository.
-</highlight>
+</Highlight>
 
-<procedure>
+<Procedure>
 
 ## Using a user-defined action to schedule regular backfilling
 
@@ -63,6 +63,6 @@ function from the TimescaleDB extras repository.
     );
     ```
 
-</procedure>
+</Procedure>
 
 [backfill]: /timescaledb/:currentVersion:/how-to-guides/compression/backfill-historical-data/

@@ -27,7 +27,7 @@ The recording rules are used for computationally expensive expressions and save
 their result as a new set of time series data. These help in visualization of
 data over a long period of time.
 
-<procedure>
+<Procedure>
 
 ### Setting example recording rules
 
@@ -58,7 +58,7 @@ data over a long period of time.
 1.  Pass this configuration file to Promscale when you start the service,
      using the `-metrics.rules.config` flag.
 
-</procedure>
+</Procedure>
 
 To query the recorded metric with PromQL use metric name as:
 

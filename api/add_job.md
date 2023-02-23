@@ -9,7 +9,7 @@ api:
   type: function
 ---
 
-# add_job() <tag type="community">Community</tag>
+# add_job() <Tag type="community">Community</Tag>
 
 Register an action for scheduling by the automation framework. For more information about scheduling, including example actions, see the [actions section][using-actions].
 
@@ -62,4 +62,5 @@ SELECT add_job('user_defined_action','1 week', initial_start => '2022-12-04 00:0
 -- if subject to DST
 SELECT add_job('user_defined_action','1 week', initial_start => '2022-12-04 00:00:00+00'::timestamptz, timezone => 'Europe/Berlin');
 ```
+
 [using-actions]: /timescaledb/:currentVersion:/overview/core-concepts/user-defined-actions

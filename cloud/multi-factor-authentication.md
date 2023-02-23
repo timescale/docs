@@ -25,7 +25,7 @@ Before you begin, make sure you have:
 *   Installed the [Google Authenticator application][install-google-authenticator]
   on your mobile device.
 
-<procedure>
+<Procedure>
 
 ### Configuring two-factor authentication with Google Authenticator
 
@@ -46,14 +46,14 @@ Before you begin, make sure you have:
 1.  If two-factor authentication is enabled correctly, an email notification is
     sent to you.
 
-</procedure>
+</Procedure>
 
-<highlight type="warning">
+<Highlight type="warning">
 If you lose access to the mobile device you use for multi-factor authentication,
 and you do not have access to your recovery codes, you cannot sign in to your
-TimescaleDB Cloud account. To regain access to your account 
+TimescaleDB Cloud account. To regain access to your account
 contact [support@timescale.com](mailto:support@timescale.com).
-</highlight>
+</Highlight>
 
 ## Regenerate recovery codes
 
@@ -64,14 +64,14 @@ recovery codes, you can generate another list of codes. Generating a new set of
 recovery codes invalidates all previously generated codes. You can also
 regenerate your codes if you lose access to your previous codes.
 
-<procedure>
+<Procedure>
 
 ### Regenerating recovery codes
 
 1.  [Log in to your Timescale Cloud account][cloud-login].
 1.  Click the `User name` icon in the top-right of the console and select `Account`.
 1.  In the `Account` page, navigate to the `Two-factor authentication` section.
-1.  Click `Regenerate recovery codes`. 
+1.  Click `Regenerate recovery codes`.
 1.  In the `Two-factor authentication` dialog, type the verification code from
     your authenticator application.
     Alternatively, if you do not have access to the authenticator application,
@@ -82,15 +82,15 @@ regenerate your codes if you lose access to your previous codes.
     your account if you lose your device.
 1.  Verify that you have saved your recovery codes, by clicking `OK, I saved my recovery codes`.
 
-</procedure>
+</Procedure>
 
 ## Remove two-factor authentication
 
-If you need to enroll a new device for two-factor authentication, you can 
-remove two-factor authentication from your account and then add it 
+If you need to enroll a new device for two-factor authentication, you can
+remove two-factor authentication from your account and then add it
 again with your new device.
 
-<procedure>
+<Procedure>
 
 ### Removing two-factor authentication
 
@@ -104,7 +104,7 @@ again with your new device.
     recovery code.
 1.  Click `Remove`.
 
-</procedure>
+</Procedure>
 
 [cloud-login]: https://console.cloud.timescale.com/
 [install-google-authenticator]: https://support.google.com/accounts/answer/1066447

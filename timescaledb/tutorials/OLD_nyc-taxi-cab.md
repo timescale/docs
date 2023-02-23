@@ -13,7 +13,7 @@ In this tutorial, you learn:
 1.  How to get started with TimescaleDB
 2.  How to use TimescaleDB to analyze and monitor data from IoT sensors
 
-Dataset: <tag type="download">[nyc_data.tar.gz](https://timescaledata.blob.core.windows.net/datasets/nyc_data.tar.gz)</tag>
+Dataset: <Tag type="download">[nyc_data.tar.gz](https://timescaledata.blob.core.windows.net/datasets/nyc_data.tar.gz)</Tag>
 Estimated time for completion: 25 minutes.
 
 ### Prerequisites
@@ -87,7 +87,7 @@ This download contains two files:
 
 You can download the files from the below link:
 
-<tag type="download">[nyc_data.tar.gz](https://timescaledata.blob.core.windows.net/datasets/nyc_data.tar.gz)</tag>
+<Tag type="download">[nyc_data.tar.gz](https://timescaledata.blob.core.windows.net/datasets/nyc_data.tar.gz)</Tag>
 
 #### Get connected to TimescaleDB
 

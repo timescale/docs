@@ -80,9 +80,9 @@ new incoming data leverage the new partitioning settings, while the access node
 can still support queries across all chunks, even if they were created using
 the old partitioning settings.
 
-<highlight type="note">
+<Highlight type="note">
 You can change the number of space partitions, but you can't change the column
 on which the data is partitioned.
-</highlight>
+</Highlight>
 
 [distributed-hypertable-limitations]: /timescaledb/:currentVersion:/overview/limitations/#distributed-hypertable-limitations

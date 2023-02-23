@@ -22,11 +22,11 @@ So, when you insert and query recent data, these operations access data from
 memory. This improves operation speed, since data doesn't need to be loaded from
 disk.
 
-<highlight type="note">
+<Highlight type="note">
 For more information about chunk sizing for improved performance, see the
 section on
 [chunk sizing](/timescaledb/latest/how-to-guides/hypertables/about-hypertables/).
-</highlight>
+</Highlight>
 
 Though fitting chunks in memory gives the best performance, TimescaleDB doesn't
 require it, and works well with larger chunks. TimescaleDB uses least recently

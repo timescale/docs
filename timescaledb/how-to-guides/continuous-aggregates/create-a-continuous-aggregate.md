@@ -34,7 +34,7 @@ hypertable. Additionally, all functions and their arguments included in
 `SELECT`, `GROUP BY`, and `HAVING` clauses must be
 [immutable][postgres-immutable].
 
-<procedure>
+<Procedure>
 
 ### Creating a continuous aggregate
 
@@ -61,7 +61,7 @@ hypertable. Additionally, all functions and their arguments included in
       schedule_interval => INTERVAL '1 hour');
     ```
 
-</procedure>
+</Procedure>
 
 You can use most PostgreSQL aggregate functions in continuous aggregations. To
 see what PostgreSQL features are supported, check the
@@ -105,7 +105,7 @@ have historical data that is older than the `start_offset` interval, you need to
 manually refresh the history up to the current `start_offset` to allow real-time
 queries to run efficiently.
 
-<procedure>
+<Procedure>
 
 ### Creating a continuous aggregate with the WITH NO DATA option
 
@@ -140,7 +140,7 @@ queries to run efficiently.
       schedule_interval => INTERVAL '30 minutes');
     ```
 
-</procedure>
+</Procedure>
 
 ## Create a continuous aggregate with a JOIN
 
@@ -160,11 +160,11 @@ FROM devices JOIN conditions USING (device_id)
 GROUP BY name, bucket;
 ```
 
-<highlight type="note">
+<Highlight type="note">
 This also works in Timescale&nbsp;2.9 and later running PostgreSQL&nbsp;12, but
 you cannot also have a `USING` clause in your `JOIN`. If you need a `USING`
 clause, you must have PostgreSQL&nbsp;13 or later.
-</highlight>
+</Highlight>
 
 ## Query continuous aggregates
 
@@ -175,7 +175,7 @@ in your `SELECT` query is not supported. Additionally, make sure that the
 hypertable you are querying does not have [row-level-security policies][postgres-rls]
 enabled.
 
-<procedure>
+<Procedure>
 
 ### Querying a continuous aggregate
 
@@ -203,7 +203,7 @@ enabled.
       ORDER BY bucket DESC, device DESC LIMIT 20;
     ```
 
-</procedure>
+</Procedure>
 
 ## Use continuous aggregates with window functions
 

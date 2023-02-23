@@ -28,11 +28,11 @@ Before you start, make sure you have:
     [psycopg2 documentation][psycopg2-docs].
 *   [](#)<Optional />A [Python virtual environment][virtual-env].
 
-<highlight type="cloud" header="Run all tutorials free" button="Try for free">
+<Highlight type="cloud" header="Run all tutorials free" button="Try for free">
 Your Timescale Cloud trial is completely free for you to use for the first
 thirty days. This gives you enough time to complete all the tutorials and run
 a few test projects of your own.
-</highlight>
+</Highlight>
 
 ## Connect to TimescaleDB
 
@@ -41,7 +41,7 @@ library. This library is one of the most popular PostgreSQL libraries for
 Python. It allows you to execute raw SQL queries efficiently and safely, and
 prevents common attacks such as SQL injection.
 
-<procedure>
+<Procedure>
 
 <Collapsible heading="Connecting to TimescaleDB" headingLevel={3}>
 
@@ -82,11 +82,11 @@ prevents common attacks such as SQL injection.
     CONNECTION = "dbname=tsdb user=tsdbadmin password=secret host=host.com port=5432 sslmode=require"
     ```
 
-    <highlight type="warning">
+    <Highlight type="warning">
     This method of composing a connection string is for test or development
     purposes only. For production, use environment variables for sensitive
     details like your password, hostname, and port number.
-    </highlight>
+    </Highlight>
 
 1.  Use the `psycopg2` [connect function][psycopg2-connect] to create a new
     database session and create a new [cursor object][psycopg2-cursor] to
@@ -116,7 +116,7 @@ prevents common attacks such as SQL injection.
 
 </Collapsible>
 
-</procedure>
+</Procedure>
 
 ## Create a relational table
 
@@ -126,7 +126,7 @@ called `sensor_data` which holds the measurements of those sensors. The
 measurements contain the time, sensor_id, temperature reading, and CPU
 percentage of the sensors.
 
-<procedure>
+<Procedure>
 
 <Collapsible heading="Creating a relational table" headingLevel={3}>
 
@@ -157,7 +157,7 @@ percentage of the sensors.
 
 </Collapsible>
 
-</procedure>
+</Procedure>
 
 ## Create a hypertable
 
@@ -165,7 +165,7 @@ When you have created the relational table, you can create a hypertable.
 Creating tables and indexes, altering tables, inserting data, selecting data,
 and most other tasks are executed on the hypertable.
 
-<procedure>
+<Procedure>
 
 <Collapsible heading="Creating a hypertable" headingLevel={3}>
 
@@ -207,7 +207,7 @@ and most other tasks are executed on the hypertable.
 
 </Collapsible>
 
-</procedure>
+</Procedure>
 
 ## Insert rows of data
 
@@ -215,7 +215,7 @@ You can insert data into your hypertables in several different ways. In this
 section, you can use `psycopg2` with prepared statements, or you can use
 `pgcopy` for a faster insert.
 
-<procedure>
+<Procedure>
 
 <Collapsible heading="Inserting rows into TimescaleDB with psycopg2" headingLevel={3}>
 
@@ -255,7 +255,7 @@ section, you can use `psycopg2` with prepared statements, or you can use
 
 </Collapsible>
 
-</procedure>
+</Procedure>
 
 If you choose to use `pgcopy` instead, install the `pgcopy` package
 [using pip][pgcopy-install], and then add this line to your list of
@@ -265,7 +265,7 @@ If you choose to use `pgcopy` instead, install the `pgcopy` package
 from pgcopy import CopyManager
 ```
 
-<procedure>
+<Procedure>
 
 <Collapsible heading="Inserting rows into TimescaleDB with pgcopy" headingLevel={3} defaultExpanded={false}>
 
@@ -354,7 +354,7 @@ from pgcopy import CopyManager
 
 </Collapsible>
 
-</procedure>
+</Procedure>
 
 ## Execute a query
 
@@ -369,7 +369,7 @@ For more information about properly using placeholders in `psycopg2`, see the
 For more information about how to execute more complex queries in `psycopg2`,
 see the [psycopg2 documentation][psycopg2-docs-basics].
 
-<procedure>
+<Procedure>
 
 <Collapsible heading="Executing a simple query" headingLevel={3}>
 
@@ -416,12 +416,12 @@ see the [psycopg2 documentation][psycopg2-docs-basics].
 
 </Collapsible>
 
-</procedure>
+</Procedure>
 
 For more complex queries, you can use prepared statements to ensure queries are
 executed safely against the database.
 
-<procedure>
+<Procedure>
 
 <Collapsible heading="Executing queries using prepared statements" headingLevel={3} defaultExpanded={false}>
 
@@ -447,7 +447,7 @@ executed safely against the database.
 
 </Collapsible>
 
-</procedure>
+</Procedure>
 
 ## Next steps
 

@@ -12,7 +12,7 @@ api:
 
 import Experimental from 'versionContent/_partials/_experimental.mdx';
 
-## move_chunk() <tag type="community">Community</tag> <tag type="experimental">Experimental</tag>
+## move_chunk() <Tag type="community">Community</Tag> <Tag type="experimental">Experimental</Tag>
 
 TimescaleDB allows you to move chunks to other data nodes. Moving
 chunks is useful in order to rebalance a multi-node cluster or remove

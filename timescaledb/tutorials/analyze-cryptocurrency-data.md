@@ -24,10 +24,10 @@ schema or your dataset.
 
 You can also download the resources for this tutorial:
 
-*   Schema creation script: <tag type="download" >[schema.sql](https://github.com/timescale/examples/blob/master/crypto_tutorial/schema.sql)</tag>
-*   Dataset creation script: <tag type="download" >[crypto_data_extraction.py](https://github.com/timescale/examples/blob/master/crypto_tutorial/crypto_data_extraction.py)</tag>
+*   Schema creation script: <Tag type="download" >[schema.sql](https://github.com/timescale/examples/blob/master/crypto_tutorial/schema.sql)</Tag>
+*   Dataset creation script: <Tag type="download" >[crypto_data_extraction.py](https://github.com/timescale/examples/blob/master/crypto_tutorial/crypto_data_extraction.py)</Tag>
 <!-- vale Google.Units = NO -->
-*   Dataset: <tag type="download" >[Crypto Currency Dataset September 2019](https://github.com/timescale/examples/tree/master/crypto_tutorial/Cryptocurrency%20dataset%20Sept%2016%202019)</tag> (Note that this data is from
+*   Dataset: <Tag type="download" >[Crypto Currency Dataset September 2019](https://github.com/timescale/examples/tree/master/crypto_tutorial/Cryptocurrency%20dataset%20Sept%2016%202019)</Tag> (Note that this data is from
     September 2019. Follow the steps in Section 2 of this tutorial if you require fresh data)
 <!-- vale Google.Units = YES -->
 
@@ -182,7 +182,7 @@ The script consists of five parts:
     `eth_prices`
 
 Here's the full Python script, which you can also
-<tag type="download" >[download](https://github.com/timescale/examples/blob/master/crypto_tutorial/crypto_data_extraction.py)</tag>
+<Tag type="download" >[download](https://github.com/timescale/examples/blob/master/crypto_tutorial/crypto_data_extraction.py)</Tag>
 
 ```python
 #####################################################################
@@ -361,7 +361,7 @@ Before you start, you need a
 Now all your hard work at the beginning comes in handy, and you can use the SQL
 script you created to set up the TimescaleDB unstance. If you don't want to
 enter the SQL script by yourself, you can download
-<tag type="download">[schema.sql](https://github.com/timescale/examples/blob/master/crypto_tutorial/schema.sql)</tag> instead.
+<Tag type="download">[schema.sql](https://github.com/timescale/examples/blob/master/crypto_tutorial/schema.sql)</Tag> instead.
 
 Log in to the TimescaleDB instance. Locate your `host`, `port`, and `password`
 and then connect to the database:
@@ -461,10 +461,10 @@ of these commands in turn:
 \COPY currency_info FROM coin_names.csv CSV;
 ```
 
-<highlight type="important">
+<Highlight type="important">
 Data ingestion could take a while, depending on the speed of your Internet
 connection.
-</highlight>
+</Highlight>
 
 You can verify that the ingestion worked by running a simple SQL command, such
 as:

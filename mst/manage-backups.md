@@ -17,14 +17,14 @@ daemon and restore tool, to store backup data in cloud object stores. The number
 of backups stored and the retention time of the backup depend on the service
 plan.
 
-<highlight type="important">
+<Highlight type="important">
 The size of logical backups can be different from the size of the Managed
 Service for TimescaleDB backup that appears on the web console. In some cases,
 the difference is significant. Backup sizes that appear in the Managed Service
 for TimescaleDB web console are for daily backups, before encryption and
 compression. To view the size of each database, including space consumed by
 indexes, you can use the `\l+` command at the psql prompt.
-</highlight>
+</Highlight>
 
 ## Logical and binary backups
 

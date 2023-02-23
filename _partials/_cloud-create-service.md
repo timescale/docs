@@ -1,7 +1,7 @@
 A service in Timescale Cloud is a cloud instance which contains your database.
 Each service contains a single database, named `tsdb`.
 
-<procedure>
+<Procedure>
 
 ### Create a Timescale Cloud service
 
@@ -46,4 +46,4 @@ Each service contains a single database, named `tsdb`.
   )}
 </ol>
 
-</procedure>
+</Procedure>

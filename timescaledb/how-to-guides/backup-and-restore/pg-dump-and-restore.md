@@ -16,12 +16,12 @@ Upgrades between different versions of TimescaleDB can be done in place; you
 don't need to backup and restore your data. See
 the [upgrading instructions][timescaledb-upgrade].
 
-<highlight type="warning">
+<Highlight type="warning">
 If you are using this `pg_dump` backup method regularly, make sure you keep
 track of which versions of PostgreSQL and TimescaleDB you are running. For more
 information, see "Versions are mismatched when dumping and restoring a database"
 in the [Troubleshooting section](https://docs.timescale.com/timescaledb/latest/how-to-guides/backup-and-restore/troubleshooting/).
-</highlight>
+</Highlight>
 
 ## Back up your entire database
 
@@ -41,18 +41,18 @@ pg_dump -h <REMOTE_HOST> -p 55555 -U tsdbadmin -Fc -f tsdb.bak tsdb
 You might see some errors when running `pg_dump`. To learn if they can be safely
 ignored, see the [troubleshooting section][troubleshooting].
 
-<highlight type="warning">
+<Highlight type="warning">
 Do not use the `pg_dump` command to backup individual hypertables. Dumps created
 using this method lack the necessary information to correctly restore the
 hypertable from backup.
-</highlight>
+</Highlight>
 
 ## Restore your entire database from backup
 
 When you need to restore data from a backup, you can use `psql` to create a new
 database and restore the data.
 
-<procedure>
+<Procedure>
 
 ### Restoring an entire database from backup
 
@@ -82,12 +82,12 @@ database and restore the data.
     SELECT timescaledb_post_restore();
     ```
 
-</procedure>
+</Procedure>
 
-<highlight type="warning">
+<Highlight type="warning">
 Do not use the `pg_restore` command with -j option. This option does not
 correctly restore the Timescale catalogs.
-</highlight>
+</Highlight>
 
 ## Back up individual hypertables
 
@@ -98,17 +98,17 @@ them. Even if you explicitly specify both the hypertable and all of its
 constituent chunks, the dump would still not contain all the information it
 needs to recreate the hypertable on restore.
 
-<highlight type="warning">
+<Highlight type="warning">
 Do not use the `pg_dump` command to backup individual hypertables. Dumps created
 using this method lack the necessary information to correctly restore the
 hypertable from backup.
-</highlight>
+</Highlight>
 
 You can backup individual hypertables by backing up the entire database, and
 then excluding the tables you do not want to backup. You can also use this
 method to backup individual plain tables that are not hypertables.
 
-<procedure>
+<Procedure>
 
 ### Backing up individual hypertables
 
@@ -126,9 +126,9 @@ method to backup individual plain tables that are not hypertables.
     -c "\COPY (SELECT * FROM conditions) TO data.csv DELIMITER ',' CSV"
     ```
 
-</procedure>
+</Procedure>
 
-<procedure>
+<Procedure>
 
 ### Restoring individual hypertables from backup
 
@@ -160,7 +160,7 @@ can provide a good opportunity for you to re-organize your hypertables if
 you need to. For example, you can change the partitioning key, the number of
 partitions, or the chunk interval sizes.
 
-</procedure>
+</Procedure>
 
 On a self hosted TimescaleDB instance with `postgres` superuser access you can
 take a complete dump of all PostgreSQL databases in a cluster including global

@@ -15,7 +15,7 @@ hyperfunction:
   type: one-step operation
 ---
 
-# saturating_mul()  <tag type="toolkit">Toolkit</tag><tag type="experimental-toolkit" content="Experimental" />
+# saturating_mul()  <Tag type="toolkit">Toolkit</Tag><Tag type="experimental-toolkit" content="Experimental" />
 
 The `saturating_mul` function multiples two numbers, saturating at -2147483648 and 2147483647 instead of overflowing.
 

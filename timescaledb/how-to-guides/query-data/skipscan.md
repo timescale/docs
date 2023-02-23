@@ -5,11 +5,13 @@ keywords: [queries, DISTINCT, SkipScan]
 ---
 
 # Get faster `DISTINCT` queries with `SkipScan`
+
 SkipScan improves query times for `DISTINCT` queries. It works on PostgreSQL
 tables, TimescaleDB hypertables, and TimescaleDB distributed hypertables.
 SkipScan is included in TimescaleDB&nbsp;2.2.1 and above.
 
 ## Speed up `DISTINCT` queries
+
 To query your database and find the most recent value of an item, you
 could use a `DISTINCT` query. For example, you might want to find the latest
 stock or cryptocurrency price for each of your investments. Or you might have graphs
@@ -28,11 +30,11 @@ without reading all of the rows in between. Without support for this feature,
 the database engine has to scan the entire ordered index and then de-duplicate
 at the end, which is a much slower process.
 
-<highlight type="note">
+<Highlight type="note">
 PostgreSQL has plans to implement a native feature like SkipScan, but it is
 unlikely to be included until at least PostgreSQL&nbsp;15. This section
 documents TimescaleDB SkipScan, which is not a native PostgreSQL feature.
-</highlight>
+</Highlight>
 
 SkipScan is an optimization for queries of the form `SELECT DISTINCT ON
 column_name`. Conceptually, SkipScan is a regular IndexScan that skips across an
@@ -50,21 +52,25 @@ For benchmarking information on how SkipScan compares to regular `DISTINCT`
 queries, see our [SkipScan blog post][blog-skipscan].
 
 ## Use SkipScan queries
+
 SkipScan is included in TimescaleDB 2.2.1 and above. This section describes how
 to set up your database index and query to use a SkipScan node.
 
 Your index must:
-* Contain the `DISTINCT` column as the first column.
-* Be a `BTREE` index.
-* Match the `ORDER BY` used in your query.
+
+*   Contain the `DISTINCT` column as the first column.
+*   Be a `BTREE` index.
+*   Match the `ORDER BY` used in your query.
 
 Your query must:
-* Use the `DISTINCT` keyword on a single column.
+
+*   Use the `DISTINCT` keyword on a single column.
 
 If the `DISTINCT` column is not the first column of the index, ensure any
 leading columns are used as constraints in your query. This means that if you
 are asking a question such as "retrieve a list of unique IDs in order" and
 "retrieve the last reading of each ID," you need at least one index like this:
+
 ```sql
 CREATE INDEX "cpu_customer_tags_id_time_idx" \
 ON readings (customer_id, tags_id, time DESC)

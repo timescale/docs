@@ -33,7 +33,7 @@ Export telemetry data by:
 
 <Tab title="Datadog">
 
-<procedure>
+<Procedure>
 
 #### Creating a data exporter for Datadog
 
@@ -55,13 +55,13 @@ Export telemetry data by:
 src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-integrations-datadog.png"
 alt="Screenshot of the menu for adding a Datadog exporter" />
 
-</procedure>
+</Procedure>
 
 </Tab>
 
 <Tab title="AWS CloudWatch">
 
-<procedure>
+<Procedure>
 
 #### Creating a data exporter for AWS CloudWatch
 
@@ -86,17 +86,17 @@ alt="Screenshot of the menu for adding a Datadog exporter" />
     practice.
 1.  Click `Create exporter`.
 
-<highlight type="warning">
+<Highlight type="warning">
 AWS keys give access to your AWS services. To keep your AWS account secure,
 restrict users to the minimum required permissions. Always store your keys in a
 safe location.
-</highlight>
+</Highlight>
 
 <img class="main-content__illustration"
 src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-integrations-cloudwatch.png"
 alt="Screenshot of the menu for adding a Datadog exporter" />
 
-</procedure>
+</Procedure>
 
 </Tab>
 
@@ -111,7 +111,7 @@ You can only have one exporter per service.
 
 <ExporterRegionNote />
 
-<procedure>
+<Procedure>
 
 ### Attaching a data exporter to a service
 
@@ -120,7 +120,7 @@ You can only have one exporter per service.
 1.  Navigate to `Operations`, then `Integrations`.
 1.  Select and add an exporter.
 
-</procedure>
+</Procedure>
 
 ## Monitor service metrics
 
@@ -157,7 +157,7 @@ results. You can also check that these tags are being correctly exported:
 You can edit a data exporter after you create it. Some fields, such as the
 provider and AWS region, can't be changed.
 
-<procedure>
+<Procedure>
 
 ### Editing a data exporter
 
@@ -165,13 +165,13 @@ provider and AWS region, can't be changed.
 1.  Beside the exporter you want to edit, click the menu button. Click `Edit`.
 1.  Edit the exporter fields and save your changes.
 
-</procedure>
+</Procedure>
 
 ## Delete a data exporter
 
 Delete any data exporters that you no longer need.
 
-<procedure>
+<Procedure>
 
 ### Deleting a data exporter
 
@@ -185,7 +185,7 @@ Delete any data exporters that you no longer need.
     `Delete`.
 1.  Confirm that you want to delete.
 
-</procedure>
+</Procedure>
 
 [attach-exporter]: #attach-a-data-exporter-to-a-service
 [aws-access-keys]: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html#id_users_create_console

@@ -64,7 +64,7 @@ instance. This allows you to upgrade extensions independently on different
 databases. Run the `ALTER EXTENSION` function on each database to upgrade them
 individually.
 
-<procedure>
+<Procedure>
 
 ### Exporting TimescaleDB&nbsp;1 policy settings
 
@@ -100,9 +100,9 @@ individually.
     TO reorder_policies.csv csv header
     ```
 
-</procedure>
+</Procedure>
 
-<procedure>
+<Procedure>
 
 ### Upgrading the TimescaleDB extension
 
@@ -123,9 +123,9 @@ individually.
     \dx timescaledb
     ```
 
-</procedure>
+</Procedure>
 
-<procedure>
+<Procedure>
 
 ### Verifying updated policy settings and jobs
 
@@ -182,7 +182,7 @@ total_successes        | 1
 total_failures         | 0
 ```
 
-</procedure>
+</Procedure>
 
 [changes-in-ts2]: /timescaledb/:currentVersion:/overview/release-notes/changes-in-timescaledb-2
 [relnotes-20]: /timescaledb/:currentVersion:/overview/release-notes/changes-in-timescaledb-2#retention-and-caggs

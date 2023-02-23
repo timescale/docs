@@ -54,11 +54,11 @@ The `older_than` and `newer_than` parameters can be specified in two ways:
     `SMALLINT` / `INT` / `BIGINT`. The choice of timestamp or integer
     must follow the type of the hypertable's time column.
 
-<highlight type="warning">
+<Highlight type="warning">
 When using just an interval type, the function assumes that
 you are removing things _in the past_. If you want to remove data
 in the future, for example to delete erroneous entries, use a timestamp.
-</highlight>
+</Highlight>
 
 When both arguments are used, the function returns the intersection of the resulting two ranges. For example,
 specifying `newer_than => 4 months` and `older_than => 3 months` drops all full chunks that are between 3 and
