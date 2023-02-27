@@ -677,7 +677,7 @@ page by page, or all pages together, and group by path or not:
 ## Next steps
 
 Now that you're able to connect, read, and write to a TimescaleDB instance from
-your Python application, and generate the scaffolding necessary to build a new
+your Ruby application, and generate the scaffolding necessary to build a new
 application from an existing TimescaleDB instance, be sure to check out these
 advanced TimescaleDB tutorials:
 
