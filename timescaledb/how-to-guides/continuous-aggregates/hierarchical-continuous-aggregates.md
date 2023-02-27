@@ -1,7 +1,7 @@
 ---
 title: Continuous aggregates on continuous aggregates
 excerpt: Create continuous aggregates on top of continuous aggregates to summarize data at different granularities
-keywords: [continuous aggregates, create]
+keywords: [continuous aggregates, hierarchical, create]
 ---
 
 # Hierarchical continuous aggregates
