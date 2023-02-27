@@ -95,6 +95,35 @@ aggregate in your continuous aggregate. Then, you can call an accessor function
 as a second step when you query from your continuous aggregate. This accessor
 takes the stored data from the summary aggregate and returns the final result.
 
+For example, you can create an hourly continuous aggregate using `percentile_agg`
+over a hypertable, like this:
+
+```sql
+CREATE MATERIALIZED VIEW response_times_hourly
+WITH (timescaledb.continuous)
+AS SELECT
+    time_bucket('1 h'::interval, ts) as bucket,
+    api_id,
+    avg(response_time_ms),
+    percentile_agg(response_time_ms) as percentile_hourly
+FROM response_times
+GROUP BY 1, 2;
+```
+
+To then stack another daily continuous aggregate over it, you can use a `rollup`
+function, like this:
+
+```sql
+CREATE MATERIALIZED VIEW response_times_daily
+WITH (timescaledb.continuous)
+AS SELECT
+    time_bucket('1 d'::interval, bucket) as bucket_daily,
+    api_id,
+    rollup(percentile_hourly) as percentile_daily
+FROM response_times_hourly
+GROUP BY 1, 2;
+```
+
 ## Restrictions
 
 There are some restrictions when creating a continuous aggregate on top of
