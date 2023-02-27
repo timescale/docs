@@ -609,8 +609,8 @@ store the endpoint path and the time necessary to return the response.
 
 ## Explore aggregation functions
 
-Now that you know what pages exist, we can explore page by page (or all the
-pages together), grouping by path or not.
+Now that you know what pages exist, you can explore the results. You can go 
+page by page, or all pages together, and group by path or not:
 
 <procedure>
 
