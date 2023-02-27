@@ -5,6 +5,7 @@ keywords: [queries]
 ---
 
 # Query your data
+
 With TimescaleDB, there's no need to learn a custom query language, because
 TimescaleDB supports full SQL. You can use your SQL knowledge along with the
 rich ecosystem of PostgreSQL tools, and add the extra features and performance of
@@ -14,6 +15,7 @@ Here are some query examples so you can get familiar with using SQL alongside
 popular TimescaleDB functions.
 
 ## Basic SQL queries
+
 Many of the queries below show a filter for the last four days of data. This
 accounts for the nuance of stock trade data which only occurs Monday-Friday on
 the New York Stock Exchange.
@@ -26,6 +28,7 @@ You can adjust the time frame based on the data that you downloaded and to
 explore other time-ranges in the provided data.
 
 ### Select all stock data from the last four days
+
 To select all the stock data from the previous four days, use the
 [`WHERE`][clause-expressions]
 clause to filter the result using a relative time interval. This example uses an
@@ -38,6 +41,7 @@ WHERE time > now() - INTERVAL '4 days';
 ```
 
 ### Select the most recent 10 trades for Amazon in order
+
 Use the [`ORDER BY`][order-by] clause to define the order of results from your
 query. With stock trade data, there are often multiple trades each second for
 popular stocks like Amazon. Therefore, you cannot order data descending by the
@@ -94,12 +98,13 @@ correct because the `day_volume` column is ordered correctly.
    ```
 
 ## Advanced TimescaleDB SQL functions
+
 Timescale has many custom-built SQL functions to help you perform time-series
 analysis in fewer lines of code. Here's how to use three of these functions:
 
-* [first()][first]: find the earliest value based on a time within an aggregate group
-* [last()][last]: find the latest value based on time within an aggregate group
-* [time_bucket()][time-bucket]: bucket data by arbitrary time intervals and calculate aggregates over those intervals
+*   [first()][first]: find the earliest value based on a time within an aggregate group
+*   [last()][last]: find the latest value based on time within an aggregate group
+*   [time_bucket()][time-bucket]: bucket data by arbitrary time intervals and calculate aggregates over those intervals
 
 ### Get the first and last value
 
@@ -139,6 +144,7 @@ AMGN  |   233.3|  233.11|
 ```
 
 ### Aggregate by an arbitrary length of time
+
 The `time_bucket()` function enables you to take a time column and "bucket" the
 values based on an interval of your choice. Typically, you bucket time so that
 you can perform an aggregation over the chosen interval.
@@ -194,13 +200,15 @@ a `time_bucket()` of one week, starts on the beginning date of the bucket, not
 the current time that you run the query. To learn more about how time buckets
 are calculated, see the [how-to guide for time buckets][time-bucket-how-to].
 
-<video url="https://www.youtube.com/embed/WFg0B1Bihtg"></video>
+<Video url="https://www.youtube.com/embed/WFg0B1Bihtg"></Video>
 
 ## Next steps
+
 Now that you're familiar with some TimescaleDB queries and functions, like `time_bucket`, learn about
 continuous aggregates in the [next section][create-cagg].
 
 ## Learn more about TimescaleDB hyperfunctions
+
 For more information about the functions provided by TimescaleDB and Timescale Toolkit extension,
 see the [API Reference for hyperfunctions](/api/:currentVersion:/hyperfunctions).
 

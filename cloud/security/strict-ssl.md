@@ -44,7 +44,7 @@ To set up a stricter SSL connection:
 1.  Generate a copy of your certificate chain and store it in the right location
 1.  Change your Timescale Cloud connection string
 
-<procedure>
+<Procedure>
 
 ### Connecting to your database with a stricter SSL mode
 
@@ -61,7 +61,7 @@ To set up a stricter SSL connection:
 
 1.  Copy the bundle to your clipboard:
 
-    <terminal>
+    <Terminal>
 
     <tab label="MacOS">
 
@@ -87,7 +87,7 @@ To set up a stricter SSL connection:
 
     </tab>
 
-    </terminal>
+    </Terminal>
 
 1.  Navigate to <https://whatsmychaincert.com/>. This online tool generates a
     full certificate chain, including the root CA certificate, which is not
@@ -106,7 +106,7 @@ To set up a stricter SSL connection:
     psql "postgres://tsdbadmin@$SERVICE_URL_WITH_PORT/tsdb?sslmode=verify-full"
     ```
 
-</procedure>
+</Procedure>
 
 ## Verify certificate type used by your database
 

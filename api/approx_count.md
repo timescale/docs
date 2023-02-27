@@ -19,7 +19,7 @@ hyperfunction:
 
 import Experimental from 'versionContent/_partials/_experimental.mdx';
 
-# approx_count() <tag type="toolkit" content="Toolkit" /><tag type="experimental-toolkit" content="Experimental" />
+# approx_count() <Tag type="toolkit" content="Toolkit" /><Tag type="experimental-toolkit" content="Experimental" />
 
 Returns an estimate of the number of times that the text `item` was seen by the [Count-Min Sketch][count-min-sketch] `agg`.
 

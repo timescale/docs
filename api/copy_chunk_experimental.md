@@ -12,7 +12,7 @@ api:
 
 import Experimental from 'versionContent/_partials/_experimental.mdx';
 
-## copy_chunk() <tag type="community">Community</tag> <tag type="experimental">Experimental</tag>
+## copy_chunk() <Tag type="community">Community</Tag> <Tag type="experimental">Experimental</Tag>
 
 TimescaleDB allows you to copy existing chunks to a new location within a
 multi-node environment. This allows each data node to work both as a primary for

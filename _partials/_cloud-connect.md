@@ -3,7 +3,7 @@ system using the `psql` command-line utility. If you've used PostgreSQL before,
 you might already have `psql` installed. If not, check out the [installing
 psql][install-psql] section.
 
-<procedure>
+<Procedure>
 
 ### Connecting to your service from the command prompt
 
@@ -34,7 +34,7 @@ psql][install-psql] section.
     tsdb=>
     ```
 
-</procedure>
+</Procedure>
 
 [install-psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql/
 [tsc-portal]: https://console.cloud.timescale.com/

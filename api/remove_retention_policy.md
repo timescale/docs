@@ -9,7 +9,7 @@ api:
   type: function
 ---
 
-# remove_retention_policy() <tag type="community">Community</tag>
+# remove_retention_policy() <Tag type="community">Community</Tag>
 
 Remove a policy to drop chunks of a particular hypertable.
 

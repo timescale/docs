@@ -5,27 +5,29 @@ keywords: [continuous aggregates, create]
 ---
 
 # Creating continuous aggregates
+
 Now that you've been introduced to continuous aggregates, create your own
 continuous aggregate from your data.
 
 ## Create an aggregate query to use in your continuous aggregate
+
 The data used in this tutorial is second-by-second, or tick, data for stock trades.
 A popular aggregate pattern used for analyzing stock data is called a
 [candlestick][candlestick]. Generally, candlestick charts use 4 different
 aggregations over a specific interval of time (for example, 1-minute, 5-minute,
 or 1-day aggregates):
 
-* `high`: highest stock price per interval
-* `open`: opening stock price per interval
-* `close`: closing stock price per interval
-* `low`: lowest stock price per interval
+*   `high`: highest stock price per interval
+*   `open`: opening stock price per interval
+*   `close`: closing stock price per interval
+*   `low`: lowest stock price per interval
 
 For this example query, the [`time_bucket()`][time-bucket] interval is 1 day.
 The `high` and `low` values can be found by using the PostgreSQL [`MAX()`][max]
 and [`MIN()`][min] functions. Finally, the `open` and `close` values can be
 found by using the [`first()`][first] and [`last()`][last] functions.
 
-<procedure>
+<Procedure>
 
 ### Creating an aggregate query
 
@@ -59,9 +61,10 @@ found by using the [`first()`][first] and [`last()`][last] functions.
     2022-05-03 20:00:00.000 -0400|AMAT  |  118.47| 114.279|  117.95|  112.04|
     ```
 
-</procedure>
+</Procedure>
 
 ## Create a continuous aggregate from aggregate query
+
 Now that you have the aggregation query, you can use it to create a continuous
 aggregate.
 
@@ -71,7 +74,7 @@ In the next line, `WITH (timescaledb.continuous)` instructs TimescaleDB to
 create a continuous aggregate and not just a generic materialized view. Finally,
 the query from earlier is added after the `AS` keyword.
 
-<procedure>
+<Procedure>
 
 ### Creating a continuous aggregate from an aggregate query
 
@@ -97,7 +100,7 @@ the query from earlier is added after the `AS` keyword.
     calculation results are stored, querying the data from the continuous
     aggregate is much faster.
 
-</procedure>
+</Procedure>
 
 The `SELECT` statement is the same query you wrote earlier, without the
 `ORDER BY` clause. By default, this code both creates the aggregate and
@@ -115,17 +118,18 @@ SELECT * FROM stock_candlestick_daily
 ```
 
 ## Real-time continuous aggregates
+
 By default, all continuous aggregates are created as *real-time* aggregates.
 This means that TimescaleDB will append (or `UNION`) recent data that has not
 yet been materialized through a refresh policy to the output of the continuous
 aggregate. In this diagram, that corresponds to the last three points of raw
 data, which belong to an incomplete bucket.
 
-<highlight type="note">
+<Highlight type="note">
 If you don't want real-time aggregation, you can disable it. Set the `materialized_only`
 parameter to true for your continuous aggregate. For more information, see the
 section on [real-time aggregation](/timescaledb/latest/how-to-guides/continuous-aggregates/real-time-aggregates/#use-real-time-aggregates).
-</highlight>
+</Highlight>
 
 To inspect details about a continuous aggregate, such as its
 configuration or the query used to define it, use the following
@@ -143,9 +147,10 @@ hypertable_schema|hypertable_name |view_schema|view_name              |view_owne
 public           |stocks_real_time|public     |stock_candlestick_daily|tsdbadmin |f                |f                  |_timescaledb_internal            |_materialized_hypertable_3     | SELECT time_bucket('1 day'::interval, srt."time") AS day,¶    srt.symbol,¶    max(srt.price) AS high,¶    first(srt.price, srt."time") AS open,¶    last(srt.price, srt."time") AS close,|
 ```
 
-<video url="https://www.youtube.com/embed/1m9yxpyGrBY"></video>
+<Video url="https://www.youtube.com/embed/1m9yxpyGrBY"></Video>
 
 ## Next steps
+
 Now that your continuous aggregate is created, the next step is to create a [continuous aggregate refresh policy][cagg-policy].
 
 Without an automatic refresh policy, your continuous aggregate won't materialize new data as it is

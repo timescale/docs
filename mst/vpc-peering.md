@@ -6,6 +6,7 @@ keywords: [vpc, peer]
 ---
 
 # VPC peering
+
 Virtual Private Cloud (VPC) peering is a method of connecting separate
 Cloud private networks to each other. It makes it possible for the
 virtual machines in the different VPC's to talk to each other directly without
@@ -15,15 +16,16 @@ VPC peering setup is a per project and per region setting. This means that all
 services created and running utilize the same VPC peering connection. If needed,
 you can have multiple projects that peer with different connections.
 
-<highlight type="tip">
+<Highlight type="tip">
 Services are only accessible via your VPC's internal network, they are not
 accessible from the public internet. TLS certificates for VPC peered services are
 signed by the Timescale project CA and cannot be validated against a public CA
 (Let's Encrypt). You can choose service-by-service whether you want to run on VPC
 peered network or on public internet.
-</highlight>
+</Highlight>
 
 ## Setting it up
+
 To set up VPC peering for your Managed Service for TimescaleDB project, submit a
 request in the VPC section of the dashboard.
 

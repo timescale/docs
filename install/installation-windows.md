@@ -25,21 +25,21 @@ The minimum supported PostgreSQL versions are:
 *   PostgreSQL 14.0
 *   PostgreSQL 15.0
 
-<highlight type="warning">
+<Highlight type="warning">
 If you have already installed PostgreSQL using another method, you could
 encounter errors following these instructions. It is safest to remove any
 existing PostgreSQL installations before you begin. If you want to keep your
 current PostgreSQL installation, do not install TimescaleDB using this method.
 [Install from source](/install/latest/self-hosted/installation-source/) instead.
-</highlight>
+</Highlight>
 
 ## Prerequisites
 
 To install PostgreSQL version 15.1.1 or later, make sure you have:
 
-* Installed OpenSSL 1.1.1
+*   Installed OpenSSL 1.1.1
 
-<procedure>
+<Procedure>
 
 ## Installing self-hosted TimescaleDB on Windows-based systems
 
@@ -55,7 +55,7 @@ To install PostgreSQL version 15.1.1 or later, make sure you have:
 4.  In the extracted TimescaleDB directory, right-click the `setup.exe` file and
     select `Run as Administrator` to start the installer.
 
-</procedure>
+</Procedure>
 
 When you have completed the installation, you need to configure your database so
 that you can use it. The easiest way to do this is to run the `timescaledb-tune`
@@ -69,7 +69,7 @@ your local system using the `psql` command-line utility.
 
 <Windows />
 
-<procedure>
+<Procedure>
 
 ### Setting up the TimescaleDB extension
 
@@ -115,7 +115,7 @@ your local system using the `psql` command-line utility.
     psql -U postgres -h localhost -d example
     ```
 
-</procedure>
+</Procedure>
 
 You can check that the TimescaleDB extension is installed by using the `\dx`
 command at the `psql` prompt. It looks like this:
@@ -154,18 +154,18 @@ information on releases, check out the
 [GitHub releases page][gh-releases]. Also see the
 [release notes][release-notes].
 
-*   <tag type="download">
+*   <Tag type="download">
     [PostgreSQL 15: TimescaleDB release](https://timescalereleases.blob.core.windows.net/windows/timescaledb-postgresql-15_latest-windows-amd64.zip)
-    </tag>
-*   <tag type="download">
+    </Tag>
+*   <Tag type="download">
     [PostgreSQL 14: TimescaleDB release](https://timescalereleases.blob.core.windows.net/windows/timescaledb-postgresql-14_latest-windows-amd64.zip)
-    </tag>
-*   <tag type="download">
+    </Tag>
+*   <Tag type="download">
     [PostgreSQL 13: TimescaleDB release](https://timescalereleases.blob.core.windows.net/windows/timescaledb-postgresql-13_latest-windows-amd64.zip)
-    </tag>
-*   <tag type="download">
+    </Tag>
+*   <Tag type="download">
     [PostgreSQL 12: TimescaleDB release](https://timescalereleases.blob.core.windows.net/windows/timescaledb-postgresql-12_latest-windows-amd64.zip)
-    </tag>
+    </Tag>
 
 ## Where to next
 

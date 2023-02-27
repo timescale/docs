@@ -9,11 +9,11 @@ tags: [import]
 
 You can migrate your data into TimescaleDB from a different PostgreSQL database.
 
-<highlight type="note">
+<Highlight type="note">
 To migrate between TimescaleDB databases, for example from self-hosted
 TimescaleDB to Timescale Cloud, see the [guide to migrating your TimescaleDB
 database to Cloud](https://docs.timescale.com/cloud/latest/migrate-to-cloud/).
-</highlight>
+</Highlight>
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ Before you begin, check that you have:
 
 Migrate your data into TimescaleDB from a different PostgreSQL database.
 
-<procedure>
+<Procedure>
 
 ### Migrating your data into TimescaleDB
 
@@ -74,7 +74,7 @@ Migrate your data into TimescaleDB from a different PostgreSQL database.
     hypertables. For detailed instructions, see the [CSV import
     guide][csv-import].
 
-</procedure>
+</Procedure>
 
 To learn what you can do with your hypertable data, read about common
 [hypertable commands][hypertable-commands].

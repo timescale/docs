@@ -21,12 +21,12 @@ recommended for Promscale, based on the ingest rate and retention.
 
 **Total disk size**: size of disk required to store the data based on the ingest rate and retention.
 
-<highlight type="note">
+<Highlight type="note">
 You can calculate the `total disk size` based on retention and ingest rates with this formula:
 
 Total disk size = (Disk size per day based on the ingest rate * Retention in days) +
 Uncompressed buffer based on the ingest rate.
-</highlight>
+</Highlight>
 
 ## Metrics
 

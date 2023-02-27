@@ -39,7 +39,7 @@ same information. This tutorial shows you how to create both.
 
 Create a pie chart visualization using the data in the table `stocks_real_time`.
 
-<procedure>
+<Procedure>
 
 ### Creating a pie chat with preaggregated data
 
@@ -103,7 +103,7 @@ Create a pie chart visualization using the data in the table `stocks_real_time`.
 
    <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/piechart/piechart2.png" alt="Screenshot of the all values shown in pie chart produced by Grafana. The pie chart represents the price of selected stocks in the past 3 months."/>
 
-</procedure>
+</Procedure>
 
 ## Create a donut chart with volume transactions
 
@@ -116,7 +116,7 @@ volume of each stock within a bucket interval. The transaction volume per
 bucket is calculated from the daily cumulative traded volume, which is available
 in the `stocks_real_time` hypertable.
 
-<procedure>
+<Procedure>
 
 ### Creating donut chart with volume transactions
 
@@ -153,13 +153,13 @@ in the `stocks_real_time` hypertable.
    <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/piechart/donutchart.png" alt="Screenshot of Grafana dashboard, showing a donut chart."/>
 
 
-<highlight type="note">
+<Highlight type="note">
 If you go beyond a single trading day, you might get results that don't look
 very good, or you might get no data returned. To fix this, focus your
 calculation on a single trading day instead.
-</highlight>
+</Highlight>
 
-</procedure>
+</Procedure>
 
 Pie charts are a great tool for comparing categorized data. They're especially good
 for visualizing percentages. But they don't work as well if you have too many categories

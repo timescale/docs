@@ -27,12 +27,12 @@ you choose. The options are:
     the data nodes. This method is more complex to set up than password
     authentication, but more secure and easier to automate.
 
-<highlight type="important">
+<Highlight type="important">
 Going beyond the simple trust approach to create a secure system can be complex,
 but it is important to secure your database appropriately for your environment.
 We do not recommend any one security model, but encourage you to perform a risk
 assessment and implement the security model that best suits your environment.
-</highlight>
+</Highlight>
 
 ## Trust authentication
 
@@ -41,12 +41,12 @@ environment up and running, but it is not a secure method of operation. Use this
 only for developing a proof of concept, do not use this method for production
 installations.
 
-<highlight type="warning">
+<Highlight type="warning">
 The trust authentication method allows insecure access to all nodes. Do not use
 this method in production. It is not a secure method of operation.
-</highlight>
+</Highlight>
 
-<procedure>
+<Procedure>
 
 ### Setting up trust authentication
 
@@ -105,13 +105,13 @@ this method in production. It is not a secure method of operation.
     CALL distributed_exec($$ CREATE ROLE testrole LOGIN $$);
     ```
 
-<highlight type="important">
+<Highlight type="important">
 Make sure you create the role with the `LOGIN` privilege on the data nodes, even
 if you don't use this privilege on the access node. For all other privileges,
 ensure they are same on the access node and the data nodes.
-</highlight>
+</Highlight>
 
-</procedure>
+</Procedure>
 
 ## Password authentication
 
@@ -137,7 +137,7 @@ authentication. For other password authentication methods, see the
 Before you start, check that you can use the `postgres` username to log in to
 your access node.
 
-<procedure>
+<Procedure>
 
 ### Setting up password authentication
 
@@ -145,7 +145,7 @@ your access node.
     or edit this line:
 
     ```txt
-    password_encryption = 'scram-sha-256'		# md5 or scram-sha-256
+    password_encryption = 'scram-sha-256'  # md5 or scram-sha-256
     ```
 
 1.  Repeat for each of the data nodes.
@@ -222,12 +222,12 @@ your access node.
     *:*:*:testrole:internalpass #assuming 'internalpass' is the password used to connect to data nodes
     ```
 
-<highlight type="important">
+<Highlight type="important">
 Any user passwords that you created before you set up password authentication
 need to be re-created so that they use the new encryption method.
-</highlight>
+</Highlight>
 
-</procedure>
+</Procedure>
 
 ## Certificate authentication
 
@@ -253,7 +253,7 @@ node. For the access node, a signed certificate is used to verify user
 certificates for access. For the data nodes, a signed certificate authenticates
 the node to the access node.  
 
-<procedure>
+<Procedure>
 
 ### Generating a self-signed root certificate for the access node
 
@@ -285,7 +285,7 @@ the node to the access node.
     Email Address []:
     ```
 
-</procedure>
+</Procedure>
 
 When you have created the root certificate on the access node, you can generate
 certificates and keys for each of the data nodes. To do this, you need to create
@@ -298,7 +298,7 @@ node instance.
 The default name for the CSR is `server.csr` and you need to sign
 it using the root certificate you created on the access node.
 
-<procedure>
+<Procedure>
 
 ### Generating keys and certificates for data nodes
 
@@ -325,11 +325,11 @@ it using the root certificate you created on the access node.
     data node, in the `data` directory. Depending on your network setup, you
     might need to use portable media.
 
-</procedure>
+</Procedure>
 
 When you have created the certificates and keys, and moved all the files into the right places on the data nodes, you can configure the data nodes to use SSL authentication.
 
-<procedure>
+<Procedure>
 
 ### Configuring data nodes to use SSL authentication
 
@@ -355,21 +355,21 @@ When you have created the certificates and keys, and moved all the files into th
     hostssl   all       all         all       cert    clientcert=1
     ```
 
-<highlight type="note">
+<Highlight type="note">
 If you are using the default names for your certificate and key, you do not need
 to explicitly set them. The configuration looks for `server.crt` and
 `server.key` by default. If you use different names for your certificate and
 key, make sure you specify the correct names in the `postgresql.conf`
 configuration file.
-</highlight>
+</Highlight>
 
-</procedure>
+</Procedure>
 
 When your data nodes are configured to use SSL certificate authentication, you
 need to create a signed certificate and key for your access node. This allows
 the access node to log in to the data nodes.
 
-<procedure>
+<Procedure>
 
 ### Creating certificates and keys for the access node
 
@@ -402,7 +402,7 @@ the access node to log in to the data nodes.
 
     ```bash
     openssl ca -batch -keyfile server.key -extensions v3_intermediate_ca \
-  	   -days 3650 -notext -md sha256 -in "$base.csr" -out "$crt_file"
+      -days 3650 -notext -md sha256 -in "$base.csr" -out "$crt_file"
     rm $base.csr
     ```
 
@@ -415,13 +415,13 @@ the access node to log in to the data nodes.
     cat >>$crt_file <server.crt
     ```
 
-<highlight type="note">
+<Highlight type="note">
 By default, the user key files and certificates are stored on the access node in
 the `data` directory, under `timescaledb/certs`. You can change this location
 using the `timescaledb.ssl_dir` configuration variable.
-</highlight>
+</Highlight>
 
-</procedure>
+</Procedure>
 
 Your data nodes are now set up to accept certificate authentication, the data
 and access nodes have keys, and the `postgres` user has a certificate. If you
@@ -429,7 +429,7 @@ have not already done so, add the data nodes to the access node. For
 instructions, see the [multi-node setup][multi-node-setup] section. The final
 step is add additional user roles.
 
-<procedure>
+<Procedure>
 
 ### Setting up additional user roles
 
@@ -452,7 +452,7 @@ step is add additional user roles.
     CALL distributed_exec($$ CREATE ROLE testrole LOGIN $$);
     ```
 
-</procedure>
+</Procedure>
 
 [auth-password]: https://www.postgresql.org/docs/current/auth-password.html
 [distributed_exec]: /api/:currentVersion:/distributed-hypertables/distributed_exec

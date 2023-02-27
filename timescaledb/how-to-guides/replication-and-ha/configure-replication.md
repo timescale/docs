@@ -9,12 +9,12 @@ keywords: [replicas]
 This section outlines how to set up asynchronous streaming replication on one or
 more database replicas.
 
-<highlight header="Enable replication in one click and avoid manual configuration work" type="cloud">
+<Highlight header="Enable replication in one click and avoid manual configuration work" type="cloud">
 If you would prefer not to manually configure replication for your TimescaleDB instance,
 you might find Timescale Cloud's one-click replicas useful. Create multiple replicas per database
 and enable or disable them with a single click. Test it out for yourself today with a
 [free Timescale Cloud trial](http://tsdb.co/cloud-signup).
-</highlight>
+</Highlight>
 
 Before you begin, make sure you have at least two separate instances of
 TimescaleDB running. If you installed TimescaleDB using a Docker container, use
@@ -39,7 +39,7 @@ To configure the primary database, you need a PostgreSQL user with a role that
 allows it to initialize streaming replication. This is the user each replica
 uses to stream from the primary database.
 
-<procedure>
+<Procedure>
 
 ### Configuring the primary database
 
@@ -56,19 +56,19 @@ uses to stream from the primary database.
     CREATE ROLE repuser WITH REPLICATION PASSWORD '<PASSWORD>' LOGIN;
     ```
 
-<highlight type="important">
+<Highlight type="important">
 The [scram-sha-256](https://www.postgresql.org/docs/current/static/sasl-authentication.html#SASL-SCRAM-SHA-256) encryption level is the most secure
 password-based authentication available in PostgreSQL. It is only available in PostgreSQL 10 and later.
-</highlight>
+</Highlight>
 
-</procedure>
+</Procedure>
 
 ## Configure replication parameters
 
 There are several replication settings that need to be added or edited in the
 `postgresql.conf` configuration file.
 
-<procedure>
+<Procedure>
 
 ### Configuring replication parameters
 
@@ -88,7 +88,7 @@ There are several replication settings that need to be added or edited in the
 1.  Restart PostgreSQL to pick up the changes. This must be done before you
     create replication slots.
 
-</procedure>
+</Procedure>
 
 The most common streaming replication use case is asynchronous replication with
 one or more replicas. In this example, the WAL is streamed to the replica, but
@@ -125,7 +125,7 @@ been consumed by a replica, so that it can safely delete data. You can use
 [archiving][postgres-archive-docs] for this purpose, but replication slots
 provide the strongest protection for streaming replication.
 
-<procedure>
+<Procedure>
 
 ### Creating replication slots
 
@@ -138,7 +138,7 @@ provide the strongest protection for streaming replication.
 
 1.  Repeat for each required replication slot.
 
-</procedure>
+</Procedure>
 
 ## Configure host-based authentication parameters
 
@@ -153,7 +153,7 @@ network settings.
 For more information about `pg_hba.conf`, see the
 [`pg_hba` documentation][pg-hba-docs].
 
-<procedure>
+<Procedure>
 
 ### Configuring host-based authentication parameters
 
@@ -166,7 +166,7 @@ For more information about `pg_hba.conf`, see the
 
 1.  Restart PostgreSQL to pick up the changes.
 
-</procedure>
+</Procedure>
 
 ## Create a base backup on the replica
 
@@ -175,7 +175,7 @@ transactions in PostgreSQL recovery mode. To do this, the replica needs to be in
 a state where it can replay the log. You can do this by restoring the replica
 from a base backup of the primary instance.
 
-<procedure>
+<Procedure>
 
 ### Creating a base backup on the replica
 
@@ -209,14 +209,14 @@ from a base backup of the primary instance.
     touch <DATA_DIRECTORY>/standby.signal
     ```
 
-</procedure>
+</Procedure>
 
 ## Configure replication and recovery settings
 
 When you have successfully created a base backup and a `standby.signal` file, you
 can configure the replication and recovery settings.
 
-<procedure>
+<Procedure>
 
 ## Configuring replication and recovery settings
 
@@ -246,7 +246,7 @@ can configure the replication and recovery settings.
     on the replica. In PostgreSQL 10 and later, this setting is `on` by default.
 1.  Restart PostgreSQL to pick up the changes.
 
-</procedure>
+</Procedure>
 
 ## Verify that the replica is working
 
@@ -303,11 +303,11 @@ In the `postgresql.conf` file, set the `synchronous_commit` parameter to:
     mode, replicas always reflect the latest state of the primary, and
     replication lag is nearly non-existent.
 
-<highlight type="important">
+<Highlight type="important">
 If `synchronous_standby_names` is empty, the settings `on`, `remote_apply`,
 `remote_write` and `local` all provide the same synchronization level, and
 transaction commits wait for the local flush to disk.
-</highlight>
+</Highlight>
 
 This matrix shows the level of consistency provided by each mode:
 

@@ -64,7 +64,7 @@ Protobuf is the default data format. It is slightly more complex than the
 payload is smaller. We recommend this format if you're building a system to
 ingest a lot of data continuously.
 
-<procedure>
+<Procedure>
 
 ### Using the Promscale endpoint with the Protobuf format
 
@@ -77,7 +77,7 @@ ingest a lot of data continuously.
     endpoint. For more information, see
     [this sample request written in Go][go-sample].
 
-</procedure>
+</Procedure>
 
 ### Protobuf example in Go
 

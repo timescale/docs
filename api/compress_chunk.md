@@ -9,7 +9,7 @@ api:
   type: function
 ---
 
-# compress_chunk() <tag type="community">Community</tag>
+# compress_chunk() <Tag type="community">Community</Tag>
 
 The compress_chunk function is used to compress a specific chunk. This is
 most often used instead of the
@@ -17,10 +17,10 @@ most often used instead of the
 wants more control over the scheduling of compression. For most users, we
 suggest using the policy framework instead.
 
-<highlight type="tip">
+<Highlight type="tip">
 You can get a list of chunks belonging to a hypertable using the
 `show_chunks` [function](/api/latest/hypertable/show_chunks/).
-</highlight>
+</Highlight>
 
 ### Required arguments
 

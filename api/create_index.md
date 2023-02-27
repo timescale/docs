@@ -22,18 +22,18 @@ other operations to be performed concurrently during most of the duration of the
 it functions as if a regular `CREATE INDEX` were called on that chunk, however
 other chunks are completely un-blocked.
 
-<highlight type="note">
+<Highlight type="note">
 This version of `CREATE INDEX` can be used as an alternative to
 `CREATE INDEX CONCURRENTLY`, which is not currently supported on hypertables.
-</highlight>
+</Highlight>
 
-<highlight type="warning">
+<Highlight type="warning">
 If the operation fails partway through, indexes might not be created on all
 hypertable chunks. If this occurs, the index on the root table of the hypertable
 is marked as invalid. You can check this by running `\d+` on the hypertable. The
 index still works, and is created on new chunks, but if you want to ensure all
 chunks have a copy of the index, drop and recreate it.
-</highlight>
+</Highlight>
 
 ### Sample usage
 

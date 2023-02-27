@@ -9,7 +9,7 @@ api:
   type: function
 ---
 
-# hypertable_compression_stats() <tag type="community">Community</tag>
+# hypertable_compression_stats() <Tag type="community">Community</Tag>
 
 Get statistics related to hypertable compression.
 All sizes are in bytes.

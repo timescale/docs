@@ -27,7 +27,7 @@ api_details:
             agg StateAgg
         ) RETURNS (TEXT, TIMESTAMPTZ, TIMESTAMPTZ)
 
-        state_int_state(
+        state_int_timeline(
             agg StateAgg
         ) RETURNS (BIGINT, TIMESTAMPTZ, TIMESTAMPTZ)
   parameters:

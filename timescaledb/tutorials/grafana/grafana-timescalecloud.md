@@ -28,21 +28,21 @@ as a data source in [Grafana][grafana-homepage].
 To configure TimescaleDB as a data source you need to create a service,
 and then configure TimescaleDB as the data source in Grafana.
 
-<procedure>
+<Procedure>
 
 ### Creating a TimescaleDB service
 
 1.  Sign in to the [Timescale Cloud portal][tsc-portal].
 1.  Click `Create service`.
-1.  You can choose to build your service with or without demo data. 
+1.  You can choose to build your service with or without demo data.
 1.  Click `Download the cheatsheet`. This `.sql` file contains the credentials
     that you require to configure TimescaleDB as a data source on Grafana.
 
 <CloudTrial />
 
-</procedure>
+</Procedure>
 
-<procedure>
+<Procedure>
 
 ### Configuring TimescaleDB as data source
 
@@ -63,14 +63,14 @@ installation, log in to Grafana and proceed to step 5 in this procedure.
     *   In the `Name` field, type name that you would like for dataset on TimescaleDB.
     *   In the `PostgreSQL Connection` section, type the  `Database`, `User`,
         and `Password` fields using the `.sql` file that you downloaded when
-        creating the TimescaleDB service. 
+        creating the TimescaleDB service.
     *   In the `Host` type `<HOST>:<PORT>` from the `.sql` file that you downloaded.
     *   Set `TLS/SSL Mode` as `require`.
     *   In `PostgreSQL details` enable `TimescaleDB`
 1.  Click `Save & test` button. If the connection is successful
-    `Database Connection OK` appears. 
+    `Database Connection OK` appears.
 
-</procedure>
+</Procedure>
 
 When you have configured TimescaleDB as a data source in Grafana, you can create panels that are populated with data using SQL.
 

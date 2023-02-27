@@ -9,7 +9,7 @@ api:
   type: function
 ---
 
-# add_retention_policy() <tag type="community">Community</tag>
+# add_retention_policy() <Tag type="community">Community</Tag>
 
 Create a policy to drop chunks older than a given interval of a particular
 hypertable or continuous aggregate on a schedule in the background. (See [drop_chunks][drop_chunks]).

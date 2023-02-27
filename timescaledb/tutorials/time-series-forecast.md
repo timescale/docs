@@ -382,10 +382,10 @@ Set up MADlib in the `nyc_data` database:
 /usr/local/madlib/bin/madpack -s madlib -p postgres -c postgres@localhost/nyc_data install
 ```
 
-<highlight type="warning">
+<Highlight type="warning">
 This command might differ depending on the directory in which you installed
 MADlib and the names of your PostgreSQL user, host and database.
-</highlight>
+</Highlight>
 
 Now you can make use of MADlib's library to analyze the taxicab dataset. Here,
 you can train an ARIMA model to predict the price of a ride from JFK to Times

@@ -30,7 +30,7 @@ are not transferred to Timescale Cloud. To avoid this problem, fork your
 database and migrate your data from the fork. See the
 section on [migrating an active database](http://docs.timescale.com/cloud/latest/migrate-to-cloud/#migrate-an-active-database) to learn more.
 
-<highlight type="important">
+<Highlight type="important">
 If you have a large database, and Hypershift is going to have to run for a very
 long time to migrate it, for example, a day or more, ensure that you have a
 stable network connection. Hypershift is not able to recover if the network
@@ -38,7 +38,7 @@ connection is interrupted. Additionally, when Hypershift is running, it holds a
 single transaction open for the entire duration of the migration. This prevents
 any autovacuum tasks from running, which can cause a range of different
 problems on a busy source database.
-</highlight>
+</Highlight>
 
 ## Prerequisites
 
@@ -47,11 +47,11 @@ Before you begin, make sure you have:
 *   Signed up for your [free Timescale Cloud account][cloud-install].
 *   Installed [Docker][docker-install].
 
-<highlight type="cloud" header="Run all tutorials free" button="Try for free">
+<Highlight type="cloud" header="Run all tutorials free" button="Try for free">
 Your Timescale Cloud trial is completely free for you to use for the first
 thirty days. This gives you enough time to complete all the tutorials and run
 a few test projects of your own.
-</highlight>
+</Highlight>
 
 ## Download the Hypershift container
 
@@ -59,7 +59,7 @@ a few test projects of your own.
 
 <Tab title="MacOS">
 
-<procedure>
+<Procedure>
 
 ### Downloading the Hypershift container on MacOS
 
@@ -71,13 +71,13 @@ a few test projects of your own.
     docker pull timescale/hypershift:0.2
     ```
 
-</procedure>
+</Procedure>
 
 </Tab>
 
 <Tab title="Linux">
 
-<procedure>
+<Procedure>
 
 ### Downloading the Hypershift container on Linux
 
@@ -93,7 +93,7 @@ a few test projects of your own.
     docker pull timescale/hypershift:0.2
     ```
 
-</procedure>
+</Procedure>
 
 </Tab>
 
@@ -134,7 +134,7 @@ Use this format:
       - time desc
 ```
 
-<procedure>
+<Procedure>
 
 ### Running Hypershift
 
@@ -168,7 +168,7 @@ Use this format:
 1.  When the migration has finished, a summary of the migration is shown, and
     the Docker container exits.
 
-</procedure>
+</Procedure>
 
 [cloud-install]: /install/:currentVersion:/installation-cloud/
 [docker-install]: https://docs.docker.com/get-docker/

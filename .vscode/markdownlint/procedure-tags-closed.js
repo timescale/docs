@@ -13,8 +13,8 @@ const { checkTagsClosed, findPatternInLines } = require("./utils");
  */
 const checkProcedureTagsClosed = (params, onError) => {
   const { lines } = params;
-  const procedureOpeningTags = findPatternInLines(lines, "<procedure>");
-  const procedureClosingTags = findPatternInLines(lines, "<\\/procedure>");
+  const procedureOpeningTags = findPatternInLines(lines, "<Procedure>");
+  const procedureClosingTags = findPatternInLines(lines, "<\\/Procedure>");
   if (procedureOpeningTags.length === 0 && procedureClosingTags.length === 0)
     return;
   checkTagsClosed({

@@ -39,7 +39,7 @@ writes.
 In addition, materializing the most recent bucket might interfere with
 [real-time aggregation][future-watermark].
 
-<procedure>
+<Procedure>
 
 ### Changing a refresh policy to use a `NULL` `start_offset`
 
@@ -53,7 +53,7 @@ In addition, materializing the most recent bucket might interfere with
       schedule_interval => INTERVAL '1 h');
     ```
 
-</procedure>
+</Procedure>
 
 The policy in this example ensures that all the data in the continuous aggregate
 is up to date with the hypertable except for anything written in the last hour.
@@ -70,7 +70,7 @@ you have a retention policy that removes data older than one month, set
 `start_offset` to one month or less. This sets your policy so that it does
 not refresh the dropped data.
 
-<procedure>
+<Procedure>
 
 ### Changing a refresh policy to keep removed data
 
@@ -85,16 +85,16 @@ not refresh the dropped data.
       schedule_interval => INTERVAL '1 h');
     ```
 
-</procedure>
+</Procedure>
 
-<highlight type="note">
+<Highlight type="note">
 It is important to consider your data retention policies when you're setting up
 continuous aggregate policies. If the continuous aggregate policy window covers
 data that is removed by the data retention policy, the data will be removed when
 the aggregates for those buckets are refreshed. For example, if you have a data
 retention policy that removes all data older than two weeks, the continuous
 aggregate policy will only have data for the last two weeks.
-</highlight>
+</Highlight>
 
 ## Manually refresh a continuous aggregate
 
@@ -122,7 +122,7 @@ recommend using it, because you could inadvertently materialize a large amount
 of data, slow down your performance, and have unintended consequences on other
 policies like data retention.
 
-<procedure>
+<Procedure>
 
 ### Manually refreshing a continuous aggregate
 
@@ -132,7 +132,7 @@ policies like data retention.
     CALL refresh_continuous_aggregate('example', '2021-05-01', '2021-06-01');
     ```
 
-</procedure>
+</Procedure>
 
 Avoid refreshing time intervals that are likely to have a lot of writes. In
 general, this means you should never refresh the most recent time bucket.

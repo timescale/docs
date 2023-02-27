@@ -9,7 +9,7 @@ api:
   type: function
 ---
 
-# alter_job() <tag type="community">Community</tag>
+# alter_job() <Tag type="community">Community</Tag>
 
 Actions scheduled using the TimescaleDB automation framework run periodically in
 a background worker. You can change the schedule of these jobs with the
@@ -50,7 +50,7 @@ modifiable with `alter_job`. It is not currently possible to alter these
 parameters for an existing job. If you wish to do so, you must drop the
 existing job and register it again with the new values. It is also not possible
 to change the value of the `fixed_schedule` parameter. You must drop and
-recreate the job if you wish to alter this behavior. 
+recreate the job if you wish to alter this behavior.
 Also note that altering the `next_start` value is only effective for the next
 execution of the job in case of fixed schedules. On the next execution, it will
 automatically return to the schedule.

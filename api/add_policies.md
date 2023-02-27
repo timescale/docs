@@ -12,7 +12,7 @@ api:
 import Experimental from "versionContent/_partials/_experimental.mdx";
 
 <!-- markdownlint-disable-next-line line-length -->
-# add_policies() <tag type="community" content="Community" /><tag type="experimental" content="Experimental" />
+# add_policies() <Tag type="community" content="Community" /><Tag type="experimental" content="Experimental" />
 
 Add refresh, compression, and data retention policies to a continuous aggregate
 in one step. The added compression and retention policies apply to the

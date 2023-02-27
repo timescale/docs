@@ -20,7 +20,7 @@ hyperfunction:
 
 import Experimental from 'versionContent/_partials/_experimental.mdx';
 
-# into_values()  <tag type="toolkit">Toolkit</tag><tag type="experimental-toolkit">Experimental</tag>
+# into_values()  <Tag type="toolkit">Toolkit</Tag><Tag type="experimental-toolkit">Experimental</Tag>
 
 This function returns the data accumulated in a
 [frequency aggregate][freq_agg] or [top N aggregate][topn_agg].

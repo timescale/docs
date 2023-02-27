@@ -10,9 +10,9 @@
 	 	"scope": "markdown",
 	 	"prefix": ["high","callout"],
 	 	"body": [
-	 		"<highlight type=\"${1:note|important|warning|deprecated}\">",
+	 		"<Highlight type=\"${1:note|important|warning|deprecated}\">",
 			 "$TM_SELECTED_TEXT",
-			 "</highlight>"
+			 "</Highlight>"
 	 	],
 	 	"description": "Make the selected text a callout block"
 	 }
