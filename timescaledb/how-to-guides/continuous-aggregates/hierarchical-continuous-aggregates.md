@@ -124,6 +124,9 @@ FROM response_times_hourly
 GROUP BY 1, 2;
 ```
 
+For more information and examples about using `rollup` functions to stack
+calculations, see the [percentile approximation API documentation][percentile_agg_api].
+
 ## Restrictions
 
 There are some restrictions when creating a continuous aggregate on top of
@@ -168,3 +171,4 @@ ensure valid time-bucketing:
 [migrate-cagg]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/migrate/
 [postgresql-views]: https://www.postgresql.org/docs/current/rules-views.html
 [stats-aggs]: /api/:currentVersion:/hyperfunctions/statistical-and-regression-analysis/stats_agg-one-variable/
+[percentile_agg_api]: /api/:currentVersion:/hyperfunctions/percentile-approximation/uddsketch/#aggregate-and-roll-up-percentile-data-to-calculate-daily-percentiles-using-percentile_agg
