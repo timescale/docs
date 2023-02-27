@@ -50,7 +50,7 @@ on Rails application.
        rails new my_app -d=postgresql
     ```
 
-    Rails creats and bundles your application, and installs all
+    Rails creates and bundles your application, and installs all
     required Gems in the process.
 
 1.  Update `port` in the `database.yml` located in the `my_app/config`
@@ -154,7 +154,7 @@ store a host of additional web analytics of interest to you.
    the `myapp/db/migrate` directory.
    TimescaleDB requires that any `UNIQUE` or `PRIMARY KEY` indexes on the table
    include all partitioning columns, which in this case is the time column. A new
-   Rails model includes a `PRIMARY KEY` index for id by default, so we need to
+   Rails model includes a `PRIMARY KEY` index for id by default, so you need to
    either remove the column or make sure that the index includes time as part of
    a "composite key."
 
@@ -191,7 +191,7 @@ store a host of additional web analytics of interest to you.
         0
     ```
 
-1.  View the structure of the `page_loads` table in the rails dbconsole output:
+1.  View the structure of the `page_loads` table in the `rails dbconsole` output:
 
      ```ruby
         echo "\d page_loads" | rails dbconsole
@@ -279,7 +279,7 @@ and most other tasks are executed on the hypertable.
 You can insert data into your hypertables in several different ways. Create a
 new view and controller so that you can insert a value into the database, store
 the user agent and time in the database, retrieve the user agent of the browser
-for site visitor. You can then reate a `PageLoad` object, store the user agent
+for site visitor. You can then create a `PageLoad` object, store the user agent
 information and time, and save the object to TimescaleDB database.
 
 <procedure>
@@ -418,7 +418,7 @@ You can retrieve the data that you inserted and view it.
    Now, each time you refresh the page, you can see that a record is being inserted
    into the `tsdb` TimescaleDB database, and the counter is incremented on the page.
 
-1.  You need to have a lot of page loads to continue our research and explore
+1.  You need to have a lot of page loads to research and explore
     the [time_bucket] function. You can use [Apache Bench][ab] aka `ab` to
     request 50,000 times parallelizing 10 times.
 
@@ -459,10 +459,10 @@ You can retrieve the data that you inserted and view it.
 
 </procedure>
 
-## Create Scopes to reuse
+## Create scopes to reuse
 
 Scopes are very useful for decomposing complex SQL statements into Ruby objects.
-It also allow to introduce params and reuse queries as you need. create some
+It also allows to introduce parameters and reuse queries as you need. create some
 useful scopes that can help to summarize and easily access the `time_bucket`
 function:
 
@@ -483,7 +483,7 @@ function:
       end
      ```
 
-1.  In the Rudy console you can run these cammands to get the views for various requests:
+1.  In the Rudy console you can run these commands to get the views for various requests:
 
       ```ruby
         PageLoad.last_week.count     # Total of requests from last week
@@ -499,7 +499,7 @@ function:
        PageLoad.last_hour.where("user_agent like '%Chrome%'").count
      ```
 
-1.  Add a new scope that counts perminute dimension, in the `page_load.rb` file:
+1.  Add a new scope that counts per minute dimension, in the `page_load.rb` file:
 
     ```ruby
        class PageLoad < ApplicationRecord
@@ -549,7 +549,7 @@ store the endpoint path and the time necessary to return the response.
     ```
 
     The Rails generator understands the naming convention of the
-    migration and the extra params to create a new migration file
+    migration and the extra parameters to create a new migration file
     `<XXXXXXXXXXXXXX>_add_performance_to_page_load.rb` in
     the `myapp/db/migrate` directory
 
