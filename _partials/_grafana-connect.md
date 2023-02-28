@@ -37,7 +37,7 @@ a few test projects of your own.
 1.  Configure the data source using your connection details:
     *   In the `Name` field, type a name to use for the dataset.
     *   In the `Host` field, type the host and port for your connection, in this
-        format: <HOST>:<PORT>. For example,
+        format: `<HOST>:<PORT>`. For example,
         `example.tsdb.cloud.timescale.com:35177`.
     *   In the `Database` field, type `tsdb`.
     *   In the `User` field, type `tsdbadmin`, or another privileged user.
@@ -63,7 +63,7 @@ a few test projects of your own.
 1.  Configure the data source using your connection details:
     *   In the `Name` field, type a name to use for the dataset.
     *   In the `Host` field, type the host and port for your connection, in this
-        format: <HOST>:<PORT>. For example,
+        format: `<HOST>:<PORT>`. For example,
         `example.tsdb.cloud.timescale.com:35177`.
     *   In the `Database` field, type `tsdb`.
     *   In the `User` field, type `tsdbadmin`, or another privileged user.
