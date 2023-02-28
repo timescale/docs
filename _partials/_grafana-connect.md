@@ -53,6 +53,8 @@ a few test projects of your own.
 
 <Tab title="Grafana Cloud">
 
+<Procedure>
+
 ### Adding Timescale as a data source in Grafana Cloud
 
 1.  In your web browser, log in to the Grafana dashboard with the URL and
