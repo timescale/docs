@@ -1,3 +1,5 @@
+import connectGrafana from "versionContent/_partials/_grafana-connect.mdx";
+
 ## Add Timescale as a data source in Grafana
 
 You can use Grafana to visualize queries directly from your Timescale database.

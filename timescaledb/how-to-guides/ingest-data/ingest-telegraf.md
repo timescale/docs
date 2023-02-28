@@ -5,6 +5,7 @@ keywords: [ingest, Telegraf]
 tags: [insert]
 ---
 
+import connectGrafana from "versionContent/_partials/_grafana-connect.mdx";
 
 # Telegraf
 
@@ -60,8 +61,8 @@ writing different types of data written by people who work with that data.
     2022-11-28T12:53:44Z I! Starting Telegraf 1.24.3
     2022-11-28T12:53:44Z I! Available plugins: 208 inputs, 9 aggregators, 26 processors, 20 parsers, 57 outputs
     2022-11-28T12:53:44Z I! Loaded inputs: cpu
-    2022-11-28T12:53:44Z I! Loaded aggregators: 
-    2022-11-28T12:53:44Z I! Loaded processors: 
+    2022-11-28T12:53:44Z I! Loaded aggregators:
+    2022-11-28T12:53:44Z I! Loaded processors:
     2022-11-28T12:53:44Z W! Outputs are not used in testing mode!
     2022-11-28T12:53:44Z I! Tags enabled: host=localhost
     > cpu,cpu=cpu0,host=localhost usage_guest=0,usage_guest_nice=0,usage_idle=90.00000000087311,usage_iowait=0,usage_irq=0,usage_nice=0,usage_softirq=0,usage_steal=0,usage_system=6.000000000040018,usage_user=3.999999999996362 1669640025000000000
@@ -122,8 +123,8 @@ writing different types of data written by people who work with that data.
     2022-12-05T12:32:00Z I! Starting Telegraf 1.24.3
     2022-12-05T12:32:00Z I! Available plugins: 208 inputs, 9 aggregators, 26 processors, 20 parsers, 57 outputs
     2022-12-05T12:32:00Z I! Loaded inputs: cpu
-    2022-12-05T12:32:00Z I! Loaded aggregators: 
-    2022-12-05T12:32:00Z I! Loaded processors: 
+    2022-12-05T12:32:00Z I! Loaded aggregators:
+    2022-12-05T12:32:00Z I! Loaded processors:
     2022-12-05T12:32:00Z I! Loaded outputs: postgresql
     2022-12-05T12:32:00Z I! Tags enabled: host=test
     2022-12-05T12:32:00Z I! [agent] Config: Interval:10s, Quiet:false, Hostname:"test", Flush Interval:10s
@@ -147,7 +148,7 @@ writing different types of data written by people who work with that data.
     An output similar to this appears:
 
     ```sql
-    time         |    cpu    |               host               | usage_guest | usage_guest_nice |    usage_idle     | usage_iowait | usage_irq | usage_nice | usage_softirq | usage_steal |    usage_system     |     usage_user      
+    time         |    cpu    |               host               | usage_guest | usage_guest_nice |    usage_idle     | usage_iowait | usage_irq | usage_nice | usage_softirq | usage_steal |    usage_system     |     usage_user
     ---------------------+-----------+----------------------------------+-------------+------------------+-------------------+--------------+-----------+------------+---------------+-------------+---------------------+---------------------
     2022-12-05 12:25:20 | cpu0      | hostname |           0 |                0 | 83.08605341237833 |            0 |         0 |          0 |             0 |           0 |   6.824925815961274 |  10.089020771444481
     2022-12-05 12:25:20 | cpu1      | hostname |           0 |                0 | 84.27299703278959 |            0 |         0 |          0 |             0 |           0 |   5.934718100814769 |   9.792284866395647
@@ -165,7 +166,7 @@ writing different types of data written by people who work with that data.
     An output similar to this appears:
 
     ```sql
-        cpu    |         avg         
+        cpu    |         avg
      -----------+---------------------
       cpu7      | 0.36239363864003277
       cpu-total |  2.7778985775548013
@@ -176,34 +177,14 @@ writing different types of data written by people who work with that data.
       cpu6      |  0.6719913538159535
       cpu5      |  1.0512637475474937
       cpu3      |   3.871919066617788
-    ```  
+    ```
 
 </Procedure>
 
 For more information about the options that you can configure in Telegraf,
 see [PostgreQL output plugin][output-plugin].
 
-<Procedure>
-
-### Visualizing data in Grafana
-
-1.  Log in to Grafana and navigate to `Configuration` → `Data sources`. The data
-    sources page lists previously configured data sources for the Grafana
-    instance.
-1.  Click `Add data source` to see a list of all supported data sources.
-1.  Type `PostgreSQL` in the search field and click `Select`.
-1.  Configure the data source:
-    *   In the `Name` field, type the name that you would like to use for the dataset.
-    *   In the `PostgreSQL Connection` section, type the  `Database`, `User`,
-        and `Password` fields using the `.sql` file that you downloaded when
-        creating the TimescaleDB service.
-    *   In the `Host` field, type `<HOST>:<PORT>` from the `.sql` file that you downloaded.
-    *   Set `TLS/SSL Mode` to `require`.
-    *   In `PostgreSQL details`, enable `TimescaleDB`
-1.  Click `Save & test`. If the connection is successful,
-    `Database Connection OK` is shown.  
-
-</Procedure>
+<connectGrafana />
 
 When you have configured TimescaleDB as a data source in Grafana, you can create
 panels that are populated with data using SQL.
