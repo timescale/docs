@@ -1,6 +1,7 @@
 ---
 title: About user-defined actions
 excerpt: Write custom functions and procedures, and schedule them to run periodically
+products: [cloud, mst, self_hosted]
 keywords: [actions]
 tags: [user-defined actions, background jobs, scheduled jobs, automation framework]
 ---

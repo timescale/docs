@@ -1,6 +1,7 @@
 ---
 title: Data retention
 excerpt: Learn how you can delete historical data to save storage
+products: [cloud, mst, self_hosted]
 keywords: [data retention]
 tags: [data retention, delete, drop]
 ---
@@ -44,7 +45,6 @@ SELECT drop_chunks('conditions', INTERVAL '24 hours');
 This drops all chunks from the hypertable `conditions` that _only_
 include data older than this duration, and does _not_ delete any
 individual rows of data in chunks.
-
 
 ## Automatic data retention policies
 

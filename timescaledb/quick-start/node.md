@@ -1,6 +1,7 @@
 ---
 title: "Quick Start: Node.js and TimescaleDB"
 excerpt: Get started with TimescaleDB for a Node.js application
+products: [cloud, mst, self_hosted]
 keywords: [Node.js]
 ---
 

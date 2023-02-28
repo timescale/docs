@@ -1,10 +1,12 @@
 ---
 title: About data retention
 excerpt: Learn how data retention works in TimescaleDB
+products: [cloud, mst, self_hosted]
 keywords: [data retention]
 ---
 
 # About data retention
+
 In time-series applications, data often becomes less useful as it gets older. If
 you don't need your historical data, you can delete it once it reaches a certain
 age. TimescaleDB lets you set up
@@ -16,6 +18,7 @@ the raw data. You can downsample your older data by
 [combining data retention with continuous aggregates][retention-with-caggs].
 
 ## Drop data by chunk
+
 TimescaleDB data retention works on chunks, not on rows. Deleting data
 row-by-row, for example with the PostgreSQL `DELETE` command, can be slow. But
 dropping data by the chunk is faster, because it deletes an entire file from
@@ -26,6 +29,7 @@ chunk. It only drops chunks where _all_ the data is wihin the specified time
 range.
 
 For example, consider the setup where you have 3 chunks containing data:
+
 1.  More than 36 hours old
 1.  Between 12 and 36 hours old
 1.  From the last 12 hours

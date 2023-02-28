@@ -1,6 +1,7 @@
 ---
 title: Create a data API for TimescaleDB
 excerpt: Create an API to fetch data from your TimescaleDB application, using AWS Lambda
+products: [cloud, mst, self_hosted]
 keywords: [finance, analytics, AWS Lambda, psycopg2, pandas, GitHub Actions, pipeline]
 ---
 

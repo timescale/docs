@@ -1,6 +1,7 @@
 ---
 title: User-defined actions
 excerpt: Set up user-defined actions to run tasks on a schedule
+products: [cloud, mst, self_hosted]
 keywords: [actions]
 tags: [user-defined actions, background jobs, scheduled jobs]
 ---

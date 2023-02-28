@@ -1,6 +1,7 @@
 ---
 title: Delete data
 excerpt: How to delete data from TimescaleDB
+products: [cloud, mst, self_hosted]
 keywords: [delete, hypertables]
 ---
 

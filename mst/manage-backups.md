@@ -1,7 +1,7 @@
 ---
 title: Back up and restore your Managed Service for TimescaleDB
 excerpt: Understand the various alternative tools that you can use to manage your MST backups
-product: mst
+products: [mst]
 keywords: [backups, manage, restore, pg_dump]
 tags: [backup, manage, restore, timescaledb-backup, pg_dump]
 ---

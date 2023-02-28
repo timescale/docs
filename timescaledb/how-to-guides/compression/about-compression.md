@@ -1,6 +1,7 @@
 ---
 title: About compression
 excerpt: How to compress hypertables
+products: [cloud, mst, self_hosted]
 keywords: [compression, hypertables]
 ---
 

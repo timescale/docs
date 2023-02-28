@@ -1,6 +1,7 @@
 ---
 title: Compress continuous aggregates
 excerpt: How to compress a continuous aggregate
+products: [cloud, mst, self_hosted]
 keywords: [continuous aggregates, compression]
 ---
 

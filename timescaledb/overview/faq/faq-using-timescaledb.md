@@ -1,6 +1,7 @@
 ---
 title: FAQs - Using TimescaleDB
 excerpt: Frequently asked questions about using TimescaleDB
+products: [cloud, mst, self_hosted]
 keywords: [FAQ]
 ---
 

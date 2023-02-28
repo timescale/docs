@@ -1,6 +1,7 @@
 ---
 title: Compression
 excerpt: Learn how native compression works in TimescaleDB
+products: [cloud, mst, self_hosted]
 keywords: [compression]
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: Create unique indexes on a hypertable
 excerpt: How to create a unique index on a hypertable, and some limitations on unique indexes
+products: [cloud, mst, self_hosted]
 keywords: [hypertables, unique indexes, primary keys]
 ---
 

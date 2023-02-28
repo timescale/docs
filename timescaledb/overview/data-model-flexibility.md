@@ -1,6 +1,7 @@
 ---
 title: Data model
 excerpt: Learn how to model your data in TimescaleDB, in either a wide or narrow model
+products: [cloud, mst, self_hosted]
 keywords: [hypertables]
 tags: [model]
 ---

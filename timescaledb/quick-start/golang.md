@@ -1,6 +1,7 @@
 ---
 title: "Quick Start: Go and TimescaleDB"
 excerpt: Get started with TimescaleDB for a Go application
+products: [cloud, mst, self_hosted]
 keywords: [Golang, Go]
 ---
 

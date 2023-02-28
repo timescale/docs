@@ -1,6 +1,7 @@
 ---
 title: Time-series forecasting
 excerpt: Predict likely future values of a dataset based on historical data
+products: [cloud, mst, self_hosted]
 keywords: [forecast, analytics]
 ---
 

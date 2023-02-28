@@ -1,6 +1,7 @@
 ---
 title: Statistical aggregation
 excerpt: Aggregate data to perform common statistical calculations in continuous aggregates and window functions
+products: [cloud, mst, self_hosted]
 keywords: [hyperfunctions, Toolkit, statistics]
 ---
 

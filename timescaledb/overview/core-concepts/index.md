@@ -1,6 +1,7 @@
 ---
 title: Why use TimescaleDB
 excerpt: TimescaleDB is PostgreSQL, enhanced for time-series data
+products: [cloud, mst, self_hosted]
 ---
 
 # Why use TimescaleDB
@@ -40,32 +41,32 @@ available to extensions by adding hooks deep into PostgreSQL's query planner,
 data and storage model, and execution engine. This allows for new,
 advanced capabilities designed specifically for time-series data, including:
 
-- **Transparent and automated time partitioning**, where time-series tables are
+*   **Transparent and automated time partitioning**, where time-series tables are
   automatically and continuously "chunked" into smaller intervals to improve
   performance and to unlock various data-management capabilities. Data
   and indexes for the latest chunks naturally remain in memory,
   ensuring fast inserts and performant queries to recent data.
 
-- **Native columnar compression** with advanced datatype-specific compression,
+*   **Native columnar compression** with advanced datatype-specific compression,
   employing various best-in-class algorithms based on whether the data are
   timestamps, integers, floats, strings, or others. Users typically report 94-97%
   storage reduction and faster queries to compressed data.
 
-- **Continuous and real-time aggregations**, in which the database continually
+*   **Continuous and real-time aggregations**, in which the database continually
   and incrementally maintains a materialized view of aggregate time-series data
   to improve query performance, while properly handling late data or data
   backfills. TimescaleDB even enables queries to transparently merge pre-
   computed aggregates with the latest raw data to ensure always up-to-date
   answers.
 
-- **Automated time-series data management features**, such as explicit or
+*   **Automated time-series data management features**, such as explicit or
   policy-based data retention policies, data reordering policies, aggregation
   and compression policies, downsampling policies, and more.
 
-- **In-database job-scheduling framework** to power both native policies and to
+*   **In-database job-scheduling framework** to power both native policies and to
   support user-defined actions, including those written in SQL or PL/pgSQL.
 
-- **Horizontally-scalable multi-node operation** to automatically and
+*   **Horizontally-scalable multi-node operation** to automatically and
   elastically scale your time-series data across many TimescaleDB databases,
   while still giving the abstraction of a single time-series table.
 

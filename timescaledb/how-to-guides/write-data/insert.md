@@ -1,6 +1,7 @@
 ---
 title: Insert data
 excerpt: Insert data into a hypertable
+products: [cloud, mst, self_hosted]
 keywords: [ingest]
 tags: [insert, write, hypertables]
 ---

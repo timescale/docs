@@ -1,6 +1,7 @@
 ---
 title: How does TimescaleDB compare?
 excerpt: How TimescaleDB compares to other relational databases and to NoSQL databases
+products: [cloud, mst, self_hosted]
 keywords: [PostgreSQL, InfluxDB, MongoDB, NoSQL]
 tags: [compare]
 ---

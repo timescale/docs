@@ -1,7 +1,7 @@
 ---
 title: Query metric data with SQL
 excerpt: Query metrics data in Promscale
-product: promscale
+products: [promscale]
 keywords: [analytics, query, metrics]
 tags: [sql, prometheus]
 ---

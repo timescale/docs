@@ -1,9 +1,7 @@
 ---
 title: Install TimescaleDB from cloud image
-nav-title: Cloud image
 excerpt: Install self-hosted TimescaleDB from a pre-built cloud image
-section: install
-subsection: self-hosted
+products: [self_hosted]
 keywords: [installation, self-hosted]
 tags: [cloud image]
 ---

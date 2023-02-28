@@ -1,7 +1,7 @@
 ---
 title: Continuous aggregates in Promscale
 excerpt: Use continuous aggregates to downsample and materialize your Promscale data
-product: promscale
+products: [promscale]
 keywords: [continuous aggregates, downsample]
 tags: [recording]
 ---

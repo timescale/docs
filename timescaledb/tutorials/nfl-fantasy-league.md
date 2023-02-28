@@ -1,6 +1,7 @@
 ---
 title: Win your NFL fantasy league with TimescaleDB
 excerpt: Ingest and analyze American football data with TimescaleDB
+products: [cloud, mst, self_hosted]
 keywords: [analytics, psycopg2]
 ---
 
@@ -14,45 +15,44 @@ and start exploring it to discover interesting things about players that could h
 If you aren't an NFL fan, this tutorial can still help you  
 get started with TimescaleDB and explore a real world dataset with SQL and Python.
 
-
-1. [Create tables](#create-tables)
-2. [Ingest data from CSV files](#ingest-data-from-csv-files)
-3. [Analyze NFL data](#analyze-nfl-data)
-4. [Visualize pre-snap positions and player movement](#visualize-pre-snap-positions-and-player-movement)
+1.  [Create tables](#create-tables)
+2.  [Ingest data from CSV files](#ingest-data-from-csv-files)
+3.  [Analyze NFL data](#analyze-nfl-data)
+4.  [Visualize pre-snap positions and player movement](#visualize-pre-snap-positions-and-player-movement)
 
 ## Prerequisites
 
-* Python 3
-* TimescaleDB (see [installation options][install-timescale])
-* [Psql][psql-install] or any other PostgreSQL client (for example, DBeaver)
+*   Python 3
+*   TimescaleDB (see [installation options][install-timescale])
+*   [Psql][psql-install] or any other PostgreSQL client (for example, DBeaver)
 
 ## Download the dataset
 
-* [The NFL dataset is available for download on Kaggle.][kaggle-download]
-* [Additional stadium and scores dataset (.zip) (source: wikipedia.com).][extra-download]
+*   [The NFL dataset is available for download on Kaggle.][kaggle-download]
+*   [Additional stadium and scores dataset (.zip) (source: wikipedia.com).][extra-download]
 
 ## Create tables
 
 You need to create six tables:
 
-* **game**
+*   **game**
 
   Information about each game, `game_id` is a primary key.
-* **player**
+*   **player**
 
   Player information, `player_id` is a primary_key.
-* **play**
+*   **play**
 
   Play information. To query a specific play, you need to use gameid and playid together.
-* **tracking**
+*   **tracking**
 
   Player tracking information from each play. This is going to be the biggest table (18M+ row) in the database.
   Important fields are `x` and `y` as they indicate the physical positions of the players on the field.
-* **scores**
+*   **scores**
 
   Final result of each game. This table can be joined with the tracking table using the `home_team_abb` and
   `visitor_team_abb` fields.
-* **stadium_info**
+*   **stadium_info**
 
   Home stadium of each team and additional information like `surface`, `roof_type`, `location`.
 
@@ -161,6 +161,7 @@ CREATE INDEX idx_playid ON tracking (playid);
 ```
 
 **Create hypertable from `tracking` table**
+
 ```sql
 /*
 tracking: name of the table
@@ -235,18 +236,18 @@ To optimize the analysis, you need to create a continuous aggregate. Continuous 
 CREATE MATERIALIZED VIEW player_yards_by_game
 WITH (timescaledb.continuous) AS
 SELECT t.player_id, t.gameid,
-	time_bucket(INTERVAL '1 day', t."time") AS bucket,
-	SUM(t.dis) AS yards
+ time_bucket(INTERVAL '1 day', t."time") AS bucket,
+ SUM(t.dis) AS yards
 FROM tracking t
 GROUP BY t.player_id, t.gameid, bucket;
 ```
 
-1. [Number of yards run in game for passing plays, by player and game](#number-of-yards-run-in-game-for-passing-plays-by-player-and-game)
-1. [Average yards run for a player over a game](#average-yards-run-for-a-player-over-a-game)
-1. [Average and median yards run per game by type of player (not taking avg of individual)](#average-and-median-yards-run-per-game-by-type-of-player-not-taking-avg-of-individual)
-1. [Number of snap plays by player where they were on the offense](#number-of-snap-plays-by-player-where-they-were-on-the-offense)
-1. [Number of plays vs points scored](#number-of-plays-vs-points-scored)
-1. [Average yards per game for top three players of each position](#average-yards-per-game-for-top-three-players-of-each-position)
+1.  [Number of yards run in game for passing plays, by player and game](#number-of-yards-run-in-game-for-passing-plays-by-player-and-game)
+1.  [Average yards run for a player over a game](#average-yards-run-for-a-player-over-a-game)
+1.  [Average and median yards run per game by type of player (not taking avg of individual)](#average-and-median-yards-run-per-game-by-type-of-player-not-taking-avg-of-individual)
+1.  [Number of snap plays by player where they were on the offense](#number-of-snap-plays-by-player-where-they-were-on-the-offense)
+1.  [Number of plays vs points scored](#number-of-plays-vs-points-scored)
+1.  [Average yards per game for top three players of each position](#average-yards-per-game-for-top-three-players-of-each-position)
 
 ### **Number of yards run in game for passing plays, by player and game**
 
@@ -259,6 +260,7 @@ LEFT JOIN player p ON a.player_id = p.player_id
 GROUP BY a.player_id, display_name, gameid
 ORDER BY gameid ASC, display_name
 ```
+
 Your data should look like this:
 
 |player_id| display_name | yards | gameid  |
@@ -285,6 +287,7 @@ FROM sum_yards
 GROUP BY player_id, display_name
 ORDER BY yards DESC
 ```
+
 When you run this query you might notice that the `player_id` and `display_name` are null for the first row. This row represents the avereage yard data for the football.
 
 ### **Average and median yards run per game by type of player (not taking avg of individual)**
@@ -305,6 +308,7 @@ FROM sum_yards
 GROUP BY position
 ORDER BY mean_yards DESC
 ```
+
 If you scroll to the bottom of your results you should see this:
 
 |position| mean_yards        | median_yards  |
@@ -324,15 +328,15 @@ In this query, you are counting the number of passing events a player was involv
 WITH snap_events AS (
 -- Create a table that filters the play events to show only snap plays
 -- and display the players team information
-	SELECT DISTINCT player_id, t.event, t.gameid, t.playid,
-		CASE
-			WHEN t.team = 'away' THEN g.visitor_team
-			WHEN t.team = 'home' THEN g.home_team
-			ELSE NULL
-			END AS team_name
-	FROM tracking t
-	LEFT JOIN game g ON t.gameid = g.game_id
-	WHERE t.event LIKE '%snap%'
+ SELECT DISTINCT player_id, t.event, t.gameid, t.playid,
+  CASE
+   WHEN t.team = 'away' THEN g.visitor_team
+   WHEN t.team = 'home' THEN g.home_team
+   ELSE NULL
+   END AS team_name
+ FROM tracking t
+ LEFT JOIN game g ON t.gameid = g.game_id
+ WHERE t.event LIKE '%snap%'
 )
 -- Count these events and filter results to only display data when the player was
 -- on the offensive
@@ -375,6 +379,7 @@ UNION ALL
 SELECT * FROM home_games
 ORDER BY gameid ASC, team_score DESC
 ```
+
 The image below is an example of a visualization that you could create with the data collected from this query. The scatterplot is grouped, showing the winning team's plays and scores as gold, and the losing team's plays and scores as brown.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/nfl_tutorial/wins_vs_plays.png" alt="Wins vs Plays"/>
@@ -383,22 +388,22 @@ The y-axis, or the number of plays for one team during a single game shows that 
 
 ### **Average yards per game for top three players of each position**
 
-You can use this PostgreSQL query to extract the average yards run by an individual player over one game. This query only includes the top three highest player's average yard values per position type. The data is ordered by the average yards run across all players for each position. This becomes important later on. 
+You can use this PostgreSQL query to extract the average yards run by an individual player over one game. This query only includes the top three highest player's average yard values per position type. The data is ordered by the average yards run across all players for each position. This becomes important later on.
 
 Note: This query excludes some position types from the list due to such low average yard values, the excluded positions are Kicker, Punter, Nose Tackle, Long Snapper, and Defensive Tackle
 
 ```sql
 WITH total_yards AS (
 -- This table sums the yards a player runs over each game
-	SELECT t.player_id, SUM(yards) AS yards, t.gameid
-	FROM player_yards_by_game t
-	GROUP BY t.player_id, t.gameid
+ SELECT t.player_id, SUM(yards) AS yards, t.gameid
+ FROM player_yards_by_game t
+ GROUP BY t.player_id, t.gameid
 ), avg_yards AS (
 -- This table takes the average of the yards run by each player and calls out thier position
-	SELECT p.player_id, p.display_name, AVG(yards) AS avg_yards, p."position"
-	FROM total_yards t
-	LEFT JOIN player p ON t.player_id = p.player_id
-	GROUP BY p.player_id, p.display_name, p."position"
+ SELECT p.player_id, p.display_name, AVG(yards) AS avg_yards, p."position"
+ FROM total_yards t
+ LEFT JOIN player p ON t.player_id = p.player_id
+ GROUP BY p.player_id, p.display_name, p."position"
 ), ranked_vals AS (
 -- This table ranks each player by the average yards they run per game
 SELECT a.*, RANK() OVER (PARTITION BY a."position" ORDER BY avg_yards DESC)
@@ -568,12 +573,12 @@ draw_play(game_id=2018112900,
           away_label='displayname',
           movements=True)
 ```
-![player movement figure](https://assets.timescale.com/docs/images/tutorials/nfl_tutorial/player_movement.png)
 
+![player movement figure](https://assets.timescale.com/docs/images/tutorials/nfl_tutorial/player_movement.png)
 
 ## Resources
 
-* [NFL Big Data Bowl 2021 on Kaggle](https://www.kaggle.com/c/nfl-big-data-bowl-2021)
+*   [NFL Big Data Bowl 2021 on Kaggle](https://www.kaggle.com/c/nfl-big-data-bowl-2021)
 
 [extra-download]: https://assets.timescale.com/docs/downloads/nfl_2018.zip
 [install-timescale]: /install/latest/

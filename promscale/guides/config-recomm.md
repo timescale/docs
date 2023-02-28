@@ -1,7 +1,7 @@
 ---
 title: Configuration recommendations
 excerpt: Recommended configuration for Promscale
-product: promscale
+products: [promscale]
 keywords: [analytics]
 tags: [install]
 ---

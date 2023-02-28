@@ -1,6 +1,7 @@
 ---
 title: Create a hypertable
 excerpt: Create a hypertable to store your time-series data
+products: [cloud, self_hosted, mst]
 keywords: [hypertables, create]
 ---
 

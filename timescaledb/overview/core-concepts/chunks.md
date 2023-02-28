@@ -1,6 +1,7 @@
 ---
 title: Partitioning in hypertables with chunks
 excerpt: Learn how hypertables are partitioned into chunks
+products: [cloud, mst, self_hosted]
 keywords: [hypertables, chunks, partitions]
 ---
 

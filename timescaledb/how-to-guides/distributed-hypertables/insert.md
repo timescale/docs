@@ -1,25 +1,30 @@
 ---
 title: Insert data
 excerpt: How to insert data into distributed hypertables
+products: [cloud, mst, self_hosted]
 keywords: [write, distributed hypertables]
 tags: [ingest, insert]
 ---
 
 # Insert data
+
 You can insert data into a distributed hypertable with an `INSERT` statement.
 The syntax looks the same as for a regular hypertable or PostgreSQL table. For
 example:
+
 ```sql
 INSERT INTO conditions(time, location, temperature, humidity)
   VALUES (NOW(), 'office', 70.0, 50.0);
 ```
 
 ## Optimize data insertion
+
 Distributed hypertables have higher network load than regular hypertables,
 because they must push inserts from the access node to the data nodes. You can
 optimize your insertion patterns to reduce load.
 
 ### Insert data in batches
+
 Reduce load by batching your `INSERT` statements over many rows of data, instead
 of performing each insertion as a separate transaction.
 
@@ -28,9 +33,11 @@ determining which data node each row should belong to. It then writes each batch
 to the correct data node.
 
 ### Optimize insert batch size
+
 When inserting to a distributed hypertable, the access node tries to convert
 `INSERT` statements into more efficient [`COPY`][postgresql-copy] operations
 between the access and data nodes. But this doesn't work if:
+
 *   The `INSERT` statement has a `RETURNING` clause _and_
 *   The hypertable has triggers that could alter the returned data
 
@@ -53,11 +60,13 @@ For more information on changing `timescaledb.max_insert_batch_size`, see the
 section on [TimescaleDB configuration][config].
 
 ### Use a copy statement instead
+
 [`COPY`][postgresql-copy] can perform better than `INSERT` on a distributed
 hypertable. But it doesn't support some features, such as conflict handling
 using the `ON CONFLICT` clause.
 
 To copy from a file to your hypertable, run:
+
 ```sql
 COPY <HYPERTABLE> FROM '<FILE_PATH>';
 ```

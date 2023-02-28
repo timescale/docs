@@ -1,6 +1,7 @@
 ---
 title: Custom TimescaleDB dashboards
 excerpt: Build custom TimescaleDB dashboards with Hasura GraphQL and React
+products: [cloud, mst, self_hosted]
 keywords: [visualizations, analytics, hasura]
 ---
 

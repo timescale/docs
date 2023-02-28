@@ -1,6 +1,7 @@
 ---
 title: TimescaleDB overview
 excerpt: Learn about TimescaleDB, the open-source relational database for time-series data
+products: [cloud, mst, self_hosted]
 ---
 
 # TimescaleDB Overview

@@ -1,6 +1,7 @@
 ---
 title: Fetch and ingest intraday stock data
 excerpt: Ingest intraday stock data into a TimescaleDB database
+products: [cloud, mst, self_hosted]
 keywords: [finance, analytics, psycopg2, pandas, plotly]
 tags: [candlestick]
 ---

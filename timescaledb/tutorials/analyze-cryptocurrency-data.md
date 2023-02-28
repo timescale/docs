@@ -1,6 +1,7 @@
 ---
 title: Analyze cryptocurrency market data
 excerpt: Analyze a time-series cryptocurrency dataset with TimescaleDB
+products: [cloud, mst, self_hosted]
 keywords: [crypto, finance, analytics]
 ---
 

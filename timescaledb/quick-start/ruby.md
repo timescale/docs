@@ -1,6 +1,7 @@
 ---
 title: "Quick Start: Ruby and TimescaleDB"
 excerpt: Get started with TimescaleDB for a Ruby application
+products: [cloud, mst, self_hosted]
 keywords: [Ruby]
 ---
 

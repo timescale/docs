@@ -1,6 +1,7 @@
 ---
 title: How to monitor a Django application with Prometheus
 excerpt: Set up Prometheus to monitor a Django application
+products: [cloud, mst, self_hosted]
 keywords: [prometheus, django, monitor]
 ---
 

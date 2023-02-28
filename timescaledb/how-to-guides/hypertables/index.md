@@ -1,10 +1,12 @@
 ---
 title: Hypertables
 excerpt: Hypertables are PostgreSQL tables with special features that make it easy to handle time-series data
+products: [cloud, mst, self_hosted]
 keywords: [hypertables]
 ---
 
 # Hypertables
+
 Hypertables are PostgreSQL tables with special features that make it easy to
 handle time-series data. Anything you can do with regular PostgreSQL tables, you
 can do with hypertables. In addition, you get the benefits of improved

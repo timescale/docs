@@ -1,6 +1,7 @@
 ---
 title: Analyze financial tick data - Query the data
 excerpt: Create candlestick views and query financial tick data to analyze price changes
+products: [cloud, mst, self_hosted]
 keywords: [tutorials, finance, learn]
 tags: [tutorials, beginner]
 ---

@@ -1,6 +1,7 @@
 ---
 title: Frequently asked questions
 excerpt: Frequently asked questions about Timescale, TimescaleDB, and the Timescale community
+products: [cloud, mst, self_hosted]
 keywords: [FAQ]
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: Query your data
 excerpt: Query your TimescaleDB data with the full power of SQL
+products: [cloud, self_hosted, mst]
 keywords: [queries]
 ---
 

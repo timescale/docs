@@ -1,7 +1,7 @@
 ---
 title: Metrics and Datadog
 excerpt: Collect Datadog metrics on your Managed Service for TimescaleDB instance
-product: mst
+products: [mst]
 keywords: [integration, metrics]
 tags: [datadog]
 ---

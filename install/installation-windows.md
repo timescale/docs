@@ -1,9 +1,7 @@
 ---
 title: Install TimescaleDB on Windows
-nav-title: Windows
 excerpt: Install self-hosted TimescaleDB on Windows
-section: install
-subsection: self-hosted
+products: [self_hosted]
 keywords: [installation, self-hosted, Windows]
 ---
 

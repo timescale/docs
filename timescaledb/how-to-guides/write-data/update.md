@@ -1,6 +1,7 @@
 ---
 title: Update data
 excerpt: Update data in a hypertable
+products: [cloud, mst, self_hosted]
 keywords: [updates, hypertables]
 ---
 

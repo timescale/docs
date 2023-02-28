@@ -1,6 +1,7 @@
 ---
 title: About tablespaces
 excerpt: Learn how tablespaces work
+products: [cloud, mst, self_hosted]
 keywords: [schemas, tablepsaces]
 ---
 

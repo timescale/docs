@@ -1,6 +1,7 @@
 ---
 title: Time and continuous aggregates
 excerpt: How to work with timezones and continuous aggregates
+products: [cloud, mst, self_hosted]
 keywords: [continuous aggregates]
 ---
 

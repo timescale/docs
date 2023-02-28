@@ -1,7 +1,7 @@
 ---
 title: Install Promscale on Red Hat or CentOS
 excerpt: Install Promscale on RPM-based Linux
-product: promscale
+products: [promscale]
 keywords: [analytics]
 tags: [install]
 related_pages:

@@ -1,6 +1,7 @@
 ---
 title: Build a pie chart in Grafana
 excerpt: Plot a pie chart in Grafana to compare values between categories
+products: [cloud, mst, self_hosted]
 keywords: [Grafana, visualization, analytics]
 tags: [pie chart]
 ---

@@ -1,6 +1,7 @@
 ---
 title: Alerting
 excerpt: Set up alerting with TimescaleDB
+products: [cloud, mst, self_hosted]
 keywords: [alert, integration, Grafana, Datadog, Nagios, Zabbix]
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: Join time-series data with relational data for deeper analysis
 excerpt: Join tables in TimescaleDB for richer anlysis
+products: [cloud, mst, self_hosted]
 keywords: [continuous aggregates, hyperfunctions, analytics]
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: Time bucket gapfill
 excerpt: Fill in gaps within your time-series data when calculating time buckets
+products: [cloud, mst, self_hosted]
 keywords: [hyperfunctions, Toolkit, gapfilling, interpolate]
 ---
 

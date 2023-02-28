@@ -1,6 +1,7 @@
 ---
 title: Import data into TimescaleDB from .csv
 excerpt: Import data into your TimescaleDB instance from an external .csv file
+products: [cloud, mst, self_hosted]
 keywords: [data migration]
 tags: [import, csv]
 ---

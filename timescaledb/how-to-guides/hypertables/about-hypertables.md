@@ -1,6 +1,7 @@
 ---
 title: About hypertables
 excerpt: Learn how hypertables work for time-series data
+products: [cloud, mst, self_hosted]
 keywords: [hypertables, partitions]
 ---
 

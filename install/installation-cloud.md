@@ -1,10 +1,7 @@
 ---
 title: Install Timescale Cloud
-nav-title: Timescale Cloud
 excerpt: Start a TimescaleDB instance on Timescale Cloud, our hosted, cloud-native TimescaleDB service
-product: cloud
-section: install
-order: 1
+products: [cloud]
 keywords: [installation]
 ---
 

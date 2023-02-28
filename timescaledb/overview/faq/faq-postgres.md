@@ -1,6 +1,7 @@
 ---
 title: FAQs - Comparing to PostgreSQL
 excerpt: Why to choose TimescaleDB over regular PostgreSQL
+products: [cloud, mst, self_hosted]
 keywords: [PostgreSQL, FAQ]
 tags: [geospatial data, compare]
 ---

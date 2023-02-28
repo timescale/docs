@@ -1,9 +1,7 @@
 ---
 title: Install TimescaleDB on macOS
-nav-title: macOS
 excerpt: Install self-hosted TimescaleDB on macOS
-section: install
-subsection: self-hosted
+products: [self_hosted]
 keywords: [installation, self-hosted, macOS]
 ---
 

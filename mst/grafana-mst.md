@@ -1,7 +1,7 @@
 ---
 title: Integrate Managed Service for TimescaleDB as a data source in Grafana
 excerpt: Integrate Managed Service for TimescaleDB as a data source in Grafana to visualize your data
-product: mst
+products: [mst]
 keywords: [Grafana, visualizations, analytics, integration]
 ---
 

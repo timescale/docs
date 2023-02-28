@@ -1,7 +1,7 @@
 ---
 title: About Promscale
 excerpt: Learn about Promscale and how it works
-product: promscale
+products: [promscale]
 keywords: [analytics]
 tags: [learn, prometheus]
 ---

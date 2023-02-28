@@ -1,6 +1,7 @@
 ---
 title: About data migration
 excerpt: Learn how to migrate your data into TimescaleDB
+products: [cloud, mst, self_hosted]
 keywords: [data migration]
 tags: [csv, import]
 ---

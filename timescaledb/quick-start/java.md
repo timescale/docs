@@ -1,6 +1,7 @@
 ---
 title: "Quick Start: Java and TimescaleDB"
 excerpt: Get started with TimescaleDB for a Java application
+products: [cloud, mst, self_hosted]
 keywords: [Java]
 ---
 

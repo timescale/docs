@@ -1,6 +1,7 @@
 ---
 title: Use Grafana to visualize geospatial data stored in TimescaleDB
 excerpt: Use the WorldMap visualization to see a geospatial data overload on a map of the world
+products: [cloud, mst, self_hosted]
 keywords: [Grafana, visualizations, analytics, geospatial data]
 ---
 

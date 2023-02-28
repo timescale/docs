@@ -1,6 +1,7 @@
 ---
 title: Real-time aggregates
 excerpt: Real-time aggregates combine pre-aggregated data with the most recent raw data for up-to-date results
+products: [cloud, mst, self_hosted]
 keywords: [continuous aggregates, real-time aggregates]
 ---
 

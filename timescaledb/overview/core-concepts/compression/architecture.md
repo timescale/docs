@@ -1,6 +1,7 @@
 ---
 title: Compression architecture
 excerpt: How compressed chunks are set up in TimescaleDB
+products: [cloud, mst, self_hosted]
 keywords: [compression, architecture]
 ---
 

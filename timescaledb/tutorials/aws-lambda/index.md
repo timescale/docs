@@ -1,6 +1,7 @@
 ---
 title: TimescaleDB with AWS Lambda
 excerpt: Learn to use AWS Lambda and TimescaleDB together
+products: [cloud, mst, self_hosted]
 keywords: [finance, analytics, AWS Lambda, psycopg2, pandas, GitHub Actions, pipeline]
 ---
 

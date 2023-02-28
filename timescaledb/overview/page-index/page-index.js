@@ -34,11 +34,6 @@ module.exports = [
             ],
           },
           {
-            title: "Scaling",
-            href: "scaling",
-            excerpt: "Scaling hypertables",
-          },
-          {
             title: "Distributed hypertables",
             href: "distributed-hypertables",
             excerpt: "Using distributed hypertables",
@@ -70,21 +65,11 @@ module.exports = [
             href: "user-defined-actions",
             excerpt: "Configure user-defined actions on hypertables",
           },
-          {
-            title: "Backup and restore",
-            href: "backup-restore",
-            excerpt: "Configure backup and restore on hypertables",
-          },
         ],
       },
       {
         title: "Deployment options",
         href: "deployment-options",
-        excerpt: "Deployment options for TimescaleDB",
-      },
-      {
-        title: "TimescaleDB on Kubernetes",
-        href: "timescale-kubernetes",
         excerpt: "Deployment options for TimescaleDB",
       },
       {

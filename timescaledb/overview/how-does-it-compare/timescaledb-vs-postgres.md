@@ -1,6 +1,7 @@
 ---
 title: Why use TimescaleDB over PostgreSQL?
 excerpt: How TimescaleDB + PostgreSQL compares to regular PostgreSQL alone
+products: [cloud, mst, self_hosted]
 keywords: [PostgreSQL]
 tags: [compare]
 ---

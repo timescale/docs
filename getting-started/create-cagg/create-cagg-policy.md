@@ -1,6 +1,7 @@
 ---
 title: Using and setting up continuous aggregate policies
 excerpt: Set a policy to refresh your continuous aggregates automatically
+products: [cloud, self_hosted, mst]
 keywords: [continuous aggregates, policies]
 ---
 

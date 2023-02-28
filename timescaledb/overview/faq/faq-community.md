@@ -1,6 +1,7 @@
 ---
 title: FAQs - Community
 excerpt: Frequently asked questions about our community, contributions, and licensing
+products: [self_hosted]
 keywords: [community, contribute, license, FAQ]
 ---
 

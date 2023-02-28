@@ -1,6 +1,7 @@
 ---
 title: Continuous aggregates
 excerpt: Learn how continuous aggregates help you speed up queries and downsample data
+products: [cloud, mst, self_hosted]
 keywords: [continuous aggregates]
 tags: [downsample, materialized views]
 ---

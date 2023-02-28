@@ -1,6 +1,7 @@
 ---
 title: Create an index on a continuous aggregate
 excerpt: How to create and drop indexes on a continuous aggregate
+products: [cloud, mst, self_hosted]
 keywords: [continuous aggregates, indexes]
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: "Quick Start: Python and TimescaleDB"
 excerpt: Get started with TimescaleDB for a Python application
+products: [cloud, mst, self_hosted]
 keywords: [Python]
 ---
 

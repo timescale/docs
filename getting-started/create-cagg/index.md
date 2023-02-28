@@ -1,6 +1,7 @@
 ---
 title: Create a continuous aggregate
 excerpt: Learn how to speed up queries with continuous aggregates
+products: [cloud, self_hosted, mst]
 keywords: [continuous aggregates, create]
 ---
 

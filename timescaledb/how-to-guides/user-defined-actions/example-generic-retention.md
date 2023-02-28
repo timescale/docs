@@ -1,6 +1,7 @@
 ---
 title: Use a user-defined action to create a generic retention policy
 excerpt: Create a generic data retention policy that applies to all hypertables
+products: [cloud, mst, self_hosted]
 keywords: [actions, data retention]
 ---
 

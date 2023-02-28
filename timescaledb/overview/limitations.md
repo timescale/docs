@@ -1,6 +1,7 @@
 ---
 title: Limitations
 excerpt: Current limitations of TimescaleDB features
+products: [cloud, mst, self_hosted]
 keywords: [hypertables, distributed hypertables]
 ---
 

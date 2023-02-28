@@ -1,7 +1,7 @@
 ---
 title: Resource recommendations
 excerpt: Recommended resources for Promscale
-product: promscale
+products: [promscale]
 keywords: [analytics]
 tags: [learn, analytics, prometheus]
 ---

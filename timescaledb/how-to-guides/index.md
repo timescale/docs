@@ -1,6 +1,7 @@
 ---
 title: How-to guides
 excerpt: Learn how to work with TimescaleDB
+products: [cloud, mst, self_hosted]
 ---
 
 # How-to guides

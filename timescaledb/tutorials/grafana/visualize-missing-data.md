@@ -1,6 +1,7 @@
 ---
 title: How to visualize and aggregate missing time-series data in Grafana
 excerpt: Handle missing data points when plotting data in Grafana
+products: [cloud, mst, self_hosted]
 keywords: [Grafana, visualizations, analytics, gapfilling]
 tags: [time-series]
 ---

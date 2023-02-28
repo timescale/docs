@@ -1,6 +1,7 @@
 ---
 title: Telegraf
 excerpt: Ingest data into TimescaleDB using the Telegraf plugin
+products: [cloud, mst, self_hosted]
 keywords: [ingest, Telegraf]
 tags: [insert]
 ---

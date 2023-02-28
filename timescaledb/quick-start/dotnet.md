@@ -1,6 +1,7 @@
 ---
 title: "Quick Start: .NET and TimescaleDB"
 excerpt: Get started with TimescaleDB for a .NET application
+products: [cloud, mst, self_hosted]
 keywords: [.NET]
 ---
 

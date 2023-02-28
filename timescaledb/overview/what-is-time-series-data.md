@@ -1,6 +1,7 @@
 ---
 title: What is time-series data?
 excerpt: Why time-series data is special, and how you can handle it
+products: [cloud, mst, self_hosted]
 keywords: [time-series, data]
 ---
 
@@ -42,7 +43,6 @@ Data:
 2017-01-01 01:05:01    68    750    -54    79
 ```
 
-
 This type of data belongs in a much **broader** category,
 whether temperature
 readings from a sensor, the price of a stock, the status of a machine,
@@ -52,15 +52,14 @@ or even the number of logins to an app.
 collectively represents how a system, process, or behavior changes
 over time.**
 
-
 ## Characteristics of time-series data
 
 If you look closely at how it's produced and ingested, there are important
 characteristics that time-series databases like TimescaleDB typically leverage:
 
-- **Time-centric**: Data records always have a timestamp.
-- **Append-only**: Data is almost solely append-only (INSERTs).
-- **Recent**: New data is typically about recent time intervals, and we
+*   **Time-centric**: Data records always have a timestamp.
+*   **Append-only**: Data is almost solely append-only (INSERTs).
+*   **Recent**: New data is typically about recent time intervals, and we
 more rarely make updates or backfill missing data about old intervals.
 
 The frequency or regularity of data is less important though; it can be
@@ -78,22 +77,22 @@ data are inserts, not overwrites**.
 Time-series data is everywhere, but there are environments where it is especially
 being created in torrents.
 
-- **Monitoring computer systems**: VM, server, container metrics (CPU, free memory, net/disk IOPs),
+*   **Monitoring computer systems**: VM, server, container metrics (CPU, free memory, net/disk IOPs),
 service and application metrics (request rates, request latency).
 
-- **Financial trading systems**: Classic securities, newer cryptocurrencies,
+*   **Financial trading systems**: Classic securities, newer cryptocurrencies,
 payments, transaction events.
 
-- **Internet of Things**: Data from sensors on industrial machines and equipment,
+*   **Internet of Things**: Data from sensors on industrial machines and equipment,
 wearable devices, vehicles, physical containers, pallets,
 consumer devices for smart homes, etc.
 
-- **Eventing applications**: User/customer interaction data like clickstreams,
+*   **Eventing applications**: User/customer interaction data like clickstreams,
 pageviews, logins, signups, etc.
 
-- **Business intelligence**: Tracking key metrics and the overall health of the business.
+*   **Business intelligence**: Tracking key metrics and the overall health of the business.
 
-- **Environmental monitoring**: Temperature, humidity, pressure, pH, pollen count,
+*   **Environmental monitoring**: Temperature, humidity, pressure, pH, pollen count,
 air flow, carbon monoxide (CO), nitrogen dioxide (NO2), particulate matter (PM10).
 
-- (and more)
+*   (and more)

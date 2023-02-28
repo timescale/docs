@@ -1,6 +1,7 @@
 ---
 title: Install the psql connection tool
 excerpt: How to install the psql client for PostgreSQL
+products: [cloud, mst, self_hosted]
 keywords: [connect, psql]
 ---
 

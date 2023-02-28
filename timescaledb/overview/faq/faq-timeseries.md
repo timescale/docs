@@ -1,6 +1,7 @@
 ---
 title: FAQs - About time-series databases
 excerpt: Frequently asked questions about time-series databases
+products: [cloud, mst, self_hosted]
 keywords: [time-series, FAQ]
 ---
 

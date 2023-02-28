@@ -1,6 +1,7 @@
 ---
 title: Language quick starts
 excerpt: Get started with TimescaleDB adn your favorite language
+products: [cloud, mst, self_hosted]
 ---
 
 # Language quick starts
