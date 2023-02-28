@@ -54,7 +54,7 @@ When your service is built, you can log and set up your data services.
     <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/mst-buildservice-grafana.png" alt="Building the Grafana service"/>
 1.  Log in to Grafana with your service credentials.
 
-<connectGrafana />
+<GrafanaConnect />
 
 <!---
 I appreciate that this doesn't really fit here well at the moment, but I'm coming back to this tutorial next, and will rewrite it properly then. I promise! --LKB 2023-02-28

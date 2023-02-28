@@ -1,4 +1,3 @@
-import connectGrafana from "versionContent/_partials/_grafana-connect.mdx";
 
 ## Add Timescale as a data source in Grafana
 
@@ -30,7 +29,7 @@ a few test projects of your own.
 
 1.  In your web browser, log in to the Grafana dashboard at
     `http://localhost:3000/`. The default username is `admin` with a default
-    pasword of `admin`.
+    password of `admin`.
 1.  In the Grafana dashboard, navigate to `Configuration` → `Data sources`.
     Click `Add data source`.
 1.  In the `Add data source` page, search for PostgreSQL, and select it.

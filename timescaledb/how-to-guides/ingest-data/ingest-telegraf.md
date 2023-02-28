@@ -5,7 +5,7 @@ keywords: [ingest, Telegraf]
 tags: [insert]
 ---
 
-import connectGrafana from "versionContent/_partials/_grafana-connect.mdx";
+import GrafanaConnect from "versionContent/_partials/_grafana-connect.mdx";
 
 # Telegraf
 
@@ -184,7 +184,7 @@ writing different types of data written by people who work with that data.
 For more information about the options that you can configure in Telegraf,
 see [PostgreQL output plugin][output-plugin].
 
-<connectGrafana />
+<GrafanaConnect />
 
 When you have configured TimescaleDB as a data source in Grafana, you can create
 panels that are populated with data using SQL.
