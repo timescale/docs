@@ -610,8 +610,8 @@ store the endpoint path and the time necessary to return the response.
 
 ## Explore aggregation functions
 
-Now that you know what pages exist, we can explore page by page (or all the
-pages together), grouping by path or not.
+Now that you know what pages exist, you can explore the results. You can go 
+page by page, or all pages together, and group by path or not:
 
 <procedure>
 
@@ -678,7 +678,7 @@ pages together), grouping by path or not.
 ## Next steps
 
 Now that you're able to connect, read, and write to a TimescaleDB instance from
-your Python application, and generate the scaffolding necessary to build a new
+your Ruby application, and generate the scaffolding necessary to build a new
 application from an existing TimescaleDB instance, be sure to check out these
 advanced TimescaleDB tutorials:
 
