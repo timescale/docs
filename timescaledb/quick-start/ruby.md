@@ -603,6 +603,7 @@ store the endpoint path and the time necessary to return the response.
 
     This example uses only the **real** performance from [benchmark] but you can
     collect additional metrics to see more details about your system.
+
 </Collapsible>
 
 </procedure>
