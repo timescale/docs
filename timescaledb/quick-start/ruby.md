@@ -123,11 +123,11 @@ on Rails application.
        (4 rows)
     ```
 
-      <highlight type="important">
+      <Highlight type="important">
        To ensure that your tests run successfully, in the `config/environments/test.rb`
        file, add `config.active_record.verify_foreign_keys_for_fixtures = false`.
        Otherwise you get an error because TimescaleDB uses internal foreign keys.
-       </highlight>
+       </Highlight>
 
 </Collapsible>
 
