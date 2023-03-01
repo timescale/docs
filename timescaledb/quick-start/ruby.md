@@ -548,7 +548,7 @@ store the endpoint path and the time necessary to return the response.
 
     The Rails generator understands the naming convention of the
     migration and the extra parameters to create a new migration file
-    `<XXXXXXXXXXXXXX>_add_performance_to_page_load.rb` in
+    `<migration-datetime>_add_performance_to_page_load.rb` in
     the `myapp/db/migrate` directory
 
 1.  To add the two columns in the database, run `rails db:migrate`.
