@@ -282,7 +282,7 @@ the user agent and time in the database, retrieve the user agent of the browser
 for site visitor. You can then create a `PageLoad` object, store the user agent
 information and time, and save the object to TimescaleDB database.
 
-<procedure>
+<Procedure>
 
 <Collapsible heading="Inserting rows into TimescaleDB" headingLevel={3}>
 
