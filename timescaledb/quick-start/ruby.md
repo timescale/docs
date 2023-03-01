@@ -431,7 +431,7 @@ You can retrieve the data that you inserted and view it.
     and try some queries using the [time_bucket] function.
 
     ```bash
-       rails console
+    rails console
     ```
 
 1.  View the number of requests per minute:
