@@ -543,7 +543,7 @@ store the endpoint path and the time necessary to return the response.
 1.  Add columns to the database using rails migrations:
 
     ```bash
-       rails g migration add_performance_to_page_load path:string performance:float
+    rails g migration add_performance_to_page_load path:string performance:float
     ```
 
     The Rails generator understands the naming convention of the
