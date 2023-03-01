@@ -640,7 +640,7 @@ page by page, or all pages together, and group by path or not:
 1.  In the Ruby console,to collect unique paths from page loads:
 
     ```ruby
-       PageLoad.paths # => ["/page_loads/new", "/static_pages/home"]
+     PageLoad.paths # => ["/page_loads/new", "/static_pages/home"]
     ```
 
     The result is similar to:
