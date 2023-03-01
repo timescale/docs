@@ -131,7 +131,7 @@ on Rails application.
 
 </Collapsible>
 
-</procedure>
+</Procedure>
 
 ## Create a relational table
 
