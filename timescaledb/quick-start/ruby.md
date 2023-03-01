@@ -538,7 +538,7 @@ function:
 To get deeper in requests, move the example to watch all server requests and
 store the endpoint path and the time necessary to return the response.
 
-<procedure>
+<Procedure>
 
 <Collapsible heading="Adding performace and path attributes" headingLevel={3} defaultExpanded={false}>
 
