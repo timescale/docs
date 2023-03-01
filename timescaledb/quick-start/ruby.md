@@ -300,11 +300,11 @@ information and time, and save the object to TimescaleDB database.
     agent of browser for the site visitor.
   
     ```ruby
-         class StaticPagesController < ApplicationController
-            def home
-               @agent = request.user_agent
-            end
-         end
+class StaticPagesController < ApplicationController
+  def home
+    @agent = request.user_agent
+  end
+end
      ```
 
 1.  Print the `@agent` variable that you created to the `home.html.erb` file, located
