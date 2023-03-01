@@ -493,8 +493,8 @@ function:
        You can also combine the scopes with other ActiveRecord methods, for example:
 
      ```ruby
-       # Count chrome users from last hour
-       PageLoad.last_hour.where("user_agent like '%Chrome%'").count
+     # Count chrome users from last hour
+     PageLoad.last_hour.where("user_agent like '%Chrome%'").count
      ```
 
 1.  Add a new scope that counts per minute dimension, in the `page_load.rb` file:
