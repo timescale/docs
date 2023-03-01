@@ -425,7 +425,7 @@ You can retrieve the data that you inserted and view it.
     ```
 
    [Apache Bench][ab] creates thousands of records in the hypertable. You can
-   count how many 'empty requests' Rails supports.
+   count how many "empty requests" Rails supports.
 
 1.  After the `ab` command begins running, you can start a rails console
     and try some queries using the [time_bucket] function.
