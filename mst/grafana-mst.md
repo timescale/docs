@@ -7,9 +7,10 @@ keywords: [Grafana, visualizations, analytics, integration]
 
 # Integrate Managed Service for TimescaleDB and Grafana
 
-You can integrate Managed Service for TimescaleDB with Grafana to visualize your data.
-Grafana service in MST has built-in Prometheus, PostgreSQL, Jaeger, and other data source plugins
-that allow you to query and visualize data from a compatible database.
+You can integrate Managed Service for TimescaleDB with Grafana to visualize your
+data. Grafana service in MST has built-in Prometheus, PostgreSQL, Jaeger, and
+other data source plugins that allow you to query and visualize data from a
+compatible database.
 
 ## Before you begin
 

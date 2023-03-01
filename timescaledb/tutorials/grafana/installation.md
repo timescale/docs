@@ -31,7 +31,7 @@ new service to run Grafana.
 1.  In the `Provide your service name` section, type a name for your new
     service. In this example, we've used `grafana-tutorial`.
     <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/mst-nameservice-grafana.png" alt="Name the Grafana service"/>
-1.  When you are happy with your selections, click `Create Service` to go back  
+1.  When you are happy with your selections, click `Create Service` to go back
     to the `Services` view while your service is created. The status indicator
     says `Rebuilding` while the service is created. It is ready for you to use
     when the indicator is green and says `Running`. This usually takes a couple
@@ -54,31 +54,10 @@ When your service is built, you can log and set up your data services.
     <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/mst-buildservice-grafana.png" alt="Building the Grafana service"/>
 1.  Log in to Grafana with your service credentials.
 
-## Connect Grafana to your TimescaleDB instance
+<GrafanaConnect />
 
-Now you have your Grafana service up and running, you can configure Grafana to
-connect to your TimescaleDB instance.
-
-### Connecting Grafana to your TimescaleDB instance
-
-1.  In Grafana, click `Configuration → Data Sources` in the left menu bar.
-1.  Click `Add Data Source` and choose the `PostgreSQL` option in the SQL group:
-    <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/grafana-add-postgresql.png" alt="Adding PostgreSQL to Grafana"/>
-1.  On the data sources configuration page, complete these details:
-    *   In the `Name` field, type a name for the data source. In this example,
-        we used `tsdb-grafana-tutorial`.
-    *   In the `Host` field, type the Service URI for your service, add a colon
-        at the end, and then type the port number. In this example, we used
-        `grafana-tutorial-internal-90d0.a.timescaledb.io:443`
-    *   In the `Database` field, type the name of your Grafana service. In this
-        example, we used `grafana-tutorial`.
-    *   In the `User` field, type the user name for your Grafana service.
-    *   In the `Password` field, type the password for your Grafana service.
-    <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/grafana-configure-postgresql.png" alt="Configure the PostgreSQL data source"/>
-1.  In the `PostgreSQL details` section, in the `TimescaleDB` field, toggle the
-    switch on:
-    <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/grafana-configure-tsdb.png" alt="Configure PostgreSQL to use TimescaleDB"/>
-1.  Click `Save & Test`. You can confirm your data source is working by clicking
-    `Back`, and checking that your service is listed correctly.
+<!---
+I appreciate that this doesn't really fit here well at the moment, but I'm coming back to this tutorial next, and will rewrite it properly then. I promise! --LKB 2023-02-28
+-->
 
 [mst-login]: https://portal.managed.timescale.com
