@@ -9,7 +9,7 @@ Before you begin, make sure you have:
     [installation documentation][install].
 *   Installed a self-managed Grafana account, or signed up for
     [Grafana Cloud][install-grafana].
-*   The connection details for the database you want to use as a data source.
+*   Found the connection details for the database you want to use as a data source.
     For Timescale Cloud, the details are contained in the cheatsheet you
     downloaded when you created the service.
 
