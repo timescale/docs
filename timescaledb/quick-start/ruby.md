@@ -481,7 +481,7 @@ function:
     end
     ```
 
-1.  In the Rudy console you can run these commands to get the views for various requests:
+1.  In the Ruby console you can run these commands to get the views for various requests:
 
       ```ruby
         PageLoad.last_week.count     # Total of requests from last week
