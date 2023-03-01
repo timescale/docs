@@ -311,11 +311,9 @@ end
     at `/my_app/app/views/static_pages/`:
 
     ```html
-        <h1>StaticPages#home</h1>
-        <p>Find me in app/views/static_pages/home.html.erb</p>
-        <p>
-          Request: <%= @agent %>
-        </p>
+<h1>StaticPages#home</h1>
+<p>Find me in app/views/static_pages/home.html.erb</p>
+<p>Request: <%= @agent %></p>
       ```
 
 1.  Start the Rails server:
