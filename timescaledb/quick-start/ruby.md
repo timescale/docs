@@ -513,7 +513,7 @@ function:
 1.  In the Ruby console explore other time frames:
 
      ```ruby
-       PageLoad.counts_per('1 hour')
+     PageLoad.counts_per('1 hour')
      ```
 
      The result is similar to:
