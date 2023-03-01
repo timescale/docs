@@ -139,7 +139,7 @@ In this section, you create a table to store the user agent or browser and time
 when a visitor loads a page. You could easily extend this simple example to
 store a host of additional web analytics of interest to you.
 
-<procedure>
+<Procedure>
 
 <Collapsible heading="Creating a relational table" headingLevel={3}>
 
