@@ -424,7 +424,7 @@ You can retrieve the data that you inserted and view it.
        ab -n 50000 -c 10 http://localhost:3000/static_pages/home
     ```
 
-   [Apache Bench][ab]creates thousands of records in the hypertable. You can
+   [Apache Bench][ab] creates thousands of records in the hypertable. You can
    count how many 'empty requests' Rails supports.
 
 1.  After the `ab` command begins running, you can start a rails console
