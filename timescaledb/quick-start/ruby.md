@@ -606,7 +606,7 @@ store the endpoint path and the time necessary to return the response.
 
 </Collapsible>
 
-</procedure>
+</Procedure>
 
 ## Explore aggregation functions
 
