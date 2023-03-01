@@ -646,8 +646,8 @@ page by page, or all pages together, and group by path or not:
     The result is similar to:
 
     ```ruby
-       PageLoad Pluck (276.1ms)  SELECT DISTINCT "page_loads"."path" FROM "page_loads"
-       => [nil, "/static_pages/home"]
+    PageLoad Pluck (276.1ms)  SELECT DISTINCT "page_loads"."path" FROM "page_loads"
+    => [nil, "/static_pages/home"]
     ```
 
 1.  In the Ruby console, to get the actual metrics generated for the response
