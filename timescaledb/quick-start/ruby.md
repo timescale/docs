@@ -410,7 +410,7 @@ You can retrieve the data that you inserted and view it.
     each item:
 
      ```ruby
-        <h1>Static Pages requests: <%= PageLoad.count %> </h1>
+    <h1>Static Pages requests: <%= PageLoad.count %></h1>
     ```
 
    Now, each time you refresh the page, you can see that a record is being inserted
