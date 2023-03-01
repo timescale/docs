@@ -1,6 +1,7 @@
 ---
 title: About TimescaleDB hyperfunctions
 excerpt: Learn about TimescaleDB hyperfunctions that help with data analysis
+products: [cloud, mst, self_hosted]
 keywords: [hyperfunctions, Toolkit, analytics]
 ---
 

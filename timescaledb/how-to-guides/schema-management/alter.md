@@ -1,6 +1,7 @@
 ---
 title: Altering and updating table schemas
 excerpt: Modify the schema of an existing hypertable
+products: [cloud, mst, self_hosted]
 keywords: [hypertables, schemas, alter]
 tags: [change]
 ---

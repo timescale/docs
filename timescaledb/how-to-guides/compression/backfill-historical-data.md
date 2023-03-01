@@ -1,6 +1,7 @@
 ---
 title: Backfill historical data on compressed chunks
 excerpt: How to backfill a batch of historical data on a compressed hypertable
+products: [cloud, mst, self_hosted]
 keywords: [compression, backfilling, hypertables]
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: Test and debug a user-defined action
 excerpt: Troubleshoot problems when writing a user-defined action
+products: [cloud, mst, self_hosted]
 keywords: [actions, debug]
 ---
 

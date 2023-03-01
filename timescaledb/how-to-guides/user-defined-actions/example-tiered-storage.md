@@ -1,6 +1,7 @@
 ---
 title: Use a user-defined action to implement automatic tablespace management
 excerpt: Automatically move hypertable chunks between tablespaces
+products: [cloud, mst, self_hosted]
 keywords: [actions, tablespaces]
 ---
 

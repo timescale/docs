@@ -1,6 +1,7 @@
 ---
 title: How to simulate a basic IoT sensor dataset on PostgreSQL or TimescaleDB
 excerpt: Test your database by simulating a dataset
+products: [cloud, mst, self_hosted]
 keywords: [IoT, simulate]
 ---
 

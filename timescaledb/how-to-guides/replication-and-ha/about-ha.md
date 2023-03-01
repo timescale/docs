@@ -1,6 +1,7 @@
 ---
 title: High availability
 excerpt: Strategies for increasing redundancy and resilience of your database
+products: [self_hosted]
 keywords: [high availability, backups, replicas, failover]
 tags: [redundancy]
 ---

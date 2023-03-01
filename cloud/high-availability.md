@@ -1,7 +1,7 @@
 ---
 title: High availability
 excerpt: How rapid recovery and high availability works in Timescale Cloud
-product: cloud
+products: [cloud]
 keywords: [high availability, recovery]
 tags: [restore, backup, failures]
 ---

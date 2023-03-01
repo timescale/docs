@@ -1,7 +1,7 @@
 ---
 title: Security
 excerpt: Learn how your Timescale Cloud instance is secured
-product: cloud
+products: [cloud]
 keywords: [security]
 ---
 

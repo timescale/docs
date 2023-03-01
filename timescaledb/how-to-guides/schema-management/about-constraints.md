@@ -1,6 +1,7 @@
 ---
 title: About constraints
 excerpt: Learn how constraints help you keep your data valid and consistent
+products: [cloud, mst, self_hosted]
 keywords: [schemas, constraints]
 ---
 

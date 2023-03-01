@@ -1,6 +1,7 @@
 ---
 title: Create distributed hypertables
 excerpt: Create a distributed hypertable in a multi-node TimescaleDB instance
+products: [cloud, mst, self_hosted]
 keywords: [distributed hypertables, multi-node, create]
 ---
 

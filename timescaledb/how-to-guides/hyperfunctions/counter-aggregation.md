@@ -1,10 +1,12 @@
 ---
 title: Counter aggregation
 excerpt: Work with counter and gauge data
+products: [cloud, mst, self_hosted]
 keywords: [hyperfunctions, Toolkit, gauges, counters]
 ---
 
 # Counter aggregation
+
 When you are monitoring application performance, there are two main types of
 metrics that you can collect: gauges, and counters. Gauges fluctuate up and
 down, like temperature or speed, while counters always increase, like the total

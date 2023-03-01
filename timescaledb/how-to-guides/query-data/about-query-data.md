@@ -1,6 +1,7 @@
 ---
 title: About querying data
 excerpt: How to query data in TimescaleDB
+products: [cloud, mst, self_hosted]
 keywords: [queries]
 ---
 
@@ -12,10 +13,10 @@ database.
 
 TimescaleDB also provides some additional features to help with data analysis:
 
-- The [`SkipScan`][skipscan] feature speeds up `DISTINCT` queries
-- [Hyperfunctions][hyperfunctions] improve the experience of writing many data
+*   The [`SkipScan`][skipscan] feature speeds up `DISTINCT` queries
+*   [Hyperfunctions][hyperfunctions] improve the experience of writing many data
   analysis queries
-- [Function pipelines][pipelines] bring functional programming to SQL queries,
+*   [Function pipelines][pipelines] bring functional programming to SQL queries,
   making it easier to perform consecutive transformations of data
 
 [hyperfunctions]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/

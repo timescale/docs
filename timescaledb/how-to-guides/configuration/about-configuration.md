@@ -1,6 +1,7 @@
 ---
 title: About configuration in TimescaleDB
 excerpt: About the TimescaleDB configurations
+products: [self_hosted]
 keywords: [configuration, memory, workers, settings]
 ---
 

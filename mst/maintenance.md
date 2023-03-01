@@ -1,7 +1,7 @@
 ---
 title: Maintenance
 excerpt: Learn how maintenance is automatically handled on Managed Service for TimescaleDB
-product: mst
+products: [mst]
 keywords: [maintenance, updates, upgrades]
 tags: [maintenance window]
 ---

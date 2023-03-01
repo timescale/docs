@@ -1,6 +1,7 @@
 ---
 title: Backup and restore
 excerpt: Learn how to back up and restore your TimescaleDB instance
+products: [self_hosted]
 keywords: [backups, restore]
 tags: [recovery]
 ---

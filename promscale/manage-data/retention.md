@@ -1,7 +1,7 @@
 ---
 title: Configure data retention policies in Promscale
 excerpt: Configure data retention policies in Promscale
-product: promscale
+products: [promscale]
 keywords: [data retention]
 tags: [configure, metrics, storage]
 ---

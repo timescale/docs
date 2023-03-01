@@ -1,6 +1,7 @@
 ---
 title: About multi-node
 excerpt: Learn how multi-node TimescaleDB works
+products: [self_hosted]
 keywords: [multi-node]
 ---
 

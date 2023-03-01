@@ -1,7 +1,7 @@
 ---
 title: Connection pools
 excerpt: Pool client connections to keep server resource us low
-product: mst
+products: [mst]
 keywords: [connect]
 tags: [connection pools, pgbouncer]
 ---

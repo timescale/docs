@@ -1,6 +1,7 @@
 ---
 title: Use a user-defined action to downsample and compress chunks
 excerpt: Customize downsampling and compression with a user-defined action
+products: [cloud, mst, self_hosted]
 keywords: [actions, compression, downsample]
 ---
 

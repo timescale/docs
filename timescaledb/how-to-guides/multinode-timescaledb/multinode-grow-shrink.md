@@ -1,6 +1,7 @@
 ---
 title: Grow and shrink multi-node
 excerpt: Add and remove data nodes from a multi-node cluster
+products: [mst, self_hosted]
 keywords: [multi-node, data nodes]
 tags: [add, remove]
 ---

@@ -1,7 +1,7 @@
 ---
 title: Upgrade Promscale
 excerpt: Upgrade Promscale
-product: promscale
+products: [promscale]
 keywords: [upgrades]
 related_pages:
   - /promscale/:currentVersion:/send-data/

@@ -1,6 +1,7 @@
 ---
 title: Upsert data
 excerpt: Upsert data to insert a new row or update an existing row
+products: [cloud, mst, self_hosted]
 keywords: [upsert, hypertables]
 ---
 

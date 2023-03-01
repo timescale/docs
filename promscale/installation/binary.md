@@ -1,7 +1,7 @@
 ---
 title: Install Promscale from binary
 excerpt: Install Promscale from source on bare metal
-product: promscale
+products: [promscale]
 keywords: [analytics]
 tags: [install]
 related_pages:

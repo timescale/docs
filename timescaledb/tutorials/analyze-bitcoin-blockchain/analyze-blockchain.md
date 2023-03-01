@@ -1,6 +1,7 @@
 ---
 title: Analyze the blockchain with hyperfunctions
 excerpt: Use SQL functions and hyperfunctions to analyze Bitcoin transactions
+products: [cloud, mst, self_hosted]
 keywords: [crypto, blockchain, Bitcoin, finance, analytics]
 ---
 

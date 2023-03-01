@@ -1,6 +1,7 @@
 ---
 title: Visualize pre-snap positions and player movement
 excerpt: Create a visualization of a football play using matplotlib
+products: [cloud, mst, self_hosted]
 keywords: [continuous aggregates, hyperfunctions, analytics, pandas, matplotlib]
 ---
 

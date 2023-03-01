@@ -1,7 +1,7 @@
 ---
 title: Create a TimescaleDB service
 excerpt: Create a TimecaleDB service in Timescale Cloud
-product: cloud
+products: [cloud]
 keywords: [services, create, installation]
 cloud_ui:
     path:

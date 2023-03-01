@@ -1,7 +1,7 @@
 ---
 title: Service overview
 excerpt: See information on your service's connection parameters, configuration, and resource usage
-product: cloud
+products: [cloud]
 keywords: [connect, services]
 tags: [storage, resources, disk space]
 cloud_ui:

@@ -1,6 +1,7 @@
 ---
 title: Approximate percentiles
 excerpt: How to use an approximation algorithm to calculate percentiles
+products: [cloud, mst, self_hosted]
 keywords: [hyperfunctions, Toolkit, percentiles]
 tags: [tdigest, uddsketch]
 ---

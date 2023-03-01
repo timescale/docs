@@ -1,11 +1,13 @@
 ---
 title: Multi-node maintenance tasks
 excerpt: How to maintain your multi-node instance
+products: [mst, self_hosted]
 keywords: [multi-node, maintenance]
 tags: [manage]
 ---
 
 # Multi-node maintenance tasks
+
 Various maintenance activities need to be carried out for effective
 upkeep of the distributed multi-node setup. You can use `cron` or
 another scheduling system outside the database to run these below
@@ -14,6 +16,7 @@ that the jobs are scheduled separately for each database that contains
 distributed hypertables.
 
 ## Maintaining distributed transactions
+
 A distributed transaction runs across multiple data nodes, and can remain in a
 non-completed state if a data node reboots or experiences temporary issues. The
 access node keeps a log of distributed transactions so that nodes that haven't
@@ -39,6 +42,7 @@ SELECT add_job('data_node_maintenance', '5m');
 ```
 
 ## Statistics for distributed hypertables
+
 On distributed hypertables, the table statistics need to be kept updated.
 This allows you to efficiently plan your queries. Because of the nature of
 distributed hypertables, you can't use the `auto-vacuum` tool to gather
@@ -62,6 +66,7 @@ $$;
 
 SELECT add_job('distributed_hypertables_analyze', '12h');
 ```
+
 You can merge the jobs in this example into a single maintenance job
 if you prefer. However, analyzing distributed hypertables should be
 done less frequently than remote transaction healing activity. This

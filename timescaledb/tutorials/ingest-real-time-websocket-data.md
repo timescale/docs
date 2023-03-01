@@ -1,6 +1,7 @@
 ---
 title: Ingest real-time financial websocket data
 excerpt: Set up a data pipeline to get data from different financial APIs
+products: [cloud, mst, self_hosted]
 keywords: [finance, analytics, websockets, data pipeline]
 ---
 

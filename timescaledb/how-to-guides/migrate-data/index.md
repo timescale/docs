@@ -1,6 +1,7 @@
 ---
 title: Data migration
 excerpt: Migrate your existing data into TimescaleDB
+products: [mst, self_hosted]
 keywords: [data migration]
 tags: [import]
 ---

@@ -1,11 +1,13 @@
 ---
 title: TimescaleDB tuning tool
 excerpt: Use the timescaledb-tune tool to automatically configure your TimescaleDB instance
+products: [self_hosted]
 keywords: [configuration, settings, timescaledb-tune]
 tags: [tune]
 ---
 
 # TimescaleDB tuning tool
+
 To help make configuring TimescaleDB a little easier, you can use the [`timescaledb-tune`][tstune]
 tool. This tool handles setting the most common parameters to good values based
 on your system. It accounts for memory, CPU, and PostgreSQL version.
@@ -63,7 +65,7 @@ changes, you can automatically accept and append the suggestions to the end of
 your `postgresql.conf` by using some additional flags when you run the tool:
 
 ```bash
-$ timescaledb-tune --quiet --yes --dry-run >> /path/to/postgresql.conf
+timescaledb-tune --quiet --yes --dry-run >> /path/to/postgresql.conf
 ```
 
 [tstune]: https://github.com/timescale/timescaledb-tune

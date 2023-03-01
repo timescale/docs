@@ -1,6 +1,7 @@
 ---
 title: Troubleshooting TimescaleDB
 excerpt: Troubleshoot common problems that occur when using TimescaleDB
+products: [self_hosted]
 keywords: [troubleshooting]
 ---
 
@@ -21,7 +22,7 @@ can join the community [Slack group][slack] or post an issue on the TimescaleDB
 The `ALTER EXTENSION timescaledb UPDATE` command must be the first
 command executed upon connection to a database. Some administration tools
 execute commands before this, which can disrupt the process. You might
-need to manually update the database with `psql`.  See the 
+need to manually update the database with `psql`.  See the
 [update docs][update-db] for details.
 
 ### Log error: could not access file "timescaledb"

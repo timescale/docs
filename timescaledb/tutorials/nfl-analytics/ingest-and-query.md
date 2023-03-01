@@ -1,6 +1,7 @@
 ---
 title: Ingest data and run your first query
 excerpt: Ingest some data from CSV files into your database
+products: [cloud, mst, self_hosted]
 keywords: [continuous aggregates, hyperfunctions, analytics]
 ---
 

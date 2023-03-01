@@ -1,6 +1,7 @@
 ---
 title: Perform advanced analytic queries
 excerpt: Perform advanced data analysis using native PostgreSQL queries and TimescaleDB hyperfunctions
+products: [cloud, mst, self_hosted]
 keywords: [queries, hyperfunctions, analytics]
 ---
 

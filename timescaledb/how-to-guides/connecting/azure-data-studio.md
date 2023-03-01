@@ -1,7 +1,7 @@
 ---
 title: Azure Data Studio
 excerpt: Connect to your TimescaleDB database with Microsoft Azure Data Studio
-product: mst, cloud, timescaledb
+products: [cloud, mst, self_hosted]
 keywords: [connect]
 ---
 

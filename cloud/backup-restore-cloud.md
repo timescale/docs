@@ -1,7 +1,7 @@
 ---
 title: Backup and restore
 excerpt: Understand how backups and restores work in Timescale Cloud
-product: cloud
+products: [cloud]
 keywords: [backups, restore]
 tags: [recovery, failures]
 ---

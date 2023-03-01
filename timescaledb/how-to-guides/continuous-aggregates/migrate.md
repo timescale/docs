@@ -1,6 +1,7 @@
 ---
 title: Migrate a continuous aggregate to the new form
 excerpt: Migrate old continuous aggregates to the new form introduced in TimescaleDB 2.7
+products: [cloud, mst, self_hosted]
 keywords: [continuous aggregates]
 ---
 

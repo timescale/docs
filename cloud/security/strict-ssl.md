@@ -1,7 +1,7 @@
 ---
 title: Connect with a stricter SSL mode
 excerpt: Connect to Timescale Cloud with a stricter SSL mode
-product: cloud
+products: [cloud]
 keywords: [security]
 tags: [ssl]
 ---

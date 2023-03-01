@@ -1,6 +1,7 @@
 ---
 title: Next steps
 excerpt: Continue exploring TimescaleDB
+products: [cloud, mst, self_hosted]
 keywords: [data migration, ingest, visualize, connect]
 ---
 

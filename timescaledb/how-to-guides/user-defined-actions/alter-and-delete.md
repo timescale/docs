@@ -1,6 +1,7 @@
 ---
 title: Alter and delete user-defined actions
 excerpt: Alter an existing job or delete it from the automation framework
+products: [cloud, mst, self_hosted]
 keywords: [actions]
 tags: [user-defined actions, scheduled jobs, background jobs, automation framework]
 ---

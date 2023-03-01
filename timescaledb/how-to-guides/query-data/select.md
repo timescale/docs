@@ -1,6 +1,7 @@
 ---
 title: SELECT data
 excerpt: Query data from a hypertable using a standard SELECT command
+products: [cloud, mst, self_hosted]
 keywords: [queries]
 ---
 
@@ -15,12 +16,14 @@ Here are some examples of basic `SELECT` queries.
 
 Return the 100 most-recent entries in the table `conditions`. Order the rows
 from newest to oldest:
+
 ```sql
 SELECT * FROM conditions ORDER BY time DESC LIMIT 100;
 ```
 
 Return the number of entries written to the table `conditions` in the last 12
 hours:
+
 ```sql
 SELECT COUNT(*) FROM conditions
   WHERE time > NOW() - INTERVAL '12 hours';
@@ -37,6 +40,7 @@ results by maximum temperature.
 
 This examples uses the [`time_bucket`][time_bucket] function to aggregate data
 into 15-minute buckets:
+
 ```sql
 SELECT time_bucket('15 minutes', time) AS fifteen_min,
     location,
@@ -51,6 +55,7 @@ SELECT time_bucket('15 minutes', time) AS fifteen_min,
 
 Count the number of distinct locations with air conditioning that have reported
 data in the last day:
+
 ```sql
 SELECT COUNT(DISTINCT location) FROM conditions
   JOIN locations

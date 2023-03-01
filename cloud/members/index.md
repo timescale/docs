@@ -1,7 +1,7 @@
 ---
 title: Members
 excerpt: User management for your Timescale Cloud project
-product: cloud
+products: [cloud]
 keywords: [members, projects, admin, roles]
 tags: [users]
 cloud_ui:

@@ -1,7 +1,7 @@
 ---
 title: Tier data to object storage
 excerpt: How to tier Timescale Cloud data to object storage
-product: cloud
+products: [cloud]
 keywords: [data tiering]
 tags: [storage, data management]
 cloud_ui:

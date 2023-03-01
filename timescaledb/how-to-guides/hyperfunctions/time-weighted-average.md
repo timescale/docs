@@ -1,6 +1,7 @@
 ---
 title: Time-weighted average
 excerpt: Calculate a time-weighted average
+products: [cloud, mst, self_hosted]
 keywords: [hyperfunctions, Toolkit, time-weighted]
 ---
 

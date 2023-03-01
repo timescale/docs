@@ -1,6 +1,7 @@
 ---
 title: Pull and ingest data from a third-party API
 excerpt: Build a data pipeline to pull data from a third-party finance API into TimescaleDB
+products: [cloud, mst, self_hosted]
 keywords: [finance, analytics, AWS Lambda, psycopg2, pandas, GitHub Actions, pipeline]
 ---
 

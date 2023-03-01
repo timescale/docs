@@ -1,6 +1,7 @@
 ---
 title: Set up multi-node on self-hosted TimescaleDB
 excerpt: How to set up a self-hosted multi-node instance
+products: [mst, self_hosted]
 keywords: [multi-node, self-hosted]
 ---
 

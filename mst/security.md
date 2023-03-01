@@ -1,7 +1,7 @@
 ---
 title: Security overview
 excerpt: Learn how your Managed Service for TimescaleDB instance is secured
-product: mst
+products: [mst]
 keywords: [security]
 ---
 

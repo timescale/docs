@@ -1,6 +1,7 @@
 ---
 title: Manage storage using tablespaces
 excerpt: Save on data storage by moving chunks between tablespaces
+products: [cloud, mst, self_hosted]
 keywords: [storage, tablespaces]
 tags: [move, manage, chunks]
 ---

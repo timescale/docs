@@ -1,6 +1,7 @@
 ---
 title: Using Tableau to visualize data in TimescaleDB
 excerpt: Use Tableau to plot and visualize your data
+products: [cloud, mst, self_hosted]
 keywords: [visualizations, analytics, Tableau]
 ---
 
@@ -12,9 +13,9 @@ data stored in [TimescaleDB][timescale-products].
 
 This tutorial covers:
 
-- Setting up Tableau to work with TimescaleDB
-- Running queries on TimescaleDB from within Tableau
-- Visualize data in Tableau
+*   Setting up Tableau to work with TimescaleDB
+*   Running queries on TimescaleDB from within Tableau
+*   Visualize data in Tableau
 
 ### Prerequisites
 
@@ -113,10 +114,11 @@ In this tutorial, you learned how to setup Tableau to examine time-series data
 stored in TimescaleDB.
 
 Ready for more learning? Here's a few suggestions:
-- [Time Series Forecasting using TimescaleDB, R, Apache MADlib and Python][time-series-forecasting]
-- [Continuous Aggregates][continuous-aggregates]
-- [Try Other Sample Datasets][other-samples]
-- [Migrate your own Data][migrate]
+
+*   [Time Series Forecasting using TimescaleDB, R, Apache MADlib and Python][time-series-forecasting]
+*   [Continuous Aggregates][continuous-aggregates]
+*   [Try Other Sample Datasets][other-samples]
+*   [Migrate your own Data][migrate]
 
 [continuous-aggregates]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates
 [crypto-tutorial]: /timescaledb/:currentVersion:/tutorials/analyze-cryptocurrency-data

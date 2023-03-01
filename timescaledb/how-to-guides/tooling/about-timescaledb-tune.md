@@ -1,6 +1,7 @@
 ---
 title: About timescaledb-tune
 excerpt: Automatically tune your TimescaleDB database to match your system resources and PostgreSQL version
+products: [self_hosted]
 keywords: [configuration, timescaledb-tune]
 tags: [tune, settings]
 ---

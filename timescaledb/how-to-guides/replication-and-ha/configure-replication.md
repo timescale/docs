@@ -1,6 +1,7 @@
 ---
 title: Configure replication
 excerpt: Set up asynchronous streaming replication on one or more database replicas
+products: [self_hosted]
 keywords: [replicas]
 ---
 

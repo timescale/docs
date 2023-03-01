@@ -1,7 +1,7 @@
 ---
 title: Services operations - Service management
 excerpt: Manage your service from the Operations dashboard
-product: cloud
+products: [cloud]
 keywords: [services, operations, forks]
 tags: [manage, admin, passwords, pause, stop, terminate]
 cloud_ui:

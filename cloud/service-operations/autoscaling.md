@@ -1,7 +1,7 @@
 ---
 title: Service operations - Autoscaling
 excerpt: Set up Timescale Cloud to automatically resize your compute and storage
-product: cloud
+products: [cloud]
 keywords: [scaling, services, operations]
 tags: [cpu, storage, disk space]
 cloud_ui:

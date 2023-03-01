@@ -1,7 +1,7 @@
 ---
 title: Promscale database roles and permissions
 excerpt: Learn about the different database roles and permissions Promscale defines
-product: promscale
+products: [promscale]
 keywords: [analytics, permissions, roles]
 tags: [database]
 ---

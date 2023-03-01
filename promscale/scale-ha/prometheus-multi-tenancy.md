@@ -1,7 +1,7 @@
 ---
 title: Promscale multi-tenancy for Prometheus
 excerpt: Configure Promscale multi-tenancy for Prometheus
-product: promscale
+products: [promscale]
 keywords: [multi-tenancy, scale, Prometheus]
 ---
 

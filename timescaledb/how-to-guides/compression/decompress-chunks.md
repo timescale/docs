@@ -1,6 +1,7 @@
 ---
 title: Decompression
 excerpt: How to decompress a compressed chunk
+products: [cloud, mst, self_hosted]
 keywords: [compression, hypertables, backfilling]
 tags: [decompression]
 ---

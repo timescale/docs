@@ -1,6 +1,7 @@
 ---
 title: Change hypertable chunk intervals
 excerpt: Adjust your hypertable chunk interval to improve query performance
+products: [cloud, mst, self_hosted]
 keywords: [hypertables, chunks]
 tags: [performance]
 ---

@@ -1,7 +1,7 @@
 ---
 title: Timescale Cloud services
 excerpt: Learn more about Timescale Cloud services
-product: cloud
+products: [cloud]
 keywords: [services]
 cloud_ui:
     path:

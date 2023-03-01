@@ -1,7 +1,7 @@
 ---
 title: Failover
 excerpt: Learn how maintenance is automatically handled on Managed Service for TimescaleDB
-product: mst
+products: [mst]
 keywords: [maintenance, updates, upgrades, failover, high availability, replica]
 tags: [failover window]
 ---

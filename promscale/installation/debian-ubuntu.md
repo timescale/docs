@@ -1,7 +1,7 @@
 ---
 title: Debian or Ubuntu
 excerpt: Install Promscale on Debian or Ubuntu
-product: promscale
+products: [promscale]
 keywords: [analytics]
 tags: [install]
 related_pages:

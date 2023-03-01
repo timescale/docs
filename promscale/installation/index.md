@@ -1,7 +1,7 @@
 ---
 title: Install Promscale
 excerpt: Install Promscale on Kubernetes, Docker, virtual machine, or bare metal
-product: promscale
+products: [promscale]
 keywords: [analytics]
 tags: [learn, prometheus]
 related_pages:

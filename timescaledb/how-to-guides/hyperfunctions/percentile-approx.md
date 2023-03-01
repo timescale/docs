@@ -1,6 +1,7 @@
 ---
 title: Percentile approximation
 excerpt: Approximate percentiles in large datasets
+products: [cloud, mst, self_hosted]
 keywords: [hyperfunctions, Toolkit, percentiles]
 ---
 

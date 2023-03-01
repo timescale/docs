@@ -1,6 +1,7 @@
 ---
 title: High availability with multi-node
 excerpt: How to configure multi-node TimescaleDB for high availability
+products: [mst, self_hosted]
 keywords: [multi-node, high availability]
 ---
 

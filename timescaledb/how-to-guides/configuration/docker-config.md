@@ -1,6 +1,7 @@
 ---
 title: Configuration with Docker
 excerpt: Configure a TimescaleDB instance running in a Docker container
+products: [self_hosted]
 keywords: [configuration, settings, Docker]
 ---
 

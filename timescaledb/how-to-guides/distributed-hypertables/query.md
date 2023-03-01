@@ -1,10 +1,12 @@
 ---
 title: Query data in distributed hypertables
 excerpt: How to query data in distributed hypertables
+products: [cloud, mst, self_hosted]
 keywords: [distributed hypertables, multi-node, queries]
 ---
 
 # Query data in distributed hypertables
+
 You can query a distributed hypertable just as you would query a regular
 hypertable or PostgreSQL table. For more information, see the section on
 [writing data][write].

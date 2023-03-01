@@ -1,7 +1,7 @@
 ---
 title: Migrate the entire database at once
 excerpt: Migrate an entire TimescaleDB database to Timescale Cloud in one go
-product: cloud
+products: [cloud]
 keywords: [data migration]
 tags: [ingest]
 ---

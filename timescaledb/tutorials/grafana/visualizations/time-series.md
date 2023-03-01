@@ -1,6 +1,7 @@
 ---
 title: Build a time-series graph in Grafana
 excerpt: Create a time-series graph to show values changing over time
+products: [cloud, mst, self_hosted]
 keywords: [Grafana, visualizations, analytics]
 tags: [time-series]
 ---

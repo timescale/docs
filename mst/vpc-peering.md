@@ -1,7 +1,7 @@
 ---
 title: VPC peering
 excerpt: Secure your Managed Service for TimescaleDB instance with VPC peering
-product: mst
+products: [mst]
 keywords: [vpc, peer]
 ---
 

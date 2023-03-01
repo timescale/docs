@@ -1,7 +1,7 @@
 ---
 title: Create a fork using Aiven client 
 excerpt: Create a fork of the service using Aiven Command Line tool for fully managed services on AWS, Azure, or GCP.
-product: mst
+products: [mst]
 ---
 
 # Fork services with Aiven client

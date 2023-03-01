@@ -1,6 +1,7 @@
 ---
 title: Counter aggregates
 excerpt: How to aggregate counter data for data analysis
+products: [cloud, mst, self_hosted]
 keywords: [hyperfunctions, Toolkit, counters]
 ---
 

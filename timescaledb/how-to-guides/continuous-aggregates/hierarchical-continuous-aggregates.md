@@ -1,6 +1,7 @@
 ---
 title: Continuous aggregates on continuous aggregates
 excerpt: Create continuous aggregates on top of continuous aggregates to summarize data at different granularities
+products: [cloud, mst, self_hosted]
 keywords: [continuous aggregates, create]
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: Install and use timescaledb-parallel-copy
 excerpt: Speed up bulk inserts of data with an open-source tool
+products: [cloud, mst, self_hosted]
 keywords: [timescaledb-parallel-copy, copy]
 ---
 

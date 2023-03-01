@@ -1,6 +1,7 @@
 ---
 title: About data retention with continuous aggregates
 excerpt: How data retention works with continuous aggregates for downsampling
+products: [cloud, mst, self_hosted]
 keywords: [continuous aggregates, data retention]
 ---
 

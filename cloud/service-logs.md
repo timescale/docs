@@ -1,7 +1,7 @@
 ---
 title: Service logs
 excerpt: View your Timescale Cloud service logs
-product: cloud
+products: [cloud]
 keywords: [logs, services]
 cloud_ui:
     path:

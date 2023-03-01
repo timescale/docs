@@ -1,7 +1,7 @@
 ---
 title: Maintenance jobs
 excerpt: Understand and manage maintenance jobs
-product: promscale
+products: [promscale]
 keywords: [maintenance, data]
 ---
 

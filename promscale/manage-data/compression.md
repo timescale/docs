@@ -1,7 +1,7 @@
 ---
 title: Compress data in Promscale
 excerpt: Configure data compression in Promscale
-product: promscale
+products: [promscale]
 keywords: [compression]
 tags: [configure, metrics, storage]
 ---

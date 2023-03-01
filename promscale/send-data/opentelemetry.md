@@ -1,7 +1,7 @@
 ---
 title: Send OpenTelemetry data to Promscale
 excerpt: Send OpenTelemetry data to Promscale
-product: promscale
+products: [promscale]
 keywords: [OpenTelemetry]
 tags: [configure, traces]
 ---

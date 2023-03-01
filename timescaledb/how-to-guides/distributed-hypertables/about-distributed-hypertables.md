@@ -1,6 +1,7 @@
 ---
 title: About distributed hypertables
 excerpt: Learn how distributed hypertables work in multi-node TimescaleDB
+products: [cloud, mst, self_hosted]
 keywords: [distributed hypertables, multi-node]
 ---
 

@@ -1,10 +1,12 @@
 ---
 title: Multi-node
 excerpt: Multi-node TimescaleDB allows you to horizontally scale your database
+products: [self_hosted]
 keywords: [multi-node, scaling]
 ---
 
 # Multi-node
+
 If you have a larger workload, you might need more than one TimescaleDB
 instance. TimescaleDB multi-node allows you to run and manage multiple instances,
 giving you faster data ingest, and more responsive and efficient queries.
@@ -15,7 +17,7 @@ giving you faster data ingest, and more responsive and efficient queries.
 *   Set up [multi-node in Timescale Cloud][setup-cloud].
 *   Set up [authentication][multi-node-auth] for your cluster
 *   [Configure][multi-node-config] your cluster
-*   [Administer][multi-node-administration] your cluster 
+*   [Administer][multi-node-administration] your cluster
 *   [Grow or shrink][multi-node-grow-shrink] your cluster
 *   Set up [high availability][multi-node-ha] (HA) for your cluster
 *   [Maintain][multi-node-maintenance] your multi-node environment

@@ -1,7 +1,7 @@
 ---
 title: Integrate Timescale Cloud services with third-party monitoring
 excerpt: Export telemetry metrics to Datadog or AWS CloudWatch
-product: cloud
+products: [cloud]
 keywords: [integration, metrics, Datadog, AWS CloudWatch]
 tags: [telemetry, monitor]
 cloud_ui:

@@ -1,6 +1,7 @@
 ---
 title: Uninstall TimescaleDB
 excerpt: Uninstall TimescaleDB
+products: [self_hosted]
 keywords: [uninstall]
 ---
 

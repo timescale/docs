@@ -1,6 +1,7 @@
 ---
 title: Ongoing physical backups with Docker & WAL-E
 excerpt: Back up your Docker instance of TimescaleDB
+products: [self_hosted]
 keywords: [backups, Docker]
 tags: [restore, recovery, physical backup]
 ---
