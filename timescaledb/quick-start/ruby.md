@@ -370,7 +370,7 @@ end
 
     The result is similar to:
 
-    ```sql
+    ```
       -[ RECORD 1 ]---------------------------------------------------------------------------------------------------------------------
       user_agent | Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/202.0.0.0 Safari/537.36
       created_at | 2023-02-22 01:32:53.935198
