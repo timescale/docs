@@ -437,10 +437,10 @@ You can retrieve the data that you inserted and view it.
 1.  View the number of requests per minute:
 
      ```ruby
-      irb(main):001:0> PageLoad
-                      .select("time_bucket('1 minute', created_at) as time, count(1) as total")
-                      .group('time').order('time')
-                      .map {|result| [result.time, result.total]}
+     PageLoad
+       .select("time_bucket('1 minute', created_at) as time, count(1) as total")
+       .group('time').order('time')
+       .map {|result| [result.time, result.total]}
     ```
 
     The result is similar to:
