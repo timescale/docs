@@ -399,9 +399,9 @@ You can retrieve the data that you inserted and view it.
     the `page_load` database and store them in an array:
 
     ```ruby
-     class StaticPagesController < ApplicationController
+    class StaticPagesController < ApplicationController
       def home
-       PageLoad.create(:user_agent => request.user_agent)
+        PageLoad.create(:user_agent => request.user_agent)
       end
     end
     ```
