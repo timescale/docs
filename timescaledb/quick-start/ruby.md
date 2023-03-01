@@ -330,12 +330,12 @@ end
     object to TimescaleDB `tsdb` database:
 
     ```ruby
-         class StaticPagesController < ApplicationController
-            def home
-               PageLoad.create(user_agent: request.user_agent)
-            end
-         end
-     ```
+    class StaticPagesController < ApplicationController
+       def home
+          PageLoad.create(user_agent: request.user_agent)
+       end
+    end
+    ```
 
     When you go to the browser and refresh the page several times. In the Rails
     console window commit messages appears:
