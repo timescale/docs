@@ -569,9 +569,9 @@ store the endpoint path and the time necessary to return the response.
     directory add these:
 
      ```ruby
-       class ApplicationController < ActionController::Base
+     class ApplicationController < ActionController::Base
         around_action do |controller, action|
-         performance = Benchmark.measure(&action.method(:call))
+          performance = Benchmark.measure(&action.method(:call))
 
          PageLoad.create(path: request.path,
            performance: performance.real,
