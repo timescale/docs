@@ -654,7 +654,7 @@ page by page, or all pages together, and group by path or not:
     time filtering by methods that contains `response_time` use:
 
     ```ruby
-       PageLoad.methods.grep /response_time/
+    PageLoad.methods.grep /response_time/
     ```
 
     The result is similar to:
