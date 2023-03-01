@@ -531,7 +531,7 @@ function:
 
 </Collapsible>
 
-</procedure>
+</Procedure>
 
 ## Add performance and path attributes to PageLoad
 
