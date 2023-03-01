@@ -577,7 +577,7 @@ store the endpoint path and the time necessary to return the response.
            performance: performance.real,
            user_agent: request.user_agent)
         end
-     end 
+    end 
      ```
 
     This creates a record for PageLoad record for any request happening in the
