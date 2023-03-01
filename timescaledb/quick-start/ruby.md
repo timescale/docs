@@ -620,7 +620,7 @@ page by page, or all pages together, and group by path or not:
     collect unique paths from page loads:
 
     ```ruby
-      class PageLoad < ApplicationRecord
+    class PageLoad < ApplicationRecord
       scope :per_minute, -> { time_bucket('1 minute') }
       scope :per_hour, -> { time_bucket('1 hour') }
       scope :per_day, -> { time_bucket('1 day') }
@@ -633,7 +633,7 @@ page by page, or all pages together, and group by path or not:
       scope :best_response_time_last_hour, -> { time_bucket('1 hour', value: 'min(performance)') }
       scope :paths, -> { distinct.pluck(:path) }
       scope :time_bucket, -> (time_dimension, value: 'count(1)') {
-      select(<<~SQL)
+        select("time_bucket('#{time_dimension}', created_at), #{value})")
       end
      ```
 
