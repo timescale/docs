@@ -4,7 +4,7 @@ excerpt: Get started with TimescaleDB for a Ruby application
 keywords: [Ruby]
 ---
 
-import Intro from "versionContent/_partials/_quickstart-intro.mdx";
+import Intro from "versionContent/_partials/QuickstartIntro.mdx";
 
 # Ruby quick start
 
