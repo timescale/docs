@@ -385,7 +385,7 @@ information and time, and save the object to TimescaleDB database.
 
 </Collapsible>
 
-</procedure>
+</Procedure>
 
 ## Execute a query
 
