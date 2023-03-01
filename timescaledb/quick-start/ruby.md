@@ -588,15 +588,15 @@ store the endpoint path and the time necessary to return the response.
     The result is similar to:
 
     ```ruby
-       PageLoad Load (318.2ms)  SELECT "page_loads".* FROM "page_loads" ORDER BY "page_loads"."created_at" DESC LIMIT $1  [["LIMIT", 1]]
-       => 
-       #<PageLoad:0x000000010950a410
-       user_agent:
-       "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
-       created_at: Sun, 26 Feb 2023 15:49:35.186955000 UTC +00:00,
-       updated_at: Sun, 26 Feb 2023 15:49:35.186955000 UTC +00:00,
-       path: nil,
-       performance: nil>
+    PageLoad Load (318.2ms)  SELECT "page_loads".* FROM "page_loads" ORDER BY "page_loads"."created_at" DESC LIMIT $1  [["LIMIT", 1]]
+    => 
+    #<PageLoad:0x000000010950a410
+    user_agent:
+   "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+    created_at: Sun, 26 Feb 2023 15:49:35.186955000 UTC +00:00,
+    updated_at: Sun, 26 Feb 2023 15:49:35.186955000 UTC +00:00,
+    path: nil,
+    performance: nil>
     ```
 
     This example uses only the **real** performance from [benchmark] but you can
