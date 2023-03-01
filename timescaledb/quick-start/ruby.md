@@ -673,7 +673,7 @@ page by page, or all pages together, and group by path or not:
 
 </Collapsible>
 
-</procedure>
+</Procedure>
 
 ## Next steps
 
