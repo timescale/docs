@@ -210,7 +210,7 @@ store a host of additional web analytics of interest to you.
 
 </Collapsible>
 
-</procedure>
+</Procedure>
 
 ## Create a hypertable
 
