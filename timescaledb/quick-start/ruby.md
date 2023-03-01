@@ -660,13 +660,12 @@ page by page, or all pages together, and group by path or not:
     The result is similar to:
 
     ```ruby
-       irb(main):002:0> PageLoad.methods.grep /response_time/
-       => 
-      [:average_response_time_per_hour,
-       :average_response_time_per_minute,
-       :worst_response_time_last_hour,
-       :worst_response_time_last_minute,
-       :best_response_time_last_hour]
+    PageLoad.methods.grep /response_time/
+    # => [:average_response_time_per_hour,
+    #  :average_response_time_per_minute,
+    #   :worst_response_time_last_hour,
+    #   :worst_response_time_last_minute,
+    #   :best_response_time_last_hour]
      ```
 
 </Collapsible>
