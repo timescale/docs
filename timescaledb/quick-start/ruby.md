@@ -466,7 +466,7 @@ It also allows to introduce parameters and reuse queries as you need. create som
 useful scopes that can help to summarize and easily access the `time_bucket`
 function:
 
-<procedure>
+<Procedure>
 
 <Collapsible heading="Executing queries using scopes" headingLevel={3} defaultExpanded={false}>
 
