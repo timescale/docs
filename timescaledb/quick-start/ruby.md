@@ -613,7 +613,7 @@ store the endpoint path and the time necessary to return the response.
 Now that you know what pages exist, you can explore the results. You can go 
 page by page, or all pages together, and group by path or not:
 
-<procedure>
+<Procedure>
 
 <Collapsible heading="Exploring aggregation functions" headingLevel={3} defaultExpanded={false}>
 
