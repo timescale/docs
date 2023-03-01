@@ -359,7 +359,7 @@ end
 1.  Connect to TimescaleDB `tsdb` database using psql:
 
     ```bash
-        psql -x <SERVICE_URL>
+    psql -x <SERVICE_URL>
     ```
 
 1.  View the entries in the TimescaleDB `tsdb` database:
