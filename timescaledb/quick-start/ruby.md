@@ -319,7 +319,7 @@ end
 1.  Start the Rails server:
   
     ```bash
-        rails s
+     rails s
     ```
 
     Go to `http://localhost:3000/static_pages/home`. You should see a printout
