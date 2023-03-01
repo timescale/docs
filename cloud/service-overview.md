@@ -24,14 +24,18 @@ an overview of the configuration and resource usage for the service.
 By default, when you create a new service, a new `tsdbadmin` user is created.
 This is the user that you use to connect to your new service.
 
-The `tsdbadmin` user is the owner of the database, but is not a superuser. We
-do not currently allow access to the `postgres` user, nor creation of multiple
-databases. We recommend using schemas or creating additional services for data
-isolation.
+<highlight type="important">
+The `tsdbadmin` user is the owner of the database, but is not a superuser. You
+cannot access the `postgres` user. There is no superuser access to Timescale
+Cloud databases.
+</important>
 
 On Timescale Cloud services, the `tsdbadmin` user can create another user
 with any other roles. For a complete list of roles available, see the
 [PostgreSQL role attributes documentation][pg-roles-doc].
+
+Additionally, you cannot create multiple databases on a single Timescale Cloud
+service. If you need data isolation, use schemas or create additional services.
 
 [cloud-login]: https://console.cloud.timescale.com/
 [pg-roles-doc]: https://www.postgresql.org/docs/current/role-attributes.html
