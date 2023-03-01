@@ -272,7 +272,7 @@ and most other tasks are executed on the hypertable.
 
 </Collapsible>
 
-</procedure>
+</Procedure>
 
 ## Insert rows of data
 
