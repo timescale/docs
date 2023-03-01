@@ -39,7 +39,7 @@ a few test projects of your own.
 In this section, you create a connection to TimescaleDB Cloud through the Ruby
 on Rails application.
 
-<procedure>
+<Procedure>
 
 <Collapsible heading="Connecting to TimescaleDB" headingLevel={3}>
 
