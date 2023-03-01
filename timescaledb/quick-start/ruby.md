@@ -218,7 +218,7 @@ When you have created the relational table, you can create a hypertable.
 Creating tables and indexes, altering tables, inserting data, selecting data,
 and most other tasks are executed on the hypertable.
 
-<procedure>
+<Procedure>
 
 <Collapsible heading="Creating a hypertable" headingLevel={3}>
 
