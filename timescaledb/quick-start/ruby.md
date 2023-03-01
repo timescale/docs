@@ -365,7 +365,7 @@ end
 1.  View the entries in the TimescaleDB `tsdb` database:
 
     ```sql
-        SELECT * FROM page_loads ORDER BY created_at DESC;
+    SELECT * FROM page_loads ORDER BY created_at DESC;
     ```
 
     The result is similar to:
