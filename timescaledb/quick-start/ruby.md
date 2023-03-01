@@ -457,7 +457,7 @@ You can retrieve the data that you inserted and view it.
 
 </Collapsible>
 
-</procedure>
+</Procedure>
 
 ## Create scopes to reuse
 
