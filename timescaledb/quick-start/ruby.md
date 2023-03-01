@@ -556,13 +556,13 @@ store the endpoint path and the time necessary to return the response.
     The result is similar to:
 
     ```ruby
-       == 20230226173116 AddPerformanceToPageLoad: migrating =========================
-       -- add_column(:page_loads, :path, :string)
-       -> 0.6050s
-       -- add_column(:page_loads, :performance, :float)
-       -> 0.3076s
-       == 20230226173116 AddPerformanceToPageLoad: migrated (0.9129s) ================
-     ```
+    == 20230226173116 AddPerformanceToPageLoad: migrating =========================
+    -- add_column(:page_loads, :path, :string)
+    -> 0.6050s
+    -- add_column(:page_loads, :performance, :float)
+    -> 0.3076s
+    == 20230226173116 AddPerformanceToPageLoad: migrated (0.9129s) ================
+    ```
 
 1.  To hook the application controller with some [around_action] hook, in the
     `application_controller.rb` file located in `my_app/app/controllers`
