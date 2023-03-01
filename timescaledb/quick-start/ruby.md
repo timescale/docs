@@ -392,7 +392,7 @@ information and time, and save the object to TimescaleDB database.
 This section covers how to execute queries against your database.
 You can retrieve the data that you inserted and view it.
 
-<procedure>
+<Procedure>
 
 <Collapsible heading="Executing a simple query" headingLevel={3}>
 
