@@ -519,12 +519,12 @@ function:
      The result is similar to:
 
      ```ruby
-       PageLoad Load (299.7ms)  SELECT time_bucket('1 hour', created_at) as time, count(1) as total FROM "page_loads" GROUP BY "time" ORDER BY "time" ASC            
-       =>                                                                              
-      [[2023-02-22 01:00:00 UTC, 6],                                                  
-       [2023-02-22 05:00:00 UTC, 78],                                                 
-       [2023-02-22 06:00:00 UTC, 13063],                                              
-       [2023-02-22 07:00:00 UTC, 4114],                                               
+     PageLoad Load (299.7ms)  SELECT time_bucket('1 hour', created_at) as time, count(1) as total FROM "page_loads" GROUP BY "time" ORDER BY "time" ASC            
+     =>                                                                              
+    [[2023-02-22 01:00:00 UTC, 6],                                                  
+     [2023-02-22 05:00:00 UTC, 78],                                                 
+     [2023-02-22 06:00:00 UTC, 13063],                                              
+     [2023-02-22 07:00:00 UTC, 4114],                                               
     ```  
 
 </Collapsible>
