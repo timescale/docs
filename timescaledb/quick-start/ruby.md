@@ -484,10 +484,10 @@ function:
 1.  In the Ruby console you can run these commands to get the views for various requests:
 
       ```ruby
-        PageLoad.last_week.count     # Total of requests from last week
-        PageLoad.last_hour.first     # First request from last hour
-        PageLoad.last_hour.all       # All requests from last hour
-        PageLoad.last_hour.limit(10) # 10 requests from last hour
+      PageLoad.last_week.count     # Total of requests from last week
+      PageLoad.last_hour.first     # First request from last hour
+      PageLoad.last_hour.all       # All requests from last hour
+      PageLoad.last_hour.limit(10) # 10 requests from last hour
       ```
 
        You can also combine the scopes with other ActiveRecord methods, for example:
