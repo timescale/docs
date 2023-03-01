@@ -472,14 +472,14 @@ function:
     these scopes:
 
     ```ruby
-      class PageLoad < ApplicationRecord
+    class PageLoad < ApplicationRecord
       scope :last_month, -> { where('created_at > ?', 1.month.ago) }
       scope :last_week, -> { where('created_at > ?', 1.week.ago) }
       scope :last_hour, -> { where('created_at > ?', 1.hour.ago) }
       scope :yesterday, -> { where('DATE(created_at) = ?', 1.day.ago.to_date) }
       scope :today, -> { where('DATE(created_at) = ?', Date.today) }
-      end
-     ```
+    end
+    ```
 
 1.  In the Rudy console you can run these commands to get the views for various requests:
 
