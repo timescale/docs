@@ -11,7 +11,7 @@ const timescaleAboutPageIndex = require("../getting-started/page-index/page-inde
 module.exports = [
   ...gsgPageIndex,
   ...timescaleUsingPageIndex,
-  ...timescaleCloudPageIndex
+  ...timescaleCloudPageIndex,
   ...tutorialsPageIndex,
   ...codeQuickStartsPageIndex,
   ...apiReferencePageIndex,
