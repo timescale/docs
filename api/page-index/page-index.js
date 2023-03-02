@@ -488,37 +488,19 @@ module.exports = [
             href: "downsampling",
           },
           {
-            title: "Frequency Analysis",
-            type: "directory",
+            title: "Frequency analysis",
+            type: "redirect-to-child-page",
             href: "frequency-analysis",
             children: [
               {
                 title: "freq_agg",
                 href: "freq_agg",
-              },
-              {
-                title: "topn_agg",
-                href: "topn_agg",
-              },
-              {
-                title: "topn",
-                href: "topn",
+                type: "placeholder",
               },
               {
                 title: "count_min_sketch",
                 href: "count_min_sketch",
-              },
-              {
-                title: "approx_count",
-                href: "approx_count",
-              },
-              {
-                title: "into_values (for freq_agg)",
-                href: "into_values-freq_agg",
-              },
-              {
-                title: "min_frequency / max_frequency",
-                href: "min_frequency-max_frequency",
+                type: "placeholder",
               },
             ],
           },
