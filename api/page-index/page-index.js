@@ -245,6 +245,14 @@ module.exports = [
             title: "remove_all_policies",
             href: "remove_all_policies",
           },
+          {
+            title: "hypertable_size",
+            href: "hypertable_size",
+          },
+          {
+            title: "hypertable_detailed_size",
+            href: "hypertable_detailed_size",
+          },
         ],
       },
       {

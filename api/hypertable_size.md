@@ -11,17 +11,24 @@ api:
 
 # hypertable_size()  
 
-Get the total disk space used by a hypertable, that is, the sum of the
-size for the table itself (including chunks), any indexes on the
-table, and any toast tables. The size is reported in bytes. This is
-equivalent to computing the sum of `total_bytes` column from the
-output of `hypertable_detailed_size` function.
+Get the total disk space used by a hypertable or continuous aggregate,
+that is, the sum of the size for the table itself (including chunks),
+any indexes on the table, and any toast tables. The size is reported
+in bytes. This is equivalent to computing the sum of `total_bytes`
+column from the output of `hypertable_detailed_size` function.
+
+<Highlight type="tip">
+When a continuous aggregate name is provided, the function will
+transparently look up the backing hypertable and return its statistics
+instead.
+
+</Highlight>
 
 ### Required arguments
 
 |Name|Type|Description|
 |---|---|---|
-| `hypertable` | REGCLASS | Hypertable to show size of. |
+| `hypertable` | REGCLASS | Hypertable or continuous aggregate to show size of. |
 
 ### Returns
 
@@ -38,7 +45,7 @@ output of `hypertable_detailed_size` function.
 Get size information for a hypertable.
 
 ```sql
-SELECT hypertable_size('devices') ;
+SELECT hypertable_size('devices');
 
  hypertable_size
 -----------------
@@ -50,4 +57,14 @@ Get size information for all hypertables.
 ```sql
 SELECT hypertable_name, hypertable_size(format('%I.%I', hypertable_schema, hypertable_name)::regclass)
   FROM timescaledb_information.hypertables;
+```
+
+Get size of a continuous aggregate.
+
+```sql
+SELECT hypertable_size('device_stats_15m');
+
+ hypertable_size
+-----------------
+           73728
 ```
