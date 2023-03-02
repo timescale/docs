@@ -83,9 +83,10 @@ for compatibility with older clients.
 
 ### Pause service
 
-You can pause a service if you want to stop it running temporarily. This stops
-your service from costing you, but the service is still available and ready to
-be restarted at any time.
+You can pause a service if you want to stop it running temporarily. When you
+pause a service, you are no longer billed for compute services. However, you do
+need to continue paying for any storage you are using. Pausing a service ensures
+that it is still available, and is ready to be restarted at any time.
 
 ### Delete a service
 
