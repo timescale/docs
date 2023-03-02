@@ -206,17 +206,14 @@ SELECT create_hypertable('events', 'event', time_partitioning_func => 'event_sta
 One of the most common questions users of TimescaleDB have revolves around
 configuring `chunk_time_interval`.
 
-**Time intervals:** The current release of TimescaleDB enables both
-the manual and automated adaption of its time intervals. With
-manually set intervals, users should specify a `chunk_time_interval`
-when creating their hypertable (the default value is 1 week). The
-interval used for new chunks can be changed by calling [`set_chunk_time_interval()`][set_chunk_time_interval].
+**Time intervals:** Make sure you specify a `chunk_time_interval` when you
+create your hypertable (the default value is 1 week). The interval used for new
+chunks can be changed by calling [`set_chunk_time_interval()`][set_chunk_time_interval].
 
-The key property of choosing the time interval is that the chunk (including indexes)
-belonging to the most recent interval (or chunks if using space
-partitions) fit into memory. As such, we typically recommend setting
-the interval so that these chunks comprise no more than 25% of main
-memory.
+The key property of choosing the time interval is that the chunk (including
+indexes) belonging to the most recent interval (or chunks if using space
+partitions) fit into memory. As such, we typically recommend setting the
+interval so that these chunks comprise no more than 25% of main memory.
 
 <Highlight type="tip">
 Make sure that you are planning for recent chunks from _all_ active hypertables
