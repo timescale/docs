@@ -300,17 +300,19 @@ information and time, and save the object to TimescaleDB database.
     agent of browser for the site visitor.
   
     ```ruby
-class StaticPagesController < ApplicationController
-  def home
-    @agent = request.user_agent
-  end
-end
+
+      class StaticPagesController < ApplicationController
+        def home
+          @agent = request.user_agent
+        end
+      end
      ```
 
 1.  Print the `@agent` variable that you created to the `home.html.erb` file, located
     at `/my_app/app/views/static_pages/`:
 
     ```html
+
 <h1>StaticPages#home</h1>
 <p>Find me in app/views/static_pages/home.html.erb</p>
 <p>Request: <%= @agent %></p>
@@ -346,9 +348,9 @@ end
         TRANSACTION (268.7ms)  BEGIN
         ↳ app/controllers/static_pages_controller.rb:3:in `home'
         PageLoad Create (207.8ms)  INSERT INTO "page_loads" ("user_agent", "created_at", "updated_at") VALUES ($1, $2, $3)  [["user_agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"], ["created_at", "2023-02-22 01:32:16.465709"], ["updated_at", "2023-02-22 01:32:16.465709"]]
-       ↳ app/controllers/static_pages_controller.rb:3:in `home'
-       TRANSACTION (206.5ms)  COMMIT
-       ↳ app/controllers/static_pages_controller.rb:3:in `home'
+        ↳ app/controllers/static_pages_controller.rb:3:in `home'
+        TRANSACTION (206.5ms)  COMMIT
+        ↳ app/controllers/static_pages_controller.rb:3:in `home'
        Rendering layout layouts/application.html.erb
        Rendering static_pages/home.html.erb within layouts/application
        Rendered static_pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
@@ -370,7 +372,7 @@ end
 
     The result is similar to:
 
-    ```
+    ```bash
       -[ RECORD 1 ]---------------------------------------------------------------------------------------------------------------------
       user_agent | Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/202.0.0.0 Safari/537.36
       created_at | 2023-02-22 01:32:53.935198
@@ -431,7 +433,7 @@ You can retrieve the data that you inserted and view it.
     and try some queries using the [time_bucket] function.
 
     ```bash
-    rails console
+       rails console
     ```
 
 1.  View the number of requests per minute:
@@ -490,7 +492,7 @@ function:
       PageLoad.last_hour.limit(10) # 10 requests from last hour
       ```
 
-       You can also combine the scopes with other ActiveRecord methods, for example:
+    You can also combine the scopes with other ActiveRecord methods, for example:
 
      ```ruby
      # Count chrome users from last hour
@@ -501,13 +503,13 @@ function:
 
     ```ruby
        class PageLoad < ApplicationRecord
-       scope :counts_per, -> (time_dimension) {
-       select("time_bucket('#{time_dimension}', created_at) as time, count(1) as total")
-        .group(:time).order(:time)
-         .map {|result| [result.time, result.total]}
-       }
 
-     end
+          scope :counts_per, -> (time_dimension) {
+           select("time_bucket('#{time_dimension}', created_at) as time, count(1) as total")
+           .group(:time).order(:time)
+            .map {|result| [result.time, result.total]}
+           }
+        end
      ```
 
 1.  In the Ruby console explore other time frames:
@@ -592,7 +594,7 @@ store the endpoint path and the time necessary to return the response.
     => 
     #<PageLoad:0x000000010950a410
     user_agent:
-   "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
     created_at: Sun, 26 Feb 2023 15:49:35.186955000 UTC +00:00,
     updated_at: Sun, 26 Feb 2023 15:49:35.186955000 UTC +00:00,
     path: nil,
