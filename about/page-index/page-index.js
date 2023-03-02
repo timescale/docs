@@ -2,8 +2,10 @@ module.exports = [
   {
     title: "About Timescale",
     href: "about",
+    filePath: "index.md",
     pageComponents: ["featured-cards"],
-    excerpt: "Additional information about Timescale, including how to contribute, and release notes",
+    excerpt:
+      "Additional information about Timescale, including how to contribute, and release notes",
     children: [
       {
         title: "Release notes",
@@ -13,7 +15,8 @@ module.exports = [
           {
             title: "Changes in TimescaleDB 2.0",
             href: "changes-in-timescaledb-2",
-            excerpt: "An overview of major changes between TimescaleDB 1.0 and 2.0",
+            excerpt:
+              "An overview of major changes between TimescaleDB 1.0 and 2.0",
           },
         ],
       },

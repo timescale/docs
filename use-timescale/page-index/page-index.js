@@ -1,7 +1,8 @@
 module.exports = [
   {
-    title: "How-to Guides",
-    href: "how-to-guides",
+    title: "Use Timescale",
+    href: "use-timescale",
+    filePath: "index.md",
     pageComponents: ["content-list"],
     excerpt:
       "How to connect to TimescaleDB, and administer and configure the database.",
