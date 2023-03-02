@@ -1,10 +1,12 @@
 ---
 title: Distributed hypertables
 excerpt: Distributed hypertables help you horizontally scale your data storage in multi-node clusters
+products: [cloud, mst, self_hosted]
 keywords: [distributed hypertables, multi-node]
 ---
 
 # Distributed hypertables
+
 Distributed hypertables are hypertables that span multiple nodes. With
 distributed hypertables, you can scale your data storage across multiple
 machines and benefit from parallelized processing for some queries.

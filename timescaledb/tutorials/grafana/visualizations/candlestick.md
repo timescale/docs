@@ -1,6 +1,7 @@
 ---
 title: Build a candlestick chart in Grafana
 excerpt: Create a candlestick chart in Grafana to visualize opening, closing, high, and low prices of financial assets
+products: [cloud, mst, self_hosted]
 keywords: [Grafana, visualization, analytics, finance]
 tags: [candlestick]
 seo:

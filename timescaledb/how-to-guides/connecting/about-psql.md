@@ -1,6 +1,7 @@
 ---
 title: About psql
 excerpt: Connect to your database with the psql command line tool
+products: [cloud, mst, self_hosted]
 keywords: [connect, psql]
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: Manually drop chunks
 excerpt: Manually drop chunks from your hypertable based on time value
+products: [cloud, mst, self_hosted]
 keywords: [data retention]
 tags: [drop, delete]
 ---

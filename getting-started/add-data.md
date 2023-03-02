@@ -1,6 +1,7 @@
 ---
 title: Add time-series data
 excerpt: Add time-series data to your TimescaleDB instance
+products: [cloud, mst, self_hosted]
 keywords: [ingest]
 tags: [add, data, time-series]
 ---

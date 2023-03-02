@@ -1,7 +1,7 @@
 ---
 title: Prom-migrator data migration tool
 excerpt: Use Prom-migrator to send existing Prometheus data to Promscale
-product: promscale
+products: [promscale]
 keywords: [analytics]
 tags: [install, data, migrate, prometheus]
 ---

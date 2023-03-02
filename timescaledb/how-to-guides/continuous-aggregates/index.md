@@ -1,6 +1,7 @@
 ---
 title: Continuous aggregates
 excerpt: Continuous aggregates make queries run faster on very large datasets
+products: [cloud, mst, self_hosted]
 keywords: [continuous aggregates]
 ---
 

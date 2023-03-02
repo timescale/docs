@@ -1,10 +1,12 @@
 ---
 title: Connecting to TimescaleDB
 excerpt: Connect to your TimescaleDB database with a PostgreSQL client
+products: [cloud, mst, self_hosted]
 keywords: [connect]
 ---
 
 # Connecting to TimescaleDB
+
 When you have your TimescaleDB service up and running, either in the cloud or
 own your own self-hosted hardware, you need a way to talk to it from your local
 machine. Most of the instructions we give you assume you are using `psql`, but

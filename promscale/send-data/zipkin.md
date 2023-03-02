@@ -1,7 +1,7 @@
 ---
 title: Send Zipkin traces to Promscale
 excerpt: Send Zipkin traces to Promscale
-product: promscale
+products: [promscale]
 keywords: [Zipkin]
 tags: [configure, traces]
 ---

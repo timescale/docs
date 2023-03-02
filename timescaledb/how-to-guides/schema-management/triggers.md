@@ -1,6 +1,7 @@
 ---
 title: Triggers
 excerpt: Create, alter, and drop triggers on a hypertable
+products: [cloud, mst, self_hosted]
 keywords: [hypertables, triggers]
 ---
 

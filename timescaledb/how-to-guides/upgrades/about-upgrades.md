@@ -1,6 +1,7 @@
 ---
 title: About upgrades
 excerpt: About major and minor upgrades, and best practices for upgrading
+products: [self_hosted]
 keywords: [upgrades]
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: TimescaleDB configuration and tuning
 excerpt: How to change configuration settings for TimescaleDB
+products: [self_hosted]
 keywords: [configuration, settings]
 tags: [tune]
 ---

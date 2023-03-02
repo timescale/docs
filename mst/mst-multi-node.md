@@ -1,7 +1,7 @@
 ---
 title: Setting up TimescaleDB 2.0 multi-node on Managed Service for TimescaleDB
 excerpt: Set up multi-node on Managed Service for TimescaleDB (deprecated)
-product: mst
+products: [mst]
 keywords: [multi-node]
 ---
 

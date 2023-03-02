@@ -1,6 +1,7 @@
 ---
 title: Time-weighted averages and integrals
 excerpt: Calculate time-weighted averages and integrals for unevenly sampled data
+products: [cloud, mst, self_hosted]
 keywords: [hyperfunctions, Toolkit, time-weighted]
 ---
 

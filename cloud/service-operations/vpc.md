@@ -1,7 +1,7 @@
 ---
 title: Service operations - VPC
 excerpt: Use VPC peering to secure your Timescale Cloud database
-product: cloud
+products: [cloud]
 keywords: [vpc, services, operations]
 tags: [aws]
 cloud_ui:

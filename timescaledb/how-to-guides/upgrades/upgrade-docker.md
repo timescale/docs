@@ -1,6 +1,7 @@
 ---
 title: Upgrades within a Docker container
 excerpt: Upgrade TimescaleDB within a Docker container
+products: [self_hosted]
 keywords: [upgrades, Docker]
 ---
 

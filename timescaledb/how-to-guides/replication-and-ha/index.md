@@ -1,10 +1,12 @@
 ---
 title: High availability
 excerpt: Learn about high availability
+products: [self_hosted]
 keywords: [high availability]
 ---
 
 # High availability
+
 PostgreSQL relies on replication for high availability, failover, and balancing
 read loads across multiple nodes. Replication ensures that data written to the
 primary PostgreSQL database is mirrored on one or more nodes. By virtue of

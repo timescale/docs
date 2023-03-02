@@ -1,6 +1,7 @@
 ---
 title: Set up Grafana alerts
 excerpt: Use Grafana to get alerted when a problem occurs
+products: [cloud, mst, self_hosted]
 keywords: [Grafana, alert, integration]
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: JSONB support for semi-structured data
 excerpt: Store semi-structured data, such as user-defined fields, as JSONB
+products: [cloud, mst, self_hosted]
 keywords: [schemas, JSONB]
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: Troubleshooting hyperfunctions and TimescaleDB Toolkit
 excerpt: Troubleshoot common problems experienced with hyperfunctions and TimescaleDB Toolkit
+products: [cloud, mst, self_hosted]
 keywords: [hyperfunctions, Toolkit, troubleshooting]
 ---
 

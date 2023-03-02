@@ -1,6 +1,7 @@
 ---
 title: Create a Grafana dashboard and panel
 excerpt: Visualize your data in Grafana
+products: [cloud, mst, self_hosted]
 keywords: [Grafana, visualizations, analytics]
 ---
 

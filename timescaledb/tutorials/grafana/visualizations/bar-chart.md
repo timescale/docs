@@ -1,6 +1,7 @@
 ---
 title: Build a bar chart in Grafana
 excerpt: Plot a bar chart in Grafana to compare values between categories
+products: [cloud, mst, self_hosted]
 keywords: [Grafana, visualization, analytics]
 tags: [bar chart]
 ---

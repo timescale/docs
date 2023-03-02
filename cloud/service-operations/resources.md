@@ -1,7 +1,7 @@
 ---
 title: Service operation - Resources
 excerpt: Manage your service resources
-product: cloud
+products: [cloud]
 keywords: [services, operation, storage]
 tags: [disk space, resources, oom, memory]
 cloud_ui:

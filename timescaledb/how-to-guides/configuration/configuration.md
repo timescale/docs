@@ -1,6 +1,7 @@
 ---
 title: Configuring TimescaleDB
 excerpt: How to configure a TimescaleDB instance
+products: [self_hosted]
 keywords: [configuration]
 tags: [settings]
 ---

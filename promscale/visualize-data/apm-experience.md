@@ -1,7 +1,7 @@
 ---
 title: Application performance monitoring with traces
 excerpt: Application performance monitoring within Grafana using dashboards with SQL queries on traces
-product: promscale
+products: [promscale]
 keywords: [Jaeger, monitor]
 tags: [configure, opentelemetry, traces]
 ---

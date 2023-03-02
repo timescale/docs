@@ -1,7 +1,7 @@
 ---
 title: Timescale Cloud security
 excerpt: Get an overview of security on Timescale Cloud
-product: cloud
+products: [cloud]
 keywords: [security]
 tags: [encryption, VPC, privacy]
 ---

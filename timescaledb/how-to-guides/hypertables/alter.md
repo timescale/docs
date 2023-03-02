@@ -1,6 +1,7 @@
 ---
 title: Alter a hypertable
 excerpt: How to alter a hypertable
+products: [cloud, mst, self_hosted]
 keywords: [hypertables, schemas, alter]
 tags: [change]
 ---

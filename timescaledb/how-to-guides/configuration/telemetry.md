@@ -1,6 +1,7 @@
 ---
 title: Telemetry and version checking
 excerpt: What telemetry TimescaleDB collects and how to disable telemetry
+products: [self_hosted]
 keywords: [settings, telemetry]
 ---
 

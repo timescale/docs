@@ -1,7 +1,7 @@
 ---
 title: Query traces in Promscale
 excerpt: Query trace data in Promscale
-product: promscale
+products: [promscale]
 keywords: [analytics, query, traces]
 tags: [sql]
 ---

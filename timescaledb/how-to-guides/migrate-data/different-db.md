@@ -1,6 +1,7 @@
 ---
 title: Migrating data to TimescaleDB from a different PostgreSQL database
 excerpt: How to migrate your data into TimescaleDB from a different PostgreSQL database
+products: [mst, self_hosted]
 keywords: [data migration, PostgreSQL]
 tags: [import]
 ---

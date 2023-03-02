@@ -1,7 +1,7 @@
 ---
 title: Create a service with demo data
 excerpt: Create a Timescale Cloud service with demo data to start exploring TimescaleDB
-product: cloud
+products: [cloud]
 keywords: [services, create, demo]
 cloud_ui:
     path:

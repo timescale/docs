@@ -1,6 +1,7 @@
 ---
 title: Analyzing NFT transactions
 excerpt: Analyze NFT transactions from the OpenSea marketplace
+products: [cloud, mst, self_hosted]
 keywords: [crypto, blockchain, finance, analytics]
 tags: [nft]
 ---

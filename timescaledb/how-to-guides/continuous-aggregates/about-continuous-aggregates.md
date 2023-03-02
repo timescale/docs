@@ -1,6 +1,7 @@
 ---
 title: About continuous aggregates
 excerpt: Learn how continuous aggregates can speed up your TimescaleDB queries
+products: [cloud, mst, self_hosted]
 keywords: [continuous aggregates]
 ---
 

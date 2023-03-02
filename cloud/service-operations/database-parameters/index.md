@@ -1,7 +1,7 @@
 ---
 title: Database parameters
 excerpt: Change your Timescale Cloud service settings
-product: cloud
+products: [cloud]
 keywords: [services, settings]
 ---
 

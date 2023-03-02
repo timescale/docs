@@ -1,6 +1,7 @@
 ---
 title: Manual compression
 excerpt: Manually compress a hypertable
+products: [cloud, mst, self_hosted]
 keywords: [compression, hypertables]
 ---
 

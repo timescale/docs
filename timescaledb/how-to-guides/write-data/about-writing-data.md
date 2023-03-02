@@ -1,6 +1,7 @@
 ---
 title: About writing data
 excerpt: How to write data to TimescaleDB
+products: [cloud, mst, self_hosted]
 keywords: [ingest]
 tags: [write]
 ---

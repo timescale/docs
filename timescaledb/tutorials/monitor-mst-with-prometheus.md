@@ -1,7 +1,7 @@
 ---
 title: How to set up a Prometheus endpoint for Managed Service for TimescaleDB
 excerpt: Use Prometheus to monitor your Managed Service for TimescaleDB
-product: mst
+products: [mst]
 keywords: [Prometheus, monitor, integration]
 ---
 

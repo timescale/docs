@@ -1,7 +1,7 @@
 ---
 title: Migrate schema and data separately
 excerpt: Migrate your TimescaleDB data and schema to Timescale Cloud
-product: cloud
+products: [cloud]
 keywords: [data migration]
 tags: [ingest]
 ---

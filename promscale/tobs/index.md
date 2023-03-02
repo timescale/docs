@@ -1,7 +1,7 @@
 ---
 title: The observability stack (tobs) for Kubernetes
 excerpt: Install a complete observability stack in Kubernetes with tobs
-product: promscale
+products: [promscale]
 ---
 
 import PromscaleDeprecation from "versionContent/_partials/_deprecated-promscale.mdx";

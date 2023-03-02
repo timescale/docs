@@ -1,10 +1,12 @@
 ---
 title: Table management
 excerpt: How to manage tables in TimescaleDB
+products: [cloud, mst, self_hosted]
 keywords: [schemas, hypertables, indexes]
 ---
 
 # Table management
+
 A database schema defines how the tables and indexes in your database are
 organized. Using a schema that is appropriate for your workload can result in
 significant performance improvements. Conversely, using a poorly suited schema

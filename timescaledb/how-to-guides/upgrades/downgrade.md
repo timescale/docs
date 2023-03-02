@@ -1,6 +1,7 @@
 ---
 title: Downgrade to a previous version of TimescaleDB
 excerpt: Roll back to an older version of TimescaleDB
+products: [self_hosted]
 keywords: [upgrades]
 ---
 

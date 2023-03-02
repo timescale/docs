@@ -1,6 +1,7 @@
 ---
 title: Drop a hypertable
 excerpt: Delete a hypertable from your database
+products: [cloud, mst, self_hosted]
 keywords: [hypertables, delete]
 tags: [delete]
 ---

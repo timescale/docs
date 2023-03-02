@@ -1,6 +1,7 @@
 ---
 title: About time buckets
 excerpt: Learn how time buckets help you aggregate data by time interval
+products: [cloud, mst, self_hosted]
 keywords: [time buckets]
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: Explore stock market data
 excerpt: Explore a stock market dataset using TimescaleDB with Plotly, Pandas, and psycopg2
+products: [cloud, mst, self_hosted]
 keywords: [finance, analytics, psycopg2, pandas, plotly]
 tags: [candlestick]
 ---

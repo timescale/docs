@@ -1,6 +1,7 @@
 ---
 title: Materialized hypertables
 excerpt: Work with the materialized hypertables that underly continuous aggregates
+products: [cloud, mst, self_hosted]
 keywords: [continuous aggregates]
 tags: [materialized views]
 ---

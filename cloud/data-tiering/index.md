@@ -1,7 +1,7 @@
 ---
 title: Data tiering
 excerpt: Save on storage costs by tiering older data to separate storage
-product: cloud
+products: [cloud]
 keywords: [data tiering]
 tags: [storage, data management]
 cloud_ui:

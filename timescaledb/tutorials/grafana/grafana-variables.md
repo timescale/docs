@@ -1,6 +1,7 @@
 ---
 title: Using Grafana variables
 excerpt: Learn how to use Grafana variables to help end users filter and customize your visualizations
+products: [cloud, mst, self_hosted]
 keywords: [Grafana, visualizations, analytics]
 ---
 
@@ -14,8 +15,8 @@ To complete this tutorial, you need a cursory knowledge of the Structured Query
 Language (SQL). The tutorial walks you through each SQL command, but it is
 helpful if you've seen SQL before.
 
-* To start, [install TimescaleDB][install-timescale].
-* Next [setup Grafana][install-grafana].
+*   To start, [install TimescaleDB][install-timescale].
+*   Next [setup Grafana][install-grafana].
 
 Once your installation of TimescaleDB and Grafana are complete, ingest the data found
 in the [NYC Taxi Cab][nyc-taxi] tutorial and configure Grafana to connect
@@ -23,6 +24,7 @@ to that database. Be sure to follow the full tutorial if you're interested in ba
 on how to use TimescaleDB.
 
 ### Creating a variable
+
 Our goal here is to create a variable which controls the type of ride displayed in the
 visual, based on the payment type used for the ride.
 
@@ -45,6 +47,7 @@ variables in programming languages. We define a variable, and then we can refere
 in our queries.
 
 #### Define a new Grafana variable
+
 To create a new variable, go to your Grafana dashboard settings, navigate to the 'Variable'
 option in the side-menu, and then click the 'Add variable' button.
 

@@ -1,6 +1,7 @@
 ---
 title: Indexing data
 excerpt: How indexes work
+products: [cloud, mst, self_hosted]
 keywords: [schemas, indexes]
 ---
 

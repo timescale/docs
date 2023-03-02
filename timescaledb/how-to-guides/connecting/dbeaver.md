@@ -1,7 +1,7 @@
 ---
 title: DBeaver
 excerpt: Connect to your TimescaleDB database with DBeaver
-product: mst, cloud, timescaledb
+products: [cloud, mst, self_hosted]
 keywords: [connect]
 ---
 

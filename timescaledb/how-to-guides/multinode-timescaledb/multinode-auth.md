@@ -1,6 +1,7 @@
 ---
 title: Multi-node authentication
 excerpt: Configure authentication between access nodes and data nodes
+products: [mst, self_hosted]
 keywords: [multi-node, authenticate]
 tags: [admin]
 ---

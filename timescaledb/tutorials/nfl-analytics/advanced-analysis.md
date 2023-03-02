@@ -1,6 +1,7 @@
 ---
 title: Advanced analysis using continuous aggregates and hyperfunctions
 excerpt: Use continuous aggregates and hyperfunctions to perform advanced analysis of NFL player activity
+products: [cloud, mst, self_hosted]
 keywords: [continuous aggregates, hyperfunctions, analytics]
 ---
 

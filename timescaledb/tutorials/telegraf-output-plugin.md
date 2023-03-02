@@ -1,6 +1,7 @@
 ---
 title: Collecting metrics with the PostgreSQL and TimescaleDB output plugin for Telegraf
 excerpt: Collect metrics with Telegraf (deprecated)
+products: [cloud, mst, self_hosted]
 keywords: [metrics, monitor, Telegraf]
 ---
 

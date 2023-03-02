@@ -1,6 +1,7 @@
 ---
 title: Compression
 excerpt: Use TimescaleDB's native compression to save on storage
+products: [cloud, mst, self_hosted]
 keywords: [compression]
 ---
 

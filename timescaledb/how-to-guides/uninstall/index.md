@@ -1,6 +1,7 @@
 ---
 title: Uninstall TimescaleDB
 excerpt: Uninstall TimescaleDB on macOS
+products: [self_hosted]
 keywords: [Uninstall]
 ---
 

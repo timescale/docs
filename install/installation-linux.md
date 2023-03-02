@@ -1,9 +1,7 @@
 ---
 title: Install TimescaleDB on Debian and Ubuntu
-nav-title: Debian and Ubuntu
 excerpt: Install self-hosted TimescaleDB on Linux
-section: install
-subsection: self-hosted
+products: [self_hosted]
 keywords: [installation, self-hosted, Debian, Ubuntu, RHEL, Fedora]
 ---
 

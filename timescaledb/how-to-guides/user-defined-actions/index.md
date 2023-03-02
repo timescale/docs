@@ -1,6 +1,7 @@
 ---
 title: User-defined actions
 excerpt: User-defined actions help you automate periodic tasks that aren't covered by TimescaleDB policies
+products: [cloud, mst, self_hosted]
 keywords: [actions]
 tags: [user-defined actions, scheduled jobs, background jobs, automation framework]
 ---

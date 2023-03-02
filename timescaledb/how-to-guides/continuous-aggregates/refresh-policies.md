@@ -1,6 +1,7 @@
 ---
 title: Refresh continuous aggregates
 excerpt: Refresh a continuous aggregate to keep it up to date
+products: [cloud, mst, self_hosted]
 keywords: [continuous aggregates, refresh, policies]
 ---
 

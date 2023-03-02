@@ -1,6 +1,7 @@
 ---
 title: Major TimescaleDB upgrades
 excerpt: Upgrade from one major of TimescaleDB to the next major version
+products: [self_hosted]
 keywords: [upgrades]
 ---
 

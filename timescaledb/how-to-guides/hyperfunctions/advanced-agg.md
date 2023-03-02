@@ -1,10 +1,12 @@
 ---
 title: Percentile approximation advanced aggregation methods
 excerpt: Use approximation algorithms to quickly estimate percentiles
+products: [cloud, mst, self_hosted]
 keywords: [hyperfunctions, Toolkit, percentiles, uddsketch, tdigest]
 ---
 
 # Percentile approximation advanced aggregation methods
+
 Timescale uses approximation algorithms to calculate a percentile without
 requiring all of the data. This also makes them more compatible with continuous
 aggregates. By default, TimescaleDB uses `uddsketch`, but you can also choose to
@@ -21,6 +23,7 @@ range, giving it greater accuracy at the tails of the range, around 0.001 or
 0.995.
 
 ## Choose the right algorithm
+
 Each algorithm has different features, which can make one better than another
 depending on your use case. Here are some of the differences to consider when
 choosing an algorithm:

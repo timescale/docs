@@ -1,7 +1,7 @@
 ---
 title: Send Grafana emails
 excerpt: Configure the Simple Mail Transfer Protocol (SMTP) server in MST for Grafana.
-product: mst
+products: [mst]
 keywords: [Grafana, integration]
 ---
 

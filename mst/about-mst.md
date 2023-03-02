@@ -1,7 +1,7 @@
 ---
 title: About Managed Service for TimescaleDB
 excerpt: Set up and manage your TimescaleDB services in Managed Service for TimescaleDB
-product: mst
+products: [mst]
 keywords: [services]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Service explorer
 excerpt: Get insight into the performance and structure of your database
-product: cloud
+products: [cloud]
 keywords: [services, hypertables, schemas, indexes, policies]
 cloud_ui:
     path:

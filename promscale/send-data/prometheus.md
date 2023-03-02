@@ -1,7 +1,7 @@
 ---
 title: Send Prometheus metrics to Promscale
 excerpt: Send Prometheus metrics to Promscale
-product: promscale
+products: [promscale]
 keywords: [Prometheus]
 tags: [configure, metrics]
 related_pages:

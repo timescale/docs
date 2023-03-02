@@ -1,6 +1,7 @@
 ---
 title: Query time-series data tutorial - query the data
 excerpt: Query time-series data
+products: [cloud, mst, self_hosted]
 keywords: [tutorials, query]
 tags: [tutorials, beginner]
 ---

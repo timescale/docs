@@ -1,6 +1,7 @@
 ---
 title: Use a user-defined action to schedule regular backfilling
 excerpt: Schedule regular backfilling of historical data into a compressed hypertable
+products: [cloud, mst, self_hosted]
 keywords: [action, backfilling]
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: Get faster DISTINCT queries with SkipScan
 excerpt: Speed up DISTINCT queries by setting up a hypertable to take advantage of SkipScan
+products: [cloud, mst, self_hosted]
 keywords: [queries, DISTINCT, SkipScan]
 ---
 

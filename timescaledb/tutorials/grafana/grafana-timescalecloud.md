@@ -1,6 +1,7 @@
 ---
 title: Connect TimescaleDB and Grafana
 excerpt: Connect Timescale Cloud to Grafana to visualize your data
+products: [cloud, mst, self_hosted]
 keywords: [Grafana, visualizations, analytics]
 ---
 

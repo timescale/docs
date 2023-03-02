@@ -1,9 +1,7 @@
 ---
 title: Install TimescaleDB from source
-nav-title: From source
 excerpt: Install self-hosted TimescaleDB from source
-section: install
-subsection: self-hosted
+products: [self_hosted]
 keywords: [installation, self-hosted]
 ---
 

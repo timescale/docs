@@ -1,9 +1,7 @@
 ---
 title: Install TimescaleDB on Kubernetes
-nav-title: Kubernetes
 excerpt: Install self-hosted TimescaleDB on Kubernetes
-section: install
-subsection: self-hosted
+products: [self_hosted]
 keywords: [installation, self-hosted, Kubernetes]
 ---
 

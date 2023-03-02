@@ -1,7 +1,7 @@
 ---
 title: Multi-factor user authentication
 excerpt: Manage Multi-factor user authentication for your Timescale Cloud account
-product: cloud
+products: [cloud]
 keywords: [mfa, accounts, admin]
 tags: [two-factor user authentication]
 ---

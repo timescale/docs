@@ -1,8 +1,7 @@
 ---
 title: Install TimescaleDB
 excerpt: Install TimescaleDB, the PostgreSQL database for time series and data analysis
-section: install
-nav-hidden: true
+products: [cloud, mst, self_hosted]
 keywords: [installation]
 ---
 

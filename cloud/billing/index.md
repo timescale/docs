@@ -1,7 +1,7 @@
 ---
 title: Billing
 excerpt: How billing works for Timescale Cloud
-product: cloud
+products: [cloud]
 keywords: [billing, accounts, admin]
 tags: [payment]
 cloud_ui:

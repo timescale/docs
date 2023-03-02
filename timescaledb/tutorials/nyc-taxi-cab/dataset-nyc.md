@@ -1,6 +1,7 @@
 ---
 title: Query time-series data tutorial - set up dataset
 excerpt: Set up a dataset so you can query time-series data
+products: [cloud, mst, self_hosted]
 keywords: [tutorials, create, dataset]
 tags: [tutorials, beginner]
 ---

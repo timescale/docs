@@ -1,7 +1,7 @@
 ---
 title: Install the observability stack (tobs) for Kubernetes
 excerpt: Install tobs
-product: promscale
+products: [promscale]
 keywords: [analytics, Kubernetes]
 tags: [install, k8s]
 related_pages:

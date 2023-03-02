@@ -1,6 +1,7 @@
 ---
 title: Create a data retention policy
 excerpt: Create a data retention policy to automatially drop historical data
+products: [cloud, mst, self_hosted]
 keywords: [data retention, policies]
 tags: [drop, delete]
 ---

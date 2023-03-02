@@ -1,7 +1,7 @@
 ---
 title: Service operations - Replicas
 excerpt: Set up replicas on Timescale Cloud for high availability
-product: cloud
+products: [cloud]
 keywords: [high availability, replicas]
 tags: [failover, availability zones, replication, wal]
 cloud_ui:

@@ -1,6 +1,7 @@
 ---
 title: Last observation carried forward
 excerpt: Fill gaps in your data by carrying the last observation forward
+products: [cloud, mst, self_hosted]
 keywords: [hyperfunctions, Toolkit, gapfilling, interpolate, locf]
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: Lambda continuous deployment with GitHub actions
 excerpt: Build a continuous deployment pipeline between GitHub and AWS Lambda
+products: [cloud, mst, self_hosted]
 keywords: [finance, analytics, AWS Lambda, psycopg2, pandas, GitHub Actions, pipeline]
 ---
 
