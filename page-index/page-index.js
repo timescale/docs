@@ -12,9 +12,6 @@ module.exports = [
   ...gsgPageIndex,
   ...timescaleUsingPageIndex,
   ...timescaleCloudPageIndex
-  {
-    type: "placeholder"
-  },
   ...tutorialsPageIndex,
   ...codeQuickStartsPageIndex,
   ...apiReferencePageIndex,
