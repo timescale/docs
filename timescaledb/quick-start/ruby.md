@@ -122,12 +122,12 @@ on Rails application.
     (4 rows)
     ```
 
-      <Highlight type="important">
-       To ensure that your tests run successfully, in the
-       `config/environments/test.rb` file, add
-       `config.active_record.verify_foreign_keys_for_fixtures = false`.
-       Otherwise you get an error because TimescaleDB uses internal foreign keys.
-       </Highlight>
+    <Highlight type="important">
+    To ensure that your tests run successfully, in the
+    `config/environments/test.rb` file, add
+    `config.active_record.verify_foreign_keys_for_fixtures = false`.
+    Otherwise you get an error because TimescaleDB uses internal foreign keys.
+    </Highlight>
 
 </Collapsible>
 
@@ -311,7 +311,7 @@ information and time, and save the object to TimescaleDB database.
     ```html
     <h1>StaticPages#home</h1>
     <p>Find me in app/views/static_pages/home.html.erb</p>
-    <p>Request: <&#37;= @agent &#37;></p>
+    <p>Request: <&= @agent &></p>
     ```
 
 1.  Start the Rails server:
@@ -408,7 +408,7 @@ You can retrieve the data that you inserted and view it.
     each item:
 
      ```ruby
-    <h1>Static Pages requests: <%= PageLoad.count %></h1>
+    <h1>Static Pages requests: <%= PageLoad.count &amp;></h1>
     ```
 
    Now, each time you refresh the page, you can see that a record is being inserted
@@ -638,7 +638,7 @@ page by page, or all pages together, and group by path or not:
         SQL
          .group('time, path').order('path, time')
         }
-      end
+    end
     ```
 
 1.  In the Rails console,to collect unique paths from page loads:
