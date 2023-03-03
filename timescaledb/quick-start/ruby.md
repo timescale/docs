@@ -76,10 +76,10 @@ on Rails application.
     
     ```
 
-    A new migration file `<XXXXXXXXXXXXXX>_add_timescale.rb` is created in
-    the `myapp/db/migrate` directory.
+    A new migration file `<migration-datetime>_add_timescale.rb` is created in
+    the `my_app/db/migrate` directory.
 
-1.  Update the contents of the `<XXXXXXXXXXXXXX>_add_timescale.rb` file with
+1.  Update the contents of the `<migration-datetime>_add_timescale.rb` file with
     these instructions to load the TimescaleDB extension to PostgreSQL:
 
     ```ruby
@@ -124,8 +124,9 @@ on Rails application.
     ```
 
       <Highlight type="important">
-       To ensure that your tests run successfully, in the `config/environments/test.rb`
-       file, add `config.active_record.verify_foreign_keys_for_fixtures = false`.
+       To ensure that your tests run successfully, in the
+       `config/environments/test.rb` file, add
+       `config.active_record.verify_foreign_keys_for_fixtures = false`.
        Otherwise you get an error because TimescaleDB uses internal foreign keys.
        </Highlight>
 
@@ -150,8 +151,8 @@ store a host of additional web analytics of interest to you.
     
     ```
 
-   A new migration file `<XXXXXXXXXXXXXX>_create_page_loads.rb` is created in
-   the `myapp/db/migrate` directory.
+   A new migration file `<migration-datetime>_create_page_loads.rb` is created in
+   the `my_app/db/migrate` directory.
    TimescaleDB requires that any `UNIQUE` or `PRIMARY KEY` indexes on the table
    include all partitioning columns, which in this case is the time column. A new
    Rails model includes a `PRIMARY KEY` index for id by default, so you need to
@@ -162,8 +163,8 @@ store a host of additional web analytics of interest to you.
   your `id` column around for some reason you can add support for them with
   the [`composite_primary_keys` gem](https://github.com/composite-primary-keys/composite_primary_keys).
 
-1.  Change the migration code in the `<XXXXXXXXXXXXXX>_create_page_loads.rb`
-    file located at the `myapp/db/migrate` directory to:
+1.  Change the migration code in the `<migration-datetime>_create_page_loads.rb`
+    file located at the `my_app/db/migrate` directory to:
 
     ```ruby
         class CreatePageLoads < ActiveRecord::Migration[7.0]
@@ -228,11 +229,11 @@ and most other tasks are executed on the hypertable.
         rails generate migration add_hypertable
     ```
 
-    A new migration file `<XXXXXXXXXXXXXX>_add_hypertable.rb` is created in
-    the `myapp/db/migrate` directory.
+    A new migration file `<migration-datetime>_add_hypertable.rb` is created in
+    the `my_app/db/migrate` directory.
 
-1.  Change the migration code in the `<XXXXXXXXXXXXXX>_add_hypertable.rb`
-    file located at the `myapp/db/migrate` directory to:
+1.  Change the migration code in the `<migration-datetime>_add_hypertable.rb`
+    file located at the `my_app/db/migrate` directory to:
 
     ```ruby
         class AddHypertable < ActiveRecord::Migration[7.0]
@@ -483,7 +484,8 @@ function:
     end
     ```
 
-1.  In the Ruby console you can run these commands to get the views for various requests:
+1.  In a new Ruby console you can run these commands to get the views for
+    various requests:
 
       ```ruby
       PageLoad.last_week.count     # Total of requests from last week
@@ -551,7 +553,7 @@ store the endpoint path and the time necessary to return the response.
     The Rails generator understands the naming convention of the
     migration and the extra parameters to create a new migration file
     `<migration-datetime>_add_performance_to_page_load.rb` in
-    the `myapp/db/migrate` directory
+    the `my_app/db/migrate` directory
 
 1.  To add the two columns in the database, run `rails db:migrate`.
 
@@ -597,8 +599,8 @@ store the endpoint path and the time necessary to return the response.
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
     created_at: Sun, 26 Feb 2023 15:49:35.186955000 UTC +00:00,
     updated_at: Sun, 26 Feb 2023 15:49:35.186955000 UTC +00:00,
-    path: nil,
-    performance: nil>
+    path: "/static_pages/home",                                                    
+    performance: 1.094204000197351> 
     ```
 
     This example uses only the **real** performance from [benchmark] but you can
@@ -635,11 +637,16 @@ page by page, or all pages together, and group by path or not:
       scope :best_response_time_last_hour, -> { time_bucket('1 hour', value: 'min(performance)') }
       scope :paths, -> { distinct.pluck(:path) }
       scope :time_bucket, -> (time_dimension, value: 'count(1)') {
-        select("time_bucket('#{time_dimension}', created_at), #{value})")
+        select(<<~SQL)
+          time_bucket('#{time_dimension}', created_at) as time, path,
+          #{value} as value
+        SQL
+         .group('time, path').order('path, time')
+        }
       end
      ```
 
-1.  In the Ruby console,to collect unique paths from page loads:
+1.  In the Rails console,to collect unique paths from page loads:
 
     ```ruby
      PageLoad.paths # => ["/page_loads/new", "/static_pages/home"]
@@ -669,6 +676,71 @@ page by page, or all pages together, and group by path or not:
     #   :worst_response_time_last_minute,
     #   :best_response_time_last_hour]
      ```
+
+1.  To build a summary based on every single page, and to recursively navigate to
+    all of the pages and build a summary for each page, add the following to
+    `page_load.rb` in the `my_app/app/models/` folder:
+
+    ```ruby
+        def self.resume_for(path)
+         filter = where(path: path)
+         get = -> (scope_name) { filter.send(scope_name).first&.value}
+         metrics.each_with_object({}) do |metric, resume|
+            resume[metric] = get[metric]
+        end
+     end
+
+
+        def self.metrics
+           methods.grep /response_time/
+        end
+
+       def self.statistics
+         paths.each_with_object({}) do |path, resume|
+          resume[path] = resume_for(path)
+       end
+    end
+
+    ```
+
+1.  In the Rails console, to view the summary based on every single page, run
+    `PageLoad.resume_for("/page_loads/new")`.
+
+    The result is similar to:
+
+    ```ruby
+       => {:average_response_time_per_minute=>0.10862650000490248,
+       :average_response_time_per_hour=>0.060067999991588295,
+       :worst_response_time_last_minute=>0.20734900003299117,
+       :worst_response_time_last_hour=>0.20734900003299117,
+       :best_response_time_last_hour=>0.009765000082552433},
+    ```
+
+1.  In the Rails console,to recursively navigate into all of the pages and build
+    a summary for each page:
+
+    The result is similar to:
+
+    ```ruby
+    {nil=>
+    {:average_response_time_per_minute=>nil,
+    :average_response_time_per_hour=>nil,
+    :worst_response_time_last_minute=>nil,
+    :worst_response_time_last_hour=>nil,
+    :best_response_time_last_hour=>nil},
+    "/page_loads/new"=>
+    {:average_response_time_per_minute=>0.10862650000490248,
+    :average_response_time_per_hour=>0.060067999991588295,
+    :worst_response_time_last_minute=>0.20734900003299117,
+    :worst_response_time_last_hour=>0.20734900003299117,
+    :best_response_time_last_hour=>0.009765000082552433},
+    "/static_pages/home"=>
+    {:average_response_time_per_minute=>1.214221078382038,
+    :average_response_time_per_hour=>4.556298695798993,
+    :worst_response_time_last_minute=>2.2735520000569522,
+    :worst_response_time_last_hour=>1867.2145019997843,
+    :best_response_time_last_hour=>1.032415000256151}}
+    ```
 
 </Collapsible>
 
