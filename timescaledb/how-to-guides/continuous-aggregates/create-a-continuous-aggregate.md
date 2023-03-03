@@ -144,7 +144,7 @@ queries to run efficiently.
 
 ## Create a continuous aggregate with a JOIN
 
-In TimescaleDB&nbsp;2.9 and later, with PostgreSQL&nbsp;13 or later, you can
+In TimescaleDB&nbsp;2.10 and later, with PostgreSQL&nbsp;12 or later, you can
 create a continuous aggregate with a query that also includes a `JOIN`. For
 example:
 
@@ -161,9 +161,16 @@ GROUP BY name, bucket;
 ```
 
 <Highlight type="note">
-This also works in Timescale&nbsp;2.9 and later running PostgreSQL&nbsp;12, but
-you cannot also have a `USING` clause in your `JOIN`. If you need a `USING`
-clause, you must have PostgreSQL&nbsp;13 or later.
+The join can be between only two tables where one has to be hypertable
+and other one should be  a normal PostgreSQL table. However, the order of tables
+does not matter.
+The FROM/JOIN clause cannot have any other continous aggregate.
+The joins type can only be INNER JOIN.
+Only equality condition are allowed as the join condition.
+
+The use of `USING` clause in your `JOIN` is not allowed for PostgreSQL&nbsp;12.
+But the joins with condition in WHERE clause or JOIN clause can still be used.
+However, if you absolutely need a `USING`clause, you must have PostgreSQL&nbsp;13 or later.
 </Highlight>
 
 ## Query continuous aggregates

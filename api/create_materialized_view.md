@@ -45,8 +45,17 @@ parameter. For more information, see
 
 Continuous aggregates have some limitations of what types of queries they can
 support, described in more length below. For example, the `FROM` clause must
-provide only one hypertable or underlying continuous aggregate, and joins, CTEs, or subqueries are not
-supported. The `GROUP BY` clause must include a time bucket on the underlying
+provide only one hypertable or underlying continuous aggregate, CTEs, or subqueries are not
+supported.
+
+Starting on 2.10.0, the `FROM` clause also supports `JOINS`, with the following restrictions:
+1. Only joins between two tables are currently supported, where one is a hypertable and the other table is a normal PostgreSQL table. The order of tables in the `JOIN` clause does not matter.
+2. Only the `INNER` `JOIN` type is currently supported.
+3. Only equality conditions are currently supported as `JOIN` conditions.
+4. Joins in hierarchical continuous aggregates are not currently supported. The hypertable on the `JOIN` condition must be a normal hypertable, not a continuous aggregate itself.
+5. Changes on the normal PostgreSQL table are not tracked. Only changes on the hypertable result in updates to the continuous aggregate when it is refreshed.
+
+The `GROUP BY` clause must include a time bucket on the underlying
 time column, and all aggregates must be parallelizable.
 
 Some important things to remember when constructing your `SELECT` query:
