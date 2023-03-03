@@ -315,7 +315,7 @@ information and time, and save the object to TimescaleDB database.
     ```html
         <h1>StaticPages#home</h1>
         <p>Find me in app/views/static_pages/home.html.erb</p>
-        <p>Request: <%= @agent %></p>
+        <p>Request: <&#37;= @agent &#37;></p>
       ```
 
 1.  Start the Rails server:
