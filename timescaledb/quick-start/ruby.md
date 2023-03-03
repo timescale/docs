@@ -313,10 +313,9 @@ information and time, and save the object to TimescaleDB database.
     at `/my_app/app/views/static_pages/`:
 
     ```html
-
-<h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
-<p>Request: <%= @agent %></p>
+        <h1>StaticPages#home</h1>
+        <p>Find me in app/views/static_pages/home.html.erb</p>
+        <p>Request: <%= @agent %></p>
       ```
 
 1.  Start the Rails server:
@@ -348,7 +347,7 @@ information and time, and save the object to TimescaleDB database.
         Processing by StaticPagesController#home as HTML
         TRANSACTION (268.7ms)  BEGIN
         ↳ app/controllers/static_pages_controller.rb:3:in `home'
-        PageLoad Create (207.8ms)  INSERT INTO "page_loads" ("user_agent", "created_at", "updated_at") VALUES ($1, $2, $3)  [["user_agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"], ["created_at", "2023-02-22 01:32:16.465709"], ["updated_at", "2023-02-22 01:32:16.465709"]]
+        PageLoad Create (207.8ms)  INSERT INTO "page_loads" ("user_agent", "created_at", "updated_at") VALUES ($1, $2, $3)  [["user_agent", "Mozilla/5.0    (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"], ["created_at", "2023-02-22 01:32:16.465709"], ["updated_at", "2023-02-22 01:32:16.465709"]]
         ↳ app/controllers/static_pages_controller.rb:3:in `home'
         TRANSACTION (206.5ms)  COMMIT
         ↳ app/controllers/static_pages_controller.rb:3:in `home'
