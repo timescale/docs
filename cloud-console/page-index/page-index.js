@@ -1,6 +1,6 @@
 module.exports = [
   {
-    title: "Cloud Console index",
+    title: "Timescale Cloud Console index",
     href: "cloud-console",
     filePath: "index.md",
     pageComponents: ["content-list"],
