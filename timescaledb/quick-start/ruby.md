@@ -106,7 +106,8 @@ on Rails application.
     ```
 
     If the connection is successful, you are prompted for the password to
-    connect to TimescaleDB. Type the `<PASSWORD>` for `tsdbadmin` in the TimescaleDB Cloud.
+    connect to TimescaleDB. Type the `<PASSWORD>` for `tsdbadmin` in the
+    TimescaleDB Cloud.
 
     The result is similar to this:
 
@@ -341,11 +342,11 @@ information and time, and save the object to TimescaleDB database.
     Started GET "/static_pages/home" for ::1 at 2023-02-22 07:02:16 +0530
     Processing by StaticPagesController#home as HTML
     TRANSACTION (268.7ms)  BEGIN
-    ↳ app/controllers/static_pages_controller.rb:3:in `home'
+    ↳ app/controllers/static_pages_controller.rb:3:in 'home'
     PageLoad Create (207.8ms)  INSERT INTO "page_loads" ("user_agent", "created_at", "updated_at") VALUES ($1, $2, $3)  [["user_agent", "Mozilla/5.0    (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"], ["created_at", "2023-02-22 01:32:16.465709"], ["updated_at", "2023-02-22 01:32:16.465709"]]
-    ↳ app/controllers/static_pages_controller.rb:3:in `home'
+    ↳ app/controllers/static_pages_controller.rb:3:in 'home'
     TRANSACTION (206.5ms)  COMMIT
-    ↳ app/controllers/static_pages_controller.rb:3:in `home'
+    ↳ app/controllers/static_pages_controller.rb:3:in 'home'
     Rendering layout layouts/application.html.erb
     Rendering static_pages/home.html.erb within layouts/application
     Rendered static_pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
@@ -519,7 +520,7 @@ function:
      ```ruby
      PageLoad Load (299.7ms)  SELECT time_bucket('1 hour', created_at) as time, count(1) as total FROM "page_loads" GROUP BY "time" ORDER BY "time" ASC
      =>
-    [[2023-02-22 01:00:00 UTC, 6],
+     [2023-02-22 01:00:00 UTC, 6],
      [2023-02-22 05:00:00 UTC, 78],
      [2023-02-22 06:00:00 UTC, 13063],
      [2023-02-22 07:00:00 UTC, 4114],
@@ -569,7 +570,7 @@ store the endpoint path and the time necessary to return the response.
      ```ruby
      class ApplicationController < ActionController::Base
         around_action do |controller, action|
-          performance = Benchmark.measure(&#37;action.method(:call))
+          performance = Benchmark.measure(&action.method(:call))
 
          PageLoad.create(path: request.path,
            performance: performance.real,
@@ -678,7 +679,7 @@ page by page, or all pages together, and group by path or not:
     ```ruby
         def self.resume_for(path)
          filter = where(path: path)
-         get = -> (scope_name) { filter.send(scope_name).first&#37;.value}
+         get = -> (scope_name) { filter.send(scope_name).first&.value}
          metrics.each_with_object({}) do |metric, resume|
             resume[metric] = get[metric]
         end
@@ -752,7 +753,6 @@ advanced TimescaleDB tutorials:
 *   [Migrate Your own Data][migrate]
 
 [continuous-aggregates]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/
-[create-hypertable-docs]: /api/:currentVersion:/hypertable/create_hypertable
 [migrate]: /timescaledb/:currentVersion:/how-to-guides/migrate-data/
 [other-samples]: /timescaledb/:currentVersion:/tutorials/sample-datasets/
 [connect]: #connect-to-timescaledb
@@ -768,7 +768,6 @@ advanced TimescaleDB tutorials:
 [around_action]: https://guides.rubyonrails.org/action_controller_overview.html#after-filters-and-around-filters
 [benchmark]: https://github.com/ruby/benchmark
 [continuous-aggregates]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/
-[hypertables]: /timescaledb/:currentVersion:/overview/core-concepts/
 [migrate]: /timescaledb/:currentVersion:/how-to-guides/migrate-data/
 [other-samples]: /timescaledb/:currentVersion:/tutorials/sample-datasets/
 [time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
