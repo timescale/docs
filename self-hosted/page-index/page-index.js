@@ -72,7 +72,7 @@ module.exports = [
         ],
       },
       {
-        title: "Configuration"
+        title: "Configuration",
         href: "configuration",
         children: [
           {
