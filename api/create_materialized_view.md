@@ -49,11 +49,12 @@ provide only one hypertable or underlying continuous aggregate, CTEs, or subquer
 supported.
 
 Starting on 2.10.0, the `FROM` clause also supports `JOINS`, with the following restrictions:
-1. Only joins between two tables are currently supported, where one is a hypertable and the other table is a normal PostgreSQL table. The order of tables in the `JOIN` clause does not matter.
+1. Only joins between two tables are currently supported, where one is a hypertable and the other table is a standard PostgreSQL table. The order of tables in the `JOIN` clause does not matter.
 2. Only the `INNER` `JOIN` type is currently supported.
 3. Only equality conditions are currently supported as `JOIN` conditions.
 4. Joins in hierarchical continuous aggregates are not currently supported. The hypertable on the `JOIN` condition must be a normal hypertable, not a continuous aggregate itself.
 5. Changes on the normal PostgreSQL table are not tracked. Only changes on the hypertable result in updates to the continuous aggregate when it is refreshed.
+6. Support for `USING` in the `JOIN` clause requires PostgreSQL&nbsp;13 or later. PostgreSQL&nbsp;12 is supported for joins with a condition in the `WHERE` or `JOIN` clauses.
 
 The `GROUP BY` clause must include a time bucket on the underlying
 time column, and all aggregates must be parallelizable.
