@@ -827,7 +827,7 @@ module.exports = [
         title: "Data tiering to object storage",
         href: "tier-data-object-storage",
         excerpt: "Save on storage costs by tiering older data to separate storage",
-      }
+      },
       {
         title: "Security",
         href: "security",
