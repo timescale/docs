@@ -42,7 +42,7 @@ instead.
 
 ### Sample usage
 
-Get size information for a hypertable.
+Get the size information for a hypertable.
 
 ```sql
 SELECT hypertable_size('devices');
@@ -52,14 +52,14 @@ SELECT hypertable_size('devices');
            73728
 ```
 
-Get size information for all hypertables.
+Get the size information for all hypertables.
 
 ```sql
 SELECT hypertable_name, hypertable_size(format('%I.%I', hypertable_schema, hypertable_name)::regclass)
   FROM timescaledb_information.hypertables;
 ```
 
-Get size of a continuous aggregate.
+Get the size information for a continuous aggregate.
 
 ```sql
 SELECT hypertable_size('device_stats_15m');

@@ -47,7 +47,7 @@ returns `NULL`.
 
 ### Sample usage
 
-Get size information for a hypertable.
+Get the size information for a hypertable.
 
 ```sql
 -- disttable is a distributed hypertable --
