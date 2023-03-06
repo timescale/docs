@@ -12,7 +12,7 @@ api:
 # hypertable_size()  
 
 Get the total disk space used by a hypertable or continuous aggregate,
-that is, the sum of the size for the table itself (including chunks),
+that is, the sum of the size for the table itself including chunks,
 any indexes on the table, and any toast tables. The size is reported
 in bytes. This is equivalent to computing the sum of `total_bytes`
 column from the output of `hypertable_detailed_size` function.
