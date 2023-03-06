@@ -1,7 +1,7 @@
 ---
 title: Getting started with TimescaleDB
 excerpt: Get started with your first TimescaleDB instance
-product: [cloud]
+products: [cloud]
 ---
 
 import Install from "versionContent/_partials/_cloud-installation.mdx";
