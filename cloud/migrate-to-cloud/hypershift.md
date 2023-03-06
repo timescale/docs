@@ -22,13 +22,12 @@ Because compression is enabled during the migration, you do not need to have the
 maximum amount of storage available in the target database before you start
 migration.
 
-In preliminary testing, Hypershift migrated 60&nbsp;GB of data in 9 to 12 minutes,
-and 1&nbsp;TB of data in under 4 hours. You can continue reading from your
-source database during this time, though performance could be slower. If you
-write to tables in your source database during the migration, the new writes
+In preliminary testing, Hypershift migrated 60&nbsp;GB of data in 9 to 12
+minutes, and 1&nbsp;TB of data in under 4 hours. You can continue reading from
+your source database during this time, though performance could be slower. If
+you write to tables in your source database during the migration, the new writes
 are not transferred to Timescale Cloud. To avoid this problem, fork your
-database and migrate your data from the fork. See the
-section on [migrating an active database](http://docs.timescale.com/cloud/latest/migrate-to-cloud/#migrate-an-active-database) to learn more.
+database and migrate your data from the fork. For more information, see the [migrating an active database section][migrate-active].
 
 <Highlight type="important">
 If you have a large database, and Hypershift is going to have to run for a very
@@ -52,6 +51,11 @@ Your Timescale Cloud trial is completely free for you to use for the first
 thirty days. This gives you enough time to complete all the tutorials and run
 a few test projects of your own.
 </Highlight>
+
+It is also recommended that you create a plain index on the `time` column of your
+source database. Hypershift does work without an index, but the migration runs
+much slower. Hypershift does not support composite indexes. Ensure your source
+database has a plain index before you run the Hypershift migration.
 
 ## Download the Hypershift container
 
@@ -160,8 +164,8 @@ Use this format:
 
     ```bash
     docker run -v$(pwd)/hypershift.yml -ti timescale/hypershift:0.2 clone \
-    -s "host=<SOURCE_DB_HOSTNAME> user=postgres port=5431 password=<DB_PASSWORD>" \
-    -t "host=<TARGET_DB_HOSTNAME> user=postgres port=5432 password=<DB_PASSWORD>" \
+    -s "host=<DB_NAME>.<SOURCE_DB_HOSTNAME> user=postgres port=5431 password=<DB_PASSWORD>" \
+    -t "host=<DB_NAME>.<TARGET_DB_HOSTNAME> user=postgres port=5432 password=<DB_PASSWORD>" \
     --hypertable /hypershift.yml
     ```
 
@@ -173,3 +177,4 @@ Use this format:
 [cloud-install]: /install/:currentVersion:/installation-cloud/
 [docker-install]: https://docs.docker.com/get-docker/
 [chunk-time]: /timescaledb/:currentVersion:/how-to-guides/hypertables/about-hypertables#best-practices-for-time-partitioning
+[migrate-active]: /cloud/:currentVersion:/migrate-to-cloud/#migrate-an-active-database
