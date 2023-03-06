@@ -676,23 +676,21 @@ page by page, or all pages together, and group by path or not:
     all of the pages and build a summary for each page, add the following to
     `page_load.rb` in the `my_app/app/models/` folder:
 
-    ```ruby
-        def self.resume_for(path)
-         filter = where(path: path)
-         get = -> (scope_name) { filter.send(scope_name).first&.value}
-         metrics.each_with_object({}) do |metric, resume|
-            resume[metric] = get[metric]
-        end
-     end
+    def self.resume_for(path)
+       filter = where(path: path)
+       get = -> (scope_name) { filter.send(scope_name).first&.value}
+       metrics.each_with_object({}) do |metric, resume|
+           resume[metric] = get[metric]
+       end
+    end
+    
+    def self.metrics
+       methods.grep /response_time/
+    end
 
-
-        def self.metrics
-           methods.grep /response_time/
-        end
-
-       def self.statistics
-         paths.each_with_object({}) do |path, resume|
-          resume[path] = resume_for(path)
+    def self.statistics
+       paths.each_with_object({}) do |path, resume|
+         resume[path] = resume_for(path)
        end
     end
     ```
