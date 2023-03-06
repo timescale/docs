@@ -9,7 +9,7 @@ api:
   type: command
 ---
 
-# ALTER TABLE (Compression) <tag type="community" content="community" />
+# ALTER TABLE (Compression) <Tag type="community" content="community" />
 
 'ALTER TABLE' statement is used to turn on compression and set compression
 options.
@@ -51,6 +51,7 @@ Configure a hypertable that ingests device data to use compression.
 ```sql
 ALTER TABLE metrics SET (timescaledb.compress, timescaledb.compress_orderby = 'time DESC', timescaledb.compress_segmentby = 'device_id');
 ```
+
 You can also specify compressed chunk interval without changing other compression settings:
 
 ```sql

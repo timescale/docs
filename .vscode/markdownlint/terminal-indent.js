@@ -20,8 +20,8 @@ const {
 const checkTerminalIndent = (params, onError) => {
   // Find all terminal-related JSX tags
   const { lines } = params;
-  const terminalOpeningTags = findPatternInLines(lines, "<terminal>");
-  const terminalClosingTags = findPatternInLines(lines, "<\\/terminal>");
+  const terminalOpeningTags = findPatternInLines(lines, "<Terminal>");
+  const terminalClosingTags = findPatternInLines(lines, "<\\/Terminal>");
   const tabTags = findPatternInLines(lines, "<\\/?tab.*>");
   if (terminalOpeningTags.length === 0) return;
 

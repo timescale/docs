@@ -94,16 +94,16 @@ avoid the problem occurring again in the future.
 The `pg_stat_statements` extension gives you query-level statistics for your SQL
 statements. It comes pre-installed with Timescale Cloud.
 
-<highlight type="note">
+<Highlight type="note">
 For more information about `pg_stat_statements`, see the
 [PostgreSQL documentation](https://www.postgresql.org/docs/current/pgstatstatements.html).
-</highlight>
+</Highlight>
 
-<highlight type="important">
+<Highlight type="important">
 You cannot currently enable `track_io_timing` for your database. Statistics that
 depend on `track_io_timing`, such as `blk_read_time` and `blk_write_time`, are
 not collected.
-</highlight>
+</Highlight>
 
 ### Query the pg_stat_statements view
 

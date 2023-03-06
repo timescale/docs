@@ -14,12 +14,12 @@ storage for frequently accessed data. Moving infrequently accessed chunks can
 also improve performance, because it isolates historical data from the continual
 read-and-write workload of more recent data.
 
-<highlight type="note">
+<Highlight type="note">
 Using tablespaces is one way to manage data storage costs with TimescaleDB. You
 can also use [compression](/timescaledb/latest/how-to-guides/compression) and
 [data retention](/timescaledb/latest/how-to-guides/data-retention) to reduce
 your storage requirements.
-</highlight>
+</Highlight>
 
 ## Move data
 
@@ -33,12 +33,12 @@ Additionally, `move_chunk` allows you reorder the chunk during the migration.
 This can be used to make your queries faster, and works in a similar way to the
 [`reorder_chunk` command][api-reorder-chunk].
 
-<highlight type="note">
+<Highlight type="note">
 You must be logged in as a super user, such as the `postgres` user, to use the
 `move_chunk()` API call.
-</highlight>
+</Highlight>
 
-<procedure>
+<Procedure>
 
 ### Moving data
 
@@ -88,7 +88,7 @@ You must be logged in as a super user, such as the `postgres` user, to use the
     SELECT indexname FROM pg_indexes WHERE tablespace = 'history';
     ```
 
-</procedure>
+</Procedure>
 
 ## Move data in bulk
 

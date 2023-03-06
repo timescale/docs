@@ -19,7 +19,7 @@ use an integer time column.
 The most common method of working with timezones is to declare an explicit
 timezone in the view query.
 
-<procedure>
+<Procedure>
 
 ### Declaring an explicit timezone
 
@@ -46,7 +46,7 @@ timezone in the view query.
     SELECT min_time::timestamp FROM device_summary;
     ```
 
-</procedure>
+</Procedure>
 
 ## Integer-based time
 
@@ -64,7 +64,7 @@ usage information. The devices measure time using the Unix epoch.
 To create a hypertable that uses an integer-based column as time, you need to
 provide the chunk time interval. In this case, each chunk is 10 minutes.
 
-<procedure>
+<Procedure>
 
 ### Creating a table with a custom integer-based time column
 
@@ -86,7 +86,7 @@ provide the chunk time interval. In this case, each chunk is 10 minutes.
       chunk_time_interval => 20);
     ```
 
-</procedure>
+</Procedure>
 
 To define a continuous aggregate on a hypertable that uses integer-based time,
 you need to have a function to get the current time in the correct format, and
@@ -98,7 +98,7 @@ take no arguments, and return an integer value of the same type as the time
 column in the table. When you have set up the time-handling, you can create the
 continuous aggregate.
 
-<procedure>
+<Procedure>
 
 ### Creating a continuous aggregate with integer-based time
 
@@ -158,7 +158,7 @@ continuous aggregate.
     (10 rows)
     ```
 
-</procedure>
+</Procedure>
 
 [api-set-integer-now-func]: /api/:currentVersion:/hypertable/set_integer_now_func
 [pg-func-stable]: https://www.postgresql.org/docs/current/static/sql-createfunction.html

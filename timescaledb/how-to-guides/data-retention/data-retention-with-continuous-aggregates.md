@@ -12,7 +12,7 @@ correctly, you can delete old data from a hypertable without deleting it from
 any continuous aggregates. This lets you save on raw data storage while keeping
 summarized data for historical analysis.
 
-<highlight type="warning">
+<Highlight type="warning">
 To keep your aggregates while dropping raw data, you must be careful about
 refreshing your aggregates. You can delete raw data from the underlying table
 without deleting data from continuous aggregates, so long as you don't refresh
@@ -22,7 +22,7 @@ refresh window. If it sees that the raw data was deleted, it also deletes the
 aggregate data. To prevent this, make sure that the aggregate's refresh window
 doesn't overlap with any deleted data. For more information, see the following
 example.
-</highlight>
+</Highlight>
 
 As an example, say that you add a continuous aggregate to a `conditions`
 hypertable that stores device temperatures:

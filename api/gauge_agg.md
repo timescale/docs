@@ -17,7 +17,7 @@ hyperfunction:
 
 import Experimental from 'versionContent/_partials/_experimental.mdx';
 
-# gauge_agg() <tag type="toolkit" content="Toolkit" /><tag type="experimental" content="Experimental" />
+# gauge_agg() <Tag type="toolkit" content="Toolkit" /><Tag type="experimental" content="Experimental" />
 
 Produces a `GaugeSummary` that can be used to accumulate gauge data for further
 calculations.
@@ -45,11 +45,11 @@ Only `DOUBLE PRECISION` values are accepted for the `value` parameter. For gauge
 data stored as other numeric types, cast it to `DOUBLE PRECISION` when using the
 function.
 
-<highlight type="note">
+<Highlight type="note">
 If there are `NULL` values in your data, the aggregate ignores them and
 aggregates only non-`NULL` values. If you only have `NULL` values, the aggregate
 returns `NULL`.
-</highlight>
+</Highlight>
 
 ## Optional arguments
 
@@ -57,9 +57,9 @@ returns `NULL`.
 |-|-|-|
 |`bounds`|`TSTZRANGE`|The largest and smallest possible times that can be input to the aggregate. Calling with `NULL`, or leaving out the argument, results in an unbounded `GaugeSummary`|
 
-<highlight type="important">
+<Highlight type="important">
 Bounds are required for extrapolation, but not for other accessor functions.
-</highlight>
+</Highlight>
 
 ## Returns
 
@@ -67,12 +67,12 @@ Bounds are required for extrapolation, but not for other accessor functions.
 |-|-|-|
 |`gauge_agg`|`GaugeSummary`|A `GaugeSummary` object that can be passed to accessor functions or other objects in the gauge aggregate API|
 
-<highlight type="important">
+<Highlight type="important">
 The returned `GaugeSummary` can be used as an input the accessor functions
 `delta`, `idelta_left`, and `idelta_right`. When this feature is mature, it will support
 all the same accessor functions as `CounterSummary`, with the exception of
 `num_resets`.
-</highlight>
+</Highlight>
 
 ## Sample usage
 

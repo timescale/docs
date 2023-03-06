@@ -12,13 +12,13 @@ Migrate larger databases by migrating your schema first, then migrating the
 data. This method copies each table or chunk separately, which allows you to
 restart midway if one copy operation fails.
 
-<highlight type="note">
+<Highlight type="note">
 For smaller databases, it may be more convenient to migrate your entire database
 at once. For more information, see the section on [choosing a migration
 method](https://docs.timescale.com/cloud/latest/migrate-to-cloud/).
-</highlight>
+</Highlight>
 
-<highlight type="warning">
+<Highlight type="warning">
 This method does not retain continuous aggregates calculated using
 already-deleted data. For example, if you delete raw data after a month but
 retain downsampled data in a continuous aggregate for a year, the continuous
@@ -26,7 +26,7 @@ aggregate loses any data older than a month upon migration. If you must keep
 continuous aggregates calculated using deleted data, migrate your entire
 database at once. For more information, see the section on [choosing a migration
 method](https://docs.timescale.com/cloud/latest/migrate-to-cloud/).
-</highlight>
+</Highlight>
 
 The procedure to migrate your database requires these steps:
 
@@ -39,7 +39,7 @@ The procedure to migrate your database requires these steps:
 *   [Recreate policies](#recreate-policies) (optional)
 *   [Update table statistics](#update-table-statistics)
 
-<highlight type="warning">
+<Highlight type="warning">
 Depending on your database size and network speed, steps that involve copying
 data can take a very long time. You can continue reading from your source
 database during this time, though performance could be slower. To avoid this
@@ -47,7 +47,7 @@ problem, fork your database and migrate your data from the fork. If you write to
 the tables in your source database during the migration, the new writes might
 not be transferred to Timescale Cloud. To avoid this problem, see the section on
 [migrating an active database](http://docs.timescale.com/cloud/latest/migrate-to-cloud/#migrate-an-active-database).
-</highlight>
+</Highlight>
 
 ## Prerequisites
 
@@ -78,7 +78,7 @@ Migrate your pre-data from your source database to Timescale Cloud. This
 includes table and schema definitions, as well as information on sequences,
 owners, and settings. This doesn't include Timescale-specific schemas.
 
-<procedure>
+<Procedure>
 
 ### Migrating schema pre-data
 
@@ -103,7 +103,7 @@ owners, and settings. This doesn't include Timescale-specific schemas.
     -v -d tsdb dump_pre_data.bak
     ```
 
-</procedure>
+</Procedure>
 
 ### Troubleshooting
 
@@ -140,7 +140,7 @@ After pre-data migration, your hypertables from your source database become
 regular PostgreSQL tables in Cloud. Recreate your hypertables in Cloud to
 restore them.
 
-<procedure>
+<Procedure>
 
 ### Restoring hypertables in Timescale Cloud
 
@@ -159,14 +159,14 @@ restore them.
             INTERVAL '<CHUNK_TIME_INTERVAL>');
     ```
 
-</procedure>
+</Procedure>
 
 ## Copy data from the source database
 
 After restoring your hypertables, return to your source database to copy your
 data, table by table.
 
-<procedure>
+<Procedure>
 
 ### Copying data from your source database
 
@@ -184,9 +184,9 @@ data, table by table.
 
     Repeat for each table and hypertable you want to migrate.
 
-</procedure>
+</Procedure>
 
-<highlight type="note">
+<Highlight type="note">
 If your tables are very large, you can migrate each table in multiple pieces.
 Split each table by time range, and copy each range individually. For example:
 
@@ -194,7 +194,7 @@ Split each table by time range, and copy each range individually. For example:
 \COPY (SELECT * FROM <TABLE_NAME> WHERE time > '2021-11-01' AND time < '2011-11-02') TO <TABLE_NAME_DATE_RANGE>.csv CSV
 ```
 
-</highlight>
+</Highlight>
 
 ## Restore data into Timescale Cloud
 
@@ -205,16 +205,16 @@ regular PostgreSQL [`COPY`][copy], or using the TimescaleDB
 `timescaledb-parallel-copy` is 16% faster. The `timescaledb-parallel-copy` tool
 is not included by default. You must install the function.
 
-<highlight type="important">
+<Highlight type="important">
 Because `COPY` decompresses data, any compressed data in your source
 database is now stored uncompressed in your `.csv` files. If you
 provisioned your Timescale Cloud storage for your compressed data, the
 uncompressed data may take too much storage. To avoid this problem, periodically
 recompress your data as you copy it in. For more information on compression, see
 the [compression section](https://docs.timescale.com/timescaledb/latest/how-to-guides/compression/).
-</highlight>
+</Highlight>
 
-<procedure>
+<Procedure>
 
 ### Restoring data into Timescale Cloud with timescaledb-parallel-copy
 
@@ -243,9 +243,9 @@ the [compression section](https://docs.timescale.com/timescaledb/latest/how-to-g
 
     Repeat for each table and hypertable you want to migrate.
 
-</procedure>
+</Procedure>
 
-<procedure>
+<Procedure>
 
 ### Restoring data into Timescale Cloud with COPY
 
@@ -263,14 +263,14 @@ the [compression section](https://docs.timescale.com/timescaledb/latest/how-to-g
 
     Repeat for each table and hypertable you want to migrate.
 
-</procedure>
+</Procedure>
 
 ## Migrate schema post-data
 
 When you have migrated your table and hypertable data, migrate your PostgreSQL
 schema post-data. This includes information about constraints.
 
-<procedure>
+<Procedure>
 
 ### Migrating schema post-data
 
@@ -296,7 +296,7 @@ schema post-data. This includes information about constraints.
     -v -d tsdb dump_post_data.bak
     ```
 
-</procedure>
+</Procedure>
 
 ### Troubleshooting
 
@@ -319,7 +319,7 @@ definitions and recomputing the results on your Cloud database. The recomputed
 continuous aggregates only aggregate existing data in your Cloud database. They
 don't include deleted raw data.
 
-<procedure>
+<Procedure>
 
 ### Recreating continuous aggregates
 
@@ -363,14 +363,14 @@ don't include deleted raw data.
     <VIEW_DEFINITION>
     ```
 
-</procedure>
+</Procedure>
 
 ## Recreate policies
 
 By default, policies aren't migrated when you transfer your schema and data
 separately. Recreate them on your Cloud database.
 
-<procedure>
+<Procedure>
 
 ### Recreating policies
 
@@ -401,7 +401,7 @@ separately. Recreate them on your Cloud database.
     [retention policies][retention-policy], [compression
     policies][compression-policy], and [reorder policies][reorder-policy].
 
-</procedure>
+</Procedure>
 
 ## Update table statistics
 

@@ -39,7 +39,7 @@ To fix this, create a new continuous aggregate using the `WITH NO DATA` option.
 Then use a policy to refresh this continuous aggregate over an explicit time
 window.
 
-<procedure>
+<Procedure>
 
 ### Creating a new continuous aggregate with an explicit refresh window
 
@@ -90,12 +90,12 @@ window.
     );
     ```
 
-<highlight type="warning">
+<Highlight type="warning">
 If you choose to delete your old continuous aggregate after creating a new one,
 beware of historical data loss. If your old continuous aggregate contained data
 that you dropped from your original hypertable, for example through a data
 retention policy, the dropped data is not included in your new continuous
 aggregate.
-</highlight>
+</Highlight>
 
-</procedure>
+</Procedure>

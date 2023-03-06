@@ -3,20 +3,20 @@
 When you have your database set up, you can load the taxi trip data into the
 `rides` hypertable.
 
-<procedure>
+<Procedure>
 
 ### Loading trip data
 
-<highlight type="important">
+<Highlight type="important">
 This is a large dataset, so it might take a long time, depending on your network
 connection.
-</highlight>
+</Highlight>
 
 1.  Download the dataset:
 
-   <tag type="download">
+   <Tag type="download">
    [nyc_data.tar.gz](https://timescaledata.blob.core.windows.net/datasets/nyc_data.tar.gz)
-   </tag>
+   </Tag>
 
 1.  Use your file manager to decompress the downloaded dataset, and take a note
     of the path to the `nyc_data_rides.csv` file.
@@ -29,7 +29,7 @@ connection.
     \COPY rides FROM nyc_data_rides.csv CSV;
     ```
 
-</procedure>
+</Procedure>
 
 You can check that the data has been copied successfully with this command:
 
@@ -60,7 +60,5 @@ tolls_amount          | 0
 improvement_surcharge | 0.3
 total_amount          | 10.3
 ```
-
-
 
 [parallel-copy]: https://github.com/timescale/timescaledb-parallel-copy

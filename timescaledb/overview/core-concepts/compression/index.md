@@ -43,11 +43,11 @@ section][compression-architecture].
 The user interface remains the same after your data is compressed. You continue
 to query your data as normal, and the database decompresses data as needed.
 
-<highlight type="important">
+<Highlight type="important">
  Inserts and queries work as usual, but there are
 limitations on updates and deletes. For more information, see the section on
 [trade-offs](#benefits-and-trade-offs-of-compression).
-</highlight>
+</Highlight>
 
 ## Compression performance
 

@@ -23,7 +23,7 @@ Before you begin, make sure that you have [installed Docker Compose][docker-comp
 
 ### Installing Promscale with Docker Compose
 
-<procedure>
+<Procedure>
 
 1.  Clone the repository that defines the services for Promscale, change to
    the `promscale-demo` directory and use docker compose to run Promscale:
@@ -34,7 +34,7 @@ Before you begin, make sure that you have [installed Docker Compose][docker-comp
    docker compose up -d
    ```
 
-</procedure >
+</Procedure >
 
 The above quick start contains services for these below components:
 

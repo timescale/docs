@@ -9,7 +9,7 @@ api:
   type: function
 ---
 
-# detach_data_node() <tag type="community">Community</tag>
+# detach_data_node() <Tag type="community">Community</Tag>
 
 Detach a data node from one hypertable or from all hypertables.
 
@@ -48,9 +48,9 @@ containing chunks that are not replicated on other data nodes
 *   If it would result in under-replicated chunks for the distributed hypertable
 (without the `force` argument)
 
-<highlight type="tip">
+<Highlight type="tip">
 Replication is currently experimental, and not a supported feature
-</highlight>
+</Highlight>
 
 Detaching a data node is under no circumstances possible if that would
 mean data loss for the hypertable. Nor is it possible to detach a data node,

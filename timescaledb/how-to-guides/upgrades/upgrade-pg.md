@@ -26,12 +26,12 @@ upgrade TimescaleDB:
 |TimescaleDB&nbsp;2.0|&#10060;|&#10060;|&#10060;|&#9989;|&#9989;|&#10060;|&#10060;
 |TimescaleDB&nbsp;1.7|&#10060;|&#10060;|&#10060;|&#9989;|&#9989;|&#9989;|&#9989;|
 
-<highlight type="cloud" header="Upgrade in one click with Timescale Cloud">
+<Highlight type="cloud" header="Upgrade in one click with Timescale Cloud">
 On Timescale Cloud, you can upgrade your PostgreSQL major version with one
 click. See the [Timescale Cloud
 documentation](https://docs.timescale.com/cloud/latest/service-operations/maintenance/#upgrade-to-a-new-postgresql-version)
 for details.
-</highlight>
+</Highlight>
 
 You need to upgrade PostgreSQL and TimescaleDB in two separate steps. This is so
 that you can make sure each upgrade completes properly. For example, if you are
@@ -66,7 +66,7 @@ This means that you do not need to dump and restore your data. Instead,
 installation while binding the new PostgreSQL binary runtime to them. This is
 supported for PostgreSQL&nbsp;8.4 and higher.
 
-<procedure>
+<Procedure>
 
 ### Upgrading PostgreSQL
 
@@ -78,7 +78,7 @@ supported for PostgreSQL&nbsp;8.4 and higher.
     pg_upgrade -b <OLD_BIN_DIR> -B <NEW_BIN_DIR> -d <OLD_DATA_DIR> -D <NEW_DATA_DIR>
     ```
 
-</procedure>
+</Procedure>
 
 If you are moving data to a new physical instance of PostgreSQL, you can use the
 `pg_dump` and `pg_restore` tools to dump your data from the old database, and

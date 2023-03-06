@@ -5,7 +5,7 @@ keywords: [compression]
 tags: [hypertables]
 ---
 
-# Compression <tag type="community">Community</tag>
+# Compression <Tag type="community">Community</Tag>
 
 We highly recommend reading the [blog post][blog-compression] and
 [tutorial][using-compression] about compression before trying to set it up
@@ -19,6 +19,7 @@ Advanced usage of compression allows users to [compress chunks
 manually][compress_chunk], instead of automatically as they age.
 
 Compressed chunks have the following limitations:
+
 *   `ROW LEVEL SECURITY` is not supported.
 *   Constraints are not fully supported:
     *   Unique constraints (`UNIQUE`) are restricted to compression `SEGMENTBY`

@@ -7,6 +7,7 @@ keywords: [continuous aggregates, real-time aggregates]
 import CaggsRealTimeHistoricalDataRefreshes from 'versionContent/_partials/_caggs-real-time-historical-data-refreshes.mdx';
 
 # Real time aggregates
+
 Continuous aggregates do not include the most recent data chunk from the
 underlying hypertable. Real time aggregates use the aggregated data and add the
 most recent raw data to it to provide accurate and up to date results, without
@@ -19,22 +20,27 @@ For more detail on the comparison between continuous and real time aggregates,
 see our [real time aggregate blog post][blog-rtaggs].
 
 ## Use real time aggregates
+
 You can enable and disable real time aggregation by setting the
 `materialized_only` parameter when you create or alter the view.
 
-<procedure>
+<Procedure>
 
 ### Using real time aggregation
+
 1.  For an existing table, at the `psql` prompt, disable real time aggregation:
+
     ```sql
     ALTER MATERIALIZED VIEW table_name set (timescaledb.materialized_only = true);
     ```
+
 1.  Re-enable real time aggregation:
+
     ```sql
     ALTER MATERIALIZED VIEW table_name set (timescaledb.materialized_only = false);
     ```
 
-</procedure>
+</Procedure>
 
 ## Real-time aggregates and refreshing historical data
 

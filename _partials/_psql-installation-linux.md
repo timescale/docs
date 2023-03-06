@@ -7,7 +7,7 @@ and `pacman` package manager to install the `psql` tool.
 
 <Tab title="Debian">
 
-<procedure>
+<Procedure>
 
 ### Installing psql using the apt package manager
 
@@ -23,13 +23,13 @@ and `pacman` package manager to install the `psql` tool.
     apt-get install postgresql-client
     ```
 
-</procedure>
+</Procedure>
 
 </Tab>
 
 <Tab title="Red Hat">
 
-<procedure>
+<Procedure>
 
 ### Installing psql using the yum package manager
 
@@ -45,13 +45,13 @@ and `pacman` package manager to install the `psql` tool.
     dnf install postgresql14
     ```
 
-</procedure>
+</Procedure>
 
 </Tab>
 
 <Tab title="ArchLinux">
 
-<procedure>
+<Procedure>
 
 ### Installing psql using the pacman package manager
 
@@ -67,7 +67,7 @@ and `pacman` package manager to install the `psql` tool.
     pacman -S postgresql-libs
     ```
 
-</procedure>
+</Procedure>
 
 </Tab>
 

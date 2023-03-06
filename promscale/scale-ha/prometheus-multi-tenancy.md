@@ -42,11 +42,11 @@ list the tenant names with
 By default, when multi-tenancy is enabled, data is rejected if it does not include a tenant name. To accept data without tenant information,
 set the `-multi-tenancy-allow-non-tenants` flag.
 
-<highlight type="note">
+<Highlight type="note">
 When you set a CLI flag on a Promscale instance, remember to set it on all of
 your other Promscale instances as well, if you need them to have the same
 functionality.
-</highlight>
+</Highlight>
 
 This example ingests data from `tenant-A` and `tenant-B` Prometheus instances.
 It also allows data to be ingested from non-tenant instances of Prometheus:
@@ -64,9 +64,9 @@ Prometheus instances, along with non-tenant Prometheus instances:
 -multi-tenancy -multi-tenancy-allow-non-tenants
 ```
 
-<highlight type="note">
+<Highlight type="note">
 The `-multi-tenancy-valid-tenants` flag defaults to `allow-all`.
-</highlight>
+</Highlight>
 
 ## Configure Prometheus for writing multi-tenant data
 
@@ -140,11 +140,11 @@ queries:
     `tenant-B`.
 *   `metric_name{__tenant__=""}` returns `metric_name` from non-tenants only.
 
-<highlight type="note">
+<Highlight type="note">
 If you are querying multiple Promscale instances, you can configure individual
 instances to selectively authorize any valid tenant for queries, based on your
 requirements.
-</highlight>
+</Highlight>
 
 ## Limitations
 

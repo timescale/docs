@@ -114,10 +114,10 @@ var connUrl = "jdbc:postgresql://<HOSTNAME>:<PORT>/<DATABASE_NAME>?user=<USERNAM
 Full documentation on [the formation of the connection string][pg-jdbc-driver-conn-docs]
 can be found in the official documentation of the PostgreSQL JDBC Driver.
 
-<highlight type="warning">
+<Highlight type="warning">
 The above method of composing a connection string is for test or development purposes only,
 for production purposes be sure to make sensitive details like your password, hostname, and port number environment variables.
-</highlight>
+</Highlight>
 
 ### Step 4: Connect to TimescaleDB instance using the PostgreSQL JDBC driver
 
@@ -434,10 +434,10 @@ public class Main {
 }
 ```
 
-<highlight type="tip">
+<Highlight type="tip">
 If you are inserting data from a CSV file, we recommend the [timescale-parallel-copy tool](https://github.com/timescale/timescaledb-parallel-copy),
 which is a command line program for parallelizing PostgreSQL's built-in `COPY` functionality for bulk inserting data into TimescaleDB.
-</highlight>
+</Highlight>
 
 Congratulations, you've successfully inserted data into TimescaleDB using Java.
 

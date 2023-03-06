@@ -5,6 +5,7 @@ keywords: [finance, analytics, AWS Lambda, psycopg2, pandas, GitHub Actions, pip
 ---
 
 # TimescaleDB with AWS Lambda
+
 This section contains tutorials for working with AWS Lambda and TimescaleDB.
 
 *   [Create a data API for TimescaleDB][create-data-api] using AWS Lambda and
@@ -15,6 +16,7 @@ This section contains tutorials for working with AWS Lambda and TimescaleDB.
     using Github Actions.
 
 ## Prerequisites
+
 Before you begin, make sure you have completed the
 [Analyze intraday stock data tutorial](https://docs.timescale.com/timescaledb/latest/tutorials/analyze-intraday-stocks/).
 This tutorial needs the tables and data that you set up in that tutorial.
@@ -32,18 +34,20 @@ aws-cli/2.2.18 Python/3.8.8 Linux/5.10.0-1044-oem exe/x86_64.ubuntu.20 prompt/of
 For more information about installing the AWS CLI, see
 [the AWS installation instructions][aws-install].
 
-<highlight type="cloud" header="VPC on Timescale Cloud" button="Try for free">
+<Highlight type="cloud" header="VPC on Timescale Cloud" button="Try for free">
 If you are completing this tutorial in Timescale Cloud, make sure you have
 created a VPC on both AWS, and on your database in Timescale Cloud. For more
 information about setting up a VPC, see the
 [Timescale Cloud VPC section](/cloud/latest/service-operations/vpc/).
-</highlight>
+</Highlight>
 
 ## Programming language
+
 The code examples in this tutorial use Python, but you can use any language
 [supported by AWS Lambda][lambda-supported-langs].
 
 ## Resources
+
 For more information about the topics in this tutorial, check out these resources:
 
 *   [AWS CLI Version 2 References][aws-cli2]

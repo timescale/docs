@@ -24,7 +24,7 @@ Before you begin, you must have an already installed and working Prometheus
 environment to migrate. Additionally, you need a
 [self-hosted TimescaleDB instance][tsdb-install-self-hosted] installed.
 
-<procedure>
+<Procedure>
 
 ### Migrating to Promscale using Prom-migrator
 
@@ -53,7 +53,7 @@ environment to migrate. Additionally, you need a
     -progress-metric-url=http://localhost:9201/read
     ```
 
-</procedure>
+</Procedure>
 
 When you have migrated the data into Promscale, you can drop the old data from
 Prometheus and any other remote storage system and use Promscale to query using

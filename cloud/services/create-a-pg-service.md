@@ -23,7 +23,7 @@ You can [try Timescale Cloud for free][sign-up], no credit card required.
 For installation instructions, and help getting your first service up and
 running, see the [Timescale Cloud installation section][cloud-install].
 
-<procedure>
+<Procedure>
 
 ## Creating a PostgreSQL service
 
@@ -40,7 +40,7 @@ running, see the [Timescale Cloud installation section][cloud-install].
         alt="Create a new PostgreSQL service in the Timescale Cloud portal"
     />
 
-</procedure>
+</Procedure>
 
 When you return to the Timescale Cloud Services page, your PostgreSQL service is
 marked with a PostgreSQL tag, so you can easily distinguish it from your
@@ -54,4 +54,4 @@ time-series services:
 
 [cloud-install]: /install/:currentVersion:/installation-cloud/
 [sign-up]: https://www.timescale.com/timescale-signup
-[cloud-console]: /console.cloud.timescale.com/
+[cloud-console]: https://console.cloud.timescale.com/
