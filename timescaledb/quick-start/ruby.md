@@ -714,12 +714,6 @@ page by page, or all pages together, and group by path or not:
     The result is similar to:
 
     ```ruby
-    {nil=>
-    {:average_response_time_per_minute=>nil,
-    :average_response_time_per_hour=>nil,
-    :worst_response_time_last_minute=>nil,
-    :worst_response_time_last_hour=>nil,
-    :best_response_time_last_hour=>nil},
     "/page_loads/new"=>
     {:average_response_time_per_minute=>0.10862650000490248,
     :average_response_time_per_hour=>0.060067999991588295,
