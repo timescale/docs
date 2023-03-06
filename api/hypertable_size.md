@@ -9,7 +9,7 @@ api:
   type: function
 ---
 
-# hypertable_size()  
+# hypertable_size()
 
 Get the total disk space used by a hypertable, that is, the sum of the
 size for the table itself (including chunks), any indexes on the
@@ -17,17 +17,20 @@ table, and any toast tables. The size is reported in bytes. This is
 equivalent to computing the sum of `total_bytes` column from the
 output of `hypertable_detailed_size` function.
 
+For more information about using hypertables, including chunk size partitioning,
+see the [hypertable section][hypertable-docs].
+
 ### Required arguments
 
 |Name|Type|Description|
-|---|---|---|
-| `hypertable` | REGCLASS | Hypertable to show size of. |
+|-|-|-|
+|`hypertable`|REGCLASS|Hypertable to show the size of|
 
 ### Returns
 
 |Name|Type|Description|
-|---|---|---|
-|hypertable_size| BIGINT | Total disk space used by the specified hypertable, including all indexes and TOAST data. |
+|-|-|-|
+|hypertable_size|BIGINT|Total disk space used by the specified hypertable, including all indexes and TOAST data|
 
 <Highlight type="tip">
 `NULL` is returned if the function is executed on a non-hypertable relation.
@@ -51,3 +54,5 @@ Get size information for all hypertables.
 SELECT hypertable_name, hypertable_size(format('%I.%I', hypertable_schema, hypertable_name)::regclass)
   FROM timescaledb_information.hypertables;
 ```
+
+[hypertable-docs]: /timescaledb/:currentVersion:/how-to-guides/hypertables/
