@@ -161,16 +161,7 @@ GROUP BY name, bucket;
 ```
 
 <Highlight type="note">
-The join can be between only two tables where one has to be hypertable
-and other one should be  a normal PostgreSQL table. However, the order of tables
-does not matter.
-The FROM/JOIN clause cannot have any other continous aggregate.
-The joins type can only be INNER JOIN.
-Only equality condition are allowed as the join condition.
-
-The use of `USING` clause in your `JOIN` is not allowed for PostgreSQL&nbsp;12.
-But the joins with condition in WHERE clause or JOIN clause can still be used.
-However, if you absolutely need a `USING`clause, you must have PostgreSQL&nbsp;13 or later.
+Check our documentation on [creating continuous aggregates][api-cagg-create_materialized_view] for additional restrictions that apply. 
 </Highlight>
 
 ## Query continuous aggregates
@@ -263,6 +254,7 @@ FROM example_aggregate;
 This speeds up your query by calculating the aggregation ahead of time. The
 delta still needs to be calculated at query time.
 
+[api-cagg-create_materialized_view]: /api/:currentVersion:/continuous-aggregates/create_materialized_view/
 [api-time-bucket-gapfill]: /api/:currentVersion:/hyperfunctions/gapfilling-interpolation/time_bucket_gapfill/
 [api-time-bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
 [cagg-function-support]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/about-continuous-aggregates/#function-support
