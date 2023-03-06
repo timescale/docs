@@ -328,6 +328,12 @@ module.exports = [
             excerpt: "Ingest data into Timescale from Telegraf",
           },
           {
+            title: "Install and use timescaledb-parallel-copy",
+            href: "about-timescaledb-parallel-copy",
+            excerpt:
+              "Quickly insert bulk data by parallelizing `COPY` operations",
+          },
+          {
             title: "Ingesting data with Timescale parallel copy",
             href: "ingest-parallel-copy",
             excerpt: "Ingest data into Timescale using parallel copy",
@@ -647,16 +653,9 @@ module.exports = [
         excerpt: "Timescale Cloud backup and restore",
       },
       {
-        title: "Billing",
-        href: "billing",
-        excerpt: "Timescale Cloud billing",
-        children: [
-          {
-            title: "Account management",
-            href: "account-management",
-            excerpt: "Timescale Cloud account management",
-          },
-        ],
+        title: "Billing and account management",
+        href: "account-management",
+        excerpt: "Timescale Cloud account management",
       },
       {
         title: "Metrics and logging",
@@ -825,17 +824,10 @@ module.exports = [
         excerpt: "Timescale Cloud high availabilioty",
       },
       {
-        title: "Data tiering",
-        href: "data-tiering",
-        excerpt: "Tier older data to save storage",
-        children: [
-          {
-            title: "Data tiering to object storage",
-            href: "tier-data-object-storage",
-            excerpt: "Save on storage costs by tiering older data to separate storage",
-          }
-        ]
-      },
+        title: "Data tiering to object storage",
+        href: "tier-data-object-storage",
+        excerpt: "Save on storage costs by tiering older data to separate storage",
+      }
       {
         title: "Security",
         href: "security",
@@ -851,25 +843,6 @@ module.exports = [
             href: "strict-ssl",
             excerpt:
               "Connect to Timescale Cloud with a stricter SSL mode of verify-ca or verify-full",
-          },
-        ],
-      },
-      {
-        title: "Additional tooling",
-        href: "tooling",
-        excerpt: "Additional tooling for managing Timescale",
-        children: [
-          {
-            title: "About timescaledb-tune",
-            href: "about-timescaledb-tune",
-            excerpt:
-              "Automatically configure your Timescale instance with `timescaledb-tune`",
-          },
-          {
-            title: "Install and use timescaledb-parallel-copy",
-            href: "about-timescaledb-parallel-copy",
-            excerpt:
-              "Quickly insert bulk data by parallelizing `COPY` operations",
           },
         ],
       },
