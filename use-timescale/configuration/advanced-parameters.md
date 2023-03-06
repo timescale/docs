@@ -1,7 +1,7 @@
 ---
 title: Service settings - Advanced parameters
 excerpt: Configure advanced parameters for your Timescale Cloud service
-products: [cloud]
+product: cloud
 keywords: [services, settings]
 tags: [configuration, schemas]
 cloud_ui:

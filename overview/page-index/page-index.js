@@ -112,19 +112,6 @@ module.exports = [
         ],
       },
       {
-        title: "Release notes",
-        href: "release-notes",
-        excerpt: "Release notes for TimescaleDB",
-        children: [
-          {
-            title: "Changes in TimescaleDB 2.0",
-            tags: ["upgrade", "timescaledb", "2-x", "2-0"],
-            href: "changes-in-timescaledb-2",
-            excerpt: "Release notes for TimescaleDB 2.0",
-          },
-        ],
-      },
-      {
         title: "Limitations",
         href: "limitations",
         excerpt: "Product limitations of TimescaleDB",
