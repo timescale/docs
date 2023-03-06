@@ -19,8 +19,8 @@ executed on a distributed hypertable, it returns size information
 as a separate row per node, including the access node.
 
 <Highlight type="tip">
-When a continuous aggregate name is provided, the function will
-transparently look up the backing hypertable and return its statistics
+When a continuous aggregate name is provided, the function
+transparently looks up the backing hypertable and returns its statistics
 instead.
 </Highlight>
 
