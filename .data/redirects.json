@@ -26,6 +26,7 @@
   "^/api/latest/hyperfunctions/frequency-analysis/state_agg": "https://docs.timescale.com/api/latest/hyperfunctions/state-aggregates/state_agg/",
   "^/api/latest/hyperfunctions/frequency-analysis/topn": "https://docs.timescale.com/api/latest/hyperfunctions/frequency-analysis/freq_agg/",
   "^/api/latest/hyperfunctions/percentile-approximation/num_vals/$": "https://docs.timescale.com/api/latest/hyperfunctions/percentile-approximation/num_vals-percentile/",
+  "^/api/latest/hyperfunctions/saturating-math/.+": "https://docs.timescale.com/api/latest/hyperfunctions/saturating-math/",
   "^/api/latest/hyperfunctions/state-aggregates/.*": "https://docs.timescale.com/api/latest/hyperfunctions/state-tracking/state_agg/",
   "^/api/latest/hyperfunctions/state-tracking/timeline_agg$": "https://docs.timescale.com/api/latest/hyperfunctions/state-tracking/state_agg/",
   "^/api/latest/hyperfunctions/state-tracking/timeline_agg/$": "https://docs.timescale.com/api/latest/hyperfunctions/state-tracking/state_agg/",
