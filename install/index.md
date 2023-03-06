@@ -12,13 +12,13 @@ TimescaleDB extends  PostgreSQL for time-series data—giving PostgreSQL the
 high-performance, scalability, and analytical capabilities required by modern
 data-intensive applications.
 
-<highlight type="cloud" header="Timescale Cloud" button="Get started for free">
+<Highlight type="cloud" header="Timescale Cloud" button="Get started for free">
 The best way to use TimescaleDB is Timescale Cloud, our fully hosted and managed
 database platform. Enjoy all the best  features of TimescaleDB without the
 hassle of managing your database—with automatic backups and failover, high
 availability, flexible scaling, security and data compliance, VPC peering, and
 much more.
-</highlight>
+</Highlight>
 
 See the [Timescale Cloud installation guide][tsc-install] for details.
 

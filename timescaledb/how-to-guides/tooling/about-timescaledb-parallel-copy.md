@@ -33,7 +33,7 @@ possible.
     insert the data. Ensure that you use a schema that matches the data in your
     `.csv` file.
 
-<procedure>
+<Procedure>
 
 ### Importing data using timescaledb-parallel-copy
 
@@ -68,17 +68,16 @@ possible.
     --reporting-period 30s
     ```
 
-    <highlight type="note">
+    <Highlight type="note">
     To import data into a `tsdb` database on a localhost the
     *connection* parameter would be `"host=localhost user=postgres
     sslmode=disable"`
-     </highlight>
+     </Highlight>
 
-</procedure>
+</Procedure>
 
 [github-tscopy]: https://github.com/timescale/timescaledb-parallel-copy
 [go-install]: https://go.dev/doc/install
 [create-service]: /install/latest/installation-cloud/
 [connect-timescaledb]: /timescaledb/latest/how-to-guides/connecting/about-connecting/
 [create-hypertable]: /timescaledb/latest/how-to-guides/hypertables/create/
-

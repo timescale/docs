@@ -13,7 +13,7 @@ scalability, and analytical capabilities required by modern data-intensive
 applications. If you installed TimescaleDB with Homebrew or MacPorts, you can
 uninstall it without having to uninstall PostgreSQL.
 
-<procedure>
+<Procedure>
 
 ## Uninstalling TimescaleDB using Homebrew
 
@@ -23,7 +23,7 @@ uninstall it without having to uninstall PostgreSQL.
     DROP EXTENSION timescaledb;
     ```
 
-1.  At the command prompt, remove `timescaledb` from `shared_preload_libraries` 
+1.  At the command prompt, remove `timescaledb` from `shared_preload_libraries`
     in the `postgresql.conf` configuration file:
 
     ```bash
@@ -63,9 +63,9 @@ uninstall it without having to uninstall PostgreSQL.
     brew remove timescaledb
     ```
 
-</procedure>
+</Procedure>
 
-<procedure>
+<Procedure>
 
 ## Uninstalling TimescaleDB using MacPorts
 
@@ -75,7 +75,7 @@ uninstall it without having to uninstall PostgreSQL.
     DROP EXTENSION timescaledb;
     ```
 
-1.  At the command prompt, remove `timescaledb` from `shared_preload_libraries` 
+1.  At the command prompt, remove `timescaledb` from `shared_preload_libraries`
     in the `postgresql.conf` configuration file:
 
     ```bash
@@ -109,4 +109,4 @@ uninstall it without having to uninstall PostgreSQL.
     port uninstall timescaledb --follow-dependencies
     ```
 
-</procedure>
+</Procedure>

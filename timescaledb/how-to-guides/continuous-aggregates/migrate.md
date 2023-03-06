@@ -23,10 +23,10 @@ Connect to your database and run:
 CALL cagg_migrate('<CONTINUOUS_AGGREGATE_NAME>');
 ```
 
-<highlight type="warning">
+<Highlight type="warning">
 There are known issues with `cagg_migrate()` in version 2.8.0.
 Upgrade to version 2.8.1 or above before using it.
-</highlight>
+</Highlight>
 
 ## Configure continuous aggregate migration
 

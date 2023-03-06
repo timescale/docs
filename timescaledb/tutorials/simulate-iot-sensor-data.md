@@ -5,6 +5,7 @@ keywords: [IoT, simulate]
 ---
 
 # How to simulate a basic IoT sensor dataset on PostgreSQL or TimescaleDB
+
 The Internet of Things (IoT) describes a trend where computing is
 becoming ubiquitous and is embedded in more and more physical things.
 For many of these things, the purpose of IoT is to collect sensor data
@@ -19,12 +20,13 @@ Often, it is necessary to simulate IoT sensor data, for example, when
 testing a new system. This tutorial shows how to simulate a
 basic IoT sensor dataset on PostgreSQL, or TimescaleDB.
 
-<highlight type="note">
+<Highlight type="note">
 For creating a more advanced simulated IoT dataset, try the
 [Time-series Benchmarking Suite (TSBS)](https://github.com/timescale/tsbs).
-</highlight>
+</Highlight>
 
 ## Prerequisites
+
 To complete this tutorial, you need a cursory knowledge of the Structured Query
 Language (SQL). The tutorial walks you through each SQL command, but it is
 helpful if you've seen SQL before.
@@ -32,8 +34,8 @@ helpful if you've seen SQL before.
 To start, [install TimescaleDB][install-timescale]. When your installation is
 complete, you can ingest or create sample data and finish the tutorial.
 
-
 ## Set up your tables
+
 First, connect to your database via `psql`.
 
 Second, create the "sensors" and "sensor_data" tables:
@@ -94,14 +96,15 @@ this:
 
 ## Create the simulated IoT sensor data
 
-<highlight type="note">
+<Highlight type="note">
 This section shows results of the queries as examples, but because the tutorial
 generates random data every time it is run, your results look different, but is
 structured the same way.
-</highlight>
+</Highlight>
 
 Generate a dataset for all of our four sensors and insert into the `sensor_data`
 table:
+
 ```sql
 INSERT INTO sensor_data (time, sensor_id, cpu, temperature)
 SELECT
@@ -113,11 +116,13 @@ FROM generate_series(now() - interval '24 hour', now(), interval '5 minute') AS 
 ```
 
 Verify that the simulated sensor data was written correctly:
+
 ```sql
 SELECT * FROM sensor_data ORDER BY time;
 ```
 
 Example output:
+
 ```
              time              | sensor_id |    temperature     |         cpu         
 -------------------------------+-----------+--------------------+---------------------
@@ -140,6 +145,7 @@ queries.
 This section requires TimescaleDB.
 
 ### Average temperature, average cpu by 30 minute windows:
+
 ```sql
 SELECT
   time_bucket('30 minutes', time) AS period,
@@ -150,6 +156,7 @@ GROUP BY period;
 ```
 
 SAMPLE OUTPUT:
+
 ```
          period         |     avg_temp     |      avg_cpu      
 ------------------------+------------------+-------------------
@@ -162,9 +169,11 @@ SAMPLE OUTPUT:
 ```
 
 ### Average & last temperature, average cpu by 30 minute windows:
+
 But what if you don't just want the average temperature for each period,
 but also the last temperature? For example if you wanted to understand
 the final temperature value at the end of the interval:
+
 ```sql
 SELECT
   time_bucket('30 minutes', time) AS period,
@@ -176,6 +185,7 @@ GROUP BY period;
 ```
 
 Example output:
+
 ```
          period         |     avg_temp     |    last_temp     |      avg_cpu      
 ------------------------+------------------+------------------+-------------------
@@ -188,8 +198,10 @@ Example output:
 ```
 
 ### Using the sensor metadata
+
 Now let's take advantage of some of the metadata you have stored in the
 `sensors` table:
+
 ```sql
 SELECT
   sensors.location,
@@ -202,6 +214,7 @@ GROUP BY period, sensors.location;
 ```
 
 Example output:
+
 ```
  location |         period         |     avg_temp     |     last_temp     |      avg_cpu      
 ----------+------------------------+------------------+-------------------+-------------------
@@ -217,6 +230,7 @@ Example output:
 ```
 
 ## Next steps
+
 Congratulations, you now have a basic IoT sensor dataset you can
 use for testing in PostgreSQL or TimescaleDB.
 
@@ -224,10 +238,10 @@ To learn more about TimescaleDB, or about the TimescaleDB concepts
 and functions you just used, please visit these pages in our developer
 documentation:
 
-* [About TimescaleDB][docs-timescaledb-intro]
-* [Hypertables][docs-hypertable]
-* [`time_bucket`][docs-timebucket]
-* [`last`][docs-last]
+*   [About TimescaleDB][docs-timescaledb-intro]
+*   [Hypertables][docs-hypertable]
+*   [`time_bucket`][docs-timebucket]
+*   [`last`][docs-last]
 
 [docs-hypertable]: /timescaledb/:currentVersion:/how-to-guides/hypertables/
 [docs-last]: /api/:currentVersion:/hyperfunctions/last

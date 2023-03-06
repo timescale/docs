@@ -1,4 +1,4 @@
-<procedure>
+<Procedure>
 
 ### Installing Timescale Cloud
 
@@ -15,13 +15,13 @@
       alt="Timescale Cloud Portal"
     />
 
-<highlight type="important">
+<Highlight type="important">
   Your Timescale Cloud trial is completely free for you to use for the first
   thirty days. This gives you enough time to complete all our tutorials and run
   a few test projects of your own.
-</highlight>
+</Highlight>
 
-</procedure>
+</Procedure>
 
 [sign-up]: https://www.timescale.com/timescale-signup
 [tsc-portal]: https://console.cloud.timescale.com/

@@ -27,9 +27,9 @@ reported in bytes.
 |---|---|---|
 |hypertable_index_size|BIGINT| Returns the disk space used by the index |
 
-<highlight type="tip">
+<Highlight type="tip">
 NULL is returned if the function is executed on a non-hypertable relation.
-</highlight>
+</Highlight>
 
 ### Sample usage
 

@@ -14,24 +14,24 @@ Managed Service for TimescaleDB supports many PostgreSQL extensions. See
 
 You can add a supported extension to your database from the command line.
 
-<highlight type="important">
+<Highlight type="important">
 Some extensions have dependencies. When adding these, make sure to create them
 in the proper order.
-</highlight>
+</Highlight>
 
-<highlight type="important">
+<Highlight type="important">
 Some extensions require disconnecting and reconnecting the client connection
 before they are fully available.
-</highlight>
+</Highlight>
 
-<procedure>
+<Procedure>
 
 ### Adding an extension
 
 1.  Connect to your database as the `tsdbadmin` user.
 1.  Run `CREATE EXTENSION IF NOT EXISTS <extension_name>`.
 
-</procedure>
+</Procedure>
 
 ## Available extensions
 
@@ -91,11 +91,11 @@ These extensions are available on Managed Service for TimescaleDB:
 
 <!-- vale Vale.Spelling = YES -->
 
-<highlight type="note">
+<Highlight type="note">
 The `postgis_legacy` extension is not packaged or supported as an extension by
 the PostGIS project. Timescale provides the extension package for Managed
 Service for TimescaleDB.
-</highlight>
+</Highlight>
 
 ## Request an extension
 
@@ -107,7 +107,7 @@ Untrusted language extensions are not supported. This restriction preserves our
 ability to offer the highest possible service level. An example of an untrusted
 language extension is `plpythonu`.
 
-<highlight type="note">
+<Highlight type="note">
 You can contact Support directly from Managed Service for TimescaleDB. Click the
 life-preserver icon in the upper-right corner of your dashboard.
-</highlight>
+</Highlight>

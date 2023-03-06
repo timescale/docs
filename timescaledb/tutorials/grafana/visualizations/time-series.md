@@ -53,7 +53,7 @@ This tutorial shows you how to:
 
 Check out this video for a step-by-step walk-through on creating
 time-series graphs in Grafana:
-<video url="https://www.youtube-nocookie.com/embed/uRgKwcL6lDQ"/>
+<Video url="https://www.youtube-nocookie.com/embed/uRgKwcL6lDQ"/>
 
 ## Create a time-series graph with raw data
 
@@ -61,7 +61,7 @@ A very common use case of the time-series graph is displaying stock data. The
 graph makes it easy to see if the value of a stock is going up or down. Also, no
 extra calculations are needed to make the graph.
 
-<procedure>
+<Procedure>
 
 ### Creating a time-series graph with raw data
 
@@ -108,7 +108,7 @@ extra calculations are needed to make the graph.
 
     <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/time-series/simple-time-series-graph.png" alt="Screenshot of the time-series graph produced by Grafana. The graph represents the price of AMD in the past 6 hours."/>
 
-</procedure>
+</Procedure>
 
 ## Create a time-series graph from pre-aggregated data using time_bucket()
 
@@ -124,7 +124,7 @@ CPU, memory, and network bandwidth. In extreme cases, Grafana freezes.
 To solve this problem, you can pre-aggregate your data using TimescaleDB's
 [`time_bucket`][time_bucket] hyperfunction.
 
-<procedure>
+<Procedure>
 
 ## Create a time-series graph from pre-aggregated data using time_bucket()
 
@@ -185,7 +185,7 @@ To solve this problem, you can pre-aggregate your data using TimescaleDB's
     It bridges the less-than-24-hour gap between 4:00&nbsp;PM and 9:30&nbsp;AM,
     but doesn't connect the values over the weekend.
 
-</procedure>
+</Procedure>
 
 ## Create multiple time-series graphs in a single panel
 
@@ -195,7 +195,7 @@ combine the two time-series graphs into a single panel. To do this,
 change the `$symbol` variable to a multi-value answer and make a slight
 change to your query.
 
-<procedure>
+<Procedure>
 
 ## Create multiple time-series graphs in a single panel
 
@@ -235,7 +235,7 @@ change to your query.
 
     <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/time-series/multi-value-graph.png" alt="A screenshot of the multi-value time-series graph produced by Grafana. This graph displays the stock price for 'AAPL' in green and 'AMD' in yellow for the past 30 days."/>
 
-</procedure>
+</Procedure>
 
 [raw-data]: /timescaledb/:currentVersion:/tutorials/grafana/visualizations/time-series/#create-a-time-series-graph-with-raw-data/
 [pre-agg-data]: /timescaledb/:currentVersion:/tutorials/grafana/visualizations/time-series/#create-a-time-series-graph-from-pre-aggregated-data-using-time-bucket/

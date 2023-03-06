@@ -10,9 +10,9 @@
 	 	"scope": "markdown",
 	 	"prefix": ["hl"],
 	 	"body": [
-	 		"<highlight type=\"${1:note|important|warning|deprecated|cloud}\">",
+	 		"<Highlight type=\"${1:note|important|warning|deprecated|cloud}\">",
 			 "$2",
-			 "</highlight>"
+			 "</Highlight>"
 	 	],
 	 	"description": "Make a blank callout block"
 	 }

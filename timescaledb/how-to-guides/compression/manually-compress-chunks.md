@@ -10,16 +10,16 @@ In most cases, an automated compression policy is sufficient. However, if you
 want more control over compression, you can also manually compress specific
 chunks.
 
-<highlight type="warning">
+<Highlight type="warning">
 Compression alters data on your disk, so always back up before you start.
-</highlight>
+</Highlight>
 
 ## Compress chunks manually
 
 Before you start, you need a list of chunks to compress. In this example, you
 use a hypertable called `example`, and compress chunks older than three days.
 
-<procedure>
+<Procedure>
 
 ### Selecting chunks to compress
 
@@ -37,12 +37,12 @@ use a hypertable called `example`, and compress chunks older than three days.
     |1|_timescaledb_internal_hyper_1_2_chunk|
     |2|_timescaledb_internal_hyper_1_3_chunk|
 
-</procedure>
+</Procedure>
 
 When you are happy with the list of chunks, you can use the chunk names to
 manually compress each one.
 
-<procedure>
+<Procedure>
 
 ### Compressing chunks manually
 
@@ -69,7 +69,7 @@ manually compress each one.
 
 1.  Repeat for all chunks you want to compress.
 
-</procedure>
+</Procedure>
 
 ## Manually compress chunks in a single command
 

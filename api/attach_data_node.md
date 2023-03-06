@@ -9,7 +9,7 @@ api:
   type: function
 ---
 
-# attach_data_node() <tag type="community">Community</tag>
+# attach_data_node() <Tag type="community">Community</Tag>
 
 Attach a data node to a hypertable. The data node should have been
 previously created using [`add_data_node`][add_data_node].
@@ -61,10 +61,10 @@ hypertable_id | node_hypertable_id |  node_name
 (1 row)
 ```
 
-<highlight type="tip">
+<Highlight type="tip">
  You must add a data node to your distributed database first
 with [`add_data_node`](/api/latest/distributed-hypertables/add_data_node) first before attaching it.
-</highlight>
+</Highlight>
 
 [add_data_node]: /api/:currentVersion:/distributed-hypertables/add_data_node/
 [create_distributed_hypertable]: /api/:currentVersion:/distributed-hypertables/create_distributed_hypertable/

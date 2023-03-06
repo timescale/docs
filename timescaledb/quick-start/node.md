@@ -7,15 +7,16 @@ keywords: [Node.js]
 # Quick Start: Node and TimescaleDB
 
 ## Goal
+
 This quick start guide is designed to get the Node.js developer up
 and running with TimescaleDB as their database. In this tutorial,
 you'll learn how to:
 
-* [Connect to TimescaleDB](#connect-node-to-timescaledb)
-* [Create a relational table](#create-a-relational-table)
-* [Generate a Hypertable](#generate-hypertable)
-* [Insert a batch of rows into your Timescale database](#insert-rows-into-timescaledb)
-* [Execute a query on your Timescale database](#execute-a-query)
+*   [Connect to TimescaleDB](#connect-node-to-timescaledb)
+*   [Create a relational table](#create-a-relational-table)
+*   [Generate a Hypertable](#generate-hypertable)
+*   [Insert a batch of rows into your Timescale database](#insert-rows-into-timescaledb)
+*   [Execute a query on your Timescale database](#execute-a-query)
 
 ## Prerequisites
 
@@ -81,7 +82,7 @@ app.listen(port, () => console.log(`Example app listening at http://localhost:${
 ```
 
 You can test your simple application by running the following from your
-command line and using your browser to view http://localhost:3000:
+command line and using your browser to view <http://localhost:3000>:
 
 ```bash
 node index.js
@@ -95,11 +96,11 @@ Locate your TimescaleDB credentials in order to connect to your TimescaleDB inst
 
 You'll need the following credentials:
 
-* password
-* username
-* host URL
-* port
-* database name
+*   password
+*   username
+*   host URL
+*   port
+*   database name
 
 Now, let's add Sequelize to our project by first installing it (and its command
 line interface) and the packages for PostgreSQL from the command line:
@@ -128,9 +129,9 @@ const sequelize = new Sequelize('postgres://user:pass@example.com:5432/dbname',
     })
 ```
 
-<highlight type="warning">
+<Highlight type="warning">
 Note the settings in `dialectOptions`. These are critical in connecting to a TimescaleDB instance via SSL.
-</highlight>
+</Highlight>
 
 We can test this connection by adding the following to `index.js` after the `app.get` statement:
 
@@ -163,10 +164,10 @@ Connection has been established successfully.
 Now that we have a successful connection to the `defaultdb` database, we
 can build out our first database and model.
 
-<highlight type="warning">
+<Highlight type="warning">
 You can skip the first two steps if you're going to use TimescaleDB cloud. The
 service creates a database with the extension already enabled.
-</highlight>
+</Highlight>
 
 Let's initialize Sequelize and create the necessary configuration files for our
 project. From the command line, type the following:
@@ -393,9 +394,9 @@ all be executed on the hypertable.
 A hypertable is defined by a standard schema with column names and types, with at
 least one column specifying a time value.
 
-<highlight type="tip">
+<Highlight type="tip">
 The TimescaleDB documentation on [schema management and indexing](/timescaledb/latest/how-to-guides/schema-management/indexing) explains this in further detail.
-</highlight>
+</Highlight>
 
 Let's create this migration to modify the `page_loads` table and create a
 hypertable by first running the following command:
@@ -516,11 +517,10 @@ Now, when you reload the page, you should see all of the rows currently in the
 Now that you're able to connect, read, and write to a TimescaleDB instance from your
 Node application, be sure to check out these advanced TimescaleDB tutorials:
 
-- [Time Series Forecasting using TimescaleDB, R, Apache MADlib and Python][time-series-forecasting]
-- [Continuous Aggregates][continuous-aggregates]
-- [Try Other Sample Datasets][other-samples]
-- [Migrate your own Data][migrate]
-
+*   [Time Series Forecasting using TimescaleDB, R, Apache MADlib and Python][time-series-forecasting]
+*   [Continuous Aggregates][continuous-aggregates]
+*   [Try Other Sample Datasets][other-samples]
+*   [Migrate your own Data][migrate]
 
 [continuous-aggregates]: /getting-started/:currentVersion:/create-cagg/
 [hypertables]: /timescaledb/:currentVersion:/overview/core-concepts/

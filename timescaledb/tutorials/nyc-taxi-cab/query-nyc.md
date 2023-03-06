@@ -23,7 +23,7 @@ This dataset contains ride data for January 2016. To find out how many rides
 took place each day, you can use a `SELECT` statement. In this case, you want to
 count the total number of rides each day, and show them in a list by date.
 
-<procedure>
+<Procedure>
 
 ### Finding how many rides take place every day
 
@@ -53,14 +53,14 @@ count the total number of rides each day, and show them in a list by date.
      2016-01-07 00:00:00 | 364894
      ```
 
-</procedure>
+</Procedure>
 
 ## What is the average fare amount?
 
 You can include a function in your `SELECT` query to determine the average fare
 paid by each passenger.
 
-<procedure>
+<Procedure>
 
 ### Finding the average fare amount
 
@@ -91,7 +91,7 @@ paid by each passenger.
      2016-01-07 00:00:00 | 12.1234180337303436
     ```
 
-</procedure>
+</Procedure>
 
 ## How many rides of each rate type were taken?
 
@@ -101,7 +101,7 @@ location within the city. This section shows you how to construct a query that
 shows you the nuber of trips taken for each different fare type. It also uses a
 `JOIN` statement to present the data in a more informative way.
 
-<procedure>
+<Procedure>
 
 ### Finding the number of rides for each fare type
 
@@ -132,7 +132,7 @@ shows you the nuber of trips taken for each different fare type. It also uses a
             99 |       216
     ```
 
-</procedure>
+</Procedure>
 
 This output is correct, but it's not very easy to read, because you probably
 don't know what the different rate codes mean. However, the `rates` table in the
@@ -140,7 +140,7 @@ dataset contains a human-readable description of each code. You can use a `JOIN`
 statement in your query to connect the `rides` and `rates` tables, and present
 information from both in your results.
 
-<procedure>
+<Procedure>
 
 ### Displaying the number of rides for each fare type
 
@@ -172,7 +172,7 @@ information from both in your results.
      standard rate         |   2266401
     ```
 
-</procedure>
+</Procedure>
 
 ## What kind of trips are going to and from airports
 
@@ -187,7 +187,7 @@ Bureau.
 This section shows you how to construct a query that returns trip information for
 trips going only to the new main airports.
 
-<procedure>
+<Procedure>
 
 ### Finding what kind of trips are going to and from airports
 
@@ -219,7 +219,7 @@ trips going only to the new main airports.
      Newark      |      4126 | 00:34:45.575618   | 84.3841783809985458 | 1.8979641299079011
     ```
 
-</procedure>
+</Procedure>
 
 ## How many rides took place on New Year's Day 2016?
 
@@ -238,7 +238,7 @@ multiply the truncated quotient by 30.
 In your Timescale database, you can use the `time_bucket` function to segment
 the data into time intervals instead.
 
-<procedure>
+<Procedure>
 
 ### Finding how many rides took place on New Year's Day 2016
 
@@ -268,4 +268,4 @@ the data into time intervals instead.
      2016-01-01 03:00:00 | 11362
     ```
 
-</procedure>
+</Procedure>

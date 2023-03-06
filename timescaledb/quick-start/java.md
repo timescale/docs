@@ -126,9 +126,6 @@ are ready to connect to TimescaleDB from Java.
     details like your password, hostname, and port number.
     </highlight>
 
-1.  Change the code to connect to the database server and verify that all
-   settings are correct:
-
     ```java
     package com.timescale.java;
 
@@ -543,9 +540,9 @@ public class Main {
 }
 ```
 
-</Collapsible>
+## Execute queries on TimescaleDB
 
-FIXME
+This section explains how to execute queries.
 
 <Collapsible heading="Executing more complex queries" headingLevel={3} defaultExpanded={false}>
 

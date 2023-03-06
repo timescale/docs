@@ -46,11 +46,11 @@ To get Toolkit, use the high availability image, `timescaledb-ha`:
 docker pull timescale/timescaledb-ha:pg14-latest
 ```
 
-<highlight type="important">
+<Highlight type="important">
 The `timescaledb-ha` image does not support ARM64. For ARM64 environments, use the
 `timescaledb` Docker image. By default, this image does not contain Toolkit. You can add
 Toolkit using the package installation method, or by building from source.
-</highlight>
+</Highlight>
 
 For more information on running TimescaleDB using Docker, see the section on
 [pre-built containers][docker-install].
@@ -60,7 +60,7 @@ For more information on running TimescaleDB using Docker, see the section on
 These instructions use the `yum` package manager. They have been tested on CentOS 7
 and may also work on other Red Hat-based systems, such as Red Hat Enterprise Linux and Fedora.
 
-<procedure>
+<Procedure>
 
 #### Installing Toolkit on CentOS 7
 
@@ -86,14 +86,14 @@ and may also work on other Red Hat-based systems, such as Red Hat Enterprise Lin
     CREATE EXTENSION timescaledb_toolkit;
     ```
 
-</procedure>
+</Procedure>
 
 ### Install Toolkit on Ubuntu and other Debian-based systems
 
 These instructions use the `apt` package manager. They have been tested on Ubuntu 20.04
 and may also work on other Debian-based systems.
 
-<procedure>
+<Procedure>
 
 #### Installing Toolkit on Ubuntu 20.04
 
@@ -119,14 +119,14 @@ and may also work on other Debian-based systems.
     CREATE EXTENSION timescaledb_toolkit;
     ```
 
-</procedure>
+</Procedure>
 
 ### Install Toolkit on macOS
 
 These instructions use the `brew` package manager. For more information on
 installing or using Homebrew, see [the `brew` homepage][brew-install].
 
-<procedure>
+<Procedure>
 
 #### Installing Toolkit on macOS
 
@@ -156,7 +156,7 @@ installing or using Homebrew, see [the `brew` homepage][brew-install].
     CREATE EXTENSION timescaledb_toolkit;
     ```
 
-</procedure>
+</Procedure>
 
 ### Install Toolkit on Windows
 
@@ -167,13 +167,13 @@ can run PostgreSQL in a Docker container.
 
 Update Toolkit by installing the latest version and running `ALTER EXTENSION`.
 
-<procedure>
+<Procedure>
 
 ### Updating Toolkit on self-hosted TimescaleDB
 
 1.  Update your local repository list:
 
-    <terminal>
+    <Terminal>
 
     <tab label='CentOS 7'>
 
@@ -199,11 +199,11 @@ Update Toolkit by installing the latest version and running `ALTER EXTENSION`.
 
     </tab>
 
-    </terminal>
+    </Terminal>
 
 1.  Install the latest version of TimescaleDB Toolkit:
 
-    <terminal>
+    <Terminal>
 
     <tab label='CentOS 7'>
 
@@ -229,7 +229,7 @@ Update Toolkit by installing the latest version and running `ALTER EXTENSION`.
 
     </tab>
 
-    </terminal>
+    </Terminal>
 
 1.  Connect to the database where you want to use the new version of Toolkit.
 1.  Update the Toolkit extension in the database:
@@ -238,12 +238,12 @@ Update Toolkit by installing the latest version and running `ALTER EXTENSION`.
     ALTER EXTENSION timescaledb_toolkit UPDATE;
     ```
 
-<highlight type="note">
+<Highlight type="note">
 For some Toolkit versions, you might need to disconnect and reconnect active
 sessions.
-</highlight>
+</Highlight>
 
-</procedure>
+</Procedure>
 
 ### Build Toolkit from source
 

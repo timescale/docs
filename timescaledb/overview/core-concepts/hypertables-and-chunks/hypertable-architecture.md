@@ -32,13 +32,13 @@ alt="Rows are inserted into hypertable chunks based on their time values." />
 This happens behind the scenes. You run regular inserts and queries to your
 database, and TimescaleDB automatically handles the partitioning.
 
-<highlight type="note">
+<Highlight type="note">
 This section uses the example of 1-day chunks to explain how hypertables work.
 The default chunk time interval is actually 7 days, and you can change it to
 suit your data ingest patterns. To learn about best practices for chunk time
 intervals, see the documentation on
 [chunk sizing](timescaledb/latest/how-to-guides/hypertables/about-hypertables/#best-practices-for-time-partitioning).
-</highlight>
+</Highlight>
 
 ## Time-and-space partitioning
 
@@ -135,11 +135,11 @@ other partition. Uniqueness within the partition implies global uniqueness.
 These checks happen in the background. As a user, you run a regular `INSERT`
 command, and the correct index is automatically updated.
 
-<highlight type="note">
+<Highlight type="note">
 To see examples of the partitioning column and unique index constraint in
 practice, see the section on
 [hypertables and unique indexes](/timescaledb/latest/how-to-guides/hypertables/hypertables-and-unique-indexes/).
-</highlight>
+</Highlight>
 
 [distributed-hypertables]: /timescaledb/:currentVersion:/overview/core-concepts/distributed-hypertables/
 [hypertable-benefits-indexes]: /timescaledb/:currentVersion:/overview/core-concepts/hypertables-and-chunks/hypertables-and-chunks-benefits/#faster-index-updates

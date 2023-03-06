@@ -6,7 +6,7 @@ keywords: [Toolkit, function pipelines]
 
 import Experimental from 'versionContent/_partials/_experimental.mdx';
 
-# Function pipelines <tag type="toolkit">Toolkit</tag><tag type="experimental-toolkit">Experimental</tag>
+# Function pipelines <Tag type="toolkit">Toolkit</Tag><Tag type="experimental-toolkit">Experimental</Tag>
 
 Function pipelines are an experimental feature, designed to radically improve
 how you write queries to analyze data in PostgreSQL and SQL. They work by
@@ -15,12 +15,12 @@ Pandas, and PromQL.
 
 <Experimental />
 
-<highlight type="important">
+<Highlight type="important">
 The `timevector()` function materializes all its data points in
 memory. This means that if you use it on a very large dataset,
 it runs out of memory. Do not use the `timevector` function
 on a large dataset, or in production.
-</highlight>
+</Highlight>
 
 SQL is the best language for data analysis, but it is not perfect, and at times
 it can be difficult to construct the query you want. For example, this query gets data from the last day from the measurements table, sorts the data by the time column, calculates the delta between the values, takes the absolute value of the delta, and then takes the sum of the result of the previous steps:
@@ -349,10 +349,10 @@ The output for this example:
 (4 rows)
 ```
 
-<highlight type="note">
+<Highlight type="note">
 The first row of the output is missing, as there is no way to compute a delta
 without a previous value.
-</highlight>
+</Highlight>
 
 #### Fill method transform
 

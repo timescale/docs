@@ -11,7 +11,7 @@ vastly more varied values.
 
 For these hyperfunctions, you need to install the [TimescaleDB Toolkit][install-toolkit] PostgreSQL extension.
 
-<hyperfunctionTable
+<HyperfunctionTable
     hyperfunctionFamily='frequency analysis'
     includeExperimental
     sortByType

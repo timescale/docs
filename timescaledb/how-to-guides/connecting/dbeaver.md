@@ -21,7 +21,7 @@ services.
 
 ### Connecting to on-premise TimescaleDB using DBeaver
 
-<procedure>
+<Procedure>
 
 1.  Start `DBeaver`.
 1.  In the `Database` menu, click `New Database Connection`.
@@ -38,11 +38,11 @@ services.
     src="https://s3.amazonaws.com/assets.timescale.com/docs/images/on_premise_dbeaver.png"
     alt="Connecting to TimescaleDB using DBeaver"/>
 
-</procedure>
+</Procedure>
 
 ### Connecting to Timescale Cloud with DBeaver
 
-<procedure>
+<Procedure>
 
 1.  Sign in to the [Timescale Cloud portal][tsc-portal].
 1.  In the `Services` tab, find the service you want to connect to, and check
@@ -61,12 +61,12 @@ services.
     `Host`, `Port`,`Database`, `Username` and `Password`. For more information
     about these settings, see [the connection settings section][connection-settings].
 
-    <highlight type="note">
+    <Highlight type="note">
     If you configured your Timescale Cloud service to connect using
     [SSL mode] [ssl-mode], then in the `SSL` tab enable `Use SSL`,
     set `SSL mode` to `verify-full`, and in the `CA Certificate` field, type
     the location of the SSL root CA certificate to use.
-    </highlight>
+    </Highlight>
 
 1.  Click the `Test Connection` button to check if the connection is successful.
 1.  Click the `Finish` button to connect to the database server. The server is
@@ -76,18 +76,18 @@ services.
     src="https://s3.amazonaws.com/assets.timescale.com/docs/images/timescale_cloud_dbeaver.png"
     alt="Connecting to Timescale Cloud using DBeaver"/>
 
-</procedure>
+</Procedure>
 
 ### Connecting to Managed Service for TimescaleDB with DBeaver
 
-<highlight type="important">
+<Highlight type="important">
 To ensure a secure network access to your Managed Service for TimescaleDB
 service, make sure you add the IP address of the machine running DBeaver to the
 `Allowed IP Addresses`. For more information about network security in Managed
 Service for TimescaleDB, see [the security section](https://docs.timescale.com/mst/latest/security/).
-</highlight>
+</Highlight>
 
-<procedure>
+<Procedure>
 
 1.  Sign in to the [Managed Service for TimescaleDB portal][mst-portal].
 1.  In the `Services` tab, find the service you want to connect to, and check
@@ -110,7 +110,7 @@ Service for TimescaleDB, see [the security section](https://docs.timescale.com/m
     src="https://s3.amazonaws.com/assets.timescale.com/docs/images/mst_dbeaver.png"
     alt="Connecting to Managed Service for TimescaleDB using Dbeaver"/>
 
-</procedure>
+</Procedure>
 
 ## Connection settings in `Connect to a database`
 

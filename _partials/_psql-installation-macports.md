@@ -1,4 +1,4 @@
-<procedure>
+<Procedure>
 
 #### Installing psql using MacPorts
 
@@ -14,4 +14,4 @@
     port contents libpqxx
     ```
 
-</procedure>
+</Procedure>

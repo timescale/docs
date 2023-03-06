@@ -5,6 +5,7 @@ keywords: [data retention, policies, create]
 ---
 
 # Create a data retention policy
+
 An intrinsic part of working with time-series data is that the relevance of data
 can diminish over time. As new data accumulates, old data becomes less valuable and
 is rarely, if ever, updated. So, you often want to delete old raw data to save
@@ -12,7 +13,7 @@ disk space.
 
 This is particularly helpful when combined with continuous aggregates. The raw
 data is downsampled into a continuous aggregate and then a data retention policy
-can drop order raw data that's no longer needed.
+can drop older raw data that's no longer needed.
 
 In this image, dropping data on the underlying hypertable doesn't affect the
 continuous aggregate. Your continuous aggregate is unaffected as long as you do
@@ -22,10 +23,11 @@ not refresh the continuous aggregate for time periods where you dropped data:
 
 There are two ways to drop historic data from a hypertable:
 
-* Automatic data retention policy
-* Manually dropping chunks
+*   Automatic data retention policy
+*   Manually dropping chunks
 
 ## Create an automated data retention policy
+
 Automated data retention policies drop data according to a schedule and defined
 rules. These policies are "set it and forget it" in nature, meaning less hassle
 for maintenance and upkeep.
@@ -37,7 +39,7 @@ queried, you may want to continually remove stock trade data in the underlying
 hypertable `stocks_real_time` after the trade timestamp is older than three
 weeks ago.
 
-<procedure>
+<Procedure>
 
 ### Creating an automated data retention policy
 
@@ -83,9 +85,10 @@ weeks ago.
                         |                          |     1|2022-05-03 21:52:45.068 -0400|2022-05-03 21:52:45.304 -0400|Success        |Scheduled |  00:00:00.235434|2022-05-04 21:52:45.304 -0400|       109|            108|             1|
     ```
 
-</procedure>
+</Procedure>
 
 ## Manually drop older hypertable chunks
+
 To manually remove data on a once-off basis, use the TimescaleDB function
 [`drop_chunks()`][drop-chunks].
 
@@ -115,8 +118,7 @@ SELECT drop_chunks(
 For more details and best practices on data retention and automated data retention
 policies, see the [Data Retention docs][data-retention].
 
-
-<video url="https://www.youtube.com/embed/BJRIntSAmHM"></video>
+<Video url="https://www.youtube.com/embed/BJRIntSAmHM"></Video>
 
 [data-retention]: /timescaledb/:currentVersion:/how-to-guides/data-retention/
 [drop-chunks]: /api/:currentVersion:/hypertable/drop_chunks/

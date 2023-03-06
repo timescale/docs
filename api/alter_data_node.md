@@ -9,7 +9,7 @@ api:
   type: function
 ---
 
-# alter_data_node() <tag type="community">Community</tag>
+# alter_data_node() <Tag type="community">Community</Tag>
 
 Change the configuration of a data node that was originally set up with
 [`add_data_node`][add_data_node] on the access node.

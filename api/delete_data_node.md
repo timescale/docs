@@ -9,7 +9,7 @@ api:
   type: function
 ---
 
-# delete_data_node() <tag type="community">Community</tag>
+# delete_data_node() <Tag type="community">Community</Tag>
 
 This function is executed on an access node to remove a data
 node from the local database. As part of the deletion, the data node
@@ -24,14 +24,14 @@ operation is local to ensure it can complete even if the remote
 data node is not responding and to avoid unintentional data loss on
 the data node.
 
-<highlight type="note">
+<Highlight type="note">
 It is not possible to use
 [`add_data_node`](/api/latest/distributed-hypertables/add_data_node) to add the
 same data node again without first deleting the database on the data
 node or using another database. This is to prevent adding a data node
 that was previously part of the same or another distributed database
 but is no longer synchronized.
-</highlight>
+</Highlight>
 
 #### Errors
 

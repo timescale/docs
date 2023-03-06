@@ -25,21 +25,21 @@ different password.
 The fork is created by restoring from backup and applying the write-ahead log.
 The data is fetched from Amazon S3, so forking doesn't tax the running instance.
 
-<highlight type="important">
+<Highlight type="important">
 You can fork services that have a status of `Running` or `Paused`. You cannot
 fork services while they have a status of `In progress`. Wait for the service to
 complete the transition before you start forking.
-</highlight>
+</Highlight>
 
-<highlight type="warning">
+<Highlight type="warning">
 Forks only have data up to the point when the original service was forked. Any
 data written to the original service after the time of forking does not appear
 in the fork. If you want the fork to assume operations from the original
 service, pause your main service before forking to avoid any
 data discrepancy between services.
-</highlight>
+</Highlight>
 
-<procedure>
+<Procedure>
 
 ### Forking a service
 
@@ -62,7 +62,7 @@ data discrepancy between services.
 src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-forked-service.png"
 alt="Fork a Timescale Cloud service"/>
 
-</procedure>
+</Procedure>
 
 ### Reset service password
 
@@ -83,9 +83,10 @@ for compatibility with older clients.
 
 ### Pause service
 
-You can pause a service if you want to stop it running temporarily. This stops
-your service from costing you, but the service is still available and ready to
-be restarted at any time.
+You can pause a service if you want to stop it running temporarily. When you
+pause a service, you are no longer billed for compute services. However, you do
+need to continue paying for any storage you are using. Pausing a service ensures
+that it is still available, and is ready to be restarted at any time.
 
 ### Delete a service
 

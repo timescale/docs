@@ -10,11 +10,11 @@ If you originally installed TimescaleDB using Docker, you can upgrade from
 within the Docker container. This allows you to upgrade to the latest
 TimescaleDB version, while retaining your data.
 
-<highlight type="note">
+<Highlight type="note">
 In this section, the examples use a Docker instance called `timescaledb`. If you
 have given your Docker instance a different name, replace it when you issue the
 commands.
-</highlight>
+</Highlight>
 
 ## Determine the mount point type
 
@@ -24,7 +24,7 @@ version. To do this, you need to work out where the current mount point is. The
 current mount point varies depending on whether your container is using volume
 mounts, or bind mounts.
 
-<procedure>
+<Procedure>
 
 ### Determining the mount point type
 
@@ -39,7 +39,7 @@ mounts, or bind mounts.
     when you perform the upgrade. Make sure you copy the correct command, based
     on your mount point type.
 
-    <terminal>
+    <Terminal>
 
     <tab label='Volume mount'>
 
@@ -59,9 +59,9 @@ mounts, or bind mounts.
 
     </tab>
 
-    </terminal>
+    </Terminal>
 
-</procedure>
+</Procedure>
 
 ## Upgrade TimescaleDB within Docker
 
@@ -69,7 +69,7 @@ To upgrade TimescaleDB within Docker, you need to download the upgraded image,
 stop the old container, and launch the new container pointing to your existing
 data.
 
-<procedure>
+<Procedure>
 
 ### Upgrading TimescaleDB within Docker
 
@@ -95,7 +95,7 @@ data.
 
     For volume mounts:
 
-    <terminal>
+    <Terminal>
 
     <tab label='Volume mount'>
 
@@ -115,7 +115,7 @@ data.
 
     </tab>
 
-    </terminal>
+    </Terminal>
 
 1.  Connect to the upgraded instance using `psql` with the `-X` flag:
 
@@ -138,10 +138,10 @@ data.
     ALTER EXTENSION timescaledb_toolkit UPDATE;
     ```
 
-<highlight type="note">
+<Highlight type="note">
 If you have multiple databases, you need to update each database separately.
-</highlight>
+</Highlight>
 
-</procedure>
+</Procedure>
 
 [toolkit]: https://docs.timescale.com/timescaledb/latest/how-to-guides/hyperfunctions/install-toolkit/

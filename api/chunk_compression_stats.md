@@ -9,7 +9,7 @@ api:
   type: function
 ---
 
-# chunk_compression_stats() <tag type="community">Community</tag>
+# chunk_compression_stats() <Tag type="community">Community</Tag>
 
 Get chunk-specific statistics related to hypertable compression.
 All sizes are in bytes.

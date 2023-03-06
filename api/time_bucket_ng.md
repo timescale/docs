@@ -15,7 +15,7 @@ hyperfunction:
 
 import DeprecationNotice from "versionContent/_partials/_deprecated.mdx";
 
-## timescaledb_experimental.time_bucket_ng() <tag type="experimental">Experimental</tag>
+## timescaledb_experimental.time_bucket_ng() <Tag type="experimental">Experimental</Tag>
 
 The `time_bucket_ng()` function is an experimental version of the
 [`time_bucket()`][time_bucket] function. It introduced some new capabilities,
@@ -24,7 +24,7 @@ regular `time_bucket()` function.
 
 <DeprecationNotice />
 
-<highlight type="warning">
+<Highlight type="warning">
 The `time_bucket()` and `time_bucket_ng()` functions are similar, but not
 completely compatible. There are two main differences.
 
@@ -34,7 +34,7 @@ while `time_bucket()` does.
 Secondly, the default `origin` values differ. `time_bucket()` uses an origin
 date of January 3, 2000, for buckets shorter than a month. `time_bucket_ng()`
 uses an origin date of January 1, 2000, for all bucket sizes.
-</highlight>
+</Highlight>
 
 ### Required arguments
 
@@ -183,11 +183,11 @@ ORDER BY bucket;
 
 For more information, see the [continuous aggregates documentation][caggs].
 
-<highlight type="important">
+<Highlight type="important">
 While `time_bucket_ng()` supports months and timezones,
 continuous aggregates cannot always be used with monthly
 buckets or buckets with timezones.
-</highlight>
+</Highlight>
 
 This table shows which `time_bucket_ng()` functions can be used in a continuous aggregate:
 

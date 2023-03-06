@@ -14,10 +14,10 @@ disk, etc). Adjusting these settings, either
 [automatically with our tool `timescaledb-tune`][tstune] or manually editing
 your machine's `postgresql.conf`, can improve performance.
 
-<highlight type="tip">
+<Highlight type="tip">
 You can determine the location of `postgresql.conf` by running
 `SHOW config_file;` from your PostgreSQL client (for example, `psql`).
-</highlight>
+</Highlight>
 
 In addition, other TimescaleDB specific settings can be modified through the
 `postgresql.conf` file as discussed in our section about [TimescaleDB settings][ts-settings]
@@ -34,6 +34,7 @@ Go environment, you can also `go get` the repository to install it.
 
 `timescaledb-tune` reads your system's `postgresql.conf` file and offers
 interactive suggestions for updating your settings:
+
 ```
 Using postgresql.conf at this path:
 /usr/local/var/postgres/postgresql.conf
@@ -71,8 +72,9 @@ These changes are then written to your `postgresql.conf` and take effect
 on the next (re)start. If you are starting on fresh instance and don't feel
 the need to approve each group of changes, you can also automatically accept
 and append the suggestions to the end of your `postgresql.conf` like so:
+
 ```bash
-$ timescaledb-tune --quiet --yes --dry-run >> /path/to/postgresql.conf
+timescaledb-tune --quiet --yes --dry-run >> /path/to/postgresql.conf
 ```
 
 ## PostgreSQL configuration and tuning
@@ -84,7 +86,7 @@ may need to adjust; those are covered below.
 
 ### Memory settings
 
-<highlight type="tip">All of these settings are handled by `timescaledb-tune`.</highlight>
+<Highlight type="tip">All of these settings are handled by `timescaledb-tune`.</Highlight>
 
 The settings `shared_buffers`, `effective_cache_size`, `work_mem`, and
 `maintenance_work_mem` need to be adjusted to match the machine's available
@@ -96,7 +98,7 @@ PgTune may also be helpful.
 
 ### Worker settings
 
-<highlight type="tip">All of these settings are handled by `timescaledb-tune`.</highlight>
+<Highlight type="tip">All of these settings are handled by `timescaledb-tune`.</Highlight>
 
 PostgreSQL utilizes worker pools to provide the required workers needed to
 support both live queries and background jobs. If you do not configure these
@@ -176,7 +178,6 @@ an exact setting; it only controls the *average* number of object
 locks allocated for each transaction. For more information, please
 review the official PostgreSQL documentation on
 [lock management][lock-management].
-
 
 ## TimescaleDB configuration and tuning
 
@@ -286,8 +287,6 @@ Records last time `timescaledb-tune` ran.
 
 Version of `timescaledb-tune` used to tune when it ran.
 
-
-
 ## Changing configuration with Docker
 
 When running TimescaleDB via a [Docker container][docker], there are
@@ -298,23 +297,27 @@ write-ahead-log (WAL) from 1&nbsp;GB to 2&nbsp;GB in a Docker container named
 
 #### Modifying postgres.conf inside Docker
 
-1. Get into a shell in Docker in order to change the configuration on a running container.
+1.  Get into a shell in Docker in order to change the configuration on a running container.
+
 ```
 docker start timescaledb
 docker exec -i -t timescaledb /bin/bash
 ```
 
-2. Edit and then save the config file, modifying the setting for the desired configuration parameter (for example, `max_wal_size`).
+2.  Edit and then save the config file, modifying the setting for the desired configuration parameter (for example, `max_wal_size`).
+
 ```
 vi /var/lib/postgresql/data/postgresql.conf
 ```
 
-3. Restart the container so the config gets reloaded.
+3.  Restart the container so the config gets reloaded.
+
 ```
 docker restart timescaledb
 ```
 
-4. Test to see if the change worked.
+4.  Test to see if the change worked.
+
 ```
     docker exec -it timescaledb psql -U postgres
 

@@ -8,7 +8,7 @@ api:
   type: function
 ---
 
-# move_chunk() <tag type="community">Community</tag>
+# move_chunk() <Tag type="community">Community</Tag>
 
 TimescaleDB allows you to move data and indexes to different tablespaces. This
 allows you to move data to more cost-effective storage as it ages.
@@ -22,10 +22,10 @@ process. This comes at a cost of slightly higher disk usage during the
 operation. For a more detailed discussion of this capability, see the
 documentation on [managing storage with tablespaces][manage-storage].
 
-<highlight type="note">
+<Highlight type="note">
 You must be logged in as a super user, such as the `postgres` user,
 to use the `move_chunk()` call.
-</highlight>
+</Highlight>
 
 ### Required arguments
 

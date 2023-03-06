@@ -31,10 +31,10 @@ To fix this error, increase the `max_locks_per_transaction` setting in the
 PostgreSQL configuration file, so that `pg_dump` and `pg_restore` can create the
 required number of locks, and the backup or restore can continue.
 
-<highlight type="important">
+<Highlight type="important">
 You need to restart PostgreSQL to pick up changes to the
 `max_locks_per_transaction` parameter.
-</highlight>
+</Highlight>
 
 You can use this query to calculate the new minimum value to use for
 `max_locks_per_transaction`:
