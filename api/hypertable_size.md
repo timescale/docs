@@ -18,8 +18,8 @@ in bytes. This is equivalent to computing the sum of `total_bytes`
 column from the output of `hypertable_detailed_size` function.
 
 <Highlight type="tip">
-When a continuous aggregate name is provided, the function will
-transparently look up the backing hypertable and return its statistics
+When a continuous aggregate name is provided, the function
+transparently looks up the backing hypertable and returns its statistics
 instead.
 
 </Highlight>
