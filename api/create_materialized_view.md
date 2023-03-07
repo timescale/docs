@@ -49,12 +49,17 @@ provide only one hypertable or underlying continuous aggregate; CTEs and subquer
 supported.
 
 In TimescaleDB&nbsp;2.10.0 and later, the `FROM` clause supports `JOINS`, with these restrictions:
-1. Only joins between two tables are currently supported, where one is a hypertable and the other table is a standard PostgreSQL table. The order of tables in the `JOIN` clause does not matter.
-2. Only the `INNER` `JOIN` type is currently supported.
-3. Only equality conditions are currently supported as `JOIN` conditions.
-4. Joins in hierarchical continuous aggregates are not currently supported. The hypertable on the `JOIN` condition must be a normal hypertable, not a continuous aggregate itself.
-5. Changes on the normal PostgreSQL table are not tracked. Only changes on the hypertable result in updates to the continuous aggregate when it is refreshed.
-6. Support for `USING` in the `JOIN` clause requires PostgreSQL&nbsp;13 or later. PostgreSQL&nbsp;12 is supported for joins with a condition in the `WHERE` or `JOIN` clauses.
+*   To join between two tables, one table must be a hypertable and the other table must 
+     be a standard PostgreSQL table. The order of tables in the `JOIN` clause does not 
+     matter.
+*   You must use an `INNER JOIN`, no other join type is supported.
+*   The `JOIN` conditions can only be equality conditions.
+*   The hypertable on the `JOIN` condition must be a hypertable, and not a continuous 
+     aggregate. Additionally, you can't use joins in hierarchical continuous aggregates. 
+*   Changes to the hypertable are tracked, and are updated in the continuous aggregate 
+     when it is refreshed. Changes to the standard PostgreSQL table are not tracked. 
+*   The `USING` clause is supported in joins for PostgreSQL&nbsp;13 or later.
+     In PostgreSQL&nbsp;12 only joins with a condition in the `WHERE` clause or `JOIN` clause can be used.
 
 The `GROUP BY` clause must include a time bucket on the underlying
 time column, and all aggregates must be parallelizable.
