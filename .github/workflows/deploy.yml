@@ -27,9 +27,41 @@ jobs:
           event-type: build-docs-content
           client-payload: '{"branch": "${{ steps.timescale.outputs.DEV_FOLDER }}", "pr_number": "${{ env.PR_NUMBER }}"}'
 
-      - name: Write comment
+      - name: Write comment with build link
         uses: marocchino/sticky-pull-request-comment@3d60a5b2dae89d44e0c6ddc69dd7536aec2071cd
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           message: |
-            Allow 10 minutes from last push for the staging site to build. If the link doesn't work, try using incognito mode instead. For internal reviewers, check web-documentation repo actions for staging build status. Link to build for this PR: <a href="https://docs-dev.timescale.com/docs-${{ env.HYPHENATED_BRANCH_NAME }}" target="_blank">http://docs-dev.timescale.com/docs-${{ env.HYPHENATED_BRANCH_NAME }}</a>
+            Allow 10 minutes from last push for the staging site to build. If
+            the link doesn't work, try using incognito mode instead. For
+            internal reviewers, check web-documentation repo actions for staging
+            build status. Link to build for this PR: <a
+            href="https://docs-dev.timescale.com/docs-${{
+            env.HYPHENATED_BRANCH_NAME }}"
+            target="_blank">http://docs-dev.timescale.com/docs-${{
+            env.HYPHENATED_BRANCH_NAME }}</a>
+
+  changed-files:
+    name: Check for deleted and moved files
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c
+        with:
+          fetch-depth: 2
+      - name: Get deleted and moved files
+        id: get-filenames
+        run: |
+          CHANGED_FILES="$(git diff --name-status HEAD~1 HEAD | awk '/^D|R/ {print}')"
+          echo "CHANGED_FILES=$(echo "$CHANGED_FILES")" >> $GITHUB_OUTPUT
+      - name: Write comment with changed or deleted files
+        if: (steps.get-filenames.outputs.CHANGED_FILES != '')
+        uses: marocchino/sticky-pull-request-comment@3d60a5b2dae89d44e0c6ddc69dd7536aec2071cd
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          message: |
+            The following files were deleted or renamed in this pull request:\n
+            ${{ steps.get-filenames.outputs.CHANGED_FILES }}\n
+            If you need new redirects, add them to `.data/redirects.json`.
