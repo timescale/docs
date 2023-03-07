@@ -144,7 +144,7 @@ queries to run efficiently.
 
 ## Create a continuous aggregate with a JOIN
 
-In TimescaleDB&nbsp;2.9 and later, with PostgreSQL&nbsp;13 or later, you can
+In TimescaleDB&nbsp;2.10 and later, with PostgreSQL&nbsp;12 or later, you can
 create a continuous aggregate with a query that also includes a `JOIN`. For
 example:
 
@@ -161,9 +161,8 @@ GROUP BY name, bucket;
 ```
 
 <Highlight type="note">
-This also works in Timescale&nbsp;2.9 and later running PostgreSQL&nbsp;12, but
-you cannot also have a `USING` clause in your `JOIN`. If you need a `USING`
-clause, you must have PostgreSQL&nbsp;13 or later.
+For more information, including some additional restrictions, see the 
+[continuous aggregates section][api-cagg-create_materialized_view]. 
 </Highlight>
 
 ## Query continuous aggregates
@@ -256,6 +255,7 @@ FROM example_aggregate;
 This speeds up your query by calculating the aggregation ahead of time. The
 delta still needs to be calculated at query time.
 
+[api-cagg-create_materialized_view]: /api/:currentVersion:/continuous-aggregates/create_materialized_view/
 [api-time-bucket-gapfill]: /api/:currentVersion:/hyperfunctions/gapfilling-interpolation/time_bucket_gapfill/
 [api-time-bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
 [cagg-function-support]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/about-continuous-aggregates/#function-support
