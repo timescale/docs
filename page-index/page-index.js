@@ -7,6 +7,7 @@ const timescaleCloudPageIndex = require("../cloud-console/page-index/page-index"
 const tutorialsPageIndex = require("../tutorials/page-index/page-index.js");
 const codeQuickStartsPageIndex = require("../quick-start/page-index/page-index.js");
 const timescaleAboutPageIndex = require("../about/page-index/page-index");
+const promscalePageIndex = require("../promscale/page-index/page-index");
 
 module.exports = [
   ...gsgPageIndex,
@@ -17,6 +18,7 @@ module.exports = [
   ...apiReferencePageIndex,
   ...timescaleMSTPageIndex,
   ...selfHostedPageIndex,
+  ...promscalePageIndex,
   ...timescaleAboutPageIndex,
   {
     Title: "GitHub",
