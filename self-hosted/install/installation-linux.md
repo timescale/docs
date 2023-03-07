@@ -1,15 +1,16 @@
 ---
-title: Install TimescaleDB on Debian and Ubuntu
-excerpt: Install self-hosted TimescaleDB on Linux
+title: Install Timescale on Linux
+excerpt: Install self-hosted Timescale on Linux
 products: [self_hosted]
 keywords: [installation, self-hosted, Debian, Ubuntu, RHEL, Fedora]
 ---
 
 import Linux from "versionContent/_partials/_psql-installation-linux.mdx";
+import WhereTo from "versionContent/_partials/_where-to-next.mdx";
 
-# Install TimescaleDB on Linux
+# Install Timescale on Linux
 
-You can host TimescaleDB yourself, on your Debian-based, Red Hat-based, or Arch
+You can host Timescale yourself, on your Debian-based, Red Hat-based, or Arch
 Linux-based systems. These instructions use the `apt`, `yum`, and `pacman`
 package manager on these distributions:
 
@@ -24,18 +25,18 @@ If you have already installed PostgreSQL using a method other than the `apt`
 package manager maintained by Debian or Ubuntu archive, `yum`, or `pacman` package
 manager, you could encounter errors following these instructions. It is safest
 to remove any existing PostgreSQL installations before you begin. If you want to
-keep your current PostgreSQL installation, do not install TimescaleDB using this
+keep your current PostgreSQL installation, do not install Timescale using this
 method. [Install from source](/install/latest/self-hosted/installation-source/)
 instead.
 </Highlight>
 
-<Tabs label="Install TimescaleDB">
+<Tabs label="Install Timescale">
 
 <Tab title="Debian">
 
 <Procedure>
 
-### Installing self-hosted TimescaleDB on Debian-based systems
+## Installing self-hosted Timescale on Debian-based systems
 
 1.  At the command prompt, as root, add the PostgreSQL third party repository
     to get the latest PostgreSQL packages:
@@ -50,7 +51,7 @@ instead.
     /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh
     ```
 
-1.  Add the TimescaleDB third party repository:
+1.  Add the Timescale third party repository:
 
     <Terminal>
 
@@ -90,19 +91,19 @@ instead.
     apt update
     ```
 
-1.  Install TimescaleDB:
+1.  Install Timescale:
 
     ```bash
     apt install timescaledb-2-postgresql-14
     ```
 
     <Highlight type="note">
-    If you want to install a specific version of TimescaleDB, instead of the
+    If you want to install a specific version of Timescale, instead of the
     most recent, you can specify the version like this:
     `apt-get install timescaledb-2-postgresql-12='2.6.0*' timescaledb-2-loader-postgresql-12='2.6.0*'`
 
-    You can see the full list of TimescaleDB releases by visiting our
-    [releases page][releases-page]. Note that older versions of TimescaleDB
+    You can see the full list of Timescale releases by visiting our
+    [releases page][releases-page]. Note that older versions of Timescale
     don't always support all the OS versions listed above.
     </Highlight>
 
@@ -120,7 +121,7 @@ information, see the [configuration][config] section.
 
 <Procedure>
 
-### Installing self-hosted TimescaleDB on Red Hat-based systems
+## Installing self-hosted Timescale on Red Hat-based systems
 
 1.  At the command prompt, as root, add the PostgreSQL third party repository
     to get the latest PostgreSQL packages:
@@ -189,7 +190,7 @@ information, see the [configuration][config] section.
     yum update
     ```
 
-1.  Install TimescaleDB:
+1.  Install Timescale:
 
     ```bash
     yum install timescaledb-2-postgresql-14
@@ -227,9 +228,9 @@ information, see the [configuration][config] section.
 
 <Procedure>
 
-### Installing self-hosted TimescaleDB on ArchLinux-based systems
+## Installing self-hosted Timescale on ArchLinux-based systems
 
-1.  Install TimescaleDB and timescaledb-tune:
+1.  Install Timescale and timescaledb-tune:
 
     ```bash
     sudo pacman -Syu timescaledb timescaledb-tune
@@ -241,7 +242,8 @@ information, see the [configuration][config] section.
     sudo -u postgres initdb --locale=en_US.UTF-8 --encoding=UTF8 -D /var/lib/postgres/data --data-checksums
     ```
 
-1.  Run timescaledb-tune to adjust your `postgresql.conf` file, to use TimescaleDB as PostgreSQL extension:
+1.  Run timescaledb-tune to adjust your `postgresql.conf` file, to use Timescale
+    as PostgreSQL extension:
 
     ```bash
     sudo timescaledb-tune
@@ -260,24 +262,24 @@ information, see the [configuration][config] section.
 
 </Tabs>
 
-## Set up the TimescaleDB extension
+## Set up the Timescale extension
 
-When you have PostgreSQL and TimescaleDB installed, you can connect to it from
+When you have PostgreSQL and Timescale installed, you can connect to it from
 your local system using the `psql` command-line utility.
 
 <Linux />
 
-<Tabs lable="TimescaleDB extension">
+<Tabs lable="Timescale extension">
 
 <Tab title="Debian">
 
 <Procedure>
 
-### Setting up the TimescaleDB extension on Debian-based systems
+### Setting up the Timescale extension on Debian-based systems
 
-Restart PostgreSQL and create the TimescaleDB extension:
+Restart PostgreSQL and create the Timescale extension:
 
-1.  Restart the service after enabling TimescaleDB with `timescaledb-tune`:
+1.  Restart the service after enabling Timescale with `timescaledb-tune`:
 
     ```bash
     systemctl restart postgresql
@@ -330,13 +332,13 @@ Restart PostgreSQL and create the TimescaleDB extension:
     \c tsdb
     ```
 
-1.  Add the TimescaleDB extension:
+1.  Add the Timescale extension:
 
     ```sql
     CREATE EXTENSION IF NOT EXISTS timescaledb;
     ```
 
-1.  Check that the TimescaleDB extension is installed by using the `\dx`
+1.  Check that the Timescale extension is installed by using the `\dx`
     command at the `psql` prompt. Output is similar to:
 
     ```sql
@@ -357,7 +359,7 @@ Restart PostgreSQL and create the TimescaleDB extension:
 
 <Procedure>
 
-### Setting up the TimescaleDB extension on Red Hat-based systems
+### Setting up the Timescale extension on Red Hat-based systems
 
 1.  Enable and start the service:
 
@@ -409,13 +411,13 @@ Restart PostgreSQL and create the TimescaleDB extension:
     \c tsdb
     ```
 
-1.  Add the TimescaleDB extension:
+1.  Add the Timescale extension:
 
     ```sql
     CREATE EXTENSION IF NOT EXISTS timescaledb;
     ```
 
-1.  Check that the TimescaleDB extension is installed by using the `\dx`
+1.  Check that the Timescale extension is installed by using the `\dx`
     command at the `psql` prompt. Output is similar to:
 
     ```sql
@@ -436,7 +438,7 @@ Restart PostgreSQL and create the TimescaleDB extension:
 
 <Procedure>
 
-### Setting up the TimescaleDB extension on ArchLinux-based systems
+### Setting up the Timescale extension on ArchLinux-based systems
 
 1.  On your local system, at the command prompt, connect to the PostgreSQL
     instance as the `postgres` superuser:
@@ -466,7 +468,7 @@ Restart PostgreSQL and create the TimescaleDB extension:
     \c tsdb
     ```
 
-1.  Add the TimescaleDB extension:
+1.  Add the Timescale extension:
 
     ```sql
     CREATE EXTENSION IF NOT EXISTS timescaledb;
@@ -478,7 +480,7 @@ Restart PostgreSQL and create the TimescaleDB extension:
     sudo -u postgres psql tsdb
     ```
 
-1.  Check that the TimescaleDB extension is installed by using the `\dx`
+1.  Check that the Timescale extension is installed by using the `\dx`
     command at the `psql` prompt. Output is similar to:
 
     ```sql
@@ -504,20 +506,7 @@ database directly using this command:
 psql -U postgres -h localhost -d tsdb
 ```
 
-## Where to next
+<WhereTo />
 
-Now that you have your first TimescaleDB database up and running, you can check
-out the [TimescaleDB][tsdb-docs] section in our documentation, and find out what
-you can do with it.
-
-If you want to work through some tutorials to help you get up and running with
-TimescaleDB and time-series data, check out our [tutorials][tutorials] section.
-
-You can always [contact us][contact] if you need help working something out, or
-if you want to have a chat.
-
-[contact]: https://www.timescale.com/contact
-[tsdb-docs]: /timescaledb/:currentVersion:/
-[tutorials]: /timescaledb/:currentVersion:/tutorials/
 [config]: /timescaledb/:currentVersion:/how-to-guides/configuration/
 [releases-page]: https://packagecloud.io/timescale/timescaledb

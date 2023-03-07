@@ -11,42 +11,32 @@ module.exports = [
         title: "Install Timescale",
         href: "install",
         excerpt: "Install self-hosted Timescale",
-        children: [
+        children: [  
           {
-            title: "Self hosted",
-            href: "self-hosted",
-            type: "react-page",
-            component: "InstallationPage",
-            showNewsletterForm: true,
-            excerpt: "Install self-hosted Timescale",
-            children: [
-              {
-                title: "Linux",
-                href: "installation-linux",
-                iconSrc: "//assets.iobeam.com/images/docs/linux-icon.svg",
-                excerpt: "Install self-hosted Timescale on Linux",
-              },
-              {
-                title: "Windows",
-                href: "installation-windows",
-                iconSrc: "//assets.iobeam.com/images/docs/Windows_logo_-_2012.svg",
-                excerpt:
-                  "Install self-hosted Timescale on Microsoft Windows using a zipped .exe file",
-              },
-              {
-                title: "MacOS",
-                href: "installation-macos",
-                iconSrc: "//assets.iobeam.com/images/docs/Apple_logo_black.svg",
-                excerpt: "Install self-hosted Timescale on MacOS using homebrew",
-              },
-              {
-                title: "From source",
-                href: "installation-source",
-                iconSrc: "//assets.iobeam.com/images/docs/source.png",
-                excerpt:
-                  "Install self-hosted Timescale on any operating system from source",
-              },
-            ],
+            title: "Linux",
+            href: "installation-linux",
+            iconSrc: "//assets.iobeam.com/images/docs/linux-icon.svg",
+            excerpt: "Install self-hosted Timescale on Linux",
+          },
+          {
+            title: "Windows",
+            href: "installation-windows",
+            iconSrc: "//assets.iobeam.com/images/docs/Windows_logo_-_2012.svg",
+            excerpt:
+            "Install self-hosted Timescale on Microsoft Windows using a zipped .exe file",
+          },
+          {
+            title: "MacOS",
+            href: "installation-macos",
+            iconSrc: "//assets.iobeam.com/images/docs/Apple_logo_black.svg",
+            excerpt: "Install self-hosted Timescale on MacOS using homebrew",
+          },
+          {
+            title: "From source",
+            href: "installation-source",
+            iconSrc: "//assets.iobeam.com/images/docs/source.png",
+            excerpt:
+              "Install self-hosted Timescale on any operating system from source",
           },
           {
             title: "Pre-built containers",
@@ -69,8 +59,8 @@ module.exports = [
             href: "troubleshooting",
             type: "placeholder",
           },
-        ],
-      },
+        ]
+      }, 
       {
         title: "Configuration",
         href: "configuration",
