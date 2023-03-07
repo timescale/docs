@@ -161,7 +161,8 @@ GROUP BY name, bucket;
 ```
 
 <Highlight type="note">
-Check our documentation on [creating continuous aggregates][api-cagg-create_materialized_view] for additional restrictions that apply. 
+For more information, including some additional restrictions, see the 
+[continuous aggregates section][api-cagg-create_materialized_view]. 
 </Highlight>
 
 ## Query continuous aggregates

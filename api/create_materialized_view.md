@@ -45,10 +45,10 @@ parameter. For more information, see
 
 Continuous aggregates have some limitations of what types of queries they can
 support, described in more length below. For example, the `FROM` clause must
-provide only one hypertable or underlying continuous aggregate, CTEs, or subqueries are not
+provide only one hypertable or underlying continuous aggregate; CTEs and subqueries are not
 supported.
 
-Starting on 2.10.0, the `FROM` clause also supports `JOINS`, with the following restrictions:
+In TimescaleDB&nbsp;2.10.0 and later, the `FROM` clause supports `JOINS`, with these restrictions:
 1. Only joins between two tables are currently supported, where one is a hypertable and the other table is a standard PostgreSQL table. The order of tables in the `JOIN` clause does not matter.
 2. Only the `INNER` `JOIN` type is currently supported.
 3. Only equality conditions are currently supported as `JOIN` conditions.
