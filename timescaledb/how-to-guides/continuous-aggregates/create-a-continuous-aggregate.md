@@ -256,7 +256,6 @@ FROM example_aggregate;
 This speeds up your query by calculating the aggregation ahead of time. The
 delta still needs to be calculated at query time.
 
-[api-cagg-create_materialized_view]:
 [api-time-bucket-gapfill]: /api/:currentVersion:/hyperfunctions/gapfilling-interpolation/time_bucket_gapfill/
 [api-time-bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
 [cagg-function-support]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/about-continuous-aggregates/#function-support
