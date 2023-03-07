@@ -22,26 +22,28 @@ module.exports = [
           {
             title: "Linux",
             href: "installation-linux",
-            iconSrc: "//assets.iobeam.com/images/docs/linux-icon.svg",
+            iconSrc: "https://assets.iobeam.com/images/docs/linux-icon.svg",
             excerpt: "Install self-hosted TimescaleDB on Linux",
           },
           {
             title: "Windows",
             href: "installation-windows",
-            iconSrc: "//assets.iobeam.com/images/docs/Windows_logo_-_2012.svg",
+            iconSrc:
+              "https://assets.iobeam.com/images/docs/Windows_logo_-_2012.svg",
             excerpt:
               "Install self-hosted TimescaleDB on Microsoft Windows using a zipped .exe file",
           },
           {
             title: "MacOS",
             href: "installation-macos",
-            iconSrc: "//assets.iobeam.com/images/docs/Apple_logo_black.svg",
+            iconSrc:
+              "https://assets.iobeam.com/images/docs/Apple_logo_black.svg",
             excerpt: "Install self-hosted TimescaleDB on MacOS using homebrew",
           },
           {
             title: "From source",
             href: "installation-source",
-            iconSrc: "//assets.iobeam.com/images/docs/source.png",
+            iconSrc: "https://assets.iobeam.com/images/docs/source.png",
             excerpt:
               "Install self-hosted TimescaleDB on any operating system from source",
           },
