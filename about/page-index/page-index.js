@@ -13,10 +13,10 @@ module.exports = [
         excerpt: "Timescale release documentation",
         children: [
           {
-            title: "Release notes for past releases",
+            title: "Release notes for Timescale&nbsp2.0.0 to 2.9.3",
             href: "past-releases",
             excerpt:
-              "Release notes for past releases",
+              "Release notes for Timescale&nbsp2.0.0 to 2.9.3",
           },
           {
             title: "Changes in TimescaleDB 2.0",

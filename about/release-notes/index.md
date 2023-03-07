@@ -6,13 +6,15 @@ keywords: [upgrades, updates, releases]
 
 # Timescale release notes
 
-This page contains release notes for the most recent Timescale version. For
+This page contains release notes for Timescale&nbsp;2.10.0 and newer. For
 release notes for older versions, see the
 [past releases section][past-relnotes].
 
 <Highlight type="note">
-Want to stay up-to-date with new releases? Subscribe to get
-[release notes email updates](https://www.timescale.com/signup/release-notes).
+Want to stay up-to-date with new releases? You can subscribe to our releases on
+GitHub and be notified by email whenever a new release is available. On our
+[Github page](https://github.com/timescale/timescaledb),
+click `Watch`, select `Custom` and then check `Releases`.
 </Highlight>
 
 ## 2.10.0 (2023-02-21)
@@ -124,6 +126,9 @@ Timescale thanks:
 -  <NAME> for <THING>
 
 --->
+
+For release notes for older Timescale versions, see the
+[past releases section][past-relnotes].
 
 [past-relnotes]: about/:currentVersion:/release-notes/past-releases/
 [pg-upgrade]: /timescaledb/:currentVersion:/how-to-guides/upgrades/upgrade-pg/
