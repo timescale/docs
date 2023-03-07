@@ -145,7 +145,7 @@ queries to run efficiently.
 
 ## Create a continuous aggregate with a JOIN
 
-In TimescaleDB&nbsp;2.9 and later, with PostgreSQL&nbsp;13 or later, you can
+In TimescaleDB&nbsp;2.10 and later, with PostgreSQL&nbsp;12 or later, you can
 create a continuous aggregate with a query that also includes a `JOIN`. For
 example:
 
@@ -162,9 +162,8 @@ GROUP BY name, bucket;
 ```
 
 <Highlight type="note">
-This also works in Timescale&nbsp;2.9 and later running PostgreSQL&nbsp;12, but
-you cannot also have a `USING` clause in your `JOIN`. If you need a `USING`
-clause, you must have PostgreSQL&nbsp;13 or later.
+For more information, including some additional restrictions, see the
+[continuous aggregates section](https://docs.timescale.com/api/latest/continuous-aggregates/create_materialized_view/).
 </Highlight>
 
 ## Query continuous aggregates
@@ -173,7 +172,8 @@ When you have created a continuous aggregate and set a refresh policy, you can
 query the view with a `SELECT` query. You can only specify a single hypertable
 in the `FROM` clause. Including more hypertables, tables, views, or subqueries
 in your `SELECT` query is not supported. Additionally, make sure that the
-hypertable you are querying does not have [row-level-security policies][postgres-rls]
+hypertable you are querying does not have
+[row-level-security policies][postgres-rls]
 enabled.
 
 <Procedure>
@@ -260,6 +260,6 @@ delta still needs to be calculated at query time.
 [api-time-bucket-gapfill]: /api/:currentVersion:/hyperfunctions/gapfilling-interpolation/time_bucket_gapfill/
 [api-time-bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
 [cagg-function-support]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/about-continuous-aggregates/#function-support
-[postgres-immutable]: https://www.postgresql.org/docs/current/xfunc-volatility.html
-[postgres-rls]: https://www.postgresql.org/docs/current/ddl-rowsecurity.html
-[postgres-security-barrier]: https://www.postgresql.org/docs/current/rules-privileges.html
+[postgres-immutable]: <https://www.postgresql.org/docs/current/xfunc-volatility.html>
+[postgres-rls]: <https://www.postgresql.org/docs/current/ddl-rowsecurity.html>
+[postgres-security-barrier]: <https://www.postgresql.org/docs/current/rules-privileges.html>

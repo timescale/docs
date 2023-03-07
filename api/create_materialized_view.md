@@ -45,8 +45,23 @@ parameter. For more information, see
 
 Continuous aggregates have some limitations of what types of queries they can
 support, described in more length below. For example, the `FROM` clause must
-provide only one hypertable or underlying continuous aggregate, and joins, CTEs, or subqueries are not
-supported. The `GROUP BY` clause must include a time bucket on the underlying
+provide only one hypertable or underlying continuous aggregate; CTEs and subqueries are not
+supported.
+
+In TimescaleDB&nbsp;2.10.0 and later, the `FROM` clause supports `JOINS`, with these restrictions:
+*   To join between two tables, one table must be a hypertable and the other table must 
+     be a standard PostgreSQL table. The order of tables in the `JOIN` clause does not 
+     matter.
+*   You must use an `INNER JOIN`, no other join type is supported.
+*   The `JOIN` conditions can only be equality conditions.
+*   The hypertable on the `JOIN` condition must be a hypertable, and not a continuous 
+     aggregate. Additionally, you can't use joins in hierarchical continuous aggregates. 
+*   Changes to the hypertable are tracked, and are updated in the continuous aggregate 
+     when it is refreshed. Changes to the standard PostgreSQL table are not tracked. 
+*   The `USING` clause is supported in joins for PostgreSQL&nbsp;13 or later.
+     In PostgreSQL&nbsp;12 only joins with a condition in the `WHERE` clause or `JOIN` clause can be used.
+
+The `GROUP BY` clause must include a time bucket on the underlying
 time column, and all aggregates must be parallelizable.
 
 Some important things to remember when constructing your `SELECT` query:
