@@ -27,8 +27,8 @@ import CaggsFunctionSupport from '../../_partials/_caggs-function-support.mdx';
 Continuous aggregates don't work on all queries. If you are using a function
 that continuous aggregates do not support, you see the error above.
 
-TimescaleDB doesn't support window functions or `JOIN` clauses on continuous
-aggregates. In versions earlier than 2.7, it doesn't support any
+TimescaleDB doesn't support window functions on continuous aggregates.
+In versions earlier than 2.7, it doesn't support any
 [non-parallelizable SQL aggregates][postgres-parallel-agg].
 
 <CaggsFunctionSupport />
