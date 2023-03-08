@@ -540,6 +540,8 @@ public class Main {
 }
 ```
 
+</Collapsible>
+
 ## Execute queries on TimescaleDB
 
 This section explains how to execute queries.
