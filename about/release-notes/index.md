@@ -11,8 +11,8 @@ release notes for older versions, see the
 [past releases section][past-relnotes].
 
 <Highlight type="note">
-Want to stay up-to-date with new releases? You can subscribe to our releases on
-GitHub and be notified by email whenever a new release is available. On our
+Want to stay up-to-date with new releases? You can subscribe to new releases on
+GitHub and be notified by email whenever a new release is available. On the
 [Github page](https://github.com/timescale/timescaledb),
 click `Watch`, select `Custom` and then check `Releases`.
 </Highlight>
