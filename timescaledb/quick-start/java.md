@@ -148,7 +148,7 @@ are ready to connect to TimescaleDB from Java.
     java -cp *.jar Main.java
     ```
 
-    If the command is successful, a stringh similar to
+    If the command is successful, a string similar to
     `{ApplicationName=PostgreSQL JDBC Driver}` is printed to your console.
 
 </Collapsible>
@@ -341,9 +341,12 @@ example, you generate some sample time-series data to insert into the
 
 <procedure>
 
-<Collapsible heading="Inserting batches of rows into TimescaleDB" headingLevel={3} defaultExpanded={false}>
+<Collapsible
+heading="Inserting batches of rows into TimescaleDB"
+headingLevel={3}
+defaultExpanded={false}>
 
-1.  FIXME:
+1.  Insert batches of rows:
 
     ```java
     final var sensorDataCount = 100;
@@ -416,7 +419,7 @@ This section covers how to execute queries against your database.
     }
     ```
 
-    If the command is succesfful, you'll see output like this:
+    If the command is successful, you'll see output like this:
 
     ```bash
     2021-05-12 23:30:00.0: 0,508649
@@ -431,12 +434,6 @@ This section covers how to execute queries against your database.
 
 </procedure>
 
-For more complex queries, you can use FIXME
-
-<procedure>
-
-</procedure>
-
 ## Next steps
 
 Now that you're able to connect, read, and write to a TimescaleDB instance from
@@ -445,12 +442,11 @@ application from an existing TimescaleDB instance, be sure to check out these
 advanced TimescaleDB tutorials:
 
 *   [Continuous Aggregates][continuous-aggregates]
-*   [Try Other Sample Datasets][other-samples]
 *   [Migrate Your own Data][migrate]
 
 ## Complete code samples
 
-FIXME
+This section contains complete code samples.
 
 <Collapsible heading="Complete code sample" headingLevel={3} defaultExpanded={false}>
 
@@ -541,10 +537,6 @@ public class Main {
 ```
 
 </Collapsible>
-
-## Execute queries on TimescaleDB
-
-This section explains how to execute queries.
 
 <Collapsible heading="Executing more complex queries" headingLevel={3} defaultExpanded={false}>
 
@@ -661,9 +653,12 @@ public class Main {
 [pg-jdbc-driver-artifact]: https://jdbc.postgresql.org/download/
 [pg-jdbc-driver-conn-docs]: https://jdbc.postgresql.org/documentation/datasource/
 [pg-jdbc-driver-dependency]: https://mvnrepository.com/artifact/org.postgresql/postgresql
-[pg-jdbc-driver-docs]: https://jdbc.postgresql.org/documentation/
 [pg-jdbc-driver]: https://jdbc.postgresql.org
-[timescaledb-getting-started]: /getting-started/:currentVersion:/
-[timescaledb-hypertable-create-docs]: /api/:currentVersion:/hypertable/create_hypertable
-[timescaledb-hypertable]: /timescaledb/:currentVersion:/overview/core-concepts/hypertables-and-chunks/
-[timescaledb-install]: /install/latest/
+[connect]: #connect-java-to-timescaledb
+[create-table]: #create-a-relational-table
+[create-hypertable]: #generate-a-hypertable
+[insert]: #insert-a-batch-of-rows-into-timescaledb
+[query]: #execute-queries-on-timescaledb
+[install]: /install/:currentVersion:/installation-cloud/
+[continuous-aggregates]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/
+[migrate]: /cloud/:currentVersion:/migrate-to-cloud/
