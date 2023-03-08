@@ -612,7 +612,7 @@ page by page, or all pages together, and group by path or not:
 
 <Procedure>
 
-<Collapsible heading="Exploring aggregation functions" headingLevel={3} defaultExpanded={false}>
+<Collapsible heading="Exploring aggregation functions" headingLevel={3}>
 
 1.  In the `page_load.rb` file located at `my_app/app/models` directory, add
     these scopes, for average response time, `min` and `max` requests, and
