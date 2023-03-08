@@ -67,11 +67,10 @@ day                    |              value
 
 ```
 
-### Use `time_bucket_gapfill` and use linear intepolation
+### Use `time_bucket_gapfill` and use linear interpolation
 
 Get the daily average metric value. Use `interpolate` to linearly interpolate
-the value if it is missing. Note that `avg` is nested _inside_ `interpolate`,
-and not the other way around.
+the value if it is missing. Note that `avg` is nested _inside_ `interpolate`.
 
 ```sql
 SELECT time_bucket_gapfill('1 day', time) AS day,
