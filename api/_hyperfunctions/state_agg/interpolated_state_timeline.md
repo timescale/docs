@@ -31,6 +31,13 @@ api_details:
             interval INTERVAL,
             [, prev StateAgg]
         ) RETURNS (TIMESTAMPTZ, TIMESTAMPTZ)
+
+        interpolated_state_int_timeline(
+            agg StateAgg,
+            start TIMESTAMPTZ,
+            interval INTERVAL,
+            [, prev StateAgg]
+        ) RETURNS (TIMESTAMPTZ, TIMESTAMPTZ)
   parameters:
     required:
       - name: agg
