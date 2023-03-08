@@ -1,6 +1,6 @@
 Time-series data usually grows very quickly. Large data volumes can become slow
 when aggregating the data into useful summaries. To make aggregating data
-faster, TimescaleDB uses continuous aggregates.
+faster, Timescale uses continuous aggregates.
 
 For example, if you have a table of temperature readings over time in a number
 of locations, and you want to find the average temperature in each location, you
@@ -12,7 +12,7 @@ aggregates automatically, and in the background, maintain the results from the
 query, and allow you to retrieve them in the same way as any other data.
 
 Continuous aggregate views are refreshed automatically in the background as new
-data is added, or old data is modified. TimescaleDB tracks these changes to the
+data is added, or old data is modified. Timescale tracks these changes to the
 dataset, and automatically updates the view in the background. This does not add
 any maintenance burden to your database, and does not slow down `INSERT`
 operations.
