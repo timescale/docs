@@ -102,7 +102,7 @@ instead.
     most recent, you can specify the version like this:
     `apt-get install timescaledb-2-postgresql-12='2.6.0*' timescaledb-2-loader-postgresql-12='2.6.0*'`
 
-    You can see the full list of Timescale releases by visiting our
+    You can see the full list of Timescale releases by visiting the
     [releases page][releases-page]. Note that older versions of Timescale
     don't always support all the OS versions listed above.
     </Highlight>
