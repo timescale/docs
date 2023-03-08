@@ -5,7 +5,7 @@ module.exports = [
     filePath: "index.md",
     children: [
       {
-        title: "Find pages by Cloud Console location",
+        title: "Find by Cloud Console location",
         overrideHref: "/cloud-console",
         excerpt: "Browse topics by Timescale Cloud console location.",
         type: "placeholder",
