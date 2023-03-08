@@ -464,7 +464,7 @@ function:
 
 <Procedure>
 
-<Collapsible heading="Executing queries using scopes" headingLevel={3} defaultExpanded={false}>
+<Collapsible heading="Executing queries using scopes" headingLevel={3}>
 
 1.  In the `page_load.rb` file located at `my_app/app/models` directory, add
     these scopes:
