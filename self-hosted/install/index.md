@@ -7,7 +7,7 @@ keywords: [installation]
 
 # Install Timescale
 
-Timescale extends PostgreSQL for time-series data—giving PostgreSQL the
+Timescale extends PostgreSQL for time-series data, giving PostgreSQL the
 high-performance, scalability, and analytical capabilities required by modern
 data-intensive applications.
 
