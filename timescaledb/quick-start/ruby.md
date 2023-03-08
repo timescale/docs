@@ -537,7 +537,7 @@ store the endpoint path and the time necessary to return the response.
 
 <Procedure>
 
-<Collapsible heading="Adding performace and path attributes" headingLevel={3} defaultExpanded={false}>
+<Collapsible heading="Adding performace and path attributes" headingLevel={3}>
 
 1.  Add columns to the database using rails migrations:
 
