@@ -6,9 +6,9 @@ api:
   license: community
   type: function
   toolkit: true
-  experimental: true
   version:
     experimental: 1.13.0
+    stable: 1.15.0
 hyperfunction:
   family: state tracking
   type: accessor
@@ -70,7 +70,7 @@ api_details:
         code: |
           SELECT
               bucket,
-              (toolkit_experimental.interpolated_state_timeline(
+              (interpolated_state_timeline(
                   summary,
                   bucket,
                   '15 min',
@@ -79,7 +79,7 @@ api_details:
           FROM (
               SELECT
                   time_bucket('1 min'::interval, ts) AS bucket,
-                  toolkit_experimental.state_agg(ts, state) AS summary
+                  state_agg(ts, state) AS summary
               FROM states_test
               GROUP BY time_bucket('1 min'::interval, ts)
           ) t;
