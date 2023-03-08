@@ -8,7 +8,7 @@ import QuickstartIntro from "versionContent/_partials/_quickstart-intro.mdx";
 
 # Ruby quick start
 
-<Intro />
+<QuickstartIntro />
 
 This quick start guide walks you through:
 
