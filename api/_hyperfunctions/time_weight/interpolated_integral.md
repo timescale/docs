@@ -5,10 +5,10 @@ topics: [hyperfunctions]
 api:
   license: community
   type: function
-  experimental: true
   toolkit: true
   version:
     experimental: 1.11.0
+    stable: 1.15.0
 hyperfunction:
   family: time-weighted calculations
   type: accessor
@@ -98,7 +98,7 @@ api_details:
 
             -- Get the total byte-hours used between Jan. 1 and Jan. 6
             SELECT
-                toolkit_experimental.interpolated_integral(
+                interpolated_integral(
                     time_weight('LOCF', ts, storage_bytes),
                     '01-01-2022',
                     '5 days',
