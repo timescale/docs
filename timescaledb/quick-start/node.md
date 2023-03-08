@@ -20,8 +20,6 @@ This quick start guide walks you through:
 
 ## Prerequisites
 
-## Prerequisites
-
 Before you start, make sure you have:
 
 *   Installed TimescaleDB. For more information, see the
@@ -34,11 +32,6 @@ Your Timescale Cloud trial is completely free for you to use for the first
 thirty days. This gives you enough time to complete all the tutorials and run
 a few test projects of your own.
 </highlight>
-
-## Connect to TimescaleDB
-
-TimescaleDB is based on PostgreSQL and we can use common PostgreSQL tools to connect
-your Node app to the database. This example uses
 
 ## Connect to TimescaleDB
 
@@ -176,13 +169,7 @@ ORM (object relational mapper) called [Sequelize][sequelize-info].
 
 ## Create a relational table
 
-In this section, you create a table called `sensors` which holds the ID, type,
-and location of your fictional sensors. Additionally, you create a hypertable
-called `sensor_data` which holds the measurements of those sensors. The
-measurements contain the time, sensor_id, temperature reading, and CPU
-percentage of the sensors.
-
-FIXME: This is what the other Quick Starts do, can we update this one to match?
+In this section, you create a relational table called `page_loads`.
 
 <procedure>
 
@@ -204,7 +191,7 @@ FIXME: This is what the other Quick Starts do, can we update this one to match?
     New migration was created at <PATH>.
     ```
 
-1.  Edit the migration file FIXME so that it sets up a migration key:
+1.  Edit the migration file so that it sets up a migration key:
 
     ```java
     'use strict';
@@ -254,7 +241,7 @@ FIXME: This is what the other Quick Starts do, can we update this one to match?
     }, { timestamps: false });
     ```
 
-1.  FIXME Instantiate a `PageLoads` object and save it to the database.
+1.  Instantiate a `PageLoads` object and save it to the database.
 
 </Collapsible>
 
@@ -286,7 +273,7 @@ and most other tasks are executed on the hypertable.
     New migration was created at <PATH>/20200601202912-add_hypertable.js .
     ```
 
-1.  In the `migrations` folder, there is now a file called `FIXME`. Open the
+1.  In the `migrations` folder, there is now a new file. Open the
     file, and add this content:
 
     ```js
