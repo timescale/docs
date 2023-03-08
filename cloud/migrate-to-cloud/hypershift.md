@@ -170,6 +170,36 @@ Use this format:
 
 </Procedure>
 
+## Best Practices
+
+### Index on `time` column for hypertables
+
+If you're converting a plain table to a hypertable, then you should ensure that
+you have an index on the `time` column in your source database. Hypershift is
+not able to leverage a composite index where `time` is not the first indexed
+column.
+
+The simplest thing is to create a btree index on time (but remember that
+creating an index will require the whole table to be read from disk):
+
+```sql
+CREATE INDEX ON "your_table" USING btree (time);
+```
+
+### Run hypershift close to either source or target database
+
+When you run hypershift, it will copy data from the source to the target
+database via the machine that you run hypershift on. This means that the
+network throughput and latency that you have between these three machines may
+impact the speed and duration of the migration.
+
+If you're migrating from RDS, we recommend running hypershift on an EC2
+instance in the same AZ as your RDS instance.
+
+For migrations from other managed services (e.g. Managed Service for Timescale)
+to Timescale Cloud we recommend running from a virtual machine in the same
+region as either the source or target database, whichever is most convenient.
+
 [cloud-install]: /install/:currentVersion:/installation-cloud/
 [docker-install]: https://docs.docker.com/get-docker/
 [chunk-time]: /timescaledb/:currentVersion:/how-to-guides/hypertables/about-hypertables#best-practices-for-time-partitioning
