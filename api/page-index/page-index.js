@@ -336,30 +336,8 @@ module.exports = [
           },
           {
             title: "Saturating math",
-            type: "directory",
-            href: "saturating_math",
-            children: [
-              {
-                title: "saturating_add",
-                href: "saturating_add",
-              },
-              {
-                title: "saturating_add_pos",
-                href: "saturating_add_pos",
-              },
-              {
-                title: "saturating_mul",
-                href: "saturating_mul",
-              },
-              {
-                title: "saturating_sub",
-                href: "saturating_sub",
-              },
-              {
-                title: "saturating_sub_pos",
-                href: "saturating_sub_pos",
-              },
-            ],
+            type: "placeholder",
+            href: "saturating-math",
           },
           {
             title: "Statistical and regression analysis",
