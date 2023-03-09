@@ -675,7 +675,8 @@ page by page, or all pages together, and group by path or not:
 1.  To build a summary based on every single page, and to recursively navigate to
     all of the pages and build a summary for each page, add the following to
     `page_load.rb` in the `my_app/app/models/` folder:
-
+    
+    ```ruby
     def self.resume_for(path)
        filter = where(path: path)
        get = -> (scope_name) { filter.send(scope_name).first&.value}
