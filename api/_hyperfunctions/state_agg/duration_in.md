@@ -6,9 +6,9 @@ api:
   license: community
   type: function
   toolkit: true
-  experimental: true
   version:
     experimental: 1.13.0
+    stable: 1.15.0
 hyperfunction:
   family: state tracking
   type: accessor
@@ -68,8 +68,8 @@ api_details:
             ('1-3-2020 19:30', 'running'),
             ('1-5-2020 12:00', 'stopping');
 
-          SELECT toolkit_experimental.duration_in(
-            toolkit_experimental.state_agg(time, state),
+          SELECT duration_in(
+            state_agg(time, state),
             'running'
           ) FROM states;
       return:

@@ -6,9 +6,9 @@ api:
   license: community
   type: function
   toolkit: true
-  experimental: true
   version:
     experimental: 1.13.0
+    stable: 1.15.0
 hyperfunction:
   family: state tracking
   type: aggregate
@@ -43,6 +43,6 @@ api_details:
     - description: Create a state aggregate to track the status of some devices.
       command:
         code: |
-          SELECT toolkit_experimental.state_agg(time, status) FROM devices;
+          SELECT state_agg(time, status) FROM devices;
 ---
 

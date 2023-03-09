@@ -8,7 +8,7 @@ tags: [ingest, Hypershift, postgresql]
 
 # Migrate with Hypershift
 
-You can use Hypershift&nbsp;0.2&nbsp;(beta) to migrate existing PostgreSQL
+You can use Hypershift&nbsp;0.3&nbsp;(beta) to migrate existing PostgreSQL
 databases in one step, and enable compression and hypertable creation on the
 fly.
 
@@ -103,7 +103,7 @@ plain index before you run the Hypershift migration.
 1.  At the command prompt, pull the latest Hypershift container from Dockerhub:
 
     ```bash
-    docker pull timescale/hypershift:0.2
+    docker pull timescale/hypershift:0.3
     ```
 
 </Procedure>
@@ -125,7 +125,7 @@ plain index before you run the Hypershift migration.
 1.  At the command prompt, pull the latest Hypershift container from Dockerhub:
 
     ```bash
-    docker pull timescale/hypershift:0.2
+    docker pull timescale/hypershift:0.3
     ```
 
 </Procedure>
