@@ -22,12 +22,22 @@ Because compression is enabled during the migration, you do not need to have the
 maximum amount of storage available in the target database before you start
 migration.
 
+## Migration speed
+
 In preliminary testing, Hypershift migrated 60&nbsp;GB of data in 9 to 12
-minutes, and 1&nbsp;TB of data in under 4 hours. You can continue reading from
-your source database during this time, though performance could be slower. If
-you write to tables in your source database during the migration, the new writes
-are not transferred to Timescale Cloud. To avoid this problem, fork your
-database and migrate your data from the fork. For more information, see the [migrating an active database section][migrate-active].
+minutes, and 1&nbsp;TB of data in under 4 hours.
+
+When you run Hypershift, it uses compute resources on the machine that you run
+the command on to copy data from the source to the target database. This means
+that the network throughput and latency that you have between the various
+machines can impact the speed and duration of the migration.
+
+You can continue reading from your source database during the migration, though
+performance could be slower. If you write to tables in your source database
+during the migration, the new writes are not transferred to Timescale Cloud. To
+avoid this problem, fork your database and migrate your data from the fork. For
+more information, see the
+[migrating an active database section][migrate-active].
 
 <Highlight type="important">
 If you have a large database, and Hypershift is going to have to run for a very
@@ -38,6 +48,14 @@ single transaction open for the entire duration of the migration. This prevents
 any autovacuum tasks from running, which can cause a range of different
 problems on a busy source database.
 </Highlight>
+
+If you're migrating from an Amazon RDS database, the best option is to run
+Hypershift on an EC2 instance in the same accessibility zone as your RDS
+instance.
+
+For migrations from other managed services, including Managed Service for
+TimescaleDB, run Hypershift from a virtual machine in the same region as either
+the source or target database, whichever is most convenient.
 
 ## Prerequisites
 
@@ -52,10 +70,21 @@ thirty days. This gives you enough time to complete all the tutorials and run
 a few test projects of your own.
 </Highlight>
 
-It is also recommended that you create a plain index on the `time` column of your
-source database. Hypershift does work without an index, but the migration runs
-much slower. Hypershift does not support composite indexes. Ensure your source
-database has a plain index before you run the Hypershift migration.
+It is recommended that you create an index on the `time` column of your source
+database before you begin the migration. Hypershift does work without an index,
+but the migration runs much slower. The simplest way to achieve this is to
+create a btree index on the `time` column. However, creating an index can take
+some time, as the entire table needs to be read from disk. You can create the
+btree index with this command:
+
+```sql
+CREATE INDEX ON "<TABLE_NAME>" USING btree (time);
+```
+
+<highlight type="important">
+Hypershift does not support composite indexes where `time` is not the first
+indexed column.
+</highlight>
 
 ## Download the Hypershift container
 
