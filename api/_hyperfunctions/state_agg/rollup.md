@@ -6,9 +6,9 @@ api:
   license: community
   type: function
   toolkit: true
-  experimental: true
   version:
     experimental: 1.13.0
+    stable: 1.15.0
 hyperfunction:
   family: state tracking
   type: rollup
@@ -40,12 +40,12 @@ api_details:
         code: |
           WITH buckets AS (SELECT
               time_bucket('1 minute', ts) as dt,
-              toolkit_experimental.state_agg(ts, state) AS sa
+              state_agg(ts, state) AS sa
           FROM states_test
           GROUP BY time_bucket('1 minute', ts))
-          SELECT toolkit_experimental.duration_in(
+          SELECT duration_in(
               'START',
-              toolkit_experimental.rollup(buckets.sa)
+              rollup(buckets.sa)
           )
           FROM buckets;
 ---

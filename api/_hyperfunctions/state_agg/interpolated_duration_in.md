@@ -6,9 +6,9 @@ api:
   license: community
   type: function
   toolkit: true
-  experimental: true
   version:
     experimental: 1.13.0
+    stable: 1.15.0
 hyperfunction:
   family: state tracking
   type: accessor
@@ -69,7 +69,7 @@ api_details:
         code: |
           SELECT 
             time,
-            toolkit_experimental.interpolated_duration_in(
+            interpolated_duration_in(
               agg,
               'running',
               time,
@@ -78,7 +78,7 @@ api_details:
           ) FROM (
             SELECT
               time_bucket('1 day', time) as time,
-              toolkit_experimental.state_agg(time, state) as agg
+              state_agg(time, state) as agg
             FROM
               states
             GROUP BY time_bucket('1 day', time)
