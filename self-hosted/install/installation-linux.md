@@ -107,11 +107,10 @@ instead.
     don't always support all the OS versions listed above.
     </Highlight>
 
-When you have completed the installation, you need to configure your database so
-that you can use it. The easiest way to do this is to run the `timescaledb-tune`
-script, which is included with the `timescaledb-tools` package. Run the
-`timescaledb-tune` script using the `sudo timescaledb-tune` command. For more
-information, see the [configuration][config] section.
+1.  Configure your database by running the `timescaledb-tune` script, which is
+    included with the `timescaledb-tools` package. Run the `timescaledb-tune` script
+    using the `sudo timescaledb-tune` command. For more information, see the
+    [configuration][config] section.
 
 </Procedure>
 
@@ -213,12 +212,11 @@ information, see the [configuration][config] section.
     /usr/pgsql-14/bin/postgresql-14-setup initdb
     ```
 
-When you have completed the installation, you need to configure your database so
-that you can use it. The easiest way to do this is to run the `timescaledb-tune`
-script, which is included with the `timescaledb-tools` package. Run the
-`timescaledb-tune` script using the
-`sudo timescaledb-tune --pg-config=/usr/pgsql-14/bin/pg_config` command. For more
-information, see the [configuration][config] section.
+1.  Configure your database by running the `timescaledb-tune` script, which is
+    included with the `timescaledb-tools` package. Run the `timescaledb-tune`
+    script using the 
+    `sudo timescaledb-tune --pg-config=/usr/pgsql-14/bin/pg_config` command.
+    For more information, see the [configuration][config] section.
 
 </Procedure>
 
