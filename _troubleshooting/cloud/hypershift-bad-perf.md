@@ -21,7 +21,7 @@ column. Hypershift uses the index to determine how to perform the migration. It
 uses the index to break the database into parts that is can copy in parallel.
 Additionally, if you have compression enabled on the destination table,
 Hypershift can compress each part immediately after it is copied, which uses
-less storage dueing the migration. Without an index, Hypershift attempts to copy
+less storage during the migration. Without an index, Hypershift attempts to copy
 the entire table at once instead. To resolve this problem, create a btree index
 on the `time` column. However, creating an index can take some time, as the
 entire table needs to be read from disk. You can create the btree index with
@@ -32,6 +32,8 @@ CREATE INDEX ON "<TABLE_NAME>" USING btree (time);
 ```
 
 <highlight type="important">
-Hypershift does not support composite indexes. Ensure your source database has
-a plain index before you run the Hypershift migration.
+Hypershift is not able to efficiently copy and compress data when the only
+index is a composite index where `time` is not the first indexed column. If you
+already have such a composite index, ensure that your source database has a
+plain index before you run the Hypershift migration.
 </highlight>

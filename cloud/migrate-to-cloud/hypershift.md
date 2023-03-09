@@ -50,7 +50,7 @@ problems on a busy source database.
 </Highlight>
 
 If you're migrating from an Amazon RDS database, the best option is to run
-Hypershift on an EC2 instance in the same accessibility zone as your RDS
+Hypershift on an EC2 instance in the same availability zone as your RDS
 instance.
 
 For migrations from other managed services, including Managed Service for
@@ -82,8 +82,10 @@ CREATE INDEX ON "<TABLE_NAME>" USING btree (time);
 ```
 
 <highlight type="important">
-Hypershift does not support composite indexes where `time` is not the first
-indexed column.
+Hypershift is not able to efficiently copy and compress data when the only
+index is a composite index where `time` is not the first indexed column. If you
+already have such a composite index, ensure that your source database has a
+plain index before you run the Hypershift migration.
 </highlight>
 
 ## Download the Hypershift container
@@ -193,7 +195,7 @@ Use this format:
 
     ```bash
     docker run -v $(pwd)/hypershift.yml:/hypershift.yml \
-    -ti timescale/hypershift:0.2 clone \
+    -ti timescale/hypershift:0.3 clone \
     -s "host=<DB_NAME>.<SOURCE_DB_HOSTNAME> user=postgres port=5431 password=<DB_PASSWORD>" \
     -t "host=<DB_NAME>.<TARGET_DB_HOSTNAME> user=postgres port=5432 password=<DB_PASSWORD>" \
     --hypertable /hypershift.yml
