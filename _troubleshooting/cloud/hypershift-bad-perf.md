@@ -16,11 +16,20 @@ tags: [hypershift, migration, ingest, postgresql]
 -->
 
 When you migrate a PostgreSQL database to Timescale using the Hypershift tool,
-the migration runs very slowly if you do not have an index on the `time` column.
-Hypershift uses the index to determine how to perform the migration, and without
-an index it attempts to do the entire copy at once. To resolve this problem,
-create an index on the `time` column in your source database, and re-run
-Hypershift.
+the migration can run very slowly if you do not have an index on the `time`
+column. Hypershift uses the index to determine how to perform the migration. It
+uses the index to break the database into parts that is can copy in parallel.
+Additionally, if you have compression enabled on the destination table,
+Hypershift can compress each part immediately after it is copied, which uses
+less storage dueing the migration. Without an index, Hypershift attempts to copy
+the entire table at once instead. To resolve this problem, create a btree index
+on the `time` column. However, creating an index can take some time, as the
+entire table needs to be read from disk. You can create the btree index with
+this command:
+
+```sql
+CREATE INDEX ON "<TABLE_NAME>" USING btree (time);
+```
 
 <highlight type="important">
 Hypershift does not support composite indexes. Ensure your source database has
