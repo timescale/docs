@@ -14,6 +14,29 @@ Want to stay up-to-date with new releases? Subscribe to get
 [release notes email updates](https://www.timescale.com/signup/release-notes).
 </Highlight>
 
+## 2.10.1 (2023-03-07)
+
+This release contains bug fixes since the 2.10.0 release.
+We recommend that you upgrade at the next available opportunity.
+
+**Bugfixes**
+* #5159 Support Continuous Aggregates names in hypertable_(detailed_)size
+* #5226 Fix concurrent locking with chunk_data_node table
+* #5317 Fix some incorrect memory handling
+* #5336 Use NameData and namestrcpy for names
+* #5343 Set PortalContext when starting job
+* #5360 Fix uninitialized bucket_info variable
+* #5362 Make copy fetcher more async
+* #5364 Fix num_chunks inconsistency in hypertables view
+* #5367 Fix column name handling in old-style continuous aggregates
+* #5378 Fix multinode DML HA performance regression
+* #5384 Fix Hierarchical Continuous Aggregates chunk_interval_size
+
+**Thanks**
+* @justinozavala for reporting an issue with PL/Python procedures in the background worker
+* @Medvecrab for discovering an issue with copying NameData when forming heap tuples.
+* @pushpeepkmonroe for discovering an issue in upgrading old-style continuous aggregates with renamed columns
+
 ## 2.10.0 (2023-02-21)
 
 This release contains new features and bug fixes since the 2.9.3 release.
