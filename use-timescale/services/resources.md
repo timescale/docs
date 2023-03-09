@@ -45,8 +45,8 @@ cannot currently decrease your storage size once set.
     you want to adjust. Navigate to the `Operations` tab, and go to
     the `Resources` section.
 1.  Adjust the sliders for CPU and disk size as required. If you increase the
-    disk size past a certain point, we also recommend increasing the CPU size to
-    handle the increased disk size (although not required).
+    disk size past a certain point, you should also consider increasing the CPU
+    size to handle the increased disk size, although this is not required.
 1.  Review the new sizes and costs in the panel on the right-hand side, and
     click `Restart and apply` when you are happy with the changes.
 1.  The resources take a few seconds to increase, and when the increase is

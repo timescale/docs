@@ -14,7 +14,7 @@ cloud_ui:
 In the `General` section of the Operations dashboard, you can fork your service,
 reset the password, pause, or delete the service.
 
-### Fork a service
+## Fork a service
 
 When you a fork a service, you create an exact copy of the service, including
 the underlying database. This allows you to create a copy that you can use for
@@ -58,9 +58,11 @@ data discrepancy between services.
 1.  The forked service shows in the `Services` dashboard with a label stating
     which service it has been forked from.
 
-<img class="main-content__illustration"
+<img
+class="main-content__illustration"
 src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-forked-service.png"
-alt="Fork a Timescale Cloud service"/>
+alt="Fork a Timescale Cloud service"
+/>
 
 </Procedure>
 
@@ -76,10 +78,10 @@ Cloud password. When you have authenticated, you can create a new service passwo
 ask Timescale Cloud to auto-generate a password, or switch your authentication
 type between SCRAM and MD5.
 
-SCRAM (Salted Challenge Response Authentication Mechanism) and MD5 (Message Digest
-Algorithm 5) are cryptographic authentication mechanisms. Timescale Cloud uses SCRAM
-by default. It is more secure and strongly recommended. The MD5 option is provided
-for compatibility with older clients.
+SCRAM (salted challenge response authentication mechanism) and MD5 (message
+digest algorithm 5) are cryptographic authentication mechanisms. Timescale Cloud
+uses SCRAM by default. It is more secure and strongly recommended. The MD5
+option is provided for compatibility with older clients.
 
 ### Pause service
 

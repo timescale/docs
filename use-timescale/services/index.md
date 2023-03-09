@@ -9,18 +9,15 @@ cloud_ui:
     priority: 1
 ---
 
+import CloudIntro from "versionContent/_partials/_cloud-intro.mdx";
+
 # Timescale Cloud services
 
-Welcome to Timescale Cloud! Timescale Cloud is a cloud-native TimescaleDB as a
-service that is easy to get started and powerful enough for the most demanding
-scenarios.
+<CloudIntro />
 
-For installation instructions, and help getting your first service up and
-running, see the [Timescale Cloud installation section][cloud-install].
+### Learn more about Timescale
 
-### Learn more about TimescaleDB
-
-Read about TimescaleDB features in our documentation:
+Read about Timescale features in the documentation:
 
 *   Create your first [hypertable][hypertable-info].
 *   Run your first query using [time_bucket()][time-bucket-info].
@@ -29,18 +26,15 @@ Read about TimescaleDB features in our documentation:
 
 ### Keep testing during your free trial
 
-You're now on your way to a great start with Timescale!
+You're now on your way to a great start with Timescale.
 
-You have an unthrottled, 30-day free trial with Timescale Cloud to
-continue to test your use case. Before the end of your trial, we encourage you
-to add your credit card information. This ensures a smooth transition after
-your trial period concludes.
+You have an unthrottled, 30-day free trial with Timescale Cloud to continue to
+test your use case. Before the end of your trial, make sure you add your credit
+card information. This ensures a smooth transition after your trial period
+concludes.
 
-### Summary
-
-We're excited to play a small part in helping you build a best-in-class
-time-series application or monitoring tool. If you have any questions, please
-feel free to [join our community Slack group][slack-info]
+If you have any questions, you can
+[join our community Slack group][slack-info]
 or [contact us][contact-timescale] directly.
 
 ## Advanced configuration and multi-node setup
@@ -52,10 +46,9 @@ For additional documentation on how to:
 
 *   [Resize compute and storage][resize] at any time
 *   [Customize your database configuration][configuration] easily
-*   [Create a TimescaleDB multi-node cluster][multi-node] in Timescale Cloud
+*   [Create a Timescale multi-node cluster][multi-node] in Timescale Cloud
 
 [aggregates-info]: /getting-started/:currentVersion:/create-cagg
-[cloud-install]: /install/:currentVersion:/installation-cloud/
 [configuration]: /cloud/:currentVersion:/service-operations/database-parameters/customize-configuration/
 [contact-timescale]: https://www.timescale.com/contact
 [gap-filling-info]: /timescaledb/:currentVersion:/how-to-guides/query-data/advanced-analytic-queries#gap-filling
