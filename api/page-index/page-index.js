@@ -396,21 +396,14 @@ module.exports = [
             ],
           },
           {
-            title: "Gapfilling and interpolation",
-            type: "directory",
-            href: "gapfilling-interpolation",
+            title: "Gapfilling",
+            href: "gapfilling",
+            type: "redirect-to-child-page",
             children: [
               {
                 title: "time_bucket_gapfill",
                 href: "time_bucket_gapfill",
-              },
-              {
-                title: "locf",
-                href: "locf",
-              },
-              {
-                title: "interpolate",
-                href: "interpolate",
+                type: "placeholder",
               },
             ],
           },
