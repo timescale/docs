@@ -8,7 +8,7 @@ keywords: [connect, psql]
 # Install the psql connection tool
 
 The `psql` command line tool is widely used for interacting with a PostgreSQL or
-TimescaleDB instance, and it is available for all operating systems. Most of
+Timescale instance, and it is available for all operating systems. Most of
 the instructions in the Timescale documentation assume you are using `psql`.
 
 Before you start, check that you don't already have `psql` installed. It is
@@ -78,7 +78,7 @@ PostgreSQL, and this is the most effective way to install the tool. On macOS you
 1.  Install the latest version of Postgresql:
 
     ```bash
-    sudo port install postgresql<xx>  
+    sudo port install postgresql<xx>
     ```
 
     For example, to install version *14* replace `postgresql<xx>` with `postgresql14`.
@@ -139,7 +139,7 @@ If you do not want to install the entire PostgreSQL package, you can install the
 1.  Install the latest version of libpqxx:
 
     ```bash
-    sudo port install libpqxx 
+    sudo port install libpqxx
     ```
 
 1.  <Optional />View the files that were installed by libpqxx:
