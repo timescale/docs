@@ -1,16 +1,17 @@
 ---
-title: Install TimescaleDB on macOS
-excerpt: Install self-hosted TimescaleDB on macOS
+title: Install Timescale on macOS
+excerpt: Install self-hosted Timescale on macOS
 products: [self_hosted]
 keywords: [installation, self-hosted, macOS]
 ---
 
 import Homebrew from "versionContent/_partials/_psql-installation-homebrew.mdx";
 import MacPorts from "versionContent/_partials/_psql-installation-macports.mdx";
+import WhereTo from "versionContent/_partials/_where-to-next.mdx";
 
-# Install self-hosted TimescaleDB on macOS systems
+# Install self-hosted Timescale on macOS systems
 
-You can host TimescaleDB yourself on your Apple macOS system.
+You can host Timescale yourself on your Apple macOS system.
 These instructions use a Homebrew or MacPorts installer on these versions:
 
 *   Apple macOS 10.15 Catalina
@@ -18,7 +19,7 @@ These instructions use a Homebrew or MacPorts installer on these versions:
 *   Apple macOS 12 Monterey
 
 <Highlight type="important">
-Before you begin installing TimescaleDB, make sure you have installed PostgreSQL
+Before you begin installing Timescale, make sure you have installed PostgreSQL
 version 12 or later.
 </Highlight>
 
@@ -26,18 +27,18 @@ version 12 or later.
 If you have already installed PostgreSQL using a method other than Homebrew, you
 could encounter errors following these instructions. It is safest to remove any
 existing PostgreSQL installations before you begin. If you want to keep your
-current PostgreSQL installation, do not install TimescaleDB using this method.
+current PostgreSQL installation, do not install Timescale using this method.
 [Install from source](/install/latest/self-hosted/installation-source/)
 instead.
 </Highlight>
 
-## Install self-hosted TimescaleDB using Homebrew
+## Install self-hosted Timescale using Homebrew
 
-You can use Homebrew to install TimescaleDB on macOS-based systems.
+You can use Homebrew to install Timescale on macOS-based systems.
 
 <Procedure>
 
-### Installing self-hosted TimescaleDB using Homebrew
+### Installing self-hosted Timescale using Homebrew
 
 1.  Install Homebrew, if you don't already have it:
 
@@ -53,7 +54,7 @@ You can use Homebrew to install TimescaleDB on macOS-based systems.
     brew tap timescale/tap
     ```
 
-1.  Install TimescaleDB:
+1.  Install Timescale:
 
     ```bash
     brew install timescaledb
@@ -81,23 +82,23 @@ You can use Homebrew to install TimescaleDB on macOS-based systems.
 
 </Procedure>
 
-When you have PostgreSQL and TimescaleDB installed, you can connect to it from
+When you have PostgreSQL and Timescale installed, you can connect to it from
 your local system using the `psql` command-line utility.
 
 <Homebrew />
 
-## Install self-hosted TimescaleDB using MacPorts
+## Install self-hosted Timescale using MacPorts
 
-You can use MacPorts to install TimescaleDB on macOS-based systems.
+You can use MacPorts to install Timescale on macOS-based systems.
 
 <Procedure>
 
-### Installing self-hosted TimescaleDB using MacPorts
+### Installing self-hosted Timescale using MacPorts
 
 1.  Install MacPorts by downloading and running the package installer.
     For more information about MacPorts, including installation instructions,
     see the [MacPorts documentation][macports].
-1.  Install TimescaleDB:
+1.  Install Timescale:
 
     ```bash
     sudo port install timescaledb
@@ -118,19 +119,19 @@ section.
 
 </Procedure>
 
-When you have PostgreSQL and TimescaleDB installed, you can connect to it from
+When you have PostgreSQL and Timescale installed, you can connect to it from
 your local system using the `psql` command-line utility.
 
 <MacPorts />
 
-## Set up the TimescaleDB extension
+## Set up the Timescale extension
 
 Connect to PostgreSQL from your local system using the `psql` command-line
-utility and set up the TimescaleDB extension.
+utility and set up the Timescale extension.
 
 <Procedure>
 
-### Setting up the TimescaleDB extension
+### Setting up the Timescale extension
 
 1.  On your local system, at the command prompt, connect to the PostgreSQL
     instance as the `postgres` superuser:
@@ -159,13 +160,13 @@ utility and set up the TimescaleDB extension.
     \c tsdb
     ```
 
-1.  Add the TimescaleDB extension:
+1.  Add the Timescale extension:
 
     ```sql
     CREATE EXTENSION IF NOT EXISTS timescaledb;
     ```
 
-1.  Check that the TimescaleDB extension is installed by using the `\dx`
+1.  Check that the Timescale extension is installed by using the `\dx`
     command at the `psql` prompt. Output is similar to:
 
     ```sql
@@ -187,20 +188,8 @@ database directly using this command:
 psql -U postgres -h localhost -d tsdb
 ```
 
-## Where to next
+ <WhereTo />
 
-Now that you have your first TimescaleDB database up and running, you can check
-out the [TimescaleDB][tsdb-docs] section, and find out what you can do with it.
-
-If you want to work through some tutorials to help you get up and running with
-TimescaleDB and time-series data, check out the [tutorials][tutorials] section.
-
-You can always [contact us][contact] if you need help working something out, or
-if you want to have a chat.
-
-[contact]: https://www.timescale.com/contact
-[tsdb-docs]: /timescaledb/:currentVersion:/
-[tutorials]: /timescaledb/:currentVersion:/tutorials/
 [homebrew]: https://docs.brew.sh/Installation
 [install-psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql/
 [macports]: https://guide.macports.org/#installing.macports
