@@ -30,11 +30,6 @@ module.exports = [
         href: "java",
         excerpt: "Learn about using TimescaleDB with Java",
       },
-      {
-        title: "C# .Net",
-        href: "dotnet",
-        excerpt: "Learn about using TimescaleDB with C# .Net",
-      },
     ],
   },
 ];
