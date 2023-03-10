@@ -17,7 +17,7 @@ any indexes on the table, and any toast tables. The size is reported
 in bytes. This is equivalent to computing the sum of `total_bytes`
 column from the output of `hypertable_detailed_size` function.
 
-<Highlight type="tip">
+<Highlight type="note">
 When a continuous aggregate name is provided, the function
 transparently looks up the backing hypertable and returns its statistics
 instead.
@@ -38,7 +38,7 @@ see the [hypertable section][hypertable-docs].
 |-|-|-|
 |hypertable_size|BIGINT|Total disk space used by the specified hypertable, including all indexes and TOAST data|
 
-<Highlight type="tip">
+<Highlight type="note">
 `NULL` is returned if the function is executed on a non-hypertable relation.
 </Highlight>
 
