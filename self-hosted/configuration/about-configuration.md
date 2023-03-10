@@ -115,7 +115,7 @@ HINT:  You might need to increase max_locks_per_transaction.
 To avoid this issue, you can increase the `max_locks_per_transaction` setting
 from the default value, which is usually 64. Changing this parameter requires a
 database restart, so make sure you pick a larger number to allow for some
-growth. For most workloads, we recommend you choose a number equal to double the
+growth. For most workloads, choose a number equal to double the
 maximum number of chunks you expect to have in a hypertable. This takes into
 account that the number of locks used by a hypertable query is roughly equal to
 the number of chunks in the hypertable, or double that number if the query uses
