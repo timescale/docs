@@ -8,7 +8,9 @@ tags: [tune]
 
 # Manual PostgreSQL configuration and tuning
 
-If you prefer to tune settings yourself, or for settings not covered by `timescaledb-tune`, you can manually configure your installation using the PostgreSQL configuration file.
+If you prefer to tune settings yourself, or for settings not covered by
+`timescaledb-tune`, you can manually configure your installation using the
+PostgreSQL configuration file.
 
 For some common configuration settings you might want to adjust, see the
 [about-configuration][about-configuration] page.

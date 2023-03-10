@@ -1,13 +1,13 @@
 ---
 title: Configuration
-excerpt: Learn about configuring your TimescaleDB instance
+excerpt: Learn about configuring your Timescale instance
 products: [self_hosted]
 keywords: [configuration, settings]
 ---
 
 # Configuration
 
-By default, TimescaleDB uses the default PostgreSQL server configuration
+By default, Timescale uses the default PostgreSQL server configuration
 settings. However, in some cases, these settings are not appropriate, especially
 if you have larger servers that use more hardware resources such as CPU, memory,
 and storage.
@@ -16,7 +16,7 @@ and storage.
     begin using it.
 *   Use the [TimescaleDB tune tool][tstune-conf].
 *   Manually edit the `postgresql.conf` [configuration file][postgresql-conf].
-*   If you run TimescaleDB in a Docker container, configure
+*   If you run Timescale in a Docker container, configure
     [within Docker][docker-conf].
 *   Find out more about the [data that we collect][telemetry].
 
