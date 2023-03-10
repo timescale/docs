@@ -9,7 +9,7 @@ api:
   type: function
 ---
 
-# hypertable_size()  
+# hypertable_size()
 
 Get the total disk space used by a hypertable or continuous aggregate,
 that is, the sum of the size for the table itself including chunks,
@@ -17,26 +17,28 @@ any indexes on the table, and any toast tables. The size is reported
 in bytes. This is equivalent to computing the sum of `total_bytes`
 column from the output of `hypertable_detailed_size` function.
 
-<Highlight type="tip">
+<Highlight type="note">
 When a continuous aggregate name is provided, the function
 transparently looks up the backing hypertable and returns its statistics
 instead.
-
 </Highlight>
+
+For more information about using hypertables, including chunk size partitioning,
+see the [hypertable section][hypertable-docs].
 
 ### Required arguments
 
 |Name|Type|Description|
-|---|---|---|
-| `hypertable` | REGCLASS | Hypertable or continuous aggregate to show size of. |
+|-|-|-|
+|`hypertable`|REGCLASS|Hypertable or continuous aggregate to show size of.|
 
 ### Returns
 
 |Name|Type|Description|
-|---|---|---|
-|hypertable_size| BIGINT | Total disk space used by the specified hypertable, including all indexes and TOAST data. |
+|-|-|-|
+|hypertable_size|BIGINT|Total disk space used by the specified hypertable, including all indexes and TOAST data|
 
-<Highlight type="tip">
+<Highlight type="note">
 `NULL` is returned if the function is executed on a non-hypertable relation.
 </Highlight>
 
@@ -68,3 +70,5 @@ SELECT hypertable_size('device_stats_15m');
 -----------------
            73728
 ```
+
+[hypertable-docs]: /timescaledb/:currentVersion:/how-to-guides/hypertables/
