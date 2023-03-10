@@ -22,6 +22,9 @@ the table contains foreign key constraints (see below).
 After creation, all actions, such as `ALTER TABLE`, `SELECT`, etc.,
 still work on the resulting hypertable.
 
+For more information about using hypertables, including chunk size partitioning,
+see the [hypertable section][hypertable-docs].
+
 #### Required arguments
 
 |Name|Type|Description|
@@ -201,54 +204,8 @@ CREATE FUNCTION event_started(jsonb)
 SELECT create_hypertable('events', 'event', time_partitioning_func => 'event_started');
 ```
 
-#### Best Practices
-
-One of the most common questions users of TimescaleDB have revolves around
-configuring `chunk_time_interval`.
-
-**Time intervals:** Make sure you specify a `chunk_time_interval` when you
-create your hypertable (the default value is 1 week). The interval used for new
-chunks can be changed by calling [`set_chunk_time_interval()`][set_chunk_time_interval].
-
-The key property of choosing the time interval is that the chunk (including
-indexes) belonging to the most recent interval (or chunks if using space
-partitions) fit into memory. As such, we typically recommend setting the
-interval so that these chunks comprise no more than 25% of main memory.
-
-<Highlight type="tip">
-Make sure that you are planning for recent chunks from _all_ active hypertables
-to fit into 25% of main memory, rather than 25% per hypertable.
-</Highlight>
-
-To determine this, you roughly need to understand your data rate. If
-you are writing roughly 2 GB of data per day and have 64 GB of memory,
-setting the time interval to a week would be good. If you are writing
-10 GB per day on the same machine, setting the time interval to a day
-would be appropriate. This interval would also hold if data is loaded
-more in batches - for example, you bulk load 70 GB of data per week, with data
-corresponding to records from throughout the week.
-
-While it's generally safer to make chunks smaller rather than too
-large, setting intervals too small can lead to *many* chunks, which
-corresponds to increased planning latency for some types of queries.
-
-<Highlight type="tip">
-One caveat is that the total chunk size is actually dependent on
-both the underlying data size *and* any indexes, so some care might be
-taken if you make heavy use of expensive index types (for example, some
-PostGIS geospatial indexes).  During testing, you might check your
-total chunk sizes via the [`chunks_detailed_size`](/api/latest/hypertable/chunks_detailed_size/)
-function.
-</Highlight>
-
-**Space partitions:** In most cases, it is advised for users not to use
-space partitions. However, if you create a distributed hypertable, it is
-important to create space partitioning, see
-[create_distributed_hypertable][create_distributed_hypertable].
-The rare cases in which space partitions may be useful for non-distributed
-hypertables are described in the [add_dimension][add_dimension] section.
-
 [add_dimension]: /api/:currentVersion:/hypertable/add_dimension/
 [create_distributed_hypertable]: /api/:currentVersion:/distributed-hypertables/create_distributed_hypertable
 [hash-partitions]: /timescaledb/:currentVersion:/how-to-guides/hypertables/about-hypertables/#hypertable-partitioning
 [set_chunk_time_interval]: /api/:currentVersion:/hypertable/set_chunk_time_interval/
+[hypertable-docs]: /timescaledb/:currentVersion:/how-to-guides/hypertables/
