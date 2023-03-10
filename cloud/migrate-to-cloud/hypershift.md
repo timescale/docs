@@ -73,20 +73,20 @@ a few test projects of your own.
 It is recommended that you create an index on the `time` column of your source
 database before you begin the migration. Hypershift does work without an index,
 but the migration runs much slower. The simplest way to achieve this is to
-create a btree index on the `time` column. However, creating an index can take
+create a `btree` index on the `time` column. However, creating an index can take
 some time, as the entire table needs to be read from disk. You can create the
-btree index with this command:
+`btree` index with this command:
 
 ```sql
 CREATE INDEX ON "<TABLE_NAME>" USING btree (time);
 ```
 
-<highlight type="important">
+<Highlight type="important">
 Hypershift is not able to efficiently copy and compress data when the only
 index is a composite index where `time` is not the first indexed column. If you
 already have such a composite index, ensure that your source database has a
 plain index before you run the Hypershift migration.
-</highlight>
+</Highlight>
 
 ## Download the Hypershift container
 
