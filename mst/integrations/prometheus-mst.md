@@ -30,6 +30,7 @@ open source metrics-based systems monitoring solution.
       *   In the `Username` field, type your username.
       *   In the `Password` field, type your password.
       *   Click `Create` to create the endpoint.
+    
     These details are used when setting up your Prometheus installation, in the
     `prometheus.yml` configuration file. This enables you to make this Managed
     TimescaleDB endpoint a target for Prometheus to scrape.
