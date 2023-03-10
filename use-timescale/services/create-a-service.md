@@ -9,6 +9,8 @@ cloud_ui:
     priority: 2
 ---
 
+import WhereTonext from "versionContent/_partials/_where-to-next.mdx";
+
 # Create a Timescale service
 
 Timescale Cloud is a hosted, cloud-native Timescale service that allows you to
@@ -31,14 +33,7 @@ If you need another database, you need to create a new service.
 
 ## Where to next
 
-If you want to work through some tutorials to help you get up and running with
-Timescale and time-series data, check out the [tutorials][tutorials] section.
-
-If you're interested in learning more about pricing for Timescale Cloud, visit
-the [Timescale pricing calculator][timescale-pricing].
-
-You can always [contact us][contact] if you need help working something out, or
-if you want to have a chat.
+<WhereTonext />
 
 [cloud-install]: /install/:currentVersion:/installation-cloud/
 [contact]: https://www.timescale.com/contact
