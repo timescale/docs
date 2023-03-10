@@ -18,7 +18,7 @@ size of all. All sizes are reported in bytes. If the function is
 executed on a distributed hypertable, it returns size information
 as a separate row per node, including the access node.
 
-<Highlight type="tip">
+<Highlight type="note">
 When a continuous aggregate name is provided, the function
 transparently looks up the backing hypertable and returns its statistics
 instead.
@@ -43,7 +43,7 @@ see the [hypertable section][hypertable-docs].
 |total_bytes|BIGINT|Total disk space used by the specified table, including all indexes and TOAST data|
 |node_name|TEXT|For distributed hypertables, this is the user-given name of the node for which the size is reported. `NULL` is returned for the access node and non-distributed hypertables.|
 
-<Highlight type="tip">
+<Highlight type="note">
 If executed on a relation that is not a hypertable, the function
 returns `NULL`.
 </Highlight>

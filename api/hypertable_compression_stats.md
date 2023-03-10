@@ -16,7 +16,8 @@ Get statistics related to hypertable compression. All sizes are in bytes.
 For more information about using hypertables, including chunk size partitioning,
 see the [hypertable section][hypertable-docs].
 
-For more information about compression, see the [compression sction][compression-docs].
+For more information about compression, see the
+[compression sction][compression-docs].
 
 ### Required arguments
 
