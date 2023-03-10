@@ -14,7 +14,7 @@ and storage. This section explains some of the settings you are most likely to
 need to adjust.
 
 Some of these settings are PostgreSQL settings, and some are Timescale
-specific settings. For most changes, you can use our [tuning tool][tstune-conf]
+specific settings. For most changes, you can use the [tuning tool][tstune-conf]
 to adjust your configuration. For more advanced configuration settings, or to
 change settings that aren't included in the `timescaledb-tune` tool, you can
 [manually adjust][postgresql-conf] the  `postgresql.conf` configuration file.
