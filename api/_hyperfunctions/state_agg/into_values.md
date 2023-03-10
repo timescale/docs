@@ -6,9 +6,9 @@ api:
   license: community
   type: function
   toolkit: true
-  experimental: true
   version:
     experimental: 1.13.0
+    stable: 1.15.0
 hyperfunction:
   family: state tracking
   type: accessor
@@ -49,8 +49,8 @@ api_details:
         aggregate.
       command:
         code: |
-          SELECT state, duration FROM toolkit_experimental.into_values(
-            (SELECT toolkit_experimental.state_agg(time, state) FROM states_test)
+          SELECT state, duration FROM into_values(
+            (SELECT state_agg(time, state) FROM states_test)
           );
       return:
         code: |

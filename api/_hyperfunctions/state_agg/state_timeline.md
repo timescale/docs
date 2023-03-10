@@ -6,9 +6,9 @@ api:
   license: community
   type: function
   toolkit: true
-  experimental: true
   version:
     experimental: 1.13.0
+    stable: 1.15.0
 hyperfunction:
   family: state tracking
   type: accessor
@@ -50,8 +50,8 @@ api_details:
       command:
         code: |
           SELECT state, start_time, end_time
-            FROM toolkit_experimental.state_timeline(
-              (SELECT toolkit_experimental.state_agg(ts, state) FROM states_test)
+            FROM state_timeline(
+              (SELECT state_agg(ts, state) FROM states_test)
             );
       return:
         code: |2
