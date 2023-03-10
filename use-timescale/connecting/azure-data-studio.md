@@ -92,7 +92,7 @@ security in Managed Service for TimescaleDB, see
 
 </Tab>
 
-<Tab title="Self-hosted Timescale>
+<Tab title="Self-hosted Timescale">
 
 <Procedure>
 
