@@ -39,7 +39,6 @@ open source metrics-based systems monitoring solution.
     your Managed Service for TimescaleDB instance:
 
    ```yaml
-     # prometheus.yml for monitoring a Managed Service for TimescaleDB instance
     global:
      scrape_interval:     10s
      evaluation_interval: 10s
