@@ -83,7 +83,7 @@ connecting to data nodes using password authentication.
 
 ### `timescaledb.restoring (bool)`
 
-Set Timescale in restoring mode. It is by default disabled.
+Set Timescale in restoring mode. It is disabled by default.
 
 ### `timescaledb.license (string)`
 
