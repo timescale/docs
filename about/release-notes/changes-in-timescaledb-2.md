@@ -6,12 +6,12 @@ keywords: [upgrades, releases]
 
 # Changes in TimescaleDB 2.0
 
-<highlight type="warning">
+<Highlight type="warning">
 This is an historical document, which outlines the primary differences between
 Timescale&nbsp;1 and Timescale&nbsp;2.0. Timescale&nbsp;2.0 was released in
 February, 2021. For release notes pertaining to the most recent version of
 Timescale, see the [current release section](https://docs.timescale.com/about/latest/release-notes/).
-</highlight>
+</Highlight>
 
 TimescaleDB 2.0 introduces new features and capabilities to its advanced
 relational database for time-series data. Driven by user feedback and our
