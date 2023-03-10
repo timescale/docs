@@ -1,18 +1,18 @@
 ---
 title: Continuous aggregates on continuous aggregates
 excerpt: Create continuous aggregates on top of continuous aggregates to summarize data at different granularities
-keywords: [continuous aggregates, create]
+keywords: [continuous aggregates, hierarchical, create]
 ---
 
 # Hierarchical continuous aggregates
 
 You can create continuous aggregates on top of other continuous aggregates. This
-allows you to summarize data at different granularities. For example, you might
-have an hourly continuous aggregate that summarizes minute-by-minute data. To
-get a daily summary, you can create a new continuous aggregate on top of your
-hourly aggregate. This is more efficient than creating the daily aggregate on
-top of the original hypertable, because you can reuse the calculations from the
-hourly aggregate.
+allows you to summarize data at different levels of granularity. For example,
+you might have an hourly continuous aggregate that summarizes minute-by-minute
+data. To get a daily summary, you can create a new continuous aggregate on top
+of your hourly aggregate. This is more efficient than creating the daily
+aggregate on top of the original hypertable, because you can reuse the
+calculations from the hourly aggregate.
 
 This feature is available in TimescaleDB 2.9 and above.
 
@@ -73,6 +73,8 @@ can either:
 *   Redefine the yearly continuous aggregate on top of the daily continuous
     aggregate.
 
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/cagg_hierarchy.png" alt="Example of hierarchical continuous aggregates in a finance application"/>
+
 ## Roll up calculations
 
 When summarizing already-summarized data, be aware of how stacked calculations
@@ -93,6 +95,38 @@ aggregate in your continuous aggregate. Then, you can call an accessor function
 as a second step when you query from your continuous aggregate. This accessor
 takes the stored data from the summary aggregate and returns the final result.
 
+For example, you can create an hourly continuous aggregate using `percentile_agg`
+over a hypertable, like this:
+
+```sql
+CREATE MATERIALIZED VIEW response_times_hourly
+WITH (timescaledb.continuous)
+AS SELECT
+    time_bucket('1 h'::interval, ts) as bucket,
+    api_id,
+    avg(response_time_ms),
+    percentile_agg(response_time_ms) as percentile_hourly
+FROM response_times
+GROUP BY 1, 2;
+```
+
+To then stack another daily continuous aggregate over it, you can use a `rollup`
+function, like this:
+
+```sql
+CREATE MATERIALIZED VIEW response_times_daily
+WITH (timescaledb.continuous)
+AS SELECT
+    time_bucket('1 d'::interval, bucket) as bucket_daily,
+    api_id,
+    rollup(percentile_hourly) as percentile_daily
+FROM response_times_hourly
+GROUP BY 1, 2;
+```
+
+For more information and examples about using `rollup` functions to stack
+calculations, see the [percentile approximation API documentation][percentile_agg_api].
+
 ## Restrictions
 
 There are some restrictions when creating a continuous aggregate on top of
@@ -105,9 +139,9 @@ ensure valid time-bucketing:
     aggregate on top of a continuous aggregate in the old format, you need to
     [migrate your continuous aggregate][migrate-cagg] to the new format first.
 
-*   The time bucket of a continuous aggregate should be greater than or equal to the time
-    bucket of the underlying continuous aggregate. It also needs to be a
-    multiple of the underlying time bucket. For example, you can rebucket an
+*   The time bucket of a continuous aggregate should be greater than or equal to
+    the time bucket of the underlying continuous aggregate. It also needs to be
+    a multiple of the underlying time bucket. For example, you can rebucket an
     hourly continuous aggregate into a new continuous aggregate with time
     buckets of 6 hours. You can't rebucket the hourly continuous aggregate into
     a new continuous aggregate with time buckets of 90 minutes, because 90
@@ -137,3 +171,4 @@ ensure valid time-bucketing:
 [migrate-cagg]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/migrate/
 [postgresql-views]: https://www.postgresql.org/docs/current/rules-views.html
 [stats-aggs]: /api/:currentVersion:/hyperfunctions/statistical-and-regression-analysis/stats_agg-one-variable/
+[percentile_agg_api]: /api/:currentVersion:/hyperfunctions/percentile-approximation/uddsketch/#aggregate-and-roll-up-percentile-data-to-calculate-daily-percentiles-using-percentile_agg
