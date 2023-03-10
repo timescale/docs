@@ -21,7 +21,6 @@ column from the output of `hypertable_detailed_size` function.
 When a continuous aggregate name is provided, the function
 transparently looks up the backing hypertable and returns its statistics
 instead.
-
 </Highlight>
 
 For more information about using hypertables, including chunk size partitioning,
@@ -71,3 +70,5 @@ SELECT hypertable_size('device_stats_15m');
 -----------------
            73728
 ```
+
+[hypertable-docs]: /timescaledb/:currentVersion:/how-to-guides/hypertables/
