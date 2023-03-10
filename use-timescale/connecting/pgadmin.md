@@ -1,6 +1,6 @@
 ---
 title: pgAdmin
-excerpt: Connect to your TimescaleDB database with pgAdmin
+excerpt: Connect to your Timescale database with pgAdmin
 products: [cloud, mst, self_hosted]
 keywords: [connect]
 ---

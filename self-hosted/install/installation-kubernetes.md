@@ -1,19 +1,19 @@
 ---
-title: Install TimescaleDB on Kubernetes
-excerpt: Install self-hosted TimescaleDB on Kubernetes
+title: Install Timescale on Kubernetes
+excerpt: Install self-hosted Timescale on Kubernetes
 products: [self_hosted]
 keywords: [installation, self-hosted, Kubernetes]
 ---
 
-# Install TimescaleDB on Kubernetes
+# Install Timescale on Kubernetes
 
-You can install a TimescaleDB instance on any Kubernetes deployment. Use the
-`timescaledb-single` Helm chart to deploy a highly available TimescaleDB
+You can install a Timescale instance on any Kubernetes deployment. Use the
+`timescaledb-single` Helm chart to deploy a highly available Timescale
 database, and `timescaledb-multinode` to deploy a multi-node distributed
-TimescaleDB database. For more information about the components that are
-deployed with these charts, see [TimescaleDB on Kubernetes][timescaledb-k8s].
+Timescale database. For more information about the components that are
+deployed with these charts, see [Timescale on Kubernetes][timescaledb-k8s].
 
-Before you begin installing TimescaleDB on a Kubernetes deployment, make sure
+Before you begin installing Timescale on a Kubernetes deployment, make sure
 you have installed:
 
 *   [kubectl][kubectl-install]
@@ -25,23 +25,23 @@ than those specified in the default `values.yaml`. You can name this file
 `<MY_VALUES.yaml>`. For details about the parameters you can set, see the
 [Administrator Guide][admin-guide].
 
-## Install TimescaleDB using a Helm chart
+## Install Timescale using a Helm chart
 
-Install TimescaleDB on Kubernetes using a Helm chart with the default
+Install Timescale on Kubernetes using a Helm chart with the default
 `values.yaml` file. When you use the `values.yaml` file, the user credentials
 are randomly generated during installation. Therefore, the `helm upgrade`
 command does not rotate the credentials, because changing the database
 credentials would break the database. Instead, it continues to use the
 credentials generated during `helm install`.
 
-This section provides instructions to deploy TimescaleDB using the
+This section provides instructions to deploy Timescale using the
 `timescaledb-single` Helm chart.
 
 <Procedure>
 
-### Installing TimescaleDB using a Helm chart
+### Installing Timescale using a Helm chart
 
-1.  Add the TimescaleDB Helm chart repository:
+1.  Add the Timescale Helm chart repository:
 
     ```bash
     helm repo add timescale 'https://charts.timescale.com'
@@ -53,7 +53,7 @@ This section provides instructions to deploy TimescaleDB using the
     helm repo update
     ```
 
-1.  Install the TimescaleDB Helm chart, by replacing `<MY_NAME>` with a name of
+1.  Install the Timescale Helm chart, by replacing `<MY_NAME>` with a name of
     your choice:
 
     ```bash
@@ -68,14 +68,14 @@ This section provides instructions to deploy TimescaleDB using the
 
 </Procedure>
 
-## Connect to TimescaleDB
+## Connect to Timescale
 
-You can connect to TimescaleDB from an external IP address, or from within the
+You can connect to Timescale from an external IP address, or from within the
 cluster.
 
 <Procedure>
 
-### Connecting to TimescaleDB using an external IP
+### Connecting to Timescale using an external IP
 
 <Highlight type="note">
 If you configured the user credentials in the `my_values.yaml` file, you don't
@@ -118,9 +118,9 @@ the name that you provided during the installation.
 
 <Procedure>
 
-### Connecting to TimescaleDB from inside the cluster
+### Connecting to Timescale from inside the cluster
 
-1.  Get the Pod on which TimescaleDB is installed:
+1.  Get the Pod on which Timescale is installed:
 
    ```bash
    MASTERPOD="$(kubectl get pod -o name --namespace default -l release=test,role=master)"
@@ -136,8 +136,8 @@ the name that you provided during the installation.
 
 ## Create a database
 
- After installing and connecting to TimescaleDB you can create a database,
- connect to the database, and also verify that the TimescaleDB extension is
+ After installing and connecting to Timescale you can create a database,
+ connect to the database, and also verify that the Timescale extension is
  installed.
 
 <Procedure>
@@ -157,7 +157,7 @@ the name that you provided during the installation.
     \c tsdb
     ```
 
-1.  Verify that the TimescaleDB extension is installed by using the `\dx`
+1.  Verify that the Timescale extension is installed by using the `\dx`
     command at the command prompt. The output looks like this:
 
     ```sql
@@ -175,7 +175,7 @@ the name that you provided during the installation.
 
 ## Clean up
 
-You can use Helm to uninstall TimescaleDB on the Kubernetes cluster and clean up
+You can use Helm to uninstall Timescale on the Kubernetes cluster and clean up
 the Pods, persistent volume claim (PVC), S3 backups, and more.
 
 ### Cleaning up
@@ -190,15 +190,7 @@ Some items, such as PVCs and S3 backups, are not removed
 immediately. For more information about purging these items, see the
 [Administrator Guide][admin-guide].
 
-## Where to next
-
-Now that you have your first TimescaleDB database up and running, see
-the [TimescaleDB][tsdb-docs] section to learn what you can do with it.
-
-To work through some tutorials that help you get started with
-TimescaleDB and time-series data, check out the [tutorials][tutorials] section.
-
-To get help or chat with the Timescale team, [get in contact][contact].
+<WhereTo />
 
 [kubectl-install]: https://kubernetes.io/docs/tasks/tools/
 [kubernetes-install]: https://kubernetes.io/docs/setup/
@@ -206,8 +198,5 @@ To get help or chat with the Timescale team, [get in contact][contact].
 [minikube-install]: https://minikube.sigs.k8s.io/docs/start/
 [aws-eks]: https://docs.aws.amazon.com/eks/latest/userguide/getting-started.html
 [microk8s-install]: https://microk8s.io/docs/getting-started
-[contact]: https://www.timescale.com/contact
-[tsdb-docs]: /timescaledb/:currentVersion:/
 [admin-guide]: https://github.com/timescale/helm-charts/blob/master/charts/timescaledb-single/docs/admin-guide.md
 [timescaledb-k8s]: /timescaledb/:currentVersion:/overview/timescale-kubernetes/
-[tutorials]: /timescaledb/:currentVersion:/tutorials/

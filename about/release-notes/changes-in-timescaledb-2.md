@@ -6,16 +6,25 @@ keywords: [upgrades, releases]
 
 # Changes in TimescaleDB 2.0
 
-TimescaleDB 2.0 introduces new features and capabilities to its advanced relational
-database for time-series data. Driven by user feedback and our experience building
-products like [Promscale][promscale], 2.0 is a major
-milestone and introduces the first multi-node, petabyte-scale relational database
-for time-series. In addition to multi-node capabilities, this release includes new
-features, and improvements to existing ones, focused on giving you more flexibility,
- control over your data, and the ability to customize behavior to suit your needs.
+<Highlight type="warning">
+This is an historical document, which outlines the primary differences between
+Timescale&nbsp;1 and Timescale&nbsp;2.0. Timescale&nbsp;2.0 was released in
+February, 2021. For release notes pertaining to the most recent version of
+Timescale, see the [current release section](https://docs.timescale.com/about/latest/release-notes/).
+</Highlight>
+
+TimescaleDB 2.0 introduces new features and capabilities to its advanced
+relational database for time-series data. Driven by user feedback and our
+experience building products like [Promscale][promscale], 2.0 is a major
+milestone and introduces the first multi-node, petabyte-scale relational
+database for time-series. In addition to multi-node capabilities, this release
+includes new features, and improvements to existing ones, focused on giving you
+more flexibility, control over your data, and the ability to customize behavior
+to suit your needs.
 
 To facilitate many of the improvements in [TimescaleDB 2.0][timescaledb2],
- several existing APIs and function definitions have been modified which may require updates to your existing code.
+several existing APIs and function definitions have been modified which may
+require updates to your existing code.
 
 Most notably, the following API and PostgreSQL compatibility changes may impact
 existing code using these interfaces. If your workloads use any of the features,
