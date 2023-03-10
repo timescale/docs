@@ -32,7 +32,7 @@ If you need another database, you need to create a new service.
 ## Where to next
 
 If you want to work through some tutorials to help you get up and running with
-Timescale and time-series data, check out our [tutorials][tutorials] section.
+Timescale and time-series data, check out the [tutorials][tutorials] section.
 
 If you're interested in learning more about pricing for Timescale Cloud, visit
 the [Timescale pricing calculator][timescale-pricing].
