@@ -18,7 +18,7 @@ module.exports = [
       },
       {
         title: "Full search",
-        overrideHref: "/search",
+        overrideHref: "/search/?query=timescale",
         excerpt: "Search Timescale docs, blog, and forum.",
         type: "placeholder",
       },
