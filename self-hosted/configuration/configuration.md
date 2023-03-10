@@ -297,7 +297,7 @@ write-ahead-log (WAL) from 1&nbsp;GB to 2&nbsp;GB in a Docker container named
 
 #### Modifying postgres.conf inside Docker
 
-1.  Get into a shell in Docker in order to change the configuration on a running
+1.  Open a shell in Docker to change the configuration on a running
     container.
 
 ```bash
