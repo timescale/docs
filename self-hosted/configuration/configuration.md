@@ -21,7 +21,7 @@ You can determine the location of `postgresql.conf` by running
 </Highlight>
 
 In addition, other Timescale specific settings can be modified through the
-`postgresql.conf` file as discussed in our section about [Timescale settings][ts-settings]
+`postgresql.conf` file as covered in the [Timescale settings][ts-settings] section.
 
 ## Using `timescaledb-tune`
 
