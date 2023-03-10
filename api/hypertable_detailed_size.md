@@ -11,18 +11,24 @@ api:
 
 # hypertable_detailed_size()  
 
-Get detailed information about disk space used by a hypertable,
-returning size information for the table itself, any indexes on the
-table, any toast tables, and the total size of all. All sizes are
-reported in bytes. If the function is executed on a distributed
-hypertable, it returns size information as a separate row per node,
-including the access node.
+Get detailed information about disk space used by a hypertable or
+continuous aggregate, returning size information for the table
+itself, any indexes on the table, any toast tables, and the total
+size of all. All sizes are reported in bytes. If the function is
+executed on a distributed hypertable, it returns size information
+as a separate row per node, including the access node.
+
+<Highlight type="tip">
+When a continuous aggregate name is provided, the function
+transparently looks up the backing hypertable and returns its statistics
+instead.
+</Highlight>
 
 ### Required arguments
 
 |Name|Type|Description|
 |---|---|---|
-| `hypertable` | REGCLASS | Hypertable to show detailed size of. |
+| `hypertable` | REGCLASS | Hypertable or continuous aggregate to show detailed size of. |
 
 ### Returns
 
@@ -41,7 +47,7 @@ returns `NULL`.
 
 ### Sample usage
 
-Get size information for a hypertable.
+Get the size information for a hypertable.
 
 ```sql
 -- disttable is a distributed hypertable --
