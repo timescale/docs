@@ -190,7 +190,7 @@ command-line parameters when starting PostgreSQL.
 
 #### `timescaledb.max_background_workers (int)`
 
-Max background worker processes allocated to Timescale.  Set to at
+Max background worker processes allocated to Timescale. Set to at
 least 1 + number of databases in Postgres instance to use background
 workers. Default value is 8.
 
