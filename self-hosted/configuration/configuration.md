@@ -135,7 +135,7 @@ setting is automatically adjusted as well.
 
 In order to increase write throughput, there are
 [multiple settings][async-commit] to adjust the behavior that PostgreSQL uses
-to write data to disk. We find the performance to be good with the default (safest)
+to write data to disk. In tests, performance is good with the default, or safest,
 settings. If you want a bit of additional performance, you can set
 `synchronous_commit = 'off'`([PostgreSQL docs][synchronous-commit]).
 Please note that when disabling
