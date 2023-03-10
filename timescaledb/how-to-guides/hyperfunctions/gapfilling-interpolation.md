@@ -25,4 +25,4 @@ the returned rows are in chronological order, and contiguous.
     [hyperfunction API documentation][hyperfunctions-api-gapfilling].
 
 [blog-gapfilling]: https://blog.timescale.com/blog/sql-functions-for-time-series-analysis/
-[hyperfunctions-api-gapfilling]: /api/:currentVersion:/hyperfunctions/gapfilling-interpolation/
+[hyperfunctions-api-gapfilling]: /api/:currentVersion:/hyperfunctions/gapfilling/time_bucket_gapfill/
