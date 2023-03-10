@@ -21,7 +21,7 @@ package manager on these distributions:
 |Debian 11 Bullseye|Ubuntu 22.04 LTS Jammy Jellyfish|Red Hat Enterprise Linux 8|Rocky Linux 9|Fedora 34|
 | | |Red Hat Enterprise Linux 9| |Fedora 35|
 
-<highlight type="warning">
+<Highlight type="warning">
 If you have already installed PostgreSQL using a method other than the `apt`
 package manager maintained by Debian or Ubuntu archive, `yum`, or `pacman` package
 manager, you could encounter errors following these instructions. It is safest
@@ -29,13 +29,13 @@ to remove any existing PostgreSQL installations before you begin. If you want to
 keep your current PostgreSQL installation, do not install TimescaleDB using this
 method. [Install from source](/install/latest/self-hosted/installation-source/)
 instead.
-</highlight>
+</Highlight>
 
 <Tabs label="Install TimescaleDB">
 
 <Tab title="Debian">
 
-<procedure>
+<Procedure>
 
 ### Installing self-hosted TimescaleDB on Debian-based systems
 
@@ -54,7 +54,7 @@ instead.
 
 1.  Add the TimescaleDB third party repository:
 
-    <terminal>
+    <Terminal>
 
     <tab label='Debian'>
 
@@ -72,7 +72,7 @@ instead.
 
     </tab>
 
-    </terminal>
+    </Terminal>
 
 1.  Install Timescale GPG key
 
@@ -80,11 +80,11 @@ instead.
     wget --quiet -O - https://packagecloud.io/timescale/timescaledb/gpgkey | sudo apt-key add -
     ```
 
-    <highlight type="note">
+    <Highlight type="note">
     For Ubuntu 21.10 and later use this command to install Timescale
     GPG key
     `wget --quiet -O - https://packagecloud.io/timescale/timescaledb/gpgkey | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/timescaledb.gpg`
-    </highlight>
+    </Highlight>
 
 1.  Update your local repository list:
 
@@ -98,7 +98,7 @@ instead.
     apt install timescaledb-2-postgresql-14
     ```
 
-    <highlight type="note">
+    <Highlight type="note">
     If you want to install a specific version of TimescaleDB, instead of the
     most recent, you can specify the version like this:
     `apt-get install timescaledb-2-postgresql-12='2.6.0*' timescaledb-2-loader-postgresql-12='2.6.0*'`
@@ -106,7 +106,7 @@ instead.
     You can see the full list of TimescaleDB releases by visiting our
     [releases page][releases-page]. Note that older versions of TimescaleDB
     don't always support all the OS versions listed above.
-    </highlight>
+    </Highlight>
 
 When you have completed the installation, you need to configure your database so
 that you can use it. The easiest way to do this is to run the `timescaledb-tune`
@@ -114,19 +114,19 @@ script, which is included with the `timescaledb-tools` package. Run the
 `timescaledb-tune` script using the `sudo timescaledb-tune` command. For more
 information, see the [configuration][config] section.
 
-</procedure>
+</Procedure>
 
 </Tab>
 
 <Tab title="Red Hat">
 
-<procedure>
+<Procedure>
 
 ### Installing self-hosted TimescaleDB on Red Hat-based systems
 
 1.  At the command prompt, as root, add the PostgreSQL third party repository
     to get the latest PostgreSQL packages:
-    <terminal>
+    <Terminal>
 
     <tab label='Red Hat'>
 
@@ -143,9 +143,9 @@ information, see the [configuration][config] section.
     ```
 
     </tab>
-    </terminal>
+    </Terminal>
 1.  Create the Timescale repository:
-    <terminal>
+    <Terminal>
 
     <tab label='Red Hat'>
 
@@ -184,7 +184,7 @@ information, see the [configuration][config] section.
     ```
 
     </tab>
-    </terminal>
+    </Terminal>
 1.  Update your local repository list:
 
     ```bash
@@ -200,11 +200,11 @@ information, see the [configuration][config] section.
     <!-- hack until we have bandwidth to rewrite this linting rule -->
 
     <!-- markdownlint-disable TS007 -->
-    <highlight type="note">
+    <Highlight type="note">
     When installing on Red Hat Enterprise Linux 8 you need
     to disable the built-in PostgreSQL module in the system using the
     `sudo dnf -qy module disable postgresql`command.
-    </highlight>
+    </Highlight>
 
     <!-- markdownlint-enable TS007 -->
 
@@ -221,13 +221,13 @@ script, which is included with the `timescaledb-tools` package. Run the
 `sudo timescaledb-tune --pg-config=/usr/pgsql-14/bin/pg_config` command. For more
 information, see the [configuration][config] section.
 
-</procedure>
+</Procedure>
 
 </Tab>
 
 <Tab title="ArchLinux">
 
-<procedure>
+<Procedure>
 
 ### Installing self-hosted TimescaleDB on ArchLinux-based systems
 
@@ -256,7 +256,7 @@ information, see the [configuration][config] section.
     sudo systemctl start postgresql.service
     ```
 
-</procedure>
+</Procedure>
 
 </Tab>
 
@@ -273,7 +273,7 @@ your local system using the `psql` command-line utility.
 
 <Tab title="Debian">
 
-<procedure>
+<Procedure>
 
 ### Setting up the TimescaleDB extension on Debian-based systems
 
@@ -351,13 +351,13 @@ Restart PostgreSQL and create the TimescaleDB extension:
     (2 rows)
     ```
 
-</procedure>
+</Procedure>
 
 </Tab>
 
 <Tab title="Red Hat">
 
-<procedure>
+<Procedure>
 
 ### Setting up the TimescaleDB extension on Red Hat-based systems
 
@@ -430,13 +430,13 @@ Restart PostgreSQL and create the TimescaleDB extension:
     (2 rows)
     ```
 
-</procedure>
+</Procedure>
 
 </Tab>
 
 <Tab title="ArchLinux">
 
-<procedure>
+<Procedure>
 
 ### Setting up the TimescaleDB extension on ArchLinux-based systems
 
@@ -493,7 +493,7 @@ Restart PostgreSQL and create the TimescaleDB extension:
     (2 rows)
     ```
 
-</procedure>
+</Procedure>
 
 </Tab>
 

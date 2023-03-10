@@ -9,7 +9,7 @@ api:
   type: command
 ---
 
-# DROP MATERIALIZED VIEW (Continuous Aggregate) <tag type="community">Community</tag>
+# DROP MATERIALIZED VIEW (Continuous Aggregate) <Tag type="community">Community</Tag>
 
 Continuous aggregate views can be dropped using the `DROP MATERIALIZED VIEW` statement.
 

@@ -46,10 +46,10 @@ If you are running the Jaeger Collector and the Promscale Connector on a
 Kubernetes cluster, the endpoint parameter is similar to `endpoint:
 "promscale-connector.default.svc.cluster.local:<PORT>"`
 
-<highlight type="note">
+<Highlight type="note">
 This is the preferred option, unless you need the additional capabilities
 of the [OpenTelemetry collector][otelcol-config].
-</highlight>
+</Highlight>
 
 # Send data using the OpenTelemetry Collector
 

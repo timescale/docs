@@ -7,7 +7,7 @@ standard PostgreSQL tables, indexes, stored procedures, and other objects can be
 created alongside your TimescaleDB hypertables. This makes creating and working
 with TimescaleDB tables similar to standard PostgreSQL.
 
-<procedure>
+<Procedure>
 
 ### Creating a hypertable
 
@@ -32,7 +32,7 @@ with TimescaleDB tables similar to standard PostgreSQL.
     SELECT create_hypertable('crypto_ticks', 'time');
     ```
 
-</procedure>
+</Procedure>
 
 ## Create standard PostgreSQL tables for relational data
 
@@ -40,7 +40,7 @@ When you have other relational data that enhances your time-series data, you can
 create standard PostgreSQL tables just as you would normally. For this dataset,
 there is one other table of data called `crypto_assets`.
 
-<procedure>
+<Procedure>
 
 ### Creating standard PostgreSQL tables
 
@@ -56,4 +56,4 @@ there is one other table of data called `crypto_assets`.
 1.  You now have two tables within your TimescaleDB database. One hypertable
     named `crypto_ticks`, and one normal PostgreSQL table named `crypto_assets`.
 
-</procedure>
+</Procedure>

@@ -35,7 +35,7 @@ Before you begin, make sure you have:
 Create a new Python virtual environment for this project and activate it. All
 the packages you need to complete for this tutorial are installed in this environment.
 
-<procedure>
+<Procedure>
 
 ### Setting up a new Python environment
 
@@ -62,7 +62,7 @@ the packages you need to complete for this tutorial are installed in this enviro
     pip install psycopg2-binary
     ```
 
-</procedure>
+</Procedure>
 
 ## Create the websocket connection
 
@@ -96,7 +96,7 @@ websocket object and establish connection.
     created you can also use the `subscribe()` function to get data for additional
     symbols.
 
-<procedure>
+<Procedure>
 
 ### Connecting to the websocket server
 
@@ -138,14 +138,14 @@ websocket object and establish connection.
     }
     ```
 
-</procedure>
+</Procedure>
 
-<highlight type="note">
+<Highlight type="note">
 To keep the websocket connection alive indefinitely, use the `keep_alive()`
 function of the wrapper library. It makes sure the connection will
 stay active until it gets terminated. If you don't add this line the
 connection might break instantly.
-</highlight>
+</Highlight>
 
 When you have established a connection to the websocket server,
 wait a few seconds, and you can see actual data records, like this:

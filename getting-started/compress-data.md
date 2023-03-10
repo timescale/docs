@@ -4,7 +4,8 @@ excerpt: Use TimescaleDB's native compression to save on storage
 keywords: [compression]
 ---
 
-# Compression 
+# Compression
+
 TimescaleDB includes native compression capabilities which enable you to
 analyze and query massive amounts of historical time-series data inside a
 database while also saving on storage costs. Additionally, all PostgreSQL data
@@ -15,23 +16,23 @@ need to enable compression on a hypertable by telling TimescaleDB how to compres
 and order the data as it is compressed. Once compression is enabled, the data can
 then be compressed in one of two ways:
 
-* Using an automatic policy
-* Manually compressing chunks
+*   Using an automatic policy
+*   Manually compressing chunks
 
 ## Enable TimescaleDB compression on the hypertable
 
 To enable compression, you need to [`ALTER`][alter-table-compression] the `stocks_real_time` hypertable. There
 are three parameters you can specify when enabling compression:
 
-*  `timescaledb.compress` (required): enable TimescaleDB compression on the
+*   `timescaledb.compress` (required): enable TimescaleDB compression on the
   hypertable
-*  `timescaledb.compress_orderby` (optional): columns used to order compressed data
-*  `timescaledb.compress_segmentby` (optional): columns used to group compressed
+*   `timescaledb.compress_orderby` (optional): columns used to order compressed data
+*   `timescaledb.compress_segmentby` (optional): columns used to group compressed
   data
 
 If you do not specify `compress_orderby` or `compress_segmentby` columns, the compressed data is automatically ordered by the hypertable time column.
 
-<procedure>
+<Procedure>
 
 ### Enabling compression on a hypertable
 
@@ -63,15 +64,16 @@ If you do not specify `compress_orderby` or `compress_segmentby` columns, the co
     public           |stocks_real_time|time   |                      |                   1|false      |true              |
     ```
 
-</procedure>
+</Procedure>
 
-<highlight type="note"> To learn more about the `segmentby` and `orderby`
+<Highlight type="note"> To learn more about the `segmentby` and `orderby`
 options for compression in TimescaleDB and how to pick the right columns, see
 this detailed explanation in the
 [TimescaleDB compression docs](/timescaledb/latest/how-to-guides/compression/).
-</highlight>
+</Highlight>
 
 ## Automatic compression
+
 When you have enabled compression, you can schedule a
 policy to [automatically compress][compress-automatic] data according to the
 settings you defined earlier.
@@ -109,6 +111,7 @@ SELECT * FROM timescaledb_information.job_stats;
 ```
 
 ## Manual compression
+
 While it is usually best to use compression policies to compress data
 automatically, there might be situations where you need to
 [manually compress chunks][compress-manual].
@@ -143,16 +146,16 @@ SELECT pg_size_pretty(before_compression_total_bytes) as "before compression",
 |326 MB            |29 MB            |
 ```
 
-
-<video url="https://www.youtube.com/embed/RR1xayRusBc"></video>
-
+<Video url="https://www.youtube.com/embed/RR1xayRusBc"></Video>
 
 ## Next steps
+
 Your overview of TimescaleDB is almost complete. The final thing to explore is [data retention][data-retention],
 which allows you to drop older raw data from a hypertable quickly without
 deleting data from the precalculated continuous aggregate.
 
 ## Learn more about compression
+
 For more information on how native compression in TimescaleDB works,
 as well as the compression algorithms involved, see this in-depth blog post on
 the topic:

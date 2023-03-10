@@ -9,7 +9,6 @@ assignees: ''
 
 _Use this template for reporting bugs in the docs._
 
-
 # Describe the bug
 
 [Provide as much detail as you can]
@@ -38,5 +37,5 @@ _Use this template for reporting bugs in the docs._
 
 We welcome documentation contributions!
 
-* For information about how to suggest a change, see the [contributing guide](https://github.com/timescale/docs/blob/latest/CONTRIBUTING.md) in our GitHub repository.
-* For information on style and word usage, see the [style guide](https://docs.timescale.com/timescaledb/latest/contribute-to-docs)
+*   For information about how to propose a change, see the [contributing guide](https://github.com/timescale/docs/blob/latest/CONTRIBUTING.md) in our GitHub repository.
+*   For information on style and word usage, see the [style guide](https://docs.timescale.com/timescaledb/latest/contribute-to-docs)

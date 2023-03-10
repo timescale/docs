@@ -1,21 +1,23 @@
 ## Load financial data
+
 This tutorial uses real-time cryptocurrency data, also known as tick data, from
 [Twelve Data][twelve-data].
 
 ### Ingest the dataset
+
 To ingest data into the tables that you created, you need to download the
 dataset and copy the data to your database.
 
-<procedure>
+<Procedure>
 
 #### Ingesting the dataset
 
 1.  Download the `crypto_sample.zip` file. The file contains two `.csv`
     files; one with company information, and one with real-time stock trades for
     the past month. Download:
-    <tag
+    <Tag
     type="download">[crypto_sample.zip](https://assets.timescale.com/docs/downloads/candlestick/crypto_sample.zip)
-    </tag>
+    </Tag>
 
 1.  In a new terminal window, run this command to unzip the `.csv` files:
 
@@ -39,6 +41,6 @@ dataset and copy the data to your database.
     few minutes depending on your internet connection and local client
     resources.
 
-</procedure>
+</Procedure>
 
 [twelve-data]: https://twelvedata.com/

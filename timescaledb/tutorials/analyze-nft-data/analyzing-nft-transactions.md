@@ -25,10 +25,10 @@ We divide our analysis into two parts: simple queries and complex queries. But
 first we create something to speed up our queries: TimescaleDB continuous
 aggregates.
 
-<highlight type="note">
+<Highlight type="note">
 All queries in this section only include data that's accessible from the
 OpenSea API.
-</highlight>
+</Highlight>
 
 ## Speeding up queries with continuous aggregates
 
@@ -345,9 +345,9 @@ bucket             |slug         |volume_eth         |
 
 ![daily eth volume of assets](https://assets.timescale.com/docs/images/tutorials/nft-tutorial/daily-eth-volume-of-assets.jpg)
 
-<highlight type="note">
+<Highlight type="note">
 This graph uses a logarithmic scale, which you can configure in the graph's settings in Superset.
-</highlight>
+</Highlight>
 
 ### Comparison of daily ETH volume of multiple collections
 
@@ -378,10 +378,10 @@ bucket             |slug         |volume_eth        |
 
 ![comparison-daily-eth-volume-collections](https://assets.timescale.com/docs/images/tutorials/nft-tutorial/comparison-daily-eth-volume-collections.jpg)
 
-<highlight type="note">
+<Highlight type="note">
 The graph above uses a logarithmic scale, which we configured in the graph's
 settings in Superset.
-</highlight>
+</Highlight>
 
 ### Daily mean and median sale price of assets in a collection
 

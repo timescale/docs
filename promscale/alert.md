@@ -41,7 +41,7 @@ are used to trigger alerts when there is a violation of pre-defined conditions.
 Alert notifications can be sent through different communication channels like Slack
 or email can receive these alerts.
 
-<procedure>
+<Procedure>
 
 ### Setting alerting rules
 
@@ -83,7 +83,7 @@ or email can receive these alerts.
 1.  Pass this configuration file to Promscale when you start the service,
     using the `-metrics.rules.config` flag.
 
-</procedure>
+</Procedure>
 
 For more information about alerting, see [Prometheus alerting][prometheus-alerting].
 For specific information about alerting rules, see [Prometheus alerting

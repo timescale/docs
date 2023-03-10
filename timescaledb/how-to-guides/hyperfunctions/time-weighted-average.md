@@ -16,7 +16,7 @@ interpolation. The aggregate is not parallelizable, but it is supported with
 In this procedure, we are using an example table called `freezer_temps` that
 contains data about internal freezer temperatures.
 
-<procedure>
+<Procedure>
 
 ### Running a time-weighted average query
 
@@ -43,7 +43,7 @@ contains data about internal freezer temperatures.
     ORDER BY freezer_id, ts;
     ```
 
-</procedure>
+</Procedure>
 
 For more information about time-weighted average API calls, see the
 [hyperfunction API documentation][hyperfunctions-api-timeweight].

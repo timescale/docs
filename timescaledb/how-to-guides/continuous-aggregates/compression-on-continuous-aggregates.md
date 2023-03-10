@@ -18,24 +18,24 @@ compressed chunks can't be refreshed.
 If you receive historical data and need to refresh a compressed chunk, see
 [the troubleshooting guide][troubleshooting].
 
-<highlight type="warning">
+<Highlight type="warning">
 You can't refresh the compressed regions of a continuous aggregate. To avoid
 conflicts between compression and refresh, make sure you set `compress_after`
 to a larger interval than the `start_offset` of your
 [refresh policy](/api/latest/continuous-aggregates/add_continuous_aggregate_policy).
-</highlight>
+</Highlight>
 
 ## Enable compression on continuous aggregates
 
-You can enable and disable compression on continuous aggregated by setting the
+You can enable and disable compression on continuous aggregates by setting the
 `compress` parameter when you alter the view.
 
-<procedure>
+<Procedure>
 
 ### Enabling and disabling compression on continuous aggregates
 
 1.  For an existing continuous aggregate, at the `psql` prompt, enable
- compression:
+    compression:
 
     ```sql
     ALTER MATERIALIZED VIEW cagg_name set (timescaledb.compress = true);
@@ -47,13 +47,13 @@ You can enable and disable compression on continuous aggregated by setting the
     ALTER MATERIALIZED VIEW cagg_name set (timescaledb.compress = false);
     ```
 
-</procedure>
+</Procedure>
 
-Disabling compression on a continuous aggregate fails if there are
-compressed chunks associated with the continuous aggregate. In this case, you
-need to decompress the chunks, and then drop any compression policy on the
-continuous aggregate, before you disable compression. For more detailed information, see the
-[decompress chunks] [decompress-chunks] section:
+Disabling compression on a continuous aggregate fails if there are compressed
+chunks associated with the continuous aggregate. In this case, you need to
+decompress the chunks, and then drop any compression policy on the continuous
+aggregate, before you disable compression. For more detailed information, see
+the [decompress chunks][decompress-chunks] section:
 
 ```sql
 SELECT decompress_chunk(c, true) FROM show_chunks('cagg_name') c;
@@ -61,10 +61,10 @@ SELECT decompress_chunk(c, true) FROM show_chunks('cagg_name') c;
 
 ## Compression policies on continuous aggregates
 
-Before  setting up a compression policy on a continuous aggregate, you should
-set up a [refresh policy][refresh-policy]. The compression policy interval should be set so that
-actively refreshed regions are not compressed. This is to prevent refresh
-policies from failing. For example, consider a refresh policy like this:
+Before setting up a compression policy on a continuous aggregate, you should set
+up a [refresh policy][refresh-policy]. The compression policy interval should be
+set so that actively refreshed regions are not compressed. This is to prevent
+refresh policies from failing. For example, consider a refresh policy like this:
 
 ```sql
 SELECT add_continuous_aggregate_policy('cagg_name',
@@ -73,8 +73,9 @@ SELECT add_continuous_aggregate_policy('cagg_name',
   schedule_interval => INTERVAL '1 hour');
 ```
 
-With this kind of refresh policy, the compression policy needs the `compress_after`
-parameter greater than the `refresh_start` parameter of the continuous aggregate policy:
+With this kind of refresh policy, the compression policy needs the
+`compress_after` parameter greater than the `start_offset` parameter of the
+continuous aggregate policy:
 
 ```sql
 SELECT add_compression_policy('cagg_name', compress_after=>'45 days'::interval);

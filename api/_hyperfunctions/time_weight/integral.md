@@ -5,10 +5,10 @@ topics: [hyperfunctions]
 api:
   license: community
   type: function
-  experimental: true
   toolkit: true
   version:
     experimental: 1.11.0
+    stable: 1.15.0
 hyperfunction:
   family: time-weighted calculations
   type: accessor
@@ -60,7 +60,7 @@ api_details:
 
           -- Get the total byte-hours used
           SELECT
-              toolkit_experimental.integral(time_weight('LOCF', ts, storage_bytes), 'hours')
+              integral(time_weight('LOCF', ts, storage_bytes), 'hours')
           FROM
               user_storage_usage;
 ---

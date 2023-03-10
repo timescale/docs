@@ -27,13 +27,13 @@ You also need:
 *   Check the [compatibility matrix][compatibility-matrix] of TimescaleDB versions
     with PostgreSQL versions.
 
-<highlight type="note">
+<Highlight type="note">
 If you are using a Microsoft Windows system, you can install Visual Studio 2015
 or later instead of CMake and a C language compiler. Ensure you install the
 Visual Studio components for CMake and Git when you run the installer.
-</highlight>
+</Highlight>
 
-<procedure>
+<Procedure>
 
 ### Installing self-hosted TimescaleDB from source
 
@@ -62,7 +62,7 @@ Visual Studio components for CMake and Git when you run the installer.
 
 1.  Bootstrap the build system:
 
-    <terminal>
+    <Terminal>
 
     <tab label='Linux'>
 
@@ -80,7 +80,7 @@ Visual Studio components for CMake and Git when you run the installer.
 
     </tab>
 
-    </terminal>
+    </Terminal>
 
     For installation on Microsoft Windows, you might need to add the `pg_config`
     and `cmake` file locations to your path. In the Windows Search tool, search
@@ -90,7 +90,7 @@ Visual Studio components for CMake and Git when you run the installer.
 
 2.  Build the extension:
 
-    <terminal>
+    <Terminal>
 
     <tab label='Linux'>
 
@@ -108,11 +108,11 @@ Visual Studio components for CMake and Git when you run the installer.
 
     </tab>
 
-    </terminal>
+    </Terminal>
 
 3.  Install TimescaleDB:
 
-    <terminal>
+    <Terminal>
 
     <tab label='Linux'>
 
@@ -130,23 +130,23 @@ Visual Studio components for CMake and Git when you run the installer.
 
     </tab>
 
-    </terminal>
+    </Terminal>
 
-</procedure>
+</Procedure>
 
 ## Configure PostgreSQL after installing from source
 
 When you install TimescaleDB from source, you need to do some additional
 PostgreSQL configuration to add the TimescaleDB library.
 
-<highlight type="important">
+<Highlight type="important">
 If you have more than one version of PostgreSQL installed, TimescaleDB can only
 be associated with one of them. The TimescaleDB build scripts use `pg_config` to
 find out where PostgreSQL stores its extension files, so you can use `pg_config`
 to find out which PostgreSQL installation TimescaleDB is using.
-</highlight>
+</Highlight>
 
-<procedure>
+<Procedure>
 
 ### Configuring PostgreSQL after installing from source
 
@@ -166,7 +166,7 @@ to find out which PostgreSQL installation TimescaleDB is using.
 
     If you use other preloaded libraries, make sure they are comma separated.
 1.  Restart the PostgreSQL instance:
-    <terminal>
+    <Terminal>
 
     <tab label='Linux'>
 
@@ -184,9 +184,9 @@ to find out which PostgreSQL installation TimescaleDB is using.
 
     </tab>
 
-    </terminal>
+    </Terminal>
 
-</procedure>
+</Procedure>
 
 When you have completed the installation, you need to configure your database so
 that you can use it. The easiest way to do this is to run the `timescaledb-tune`
@@ -200,7 +200,7 @@ your local system using the `psql` command-line utility. This is the same tool
 you might have used to connect to PostgreSQL before, but if you haven't
 installed it yet, check out our [installing psql][install-psql] section.
 
-<procedure>
+<Procedure>
 
 ### Setting up the TimescaleDB extension
 
@@ -246,7 +246,7 @@ installed it yet, check out our [installing psql][install-psql] section.
     psql -U postgres -h localhost -d example
     ```
 
-</procedure>
+</Procedure>
 
 You can check that the TimescaleDB extension is installed by using the `\dx`
 command at the `psql` prompt. It looks like this:

@@ -15,7 +15,7 @@ TimescaleDB instance, and it means you always have access to the latest version
 without worrying about local dependencies. You can access the Docker image
 directly from locally installed PostgreSQL client tools such as `psql`.
 
-<highlight type="warning">
+<Highlight type="warning">
 If you have already installed PostgreSQL using a method other than the pre-built
 container provided here, you could encounter errors following these
 instructions. It is safest to remove any existing PostgreSQL installations
@@ -23,9 +23,9 @@ before you begin. If you want to keep your current PostgreSQL installation, do
 not install TimescaleDB using this method.
 [Install from source](/install/latest/self-hosted/installation-source/)
 instead.
-</highlight>
+</Highlight>
 
-<procedure>
+<Procedure>
 
 ### Installing self-hosted TimescaleDB from a Docker container
 
@@ -37,18 +37,18 @@ instead.
     docker pull timescale/timescaledb-ha:pg14-latest
     ```
 
-<highlight type="important">
+<Highlight type="important">
 The [`timescaledb-ha`](https://hub.docker.com/r/timescale/timescaledb-ha) image
 offers the most complete TimescaleDB experience. It
 includes the
 [TimescaleDB Toolkit](https://github.com/timescale/timescaledb-toolkit),
 and support for PostGIS and Patroni. If you need the smallest possible image, use
 the `timescale/timescaledb:latest-pg14` image instead.
-</highlight>
+</Highlight>
 
-</procedure>
+</Procedure>
 
-<highlight type="warning">
+<Highlight type="warning">
 If your system uses Linux Uncomplicated Firewall (UFW) for security rules,
 Docker could override your UFW port binding settings. Docker binds the container
 on Unix-based systems by modifying the Linux IP tables. If you are relying on
@@ -56,7 +56,7 @@ UFW rules for network security, consider adding `DOCKER_OPTS="--iptables=false"`
 to `/etc/default/docker` to prevent Docker from overwriting the IP tables. For
 more information about this vulnerability, see
 [Docker's information about the UFW flaw](https://www.techrepublic.com/article/how-to-fix-the-docker-and-ufw-security-flaw/).
-</highlight>
+</Highlight>
 
 When you have completed the installation, you need to configure your database so
 that you can use it. The easiest way to do this is to run the `timescaledb-tune`
@@ -135,14 +135,14 @@ your local system using the `psql` command-line utility. This is the same tool
 you might have used to connect to PostgreSQL before, but if you haven't
 installed it yet, check out the [installing psql][install-psql] section.
 
-<procedure>
+<Procedure>
 
 ### Setting up the TimescaleDB extension
 
-<highlight type="important">
+<Highlight type="important">
 If you installed TimescaleDB from the pre-built Docker container, then you
 probably already have the TimescaleDB extension, and you can skip this procedure.
-</highlight>
+</Highlight>
 
 1.  On your local system, at the command prompt, connect to the PostgreSQL
     instance as the `postgres` superuser:
@@ -186,7 +186,7 @@ probably already have the TimescaleDB extension, and you can skip this procedure
     psql -U postgres -h localhost -d example
     ```
 
-</procedure>
+</Procedure>
 
 You can check that the TimescaleDB extension is installed by using the `\dx`
 command at the `psql` prompt. It looks like this:

@@ -7,7 +7,7 @@ standard PostgreSQL tables, indexes, stored procedures and other objects can be
 created alongside your TimescaleDB hypertables. This makes creating and working
 with TimescaleDB tables similar to standard PostgreSQL.
 
-<procedure>
+<Procedure>
 
 ### Creating a hypertable
 
@@ -39,7 +39,7 @@ with TimescaleDB tables similar to standard PostgreSQL.
     CREATE INDEX ix_symbol_time ON stocks_real_time (symbol, time DESC);
     ```
 
-<highlight type="note">
+<Highlight type="note">
 When you create a hypertable, it is automatically partitioned on the time column
 you provide as the second parameter to `create_hypertable()`. Also, TimescaleDB
 automatically creates an index on the time column. However, you'll often filter
@@ -49,9 +49,9 @@ your queries perform better.
 Because you often query the stock trade data by the company symbol, you
 should add an index for it. Include the time column because time-series data
 typically looks for data in a specific period of time.
-</highlight>
+</Highlight>
 
-</procedure>
+</Procedure>
 
 ## Create standard PostgreSQL tables for relational data
 
@@ -59,7 +59,7 @@ When you have other relational data that enhances your time-series data, you can
 create standard PostgreSQL tables just as you would normally. For this dataset,
 there is one other table of data called `company`.
 
-<procedure>
+<Procedure>
 
 ### Creating standard PostgreSQL tables
 
@@ -75,4 +75,4 @@ there is one other table of data called `company`.
 1.  You now have two tables within your TimescaleDB database. One hypertable
     named `stocks_real_time`, and one normal PostgreSQL table named `company`.
 
-</procedure>
+</Procedure>

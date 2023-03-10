@@ -22,7 +22,7 @@ Cloud console. The new member does not need to have a Timescale Cloud account
 before you add them. If they do not yet have an account, they are prompted to
 create one.
 
-<procedure>
+<Procedure>
 
 ### Adding members to a project group
 
@@ -42,9 +42,9 @@ create one.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-add-members.png" alt="Adding a new member to a project in Timescale Cloud"/>
 
-</procedure>
+</Procedure>
 
-<procedure>
+<Procedure>
 
 ### Removing members from a project group
 
@@ -56,9 +56,9 @@ create one.
 1.  The member is deleted from the project immediately, and can no longer switch
     to the shared project.
 
-</procedure>
+</Procedure>
 
-<procedure>
+<Procedure>
 
 ### Leaving a project group
 
@@ -73,6 +73,6 @@ create one.
 src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-leave-members.png"
 alt="Leaving a project in Timescale Cloud"/>
 
-</procedure>
+</Procedure>
 
 [cloud-login]: https://console.cloud.timescale.com/

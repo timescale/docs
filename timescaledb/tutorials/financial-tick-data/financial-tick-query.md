@@ -35,7 +35,7 @@ aggregate. In this tutorial, you create a continuous aggregate to aggregate data
 for each day. You then set the aggregate to refresh every day, and to aggregate
 the last two days' worth of data.
 
-<procedure>
+<Procedure>
 
 ### Creating a continuous aggregate
 
@@ -72,14 +72,14 @@ the last two days' worth of data.
         schedule_interval => INTERVAL '1 day');
     ```
 
-</procedure>
+</Procedure>
 
 ## Query the continuous aggregate
 
 When you have your continuous aggregate set up, you can query it to get the
 OHLCV values.
 
-<procedure>
+<Procedure>
 
 ### Querying the continuous aggregate
 
@@ -105,7 +105,7 @@ OHLCV values.
      2022-11-26 00:00:00+00 | BTC/USD | 16507.9 | 16685.5 | 16384.5 | 16450.6 |      12300
     ```
 
-</procedure>
+</Procedure>
 
 ## Graph OHLCV data
 
@@ -114,7 +114,7 @@ in a candlestick chart, using Grafana. To do this, you need to have Grafana set
 up to connect to your TimescaleDB database. For more information about how to do
 this, see the [Grafana setup instructions][grafana-setup].
 
-<procedure>
+<Procedure>
 
 ### Graphing OHLCV data
 
@@ -144,7 +144,7 @@ this, see the [Grafana setup instructions][grafana-setup].
     alt="Creating a candlestick graph in Grafana using 1-day OHLCV tick data"
 />
 
-</procedure>
+</Procedure>
 
 [caggs]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/
 [first]: /api/:currentVersion:/hyperfunctions/first/

@@ -5,6 +5,7 @@ keywords: [schemas, constraints]
 ---
 
 # About constraints
+
 Constraints are rules that apply to your database columns. This prevents you
 from entering invalid data into your database. When you create, change, or
 delete constraints on your hypertables, the constraints are propagated to the
@@ -33,11 +34,11 @@ SELECT create_hypertable('conditions', 'time');
 This example also references values in another `locations` table using a foreign
 key constraint.
 
-<highlight type="note">
+<Highlight type="note">
 By default, time columns used for partitioning do not allow `NULL` values. A
 `NOT NULL` constraint is added by default to these columns if it doesn't already
 exist.
-</highlight>
+</Highlight>
 
 For more information on how to manage constraints, see the
 [PostgreSQL docs][postgres-createconstraint].

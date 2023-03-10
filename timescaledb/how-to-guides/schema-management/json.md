@@ -5,6 +5,7 @@ keywords: [schemas, JSONB]
 ---
 
 # JSONB support for semi-structured data
+
 You can use JSON and JSONB to provide semi-structured data. This is most useful
 for data that contains user-defined fields, such as field names that are defined
 by individual users and vary from user to user. We recommend using this in a
@@ -28,15 +29,16 @@ You should also use the JSONB data type, that is, JSON stored in a binary
 format, rather than JSON data type. JSONB data types are more efficient in both
 storage overhead and lookup performance.
 
-<highlight type="note">
+<Highlight type="note">
 Use JSONB for user-defined data rather than sparse data. This works best for most
 data sets. For sparse data, use NULLable fields and, if possible, run on top of
 a compressed file system like ZFS. This will work better than a JSONB data type,
 unless the data is extremely sparse, for example, more than 95% of fields for a
 row are empty.
-</highlight>
+</Highlight>
 
 ## Index the JSONB structure
+
 When you index JSONB data across all fields, it is usually best to use a GIN
 (generalized inverted) index. In most cases, you can use the default GIN
 operator, like this:
@@ -53,6 +55,7 @@ This index only optimizes queries where the `WHERE` clause uses the `?`, `?&`,
 [PostgreSQL documentation][json-operators].
 
 ## Index individual fields
+
 JSONB columns sometimes have common fields containing values that are useful to
 index individually. Indexes like this can be useful for ordering operations on
 field values, [multicolumn indexes][multicolumn-index], and indexes on

@@ -13,19 +13,19 @@ the underlying database. You can use a fork of your service to:
 *   Set up a snapshot to analyze an issue or test an upgrade.
 *   Create an instance in a different cloud, geographical location, or under
     a different plan.
-    
+
 For more information about projects, plans, and other details about
 services,see [Services][about-mst].
 
 ## Before you begin
 
-Before you begin, make sure you have: 
+Before you begin, make sure you have:
 
 *   Installed [Aiven Client][aiven-client-mst].
 *   Signed in to your [Managed Service for TimescaleDB dashboard][mst-login].
 *   Created a [service][create-service] in Managed Service for TimescaleDB.
 
-<procedure>
+<Procedure>
 
 ## Creating a fork of your service
 
@@ -59,14 +59,15 @@ Before you begin, make sure you have:
     -c service_to_fork_from=<NAME_OF_SERVICE_TO_FORK>
     ```
 
-</procedure>
+</Procedure>
 
 ## Example
 
 To create a fork named `grafana-fork` for a service named `grafana` with these parameters:
-* PROJECT_ID: `project-fork`
-* CLOUD_NAME: `timescale-aws-us-east-1`
-* PLAN_TYPE: `dashboard-1` 
+
+*   PROJECT_ID: `project-fork`
+*   CLOUD_NAME: `timescale-aws-us-east-1`
+*   PLAN_TYPE: `dashboard-1`
 
 ```bash
    avn service create grafana-fork --project project-fork -t grafana --plan dashboard-1 --cloud timescale-aws-us-east-1  -c service_to_fork_from=grafana

@@ -27,7 +27,7 @@ To use Promscale, you need a TimescaleDB database, as well as the Promscale
 extension. The Promscale extension contains support functions to improve
 performance of Promscale.
 
-<procedure>
+<Procedure>
 
 ### Compiling and installing TimescaleDB
 
@@ -36,13 +36,13 @@ performance of Promscale.
 1.  Compile and install the Promscale extension from source that is available on
     the [Promscale extension page][promscale-extension]
 
-</procedure>
+</Procedure>
 
 ## Install the Promscale pre-compiled binary
 
 Download the Promscale binary file and run the file.
 
-<procedure>
+<Procedure>
 
 ### Installing Promscale from binary
 
@@ -66,14 +66,14 @@ Download the Promscale binary file and run the file.
     ./promscale --db-host <DB_HOSTNAME> --db-port <DB_PORT> --db-name <DBNAME> --db-password <DBPASSWORD> --db-ssl-mode allow
     ```
 
-    <highlight type="note">
+    <Highlight type="note">
     In this example, Promscale is deployed with SSL allowed but not required. If
     you need SSL mode enabled, configure your TimescaleDB instance with SSL
     certificates and do not use `--db-ssl-mode` flag. Promscale authenticates
     using SSL by default.
-    </highlight>
+    </Highlight>
 
-</procedure>
+</Procedure>
 
 [gh-promscale-download]: https://github.com/timescale/promscale/releases
 [promscale-extension]: https://github.com/timescale/promscale_extension#promscale-extension

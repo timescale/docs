@@ -34,7 +34,7 @@ hypertable. Additionally, all functions and their arguments included in
 `SELECT`, `GROUP BY`, and `HAVING` clauses must be
 [immutable][postgres-immutable].
 
-<procedure>
+<Procedure>
 
 ### Creating a continuous aggregate
 
@@ -61,7 +61,7 @@ hypertable. Additionally, all functions and their arguments included in
       schedule_interval => INTERVAL '1 hour');
     ```
 
-</procedure>
+</Procedure>
 
 You can use most PostgreSQL aggregate functions in continuous aggregations. To
 see what PostgreSQL features are supported, check the
@@ -105,7 +105,7 @@ have historical data that is older than the `start_offset` interval, you need to
 manually refresh the history up to the current `start_offset` to allow real-time
 queries to run efficiently.
 
-<procedure>
+<Procedure>
 
 ### Creating a continuous aggregate with the WITH NO DATA option
 
@@ -140,11 +140,11 @@ queries to run efficiently.
       schedule_interval => INTERVAL '30 minutes');
     ```
 
-</procedure>
+</Procedure>
 
 ## Create a continuous aggregate with a JOIN
 
-In TimescaleDB&nbsp;2.9 and later, with PostgreSQL&nbsp;13 or later, you can
+In TimescaleDB&nbsp;2.10 and later, with PostgreSQL&nbsp;12 or later, you can
 create a continuous aggregate with a query that also includes a `JOIN`. For
 example:
 
@@ -160,11 +160,10 @@ FROM devices JOIN conditions USING (device_id)
 GROUP BY name, bucket;
 ```
 
-<highlight type="note">
-This also works in Timescale&nbsp;2.9 and later running PostgreSQL&nbsp;12, but
-you cannot also have a `USING` clause in your `JOIN`. If you need a `USING`
-clause, you must have PostgreSQL&nbsp;13 or later.
-</highlight>
+<Highlight type="note">
+For more information, including some additional restrictions, see the
+[continuous aggregates section](https://docs.timescale.com/api/latest/continuous-aggregates/create_materialized_view/).
+</Highlight>
 
 ## Query continuous aggregates
 
@@ -172,10 +171,11 @@ When you have created a continuous aggregate and set a refresh policy, you can
 query the view with a `SELECT` query. You can only specify a single hypertable
 in the `FROM` clause. Including more hypertables, tables, views, or subqueries
 in your `SELECT` query is not supported. Additionally, make sure that the
-hypertable you are querying does not have [row-level-security policies][postgres-rls]
+hypertable you are querying does not have
+[row-level-security policies][postgres-rls]
 enabled.
 
-<procedure>
+<Procedure>
 
 ### Querying a continuous aggregate
 
@@ -203,7 +203,7 @@ enabled.
       ORDER BY bucket DESC, device DESC LIMIT 20;
     ```
 
-</procedure>
+</Procedure>
 
 ## Use continuous aggregates with window functions
 
@@ -259,6 +259,6 @@ delta still needs to be calculated at query time.
 [api-time-bucket-gapfill]: /api/:currentVersion:/hyperfunctions/gapfilling-interpolation/time_bucket_gapfill/
 [api-time-bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
 [cagg-function-support]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/about-continuous-aggregates/#function-support
-[postgres-immutable]: https://www.postgresql.org/docs/current/xfunc-volatility.html
-[postgres-rls]: https://www.postgresql.org/docs/current/ddl-rowsecurity.html
-[postgres-security-barrier]: https://www.postgresql.org/docs/current/rules-privileges.html
+[postgres-immutable]: <https://www.postgresql.org/docs/current/xfunc-volatility.html>
+[postgres-rls]: <https://www.postgresql.org/docs/current/ddl-rowsecurity.html>
+[postgres-security-barrier]: <https://www.postgresql.org/docs/current/rules-privileges.html>

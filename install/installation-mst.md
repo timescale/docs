@@ -17,7 +17,7 @@ import CloudMSTComparison from "versionContent/_partials/_cloud-mst-comparison.m
 
 <CloudMSTComparison />
 
-<procedure>
+<Procedure>
 
 ## Installing Managed Service for TimescaleDB
 
@@ -32,20 +32,20 @@ import CloudMSTComparison from "versionContent/_partials/_cloud-mst-comparison.m
     src="https://s3.amazonaws.com/assets.timescale.com/docs/images/mst-portal-noservices.png"
     alt="Managed Service for TimescaleDB Portal"/>
 
-<highlight type="important">
+<Highlight type="important">
 Your Managed Service for TimescaleDB trial includes up to US$300 credit for you
 to use. This is enough to complete all our tutorials and run a few test projects
 of your own.
-</highlight>
+</Highlight>
 
-</procedure>
+</Procedure>
 
 ## Create your first service
 
 A service in Managed Service for TimescaleDB is a cloud instance on your chosen
 cloud provider, which you can install your database on.
 
-<procedure>
+<Procedure>
 
 ### Creating your first service
 
@@ -68,13 +68,13 @@ cloud provider, which you can install your database on.
 
     <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/mst-new-service.png" alt="Create a new service in the Managed Service for TimescaleDB portal"/>
 
-<highlight type="important">
+<Highlight type="important">
 Your Managed Service for TimescaleDB trial includes up to US$300 credit for you
 to use. This is enough to complete all our tutorials and run a few test projects
 of your own.
-</highlight>
+</Highlight>
 
-</procedure>
+</Procedure>
 
 ## Connect to your service from the command prompt
 
@@ -83,7 +83,7 @@ system using the `psql` command-line utility. This is the same tool you might
 have used to connect to PostgreSQL before, but if you haven't installed it yet,
 check out our [installing psql][install-psql] section.
 
-<procedure>
+<Procedure>
 
 ### Connecting to your service from the command prompt
 
@@ -109,7 +109,7 @@ check out our [installing psql][install-psql] section.
     defaultdb=>
     ```
 
-</procedure>
+</Procedure>
 
 ## Check that you have the TimescaleDB extension
 

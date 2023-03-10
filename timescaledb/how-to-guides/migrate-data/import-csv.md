@@ -18,18 +18,18 @@ within your PostgreSQL instance.
 
 Import data from a `csv`.
 
-<procedure>
+<Procedure>
 
 ### Importing data
 
-<highlight type="note">
+<Highlight type="note">
 Timescale provides an open source
 [parallel importer](https://github.com/timescale/timescaledb-parallel-copy) program,
 `timescaledb-parallel-copy`, to speed up data copying. The program parallelizes
 migration by using several workers to run multiple `COPY`s concurrently. It also
 offers options to improve the copying experience. If you prefer not to download
 `timescaledb-parallel-copy`, you can also use regular PostgreSQL `COPY`.
-</highlight>
+</Highlight>
 
 1.  Connect to your database and create a new empty table. Use a schema that
     matches the data in your `.csv` file. In this example, the `.csv` file
@@ -68,13 +68,13 @@ offers options to improve the copying experience. If you prefer not to download
     psql -d <DATABASE_NAME> -c "\COPY <TABLE_NAME> FROM <FILENAME>.csv CSV"
     ```
 
-<highlight type="note">
+<Highlight type="note">
 Don't set the number of workers for `timescaledb-parallel-copy` higher than the
 number of available CPU cores. Above that, workers compete with each other for
 resources and reduce the performance improvements.
-</highlight>
+</Highlight>
 
-</procedure>
+</Procedure>
 
 [create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable
 [install]: /install/latest/

@@ -39,7 +39,7 @@ credentials generated during `helm install`.
 This section provides instructions to deploy TimescaleDB using the
 `timescaledb-single` Helm chart.
 
-<procedure>
+<Procedure>
 
 ### Installing TimescaleDB using a Helm chart
 
@@ -68,22 +68,22 @@ This section provides instructions to deploy TimescaleDB using the
     helm install <MY_NAME> -f <MY_VALUES.yaml> charts/timescaledb-single
     ```
 
-</procedure>
+</Procedure>
 
 ## Connect to TimescaleDB
 
 You can connect to TimescaleDB from an external IP address, or from within the
 cluster.
 
-<procedure>
+<Procedure>
 
 ### Connecting to TimescaleDB using an external IP
 
-<highlight type="note">
+<Highlight type="note">
 If you configured the user credentials in the `my_values.yaml` file, you don't
 need to decode the passwords. In the following section replace `MY_NAME` with
 the name that you provided during the installation.
-</highlight>
+</Highlight>
 
 1.  Get the name of the host to connect to:
 
@@ -116,9 +116,9 @@ the name that you provided during the installation.
       -h <MY_NAME>.default.svc.cluster.local postgres
     ```
 
-</procedure>
+</Procedure>
 
-<procedure>
+<Procedure>
 
 ### Connecting to TimescaleDB from inside the cluster
 
@@ -134,7 +134,7 @@ the name that you provided during the installation.
    kubectl exec -i --tty --namespace default ${MASTERPOD} -- psql -U postgres
    ```
 
-</procedure>
+</Procedure>
 
 ## Create a database
 
@@ -142,7 +142,7 @@ the name that you provided during the installation.
  connect to the database, and also verify that the TimescaleDB extension is
  installed.
 
-<procedure>
+<Procedure>
 
 ### Creating a database
 
@@ -173,7 +173,7 @@ the name that you provided during the installation.
     (END)
     ```
 
-</procedure>
+</Procedure>
 
 ## Clean up
 

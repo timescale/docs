@@ -20,7 +20,7 @@ By default, Timescale Toolkit uses `uddsketch`, but you can also choose to use
 In this procedure, we use an example table called `response_times` that contains
 information about how long a server takes to respond to API calls.
 
-<procedure>
+<Procedure>
 
 ### Running an approximate percentage query
 
@@ -59,7 +59,7 @@ information about how long a server takes to respond to API calls.
     AND response_time_ms > (SELECT threshold FROM t);
     ```
 
-</procedure>
+</Procedure>
 
 For more information about percentile approximation API calls, see the
 [hyperfunction API documentation][hyperfunctions-api-approx-percentile].

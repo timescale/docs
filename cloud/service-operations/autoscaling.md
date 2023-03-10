@@ -65,12 +65,12 @@ terabyte of data. Allow enough time for optimization to finish before scaling
 your service again. You must wait at least 6 hours, even if your service is
 smaller than 1&nbsp;TB.
 
-<highlight type="warning">
+<Highlight type="warning">
 If you resize your service again while your previous resize is still optimizing,
 the second resize fails. For more information on storage optimization, see the
 [Amazon Elastic Block Store](https://aws.amazon.com/premiumsupport/knowledge-center/ebs-volume-stuck-optimizing-on-modification/)
 documentation. To prevent this, wait for the recommended time between resizes.
-</highlight>
+</Highlight>
 
 ### Compute resources
 
@@ -79,12 +79,12 @@ minimal downtime, usually less than thirty seconds. The new resources become
 available as soon as the service restarts. You can change the CPU and memory
 allocation up or down, as frequently as required.
 
-<highlight type="warning">
+<Highlight type="warning">
 Changing your compute settings usually requires a short downtime. Make sure you
 plan for this before you begin!
-</highlight>
+</Highlight>
 
-<procedure>
+<Procedure>
 
 ### Changing resource allocations manually
 
@@ -100,7 +100,7 @@ plan for this before you begin!
     allocation, your service goes down briefly while the changes are applied.
     <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-resources-changed-apply.png" alt="Configure resource allocations"/>
 
-</procedure>
+</Procedure>
 
 ## Configure autoscaling for disk size
 
@@ -119,13 +119,13 @@ longer. You should expect 6 to 24 hours of optimization time for every terabyte
 of data. For more information, see the
 [Amazon Elastic Block Store documentation][aws-ebs].
 
-<highlight type="warning">
+<Highlight type="warning">
 If you ingest very large amounts of data, autoscaling might not be able to keep
 up with data ingest. This happens because you need to wait for storage
 optimization between resizes. In that case, you need to scale your storage
 manually. To learn more, see the
 [limitations of autoscaling](#limitations-of-autoscaling).
-</highlight>
+</Highlight>
 
 If you have a Timescale Cloud multi-node cluster, you can also use
 autoscaling. We recommend that you define different scale limits for the access
@@ -133,7 +133,7 @@ node and data nodes, not just because they have different workloads, but also
 because access nodes are less demanding for storage than data nodes. Data nodes
 have a single scaling threshold that applies across all the data nodes.
 
-<procedure>
+<Procedure>
 
 ### Configuring autoscaling for disk size
 
@@ -150,7 +150,7 @@ have a single scaling threshold that applies across all the data nodes.
     available within a few seconds.
     <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-autoscaling.png" alt="Configure autoscaling disk size"/>
 
-</procedure>
+</Procedure>
 
 ### Limitations of autoscaling
 

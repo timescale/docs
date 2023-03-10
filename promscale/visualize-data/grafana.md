@@ -30,7 +30,7 @@ Prometheus collects and stores metrics as time-series data. To configure
 Promscale as Prometheus data source you need the IP address of the Promscale
 instance.
 
-<procedure>
+<Procedure>
 
 ### Configuring Promscale as Prometheus data source
 
@@ -44,7 +44,7 @@ instance.
         `<PROMSCALE-IP-ADDR>` is the IP address of the Promscale instance.
     *   Use the default values for all other settings.
 
-</procedure>
+</Procedure>
 
 When you have configured Promscale as a Prometheus data source in Grafana, you
 can create panels that are populated with data using PromQL.
@@ -59,7 +59,7 @@ Jaeger is an open source distributed tracing system used for monitoring and
 troubleshooting microservices-based distributed systems. To configure Promscale
 as Jaeger data source you need the IP address of the Promscale instance.
 
-<procedure>
+<Procedure>
 
 ### Configuring Promscale as Jaeger data source
 
@@ -73,7 +73,7 @@ as Jaeger data source you need the IP address of the Promscale instance.
         `<PROMSCALE-IP-ADDR>` is the IP address of the Promscale instance.
     *   Use the default values for all other settings.
 
-</procedure>
+</Procedure>
 
 You can now filter and view traces stored in Promscale using Grafana. To
 visualize your traces, click the **Explore** button to see the traces filtering
@@ -90,7 +90,7 @@ extends the SQL language. To configure Promscale as a PostgreSQL data source you
 need details such as host, port, database, user, and password of the underlying
 TimescaleDB or PostgreSQL database used by Promscale.
 
-<procedure>
+<Procedure>
 
 ### Configuring Promscale as a PostgreSQL data source
 
@@ -117,7 +117,7 @@ TimescaleDB or PostgreSQL database used by Promscale.
         `time_bucket` in the `$__timeGroup` macro to display TimescaleDB
         specific aggregate functions in the query builder.
 
-</procedure>
+</Procedure>
 
 You can now create panels that use Promscale as a PostgreSQL data source, using
 SQL queries to feed the chart.

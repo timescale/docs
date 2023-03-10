@@ -24,10 +24,10 @@ This command creates a new index that replaces the old one:
 REINDEX INDEX <index-name>;
 ```
 
-<highlight type="note">
+<Highlight type="note">
 When you use `REINDEX`, the tables are locked and you may not be able to use the
 database, until the operation is complete.
-</highlight>
+</Highlight>
 
 In some cases, you might need to manually build a second index concurrently
 with the old index, and then remove the old index:

@@ -21,7 +21,7 @@ AdWords, and others.
     *   Make a note of the `Host`, `Port`, `Database name`, `User`, and `Password`
         fields for the Managed Service for TimescaleDB service.
 
-<procedure>
+<Procedure>
 
 ### Connecting to Managed Service for TimescaleDB data source from Data Studio
 
@@ -35,6 +35,6 @@ AdWords, and others.
 1.  Choose the table to be queried, or select `CUSTOM QUERY` to create an SQL query.
 1.  Click `CONNECT`.
 
-</procedure>
+</Procedure>
 
 [google-data-studio]: https://datastudio.google.com/

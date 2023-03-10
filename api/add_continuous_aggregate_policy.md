@@ -9,7 +9,7 @@ api:
   type: function
 ---
 
-# add_continuous_aggregate_policy() <tag type="community">Community</tag>
+# add_continuous_aggregate_policy() <Tag type="community">Community</Tag>
 
 Create a policy that automatically refreshes a continuous aggregate. To view the
 policies that you set or the policies that already exist, see
@@ -36,13 +36,13 @@ depending on the type of the time column of the hypertable:
 *   For hypertables with integer-based timestamps, set the offset as an
     `INTEGER` type.
 
-<highlight type="important">
+<Highlight type="important">
 While setting `end_offset` to `NULL` is possible, it is not recommended. By
 default, querying a continuous aggregate returns data between `end_offset` and
 the current time. There is no need to set `end_offset` to `NULL`. To learn more
 about how continuous aggregates use real-time aggregation, see the
 [real-time aggregation section](/timescaledb/latest/how-to-guides/continuous-aggregates/real-time-aggregates/).
-</highlight>
+</Highlight>
 
 ### Optional arguments
 

@@ -9,13 +9,13 @@ tags: [licenses, toolkit, experimental]
 The Timescale API Reference uses tags to categorize functions. The tags are `Community`,
 `Experimental`, `Toolkit`, and `Experimental (Toolkit)`. This section explains each tag.
 
-## Community <tag type="community">Community</tag>
+## Community <Tag type="community">Community</Tag>
 
 This tag indicates that the function is available under TimescaleDB Community
 Edition, and are not available under the Apache 2 Edition. For more information,
 visit our [TimescaleDB License comparison sheet][tsl-comparison].
 
-## Experimental (TimescaleDB Experimental Schema) <tag type="experimental">Experimental</tag>
+## Experimental (TimescaleDB Experimental Schema) <Tag type="experimental">Experimental</Tag>
 
 This tag indicates that the function is included in the TimescaleDB experimental schema.
 Do not use experimental functions in production. Experimental features could include bugs,
@@ -24,13 +24,13 @@ to develop new features more quickly. If experimental functions are successful,
 they can move out of the experimental schema and go into production use. For more
 information about the experimental schema, [read the Timescale blog post][experimental-blog].
 
-## Toolkit <tag type="toolkit">Toolkit</tag>
+## Toolkit <Tag type="toolkit">Toolkit</Tag>
 
 This tag indicates that the function is included in the TimescaleDB Toolkit extension.
 Toolkit functions are available under Timescale Community Edition.
 For installation instructions, [see the installation guide][toolkit-install].
 
-## Experimental (TimescaleDB Toolkit) <tag type="experimental-toolkit">Experimental</tag>
+## Experimental (TimescaleDB Toolkit) <Tag type="experimental-toolkit">Experimental</Tag>
 
 This tag is used with the Toolkit tag. It indicates a Toolkit function that is under
 active development. Do not use experimental toolkit functions in production.

@@ -40,7 +40,7 @@ data from the same day. Data from different days is stored in different chunks.
 src="https://s3.amazonaws.com/assets.timescale.com/docs/images/getting-started/hypertables-chunks.png"
 alt="A normal table compared to a hypertable. The normal table holds data for 3 different days in one container. The hypertable contains 3 containers, called chunks, each of which holds data for a separate day." />
 
-<highlight type="note">
+<Highlight type="note">
 TimescaleDB divides time into potential chunk ranges, based on the
 `chunk_time_interval`. If data exists for a potential chunk range, that chunk is
 created.
@@ -50,7 +50,7 @@ necessarily equal the earliest timestamp in your hypertable. Instead, there
 might be a time gap between the start time and the earliest timestamp. This
 doesn't affect your usual interactions with your hypertable, but might affect
 the number of chunks you see when inspecting it.
-</highlight>
+</Highlight>
 
 ### Best practices for time partitioning
 
@@ -66,11 +66,11 @@ approximately 2&nbsp;GB of data per day and have 64&nbsp;GB of memory, set the
 interval to 1 week. If you write approximately 10&nbsp;GB of data per day on the
 same machine, set the time interval to 1 day.
 
-<highlight type="note">
+<Highlight type="note">
 If you use expensive index types, such as some PostGIS geospatial indexes, take
 care to check the total size of the chunk and its index. You can do so using the
 [`chunks_detailed_size`](/api/latest/hypertable/chunks_detailed_size) function.
-</highlight>
+</Highlight>
 
 For a detailed analysis of how to optimize your chunk sizes, see the
 [blog post on chunk time intervals][blog-chunk-time]. To learn how
@@ -124,12 +124,12 @@ separate tablespace. Each disk can then store some of the space partitions. If
 you partition by space without this setup, you increase query planning
 complexity without increasing I/O performance.
 
-<highlight type="note">
+<Highlight type="note">
 A more recommended way to increase I/O performance is to use RAID (redundant
 array of inexpensive disks). RAID virtualizes multiple physical disks into a
 single logical disk. You can then use this single logical disk to store your
 hypertable, without any space partitioning.
-</highlight>
+</Highlight>
 
 ## Hypertable indexes
 

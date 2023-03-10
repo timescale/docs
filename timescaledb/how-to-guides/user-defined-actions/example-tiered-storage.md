@@ -11,7 +11,7 @@ storage costs. TimescaleDB supports automatic tablespace management by providing
 the `move_chunk` function to move chunks between tablespaces. To schedule the
 moves automatically, you can write a user-defined action.
 
-<procedure>
+<Procedure>
 
 ## Using a user-defined action to implement automatic chunk moving
 
@@ -64,15 +64,15 @@ moves automatically, you can write a user-defined action.
     );
     ```
 
-<highlight type="note">
+<Highlight type="note">
 This procedure uses PostgreSQL's regular `ALTER TABLE ... SET TABLESPACE` syntax
 to move chunks. You could also write the procedure using TimescaleDB's
 [`move_chunk`](/api/latest/hypertable/move_chunk) function. The
 `move_chunk` function reorders the data as part of the move, which makes
 subsequent queries faster. It also requires lower lock levels, so the chunk
 remains available for reads during the move.
-</highlight>
+</Highlight>
 
-</procedure>
+</Procedure>
 
 [moving-data]: /timescaledb/:currentVersion:/how-to-guides/schema-management/manage-storage/

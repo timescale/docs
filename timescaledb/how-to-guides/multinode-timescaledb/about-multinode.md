@@ -5,12 +5,13 @@ keywords: [multi-node]
 ---
 
 # About multi-node
+
 If you have a larger petabyte-scale workload, you might need more than
 one TimescaleDB instance. TimescaleDB multi-node allows you to run and
 manage a cluster of databases, which can give you faster data ingest,
 and more responsive and efficient queries for large workloads.
 
-<highlight type="important">
+<Highlight type="important">
 In some cases, your queries could be
 slower in a multi-node cluster due to the extra network communication
 between the various nodes. Queries perform the best when the query
@@ -18,12 +19,13 @@ processing is distributed among the nodes and the result set is small
 relative to the queried data set. It is important that you understand
 multi-node architecture before you begin, and plan your database
 according to your specific requirements.
-</highlight>
+</Highlight>
 
 You can use multi-node on a self-managed TimescaleDB instance, or you can use it
 on [Timescale Cloud][multinode-cloud].
 
 ## Multi-node architecture
+
 Multi-node TimescaleDB allows you to tie several databases together
 into a logical distributed database in order to combine the
 processing power of many physical PostgreSQL instances.
@@ -68,8 +70,8 @@ instances as data nodes. In this section,
 however, we assume you have a single
 distributed database with a consistent set of data nodes.
 
-
 ## Distributed hypertables
+
 If you use a regular table or hypertable on a distributed database, they are not
 automatically distributed. Regular tables and hypertables continue to work as
 usual, even when the underlying database is distributed. To enable multi-node
@@ -89,6 +91,7 @@ is small relative to the amount of processed data. To achieve this, it is
 important to consider an appropriate partitioning method.
 
 ### Partitioning methods
+
 Data that is ingested into a distributed hypertable is spread across the data
 nodes according to the partitioning method you have chosen. Queries that can be
 sent from the access node to multiple data nodes and processed simultaneously
@@ -103,6 +106,7 @@ aggregate data across many locations and devices, choose this partitioning
 method. For example, a query like this is faster on a database partitioned on
 `time,location`, because it spreads the work across all the data nodes in
 parallel:
+
 ```sql
 SELECT time_bucket('1 hour', time) AS hour, location, avg(temperature)
 FROM conditions
@@ -123,6 +127,7 @@ performance by partitioning solely on the `time` dimension, or on a space
 dimension other than `location`. For example, a query like this is faster on a
 database partitioned on `time` only, because the data for a single location is
 spread across all the data nodes, rather than being on a single one:
+
 ```sql
 SELECT time_bucket('1 hour', time) AS hour, avg(temperature)
 FROM conditions
@@ -133,6 +138,7 @@ LIMIT 100;
 ```
 
 ### Transactions and consistency model
+
 Transactions that occur on distributed hypertables are atomic, just
 like those on regular hypertables. This means that a distributed
 transaction that involves multiple data nodes is guaranteed to

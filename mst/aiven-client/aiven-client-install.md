@@ -15,7 +15,7 @@ connect to your Managed Service for TimescaleDB using the command line.
 To connect to Managed Service for TimecaleDB using Aiven Client you need to
 create an authentication token.
 
-<procedure>
+<Procedure>
 
 ### Creating an authentication token in Managed Service for TimescaleDB
 
@@ -27,7 +27,7 @@ create an authentication token.
     token and leave the rest of the fields blank.
 1.  Copy the generated authentication token and save it.
 
-</procedure>
+</Procedure>
 
 ## Install the Aiven Client
 
@@ -49,7 +49,7 @@ To access Managed Service for TimescaleDB with the Aiven Client, you need an
 authentication token. Aiven Client uses this authentication token to access your
 services on Managed Service for TimescaleDB.
 
-<procedure>
+<Procedure>
 
 ### Configuring Aiven Client to connect to Managed Service for TimescaleDB
 
@@ -89,7 +89,7 @@ services on Managed Service for TimescaleDB.
      project-zzzz      timescale-aws-us-east-1   xxxx-xxxx-xxxx-xxxx
     ```
 
-</procedure>
+</Procedure>
 
 [aiven-github]: https://github.com/aiven/aiven-client
 [mst-login]: https://portal.managed.timescale.com

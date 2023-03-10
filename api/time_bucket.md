@@ -41,8 +41,8 @@ bucket widths, but `1 month 1 day` and `3 months 2 weeks` are not.
 |Name|Type|Description|
 |-|-|-|
 |`timezone`|TEXT|The timezone for calculating bucket start and end times. Can only be used with `TIMESTAMPTZ`. Defaults to UTC.|
-|`offset`|INTERVAL|The time interval to offset all time buckets by. A positive value shifts bucket start and end times later. A negative value shifts bucket start and end times earlier. `offset` must be surrounded with double quotes when used as a named argument, because it is a reserved key word in PostgreSQL.|
 |`origin`|DATE, TIMESTAMP, or TIMESTAMPTZ|Buckets are aligned relative to this timestamp. Defaults to midnight on January 3, 2000, for buckets that don't include a month or year interval, and to midnight on January 1, 2000, for month, year, and century buckets.|
+|`offset`|INTERVAL|The time interval to offset all time buckets by. A positive value shifts bucket start and end times later. A negative value shifts bucket start and end times earlier. `offset` must be surrounded with double quotes when used as a named argument, because it is a reserved key word in PostgreSQL.|
 
 ## Required arguments for integer time inputs
 
