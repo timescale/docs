@@ -344,30 +344,8 @@ module.exports = [
           },
           {
             title: "Saturating math",
-            type: "directory",
-            href: "saturating_math",
-            children: [
-              {
-                title: "saturating_add",
-                href: "saturating_add",
-              },
-              {
-                title: "saturating_add_pos",
-                href: "saturating_add_pos",
-              },
-              {
-                title: "saturating_mul",
-                href: "saturating_mul",
-              },
-              {
-                title: "saturating_sub",
-                href: "saturating_sub",
-              },
-              {
-                title: "saturating_sub_pos",
-                href: "saturating_sub_pos",
-              },
-            ],
+            type: "placeholder",
+            href: "saturating-math",
           },
           {
             title: "Statistical and regression analysis",
@@ -426,21 +404,14 @@ module.exports = [
             ],
           },
           {
-            title: "Gapfilling and interpolation",
-            type: "directory",
-            href: "gapfilling-interpolation",
+            title: "Gapfilling",
+            href: "gapfilling",
+            type: "redirect-to-child-page",
             children: [
               {
                 title: "time_bucket_gapfill",
                 href: "time_bucket_gapfill",
-              },
-              {
-                title: "locf",
-                href: "locf",
-              },
-              {
-                title: "interpolate",
-                href: "interpolate",
+                type: "placeholder",
               },
             ],
           },

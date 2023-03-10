@@ -17,6 +17,7 @@ jobs:
         id: timescale
         run: |
           echo "DEV_FOLDER=$(echo ${GITHUB_HEAD_REF})" >> $GITHUB_OUTPUT
+          echo "HYPHENATED_BRANCH_NAME=$(echo "${GITHUB_HEAD_REF}" | sed 's|/|-|')" >> $GITHUB_ENV
 
       - name: Repository Dispatch
         uses: peter-evans/repository-dispatch@26b39ed245ab8f31526069329e112ab2fb224588
@@ -31,4 +32,4 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           message: |
-            Allow 10 minutes from last push for the staging site to build. If the link doesn't work, try using incognito mode instead. For internal reviewers, check web-documentation repo actions for staging build status. Link to build for this PR: <a href="https://docs-dev.timescale.com/docs-${{ steps.timescale.outputs.DEV_FOLDER }}" target="_blank">http://docs-dev.timescale.com/docs-${{ steps.timescale.outputs.DEV_FOLDER }}</a>
+            Allow 10 minutes from last push for the staging site to build. If the link doesn't work, try using incognito mode instead. For internal reviewers, check web-documentation repo actions for staging build status. Link to build for this PR: <a href="https://docs-dev.timescale.com/docs-${{ env.HYPHENATED_BRANCH_NAME }}" target="_blank">http://docs-dev.timescale.com/docs-${{ env.HYPHENATED_BRANCH_NAME }}</a>
