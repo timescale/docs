@@ -33,7 +33,7 @@ open source metrics-based systems monitoring solution.
     
     These details are used when setting up your Prometheus installation, in the
     `prometheus.yml` configuration file. This allows you to make this Managed
-    TimescaleDB endpoint a target for Prometheus to scrape.
+    Service for TimescaleDB endpoint a target for Prometheus to scrape.
 
 1.  Use this sample configuration file to set up your Prometheus installation,
     by substituting `<PORT>`, `<HOST>`, `<USER>`, and `<PASSWORD>` with those of
