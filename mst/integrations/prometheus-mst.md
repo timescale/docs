@@ -34,7 +34,7 @@ open source metrics-based systems monitoring solution.
     `prometheus.yml` configuration file. This enables you to make this Managed
     TimescaleDB endpoint a target for Prometheus to scrape.
 
-1.  Use this sample configuration file to setup your Prometheus installation,
+1.  Use this sample configuration file to set up your Prometheus installation,
     by substituting `<PORT>`, `<HOST>`, `<USER>`, and `<PASSWORD>` with those of
     your Managed Service for TimescaleDB instance:
 
