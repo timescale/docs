@@ -8,7 +8,7 @@ product: mst
 
 Managed Service for TimescaleDB integrates with the other tools you are already
 using. You can combine your Managed Service for TimescaleDB
-services with third party tools and build a completely cloud data platform.
+services with third party tools and build a complete cloud data platform.
 
 You can integrate Managed Service for TimescaleDB with:
 
