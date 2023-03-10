@@ -32,7 +32,7 @@ open source metrics-based systems monitoring solution.
       *   Click `Create` to create the endpoint.
     
     These details are used when setting up your Prometheus installation, in the
-    `prometheus.yml` configuration file. This enables you to make this Managed
+    `prometheus.yml` configuration file. This allows you to make this Managed
     TimescaleDB endpoint a target for Prometheus to scrape.
 
 1.  Use this sample configuration file to set up your Prometheus installation,
