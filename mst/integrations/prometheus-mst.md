@@ -17,7 +17,7 @@ open source metrics-based systems monitoring solution.
 *   Create a [Managed Service for TimescaleDB][timescale-mst-get-started] instance.
 *   Make a note of the `Port`and `Host` of your Managed Service for TimescaleDB instance.
 
-<procedure>
+<Procedure>
 
 ### Enabling Prometheus service integration
 
