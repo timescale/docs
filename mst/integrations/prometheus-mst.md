@@ -71,7 +71,7 @@ open source metrics-based systems monitoring solution.
     The Prometheus endpoint is listed under `Enabled integrations` for the
     Managed Service for TimescaleDB instance.
 
-</procedure>
+</Procedure>
 
 ### Next steps
 
