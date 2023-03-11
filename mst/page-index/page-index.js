@@ -65,7 +65,7 @@ module.exports = [
             href: "metrics-datadog",
           }, 
           {
-            title: "Montinoring with Prometheus endpoint",
+            title: "Monitoring with Prometheus endpoint",
             href: "prometheus-mst",
           }
         ],
