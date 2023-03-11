@@ -1,14 +1,14 @@
 ---
-title: TimescaleDB configuration and tuning
-excerpt: How to change configuration settings for TimescaleDB
+title: Timescale configuration and tuning
+excerpt: How to change configuration settings for Timescale
 products: [self_hosted]
 keywords: [configuration, settings]
 tags: [tune]
 ---
 
-# TimescaleDB configuration and tuning
+# Timescale configuration and tuning
 
-Just as you can tune settings in PostgreSQL, TimescaleDB provides a number of configuration
+Just as you can tune settings in PostgreSQL, Timescale provides a number of configuration
 settings that may be useful to your specific installation and performance needs. These can
 also be set within the `postgresql.conf` file or as command-line parameters
 when starting PostgreSQL.
@@ -17,8 +17,8 @@ when starting PostgreSQL.
 
 ### `timescaledb.max_background_workers (int)`
 
-Max background worker processes allocated to TimescaleDB. Set to at least 1 +
-the number of databases loaded with a TimescaleDB extension in a PostgreSQL
+Max background worker processes allocated to Timescale. Set to at least 1 +
+the number of databases loaded with a Timescale extension in a PostgreSQL
 instance. Default value is 16.
 
 ## Distributed hypertables
@@ -31,12 +31,12 @@ inconsistent data. It is by default enabled.
 
 ### `timescaledb.enable_per_data_node_queries`
 
-If enabled, TimescaleDB combines different chunks belonging to the
+If enabled, Timescale combines different chunks belonging to the
 same hypertable into a single query per data node. It is by default enabled.
 
 ### `timescaledb.max_insert_batch_size (int)`
 
-When acting as a access node, TimescaleDB splits batches of inserted
+When acting as a access node, Timescale splits batches of inserted
 tuples across multiple data nodes. It batches up to
 `max_insert_batch_size` tuples per data node before flushing. Setting
 this to 0 disables batching, reverting to tuple-by-tuple inserts. The
@@ -83,12 +83,12 @@ connecting to data nodes using password authentication.
 
 ### `timescaledb.restoring (bool)`
 
-Set TimescaleDB in restoring mode. It is by default disabled.
+Set Timescale in restoring mode. It is disabled by default.
 
 ### `timescaledb.license (string)`
 
 Change access to features based on the Timescale license in use. For example,
-setting `timescaledb.license` to `apache` limits TimescaleDB to features that
+setting `timescaledb.license` to `apache` limits Timescale to features that
 are implemented under the Apache 2 license. The default value is `timescale`,
 which allows access to all features.
 
@@ -103,4 +103,4 @@ Records last time `timescaledb-tune` ran.
 
 ### `timescaledb.last_tuned_version (string)`
 
-Version of `timescaledb-tune` used to tune when it ran.
+Version of `timescaledb-tune` used to tune when it runs.

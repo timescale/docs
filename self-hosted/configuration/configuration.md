@@ -1,14 +1,14 @@
 ---
-title: Configuring TimescaleDB
-excerpt: How to configure a TimescaleDB instance
+title: Configuring Timescale
+excerpt: How to configure a Timescale instance
 products: [self_hosted]
 keywords: [configuration]
 tags: [settings]
 ---
 
-# Configuring TimescaleDB
+# Configuring Timescale
 
-TimescaleDB works with the default PostgreSQL server configuration settings.
+Timescale works with the default PostgreSQL server configuration settings.
 However, we find that these settings are typically too conservative and
 can be limiting when using larger servers with more resources (CPU, memory,
 disk, etc). Adjusting these settings, either
@@ -20,23 +20,23 @@ You can determine the location of `postgresql.conf` by running
 `SHOW config_file;` from your PostgreSQL client (for example, `psql`).
 </Highlight>
 
-In addition, other TimescaleDB specific settings can be modified through the
-`postgresql.conf` file as discussed in our section about [TimescaleDB settings][ts-settings]
+In addition, other Timescale specific settings can be modified through the
+`postgresql.conf` file as covered in the [Timescale settings][ts-settings] section.
 
 ## Using `timescaledb-tune`
 
-To streamline the configuration process, we've created a tool called
-[`timescaledb-tune`][tstune] that handles setting the most common parameters to
-good values based on your system, accounting for memory, CPU, and PostgreSQL
-version. `timescaledb-tune` is packaged along with our binary releases as
-a dependency, so if you installed one of our binary releases (including
-Docker), you should have access to the tool. Alternatively, with a standard
-Go environment, you can also `go get` the repository to install it.
+To streamline the configuration process, use [`timescaledb-tune`][tstune] that
+handles setting the most common parameters to appropriate values based on your
+system, accounting for memory, CPU, and PostgreSQL version. `timescaledb-tune`
+is packaged along with the binary releases as a dependency, so if you installed
+one of the binary releases (including Docker), you should have access to the
+tool. Alternatively, with a standard Go environment, you can also `go get` the
+repository to install it.
 
 `timescaledb-tune` reads your system's `postgresql.conf` file and offers
 interactive suggestions for updating your settings:
 
-```
+```bash
 Using postgresql.conf at this path:
 /usr/local/var/postgres/postgresql.conf
 
@@ -81,9 +81,8 @@ timescaledb-tune --quiet --yes --dry-run >> /path/to/postgresql.conf
 ## PostgreSQL configuration and tuning
 
 If you prefer to tune the settings yourself, or are curious about the
-suggestions that `timescaledb-tune` comes up with, we elaborate on them
-here. Additionally, `timescaledb-tune` does not cover all settings you
-may need to adjust; those are covered below.
+suggestions that `timescaledb-tune` makes, then check these. However,
+`timescaledb-tune` does not cover all settings that you need to adjust.
 
 ### Memory settings
 
@@ -91,7 +90,7 @@ may need to adjust; those are covered below.
 
 The settings `shared_buffers`, `effective_cache_size`, `work_mem`, and
 `maintenance_work_mem` need to be adjusted to match the machine's available
-memory. We suggest getting the configuration values from the [PgTune][pgtune]
+memory. Get the configuration values from the [PgTune][pgtune]
 website (suggested DB Type: Data warehouse). You should also adjust the
 `max_connections` setting to match the ones given by PgTune since there is a
 connection between `max_connections` and memory settings. Other settings from
@@ -106,7 +105,7 @@ support both live queries and background jobs. If you do not configure these
 settings, you may observe performance degradation on both queries and
 background jobs.
 
-TimescaleDB background workers are configured using the
+Timescale background workers are configured using the
 `timescaledb.max_background_workers` setting. You should configure this
 setting to the sum of your total number of databases and the
 total number of concurrent background workers you want running at any given
@@ -134,9 +133,9 @@ setting is automatically adjusted as well.
 
 ### Disk-write settings
 
-In order to increase write throughput, there are [multiple
-settings][async-commit] to adjust the behavior that PostgreSQL uses to write
-data to disk. We find the performance to be good with the default (safest)
+In order to increase write throughput, there are
+[multiple settings][async-commit] to adjust the behavior that PostgreSQL uses
+to write data to disk. In tests, performance is good with the default, or safest,
 settings. If you want a bit of additional performance, you can set
 `synchronous_commit = 'off'`([PostgreSQL docs][synchronous-commit]).
 Please note that when disabling
@@ -146,7 +145,7 @@ discourage changing the `fsync` setting.
 
 ### Lock settings
 
-TimescaleDB relies heavily on table partitioning for scaling
+Timescale relies heavily on table partitioning for scaling
 time-series workloads, which has implications for [lock
 management][lock-management]. A hypertable needs to acquire locks on
 many chunks (sub-tables) during queries, which can exhaust the default
@@ -180,18 +179,18 @@ locks allocated for each transaction. For more information, please
 review the official PostgreSQL documentation on
 [lock management][lock-management].
 
-## TimescaleDB configuration and tuning
+## Timescale configuration and tuning
 
-Just as you can tune settings in PostgreSQL, TimescaleDB provides a number of configuration
-settings that may be useful to your specific installation and performance needs. These can
-also be set within the `postgresql.conf` file or as command-line parameters
-when starting PostgreSQL.
+Just as you can tune settings in PostgreSQL, Timescale provides a number of
+configuration settings that may be useful to your specific installation and
+performance needs. These can also be set within the `postgresql.conf` file or as
+command-line parameters when starting PostgreSQL.
 
 ### Policies
 
 #### `timescaledb.max_background_workers (int)`
 
-Max background worker processes allocated to TimescaleDB.  Set to at
+Max background worker processes allocated to Timescale. Set to at
 least 1 + number of databases in Postgres instance to use background
 workers. Default value is 8.
 
@@ -216,12 +215,12 @@ inconsistent data. It is by default enabled.
 
 #### `timescaledb.enable_per_data_node_queries (bool)`
 
-If enabled, TimescaleDB combines different chunks belonging to the
+If enabled, Timescale combines different chunks belonging to the
 same hypertable into a single query per data node. It is by default enabled.
 
 #### `timescaledb.max_insert_batch_size (int)`
 
-When acting as a access node, TimescaleDB splits batches of inserted
+When acting as a access node, Timescale splits batches of inserted
 tuples across multiple data nodes. It batches up to
 `max_insert_batch_size` tuples per data node before flushing. Setting
 this to 0 disables batching, reverting to tuple-by-tuple inserts. The
@@ -268,11 +267,11 @@ connecting to data nodes using password authentication.
 
 #### `timescaledb.restoring (bool)`
 
-Set TimescaleDB in restoring mode. It is by default disabled.
+Set Timescale in restoring mode. It is by default disabled.
 
 #### `timescaledb.license (string)`
 
-TimescaleDB license type. Determines which features are enabled. The
+Timescale license type. Determines which features are enabled. The
 variable can be set to `timescale` or `apache`.  Defaults to `timescale`.
 
 #### `timescaledb.telemetry_level (enum)`
@@ -290,7 +289,7 @@ Version of `timescaledb-tune` used to tune when it ran.
 
 ## Changing configuration with Docker
 
-When running TimescaleDB via a [Docker container][docker], there are
+When running Timescale in a [Docker container][docker], there are
 two approaches to modifying your PostgreSQL configuration. In the
 following example, we modify the size of the database instance's
 write-ahead-log (WAL) from 1&nbsp;GB to 2&nbsp;GB in a Docker container named
@@ -298,28 +297,30 @@ write-ahead-log (WAL) from 1&nbsp;GB to 2&nbsp;GB in a Docker container named
 
 #### Modifying postgres.conf inside Docker
 
-1.  Get into a shell in Docker in order to change the configuration on a running container.
+1.  Open a shell in Docker to change the configuration on a running
+    container.
 
-```
+```bash
 docker start timescaledb
 docker exec -i -t timescaledb /bin/bash
 ```
 
-2.  Edit and then save the config file, modifying the setting for the desired configuration parameter (for example, `max_wal_size`).
+1.  Edit and then save the config file, modifying the setting for the desired
+    configuration parameter (for example, `max_wal_size`).
 
-```
+```bash
 vi /var/lib/postgresql/data/postgresql.conf
 ```
 
-3.  Restart the container so the config gets reloaded.
+1.  Restart the container so the config gets reloaded.
 
-```
+```bash
 docker restart timescaledb
 ```
 
-4.  Test to see if the change worked.
+1.  Test to see if the change worked.
 
-```
+```bash
     docker exec -it timescaledb psql -U postgres
 
     postgres=# show max_wal_size;
@@ -333,7 +334,7 @@ docker restart timescaledb
 Alternatively, one or more parameters can be passed in to the `docker run`
 command via a `-c` option, as in the following.
 
-```
+```bash
 docker run -i -t timescale/timescaledb:latest-pg10 postgres -cmax_wal_size=2GB
 ```
 
