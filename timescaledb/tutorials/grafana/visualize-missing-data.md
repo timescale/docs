@@ -177,9 +177,9 @@ applications, or a degregraded customer experience). For more ways on
 how to use TimescaleDB, check out our other [tutorials][tutorials]
 (which range from beginner to advanced).
 
-[docs-LOCF]: /api/:currentVersion:/hyperfunctions/gapfilling-interpolation/locf
+[docs-LOCF]: /api/:currentVersion:/hyperfunctions/gapfilling/time_bucket_gapfill#locf
 [docs-hypertable]: /timescaledb/:currentVersion:/how-to-guides/hypertables/
-[docs-timebucket-gapfill]: /api/:currentVersion:/hyperfunctions/gapfilling-interpolation/time_bucket_gapfill
+[docs-timebucket-gapfill]: /api/:currentVersion:/hyperfunctions/gapfilling/time_bucket_gapfill/
 [docs-timebucket]: /api/:currentVersion:/hyperfunctions/time_bucket
 [get-grafana]: /timescaledb/:currentVersion:/tutorials/grafana
 [grafana-external]: https://grafana.com/
