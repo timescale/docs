@@ -1,6 +1,6 @@
 ---
 title: Multi-node administration
-excerpt: Manage your multi-node TimescaleDB cluster
+excerpt: Manage your multi-node Timescale cluster
 products: [self_hosted]
 keywords: [multi-node, admin]
 tags: [manage]
@@ -8,7 +8,7 @@ tags: [manage]
 
 # Multi-node administration
 
-Multi-node TimescaleDB allows you to administer your cluster directly
+Multi-node Timescale allows you to administer your cluster directly
 from the access node. When your environment is set up, you do not
 need to log directly into the data nodes to administer your database.
 
@@ -50,13 +50,6 @@ The rest of this section describes in more detail how specific
 administrative tasks are handled in a multi-node environment.
 
 ## Distributed role management
-
-<Highlight type="important">
-Timescale Cloud automates role management. It distributes role
-management commands so that the you do not have to manually configure
-roles across all node instances. Therefore, most of the information in
-this section applies only to self-managed deployments.
-</Highlight>
 
 In a multi-node environment, you need to manage roles on each
 PostgreSQL instance independently, because roles are instance-level
@@ -198,8 +191,7 @@ automatically applied across all data nodes. A missing schema is,
 however, created when a distributed hypertable is created, and the
 schema it belongs to does not exist on a data node.
 
-To manually create a schema across all data nodes, use the following
-command:
+To manually create a schema across all data nodes, use this command:
 
 ```sql
 CREATE SCHEMA newschema;

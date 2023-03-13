@@ -1,14 +1,14 @@
 ---
 title: Multi-node configuration
 excerpt: Configure a multi-node TimescaleDB instance
-products: [mst, self_hosted]
+products: [self_hosted]
 keywords: [configuration, settings, multi-node]
 ---
 
 # Multi-node configuration
 
 In addition to the
-[regular TimescaleDB configuration][timescaledb-configuration], we recommend
+[regular Timescale configuration][timescaledb-configuration], it is recommended
 that you also configure additional settings specific to multi-node operation.
 
 ## Update settings
@@ -33,7 +33,7 @@ pg_ctl reload
 ### `max_prepared_transactions`
 
 If not already set, ensure that `max_prepared_transactions` is a non-zero value
-on all data nodes. We recommend setting it to `150` as a starting point.
+on all data nodes is set to `150` as a starting point.
 
 ### `enable_partitionwise_aggregate`
 
@@ -67,4 +67,4 @@ operation occurs. If the isolation level is `SERIALIZABLE`, it is not changed.
 
 [copy_chunk]: /api/:currentVersion:/distributed-hypertables/copy_chunk_experimental
 [move_chunk]: /api/:currentVersion:/distributed-hypertables/move_chunk_experimental
-[timescaledb-configuration]: /timescaledb/:currentVersion:/how-to-guides/configuration/
+[timescaledb-configuration]: /self-hosted/:currentVersion:/configuration/
