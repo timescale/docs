@@ -13,15 +13,15 @@ the native PostgreSQL [`pg_dump`][pg_dump] and [`pg_restore`][pg_restore]
 commands. This works even for compressed hypertables, without having to
 decompress the chunks before you begin.
 
-Upgrades between different versions of TimescaleDB can be done in place; you
+Upgrades between different versions of Timescale can be done in place; you
 don't need to backup and restore your data. See
 the [upgrading instructions][timescaledb-upgrade].
 
 <Highlight type="warning">
 If you are using this `pg_dump` backup method regularly, make sure you keep
-track of which versions of PostgreSQL and TimescaleDB you are running. For more
+track of which versions of PostgreSQL and Timescale you are running. For more
 information, see "Versions are mismatched when dumping and restoring a database"
-in the [Troubleshooting section](https://docs.timescale.com/timescaledb/latest/how-to-guides/backup-and-restore/troubleshooting/).
+in the [Troubleshooting section](https://docs.timescale.com/timescaledb/latest/self-hosted/backup-and-restore/troubleshooting/).
 </Highlight>
 
 ## Back up your entire database
@@ -94,7 +94,7 @@ correctly restore the Timescale catalogs.
 
 The `pg_dump` command provides flags that allow you to specify tables or schemas
 to back up. However, using these flags means that the dump lacks necessary
-information that TimescaleDB requires to understand the relationship between
+information that Timescale requires to understand the relationship between
 them. Even if you explicitly specify both the hypertable and all of its
 constituent chunks, the dump would still not contain all the information it
 needs to recreate the hypertable on restore.
@@ -163,7 +163,7 @@ partitions, or the chunk interval sizes.
 
 </Procedure>
 
-On a self hosted TimescaleDB instance with `postgres` superuser access you can
+On a self hosted Timescale instance with `postgres` superuser access you can
 take a complete dump of all PostgreSQL databases in a cluster including global
 objects that are common to all databases, namely database roles, tablespaces,
 and privilege grants using `pg_dumpall`. For more
