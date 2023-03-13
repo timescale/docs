@@ -1,6 +1,7 @@
 ---
 title: Can't access file "timescaledb" after installation
 section: troubleshooting
+products: [self_hosted]
 topics: [installation, configuration]
 errors:
   - language: text

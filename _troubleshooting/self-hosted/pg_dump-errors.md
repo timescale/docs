@@ -1,6 +1,7 @@
 ---
 title: Errors occur when running `pg_dump`
 section: troubleshooting
+products: [self_hosted]
 topics: [backups]
 errors:
   - language: bash

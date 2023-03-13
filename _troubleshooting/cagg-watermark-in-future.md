@@ -1,6 +1,7 @@
 ---
 title: Continuous aggregate watermark is in the future
 section: troubleshooting
+products: [cloud, mst, self_hosted]
 topics: [continuous aggregates]
 apis:
   - [continuous aggregates, add_continuous_aggregate_policy()]

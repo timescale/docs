@@ -1,6 +1,7 @@
 ---
 title: Queries using `locf()` don't treat `NULL` values as missing
 section: troubleshooting
+products: [cloud, mst, self_hosted]
 topics: [continuous aggregates, hyperfunctions]
 apis:
   - [hyperfunctions, gapfilling and interpolation, locf()]

@@ -1,6 +1,7 @@
 ---
 title: Failed to start a background worker
 section: troubleshooting
+products: [self_hosted]
 topics: [jobs, continuous aggregates, data retention, compression]
 errors:
   - language: bash

@@ -2,6 +2,7 @@
 title: PostgreSQL transaction ID wraparound
 section: troubleshooting
 products: [mst]
+topics: [configuration]
 keywords: [transaction ID, freezing, autovacuum, control mechanism]
 tags: [tshoot, ]
 ---
@@ -24,9 +25,9 @@ million transaction IDs are available before a forced freeze and avoids
 churning stable data in existing tables. To check your transaction freeze
 limits, you can execute `show autovacuum_freeze_max_age` in your PostgreSQL
 instance. When the limit is reached, `autovacuum` starts freezing the old rows.
-Some applications do not automatically adjust the configuration when the PostgreSQL 
+Some applications do not automatically adjust the configuration when the PostgreSQL
 settings change, which can result in unnecessary warnings. For example,
 PGHero's default settings alert when 500 million transactions have been created
-instead of alerting after 1.5 billion transactions. To avoid this, change the 
-value of the `transaction_id_danger` setting from 1,500,000,000 to 
+instead of alerting after 1.5 billion transactions. To avoid this, change the
+value of the `transaction_id_danger` setting from 1,500,000,000 to
 500,000,000, to receive warnings when the transaction limit reaches 1.5 billion.

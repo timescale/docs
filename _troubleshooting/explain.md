@@ -1,6 +1,7 @@
 ---
 title: A particular query executes more slowly than expected
 section: troubleshooting
+products: [cloud, mst, self_hosted]
 topics: [queries]
 keywords: [EXPLAIN]
 tags: [queries, query, explain, performance]
