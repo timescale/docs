@@ -22,8 +22,8 @@ api_details:
     - language: sql
       code: |
         integral(
-            tws TimeWeightSummary,
-            unit TEXT
+            tws TimeWeightSummary
+            [, unit TEXT]
         ) RETURNS DOUBLE PRECISION
   parameters:
     required:

@@ -39,6 +39,7 @@ api_details:
             interval INTERVAL
             [, prev TimeWeightSummary]
             [, next TimeWeightSummary]
+            [, unit TEXT]
         ) RETURNS DOUBLE PRECISION
   parameters:
     required:
@@ -48,12 +49,12 @@ api_details:
       - name: start
         type: TIMESTAMPTZ
         description: >
-          The start of the interval which the time-weighted average should cover
+          The start of the interval which the time-weighted integral should cover
           (if there is a preceding point).
       - name: interval
         type: INTERVAL
         description: >
-          The length of the interval which the time-weighted average should
+          The length of the interval which the time-weighted integral should
           cover.
     optional:
       - name: prev
@@ -73,6 +74,12 @@ api_details:
           determined from the PostgreSQL
           [`lead()`](https://www.postgresql.org/docs/current/functions-window.html#FUNCTIONS-WINDOW-TABLE)
           function.
+      - name: unit
+        type: TEXT
+        description: >
+          The unit of time to express the integral in. Can be `microsecond`,
+          `millisecond`, `second`, `minute`, `hour`, or any alias for those units
+          supported by PostgreSQL. Defaults to `second`.
     returns:
       - column: integral
         type: DOUBLE PRECISION
