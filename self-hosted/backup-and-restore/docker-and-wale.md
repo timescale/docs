@@ -13,7 +13,7 @@ When you run Timescale in a containerized environment, you can use
 [continuous archiving][pg archiving] with a [WAL-E][wale official] container.
 These containers are sometimes referred to as sidecars, because they run
 alongside the main container. A [WAL-E sidecar image][wale image]
-that works with Timescale as well as regular PostgreSQL. In this section, you 
+works with Timescale as well as regular PostgreSQL. In this section, you 
 can set up archiving to your local filesystem with a main Timescale
 container called `timescaledb`, and a WAL-E sidecar called `wale`. When you are
 ready to implement this in your production deployment, you can adapt the
