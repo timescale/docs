@@ -10,20 +10,13 @@ keywords: [replicas]
 This section outlines how to set up asynchronous streaming replication on one or
 more database replicas.
 
-<Highlight header="Enable replication in one click and avoid manual configuration work" type="cloud">
-If you would prefer not to manually configure replication for your TimescaleDB instance,
-you might find Timescale Cloud's one-click replicas useful. Create multiple replicas per database
-and enable or disable them with a single click. Test it out for yourself today with a
-[free Timescale Cloud trial](http://tsdb.co/cloud-signup).
-</Highlight>
-
 Before you begin, make sure you have at least two separate instances of
-TimescaleDB running. If you installed TimescaleDB using a Docker container, use
+Timescale running. If you installed Timescale using a Docker container, use
 a [PostgreSQL entry point script][docker-postgres-scripts] to run the
 configuration. For sample Docker configuration and run scripts, see the
 [streaming replication Docker repository][timescale-streamrep-docker].
 
-To configure replication on self-hosted TimescaleDB, you need to perform these
+To configure replication on self-hosted Timescale, you need to perform these
 procedures:
 
 1.  [Configure the primary database][configure-primary-db]
@@ -421,12 +414,12 @@ not provide support for automatic failover. For more information, see the
 configurable high availability solution with automatic failover functionality,
 check out [Patroni][patroni-github].
 
-[configure-params]: /timescaledb/:currentVersion:/how-to-guides/replication-and-ha/configure-replication#configure-replication-parameters
-[configure-pghba]: /timescaledb/:currentVersion:/how-to-guides/replication-and-ha/configure-replication#configure-host-based-authentication-parameters
-[configure-primary-db]: /timescaledb/:currentVersion:/how-to-guides/replication-and-ha/configure-replication#configure-the-primary-database
-[configure-replication]: /timescaledb/:currentVersion:/how-to-guides/replication-and-ha/configure-replication#configure-replication-and-recovery-settings
-[create-base-backup]: /timescaledb/:currentVersion:/how-to-guides/replication-and-ha/configure-replication#create-a-base-backup-on-the-replica
-[create-replication-slots]: /timescaledb/:currentVersion:/how-to-guides/replication-and-ha/configure-replication#create-replication-slots
+[configure-params]: /self-hosted/:currentVersion:/replication-and-ha/configure-replication#configure-replication-parameters
+[configure-pghba]: /self-hosted/:currentVersion:/replication-and-ha/configure-replication#configure-host-based-authentication-parameters
+[configure-primary-db]: /self-hosted/:currentVersion:/replication-and-ha/configure-replication#configure-the-primary-database
+[configure-replication]: /self-hosted/:currentVersion:/replication-and-ha/configure-replication#configure-replication-and-recovery-settings
+[create-base-backup]: /self-hosted/:currentVersion:/replication-and-ha/configure-replication#create-a-base-backup-on-the-replica
+[create-replication-slots]: /self-hosted/:currentVersion:/replication-and-ha/configure-replication#create-replication-slots
 [docker-postgres-scripts]: https://docs.docker.com/samples/library/postgres/#how-to-extend-this-image
 [failover-docs]: https://www.postgresql.org/docs/current/static/warm-standby-failover.html
 [patroni-github]: https://github.com/zalando/patroni
@@ -438,6 +431,6 @@ check out [Patroni][patroni-github].
 [postgres-recovery-docs]: https://www.postgresql.org/docs/current/runtime-config-wal.html#RUNTIME-CONFIG-WAL-ARCHIVE-RECOVERY
 [postgres-rslots-docs]: https://www.postgresql.org/docs/current/static/warm-standby.html#STREAMING-REPLICATION-SLOTS
 [postgres-synchronous-commit-docs]: https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-SYNCHRONOUS-COMMIT
-[replication-modes]: /timescaledb/:currentVersion:/how-to-guides/replication-and-ha/configure-replication#replication-modes
+[replication-modes]: /self-hosted/:currentVersion:/replication-and-ha/configure-replication#replication-modes
 [timescale-streamrep-docker]: https://github.com/timescale/streaming-replication-docker
-[verify-replica]: /timescaledb/:currentVersion:/how-to-guides/replication-and-ha/configure-replication#verify-that-the-replica-is-working
+[verify-replica]: /self-hosted/:currentVersion:/replication-and-ha/configure-replication#verify-that-the-replica-is-working

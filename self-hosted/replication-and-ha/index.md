@@ -18,9 +18,7 @@ scaled by spreading the read query volume across multiple nodes.
 
 *   [Learn about high availability][about-ha] to understand how it works
     before you begin using it.
-*   For Timescale Cloud, see the [HA in Timescale Cloud][cloud-ha] section.
 *   [Configure replication][replication-enable].
 
-[about-ha]: /timescaledb/:currentVersion:/how-to-guides/replication-and-ha/about-ha/
-[cloud-ha]: /cloud/:currentVersion:/high-availability/
-[replication-enable]: /timescaledb/:currentVersion:/how-to-guides/replication-and-ha/configure-replication/
+[about-ha]: /self-hosted/:currentVersion:/replication-and-ha/about-ha/
+[replication-enable]: /self-hosted/:currentVersion:/replication-and-ha/configure-replication/

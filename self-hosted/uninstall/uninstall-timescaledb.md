@@ -1,24 +1,24 @@
 ---
-title: Uninstall TimescaleDB
-excerpt: Uninstall TimescaleDB
+title: Uninstall Timescale
+excerpt: Uninstall Timescale
 products: [self_hosted]
 keywords: [uninstall]
 ---
 
-# Uninstall TimescaleDB
+# Uninstall Timescale
 
 PostgreSQL is designed to be easily extensible. The extensions loaded into the
-database can function just like features that are built in. TimescaleDB extends
+database can function just like features that are built in. Timescale extends
 PostgreSQL for time-series data—giving PostgreSQL the high-performance,
 scalability, and analytical capabilities required by modern data-intensive
-applications. If you installed TimescaleDB with Homebrew or MacPorts, you can
+applications. If you installed Timescale with Homebrew or MacPorts, you can
 uninstall it without having to uninstall PostgreSQL.
 
 <Procedure>
 
-## Uninstalling TimescaleDB using Homebrew
+## Uninstalling Timescale using Homebrew
 
-1.  At the `psql` prompt, remove the TimescaleDB extension:
+1.  At the `psql` prompt, remove the Timescale extension:
 
     ```sql
     DROP EXTENSION timescaledb;
@@ -40,7 +40,7 @@ uninstall it without having to uninstall PostgreSQL.
     brew services restart postgresql
     ```
 
-1.  Check that the TimescaleDB extension is uninstalled by using the `\dx`
+1.  Check that the Timescale extension is uninstalled by using the `\dx`
     command at the `psql` prompt. Output is similar to:
 
     ```sql
@@ -52,7 +52,7 @@ uninstall it without having to uninstall PostgreSQL.
     (1 row) 
     ```
 
-1.  Uninstall TimescaleDB:
+1.  Uninstall Timescale:
 
     ```bash
     brew uninstall timescaledb
@@ -68,9 +68,9 @@ uninstall it without having to uninstall PostgreSQL.
 
 <Procedure>
 
-## Uninstalling TimescaleDB using MacPorts
+## Uninstalling Timescale using MacPorts
 
-1.  At the `psql` prompt, remove the TimescaleDB extension:
+1.  At the `psql` prompt, remove the Timescale extension:
 
     ```sql
     DROP EXTENSION timescaledb;
@@ -92,7 +92,7 @@ uninstall it without having to uninstall PostgreSQL.
     port reload postgresql
     ```
 
-1.  Check that the TimescaleDB extension is uninstalled by using the `\dx`
+1.  Check that the Timescale extension is uninstalled by using the `\dx`
     command at the `psql` prompt. Output is similar to:
 
     ```sql
@@ -104,7 +104,7 @@ uninstall it without having to uninstall PostgreSQL.
     (1 row) 
     ```
 
-1.  Uninstall TimescaleDB and the related dependencies:
+1.  Uninstall Timescale and the related dependencies:
 
     ```bash
     port uninstall timescaledb --follow-dependencies
