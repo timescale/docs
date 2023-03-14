@@ -6,6 +6,7 @@ keywords: [backups, Docker]
 tags: [restore, recovery, physical backup]
 ---
 
+import Deprecation from "versionContent/_partials/_deprecated.mdx";
 
 # Ongoing physical backups with Docker & WAL-E
 
@@ -20,11 +21,7 @@ ready to implement this in your production deployment, you can adapt the
 instructions here to do archiving against cloud providers such as AWS S3, and
 run it in an orchestration framework such as Kubernetes.
 
-<Highlight type="deprecation">
-This section describes using the WAL-E sidecar for archiving, which is deprecated
-on Timescale. We strongly recommend that you do not use this feature in a
-production environment.
-</Highlight>
+<Deprecation />
 
 ## Run the Timescale container in Docker
 
