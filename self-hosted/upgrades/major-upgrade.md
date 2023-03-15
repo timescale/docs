@@ -1,20 +1,20 @@
 ---
-title: Major Timescale upgrades
-excerpt: Upgrade from one major of Timescale to the next major version
+title: Major TimescaleDB upgrades
+excerpt: Upgrade from one major of TimescaleDB to the next major version
 products: [self_hosted]
 keywords: [upgrades]
 ---
 
 import PlanUpgrade from 'versionContent/_partials/_plan_upgrade.mdx';
 
-# Major Timescale upgrades
+# Major TimescaleDB upgrades
 
-A major upgrade is when you upgrade from one major version of Timescale, to
-the next major version. For example, when you upgrade from Timescale&nbsp;1,
-to Timescale&nbsp;2.
+A major upgrade is when you upgrade from one major version of TimescaleDB, to
+the next major version. For example, when you upgrade from TimescaleDB&nbsp;1,
+to TimescaleDB&nbsp;2.
 
 For upgrading within your current major version, for example upgrading from
-Timescale&nbsp;2.5 to Timescale&nbsp;2.6, see the
+TimescaleDB&nbsp;2.5 to TimescaleDB&nbsp;2.6, see the
 [minor upgrades section][upgrade-minor].
 
 ## Plan your upgrade
@@ -22,19 +22,19 @@ Timescale&nbsp;2.5 to Timescale&nbsp;2.6, see the
 <PlanUpgrade />
 
 Additionally, before you begin this major upgrade, read the
-[changes in Timescale&nbsp;2 section][changes-in-ts2].
+[changes in TimescaleDB&nbsp;2 section][changes-in-ts2].
 This section provides a more detailed look at the major changes in
-Timescale&nbsp;2. It also includes information about how these major changes
-impact the way your applications and scripts interact with the Timescale API.
+TimescaleDB&nbsp;2. It also includes information about how these major changes
+impact the way your applications and scripts interact with the TimescaleDB API.
 
 ## Breaking changes
 
-When you upgrade from Timescale&nbsp;1, to Timescale&nbsp;2, scripts
+When you upgrade from TimescaleDB&nbsp;1, to TimescaleDB&nbsp;2, scripts
 automatically configure updated features to work as expected with the new
 version. However, not everything works in exactly the same way as previously.
 
 Before you begin this major upgrade, check the database log for errors related
-to failed retention policies that could have occurred in Timescale&nbsp;1. You
+to failed retention policies that could have occurred in TimescaleDB&nbsp;1. You
 can either remove the failing policies entirely, or update them to be compatible
 with your existing continuous aggregates.
 
@@ -45,12 +45,12 @@ notice is shown.
 For more information about changes to continuous aggregates and data retention
 policies, see the [release notes][relnotes-20].
 
-## Upgrade Timescale to the next major version
+## Upgrade TimescaleDB to the next major version
 
 To perform this major upgrade:
 
-1.  Export your Timescale&nbsp;1 policy settings
-1.  Upgrade the Timescale extension
+1.  Export your TimescaleDB&nbsp;1 policy settings
+1.  Upgrade the TimescaleDB extension
 1.  Verify updated policy settings and jobs
 
 When you perform the upgrade, new policies are automatically configured based on
@@ -59,7 +59,7 @@ policy settings before performing the upgrade, so that you can verify them after
 the upgrade is complete.
 
 This upgrade uses the PostgreSQL `ALTER EXTENSION` function to upgrade to the
-latest version of the Timescale extension. Timescale supports having
+latest version of the TimescaleDB extension. TimescaleDB supports having
 different extension versions on different databases within the same PostgreSQL
 instance. This allows you to upgrade extensions independently on different
 databases. Run the `ALTER EXTENSION` function on each database to upgrade them
@@ -67,7 +67,7 @@ individually.
 
 <Procedure>
 
-### Exporting Timescale&nbsp;1 policy settings
+### Exporting TimescaleDB&nbsp;1 policy settings
 
 1.  At the psql prompt, use this command to save the current settings for your
    policy statistics to a `.csv` file:
@@ -105,12 +105,12 @@ individually.
 
 <Procedure>
 
-### Upgrading the Timescale extension
+### Upgrading the TimescaleDB extension
 
 1.  Connect to psql using the `-X` flag. This prevents any `.psqlrc` commands
-   from accidentally triggering the load of a previous Timescale version on
+   from accidentally triggering the load of a previous TimescaleDB version on
    session startup.
-1.  At the psql prompt, upgrade the Timescale extension. This must be the first
+1.  At the psql prompt, upgrade the TimescaleDB extension. This must be the first
    command you execute in the current session:
 
     ```sql

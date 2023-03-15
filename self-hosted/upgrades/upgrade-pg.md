@@ -1,40 +1,40 @@
 ---
 title: Upgrade PostgreSQL
-excerpt: Upgrade the PostgreSQL installation associated with Timescale
+excerpt: Upgrade the PostgreSQL installation associated with TimescaleDB
 products: [self_hosted]
 keywords: [upgrades, PostgreSQL, versions, compatibility]
 ---
 
 # Upgrade PostgreSQL
 
-Because Timescale is a PostgreSQL extension, you need to ensure you keep your
-underlying PotsgreSQL installation up to date. When you upgrade your Timescale
+Because TimescaleDB is a PostgreSQL extension, you need to ensure you keep your
+underlying PotsgreSQL installation up to date. When you upgrade your TimescaleDB
 extension to a new version, always take the time to check if you need to also
 upgrade your PostgreSQL version. If you are running an older version of
-PostgreSQL, you need to upgrade it first, before you upgrade your Timescale
+PostgreSQL, you need to upgrade it first, before you upgrade your TimescaleDB
 extension.
 
-Timescale supports these PostgreSQL releases. If you are not running a
+TimescaleDB supports these PostgreSQL releases. If you are not running a
 compatible PostgreSQL version, make sure you upgrade PostgreSQL before you
-upgrade Timescale:
+upgrade TimescaleDB:
 
 ||PostgreSQL&nbsp;15|PostgreSQL&nbsp;14|PostgreSQL&nbsp;13|PostgreSQL&nbsp;12|PostgreSQL&nbsp;11|PostgreSQL&nbsp;10|PostgreSQL&nbsp;9.6|
 |-|-|-|-|-|-|-|-|
-|Timescale&nbsp;2.10 and higher|&#9989;|&#9989;|&#9989;|&#9989;|&#10060;|&#10060;|&#10060;|
-|Timescale&nbsp;2.5 to 2.9|&#10060;|&#9989;|&#9989;|&#9989;|&#10060;|&#10060;|&#10060;|
-|Timescale&nbsp;2.4|&#10060;|&#10060;|&#9989;|&#9989;|&#10060;|&#10060;|&#10060;|
-|Timescale&nbsp;2.1 to 2.3|&#10060;|&#10060;|&#9989;|&#9989;|&#9989;|&#10060;|&#10060;|
-|Timescale&nbsp;2.0|&#10060;|&#10060;|&#10060;|&#9989;|&#9989;|&#10060;|&#10060;
-|Timescale&nbsp;1.7|&#10060;|&#10060;|&#10060;|&#9989;|&#9989;|&#9989;|&#9989;|
+|TimescaleDB&nbsp;2.10 and higher|&#9989;|&#9989;|&#9989;|&#9989;|&#10060;|&#10060;|&#10060;|
+|TimescaleDB&nbsp;2.5 to 2.9|&#10060;|&#9989;|&#9989;|&#9989;|&#10060;|&#10060;|&#10060;|
+|TimescaleDB&nbsp;2.4|&#10060;|&#10060;|&#9989;|&#9989;|&#10060;|&#10060;|&#10060;|
+|TimescaleDB&nbsp;2.1 to 2.3|&#10060;|&#10060;|&#9989;|&#9989;|&#9989;|&#10060;|&#10060;|
+|TimescaleDB&nbsp;2.0|&#10060;|&#10060;|&#10060;|&#9989;|&#9989;|&#10060;|&#10060;
+|TimescaleDB&nbsp;1.7|&#10060;|&#10060;|&#10060;|&#9989;|&#9989;|&#9989;|&#9989;|
 
-You need to upgrade PostgreSQL and Timescale in two separate steps. This is so
+You need to upgrade PostgreSQL and TimescaleDB in two separate steps. This is so
 that you can make sure each upgrade completes properly. For example, if you are
-running PostgreSQL&nbsp;10 and Timescale&nbsp;1.7.5, and you want to upgrade
-to PostgreSQL&nbsp;13 and Timescale&nbsp;2.2, upgrade in this order:
+running PostgreSQL&nbsp;10 and TimescaleDB&nbsp;1.7.5, and you want to upgrade
+to PostgreSQL&nbsp;13 and TimescaleDB&nbsp;2.2, upgrade in this order:
 
 1.  Upgrade PostgreSQL&nbsp;10 to PostgreSQL&nbsp;12
-1.  Upgrade Timescale&nbsp;1.7.5 to Timescale&nbsp;2.2 on PostgreSQL&nbsp;12
-1.  Upgrade PostgreSQL&nbsp;12 to PostgreSQL&nbsp;13 with Timescale&nbsp;2.2
+1.  Upgrade TimescaleDB&nbsp;1.7.5 to TimescaleDB&nbsp;2.2 on PostgreSQL&nbsp;12
+1.  Upgrade PostgreSQL&nbsp;12 to PostgreSQL&nbsp;13 with TimescaleDB&nbsp;2.2
    installed
 
 ## Plan your upgrade
@@ -48,7 +48,7 @@ Before you upgrade:
 *   Read [the release notes][pg-relnotes] for the PostgreSQL version you are
   upgrading to.
 *   [Perform a backup][backup] of your database. While PostgreSQL and
-  Timescale upgrades are performed in-place, upgrading is an intrusive
+  TimescaleDB upgrades are performed in-place, upgrading is an intrusive
   operation. Always make sure you have a backup on hand, and that the backup is
   readable in the case of disaster.
 

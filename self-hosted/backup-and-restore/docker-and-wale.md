@@ -1,6 +1,6 @@
 ---
 title: Ongoing physical backups with Docker & WAL-E
-excerpt: Back up your Docker instance of Timescale
+excerpt: Back up your Docker instance of TimescaleDB
 products: [self_hosted]
 keywords: [backups, Docker]
 tags: [restore, recovery, physical backup]
@@ -10,12 +10,12 @@ import Deprecation from "versionContent/_partials/_deprecated.mdx";
 
 # Ongoing physical backups with Docker & WAL-E
 
-When you run Timescale in a containerized environment, you can use
+When you run TimescaleDB in a containerized environment, you can use
 [continuous archiving][pg archiving] with a [WAL-E][wale official] container.
 These containers are sometimes referred to as sidecars, because they run
 alongside the main container. A [WAL-E sidecar image][wale image]
-works with Timescale as well as regular PostgreSQL. In this section, you 
-can set up archiving to your local filesystem with a main Timescale
+works with TimescaleDB as well as regular PostgreSQL. In this section, you
+can set up archiving to your local filesystem with a main TimescaleDB
 container called `timescaledb`, and a WAL-E sidecar called `wale`. When you are
 ready to implement this in your production deployment, you can adapt the
 instructions here to do archiving against cloud providers such as AWS S3, and
@@ -23,20 +23,20 @@ run it in an orchestration framework such as Kubernetes.
 
 <Deprecation />
 
-## Run the Timescale container in Docker
+## Run the TimescaleDB container in Docker
 
-To make Timescale use the WAL-E sidecar for archiving, the two containers need
+To make TimescaleDB use the WAL-E sidecar for archiving, the two containers need
 to share a network. To do this, you need to create a Docker  network and then
-launch Timescale with archiving turned on, using the newly created network.
-When you launch Timescale, you need to explicitly set the location of the
+launch TimescaleDB with archiving turned on, using the newly created network.
+When you launch TimescaleDB, you need to explicitly set the location of the
 write-ahead log (`POSTGRES_INITDB_WALDIR`) and data directory (`PGDATA`) so that
 you can share them with the WAL-E sidecar. Both must reside in a Docker volume,
 by default a volume is created for `/var/lib/postgresql/data`. When you have
-started Timescale, you can log in and create tables and data.
+started TimescaleDB, you can log in and create tables and data.
 
 <Procedure>
 
-### Running the Timescale container in Docker
+### Running the TimescaleDB container in Docker
 
 1.  Create the docker container:
 
@@ -44,7 +44,7 @@ started Timescale, you can log in and create tables and data.
     docker network create timescaledb-net
     ```
 
-1.  Launch Timescale, with archiving turned on:
+1.  Launch TimescaleDB, with archiving turned on:
 
     ```bash
     docker run \
@@ -62,7 +62,7 @@ started Timescale, you can log in and create tables and data.
       -cmax_wal_senders=1
     ```
 
-1.  Run Timescale within Docker:
+1.  Run TimescaleDB within Docker:
 
     ```bash
     docker exec -it timescaledb psql -U postgres
@@ -81,7 +81,7 @@ commands from services such as AWS S3. For information about configuring, see
 the official [WAL-E documentation][wale official].
 
 To enable the WAL-E docker image to perform archiving, it needs to use the same
-network and data volumes as the Timescale container. It also needs to know the
+network and data volumes as the TimescaleDB container. It also needs to know the
 location of the write-ahead log and data directories. You can pass all this
 information to WAL-E when you start it. In this example, the WAL-E image listens
 for commands on the `timescaledb-net` internal network at port 80, and writes
@@ -129,13 +129,13 @@ backups to `~/backups` on the Docker host.
 You should do base backups at regular intervals daily, to minimize
 the amount of WAL-E replay, and to make recoveries faster. To make new base
 backups, re-trigger a base backup as shown here, either manually or on a
-schedule. If you run Timescale on Kubernetes, there is built-in support for
+schedule. If you run TimescaleDB on Kubernetes, there is built-in support for
 scheduling cron jobs that can invoke base backups using the WAL-E container's
 HTTP API.
 
 ## Recovery
 
-To recover the database instance from the backup archive, create a new Timescale
+To recover the database instance from the backup archive, create a new TimescaleDB
 container, and restore the database and configuration files from the base
 backup. Then you can relaunch the sidecar and the database.
 
@@ -229,7 +229,7 @@ database, and check that recovery was successful.
       timescale/timescaledb-wale:latest
     ```
 
-1.  Relaunch the Timescale docker container:
+1.  Relaunch the TimescaleDB docker container:
 
     ```bash
     docker start timescaledb-recovered
