@@ -1,6 +1,7 @@
 ---
 title: Upgrading fails with an error saying "old version has already been loaded"
 section: troubleshooting
+products: [self_hosted]
 topics: [upgrades]
 errors:
   - language: sql

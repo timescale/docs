@@ -1,6 +1,7 @@
 ---
 title: Hierarchical continuous aggregate fails with incompatible bucket width
 section: troubleshooting
+products: [cloud, mst, self_hosted]
 topics: [continuous aggregates, time buckets]
 errors:
   - language: sql

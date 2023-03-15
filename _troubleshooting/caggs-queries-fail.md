@@ -1,6 +1,7 @@
 ---
 title: Queries fail when defining continuous aggregates but work on regular tables
 section: troubleshooting
+products: [cloud, mst, self_hosted]
 topics: [continuous aggregates]
 errors:
   - language: sql
@@ -13,7 +14,7 @@ keywords: [continuous aggregates]
 tags: [continuous aggregates, query]
 ---
 
-import CaggsFunctionSupport from '../../_partials/_caggs-function-support.mdx';
+import CaggsFunctionSupport from 'versionContent/_partials/_caggs-function-support.mdx';
 
 <!---
 * Use this format for writing troubleshooting sections:

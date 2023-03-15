@@ -1,6 +1,7 @@
 ---
 title: Versions are mismatched when dumping and restoring a database
 section: troubleshooting
+products: [self_hosted]
 topics: [backups]
 keywords: [backups, restore]
 ---

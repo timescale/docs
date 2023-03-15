@@ -1,6 +1,7 @@
 ---
 title: Can't access file "timescaledb-VERSION" after update
 section: troubleshooting
+products: [self_hosted]
 topics: [upgrades]
 errors:
   - language: text

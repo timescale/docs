@@ -1,6 +1,7 @@
 ---
 title: User permissions do not allow chunks to be compressed or decompressed
 section: troubleshooting
+products: [cloud, mst, self_hosted]
 topics: [hypertables, compression, configuration]
 errors:
   - language: text

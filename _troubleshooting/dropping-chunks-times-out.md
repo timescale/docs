@@ -1,6 +1,7 @@
 ---
 title: Dropping chunks times out
 section: troubleshooting
+products: [cloud, mst, self_hosted]
 topics: [data retention, hypertables]
 apis:
   - [hypertables, drop_chunks()]

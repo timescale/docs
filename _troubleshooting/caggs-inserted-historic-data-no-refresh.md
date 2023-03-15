@@ -1,6 +1,7 @@
 ---
 title: Continuous aggregate doesn't refresh with newly inserted historical data
 section: troubleshooting
+products: [cloud, mst, self_hosted]
 topics: [continuous aggregates]
 apis:
   - [continuous aggregates, add_continuous_aggregate_policy()]

@@ -1,6 +1,7 @@
 ---
 title: Hypertable retention policy isn't applying to continuous aggregates
 section: troubleshooting
+products: [cloud, mst, self_hosted]
 topics: [continuous aggregates, data retention]
 apis:
   - [data retention, add_retention_policy()]

@@ -2,6 +2,7 @@
 title: Hypershift migration runs slowly
 section: troubleshooting
 products: [cloud]
+topics: [data migration]
 keywords: [migration, hypershift]
 tags: [hypershift, migration, ingest, postgresql]
 ---

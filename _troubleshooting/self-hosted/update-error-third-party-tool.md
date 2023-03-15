@@ -1,5 +1,6 @@
 ---
 title: Error updating TimescaleDB when using a third-party PostgreSQL admin tool
+products: [self_hosted]
 topics: [upgrades]
 keywords: [updates, third-party tools]
 ---

@@ -1,6 +1,7 @@
 ---
 title: TimescaleDB upgrade fails with no update path
 section: troubleshooting
+products: [self_hosted]
 topics: [upgrades]
 errors:
   - language: sql

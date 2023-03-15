@@ -1,6 +1,7 @@
 ---
 title: Install or upgrade of TimescaleDB Toolkit fails
 section: troubleshooting
+products: [self_hosted]
 topics: [installation, hyperfunctions, upgrades]
 errors:
   - language: sql

@@ -5,6 +5,7 @@ errors:
   - language: bash
     message: |-
       ERROR:  cannot update/delete rows from chunk <CHUNK_NAME> as it is compressed
+products: [cloud, mst, self_hosted]
 topics: [continuous aggregates, compression]
 apis:
   - [continuous aggregates, refresh_continuous_aggregate()]

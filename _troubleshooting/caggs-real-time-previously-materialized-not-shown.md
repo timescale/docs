@@ -1,6 +1,7 @@
 ---
 title: Updates to previously materialized regions aren't shown in real-time aggregates
 section: troubleshooting
+products: [cloud, mst, self_hosted]
 topics: [continuous aggregates]
 apis:
   - [continuous aggregates, add_continuous_aggregate_policy()]

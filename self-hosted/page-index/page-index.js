@@ -11,7 +11,7 @@ module.exports = [
         title: "Install Timescale",
         href: "install",
         excerpt: "Install self-hosted Timescale",
-        children: [  
+        children: [
           {
             title: "Linux",
             href: "installation-linux",
@@ -21,14 +21,16 @@ module.exports = [
           {
             title: "Windows",
             href: "installation-windows",
-            iconSrc: "https://assets.iobeam.com/images/docs/Windows_logo_-_2012.svg",
+            iconSrc:
+              "https://assets.iobeam.com/images/docs/Windows_logo_-_2012.svg",
             excerpt:
-            "Install self-hosted Timescale on Microsoft Windows using a zipped .exe file",
+              "Install self-hosted Timescale on Microsoft Windows using a zipped .exe file",
           },
           {
             title: "MacOS",
             href: "installation-macos",
-            iconSrc: "https://assets.iobeam.com/images/docs/Apple_logo_black.svg",
+            iconSrc:
+              "https://assets.iobeam.com/images/docs/Apple_logo_black.svg",
             excerpt: "Install self-hosted Timescale on MacOS using homebrew",
           },
           {
@@ -41,29 +43,28 @@ module.exports = [
           {
             title: "Pre-built containers",
             href: "installation-docker",
-            iconSrc: "https://s3.amazonaws.com/assets.iobeam.com/images/docs/moby.png",
+            iconSrc:
+              "https://s3.amazonaws.com/assets.iobeam.com/images/docs/moby.png",
             excerpt:
               "Install self-hosted Timescale with a pre-built Docker container",
           },
           {
             title: "Kubernetes",
             href: "installation-kubernetes",
-            iconSrc: "https://s3.amazonaws.com/assets.iobeam.com/images/docs/kubernetes-icon-color.svg",
+            iconSrc:
+              "https://s3.amazonaws.com/assets.iobeam.com/images/docs/kubernetes-icon-color.svg",
             excerpt: "Install self-hosted Timescale on Kubernetes",
           },
           {
             title: "Pre-built cloud images",
             href: "installation-cloud-image",
-            iconSrc: "https://s3.amazonaws.com/assets.iobeam.com/images/docs/aws_logo.svg",
-            excerpt: "Install self-hosted Timescale on Amazon with an Ubuntu AMI",
+            iconSrc:
+              "https://s3.amazonaws.com/assets.iobeam.com/images/docs/aws_logo.svg",
+            excerpt:
+              "Install self-hosted Timescale on Amazon with an Ubuntu AMI",
           },
-          {
-            title: "Troubleshooting",
-            href: "troubleshooting",
-            type: "placeholder",
-          },
-        ]
-      }, 
+        ],
+      },
       {
         title: "Configuration",
         href: "configuration",
@@ -102,11 +103,6 @@ module.exports = [
             href: "telemetry",
             excerpt: "Configure telemetry gathered by self-hosted Timescale",
           },
-          {
-            title: "Troubleshooting",
-            href: "troubleshooting",
-            type: "placeholder",
-          },
         ],
       },
       {
@@ -127,12 +123,6 @@ module.exports = [
             title: "Physical backups",
             href: "physical",
             excerpt: "Backing up and restoring with physical backups",
-          },
-          {
-            title: "Troubleshooting",
-            href: "troubleshooting",
-            type: "placeholder",
-            excerpt: "Troubleshoot problems with backing up self-hosted Timescale",
           },
         ],
       },
@@ -180,11 +170,6 @@ module.exports = [
             href: "multinode-maintenance",
             excerpt: "Maintain a multi-node environment",
           },
-          {
-            title: "Troubleshooting",
-            href: "troubleshooting",
-            type: "placeholder",
-          },
         ],
       },
       {
@@ -200,11 +185,6 @@ module.exports = [
             title: "Configure replication",
             href: "configure-replication",
             excerpt: "Configure replication",
-          },
-          {
-            title: "Troubleshooting",
-            href: "troubleshooting",
-            type: "placeholder",
           },
         ],
       },
@@ -243,12 +223,6 @@ module.exports = [
             href: "upgrade-pg",
             excerpt: "Upgrade to a new version of PostgreSQL",
           },
-          {
-            title: "Troubleshooting upgrades",
-            href: "troubleshooting",
-            type: "placeholder",
-            excerpt: "Troubleshoot upgrading your self-hosted Timescale installation",
-          },
         ],
       },
       {
@@ -263,6 +237,11 @@ module.exports = [
           },
         ],
       },
+      {
+        title: "Troubleshooting self-hosted Timescale",
+        href: "troubleshooting",
+        type: "placeholder",
+      },
     ],
   },
-]
+];
