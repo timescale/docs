@@ -1,13 +1,13 @@
 ---
 title: High availability with multi-node
-excerpt: How to configure multi-node TimescaleDB for high availability
-products: [mst, self_hosted]
+excerpt: How to configure multi-node Timescale for high availability
+products: [self_hosted]
 keywords: [multi-node, high availability]
 ---
 
 # High availability with multi-node
 
-A multi-node installation of TimescaleDB can be made highly available
+A multi-node installation of Timescale can be made highly available
 by setting up one or more standbys for each node in the cluster, or by
 natively replicating data at the chunk level.
 
@@ -16,7 +16,7 @@ in a similar way to [configuring single-node HA][single-ha], although the
 configuration needs to be applied to each node independently.
 
 To replicate data at the chunk level, you can use the built-in
-capabilities of multi-node TimescaleDB to avoid having to
+capabilities of multi-node Timescale to avoid having to
 replicate entire data nodes. The access node still relies on a
 streaming replication standby, but the data nodes need no additional
 configuration. Instead, the existing pool of data nodes share
@@ -41,7 +41,7 @@ HA][single-ha].
 ## Native replication
 
 Native replication is a set of capabilities and APIs that allow you to
-build a highly available multi-node TimescaleDB installation. At the
+build a highly available multi-node Timescale installation. At the
 core of native replication is the ability to write copies of a chunk
 to multiple data nodes in order to have alternative _chunk replicas_
 in case of a data node failure. If one data node fails, its chunks
@@ -51,7 +51,7 @@ lost chunk replicas can be re-replicated from other data nodes to
 reach the number of desired chunk replicas.
 
 <Highlight type="warning">
-Native replication in TimescaleDB is under development and
+Native replication in Timescale is under development and
 currently lacks functionality for a complete high-availability
 solution. Some functionality described in this section is still
 experimental. For production environments, we recommend setting up
@@ -65,7 +65,7 @@ PostgreSQL uses a system like Patroni for automatically handling
 fail-over, native replication requires an external entity to
 orchestrate fail-over, chunk re-replication, and data node
 management. This orchestration is _not_ provided by default in
-TimescaleDB and therefore needs to be implemented separately. The
+Timescale and therefore needs to be implemented separately. The
 sections below describe how to enable native replication and the steps
 involved to implement high availability in case of node failures.
 
@@ -212,6 +212,6 @@ CALL timescaledb_experimental.cleanup_copy_chunk_operation('ts_copy_1_31');
 </Highlight>
 
 [set_replication_factor]:  /api/:currentVersion:/distributed-hypertables/set_replication_factor
-[single-ha]: /timescaledb/:currentVersion:/how-to-guides/replication-and-ha/
+[single-ha]: /self-hosted/:currentVersion:/replication-and-ha/
 [alter_data_node]: /api/:currentVersion:/distributed-hypertables/alter_data_node/
 [copy_chunk]:/api/:currentVersion:/distributed-hypertables/copy_chunk_experimental

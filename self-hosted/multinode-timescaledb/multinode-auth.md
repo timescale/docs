@@ -1,7 +1,7 @@
 ---
 title: Multi-node authentication
 excerpt: Configure authentication between access nodes and data nodes
-products: [mst, self_hosted]
+products: [self_hosted]
 keywords: [multi-node, authenticate]
 tags: [admin]
 ---
@@ -328,7 +328,9 @@ it using the root certificate you created on the access node.
 
 </Procedure>
 
-When you have created the certificates and keys, and moved all the files into the right places on the data nodes, you can configure the data nodes to use SSL authentication.
+When you have created the certificates and keys, and moved all the files into
+the right places on the data nodes, you can configure the data nodes to use SSL
+authentication.
 
 <Procedure>
 
@@ -458,5 +460,5 @@ step is add additional user roles.
 [auth-password]: https://www.postgresql.org/docs/current/auth-password.html
 [distributed_exec]: /api/:currentVersion:/distributed-hypertables/distributed_exec
 [md5sum]: https://www.tutorialspoint.com/unix_commands/md5sum.htm
-[multi-node-setup]: /timescaledb/:currentVersion:/how-to-guides/multinode-timescaledb/multinode-setup/
+[multi-node-setup]: /self-hosted/:currentVersion:/multinode-timescaledb/multinode-setup/
 [user-mapping]: https://www.postgresql.org/docs/current/sql-createusermapping.html

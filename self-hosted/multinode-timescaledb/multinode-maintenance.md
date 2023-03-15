@@ -1,7 +1,7 @@
 ---
 title: Multi-node maintenance tasks
 excerpt: How to maintain your multi-node instance
-products: [mst, self_hosted]
+products: [self_hosted]
 keywords: [multi-node, maintenance]
 tags: [manage]
 ---
