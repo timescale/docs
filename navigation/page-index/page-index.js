@@ -2,6 +2,7 @@ module.exports = [
   {
     title: "Find a docs page",
     href: "navigation",
+    excerpt: "Help tools for finding a docs page",
     filePath: "index.md",
     children: [
       {
