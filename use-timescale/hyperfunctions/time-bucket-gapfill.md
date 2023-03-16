@@ -20,4 +20,4 @@ such as last observation carried forward (LOCF), or interpolation.
 For more information about gapfilling and interpolation API calls, see the
 [hyperfunction API documentation][hyperfunctions-api-gapfilling].
 
-[hyperfunctions-api-gapfilling]: /api/:currentVersion:/hyperfunctions/gapfilling-interpolation/
+[hyperfunctions-api-gapfilling]: /api/:currentVersion:/hyperfunctions/gapfilling/time_bucket_gapfill/
