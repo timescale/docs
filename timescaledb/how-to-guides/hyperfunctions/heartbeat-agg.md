@@ -8,15 +8,16 @@ keywords: [hyperfunctions, Toolkit, heartbeat, liveness]
 
 Given a series of timestamped health checks, it can be tricky to determine the overall health of
 a system over a given interval. PostgresQL provides window functions which can be used to get a
-sense of where unhealthy gaps are, but can be somewhat awkward to use efficiently. We've created
-the heartbeat aggregate as part of the TimescaleDB Toolkit to solve this problem in a simpler,
+sense of where unhealthy gaps are, but can be somewhat awkward to use efficiently. 
+The heartbeat aggregate is part of the Timescale Toolkit, and can be used to 
+solve this problem in a simpler,
 more accessible manner.
 
-For this example, we'll be using the SustData public dataset found [here][sustdata]. This dataset
+This example uses the [SustData public dataset][sustdata]. This dataset
 tracks the power usage of a small number of apartments and houses over four different deployment
 intervals. The data is collected in one minute samples from each unit.
 
-Our first step after loading the data into [hypertables][hypertables] will be to create a materialized
+When you have loaded the data into [hypertables][hypertables], you can create a materialized
 view containing weekly heartbeat aggregates for each of the units.
 
 ```sql
@@ -30,13 +31,13 @@ CREATE MATERIALIZED VIEW weekly_heartbeat AS
   GROUP BY 1,2,3;
 ```
 
-Notice the heartbeat aggregate takes four parameters; the timestamp column, the start of the
+The heartbeat aggregate takes four parameters: the timestamp column, the start of the
 interval, the length of the interval, and how long the aggregate is considered live after each
-timestamp. In this example we use 2 minutes as the heartbeat lifetime to give us some tolerance
+timestamp. This example uses 2 minutes as the heartbeat lifetime to give some tolerance
 for small gaps.
 
-With this data we can easily see when we're receiving data for a particular unit. Here we'll
-rollup the weekly aggregates into a single aggregate and view the live ranges.
+You can use this data to see when you're receiving data for a particular unit. This example
+rolls up the weekly aggregates into a single aggregate, and then views the live ranges:
 
 ```sql
 SELECT live_ranges(rollup(heartbeat_agg)) FROM weekly_heartbeat WHERE unit = 17;
@@ -66,8 +67,8 @@ SELECT live_ranges(rollup(heartbeat_agg)) FROM weekly_heartbeat WHERE unit = 17;
  ("2012-03-25 03:00:51+00","2012-04-11 00:01:00+00")
 ```
 
-We can do also do more eloborate queries, like looking for the 5 units with the lowest uptime
-during the third deployment.
+You can do also do more elaborate queries, like looking for the 5 units with the lowest uptime
+during the third deployment:
 
 ```sql
 SELECT unit, uptime(rollup(heartbeat_agg))
@@ -88,8 +89,8 @@ ORDER BY uptime LIMIT 5;
 ```
 
 Another neat feature of the heartbeat agg is that we can actually combine aggregates from different
-units to get the combined coverage. Here we're querying for the interval where any part of a
-deployment was active.
+units to get the combined coverage. This example queries the interval where any part of a
+deployment was active:
 
 ```sql
 SELECT deploy, live_ranges(rollup(heartbeat_agg)) 
@@ -112,9 +113,9 @@ FROM weekly_heartbeat group by deploy order by deploy;
       4 | ("2014-03-30 03:00:01+00","2014-04-25 00:01:00+00")
 ```
 
-With this data we can make a few observations. First, it looks the second deployment had a lot
+You can use this data to make some observations. First, it looks like the second deployment had a lot
 more problems than the other ones. Second, it looks like there were some readings from February
-2013 that were incorrectly categorized as second deployment. And finally, it looks like the
+2013 that were incorrectly categorized as a second deployment. And finally, it looks like the
 timestamps are given in a local time without time zone, resulting in some missing hours around
 springtime daylight savings time changes.
 
