@@ -27,10 +27,6 @@ module.exports = [
         href: "billing",
       },
       {
-        title: "Create a multi-node cluster",
-        href: "mst-multi-node",
-      },
-      {
         title: "Connection pools",
         href: "connection-pools",
       },
