@@ -5,11 +5,11 @@ products: [cloud, mst, self_hosted]
 keywords: [hypertables, partitions]
 ---
 
-import HypertableIntro from "versionContent/_partials/_hypertables-intro.mdx";
+import HypertablesIntro from 'versionContent/_partials/_hypertables-intro.mdx';
 
 # About hypertables
 
-<HypertableIntro />
+<HypertablesIntro />
 
 ## Hypertable partitioning
 
