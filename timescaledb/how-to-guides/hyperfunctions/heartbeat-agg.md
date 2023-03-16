@@ -88,7 +88,7 @@ ORDER BY uptime LIMIT 5;
    30 | 222 days 22:05:00
 ```
 
-Another neat feature of the heartbeat agg is that we can actually combine aggregates from different
+You can also combine aggregates from different
 units to get the combined coverage. This example queries the interval where any part of a
 deployment was active:
 
