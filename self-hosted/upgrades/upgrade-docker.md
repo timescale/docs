@@ -1,15 +1,15 @@
 ---
 title: Upgrades within a Docker container
-excerpt: Upgrade Timescale within a Docker container
+excerpt: Upgrade TimescaleDB within a Docker container
 products: [self_hosted]
 keywords: [upgrades, Docker]
 ---
 
 # Upgrades within a Docker container
 
-If you originally installed Timescale using Docker, you can upgrade from
+If you originally installed TimescaleDB using Docker, you can upgrade from
 within the Docker container. This allows you to upgrade to the latest
-Timescale version, while retaining your data.
+TimescaleDB version, while retaining your data.
 
 <Highlight type="note">
 In this section, the examples use a Docker instance called `timescaledb`. If you
@@ -64,20 +64,20 @@ mounts, or bind mounts.
 
 </Procedure>
 
-## Upgrade Timescale within Docker
+## Upgrade TimescaleDB within Docker
 
-To upgrade Timescale within Docker, you need to download the upgraded image,
+To upgrade TimescaleDB within Docker, you need to download the upgraded image,
 stop the old container, and launch the new container pointing to your existing
 data.
 
 <Procedure>
 
-### Upgrading Timescale within Docker
+### Upgrading TimescaleDB within Docker
 
-1.  Pull the latest Timescale image. This command pulls the image for
+1.  Pull the latest TimescaleDB image. This command pulls the image for
     PostgreSQL&nbsp;14. If you're using another PostgreSQL version, look for the
     relevant tag in the
-    [Timescale HA Docker Hub repository](https://hub.docker.com/r/timescale/timescaledb-ha/tags).
+    [TimescaleDB HA Docker Hub repository](https://hub.docker.com/r/timescale/timescaledb-ha/tags).
 
     ```bash
     docker pull timescale/timescaledb-ha:pg14-latest
@@ -130,8 +130,8 @@ data.
     ALTER EXTENSION timescaledb UPDATE;
     ```
 
-1.  Update the [Timescale Toolkit][toolkit] extension. Toolkit is packaged
-    with Timescale's HA Docker image, and includes additional hyperfunctions
+1.  Update the [TimescaleDB Toolkit][toolkit] extension. Toolkit is packaged
+    with TimescaleDB's HA Docker image, and includes additional hyperfunctions
     to help you with queries and data analysis:
 
     ```sql

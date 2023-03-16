@@ -1,17 +1,17 @@
 ---
-title: Timescale tuning tool
-excerpt: Use the timescaledb-tune tool to automatically configure your Timescale instance
+title: TimescaleDB tuning tool
+excerpt: Use the timescaledb-tune tool to automatically configure your TimescaleDB instance
 products: [self_hosted]
 keywords: [configuration, settings, timescaledb-tune]
 tags: [tune]
 ---
 
-# Timescale tuning tool
+# TimescaleDB tuning tool
 
-To help make configuring Timescale a little easier, you can use the [`timescaledb-tune`][tstune]
+To help make configuring TimescaleDB a little easier, you can use the [`timescaledb-tune`][tstune]
 tool. This tool handles setting the most common parameters to good values based
 on your system. It accounts for memory, CPU, and PostgreSQL version.
-`timescaledb-tune` is packaged with the Timescale binary releases as a
+`timescaledb-tune` is packaged with the TimescaleDB binary releases as a
 dependency, so if you installed Timescale from a binary release (including
 Docker), you should already have access to the tool. Alternatively, you can use
 the `go install` command to install it:

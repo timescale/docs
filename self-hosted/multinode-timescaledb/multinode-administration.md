@@ -1,6 +1,6 @@
 ---
 title: Multi-node administration
-excerpt: Manage your multi-node Timescale cluster
+excerpt: Manage your multi-node TimescaleDB cluster
 products: [self_hosted]
 keywords: [multi-node, admin]
 tags: [manage]
@@ -8,7 +8,7 @@ tags: [manage]
 
 # Multi-node administration
 
-Multi-node Timescale allows you to administer your cluster directly
+Multi-node TimescaleDB allows you to administer your cluster directly
 from the access node. When your environment is set up, you do not
 need to log directly into the data nodes to administer your database.
 

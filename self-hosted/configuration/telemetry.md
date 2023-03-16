@@ -1,13 +1,13 @@
 ---
 title: Telemetry and version checking
-excerpt: What telemetry Timescale collects and how to disable telemetry
+excerpt: What telemetry TimescaleDB collects and how to disable telemetry
 products: [self_hosted]
 keywords: [settings, telemetry]
 ---
 
 # Telemetry and version checking
 
-Timescale collects anonymous usage data to help us better understand and assist
+TimescaleDB collects anonymous usage data to help us better understand and assist
 our users. It also helps us provide some services, such as automated version
 checking. Your privacy is the most important thing to us, so we do not collect
 any personally identifying information. In particular, the `UUID` (user ID)
@@ -180,7 +180,7 @@ you can use the [`get_telemetry_report`][get_telemetry_report] API call.
 
 <Highlight type="note">
 Telemetry reports are different if you are using an open source or community
-version of Timescale. For these versions, the report includes an `edition`
+version of TimescaleDB. For these versions, the report includes an `edition`
 field, with a value of either `apache_only` or `community`.
 </Highlight>
 

@@ -18,8 +18,8 @@ processes switch between these standby resources as quickly as possible.
 For some systems, recovering from backup alone can be a suitable availability
 strategy.
 
-For more information about backups in self-hosted Timescale, see the
-[backup and restore section][db-backup] in the Timescale documentation.
+For more information about backups in self-hosted TimescaleDB, see the
+[backup and restore section][db-backup] in the TimescaleDB documentation.
 
 ## Storage redundancy
 
@@ -37,15 +37,15 @@ running database that can take over immediately.
 ## Zonal redundancy
 
 While the public cloud is highly reliable, entire portions of the cloud can be
-unavailable at times. Timescale does not protect against Availability Zone
+unavailable at times. TimescaleDB does not protect against Availability Zone
 failures unless the user is using HA replicas. We do not currently offer
 multi-cloud solutions or protection from an AWS Regional failure.
 
 ## Replication
 
-Timescale supports replication using PostgreSQL's built-in
+TimescaleDB supports replication using PostgreSQL's built-in
 [streaming replication][postgres-streaming-replication-docs]. Using
-[logical replication][postgres-logrep-docs] with Timescale is not recommended,
+[logical replication][postgres-logrep-docs] with TimescaleDB is not recommended,
 as it requires schema synchronization between the primary and replica nodes and
 replicating partition root tables, which are
 [not currently supported][postgres-partition-limitations].

@@ -1,6 +1,6 @@
 ---
 title: Additional tooling
-excerpt: Get the most from Timescale with open source tools that help you perform common tasks
+excerpt: Get the most from TimescaleDB with open source tools that help you perform common tasks
 products: [self_hosted]
 ---
 
@@ -9,7 +9,7 @@ products: [self_hosted]
 Get the most from TimescaleDB with open source tools that help you perform
 common tasks.
 
-*   Automatically configure your Timescale instance with
+*   Automatically configure your TimescaleDB instance with
     [`timescaledb-tune`][tstune]
 *   Install and use [`timescaledb-parallel-copy`][tscopy] to insert data.
 

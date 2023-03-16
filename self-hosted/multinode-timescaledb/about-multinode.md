@@ -1,6 +1,6 @@
 ---
 title: About multi-node
-excerpt: Learn how multi-node Timescale works
+excerpt: Learn how multi-node TimescaleDB works
 products: [self_hosted]
 keywords: [multi-node]
 ---
@@ -8,7 +8,7 @@ keywords: [multi-node]
 # About multi-node
 
 If you have a larger petabyte-scale workload, you might need more than
-one Timescale instance. Timescale multi-node allows you to run and
+one TimescaleDB instance. TimescaleDB multi-node allows you to run and
 manage a cluster of databases, which can give you faster data ingest,
 and more responsive and efficient queries for large workloads.
 
@@ -24,7 +24,7 @@ according to your specific requirements.
 
 ## Multi-node architecture
 
-Multi-node Timescale allows you to tie several databases together
+Multi-node TimescaleDB allows you to tie several databases together
 into a logical distributed database in order to combine the
 processing power of many physical PostgreSQL instances.
 
@@ -41,7 +41,7 @@ For self-hosted installations, create a server that can act as an
 access node, then use that access node to create data nodes on other
 servers.
 
-When you have configured multi-node Timescale, the access node coordinates
+When you have configured multi-node TimescaleDB, the access node coordinates
 the placement and access of data chunks on the data nodes. In most
 cases, it is recommend that you use multidimensional partitioning to
 distribute data across chunks in both time and space dimensions. The
@@ -52,10 +52,10 @@ time interval across multiple data nodes (DN1, DN2, and DN3).
 
 A database user connects to the access node to issue commands and
 execute queries, similar to how one connects to a regular single
-node Timescale instance. In most cases, connecting directly to the
+node TimescaleDB instance. In most cases, connecting directly to the
 data nodes is not necessary.
 
-Because Timescale exists as an extension within a specific
+Because TimescaleDB exists as an extension within a specific
 database, it is possible to have both distributed and non-distributed
 databases on the same access node. It is also possible to
 have several distributed databases that use different sets of physical
@@ -92,7 +92,7 @@ generally run faster than queries that run on a single data node, so it is
 important to think about what kind of data you have, and the type of queries you
 want to run.
 
-Timescale multi-node currently supports capabilities that make it best suited
+TimescaleDB multi-node currently supports capabilities that make it best suited
 for large-volume time-series workloads that are partitioned on `time`, and a
 space dimension such as `location`. If you usually run wide queries that
 aggregate data across many locations and devices, choose this partitioning
@@ -137,7 +137,7 @@ like those on regular hypertables. This means that a distributed
 transaction that involves multiple data nodes is guaranteed to
 either succeed on all nodes or on none of them. This guarantee
 is provided by the [two-phase commit protocol][2pc], which
-is used to implement distributed transactions in Timescale.
+is used to implement distributed transactions in TimescaleDB.
 
 However, the read consistency of a distributed hypertable is different
 to a regular hypertable. Because a distributed transaction is a set of
@@ -160,4 +160,3 @@ hypertables.
 
 [2pc]: https://www.postgresql.org/docs/current/sql-prepare-transaction.html
 [hypertables]: /timescaledb/:currentVersion:/how-to-guides/hypertables/
-

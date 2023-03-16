@@ -1,13 +1,13 @@
 ---
 title: Configuration with Docker
-excerpt: Configure a Timescale instance running in a Docker container
+excerpt: Configure a TimescaleDB instance running in a Docker container
 products: [self_hosted]
 keywords: [configuration, settings, Docker]
 ---
 
 # Configuration with Docker
 
-If you are running Timescale in a [Docker container][docker], there are two
+If you are running TimescaleDB in a [Docker container][docker], there are two
 different ways to modify your PostgreSQL configuration. You can edit the
 PostgreSQL configuration file inside the Docker container, or you can set
 parameters at the command prompt.

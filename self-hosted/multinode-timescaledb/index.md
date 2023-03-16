@@ -7,8 +7,8 @@ keywords: [multi-node, scaling]
 
 # Multi-node
 
-If you have a larger workload, you might need more than one Timescale
-instance. Timescale multi-node allows you to run and manage multiple instances,
+If you have a larger workload, you might need more than one TimescaleDB
+instance. TimescaleDB multi-node allows you to run and manage multiple instances,
 giving you faster data ingest, and more responsive and efficient queries.
 
 *   [Learn about multi-node][about-multi-node] to understand how it works

@@ -1,19 +1,19 @@
 ---
-title: About configuration in Timescale
-excerpt: About the Timescale configurations
+title: About configuration in TimescaleDB
+excerpt: About the TimescaleDB configurations
 products: [self_hosted]
 keywords: [configuration, memory, workers, settings]
 ---
 
-# About configuration in Timescale
+# About configuration in TimescaleDB
 
-By default, Timescale uses the default PostgreSQL server configuration
+By default, TimescaleDB uses the default PostgreSQL server configuration
 settings. However, in some cases, these settings are not appropriate, especially
 if you have larger servers that use more hardware resources such as CPU, memory,
 and storage. This section explains some of the settings you are most likely to
 need to adjust.
 
-Some of these settings are PostgreSQL settings, and some are Timescale
+Some of these settings are PostgreSQL settings, and some are TimescaleDB
 specific settings. For most changes, you can use the [tuning tool][tstune-conf]
 to adjust your configuration. For more advanced configuration settings, or to
 change settings that aren't included in the `timescaledb-tune` tool, you can
@@ -50,7 +50,7 @@ PostgreSQL uses worker pools to provide workers for live queries and background
 jobs. If you do not configure these settings, your queries and background jobs
 could run more slowly.
 
-Timescale background workers are configured with
+TimescaleDB background workers are configured with
 `timescaledb.max_background_workers`. Each database needs a background worker
 allocated to schedule jobs. Additional workers run background jobs as required.
 This setting should be the sum of the total number of databases and the total
@@ -60,7 +60,7 @@ You can change this setting directly, use the `--max-bg-workers` flag, or adjust
 the `TS_TUNE_MAX_BG_WORKERS`
 [Docker environment variable][docker-conf].
 
-Timescale parallel workers are configured with `max_parallel_workers`. For
+TimescaleDB parallel workers are configured with `max_parallel_workers`. For
 larger queries, PostgreSQL automatically uses parallel workers if they are
 available. Increasing this setting can improve query performance for large
 queries that trigger the use of parallel workers. By default, this setting
@@ -102,7 +102,7 @@ Settings:
 
 *   `max_locks_per_transaction`
 
-Timescale relies on table partitioning to scale time-series workloads. A
+TimescaleDB relies on table partitioning to scale time-series workloads. A
 hypertable needs to acquire locks on many chunks during queries, which can
 exhaust the default limits for the number of allowed locks held. In some cases,
 you might see a warning like this:
