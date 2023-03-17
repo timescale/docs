@@ -223,5 +223,5 @@ see the [API Reference for hyperfunctions](/api/:currentVersion:/hyperfunctions)
 [last]: /api/:currentVersion:/hyperfunctions/last
 [order-by]: https://www.postgresql.org/docs/current/queries-order.html
 [select-keywords]: https://www.postgresql.org/docs/14/sql-select.html
-[time-bucket-how-to]: /timescaledb/:currentVersion:/how-to-guides/time-buckets/
+[time-bucket-how-to]: /use-timescale/:currentVersion:/time-buckets/
 [time-bucket]: /api/:currentVersion:/hyperfunctions/time_bucket

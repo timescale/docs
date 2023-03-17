@@ -121,8 +121,8 @@ TimescaleDB natively includes some job-scheduling policies, such as:
 If these don't cover your use case, or if you want to expand upon the native
 policy features, you can write a user-defined action.
 
-[caggs]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/refresh-policies/
-[compressing]: /timescaledb/:currentVersion:/how-to-guides/compression/about-compression/
+[caggs]: /use-timescale/:currentVersion:/continuous-aggregates/refresh-policies/
+[compressing]: /use-timescale/:currentVersion:/compression/about-compression/
 [reordering]: /api/:currentVersion:/hypertable/add_reorder_policy/
-[retention]: /timescaledb/:currentVersion:/how-to-guides/data-retention/create-a-retention-policy/
+[retention]: /use-timescale/:currentVersion:/data-retention/create-a-retention-policy/
 [plpgsql]: https://www.postgresql.org/docs/current/plpgsql-overview.html

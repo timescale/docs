@@ -85,6 +85,6 @@ about indexes and partitioning. See the [hypertables and unique indexes
 section][unique-indexes] section for more information.
 
 [create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
-[different-db]: /timescaledb/:currentVersion:/how-to-guides/migrate-data/different-db/
-[install]: /install/latest/
-[unique-indexes]: /timescaledb/:currentVersion:/how-to-guides/hypertables/hypertables-and-unique-indexes/
+[different-db]: /use-timescale/:currentVersion:/migrate-data/different-db/
+[install]: /getting-started/latest/
+[unique-indexes]: /use-timescale/:currentVersion:/hypertables/hypertables-and-unique-indexes/

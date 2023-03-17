@@ -62,7 +62,7 @@ For more information, see the API reference for
 If you're using Timescale Cloud, you can also set a compression policy through
 the Timescale Cloud console. The compression tool automatically generates and
 runs the compression commands for you. To learn more, see the
-[Timescale Cloud documentation](/cloud/latest/service-explorer/#setting-a-compression-policy-from-timescale-cloud-console).
+[Timescale Cloud documentation](/use-timescale/latest/services/service-explorer/#setting-a-compression-policy-from-timescale-cloud-console).
 </Highlight>
 
 ## View current compression policy
@@ -276,6 +276,6 @@ then a separate job merges it with the chunk and compresses it later on.
 
 [alter-table-compression]: /api/:currentVersion:/compression/alter_table_compression/
 [add_compression_policy]: /api/:currentVersion:/compression/add_compression_policy/
-[decompress-chunks]: /timescaledb/:currentVersion:/how-to-guides/compression/decompress-chunks
+[decompress-chunks]: /use-timescale/:currentVersion:/compression/decompress-chunks
 [remove_compression_policy]: /api/:currentVersion:/compression/remove_compression_policy/
 [timescaledb_information-jobs]: /api/:currentVersion:/informational-views/jobs/

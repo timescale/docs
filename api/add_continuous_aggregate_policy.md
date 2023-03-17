@@ -41,7 +41,7 @@ While setting `end_offset` to `NULL` is possible, it is not recommended. By
 default, querying a continuous aggregate returns data between `end_offset` and
 the current time. There is no need to set `end_offset` to `NULL`. To learn more
 about how continuous aggregates use real-time aggregation, see the
-[real-time aggregation section](/timescaledb/latest/how-to-guides/continuous-aggregates/real-time-aggregates/).
+[real-time aggregation section](/use-timescale/latest/continuous-aggregates/real-time-aggregates/).
 </Highlight>
 
 ### Optional arguments

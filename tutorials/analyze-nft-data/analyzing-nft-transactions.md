@@ -634,8 +634,8 @@ Check out these resources for more about using TimescaleDB with crypto data:
 *   [How one TimescaleDB user built a successful crypto trading bot][trading-bot]
 
 [analyze-bitcoin]: https://blog.timescale.com/blog/analyzing-bitcoin-ethereum-and-4100-other-cryptocurrencies-using-postgresql-and-timescaledb/
-[analyze-cryptocurrency]: /timescaledb/:currentVersion:/tutorials/analyze-cryptocurrency-data/
-[cont-agg]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates
+[analyze-cryptocurrency]: /tutorials/:currentVersion:/analyze-cryptocurrency-data/
+[cont-agg]: /use-timescale/:currentVersion:/continuous-aggregates
 [daliso-opensea]: https://opensea.io/daliso
 [eon-collection]: https://opensea.io/collection/time-travel-tigers-by-timescale
 [first-docs]: /api/:currentVersion:/hyperfunctions/first/

@@ -659,6 +659,6 @@ public class Main {
 [create-hypertable]: #generate-a-hypertable
 [insert]: #insert-a-batch-of-rows-into-timescaledb
 [query]: #execute-queries-on-timescaledb
-[install]: /install/:currentVersion:/installation-cloud/
-[continuous-aggregates]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/
-[migrate]: /cloud/:currentVersion:/migrate-to-cloud/
+[install]: /getting-started/latest/
+[continuous-aggregates]: /use-timescale/:currentVersion:/continuous-aggregates/
+[migrate]: /use-timescale/:currentVersion:/migrate-data/

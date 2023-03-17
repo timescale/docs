@@ -67,10 +67,11 @@ If you do not specify `compress_orderby` or `compress_segmentby` columns, the co
 
 </Procedure>
 
-<Highlight type="note"> To learn more about the `segmentby` and `orderby`
+<Highlight type="note">
+ To learn more about the `segmentby` and `orderby`
 options for compression in TimescaleDB and how to pick the right columns, see
 this detailed explanation in the
-[TimescaleDB compression docs](/timescaledb/latest/how-to-guides/compression/).
+[TimescaleDB compression docs](/use-timescale/latest/compression/).
 </Highlight>
 
 ## Automatic compression
@@ -172,5 +173,5 @@ For more information, see the [compression docs][compression-docs].
 [compress-automatic]: /api/:currentVersion:/compression/add_compression_policy/
 [compress-manual]: /api/:currentVersion:/compression/compress_chunk/
 [compression-algorithms]: https://blog.timescale.com/blog/time-series-compression-algorithms-explained/
-[compression-docs]: /timescaledb/:currentVersion:/how-to-guides/compression
+[compression-docs]: /use-timescale/:currentVersion:/compression
 [data-retention]: /getting-started/:currentVersion:/data-retention/

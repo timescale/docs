@@ -17,6 +17,6 @@ backup your self-hosted TimescaleDB database:
 *   _DEPRECATED_ [Ongoing physical backups][ongoing-physical-backups] using write-ahead log
   (WAL) archiving.
 
-[logical-backups]: /timescaledb/:currentVersion:/how-to-guides/backup-and-restore/pg-dump-and-restore/
-[ongoing-physical-backups]: /timescaledb/:currentVersion:/how-to-guides/backup-and-restore/docker-and-wale/
-[physical-backups]: /timescaledb/:currentVersion:/how-to-guides/backup-and-restore/physical/
+[logical-backups]: /self-hosted/:currentVersion:/backup-and-restore/pg-dump-and-restore/
+[ongoing-physical-backups]: /self-hosted/:currentVersion:/backup-and-restore/docker-and-wale/
+[physical-backups]: /self-hosted/:currentVersion:/backup-and-restore/physical/

@@ -18,4 +18,4 @@ policies using these APIs.
 For more information about creating a data retention policy, see the
 [data retention section][data-retention-howto].
 
-[data-retention-howto]: /timescaledb/:currentVersion:/how-to-guides/data-retention/create-a-retention-policy/
+[data-retention-howto]: /use-timescale/:currentVersion:/data-retention/create-a-retention-policy/

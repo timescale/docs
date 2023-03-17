@@ -36,4 +36,4 @@ reindex table _timescaledb_internal._hyper_2_1523284_chunk
 
 For more information, see the [hypertable documentation][hypertables].
 
-[hypertables]: /timescaledb/:currentVersion:/how-to-guides/hypertables/
+[hypertables]: /use-timescale/:currentVersion:/hypertables/

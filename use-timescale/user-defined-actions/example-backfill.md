@@ -66,4 +66,4 @@ function from the TimescaleDB extras repository.
 
 </Procedure>
 
-[backfill]: /timescaledb/:currentVersion:/how-to-guides/compression/backfill-historical-data/
+[backfill]: /use-timescale/:currentVersion:/compression/backfill-historical-data/

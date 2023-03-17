@@ -35,4 +35,4 @@ compatibility with older clients.
 For information on changing your authentication type, see the documentation on
 [resetting your service password][password-reset].
 
-[password-reset]: /cloud/:currentVersion:/service-operations/service-management/#reset-service-password
+[password-reset]: /use-timescale/:currentVersion:/services/service-management/#reset-service-password

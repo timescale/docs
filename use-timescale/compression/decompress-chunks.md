@@ -65,4 +65,4 @@ SELECT tableoid::regclass FROM metrics
  _timescaledb_internal._hyper_72_37_chunk
 ```
 
-[backfill]: /timescaledb/:currentVersion:/how-to-guides/compression/backfill-historical-data/
+[backfill]: /use-timescale/:currentVersion:/compression/backfill-historical-data/

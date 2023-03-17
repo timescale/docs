@@ -82,4 +82,4 @@ For more information about how multi-node works, see the
 
 [cloud-login]: https://console.cloud.timescale.com/
 [cloud-signup]: https://www.timescale.com/timescale-signup
-[multinode-timescaledb]: /timescaledb/:currentVersion:/how-to-guides/multinode-timescaledb/
+[multinode-timescaledb]: /self-hosted/:currentVersion:/multinode-timescaledb/

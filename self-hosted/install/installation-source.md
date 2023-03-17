@@ -280,9 +280,9 @@ tsdb=>
 
 <WhereTo />
 
-[install-psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql/
-[config]: /timescaledb/:currentVersion:/how-to-guides/configuration/
+[install-psql]: /use-timescale/:currentVersion:/connecting/psql/
+[config]: /self-hosted/:currentVersion:/configuration/
 [postgres-download]: https://www.postgresql.org/download/
 [cmake-download]: https://cmake.org/download/
 [gh-releases]: https://github.com/timescale/timescaledb/releases
-[compatibility-matrix]: /timescaledb/:currentVersion:/how-to-guides/upgrades/upgrade-pg/
+[compatibility-matrix]: /self-hosted/:currentVersion:/upgrades/upgrade-pg/

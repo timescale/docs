@@ -25,7 +25,8 @@ BTC, ETH, and other popular assets.
 
 Before you begin, make sure you have:
 
-*   A TimescaleDB instance running locally or on the cloud. For more information, see [installation options](/install/latest/)
+*   A TimescaleDB instance running locally or on the cloud. For more
+    information, see [the Getting Started guide](/getting-started/latest/)
 *   [`psql`][psql], DBeaver, or any other PostgreSQL client
 
 ## What's candlestick data and OHLCV?
@@ -68,8 +69,8 @@ Follow this tutorial and see how to set up your TimescaleDB database to consume 
 [trading-strategy]: https://www.timescale.com/blog/how-trading-strategy-built-a-data-stack-for-crypto-quant-trading/
 [messari]: https://www.timescale.com/blog/how-messari-uses-data-to-open-the-cryptoeconomy-to-everyone/
 [bot]: https://www.timescale.com/blog/how-i-power-a-successful-crypto-trading-bot-with-timescaledb/
-[design]: /timescaledb/:currentVersion:/tutorials/financial-candlestick-tick-data/design-tick-schema
-[create]: /timescaledb/:currentVersion:/tutorials/financial-candlestick-tick-data/create-candlestick-aggregates
-[query]: /timescaledb/:currentVersion:/tutorials/financial-candlestick-tick-data/query-candlestick-views
-[manage]: /timescaledb/:currentVersion:/tutorials/financial-candlestick-tick-data/advanced-data-management
-[psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql/
+[design]: /tutorials/:currentVersion:/financial-candlestick-tick-data/design-tick-schema
+[create]: /tutorials/:currentVersion:/financial-candlestick-tick-data/create-candlestick-aggregates
+[query]: /tutorials/:currentVersion:/financial-candlestick-tick-data/query-candlestick-views
+[manage]: /tutorials/:currentVersion:/financial-candlestick-tick-data/advanced-data-management
+[psql]: /use-timescale/:currentVersion:/connecting/psql/

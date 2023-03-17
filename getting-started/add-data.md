@@ -27,7 +27,7 @@ Exchange (9:30&nbsp;AM - 4:00&nbsp;PM EST).
 <Highlight type="note">
 In case you want to ingest real-time data, instead of sample data,
 read the tutorial
-[Ingest real-time financial websocket data](https://docs.timescale.com/timescaledb/latest/tutorials/ingest-real-time-websocket-data)
+[Ingest real-time financial websocket data](https://docs.timescale.com/tutorials/latest/ingest-real-time-websocket-data)
 and ingest data directly from the Twelve Data financial API.
 </Highlight>
 

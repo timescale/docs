@@ -523,6 +523,6 @@ for TimescaleDB. MST is offered in AWS, Azure, and Google Cloud.
 [digital-ocean]: https://docs.digitalocean.com/products/databases/postgresql/details/supported-extensions/
 [license-blog]: https://blog.timescale.com/blog/building-open-source-business-in-cloud-era-v2/
 [mst]: /mst/:currentVersion:
-[timescale-cloud]: /cloud/:currentVersion:
+[timescale-cloud]: /use-timescale/:currentVersion:/services/
 [timescale-license]: https://github.com/timescale/timescaledb/blob/master/tsl/LICENSE-TIMESCALE
 [apache-license]: https://github.com/timescale/timescaledb/blob/master/LICENSE-APACHE

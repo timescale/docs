@@ -189,7 +189,7 @@ outflux migrate --help
 
 [import-data]: #import-sample-data-into-influxdb
 [influx-cmd]: https://docs.influxdata.com/influxdb/v1.7/tools/shell/
-[install]: /install/latest/
+[install]: /getting-started/latest/
 [outflux-migrate]: https://github.com/timescale/outflux#migrate
 [outflux-releases]: https://github.com/timescale/outflux/releases
 [outflux]: https://github.com/timescale/outflux

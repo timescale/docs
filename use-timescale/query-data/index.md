@@ -16,7 +16,7 @@ architecture and query planning.
 *   [Get faster `DISTINCT` queries with SkipScan][skipscan]
 *   [Perform advanced analytic queries][advanced-analytics]
 
-[about-querying-data]: /timescaledb/:currentVersion:/how-to-guides/query-data/about-query-data/
-[advanced-analytics]: /timescaledb/:currentVersion:/how-to-guides/query-data/advanced-analytic-queries/
-[selecting-data]: /timescaledb/:currentVersion:/how-to-guides/query-data/select/
-[skipscan]: /timescaledb/:currentVersion:/how-to-guides/query-data/skipscan/
+[about-querying-data]: /use-timescale/:currentVersion:/query-data/about-query-data/
+[advanced-analytics]: /use-timescale/:currentVersion:/query-data/advanced-analytic-queries/
+[selecting-data]: /use-timescale/:currentVersion:/query-data/select/
+[skipscan]: /use-timescale/:currentVersion:/query-data/skipscan/

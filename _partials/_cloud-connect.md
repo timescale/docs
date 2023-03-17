@@ -36,5 +36,5 @@ psql][install-psql] section.
 
 </Procedure>
 
-[install-psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql/
+[install-psql]: /use-timescale/:currentVersion:/connecting/psql/
 [tsc-portal]: https://console.cloud.timescale.com/

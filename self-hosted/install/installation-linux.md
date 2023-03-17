@@ -26,7 +26,7 @@ package manager maintained by Debian or Ubuntu archive, `yum`, or `pacman` packa
 manager, you could encounter errors following these instructions. It is safest
 to remove any existing PostgreSQL installations before you begin. If you want to
 keep your current PostgreSQL installation, do not install TimescaleDB using this
-method. [Install from source](/install/latest/self-hosted/installation-source/)
+method. [Install from source](/self-hosted/latest/install/installation-source/)
 instead.
 </Highlight>
 
@@ -506,5 +506,5 @@ psql -U postgres -h localhost -d tsdb
 
 <WhereTo />
 
-[config]: /timescaledb/:currentVersion:/how-to-guides/configuration/
+[config]: /self-hosted/:currentVersion:/configuration/
 [releases-page]: https://packagecloud.io/timescale/timescaledb

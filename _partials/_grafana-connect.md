@@ -81,4 +81,4 @@ a few test projects of your own.
 </Tabs>
 
 [install-grafana]: https://grafana.com/get/
-[install]: /install/:currentVersion:/installation-cloud/
+[install]: /getting-started/latest/

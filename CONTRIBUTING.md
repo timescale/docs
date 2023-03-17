@@ -198,7 +198,7 @@ that reviewers check for in the pull request template.
 
 Timescale has comprehensive writing and style standards, that are constantly
 being updated and improved. For the current guidelines, see
-[contributing to documentation](https://docs.timescale.com/timescaledb/latest/contribute-to-docs/).
+[contributing to documentation](https://docs.timescale.com/about/latest/contribute-to-docs/).
 
 ## The Timescale documentation team
 

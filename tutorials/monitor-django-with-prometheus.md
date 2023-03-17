@@ -253,7 +253,7 @@ visualizations, like [Grafana][grafana].
 [get-django]: https://docs.djangoproject.com/en/3.0/topics/install/
 [get-pip]: https://pip.pypa.io/en/latest/installing/#installing-with-get-pip-py
 [get-prometheus]: https://prometheus.io/docs/prometheus/latest/installation/
-[grafana]: /timescaledb/:currentVersion:/tutorials/grafana
+[grafana]: /tutorials/:currentVersion:/grafana
 [localhost-metrics]: http://localhost:8000/metrics
 [localhost-prom-browser]: http://localhost:9090/graph
 [localhost-prom-example]: http://localhost:9090/graph?g0.range_input=1h&g0.stacked=1&g0.expr=django_http_requests_total_by_method_total&g0.tab=0

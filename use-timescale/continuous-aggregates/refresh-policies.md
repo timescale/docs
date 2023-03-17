@@ -144,7 +144,7 @@ the latest bucket in your queries,
 use [real-time aggregation][real-time-aggregates] instead.
 
 [api-add-continuous-aggregate-policy]: /api/:currentVersion:/continuous-aggregates/add_continuous_aggregate_policy
-[cagg-drop-data]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/drop-data
-[future-watermark]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/troubleshooting/#continuous-aggregate-watermark-is-in-the-future
-[real-time-aggregates]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/real-time-aggregates
-[sec-data-retention]: /timescaledb/:currentVersion:/how-to-guides/data-retention
+[cagg-drop-data]: /use-timescale/:currentVersion:/continuous-aggregates/drop-data
+[future-watermark]: /use-timescale/:currentVersion:/continuous-aggregates/troubleshooting/#continuous-aggregate-watermark-is-in-the-future
+[real-time-aggregates]: /use-timescale/:currentVersion:/continuous-aggregates/real-time-aggregates
+[sec-data-retention]: /use-timescale/:currentVersion:/data-retention

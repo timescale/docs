@@ -100,7 +100,7 @@ For detailed information on continuous aggregates and real-time aggregation,
 see the [continuous aggregates section][continuous-aggregates].
 
 [auto-refresh]: /api/:currentVersion:/continuous-aggregates/add_continuous_aggregate_policy/
-[continuous-aggregates]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates
+[continuous-aggregates]: /use-timescale/:currentVersion:/continuous-aggregates
 [crypto-bot]: https://blog.timescale.com/blog/how-i-power-a-successful-crypto-trading-bot-with-timescaledb/
 [flightaware]: https://blog.timescale.com/blog/how-flightaware-fuels-flight-prediction-models-with-timescaledb-and-grafana/
 [getting-started-compression]: /getting-started/:currentVersion:/compress-data/

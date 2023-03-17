@@ -824,11 +824,11 @@ Ready for more learning? Here's a few suggestions:
 [NYCTLC]: https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page
 [cloud-signup]: https://console.cloud.timescale.com/signup
 [continuous-aggregates]: /getting-started/:currentVersion:/create-cagg/
-[hypertables]: /timescaledb/:currentVersion:/how-to-guides/hypertables
-[install-timescale]: /install/latest/
-[migrate]: /timescaledb/:currentVersion:/how-to-guides/migrate-data/
-[other-samples]: /timescaledb/:currentVersion:/tutorials/sample-datasets/
+[hypertables]: /use-timescale/:currentVersion:/hypertables
+[install-timescale]: /getting-started/latest/
+[migrate]: /use-timescale/:currentVersion:/migrate-data/
+[other-samples]: /tutorials/:currentVersion:/sample-datasets/
 [parallel-copy]: https://github.com/timescale/timescaledb-parallel-copy
 [postgis]: http://postgis.net/documentation
-[setup-psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql
-[time-series-forecasting]: /timescaledb/:currentVersion:/tutorials/time-series-forecast/
+[setup-psql]: /use-timescale/:currentVersion:/connecting/psql
+[time-series-forecasting]: /tutorials/:currentVersion:/time-series-forecast/

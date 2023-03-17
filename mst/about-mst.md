@@ -280,7 +280,7 @@ of time, you can use this command:
 SET statement_timeout = <milliseconds>
 ```
 
-[mst-install]: /install/:currentVersion:/installation-mst/
+[mst-install]: /mst/:currentVersion:/installation-mst/
 [sign-up]: https://www.timescale.com/cloud-signup
 [timescale-support]: https://www.timescale.com/support
 [aiven-sla]: https://aiven.io/sla

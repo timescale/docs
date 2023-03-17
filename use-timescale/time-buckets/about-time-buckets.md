@@ -94,8 +94,8 @@ If you use `TIMESTAMPTZ`, by default, bucket start times are aligned with
 `00:00:00 UTC`. To align time buckets to another timezone, set the `timezone`
 parameter.
 
-[caggs]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/
+[caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
 [date_trunc]: https://www.postgresql.org/docs/current/functions-datetime.html#FUNCTIONS-DATETIME-TRUNC
 [origin]: /api/:currentVersion:/hyperfunctions/time_bucket/#optional-arguments-for-interval-time-inputs
 [time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
-[use-time-buckets]: /timescaledb/:currentVersion:/how-to-guides/time-buckets/use-time-buckets/
+[use-time-buckets]: /use-timescale/:currentVersion:/time-buckets/use-time-buckets/

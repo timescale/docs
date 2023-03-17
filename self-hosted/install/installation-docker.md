@@ -21,7 +21,7 @@ container provided here, you could encounter errors following these
 instructions. It is safest to remove any existing PostgreSQL installations
 before you begin. If you want to keep your current PostgreSQL installation, do
 not install TimescaleDB using this method.
-[Install from source](/install/latest/self-hosted/installation-source/)
+[Install from source](/self-hosted/latest/install/installation-source/)
 instead.
 </Highlight>
 
@@ -221,9 +221,9 @@ tsdb=>
 <WhereTo />
 
 [alpine]: https://alpinelinux.org/
-[config]: /timescaledb/:currentVersion:/how-to-guides/configuration/
+[config]: /self-hosted/:currentVersion:/configuration/
 [docker-install]: https://docs.docker.com/get-docker/
 [docker-postgres]: https://hub.docker.com/_/postgres
 [dockerhub]: https://hub.docker.com/r/timescale/timescaledb/tags?page=1&ordering=last_updated
-[install-psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql/
+[install-psql]: /use-timescale/:currentVersion:/connecting/psql/
 [ubuntu]: https://ubuntu.com
