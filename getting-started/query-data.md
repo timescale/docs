@@ -105,7 +105,8 @@ analysis in fewer lines of code. Here's how to use three of these functions:
 
 *   [first()][first]: find the earliest value based on a time within an aggregate group
 *   [last()][last]: find the latest value based on time within an aggregate group
-*   [time_bucket()][time-bucket]: bucket data by arbitrary time intervals and calculate aggregates over those intervals
+*   [time_bucket()][time-bucket]: bucket data by arbitrary time intervals and calculate
+    aggregates over those intervals
 
 ### Get the first and last value
 

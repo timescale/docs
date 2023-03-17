@@ -13,6 +13,11 @@ import Connect from "versionContent/_partials/_cloud-connect.mdx";
 Get started with TimescaleDB to experience the power of its core features, such
 as hypertables, continuous aggregates, and compression.
 
+<!-- vale Google.We = NO -->
+The easiest way explore the features of TimescaleDB is to use Timescale Cloud, our
+hosted, cloud-native database service.
+<!-- vale Google.We = YES -->
+
 ## What is TimescaleDB?
 
 TimescaleDB is an extension on top of PostgreSQL. It gives you all the power of
@@ -28,24 +33,11 @@ If you have any questions or concerns as you go through the tutorial, check out
 the Timescale community [Slack][slack] and [Timescale Forum][forum], where you
 can find help from the Timescale community and team.
 
-## Get started with a TimescaleDB database
-
-<!-- vale Google.We = NO -->
-To work with TimescaleDB, you need a TimescaleDB database. The easiest way to
-get started is to use Timescale Cloud, our hosted, cloud-native database
-service.
-<!-- vale Google.We = YES -->
-
 ### Install Timescale Cloud
 
 Install Timescale Cloud by signing up for an account. It's free for thirty days.
 It's a cloud service, so you don't need to download anything to your own
 machines.
-
-<Highlight type="note">
-Need to self-host your own database? See the other installation options in the
-[install section](/install/latest/).
-</Highlight>
 
 <Install />
 

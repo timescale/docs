@@ -26,12 +26,13 @@ To enable compression, you need to [`ALTER`][alter-table-compression] the `stock
 are three parameters you can specify when enabling compression:
 
 *   `timescaledb.compress` (required): enable TimescaleDB compression on the
-  hypertable
+     hypertable
 *   `timescaledb.compress_orderby` (optional): columns used to order compressed data
 *   `timescaledb.compress_segmentby` (optional): columns used to group compressed
   data
 
-If you do not specify `compress_orderby` or `compress_segmentby` columns, the compressed data is automatically ordered by the hypertable time column.
+If you do not specify `compress_orderby` or `compress_segmentby` columns, the
+compressed data is automatically ordered by the hypertable time column.
 
 <Procedure>
 
@@ -151,9 +152,9 @@ SELECT pg_size_pretty(before_compression_total_bytes) as "before compression",
 
 ## Next steps
 
-Your overview of TimescaleDB is almost complete. The final thing to explore is [data retention][data-retention],
-which allows you to drop older raw data from a hypertable quickly without
-deleting data from the precalculated continuous aggregate.
+Your overview of TimescaleDB is almost complete. The final thing to explore is
+[data retention][data-retention], which allows you to drop older raw data from a
+hypertable quickly without deleting data from the precalculated continuous aggregate.
 
 ## Learn more about compression
 
