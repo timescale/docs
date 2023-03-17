@@ -152,18 +152,15 @@ public           |stocks_real_time|public     |stock_candlestick_daily|tsdbadmin
 
 ## Next steps
 
-Now that your continuous aggregate is created, the next step is to create a
-[continuous aggregate refresh policy][cagg-policy].
+Now that your continuous aggregate is created, the next step is to create a [continuous aggregate refresh policy][cagg-policy].
 
-Without an automatic refresh policy, your continuous aggregate won't materialize
-new data as it is inserted into the `stocks_real_time` hypertable. As mentioned
-before, when you query your continuous aggregate, TimescaleDB performs real-time
-aggregation to include any unmaterialized data. As the amount of unmaterialized
-data grows, this can slow down your queries.
+Without an automatic refresh policy, your continuous aggregate won't materialize new data as it is
+inserted into the `stocks_real_time` hypertable. As mentioned before, when you query your continuous
+aggregate, TimescaleDB performs real-time aggregation to include any unmaterialized
+data. As the amount of unmaterialized data grows, this can slow down your queries.
 
-With a continuous aggregate policy, your new data automatically materializes
-into your continuous aggregate, keeping the need for real-time computations low
-and your continuous aggregate queries efficient.
+With a continuous aggregate policy, your new data automatically materializes into your continuous aggregate,
+keeping the need for real-time computations low and your continuous aggregate queries efficient.
 
 ## Learn more about continuous aggregates
 
