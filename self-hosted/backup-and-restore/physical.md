@@ -1,6 +1,6 @@
 ---
 title: Physical backups
-excerpt: How to take physical backups of your Timescale instance
+excerpt: How to take physical backups of your TimescaleDB instance
 products: [self_hosted]
 keywords: [backups]
 tags: [restore, recovery, physical backup]
@@ -10,7 +10,7 @@ tags: [restore, recovery, physical backup]
 
 For full instance physical backups (which are especially useful for starting up
 new [replicas][replication-tutorial]), [`pg_basebackup`][postgres-pg_basebackup]
-works with all Timescale installation types. You can also use any of several
+works with all TimescaleDB installation types. You can also use any of several
 external backup and restore managers such as [`pg_backrest`][pg-backrest], or [`barman`][pg-barman]. For ongoing physical backups, you can use
 [`wal-e`][wale], although this method is now deprecated. These tools all allow
 you to take online, physical backups of your entire instance, and many offer

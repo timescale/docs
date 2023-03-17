@@ -5,7 +5,7 @@ You can use Grafana to visualize queries directly from your Timescale database.
 
 Before you begin, make sure you have:
 
-*   Installed TimescaleDB. For more information, see the
+*   Installed Timescale. For more information, see the
     [installation documentation][install].
 *   Installed a self-managed Grafana account, or signed up for
     [Grafana Cloud][install-grafana].

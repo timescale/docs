@@ -11,12 +11,12 @@ This section outlines how to set up asynchronous streaming replication on one or
 more database replicas.
 
 Before you begin, make sure you have at least two separate instances of
-Timescale running. If you installed Timescale using a Docker container, use
+TimescaleDB running. If you installed TimescaleDB using a Docker container, use
 a [PostgreSQL entry point script][docker-postgres-scripts] to run the
 configuration. For sample Docker configuration and run scripts, see the
 [streaming replication Docker repository][timescale-streamrep-docker].
 
-To configure replication on self-hosted Timescale, you need to perform these
+To configure replication on self-hosted TimescaleDB, you need to perform these
 procedures:
 
 1.  [Configure the primary database][configure-primary-db]

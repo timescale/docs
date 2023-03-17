@@ -8,7 +8,7 @@ keywords: [configuration, settings, multi-node]
 # Multi-node configuration
 
 In addition to the
-[regular Timescale configuration][timescaledb-configuration], it is recommended
+[regular TimescaleDB configuration][timescaledb-configuration], it is recommended
 that you also configure additional settings specific to multi-node operation.
 
 ## Update settings

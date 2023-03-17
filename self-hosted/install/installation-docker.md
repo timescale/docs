@@ -1,16 +1,16 @@
 ---
-title: Install Timescale from Docker container
-excerpt: Install self-hosted Timescale from a pre-built Docker container
+title: Install TimescaleDB from Docker container
+excerpt: Install self-hosted TimescaleDB from a pre-built Docker container
 products: [self_hosted]
 keywords: [installation, self-hosted, Docker]
 ---
 
 import WhereTo from "versionContent/_partials/_where-to-next.mdx";
 
-# Install Timescale from a pre-built container
+# Install TimescaleDB from a pre-built container
 
-You can install a Timescale instance on any local system, from a pre-built
-container. This is the simplest method to install Timescale, and it means you
+You can install a TimescaleDB instance on any local system, from a pre-built
+container. This is the simplest method to install TimescaleDB, and it means you
 always have access to the latest version without worrying about local
 dependencies. You can access the Docker image directly from locally installed
 PostgreSQL client tools such as `psql`.
@@ -20,18 +20,18 @@ If you have already installed PostgreSQL using a method other than the pre-built
 container provided here, you could encounter errors following these
 instructions. It is safest to remove any existing PostgreSQL installations
 before you begin. If you want to keep your current PostgreSQL installation, do
-not install Timescale using this method.
+not install TimescaleDB using this method.
 [Install from source](/install/latest/self-hosted/installation-source/)
 instead.
 </Highlight>
 
 <Procedure>
 
-## Installing Timescale from a Docker container
+## Installing TimescaleDB from a Docker container
 
 1.  Install Docker, if you don't already have it. For packages and
     instructions, see the [Docker installation documentation][docker-install].
-1.  At the command prompt, run the Timescale Docker image:
+1.  At the command prompt, run the TimescaleDB Docker image:
 
     ```bash
     docker pull timescale/timescaledb-ha:pg14-latest
@@ -39,7 +39,7 @@ instead.
 
 <Highlight type="important">
 The [`timescaledb-ha`](https://hub.docker.com/r/timescale/timescaledb-ha) image
-offers the most complete Timescale experience. It
+offers the most complete TimescaleDB experience. It
 includes the
 [TimescaleDB Toolkit](https://github.com/timescale/timescaledb-toolkit),
 and support for PostGIS and Patroni. If you need the smallest possible image, use
@@ -65,9 +65,9 @@ information, see the [configuration][config] section.
 
 ## More Docker options
 
-The Timescale HA Docker image includes [Ubuntu][ubuntu] as its operating
-system. The lighter-weight Timescale (non-HA) image uses [Alpine][alpine]. The
-commands in this section use the Timescale HA image, but the steps are the
+The TimescaleDB HA Docker image includes [Ubuntu][ubuntu] as its operating
+system. The lighter-weight TimescaleDB (non-HA) image uses [Alpine][alpine]. The
+commands in this section use the TimescaleDB HA image, but the steps are the
 same for both.
 
 You can use the Docker image in different ways, depending on your use case.
@@ -80,7 +80,7 @@ docker run -d --name timescaledb -p 5432:5432 -e POSTGRES_PASSWORD=password time
 ```
 
 The `-p` flag binds the container port to the host port. This means that
-anything that can access the host port can also access your Timescale container,
+anything that can access the host port can also access your TimescaleDB container,
 so it's important that you set a PostgreSQL password using the
 `POSTGRES_PASSWORD` environment variable. Without that variable, the Docker
 container disables password checks for all database users.
@@ -118,30 +118,30 @@ docker run -d --name timescaledb -p 5432:5432 \
 -e POSTGRES_PASSWORD=password timescale/timescaledb-ha:pg14-latest
 ```
 
-When you install Timescale using a Docker container, the PostgreSQL settings
+When you install TimescaleDB using a Docker container, the PostgreSQL settings
 are inherited from the container. In most cases, you do not need to adjust them.
 However, if you need to change a setting you can add `-c setting=value` to your
 Docker `run` command. For more information, see the
 [Docker documentation][docker-postgres].
 
-The link provided in these instructions is for the latest version of Timescale
+The link provided in these instructions is for the latest version of TimescaleDB
 on PostgreSQL 14. To find other Docker tags you can use, see the
 [Dockerhub repository][dockerhub].
 
-## Set up the Timescale extension
+## Set up the TimescaleDB extension
 
-When you have PostgreSQL and Timescale installed, you can connect to it from
+When you have PostgreSQL and TimescaleDB installed, you can connect to it from
 your local system using the `psql` command-line utility. This is the same tool
 you might have used to connect to PostgreSQL before, but if you haven't
 installed it yet, check out the [installing psql][install-psql] section.
 
 <Procedure>
 
-### Setting up the Timescale extension
+### Setting up the TimescaleDB extension
 
 <Highlight type="important">
-If you installed Timescale from the pre-built Docker container, then you
-probably already have the Timescale extension, and you can skip this procedure.
+If you installed TimescaleDB from the pre-built Docker container, then you
+probably already have the TimescaleDB extension, and you can skip this procedure.
 </Highlight>
 
 1.  On your local system, at the command prompt, connect to the PostgreSQL
@@ -174,7 +174,7 @@ probably already have the Timescale extension, and you can skip this procedure.
     \c example
     ```
 
-1.  Add the Timescale extension:
+1.  Add the TimescaleDB extension:
 
     ```sql
     CREATE EXTENSION IF NOT EXISTS timescaledb;
@@ -188,7 +188,7 @@ probably already have the Timescale extension, and you can skip this procedure.
 
 </Procedure>
 
-You can check that the Timescale extension is installed by using the `\dx`
+You can check that the TimescaleDB extension is installed by using the `\dx`
 command at the `psql` prompt. It looks like this:
 
 ```sql

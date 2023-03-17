@@ -1,69 +1,70 @@
 module.exports = [
   {
-    title: "Self-hosted Timescale",
+    title: "Self-hosted TimescaleDB",
     href: "self-hosted",
     filePath: "index.md",
     pageComponents: ["content-list"],
     excerpt:
-      "Install self-hosted Timescale, administer, and configure the database.",
+      "Install self-hosted TimescaleDB, administer, and configure the database.",
     children: [
       {
-        title: "Install Timescale",
+        title: "Install TimescaleDB",
         href: "install",
-        excerpt: "Install self-hosted Timescale",
-        children: [  
+        excerpt: "Install self-hosted TimescaleDB",
+        children: [
           {
             title: "Linux",
             href: "installation-linux",
             iconSrc: "https://assets.iobeam.com/images/docs/linux-icon.svg",
-            excerpt: "Install self-hosted Timescale on Linux",
+            excerpt: "Install self-hosted TimescaleDB on Linux",
           },
           {
             title: "Windows",
             href: "installation-windows",
-            iconSrc: "https://assets.iobeam.com/images/docs/Windows_logo_-_2012.svg",
+            iconSrc:
+              "https://assets.iobeam.com/images/docs/Windows_logo_-_2012.svg",
             excerpt:
-            "Install self-hosted Timescale on Microsoft Windows using a zipped .exe file",
+              "Install self-hosted TimescaleDB on Microsoft Windows using a zipped .exe file",
           },
           {
             title: "MacOS",
             href: "installation-macos",
-            iconSrc: "https://assets.iobeam.com/images/docs/Apple_logo_black.svg",
-            excerpt: "Install self-hosted Timescale on MacOS using homebrew",
+            iconSrc:
+              "https://assets.iobeam.com/images/docs/Apple_logo_black.svg",
+            excerpt: "Install self-hosted TimescaleDB on MacOS using homebrew",
           },
           {
             title: "From source",
             href: "installation-source",
             iconSrc: "https://assets.iobeam.com/images/docs/source.png",
             excerpt:
-              "Install self-hosted Timescale on any operating system from source",
+              "Install self-hosted TimescaleDB on any operating system from source",
           },
           {
             title: "Pre-built containers",
             href: "installation-docker",
-            iconSrc: "https://s3.amazonaws.com/assets.iobeam.com/images/docs/moby.png",
+            iconSrc:
+              "https://s3.amazonaws.com/assets.iobeam.com/images/docs/moby.png",
             excerpt:
-              "Install self-hosted Timescale with a pre-built Docker container",
+              "Install self-hosted TimescaleDB with a pre-built Docker container",
           },
           {
             title: "Kubernetes",
             href: "installation-kubernetes",
-            iconSrc: "https://s3.amazonaws.com/assets.iobeam.com/images/docs/kubernetes-icon-color.svg",
-            excerpt: "Install self-hosted Timescale on Kubernetes",
+            iconSrc:
+              "https://s3.amazonaws.com/assets.iobeam.com/images/docs/kubernetes-icon-color.svg",
+            excerpt: "Install self-hosted TimescaleDB on Kubernetes",
           },
           {
             title: "Pre-built cloud images",
             href: "installation-cloud-image",
-            iconSrc: "https://s3.amazonaws.com/assets.iobeam.com/images/docs/aws_logo.svg",
-            excerpt: "Install self-hosted Timescale on Amazon with an Ubuntu AMI",
+            iconSrc:
+              "https://s3.amazonaws.com/assets.iobeam.com/images/docs/aws_logo.svg",
+            excerpt:
+              "Install self-hosted TimescaleDB on Amazon with an Ubuntu AMI",
           },
-          {
-            title: "Troubleshooting",
-            href: "troubleshooting",
-            type: "placeholder",
-          },
-        ]
-      }, 
+        ],
+      },
       {
         title: "Configuration",
         href: "configuration",
@@ -72,40 +73,35 @@ module.exports = [
             title: "About Configuration",
             href: "about-configuration",
             excerpt:
-              "Overview of configuration options and methods for PostgreSQL and self-hosted Timescale",
+              "Overview of configuration options and methods for PostgreSQL and self-hosted TimescaleDB",
           },
           {
             title: "Using timescaledb-tune",
             href: "timescaledb-tune",
-            excerpt: "Configure self-hosted Timescale using timescaledb-tune",
+            excerpt: "Configure self-hosted TimescaleDB using timescaledb-tune",
           },
           {
             title: "Manual PostgreSQL configuration",
             href: "postgres-config",
             excerpt:
-              "Configure self-hosted Timescale using the PostgreSQL configuration file",
+              "Configure self-hosted TimescaleDB using the PostgreSQL configuration file",
           },
           {
-            title: "Timescale configuration",
+            title: "TimescaleDB configuration",
             href: "timescaledb-config",
             excerpt:
-              "Configure self-hosted Timescale using Timescale configuration parameters",
+              "Configure self-hosted TimescaleDB using TimescaleDB configuration parameters",
           },
           {
             title: "Docker configuration",
             href: "docker-config",
             excerpt:
-              "Configure self-hosted Timescale when running within a Docker container",
+              "Configure self-hosted TimescaleDB when running within a Docker container",
           },
           {
             title: "Telemetry",
             href: "telemetry",
-            excerpt: "Configure telemetry gathered by self-hosted Timescale",
-          },
-          {
-            title: "Troubleshooting",
-            href: "troubleshooting",
-            type: "placeholder",
+            excerpt: "Configure telemetry gathered by self-hosted TimescaleDB",
           },
         ],
       },
@@ -128,12 +124,6 @@ module.exports = [
             href: "physical",
             excerpt: "Backing up and restoring with physical backups",
           },
-          {
-            title: "Troubleshooting",
-            href: "troubleshooting",
-            type: "placeholder",
-            excerpt: "Troubleshoot problems with backing up self-hosted Timescale",
-          },
         ],
       },
       {
@@ -146,9 +136,9 @@ module.exports = [
             excerpt: "Learn about multi-node environments",
           },
           {
-            title: "Multi-node setup on self-hosted Timescale",
+            title: "Multi-node setup on self-hosted TimescaleDB",
             href: "multinode-setup",
-            excerpt: "Set up multi-node on self-hosted Timescale",
+            excerpt: "Set up multi-node on self-hosted TimescaleDB",
           },
           {
             title: "Multi-node authentication",
@@ -180,11 +170,6 @@ module.exports = [
             href: "multinode-maintenance",
             excerpt: "Maintain a multi-node environment",
           },
-          {
-            title: "Troubleshooting",
-            href: "troubleshooting",
-            type: "placeholder",
-          },
         ],
       },
       {
@@ -194,75 +179,71 @@ module.exports = [
           {
             title: "About high availability",
             href: "about-ha",
-            excerpt: "High availability in self-hosted Timescale",
+            excerpt: "High availability in self-hosted TimescaleDB",
           },
           {
             title: "Configure replication",
             href: "configure-replication",
             excerpt: "Configure replication",
           },
-          {
-            title: "Troubleshooting",
-            href: "troubleshooting",
-            type: "placeholder",
-          },
         ],
       },
       {
-        title: "Upgrade self-hosted Timescale",
+        title: "Upgrade self-hosted TimescaleDB",
         href: "upgrades",
         children: [
           {
             title: "About upgrades",
             href: "about-upgrades",
-            excerpt: "Learn about upgrading self-hosted Timescale",
+            excerpt: "Learn about upgrading self-hosted TimescaleDB",
           },
           {
             title: "Minor upgrades",
             href: "minor-upgrade",
-            excerpt: "Upgrade to a new minor version of self-hosted Timescale",
+            excerpt:
+              "Upgrade to a new minor version of self-hosted TimescaleDB",
           },
           {
             title: "Major upgrades",
             href: "major-upgrade",
-            excerpt: "Upgrade to a new major version of self-hosted Timescale",
+            excerpt:
+              "Upgrade to a new major version of self-hosted TimescaleDB",
           },
           {
-            title: "Downgrade self-hosted Timescale",
+            title: "Downgrade self-hosted TimescaleDB",
             href: "downgrade",
-            excerpt: "Downgrade a self-hosted Timescale version",
+            excerpt: "Downgrade a self-hosted TimescaleDB version",
           },
           {
             title: "Upgrade within Docker",
             href: "upgrade-docker",
             excerpt:
-              "Upgrade to a new minor version of self-hosted Timescale within a Docker container",
+              "Upgrade to a new minor version of self-hosted TimescaleDB within a Docker container",
           },
           {
             title: "Upgrade PostgreSQL",
             href: "upgrade-pg",
             excerpt: "Upgrade to a new version of PostgreSQL",
           },
+        ],
+      },
+      {
+        title: "Uninstall self-hosted TimescaleDB",
+        href: "uninstall",
+        excerpt: "Uninstalling self-hosted TimescaleDB",
+        children: [
           {
-            title: "Troubleshooting upgrades",
-            href: "troubleshooting",
-            type: "placeholder",
-            excerpt: "Troubleshoot upgrading your self-hosted Timescale installation",
+            title: "Uninstall self-hosted TimescaleDB on macOS",
+            href: "uninstall-timescaledb",
+            excerpt: "Uninstall self-hosted TimescaleDB on macOS",
           },
         ],
       },
       {
-        title: "Uninstall self-hosted Timescale",
-        href: "uninstall",
-        excerpt: "Uninstalling self-hosted Timescale",
-        children: [
-          {
-            title: "Uninstall self-hosted Timescale on macOS",
-            href: "uninstall-timescaledb",
-            excerpt: "Uninstall self-hosted Timescale on macOS",
-          },
-        ],
+        title: "Troubleshooting self-hosted TimescaleDB",
+        href: "troubleshooting",
+        type: "placeholder",
       },
     ],
   },
-]
+];

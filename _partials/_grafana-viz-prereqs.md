@@ -1,7 +1,7 @@
 Before you begin, make sure you have:
 
 *   Installed [Grafana][install-grafana] version&nbsp;8.5 or higher
-*   Installed [TimescaleDB][install-timescale]
+*   Installed [Timescale][install-timescale]
 *   Imported the stock trade data from the [Getting Started Tutorial][gsg-data]
 
 If you are new to Grafana, see the [Grafana tutorials][grafana-tutorials]

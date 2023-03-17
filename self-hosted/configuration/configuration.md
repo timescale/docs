@@ -1,14 +1,14 @@
 ---
-title: Configuring Timescale
-excerpt: How to configure a Timescale instance
+title: Configuring TimescaleDB
+excerpt: How to configure a TimescaleDB instance
 products: [self_hosted]
 keywords: [configuration]
 tags: [settings]
 ---
 
-# Configuring Timescale
+# Configuring TimescaleDB
 
-Timescale works with the default PostgreSQL server configuration settings.
+TimescaleDB works with the default PostgreSQL server configuration settings.
 However, we find that these settings are typically too conservative and
 can be limiting when using larger servers with more resources (CPU, memory,
 disk, etc). Adjusting these settings, either
@@ -20,8 +20,8 @@ You can determine the location of `postgresql.conf` by running
 `SHOW config_file;` from your PostgreSQL client (for example, `psql`).
 </Highlight>
 
-In addition, other Timescale specific settings can be modified through the
-`postgresql.conf` file as covered in the [Timescale settings][ts-settings] section.
+In addition, other TimescaleDB specific settings can be modified through the
+`postgresql.conf` file as covered in the [TimescaleDB settings][ts-settings] section.
 
 ## Using `timescaledb-tune`
 
@@ -86,8 +86,9 @@ suggestions that `timescaledb-tune` makes, then check these. However,
 
 ### Memory settings
 
-<Highlight type="tip">All of these settings are handled by `timescaledb-tune`.</Highlight>
-
+<Highlight type="tip">
+All of these settings are handled by `timescaledb-tune`.
+</Highlight>
 The settings `shared_buffers`, `effective_cache_size`, `work_mem`, and
 `maintenance_work_mem` need to be adjusted to match the machine's available
 memory. Get the configuration values from the [PgTune][pgtune]
@@ -98,14 +99,15 @@ PgTune may also be helpful.
 
 ### Worker settings
 
-<Highlight type="tip">All of these settings are handled by `timescaledb-tune`.</Highlight>
-
+<Highlight type="tip">
+All of these settings are handled by `timescaledb-tune`.
+</Highlight>
 PostgreSQL utilizes worker pools to provide the required workers needed to
 support both live queries and background jobs. If you do not configure these
 settings, you may observe performance degradation on both queries and
 background jobs.
 
-Timescale background workers are configured using the
+TimescaleDB background workers are configured using the
 `timescaledb.max_background_workers` setting. You should configure this
 setting to the sum of your total number of databases and the
 total number of concurrent background workers you want running at any given
@@ -145,7 +147,7 @@ discourage changing the `fsync` setting.
 
 ### Lock settings
 
-Timescale relies heavily on table partitioning for scaling
+TimescaleDB relies heavily on table partitioning for scaling
 time-series workloads, which has implications for [lock
 management][lock-management]. A hypertable needs to acquire locks on
 many chunks (sub-tables) during queries, which can exhaust the default
@@ -179,9 +181,9 @@ locks allocated for each transaction. For more information, please
 review the official PostgreSQL documentation on
 [lock management][lock-management].
 
-## Timescale configuration and tuning
+## TimescaleDB configuration and tuning
 
-Just as you can tune settings in PostgreSQL, Timescale provides a number of
+Just as you can tune settings in PostgreSQL, TimescaleDB provides a number of
 configuration settings that may be useful to your specific installation and
 performance needs. These can also be set within the `postgresql.conf` file or as
 command-line parameters when starting PostgreSQL.
@@ -190,7 +192,7 @@ command-line parameters when starting PostgreSQL.
 
 #### `timescaledb.max_background_workers (int)`
 
-Max background worker processes allocated to Timescale. Set to at
+Max background worker processes allocated to TimescaleDB. Set to at
 least 1 + number of databases in Postgres instance to use background
 workers. Default value is 8.
 
@@ -215,12 +217,12 @@ inconsistent data. It is by default enabled.
 
 #### `timescaledb.enable_per_data_node_queries (bool)`
 
-If enabled, Timescale combines different chunks belonging to the
+If enabled, TimescaleDB combines different chunks belonging to the
 same hypertable into a single query per data node. It is by default enabled.
 
 #### `timescaledb.max_insert_batch_size (int)`
 
-When acting as a access node, Timescale splits batches of inserted
+When acting as a access node, TimescaleDB splits batches of inserted
 tuples across multiple data nodes. It batches up to
 `max_insert_batch_size` tuples per data node before flushing. Setting
 this to 0 disables batching, reverting to tuple-by-tuple inserts. The
@@ -267,11 +269,11 @@ connecting to data nodes using password authentication.
 
 #### `timescaledb.restoring (bool)`
 
-Set Timescale in restoring mode. It is by default disabled.
+Set TimescaleDB in restoring mode. It is by default disabled.
 
 #### `timescaledb.license (string)`
 
-Timescale license type. Determines which features are enabled. The
+TimescaleDB license type. Determines which features are enabled. The
 variable can be set to `timescale` or `apache`.  Defaults to `timescale`.
 
 #### `timescaledb.telemetry_level (enum)`
@@ -289,7 +291,7 @@ Version of `timescaledb-tune` used to tune when it ran.
 
 ## Changing configuration with Docker
 
-When running Timescale in a [Docker container][docker], there are
+When running TimescaleDB in a [Docker container][docker], there are
 two approaches to modifying your PostgreSQL configuration. In the
 following example, we modify the size of the database instance's
 write-ahead-log (WAL) from 1&nbsp;GB to 2&nbsp;GB in a Docker container named
