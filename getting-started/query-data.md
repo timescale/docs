@@ -105,7 +105,8 @@ analysis in fewer lines of code. Here's how to use three of these functions:
 
 *   [first()][first]: find the earliest value based on a time within an aggregate group
 *   [last()][last]: find the latest value based on time within an aggregate group
-*   [time_bucket()][time-bucket]: bucket data by arbitrary time intervals and calculate aggregates over those intervals
+*   [time_bucket()][time-bucket]: bucket data by arbitrary time intervals and calculate
+     aggregates over those intervals
 
 ### Get the first and last value
 
@@ -223,5 +224,5 @@ see the [API Reference for hyperfunctions](/api/:currentVersion:/hyperfunctions)
 [last]: /api/:currentVersion:/hyperfunctions/last
 [order-by]: https://www.postgresql.org/docs/current/queries-order.html
 [select-keywords]: https://www.postgresql.org/docs/14/sql-select.html
-[time-bucket-how-to]: /timescaledb/:currentVersion:/how-to-guides/time-buckets/
+[time-bucket-how-to]: /use-timescale/:currentVersion:/time-buckets/
 [time-bucket]: /api/:currentVersion:/hyperfunctions/time_bucket

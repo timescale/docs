@@ -174,7 +174,7 @@ found in the [continuous aggregates docs][continuous-aggregates].
 
 [cagg-policy]: /getting-started/:currentVersion:/create-cagg/create-cagg-policy/
 [candlestick]: https://en.wikipedia.org/wiki/Candlestick_chart
-[continuous-aggregates]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates
+[continuous-aggregates]: /use-timescale/:currentVersion:/continuous-aggregates
 [crypto-bot]: https://blog.timescale.com/blog/how-i-power-a-successful-crypto-trading-bot-with-timescaledb/
 [first]: /api/:currentVersion:/hyperfunctions/first/
 [flightaware]: https://blog.timescale.com/blog/how-flightaware-fuels-flight-prediction-models-with-timescaledb-and-grafana/

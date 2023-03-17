@@ -22,8 +22,9 @@ then be compressed in one of two ways:
 
 ## Enable TimescaleDB compression on the hypertable
 
-To enable compression, you need to [`ALTER`][alter-table-compression] the `stocks_real_time` hypertable. There
-are three parameters you can specify when enabling compression:
+To enable compression, you need to [`ALTER`][alter-table-compression] the
+`stocks_real_time` hypertable. There are three parameters you can specify when
+enabling compression:
 
 *   `timescaledb.compress` (required): enable TimescaleDB compression on the
   hypertable
@@ -31,7 +32,8 @@ are three parameters you can specify when enabling compression:
 *   `timescaledb.compress_segmentby` (optional): columns used to group compressed
   data
 
-If you do not specify `compress_orderby` or `compress_segmentby` columns, the compressed data is automatically ordered by the hypertable time column.
+If you do not specify `compress_orderby` or `compress_segmentby` columns, the compressed
+data is automatically ordered by the hypertable time column.
 
 <Procedure>
 
@@ -151,9 +153,9 @@ SELECT pg_size_pretty(before_compression_total_bytes) as "before compression",
 
 ## Next steps
 
-Your overview of TimescaleDB is almost complete. The final thing to explore is [data retention][data-retention],
-which allows you to drop older raw data from a hypertable quickly without
-deleting data from the precalculated continuous aggregate.
+Your overview of TimescaleDB is almost complete. The final thing to explore is
+[data retention][data-retention], which allows you to drop older raw data from a
+hypertable quickly without deleting data from the precalculated continuous aggregate.
 
 ## Learn more about compression
 
@@ -172,5 +174,5 @@ For more information, see the [compression docs][compression-docs].
 [compress-automatic]: /api/:currentVersion:/compression/add_compression_policy/
 [compress-manual]: /api/:currentVersion:/compression/compress_chunk/
 [compression-algorithms]: https://blog.timescale.com/blog/time-series-compression-algorithms-explained/
-[compression-docs]: /timescaledb/:currentVersion:/how-to-guides/compression
+[compression-docs]: /use-timescale/:currentVersion:/compression
 [data-retention]: /getting-started/:currentVersion:/data-retention/
