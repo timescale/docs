@@ -74,6 +74,6 @@ COPY <HYPERTABLE> FROM '<FILE_PATH>';
 When doing a [`COPY`][postgresql-copy], the access node switches each data node
 to copy mode. It then streams each row to the correct data node.
 
-[config]: /timescaledb/:currentVersion:/how-to-guides/configuration/timescaledb-config/#distributed-hypertables
+[config]: /self-hosted/:currentVersion:/configuration/timescaledb-config/#distributed-hypertables
 [postgresql-copy]: https://www.postgresql.org/docs/14/sql-copy.html
 [postgresql-explain]: https://www.postgresql.org/docs/14/sql-explain.html

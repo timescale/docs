@@ -133,8 +133,8 @@ file.
 
 [async-commit]: https://www.postgresql.org/docs/current/static/wal-async-commit.html
 [chunk_detailed_size]: /api/:currentVersion:/hypertable/chunks_detailed_size/
-[docker-conf]: /timescaledb/:currentVersion:/how-to-guides/configuration/docker-config
+[docker-conf]: /self-hosted/:currentVersion:/configuration/docker-config
 [lock-management]: https://www.postgresql.org/docs/current/static/runtime-config-locks.html
 [pgtune]: http://pgtune.leopard.in.ua/
-[postgresql-conf]: /timescaledb/:currentVersion:/how-to-guides/configuration/postgres-config
-[tstune-conf]: /timescaledb/:currentVersion:/how-to-guides/configuration/timescaledb-tune
+[postgresql-conf]: /self-hosted/:currentVersion:/configuration/postgres-config
+[tstune-conf]: /self-hosted/:currentVersion:/configuration/timescaledb-tune

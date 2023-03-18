@@ -20,7 +20,7 @@ though performance could be slower. To avoid this problem, fork your database
 and migrate your data from the fork. If you write to tables in your source
 database during the migration, the new writes might not be transferred to
 Timescale Cloud. To avoid this problem, see the section on [migrating an active
-database](http://docs.timescale.com/cloud/latest/migrate-to-cloud/#migrate-an-active-database).
+database](http://docs.timescale.com/use-timescale/latest/migrate-data/FIXME).
 </Highlight>
 
 ## Prerequisites
@@ -51,7 +51,7 @@ To speed up migration, compress your data. You can compress any chunks where
 data is not being currently inserted, updated, or deleted. When you finish the
 migration, you can decompress chunks as needed for normal operation. For more
 information about compression and decompression, see the
-[compression section](https://docs.timescale.com/timescaledb/latest/how-to-guides/compression/).
+[compression section](https://docs.timescale.com/use-timescale/latest/compression/).
 </Highlight>
 
 <Procedure>
@@ -160,15 +160,15 @@ The skipped tables and indexes correspond to system catalogs that can't be
 accessed. Skipping them does not affect statistics on your data.
 
 [analyze]: https://www.postgresql.org/docs/10/sql-analyze.html
-[compression]: /timescaledb/:currentVersion:/how-to-guides/compression/
-[extensions]: /cloud/:currentVersion:/postgresql-extensions/
-[install-timescale-cloud]: /install/:currentVersion:/installation-cloud/
-[migrate-separately]: /cloud/:currentVersion:/migrate-to-cloud/schema-then-data/
+[compression]: /use-timescale/:currentVersion:/compression/
+[extensions]: /use-timescale/:currentVersion:/services/postgresql-extensions/
+[install-timescale-cloud]: /getting-started/latest/
+[migrate-separately]: /use-timescale/:currentVersion:/migrate-data/schema-then-data/
 [pg_dump]: https://www.postgresql.org/docs/current/app-pgdump.html
 [pg_restore]: https://www.postgresql.org/docs/current/app-pgrestore.html
-[psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql/
+[psql]: /use-timescale/:currentVersion:/connecting/psql/
 [timescaledb_pre_restore]: /api/:currentVersion:/administration/timescaledb_pre_restore/
 [timescaledb_post_restore]: /api/:currentVersion:/administration/timescaledb_post_restore/
 [upgrading-postgresql]: https://kb-managed.timescale.com/en/articles/5368016-perform-a-postgresql-major-version-upgrade
-[upgrading-postgresql-self-hosted]: /timescaledb/:currentVersion:/how-to-guides/upgrades/upgrade-pg/
-[upgrading-timescaledb]: /timescaledb/:currentVersion:/how-to-guides/upgrades/major-upgrade/
+[upgrading-postgresql-self-hosted]: /self-hosted/:currentVersion:/upgrades/upgrade-pg/
+[upgrading-timescaledb]: /self-hosted/:currentVersion:/upgrades/major-upgrade/

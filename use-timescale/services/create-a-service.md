@@ -44,9 +44,9 @@ the [TimescaleDB pricing calculator][timescale-pricing].
 You can always [contact us][contact] if you need help working something out, or
 if you want to have a chat.
 
-[cloud-install]: /install/:currentVersion:/installation-cloud/
+[cloud-install]: /getting-started/latest/
 [contact]: https://www.timescale.com/contact
 [sign-up]: https://www.timescale.com/timescale-signup
 [timescale-pricing]: https://www.timescale.com/products#cloud-pricing
-[tsc-docs]: /cloud/:currentVersion:/
-[tutorials]: /timescaledb/:currentVersion:/tutorials/
+[tsc-docs]: /use-timescale/:currentVersion:/
+[tutorials]: /tutorials/:currentVersion:/

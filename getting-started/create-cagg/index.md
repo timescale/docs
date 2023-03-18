@@ -41,7 +41,8 @@ recomputing everything.
 For more information on the benefits of continuous aggregates, see the
 [Overview page on Continuous aggregates][cagg-overview].
 
-<Highlight type="note"> Materialized views in PostgreSQL are table-like objects
+<Highlight type="note">
+ Materialized views in PostgreSQL are table-like objects
 within your database. For more information on materialized views, see the
 [PostgreSQL documentation](https://www.postgresql.org/docs/current/rules-materializedviews.html).
 </Highlight>
@@ -56,7 +57,7 @@ You only get the full benefits of continuous aggregates by creating both the
 aggregate itself and its policy. Follow both sections to add the full value of
 aggregates to your time-series database.
 
-[cagg-overview]: /timescaledb/:currentVersion:/overview/core-concepts/continuous-aggregates/
+[cagg-overview]: /use-timescale/:currentVersion:/continuous-aggregates/
 [create-cagg-basics]: /getting-started/:currentVersion:/create-cagg/create-cagg-basics/
 [create-cagg-policy]: /getting-started/:currentVersion:/create-cagg/create-cagg-policy/
 [material-view]: https://www.postgresql.org/docs/current/rules-materializedviews.html

@@ -50,6 +50,6 @@ to query and visualize the data from the database.
 When you have configured Managed Service for TimescaleDB as a data source in
 Grafana, you can create panels that are populated with data using SQL.
 
-[grafana-install]: /timescaledb/:currentVersion:/tutorials/grafana/installation/#create-a-new-service-for-grafana
-[mst-install]: /install/:currentVersion:/installation-mst/#create-your-first-service
+[grafana-install]: /tutorials/:currentVersion:/grafana/installation/#create-a-new-service-for-grafana
+[mst-install]: /mst/:currentVersion:/installation-mst/#create-your-first-service
 [mst-login]: https://portal.managed.timescale.com

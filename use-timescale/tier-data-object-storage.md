@@ -95,5 +95,5 @@ informational view:
 SELECT * FROM timescaledb_osm.tiered_chunks;
 ```
 
-[data-retention]: /timescaledb/:currentVersion:/how-to-guides/data-retention/
+[data-retention]: /use-timescale/:currentVersion:/data-retention/
 [show_chunks]: /api/:currentVersion:/hypertable/show_chunks/

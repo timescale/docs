@@ -62,5 +62,5 @@ again.
 
 </Procedure>
 
-[deb-install]: /install/:currentVersion:/self-hosted/installation-linux/
-[rhel-install]: /install/:currentVersion:/self-hosted/installation-linux/
+[deb-install]: /self-hosted/latest/install/self-hosted/installation-linux/
+[rhel-install]: /self-hosted/latest/install/self-hosted/installation-linux/

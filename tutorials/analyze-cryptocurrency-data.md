@@ -669,9 +669,9 @@ Ready for even more learning? Here's a few suggestions:
 [cryptocompare-apikey]: https://min-api.cryptocompare.com
 [cryptocompare]: https://www.cryptocompare.com
 [hypertable-blog]: https://blog.timescale.com/blog/when-boring-is-awesome-building-a-scalable-time-series-database-on-postgresql-2900ea453ee2/
-[hypertable-docs]: /timescaledb/:currentVersion:/how-to-guides/hypertables
-[install-timescale]: /install/latest/
-[migrate]: /timescaledb/:currentVersion:/how-to-guides/migrate-data/
-[other-samples]: /timescaledb/:currentVersion:/tutorials/sample-datasets/
-[tableau-tutorial]: /timescaledb/:currentVersion:/tutorials/visualize-with-tableau/
-[time-series-forecasting]: /timescaledb/:currentVersion:/tutorials/time-series-forecast/
+[hypertable-docs]: /use-timescale/:currentVersion:/hypertables
+[install-timescale]: /getting-started/latest/
+[migrate]: /use-timescale/:currentVersion:/migrate-data/
+[other-samples]: /tutorials/:currentVersion:/sample-datasets/
+[tableau-tutorial]: /tutorials/:currentVersion:/visualize-with-tableau/
+[time-series-forecasting]: /tutorials/:currentVersion:/time-series-forecast/

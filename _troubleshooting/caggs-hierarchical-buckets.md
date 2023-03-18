@@ -29,4 +29,4 @@ fixed-width time bucket on top of a continuous aggregate with a variable-width
 time bucket. For more information, see the restrictions section in
 [hierarchical continuous aggregates][h-caggs-restrictions].
 
-[h-caggs-restrictions]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/hierarchical-continuous-aggregates/#restrictions
+[h-caggs-restrictions]: /use-timescale/:currentVersion:/continuous-aggregates/hierarchical-continuous-aggregates/#restrictions

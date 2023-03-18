@@ -57,4 +57,4 @@ particular hypertables.
 
 </Procedure>
 
-[data-retention-policy]: /timescaledb/:currentVersion:/how-to-guides/data-retention/create-a-retention-policy/
+[data-retention-policy]: /use-timescale/:currentVersion:/data-retention/create-a-retention-policy/

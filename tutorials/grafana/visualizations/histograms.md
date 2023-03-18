@@ -293,10 +293,10 @@ You can do this with a pre-aggregation query, using:
 
 </Procedure>
 
-[raw-data]: /timescaledb/:currentVersion:/tutorials/grafana/visualizations/histograms/#create-a-price-transaction-histogram-with-raw-data/
-[pre-agg-data]: /timescaledb/:currentVersion:/tutorials/grafana/visualizations/histograms/#create-a-price-transaction-histogram-with-aggregated-data/
-[create-panel]: /timescaledb/:currentVersion:/tutorials/grafana/visualizations/histograms/#create-a-panel-with-multiple-price-transaction-histograms
-[price-volume]: /timescaledb/:currentVersion:/tutorials/grafana/visualizations/histograms/#create-a-price-volume-histogram/
+[raw-data]: /tutorials/:currentVersion:/grafana/visualizations/histograms/#create-a-price-transaction-histogram-with-raw-data/
+[pre-agg-data]: /tutorials/:currentVersion:/grafana/visualizations/histograms/#create-a-price-transaction-histogram-with-aggregated-data/
+[create-panel]: /tutorials/:currentVersion:/grafana/visualizations/histograms/#create-a-panel-with-multiple-price-transaction-histograms
+[price-volume]: /tutorials/:currentVersion:/grafana/visualizations/histograms/#create-a-price-volume-histogram/
 [lag]: <https://www.postgresql.org/docs/14/functions-window.html>
 [max]: <https://www.postgresql.org/docs/current/tutorial-agg.html>
 [time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/

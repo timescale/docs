@@ -169,7 +169,7 @@ with similar percentages or large amount of data.
 For more ways to visualize data using TimescaleDB and Grafana, see the other
 [Grafana visualization tutorials][grafana-tutorials].
 
-[pie-chart]: /timescaledb/:currentVersion:/tutorials/grafana/visualizations/pie-chart/#create-a-pie-chart-with-preaggregated-data
-[donut-chart]: /timescaledb/:currentversion:/tutorials/grafana/visualizations/pie-chart/#create-a-donut-chart-with-volume-transactions
-[grafana-tutorials]: /timescaledb/:currentVersion:/tutorials/grafana/
+[pie-chart]: /tutorials/:currentVersion:/grafana/visualizations/pie-chart/#create-a-pie-chart-with-preaggregated-data
+[donut-chart]: /tutorials/:currentversion:/grafana/visualizations/pie-chart/#create-a-donut-chart-with-volume-transactions
+[grafana-tutorials]: /tutorials/:currentVersion:/grafana/
 [gsg-data]: /getting-started/:currentVersion:/

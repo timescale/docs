@@ -16,15 +16,6 @@ to understand what TimescaleDB is, how it works, how to get started, and how
 to successfully use and implement all of the powerful features for your next
 project.
 
-### Overview
-
-In the **[Overview section][overview]** you'll find everything you need to know about the design
-and core concepts that make TimescaleDB the super powered, time-series database
-that it is.
-
-You'll also find [Release Notes][release-notes], our [FAQ][faq], and any [known limitations][limitations] with the
-current version of TimescaleDB that you should be aware of.
-
 ### Getting started
 
 The **[Getting started tutorial][getting-started]** leads you through your first experience with
@@ -56,15 +47,11 @@ In our **[Code quick starts][code]** section we provide samples of connecting to
 TimescaleDB from a growing list of application languages using standard SDKs
 and best practices.
 
-[code]: /timescaledb/:currentVersion:/quick-start/
-[crypto]: /timescaledb/:currentVersion:/tutorials/analyze-cryptocurrency-data/
-[faq]: /timescaledb/:currentVersion:/overview/faq/
-[forecast]: /timescaledb/:currentVersion:/tutorials/time-series-forecast/
+[code]: /quick-start/:currentVersion:/
+[crypto]: /tutorials/:currentVersion:/analyze-cryptocurrency-data/
+[forecast]: /tutorials/:currentVersion:/time-series-forecast/
 [getting-started]: /getting-started/:currentVersion:/
-[grafana]: /timescaledb/:currentVersion:/tutorials/grafana
-[how-to]: /timescaledb/:currentVersion:/how-to-guides/
-[limitations]: /timescaledb/:currentVersion:/overview/limitations/
-[overview]: /timescaledb/:currentVersion:/overview/
+[grafana]: /tutorials/:currentVersion:/grafana
+[how-to]: /use-timescale/:currentVersion:/
 [promscale]: /promscale/:currentVersion:/
-[release-notes]: /timescaledb/:currentVersion:/overview/release-notes/
-[tutorials]: /timescaledb/:currentVersion:/tutorials/
+[tutorials]: /tutorials/:currentVersion:/

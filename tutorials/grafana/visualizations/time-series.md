@@ -238,7 +238,7 @@ change to your query.
 
 </Procedure>
 
-[raw-data]: /timescaledb/:currentVersion:/tutorials/grafana/visualizations/time-series/#create-a-time-series-graph-with-raw-data/
-[pre-agg-data]: /timescaledb/:currentVersion:/tutorials/grafana/visualizations/time-series/#create-a-time-series-graph-from-pre-aggregated-data-using-time-bucket/
-[create-panel]: /timescaledb/:currentVersion:/tutorials/grafana/visualizations/time-series/#create-multiple-time-series-graphs-in-a-single-panel/
+[raw-data]: /tutorials/:currentVersion:/grafana/visualizations/time-series/#create-a-time-series-graph-with-raw-data/
+[pre-agg-data]: /tutorials/:currentVersion:/grafana/visualizations/time-series/#create-a-time-series-graph-from-pre-aggregated-data-using-time-bucket/
+[create-panel]: /tutorials/:currentVersion:/grafana/visualizations/time-series/#create-multiple-time-series-graphs-in-a-single-panel/
 [time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/

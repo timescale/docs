@@ -162,7 +162,7 @@ LIMIT 5;
 For more examples and detailed explanations, see the [blog post on identifying
 performance bottlenecks with `pg_stat_statements`][blog-pg_stat_statements].
 
-[metrics-dashboard]: /cloud/:currentVersion:/service-metrics/#metrics-dashboard
-[pg-stat]: /cloud/:currentVersion:/service-metrics/#query-level-statistics-with-pg-stat-statements
+[metrics-dashboard]: /use-timescale/:currentVersion:/metrics-logging/service-metrics/
+[pg-stat]: /use-timescale/:currentVersion:/metrics-logging/service-metrics/#query-level-statistics-with-pg_stat_statements
 [blog-pg_stat_statements]: <https://www.timescale.com/blog/identify-postgresql-performance-bottlenecks-with-pg_stat_statements/>
-[psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/about-psql/
+[psql]: /use-timescale/:currentVersion:/connecting/about-psql/

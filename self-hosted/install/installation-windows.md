@@ -29,7 +29,7 @@ If you have already installed PostgreSQL using another method, you could
 encounter errors following these instructions. It is safest to remove any
 existing PostgreSQL installations before you begin. If you want to keep your
 current PostgreSQL installation, do not install TimescaleDB using this method.
-[Install from source](/install/latest/self-hosted/installation-source/) instead.
+[Install from source](/self-hosted/latest/install/installation-source/) instead.
 </Highlight>
 
 ## Prerequisites
@@ -169,9 +169,9 @@ information on releases, check out the
 <WhereTo />
 
 [gh-releases]: https://github.com/timescale/timescaledb/releases
-[install-psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql/
+[install-psql]: /use-timescale/:currentVersion:/connecting/psql/
 [ms-download]: https://www.microsoft.com/en-us/download/details.aspx?id=48145
 [pg-download]: https://www.postgresql.org/download/windows/
-[release-notes]: /timescaledb/:currentVersion:/overview/release-notes/
-[tutorials]: /timescaledb/:currentVersion:/tutorials/
+[release-notes]: /about/:currentVersion:/release-notes/
+[tutorials]: /tutorials/:currentVersion:/
 [windows-releases]: #windows-releases

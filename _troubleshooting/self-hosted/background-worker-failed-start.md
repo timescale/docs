@@ -40,4 +40,4 @@ equal the sum of `timescaledb.max_background_workers` and
 
 For more information, see the [worker configuration docs][worker-config].
 
-[worker-config]: /timescaledb/latest/how-to-guides/configuration/about-configuration/#workers
+[worker-config]: /self-hosted/latest/configuration/about-configuration/#workers

@@ -65,9 +65,9 @@ these stories from some Timescale community members:
 *   [How Messari uses data to open the cryptoeconomy to everyone][messari]
 *   [How I power a (successful) crypto trading bot with TimescaleDB][bot]
 
-[cloud-install]: /install/:currentVersion:/installation-cloud/
-[financial-tick-dataset]: /timescaledb/:currentVersion:/tutorials/financial-tick-data/financial-tick-dataset/
-[financial-tick-query]: /timescaledb/:currentVersion:/tutorials/financial-tick-data/financial-tick-query/
+[cloud-install]: /getting-started/latest/
+[financial-tick-dataset]: /tutorials/:currentVersion:/financial-tick-data/financial-tick-dataset/
+[financial-tick-query]: /tutorials/:currentVersion:/financial-tick-data/financial-tick-query/
 [charts]: https://www.investopedia.com/terms/c/candlestick.asp
 [twelve-data]: https://twelvedata.com/
 [trading-strategy]: https://www.timescale.com/blog/how-trading-strategy-built-a-data-stack-for-crypto-quant-trading/

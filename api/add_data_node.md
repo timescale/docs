@@ -127,4 +127,4 @@ regular hypertable, but it can be useful for testing.
 
 [attach_data_node]: /api/:currentVersion:/distributed-hypertables/attach_data_node/
 [distributed_exec]: /api/:currentVersion:/distributed-hypertables/distributed_exec/
-[multinode]: /timescaledb/:currentVersion:/how-to-guides/multinode-timescaledb/multinode-auth/
+[multinode]: /self-hosted/:currentVersion:/multinode-timescaledb/multinode-auth/

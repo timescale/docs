@@ -18,7 +18,7 @@ The examples in this section use these variables and Grafana functions:
     function when aggregating data.
 
 [install-grafana]: https://grafana.com/get/
-[install-timescale]: /install/:currentVersion:/
+[install-timescale]: /getting-started/latest/
 [gsg-data]: /getting-started/:currentVersion:/add-data/
-[grafana-tutorials]: /timescaledb/:currentVersion:/tutorials/grafana/
+[grafana-tutorials]: /tutorials/:currentVersion:/grafana/
 [variables-tutorial]: https://youtu.be/Fq9xsvHPsSQ

@@ -28,10 +28,10 @@ In this section:
     *   Use a user-defined action to automatically
         [downsample and compress][downsample-compress] older chunks
 
-[about-user-defined-actions]: /timescaledb/:currentVersion:/how-to-guides/user-defined-actions/about-user-defined-actions/
-[alter-and-delete]: /timescaledb/:currentVersion:/how-to-guides/user-defined-actions/alter-and-delete/
-[create-and-register]: /timescaledb/:currentVersion:/how-to-guides/user-defined-actions/create-and-register/
-[downsample-compress]: /timescaledb/:currentVersion:/how-to-guides/user-defined-actions/example-downsample-and-compress
-[generic-retention]: /timescaledb/:currentVersion:/how-to-guides/user-defined-actions/example-generic-retention
-[manage-storage]: /timescaledb/:currentVersion:/how-to-guides/schema-management/manage-storage/
-[test-and-debug]: /timescaledb/:currentVersion:/how-to-guides/user-defined-actions/test-and-debug/
+[about-user-defined-actions]: /use-timescale/:currentVersion:/user-defined-actions/about-user-defined-actions/
+[alter-and-delete]: /use-timescale/:currentVersion:/user-defined-actions/alter-and-delete/
+[create-and-register]: /use-timescale/:currentVersion:/user-defined-actions/create-and-register/
+[downsample-compress]: /use-timescale/:currentVersion:/user-defined-actions/example-downsample-and-compress
+[generic-retention]: /use-timescale/:currentVersion:/user-defined-actions/example-generic-retention
+[manage-storage]: /use-timescale/:currentVersion:/schema-management/manage-storage/
+[test-and-debug]: /use-timescale/:currentVersion:/user-defined-actions/test-and-debug/

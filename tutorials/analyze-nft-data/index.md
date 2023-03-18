@@ -66,10 +66,10 @@ You can see all NFTs in the Time Travel Tigers collection live on [OpenSea][eon-
 
 [eon-collection]: https://opensea.io/collection/time-travel-tigers-by-timescale
 [grafana]: https://grafana.com
-[install-ts]: /install/latest/
-[nft-analyze]: /timescaledb/:currentVersion:/tutorials/analyze-nft-data/analyzing-nft-transactions
+[install-ts]: /getting-started/latest/
+[nft-analyze]: /tutorials/:currentVersion:/analyze-nft-data/analyzing-nft-transactions
 [nft-form]: https://docs.google.com/forms/d/e/1FAIpQLSdZMzES-vK8K_pJl1n7HWWe5-v6D9A03QV6rys18woGTZr0Yw/viewform?usp=sf_link
-[nft-schema]: /timescaledb/:currentVersion:/tutorials/analyze-nft-data/nft-schema-ingestion
+[nft-schema]: /tutorials/:currentVersion:/analyze-nft-data/nft-schema-ingestion
 [nft-wiki]: https://en.wikipedia.org/wiki/Non-fungible_token
 [opensea-key]: https://docs.opensea.io/reference/request-an-api-key
 [opensea]: https://opensea.io/

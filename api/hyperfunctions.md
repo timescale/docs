@@ -22,5 +22,5 @@ documentation][hyperfunctions-howto].
     includeExperimental
 />
 
-[hyperfunctions-howto]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/
-[install-toolkit]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/install-toolkit/
+[hyperfunctions-howto]: /use-timescale/:currentVersion:/hyperfunctions/
+[install-toolkit]: /use-timescale/:currentVersion:/hyperfunctions/install-toolkit/

@@ -36,7 +36,7 @@ queries, like those used in time-series analysis.
 src="https://s3.amazonaws.com/assets.timescale.com/docs/images/getting-started/hypertables-chunks.png"
 alt="hypertable and chunks"/>
 
-For more information, see [Hypertables and chunks](/timescaledb/latest/overview/core-concepts/hypertables-and-chunks/).
+For more information, see [Hypertables and chunks](/use-timescale/:currentVersion:/hypertables/).
 
 <Procedure>
 
@@ -125,4 +125,4 @@ help with storing and querying data, see the [hypertables and chunks core concep
 [add-data]: /getting-started/:currentVersion:/add-data/
 [core-concepts-hypertables]: /timescaledb/:currentVersion:/overview/core-concepts/hypertables-and-chunks/
 [create-hypertable]: /api/:currentVersion:/hypertable/create_hypertable
-[hypertable-how-to]: /timescaledb/:currentVersion:/how-to-guides/hypertables/
+[hypertable-how-to]: /use-timescale/:currentVersion:/how-to-guides/hypertables/

@@ -82,6 +82,6 @@ cluster. For more information, see the [configuration section][configuration].
 [about-multi-node]: /self-hosted/:currentVersion:/multinode-timescaledb/about-multinode/
 [caggs]: /use-timescale/:currentVersion:/continuous-aggregates/about-continuous-aggregates/#using-continuous-aggregates-in-a-multi-node-environment
 [configuration]: /self-hosted/:currentVersion:/multinode-timescaledb/multinode-config/
-[install]: /install/latest/
+[install]: /self-hosted/latest/install/
 [multi-node-ha]: /self-hosted/:currentVersion:/multinode-timescaledb/multinode-ha/
 [setup]: /self-hosted/:currentVersion/install/

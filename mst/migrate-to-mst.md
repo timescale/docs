@@ -57,7 +57,7 @@ To speed up migration, compress your data. You can compress any chunks where
 data is not currently inserted, updated, or deleted. When you finish the
 migration, you can decompress chunks as needed for normal operation. For more
 information about compression and decompression, see the
-[compression section](https://docs.timescale.com/timescaledb/latest/how-to-guides/compression/).
+[compression section](https://docs.timescale.com/use-timescale/latest/compression/).
 </Highlight>
 
 <Procedure>
@@ -124,11 +124,11 @@ them. The migration still occurs successfully.
  ```
 
 [analyze]: https://www.postgresql.org/docs/10/sql-analyze.html
-[compression]: /timescaledb/:currentVersion:/how-to-guides/compression/
-[install-mst]: /install/:currentVersion:/installation-mst/#create-your-first-service
+[compression]: /use-timescale/:currentVersion:/compression/
+[install-mst]: /mst/:currentVersion:/installation-mst/#create-your-first-service
 [pg_dump]: https://www.postgresql.org/docs/current/app-pgdump.html
 [pg_restore]: https://www.postgresql.org/docs/current/app-pgrestore.html
-[psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql/
+[psql]: /use-timescale/:currentVersion:/connecting/psql/
 [upgrading-postgresql]: https://kb-managed.timescale.com/en/articles/5368016-perform-a-postgresql-major-version-upgrade
-[upgrading-postgresql-self-hosted]: /timescaledb/:currentVersion:/how-to-guides/upgrades/upgrade-pg/
-[upgrading-timescaledb]: /timescaledb/:currentVersion:/how-to-guides/upgrades/major-upgrade/
+[upgrading-postgresql-self-hosted]: /self-hosted/:currentVersion:/upgrades/upgrade-pg/
+[upgrading-timescaledb]: /self-hosted/:currentVersion:/upgrades/major-upgrade/

@@ -58,7 +58,7 @@ Unique constraints must include all partitioning columns. That means unique
 constraints on a hypertable must include the time column. If you added other
 partitioning columns to your hypertable, the constraint must include those as
 well. For more information, see the section on
-[hypertables and unique indexes](/timescaledb/latest/how-to-guides/hypertables/hypertables-and-unique-indexes/).
+[hypertables and unique indexes](/use-timescale/latest/hypertables/hypertables-and-unique-indexes/).
 </Highlight>
 
 ## Insert or update data to a table with a unique constraint

@@ -13,5 +13,5 @@ common tasks.
     [`timescaledb-tune`][tstune]
 *   Install and use [`timescaledb-parallel-copy`][tscopy] to insert data.
 
-[tscopy]: /timescaledb/:currentVersion:/how-to-guides/tooling/about-timescaledb-parallel-copy
-[tstune]: /timescaledb/:currentVersion:/how-to-guides/tooling/about-timescaledb-tune/
+[tscopy]: /use-timescale/:currentVersion:/tooling/about-timescaledb-parallel-copy
+[tstune]: /use-timescale/:currentVersion:/tooling/about-timescaledb-tune/

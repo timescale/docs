@@ -35,5 +35,5 @@ hypertable. You can do so either manually or by data retention policy.
 
 To learn more, see the [data retention section][data-retention].
 
-[data-retention]: /timescaledb/:currentVersion:/how-to-guides/data-retention/
+[data-retention]: /use-timescale/:currentVersion:/data-retention/
 [postgres-delete]: https://www.postgresql.org/docs/current/static/sql-delete.html

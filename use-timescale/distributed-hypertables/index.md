@@ -26,11 +26,11 @@ In this section:
 *   [Create foreign keys][foreign-keys] on distributed hypertables
 *   [Set triggers][triggers] on distributed hypertables
 
-[about-distributed-hypertables]: /timescaledb/:currentVersion:/how-to-guides/distributed-hypertables/about-distributed-hypertables/
-[alter-drop]: /timescaledb/:currentVersion:/how-to-guides/distributed-hypertables/alter-drop-distributed-hypertables
-[create]: /timescaledb/:currentVersion:/how-to-guides/distributed-hypertables/create-distributed-hypertables/
-[foreign-keys]: /timescaledb/:currentVersion:/how-to-guides/distributed-hypertables/foreign-keys/
-[hypertables]: /timescaledb/:currentVersion:/how-to-guides/hypertables/
-[insert]: /timescaledb/:currentVersion:/how-to-guides/distributed-hypertables/insert/
-[query]: /timescaledb/:currentVersion:/how-to-guides/distributed-hypertables/query/
-[triggers]: /timescaledb/:currentVersion:/how-to-guides/distributed-hypertables/triggers/
+[about-distributed-hypertables]: /use-timescale/:currentVersion:/distributed-hypertables/about-distributed-hypertables/
+[alter-drop]: /use-timescale/:currentVersion:/distributed-hypertables/alter-drop-distributed-hypertables
+[create]: /use-timescale/:currentVersion:/distributed-hypertables/create-distributed-hypertables/
+[foreign-keys]: /use-timescale/:currentVersion:/distributed-hypertables/foreign-keys/
+[hypertables]: /use-timescale/:currentVersion:/hypertables/
+[insert]: /use-timescale/:currentVersion:/distributed-hypertables/insert/
+[query]: /use-timescale/:currentVersion:/distributed-hypertables/query/
+[triggers]: /use-timescale/:currentVersion:/distributed-hypertables/triggers/

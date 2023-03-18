@@ -288,4 +288,4 @@ An example of the output for this query:
 This example uses `cAdvisor`, as an example of the sorts of sophisticated
 analysis enabled by Promscale's support to query your data in SQL.
 
-[install-psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql/
+[install-psql]: /use-timescale/:currentVersion:/connecting/psql/

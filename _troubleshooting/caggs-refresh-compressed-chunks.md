@@ -30,5 +30,5 @@ If you receive historical data and must refresh a compressed region, first
 [decompress the chunk][decompression]. Then manually run
 [`refresh_continuous_aggregate`][refresh_continuous_aggregate].
 
-[decompression]: /timescaledb/:currentVersion:/how-to-guides/compression/decompress-chunks/
+[decompression]: /use-timescale/:currentVersion:/compression/decompress-chunks/
 [refresh_continuous_aggregate]: /api/:currentVersion:/continuous-aggregates/refresh_continuous_aggregate/

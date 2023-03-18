@@ -14,7 +14,7 @@ then convert it into a distributed hypertable.
 <Highlight type="important">
 You need to set up your multi-node cluster before creating a distributed
 hypertable. To set up multi-node, see the [multi-node
-section](/timescaledb/latest/how-to-guides/multinode-timescaledb/).
+section](/self-hosted/latest/multinode-timescaledb/).
 </Highlight>
 
 <Procedure>
@@ -44,6 +44,6 @@ section](/timescaledb/latest/how-to-guides/multinode-timescaledb/).
 
 </Procedure>
 
-[multi-node]: /timescaledb/:currentVersion:/how-to-guides/multinode-timescaledb/
+[multi-node]: /self-hosted/:currentVersion:/multinode-timescaledb/
 [postgres-createtable]: https://www.postgresql.org/docs/current/sql-createtable.html
-[space-partitions]: /timescaledb/:currentVersion:/how-to-guides/hypertables/about-hypertables#space-partitions-for-distributed-hypertables
+[space-partitions]: /use-timescale/:currentVersion:/hypertables/about-hypertables#space-partitions-for-distributed-hypertables

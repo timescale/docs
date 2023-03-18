@@ -270,9 +270,9 @@ creating multiple continuous aggregates for the same hypertable. Due
 to the efficient materialization mechanism of continuous aggregates, both
 refresh and query performance should work well.
 
-[caggs]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/
+[caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
 [first]: /api/:currentVersion:/hyperfunctions/first/
 [hyperfunctions]: /api/:currentVersion:/hyperfunctions/
-[intraday-tutorial]: /timescaledb/:currentVersion:/tutorials/analyze-intraday-stocks/
+[intraday-tutorial]: /tutorials/:currentVersion:/analyze-intraday-stocks/
 [last]: /api/:currentVersion:/hyperfunctions/last/
 [time-bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/

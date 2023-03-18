@@ -19,6 +19,6 @@ set to `on` for the access node. By default, it is `off`.
 If you want to use continuous aggregates on your distributed hypertable, see the
 [continuous aggregates][caggs] section for more information.
 
-[caggs]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/
+[caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
 [enable_partitionwise_aggregate]: https://www.postgresql.org/docs/current/runtime-config-query.html
-[write]: /timescaledb/:currentVersion:/how-to-guides/write-data/
+[write]: /use-timescale/:currentVersion:/write-data/

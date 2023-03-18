@@ -28,6 +28,7 @@ on how to use TimescaleDB.
 <Highlight type="tip">
  Be sure to pay close attention to the geospatial query portion
  of the tutorial and complete those steps.
+
 </Highlight>
 
 ### Build a geospatial query
@@ -80,6 +81,7 @@ so that Grafana can plot data properly.
 <Highlight type="warning">
  This query may take a while, depending on the speed of your Internet connection. This
  is why we're using the `LIMIT` statement for demonstration purposes.
+
 </Highlight>
 
 ### Configure the worldmap Grafana panel
@@ -114,7 +116,7 @@ for different timeframes.
 
 Complete your Grafana knowledge by following [all the TimescaleDB + Grafana tutorials][tutorial-grafana].
 
-[install-grafana]: /timescaledb/:currentVersion:/tutorials/grafana/installation
-[install-timescale]: /install/latest/
-[nyc-taxi]: /timescaledb/:currentVersion:/tutorials/nyc-taxi-cab
-[tutorial-grafana]: /timescaledb/:currentVersion:/tutorials/grafana
+[install-grafana]: /tutorials/:currentVersion:/grafana/installation
+[install-timescale]: /getting-started/latest/
+[nyc-taxi]: /tutorials/:currentVersion:/nyc-taxi-cab
+[tutorial-grafana]: /tutorials/:currentVersion:/grafana

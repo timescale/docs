@@ -149,12 +149,12 @@ WITH (timescaledb.continuous) AS
     GROUP BY time_bucket('1h', timec);
 ```
 
-[cagg-how-tos]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/
+[cagg-how-tos]: /use-timescale/:currentVersion:/continuous-aggregates/
 [postgres-immutable]: https://www.postgresql.org/docs/current/xfunc-volatility.html
 [postgres-parallel-agg]: https://www.postgresql.org/docs/current/parallel-plans.html#PARALLEL-AGGREGATION
 [postgres-rls]: https://www.postgresql.org/docs/current/ddl-rowsecurity.html
 [postgres-security-barrier]: https://www.postgresql.org/docs/current/rules-privileges.html
-[real-time-aggregates]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/real-time-aggregates/
+[real-time-aggregates]: /use-timescale/:currentVersion:/continuous-aggregates/real-time-aggregates/
 [refresh-cagg]: /api/:currentVersion:/continuous-aggregates/refresh_continuous_aggregate/
 [time-bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
 [time-bucket-gapfill]: /api/:currentVersion:/hyperfunctions/gapfilling/time_bucket_gapfill/

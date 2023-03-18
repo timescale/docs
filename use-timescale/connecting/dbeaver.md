@@ -138,7 +138,7 @@ appear in the `Main` tab of `Connection settings`.
 
 [dbeaver]: https://dbeaver.io/
 [dbeaver-downloads]: https://dbeaver.io/download/
-[connection-settings]: /timescaledb/:currentVersion:/how-to-guides/connecting/dbeaver/#connection-settings-in-connect-to-a-database
+[connection-settings]: /use-timescale/:currentVersion:/connecting/dbeaver/#connection-settings-in-connect-to-a-database
 [tsc-portal]: https://console.cloud.timescale.com/
 [mst-portal]: https://portal.managed.timescale.com
-[ssl-mode]: /cloud/:currentVersion:/security/strict-ssl/
+[ssl-mode]: /use-timescale/:currentVersion:/security/strict-ssl/

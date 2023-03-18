@@ -59,4 +59,4 @@ using the `-c` option. For example:
 docker run -i -t timescale/timescaledb:latest-pg10 postgres -c max_wal_size=2GB
 ```
 
-[docker]: /install/latest/installation-docker/
+[docker]: /self-hosted/latest/install/installation-docker/
