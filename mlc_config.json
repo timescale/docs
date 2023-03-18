@@ -2,7 +2,7 @@
   "replacementPatterns": [
     {
       "pattern": ":currentVersion:",
-      "replacement": "docs-dev-launch-cloud-centric-phase-1"
+      "replacement": "dev-launch-cloud-centric-phase-1"
     },
     {
       "pattern": "^/",
