@@ -25,9 +25,9 @@ If you have any questions or concerns as you go through the tutorial, check out
 the Timescale community [Slack][slack] and [Timescale Forum][forum], where you
 can find help from the Timescale community and team.
 
-## Install Timescale Cloud
-
 <CloudTrial />
+
+## Install Timescale Cloud
 
 <Install />
 
