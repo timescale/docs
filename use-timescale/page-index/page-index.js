@@ -28,6 +28,11 @@ module.exports = [
             excerpt: "Timescale Cloud services overview",
           },
           {
+            title: "Clouds and regions",
+            href: "regions",
+            excerpt: "Timescale Cloud AWS regions",
+          },
+          {
             title: "Service explorer",
             href: "service-explorer",
             excerpt: "Timescale Cloud services explorer",
