@@ -14,7 +14,7 @@ Get started with TimescaleDB to experience the power of its core features, such
 as hypertables, continuous aggregates, and compression.
 
 <!-- vale Google.We = NO -->
-The easiest way to explore the features of TimescaleDB isto use [Timescale Cloud][sign-up],
+The easiest way to explore the features of TimescaleDB is to use [Timescale Cloud][sign-up],
 our hosted, cloud-native database service.
 <!-- vale Google.We = YES -->
 
