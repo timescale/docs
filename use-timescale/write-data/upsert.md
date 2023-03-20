@@ -7,7 +7,7 @@ keywords: [upsert, hypertables]
 
 # Upsert data
 
-Upserting is shorthand for:
+Upserting is an operation that performs both:
 
 *   Inserting a new row if a matching row doesn't already exist
 *   Either updating the existing row, or doing nothing, if a matching row

@@ -22,7 +22,7 @@ For more information about how to use standard SQL insert queries to write data
 into TimescaleDB, see the [Writing Data][writing-data] section.
 
 [ingest-kafka]: /use-timescale/:currentVersion:/ingest-data/ingest-kafka/
-[ingest-parallel]: /use-timescale/:currentVersion:/ingest-data/ingest-parallel-copy/
+[ingest-parallel]: /use-timescale/:currentVersion:/ingest-data/about-timescaledb-parallel-copy/
 [ingest-prometheus]: /use-timescale/:currentVersion:/ingest-data/ingest-prometheus/
 [ingest-telegraf]: /use-timescale/:currentVersion:/ingest-data/ingest-telegraf/
 [writing-data]: /use-timescale/:currentVersion:/write-data/
