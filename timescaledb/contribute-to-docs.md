@@ -101,6 +101,32 @@ phrase. For example, "Install TimescaleDB". For the associated procedures, use a
 level three heading, with the gerund form of the same heading. For example,
 "Installing TimescaleDB".
 
+## Lists
+
+You can use bulleted or numbered lists to present information. If you are unsure
+whether to use bullets or numbers, apply the test, "is the order important?" If
+the order is important, use numbers. If the list items can be read in any order,
+use bullets.
+
+Always start each list item with a capital letter. If the list items are short,
+incomplete sentences, do not end each item with punctuation. However, if any of
+the list items are a longer phrase with more than one full sentence, finish all
+list items with a period.
+
+<!-- markdownlint-disable -->
+
+```txt
+1.   Use numbers
+1.   If the order of the steps
+1.   Is important
+
+*   Otherwise
+*   Use
+*   Bullets
+```
+
+<!-- markdownlint-enable -->
+
 ## Processes and procedures
 
 We use processes and procedures to provide readers with numbered steps to
@@ -207,9 +233,12 @@ device.
 *Adverbs*
 : Do not use.
 
+&#10060; Simply install TimescaleDB.
+
 &#128077; Install TimescaleDB.
 
-&#10060; Simply install TimescaleDB.
+*AWS*
+: Amazon Web Services. No need to expand this acronym.
 
 *And/Or*
 : Do not use. You can usually pick one. If you're not sure, pick "and."
@@ -226,16 +255,19 @@ device.
 *Bare metal*
 : Noun.
 
-&#128077; "Install TimescaleDB on bare metal."
-
 &#10060; "Perform a bare metal installation."
+
+&#128077; "Install TimescaleDB on bare metal."
 
 *Bare-metal*
 : Adjective.
 
+&#10060; "Install TimescaleDB on bare-metal."
+
 &#128077; "Perform a bare-metal installation."
 
-&#10060; "Install TimescaleDB on bare-metal."
+*Backend*
+: One word.
 
 *Below*
 : Avoid all directional words. You cannot guarantee that things will stay in the
@@ -252,6 +284,13 @@ device.
 
 ### D
 
+*Dataset*
+: One word.
+
+&#10060; "Ingest the example data set."
+
+&#128077; "Ingest the example dataset."
+
 ### E
 
 ### F
@@ -265,9 +304,19 @@ device.
 *File system*
 : Two words.
 
+*Frontend*
+: One word.
+
 ### G
 
+*GCP*
+: Google Cloud Platform. No need to expand this acronym.
+
 ### H
+
+*Hypershift*
+: One word, always capitalized. Check the spelling of this word
+carefully before publishing.
 
 ### I
 
@@ -280,28 +329,46 @@ device.
 *Latin abbreviations*
 : Do not use.
 
+&#10060; eg
+
 &#128077; For example
 
-&#10060; eg
+&#10060; I.E:
+
+&#128077; That is,
 
 *Log in*
 : Verb.
 
-&#128077; "Log in to Timescale Cloud."
-
 &#10060; "Enter your log in information."
+
+&#128077; "Log in to Timescale Cloud."
 
 *Login*
 : Adjective or noun.
 
-&#128077; "Enter your login information."
-
 &#10060; "Login to Timescale Cloud."
+
+&#128077; "Enter your login information."
 
 ### M
 
+*Managed Service for TimescaleDB*
+: The name of the product. Always capitalize the initial letters. Do not
+abbreviate.
+
+&#10060; "I am using Managed Service for Timescale to manage my time-series data."
+
+&#10060; "I am using Managed Service to manage my time-series data."
+
+&#128077; "I am using Managed Service for TimescaleDB to manage my time-series
+data."
+
 *Master/Slave*
 : Do not use. Use "Primary" and "Secondary" instead.
+
+*MST*
+: Do not use. Use "Managed Service for TimescaleDB" instead.
 
 ### N
 
@@ -340,17 +407,24 @@ device.
 *Promscale Connector*
 : Use initial capital letters.
 
-&#128077; "Install the Promscale Connector."
-
 &#10060; "Install the Promscale connector."
 
 &#10060; "Install the promscale connector."
+
+&#128077; "Install the Promscale Connector."
 
 ### Q
 
 ### R
 
 ### S
+
+*Simply*
+: Don't use.
+
+&#10060; Simply install TimescaleDB.
+
+&#128077; Install TimescaleDB.
 
 *Superuser*
 : One word.
@@ -361,30 +435,45 @@ device.
 : Do not use.
 
 *Timescale*
-: The name of the company. Do not use camel case.
-
-&#128077; Timescale is hosting a virtual event.
-
-&#10060; I have installed Timescale to manage my time-series data.
+: The name of the company, and the name of the product in a general
+sense. Do not use camel case.
 
 &#10060; TimeScale
 
+&#128077; Timescale is hosting a virtual event.
+
+&#128077; I have installed Timescale to manage my time-series data.
+
+*Timescale Cloud*
+: The name of the product. Always capitalize the initial letters.
+
+&#10060; "I am using Timescale cloud to manage my time-series data."
+
+&#10060; "I am using TS Cloud to manage my time-series data."
+
+&#128077; "I am using Timescale Cloud to manage my time-series data."
+
 *TimescaleDB*
-: The name of the product. Capitalize the initial letter, and the "DB" at the end.
+: The name of the PostgreSQL extension. Always capitalize the initial letter and
+the DB at the end if using in prose. If referring directly to the name of the
+extension, use all lowercase.
 
-&#128077; "I have installed TimescaleDB to manage my time-series data."
+&#10060; "I installed timescaleDB to manage my time-series data."
 
-&#10060; "TimescaleDB is hosting a virtual event."
+&#128077; "I installed the `timescaledb` extension to manage my time-series data."
 
-&#10060; "I want to install TimeScaleDB"
+&#128077; "I installed TimescaleDB to manage my time-series data."
 
 *tobs*
 : The observability suite. Do not use capitalization, even when it begins
 a sentence. If possible, rewrite the sentence to avoid this.
 
+&#10060; "Tobs can be used to install."
+
 &#128077; "Install using tobs"
 
-&#10060; "Tobs can be used to install."
+*TSDB*
+: Do not use. Use "Timescale database" instead.
 
 ### U
 
@@ -417,7 +506,7 @@ and tables that contain time-series, use "standard PostgreSQL".
 &#128077; "You can also create services that run standard PostgreSQL."
 
 *Via*
-: Avoid if possible. There is usually a more accurate English word, like
+: Do not use. There is usually a more accurate English word, like
 "through," "with," or "using."
 
 ### W
@@ -426,9 +515,9 @@ and tables that contain time-series, use "standard PostgreSQL".
 : Do not use. It usually indicates that you are writing in future tense.
 Always write in simple present tense.
 
-&#128077; After installation, you see a message.
-
 &#10060; After installation, you will see a message.
+
+&#128077; After installation, you see a message.
 
 ### X
 
