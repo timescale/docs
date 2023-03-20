@@ -19,7 +19,7 @@ This section contains tutorials for working with AWS Lambda and TimescaleDB.
 ## Prerequisites
 
 Before you begin, make sure you have completed the
-[Analyze intraday stock data tutorial](https://docs.timescale.com/tutorials/latest/analyze-intraday-stocks/).
+[Analyze intraday stock data tutorial](/tutorials/latest/analyze-intraday-stocks/).
 This tutorial needs the tables and data that you set up in that tutorial.
 
 To complete this tutorial, you need an AWS account. You also need access to the
