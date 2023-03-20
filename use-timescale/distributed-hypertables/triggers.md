@@ -8,7 +8,7 @@ keywords: [distributed hypertables, triggers, multi-node]
 # Use triggers on distributed hypertables
 
 Triggers on distributed hypertables work in much the same way as triggers on
-regular hypertables. They have the same limitations. But there are some
+standard hypertables, and have the same limitations. But there are some
 differences due to the data being distributed across multiple nodes:
 
 *   Row-level triggers fire on the data node where the row is inserted. The

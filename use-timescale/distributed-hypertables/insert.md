@@ -9,7 +9,7 @@ tags: [ingest, insert]
 # Insert data
 
 You can insert data into a distributed hypertable with an `INSERT` statement.
-The syntax looks the same as for a regular hypertable or PostgreSQL table. For
+The syntax looks the same as for a standard hypertable or PostgreSQL table. For
 example:
 
 ```sql
@@ -19,7 +19,7 @@ INSERT INTO conditions(time, location, temperature, humidity)
 
 ## Optimize data insertion
 
-Distributed hypertables have higher network load than regular hypertables,
+Distributed hypertables have higher network load than standard hypertables,
 because they must push inserts from the access node to the data nodes. You can
 optimize your insertion patterns to reduce load.
 
@@ -52,9 +52,10 @@ this by changing the `timescaledb.max_insert_batch_size` setting, for example to
 reduce the number of separate batches that must be sent.
 
 The maximum batch size has a ceiling. This is equal to the maximum number of
-parameters allowed in a prepared statement (currently 32,767) divided by the
-number of columns in each row. For example, if you have a distributed hypertable
-with 10 columns, the highest you can set the batch size is 3276.
+parameters allowed in a prepared statement, which is currently 32,767
+parameters, divided by the number of columns in each row. For example, if you
+have a distributed hypertable with 10 columns, the highest you can set the batch
+size is 3276.
 
 For more information on changing `timescaledb.max_insert_batch_size`, see the
 section on [TimescaleDB configuration][config].

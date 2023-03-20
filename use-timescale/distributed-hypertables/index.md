@@ -11,7 +11,7 @@ Distributed hypertables are hypertables that span multiple nodes. With
 distributed hypertables, you can scale your data storage across multiple
 machines and benefit from parallelized processing for some queries.
 
-Many features of distributed hypertables work the same way as regular
+Many features of distributed hypertables work the same way as standard
 hypertables. To learn how hypertables work in general, see the
 [hypertables][hypertables] section.
 

@@ -11,7 +11,7 @@ tags: [constraints]
 Tables and values referenced by a distributed hypertable must be present on the
 access node and all data nodes. To create a foreign key from a distributed
 hypertable, use [`distributed_exec`][distributed_exec] to first create the
-refererenced table on all nodes.
+referenced table on all nodes.
 
 <Procedure>
 
