@@ -54,4 +54,4 @@ performance of Promscale.
       yum install promscale
    ```
 
-[tsdb-install-self-hosted]: /self-hosted/latest/install/self-hosted/
+[tsdb-install-self-hosted]: /self-hosted/latest/install/

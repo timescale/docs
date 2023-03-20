@@ -5,6 +5,10 @@
       "replacement": "dev-launch-cloud-centric-phase-1"
     },
     {
+      "pattern": "/latest/",
+      "replacement": "dev-launch-cloud-centric-phase-1"
+    },
+    {
       "pattern": "^/",
       "replacement": "http://docs-dev.timescale.com/docs-dev-launch-cloud-centric-phase-1/"
     }

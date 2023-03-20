@@ -165,6 +165,6 @@ SELECT add_dimension('conditions', 'location', number_partitions => 2);
 ```
 
 [create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
-[distributed-hypertable-partitioning-best-practices]: /use-timescale/:currentVersion:/hypertables/best-practices/
+[distributed-hypertable-partitioning-best-practices]: /use-timescale/:currentVersion:/hypertables/about-hypertables/#space-partitioning
 [distributed-hypertables]: /api/:currentVersion:/distributed-hypertables/create_distributed_hypertable/
 [regular-hypertables]: /api/:currentVersion:/hypertable/create_hypertable/

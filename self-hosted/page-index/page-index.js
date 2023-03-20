@@ -189,6 +189,20 @@ module.exports = [
         ],
       },
       {
+        title: "Additional tooling",
+        href: "tooling",
+        children: [
+          {
+            title: "TimescaleDB Tune",
+            href: "about-timescaledb-tune",
+          },
+          {
+            title: "Timescale parallel copy",
+            href: "about-timescaledb-parallel-copy",
+          },
+        ],
+      },
+      {
         title: "Upgrade self-hosted TimescaleDB",
         href: "upgrades",
         children: [

@@ -155,7 +155,7 @@ Timescale thanks:
 For release notes for older Timescale versions, see the
 [past releases section][past-relnotes].
 
-[past-relnotes]: about/:currentVersion:/release-notes/past-releases/
+[past-relnotes]: /about/:currentVersion:/release-notes/past-releases/
 [pg-upgrade]: /self-hosted/:currentVersion:/upgrades/upgrade-pg/
 [migrate-caggs]: /use-timescale/:currentVersion:/continuous-aggregates/migrate/
 [join-caggs]: /use-timescale/:currentVersion:/continuous-aggregates/create-a-continuous-aggregate/#create-a-continuous-aggregate-with-a-join

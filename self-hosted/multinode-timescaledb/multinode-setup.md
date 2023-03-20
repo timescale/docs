@@ -84,4 +84,4 @@ cluster. For more information, see the [configuration section][configuration].
 [configuration]: /self-hosted/:currentVersion:/multinode-timescaledb/multinode-config/
 [install]: /self-hosted/latest/install/
 [multi-node-ha]: /self-hosted/:currentVersion:/multinode-timescaledb/multinode-ha/
-[setup]: /self-hosted/:currentVersion/install/
+[setup]: /self-hosted/:currentVersion:/install/

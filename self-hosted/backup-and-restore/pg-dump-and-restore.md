@@ -176,5 +176,5 @@ information about how to use the `pg_dumpall` utility, see
 [timescaledb_pre_restore]: /api/:currentVersion:/administration/timescaledb_pre_restore/
 [timescaledb_post_restore]: /api/:currentVersion:/administration/timescaledb_post_restore/
 [timescaledb-upgrade]: /self-hosted/:currentVersion:/upgrades/
-[troubleshooting]: /self-hosted/:currentVersion:/backup-and-restore/troubleshooting/
+[troubleshooting]: /self-hosted/:currentVersion:/troubleshooting/#versions-are-mismatched-when-dumping-and-restoring-a-database
 [postgres-docs]: https://www.postgresql.org/docs/current/app-pg-dumpall.html
