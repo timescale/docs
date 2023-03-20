@@ -49,7 +49,7 @@ We deem it moderate priority for upgrading.
 
 This release includes these noteworthy features:
 
-*   Joins in continuous aggregates that are defined over hypertables. Support for joins in [hierarchical continuous aggregates](https://docs.timescale.com/use-timescale/latest/continuous-aggregates/hierarchical-continuous-aggregates/) will be introduced on a follow-up release.
+*   Joins in continuous aggregates that are defined over hypertables. Support for joins in [hierarchical continuous aggregates](/use-timescale/latest/continuous-aggregates/hierarchical-continuous-aggregates/) will be introduced on a follow-up release.
 *   Re-architecture of how compression works: ~2x improvement on INSERT rate into compressed chunks.
 *   Full PostgreSQL 15 support for all existing features. Support for the newly introduced MERGE command on hypertables will be introduced on a follow-up release.
 
@@ -58,7 +58,7 @@ We will continue supporting PostgreSQL 12 until July 2023. Before that time, we 
 
 **Old format of continuous aggregates deprecation announcement**
 TimescaleDB 2.7 introduced a new format for continuous aggregates that improves performance.
-All instances with continuous aggregates using the old format should [migrate to the new format](https://docs.timescale.com/api/latest/continuous-aggregates/cagg_migrate/) by July 2023,
+All instances with continuous aggregates using the old format should [migrate to the new format](/api/latest/continuous-aggregates/cagg_migrate/) by July 2023,
 when support for the old format will be removed.
 Before that time, we will announce the specific version of TimescaleDB in which support for this feature will be removed.
 
