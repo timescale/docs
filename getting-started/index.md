@@ -39,8 +39,6 @@ can find help from the Timescale community and team.
 
 <Connect />
 
-## Next steps
-
 <WhereNext />
 
 [forum]: https://www.timescale.com/forum
