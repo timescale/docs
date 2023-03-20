@@ -110,7 +110,7 @@ alt="Timescale Cloud Explorer, Continuous aggregates section"
 For more information about continuous aggregates, see the
 [continuous aggregates section][caggs].
 
-[caggs]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/
-[compression]: /timescaledb/:currentVersion:/how-to-guides/compression/
-[hypertables]: /timescaledb/:currentVersion:/how-to-guides/hypertables/
+[caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
+[compression]: /use-timescale/:currentVersion:/compression/
+[hypertables]: /use-timescale/:currentVersion:/hypertables/
 [set-compression]: #setting-a-compression-policy-from-timescale-cloud-console

@@ -63,4 +63,4 @@ SELECT add_job('user_defined_action','1 week', initial_start => '2022-12-04 00:0
 SELECT add_job('user_defined_action','1 week', initial_start => '2022-12-04 00:00:00+00'::timestamptz, timezone => 'Europe/Berlin');
 ```
 
-[using-actions]: /timescaledb/:currentVersion:/overview/core-concepts/user-defined-actions
+[using-actions]: /use-timescale/:currentVersion:/user-defined-actions

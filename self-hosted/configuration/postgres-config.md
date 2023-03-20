@@ -8,7 +8,9 @@ tags: [tune]
 
 # Manual PostgreSQL configuration and tuning
 
-If you prefer to tune settings yourself, or for settings not covered by `timescaledb-tune`, you can manually configure your installation using the PostgreSQL configuration file.
+If you prefer to tune settings yourself, or for settings not covered by
+`timescaledb-tune`, you can manually configure your installation using the
+PostgreSQL configuration file.
 
 For some common configuration settings you might want to adjust, see the
 [about-configuration][about-configuration] page.
@@ -44,5 +46,5 @@ For example:
 postgres -c log_connections=yes -c log_destination='syslog'
 ```
 
-[about-configuration]: /timescaledb/:currentVersion:/how-to-guides/configuration/about-configuration
+[about-configuration]: /self-hosted/:currentVersion:/configuration/about-configuration
 [pg-config]: https://www.postgresql.org/docs/current/config-setting.html

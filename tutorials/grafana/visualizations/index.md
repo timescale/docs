@@ -17,8 +17,8 @@ Learn how to create Grafana visualizations of time-series data.
 *   Use [bar charts][bar-chart] to compare datasets between different categories.
 *   Use [pie charts][pie-chart] to compare groups or categorized data.
 
-[bar-chart]: /timescaledb/:currentVersion:/tutorials/grafana/visualizations/bar-chart
-[pie-chart]: /timescaledb/:currentVersion:/tutorials/grafana/visualizations/pie-chart
-[candlestick]: /timescaledb/:currentVersion:/tutorials/grafana/visualizations/candlestick
-[histograms]: /timescaledb/:currentVersion:/tutorials/grafana/visualizations/histograms
-[time-series]: /timescaledb/:currentVersion:/tutorials/grafana/visualizations/time-series
+[bar-chart]: /tutorials/:currentVersion:/grafana/visualizations/bar-chart
+[pie-chart]: /tutorials/:currentVersion:/grafana/visualizations/pie-chart
+[candlestick]: /tutorials/:currentVersion:/grafana/visualizations/candlestick
+[histograms]: /tutorials/:currentVersion:/grafana/visualizations/histograms
+[time-series]: /tutorials/:currentVersion:/grafana/visualizations/time-series

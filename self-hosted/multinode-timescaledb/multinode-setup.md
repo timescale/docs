@@ -1,18 +1,11 @@
 ---
 title: Set up multi-node on self-hosted TimescaleDB
 excerpt: How to set up a self-hosted multi-node instance
-products: [mst, self_hosted]
+products: [self_hosted]
 keywords: [multi-node, self-hosted]
 ---
 
 # Set up multi-node on self-hosted TimescaleDB
-
-<Highlight type="cloud" header="Create multi-node databases in seconds with Timescale Cloud">
-Timescale Cloud saves you the manual work associated with setting up and maintaining
-a multi-node instance of TimescaleDB. You can create, configure and deploy your
-multi-node instance in just a few clicks. To test it out yourself, start a free
-[Timescale Cloud trial](http://tsdb.co/cloud-signup) and select "multi-node" when creating your service.
-</Highlight>
 
 To set up multi-node on a self-hosted TimescaleDB instance, you need:
 
@@ -46,7 +39,7 @@ you require, you can set up multi-node and create a distributed hypertable.
 Before you begin, make sure you have considered what partitioning method you
 want to use for your multi-node cluster. For more information about multi-node
 and architecture, see the
-[About multi-node section](/timescaledb/latest/how-to-guides/multinode-timescaledb/about-multinode/).
+[About multi-node section](/self-hosted/latest/multinode-timescaledb/about-multinode/).
 </Highlight>
 
 <Procedure>
@@ -86,9 +79,9 @@ and architecture, see the
 When you have set up your multi-node installation, you can configure your
 cluster. For more information, see the [configuration section][configuration].
 
-[about-multi-node]: /timescaledb/:currentVersion:/how-to-guides/multinode-timescaledb/about-multinode/
-[caggs]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/about-continuous-aggregates/#using-continuous-aggregates-in-a-multi-node-environment
-[configuration]: /timescaledb/:currentVersion:/how-to-guides/multinode-timescaledb/multinode-config/
-[install]: /install/latest/
-[multi-node-ha]: /timescaledb/:currentVersion:/how-to-guides/multinode-timescaledb/multinode-ha/
-[setup]: /install/latest/
+[about-multi-node]: /self-hosted/:currentVersion:/multinode-timescaledb/about-multinode/
+[caggs]: /use-timescale/:currentVersion:/continuous-aggregates/about-continuous-aggregates/#using-continuous-aggregates-in-a-multi-node-environment
+[configuration]: /self-hosted/:currentVersion:/multinode-timescaledb/multinode-config/
+[install]: /self-hosted/latest/install/
+[multi-node-ha]: /self-hosted/:currentVersion:/multinode-timescaledb/multinode-ha/
+[setup]: /self-hosted/:currentVersion/install/

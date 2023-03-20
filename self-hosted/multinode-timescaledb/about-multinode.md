@@ -22,9 +22,6 @@ multi-node architecture before you begin, and plan your database
 according to your specific requirements.
 </Highlight>
 
-You can use multi-node on a self-managed TimescaleDB instance, or you can use it
-on [Timescale Cloud][multinode-cloud].
-
 ## Multi-node architecture
 
 Multi-node TimescaleDB allows you to tie several databases together
@@ -35,15 +32,10 @@ One of the databases exists on an access node and stores
 metadata about the other databases. The other databases are
 located on data nodes and hold the actual data. In theory, a
 PostgreSQL instance can serve as both an access node and a data node
-at the same time in different databases. However, we do not recommend
-mixed setups like this, because it can be complicated, and server
+at the same time in different databases. However, it is recommended not to
+have mixed setups, because it can be complicated, and server
 instances are often provisioned differently depending on the role they
 serve.
-
-If you are using Timescale Cloud to run your multi-node cluster, the
-nodes are created by default when you create a multi-node
-cluster. For more about multi-node on Timescale Cloud, see the [multi-node on Timescale
-Cloud section][multinode-cloud].
 
 For self-hosted installations, create a server that can act as an
 access node, then use that access node to create data nodes on other
@@ -51,7 +43,7 @@ servers.
 
 When you have configured multi-node TimescaleDB, the access node coordinates
 the placement and access of data chunks on the data nodes. In most
-cases, we recommend that you use multidimensional partitioning to
+cases, it is recommend that you use multidimensional partitioning to
 distribute data across chunks in both time and space dimensions. The
 figure in this section shows how an access node (AN) partitions data in the same
 time interval across multiple data nodes (DN1, DN2, and DN3).
@@ -68,7 +60,7 @@ database, it is possible to have both distributed and non-distributed
 databases on the same access node. It is also possible to
 have several distributed databases that use different sets of physical
 instances as data nodes. In this section,
-however, we assume you have a single
+however, it is assumed that you have a single
 distributed database with a consistent set of data nodes.
 
 ## Distributed hypertables
@@ -167,5 +159,4 @@ performance, and it is therefore not implemented by default for distributed
 hypertables.
 
 [2pc]: https://www.postgresql.org/docs/current/sql-prepare-transaction.html
-[hypertables]: /timescaledb/:currentVersion:/how-to-guides/hypertables/
-[multinode-cloud]: /cloud/:currentVersion:/cloud-multi-node/
+[hypertables]: /use-timescale/:currentVersion:/hypertables/

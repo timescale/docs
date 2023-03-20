@@ -112,6 +112,6 @@ our complementing tutorial
 [Ingest real-time financial websocket data][ingest-real-time] to
 ingest data directly from the [Twelve Data][twelve-data] financial API.
 
-[hypertable]: /timescaledb/:currentVersion:/how-to-guides/hypertables/
-[ingest-real-time]: /timescaledb/:currentVersion:/tutorials/ingest-real-time-websocket-data
+[hypertable]: /use-timescale/:currentVersion:/hypertables/
+[ingest-real-time]: /tutorials/:currentVersion:/ingest-real-time-websocket-data
 [twelve-data]: https://twelvedata.com/

@@ -129,7 +129,7 @@ data, which belong to an incomplete bucket.
 <Highlight type="note">
 If you don't want real-time aggregation, you can disable it. Set the `materialized_only`
 parameter to true for your continuous aggregate. For more information, see the
-section on [real-time aggregation](/timescaledb/latest/how-to-guides/continuous-aggregates/real-time-aggregates/#use-real-time-aggregates).
+section on [real-time aggregation](/use-timescale/latest/continuous-aggregates/real-time-aggregates/#use-real-time-aggregates).
 </Highlight>
 
 To inspect details about a continuous aggregate, such as its
@@ -174,7 +174,7 @@ found in the [continuous aggregates docs][continuous-aggregates].
 
 [cagg-policy]: /getting-started/:currentVersion:/create-cagg/create-cagg-policy/
 [candlestick]: https://en.wikipedia.org/wiki/Candlestick_chart
-[continuous-aggregates]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates
+[continuous-aggregates]: /use-timescale/:currentVersion:/continuous-aggregates
 [crypto-bot]: https://blog.timescale.com/blog/how-i-power-a-successful-crypto-trading-bot-with-timescaledb/
 [first]: /api/:currentVersion:/hyperfunctions/first/
 [flightaware]: https://blog.timescale.com/blog/how-flightaware-fuels-flight-prediction-models-with-timescaledb-and-grafana/

@@ -65,4 +65,4 @@ SELECT pg_size_pretty(hypertable_index_size('second_index'));
 
 ```
 
-[hypertable-docs]: /timescaledb/:currentVersion:/how-to-guides/hypertables/
+[hypertable-docs]: /use-timescale/:currentVersion:/hypertables/

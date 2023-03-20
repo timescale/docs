@@ -108,5 +108,5 @@ be removed in a future release. To avoid such inconsistency, we do not yet
 recommend using `replication_factor` > 1, and instead rely on physical
 replication of each data node if such fault-tolerance is required.
 
-[best-practices]: /timescaledb/:currentVersion:/how-to-guides/hypertables/about-hypertables/#best-practices-for-time-partitioning
-[create-hypertable]: /timescaledb/:currentVersion:/how-to-guides/hypertables/create
+[best-practices]: /use-timescale/:currentVersion:/hypertables/about-hypertables/#best-practices-for-time-partitioning
+[create-hypertable]: /use-timescale/:currentVersion:/hypertables/create

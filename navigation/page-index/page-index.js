@@ -2,6 +2,7 @@ module.exports = [
   {
     title: "Find a docs page",
     href: "navigation",
+    excerpt: "Help tools for finding a docs page",
     filePath: "index.md",
     children: [
       {
@@ -18,7 +19,7 @@ module.exports = [
       },
       {
         title: "Full search",
-        overrideHref: "/search",
+        overrideHref: "/search/?query=timescale",
         excerpt: "Search Timescale docs, blog, and forum.",
         type: "placeholder",
       },

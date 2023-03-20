@@ -74,4 +74,4 @@ shorten the chunk for that year. In this situation, you can create a new
 hypertable and migrate your data.
 </Highlight>
 
-[best-practices]: /timescaledb/:currentVersion:/how-to-guides/hypertables/about-hypertables#best-practices-for-time-partitioning
+[best-practices]: /use-timescale/:currentVersion:/hypertables/about-hypertables#best-practices-for-time-partitioning

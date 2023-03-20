@@ -49,15 +49,16 @@ provide only one hypertable or underlying continuous aggregate; CTEs and subquer
 supported.
 
 In TimescaleDB&nbsp;2.10.0 and later, the `FROM` clause supports `JOINS`, with these restrictions:
-*   To join between two tables, one table must be a hypertable and the other table must 
-     be a standard PostgreSQL table. The order of tables in the `JOIN` clause does not 
+
+*   To join between two tables, one table must be a hypertable and the other table must
+     be a standard PostgreSQL table. The order of tables in the `JOIN` clause does not
      matter.
 *   You must use an `INNER JOIN`, no other join type is supported.
 *   The `JOIN` conditions can only be equality conditions.
-*   The hypertable on the `JOIN` condition must be a hypertable, and not a continuous 
-     aggregate. Additionally, you can't use joins in hierarchical continuous aggregates. 
-*   Changes to the hypertable are tracked, and are updated in the continuous aggregate 
-     when it is refreshed. Changes to the standard PostgreSQL table are not tracked. 
+*   The hypertable on the `JOIN` condition must be a hypertable, and not a continuous
+     aggregate. Additionally, you can't use joins in hierarchical continuous aggregates.
+*   Changes to the hypertable are tracked, and are updated in the continuous aggregate
+     when it is refreshed. Changes to the standard PostgreSQL table are not tracked.
 *   The `USING` clause is supported in joins for PostgreSQL&nbsp;13 or later.
      In PostgreSQL&nbsp;12 only joins with a condition in the `WHERE` clause or `JOIN` clause can be used.
 
@@ -148,13 +149,13 @@ WITH (timescaledb.continuous) AS
     GROUP BY time_bucket('1h', timec);
 ```
 
-[cagg-how-tos]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/
+[cagg-how-tos]: /use-timescale/:currentVersion:/continuous-aggregates/
 [postgres-immutable]: https://www.postgresql.org/docs/current/xfunc-volatility.html
 [postgres-parallel-agg]: https://www.postgresql.org/docs/current/parallel-plans.html#PARALLEL-AGGREGATION
 [postgres-rls]: https://www.postgresql.org/docs/current/ddl-rowsecurity.html
 [postgres-security-barrier]: https://www.postgresql.org/docs/current/rules-privileges.html
-[real-time-aggregates]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/real-time-aggregates/
+[real-time-aggregates]: /use-timescale/:currentVersion:/continuous-aggregates/real-time-aggregates/
 [refresh-cagg]: /api/:currentVersion:/continuous-aggregates/refresh_continuous_aggregate/
 [time-bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
-[time-bucket-gapfill]: /api/:currentVersion:/hyperfunctions/gapfilling-interpolation/time_bucket_gapfill/
+[time-bucket-gapfill]: /api/:currentVersion:/hyperfunctions/gapfilling/time_bucket_gapfill/
 [info-views]: /api/:currentVersion:/informational-views/

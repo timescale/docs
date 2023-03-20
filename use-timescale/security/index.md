@@ -13,5 +13,5 @@ privacy.
 *   Get an [overview of Timescale Cloud security][overview]
 *   Learn how to [connect with a stricter SSL mode][ssl] for enhanced protection
 
-[overview]: /cloud/:currentVersion:/security/overview/
-[ssl]: /cloud/:currentVersion:/security/strict-ssl/
+[overview]: /use-timescale/:currentVersion:/security/overview/
+[ssl]: /use-timescale/:currentVersion:/security/strict-ssl/

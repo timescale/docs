@@ -185,6 +185,6 @@ total_failures         | 0
 
 </Procedure>
 
-[changes-in-ts2]: /timescaledb/:currentVersion:/overview/release-notes/changes-in-timescaledb-2
-[relnotes-20]: /timescaledb/:currentVersion:/overview/release-notes/changes-in-timescaledb-2#retention-and-caggs
-[upgrade-minor]: /timescaledb/:currentVersion:/how-to-guides/upgrades/minor-upgrade/
+[changes-in-ts2]: /about/:currentVersion:/release-notes/changes-in-timescaledb-2
+[relnotes-20]: /about/:currentVersion:/release-notes/changes-in-timescaledb-2#retention-and-caggs
+[upgrade-minor]: /self-hosted/:currentVersion:/upgrades/minor-upgrade/

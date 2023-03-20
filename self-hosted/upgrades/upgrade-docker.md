@@ -145,4 +145,4 @@ If you have multiple databases, you need to update each database separately.
 
 </Procedure>
 
-[toolkit]: https://docs.timescale.com/timescaledb/latest/how-to-guides/hyperfunctions/install-toolkit/
+[toolkit]: https://docs.timescale.com/use-timescale/latest/hyperfunctions/install-toolkit/

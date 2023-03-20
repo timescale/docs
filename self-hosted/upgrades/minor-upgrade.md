@@ -53,4 +53,4 @@ individually.
 
 </Procedure>
 
-[upgrade-major]: /timescaledb/:currentVersion:/how-to-guides/upgrades/major-upgrade/
+[upgrade-major]: /self-hosted/:currentVersion:/upgrades/major-upgrade/

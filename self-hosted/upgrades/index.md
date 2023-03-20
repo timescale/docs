@@ -34,18 +34,10 @@ you need to.
     installation uses.
 *   [Troubleshoot][upgrade-tshoot] upgrading.
 
-<Highlight type="cloud" header="Upgrade automatically" button="Try Timescale Cloud for free">
-Timescale Cloud avoids the manual work involved in updating your TimescaleDB
-version. Upgrades take place automatically during a maintenance window picked by
-you.
-[Learn more](https://docs.timescale.com/cloud/latest/service-operations/maintenance/)
-about automatic version upgrades in Timescale Cloud.
-</Highlight>
-
-[about-upgrades]: /timescaledb/:currentVersion:/how-to-guides/upgrades/about-upgrades/
-[downgrade]: /timescaledb/:currentVersion:/how-to-guides/upgrades/downgrade/
-[upgrade-docker]: /timescaledb/:currentVersion:/how-to-guides/upgrades/upgrade-docker/
-[upgrade-major]: /timescaledb/:currentVersion:/how-to-guides/upgrades/major-upgrade/
-[upgrade-minor]: /timescaledb/:currentVersion:/how-to-guides/upgrades/minor-upgrade/
-[upgrade-pg]: /timescaledb/:currentVersion:/how-to-guides/upgrades/upgrade-pg/
-[upgrade-tshoot]: /timescaledb/:currentVersion:/how-to-guides/upgrades/troubleshooting/
+[about-upgrades]: /self-hosted/:currentVersion:/upgrades/about-upgrades/
+[downgrade]: /self-hosted/:currentVersion:/upgrades/downgrade/
+[upgrade-docker]: /self-hosted/:currentVersion:/upgrades/upgrade-docker/
+[upgrade-major]: /self-hosted/:currentVersion:/upgrades/major-upgrade/
+[upgrade-minor]: /self-hosted/:currentVersion:/upgrades/minor-upgrade/
+[upgrade-pg]: /self-hosted/:currentVersion:/upgrades/upgrade-pg/
+[upgrade-tshoot]: /self-hosted/:currentVersion:/upgrades/troubleshooting/

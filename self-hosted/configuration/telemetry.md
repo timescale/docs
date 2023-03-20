@@ -7,7 +7,7 @@ keywords: [settings, telemetry]
 
 # Telemetry and version checking
 
-Timescale collects anonymous usage data to help us better understand and assist
+TimescaleDB collects anonymous usage data to help us better understand and assist
 our users. It also helps us provide some services, such as automated version
 checking. Your privacy is the most important thing to us, so we do not collect
 any personally identifying information. In particular, the `UUID` (user ID)
@@ -273,4 +273,4 @@ If you disable telemetry, the version checking functionality is also disabled.
 </Procedure>
 
 [get_telemetry_report]: /api/:currentVersion:/administration/get_telemetry_report
-[postgres-config]: /timescaledb/:currentVersion:/how-to-guides/configuration/postgres-config
+[postgres-config]: /self-hosted/:currentVersion:/configuration/postgres-config

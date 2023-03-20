@@ -580,7 +580,7 @@ time               |revenue in BTC    |revenue in USD    |
 
 ![Average miner revenue per block, plotted in BTC and USD, over the last five days](https://assets.timescale.com/docs/images/tutorials/bitcoin-blockchain/miner_revenue_per_block_with_btcusd.png)
 
-[docs-cagg]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/
-[docs-hyperfunctions]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/
-[install-toolkit]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/install-toolkit/
+[docs-cagg]: /use-timescale/:currentVersion:/continuous-aggregates/
+[docs-hyperfunctions]: /use-timescale/:currentVersion:/hyperfunctions/
+[install-toolkit]: /use-timescale/:currentVersion:/hyperfunctions/install-toolkit/
 [stats_agg]: /api/:currentVersion:/hyperfunctions/statistical-and-regression-analysis/stats_agg-one-variable/

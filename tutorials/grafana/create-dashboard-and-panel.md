@@ -184,8 +184,8 @@ When you visualize this query, it looks like this:
 Complete your Grafana knowledge by following
 [all the TimescaleDB + Grafana tutorials][tutorial-grafana].
 
-[install-grafana]: /timescaledb/:currentVersion:/tutorials/grafana/installation
-[install-timescale]: /install/latest/
-[nyc-taxi]: /timescaledb/:currentVersion:/tutorials/nyc-taxi-cab
+[install-grafana]: /tutorials/:currentVersion:/grafana/installation
+[install-timescale]: /getting-started/latest/
+[nyc-taxi]: /tutorials/:currentVersion:/nyc-taxi-cab
 [time-bucket-reference]: /api/:currentVersion:/hyperfunctions/time_bucket
-[tutorial-grafana]: /timescaledb/:currentVersion:/tutorials/grafana
+[tutorial-grafana]: /tutorials/:currentVersion:/grafana

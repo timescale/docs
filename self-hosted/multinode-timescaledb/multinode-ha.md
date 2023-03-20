@@ -1,7 +1,7 @@
 ---
 title: High availability with multi-node
 excerpt: How to configure multi-node TimescaleDB for high availability
-products: [mst, self_hosted]
+products: [self_hosted]
 keywords: [multi-node, high availability]
 ---
 
@@ -212,6 +212,6 @@ CALL timescaledb_experimental.cleanup_copy_chunk_operation('ts_copy_1_31');
 </Highlight>
 
 [set_replication_factor]:  /api/:currentVersion:/distributed-hypertables/set_replication_factor
-[single-ha]: /timescaledb/:currentVersion:/how-to-guides/replication-and-ha/
+[single-ha]: /self-hosted/:currentVersion:/replication-and-ha/
 [alter_data_node]: /api/:currentVersion:/distributed-hypertables/alter_data_node/
 [copy_chunk]:/api/:currentVersion:/distributed-hypertables/copy_chunk_experimental

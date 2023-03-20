@@ -35,7 +35,7 @@ beginning of a line to denote a comment.
     docker exec -i -t timescaledb /bin/bash
     ```
 
-1.  Open the configuration file in your opreferred text editor. In this example, we are using ther `Vi` editor:
+1.  Open the configuration file in `Vi` editor or your preferred text editor.
 
     ```bash
     vi /var/lib/postgresql/data/postgresql.conf
@@ -55,8 +55,8 @@ If you don't want to open the configuration file to make changes, you can also
 set parameters directly from the command prompt inside your Docker container,
 using the `-c` option. For example:
 
-```
+```bash
 docker run -i -t timescale/timescaledb:latest-pg10 postgres -c max_wal_size=2GB
 ```
 
-[docker]: /install/latest/installation-docker/
+[docker]: /self-hosted/latest/install/installation-docker/

@@ -44,7 +44,7 @@ machines.
 
 <Highlight type="note">
 Need to self-host your own database? See the other installation options in the
-[install section](/install/latest/).
+[install section](/self-hosted/latest/install/).
 </Highlight>
 
 <Install />

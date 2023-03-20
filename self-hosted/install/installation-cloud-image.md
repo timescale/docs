@@ -1,6 +1,6 @@
 ---
-title: Install Timescale from cloud image
-excerpt: Install self-hosted Timescale from a pre-built cloud image
+title: Install TimescaleDB from cloud image
+excerpt: Install self-hosted TimescaleDB from a pre-built cloud image
 products: [self_hosted]
 keywords: [installation, self-hosted]
 tags: [cloud image]
@@ -8,16 +8,16 @@ tags: [cloud image]
 
 import WhereTo from "versionContent/_partials/_where-to-next.mdx";
 
-# Install Timescale from a pre-built cloud image
+# Install TimescaleDB from a pre-built cloud image
 
-You can install Timescale on a cloud hosting provider,
+You can install TimescaleDB on a cloud hosting provider,
 from a pre-built, publicly available machine image. These instructions show you
 how to use a pre-built Amazon machine image (AMI), on Amazon Web Services (AWS).
 The currently available pre-built cloud image is:
 
 *   Ubuntu 20.04 Amazon EBS-backed AMI
 
-The Timescale AMI uses Elastic Block Store (EBS) attached volumes. This allows
+The TimescaleDB AMI uses Elastic Block Store (EBS) attached volumes. This allows
 you to store image snapshots, dynamic IOPS configuration, and provides some
 protection of your data if the EC2 instance goes down. Choose an EC2 instance
 type that is optimized for EBS attached volumes. For information on choosing the
@@ -33,13 +33,13 @@ supports public AMIs.
 
 <Procedure>
 
-## Installing Timescale from a pre-build cloud image
+## Installing TimescaleDB from a pre-build cloud image
 
 1.  Make sure you have an [Amazon Web Services account][aws-signup], and are
     signed in to [your EC2 dashboard][aws-dashboard].
 1.  Navigate to `Images → AMIs`.
 1.  In the search bar, change the search to `Public images` and type _Timescale_
-    search term to find all available Timescale images.
+    search term to find all available TimescaleDB images.
 1.  Select the image you want to use, and click `Launch instance from image`.
     <img class="main-content__illustration"
     src="https://s3.amazonaws.com/assets.timescale.com/docs/images/aws_launch_ami.png"
@@ -60,14 +60,14 @@ service for the configuration changes to take effect. To restart the service,
 run `sudo systemctl restart postgresql.service`.
 </Highlight>
 
-## Set up the Timescale extension
+## Set up the TimescaleDB extension
 
-When you have PostgreSQL and Timescale installed, connect to your instance and
-set up the Timescale extension.
+When you have PostgreSQL and TimescaleDB installed, connect to your instance and
+set up the TimescaleDB extension.
 
 <Procedure>
 
-### Setting up the Timescale extension
+### Setting up the TimescaleDB extension
 
 1.  On your instance, at the command prompt, connect to the PostgreSQL
     instance as the `postgres` superuser:
@@ -89,7 +89,7 @@ set up the Timescale extension.
     \c tsdb
     ```
 
-1.  Add the Timescale extension:
+1.  Add the TimescaleDB extension:
 
     ```sql
     CREATE EXTENSION IF NOT EXISTS timescaledb;
@@ -97,7 +97,7 @@ set up the Timescale extension.
 
 </Procedure>
 
-You can check that the Timescale extension is installed by using the `\dx`
+You can check that the TimescaleDB extension is installed by using the `\dx`
 command at the command prompt. It looks like this:
 
 ```sql
@@ -119,5 +119,5 @@ tsdb=# \dx
 [aws-dashboard]: https://console.aws.amazon.com/ec2/
 [aws-instance-config]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html
 [aws-connect]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstances.html
-[install-psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql/
-[config]: /timescaledb/:currentVersion:/how-to-guides/configuration/
+[install-psql]: /use-timescale/:currentVersion:/connecting/psql/
+[config]: /self-hosted/:currentVersion:/configuration/

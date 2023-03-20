@@ -21,7 +21,7 @@ the [upgrading instructions][timescaledb-upgrade].
 If you are using this `pg_dump` backup method regularly, make sure you keep
 track of which versions of PostgreSQL and TimescaleDB you are running. For more
 information, see "Versions are mismatched when dumping and restoring a database"
-in the [Troubleshooting section](https://docs.timescale.com/timescaledb/latest/how-to-guides/backup-and-restore/troubleshooting/).
+in the [Troubleshooting section](https://docs.timescale.com/self-hosted/latest/self-hosted/backup-and-restore/troubleshooting/).
 </Highlight>
 
 ## Back up your entire database
@@ -87,7 +87,7 @@ database and restore the data.
 
 <Highlight type="warning">
 Do not use the `pg_restore` command with -j option. This option does not
-correctly restore the Timescale catalogs.
+correctly restore the TimescaleDB catalogs.
 </Highlight>
 
 ## Back up individual hypertables
@@ -175,6 +175,6 @@ information about how to use the `pg_dumpall` utility, see
 [pg_restore]: https://www.postgresql.org/docs/current/static/app-pgrestore.html
 [timescaledb_pre_restore]: /api/:currentVersion:/administration/timescaledb_pre_restore/
 [timescaledb_post_restore]: /api/:currentVersion:/administration/timescaledb_post_restore/
-[timescaledb-upgrade]: /timescaledb/:currentVersion:/how-to-guides/upgrades/
-[troubleshooting]: /timescaledb/:currentVersion:/how-to-guides/backup-and-restore/troubleshooting/
+[timescaledb-upgrade]: /self-hosted/:currentVersion:/upgrades/
+[troubleshooting]: /self-hosted/:currentVersion:/backup-and-restore/troubleshooting/
 [postgres-docs]: https://www.postgresql.org/docs/current/app-pg-dumpall.html

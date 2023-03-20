@@ -35,8 +35,9 @@ If you need another database, you need to create a new service.
 
 <WhereTonext />
 
-[cloud-install]: /install/:currentVersion:/installation-cloud/
+[cloud-install]: /getting-started/latest/
 [contact]: https://www.timescale.com/contact
 [sign-up]: https://www.timescale.com/timescale-signup
 [timescale-pricing]: https://www.timescale.com/products#cloud-pricing
-[tutorials]: /timescaledb/:currentVersion:/tutorials/
+[tsc-docs]: /use-timescale/:currentVersion:/
+[tutorials]: /tutorials/:currentVersion:/

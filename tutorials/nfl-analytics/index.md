@@ -58,12 +58,12 @@ This tutorial has a few sections to help you on your journey:
 
 *   [NFL Big Data Bowl 2021 on Kaggle](https://www.kaggle.com/c/nfl-big-data-bowl-2021)
 
-[analyze-data]: /timescaledb/:currentVersion:/tutorials/nfl-analytics/advanced-analysis/
+[analyze-data]: /tutorials/:currentVersion:/nfl-analytics/advanced-analysis/
 [extra-download]: https://assets.timescale.com/docs/downloads/nfl_2018.zip
-[ingest-query]: /timescaledb/:currentVersion:/tutorials/nfl-analytics/ingest-and-query
-[install-timescale]: /install/latest/
-[join-data]: /timescaledb/:currentVersion:/tutorials/nfl-analytics/join-with-relational
+[ingest-query]: /tutorials/:currentVersion:/nfl-analytics/ingest-and-query
+[install-timescale]: /getting-started/latest/
+[join-data]: /tutorials/:currentVersion:/nfl-analytics/join-with-relational
 [kaggle-download]: https://www.kaggle.com/c/nfl-big-data-bowl-2021/data
-[psql-install]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql
-[toolkit]: /timescaledb/:currentVersion:/how-to-guides/install-timescaledb-toolkit
-[visualize-plays]: /timescaledb/:currentVersion:/tutorials/nfl-analytics/play-visualization/
+[psql-install]: /use-timescale/:currentVersion:/connecting/psql
+[toolkit]: /use-timescale/:currentVersion:/install-timescaledb-toolkit
+[visualize-plays]: /tutorials/:currentVersion:/nfl-analytics/play-visualization/

@@ -28,15 +28,15 @@ only the data that has changed needs to be computed, not the entire dataset.
     format, unless explicitly created in the old format.
 *   [Troubleshoot][cagg-tshoot] continuous aggregates.
 
-[about-caggs]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/about-continuous-aggregates
-[cagg-autorefresh]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/refresh-policies
-[cagg-compression]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/compression-on-continuous-aggregates
-[cagg-create]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/create-a-continuous-aggregate
-[cagg-on-cagg]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/hierarchical-continuous-aggregates/
-[cagg-drop]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/drop-data
-[cagg-mat-hypertables]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/materialized-hypertables
-[cagg-migrate]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/migrate
-[cagg-realtime]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/real-time-aggregates
-[cagg-time]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/time
-[cagg-tshoot]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/troubleshooting
+[about-caggs]: /use-timescale/:currentVersion:/continuous-aggregates/about-continuous-aggregates
+[cagg-autorefresh]: /use-timescale/:currentVersion:/continuous-aggregates/refresh-policies
+[cagg-compression]: /use-timescale/:currentVersion:/continuous-aggregates/compression-on-continuous-aggregates
+[cagg-create]: /use-timescale/:currentVersion:/continuous-aggregates/create-a-continuous-aggregate
+[cagg-on-cagg]: /use-timescale/:currentVersion:/continuous-aggregates/hierarchical-continuous-aggregates/
+[cagg-drop]: /use-timescale/:currentVersion:/continuous-aggregates/drop-data
+[cagg-mat-hypertables]: /use-timescale/:currentVersion:/continuous-aggregates/materialized-hypertables
+[cagg-migrate]: /use-timescale/:currentVersion:/continuous-aggregates/migrate
+[cagg-realtime]: /use-timescale/:currentVersion:/continuous-aggregates/real-time-aggregates
+[cagg-time]: /use-timescale/:currentVersion:/continuous-aggregates/time
+[cagg-tshoot]: /use-timescale/:currentVersion:/continuous-aggregates/troubleshooting
 [postgres-materialized-views]: https://www.postgresql.org/docs/current/rules-materializedviews.html

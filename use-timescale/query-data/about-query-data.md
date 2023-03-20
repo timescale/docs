@@ -19,6 +19,6 @@ TimescaleDB also provides some additional features to help with data analysis:
 *   [Function pipelines][pipelines] bring functional programming to SQL queries,
   making it easier to perform consecutive transformations of data
 
-[hyperfunctions]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/
-[pipelines]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/function-pipelines/
-[skipscan]: /timescaledb/:currentVersion:/how-to-guides/query-data/skipscan/
+[hyperfunctions]: /use-timescale/:currentVersion:/hyperfunctions/
+[pipelines]: /use-timescale/:currentVersion:/hyperfunctions/function-pipelines/
+[skipscan]: /use-timescale/:currentVersion:/query-data/skipscan/

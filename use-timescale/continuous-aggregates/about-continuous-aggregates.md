@@ -6,60 +6,11 @@ keywords: [continuous aggregates]
 ---
 
 import CaggsFunctionSupport from 'versionContent/_partials/_caggs-function-support.mdx';
+import CaggsIntro from 'versionContent/_partials/_caggs-intro.mdx';
 
 # About continuous aggregates
 
-Time-series data usually grows very quickly. Large data volumes can become slow
-when aggregating the data into useful summaries. To make aggregating data
-faster, TimescaleDB uses continuous aggregates. For example, if you have a table
-of temperature readings over time in a number of locations, and you want to find
-the average temperature in each location, you can calculate the average as a
-one-off, with a query like this:
-
-```sql
-SELECT time_bucket('1 day', time) as day,
-       location,
-       avg(temperature)
-FROM temperatures
-GROUP BY day, location;
-```
-
-If you want to run this query more than once, the database needs to scan the
-entire table and recalculate the average every time. In most cases, though, the
-data in the table has not changed significantly, so there is no need to scan the
-entire dataset. Continuous aggregates automatically, and in the background,
-maintain the results from the query, and allow you to retrieve them in the same
-way as any other data.
-
-Using the same temperature example, you can create the same query as a
-continuous aggregate view like this:
-
-```sql
-CREATE MATERIALIZED VIEW daily_average WITH (timescaledb.continuous)
-    AS SELECT time_bucket('1 day', time) as Day,
-              location,
-              avg(temperature)
-       FROM temperatures
-       GROUP BY day, location;
-```
-
-Then, you can query the view whenever you need to, like this:
-
-```sql
-SELECT * FROM daily_average;
-```
-
-Continuous aggregate views are refreshed automatically in the background as new
-data is added, or old data is modified. TimescaleDB tracks these changes to the
-dataset, and automatically updates the view in the background. This does not add
-any maintenance burden to your database, and does not slow down `INSERT`
-operations.
-
-By default, querying continuous aggregates provides you with real-time data.
-Pre-aggregated data from the materialized view is combined with recent data that
-hasn't been aggregated yet. This gives you up-to-date results on every query. If
-you prefer not to see recent data, you can turn this setting off. For more
-information, see the section on [real-time aggregates][real-time-aggs].
+<CaggsIntro />
 
 ## Continuous aggregates on continuous aggregates
 
@@ -201,9 +152,9 @@ Make sure you are maintaining your invalidation log size to avoid this, for exam
 For more information about setting up multi-node, see the
 [multi-node section][multi-node]
 
-[cagg-mat-hypertables]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/materialized-hypertables
-[cagg-window-functions]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/create-a-continuous-aggregate/#use-continuous-aggregates-with-window-functions
-[caggs-on-caggs]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/hierarchical-continuous-aggregates/
-[multi-node]: /timescaledb/:currentVersion:/how-to-guides/multinode-timescaledb/
+[cagg-mat-hypertables]: /use-timescale/:currentVersion:/continuous-aggregates/materialized-hypertables
+[cagg-window-functions]: /use-timescale/:currentVersion:/continuous-aggregates/create-a-continuous-aggregate/#use-continuous-aggregates-with-window-functions
+[caggs-on-caggs]: /use-timescale/:currentVersion:/continuous-aggregates/hierarchical-continuous-aggregates/
+[multi-node]: /self-hosted/:currentVersion:/multinode-timescaledb/
 [postgres-parallel-agg]: https://www.postgresql.org/docs/current/parallel-plans.html#PARALLEL-AGGREGATION
-[real-time-aggs]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/hierarchical-continuous-aggregates/
+[real-time-aggs]: /use-timescale/:currentVersion:/continuous-aggregates/hierarchical-continuous-aggregates/

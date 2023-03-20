@@ -147,11 +147,11 @@ this, see the [Grafana setup instructions][grafana-setup].
 
 </Procedure>
 
-[caggs]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/
+[caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
 [first]: /api/:currentVersion:/hyperfunctions/first/
 [hyperfunctions]: /api/:currentVersion:/hyperfunctions/
-[intraday-tutorial]: /timescaledb/:currentVersion:/tutorials/analyze-intraday-stocks/
+[intraday-tutorial]: /tutorials/:currentVersion:/analyze-intraday-stocks/
 [last]: /api/:currentVersion:/hyperfunctions/last/
 [time-bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
 [lag]: https://www.postgresqltutorial.com/postgresql-lag-function/
-[grafana-setup]: /timescaledb/:currentVersion:/tutorials/grafana/grafana-timescalecloud/
+[grafana-setup]: /tutorials/:currentVersion:/grafana/grafana-timescalecloud/

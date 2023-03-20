@@ -77,6 +77,6 @@ When you have configured TimescaleDB as a data source in Grafana, you can create
 
 [grafana-homepage]: https://grafana.com/
 [tsc-portal]: https://console.cloud.timescale.com/
-[install-grafana]: /timescaledb/:currentVersion:/tutorials/grafana/installation/#create-a-new-service-for-grafana
+[install-grafana]: /tutorials/:currentVersion:/grafana/installation/#create-a-new-service-for-grafana
 [mst-login]: https://portal.managed.timescale.com
 [grafana-install]: https://grafana.com/docs/grafana/latest/installation/

@@ -23,22 +23,24 @@ This release contains bug fixes since the 2.10.0 release.
 We recommend that you upgrade at the next available opportunity.
 
 **Bugfixes**
-* #5159 Support Continuous Aggregates names in hypertable_(detailed_)size
-* #5226 Fix concurrent locking with chunk_data_node table
-* #5317 Fix some incorrect memory handling
-* #5336 Use NameData and namestrcpy for names
-* #5343 Set PortalContext when starting job
-* #5360 Fix uninitialized bucket_info variable
-* #5362 Make copy fetcher more async
-* #5364 Fix num_chunks inconsistency in hypertables view
-* #5367 Fix column name handling in old-style continuous aggregates
-* #5378 Fix multinode DML HA performance regression
-* #5384 Fix Hierarchical Continuous Aggregates chunk_interval_size
+
+*   #5159 Support Continuous Aggregates names in hypertable_(detailed_)size
+*   #5226 Fix concurrent locking with chunk_data_node table
+*   #5317 Fix some incorrect memory handling
+*   #5336 Use NameData and namestrcpy for names
+*   #5343 Set PortalContext when starting job
+*   #5360 Fix uninitialized bucket_info variable
+*   #5362 Make copy fetcher more async
+*   #5364 Fix num_chunks inconsistency in hypertables view
+*   #5367 Fix column name handling in old-style continuous aggregates
+*   #5378 Fix multinode DML HA performance regression
+*   #5384 Fix Hierarchical Continuous Aggregates chunk_interval_size
 
 **Thanks**
-* @justinozavala for reporting an issue with PL/Python procedures in the background worker
-* @Medvecrab for discovering an issue with copying NameData when forming heap tuples.
-* @pushpeepkmonroe for discovering an issue in upgrading old-style continuous aggregates with renamed columns
+
+*   @justinozavala for reporting an issue with PL/Python procedures in the background worker
+*   @Medvecrab for discovering an issue with copying NameData when forming heap tuples.
+*   @pushpeepkmonroe for discovering an issue in upgrading old-style continuous aggregates with renamed columns
 
 ## 2.10.0 (2023-02-21)
 
@@ -47,7 +49,7 @@ We deem it moderate priority for upgrading.
 
 This release includes these noteworthy features:
 
-*   Joins in continuous aggregates that are defined over hypertables. Support for joins in [hierarchical continuous aggregates](https://docs.timescale.com/timescaledb/latest/how-to-guides/continuous-aggregates/hierarchical-continuous-aggregates/) will be introduced on a follow-up release.
+*   Joins in continuous aggregates that are defined over hypertables. Support for joins in [hierarchical continuous aggregates](https://docs.timescale.com/use-timescale/latest/continuous-aggregates/hierarchical-continuous-aggregates/) will be introduced on a follow-up release.
 *   Re-architecture of how compression works: ~2x improvement on INSERT rate into compressed chunks.
 *   Full PostgreSQL 15 support for all existing features. Support for the newly introduced MERGE command on hypertables will be introduced on a follow-up release.
 
@@ -154,6 +156,6 @@ For release notes for older Timescale versions, see the
 [past releases section][past-relnotes].
 
 [past-relnotes]: about/:currentVersion:/release-notes/past-releases/
-[pg-upgrade]: /timescaledb/:currentVersion:/how-to-guides/upgrades/upgrade-pg/
-[migrate-caggs]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/migrate/
-[join-caggs]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/create-a-continuous-aggregate/#create-a-continuous-aggregate-with-a-join
+[pg-upgrade]: /self-hosted/:currentVersion:/upgrades/upgrade-pg/
+[migrate-caggs]: /use-timescale/:currentVersion:/continuous-aggregates/migrate/
+[join-caggs]: /use-timescale/:currentVersion:/continuous-aggregates/create-a-continuous-aggregate/#create-a-continuous-aggregate-with-a-join

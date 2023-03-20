@@ -22,7 +22,7 @@ adopting one.
 <Highlight type="note">
 To create a distributed hypertable, see the [how-to guide on creating
 distributed
-hypertables](/timescaledb/latest/how-to-guides/distributed-hypertables/create-distributed-hypertables/).
+hypertables](/use-timescale/latest/distributed-hypertables/create-distributed-hypertables/).
 </Highlight>
 
 ## Architecture of a distributed hypertable
@@ -200,11 +200,11 @@ regular tables, with a few nuances. For example, if you `JOIN` a regular table
 and a distributed hypertable, the access node needs to fetch the raw data from
 the data nodes and perform the `JOIN` locally.
 
-[limitations]: /timescaledb/:currentVersion:/how-to-guides/distributed-hypertables/about-distributed-hypertables/#query-push-down/
-[hypertables]: /timescaledb/:currentVersion:/how-to-guides/hypertables/
+[limitations]: /use-timescale/:currentVersion:/distributed-hypertables/about-distributed-hypertables/#query-push-down/
+[hypertables]: /use-timescale/:currentVersion:/hypertables/
 [limitations-pushing-down]: #limitations-of-query-push-down
-[multi-node-ha]: /timescaledb/:currentVersion:/how-to-guides/multinode-timescaledb/multinode-ha/
-[multi-node]: /timescaledb/:currentVersion:/how-to-guides/multinode-timescaledb/
+[multi-node-ha]: /self-hosted/:currentVersion:/multinode-timescaledb/multinode-ha/
+[multi-node]: /self-hosted/:currentVersion:/multinode-timescaledb/
 [random-func]: <https://www.postgresql.org/docs/current/functions-math.html#FUNCTIONS-MATH-RANDOM-TABLE>
-[space-partitioning]: /timescaledb/:currentVersion:/how-to-guides/hypertables/about-hypertables#space-partitioning
+[space-partitioning]: /use-timescale/:currentVersion:/hypertables/about-hypertables#space-partitioning
 [volatility]: <https://www.postgresql.org/docs/current/xfunc-volatility.html>

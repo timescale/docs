@@ -303,7 +303,7 @@ Change `date` to see the candlesticks for another day.
 *   [Analyze cryptocurrency data][analyze-cryptocurrency-data]
 
 [alpha-vantage-api]: https://www.alphavantage.co/documentation/
-[analyze-cryptocurrency-data]: /timescaledb/:currentVersion:/tutorials/analyze-cryptocurrency-data/
+[analyze-cryptocurrency-data]: /tutorials/:currentVersion:/analyze-cryptocurrency-data/
 [github-intraday-stocks]: https://github.com/timescale/examples/tree/master/analyze-intraday-stocks
 [pandas-docs]: https://pandas.pydata.org
 [plotly-docs]: https://plotly.com/python/

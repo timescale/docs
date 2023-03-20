@@ -70,6 +70,6 @@ You can now send emails for your Grafana service on MST.
 
 </Procedure>
 
-[grafana-install]: /timescaledb/:currentVersion:/tutorials/grafana/installation/#create-a-new-service-for-grafana
+[grafana-install]: /tutorials/:currentVersion:/grafana/installation/#create-a-new-service-for-grafana
 [mst-login]: https://portal.managed.timescale.com
 [aiven-client-mst]: /mst/:currentVersion:/aiven-client/aiven-client-install

@@ -7,7 +7,7 @@ keywords: [timescaledb-parallel-copy, copy]
 
 # About timescaledb-parallel-copy
 
-To speed up bulk inserts of data, Timescale provides an open source [parallel
+To speed up bulk inserts of data, TimescaleDB provides an open source [parallel
 importer][github-tscopy] program called `timescaledb-parallel-copy`. The program
 parallelizes migration by using several workers to run multiple `COPY` functions
 concurrently.
@@ -79,6 +79,6 @@ possible.
 
 [github-tscopy]: https://github.com/timescale/timescaledb-parallel-copy
 [go-install]: https://go.dev/doc/install
-[create-service]: /install/latest/installation-cloud/
-[connect-timescaledb]: /timescaledb/latest/how-to-guides/connecting/about-connecting/
-[create-hypertable]: /timescaledb/latest/how-to-guides/hypertables/create/
+[create-service]: /getting-started/latest/
+[connect-timescaledb]: /use-timescale/latest/connecting/about-connecting/
+[create-hypertable]: /use-timescale/latest/hypertables/create/

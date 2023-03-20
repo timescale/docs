@@ -50,8 +50,8 @@ pip install pandas
 ```
 
 [alpha-vantage-apikey]: https://www.alphavantage.co/support/#api-key
-[design-schema]: /timescaledb/:currentVersion:/tutorials/analyze-intraday-stocks/design-schema
-[explore]: /timescaledb/:currentVersion:/tutorials/analyze-intraday-stocks/explore-stocks-data
-[fetch-ingest]: /timescaledb/:currentVersion:/tutorials/analyze-intraday-stocks/fetch-and-ingest
-[install-timescale]: /install/latest/
-[psql-install]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql
+[design-schema]: /tutorials/:currentVersion:/analyze-intraday-stocks/design-schema
+[explore]: /tutorials/:currentVersion:/analyze-intraday-stocks/explore-stocks-data
+[fetch-ingest]: /tutorials/:currentVersion:/analyze-intraday-stocks/fetch-and-ingest
+[install-timescale]: /getting-started/latest/
+[psql-install]: /use-timescale/:currentVersion:/connecting/psql

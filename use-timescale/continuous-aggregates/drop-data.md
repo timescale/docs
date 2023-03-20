@@ -63,7 +63,7 @@ For more information, see the
 
 <PolicyVisualizerDownsampling />
 
-[cagg-refresh]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/refresh-policies/
+[cagg-refresh]: /use-timescale/:currentVersion:/continuous-aggregates/refresh-policies/
 [data-retention-with-continuous-aggregates]:
-    /timescaledb/:currentVersion:/how-to-guides/data-retention/data-retention-with-continuous-aggregates
+    /use-timescale/:currentVersion:/data-retention/data-retention-with-continuous-aggregates
 [visualizer]: #set-up-downsampling-and-data-retention

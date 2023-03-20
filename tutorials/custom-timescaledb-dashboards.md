@@ -413,12 +413,12 @@ this tutorial, drop us a line on our [community Slack channel][timescale-slack].
 
 [Hasura]: http://hasura.io/
 [TimescaleDB]: https://timescale.com/
-[caggs]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/
-[compression]: /timescaledb/:currentVersion:/how-to-guides/compression/
-[data retention]: /timescaledb/:currentVersion:/how-to-guides/data-retention/
+[caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
+[compression]: /use-timescale/:currentVersion:/compression/
+[data retention]: /use-timescale/:currentVersion:/data-retention/
 [hasura-cloud]: https://cloud.hasura.io/
-[hypertables]: /timescaledb/:currentVersion:/how-to-guides/hypertables/
-[iot-tutorial]: /timescaledb/:currentVersion:/tutorials/simulate-iot-sensor-data/
+[hypertables]: /use-timescale/:currentVersion:/hypertables/
+[iot-tutorial]: /tutorials/:currentVersion:/simulate-iot-sensor-data/
 [repo-example]: https://github.com/timescale/examples/tree/master/compression-preview
 [timescale-install]: /install/latest/
 [timescale-signup]: https://www.timescale.com/timescale-signup

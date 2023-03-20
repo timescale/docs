@@ -252,9 +252,9 @@ You can build Toolkit from source. For more information, see the [Toolkit
 developer documentation][toolkit-gh-docs].
 
 [brew-install]: https://brew.sh
-[cloud]: /cloud/:currentVersion:/
-[debian-install]: /install/latest/self-hosted/installation-linux/
-[docker-install]: /install/latest/installation-docker/
+[cloud]: /use-timescale/:currentVersion:/services/
+[debian-install]: /self-hosted/latest/install/installation-linux/
+[docker-install]: /self-hosted/latest/install/installation-docker/
 [mst]: /mst/:currentVersion:/
-[red-hat-install]: /install/latest/self-hosted/installation-linux/
+[red-hat-install]: /self-hosted/latest/install/installation-linux/
 [toolkit-gh-docs]: https://github.com/timescale/timescaledb-toolkit#-installing-from-source

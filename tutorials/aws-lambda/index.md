@@ -19,7 +19,7 @@ This section contains tutorials for working with AWS Lambda and TimescaleDB.
 ## Prerequisites
 
 Before you begin, make sure you have completed the
-[Analyze intraday stock data tutorial](https://docs.timescale.com/timescaledb/latest/tutorials/analyze-intraday-stocks/).
+[Analyze intraday stock data tutorial](https://docs.timescale.com/tutorials/latest/analyze-intraday-stocks/).
 This tutorial needs the tables and data that you set up in that tutorial.
 
 To complete this tutorial, you need an AWS account. You also need access to the
@@ -39,7 +39,7 @@ For more information about installing the AWS CLI, see
 If you are completing this tutorial in Timescale Cloud, make sure you have
 created a VPC on both AWS, and on your database in Timescale Cloud. For more
 information about setting up a VPC, see the
-[Timescale Cloud VPC section](/cloud/latest/service-operations/vpc/).
+[Timescale Cloud VPC section](/use-timescale/:currentVersion:/vpc/).
 </Highlight>
 
 ## Programming language
@@ -57,13 +57,13 @@ For more information about the topics in this tutorial, check out these resource
 *   [Analyze historical intraday stock data][intraday-stock-data]
 *   [Analyze cryptocurrency market data][cryptocurrency-market-data]
 
-[3rd-party-ingest]: /timescaledb/:currentVersion:/tutorials/aws-lambda/3rd-party-api-ingest
+[3rd-party-ingest]: /tutorials/:currentVersion:/aws-lambda/3rd-party-api-ingest
 [aws-cli2]: https://awscli.amazonaws.com/v2/documentation/api/latest/reference/index.html
 [aws-install]: https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html
-[create-data-api]: /timescaledb/:currentVersion:/tutorials/aws-lambda/create-data-api
-[cryptocurrency-market-data]: /timescaledb/:currentVersion:/tutorials/analyze-cryptocurrency-data
-[gh-actions]: /timescaledb/:currentVersion:/tutorials/aws-lambda/continuous-deployment
-[intraday-stock-data]: /timescaledb/:currentVersion:/tutorials/analyze-intraday-stocks
+[create-data-api]: /tutorials/:currentVersion:/aws-lambda/create-data-api
+[cryptocurrency-market-data]: /tutorials/:currentVersion:/analyze-cryptocurrency-data
+[gh-actions]: /tutorials/:currentVersion:/aws-lambda/continuous-deployment
+[intraday-stock-data]: /tutorials/:currentVersion:/analyze-intraday-stocks
 [lambda-container-images]: https://docs.aws.amazon.com/lambda/latest/dg/images-create.html
 [lambda-getting-started]: https://docs.aws.amazon.com/lambda/latest/dg/getting-started.html
 [lambda-supported-langs]: https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html

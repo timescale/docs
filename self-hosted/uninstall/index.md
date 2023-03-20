@@ -13,4 +13,4 @@ uninstall it without having to uninstall PostgreSQL.
 
 *   [Learn how to uninstall][uninstall-timescaledb] TimescaleDB in macOS
 
-[uninstall-timescaledb]: /timescaledb/:currentVersion:/how-to-guides/uninstall/
+[uninstall-timescaledb]: /self-hosted/:currentVersion:/uninstall/

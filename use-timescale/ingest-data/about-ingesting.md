@@ -17,4 +17,4 @@ works with TimescaleDB.
 For more information about how to use standard SQL insert queries to write data
 into TimescaleDB, see the [Writing Data][writing-data] section.
 
-[writing-data]: /timescaledb/:currentVersion:/how-to-guides/write-data/
+[writing-data]: /use-timescale/:currentVersion:/write-data/

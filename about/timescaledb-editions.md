@@ -364,17 +364,17 @@ for TimescaleDB. MST is offered in AWS, Azure, and Google Cloud.
     <td>✅ </td>
   </tr>
   <tr>
-    <td><a href="https://docs.timescale.com/api/latest/hyperfunctions/gapfilling-interpolation/time_bucket_gapfill/">time_bucket_gapfill</a></td>
+    <td><a href="https://docs.timescale.com/api/latest/hyperfunctions/gapfilling/time_bucket_gapfill/">time_bucket_gapfill</a></td>
     <td>❌</td>
     <td>✅</td>
   </tr>
   <tr>
-    <td><a href="https://docs.timescale.com/api/latest/hyperfunctions/gapfilling-interpolation/locf/">locf</a></td>
+    <td><a href="https://docs.timescale.com/api/latest/hyperfunctions/gapfilling/time_bucket_gapfill#locf">locf</a></td>
     <td>❌</td>
     <td>✅</td>
   </tr>
   <tr>
-    <td><a href="https://docs.timescale.com/api/latest/hyperfunctions/gapfilling-interpolation/interpolate/">interpolate</a></td>
+    <td><a href="https://docs.timescale.com/api/latest/hyperfunctions/gapfilling/time_bucket_gapfill#interpolate">interpolate</a></td>
     <td>❌</td>
     <td>✅</td>
   </tr>
@@ -523,6 +523,6 @@ for TimescaleDB. MST is offered in AWS, Azure, and Google Cloud.
 [digital-ocean]: https://docs.digitalocean.com/products/databases/postgresql/details/supported-extensions/
 [license-blog]: https://blog.timescale.com/blog/building-open-source-business-in-cloud-era-v2/
 [mst]: /mst/:currentVersion:
-[timescale-cloud]: /cloud/:currentVersion:
+[timescale-cloud]: /use-timescale/:currentVersion:/services/
 [timescale-license]: https://github.com/timescale/timescaledb/blob/master/tsl/LICENSE-TIMESCALE
 [apache-license]: https://github.com/timescale/timescaledb/blob/master/LICENSE-APACHE

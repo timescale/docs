@@ -257,9 +257,9 @@ FROM example_aggregate;
 This speeds up your query by calculating the aggregation ahead of time. The
 delta still needs to be calculated at query time.
 
-[api-time-bucket-gapfill]: /api/:currentVersion:/hyperfunctions/gapfilling-interpolation/time_bucket_gapfill/
+[api-time-bucket-gapfill]: /api/:currentVersion:/hyperfunctions/gapfilling/time_bucket_gapfill/
 [api-time-bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
-[cagg-function-support]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/about-continuous-aggregates/#function-support
+[cagg-function-support]: /use-timescale/:currentVersion:/continuous-aggregates/about-continuous-aggregates/#function-support
 [postgres-immutable]: <https://www.postgresql.org/docs/current/xfunc-volatility.html>
 [postgres-rls]: <https://www.postgresql.org/docs/current/ddl-rowsecurity.html>
 [postgres-security-barrier]: <https://www.postgresql.org/docs/current/rules-privileges.html>

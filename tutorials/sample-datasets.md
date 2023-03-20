@@ -330,4 +330,4 @@ hour                   | avg_temp | min_temp | max_temp
 (24 rows)
 ```
 
-[installation]: /install/latest/
+[installation]: /getting-started/latest/

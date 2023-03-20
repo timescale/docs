@@ -198,6 +198,6 @@ If you are using Kubernetes instead of plain Docker:
 [alpine-image]: https://hub.docker.com/r/timescale/promscale/tags
 [install-promscale]: /promscale/:currentVersion:/installation
 [max-locks-config]: /promscale/:currentVersion:/troubleshooting/#data-is-occupying-too-much-space
-[transaction-locks]: /timescaledb/:currentVersion:/how-to-guides/configuration/about-configuration/#transaction-locks
-[update-timescaledb]: /timescaledb/:currentVersion:/how-to-guides/upgrades/
-[upgrade-postgresql]: /timescaledb/:currentVersion:/how-to-guides/upgrades/upgrade-pg/
+[transaction-locks]: /self-hosted/:currentVersion:/configuration/about-configuration/#transaction-locks
+[update-timescaledb]: /self-hosted/:currentVersion:/upgrades/
+[upgrade-postgresql]: /self-hosted/:currentVersion:/upgrades/upgrade-pg/

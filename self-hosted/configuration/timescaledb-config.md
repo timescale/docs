@@ -83,11 +83,11 @@ connecting to data nodes using password authentication.
 
 ### `timescaledb.restoring (bool)`
 
-Set TimescaleDB in restoring mode. It is by default disabled.
+Set TimescaleDB in restoring mode. It is disabled by default.
 
 ### `timescaledb.license (string)`
 
-Change access to features based on the Timescale license in use. For example,
+Change access to features based on the TimescaleDB license in use. For example,
 setting `timescaledb.license` to `apache` limits TimescaleDB to features that
 are implemented under the Apache 2 license. The default value is `timescale`,
 which allows access to all features.
@@ -103,4 +103,4 @@ Records last time `timescaledb-tune` ran.
 
 ### `timescaledb.last_tuned_version (string)`
 
-Version of `timescaledb-tune` used to tune when it ran.
+Version of `timescaledb-tune` used to tune when it runs.

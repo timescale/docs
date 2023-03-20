@@ -105,6 +105,11 @@ module.exports = [
             href: "pgadmin",
             excerpt: "Install pgAdmin to connect to Timescale",
           },
+          {
+            title: "Troubleshooting Timescale connections",
+            href: "troubleshooting",
+            type: "placeholder",
+          },
         ],
       },
       {
@@ -214,6 +219,11 @@ module.exports = [
             excerpt:
               "How to group time series data with the time_bucket function.",
           },
+          {
+            title: "Troubleshoot problems with time buckets",
+            href: "troubleshooting",
+            type: "placeholder",
+          },
         ],
       },
       {
@@ -286,14 +296,12 @@ module.exports = [
           {
             title: "Migrate the entire database at once",
             href: "entire-database",
-            excerpt:
-              "Migrate an entire Timescale database to Timescale Cloud",
+            excerpt: "Migrate an entire Timescale database to Timescale Cloud",
           },
           {
             title: "Migrate schema and data separately",
             href: "schema-then-data",
-            excerpt:
-              "Migrate a Timescale database schema to Timescale Cloud ",
+            excerpt: "Migrate a Timescale database schema to Timescale Cloud ",
           },
           {
             title: "Troubleshoot data migration",
@@ -383,8 +391,7 @@ module.exports = [
           {
             title: "Customize configuration",
             href: "customize-configuration",
-            excerpt:
-              "Customize your Timescale Cloud database configuration",
+            excerpt: "Customize your Timescale Cloud database configuration",
           },
           {
             title: "Advanced parameters",
@@ -447,6 +454,11 @@ module.exports = [
             title: "Manage storage using tablespaces",
             href: "manage-storage",
             excerpt: "Manage storage by moving data between tablespaces",
+          },
+          {
+            title: "Troubleshoot schema management",
+            href: "troubleshooting",
+            type: "placeholder",
           },
         ],
       },
@@ -675,7 +687,8 @@ module.exports = [
           {
             title: "Export to a monitoring service",
             href: "integrations",
-            excerpt: "Export telemetry data to a third-party monitoring service",
+            excerpt:
+              "Export telemetry data to a third-party monitoring service",
           },
         ],
       },
@@ -696,13 +709,13 @@ module.exports = [
         href: "hyperfunctions",
         pageComponents: ["featured-cards"],
         featuredChildren: [
-          "/timescaledb/:currentVersion:/how-to-guides/hyperfunctions/function-pipelines",
-          "/timescaledb/:currentVersion:/how-to-guides/hyperfunctions/approx-count-distincts",
-          "/timescaledb/:currentVersion:/how-to-guides/hyperfunctions/stats-aggs",
-          "/timescaledb/:currentVersion:/how-to-guides/hyperfunctions/gapfilling-interpolation",
-          "/timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx",
-          "/timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation",
-          "/timescaledb/:currentVersion:/how-to-guides/hyperfunctions/time-weighted-averages",
+          "/use-timescale/:currentVersion:/hyperfunctions/function-pipelines",
+          "/use-timescale/:currentVersion:/hyperfunctions/approx-count-distincts",
+          "/use-timescale/:currentVersion:/hyperfunctions/stats-aggs",
+          "/use-timescale/:currentVersion:/hyperfunctions/gapfilling-interpolation",
+          "/use-timescale/:currentVersion:/hyperfunctions/percentile-approx",
+          "/use-timescale/:currentVersion:/hyperfunctions/counter-aggregation",
+          "/use-timescale/:currentVersion:/hyperfunctions/time-weighted-averages",
         ],
         children: [
           {
@@ -826,7 +839,8 @@ module.exports = [
       {
         title: "Data tiering to object storage",
         href: "tier-data-object-storage",
-        excerpt: "Save on storage costs by tiering older data to separate storage",
+        excerpt:
+          "Save on storage costs by tiering older data to separate storage",
       },
       {
         title: "Security",
@@ -854,21 +868,3 @@ module.exports = [
     ],
   },
 ];
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

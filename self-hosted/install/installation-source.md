@@ -1,15 +1,15 @@
 ---
-title: Install Timescale from source
-excerpt: Install self-hosted Timescale from source
+title: Install TimescaleDB from source
+excerpt: Install self-hosted TimescaleDB from source
 products: [self_hosted]
 keywords: [installation, self-hosted]
 ---
 
 import WhereTo from "versionContent/_partials/_where-to-next.mdx";
 
-# Install self-hosted Timescale from source
+# Install self-hosted TimescaleDB from source
 
-You can host Timescale yourself, on any system, by downloading the source code
+You can host TimescaleDB yourself, on any system, by downloading the source code
 and compiling it. These instructions do not require the use of a package manager
 or installation tool.
 
@@ -24,7 +24,7 @@ You also need:
 *   CMake version 3.11 or later for your operating system. For more information
     about CMake installation, including downloads and instructions, see the [CMake documentation][cmake-download].
 *   C language compiler for your operating system, such as `gcc` or `clang`.
-*   Check the [compatibility matrix][compatibility-matrix] of Timescale versions
+*   Check the [compatibility matrix][compatibility-matrix] of TimescaleDB versions
     with PostgreSQL versions.
 
 <Highlight type="note">
@@ -35,9 +35,9 @@ Visual Studio components for CMake and Git when you run the installer.
 
 <Procedure>
 
-## Installing self-hosted Timescale from source
+## Installing self-hosted TimescaleDB from source
 
-1.  At the command prompt, clone the Timescale GitHub repository:
+1.  At the command prompt, clone the TimescaleDB GitHub repository:
 
     ```bash
     git clone https://github.com/timescale/timescaledb
@@ -110,7 +110,7 @@ Visual Studio components for CMake and Git when you run the installer.
 
     </Terminal>
 
-3.  Install Timescale:
+3.  Install TimescaleDB:
 
     <Terminal>
 
@@ -136,14 +136,14 @@ Visual Studio components for CMake and Git when you run the installer.
 
 ## Configure PostgreSQL after installing from source
 
-When you install Timescale from source, you need to do some additional
-PostgreSQL configuration to add the Timescale library.
+When you install TimescaleDB from source, you need to do some additional
+PostgreSQL configuration to add the TimescaleDB library.
 
 <Highlight type="important">
-If you have more than one version of PostgreSQL installed, Timescale can only
-be associated with one of them. The Timescale build scripts use `pg_config` to
+If you have more than one version of PostgreSQL installed, TimescaleDB can only
+be associated with one of them. The TimescaleDB build scripts use `pg_config` to
 find out where PostgreSQL stores its extension files, so you can use `pg_config`
-to find out which PostgreSQL installation Timescale is using.
+to find out which PostgreSQL installation TimescaleDB is using.
 </Highlight>
 
 <Procedure>
@@ -193,16 +193,16 @@ that you can use it. The easiest way to do this is to run the `timescaledb-tune`
 script, which is included with the `timescaledb-tools` package. For more
 information, see the [configuration][config] section.
 
-## Set up the Timescale extension
+## Set up the TimescaleDB extension
 
-When you have PostgreSQL and Timescale installed, you can connect to it from
+When you have PostgreSQL and TimescaleDB installed, you can connect to it from
 your local system using the `psql` command-line utility. This is the same tool
 you might have used to connect to PostgreSQL before, but if you haven't
 installed it yet, check out our [installing psql][install-psql] section.
 
 <Procedure>
 
-### Setting up the Timescale extension
+### Setting up the TimescaleDB extension
 
 1.  On your local system, at the command prompt, connect to the PostgreSQL
     instance as the `postgres` superuser:
@@ -234,7 +234,7 @@ installed it yet, check out our [installing psql][install-psql] section.
     \c example
     ```
 
-1.  Add the Timescale extension:
+1.  Add the TimescaleDB extension:
 
     ```sql
     CREATE EXTENSION IF NOT EXISTS timescaledb;
@@ -248,7 +248,7 @@ installed it yet, check out our [installing psql][install-psql] section.
 
 </Procedure>
 
-You can check that the Timescale extension is installed by using the `\dx`
+You can check that the TimescaleDB extension is installed by using the `\dx`
 command at the `psql` prompt. It looks like this:
 
 ```sql
@@ -280,9 +280,9 @@ tsdb=>
 
 <WhereTo />
 
-[install-psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql/
-[config]: /timescaledb/:currentVersion:/how-to-guides/configuration/
+[install-psql]: /use-timescale/:currentVersion:/connecting/psql/
+[config]: /self-hosted/:currentVersion:/configuration/
 [postgres-download]: https://www.postgresql.org/download/
 [cmake-download]: https://cmake.org/download/
 [gh-releases]: https://github.com/timescale/timescaledb/releases
-[compatibility-matrix]: /timescaledb/:currentVersion:/how-to-guides/upgrades/upgrade-pg/
+[compatibility-matrix]: /self-hosted/:currentVersion:/upgrades/upgrade-pg/

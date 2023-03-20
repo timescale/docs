@@ -52,6 +52,6 @@ time-series services:
     alt="A running PostgreSQL service with a running Timescale service in the Timescale Cloud portal"
 />
 
-[cloud-install]: /install/:currentVersion:/installation-cloud/
+[cloud-install]: /getting-started/latest/
 [sign-up]: https://www.timescale.com/timescale-signup
 [cloud-console]: https://console.cloud.timescale.com/
