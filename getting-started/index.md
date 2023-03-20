@@ -16,10 +16,7 @@ import CloudTrial from "versionContent/_partials/_cloudtrial.mdx";
 
 <TimescaleIntro />
 
-<!-- vale Google.We = NO -->
-The easiest way to explore the features of TimescaleDB is to use [Timescale Cloud][sign-up],
-our hosted, cloud-native database service.
-<!-- vale Google.We = YES -->
+<CloudIntro />
 
 This guide helps you set up a Timescale database, so you can work with some
 real-time stock trading data, provided by [Twelve Data][twelve-data].

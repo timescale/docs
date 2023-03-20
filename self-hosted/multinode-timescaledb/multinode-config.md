@@ -44,7 +44,7 @@ performance.
 ### `jit`
 
 On the access node, set `jit` to `off`. Currently, JIT does not work well with
-distributed queries. However, you can enable JIT on the data nodes succssfully.
+distributed queries. However, you can enable JIT on the data nodes successfully.
 
 ### `statement_timeout`
 
