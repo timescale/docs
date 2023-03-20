@@ -861,6 +861,11 @@ module.exports = [
         ],
       },
       {
+        title: "Timescale limitations",
+        href: "limitations",
+        excerpt: "Current limitations of Timescale features",
+      },
+      {
         title: "Troubleshoot Timescale",
         href: "troubleshoot-timescaledb",
         excerpt: "Troubleshooting Timescale",
