@@ -149,8 +149,8 @@ You can always [contact us][contact] if you need help working something out, or
 if you want to have a chat.
 
 [contact]: https://www.timescale.com/contact
-[install-psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql/
+[install-psql]: /use-timescale/:currentVersion:/connecting/psql/
 [mst-docs]: /mst/:currentVersion:/
 [mst-portal]: https://portal.managed.timescale.com
 [sign-up]: https://www.timescale.com/timescale-signup
-[tutorials]: /timescaledb/:currentVersion:/tutorials/
+[tutorials]: /tutorials/:currentVersion:/

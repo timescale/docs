@@ -420,6 +420,6 @@ this tutorial, drop us a line on our [community Slack channel][timescale-slack].
 [hypertables]: /use-timescale/:currentVersion:/hypertables/
 [iot-tutorial]: /tutorials/:currentVersion:/simulate-iot-sensor-data/
 [repo-example]: https://github.com/timescale/examples/tree/master/compression-preview
-[timescale-install]: /install/latest/
+[timescale-install]: /getting-started/latest/
 [timescale-signup]: https://www.timescale.com/timescale-signup
 [timescale-slack]: https://slack.timescale.com
