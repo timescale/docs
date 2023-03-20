@@ -13,4 +13,4 @@ For more information about installing and using the `timescale-parallel-copy` to
 see [parallel copy][parallel-copy].
 
 [parallel-copy]:
-    /timescaledb/:currentVersion:/how-to-guides/tooling/about-timescaledb-parallel-copy
+    /use-timescale/:currentVersion:/ingest-data/about-timescaledb-parallel-copy/

@@ -1947,4 +1947,4 @@ For more information on this release, read the [blog announcement](https://blog.
 [github-issue]: <https://github.com/timescale/timescaledb/issues/new/choose>
 [github-repo]: <https://github.com/timescale/timescaledb>
 [community]: https://www.timescale.com/community/
-[current-relnotes]: about/:currentVersion:/release-notes/
+[current-relnotes]: /about/:currentVersion:/release-notes/

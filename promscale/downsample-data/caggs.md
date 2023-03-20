@@ -202,4 +202,4 @@ For more information about data retention, see the
 [metric retention section][retention].
 
 [retention]: /promscale/:currentVersion:/manage-data/retention/
-[tsdb-caggs]: /timescaledb/:currentVersion:/overview/core-concepts/continuous-aggregates/
+[tsdb-caggs]: /use-timescale/:currentVersion:/continuous-aggregates/

@@ -261,7 +261,7 @@ ask questions and learn from Timescale staff and other community members.
 
 [changes-in-tsdb2]: /about/:currentVersion:/release-notes/changes-in-timescaledb-2/
 [distributed-architecture]: https://blog.timescale.com/blog/building-a-distributed-time-series-database-on-postgresql/
-[maintenance-tasks]: /self-hosted/:currentVersion:/multi-node-setup/
+[maintenance-tasks]: /self-hosted/:currentVersion:/multinode-timescaledb/multinode-setup/
 [postgres-user-mapping]: https://www.postgresql.org/docs/current/view-pg-user-mappings.html
 [promscale]: https://github.com/timescale/promscale
 [sample-data]: /tutorials/:currentVersion:/sample-datasets/

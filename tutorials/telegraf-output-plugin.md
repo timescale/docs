@@ -378,13 +378,12 @@ Instead of having three text columns, now you have one JSONB column.
 
 ## Next steps
 
-When you have started inserting data in TimescaleDB, you can begin to familiarize yourself with the [architecture][] and [API reference][api].
+When you have started inserting data in TimescaleDB, you can begin to familiarize yourself with the [API reference][api].
 
 Additionally, there are several other [tutorials][] available for you to explore
 as you become accustomed to working with TimescaleDB.
 
 [api]: /api/:currentVersion:/
-[architecture]: /timescaledb/:currentVersion:/overview/core-concepts
 [getting-started]: /getting-started/latest/
 [public-slack]: https://slack.timescale.com/
 [tutorials]: /tutorials/:currentVersion:/

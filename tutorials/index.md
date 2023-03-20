@@ -58,7 +58,7 @@ and pick up some valuable `psql` tips and tricks along the way.
 [monitor-django-prometheus]: /tutorials/:currentVersion:/monitor-django-with-prometheus
 [nfl]: /tutorials/:currentVersion:/nfl-analytics/
 [nyc-taxi]: /tutorials/:currentVersion:/nyc-taxi-cab/
-[prometheus-mst-endpoint]: /tutorials/:currentVersion:/setting-up-mst-endpoint-for-prometheus
+[prometheus-mst-endpoint]: /tutorials/:currentVersion:/monitor-mst-with-prometheus/
 [promscale]: /promscale/latest/
 [psql]: /use-timescale/:currentVersion:/connecting/psql/
 [sample-data-sets]: /tutorials/:currentVersion:/sample-datasets
