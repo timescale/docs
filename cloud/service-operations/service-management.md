@@ -9,12 +9,12 @@ cloud_ui:
         - [services, :serviceID, operations, management]
 ---
 
-# Services operations - General
+# Services operations - Service management
 
-In the `General` section of the Operations dashboard, you can fork your service,
-reset the password, pause, or delete the service.
+In the `Service management` section of the Operations dashboard, you can fork
+your service, reset the password, pause, or delete the service.
 
-### Fork a service
+## Fork a service
 
 When you a fork a service, you create an exact copy of the service, including
 the underlying database. This allows you to create a copy that you can use for
