@@ -218,6 +218,12 @@ Description | timescaledb_toolkit
 tsdb=>
 ```
 
+### View logs in Docker
+
+If you have TimescaleDB installed in a Docker container, you can view your logs
+using Docker, instead of looking in `/var/lib/logs` or `/var/logs`. For more
+information, see the [Docker documentation on logs][docker-logs].
+
 <WhereTo />
 
 [alpine]: https://alpinelinux.org/
@@ -227,3 +233,4 @@ tsdb=>
 [dockerhub]: https://hub.docker.com/r/timescale/timescaledb/tags?page=1&ordering=last_updated
 [install-psql]: /use-timescale/:currentVersion:/connecting/psql/
 [ubuntu]: https://ubuntu.com
+[docker-logs]: https://docs.docker.com/config/containers/logging/

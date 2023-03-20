@@ -68,14 +68,14 @@ trial has finished.
     the `VPC` section.
 1.  Click `Create VPC`.
 1.  In the `Create a VPC` dialog:
-    *   Type a name for your new VPC and select the region that matches the region of the service you
-        want to attach it to.
-    *   Provide an IPv4 CIDR block. Make sure that your VPC CIDR block has its mask in
-        the range between 16 and 28 and that the CIDR block you choose for your
-        Timescale Cloud VPC does not overlap with the CIDR block used by your AWS VPC
-        peer. If the CIDR blocks overlap, the peering process fails. You can find the
-        CIDR block of your AWS VPC from the AWS console. This example uses the
-        `10.0.0.0/16` CIDR block.
+    *   Type a name for your new VPC and select the region that matches the
+        region of the service you want to attach it to.
+    *   Provide an IPv4 CIDR block. Make sure that your VPC CIDR block has its
+        mask in the range between 16 and 28 and that the CIDR block you choose
+        for your Timescale Cloud VPC does not overlap with the CIDR block used
+        by your AWS VPC peer. If the CIDR blocks overlap, the peering process
+        fails. You can find the CIDR block of your AWS VPC from the AWS console.
+        This example uses the `10.0.0.0/16` CIDR block.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-vpc-create.png" alt="Create a new Timescale Cloud VPC"/>
 
@@ -104,7 +104,10 @@ between your Timescale Cloud VPC and your AWS VPC.
 
 ## Complete the VPC connection in AWS
 
-When you create a peering connection in Timescale Cloud, the peering request is sent to your AWS account for you to accept. When you have accepted the request, you need to edit the routing table so that network traffic can flow between the AWS VPC, and your Timescale Cloud services.
+When you create a peering connection in Timescale Cloud, the peering request is
+sent to your AWS account for you to accept. When you have accepted the request,
+you need to edit the routing table so that network traffic can flow between the
+AWS VPC, and your Timescale Cloud services.
 
 <Highlight type="warning">
 The request acceptance process is an important safety mechanism. Do not accept a
