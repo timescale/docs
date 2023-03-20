@@ -131,7 +131,7 @@ state to safely switch over.
 1. Connect to your primary as `tsdbadmin` or another user a part of the
 `tsdbowner` group.
 2. Connect to the `postgres` database: `\c postgres`. You should see this in your terminal:
-    ```
+    ```sql
     tsdb=> \c postgres
     postgres=> 
     ```
@@ -146,7 +146,7 @@ interval, e.g.: `CALL tscloud.cluster_switchover('15 seconds'::INTERVAL);`
 8. Wait for the failover to occur.
 9. Check which node is your primary again: `select * from pg_stat_replication;`
 You will get notices that your connection was reset:
-    ```
+    ```sql
     FATAL:  terminating connection due to administrator command
     SSL connection has been closed unexpectedly
     The connection to the server was lost. Attempting reset: Succeeded.
