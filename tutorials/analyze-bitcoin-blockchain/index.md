@@ -47,7 +47,7 @@ this tutorial is to
 (no credit card required).
 </Highlight>
 
-[analyze-blockchain]: /timescaledb/:currentVersion:/tutorials/analyze-bitcoin-blockchain/analyze-blockchain/
-[ingest-bitcoin]: /timescaledb/:currentVersion:/tutorials/analyze-bitcoin-blockchain/ingest-query-btc-transactions/
-[install-timescale]: /install/latest/
-[psql-install]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql
+[analyze-blockchain]: /tutorials/:currentVersion:/analyze-bitcoin-blockchain/analyze-blockchain/
+[ingest-bitcoin]: /tutorials/:currentVersion:/analyze-bitcoin-blockchain/ingest-query-btc-transactions/
+[install-timescale]: /getting-started/latest/
+[psql-install]: /use-timescale/:currentVersion:/connecting/psql

@@ -15,7 +15,7 @@ restart midway if one copy operation fails.
 <Highlight type="note">
 For smaller databases, it may be more convenient to migrate your entire database
 at once. For more information, see the section on [choosing a migration
-method](https://docs.timescale.com/cloud/latest/migrate-to-cloud/).
+method](https://docs.timescale.com/use-timescale/latest/migrate-data/FIXME).
 </Highlight>
 
 <Highlight type="warning">
@@ -25,7 +25,7 @@ retain downsampled data in a continuous aggregate for a year, the continuous
 aggregate loses any data older than a month upon migration. If you must keep
 continuous aggregates calculated using deleted data, migrate your entire
 database at once. For more information, see the section on [choosing a migration
-method](https://docs.timescale.com/cloud/latest/migrate-to-cloud/).
+method](https://docs.timescale.com/use-timescale/latest/migrate-data/FIXME).
 </Highlight>
 
 The procedure to migrate your database requires these steps:
@@ -46,7 +46,7 @@ database during this time, though performance could be slower. To avoid this
 problem, fork your database and migrate your data from the fork. If you write to
 the tables in your source database during the migration, the new writes might
 not be transferred to Timescale Cloud. To avoid this problem, see the section on
-[migrating an active database](http://docs.timescale.com/cloud/latest/migrate-to-cloud/#migrate-an-active-database).
+[migrating an active database](http://docs.timescale.com/use-timescale/latest/migrate-data/FIXME).
 </Highlight>
 
 ## Prerequisites
@@ -211,7 +211,7 @@ database is now stored uncompressed in your `.csv` files. If you
 provisioned your Timescale Cloud storage for your compressed data, the
 uncompressed data may take too much storage. To avoid this problem, periodically
 recompress your data as you copy it in. For more information on compression, see
-the [compression section](https://docs.timescale.com/timescaledb/latest/how-to-guides/compression/).
+the [compression section](https://docs.timescale.com/use-timescale/latest/compression/).
 </Highlight>
 
 <Procedure>
@@ -425,17 +425,17 @@ The skipped tables and indexes correspond to system catalogs that can't be
 accessed. Skipping them does not affect statistics on your data.
 
 [analyze]: https://www.postgresql.org/docs/10/sql-analyze.html
-[cagg-policy]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/refresh-policies/
+[cagg-policy]: /use-timescale/:currentVersion:/continuous-aggregates/refresh-policies/
 [copy]: https://www.postgresql.org/docs/9.2/sql-copy.html
 [compression-policy]: /getting-started/:currentVersion:/compress-data/
-[extensions]: /cloud/:currentVersion:/postgresql-extensions/
-[install-timescale-cloud]: /install/:currentVersion:/installation-cloud/
+[extensions]: /use-timescale/:currentVersion:/services/postgresql-extensions/
+[install-timescale-cloud]: /getting-started/latest/
 [pg_dump]: https://www.postgresql.org/docs/current/app-pgdump.html
 [pg_restore]: https://www.postgresql.org/docs/current/app-pgrestore.html
-[psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql/
-[retention-policy]: /timescaledb/:currentVersion:/how-to-guides/data-retention/create-a-retention-policy/
+[psql]: /use-timescale/:currentVersion:/connecting/psql/
+[retention-policy]: /use-timescale/:currentVersion:/data-retention/create-a-retention-policy/
 [reorder-policy]: /api/:currentVersion:/hypertable/add_reorder_policy/
 [timescaledb-parallel-copy]: https://github.com/timescale/timescaledb-parallel-copy
 [upgrading-postgresql]: https://kb-managed.timescale.com/en/articles/5368016-perform-a-postgresql-major-version-upgrade
-[upgrading-postgresql-self-hosted]: /timescaledb/:currentVersion:/how-to-guides/upgrades/upgrade-pg/
-[upgrading-timescaledb]: /timescaledb/:currentVersion:/how-to-guides/upgrades/major-upgrade/
+[upgrading-postgresql-self-hosted]: /self-hosted/:currentVersion:/upgrades/upgrade-pg/
+[upgrading-timescaledb]: /self-hosted/:currentVersion:/upgrades/major-upgrade/

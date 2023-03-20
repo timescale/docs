@@ -28,6 +28,11 @@ module.exports = [
             excerpt: "Timescale Cloud services overview",
           },
           {
+            title: "Clouds and regions",
+            href: "regions",
+            excerpt: "Timescale Cloud AWS regions",
+          },
+          {
             title: "Service explorer",
             href: "service-explorer",
             excerpt: "Timescale Cloud services explorer",
@@ -709,13 +714,13 @@ module.exports = [
         href: "hyperfunctions",
         pageComponents: ["featured-cards"],
         featuredChildren: [
-          "/timescaledb/:currentVersion:/how-to-guides/hyperfunctions/function-pipelines",
-          "/timescaledb/:currentVersion:/how-to-guides/hyperfunctions/approx-count-distincts",
-          "/timescaledb/:currentVersion:/how-to-guides/hyperfunctions/stats-aggs",
-          "/timescaledb/:currentVersion:/how-to-guides/hyperfunctions/gapfilling-interpolation",
-          "/timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx",
-          "/timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation",
-          "/timescaledb/:currentVersion:/how-to-guides/hyperfunctions/time-weighted-averages",
+          "/use-timescale/:currentVersion:/hyperfunctions/function-pipelines",
+          "/use-timescale/:currentVersion:/hyperfunctions/approx-count-distincts",
+          "/use-timescale/:currentVersion:/hyperfunctions/stats-aggs",
+          "/use-timescale/:currentVersion:/hyperfunctions/gapfilling-interpolation",
+          "/use-timescale/:currentVersion:/hyperfunctions/percentile-approx",
+          "/use-timescale/:currentVersion:/hyperfunctions/counter-aggregation",
+          "/use-timescale/:currentVersion:/hyperfunctions/time-weighted-averages",
         ],
         children: [
           {
@@ -859,6 +864,11 @@ module.exports = [
               "Connect to Timescale Cloud with a stricter SSL mode of verify-ca or verify-full",
           },
         ],
+      },
+      {
+        title: "Timescale limitations",
+        href: "limitations",
+        excerpt: "Current limitations of Timescale features",
       },
       {
         title: "Troubleshoot Timescale",

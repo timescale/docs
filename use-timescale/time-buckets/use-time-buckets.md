@@ -96,4 +96,4 @@ SELECT time_bucket(INTERVAL '1 week', TIMESTAMP '2021-01-05');
 The function returns `2021-01-04 00:00:00`. That is the start time of the
 time bucket: the Monday of that week, at midnight.
 
-[time-buckets]: /timescaledb/:currentVersion:/how-to-guides/time-buckets/
+[time-buckets]: /use-timescale/:currentVersion:/time-buckets/

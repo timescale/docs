@@ -273,4 +273,4 @@ If you disable telemetry, the version checking functionality is also disabled.
 </Procedure>
 
 [get_telemetry_report]: /api/:currentVersion:/administration/get_telemetry_report
-[postgres-config]: /timescaledb/:currentVersion:/how-to-guides/configuration/postgres-config
+[postgres-config]: /self-hosted/:currentVersion:/configuration/postgres-config

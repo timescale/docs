@@ -38,20 +38,25 @@ You need to create six tables:
 *   **game**
 
   Information about each game, `game_id` is a primary key.
+
 *   **player**
 
   Player information, `player_id` is a primary_key.
+
 *   **play**
 
   Play information. To query a specific play, you need to use gameid and playid together.
+
 *   **tracking**
 
   Player tracking information from each play. This is going to be the biggest table (18M+ row) in the database.
   Important fields are `x` and `y` as they indicate the physical positions of the players on the field.
+
 *   **scores**
 
   Final result of each game. This table can be joined with the tracking table using the `home_team_abb` and
   `visitor_team_abb` fields.
+
 *   **stadium_info**
 
   Home stadium of each team and additional information like `surface`, `roof_type`, `location`.
@@ -581,6 +586,6 @@ draw_play(game_id=2018112900,
 *   [NFL Big Data Bowl 2021 on Kaggle](https://www.kaggle.com/c/nfl-big-data-bowl-2021)
 
 [extra-download]: https://assets.timescale.com/docs/downloads/nfl_2018.zip
-[install-timescale]: /install/latest/
+[install-timescale]: /getting-started/latest/
 [kaggle-download]: https://www.kaggle.com/c/nfl-big-data-bowl-2021/data
-[psql-install]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql
+[psql-install]: /use-timescale/:currentVersion:/connecting/psql

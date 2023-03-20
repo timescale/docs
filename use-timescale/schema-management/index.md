@@ -24,11 +24,11 @@ significant performance improvements.
 *   [Create triggers][schema-triggers] to propogate your schema changes to chunks.
 *   [Use JSON and JSONB][schema-json] for semi-structured data.
 
-[about-constraints]: /timescaledb/:currentVersion:/how-to-guides/schema-management/about-constraints
-[about-indexing]: /timescaledb/:currentVersion:/how-to-guides/schema-management/about-indexing
-[about-schema]: /timescaledb/:currentVersion:/how-to-guides/schema-management/about-schemas
-[about-tablespaces]: /timescaledb/:currentVersion:/how-to-guides/schema-management/about-tablespaces
-[schema-alter]: /timescaledb/:currentVersion:/how-to-guides/schema-management/alter
-[schema-indexing]: /timescaledb/:currentVersion:/how-to-guides/schema-management/indexing
-[schema-json]: /timescaledb/:currentVersion:/how-to-guides/schema-management/json
-[schema-triggers]: /timescaledb/:currentVersion:/how-to-guides/schema-management/triggers
+[about-constraints]: /use-timescale/:currentVersion:/schema-management/about-constraints
+[about-indexing]: /use-timescale/:currentVersion:/schema-management/about-indexing
+[about-schema]: /use-timescale/:currentVersion:/schema-management/about-schemas
+[about-tablespaces]: /use-timescale/:currentVersion:/schema-management/about-tablespaces
+[schema-alter]: /use-timescale/:currentVersion:/schema-management/alter
+[schema-indexing]: /use-timescale/:currentVersion:/schema-management/indexing
+[schema-json]: /use-timescale/:currentVersion:/schema-management/json
+[schema-triggers]: /use-timescale/:currentVersion:/schema-management/triggers

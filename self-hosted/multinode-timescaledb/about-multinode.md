@@ -159,4 +159,4 @@ performance, and it is therefore not implemented by default for distributed
 hypertables.
 
 [2pc]: https://www.postgresql.org/docs/current/sql-prepare-transaction.html
-[hypertables]: /timescaledb/:currentVersion:/how-to-guides/hypertables/
+[hypertables]: /use-timescale/:currentVersion:/hypertables/

@@ -83,5 +83,5 @@ avn service list
 ```
 
 [aiven-client-install]: /mst/:currentVersion:/aiven-client/aiven-client-install/
-[create-service]: /install/:currentVersion:/installation-mst/#create-your-first-service
+[create-service]: /mst/:currentVersion:/installation-mst/#create-your-first-service
 [mst-login]: https://portal.managed.timescale.com

@@ -21,9 +21,9 @@ using `INSERT`, `UPDATE`, and `DELETE` statements.
 For more information about using third-party tools to write data
 into TimescaleDB, see the [Ingest Data from other sources][ingest-data] section.
 
-[about-writing-data]: /timescaledb/:currentVersion:/how-to-guides/write-data/about-writing-data/
-[delete]: /timescaledb/:currentVersion:/how-to-guides/write-data/delete/
-[ingest-data]: /timescaledb/:currentVersion:/how-to-guides/ingest-data/
-[insert]: /timescaledb/:currentVersion:/how-to-guides/write-data/insert/
-[update]: /timescaledb/:currentVersion:/how-to-guides/write-data/update/
-[upsert]: /timescaledb/:currentVersion:/how-to-guides/write-data/upsert/
+[about-writing-data]: /use-timescale/:currentVersion:/write-data/about-writing-data/
+[delete]: /use-timescale/:currentVersion:/write-data/delete/
+[ingest-data]: /use-timescale/:currentVersion:/ingest-data/
+[insert]: /use-timescale/:currentVersion:/write-data/insert/
+[update]: /use-timescale/:currentVersion:/write-data/update/
+[upsert]: /use-timescale/:currentVersion:/write-data/upsert/

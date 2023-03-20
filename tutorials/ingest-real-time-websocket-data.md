@@ -353,9 +353,9 @@ efficiently store and analyze your data after ingestion:
 *   [Store financial tick data in TimescaleDB using the OHLCV (candlestick) format][candlestick-tutorial]
 *   [Getting started with TimescaleDB][get-started]
 
-[candlestick-tutorial]: /timescaledb/:currentVersion:/tutorials/financial-tick-data/
+[candlestick-tutorial]: /tutorials/:currentVersion:/financial-tick-data/
 [get-started]: /getting-started/:currentVersion:/
-[install-ts]: /install/latest/
+[install-ts]: /getting-started/latest/
 [psycopg2]: https://www.psycopg.org/docs/
 [twelve-data]: https://twelvedata.com
 [twelve-signup]: https://twelvedata.com/pricing

@@ -53,5 +53,5 @@ source data node. To clean up these objects and metadata, use
 CALL timescaledb_experimental.move_chunk('_timescaledb_internal._dist_hyper_1_1_chunk', 'data_node_2', 'data_node_3');
 ```
 
-[password-config]: /timescaledb/:currentVersion:/how-to-guides/multinode-timescaledb/multinode-auth/#v1-set-the-password-encryption-method-for-access-node-and-data-nodes
+[password-config]: /self-hosted/:currentVersion:/multinode-timescaledb/multinode-auth/#v1-set-the-password-encryption-method-for-access-node-and-data-nodes
 [cleanup_copy_chunk]: /api/:currentVersion:/distributed-hypertables/cleanup_copy_chunk_operation_experimental

@@ -89,5 +89,5 @@ policy. But you can make the query arbitrarily complex.
 
 </Procedure>
 
-[cagg-refresh]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/create-a-continuous-aggregate/
-[compression]: /timescaledb/:currentVersion:/how-to-guides/compression/about-compression/
+[cagg-refresh]: /use-timescale/:currentVersion:/continuous-aggregates/create-a-continuous-aggregate/
+[compression]: /use-timescale/:currentVersion:/compression/about-compression/

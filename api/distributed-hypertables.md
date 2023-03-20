@@ -16,4 +16,4 @@ hypertables as documented in this section. There are a number of APIs for
 specifically dealing with data nodes and a special API for executing SQL commands
 on data nodes.
 
-[getting-started-multi-node]: /timescaledb/:currentVersion:/how-to-guides/multinode-timescaledb/
+[getting-started-multi-node]: /self-hosted/:currentVersion:/multinode-timescaledb/

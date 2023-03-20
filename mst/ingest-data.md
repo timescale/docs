@@ -152,9 +152,9 @@ recommend that you use the connector with Kafka and Kafka Connect.
 
 See [these instructions][gh-kafkaconnector] for using the Kafka connector.
 
-[code-qs]: /timescaledb/:currentVersion:/quick-start/
+[code-qs]: /quick-start/:currentVersion:/
 [gh-kafkaconnector]: https://github.com/debezium/debezium/tree/master/debezium-connector-postgres
 [github-parallel-copy]: https://github.com/timescale/timescaledb-parallel-copy
-[migrate-data]: /timescaledb/:currentVersion:/how-to-guides/migrate-data/
-[migrate-influxdb]: /timescaledb/:currentVersion:/how-to-guides/migrate-data/migrate-influxdb/
+[migrate-data]: /use-timescale/:currentVersion:/migrate-data/
+[migrate-influxdb]: /use-timescale/:currentVersion:/migrate-data/migrate-influxdb/
 [postgres-odbc]: https://odbc.postgresql.org/

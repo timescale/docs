@@ -22,5 +22,5 @@ additional hyperfunctions, you need to install the
     sortByType
 />
 
-[hyperfunctions-gapfilling]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/gapfilling-interpolation/
-[install-toolkit]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/install-toolkit
+[hyperfunctions-gapfilling]: /use-timescale/:currentVersion:/hyperfunctions/gapfilling-interpolation/
+[install-toolkit]: /use-timescale/:currentVersion:/hyperfunctions/install-toolkit

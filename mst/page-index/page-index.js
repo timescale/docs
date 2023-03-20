@@ -11,6 +11,10 @@ module.exports = [
         href: "about-mst",
       },
       {
+        title: "Install Managed Service for TimescaleDB",
+        href: "installation-mst",
+      },
+      {
         title: "Clouds and regions",
         href: "cloud-regions",
       },
@@ -42,14 +46,14 @@ module.exports = [
         title: "Integrations",
         href: "integrations",
         excerpt: " MST integrates with the other tools you are already using, and makes it easy to add more integrations",
-        children:  [
+        children: [
           {
-           title: "Visualizing data with Google Data Studio",
-           href: "google-data-studio-mst",
+            title: "Visualizing data with Google Data Studio",
+            href: "google-data-studio-mst",
           },
           {
             title:
-          "Visualizing data with Grafana",
+              "Visualizing data with Grafana",
             href: "grafana-mst",
           },
           {
@@ -59,7 +63,7 @@ module.exports = [
           {
             title: "Sending metrics to Datadog",
             href: "metrics-datadog",
-          }, 
+          },
           {
             title: "Monitoring with Prometheus endpoint",
             href: "prometheus-mst",

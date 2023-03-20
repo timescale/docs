@@ -171,5 +171,5 @@ shows you how to query the traded volume for each time interval.
 To see other examples of how you can use TimescaleDB and Grafana, check out
 all the [Grafana tutorials][grafana-tutorials].
 
-[continuous-aggregrate]: /timescaledb/:currentVersion:/tutorials/financial-tick-data/
-[grafana-tutorials]: /timescaledb/:currentVersion:/tutorials/grafana/
+[continuous-aggregrate]: /tutorials/:currentVersion:/financial-tick-data/
+[grafana-tutorials]: /tutorials/:currentVersion:/grafana/

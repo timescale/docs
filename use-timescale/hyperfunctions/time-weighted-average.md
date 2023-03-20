@@ -49,5 +49,5 @@ contains data about internal freezer temperatures.
 For more information about time-weighted average API calls, see the
 [hyperfunction API documentation][hyperfunctions-api-timeweight].
 
-[caggs]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates
+[caggs]: /use-timescale/:currentVersion:/continuous-aggregates
 [hyperfunctions-api-timeweight]: /api/:currentVersion:/hyperfunctions/time-weighted-calculations/time_weight/

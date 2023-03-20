@@ -52,12 +52,12 @@ If your table already has data, you can migrate the data when creating the
 hypertable. Set the `migrate_data` argument to true when you call the
 `create_hypertable` function. This might take a long time if you have a lot of
 data. To learn other ways of migrating data, see the [migration
-section](/timescaledb/latest/how-to-guides/migrate-data).
+section](/use-timescale/latest/migrate-data).
 </Highlight>
 
 </Procedure>
 
-[create-distributed-hypertable]: /timescaledb/:currentVersion:/how-to-guides/distributed-hypertables/create-distributed-hypertables/
-[install]: /install/:currentVersion:/
+[create-distributed-hypertable]: /use-timescale/:currentVersion:/distributed-hypertables/create-distributed-hypertables/
+[install]: /getting-started/latest/
 [postgres-createtable]: https://www.postgresql.org/docs/current/sql-createtable.html
 [create-hypertable-api]: /api/latest/hypertable/create_hypertable/

@@ -19,4 +19,4 @@ executed upon connection to a database. Some admin tools execute commands before
 this, which can disrupt the process. Try manually updating the database with
 `psql`. For instructions, see the [updating guide][update].
 
-[update]: /timescaledb/:currentVersion:/how-to-guides/upgrades/
+[update]: /self-hosted/:currentVersion:/upgrades/

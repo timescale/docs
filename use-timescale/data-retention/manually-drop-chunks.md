@@ -14,7 +14,7 @@ older than 30 days.
 <Highlight type="note">
 Dropping chunks manually is a one-time operation. To automatically drop chunks
 as they age, set up a
-[data retention policy](/timescaledb/latest/how-to-guides/data-retention/create-a-retention-policy/).
+[data retention policy](/use-timescale/latest/data-retention/create-a-retention-policy/).
 </Highlight>
 
 ## Drop chunks older than a certain date

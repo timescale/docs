@@ -258,5 +258,5 @@ For examples of querying a specific metric view, see
 [query-data]: /promscale/:currentVersion:/query-data
 [promlabs-test]: https://promlabs.com/promql-compliance-test-results/2021-10-14/promscale
 [promscale-extension]: https://github.com/timescale/promscale_extension#promscale-extension
-[tsdb-compression]: /timescaledb/:currentVersion:/how-to-guides/compression/
-[tsdb-hypertables]: /timescaledb/:currentVersion:/how-to-guides/hypertables/
+[tsdb-compression]: /use-timescale/:currentVersion:/compression/
+[tsdb-hypertables]: /use-timescale/:currentVersion:/hypertables/

@@ -25,6 +25,6 @@ For more information, read the [hyperfunctions blog post][hyperfunctions-blog].
 
 ## Browse hyperfunctions and Toolkit features by category
 
-[about-hyperfunctions]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/about-hyperfunctions
+[about-hyperfunctions]: /use-timescale/:currentVersion:/hyperfunctions/about-hyperfunctions
 [hyperfunctions-blog]: https://blog.timescale.com/blog/time-series-analytics-for-postgresql-introducing-the-timescale-analytics-project/
-[install-toolkit]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/install-toolkit
+[install-toolkit]: /use-timescale/:currentVersion:/hyperfunctions/install-toolkit

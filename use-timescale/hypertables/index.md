@@ -20,10 +20,10 @@ performance and user experience for time-series data.
 *   [Drop a hypertable][drop-hypertables]
 *   [Troubleshoot][troubleshooting] hypertable issues
 
-[about-hypertables]: /timescaledb/:currentVersion:/how-to-guides/hypertables/about-hypertables/
-[alter-hypertables]: /timescaledb/:currentVersion:/how-to-guides/hypertables/alter/
-[change-chunk-intervals]: /timescaledb/:currentVersion:/how-to-guides/hypertables/change-chunk-intervals/
-[create-hypertables]: /timescaledb/:currentVersion:/how-to-guides/hypertables/create/
-[create-unique-indexes]: /timescaledb/:currentVersion:/how-to-guides/hypertables/hypertables-and-unique-indexes/
-[drop-hypertables]: /timescaledb/:currentVersion:/how-to-guides/hypertables/drop/
-[troubleshooting]: /timescaledb/:currentVersion:/how-to-guides/hypertables/troubleshooting/
+[about-hypertables]: /use-timescale/:currentVersion:/hypertables/about-hypertables/
+[alter-hypertables]: /use-timescale/:currentVersion:/hypertables/alter/
+[change-chunk-intervals]: /use-timescale/:currentVersion:/hypertables/change-chunk-intervals/
+[create-hypertables]: /use-timescale/:currentVersion:/hypertables/create/
+[create-unique-indexes]: /use-timescale/:currentVersion:/hypertables/hypertables-and-unique-indexes/
+[drop-hypertables]: /use-timescale/:currentVersion:/hypertables/drop/
+[troubleshooting]: /use-timescale/:currentVersion:/hypertables/troubleshooting/

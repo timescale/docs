@@ -104,4 +104,4 @@ community-wide problems and incorporate as much feedback as possible.
 [gh-newissue]: https://github.com/timescale/timescale-analytics/issues/new?assignees=&labels=feature-request&template=feature-request.md&title=
 [gh-proposed]: https://github.com/timescale/timescale-analytics/labels/proposed-feature
 [gh-requests]: https://github.com/timescale/timescale-analytics/labels/feature-request
-[install-toolkit]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/install-toolkit
+[install-toolkit]: /use-timescale/:currentVersion:/hyperfunctions/install-toolkit

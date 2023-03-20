@@ -18,8 +18,8 @@ feel free to [request](https://forms.gle/tBc3qBMKRosdHrGG9).
 *   **[Golang and TimescaleDB][go-quickstart]**: A quick start guide for Golang developers looking to use TimescaleDB.
 *   **[Java and TimescaleDB][java-quickstart]**: A quick start guide for Java developers looking to use TimescaleDB.
 
-[go-quickstart]: /timescaledb/:currentVersion:/quick-start/golang
-[java-quickstart]: /timescaledb/:currentVersion:/quick-start/java
-[node-quickstart]: /timescaledb/:currentVersion:/quick-start/node
-[python-quickstart]: /timescaledb/:currentVersion:/quick-start/python
-[ruby-quickstart]: /timescaledb/:currentVersion:/quick-start/ruby
+[go-quickstart]: /quick-start/:currentVersion:/golang
+[java-quickstart]: /quick-start/:currentVersion:/java
+[node-quickstart]: /quick-start/:currentVersion:/node
+[python-quickstart]: /quick-start/:currentVersion:/python
+[ruby-quickstart]: /quick-start/:currentVersion:/ruby

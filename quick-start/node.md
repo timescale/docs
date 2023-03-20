@@ -400,15 +400,15 @@ your Node application, check out these tutorials:
 *   [Try Other Sample Datasets][other-samples]
 *   [Migrate your own Data][migrate]
 
-[migrate]: /timescaledb/:currentVersion:/how-to-guides/migrate-data/
+[migrate]: /use-timescale/:currentVersion:/migrate-data/
 [node-install]: https://nodejs.org
 [npm-install]: https://www.npmjs.com/get-npm
-[other-samples]: /timescaledb/:currentVersion:/tutorials/sample-datasets/
+[other-samples]: /tutorials/:currentVersion:/sample-datasets/
 [sequelize-info]: https://sequelize.org
-[time-series-forecasting]: /timescaledb/:currentVersion:/tutorials/time-series-forecast/
+[time-series-forecasting]: /tutorials/:currentVersion:/time-series-forecast/
 [connect]: #connect-to-timescaledb
 [create-table]: #create-a-relational-table
 [create-hypertable]: #create-hypertable
 [insert]: #insert-rows-of-data
 [query]: #execute-a-query
-[install]: /install/:currentVersion:/installation-cloud/
+[install]: /getting-started/latest/

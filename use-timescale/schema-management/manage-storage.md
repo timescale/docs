@@ -17,8 +17,8 @@ read-and-write workload of more recent data.
 
 <Highlight type="note">
 Using tablespaces is one way to manage data storage costs with TimescaleDB. You
-can also use [compression](/timescaledb/latest/how-to-guides/compression) and
-[data retention](/timescaledb/latest/how-to-guides/data-retention) to reduce
+can also use [compression](/use-timescale/latest/compression) and
+[data retention](/use-timescale/latest/data-retention) to reduce
 your storage requirements.
 </Highlight>
 
@@ -137,6 +137,6 @@ and move the data to `history` and the indexes to `history_indexes`.
 In TimescaleDB 2.0 and later, you can use `move_chunk` with the job scheduler
 framework. For more information, see the [user-defined actions section][actions].
 
-[actions]: /timescaledb/:currentVersion:/how-to-guides/user-defined-actions/
+[actions]: /use-timescale/:currentVersion:/user-defined-actions/
 [api-move-chunk]: /api/:currentVersion:/hypertable/move_chunk
 [api-reorder-chunk]: /api/:currentVersion:/hypertable/reorder_chunk

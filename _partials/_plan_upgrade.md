@@ -14,6 +14,6 @@ Before you upgrade:
     make sure you have a backup on hand, and that the backup is readable in the
     case of disaster.
 
-[relnotes]: /timescaledb/:currentVersion:/overview/release-notes/
-[upgrade-pg]: /timescaledb/:currentVersion:/how-to-guides/upgrades/upgrade-pg/
-[backup]: /timescaledb/:currentVersion:/how-to-guides/backup-and-restore/
+[relnotes]: /about/:currentVersion:/release-notes/
+[upgrade-pg]: /self-hosted/:currentVersion:/upgrades/upgrade-pg/
+[backup]: /self-hosted/:currentVersion:/backup-and-restore/

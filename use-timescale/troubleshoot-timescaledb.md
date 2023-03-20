@@ -158,6 +158,6 @@ and then inspect `dump_file.txt` before sending it together with a bug report or
 [slack]: https://slack.timescale.com/
 [support portal]: https://www.timescale.com/support
 [track_io_timing]: https://www.postgresql.org/docs/current/static/runtime-config-statistics.html#GUC-TRACK-IO-TIMING
-[update-db]: /timescaledb/:currentVersion:/how-to-guides/upgrades/
+[update-db]: /self-hosted/:currentVersion:/upgrades/
 [using explain]: https://www.postgresql.org/docs/current/static/using-explain.html
-[worker-config]: /timescaledb/latest/how-to-guides/configuration/about-configuration/#workers
+[worker-config]: /self-hosted/latest/configuration/about-configuration/#workers

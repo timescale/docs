@@ -82,7 +82,7 @@ continuous aggregate policy:
 SELECT add_compression_policy('cagg_name', compress_after=>'45 days'::interval);
 ```
 
-[compression]: /timescaledb/:currentVersion:/how-to-guides/compression/
-[decompress-chunks]:  /timescaledb/:currentVersion:/how-to-guides/compression/decompress-chunks
-[refresh-policy]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/refresh-policies
-[troubleshooting]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/troubleshooting/#cannot-refresh-compressed-chunks-of-a-continuous-aggregate
+[compression]: /use-timescale/:currentVersion:/compression/
+[decompress-chunks]:  /use-timescale/:currentVersion:/compression/decompress-chunks
+[refresh-policy]: /use-timescale/:currentVersion:/continuous-aggregates/refresh-policies
+[troubleshooting]: /use-timescale/:currentVersion:/continuous-aggregates/troubleshooting/#cannot-refresh-compressed-chunks-of-a-continuous-aggregate

@@ -11,11 +11,11 @@ import EarlyAccess from "versionContent/_partials/_early_access.mdx";
 
 <EarlyAccess />
 
-Timescale Cloud is a hosted, cloud-native TimescaleDB service that allows you to
-quickly spin up new TimescaleDB instances. In addition to your TimescaleDB
+Timescale Cloud is a hosted, cloud-native Timescale service that allows you to
+quickly spin up new Timescale instances. In addition to your Timescale
 databases, you can also create services that run standard PostgreSQL, without
 Timescale's time-series capabilities. PostgreSQL services are less expensive to
-run than TimescaleDB services, so they are a great option if you're running
+run than Timescale services, so they are a great option if you're running
 relational databases alongside your time-series databases.
 
 You can [try Timescale Cloud for free][sign-up], no credit card required.
@@ -49,9 +49,9 @@ time-series services:
 <img
     class="main-content__illustration"
     src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-view-pgservice.png"
-    alt="A running PostgreSQL service with a running TimescaleDB service in the Timescale Cloud portal"
+    alt="A running PostgreSQL service with a running Timescale service in the Timescale Cloud portal"
 />
 
-[cloud-install]: /install/:currentVersion:/installation-cloud/
+[cloud-install]: /getting-started/latest/
 [sign-up]: https://www.timescale.com/timescale-signup
 [cloud-console]: https://console.cloud.timescale.com/

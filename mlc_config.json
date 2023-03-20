@@ -2,11 +2,11 @@
   "replacementPatterns": [
     {
       "pattern": ":currentVersion:",
-      "replacement": "latest"
+      "replacement": "dev-launch-cloud-centric-phase-1"
     },
     {
       "pattern": "^/",
-      "replacement": "https://docs.timescale.com/"
+      "replacement": "http://docs-dev.timescale.com/docs-dev-launch-cloud-centric-phase-1/"
     }
   ],
   "ignorePatterns": [
