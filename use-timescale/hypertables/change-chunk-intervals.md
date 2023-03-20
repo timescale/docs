@@ -8,14 +8,14 @@ tags: [performance]
 
 # Change hypertable chunk intervals
 
-Adjusting your hypertable chunk interval can improve TimescaleDB performance.
+Adjusting your hypertable chunk interval can improve performance in your database.
 This applies to both regular and distributed hypertables. For more information,
 see [best practices for time partitioning][best-practices].
 
 ## Check current setting for chunk intervals
 
-Check the current setting for chunk intervals by querying the TimescaleDB
-catalog.
+Check the current setting for chunk intervals by querying the Timescale
+catalog:
 
 ```sql
 SELECT h.table_name, c.interval_length
@@ -40,8 +40,9 @@ Time-based interval lengths are reported in microseconds.
 ## Change the chunk interval length when creating a hypertable
 
 The default chunk interval is 7 days. To change this when creating a hypertable,
-specify a different `chunk_time_interval` when calling `create_hypertable` or
-`create_distributed_hypertable`.
+specify a different `chunk_time_interval` when you create the hypertable. In
+this example, the table to convert is named `conditions`, and it stores time
+values in a column named `time`:
 
 ```sql
 SELECT create_hypertable(
@@ -51,19 +52,15 @@ SELECT create_hypertable(
 );
 ```
 
-In this example, the table to convert is named `conditions`, and it stores time
-values in a column named `time`.
-
 ## Change the chunk interval length on an existing hypertable
 
 To change the chunk interval on an already existing hypertable or distributed
-hypertable, use the function `set_chunk_time_interval`:
+hypertable, use the function `set_chunk_time_interval`. In this example, the
+hypertable is named `conditions`:
 
 ```sql
 SELECT set_chunk_time_interval('conditions', INTERVAL '24 hours');
 ```
-
-In this example, the hypertable is named `conditions`.
 
 <Highlight type="important">
 When you change the `chunk_time_interval`, the new setting only applies to new

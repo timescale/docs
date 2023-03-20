@@ -33,7 +33,8 @@ data from the same day. Data from different days is stored in different chunks.
 
 <img class="main-content__illustration"
 src="https://s3.amazonaws.com/assets.timescale.com/docs/images/getting-started/hypertables-chunks.png"
-alt="A normal table compared to a hypertable. The normal table holds data for 3 different days in one container. The hypertable contains 3 containers, called chunks, each of which holds data for a separate day." />
+alt="A normal table compared to a hypertable. The normal table holds data for 3 different days in one container. The hypertable contains 3 containers, called chunks, each of which holds data for a separate day."
+/>
 
 <Highlight type="note">
 TimescaleDB divides time into potential chunk ranges, based on the
@@ -120,10 +121,10 @@ you partition by space without this setup, you increase query planning
 complexity without increasing I/O performance.
 
 <Highlight type="note">
-A more recommended way to increase I/O performance is to use RAID (redundant
-array of inexpensive disks). RAID virtualizes multiple physical disks into a
-single logical disk. You can then use this single logical disk to store your
-hypertable, without any space partitioning.
+A more recommended way to increase input/output performance is to use RAID
+(redundant array of inexpensive disks). RAID virtualizes multiple physical disks
+into a single logical disk. You can then use this single logical disk to store
+your hypertable, without any space partitioning.
 </Highlight>
 
 ## Hypertable indexes

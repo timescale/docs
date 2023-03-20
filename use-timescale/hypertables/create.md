@@ -7,23 +7,22 @@ keywords: [hypertables, create]
 
 # Create hypertables
 
-After [creating a TimescaleDB database][install], you're ready to create your
+After [creating a Timescale database][install], you're ready to create your
 first hypertable. Creating a hypertable is a two-step process:
 
 1.  Create a PostgreSQL table as usual
-1.  Convert it to a TimescaleDB hypertable
+1.  Convert it to a hypertable
 
-You can [create a distributed hypertable][create-distributed-hypertable]
-similarly.
+You can also create distributed hypertables. For more information, see the
+[distributed hypertables section][create-distributed-hypertable].
 
 ## Create a hypertable
 
 To create a hypertable, you need to create a standard PostgreSQL table, and then
-convert it into a TimescaleDB hypertable.
+convert it into a hypertable.
 
 Hypertables are intended for time-series data, so your table needs a column that
-holds time values. This can be a timestamp, date, or integer. For more information
-about creating hypertables, see [create_hypertable()][create-hypertable-api].
+holds time values. This can be a timestamp, date, or integer.
 
 <Procedure>
 
@@ -51,8 +50,8 @@ about creating hypertables, see [create_hypertable()][create-hypertable-api].
 If your table already has data, you can migrate the data when creating the
 hypertable. Set the `migrate_data` argument to true when you call the
 `create_hypertable` function. This might take a long time if you have a lot of
-data. To learn other ways of migrating data, see the [migration
-section](/use-timescale/latest/migrate-data).
+data. For more information about migrating data, see the
+[data migration section](/use-timescale/latest/migrate-data).
 </Highlight>
 
 </Procedure>
@@ -60,4 +59,3 @@ section](/use-timescale/latest/migrate-data).
 [create-distributed-hypertable]: /use-timescale/:currentVersion:/distributed-hypertables/create-distributed-hypertables/
 [install]: /getting-started/latest/
 [postgres-createtable]: https://www.postgresql.org/docs/current/sql-createtable.html
-[create-hypertable-api]: /api/latest/hypertable/create_hypertable/
