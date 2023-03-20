@@ -19,7 +19,7 @@ You can switch between different plan sizes in Managed Service for TimescaleDB,
 However, during the dumping process choose a plan size that has the same
 storage size or slightly larger than the currently allocated plan. This allows
 you to limit the downtime during the migration process and have a sufficiently
-powerful Timescale plan..
+powerful Timescale plan.
 
 <Highlight type="warning">
 Depending on your database size and network speed, migration can take a very
