@@ -69,10 +69,11 @@ data is automatically ordered by the hypertable time column.
 
 </Procedure>
 
-<Highlight type="note"> To learn more about the `segmentby` and `orderby`
+<Highlight type="note">
+ To learn more about the `segmentby` and `orderby`
 options for compression in TimescaleDB and how to pick the right columns, see
 this detailed explanation in the
-[TimescaleDB compression docs](/timescaledb/latest/how-to-guides/compression/).
+[TimescaleDB compression docs](/use-timescale/latest/compression/).
 </Highlight>
 
 ## Automatic compression

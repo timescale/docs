@@ -120,11 +120,11 @@ Ready for more learning? Here's a few suggestions:
 *   [Try Other Sample Datasets][other-samples]
 *   [Migrate your own Data][migrate]
 
-[continuous-aggregates]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates
-[crypto-tutorial]: /timescaledb/:currentVersion:/tutorials/analyze-cryptocurrency-data
+[continuous-aggregates]: /use-timescale/:currentVersion:/continuous-aggregates
+[crypto-tutorial]: /tutorials/:currentVersion:/analyze-cryptocurrency-data
 [get-tableau]: https://www.tableau.com/products/trial
-[install-timescale]: /install/latest/
-[migrate]: /timescaledb/:currentVersion:/how-to-guides/migrate-data
-[other-samples]: /timescaledb/:currentVersion:/tutorials/sample-datasets
-[time-series-forecasting]: /timescaledb/:currentVersion:/tutorials/time-series-forecast
+[install-timescale]: /getting-started/latest/
+[migrate]: /use-timescale/:currentVersion:/migrate-data
+[other-samples]: /tutorials/:currentVersion:/sample-datasets
+[time-series-forecasting]: /tutorials/:currentVersion:/time-series-forecast
 [timescale-products]: https://www.timescale.com/products

@@ -222,7 +222,7 @@ contains multiple rows per player for each play (because the data is sampled
 multiple times per second during each play)
 
 <Highlight type="important">
-These queries are examples of hyperfunctions. To access hyperfunctions, you need to have installed the  [Timescale toolkit](https://docs.timescale.com/timescaledb/latest/how-to-guides/install-timescaledb-toolkit/) before you begin.
+These queries are examples of hyperfunctions. To access hyperfunctions, you need to have installed the  [Timescale toolkit](https://docs.timescale.com/use-timescale/latest/install-timescaledb-toolkit/) before you begin.
 </Highlight>
 
 ### Number of yards run in game for passing plays, by player and game
@@ -292,6 +292,6 @@ We'll use this continuous aggregate in most of the queries in the
 next section. Feel free to play with other variations of this materialized data
 as you try to answer even more questions with TimescaleDB.
 
-[cagg]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/
+[cagg]: /use-timescale/:currentVersion:/continuous-aggregates/
 [extra-download]: https://assets.timescale.com/docs/downloads/nfl_2018.zip
 [kaggle-download]: https://www.kaggle.com/c/nfl-big-data-bowl-2021/data

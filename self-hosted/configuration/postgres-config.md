@@ -46,5 +46,5 @@ For example:
 postgres -c log_connections=yes -c log_destination='syslog'
 ```
 
-[about-configuration]: /timescaledb/:currentVersion:/how-to-guides/configuration/about-configuration
+[about-configuration]: /self-hosted/:currentVersion:/configuration/about-configuration
 [pg-config]: https://www.postgresql.org/docs/current/config-setting.html

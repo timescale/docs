@@ -186,10 +186,12 @@ as SSL.
     }
     ```
 
-<Highlight type="warning"> This method of composing a connection string is for
+<Highlight type="warning">
+ This method of composing a connection string is for
 test or development purposes only. For production applications be sure to make
 sensitive details like your password, hostname, and port number accessible in a
-secure way as supported by .NET. </Highlight>
+secure way as supported by .NET.
+</Highlight>
 
 4.  Run `Program.cs` to verify that .NET can connect to your database and that
     the TimescaleDB extension is installed:
@@ -594,21 +596,21 @@ your .NET application be sure to check out these advanced TimescaleDB tutorials:
 *   [Try Other Sample Datasets][sample-datasets]
 *   [Migrate your own Data][migrate-data]
 
-[caggs]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/
-[compression]: /timescaledb/:currentVersion:/how-to-guides/compression/
+[caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
+[compression]: /use-timescale/:currentVersion:/compression/
 [connect-to-timescaledb]: #connect-net-to-timescaledb
 [core-concepts]: /timescaledb/:currentVersion:/overview/core-concepts/
 [create-hypertable]: #create-the-hypertable
 [create-relational-table]: #create-a-relational-table
-[data-retention]: /timescaledb/:currentVersion:/how-to-guides/data-retention/
+[data-retention]: /use-timescale/:currentVersion:/data-retention/
 [dotnet-runtime]: https://dotnet.microsoft.com/download/dotnet-framework
 [generate-series-blog]: https://blog.timescale.com/blog/how-to-create-lots-of-sample-time-series-data-with-postgresql-generate_series/
 [generate-series-yt-playlist]: https://youtube.com/playlist?list=PLsceB9ac9MHQxwkSyi5LeqonMnMW8KiBZ
 [insert-data]: #insert-time-series-data-into-timescaledb
 [install-cloud]: https://www.timescale.com/timescale-signup
-[migrate-data]: /timescaledb/:currentVersion:/how-to-guides/migrate-data/
+[migrate-data]: /use-timescale/:currentVersion:/migrate-data/
 [npgsql]: https://www.npgsql.org/doc/index.html
-[psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql/
+[psql]: /use-timescale/:currentVersion:/connecting/psql/
 [query-timescaledb]: #query-timescaledb
-[sample-datasets]: /timescaledb/:currentVersion:/tutorials/sample-datasets/
+[sample-datasets]: /tutorials/:currentVersion:/sample-datasets/
 [self-hosted]: /install/:currentVersion:/self-hosted/

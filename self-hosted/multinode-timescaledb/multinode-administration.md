@@ -252,5 +252,5 @@ cluster.
 [distributed_exec]: /api/:currentVersion:/distributed-hypertables/distributed_exec
 [drop-owned]: https://www.postgresql.org/docs/current/sql-drop-owned.html
 [grant]: https://www.postgresql.org/docs/current/sql-grant.html
-[multi-node-authentication]: /timescaledb/:currentVersion:/how-to-guides/multinode-timescaledb/multinode-auth/
+[multi-node-authentication]: /self-hosted/:currentVersion:/multinode-timescaledb/multinode-auth/
 [revoke]: https://www.postgresql.org/docs/current/sql-revoke.html

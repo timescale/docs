@@ -50,4 +50,4 @@ You can enable and disable real time aggregation by setting the
 For more information, see the [troubleshooting section][troubleshooting].
 
 [blog-rtaggs]: https://blog.timescale.com/blog/achieving-the-best-of-both-worlds-ensuring-up-to-date-results-with-real-time-aggregation/
-[troubleshooting]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/troubleshooting/#updates-to-previously-materialized-regions-are-not-shown-in-continuous-aggregates
+[troubleshooting]: /use-timescale/:currentVersion:/continuous-aggregates/troubleshooting/#updates-to-previously-materialized-regions-are-not-shown-in-continuous-aggregates

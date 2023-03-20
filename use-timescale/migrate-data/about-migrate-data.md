@@ -32,8 +32,8 @@ original data and any indexes. If your migration method requires decompression,
 you should also account for the size of any temporarily decompressed tables. For
 more information, see the specific instructions for your use case.
 
-[different-db]: /timescaledb/:currentVersion:/how-to-guides/migrate-data/different-db/
-[import-data]: /timescaledb/:currentVersion:/how-to-guides/migrate-data/import-csv/
-[mst-to-cloud]: /cloud/:currentVersion:/migrate-to-cloud/
-[outflux]: /timescaledb/:currentVersion:/how-to-guides/migrate-data/migrate-influxdb/
-[same-db]: /timescaledb/:currentVersion:/how-to-guides/migrate-data/same-db/
+[different-db]: /use-timescale/:currentVersion:/migrate-data/different-db/
+[import-data]: /use-timescale/:currentVersion:/migrate-data/import-csv/
+[mst-to-cloud]: /use-timescale/:currentVersion:/migrate-data/
+[outflux]: /use-timescale/:currentVersion:/migrate-data/migrate-influxdb/
+[same-db]: /use-timescale/:currentVersion:/migrate-data/same-db/

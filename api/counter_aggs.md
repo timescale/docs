@@ -28,5 +28,5 @@ All accessors can be used with `CounterSummary`, and all but `num_resets`
 with `GaugeSummary`.
 </Highlight>
 
-[hyperfunctions-counter-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation/
-[install-toolkit]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/install-toolkit
+[hyperfunctions-counter-agg]: /use-timescale/:currentVersion:/hyperfunctions/counter-aggregation/
+[install-toolkit]: /use-timescale/:currentVersion:/hyperfunctions/install-toolkit

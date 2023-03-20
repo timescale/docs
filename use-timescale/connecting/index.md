@@ -24,10 +24,10 @@ gives instructions for installing `psql`, as well as some other common tools.
 *   [Troubleshoot][connect-tshoot] connection issues.
 -->
 
-[about-connecting]: /timescaledb/:currentVersion:/how-to-guides/connecting/about-connecting/
-[about-psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/about-psql/
-[connect-azure]: /timescaledb/:currentVersion:/how-to-guides/connecting/azure-data-studio/
-[connect-dbeaver]: /timescaledb/:currentVersion:/how-to-guides/connecting/dbeaver/
-[connect-pgadmin]: /timescaledb/:currentVersion:/how-to-guides/connecting/pgadmin/
-[connect-psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql/
-[connect-tshoot]: /timescaledb/:currentVersion:/how-to-guides/connecting/troubleshooting/
+[about-connecting]: /use-timescale/:currentVersion:/connecting/about-connecting/
+[about-psql]: /use-timescale/:currentVersion:/connecting/about-psql/
+[connect-azure]: /use-timescale/:currentVersion:/connecting/azure-data-studio/
+[connect-dbeaver]: /use-timescale/:currentVersion:/connecting/dbeaver/
+[connect-pgadmin]: /use-timescale/:currentVersion:/connecting/pgadmin/
+[connect-psql]: /use-timescale/:currentVersion:/connecting/psql/
+[connect-tshoot]: /use-timescale/:currentVersion:/connecting/troubleshooting/

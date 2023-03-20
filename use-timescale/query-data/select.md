@@ -65,4 +65,4 @@ SELECT COUNT(DISTINCT location) FROM conditions
 ```
 
 [postgres-select]: https://www.postgresql.org/docs/current/static/sql-select.html
-[time_bucket]: /timescaledb/:currentVersion:/how-to-guides/time-buckets/
+[time_bucket]: /use-timescale/:currentVersion:/time-buckets/

@@ -385,6 +385,6 @@ as you become accustomed to working with TimescaleDB.
 
 [api]: /api/:currentVersion:/
 [architecture]: /timescaledb/:currentVersion:/overview/core-concepts
-[getting-started]: /install/latest/
+[getting-started]: /getting-started/latest/
 [public-slack]: https://slack.timescale.com/
-[tutorials]: /timescaledb/:currentVersion:/tutorials
+[tutorials]: /tutorials/:currentVersion:/

@@ -28,7 +28,7 @@ If you have already installed PostgreSQL using a method other than Homebrew, you
 could encounter errors following these instructions. It is safest to remove any
 existing PostgreSQL installations before you begin. If you want to keep your
 current PostgreSQL installation, do not install TimescaleDB using this method.
-[Install from source](/install/latest/self-hosted/installation-source/)
+[Install from source](/self-hosted/latest/install/installation-source/)
 instead.
 </Highlight>
 
@@ -113,7 +113,7 @@ You can use MacPorts to install TimescaleDB on macOS-based systems.
 <Highlight type="important">
 MacPorts does not install the `timescaledb-tools` to run the `timescaledb-tune`
 script. For more information about installing and using the tool, see
-[`timescaledb-tune`](/timescaledb/latest/how-to-guides/configuration/timescaledb-tune/#timescaledb-tuning-tool)
+[`timescaledb-tune`](/self-hosted/latest/configuration/timescaledb-tune/#timescaledb-tuning-tool)
 section.
 </Highlight>
 
@@ -191,5 +191,5 @@ psql -U postgres -h localhost -d tsdb
  <WhereTo />
 
 [homebrew]: https://docs.brew.sh/Installation
-[install-psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql/
+[install-psql]: /use-timescale/:currentVersion:/connecting/psql/
 [macports]: https://guide.macports.org/#installing.macports

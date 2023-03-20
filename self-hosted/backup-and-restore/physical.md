@@ -19,5 +19,5 @@ incremental backups and other automation options.
 [pg-backrest]: https://pgbackrest.org/
 [pg-barman]: https://www.pgbarman.org/
 [postgres-pg_basebackup]: https://www.postgresql.org/docs/current/app-pgbasebackup.html
-[replication-tutorial]: /timescaledb/:currentVersion:/how-to-guides/replication-and-ha/
-[wale]: /timescaledb/:currentVersion:/how-to-guides/backup-and-restore/docker-and-wale/
+[replication-tutorial]: /self-hosted/:currentVersion:/replication-and-ha/
+[wale]: /self-hosted/:currentVersion:/backup-and-restore/docker-and-wale/

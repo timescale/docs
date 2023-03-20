@@ -527,9 +527,9 @@ or on the server command line), and allows limiting access to certain features
 by license. For example, setting the
 license to `apache` allows access to only Apache-2 licensed features.
 
-[how-to-guides]: /timescaledb/:currentVersion:/how-to-guides/
+[how-to-guides]: /use-timescale/:currentVersion:/
 [promscale]: https://github.com/timescale/promscale
-[real-time-aggregation]: /timescaledb/:currentVersion:/overview/core-concepts/continuous-aggregates/#real-time-aggregation
+[real-time-aggregation]: /use-timescale/:currentVersion:/continuous-aggregates/real-time-aggregates/
 [timescaledb2]: https://github.com/timescale/timescaledb/releases/2.0.0
-[upgrade-timescaledb2]: /timescaledb/:currentVersion:/how-to-guides/upgrades/major-upgrade/
-[upgrades]: /timescaledb/:currentVersion:/how-to-guides/upgrades/
+[upgrade-timescaledb2]: /self-hosted/:currentVersion:/upgrades/major-upgrade/
+[upgrades]: /self-hosted/:currentVersion:/upgrades/

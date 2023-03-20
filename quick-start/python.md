@@ -461,12 +461,12 @@ advanced TimescaleDB tutorials:
 *   [Try Other Sample Datasets][other-samples]
 *   [Migrate Your own Data][migrate]
 
-[install]: /install/:currentVersion:/installation-cloud/
-[continuous-aggregates]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/
+[install]: /getting-started/latest/
+[continuous-aggregates]: /use-timescale/:currentVersion:/continuous-aggregates/
 [create-hypertable-docs]: /api/:currentVersion:/hypertable/create_hypertable
 [dictcursor-docs]: https://www.psycopg.org/docs/extras.html#dictionary-like-cursor
-[migrate]: /timescaledb/:currentVersion:/how-to-guides/migrate-data/
-[other-samples]: /timescaledb/:currentVersion:/tutorials/sample-datasets/
+[migrate]: /use-timescale/:currentVersion:/migrate-data/
+[other-samples]: /tutorials/:currentVersion:/sample-datasets/
 [pg-libpq-string]: https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING
 [pgcopy-install]: https://pypi.org/project/pgcopy/
 [psycopg2-connect]: https://www.psycopg.org/docs/module.html?highlight=connect#psycopg2.connect
@@ -474,7 +474,7 @@ advanced TimescaleDB tutorials:
 [psycopg2-docs-basics]: https://www.psycopg.org/docs/usage.html
 [psycopg2-docs]: https://pypi.org/project/psycopg2/
 [results-retrieval-methods]:https://www.psycopg.org/docs/cursor.html
-[time-series-forecasting]: /timescaledb/:currentVersion:/tutorials/time-series-forecast/
+[time-series-forecasting]: /tutorials/:currentVersion:/time-series-forecast/
 [virtual-env]: https://docs.python.org/3/library/venv.html
 [connect]: #connect-to-timescaledb
 [create-table]: #create-a-relational-table

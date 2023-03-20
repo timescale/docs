@@ -769,10 +769,10 @@ database.
 [NYCTLC]: http://www.nyc.gov/html/tlc/html/about/trip_record_data.shtml
 [arima]: https://en.wikipedia.org/wiki/Autoregressive_integrated_moving_average
 [forecast-sql]: http://assets.iobeam.com/sql/forecast.sql
-[gap_filling]: /timescaledb/:currentVersion:/how-to-guides/query-data/advanced-analytic-queries/#gap-filling
-[hello_timescale]: /timescaledb/:currentVersion:/tutorials/nyc-taxi-cab/
+[gap_filling]: /use-timescale/:currentVersion:/query-data/advanced-analytic-queries/#gap-filling
+[hello_timescale]: /tutorials/:currentVersion:/nyc-taxi-cab/
 [holt-winters]: https://otexts.org/fpp2/holt-winters.html
-[install]: /install/latest/
+[install]: /getting-started/latest/
 [install_python]: https://www.python.org/downloads/
 [install_r]: https://www.r-project.org/
 [madlib]: http://madlib.apache.org/
@@ -783,4 +783,4 @@ database.
 [r-forecast]: https://cran.r-project.org/web/packages/forecast/forecast.pdf
 [r-xts]: https://cran.r-project.org/web/packages/xts/xts.pdf
 [rpostgres]: https://cran.r-project.org/web/packages/RPostgres/index.html
-[tutorial-postgis]: /timescaledb/:currentVersion:/tutorials/nyc-taxi-cab/#mission-monitoring
+[tutorial-postgis]: /tutorials/:currentVersion:/nyc-taxi-cab/#mission-monitoring

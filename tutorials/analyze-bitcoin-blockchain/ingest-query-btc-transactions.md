@@ -199,4 +199,4 @@ your first SQL queries. In the [next section][next-section], dig deeper into the
 TimescaleDB hyperfunctions to generate insights!
 
 [create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
-[next-section]: /timescaledb/:currentVersion:/tutorials/analyze-bitcoin-blockchain/analyze-blockchain/
+[next-section]: /tutorials/:currentVersion:/analyze-bitcoin-blockchain/analyze-blockchain/

@@ -18,8 +18,8 @@ hypertables. To lean more, see:
 When you alter a distributed hypertable, or set privileges on it, the commands
 are automatically applied across all data nodes. For more information, see the
 section on [multi-node
-administration](/timescaledb/latest/how-to-guides/multinode-timescaledb/multinode-administration/).
+administration](/use-timescale/latest/multinode-timescaledb/multinode-administration/).
 </Highlight>
 
-[alter]: /timescaledb/:currentVersion:/how-to-guides/hypertables/alter/
-[drop]: /timescaledb/:currentVersion:/how-to-guides/hypertables/drop/
+[alter]: /use-timescale/:currentVersion:/hypertables/alter/
+[drop]: /use-timescale/:currentVersion:/hypertables/drop/

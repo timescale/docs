@@ -413,6 +413,6 @@ use its [SkipScan][skipscan] feature.
 [last]: /api/:currentVersion:/hyperfunctions/last
 [loose-index-scan]: https://wiki.postgresql.org/wiki/Loose_indexscan
 [percentile_cont]: https://www.postgresql.org/docs/current/static/functions-aggregate.html#FUNCTIONS-ORDEREDSET-TABLE
-[skipscan]: /timescaledb/:currentVersion:/how-to-guides/query-data/skipscan/
+[skipscan]: /use-timescale/:currentVersion:/query-data/skipscan/
 [time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket
 [toolkit-approx-percentile]: /api/:currentVersion:/hyperfunctions/percentile-approximation/uddsketch/

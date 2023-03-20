@@ -20,8 +20,8 @@ and storage.
     [within Docker][docker-conf].
 *   Find out more about the [data that we collect][telemetry].
 
-[config]: /timescaledb/:currentVersion:/how-to-guides/configuration/about-configuration
-[docker-conf]: /timescaledb/:currentVersion:/how-to-guides/configuration/docker-config
-[postgresql-conf]: /timescaledb/:currentVersion:/how-to-guides/configuration/postgres-config
-[telemetry]: /timescaledb/:currentVersion:/how-to-guides/configuration/telemetry
-[tstune-conf]: /timescaledb/:currentVersion:/how-to-guides/configuration/timescaledb-tune
+[config]: /self-hosted/:currentVersion:/configuration/about-configuration
+[docker-conf]: /self-hosted/:currentVersion:/configuration/docker-config
+[postgresql-conf]: /self-hosted/:currentVersion:/configuration/postgres-config
+[telemetry]: /self-hosted/:currentVersion:/configuration/telemetry
+[tstune-conf]: /self-hosted/:currentVersion:/configuration/timescaledb-tune

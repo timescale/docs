@@ -206,7 +206,7 @@ Use this format:
 
 </Procedure>
 
-[cloud-install]: /install/:currentVersion:/installation-cloud/
+[cloud-install]: /getting-started/latest/
 [docker-install]: https://docs.docker.com/get-docker/
-[chunk-time]: /timescaledb/:currentVersion:/how-to-guides/hypertables/about-hypertables#best-practices-for-time-partitioning
-[migrate-active]: /cloud/:currentVersion:/migrate-to-cloud/#migrate-an-active-database
+[chunk-time]: /use-timescale/:currentVersion:/hypertables/about-hypertables#best-practices-for-time-partitioning
+[migrate-active]: /use-timescale/:currentVersion:/migrate-data/FIXME

@@ -17,7 +17,11 @@ When you log in to your [Timescale Cloud account][cloud-login], you see the
 Overview` tab. This section contains your service's connection information, and
 an overview of the configuration and resource usage for the service.
 
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-services-overview.png" alt="Timescale Cloud Services Overview"/>
+<img
+class="main-content__illustration"
+src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-services-overview.png"
+alt="Timescale Cloud Services Overview"
+/>
 
 ## Service users
 

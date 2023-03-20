@@ -80,6 +80,6 @@ You can switch to `project-fork` and view the newly created `grafana-fork` using
 ```
 
 [about-mst]: /mst/:currentVersion:/about-mst/
-[create-service]: /install/:currentVersion:/installation-mst/#create-your-first-service
+[create-service]: /mst/:currentVersion:/installation-mst/#create-your-first-service
 [mst-login]: https://portal.managed.timescale.com
 [aiven-client-mst]: /mst/:currentVersion:/aiven-client/aiven-client-install

@@ -709,13 +709,13 @@ module.exports = [
         href: "hyperfunctions",
         pageComponents: ["featured-cards"],
         featuredChildren: [
-          "/timescaledb/:currentVersion:/how-to-guides/hyperfunctions/function-pipelines",
-          "/timescaledb/:currentVersion:/how-to-guides/hyperfunctions/approx-count-distincts",
-          "/timescaledb/:currentVersion:/how-to-guides/hyperfunctions/stats-aggs",
-          "/timescaledb/:currentVersion:/how-to-guides/hyperfunctions/gapfilling-interpolation",
-          "/timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx",
-          "/timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation",
-          "/timescaledb/:currentVersion:/how-to-guides/hyperfunctions/time-weighted-averages",
+          "/use-timescale/:currentVersion:/hyperfunctions/function-pipelines",
+          "/use-timescale/:currentVersion:/hyperfunctions/approx-count-distincts",
+          "/use-timescale/:currentVersion:/hyperfunctions/stats-aggs",
+          "/use-timescale/:currentVersion:/hyperfunctions/gapfilling-interpolation",
+          "/use-timescale/:currentVersion:/hyperfunctions/percentile-approx",
+          "/use-timescale/:currentVersion:/hyperfunctions/counter-aggregation",
+          "/use-timescale/:currentVersion:/hyperfunctions/time-weighted-averages",
         ],
         children: [
           {

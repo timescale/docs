@@ -244,8 +244,8 @@ documentation:
 *   [`time_bucket`][docs-timebucket]
 *   [`last`][docs-last]
 
-[docs-hypertable]: /timescaledb/:currentVersion:/how-to-guides/hypertables/
+[docs-hypertable]: /use-timescale/:currentVersion:/hypertables/
 [docs-last]: /api/:currentVersion:/hyperfunctions/last
 [docs-timebucket]: /api/:currentVersion:/hyperfunctions/time_bucket
-[docs-timescaledb-intro]: /timescaledb/:currentVersion:/overview
-[install-timescale]: /install/:currentVersion:/
+[docs-timescaledb-intro]: /use-timescale/:currentVersion:/
+[install-timescale]: /getting-started/:currentVersion:/

@@ -56,10 +56,10 @@ Finally, it covers some special TimescaleDB SQL functions that can help you
 analyze your time-series data, and how to use other extensions, like PostGIS,
 for faster queries.
 
-[install-docs]: /install/:currentVersion:/
-[psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/
-[dataset-nyc]: /timescaledb/:currentVersion:/tutorials/nyc-taxi-cab/dataset-nyc/
-[query-nyc]: /timescaledb/:currentVersion:/tutorials/nyc-taxi-cab/query-nyc/
-[advanced-nyc]: /timescaledb/:currentVersion:/tutorials/nyc-taxi-cab/advanced-nyc/
+[install-docs]: /getting-started/:currentVersion:/
+[psql]: /use-timescale/:currentVersion:/connecting/
+[dataset-nyc]: /tutorials/:currentVersion:/nyc-taxi-cab/dataset-nyc/
+[query-nyc]: /tutorials/:currentVersion:/nyc-taxi-cab/query-nyc/
+[advanced-nyc]: /tutorials/:currentVersion:/nyc-taxi-cab/advanced-nyc/
 [nyc-tlc]: https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page
-[cloud-install]: /install/:currentVersion:/installation-cloud/
+[cloud-install]: /getting-started/latest/

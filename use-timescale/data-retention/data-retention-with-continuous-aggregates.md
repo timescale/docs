@@ -65,4 +65,4 @@ You can also apply data retention on a continuous aggregate itself. For example,
 you can keep raw data for 30 days, as above. Meanwhile, you can keep daily data
 for 600 days, and no data beyond that.
 
-[continuous_aggregates]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates
+[continuous_aggregates]: /use-timescale/:currentVersion:/continuous-aggregates

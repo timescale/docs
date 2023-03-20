@@ -13,7 +13,7 @@ These functions work on one-dimensional data. To work with two-dimensional data,
 for example to perform linear regression, see [the two-dimensional `stats_agg`
 functions][stats_agg-2d].
 
-[caggs]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/
+[caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
 [pg-stats-aggs]:
     https://www.postgresql.org/docs/current/functions-aggregate.html#FUNCTIONS-AGGREGATE-STATISTICS-TABLE
 [stats_agg-2d]: /api/:currentVersion:/hyperfunctions/statistical-and-regression-analysis/stats_agg-two-variables/

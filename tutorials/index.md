@@ -50,23 +50,23 @@ on PostgreSQL or TimescaleDB.
 Learn how to install `psql` on Mac, Ubuntu, Debian, Windows,
 and pick up some valuable `psql` tips and tricks along the way.
 
-[Crypto]: /timescaledb/:currentVersion:/tutorials/analyze-cryptocurrency-data
-[Forecasting]: /timescaledb/:currentVersion:/tutorials/time-series-forecast
-[Stocks]: /timescaledb/:currentVersion:/tutorials/analyze-intraday-stocks/
-[custom-dashboards]: /timescaledb/:currentVersion:/tutorials/custom-timescaledb-dashboards/
-[install-timescale]: /install/latest/
-[monitor-django-prometheus]: /timescaledb/:currentVersion:/tutorials/monitor-django-with-prometheus
-[nfl]: /timescaledb/:currentVersion:/tutorials/nfl-analytics/
-[nyc-taxi]: /timescaledb/:currentVersion:/tutorials/nyc-taxi-cab/
-[prometheus-mst-endpoint]: /timescaledb/:currentVersion:/tutorials/setting-up-mst-endpoint-for-prometheus
+[Crypto]: /tutorials/:currentVersion:/analyze-cryptocurrency-data
+[Forecasting]: /tutorials/:currentVersion:/time-series-forecast
+[Stocks]: /tutorials/:currentVersion:/analyze-intraday-stocks/
+[custom-dashboards]: /tutorials/:currentVersion:/custom-timescaledb-dashboards/
+[install-timescale]: /getting-started/latest/
+[monitor-django-prometheus]: /tutorials/:currentVersion:/monitor-django-with-prometheus
+[nfl]: /tutorials/:currentVersion:/nfl-analytics/
+[nyc-taxi]: /tutorials/:currentVersion:/nyc-taxi-cab/
+[prometheus-mst-endpoint]: /tutorials/:currentVersion:/setting-up-mst-endpoint-for-prometheus
 [promscale]: /promscale/latest/
-[psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql/
-[sample-data-sets]: /timescaledb/:currentVersion:/tutorials/sample-datasets
-[simul-iot-data]: /timescaledb/:currentVersion:/tutorials/simulate-iot-sensor-data
-[tableau]: /timescaledb/:currentVersion:/tutorials/visualize-with-tableau
-[telegraf]: /timescaledb/:currentVersion:/tutorials/telegraf-output-plugin
-[tutorial-grafana-alerts]: /timescaledb/:currentVersion:/tutorials/grafana/setup-alerts
-[tutorial-grafana-dashboards]: /timescaledb/:currentVersion:/tutorials/grafana/create-dashboard-and-panel
-[tutorial-grafana-geospatial]: /timescaledb/:currentVersion:/tutorials/grafana/geospatial-dashboards
-[tutorial-grafana-missing-data]: /timescaledb/:currentVersion:/tutorials/grafana/visualize-missing-data
-[tutorial-grafana-variables]: /timescaledb/:currentVersion:/tutorials/grafana/grafana-variables
+[psql]: /use-timescale/:currentVersion:/connecting/psql/
+[sample-data-sets]: /tutorials/:currentVersion:/sample-datasets
+[simul-iot-data]: /tutorials/:currentVersion:/simulate-iot-sensor-data
+[tableau]: /tutorials/:currentVersion:/visualize-with-tableau
+[telegraf]: /tutorials/:currentVersion:/telegraf-output-plugin
+[tutorial-grafana-alerts]: /tutorials/:currentVersion:/grafana/setup-alerts
+[tutorial-grafana-dashboards]: /tutorials/:currentVersion:/grafana/create-dashboard-and-panel
+[tutorial-grafana-geospatial]: /tutorials/:currentVersion:/grafana/geospatial-dashboards
+[tutorial-grafana-missing-data]: /tutorials/:currentVersion:/grafana/visualize-missing-data
+[tutorial-grafana-variables]: /tutorials/:currentVersion:/grafana/grafana-variables

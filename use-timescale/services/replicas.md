@@ -39,7 +39,7 @@ see the [blog post on Timescale Cloud replicas][replicas-blog].
 ### Asynchronous commits
 
 Timescale Cloud replicas are asynchronous. That means the primary database
-reports success as soon as a transaction is completedly locally. It doesn't wait
+reports success as soon as a transaction is completed locally. It doesn't wait
 to see if the replica successfully commits the transaction as well. The improves
 ingest rates and allows you to keep writing to your database even when the
 replica fails. But it might cause a small amount of data loss if the primary
@@ -110,7 +110,11 @@ service to restart. Restarts typically take about one minute to complete.
     the `Role` drop down menu to populate the section with the replica's
     connection details.
 
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-replication-add.png" alt="Creating a database replica in Timescale Cloud"/>
+<img
+class="main-content__illustration"
+src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-replication-add.png"
+alt="Creating a database replica in Timescale Cloud"
+/>
 
 </Procedure>
 

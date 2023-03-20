@@ -95,4 +95,4 @@ SELECT
 FROM t;
 ```
 
-[hyperfunctions-counter-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation/
+[hyperfunctions-counter-agg]: /use-timescale/:currentVersion:/hyperfunctions/counter-aggregation/

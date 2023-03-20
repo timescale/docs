@@ -13,10 +13,10 @@ cloud_ui:
 On Timescale Cloud, minor software updates are handled automatically by us, and
 you do not need to perform any actions.
 
-Most updates that we perform on your Timescale Cloud services are applied during
-a maintenance window that you can define to suit your workload. However, if we
-detect a critical security vulnerability that affects you, we might need to
-perform maintenance outside of the scheduled maintenance window.
+Most updates performed on your Timescale Cloud services are applied during a
+maintenance window that you can define to suit your workload. However, if there
+is a critical security vulnerability that affects you, maintenance might need to
+occur outside of the scheduled maintenance window.
 
 <Highlight type="important">
 After a maintenance update, the DNS name remains the same, but the IP address
@@ -56,9 +56,9 @@ During a maintenance event, services with replicas perform maintenance on each
 node independently. Maintenance begins on one node, and when it is finished,
 that node is promoted to primary. The other node then begins maintenance, and
 when it is complete, it remains the replica. Sometimes, maintenance begins with
-the primary. This causes the replica node to be promoted at the start. If this happens, the
-service experiences two promotions, or failovers, during the maintenance
-event.
+the primary. This causes the replica node to be promoted at the start. If this
+happens, the service experiences two promotions, or failovers, during the
+maintenance event.
 
 For more information about replicas, see the
 [replicas section][replicas-docs].
@@ -110,13 +110,13 @@ can plan accordingly. However, in some cases, we might not be able to do so.
 ## Upgrade to a new PostgreSQL version
 
 Timescale Cloud currently supports PostgreSQL&nbsp;12, 13, 14, and 15. You can see
-your PostgreSQL and TimescaleDB versions from the Timescale Cloud service
+your PostgreSQL and Timescale versions from the Timescale Cloud service
 overview page.
 
 <!-- TODO: Add screenshot
 <img class="main-content__illustration"
     src="FIXME"
-    alt="The Timescale Cloud dashboard, showing the PostgreSQL and TimescaleDB
+    alt="The Timescale Cloud dashboard, showing the PostgreSQL and Timescale
     versions"
 />
 -->
@@ -126,16 +126,17 @@ You can also manually upgrade to the newest supported PostgreSQL version
 
 Upgrading to a newer version of PostgreSQL allows you to take advantage of new
 features, enhancements, and security fixes. It also ensures that you are using a
-version of PostgreSQL that's compatible with the newest version of TimescaleDB,
+version of PostgreSQL that's compatible with the newest version of Timescale,
 allowing you to take advantage of everything Timescale has to offer. For more
 information about feature changes between versions, see the
 [PostgreSQL release notes][postgres-relnotes] and
-[TimescaleDB release notes][timescale-relnotes].
+[Timescale release notes][timescale-relnotes].
 
 <Highlight type="warning">
-Your Timescale Cloud service is unavailable until the upgrade is complete.
-This can take several hours. To estimate the length of time, it is usually one second of downtime per
-100&nbsp;MB, but for a better estimate, you can test on a fork first.
+Your Timescale Cloud service is unavailable until the upgrade is complete. This
+can take several hours. To estimate the length of time, it is usually one second
+of downtime per 100&nbsp;MB, but for a better estimate, you can test on a fork
+first.
 </Highlight>
 
 ### Recommended practices for upgrading
@@ -178,8 +179,8 @@ with a replica,  you must first delete the replica and then upgrade the service.
 </Highlight>
 
 [cloud-login]: https://cloud.timescale.com
-[operations-forking]: /cloud/:currentVersion:/service-operations/service-management/#fork-a-service
+[operations-forking]: /use-timescale/:currentVersion:/services/service-management/#fork-a-service
 [postgres-relnotes]: https://www.postgresql.org/docs/release/
-[replicas-docs]: /cloud/:currentVersion:/service-operations/replicas/
+[replicas-docs]: /use-timescale/:currentVersion:/services/replicas/
 [status-page]: https://status.timescale.com/
-[timescale-relnotes]: /timescaledb/latest/overview/release-notes/
+[timescale-relnotes]: /about/latest/release-notes/

@@ -28,9 +28,9 @@ query language). The tutorial walks you through each SQL command, but it is
 helpful if you've seen SQL before.
 
 [grafana-website]: https://www.grafana.com
-[install-grafana]: /timescaledb/:currentVersion:/tutorials/grafana/installation
-[tutorial-grafana-alerts]: /timescaledb/:currentVersion:/tutorials/grafana/setup-alerts/
-[tutorial-grafana-dashboards]: /timescaledb/:currentVersion:/tutorials/grafana/create-dashboard-and-panel/
-[tutorial-grafana-geospatial]: /timescaledb/:currentVersion:/tutorials/grafana/geospatial-dashboards/
-[tutorial-grafana-missing-data]: /timescaledb/:currentVersion:/tutorials/grafana/visualize-missing-data/
-[tutorial-grafana-variables]: /timescaledb/:currentVersion:/tutorials/grafana/grafana-variables/
+[install-grafana]: /tutorials/:currentVersion:/grafana/installation
+[tutorial-grafana-alerts]: /tutorials/:currentVersion:/grafana/setup-alerts/
+[tutorial-grafana-dashboards]: /tutorials/:currentVersion:/grafana/create-dashboard-and-panel/
+[tutorial-grafana-geospatial]: /tutorials/:currentVersion:/grafana/geospatial-dashboards/
+[tutorial-grafana-missing-data]: /tutorials/:currentVersion:/grafana/visualize-missing-data/
+[tutorial-grafana-variables]: /tutorials/:currentVersion:/grafana/grafana-variables/

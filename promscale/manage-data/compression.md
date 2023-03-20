@@ -40,6 +40,6 @@ You can find the current default chunk interval setting with this query:
 SELECT get_default_chunk_interval();
 ```
 
-[hypertables]: /timescaledb/:currentVersion:/overview/core-concepts/hypertables-and-chunks/
+[hypertables]: /use-timescale/:currentVersion:/hypertables/
 [promscale-install]: /promscale/:currentVersion:/installation/
-[tsdb-compression]: /timescaledb/:currentVersion:/overview/core-concepts/compression/
+[tsdb-compression]: /use-timescale/:currentVersion:/compression/

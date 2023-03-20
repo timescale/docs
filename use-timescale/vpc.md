@@ -214,7 +214,7 @@ complete.
 </Procedure>
 
 [aws-dashboard]: https://console.aws.amazon.com/vpc/home#PeeringConnections:
-[cloud-vpc]: /cloud/:currentVersion:/vpc-peering/
+[cloud-vpc]: /use-timescale/:currentVersion:/vpc/
 [cloud-login]: https://console.cloud.timescale.com/
 [timescale-support]: https://www.timescale.com/support
-[tsc-regions]: /cloud/:currentVersion:/#available-in-multiple-aws-regions
+[tsc-regions]: /use-timescale/FIXME/

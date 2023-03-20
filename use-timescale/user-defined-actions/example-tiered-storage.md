@@ -76,4 +76,4 @@ remains available for reads during the move.
 
 </Procedure>
 
-[moving-data]: /timescaledb/:currentVersion:/how-to-guides/schema-management/manage-storage/
+[moving-data]: /use-timescale/:currentVersion:/schema-management/manage-storage/

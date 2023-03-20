@@ -745,23 +745,23 @@ advanced TimescaleDB tutorials:
 *   [Try Other Sample Datasets][other-samples]
 *   [Migrate Your own Data][migrate]
 
-[continuous-aggregates]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/
-[migrate]: /timescaledb/:currentVersion:/how-to-guides/migrate-data/
-[other-samples]: /timescaledb/:currentVersion:/tutorials/sample-datasets/
+[continuous-aggregates]: /use-timescale/:currentVersion:/continuous-aggregates/
+[migrate]: /use-timescale/:currentVersion:/migrate-data/
+[other-samples]: /tutorials/:currentVersion:/sample-datasets/
 [connect]: #connect-to-timescaledb
 [create-table]: #create-a-relational-table
 [create-hypertable]: #create-a-hypertable
 [insert]: #insert-rows-of-data
 [query]: #execute-a-query
-[install]: /install/:currentVersion:/installation-cloud/
-[psql-install]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql/
+[install]: /getting-started/latest/
+[psql-install]: /use-timescale/:currentVersion:/connecting/psql/
 [rails-guide]: https://guides.rubyonrails.org/getting_started.html
 [ab]: https://httpd.apache.org/docs/2.4/programs/ab.html
 [active-record-query]: https://guides.rubyonrails.org/active_record_querying.html
 [around_action]: https://guides.rubyonrails.org/action_controller_overview.html#after-filters-and-around-filters
 [benchmark]: https://github.com/ruby/benchmark
-[continuous-aggregates]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/
-[migrate]: /timescaledb/:currentVersion:/how-to-guides/migrate-data/
-[other-samples]: /timescaledb/:currentVersion:/tutorials/sample-datasets/
+[continuous-aggregates]: /use-timescale/:currentVersion:/continuous-aggregates/
+[migrate]: /use-timescale/:currentVersion:/migrate-data/
+[other-samples]: /tutorials/:currentVersion:/sample-datasets/
 [time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
-[time-series-forecasting]: /timescaledb/:currentVersion:/tutorials/time-series-forecast/
+[time-series-forecasting]: /tutorials/:currentVersion:/time-series-forecast/

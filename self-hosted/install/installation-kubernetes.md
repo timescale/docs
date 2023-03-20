@@ -199,4 +199,4 @@ immediately. For more information about purging these items, see the
 [aws-eks]: https://docs.aws.amazon.com/eks/latest/userguide/getting-started.html
 [microk8s-install]: https://microk8s.io/docs/getting-started
 [admin-guide]: https://github.com/timescale/helm-charts/blob/master/charts/timescaledb-single/docs/admin-guide.md
-[timescaledb-k8s]: /timescaledb/:currentVersion:/overview/timescale-kubernetes/
+[timescaledb-k8s]: /self-hosted/:currentVersion:/overview/timescale-kubernetes/

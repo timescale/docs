@@ -23,6 +23,6 @@ with some sensible defaults.
 For more information about percentile approximation algorithms, see the
 [algorithms overview][algorithms].
 
-[algorithms]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/advanced-agg/
+[algorithms]: /use-timescale/:currentVersion:/hyperfunctions/percentile-approx/advanced-agg/
 [percentile_agg]: #percentile_agg
 [tdigest]: /api/:currentVersion:/hyperfunctions/percentile-approximation/tdigest/

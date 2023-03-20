@@ -27,4 +27,4 @@ Integer states are useful when the state value is a foreign key representing a r
     sortByType
 />
 
-[install-toolkit]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/install-toolkit
+[install-toolkit]: /use-timescale/:currentVersion:/hyperfunctions/install-toolkit

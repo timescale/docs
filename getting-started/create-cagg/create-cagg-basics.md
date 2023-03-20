@@ -129,7 +129,7 @@ data, which belong to an incomplete bucket.
 <Highlight type="note">
 If you don't want real-time aggregation, you can disable it. Set the `materialized_only`
 parameter to true for your continuous aggregate. For more information, see the
-section on [real-time aggregation](/timescaledb/latest/how-to-guides/continuous-aggregates/real-time-aggregates/#use-real-time-aggregates).
+section on [real-time aggregation](/use-timescale/latest/continuous-aggregates/real-time-aggregates/#use-real-time-aggregates).
 </Highlight>
 
 To inspect details about a continuous aggregate, such as its

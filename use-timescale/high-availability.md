@@ -133,6 +133,6 @@ exception of data in memory (up to 16&nbsp;MB or the last 5 minutes). For
 more information about backups on Timescale Cloud, see the
 [backup and restore section][cloud-backup].
 
-[cloud-backup]: /cloud/:currentVersion:/backup-restore-cloud/
-[db-replicas]: /cloud/:currentVersion:/service-operations/replicas/
-[maintenance]: /cloud/:currentVersion:/service-operations/maintenance/
+[cloud-backup]: /use-timescale/:currentVersion:/backup-restore-cloud/
+[db-replicas]: /use-timescale/:currentVersion/services/replicas/
+[maintenance]: /use-timescale/:currentVersion:/services/maintenance/

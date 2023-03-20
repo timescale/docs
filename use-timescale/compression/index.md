@@ -30,8 +30,8 @@ hypertables.
 Compression alters data on your disk, so always back up before you start!
 </Highlight>
 
-[backfill-historical]: /timescaledb/:currentVersion:/how-to-guides/compression/backfill-historical-data
-[compression]: /timescaledb/:currentVersion:/how-to-guides/compression/about-compression
-[decompress-chunks]: /timescaledb/:currentVersion:/how-to-guides/compression/decompress-chunks
-[manual-compression]: /timescaledb/:currentVersion:/how-to-guides/compression/manually-compress-chunks
-[modify-schema]: /timescaledb/:currentVersion:/how-to-guides/compression/modify-a-schema
+[backfill-historical]: /use-timescale/:currentVersion:/compression/backfill-historical-data
+[compression]: /use-timescale/:currentVersion:/compression/about-compression
+[decompress-chunks]: /use-timescale/:currentVersion:/compression/decompress-chunks
+[manual-compression]: /use-timescale/:currentVersion:/compression/manually-compress-chunks
+[modify-schema]: /use-timescale/:currentVersion:/compression/modify-a-schema

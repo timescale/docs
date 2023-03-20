@@ -82,6 +82,6 @@ for accessing your database, and add additional authentication requirements.
 
 </Tabs>
 
-[about-psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/about-psql/
+[about-psql]: /use-timescale/:currentVersion:/connecting/about-psql/
 [mst-portal]: https://portal.managed.timescale.com
 [tsc-portal]: https://console.cloud.timescale.com/

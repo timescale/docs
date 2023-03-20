@@ -68,4 +68,4 @@ The access node is listed without a user-given node name. Normally,
 the access node holds no data, but still maintains, for example, index
 information that occupies a small amount of disk space.
 
-[hypertable-docs]: /timescaledb/:currentVersion:/how-to-guides/hypertables/
+[hypertable-docs]: /use-timescale/:currentVersion:/hypertables/

@@ -20,9 +20,9 @@ In this section:
 *   [Manually drop chunks][manually-drop] of data
 *   [Troubleshoot] data retention
 
-[Troubleshoot]: /timescaledb/:currentVersion:/how-to-guides/data-retention/troubleshooting/
-[about-data-retention]: /timescaledb/:currentVersion:/how-to-guides/data-retention/about-data-retention/
-[caggs]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/
-[manually-drop]: /timescaledb/:currentVersion:/how-to-guides/data-retention/manually-drop-chunks
-[retention-policy]: /timescaledb/:currentVersion:/how-to-guides/data-retention/create-a-retention-policy
-[retention-with-caggs]: /timescaledb/:currentVersion:/how-to-guides/data-retention/data-retention-with-continuous-aggregates
+[Troubleshoot]: /use-timescale/:currentVersion:/data-retention/troubleshooting/
+[about-data-retention]: /use-timescale/:currentVersion:/data-retention/about-data-retention/
+[caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
+[manually-drop]: /use-timescale/:currentVersion:/data-retention/manually-drop-chunks
+[retention-policy]: /use-timescale/:currentVersion:/data-retention/create-a-retention-policy
+[retention-with-caggs]: /use-timescale/:currentVersion:/data-retention/data-retention-with-continuous-aggregates
