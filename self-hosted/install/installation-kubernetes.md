@@ -92,7 +92,7 @@ the name that you provided during the installation.
    the Helm installation:
 
     ```bash
-    PGPASSWORD_ADMIN=$(kubectl get secret --namespace default 
+    PGPASSWORD_ADMIN=$(kubectl get secret --namespace default
     <MY_NAME>-credentials -o jsonpath="{.data.PATRONI_admin_PASSWORD}" | base64 --decode)
     ```
 
@@ -100,7 +100,7 @@ the name that you provided during the installation.
    generated during the Helm installation:
 
     ```bash
-    PGPASSWORD_POSTGRES=$(kubectl get secret --namespace default 
+    PGPASSWORD_POSTGRES=$(kubectl get secret --namespace default
     <MY_NAME>-credentials -o jsonpath="{.data.PATRONI_SUPERUSER_PASSWORD}" | base64 --decode)
     ```
 
@@ -161,7 +161,7 @@ the name that you provided during the installation.
 
     ```sql
                                       List of installed extensions
-    Name     | Version |   Schema   |                            Description                            
+    Name     | Version |   Schema   |                            Description
     -------------+---------+------------+-------------------------------------------------------------------
     plpgsql     | 1.0     | pg_catalog | PL/pgSQL procedural language
     timescaledb | 2.1.1   | public     | Enables scalable inserts and complex queries for time-series data
@@ -187,6 +187,8 @@ helm delete <MY_NAME>
 
 Some items, such as PVCs and S3 backups, are not removed
 immediately.
+
+## Where to next
 
 <WhereTo />
 

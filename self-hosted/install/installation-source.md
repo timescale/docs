@@ -278,6 +278,8 @@ Description | timescaledb_toolkit
 tsdb=>
 ```
 
+## Where to next
+
 <WhereTo />
 
 [install-psql]: /use-timescale/:currentVersion:/connecting/psql/
