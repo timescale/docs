@@ -166,6 +166,8 @@ information on releases, check out the
     [PostgreSQL 12: Timescale release](https://timescalereleases.blob.core.windows.net/windows/timescaledb-postgresql-12_latest-windows-amd64.zip)
     </Tag>
 
+## Where to next
+
 <WhereTo />
 
 [gh-releases]: https://github.com/timescale/timescaledb/releases

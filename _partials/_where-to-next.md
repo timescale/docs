@@ -1,5 +1,3 @@
-## Where to next
-
 Now that you have your first Timescale database up and running, you can check
 out the [Use Timescale][tsdb-docs] section, and find out what
 you can do with it.

@@ -63,7 +63,7 @@ You can use Homebrew to install TimescaleDB on macOS-based systems.
 1.  Run the `timescaledb-tune` script to configure your database:
 
    ```bash
-   timescaledb-tune --quiet --yes 
+   timescaledb-tune --quiet --yes
    ```
 
 1.  Change to the directory where the setup script is located. It is typically,
@@ -172,7 +172,7 @@ utility and set up the TimescaleDB extension.
     ```sql
     tsdb-# \dx
                                           List of installed extensions
-        Name     | Version |   Schema   |                            Description                            
+        Name     | Version |   Schema   |                            Description
     -------------+---------+------------+-------------------------------------------------------------------
      plpgsql     | 1.0     | pg_catalog | PL/pgSQL procedural language
      timescaledb | 2.7.0   | public     | Enables scalable inserts and complex queries for time-series data
@@ -187,6 +187,8 @@ database directly using this command:
 ```bash
 psql -U postgres -h localhost -d tsdb
 ```
+
+## Where to next
 
  <WhereTo />
 

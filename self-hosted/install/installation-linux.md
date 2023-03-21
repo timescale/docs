@@ -386,7 +386,7 @@ Restart PostgreSQL and create the TimescaleDB extension:
 1.  Set the password for the `postgres` user using:
 
     ```sql
-    \password postgres 
+    \password postgres
     ```
 
 1.  Exit from PostgreSQL using the command `\q`.
@@ -421,7 +421,7 @@ Restart PostgreSQL and create the TimescaleDB extension:
     ```sql
     tsdb-# \dx
                                           List of installed extensions
-        Name     | Version |   Schema   |                            Description                            
+        Name     | Version |   Schema   |                            Description
     -------------+---------+------------+-------------------------------------------------------------------
      plpgsql     | 1.0     | pg_catalog | PL/pgSQL procedural language
      timescaledb | 2.7.0   | public     | Enables scalable inserts and complex queries for time-series data
@@ -484,7 +484,7 @@ Restart PostgreSQL and create the TimescaleDB extension:
     ```sql
     tsdb-# \dx
                                           List of installed extensions
-        Name     | Version |   Schema   |                            Description                            
+        Name     | Version |   Schema   |                            Description
     -------------+---------+------------+-------------------------------------------------------------------
      plpgsql     | 1.0     | pg_catalog | PL/pgSQL procedural language
      timescaledb | 2.7.0   | public     | Enables scalable inserts and complex queries for time-series data
@@ -503,6 +503,8 @@ database directly using this command:
 ```bash
 psql -U postgres -h localhost -d tsdb
 ```
+
+## Where to next
 
 <WhereTo />
 

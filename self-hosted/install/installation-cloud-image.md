@@ -113,6 +113,8 @@ tsdb=# \dx
 (END)
 ```
 
+## Where to next
+
 <WhereTo />
 
 [aws-signup]: https://portal.aws.amazon.com/billing/signup

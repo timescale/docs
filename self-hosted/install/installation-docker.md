@@ -224,6 +224,8 @@ If you have TimescaleDB installed in a Docker container, you can view your logs
 using Docker, instead of looking in `/var/lib/logs` or `/var/logs`. For more
 information, see the [Docker documentation on logs][docker-logs].
 
+## Where to next
+
 <WhereTo />
 
 [alpine]: https://alpinelinux.org/
