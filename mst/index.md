@@ -14,7 +14,6 @@ import CloudMSTComparison from "versionContent/_partials/_cloud-mst-comparison.m
 <CloudMSTComparison />
 
 *   Find out [about services][create-a-service]
-*   Create a [multi-node cluster][mst-multi-node]
 *   View [service logs][viewing-service-logs]
 *   Use [VPC peering][vpc-peering]
 *   Understand [security for Timescale MST][security]
@@ -38,9 +37,9 @@ Some important terms:
 *   **Service plans:** A service plan defines the configuration and level of
     database management that is performed for a given TimescaleDB deployment.
 
-## Hosted TimescaleDB
+## Hosted Timescale
 
-Built and operated by the TimescaleDB team, Managed Service for TimescaleDB
+Built and operated by the Timescale team, Managed Service for TimescaleDB
 provides a flexible relational time-series database:
 
 *   Select between more than 75 regions across AWS, GCP, or Azure
@@ -85,7 +84,6 @@ integrations and extensions.
 For more information on Managed Service for TimescaleDB's terms of service, visit the [Timescale website][tos].
 
 [create-a-service]: /mst/:currentVersion:/about-mst
-[mst-multi-node]: /mst/:currentVersion:/mst-multi-node
 [viewing-service-logs]: /mst/:currentVersion:/viewing-service-logs
 [vpc-peering]: /mst/:currentVersion:/vpc-peering
 [security]: /mst/:currentVersion:/security

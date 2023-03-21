@@ -1,14 +1,14 @@
 ---
-title: Migrating from self-hosted TimescaleDB to Managed Service for TimescaleDB
-excerpt: Migrating an existing TimescaleDB database to Managed Service for TimescaleDB
-products: [mst]
+title: Migrating from self-hosted Timescale to Managed Service for TimescaleDB
+excerpt: Migrating an existing Timescale database to Managed Service for TimescaleDB
+products: [mst, self-hosted]
 keywords: [data migration, database]
 tags: [ingest, backup, restore]
 ---
 
 # Migrate the entire database to Managed Service for TimescaleDB
 
-You can migrate your data from self-hosted TimescaleDB to Managed Service for
+You can migrate your data from self-hosted Timescale to Managed Service for
 TimescaleDB and automate most of your most common operational tasks.
 
 Managed Service for TimescaleDB creates a database named `defaultdb` and a
@@ -19,7 +19,7 @@ You can switch between different plan sizes in Managed Service for TimescaleDB,
 However, during the dumping process choose a plan size that has the same
 storage size or slightly larger than the currently allocated plan. This allows
 you to limit the downtime during the migration process and have a sufficiently
-powerful TimescaleDB plan..
+powerful Timescale plan.
 
 <Highlight type="warning">
 Depending on your database size and network speed, migration can take a very
@@ -50,7 +50,7 @@ Ensure that you have:
     and [Managed Service for TimescaleDB][upgrading-postgresql].
 *   Checked that you're running the same major version of TimescaleDB on both
     Managed Service for TimescaleDB and your source database. For more
-    information, see the [upgrading TimescaleDB section][upgrading-timescaledb].
+    information, see the [upgrading Timescale section][upgrading-timescaledb].
 
 <Highlight type="note">
 To speed up migration, compress your data. You can compress any chunks where
@@ -86,8 +86,8 @@ information about compression and decompression, see the
     pg_restore -d 'postgres://CLICK_TO:REVEAL_PASSWORD@demo.demoproject.timescaledb.io:19335/defaultdb?sslmode=require' --jobs 4 dump.bak 
     ```
 
-1.  Connect to your new database and update your table statistics by running [`ANALYZE`][analyze] on your entire
-    dataset:
+1.  Connect to your new database and update your table statistics by running
+    [`ANALYZE`]   [analyze] on your entire dataset:
 
     ```sql
     psql 'postgres://CLICK_TO:REVEAL_PASSWORD@demo.demoproject.timescaledb.io:19335/defaultdb?sslmode=require'

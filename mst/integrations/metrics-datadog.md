@@ -68,14 +68,15 @@ TimescaleDB service.
 
 ## Activate Datadog integration for a service
 
-When you have successfully added the endpoint, you can set up one of your services to send data to Datadog.
+When you have successfully added the endpoint, you can set up one of your
+services to send data to Datadog.
 
 <Procedure>
 
 ### Activating Datadog integration for a service
 
-1.  In the Managed Service for TimescaleDB `Services` view, click the name of the service that you want to
-    connect to Datadog.
+1.  In the Managed Service for TimescaleDB `Services` view, click the name of
+    the service that you want to connect to Datadog.
 1.  In the `Service integrations` section, click `Manage integrations`. Locate
     the Datadog integration, and click `Use integration`.
 1.  In the `Datadog integration` dialog, select the Datadog endpoint you created
