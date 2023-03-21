@@ -26,24 +26,10 @@ query all your data with standard SQL, no matter where it's stored.
 <ExperimentalPrivateBeta />
 <TieringBeta />
 
-## Benefits of data tiering
+*   Learn [how data tiering works][about-data-tiering] before you start using it.
+*   [Tier data to object storage][tier-data]
+*   [Untier data][untier-data]
 
-With data tiering, you get:
-
-*   **Low-cost scalability.** Store high volumes of time-series data
-    cost-efficiently in the object store. You pay only for what you store, with
-    no extra cost for queries.
-
-*   **Data warehousing.** Access all your data without leaving Timescale Cloud.
-    Rather than running a separate system to tier and archive historical data,
-    move it to native object storage.
-
-*   **Transparent SQL queries.** You can interact with your data normally even
-    when it's distributed across different storage layers. Queries and `JOIN`s
-    work as usual.
-
-## Learn more
-
-Learn [how data tiering works][how-to].
-
-[how-to]: /cloud/:currentVersion:/data-tiering/tier-data-object-storage/
+[about-data-tiering]: /cloud/:currentVersion:/data-tiering/about-data-tiering/
+[tier-data]: /cloud/:currentVersion:/data-tiering/tier-data-object-storage/
+[untier-data]: /cloud/:currentVersion:/data-tiering/untier-data/
