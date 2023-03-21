@@ -27,9 +27,9 @@ Time bucketing groups data into time intervals. With `time_bucket`, the interval
 length can be any number of microseconds, milliseconds, seconds, minutes, hours,
 days, weeks, months, years, or centuries.
 
-`time_bucket` is usually used in combination with `GROUP BY` to aggregate data.
-For example, you can calculate the average, maximum, minimum, or sum of values
-within a bucket.
+The `time_bucket` function is usually used in combination with `GROUP BY` to
+aggregate data. For example, you can calculate the average, maximum, minimum, or
+sum of values within a bucket.
 
 <img class="main-content__illustration"
     src="https://s3.amazonaws.com/assets.timescale.com/docs/images/getting-started/time-bucket.jpg"
@@ -60,7 +60,7 @@ for the beginning of the bucket.
 
 For example, say that your data's earliest timestamp is April 24, 2020. If you
 bucket by an interval of two weeks, the first bucket doesn't start on April 24,
-which is a Friday. It doesn't start on April 20, which is the immediately
+which is a Friday. It also doesn't start on April 20, which is the immediately
 preceding Monday. It starts on April 13, because you can get to April 13, 2020,
 by counting in two-week increments from January 3, 2000, which is the default
 origin in this case.
@@ -73,9 +73,9 @@ For intervals that don't include months or years, the default origin is January
 
 These choices make the time ranges of time buckets more intuitive. Because
 January 3, 2000, is a Monday, weekly time buckets start on Monday. This is
-compliant with the ISO standard for calculating calendar weeks. By contrast,
-monthly and yearly time buckets use January 1, 2000, as an origin. This allows
-them to start on the first day of the calendar month or year.
+compliant with the ISO standard for calculating calendar weeks. Monthly and
+yearly time buckets use January 1, 2000, as an origin. This allows them to start
+on the first day of the calendar month or year.
 
 If you prefer another origin, you can set it yourself using the [`origin`
 parameter][origin]. For example, to start weeks on Sunday, set the origin to
