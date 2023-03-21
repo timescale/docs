@@ -14,14 +14,14 @@ procedures on your database.
 ## PostgreSQL functions
 
 You can use PostgreSQL functions to create database operations that would
-normally take several queries or steps. Functions can also be used by other
-applications that interact with your database to perform tasks without requiring
+typically take several queries or steps. Functions can also be used by other
+applications that interact with your database to perform tasks without
 additional code.
 
 Your function needs to be wrapped in a `CREATE` statement. You can also use
 `CREATE OR REPLACE`, although this is not recommended. This statement also
 allows you to define the language of your commands in this statement.
-User-defined actions can be written in any language you choose. This guide uses
+User-defined actions can be written in any language of your choice. This guide uses
 the SQL procedural language [PL/pgSQL][plpgsql].
 
 The basic syntax of a function suitable for a user-defined action is:
@@ -37,7 +37,7 @@ RETURNS <return_datatype> AS $<variable_name>$
    END; LANGUAGE <language>;
 ```
 
-This very simple example of a function returns the total row count of a table
+This is an example of a function returns the total row count of a table
 within a database.
 
 <Highlight type="cloud"
@@ -81,8 +81,8 @@ The result looks like this:
 ## The job scheduler
 
 When you have created your function, you need to register it with the job
-scheduler to make it run regularly. You can do with the `add_job` function. This
-example adds the `totalRecords` function, and tells it to run every hour:
+scheduler to make the function run regularly. You can do with the `add_job` function.
+This example adds the `totalRecords` function, and tells it to run every hour:
 
 ```sql
 SELECT add_job('totalRecords', '1h', config => '{"hypertable":"metr"}');
