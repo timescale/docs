@@ -117,7 +117,7 @@ going on in each part.
     ```
 
 <Highlight type="note">
-In this procedure, we used `prometheus` to do the extrapolation. Timescale's
+In this procedure, `Prometheus` is used to do the extrapolation. Timescale's
 current `extrapolation` function is built to mimic the Prometheus project's
 `increase` function, which measures the change of a counter extrapolated to the
 edges of the queried region.

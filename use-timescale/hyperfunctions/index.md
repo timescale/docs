@@ -10,7 +10,7 @@ keywords: [hyperfunctions, Toolkit, analytics]
 Hyperfunctions allow you to perform critical time-series queries quickly,
 analyze time-series data, and extract meaningful information.
 
-Some hyperfunctions are included in the default TimescaleDB product. For
+Some hyperfunctions are included by default in Timescale. For
 additional hyperfunctions, you need to install the
 [Timescale Toolkit][install-toolkit] PostgreSQL extension.
 
@@ -27,4 +27,4 @@ For more information, read the [hyperfunctions blog post][hyperfunctions-blog].
 
 [about-hyperfunctions]: /use-timescale/:currentVersion:/hyperfunctions/about-hyperfunctions
 [hyperfunctions-blog]: https://blog.timescale.com/blog/time-series-analytics-for-postgresql-introducing-the-timescale-analytics-project/
-[install-toolkit]: /use-timescale/:currentVersion:/hyperfunctions/install-toolkit
+[install-toolkit]: /self-hosted/:currentVersion:/tooling/install-toolkit/

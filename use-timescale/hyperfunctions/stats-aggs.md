@@ -8,11 +8,11 @@ keywords: [hyperfunctions, Toolkit, statistics]
 # Statistical aggregation
 
 To make common statistical aggregates easier to work with in window functions
-and continuous aggregates, TimescaleDB provides common statistical aggregates in
-a slightly different form than otherwise available in PostgreSQL and
-TimescaleDB.
+and continuous aggregates, Timescale provides common statistical aggregates in
+a slightly different form than otherwise available in PostgreSQL and Timescale.
 
-In this example, we calculate the average, standard deviation, and kurtosis of a value in the `measurements` table:
+In this example, we calculate the average, standard deviation, and kurtosis of
+a value in the `measurements` table:
 
 ```sql
 SELECT 
@@ -27,17 +27,18 @@ GROUP BY 1;
 This uses a two-step aggregation process. The first step is an aggregation step (`stats_agg(val)`),
 which creates a machine-readable form of the aggregate. The second step is an accessor.
 The available accessors are `average`, `stddev`, and `kurtosis`. The accessors
-run final calculations and output the calculated value in a human-readable way. This makes it
-easier to construct your queries, because it distinguishes the parameters, and
-makes it clear which aggregates are being re-aggregated or rolled up.
-Additionally, because this query syntax is used in all Timescale Toolkit
-queries, when you are used to it, you can use it to construct more and more
-complicated queries.
+run final calculations and output the calculated value in a human-readable way.
+This makes it easier to construct your queries, because it distinguishes the
+parameters, and makes it clear which aggregates are being re-aggregated or
+rolled up. Additionally, because this query syntax is used in all Timescale
+Toolkit queries, when you are used to it, you can use it to construct more and
+more complicated queries.
 
-A more complex example uses window functions to calculate tumbling window statistical aggregates.
-The statistical aggregate is first calculated over each minute in the subquery
-and then the `rolling` aggregate is used to re-aggregate it over each 15 minute period preceding.
-The accessors remain the same as the previous example:
+A more complex example uses window functions to calculate tumbling window
+statistical aggregates. The statistical aggregate is first calculated over each
+minute in the subquery and then the `rolling` aggregate is used to re-aggregate
+it over each 15 minute period preceding. The accessors remain the same as the
+previous example:
 
 ```sql
 SELECT 

@@ -21,4 +21,4 @@ additional hyperfunctions, you need to install the
     sortByType
 />
 
-[install-toolkit]: /use-timescale/:currentVersion:/hyperfunctions/install-toolkit
+[install-toolkit]: /self-hosted/:currentVersion:/tooling/install-toolkit/

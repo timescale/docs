@@ -200,6 +200,11 @@ module.exports = [
             title: "Timescale parallel copy",
             href: "about-timescaledb-parallel-copy",
           },
+          {
+            title: "Install and update Timescale Toolkit",
+            href: "install-toolkit",
+            excerpt: "Install and update the Timescale Toolkit",
+          },
         ],
       },
       {

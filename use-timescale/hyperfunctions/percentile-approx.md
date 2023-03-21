@@ -8,10 +8,10 @@ keywords: [hyperfunctions, Toolkit, percentiles]
 # Percentile approximation
 
 In general, percentiles are useful for understanding the distribution of data.
-The fiftieth percentile is the point at which half of your data is greater and half
-is lesser. The tenth percentile is the point at which 90% of the data is greater,
-and 10% is lesser. The ninety-ninth percentile is the point at which 1% is greater, and
-99% is lesser.
+The fiftieth percentile is the point at which half of your data is greater and
+half is lesser. The tenth percentile is the point at which 90% of the data is
+greater, and 10% is lesser. The ninety-ninth percentile is the point at which 1%
+is greater, and 99% is lesser.
 
 The fiftieth percentile, or median, is often a more useful measure than the average,
 especially when your data contains outliers. Outliers can dramatically change

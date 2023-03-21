@@ -9,7 +9,7 @@ keywords: [hyperfunctions, Toolkit, percentiles, uddsketch, tdigest]
 
 Timescale uses approximation algorithms to calculate a percentile without
 requiring all of the data. This also makes them more compatible with continuous
-aggregates. By default, TimescaleDB uses `uddsketch`, but you can also choose to
+aggregates. By default, Timescale uses `uddsketch`, but you can also choose to
 use `tdigest`. This section describes the different methods, and helps you to
 decide which one you should use.
 

@@ -24,4 +24,4 @@ additional hyperfunctions, you need to install the
 />
 
 [hyperfunctions-time-weight-average]: /use-timescale/:currentVersion:/hyperfunctions/time-weighted-averages/
-[install-toolkit]: /use-timescale/:currentVersion:/hyperfunctions/install-toolkit
+[install-toolkit]: /self-hosted/:currentVersion:/tooling/install-toolkit/

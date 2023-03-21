@@ -11,7 +11,7 @@ Most time-series data analysis techniques aggregate data into fixed time
 intervals, which smooths the data and makes it easier to interpret and analyze.
 When you write queries for data in this form, you need an efficient way to
 aggregate raw observations, which are often noisy and irregular, in to fixed
-time intervals. TimescaleDB does this using time bucketing, which gives a clear
+time intervals. Timescale does this using time bucketing, which gives a clear
 picture of the important data trends using a concise, declarative SQL query.
 
 Sorting data into time buckets works well in most cases, but problems can arise
