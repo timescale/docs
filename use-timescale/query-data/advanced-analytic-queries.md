@@ -1,15 +1,15 @@
 ---
 title: Perform advanced analytic queries
-excerpt: Perform advanced data analysis using native PostgreSQL queries and TimescaleDB hyperfunctions
+excerpt: Perform advanced data analysis using native PostgreSQL queries and Timescale hyperfunctions
 products: [cloud, mst, self_hosted]
 keywords: [queries, hyperfunctions, analytics]
 ---
 
 # Perform advanced analytic queries
 
-You can use TimescaleDB for a variety of analytical queries. Some of these
+You can use Timescale for a variety of analytical queries. Some of these
 queries are native PostgreSQL, and some are additional functions provided by
-TimescaleDB. This section contains the most common and useful analytic queries.
+Timescale. This section contains the most common and useful analytic queries.
 
 ## Calculate the median and percentile
 
@@ -141,7 +141,7 @@ ORDER BY bucket;
 
 ## Group data into time buckets
 
-The TimescaleDB [`time_bucket`][time_bucket] function extends the PostgreSQL
+The Timescale [`time_bucket`][time_bucket] function extends the PostgreSQL
 [`date_trunc`][date_trunc] function. Time bucket accepts arbitrary time
 intervals as well as optional offsets and returns the bucket start time. For
 example:
@@ -155,7 +155,7 @@ SELECT time_bucket('5 minutes', time) AS five_min, avg(cpu)
 
 ## Get the first or last value in a column
 
-The TimescaleDB [`first`][first] and [`last`][last] functions allow you to get
+The Timescale [`first`][first] and [`last`][last] functions allow you to get
 the value of one column as ordered by another. This is commonly used in an
 aggregation. These examples find the last element of a group:
 
@@ -174,7 +174,7 @@ SELECT time_bucket('5 minutes', time) five_min, location, last(temperature, time
 
 ## Generate a histogram
 
-The TimescaleDB [`histogram`][histogram] function allows you to generate a
+The Timescale [`histogram`][histogram] function allows you to generate a
 histogram of your data. This example defines a histogram with five buckets
 defined over the range 60 to 85. The generated histogram has seven bins; the
 first is for values below the minimum threshold of 60, the middle five bins are
@@ -204,9 +204,9 @@ You can display records for a selected time range, even if no data exists for
 part of the range. This is often called gap filling, and usually involves an
 operation to record a null value for any missing data.
 
-In this example, we use trading data that includes a `time` timestamp, the
+In this example, the trading data that includes a `time` timestamp, the
 `asset_code` being traded, the `price` of the asset, and the `volume` of the
-asset being traded.
+asset being traded is used.
 
 Create a query for the volume of the asset 'TIMS' being traded every day
 for the month of September:
@@ -269,10 +269,10 @@ This query outputs data like this:
  2021-09-22 00:00:00+00 |   9855
 ```
 
-You can also use the TimescaleDB `time_bucket_gapfill` function to generate data
+You can also use the Timescale `time_bucket_gapfill` function to generate data
 points that also include timestamps. This can be useful for graphic libraries
 that require even null values to have a timestamp so that they can accurately
-draw gaps in a graph. In this example, we generate 1080 data points across the
+draw gaps in a graph. In this example, you generate 1080 data points across the
 last two weeks, fill in the gaps with null values, and give each null value a
 timestamp:
 
@@ -336,7 +336,7 @@ traverse. This method does not work unless all items have at least one record
 within the time range. A more robust method is to use a last point query to
 determine the last record for each unique item.
 
-In this example, useful for asset tracking or fleet management, we create a
+In this example, useful for asset tracking or fleet management, you create a
 metadata table for each vehicle being tracked, and a second time-series table
 containing the vehicle's location at a given time:
 
@@ -357,7 +357,7 @@ CREATE TABLE location (
 SELECT create_hypertable('location', 'time');
 ```
 
-We can use the first table, which gives us a distinct set of vehicles, to
+You can use the first table, which gives us a distinct set of vehicles, to
 perform a `LATERAL JOIN` against the location table:
 
 ```sql
