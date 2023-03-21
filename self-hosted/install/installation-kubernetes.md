@@ -10,8 +10,7 @@ keywords: [installation, self-hosted, Kubernetes]
 You can install a TimescaleDB instance on any Kubernetes deployment. Use the
 `timescaledb-single` Helm chart to deploy a highly available TimescaleDB
 database, and `timescaledb-multinode` to deploy a multi-node distributed
-TimescaleDB database. For more information about the components that are
-deployed with these charts, see [TimescaleDB on Kubernetes][timescaledb-k8s].
+TimescaleDB database.
 
 Before you begin installing TimescaleDB on a Kubernetes deployment, make sure
 you have installed:
@@ -187,16 +186,10 @@ helm delete <MY_NAME>
 ```
 
 Some items, such as PVCs and S3 backups, are not removed
-immediately. For more information about purging these items, see the
-[Administrator Guide][admin-guide].
+immediately.
 
 <WhereTo />
 
 [kubectl-install]: https://kubernetes.io/docs/tasks/tools/
 [kubernetes-install]: https://kubernetes.io/docs/setup/
 [helm-install]: https://helm.sh/docs/intro/install/
-[minikube-install]: https://minikube.sigs.k8s.io/docs/start/
-[aws-eks]: https://docs.aws.amazon.com/eks/latest/userguide/getting-started.html
-[microk8s-install]: https://microk8s.io/docs/getting-started
-[admin-guide]: https://github.com/timescale/helm-charts/blob/master/charts/timescaledb-single/docs/admin-guide.md
-[timescaledb-k8s]: /self-hosted/:currentVersion:/overview/timescale-kubernetes/

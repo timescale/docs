@@ -73,7 +73,7 @@ dataset and copy the data to your database.
     ```
 
 1.  At the `psql` prompt, use the `COPY` command to transfer data into your
-    TimescaleDB instance. If the `.csv` files aren't in your current directory,
+    Timescale Cloud instance. If the `.csv` files aren't in your current directory,
     specify the file paths in the following commands:
 
     ```sql
@@ -106,7 +106,7 @@ docker cp tutorial_sample_company.csv timescaledb:/tutorial_sample_company.csv
 
 ## Next steps
 
-Now that you have data in your TimescaleDB instance, learn how to [query the
+Now that you have data in your Timescale Cloud instance, learn how to [query the
 data][query-data].
 
 [twelve-data]: https://twelvedata.com/

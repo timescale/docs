@@ -40,4 +40,4 @@ you need to.
 [upgrade-major]: /self-hosted/:currentVersion:/upgrades/major-upgrade/
 [upgrade-minor]: /self-hosted/:currentVersion:/upgrades/minor-upgrade/
 [upgrade-pg]: /self-hosted/:currentVersion:/upgrades/upgrade-pg/
-[upgrade-tshoot]: /self-hosted/:currentVersion:/upgrades/troubleshooting/
+[upgrade-tshoot]: /self-hosted/:currentVersion:/troubleshooting/

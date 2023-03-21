@@ -71,7 +71,7 @@ in the table. It can also run into deadlock if foreign key constraints exist to
 other tables.
 
 If you would like finer control over index formation and other aspects of your
-hypertable, [follow these migration instructions instead](https://docs.timescale.com/use-timescale/latest/migrate-data/).
+hypertable, [follow these migration instructions instead](/use-timescale/latest/migrate-data/).
 
 When converting a normal SQL table to a hypertable, pay attention to how you handle
 constraints. A hypertable can contain foreign keys to normal SQL table columns,
@@ -204,8 +204,6 @@ CREATE FUNCTION event_started(jsonb)
 SELECT create_hypertable('events', 'event', time_partitioning_func => 'event_started');
 ```
 
-[add_dimension]: /api/:currentVersion:/hypertable/add_dimension/
 [create_distributed_hypertable]: /api/:currentVersion:/distributed-hypertables/create_distributed_hypertable
 [hash-partitions]: /use-timescale/:currentVersion:/hypertables/about-hypertables/#hypertable-partitioning
-[set_chunk_time_interval]: /api/:currentVersion:/hypertable/set_chunk_time_interval/
 [hypertable-docs]: /use-timescale/:currentVersion:/hypertables/

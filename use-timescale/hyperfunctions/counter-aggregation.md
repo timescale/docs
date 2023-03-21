@@ -19,4 +19,4 @@ interruptions or resets.
 For more information about counter aggregation API calls, see the
 [hyperfunction API documentation][hyperfunctions-api-counter-agg].
 
-[hyperfunctions-api-counter-agg]: /api/:currentVersion:/hyperfunctions/counter_aggs/
+[hyperfunctions-api-counter-agg]: /api/:currentVersion:/hyperfunctions/counters-and-gauges/counter_agg/

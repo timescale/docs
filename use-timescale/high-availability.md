@@ -135,5 +135,5 @@ more information about backups on Timescale Cloud, see the
 [backup and restore section][cloud-backup].
 
 [cloud-backup]: /use-timescale/:currentVersion:/backup-restore-cloud/
-[db-replicas]: /use-timescale/:currentVersion/services/replicas/
+[db-replicas]: /use-timescale/:currentVersion:/services/replicas/
 [maintenance]: /use-timescale/:currentVersion:/services/maintenance/
