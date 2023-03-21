@@ -8,7 +8,7 @@ tags: [ingest, Hypershift, postgresql]
 
 # Migrate with Hypershift
 
-You can use Hypershift&nbsp;0.3&nbsp;(beta) to migrate existing PostgreSQL
+You can use Hypershift&nbsp;0.4&nbsp;(beta) to migrate existing PostgreSQL
 databases in one step, and enable compression and hypertable creation on the
 fly.
 
@@ -103,7 +103,7 @@ plain index before you run the Hypershift migration.
 1.  At the command prompt, pull the latest Hypershift container from Dockerhub:
 
     ```bash
-    docker pull timescale/hypershift:0.3
+    docker pull timescale/hypershift:0.4
     ```
 
 </Procedure>
@@ -125,7 +125,7 @@ plain index before you run the Hypershift migration.
 1.  At the command prompt, pull the latest Hypershift container from Dockerhub:
 
     ```bash
-    docker pull timescale/hypershift:0.3
+    docker pull timescale/hypershift:0.4
     ```
 
 </Procedure>
@@ -154,19 +154,21 @@ that you want to convert to hypertables:
 If you are not sure what chunk time interval to use, see the
 [time partitioning section][chunk-time].
 
-Use this format:
+Use this format to configure which tables are going to be converted to
+hypertable:
 
 ```yml
-- schema: public
-  name: <TABLE_NAME>
-  time_column_name: <TIME_COLUMN_NAME>
-  chunk_time_interval: "12h"
-  compress:
-    after: "48h"
-    segmentby:
-      - <COLUMN_NAME>
-    orderby:
-      - time desc
+hypertable_configs:
+  - schema: public
+    name: <TABLE_NAME>
+    time_column_name: <TIME_COLUMN_NAME>
+    chunk_time_interval: "12h"
+    compress:
+      after: "48h"
+      segmentby:
+        - <COLUMN_NAME>
+      orderby:
+        - time desc
 ```
 
 <Procedure>
@@ -177,34 +179,45 @@ Use this format:
     accordingly. For example:
 
     ```yml
-    - schema: public
-      name: stocks_real_time
-      time_column_name: time
-      chunk_time_interval: "12h"
-      compress:
-        after: "48h"
-        segmentby:
-          - symbol
-        orderby:
-          - time desc
+    source: "host=<DB_NAME> dbname=<SOURCE_DB_HOSTNAME> user=postgres port=5431"
+    target: "host=<DB_NAME> dbname=<TARGET_DB_HOSTNAME> user=postgres port=5432"
+    verbose: true
+    hypertable_configs:
+      - schema: public
+        name: stocks_real_time
+        time_column_name: time
+        chunk_time_interval: "12h"
+        compress:
+          after: "48h"
+          segmentby:
+            - symbol
+          orderby:
+            - time desc
     ```
 
 1.  At the command prompt, run the Hypershift container. Include the source and
-    destination database connection strings, and the path to your `hypershift.yml`
+    destination database passwords, and the path to your `hypershift.yml`
     configuration file:
 
     ```bash
     docker run -v $(pwd)/hypershift.yml:/hypershift.yml \
-    -ti timescale/hypershift:0.3 clone \
-    -s "host=<DB_NAME>.<SOURCE_DB_HOSTNAME> user=postgres port=5431 password=<DB_PASSWORD>" \
-    -t "host=<DB_NAME>.<TARGET_DB_HOSTNAME> user=postgres port=5432 password=<DB_PASSWORD>" \
-    --hypertable /hypershift.yml
+    -ti timescale/hypershift:0.4 clone \
+    -s "<DB_PASSWORD>" \
+    -t "<DB_PASSWORD>" \
+    --config-file /hypershift.yml
     ```
 
 1.  When the migration has finished, a summary of the migration is shown, and
     the Docker container exits.
 
 </Procedure>
+
+If you want to view the available configuration options for Hypershift, you
+can access its help by running the following command in your terminal:
+
+```bash
+docker run -ti timescale/hypershift:0.4 --help
+```
 
 [cloud-install]: /install/:currentVersion:/installation-cloud/
 [docker-install]: https://docs.docker.com/get-docker/
