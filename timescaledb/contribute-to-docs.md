@@ -404,15 +404,6 @@ as shown.
 same position, or be in the position you expect on an individual reader's
 device.
 
-*Promscale Connector*
-: Use initial capital letters.
-
-&#10060; "Install the Promscale connector."
-
-&#10060; "Install the promscale connector."
-
-&#128077; "Install the Promscale Connector."
-
 ### Q
 
 ### R
