@@ -46,15 +46,12 @@ for the distributed hypertable and performs query planning across the cluster,
 and any number of data nodes that store subsets of the distributed hypertable
 dataset and run queries locally.
 
-Before you begin, make sure you have [signed up][cloud-signup] for your
-Timescale Cloud account.
-
 <Procedure>
 
 ### Setting up multi-node on Timescale Cloud
 
-1.  [Log in to your Timescale Cloud account][cloud-login] and click `Create
-    Service`.
+1.  [Log in to your Timescale Cloud account][cloud-login] and click
+    `Create Service`.
 1.  Click `Advanced configuration`.
 1.  Under `Choose your architecture`, click `Mult-node`.
 1.  Our customer support team contacts you. When your request is approved,

@@ -341,15 +341,10 @@ module.exports = [
             excerpt: "Ingest data into Timescale from Telegraf",
           },
           {
-            title: "Install and use timescaledb-parallel-copy",
+            title: "Ingesting data with Timescale parallel copy",
             href: "about-timescaledb-parallel-copy",
             excerpt:
               "Quickly insert bulk data by parallelizing `COPY` operations",
-          },
-          {
-            title: "Ingesting data with Timescale parallel copy",
-            href: "ingest-parallel-copy",
-            excerpt: "Ingest data into Timescale using parallel copy",
           },
         ],
       },

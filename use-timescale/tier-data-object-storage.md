@@ -56,8 +56,8 @@ release.
 
 To automate archival of historical data, create a data tiering policy that
 automatically moves data to object storage. Any chunks that only contain data
-older than the `move_after` threshold are moved. This works similarly to a [data
-retention policy][data-retention], but chunks are moved rather than deleted.
+older than the `move_after` threshold are moved. This works similarly to a
+[data retention policy][data-retention], but chunks are moved rather than deleted.
 
 The data tiering policy schedules a job that runs periodically to migrate
 eligible chunks. The migration is asynchronous.

@@ -55,8 +55,9 @@ Compute failures are by far the most common types of failures. That
 said, sometimes the disk itself can fail, although this is far less
 common. In the event of a storage failure, Timescale Cloud
 automatically performs a full recovery from backup. Similar to compute
-failures, any unarchived WAL (up to 16&nbsp;MB or 5 minutes) is also lost. You
-can learn more about backups and recovery [here][cloud-backup].
+failures, any unarchived WAL (up to 16&nbsp;MB or 5 minutes) is also lost.
+For more information about backups on Timescale Cloud, see the
+[backup and restore section][cloud-backup].
 
 Timescale Cloud's rapid recovery strategy can dramatically reduce the
 RTO in the most common failure scenarios, bringing the time to recover
@@ -110,8 +111,8 @@ Some operations on your database cannot avoid downtime, such as
 upgrading a major version of PostgreSQL. If Timescale Cloud has to
 apply a critical update, like a security patch, it is only applied
 during the set Maintenance Window. However, these situations are rare
-or triggered manually by the user. See the [Maintenance][maintenance] section in the
-docs to learn more about how maintenance is handled.
+or triggered manually by the user. See the [Maintenance][maintenance]
+section in the docs to learn more about how maintenance is handled.
 
 Adding replicas to your service can help reduce the downtime during a
 maintenance event, as maintenance is applied to each node individually.

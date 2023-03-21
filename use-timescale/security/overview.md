@@ -15,12 +15,12 @@ databases and backups are encrypted.
 
 Timescale Cloud uses AWS as its cloud provider, with all the security that AWS
 provides. Data encryption uses the industry-standard AES-256 algorithm.
-Cryptographic keys are managed by [AWS Key Management Service (AWS
-KMS)][aws-kms]. Keys are never stored in plaintext.
+Cryptographic keys are managed by
+[AWS Key Management Service (AWS KMS)][aws-kms]. Keys are never stored in plaintext.
 
 For more information about AWS security, see the AWS documentation on security
-in [Amazon Elastic Compute Cloud][ec2-security] and [Elastic Block
-Storage][ebs-security].
+in [Amazon Elastic Compute Cloud][ec2-security] and
+[Elastic Block Storage][ebs-security].
 
 ## Networking security
 

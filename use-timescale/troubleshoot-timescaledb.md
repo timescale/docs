@@ -131,12 +131,6 @@ When asking query-performance related questions in our [support portal][]
 or via [slack][], providing the EXPLAIN output of a
 query is immensely helpful.
 
-### View logs in Docker
-
-If you have TimescaleDB installed in a Docker container, you can view your logs
-using Docker, instead of looking in `/var/lib/logs` or `/var/logs`. For more
-information, see the [Docker documentation on logs][docker-logs].
-
 ## Dump TimescaleDB meta data
 
 To help when asking for support and reporting bugs,
@@ -152,7 +146,6 @@ psql [your connect flags] -d your_timescale_db < dump_meta_data.sql > dumpfile.t
 
 and then inspect `dump_file.txt` before sending it together with a bug report or support question.
 
-[docker-logs]: https://docs.docker.com/config/containers/logging/
 [downloaded separately]: https://raw.githubusercontent.com/timescale/timescaledb/master/scripts/dump_meta_data.sql
 [github]: https://github.com/timescale/timescaledb/issues
 [slack]: https://slack.timescale.com/

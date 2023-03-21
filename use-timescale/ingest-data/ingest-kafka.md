@@ -10,7 +10,7 @@ tags: [insert]
 
 You can ingest data into TimescaleDB using the Kafka Connect JDBC sink
 connector with a JDBC driver. Kafka Connect can be distributed to provide
-fault tolerance to ensure the connectors are running and continually
+fault tolerance to ensure the connectors are running and continuosly
 keeping up with changes in the database.
 
 For more information about the Kafka Connect JDBC sink connector, see the
