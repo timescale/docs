@@ -35,9 +35,7 @@ machines can impact the speed and duration of the migration.
 You can continue reading from your source database during the migration, though
 performance could be slower. If you write to tables in your source database
 during the migration, the new writes are not transferred to Timescale Cloud. To
-avoid this problem, fork your database and migrate your data from the fork. For
-more information, see the
-[migrating an active database section][migrate-active].
+avoid this problem, fork your database and migrate your data from the fork.
 
 <Highlight type="important">
 If you have a large database, and Hypershift is going to have to run for a very
@@ -209,4 +207,3 @@ Use this format:
 [cloud-install]: /getting-started/latest/
 [docker-install]: https://docs.docker.com/get-docker/
 [chunk-time]: /use-timescale/:currentVersion:/hypertables/about-hypertables#best-practices-for-time-partitioning
-[migrate-active]: /use-timescale/:currentVersion:/migrate-data/FIXME
