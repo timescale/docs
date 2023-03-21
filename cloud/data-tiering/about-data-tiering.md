@@ -84,12 +84,6 @@ For more information, see the [blog post on data tiering][blog-data-tiering].
     tiered chunk. These limitations take effect as soon as the chunk is
     scheduled for tiering.
 
-*   **Lack of data untiering.** Currently, you can only tier data from standard
-    storage to object storage. You cannot move data back from object storage to
-    standard storage.
-
-    <DataTieringNoUntier />
-
 *   **Inefficient query planner filtering for non-native data types.** The query
     planner speeds up reads from object storage by using metadata to filter out
     columns and row groups that don't satisfy the query. This works for all
