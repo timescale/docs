@@ -8,18 +8,17 @@ tags: [change, delete]
 
 # Alter and drop distributed hypertables
 
-You can alter and drop distributed hypertables in the same way as regular
-hypertables. To lean more, see:
+You can alter and drop distributed hypertables in the same way as standard
+hypertables. To learn more, see:
 
 *   [Altering hypertables][alter]
 *   [Dropping hypertables][drop]
 
-<Highlight type="note">
 When you alter a distributed hypertable, or set privileges on it, the commands
 are automatically applied across all data nodes. For more information, see the
-section on [multi-node
-administration](/use-timescale/latest/multinode-timescaledb/multinode-administration/).
-</Highlight>
+section on
+[multi-node administration][multinode-admin].
 
 [alter]: /use-timescale/:currentVersion:/hypertables/alter/
 [drop]: /use-timescale/:currentVersion:/hypertables/drop/
+[multinode-admin]: /use-timescale/latest/multinode-timescaledb/multinode-administration/
