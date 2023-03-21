@@ -273,12 +273,6 @@ module.exports = [
               "Learn different ways of migrating your existing data into Timescale",
           },
           {
-            title: "Migrate with Hypershift",
-            href: "hypershift",
-            excerpt:
-              "Migrate an existing PostgreSQL database to Timescale Cloud in a single step with Hypershift",
-          },
-          {
             title: "Migrate from the same database",
             href: "same-db",
             excerpt: "Migrate data from the same PostgreSQL database",
@@ -299,20 +293,10 @@ module.exports = [
             excerpt: "Migrate data from an existing InfluxDB database",
           },
           {
-            title: "Migrate the entire database at once",
-            href: "entire-database",
-            excerpt: "Migrate an entire Timescale database to Timescale Cloud",
-          },
-          {
-            title: "Migrate schema and data separately",
-            href: "schema-then-data",
-            excerpt: "Migrate a Timescale database schema to Timescale Cloud ",
-          },
-          {
             title: "Troubleshoot data migration",
             href: "troubleshooting",
             type: "placeholder",
-            excerpt: "Troubleshoot problems that occur during  data migration",
+            excerpt: "Troubleshoot problems that occur during data migration",
           },
         ],
       },
@@ -345,6 +329,35 @@ module.exports = [
             href: "about-timescaledb-parallel-copy",
             excerpt:
               "Quickly insert bulk data by parallelizing `COPY` operations",
+          },
+        ],
+      },
+      {
+        title: "Database migration",
+        href: "migrate-data",
+        excerpt: "Migrate your existing database to a Timescale database",
+        children: [
+          {
+            title: "Migrate with Hypershift",
+            href: "hypershift",
+            excerpt:
+              "Migrate an existing PostgreSQL database to Timescale Cloud in a single step with Hypershift",
+          },
+          {
+            title: "Migrate the entire database at once",
+            href: "entire-database",
+            excerpt: "Migrate an entire Timescale database to Timescale Cloud",
+          },
+          {
+            title: "Migrate schema and data separately",
+            href: "schema-then-data",
+            excerpt: "Migrate a Timescale database schema to Timescale Cloud ",
+          },
+          {
+            title: "Troubleshoot database migration",
+            href: "troubleshooting",
+            type: "placeholder",
+            excerpt: "Troubleshoot problems that occur during database migration",
           },
         ],
       },
