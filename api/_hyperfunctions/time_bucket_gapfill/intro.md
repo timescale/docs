@@ -17,4 +17,4 @@ gapfilling call. If you need to cast, you can use `time_bucket_gapfill` in a
 subquery, and let the outer query do the type cast.
 </highlight>
 
-[time_bucket]: https://docs.timescale.com/api/latest/hyperfunctions/time_bucket/
+[time_bucket]: /api/latest/hyperfunctions/time_bucket/

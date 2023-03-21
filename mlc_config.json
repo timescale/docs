@@ -5,6 +5,10 @@
       "replacement": "dev-launch-cloud-centric-phase-1"
     },
     {
+      "pattern": "^/(.+)/latest/",
+      "replacement": "/$1/dev-launch-cloud-centric-phase-1/"
+    },
+    {
       "pattern": "^/",
       "replacement": "http://docs-dev.timescale.com/docs-dev-launch-cloud-centric-phase-1/"
     }
@@ -33,6 +37,9 @@
     },
     {
       "pattern": "https://assets.timescale.com/images/diagrams/compression_diagram.png"
+    },
+    {
+      "pattern": "https://docs.timescale.com/about/latest/contribute-to-docs/?"
     }
   ]
 }

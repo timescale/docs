@@ -37,8 +37,7 @@ again.
     local repository list. Make sure the TimescaleDB repository is available and
     contains Toolkit. For instructions on adding the TimescaleDB repository, see
     the installation guides:
-    *   [Debian/Ubuntu installation guide][deb-install]
-    *   [RHEL/CentOS installation guide][rhel-install]
+    *   [Linux installation guide][linux-install]
 1.  Update your local repository list with `apt update` or `yum update`.
 1.  Restart your PostgreSQL service.
 1.  Check that the right version of Toolkit is among your available extensions:
@@ -62,5 +61,4 @@ again.
 
 </Procedure>
 
-[deb-install]: /self-hosted/latest/install/self-hosted/installation-linux/
-[rhel-install]: /self-hosted/latest/install/self-hosted/installation-linux/
+[linux-install]: /self-hosted/latest/install/installation-linux/

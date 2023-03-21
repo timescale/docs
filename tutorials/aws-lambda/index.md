@@ -19,7 +19,7 @@ This section contains tutorials for working with AWS Lambda and TimescaleDB.
 ## Prerequisites
 
 Before you begin, make sure you have completed the
-[Analyze intraday stock data tutorial](https://docs.timescale.com/tutorials/latest/analyze-intraday-stocks/).
+[Analyze intraday stock data tutorial](/tutorials/latest/analyze-intraday-stocks/).
 This tutorial needs the tables and data that you set up in that tutorial.
 
 To complete this tutorial, you need an AWS account. You also need access to the
@@ -63,7 +63,7 @@ For more information about the topics in this tutorial, check out these resource
 [create-data-api]: /tutorials/:currentVersion:/aws-lambda/create-data-api
 [cryptocurrency-market-data]: /tutorials/:currentVersion:/analyze-cryptocurrency-data
 [gh-actions]: /tutorials/:currentVersion:/aws-lambda/continuous-deployment
-[intraday-stock-data]: /tutorials/:currentVersion:/analyze-intraday-stocks
+[intraday-stock-data]: /tutorials/:currentVersion:/analyze-intraday-stocks/
 [lambda-container-images]: https://docs.aws.amazon.com/lambda/latest/dg/images-create.html
 [lambda-getting-started]: https://docs.aws.amazon.com/lambda/latest/dg/getting-started.html
 [lambda-supported-langs]: https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html

@@ -30,4 +30,4 @@ needed. This makes it an ideal candidate for using with continuous aggregates.
 For more information about approximate count distinct API calls, see the
 [hyperfunction API documentation][hyperfunctions-api-approx-count-distincts].
 
-[hyperfunctions-api-approx-count-distincts]: /api/:currentVersion:/hyperfunctions/approx_count_distincts/
+[hyperfunctions-api-approx-count-distincts]: /api/:currentVersion:/hyperfunctions/approximate-count-distinct/hyperloglog/

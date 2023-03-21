@@ -65,5 +65,5 @@ This tutorial has a few sections to help you on your journey:
 [join-data]: /tutorials/:currentVersion:/nfl-analytics/join-with-relational
 [kaggle-download]: https://www.kaggle.com/c/nfl-big-data-bowl-2021/data
 [psql-install]: /use-timescale/:currentVersion:/connecting/psql
-[toolkit]: /use-timescale/:currentVersion:/install-timescaledb-toolkit
+[toolkit]: /use-timescale/:currentVersion:/hyperfunctions/install-toolkit/
 [visualize-plays]: /tutorials/:currentVersion:/nfl-analytics/play-visualization/

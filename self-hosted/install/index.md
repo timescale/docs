@@ -20,4 +20,4 @@ You can install TimescaleDB for free from [source][self-hosted-source], a
 [self-hosted-install]: /self-hosted/latest/install/
 [self-hosted-source]: /self-hosted/latest/install/installation-source/
 [self-hosted-container]: /self-hosted/latest/install/installation-docker/
-[self-hosted-cloud]: /self-hosted/latest/install/self-hosted/installation-linux/
+[self-hosted-cloud]: /self-hosted/latest/install/installation-linux/

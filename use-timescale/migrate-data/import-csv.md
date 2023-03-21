@@ -12,8 +12,7 @@ If you have data stored in an external `.csv` file, you can import it into Times
 
 ## Prerequisites
 
-Before beginning, make sure you have [installed and set up][install] TimescaleDB
-within your PostgreSQL instance.
+Before beginning, make sure you have [installed and set up][install] Timescale.
 
 ## Import data
 
@@ -78,5 +77,5 @@ resources and reduce the performance improvements.
 </Procedure>
 
 [create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable
-[install]: /install/latest/
+[install]: /getting-started/latest/
 [parallel importer]: https://github.com/timescale/timescaledb-parallel-copy
