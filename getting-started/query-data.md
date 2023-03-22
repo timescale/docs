@@ -1,19 +1,19 @@
 ---
 title: Query your data
-excerpt: Query your TimescaleDB data with the full power of SQL
+excerpt: Query your Timescale data with the full power of SQL
 products: [cloud, mst, self_hosted]
 keywords: [queries]
 ---
 
 # Query your data
 
-With TimescaleDB, there's no need to learn a custom query language, because
-TimescaleDB supports full SQL. You can use your SQL knowledge along with the
+With Timescale, there's no need to learn a custom query language, because
+Timescale supports full SQL. You can use your SQL knowledge along with the
 rich ecosystem of PostgreSQL tools, and add the extra features and performance of
-TimescaleDB.
+Timescale.
 
 Here are some query examples so you can get familiar with using SQL alongside
-popular TimescaleDB functions.
+popular Timescale functions.
 
 ## Basic SQL queries
 
@@ -98,7 +98,7 @@ correct because the `day_volume` column is ordered correctly.
    WHERE c.name = 'Apple' AND time > now() - INTERVAL '4 days';
    ```
 
-## Advanced TimescaleDB SQL functions
+## Advanced Timescale SQL functions
 
 Timescale has many custom-built SQL functions to help you perform time-series
 analysis in fewer lines of code. Here's how to use three of these functions:
@@ -206,13 +206,15 @@ are calculated, see the [how-to guide for time buckets][time-bucket-how-to].
 
 ## Next steps
 
-Now that you're familiar with some TimescaleDB queries and functions, like `time_bucket`, learn about
-continuous aggregates in the [next section][create-cagg].
+Now that you're familiar with some Timescale queries and functions, like
+`time_bucket`, learn about continuous aggregates in the
+[next section][create-cagg].
 
-## Learn more about TimescaleDB hyperfunctions
+## Learn more about Timescale hyperfunctions
 
-For more information about the functions provided by TimescaleDB and Timescale Toolkit extension,
-see the [API Reference for hyperfunctions](/api/:currentVersion:/hyperfunctions).
+For more information about the functions provided by Timescale and Timescale
+Toolkit extension, see the
+[hyperfunctions section][hyperfunctions](/api/:currentVersion:/hyperfunctions).
 
 [average]: https://www.postgresql.org/docs/14/functions-aggregate.html
 [clause-expressions]: https://www.postgresql.org/docs/14/queries-table-expressions.html
@@ -226,3 +228,4 @@ see the [API Reference for hyperfunctions](/api/:currentVersion:/hyperfunctions)
 [select-keywords]: https://www.postgresql.org/docs/14/sql-select.html
 [time-bucket-how-to]: /use-timescale/:currentVersion:/time-buckets/
 [time-bucket]: /api/:currentVersion:/hyperfunctions/time_bucket
+[hyperfunctions]: /use-timescale/:currentVersion:/hyperfunctions/

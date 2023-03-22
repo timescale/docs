@@ -56,7 +56,7 @@ weeks ago.
   dropped from your continuous aggregate, `stocks_real_time_daily`.
 
 1.  To see information about your retention policies and verify job statistics,
-    query the TimescaleDB informational views:
+    query the Timescale informational views:
 
     ```sql
     SELECT * FROM timescaledb_information.jobs;
@@ -90,13 +90,13 @@ weeks ago.
 
 ## Manually drop older hypertable chunks
 
-To manually remove data on a once-off basis, use the TimescaleDB function
+To manually remove data on a once-off basis, use the Timescale function
 [`drop_chunks()`][drop-chunks].
 
 This function takes similar arguments to the data retention policy. However, in
-addition to letting you drop data older than a particular interval, it also lets you
-drop data that is newer than a particular interval. This means you can drop data
-from an interval that is bounded on both ends.
+addition to letting you drop data older than a particular interval, it also lets
+you drop data that is newer than a particular interval. This means you can drop
+data from an interval that is bounded on both ends.
 
 To drop all data older than three weeks, run:
 
