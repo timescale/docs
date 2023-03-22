@@ -20,7 +20,6 @@ be changed. To update data in a tiered chunk, you need to move it back to EBS
 in a chunk using the `untier_chunk` stored procedure.
 
 <ExperimentalPrivateBeta />
-<TieringBeta />
 
 ## Untier data in a chunk
 

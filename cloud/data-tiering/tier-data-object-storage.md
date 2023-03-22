@@ -19,7 +19,6 @@ can continue to query a hypertable as normal after migration. All queries,
 including `JOIN`s, work as usual.
 
 <ExperimentalPrivateBeta />
-<TieringBeta />
 
 ## Manually tier a chunk
 
