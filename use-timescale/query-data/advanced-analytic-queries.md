@@ -357,7 +357,7 @@ CREATE TABLE location (
 SELECT create_hypertable('location', 'time');
 ```
 
-You can use the first table, which gives us a distinct set of vehicles, to
+You can use the first table, which gives a distinct set of vehicles, to
 perform a `LATERAL JOIN` against the location table:
 
 ```sql
