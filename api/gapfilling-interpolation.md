@@ -23,4 +23,4 @@ additional hyperfunctions, you need to install the
 />
 
 [hyperfunctions-gapfilling]: /use-timescale/:currentVersion:/hyperfunctions/gapfilling-interpolation/
-[install-toolkit]: /use-timescale/:currentVersion:/hyperfunctions/install-toolkit
+[install-toolkit]: /self-hosted/:currentVersion:/tooling/install-toolkit/

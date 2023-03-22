@@ -1,6 +1,6 @@
 ---
-title: About TimescaleDB hyperfunctions
-excerpt: Learn about TimescaleDB hyperfunctions that help with data analysis
+title: About Timescale hyperfunctions
+excerpt: Learn about Timescale hyperfunctions that help with data analysis
 products: [cloud, mst, self_hosted]
 keywords: [hyperfunctions, Toolkit, analytics]
 ---
@@ -104,4 +104,4 @@ community-wide problems and incorporate as much feedback as possible.
 [gh-newissue]: https://github.com/timescale/timescale-analytics/issues/new?assignees=&labels=feature-request&template=feature-request.md&title=
 [gh-proposed]: https://github.com/timescale/timescale-analytics/labels/proposed-feature
 [gh-requests]: https://github.com/timescale/timescale-analytics/labels/feature-request
-[install-toolkit]: /use-timescale/:currentVersion:/hyperfunctions/install-toolkit
+[install-toolkit]: /self-hosted/:currentVersion:/tooling/install-toolkit/

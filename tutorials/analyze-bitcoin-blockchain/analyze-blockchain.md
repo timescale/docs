@@ -582,5 +582,5 @@ time               |revenue in BTC    |revenue in USD    |
 
 [docs-cagg]: /use-timescale/:currentVersion:/continuous-aggregates/
 [docs-hyperfunctions]: /use-timescale/:currentVersion:/hyperfunctions/
-[install-toolkit]: /use-timescale/:currentVersion:/hyperfunctions/install-toolkit/
+[install-toolkit]: /self-hosted/:currentVersion:/tooling/install-toolkit/
 [stats_agg]: /api/:currentVersion:/hyperfunctions/statistical-and-regression-analysis/stats_agg-one-variable/

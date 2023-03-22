@@ -738,11 +738,6 @@ module.exports = [
               "Learn about Timescale hyperfunctions for additional analysis",
           },
           {
-            title: "Install and update Timescale Toolkit",
-            href: "install-toolkit",
-            excerpt: "Install and update the Timescale Toolkit",
-          },
-          {
             title: "Function pipelines",
             href: "function-pipelines",
             excerpt:

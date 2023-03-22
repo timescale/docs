@@ -145,4 +145,4 @@ If you have multiple databases, you need to update each database separately.
 
 </Procedure>
 
-[toolkit]: /use-timescale/latest/hyperfunctions/install-toolkit/
+[toolkit]: /self-hosted/:currentVersion:/tooling/install-toolkit/

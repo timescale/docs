@@ -42,6 +42,6 @@ toolkit functions on Timescale Cloud, this function is automatically dropped whe
 Toolkit extension is updated. For more information, [see the TimescaleDB Toolkit docs][toolkit-docs].
 
 [tsl-comparison]: /about/:currentVersion:/timescaledb-editions/
-[toolkit-install]: /use-timescale/:currentVersion:/hyperfunctions/install-toolkit/
+[toolkit-install]: /self-hosted/:currentVersion:/tooling/install-toolkit/
 [toolkit-docs]: https://github.com/timescale/timescaledb-toolkit/tree/main/docs#a-note-on-tags-
 [experimental-blog]: https://blog.timescale.com/blog/move-fast-but-dont-break-things-introducing-the-experimental-schema-with-new-experimental-features-in-timescaledb-2-4/
