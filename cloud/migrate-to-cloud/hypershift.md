@@ -212,8 +212,7 @@ hypertable_configs:
 
 </Procedure>
 
-If you want to view the available configuration options for Hypershift, you
-can access its help by running the following command in your terminal:
+To see all available configuration options for Hypershift, use this command:
 
 ```bash
 docker run -ti timescale/hypershift:0.4 --help
