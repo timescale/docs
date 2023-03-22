@@ -15,7 +15,7 @@ restart midway if one copy operation fails.
 <Highlight type="note">
 For smaller databases, it may be more convenient to migrate your entire database
 at once. For more information, see the section on [choosing a migration
-method](https://docs.timescale.com/use-timescale/latest/migrate-data/FIXME).
+method](/use-timescale/latest/migrate-db/).
 </Highlight>
 
 <Highlight type="warning">
@@ -25,7 +25,7 @@ retain downsampled data in a continuous aggregate for a year, the continuous
 aggregate loses any data older than a month upon migration. If you must keep
 continuous aggregates calculated using deleted data, migrate your entire
 database at once. For more information, see the section on [choosing a migration
-method](https://docs.timescale.com/use-timescale/latest/migrate-data/FIXME).
+method](/use-timescale/latest/migrate-db/).
 </Highlight>
 
 The procedure to migrate your database requires these steps:
@@ -46,7 +46,7 @@ database during this time, though performance could be slower. To avoid this
 problem, fork your database and migrate your data from the fork. If you write to
 the tables in your source database during the migration, the new writes might
 not be transferred to Timescale Cloud. To avoid this problem, see the section on
-[migrating an active database](http://docs.timescale.com/use-timescale/latest/migrate-data/FIXME).
+[migrating an active database](/use-timescale/latest/migrate-db/).
 </Highlight>
 
 ## Prerequisites

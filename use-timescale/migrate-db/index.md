@@ -73,6 +73,6 @@ happening. Begin by running ingest in parallel on the source database and
 Timescale Cloud. This ensures that the newest data is written to both databases.
 Then backfill your data with one of the two migration methods.
 
-[migrate-entire]: /cloud/:currentVersion:/migrate-to-cloud/entire-database/
-[migrate-separately]: /cloud/:currentVersion:/migrate-to-cloud/schema-then-data/
-[hypershift]: /cloud/:currentVersion:/migrate-to-cloud/hypershift/
+[migrate-entire]: /use-timescale/:currentVersion:/migrate-db/entire-database/
+[migrate-separately]: /use-timescale/:currentVersion:/migrate-db/schema-then-data/
+[hypershift]: /use-timescale/:currentVersion:/migrate-db/hypershift/
