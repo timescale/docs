@@ -9,28 +9,25 @@ cloud_ui:
         - [services, :serviceID, operations, data-tiering]
 ---
 
-import ExperimentalPrivateBeta from 'versionContent/_partials/_experimental-private-beta.mdx';
+import ExperimentalPrivateBeta from 'versionContent/_partials/_early_access.mdx';
 import TieringBeta from 'versionContent/_partials/_cloud-data-tiering-beta.mdx';
 
 # Untier data
 
-If you need to update data in a tiered chunk, or if you want to enable faster
-queries, you can untier the data in the chunk.
+Tiered data is stored on Amazon S3 storage. Data in S3 is immutable, and cannot
+be changed. To update data in a tiered chunk, you need to move it back to EBS
+(elastic block storage). This is called untiering the data. You can untier data
+in a chunk using the `untier_chunk` stored procedure.
 
 <ExperimentalPrivateBeta />
 <TieringBeta />
 
 ## Untier data in a chunk
 
-When you have untiered a chunk, an entry is added to the corresponding table. A
-temporary table is created, and data is loaded into it using SQL. This invokes a
-function in the TimescaleDB extension to remount the untiered chunk to the
-hypertable.
-
-<Highlight type="important">
-When you untier a chunk, the data is not removed from storage. The data remains
-stored in the same place, but it is no longer marked as tiered.
-</Highlight>
+Untiering chunks is an asynchronous process. When you untier a chunk, the data
+is moved from S3 storage to EBS storage. This process occurs in the background.
+The chunk remains available for queries until the data is moved to EBS, and
+becomes visible when you run the `timescaledb_information.chunks` function.
 
 <procedure>
 
@@ -54,17 +51,7 @@ stored in the same place, but it is no longer marked as tiered.
 1.  Run `untier_chunk`:
 
     ```sql
-    SELECT untier_chunk('_hyper_1_1_chunk');
-    ```
-
-1.  If the untiering operation is successful, an entry is added to the table,
-    like this:
-
-    ```sql
-      osm_chunk_name  |          time_stamp
-    ------------------+-------------------------------
-     _hyper_1_1_chunk | 2023-02-14 12:38:56.557034+00
-    (1 row)
+    CALL untier_chunk('_hyper_1_1_chunk');
     ```
 
 </procedure>
