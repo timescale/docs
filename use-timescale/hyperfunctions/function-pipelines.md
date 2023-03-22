@@ -78,7 +78,7 @@ within that dataset, which could look something like this:
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/timeseries_vector.png" alt="An example of a timevector within a larger dataset"/>
 
-To construct a `timevector` from your data, we use a custom aggregate and pass
+To construct a `timevector` from your data, use a custom aggregate and pass
 in the columns to become the time,value pairs. It uses a `WHERE` clause to
 define the limits of the subset, and a `GROUP BY` clause to provide identifying
 information about the time-series. For example, to construct a `timevector` from
