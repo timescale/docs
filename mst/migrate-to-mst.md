@@ -1,7 +1,7 @@
 ---
 title: Migrating from self-hosted Timescale to Managed Service for TimescaleDB
 excerpt: Migrating an existing Timescale database to Managed Service for TimescaleDB
-products: [mst, self-hosted]
+products: [mst, self_hosted]
 keywords: [data migration, database]
 tags: [ingest, backup, restore]
 ---
@@ -83,7 +83,7 @@ information about compression and decompression, see the
     database concurrently.
 
     ```bash
-    pg_restore -d 'postgres://CLICK_TO:REVEAL_PASSWORD@demo.demoproject.timescaledb.io:19335/defaultdb?sslmode=require' --jobs 4 dump.bak 
+    pg_restore -d 'postgres://CLICK_TO:REVEAL_PASSWORD@demo.demoproject.timescaledb.io:19335/defaultdb?sslmode=require' --jobs 4 dump.bak
     ```
 
 1.  Connect to your new database and update your table statistics by running
@@ -117,7 +117,7 @@ them. The migration still occurs successfully.
 
    ```bash
    pg_restore: while PROCESSING TOC:
-   pg_restore: from TOC entry 4142; 0 0 COMMENT EXTENSION timescaledb 
+   pg_restore: from TOC entry 4142; 0 0 COMMENT EXTENSION timescaledb
    pg_restore: error: could not execute query: ERROR:  must be owner of extension timescaledb
    Command was: COMMENT ON EXTENSION timescaledb IS 'Enables scalable inserts and complex queries for time-series data';
 
