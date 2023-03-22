@@ -15,11 +15,11 @@ Timescale.
 Here are some query examples so you can get familiar with using SQL alongside
 popular Timescale functions.
 
-## Basic SQL queries
+## Simple SQL queries
 
 Many of the queries below show a filter for the last four days of data. This
-accounts for the nuance of stock trade data which only occurs Monday-Friday on
-the New York Stock Exchange.
+accounts for the nuance of stock trade data which only occurs Monday to Friday
+on the New York Stock Exchange.
 
 If you load the provided data on a Monday, the most recent data is from Friday
 afternoon. Therefore, selecting data for the last day or two would return no
