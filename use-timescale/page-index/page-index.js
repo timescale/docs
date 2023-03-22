@@ -334,7 +334,7 @@ module.exports = [
       },
       {
         title: "Database migration",
-        href: "migrate-data",
+        href: "migrate-db",
         excerpt: "Migrate your existing database to a Timescale database",
         children: [
           {
@@ -357,7 +357,8 @@ module.exports = [
             title: "Troubleshoot database migration",
             href: "troubleshooting",
             type: "placeholder",
-            excerpt: "Troubleshoot problems that occur during database migration",
+            excerpt:
+              "Troubleshoot problems that occur during database migration",
           },
         ],
       },
