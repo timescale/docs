@@ -194,8 +194,8 @@ Use this format:
     ```bash
     docker run -v $(pwd)/hypershift.yml:/hypershift.yml \
     -ti timescale/hypershift:0.3 clone \
-    -s "host=<DB_NAME>.<SOURCE_DB_HOSTNAME> user=postgres port=5431 password=<DB_PASSWORD>" \
-    -t "host=<DB_NAME>.<TARGET_DB_HOSTNAME> user=postgres port=5432 password=<DB_PASSWORD>" \
+    -s "host=<SOURCE_DB_HOSTNAME> dbname=<DB_NAME> user=postgres port=5431 password=<DB_PASSWORD>" \
+    -t "host=<TARGET_DB_HOSTNAME> dbname=<DB_NAME> user=postgres port=5432 password=<DB_PASSWORD>" \
     --hypertable /hypershift.yml
     ```
 
