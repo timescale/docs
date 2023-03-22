@@ -11,7 +11,7 @@ To make common statistical aggregates easier to work with in window functions
 and continuous aggregates, Timescale provides common statistical aggregates in
 a slightly different form than otherwise available in PostgreSQL and Timescale.
 
-In this example, we calculate the average, standard deviation, and kurtosis of
+This example calculates the average, standard deviation, and kurtosis of
 a value in the `measurements` table:
 
 ```sql
