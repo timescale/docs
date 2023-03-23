@@ -18,11 +18,6 @@ compute and storage settings of the service. Any time you increase or decrease
 the compute for a Service, the most essential values are set to reflect the size
 of the new service.
 
-There are times, however, when your specific workload could require tuning some
-of the many available TimescaleDB and PostgreSQL parameters. By providing the
-ability to tune various runtime settings, Timescale Cloud provides the balance
-and flexibility you need when running your workloads in our hosted environment.
-
 <Highlight type="warning">
 You can modify most parameters without restarting the Timescale Cloud Service.
 However, some changes do require a restart, resulting in some brief downtime
