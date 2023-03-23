@@ -23,11 +23,21 @@ In the event of a storage failure, a service automatically restores
 from backup to the point of failure. In the event of a user error where
 a point-in-time recovery needs to be done, please [contact support][support]. 
 
-This diagram helps you to understand how a restore from backup occurs after a storage failure.
-<Highlight type="note">compute failures are able to
-avoid a full restore from backup. For more information, see our docs on
-[rapid recovery][rapid-recovery].) </Highlight>
+To understand how a restore from backup occurs after a storage failure,
+see the following diagram.
+
+<Highlight type="note">
+Compute failures do not require a full restore from backup. For more
+information, see the docs on [rapid recovery]
+[rapid-recovery].</Highlight> 
+
+<img class="main-content__illustration"
+src="https://www.timescale.com/blog/content/images/2022/08/backups-3.png"
+alt="Diagram showing recovery from backup. First, the latest full
+backup is restored. Then, the incremental backup is restored.
+Finally, WAL is replayed to cover any remaining gap."/>
 
 [wal]: https://www.postgresql.org/docs/current/wal-intro.html
 [rapid-recovery]:
 /cloud/:currentVersion:/service-operations/replicas/#rapid-recovery
+[support]: https://www.timescale.com/support
