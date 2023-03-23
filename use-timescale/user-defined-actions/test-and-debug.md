@@ -11,7 +11,7 @@ To debug an action, you can increase the log level and run the job manually in
 the foreground.
 
 Use the [`run_job`][api-run_job] procedure, which takes a `job_id` argument.
-Since `run_job` is a stored procedure and not a function, it needs to be
+Because `run_job` is a stored procedure and not a function, it needs to be
 executed with [`CALL`][postgres-call] instead of `SELECT`.
 
 <Procedure>

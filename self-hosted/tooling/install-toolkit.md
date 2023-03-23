@@ -1,14 +1,14 @@
 ---
 title: Install and update TimescaleDB Toolkit
 excerpt: How to install TimescaleDB Toolkit to access more hyperfunctions and function pipelines
-products: [cloud, mst, self_hosted]
+products: [ mst, self_hosted]
 keywords: [Toolkit, installation, hyperfunctions, function pipelines]
 ---
 
 # Install and update TimescaleDB Toolkit
 
-Some hyperfunctions are included in the default TimescaleDB product. For
-additional hyperfunctions, you need to install the TimescaleDB Toolkit PostgreSQL
+Some hyperfunctions are included by default in Timescale. For additional
+hyperfunctions, you need to install the TimescaleDB Toolkit PostgreSQL
 extension.
 
 If you're using [Timescale Cloud][cloud], the Toolkit is already installed.

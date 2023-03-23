@@ -25,7 +25,7 @@ SELECT * FROM timescaledb_information.jobs;
 ## Change a job's config
 
 To replace the entire JSON config for a job, call `alter_job` with a new
-`config` object. For example, for a job with id `1000`:
+`config` object. For example, replace the JSON config for a job with id `1000`:
 
 ```sql
 SELECT alter_job(1000, config => '{"hypertable":"metrics"}');
@@ -35,7 +35,7 @@ SELECT alter_job(1000, config => '{"hypertable":"metrics"}');
 
 To turn off automatic scheduling of a job, call `alter_job` and set `scheduled`
 to `false`. You can still run the job manually with `run_job`. For example,
-for a job with id `1000`:
+turn off the scheduling for a job with id `1000`:
 
 ```sql
 SELECT alter_job(1000, scheduled => false);
@@ -44,7 +44,7 @@ SELECT alter_job(1000, scheduled => false);
 ## Re-enable automatic scheduling of a job
 
 To re-enable automatic scheduling of a job, call `alter_job` and set `scheduled`
-to `true`. For example, for a job with id `1000`:
+to `true`. For example, re-enable scheduling for a job with id `1000`:
 
 ```sql
 SELECT alter_job(1000, scheduled => true);
@@ -53,7 +53,7 @@ SELECT alter_job(1000, scheduled => true);
 ## Delete a job
 
 Delete a job from the automation framework with [`delete_job`][api-delete_job].
-For example, for a job with id `1000`:
+For example, to delete a job with id `1000`:
 
 ```sql
 SELECT delete_job(1000);

@@ -11,7 +11,7 @@ analyze time-series data. You can use hyperfunctions to analyze anything you
 have stored as time-series data, including IoT devices, IT systems, marketing
 analytics, user behavior, financial metrics, and cryptocurrency.
 
-Some hyperfunctions are included in the default TimescaleDB product. For
+Some hyperfunctions are included by default in Timescale. For
 additional hyperfunctions, you need to install the
 [Timescale Toolkit][install-toolkit] PostgreSQL extension.
 
@@ -23,4 +23,4 @@ documentation][hyperfunctions-howto].
 />
 
 [hyperfunctions-howto]: /use-timescale/:currentVersion:/hyperfunctions/
-[install-toolkit]: /use-timescale/:currentVersion:/hyperfunctions/install-toolkit/
+[install-toolkit]: /self-hosted/:currentVersion:/tooling/install-toolkit/

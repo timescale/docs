@@ -12,6 +12,8 @@ common tasks.
 *   Automatically configure your TimescaleDB instance with
     [`timescaledb-tune`][tstune]
 *   Install and use [`timescaledb-parallel-copy`][tscopy] to insert data.
+*   Install [TimescaleDB Toolkit][tstoolkit] to access more hyperfunctions and function pipelines
 
-[tscopy]: /self-hosted/:currentVersion:/tooling/about-timescaledb-parallel-copy
+[tscopy]: /use-timescale/:currentVersion:/ingest-data/about-timescaledb-parallel-copy
 [tstune]: /self-hosted/:currentVersion:/tooling/about-timescaledb-tune/
+[tstoolkit]: /self-hosted/:currentVersion:/tooling/install-toolkit/

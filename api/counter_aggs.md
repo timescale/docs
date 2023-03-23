@@ -29,4 +29,4 @@ with `GaugeSummary`.
 </Highlight>
 
 [hyperfunctions-counter-agg]: /use-timescale/:currentVersion:/hyperfunctions/counter-aggregation/
-[install-toolkit]: /use-timescale/:currentVersion:/hyperfunctions/install-toolkit
+[install-toolkit]: /self-hosted/:currentVersion:/tooling/install-toolkit/

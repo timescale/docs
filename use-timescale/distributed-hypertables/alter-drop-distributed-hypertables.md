@@ -21,4 +21,4 @@ section on
 
 [alter]: /use-timescale/:currentVersion:/hypertables/alter/
 [drop]: /use-timescale/:currentVersion:/hypertables/drop/
-[multinode-admin]: /use-timescale/latest/multinode-timescaledb/multinode-administration/
+[multinode-admin]: /self-hosted/latest/multinode-timescaledb/multinode-administration/

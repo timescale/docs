@@ -112,6 +112,6 @@ dashboards published by Promscale.
 [promscale-grafana-dashboards]: https://grafana.com/orgs/promscale/dashboards
 [promscale-as-jaeger]: /promscale/:currentVersion:/visualize-data/grafana/#configure-promscale-as-jaeger-data-source
 [promscale-as-postgresql]: /promscale/:currentVersion:/visualize-data/grafana/#configure-promscale-as-a-postgresql-data-source
-[install-toolkit]:/use-timescale/latest/hyperfunctions/install-toolkit
+[install-toolkit]:/self-hosted/:currentVersion:/tooling/install-toolkit/
 [promscale-github-dashboards]: https://github.com/timescale/promscale/tree/master/docs/mixin/dashboards
 [install-extension]: /promscale/:currentVersion:/visualize-data/apm-experience/#install-the-timescaledb-toolkit-extension

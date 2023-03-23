@@ -24,7 +24,10 @@ on a large dataset, or in production.
 </Highlight>
 
 SQL is the best language for data analysis, but it is not perfect, and at times
-it can be difficult to construct the query you want. For example, this query gets data from the last day from the measurements table, sorts the data by the time column, calculates the delta between the values, takes the absolute value of the delta, and then takes the sum of the result of the previous steps:
+it can be difficult to construct the query you want. For example, this query
+gets data from the last day from the measurements table, sorts the data by the
+time column, calculates the delta between the values, takes the absolute value
+of the delta, and then takes the sum of the result of the previous steps:
 
 ```sql
 SELECT device id,
@@ -75,7 +78,11 @@ within that dataset, which could look something like this:
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/timeseries_vector.png" alt="An example of a timevector within a larger dataset"/>
 
-To construct a `timevector` from your data, we use a custom aggregate and pass in the columns to become the time,value pairs. It uses a `WHERE` clause to define the limits of the subset, and a `GROUP BY` clause to provide identifying information about the time-series. For example, to construct a `timevector` from a dataset that contains temperatures, the SQL looks like this:
+To construct a `timevector` from your data, use a custom aggregate and pass
+in the columns to become the time,value pairs. It uses a `WHERE` clause to
+define the limits of the subset, and a `GROUP BY` clause to provide identifying
+information about the time-series. For example, to construct a `timevector` from
+a dataset that contains temperatures, the SQL looks like this:
 
 ```sql
 SELECT device_id,
@@ -130,12 +137,12 @@ arguments.
 There are two main types of pipeline elements:
 
 *   Transforms change the contents of the `timevector`, returning
-   the updated vector.
+    the updated vector.
 *   Finalizers finish the pipeline and output the resulting data.
 
 Transform elements take in a `timevector` and produce a `timevector`. They are
-the simplest element to compose, because they produce the same type. For
-example:
+the simplest element to compose, because they produce the same type.
+For example:
 
 ```sql
 SELECT device_id,
@@ -198,13 +205,13 @@ Elements are always applied left to right, so the order of operations is not
 taken into account even in the presence of explicit parentheses. This means for
 a `timevector` row `('2020-01-01 00:00:00+00', 20.0)`, this pipeline works:
 
-```
- timevector('2021-01-01 UTC', 10) -> add(5) -> (mul(2) -> add(1))
+```bash
+timevector('2021-01-01 UTC', 10) -> add(5) -> (mul(2) -> add(1))
 ```
 
 And this pipeline works in the same way:
 
-```
+```bash
 timevector('2021-01-01 UTC', 10) -> add(5) -> mul(2) -> add(1)
 ```
 
@@ -311,7 +318,8 @@ The output for this example:
 ### Compound transforms
 
 Mathematical transforms are applied only to the `value` in each
-point in a `timevector` and always produce one-to-one output `timevectors`. Compound transforms can involve both the `time` and `value` parts of the points
+point in a `timevector` and always produce one-to-one output `timevectors`.
+Compound transforms can involve both the `time` and `value` parts of the points
 in the `timevector`, and they are not necessarily one-to-one. One or more points
 in the input can be used to produce zero or more points in the output. So, where
 mathematical transforms always produce `timevectors` of the same length,
@@ -441,7 +449,9 @@ The output for this example:
 ### Lambda elements
 
 The Lambda element functions use the Toolkit's experimental Lambda syntax to transform
-a `timevector`. A Lambda is an expression that is applied to the elements of a `timevector`. It is written as a string, usually `$$`-quoted, containing the expression to run. For example:
+a `timevector`. A Lambda is an expression that is applied to the elements of a `timevector`.
+It is written as a string, usually `$$`-quoted, containing the expression to run.
+For example:
 
 ```sql
 $$
@@ -666,7 +676,9 @@ timevector(ts, val) -> sort() -> delta() -> stats_agg() -> variance()
 FROM measurements
 ```
 
-When you use them in a pipeline instead of standard function accessors and mutators, they can make the syntax clearer by getting rid of nested functions. For example, the nested syntax looks like this:
+When you use them in a pipeline instead of standard function accessors and
+mutators, they can make the syntax clearer by getting rid of nested functions.
+For example, the nested syntax looks like this:
 
 ```sql
 SELECT approx_percentile(0.5, percentile_agg(val))

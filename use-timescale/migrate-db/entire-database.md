@@ -20,7 +20,7 @@ though performance could be slower. To avoid this problem, fork your database
 and migrate your data from the fork. If you write to tables in your source
 database during the migration, the new writes might not be transferred to
 Timescale Cloud. To avoid this problem, see the section on [migrating an active
-database](http://docs.timescale.com/use-timescale/latest/migrate-data/FIXME).
+database](/use-timescale/latest/migrate-db/).
 </Highlight>
 
 ## Prerequisites
