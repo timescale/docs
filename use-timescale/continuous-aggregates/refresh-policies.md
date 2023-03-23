@@ -65,11 +65,11 @@ from the continuous aggregate view. This means that the continuous aggregate
 always reflects the data in the underlying hypertable.
 
 If you want to keep data in the continuous aggregate even if it is removed from
-the underlying hypertable, you can set the `start_offset` to match the [data
-retention policy][sec-data-retention] on the source hypertable. For example, if
-you have a retention policy that removes data older than one month, set
-`start_offset` to one month or less. This sets your policy so that it does
-not refresh the dropped data.
+the underlying hypertable, you can set the `start_offset` to match the
+[data retention policy][sec-data-retention] on the source hypertable. For example,
+if you have a retention policy that removes data older than one month, set
+`start_offset` to one month or less. This sets your policy so that it does not
+refresh the dropped data.
 
 <Procedure>
 

@@ -145,7 +145,7 @@ queries to run efficiently.
 
 ## Create a continuous aggregate with a JOIN
 
-In TimescaleDB&nbsp;2.10 and later, with PostgreSQL&nbsp;12 or later, you can
+In Timescale&nbsp;2.10 and later, with PostgreSQL&nbsp;12 or later, you can
 create a continuous aggregate with a query that also includes a `JOIN`. For
 example:
 

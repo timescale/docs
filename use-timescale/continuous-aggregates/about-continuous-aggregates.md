@@ -1,6 +1,6 @@
 ---
 title: About continuous aggregates
-excerpt: Learn how continuous aggregates can speed up your TimescaleDB queries
+excerpt: Learn how continuous aggregates can speed up your Timescale queries
 products: [cloud, mst, self_hosted]
 keywords: [continuous aggregates]
 ---
@@ -26,11 +26,11 @@ continuous aggregates][caggs-on-caggs].
 
 ## Function support
 
-In TimescaleDB 2.7 and above, continuous aggregates support all PostgreSQL
+In TimescaleDB 2.7 and later, continuous aggregates support all PostgreSQL
 aggregate functions. This includes both parallelizable aggregates, such as `SUM`
 and `AVG`, and non-parallelizable aggregates, such as `RANK`.
 
-In older versions of TimescaleDB, continuous aggregates only support
+In older versions of Timescale, continuous aggregates only support
 [aggregate functions that can be parallelized by PostgreSQL][postgres-parallel-agg].
 You can work around this by aggregating the other parts of your query in the
 continuous aggregate, then
@@ -38,7 +38,7 @@ continuous aggregate, then
 
 <CaggsFunctionSupport />
 
-If you want the old behavior in TimescaleDB 2.7 and above, set the parameter
+If you want the old behavior in TimescaleDB 2.7 and later, set the parameter
 `timescaledb.finalized` to `false` when creating your continuous aggregate.
 
 ## Components of a continuous aggregate
@@ -67,7 +67,7 @@ Using the same temperature example, the materialization table looks like this:
 |2021/01/02|New York|2||
 |2021/01/02|Stockholm|2|{5, 345}|
 
-The materialization table is stored as a TimescaleDB hypertable, to take
+The materialization table is stored as a Timescale hypertable, to take
 advantage of the scaling and query optimizations that hypertables offer.
 Materialization tables contain a column for each group-by clause in the query,
 a `chunk` column identifying which chunk in the raw data this entry came from,
@@ -83,6 +83,13 @@ multiple chunks.
 For more information, see [materialization hypertables][cagg-mat-hypertables].
 
 ### Materialization engine
+
+The materialization engine performs two transactions. The first transaction
+blocks all INSERTs, UPDATEs, and DELETEs, determines the time range to
+materialize, and updates the invalidation threshold. The second transaction
+unblocks other transactions, and materializes the aggregates. The first
+transaction is very quick, and most of the work happens during the second
+transaction, to ensure that the work does not interfere with other operations.
 
 When you query the continuous aggregate view, the materialization engine
 combines the aggregate partials into a single partial for each time range, and
@@ -116,15 +123,6 @@ determine which rows in the aggregation table need to be recalculated. This
 logging does cause some write load, but because the threshold lags behind the
 area of data that is currently changing, the writes are small and rare.
 
-### Materialization engine
-
-The materialization engine performs two transactions. The first transaction
-blocks all INSERTs, UPDATEs, and DELETEs, determines the time range to
-materialize, and updates the invalidation threshold. The second transaction
-unblocks other transactions, and materializes the aggregates. The first
-transaction is very quick, and most of the work happens during the second
-transaction, to ensure that the work does not interfere with other operations.
-
 ## Using continuous aggregates in a multi-node environment
 
 If you are using Timescale in a multi-node environment, there are some
@@ -145,9 +143,11 @@ Invalidation logs are on kept on the data nodes, which is designed to limit the
 amount of data that needs to be transferred. However, some statements send
 invalidations directly to the log, for example, when dropping a chunk or
 truncate a hypertable. This action could slow down performance, in comparison to
-a local update. Additionally, if you have infrequent refreshes but a lot of changes to the hypertable, the
-invalidation logs could get very large, which could cause performance issues.
-Make sure you are maintaining your invalidation log size to avoid this, for example, by refreshing the continuous aggregate frequently.
+a local update. Additionally, if you have infrequent refreshes but a lot of
+changes to the hypertable, the invalidation logs could get very large, which
+could cause performance issues. Make sure you are maintaining your invalidation
+log size to avoid this, for example, by refreshing the continuous aggregate
+frequently.
 
 For more information about setting up multi-node, see the
 [multi-node section][multi-node]
