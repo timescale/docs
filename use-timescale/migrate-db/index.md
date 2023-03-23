@@ -2,7 +2,7 @@
 title: Migrate your PostgreSQL database to Timescale Cloud
 excerpt: Migrate an existing PostgreSQL database to Timescale Cloud
 product: cloud
-keywords: [data migration, self-hosted, postgresql, hypershift, RDS]
+keywords: [data migration, self_hosted, postgresql, hypershift, RDS]
 tags: [ingest, migrate, RDS]
 ---
 

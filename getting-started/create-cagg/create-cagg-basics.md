@@ -71,7 +71,7 @@ aggregate.
 
 The `CREATE MATERIALIZED VIEW` command triggers the database to create a
 materialized view with the given name, in this case `stock_candlestick_daily`.
-In the next line, `WITH (timescaledb.continuous)` instructs TimescaleDB to
+In the next line, `WITH (timescaledb.continuous)` instructs Timescale to
 create a continuous aggregate and not just a generic materialized view. Finally,
 the query from earlier is added after the `AS` keyword.
 
@@ -120,11 +120,11 @@ SELECT * FROM stock_candlestick_daily
 
 ## Real-time continuous aggregates
 
-By default, all continuous aggregates are created as *real-time* aggregates.
-This means that TimescaleDB will append (or `UNION`) recent data that has not
-yet been materialized through a refresh policy to the output of the continuous
-aggregate. In this diagram, that corresponds to the last three points of raw
-data, which belong to an incomplete bucket.
+By default, all continuous aggregates are created as real-time aggregates.
+This means that Timescale appends recent data that has not yet been materialized
+through a refresh policy to the output of the continuous aggregate. In this
+diagram, that corresponds to the last three points of raw data, which belong to
+an incomplete bucket.
 
 <Highlight type="note">
 If you don't want real-time aggregation, you can disable it. Set the `materialized_only`
@@ -154,20 +154,22 @@ public           |stocks_real_time|public     |stock_candlestick_daily|tsdbadmin
 
 Now that your continuous aggregate is created, the next step is to create a [continuous aggregate refresh policy][cagg-policy].
 
-Without an automatic refresh policy, your continuous aggregate won't materialize new data as it is
-inserted into the `stocks_real_time` hypertable. As mentioned before, when you query your continuous
-aggregate, TimescaleDB performs real-time aggregation to include any unmaterialized
-data. As the amount of unmaterialized data grows, this can slow down your queries.
+Without an automatic refresh policy, your continuous aggregate won't materialize
+new data as it is inserted into the `stocks_real_time` hypertable. As mentioned
+before, when you query your continuous aggregate, Timescale performs real-time
+aggregation to include any unmaterialized data. As the amount of unmaterialized
+data grows, this can slow down your queries.
 
-With a continuous aggregate policy, your new data automatically materializes into your continuous aggregate,
-keeping the need for real-time computations low and your continuous aggregate queries efficient.
+With a continuous aggregate policy, your new data automatically materializes
+into your continuous aggregate, keeping the need for real-time computations low
+and your continuous aggregate queries efficient.
 
 ## Learn more about continuous aggregates
 
-See how real TimescaleDB users leverage continuous aggregates in the blog posts
+See how real Timescale users leverage continuous aggregates in the blog posts
 [How FlightAware fuels flight prediction models for global travelers with
-TimescaleDB and Grafana][flightaware] and [How I power a (successful) crypto
-trading bot with TimescaleDB][crypto-bot].
+Timescale and Grafana][flightaware] and [How I power a (successful) crypto
+trading bot with Timescale][crypto-bot].
 
 Detailed information on continuous aggregates and real-time aggregation can be
 found in the [continuous aggregates docs][continuous-aggregates].

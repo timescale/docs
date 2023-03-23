@@ -23,7 +23,7 @@ during low query-load times on your database.
 ## Create a continuous aggregate refresh policy
 
 To refresh your continuous aggregate on a schedule, set up an automatic refresh
-policy. Automatic refresh policies are considered a best practice in TimescaleDB
+policy. Automatic refresh policies are considered a best practice in Timescale
 and should be created for most continuous aggregates. Using the automated
 [continuous aggregate policy][auto-refresh]
 to update continuous aggregate data allows you to "set it and forget it,"
@@ -86,15 +86,15 @@ and eventually send historical readings once they are reconnected.
 ## Next steps
 
 Now that you have a continuous aggregate set up and refreshing automatically,
-see how TimescaleDB can save you up to 96% on storage costs while speeding up
+see how Timescale can save you up to 96% on storage costs while speeding up
 historical queries using [native compression][getting-started-compression].
 
 ## Learn more about continuous aggregates
 
-See how real TimescaleDB users leverage continuous aggregates in the blog posts
+See how real Timescale users leverage continuous aggregates in the blog posts
 [How FlightAware fuels flight prediction models for global travelers with
-TimescaleDB and Grafana][flightaware] and [How I power a (successful) crypto
-trading bot with TimescaleDB][crypto-bot].
+Timescale and Grafana][flightaware] and [How I power a (successful) crypto
+trading bot with Timescale][crypto-bot].
 
 For detailed information on continuous aggregates and real-time aggregation,
 see the [continuous aggregates section][continuous-aggregates].

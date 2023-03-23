@@ -1,6 +1,6 @@
 ---
 title: Add time-series data
-excerpt: Add time-series data to your TimescaleDB instance
+excerpt: Add time-series data to your Timescale instance
 products: [cloud, mst, self_hosted]
 keywords: [ingest]
 tags: [add, data, time-series]
@@ -8,7 +8,7 @@ tags: [add, data, time-series]
 
 # Add time-series data
 
-To explore TimescaleDB's features, you need some sample data. This tutorial
+To explore Timescale's features, you need some sample data. This tutorial
 provides real-time stock trade data, also known as tick data, from
 [Twelve Data][twelve-data].
 
