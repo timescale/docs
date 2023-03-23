@@ -218,6 +218,118 @@ To see all available configuration options for Hypershift, use this command:
 docker run -ti timescale/hypershift:0.4 --help
 ```
 
+### Filtering tables and schemas
+
+Hypershift offers filtering at the schema and table level. Filtering is
+enabled through the `include_schemas`, `exclude_schemas`, `include_tables`, and
+`exclude_tables` parameters in hypershift's configuration file. Note that some
+of these options are mutually exclusive.
+
+The following is an example of a hypershift configuration file with schema and
+table exclusions:
+
+```yaml
+source: postgres://postgres:password@source:5432/database
+target: postgres://postgres:password@target:5432/database
+exclude_schemas:
+- public
+exclude_tables:
+- test.an_uninteresting_table
+```
+
+#### Pattern matching
+
+Hypershift does not support pattern matching on schema or table names in either
+inclusion or exclusion rules. Support may be provided for this in a future
+release.
+
+#### Include schemas
+
+The `include_schemas` configuration can be used to provide an array of schemas
+which should be included in the migration. Only objects in these schemas are
+copied.
+
+Example:
+
+```yaml
+include_schemas:
+- public
+- test
+- '"FooBar"'
+```
+
+Note: as with `pg_dump`, if there is a dependency from one schema to an object
+in another schema which is not included, the dependency will be unfulfilled,
+resulting in failure.
+
+Mutually exclusive with: `exclude_schemas`
+
+#### Exclude schemas
+
+The `exclude_schemas` configuration can be used to provide an array of schemas
+which should not be included in the migration. Only objects which are not in
+these schemas will be copied.
+
+Example:
+
+```yaml
+exclude_schemas:
+- public
+- test
+- '"FooBar"'
+```
+
+Note: as with `pg_dump`, if there is a dependency from one schema to an object
+in another schema which is excluded, the dependency remains unfulfilled,
+resulting in failure to migrate.
+
+Mutually exclusive with: `include_schemas`
+
+#### Include tables
+
+The `include_tables` configuration can be used to provide an array of tables
+which should be included in the migration. Only these tables are copied.
+
+Example:
+
+```yaml
+include_tables:
+- '"MixedCaseSchema"."MixedCaseTable"'
+- public.my_table
+- public.a_small_table
+- other_schema.table
+```
+
+Note: as with `pg_dump`, this configuration causes only the table to be copied,
+not any dependent objects (for example schemas, types, required foreign-key
+relations, etc.). You must ensure that all dependent objects are present in the
+target database before copying the table with this filter.
+
+Mutually exclusive with `exclude_tables`, `include_schemas`, `exclude_schemas`
+
+#### Exclude tables
+
+The `exclude_tables` configuration can be used to provide an array of tables
+which should not be included in the migration. Only these tables are not
+copied.
+
+Example:
+
+```yaml
+exclude_tables:
+- '"MixedCaseSchema"."MixedCaseTable"'
+- public.my_table
+- public.a_small_table
+- other_schema.table
+```
+
+Note: as with `pg_dump`, if there is a dependency on an excluded table (for
+example a view), the dependency remains unfulfilled, resulting in failure to
+migrate.
+
+Mutually exclusive with `include_tables`
+
+
 [cloud-install]: /install/:currentVersion:/installation-cloud/
 [docker-install]: https://docs.docker.com/get-docker/
 [chunk-time]: /timescaledb/:currentVersion:/how-to-guides/hypertables/about-hypertables#best-practices-for-time-partitioning
