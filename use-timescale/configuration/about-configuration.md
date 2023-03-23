@@ -1,7 +1,7 @@
 ---
 title: About configuration in Timescale
 excerpt: About the TimescaleDB configurations
-products: [self_hosted]
+products: [cloud]
 keywords: [configuration, memory, workers, settings]
 ---
 
