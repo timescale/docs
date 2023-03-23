@@ -1,6 +1,6 @@
 ---
 title: Compression
-excerpt: Learn how compression works in TimescaleDB
+excerpt: Learn how compression works in Timescale
 products: [cloud, mst, self_hosted]
 keywords: [compression, hypertables]
 ---
@@ -9,9 +9,9 @@ keywords: [compression, hypertables]
 
 Time-series data can be compressed to reduce the amount of storage required, and
 increase the speed of some queries. This is a cornerstone feature of
-TimescaleDB. When new data is added to your database, it is in the form of
+Timescale. When new data is added to your database, it is in the form of
 uncompressed rows. TimescaleDB uses a built-in job scheduler to convert this
-data to the form of compressed columns. This occurs across chunks of TimescaleDB
+data to the form of compressed columns. This occurs across chunks of Timescale
 hypertables.
 
 This section explains what native compression is, and goes through some of the
@@ -20,11 +20,14 @@ setting up compression, and using it in your environment. We strongly recommend
 that you understand how compression works *before* you start enabling it on your
 hypertables.
 
-*   [Learn about compression][compression] to understand how it works before you begin using it.
+*   [Learn about compression][compression] to understand how it works before you
+    begin using it.
 *   [Manually compress][manual-compression] specific chunks.
 *   [Decompress chunks][decompress-chunks] to manually decompress specific chunks.
-*   [Backfill historical data][backfill-historical] to insert a batch of data into a compressed chunk.
-*   [Modify schema][modify-schema] to modify the table definition for a hypertable with compressed chunks.
+*   [Backfill historical data][backfill-historical] to insert a batch of data
+    into a compressed chunk.
+*   [Modify schema][modify-schema] to modify the table definition for a
+    hypertable with compressed chunks.
 
 <Highlight type="warning">
 Compression alters data on your disk, so always back up before you start!

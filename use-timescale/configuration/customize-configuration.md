@@ -11,7 +11,7 @@ cloud_ui:
 
 # Service operations - Configure database parameters
 
-Timescale Cloud allows you to customize many TimescaleDB and PostgreSQL
+Timescale Cloud allows you to customize many Timescale and PostgreSQL
 configuration options for each Service individually. Most configuration values
 for a service are initially set in accordance with best practices given the
 compute and storage settings of the service. Any time you increase or decrease
@@ -30,7 +30,7 @@ However, some changes do require a restart, resulting in some brief downtime
 the compute resources of a running service.
 </Highlight>
 
-### View service operation details
+## View service operation details
 
 To modify configuration parameters, first select the Service that you want to
 modify. This displays the `service details`, with these tabs across the top:

@@ -8,7 +8,7 @@ keywords: [compression, schemas, hypertables]
 # Schema modifications
 
 You can modify the schema of compressed hypertables in recent versions of
-TimescaleDB.
+Timescale.
 
 |Schema modification|Before TimescaleDB&nbsp;2.1|TimescaleDB&nbsp;2.1 to 2.5|TimescaleDB&nbsp;2.6 and above|
 |-|-|-|-|
