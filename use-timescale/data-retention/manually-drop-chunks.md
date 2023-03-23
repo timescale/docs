@@ -20,7 +20,7 @@ as they age, set up a
 ## Drop chunks older than a certain date
 
 To drop chunks older than a certain date, use the [`drop_chunks`][drop_chunks]
-function. Supply the name of the hypertable to drop chunks from, and a time
+function. Provide the name of the hypertable to drop chunks from, and a time
 interval beyond which to drop chunks.
 
 For example, to drop chunks with data older than 24 hours:

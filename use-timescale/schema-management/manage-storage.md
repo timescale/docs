@@ -8,7 +8,7 @@ tags: [move, manage, chunks]
 
 # Manage storage using tablespaces
 
-If you are running TimescaleDB on your own hardware, you can save storage
+If you are running Timescale on your own hardware, you can save storage
 by moving chunks between tablespaces. By moving older chunks to cheaper, slower
 storage, you can save on storage costs while still using faster, more expensive
 storage for frequently accessed data. Moving infrequently accessed chunks can
@@ -16,7 +16,7 @@ also improve performance, because it isolates historical data from the continual
 read-and-write workload of more recent data.
 
 <Highlight type="note">
-Using tablespaces is one way to manage data storage costs with TimescaleDB. You
+Using tablespaces is one way to manage data storage costs with Timescale. You
 can also use [compression](/use-timescale/latest/compression) and
 [data retention](/use-timescale/latest/data-retention) to reduce
 your storage requirements.
@@ -134,7 +134,7 @@ You can also keep the data in `pg_default` but move the index to `history`.
 Alternatively, you can set up a third tablespace called `history_indexes`,
 and move the data to `history` and the indexes to `history_indexes`.
 
-In TimescaleDB 2.0 and later, you can use `move_chunk` with the job scheduler
+In Timescale&nbsp;2.0 and later, you can use `move_chunk` with the job scheduler
 framework. For more information, see the [user-defined actions section][actions].
 
 [actions]: /use-timescale/:currentVersion:/user-defined-actions/

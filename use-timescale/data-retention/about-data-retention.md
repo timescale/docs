@@ -9,7 +9,7 @@ keywords: [data retention]
 
 In time-series applications, data often becomes less useful as it gets older. If
 you don't need your historical data, you can delete it once it reaches a certain
-age. TimescaleDB lets you set up
+age. Timescale lets you set up
 [automatic data retention policies][retention-policy] to discard old data. You
 can also fine-tune data retention by [manually dropping chunks][manual-drop].
 
@@ -19,7 +19,7 @@ the raw data. You can downsample your older data by
 
 ## Drop data by chunk
 
-TimescaleDB data retention works on chunks, not on rows. Deleting data
+Timescale data retention works on chunks, not on rows. Deleting data
 row-by-row, for example with the PostgreSQL `DELETE` command, can be slow. But
 dropping data by the chunk is faster, because it deletes an entire file from
 disk. It doesn't need garbage collection and defragmentation.

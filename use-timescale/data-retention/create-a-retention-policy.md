@@ -9,7 +9,7 @@ tags: [drop, delete]
 # Create a data retention policy
 
 Automatically drop data once its time value ages past a certain interval. When
-you create a data retention policy, TimescaleDB automatically schedules a
+you create a data retention policy, Timescale automatically schedules a
 background job to drop old chunks.
 
 ## Add a data retention policy
@@ -23,7 +23,7 @@ Add a data retention policy by using the
 
 1.  Choose which hypertable you want to add the policy to. Decide how long want
     you want to keep data before dropping it. In this example, the hypertable
-    name is `conditions`, and data is kept for 24 hours.
+    named `conditions` retains the data for 24 hours.
 1.  Call `add_retention_policy`:
 
     ```sql

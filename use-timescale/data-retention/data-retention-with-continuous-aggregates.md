@@ -62,7 +62,7 @@ So your aggregate retains the data.
 ## Data retention on a continuous aggregate itself
 
 You can also apply data retention on a continuous aggregate itself. For example,
-you can keep raw data for 30 days, as above. Meanwhile, you can keep daily data
-for 600 days, and no data beyond that.
+you can keep raw data for 30 days, as mentioned earlier. Meanwhile, you can keep
+daily data for 600 days, and no data beyond that.
 
 [continuous_aggregates]: /use-timescale/:currentVersion:/continuous-aggregates

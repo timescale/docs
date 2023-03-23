@@ -13,12 +13,12 @@ can create an index on any combination of columns, as long as you include the
 `time` column, for time-series data. Which column you choose to create your
 index on depends on what kind of data you have stored.
 
-Consider a simple example with temperatures collected from two locations called
+Consider a simple example with temperatures collected from two locations named
 `office` and `garage`:
 
 An index on `(location, time DESC)` is organized like this:
 
-```
+```sql
 garage-0940
 garage-0930
 garage-0920
@@ -30,7 +30,7 @@ office-0910
 
 An index on `(time DESC, location)` is organized like this:
 
-```
+```sql
 0940-garage
 0930-garage
 0930-office
@@ -112,5 +112,5 @@ The index in the example is useless for this query, because the data for
 SELECT * FROM devices WHERE store_id = M, device_id = M, time > 10
 ```
 
-This is a perfect query for this index. It narrows down the list to a very
-particular portion.
+This is an accurate query for this index. It narrows down the list to a very
+specific portion.

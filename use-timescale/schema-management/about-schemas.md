@@ -1,6 +1,6 @@
 ---
 title: Table management
-excerpt: How to manage tables in TimescaleDB
+excerpt: How to manage tables in Timescale
 products: [cloud, mst, self_hosted]
 keywords: [schemas, hypertables, indexes]
 ---
@@ -16,7 +16,7 @@ If you are working with semi-structured data, such as readings from IoT sensors
 that collect varying measurements, you might need a flexible schema. In this
 case, you can use PostgreSQL JSON and JSONB data types.
 
-TimescaleDB supports all table objects supported within PostgreSQL, including
+Timescale supports all table objects supported within PostgreSQL, including
 data types, indexes, and triggers.
 
 This section explains how to design your schema, how indexing and tablespaces

@@ -9,7 +9,7 @@ keywords: [hypertables, indexes]
 
 You can use an index on your database to speed up read operations. You can
 create an index on any combination of columns, as long as you include the `time`
-column, for time-series data. TimescaleDB supports all table objects supported
+column, for time-series data. Timescale supports all table objects supported
 within PostgreSQL, including data types, indexes, and triggers.
 
 You can create an index using the `CREATE INDEX` command. For example, to create
@@ -35,7 +35,10 @@ use this command:
 CREATE INDEX ON conditions (time DESC);
 ```
 
-When you create a hypertable with the `create_hypertable` command, and you specify an optional space partition in addition to time, such as a `location` column, an additional index is created on the optional column and time. For example:
+When you create a hypertable with the `create_hypertable` command, and you
+specify an optional space partition in addition to time, such as a `location`
+column, an additional index is created on the optional column and time. For
+example:
 
 ```sql
 CREATE INDEX ON conditions (location, time DESC);
