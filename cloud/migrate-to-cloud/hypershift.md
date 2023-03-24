@@ -222,11 +222,11 @@ docker run -ti timescale/hypershift:0.4 --help
 
 Hypershift offers filtering at the schema and table level. Filtering is
 enabled through the `include_schemas`, `exclude_schemas`, `include_tables`, and
-`exclude_tables` parameters in hypershift's configuration file. Note that some
-of these options are mutually exclusive.
+`exclude_tables` parameters in the hypershift configuration file. Some of these
+options are mutually exclusive.
 
-The following is an example of a hypershift configuration file with schema and
-table exclusions:
+This is an example of a hypershift configuration file with schema and table
+exclusions:
 
 ```yaml
 source: postgres://postgres:password@source:5432/database
@@ -249,7 +249,7 @@ The `include_schemas` configuration can be used to provide an array of schemas
 which should be included in the migration. Only objects in these schemas are
 copied.
 
-Example:
+For example:
 
 ```yaml
 include_schemas:
@@ -258,19 +258,26 @@ include_schemas:
 - '"FooBar"'
 ```
 
-Note: as with `pg_dump`, if there is a dependency from one schema to an object
-in another schema which is not included, the dependency will be unfulfilled,
-resulting in failure.
 
-Mutually exclusive with: `exclude_schemas`
+<highlight type="note">
+It is possible for objects in one schema to depend on objects in another schema
+for example, a table in the `public` schema depending on a type in the `other`
+schema. Hypershift will not warn about missing dependencies on objects in
+schemas which are not included, instead the migration will fail.
+
+To avoid this, ensure that you do not exclude schemas containing objects on
+which objects in other schemas depend.
+</highlight>
+
+This does not work in combination with [exclude_schemas](#exclude-schemas).
 
 #### Exclude schemas
 
 The `exclude_schemas` configuration can be used to provide an array of schemas
 which should not be included in the migration. Only objects which are not in
-these schemas will be copied.
+these schemas are copied.
 
-Example:
+For example:
 
 ```yaml
 exclude_schemas:
@@ -279,18 +286,24 @@ exclude_schemas:
 - '"FooBar"'
 ```
 
-Note: as with `pg_dump`, if there is a dependency from one schema to an object
-in another schema which is excluded, the dependency remains unfulfilled,
-resulting in failure to migrate.
+<highlight type="note">
+It is possible for objects in one schema to depend on objects in another schema
+for example, a table in the `public` schema depending on a type in the `other`
+schema. Hypershift will not warn about missing dependencies on objects in
+excluded schemas, instead the migration will fail.
 
-Mutually exclusive with: `include_schemas`
+To avoid this, ensure that you do not exclude schemas containing objects on
+which objects in other schemas depend.
+</highlight>
+
+This does not work in combination with [include_schemas](#include-schemas)
 
 #### Include tables
 
 The `include_tables` configuration can be used to provide an array of tables
 which should be included in the migration. Only these tables are copied.
 
-Example:
+For example:
 
 ```yaml
 include_tables:
@@ -300,12 +313,18 @@ include_tables:
 - other_schema.table
 ```
 
-Note: as with `pg_dump`, this configuration causes only the table to be copied,
-not any dependent objects (for example schemas, types, required foreign-key
-relations, etc.). You must ensure that all dependent objects are present in the
-target database before copying the table with this filter.
+<highlight type="note">
+It is possible for a table to depend on other object (for example the schema
+that the table is in, or a custom type). The `include_tables` configuration
+will _only_ copy the specified table, not any dependent objects. If dependent
+objects are not present in the target database, the migration will fail.
 
-Mutually exclusive with `exclude_tables`, `include_schemas`, `exclude_schemas`
+You must ensure that all objects which an included table relies on are already
+present in the target database in order for the `include_tables` to work.
+</highlight>
+
+This does not work in combination with [exclude_tables](#exclude-tables),
+[include_schemas](#include-schemas), or [exclude_schemas](#exclude-schemas)
 
 #### Exclude tables
 
@@ -313,7 +332,7 @@ The `exclude_tables` configuration can be used to provide an array of tables
 which should not be included in the migration. Only these tables are not
 copied.
 
-Example:
+For example:
 
 ```yaml
 exclude_tables:
@@ -323,11 +342,15 @@ exclude_tables:
 - other_schema.table
 ```
 
-Note: as with `pg_dump`, if there is a dependency on an excluded table (for
-example a view), the dependency remains unfulfilled, resulting in failure to
-migrate.
+<highlight type="note">
+It is possible for objects to depend on a table, for example a view which uses
+a table. Hypershift will not warn about an object depending on an excluded
+table, and the migration will fail.
 
-Mutually exclusive with `include_tables`
+You must ensure that all objects which depend on a table are also excluded.
+</highlight>
+
+This does not work in combination with [include_tables](#include-tables)
 
 
 [cloud-install]: /install/:currentVersion:/installation-cloud/
