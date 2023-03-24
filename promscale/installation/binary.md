@@ -78,4 +78,4 @@ Download the Promscale binary file and run the file.
 [gh-promscale-download]: https://github.com/timescale/promscale/releases
 [promscale-extension]: https://github.com/timescale/promscale_extension#promscale-extension
 [releases]: https://github.com/timescale/promscale/releases/
-[tsdb-install-self-hosted]: /timescaledb/:currentVersion:/how-to-guides/install-timescaledb/self-hosted/
+[tsdb-install-self-hosted]: /install/:currentVersion:/self-hosted/
