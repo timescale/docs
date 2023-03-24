@@ -11,7 +11,6 @@ cloud_ui:
 ---
 
 import ExperimentalPrivateBeta from 'versionContent/_partials/_early_access.mdx';
-import TieringBeta from 'versionContent/_partials/_cloud-data-tiering-beta.mdx';
 
 # Data tiering
 

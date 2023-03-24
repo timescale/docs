@@ -25,8 +25,11 @@ in a chunk using the `untier_chunk` stored procedure.
 
 Untiering chunks is an asynchronous process. When you untier a chunk, the data
 is moved from S3 storage to EBS storage. This process occurs in the background.
-The chunk remains available for queries until the data is moved to EBS, and
-becomes visible when you run the `timescaledb_information.chunks` function.
+The chunk remains available for queries during the migration to EBS.
+
+<Highlight type="note">
+Chunks are sometimes renamed when you untier your data.
+</Highlight>
 
 <procedure>
 
@@ -51,6 +54,32 @@ becomes visible when you run the `timescaledb_information.chunks` function.
 
     ```sql
     CALL untier_chunk('_hyper_1_1_chunk');
+    ```
+
+1.  You can see the details of the chunk with the
+    `timescaledb_information.chunks` function. The chunk might have changed name when it was untiered:
+
+    ```sql
+    SELECT * FROM timescaledb_information.chunks;
+    ```
+
+    The output looks something like this:
+
+    ```sql
+    -[ RECORD 1 ]----------+-------------------------
+    hypertable_schema      | public
+    hypertable_name        | sample
+    chunk_schema           | _timescaledb_internal
+    chunk_name             | _hyper_1_4_chunk
+    primary_dimension      | ts
+    primary_dimension_type | timestamp with time zone
+    range_start            | 2023-02-16 00:00:00+00
+    range_end              | 2020-03-23 00:00:00+00
+    range_start_integer    |
+    range_end_integer      |
+    is_compressed          | f
+    chunk_tablespace       |
+    data_nodes             |
     ```
 
 </procedure>

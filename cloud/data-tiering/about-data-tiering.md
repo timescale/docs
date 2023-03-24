@@ -11,7 +11,6 @@ cloud_ui:
 ---
 
 import ExperimentalPrivateBeta from 'versionContent/_partials/_early_access.mdx';
-import TieringBeta from 'versionContent/_partials/_cloud-data-tiering-beta.mdx';
 
 # Data tiering
 
@@ -19,11 +18,12 @@ Save on storage costs by tiering data to a low-cost object-storage layer.
 
 <ExperimentalPrivateBeta />
 
-Timescale Cloud includes a low-cost object-storage layer built on Amazon S3.
-This allows you to tier your hypertable data across different storage layers to
-get the best price performance. You can use primary storage for data that
-requires quick access, and low-cost object storage for historical data.
-Regardless of where your data is stored, you can query it with standard SQL.
+Timescale Cloud includes traditional disk storage, and a low-cost object-storage
+layer built on Amazon S3. You can move your hypertable data across the different
+storage tiers to get the best price performance. You can use primary storage for
+data that requires quick access, and low-cost object storage for historical
+data. Regardless of where your data is stored, you can query it with standard
+SQL.
 
 ## Benefits of data tiering
 
@@ -40,8 +40,7 @@ With data tiering, you get:
 *   **Transparent SQL queries.** You can interact with your data normally even
     when it's distributed across different storage layers. Your hypertable is
     spread across the layers, so queries and `JOIN`s work and fetch the same
-    data as usual. Reading data from object storage adds only a few tens of
-    milliseconds in latency, which goes away for larger scans.
+    data as usual.
 
 ## Architecture
 
@@ -63,7 +62,11 @@ The result is transparent queries across standard PostgreSQL storage and S3
 storage, so your queries fetch the same data as before, with minimal added
 latency.
 
-For more information, see the [blog post on data tiering][blog-data-tiering].
+For more about how data tiering works, see the
+[blog post on data tiering][blog-data-tiering].
+
+For more about using data tiering in your applications, see the
+[data tiering API documentation][data-tiering-api].
 
 ## Limitations
 
@@ -95,3 +98,4 @@ Learn [how data tiering works][how-to].
 
 [blog-data-tiering]: https://www.timescale.com/blog/expanding-the-boundaries-of-postgresql-announcing-a-bottomless-consumption-based-object-storage-layer-built-on-amazon-s3/
 [how-to]: /cloud/:currentVersion:/data-tiering/tier-data-object-storage/
+[data-tiering-api]: /api/:currentVersion:/FIXME/
