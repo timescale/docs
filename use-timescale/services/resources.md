@@ -11,6 +11,99 @@ cloud_ui:
 
 # Service operation - Resources
 
+Timescale Cloud allows you to resize compute (CPU/RAM) and storage independently
+at any time. This is useful when you need to do something like increasing your
+storage capacity, but not your compute size. You can resize compute and storage
+in the Timescale Cloud console for any service, including members of multi-node
+clusters.
+
+Storage changes are applied with no downtime, and the new storage capacity is
+usually available for use within a few seconds.
+
+*   Storage can only be increased in size. You cannot decrease the amount of
+    storage capacity your service has available.
+*   Storage size changes can only be made once every six hours.
+*   Storage can range in size from 10&nbsp;GB to 16&nbsp;TB,
+     and can be changed in various increments.
+
+You can increase or decrease the compute size of your service at any time, with
+a short downtime.
+
+*   There is momentary downtime while the new compute settings are applied.
+    In most cases, this downtime is less than 30 seconds.
+*   Because compute changes require an interruption to your service, plan
+    accordingly so that the settings are applied during an appropriate service
+    window.
+
+To modify the compute or storage of your service, select the service that you
+want to modify, and navigate to the `Operations` tab. Go to the `Resources`
+section to see the current resource settings for the service.
+
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-resources-unchanged.png" alt="View Timescale Cloud service resource information"/>
+
+When you change compute or storage settings, the current and new hourly charges
+are displayed immediately so that you can verify how the changes impact your
+costs.
+
+You can use the Timescale Cloud console to change how much CPU and memory
+resources your service has available, as well as change the disk size for your
+service. You can adjust this manually as required, or for disk size you can use autoscaling.
+
+## Change resource allocations manually
+
+You can manually change both storage and compute resources.
+
+### Storage resources
+
+When you change the disk size, the changes are applied with no downtime. The
+new size generally becomes available within a few seconds. You can only increase
+your disk size, not decrease it, up to a maximum of 16&nbsp;TB.
+
+Though your new storage is available within seconds, it needs to be optimized
+behind the scenes. Optimization takes anywhere from 6 to 24 hours for each
+terabyte of data. Allow enough time for optimization to finish before scaling
+your service again. You must wait at least 6 hours, even if your service is
+smaller than 1&nbsp;TB.
+
+<Highlight type="warning">
+If you resize your service again while your previous resize is still optimizing,
+the second resize fails. For more information on storage optimization, see the
+[Amazon Elastic Block Store](https://aws.amazon.com/premiumsupport/knowledge-center/ebs-volume-stuck-optimizing-on-modification/)
+documentation. To prevent this, wait for the recommended time between resizes.
+</Highlight>
+
+### Compute resources
+
+You can change the CPU and memory allocation for your service at any time, with
+minimal downtime, usually less than thirty seconds. The new resources become
+available as soon as the service restarts. You can change the CPU and memory
+allocation up or down, as frequently as required.
+
+<Highlight type="warning">
+Changing your compute settings usually requires a short downtime. Make sure you
+plan for this before you begin!
+</Highlight>
+
+<Procedure>
+
+### Changing resource allocations manually
+
+1.  In the Timescale Cloud console, from the `Services` list, click the name of
+    the service you want to modify.
+1.  In the `Service details` page, navigate to the `Operations` tab, and click
+    `Resources`.
+1.  In the `Resize CPU / memory` field, select the new CPU and memory
+    allocation.
+1.  In the `Increase disk size` field, adjust the slider to the new disk size.
+1.  Review the new allocations and costs in the comparison chart.
+1.  Click `Apply` to save your changes. If you have changed the CPU and memory
+    allocation, your service goes down briefly while the changes are applied.
+    <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-resources-changed-apply.png" alt="Configure resource allocations"/>
+
+</Procedure>
+
+## Configure autoscaling for disk size
+
 Timescale Cloud contains several mechanisms for managing disk space on your
 services. There are four key tasks that Cloud performs to handle disk space:
 
@@ -25,45 +118,13 @@ disk. For more information about autoscaling, including instructions for setting
 the maximum limit, or turning autoscaling off, see the
 [autoscaling][autoscaling] section.
 
-<Highlight type="cloud" header="Sign up for Timescale Cloud" button="Try for free">
-</Highlight>
-
-## Online storage resizing
-
-You can increase your storage size in the Timescale Cloud console.
-
-<Highlight type="warning">
-You can only increase your service's storage once every six hours, and you
-cannot currently decrease your storage size once set.
-</Highlight>
-
-<Procedure>
-
-### Increasing service resources
-
-1.  In the Timescale Cloud console, navigate to `Services` and click the service
-    you want to adjust. Navigate to the `Operations` tab, and go to
-    the `Resources` section.
-1.  Adjust the sliders for CPU and disk size as required. If you increase the
-    disk size past a certain point, you should also consider increasing the CPU
-    size to handle the increased disk size, although this is not required.
-1.  Review the new sizes and costs in the panel on the right-hand side, and
-    click `Restart and apply` when you are happy with the changes.
-1.  The resources take a few seconds to increase, and when the increase is
-    complete, your database is immediately available on the new resources. If
-    your database is in read-only mode, the read-only protection is
-    automatically removed, and you can begin writing data immediately.
-
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-resources-changed.png" alt="Timescale Cloud change resources"/>
-
-</Procedure>
-
 ## Storage recovery
 
-If you need to perform actions on your database to reduce your data usage, you
-can turn off read-only mode. For example, you need read-write access if you want
-to compress data, delete rows or tables, or drop old data using data retention
-policies.
+If you have reached the maximum size allowable in your Timescale Cloud service,
+read-only mode is automatically applied. If you need to perform actions on your
+database to reduce your data usage, you can turn off read-only mode. For
+example, you need read-write access if you want to compress data, delete rows or
+tables, or drop old data using data retention policies.
 
 <Highlight type="warning">
 Do not manually enable read-write access on a database that is over 99%
