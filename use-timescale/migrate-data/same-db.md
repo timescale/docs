@@ -15,8 +15,7 @@ the instructions for [migrating data from a different database][different-db].
 
 ## Prerequisites
 
-Before beginning, make sure you have [installed and set up][install] TimescaleDB
-within your PostgreSQL instance.
+Before beginning, make sure you have [installed and set up][install] Timescale.
 
 You also need a table with existing data. In this example, the source table is
 named `old_table`. Replace the table name with your actual table name. The

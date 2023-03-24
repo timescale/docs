@@ -20,10 +20,6 @@ You can migrate your existing data into TimescaleDB.
 *   For data stored in InfluxDB, see instructions for [migrating data with
     Outflux][outflux].
 
-You can also migrate data between TimescaleDB instances. See instructions for
-[migrating to Timescale Cloud][mst-to-cloud] from another TimescaleDB service or
-a self-hosted database.
-
 ## Considerations for data migration
 
 For a successful migration, your destination database must have enough free disk

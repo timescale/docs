@@ -163,7 +163,7 @@ accessed. Skipping them does not affect statistics on your data.
 [compression]: /use-timescale/:currentVersion:/compression/
 [extensions]: /use-timescale/:currentVersion:/services/postgresql-extensions/
 [install-timescale-cloud]: /getting-started/latest/
-[migrate-separately]: /use-timescale/:currentVersion:/migrate-data/schema-then-data/
+[migrate-separately]: /use-timescale/:currentVersion:/migrate-db/schema-then-data/
 [pg_dump]: https://www.postgresql.org/docs/current/app-pgdump.html
 [pg_restore]: https://www.postgresql.org/docs/current/app-pgrestore.html
 [psql]: /use-timescale/:currentVersion:/connecting/psql/
