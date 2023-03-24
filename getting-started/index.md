@@ -27,7 +27,7 @@ can find help from the Timescale community and team.
 
 <CloudTrial />
 
-## Install Timescale Cloud
+## Create your Timescale Cloud account
 
 <Install />
 
