@@ -21,9 +21,9 @@ api_details:
         time_bucket_gapfill(
           bucket_width INTERVAL | INTEGER,
           time TIMESTAMPTZ | INTEGER,
+          [, timezone TEXT]
           [, start TIMESTAMPTZ | INTEGER]
           [, finish TIMESTAMPTZ | INTEGER]
-          [, timezone TEXT]
         ) RETURNS TIMESTAMPTZ
   parameters:
     required:
@@ -37,6 +37,13 @@ api_details:
         type: TIMESTAMPTZ | INTEGER
         description: The timestamp on which to base the bucket
     optional:
+      - name: timezone
+        type: TEXT
+        description: >
+          The timezone to use for bucketing. For example, `Europe/Berlin`.
+          Available in TimescaleDB 2.9 or later. Does not work for integer-based time.
+          If you have an untyped `start` or `finish` argument and a `timezone` argument, you might run into a problem where you are not passing your arguments for the parameter that you expect.
+          To solve this, either name your arguments or explicitly type cast them.
       - name: start
         type: TIMESTAMPTZ | INTEGER
         description: >
@@ -53,13 +60,6 @@ api_details:
           Use `INTEGER` only if your time column is integer-based.
           We recommend using a `WHERE` clause rather than specifying `start`, which is a legacy option.
           The `WHERE` is more performant, because the query planner can filter out chunks by constraint exclusion.
-      - name: timezone
-        type: TEXT
-        description: >
-          The timezone to use for bucketing. For example, `Europe/Berlin`.
-          Available in TimescaleDB 2.9 or later. Does not work for integer-based time.
-          If you have an untyped `start` or `finish` argument and a `timezone` argument, you might run into a problem where you are not passing your arguments for the parameter that you expect.
-          To solve this, either name your arguments or explicitly type cast them.
     returns:
       - column: time_bucket_gapfill
         type: TIMESTAMPTZ
