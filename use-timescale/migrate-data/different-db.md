@@ -8,19 +8,13 @@ tags: [import]
 
 # Migrating data to TimescaleDB from a different PostgreSQL database
 
-You can migrate your data into TimescaleDB from a different PostgreSQL database.
-
-<Highlight type="note">
-To migrate between TimescaleDB databases, for example from self-hosted
-TimescaleDB to Timescale Cloud, see the [guide to migrating your TimescaleDB
-database to Cloud](https://docs.timescale.com/use-timescale/latest/migrate-data/).
-</Highlight>
+You can migrate your data into Timescale from a different PostgreSQL database.
 
 ## Prerequisites
 
 Before you begin, check that you have:
 
-*   [Installed and set up TimescaleDB][install] within your PostgreSQL instance
+*   [Installed and set up TimescaleDB][install]
 *   Installed the PostgreSQL [`pg_dump`][pg_dump] utility
 *   Installed a client for connecting to PostgreSQL. These instructions use
   `psql`, but any client works.

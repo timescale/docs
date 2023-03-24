@@ -214,7 +214,7 @@ Now that you're familiar with some Timescale queries and functions, like
 
 For more information about the functions provided by Timescale and Timescale
 Toolkit extension, see the
-[hyperfunctions section][hyperfunctions](/api/:currentVersion:/hyperfunctions).
+[hyperfunctions section][hyperfunctions].
 
 [average]: https://www.postgresql.org/docs/14/functions-aggregate.html
 [clause-expressions]: https://www.postgresql.org/docs/14/queries-table-expressions.html

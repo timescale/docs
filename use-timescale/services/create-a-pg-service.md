@@ -21,7 +21,7 @@ relational databases alongside your time-series databases.
 You can [try Timescale Cloud for free][sign-up], no credit card required.
 
 For installation instructions, and help getting your first service up and
-running, see the [Timescale Cloud installation section][cloud-install].
+running, see the [Getting Started section][cloud-install].
 
 <Procedure>
 
