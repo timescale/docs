@@ -14,7 +14,7 @@ of your hourly aggregate. This is more efficient than creating the daily
 aggregate on top of the original hypertable, because you can reuse the
 calculations from the hourly aggregate.
 
-This feature is available in TimescaleDB 2.9 and above.
+This feature is available in Timescale&nbsp;2.9 and later.
 
 ## Create a continuous aggregate on top of another continuous aggregate
 
@@ -23,8 +23,8 @@ same way as creating it on top of a hypertable. In your query, select from a
 continuous aggregate rather than from the hypertable, and use the time-bucketed
 column from the existing continuous aggregate as your time column.
 
-For more information, see the instructions for [creating a continuous
-aggregate][create-cagg].
+For more information, see the instructions for
+[creating a continuous aggregate][create-cagg].
 
 ## Use real-time aggregation with hierarchical continuous aggregates
 
@@ -63,8 +63,8 @@ However, the data is limited to what is already materialized in the monthly
 continuous aggregate, and doesn't get even more recent data from the source
 hypertable. This happens because the materialized-only continuous aggregate
 provides a stopping point, and the yearly continuous aggregate is unaware of any
-layers beyond that stopping point. This is similar to [how stacked views work in
-PostgreSQL][postgresql-views].
+layers beyond that stopping point. This is similar to
+[how stacked views work in PostgreSQL][postgresql-views].
 
 To make queries on the yearly continuous aggregate access all recent data, you
 can either:
@@ -135,7 +135,7 @@ ensure valid time-bucketing:
 
 *   You can only create a continuous aggregate on top of a finalized continuous
     aggregate. This new finalized format is the default for all continuous
-    aggregates created since TimescaleDB 2.7. If you need to create a continuous
+    aggregates created since Timescale&nbsp;2.7. If you need to create a continuous
     aggregate on top of a continuous aggregate in the old format, you need to
     [migrate your continuous aggregate][migrate-cagg] to the new format first.
 

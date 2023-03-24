@@ -34,7 +34,7 @@ You can then use the name to modify it in the same way as any other hypertable.
 1.  Locate the name of the hypertable you want to adjust in the results of the
     query. The results look like this:
 
-    ```
+    ```sql
              view_name         |            materialization_hypertable
     ---------------------------+---------------------------------------------------
     conditions_summary_hourly | _timescaledb_internal._materialized_hypertable_30

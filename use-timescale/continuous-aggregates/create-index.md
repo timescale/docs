@@ -57,10 +57,10 @@ DROP INDEX _timescaledb_internal.avg_temp_idx
 
 ### Limitations on created indexes
 
-In TimescaleDB 2.7 and above, you can create an index on any column in the
+In Timescale&nbsp;2.7 and later, you can create an index on any column in the
 materialized view. This includes aggregated columns, such as those storing sums
 and averages. In earlier versions of TimescaleDB, you can't create an index on
 an aggregated column.
 
-You can't create unique indexes on a continuous aggregate, in any version
-of TimescaleDB.
+You can't create unique indexes on a continuous aggregate, in any of the
+Timescale versions.

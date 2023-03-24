@@ -33,10 +33,12 @@ use a hypertable called `example`, and compress chunks older than three days.
 
 1.  This returns a list of chunks. Take a note of the chunk names:
 
+    ```sql
     ||show_chunks|
     |---|---|
     |1|_timescaledb_internal_hyper_1_2_chunk|
     |2|_timescaledb_internal_hyper_1_3_chunk|
+    ```
 
 </Procedure>
 
@@ -63,10 +65,12 @@ manually compress each one.
     The results show the chunks for the given hypertable, their compression
     status, and some other statistics:
 
+    ```sql
     |chunk_schema|chunk_name|compression_status|before_compression_table_bytes|before_compression_index_bytes|before_compression_toast_bytes|before_compression_total_bytes|after_compression_table_bytes|after_compression_index_bytes|after_compression_toast_bytes|after_compression_total_bytes|node_name|
     |---|---|---|---|---|---|---|---|---|---|---|---|
     |_timescaledb_internal|_hyper_1_1_chunk|Compressed|8192 bytes|16 kB|8192 bytes|32 kB|8192 bytes|16 kB|8192 bytes|32 kB||
     |_timescaledb_internal|_hyper_1_20_chunk|Uncompressed||||||||||
+    ```
 
 1.  Repeat for all chunks you want to compress.
 
@@ -90,7 +94,7 @@ SELECT compress_chunk(i, if_not_compressed => true)
 
 ## Roll up uncompressed chunks when compressing
 
-In TimescaleDB 2.9 and later, you can roll up multiple uncompressed chunks into
+In Timescale&nbsp;2.9 and later, you can roll up multiple uncompressed chunks into
 a previously compressed chunk as part of your compression procedure. This allows
 you to have much smaller uncompressed chunk intervals, which reduces the disk
 space used for uncompressed data. For example, if you have multiple smaller

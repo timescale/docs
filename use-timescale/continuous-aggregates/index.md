@@ -8,7 +8,7 @@ keywords: [continuous aggregates]
 # Continuous aggregates
 
 Continuous aggregates are designed to make queries on very large datasets run
-faster. TimescaleDB continuous aggregates use
+faster. Timescale continuous aggregates use
 PostgreSQL [materialized views][postgres-materialized-views] to continuously and
 incrementally refresh a query in the background, so that when you run the query,
 only the data that has changed needs to be computed, not the entire dataset.
@@ -24,7 +24,7 @@ only the data that has changed needs to be computed, not the entire dataset.
 *   [Use real-time aggregates][cagg-realtime].
 *   [Compression with continuous aggregates][cagg-compression].
 *   [Migrate your continuous aggregates][cagg-migrate] from old to new format.
-    Continuous aggregates created in TimescaleDB 2.7 and above are in the new
+    Continuous aggregates created in Timescale&nbsp;2.7 and later are in the new
     format, unless explicitly created in the old format.
 *   [Troubleshoot][cagg-tshoot] continuous aggregates.
 

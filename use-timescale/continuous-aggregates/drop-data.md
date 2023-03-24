@@ -17,8 +17,8 @@ lower granularity than recent data.
 However, you should be aware if a retention policy is likely to drop raw data
 from your hypertable that you need in your continuous aggregate.
 
-To simplify the process of setting up downsampling, you can use the [visualizer
-and code generator][visualizer] below.
+To simplify the process of setting up downsampling, you can use
+the [visualizer and code generator][visualizer].
 
 ## Drop a continuous aggregate view
 

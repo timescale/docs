@@ -8,7 +8,7 @@ tags: [decompression]
 
 # Decompression
 
-TimescaleDB automatically supports `INSERT`s into compressed chunks. But if you
+Timescale automatically supports `INSERT`s into compressed chunks. But if you
 need to insert a lot of data, for example as part of a bulk backfilling
 operation, you should first decompress the chunk. Inserting data into a
 compressed chunk is more computationally expensive than inserting data into an
@@ -37,8 +37,7 @@ To decompress a single chunk by name, run this command:
 SELECT decompress_chunk('_timescaledb_internal.<chunk_name>');
 ```
 
-In this example, `chunk_name` is the name of the chunk that you want to
-decompress.
+where, `<chunk_name>` is the name of the chunk you want to decompress.
 
 ### Decompress chunks by time
 

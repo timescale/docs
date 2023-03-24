@@ -13,7 +13,7 @@ import CompressionIntro from 'versionContent/_partials/_compression-intro.mdx';
 
 <Highlight type="note">
 Most indexes set on the hypertable are removed or ignored
-when reading from compressed chunks. TimescaleDB creates and uses custom indexes
+when reading from compressed chunks. Timescale creates and uses custom indexes
 to incorporate the `segmentby` and `orderby` parameters during compression.
 </Highlight>
 
@@ -58,12 +58,10 @@ For more information, see the API reference for
 [`ALTER TABLE (compression)`][alter-table-compression] and
 [`add_compression_policy`][add_compression_policy].
 
-<Highlight type="cloud" header="Set up compression in a few clicks on Timescale Cloud">
-If you're using Timescale Cloud, you can also set a compression policy through
+In Timescale Cloud, you can also set a compression policy through
 the Timescale Cloud console. The compression tool automatically generates and
 runs the compression commands for you. To learn more, see the
 [Timescale Cloud documentation](/use-timescale/latest/services/service-explorer/#setting-a-compression-policy-from-timescale-cloud-console).
-</Highlight>
 
 ## View current compression policy
 
@@ -104,7 +102,7 @@ compression.
 ## Compression policy intervals
 
 Data is usually compressed after an interval of time, and not
-immediately. In the "Enabling compression" procedure, we used a seven day
+immediately. In the "Enabling compression" procedure, you used a seven day
 compression interval. Choosing a good compression interval can make your queries
 more efficient, and also allow you to handle data that is out of order.
 
@@ -216,7 +214,7 @@ according to the hypertable's `time` column. In most cases, this works well,
 provided you have set the `segmentby` option appropriately. However, in some
 more complicated scenarios, you want to manually adjust the
 `compress_orderby`setting as well. Changing this value can improve the
-compression ratio, as well as query performance.
+compression ratio and query performance.
 
 Compression is most effective when adjacent data is close in magnitude or
 exhibits some sort of trend. Random data, or data that is out of order,
