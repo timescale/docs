@@ -59,11 +59,11 @@ service to restart. Restarts typically take about one minute to complete.
 
 1.  [Log in to your Timescale Cloud account][cloud-login] and click
   the service you want to replicate.
-1.  Navigate to the `Operations` tab, and select `Replication`.
+1.  Navigate to the `Operations` tab, and select `High availability`.
 1.  Check the pricing of the replica, and click `Add a replica`. Confirm the
     action by clicking `Add replica`.
 1.  You can see the replicas for each service by clicking on the service name,
-    navigating to the `Operations` tab, and selecting `Replication`. Replicas
+    navigating to the `Operations` tab, and selecting `High availability`. Replicas
     are not shown in the main `Services` section, as they are not independent.
 1.  You can see connection information for the replica by navigating to the
     `Overview` tab. In the `Connection info` section, select the replica from
