@@ -64,11 +64,6 @@ module.exports = [
               "Timescale Cloud services operations, Service management tab",
           },
           {
-            title: "Multi-factor Authentication",
-            href: "multi-factor-authentication",
-            excerpt: "Multi-factor authentication for Timescale Cloud account",
-          },
-          {
             title: "PostgreSQL extensions",
             href: "postgresql-extensions",
             excerpt: "Timescale Cloud PostgreSQL extensions",
@@ -860,6 +855,11 @@ module.exports = [
             title: "Security overview",
             href: "overview",
             excerpt: "Get an overview of Timescale Cloud security",
+          },
+          {
+            title: "Multi-factor Authentication",
+            href: "multi-factor-authentication",
+            excerpt: "Multi-factor authentication for Timescale Cloud account",
           },
           {
             title: "Connect with a stricter SSL mode",
