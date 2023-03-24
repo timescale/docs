@@ -6,9 +6,11 @@ keywords: [upgrades, updates, releases]
 
 # Release notes for past releases
 
-This page contains release notes for older versions. For the current release
-notes, see the
-[current release section][current-relnotes].
+<Highlight type="warning">
+This is an historical document, which contains release notes for older versions
+of TimescaleDB. For details on the most recent release, see the
+[current release notes](/about/latest/release-notes/).
+</Highlight>
 
 ## What's new in TimescaleDB 2.9:
 
@@ -1947,4 +1949,3 @@ For more information on this release, read the [blog announcement](https://blog.
 [github-issue]: <https://github.com/timescale/timescaledb/issues/new/choose>
 [github-repo]: <https://github.com/timescale/timescaledb>
 [community]: https://www.timescale.com/community/
-[current-relnotes]: /about/:currentVersion:/release-notes/
