@@ -92,6 +92,11 @@ For more about using data tiering in your applications, see the
     native data types, but not for non-native types, such as `JSON`, `JSONB`,
     and `GIS`.
 
+*   **Latency tradeoffs.** S3 has a much higher latency than EBS. Latency for
+    S3 is in the 100s of milliseconds vs 1-10ms latency for EBS volumes. That can
+    affect the execution time of queries, especially lighter queries in latency
+    sensitive environments.
+
 ## Learn more
 
 Learn [how data tiering works][how-to].
