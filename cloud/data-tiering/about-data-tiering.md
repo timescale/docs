@@ -65,8 +65,6 @@ latency.
 For more about how data tiering works, see the
 [blog post on data tiering][blog-data-tiering].
 
-For more about using data tiering in your applications, see the
-[data tiering API documentation][data-tiering-api].
 
 ## Limitations
 
@@ -103,4 +101,3 @@ Learn [how data tiering works][how-to].
 
 [blog-data-tiering]: https://www.timescale.com/blog/expanding-the-boundaries-of-postgresql-announcing-a-bottomless-consumption-based-object-storage-layer-built-on-amazon-s3/
 [how-to]: /cloud/:currentVersion:/data-tiering/tier-data-object-storage/
-[data-tiering-api]: /api/:currentVersion:/FIXME/
