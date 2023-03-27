@@ -843,7 +843,6 @@ module.exports = [
       {
         title: "Data tiering",
         href: "data-tiering",
-        type: "directory",
         excerpt: "Tier older data to save storage costs",
         children: [
           {
