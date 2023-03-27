@@ -57,7 +57,8 @@ Chunks are sometimes renamed when you untier your data.
     ```
 
 1.  You can see the details of the chunk with the
-    `timescaledb_information.chunks` function. The chunk might have changed name when it was untiered:
+    `timescaledb_information.chunks` function. The chunk might have changed name
+    when it was untiered:
 
     ```sql
     SELECT * FROM timescaledb_information.chunks;
