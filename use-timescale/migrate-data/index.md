@@ -1,26 +1,37 @@
 ---
 title: Data migration
-excerpt: Migrate your existing data into TimescaleDB
-products: [mst, self_hosted]
+excerpt: Migrate your existing data into Timescale
+products: [cloud, mst, self_hosted]
 keywords: [data migration]
-tags: [import]
+tags: [csv, import, postgresql, influx, outflux]
 ---
 
-# Data migration
+# About data migration
 
-You can migrate your existing data into TimescaleDB in several ways.
+You can migrate time-series data into your Timescale hypertables:
 
-*   [Learn about data migration][about-data-migration] before you start
-*   Migrate data when TimescaleDB is in the [same PostgreSQL instance][same-db]
-    as your existing data
-    hypertable
-*   Migrate data into TimescaleDB from a [different PostgreSQL database][different-db]
-*   [Import data from a `.csv`][import-data] into an empty TimescaleDB
-    hypertable
-*   Migrate data [from InfluxDB][outflux]
+*   For data stored in PostgreSQL, see instructions for:
+    *   [Migrating data within the same database][same-db]
+    *   [Migrating data from a separate database][different-db]
+*   For data stored in a `.csv` file, see instructions for
+    [importing data from a `.csv`][import-data].
+*   For data stored in InfluxDB, see instructions for
+    [migrating data with Outflux][outflux].
 
-[about-data-migration]: /use-timescale/:currentVersion:/migrate-data/about-migrate-data/
+If you need to migrate an entire database, see the section on
+[database migration][migrate-db] instead.
+
+## Considerations for data migration
+
+For a successful migration, your destination database must have enough free disk
+space. In most cases, you need disk space of at least 1.5 times the size of the
+original data and any indexes. If your migration method requires decompression,
+you should also account for the size of any temporarily decompressed tables. For
+more information, see the specific instructions for your use case.
+
 [different-db]: /use-timescale/:currentVersion:/migrate-data/different-db/
 [import-data]: /use-timescale/:currentVersion:/migrate-data/import-csv/
+[mst-to-cloud]: /use-timescale/:currentVersion:/migrate-data/
 [outflux]: /use-timescale/:currentVersion:/migrate-data/migrate-influxdb/
 [same-db]: /use-timescale/:currentVersion:/migrate-data/same-db/
+[migrate-db]: /use-timescale/:currentVersion:/migrate-db/

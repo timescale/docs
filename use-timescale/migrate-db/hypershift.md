@@ -16,7 +16,7 @@ Hypershift can migrate your data in Timescale Cloud from these sources:
 
 *   Standard PostgreSQL databases
 *   Amazon RDS databases
-*   Other TimescaleDB databases, including Managed Service for Timescale
+*   Other Timescale databases, including Managed Service for Timescale
 
 Because compression is enabled during the migration, you do not need to have the
 maximum amount of storage available in the target database before you start

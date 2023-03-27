@@ -1,21 +1,21 @@
 ---
-title: Migrate data to TimescaleDB from InfluxDB
-excerpt: Mgirate data into TimescaleDB using the Outflux tool
+title: Migrate data to Timescale from InfluxDB
+excerpt: Mgirate data into Timescale using the Outflux tool
 products: [mst, self_hosted]
 keywords: [data migration, InfluxDB]
 tags: [import, Outflux]
 ---
 
-# Migrate data to TimescaleDB from InfluxDB
+# Migrate data to Timescale from InfluxDB
 
-You can migrate data to TimescaleDB from InfluxDB using the Outflux tool.
+You can migrate data to Timescale from InfluxDB using the Outflux tool.
 [Outflux][outflux] is an open source tool built by Timescale for fast, seamless
-migrations. It pipes exported data directly to TimescaleDB, and manages schema
+migrations. It pipes exported data directly to Timescale, and manages schema
 discovery, validation, and creation.
 
 <Highlight type="important">
 Outflux works with earlier versions of InfluxDB. It does not work with InfluxDB
-2.X.
+version 2 and later.
 </Highlight>
 
 ## Prerequisites
@@ -23,7 +23,7 @@ Outflux works with earlier versions of InfluxDB. It does not work with InfluxDB
 Before you start, make sure you have:
 
 *   A running instance of InfluxDB and a means to connect to it.
-*   An [installation of TimescaleDB][install] and a means to connect to it.
+*   An [installation of Timescale][install] and a means to connect to it.
 *   Data in your InfluxDB instance. If you need to import some sample data for a
     test, see the instructions for [importing sample data][import-data].
 
@@ -35,8 +35,8 @@ To import data from Outflux, follow these procedures:
 1.  [Import sample data](#import-sample-data-into-influxdb) to InfluxDB if you
     don't have existing data.
 1.  [Discover, validate, and transfer
-    schema](#discover-validate-and-transfer-schema) to TimescaleDB (optional)
-1.  [Migrate data to TimescaleDB](#migrate-data-to-timescaledb)
+    schema](#discover-validate-and-transfer-schema) to Timescale (optional)
+1.  [Migrate data to Timescale](#migrate-data-to-timescaledb)
 
 ## Install Outflux
 
@@ -99,7 +99,7 @@ available at `http://localhost:8086`.
 Outflux can:
 
 *   Discover the schema of an InfluxDB measurement
-*   Validate whether a TimescaleDB table exists that can hold the transferred
+*   Validate whether a Timescale table exists that can hold the transferred
     data
 *   Create a new table to satisfy the schema requirements if no valid table
     exists
@@ -111,7 +111,7 @@ Use this section if you want to validate and transfer your schema independently
 of data migration.
 </Highlight>
 
-To transfer your schema from InfluxDB to TimescaleDB, run `outflux
+To transfer your schema from InfluxDB to Timescale, run `outflux
 schema-transfer`:
 
 ```bash
@@ -124,7 +124,7 @@ To transfer all measurements from the database, leave out the measurement name
 argument.
 
 <Highlight type="note">
-This example uses the `postgres` user and database to connect to the TimescaleDB
+This example uses the `postgres` user and database to connect to the Timescale
 database. For other connection options and configuration, see the [Outflux
 Github repo](https://github.com/timescale/outflux#connection).
 </Highlight>
@@ -133,7 +133,7 @@ Github repo](https://github.com/timescale/outflux#connection).
 
 Outflux's `schema-transfer` can use 1 of 4 schema strategies:
 
-*   `ValidateOnly`: checks that TimescaleDB is installed and that the specified
+*   `ValidateOnly`: checks that Timescale is installed and that the specified
     database has a properly partitioned hypertable with the correct columns, but
     doesn't perform modifications
 *   `CreateIfMissing`: runs the same checks as `ValidateOnly`, and creates and
@@ -149,10 +149,10 @@ You can specify your schema strategy by passing a value to the
 strategy is `CreateIfMissing`.
 
 By default, each tag and field in InfluxDB is treated as a separate column in
-your TimescaleDB tables. To transfer tags and fields as a single JSONB column,
+your Timescale tables. To transfer tags and fields as a single JSONB column,
 use the flag `--tags-as-json`.
 
-## Migrate data to TimescaleDB
+## Migrate data to Timescale
 
 Transfer your schema and migrate your data all at once with the `migrate`
 command.
@@ -178,7 +178,7 @@ In addition, `outflux migrate` also takes the following flags:
 *   `chunk-size`: Changes the size of data chunks transferred. Data is pulled
     from the InfluxDB server in chunks of default size 15 000.
 *   `batch-size`: Changes the number of rows in an insertion batch. Data is
-    inserted into TimescaleDB in batches that are 8000 rows by default.
+    inserted into Timescale in batches that are 8000 rows by default.
 
 For more flags, see the [Github documentation for `outflux
 migrate`][outflux-migrate]. Alternatively, see the command line help:

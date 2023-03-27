@@ -1,12 +1,12 @@
 ---
-title: Migrating data to TimescaleDB from a different PostgreSQL database
-excerpt: How to migrate your data into TimescaleDB from a different PostgreSQL database
+title: Migrating data to Timescale from a different PostgreSQL database
+excerpt: How to migrate your data into Timescale from a different PostgreSQL database
 products: [mst, self_hosted]
 keywords: [data migration, PostgreSQL]
 tags: [import]
 ---
 
-# Migrating data to TimescaleDB from a different PostgreSQL database
+# Migrating data to Timescale from a different PostgreSQL database
 
 You can migrate your data into Timescale from a different PostgreSQL database.
 
@@ -14,18 +14,18 @@ You can migrate your data into Timescale from a different PostgreSQL database.
 
 Before you begin, check that you have:
 
-*   [Installed and set up TimescaleDB][install]
+*   [Installed and set up Timescale][install]
 *   Installed the PostgreSQL [`pg_dump`][pg_dump] utility
 *   Installed a client for connecting to PostgreSQL. These instructions use
   `psql`, but any client works.
 
-## Migrate your data into TimescaleDB
+## Migrate your data into Timescale
 
-Migrate your data into TimescaleDB from a different PostgreSQL database.
+Migrate your data into Timescale from a different PostgreSQL database.
 
 <Procedure>
 
-### Migrating your data into TimescaleDB
+### Migrating your data into Timescale
 
 1.  Copy the database schema from your source database into a backup file named
     `source_db.bak`. This file contains the SQL commands to recreate all the

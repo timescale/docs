@@ -20,13 +20,13 @@ There are several methods for migrating your data:
     hypershift tool to migrate an existing PostgreSQL database in one step,
     creating hypertables on the fly, and compressing data during migration.
 *   [Migrate your entire database at once][migrate-entire]: This method
-    directly transfers all data and schemas, including TimescaleDB-specific
+    directly transfers all data and schemas, including Timescale-specific
     features. Your hypertables, continuous aggregates, and policies are
     automatically available in Cloud.
 *   [Migrate your schema and data separately][migrate-separately]: With this
     method, you migrate your tables one by one for easier failure recovery. If
     migration fails mid-way, you can restart from the failure point rather than
-    from the beginning. However, TimescaleDB-specific features won't be
+    from the beginning. However, Timescale-specific features won't be
     automatically migrated. Follow the instructions to restore your hypertables,
     continuous aggregates, and policies.
 

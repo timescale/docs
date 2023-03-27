@@ -1,14 +1,15 @@
 ---
-title: Import data into TimescaleDB from .csv
-excerpt: Import data into your TimescaleDB instance from an external .csv file
+title: Import data into Timescale from .csv
+excerpt: Import data into your Timescale instance from an external .csv file
 products: [mst, self_hosted]
 keywords: [data migration]
 tags: [import, csv]
 ---
 
-# Import data into TimescaleDB from .csv
+# Import data into Timescale from .csv
 
-If you have data stored in an external `.csv` file, you can import it into TimescaleDB.
+If you have data stored in an external `.csv` file, you can import it into
+Timescale.
 
 ## Prerequisites
 
@@ -24,8 +25,8 @@ Import data from a `csv`.
 
 <Highlight type="note">
 Timescale provides an open source
-[parallel importer](https://github.com/timescale/timescaledb-parallel-copy) program,
-`timescaledb-parallel-copy`, to speed up data copying. The program parallelizes
+[parallel importer](https://github.com/timescale/Timescale-parallel-copy) program,
+`Timescale-parallel-copy`, to speed up data copying. The program parallelizes
 migration by using several workers to run multiple `COPY`s concurrently. It also
 offers options to improve the copying experience. If you prefer not to download
 `timescaledb-parallel-copy`, you can also use regular PostgreSQL `COPY`.
