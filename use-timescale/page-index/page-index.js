@@ -836,11 +836,6 @@ module.exports = [
         excerpt: "Timescale Cloud Multi-node",
       },
       {
-        title: "High availability",
-        href: "high-availability",
-        excerpt: "Timescale Cloud high availabilioty",
-      },
-      {
         title: "Data tiering",
         href: "data-tiering",
         excerpt: "Tier older data to save storage costs",
@@ -848,7 +843,8 @@ module.exports = [
           {
             title: "About data tiering",
             href: "about-data-tiering",
-            excerpt: "Save on storage costs by tiering older data to separate storage",
+            excerpt:
+              "Save on storage costs by tiering older data to separate storage",
           },
           {
             title: "Tier data",

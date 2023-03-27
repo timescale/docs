@@ -1,7 +1,7 @@
 ---
 title: Service operations - High availability
 excerpt: Set up HA replicas on Timescale Cloud for high availability
-product: [cloud]
+products: [cloud]
 keywords: [high availability, replicas]
 tags: [failover, availability zones, replication, wal]
 cloud_ui:

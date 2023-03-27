@@ -2,7 +2,7 @@
 title: Install Managed Service for TimescaleDB
 nav-title: Managed Service for TimescaleDB
 excerpt: Start a TimescaleDB instance on Managed Service for TimescaleDB
-product: mst
+products: [mst]
 section: install
 order: 2
 keywords: [installation]
