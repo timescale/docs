@@ -1,5 +1,5 @@
 <Highlight type="important">
-This feature is offered with early access pricing. The cost of this feature
-could rise in the future, so start using it today to get the best deal. Features
-with early access pricing are complete and ready to use in production.
+This feature is early access. Early access features are complete and ready to
+use in production. Early access features might be subject to billing changes in
+the future.
 </Highlight>

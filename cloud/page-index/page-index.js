@@ -153,9 +153,19 @@ module.exports = [
           "Save on storage costs by tiering older data to separate storage",
         children: [
           {
+            title: "About data tiering",
+            href: "about-data-tiering",
+            excerpt: "Learn about tiering Timescale Cloud data to object storage",
+          },
+          {
             title: "Tier data to object storage",
             href: "tier-data-object-storage",
             excerpt: "How to tier Timescale Cloud data to object storage",
+          },
+          {
+            title: "Untier data to object storage",
+            href: "untier-data",
+            excerpt: "How to untier Timescale Cloud data",
           },
         ],
       },

@@ -111,6 +111,7 @@ Unix
 [Uu]nmaterialized
 [Uu]nregister
 [Uu]nthrottled?
+[Uu]ntier
 [Uu]pserts?
 [Rr]ebalanc(?:e|ing)
 [Rr]epos?
