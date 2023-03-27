@@ -22,6 +22,6 @@ Save on storage costs by tiering data to a low-cost object-storage layer.
 *   [Tier data to object storage][tier-data]
 *   [Untier data][untier-data]
 
-[about-data-tiering]: /cloud/:currentVersion:/data-tiering/about-data-tiering/
-[tier-data]: /cloud/:currentVersion:/data-tiering/tier-data-object-storage/
-[untier-data]: /cloud/:currentVersion:/data-tiering/untier-data/
+[about-data-tiering]: /use-timescale/:currentVersion:/data-tiering/about-data-tiering/
+[tier-data]: /use-timescale/:currentVersion:/data-tiering/tier-data-object-storage/
+[untier-data]: /use-timescale/:currentVersion:/data-tiering/untier-data/

@@ -65,7 +65,6 @@ latency.
 For more about how data tiering works, see the
 [blog post on data tiering][blog-data-tiering].
 
-
 ## Limitations
 
 *   **Limited schema modifications.** Some schema modifications are not allowed
@@ -90,9 +89,9 @@ For more about how data tiering works, see the
     native data types, but not for non-native types, such as `JSON`, `JSONB`,
     and `GIS`.
 
-*   **Latency.** S3 has much higher latency than EBS. Latency for S3 is in 
-     the 100s of milliseconds, compared to 1-10ms latency for EBS volumes. 
-     This can affect the execution time of queries, especially lighter queries 
+*   **Latency.** S3 has much higher latency than EBS. Latency for S3 is in
+     the 100s of milliseconds, compared to 1-10ms latency for EBS volumes.
+     This can affect the execution time of queries, especially lighter queries
      in latency-sensitive environments.
 
 ## Learn more
@@ -100,4 +99,4 @@ For more about how data tiering works, see the
 Learn [how data tiering works][how-to].
 
 [blog-data-tiering]: https://www.timescale.com/blog/expanding-the-boundaries-of-postgresql-announcing-a-bottomless-consumption-based-object-storage-layer-built-on-amazon-s3/
-[how-to]: /cloud/:currentVersion:/data-tiering/tier-data-object-storage/
+[how-to]: /use-timescale/:currentVersion:/data-tiering/tier-data-object-storage/
