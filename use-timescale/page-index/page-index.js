@@ -841,10 +841,27 @@ module.exports = [
         excerpt: "Timescale Cloud high availabilioty",
       },
       {
-        title: "Data tiering to object storage",
-        href: "tier-data-object-storage",
-        excerpt:
-          "Save on storage costs by tiering older data to separate storage",
+        title: "Data tiering",
+        href: "data-tiering",
+        type: "directory",
+        excerpt: "Tier older data to save storage costs",
+        children: [
+          {
+            title: "About data tiering",
+            href: "about-data-tiering",
+            excerpt: "Save on storage costs by tiering older data to separate storage",
+          },
+          {
+            title: "Tier data",
+            href: "tier-data-object-storage",
+            excerpt: "How to tier Timescale Cloud data to object storage",
+          },
+          {
+            title: "Untier data",
+            href: "untier-data",
+            excerpt: "How to untier Timescale Cloud data",
+          }
+        ],
       },
       {
         title: "Security",
