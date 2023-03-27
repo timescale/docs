@@ -31,7 +31,7 @@ The chunk remains available for queries during the migration to EBS.
 Chunks are sometimes renamed when you untier your data.
 </Highlight>
 
-<procedure>
+<Procedure>
 
 ### Untiering data in a chunk
 
@@ -82,4 +82,4 @@ Chunks are sometimes renamed when you untier your data.
     data_nodes             |
     ```
 
-</procedure>
+</Procedure>
