@@ -83,9 +83,9 @@ out-of-the-box support for automatic failover. Read more in the PostgreSQL
 [failover documentation][failover-docs]. [Patroni][patroni-github] offers a
 configurable high availability solution with automatic failover capability.
 
-[cloud-backup]: /cloud/:currentVersion:/backup-restore-cloud/
-[cloud-ha]: /cloud/:currentVersion:/high-availability/
-[db-backup]: /timescaledb/:currentVersion:/how-to-guides/backup-and-restore/
+[cloud-backup]: /use-timescale/:currentVersion:/backup-restore-cloud/
+[cloud-ha]: /use-timescale/:currentVersion:/high-availability/
+[db-backup]: /self-hosted/:currentVersion:/backup-and-restore/
 [failover-docs]: https://www.postgresql.org/docs/current/static/warm-standby-failover.html
 [patroni-github]: https://github.com/zalando/patroni
 [pgctl-docs]: https://www.postgresql.org/docs/current/static/app-pg-ctl.html
