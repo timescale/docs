@@ -9,7 +9,7 @@ cloud_ui:
         - [services, :serviceID, operations, data-tiering]
 ---
 
-import ExperimentalPrivateBeta from 'versionContent/_partials/_experimental-private-beta.mdx';
+import ExperimentalPrivateBeta from 'versionContent/_partials/_early_access.mdx';
 import TieringBeta from 'versionContent/_partials/_cloud-data-tiering-beta.mdx';
 
 # Tier data to object storage
@@ -19,7 +19,6 @@ can continue to query a hypertable as normal after migration. All queries,
 including `JOIN`s, work as usual.
 
 <ExperimentalPrivateBeta />
-<TieringBeta />
 
 ## Manually tier a chunk
 
@@ -45,12 +44,6 @@ SELECT * FROM timescaledb_information.chunks WHERE hypertable_name = 'metrics';
 
 Tiering a chunk schedules the chunk for migration to object storage. You can
 continue to query a chunk during migration.
-
-<Highlight type="warning">
-There is currently no way to move a chunk back from object storage to primary
-storage. This capability, `untier_chunk`, is planned for a future beta
-release.
-</Highlight>
 
 ## Automate chunk tiering with a data tiering policy
 
