@@ -860,7 +860,7 @@ module.exports = [
             title: "Untier data",
             href: "untier-data",
             excerpt: "How to untier Timescale Cloud data",
-          }
+          },
         ],
       },
       {
