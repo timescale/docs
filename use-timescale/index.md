@@ -3,8 +3,9 @@ title: How-to guides
 excerpt: Learn how to work with TimescaleDB
 ---
 
-# How-to guides
+# Using Timescale
 
-How-to guides for TimescaleDB are grouped within the general feature set
-that they use. If you're not sure what section a topic might be in, try using
-the search above.
+This section contains information about using Timescale. If you're not sure how
+to find the information you need, try the [Find a docs page][find-docs] section.
+
+[find-docs]: /navigation/:currentVersion:/
