@@ -19,8 +19,8 @@ analytics.
 </CloudTrial />
 
 However, if you want to run Timescale locally on your own hardware, you can
-download the TimescaleDB PostgreSQL extension. For more information about how to
-install self-hosted TimescaleDB, the
+download the TimescaleDB PostgreSQL extension. For information about installing
+self-hosted TimescaleDB, the
 [self-hosted installation section][self-hosted-install].
 
 Self-hosted TimescaleDB is community supported. For additional help with your
