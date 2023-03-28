@@ -1,7 +1,7 @@
-Hypertables are PostgreSQL tables with special features that make it easy to
-work with time-series data. You interact with them just as you would with
-regular PostgreSQL tables. But behind the scenes, hypertables automatically
-partition your data into chunks by time.
+Hypertables are PostgreSQL tables that automatically partition your data by
+time. You interact with hypertables in the same way as regular PostgreSQL
+tables, but with extra features that makes managing your time-series data much
+easier.
 
 In Timescale, hypertables exist alongside regular PostgreSQL tables. Use
 hypertables to store time-series data. This gives you improved insert and query
