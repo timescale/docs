@@ -9,7 +9,7 @@ cloud_ui:
         - [billing, details]
 ---
 
-# Billing - Account management
+# Billing and account management
 
 If you haven't yet added a payment method, you can add one in this section. You
 can also update to a new credit card here.
