@@ -11,7 +11,7 @@ cloud_ui:
 
 # Service operations - High availability
 
-All Timescale Cloud services come with the “Rapid Recovery” feature enabled by
+All Timescale Cloud services come with a rapid recovery feature enabled by
 default. Rapid recovery ensures that all services experience minimal downtime
 and data loss in the most common failure scenarios and during maintenance. For
 services with very low tolerance for downtime, Timescale Cloud offers high
@@ -57,8 +57,8 @@ service to restart. Restarts typically take about one minute to complete.
 
 ### Creating an HA replica
 
-1.  [Log in to your Timescale Cloud account][cloud-login] and click
-  the service you want to replicate.
+1.  [Log in to your Timescale Cloud account][cloud-login] and click the service
+    you want to replicate.
 1.  Navigate to the `Operations` tab, and select `High availability`.
 1.  Check the pricing of the replica, and click `Add a replica`. Confirm the
     action by clicking `Add replica`.
@@ -89,7 +89,7 @@ node available.
 
 In a normal operating state, the application is connected to the primary and
 optionally to its replica. The load balancer handles the connection and defines
-the role for each node. 
+the role for each node.
 
 <img class="main-content__illustration"
 src="https://www.timescale.com/blog/content/images/2022/08/replicas-normal-state.png"
@@ -106,9 +106,8 @@ src="https://www.timescale.com/blog/content/images/2022/08/replicas-failover-sta
 alt="Diagram showing the primary failing, and the load balancer redirecting
 traffic to the replica"/>
 
-
 When the failed node recovers or a new node is created, it assumes the replica
-role. The previously promoted node remains the primary, streaming WAL 
+role. The previously promoted node remains the primary, streaming WAL
 (write-ahead log) to its replica.
 
 <img class="main-content__illustration"
@@ -128,36 +127,43 @@ state to safely switch over.
 
 ### Triggering a switchover
 
-1. Connect to your primary as `tsdbadmin` or another user a part of the
-`tsdbowner` group.
-2. Connect to the `postgres` database: `\c postgres`. You should see this in your terminal:
+1.  Connect to your primary as `tsdbadmin` or another user a part of the
+    `tsdbowner` group.
+1.  Connect to the `postgres` database: `\c postgres`. You should see this in
+    your terminal:
+
     ```sql
     tsdb=> \c postgres
-    postgres=> 
+    postgres=>
     ```
-4. See if your instance is currently in recovery: `select pg_is_in_recovery();`
-5. Check which node is currently your primary: 
-`select * from pg_stat_replication;`
-6. Note the `application_name`. This will be your service ID followed by the
-node. The important part is the `-an-0` or `-an-1`.
-7. Schedule a failover: `CALL tscloud.cluster_switchover();`. By default this
-will schedule it to occur in 30s. You can also define the time by passing an
-interval, e.g.: `CALL tscloud.cluster_switchover('15 seconds'::INTERVAL);` 
-8. Wait for the failover to occur.
-9. Check which node is your primary again: `select * from pg_stat_replication;`
-You will get notices that your connection was reset:
+
+1.  See if your instance is currently in recovery: `select pg_is_in_recovery();`
+1.  Check which node is currently your primary:
+    `select * from pg_stat_replication;`
+1.  Note the `application_name`. This will be your service ID followed by the
+    node. The important part is the `-an-0` or `-an-1`.
+1.  Schedule a failover: `CALL tscloud.cluster_switchover();`. By default this
+    schedules it to occur in 30s. You can also define the time by passing an
+    interval, e.g.: `CALL tscloud.cluster_switchover('15 seconds'::INTERVAL);`
+1.  Wait for the failover to occur.
+1.  Check which node is your primary again: `select * from pg_stat_replication;`
+    You should see a notice that your connection has been reset:
+
     ```sql
     FATAL:  terminating connection due to administrator command
     SSL connection has been closed unexpectedly
     The connection to the server was lost. Attempting reset: Succeeded.
     ```
-10. Check the `application_name`. If initially your primary was `-an-1` before,
-it should now be `-an-0`. If it was `-an-0`, it should now be `-an-1`. You can
-also connect to the HA replica and check its node using a similar process.
+
+1.  Check the `application_name`. If initially your primary was `-an-1` before,
+    it should now be `-an-0`. If it was `-an-0`, it should now be `-an-1`. You
+    can also connect to the HA replica and check its node using a similar
+    process.
 
 </Procedure>
 
 ## Rapid recovery
+
 Rapid recovery is the default for all services on Timescale Cloud. By decoupling
 compute and storage, Timescale Cloud can take different approaches to different
 types of failures, rather than always recovering from backup. In particular,
@@ -195,11 +201,11 @@ To mitigate this, Cloud actively monitors for such scenarios to
 help catch them before a failure occurs.
 </Highlight>
 
-## HA replicas, explained
+## HA replicas in detail
 
 HA replicas are multi-AZ, asynchronous hot standbys. They use streaming
 replication to minimize the chance of data loss during failover. What does all
-this mean? 
+this mean?
 
 ### Asynchronous commits
 
