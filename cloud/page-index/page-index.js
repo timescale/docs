@@ -180,11 +180,6 @@ module.exports = [
         excerpt: "Timescale Cloud backup and restore",
       },
       {
-        title: "High availability",
-        href: "high-availability",
-        excerpt: "Timescale Cloud high availabilioty",
-      },
-      {
         title: "Security",
         href: "security",
         excerpt: "Learn how your Timescale Cloud instance is secured",
