@@ -13,9 +13,9 @@ module.exports = [
         excerpt: "Timescale release documentation",
         children: [
           {
-            title: "Release notes for Timescale 2.0.0 to 2.9.3",
+            title: "Release notes for TimescaleDB 2.0.0 to 2.9.3",
             href: "past-releases",
-            excerpt: "Release notes for Timescale 2.0.0 to 2.9.3",
+            excerpt: "Release notes for TimescaleDB 2.0.0 to 2.9.3",
           },
           {
             title: "Changes in TimescaleDB 2.0",
@@ -26,9 +26,9 @@ module.exports = [
         ],
       },
       {
-        title: "Timescale editions",
+        title: "TimescaleDB editions",
         href: "timescaledb-editions",
-        excerpt: "Discover the different Timescale editions and licences",
+        excerpt: "Discover the different TimescaleDB editions and licences",
       },
       {
         title: "Contribute to Timescale",
