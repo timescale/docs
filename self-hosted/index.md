@@ -1,57 +1,30 @@
 ---
-title: TimescaleDB
-excerpt: All you need to know about TimescaleDB architecture, concepts, setup, how-tos, tutorials, management, and contribution
-tags: [get started, overview, tutorials, learn, contribute, code]
+title: Self-hosted TimescaleDB
+excerpt: Deploying Timescale on your own hardware
+products: [self_hosted]
+tags: [self-hosted, about]
 ---
 
-# Welcome to the TimescaleDB documentation!
+import TimescaleIntro from "versionContent/_partials/_timescale-intro.mdx";
+import CloudTrial from "versionContent/_partials/_cloudtrial.mdx";
 
-TimescaleDB is a time-series database, built on top of PostgreSQL. More than that,
-however, it's a relational database for time-series. Developers who use TimescaleDB
-get the benefit of a purpose-built time-series database, plus a classic relational
-database (PostgreSQL), all in one, with full SQL support.
+# Self-hosted TimescaleDB
 
-In this section of our documentation, we present all of the information you need
-to understand what TimescaleDB is, how it works, how to get started, and how
-to successfully use and implement all of the powerful features for your next
-project.
+<TimescaleIntro />
 
-### Getting started
+The easiest way to discover and use Timescale for time-series is with Timescale
+Cloud, which offers hosted high-performance PostgreSQL for time-series and
+analytics.
 
-The **[Getting started tutorial][getting-started]** leads you through your first experience with
-TimescaleDB by setting up hypertables, importing data, running queries, and
-exploring the key features that make TimescaleDB a pleasure to use.
+<CloudTrial />
 
-If you've never used TimescaleDB or haven't explored many of our features yet,
-this is the place to start.
+However, if you want to run Timescale locally on your own hardware, you can
+download the TimescaleDB PostgreSQL extension. For information about installing
+self-hosted TimescaleDB, the
+[self-hosted installation section][self-hosted-install].
 
-### How-to guides
+Self-hosted TimescaleDB is community supported. For additional help with your
+self-hosted installation, check out the friendly [Timescale community][community].
 
-Our **[How-to guides][how-to]** provide answers to common questions with each feature
-of TimescaleDB. Using hypertables, enabling native compression, setting up data retention,
-and much more are all covered here.
-
-### Tutorials
-
-**[TimescaleDB tutorials][tutorials]** is an ever-growing list of new long-form guides
-to help you setup a project from beginning to end in order to explore features of
-TimescaleDB in more depth.
-
-The current list includes examples on [time-series forecasting][forecast], [using Prometheus
-and Promscale][promscale], a 💯 series of [Grafana examples][grafana], [analyzing cryptocurrency][crypto],
-and more.
-
-### Code quick starts
-
-In our **[Code quick starts][code]** section we provide samples of connecting to
-TimescaleDB from a growing list of application languages using standard SDKs
-and best practices.
-
-[code]: /quick-start/:currentVersion:/
-[crypto]: /tutorials/:currentVersion:/analyze-cryptocurrency-data/
-[forecast]: /tutorials/:currentVersion:/time-series-forecast/
-[getting-started]: /getting-started/:currentVersion:/
-[grafana]: /tutorials/:currentVersion:/grafana
-[how-to]: /use-timescale/:currentVersion:/
-[promscale]: /promscale/:currentVersion:/
-[tutorials]: /tutorials/:currentVersion:/
+[self-hosted-install]: /self-hosted/:currentVersion:/install/
+[community]: https://www.timescale.com/community/
