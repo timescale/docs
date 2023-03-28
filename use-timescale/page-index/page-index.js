@@ -262,12 +262,6 @@ module.exports = [
         excerpt: "Migrate your data into Timescale",
         children: [
           {
-            title: "About data migration",
-            href: "about-migrate-data",
-            excerpt:
-              "Learn different ways of migrating your existing data into Timescale",
-          },
-          {
             title: "Migrate from the same database",
             href: "same-db",
             excerpt: "Migrate data from the same PostgreSQL database",

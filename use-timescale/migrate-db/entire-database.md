@@ -1,6 +1,6 @@
 ---
 title: Migrate the entire database at once
-excerpt: Migrate an entire TimescaleDB database to Timescale Cloud in one go
+excerpt: Migrate an entire Timescale database to Timescale Cloud in one go
 products: [cloud]
 keywords: [data migration]
 tags: [ingest]
@@ -42,9 +42,9 @@ Before you begin, check that you have:
     PostgreSQL on your source database, see the [upgrade instructions for
     self-hosted TimescaleDB][upgrading-postgresql-self-hosted] and [Managed
     Service for TimescaleDB][upgrading-postgresql].
-*   Checked that you're running the same major version of TimescaleDB on both
+*   Checked that you're running the same major version of Timescale on both
     Timescale Cloud and your source database. For more information, see the
-    [upgrading TimescaleDB section][upgrading-timescaledb].
+    [upgrading Timescale section][upgrading-timescaledb].
 
 <Highlight type="note">
 To speed up migration, compress your data. You can compress any chunks where

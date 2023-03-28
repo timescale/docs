@@ -1,15 +1,15 @@
 ---
-title: Migrate data to TimescaleDB from the same PostgreSQL instance
-excerpt: Migrate data into a TimescaleDB hypertable from a regular PostgreSQL table
+title: Migrate data to Timescale from the same PostgreSQL instance
+excerpt: Migrate data into a Timescale hypertable from a regular PostgreSQL table
 products: [self_hosted]
 keywords: [data migration, PostgreSQL]
 tags: [import]
 ---
 
-# Migrate data to TimescaleDB from the same PostgreSQL instance
+# Migrate data to Timescale from the same PostgreSQL instance
 
-You can migrate data into a TimescaleDB hypertable from a regular PostgreSQL
-table. This method assumes that you have TimescaleDB set up in the same database
+You can migrate data into a Timescale hypertable from a regular PostgreSQL
+table. This method assumes that you have Timescale set up in the same database
 instance as your existing table. To migrate between PostgreSQL instances, see
 the instructions for [migrating data from a different database][different-db].
 
@@ -24,7 +24,7 @@ a more descriptive name.
 
 ## Migrate data
 
-Migrate your data into TimescaleDB from within the same database.
+Migrate your data into Timescale from within the same database.
 
 <Procedure>
 
