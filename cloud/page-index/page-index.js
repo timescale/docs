@@ -50,9 +50,14 @@ module.exports = [
             excerpt: "Timescale Cloud services operations, Autoscaling tab",
           },
           {
-            title: "Replication",
-            href: "replicas",
-            excerpt: "Timescale Cloud services operations, Replicas tab",
+            title: "High availability",
+            href: "high-availability",
+            excerpt: "Set up HA replicas on Timescale Cloud for high availability",
+          },
+          {
+            title: "Read scaling",
+            href: "read-scaling",
+            excerpt: "Create a read-only replica of your Timescale Cloud services",
           },
           {
             title: "Maintenance",
