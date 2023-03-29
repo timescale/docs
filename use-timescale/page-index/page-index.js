@@ -823,7 +823,7 @@ module.exports = [
             title: "Heartbeat aggregation",
             href: "heartbeat-agg",
             excerpt:
-              "Build a model of system health from a series of heath check timestamps",
+              "Build a model of system health from a series of health check timestamps",
           },
           {
             title: "Troubleshoot hyperfunctions",
