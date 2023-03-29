@@ -1,9 +1,9 @@
 module.exports = [
   {
     title: "Managed Service for TimescaleDB",
-    filePath: "index.md",
     href: "mst",
-    name: "Managed Service for TimescaleDB",
+    filePath: "index.md",
+    pageComponents: ["content-list"],
     excerpt: "Managed TimescaleDB in the cloud for Azure and GCP deployments",
     children: [
       {
