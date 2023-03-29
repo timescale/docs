@@ -152,11 +152,11 @@ module.exports = [
         title: "Identify and resolve issues with indexes on Managed Service for TimescaleDB",
         href: "identify-index-issues",
       },
+      {
+        title: "Troubleshooting",
+        href: "troubleshooting",
+        type: "placeholder",
+      },
     ],
-    {
-    title: "Troubleshooting",
-    href: "troubleshooting",
-    type: "placeholder",
-  },
   },
 ];
