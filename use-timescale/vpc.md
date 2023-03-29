@@ -1,5 +1,5 @@
 ---
-title: Service operations - VPC
+title: Virtual Private Cloud
 excerpt: Use VPC peering to secure your Timescale Cloud database
 products: [cloud]
 keywords: [vpc, services, operations]
@@ -10,7 +10,7 @@ cloud_ui:
         - [vpc]
 ---
 
-# Service operations - VPC
+# Virtual Private Cloud
 
 Timescale Cloud allows you to create a virtual private cloud (VPC) network
 between an external cloud provider and your Timescale Cloud services. This

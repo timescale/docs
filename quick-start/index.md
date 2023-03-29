@@ -5,18 +5,18 @@ excerpt: Get started with TimescaleDB adn your favorite language
 
 # Language quick starts
 
-Here is a collection of quick starts for your favorite language.
+Here is a collection of quick starts for various programming languages.
 
 <Highlight type="warning">
-If you didn't find a quick start with your beloved language,
-feel free to [request](https://forms.gle/tBc3qBMKRosdHrGG9).
+If you didn't find a quick start with your favorite language,
+feel free to [request one](https://forms.gle/tBc3qBMKRosdHrGG9).
 </Highlight>
 
-*   **[Node and TimescaleDB][node-quickstart]**: A quick start guide for Node developers looking to use TimescaleDB.
-*   **[Python and TimescaleDB][python-quickstart]**: A quick start guide for Python developers looking to use TimescaleDB.
-*   **[Ruby on Rails and TimescaleDB][ruby-quickstart]**: A quick start guide for Ruby on Rails developers looking to use TimescaleDB.
-*   **[Golang and TimescaleDB][go-quickstart]**: A quick start guide for Golang developers looking to use TimescaleDB.
-*   **[Java and TimescaleDB][java-quickstart]**: A quick start guide for Java developers looking to use TimescaleDB.
+*   [Node][node-quickstart]
+*   [Python][python-quickstart]
+*   [Ruby on Rails][ruby-quickstart]
+*   [Golang][go-quickstart]
+*   [Java][java-quickstart]
 
 [go-quickstart]: /quick-start/:currentVersion:/golang
 [java-quickstart]: /quick-start/:currentVersion:/java

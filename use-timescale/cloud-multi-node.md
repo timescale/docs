@@ -1,5 +1,5 @@
 ---
-title: Multi-node on Timescale Cloud
+title: Multi-node
 excerpt: Horizontally scale your database by setting up multi-node on Timescale Cloud
 products: [cloud]
 keywords: [multi-node, scaling]
@@ -9,25 +9,18 @@ cloud_ui:
         - [services]
 ---
 
-# Multi-node on Timescale Cloud
+import EarlyAccess from "versionContent/_partials/_early_access.mdx";
 
-If you have a larger workload, you might need more than one TimescaleDB
-instance. TimescaleDB multi-node allows you to run and manage multiple
-instances, which can give you faster data ingest, and more responsive and
+# Multi-node
+
+If you have a larger workload, you might need more than one Timescale Cloud
+instance. Multi-node can give you faster data ingest, and more responsive and
 efficient queries for many large workloads.
 
 This section shows you how to use multi-node on Timescale Cloud. You can also
 set up multi-node on [self-hosted TimescaleDB][multinode-timescaledb].
 
-<Highlight type="important">
-Multi-node in Timescale Cloud is an early access feature. If you'd like to use
-multi-node, first contact the Timescale customer support team to discuss your
-use case. The team can help you understand if multi-node is a good fit for your
-needs.
-
-You can contact Support from the Cloud Console by clicking `Support` in the main
-menu.
-</Highlight>
+<EarlyAccess />
 
 <Highlight type="important">
 In some cases, your processing speeds could be slower in a multi-node cluster,
@@ -35,9 +28,6 @@ because distributed hypertables need to push operations down to the various data
 nodes. It is important that you understand multi-node architecture before you
 begin, and plan your database according to your specific environment.
 </Highlight>
-
-For more information about how multi-node works, see the
-[multi-node on TimescaleDB][multinode-timescaledb] section.
 
 ## Set up multi-node on Timescale Cloud
 
@@ -53,8 +43,8 @@ dataset and run queries locally.
 1.  [Log in to your Timescale Cloud account][cloud-login] and click
     `Create Service`.
 1.  Click `Advanced configuration`.
-1.  Under `Choose your architecture`, click `Mult-node`.
-1.  Our customer support team contacts you. When your request is approved,
+1.  Under `Choose your architecture`, click `Multi-node`.
+1.  The customer support team contacts you. When your request is approved,
     return to the screen for creating a multi-node service.
 1.  Choose your preferred region, or accept the default region of `us-east-1`.
 1.  Accept the default for the data nodes, or click `Edit` to choose the number
@@ -74,9 +64,5 @@ alt="Timescale Cloud running multi-node service"/>
 
 </Procedure>
 
-For more information about how multi-node works, see the
-[multi-node on TimescaleDB][multinode-timescaledb] section.
-
 [cloud-login]: https://console.cloud.timescale.com/
-[cloud-signup]: https://www.timescale.com/timescale-signup
 [multinode-timescaledb]: /self-hosted/:currentVersion:/multinode-timescaledb/

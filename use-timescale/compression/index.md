@@ -14,12 +14,6 @@ uncompressed rows. TimescaleDB uses a built-in job scheduler to convert this
 data to the form of compressed columns. This occurs across chunks of Timescale
 hypertables.
 
-This section explains what native compression is, and goes through some of the
-benefits and limitations of compression. It also includes instructions for
-setting up compression, and using it in your environment. We strongly recommend
-that you understand how compression works *before* you start enabling it on your
-hypertables.
-
 *   [Learn about compression][compression] to understand how it works before you
     begin using it.
 *   [Manually compress][manual-compression] specific chunks.

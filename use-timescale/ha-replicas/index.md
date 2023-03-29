@@ -24,8 +24,8 @@ Read replicas can create an isolated environment to run heavy analytical
 queries, so that you don't need to run them on a production instance, and risk
 impacting performance.
 
-*   Creating an [HA replica[ha-replica] in Timescale Cloud
-*   Creating a [read replica]-read-replica] in Timescale Cloud
+*   Creating an [HA replica][ha-replica] in Timescale Cloud
+*   Creating a [read replica][read-replica] in Timescale Cloud
 
 If you are using Managed Service for TimescaleDB, see the
 [Managed Service for TimescaleDB failover section][mst-failover].
@@ -33,5 +33,7 @@ If you are using Managed Service for TimescaleDB, see the
 If you are using self-hosted TimescaleDB, see the
 [self-hosted HA section][self-hosted-ha].
 
+[ha-replica]: /use-timescale/:currentversion:/ha-replicas/high-availability/
+[read-replica]: /use-timescale/:currentversion:/ha-replicas/read-scaling/
 [mst-failover]: /mst/:currentVersion:/failover/
 [self-hosted-ha]: /self-hosted/:currentVersion:/replication-and-ha/
