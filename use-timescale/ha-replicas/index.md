@@ -33,7 +33,7 @@ If you are using Managed Service for TimescaleDB, see the
 If you are using self-hosted TimescaleDB, see the
 [self-hosted HA section][self-hosted-ha].
 
-[ha-replica]: /use-timescale/:currentversion:/ha-replicas/high-availability/
-[read-replica]: /use-timescale/:currentversion:/ha-replicas/read-scaling/
+[ha-replica]: /use-timescale/:currentVersion:/ha-replicas/high-availability/
+[read-replica]: /use-timescale/:currentVersion:/ha-replicas/read-scaling/
 [mst-failover]: /mst/:currentVersion:/failover/
 [self-hosted-ha]: /self-hosted/:currentVersion:/replication-and-ha/

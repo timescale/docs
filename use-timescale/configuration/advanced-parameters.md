@@ -43,4 +43,4 @@ can access objects in any of the schemas in the database they are connected to,
 so long as they have the corresponding privileges. Schemas can help isolate
 smaller use cases that do not warrant their own service.
 
-[schemas]: /use-timescale/:currentversion:/schema-management/
+[schemas]: /use-timescale/:currentVersion:/schema-management/

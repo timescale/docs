@@ -21,7 +21,7 @@ significant performance improvements.
     you begin using them.
 *   [Alter a hypertable][schema-alter] to modify your schema.
 *   [Create an index][schema-indexing] to speed up your queries.
-*   [Create triggers][schema-triggers] to propogate your schema changes to chunks.
+*   [Create triggers][schema-triggers] to propagate your schema changes to chunks.
 *   [Use JSON and JSONB][schema-json] for semi-structured data.
 
 [about-constraints]: /use-timescale/:currentVersion:/schema-management/about-constraints

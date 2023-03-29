@@ -122,7 +122,7 @@ If these don't cover your use case, or if you want to expand upon the native
 policy features, you can write a user-defined action.
 
 [caggs]: /use-timescale/:currentVersion:/continuous-aggregates/refresh-policies/
-[compressing]: /use-timescale/:currentVersion:/compression/about-compression/
+[compressing]: /use-timescale/:currentVersion:/compression/
 [reordering]: /api/:currentVersion:/hypertable/add_reorder_policy/
 [retention]: /use-timescale/:currentVersion:/data-retention/create-a-retention-policy/
 [plpgsql]: https://www.postgresql.org/docs/current/plpgsql-overview.html

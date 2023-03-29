@@ -90,4 +90,4 @@ policy. But you can make the query arbitrarily complex.
 </Procedure>
 
 [cagg-refresh]: /use-timescale/:currentVersion:/continuous-aggregates/create-a-continuous-aggregate/
-[compression]: /use-timescale/:currentVersion:/compression/about-compression/
+[compression]: /use-timescale/:currentVersion:/compression/

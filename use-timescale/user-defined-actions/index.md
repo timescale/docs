@@ -33,5 +33,5 @@ In this section:
 [create-and-register]: /use-timescale/:currentVersion:/user-defined-actions/create-and-register/
 [downsample-compress]: /use-timescale/:currentVersion:/user-defined-actions/example-downsample-and-compress
 [generic-retention]: /use-timescale/:currentVersion:/user-defined-actions/example-generic-retention
-[manage-storage]: /use-timescale/:currentVersion:/schema-management/manage-storage/
+[manage-storage]: /use-timescale/:currentVersion:/schema-management/example-tiered-storage/
 [test-and-debug]: /use-timescale/:currentVersion:/user-defined-actions/test-and-debug/

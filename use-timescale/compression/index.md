@@ -24,11 +24,11 @@ hypertables.
     hypertable with compressed chunks.
 
 <Highlight type="warning">
-Compression alters data on your disk, so always back up before you start!
+Compression alters data on your disk, so always back up before you start.
 </Highlight>
 
 [backfill-historical]: /use-timescale/:currentVersion:/compression/backfill-historical-data
-[compression]: /use-timescale/:currentVersion:/compression/about-compression
+[compression]: /use-timescale/:currentVersion:/compression/about-compression/
 [decompress-chunks]: /use-timescale/:currentVersion:/compression/decompress-chunks
 [manual-compression]: /use-timescale/:currentVersion:/compression/manually-compress-chunks
 [modify-schema]: /use-timescale/:currentVersion:/compression/modify-a-schema
