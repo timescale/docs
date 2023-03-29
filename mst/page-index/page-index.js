@@ -87,11 +87,6 @@ module.exports = [
         href: "postgresql-read-replica",
       },
       {
-        title: "Troubleshooting",
-        href: "troubleshooting",
-        type: "placeholder",
-      },
-      {
         title: "Maintenance",
         href: "maintenance",
       },
@@ -158,5 +153,10 @@ module.exports = [
         href: "identify-index-issues",
       },
     ],
+    {
+    title: "Troubleshooting",
+    href: "troubleshooting",
+    type: "placeholder",
+  },
   },
 ];

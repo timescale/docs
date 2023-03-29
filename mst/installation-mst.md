@@ -81,7 +81,7 @@ of your own.
 When you have a service up and running, you can connect to it from your local
 system using the `psql` command-line utility. This is the same tool you might
 have used to connect to PostgreSQL before, but if you haven't installed it yet,
-check out our [installing psql][install-psql] section.
+check out the [installing psql][install-psql] section.
 
 <Procedure>
 
@@ -139,11 +139,11 @@ defaultdb=>
 ## Where to next
 
 Now that you have your first service up and running, you can check out the
-[Managed Service for TimescaleDB][mst-docs] section in our documentation, and
+[Managed Service for TimescaleDB][mst-docs] section in the documentation, and
 find out what you can do with it.
 
 If you want to work through some tutorials to help you get up and running with
-TimescaleDB and time-series data, check out our [tutorials][tutorials] section.
+TimescaleDB and time-series data, check out the [tutorials][tutorials] section.
 
 You can always [contact us][contact] if you need help working something out, or
 if you want to have a chat.
