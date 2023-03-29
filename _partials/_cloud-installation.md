@@ -1,6 +1,6 @@
 <Procedure>
 
-### Installing Timescale Cloud
+### Creating your Timescale Cloud account
 
 1.  Sign up for a [Timescale Cloud account][sign-up] with your
     name and email address. You do not need to provide payment details to
@@ -16,9 +16,9 @@
     />
 
 <Highlight type="important">
-  Your Timescale Cloud trial is completely free for you to use for the first
-  thirty days. This gives you enough time to complete all our tutorials and run
-  a few test projects of your own.
+Your Timescale Cloud trial is completely free for you to use for the first
+thirty days. This gives you enough time to complete all the tutorials and run a
+few test projects of your own.
 </Highlight>
 
 </Procedure>

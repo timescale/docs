@@ -1,7 +1,7 @@
 ---
 title: Debian or Ubuntu
 excerpt: Install Promscale on Debian or Ubuntu
-product: promscale
+products: [promscale]
 keywords: [analytics]
 tags: [install]
 related_pages:
@@ -54,4 +54,4 @@ the performance of Promscale.
     apt install promscale
     ```
 
-[tsdb-install-self-hosted]: /install/:currentVersion:/self-hosted/
+[tsdb-install-self-hosted]: /self-hosted/latest/install/

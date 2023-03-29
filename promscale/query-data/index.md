@@ -1,7 +1,7 @@
 ---
 title: Query data in Promscale
 excerpt: Learn how to query data in Promscale
-product: promscale
+products: [promscale]
 ---
 
 import PromscaleDeprecation from "versionContent/_partials/_deprecated-promscale.mdx";

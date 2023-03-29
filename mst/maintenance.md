@@ -1,7 +1,7 @@
 ---
 title: Maintenance
 excerpt: Learn how maintenance is automatically handled on Managed Service for TimescaleDB
-product: mst
+products: [mst]
 keywords: [maintenance, updates, upgrades]
 tags: [maintenance window]
 ---
@@ -16,7 +16,7 @@ can define to suit your workload. If a security vulnerability is found that
 affects you, maintenance might be performed outside of your scheduled
 maintenance window.
 
-After maintenance updates have been applied, if a new version of the TimescaleDB
+After maintenance updates have been applied, if a new version of the Timescale
 binary has been installed, you need to update the extension to use the new
 version. To do this, use this command:
 

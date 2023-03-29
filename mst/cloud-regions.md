@@ -1,7 +1,7 @@
 ---
 title: Cloud regions
 excerpt: Manage clouds and regions for your Managed Service for TimescaleDB project
-product: mst
+products: [mst]
 keywords: [manage, regions]
 tags: [admin, regions, aws, azure, gcp]
 ---

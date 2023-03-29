@@ -1,7 +1,7 @@
 ---
 title: About Managed Service for TimescaleDB
 excerpt: Set up and manage your TimescaleDB services in Managed Service for TimescaleDB
-product: mst
+products: [mst]
 keywords: [services]
 ---
 
@@ -140,20 +140,20 @@ Only the IP address changes to point at the new master node.
 Managed Service for TimescaleDB availability features differ based on the service
 plan:
 
-*   Basic and Dev plans: These are single-node plans. Basic plans include a two-day backup history, and Dev plans include a one-day backup history.
+*   Basic and Dev plans: These are single-node plans. Basic plans include a
+    two-day backup history, and Dev plans include a one-day backup history.
 *   Pro plans: These are two-node plans with a master and a standby for higher
-availability, and three-day backup histories.
+    availability, and three-day backup histories.
 
 ### Single node
 
-In the Basic and Dev plans, if you lose the only node from the service, it immediately
-starts the automatic process of creating a new replacement node. The new node
-starts up, restores its state from the latest available backup, and resumes the
-service. Because there was just a single node providing the service, the service
-is unavailable for the duration of the restore operation. Also, any writes made
-since the backup of the latest write-ahead log (WAL) file is lost. Typically
-this time window is limited to either five minutes, or one WAL
-file.
+In the Basic and Dev plans, if you lose the only node from the service, it
+immediately starts the automatic process of creating a new replacement node. The
+new node starts up, restores its state from the latest available backup, and
+resumes the service. Because there was just a single node providing the service,
+the service is unavailable for the duration of the restore operation. Also, any
+writes made since the backup of the latest write-ahead log (WAL) file is lost.
+Typically this time window is limited to either five minutes, or one WAL file.
 
 ### Highly available nodes
 
@@ -162,13 +162,13 @@ normally and provides normal service level to the client applications. When the
 new replacement standby node is ready and synchronized with the master, it
 starts replicating the master in real time and normal operation resumes.
 
-If the PostgreSQL master fails, the combined information from the MST
-monitoring infrastructure and the standby node is used to make a failover decision. On
-the nodes, the open source monitoring daemon `PGLookout`, in combination with the
-information from the MST system infrastructure, reports the failover. If the master node is
-down completely, the standby node promotes itself as the new master node and
-immediately starts serving clients. A new replacement node is automatically
-scheduled and becomes the new standby node.
+If the PostgreSQL master fails, the combined information from the MST monitoring
+infrastructure and the standby node is used to make a failover decision. On the
+nodes, the open source monitoring daemon `PGLookout`, in combination with the
+information from the MST system infrastructure, reports the failover. If the
+master node is down completely, the standby node promotes itself as the new
+master node and immediately starts serving clients. A new replacement node is
+automatically scheduled and becomes the new standby node.
 
 If both master and standby nodes fail at the same time, two new nodes are
 automatically scheduled for creation and become the new master and standby
@@ -280,7 +280,7 @@ of time, you can use this command:
 SET statement_timeout = <milliseconds>
 ```
 
-[mst-install]: /install/:currentVersion:/installation-mst/
+[mst-install]: /mst/:currentVersion:/installation-mst/
 [sign-up]: https://www.timescale.com/cloud-signup
 [timescale-support]: https://www.timescale.com/support
 [aiven-sla]: https://aiven.io/sla

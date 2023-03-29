@@ -1,7 +1,7 @@
 ---
 title: Visualize Promscale traces in Jaeger
 excerpt: Jaeger to visualize data in Promscale
-product: promscale
+products: [promscale]
 keywords: [Jaeger]
 tags: [configure, opentelemetry, traces, integration]
 ---

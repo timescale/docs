@@ -1,7 +1,7 @@
 ---
 title: Query traces in Promscale
 excerpt: Query trace data in Promscale
-product: promscale
+products: [promscale]
 keywords: [analytics, query, traces]
 tags: [sql]
 ---
@@ -464,16 +464,16 @@ select *
     limit 50
 ```
 
-[grafana-bucket-interval]: /timescaledb/:currentVersion:/tutorials/grafana/visualizations/histograms/#prerequisites
+[grafana-bucket-interval]: /tutorials/:currentVersion:/grafana/visualizations/histograms/#prerequisites
 [grafana-interval]: https://grafana.com/docs/grafana/latest/variables/variable-types/global-variables/#__interval
-[install-psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql/
+[install-psql]: /use-timescale/:currentVersion:/connecting/psql/
 [instrumentation-docs]: https://opentelemetry.io/docs/concepts/instrumenting-library/
 [jsonb-pg-type]: https://www.postgresql.org/docs/current/functions-json.html#FUNCTIONS-JSONB-OP-TABLE
 [opentel-add-events]: https://opentelemetry.io/docs/reference/specification/trace/api/#add-events
 [opentel-span-events]: https://opentelemetry.io/docs/concepts/signals/traces/#span-events
 [opentel-spec-links]: https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/overview.md#links-between-spans
 [opentel-spec]: https://opentelemetry.io/docs/reference/specification/trace/api/#spancontext
-[partitioning-hypertables]: /timescaledb/:currentVersion:/overview/core-concepts/hypertables-and-chunks/#partitioning-in-hypertables-with-chunks
+[partitioning-hypertables]: /use-timescale/:currentVersion:/hypertables/about-hypertables/
 [pg-agg-function]: https://www.postgresql.org/docs/current/functions-aggregate.html
 [pg-interval]: https://www.postgresql.org/docs/current/datatype-datetime.html#DATATYPE-INTERVAL-INPUT
 [resource-docs]: https://opentelemetry.io/docs/reference/specification/overview/#resources

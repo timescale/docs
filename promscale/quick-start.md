@@ -1,6 +1,7 @@
 ---
 title: Get started with Promscale
 excerpt: Get start with Promscale to handle your observability data
+products: [promscale]
 ---
 
 import PromscaleDeprecation from "versionContent/_partials/_deprecated-promscale.mdx";
