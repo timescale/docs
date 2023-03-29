@@ -1,5 +1,5 @@
 ---
-title: Service operations - High availability
+title: High availability
 excerpt: Set up HA replicas on Timescale Cloud for high availability
 products: [cloud]
 keywords: [high availability, replicas]
@@ -11,7 +11,7 @@ cloud_ui:
 
 import CloudTrial from "versionContent/_partials/_cloudtrial.mdx";
 
-# Service operations - High availability
+# High availability
 
 All Timescale Cloud services come with a rapid recovery feature enabled by
 default. Rapid recovery ensures that all services experience minimal downtime
