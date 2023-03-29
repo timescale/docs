@@ -50,8 +50,7 @@ ranges, and compression status.
 
 You can also set a compression policy from this section. For more information,
 see the
-[Setting a compression policy from Timescale Cloud console][set-compression]
-section.
+[compression section][set-compression].
 
 <img
 class="main-content__illustration"
@@ -78,6 +77,5 @@ For more information about continuous aggregates, see the
 [continuous aggregates section][caggs].
 
 [caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
-[compression]: /use-timescale/:currentVersion:/compression/
+[set-compression]: /use-timescale/:currentVersion:/compression/
 [hypertables]: /use-timescale/:currentVersion:/hypertables/
-[set-compression]: #setting-a-compression-policy-from-timescale-cloud-console
