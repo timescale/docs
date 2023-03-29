@@ -820,15 +820,15 @@ module.exports = [
             ],
           },
           {
-            title: "Troubleshoot hyperfunctions",
-            href: "troubleshooting",
-            type: "placeholder",
-          },
-          {
             title: "Heartbeat aggregation",
             href: "heartbeat-agg",
             excerpt:
               "Build a model of system health from a series of heath check timestamps",
+          },
+          {
+            title: "Troubleshoot hyperfunctions",
+            href: "troubleshooting",
+            type: "placeholder",
           },
         ],
       },
