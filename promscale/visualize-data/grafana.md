@@ -1,7 +1,7 @@
 ---
 title: Connect Promscale and Grafana
 excerpt: Grafana to visualize data in Promscale
-product: promscale
+products: [promscale]
 keywords: [Grafana]
 tags: [configure, prometheus, metrics]
 ---

@@ -1,7 +1,7 @@
 ---
 title: Back up and restore Promscale
 excerpt: Learn how to back up and restore a Promscale database
-product: promscale
+products: [promscale]
 keywords: [backups, restore]
 ---
 

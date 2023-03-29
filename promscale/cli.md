@@ -1,7 +1,7 @@
 ---
 title: Promscale command line interface (CLI) reference
 excerpt: Learn about all parameters accepted by the Promscale CLI
-product: promscale
+products: [promscale]
 keywords: [CLI]
 tags: [reference]
 ---

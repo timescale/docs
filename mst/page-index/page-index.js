@@ -1,14 +1,18 @@
 module.exports = [
   {
     title: "Managed Service for TimescaleDB",
-    filePath: "index.md",
     href: "mst",
-    name: "Managed Service for TimescaleDB",
+    filePath: "index.md",
+    pageComponents: ["content-list"],
     excerpt: "Managed TimescaleDB in the cloud for Azure and GCP deployments",
     children: [
       {
         title: "About Managed Service for TimescaleDB",
         href: "about-mst",
+      },
+      {
+        title: "Install Managed Service for TimescaleDB",
+        href: "installation-mst",
       },
       {
         title: "Clouds and regions",
@@ -27,10 +31,6 @@ module.exports = [
         href: "billing",
       },
       {
-        title: "Create a multi-node cluster",
-        href: "mst-multi-node",
-      },
-      {
         title: "Connection pools",
         href: "connection-pools",
       },
@@ -46,14 +46,14 @@ module.exports = [
         title: "Integrations",
         href: "integrations",
         excerpt: " MST integrates with the other tools you are already using, and makes it easy to add more integrations",
-        children:  [
+        children: [
           {
-           title: "Visualizing data with Google Data Studio",
-           href: "google-data-studio-mst",
+            title: "Visualizing data with Google Data Studio",
+            href: "google-data-studio-mst",
           },
           {
             title:
-          "Visualizing data with Grafana",
+              "Visualizing data with Grafana",
             href: "grafana-mst",
           },
           {
@@ -63,7 +63,7 @@ module.exports = [
           {
             title: "Sending metrics to Datadog",
             href: "metrics-datadog",
-          }, 
+          },
           {
             title: "Monitoring with Prometheus endpoint",
             href: "prometheus-mst",
@@ -85,11 +85,6 @@ module.exports = [
       {
         title: "Create a replica for PostgreSQL service",
         href: "postgresql-read-replica",
-      },
-      {
-        title: "Troubleshooting",
-        href: "troubleshooting",
-        type: "placeholder",
       },
       {
         title: "Maintenance",
@@ -156,6 +151,11 @@ module.exports = [
       {
         title: "Identify and resolve issues with indexes on Managed Service for TimescaleDB",
         href: "identify-index-issues",
+      },
+      {
+        title: "Troubleshooting",
+        href: "troubleshooting",
+        type: "placeholder",
       },
     ],
   },

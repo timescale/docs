@@ -1,7 +1,7 @@
 ---
 title: Kubernetes
 excerpt: Install Promscale on a Kubernetes cluster
-product: promscale
+products: [promscale]
 keywords: [Kubernetes, analytics, Helm]
 tags: [install]
 related_pages:

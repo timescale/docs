@@ -1,7 +1,7 @@
 ---
 title: Setting up TimescaleDB 2.0 multi-node on Managed Service for TimescaleDB
 excerpt: Set up multi-node on Managed Service for TimescaleDB (deprecated)
-product: mst
+products: [mst]
 keywords: [multi-node]
 ---
 
@@ -10,8 +10,8 @@ keywords: [multi-node]
 <Highlight type="deprecation">
 This section describes a feature that is deprecated on Managed Service for
 TimescaleDB. If you want to use multi-node, you can use
-[Timescale Cloud](/cloud/latest), our hosted, cloud-native TimescaleDB service.
-You can also [self-host](/install/latest/self-hosted) a TimescaleDB
+[Timescale Cloud](/use-timescale/latest/services), our hosted, cloud-native TimescaleDB service.
+You can also [self-host](/self-hosted/latest/install/) a TimescaleDB
 installation.
 </Highlight>
 
@@ -259,10 +259,10 @@ data.
 And as always, consider joining our vibrant community [Slack channel][slack] to
 ask questions and learn from Timescale staff and other community members.
 
-[changes-in-tsdb2]: /timescaledb/:currentVersion:/overview/release-notes/changes-in-timescaledb-2/
+[changes-in-tsdb2]: /about/:currentVersion:/release-notes/changes-in-timescaledb-2/
 [distributed-architecture]: https://blog.timescale.com/blog/building-a-distributed-time-series-database-on-postgresql/
-[maintenance-tasks]: /timescaledb/:currentVersion:/how-to-guides/multi-node-setup/
+[maintenance-tasks]: /self-hosted/:currentVersion:/multinode-timescaledb/multinode-setup/
 [postgres-user-mapping]: https://www.postgresql.org/docs/current/view-pg-user-mappings.html
 [promscale]: https://github.com/timescale/promscale
-[sample-data]: /timescaledb/:currentVersion:/tutorials/sample-datasets/
+[sample-data]: /tutorials/:currentVersion:/sample-datasets/
 [slack]: https://slack.timescale.com/

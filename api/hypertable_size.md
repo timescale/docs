@@ -71,4 +71,4 @@ SELECT hypertable_size('device_stats_15m');
            73728
 ```
 
-[hypertable-docs]: /timescaledb/:currentVersion:/how-to-guides/hypertables/
+[hypertable-docs]: /use-timescale/:currentVersion:/hypertables/

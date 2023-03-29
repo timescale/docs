@@ -1,7 +1,7 @@
 ---
 title: Install Promscale on Red Hat or CentOS
 excerpt: Install Promscale on RPM-based Linux
-product: promscale
+products: [promscale]
 keywords: [analytics]
 tags: [install]
 related_pages:
@@ -54,4 +54,4 @@ performance of Promscale.
       yum install promscale
    ```
 
-[tsdb-install-self-hosted]: /install/:currentVersion:/self-hosted/
+[tsdb-install-self-hosted]: /self-hosted/latest/install/
