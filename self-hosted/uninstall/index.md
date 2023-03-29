@@ -7,9 +7,8 @@ keywords: [Uninstall]
 
 # Uninstall TimescaleDB
 
-You can install TimescaleDB with Homebrew or MacPorts on macOS. If you want to
-uninstall TimescaleDB because it does not meet your requirements, you can
-uninstall it without having to uninstall PostgreSQL.
+If you want to uninstall TimescaleDB because it does not meet your requirements,
+you can uninstall it without having to uninstall PostgreSQL.
 
 *   [Learn how to uninstall][uninstall-timescaledb] TimescaleDB in macOS
 

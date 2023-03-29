@@ -5,7 +5,7 @@ products: [self_hosted]
 keywords: [compression, hypertables]
 ---
 
-## Compress chunks
+# Manually compress chunks
 
 In most cases, an automated compression policy is sufficient. However, if you
 want more control over compression, you can also manually compress specific

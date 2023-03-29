@@ -32,7 +32,6 @@ you need to.
 *   Upgrade TimescaleDB using [Docker][upgrade-docker].
 *   Upgrade the version of [PostgreSQL][upgrade-pg] your TimescaleDB
     installation uses.
-*   [Troubleshoot][upgrade-tshoot] upgrading.
 
 [about-upgrades]: /self-hosted/:currentVersion:/upgrades/about-upgrades/
 [downgrade]: /self-hosted/:currentVersion:/upgrades/downgrade/

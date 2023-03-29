@@ -6,7 +6,7 @@ keywords: [high availability, backups, replicas, failover]
 tags: [redundancy]
 ---
 
-# High availability (HA)
+# About high availability
 
 High availability (HA) is achieved by increasing redundancy and
 resilience. To increase redundancy, parts of the system are replicated, so that
