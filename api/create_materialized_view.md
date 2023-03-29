@@ -55,8 +55,7 @@ In TimescaleDB&nbsp;2.10.0 and later, the `FROM` clause supports `JOINS`, with t
      matter.
 *   You must use an `INNER JOIN`, no other join type is supported.
 *   The `JOIN` conditions can only be equality conditions.
-*   The hypertable on the `JOIN` condition must be a hypertable, and not a continuous
-     aggregate. Additionally, you can't use joins in hierarchical continuous aggregates.
+*   The hypertable on the `JOIN` condition must be a hypertable or a continuous aggregate.
 *   Changes to the hypertable are tracked, and are updated in the continuous aggregate
      when it is refreshed. Changes to the standard PostgreSQL table are not tracked.
 *   The `USING` clause is supported in joins for PostgreSQL&nbsp;13 or later.
