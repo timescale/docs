@@ -14,8 +14,6 @@ uncompressed rows. TimescaleDB uses a built-in job scheduler to convert this
 data to the form of compressed columns. This occurs across chunks of Timescale
 hypertables.
 
-*   [Learn about compression][compression] to understand how it works before you
-    begin using it.
 *   [Manually compress][manual-compression] specific chunks.
 *   [Decompress chunks][decompress-chunks] to manually decompress specific chunks.
 *   [Backfill historical data][backfill-historical] to insert a batch of data
@@ -28,7 +26,6 @@ Compression alters data on your disk, so always back up before you start.
 </Highlight>
 
 [backfill-historical]: /use-timescale/:currentVersion:/compression/backfill-historical-data
-[compression]: /use-timescale/:currentVersion:/compression/about-compression/
 [decompress-chunks]: /use-timescale/:currentVersion:/compression/decompress-chunks
 [manual-compression]: /use-timescale/:currentVersion:/compression/manually-compress-chunks
 [modify-schema]: /use-timescale/:currentVersion:/compression/modify-a-schema

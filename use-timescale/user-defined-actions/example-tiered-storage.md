@@ -76,4 +76,4 @@ remains available for reads during the move.
 
 </Procedure>
 
-[moving-data]: /use-timescale/:currentVersion:/schema-management/example-tiered-storage/
+[moving-data]: /use-timescale/:currentVersion:/user-defined-actions/example-tiered-storage/
