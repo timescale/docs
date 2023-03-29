@@ -2,15 +2,11 @@
   "replacementPatterns": [
     {
       "pattern": ":currentVersion:",
-      "replacement": "dev-launch-cloud-centric-phase-1"
-    },
-    {
-      "pattern": "^/(.+)/latest/",
-      "replacement": "/$1/dev-launch-cloud-centric-phase-1/"
+      "replacement": "latest"
     },
     {
       "pattern": "^/",
-      "replacement": "http://docs-dev.timescale.com/docs-dev-launch-cloud-centric-phase-1/"
+      "replacement": "https://docs.timescale.com/"
     }
   ],
   "ignorePatterns": [
@@ -37,9 +33,6 @@
     },
     {
       "pattern": "https://assets.timescale.com/images/diagrams/compression_diagram.png"
-    },
-    {
-      "pattern": "https://docs.timescale.com/about/latest/contribute-to-docs/?"
     }
   ]
 }
