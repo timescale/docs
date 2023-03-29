@@ -1,5 +1,5 @@
 ---
-title: Service operations - Maintenance
+title: Maintenance
 excerpt: How your Timescale Cloud service is kept up-to-date
 products: [cloud]
 keywords: [updates, upgrades, maintenance]
@@ -8,7 +8,7 @@ cloud_ui:
         - [services, :serviceID, operations, maintenance]
 ---
 
-# Service operations - Maintenance
+# Maintenance
 
 On Timescale Cloud, minor software updates are handled automatically by us, and
 you do not need to perform any actions.
@@ -181,6 +181,6 @@ with a replica,  you must first delete the replica and then upgrade the service.
 [cloud-login]: https://cloud.timescale.com
 [operations-forking]: /use-timescale/:currentVersion:/services/service-management/#fork-a-service
 [postgres-relnotes]: https://www.postgresql.org/docs/release/
-[replicas-docs]: /use-timescale/:currentVersion:/services/replicas/
+[replicas-docs]: /use-timescale/:currentVersion:/ha-replicas/high-availability/
 [status-page]: https://status.timescale.com/
 [timescale-relnotes]: /about/latest/release-notes/

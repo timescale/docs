@@ -1,5 +1,5 @@
 ---
-title: Service operations - Autoscaling
+title: Autoscaling
 excerpt: Set up Timescale Cloud to automatically resize your compute and storage
 products: [cloud]
 keywords: [scaling, services, operations]
@@ -9,7 +9,7 @@ cloud_ui:
         - [services, :serviceID, operations, autoscaling]
 ---
 
-# Service operations - Autoscaling
+# Autoscaling
 
 Disk size autoscaling is enabled by default on most services. When you consume
 85% or more of your existing disk space, disk size is automatically increased to

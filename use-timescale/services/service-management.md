@@ -1,5 +1,5 @@
 ---
-title: Services operations - Service management
+title: Service management
 excerpt: Manage your service from the Operations dashboard
 products: [cloud]
 keywords: [services, operations, forks]
@@ -9,7 +9,7 @@ cloud_ui:
         - [services, :serviceID, operations, management]
 ---
 
-# Services operations - Service management
+# Service management
 
 In the `Service management` section of the Operations dashboard, you can fork
 your service, reset the password, pause, or delete the service.

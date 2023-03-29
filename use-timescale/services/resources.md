@@ -1,5 +1,5 @@
 ---
-title: Service operation - Resources
+title: Resources
 excerpt: Manage your service resources
 products: [cloud]
 keywords: [services, operation, storage]
@@ -9,7 +9,7 @@ cloud_ui:
         - [services, :serviceID, operations, resources]
 ---
 
-# Service operation - Resources
+# Resources
 
 Timescale Cloud allows you to resize compute (CPU/RAM) and storage independently
 at any time. This is useful when you need to do something like increasing your

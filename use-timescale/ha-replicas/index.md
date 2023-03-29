@@ -33,5 +33,5 @@ If you are using Managed Service for TimescaleDB, see the
 If you are using self-hosted TimescaleDB, see the
 [self-hosted HA section][self-hosted-ha].
 
-[mst-failover]: mst/:currentVersion:/failover/
-[self-hosted-ha]: self-hosted/:currentVersion:/replication-and-ha/
+[mst-failover]: /mst/:currentVersion:/failover/
+[self-hosted-ha]: /self-hosted/:currentVersion:/replication-and-ha/
