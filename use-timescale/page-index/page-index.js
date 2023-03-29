@@ -596,8 +596,8 @@ module.exports = [
         ],
       },
       {
-        title: "High available and replication",
-        href: "replicas",
+        title: "High availability and replication",
+        href: "ha-replicas",
         excerpt: "Timescale Cloud high availability and replicas",
         children: [
           {
