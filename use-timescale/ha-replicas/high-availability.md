@@ -9,6 +9,8 @@ cloud_ui:
         - [services, :serviceID, operations, replication]
 ---
 
+import CloudTrial from "versionContent/_partials/_cloudtrial.mdx";
+
 # Service operations - High availability
 
 All Timescale Cloud services come with a rapid recovery feature enabled by
@@ -20,8 +22,7 @@ downtime and data loss due to failures, and allow a service to avoid downtime
 for routine maintenance. This section will cover how each of these work to help
 you make an informed decision about which is right for your service.
 
-<Highlight type="cloud" header="Sign up for Timescale Cloud" button="Try for free">
-</Highlight>
+<CloudTrial />
 
 ## HA replicas
 
