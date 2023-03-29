@@ -1,7 +1,7 @@
 ---
 title: Manage storage using tablespaces
 excerpt: Save on data storage by moving chunks between tablespaces
-products: [cloud, mst, self_hosted]
+products: [self_hosted]
 keywords: [storage, tablespaces]
 tags: [move, manage, chunks]
 ---
@@ -99,8 +99,8 @@ and 3 weeks old, in a hypertable named `example`:
 
 ```sql
 SELECT move_chunk(
-  chunk => i, 
-  destination_tablespace => '<TABLESPACE>') 
+  chunk => i,
+  destination_tablespace => '<TABLESPACE>')
 FROM show_chunks('example', now() - INTERVAL '1 week', now() - INTERVAL '3 weeks') i;
 ```
 

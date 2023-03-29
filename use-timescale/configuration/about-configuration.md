@@ -7,10 +7,10 @@ keywords: [configuration, memory, workers, settings]
 
 # About configuration in Timescale
 
-By default, Timescale uses the default PostgreSQL server configuration
-settings. Most configuration values for a service are initially set in accordance
-with best practices given the compute and storage settings of the service.
-Any time you increase or decrease the compute for a Service, the most essential values
+By default, Timescale uses the default PostgreSQL server configuration settings.
+Most configuration values for a service are initially set in accordance with
+best practices given the compute and storage settings of the service. Any time
+you increase or decrease the compute for a Service, the most essential values
 are set to reflect the size of the new service.
 
 There are times, however, when your specific workload could require tuning some

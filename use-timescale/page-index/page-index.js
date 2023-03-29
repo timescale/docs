@@ -449,11 +449,6 @@ module.exports = [
             excerpt: "Using JSON data types in a hypertable",
           },
           {
-            title: "Manage storage using tablespaces",
-            href: "manage-storage",
-            excerpt: "Manage storage by moving data between tablespaces",
-          },
-          {
             title: "Troubleshoot schema management",
             href: "troubleshooting",
             type: "placeholder",

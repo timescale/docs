@@ -132,6 +132,11 @@ module.exports = [
         ],
       },
       {
+        title: "Manage storage using tablespaces",
+        href: "manage-storage",
+        excerpt: "Manage storage by moving data between tablespaces",
+      },
+      {
         title: "Multi-node",
         href: "multinode-timescaledb",
         children: [

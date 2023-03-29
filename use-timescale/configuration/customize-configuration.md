@@ -1,5 +1,5 @@
 ---
-title: Service operations - Configure database parameters
+title: Configure database parameters
 excerpt: Customize the configuration of your TimescaleDB database
 products: [cloud]
 keywords: [configure, services, settings]
@@ -9,7 +9,7 @@ cloud_ui:
     priority: 1
 ---
 
-# Service operations - Configure database parameters
+# Configure database parameters
 
 Timescale Cloud allows you to customize many Timescale and PostgreSQL
 configuration options for each Service individually. Most configuration values
@@ -21,8 +21,8 @@ of the new service.
 <Highlight type="warning">
 You can modify most parameters without restarting the Timescale Cloud Service.
 However, some changes do require a restart, resulting in some brief downtime
-(usually about 30 seconds). An example of a change that needs a restart is modifying
-the compute resources of a running service.
+that is usually about 30&nbsp;seconds. An example of a change that needs a
+restart is modifying the compute resources of a running service.
 </Highlight>
 
 ## View service operation details
