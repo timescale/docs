@@ -54,6 +54,6 @@ SELECT move_chunk(
 );
 ```
 
-[manage-storage]: /timescaledb/:currentVersion:/how-to-guides/schema-management/manage-storage/
+[manage-storage]: /use-timescale/:currentVersion:/schema-management/about-tablespaces/
 [postgres-cluster]: https://www.postgresql.org/docs/current/sql-cluster.html
 [postgres-altertable]: https://www.postgresql.org/docs/13/sql-altertable.html

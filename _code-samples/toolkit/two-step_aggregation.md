@@ -22,10 +22,10 @@ Interestingly, almost all Postgres aggregates do a version of this [under the ho
 
 So why do we make this calling convention explicit?
 
-1) It allows different accessor function calls to use the same internal state and not redo work.
-2) It cleanly distinguishes the parameters that affect the aggregate and those that only affect the accessor.
-3) It makes it explicit how and when aggregates can be re-aggregated or "stacked" on themselves with logically consistent results. This also helps them better integrate with [continuous aggregates](https://docs.timescale.com/latest/using-timescaledb/continuous-aggregates).
-4) It allows for better retrospective analysis of downsampled data in [continuous aggregates](https://docs.timescale.com/latest/using-timescaledb/continuous-aggregates).
+1. It allows different accessor function calls to use the same internal state and not redo work.
+2. It cleanly distinguishes the parameters that affect the aggregate and those that only affect the accessor.
+3. It makes it explicit how and when aggregates can be re-aggregated or "stacked" on themselves with logically consistent results. This also helps them better integrate with [continuous aggregates](/use-timescale/latest/continuous-aggregates).
+4. It allows for better retrospective analysis of downsampled data in continuous aggregates.
 
 That might have been gibberish to some, so let's unpack it a bit.
 

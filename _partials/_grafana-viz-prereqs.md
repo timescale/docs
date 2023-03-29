@@ -1,7 +1,7 @@
 Before you begin, make sure you have:
 
 *   Installed [Grafana][install-grafana] version&nbsp;8.5 or higher
-*   Installed [TimescaleDB][install-timescale]
+*   Installed [Timescale][install-timescale]
 *   Imported the stock trade data from the [Getting Started Tutorial][gsg-data]
 
 If you are new to Grafana, see the [Grafana tutorials][grafana-tutorials]
@@ -18,7 +18,7 @@ The examples in this section use these variables and Grafana functions:
     function when aggregating data.
 
 [install-grafana]: https://grafana.com/get/
-[install-timescale]: /install/:currentVersion:/
+[install-timescale]: /getting-started/latest/
 [gsg-data]: /getting-started/:currentVersion:/add-data/
-[grafana-tutorials]: /timescaledb/:currentVersion:/tutorials/grafana/
+[grafana-tutorials]: /tutorials/:currentVersion:/grafana/
 [variables-tutorial]: https://youtu.be/Fq9xsvHPsSQ

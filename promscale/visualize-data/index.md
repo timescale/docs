@@ -1,7 +1,7 @@
 ---
 title: Visualize data in Promscale
 excerpt: Learn about data visualization tools you can use with Promscale
-product: promscale
+products: [promscale]
 keywords: [analytics, Grafana]
 tags: [visualize, analytics, jaeger]
 ---

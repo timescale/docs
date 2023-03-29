@@ -1,16 +1,17 @@
 ---
 title: VPC peering
 excerpt: Secure your Managed Service for TimescaleDB instance with VPC peering
-product: mst
+products: [mst]
 keywords: [vpc, peer]
 ---
 
 # VPC peering
 
-Virtual Private Cloud (VPC) peering is a method of connecting separate
-Cloud private networks to each other. It makes it possible for the
-virtual machines in the different VPC's to talk to each other directly without
-going through the public internet. VPC peering is limited to VPCs that share the same Cloud provider.
+Virtual Private Cloud (VPC) peering is a method of connecting separate Cloud
+private networks to each other. It makes it possible for the virtual machines in
+the different VPC's to talk to each other directly without going through the
+public internet. VPC peering is limited to VPCs that share the same Cloud
+provider.
 
 VPC peering setup is a per project and per region setting. This means that all
 services created and running utilize the same VPC peering connection. If needed,

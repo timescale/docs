@@ -1,7 +1,7 @@
 ---
 title: Ingest data
-excerpt: Ingest data into Managed Service for Timescaledb
-product: mst
+excerpt: Ingest data into Managed Service for TimescaleDB
+products: [mst]
 keywords: [ingest, data migration]
 tags: [JDB, ODBC, client driver, Kafka, csv]
 ---
@@ -23,8 +23,8 @@ TimescaleDB. This section contains instructions to:
 
 <Highlight type="note">
 Before you begin, make sure you have
-[created your Managed Service for TimescaleDB service](/mst/latest/create-a-service/), and
-can connect to it using `psql`.
+[created your Managed Service for TimescaleDB service](/mst/latest/create-a-service/),
+and can connect to it using `psql`.
 </Highlight>
 
 <Procedure>
@@ -32,7 +32,7 @@ can connect to it using `psql`.
 ## Preparing your new database
 
 1.  Use `psql` to connect to your service. You can retrieve the service URL,
-    port, and login credentials from the service overview in the Timescale Cloud dashboard:
+    port, and login credentials from the service overview in the MST dashboard:
 
     ```sql
     psql -h <HOSTNAME> -p <PORT> -U <USERNAME> -W -d <DATABASE_NAME>
@@ -132,11 +132,11 @@ See the [Code Quick Starts][code-qs] for using various languages, including Pyth
 ## Insert data directly using a message queue
 
 If you have data stored in a message queue, you can import it into your
-TimescaleDB database. This section provides instructions on using the Kafka
+Timescale database. This section provides instructions on using the Kafka
 Connect PostgreSQL connector.
 
 This connector deploys PostgreSQL change events from Kafka Connect to a runtime
-service. It monitors one or more schemas in a TimescaleDB server, and writes all
+service. It monitors one or more schemas in a Timescale server, and writes all
 change events to Kafka topics, which can then be independently consumed by one
 or more clients. Kafka Connect can be distributed to provide fault tolerance,
 which ensures the connectors are running and continually keeping up with changes
@@ -144,7 +144,7 @@ in the database.
 
 You can also use the PostgreSQL connector as a library without Kafka or Kafka
 Connect. This allows applications and services to directly connect to
-TimescaleDB and obtain the ordered change events. In this environment, the
+Timescale and obtain the ordered change events. In this environment, the
 application must record the progress of the connector so that when it is
 restarted, the connect can continue where it left off. This approach can be
 useful for less critical use cases. However, for production use cases, we
@@ -152,9 +152,9 @@ recommend that you use the connector with Kafka and Kafka Connect.
 
 See [these instructions][gh-kafkaconnector] for using the Kafka connector.
 
-[code-qs]: /timescaledb/:currentVersion:/quick-start/
+[code-qs]: /quick-start/:currentVersion:/
 [gh-kafkaconnector]: https://github.com/debezium/debezium/tree/master/debezium-connector-postgres
 [github-parallel-copy]: https://github.com/timescale/timescaledb-parallel-copy
-[migrate-data]: /timescaledb/:currentVersion:/how-to-guides/migrate-data/
-[migrate-influxdb]: /timescaledb/:currentVersion:/how-to-guides/migrate-data/migrate-influxdb/
+[migrate-data]: /use-timescale/:currentVersion:/migrate-data/
+[migrate-influxdb]: /use-timescale/:currentVersion:/migrate-data/migrate-influxdb/
 [postgres-odbc]: https://odbc.postgresql.org/

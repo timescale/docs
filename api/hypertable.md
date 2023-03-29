@@ -14,4 +14,4 @@ For more information about using hypertables, including chunk size partitioning,
 see the [hypertable section][hypertable-docs].
 
 [create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
-[hypertable-docs]: /timescaledb/:currentVersion:/how-to-guides/hypertables/
+[hypertable-docs]: /use-timescale/:currentVersion:/hypertables/

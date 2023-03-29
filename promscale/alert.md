@@ -1,7 +1,7 @@
 ---
 title: Alert in Promscale
 excerpt: Configure alerting rules in Promscale
-product: promscale
+products: [promscale]
 keywords: [Prometheus, alert, Alert Manager]
 ---
 

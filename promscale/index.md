@@ -1,7 +1,7 @@
 ---
 title: Promscale
 excerpt: Promscale is the open source observability backend for metrics and traces powered by SQL, built on top of TimescaleDB
-product: promscale
+products: [promscale]
 ---
 
 import PromscaleDeprecation from "versionContent/_partials/_deprecated-promscale.mdx";
