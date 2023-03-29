@@ -48,11 +48,6 @@ module.exports = [
             excerpt: "Timescale Cloud services operations, Autoscaling tab",
           },
           {
-            title: "Replication",
-            href: "replicas",
-            excerpt: "Timescale Cloud services operations, Replicas tab",
-          },
-          {
             title: "Maintenance",
             href: "maintenance",
             excerpt: "Timescale Cloud services operations, Maintenance tab",
@@ -597,6 +592,23 @@ module.exports = [
             href: "troubleshooting",
             type: "placeholder",
             excerpt: "Troubleshoot continuous aggregates",
+          },
+        ],
+      },
+      {
+        title: "High available and replication",
+        href: "replicas",
+        excerpt: "Timescale Cloud high availability and replicas",
+        children: [
+          {
+            title: "High availability",
+            href: "high-availability",
+            excerpt: "Set up HA replicas on Timescale Cloud for high availability",
+          },
+          {
+            title: "Read scaling",
+            href: "read-scaling",
+            excerpt: "Understand how read scaling works in Timescale Cloud",
           },
         ],
       },

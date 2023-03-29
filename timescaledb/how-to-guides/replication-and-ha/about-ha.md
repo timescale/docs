@@ -5,13 +5,14 @@ keywords: [high availability, backups, replicas, failover]
 tags: [redundancy]
 ---
 
-# High availability (HA)
+# High availability
 
 High availability (HA) is achieved by increasing redundancy and
 resilience. To increase redundancy, parts of the system are replicated, so that
 they are on standby in the event of a failure. To increase resilience, recovery
 processes switch between these standby resources as quickly as possible.
 
+<<<<<<< HEAD
 <Highlight type="cloud"
     button="Try Timescale Cloud for free"
     header="Enable high availability in one click"
@@ -21,6 +22,14 @@ availability for your databases. You can create replicas with a single click and
 enjoy automatic recovery and fail-over for all your replicated instances
 (including multiple availability zones).
 [Learn more](https://docs.timescale.com/cloud/latest/service-operations/replicas/#create-a-database-replica)
+=======
+<Highlight type="cloud" button="Try Timescale Cloud for free" header="Enable high availability in one click">
+Timescale Cloud simplifies the process of configuring and maintaining high
+availability for your databases. You can create replicas with a single click and
+enjoy automatic recovery and fail-over for all your replicated instances,
+including multiple availability zones. For more information, see the
+[Timescale Cloud section](https://docs.timescale.com/cloud/latest/service-operations/replicas/#create-a-database-replica)
+>>>>>>> latest
 about HA replicas on Timescale Cloud.
 </Highlight>
 
@@ -83,9 +92,15 @@ out-of-the-box support for automatic failover. Read more in the PostgreSQL
 [failover documentation][failover-docs]. [Patroni][patroni-github] offers a
 configurable high availability solution with automatic failover capability.
 
+<<<<<<< HEAD
 [cloud-backup]: /use-timescale/:currentVersion:/backup-restore-cloud/
 [cloud-ha]: /use-timescale/:currentVersion:/services/replicas/
 [db-backup]: /self-hosted/:currentVersion:/backup-and-restore/
+=======
+[cloud-backup]: /cloud/:currentVersion:/backup-restore-cloud/
+[cloud-ha]: /cloud/:currentVersion:/service-operations/replicas/
+[db-backup]: /timescaledb/:currentVersion:/how-to-guides/backup-and-restore/
+>>>>>>> latest
 [failover-docs]: https://www.postgresql.org/docs/current/static/warm-standby-failover.html
 [patroni-github]: https://github.com/zalando/patroni
 [pgctl-docs]: https://www.postgresql.org/docs/current/static/app-pg-ctl.html

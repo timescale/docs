@@ -10,11 +10,7 @@ tags: [extensions]
 
 You can use PostgreSQL extensions with Timescale Cloud. If you run
 `pg_available_extensions` at the command prompt, the returned list of extensions
-is inaccurate. To see the allowed extensions, use this command instead:
-
-```sql
-SELECT pae.* FROM current_setting('extwlist.extensions') AS cs(e) CROSS JOIN regexp_split_to_table(e, ',') AS ext(allowed) JOIN pg_available_extensions AS pae ON (allowed=name) ORDER BY 1;
-```
+is inaccurate. 
 
 These are the currently supported extensions:
 
@@ -38,6 +34,7 @@ These are the currently supported extensions:
 |pg_stat_statements|Track execution statistics of all SQL statements executed|
 |pg_trgm|Text similarity measurement and index searching based on trigrams|
 |pgcrypto|Cryptographic functions|
+|pgpcre|Perl-compatible RegEx|
 |pgrouting|pgRouting Extension|
 |postgis|PostGIS geometry and geography spatial types and functions|
 |postgis_raster|PostGIS raster types and functions|

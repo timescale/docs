@@ -11,7 +11,7 @@ cloud_ui:
 
 # Service operations - High availability
 
-All Timescale Cloud services come with the “Rapid Recovery” feature enabled by
+All Timescale Cloud services come with a rapid recovery feature enabled by
 default. Rapid recovery ensures that all services experience minimal downtime
 and data loss in the most common failure scenarios and during maintenance. For
 services with very low tolerance for downtime, Timescale Cloud offers high
@@ -57,13 +57,13 @@ service to restart. Restarts typically take about one minute to complete.
 
 ### Creating an HA replica
 
-1.  [Log in to your Timescale Cloud account][cloud-login] and click
-  the service you want to replicate.
-1.  Navigate to the `Operations` tab, and select `Replication`.
+1.  [Log in to your Timescale Cloud account][cloud-login] and click the service
+    you want to replicate.
+1.  Navigate to the `Operations` tab, and select `High availability`.
 1.  Check the pricing of the replica, and click `Add a replica`. Confirm the
     action by clicking `Add replica`.
 1.  You can see the replicas for each service by clicking on the service name,
-    navigating to the `Operations` tab, and selecting `Replication`. Replicas
+    navigating to the `Operations` tab, and selecting `High availability`. Replicas
     are not shown in the main `Services` section, as they are not independent.
 1.  You can see connection information for the replica by navigating to the
     `Overview` tab. In the `Connection info` section, select the replica from
@@ -132,8 +132,14 @@ state to safely switch over.
 ### Triggering a switchover
 
 1.  Connect to your primary as `tsdbadmin` or another user a part of the
+<<<<<<< HEAD:use-timescale/services/replicas.md
 `tsdbowner` group.
 1.  Connect to the `postgres` database: `\c postgres`. You should see this in your terminal:
+=======
+    `tsdbowner` group.
+1.  Connect to the `postgres` database: `\c postgres`. You should see this in
+    your terminal:
+>>>>>>> latest:use-timescale/services/high-availability.md
 
     ```sql
     tsdb=> \c postgres
@@ -142,6 +148,7 @@ state to safely switch over.
 
 1.  See if your instance is currently in recovery: `select pg_is_in_recovery();`
 1.  Check which node is currently your primary:
+<<<<<<< HEAD:use-timescale/services/replicas.md
 `select * from pg_stat_replication;`
 1.  Note the `application_name`. This will be your service ID followed by the
 node. The important part is the `-an-0` or `-an-1`.
@@ -151,6 +158,17 @@ interval, e.g.: `CALL tscloud.cluster_switchover('15 seconds'::INTERVAL);`
 1.  Wait for the failover to occur.
 1.  Check which node is your primary again: `select * from pg_stat_replication;`
 You will get notices that your connection was reset:
+=======
+    `select * from pg_stat_replication;`
+1.  Note the `application_name`. This will be your service ID followed by the
+    node. The important part is the `-an-0` or `-an-1`.
+1.  Schedule a failover: `CALL tscloud.cluster_switchover();`. By default this
+    schedules it to occur in 30s. You can also define the time by passing an
+    interval, e.g.: `CALL tscloud.cluster_switchover('15 seconds'::INTERVAL);`
+1.  Wait for the failover to occur.
+1.  Check which node is your primary again: `select * from pg_stat_replication;`
+    You should see a notice that your connection has been reset:
+>>>>>>> latest:use-timescale/services/high-availability.md
 
     ```sql
     FATAL:  terminating connection due to administrator command
@@ -159,8 +177,14 @@ You will get notices that your connection was reset:
     ```
 
 1.  Check the `application_name`. If initially your primary was `-an-1` before,
+<<<<<<< HEAD:use-timescale/services/replicas.md
 it should now be `-an-0`. If it was `-an-0`, it should now be `-an-1`. You can
 also connect to the HA replica and check its node using a similar process.
+=======
+    it should now be `-an-0`. If it was `-an-0`, it should now be `-an-1`. You
+    can also connect to the HA replica and check its node using a similar
+    process.
+>>>>>>> latest:use-timescale/services/high-availability.md
 
 </Procedure>
 
@@ -203,7 +227,7 @@ To mitigate this, Cloud actively monitors for such scenarios to
 help catch them before a failure occurs.
 </Highlight>
 
-## HA replicas, explained
+## HA replicas in detail
 
 HA replicas are multi-AZ, asynchronous hot standbys. They use streaming
 replication to minimize the chance of data loss during failover. What does all

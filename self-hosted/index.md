@@ -16,7 +16,11 @@ The easiest way to discover and use Timescale for time-series is with Timescale
 Cloud, which offers hosted high-performance PostgreSQL for time-series and
 analytics.
 
+<<<<<<< HEAD
 <CloudTrial />
+=======
+</CloudTrial />
+>>>>>>> latest
 
 However, if you want to run Timescale locally on your own hardware, you can
 download the TimescaleDB PostgreSQL extension. For information about installing
