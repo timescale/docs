@@ -35,7 +35,7 @@ access to Timescale resources.
     view the `Secret Key` again in the console.
 1.  Click `Done`.
     You can use these keys in your client applications to access Timescale Cloud
-    resources.
+    resources inside the respective project.
     Timescale Cloud generates a default `Name` for the client credentials.
 1.  Click the ⋮ menu and select `Rename credentials`.
 1.  In the  `Edit credential name` dialog, type the new name and click `Accept`.
