@@ -1,5 +1,6 @@
 ---
 title: Write data to Promscale using the remote-write API
+products: [promscale]
 ---
 
 import PromscaleDeprecation from "versionContent/_partials/_deprecated-promscale.mdx";

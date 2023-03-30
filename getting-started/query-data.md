@@ -1,24 +1,25 @@
 ---
 title: Query your data
-excerpt: Query your TimescaleDB data with the full power of SQL
+excerpt: Query your Timescale data with the full power of SQL
+products: [cloud, mst, self_hosted]
 keywords: [queries]
 ---
 
 # Query your data
 
-With TimescaleDB, there's no need to learn a custom query language, because
-TimescaleDB supports full SQL. You can use your SQL knowledge along with the
+With Timescale, there's no need to learn a custom query language, because
+Timescale supports full SQL. You can use your SQL knowledge along with the
 rich ecosystem of PostgreSQL tools, and add the extra features and performance of
-TimescaleDB.
+Timescale.
 
 Here are some query examples so you can get familiar with using SQL alongside
-popular TimescaleDB functions.
+popular Timescale functions.
 
-## Basic SQL queries
+## Simple SQL queries
 
 Many of the queries below show a filter for the last four days of data. This
-accounts for the nuance of stock trade data which only occurs Monday-Friday on
-the New York Stock Exchange.
+accounts for the nuance of stock trade data which only occurs Monday to Friday
+on the New York Stock Exchange.
 
 If you load the provided data on a Monday, the most recent data is from Friday
 afternoon. Therefore, selecting data for the last day or two would return no
@@ -97,14 +98,15 @@ correct because the `day_volume` column is ordered correctly.
    WHERE c.name = 'Apple' AND time > now() - INTERVAL '4 days';
    ```
 
-## Advanced TimescaleDB SQL functions
+## Advanced Timescale SQL functions
 
 Timescale has many custom-built SQL functions to help you perform time-series
 analysis in fewer lines of code. Here's how to use three of these functions:
 
 *   [first()][first]: find the earliest value based on a time within an aggregate group
 *   [last()][last]: find the latest value based on time within an aggregate group
-*   [time_bucket()][time-bucket]: bucket data by arbitrary time intervals and calculate aggregates over those intervals
+*   [time_bucket()][time-bucket]: bucket data by arbitrary time intervals and calculate
+     aggregates over those intervals
 
 ### Get the first and last value
 
@@ -204,13 +206,15 @@ are calculated, see the [how-to guide for time buckets][time-bucket-how-to].
 
 ## Next steps
 
-Now that you're familiar with some TimescaleDB queries and functions, like `time_bucket`, learn about
-continuous aggregates in the [next section][create-cagg].
+Now that you're familiar with some Timescale queries and functions, like
+`time_bucket`, learn about continuous aggregates in the
+[next section][create-cagg].
 
-## Learn more about TimescaleDB hyperfunctions
+## Learn more about Timescale hyperfunctions
 
-For more information about the functions provided by TimescaleDB and Timescale Toolkit extension,
-see the [API Reference for hyperfunctions](/api/:currentVersion:/hyperfunctions).
+For more information about the functions provided by Timescale and Timescale
+Toolkit extension, see the
+[hyperfunctions section][hyperfunctions].
 
 [average]: https://www.postgresql.org/docs/14/functions-aggregate.html
 [clause-expressions]: https://www.postgresql.org/docs/14/queries-table-expressions.html
@@ -222,5 +226,6 @@ see the [API Reference for hyperfunctions](/api/:currentVersion:/hyperfunctions)
 [last]: /api/:currentVersion:/hyperfunctions/last
 [order-by]: https://www.postgresql.org/docs/current/queries-order.html
 [select-keywords]: https://www.postgresql.org/docs/14/sql-select.html
-[time-bucket-how-to]: /timescaledb/:currentVersion:/how-to-guides/time-buckets/
+[time-bucket-how-to]: /use-timescale/:currentVersion:/time-buckets/
 [time-bucket]: /api/:currentVersion:/hyperfunctions/time_bucket
+[hyperfunctions]: /use-timescale/:currentVersion:/hyperfunctions/

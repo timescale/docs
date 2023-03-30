@@ -1,6 +1,7 @@
 ---
 title: Resource recommendations
 excerpt: Compute and disk requirements recommended for Promscale, based on ingest rate and retention
+products: [promscale]
 ---
 
 import PromscaleDeprecation from "versionContent/_partials/_deprecated-promscale.mdx";

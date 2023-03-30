@@ -1,7 +1,7 @@
 ---
 title: Monitor Promscale
 excerpt: Monitor Promscale with out-of-the-box alerts, runbooks, and dashboards
-product: promscale
+products: [promscale]
 keywords: [Prometheus, alert, Alert Manager]
 ---
 

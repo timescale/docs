@@ -1,7 +1,7 @@
 ---
 title: Delete data in Promscale
 excerpt: Delete data in Promscale
-product: promscale
+products: [promscale]
 keywords: [delete]
 tags: [metrics]
 ---

@@ -1,7 +1,7 @@
 ---
 title: Security overview
 excerpt: Learn how your Managed Service for TimescaleDB instance is secured
-product: mst
+products: [mst]
 keywords: [security]
 ---
 
@@ -151,8 +151,8 @@ so, to troubleshoot a technical issue. This access is logged and audited.
 There is no ability for any customer or member of the public to access any
 virtual machines used in Managed Service for TimescaleDB.
 
-TimescaleDB services are periodically assessed and penetration tested for any
-security issues by an independent professional cybersecurity vendor.
+Managed Service for TimescaleDB services are periodically assessed and penetration
+tested for any security issues by an independent professional cyber security vendor.
 
 <!---
 The most

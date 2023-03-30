@@ -1,7 +1,7 @@
 ---
 title: Failover
 excerpt: Learn how maintenance is automatically handled on Managed Service for TimescaleDB
-product: mst
+products: [mst]
 keywords: [maintenance, updates, upgrades, failover, high availability, replica]
 tags: [failover window]
 ---
@@ -18,8 +18,8 @@ are not promoted as master servers.
 
 The two distinct cases during which failovers occur are:
 
-*   When the master or replica fails unexpectedly, for example because the hardware hosting the
-    virtual machine fails.
+*   When the master or replica fails unexpectedly, for example because the hardware
+    hosting the virtual machine fails.
 *   When controlled failover happens because of upgrades.
 
 ## Uncontrolled master or replica fail

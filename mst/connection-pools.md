@@ -1,7 +1,7 @@
 ---
 title: Connection pools
 excerpt: Pool client connections to keep server resource us low
-product: mst
+products: [mst]
 keywords: [connect]
 tags: [connection pools, pgbouncer]
 ---
@@ -84,8 +84,8 @@ connection pooling to.
 
 ### Setting up a connection pool
 
-1.  In the MST portal, navigate to the
-    `Services` list, and click the name of the service you want to add connection pooling to.
+1.  In the MST portal, navigate to the `Services` list, and click the name of
+    the service you want to add connection pooling to.
 1.  In the `Service overview` page, navigate to the `Pools` tab. When you have
     created some pools, they are shown here.
 1.  Click `Add Pool` to create a new pool.

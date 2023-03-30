@@ -1,6 +1,7 @@
 ---
 title: Using the `dblink` extension in Managed Service for TimescaleDB
 excerpt: Learn how to use `dblink` extension and connect to other PostgreSQL databases
+products: [mst]
 tags: [extension]
 ---
 
@@ -9,10 +10,10 @@ tags: [extension]
 The `dblink` [PostgreSQL extension](https://www.postgresql.org/docs/current/dblink.html)
 allows you to connect to other PostgreSQL databases and to run arbitrary queries.
 
-You can use [foreign data wrappers](https://www.postgresql.org/docs/current/postgres-fdw.html) (FDWs)
-to define a remote `foreign server` to access its data. The
-database connection details such as hostnames are kept in a single place, and you
-only need to create a `user mapping` to store remote connections credentials.
+You can use [foreign data wrappers](https://www.postgresql.org/docs/current/postgres-fdw.html)
+(FDWs) to define a remote `foreign server` to access its data. The database connection
+details such as hostnames are kept in a single place, and you only need to create a
+`user mapping` to store remote connections credentials.
 
 ## Before you begin
 

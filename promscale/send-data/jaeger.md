@@ -1,7 +1,7 @@
 ---
 title: Send Jaeger traces to Promscale
 excerpt: Send Jaeger traces to Promscale
-product: promscale
+products: [promscale]
 keywords: [Jaeger]
 tags: [configure, traces]
 ---

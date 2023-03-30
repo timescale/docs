@@ -1,7 +1,7 @@
 ---
 title: Application performance monitoring with traces
 excerpt: Application performance monitoring within Grafana using dashboards with SQL queries on traces
-product: promscale
+products: [promscale]
 keywords: [Jaeger, monitor]
 tags: [configure, opentelemetry, traces]
 ---
@@ -112,6 +112,6 @@ dashboards published by Promscale.
 [promscale-grafana-dashboards]: https://grafana.com/orgs/promscale/dashboards
 [promscale-as-jaeger]: /promscale/:currentVersion:/visualize-data/grafana/#configure-promscale-as-jaeger-data-source
 [promscale-as-postgresql]: /promscale/:currentVersion:/visualize-data/grafana/#configure-promscale-as-a-postgresql-data-source
-[install-toolkit]:/timescaledb/latest/how-to-guides/hyperfunctions/install-toolkit
+[install-toolkit]:/self-hosted/:currentVersion:/tooling/install-toolkit/
 [promscale-github-dashboards]: https://github.com/timescale/promscale/tree/master/docs/mixin/dashboards
 [install-extension]: /promscale/:currentVersion:/visualize-data/apm-experience/#install-the-timescaledb-toolkit-extension

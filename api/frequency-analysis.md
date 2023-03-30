@@ -17,4 +17,4 @@ For these hyperfunctions, you need to install the [TimescaleDB Toolkit][install-
     sortByType
 />
 
-[install-toolkit]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/install-toolkit
+[install-toolkit]: /self-hosted/:currentVersion:/tooling/install-toolkit/

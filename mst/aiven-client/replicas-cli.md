@@ -1,7 +1,7 @@
 ---
 title: Create a read-only replica using Aiven client 
 excerpt: Create a read-only replica of the service using Aiven Command Line tool for fully managed services on AWS, Azure, or GCP.
-product: mst
+products: [mst]
 ---
 
 # Read-only replica with Aiven client
@@ -83,5 +83,5 @@ avn service list
 ```
 
 [aiven-client-install]: /mst/:currentVersion:/aiven-client/aiven-client-install/
-[create-service]: /install/:currentVersion:/installation-mst/#create-your-first-service
+[create-service]: /mst/:currentVersion:/installation-mst/#create-your-first-service
 [mst-login]: https://portal.managed.timescale.com

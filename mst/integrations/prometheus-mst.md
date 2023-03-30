@@ -1,7 +1,6 @@
 ---
 title: Prometheus endpoint for Managed Service for TimescaleDB
 excerpt: Use Prometheus to monitor your Managed Service for TimescaleDB
-product: mst
 products: [mst]
 keywords: [Prometheus, monitor, integration]
 ---
@@ -31,7 +30,7 @@ open source metrics-based systems monitoring solution.
       *   In the `Username` field, type your username.
       *   In the `Password` field, type your password.
       *   Click `Create` to create the endpoint.
-    
+
     These details are used when setting up your Prometheus installation, in the
     `prometheus.yml` configuration file. This allows you to make this Managed
     Service for TimescaleDB endpoint a target for Prometheus to scrape.

@@ -1,7 +1,7 @@
 ---
 title: Manage data in Promscale
 excerpt: Manage the data stored in Promscale
-product: promscale
+products: [promscale]
 ---
 
 import PromscaleDeprecation from "versionContent/_partials/_deprecated-promscale.mdx";

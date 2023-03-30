@@ -55,4 +55,4 @@ data_nodes          | {node_1, node_2}
 tablespaces         |
 ```
 
-[hypertable-docs]: /timescaledb/:currentVersion:/how-to-guides/hypertables/
+[hypertable-docs]: /use-timescale/:currentVersion:/hypertables/

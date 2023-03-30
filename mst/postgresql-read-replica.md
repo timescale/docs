@@ -1,7 +1,7 @@
 ---
 title: Create a read-only replica of PostgreSQL
 excerpt: Learn how to create and use a read-only replica for PostgreSQL service on Managed Service for TimescaleDB 
-product: mst
+products: [mst]
 ---
 
 # Create a read-only replica of PostgreSQL service

@@ -1,7 +1,7 @@
 ---
 title: Scalability and high availability
 excerpt: Configure Promscale for scaling and high availability
-product: promscale
+products: [promscale]
 ---
 
 import PromscaleDeprecation from "versionContent/_partials/_deprecated-promscale.mdx";
