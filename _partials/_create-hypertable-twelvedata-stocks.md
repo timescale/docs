@@ -1,11 +1,11 @@
 
 # Create a hypertable
 
-Hypertables are the core of TimescaleDB. Hypertables enable TimescaleDB to work
-efficiently with time-series data. Because TimescaleDB is PostgreSQL, all the
+Hypertables are the core of Timescale. Hypertables enable Timescale to work
+efficiently with time-series data. Because Timescale is PostgreSQL, all the
 standard PostgreSQL tables, indexes, stored procedures and other objects can be
-created alongside your TimescaleDB hypertables. This makes creating and working
-with TimescaleDB tables similar to standard PostgreSQL.
+created alongside your Timescale hypertables. This makes creating and working
+with Timescale tables similar to standard PostgreSQL.
 
 <Procedure>
 
@@ -24,7 +24,7 @@ with TimescaleDB tables similar to standard PostgreSQL.
     ```
 
 1.  Convert the standard table into a hypertable partitioned on the `time`
-    column using the `create_hypertable()` function provided by TimescaleDB. You
+    column using the `create_hypertable()` function provided by Timescale. You
     must provide the name of the table and the column in that table that holds
     the timestamp data to use for partitioning:
 
@@ -41,7 +41,7 @@ with TimescaleDB tables similar to standard PostgreSQL.
 
 <Highlight type="note">
 When you create a hypertable, it is automatically partitioned on the time column
-you provide as the second parameter to `create_hypertable()`. Also, TimescaleDB
+you provide as the second parameter to `create_hypertable()`. Also, Timescale
 automatically creates an index on the time column. However, you'll often filter
 your time-series data on other columns as well. Using indexes appropriately helps
 your queries perform better.
@@ -72,7 +72,7 @@ there is one other table of data called `company`.
     );
     ```
 
-1.  You now have two tables within your TimescaleDB database. One hypertable
+1.  You now have two tables within your Timescale database. One hypertable
     named `stocks_real_time`, and one normal PostgreSQL table named `company`.
 
 </Procedure>

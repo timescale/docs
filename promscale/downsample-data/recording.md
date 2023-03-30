@@ -1,7 +1,7 @@
 ---
 title: Recording rules in Promscale
 excerpt: Configure recording rules in Promscale
-product: promscale
+products: [promscale]
 keywords: [Prometheus, downsample]
 tags: [recording rules]
 ---

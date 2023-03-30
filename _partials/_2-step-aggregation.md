@@ -22,4 +22,4 @@ To learn more, see the [blog post on two-step
 aggregates][blog-two-step-aggregates].
 
 [blog-two-step-aggregates]: https://www.timescale.com/blog/how-postgresql-aggregation-works-and-how-it-inspired-our-hyperfunctions-design-2/
-[caggs]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/about-continuous-aggregates/
+[caggs]: /use-timescale/:currentVersion:/continuous-aggregates/about-continuous-aggregates/

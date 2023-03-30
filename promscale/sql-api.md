@@ -1,7 +1,7 @@
 ---
 title: SQL functions API reference
 excerpt: Learn about all Promscale SQL API functions
-product: promscale
+products: [promscale]
 keywords: [API]
 tags: [reference]
 ---

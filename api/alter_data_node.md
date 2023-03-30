@@ -71,4 +71,4 @@ unavailable you can allow read/write queries to proceed in the cluster. For
 more information, see the [multi-node HA section][multi-node-ha]
 
 [add_data_node]: /api/:currentVersion:/distributed-hypertables/add_data_node/
-[multi-node-ha]: /timescaledb/:currentVersion:/how-to-guides/multinode-timescaledb/multinode-ha/#node-failures
+[multi-node-ha]: /self-hosted/:currentVersion:/multinode-timescaledb/multinode-ha/#node-failures

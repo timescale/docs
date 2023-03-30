@@ -1,7 +1,7 @@
 ---
 title: Downsample metric data in Promscale
 excerpt: Configure downsampling in Promscale
-product: promscale
+products: [promscale]
 keywords: [Prometheus, downsample]
 tags: [continuous aggregates, metrics, recording rules]
 ---

@@ -11,8 +11,8 @@ api:
 
 # get_telemetry_report()
 
-Returns the background [telemetry][telemetry] string sent to Timescale 
-servers. If telemetry is disabled, it sends the string that would be sent 
+Returns the background [telemetry][telemetry] string sent to Timescale
+servers. If telemetry is disabled, it sends the string that would be sent
 if telemetry was enabled.
 
 ### Sample usage
@@ -23,4 +23,4 @@ View the telemetry report:
 SELECT get_telemetry_report();
 ```
 
-[telemetry]: /timescaledb/:currentVersion:/how-to-guides/configuration/telemetry
+[telemetry]: /self-hosted/:currentVersion:/configuration/telemetry

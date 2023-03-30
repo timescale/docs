@@ -1,7 +1,7 @@
 ---
 title: Prom-migrator data migration tool
 excerpt: Use Prom-migrator to send existing Prometheus data to Promscale
-product: promscale
+products: [promscale]
 keywords: [analytics]
 tags: [install, data, migrate, prometheus]
 ---
@@ -72,4 +72,4 @@ For more information about Prom-migrator and it command line options, see our
 [promscale-install-docker]: /promscale/:currentVersion:/installation/docker/
 [promscale-install-source]: /promscale/:currentVersion:/installation/binary/
 [promscale-recording]: /promscale/:currentVersion:/downsample-data/recording/
-[tsdb-install-self-hosted]: /timescaledb/:currentVersion:/how-to-guides/install-timescaledb/self-hosted/
+[tsdb-install-self-hosted]: /self-hosted/:currentVersion:/install/

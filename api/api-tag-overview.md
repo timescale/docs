@@ -41,7 +41,7 @@ objects that depend on experimental features like this function. If you use expe
 toolkit functions on Timescale Cloud, this function is automatically dropped when the
 Toolkit extension is updated. For more information, [see the TimescaleDB Toolkit docs][toolkit-docs].
 
-[tsl-comparison]: /timescaledb/:currentVersion:/timescaledb-edition-comparison/
-[toolkit-install]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/install-toolkit/
+[tsl-comparison]: /about/:currentVersion:/timescaledb-editions/
+[toolkit-install]: /self-hosted/:currentVersion:/tooling/install-toolkit/
 [toolkit-docs]: https://github.com/timescale/timescaledb-toolkit/tree/main/docs#a-note-on-tags-
 [experimental-blog]: https://blog.timescale.com/blog/move-fast-but-dont-break-things-introducing-the-experimental-schema-with-new-experimental-features-in-timescaledb-2-4/

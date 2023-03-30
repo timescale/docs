@@ -74,5 +74,5 @@ SELECT pg_size_pretty(after_compression_total_bytes) as total
 total | 48 kB
 ```
 
-[hypertable-docs]: /timescaledb/:currentVersion:/how-to-guides/hypertables/
-[compression-docs]: /timescaledb/:currentVersion:/how-to-guides/compression/
+[hypertable-docs]: /use-timescale/:currentVersion:/hypertables/
+[compression-docs]: /use-timescale/:currentVersion:/compression/

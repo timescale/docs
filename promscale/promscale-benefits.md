@@ -1,7 +1,7 @@
 ---
 title: Promscale benefits
 excerpt: Learn about the benefits of Promscale
-product: promscale
+products: [promscale]
 keywords: [analytics]
 tags: [learn, prometheus]
 ---

@@ -1,7 +1,7 @@
 ---
 title: Maintenance jobs
 excerpt: Understand and manage maintenance jobs
-product: promscale
+products: [promscale]
 keywords: [maintenance, data]
 ---
 
@@ -123,4 +123,4 @@ SELECT config_maintenance_jobs(4, '30 minutes'::INTERVAL);
 [retention]: /promscale/:currentVersion:/manage-data/retention/
 [timescaledb_information.job_stats]: /api/:currentVersion:/informational-views/job_stats/
 [timescaledb_information.jobs]: /api/:currentVersion:/informational-views/jobs/
-[user-defined-actions]: /timescaledb/:currentVersion:/overview/core-concepts/user-defined-actions/
+[user-defined-actions]: /use-timescale/:currentVersion:/user-defined-actions/

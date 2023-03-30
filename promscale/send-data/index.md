@@ -1,7 +1,7 @@
 ---
 title: Send data to Promsacle
 excerpt: Send data to Promscale from Prometheus, OpenTelemetry, and other tools
-product: promscale
+products: [promscale]
 ---
 
 import PromscaleDeprecation from "versionContent/_partials/_deprecated-promscale.mdx";

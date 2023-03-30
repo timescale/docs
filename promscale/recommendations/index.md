@@ -1,7 +1,7 @@
 ---
 title: Recommendations
 excerpt: Recommendations on resources and configuration for Timescale
-product: promscale
+products: [promscale]
 keywords: [analytics]
 tags: [learn, prometheus]
 ---

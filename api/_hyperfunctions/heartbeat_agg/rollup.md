@@ -6,9 +6,9 @@ api:
   license: community
   type: function
   toolkit: true
-  experimental: true
   version:
     experimental: 1.13.0
+    stable: 1.15.0
 hyperfunction:
   family: state tracking
   type: rollup

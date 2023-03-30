@@ -199,4 +199,4 @@ This table shows which `time_bucket_ng()` functions can be used in a continuous 
 |Specify custom origin|✅|2.7.0 or later|
 
 [time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
-[caggs]: /timescaledb/:currentVersion:/overview/core-concepts/continuous-aggregates/
+[caggs]: /use-timescale/:currentVersion:/continuous-aggregates/

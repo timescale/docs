@@ -1,13 +1,14 @@
 ---
 title: Add time-series data
-excerpt: Add time-series data to your TimescaleDB instance
+excerpt: Add time-series data to your Timescale instance
+products: [cloud, mst, self_hosted]
 keywords: [ingest]
 tags: [add, data, time-series]
 ---
 
 # Add time-series data
 
-To explore TimescaleDB's features, you need some sample data. This tutorial
+To explore Timescale's features, you need some sample data. This tutorial
 provides real-time stock trade data, also known as tick data, from
 [Twelve Data][twelve-data].
 
@@ -26,7 +27,7 @@ Exchange (9:30&nbsp;AM - 4:00&nbsp;PM EST).
 <Highlight type="note">
 In case you want to ingest real-time data, instead of sample data,
 read the tutorial
-[Ingest real-time financial websocket data](https://docs.timescale.com/timescaledb/latest/tutorials/ingest-real-time-websocket-data)
+[Ingest real-time financial websocket data](https://docs.timescale.com/tutorials/latest/ingest-real-time-websocket-data)
 and ingest data directly from the Twelve Data financial API.
 </Highlight>
 
@@ -72,7 +73,7 @@ dataset and copy the data to your database.
     ```
 
 1.  At the `psql` prompt, use the `COPY` command to transfer data into your
-    TimescaleDB instance. If the `.csv` files aren't in your current directory,
+    Timescale Cloud instance. If the `.csv` files aren't in your current directory,
     specify the file paths in the following commands:
 
     ```sql
@@ -105,7 +106,7 @@ docker cp tutorial_sample_company.csv timescaledb:/tutorial_sample_company.csv
 
 ## Next steps
 
-Now that you have data in your TimescaleDB instance, learn how to [query the
+Now that you have data in your Timescale Cloud instance, learn how to [query the
 data][query-data].
 
 [twelve-data]: https://twelvedata.com/
