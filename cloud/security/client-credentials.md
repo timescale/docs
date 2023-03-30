@@ -28,7 +28,7 @@ access to Timescale resources.
 1.  [Log in to your Timescale Cloud account][cloud-login].
 1.  Navigate to the `Project Settings` page to create client credentials for
     your project.
-1.  In the `Project Settings` page, click `Create credentails`.
+1.  In the `Project Settings` page, click `Create credentials`.
 1.  In the `New client credentials` dialog, you can view the `Public key` and the
     `Secret Key`.
     Copy your secret key and store it in a secure place. You won't be able to
