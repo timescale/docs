@@ -23,7 +23,7 @@ access to Timescale resources.
 
 <Procedure>
 
-### Creating client credentails
+### Creating client credentials
 
 1.  [Log in to your Timescale Cloud account][cloud-login].
 1.  Navigate to the `Project Settings` page to create client credentials for
