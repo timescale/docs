@@ -51,6 +51,12 @@ If you're migrating from an Amazon RDS database, the best option is to run
 Hypershift on an EC2 instance in the same availability zone as your RDS
 instance.
 
+<Highlight type="important">
+Note that availability zones are assigned different names in different AWS
+accounts. To make sure that you are really using the same zone refer to [AWS
+user guide][aws-zones]
+</Highlight>
+
 For migrations from other managed services, including Managed Service for
 TimescaleDB, run Hypershift from a virtual machine in the same region as either
 the source or target database, whichever is most convenient.
@@ -207,3 +213,4 @@ Use this format:
 [cloud-install]: /getting-started/latest/
 [docker-install]: https://docs.docker.com/get-docker/
 [chunk-time]: /use-timescale/:currentVersion:/hypertables/about-hypertables#best-practices-for-time-partitioning
+[aws-zones]: https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html
