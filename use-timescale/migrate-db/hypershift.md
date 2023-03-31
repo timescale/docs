@@ -52,9 +52,9 @@ Hypershift on an EC2 instance in the same availability zone as your RDS
 instance.
 
 <Highlight type="note">
-Note that availability zones are assigned different names in different AWS
-accounts. To make sure that you are really using the same zone refer to [AWS
-user guide][aws-zones]
+Availability zones are assigned different names in different AWS
+accounts. To make sure that you are using the same zone refer to 
+[AWS user guide][aws-zones]
 </Highlight>
 
 For migrations from other managed services, including Managed Service for
