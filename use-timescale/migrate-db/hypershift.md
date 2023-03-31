@@ -51,7 +51,7 @@ If you're migrating from an Amazon RDS database, the best option is to run
 Hypershift on an EC2 instance in the same availability zone as your RDS
 instance.
 
-<Highlight type="important">
+<Highlight type="note">
 Note that availability zones are assigned different names in different AWS
 accounts. To make sure that you are really using the same zone refer to [AWS
 user guide][aws-zones]
