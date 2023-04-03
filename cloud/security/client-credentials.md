@@ -10,7 +10,7 @@ tags: [authentication tokens]
 
 You can use client credentials to programmatically access resources instead
 of using your username and password. You can generate multiple client
-credentials for different applicationss or use cases rather than a single set of
+credentials for different applications or use cases rather than a single set of
 user credentials for everything.
 
 ## Creating client credentials
