@@ -16,7 +16,7 @@ user credentials for everything.
 ## Creating client credentials
 
 When you create client credentials, a public key and a private key is generated.
-These keys act as the username and password for a programmatic client
+These keys act as the username and password for programmatic client
 applications. It is important that you save these keys in a safe place. You can
 also delete these client credentials when the client applications no longer need
 access to Timescale resources.
