@@ -191,7 +191,7 @@ module.exports = [
               "Connect to Timescale Cloud with a stricter SSL mode of verify-ca or verify-full",
           },
           {
-            title: "Multi-factor Authentication",
+            title: "Multi-factor authentication",
             href: "multi-factor-authentication",
             excerpt: "Multi-factor authentication for Timescale Cloud account",
           },
