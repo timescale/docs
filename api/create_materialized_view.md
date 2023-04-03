@@ -12,7 +12,8 @@ api:
 # CREATE MATERIALIZED VIEW (Continuous Aggregate) <Tag type="community">Community</Tag>
 
 The `CREATE MATERIALIZED VIEW` statement is used to create continuous
-aggregates. To learn more, see the [continuous aggregate how-to guides][cagg-how-tos].
+aggregates. To learn more, see the
+[continuous aggregate how-to guides][cagg-how-tos].
 
 The syntax is:
 
@@ -37,62 +38,20 @@ GROUP BY time_bucket( <const_value>, <partition_col_of_hypertable> ),
 
 The continuous aggregate view defaults to `WITH DATA`. This means that when the
 view is created, it refreshes using all the current data in the underlying
-hypertable or continuous aggregate. This occurs once when the view is created. If you want the view to
-be refreshed regularly, you can use a refresh policy. If you do not want the
-view to update when it is first created, use the `WITH NO DATA`
-parameter. For more information, see
+hypertable or continuous aggregate. This occurs once when the view is created.
+If you want the view to be refreshed regularly, you can use a refresh policy. If
+you do not want the view to update when it is first created, use the
+`WITH NO DATA` parameter. For more information, see
 [`refresh_continuous_aggregate`][refresh-cagg].
 
 Continuous aggregates have some limitations of what types of queries they can
-support, described in more length below. For example, the `FROM` clause must
-provide only one hypertable or underlying continuous aggregate; CTEs and subqueries are not
-supported.
-
-In TimescaleDB&nbsp;2.10.0 and later, the `FROM` clause supports `JOINS`, with these restrictions:
-
-*   To join between two tables, one table must be a hypertable and the other table must
-     be a standard PostgreSQL table. The order of tables in the `JOIN` clause does not
-     matter.
-*   You must use an `INNER JOIN`, no other join type is supported.
-*   The `JOIN` conditions can only be equality conditions.
-*   The hypertable on the `JOIN` condition must be a hypertable, and not a continuous
-     aggregate. Additionally, you can't use joins in hierarchical continuous aggregates.
-*   Changes to the hypertable are tracked, and are updated in the continuous aggregate
-     when it is refreshed. Changes to the standard PostgreSQL table are not tracked.
-*   The `USING` clause is supported in joins for PostgreSQL&nbsp;13 or later.
-     In PostgreSQL&nbsp;12 only joins with a condition in the `WHERE` clause or `JOIN` clause can be used.
-
-The `GROUP BY` clause must include a time bucket on the underlying
-time column, and all aggregates must be parallelizable.
-
-Some important things to remember when constructing your `SELECT` query:
-
-*   Only a single hypertable or continuous aggregate can be specified in the `FROM` clause of
-    the `SELECT` query. You cannot include more hypertables, joins, tables,
-    views, or subqueries.
-*   The source hypertable or continuous aggregate used in the `SELECT` query must not have
-    [row-level-security policies][postgres-rls] enabled.
-*   The `GROUP BY` clause must include a `time_bucket` expression that uses the
-    time dimension of the hypertable. When creating a continuous aggregate on
-    top of another continuous aggregate, `time_bucket` must use the
-    time-bucketing column of the underlying continuous aggregate. For more information, see the
-    [`time_bucket`][time-bucket] section.
-*   You cannot use [`time_bucket_gapfill`][time-bucket-gapfill] in continuous
-    aggregates, but you can run them in a `SELECT` query from the continuous
-    aggregate view.
-*   You can usually use aggregates that are
-    [parallelized by PostgreSQL][postgres-parallel-agg] in the view definition,
-    including most aggregates distributed by PostgreSQL. However, the `ORDER BY`,
-    `DISTINCT` and `FILTER` clauses are not supported.
-*   All functions and their arguments included in `SELECT`, `GROUP BY` and
-    `HAVING` clauses must be [immutable][postgres-immutable].
-*   The view cannot be a [security barrier view][postgres-security-barrier].
-*   You cannot use Window functions with continuous aggregates.
+support. For more information, see the
+[continuous aggregates section][cagg-how-tos].
 
 The settings for continuous aggregates are in the
 [informational views][info-views].
 
-### Parameters
+## Parameters
 
 |Name|Type|Description|
 |-|-|-|
@@ -117,7 +76,7 @@ Optional `WITH` clause options:
 
 For more information, see the [real-time aggregates][real-time-aggregates] section.
 
-### Sample usage
+## Sample usage
 
 Create a daily continuous aggregate view:
 
