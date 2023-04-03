@@ -51,7 +51,7 @@ access to Timescale resources.
     your project.
 1.  In the `Project Settings` page, click the ⋮ menu of the client credential,
     and select `Delete`.
-1.  In the `Are you sure` dialog, type the name of the client credentail, and
+1.  In the `Are you sure` dialog, type the name of the client credential, and
     click `Delete`.
 
 </Procedure>
