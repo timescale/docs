@@ -17,8 +17,8 @@ Compression alters data on your disk, so always back up before you start.
 
 ## Setting a compression policy from Timescale Cloud console
 
-You can set a [compression policy][compression] on a hypertable directly from
-Timescale Cloud console.
+You can set a compression policy on a hypertable directly from the Timescale
+Cloud console.
 
 <Procedure>
 
