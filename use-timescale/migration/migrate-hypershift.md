@@ -106,7 +106,7 @@ to be converted to hypertables, and which tables need to be compressed during
 the migration. Hypertables must have a unique column labelled `time`.
 
 Hypershift uses a YAML configuration file to determine how to set up your new
-Timescale database. For more infomration about creating a Hypershift
+Timescale database. For more information about creating a Hypershift
 configuration file, see the
 [Hypershift configuration section][hypershift-config].
 
