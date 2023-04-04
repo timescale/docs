@@ -79,6 +79,8 @@ Migrate your data into Timescale from within the same database.
 
 ## Troubleshooting
 
+<!--- FIXME Turn this into a proper tshooting entry -->
+
 If you have unique or primary indexes on your old table, you might get an error
 about indexes and partitioning. See the [hypertables and unique indexes
 section][unique-indexes] section for more information.
