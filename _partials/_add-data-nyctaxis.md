@@ -15,7 +15,7 @@ connection.
 1.  Download the dataset:
 
    <Tag type="download">
-   [nyc_data.tar.gz](https://timescaledata.blob.core.windows.net/datasets/nyc_data.tar.gz)
+   [nyc_data.tar.gz](https://assets.timescale.com/docs/downloads/nyc_data.tar.gz)
    </Tag>
 
 1.  Use your file manager to decompress the downloaded dataset, and take a note
