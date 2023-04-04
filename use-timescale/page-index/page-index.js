@@ -318,31 +318,32 @@ module.exports = [
       },
       {
         title: "Database migration",
-        href: "migrate-db",
-        excerpt: "Migrate your existing database to a Timescale database",
+        href: "migration",
+        excerpt: "Migrate your existing PostgreSQL database to Timescale Cloud",
         children: [
           {
-            title: "Migrate with Hypershift",
-            href: "hypershift",
+            title: "About Hypershift",
+            href: "about-hypershift",
             excerpt:
-              "Migrate an existing PostgreSQL database to Timescale Cloud in a single step with Hypershift",
+              "About using the Hypershift tool to migrate an existing PostgreSQL database to Timescale Cloud in a single step",
           },
           {
-            title: "Migrate the entire database at once",
-            href: "entire-database",
-            excerpt: "Migrate an entire Timescale database to Timescale Cloud",
+            title: "Migrate with Hypershift",
+            href: "migrate-hypershift",
+            excerpt:
+              "Migrate an existing PostgreSQL database to Timescale Cloud",
           },
           {
-            title: "Migrate schema and data separately",
-            href: "schema-then-data",
-            excerpt: "Migrate a Timescale database schema to Timescale Cloud ",
+            title: "Hypershift configuration",
+            href: "hypershift-config",
+            excerpt: "About creating a Hypershift configuration file",
           },
           {
             title: "Troubleshoot database migration",
             href: "troubleshooting",
             type: "placeholder",
             excerpt:
-              "Troubleshoot problems that occur during database migration",
+              "Troubleshoot problems that occur with Hypershift",
           },
         ],
       },
