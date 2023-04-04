@@ -157,6 +157,11 @@ module.exports = [
             href: "same-db",
             excerpt: "Migrate data into a Timescale hypertable from a regular PostgreSQL tabl",
           },
+          {
+            title: "Troubleshooting migration to self-hosted TimescaleDB",
+            href: "troubleshooting",
+            type: "placeholder",
+          },
         ],
       },
       {

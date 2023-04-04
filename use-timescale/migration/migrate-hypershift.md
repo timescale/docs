@@ -1,6 +1,6 @@
 ---
-title: Migrate with Hypershift
-excerpt: Migrate an existing PostgreSQL database to Timescale Cloud in a single step
+title: Migrate to Timescale Cloud with Hypershift
+excerpt: Migrate an existing PostgreSQL database to Timescale Cloud using Hypershift
 products: [cloud]
 keywords: [data migration, Hypershift]
 tags: [ingest, Hypershift, postgresql]
@@ -21,39 +21,6 @@ Hypershift can migrate your data in Timescale Cloud from these sources:
 Because compression is enabled during the migration, you do not need to have the
 maximum amount of storage available in the target database before you start
 migration.
-
-## Migration speed
-
-In preliminary testing, Hypershift migrated 60&nbsp;GB of data in 9 to 12
-minutes, and 1&nbsp;TB of data in under 4 hours.
-
-When you run Hypershift, it uses compute resources on the machine that you run
-the command on to copy data from the source to the target database. This means
-that the network throughput and latency that you have between the various
-machines can impact the speed and duration of the migration.
-
-You can continue reading from your source database during the migration, though
-performance could be slower. If you write to tables in your source database
-during the migration, the new writes are not transferred to Timescale Cloud. To
-avoid this problem, fork your database and migrate your data from the fork.
-
-<Highlight type="important">
-If you have a large database, and Hypershift is going to have to run for a very
-long time to migrate it, for example, a day or more, ensure that you have a
-stable network connection. Hypershift is not able to recover if the network
-connection is interrupted. Additionally, when Hypershift is running, it holds a
-single transaction open for the entire duration of the migration. This prevents
-any autovacuum tasks from running, which can cause a range of different
-problems on a busy source database.
-</Highlight>
-
-If you're migrating from an Amazon RDS database, the best option is to run
-Hypershift on an EC2 instance in the same availability zone as your RDS
-instance.
-
-For migrations from other managed services, including Managed Service for
-TimescaleDB, run Hypershift from a virtual machine in the same region as either
-the source or target database, whichever is most convenient.
 
 ## Prerequisites
 
@@ -139,33 +106,9 @@ to be converted to hypertables, and which tables need to be compressed during
 the migration. Hypertables must have a unique column labelled `time`.
 
 Hypershift uses a YAML configuration file to determine how to set up your new
-Timescale database. You can create your own file, or use the example file as a
-starting point. To complete your file, you need these details for the tables
-that you want to convert to hypertables:
-
-*   The schema which contains the table
-*   The name of the table
-*   The name of the `time` column of that table
-*   The chunk time interval to use
-*   The compression policy you want to use
-
-If you are not sure what chunk time interval to use, see the
-[time partitioning section][chunk-time].
-
-Use this format:
-
-```yml
-- schema: public
-  name: <TABLE_NAME>
-  time_column_name: <TIME_COLUMN_NAME>
-  chunk_time_interval: "12h"
-  compress:
-    after: "48h"
-    segmentby:
-      - <COLUMN_NAME>
-    orderby:
-      - time desc
-```
+Timescale database. For more infomration about creating a Hypershift
+configuration file, see the
+[Hypershift configuration section][hypershift-config].
 
 <Procedure>
 
@@ -207,3 +150,4 @@ Use this format:
 [cloud-install]: /getting-started/latest/
 [docker-install]: https://docs.docker.com/get-docker/
 [chunk-time]: /use-timescale/:currentVersion:/hypertables/about-hypertables#best-practices-for-time-partitioning
+[hypershift-config]: /use-timescale/:currentVersion:/migration/hypershift-config/
