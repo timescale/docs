@@ -29,6 +29,11 @@ There are several methods for migrating your data:
     existing Timescale database,
     [migrate within the same database][migrate-same-db]: This method assumes that
     you have Timescale set up in the same database instance as your existing table.
+*   If you have data in an InfluxDB database,
+    [migrate using Outflux][outflux]:
+    Outflux pipes exported data directly to Timescale, and manages schema
+    discovery, validation, and creation. Outflux works with earlier versions of
+    InfluxDB. It does not work with InfluxDB version 2 and later.
 
 ## Choose a migration method
 
@@ -76,3 +81,4 @@ backfill your data with one of the two migration methods.
 [migrate-entire]: /self-hosted/:currentVersion:/migration/entire-database/
 [migrate-separately]: /self-hosted/:currentVersion:/migration/schema-then-data/
 [migrate-same-db]: /self-hosted/:currentVersion:/migration/same-db/
+[outflux]: /self-hosted/:currentVersion:/migration/migrate-influxdb/
