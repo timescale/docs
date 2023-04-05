@@ -17,7 +17,7 @@ TimescaleDB:
 *   Ingest data using [Kafka][ingest-kafka]
 *   Ingest data using [Telegraf][ingest-telegraf]
 *   Ingest data using [TimescaleDB parallel copy][ingest-parallel]
-*   Ingest data [from a .csv file][ingest-csv]
+*   Ingest data [from a `.csv` file][ingest-csv]
 
 For more information about how to use standard SQL insert queries to write data
 into TimescaleDB, see the [Writing Data][writing-data] section.

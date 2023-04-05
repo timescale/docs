@@ -13,8 +13,8 @@ Timescale.
 
 ## Prerequisites
 
-Before you start, make sure you have
-[created your Timescale Cloud account][install].
+Before you start, make sure you have signed up for your
+[free Timescale Cloud account][install].
 
 ## Import data
 

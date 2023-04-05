@@ -6,7 +6,7 @@ keywords: [data migration, Hypershift]
 tags: [ingest, Hypershift, postgresql]
 ---
 
-# Migrate with Hypershift
+# About Hypershift
 
 You can use Hypershift&nbsp;0.3&nbsp;(beta) to migrate existing PostgreSQL
 databases in one step, and enable compression and hypertable creation on the
