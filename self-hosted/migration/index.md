@@ -35,6 +35,10 @@ There are several methods for migrating your data:
     discovery, validation, and creation. Outflux works with earlier versions of
     InfluxDB. It does not work with InfluxDB version 2 and later.
 
+Additionally, the hypershift tool can be used to migrate most PostgreSQL
+databases to self-hosted TimescaleDB. For more information about hypershift, see
+the [hypershift documentation][hypershift].
+
 ## Choose a migration method
 
 Which method you choose depends on your database size, network upload and
@@ -82,3 +86,4 @@ backfill your data with one of the two migration methods.
 [migrate-separately]: /self-hosted/:currentVersion:/migration/schema-then-data/
 [migrate-same-db]: /self-hosted/:currentVersion:/migration/same-db/
 [outflux]: /self-hosted/:currentVersion:/migration/migrate-influxdb/
+[hypershift]: /use-timescale/:currentVersion:/migration/
