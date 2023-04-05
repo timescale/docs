@@ -102,20 +102,8 @@ configuration file, see the
 ### Running Hypershift
 
 1.  Open the `hypershift.yml` configuration file, and adjust parameters
-    accordingly. For example:
-
-    ```yml
-    - schema: public
-      name: stocks_real_time
-      time_column_name: time
-      chunk_time_interval: "12h"
-      compress:
-        after: "48h"
-        segmentby:
-          - symbol
-        orderby:
-          - time desc
-    ```
+    accordingly. For more information about creating a Hypershift configuration
+    file, see the [Hypershift configuration section][hypershift-config].
 
 1.  At the command prompt, run the Hypershift container. Include the source and
     destination database passwords, and the path to your `hypershift.yml`

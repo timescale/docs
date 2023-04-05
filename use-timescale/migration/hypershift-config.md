@@ -46,17 +46,41 @@ hypertable_configs:
 <column list>
 ```
 
-## Source database
+## Source and target database details
 
-FIXME
+This is the connection string to use for the databases. The source is the
+database you are migrating from, and the target is the new database that you are
+migrating to. Connection strings usually contain the hostname to access the
+database, the name of the database, the port the database can be accessed on,
+and username and password details to log in to the database. If you do not want
+to provide this information in the configuration file, you can provide these
+details on the command line instead. For more information, see the
+[hypershift command line options][hypershift-cli].
 
-## Target database
+Connection strings are in the format:
 
-FIXME
+```bash
+<USERNAME>:<DB_NAME>@<HOSTNAME>:<PORT>
+```
+
+For example:
+
+```bash
+tsdbadmin:my_database@timescale-cloud.com:30001
+```
 
 ## Actions
 
-FIXME
+The available options for hypershift are `clone` and `verify`.
+
+### Clone
+
+Cloning a database performs an actual hypershift migration.
+
+### Verify
+
+You can use the `verify` action to check if a migration is going to work
+successfully, without actually performing the migration itself.
 
 ## Include and exclude tables
 
