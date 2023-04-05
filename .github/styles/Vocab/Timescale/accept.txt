@@ -119,6 +119,7 @@ Unix
 [Ss]hard(?:s|ing)?
 (?i)timestamptz
 URLs?
+URIs?
 versionContent
 [Vv]irtualenv
 [Ww]ebsockets?

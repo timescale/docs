@@ -55,70 +55,65 @@ problems on a busy source database.
 
 ## The hypershift command line tool
 
-To see all available configuration options for Hypershift, use this command:
+Hypershift is launched from the command prompt. You can provide a number of
+different options to hypershift when you issue the command. This section
+describes the various options.
+
+You can also provide configuration to hypershift using a YAML configuration
+file. For more information about constructing a hypershift configuration file,
+see the
+[hypershift configuration section][hypershift-config].
+
+You can provide the source and target database URIs using either command line
+flags, or the configuration file. If the information is provided in both,
+hypershift uses the URIs provided in the command line flags, and ignores the
+URIs in the configuration file.
+
+To see all available configuration options for hypershift, use this command:
 
 ```bash
 docker run -ti timescale/hypershift:0.4 --help
 ```
 
-Hypershift supports the following CLI flags
+Within the Docker container, use this command:
 
-```shell
+```bash
 ./hypershift --help
-hypershift
-
-hypershift clones a PostgreSQL data source into a TimescaleDB database.
-It uses parallel workers to speed up the process, and requires almost
-no local storage, except some temporary files.
-
-It requires a pg_dump binary to be in the path that is compatible with the
-source database.
-
-
-Usage:
-
-Options:
-  -C, --config-file <CONFIG_FILE>
-          Path for Hypershift configuration file. Please refer <TODO: weblink>
-          for more details regarding configuring Hypershift.
-
-          [env: HYPERSHIFT_CONFIG_FILE=]
-          [default: ]
-
-  -S, --source-uri <SOURCE>
-          URI for source database
-
-          [env: HYPERSHIFT_SOURCE_URI=]
-          [default: ]
-
-  -T, --target-uri <TARGET>
-          URI for target database
-
-          [env: HYPERSHIFT_TARGET_URI=]
-          [default: ]
-
-      --ignore-missing-time-index
-          Ignore the fact that hypertables may be missing a time index
-
-          [env: HYPERSHIFT_IGNORE_MISSING_TIME_INDEX=]
-
-  -h, --help
-          Print help (see a summary with '-h')
-
-  -V, --version
-          Print version
-
-
-Example:
-
-Migrate by using source database and target database CLI flags only, along with default configuration settings:
-./hypershift -S='host=localhost dbname=postgres port=5432 user=postgres password=source_password' -T='host=localhost dbname=postgres port=5433 user=postgres password=target_password'
-
-Migrate by configuring Hypershift using a configuration file:
-./hypershift -C=config.yaml
-
-Migrate with source database and target database as CLI flags and configuring Hypershift using a configuration file:
-./hypershift -C=config.yaml -S='host=localhost dbname=postgres port=5432 user=postgres password=source_password' -T='host=localhost dbname=postgres port=5433 user=postgres password=target_password'
 ```
 
-You can provide source and target database URI either in the CLI flags or in the configuration file. In case of both, CLI flags would take the precedence.
+|Short command|Long command|Example use|Description|
+|-|-|-|-|
+|-C|--config-file|-C <CONFIG_FILE>|Path for hypershift configuration file|
+|-S|--source-uri|-S <SOURCE_URI>|URI to the source database|
+|-T|--target-uri|-T <TARGET_URI>|URI to the target database|
+||--ignore-missing-time-index||Ignore hypertables that are missing a time index|
+|-h|--help||Print hypershift help|
+|-V|--version|Print hypershift version|
+
+### Example hypershift commands
+
+Migrate using the default configuration settings, without using a separate
+configuration file, providing the source and target database URIs at the command
+prompt:
+
+```bash
+./hypershift -S='host=localhost dbname=postgres port=5432 user=postgres password=source_password' \
+-T='host=localhost dbname=postgres port=5433 user=postgres password=target_password'
+```
+
+Migrate using a configuration file only:
+
+```bash
+./hypershift -C=config.yaml
+```
+
+Migrate using a configuration file, and provide source and target database URIs
+at the command prompt:
+
+```bash
+./hypershift -C=config.yaml \
+-S='host=localhost dbname=postgres port=5432 user=postgres password=source_password' \
+-T='host=localhost dbname=postgres port=5433 user=postgres password=target_password'
+```
+
+[hypershift-config]: /use-timescale/:currentVersion:/migration/hypershift-config/
