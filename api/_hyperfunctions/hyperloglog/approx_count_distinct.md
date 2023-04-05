@@ -5,10 +5,10 @@ topics: [hyperfunctions]
 api:
   license: community
   type: function
-  experimental: true
   toolkit: true
   version:
     experimental: 1.8.0
+    stable: 1.16.0
 hyperfunction:
   family: approximate count distinct
   type: alternate aggregate
