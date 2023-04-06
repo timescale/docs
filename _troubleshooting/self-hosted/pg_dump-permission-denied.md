@@ -24,5 +24,5 @@ keywords: [backups, restore]
  table, if the user doesn't have the required SELECT permission, it 
  results in this error.
 
- A superuser needs to grant the necessary permission to the user who needs to
- take the backup using the `pg_dump` tool.
+To resolve this issue, use a superuser account to grant the necessary 
+permissions to the user requiring the `pg_dump` tool.
