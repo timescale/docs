@@ -31,9 +31,9 @@ database at once. For more information, see the section on
 The procedure to migrate your database requires these steps:
 
 *   [Migrate schema pre-data](#migrate-schema-pre-data)
-*   [Restore hypertables in Timescale](#restore-hypertables-in-timescale-cloud)
+*   [Restore hypertables in Timescale](#restore-hypertables-in-timescale)
 *   [Copy data from the source database](#copy-data-from-the-source-database)
-*   [Restore data into Timescale](#restore-data-into-timescale-cloud)
+*   [Restore data into Timescale](#restore-data-into-timescale)
 *   [Migrate schema post-data](#migrate-schema-post-data)
 *   [Recreate continuous aggregates](#recreate-continuous-aggregates) (optional)
 *   [Recreate policies](#recreate-policies) (optional)
@@ -400,7 +400,7 @@ accessed. Skipping them does not affect statistics on your data.
 [copy]: https://www.postgresql.org/docs/9.2/sql-copy.html
 [compression-policy]: /getting-started/:currentVersion:/compress-data/
 [extensions]: /use-timescale/:currentVersion:/services/postgresql-extensions/
-[install-self-hosted]: /self-hosted/:currentVersion:/install/
+[install-selfhosted]: /self-hosted/:currentVersion:/install/
 [pg_dump]: https://www.postgresql.org/docs/current/app-pgdump.html
 [pg_restore]: https://www.postgresql.org/docs/current/app-pgrestore.html
 [psql]: /use-timescale/:currentVersion:/connecting/psql/
