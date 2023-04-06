@@ -6,9 +6,9 @@ api:
   license: community
   type: function
   toolkit: true
-  experimental: true
   version:
     experimental: 1.14.0
+    stable: 1.16.0
 hyperfunction:
   family: frequency analysis
   type: rollup
@@ -17,9 +17,9 @@ hyperfunction:
 api_details:
   summary: |
     This will combine multiple aggregates created with `freq_agg` or 
-    `topn_agg` functions. This function does require that the source 
+    `mcv_agg` functions. This function does require that the source 
     aggregates have been created with the same parameters (same `min_freq`
-    for `freq_agg`, same n-factor and `skew`, if used, for a `topn_agg`).
+    for `freq_agg`, same n-factor and `skew`, if used, for a `mcv_agg`).
 
     This will produce a very similar aggregate to running the same
     aggregate function over all the source data. In most cases, any
