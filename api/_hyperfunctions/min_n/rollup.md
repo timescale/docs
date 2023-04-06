@@ -6,10 +6,10 @@ tags: [hyperfunctions, toolkit, minimum]
 api:
   license: community
   type: function
-  experimental: true
   toolkit: true
   version:
     experimental: 1.12.0
+    stable: 1.16.0
 hyperfunction:
   family: minimum and maximum
   type: rollup

@@ -22,11 +22,11 @@ You can query for the 10 largest transactions each day:
 WITH t as (
     SELECT
         time_bucket('1 day'::interval, ts) as day,
-        toolkit_experimental.max_n(price * volume, 10) AS daily_max
+        max_n(price * volume, 10) AS daily_max
     FROM stock_sales
     GROUP BY time_bucket('1 day'::interval, ts)
 )
 SELECT
-    day, toolkit_experimental.as_array(daily_max)
+    day, as_array(daily_max)
 FROM t;
 ```
