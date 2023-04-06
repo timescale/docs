@@ -1,28 +1,31 @@
 ---
-title: Manual compression
-excerpt: Manually compress a hypertable
-products: [cloud, mst, self_hosted]
+title: Compression policy
+excerpt: Add a compression policy for a hypertable
+products: [cloud]
 keywords: [compression, hypertables]
 ---
 
-# Manual compression
+# Compression policy
+
+You can create a compression policy within the Timescale Cloud console.
 
 In most cases, an automated compression policy is sufficient. However, if you
 want more control over compression, you can also manually compress specific
-chunks.
+chunks. For more information about manually compressing chunks, see the
+[compression in self-hosted TimescaleDb section][self-hosted-compression].
 
 <Highlight type="warning">
 Compression alters data on your disk, so always back up before you start.
 </Highlight>
 
-## Setting a compression policy from Timescale Cloud console
+## Set a compression policy
 
 You can set a compression policy on a hypertable directly from the Timescale
 Cloud console.
 
 <Procedure>
 
-### Set a compression policy from Timescale Cloud console
+### Setting a compression policy
 
 1.  Inside the Timescale Cloud Service Explorer, select a hypertable.
 1.  Select the `Policies` tab.
@@ -47,3 +50,5 @@ Cloud console.
     </Highlight>
 
 </Procedure>
+
+[self-hosted-compression]: s/elf-hosted/:currentVersion:/compression/manual-compression/

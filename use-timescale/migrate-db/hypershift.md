@@ -199,7 +199,7 @@ hypertable_configs:
 
     ```bash
     docker run -v $(pwd)/hypershift.yml:/hypershift.yml \
-    -ti timescale/hypershift:0.5 clone \
+    -ti timescale/hypershift:0.5 \
     -s "host=<SOURCE_DB_HOSTNAME> dbname=<DB_NAME> user=postgres port=5431 password=<DB_PASSWORD>" \
     -t "host=<TARGET_DB_HOSTNAME> dbname=<DB_NAME> user=postgres port=5432 password=<DB_PASSWORD>" \
     --config-file /hypershift.yml
@@ -213,7 +213,7 @@ hypertable_configs:
 To see all available configuration options for Hypershift, use this command:
 
 ```bash
-docker run -ti timescale/hypershift:0.4 --help
+docker run -ti timescale/hypershift:0.5 --help
 ```
 
 [cloud-install]: /getting-started/latest/
