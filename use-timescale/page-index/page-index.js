@@ -873,7 +873,12 @@ module.exports = [
           {
             title: "Multi-factor Authentication",
             href: "multi-factor-authentication",
-            excerpt: "Multi-factor authentication for Timescale Cloud account",
+            excerpt: "Multi-factor authentication for your Timescale Cloud account",
+          },
+          {
+            title: "Client credentials",
+            href: "client-credentials",
+            excerpt: "Client credentials to programmatically access your Timescale Cloud account",
           },
           {
             title: "Connect with a stricter SSL mode",
