@@ -110,56 +110,6 @@ information about compression and decompression, see the
 
 </Procedure>
 
-## Troubleshooting
-
-<!--- FIXME Turn this into a proper tshooting entry -->
-
-If you see these errors during the migration process, you can safely ignore
-them. The migration still occurs successfully.
-
-1.  ```bash
-    pg_dump: warning: there are circular foreign-key constraints on this table:
-    pg_dump: hypertable
-    pg_dump: You might not be able to restore the dump without using --disable-triggers or temporarily dropping the constraints.
-    pg_dump: Consider using a full dump instead of a --data-only dump to avoid this problem.
-    ```
-
-1.  ```bash
-    pg_dump: NOTICE:  hypertable data are in the chunks, no data will be copied
-    DETAIL:  Data for hypertables are stored in the chunks of a hypertable so COPY TO of a hypertable will not copy any data.
-    HINT:  Use "COPY (SELECT * FROM <hypertable>) TO ..." to copy all data in hypertable, or copy each chunk individually.
-    ```
-
-1.  `pg_restore` tries to apply the TimescaleDB extension when it copies your
-    schema. This can cause a permissions error. If you already have the
-    TimescaleDB extension installed, you can safely ignore this.
-
-    ```bash
-    pg_restore: creating EXTENSION "timescaledb"
-    pg_restore: creating COMMENT "EXTENSION timescaledb"
-    pg_restore: while PROCESSING TOC:
-    pg_restore: from TOC entry 6239; 0 0 COMMENT EXTENSION timescaledb
-    pg_restore: error: could not execute query: ERROR:  must be owner of extension timescaledb
-    ```
-
-1.  ```bash
-    pg_restore: WARNING:  no privileges were granted for "<..>"
-    ```
-
-1.  ```bash
-    pg_restore: warning: errors ignored on restore: 1
-    ```
-
-If you see errors of the following form when you run `ANALYZE`, you can safely
-ignore them:
-
-```
-WARNING:  skipping "<TABLE OR INDEX>" --- only superuser can analyze it
-```
-
-The skipped tables and indexes correspond to system catalogs that can't be
-accessed. Skipping them does not affect statistics on your data.
-
 [analyze]: https://www.postgresql.org/docs/10/sql-analyze.html
 [extensions]: /use-timescale/:currentVersion:/services/postgresql-extensions/
 [install-selfhosted-timescale]: /self-hosted/:currentVersion/installation/

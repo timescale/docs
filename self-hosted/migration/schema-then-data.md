@@ -105,36 +105,6 @@ owners, and settings. This doesn't include Timescale-specific schemas.
 
 </Procedure>
 
-### Troubleshooting
-
-<!--- FIXME Turn this into a proper tshooting entry -->
-
-If you see any of these errors during the migration process, you can safely
-ignore them. The migration still occurs successfully.
-
-`pg_restore` tries to apply the TimescaleDB extension when it copies your
-schema. This can cause a permissions error. If you already have the TimescaleDB extension installed, you can safely ignore this.
-
-```bash
-pg_restore: creating EXTENSION "timescaledb"
-pg_restore: creating COMMENT "EXTENSION timescaledb"
-pg_restore: while PROCESSING TOC:
-pg_restore: from TOC entry 6239; 0 0 COMMENT EXTENSION timescaledb
-pg_restore: error: could not execute query: ERROR:  must be owner of extension timescaledb
-```
-
-If you have continuous aggregates, you might get the following error. Ignore
-this, because you [restore your aggregates](#recreate-continuous-aggregates)
-later on.
-
-```bash
-pg_restore: error: could not execute query: ERROR:  relation "_timescaledb_internal._materialized_hypertable_x" does not exist
-```
-
-```bash
-pg_restore: WARNING:  no privileges were granted for "<..>"
-```
-
 ## Restore hypertables in Timescale
 
 After pre-data migration, your hypertables from your source database become
