@@ -26,3 +26,7 @@ keywords: [backups, restore]
 
 To resolve this issue, use a superuser account to grant the necessary 
 permissions to the user requiring the `pg_dump` tool.
+Use this command to grant permissions to `<TEST_USER>`:
+```sql
+GRANT SELECT ON TABLE _timescaledb_internal.job_errors TO <TEST_USER>;
+```
