@@ -22,7 +22,7 @@ Before you begin, make sure you have:
 
 <CloudTrial />
 
-It is recommended that you create an index on the `time` column of your source
+It is recommended that you create an index on the `time` column of tables in your source
 database before you begin the migration. Hypershift works without an index,
 but the migration runs much slower. The simplest way to achieve this is to
 create a `btree` index on the `time` column. However, creating an index can take

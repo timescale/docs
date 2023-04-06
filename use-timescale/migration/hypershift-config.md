@@ -43,7 +43,7 @@ hypertable_configs:
     segmentby:
 <column list>
     orderby:
-<column list>
+- <column> <direction>
 ```
 
 ## Source and target database details
