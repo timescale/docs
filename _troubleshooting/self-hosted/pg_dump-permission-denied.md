@@ -1,5 +1,5 @@
 ---
-title: Permission denied for table job_errors when running `pg_dump`
+title: Permission denied for table `job_errors` when running `pg_dump`
 section: troubleshooting
 products: [self_hosted]
 topics: [backups]
