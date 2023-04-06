@@ -19,8 +19,10 @@ keywords: [backups, restore]
  - Result: When the user applies the fix, what is the result when the same action is applied?
 * Copy this comment at the top of every troubleshooting page
 -->
- The `pg_dump` tool tries to acquire lock on the job_errors table but
- the user doesn't have the required SELECT permission resulting in the error.
+
+ When the `pg_dump` tool tries to acquire a lock on the `job_errors` 
+ table, if the user doesn't have the required SELECT permission, it 
+ results in this error.
 
  A superuser needs to grant the necessary permission to the user who needs to
  take the backup using the `pg_dump` tool.
