@@ -75,19 +75,19 @@ The available options for hypershift are `clone` and `verify`.
 
 ### Clone
 
-Cloning a database performs an actual hypershift migration.
+Use the `clone` action to perform a hypershift migration.
 
 ### Verify
 
-You can use the `verify` action to check if a migration is going to work
-successfully, without actually performing the migration itself.
+Use the `verify` action to check if a migration is going to work successfully,
+without performing the migration itself.
 
 ## Include and exclude tables
 
-The `include_tables` configuration can be used to provide an array of tables
-which should be included in the migration. Only these tables are copied.
+If you want to include or exclude tables from the migration, you can use the
+`include_tables` and `exclude_tables` parameters.
 
-For example:
+Use `include_tables` to declare the tables that should be migrated. For example:
 
 ```yaml
 include_tables:
@@ -97,24 +97,7 @@ include_tables:
 - other_schema.table
 ```
 
-<highlight type="note">
-It is possible for a table to depend on other object (for example the schema
-that the table is in, or a custom type). The `include_tables` configuration
-will _only_ copy the specified table, not any dependent objects. If dependent
-objects are not present in the target database, the migration will fail.
-
-You must ensure that all objects which an included table relies on are already
-present in the target database in order for the `include_tables` to work.
-</highlight>
-
-This does not work in combination with [exclude_tables](#exclude-tables),
-[include_schemas](#include-schemas), or [exclude_schemas](#exclude-schemas)
-
-The `exclude_tables` configuration can be used to provide an array of tables
-which should not be included in the migration. Only these tables are not
-copied.
-
-For example:
+Use `exclude_tables` to declare tables that should not be migrated. For example:
 
 ```yaml
 exclude_tables:
@@ -124,77 +107,69 @@ exclude_tables:
 - other_schema.table
 ```
 
-<highlight type="note">
-It is possible for objects to depend on a table, for example a view which uses
-a table. Hypershift will not warn about an object depending on an excluded
-table, and the migration will fail.
+If you declare the `include_tables` parameter, you cannot also declare the
+`exclude_tables` parameter. Similarly, if you declare the `exclude_tables`
+parameter, you cannot also declare the `include_tables` parameter.
+
+### Dependent objects for tables
+
+It is possible for a table to depend on other object, for example the schema
+that the table is in, or a custom type. The `include_tables` configuration only
+copies the specified table, not any dependent objects. If dependent objects are
+not present in the target database, the migration fails.
+
+You must ensure that all objects which an included table relies on are already
+in the target database in order for the `include_tables` to work.
+
+It is also possible for objects to depend on a table, for example a view which uses
+a table. Hypershift does not warn about an object depending on an excluded
+table, and the migration fails.
 
 You must ensure that all objects which depend on a table are also excluded.
-</highlight>
-
-This does not work in combination with [include_tables](#include-tables)
 
 ## Include and exclude schemas
 
-The `include_schemas` configuration can be used to provide an array of schemas
-which should be included in the migration. Only objects in these schemas are
-copied.
+If you want to include or exclude schemas from the migration, you can use the
+`include_schemas` and `exclude_schemas` parameters.
 
+Use `include_schemas` to declare an array of schemas that should be migrated.
 For example:
 
 ```yaml
 include_schemas:
 - public
 - test
-- '"FooBar"'
+- '"OtherSchema"'
 ```
 
-<highlight type="note">
-It is possible for objects in one schema to depend on objects in another schema
-for example, a table in the `public` schema depending on a type in the `other`
-schema. Hypershift will not warn about missing dependencies on objects in
-schemas which are not included, instead the migration will fail.
-
-To avoid this, ensure that you do not exclude schemas containing objects on
-which objects in other schemas depend.
-</highlight>
-
-This does not work in combination with [exclude_schemas](#exclude-schemas).
-
-The `exclude_schemas` configuration can be used to provide an array of schemas
-which should not be included in the migration. Only objects which are not in
-these schemas are copied.
-
+Use `exclude_schemas` to declare an array of schemas that should not be migrated.
 For example:
 
 ```yaml
 exclude_schemas:
 - public
 - test
-- '"FooBar"'
+- '"OtherSchema"'
 ```
 
-<highlight type="note">
+If you declare the `include_schemas` parameter, you cannot also declare the
+`exclude_schemas` parameter. Similarly, if you declare the `exclude_schemas`
+parameter, you cannot also declare the `include_schemas` parameter.
+
+### Dependent objects for schemas
+
 It is possible for objects in one schema to depend on objects in another schema
 for example, a table in the `public` schema depending on a type in the `other`
-schema. Hypershift will not warn about missing dependencies on objects in
-excluded schemas, instead the migration will fail.
+schema. Hypershift does not warn about missing dependencies on objects in
+schemas which are not included, and the migration fails.
 
 To avoid this, ensure that you do not exclude schemas containing objects on
 which objects in other schemas depend.
-</highlight>
-
-This does not work in combination with [include_schemas](#include-schemas)
 
 ### Filtering tables and schemas
 
-Hypershift offers filtering at the schema and table level. Filtering is
-enabled through the `include_schemas`, `exclude_schemas`, `include_tables`, and
-`exclude_tables` parameters in the hypershift configuration file. Some of these
-options are mutually exclusive.
-
-This is an example of a hypershift configuration file with schema and table
-exclusions:
+You can use the include and exclude table and schema parameters to filter tables
+and schemas. This example filters tables and schemas by excluding them:
 
 ```yaml
 source: postgres://postgres:password@source:5432/database
@@ -205,19 +180,73 @@ exclude_tables:
 - test.an_uninteresting_table
 ```
 
-#### Pattern matching
-
-Hypershift does not support pattern matching on schema or table names in either
-inclusion or exclusion rules. Support may be provided for this in a future
-release.
+<Highlight type="important">
+Hypershift does not currently support pattern matching on schema or table names
+in either inclusion or exclusion rules.
+</Highlight>
 
 ## Hypertable configuration
 
-FIXME
+In the hypertable configuration section, you can provide parameters that control
+how the hypertable is created on the target database.
 
-## Compression configuration
+### Parallel minimum table size
 
-FIXME
+Use the `parallel_min_table_size` parameter to control the size a hypertable, in
+MiB, must be to use parallel copying. Hypershift uses parallel copying to speed
+up migration of larger tables. Tables sized under the `parallel_min_table_size`
+parameter are copied in a single transaction. Tables sized over the
+`parallel_min_table_size` parameter use parallel copying.
+
+This parameter defaults to 128&nbsp;MiB.
+
+### Foreign key checking
+
+Use the `foreign_keys_priority` parameter to control when hypershift should
+check foreign keys. The options for this parameter are:
+
+*   `immediate`: Check all foreign keys immediately when they are encountered.
+*   `deferred`: Check all foreign keys in a batch after the migration is finished.
+*   `unchecked`: Leave all foreign keys unchecked.
+*   `disabled`: Disable foreign key checking entirely.
+
+This parameter defaults to `unchecked`.
+
+### Logging format
+
+Use the `log_format` parameter to control which file format to save log files
+in. The options for this parameter are:
+
+*   `json`: Save logs in `json` format.
+*   `text`: Save logs as plain text.
+
+This parameter defaults to `text`.
+
+### Create the target database
+
+Use the `create_db` parameter to control whether or not hypershift creates a new
+target database during the migration. The options for this parameter are:
+
+*   `true`: Create a new target database during migration.
+*   `false`: Do not create a new target database during migration.
+
+This parameter defaults to `false`.
+
+### Drop incompatible hypertable constraints
+
+In some cases, tables can have constraints on them that can't be retained when
+they are converted to a hypertable. For example, if a table has a foreign key
+that points to a hypertable, the foreign key can't be retained, and an error is
+shown. When this occurs, the migrations fails. You can use the
+`drop_incompatible_hypertable_contraints` parameter to silently drop any
+incompatible constraints, and continue with the migration anyway.
+
+The options for this parameter are:
+
+*   `true`: Drop incompatible hypertable constraints and continue with the migration.
+*   `false`: Keep incompatible hypertable constrains and stop the migration.
+
+This parameter defaults to `false`.
 
 <Collapsible heading="Example configuration file" headingLevel={2} defaultExpanded={false}>
 
