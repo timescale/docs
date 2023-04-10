@@ -1,3 +1,7 @@
+<script>
+    import { Procedure} from "$lib/components"
+</script>
+
 ## Load financial data
 
 This tutorial uses real-time stock trade data, also known as tick data, from

@@ -108,7 +108,9 @@ The `SELECT` statement is the same query you wrote earlier, without the
 materializes the aggregated data. That means the view is created *and* populated
 with the aggregate calculations from your existing hypertable data.
 
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/getting-started/continuous-aggregate.jpg" alt="Continuous aggregate upon creation"/>
+<Image
+src="https://s3.amazonaws.com/assets.timescale.com/docs/images/getting-started/continuous-aggregate.jpg"
+alt="Continuous aggregate upon creation" width={941} height={543} />
 
 Run this query to get all the data in your continuous aggregate, and note
 how much faster this is than running the aggregate `SELECT` query on the raw hypertable data:
@@ -127,9 +129,12 @@ diagram, that corresponds to the last three points of raw data, which belong to
 an incomplete bucket.
 
 <Highlight type="note">
+
 If you don't want real-time aggregation, you can disable it. Set the `materialized_only`
 parameter to true for your continuous aggregate. For more information, see the
-section on [real-time aggregation](/use-timescale/latest/continuous-aggregates/real-time-aggregates/#use-real-time-aggregates).
+section on [real-time
+aggregation](/use-timescale/latest/continuous-aggregates/real-time-aggregates/#use-real-time-aggregates).
+
 </Highlight>
 
 To inspect details about a continuous aggregate, such as its
@@ -148,7 +153,7 @@ hypertable_schema|hypertable_name |view_schema|view_name              |view_owne
 public           |stocks_real_time|public     |stock_candlestick_daily|tsdbadmin |f                |f                  |_timescaledb_internal            |_materialized_hypertable_3     | SELECT time_bucket('1 day'::interval, srt."time") AS day,¶    srt.symbol,¶    max(srt.price) AS high,¶    first(srt.price, srt."time") AS open,¶    last(srt.price, srt."time") AS close,|
 ```
 
-<Video url="https://www.youtube.com/embed/1m9yxpyGrBY"></Video>
+<Video videoID="1m9yxpyGrBY" label="Create a continuous aggregate"></Video>
 
 ## Next steps
 

@@ -1,3 +1,7 @@
+<script>
+    import { Highlight } from "$lib/components"
+</script>
+
 <Highlight type="cloud" header="Request access and start tiering">
 To request access to the private beta for data tiering:
 

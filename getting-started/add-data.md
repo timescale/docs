@@ -25,10 +25,12 @@ Monday through Friday, typically during normal trading hours of the New York Sto
 Exchange (9:30&nbsp;AM - 4:00&nbsp;PM EST).
 
 <Highlight type="note">
+
 In case you want to ingest real-time data, instead of sample data,
 read the tutorial
 [Ingest real-time financial websocket data](https://docs.timescale.com/tutorials/latest/ingest-real-time-websocket-data)
 and ingest data directly from the Twelve Data financial API.
+
 </Highlight>
 
 ### Table details
@@ -61,10 +63,9 @@ dataset and copy the data to your database.
 
 1.  Download the `real_time_stock_data.zip` file. The file contains two `.csv`
     files; one with company information, and one with real-time stock trades for
-    the past month. Download:
-    <Tag
-    type="download">[real_time_stock_data.zip](https://assets.timescale.com/docs/downloads/get-started/real_time_stock_data.zip)
-    </Tag>
+    the past month. Download: <Download
+    href="https://assets.timescale.com/docs/downloads/get-started/real_time_stock_data.zip"
+    label="real_time_stock_data.zip" />
 
 1.  In a new terminal window, run this command to unzip the `.csv` files:
 
@@ -88,6 +89,7 @@ dataset and copy the data to your database.
     minutes depending on your internet connection and local client resources.
 
 <Highlight type="note">
+
 If you're using a Docker container, add the data files to your container before
 copying them into your database.
 
@@ -96,13 +98,14 @@ To add files to your container:
 ```bash
 docker cp tutorial_sample_tick.csv timescaledb:/tutorial_sample_tick.csv
 docker cp tutorial_sample_company.csv timescaledb:/tutorial_sample_company.csv
+
 ```
 
 </Highlight>
 
 </Procedure>
 
-<Video url="https://www.youtube.com/embed/YwidcyBFgAU"></Video>
+<Video videoID="YwidcyBFgAU"></Video>
 
 ## Next steps
 

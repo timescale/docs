@@ -1,3 +1,7 @@
+<script>
+    export { Procedure };
+</script>
+
 When you have a service up and running, you can connect to it from your local
 system using the `psql` command-line utility. If you've used PostgreSQL before,
 you might already have `psql` installed. If not, check out the [installing

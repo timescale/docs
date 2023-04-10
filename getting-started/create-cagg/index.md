@@ -28,7 +28,9 @@ First, Timescale processes the aggregation calculations when the aggregate is
 created and then stores the aggregation results to minimize re-calculation when
 new raw data is added.
 
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/getting-started/continuous-aggregate.jpg" alt="Continuous aggregate upon creation"/>
+<Image
+src="https://s3.amazonaws.com/assets.timescale.com/docs/images/getting-started/continuous-aggregate.jpg"
+alt="Continuous aggregate upon creation" width={941} height={543} />
 
 Second, Timescale provides ongoing updates to continuous aggregate data with
 an automatic continuous aggregate refresh policy. This schedules an automatic
@@ -36,15 +38,20 @@ job that re-calculates new data for a specific interval of time. Thus, the
 policy only recomputes the newest changes in the raw data rather then
 recomputing everything.
 
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/getting-started/continuous-aggregate-policy.jpg" alt="Continuous aggregate with refresh policy"/>
+<Image
+src="https://s3.amazonaws.com/assets.timescale.com/docs/images/getting-started/continuous-aggregate-policy.jpg"
+alt="Continuous aggregate with refresh policy" width={1071} height={543} />
 
 For more information on the benefits of continuous aggregates, see the
 [continuous aggregates section][cagg-overview].
 
 <Highlight type="note">
+
 Materialized views in PostgreSQL are table-like objects within your database.
 For more information on materialized views, see the
-[PostgreSQL documentation](https://www.postgresql.org/docs/current/rules-materializedviews.html).
+[PostgreSQL
+documentation](https://www.postgresql.org/docs/current/rules-materializedviews.html).
+
 </Highlight>
 
 Follow this tutorial to create a continuous aggregate and continuous aggregate

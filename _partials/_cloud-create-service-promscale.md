@@ -1,3 +1,7 @@
+<script>
+    import { Procedure} from "$lib/components"
+</script>
+
 A service in Timescale Cloud is a cloud instance that contains your database.
 Each service contains a single database, named `tsdb`.
 

@@ -1,4 +1,6 @@
-import Experimental from "versionContent/_partials/_experimental.mdx";
+<script>
+import Experimental from "$docs/_partials/_experimental.md";
+</script>
 
 <h2>
   Use a one-step policy definition to set a {props.policyType} policy on a
@@ -20,6 +22,7 @@ this feature is experimental.
   set a retention policy of 20 days, chunks older than 20 days are dropped from
   the continuous aggregate. The retention policy of the original hypertable
   remains unchanged.
+
 </Highlight>
 
 [add-policies]: /api/:currentVersion:/continuous-aggregates/add_policies/

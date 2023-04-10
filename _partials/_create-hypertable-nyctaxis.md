@@ -1,3 +1,7 @@
+<script>
+    import { Procedure} from "$lib/components"
+</script>
+
 ## Create a hypertable
 
 Hypertables are the core of Timescale. Hypertables enable Timescale to work

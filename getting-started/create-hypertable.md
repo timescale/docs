@@ -5,7 +5,9 @@ products: [cloud, mst, self_hosted]
 keywords: [hypertables, create]
 ---
 
-import HypertableIntro from "versionContent/_partials/_hypertables-intro.mdx";
+<script>
+    import HypertableIntro from "$docs/_partials/_hypertables-intro.md";
+</script>
 
 # Create a hypertable
 
@@ -85,7 +87,7 @@ you would normally. For this dataset, there is one other table of data called
 
 </Procedure>
 
-<Video url="https://www.youtube.com/embed/MpMw7yIjauI"></Video>
+<Video videoID="MpMw7yIjauI" label="Create a hypertable"></Video>
 
 ## Next steps
 

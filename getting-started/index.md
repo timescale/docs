@@ -4,13 +4,15 @@ excerpt: Get started with your first Timescale instance
 products: [cloud]
 ---
 
-import Install from "versionContent/_partials/_cloud-installation.mdx";
-import CreateService from "versionContent/_partials/_cloud-create-service.mdx";
-import Connect from "versionContent/_partials/_cloud-connect.mdx";
-import CloudIntro from "versionContent/_partials/_cloud-intro.mdx";
-import TimescaleIntro from "versionContent/_partials/_timescale-intro.mdx";
-import WhereNext from "versionContent/_partials/_where-to-next.mdx";
-import CloudTrial from "versionContent/_partials/_cloudtrial.mdx";
+<script>
+import Install from "$docs/_partials/_cloud-installation.md";
+import CreateService from "$docs/_partials/_cloud-create-service.md";
+import Connect from "$docs/_partials/_cloud-connect.md";
+import CloudIntro from "$docs/_partials/_cloud-intro.md";
+import TimescaleIntro from "$docs/_partials/_timescale-intro.md";
+import WhereNext from "$docs/_partials/_where-to-next.md";
+import CloudTrial from "$docs/_partials/_cloudtrial.md";
+</script>
 
 # Get started with Timescale
 
@@ -33,7 +35,7 @@ can find help from the Timescale community and team.
 
 ## Create your first service
 
-<CreateService demoData={false} />
+<CreateService />
 
 ## Connect to your service
 

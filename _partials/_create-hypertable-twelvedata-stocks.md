@@ -1,3 +1,6 @@
+<script>
+    import { Highlight, Procedure} from "$lib/components"
+</script>
 
 # Create a hypertable
 

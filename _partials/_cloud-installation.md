@@ -1,3 +1,7 @@
+<script>
+    export { Image, Procedure };
+</script>
+
 <Procedure>
 
 ### Creating your Timescale Cloud account
@@ -9,16 +13,18 @@
     forget to check your spam folder in case the email ends up there.
 1.  Sign in to the [Timescale Cloud portal][tsc-portal] with the
     password you set:
-    <img
-      class="main-content__illustration"
+    <Image
       src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-portal-noservices.png"
       alt="Timescale Cloud Portal"
+      width={1771} height={886}
     />
 
 <Highlight type="important">
+
 Your Timescale Cloud trial is completely free for you to use for the first
 thirty days. This gives you enough time to complete all the tutorials and run a
 few test projects of your own.
+
 </Highlight>
 
 </Procedure>

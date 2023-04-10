@@ -1,3 +1,7 @@
+<script>
+    import { Highlight, Procedure} from "$lib/components"
+</script>
+
 ## Load trip data
 
 When you have your database set up, you can load the taxi trip data into the

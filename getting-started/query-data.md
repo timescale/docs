@@ -202,7 +202,7 @@ a `time_bucket()` of one week, starts on the beginning date of the bucket, not
 the current time that you run the query. To learn more about how time buckets
 are calculated, see the [how-to guide for time buckets][time-bucket-how-to].
 
-<Video url="https://www.youtube.com/embed/WFg0B1Bihtg"></Video>
+<Video videoID="WFg0B1Bihtg" label="Query data"></Video>
 
 ## Next steps
 

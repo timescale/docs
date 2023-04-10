@@ -5,7 +5,9 @@ products: [cloud, mst, self_hosted]
 keywords: [hypertables, partitions]
 ---
 
-import HypertablesIntro from 'versionContent/_partials/_hypertables-intro.mdx';
+<script>
+import HypertablesIntro from '$docs/_partials/_hypertables-intro.md';
+</script>
 
 # About hypertables
 
@@ -37,6 +39,7 @@ alt="A normal table compared to a hypertable. The normal table holds data for 3 
 />
 
 <Highlight type="note">
+
 TimescaleDB divides time into potential chunk ranges, based on the
 `chunk_time_interval`. If data exists for a potential chunk range, that chunk is
 created.
@@ -46,6 +49,7 @@ necessarily equal the earliest timestamp in your hypertable. Instead, there
 might be a time gap between the start time and the earliest timestamp. This
 doesn't affect your usual interactions with your hypertable, but might affect
 the number of chunks you see when inspecting it.
+
 </Highlight>
 
 ### Best practices for time partitioning
@@ -63,9 +67,11 @@ interval to 1 week. If you write approximately 10&nbsp;GB of data per day on the
 same machine, set the time interval to 1 day.
 
 <Highlight type="note">
+
 If you use expensive index types, such as some PostGIS geospatial indexes, take
 care to check the total size of the chunk and its index. You can do so using the
 [`chunks_detailed_size`](/api/latest/hypertable/chunks_detailed_size) function.
+
 </Highlight>
 
 For a detailed analysis of how to optimize your chunk sizes, see the
@@ -121,10 +127,12 @@ you partition by space without this setup, you increase query planning
 complexity without increasing I/O performance.
 
 <Highlight type="note">
+
 A more recommended way to increase input/output performance is to use RAID
 (redundant array of inexpensive disks). RAID virtualizes multiple physical disks
 into a single logical disk. You can then use this single logical disk to store
 your hypertable, without any space partitioning.
+
 </Highlight>
 
 ## Hypertable indexes

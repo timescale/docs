@@ -1,3 +1,7 @@
+<script>
+    import { Highlight } from "$lib/components"
+</script>
+
 <Highlight type="deprecation">
 Promscale has been discontinued. Support for existing customers of Promscale
 with Timescale Cloud and Managed Service for TimescaleDB ends on April 30,

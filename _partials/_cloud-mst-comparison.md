@@ -1,3 +1,7 @@
+<script>
+    import { Highlight } from "$lib/components"
+</script>
+
 <Highlight
   type="cloud"
   header="Timescale Cloud or Managed Service for TimescaleDB?"
