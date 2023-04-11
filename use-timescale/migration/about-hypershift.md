@@ -70,11 +70,6 @@ To see all available configuration options for hypershift, use this command:
 docker run -ti timescale/hypershift:0.5 --help
 ```
 
-Within the Docker container, use this command:
-
-```bash
-hypershift --help
-```
 
 |Short command|Long command|Example use|Description|
 |-|-|-|-|
