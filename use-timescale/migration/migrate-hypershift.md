@@ -22,8 +22,9 @@ Before you begin, make sure you have:
 
 <CloudTrial />
 
-It is recommended that you create an index on the `time` column of tables in your source
-database before you begin the migration. Hypershift works without an index,
+Before you begin the migration, it is recommended that you create an index on 
+the `time` column of tables in your source database that are going to be 
+converted to hypertables. Hypershift works without an index,
 but the migration runs much slower. The simplest way to achieve this is to
 create a `btree` index on the `time` column. However, creating an index can take
 some time, as the entire table needs to be read from disk. You can create the
@@ -111,7 +112,7 @@ configuration file, see the
 
     ```bash
     docker run -v $(pwd)/hypershift.yml:/hypershift.yml \
-    -ti timescale/hypershift:0.5 clone \
+    -ti timescale/hypershift:0.5 \
     -s "host=<SOURCE_DB_HOSTNAME> dbname=<DB_NAME> user=postgres port=5431 password=<DB_PASSWORD>" \
     -t "host=<TARGET_DB_HOSTNAME> dbname=<DB_NAME> user=postgres port=5432 password=<DB_PASSWORD>" \
     --config-file /hypershift.yml

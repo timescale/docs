@@ -118,7 +118,7 @@ restore them.
 1.  Connect to your Timescale database:
 
     ```sql
-    psql "postgres://tsdbadmin:<CLOUD_PASSWORD>@<CLOUD_HOST>:<CLOUD_PORT>/tsdb?sslmode=require"
+    psql "postgres://tsdbadmin:<PASSWORD>@<HOST>:<PORT>/tsdb?sslmode=require"
     ```
 
 1.  Restore the hypertable:
@@ -323,7 +323,7 @@ don't include deleted raw data.
 1.  Connect to your Timescale database:
 
     ```bash
-    psql "postgres://tsdbadmin:<CLOUD_PASSWORD>@<CLOUD_HOST>:<CLOUD_PORT>/tsdb?sslmode=require"
+    psql "postgres://tsdbadmin:<PASSWORD>@<HOST>:<PORT>/tsdb?sslmode=require"
     ```
 
 1.  Recreate each continuous aggregate definition:

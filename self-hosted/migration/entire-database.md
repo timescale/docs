@@ -69,10 +69,10 @@ information about compression and decompression, see the
 
 1.  Connect to your Timescale database using your Timescale
     connection details. When you are prompted for a password, use your Timescale
-    Cloud credentials:
+    credentials:
 
     ```bash
-    psql “postgres://tsdbadmin:<CLOUD_PASSWORD>@<CLOUD_HOST>:<CLOUD_PORT>/tsdb?sslmode=require”
+    psql “postgres://tsdbadmin:<PASSWORD>@<HOST>:<PORT>/tsdb?sslmode=require”
     ```
 
 1.  Prepare your Timescale database for data restoration by using

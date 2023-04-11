@@ -41,9 +41,9 @@ hypertable_configs:
   compress:
     after: <in units of time>
     segmentby:
-<column list>
+      - <column>
     orderby:
-- <column> <direction>
+      - <column> <direction>
 ```
 
 ## Source and target database details
@@ -60,13 +60,13 @@ details on the command line instead. For more information, see the
 Connection strings are in the format:
 
 ```bash
-<USERNAME>:<DB_NAME>@<HOSTNAME>:<PORT>
+postgres://<USERNAME>:<PASSWORD>@<HOSTNAME>:<PORT>/<DB_NAME>
 ```
 
 For example:
 
 ```bash
-tsdbadmin:my_database@timescale-cloud.com:30001
+postgres://tsdbadmin:my_password@timescale-cloud.com:30001/my_database
 ```
 
 ## Actions
@@ -79,8 +79,9 @@ Use the `clone` action to perform a hypershift migration.
 
 ### Verify
 
-Use the `verify` action to check if a migration is going to work successfully,
-without performing the migration itself.
+Use the `verify` action to check if the migration was successful. This does a rough
+check over the data in the tables on the source and target database to ensure that
+they contain the same values.
 
 ## Include and exclude tables
 
@@ -113,7 +114,7 @@ parameter, you cannot also declare the `include_tables` parameter.
 
 ### Dependent objects for tables
 
-It is possible for a table to depend on other object, for example the schema
+It is possible for a table to depend on other objects, for example the schema
 that the table is in, or a custom type. The `include_tables` configuration only
 copies the specified table, not any dependent objects. If dependent objects are
 not present in the target database, the migration fails.
@@ -238,7 +239,7 @@ In some cases, tables can have constraints on them that can't be retained when
 they are converted to a hypertable. For example, if a table has a foreign key
 that points to a hypertable, the foreign key can't be retained, and an error is
 shown. When this occurs, the migrations fails. You can use the
-`drop_incompatible_hypertable_contraints` parameter to silently drop any
+`drop_incompatible_hypertable_constraints` parameter to silently drop any
 incompatible constraints, and continue with the migration anyway.
 
 The options for this parameter are:
@@ -349,3 +350,4 @@ no_telemetry: <boolean> # Default = false
 </Collapsible>
 
 [chunk-time]: /use-timescale/:currentVersion:/hypertables/about-hypertables#best-practices-for-time-partitioning
+[hypershift-cli]:  /use-timescale/:currentVersion:/migration/about-hypershift/

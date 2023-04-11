@@ -18,11 +18,6 @@ If you're migrating from an Amazon RDS database, the best option is to run
 hypershift on an EC2 instance in the same availability zone as your RDS
 instance.
 
-<Highlight type="note">
-Availability zones are assigned different names in different AWS
-accounts. To make sure that you are using the same zone refer to
-[AWS user guide](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html)
-</Highlight>
 
 For migrations from other managed services, including Managed Service for
 TimescaleDB, run hypershift from a virtual machine in the same region as either
@@ -72,21 +67,21 @@ URIs in the configuration file.
 To see all available configuration options for hypershift, use this command:
 
 ```bash
-docker run -ti timescale/hypershift:0.4 --help
+docker run -ti timescale/hypershift:0.5 --help
 ```
 
 Within the Docker container, use this command:
 
 ```bash
-./hypershift --help
+hypershift --help
 ```
 
 |Short command|Long command|Example use|Description|
 |-|-|-|-|
-|-C|--config-file|-C <CONFIG_FILE>|Path for hypershift configuration file|
-|-S|--source-uri|-S <SOURCE_URI>|URI to the source database|
-|-T|--target-uri|-T <TARGET_URI>|URI to the target database|
-||--ignore-missing-time-index||Ignore hypertables that are missing a time index|
+|-c|--config-file|-C <CONFIG_FILE>|Path for hypershift configuration file|
+|-s|--source|-s <SOURCE_URI>|URI to the source database|
+|-t|--target|-t <TARGET_URI>|URI to the target database|
+||--ignore-missing-time-index||Ignore that hypertables may be missing a time index|
 |-h|--help||Print hypershift help|
 |-V|--version|Print hypershift version|
 
@@ -97,23 +92,23 @@ configuration file, providing the source and target database URIs at the command
 prompt:
 
 ```bash
-./hypershift -S='host=localhost dbname=postgres port=5432 user=postgres password=source_password' \
--T='host=localhost dbname=postgres port=5433 user=postgres password=target_password'
+docker run -ti timescale/hypershift:0.5 -s='host=localhost dbname=postgres port=5432 user=postgres password=source_password' \
+-t='host=localhost dbname=postgres port=5433 user=postgres password=target_password'
 ```
 
 Migrate using a configuration file only:
 
 ```bash
-./hypershift -C=config.yaml
+docker run -v $(pwd)/config.yaml:/config.yaml -ti timescale/hypershift:0.5 -c=config.yaml
 ```
 
 Migrate using a configuration file, and provide source and target database URIs
 at the command prompt:
 
 ```bash
-./hypershift -C=config.yaml \
--S='host=localhost dbname=postgres port=5432 user=postgres password=source_password' \
--T='host=localhost dbname=postgres port=5433 user=postgres password=target_password'
+docker run -v $(pwd)/config.yaml:/config.yaml -ti timescale/hypershift:0.5 -c=config.yaml \
+-s='host=localhost dbname=postgres port=5432 user=postgres password=source_password' \
+-t='host=localhost dbname=postgres port=5433 user=postgres password=target_password'
 ```
 
 [hypershift-config]: /use-timescale/:currentVersion:/migration/hypershift-config/
