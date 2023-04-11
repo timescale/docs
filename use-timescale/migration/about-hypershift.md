@@ -18,7 +18,6 @@ If you're migrating from an Amazon RDS database, the best option is to run
 hypershift on an EC2 instance in the same availability zone as your RDS
 instance.
 
-
 For migrations from other managed services, including Managed Service for
 TimescaleDB, run hypershift from a virtual machine in the same region as either
 the source or target database, whichever is most convenient.
@@ -70,12 +69,13 @@ To see all available configuration options for hypershift, use this command:
 docker run -ti timescale/hypershift:0.5 --help
 ```
 
-
 |Short command|Long command|Example use|Description|
 |-|-|-|-|
 |-c|--config-file|-C <CONFIG_FILE>|Path for hypershift configuration file|
 |-s|--source|-s <SOURCE_URI>|URI to the source database|
 |-t|--target|-t <TARGET_URI>|URI to the target database|
+||--source-password|--source-password|Password for the source database|
+||--target-password|--target-password|Password for the target database|
 ||--ignore-missing-time-index||Ignore that hypertables may be missing a time index|
 |-h|--help||Print hypershift help|
 |-V|--version|Print hypershift version|

@@ -99,7 +99,7 @@ owners, and settings. This doesn't include Timescale-specific schemas.
 
     ```bash
     pg_restore -U tsdbadmin -W \
-    -h <CLOUD_HOST> -p <CLOUD_PORT> --no-owner -Fc \
+    -h <HOST> -p <PORT> --no-owner -Fc \
     -v -d tsdb dump_pre_data.bak
     ```
 
@@ -201,9 +201,9 @@ the [compression section](https://docs.timescale.com/use-timescale/latest/compre
 
     ```bash
     timescaledb-parallel-copy \
-    --connection "host=<CLOUD_HOST> \
-    user=tsdbadmin password=<CLOUD_PASSWORD> \
-    port=<CLOUD_PORT> \
+    --connection "host=<HOST> \
+    user=tsdbadmin password=<PASSWORD> \
+    port=<PORT> \
     sslmode=require" \
     --db-name tsdb \
     --table <TABLE_NAME> \
@@ -223,7 +223,7 @@ the [compression section](https://docs.timescale.com/use-timescale/latest/compre
 1.  Connect to your Timescale database:
 
     ```sql
-    psql "postgres://tsdbadmin:<CLOUD_PASSWORD>@<CLOUD_HOST>:<CLOUD_PORT>/tsdb?sslmode=require"
+    psql "postgres://tsdbadmin:<PASSWORD>@<HOST>:<PORT>/tsdb?sslmode=require"
     ```
 
 1.  Restore the data to your Timescale database:
@@ -263,7 +263,7 @@ schema post-data. This includes information about constraints.
 
     ```bash
     pg_restore -U tsdbadmin -W \
-    -h <CLOUD_HOST> -p <CLOUD_PORT> --no-owner -Fc \
+    -h <HOST> -p <PORT> --no-owner -Fc \
     -v -d tsdb dump_post_data.bak
     ```
 
@@ -364,7 +364,7 @@ separately. Recreate them on your Timescale database.
 1.  Connect to your Timescale database:
 
     ```sql
-    psql "postgres://tsdbadmin:<CLOUD_PASSWORD>@<CLOUD_HOST>:<CLOUD_PORT>/tsdb?sslmode=require"
+    psql "postgres://tsdbadmin:<PASSWORD>@<HOST>:<PORT>/tsdb?sslmode=require"
     ```
 
 1.  Recreate each policy. For more information about recreating policies, see

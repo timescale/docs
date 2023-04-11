@@ -350,4 +350,4 @@ no_telemetry: <boolean> # Default = false
 </Collapsible>
 
 [chunk-time]: /use-timescale/:currentVersion:/hypertables/about-hypertables#best-practices-for-time-partitioning
-[hypershift-cli]:  /use-timescale/:currentVersion:/migration/about-hypershift/
+[hypershift-cli]: /use-timescale/:currentVersion:/migration/about-hypershift#the-hypershift-command-line-tool
