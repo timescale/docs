@@ -25,7 +25,9 @@ the source or target database, whichever is most convenient.
 ## Migration speed
 
 In preliminary testing, hypershift migrated 60&nbsp;GB of data in 9 to 12
-minutes, and 1&nbsp;TB of data in under 4 hours.
+minutes, and 1&nbsp;TB of data in under 4 hours. However, there are
+many different factors that can contribute to the throughput speed of
+a migration.
 
 When you run hypershift, it uses compute resources on the machine that you run
 the command on to copy data from the source to the target database. This means
@@ -34,8 +36,7 @@ machines can impact the speed and duration of the migration.
 
 You can continue reading from your source database during the migration, though
 performance could be slower. If you write to tables in your source database
-during the migration, the new writes are not transferred to Timescale Cloud. To
-avoid this problem, fork your database and migrate your data from the fork.
+during the migration, the new writes are not transferred to Timescale Cloud. 
 
 <Highlight type="important">
 If you have a large database, and hypershift is going to have to run for a very

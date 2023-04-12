@@ -14,7 +14,7 @@ Timescale.
 ## Prerequisites
 
 Before you start, make sure you have signed up for your
-[free Timescale Cloud account][install].
+[free Timescale account][install].
 
 ## Import data
 
