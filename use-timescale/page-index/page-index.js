@@ -284,7 +284,7 @@ module.exports = [
         ],
       },
       {
-        title: "Database migration",
+        title: "Migration",
         href: "migration",
         excerpt: "Migrate your existing PostgreSQL database to Timescale Cloud",
         children: [

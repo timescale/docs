@@ -79,7 +79,7 @@ Use the `clone` action to perform a hypershift migration.
 
 ### Verify
 
-Use the `verify` action to check if the migration was successful. This does a 
+Use the `verify` action to check if the migration was successful. This does a
 check over the data in the tables on the source and target database to ensure that
 they contain the same values.
 

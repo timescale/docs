@@ -36,7 +36,7 @@ machines can impact the speed and duration of the migration.
 
 You can continue reading from your source database during the migration, though
 performance could be slower. If you write to tables in your source database
-during the migration, the new writes are not transferred to Timescale Cloud. 
+during the migration, the new writes are not transferred to Timescale Cloud.
 
 <Highlight type="important">
 If you have a large database, and hypershift is going to have to run for a very

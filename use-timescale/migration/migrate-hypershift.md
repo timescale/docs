@@ -22,13 +22,13 @@ Before you begin, make sure you have:
 
 <CloudTrial />
 
-Before you begin the migration, it is recommended that you create an index on 
-the `time` column of tables in your source database that are going to be 
-converted to hypertables. Hypershift works without an index,
-but the migration runs much slower. The simplest way to achieve this is to
-create a `btree` index on the `time` column. However, creating an index can take
-some time, as the entire table needs to be read from disk. You can create the
-`btree` index with this command:
+Before you begin the migration, it is recommended that you create an index on
+the `time` column of tables in your source database that are going to be
+converted to hypertables. Hypershift works without an index, but the migration
+runs much slower. The simplest way to achieve this is to create a `btree` index
+on the `time` column. However, creating an index can take some time, as the
+entire table needs to be read from disk. You can create the `btree` index with
+this command:
 
 ```sql
 CREATE INDEX ON "<TABLE_NAME>" USING btree (time);
@@ -125,5 +125,4 @@ configuration file, see the
 
 [cloud-install]: /getting-started/latest/
 [docker-install]: https://docs.docker.com/get-docker/
-[chunk-time]: /use-timescale/:currentVersion:/hypertables/about-hypertables#best-practices-for-time-partitioning
 [hypershift-config]: /use-timescale/:currentVersion:/migration/hypershift-config/
