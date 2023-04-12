@@ -6,10 +6,10 @@ tags: [hyperfunctions, toolkit, maximum]
 api:
   license: community
   type: function
-  experimental: true
   toolkit: true
   version:
     experimental: 1.12.0
+    stable: 1.16.0
 hyperfunction:
   family: minimum and maximum
   type: accessor
@@ -42,8 +42,8 @@ api_details:
       command:
         language: sql
         code: |
-          SELECT toolkit_experimental.into_values(
-              toolkit_experimental.max_n(sub.val, 5))
+          SELECT into_values(
+              max_n(sub.val, 5))
           FROM (
             SELECT (i * 13) % 10007 AS val 
             FROM generate_series(1,10000) as i
