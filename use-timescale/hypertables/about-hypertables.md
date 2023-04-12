@@ -82,19 +82,6 @@ see the sections on
 [best practices for space partitioning][best-practices-space] and
 [distributed hypertables][about-distributed-hypertables].
 
-When space partitioning is on, 2 dimensions are used to divide data into chunks:
-the time dimension and the space dimension. You can specify the number of
-partitions along the space dimension. Data is assigned to a partition by hashing
-its value on that dimension.
-
-For example, say you use `device_id` as a space partitioning column. For each
-row, the value of the `device_id` column is hashed. Then the row is inserted
-into the correct partition for that hash value.
-
-<img class="main-content__illustration"
-src="https://s3.amazonaws.com/assets.timescale.com/docs/images/hypertable-time-space-partition.png"
-alt="A hypertable visualized as a rectangular plane carved into smaller rectangles, which are chunks. One dimension of the rectangular plane is time and the other is space. Data enters the hypertable and flows to a chunk based on its time and space values." />
-
 ### Closed and open dimensions for space partitioning
 
 Space partitioning dimensions can be open or closed. A closed dimension has a
