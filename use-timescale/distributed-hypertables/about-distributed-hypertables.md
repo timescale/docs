@@ -34,10 +34,10 @@ can.
 ## Space partitioning
 
 Distributed hypertables are always partitioned by time, just like standard
-hypertables. But unlike standard hypertables, distributed hypertables should also
-be partitioned by space. This allows you to balance inserts and queries between
-data nodes, similar to traditional sharding. Without space partitioning, all
-data in the same time range would write to the same chunk on a single node.
+hypertables. But unlike standard hypertables, distributed hypertables should
+also be partitioned by space. This allows you to balance inserts and queries
+between data nodes, similar to traditional sharding. Without space partitioning,
+all data in the same time range would write to the same chunk on a single node.
 
 By default, Timescale creates as many space partitions as there are data
 nodes. You can change this number, but having too many space partitions degrades
