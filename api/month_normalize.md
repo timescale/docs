@@ -6,15 +6,15 @@ keywords: [hyperfunctions, Toolkit, normalization]
 api:
   license: community
   type: function
-  experimental: true
   toolkit: true
   version:
     experimental: 1.10.1
+    stable: 1.16.0
 hyperfunction:
   type: one-step operation
 ---
 
-# month_normalize() <Tag type="toolkit" content="Toolkit" /><Tag type="experimental-toolkit" content="Experimental" />
+# month_normalize() <Tag type="toolkit" content="Toolkit" />
 
 Normalize the provided metric based on reference date and days.
 
@@ -32,7 +32,7 @@ Get the normalized value for a metric of 1000, and a reference date of January
 1, 2021:
 
 ```sql
-SELECT toolkit_experimental.month_normalize(1000,'2021-01-01 00:00:00+03'::timestamptz)
+SELECT month_normalize(1000,'2021-01-01 00:00:00+03'::timestamptz)
 ```
 
 The output looks like this:

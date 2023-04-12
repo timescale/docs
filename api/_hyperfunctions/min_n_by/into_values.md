@@ -6,10 +6,10 @@ tags: [hyperfunctions, toolkit, minimum]
 api:
   license: community
   type: function
-  experimental: true
   toolkit: true
   version:
     experimental: 1.12.0
+    stable: 1.16.0
 hyperfunction:
   family: minimum and maximum
   type: accessor
@@ -54,8 +54,8 @@ api_details:
       command:
         language: sql
         code: |
-          SELECT toolkit_experimental.into_values(
-              toolkit_experimental.min_n_by(sub.mod, sub.div, 5),
+          SELECT into_values(
+              min_n_by(sub.mod, sub.div, 5),
               NULL::INT)
           FROM (
             SELECT (i * 13) % 10007 AS mod, (i * 13) / 10007 AS div

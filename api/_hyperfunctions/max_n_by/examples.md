@@ -23,8 +23,8 @@ SELECT
     (data).symbol, 
     value AS transaction 
 FROM
-    toolkit_experimental.into_values((
-        SELECT toolkit_experimental.max_n_by(price * volume, stock_sales, 10)
+    into_values((
+        SELECT max_n_by(price * volume, stock_sales, 10)
         FROM stock_sales
     ), 
     NULL::stock_sales);
