@@ -78,41 +78,8 @@ to view and set your chunk time intervals, see the section on
 Space partitioning is optional. It is not usually recommended for regular
 hypertables, except in very particular circumstances. It is recommended for
 distributed hypertables, to balance inserts between nodes. For more information,
-see the sections on
-[best practices for space partitioning][best-practices-space] and
-[distributed hypertables][about-distributed-hypertables].
-
-### Closed and open dimensions for space partitioning
-
-Space partitioning dimensions can be open or closed. A closed dimension has a
-fixed number of partitions, and usually uses some hashing to match values to
-partitions. An open dimension does not have a fixed number of partitions, and
-usually has each chunk cover a certain range. In most cases the time dimension
-is open and the space dimension is closed.
-
-If you use the `create_hypertable` command to create your hypertable, then the
-space dimension is open, and there is no way to adjust this. To create a
-hypertable with a closed space dimension, create the hypertable with only the
-time dimension first. Then use the `add_dimension` command to explicitly add an
-open device. If you set the range to `1`, each device has its own chunks. This
-can help you work around some limitations of normal space dimensions, and is
-especially useful if you want to make some chunks readily available for
-exclusion.
-
-### Best practices for space partitioning
-
-Space partitioning is not usually recommended for non-distributed hypertables.
-It's only useful if you have multiple physical disks, each corresponding to a
-separate tablespace. Each disk can then store some of the space partitions. If
-you partition by space without this setup, you increase query planning
-complexity without increasing I/O performance.
-
-<Highlight type="note">
-A more recommended way to increase input/output performance is to use RAID
-(redundant array of inexpensive disks). RAID virtualizes multiple physical disks
-into a single logical disk. You can then use this single logical disk to store
-your hypertable, without any space partitioning.
-</Highlight>
+see the
+[distributed hypertables][about-distributed-hypertables] section.
 
 ## Hypertable indexes
 
