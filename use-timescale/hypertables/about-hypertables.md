@@ -76,9 +76,19 @@ to view and set your chunk time intervals, see the section on
 ### Space partitioning
 
 Space partitioning is optional. It is not usually recommended for regular
-hypertables, except in very particular circumstances. It is recommended for
-distributed hypertables, to balance inserts between nodes. For more information,
-see the
+hypertables.
+
+A more recommended way to increase input/output performance on single
+hypertables is to use RAID (redundant array of inexpensive disks).
+RAID virtualizes multiple physical disks into a single logical disk.
+You can then use this single logical disk to store your hypertable,
+without any space partitioning.
+
+Space partitioning is useful if you have multiple physical disks, each
+corresponding to a separate tablespace. Each disk can then store some of
+the space partitions. If you partition by space without this setup, you
+increase query planning complexity without increasing I/O performance.
+For more information, see the
 [distributed hypertables][about-distributed-hypertables] section.
 
 ## Hypertable indexes

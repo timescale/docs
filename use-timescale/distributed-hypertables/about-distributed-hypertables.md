@@ -78,13 +78,6 @@ can help you work around some limitations of normal space dimensions, and is
 especially useful if you want to make some chunks readily available for
 exclusion.
 
-### Best practices for space partitioning
-
-Space partitioning is only useful if you have multiple physical disks, each
-corresponding to a separate tablespace. Each disk can then store some of the
-space partitions. If you partition by space without this setup, you increase
-query planning complexity without increasing I/O performance.
-
 ### Repartitioning distributed hypertables
 
 You can expand distributed hypertables by adding additional data nodes. If you
