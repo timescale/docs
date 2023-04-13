@@ -6,9 +6,9 @@ api:
   license: community
   type: function
   toolkit: true
-  experimental: true
   version:
     experimental: 1.6.0
+    stable: 1.16.0
 hyperfunction:
   family: frequency analysis
   type: accessor
@@ -17,7 +17,7 @@ hyperfunction:
 api_details:
   summary: >
     Get the top N most common values from a space-saving aggregate.
-    The space-saving aggregate can be created from either [`freq_agg`](#freq_agg) or [`topn_agg`](#topn_agg).
+    The space-saving aggregate can be created from either [`freq_agg`](#freq_agg) or [`mcv_agg`](#mcv_agg).
   signatures:
     - language: sql
       code: |
@@ -30,7 +30,7 @@ api_details:
       - name: agg
         type: SpacingsavingAggregate
         description: |
-          A space-saving aggregate created using either [`freq_agg`](#freq_agg) or [`topn_agg`](#topn_agg)
+          A space-saving aggregate created using either [`freq_agg`](#freq_agg) or [`mcv_agg`](#mcv_agg)
       - name: n
         type: INTEGER
         description: >
@@ -47,6 +47,5 @@ api_details:
         Get the 20 most frequent `zip_codes` from an `employees` table.
       command:
         code: |
-          SELECT topn(topn_agg(20, zip_code)) FROM employees;
+          SELECT topn(mcv_agg(20, zip_code)) FROM employees;
 ---
-
