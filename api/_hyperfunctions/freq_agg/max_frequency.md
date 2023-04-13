@@ -6,9 +6,9 @@ api:
   license: community
   type: function
   toolkit: true
-  experimental: true
   version:
     experimental: 1.6.0
+    stable: 1.16.0
 hyperfunction:
   family: frequency analysis
   type: accessor
@@ -27,7 +27,7 @@ api_details:
     required:
       - name: agg
         type: SpaceSavingAggregate
-        description: A space-saving aggregate creating using either [`freq_agg`](#freq_agg) or [`topn_agg`](#topn_agg)
+        description: A space-saving aggregate created using either [`freq_agg`](#freq_agg) or [`mcv_agg`](#mcv_agg)
       - name: value
         type: AnyElement
         description: The value to get the frequency of
@@ -42,9 +42,8 @@ api_details:
     - description: Find the maximum frequency of the value `3` in a column named `value` within the table `value_test`.
       command:
         code: |
-          SELECT toolkit_experimental.max_frequency(
-              (SELECT toolkit_experimental.freq_agg(0.05, value) FROM value_test),
+          SELECT max_frequency(
+              (SELECT mcv_agg(20, value) FROM value_test),
               3
           );
 ---
-

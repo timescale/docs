@@ -16,7 +16,7 @@ INSERT INTO value_test SELECT floor(sqrt(random() * 400)) FROM generate_series(1
 This returns the 5 most common values seen in the table:
 
 ```sql
-SELECT toolkit_experimental.topn(
+SELECT topn(
     toolkit_experimental.freq_agg(0.05, value), 
     5) 
 FROM value_test;
@@ -48,7 +48,7 @@ Return values that represent more than 5% of the input:
 
 ```sql
 SELECT value, min_freq, max_freq
-FROM toolkit_experimental.into_values(
+FROM into_values(
     (SELECT toolkit_experimental.freq_agg(0.05, value) FROM value_test));
 ```
 
@@ -75,7 +75,7 @@ You can adjust the following advanced options to suit your data distribution:
 
 ### Estimated skew
 
-`topn_agg` assumes that the data is skewed. In other words, some values are more
+`mcv_agg` assumes that the data is skewed. In other words, some values are more
 frequent than others. The degree of skew is defined by the `s` parameter of a
 [zeta distribution][zeta-distribution].
 
