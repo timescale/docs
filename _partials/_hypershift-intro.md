@@ -8,5 +8,3 @@ Use Hypershift to migrate your data to Timescale from these sources:
 *   Other Timescale databases, including Managed Service for TimescaleDB, and
     self-hosted TimescaleDB
 
-Because compression is enabled during the migration, the maximum amount of 
-storage is not required in the target database before you start the migration.
