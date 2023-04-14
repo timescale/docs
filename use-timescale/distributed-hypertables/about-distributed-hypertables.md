@@ -74,7 +74,7 @@ space dimension is open, and there is no way to adjust this. To create a
 hypertable with a closed space dimension, create the hypertable with only the
 time dimension first. Then use the `add_dimension` command to explicitly add an
 open device. If you set the range to `1`, each device has its own chunks. This
-can help you work around some limitations of normal space dimensions, and is
+can help you work around some limitations of regular space dimensions, and is
 especially useful if you want to make some chunks readily available for
 exclusion.
 
