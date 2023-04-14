@@ -6,11 +6,15 @@ keywords: [ingest]
 tags: [add, data, time-series]
 ---
 
+import HypershiftAlt from "versionContent/_partials/_hypershift-alternatively.mdx";
+
 # Add time-series data
 
 To explore Timescale's features, you need some sample data. This tutorial
 provides real-time stock trade data, also known as tick data, from
 [Twelve Data][twelve-data].
+
+<HypershiftAlt />
 
 ## About the dataset
 
@@ -54,6 +58,8 @@ second during trading hours.
 
 To ingest data into the tables that you created, you need to download the
 dataset and copy the data to your database.
+
+<HypershiftAlt />
 
 <Procedure>
 
@@ -106,8 +112,8 @@ docker cp tutorial_sample_company.csv timescaledb:/tutorial_sample_company.csv
 
 ## Next steps
 
-Now that you have data in your Timescale Cloud instance, learn how to [query the
-data][query-data].
+Now that you have data in your Timescale Cloud instance, learn how to
+[query the data][query-data].
 
 [twelve-data]: https://twelvedata.com/
 [query-data]: /getting-started/:currentVersion:/query-data/
