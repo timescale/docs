@@ -25,6 +25,13 @@ within the Docker container. For more information, and instructions, see the
 
 <PlanUpgrade />
 
+<Highlight type="note">
+If you use the Timescale Toolkit, ensure the `timescale_toolkit` extension is on
+version 1.4 or later, then upgrade the `timescaledb` extension. If required, you
+can then upgrade the `timescale_toolkit` extension again to get to the most
+recent version.
+</Highlight>
+
 ## Check your version
 
 You can check which version of TimescaleDB you are running, at the psql command
