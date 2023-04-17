@@ -142,9 +142,9 @@ ORDER BY bucket;
 ## Group data into time buckets
 
 The Timescale [`time_bucket`][time_bucket] function extends the PostgreSQL
-[`date_trunc`][date_trunc] function. Time bucket accepts arbitrary time
-intervals as well as optional offsets and returns the bucket start time. For
-example:
+[`date_bin`][date_bin] function. Time bucket accepts arbitrary time intervals
+of months or longer, as well as optional offsets, and returns the bucket
+start time. For example:
 
 ```sql
 SELECT time_bucket('5 minutes', time) AS five_min, avg(cpu)
@@ -407,7 +407,7 @@ hypertable, although this requires more compute resources. Alternatively, you
 speed up your `SELECT DISTINCT` queries by structuring them so that TimescaleDB can
 use its [SkipScan][skipscan] feature.
 
-[date_trunc]: https://www.postgresql.org/docs/current/static/functions-datetime.html#functions-datetime-trunc
+[date_bin]: hhttps://www.postgresql.org/docs/current/functions-datetime.html#FUNCTIONS-DATETIME-BIN
 [first]: /api/:currentVersion:/hyperfunctions/first
 [histogram]: /api/:currentVersion:/hyperfunctions/histogram
 [last]: /api/:currentVersion:/hyperfunctions/last
