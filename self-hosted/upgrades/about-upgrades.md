@@ -7,6 +7,8 @@ keywords: [upgrades]
 
 import PlanUpgrade from 'versionContent/_partials/_plan_upgrade.mdx';
 
+import ExperimentalUpgrade from "versionContent/_partials/_experimental-schema-upgrade.mdx";
+
 # About upgrades
 
 A major upgrade is when you upgrade from one major version of TimescaleDB, to
@@ -20,6 +22,8 @@ TimescaleDB&nbsp;2.6.
 If you originally installed TimescaleDB using Docker, you can upgrade from
 within the Docker container. For more information, and instructions, see the
 [Upgrading with Docker section][upgrade-docker].
+
+<ExperimentalUpgrade />
 
 ## Plan your upgrade
 
