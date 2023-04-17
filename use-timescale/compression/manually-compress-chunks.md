@@ -51,4 +51,4 @@ Cloud console.
 
 </Procedure>
 
-[self-hosted-compression]: s/elf-hosted/:currentVersion:/compression/manual-compression/
+[self-hosted-compression]: /self-hosted/:currentVersion:/compression/manual-compression/

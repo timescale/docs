@@ -1,7 +1,7 @@
 ---
 title: Migrate schema and data separately
-excerpt: Migrate your Timescale data and schema to Timescale Cloud
-products: [cloud]
+excerpt: Migrate your Timescale data and schema to self-hosted TimescaleDB
+products: [self_hosted]
 keywords: [data migration]
 tags: [ingest]
 ---
@@ -14,8 +14,8 @@ restart midway if one copy operation fails.
 
 <Highlight type="note">
 For smaller databases, it may be more convenient to migrate your entire database
-at once. For more information, see the section on [choosing a migration
-method](/use-timescale/latest/migrate-db/).
+at once. For more information, see the section on
+[choosing a migration method](/self-hosted/latest/migration/).
 </Highlight>
 
 <Highlight type="warning">
@@ -24,16 +24,16 @@ already-deleted data. For example, if you delete raw data after a month but
 retain downsampled data in a continuous aggregate for a year, the continuous
 aggregate loses any data older than a month upon migration. If you must keep
 continuous aggregates calculated using deleted data, migrate your entire
-database at once. For more information, see the section on [choosing a migration
-method](/use-timescale/latest/migrate-db/).
+database at once. For more information, see the section on
+[choosing a migration method](/self-hosted/latest/migration/).
 </Highlight>
 
 The procedure to migrate your database requires these steps:
 
 *   [Migrate schema pre-data](#migrate-schema-pre-data)
-*   [Restore hypertables in Timescale Cloud](#restore-hypertables-in-timescale-cloud)
+*   [Restore hypertables in Timescale](#restore-hypertables-in-timescale)
 *   [Copy data from the source database](#copy-data-from-the-source-database)
-*   [Restore data into Timescale Cloud](#restore-data-into-timescale-cloud)
+*   [Restore data into Timescale](#restore-data-into-timescale)
 *   [Migrate schema post-data](#migrate-schema-post-data)
 *   [Recreate continuous aggregates](#recreate-continuous-aggregates) (optional)
 *   [Recreate policies](#recreate-policies) (optional)
@@ -45,7 +45,7 @@ data can take a very long time. You can continue reading from your source
 database during this time, though performance could be slower. To avoid this
 problem, fork your database and migrate your data from the fork. If you write to
 the tables in your source database during the migration, the new writes might
-not be transferred to Timescale Cloud. To avoid this problem, see the section on
+not be transferred to Timescale. To avoid this problem, see the section on
 [migrating an active database](/use-timescale/latest/migrate-db/).
 </Highlight>
 
@@ -57,24 +57,24 @@ Before you begin, check that you have:
     utilities.
 *   Installed a client for connecting to PostgreSQL. These instructions use
     [`psql`][psql], but any client works.
-*   Created a new empty database in Timescale Cloud. For more information, see
-    the [Install Timescale Cloud section][install-timescale-cloud]. Provision
+*   Created a new empty database in Timescale. For more information, see
+    the [Install Timescale section][install-selfhosted]. Provision
     your database with enough space for all your data.
 *   Checked that any other PostgreSQL extensions you use are compatible with
-    Timescale Cloud. For more information, see the [list of compatible
+    Timescale. For more information, see the [list of compatible
     extensions][extensions]. Install your other PostgreSQL extensions.
 *   Checked that you're running the same major version of PostgreSQL on both
-    Timescale Cloud and your source database. For information about upgrading
+    Timescale and your source database. For information about upgrading
     PostgreSQL on your source database, see the [upgrade instructions for
     self-hosted TimescaleDB][upgrading-postgresql-self-hosted] and [Managed
     Service for TimescaleDB][upgrading-postgresql].
 *   Checked that you're running the same major version of Timescale on both
-    Timescale Cloud and your source database. For more information, see the
+    your target and source database. For more information, see the
     [upgrading Timescale section][upgrading-timescaledb].
 
 ## Migrate schema pre-data
 
-Migrate your pre-data from your source database to Timescale Cloud. This
+Migrate your pre-data from your source database to self-hosted TimescaleDB. This
 includes table and schema definitions, as well as information on sequences,
 owners, and settings. This doesn't include Timescale-specific schemas.
 
@@ -93,61 +93,32 @@ owners, and settings. This doesn't include Timescale-specific schemas.
     -f dump_pre_data.bak <DATABASE_NAME>
     ```
 
-1.  Restore the dumped data from the `dump_pre_data.bak` file into your Timescale Cloud
-    database, using your Timescale Cloud connection details. To avoid
+1.  Restore the dumped data from the `dump_pre_data.bak` file into your Timescale
+    database, using your Timescale connection details. To avoid
     permissions errors, include the `--no-owner` flag:
 
     ```bash
     pg_restore -U tsdbadmin -W \
-    -h <CLOUD_HOST> -p <CLOUD_PORT> --no-owner -Fc \
+    -h <HOST> -p <PORT> --no-owner -Fc \
     -v -d tsdb dump_pre_data.bak
     ```
 
 </Procedure>
 
-### Troubleshooting
-
-If you see any of these errors during the migration process, you can safely
-ignore them. The migration still occurs successfully.
-
-`pg_restore` tries to apply the TimescaleDB extension when it copies your
-schema. This can cause a permissions error. Because TimescaleDB is already
-installed by default on Timescale Cloud, you can safely ignore this.
-
-```bash
-pg_restore: creating EXTENSION "timescaledb"
-pg_restore: creating COMMENT "EXTENSION timescaledb"
-pg_restore: while PROCESSING TOC:
-pg_restore: from TOC entry 6239; 0 0 COMMENT EXTENSION timescaledb
-pg_restore: error: could not execute query: ERROR:  must be owner of extension timescaledb
-```
-
-If you have continuous aggregates, you might get the following error. Ignore
-this, because you [restore your aggregates](#recreate-continuous-aggregates)
-later on.
-
-```bash
-pg_restore: error: could not execute query: ERROR:  relation "_timescaledb_internal._materialized_hypertable_x" does not exist
-```
-
-```bash
-pg_restore: WARNING:  no privileges were granted for "<..>"
-```
-
-## Restore hypertables in Timescale Cloud
+## Restore hypertables in Timescale
 
 After pre-data migration, your hypertables from your source database become
-regular PostgreSQL tables in Cloud. Recreate your hypertables in Cloud to
+regular PostgreSQL tables in Timescale. Recreate your hypertables in Timescale to
 restore them.
 
 <Procedure>
 
-### Restoring hypertables in Timescale Cloud
+### Restoring hypertables in Timescale
 
-1.  Connect to your Timescale Cloud database:
+1.  Connect to your Timescale database:
 
     ```sql
-    psql "postgres://tsdbadmin:<CLOUD_PASSWORD>@<CLOUD_HOST>:<CLOUD_PORT>/tsdb?sslmode=require"
+    psql "postgres://tsdbadmin:<PASSWORD>@<HOST>:<PORT>/tsdb?sslmode=require"
     ```
 
 1.  Restore the hypertable:
@@ -196,10 +167,10 @@ Split each table by time range, and copy each range individually. For example:
 
 </Highlight>
 
-## Restore data into Timescale Cloud
+## Restore data into Timescale
 
 When you have copied your data into `.csv` files, you can restore it to
-Timescale Cloud by copying from the `.csv` files. There are two methods: using
+Timescale by copying from the `.csv` files. There are two methods: using
 regular PostgreSQL [`COPY`][copy], or using the TimescaleDB
 [`timescaledb-parallel-copy`][timescaledb-parallel-copy] function. In tests,
 `timescaledb-parallel-copy` is 16% faster. The `timescaledb-parallel-copy` tool
@@ -208,7 +179,7 @@ is not included by default. You must install the function.
 <Highlight type="important">
 Because `COPY` decompresses data, any compressed data in your source
 database is now stored uncompressed in your `.csv` files. If you
-provisioned your Timescale Cloud storage for your compressed data, the
+provisioned your Timescale storage for your compressed data, the
 uncompressed data may take too much storage. To avoid this problem, periodically
 recompress your data as you copy it in. For more information on compression, see
 the [compression section](https://docs.timescale.com/use-timescale/latest/compression/).
@@ -216,7 +187,7 @@ the [compression section](https://docs.timescale.com/use-timescale/latest/compre
 
 <Procedure>
 
-### Restoring data into Timescale Cloud with timescaledb-parallel-copy
+### Restoring data into Timescale with timescaledb-parallel-copy
 
 1.  At the command prompt, install `timescaledb-parallel-copy`:
 
@@ -225,14 +196,14 @@ the [compression section](https://docs.timescale.com/use-timescale/latest/compre
     ```
 
 1.  Use `timescaledb-parallel-copy` to import data into
-    your Cloud database. Set `<NUM_WORKERS>` to twice the number of CPUs in your
+    your Timescale database. Set `<NUM_WORKERS>` to twice the number of CPUs in your
     database. For example, if you have 4 CPUs, `<NUM_WORKERS>` should be `8`.
 
     ```bash
     timescaledb-parallel-copy \
-    --connection "host=<CLOUD_HOST> \
-    user=tsdbadmin password=<CLOUD_PASSWORD> \
-    port=<CLOUD_PORT> \
+    --connection "host=<HOST> \
+    user=tsdbadmin password=<PASSWORD> \
+    port=<PORT> \
     sslmode=require" \
     --db-name tsdb \
     --table <TABLE_NAME> \
@@ -247,15 +218,15 @@ the [compression section](https://docs.timescale.com/use-timescale/latest/compre
 
 <Procedure>
 
-### Restoring data into Timescale Cloud with COPY
+### Restoring data into Timescale with COPY
 
-1.  Connect to your Timescale Cloud database:
+1.  Connect to your Timescale database:
 
     ```sql
-    psql "postgres://tsdbadmin:<CLOUD_PASSWORD>@<CLOUD_HOST>:<CLOUD_PORT>/tsdb?sslmode=require"
+    psql "postgres://tsdbadmin:<PASSWORD>@<HOST>:<PORT>/tsdb?sslmode=require"
     ```
 
-1.  Restore the data to your Timescale Cloud database:
+1.  Restore the data to your Timescale database:
 
     ```sql
     \COPY <TABLE_NAME> FROM '<TABLE_NAME>.csv' WITH (FORMAT CSV);
@@ -286,13 +257,13 @@ schema post-data. This includes information about constraints.
     -f dump_post_data.bak <DATABASE_NAME>
     ```
 
-1.  Restore the dumped schema post-data from the `dump_post_data.bak` file into your Timescale
-    Cloud database, using your Timescale Cloud connection details. To avoid
-    permissions errors, include the `--no-owner` flag:
+1.  Restore the dumped schema post-data from the `dump_post_data.bak` file into
+    your Timescale database, using your connection details. To avoid permissions
+    errors, include the `--no-owner` flag:
 
     ```bash
     pg_restore -U tsdbadmin -W \
-    -h <CLOUD_HOST> -p <CLOUD_PORT> --no-owner -Fc \
+    -h <HOST> -p <PORT> --no-owner -Fc \
     -v -d tsdb dump_post_data.bak
     ```
 
@@ -315,8 +286,8 @@ pg_restore: error: could not execute query: ERROR:  trigger "ts_insert_blocker" 
 
 By default, continuous aggregates aren't migrated when you transfer your schema
 and data separately. Restore them by recreating the continuous aggregate
-definitions and recomputing the results on your Cloud database. The recomputed
-continuous aggregates only aggregate existing data in your Cloud database. They
+definitions and recomputing the results on your Timescale database. The recomputed
+continuous aggregates only aggregate existing data in your Timescale database. They
 don't include deleted raw data.
 
 <Procedure>
@@ -349,10 +320,10 @@ don't include deleted raw data.
     (1 row)
     ```
 
-1.  Connect to your Timescale Cloud database:
+1.  Connect to your Timescale database:
 
     ```bash
-    psql "postgres://tsdbadmin:<CLOUD_PASSWORD>@<CLOUD_HOST>:<CLOUD_PORT>/tsdb?sslmode=require"
+    psql "postgres://tsdbadmin:<PASSWORD>@<HOST>:<PORT>/tsdb?sslmode=require"
     ```
 
 1.  Recreate each continuous aggregate definition:
@@ -368,7 +339,7 @@ don't include deleted raw data.
 ## Recreate policies
 
 By default, policies aren't migrated when you transfer your schema and data
-separately. Recreate them on your Cloud database.
+separately. Recreate them on your Timescale database.
 
 <Procedure>
 
@@ -390,10 +361,10 @@ separately. Recreate them on your Cloud database.
         FROM timescaledb_information.jobs WHERE owner = '<SOURCE_DB_USERNAME>';
     ```
 
-1.  Connect to your Timescale Cloud database:
+1.  Connect to your Timescale database:
 
     ```sql
-    psql "postgres://tsdbadmin:<CLOUD_PASSWORD>@<CLOUD_HOST>:<CLOUD_PORT>/tsdb?sslmode=require"
+    psql "postgres://tsdbadmin:<PASSWORD>@<HOST>:<PORT>/tsdb?sslmode=require"
     ```
 
 1.  Recreate each policy. For more information about recreating policies, see
@@ -429,7 +400,7 @@ accessed. Skipping them does not affect statistics on your data.
 [copy]: https://www.postgresql.org/docs/9.2/sql-copy.html
 [compression-policy]: /getting-started/:currentVersion:/compress-data/
 [extensions]: /use-timescale/:currentVersion:/services/postgresql-extensions/
-[install-timescale-cloud]: /getting-started/latest/
+[install-selfhosted]: /self-hosted/:currentVersion:/install/
 [pg_dump]: https://www.postgresql.org/docs/current/app-pgdump.html
 [pg_restore]: https://www.postgresql.org/docs/current/app-pgrestore.html
 [psql]: /use-timescale/:currentVersion:/connecting/psql/

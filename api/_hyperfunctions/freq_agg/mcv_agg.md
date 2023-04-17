@@ -1,14 +1,14 @@
 ---
-api_name: topn_agg()
+api_name: mcv_agg()
 excerpt: Aggregate data into a space-saving aggregate for further calculation of most-frequent values
 topics: [hyperfunctions]
 api:
   license: community
   type: function
   toolkit: true
-  experimental: true
   version:
     experimental: 1.6.0
+    stable: 1.16.0
 hyperfunction:
   family: frequency analysis
   type: alternate aggregate
@@ -23,7 +23,7 @@ api_details:
   signatures:
     - language: sql
       code: |
-        topn_agg (
+        mcv_agg (
             n INTEGER,
             value AnyElement
             [, skew DOUBLE PRECISION]
@@ -56,12 +56,11 @@ api_details:
         Targets the top 10 most-frequent values.
       command:
         code: |
-          SELECT toolkit_experimental.topn_agg(10, country) FROM users;
+          SELECT mcv_agg(10, country) FROM users;
     - description: >
         Create a topN aggregate over the `type` column of the `devices` table.
         Estimates the skew of the data to be 1.05, and targets the 5 most-frequent values.
       command:
         code: |
-          SELECT toolkit_experimental.topn_agg(5, 1.05, type) FROM devices;
+          SELECT mcv_agg(5, 1.05, type) FROM devices;
 ---
-

@@ -26,7 +26,8 @@ This diagram describes how a restore from backup occurs after a storage failure:
 
 <Highlight type="note">
 Compute failures do not require a full restore from backup. For more
-information, see the docs on [rapid recovery][rapid-recovery].
+information, see the
+[rapid recovery section](docs.timescale.com/use-timescale/latest/ha-replicas/high-availability/#rapid-recovery).
 </Highlight>
 
 <img class="main-content__illustration"
@@ -36,5 +37,4 @@ backup is restored. Then, the incremental backup is restored.
 Finally, WAL is replayed to cover any remaining gap."/>
 
 [wal]: https://www.postgresql.org/docs/current/wal-intro.html
-[rapid-recovery]: /use-timescale/:currentVersion:/ha-replicas/read-scaling/#read-scaling
 [support]: https://www.timescale.com/support

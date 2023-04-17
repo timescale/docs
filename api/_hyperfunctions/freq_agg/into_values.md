@@ -6,9 +6,9 @@ api:
   license: community
   type: function
   toolkit: true
-  experimental: true
   version:
     experimental: 1.6.0
+    stable: 1.16.0
 hyperfunction:
   family: frequency analysis
   type: accessor
@@ -28,7 +28,7 @@ api_details:
     required:
       - name: agg
         type: SpaceSavingAggregate
-        description: A space-saving aggregate created using either [`freq_agg`](#freq_agg) or [`topn_agg`](#topn_agg)
+        description: A space-saving aggregate created using either [`freq_agg`](#freq_agg) or [`mcv_agg`](#mcv_agg)
     returns:
       - column: value
         type: AnyElement
@@ -40,4 +40,3 @@ api_details:
         type: DOUBLE PRECISION
         description: The maximum bound for the estimated frequency
 ---
-

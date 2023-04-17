@@ -77,12 +77,6 @@ Migrate your data into Timescale from within the same database.
 
 </Procedure>
 
-## Troubleshooting
-
-If you have unique or primary indexes on your old table, you might get an error
-about indexes and partitioning. See the [hypertables and unique indexes
-section][unique-indexes] section for more information.
-
 [create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
 [different-db]: /use-timescale/:currentVersion:/migrate-data/different-db/
 [install]: /getting-started/latest/

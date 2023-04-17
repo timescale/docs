@@ -84,7 +84,7 @@ provide the chunk time interval. In this case, each chunk is 10 minutes.
 
     ```sql
     SELECT create_hypertable('devices', 'time',
-      chunk_time_interval => 20);
+      chunk_time_interval => 10);
     ```
 
 </Procedure>

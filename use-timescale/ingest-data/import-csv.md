@@ -1,7 +1,7 @@
 ---
 title: Import data into Timescale from .csv
 excerpt: Import data into your Timescale instance from an external .csv file
-products: [mst, self_hosted]
+products: [cloud]
 keywords: [data migration]
 tags: [import, csv]
 ---
@@ -13,7 +13,8 @@ Timescale.
 
 ## Prerequisites
 
-Before beginning, make sure you have [installed and set up][install] Timescale.
+Before you start, make sure you have signed up for your
+[free Timescale account][install].
 
 ## Import data
 
