@@ -37,7 +37,7 @@ chunk.
 To set the integer now function for a hypertable with a time column in unix
 time (number of seconds since the unix epoch, UTC).
 
-```
+```sql
 CREATE OR REPLACE FUNCTION unix_now() returns BIGINT LANGUAGE SQL IMMUTABLE as $$ SELECT extract(epoch from now())::BIGINT $$;
 
 SELECT set_integer_now_func('test_table_bigint', 'unix_now');
