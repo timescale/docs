@@ -28,7 +28,7 @@ Before you start, make sure you have:
 *   Signed up for your [free Timescale account][install].
 *   Checked that your source data uses a schema that matches the database you
     want to import it into.
-*   Ensure the `time` column in your source data uses the `TIMESTAMPTZ` data type.
+*   Ensured that the `time` column in the source data uses the `TIMESTAMPTZ` data type.
 
 ## Import data
 
