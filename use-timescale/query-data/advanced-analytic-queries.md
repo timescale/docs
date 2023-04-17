@@ -142,9 +142,8 @@ ORDER BY bucket;
 ## Group data into time buckets
 
 The Timescale [`time_bucket`][time_bucket] function extends the PostgreSQL
-[`date_bin`][date_bin] function. Time bucket accepts arbitrary time intervals
-of months or longer, as well as optional offsets, and returns the bucket
-start time. For example:
+[`date_bin`][date_bin] function. Time bucket accepts arbitrary time intervals,
+as well as optional offsets, and returns the bucket start time. For example:
 
 ```sql
 SELECT time_bucket('5 minutes', time) AS five_min, avg(cpu)
