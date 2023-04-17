@@ -69,8 +69,8 @@ interval might take a long time to correct. For example, if you set
 shorten the chunk for that year. If you need to correct this situation, create a
 new hypertable and migrate your data.
 
-While chunk turnover generally should not degrade performance, chunk creation
-does take heavier locks than a normal `INSERT` operation into a chunk that has
+While chunk turnover does not degrade performance, chunk creation
+does take longer lock time than a normal `INSERT` operation into a chunk that has
 already been created. This means that if multiple chunks are being created at
 the same time, the transactions block each other until the first transaction is
 completed.
