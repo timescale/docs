@@ -28,5 +28,5 @@ tags: [hypertables, compression, alter_table, columns]
 
 If you attempt to add a column with constraints or defaults to a hypertable that
 has compression enabled, you might get this error. To add the column, you need
-to decompress the data in the hypertable, add the column, and then recompress
+to decompress the data in the hypertable, add the column, and then compress
 the data.

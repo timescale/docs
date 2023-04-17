@@ -31,7 +31,7 @@ all existing rows of all existing chunks.
 <Highlight type="important">
 You cannot add a column with constraints or defaults to a hypertable that has
 compression enabled. To add the column, you need to decompress the data in the
-hypertable, add the column, and then recompress the data.
+hypertable, add the column, and then compress the data.
 </Highlight>
 
 ## Rename a hypertable
