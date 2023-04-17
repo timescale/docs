@@ -849,6 +849,11 @@ module.exports = [
             excerpt: "Client credentials to programmatically access your Timescale Cloud account",
           },
           {
+            title: "Read only role",
+            href: "read-only-role",
+            excerpt: "Create a read-only role to access your database",
+          },
+          {
             title: "Connect with a stricter SSL mode",
             href: "strict-ssl",
             excerpt:
