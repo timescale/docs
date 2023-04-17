@@ -44,6 +44,9 @@ example:
 CREATE INDEX ON conditions (location, time DESC);
 ```
 
+For more information about the order to use when declaring indexes, see the
+[about indexing][about-index] section.
+
 If you do not want to create these default indexes, you can set
 `create_default_indexes` to `false` when you run the `create_hypertable` command.
 For example:
@@ -72,3 +75,4 @@ to any other columns you want to use. Generally,
 time-series data uses `UNIQUE` indexes more rarely than relational data.
 
 [create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
+[about-index]: /use-timescale/:currentVersion:/schema-management/about-indexing/
