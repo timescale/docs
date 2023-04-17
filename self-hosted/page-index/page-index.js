@@ -139,6 +139,32 @@ module.exports = [
         ],
       },
       {
+        title: "Migrate to self-hosted TimescaleDB",
+        href: "migration",
+        children: [
+          {
+            title: "Migrate entire database",
+            href: "entire-database",
+            excerpt: "Migrate an entire Timescale database to self-hosted Timescale in one go",
+          },
+          {
+            title: "Migrate schema then data",
+            href: "schema-then-data",
+            excerpt: "Migrate your Timescale data and schema to self-hosted TimescaleDB",
+          },
+          {
+            title: "Migrate tables from the same database",
+            href: "same-db",
+            excerpt: "Migrate data into a Timescale hypertable from a regular PostgreSQL tabl",
+          },
+          {
+            title: "Troubleshooting migration to self-hosted TimescaleDB",
+            href: "troubleshooting",
+            type: "placeholder",
+          },
+        ],
+      },
+      {
         title: "Manage storage using tablespaces",
         href: "manage-storage",
         excerpt: "Manage storage by moving data between tablespaces",

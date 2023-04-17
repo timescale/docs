@@ -1,34 +1,43 @@
 ---
-title: Migrate your PostgreSQL database to Timescale Cloud
-excerpt: Migrate an existing PostgreSQL database to Timescale Cloud
-products: [cloud]
+title: Migrate your PostgreSQL database to self-hosted TimescaleDB
+excerpt: Migrate an existing PostgreSQL database to Timescale
+products: [self_hosted]
 keywords: [data migration, self_hosted, postgresql, hypershift, RDS]
 tags: [ingest, migrate, RDS]
 ---
 
-# Migrate your PostgreSQL database to Timescale Cloud
+# Migrate your PostgreSQL database to self-hosted TimescaleDB
 
-You can migrate your data to Timescale Cloud so that you can use Timescale
-Cloud's exclusive features, including separate scaling for compute and storage
-requirements, first-class multi-node support, and more. You can migrate your
-data from Managed Service for TimescaleDB, from a self-hosted Timescale
-instance, or from another PostgreSQL database, including Amazon RDS.
+You can migrate your existing PostgreSQL database to your self-hosted Timescale
+installation.
 
 There are several methods for migrating your data:
 
-*   [Migrate an existing PostgreSQL database][hypershift]: Use the
-    hypershift tool to migrate an existing PostgreSQL database in one step,
-    creating hypertables on the fly, and compressing data during migration.
-*   [Migrate your entire database at once][migrate-entire]: This method
-    directly transfers all data and schemas, including Timescale-specific
-    features. Your hypertables, continuous aggregates, and policies are
-    automatically available in Cloud.
-*   [Migrate your schema and data separately][migrate-separately]: With this
+*   If the database you want to migrate is smaller than 100&nbsp;GB,
+    [migrate your entire database at once][migrate-entire]:
+    This method directly transfers all data and schemas, including
+    Timescale-specific features. Your hypertables, continuous aggregates, and
+    policies are automatically available in the new Timescale database.
+*   For databases larger than 100&nbsp;GB,
+    [migrate your schema and data separately][migrate-separately]: With this
     method, you migrate your tables one by one for easier failure recovery. If
     migration fails mid-way, you can restart from the failure point rather than
     from the beginning. However, Timescale-specific features won't be
     automatically migrated. Follow the instructions to restore your hypertables,
     continuous aggregates, and policies.
+*   If you need to move data from PostgreSQL tables into hypertables within an
+    existing Timescale database,
+    [migrate within the same database][migrate-same-db]: This method assumes that
+    you have Timescale set up in the same database instance as your existing table.
+*   If you have data in an InfluxDB database,
+    [migrate using Outflux][outflux]:
+    Outflux pipes exported data directly to Timescale, and manages schema
+    discovery, validation, and creation. Outflux works with earlier versions of
+    InfluxDB. It does not work with InfluxDB version 2 and later.
+
+Additionally, the hypershift tool can be used to migrate most PostgreSQL
+databases to self-hosted TimescaleDB. For more information about hypershift, see
+the [hypershift documentation][hypershift].
 
 ## Choose a migration method
 
@@ -68,11 +77,13 @@ migration and switch to the other method.
 ## Migrate an active database
 
 If your database is actively ingesting data, take precautions to ensure that
-Timescale Cloud contains the data that is ingested while the migration is
-happening. Begin by running ingest in parallel on the source database and
-Timescale Cloud. This ensures that the newest data is written to both databases.
-Then backfill your data with one of the two migration methods.
+your Timescale database contains the data that is ingested while the migration
+is happening. Begin by running ingest in parallel on the source and target
+databases. This ensures that the newest data is written to both databases. Then
+backfill your data with one of the two migration methods.
 
-[migrate-entire]: /use-timescale/:currentVersion:/migrate-db/entire-database/
-[migrate-separately]: /use-timescale/:currentVersion:/migrate-db/schema-then-data/
-[hypershift]: /use-timescale/:currentVersion:/migrate-db/hypershift/
+[migrate-entire]: /self-hosted/:currentVersion:/migration/entire-database/
+[migrate-separately]: /self-hosted/:currentVersion:/migration/schema-then-data/
+[migrate-same-db]: /self-hosted/:currentVersion:/migration/same-db/
+[outflux]: /self-hosted/:currentVersion:/migration/migrate-influxdb/
+[hypershift]: /use-timescale/:currentVersion:/migration/

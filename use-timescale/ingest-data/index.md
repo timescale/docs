@@ -1,8 +1,8 @@
 ---
-title: Ingesting data with third-party tools
+title: Ingesting data to your Timescale database
 excerpt: Use third-party tools to ingest data into TimescaleDB
-products: [cloud, mst, self_hosted]
-keywords: [ingest, pipelines, Prometheus, Kafka, Telegraf, timescaledb-parallel-copy]
+products: [cloud]
+keywords: [ingest, pipelines, Prometheus, Kafka, Telegraf, timescaledb-parallel-copy, csv]
 ---
 
 # Ingesting data with third-party tools
@@ -17,6 +17,7 @@ TimescaleDB:
 *   Ingest data using [Kafka][ingest-kafka]
 *   Ingest data using [Telegraf][ingest-telegraf]
 *   Ingest data using [TimescaleDB parallel copy][ingest-parallel]
+*   Ingest data [from a `.csv` file][ingest-csv]
 
 For more information about how to use standard SQL insert queries to write data
 into TimescaleDB, see the [Writing Data][writing-data] section.
@@ -26,3 +27,4 @@ into TimescaleDB, see the [Writing Data][writing-data] section.
 [ingest-prometheus]: /use-timescale/:currentVersion:/ingest-data/ingest-prometheus/
 [ingest-telegraf]: /use-timescale/:currentVersion:/ingest-data/ingest-telegraf/
 [writing-data]: /use-timescale/:currentVersion:/write-data/
+[ingest-csv]: /use-timescale/:currentVersion:/ingest-data/import-csv/
