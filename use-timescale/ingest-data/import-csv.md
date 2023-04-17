@@ -11,10 +11,24 @@ tags: [import, csv]
 If you have data stored in an external `.csv` file, you can import it into
 Timescale.
 
+<Highlight type="note">
+You can use the Timescale
+[parallel copy](https://github.com/timescale/timescaledb-parallel-copy)
+tool to speed up data copying. The tool parallelizes migration by using several
+workers to run multiple `COPY` operations concurrently. It also offers options
+to improve the copying experience. If you prefer not to use
+`timescaledb-parallel-copy`, you can also use regular PostgreSQL `COPY`. This
+section provides instructions for both methods.
+</Highlight>
+
 ## Prerequisites
 
-Before you start, make sure you have signed up for your
-[free Timescale account][install].
+Before you start, make sure you have:
+
+*   Signed up for your [free Timescale account][install].
+*   Checked that your source data uses a schema that matches the database you
+    want to import it into.
+*   Ensure the `time` column in your source data uses the `TIMESTAMPTZ` data type.
 
 ## Import data
 
@@ -23,15 +37,6 @@ Import data from a `csv`.
 <Procedure>
 
 ### Importing data
-
-<Highlight type="note">
-Timescale provides an open source
-[parallel importer](https://github.com/timescale/Timescale-parallel-copy) program,
-`Timescale-parallel-copy`, to speed up data copying. The program parallelizes
-migration by using several workers to run multiple `COPY`s concurrently. It also
-offers options to improve the copying experience. If you prefer not to download
-`timescaledb-parallel-copy`, you can also use regular PostgreSQL `COPY`.
-</Highlight>
 
 1.  Connect to your database and create a new empty table. Use a schema that
     matches the data in your `.csv` file. In this example, the `.csv` file
