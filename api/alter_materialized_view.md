@@ -1,5 +1,5 @@
 ---
-api_name: ALTER MATERLIALIZED VIEW (Continuous Aggregate)
+api_name: ALTER MATERIALIZED VIEW (Continuous Aggregate)
 excerpt: Change an existing continuous aggregate
 topics: [continuous aggregates]
 keywords: [continuous aggregates]
