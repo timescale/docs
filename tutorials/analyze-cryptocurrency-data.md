@@ -671,7 +671,7 @@ Ready for even more learning? Here's a few suggestions:
 [hypertable-blog]: https://blog.timescale.com/blog/when-boring-is-awesome-building-a-scalable-time-series-database-on-postgresql-2900ea453ee2/
 [hypertable-docs]: /use-timescale/:currentVersion:/hypertables
 [install-timescale]: /getting-started/latest/
-[migrate]: /use-timescale/:currentVersion:/migrate-data/
+[migrate]: /use-timescale/:currentVersion:/migration/
 [other-samples]: /tutorials/:currentVersion:/sample-datasets/
 [tableau-tutorial]: /tutorials/:currentVersion:/visualize-with-tableau/
 [time-series-forecasting]: /tutorials/:currentVersion:/time-series-forecast/
