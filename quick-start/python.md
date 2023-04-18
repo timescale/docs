@@ -465,7 +465,7 @@ advanced TimescaleDB tutorials:
 [continuous-aggregates]: /use-timescale/:currentVersion:/continuous-aggregates/
 [create-hypertable-docs]: /api/:currentVersion:/hypertable/create_hypertable
 [dictcursor-docs]: https://www.psycopg.org/docs/extras.html#dictionary-like-cursor
-[migrate]: /use-timescale/:currentVersion:/migration/
+[migrate]: /use-timescale/:currentVersion:/migrate-data/
 [other-samples]: /tutorials/:currentVersion:/sample-datasets/
 [pg-libpq-string]: https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING
 [pgcopy-install]: https://pypi.org/project/pgcopy/

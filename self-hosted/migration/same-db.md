@@ -10,7 +10,8 @@ tags: [import]
 
 You can migrate data into a Timescale hypertable from a regular PostgreSQL
 table. This method assumes that you have Timescale set up in the same database
-instance as your existing table.
+instance as your existing table. To migrate between PostgreSQL instances, see
+the instructions for [migrating data from a different database][different-db].
 
 ## Prerequisites
 
@@ -77,4 +78,6 @@ Migrate your data into Timescale from within the same database.
 </Procedure>
 
 [create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
+[different-db]: /use-timescale/:currentVersion:/migrate-data/different-db/
 [install]: /getting-started/latest/
+[unique-indexes]: /use-timescale/:currentVersion:/hypertables/hypertables-and-unique-indexes/

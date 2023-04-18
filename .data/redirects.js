@@ -1587,10 +1587,6 @@ const redirector = new ThreeOhOneRedirector({
     "/using-timescaledb/writing-data",
     "https://docs.timescale.com/timescaledb/latest/how-to-guides/write-data/"
   )
-  .add(
-    "/use-timescale/latest/migrate-data/",
-    "https://docs.timescale.com//use-timescale/latest/migration/"
-  )
   .add("/v0.8/", "https://docs.timescale.com/timescaledb/latest/", {
     exact: false,
     appendPath: true,

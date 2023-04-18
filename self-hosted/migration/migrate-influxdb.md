@@ -1,6 +1,6 @@
 ---
 title: Migrate data to Timescale from InfluxDB
-excerpt: Migrate data into Timescale using the Outflux tool
+excerpt: Mgirate data into Timescale using the Outflux tool
 products: [self_hosted]
 keywords: [data migration, InfluxDB]
 tags: [import, Outflux]

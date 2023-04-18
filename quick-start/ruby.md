@@ -675,7 +675,7 @@ page by page, or all pages together, and group by path or not:
 1.  To build a summary based on every single page, and to recursively navigate to
     all of the pages and build a summary for each page, add the following to
     `page_load.rb` in the `my_app/app/models/` folder:
-
+    
     ```ruby
     def self.resume_for(path)
        filter = where(path: path)
@@ -684,7 +684,7 @@ page by page, or all pages together, and group by path or not:
            resume[metric] = get[metric]
        end
     end
-
+    
     def self.metrics
        methods.grep /response_time/
     end
@@ -746,7 +746,7 @@ advanced TimescaleDB tutorials:
 *   [Migrate Your own Data][migrate]
 
 [continuous-aggregates]: /use-timescale/:currentVersion:/continuous-aggregates/
-[migrate]: /use-timescale/:currentVersion:/migration/
+[migrate]: /use-timescale/:currentVersion:/migrate-data/
 [other-samples]: /tutorials/:currentVersion:/sample-datasets/
 [connect]: #connect-to-timescaledb
 [create-table]: #create-a-relational-table
@@ -761,6 +761,7 @@ advanced TimescaleDB tutorials:
 [around_action]: https://guides.rubyonrails.org/action_controller_overview.html#after-filters-and-around-filters
 [benchmark]: https://github.com/ruby/benchmark
 [continuous-aggregates]: /use-timescale/:currentVersion:/continuous-aggregates/
+[migrate]: /use-timescale/:currentVersion:/migrate-data/
 [other-samples]: /tutorials/:currentVersion:/sample-datasets/
 [time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
 [time-series-forecasting]: /tutorials/:currentVersion:/time-series-forecast/
