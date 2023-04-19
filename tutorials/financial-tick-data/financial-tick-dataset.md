@@ -19,9 +19,9 @@ the top 100 most-traded symbols, in a hypertable named `stocks_real_time`. It
 also includes a separate table of company symbols and company names, in a
 regular PostgreSQL table named `company`.
 
-<Collapsible heading="Sign up for Timescale Cloud">
+<Collapsible heading="Sign up for Timescale">
 
-Install Timescale Cloud by signing up for an account. It's free for thirty days.
+Install Timescale by signing up for an account. It's free for thirty days.
 
 <Install />
 

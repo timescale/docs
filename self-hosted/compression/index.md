@@ -58,10 +58,10 @@ For more information, see the API reference for
 [`ALTER TABLE (compression)`][alter-table-compression] and
 [`add_compression_policy`][add_compression_policy].
 
-In Timescale Cloud, you can also set a compression policy through
-the Timescale Cloud console. The compression tool automatically generates and
+In Timescale, you can also set a compression policy through
+the Timescale console. The compression tool automatically generates and
 runs the compression commands for you. To learn more, see the
-[Timescale Cloud documentation](/use-timescale/latest/services/service-explorer/#setting-a-compression-policy-from-timescale-cloud-console).
+[Timescale documentation](/use-timescale/latest/services/service-explorer/#setting-a-compression-policy-from-timescale-cloud-console).
 
 ## View current compression policy
 

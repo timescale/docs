@@ -1,6 +1,6 @@
 ---
 title: High availability
-excerpt: Set up HA replicas on Timescale Cloud for high availability
+excerpt: Set up HA replicas on Timescale for high availability
 products: [cloud]
 keywords: [high availability, replicas]
 tags: [failover, availability zones, replication, wal]
@@ -13,10 +13,10 @@ import CloudTrial from "versionContent/_partials/_cloudtrial.mdx";
 
 # High availability
 
-All Timescale Cloud services come with a rapid recovery feature enabled by
+All Timescale services come with a rapid recovery feature enabled by
 default. Rapid recovery ensures that all services experience minimal downtime
 and data loss in the most common failure scenarios and during maintenance. For
-services with very low tolerance for downtime, Timescale Cloud offers high
+services with very low tolerance for downtime, Timescale offers high
 availability (HA) replicas. HA replicas significantly reduce the risk of
 downtime and data loss due to failures, and allow a service to avoid downtime
 for routine maintenance. This section will cover how each of these work to help
@@ -26,7 +26,7 @@ you make an informed decision about which is right for your service.
 
 ## HA replicas
 
-HA replicas in Timescale Cloud are exact, up-to-date copies of your database
+HA replicas in Timescale are exact, up-to-date copies of your database
 that automatically take over operations if your primary becomes unavailable,
 including during maintenance. HA replicas also have a unique address that you
 can use to serve read requests.  In technical terms, HA replicas are multi-AZ,
@@ -58,7 +58,7 @@ service to restart. Restarts typically take about one minute to complete.
 
 ### Creating an HA replica
 
-1.  [Log in to your Timescale Cloud account][cloud-login] and click the service
+1.  [Log in to your Timescale account][cloud-login] and click the service
     you want to replicate.
 1.  Navigate to the `Operations` tab, and select `High availability`.
 1.  Check the pricing of the replica, and click `Add a replica`. Confirm the
@@ -74,7 +74,7 @@ service to restart. Restarts typically take about one minute to complete.
 <img
 class="main-content__illustration"
 src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-replication-add.png"
-alt="Creating a database replica in Timescale Cloud"
+alt="Creating a database replica in Timescale"
 />
 
 </Procedure>
@@ -169,17 +169,17 @@ state to safely switch over.
 
 ## Rapid recovery
 
-Rapid recovery is the default for all services on Timescale Cloud. By decoupling
-compute and storage, Timescale Cloud can take different approaches to different
+Rapid recovery is the default for all services on Timescale. By decoupling
+compute and storage, Timescale can take different approaches to different
 types of failures, rather than always recovering from backup. In particular,
-Timescale Cloud can quickly recover from compute failures but will do a full
+Timescale can quickly recover from compute failures but will do a full
 recovery from backup for storage failures.
 
 Compute failing is by far the most common cause of database failure. Failures
 can be caused by hardware failure or by the user from unoptimized queries or
 increased load that maxes out the CPU usage and causes a failure. In these
 cases, only the instance (compute and memory) needs replacing since the data on
-disk is unaffected. If a failure occurs, Timescale Cloud immediately provisions
+disk is unaffected. If a failure occurs, Timescale immediately provisions
 a new database instance and mounts the database's existing storage (disk) to the
 new instance. Any WAL that was in memory then replays. This process typically
 only takes thirty seconds, though it may take up to twenty minutes in some
@@ -191,12 +191,12 @@ the user.
 
 Compute failures are by far the most common types of failures (>90%). That said,
 sometimes the disk hardware can fail, although this is very uncommon. In the
-event of a storage failure, Timescale Cloud automatically performs a full
+event of a storage failure, Timescale automatically performs a full
 recovery from backup. You can learn more about backup and recovery [here]
 [backup-recovery].
 
 <Highlight type="note">
-Timescale Cloud offers different tools to help improve the availability
+Timescale offers different tools to help improve the availability
 of services, but also needs help from the user. We recommend that Cloud
 users follow best practices to avoid situations like consistently
 maxing out CPU usage. These practices can result in worst-case
@@ -214,16 +214,16 @@ this mean?
 
 ### Asynchronous commits
 
-Timescale Cloud HA replicas are asynchronous. That means the primary database
+Timescale HA replicas are asynchronous. That means the primary database
 reports success once a transaction is completed locally. It doesn't wait to see
 if the replica successfully commits the transaction as well. The improves ingest
 rates and allows you to keep writing to your database even if a node fails.
 
-Timescale Cloud doesn't currently offer synchronous replicas.
+Timescale doesn't currently offer synchronous replicas.
 
 ### Hot standbys
 
-Timescale Cloud replicas are hot standbys. That means they are ready to take
+Timescale replicas are hot standbys. That means they are ready to take
 over when the primary fails. It also means you can read from your replica, even
 when the primary is running. You can reduce the load on your primary by
 distributing your read queries.
@@ -237,12 +237,12 @@ loss.
 
 ### Multi-AZ
 
-By default, Timescale Cloud replicas are created in a different availability
+By default, Timescale replicas are created in a different availability
 zone (AZ) than the primary. This provides additional availability for Timescale
 Cloud services with replicas, as it protects against entire AZ outages. If a
 primary is in an AZ that experiences an outage, the service can easily fail over
 to the replica.
 
 [cloud-login]: https://console.cloud.timescale.com
-[[replicas-blog]: https://www.timescale.com/blog/high-availability-for-your-production-environments-introducing-database-replication-in-timescale-cloud/
+[replicas-blog]: https://www.timescale.com/blog/high-availability-for-your-production-environments-introducing-database-replication-in-timescale-cloud/
 [backup-recovery]: /cloud/:currentVersion:/backup-restore-cloud/

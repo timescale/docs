@@ -1,12 +1,12 @@
 ---
-title: Timescale Cloud regions
-excerpt: Available AWS regions for your Timescale Cloud services
+title: Timescale regions
+excerpt: Available AWS regions for your Timescale services
 product: cloud
 ---
 
-# Timescale Cloud available regions
+# Timescale available regions
 
-Timescale Cloud is available in these clouds and regions:
+Timescale is available in these clouds and regions:
 
 Amazon Web Services:
 

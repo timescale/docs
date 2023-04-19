@@ -40,7 +40,7 @@ the last two days' worth of data.
 
 ### Creating a continuous aggregate
 
-1.  Connect to the Timescale Cloud database that contains the Twelve Data
+1.  Connect to the Timescale database that contains the Twelve Data
     cryptocurrency dataset.
 
 1.  At the psql prompt, create the continuous aggregate to aggregate data every
@@ -84,7 +84,7 @@ OHLCV values.
 
 ### Querying the continuous aggregate
 
-1.  Connect to the Timescale Cloud database that contains the Twelve Data
+1.  Connect to the Timescale database that contains the Twelve Data
     cryptocurrency dataset.
 
 1.  At the psql prompt, use this query to select all Bitcoin OHLCV data for the

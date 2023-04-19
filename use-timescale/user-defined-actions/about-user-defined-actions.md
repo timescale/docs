@@ -42,9 +42,9 @@ within a database.
 
 <Highlight type="cloud"
 header="Free demo dataset"
-button="Try Timescale Cloud for free">
-This example uses the Timescale Cloud Allmilk Factory demonstration dataset. You
-can use this educational dataset for free by signing up to Timescale Cloud.
+button="Try Timescale for free">
+This example uses the Timescale Allmilk Factory demonstration dataset. You
+can use this educational dataset for free by signing up to Timescale.
 </Highlight>
 
 Use this code to create the function:

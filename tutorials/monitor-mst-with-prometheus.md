@@ -34,7 +34,7 @@ This presents you with the option to add a Prometheus integration point.
 Select the plus icon to add a new endpoint and give it a name of your choice.
 We've named ours `endpoint_dev`.
 
-<img class="main-content__illustration" src="https://s3.amazonaws.com/docs.iobeam.com/images/Prometheus_service_integration_1.png" alt="Create a Prometheus endpoint on Timescale Cloud"/>
+<img class="main-content__illustration" src="https://s3.amazonaws.com/docs.iobeam.com/images/Prometheus_service_integration_1.png" alt="Create a Prometheus endpoint on Timescale"/>
 
 Furthermore, notice that you are given basic authentication information and a port number
 in order to access the service. This is used when setting up your Prometheus
@@ -46,7 +46,7 @@ installation, substituting the target port, IP address, username, and password
 for those of your managed TimescaleDB instance:
 
 ```yaml
-# prometheus.yml for monitoring a Timescale Cloud instance
+# prometheus.yml for monitoring a Timescale instance
 global:
  scrape_interval:     10s
  evaluation_interval: 10s

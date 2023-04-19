@@ -1,6 +1,6 @@
 ---
 title: Metrics and logging
-excerpt: Gather metrics and logs within Timescale Cloud
+excerpt: Gather metrics and logs within Timescale
 products: [cloud]
 keywords: [metrics, logs, admin]
 tags: [payment]
@@ -12,7 +12,7 @@ cloud_ui:
 
 # Metrics and logging
 
-You can see metrics and logs for your Timescale Cloud services in the Timescale
+You can see metrics and logs for your Timescale services in the Timescale
 Cloud dashboard. You can also integrate with third-party logging services.
 
 *   View [service metrics][metrics] in the dashboard.

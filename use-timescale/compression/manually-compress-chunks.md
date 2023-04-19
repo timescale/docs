@@ -7,7 +7,7 @@ keywords: [compression, hypertables]
 
 # Compression policy
 
-You can create a compression policy within the Timescale Cloud console.
+You can create a compression policy within the Timescale console.
 
 In most cases, an automated compression policy is sufficient. However, if you
 want more control over compression, you can also manually compress specific
@@ -27,7 +27,7 @@ Cloud console.
 
 ### Setting a compression policy
 
-1.  Inside the Timescale Cloud Service Explorer, select a hypertable.
+1.  Inside the Timescale Service Explorer, select a hypertable.
 1.  Select the `Policies` tab.
 1.  In the `Compression policy` section, click `Create compression policy`. A
     suggested policy interval is pre-selected for you, but you can change this

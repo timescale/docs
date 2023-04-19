@@ -59,8 +59,8 @@ on-premises or cloud infrastructure. However, you cannot make modifications to
 the TimescaleDB Community Edition source code and offer it as a service.
 
 Timescale provides hosted versions of TimescaleDB Community Edition:
-[Timescale Cloud][timescale-cloud] and
-[Managed Service for TimescaleDB][mst]. Timescale Cloud is a cloud-native
+[Timescale][timescale-cloud] and
+[Managed Service for TimescaleDB][mst]. Timescale is a cloud-native
 platform for time-series, hosted in AWS. MST is a database-as-a-service offering
 for TimescaleDB. MST is offered in AWS, Azure, and Google Cloud.
 

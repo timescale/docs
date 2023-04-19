@@ -1,11 +1,11 @@
-A service in Timescale Cloud is a cloud instance that contains your database.
+A service in Timescale is a cloud instance that contains your database.
 Each service contains a single database, named `tsdb`.
 
 <Procedure>
 
 ### Creating your first service
 
-1.  Sign in to the [Timescale Cloud portal][timescale-cloud]
+1.  Sign in to the [Timescale portal][timescale-cloud]
 1.  Click `Create service`.
 1.  Click `Advanced configuration` and set the `Region`, `Compute`, and `Disk size`
     for the service. With 1&nbsp;CPU, 4&nbsp;GB and 250&nbsp;GB you can ingest and
@@ -14,7 +14,7 @@ Each service contains a single database, named `tsdb`.
     disk size based on your ingestion rate and retention.
 
     <Highlight type="note">
-    Make sure the Promscale Connector and the service in Timescale Cloud are
+    Make sure the Promscale Connector and the service in Timescale are
     in the same region. Ideally, the latency between the Promscale
     Connector and database should be less than 100&nbsp;ms.
     </Highlight>

@@ -22,7 +22,7 @@ writing different types of data written by people who work with that data.
 ## Before you begin
 
 *   [Install Telegraf][install-telegraf] on the system where you want to collect metrics.
-*   Create a [TimescaleDB service][create-service] on Timescale Cloud.
+*   Create a [TimescaleDB service][create-service] on Timescale.
 *   Gather the connection details for [TimescaleDB][connect-timescaledb].
 *   Install Grafana or create a Grafana service on [Managed Service for TimescaleDB][grafana-mst]
 

@@ -11,7 +11,7 @@ cloud_ui:
 
 # Configure database parameters
 
-Timescale Cloud allows you to customize many Timescale and PostgreSQL
+Timescale allows you to customize many Timescale and PostgreSQL
 configuration options for each Service individually. Most configuration values
 for a service are initially set in accordance with best practices given the
 compute and storage settings of the service. Any time you increase or decrease
@@ -19,7 +19,7 @@ the compute for a Service, the most essential values are set to reflect the size
 of the new service.
 
 <Highlight type="warning">
-You can modify most parameters without restarting the Timescale Cloud Service.
+You can modify most parameters without restarting the Timescale Service.
 However, some changes do require a restart, resulting in some brief downtime
 that is usually about 30&nbsp;seconds. An example of a change that needs a
 restart is modifying the compute resources of a running service.
@@ -34,7 +34,7 @@ Overview, Explorer, Operations, Metrics, and Logs. Select `Operations`, then
 
 <img class="main-content__illustration"
 src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-settings.png"
-alt="View Timescale Cloud service settings"/>
+alt="View Timescale service settings"/>
 
 ### Modify basic parameters
 
@@ -52,7 +52,7 @@ ranges from 25 to 500 in higher compute tiers.
 
 <img class="main-content__illustration"
 src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-settings-change.png"
-alt="Change Timescale Cloud configuration parameters"/>
+alt="Change Timescale configuration parameters"/>
 
 ### Apply configuration changes
 
@@ -66,4 +66,4 @@ required. Click `Confirm` to apply the changes, and restart if necessary.
 
 <img class="main-content__illustration"
 src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-settings-confirm.png"
-alt="Confirm Timescale Cloud configuration changes"/>
+alt="Confirm Timescale configuration changes"/>

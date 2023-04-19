@@ -1,6 +1,6 @@
 ---
 title: Maintenance
-excerpt: How your Timescale Cloud service is kept up-to-date
+excerpt: How your Timescale service is kept up-to-date
 products: [cloud]
 keywords: [updates, upgrades, maintenance]
 cloud_ui:
@@ -10,10 +10,10 @@ cloud_ui:
 
 # Maintenance
 
-On Timescale Cloud, minor software updates are handled automatically by us, and
+On Timescale, minor software updates are handled automatically by us, and
 you do not need to perform any actions.
 
-Most updates performed on your Timescale Cloud services are applied during a
+Most updates performed on your Timescale services are applied during a
 maintenance window that you can define to suit your workload. However, if there
 is a critical security vulnerability that affects you, maintenance might need to
 occur outside of the scheduled maintenance window.
@@ -37,7 +37,7 @@ we might not be able to do so. It is important that you schedule your
 maintenance window to minimize the disruption that a short downtime might have
 on your workloads.
 
-To track the status of maintenance events, see the Timescale Cloud
+To track the status of maintenance events, see the Timescale
 [status page][status-page].
 
 <Highlight type="note">
@@ -85,7 +85,7 @@ system during the upgrade.
 
 ### Adjusting your maintenance window
 
-1.  [Log in to your Timescale Cloud account][cloud-login]. Click the name of the
+1.  [Log in to your Timescale account][cloud-login]. Click the name of the
     service that you want to manage the maintenance window for.
 1.  In the `Operations` tab, navigate to the `Maintenance` section, and
     click `Change maintenance window`.
@@ -93,9 +93,9 @@ system during the upgrade.
     timezone that you want the maintenance window to start. Maintenance windows
     can run for up to four hours.
 1.  Check `Apply new maintenance window to all services` if you want to use the
-    same maintenance window settings for all of your Timescale Cloud services.
+    same maintenance window settings for all of your Timescale services.
 1.  Click `Apply Changes`.
-    <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-maintenance-change.png" alt="Timescale Cloud change maintenance window"/>
+    <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-maintenance-change.png" alt="Timescale change maintenance window"/>
 
 </Procedure>
 
@@ -109,14 +109,14 @@ can plan accordingly. However, in some cases, we might not be able to do so.
 
 ## Upgrade to a new PostgreSQL version
 
-Timescale Cloud currently supports PostgreSQL&nbsp;12, 13, 14, and 15. You can see
-your PostgreSQL and Timescale versions from the Timescale Cloud service
+Timescale currently supports PostgreSQL&nbsp;12, 13, 14, and 15. You can see
+your PostgreSQL and Timescale versions from the Timescale service
 overview page.
 
 <!-- TODO: Add screenshot
 <img class="main-content__illustration"
     src="FIXME"
-    alt="The Timescale Cloud dashboard, showing the PostgreSQL and Timescale
+    alt="The Timescale dashboard, showing the PostgreSQL and Timescale
     versions"
 />
 -->
@@ -133,7 +133,7 @@ information about feature changes between versions, see the
 [Timescale release notes][timescale-relnotes].
 
 <Highlight type="warning">
-Your Timescale Cloud service is unavailable until the upgrade is complete. This
+Your Timescale service is unavailable until the upgrade is complete. This
 can take several hours. To estimate the length of time, it is usually one second
 of downtime per 100&nbsp;MB, but for a better estimate, you can test on a fork
 first.
@@ -151,11 +151,11 @@ For a smooth upgrade experience, make sure you:
     see the section on [forking][operations-forking].
 *   Keep a copy of your database with your old version and data, if you're
     worried about losing it. You can fork your database without upgrading the
-    fork to keep a duplicate Timescale Cloud service. You can immediately pause
+    fork to keep a duplicate Timescale service. You can immediately pause
     this fork to only pay for storage until you are comfortable deleting it.
 
 <Highlight type="important">
-Timescale Cloud services with replicas cannot be upgraded. To upgrade a service
+Timescale services with replicas cannot be upgraded. To upgrade a service
 with a replica,  you must first delete the replica and then upgrade the service.
 </Highlight>
 
@@ -163,11 +163,11 @@ with a replica,  you must first delete the replica and then upgrade the service.
 
 ### Upgrading to a new PostgreSQL version
 
-1.  In the Timescale Cloud console, navigate to `Services` and click the service
+1.  In the Timescale console, navigate to `Services` and click the service
     you want to upgrade.
 1.  Navigate to the `Operations` tab, and go to the `Maintenance` section.
 1.  If a new PostgreSQL version is available, click the `Upgrade` button, and
-    confirm that you are ready to start the upgrade. Your Timescale Cloud
+    confirm that you are ready to start the upgrade. Your Timescale
     service is unavailable for use until the upgrade is complete.
 1.  When the upgrade is finished, your service automatically resumes normal
     operations. If the upgrade is unsuccessful, the service returns to the state
@@ -175,7 +175,7 @@ with a replica,  you must first delete the replica and then upgrade the service.
 
 </Procedure>
 
-<Highlight type="cloud" header="Sign up for Timescale Cloud" button="Try for free">
+<Highlight type="cloud" header="Sign up for Timescale" button="Try for free">
 </Highlight>
 
 [cloud-login]: https://cloud.timescale.com

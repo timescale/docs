@@ -12,9 +12,9 @@ import Connect from "versionContent/_partials/_cloud-connect.mdx";
 import CreateHypertableNyc from "versionContent/_partials/_create-hypertable-nyctaxis.mdx";
 import AddDataNyc from "versionContent/_partials/_add-data-nyctaxis.mdx";
 
-## Sign up for Timescale Cloud
+## Sign up for Timescale
 
-Install Timescale Cloud by signing up for an account. It's free for thirty days.
+Install Timescale by signing up for an account. It's free for thirty days.
 
 <Install />
 

@@ -38,7 +38,7 @@ buckets.
 Times Square is located at (40.7589,-73.9851).
 </Highlight>
 
-1.  Connect to the Timescale Cloud database that contains the NYC taxi dataset.
+1.  Connect to the Timescale database that contains the NYC taxi dataset.
 1.  At the psql prompt, add the PostGIS extension:
 
     ```sql

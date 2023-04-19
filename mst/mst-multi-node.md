@@ -10,7 +10,7 @@ keywords: [multi-node]
 <Highlight type="deprecation">
 This section describes a feature that is deprecated on Managed Service for
 TimescaleDB. If you want to use multi-node, you can use
-[Timescale Cloud](/use-timescale/latest/services), our hosted, cloud-native TimescaleDB service.
+[Timescale](/use-timescale/latest/services), our hosted, cloud-native TimescaleDB service.
 You can also [self-host](/self-hosted/latest/install/) a TimescaleDB
 installation.
 </Highlight>
