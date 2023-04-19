@@ -26,9 +26,9 @@ within the Docker container. For more information, and instructions, see the
 <PlanUpgrade />
 
 <Highlight type="note">
-If you use the Timescale Toolkit, ensure the `timescale_toolkit` extension is on
+If you use the Timescale Toolkit, ensure the `timescaledb_toolkit` extension is on
 version 1.6.0, then upgrade the `timescaledb` extension. If required, you
-can then later upgrade the `timescale_toolkit` extension to the most
+can then later upgrade the `timescaledb_toolkit` extension to the most
 recent version.
 </Highlight>
 
