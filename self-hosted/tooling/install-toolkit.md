@@ -58,8 +58,9 @@ For more information on running TimescaleDB using Docker, see the section on
 
 ### Install Toolkit on CentOS 7 and other Red Hat-based systems
 
-These instructions use the `yum` package manager. They have been tested on CentOS 7
-and may also work on other Red Hat-based systems, such as Red Hat Enterprise Linux and Fedora.
+These instructions use the `yum` package manager. They have been tested on
+CentOS 7 and may also work on other Red Hat-based systems, such as Red Hat
+Enterprise Linux and Fedora.
 
 <Procedure>
 
