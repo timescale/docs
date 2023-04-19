@@ -1,7 +1,7 @@
 ---
 title: Install and update TimescaleDB Toolkit
 excerpt: How to install TimescaleDB Toolkit to access more hyperfunctions and function pipelines
-products: [ mst, self_hosted]
+products: [mst, self_hosted]
 keywords: [Toolkit, installation, hyperfunctions, function pipelines]
 ---
 
