@@ -12,8 +12,7 @@ You can create a role that provides read-only access to your database.
 
 <Highlight type="important">
 Adding a read-only user role to your database does not provide resource
-isolation. If you require the security of a read-only user, as well as resource
-isolation, you can create a read replica instead. For more information, see the
+isolation. If you want to restrict the access of a read-only user, as well as isolate resources, you can create a read replica instead. For more information, see the
 [read scaling](/use-timescale/latest/ha-replicas/read-scaling/)
 section.
 </Highlight>

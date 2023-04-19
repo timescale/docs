@@ -22,9 +22,9 @@ reads.
 
 <Highlight type="important">
 Using a separate read replica for read-only access provides both security and
-resource isolation. This means that the read-only user can't access the main
-database directly. If you require the security of a read-only user, but do not
-require resource isolation, you can create a read-only role in your database
+resource isolation. This means that users with read-only permissions can't access the main
+database directly. If you need to restrict the access of a read-only user but do not
+want to isolate the resource, you can create a read-only role in your database
 instead. For more information, see the
 [security](/use-timescale/latest/security/read-only-role/) section.
 </Highlight>
