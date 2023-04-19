@@ -7,6 +7,8 @@ keywords: [hyperfunctions, Toolkit, analytics]
 
 import Experimental from 'versionContent/_partials/_experimental.mdx';
 
+import ExperimentalUpgrade from "versionContent/_partials/_experimental-schema-upgrade.mdx";
+
 # About Timescale hyperfunctions
 
 Timescale hyperfunctions are a specialized set of functions that allow you to
@@ -31,11 +33,14 @@ marked 'experimental' are still under development.
 
 <Experimental />
 
+<ExperimentalUpgrade />
+
 <HyperfunctionTable
     includeExperimental
 />
 
-For more information about each of the API calls listed in this table, see our [hyperfunction API documentation][api-hyperfunctions].
+For more information about each of the API calls listed in this table, see the
+[hyperfunction API documentation][api-hyperfunctions].
 
 ## Function pipelines
 
