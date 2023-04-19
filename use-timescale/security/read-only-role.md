@@ -26,17 +26,25 @@ You can create a read-only user to provide limited access to your database.
 
 ### Creating a read-only user
 
+1.  Connect to your database as the `tsdbadmin` user.
+
 1.  At the psql prompt, create the new role:
 
     ```sql
     CREATE ROLE readaccess;
     ```
 
-1.  Grant the appropriate permissions for the role, as required:
+1.  Grant the appropriate permissions for the role, as required. For example, to
+    grant `SELECT` permissions to a specific table, use:
 
     ```sql
-    GRANT CONNECT ON DATABASE tsdb TO readaccess;
-    GRANT SELECT ON ALL TABLES IN SCHEMA public TO readaccess;
+    GRANT SELECT ON <TABLE_NAME> TO readaccess;
+    ```
+
+    To grant `SELECT` permissions to all tables in a specific schema, use:
+
+    ```sql
+    GRANT SELECT ON ALL TABLES IN SCHEMA <SCHEMA_NAME> TO readaccess;
     ```
 
 1.  Create a new user:
