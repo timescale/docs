@@ -281,6 +281,12 @@ module.exports = [
             excerpt:
               "Quickly insert bulk data by parallelizing `COPY` operations",
           },
+          {
+            title: "Ingesting data from a .csv file",
+            href: "import-csv",
+            excerpt:
+              "Import data into your Timescale instance from an external .csv file",
+          },
         ],
       },
       {

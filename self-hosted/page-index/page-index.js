@@ -155,7 +155,12 @@ module.exports = [
           {
             title: "Migrate tables from the same database",
             href: "same-db",
-            excerpt: "Migrate data into a Timescale hypertable from a regular PostgreSQL tabl",
+            excerpt: "Migrate data into a Timescale hypertable from a regular PostgreSQL table",
+          },
+          {
+            title: "Migrate data to Timescale from InfluxDB",
+            href: "migrate-influxdb",
+            excerpt: "Migrate data into Timescale using the Outflux tool",
           },
           {
             title: "Troubleshooting migration to self-hosted TimescaleDB",
