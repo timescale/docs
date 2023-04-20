@@ -1,4 +1,4 @@
-You can upgrade your on-premise Timescale installation in-place. This means
+You can upgrade your self-hosted Timescale installation in-place. This means
 that you do not need to dump and restore your data. However, it is still
 important that you plan for your upgrade ahead of time.
 

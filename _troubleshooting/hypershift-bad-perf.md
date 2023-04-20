@@ -1,7 +1,7 @@
 ---
 title: Hypershift migration runs slowly
 section: troubleshooting
-products: [cloud]
+products: [cloud, mst, self_hosted]
 topics: [database migration]
 keywords: [migration, hypershift]
 tags: [hypershift, migration, ingest, postgresql]
