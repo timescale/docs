@@ -17,6 +17,37 @@ GitHub and be notified by email whenever a new release is available. On the
 click `Watch`, select `Custom` and then check `Releases`.
 </Highlight>
 
+
+## 2.10.2 (2023-04-20)
+
+**Bugfixes**
+
+* #5410 Fix file trailer handling in the COPY fetcher
+* #5446 Add checks for malloc failure in libpq calls
+* #5233 Out of on_proc_exit slots on guc license change
+* #5428 Use consistent snapshots when scanning metadata
+* #5499 Do not segfault on large histogram() parameters
+* #5470 Ensure superuser perms during copy/move chunk
+* #5500 Fix when no FROM clause in continuous aggregate definition
+* #5433 Fix join rte in CAggs with joins
+* #5556 Fix duplicated entries on timescaledb_experimental.policies view
+* #5462 Fix segfault after column drop on compressed table
+* #5543 Copy scheduled_jobs list before sorting it
+* #5497 Allow named time_bucket arguments in Cagg definition
+* #5544 Fix refresh from beginning of Continuous Aggregate with variable time bucket
+* #5558 Use regrole for job owner
+* #5542 Enable indexscan on uncompressed part of partially compressed chunks
+
+**Thanks**
+
+* @nikolaps for reporting an issue with the COPY fetcher
+* @S-imo-n for reporting the issue on Background Worker Scheduler crash
+* @geezhu for reporting issue on segfault in historgram()
+* @mwahlhuetter for reporting the issue with joins in CAggs
+* @mwahlhuetter for reporting issue with duplicated entries on timescaledb_experimental.policies view
+* @H25E for reporting error refreshing from beginning of a Continuous Aggregate with variable time bucket
+
+
 ## 2.10.1 (2023-03-07)
 
 This release contains bug fixes since the 2.10.0 release.
