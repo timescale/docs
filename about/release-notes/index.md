@@ -20,7 +20,7 @@ click `Watch`, select `Custom` and then check `Releases`.
 
 ## 2.10.2 (2023-04-20)
 
-**Bugfixes**
+**Bug fixes**
 
 * #5410 Fix file trailer handling in the COPY fetcher
 * #5446 Add checks for malloc failure in libpq calls
