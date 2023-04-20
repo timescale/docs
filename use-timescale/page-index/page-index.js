@@ -13,6 +13,11 @@ module.exports = [
         excerpt: "Timescale Cloud services",
         children: [
           {
+            title: "Service overview",
+            href: "service-overview",
+            excerpt: "Timescale Cloud services overview",
+          },
+          {
             title: "Create a Timescale service",
             href: "create-a-service",
             excerpt: "Timescale Cloud services",
@@ -23,34 +28,9 @@ module.exports = [
             excerpt: "PostgreSQL services",
           },
           {
-            title: "Service overview",
-            href: "service-overview",
-            excerpt: "Timescale Cloud services overview",
-          },
-          {
-            title: "Clouds and regions",
-            href: "regions",
-            excerpt: "Timescale Cloud AWS regions",
-          },
-          {
             title: "Service explorer",
             href: "service-explorer",
             excerpt: "Timescale Cloud services explorer",
-          },
-          {
-            title: "Resources",
-            href: "resources",
-            excerpt: "Timescale Cloud services operations, Resources tab",
-          },
-          {
-            title: "Autoscale",
-            href: "autoscaling",
-            excerpt: "Timescale Cloud services operations, Autoscaling tab",
-          },
-          {
-            title: "Maintenance",
-            href: "maintenance",
-            excerpt: "Timescale Cloud services operations, Maintenance tab",
           },
           {
             title: "Service management",
@@ -58,12 +38,39 @@ module.exports = [
             excerpt:
               "Timescale Cloud services operations, Service management tab",
           },
-          {
-            title: "PostgreSQL extensions",
-            href: "postgresql-extensions",
-            excerpt: "Timescale Cloud PostgreSQL extensions",
-          },
         ],
+      },
+      {
+        title: "Clouds and regions",
+        href: "regions",
+        excerpt: "Timescale Cloud AWS regions",
+      },
+      {
+        title: "Resources",
+        href: "resources",
+        excerpt: "Using and changing resources in Timescale Cloud",
+        children: [
+          {
+            title: "Manually change resources",
+            href: "change-resources",
+            excerpt: "Manually adjust your service resources",
+          },
+          {
+            title: "Autoscale",
+            href: "autoscaling",
+            excerpt: "Autoscaling in Timescale Cloud",
+          },
+        ]
+      },
+      {
+        title: "Maintenance",
+        href: "maintenance",
+        excerpt: "Timescale Cloud services operations, Maintenance tab",
+      },
+      {
+        title: "PostgreSQL extensions",
+        href: "postgresql-extensions",
+        excerpt: "Timescale Cloud PostgreSQL extensions",
       },
       {
         title: "Connecting to Timescale",
