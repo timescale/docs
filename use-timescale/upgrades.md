@@ -1,6 +1,6 @@
 ---
-title: Maintenance
-excerpt: How your Timescale Cloud service is kept up-to-date
+title: Upgrades
+excerpt: Keeping your service up-to-date
 products: [cloud]
 keywords: [updates, upgrades, maintenance]
 cloud_ui:
