@@ -435,14 +435,14 @@ module.exports = [
         href: "compression",
         children: [
           {
-            title: "Manually compress chunks",
-            href: "manually-compress-chunks",
-            excerpt: "Manually compress data chunks",
+            title: "Compress chunks",
+            href: "compress-chunks",
+            excerpt: "Compress data chunks",
           },
           {
             title: "Decompress chunks",
             href: "decompress-chunks",
-            excerpt: "Manually decompress data chunks",
+            excerpt: "Decompress data chunks",
           },
           {
             title: "Backfill historical data",
