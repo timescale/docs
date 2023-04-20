@@ -41,6 +41,29 @@ module.exports = [
       {
         title: "VPC peering",
         href: "vpc-peering",
+        children: [
+          {
+            title: "Setting up VPC peering for the project",
+            href: "vpc-peering",
+          },
+          {
+            title:
+              "VPC peering on AWS",
+            href: "vpc-peering-aws",
+          },
+          {
+            title: "VPC peering on GCP",
+            href: "vpc-peering-gcp",
+          },
+          {
+            title: "VPC peering on Azure",
+            href: "vpc-peering-azure",
+          },
+          {
+            title: "Attaching a VPC to an AWS Transit Gateway",
+            href: "vpc-peering-aws-transit",
+          }
+        ],
       },
       {
         title: "Integrations",
