@@ -1,9 +1,9 @@
 ---
-title: How-to guides
+title: Use Timescale
 excerpt: Learn how to work with TimescaleDB
 ---
 
-# Using Timescale
+# Use Timescale
 
 This section contains information about using Timescale. If you're not sure how
 to find the information you need, try the [Find a docs page][find-docs] section.
