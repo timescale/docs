@@ -1,9 +1,9 @@
 module.exports = [
   {
-    title: "Getting started",
+    title: "Get started",
     href: "getting-started",
     pageComponents: ["featured-cards"],
-    excerpt: "Getting started with Timescale",
+    excerpt: "Get started with Timescale",
     children: [
       {
         title: "Create a hypertable",
