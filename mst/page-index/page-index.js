@@ -11,7 +11,7 @@ module.exports = [
         href: "about-mst",
       },
       {
-        title: "Install Managed Service for TimescaleDB",
+        title: "Get started with Managed Service for TimescaleDB",
         href: "installation-mst",
       },
       {
