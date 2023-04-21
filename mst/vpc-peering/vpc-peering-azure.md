@@ -19,23 +19,30 @@ using the VPC on Azure.
 ## Configuring a VPC peering on Azure
 
 <Procedure>
+
 1.  Log in with an Azure admin account, using the Azure CLI:
+
     ```bash
     az account clear
     az login
     ```
+
     This should open a window in your browser prompting to choose an Azure
     account to log in with. You need an account with at least the Application
     administrator role to create VPC peering. If you manage multiple Azure
     subscriptions, configure the Azure CLI to default to the correct
     subscription using the command:
+
     ```bash
     az account set --subscription <subscription name or id>
     ```
-1. Create application object in your AD tenant, using the Azure CLI:
-     ```bash
-     az ad app create --display-name "<name of your choosing>" --available-to-other-tenants --key-type Password
-     ```
+
+1.  Create application object in your AD tenant, using the Azure CLI:
+
+    ```bash
+    az ad app create --display-name "<NAME>" --available-to-other-tenants --key-type Password
+    ```
+
     This creates an entity to your AD that can be used to log into multiple AD
     tenants (--available-to-other-tenants ), but only the home tenant or the
     tenant the app was created in has the credentials to authenticate the app.
@@ -53,6 +60,7 @@ using the VPC on Azure.
     This creates a service principal to your subscription that may have
     permissions to peer your VNet. Save the `objectId` field from the output - this
     is referred to as `$user_sp_id`.
+
 1.  Set a password for your app object:
 
      ```bash
@@ -141,10 +149,11 @@ using the VPC on Azure.
     VNet, assign the role that you created in the previous step to the Timescale
     service principal with the scope of your VNet:
 
-   ```bash
+    ```bash
     az role assignment create --role $aiven_role_id --assignee-object-id $aiven_sp_id --scope $user_vnet_id
     ```
-1. Get your Azure Active Directory (AD) tenant id:
+
+1.  Get your Azure Active Directory (AD) tenant id:
 
    ```bash
    az account list
@@ -159,7 +168,7 @@ using the VPC on Azure.
     ```
 
     `$aiven_project_vpc_id` is the ID of the TimescaleProject VPC, and can be
-    found using `avn vpc list` in Aiven CLI.
+    found using the `avn vpc list` command.
 
     The Timescale platform creates a peering from the VNet in the Timescale
     Project VPC to the VNet in your subscription. In addition it creates a
@@ -176,7 +185,7 @@ using the VPC on Azure.
     up by the Timescale platform.
 
 1.  Run the following command until the state is no longer `APPROVED` , but
-    `PENDING_PEER`, in Aiven CLI:
+    `PENDING_PEER`:
 
     ```bash
     avn vpc peering-connection get -v --project-vpc-id $aiven_project_vpc_id --peer-cloud-account $user_subscription_id --peer-resource-group $user_resource_group --peer-vpc $user_vnet_name
