@@ -5,7 +5,7 @@ products: [mst]
 keywords: [vpc, peer, azure]
 ---
 
-# Configure VPC peering on AWS
+# Configure VPC peering on Azure
 
 You can Configure VPC peering for your Managed Service for TimescaleDB project,
 using the VPC on Azure.
