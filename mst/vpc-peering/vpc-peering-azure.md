@@ -31,7 +31,7 @@ using the VPC on Azure.
     subscription using the command:
     ```bash
     az account set --subscription <subscription name or id>
-    ``` 
+    ```
 1. Create application object in your AD tenant, using the Azure CLI:
      ```bash
      az ad app create --display-name "<name of your choosing>" --available-to-other-tenants --key-type Password
@@ -51,7 +51,7 @@ using the VPC on Azure.
     ```
 
     This creates a service principal to your subscription that may have
-    permissions to peer your VNet. Save the `objectId ` field from the output - this
+    permissions to peer your VNet. Save the `objectId` field from the output - this
     is referred to as `$user_sp_id`.
 1.  Set a password for your app object:
 
@@ -68,15 +68,15 @@ using the VPC on Azure.
     ```
 
     Make a note of these:
-    *   The id field which is referred to as `$user_vnet_id` 
+    *   The id field which is referred to as `$user_vnet_id`
     *   The Azure Subscription ID the part after `/subscriptions/` in the
         `resource ID`. This is referred to as `$user_subscription_id`.
-    *   The resource group name  or the `resourceGroup ` field in the output.
+    *   The resource group name  or the `resourceGroup` field in the output.
         This is referred to as `$user_resource_group`.
     *   The Vnet name or the name  field from the output as `$user_vnet_name`
         The `$user_vnet_id` should have the format:
         `/subscriptions/$user_subscription_id/resourceGroups/$user_resource_group/providers/Microsoft.Network/virtualNetworks/$user_vnet_name`.
- 
+
 1.  Grant your service principal permissions to peer. The service principal that
     you created needs to be assigned a role that has permission for the
     `Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write` action on
@@ -135,7 +135,7 @@ using the VPC on Azure.
     `AssignableScopes` . This in itself does not give permissions to your
     subscription - it merely restricts which scopes a role assignment can
     include. Save the id  field from the output - this is referred to as
-    `$aiven_role_id`. 
+    `$aiven_role_id`.
 
 1.  Assign the custom role to the Timescale service principal to peer with your
     VNet, assign the role that you created in the previous step to the Timescale
@@ -143,9 +143,9 @@ using the VPC on Azure.
 
    ```bash
     az role assignment create --role $aiven_role_id --assignee-object-id $aiven_sp_id --scope $user_vnet_id
-    ```    
+    ```
 1. Get your Azure Active Directory (AD) tenant id:
- 
+
    ```bash
    az account list
    ```
@@ -229,16 +229,16 @@ using the VPC on Azure.
     In case you get this error, it's possible the role assignment hasn't taken
     effect yet. If that is the case, try logging in again and creating the
     peering again after waiting a bit by repeating the commands in this step. If
-    the error message persists, please check the role assignment was correct.
+    the error message persists, check the role assignment was correct.
 
-    The client '<random uuid>' with object id '<another random uuid>' does not have
+    The client `<random uuid>` with object id `<another random uuid>` does not have
     authorization to perform action
-    'Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write' over scope
-    '$user_vnet_id' If access was recently granted, please refresh your credentials.
+    `Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write` over scope
+    '$user_vnet_id' If access was recently granted, refresh your credentials.
 
-1.  Check if the peering connection is `ACTIVE`, in Aiven CLI using:
+1.  In the Aiven CLI, check if the peering connection is `ACTIVE`:
 
-    ```bash 
+    ```bash
     avn vpc peering-connection get -v --project-vpc-id $aiven_project_vpc_id --peer-cl
     ```
 
