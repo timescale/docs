@@ -63,7 +63,7 @@ deeper into time-series data and data analysis using Timescale.
 
 [connect-with-code]: /quick-start/:currentVersion:/
 [ingest-real-time]: /tutorials/:currentVersion:/ingest-real-time-websocket-data
-[migrate-data]: /use-timescale/:currentVersion:/migrate-data/
+[migrate-data]: /use-timescale/:currentVersion:/migration/
 [sample-data]: /tutorials/:currentVersion:/sample-datasets/
 [twelve-data]: https://twelvedata.com/
 [visualize-data]: /tutorials/:currentVersion:/grafana/
