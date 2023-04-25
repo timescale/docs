@@ -154,16 +154,16 @@ information on releases, check out the
 [release notes][release-notes].
 
 *   <Tag type="download">
-    [PostgreSQL 15: Timescale release](https://timescalereleases.blob.core.windows.net/windows/timescaledb-postgresql-15_latest-windows-amd64.zip)
+    [PostgreSQL 15: Timescale release](https://github.com/timescale/timescaledb/releases/latest/download/timescaledb-postgresql-15-windows-amd64.zip)
     </Tag>
 *   <Tag type="download">
-    [PostgreSQL 14: Timescale release](https://timescalereleases.blob.core.windows.net/windows/timescaledb-postgresql-14_latest-windows-amd64.zip)
+    [PostgreSQL 14: Timescale release](https://github.com/timescale/timescaledb/releases/latest/download/timescaledb-postgresql-14-windows-amd64.zip)
     </Tag>
 *   <Tag type="download">
-    [PostgreSQL 13: Timescale release](https://timescalereleases.blob.core.windows.net/windows/timescaledb-postgresql-13_latest-windows-amd64.zip)
+    [PostgreSQL 13: Timescale release](https://github.com/timescale/timescaledb/releases/latest/download/timescaledb-postgresql-13-windows-amd64.zip)
     </Tag>
 *   <Tag type="download">
-    [PostgreSQL 12: Timescale release](https://timescalereleases.blob.core.windows.net/windows/timescaledb-postgresql-12_latest-windows-amd64.zip)
+    [PostgreSQL 12: Timescale release](https://github.com/timescale/timescaledb/releases/latest/download/timescaledb-postgresql-12-windows-amd64.zip)
     </Tag>
 
 ## Where to next
