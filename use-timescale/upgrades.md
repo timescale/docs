@@ -1,6 +1,6 @@
 ---
-title: Maintenance
-excerpt: How your Timescale Cloud service is kept up-to-date
+title: Upgrades
+excerpt: Keeping your service up-to-date
 products: [cloud]
 keywords: [updates, upgrades, maintenance]
 cloud_ui:
@@ -8,9 +8,9 @@ cloud_ui:
         - [services, :serviceID, operations, maintenance]
 ---
 
-# Maintenance
+# Maintenance and upgrades
 
-On Timescale Cloud, minor software updates are handled automatically by us, and
+On Timescale Cloud, minor software updates are handled automatically, and
 you do not need to perform any actions.
 
 Most updates performed on your Timescale Cloud services are applied during a

@@ -63,11 +63,6 @@ module.exports = [
         ]
       },
       {
-        title: "Maintenance",
-        href: "maintenance",
-        excerpt: "Timescale Cloud services operations, Maintenance tab",
-      },
-      {
         title: "PostgreSQL extensions",
         href: "postgresql-extensions",
         excerpt: "Timescale Cloud PostgreSQL extensions",
@@ -689,6 +684,11 @@ module.exports = [
             excerpt: "Timescale Cloud members list",
           },
         ],
+      },
+      {
+        title: "Upgrades",
+        href: "upgrades",
+        excerpt: "Keeping your service up-to-date",
       },
       {
         title: "Hyperfunctions",
