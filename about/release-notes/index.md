@@ -17,43 +17,60 @@ GitHub and be notified by email whenever a new release is available. On the
 click `Watch`, select `Custom` and then check `Releases`.
 </Highlight>
 
+## Timescale&nbsp;2.10.2 on 2023-04-20
 
-## 2.10.2 (2023-04-20)
+These release notes are for the release of Timescale&nbsp;2.10.2 on
+2023-04-20.
 
-**Bug fixes**
+<highlight type="note">
+This release contains bug fixes since the last release. It is considered low
+priority for upgrading. Upgrade your Timescale installation at your next
+opportunity.
+</highlight>
 
-* #5410 Fix file trailer handling in the COPY fetcher
-* #5446 Add checks for malloc failure in libpq calls
-* #5233 Out of on_proc_exit slots on guc license change
-* #5428 Use consistent snapshots when scanning metadata
-* #5499 Do not segfault on large histogram() parameters
-* #5470 Ensure superuser perms during copy/move chunk
-* #5500 Fix when no FROM clause in continuous aggregate definition
-* #5433 Fix join rte in CAggs with joins
-* #5556 Fix duplicated entries on timescaledb_experimental.policies view
-* #5462 Fix segfault after column drop on compressed table
-* #5543 Copy scheduled_jobs list before sorting it
-* #5497 Allow named time_bucket arguments in Cagg definition
-* #5544 Fix refresh from beginning of Continuous Aggregate with variable time bucket
-* #5558 Use regrole for job owner
-* #5542 Enable indexscan on uncompressed part of partially compressed chunks
+### Complete list of bug fixes
 
-**Thanks**
+*   #5410 Fix file trailer handling in the COPY fetcher
+*   #5446 Add checks for malloc failure in libpq calls
+*   #5233 Out of on_proc_exit slots on guc license change
+*   #5428 Use consistent snapshots when scanning metadata
+*   #5499 Do not segfault on large histogram() parameters
+*   #5470 Ensure superuser perms during copy/move chunk
+*   #5500 Fix when no FROM clause in continuous aggregate definition
+*   #5433 Fix join rte in CAggs with joins
+*   #5556 Fix duplicated entries on timescaledb_experimental.policies view
+*   #5462 Fix segfault after column drop on compressed table
+*   #5543 Copy scheduled_jobs list before sorting it
+*   #5497 Allow named time_bucket arguments in Cagg definition
+*   #5544 Fix refresh from beginning of Continuous Aggregate with variable time bucket
+*   #5558 Use regrole for job owner
+*   #5542 Enable indexscan on uncompressed part of partially compressed chunks
 
-* @nikolaps for reporting an issue with the COPY fetcher
-* @S-imo-n for reporting the issue on Background Worker Scheduler crash
-* @geezhu for reporting issue on segfault in historgram()
-* @mwahlhuetter for reporting the issue with joins in CAggs
-* @mwahlhuetter for reporting issue with duplicated entries on timescaledb_experimental.policies view
-* @H25E for reporting error refreshing from beginning of a Continuous Aggregate with variable time bucket
+### Acknowledgments
 
+Timescale thanks:
 
-## 2.10.1 (2023-03-07)
+*   @nikolaps for reporting an issue with the COPY fetcher
+*   @S-imo-n for reporting the issue on Background Worker Scheduler crash
+*   @geezhu for reporting issue on segfault in historgram()
+*   @mwahlhuetter for reporting the issue with joins in CAggs
+*   @mwahlhuetter for reporting issue with duplicated entries on
+    timescaledb_experimental.policies view
+*   @H25E for reporting error refreshing from beginning of a Continuous
+    Aggregate with variable time bucket
 
-This release contains bug fixes since the 2.10.0 release.
-We recommend that you upgrade at the next available opportunity.
+## Timescale&nbsp;2.10.1 on 2023-03-07
 
-**Bugfixes**
+These release notes are for the release of Timescale&nbsp;2.10.1 on
+2023-03-07.
+
+<highlight type="note">
+This release contains bug fixes since the last release. It is considered low
+priority for upgrading. Upgrade your Timescale installation at your next
+opportunity.
+</highlight>
+
+### Complete list of bug fixes
 
 *   #5159 Support Continuous Aggregates names in hypertable_(detailed_)size
 *   #5226 Fix concurrent locking with chunk_data_node table
@@ -67,33 +84,53 @@ We recommend that you upgrade at the next available opportunity.
 *   #5378 Fix multinode DML HA performance regression
 *   #5384 Fix Hierarchical Continuous Aggregates chunk_interval_size
 
-**Thanks**
+### Acknowledgments
 
-*   @justinozavala for reporting an issue with PL/Python procedures in the background worker
+Timescale thanks:
+
+*   @justinozavala for reporting an issue with PL/Python procedures in the
+    background worker
 *   @Medvecrab for discovering an issue with copying NameData when forming heap tuples.
-*   @pushpeepkmonroe for discovering an issue in upgrading old-style continuous aggregates with renamed columns
+*   @pushpeepkmonroe for discovering an issue in upgrading old-style continuous
+    aggregates with renamed columns
 
-## 2.10.0 (2023-02-21)
+## Timescale&nbsp;2.10.0 on 2023-02-21
 
-This release contains new features and bug fixes since the 2.9.3 release.
-We deem it moderate priority for upgrading.
+These release notes are for the release of Timescale&nbsp;2.10.1 on
+2023-03-07.
 
-This release includes these noteworthy features:
+<highlight type="important">
+This release contains new features and bug fixes since the last release. It is
+considered moderate priority for upgrading. Upgrade your Timescale installation
+as soon as possible.
+</highlight>
 
-*   Joins in continuous aggregates that are defined over hypertables. Support for joins in [hierarchical continuous aggregates](/use-timescale/latest/continuous-aggregates/hierarchical-continuous-aggregates/) will be introduced on a follow-up release.
-*   Re-architecture of how compression works: ~2x improvement on INSERT rate into compressed chunks.
-*   Full PostgreSQL 15 support for all existing features. Support for the newly introduced MERGE command on hypertables will be introduced on a follow-up release.
+### Highlighted features in this release
 
-**PostgreSQL 12 deprecation announcement**
-We will continue supporting PostgreSQL 12 until July 2023. Before that time, we will announce the specific version of TimescaleDB in which PostgreSQL 12 support will be removed.
+This release includes these new features:
 
-**Old format of continuous aggregates deprecation announcement**
-TimescaleDB 2.7 introduced a new format for continuous aggregates that improves performance.
-All instances with continuous aggregates using the old format should [migrate to the new format](/api/latest/continuous-aggregates/cagg_migrate/) by July 2023,
-when support for the old format will be removed.
-Before that time, we will announce the specific version of TimescaleDB in which support for this feature will be removed.
+*   JOINs in continuous aggregates that are defined over hypertables. Support
+    for joins in
+    [hierarchical continuous aggregates](/use-timescale/latest/continuous-aggregates/hierarchical-continuous-aggregates/)
+    will be introduced on a follow-up release.
+*   Re-architecture of how compression works: ~2x improvement on INSERT rate
+    into compressed chunks.
+*   Full PostgreSQL 15 support for all existing features. Support for the newly
+    introduced MERGE command on hypertables will be introduced on a follow-up
+    release.
 
-**Features**
+### Deprecations
+
+This release deprecates these features:
+
+*   PostgreSQL&nbsp;12 is now deprecated in Timescale, and remains supported
+    until July 2023. For more information about upgrading PostgreSQL, see the
+    [Upgrading PostgreSQL section][pg-upgrade].
+*   The older format of continuous aggregates is now deprecated, and remains
+    supported until July 2023. For more information about the new continuous
+    aggregate format, see the [continuous aggregates section][migrate-caggs].
+
+### Complete list of features
 
 *   #4874 Allow joins in continuous aggregates
 *   #4926 Refactor INSERT into compressed chunks
@@ -101,16 +138,20 @@ Before that time, we will announce the specific version of TimescaleDB in which 
 *   #5245 Manage life-cycle of connections via memory contexts
 *   #5246 Make connection establishment interruptible
 *   #5253 Make data node command execution interruptible
-*   #5262 Extend enabling compression on a continuous aggregrate with 'compress_segmentby' and 'compress_orderby' parameters
+*   #5262 Extend enabling compression on a continuous aggregrate with
+    'compress_segmentby' and 'compress_orderby' parameters
 
-**Bug fixes**
+### Complete list of bug fixes
 
 *   #5214 Fix use of prepared statement in async module
 *   #5218 Add role-level security to job error log
 *   #5239 Fix next_start calculation for fixed schedules
-*   #5290 Fix enabling compression on continuous aggregates with columns requiring quotation
+*   #5290 Fix enabling compression on continuous aggregates with columns
+    requiring quotation
 
-**Thanks**
+### Acknowledgments
+
+Timescale thanks:
 
 *   @henriquegelio for reporting the issue on fixed schedules
 
@@ -159,7 +200,8 @@ This release includes these new features:
 This release deprecates these features:
 
 -   PostgreSQL&nbsp;12 is now deprecated in Timescale, and remains supported
-    until July 2023. For more information about upgrading PostgreSQL, see the [Uprgading PostgreSQL section][pg-upgrade].
+    until July 2023. For more information about upgrading PostgreSQL, see the
+    [Upgrading PostgreSQL section][pg-upgrade].
 -   The older format of continuous aggregates is now deprecated, and remains
     supported until July 2023. For more information about the new continuous
     aggregate format, see the [continuous aggregates section][migrate-caggs].
