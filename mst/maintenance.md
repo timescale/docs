@@ -51,8 +51,9 @@ system during the upgrade.
 
 ### Adjusting your maintenance window
 
-1.  [Log in to your account][mst-login]. Click the name of the service that
-    you want to manage the maintenance window for.
+1.  Sign in to your [Managed Service for TimescaleDB portal][mst-login], and
+    click the name of the service that you want to manage the maintenance window
+    for.
 1.  In the `Maintenance window` section, click `Change`.
 1.  In the `Service Maintenance Window` dialog, select the day of the week and
     the time (in Universal Coordinated Time) you want the maintenance window to

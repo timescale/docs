@@ -1,5 +1,5 @@
 ---
-title: Create a read-only replica using Aiven client 
+title: Create a read-only replica using Aiven client
 excerpt: Create a read-only replica of the service using Aiven Command Line tool for fully managed services on AWS, Azure, or GCP.
 products: [mst]
 ---
@@ -12,13 +12,12 @@ good way to optimize query response times across different geographical
 locations, because the replica can be placed in different regions or
 even different cloud providers.
 
-## Before you begin
+## Prerequisites
 
 Before you begin, make sure you have:
 
+*   Created a service in your Managed Service for TimescaleDB account.
 *   Installed [Aiven Client][aiven-client-install].
-*   Signed in to your [Managed Service for TimescaleDB dashboard][mst-login].
-*   Created a [service][create-service] in Managed Service for TimescaleDB.
 
 <Procedure>
 
@@ -35,8 +34,8 @@ Before you begin, make sure you have:
     ```
 
 1.  List the services in the project, and make a note of the service that you
-    want to create a read-only replica for. It is listed under the`SERVICE_NAME` column in
-    the output:
+    want to create a read-only replica for. It is listed under the`SERVICE_NAME`
+    column in the output:
 
     ```bash
     avn service list
@@ -62,7 +61,8 @@ Before you begin, make sure you have:
 
 ## Example
 
-To create a fork named `replica-fork` for a service named `timescaledb` with these parameters:
+To create a fork named `replica-fork` for a service named `timescaledb` with
+these parameters:
 
 *   PROJECT_ID: `fork-project`
 *   CLOUD_NAME: `timescale-aws-us-east-1`
@@ -83,5 +83,3 @@ avn service list
 ```
 
 [aiven-client-install]: /mst/:currentVersion:/aiven-client/aiven-client-install/
-[create-service]: /mst/:currentVersion:/installation-mst/#create-your-first-service
-[mst-login]: https://portal.managed.timescale.com

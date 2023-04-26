@@ -1,7 +1,7 @@
 ---
 title: Connect TimescaleDB and Grafana
 excerpt: Connect Timescale Cloud to Grafana to visualize your data
-products: [cloud, mst, self_hosted]
+products: [cloud, mst]
 keywords: [Grafana, visualizations, analytics]
 ---
 
@@ -15,11 +15,13 @@ database. To add a data source in Grafana you must be signed as a user with
 organization administration role privileges.
 
 To connect Grafana with TimescaleDB on Timescale Cloud, start by installing Grafana.
-For more information about installing Grafana, see the [Grafana installation documentation][grafana-install].
+For more information about installing Grafana, see the
+[Grafana documentation][grafana-install].
 
-Alternatively, to connect your Grafana service on MST with your TimescaleDB service
-on Timescale Cloud, create a [Grafana][install-grafana] service on
-[MST][mst-login]. You can try it for free for 30 days.
+Alternatively, to connect your Grafana service on MST with your TimescaleDB
+service on Timescale Cloud, create a [Grafana][install-grafana] service on
+[Managed Service for TimescaleDB][mst-login].
+You can try it for free for 30 days.
 
 This section shows you how to connect TimescaleDB on Timescale Cloud
 as a data source in [Grafana][grafana-homepage].
