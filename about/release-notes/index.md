@@ -4,9 +4,9 @@ excerpt: New features and fixes are released regularly
 keywords: [upgrades, updates, releases]
 ---
 
-# Timescale release notes
+# TimescaleDB release notes
 
-This page contains release notes for Timescale&nbsp;2.10.0 and newer. For
+This page contains release notes for TimescaleDB&nbsp;2.10.0 and newer. For
 release notes for older versions, see the
 [past releases section][past-relnotes].
 
@@ -17,14 +17,14 @@ GitHub and be notified by email whenever a new release is available. On the
 click `Watch`, select `Custom` and then check `Releases`.
 </Highlight>
 
-## Timescale&nbsp;2.10.2 on 2023-04-20
+## TimescaleDB&nbsp;2.10.2 on 2023-04-20
 
-These release notes are for the release of Timescale&nbsp;2.10.2 on
+These release notes are for the release of TimescaleDB&nbsp;2.10.2 on
 2023-04-20.
 
 <highlight type="note">
 This release contains bug fixes since the last release. It is considered low
-priority for upgrading. Upgrade your Timescale installation at your next
+priority for upgrading. Upgrade your TimescaleDB installation at your next
 opportunity.
 </highlight>
 
@@ -59,14 +59,14 @@ Timescale thanks:
 *   @H25E for reporting error refreshing from beginning of a Continuous
     Aggregate with variable time bucket
 
-## Timescale&nbsp;2.10.1 on 2023-03-07
+## TimescaleDB&nbsp;2.10.1 on 2023-03-07
 
 These release notes are for the release of Timescale&nbsp;2.10.1 on
 2023-03-07.
 
 <highlight type="note">
 This release contains bug fixes since the last release. It is considered low
-priority for upgrading. Upgrade your Timescale installation at your next
+priority for upgrading. Upgrade your TimescaleDB installation at your next
 opportunity.
 </highlight>
 
@@ -94,14 +94,14 @@ Timescale thanks:
 *   @pushpeepkmonroe for discovering an issue in upgrading old-style continuous
     aggregates with renamed columns
 
-## Timescale&nbsp;2.10.0 on 2023-02-21
+## TimescaleDB&nbsp;2.10.0 on 2023-02-21
 
-These release notes are for the release of Timescale&nbsp;2.10.1 on
+These release notes are for the release of TimescaleDB&nbsp;2.10.1 on
 2023-03-07.
 
 <highlight type="important">
 This release contains new features and bug fixes since the last release. It is
-considered moderate priority for upgrading. Upgrade your Timescale installation
+considered moderate priority for upgrading. Upgrade your TimescaleDB installation
 as soon as possible.
 </highlight>
 
@@ -123,7 +123,7 @@ This release includes these new features:
 
 This release deprecates these features:
 
-*   PostgreSQL&nbsp;12 is now deprecated in Timescale, and remains supported
+*   PostgreSQL&nbsp;12 is now deprecated in TimescaleDB, and remains supported
     until July 2023. For more information about upgrading PostgreSQL, see the
     [Upgrading PostgreSQL section][pg-upgrade].
 *   The older format of continuous aggregates is now deprecated, and remains
@@ -161,28 +161,28 @@ Use this template when writing new release notes. Make sure you include only the
 most recent release notes on this page, and cut and paste the older release
 notes to the `past-releases` page.
 
-## Timescale&nbsp;<RELEASE_NUMBER> on <DATE>
+## TimescaleDB&nbsp;<RELEASE_NUMBER> on <DATE>
 
-These release notes are for the release of Timescale&nbsp;<RELEASE_NUMBER> on
-<DATE>. (For example: "Timescale&nbsp;2.10.0 on 2021-02-21")
+These release notes are for the release of TimescaleDB&nbsp;<RELEASE_NUMBER> on
+<DATE>. (For example: "TimescaleDB&nbsp;2.10.0 on 2021-02-21")
 
 Pick the most appropriate:
 
 <highlight type="warning">
 This release contains important security updates, along with new features and
 bug fixes since the last release. It is considered high priority for upgrading.
-Upgrade your Timescale installation immediately.
+Upgrade your TimescaleDB installation immediately.
 </highlight>
 
 <highlight type="important">
 This release contains new features and bug fixes since the last release. It is
-considered moderate priority for upgrading. Upgrade your Timescale installation
+considered moderate priority for upgrading. Upgrade your TimescaleDB installation
 as soon as possible.
 </highlight>
 
 <highlight type="note">
 This release contains bug fixes since the last release. It is considered low
-priority for upgrading. Upgrade your Timescale installation at your next
+priority for upgrading. Upgrade your TimescaleDB installation at your next
 opportunity.
 </highlight>
 
@@ -225,7 +225,7 @@ Timescale thanks:
 
 --->
 
-For release notes for older Timescale versions, see the
+For release notes for older TimescaleDB versions, see the
 [past releases section][past-relnotes].
 
 [past-relnotes]: /about/:currentVersion:/release-notes/past-releases/
