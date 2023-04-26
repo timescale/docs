@@ -22,11 +22,11 @@ click `Watch`, select `Custom` and then check `Releases`.
 These release notes are for the release of TimescaleDB&nbsp;2.10.2 on
 2023-04-20.
 
-<highlight type="note">
+<Highlight type="note">
 This release contains bug fixes since the last release. It is considered low
 priority for upgrading. Upgrade your TimescaleDB installation at your next
 opportunity.
-</highlight>
+</Highlight>
 
 ### Complete list of bug fixes
 
@@ -64,11 +64,11 @@ Timescale thanks:
 These release notes are for the release of Timescale&nbsp;2.10.1 on
 2023-03-07.
 
-<highlight type="note">
+<Highlight type="note">
 This release contains bug fixes since the last release. It is considered low
 priority for upgrading. Upgrade your TimescaleDB installation at your next
 opportunity.
-</highlight>
+</Highlight>
 
 ### Complete list of bug fixes
 
@@ -99,11 +99,11 @@ Timescale thanks:
 These release notes are for the release of TimescaleDB&nbsp;2.10.1 on
 2023-03-07.
 
-<highlight type="important">
+<Highlight type="important">
 This release contains new features and bug fixes since the last release. It is
 considered moderate priority for upgrading. Upgrade your TimescaleDB installation
 as soon as possible.
-</highlight>
+</Highlight>
 
 ### Highlighted features in this release
 
