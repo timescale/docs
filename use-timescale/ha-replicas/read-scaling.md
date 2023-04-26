@@ -20,6 +20,15 @@ parent, or primary, service, making them ideal for creating isolated
 instances with up-to-date production data for analysis or scaling out
 reads.
 
+<Highlight type="important">
+Using a separate read replica for read-only access provides both security and
+resource isolation. This means that users with read-only permissions can't access the main
+database directly. If you need to restrict the access of a read-only user but do not
+want to isolate the resource, you can create a read-only role in your database
+instead. For more information, see the
+[security](/use-timescale/latest/security/read-only-role/) section.
+</Highlight>
+
 ## Analytics
 
 Read replicas can create an isolated environment for a business analyst to run
@@ -89,3 +98,4 @@ performance degradation on the primary. For more information, see the
 
 [cloud-login]: https://console.cloud.timescale.com
 [ha]: /use-timescale/:currentVersion:/ha-replicas/high-availability/
+[read-only-role]:

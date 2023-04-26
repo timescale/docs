@@ -1,5 +1,5 @@
 ---
-title: Install Managed Service for TimescaleDB
+title: Get started with Managed Service for TimescaleDB
 nav-title: Managed Service for TimescaleDB
 excerpt: Start a TimescaleDB instance on Managed Service for TimescaleDB
 products: [mst]
@@ -11,7 +11,7 @@ keywords: [installation]
 import MSTIntro from "versionContent/_partials/_mst-intro.mdx";
 import CloudMSTComparison from "versionContent/_partials/_cloud-mst-comparison.mdx";
 
-# Install Managed Service for TimescaleDB
+# Gat started with Managed Service for TimescaleDB
 
 <MSTIntro />
 
@@ -19,7 +19,7 @@ import CloudMSTComparison from "versionContent/_partials/_cloud-mst-comparison.m
 
 <Procedure>
 
-## Installing Managed Service for TimescaleDB
+## Sign in to Managed Service for TimescaleDB
 
 1.  Sign up for a [Managed Service for TimescaleDB account][sign-up] with your
     name and email address. You do not need to provide payment details to

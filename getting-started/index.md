@@ -1,5 +1,5 @@
 ---
-title: Getting started with Timescale
+title: Get started with Timescale
 excerpt: Get started with your first Timescale instance
 products: [cloud]
 ---

@@ -40,6 +40,12 @@ nodes. This is not just because they have different workloads, but also because
 access nodes are less demanding for storage than data nodes. Data nodes have a
 single scaling threshold that applies across all the data nodes.
 
+## Configure autoscaling for disk size
+
+Disk size autoscaling is enabled by default on most services. You can configure
+autoscaling on your services to work in the most effective way for your
+workload.
+
 <Procedure>
 
 ### Configuring autoscaling for disk size
@@ -59,7 +65,7 @@ single scaling threshold that applies across all the data nodes.
 
 </Procedure>
 
-### Limitations of autoscaling
+## Limitations of autoscaling
 
 Under very heavy data ingest loads, your data might grow faster than your new
 storage can be optimized. There must be a gap of at least 6 hours between
@@ -83,7 +89,7 @@ is triggered at 85&nbsp;GB, and the second resize is triggered at 118&nbsp;GB.
 If you expect your data to grow from 85&nbsp;GB to 118&nbsp;GB within a day, you
 should manually resize your storage to accommodate the heavy load.
 
-### Size increase gradations
+## Size increase gradations
 
 Size increases occur with these gradations:
 

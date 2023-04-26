@@ -13,6 +13,11 @@ module.exports = [
         excerpt: "Timescale services",
         children: [
           {
+            title: "Service overview",
+            href: "service-overview",
+            excerpt: "Timescale Cloud services overview",
+          },
+          {
             title: "Create a Timescale service",
             href: "create-a-service",
             excerpt: "Timescale services",
@@ -433,14 +438,14 @@ module.exports = [
         href: "compression",
         children: [
           {
-            title: "Manually compress chunks",
-            href: "manually-compress-chunks",
-            excerpt: "Manually compress data chunks",
+            title: "Compress chunks",
+            href: "compress-chunks",
+            excerpt: "Compress data chunks",
           },
           {
             title: "Decompress chunks",
             href: "decompress-chunks",
-            excerpt: "Manually decompress data chunks",
+            excerpt: "Decompress data chunks",
           },
           {
             title: "Backfill historical data",
@@ -852,7 +857,12 @@ module.exports = [
           {
             title: "Client credentials",
             href: "client-credentials",
-            excerpt: "Client credentials to programmatically access your Timescale account",
+            excerpt: "Client credentials to programmatically access your Timescale Cloud account",
+          },
+          {
+            title: "Read only role",
+            href: "read-only-role",
+            excerpt: "Create a read-only role to access your database",
           },
           {
             title: "Connect with a stricter SSL mode",

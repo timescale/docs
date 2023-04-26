@@ -1,6 +1,6 @@
 ---
-title: Resources
-excerpt: Manage your service resources
+title: Manually change resources
+excerpt: Manually adjust your service resources
 products: [cloud]
 keywords: [services, operation, storage]
 tags: [disk space, resources, oom, memory]
@@ -9,51 +9,11 @@ cloud_ui:
         - [services, :serviceID, operations, resources]
 ---
 
-# Resources
-
-Timescale allows you to resize compute (CPU/RAM) and storage independently
-at any time. This is useful when you need to do something like increasing your
-storage capacity, but not your compute size. You can resize compute and storage
-in the Timescale console for any service, including members of multi-node
-clusters.
-
-Storage changes are applied with no downtime, and the new storage capacity is
-usually available for use within a few seconds.
-
-*   Storage can only be increased in size. You cannot decrease the amount of
-    storage capacity your service has available.
-*   Storage size changes can only be made once every six hours.
-*   Storage can range in size from 10&nbsp;GB to 16&nbsp;TB,
-     and can be changed in various increments.
-
-You can increase or decrease the compute size of your service at any time, with
-a short downtime.
-
-*   There is momentary downtime while the new compute settings are applied.
-    In most cases, this downtime is less than 30 seconds.
-*   Because compute changes require an interruption to your service, plan
-    accordingly so that the settings are applied during an appropriate service
-    window.
-
-To modify the compute or storage of your service, select the service that you
-want to modify, and navigate to the `Operations` tab. Go to the `Resources`
-section to see the current resource settings for the service.
-
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-resources-unchanged.png" alt="View Timescale service resource information"/>
-
-When you change compute or storage settings, the current and new hourly charges
-are displayed immediately so that you can verify how the changes impact your
-costs.
-
-You can use the Timescale console to change how much CPU and memory
-resources your service has available, as well as change the disk size for your
-service. You can adjust this manually as required, or for disk size you can use autoscaling.
-
-## Change resource allocations manually
+# Manually change resources
 
 You can manually change both storage and compute resources.
 
-### Storage resources
+## Storage resources
 
 When you change the disk size, the changes are applied with no downtime. The
 new size generally becomes available within a few seconds. You can only increase
@@ -72,7 +32,7 @@ the second resize fails. For more information on storage optimization, see the
 documentation. To prevent this, wait for the recommended time between resizes.
 </Highlight>
 
-### Compute resources
+## Compute resources
 
 You can change the CPU and memory allocation for your service at any time, with
 minimal downtime, usually less than thirty seconds. The new resources become
@@ -88,7 +48,7 @@ plan for this before you begin!
 
 ### Changing resource allocations manually
 
-1.  In the Timescale console, from the `Services` list, click the name of
+1.  In the Timescale Cloud console, from the `Services` list, click the name of
     the service you want to modify.
 1.  In the `Service details` page, navigate to the `Operations` tab, and click
     `Resources`.
@@ -102,25 +62,9 @@ plan for this before you begin!
 
 </Procedure>
 
-## Configure autoscaling for disk size
-
-Timescale contains several mechanisms for managing disk space on your
-services. There are four key tasks that Cloud performs to handle disk space:
-
-1.  Detect if storage capacity begins to fill up
-1.  Notify you about the growth of storage consumption
-1.  Automatically activate overload protections
-1.  Allow you to return your database to a normal state
-
-By default, Timescale services have autoscaling enabled. Autoscaling
-automatically increases your disk size, up to a maximum amount, as you fill the
-disk. For more information about autoscaling, including instructions for setting
-the maximum limit, or turning autoscaling off, see the
-[autoscaling][autoscaling] section.
-
 ## Storage recovery
 
-If you have reached the maximum size allowable in your Timescale service,
+If you have reached the maximum size allowable in your Timescale Cloud service,
 read-only mode is automatically applied. If you need to perform actions on your
 database to reduce your data usage, you can turn off read-only mode. For
 example, you need read-write access if you want to compress data, delete rows or
@@ -168,14 +112,14 @@ protection is automatically removed, and you can start writing data again.
 
 ## Out of memory errors
 
-If you run intensive queries on your Timescale services, you might
+If you run intensive queries on your Timescale Cloud services, you might
 encounter out of memory (OOM) errors. This occurs if your query consumes more
 memory than is available.
 
 When this happens, an `OOM killer` process shuts down PostgreSQL processes using
 `SIGKILL` commands, until the memory usage falls below the upper limit. Because
 this kills the entire server process, it usually requires a restart. To
-prevent service disruption caused by OOM errors, Timescale attempts to
+prevent service disruption caused by OOM errors, Timescale Cloud attempts to
 shut down only the query that caused the problem. This means that the
 problematic query does not run, but that your PostgreSQL service continues to
 operate normally.
@@ -188,7 +132,7 @@ If the normal OOM killer is triggered, the error log looks like this:
 
 Wait for the entire service to come back online before reconnecting.
 
-If Timescale successfully guards the service against the OOM killer, it shuts
+If Timescale Cloud successfully guards the service against the OOM killer, it shuts
 down only the client connection that was using too much memory. This prevents
 the entire PostgreSQL service from shutting down, so you can reconnect
 immediately. The error log looks like this:
