@@ -52,23 +52,12 @@ module.exports = [
             href: "autoscaling",
             excerpt: "Timescale services operations, Autoscaling tab",
           },
-          {
-            title: "Maintenance",
-            href: "maintenance",
-            excerpt: "Timescale services operations, Maintenance tab",
-          },
-          {
-            title: "Service management",
-            href: "service-management",
-            excerpt:
-              "Timescale services operations, Service management tab",
-          },
-          {
-            title: "PostgreSQL extensions",
-            href: "postgresql-extensions",
-            excerpt: "Timescale PostgreSQL extensions",
-          },
-        ],
+        ]
+      },
+      {
+        title: "PostgreSQL extensions",
+        href: "postgresql-extensions",
+        excerpt: "Timescale Cloud PostgreSQL extensions",
       },
       {
         title: "Connecting to Timescale",
@@ -687,6 +676,11 @@ module.exports = [
             excerpt: "Timescale members list",
           },
         ],
+      },
+      {
+        title: "Upgrades",
+        href: "upgrades",
+        excerpt: "Keeping your service up-to-date",
       },
       {
         title: "Hyperfunctions",
