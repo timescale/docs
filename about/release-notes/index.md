@@ -168,23 +168,23 @@ These release notes are for the release of TimescaleDB&nbsp;<RELEASE_NUMBER> on
 
 Pick the most appropriate:
 
-<highlight type="warning">
+<Highlight type="warning">
 This release contains important security updates, along with new features and
 bug fixes since the last release. It is considered high priority for upgrading.
 Upgrade your TimescaleDB installation immediately.
-</highlight>
+</Highlight>
 
-<highlight type="important">
+<Highlight type="important">
 This release contains new features and bug fixes since the last release. It is
 considered moderate priority for upgrading. Upgrade your TimescaleDB installation
 as soon as possible.
-</highlight>
+</Highlight>
 
-<highlight type="note">
+<Highlight type="note">
 This release contains bug fixes since the last release. It is considered low
 priority for upgrading. Upgrade your TimescaleDB installation at your next
 opportunity.
-</highlight>
+</Highlight>
 
 ### Highlighted features in this release
 
