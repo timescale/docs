@@ -206,4 +206,4 @@ For more information about setting up multi-node, see the
 [real-time-aggs]: /use-timescale/:currentVersion:/continuous-aggregates/hierarchical-continuous-aggregates/
 [pg-materialized views]: https://www.postgresql.org/docs/current/rules-materializedviews.html
 [real-time-aggs]: /use-timescale/:currentVersion:/continuous-aggregates/real-time-aggregates/
-[caggs-joins]: /use-timescale/:currentVersion:/continuous-aggregates/about-continuous-aggregates#FIXME
+[caggs-joins]: /use-timescale/:currentVersion:/continuous-aggregates/about-continuous-aggregates/#continuous-aggregates-with-a-join-clause

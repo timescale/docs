@@ -165,7 +165,7 @@ GROUP BY name, bucket;
 <Highlight type="note">
 For more information about creating a continuous aggregate with a `JOIN`,
 including some additional restrictions, see the
-[about continuous aggregates section](https://docs.timescale.com/use-timescale/latest/continuous-aggregates/about-continuous-aggregates#FIXME).
+[about continuous aggregates section](https://docs.timescale.com/use-timescale/latest/continuous-aggregates/about-continuous-aggregates/#continuous-aggregates-with-a-join-clause).
 </Highlight>
 
 ## Query continuous aggregates
