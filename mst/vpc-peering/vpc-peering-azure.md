@@ -235,7 +235,7 @@ using the VPC on Azure.
     peering. After the peering has been created the peering should be in state
     connected.
 
-    In case you get this error, it's possible the role assignment hasn't taken
+    In case you get the following error, it's possible the role assignment hasn't taken
     effect yet. If that is the case, try logging in again and creating the
     peering again after waiting a bit by repeating the commands in this step. If
     the error message persists, check the role assignment was correct.
