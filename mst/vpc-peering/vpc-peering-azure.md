@@ -158,7 +158,7 @@ using the VPC on Azure.
    az account list
    ```
 
-   Make of the `tenantId` field from the output. It is referred to as `$user_tenant_id`.
+   Make note of the `tenantId` field from the output. It is referred to as `$user_tenant_id`.
 
 1.  Create a peering connection from the Timescale Project VPC using Aiven CLI:
 
