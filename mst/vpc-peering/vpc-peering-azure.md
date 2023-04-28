@@ -172,7 +172,7 @@ using the VPC on Azure.
     The Timescale platform creates a peering from the VNet in the Timescale
     Project VPC to the VNet in your subscription. In addition, it creates a
     service principal for the application object in your tenant
-    `--peer-azure-app-id $user_app_id` giving it permission to target the
+    `--peer-azure-app-id $user_app_id`, giving it permission to target the
     Timescale subscription VNet with a peering. Your AD tenant ID is also needed
     in order for the Timescale application object to authenticate with your
     tenant to give it access to the service principal that you created
