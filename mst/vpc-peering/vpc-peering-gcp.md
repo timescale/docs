@@ -35,7 +35,7 @@ To set up VPC peering for your project:
     A new connection with a status of `Pending Peer` is listed in your GCP
     console. Make a note of the project name and the network name.
 
-1.  In the GCP console go to `VPC` > `VPC network peering` and select
+1.  In the GCP console, go to `VPC` > `VPC network peering` and select
     `Create Connection`.
 1.  Type a name for the peering connection and type the project ID and network
     name that you made a note of.
