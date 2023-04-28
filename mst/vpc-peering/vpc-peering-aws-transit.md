@@ -14,7 +14,7 @@ attached - directly or indirectly - to the Transit Gateway.
 
 ## Before you begin
 
-*   Set up a [VPC peering for your project in MST] [vpc-peering].
+*   Set up a [VPC peering for your project in MST][vpc-peering].
 *   In your AWS console go to `My Account` and make a note of your `account ID`.
 *   In your AWS console go to `Transit Gateways` find the transit gateway that
     you want to attach and make a note of the ID.
