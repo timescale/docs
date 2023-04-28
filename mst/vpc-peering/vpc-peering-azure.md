@@ -232,7 +232,7 @@ using the VPC on Azure.
     If you do not specify `--allow-vnet-access` no traffic is allowed to flow
     from the peered VNet and Timescale services cannot be reached through the
     peering. After the peering has been created, the peering should be in the state
-    connected.
+    `connected`.
 
     In case you get the following error, it's possible the role assignment hasn't taken
     effect yet. If that is the case, try logging in again and creating the
