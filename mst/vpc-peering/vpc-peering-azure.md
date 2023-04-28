@@ -27,7 +27,7 @@ using the VPC on Azure.
     az login
     ```
 
-    This should open a window in your browser prompting to choose an Azure
+    This should open a window in your browser prompting you to choose an Azure
     account to log in with. You need an account with at least the Application
     administrator role to create VPC peering. If you manage multiple Azure
     subscriptions, configure the Azure CLI to default to the correct
