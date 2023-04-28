@@ -238,11 +238,13 @@ using the VPC on Azure.
     effect yet. If that is the case, try logging in again and creating the
     peering again after waiting a bit by repeating the commands in this step. If
     the error message persists, check the role assignment was correct.
-
+    
+    ```bash
     The client `<random uuid>` with object id `<another random uuid>` does not have
     authorization to perform action
     `Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write` over scope
     '$user_vnet_id' If access was recently granted, refresh your credentials.
+    ```
 
 1.  In the Aiven CLI, check if the peering connection is `ACTIVE`:
 
