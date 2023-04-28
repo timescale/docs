@@ -75,7 +75,7 @@ using the VPC on Azure.
     ```
 
     Make a note of these:
-    *   The id field which is referred to as `$user_vnet_id`
+    *   The id field, which is referred to as `$user_vnet_id`
     *   The Azure Subscription ID the part after `/subscriptions/` in the
         `resource ID`. This is referred to as `$user_subscription_id`.
     *   The resource group name  or the `resourceGroup` field in the output.
