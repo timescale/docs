@@ -826,7 +826,7 @@ Ready for more learning? Here's a few suggestions:
 [continuous-aggregates]: /getting-started/:currentVersion:/create-cagg/
 [hypertables]: /use-timescale/:currentVersion:/hypertables
 [install-timescale]: /getting-started/latest/
-[migrate]: /use-timescale/:currentVersion:/migrate-data/
+[migrate]: /use-timescale/:currentVersion:/migration/
 [other-samples]: /tutorials/:currentVersion:/sample-datasets/
 [parallel-copy]: https://github.com/timescale/timescaledb-parallel-copy
 [postgis]: http://postgis.net/documentation
