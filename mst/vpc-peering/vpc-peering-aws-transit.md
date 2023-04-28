@@ -35,7 +35,7 @@ To set up VPC peering for your project:
 
 1.  Type the IP range in the `Network cidrs` field.
 
-    While a Transit Gateway has a route table of its own, and by default routes
+    Each Transit Gateway has a route table of its own, and by default routes
     traffic to each attached network directly to attached VPCs or indirectly
     through VPN attachments. The attached VPCs' route tables need to be updated
     to include the TGW as a target for any IP range (CIDR) that should be routed
