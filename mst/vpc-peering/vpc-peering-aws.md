@@ -13,9 +13,9 @@ using the VPC on AWS.
 ## Before you begin
 
 *   Set up a VPC peering for your project in MST.
-*   In your AWS console go to `My Account` and make a note of your `account ID`.
-*   In your AWS console go to `Peering connections` find the VPC that you want to
-    connect and make a note of the ID for that VPC.
+*   In your AWS console, go to `My Account` and make a note of your `account ID`.
+*   In your AWS console, go to `Peering connections`, find the VPC that you want to
+    connect, and make a note of the ID for that VPC.
 
 ## Configuring a VPC peering
 
