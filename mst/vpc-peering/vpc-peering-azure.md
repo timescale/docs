@@ -87,8 +87,8 @@ using the VPC on Azure.
 1.  Grant your service principal permissions to peer. The service principal that
     you created needs to be assigned a role that has permission for the
     `Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write` action on
-    the scope of your VNet. To limit the amount of permissions the app object
-    and service principal has, you can create a custom role with just that
+    the scope of your VNet. To limit the permissions granted to the app object
+    and service principal, you can create a custom role with just that
     permission. The built-in `Network Contributo`r role includes that
     permission, and can be found using, `az role definition list --name "Network
     Contributor"` The id  field from the output is used as
