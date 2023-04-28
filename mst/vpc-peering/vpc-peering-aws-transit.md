@@ -33,7 +33,7 @@ To set up VPC peering for your project:
 
 1.  Type the ID of the transit gateway of AWS in `Transit Gateway ID`.
 
-1.  Type the IP range in `Network cidrs` field.
+1.  Type the IP range in the `Network cidrs` field.
 
     While a Transit Gateway has a route table of its own, and by default routes
     traffic to each attached network directly to attached VPCs or indirectly
