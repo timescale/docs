@@ -44,7 +44,7 @@ To set up VPC peering for your project:
 
 1.  Click `Add peering connection`.
 
-    A new connection with the status as `Pending Acceptance` is listed in your
+    A new connection with a status of `Pending Acceptance` is listed in your
     AWS console. Verify that the account ID and transit gateway ID match those
     listed in the MST portal.
 
