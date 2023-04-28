@@ -13,9 +13,9 @@ using the VPC on GCP.
 ## Before you begin
 
 *   Set up a VPC peering for your project in MST.
-*   In your GCP console click the project name and make a note of the `Project ID`.
-*   In your GCP console go to `VPC Networks` find the VPC that you want to
-    connect and make a note of the network name for that VPC.
+*   In your GCP console, click the project name and make a note of the `Project ID`.
+*   In your GCP console, go to `VPC Networks`, find the VPC that you want to
+    connect, and make a note of the network name for that VPC.
 
 ## Configuring a VPC peering on GCP
 
