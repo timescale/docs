@@ -36,7 +36,7 @@ To set up VPC peering for your project:
     AWS console. Verify that the account ID and VPC ID match those listed in the
     MST portal.
 
-1.  In the AWS console go to `Actions` and select `Accept Request`. Update your
+1.  In the AWS console, go to `Actions` and select `Accept Request`. Update your
     AWS route tables to match your Aiven CIDR settings.
 
 After you accept the request in AWS Console, the peering connection is active in
