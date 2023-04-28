@@ -21,8 +21,8 @@ you can have multiple projects that peer with different connections.
 Services are only accessible via your VPC's internal network. They are not
 accessible from the public internet. TLS certificates for VPC peered services are
 signed by the Timescale project CA and cannot be validated against a public CA
-(Let's Encrypt). You can choose service-by-service whether you want to run on VPC
-peered network or on public internet.
+(Let's Encrypt). You can choose service-by-service whether you want to run on a VPC
+peered network or on the public internet.
 </Highlight>
 
 You can set up VPC peering on:
