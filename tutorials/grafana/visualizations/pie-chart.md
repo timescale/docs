@@ -36,13 +36,13 @@ same information. This tutorial shows you how to create both.
 
 <GrafanaVizPrereqs />
 
-## Create a pie chart with preaggregated data
+## Create a pie chart with pre-aggregated data
 
 Create a pie chart visualization using the data in the table `stocks_real_time`.
 
 <Procedure>
 
-### Creating a pie chat with preaggregated data
+### Creating a pie chat with pre-aggregated data
 
 1.  In the query editor, use this SQL to query a pie chart dataset. Use the
     variable `$bucket interval` for the time period covered by the pie chart:

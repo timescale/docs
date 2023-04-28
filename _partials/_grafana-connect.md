@@ -5,8 +5,7 @@ You can use Grafana to visualize queries directly from your Timescale database.
 
 Before you begin, make sure you have:
 
-*   Installed Timescale. For more information, see the
-    [installation documentation][install].
+*   Created a [Timescale Cloud][cloud-login] service.
 *   Installed a self-managed Grafana account, or signed up for
     [Grafana Cloud][install-grafana].
 *   Found the connection details for the database you want to use as a data source.
@@ -81,4 +80,4 @@ a few test projects of your own.
 </Tabs>
 
 [install-grafana]: https://grafana.com/get/
-[install]: /getting-started/latest/
+[cloud-login]: https://console.cloud.timescale.com/

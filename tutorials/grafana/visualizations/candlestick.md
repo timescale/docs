@@ -122,10 +122,12 @@ The query execution took more than 6 seconds. To decrease query execution time t
 
 ## Show transaction volumes in a candlestick plot
 
-In addition to looking at the price changes for each stock, you can look at its traded volumes.
-This shows you how much the stock is being traded during the bucket interval.
+In addition to looking at the price changes for each stock, you can look at its
+traded volumes. This shows you how much the stock is being traded during the
+bucket interval.
 
-The `stock_real_time` hypertable contains a column with the daily cumulative traded volume. You can use this to calculate the volume of data for each bucket.
+The `stock_real_time` hypertable contains a column with the daily cumulative
+traded volume. You can use this to calculate the volume of data for each bucket.
 
 First, find the maximum `day_volume` value for a symbol within a bucket.
 Then, subtract each maximum from the previous bucket's maximum. The
