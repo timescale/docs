@@ -50,8 +50,7 @@ using the VPC on Azure.
     `$user_app_id`.
 
 1.  Create a service principal for your app object. Ensure that the service
-    principal is created to the Azure subscription the VNet you wish to peer is
-    located in:
+    principal is created to the Azure subscription containing the VNet you wish to peer:
 
     ```bash
     az ad sp create --id $user_app_id
