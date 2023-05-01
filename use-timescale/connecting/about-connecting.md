@@ -55,7 +55,7 @@ alt="View Timescale Cloud connection info"
 
 ### Finding connection details in Managed Service for TimescaleDB
 
-1.  Sign in to the [Managed Service for TimescaleDB portal][mst-portal].
+1.  Sign in to your [Managed Service for TimescaleDB portal][mst-login].
 1.  In the `Services` tab, find the service you want to connect to, and check
     it is marked as `Running`.
 1.  Click the name of the service to see its connection information. Copy the
@@ -83,5 +83,5 @@ for accessing your database, and add additional authentication requirements.
 </Tabs>
 
 [about-psql]: /use-timescale/:currentVersion:/connecting/about-psql/
-[mst-portal]: https://portal.managed.timescale.com
+[mst-login]: https://portal.managed.timescale.com
 [tsc-portal]: https://console.cloud.timescale.com/

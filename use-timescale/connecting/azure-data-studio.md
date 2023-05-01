@@ -13,7 +13,8 @@ on-premises and cloud data platforms on Windows, macOS, and Linux.
 ## Before you begin
 
 *   Download and install [Azure Data Studio][ms-azure-data-studio].
-*   Install the [PostgreSQL extension for Azure Data Studio][postgresql-azure-data-studio].
+*   Install the
+    [PostgreSQL extension for Azure Data Studio][postgresql-azure-data-studio].
 
 <Tabs label="Connect to Timescale with Azure Data Studio">
 
@@ -31,9 +32,10 @@ on-premises and cloud data platforms on Windows, macOS, and Linux.
     secure password for you. Take a note of your new password.
 1.  Start `Azure Data Studio`.
 1.  In the `SERVERS` page, click `New Connection`.
-1.  In the `Connection Details` dialog, navigate to `Connection type`, and select `PostgreSQL`.
-    Fill in the fields using the server name, database, user name, port, and password for your
-    Timescale Cloud service. For more information about these settings, see
+1.  In the `Connection Details` dialog, navigate to `Connection type`, and
+    select `PostgreSQL`. Fill in the fields using the server name, database,
+    user name, port, and password for your Timescale Cloud service. For more
+    information about these settings, see
     [the connection details section][connection-details].
 1.  Click `Advanced`.
 1.  In the `Port` field, type the port number, and click `OK`.
@@ -67,7 +69,7 @@ security in Managed Service for TimescaleDB, see
 
 <Procedure>
 
-1.  Sign in to the [Managed Service for TimescaleDB portal][mst-portal].
+1.  Sign in to your [Managed Service for TimescaleDB portal][mst-login].
 1.  In the `Services` tab, find the service you want to connect to, and check
     it is marked as `Running`.
 1.  Click the name of the service you want to connect to see the connection
@@ -135,5 +137,5 @@ This table provides the description and example values for the fields in the
 [ms-azure-data-studio]: https://docs.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio?view=sql-server-ver16#install-azure-data-studio
 [postgresql-azure-data-studio]: https://docs.microsoft.com/en-us/sql/azure-data-studio/extensions/postgres-extension?view=sql-server-ver16
 [tsc-portal]: https://console.cloud.timescale.com/
-[mst-portal]: https://portal.managed.timescale.com
+[mst-login]: https://portal.managed.timescale.com
 [connection-details]: /use-timescale/:currentVersion:/connecting/azure-data-studio/#settings-in-the-connection-details

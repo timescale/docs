@@ -7,35 +7,30 @@ tags: [extension]
 
 # Use the PostgreSQL dblink extension
 
-The `dblink` [PostgreSQL extension](https://www.postgresql.org/docs/current/dblink.html)
-allows you to connect to other PostgreSQL databases and to run arbitrary queries.
+The `dblink` [PostgreSQL extension][dblink-extension] allows you to connect to
+other PostgreSQL databases and to run arbitrary queries.
 
-You can use [foreign data wrappers](https://www.postgresql.org/docs/current/postgres-fdw.html)
-(FDWs) to define a remote `foreign server` to access its data. The database connection
-details such as hostnames are kept in a single place, and you only need to create a
+You can use [foreign data wrappers][pg-fdw] (FDWs) to define a remote
+`foreign server` to access its data. The database connection details such as
+hostnames are kept in a single place, and you only need to create a
 `user mapping` to store remote connections credentials.
 
-## Before you begin
+## Prerequisites
 
-To create a `dblink` foreign data wrapper you need this information
-about the PostgreSQL remote server:
+Before you begin, sign in to your [Managed Service for TimescaleDB portal][mst-login],
+navigate to the `Overview` tab, and take a note of these parameters for the
+PostgreSQL remote server. Alternatively, you can use the `avn service get`
+command in the Aiven client:
 
 *   `HOSTNAME`: The remote database hostname
 *   `PORT`: The remote database port
 *   `USER`: The remote database user to connect. The default user is `tsdbadmin`.
-*   `PASSWORD`: The remote database password for the
-  `USER`
+*   `PASSWORD`: The remote database password for the `USER`
 *   `DATABASE_NAME`: The remote database name. The default database name is `defaultdb`.
-
-<Highlight type="note">
-The details you need are available in the [MST portal](https://portal.managed.timescale.com)
-service `Overview` tab. Alternatively, you can use the `avn service get` command in the
-Aiven client.
-</Highlight>
 
 <Procedure>
 
-### Enable dblink extension on MST for PostgreSQL
+### Enable the dblink extension
 
 To enable the `dblink` extension on an MST PostgreSQL service:
 
@@ -84,7 +79,7 @@ To enable the `dblink` extension on an MST PostgreSQL service:
         FOREIGN DATA WRAPPER dblink_fdw
         OPTIONS (
                  host 'HOST',
-                 dbname 'DATABASE_NAME', 
+                 dbname 'DATABASE_NAME',
                  port 'PORT'
                  );
     ```
@@ -97,7 +92,7 @@ To enable the `dblink` extension on an MST PostgreSQL service:
         CREATE USER MAPPING FOR user1
            SERVER mst_remote
            OPTIONS (
-            user 'tsdbadmin', 
+            user 'tsdbadmin',
             password 'PASSWORD'
             );
     ```
@@ -112,8 +107,8 @@ To enable the `dblink` extension on an MST PostgreSQL service:
 
 ## Query data using a foreign data wrapper
 
-In this example in the `user1` user queries the remote table `inventory` defined in the target
-PostgreSQL database from the `mst_remote` server definition:
+In this example in the `user1` user queries the remote table `inventory` defined
+in the target PostgreSQL database from the `mst_remote` server definition:
 
 ### Quering data using a foreign data wrapper
 
@@ -133,13 +128,13 @@ permissions on the remote server.
 1.  Query using the foreign server definition as parameter:
 
    ```sql
-    SELECT * FROM dblink('my_new_conn','SELECT * FROM inventory') AS t(a int); 
+    SELECT * FROM dblink('my_new_conn','SELECT * FROM inventory') AS t(a int);
    ```
 
 Output is similar to:
 
    ```sql
-       a  
+       a
      -----
       100
       200
@@ -148,3 +143,7 @@ Output is similar to:
    ```
 
 </Procedure>
+
+[dblink-extension]: https://www.postgresql.org/docs/current/dblink.html
+[pg-fdw]: https://www.postgresql.org/docs/current/postgres-fdw.html
+[mst-login]: https://portal.managed.timescale.com

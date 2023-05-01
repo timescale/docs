@@ -105,7 +105,7 @@ services.
 
 ### Configure allowed incoming IP addresses for your service
 
-1.  Sign in to the [Managed Service for TimescaleDB portal][mst-portal].
+1.  Sign in to your [Managed Service for TimescaleDB portal][mst-login].
 1.  In the `Services` tab, find the service you want to configure, and check
     it is marked as `Running`.
 1.  In the service `Overview` tab, under `Connection information`, locate the
@@ -170,5 +170,5 @@ you want more information about information security policies, contact
 [cloud-security-eval]: https://www.elfgroup.fi/ecc/1708-S6-71acd0046.pdf
 -->
 
-[mst-portal]: https://portal.managed.timescale.com
+[mst-login]: https://portal.managed.timescale.com
 [timescale-support]: https://www.timescale.com/support
