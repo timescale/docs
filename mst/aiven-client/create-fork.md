@@ -1,5 +1,5 @@
 ---
-title: Create a fork using Aiven client 
+title: Create a fork using Aiven client
 excerpt: Create a fork of the service using Aiven Command Line tool for fully managed services on AWS, Azure, or GCP.
 products: [mst]
 ---
@@ -17,13 +17,12 @@ the underlying database. You can use a fork of your service to:
 For more information about projects, plans, and other details about
 services,see [Services][about-mst].
 
-## Before you begin
+## Prerequisites
 
 Before you begin, make sure you have:
 
+*   Created a service in your Managed Service for TimescaleDB account.
 *   Installed [Aiven Client][aiven-client-mst].
-*   Signed in to your [Managed Service for TimescaleDB dashboard][mst-login].
-*   Created a [service][create-service] in Managed Service for TimescaleDB.
 
 <Procedure>
 
@@ -80,6 +79,4 @@ You can switch to `project-fork` and view the newly created `grafana-fork` using
 ```
 
 [about-mst]: /mst/:currentVersion:/about-mst/
-[create-service]: /mst/:currentVersion:/installation-mst/#create-your-first-service
-[mst-login]: https://portal.managed.timescale.com
 [aiven-client-mst]: /mst/:currentVersion:/aiven-client/aiven-client-install
