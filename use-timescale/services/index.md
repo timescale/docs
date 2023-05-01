@@ -49,12 +49,11 @@ For additional documentation on how to:
 *   [Create a Timescale multi-node cluster][multi-node] in Timescale Cloud
 
 [aggregates-info]: /getting-started/:currentVersion:/create-cagg
-[cloud-install]: /getting-started/latest/
 [configuration]: /use-timescale/:currentVersion:/configuration/
 [contact-timescale]: https://www.timescale.com/contact
 [gap-filling-info]: /use-timescale/:currentVersion:/query-data/advanced-analytic-queries#gap-filling
 [hypertable-info]: /use-timescale/:currentVersion:/hypertables
 [multi-node]: /use-timescale/:currentVersion:/cloud-multi-node/
-[resize]: /use-timescale/:currentVersion:/services/autoscaling/
+[resize]: /use-timescale/:currentVersion:/resources/autoscaling/
 [slack-info]: https://slack-login.timescale.com
 [time-bucket-info]: /use-timescale/:currentVersion:/query-data/advanced-analytic-queries#time-bucket
