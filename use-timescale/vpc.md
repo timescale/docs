@@ -219,4 +219,4 @@ complete.
 [aws-dashboard]: https://console.aws.amazon.com/vpc/home#PeeringConnections:
 [cloud-login]: https://console.cloud.timescale.com/
 [timescale-support]: https://www.timescale.com/support
-[tsc-regions]: /use-timescale/:currentVersion:/services/regions/
+[tsc-regions]: /use-timescale/:currentVersion:/regions/

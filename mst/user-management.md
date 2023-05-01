@@ -32,8 +32,7 @@ and stop services permission.
 
 ### Adding project members
 
-1.  [Log in to your account][mst-login]. By default, you start in the
-    `Services` view, showing any services you currently have in your project.
+1.  Sign in to your [Managed Service for TimescaleDB portal][mst-login].
 1.  Check that you are in the project that you want to change the members for,
     and click `Members`.
 1.  In the `Project members` page, type the email address of the member you want
@@ -75,8 +74,9 @@ Your service must be running before you can manage users.
 
 ### Adding service users
 
-1.  [Log in to your account][mst-login]. By default, you start in the
-    `Services` view, showing any services you currently have in your project.
+1.  Sign in to your [Managed Service for TimescaleDB portal][mst-login]. By
+    default, you start in the `Services` view, showing any services you
+    currently have in your project.
 1.  Click the name of the service that you want to add users to, and navigate
     to the `Users` tab.
 1.  In the `Username` field, type a name for your user. If you want to allow
@@ -109,7 +109,7 @@ For more information, and installation instructions, see
 
 ### Configuring multi-factor authentication
 
-1.  [Log in to your account][mst-login].
+1.  Sign in to your [Managed Service for TimescaleDB portal][mst-login].
 1.  Click the `User information` icon in the top-right of the dashboard to go to
     the `User profile` section.
 1.  In the `Authentication` tab, toggle `Two-factor authentication` to
