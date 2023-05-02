@@ -90,3 +90,23 @@ Reschedules continuous aggregate job ID `1000` so that it next runs at 9:00:00 o
 ```sql
 SELECT alter_job(1000, next_start => '2020-03-15 09:00:00.0+00');
 ```
+
+### Calculation of next start on failure
+
+When a job run results in a runtime failure, the next start of the job is calculated taking into account both its `retry_period` and `schedule_interval`.
+The `next_start` time is calculated using the following formula:
+```
+next_start = finish_time + consecutive_failures * retry_period ± jitter
+```
+where jitter (± 13%) is added to avoid the "thundering herds" effect.
+
+<Highlight type="note">
+To ensure that the `next_start` time is not put off indefinitely or produce timestamps so large they end up out of range, it is capped at 5*`schedule_interval`.
+Also, more than 20 consecutive failures are not considered, so if the number of consecutive failures is higher, then it multiplies by 20.
+
+Additionally, in the case of jobs with fixed schedules, the system ensures that if the next start calculated as specified, surpasses the next scheduled execution, then the job is executed again at the next scheduled slot and not after that. This ensures that the job does not miss scheduled executions.
+
+Finally, there is a distinction between runtime failures that do not cause the job to crash and job crashes.
+In the event of a job crash, the next start calculation still follows the above formula,
+but it is always at least 5 minutes after the job's last finish, to give an operator enough time to disable it before another crash.
+</Highlight>
