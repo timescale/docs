@@ -10,7 +10,7 @@ tags: [extensions]
 
 You can use PostgreSQL extensions with Timescale Cloud. If you run
 `pg_available_extensions` at the command prompt, the returned list of extensions
-is inaccurate. 
+is inaccurate.
 
 These are the currently supported extensions:
 
@@ -41,7 +41,6 @@ These are the currently supported extensions:
 |postgis_sfcgal|PostGIS SFCGAL functions|
 |postgis_tiger_geocoder|PostGIS tiger geocoder and reverse geocoder|
 |postgis_topology|PostGIS topology spatial types and functions|
-|promscale|Promscale support functions|
 |seg|data type for representing line segments or floating-point intervals|
 |tablefunc|Functions that manipulate whole tables, including crosstab|
 |tcn|Triggered change notifications|
