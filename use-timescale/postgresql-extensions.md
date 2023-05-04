@@ -37,6 +37,7 @@ These are the currently supported extensions:
 |pgpcre|Perl-compatible RegEx|
 |pgrouting|pgRouting Extension|
 |pgvector|Vector similarity search for PostgreSQL|
+|plpgsql|SQL procedural language|
 |postgis|PostGIS geometry and geography spatial types and functions|
 |postgis_raster|PostGIS raster types and functions|
 |postgis_sfcgal|PostGIS SFCGAL functions|
