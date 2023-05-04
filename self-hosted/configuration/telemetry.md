@@ -160,7 +160,6 @@ specific deployment:
   "postgresql_version": "12.10",
   "related_extensions": {
     "postgis": false,
-    "promscale": false,
     "pg_prometheus": false,
     "timescale_analytics": false,
     "timescaledb_toolkit": false

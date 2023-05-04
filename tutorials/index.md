@@ -23,7 +23,6 @@ data analysis and make forecasts on your data.
 
 ### Observability scenarios
 
-*   **[Getting started with Promscale][promscale]**: Promscale is the long‑term store for Prometheus data, designed for analytics
 *   **[Setup a Prometheus endpoint for managed TimescaleDB][prometheus-mst-endpoint]**: Learn how to create a monitoring system to ingest and analyze Prometheus metrics from your Timescale Cloud instance.
 *   **[Monitor a Django application with Prometheus][monitor-django-prometheus]**: Use how to use Prometheus to monitor your Django application.
 
@@ -59,7 +58,6 @@ and pick up some valuable `psql` tips and tricks along the way.
 [nfl]: /tutorials/:currentVersion:/nfl-analytics/
 [nyc-taxi]: /tutorials/:currentVersion:/nyc-taxi-cab/
 [prometheus-mst-endpoint]: /tutorials/:currentVersion:/monitor-mst-with-prometheus/
-[promscale]: /promscale/latest/
 [psql]: /use-timescale/:currentVersion:/connecting/psql/
 [sample-data-sets]: /tutorials/:currentVersion:/sample-datasets
 [simul-iot-data]: /tutorials/:currentVersion:/simulate-iot-sensor-data
