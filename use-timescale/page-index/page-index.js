@@ -814,11 +814,6 @@ module.exports = [
         ],
       },
       {
-        title: "Multi-node",
-        href: "cloud-multi-node",
-        excerpt: "Timescale Cloud Multi-node",
-      },
-      {
         title: "Data tiering",
         href: "data-tiering",
         excerpt: "Tier older data to save storage costs",

@@ -11,8 +11,7 @@ You can get more insights into the performance of your managed TimescaleDB
 database by monitoring it using [Prometheus][get-prometheus], a popular
 open-source metrics-based systems monitoring solution. This tutorial
 takes you through setting up a Prometheus endpoint for a database running
-in a [managed service for TimescaleDB][timescale-mst]. To create a monitoring system to ingest and analyze
-Prometheus metrics from your managed TimescaleDB instance, you can use [Promscale][promscale]!
+in a [managed service for TimescaleDB][timescale-mst].
 
 This exposes metrics from the [node_exporter][node-exporter-metrics] as well
 as [pg_stats][pg-stats-metrics] metrics.
@@ -95,14 +94,8 @@ you associated the service with.
 Congratulations, you have successfully set up a Prometheus endpoint on your managed
 service on managed service for TimescaleDB!
 
-### Next steps
-
-Next, [use Promscale][promscale] with Timescale, Grafana, and Prometheus to ingest
-and analyze Prometheus metrics from your managed TimescaleDB instance.
-
 [get-prometheus]: https://prometheus.io
 [node-exporter-metrics]: https://github.com/prometheus/node_exporter
 [pg-stats-metrics]: https://www.postgresql.org/docs/current/monitoring-stats.html
-[promscale]: https://github.com/timescale/timescale-prometheus
 [timescale-mst]: https://www.timescale.com/products
 [timescale-mst-get-started]: /mst/:currentVersion:/about-mst

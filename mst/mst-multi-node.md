@@ -251,8 +251,7 @@ configure a user-defined action for this task.
 
 Now that you have a basic TimescaleDB multi-node cluster, consider using
 one of our [large sample datasets][sample-data] to create more distributed
-hypertables, or consider using your new cluster as a target for Prometheus data
-via [Promscale][promscale]. Whatever your time-series data needs, TimescaleDB
+hypertables. Whatever your time-series data needs, TimescaleDB
 multi-node opens up an entirely new level of opportunity for your time-series
 data.
 
@@ -263,6 +262,5 @@ ask questions and learn from Timescale staff and other community members.
 [distributed-architecture]: https://blog.timescale.com/blog/building-a-distributed-time-series-database-on-postgresql/
 [maintenance-tasks]: /self-hosted/:currentVersion:/multinode-timescaledb/multinode-setup/
 [postgres-user-mapping]: https://www.postgresql.org/docs/current/view-pg-user-mappings.html
-[promscale]: https://github.com/timescale/promscale
 [sample-data]: /tutorials/:currentVersion:/sample-datasets/
 [slack]: https://slack.timescale.com/
