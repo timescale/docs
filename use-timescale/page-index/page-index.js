@@ -313,13 +313,6 @@ module.exports = [
             href: "hypershift-config",
             excerpt: "About creating a Hypershift configuration file",
           },
-          {
-            title: "Troubleshoot database migration",
-            href: "troubleshooting",
-            type: "placeholder",
-            excerpt:
-              "Troubleshoot problems that occur with Hypershift",
-          },
         ],
       },
       {
