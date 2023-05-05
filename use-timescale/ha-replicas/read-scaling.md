@@ -98,4 +98,3 @@ performance degradation on the primary. For more information, see the
 
 [cloud-login]: https://console.cloud.timescale.com
 [ha]: /use-timescale/:currentVersion:/ha-replicas/high-availability/
-[read-only-role]:
