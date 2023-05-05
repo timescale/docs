@@ -42,14 +42,38 @@ continuous aggregate on the hypertable to calculate hourly data. To calculate
 daily data, create a continuous aggregate on top of your hourly continuous
 aggregate.
 
-For more information, see the documentation about [continuous aggregates on
-continuous aggregates][caggs-on-caggs].
+For more information, see the documentation about
+[continuous aggregates on continuous aggregates][caggs-on-caggs].
+
+## Continuous aggregates with a `JOIN` clause
+
+In TimescaleDB&nbsp;2.10.0 and later, the `FROM` clause supports `JOINS`, with
+these restrictions:
+
+*   To join between two tables, one table must be a hypertable and the other
+    table must be a standard PostgreSQL table. The order of tables in the `JOIN`
+    clause does not matter.
+*   You must use an `INNER JOIN`, no other join type is supported.
+*   The `JOIN` conditions can only be equality conditions.
+*   The hypertable on the `JOIN` condition must be a hypertable, and not a continuous
+     aggregate. Additionally, you can't use joins in hierarchical continuous aggregates.
+*   Changes to the hypertable are tracked, and are updated in the continuous aggregate
+     when it is refreshed. Changes to the standard PostgreSQL table are not tracked.
+*   The `USING` clause is supported in joins for PostgreSQL&nbsp;13 or later. In
+    PostgreSQL&nbsp;12 only joins with a condition in the `WHERE` clause or
+    `JOIN` clause can be used.
+
+The `GROUP BY` clause must include a time bucket on the underlying time column,
+and all aggregates must be parallelizable.
 
 ## Function support
 
 In TimescaleDB 2.7 and later, continuous aggregates support all PostgreSQL
 aggregate functions. This includes both parallelizable aggregates, such as `SUM`
 and `AVG`, and non-parallelizable aggregates, such as `RANK`.
+
+In TimescaleDB&nbsp;2.10.0 and later, the `FROM` clause supports `JOINS`, with
+some restrictions. For more information, see the [`JOIN` support section][caggs-joins].
 
 In older versions of Timescale, continuous aggregates only support
 [aggregate functions that can be parallelized by PostgreSQL][postgres-parallel-agg].
@@ -59,8 +83,9 @@ continuous aggregate, then
 
 <CaggsFunctionSupport />
 
-If you want the old behavior in TimescaleDB 2.7 and later, set the parameter
-`timescaledb.finalized` to `false` when creating your continuous aggregate.
+If you want the old behavior in later versions of TimescaleDB, set the
+`timescaledb.finalized` parameter to `false` when you create your continuous
+aggregate.
 
 ## Components of a continuous aggregate
 
@@ -180,4 +205,5 @@ For more information about setting up multi-node, see the
 [postgres-parallel-agg]: https://www.postgresql.org/docs/current/parallel-plans.html#PARALLEL-AGGREGATION
 [real-time-aggs]: /use-timescale/:currentVersion:/continuous-aggregates/hierarchical-continuous-aggregates/
 [pg-materialized views]: https://www.postgresql.org/docs/current/rules-materializedviews.html
-[real-time-aggs]: /se-timescale/:currentVersion:/continuous-aggregates/real-time-aggregates/
+[real-time-aggs]: /use-timescale/:currentVersion:/continuous-aggregates/real-time-aggregates/
+[caggs-joins]: /use-timescale/:currentVersion:/continuous-aggregates/about-continuous-aggregates/#continuous-aggregates-with-a-join-clause
