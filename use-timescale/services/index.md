@@ -17,9 +17,11 @@ import CloudIntro from "versionContent/_partials/_cloud-intro.mdx";
 
 ## Timescale Terraform provider
 
-The [Timescale Terraform provider][terraform-provider] provides configuration
+The [Timescale Terraform provider] [terraform-provider] provides configuration
 management resources for Timescale. You can use it to create, rename, resize,
-delete, and import service.
+delete, and import service. For more information about the supported service
+configurations and operations, see
+[Timescale Terraform provider documentaion][terraform-provider-docs].
 
 ### Learn more about Timescale
 
@@ -61,4 +63,5 @@ For additional documentation on how to:
 [resize]: /use-timescale/:currentVersion:/resources/autoscaling/
 [slack-info]: https://slack-login.timescale.com
 [time-bucket-info]: /use-timescale/:currentVersion:/query-data/advanced-analytic-queries#time-bucket
-[terraform-provider]: https://registry.terraform.io/providers/timescale/timescale/latest/docs#supported-operations
+[terraform-provider-docs]: https://registry.terraform.io/providers/timescale/timescale/latest/docs
+[terraform-provider]: https://registry.terraform.io/providers/timescale/timescale/latest/
