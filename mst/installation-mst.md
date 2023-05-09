@@ -1,5 +1,5 @@
 ---
-title: Install Managed Service for TimescaleDB
+title: Get started with Managed Service for TimescaleDB
 nav-title: Managed Service for TimescaleDB
 excerpt: Start a TimescaleDB instance on Managed Service for TimescaleDB
 products: [mst]
@@ -11,7 +11,7 @@ keywords: [installation]
 import MSTIntro from "versionContent/_partials/_mst-intro.mdx";
 import CloudMSTComparison from "versionContent/_partials/_cloud-mst-comparison.mdx";
 
-# Install Managed Service for TimescaleDB
+# Get started with Managed Service for TimescaleDB
 
 <MSTIntro />
 
@@ -19,15 +19,16 @@ import CloudMSTComparison from "versionContent/_partials/_cloud-mst-comparison.m
 
 <Procedure>
 
-## Installing Managed Service for TimescaleDB
+## Sign in to Managed Service for TimescaleDB
 
 1.  Sign up for a [Managed Service for TimescaleDB account][sign-up] with your
     name and email address. You do not need to provide payment details to
     get started. A confirmation email is sent to the email address you provide.
 1.  Verify your email by clicking on the link in the email you received. Don't
     forget to check your spam folder in case the email ends up there.
-1.  Sign in to the [Managed Service for TimescaleDB portal][mst-portal] with the
+1.  Sign in to your [Managed Service for TimescaleDB portal][mst-login] with the
     password you set:
+
     <img class="main-content__illustration"
     src="https://s3.amazonaws.com/assets.timescale.com/docs/images/mst-portal-noservices.png"
     alt="Managed Service for TimescaleDB Portal"/>
@@ -49,7 +50,7 @@ cloud provider, which you can install your database on.
 
 ### Creating your first service
 
-1.  Sign in to the [Managed Service for TimescaleDB portal][mst-portal].
+1.  Sign in to your [Managed Service for TimescaleDB portal][mst-login].
 1.  Click `Create a new service`, and complete these details:
     *   In the `Select Your Service` field, click `TimescaleDB`.
     *   In the `Select Your Cloud Service Provider` field, click your
@@ -87,7 +88,7 @@ check out the [installing psql][install-psql] section.
 
 ### Connecting to your service from the command prompt
 
-1.  Sign in to the [Managed Service for TimescaleDB portal][mst-portal].
+1.  Sign in to your [Managed Service for TimescaleDB portal][mst-login].
 1.  In the `Services` tab, find the service you want to connect to, and check
     it is marked as `Running`.
 1.  Click the name of the service you want to connect to see the connection
@@ -151,6 +152,6 @@ if you want to have a chat.
 [contact]: https://www.timescale.com/contact
 [install-psql]: /use-timescale/:currentVersion:/connecting/psql/
 [mst-docs]: /mst/:currentVersion:/
-[mst-portal]: https://portal.managed.timescale.com
+[mst-login]: https://portal.managed.timescale.com
 [sign-up]: https://www.timescale.com/timescale-signup
 [tutorials]: /tutorials/:currentVersion:/

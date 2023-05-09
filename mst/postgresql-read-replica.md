@@ -1,6 +1,6 @@
 ---
 title: Create a read-only replica of PostgreSQL
-excerpt: Learn how to create and use a read-only replica for PostgreSQL service on Managed Service for TimescaleDB 
+excerpt: Learn how to create and use a read-only replica for PostgreSQL service on Managed Service for TimescaleDB
 products: [mst]
 ---
 
@@ -24,8 +24,9 @@ read-only queries to reduce the effect of slow queries on the primary node.
 
 ## Creating a replica of PostgreSQL
 
-1.  In the [MST account][mst-login] `Services` view, click the PostgreSQL
-    service for which you want to create a remote replica.
+1.  Sign in to your [Managed Service for TimescaleDB portal][mst-login]. In the
+    `Services` view, click the PostgreSQL service for which you want to create a
+    remote replica.
 
 1.  In the `Overview` tab, click `Create a read replica`.
 

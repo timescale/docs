@@ -11,7 +11,7 @@ module.exports = [
         href: "about-mst",
       },
       {
-        title: "Install Managed Service for TimescaleDB",
+        title: "Get started with Managed Service for TimescaleDB",
         href: "installation-mst",
       },
       {
@@ -41,11 +41,34 @@ module.exports = [
       {
         title: "VPC peering",
         href: "vpc-peering",
+        children: [
+          {
+            title: "Setting up VPC peering for the project",
+            href: "vpc-peering",
+          },
+          {
+            title:
+              "VPC peering on AWS",
+            href: "vpc-peering-aws",
+          },
+          {
+            title: "VPC peering on GCP",
+            href: "vpc-peering-gcp",
+          },
+          {
+            title: "VPC peering on Azure",
+            href: "vpc-peering-azure",
+          },
+          {
+            title: "Attaching a VPC to an AWS Transit Gateway",
+            href: "vpc-peering-aws-transit",
+          }
+        ],
       },
       {
         title: "Integrations",
         href: "integrations",
-        excerpt: " MST integrates with the other tools you are already using, and makes it easy to add more integrations",
+        excerpt: "Using Managed Service for TimescaleDB with other tools",
         children: [
           {
             title: "Visualizing data with Google Data Studio",
@@ -99,13 +122,13 @@ module.exports = [
         href: "manage-backups",
       },
       {
-        title: "Aiven Client for Managed Service for TimescaleDB",
+        title: "Aiven Client",
         href: "aiven-client",
         excerpt:
           "A Command Line tool for fully managed TimescaleDB service on AWS, Azure, or GCP.",
         children: [
           {
-            title: "Install Aiven Client for Managed Service for TimescaleDB",
+            title: "Install Aiven Client",
             href: "aiven-client-install",
             excerpt:
               "Install Aiven Client to manage your services on MST"
@@ -145,11 +168,11 @@ module.exports = [
         href: "migrate-to-cloud",
       },
       {
-        title: "Using REST API on Managed Service for TimescaleDB",
+        title: "Using the REST API",
         href: "restapi",
       },
       {
-        title: "Identify and resolve issues with indexes on Managed Service for TimescaleDB",
+        title: "Identify and resolve issues with indexes",
         href: "identify-index-issues",
       },
       {

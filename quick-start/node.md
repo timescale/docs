@@ -400,7 +400,7 @@ your Node application, check out these tutorials:
 *   [Try Other Sample Datasets][other-samples]
 *   [Migrate your own Data][migrate]
 
-[migrate]: /use-timescale/:currentVersion:/migrate-data/
+[migrate]: /use-timescale/:currentVersion:/migration/
 [node-install]: https://nodejs.org
 [npm-install]: https://www.npmjs.com/get-npm
 [other-samples]: /tutorials/:currentVersion:/sample-datasets/

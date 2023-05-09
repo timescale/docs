@@ -12,8 +12,6 @@ There are several different ways of ingesting your data into Managed Service for
 TimescaleDB. This section contains instructions to:
 
 *   Bulk upload [from a `.csv` file](#bulk-upload-from-csv-files)
-*   Migrate data [from an existing database][migrate-data]
-*   Migrate data [from InfluxDB][migrate-influxdb]
 *   Insert data
     [directly using a client driver](#insert-data-directly-using-a-client-driver),
     such as JDBC, ODBC, or Node.js
@@ -155,6 +153,4 @@ See [these instructions][gh-kafkaconnector] for using the Kafka connector.
 [code-qs]: /quick-start/:currentVersion:/
 [gh-kafkaconnector]: https://github.com/debezium/debezium/tree/master/debezium-connector-postgres
 [github-parallel-copy]: https://github.com/timescale/timescaledb-parallel-copy
-[migrate-data]: /use-timescale/:currentVersion:/migrate-data/
-[migrate-influxdb]: /use-timescale/:currentVersion:/migrate-data/migrate-influxdb/
 [postgres-odbc]: https://odbc.postgresql.org/

@@ -26,31 +26,32 @@ services.
 <Procedure>
 
 1.  Sign in to the [Timescale Cloud portal][tsc-portal].
-2.  In the `Services` tab, find the service you want to connect to, and check
+1.  In the `Services` tab, find the service you want to connect to, and check
     it is marked as `Running`.
-3.  Click the name of the service you want to connect to, and take a note
+1.  Click the name of the service you want to connect to, and take a note
      of the `Host`, `Port`, `Database name`, and `Username`.
-4.  <Optional />If you do not know the password for the service, navigate to the
+1.  <Optional />If you do not know the password for the service, navigate to the
     `Operations` tab, and click `Reset password`. You can choose
     your own password for the service, or allow Timescale Cloud to generate a
     secure password for you. Take a note of your new password.
-5.  Start `DBeaver`.
-6.  In the `Database` menu, click `New Database Connection`.
-7.  In the `Connect to a database` window, search for `TimescaleDB`.
-8.  Select `TimescaleDB` and click `Next` to continue.
-9.  In the `Main` tab type the details for your connection, including the
+1.  Start `DBeaver`.
+1.  In the `Database` menu, click `New Database Connection`.
+1.  In the `Connect to a database` window, search for `TimescaleDB`.
+1.  Select `TimescaleDB` and click `Next` to continue.
+1.  In the `Main` tab type the details for your connection, including the
     `Host`, `Port`,`Database`, `Username` and `Password`. For more information
     about these settings, see [the connection settings section][connection-settings].
 
     <Highlight type="note">
     If you configured your Timescale Cloud service to connect using
-    [SSL mode](/use-timescale/latest/security/strict-ssl/), then in the `SSL` tab enable `Use SSL`,
-    set `SSL mode` to `verify-full`, and in the `CA Certificate` field, type
-    the location of the SSL root CA certificate to use.
+    [SSL mode](/use-timescale/latest/security/strict-ssl/),
+    then in the `SSL` tab enable `Use SSL`, set `SSL mode` to `verify-full`, and
+    in the `CA Certificate` field, type the location of the SSL root CA
+    certificate to use.
     </Highlight>
 
-10.  Click the `Test Connection` button to check if the connection is successful.
-11.  Click the `Finish` button to connect to the database server. The server is
+1.  Click the `Test Connection` button to check if the connection is successful.
+1.  Click the `Finish` button to connect to the database server. The server is
     listed in the `Database Navigator` pane.
 
     <img class="maincontent__illustration"
@@ -67,26 +68,27 @@ services.
 To ensure a secure network access to your Managed Service for TimescaleDB
 service, make sure you add the IP address of the machine running DBeaver to the
 `Allowed IP Addresses`. For more information about network security in Managed
-Service for TimescaleDB, see [the security section](https://docs.timescale.com/mst/latest/security/).
+Service for TimescaleDB, see
+[the security section](https://docs.timescale.com/mst/latest/security/).
 </Highlight>
 
 <Procedure>
 
-1.  Sign in to the [Managed Service for TimescaleDB portal][mst-portal].
-2.  In the `Services` tab, find the service you want to connect to, and check
+1.  Sign in to your [Managed Service for TimescaleDB portal][mst-login].
+1.  In the `Services` tab, find the service you want to connect to, and check
     it is marked as `Running`.
-3.  Click the name of the service you want to connect to see the connection
+1.  Click the name of the service you want to connect to see the connection
     information. Take a note of the `Host`, `Port`, `Database Name`, `User`, and
     `Password`.
-4.  Start `DBeaver`.
-5.  In the `Database` menu, click `New Database Connection`.
-6.  In the `Connect to a database` window, search for `TimescaleDB`.
-7.  Select `TimescaleDB` and click `Next` to continue.
-8.  In the `Main` tab type the details for your connection, including the
- `Host`, `Port`,`Database`, `Username` and `Password`. For more information
- about these settings, see [the connection settings section][connection-settings].
+1.  Start `DBeaver`.
+1.  In the `Database` menu, click `New Database Connection`.
+1.  In the `Connect to a database` window, search for `TimescaleDB`.
+1.  Select `TimescaleDB` and click `Next` to continue.
+1.  In the `Main` tab type the details for your connection, including the
+    `Host`, `Port`,`Database`, `Username` and `Password`. For more information
+    about these settings, see [the connection settings section][connection-settings].
 1.  Click the `Test Connection` button to check if the connection is successful.
-2.  Click the `Finish` button to connect to the database server. The server is
+1.  Click the `Finish` button to connect to the database server. The server is
     listed in the `Database Navigator` pane.
 
     <img class="maincontent__illustration"
@@ -102,14 +104,14 @@ Service for TimescaleDB, see [the security section](https://docs.timescale.com/m
 <Procedure>
 
 1.  Start `DBeaver`.
-2.  In the `Database` menu, click `New Database Connection`.
-3.  In the `Connect to a database` window, search for `TimescaleDB`.
-4.  Select `TimescaleDB` and click `Next` to continue.
-5.  In the `Main` tab, type the details for your connection, including the
- `Host`, `Port`,`Database`, `Username` and `Password`. For more information
- about these settings, see [the connection settings section][connection-settings].
+1.  In the `Database` menu, click `New Database Connection`.
+1.  In the `Connect to a database` window, search for `TimescaleDB`.
+1.  Select `TimescaleDB` and click `Next` to continue.
+1.  In the `Main` tab, type the details for your connection, including the
+    `Host`, `Port`,`Database`, `Username` and `Password`. For more information
+    about these settings, see [the connection settings section][connection-settings].
 1.  Click the `Test Connection` button to check if the connection is successful.
-2.  Click the `Finish` button to connect to the database server. The server is
+1.  Click the `Finish` button to connect to the database server. The server is
     listed in the `Database Navigator` pane.
 
     <img class="maincontent__illustration"
@@ -140,5 +142,4 @@ appear in the `Main` tab of `Connection settings`.
 [dbeaver-downloads]: https://dbeaver.io/download/
 [connection-settings]: /use-timescale/:currentVersion:/connecting/dbeaver/#connection-settings-in-connect-to-a-database
 [tsc-portal]: https://console.cloud.timescale.com/
-[mst-portal]: https://portal.managed.timescale.com
-[ssl-mode]: /use-timescale/:currentVersion:/security/strict-ssl/
+[mst-login]: https://portal.managed.timescale.com

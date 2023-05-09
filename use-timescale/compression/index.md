@@ -20,12 +20,14 @@ hypertables.
     into a compressed chunk.
 *   [Modify schema][modify-schema] to modify the table definition for a
     hypertable with compressed chunks.
+*   [Troubleshoot][compression-tshoot] compression.
 
 <Highlight type="warning">
 Compression alters data on your disk, so always back up before you start.
 </Highlight>
 
-[backfill-historical]: /use-timescale/:currentVersion:/compression/backfill-historical-data
-[decompress-chunks]: /use-timescale/:currentVersion:/compression/decompress-chunks
-[manual-compression]: /use-timescale/:currentVersion:/compression/manually-compress-chunks
-[modify-schema]: /use-timescale/:currentVersion:/compression/modify-a-schema
+[backfill-historical]: /use-timescale/:currentVersion:/compression/backfill-historical-data/
+[decompress-chunks]: /use-timescale/:currentVersion:/compression/decompress-chunks/
+[manual-compression]: /use-timescale/:currentVersion:/compression/compress-chunks/
+[modify-schema]: /use-timescale/:currentVersion:/compression/modify-a-schema/
+[compression-tshoot]: /use-timescale/:currentVersion:/compression/troubleshooting/

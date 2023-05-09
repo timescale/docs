@@ -3,7 +3,7 @@ api_name: time_bucket()
 excerpt: Bucket rows by time interval to calculate aggregates
 topics: [hyperfunctions]
 keywords: [aggregate, hyperfunctions]
-tags: [time buckets, date_trunc]
+tags: [time buckets, date_trunc, date_bin]
 api:
   license: apache
   type: function
@@ -15,10 +15,9 @@ hyperfunction:
 
 # time_bucket()
 
-The `time_bucket` function is similar to the standard PostgreSQL `date_trunc`
-function. Unlike `date_trunc`, it allows for arbitrary time intervals instead of
-second, minute, and hour intervals. The return value is the bucket's
-start time.
+The `time_bucket` function is similar to the standard PostgreSQL `date_bin`
+function. Unlike `date_bin`, it allows for arbitrary time intervals of months or
+longer. The return value is the bucket's start time.
 
 Note that daylight savings time boundaries means that the amount of data
 aggregated into a bucket after such a cast can be irregular. For example, if the

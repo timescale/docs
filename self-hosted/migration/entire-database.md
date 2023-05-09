@@ -111,8 +111,8 @@ information about compression and decompression, see the
 </Procedure>
 
 [analyze]: https://www.postgresql.org/docs/10/sql-analyze.html
-[extensions]: /use-timescale/:currentVersion:/services/postgresql-extensions/
-[install-selfhosted-timescale]: /self-hosted/:currentVersion/installation/
+[extensions]: /use-timescale/:currentVersion:/postgresql-extensions/
+[install-selfhosted-timescale]: /self-hosted/:currentVersion:/install/
 [migrate-separately]: /self-hosted/:currentVersion:/migration/schema-then-data/
 [pg_dump]: https://www.postgresql.org/docs/current/app-pgdump.html
 [pg_restore]: https://www.postgresql.org/docs/current/app-pgrestore.html
