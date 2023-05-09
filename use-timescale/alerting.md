@@ -32,8 +32,9 @@ TimescaleDB instance. This data source was built by TimescaleDB engineers, and
 it is designed to take advantage of the database's time-series capabilities.
 From there, proceed to your dashboard and set up alert rules as described above.
 
-<!-- -->
->:WARNING: Alerting is only available in Grafana v4.0 and later.
+<Highlight type="warning">
+Alerting is only available in Grafana v4.0 and later.
+</Highlight>
 
 ## Other alerting tools
 
