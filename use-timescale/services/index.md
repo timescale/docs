@@ -21,7 +21,7 @@ The [Timescale Terraform provider] [terraform-provider] provides configuration
 management resources for Timescale. You can use it to create, rename, resize,
 delete, and import service. For more information about the supported service
 configurations and operations, see
-[Timescale Terraform provider documentaion][terraform-provider-docs].
+[Timescale Terraform provider documentation][terraform-provider-docs].
 
 ### Learn more about Timescale
 
