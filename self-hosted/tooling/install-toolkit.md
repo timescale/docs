@@ -11,7 +11,7 @@ Some hyperfunctions are included by default in Timescale. For additional
 hyperfunctions, you need to install the TimescaleDB Toolkit PostgreSQL
 extension.
 
-If you're using [Timescale Cloud][cloud], the Toolkit is already installed.
+If you're using [Timescale][cloud], the Toolkit is already installed.
 
 ## Install and update Toolkit on Managed Service for TimescaleDB
 

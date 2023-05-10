@@ -43,7 +43,7 @@ data discrepancy between services.
 
 ### Forking a service
 
-1.  In the Timescale Cloud console, from the `Services` list, ensure the service
+1.  In the Timescale console, from the `Services` list, ensure the service
     you want to form has a status of `Running` or `Paused`, then click the name
     of the service you want to fork.
 1.  Navigate to the `Operations` tab.
@@ -61,7 +61,7 @@ data discrepancy between services.
 <img
 class="main-content__illustration"
 src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-forked-service.png"
-alt="Fork a Timescale Cloud service"
+alt="Fork a Timescale service"
 />
 
 </Procedure>
@@ -70,16 +70,16 @@ alt="Fork a Timescale Cloud service"
 
 You can reset your service password from the `Operations` dashboard. This is the
 password you use to connect to your database, not the password to your Timescale
-Cloud account. To reset your Timescale Cloud password, navigate to the `Account`
+Cloud account. To reset your Timescale password, navigate to the `Account`
 page.
 
 When you reset your service password, you are prompted for your Timescale
 Cloud password. When you have authenticated, you can create a new service password,
-ask Timescale Cloud to auto-generate a password, or switch your authentication
+ask Timescale to auto-generate a password, or switch your authentication
 type between SCRAM and MD5.
 
 SCRAM (salted challenge response authentication mechanism) and MD5 (message
-digest algorithm 5) are cryptographic authentication mechanisms. Timescale Cloud
+digest algorithm 5) are cryptographic authentication mechanisms. Timescale
 uses SCRAM by default. It is more secure and strongly recommended. The MD5
 option is provided for compatibility with older clients.
 

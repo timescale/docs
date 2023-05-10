@@ -22,10 +22,10 @@ aggregated data, and visualize the data in Grafana.
 
 Before you begin, make sure you have:
 
-*   Signed up for a [free Timescale Cloud account][cloud-install].
+*   Signed up for a [free Timescale account][cloud-install].
 
 <Highlight type="cloud" header="Run all tutorials free" button="Try for free">
-Your Timescale Cloud trial is completely free for you to use for the first
+Your Timescale trial is completely free for you to use for the first
 thirty days. This gives you enough time to complete all the tutorials and run
 a few test projects of your own.
 </Highlight>

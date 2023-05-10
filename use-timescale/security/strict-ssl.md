@@ -1,6 +1,6 @@
 ---
 title: Connect with a stricter SSL mode
-excerpt: Connect to Timescale Cloud with a stricter SSL mode
+excerpt: Connect to Timescale with a stricter SSL mode
 products: [cloud]
 keywords: [security]
 tags: [ssl]
@@ -8,7 +8,7 @@ tags: [ssl]
 
 # Connect with a stricter SSL mode
 
-The default connection string for Timescale Cloud uses the SSL mode `require`.
+The default connection string for Timescale uses the SSL mode `require`.
 If you want your connection client to verify the server's identity, you can
 connect with an [SSL mode][ssl-modes] of `verify-ca` or `verify-full`. To do so,
 you need to store a copy of the certificate chain where your connection tool can
@@ -16,15 +16,15 @@ find it.
 
 This section provides instructions for setting up a stricter SSL connection.
 
-## SSL certificates on Timescale Cloud
+## SSL certificates
 
-All connections to Timescale Cloud are encrypted. As part of the secure
+All connections to Timescale are encrypted. As part of the secure
 connection protocol, the server proves its identity by providing clients with a
 certificate. This certificate should be issued and signed by a well-known and
 trusted Certificate Authority.
 
 Because requesting a certificate from a Certificate Authority takes some time,
-Timescale Cloud databases are initialized with a self-signed certificate. This
+Timescale databases are initialized with a self-signed certificate. This
 lets you start up a database immediately. After your service is started, a
 signed certificate is requested behind the scenes. The new certificate is
 usually received within 30 minutes. Your database certificate is then replaced
@@ -42,16 +42,16 @@ descriptions][ssl-modes].
 To set up a stricter SSL connection:
 
 1.  Generate a copy of your certificate chain and store it in the right location
-1.  Change your Timescale Cloud connection string
+1.  Change your Timescale connection string
 
 <Procedure>
 
 ### Connecting to your database with a stricter SSL mode
 
-1.  Use the `openssl` tool to connect to your Timescale Cloud service and get
+1.  Use the `openssl` tool to connect to your Timescale service and get
     the certificate bundle. Store the bundle in a file called `bundle.crt`.
 
-    Replace `$SERVICE_URL_WITH_PORT` with your Timescale Cloud connection URL:
+    Replace `$SERVICE_URL_WITH_PORT` with your Timescale connection URL:
 
     ```shell
     openssl s_client -showcerts -partial_chain -starttls postgres \
@@ -98,7 +98,7 @@ To set up a stricter SSL connection:
 
 1.  Save the downloaded certificate chain to `~/.postgresql/root.crt`.
 
-1.  Change your Timescale Cloud connection string from `sslmode=require` to
+1.  Change your Timescale connection string from `sslmode=require` to
     either `sslmode=verify-full` or `sslmode=verify-ca`. For example, to
     connect to your database with `psql`, run:
 

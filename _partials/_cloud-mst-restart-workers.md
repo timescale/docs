@@ -1,4 +1,4 @@
-On Timescale Cloud and Managed Service for TimescaleDB, restart background
+On Timescale and Managed Service for TimescaleDB, restart background
 workers by doing one of the following:
 
 *   Run `SELECT timescaledb_pre_restore()`, followed by `SELECT

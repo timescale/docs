@@ -23,7 +23,7 @@ data analysis and make forecasts on your data.
 
 ### Observability scenarios
 
-*   **[Setup a Prometheus endpoint for managed TimescaleDB][prometheus-mst-endpoint]**: Learn how to create a monitoring system to ingest and analyze Prometheus metrics from your Timescale Cloud instance.
+*   **[Setup a Prometheus endpoint for managed TimescaleDB][prometheus-mst-endpoint]**: Learn how to create a monitoring system to ingest and analyze Prometheus metrics from your Timescale instance.
 *   **[Monitor a Django application with Prometheus][monitor-django-prometheus]**: Use how to use Prometheus to monitor your Django application.
 
 ### Integrating with Grafana
