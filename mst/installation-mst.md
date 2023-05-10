@@ -71,7 +71,7 @@ cloud provider, which you can install your database on.
 
 <Highlight type="important">
 Your Managed Service for TimescaleDB trial includes up to US$300 credit for you
-to use. This is enough to complete all our tutorials and run a few test projects
+to use. This is enough to complete all the tutorials and run a few test projects
 of your own.
 </Highlight>
 

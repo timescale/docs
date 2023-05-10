@@ -1,21 +1,21 @@
 ---
-title: Contribute to TimescaleDB
-excerpt: Learn more about how to contribute to TimescaleDB
+title: Contribute to Timescale
+excerpt: Learn more about how to contribute to Timescale
 keywords: [contribute]
 tags: [github]
 ---
 
-# Contributing to TimescaleDB
+# Contributing to Timescale
 
-There are multiple ways to help make TimescaleDB better. All of our documentation
-and source for the PostgreSQL extension are available to use and review via
+There are multiple ways to help make Timescale better. All of the documentation
+and source for the PostgreSQL extension are available to use and review on
 GitHub.
 
 ## Contributing to Timescale documentation
 
 Timescale documentation is hosted in a [GitHub repository][github-docs]
 and is open for contribution from all community members. If you
-find errors or would like to add content to our docs, this tutorial
+find errors or would like to add content to the docs, this tutorial
 walks you through the process.
 
 ### Making minor changes
@@ -42,17 +42,17 @@ can ensure that the community is free and confident in its
 ability to use your contributions. You are prompted to sign the
 CLA during the pull request process.
 
-## Contributing to TimescaleDB code
+## Contributing to Timescale code
 
-Timescale appreciates any help the community can provide to make TimescaleDB better!
+Timescale appreciates any help the community can provide to make Timescale better!
 
 There are multiple ways you can help:
 
 *   Open an issue with a bug report, build issue, feature request, suggestion, etc.
 *   Fork this repository and submit a pull request
 
-[Head over to our GitHub repository][github-timescaledb] for TimescaleDB to learn more about how you
-can help and to review our coding style guide!
+[Head over to our GitHub repository][github-timescaledb] for Timescale to learn
+more about how you can help and to review our coding style guide!
 
 [github-docs]: https://github.com/timescale/docs
 [github-timescaledb]: https://github.com/timescale/timescaledb/blob/master/CONTRIBUTING.md

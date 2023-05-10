@@ -13,7 +13,7 @@ repository, which pulls in content from this repository on each build.
 ## Contributing
 
 We welcome and appreciate any help the community can provide to make
-TimescaleDB's documentation better.
+Timescale's documentation better.
 
 You can help either by opening an
 [issue](https://github.com/timescale/docs/issues) with

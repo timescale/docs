@@ -152,7 +152,7 @@ There is no ability for any customer or member of the public to access any
 virtual machines used in Managed Service for TimescaleDB.
 
 Managed Service for TimescaleDB services are periodically assessed and penetration
-tested for any security issues by an independent professional cyber security vendor.
+tested for any security issues by an independent professional cyber-security vendor.
 
 <!---
 The most
