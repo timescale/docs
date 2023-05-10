@@ -157,11 +157,6 @@ module.exports = [
         excerpt: "Monitor a Django application with Prometheus",
       },
       {
-        title: "Collect metrics with Telegraf",
-        href: "telegraf-output-plugin",
-        excerpt: "Collect metrics with Telegraf",
-      },
-      {
         title: "Grafana",
         href: "grafana",
         excerpt: "Getting Started with Grafana and TimescaleDB",
@@ -283,11 +278,6 @@ module.exports = [
               "Create a continuous deployment between GitHub and AWS Lambda",
           },
         ],
-      },
-      {
-        title: "Sample datasets",
-        href: "sample-datasets",
-        excerpt: "Sample datasets for Tableau and TimescaleDB",
       },
     ],
   },
