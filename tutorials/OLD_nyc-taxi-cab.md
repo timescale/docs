@@ -25,7 +25,7 @@ SQL command, but it is helpful if you've seen SQL before.
 ### Accessing Timescale
 
 There are multiple options for using Timescale to follow along with this tutorial. **All connection information
-and database naming** throughout this tutorial assumes you are connected to **Timescale Cloud**, our hosted,
+and database naming** throughout this tutorial assumes you are connected to **Timescale**, our hosted,
 fully managed database-as-a-service. [Sign up for a free, 30-day demo account][cloud-signup], no credit-card
 required. Once you confirm the account and get logged in, proceed to the **Background** section below.
 
@@ -103,8 +103,6 @@ by typing the command below into your terminal,
 ensuring that you replace the {curly brackets} with your real
 password, hostname, and port number.
 
->:TIP: Remember, this connection string assumes you are connecting to **Timescale Cloud**. Change the user and database name as needed depending on how you're connecting.
-
 ```bash
 psql -x "postgres://tsdbadmin:{YOUR_PASSWORD_HERE}@{YOUR_HOSTNAME_HERE}:{YOUR_PORT_HERE}/tsdb?sslmode=require"
 ```
@@ -161,7 +159,7 @@ automatically configures your TimescaleDB instance with the appropriate
 
 In the command below, be sure to substitute the items in the curly braces with
 information from your TimescaleDB instance, as you did earlier. Also take
-note that this command includes the Timescale Cloud database that is automatically created
+note that this command includes the Timescale database that is automatically created
 for you. If you are running the database locally, replace the database name as needed.
 
 ```bash
@@ -255,8 +253,7 @@ into the `rides` hypertable. To do this, we'll use the `psql` `\copy` command be
 
 >:WARNING: The PostgreSQL `\COPY` command is single-threaded and doesn't support batching
 inserts into multiple transactions. With nearly 11 million rows of data this import can take
-10 minutes or more depending on your Internet connection when copying into a cloud-hosted
-database like **Timescale Cloud**.
+10 minutes or more depending on your Internet connection.
 
 ```sql
 \COPY rides FROM nyc_data_rides.csv CSV;

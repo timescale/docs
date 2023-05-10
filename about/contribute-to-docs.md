@@ -342,12 +342,12 @@ carefully before publishing.
 
 &#10060; "Enter your log in information."
 
-&#128077; "Log in to Timescale Cloud."
+&#128077; "Log in to Timescale."
 
 *Login*
 : Adjective or noun.
 
-&#10060; "Login to Timescale Cloud."
+&#10060; "Login to Timescale."
 
 &#128077; "Enter your login information."
 
@@ -435,14 +435,14 @@ sense. Do not use camel case.
 
 &#128077; I have installed Timescale to manage my time-series data.
 
-*Timescale Cloud*
+*Timescale*
 : The name of the product. Always capitalize the initial letters.
 
-&#10060; "I am using Timescale cloud to manage my time-series data."
+&#10060; "I am using timescale to manage my time-series data."
 
-&#10060; "I am using TS Cloud to manage my time-series data."
+&#10060; "I am using Timescale Cloud to manage my time-series data."
 
-&#128077; "I am using Timescale Cloud to manage my time-series data."
+&#128077; "I am using Timescale to manage my time-series data."
 
 *TimescaleDB*
 : The name of the PostgreSQL extension. Always capitalize the initial letter and
