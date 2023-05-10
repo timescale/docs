@@ -5,7 +5,7 @@
 1.  Sign up for a [Timescale account][sign-up] with your
     name and email address. You do not need to provide payment details to
     get started. A confirmation email is sent to the email address you provide.
-1.  Verify your email by clicking on the link in the email you received. Don't
+1.  Verify your email by clicking the link in the email you received. Don't
     forget to check your spam folder in case the email ends up there.
 1.  Sign in to the [Timescale portal][tsc-portal] with the
     password you set:
