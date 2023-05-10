@@ -50,7 +50,7 @@ supports public AMIs.
 After you have completed the installation, connect to your instance and
 configure your database. For information about connecting to the instance, see
 the AWS [accessing instance documentation][aws-connect]. The easiest way to
-configure your datase is to run the `timescaledb-tune` script, which is included
+configure your database is to run the `timescaledb-tune` script, which is included
 with the `timescaledb-tools` package. For more information, see the
 [configuration][config] section.
 
