@@ -17,9 +17,6 @@ import CloudMSTComparison from "versionContent/_partials/_cloud-mst-comparison.m
 Your Managed Service for TimescaleDB account has three main components:
 projects, services, and databases.
 
-Before you begin, make sure you have
-[signed up to Managed Service for TimescaleDB][sign-up] and created your account.
-
 ## Projects
 
 When you sign up for Managed Service for TimescaleDB, an empty project is
@@ -281,7 +278,6 @@ SET statement_timeout = <milliseconds>
 ```
 
 [mst-install]: /mst/:currentVersion:/installation-mst/
-[sign-up]: https://www.timescale.com/cloud-signup
 [timescale-support]: https://www.timescale.com/support
 [aiven-sla]: https://aiven.io/sla
 [pg-keepalive]: http://www.postgresql.org/docs/9.5/static/libpq-connect.html#LIBPQ-KEEPALIVES
