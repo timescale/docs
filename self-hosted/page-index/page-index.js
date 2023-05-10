@@ -162,11 +162,6 @@ module.exports = [
             href: "migrate-influxdb",
             excerpt: "Migrate data into Timescale using the Outflux tool",
           },
-          {
-            title: "Troubleshooting migration to self-hosted TimescaleDB",
-            href: "troubleshooting",
-            type: "placeholder",
-          },
         ],
       },
       {

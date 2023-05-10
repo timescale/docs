@@ -80,14 +80,15 @@ partials, which are then used to calculate the result of the query. This means a
 certain amount of processing capacity is required for any query, and the amount
 required becomes greater as the interval gets smaller. Because of this, if you
 have very small intervals, it can be more efficient to run the aggregate query
-on the raw data in the hypertable. We recommend that you test both methods to
-determine what is best for your data set and desired bucket interval.
+on the raw data in the hypertable. You should test both methods to determine
+what is best for your dataset and desired bucket interval.
 
-You can read more about the time bucket function in
-our [API Guide][api-time-bucket]. If you want to use
-[time_bucket_gapfill][api-time-bucket-gapfill], you need to run it in the
-`SELECT` statement on the continuous aggregate view, you can not run it in the
+If you want to use [time_bucket_gapfill][api-time-bucket-gapfill], run it in the
+`SELECT` statement on the continuous aggregate view, do not run it in the
 continuous aggregate directly.
+
+For more information about the time bucket function, see the
+[API documentation][api-time-bucket].
 
 ## Using the WITH NO DATA option
 
@@ -162,8 +163,9 @@ GROUP BY name, bucket;
 ```
 
 <Highlight type="note">
-For more information, including some additional restrictions, see the
-[continuous aggregates section](https://docs.timescale.com/api/latest/continuous-aggregates/create_materialized_view/).
+For more information about creating a continuous aggregate with a `JOIN`,
+including some additional restrictions, see the
+[about continuous aggregates section](https://docs.timescale.com/use-timescale/latest/continuous-aggregates/about-continuous-aggregates/#continuous-aggregates-with-a-join-clause).
 </Highlight>
 
 ## Query continuous aggregates

@@ -14,9 +14,8 @@ Timescale, see the [current release section](https://docs.timescale.com/about/la
 </Highlight>
 
 TimescaleDB 2.0 introduces new features and capabilities to its advanced
-relational database for time-series data. Driven by user feedback and our
-experience building products like [Promscale][promscale], 2.0 is a major
-milestone and introduces the first multi-node, petabyte-scale relational
+relational database for time-series data. Driven by user feedback, 2.0 is a
+major milestone and introduces the first multi-node, petabyte-scale relational
 database for time-series. In addition to multi-node capabilities, this release
 includes new features, and improvements to existing ones, focused on giving you
 more flexibility, control over your data, and the ability to customize behavior
@@ -528,7 +527,6 @@ by license. For example, setting the
 license to `apache` allows access to only Apache-2 licensed features.
 
 [how-to-guides]: /use-timescale/:currentVersion:/
-[promscale]: https://github.com/timescale/promscale
 [real-time-aggregation]: /use-timescale/:currentVersion:/continuous-aggregates/real-time-aggregates/
 [timescaledb2]: https://github.com/timescale/timescaledb/releases/2.0.0
 [upgrade-timescaledb2]: /self-hosted/:currentVersion:/upgrades/major-upgrade/

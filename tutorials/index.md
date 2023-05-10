@@ -11,6 +11,9 @@ started with *TimescaleDB*.
 
 Most of these tutorials require a working [installation of TimescaleDB][install-timescale].
 
+<!--- Removing these, as they are no longer current, and we'll need to rewrite
+this index entirely anyway. LKB 2023-05-10
+
 ### Common scenarios for using TimescaleDB
 
 *   **[Introduction to TimescaleDB][nyc-taxi]**: The tried and true tutorial for learning TimescaleDB.
@@ -23,7 +26,6 @@ data analysis and make forecasts on your data.
 
 ### Observability scenarios
 
-*   **[Getting started with Promscale][promscale]**: Promscale is the long‑term store for Prometheus data, designed for analytics
 *   **[Setup a Prometheus endpoint for managed TimescaleDB][prometheus-mst-endpoint]**: Learn how to create a monitoring system to ingest and analyze Prometheus metrics from your Timescale Cloud instance.
 *   **[Monitor a Django application with Prometheus][monitor-django-prometheus]**: Use how to use Prometheus to monitor your Django application.
 
@@ -50,6 +52,8 @@ on PostgreSQL or TimescaleDB.
 Learn how to install `psql` on Mac, Ubuntu, Debian, Windows,
 and pick up some valuable `psql` tips and tricks along the way.
 
+-->
+
 [Crypto]: /tutorials/:currentVersion:/analyze-cryptocurrency-data
 [Forecasting]: /tutorials/:currentVersion:/time-series-forecast
 [Stocks]: /tutorials/:currentVersion:/analyze-intraday-stocks/
@@ -59,7 +63,6 @@ and pick up some valuable `psql` tips and tricks along the way.
 [nfl]: /tutorials/:currentVersion:/nfl-analytics/
 [nyc-taxi]: /tutorials/:currentVersion:/nyc-taxi-cab/
 [prometheus-mst-endpoint]: /tutorials/:currentVersion:/monitor-mst-with-prometheus/
-[promscale]: /promscale/latest/
 [psql]: /use-timescale/:currentVersion:/connecting/psql/
 [sample-data-sets]: /tutorials/:currentVersion:/sample-datasets
 [simul-iot-data]: /tutorials/:currentVersion:/simulate-iot-sensor-data

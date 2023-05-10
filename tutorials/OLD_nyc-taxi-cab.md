@@ -87,7 +87,11 @@ This download contains two files:
 
 You can download the files from the below link:
 
-<Tag type="download">[nyc_data.tar.gz](https://timescaledata.blob.core.windows.net/datasets/nyc_data.tar.gz)</Tag>
+<!--- This link no longer works, deleted. LKB 2023-05-10
+
+<Tag type="download">[nyc_data.tar.gz]()</Tag>
+
+-->
 
 #### Get connected to TimescaleDB
 

@@ -11,7 +11,7 @@ keywords: [installation]
 import MSTIntro from "versionContent/_partials/_mst-intro.mdx";
 import CloudMSTComparison from "versionContent/_partials/_cloud-mst-comparison.mdx";
 
-# Gat started with Managed Service for TimescaleDB
+# Get started with Managed Service for TimescaleDB
 
 <MSTIntro />
 

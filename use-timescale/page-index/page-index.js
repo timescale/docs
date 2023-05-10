@@ -313,13 +313,6 @@ module.exports = [
             href: "hypershift-config",
             excerpt: "About creating a Hypershift configuration file",
           },
-          {
-            title: "Troubleshoot database migration",
-            href: "troubleshooting",
-            type: "placeholder",
-            excerpt:
-              "Troubleshoot problems that occur with Hypershift",
-          },
         ],
       },
       {
@@ -812,11 +805,6 @@ module.exports = [
             type: "placeholder",
           },
         ],
-      },
-      {
-        title: "Multi-node",
-        href: "cloud-multi-node",
-        excerpt: "Timescale Cloud Multi-node",
       },
       {
         title: "Data tiering",
