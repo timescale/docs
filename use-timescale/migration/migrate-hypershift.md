@@ -1,6 +1,6 @@
 ---
-title: Migrate to Timescale Cloud with Hypershift
-excerpt: Migrate an existing PostgreSQL database to Timescale Cloud using Hypershift
+title: Migrate to Timescale with Hypershift
+excerpt: Migrate an existing PostgreSQL database to Timescale using Hypershift
 products: [cloud]
 keywords: [data migration, Hypershift]
 tags: [ingest, Hypershift, postgresql]
@@ -17,7 +17,7 @@ import CloudTrial from "versionContent/_partials/_cloudtrial.mdx";
 
 Before you begin, make sure you have:
 
-*   Signed up for your [free Timescale Cloud account][cloud-install].
+*   Signed up for your [free Timescale account][cloud-install].
 *   Installed [Docker][docker-install].
 
 <CloudTrial />

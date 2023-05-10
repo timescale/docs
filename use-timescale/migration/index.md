@@ -1,14 +1,14 @@
 ---
 title: Migrate your data to Timescale
-excerpt: Migrate existing database to Timescale Cloud
+excerpt: Migrate existing database to Timescale
 products: [cloud]
 keywords: [data migration, postgresql, hypershift, RDS]
 tags: [ingest, migrate, RDS]
 ---
 
-# Migrate your data to Timescale Cloud
+# Migrate your data to Timescale
 
-You can migrate data from another database into Timescale Cloud
+You can migrate data from another database into Timescale
 using Timescale Hypershift. You can also use hypershift to migrate your data
 from Managed Service for TimescaleDB, from a self-hosted Timescale instance, or
 from another PostgreSQL database, including Amazon RDS.
@@ -18,7 +18,7 @@ from another PostgreSQL database, including Amazon RDS.
 *   [Configure hypershift][configure-hypershift].
 
 If you want to import data from another format, such as a `.csv` file, into a
-new Timescale Cloud service, see the [data ingest section][data-ingest].
+new Timescale service, see the [data ingest section][data-ingest].
 
 If you want to migrate existing data into a self-hosted Timescale installation,
 see the [self-hosted data migration section][self-hosted-migration].

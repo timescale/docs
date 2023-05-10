@@ -1,6 +1,6 @@
 ---
 title: Client credentials
-excerpt: Client credentials to programmatically access your Timescale Cloud account
+excerpt: Client credentials to programmatically access your Timescale account
 product: cloud
 keywords: [client credentials, accounts, prgrammatic access]
 tags: [authentication tokens]
@@ -25,7 +25,7 @@ access to Timescale resources.
 
 ### Creating client credentials
 
-1.  [Log in to your Timescale Cloud account][cloud-login].
+1.  [Log in to your Timescale account][cloud-login].
 1.  Navigate to the `Project Settings` page to create client credentials for
     your project.
 1.  In the `Project Settings` page, click `Create credentials`.
@@ -34,9 +34,9 @@ access to Timescale resources.
     Copy your secret key and store it in a secure place. You won't be able to
     view the `Secret Key` again in the console.
 1.  Click `Done`.
-    You can use these keys in your client applications to access Timescale Cloud
+    You can use these keys in your client applications to access Timescale
     resources inside the respective project.
-    Timescale Cloud generates a default `Name` for the client credentials.
+    Timescale generates a default `Name` for the client credentials.
 1.  Click the ⋮ menu and select `Rename credentials`.
 1.  In the  `Edit credential name` dialog, type the new name and click `Accept`.
 
@@ -46,7 +46,7 @@ access to Timescale resources.
 
 <Procedure>
 
-1.  [Log in to your Timescale Cloud account][cloud-login].
+1.  [Log in to your Timescale account][cloud-login].
 1.  Navigate to the `Project Settings` page to view client credentials for
     your project.
 1.  In the `Project Settings` page, click the ⋮ menu of the client credential,
