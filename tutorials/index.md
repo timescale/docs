@@ -11,6 +11,9 @@ started with *TimescaleDB*.
 
 Most of these tutorials require a working [installation of TimescaleDB][install-timescale].
 
+<!--- Removing these, as they are no longer current, and we'll need to rewrite
+this index entirely anyway. LKB 2023-05-10
+
 ### Common scenarios for using TimescaleDB
 
 *   **[Introduction to TimescaleDB][nyc-taxi]**: The tried and true tutorial for learning TimescaleDB.
@@ -48,6 +51,8 @@ on PostgreSQL or TimescaleDB.
 *   **[psql installation][psql]**: `psql` is a terminal-based front-end for PostgreSQL.
 Learn how to install `psql` on Mac, Ubuntu, Debian, Windows,
 and pick up some valuable `psql` tips and tricks along the way.
+
+-->
 
 [Crypto]: /tutorials/:currentVersion:/analyze-cryptocurrency-data
 [Forecasting]: /tutorials/:currentVersion:/time-series-forecast

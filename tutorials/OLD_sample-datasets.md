@@ -17,9 +17,13 @@ you are importing them to has already been [set up with the TimescaleDB extensio
 **Device ops**: these datasets include metrics such as CPU, memory, and network,
 that are collected from mobile devices. Click on the name to download.
 
-*   <Tag type="download" >[devices_small](https://assets.timescale.com/docs/downloads/devices_small.tar.gz)</Tag> 1,000 devices recorded over 1,000 time intervals - 39&nbsp;MB
-*   <Tag type="download" >[devices_med](https://timescaledata.blob.core.windows.net/datasets/devices_med.tar.gz)</Tag> 5,000 devices recorded over 2,000 time intervals - 390&nbsp;MB
-*   <Tag type="download" >[devices_big](https://timescaledata.blob.core.windows.net/datasets/devices_big.tar.gz)</Tag> 3,000 devices recorded over 10,000 time intervals - 1.2&nbsp;GB
+<!--- These links no longer work, deleted. LKB 2023-05-10
+
+*   <Tag type="download" >[devices_small]()</Tag> 1,000 devices recorded over 1,000 time intervals - 39&nbsp;MB
+*   <Tag type="download" >[devices_med]()</Tag> 5,000 devices recorded over 2,000 time intervals - 390&nbsp;MB
+*   <Tag type="download" >[devices_big]()</Tag> 3,000 devices recorded over 10,000 time intervals - 1.2&nbsp;GB
+
+-->
 
 For more details and example usage, see
 [device ops datasets](#device-ops-datasets).
@@ -27,12 +31,16 @@ For more details and example usage, see
 **Weather**: these datasets include metrics like temperature and humidity data
 from a variety of locations. Click on the name to download.
 
-*   <Tag type="download" >[weather_small](https://assets.timescale.com/docs/downloads/weather_small.tar.gz)</Tag>
+<!--- These links no longer work, deleted. LKB 2023-05-10
+
+*   <Tag type="download" >[weather_small]()</Tag>
     1,000 locations over 1,000 two-minute intervals - 8.1&nbsp;MB
-*   <Tag type="download" >[weather_med](https://timescaledata.blob.core.windows.net/datasets/weather_med.tar.gz)</Tag>
+*   <Tag type="download" >[weather_med]()</Tag>
     1,000 locations over 15,000 two-minute intervals - 115&nbsp;MB
-*   <Tag type="download" >[weather_big](https://assets.timescale.com/docs/downloads/weather_big.tar.gz)</Tag>
+*   <Tag type="download" >[weather_big]()</Tag>
     2,000 locations over 20,000 two-minute intervals - 305&nbsp;MB
+
+-->
 
 For more details and example usage, see [weather datasets](#weather-datasets).
 
