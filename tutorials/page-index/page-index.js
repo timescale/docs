@@ -27,12 +27,6 @@ module.exports = [
         ],
       },
       {
-        title: "Introduction to time-series forecasting",
-        href: "time-series-forecast",
-        excerpt:
-          "An introduction to time-series forecasting using NYC taxi data",
-      },
-      {
         title: "Analyze cryptocurrency data",
         href: "analyze-cryptocurrency-data",
         excerpt: "Use TimescaleDB to analyze cryptocurrency data",
@@ -94,62 +88,6 @@ module.exports = [
               "Analyze NFT data transactions with PostgreSQL and hyperfunctions in TimescaleDB",
           },
         ],
-      },
-      {
-        title: "Analyze intraday stock data",
-        href: "analyze-intraday-stocks",
-        excerpt: "Analyze intraday stock data with TimescaleDB",
-        children: [
-          {
-            title: "Design database schema",
-            href: "design-schema",
-            excerpt:
-              "Design a database schema for intraday stock data analysis",
-          },
-          {
-            title: "Fetch and ingest stock data",
-            href: "fetch-and-ingest",
-            excerpt: "Fetch and ingest stock data using TimescaleDB",
-          },
-          {
-            title: "Explore stock market data",
-            href: "explore-stocks-data",
-            excerpt: "Explore stock market data with TimescaleDB",
-          },
-        ],
-      },
-      {
-        title: "Analyze data using hyperfunctions",
-        href: "nfl-analytics",
-        excerpt: "Analyze NFL data using TimescaleDB",
-        children: [
-          {
-            title: "Ingest and query data",
-            href: "ingest-and-query",
-            excerpt: "Ingest and query NFL data with TimescaleDB",
-          },
-          {
-            title: "Analyze data using SQL and hyperfunctions",
-            href: "advanced-analysis",
-            excerpt:
-              "Analyze NFL data using SQL and hyperfunctions in TimescaleDB",
-          },
-          {
-            title: "Join time-series and relational data",
-            href: "join-with-relational",
-            excerpt: "Join time-series and relational NFL data in TimescaleDB",
-          },
-          {
-            title: "Visualize time-series data",
-            href: "play-visualization",
-            excerpt: "Visualize NFL data with TimescaleDB",
-          },
-        ],
-      },
-      {
-        title: "Monitor MST with Prometheus",
-        href: "monitor-mst-with-prometheus",
-        excerpt: "Monitor MST with Prometheus",
       },
       {
         title: "Monitor a Django application with Prometheus",
@@ -253,31 +191,6 @@ module.exports = [
         title: "Simulate IoT sensor data",
         href: "simulate-iot-sensor-data",
         excerpt: "Simulate IoT Sensor Data with TimescaleDB",
-      },
-      {
-        title: "TimescaleDB with AWS Lambda",
-        href: "aws-lambda",
-        excerpt: "Tutorial for using TimescaleDB with AWS Lambda",
-        children: [
-          {
-            title: "Create a data API for TimescaleDB",
-            href: "create-data-api",
-            excerpt:
-              "Create a data API for TimescaleDB with AWS Lambda and API Gateway",
-          },
-          {
-            title: "Pull and ingest data from a third party API",
-            href: "3rd-party-api-ingest",
-            excerpt:
-              "Pull and ingest data from a third party into TimescaleDB with AWS Lambda",
-          },
-          {
-            title: "Continuous deployment with GitHub actions",
-            href: "continuous-deployment",
-            excerpt:
-              "Create a continuous deployment between GitHub and AWS Lambda",
-          },
-        ],
       },
     ],
   },
