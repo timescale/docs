@@ -245,20 +245,8 @@ transactions should be "healed." Please refer to our standard
 [multi-node documentation][maintenance-tasks] for instructions on how to
 configure a user-defined action for this task.
 
-## Summary
-
-Now that you have a basic TimescaleDB multi-node cluster, consider using
-one of our [large sample datasets][sample-data] to create more distributed
-hypertables. Whatever your time-series data needs, TimescaleDB
-multi-node opens up an entirely new level of opportunity for your time-series
-data.
-
-And as always, consider joining our vibrant community [Slack channel][slack] to
-ask questions and learn from Timescale staff and other community members.
-
 [changes-in-tsdb2]: /about/:currentVersion:/release-notes/changes-in-timescaledb-2/
 [distributed-architecture]: https://blog.timescale.com/blog/building-a-distributed-time-series-database-on-postgresql/
 [maintenance-tasks]: /self-hosted/:currentVersion:/multinode-timescaledb/multinode-setup/
 [postgres-user-mapping]: https://www.postgresql.org/docs/current/view-pg-user-mappings.html
-[sample-data]: /tutorials/:currentVersion:/sample-datasets/
 [slack]: https://slack.timescale.com/
