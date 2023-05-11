@@ -1,6 +1,6 @@
 ---
 title: Service settings - PostgreSQL extensions
-excerpt: Use PostgreSQL extensions with your Timescale Cloud service
+excerpt: Use PostgreSQL extensions with your Timescale service
 products: [cloud]
 keywords: [services, settings, extensions]
 tags: [extensions]
@@ -8,7 +8,7 @@ tags: [extensions]
 
 # PostgreSQL extensions
 
-You can use PostgreSQL extensions with Timescale Cloud. If you run
+You can use PostgreSQL extensions with Timescale. If you run
 `pg_available_extensions` at the command prompt, the returned list of extensions
 is inaccurate.
 
