@@ -53,17 +53,8 @@ working as efficiently as possible.
 See the [growing list of language Quick Starts][connect-with-code] to get you up
 and running with Timescale, including best practices.
 
-## Examine other sample datasets
-
-Sometimes it's just easier to explore further by having access to additional
-datasets. We have you covered! 🙌
-
-Have a look some of the [other datasets][sample-data] provided for you to dig
-deeper into time-series data and data analysis using Timescale.
-
 [connect-with-code]: /quick-start/:currentVersion:/
 [ingest-real-time]: /tutorials/:currentVersion:/ingest-real-time-websocket-data
 [migrate-data]: /use-timescale/:currentVersion:/migration/
-[sample-data]: /tutorials/:currentVersion:/sample-datasets/
 [twelve-data]: https://twelvedata.com/
 [visualize-data]: /tutorials/:currentVersion:/grafana/
