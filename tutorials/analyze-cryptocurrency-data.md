@@ -661,7 +661,6 @@ Ready for even more learning? Here's a few suggestions:
 
 *   [Time Series Forecasting using TimescaleDB, R, Apache MADlib and Python][time-series-forecasting]
 *   [Continuous Aggregates][continuous-aggregates]
-*   [Try Other Sample Datasets][other-samples]
 *   [Migrate your own Data][migrate]
 
 [continuous-aggregates]: /getting-started/:currentVersion:/create-cagg
@@ -672,6 +671,5 @@ Ready for even more learning? Here's a few suggestions:
 [hypertable-docs]: /use-timescale/:currentVersion:/hypertables
 [install-timescale]: /getting-started/latest/
 [migrate]: /use-timescale/:currentVersion:/migration/
-[other-samples]: /tutorials/:currentVersion:/sample-datasets/
 [tableau-tutorial]: /tutorials/:currentVersion:/visualize-with-tableau/
 [time-series-forecasting]: /tutorials/:currentVersion:/time-series-forecast/

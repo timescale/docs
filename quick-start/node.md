@@ -397,13 +397,11 @@ Now that you're able to connect, read, and write to a TimescaleDB instance from
 your Node application, check out these tutorials:
 
 *   [Time Series Forecasting using TimescaleDB, R, Apache MADlib and Python][time-series-forecasting]
-*   [Try Other Sample Datasets][other-samples]
 *   [Migrate your own Data][migrate]
 
 [migrate]: /use-timescale/:currentVersion:/migration/
 [node-install]: https://nodejs.org
 [npm-install]: https://www.npmjs.com/get-npm
-[other-samples]: /tutorials/:currentVersion:/sample-datasets/
 [sequelize-info]: https://sequelize.org
 [time-series-forecasting]: /tutorials/:currentVersion:/time-series-forecast/
 [connect]: #connect-to-timescaledb
