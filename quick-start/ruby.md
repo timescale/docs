@@ -742,7 +742,6 @@ advanced TimescaleDB tutorials:
 
 *   [Time Series Forecasting using TimescaleDB, R, Apache MADlib and Python][time-series-forecasting]
 *   [Continuous Aggregates][continuous-aggregates]
-*   [Try Other Sample Datasets][other-samples]
 *   [Migrate Your own Data][migrate]
 
 [continuous-aggregates]: /use-timescale/:currentVersion:/continuous-aggregates/
@@ -761,6 +760,5 @@ advanced TimescaleDB tutorials:
 [around_action]: https://guides.rubyonrails.org/action_controller_overview.html#after-filters-and-around-filters
 [benchmark]: https://github.com/ruby/benchmark
 [continuous-aggregates]: /use-timescale/:currentVersion:/continuous-aggregates/
-[other-samples]: /tutorials/:currentVersion:/sample-datasets/
 [time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
 [time-series-forecasting]: /tutorials/:currentVersion:/time-series-forecast/

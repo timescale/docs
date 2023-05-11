@@ -33,6 +33,7 @@ TimescaleDB Apache 2 Edition is available from these service providers:
 *   [Azure Database for PostgreSQL][azure-database]
 *   [Digital Ocean][digital-ocean]
 *   [Aiven for PostgreSQL][aiven]
+*   [Neon. Serverless Postgres][neon]
 
 ### TimescaleDB Community Edition
 
@@ -525,4 +526,5 @@ for TimescaleDB. MST is offered in AWS, Azure, and Google Cloud.
 [mst]: /mst/:currentVersion:
 [timescale-cloud]: /use-timescale/:currentVersion:/services/
 [timescale-license]: https://github.com/timescale/timescaledb/blob/master/tsl/LICENSE-TIMESCALE
+[neon]: https://neon.tech/
 [apache-license]: https://github.com/timescale/timescaledb/blob/master/LICENSE-APACHE

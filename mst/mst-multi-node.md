@@ -248,3 +248,4 @@ instructions on how to configure a user-defined action for this task.
 [distributed-architecture]: https://blog.timescale.com/blog/building-a-distributed-time-series-database-on-postgresql/
 [maintenance-tasks]: /self-hosted/:currentVersion:/multinode-timescaledb/multinode-setup/
 [postgres-user-mapping]: https://www.postgresql.org/docs/current/view-pg-user-mappings.html
+[slack]: https://slack.timescale.com/
