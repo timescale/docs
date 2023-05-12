@@ -39,7 +39,7 @@ For more information about installing the AWS CLI, see
 If you are completing this tutorial in Timescale, make sure you have
 created a VPC on both AWS, and on your database in Timescale. For more
 information about setting up a VPC, see the
-[Timescale VPC section](/use-timescale/:currentVersion:/vpc/).
+[Timescale VPC section](/use-timescale/latest/vpc/).
 </Highlight>
 
 ## Programming language
