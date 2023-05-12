@@ -197,8 +197,8 @@ React component tag. **Reminder**, any links within the callout text MUST have
 inline link styles.
 
 The `type` can currently support a value of `"note"`, `"warning"`,
-`"important"`, `"deprecation"` or `"cloud"`". `cloud` produces a Cloud callout
-for content specifically referring to Timescale Cloud.
+`"important"`, `"deprecation"` or `"cloud"`". `cloud` produces a callout
+for content specifically referring to hosted Timescale.
 
 ```html
 <Highlight type="note">

@@ -321,7 +321,7 @@ October 1, 2021 to October 7, 2021.
     psql -x "postgres://host:port/tsdb?sslmode=require"
     ```
 
-    If you're using Timescale Cloud, the instructions under `How to Connect` provide a
+    If you're using Timescale, the instructions under `How to Connect` provide a
     customized command to run to connect directly to your database.
 1.  Import the CSV files in this order (it can take a few minutes in total):
 
@@ -330,7 +330,7 @@ October 1, 2021 to October 7, 2021.
     \copy collections FROM 002_collections.csv CSV HEADER;
     \copy assets FROM 003_assets.csv CSV HEADER;
     \copy nft_sales FROM 004_nft_sales.csv CSV HEADER;
-    ```  
+    ```
 
 </Procedure>
 

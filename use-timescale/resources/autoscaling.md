@@ -1,6 +1,6 @@
 ---
 title: Autoscaling
-excerpt: Set up Timescale Cloud to automatically resize your compute and storage
+excerpt: Set up Timescale to automatically resize your compute and storage
 products: [cloud]
 keywords: [scaling, services, operations]
 tags: [cpu, storage, disk space]
@@ -34,7 +34,7 @@ manually. To learn more, see the
 [limitations of autoscaling](#limitations-of-autoscaling).
 </Highlight>
 
-You can also use autoscaling with Timescale Cloud multi-node clusters. In this
+You can also use autoscaling with Timescale multi-node clusters. In this
 case, you should define different scale limits for the access node and data
 nodes. This is not just because they have different workloads, but also because
 access nodes are less demanding for storage than data nodes. Data nodes have a
@@ -50,7 +50,7 @@ workload.
 
 ### Configuring autoscaling for disk size
 
-1.  In the Timescale Cloud console, from the `Services` list, click the name of
+1.  In the Timescale console, from the `Services` list, click the name of
     the service you want to modify.
 1.  In the `Service overview` page, navigate to the `Operations` tab, and click
     `Autoscaling`.

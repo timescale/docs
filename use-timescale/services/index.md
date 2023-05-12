@@ -1,6 +1,6 @@
 ---
-title: Timescale Cloud services
-excerpt: Learn more about Timescale Cloud services
+title: Timescale services
+excerpt: Learn more about Timescale services
 products: [cloud]
 keywords: [services]
 cloud_ui:
@@ -11,9 +11,17 @@ cloud_ui:
 
 import CloudIntro from "versionContent/_partials/_cloud-intro.mdx";
 
-# Timescale Cloud services
+# Timescale services
 
 <CloudIntro />
+
+## Timescale Terraform provider
+
+The [Timescale Terraform provider][terraform-provider] provides configuration
+management resources for Timescale. You can use it to create, rename, resize,
+delete, and import service. For more information about the supported service
+configurations and operations, see
+[Timescale Terraform provider documentation][terraform-provider-docs].
 
 ### Learn more about Timescale
 
@@ -28,7 +36,7 @@ Read about Timescale features in the documentation:
 
 You're now on your way to a great start with Timescale.
 
-You have an unthrottled, 30-day free trial with Timescale Cloud to continue to
+You have an unthrottled, 30-day free trial with Timescale to continue to
 test your use case. Before the end of your trial, make sure you add your credit
 card information. This ensures a smooth transition after your trial period
 concludes.
@@ -39,7 +47,7 @@ or [contact us][contact-timescale] directly.
 
 ## Advanced configuration
 
-Timescale Cloud is a versatile hosting service that provides a growing list of
+Timescale is a versatile hosting service that provides a growing list of
 advanced features for your PostgreSQL and time-series data workloads.
 
 For additional documentation on how to:
@@ -55,3 +63,5 @@ For additional documentation on how to:
 [resize]: /use-timescale/:currentVersion:/resources/autoscaling/
 [slack-info]: https://slack-login.timescale.com
 [time-bucket-info]: /use-timescale/:currentVersion:/query-data/advanced-analytic-queries#time-bucket
+[terraform-provider-docs]: https://registry.terraform.io/providers/timescale/timescale/latest/docs
+[terraform-provider]: https://registry.terraform.io/providers/timescale/timescale/latest/

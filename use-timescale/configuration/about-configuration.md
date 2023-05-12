@@ -15,7 +15,7 @@ are set to reflect the size of the new service.
 
 There are times, however, when your specific workload could require tuning some
 of the many available Timescale and PostgreSQL parameters. By providing the
-ability to tune various runtime settings, Timescale Cloud provides the balance
+ability to tune various runtime settings, Timescale provides the balance
 and flexibility you need when running your workloads in a hosted environment.
 You can use [Service settings][settings] and [Service operations][operations] to
 customize Timescale configurations.

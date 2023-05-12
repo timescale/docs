@@ -13,7 +13,7 @@ api:
 Shows information about runtime errors encountered by jobs run by the automation framework.
 This includes jobs set up for user-defined actions and jobs run by policies
 created to manage data retention, continuous aggregates, compression, and
-other automation policies. For more information about automation policies, 
+other automation policies. For more information about automation policies,
 see the [policies][actions] section.
 
 ### Available columns
@@ -36,7 +36,7 @@ See information about recent job failures:
 ```sql
 SELECT job_id, proc_schema, proc_name, pid, sqlerrcode, err_message from timescaledb_information.job_errors ;
 
- job_id | proc_schema |  proc_name   |  pid  | sqlerrcode |                     err_message                     
+ job_id | proc_schema |  proc_name   |  pid  | sqlerrcode |                     err_message
 --------+-------------+--------------+-------+------------+-----------------------------------------------------
    1001 | public      | custom_proc2 | 83111 | 40001      | could not serialize access due to concurrent update
    1003 | public      | job_fail     | 83134 | 57014      | canceling statement due to user request
@@ -66,16 +66,17 @@ owner             | owner must be a user with WRITE privilege on the table `_tim
 scheduled         | t
 fixed_schedule    | t
 initial_start     | 2000-01-01 02:00:00+02
-hypertable_id     | 
+hypertable_id     |
 config            | {"drop_after": "1 month"}
 check_schema      | _timescaledb_internal
 check_name        | policy_job_error_retention_check
-timezone          | 
+timezone          |
 
 ```
-On Timescale Cloud and Managed Service for TimescaleDB, the owner of the error
+
+On Timescale and Managed Service for TimescaleDB, the owner of the error
 retention job is `tsdbadmin`. In an on-premise installation, the owner of the
-job is the same as the extension owner. 
+job is the same as the extension owner.
 The owner of the retention job can alter it and delete it.
 For example, the owner can change the retention interval like this:
 

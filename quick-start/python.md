@@ -29,7 +29,7 @@ Before you start, make sure you have:
 *   [](#)<Optional />A [Python virtual environment][virtual-env].
 
 <Highlight type="cloud" header="Run all tutorials free" button="Try for free">
-Your Timescale Cloud trial is completely free for you to use for the first
+Your Timescale trial is completely free for you to use for the first
 thirty days. This gives you enough time to complete all the tutorials and run
 a few test projects of your own.
 </Highlight>
@@ -458,7 +458,6 @@ advanced TimescaleDB tutorials:
 
 *   [Time Series Forecasting using TimescaleDB, R, Apache MADlib and Python][time-series-forecasting]
 *   [Continuous Aggregates][continuous-aggregates]
-*   [Try Other Sample Datasets][other-samples]
 *   [Migrate Your own Data][migrate]
 
 [install]: /getting-started/latest/
@@ -466,7 +465,6 @@ advanced TimescaleDB tutorials:
 [create-hypertable-docs]: /api/:currentVersion:/hypertable/create_hypertable
 [dictcursor-docs]: https://www.psycopg.org/docs/extras.html#dictionary-like-cursor
 [migrate]: /use-timescale/:currentVersion:/migration/
-[other-samples]: /tutorials/:currentVersion:/sample-datasets/
 [pg-libpq-string]: https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING
 [pgcopy-install]: https://pypi.org/project/pgcopy/
 [psycopg2-connect]: https://www.psycopg.org/docs/module.html?highlight=connect#psycopg2.connect

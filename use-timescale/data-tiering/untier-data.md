@@ -1,6 +1,6 @@
 ---
 title: Untier data
-excerpt: How to untier Timescale Cloud data
+excerpt: How to untier Timescale data
 product: cloud
 keywords: [data tiering, untiering]
 tags: [storage, data management]

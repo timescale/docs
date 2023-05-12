@@ -1,6 +1,6 @@
 ---
-title: About migrating to Timescale Cloud with hypershift
-excerpt: Migrate an existing PostgreSQL database to Timescale Cloud in a single step
+title: About migrating to Timescale with hypershift
+excerpt: Migrate an existing PostgreSQL database to Timescale in a single step
 products: [cloud]
 keywords: [data migration, Hypershift]
 tags: [ingest, Hypershift, postgresql]
@@ -36,7 +36,7 @@ machines can impact the speed and duration of the migration.
 
 You can continue reading from your source database during the migration, though
 performance could be slower. If you write to tables in your source database
-during the migration, the new writes are not transferred to Timescale Cloud.
+during the migration, the new writes are not transferred to Timescale.
 
 <Highlight type="important">
 If you have a large database, and hypershift is going to have to run for a very

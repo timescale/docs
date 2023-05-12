@@ -164,7 +164,7 @@ module.exports = [
         href: "migrate-to-mst",
       },
       {
-        title: "Migrate your data to Timescale Cloud",
+        title: "Migrate your data to Timescale",
         href: "migrate-to-cloud",
       },
       {
