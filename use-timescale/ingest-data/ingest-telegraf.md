@@ -22,8 +22,9 @@ writing different types of data written by people who work with that data.
 ## Before you begin
 
 *   [Install Telegraf][install-telegraf] on the system where you want to collect metrics.
-*   Create a [Timescale service][create-service] on Timescale.
+*   Create a [Timescale service][create-service].
 *   Gather the connection details for [your service][connect-timescaledb].
+
 *   Install Grafana or create a Grafana service on [Managed Service for TimescaleDB][grafana-mst]
 
 ## Ingest metrics using the Telegraf plugin

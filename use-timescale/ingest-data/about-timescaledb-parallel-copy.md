@@ -27,7 +27,7 @@ possible.
 ## Before you begin
 
 *   Install [Go runtime][go-install] version 1.13 or later.
-*   Create a [Timescale service][create-service] on Timescale.
+*   Create a [Timescale service][create-service].
 *   Gather the connection details for [your service][connect-timescaledb].
 *   Create a [hypertable on the database][create-hypertable] to
     insert the data. Ensure that you use a schema that matches the data in your
