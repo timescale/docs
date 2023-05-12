@@ -1,6 +1,6 @@
 ---
 title: Read scaling
-excerpt: Understand how read scaling works in Timescale Cloud
+excerpt: Understand how read scaling works in Timescale
 product: cloud
 keywords: [replicas, scaling]
 tags: [replicas, scaling, ha]
@@ -71,7 +71,7 @@ represented, such as for user credentials.
 
 ### Creating a read replica
 
-1.  [Log in to your Timescale Cloud account][cloud-login] and click the service
+1.  [Log in to your Timescale account][cloud-login] and click the service
     you want to replicate.
 1.  Navigate to the `Operations` tab, and select `Read scaling`.
 1.  Click `Add read replica`. Select the configuration you want for your read

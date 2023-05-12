@@ -9,12 +9,12 @@ Before you begin, make sure you have:
     [installation documentation][install].
 *   Installed a self-managed Grafana account, or signed up for
     [Grafana Cloud][install-grafana].
-*   Found the connection details for the database you want to use as a data source.
-    For Timescale Cloud, the details are contained in the cheatsheet you
-    downloaded when you created the service.
+*   Found the connection details for the database you want to use as a data
+    source. The details are contained in the cheatsheet you downloaded when you
+    created the service.
 
 <Highlight type="cloud" header="Run all tutorials free" button="Try for free">
-Your Timescale Cloud trial is completely free for you to use for the first
+Your Timescale trial is completely free for you to use for the first
 thirty days. This gives you enough time to complete all the tutorials and run
 a few test projects of your own.
 </Highlight>
