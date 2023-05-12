@@ -13,7 +13,12 @@ In this tutorial, you learn:
 1.  How to get started with TimescaleDB
 2.  How to use TimescaleDB to analyze and monitor data from IoT sensors
 
-Dataset: <Tag type="download">[nyc_data.tar.gz](https://timescaledata.blob.core.windows.net/datasets/nyc_data.tar.gz)</Tag>
+<!--- This link no longer works, deleted. LKB 2023-05-11
+
+Dataset: <Tag type="download">[nyc_data.tar.gz]()</Tag>
+
+-->
+
 Estimated time for completion: 25 minutes.
 
 ### Prerequisites
@@ -87,7 +92,11 @@ This download contains two files:
 
 You can download the files from the below link:
 
-<Tag type="download">[nyc_data.tar.gz](https://timescaledata.blob.core.windows.net/datasets/nyc_data.tar.gz)</Tag>
+<!--- This link no longer works, deleted. LKB 2023-05-10
+
+<Tag type="download">[nyc_data.tar.gz]()</Tag>
+
+-->
 
 #### Get connected to TimescaleDB
 
@@ -815,7 +824,6 @@ Ready for more learning? Here's a few suggestions:
 
 *   [Time Series Forecasting using TimescaleDB, R, Apache MADlib and Python][time-series-forecasting]
 *   [Continuous Aggregates][continuous-aggregates]
-*   [Try Other Sample Datasets][other-samples]
 *   [Migrate your own Data][migrate]
 
 [NYCTLC]: https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page
@@ -824,7 +832,6 @@ Ready for more learning? Here's a few suggestions:
 [hypertables]: /use-timescale/:currentVersion:/hypertables
 [install-timescale]: /getting-started/latest/
 [migrate]: /use-timescale/:currentVersion:/migration/
-[other-samples]: /tutorials/:currentVersion:/sample-datasets/
 [parallel-copy]: https://github.com/timescale/timescaledb-parallel-copy
 [postgis]: http://postgis.net/documentation
 [setup-psql]: /use-timescale/:currentVersion:/connecting/psql
