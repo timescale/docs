@@ -22,7 +22,7 @@ module.exports = [
       },
       {
         title: "Queries",
-        href: "query-data",
+        href: "queries",
         excerpt: "Query your data using full SQL in Timescale",
       },
       {
