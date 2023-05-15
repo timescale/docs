@@ -1,13 +1,13 @@
 ---
-title: Create a hypertable
-excerpt: Create a hypertable to store your time-series data
+title: Tables and hypertables
+excerpt: Create tables and hypertables in your Timescale account
 products: [cloud, mst, self_hosted]
 keywords: [hypertables, create]
 ---
 
 import HypertableIntro from "versionContent/_partials/_hypertables-intro.mdx";
 
-# Create a hypertable
+# Tables and hypertables
 
 <HypertableIntro />
 
