@@ -18,30 +18,30 @@ on-premises and cloud data platforms on Windows, macOS, and Linux.
 
 <Tabs label="Connect to Timescale with Azure Data Studio">
 
-<Tab title="Timescale Cloud">
+<Tab title="Timescale">
 
 <Procedure>
 
-1.  Sign in to the [Timescale Cloud portal][tsc-portal].
+1.  Sign in to the [Timescale portal][tsc-portal].
 1.  In the `Services` tab, find the service you want to connect to, and check
     it is marked as `Running`.
 1.  Click the name of the service you want to connect to, and take a note
      of the `Host`, `Port`, `Database name`, and `Username`.
 1.  Navigate to the `Operations` tab, and click `Reset password`. You can choose
-    your own password for the service, or allow Timescale Cloud to generate a
+    your own password for the service, or allow Timescale to generate a
     secure password for you. Take a note of your new password.
 1.  Start `Azure Data Studio`.
 1.  In the `SERVERS` page, click `New Connection`.
 1.  In the `Connection Details` dialog, navigate to `Connection type`, and
     select `PostgreSQL`. Fill in the fields using the server name, database,
-    user name, port, and password for your Timescale Cloud service. For more
+    user name, port, and password for your Timescale service. For more
     information about these settings, see
     [the connection details section][connection-details].
 1.  Click `Advanced`.
 1.  In the `Port` field, type the port number, and click `OK`.
 
     <Highlight type="note">
-    If you configured your Timescale Cloud service to connect using
+    If you configured your Timescale service to connect using
     [SSL mode](https://docs.timescale.com/use-timescale/latest/security/strict-ssl/), then set `SSL mode` to `Verify-Full`, and in the
     `SSL root certificate filename` field, type the location of the SSL root
     CA certificate to use.
@@ -51,7 +51,7 @@ on-premises and cloud data platforms on Windows, macOS, and Linux.
 
     <img class="main-content__illustration"
     src="https://s3.amazonaws.com/assets.timescale.com/docs/images/timescale_cloud_connection_screen.png"
-    alt="Connecting to Timescale Cloud using Azure Data Studio"/>
+    alt="Connecting to Timescale using Azure Data Studio"/>
 
 </Procedure>
 
@@ -77,9 +77,10 @@ security in Managed Service for TimescaleDB, see
     `Password`.
 1.  Start `Azure Data Studio`.
 1.  In the `SERVERS` page, click `New Connection`.
-1.  In the `Connection Details` dialog, navigate to `Connection type`, and select `PostgreSQL`.
-    Fill in the fields using the server name, database, user name, port, and password for your
-    Managed Service for TimescaleDB service. For more information about these settings, see
+1.  In the `Connection Details` dialog, navigate to `Connection type`, and
+    select `PostgreSQL`. Fill in the fields using the server name, database,
+    user name, port, and password for your Managed Service for TimescaleDB
+    service. For more information about these settings, see
     [the connection details section][connection-details].
 1.  Click `Advanced`.
 1.  In the `Port` field, type the port number, and click `OK`.
@@ -100,10 +101,10 @@ security in Managed Service for TimescaleDB, see
 
 1.  Start `Azure Data Studio`.
 1.  In the `SERVERS` page, click `New Connection`.
-1.  In the `Connection Details` dialog, navigate to `Connection type`, and select `PostgreSQL`.
-    Fill in the fields using the server name, database,user name, and password for your
-    Timescale instance. For more information about these settings, see
-    [the connection details section][connection-details].
+1.  In the `Connection Details` dialog, navigate to `Connection type`, and
+    select `PostgreSQL`. Fill in the fields using the server name, database,user
+    name, and password for your Timescale instance. For more information about
+    these settings, see the [connection details section][connection-details].
 1.  Click `Advanced`.
 1.  In the `Port` field, type the port number, and click `OK`.
 1.  Click `Connect`.
@@ -125,12 +126,12 @@ This table provides the description and example values for the fields in the
 
 |Setting|Example value|Description|
 |-|-|-|
-|Server name|localhost, postgresql.example.com, <REMOTE_HOST>.tsdb.cloud.timescale.com, <REMOTE_HOST>.timescaledb.io|The fully qualified server name. The host name of your Timescale Cloud service or Managed Service for TimescaleDB service.|
+|Server name|localhost, postgresql.example.com, <REMOTE_HOST>.tsdb.cloud.timescale.com, <REMOTE_HOST>.timescaledb.io|The fully qualified server name. The host name of your Timescale service or Managed Service for TimescaleDB service.|
 |Authentication type|Password|The authentication type to log in with|
-|User name|postgres, tsdbadmin|The user name you want to log in with. Use `tsdbadmin` for Timescale Cloud service and Managed Service for TimescaleDB service|
+|User name|postgres, tsdbadmin|The user name you want to log in with. Use `tsdbadmin` for Timescale and Managed Service for TimescaleDB services|
 |Password|*password*|The password for the account you are logging in with|
 |Remember password|*Check*|Check this box if you don't want to enter the password each time you connect.|
-|Database name|\<Default\>, tsdb, defaultdb|This option connnects to the default database. The database name for Timescale Cloud service is `tsdb` and for Managed Service for TimescaleDB service is `defaultdb`. You can also specify the name of the database to connect to.|
+|Database name|\<Default\>, tsdb, defaultdb|This option connnects to the default database. The database name for a Timescale service is `tsdb` and for Managed Service for TimescaleDB service is `defaultdb`. You can also specify the name of the database to connect to.|
 |Server group|\<Default\> |This option lets you assign this connection to a specific server group you create.|
 |Name (optional)|*leave blank*|This option lets you specify a friendly name for your server|
 

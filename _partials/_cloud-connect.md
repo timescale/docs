@@ -7,13 +7,13 @@ psql][install-psql] section.
 
 ### Connecting to your service from the command prompt
 
-1.  Sign in to the [Timescale Cloud portal][tsc-portal].
+1.  Sign in to the [Timescale portal][tsc-portal].
 1.  In the `Services` tab, find the service you want to connect to, and check
     it is marked as `Running`.
 1.  Click the name of the service you want to connect to see the connection
     information. Take a note of the `Service URL`.
 1.  Navigate to the `Operations` tab, and click `Reset password`. You can choose
-    your own password for the service, or allow Timescale Cloud to generate a
+    your own password for the service, or allow Timescale to generate a
     secure password for you. Take a note of your new password.
 1.  On your local system, at the command prompt, connect to the service using
     the service URL. When you are prompted for the password, enter the password

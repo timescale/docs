@@ -10,7 +10,7 @@ cloud_ui:
 
 # Service explorer
 
-Timescale Cloud Service Explorer provides a rich administrative dashboard for
+Timescale Service Explorer provides a rich administrative dashboard for
 understanding the state of your database instance. The Explorer gives you
 insight into the performance of your database, giving you greater confidence and
 control over your data.
@@ -21,7 +21,7 @@ your database, like table sizes, schema definitions, and foreign key references,
 as well as Timescale specific information, like information on your hypertables
 and continuous aggregates.
 
-You can see the Explorer in your Timescale Cloud account by navigating to
+You can see the Explorer in your Timescale account by navigating to
 the `Services` section, clicking the service you want to explore, and selecting
 the `Explorer` tab.
 
@@ -37,7 +37,7 @@ documentation to help you get started.
 
 <img class="main-content__illustration"
 src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-explorer.png"
-alt="Timescale Cloud Explorer, General Information section"/>
+alt="Timescale Explorer, General Information section"/>
 
 ## Tables
 
@@ -55,7 +55,7 @@ see the
 <img
 class="main-content__illustration"
 src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-explorer-tables.png"
-alt="Timescale Cloud Explorer, Tables section"
+alt="Timescale Explorer, Tables section"
 />
 
 For more information about hypertables, see the
@@ -70,7 +70,7 @@ configured for real-time aggregation, and their refresh periods.
 <img
 class="main-content__illustration"
 src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-explorer-caggs.png"
-alt="Timescale Cloud Explorer, Continuous aggregates section"
+alt="Timescale Explorer, Continuous aggregates section"
 />
 
 For more information about continuous aggregates, see the

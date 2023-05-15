@@ -1,16 +1,16 @@
 ---
 title: Security
-excerpt: Learn how your Timescale Cloud instance is secured
+excerpt: Learn how your Timescale instance is secured
 products: [cloud]
 keywords: [security]
 ---
 
-# Timescale Cloud security
+# Timescale security
 
-Learn how your Timescale Cloud instance is secured to protect your data and
+Learn how your Timescale instance is secured to protect your data and
 privacy.
 
-*   Get an [overview of Timescale Cloud security][overview]
+*   Get an [overview of Timescale security][overview]
 *   Set up [multi-factor authentication][mfa]
 *   Learn how to [connect with a stricter SSL mode][ssl]
 

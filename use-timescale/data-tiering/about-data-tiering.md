@@ -18,7 +18,7 @@ Save on storage costs by tiering data to a low-cost object-storage layer.
 
 <ExperimentalPrivateBeta />
 
-Timescale Cloud includes traditional disk storage, and a low-cost object-storage
+Timescale includes traditional disk storage, and a low-cost object-storage
 layer built on Amazon S3. You can move your hypertable data across the different
 storage tiers to get the best price performance. You can use primary storage for
 data that requires quick access, and low-cost object storage for historical
@@ -33,7 +33,7 @@ With data tiering, you get:
     cost-efficiently in the object store. You pay only for what you store, with
     no extra cost for queries.
 
-*   **Data warehousing.** Access all your data without leaving Timescale Cloud.
+*   **Data warehousing.** Access all your data without leaving Timescale.
     Rather than running a separate system to tier and archive historical data,
     move it to native object storage.
 
