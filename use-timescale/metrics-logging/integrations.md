@@ -123,10 +123,9 @@ You can only have one exporter per service.
 1.  Select an exporter and click `Attach exporter`.
 
 <Highlight type="warning">
-If you would like to attach a logs exporter to an
-already existing service, you have to restart the service only for the
-first logs exporter to be attached. You can attach the logs exporter to the
-service without a need to restart the service.
+If you would like to attach a logs exporter to an already existing 
+service, you do not need to restart the service. The service only 
+needs to be restarted when you attach the first logs exporter.
 </Highlight>
 
 </Procedure>
