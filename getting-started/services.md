@@ -1,6 +1,6 @@
 ---
-title: Get started with Timescale
-excerpt: Get started with your first Timescale instance
+title: Timescale services
+excerpt: Sign up for Timescale and create your first service
 products: [cloud]
 ---
 
@@ -12,18 +12,11 @@ import TimescaleIntro from "versionContent/_partials/_timescale-intro.mdx";
 import WhereNext from "versionContent/_partials/_where-to-next.mdx";
 import CloudTrial from "versionContent/_partials/_cloudtrial.mdx";
 
-# Get started with Timescale
+# Timescale services
 
 <TimescaleIntro />
 
 <CloudIntro />
-
-This guide helps you set up a Timescale database, so you can work with some
-real-time stock trading data, provided by [Twelve Data][twelve-data].
-
-If you have any questions or concerns as you go through the tutorial, check out
-the Timescale community [Slack][slack] and [Timescale Forum][forum], where you
-can find help from the Timescale community and team.
 
 <CloudTrial />
 
