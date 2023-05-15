@@ -35,8 +35,8 @@ to align with bucket boundaries.
 |Name|Type|Description|
 |-|-|-|
 |`continuous_aggregate`|REGCLASS|The continuous aggregate to refresh.|
-|`window_start`|INTERVAL, TIMESTAMPZ, INTEGER|Start of the window to refresh, has to be before `window_end`. `NULL` is equivalent to `MIN(timestamp)` of the hypertable.|
-|`window_end`|INTERVAL, TIMESTAMPZ, INTEGER|End of the window to refresh, has to be after `window_start`. `NULL` is equivalent to `MAX(timestamp)` of the hypertable.|
+|`window_start`|INTERVAL, TIMESTAMPTZ, INTEGER|Start of the window to refresh, has to be before `window_end`. `NULL` is equivalent to `MIN(timestamp)` of the hypertable.|
+|`window_end`|INTERVAL, TIMESTAMPTZ, INTEGER|End of the window to refresh, has to be after `window_start`. `NULL` is equivalent to `MAX(timestamp)` of the hypertable.|
 
 You must specify the `window_start` and `window_end` parameters differently,
 depending on the type of the time column of the hypertable. For hypertables with
