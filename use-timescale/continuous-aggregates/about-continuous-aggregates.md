@@ -55,13 +55,18 @@ these restrictions:
     clause does not matter.
 *   You must use an `INNER JOIN`, no other join type is supported.
 *   The `JOIN` conditions can only be equality conditions.
-*   The hypertable on the `JOIN` condition must be a hypertable, and not a continuous
-     aggregate. Additionally, you can't use joins in hierarchical continuous aggregates.
+*   You cannot use a continuous aggregate in the `JOIN` condition. Additionally,
+    you can't use joins in hierarchical continuous aggregates.
 *   Changes to the hypertable are tracked, and are updated in the continuous aggregate
      when it is refreshed. Changes to the standard PostgreSQL table are not tracked.
 *   The `USING` clause is supported in joins for PostgreSQL&nbsp;13 or later. In
     PostgreSQL&nbsp;12 only joins with a condition in the `WHERE` clause or
     `JOIN` clause can be used.
+*   You can add conditions other than `JOIN` conditions to the query when you
+    use an `ON/USING` clause. This allows you to specify the `JOIN` conditions,
+    and then you can add other conditions to the `WHERE` clause. There are no
+    restrictions on the number of conditions in the `WHERE` clause, but you can
+    only add a single `EQUALITY` condition in the `ON/USING` clause.
 
 The `GROUP BY` clause must include a time bucket on the underlying time column,
 and all aggregates must be parallelizable.
