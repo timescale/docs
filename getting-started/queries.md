@@ -1,11 +1,11 @@
 ---
-title: Query your data
-excerpt: Query your Timescale data with the full power of SQL
+title: Queries
+excerpt: Query your time-series data
 products: [cloud, mst, self_hosted]
 keywords: [queries]
 ---
 
-# Query your data
+# Queries
 
 With Timescale, there's no need to learn a custom query language, because
 Timescale supports full SQL. You can use your SQL knowledge along with the
