@@ -7,7 +7,7 @@ tags: [github]
 
 # Contributing to Timescale
 
-There are multiple ways to help make Timescale better. All of the documentation
+There are multiple ways to help make TimescaleDB better. All of the documentation
 and source for the PostgreSQL extension are available to use and review on
 GitHub.
 
@@ -42,16 +42,16 @@ can ensure that the community is free and confident in its
 ability to use your contributions. You are prompted to sign the
 CLA during the pull request process.
 
-## Contributing to Timescale code
+## Contributing to TimescaleDB code
 
-Timescale appreciates any help the community can provide to make Timescale better!
+Timescale appreciates any help the community can provide to make TimescaleDB better!
 
 There are multiple ways you can help:
 
 *   Open an issue with a bug report, build issue, feature request, suggestion, etc.
 *   Fork this repository and submit a pull request
 
-[Head over to our GitHub repository][github-timescaledb] for Timescale to learn
+[Head over to our GitHub repository][github-timescaledb] for TimescaleDB to learn
 more about how you can help and to review our coding style guide!
 
 [github-docs]: https://github.com/timescale/docs
