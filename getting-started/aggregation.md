@@ -1,11 +1,11 @@
 ---
-title: Creating continuous aggregates
-excerpt: Create a continuous aggregate from your data
-products: [cloud, mst, self_hosted]
+title: Aggregation
+excerpt: Create an aggregate and query it
+products: [cloud]
 keywords: [continuous aggregates, create]
 ---
 
-# Creating continuous aggregates
+# Aggregation
 
 Now that you've been introduced to continuous aggregates, create your own
 continuous aggregate from your data.
