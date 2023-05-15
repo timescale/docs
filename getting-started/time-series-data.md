@@ -1,7 +1,7 @@
 ---
 title: Time-series data
 excerpt: Add time-series data to your Timescale service
-products: [cloud, mst, self_hosted]
+products: [cloud]
 keywords: [ingest]
 tags: [add, data, time-series]
 ---

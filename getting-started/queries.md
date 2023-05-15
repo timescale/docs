@@ -1,7 +1,7 @@
 ---
 title: Queries
 excerpt: Query your time-series data
-products: [cloud, mst, self_hosted]
+products: [cloud]
 keywords: [queries]
 ---
 

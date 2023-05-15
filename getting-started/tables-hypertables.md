@@ -1,7 +1,7 @@
 ---
 title: Tables and hypertables
 excerpt: Create tables and hypertables in your Timescale account
-products: [cloud, mst, self_hosted]
+products: [cloud]
 keywords: [hypertables, create]
 ---
 
