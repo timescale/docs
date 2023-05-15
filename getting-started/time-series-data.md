@@ -1,6 +1,6 @@
 ---
-title: Add time-series data
-excerpt: Add time-series data to your Timescale instance
+title: Time-series data
+excerpt: Add time-series data to your Timescale service
 products: [cloud, mst, self_hosted]
 keywords: [ingest]
 tags: [add, data, time-series]
@@ -8,7 +8,7 @@ tags: [add, data, time-series]
 
 import HypershiftAlt from "versionContent/_partials/_hypershift-alternatively.mdx";
 
-# Add time-series data
+# Time-series data
 
 To explore Timescale's features, you need some sample data. This tutorial
 provides real-time stock trade data, also known as tick data, from
