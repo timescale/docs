@@ -87,7 +87,7 @@ Hypertables that have data spanning massive time periods can have thousands of c
 
 Here's an example of what this visualization looks like:
 
-<img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizing-compression/compression-preview.png" alt="Hypertables compression preview"/>
+<img class="main-content__illustration" src="https://assets.timescale.com/docs/images/custom-timescaledb-dashboards-hypertables-compression.webp" width={2500} height={1468} alt="Hypertables compression preview"/>
 
 With this visualization, you can see a few things at a glance:
 
