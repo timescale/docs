@@ -37,9 +37,10 @@ VPC peering:
 *   Configure route table rules
 *   Configure security group and firewall rules
 
-By default, you can have three VPCs in each project. If
-you need more VPCs, [contact us][timescale-support] to ask for a
-quota increase. Each VPC can have as many peering connections as you need.
+By default, you can have three VPCs in each project. If you need more VPCs,
+contact Support by clicking the `Support` button in the Timescale console and
+ask for a quota increase. Each VPC can have as many peering connections as you
+need.
 
 <Highlight type="warning">
 When you have attached your Timescale service to a VPC, it is no longer
