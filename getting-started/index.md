@@ -25,6 +25,9 @@ using useful functions like continuous aggregates.
 
 <CloudTrial />
 
-[forum]: https://www.timescale.com/forum
-[slack]: https://slack.timescale.com/
-[twelve-data]: https://twelvedata.com/
+Completing this tutorial should take you about FIXME minutes. When you have
+finished this one, you might want to check out some [more advanced tutorials][tutorials], or
+browse through [the other guides][use-timescale].
+
+[tutorials]: /tutorials/:currentVersion:/
+[use-timescale]: /use-timescale/:currentVersion:/

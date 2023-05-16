@@ -16,6 +16,8 @@ import CloudTrial from "versionContent/_partials/_cloudtrial.mdx";
 
 <TimescaleIntro />
 
+In Timescale, your database lives in a cloud service.
+
 <CloudIntro />
 
 <CloudTrial />
