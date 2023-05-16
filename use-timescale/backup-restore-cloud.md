@@ -20,7 +20,7 @@ can be restored to any point during this time period.
 
 In the event of a storage failure, a service automatically restores
 from backup to the point of failure. In the event of a user error where
-a point-in-time recovery needs to be done, [contact support][support].
+a point-in-time recovery needs to be done, [contact us][support].
 
 This diagram describes how a restore from backup occurs after a storage failure:
 
@@ -37,4 +37,4 @@ backup is restored. Then, the incremental backup is restored.
 Finally, WAL is replayed to cover any remaining gap."/>
 
 [wal]: https://www.postgresql.org/docs/current/wal-intro.html
-[support]: https://www.timescale.com/support
+[support]: https://www.timescale.com/contact/

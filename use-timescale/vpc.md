@@ -38,7 +38,7 @@ VPC peering:
 *   Configure security group and firewall rules
 
 By default, you can have three VPCs in each project. If
-you need more VPCs, [contact the support team][timescale-support] to ask for a
+you need more VPCs, [contact us][timescale-support] to ask for a
 quota increase. Each VPC can have as many peering connections as you need.
 
 <Highlight type="warning">
@@ -218,5 +218,5 @@ complete.
 
 [aws-dashboard]: https://console.aws.amazon.com/vpc/home#PeeringConnections:
 [cloud-login]: https://console.cloud.timescale.com/
-[timescale-support]: https://www.timescale.com/support
+[timescale-support]: https://www.timescale.com/contact/
 [tsc-regions]: /use-timescale/:currentVersion:/regions/

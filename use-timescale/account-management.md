@@ -17,8 +17,7 @@ can also update to a new credit card here.
 <Highlight type="important">
 If you prefer to pay by invoice, or if you are unable to provide a credit card
 for billing, you can switch your project to corporate billing instead. To switch
-from credit card to corporate billing, send a message to the
-[Timescale support team](https://www.timescale.com/support)
+from credit card to corporate billing, [contact us](https://www.timescale.com/contact)
 asking to be changed to corporate billing.
 </Highlight>
 
