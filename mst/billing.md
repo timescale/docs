@@ -61,8 +61,8 @@ into the billing information of your project.
 
 If you are within the United States, no tax is withheld from your payments. In
 most cases, you do not require a W-8 form to confirm this, however, if you
-require a `W-8BEN-E` form describing this status, you can request one from the
-[Timescale support team][timescale-support].
+require a `W-8BEN-E` form describing this status, you can
+[request one][timescale-support].
 
 If you are elsewhere in the world, no taxes are applied to your account,
 according to the Value-Added Tax Act of Finland, section 69&nbsp;h.
@@ -85,4 +85,4 @@ and email address is correct in your project's billing settings, and send a mess
 to the [Timescale support team][timescale-support] asking to be changed to corporate
 billing.
 
-[timescale-support]: https://www.timescale.com/support
+[timescale-support]: https://www.timescale.com/contact/
