@@ -9,17 +9,17 @@ keywords: [finance, analytics, AWS Lambda, psycopg2, pandas, GitHub Actions, pip
 
 This section contains tutorials for working with AWS Lambda and TimescaleDB.
 
-*   [Create a data API for TimescaleDB][create-data-api] using AWS Lambda and
+*   Create a data API for TimescaleDB using AWS Lambda and
     API Gateway.
-*   [Pull data from 3rd party API and ingest into TimescaleDB][3rd-party-ingest]
+*   Pull data from 3rd party API and ingest into TimescaleDB
     using AWS Lambda and Docker. This is great if you have a lot of dependencies.
-*   [Continuously deploy your Lambda function with GitHub Actions][gh-actions]
+*   Continuously deploy your Lambda function with GitHub Actions
     using Github Actions.
 
 ## Prerequisites
 
 Before you begin, make sure you have completed the
-[Analyze intraday stock data tutorial](/tutorials/latest/analyze-intraday-stocks/).
+Analyze intraday stock data tutorial.
 This tutorial needs the tables and data that you set up in that tutorial.
 
 To complete this tutorial, you need an AWS account. You also need access to the
@@ -51,11 +51,11 @@ The code examples in this tutorial use Python, but you can use any language
 
 For more information about the topics in this tutorial, check out these resources:
 
-*   [AWS CLI Version 2 References][aws-cli2]
-*   [Creating Lambda container images][lambda-container-images]
-*   [Getting started with AWS Lambda][lambda-getting-started]
-*   [Analyze historical intraday stock data][intraday-stock-data]
-*   [Analyze cryptocurrency market data][cryptocurrency-market-data]
+*   AWS CLI Version 2 References
+*   Creating Lambda container images
+*   Getting started with AWS Lambda
+*   Analyze historical intraday stock data
+*   Analyze cryptocurrency market data
 
 [3rd-party-ingest]: /tutorials/:currentVersion:/aws-lambda/3rd-party-api-ingest
 [aws-cli2]: https://awscli.amazonaws.com/v2/documentation/api/latest/reference/index.html
