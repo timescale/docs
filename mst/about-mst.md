@@ -203,10 +203,6 @@ run more slowly, and could run out of memory. Remain aware of how many open
 connections your have to your database at any given time.
 </Highlight>
 
-If you require a higher maximum number of connections, but cannot use connection
-pooling, contact the
-[Timescale support team][timescale-support].
-
 ## Service termination protection
 
 You can protect your services from accidentally being terminated, by enabling
@@ -278,7 +274,7 @@ SET statement_timeout = <milliseconds>
 ```
 
 [mst-install]: /mst/:currentVersion:/installation-mst/
-[timescale-support]: https://www.timescale.com/support
+[sign-up]: https://www.timescale.com/cloud-signup
 [aiven-sla]: https://aiven.io/sla
 [pg-keepalive]: http://www.postgresql.org/docs/9.5/static/libpq-connect.html#LIBPQ-KEEPALIVES
 [connection-pooling]: /mst/:currentVersion:/connection-pools/

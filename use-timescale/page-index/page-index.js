@@ -38,6 +38,11 @@ module.exports = [
             excerpt:
               "Timescale services operations, Service management tab",
           },
+          {
+            title: "Troubleshooting Timescale services",
+            href: "troubleshooting",
+            type: "placeholder",
+          },
         ],
       },
       {
