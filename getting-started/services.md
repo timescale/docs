@@ -25,6 +25,10 @@ create additional services for each.
 When you create a new service, a new `tsdbadmin` user is created. This is your
 administration user that you can connect to your database with.
 
+The Timescale Service Explorer shows you all the information about your service,
+including the tables you have created, how much data has been ingested, and
+additional information like compression, policies, and continuous aggregates.
+
 When you have your service up and running, you can use a tool like `psql` to
 connect to it from the command prompt on your local machine. You can then use
 `psql` to create tables and add data directly into your database.
@@ -33,6 +37,9 @@ In this section, you sign up for a Timescale account, create a service, and
 connect to it from your local machine using `psql`.
 
 <CloudTrial />
+
+For more information, see
+[the services section][services-how-to].
 
 ## Create your Timescale account
 
@@ -49,3 +56,5 @@ connect to it from your local machine using `psql`.
 ## Where to next
 
 <WhereNext />
+
+[services-how-to]: /use-timescale/:currentVersion:/services/

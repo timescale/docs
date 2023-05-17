@@ -11,9 +11,6 @@ import HypertableIntro from "versionContent/_partials/_hypertables-intro.mdx";
 
 <HypertableIntro />
 
-For more information, see
-[the hypertables section][hypertable-how-to].
-
 ## Create your first hypertable
 
 When you create a hypertable, it is automatically partitioned on the time column
@@ -25,6 +22,9 @@ your queries perform better.
 Because you often query the stock trade data by the company symbol, you
 can also add an index for it. Include the time column because time-series data
 typically looks for data in a specific period of time.
+
+For more information, see
+[the hypertables section][hypertable-how-to].
 
 <Procedure>
 
