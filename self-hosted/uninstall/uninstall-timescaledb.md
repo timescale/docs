@@ -9,7 +9,7 @@ keywords: [uninstall]
 
 PostgreSQL is designed to be easily extensible. The extensions loaded into the
 database can function just like features that are built in. TimescaleDB extends
-PostgreSQL for time-series data—giving PostgreSQL the high-performance,
+PostgreSQL for time-series data, giving PostgreSQL the high-performance,
 scalability, and analytical capabilities required by modern data-intensive
 applications. If you installed TimescaleDB with Homebrew or MacPorts, you can
 uninstall it without having to uninstall PostgreSQL.
@@ -46,10 +46,10 @@ uninstall it without having to uninstall PostgreSQL.
     ```sql
     tsdb-# \dx
                                           List of installed extensions
-        Name     | Version |   Schema   |                            Description                            
+        Name     | Version |   Schema   |                            Description
     -------------+---------+------------+-------------------------------------------------------------------
      plpgsql     | 1.0     | pg_catalog | PL/pgSQL procedural language
-    (1 row) 
+    (1 row)
     ```
 
 1.  Uninstall TimescaleDB:
@@ -98,10 +98,10 @@ uninstall it without having to uninstall PostgreSQL.
     ```sql
     tsdb-# \dx
                                           List of installed extensions
-        Name     | Version |   Schema   |                            Description                            
+        Name     | Version |   Schema   |                            Description
     -------------+---------+------------+-------------------------------------------------------------------
      plpgsql     | 1.0     | pg_catalog | PL/pgSQL procedural language
-    (1 row) 
+    (1 row)
     ```
 
 1.  Uninstall TimescaleDB and the related dependencies:
