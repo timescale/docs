@@ -7,7 +7,7 @@ keywords: [action, backfilling]
 
 # Use a user-defined action to schedule regular backfilling
 
-TimescaleDB provides a [stored procedure for backfilling data][backfill] into a
+Timescale provides a [stored procedure for backfilling data][backfill] into a
 compressed hypertable. To regularly backfill data, you can schedule this stored
 procedure to run periodically.
 

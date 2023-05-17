@@ -58,7 +58,7 @@ have a distributed hypertable with 10 columns, the highest you can set the batch
 size is 3276.
 
 For more information on changing `timescaledb.max_insert_batch_size`, see the
-section on [TimescaleDB configuration][config].
+section on [configuration][config].
 
 ### Use a copy statement instead
 

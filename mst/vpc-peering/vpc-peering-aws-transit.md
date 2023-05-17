@@ -1,6 +1,6 @@
 ---
 title: Set up Transit Gateway on AWS
-excerpt: Secure your Managed Service for TimescaleDB instance with Transit Gateway  on AWS
+excerpt: Secure your Managed Service for TimescaleDB instance with Transit Gateway on AWS
 products: [mst]
 keywords: [vpc, peer, aws]
 ---

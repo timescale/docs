@@ -18,7 +18,7 @@ To keep your aggregates while dropping raw data, you must be careful about
 refreshing your aggregates. You can delete raw data from the underlying table
 without deleting data from continuous aggregates, so long as you don't refresh
 the aggregate over the deleted data. When you refresh a continuous aggregate,
-TimescaleDB updates the aggregate based on changes in the raw data for the
+Timescale updates the aggregate based on changes in the raw data for the
 refresh window. If it sees that the raw data was deleted, it also deletes the
 aggregate data. To prevent this, make sure that the aggregate's refresh window
 doesn't overlap with any deleted data. For more information, see the following
