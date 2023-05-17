@@ -47,24 +47,88 @@ For more information, see the documentation about
 
 ## Continuous aggregates with a `JOIN` clause
 
-In TimescaleDB&nbsp;2.10.0 and later, the `FROM` clause supports `JOINS`, with
-these restrictions:
+In TimescaleDB 2.10.0 and later, continuous aggregates support JOINS, as long as they meet
+these conditions:
 
-*   To join between two tables, one table must be a hypertable and the other
-    table must be a standard PostgreSQL table. The order of tables in the `JOIN`
-    clause does not matter.
-*   You must use an `INNER JOIN`, no other join type is supported.
-*   The `JOIN` conditions can only be equality conditions.
-*   The hypertable on the `JOIN` condition must be a hypertable, and not a continuous
-     aggregate. Additionally, you can't use joins in hierarchical continuous aggregates.
-*   Changes to the hypertable are tracked, and are updated in the continuous aggregate
-     when it is refreshed. Changes to the standard PostgreSQL table are not tracked.
-*   The `USING` clause is supported in joins for PostgreSQL&nbsp;13 or later. In
-    PostgreSQL&nbsp;12 only joins with a condition in the `WHERE` clause or
-    `JOIN` clause can be used.
+* Joins must be between one hypertable and one standard PostgreSQL table. The order of tables
+in the JOIN clause does not matter.
 
-The `GROUP BY` clause must include a time bucket on the underlying time column,
-and all aggregates must be parallelizable.
+* Only changes to the hypertable are tracked, and are updated in the continuous aggregate
+when it is refreshed. Changes to the standard PostgreSQL table are not tracked.
+
+* You must use an `INNER JOIN`, no other join type is supported.
+
+* The `JOIN` conditions must be equality conditions, and there can only be ONE `JOIN` condition.
+Further conditions can be added in the `WHERE` clause as long as the `JOIN` condition is given
+in an `ON/USING` clause.
+
+* You should use an `ON` or `USING` clauses to specify the `JOIN` condition because, if
+`JOIN` conditions are specified in the `WHERE` clause, no further conditions are allowed.
+
+* The `USING` clause is only supported for PostgreSQL 13 and later.
+
+* Joins on the materialized hypertable of a continuous aggregate are not supported.
+
+* Hierarchical continuous aggregates can be created on top of a continuous aggregate with a `JOIN`
+clause, but cannot themselves have a `JOIN` clauses.
+
+This section includes some examples of `JOIN` conditions that work with continuous aggregates. For these
+to work, either `table_1` or `table_2` must be a hypertable. It does not matter which is
+the hypertable and which is a standard PostgreSQL table.
+
+`INNER JOIN` on a single equality condition, using the `ON` clause:
+
+```sql
+CREATE MATERIALIZED VIEW my_view WITH (timescaledb.continuous) AS
+SELECT ...
+FROM table_1 t1
+JOIN table_2 t2 ON t1.t2_id = t2.id
+GROUP BY ...
+```
+
+`INNER JOIN` on a single equality condition, using the `ON` clause, with a further
+condition added in the `WHERE` clause:
+
+```sql
+CREATE MATERIALIZED VIEW my_view WITH (timescaledb.continuous) AS
+SELECT ...
+FROM table_1 t1
+JOIN table_2 t2 ON t1.t2_id = t2.id
+WHERE t1.id IN (1, 2, 3, 4)
+GROUP BY ...
+```
+
+`INNER JOIN` on a single equality condition specified in `WHERE` clause, this is allowed but not recommended:
+
+```sql
+CREATE MATERIALIZED VIEW my_view WITH (timescaledb.continuous) AS
+SELECT ...
+FROM table_1 t1, table_2 t2
+WHERE t1.t2_id = t2.id
+GROUP BY ...
+```
+
+These are examples of `JOIN` conditions won't work with continuous aggregates:
+An `INNER JOIN` on multiple equality conditions is not allowed.
+
+```sql
+CREATE MATERIALIZED VIEW my_view WITH (timescaledb.continuous) AS
+SELECT ...
+FROM table_1 t1
+JOIN table_2 t2 ON t1.t2_id = t2.id AND t1.t2_id_2 = t2.id
+GROUP BY ...
+```
+
+A `JOIN` with a single equality condition specified in `WHERE` clause cannot be combined with further conditions in the `WHERE` clause.
+
+```sql
+CREATE MATERIALIZED VIEW my_view WITH (timescaledb.continuous) AS
+SELECT ...
+FROM table_1 t1, table_2 t2
+WHERE t1.t2_id = t2.id
+AND t1.id IN (1, 2, 3, 4)
+GROUP BY ...
+```
 
 ## Function support
 
