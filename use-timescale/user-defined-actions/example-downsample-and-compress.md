@@ -7,7 +7,7 @@ keywords: [actions, compression, downsample]
 
 # Use a user-defined action to downsample and compress chunks
 
-TimescaleDB lets you downsample and compress chunks by combining a
+Timescale lets you downsample and compress chunks by combining a
 [continuous aggregate refresh policy][cagg-refresh] with a
 [compression policy][compression].
 

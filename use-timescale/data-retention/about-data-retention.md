@@ -1,6 +1,6 @@
 ---
 title: About data retention
-excerpt: Learn how data retention works in TimescaleDB
+excerpt: Learn how data retention works in Timescale
 products: [cloud, mst, self_hosted]
 keywords: [data retention]
 ---
@@ -24,7 +24,7 @@ row-by-row, for example with the PostgreSQL `DELETE` command, can be slow. But
 dropping data by the chunk is faster, because it deletes an entire file from
 disk. It doesn't need garbage collection and defragmentation.
 
-Whether you use a policy or manually drop chunks, TimescaleDB drops data by the
+Whether you use a policy or manually drop chunks, Timescale drops data by the
 chunk. It only drops chunks where _all_ the data is wihin the specified time
 range.
 
