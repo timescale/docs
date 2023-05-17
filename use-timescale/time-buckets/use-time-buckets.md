@@ -46,7 +46,7 @@ By default, the `time_bucket` column shows the start time of the bucket. If you
 prefer to show the end time, you can shift the displayed time using a
 mathematical operation on `time`.
 
-For example, you cna calculate the minimum and maximum CPU usage for 5-minute
+For example, you can calculate the minimum and maximum CPU usage for 5-minute
 intervals, and show the end of time of the interval. The example table is named
 `metrics`. It has a time column named `time` and a CPU usage column named `cpu`:
 
