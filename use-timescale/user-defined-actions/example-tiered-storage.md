@@ -8,7 +8,7 @@ keywords: [actions, tablespaces]
 # Use a user-defined action to implement automatic tablespace management
 
 [Moving older data to a different tablespace][moving-data] can help you save on
-storage costs. TimescaleDB supports automatic tablespace management by providing
+storage costs. Timescale supports automatic tablespace management by providing
 the `move_chunk` function to move chunks between tablespaces. To schedule the
 moves automatically, you can write a user-defined action.
 

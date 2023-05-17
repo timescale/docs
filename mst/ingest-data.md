@@ -78,7 +78,7 @@ one of these methods.
 ## Bulk upload from CSV files
 
 If you have a dataset stored in a `.csv` file, you can import it into an empty
-TimescaleDB hypertable. You need to begin by creating the new table, before you
+hypertable. You need to begin by creating the new table, before you
 import the data.
 
 <Highlight type="important">
