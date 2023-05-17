@@ -23,5 +23,5 @@ few test projects of your own.
 
 </Procedure>
 
-[sign-up]: https://www.timescale.com/timescale-signup
+[sign-up]: https://console.cloud.timescale.com/signup
 [tsc-portal]: https://console.cloud.timescale.com/
