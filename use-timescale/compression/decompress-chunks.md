@@ -16,7 +16,7 @@ uncompressed chunk. This adds up over a lot of rows.
 
 <Highlight type="important">
 When compressing your data, you can reduce the amount of storage space for your
-TimescaleDB instance. But you should always leave some additional storage
+Timescale instance. But you should always leave some additional storage
 capacity. This gives you the flexibility to decompress chunks when necessary,
 for actions such as bulk inserts.
 </Highlight>

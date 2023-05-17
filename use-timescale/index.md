@@ -1,6 +1,6 @@
 ---
 title: Use Timescale
-excerpt: Learn how to work with TimescaleDB
+excerpt: Learn how to work with Timescale
 ---
 
 # Use Timescale

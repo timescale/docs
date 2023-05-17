@@ -1,6 +1,6 @@
 ---
 title: Managed Service for TimescaleDB
-excerpt: A fully managed TimescaleDB service on AWS, Azure, or GCP, available in more than 75 regions
+excerpt: A fully managed TimescaleDB service on Azure or GCP
 products: [mst]
 ---
 

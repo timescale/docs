@@ -406,7 +406,7 @@ hypertable, although this requires more compute resources. Alternatively, you
 speed up your `SELECT DISTINCT` queries by structuring them so that TimescaleDB can
 use its [SkipScan][skipscan] feature.
 
-[date_bin]: hhttps://www.postgresql.org/docs/current/functions-datetime.html#FUNCTIONS-DATETIME-BIN
+[date_bin]: https://www.postgresql.org/docs/current/functions-datetime.html#FUNCTIONS-DATETIME-BIN
 [first]: /api/:currentVersion:/hyperfunctions/first
 [histogram]: /api/:currentVersion:/hyperfunctions/histogram
 [last]: /api/:currentVersion:/hyperfunctions/last

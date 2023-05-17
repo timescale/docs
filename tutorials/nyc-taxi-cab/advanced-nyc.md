@@ -38,8 +38,8 @@ buckets.
 Times Square is located at (40.7589,-73.9851).
 </Highlight>
 
-1.  Connect to the Timescale Cloud database that contains the NYC taxi dataset.
-1.  At the psql prompt, add the PostGIS extension:
+1.  Connect to the Timescale database that contains the NYC taxi dataset.
+2.  At the psql prompt, add the PostGIS extension:
 
     ```sql
     CREATE EXTENSION postgis;
@@ -47,7 +47,7 @@ Times Square is located at (40.7589,-73.9851).
 
     You can check that PostGIS is installed properly by checking that it appears
     in the extension list when you run the `\dx` command.
-1.  Alter the hypertable to add geometry columns for ride pick up and drop off
+3.  Alter the hypertable to add geometry columns for ride pick up and drop off
     locations:
 
     ```sql
@@ -55,7 +55,7 @@ Times Square is located at (40.7589,-73.9851).
     ALTER TABLE rides ADD COLUMN dropoff_geom geometry(POINT,2163);
     ```
 
-1.  Convert the latitude and longitude points into geometry coordinates, so that
+4.  Convert the latitude and longitude points into geometry coordinates, so that
     they work well with PostGIS. This could take a while, as it needs to update
     all the data in both columns:
 
@@ -64,7 +64,7 @@ Times Square is located at (40.7589,-73.9851).
        dropoff_geom = ST_Transform(ST_SetSRID(ST_MakePoint(dropoff_longitude,dropoff_latitude),4326),2163);
     ```
 
-1.  Use this query to select all rides taken in the first day of January 2016
+5.  Use this query to select all rides taken in the first day of January 2016
     that picked up within 400m of Times Square, and return a count of rides for
     each 30 minute interval:
 

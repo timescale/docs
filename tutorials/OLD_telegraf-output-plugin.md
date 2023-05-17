@@ -12,8 +12,6 @@ This section describes a feature that is deprecated on TimescaleDB. We strongly
 recommend that you do not use this feature in a production environment. For some
 suggestions of workarounds, see this
 [Timescale Forum post](https://www.timescale.com/forum/t/telegraf-plugin/118).
-If you need more information, please
-[contact the support team](https://www.timescale.com/support).
 </Highlight>
 
 Telegraf collects metrics from a wide array of inputs and writes them to a wide
@@ -40,9 +38,13 @@ the different plugins must be part of that binary. Timescale have an unofficial
 build of Telegraf version 1.13.0 with the plugin added, that you can download
 from:
 
-*   Linux amd64: <Tag type="download">[deb](https://telegrafreleases.blob.core.windows.net/linux/telegraf_1.13.0~with~pg-1_amd64.deb)</Tag> <Tag type="download">[rpm](https://telegrafreleases.blob.core.windows.net/linux/telegraf-1.13.0~with~pg-1.x86_64.rpm)</Tag> <Tag type="download">[binary](https://telegrafreleases.blob.core.windows.net/linux/telegraf)</Tag>
-*   Windows amd64: <Tag type="download">[binary/exe](https://telegrafreleases.blob.core.windows.net/windows/telegraf.exe)</Tag>
-*   MacOS amd64: <Tag type="download">[binary](https://telegrafreleases.blob.core.windows.net/macos/telegraf)</Tag>
+<!--- These links no longer work, deleted. LKB 2023-05-10
+
+*   Linux amd64: <Tag type="download">[deb]()</Tag> <Tag type="download">[rpm]()</Tag> <Tag type="download">[binary]()</Tag>
+*   Windows amd64: <Tag type="download">[binary/exe]()</Tag>
+*   MacOS amd64: <Tag type="download">[binary]()</Tag>
+
+-->
 
 Timescale also provide you with builds for:
 
@@ -225,7 +227,7 @@ core with `SELECT cpu, avg(usage_user) FROM cpu GROUP BY cpu`. The output should
 look like this:
 
 ```sql
-    cpu    |       avg        
+    cpu    |       avg
 -----------+------------------
  cpu-total | 8.46385703620795
  cpu0      | 12.4343351351033
@@ -263,20 +265,20 @@ After a while you can check on the `cpu` table in the database, like this:
 psql> \dS cpu
 \dS cpu;
 Table "public.cpu"
-      Column      |           Type           
+      Column      |           Type
 ------------------+--------------------------
  time             | timestamp with time zone
- cpu              | text                     
- host             | text                     
- usage_steal      | double precision         
- usage_iowait     | double precision         
- usage_guest      | double precision         
- usage_idle       | double precision         
- usage_softirq    | double precision         
- usage_system     | double precision         
- usage_user       | double precision         
- usage_irq        | double precision         
- location         | text                     
+ cpu              | text
+ host             | text
+ usage_steal      | double precision
+ usage_iowait     | double precision
+ usage_guest      | double precision
+ usage_idle       | double precision
+ usage_softirq    | double precision
+ usage_system     | double precision
+ usage_user       | double precision
+ usage_irq        | double precision
+ location         | text
  ```
 
  You can see the `location` column is added and it contains `New York` for all
@@ -317,18 +319,18 @@ database:
 psql> \dS cpu
 \dS cpu
 Table "public.cpu"
-      Column      |           Type           
+      Column      |           Type
 ------------------+--------------------------
  time             | timestamp with time zone
- tag_id           | integer                  
- usage_irq        | double precision         
- usage_softirq    | double precision         
- usage_system     | double precision         
- usage_iowait     | double precision         
- usage_guest      | double precision         
- usage_user       | double precision         
- usage_idle       | double precision         
- usage_steal      | double precision         
+ tag_id           | integer
+ usage_irq        | double precision
+ usage_softirq    | double precision
+ usage_system     | double precision
+ usage_iowait     | double precision
+ usage_guest      | double precision
+ usage_user       | double precision
+ usage_idle       | double precision
+ usage_steal      | double precision
 ```
 
 Now the `cpu`, `host` and `location` columns are not there, instead there's a `tag_id` column. The tag sets are stored in a separate table called `cpu_tag`:
@@ -367,7 +369,7 @@ telegraf --config telegraf.conf
 
 ```sql
  psql> SELECT * FROM cpu_tag;
- tag_id |                                       tags                                        
+ tag_id |                                       tags
 --------+-----------------------------------------------------------------------------------
       1 | {"cpu": "cpu-total", "host": "local", "location": "New York"}
       2 | {"cpu": "cpu0", "host": "local", "location": "New York"}

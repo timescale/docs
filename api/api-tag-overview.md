@@ -48,7 +48,7 @@ change in future versions.
 These functions might not correctly handle unusual use cases or errors, and they
 could have poor performance. Updates to the TimescaleDB extension drop database
 objects that depend on experimental features like this function. If you use
-experimental toolkit functions on Timescale Cloud, this function is
+experimental toolkit functions on Timescale, this function is
 automatically dropped when the Toolkit extension is updated. For more
 information, [see the TimescaleDB Toolkit docs][toolkit-docs].
 

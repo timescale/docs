@@ -23,8 +23,8 @@ TimescaleDB:
     avn service logs -S desc -f --project <PROJECT_NAME> <SERVICE_NAME>
     ```
 
-*   [REST API][] endpoint is available for fetching the same information two above methods
-output, in case programmatic access is needed.
+*   [REST API][] endpoint is available for fetching the same information two
+    above methods output, in case programmatic access is needed.
 
 Service logs included on the normal service price are stored only for a few
 days. Unless you are using logs integration to another service, older logs are

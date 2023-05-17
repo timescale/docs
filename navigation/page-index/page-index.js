@@ -6,9 +6,9 @@ module.exports = [
     filePath: "index.md",
     children: [
       {
-        title: "Find by Cloud Console location",
-        overrideHref: "/cloud-console",
-        excerpt: "Browse topics by Timescale Cloud console location.",
+        title: "Find by Console location",
+        overrideHref: "/console",
+        excerpt: "Browse topics by Timescale console location.",
         type: "placeholder",
       },
       {
