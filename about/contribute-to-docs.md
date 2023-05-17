@@ -1,6 +1,6 @@
 ---
-title: Contribute to TimescaleDB documentation
-excerpt: Advice and style guide for contributing to TimescaleDB documentation
+title: Contribute to Timescale documentation
+excerpt: Advice and style guide for contributing to Timescale documentation
 keywords: [contribute]
 tags: [docs, style guide]
 ---
@@ -97,9 +97,9 @@ phrase possible. For example, instead of "Using hypertables", call the page
 "Hypertables".
 
 For level two sections that contain one or more procedures, use a simple verb
-phrase. For example, "Install TimescaleDB". For the associated procedures, use a
+phrase. For example, "Install Timescale". For the associated procedures, use a
 level three heading, with the gerund form of the same heading. For example,
-"Installing TimescaleDB".
+"Installing Timescale".
 
 ## Lists
 
@@ -153,13 +153,13 @@ Procedures contain these elements:
 For example:
 
 ```txt
-## Install TimescaleDB
+## Install Timescale
 
-This section describes how to install TimescaleDB on premise.
+This section describes how to install Timescale on premise.
 
 <Procedure>
 
-### Installing TimescaleDB
+### Installing Timescale
 
 1. Start each step with a verb, or a location.
 1. For example, "Run the `example` command", or "At the command prompt, open the
@@ -233,9 +233,9 @@ device.
 *Adverbs*
 : Do not use.
 
-&#10060; Simply install TimescaleDB.
+&#10060; Simply install Timescale.
 
-&#128077; Install TimescaleDB.
+&#128077; Install Timescale.
 
 *AWS*
 : Amazon Web Services. No need to expand this acronym.
@@ -257,12 +257,12 @@ device.
 
 &#10060; "Perform a bare metal installation."
 
-&#128077; "Install TimescaleDB on bare metal."
+&#128077; "Install Timescale on bare metal."
 
 *Bare-metal*
 : Adjective.
 
-&#10060; "Install TimescaleDB on bare-metal."
+&#10060; "Install Timescale on bare-metal."
 
 &#128077; "Perform a bare-metal installation."
 
@@ -413,9 +413,9 @@ device.
 *Simply*
 : Don't use.
 
-&#10060; Simply install TimescaleDB.
+&#10060; Simply install Timescale.
 
-&#128077; Install TimescaleDB.
+&#128077; Install Timescale.
 
 *Superuser*
 : One word.
