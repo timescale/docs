@@ -108,7 +108,7 @@ continuous aggregate.
     ```sql
     CREATE FUNCTION current_epoch() RETURNS BIGINT
     LANGUAGE SQL STABLE AS $$
-    SELECT EXTRACT(EPOCH FROM CURRENT_EPOCH)::bigint;$$;
+    SELECT EXTRACT(EPOCH FROM CURRENT_TIMESTAMP::bigint;$$;
 
      SELECT set_integer_now_func('devices', 'current_epoch');
      ```

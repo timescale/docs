@@ -18,9 +18,10 @@ files are retained back to the oldest full backup. This means that you always
 have a full backup available for the current and previous week, and your service
 can be restored to any point during this time period.
 
-In the event of a storage failure, a service automatically restores
-from backup to the point of failure. In the event of a user error where
-a point-in-time recovery needs to be done, [contact support][support].
+In the event of a storage failure, a service automatically restores from backup
+to the point of failure. In the event of a user error where a point-in-time
+recovery needs to be done, contact Support by clicking the `Support` button in
+the Timescale console.
 
 This diagram describes how a restore from backup occurs after a storage failure:
 
@@ -37,4 +38,4 @@ backup is restored. Then, the incremental backup is restored.
 Finally, WAL is replayed to cover any remaining gap."/>
 
 [wal]: https://www.postgresql.org/docs/current/wal-intro.html
-[support]: https://www.timescale.com/support
+[support]: https://www.timescale.com/contact/

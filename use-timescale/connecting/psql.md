@@ -63,7 +63,7 @@ PostgreSQL, and this is the most effective way to install the tool. On macOS you
 1.  Install PostgreSQL:
 
     ```bash
-    brew install postgres
+    brew install postgresql
     ```
 
 </Procedure>
