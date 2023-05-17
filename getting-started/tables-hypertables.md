@@ -11,20 +11,21 @@ import HypertableIntro from "versionContent/_partials/_hypertables-intro.mdx";
 
 <HypertableIntro />
 
-## Create your first hypertable
+Databases in are made up of tables that contain your data. In PostgreSQL, these
+tables are relational, so the data in one table relates to the data in another
+table. In Timescale, you use regular PostregSQL relational tables, in addition
+to special time-series hypertables.
 
-When you create a hypertable, it is automatically partitioned on the time column
-you provide as the second parameter to `create_hypertable()`. Also, Timescale
-automatically creates an index on the time column. However, you'll often filter
-your time-series data on other columns as well. Using indexes appropriately helps
-your queries perform better.
-
-Because you often query the stock trade data by the company symbol, you
-can also add an index for it. Include the time column because time-series data
-typically looks for data in a specific period of time.
+Hypertables are designed specifically for time-series data, so they have a few
+special qualities that makes them different to a regular PostgreSQL table. A
+hypertable is always partitioned on time, but can also be partitioned on
+additional columns as well. The other special thing about hypertables is that
+they are broken down into smaller tables called chunks.
 
 For more information, see
 [the hypertables section][hypertable-how-to].
+
+## Create your first hypertable
 
 <Procedure>
 
