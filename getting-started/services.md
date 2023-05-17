@@ -14,11 +14,23 @@ import CloudTrial from "versionContent/_partials/_cloudtrial.mdx";
 
 # Timescale services
 
-<TimescaleIntro />
-
-In Timescale, your database lives in a cloud service.
-
 <CloudIntro />
+
+In the Timescale console, you can create a service to house your Timescale
+database.
+
+Each service can contain a single database. If you need more databases, you can
+create additional services for each.
+
+When you create a new service, a new `tsdbadmin` user is created. This is your
+administration user that you can connect to your database with.
+
+When you have your service up and running, you can use a tool like `psql` to
+connect to it from the command prompt on your local machine. You can then use
+`psql` to create tables and add data directly into your database.
+
+In this section, you sign up for a Timescale account, create a service, and
+connect to it from your local machine using `psql`.
 
 <CloudTrial />
 
@@ -37,7 +49,3 @@ In Timescale, your database lives in a cloud service.
 ## Where to next
 
 <WhereNext />
-
-[forum]: https://www.timescale.com/forum
-[slack]: https://slack.timescale.com/
-[twelve-data]: https://twelvedata.com/
