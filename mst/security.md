@@ -163,12 +163,12 @@ This link is currently timing out.
 
 Aiven is fully GDPR-compliant, and has executed data processing agreements
 (DPAs) with relevant cloud infrastructure providers. If you require a DPA, or if
-you want more information about information security policies, contact
-[Timescale Support][timescale-support].
+you want more information about information security policies,
+[contact Timescale][timescale-support].
 
 <!---
 [cloud-security-eval]: https://www.elfgroup.fi/ecc/1708-S6-71acd0046.pdf
 -->
 
 [mst-login]: https://portal.managed.timescale.com
-[timescale-support]: https://www.timescale.com/support
+[timescale-support]: https://www.timescale.com/contact/
