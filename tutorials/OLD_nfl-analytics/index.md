@@ -29,17 +29,13 @@ powerful data analysis, and also visualize the data with Python.
 
 This tutorial has a few sections to help you on your journey:
 
-1.  [Ingest and query data][ingest-query]
-
+1.  Ingest and query data
     Download the data, create tables in TimescaleDB, and run your first query on NFL tracking data.
-2.  [Analyze data using continuous aggregates and hyperfunctions][analyze-data]
-
+1.  Analyze data using continuous aggregates and hyperfunctions
     Examine the data at a deeper level with more advanced queries, using features of TimescaleDB to make queries faster and effective. You'll also see examples of some visualizations you can create using the data.
-3.  [Join time-series data with relational data][join-data]
-
+1.  Join time-series data with relational data
     Gain further insight into your time-series data by joining it with relational data.
-4.  [Visualize time-series play-by-play data][visualize-plays]
-
+1.  Visualize time-series play-by-play data
     For a little extra fun, create images that plot the movement of every player on the field for any play using Python and MatPlotlib.
 
 ## Prerequisites

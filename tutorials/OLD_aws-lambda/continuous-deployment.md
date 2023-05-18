@@ -54,7 +54,7 @@ Now you can create a new GitHub repository which contains the function code.
 
 1.  Create the Lambda function that you want to upload.
     As an example, here's a Python Lambda function which returns data from a TimescaleDB table called `stocks_intraday`
-    ([read the tutorial to build a TimescaleDB API with Lambda here][create-data-api]).
+    read the tutorial to build a TimescaleDB API with Lambda here
 
     ```bash
     touch function.py

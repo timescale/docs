@@ -28,10 +28,9 @@ helpful if you've seen SQL before.
 *   To start, [install TimescaleDB][install-timescale].
 *   Next [setup Grafana][install-grafana].
 
-Once your installation of TimescaleDB and Grafana are complete, follow the
-[Timescale and Prometheus tutorial][tutorial-prometheus] and configure Grafana to connect
-to that database. Be sure to follow the full tutorial if you're interested in background
-on how to use TimescaleDB.
+Once your installation of TimescaleDB and Grafana are complete, configure
+Grafana to connect to that database. Be sure to follow the full tutorial if
+you're interested in background on how to use TimescaleDB.
 
 For this tutorial, you need to first create various Grafana visualizations before
 setting up alerts. Use our [full set of Grafana tutorials][tutorial-grafana] to
@@ -120,9 +119,8 @@ Slack using webhooks.
 
 #### Step 0: Set up your Grafana visualization
 
-Create a new Graph visualization. In the query, connect to the data source
-you configured in the [Timescale and Prometheus tutorial][tutorial-prometheus]
-and enter the following query:
+Create a new Graph visualization. In the query, connect to an existing
+Prometheus data source and enter this query:
 
 ```sql
 SELECT
@@ -169,7 +167,7 @@ alerts go to less intrusive channels (such as Slack), while more critical
 alerts go to high attention channels (such as calling or texting someone).
 
 Let's start by configuring Slack. To setup Slack, you need your Slack
-Administrator to give you the webhoo URL to post to a channel. You can
+Administrator to give you the webhook URL to post to a channel. You can
 [follow these instructions][slack-webhook-instructions] to obtain this
 information.
 
@@ -291,4 +289,3 @@ Complete your Grafana knowledge by following [all the TimescaleDB + Grafana tuto
 [pagerduty-integration-key]: https://support.pagerduty.com/docs/services-and-integrations
 [slack-webhook-instructions]: https://slack.com/help/articles/115005265063-Incoming-Webhooks-for-Slack
 [tutorial-grafana]: /tutorials/:currentVersion:/grafana
-[tutorial-prometheus]: /tutorials/:currentVersion:/monitor-mst-with-prometheus/
