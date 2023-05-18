@@ -820,12 +820,6 @@ how they make time-series analysis possible in fewer lines of code, as well
 as how TimescaleDB is compatible with other extensions like *PostGIS*, for fast
 querying by time and location.
 
-Ready for more learning? Here's a few suggestions:
-
-*   [Time Series Forecasting using TimescaleDB, R, Apache MADlib and Python][time-series-forecasting]
-*   [Continuous Aggregates][continuous-aggregates]
-*   [Migrate your own Data][migrate]
-
 [NYCTLC]: https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page
 [cloud-signup]: https://console.cloud.timescale.com/signup
 [continuous-aggregates]: /getting-started/:currentVersion:/create-cagg/

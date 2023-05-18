@@ -1,6 +1,6 @@
 # Introduction
 
-There are multiple ways to help make TimescaleDB better, including contributing
+There are multiple ways to help make Timescale better, including contributing
 to the documentation. All of our documentation is available to use and review
 with GitHub.
 

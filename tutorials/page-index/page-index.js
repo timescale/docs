@@ -2,7 +2,7 @@ module.exports = [
   {
     title: "Tutorials",
     href: "tutorials",
-    excerpt: "Learn about common scenarios and use cases for TimescaleDB",
+    excerpt: "Learn about common scenarios and use cases for Timescale",
     children: [
       {
         title: "Introduction to time-series data",
@@ -29,7 +29,7 @@ module.exports = [
       {
         title: "Analyze cryptocurrency data",
         href: "analyze-cryptocurrency-data",
-        excerpt: "Use TimescaleDB to analyze cryptocurrency data",
+        excerpt: "Use Timescale to analyze cryptocurrency data",
       },
       {
         title: "Analyze the Bitcoin blockchain",
@@ -40,19 +40,19 @@ module.exports = [
             title: "Ingest and query Bitcoin transactions",
             href: "ingest-query-btc-transactions",
             excerpt:
-              "Design schema and ingest Bitcoin blockchain data with TimescaleDB",
+              "Design schema and ingest Bitcoin blockchain data with Timescale",
           },
           {
             title: "Analyze the blockchain with hyperfunctions",
             href: "analyze-blockchain",
-            excerpt: "Use TimescaleDB hyperfunctions for blockchain insights",
+            excerpt: "Use Timescale hyperfunctions for blockchain insights",
           },
         ],
       },
       {
-        title: "Store financial tick data in TimescaleDB",
+        title: "Store financial tick data in Timescale",
         href: "financial-tick-data",
-        excerpt: "Use TimescaleDB to store financial tick data",
+        excerpt: "Use Timescale to store financial tick data",
         children: [
           {
             title: "Financial tick data - set up",
@@ -74,18 +74,18 @@ module.exports = [
       {
         title: "Analyze NFT sales data",
         href: "analyze-nft-data",
-        excerpt: "Analyze NFT sales data with TimescaleDB",
+        excerpt: "Analyze NFT sales data with Timescale",
         children: [
           {
             title: "NFT schema design and ingestion",
             href: "nft-schema-ingestion",
-            excerpt: "Design schema and ingest NFT data with TimescaleDB",
+            excerpt: "Design schema and ingest NFT data with Timescale",
           },
           {
             title: "Analyzing NFT transactions",
             href: "analyzing-nft-transactions",
             excerpt:
-              "Analyze NFT data transactions with PostgreSQL and hyperfunctions in TimescaleDB",
+              "Analyze NFT data transactions with PostgreSQL and hyperfunctions in Timescale",
           },
         ],
       },
@@ -97,44 +97,44 @@ module.exports = [
       {
         title: "Grafana",
         href: "grafana",
-        excerpt: "Getting Started with Grafana and TimescaleDB",
+        excerpt: "Getting Started with Grafana and Timescale",
         children: [
           {
-            title: "Connect TimescaleDB and Grafana",
+            title: "Connect Timescale and Grafana",
             href: "grafana-timescalecloud",
-            excerpt: "Learn how to connect TimescaleDB and Grafana",
+            excerpt: "Learn how to connect Timescale and Grafana",
           },
           {
-            title: "Setup Grafana on Managed Service for TimescaleDB",
+            title: "Setup Grafana on Managed Service for Timescale",
             href: "installation",
             excerpt:
-              "Learn how to setup Grafana and TimescaleDB on Managed Service for TimescaleDB",
+              "Learn how to setup Grafana and Timescale on Managed Service for TimescaleDB",
           },
           {
             title: "Create a dashboard and panel",
             href: "create-dashboard-and-panel",
             excerpt:
-              "Create a dashboard and panel with Grafana and TimescaleDB",
+              "Create a dashboard and panel with Grafana and Timescale",
           },
           {
             title: "Build Geospatial dashboards",
             href: "geospatial-dashboards",
-            excerpt: "Build Geospatial dashboards with Grafana and TimescaleDB",
+            excerpt: "Build Geospatial dashboards with Grafana and Timescale",
           },
           {
             title: "Use Grafana variables",
             href: "grafana-variables",
-            excerpt: "Use Grafana variables with TimescaleDB",
+            excerpt: "Use Grafana variables with Timescale",
           },
           {
             title: "Visualize missing data",
             href: "visualize-missing-data",
-            excerpt: "Visualize missing data in Grafana with TimescaleDB",
+            excerpt: "Visualize missing data in Grafana with Timescale",
           },
           {
             title: "Setup alerts",
             href: "setup-alerts",
-            excerpt: "Setup alerts in Grafana with TimescaleDB",
+            excerpt: "Setup alerts in Grafana with Timescale",
           },
           {
             title: "Visualizations",
@@ -180,17 +180,17 @@ module.exports = [
       {
         title: "Visualize data in Tableau",
         href: "visualize-with-tableau",
-        excerpt: "Visualize data in Tableau with TimescaleDB",
+        excerpt: "Visualize data in Tableau with Timescale",
       },
       {
-        title: "Custom TimescaleDB dashboards",
+        title: "Custom Timescale dashboards",
         href: "custom-timescaledb-dashboards",
-        excerpt: "Custom TimescaleDB dashboards in Tableau",
+        excerpt: "Custom Timescale dashboards in Tableau",
       },
       {
         title: "Simulate IoT sensor data",
         href: "simulate-iot-sensor-data",
-        excerpt: "Simulate IoT Sensor Data with TimescaleDB",
+        excerpt: "Simulate IoT Sensor Data with Timescale",
       },
     ],
   },

@@ -97,7 +97,8 @@ optionally to its replica. The load balancer handles the connection and defines
 the role for each node.
 
 <img class="main-content__illustration"
-src="https://www.timescale.com/blog/content/images/2022/08/replicas-normal-state.png"
+src="https://assets.timescale.com/docs/images/tsc-replication-replicas-normal-state.webp"
+width={1375} height={944}
 alt="Diagram showing an application connecting to a service with a replica
 through a load balancer"/>
 
@@ -107,7 +108,8 @@ to the new primary. In the meantime, the system begins the recovery of the
 failed node.
 
 <img class="main-content__illustration"
-src="https://www.timescale.com/blog/content/images/2022/08/replicas-failover-state-timescale.png"
+src="https://assets.timescale.com/docs/images/tsc-replication-replicas-failover-state.webp"
+width={1375} height={944}
 alt="Diagram showing the primary failing, and the load balancer redirecting
 traffic to the replica"/>
 
@@ -116,7 +118,8 @@ role. The previously promoted node remains the primary, streaming WAL
 (write-ahead log) to its replica.
 
 <img class="main-content__illustration"
-src="https://www.timescale.com/blog/content/images/2022/08/replicas-recovery-timescale.png"
+src="https://assets.timescale.com/docs/images/tsc-replication-replicas-repaired-state.webp"
+width={1375} height={944}
 alt="Diagram showing the old replica becoming the primary, and adding "/>
 
 The new replica will be created in a new availability zone (AZ) to help protect
