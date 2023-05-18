@@ -100,8 +100,8 @@ uncompressed chunks in your data, you can roll them up into a single compressed
 chunk.
 
 To roll up your uncompressed chunks into a compressed chunk, alter the compression
-settings to set the compress chunk time interval and then run compression operations
-which will roll up the chunks while compressing.
+settings to set the compress chunk time interval, and run compression operations
+to roll up the chunks while compressing.
 
 ```sql
 ALTER TABLE example SET (timescaledb.compress_chunk_time_interval = '<time_interval>');
