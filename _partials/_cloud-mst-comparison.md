@@ -7,6 +7,6 @@ and exclusively operated by Timescale, Timescale is a PostgreSQL data platform
 for time-series, events and analytics.
 
 If you need Azure or GCP, contact
-[Timescale support](https://www.timescale.com/support/) about
+[Timescale support](https://www.timescale.com/contact/) about
 [Managed Service for TimescaleDB](/mst/latest/) instead.
 </Highlight>
