@@ -7,13 +7,9 @@ keywords: [queries]
 
 # Queries
 
-With Timescale, there's no need to learn a custom query language, because
-Timescale supports full SQL. You can use your SQL knowledge along with the
-rich ecosystem of PostgreSQL tools, and add the extra features and performance of
-Timescale.
-
-Here are some query examples so you can get familiar with using SQL alongside
-popular Timescale functions.
+Timescale supports full SQL, so you don't need to learn a custom query language.
+This section contains some simple queries that you can run directly on this
+page.
 
 ## Simple SQL queries
 
