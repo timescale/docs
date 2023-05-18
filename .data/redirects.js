@@ -420,6 +420,10 @@ const redirector = new ThreeOhOneRedirector({
     "https://docs.timescale.com/api/latest/hyperfunctions/gapfilling-interpolation/time_bucket_gapfill/"
   )
   .add(
+    "/api/latest/continuous-aggregates/create_materialized_view/%20-?ref=timescale.com",
+    "https://docs.timescale.com/api/latest/continuous-aggregates/create_materialized_view/"
+  )
+  .add(
     "/api/latest/hyperfunctions/approx_count_distincts",
     "https://docs.timescale.com/api/latest/hyperfunctions/approximate-count-distinct/hyperloglog/",
     { exact: false }
@@ -435,6 +439,27 @@ const redirector = new ThreeOhOneRedirector({
     { exact: false }
   )
   .add(
+    "/api/latest/hyperfunctions/downsampling/null",
+    "https://docs.timescale.com/api/latest/hyperfunctions/downsampling",
+    { exact: false }
+  )
+  .add(
+    "/api/latest/hyperfunctions/financial-analysis/ohlc/",
+    "https://docs.timescale.com/api/latest/hyperfunctions/financial-analysis/candlestick_agg/",
+  )
+  .add(
+    "/api/latest/hyperfunctions/financial-analysis/open-high-low-close-time/",
+    "https://docs.timescale.com/api/latest/hyperfunctions/financial-analysis/candlestick_agg/",
+  )
+  .add(
+    "/api/latest/hyperfunctions/financial-analysis/rollup/",
+    "https://docs.timescale.com/api/latest/hyperfunctions/financial-analysis/candlestick_agg/",
+  )
+  .add(
+    "/api/latest/hyperfunctions/frequency-analysis/approx_count/",
+    "https://docs.timescale.com/api/latest/hyperfunctions/frequency-analysis/count_min_sketch#approx_count"
+  )
+  .add(
     "/api/latest/hyperfunctions/frequency-analysis/duration_in",
     "https://docs.timescale.com/api/latest/hyperfunctions/state-aggregates/duration_in/"
   )
@@ -447,12 +472,28 @@ const redirector = new ThreeOhOneRedirector({
     "https://docs.timescale.com/api/latest/hyperfunctions/state-aggregates/into_values-state_agg/"
   )
   .add(
+    "/api/latest/hyperfunctions/frequency-analysis/topn_agg/",
+    "https://docs.timescale.com/api/latest/hyperfunctions/frequency-analysis/freq_agg#topn"
+  )
+  .add(
     "/api/latest/hyperfunctions/frequency-analysis/state_agg",
     "https://docs.timescale.com/api/latest/hyperfunctions/state-aggregates/state_agg/"
   )
   .add(
+    "/api/latest/hyperfunctions/gapfilling/null",
+    "https://docs.timescale.com/api/latest/hyperfunctions/gapfilling/time_bucket_gapfill/"
+  )
+  .add(
     "/api/latest/hyperfunctions/percentile-approximation/num_vals/",
     "https://docs.timescale.com/api/latest/hyperfunctions/percentile-approximation/num_vals-percentile/"
+  )
+  .add(
+    "/api/latest/hyperfunctions/saturating_math/",
+    "https://docs.timescale.com/api/latest/hyperfunctions/saturating-math/"
+  )
+  .add(
+    "/api/latest/hyperfunctions/saturating-math/null",
+    "https://docs.timescale.com/api/latest/hyperfunctions/saturating-math/"
   )
   .add(
     "/api/latest/hyperfunctions/state-aggregates/",
@@ -478,6 +519,10 @@ const redirector = new ThreeOhOneRedirector({
     exact: false,
     appendPath: true,
   })
+  .add(
+    "/cloud-console/",
+    "https://docs.timescale.com/use-timescale/latest/"
+  )
   .add(
     "/cloud/latest/account-management",
     "https://docs.timescale.com/use-timescale/latest/billing/"
