@@ -10,6 +10,6 @@ it:
     Timescale blog and forum.
 
 [cloud-console]: https://console.cloud.timescale.com/
-[cloud-console-index]: /cloud-console/
+[cloud-console-index]: /console/
 [keywords]: /keywords/
 [search]: /search/
