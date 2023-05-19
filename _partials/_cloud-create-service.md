@@ -44,6 +44,21 @@ Each service contains a single database, named `tsdb`.
       />
     </li>
   )}
+  <li>
+    <p>
+      Click `Download the cheatsheet` to download an SQL file that contains the
+      login details for your new service. You can also copy the details directly
+      from this page. When you have copied your password, click `I have stored my
+      password, go to service overview` at the bottom of the page.
+    </p>
+  </li>
+    <li>
+    <p>
+      When your service is ready to use, is shows a green `Running` label in the
+      Service Overview. You also receive an email confirming that your service
+      is ready to use.
+    </p>
+  </li>
 </ol>
 
 </Procedure>
