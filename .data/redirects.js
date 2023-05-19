@@ -521,7 +521,7 @@ const redirector = new ThreeOhOneRedirector({
   })
   .add(
     "/cloud-console/",
-    "https://docs.timescale.com/use-timescale/latest/services/service-overview/"
+    "https://docs.timescale.com/cloud-console/"
   )
   .add(
     "/cloud/latest/account-management",
