@@ -12,7 +12,7 @@ psql][install-psql] section.
     it is marked as `Running`.
 1.  Click the name of the service you want to connect to see the connection
     information. Take a note of the `Service URL`.
-1.  <Optional />If you have not stored a copy of your password, you can reset it
+1.  <Optional /> If you have not stored a copy of your password, you can reset it
     by navigating to the `Operations` tab, and clicking `Reset password`. You
     can choose your own password for the service, or allow Timescale to generate
     a secure password for you. Take a note of your new password.
