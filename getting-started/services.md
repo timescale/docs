@@ -8,8 +8,6 @@ import Install from "versionContent/_partials/_cloud-installation.mdx";
 import CreateService from "versionContent/_partials/_cloud-create-service.mdx";
 import Connect from "versionContent/_partials/_cloud-connect.mdx";
 import CloudIntro from "versionContent/_partials/_cloud-intro.mdx";
-import TimescaleIntro from "versionContent/_partials/_timescale-intro.mdx";
-import WhereNext from "versionContent/_partials/_where-to-next.mdx";
 import CloudTrial from "versionContent/_partials/_cloudtrial.mdx";
 
 # Timescale services
@@ -52,9 +50,5 @@ For more information, see
 ## Connect to your service
 
 <Connect />
-
-## Where to next
-
-<WhereNext />
 
 [services-how-to]: /use-timescale/:currentVersion:/services/
