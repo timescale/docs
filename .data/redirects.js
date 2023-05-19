@@ -1543,7 +1543,7 @@ const redirector = new ThreeOhOneRedirector({
   )
   .add(
     "/tutorials/latest/sample-datasets/",
-    "https://docs.timescale.com/tutorials/latest/analyze-nft-data/",
+    "https://docs.timescale.com/tutorials/latest/",
   )
   .add(
     "/tutorials/latest/telegraf-output-plugin",
