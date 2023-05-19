@@ -27,7 +27,7 @@ psql][install-psql] section.
     If your connection is successful, you'll see a message like this, followed
     by the `psql` prompt:
 
-    ```
+    ```bash
     psql (13.3, server 12.8 (Ubuntu 12.8-1.pgdg21.04+1))
     SSL connection (protocol: TLSv1.3, cipher: TLS_AES_256_GCM_SHA384, bits: 256, compression: off)
     Type "help" for help.
