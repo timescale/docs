@@ -5,10 +5,40 @@ products: [cloud]
 keywords: [continuous aggregates, create]
 ---
 
+import CaggsIntro from "versionContent/_partials/_caggs-intro.mdx";
+import CaggsTypes from "versionContent/_partials/_caggs-types.mdx";
+
 # Aggregation
 
-Now that you've been introduced to continuous aggregates, create your own
-continuous aggregate from your data.
+Aggregation refers to a number of different calculations that you can perform on
+your data. For example, if you have data showing temperature changes over time,
+you can calculate an average of those temperatures, or a count of how many
+readings have been taken. Average, sum, and count are all example of simple
+aggregates.
+
+<CaggsIntro />
+
+<CaggsTypes />
+
+In this section, you create a simple aggregation by finding the average trade
+price for a single stock over several days. Then, you create a materialized
+view, transform it into a continuous aggregate, and query it for more
+information about the trading data.
+
+### Calculate the average trade price for Apple from the last four days
+
+   Use the [`avg()`][average] function with a `WHERE` clause
+   to only include trades for Apple stock within the last 4 days.
+   You can use the [`JOIN`][join] operator to fetch results based on the name of
+   a company instead of the symbol.
+
+   ```sql
+   SELECT
+       avg(price)
+   FROM stocks_real_time srt
+   JOIN company c ON c.symbol = srt.symbol
+   WHERE c.name = 'Apple' AND time > now() - INTERVAL '4 days';
+   ```
 
 ## Create an aggregate query to use in your continuous aggregate
 
@@ -117,62 +147,6 @@ how much faster this is than running the aggregate `SELECT` query on the raw hyp
 SELECT * FROM stock_candlestick_daily
   ORDER BY day DESC, symbol;
 ```
-
-## Real-time continuous aggregates
-
-By default, all continuous aggregates are created as real-time aggregates.
-This means that Timescale appends recent data that has not yet been materialized
-through a refresh policy to the output of the continuous aggregate. In this
-diagram, that corresponds to the last three points of raw data, which belong to
-an incomplete bucket.
-
-<Highlight type="note">
-If you don't want real-time aggregation, you can disable it. Set the `materialized_only`
-parameter to true for your continuous aggregate. For more information, see the
-section on [real-time aggregation](/use-timescale/latest/continuous-aggregates/real-time-aggregates/#use-real-time-aggregates).
-</Highlight>
-
-To inspect details about a continuous aggregate, such as its
-configuration or the query used to define it, use the following
-informational view:
-
-```sql
-SELECT * FROM timescaledb_information.continuous_aggregates;
-```
-
-**Results:**
-
-```bash
-hypertable_schema|hypertable_name |view_schema|view_name              |view_owner|materialized_only|compression_enabled|materialization_hypertable_schema|materialization_hypertable_name|view_definition                                                                                                                                                                           |
------------------+----------------+-----------+-----------------------+----------+-----------------+-------------------+---------------------------------+-------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-public           |stocks_real_time|public     |stock_candlestick_daily|tsdbadmin |f                |f                  |_timescaledb_internal            |_materialized_hypertable_3     | SELECT time_bucket('1 day'::interval, srt."time") AS day,¶    srt.symbol,¶    max(srt.price) AS high,¶    first(srt.price, srt."time") AS open,¶    last(srt.price, srt."time") AS close,|
-```
-
-<Video url="https://www.youtube.com/embed/1m9yxpyGrBY"></Video>
-
-## Next steps
-
-Now that your continuous aggregate is created, the next step is to create a [continuous aggregate refresh policy][cagg-policy].
-
-Without an automatic refresh policy, your continuous aggregate won't materialize
-new data as it is inserted into the `stocks_real_time` hypertable. As mentioned
-before, when you query your continuous aggregate, Timescale performs real-time
-aggregation to include any unmaterialized data. As the amount of unmaterialized
-data grows, this can slow down your queries.
-
-With a continuous aggregate policy, your new data automatically materializes
-into your continuous aggregate, keeping the need for real-time computations low
-and your continuous aggregate queries efficient.
-
-## Learn more about continuous aggregates
-
-See how real Timescale users leverage continuous aggregates in the blog posts
-[How FlightAware fuels flight prediction models for global travelers with
-Timescale and Grafana][flightaware] and [How I power a (successful) crypto
-trading bot with Timescale][crypto-bot].
-
-Detailed information on continuous aggregates and real-time aggregation can be
-found in the [continuous aggregates docs][continuous-aggregates].
 
 [cagg-policy]: /getting-started/:currentVersion:/create-cagg/create-cagg-policy/
 [candlestick]: https://en.wikipedia.org/wiki/Candlestick_chart

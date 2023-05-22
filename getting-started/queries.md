@@ -79,21 +79,6 @@ time                         |symbol|price    |day_volume|
 There are multiple trades every second, but you know that the order of trades is
 correct because the `day_volume` column is ordered correctly.
 
-### Calculate the average trade price for Apple from the last four days
-
-   Use the [`avg()`][average] function with a `WHERE` clause
-   to only include trades for Apple stock within the last 4 days.
-   You can use the [`JOIN`][join] operator to fetch results based on the name of
-   a company instead of the symbol.
-
-   ```sql
-   SELECT
-       avg(price)
-   FROM stocks_real_time srt
-   JOIN company c ON c.symbol = srt.symbol
-   WHERE c.name = 'Apple' AND time > now() - INTERVAL '4 days';
-   ```
-
 ## Advanced Timescale SQL functions
 
 Timescale has many custom-built SQL functions to help you perform time-series
