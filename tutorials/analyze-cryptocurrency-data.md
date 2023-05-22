@@ -650,26 +650,10 @@ GROUP BY
    time
 ```
 
-## Next steps
-
-While it's fun to run SQL queries in the command line, the real magic is when you're
-able to visualize it. Follow the companion tutorial to this piece and
-[learn how to use TimescaleDB and Tableau together][tableau-tutorial] to
-visualize your time-series data.
-
-Ready for even more learning? Here's a few suggestions:
-
-*   [Time Series Forecasting using TimescaleDB, R, Apache MADlib and Python][time-series-forecasting]
-*   [Continuous Aggregates][continuous-aggregates]
-*   [Migrate your own Data][migrate]
-
-[continuous-aggregates]: /getting-started/:currentVersion:/create-cagg
 [crypto-blog]: https://blog.timescale.com/blog/analyzing-bitcoin-ethereum-and-4100-other-cryptocurrencies-using-postgresql-and-timescaledb/
 [cryptocompare-apikey]: https://min-api.cryptocompare.com
 [cryptocompare]: https://www.cryptocompare.com
 [hypertable-blog]: https://blog.timescale.com/blog/when-boring-is-awesome-building-a-scalable-time-series-database-on-postgresql-2900ea453ee2/
 [hypertable-docs]: /use-timescale/:currentVersion:/hypertables
 [install-timescale]: /getting-started/latest/
-[migrate]: /use-timescale/:currentVersion:/migration/
 [tableau-tutorial]: /tutorials/:currentVersion:/visualize-with-tableau/
-[time-series-forecasting]: /tutorials/:currentVersion:/time-series-forecast/

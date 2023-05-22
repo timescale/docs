@@ -8,7 +8,7 @@ tags: [user-defined actions, background jobs, scheduled jobs, automation framewo
 # User-Defined Actions <Tag type="community">Community</Tag>
 
 User-defined actions allow you to run functions and procedures implemented in a
-language of your choice on a schedule within TimescaleDB. This allows
+language of your choice on a schedule within Timescale. This allows
 automatic periodic tasks that are not covered by existing policies and
 even enhancing existing policies with additional functionality.
 

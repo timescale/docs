@@ -24,7 +24,7 @@ the file mentioned is from the previous version, it is probably due to an incomp
 update process. Within the greater PostgreSQL server instance, each
 database that has TimescaleDB installed needs to be updated with the SQL command
 `ALTER EXTENSION timescaledb UPDATE;` while connected to that database. Otherwise,
-the database will be looking for the previous version of the timescaledb files.
+the database looks for the previous version of the timescaledb files.
 
 See [our update docs][update-db] for more info.
 

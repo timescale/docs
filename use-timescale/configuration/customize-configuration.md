@@ -1,6 +1,6 @@
 ---
 title: Configure database parameters
-excerpt: Customize the configuration of your TimescaleDB database
+excerpt: Customize the configuration of your Timescale database
 products: [cloud]
 keywords: [configure, services, settings]
 cloud_ui:
@@ -39,7 +39,7 @@ alt="View Timescale service settings"/>
 ### Modify basic parameters
 
 Under the `Common parameters` tab, you can modify a limited set of the
-parameters that are most often modified in a TimescaleDB or PostgreSQL instance.
+parameters that are most often modified in a Timescale or PostgreSQL instance.
 To modify a configured value, hover over the value and click the revealed pencil
 icon. This reveals an editable field to apply your change. Clicking anywhere
 outside of that field saves the value to be applied.

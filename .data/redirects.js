@@ -420,6 +420,10 @@ const redirector = new ThreeOhOneRedirector({
     "https://docs.timescale.com/api/latest/hyperfunctions/gapfilling-interpolation/time_bucket_gapfill/"
   )
   .add(
+    "/api/latest/continuous-aggregates/create_materialized_view/%20-?ref=timescale.com",
+    "https://docs.timescale.com/api/latest/continuous-aggregates/create_materialized_view/"
+  )
+  .add(
     "/api/latest/hyperfunctions/approx_count_distincts",
     "https://docs.timescale.com/api/latest/hyperfunctions/approximate-count-distinct/hyperloglog/",
     { exact: false }
@@ -435,6 +439,27 @@ const redirector = new ThreeOhOneRedirector({
     { exact: false }
   )
   .add(
+    "/api/latest/hyperfunctions/downsampling/null",
+    "https://docs.timescale.com/api/latest/hyperfunctions/downsampling",
+    { exact: false }
+  )
+  .add(
+    "/api/latest/hyperfunctions/financial-analysis/ohlc/",
+    "https://docs.timescale.com/api/latest/hyperfunctions/financial-analysis/candlestick_agg/",
+  )
+  .add(
+    "/api/latest/hyperfunctions/financial-analysis/open-high-low-close-time/",
+    "https://docs.timescale.com/api/latest/hyperfunctions/financial-analysis/candlestick_agg/",
+  )
+  .add(
+    "/api/latest/hyperfunctions/financial-analysis/rollup/",
+    "https://docs.timescale.com/api/latest/hyperfunctions/financial-analysis/candlestick_agg/",
+  )
+  .add(
+    "/api/latest/hyperfunctions/frequency-analysis/approx_count/",
+    "https://docs.timescale.com/api/latest/hyperfunctions/frequency-analysis/count_min_sketch#approx_count"
+  )
+  .add(
     "/api/latest/hyperfunctions/frequency-analysis/duration_in",
     "https://docs.timescale.com/api/latest/hyperfunctions/state-aggregates/duration_in/"
   )
@@ -447,12 +472,28 @@ const redirector = new ThreeOhOneRedirector({
     "https://docs.timescale.com/api/latest/hyperfunctions/state-aggregates/into_values-state_agg/"
   )
   .add(
+    "/api/latest/hyperfunctions/frequency-analysis/topn_agg/",
+    "https://docs.timescale.com/api/latest/hyperfunctions/frequency-analysis/freq_agg#topn"
+  )
+  .add(
     "/api/latest/hyperfunctions/frequency-analysis/state_agg",
     "https://docs.timescale.com/api/latest/hyperfunctions/state-aggregates/state_agg/"
   )
   .add(
+    "/api/latest/hyperfunctions/gapfilling/null",
+    "https://docs.timescale.com/api/latest/hyperfunctions/gapfilling/time_bucket_gapfill/"
+  )
+  .add(
     "/api/latest/hyperfunctions/percentile-approximation/num_vals/",
     "https://docs.timescale.com/api/latest/hyperfunctions/percentile-approximation/num_vals-percentile/"
+  )
+  .add(
+    "/api/latest/hyperfunctions/saturating_math/",
+    "https://docs.timescale.com/api/latest/hyperfunctions/saturating-math/"
+  )
+  .add(
+    "/api/latest/hyperfunctions/saturating-math/null",
+    "https://docs.timescale.com/api/latest/hyperfunctions/saturating-math/"
   )
   .add(
     "/api/latest/hyperfunctions/state-aggregates/",
@@ -478,6 +519,10 @@ const redirector = new ThreeOhOneRedirector({
     exact: false,
     appendPath: true,
   })
+  .add(
+    "/cloud-console/",
+    "https://docs.timescale.com/console/"
+  )
   .add(
     "/cloud/latest/account-management",
     "https://docs.timescale.com/use-timescale/latest/billing/"
@@ -1190,6 +1235,14 @@ const redirector = new ThreeOhOneRedirector({
     "https://docs.timescale.com/timescaledb/latest/overview/release-notes/",
     { exact: false, appendPath: true }
   )
+  .add(
+    "/self-hosted/latest/install/installation-redhat/",
+    "https://docs.timescale.com/self-hosted/latest/install/installation-linux/"
+  )
+  .add(
+    "/self-hosted/latest/compression/<https://assets.timescale.com/images/diagrams/compression_diagram.png",
+    "https://docs.timescale.com/self-hosted/latest/compression/"
+  )
   .add("/timescale-cloud", "https://docs.timescale.com/mst/latest/", {
     exact: false,
   })
@@ -1324,6 +1377,30 @@ const redirector = new ThreeOhOneRedirector({
     { exact: false, appendPath: true }
   )
   .add(
+    "/timescaledb/latest/overview/data-model-flexibility/",
+    "https://docs.timescale.com/about/latest/",
+  )
+  .add(
+    "/timescaledb/latest/overview/data-model-flexibility/?ref=timescale.com",
+    "https://docs.timescale.com/about/latest/",
+  )
+  .add(
+    "/timescaledb/latest/overview/data-model-flexibility/narrow-data-model/?ref=timescale.com",
+    "https://docs.timescale.com/about/latest/",
+  )
+  .add(
+    "/timescaledb/latest/overview/how-does-it-compare/?ref=timescale.com",
+    "https://docs.timescale.com/about/latest/",
+  )
+  .add(
+    "/timescaledb/latest/overview/how-does-it-compare/timescaledb-vs-postgres/",
+    "https://docs.timescale.com/about/latest/",
+  )
+  .add(
+    "/timescaledb/latest/overview/how-does-it-compare/timescaledb-vs-postgres/?ref=timescale.com",
+    "https://docs.timescale.com/about/latest/",
+  )
+  .add(
     "/timescaledb/latest/timescaledb-edition-comparison",
     "https://docs.timescale.com/about/latest/timescaledb-editions/"
   )
@@ -1441,6 +1518,46 @@ const redirector = new ThreeOhOneRedirector({
     "https://docs.timescale.com/getting-started/latest/create-cagg/"
   )
   .add(
+    "/tutorials/latest/analyze-intraday-stocks/fetch-and-ingest/",
+    "https://docs.timescale.com/tutorials/latest/ingest-real-time-websocket-data/",
+  )
+  .add(
+    "/tutorials/latest/aws-lambda/3rd-party-api-ingest/",
+    "https://docs.timescale.com/tutorials/latest/",
+  )
+  .add(
+    "/tutorials/latest/aws-lambda/continuous-deployment/",
+    "https://docs.timescale.com/tutorials/latest/",
+  )
+  .add(
+    "/tutorials/latest/aws-lambda/create-data-api/",
+    "https://docs.timescale.com/tutorials/latest/",
+  )
+  .add(
+    "/tutorials/latest/monitor-mst-with-prometheus/",
+    "https://docs.timescale.com/mst/latest/integrations/prometheus-mst/",
+  )
+  .add(
+    "/tutorials/latest/prometheus-adapter",
+    "https://docs.timescale.com/tutorials/latest/",
+  )
+  .add(
+    "/tutorials/latest/sample-datasets/",
+    "https://docs.timescale.com/tutorials/latest/",
+  )
+  .add(
+    "/tutorials/latest/telegraf-output-plugin",
+    "https://docs.timescale.com/use-timescale/latest/ingest-data/ingest-telegraf/",
+  )
+  .add(
+    "/tutorials/latest/telegraf-output-plugin/",
+    "https://docs.timescale.com/use-timescale/latest/ingest-data/ingest-telegraf/",
+  )
+  .add(
+    "/tutorials/latest/time-series-forecast/",
+    "https://docs.timescale.com/tutorials/latest/nyc-taxi-cab/",
+  )
+  .add(
     "/tutorials/getting-started-with-promscale",
     "https://docs.timescale.com/promscale/latest/",
     { exact: false }
@@ -1541,6 +1658,18 @@ const redirector = new ThreeOhOneRedirector({
   .add(
     "/update-timescaledb/upgrade-pg",
     "https://docs.timescale.com/timescaledb/latest/how-to-guides/update-timescaledb/upgrade-postgresql/"
+  )
+  .add(
+    "/use-timescale/latest/account-management/undefined",
+    "https://docs.timescale.com/use-timescale/latest/account-management/"
+  )
+  .add(
+    "/use-timescale/latest/backup-restore-cloud/docs.timescale.com/use-timescale/latest/ha-replicas/high-availability/",
+    "https://docs.timescale.com/use-timescale/latest/ha-replicas/"
+  )
+  .add(
+    "/use-timescale/latest/user-defined-actions/\\",
+    "https://docs.timescale.com/use-timescale/latest/user-defined-actions/"
   )
   .add(
     "/using-timescaledb",

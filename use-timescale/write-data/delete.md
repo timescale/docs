@@ -1,6 +1,6 @@
 ---
 title: Delete data
-excerpt: How to delete data from TimescaleDB
+excerpt: How to delete data from Timescale
 products: [cloud, mst, self_hosted]
 keywords: [delete, hypertables]
 ---
@@ -30,7 +30,7 @@ If you delete a lot of data, run
 
 ## Delete data by dropping chunks
 
-TimescaleDB allows you to delete data by age, by dropping chunks from a
+Timescale allows you to delete data by age, by dropping chunks from a
 hypertable. You can do so either manually or by data retention policy.
 
 To learn more, see the [data retention section][data-retention].

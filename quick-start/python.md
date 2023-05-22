@@ -449,22 +449,9 @@ executed safely against the database.
 
 </Procedure>
 
-## Next steps
-
-Now that you're able to connect, read, and write to a TimescaleDB instance from
-your Python application, and generate the scaffolding necessary to build a new
-application from an existing TimescaleDB instance, be sure to check out these
-advanced TimescaleDB tutorials:
-
-*   [Time Series Forecasting using TimescaleDB, R, Apache MADlib and Python][time-series-forecasting]
-*   [Continuous Aggregates][continuous-aggregates]
-*   [Migrate Your own Data][migrate]
-
 [install]: /getting-started/latest/
-[continuous-aggregates]: /use-timescale/:currentVersion:/continuous-aggregates/
 [create-hypertable-docs]: /api/:currentVersion:/hypertable/create_hypertable
 [dictcursor-docs]: https://www.psycopg.org/docs/extras.html#dictionary-like-cursor
-[migrate]: /use-timescale/:currentVersion:/migration/
 [pg-libpq-string]: https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING
 [pgcopy-install]: https://pypi.org/project/pgcopy/
 [psycopg2-connect]: https://www.psycopg.org/docs/module.html?highlight=connect#psycopg2.connect
@@ -472,7 +459,6 @@ advanced TimescaleDB tutorials:
 [psycopg2-docs-basics]: https://www.psycopg.org/docs/usage.html
 [psycopg2-docs]: https://pypi.org/project/psycopg2/
 [results-retrieval-methods]:https://www.psycopg.org/docs/cursor.html
-[time-series-forecasting]: /tutorials/:currentVersion:/time-series-forecast/
 [virtual-env]: https://docs.python.org/3/library/venv.html
 [connect]: #connect-to-timescaledb
 [create-table]: #create-a-relational-table

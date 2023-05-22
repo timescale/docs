@@ -18,7 +18,7 @@ supercharge time-series data even further. One of the most anticipated new
 features is what we call **multi-node** - the ability to create a cluster of
 TimescaleDB instances to scale both reads and writes.
 
-In this How To, we'll show you how to create a multi-node cluster in your
+This section shows you how to create a multi-node cluster in your
 Managed Service for TimescaleDB account with TimescaleDB 2.0 as a
 "do-it-yourself" (DIY) multi-node experience.
 
@@ -26,7 +26,7 @@ Managed Service for TimescaleDB account with TimescaleDB 2.0 as a
 
 Multi-node clusters consist of at least two or more TimescaleDB instances
 (called **Services** in Managed Service for TimescaleDB). Each cluster has one
-access node (AN) and one or more data nodes (DN). As outlined in our
+access node (AN) and one or more data nodes (DN). As outlined in these
 [architecture blog posts][distributed-architecture], the access node is intended
 to be the only TimescaleDB instance that you or your applications connect to
 once the cluster is set up. It becomes the "brains" and traffic controller of
@@ -235,15 +235,14 @@ server:
 1.  There is no limitation on the number of distributed hypertables a user can
   create on the access node.
 1.  Finally, remember that once a Service is marked as an access node or data
-   node, it cannot be used as part of another TimescaleDB multi-node cluster.
+   node, it cannot be used as part of another multi-node cluster.
 
 ## Maintenance tasks
 
-A multi-node TimescaleDB setup requires regular maintenance; in particular,
-the distributed transaction log needs to be cleaned up and non-completed
-transactions should be "healed." Please refer to our standard
-[multi-node documentation][maintenance-tasks] for instructions on how to
-configure a user-defined action for this task.
+A multi-node setup requires regular maintenance; in particular, the distributed
+transaction log needs to be cleaned up and non-completed transactions should be
+"healed." Refer to the [multi-node documentation][maintenance-tasks] for
+instructions on how to configure a user-defined action for this task.
 
 [changes-in-tsdb2]: /about/:currentVersion:/release-notes/changes-in-timescaledb-2/
 [distributed-architecture]: https://blog.timescale.com/blog/building-a-distributed-time-series-database-on-postgresql/
