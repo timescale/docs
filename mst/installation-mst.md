@@ -17,30 +17,6 @@ import CloudMSTComparison from "versionContent/_partials/_cloud-mst-comparison.m
 
 <CloudMSTComparison />
 
-<Procedure>
-
-## Sign in to Managed Service for TimescaleDB
-
-1.  Sign up for a [Managed Service for TimescaleDB account][sign-up] with your
-    name and email address. You do not need to provide payment details to
-    get started. A confirmation email is sent to the email address you provide.
-1.  Verify your email by clicking on the link in the email you received. Don't
-    forget to check your spam folder in case the email ends up there.
-1.  Sign in to your [Managed Service for TimescaleDB portal][mst-login] with the
-    password you set:
-
-    <img class="main-content__illustration"
-    src="https://s3.amazonaws.com/assets.timescale.com/docs/images/mst-portal-noservices.png"
-    alt="Managed Service for TimescaleDB Portal"/>
-
-<Highlight type="important">
-Your Managed Service for TimescaleDB trial includes up to US$300 credit for you
-to use. This is enough to complete all our tutorials and run a few test projects
-of your own.
-</Highlight>
-
-</Procedure>
-
 ## Create your first service
 
 A service in Managed Service for TimescaleDB is a cloud instance on your chosen
@@ -68,12 +44,6 @@ cloud provider, which you can install your database on.
     takes a few minutes to provision.
 
     <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/mst-new-service.png" alt="Create a new service in the Managed Service for TimescaleDB portal"/>
-
-<Highlight type="important">
-Your Managed Service for TimescaleDB trial includes up to US$300 credit for you
-to use. This is enough to complete all our tutorials and run a few test projects
-of your own.
-</Highlight>
 
 </Procedure>
 
@@ -153,5 +123,4 @@ if you want to have a chat.
 [install-psql]: /use-timescale/:currentVersion:/connecting/psql/
 [mst-docs]: /mst/:currentVersion:/
 [mst-login]: https://portal.managed.timescale.com
-[sign-up]: https://www.timescale.com/timescale-signup
 [tutorials]: /tutorials/:currentVersion:/

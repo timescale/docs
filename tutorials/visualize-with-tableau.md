@@ -108,21 +108,7 @@ Tableau is a powerful business intelligence tool and an ideal companion to data
 stored in TimescaleDB. This tutorial only scratched the surface of the kinds of
 data you can visualize using Tableau.
 
-### Conclusion
-
-In this tutorial, you learned how to setup Tableau to examine time-series data
-stored in TimescaleDB.
-
-Ready for more learning? Here's a few suggestions:
-
-*   [Time Series Forecasting using TimescaleDB, R, Apache MADlib and Python][time-series-forecasting]
-*   [Continuous Aggregates][continuous-aggregates]
-*   [Migrate your own Data][migrate]
-
-[continuous-aggregates]: /use-timescale/:currentVersion:/continuous-aggregates/
 [crypto-tutorial]: /tutorials/:currentVersion:/analyze-cryptocurrency-data/
 [get-tableau]: https://www.tableau.com/products/trial/
 [install-timescale]: /getting-started/latest/
-[migrate]: /use-timescale/:currentVersion:/migration/
-[time-series-forecasting]: /tutorials/:currentVersion:/time-series-forecast/
 [timescale-products]: https://www.timescale.com/products/

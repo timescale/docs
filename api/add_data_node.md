@@ -34,8 +34,8 @@ the data node by:
 
 1.  Creating the database given in `database` that serve as the
    new data node.
-2.  Loading the TimescaleDB extension in the new database.
-3.  Setting metadata to make the data node part of the distributed
+1.  Loading the TimescaleDB extension in the new database.
+1.  Setting metadata to make the data node part of the distributed
    database.
 
 Note that user roles are not automatically created on the new data

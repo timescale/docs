@@ -1,6 +1,6 @@
 ---
 title: Language quick starts
-excerpt: Get started with TimescaleDB adn your favorite language
+excerpt: Get started with TimescaleDB and your favorite language
 ---
 
 # Language quick starts

@@ -19,7 +19,7 @@ For 1D statistical functions, see [Statistical Aggregates
 In order to make common statistical aggregates easier to work with in window
 functions and continuous aggregates, Toolkit provides common statistical
 aggregates in a slightly different form than  otherwise available in
-PostgreSQL/TimescaleDB. They are re-implemented within the [two-step aggregates
+PostgreSQL or TimescaleDB. They are re-implemented within the [two-step aggregates
 framework](./two-step_aggregation.md) which exposes a summary form to the user
 which can then have multiple accessors.
 

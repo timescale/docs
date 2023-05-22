@@ -24,7 +24,7 @@ values.
 ### Time partitioning
 
 Each chunk of a hypertable only holds data from a specific time range. When you
-insert data from a time range that doesn't yet have a chunk, TimescaleDB
+insert data from a time range that doesn't yet have a chunk, Timescale
 automatically creates a chunk to store it.
 
 By default, each chunk covers 7 days. You can change this to better suit your
@@ -37,7 +37,7 @@ alt="A normal table compared to a hypertable. The normal table holds data for 3 
 />
 
 <Highlight type="note">
-TimescaleDB divides time into potential chunk ranges, based on the
+Timescale divides time into potential chunk ranges, based on the
 `chunk_time_interval`. If data exists for a potential chunk range, that chunk is
 created.
 
