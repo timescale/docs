@@ -93,8 +93,8 @@ writing different types of data written by people who work with that data.
 1.  Create a hypertable by adding the `table_template` parameter in the config
     file to execute when creating a new table. You can add this parameter in the
     section that begins with the comment `## Templated statements to execute
-    when creating a new table.` After you add the `table_template` parameter the
-    section in the config file is similar to:
+    when creating a new table.` After you add the `table_template` parameter, the
+    section in the configuration file looks like this:
 
     ```bash
     ## Templated statements to execute when creating a new table.
