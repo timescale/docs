@@ -17,6 +17,82 @@ GitHub and be notified by email whenever a new release is available. On the
 click `Watch`, select `Custom` and then check `Releases`.
 </Highlight>
 
+
+## TimescaleDB&nbsp;2.11.0 on 2023-05-22
+
+These release notes are for the release of TimescaleDB&nbsp;2.11.0 on
+2023-05-22.
+
+<Highlight type="note">
+This release contains new features and bug fixes since the 2.10.3 release.
+We deem it moderate priority for upgrading.
+</Highlight>
+
+### Highlighted features in this release
+
+This release includes these new features:
+
+* Support for DML operations on compressed chunks:
+  * UPDATE/DELETE support
+  * Support for unique constraints on compressed chunks
+  * Support for `ON CONFLICT DO UPDATE`
+  * Support for `ON CONFLICT DO NOTHING`
+* `JOIN` support for hierarchical continuous aggregates
+* Performance improvements for real-time hierarchical continuous aggregates
+
+### Complete list of features
+
+* #5212 Allow pushdown of reference table joins
+* #5221 Improve Realtime Continuous Aggregate performance
+* #5252 Improve unique constraint support on compressed hypertables
+* #5339 Support UPDATE/DELETE on compressed hypertables
+* #5344 Enable JOINS for Hierarchical Continuous Aggregates
+* #5361 Add parallel support for partialize_agg()
+* #5417 Refactor and optimize distributed COPY
+* #5454 Add support for ON CONFLICT DO UPDATE for compressed hypertables
+* #5547 Skip Ordered Append when only 1 child node is present
+* #5510 Propagate vacuum/analyze to compressed chunks
+* #5584 Reduce decompression during constraint checking
+* #5530 Optimize compressed chunk resorting
+* #5639 Support sending telemetry event reports
+
+### Complete list of bug fixes
+
+* #5396 Fix SEGMENTBY columns predicates to be pushed down
+* #5427 Handle user-defined FDW options properly
+* #5442 Decompression may have lost DEFAULT values
+* #5459 Fix issue creating dimensional constraints
+* #5570 Improve interpolate error message on datatype mismatch
+* #5573 Fix unique constraint on compressed tables
+* #5615 Add permission checks to run_job()
+* #5614 Enable run_job() for telemetry job
+* #5578 Fix on-insert decompression after schema changes
+* #5613 Quote username identifier appropriately
+* #5525 Fix tablespace for compressed hypertable and corresponding toast
+* #5642 Fix ALTER TABLE SET with normal tables
+* #5666 Reduce memory usage for distributed analyze
+* #5668 Fix subtransaction resource owner
+* #5680 Fix DISTINCT query with JOIN on multiple segmentby columns
+
+
+### Acknowledgments
+
+Timescale thanks:
+
+* @kovetskiy and @DZDomi for reporting peformance regression in Realtime Continuous Aggregates
+* @ollz272 for reporting an issue with interpolate error messages
+* @ericdevries for reporting an issue with DISTINCT queries using segmentby columns of compressed hypertable
+
+
+## TimescaleDB&nbsp;2.10.3 on 2023-04-26
+
+
+### Complete list of bug fixes
+
+* #5583 Fix parameterization in DecompressChunk path generation
+* #5602 Fix broken CAgg with JOIN repair function
+
+
 ## TimescaleDB&nbsp;2.10.2 on 2023-04-20
 
 These release notes are for the release of TimescaleDB&nbsp;2.10.2 on
