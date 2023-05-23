@@ -5,9 +5,8 @@ products: [cloud, mst, self_hosted]
 keywords: [continuous aggregates]
 ---
 
-import CaggsFunctionSupport from 'versionContent/_partials/_caggs-function-support.mdx';
-import CaggsIntro from 'versionContent/_partials/_caggs-intro.mdx';
-
+import CaggsFunctionSupport from "versionContent/_partials/_caggs-function-support.mdx";
+import CaggsIntro from "versionContent/_partials/_caggs-intro.mdx";
 import CaggsTypes from "versionContent/_partials/_caggs-types.mdx";
 
 # About continuous aggregates
