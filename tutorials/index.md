@@ -6,8 +6,8 @@ products: [cloud, mst, self_hosted]
 
 # Tutorials
 
-We've created a host of code-focused tutorials that help you get
-started with *TimescaleDB*.
+This section contains a host of tutorials that help you get
+started with Timescale.
 
 Most of these tutorials require a working [installation of TimescaleDB][install-timescale].
 
