@@ -23,13 +23,9 @@ in a chunk using the `untier_chunk` stored procedure.
 
 ## Untier data in a chunk
 
-Untiering chunks is an asynchronous process. When you untier a chunk, the data
-is moved from S3 storage to EBS storage. This process occurs in the background.
-The chunk remains available for queries during the migration to EBS.
-
-<Highlight type="note">
-Chunks are sometimes renamed when you untier your data.
-</Highlight>
+Untiering chunks is a synchronous process and will occur when the `untier_chunk` procedure is called. 
+When you untier a chunk, the data is moved from S3 storage to EBS storage.  
+Chunks will be  renamed when you untier your data.
 
 <Procedure>
 
