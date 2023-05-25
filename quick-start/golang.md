@@ -84,7 +84,7 @@ You can use it to help your Go application interact directly with TimescaleDB.
     //connect to database using a single connection
     func main() {
         /***********************************************/
-        /* Single Connection to TimescaleDB/ PostresQL */
+        /* Single Connection to TimescaleDB/ PostgreSQL */
         /***********************************************/
         ctx := context.Background()
         connStr := "yourConnectionStringHere"
