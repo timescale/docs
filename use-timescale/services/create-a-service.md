@@ -6,7 +6,7 @@ keywords: [services, create, installation]
 cloud_ui:
     path:
         - [services]
-    priority: 2
+        - [create_services]
 ---
 
 import WhereTonext from "versionContent/_partials/_where-to-next.mdx";

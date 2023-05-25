@@ -4,9 +4,6 @@ excerpt: How to untier Timescale data
 product: cloud
 keywords: [data tiering, untiering]
 tags: [storage, data management]
-cloud_ui:
-    path:
-        - [services, :serviceID, operations, data-tiering]
 ---
 
 import ExperimentalPrivateBeta from 'versionContent/_partials/_early_access.mdx';
