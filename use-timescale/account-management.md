@@ -6,7 +6,7 @@ keywords: [billing, accounts, admin]
 tags: [payment]
 cloud_ui:
     path:
-        - [billing, details]
+        - [billing]
 ---
 
 # Billing and account management

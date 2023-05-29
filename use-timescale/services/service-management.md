@@ -6,7 +6,8 @@ keywords: [services, operations, forks]
 tags: [manage, admin, passwords, pause, stop, terminate]
 cloud_ui:
     path:
-        - [services, :serviceID, operations, management]
+        - [services, :serviceId, operations, management]
+        - [create_services, fork, :serviceId]
 ---
 
 # Service management
