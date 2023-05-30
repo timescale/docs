@@ -64,12 +64,12 @@ module.exports = [
             href: "financial-tick-query",
             excerpt: "Query and visualize financial tick data",
           },
+          {
+            title: "Ingest real-time financial websocket data",
+            href: "ingest-real-time-websocket-data",
+            excerpt: "Ingest real-time financial data with websocket",
+          },
         ],
-      },
-      {
-        title: "Ingest real-time financial websocket data",
-        href: "ingest-real-time-websocket-data",
-        excerpt: "Ingest real-time financial data with websocket",
       },
       {
         title: "Analyze NFT sales data",

@@ -38,6 +38,9 @@ This tutorial covers:
     [Twelve Data][twelve-data] into your TimescaleDB database.
 1.  [Query your dataset][financial-tick-query]: Create candlestick views, query
     the aggregated data, and visualize the data in Grafana.
+1.  [Advanced queries][advanced-websocket]: Ingest real-time time-series data into
+    TimescaleDB database using a websocket connection. Create candlestick views,
+    query the aggregated data, and visualize the data in Grafana.
 
 ## About OHLCV data and candlestick charts
 
@@ -68,6 +71,7 @@ these stories from some Timescale community members:
 [cloud-install]: /getting-started/latest/
 [financial-tick-dataset]: /tutorials/:currentVersion:/financial-tick-data/financial-tick-dataset/
 [financial-tick-query]: /tutorials/:currentVersion:/financial-tick-data/financial-tick-query/
+[advanced-websocket]: /tutorials/:currentVersion:/financial-tick-data/ingest-real-time-websocket-data/
 [charts]: https://www.investopedia.com/terms/c/candlestick.asp
 [twelve-data]: https://twelvedata.com/
 [trading-strategy]: https://www.timescale.com/blog/how-trading-strategy-built-a-data-stack-for-crypto-quant-trading/

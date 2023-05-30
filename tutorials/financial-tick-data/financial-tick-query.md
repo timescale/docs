@@ -43,7 +43,7 @@ the last two days' worth of data.
 1.  Connect to the Timescale database that contains the Twelve Data
     cryptocurrency dataset.
 
-2.  At the psql prompt, create the continuous aggregate to aggregate data every
+1.  At the psql prompt, create the continuous aggregate to aggregate data every
     minute:
 
     ```sql
@@ -63,7 +63,7 @@ the last two days' worth of data.
 
     When you create the continuous aggregate, it refreshes by default.
 
-3.  Set a refresh policy to update the continuous aggregate every day,
+1.  Set a refresh policy to update the continuous aggregate every day,
     if there is new data available in the hypertable for the last two days:
 
     ```sql
@@ -87,7 +87,7 @@ OHLCV values.
 1.  Connect to the Timescale database that contains the Twelve Data
     cryptocurrency dataset.
 
-2.  At the psql prompt, use this query to select all Bitcoin OHLCV data for the
+1.  At the psql prompt, use this query to select all Bitcoin OHLCV data for the
     past 14 days, by time bucket:
 
     ```sql
