@@ -89,19 +89,6 @@ dataset and copy the data to your database.
     Because there are millions of rows of data, the `COPY` process may take a few
     minutes depending on your internet connection and local client resources.
 
-<Highlight type="note">
-If you're using a Docker container, add the data files to your container before
-copying them into your database.
-
-To add files to your container:
-
-```bash
-docker cp tutorial_sample_tick.csv timescaledb:/tutorial_sample_tick.csv
-docker cp tutorial_sample_company.csv timescaledb:/tutorial_sample_company.csv
-```
-
-</Highlight>
-
 </Procedure>
 
 <Video url="https://www.youtube.com/embed/YwidcyBFgAU"></Video>
