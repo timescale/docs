@@ -110,7 +110,7 @@ short interruption to your service while the DNS changes are propagated.
 
 ### Migrating to a different cloud or region
 
-1.  Sign in to the [Managed Service for TimescaleDB portal][mst-portal].
+1.  Sign in to the Managed Service for TimescaleDB portal.
 1.  In the `Services` tab, find the service you want to configure, and check
     it is marked as `Running`.
 1.  In the services `Overview` page, navigate to the `Cloud and VPC` section.
@@ -126,5 +126,3 @@ short interruption to your service while the DNS changes are propagated.
 </Highlight>
 
 </Procedure>
-
-[mst-portal]: https://portal.managed.timescale.com/

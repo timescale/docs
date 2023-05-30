@@ -20,6 +20,6 @@ Timescale supports all table objects supported within PostgreSQL, including
 data types, indexes, and triggers.
 
 This section explains how to design your schema, how indexing and tablespaces
-work, and how to use PostreSQL constraint types. It also includes examples to
+work, and how to use PostgreSQL constraint types. It also includes examples to
 help you create your own schema, and learn how to use JSON and JSONB for
 semi-structured data.

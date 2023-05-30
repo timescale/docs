@@ -6,8 +6,7 @@ keywords: [high availability, replicas]
 tags: [failover, replication, ha]
 cloud_ui:
     path:
-        - [services, :serviceID, operations]
-    priority: 1
+        - [services, :serviceId, operations, replication]
 ---
 
 # High availability and replicas
