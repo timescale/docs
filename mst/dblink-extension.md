@@ -17,7 +17,7 @@ hostnames are kept in a single place, and you only need to create a
 
 ## Prerequisites
 
-Before you begin, sign in to your [Managed Service for TimescaleDB portal][mst-login],
+Before you begin, sign in to your Managed Service for TimescaleDB portal,
 navigate to the `Overview` tab, and take a note of these parameters for the
 PostgreSQL remote server. Alternatively, you can use the `avn service get`
 command in the Aiven client:
@@ -146,4 +146,3 @@ Output is similar to:
 
 [dblink-extension]: https://www.postgresql.org/docs/current/dblink.html
 [pg-fdw]: https://www.postgresql.org/docs/current/postgres-fdw.html
-[mst-login]: https://portal.managed.timescale.com

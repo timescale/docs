@@ -30,11 +30,11 @@ For more information about using these details to connect with `psql`, see the
 ### Finding connection details in Timescale
 
 1.  Sign in to the [Timescale portal][tsc-portal].
-2.  In the `Services` tab, find the service you want to connect to, and check
+1.  In the `Services` tab, find the service you want to connect to, and check
     it is marked as `Running`.
-3.  Click the name of the service to see its connection information. Copy the
+1.  Click the name of the service to see its connection information. Copy the
     `Service URL`.
-4.  If you don't know the password for the service, navigate to the `Operations`
+1.  If you don't know the password for the service, navigate to the `Operations`
     tab, and click `Reset password`. You can choose your own password or allow
     Timescale to generate a secure password for you. Keep a copy of your
     new password.
@@ -55,7 +55,7 @@ alt="View Timescale connection info"
 
 ### Finding connection details in Managed Service for TimescaleDB
 
-1.  Sign in to your [Managed Service for TimescaleDB portal][mst-login].
+1.  Sign in to your Managed Service for TimescaleDB portal.
 1.  In the `Services` tab, find the service you want to connect to, and check
     it is marked as `Running`.
 1.  Click the name of the service to see its connection information. Copy the
@@ -83,5 +83,4 @@ for accessing your database, and add additional authentication requirements.
 </Tabs>
 
 [about-psql]: /use-timescale/:currentVersion:/connecting/about-psql/
-[mst-login]: https://portal.managed.timescale.com
 [tsc-portal]: https://console.cloud.timescale.com/

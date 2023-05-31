@@ -6,7 +6,7 @@ keywords: [high availability, replicas]
 tags: [failover, availability zones, replication, wal]
 cloud_ui:
     path:
-        - [services, :serviceID, operations, replication]
+        - [services, :serviceId, operations, replication]
 ---
 
 import CloudTrial from "versionContent/_partials/_cloudtrial.mdx";

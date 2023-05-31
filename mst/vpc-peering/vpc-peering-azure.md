@@ -13,14 +13,14 @@ using the VPC on Azure.
 ## Before you begin
 
 *   Installed [Aiven Client][aiven-client-install].
-*   Signed in to your [Managed Service for TimescaleDB dashboard][mst-login].
+*   Signed in to your Managed Service for TimescaleDB dashboard.
 *   Set up a VPC peering for your project in MST.
 
 ## Configuring a VPC peering on Azure
 
 <Procedure>
 
-1.  Log in with an Azure admin account, using the Azure CLI:
+1.  Log in with an Azure administration account, using the Azure CLI:
 
     ```bash
     az account clear
@@ -50,7 +50,8 @@ using the VPC on Azure.
     `$user_app_id`.
 
 1.  Create a service principal for your app object. Ensure that the service
-    principal is created to the Azure subscription containing the VNet you wish to peer:
+    principal is created to the Azure subscription containing the VNet you wish
+    to peer:
 
     ```bash
     az ad sp create --id $user_app_id
@@ -68,7 +69,7 @@ using the VPC on Azure.
 
     Save the password  field from the output - this is referred to as `$user_app_secret`.
 
-1.  Find the id properties of your virtual network:
+1.  Find the ID properties of your virtual network:
 
     ```bash
     az network vnet list
@@ -238,7 +239,7 @@ using the VPC on Azure.
     effect yet. If that is the case, try logging in again and creating the
     peering again after waiting a bit by repeating the commands in this step. If
     the error message persists, check the role assignment was correct.
-    
+
     ```bash
     The client `<random uuid>` with object id `<another random uuid>` does not have
     authorization to perform action
@@ -261,5 +262,3 @@ using the VPC on Azure.
 </Procedure>
 
 [aiven-client-install]: /mst/:currentVersion:/aiven-client/aiven-client-install/
-[create-service]: /mst/:currentVersion:/installation-mst/#create-your-first-service
-[mst-login]: https://portal.managed.timescale.com
