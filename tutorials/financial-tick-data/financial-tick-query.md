@@ -6,6 +6,8 @@ keywords: [tutorials, finance, learn]
 tags: [tutorials, beginner]
 ---
 
+import GrpahOHLCV from "versionContent/_partials/_graphing-ohlcv-data.mdx";
+
 # Query the data
 
 Turning raw, real-time tick data into aggregated candlestick views is a common
@@ -117,35 +119,7 @@ this, see the [Grafana setup instructions][grafana-setup].
 
 <Procedure>
 
-### Graphing OHLCV data
-
-1.  Ensure you have Grafana installed, and you are using the TimescaleDB
-    database that contains the Twelve Data cryptocurrency dataset set up as a
-    data source. For more information about how to do this, see the
-    [Grafana setup instructions][grafana-setup].
-1.  In Grafana, from the `Dashboards` menu, click `New Dashboard`. In the
-    `New Dashboard` page, click `Add a new panel`.
-1.  In the `Visualizations` menu in the top right corner, select `Candlestick`
-    from the list. Ensure you have set the Twelve Data cryptocurrency dataset as
-    your data source.
-1.  Click `Edit SQL` and paste in the query you used earlier:
-
-    ```sql
-    SELECT * FROM one_day_candle
-    WHERE symbol = 'BTC/USD' AND bucket >= NOW() - INTERVAL '14 days'
-    ORDER BY bucket;
-    ```
-
-1.  In the `Format as` section, select `Table`.
-1.  Adjust elements of the table as required, and click `Apply` to save your
-    graph to the dashboard.
-
-<img class="main-content__illustration"
-    src="https://s3.amazonaws.com/assets.timescale.com/docs/images/Grafana_candlestick_1day.png"
-    alt="Creating a candlestick graph in Grafana using 1-day OHLCV tick data"
-/>
-
-</Procedure>
+<GrpahOHLCV />
 
 [caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
 [first]: /api/:currentVersion:/hyperfunctions/first/
@@ -154,4 +128,3 @@ this, see the [Grafana setup instructions][grafana-setup].
 [last]: /api/:currentVersion:/hyperfunctions/last/
 [time-bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
 [lag]: https://www.postgresqltutorial.com/postgresql-lag-function/
-[grafana-setup]: /tutorials/:currentVersion:/grafana/grafana-timescalecloud/
