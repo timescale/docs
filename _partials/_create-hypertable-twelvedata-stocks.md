@@ -9,7 +9,7 @@ with Timescale tables similar to standard PostgreSQL.
 
 <Procedure>
 
-## Creating a hypertable
+### Creating a hypertable
 
 1.  Create a standard PostgreSQL table to store the real-time stock trade data
     using `CREATE TABLE`:

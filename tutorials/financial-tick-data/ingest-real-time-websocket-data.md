@@ -40,6 +40,11 @@ Before you begin, make sure you have:
 
 <Collapsible heading="Connect to the websocket server">
 
+When you connect to the Twelve Data API through a websocket, you create a
+persistent connection between your computer and the websocket server. You need
+to first set up a Python environment and then pass two arguments to create a
+websocket object and establish connection.
+
 ## Set up a new Python environment
 
 Create a new Python virtual environment for this project and activate it. All
@@ -76,11 +81,9 @@ the packages you need to complete for this tutorial are installed in this enviro
 
 ## Create the websocket connection
 
-When you connect to the Twelve Data API through a websocket, you create a
-persistent connection between your computer and the websocket server. This
-persistent connection can then be used to receive data for as long as the
-connection is maintained. You need to pass two arguments to create a
-websocket object and establish connection.
+A persistent connection between your computer and the websocket server is used
+to receive data for as long as the connection is maintained. You need to pass
+two arguments to create a websocket object and establish connection.
 
 ### Websocket arguments
 
@@ -193,7 +196,7 @@ efficient to insert data in batches rather than inserting data row-by-row. Using
 one transaction to insert multiple rows can significantly increase the overall
 ingest capacity and speed of your TimescaleDB database.
 
-### Batching in memory
+## Batching in memory
 
 A common practice to implement batching is to store new records in memory
 first, then after the batch reaches a certain size, insert all the records
@@ -215,14 +218,14 @@ This function needs to:
 1.  Add it to the in-memory batch, which is a list in Python.
 1.  If the batch reaches a certain size, insert the data and reset or empty the list.
 
-### Ingesting data in real-time
+## Ingesting data in real-time
 
 <Procedure>
 
 1.  Update the Python script that prints out the current batch size, so you can
     follow when data gets ingested from memory into TimescaleDB database. Use
     the `<HOST>`, `<PASSWORD>`, and `<PORT>` details for the Timescale service
-    where you want to ingest the data:
+    where you want to ingest the data and `<YOUR_API_KEY>`from Twelve Data:
 
 ```python
 import time
@@ -292,7 +295,7 @@ class WebsocketPipeline():
         Args:
             symbols (list of symbols): List of stock/crypto symbols
         """
-        td = TDClient(apikey="ea10e42cf59d431b9f1276628160fb29")
+        td = TDClient(apikey="<YOUR_API_KEY")
         ws = td.websocket(on_event=self._on_event)
         ws.subscribe(symbols)
         ws.connect()
@@ -336,8 +339,6 @@ Then check that you use a proper API key received from Twelve Data.
 </Collapsible>
 
 <Collapsible heading="Query the data">
-
-## Create a continuous aggregate
 
 To look at OHLCV values, the most effective way is to create a continuous
 aggregate. Create a continuous aggregate to aggregate data
