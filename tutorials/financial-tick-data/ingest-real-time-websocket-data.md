@@ -5,7 +5,7 @@ products: [cloud, mst, self_hosted]
 keywords: [finance, analytics, websockets, data pipeline]
 ---
 
-import CreateHypertable from "versionContent/_partials/_create-hypertable-twelvedata-stocks.mdx";
+import CreateHypertableStocks from "versionContent/_partials/_create-hypertable-twelvedata-stocks.mdx";
 
 # Ingest real-time financial websocket data
 
@@ -37,6 +37,8 @@ Before you begin, make sure you have:
 *   Signed up for [Twelve Data][twelve-signup]. The free tier is perfect for
     this tutorial.
 *   Made a note of your Twelve Data [API key](https://twelvedata.com/account/api-keys).
+
+<Collapsible heading="Connect to the websocket server">
 
 ## Set up a new Python environment
 
@@ -172,10 +174,19 @@ the health of the connection over time.
 At this point the websocket connection works and data keeps flowing. You need
 to implement the `on_event` function so data gets ingested into TimescaleDB.
 
-## Ingest websocket data into Timescale
+</Collapsible>
 
-Now that the websocket connection is set up, you can use the `on_event` function
+<Collapsible heading="The real-time dataset">
+
+After the websocket connection is set up, you can use the `on_event` function
 to ingest data into the database.
+
+A data pipeline setup that ingests real-time financial data into your Timescale.
+Stock trades are ingested in real-time Monday through Friday, typically during
+normal trading hours of the New York Stock Exchange (9:30&nbsp;AM - 4:00&nbsp;PM
+EST).
+
+<CreateHypertableStocks />
 
 When you ingest data into a transactional database like TimescaleDB, it is more
 efficient to insert data in batches rather than inserting data row-by-row. Using
@@ -204,16 +215,7 @@ This function needs to:
 1.  Add it to the in-memory batch, which is a list in Python.
 1.  If the batch reaches a certain size, insert the data and reset or empty the list.
 
-<Collapsible heading="The real-time dataset">
-
-A data pipeline setup that ingests real-time financial data into your Timescale.
-Stock trades are ingested in real-time Monday through Friday, typically during
-normal trading hours of the New York Stock Exchange (9:30&nbsp;AM - 4:00&nbsp;PM
-EST).
-
-<CreateHypertable />
-
-#### Ingesting data in real-time
+### Ingesting data in real-time
 
 <Procedure>
 
@@ -332,7 +334,10 @@ If you see an error message similar to this:
 Then check that you use a proper API key received from Twelve Data.
 
 </Collapsible>
-### Create a continuous aggregate
+
+<Collapsible heading="Query the data">
+
+## Create a continuous aggregate
 
 To look at OHLCV values, the most effective way is to create a continuous
 aggregate. Create a continuous aggregate to aggregate data
@@ -416,6 +421,8 @@ OHLCV values.
     ```
 
 </Procedure>
+
+</Collapsible>
 
 ## Graph OHLCV data
 
