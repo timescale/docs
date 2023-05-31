@@ -6,7 +6,7 @@ keywords: [finance, analytics, websockets, data pipeline]
 ---
 
 import CreateHypertableStocks from "versionContent/_partials/_create-hypertable-twelvedata-stocks.mdx";
-import GrpahOHLCV from "versionContent/_partials/_graphing-ohlcv-data.mdx";
+import GraphOhlcv from "versionContent/_partials/_graphing-ohlcv-data.mdx";
 
 # Ingest real-time financial websocket data
 
@@ -426,7 +426,7 @@ OHLCV values.
 
 </Collapsible>
 
-<GrpahOHLCV />
+<GraphOhlcv />
 
 [candlestick-tutorial]: /tutorials/:currentVersion:/financial-tick-data/
 [get-started]: /getting-started/:currentVersion:/

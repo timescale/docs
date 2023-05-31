@@ -6,7 +6,7 @@ keywords: [tutorials, finance, learn]
 tags: [tutorials, beginner]
 ---
 
-import GrpahOHLCV from "versionContent/_partials/_graphing-ohlcv-data.mdx";
+import GraphOhlcv from "versionContent/_partials/_graphing-ohlcv-data.mdx";
 
 # Query the data
 
@@ -110,16 +110,7 @@ OHLCV values.
 
 </Procedure>
 
-## Graph OHLCV data
-
-When you have extracted the raw OHLCV data, you can use it to graph the result
-in a candlestick chart, using Grafana. To do this, you need to have Grafana set
-up to connect to your TimescaleDB database. For more information about how to do
-this, see the [Grafana setup instructions][grafana-setup].
-
-<Procedure>
-
-<GrpahOHLCV />
+<GraphOhlcv />
 
 [caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
 [first]: /api/:currentVersion:/hyperfunctions/first/
