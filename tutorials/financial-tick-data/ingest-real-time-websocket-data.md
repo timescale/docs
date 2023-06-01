@@ -42,9 +42,9 @@ Before you begin, make sure you have:
 <Collapsible heading="Connect to the websocket server">
 
 When you connect to the Twelve Data API through a websocket, you create a
-persistent connection between your computer and the websocket server. You need
-to first set up a Python environment and then pass two arguments to create a
-websocket object and establish connection.
+persistent connection between your computer and the websocket server. 
+You set up a Python environment, and pass two arguments to create a
+websocket object and establish the connection.
 
 ## Set up a new Python environment
 
