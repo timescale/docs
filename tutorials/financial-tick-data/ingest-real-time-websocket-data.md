@@ -218,7 +218,7 @@ This function needs to:
 1.  Adjust the data so that it fits the database schema, including the data
     types, and order of columns.
 1.  Add it to the in-memory batch, which is a list in Python.
-1.  If the batch reaches a certain size, insert the data and reset or empty the list.
+1.  If the batch reaches a certain size, insert the data, and reset or empty the list.
 
 ## Ingesting data in real-time
 
