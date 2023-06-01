@@ -7,6 +7,7 @@ tags: [restore, recovery, physical backup]
 ---
 
 import Deprecation from "versionContent/_partials/_deprecated.mdx";
+import ConsiderCloud from "versionContent/_partials/_consider-cloud.mdx";
 
 # Ongoing physical backups with Docker & WAL-E
 
@@ -22,6 +23,8 @@ instructions here to do archiving against cloud providers such as AWS S3, and
 run it in an orchestration framework such as Kubernetes.
 
 <Deprecation />
+
+<ConsiderCloud />
 
 ## Run the TimescaleDB container in Docker
 
