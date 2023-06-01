@@ -69,7 +69,7 @@ security in Managed Service for TimescaleDB, see
 
 <Procedure>
 
-1.  Sign in to your [Managed Service for TimescaleDB portal][mst-login].
+1.  Sign in to your Managed Service for TimescaleDB portal.
 1.  In the `Services` tab, find the service you want to connect to, and check
     it is marked as `Running`.
 1.  Click the name of the service you want to connect to see the connection
@@ -138,5 +138,4 @@ This table provides the description and example values for the fields in the
 [ms-azure-data-studio]: https://docs.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio?view=sql-server-ver16#install-azure-data-studio
 [postgresql-azure-data-studio]: https://docs.microsoft.com/en-us/sql/azure-data-studio/extensions/postgres-extension?view=sql-server-ver16
 [tsc-portal]: https://console.cloud.timescale.com/
-[mst-login]: https://portal.managed.timescale.com
 [connection-details]: /use-timescale/:currentVersion:/connecting/azure-data-studio/#settings-in-the-connection-details

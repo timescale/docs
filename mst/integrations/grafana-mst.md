@@ -28,9 +28,8 @@ to query and visualize the data from the database.
 
 ### Configuring Managed Service for TimescaleDB as a data source
 
-1.  Sign in to your [Managed Service for TimescaleDB portal][mst-login]. In the
-    `Services` view, click the service that you want to add as a data source for
-    the Grafana service.
+1.  Sign in to your Managed Service for TimescaleDB portal, and click the
+    service that you want to add as a data source for the Grafana service.
 1.  In the `Overview` tab for the service go to the `Service Integrations` section.
 1.  Click the `Set up integration` button.
 1.  In the `Available service integrations for TimescaleDB` dialog, click
@@ -53,4 +52,3 @@ When you have configured Managed Service for TimescaleDB as a data source in
 Grafana, you can create panels that are populated with data using SQL.
 
 [grafana-install]: /tutorials/:currentVersion:/grafana/installation/#create-a-new-service-for-grafana
-[mst-login]: https://portal.managed.timescale.com

@@ -6,8 +6,8 @@ keywords: [metrics, logs, admin]
 tags: [payment]
 cloud_ui:
     path:
-        - [metrics, logs]
-    priority: 1
+        - [services, :serviceId, metrics]
+        - [services, :serviceId, logs]
 ---
 
 # Metrics and logging

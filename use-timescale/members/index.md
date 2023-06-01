@@ -7,7 +7,6 @@ tags: [users]
 cloud_ui:
     path:
         - [members]
-    priority: 1
 ---
 
 # Members
