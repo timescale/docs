@@ -214,7 +214,7 @@ you can then pass over to the websocket object.
 
 This function needs to:
 
-1.  Check if the item is a data item, and not some websocket metadata.
+1.  Check if the item is a data item, and not websocket metadata.
 1.  Adjust the data so that it fits the database schema, including the data
     types, and order of columns.
 1.  Add it to the in-memory batch, which is a list in Python.
