@@ -5,6 +5,8 @@ products: [self_hosted]
 keywords: [upgrades]
 ---
 
+import ConsiderCloud from "versionContent/_partials/_consider-cloud.mdx";
+
 # Downgrade to a previous version of TimescaleDB
 
 If you upgrade to a new TimescaleDB version and encounter problems, you can roll
@@ -16,6 +18,8 @@ patch versions and between consecutive minor versions are supported. For
 example, you can downgrade from TimescaleDB 2.5.2 to 2.5.1, or from 2.5.0 to
 2.4.2. To check whether you can downgrade from a specific version, see the
 [release notes][relnotes].
+
+<ConsiderCloud />
 
 ## Plan your downgrade
 

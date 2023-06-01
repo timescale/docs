@@ -6,6 +6,8 @@ keywords: [backups]
 tags: [restore, recovery, physical backup]
 ---
 
+import ConsiderCloud from "versionContent/_partials/_consider-cloud.mdx";
+
 # Physical backups
 
 For full instance physical backups (which are especially useful for starting up
@@ -15,6 +17,8 @@ external backup and restore managers such as [`pg_backrest`][pg-backrest], or [`
 [`wal-e`][wale], although this method is now deprecated. These tools all allow
 you to take online, physical backups of your entire instance, and many offer
 incremental backups and other automation options.
+
+<ConsiderCloud />
 
 [pg-backrest]: https://pgbackrest.org/
 [pg-barman]: https://www.pgbarman.org/
