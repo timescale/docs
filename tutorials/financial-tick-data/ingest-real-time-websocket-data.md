@@ -14,7 +14,7 @@ This tutorial shows you how to ingest real-time time-series data into
 TimescaleDB using a websocket connection. The tutorial sets up a data pipeline to
 ingest real-time data from our data partner, [Twelve Data][twelve-data].
 Twelve Data provides a number of different financial APIs, including stock,
-crypto, forex, ETFs, and more. It also supports websocket connections in case
+cryptocurrencies, foreign exchanges, and ETFs. It also supports websocket connections in case
 you want to update your database frequently. With websockets, you need to
 connect to the server, subscribe to symbols, and you can start receiving data
 in real-time during market hours.
