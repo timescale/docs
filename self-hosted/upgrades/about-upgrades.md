@@ -5,9 +5,9 @@ products: [self_hosted]
 keywords: [upgrades]
 ---
 
-import PlanUpgrade from 'versionContent/_partials/_plan_upgrade.mdx';
-
+import PlanUpgrade from "versionContent/_partials/_plan_upgrade.mdx";
 import ExperimentalUpgrade from "versionContent/_partials/_experimental-schema-upgrade.mdx";
+import ConsiderCloud from "versionContent/_partials/_consider-cloud.mdx";
 
 # About upgrades
 
@@ -24,6 +24,8 @@ within the Docker container. For more information, and instructions, see the
 [Upgrading with Docker section][upgrade-docker].
 
 <ExperimentalUpgrade />
+
+<ConsiderCloud />
 
 ## Plan your upgrade
 

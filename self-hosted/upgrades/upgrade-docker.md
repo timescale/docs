@@ -5,6 +5,8 @@ products: [self_hosted]
 keywords: [upgrades, Docker]
 ---
 
+import ConsiderCloud from "versionContent/_partials/_consider-cloud.mdx";
+
 # Upgrades within a Docker container
 
 If you originally installed TimescaleDB using Docker, you can upgrade from
@@ -16,6 +18,8 @@ In this section, the examples use a Docker instance called `timescaledb`. If you
 have given your Docker instance a different name, replace it when you issue the
 commands.
 </Highlight>
+
+<ConsiderCloud />
 
 ## Determine the mount point type
 
