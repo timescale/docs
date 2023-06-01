@@ -184,12 +184,12 @@ To ingest the data into your Timescale service, you need to implement the
 <Collapsible heading="The real-time dataset">
 
 After the websocket connection is set up, you can use the `on_event` function
-to ingest data into the database.
+to ingest data into the database. This is a a data pipeline that ingests real-time 
+financial data into your Timescale service.
 
-A data pipeline setup that ingests real-time financial data into your Timescale.
 Stock trades are ingested in real-time Monday through Friday, typically during
-normal trading hours of the New York Stock Exchange (9:30&nbsp;AM - 4:00&nbsp;PM
-EST).
+normal trading hours of the New York Stock Exchange (9:30&nbsp;AM to 
+4:00&nbsp;PM&nbsp;EST).
 
 <CreateHypertableStocks />
 
