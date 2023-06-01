@@ -1,5 +1,5 @@
 ---
-title: Service settings - PostgreSQL extensions
+title: PostgreSQL extensions
 excerpt: Use PostgreSQL extensions with your Timescale service
 products: [cloud]
 keywords: [services, settings, extensions]
