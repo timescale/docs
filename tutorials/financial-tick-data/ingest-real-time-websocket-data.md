@@ -208,7 +208,7 @@ universal, but you can experiment with different batch sizes
 Using batching is a fairly common pattern when ingesting data into TimescaleDB
 from Kafka, Kinesis, or websocket connections.
 
-Now you can implement a batching solution in Python with Psycopg2.
+You can implement a batching solution in Python with Psycopg2.
 Remember to implement the ingestion logic within the `on_event` function that
 you can then pass over to the websocket object.
 
