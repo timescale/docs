@@ -224,7 +224,7 @@ This function needs to:
 <Procedure>
 
 1.  Update the Python script that prints out the current batch size, so you can
-    follow when data gets ingested from memory into TimescaleDB database. Use
+    follow when data gets ingested from memory into your database. Use
     the `<HOST>`, `<PASSWORD>`, and `<PORT>` details for the Timescale service
     where you want to ingest the data and your API key from Twelve Data:
 
