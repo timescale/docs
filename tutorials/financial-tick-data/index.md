@@ -41,7 +41,7 @@ This tutorial covers:
     
     This tutorials shows you how to ingest real-time time-series data into TimescaleDB database using a websocket
     connection. To create candlestick views, query the aggregated data, and visualize
-    the data in Grafana,see [Ingest real-time websocket data][advanced-websocket].
+    the data in Grafana, see the [ingest real-time websocket data section][advanced-websocket].
 
 ## About OHLCV data and candlestick charts
 
