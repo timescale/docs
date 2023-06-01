@@ -342,8 +342,8 @@ Then check that you use a proper API key received from Twelve Data.
 <Collapsible heading="Query the data">
 
 To look at OHLCV values, the most effective way is to create a continuous
-aggregate. Create a continuous aggregate to aggregate data
-for each hour. You then set the aggregate to refresh every hour, and to aggregate
+aggregate. You can create a continuous aggregate to aggregate data
+for each hour, then set the aggregate to refresh every hour, and aggregate
 the last two hours' worth of data.
 
 <Procedure>
