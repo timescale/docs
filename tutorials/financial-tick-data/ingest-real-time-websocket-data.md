@@ -175,8 +175,9 @@ such as the name of the exchange, and the current price. You can also
 occasionally see `heartbeat` events in the response; these events signal
 the health of the connection over time.
 
-At this point the websocket connection works and data keeps flowing. You need
-to implement the `on_event` function so data gets ingested into TimescaleDB.
+At this point the websocket connection is working successfully to pass data. 
+To ingest the data into your Timescale service, you need to implement the 
+`on_event` function.
 
 </Collapsible>
 
