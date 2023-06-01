@@ -39,7 +39,7 @@ This tutorial covers:
 1.  [Query your dataset][financial-tick-query]: Create candlestick views, query
     the aggregated data, and visualize the data in Grafana.
     
-    To ingest real-time time-series data into TimescaleDB databaseusing a websocket
+    This tutorials shows you how to ingest real-time time-series data into TimescaleDB database using a websocket
     connection. Create candlestick views, query the aggregated data,and visualize
     the data in Grafana,see [Ingest real-time websocket data][advanced-websocket].
 
