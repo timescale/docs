@@ -1,6 +1,9 @@
-SELECT * FROM test
-    WHERE something = something
-        AND something;
+SELECT time,
+	symbol,
+	price
+FROM stocks_real_time
+ORDER BY time DESC
+LIMIT 10;
 
 -- Output
 
