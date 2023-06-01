@@ -193,7 +193,7 @@ normal trading hours of the New York Stock Exchange (9:30&nbsp;AM to
 
 <CreateHypertableStocks />
 
-When you ingest data into a transactional database like TimescaleDB, it is more
+When you ingest data into a transactional database like Timescale, it is more
 efficient to insert data in batches rather than inserting data row-by-row. Using
 one transaction to insert multiple rows can significantly increase the overall
 ingest capacity and speed of your TimescaleDB database.
