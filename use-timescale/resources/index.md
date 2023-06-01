@@ -6,7 +6,8 @@ keywords: [services, operation, storage]
 tags: [disk space, resources, oom, memory]
 cloud_ui:
     path:
-        - [services, :serviceID, operations, resources]
+        - [services, :serviceId, operations, resources]
+        - [services, :serviceId, operations, autoscaling]
 ---
 
 # Resources

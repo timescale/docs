@@ -74,7 +74,7 @@ Service for TimescaleDB, see
 
 <Procedure>
 
-1.  Sign in to your [Managed Service for TimescaleDB portal][mst-login].
+1.  Sign in to your Managed Service for TimescaleDB portal.
 1.  In the `Services` tab, find the service you want to connect to, and check
     it is marked as `Running`.
 1.  Click the name of the service you want to connect to see the connection
@@ -142,4 +142,3 @@ appear in the `Main` tab of `Connection settings`.
 [dbeaver-downloads]: https://dbeaver.io/download/
 [connection-settings]: /use-timescale/:currentVersion:/connecting/dbeaver/#connection-settings-in-connect-to-a-database
 [tsc-portal]: https://console.cloud.timescale.com/
-[mst-login]: https://portal.managed.timescale.com
