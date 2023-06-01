@@ -156,9 +156,6 @@ two arguments to create a websocket object and establish connection.
      'fails': None
     }
     ```
-
-</Procedure>
-
 When you have established a connection to the websocket server,
 wait a few seconds, and you can see data records, like this:
 
@@ -174,11 +171,12 @@ Each price event gives you multiple data points about the given trading pair
 such as the name of the exchange, and the current price. You can also
 occasionally see `heartbeat` events in the response; these events signal
 the health of the connection over time.
-
-At this point the websocket connection is working successfully to pass data. 
+At this point the websocket connection is working successfully to pass data.
+    
+</Procedure>
+    
 To ingest the data into your Timescale service, you need to implement the 
-`on_event` function.
-
+`on_event` function.    
 </Collapsible>
 
 <Collapsible heading="The real-time dataset">
