@@ -137,7 +137,7 @@ two arguments to create a websocket object and establish connection.
        time.sleep(10)
     ```
 
-1.  Now run the Python script:
+1.  Run the Python script:
 
     ```bash
     python websocket_test.py
