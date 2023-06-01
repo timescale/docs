@@ -324,8 +324,8 @@ python websocket_test.py
 </Procedure>
 
 You can even create separate Python scripts to start multiple websocket
-connections for different types of symbols (for example, one for stock, and
-another one for crypto prices)
+connections for different types of symbols, for example, one for stock, and
+another one for cryptocurrency prices.
 
 ### Troubleshooting
 
