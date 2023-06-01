@@ -72,7 +72,7 @@ these stories from some Timescale community members:
 [cloud-install]: /getting-started/latest/
 [financial-tick-dataset]: /tutorials/:currentVersion:/financial-tick-data/financial-tick-dataset/
 [financial-tick-query]: /tutorials/:currentVersion:/financial-tick-data/financial-tick-query/
-[advanced-websocket]: /tutorials/:currentVersion:/financial-tick-data/ingest-real-time-websocket-data/
+[advanced-websocket]: /tutorials/:currentVersion:/ingest-real-time-websocket-data/
 [charts]: https://www.investopedia.com/terms/c/candlestick.asp
 [twelve-data]: https://twelvedata.com/
 [trading-strategy]: https://www.timescale.com/blog/how-trading-strategy-built-a-data-stack-for-crypto-quant-trading/
