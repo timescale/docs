@@ -229,8 +229,9 @@ This function needs to:
 
 ```python
 import time
-from twelvedata import TDClient
 import psycopg2
+
+from twelvedata import TDClient
 from psycopg2.extras import execute_values
 from datetime import datetime
 
