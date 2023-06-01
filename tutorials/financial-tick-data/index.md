@@ -39,9 +39,9 @@ This tutorial covers:
 1.  [Query your dataset][financial-tick-query]: Create candlestick views, query
     the aggregated data, and visualize the data in Grafana.
     
-    If you would like to ingest real-time time-series data into TimescaleDB database
-    using a websocket connection. Create candlestick views, query the aggregated data,
-    and visualize the data in Grafana, see [Ingest real-time websocket data][advanced-websocket].
+    To ingest real-time time-series data into TimescaleDB databaseusing a websocket
+    connection. Create candlestick views, query the aggregated data,and visualize
+    the data in Grafana,see [Ingest real-time websocket data][advanced-websocket].
 
 ## About OHLCV data and candlestick charts
 
