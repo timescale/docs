@@ -160,7 +160,7 @@ two arguments to create a websocket object and establish connection.
 </Procedure>
 
 When you have established a connection to the websocket server,
-wait a few seconds, and you can see actual data records, like this:
+wait a few seconds, and you can see data records, like this:
 
 ```bash
 {'event': 'price', 'symbol': 'BTC/USD', 'currency_base': 'Bitcoin', 'currency_quote': 'US Dollar', 'exchange': 'Coinbase Pro', 'type': 'Digital Currency', 'timestamp': 1652438893, 'price': 30361.2, 'bid': 30361.2, 'ask': 30361.2, 'day_volume': 49153}
