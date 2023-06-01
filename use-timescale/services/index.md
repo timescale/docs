@@ -6,7 +6,6 @@ keywords: [services]
 cloud_ui:
     path:
         - [services]
-    priority: 1
 ---
 
 import CloudIntro from "versionContent/_partials/_cloud-intro.mdx";

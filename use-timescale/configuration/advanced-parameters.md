@@ -6,7 +6,7 @@ keywords: [services, settings]
 tags: [configuration, schemas]
 cloud_ui:
     path:
-        - [services, :serviceID, operations, database_parameters]
+        - [services, :serviceId, operations, database_parameters]
 ---
 
 # Advanced parameters

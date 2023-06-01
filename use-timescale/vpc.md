@@ -6,7 +6,7 @@ keywords: [vpc, services, operations]
 tags: [aws]
 cloud_ui:
     path:
-        - [services, :serviceID, operations, vpc]
+        - [services, :serviceId, operations, vpc]
         - [vpc]
 ---
 
