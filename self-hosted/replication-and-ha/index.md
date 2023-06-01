@@ -5,6 +5,8 @@ products: [self_hosted]
 keywords: [high availability]
 ---
 
+import ConsiderCloud from "versionContent/_partials/_consider-cloud.mdx";
+
 # Replication and high availability
 
 PostgreSQL relies on replication for high availability, failover, and balancing
@@ -19,6 +21,8 @@ scaled by spreading the read query volume across multiple nodes.
 *   [Learn about high availability][about-ha] to understand how it works
     before you begin using it.
 *   [Configure replication][replication-enable].
+
+<ConsiderCloud />
 
 [about-ha]: /self-hosted/:currentVersion:/replication-and-ha/about-ha/
 [replication-enable]: /self-hosted/:currentVersion:/replication-and-ha/configure-replication/
