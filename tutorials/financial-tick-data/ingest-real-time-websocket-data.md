@@ -317,7 +317,7 @@ websocket.start(symbols=symbols)
 
 1.  Run the script:
 
-```python
+```bash
 python websocket_test.py
 ```
 
