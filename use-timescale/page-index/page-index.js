@@ -73,44 +73,83 @@ module.exports = [
         excerpt: "Timescale PostgreSQL extensions",
       },
       {
-        title: "Connecting to Timescale",
-        href: "connecting",
-        excerpt: "Connect to Timescale",
+        title: "Timescale integrations",
+        href: "integrations",
+        excerpt: "Integrate your Timescale database with third-party solutions",
         children: [
           {
-            title: "About connecting to Timescale",
-            href: "about-connecting",
-            excerpt: "Learn about connecting to Timescale",
+            title: "Query and administration",
+            href: "query-admin",
+            excerpt: "Integrate your Timescale database with third-party query and administration solutions",
+            children:
+              [
+                {
+                  title: "About psql",
+                  href: "about-psql",
+                  excerpt: "Learn about using psql to connect to Timescale",
+                },
+                {
+                  title: "Install psql",
+                  href: "psql",
+                  excerpt: "Install psql to connect to Timescale",
+                },
+                {
+                  title: "Connect using Azure Data Studio",
+                  href: "azure-data-studio",
+                  excerpt: "Install Azure Data Studio to connect to Timescale",
+                },
+                {
+                  title: "Connect using DBeaver",
+                  href: "dbeaver",
+                  excerpt: "Install DBeaver to connect to Timescale",
+                },
+                {
+                  title: "Install pgAdmin",
+                  href: "pgadmin",
+                  excerpt: "Install pgAdmin to connect to Timescale",
+                },
+                {
+                  title: "Troubleshooting Timescale connections",
+                  href: "troubleshooting",
+                  type: "placeholder",
+                },
+              ]
           },
           {
-            title: "About psql",
-            href: "about-psql",
-            excerpt: "Learn about using psql to connect to Timescale",
+            title: "Observability and alerting",
+            href: "observability-alerting",
+            excerpt: "Integrate your Timescale database with third-party observability and alerting solutions",
+            children:
+              [
+                {
+                  title: "Grafana",
+                  href: "FIXME",
+                  excerpt: "Use Grafana with Timescale",
+                },
+                {
+                  title: "Datadog",
+                  href: "FIXME",
+                  excerpt: "Use Datadog with Managed Service for TimescaleDB",
+                },
+                {
+                  title: "Loggly",
+                  href: "FIXME",
+                  excerpt: "Use Loggly with Managed Service for TimescaleDB",
+                },
+              ]
           },
           {
-            title: "Install psql",
-            href: "psql",
-            excerpt: "Install psql to connect to Timescale",
-          },
-          {
-            title: "Connect using Azure Data Studio",
-            href: "azure-data-studio",
-            excerpt: "Install Azure Data Studio to connect to Timescale",
-          },
-          {
-            title: "Connect using DBeaver",
-            href: "dbeaver",
-            excerpt: "Install DBeaver to connect to Timescale",
-          },
-          {
-            title: "Install pgAdmin",
-            href: "pgadmin",
-            excerpt: "Install pgAdmin to connect to Timescale",
-          },
-          {
-            title: "Troubleshooting Timescale connections",
-            href: "troubleshooting",
-            type: "placeholder",
+            title: "Data ingestion",
+            href: "data-ingest",
+            excerpt: "Integrate your Timescale database with third-party data and ingestion solutions",
+            children:
+              [
+                {
+                  title: "Telegraf",
+                  href: "FIXME",
+                  excerpt: "Use Telegraf with Timescale",
+                },
+              ]
           },
         ],
       },
