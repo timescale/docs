@@ -5,6 +5,8 @@ products: [self_hosted]
 keywords: [upgrades]
 ---
 
+import ConsiderCloud from "versionContent/_partials/_consider-cloud.mdx";
+
 # Upgrade TimescaleDB
 
 You can upgrade your on-premise TimescaleDB installation in-place.
@@ -32,6 +34,8 @@ you need to.
 *   Upgrade TimescaleDB using [Docker][upgrade-docker].
 *   Upgrade the version of [PostgreSQL][upgrade-pg] your TimescaleDB
     installation uses.
+
+<ConsiderCloud />
 
 [about-upgrades]: /self-hosted/:currentVersion:/upgrades/about-upgrades/
 [downgrade]: /self-hosted/:currentVersion:/upgrades/downgrade/
