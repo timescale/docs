@@ -70,12 +70,13 @@ To see all available configuration options for hypershift, use this command:
 docker run -ti timescale/hypershift:0.6 --help
 ```
 
-You can give hypershift commands to perform operations.
-These commands are passed as arguments. Currently, the only
-supported command is `clone`, which directs hypershift to make
-a copy of the source database in the target database.
+### The hypershift clone tool
 
-### Configuration flags for `clone` command
+You can use the hypershift `clone` command to preserve a copy of your database
+in the source location. With this command, instead of moving the contents off
+the source and into the target, hypershift makes a full copy of the contents of
+your source database, and moves it into the source database. You can add
+parameters to the `clone` command to filter which contents to copy.
 
 |Short command|Long command|Example use|Description|
 |-|-|-|-|
