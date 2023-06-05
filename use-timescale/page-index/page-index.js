@@ -69,11 +69,6 @@ module.exports = [
       },
       {
         title: "PostgreSQL extensions",
-        href: "postgresql-extensions",
-        excerpt: "Timescale PostgreSQL extensions",
-      },
-      {
-        title: "PostgreSQL extensions",
         href: "extensions",
         excerpt: "Timescale PostgreSQL extensions",
         children: [
