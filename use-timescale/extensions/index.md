@@ -36,7 +36,7 @@ These are the currently supported extensions:
 |pgcrypto|Cryptographic functions|
 |pgpcre|Perl-compatible RegEx|
 |pgrouting|pgRouting Extension|
-|[pgvector](https://docs.timescale.com/latest/use-timescale/extensions/pgvector/)|Vector similarity search for PostgreSQL|
+|[pgvector][pgvector]|Vector similarity search for PostgreSQL|
 |plpgsql|SQL procedural language|
 |postgis|PostGIS geometry and geography spatial types and functions|
 |postgis_raster|PostGIS raster types and functions|
@@ -54,3 +54,5 @@ These are the currently supported extensions:
 |uuid-ossp|Generate universally unique identifiers (UUIDs)|
 
 <!-- vale Vale.Spelling = YES -->
+
+[pgvector]: /use-timescale/:currentVersion:/extensions/pgvector/
