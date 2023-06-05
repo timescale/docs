@@ -12,13 +12,13 @@ tags: [integrations]
 You can integrate your Timescale database with third-party solutions to expand
 and extend what you can do with your data.
 
-*   Query and administration
+*   [Query and administration][query-admin]
     *   psql
     *   DBeaver
     *   Azure Data Studio
     *   pgAdmin
     *   Retool
-*   Observability and alerting
+*   [Observability and alerting][observability-alerting]
     *   Grafana
     *   Zabbix
     *   DataDog
@@ -26,12 +26,17 @@ and extend what you can do with your data.
     *   Syslog
     *   Nagios
     *   Loggly
-*   Data ingestion
+*   [Data ingestion][data-ingest]
     *   Kafka
     *   Prometheus
     *   Telegraf
-*   Cloud providers
+*   [Cloud providers][cloud-providers]
     *   Digital Ocean
     *   Linode
     *   AWS
     *   GCP
+
+[query-admin]: use-timescale/:currentVersion:/integrations/query-admin/
+[observability-alerting]: use-timescale/:currentVersion:/integrations/observability-alerting/
+[data-ingest]: use-timescale/:currentVersion:/integrations/data-ingest/
+[cloud-providers]: use-timescale/:currentVersion:/integrations/FIXME/
