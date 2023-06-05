@@ -36,7 +36,7 @@ and extend what you can do with your data.
     *   AWS
     *   GCP
 
-[query-admin]: use-timescale/:currentVersion:/integrations/query-admin/
-[observability-alerting]: use-timescale/:currentVersion:/integrations/observability-alerting/
-[data-ingest]: use-timescale/:currentVersion:/integrations/data-ingest/
-[cloud-providers]: use-timescale/:currentVersion:/integrations/FIXME/
+[query-admin]: /use-timescale/:currentVersion:/integrations/query-admin/
+[observability-alerting]: /use-timescale/:currentVersion:/integrations/observability-alerting/
+[data-ingest]: /use-timescale/:currentVersion:/integrations/data-ingest/
+[cloud-providers]: /use-timescale/:currentVersion:/integrations/FIXME/
