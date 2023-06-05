@@ -14,11 +14,9 @@ import CloudTrial from "versionContent/_partials/_cloudtrial.mdx";
 
 <CloudIntro />
 
-In the Timescale console, you can create a service to house your Timescale
-database.
-
-Each service can contain a single database. If you need more databases, you can
-create additional services for each.
+In the Timescale console, you create a service to house your Timescale
+database. Each service contains a single database. If you need more
+databases, you can create additional services for each.
 
 When you create a new service, a new `tsdbadmin` user is created. This is your
 administration user that you can connect to your database with.
