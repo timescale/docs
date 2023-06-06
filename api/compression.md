@@ -22,7 +22,7 @@ Compressed chunks have the following limitations:
 
 *   `ROW LEVEL SECURITY` is not supported.
 *   Creation of unique constraints on compressed chunks is not supported
-   *   Its possible to add them by disabling compression and re-enabling after constraint creation.
+    *   Its possible to add them by disabling compression on the hypertable and re-enabling after constraint creation.
   
 ### Restrictions
 
@@ -48,13 +48,6 @@ and to enable compression policies on distributed hypertables.
 
 Starting with TimescaleDB 2.11, users have the ability to update and delete compressed data.
 Using more advanced insert statements like `ON CONFLICT` and `RETURNING` is also supported.
-
-Altering data of compressed chunks still has some limitations:
-
-*   `INSERT` is not fully supported on compressed chunks:
-    *   You cannot use the `OVERRIDING` clause.
-*   Triggers are not fully supported when inserting into compressed chunks:
-    *   You cannot use `AFTER INSERT` row-level triggers (`FOR EACH ROW`).
 
 [add_compression_policy]: /api/:currentVersion:/compression/add_compression_policy/
 [blog-compression]: https://blog.timescale.com/blog/building-columnar-compression-in-a-row-oriented-database/
