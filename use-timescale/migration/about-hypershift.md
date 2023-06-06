@@ -89,7 +89,7 @@ parameters to the `clone` command to filter which contents to copy.
 ||--ignore-missing-time-index|--ignore-missing-time-index|Ignore that hypertables may be missing a time index|
 ||--hide-progress|--hide-progress|Hide migration progress bar|
 ||--verbose|--verbose|Display verbose logs with progress bar|
-|-c|--config-file|-c <PATH>|Path to an advanced hypershift configuration file. For more information, see [hypershift-config]|
+|-c|--config-file|-c \<PATH\>|Path to an advanced hypershift configuration file. For more information, see [hypershift-config]|
 |-h|--help||Print hypershift help|
 
 ### Example hypershift commands
