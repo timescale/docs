@@ -31,9 +31,8 @@ Before you begin, make sure you have:
 
 *   A Timescale [service and connect to the service][financial-tick-dataset].
 *   Downloaded the file that contains your Timescale service credentials such as `<HOST>`,
-    `<PORT>`, `<PASSWORD>`, and other details to connect to your Timescale
-    service. You can also find these details in the `Connection Info` section of
-    your Timescale service in the Timescale portal.
+    `<PORT>`, and `<PASSWORD>`. Alternatively, you can find these details 
+    in the `Connection Info` section for your service.
 *   Installed Python 3
 *   Signed up for [Twelve Data][twelve-signup]. The free tier is perfect for
     this tutorial.
