@@ -6,7 +6,7 @@ keywords: [scaling, services, operations]
 tags: [cpu, storage, disk space]
 cloud_ui:
     path:
-        - [services, :serviceID, operations, autoscaling]
+        - [services, :serviceId, operations, autoscaling]
 ---
 
 # Autoscaling

@@ -160,7 +160,7 @@ candidates, and are eventually compressed when they become old enough according
 to the compression policy.
 
 <img
-class="main-content__illustration"src="<https://assets.timescale.com/images/diagrams/compression_diagram.png"alt="Compression>
+class="main-content__illustration" src="https://assets.timescale.com/images/diagrams/compression_diagram.png"alt="Compression>
 timeline"/>
 
 ## Segment by columns

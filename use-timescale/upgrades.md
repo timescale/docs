@@ -5,7 +5,7 @@ products: [cloud]
 keywords: [updates, upgrades, maintenance]
 cloud_ui:
     path:
-        - [services, :serviceID, operations, maintenance]
+        - [services, :serviceId, operations, maintenance]
 ---
 
 # Maintenance and upgrades

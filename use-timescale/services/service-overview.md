@@ -6,8 +6,7 @@ keywords: [connect, services]
 tags: [storage, resources, disk space]
 cloud_ui:
     path:
-        - [services, :serviceID, overview]
-    priority: 1
+        - [services, :serviceId, overview]
 ---
 
 # Service overview
@@ -19,7 +18,8 @@ an overview of the configuration and resource usage for the service.
 
 <img
 class="main-content__illustration"
-src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-services-overview.png"
+src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-services-overview.webp"
+width={1375} height={944}
 alt="Timescale Services Overview"
 />
 

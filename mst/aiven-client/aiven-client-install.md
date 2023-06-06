@@ -19,7 +19,7 @@ create an authentication token.
 
 ### Creating an authentication token in Managed Service for TimescaleDB
 
-1.  Sign in to your [Managed Service for TimescaleDB portal][mst-login].
+1.  Sign in to your Managed Service for TimescaleDB portal.
 1.  Click `User Information` in the top right corner.
 1.  In the `User Profile` page, navigate to the `Authentication`tab.
 1.  Click `Generate Token`.
@@ -93,4 +93,3 @@ services on Managed Service for TimescaleDB.
 </Procedure>
 
 [aiven-github]: https://github.com/aiven/aiven-client
-[mst-login]: https://portal.managed.timescale.com
