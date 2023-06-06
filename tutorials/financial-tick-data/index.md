@@ -38,7 +38,7 @@ This tutorial covers:
     [Twelve Data][twelve-data] into your TimescaleDB database.
 1.  [Query your dataset][financial-tick-query]: Create candlestick views, query
     the aggregated data, and visualize the data in Grafana.
-    
+
     This tutorial shows you how to ingest real-time time-series data into a Timescale 
     database using a websocket connection. To create candlestick views, query the 
     aggregated data, and visualize the data in Grafana, see the 
