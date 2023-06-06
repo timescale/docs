@@ -22,7 +22,7 @@ Compressed chunks have the following limitations:
 
 *   `ROW LEVEL SECURITY` is not supported.
 *   Creation of unique constraints on compressed chunks is not supported
-    *   Its possible to add them by disabling compression on the hypertable and re-enabling after constraint creation.
+    *   You can add them by disabling compression on the hypertable and re-enabling after constraint creation.
   
 ### Restrictions
 
@@ -33,10 +33,10 @@ based on the version of TimescaleDB you are currently running.
 
 |TimescaleDB Version|Supported data modifications on compressed chunks|
 |---|---|
-| 1.5 - 2.0 | Data and schema modifications are not supported. |
-| 2.1 - 2.2 | Schema may be modified on compressed hypertables. Data modification not supported. |
-| 2.3 | Schema modifications and basic insert of new data are allowed. Deleting, updating and some advanced insert statements are not supported. |
-| 2.11 | Deleting, updating and advanced insert statements are supported. |
+|1.5 - 2.0|Data and schema modifications are not supported.|
+|2.1 - 2.2|Schema may be modified on compressed hypertables. Data modification not supported.|
+|2.3|Schema modifications and basic insert of new data are allowed. Deleting, updating and some advanced insert statements are not supported.|
+|2.11|Deleting, updating and advanced insert statements are supported.|
 
 Starting with TimescaleDB 2.1, users have the ability to modify the schema
 of hypertables that have compressed chunks.
@@ -46,8 +46,8 @@ such compressed hypertables.
 Starting with TimescaleDB 2.3, users have the ability to insert data into compressed chunks
 and to enable compression policies on distributed hypertables.
 
-Starting with TimescaleDB 2.11, users have the ability to update and delete compressed data.
-Using more advanced insert statements like `ON CONFLICT` and `RETURNING` is also supported.
+Starting with TimescaleDB 2.11, you can update and delete compressed data.
+You can also use advanced insert statements like `ON CONFLICT` and `RETURNING` is also supported.
 
 [add_compression_policy]: /api/:currentVersion:/compression/add_compression_policy/
 [blog-compression]: https://blog.timescale.com/blog/building-columnar-compression-in-a-row-oriented-database/
