@@ -1,6 +1,6 @@
 ---
 title: Compression
-excerpt: Compress your hypertables
+excerpt: Compress your hypertable
 keywords: [compression]
 tags: [hypertables]
 ---
@@ -21,13 +21,8 @@ manually][compress_chunk], instead of automatically as they age.
 Compressed chunks have the following limitations:
 
 *   `ROW LEVEL SECURITY` is not supported.
-*   Constraints are not fully supported:
-    *   Unique constraints (`UNIQUE`) are restricted to compression `SEGMENTBY`
-      and `ORDER BY` columns.
-    *   Primary Keys (`PRIMARY KEY`) are restricted to compression `SEGMENTBY`
-      and `ORDER BY` columns.
-    *   Constraints are restricted to compression `SEGMENTBY` columns when
-    applicable. Otherwise they are unsupported.
+*   Creation of unique constraints on compressed chunks is not supported
+   *   Its possible to add them by disabling compression and re-enabling after constraint creation.
   
 ### Restrictions
 
@@ -41,6 +36,7 @@ based on the version of TimescaleDB you are currently running.
 | 1.5 - 2.0 | Data and schema modifications are not supported. |
 | 2.1 - 2.2 | Schema may be modified on compressed hypertables. Data modification not supported. |
 | 2.3 | Schema modifications and basic insert of new data are allowed. Deleting, updating and some advanced insert statements are not supported. |
+| 2.11 | Deleting, updating and advanced insert statements are supported. |
 
 Starting with TimescaleDB 2.1, users have the ability to modify the schema
 of hypertables that have compressed chunks.
@@ -50,18 +46,15 @@ such compressed hypertables.
 Starting with TimescaleDB 2.3, users have the ability to insert data into compressed chunks
 and to enable compression policies on distributed hypertables.
 
+Starting with TimescaleDB 2.11, users have the ability to update and delete compressed data.
+Using more advanced insert statements like `ON CONFLICT` and `RETURNING` is also supported.
+
 Altering data of compressed chunks still has some limitations:
 
-*   You cannot execute `UPDATE` or `DELETE` statements on compressed chunks.
 *   `INSERT` is not fully supported on compressed chunks:
-    *   You cannot use the `ON CONFLICT` clause, that is, upserts are not supported.
     *   You cannot use the `OVERRIDING` clause.
-    *   You cannot use the `RETURNING` clause.
 *   Triggers are not fully supported when inserting into compressed chunks:
     *   You cannot use `AFTER INSERT` row-level triggers (`FOR EACH ROW`).
-*   Constraints are not fully supported when inserting into compressed chunks:
-    *   Unique constraints (`UNIQUE`) are not supported.
-    *   Primary Keys (`PRIMARY KEY`) are not supported.
 
 [add_compression_policy]: /api/:currentVersion:/compression/add_compression_policy/
 [blog-compression]: https://blog.timescale.com/blog/building-columnar-compression-in-a-row-oriented-database/
