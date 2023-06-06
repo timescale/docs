@@ -84,7 +84,7 @@ parameters to the `clone` command to filter which contents to copy.
 |-t|--target|-t <TARGET_URI>|URI to the target database|
 ||--source-password|--source-password|Password for the source database|
 ||--target-password|--target-password|Password for the target database|
-||--parallel|--parallel <NUMBER>|Number of workers that can simultaneously fetch data from the target database|
+||--parallel|--parallel \<NUMBER\>|Number of workers that can simultaneously fetch data from the target database|
 ||--verify|--verify|Verify the migrated data by comparing the source and target database|
 ||--ignore-missing-time-index|--ignore-missing-time-index|Ignore that hypertables may be missing a time index|
 ||--hide-progress|--hide-progress|Hide migration progress bar|
