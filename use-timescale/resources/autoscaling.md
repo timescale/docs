@@ -9,14 +9,17 @@ cloud_ui:
         - [services, :serviceId, operations, autoscaling]
 ---
 
+import UsageBasedStorage from "versionContent/_partials/_usage-based-storage-intro.mdx";
+
 # Autoscaling
 
-Disk size autoscaling is enabled by default on most services. When you consume
-85% or more of your existing disk space, disk size is automatically increased to
-the next size available, up to a configurable limit.
+Disk size autoscaling is enabled by default. Disk size is automatically adjusted
+to the next size available, up to a configurable limit.
 
 Autoscaling can only increase disk size, not decrease it. You can have a disk up
 to 16&nbsp;TB in size.
+
+<UsageBasedStorage />
 
 Autoscaling can change the disk size once every 6 hours. When the increase is
 requested, the new limit is applied, and then the used space is optimized. The

@@ -6,7 +6,8 @@ keywords: [data tiering]
 tags: [storage, data management]
 ---
 
-import ExperimentalPrivateBeta from 'versionContent/_partials/_early_access.mdx';
+import ExperimentalPrivateBeta from "versionContent/_partials/_early_access.mdx";
+import UsageBasedStorage from "versionContent/_partials/_usage-based-storage-intro.mdx";
 
 # Data tiering
 
@@ -20,6 +21,8 @@ storage tiers to get the best price performance. You can use primary storage for
 data that requires quick access, and low-cost object storage for historical
 data. Regardless of where your data is stored, you can query it with standard
 SQL.
+
+<UsageBasedStorage />
 
 ## Benefits of data tiering
 
