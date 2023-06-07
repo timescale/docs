@@ -73,11 +73,12 @@ docker run -ti timescale/hypershift:0.6 --help
 ### The hypershift clone tool
 
 You can use the hypershift `clone` command to preserve a copy of your database
-in the source location. With this command, instead of moving the contents off
-the source and into the target, hypershift makes a full copy of the contents of
-your source database, and moves it into the source database. You can add
+in the source location. Hypershift creates a full copy of the contents of
+your source database, and moves it into the target database. You can add
 parameters to the `clone` command to filter which contents to copy.
 
+For more information about the `clone` tool, use the `hypershift clone --help` 
+command.
 |Short command|Long command|Example use|Description|
 |-|-|-|-|
 |-s|--source|-s <SOURCE_URI>|URI to the source database|
