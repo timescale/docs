@@ -3,6 +3,8 @@ title: Insert and query Bitcoin transactions
 excerpt: Ingest and store Bitcoin blockchain data in your database
 products: [cloud, mst, self_hosted]
 keywords: [crypto, blockchain, Bitcoin, finance, analytics]
+layout_components: [next_prev_large]
+content_group: Analyze the Bitcoin blockchain
 ---
 
 # Insert and query Bitcoin transactions

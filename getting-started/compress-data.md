@@ -3,6 +3,8 @@ title: Compression
 excerpt: Use Timescale's native compression to save on storage
 products: [cloud, mst, self_hosted]
 keywords: [compression]
+layout_components: [next_prev_large]
+content_group: Getting started
 ---
 
 # Compression

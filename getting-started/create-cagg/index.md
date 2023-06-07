@@ -3,6 +3,8 @@ title: Create a continuous aggregate
 excerpt: Learn how to speed up queries with continuous aggregates
 products: [cloud, mst, self_hosted]
 keywords: [continuous aggregates, create]
+layout_components: [next_prev_large]
+content_group: Getting started
 ---
 
 # Create a continuous aggregate
