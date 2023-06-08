@@ -33,25 +33,6 @@ weeks, typically ~8 million rows of data. Stock trades are recorded in real-time
 Monday through Friday, during normal trading hours of the New York Stock
 Exchange (9:30&nbsp;AM - 4:00&nbsp;PM EST).
 
-### Table details
-
-`stocks_real_time`: contains stock data. Includes stock price quotes at every
-second during trading hours.
-
-|Field|Type|Description|
-|-|-|-|
-|time|timestamptz|Timestamp column incrementing second by second|
-|symbol|text|Symbols representing a company, mapped to company names in the `company` table|
-|price|double precision|Stock quote price for a company at the given timestamp|
-|day_volume|int|Number of shares traded each day, NULL values indicate the market is closed|
-
-`company`: contains a mapping for symbols to company names.
-
-|Field|Type|Description|
-|-|-|-|
-|symbol|text|the symbol representing a company name|
-|name|text|Corresponding company name|
-
 ## Ingest the dataset
 
 To ingest data into the tables that you created, you need to download the

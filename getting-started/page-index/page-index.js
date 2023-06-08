@@ -18,12 +18,12 @@ module.exports = [
       {
         title: "Time-series data",
         href: "time-series-data",
-        excerpt: "Add time-series data to your Timescale database",
+        excerpt: "Add time-series data to your database",
       },
       {
         title: "Queries",
         href: "queries",
-        excerpt: "Query your data using full SQL in Timescale",
+        excerpt: "Query your data using full SQL",
       },
       {
         title: "Aggregation",
@@ -33,7 +33,7 @@ module.exports = [
       {
         title: "Next steps",
         href: "next-steps",
-        excerpt: "Find out how to get more from your Timescale database",
+        excerpt: "Get even more from your Timescale database",
       },
     ],
   },

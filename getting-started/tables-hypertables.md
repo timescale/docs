@@ -39,6 +39,8 @@ For more information, see
 
 ### Creating your first hypertable
 
+1.  At the command prompt, use the `psql` connection string from the cheat sheet
+    you downloaded to connect to your database.
 1.  Create a regular PostgreSQL table to store the real-time stock trade data
     using `CREATE TABLE`:
 
@@ -89,23 +91,27 @@ you would normally. For this dataset, there is one other table of data called
     );
     ```
 
-1.  You now have two tables within your Timescale database. One hypertable
-    named `stocks_real_time`, and one normal PostgreSQL table named `company`.
+1.  You now have two tables within your Timescale database. One hypertable named
+    `stocks_real_time`, and one normal PostgreSQL table named `company`. You can
+    check this by running this command at the `psql` prompt:
+
+    ```sql
+    \dt
+    ```
+
+    This command returns information about your tables, like this:
+
+    ```sql
+                       List of relations
+     Schema |       Name       | Type  |   Owner
+    --------+------------------+-------+-----------
+     public | company          | table | tsdbadmin
+     public | stocks_real_time | table | tsdbadmin
+    (2 rows)
+    ```
 
 </Procedure>
 
 <Video url="https://www.youtube.com/embed/MpMw7yIjauI"></Video>
 
-## Next steps
-
-Ingest some sample stock trade data into Timescale. The next section,
-['Add time-series data'][add-data],
-shows you how to populate the tables you just created.
-
-## Learn more about hypertables and chunks
-
-For more information about hypertables and chunks, see
-[the hypertables section][hypertable-how-to].
-
-[add-data]: /getting-started/:currentVersion:/add-data/
 [hypertable-how-to]: /use-timescale/:currentVersion:/hypertables/

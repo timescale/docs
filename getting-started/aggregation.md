@@ -27,6 +27,75 @@ price for a single stock over several days. Then, you create a materialized
 view, transform it into a continuous aggregate, and query it for more
 information about the trading data.
 
+## Find average stock prices for the last week
+
+Timescale has custom SQL functions that can help make time-series analysis
+easier and faster. In this procedure, you'll learn about another common
+Timescale function, `time_bucket` which allows you to take a time column and
+"bucket" the values based on an interval of your choice.
+
+Time bucketing is useful for data like stock data which has a lot of
+information. Instead of looking at each trade individually, you can combine the
+data into bigger buckets and look at, for example, the data for each day. You
+can then perform an aggregation and, for example, get the average of the
+values for each day.
+
+In this procedure, you time bucket the entire dataset for the last week into
+days, and calculate the average of each bucket:
+
+```sql
+SELECT
+  time_bucket('1 day', time) AS bucket,
+  symbol,
+  avg(price)
+FROM stocks_real_time srt
+WHERE time > now() - INTERVAL '1 week'
+```
+
+Then, you organize the results by bucket and symbol:
+
+```sql
+GROUP BY bucket, symbol
+ORDER BY bucket, symbol
+```
+
+<procedure>
+
+### Finding average stock prices for the last week
+
+1.  At the command prompt, use the `psql` connection string from the cheat sheet
+    you downloaded to connect to your database.
+1.  At the `psql` prompt, type this query:
+
+    ```sql
+    SELECT
+      time_bucket('1 day', time) AS bucket,
+      symbol,
+      avg(price)
+    FROM stocks_real_time srt
+    WHERE time > now() - INTERVAL '1 week'
+    GROUP BY bucket, symbol
+    ORDER BY bucket, symbol;
+    ```
+
+    The data you get back looks a bit like this:
+
+    ```sql
+             bucket         | symbol |        avg
+    ------------------------+--------+--------------------
+     2023-06-01 00:00:00+00 | AAPL   |  179.3242530284364
+     2023-06-01 00:00:00+00 | ABNB   | 112.05498586371293
+     2023-06-01 00:00:00+00 | AMAT   | 134.41263567849518
+     2023-06-01 00:00:00+00 | AMD    | 119.43332772033834
+     2023-06-01 00:00:00+00 | AMZN   |  122.3446364966392
+    ```
+
+</procedure>
+
+You might notice that the `bucket` column doesn't start at the time that you run
+the query. To learn more about how time buckets are calculated, see the [time bucketing section][time-bucket-how-to].
+
+<!--- Lana, you're up to here! 2023-06-08-->
 ### Calculate the average trade price for Apple from the last four days
 
    Use the [`avg()`][average] function with a `WHERE` clause
@@ -137,7 +206,7 @@ the query from earlier is added after the `AS` keyword.
 
 The `SELECT` statement is the same query you wrote earlier, without the
 `ORDER BY` clause. By default, this code both creates the aggregate and
-materializes the aggregated data. That means the view is created *and* populated
+materializes the aggregated data. That means the view is created _and_ populated
 with the aggregate calculations from your existing hypertable data.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/getting-started/continuous-aggregate.jpg" alt="Continuous aggregate upon creation"/>

@@ -49,7 +49,7 @@ Each service contains a single database, named `tsdb`.
       Click <code>Download the cheatsheet</code> to download an SQL file that
       contains the login details for your new service. You can also copy the
       details directly from this page. When you have copied your password,
-      click <code>I have stored my password, go to service overview</code>
+      click <code>I stored my password, go to service overview</code>
       at the bottom of the page.
     </p>
   </li>
