@@ -2,6 +2,8 @@
 title: Timescale services
 excerpt: Sign up for Timescale and create your first service
 products: [cloud]
+layout_components: [next_prev_large]
+content_group: Getting started
 ---
 
 import Install from "versionContent/_partials/_cloud-installation.mdx";

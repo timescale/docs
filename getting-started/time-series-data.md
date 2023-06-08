@@ -4,6 +4,8 @@ excerpt: Add time-series data to your Timescale service
 products: [cloud]
 keywords: [ingest]
 tags: [add, data, time-series]
+layout_components: [next_prev_large]
+content_group: Getting started
 ---
 
 import HypershiftAlt from "versionContent/_partials/_hypershift-alternatively.mdx";

@@ -3,6 +3,8 @@ title: Aggregation
 excerpt: Create an aggregate and query it
 products: [cloud]
 keywords: [continuous aggregates, create]
+layout_components: [next_prev_large]
+content_group: Getting started
 ---
 
 import CaggsIntro from "versionContent/_partials/_caggs-intro.mdx";

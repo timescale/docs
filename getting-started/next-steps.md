@@ -3,6 +3,8 @@ title: Next steps
 excerpt: Continue exploring Timescale
 products: [cloud]
 keywords: [data migration, ingest, visualize, connect]
+layout_components: [next_prev_large]
+content_group: Getting started
 ---
 
 # Next steps

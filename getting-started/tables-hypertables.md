@@ -3,6 +3,8 @@ title: Tables and hypertables
 excerpt: Create tables and hypertables in your Timescale account
 products: [cloud]
 keywords: [hypertables, create]
+layout_components: [next_prev_large]
+content_group: Getting started
 ---
 
 import HypertableIntro from "versionContent/_partials/_hypertables-intro.mdx";
