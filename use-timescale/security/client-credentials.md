@@ -20,7 +20,8 @@ These keys act as the username and password for programmatic client
 applications. It is important that you save these keys in a safe place. You can
 also delete these client credentials when the client applications no longer need
 access to Timescale resources. For more information about obtaining an access
-token programmatically, see [Timescale Terraform Provider][terraform-provider].
+token programmatically, see the 
+[Timescale Terraform provider documentation][terraform-provider].
 
 <Procedure>
 
