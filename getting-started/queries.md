@@ -164,7 +164,9 @@ FROM stocks_real_time srt
 WHERE time > now() - INTERVAL '4 days'
 ```
 
-Then, you organize the results so that you can see the first and last value for each stock together with a `GROUP BY` statement, and in alphabetical order with an `ORDER BY` statement, like this:
+Then, you organize the results so that you can see the first and last value for
+each stock together with a `GROUP BY` statement, and in alphabetical order with
+an `ORDER BY` statement, like this:
 
 ```sql
 GROUP BY symbol
@@ -209,9 +211,5 @@ For more information about these functions, see the API documentation for
 
 <Video url="https://www.youtube.com/embed/WFg0B1Bihtg"></Video>
 
-[clause-expressions]: https://www.postgresql.org/docs/14/queries-table-expressions.html
 [first]: /api/:currentVersion:/hyperfunctions/first
 [last]: /api/:currentVersion:/hyperfunctions/last
-[order-by]: https://www.postgresql.org/docs/current/queries-order.html
-[time-bucket-how-to]: /use-timescale/:currentVersion:/time-buckets/
-[time-bucket]: /api/:currentVersion:/hyperfunctions/time_bucket

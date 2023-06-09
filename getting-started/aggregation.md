@@ -9,6 +9,7 @@ content_group: Getting started
 
 import CaggsIntro from "versionContent/_partials/_caggs-intro.mdx";
 import CaggsTypes from "versionContent/_partials/_caggs-types.mdx";
+import CandlestickIntro from "versionContent/_partials/_candlestick_intro.mdx";
 
 # Aggregation
 
@@ -23,7 +24,7 @@ aggregates.
 <CaggsTypes />
 
 In this section, you create a simple aggregation by finding the average trade
-price for a single stock over several days. Then, you create a materialized
+price over a week. Then, you create a materialized
 view, transform it into a continuous aggregate, and query it for more
 information about the trading data.
 
@@ -88,54 +89,48 @@ ORDER BY bucket, symbol
      2023-06-01 00:00:00+00 | AMAT   | 134.41263567849518
      2023-06-01 00:00:00+00 | AMD    | 119.43332772033834
      2023-06-01 00:00:00+00 | AMZN   |  122.3446364966392
+     ...
     ```
 
 </procedure>
 
 You might notice that the `bucket` column doesn't start at the time that you run
-the query. To learn more about how time buckets are calculated, see the [time bucketing section][time-bucket-how-to].
+the query. For more information about how time buckets are calculated, see the
+[time bucketing section][time-buckets].
 
-<!--- Lana, you're up to here! 2023-06-08-->
-### Calculate the average trade price for Apple from the last four days
+## Create an aggregate query
 
-   Use the [`avg()`][average] function with a `WHERE` clause
-   to only include trades for Apple stock within the last 4 days.
-   You can use the [`JOIN`][join] operator to fetch results based on the name of
-   a company instead of the symbol.
+<CandlestickIntro />
 
-   ```sql
-   SELECT
-       avg(price)
-   FROM stocks_real_time srt
-   JOIN company c ON c.symbol = srt.symbol
-   WHERE c.name = 'Apple' AND time > now() - INTERVAL '4 days';
-   ```
+In this procedure, you use a `SELECT` statement to find the high and low values
+with `min` and `max` functions, and the open and close values with `first` and
+`last` functions. You then aggregate the data into 1 day buckets, like this:
 
-## Create an aggregate query to use in your continuous aggregate
+```sql
+SELECT
+  time_bucket('1 day', "time") AS day,
+  symbol,
+  max(price) AS high,
+  first(price, time) AS open,
+  last(price, time) AS close,
+  min(price) AS low
+FROM stocks_real_time srt
+```
 
-The data used in this tutorial is second-by-second, or tick, data for stock trades.
-A popular aggregate pattern used for analyzing stock data is called a
-[candlestick][candlestick]. Generally, candlestick charts use 4 different
-aggregations over a specific interval of time (for example, 1-minute, 5-minute,
-or 1-day aggregates):
+Then, you organize the results by day and symbol:
 
-*   `high`: highest stock price per interval
-*   `open`: opening stock price per interval
-*   `close`: closing stock price per interval
-*   `low`: lowest stock price per interval
-
-For this example query, the [`time_bucket()`][time-bucket] interval is 1 day.
-The `high` and `low` values can be found by using the PostgreSQL [`MAX()`][max]
-and [`MIN()`][min] functions. Finally, the `open` and `close` values can be
-found by using the [`first()`][first] and [`last()`][last] functions.
+```sql
+GROUP BY day, symbol
+ORDER BY day DESC, symbol
+```
 
 <Procedure>
 
 ### Creating an aggregate query
 
-1.  Use a `SELECT` command to find the daily candlestick values for each stock
-    in the entire 1-month dataset. This may take a few seconds to process all of
-    the raw data into 1-day buckets:
+1.  At the command prompt, use the `psql` connection string from the cheat sheet
+    you downloaded to connect to your database.
+1.  At the `psql` prompt, type this query:
 
     ```sql
     SELECT
@@ -150,38 +145,79 @@ found by using the [`first()`][first] and [`last()`][last] functions.
     ORDER BY day DESC, symbol;
     ```
 
-1.  The results of the command look like this:
+    The data you get back looks a bit like this:
 
-    ```bash
-    day                          |symbol|high    |open    |close   |low     |
-    -----------------------------+------+--------+--------+--------+--------+
-    2022-05-03 20:00:00.000 -0400|AAPL  |164.9799|  159.32| 164.545|  159.25|
-    2022-05-03 20:00:00.000 -0400|ABBV  |   151.7|  150.99|  151.32|  147.59|
-    2022-05-03 20:00:00.000 -0400|ABNB  |158.7158|  148.84|  153.58|  145.88|
-    2022-05-03 20:00:00.000 -0400|ABT   |   115.2|  111.64|  115.08|  111.14|
-    2022-05-03 20:00:00.000 -0400|ADBE  |  421.93|  407.61|  419.53|  395.06|
-    2022-05-03 20:00:00.000 -0400|AMAT  |  118.47| 114.279|  117.95|  112.04|
+    ```sql
+             day           | symbol |     high     |   open   |  close   |     low
+    ------------------------+--------+--------------+----------+----------+--------------
+     2023-06-07 00:00:00+00 | AAPL   |       179.25 |   178.91 |   179.04 |       178.17
+     2023-06-07 00:00:00+00 | ABNB   |       117.99 |    117.4 | 117.9694 |          117
+     2023-06-07 00:00:00+00 | AMAT   |     134.8964 |   133.73 | 134.8964 |       133.13
+     2023-06-07 00:00:00+00 | AMD    |       125.33 |   124.11 |   125.13 |       123.82
+     2023-06-07 00:00:00+00 | AMZN   |       127.45 |   126.22 |   126.69 |       125.81
+     ...
     ```
+
+1.  Type `q` to return to the `psql` prompt.
 
 </Procedure>
 
-## Create a continuous aggregate from aggregate query
+## Create a continuous aggregate
 
-Now that you have the aggregation query, you can use it to create a continuous
+Now that you have an aggregation query, you can use it to create a continuous
 aggregate.
 
-The `CREATE MATERIALIZED VIEW` command triggers the database to create a
-materialized view with the given name, in this case `stock_candlestick_daily`.
-In the next line, `WITH (timescaledb.continuous)` instructs Timescale to
-create a continuous aggregate and not just a generic materialized view. Finally,
-the query from earlier is added after the `AS` keyword.
+In this procedure, your query starts by creating a materialized view called
+`stock_candlestick_daily`, then converting it into a Timescale continuous
+aggregate:
+
+```sql
+CREATE MATERIALIZED VIEW stock_candlestick_daily
+WITH (timescaledb.continuous) AS
+```
+
+Then, you give the aggregate query you created earlier as the contents for the
+continuous aggregate:
+
+```sql
+    SELECT
+      time_bucket('1 day', "time") AS day,
+      symbol,
+      max(price) AS high,
+      first(price, time) AS open,
+      last(price, time) AS close,
+      min(price) AS low
+    FROM stocks_real_time srt
+    GROUP BY day, symbol
+```
+
+When you run this query, you create the view, and populate the view with the
+aggregated calculation. This can take a few minutes to run, because it needs to
+perform these calculations across all of your stock trade data the first time.
+
+When you continuous aggregate has been created and the data aggregated for the
+first time, you can query your continuous aggregate. For example, you can look
+at all the aggregated data, like this:
+
+```sql
+SELECT * FROM stock_candlestick_daily
+  ORDER BY day DESC, symbol;
+```
+
+Or you can look at a single stock, like this:
+
+```sql
+SELECT * FROM stock_candlestick_daily
+WHERE symbol='TSLA';
+```
 
 <Procedure>
 
-### Creating a continuous aggregate from an aggregate query
+### Creating a continuous aggregate
 
-1.  Using the aggregate query from the previous procedure, create a continuous
-    aggregate for daily candlestick data:
+1.  At the command prompt, use the `psql` connection string from the cheat sheet
+    you downloaded to connect to your database.
+1.  At the `psql` prompt, type this query:
 
     ```sql
     CREATE MATERIALIZED VIEW stock_candlestick_daily
@@ -197,35 +233,24 @@ the query from earlier is added after the `AS` keyword.
     GROUP BY day, symbol;
     ```
 
-1.  The query might take some time to run because it needs to perform these
-    calculations across all of your stock trade data the first time. After the
-    calculation results are stored, querying the data from the continuous
-    aggregate is much faster.
+1.  Query your continuous aggregate for all stocks:
+
+    ```sql
+    SELECT * FROM stock_candlestick_daily
+      ORDER BY day DESC, symbol;
+    ```
+
+1.  Query your continuous aggregate for Tesla stock:
+
+    ```sql
+    SELECT * FROM stock_candlestick_daily
+    WHERE symbol='TSLA';
+    ```
 
 </Procedure>
 
-The `SELECT` statement is the same query you wrote earlier, without the
-`ORDER BY` clause. By default, this code both creates the aggregate and
-materializes the aggregated data. That means the view is created _and_ populated
-with the aggregate calculations from your existing hypertable data.
+For more information about how continuous aggregates work, see the
+[continuous aggregates section][continuous-aggregates].
 
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/getting-started/continuous-aggregate.jpg" alt="Continuous aggregate upon creation"/>
-
-Run this query to get all the data in your continuous aggregate, and note
-how much faster this is than running the aggregate `SELECT` query on the raw hypertable data:
-
-```sql
-SELECT * FROM stock_candlestick_daily
-  ORDER BY day DESC, symbol;
-```
-
-[cagg-policy]: /getting-started/:currentVersion:/create-cagg/create-cagg-policy/
-[candlestick]: https://en.wikipedia.org/wiki/Candlestick_chart
 [continuous-aggregates]: /use-timescale/:currentVersion:/continuous-aggregates
-[crypto-bot]: https://blog.timescale.com/blog/how-i-power-a-successful-crypto-trading-bot-with-timescaledb/
-[first]: /api/:currentVersion:/hyperfunctions/first/
-[flightaware]: https://blog.timescale.com/blog/how-flightaware-fuels-flight-prediction-models-with-timescaledb-and-grafana/
-[last]: /api/:currentVersion:/hyperfunctions/last/
-[max]: https://www.postgresql.org/docs/current/tutorial-agg.html
-[min]: https://www.postgresql.org/docs/current/tutorial-agg.html
-[time-bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
+[time-buckets]: /use-timescale/:currentVersion:/time-buckets/
