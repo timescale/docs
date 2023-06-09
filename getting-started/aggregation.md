@@ -92,7 +92,7 @@ ORDER BY bucket, symbol
      ...
     ```
 
-</procedure>
+</Procedure>
 
 You might notice that the `bucket` column doesn't start at the time that you run
 the query. For more information about how time buckets are calculated, see the
