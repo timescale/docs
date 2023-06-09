@@ -56,7 +56,7 @@ plain index before you run the Hypershift migration.
 1.  At the command prompt, pull the latest Hypershift container from Dockerhub:
 
     ```bash
-    docker pull timescale/hypershift:0.5
+    docker pull timescale/hypershift:0.6
     ```
 
 </Procedure>
@@ -78,7 +78,7 @@ plain index before you run the Hypershift migration.
 1.  At the command prompt, pull the latest Hypershift container from Dockerhub:
 
     ```bash
-    docker pull timescale/hypershift:0.5
+    docker pull timescale/hypershift:0.6
     ```
 
 </Procedure>
@@ -112,10 +112,10 @@ configuration file, see the
 
     ```bash
     docker run -v $(pwd)/hypershift.yml:/hypershift.yml \
-    -ti timescale/hypershift:0.5 \
+    -ti timescale/hypershift:0.6 clone \
     -s "host=<SOURCE_DB_HOSTNAME> dbname=<DB_NAME> user=postgres port=5431 password=<DB_PASSWORD>" \
     -t "host=<TARGET_DB_HOSTNAME> dbname=<DB_NAME> user=postgres port=5432 password=<DB_PASSWORD>" \
-    --config-file /hypershift.yml
+    -c /hypershift.yml
     ```
 
 1.  When the migration has finished, a summary of the migration is shown, and

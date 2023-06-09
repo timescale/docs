@@ -3,6 +3,8 @@ title: Query your data
 excerpt: Query your Timescale data with the full power of SQL
 products: [cloud, mst, self_hosted]
 keywords: [queries]
+layout_components: [next_prev_large]
+content_group: Getting started
 ---
 
 # Query your data
