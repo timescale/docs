@@ -1,12 +1,13 @@
 Before you begin, make sure you have:
 
-*   Installed [Grafana][install-grafana] version&nbsp;8.5 or higher
-*   Installed [Timescale][install-timescale]
-*   Imported the stock trade data from the [Getting Started Tutorial][gsg-data]
+*   Created a [Timescale Cloud][cloud-login] service.
+*   Installed a self-managed Grafana account, or signed up for
+    [Grafana Cloud][install-grafana].
+*   Ingested some data to your database. You can use the stock trade data from
+    the [Getting Started Guide][gsg-data].
 
 If you are new to Grafana, see the [Grafana tutorials][grafana-tutorials]
-to get familiar with creating your first dashboard and visualizations. Also
-see [this tutorial on adding variables to Grafana][variables-tutorial].
+to get familiar with creating your first dashboard and visualizations.
 
 The examples in this section use these variables and Grafana functions:
 
@@ -18,7 +19,6 @@ The examples in this section use these variables and Grafana functions:
     function when aggregating data.
 
 [install-grafana]: https://grafana.com/get/
-[install-timescale]: /getting-started/latest/
 [gsg-data]: /getting-started/:currentVersion:/add-data/
 [grafana-tutorials]: /tutorials/:currentVersion:/grafana/
-[variables-tutorial]: https://youtu.be/Fq9xsvHPsSQ
+[cloud-login]: https://console.cloud.timescale.com/
