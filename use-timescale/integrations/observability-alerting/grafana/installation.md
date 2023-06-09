@@ -7,6 +7,6 @@ keywords: [Grafana, visualization, analytics]
 
 import GrafanaConnect from "versionContent/_partials/_grafana-connect.mdx";
 
-# Set up TimescaleDB and Grafana
+# Set up Timescale and Grafana
 
 <GrafanaConnect />
