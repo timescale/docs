@@ -127,7 +127,7 @@ To solve this problem, you can pre-aggregate your data using TimescaleDB's
 
 <Procedure>
 
-## Create a time-series graph from pre-aggregated data using time_bucket()
+## Creating a time-series graph from pre-aggregated data using time_bucket()
 
 1.  Add the `$bucket_interval` variable of type `Interval` to the Grafana dashboard.
 
@@ -173,8 +173,8 @@ To solve this problem, you can pre-aggregate your data using TimescaleDB's
     ORDER BY time;
     ```
 
-1.  In the options panel, set `Connect null values` to `Threshold`. Give `Threshold` a value
-    of `24h`.
+1.  In the options panel, set `Connect null values` to `Threshold`. Give
+    `Threshold` a value of `24h`.
 
     <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/time-series/connect-null-values.png" alt="Screenshot of the 'Connect null values' in the time-series options panel. The selected value is 'Threshold' and it has a value of less than 24 hours."/>
 
@@ -198,13 +198,14 @@ change to your query.
 
 <Procedure>
 
-## Create multiple time-series graphs in a single panel
+## Creating multiple time-series graphs in a single panel
 
 1.  Change the `$symbol` variable to the `Query` type.
 
     <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/time-series/symbol-query-type.png" alt="A screenshot of the 'symbol' variable settings. The variable type option has 'Query' selected."/>
 
-1.  In the query options, add the following query. In the selection options, select `Multi-Value`.
+1.  In the query options, add the following query. In the selection options,
+    select `Multi-Value`.
 
     ```SQL
     SELECT DISTINCT(symbol) FROM company ORDER BY symbol ASC;
