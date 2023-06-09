@@ -4,6 +4,8 @@ excerpt: Learn how to query time-series data
 products: [cloud, mst, self_hosted]
 keywords: [tutorials, query, learn]
 tags: [tutorials, beginner]
+layout_components: [next_prev_large]
+content_group: Analyze NYC taxi cab data
 ---
 
 # Analyze NYC taxi cab data

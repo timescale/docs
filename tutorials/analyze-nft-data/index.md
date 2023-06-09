@@ -4,6 +4,8 @@ excerpt: Learn how to collect, store, and analyze NFT sales data from the larges
 products: [cloud, mst, self_hosted]
 keywords: [crypto, blockchain, finance, analytics]
 tags: [nft]
+layout_components: [next_prev_large]
+content_group: Analyze NFT data
 ---
 
 # Analyze non-fungible token (NFT) sales data

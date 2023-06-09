@@ -4,6 +4,8 @@ excerpt: Create candlestick views and query financial tick data to analyze price
 products: [cloud, mst, self_hosted]
 keywords: [tutorials, finance, learn]
 tags: [tutorials, beginner]
+layout_components: [next_prev_large]
+content_group: Analyze financial tick data
 ---
 
 # Query the data
