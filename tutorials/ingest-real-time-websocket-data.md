@@ -11,13 +11,13 @@ import GraphOhlcv from "versionContent/_partials/_graphing-ohlcv-data.mdx";
 # Ingest real-time financial websocket data
 
 This tutorial shows you how to ingest real-time time-series data into
-TimescaleDB using a websocket connection. The tutorial sets up a data pipeline to
-ingest real-time data from our data partner, [Twelve Data][twelve-data].
+TimescaleDB using a websocket connection. The tutorial sets up a data pipeline
+to ingest real-time data from our data partner, [Twelve Data][twelve-data].
 Twelve Data provides a number of different financial APIs, including stock,
-cryptocurrencies, foreign exchanges, and ETFs. It also supports websocket connections in case
-you want to update your database frequently. With websockets, you need to
-connect to the server, subscribe to symbols, and you can start receiving data
-in real-time during market hours.
+cryptocurrencies, foreign exchanges, and ETFs. It also supports websocket
+connections in case you want to update your database frequently. With
+websockets, you need to connect to the server, subscribe to symbols, and you can
+start receiving data in real-time during market hours.
 
 When you complete this tutorial, you'll have a data pipeline set
 up that ingests real-time financial data into your Timescale.
@@ -30,9 +30,9 @@ This tutorial uses Python and the API
 Before you begin, make sure you have:
 
 *   A Timescale [service and connect to the service][financial-tick-dataset].
-*   Downloaded the file that contains your Timescale service credentials such as `<HOST>`,
-    `<PORT>`, and `<PASSWORD>`. Alternatively, you can find these details 
-    in the `Connection Info` section for your service.
+*   Downloaded the file that contains your Timescale service credentials such as
+    `<HOST>`, `<PORT>`, and `<PASSWORD>`. Alternatively, you can find these
+    details in the `Connection Info` section for your service.
 *   Installed Python 3
 *   Signed up for [Twelve Data][twelve-signup]. The free tier is perfect for
     this tutorial.
@@ -63,7 +63,7 @@ the packages you need to complete for this tutorial are installed in this enviro
 
 1.  Install the Twelve Data Python
     [wrapper library][twelve-wrapper]
-    with websocket support. This library makes it easy to make requests to the
+    with websocket support. This library allows you to make requests to the
     API and maintain a stable websocket connection.
 
     ```bash
@@ -142,8 +142,8 @@ two arguments to create a websocket object and establish connection.
     python websocket_test.py
     ```
 
-1.  After running the script, you immediately get a response from the server
-    about the status of your connection:
+1.  When you run the script, you receive a response from the server about the
+    status of your connection:
 
     ```bash
     {'event': 'subscribe-status',
@@ -155,28 +155,30 @@ two arguments to create a websocket object and establish connection.
      'fails': None
     }
     ```
-When you have established a connection to the websocket server,
-wait a few seconds, and you can see data records, like this:
 
-```bash
-{'event': 'price', 'symbol': 'BTC/USD', 'currency_base': 'Bitcoin', 'currency_quote': 'US Dollar', 'exchange': 'Coinbase Pro', 'type': 'Digital Currency', 'timestamp': 1652438893, 'price': 30361.2, 'bid': 30361.2, 'ask': 30361.2, 'day_volume': 49153}
-{'event': 'price', 'symbol': 'BTC/USD', 'currency_base': 'Bitcoin', 'currency_quote': 'US Dollar', 'exchange': 'Coinbase Pro', 'type': 'Digital Currency', 'timestamp': 1652438896, 'price': 30380.6, 'bid': 30380.6, 'ask': 30380.6, 'day_volume': 49157}
-{'event': 'heartbeat', 'status': 'ok'}
-{'event': 'price', 'symbol': 'ETH/USD', 'currency_base': 'Ethereum', 'currency_quote': 'US Dollar', 'exchange': 'Huobi', 'type': 'Digital Currency', 'timestamp': 1652438899, 'price': 2089.07, 'bid': 2089.02, 'ask': 2089.03, 'day_volume': 193818}
-{'event': 'price', 'symbol': 'BTC/USD', 'currency_base': 'Bitcoin', 'currency_quote': 'US Dollar', 'exchange': 'Coinbase Pro', 'type': 'Digital Currency', 'timestamp': 1652438900, 'price': 30346.0, 'bid': 30346.0, 'ask': 30346.0, 'day_volume': 49167}
-```
+    When you have established a connection to the websocket server,
+    wait a few seconds, and you can see data records, like this:
 
-Each price event gives you multiple data points about the given trading pair
-such as the name of the exchange, and the current price. You can also
-occasionally see `heartbeat` events in the response; these events signal
-the health of the connection over time.
-At this point the websocket connection is working successfully to pass data.
-    
+    ```bash
+    {'event': 'price', 'symbol': 'BTC/USD', 'currency_base': 'Bitcoin', 'currency_quote': 'US Dollar', 'exchange': 'Coinbase Pro', 'type': 'Digital Currency', 'timestamp': 1652438893, 'price': 30361.2, 'bid': 30361.2, 'ask': 30361.2, 'day_volume': 49153}
+    {'event': 'price', 'symbol': 'BTC/USD', 'currency_base': 'Bitcoin', 'currency_quote': 'US Dollar', 'exchange': 'Coinbase Pro', 'type': 'Digital Currency', 'timestamp': 1652438896, 'price': 30380.6, 'bid': 30380.6, 'ask': 30380.6, 'day_volume': 49157}
+    {'event': 'heartbeat', 'status': 'ok'}
+    {'event': 'price', 'symbol': 'ETH/USD', 'currency_base': 'Ethereum', 'currency_quote': 'US Dollar', 'exchange': 'Huobi', 'type': 'Digital Currency', 'timestamp': 1652438899, 'price': 2089.07, 'bid': 2089.02, 'ask': 2089.03, 'day_volume': 193818}
+    {'event': 'price', 'symbol': 'BTC/USD', 'currency_base': 'Bitcoin', 'currency_quote': 'US Dollar', 'exchange': 'Coinbase Pro', 'type': 'Digital Currency', 'timestamp': 1652438900, 'price': 30346.0, 'bid': 30346.0, 'ask': 30346.0, 'day_volume': 49167}
+    ```
+
+    Each price event gives you multiple data points about the given trading pair
+    such as the name of the exchange, and the current price. You can also
+    occasionally see `heartbeat` events in the response; these events signal
+    the health of the connection over time.
+    At this point the websocket connection is working successfully to pass data.
+
 </Procedure>
-    
-To ingest the data into your Timescale service, you need to implement the 
-`on_event` function.    
+
 </Collapsible>
+
+To ingest the data into your Timescale service, you need to implement the
+`on_event` function.
 
 <Collapsible heading="The real-time dataset">
 
