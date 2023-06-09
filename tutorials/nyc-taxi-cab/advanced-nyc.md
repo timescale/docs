@@ -19,7 +19,7 @@ dataset with geospatial data from [PostGIS][postgis], to answer this question:
 
 To answer this question, you need the ride count data from the NYC taxi dataset,
 but you also need some geospatial data to work out which trips originated in
-Times Square. TimescaleDB is compatible with all other PostgreSQL extensions so
+Times Square. Timescale is compatible with all other PostgreSQL extensions so
 you can use the [PostGIS][postgis] extension to slice the data by time and
 location.
 

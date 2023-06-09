@@ -29,7 +29,7 @@ count the total number of rides each day, and show them in a list by date.
 ### Finding how many rides take place every day
 
 1.  Connect to the Timescale database that contains the NYC taxi dataset.
-2.  At the psql prompt, use this query to select all rides taken in the first
+1.  At the psql prompt, use this query to select all rides taken in the first
     week of January 2016, and return a count of rides for each day:
 
     ```sql
