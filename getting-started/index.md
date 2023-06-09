@@ -2,6 +2,8 @@
 title: Get started with Timescale
 excerpt: Get started with your first Timescale instance
 products: [cloud]
+layout_components: [next_prev_large]
+content_group: Getting started
 ---
 
 import Install from "versionContent/_partials/_cloud-installation.mdx";
