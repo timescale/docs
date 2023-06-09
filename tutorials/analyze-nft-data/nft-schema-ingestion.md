@@ -4,6 +4,8 @@ excerpt: Design a schema to ingest and store NFT transaction data
 products: [cloud, mst, self_hosted]
 keywords: [crypto, blockchain, finance, analytics]
 tags: [nft]
+layout_components: [next_prev_large]
+content_group: Analyze NFT data
 ---
 
 # NFT schema design and ingestion

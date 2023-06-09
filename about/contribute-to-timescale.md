@@ -1,6 +1,7 @@
 ---
 title: Contribute to Timescale
 excerpt: Learn more about how to contribute to Timescale
+products: [cloud, mst, self_hosted]
 keywords: [contribute]
 tags: [github]
 ---
