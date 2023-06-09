@@ -4,6 +4,8 @@ excerpt: Learn how to store financial tick data and create candlestick views to 
 products: [cloud, mst, self_hosted]
 keywords: [tutorials, finance, learn]
 tags: [tutorials, beginner]
+layout_components: [next_prev_large]
+content_group: Analyze financial tick data
 ---
 
 # Analyze financial tick data with TimescaleDB
