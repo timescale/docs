@@ -60,7 +60,7 @@ GROUP BY bucket, symbol
 ORDER BY bucket, symbol
 ```
 
-<procedure>
+<Procedure>
 
 ### Finding average stock prices for the last week
 

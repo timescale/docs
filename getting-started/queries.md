@@ -41,7 +41,7 @@ statement to add a condition on to the statement. In this procedure, you add a
 WHERE time > now() - INTERVAL '4 days'
 ```
 
-<procedure>
+<Procedure>
 
 ### Using SELECT to return data
 
@@ -70,7 +70,7 @@ WHERE time > now() - INTERVAL '4 days'
 
 1.  Type `q` to return to the `psql` prompt.
 
-</procedure>
+</Procedure>
 
 ## Use ORDER BY to organize results
 
@@ -104,7 +104,7 @@ to see, like this:
 LIMIT 10
 ```
 
-<procedure>
+<Procedure>
 
 ### Using ORDER BY to organize results
 
@@ -140,7 +140,7 @@ LIMIT 10
     There are multiple trades every second, but you know that the order is
     correct, because the `day_volume` column is ordered correctly.
 
-</procedure>
+</Procedure>
 
 ## Get the first and last value
 
@@ -176,7 +176,7 @@ ORDER BY symbol
 For more information about these functions, see the API documentation for
 [first()][first], and [last()][last].
 
-<procedure>
+<Procedure>
 
 ### Getting the first and last value
 
@@ -207,7 +207,7 @@ For more information about these functions, see the API documentation for
 
 1.  Type `q` to return to the `psql` prompt.
 
-</procedure>
+</Procedure>
 
 <Video url="https://www.youtube.com/embed/WFg0B1Bihtg"></Video>
 
