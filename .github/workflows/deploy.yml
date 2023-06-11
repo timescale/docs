@@ -1,6 +1,8 @@
 name: Deploy docs to dev
 
-on: pull_request
+on:
+  - pull_request
+  - workflow_dispatch
 
 env:
   PR_NUMBER: ${{ github.event.number }}
