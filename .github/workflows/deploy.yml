@@ -7,7 +7,7 @@ env:
 
 jobs:
   trigger:
-    if: github.repository == 'timescale/docs'
+    if: ${{ github.event.pull_request.head.repo.full_name == github.repository }}
     permissions:
       pull-requests: write
     name: Docs dev deploy
