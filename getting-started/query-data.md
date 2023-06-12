@@ -15,6 +15,8 @@ Timescale.
 Here are some query examples so you can get familiar with using SQL alongside
 popular Timescale functions.
 
+<TryItOutCodeBlock queryId="test" />
+
 ## Simple SQL queries
 
 Many of the queries below show a filter for the last four days of data. This
