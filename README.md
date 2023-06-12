@@ -1,5 +1,7 @@
 # README
 
+testing
+
 This is the source for content for docs.timescale.com, starting with release 2.0.
 All documentation for previous versions is in the deprecated repository called
 [docs.timescale.com-content](https://github.com/timescale/docs.timescale.com-content).
