@@ -6,9 +6,6 @@ Before you begin, make sure you have:
 *   Ingested some data to your database. You can use the stock trade data from
     the [Getting Started Guide][gsg-data].
 
-If you are new to Grafana, see the [Grafana tutorials][grafana-tutorials]
-to get familiar with creating your first dashboard and visualizations.
-
 The examples in this section use these variables and Grafana functions:
 
 *   `$symbol`: a variable used to filter results by stock symbols.
