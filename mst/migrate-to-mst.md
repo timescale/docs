@@ -113,7 +113,7 @@ them. The migration still occurs successfully.
     HINT:  Use "COPY (SELECT * FROM <hypertable>) TO ..." to copy all data in hypertable, or copy each chunk individually.
     ```
 
-1.  Error when using `pg_restore:
+1.  Error when using `pg_restore`:
 
    ```bash
    pg_restore: while PROCESSING TOC:

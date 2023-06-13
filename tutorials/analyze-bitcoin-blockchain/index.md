@@ -3,6 +3,8 @@ title: Analyze the Bitcoin blockchain
 excerpt: Learn how to store and analyze your Bitcoin blockchain data to uncover trends
 products: [cloud, mst, self_hosted]
 keywords: [crypto, blockchain, Bitcoin, finance, analytics]
+layout_components: [next_prev_large]
+content_group: Analyze the Bitcoin blockchain
 ---
 
 # Analyze the Bitcoin blockchain
