@@ -423,9 +423,13 @@ OHLCV values.
 </Procedure>
 
 </Collapsible>
-
+    
+<Collapsible heading="Visualize the OHLCV data in Grafana" defaultExpanded={false}>
+    You can vizualize the OHLCV data that you created using the queries in Grafana.
 <GraphOhlcv />
-
+    
+</Collapsible>
+    
 [candlestick-tutorial]: /tutorials/:currentVersion:/financial-tick-data/
 [get-started]: /getting-started/:currentVersion:/
 [install-ts]: /getting-started/latest/
