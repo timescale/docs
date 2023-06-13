@@ -426,7 +426,7 @@ OHLCV values.
     
 <Collapsible heading="Visualize the OHLCV data in Grafana" defaultExpanded={false}>
 
-    You can visualize the OHLCV data that you created using the queries in Grafana.
+You can visualize the OHLCV data that you created using the queries in Grafana.
 
 <GraphOhlcv />
     
