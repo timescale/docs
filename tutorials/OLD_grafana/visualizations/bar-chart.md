@@ -22,8 +22,6 @@ Bar charts can answer questions like:
 *   What was the transaction volume distribution of stocks last week?
 *   How many students in grade A are above a certain age range?
 
-<!--- Do you have a diagram to use here? --LKB 2022-07-01-->
-
 To plot a bar chart, Grafana requires only one data frame. You need to have at
 least one string field, which is used as the category for an X or Y axis, and
 one or more numerical fields. You can also provide multiple value columns, if
@@ -32,11 +30,11 @@ you want to plot multiple bar charts in a single panel.
 This tutorial shows you how to:
 
 *   [Create a bar chart](/tutorials/latest/grafana/visualizations/bar-chart/#create-a-bar-chart-with-preaggregated-data)
-  with pre-aggregated data using `time_bucket()`.
+    with pre-aggregated data using `time_bucket()`.
 *   [Create multiple bar charts](/tutorials/latest/grafana/visualizations/bar-chart/#create-multiple-bar-charts)
-  in a single panel.
+    in a single panel.
 *   [Create a stacked bar chart](/tutorials/latest/grafana/visualizations/bar-chart/#create-stacked-bar-chart)
-  with pre-aggregated data.
+    with pre-aggregated data.
 
 There are a few different kinds of bar charts to choose from, including
 vertical, horizontal, and stacked bar charts. All of these types are covered in
@@ -48,6 +46,7 @@ this tutorial.
 
 Check out this video for a step-by-step walk-through on creating bar chart in
 Grafana:
+
 <Video url="https://www.youtube-nocookie.com/embed/nBcUiPvYjhc"/>
 
 ## Create a bar chart with preaggregated data
@@ -109,7 +108,7 @@ charts.
 ### Creating multiple bar charts in a single panel
 
 1.  Fetch all company symbols from the dataset in the
-   [Getting Started Tutorial][gsg-data] with this query:
+    [Getting Started Tutorial][gsg-data] with this query:
 
    ```sql
     SELECT
@@ -117,40 +116,40 @@ charts.
     ```
 
 1.  In the Grafana dashboard, navigate to the settings page for your panel. In
-   the `Variables` section:
-   *   In the `Name` field, give your symbol a name.
-   *   In the `Type` field, select `Query`.
-   *   In the `Selection options` field, enable `multi-value`.
+    the `Variables` section:
+
+    *   In the `Name` field, give your symbol a name.
+    *   In the `Type` field, select `Query`.
+    *   In the `Selection options` field, enable `multi-value`.
 
 1.  At the psql prompt, update the earlier query to allow you to use multiple
-   symbols. You can select as many symbols as you want to compare:
+    symbols. You can select as many symbols as you want to compare:
 
-   ```sql
-      SELECT
-          time_bucket('$bucket_interval', time) AS time,
-          symbol,
-          AVG(price) AS price
-      FROM stocks_real_time srt
-      WHERE symbol IN ($symbol)
-          AND time >= $__timeFrom()::timestamptz AND time < $__timeTo()::timestamptz
-      GROUP BY time_bucket('$bucket_interval', time), symbol
-      ORDER BY time;
-      ```
+    ```sql
+    SELECT
+        time_bucket('$bucket_interval', time) AS time, symbol,
+        AVG(price) AS price
+    FROM stocks_real_time srt
+    WHERE symbol IN ($symbol)
+        AND time >= $__timeFrom()::timestamptz AND time < $__timeTo()::timestamptz
+    GROUP BY time_bucket('$bucket_interval', time), symbol
+    ORDER BY time;
+    ```
 
 1.  In Grafana, refresh the dashboard. The returned data looks like this:
 
-  <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/barchart/tableviewfivestockdata.png" alt="Screenshot of the table view of valid time series data for four different stocks."/>
+    <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/barchart/tableviewfivestockdata.png" alt="Screenshot of the table view of valid time series data for four different stocks."/>
 
-  And the displayed graph looks like this:
+    And the displayed graph looks like this:
 
-  <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/barchart/multiplebarchart.png" alt="Screenshot of the multiple bar chart produced by Grafana. The multiple bar chart represents the price of four different stocks in the past 1 month."/>
+    <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/barchart/multiplebarchart.png" alt="Screenshot of the multiple bar chart produced by Grafana. The multiple bar chart represents the price of four different stocks in the past 1 month."/>
 
 1.  In the graph you just created, you can see the 5 different stocks, but it is
-   difficult to differentiate them. To tell them apart, you can adjust the color
-   of each stock by clicking the legend to the left of each line, and picking a
-   color for each bar:
+    difficult to differentiate them. To tell them apart, you can adjust the
+    color of each stock by clicking the legend to the left of each line, and
+    picking a color for each bar:
 
-  <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/barchart/multicoloredbarchart.png" alt="Screenshot of Grafana plot, showing 5 bar chart of stock values in green, blue, red, purple and orange."/>
+    <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/barchart/multicoloredbarchart.png" alt="Screenshot of Grafana plot, showing 5 bar chart of stock values in green, blue, red, purple and orange."/>
 
 </Procedure>
 
@@ -170,32 +169,32 @@ traded volume. This helps to calculate the volume of data for each bucket.
 
 ### Creating a stacked bar chart
 
-1.  At the psql prompt, update the earlier query to find the maximum `day_volume`
-   value for a symbol within a bucket. Then, subtract each maximum from the
-   previous bucket's maximum. The difference gives the traded volume for that
-   bucket:
+1.  At the psql prompt, update the earlier query to find the maximum
+    `day_volume` value for a symbol within a bucket. Then, subtract each maximum
+    from the previous bucket's maximum. The difference gives the traded volume
+    for that bucket:
 
-   ```sql
-      SELECT
-          time_bucket('$bucket_interval', time) AS time,
-          symbol,
-          MAX(day_volume) - LAG(MAX(day_volume), 1) OVER(
-              PARTITION BY symbol
-              ORDER BY time_bucket('$bucket_interval', time)
-          ) AS bucket_volume
-      FROM stocks_real_time srt
-      WHERE symbol IN ($symbol)
-          AND time >= $__timeFrom()::timestamptz AND time < $__timeTo()::timestamptz
-      GROUP BY time_bucket('$bucket_interval', time), symbol
-      ORDER BY time_bucket('$bucket_interval', time), symbol;
-      ```
+    ```sql
+    SELECT
+        time_bucket('$bucket_interval', time) AS time,
+        symbol,
+        MAX(day_volume) - LAG(MAX(day_volume), 1) OVER(
+            PARTITION BY symbol
+            ORDER BY time_bucket('$bucket_interval', time)
+        ) AS bucket_volume
+    FROM stocks_real_time srt
+    WHERE symbol IN ($symbol)
+        AND time >= $__timeFrom()::timestamptz AND time < $__timeTo()::timestamptz
+    GROUP BY time_bucket('$bucket_interval', time), symbol
+    ORDER BY time_bucket('$bucket_interval', time), symbol;
+    ```
 
 1.  In the Grafana dashboard, convert your multiple bar chart to a stacked bar
-   chart. In the symbol drop-down menu, select all the stocks you want to
-   compare. On the right side of the panel, click the bar chart drop-down. In
-   the `stacking` field, select `normal`, and refresh the panel. The stacked bar
-   chart view shows a 1-day bucket with a 1-hour bucket interval. The volume
-   calculation is valid mostly with the trading day:
+    chart. In the symbol drop-down menu, select all the stocks you want to
+    compare. On the right side of the panel, click the bar chart drop-down. In
+    the `stacking` field, select `normal`, and refresh the panel. The stacked
+    bar chart view shows a 1-day bucket with a 1-hour bucket interval. The
+    volume calculation is valid mostly with the trading day:
 
   <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/barchart/stackedbarcharts.png" alt="Screenshot of Grafana dashboard, showing a stacked bar chart."/>
 

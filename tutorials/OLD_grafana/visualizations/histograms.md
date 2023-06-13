@@ -225,11 +225,11 @@ selected values, and Grafana buckets them in separate histograms.
     You can clearly see the 3 distinct histograms but it's impossible to tell
     them apart from each other.
 
-1.  Click on the green line at the left side of the legend and pick a color:
+1.  Click the green line at the left side of the legend and pick a color:
 
     <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/histograms/color_options.png" alt="Screenshot of the Grafana color picker."/>
 
-1.  The plot clearly shows the 3 price distributions in different colors.
+1.  The plot clearly shows the 3 price distributions in different colors:
 
     <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/histograms/colored_in_histogram.png" alt="Screenshot of Grafana plot, showing 3 histograms of stock values in blue, red, and green."/>
 
