@@ -38,7 +38,7 @@ Before you begin, make sure you have:
     this tutorial.
 *   Made a note of your Twelve Data [API key](https://twelvedata.com/account/api-keys).
 
-<Collapsible heading="Connect to the websocket server">
+<Collapsible heading="Connect to the websocket server" defaultExpanded={false}>
 
 When you connect to the Twelve Data API through a websocket, you create a
 persistent connection between your computer and the websocket server. 
@@ -177,11 +177,11 @@ two arguments to create a websocket object and establish connection.
 
 </Collapsible>
 
+<Collapsible heading="The real-time dataset" headingLevel={2} defaultExpanded={false}>
+    
 To ingest the data into your Timescale service, you need to implement the
 `on_event` function.
-
-<Collapsible heading="The real-time dataset" headingLevel={2} defaultExpanded={false}>
-
+    
 After the websocket connection is set up, you can use the `on_event` function
 to ingest data into the database. This is a a data pipeline that ingests real-time 
 financial data into your Timescale service.
@@ -337,7 +337,7 @@ Then check that you use a proper API key received from Twelve Data.
 
 </Collapsible>
 
-<Collapsible heading="Query the data">
+<Collapsible heading="Query the data" defaultExpanded={false}>
 
 To look at OHLCV values, the most effective way is to create a continuous
 aggregate. You can create a continuous aggregate to aggregate data
