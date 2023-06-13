@@ -180,7 +180,7 @@ two arguments to create a websocket object and establish connection.
 To ingest the data into your Timescale service, you need to implement the
 `on_event` function.
 
-<Collapsible heading="The real-time dataset" headingLevel={2} defaultExpanded={false}>>
+<Collapsible heading="The real-time dataset" headingLevel={2} defaultExpanded={false}>
 
 After the websocket connection is set up, you can use the `on_event` function
 to ingest data into the database. This is a a data pipeline that ingests real-time 
@@ -288,8 +288,6 @@ This function needs to:
                     self.insert_counter += 1
                     print(f"Batch insert #{self.insert_counter}")
                     self.current_batch = []
-
-
             def start(self, symbols):
                 """Connect to the web socket server and start streaming real-time data 
                 into the database.
@@ -304,7 +302,6 @@ This function needs to:
                 while True:
                    ws.heartbeat()
                    time.sleep(10)
-
         onn = psycopg2.connect(database="tsdb", 
                             host="<HOST>", 
                             user="tsdbadmin", 

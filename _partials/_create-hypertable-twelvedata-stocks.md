@@ -1,5 +1,5 @@
 
-# Create a hypertable
+## Create a hypertable
 
 Hypertables are the core of Timescale. Hypertables enable Timescale to work
 efficiently with time-series data. Because Timescale is PostgreSQL, all the
