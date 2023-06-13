@@ -180,7 +180,7 @@ two arguments to create a websocket object and establish connection.
 To ingest the data into your Timescale service, you need to implement the
 `on_event` function.
 
-<Collapsible heading="The real-time dataset">
+<Collapsible heading="The real-time dataset" headingLevel={2} defaultExpanded={false}>>
 
 After the websocket connection is set up, you can use the `on_event` function
 to ingest data into the database. This is a a data pipeline that ingests real-time 
@@ -290,31 +290,31 @@ This function needs to:
                     self.current_batch = []
 
 
-        def start(self, symbols):
-            """Connect to the web socket server and start streaming real-time data 
-            into the database.
+            def start(self, symbols):
+                """Connect to the web socket server and start streaming real-time data 
+                into the database.
 
-            Args:
-                symbols (list of symbols): List of stock/crypto symbols
-            """
-            td = TDClient(apikey="<YOUR_API_KEY")
-            ws = td.websocket(on_event=self._on_event)
-            ws.subscribe(symbols)
-            ws.connect()
-            while True:
-               ws.heartbeat()
-               time.sleep(10)
+                Args:
+                    symbols (list of symbols): List of stock/crypto symbols
+                """
+                td = TDClient(apikey="<YOUR_API_KEY")
+                ws = td.websocket(on_event=self._on_event)
+                ws.subscribe(symbols)
+                ws.connect()
+                while True:
+                   ws.heartbeat()
+                   time.sleep(10)
 
-    conn = psycopg2.connect(database="tsdb", 
-                        host="<HOST>", 
-                        user="tsdbadmin", 
-                        password="<PASSWORD>",
-                        port="<PORT>")
+        onn = psycopg2.connect(database="tsdb", 
+                            host="<HOST>", 
+                            user="tsdbadmin", 
+                            password="<PASSWORD>",
+                            port="<PORT>")
     
-    symbols = ["BTC/USD", "ETH/USD", "MSFT", "AAPL"]
-    websocket = WebsocketPipeline(conn)
-    websocket.start(symbols=symbols)
-    ```
+        symbols = ["BTC/USD", "ETH/USD", "MSFT", "AAPL"]
+        websocket = WebsocketPipeline(conn)
+        websocket.start(symbols=symbols)
+        ```
 
 1.  Run the script:
 
