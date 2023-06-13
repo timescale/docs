@@ -4,6 +4,8 @@ excerpt: Set up a dataset so you can query financial tick data to analyze price 
 products: [cloud, mst, self_hosted]
 keywords: [tutorials, finance, learn]
 tags: [tutorials, beginner]
+layout_components: [next_prev_large]
+content_group: Analyze financial tick data
 ---
 
 import Install from "versionContent/_partials/_cloud-installation.mdx";

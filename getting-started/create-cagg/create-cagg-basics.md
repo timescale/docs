@@ -3,6 +3,8 @@ title: Creating continuous aggregates
 excerpt: Create a continuous aggregate from your data
 products: [cloud, mst, self_hosted]
 keywords: [continuous aggregates, create]
+layout_components: [next_prev_large]
+content_group: Getting started
 ---
 
 # Creating continuous aggregates

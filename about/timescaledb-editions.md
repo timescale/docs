@@ -1,6 +1,7 @@
 ---
 title: Compare TimescaleDB editions
 excerpt: Compare different editions of TimescaleDB
+products: [cloud, mst, self_hosted]
 keywords: [Apache, community, license]
 tags: [learn, contribute]
 ---
