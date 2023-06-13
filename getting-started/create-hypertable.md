@@ -3,6 +3,8 @@ title: Create a hypertable
 excerpt: Create a hypertable to store your time-series data
 products: [cloud, mst, self_hosted]
 keywords: [hypertables, create]
+layout_components: [next_prev_large]
+content_group: Getting started
 ---
 
 import HypertableIntro from "versionContent/_partials/_hypertables-intro.mdx";

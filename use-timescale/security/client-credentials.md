@@ -13,13 +13,15 @@ of using your username and password. You can generate multiple client
 credentials for different applications or use cases rather than a single set of
 user credentials for everything.
 
-## Creating client credentials
+## Create client credentials
 
 When you create client credentials, a public key and a private key is generated.
 These keys act as the username and password for programmatic client
 applications. It is important that you save these keys in a safe place. You can
 also delete these client credentials when the client applications no longer need
-access to Timescale resources.
+access to Timescale resources. For more information about obtaining an access
+token programmatically, see the 
+[Timescale Terraform provider documentation][terraform-provider].
 
 <Procedure>
 
@@ -57,3 +59,4 @@ access to Timescale resources.
 </Procedure>
 
 [cloud-login]: https://console.cloud.timescale.com/
+[terraform-provider]: https://registry.terraform.io/providers/timescale/timescale/latest/docs
