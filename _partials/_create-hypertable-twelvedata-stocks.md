@@ -1,5 +1,5 @@
 
-# Create a hypertable
+## Create a hypertable
 
 Hypertables are the core of Timescale. Hypertables enable Timescale to work
 efficiently with time-series data. Because Timescale is PostgreSQL, all the
@@ -32,7 +32,7 @@ with Timescale tables similar to standard PostgreSQL.
     SELECT create_hypertable('stocks_real_time','time');
     ```
 
-2.  Create an index to support efficient queries on the `symbol` and `time`
+1.  Create an index to support efficient queries on the `symbol` and `time`
     columns:
 
     ```sql
