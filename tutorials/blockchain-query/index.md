@@ -52,6 +52,6 @@ data using Timescale hyperfunctions.
 
 [cloud-install]: /getting-started/latest/
 [blockchain-dataset]: timescaledb/tutorials/query-blockchain/blockchain-dataset
-[blockchain-query]: timescaledb/tutorials/query-blockchain/blockchain-template
+[blockchain-query]: timescaledb/tutorials/query-blockchain/blockchain-query
 [blockchain-def]: https://www.pcmag.com/encyclopedia/term/blockchain
 [transactions-def]: https://www.pcmag.com/encyclopedia/term/bitcoin-transaction

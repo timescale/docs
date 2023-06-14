@@ -48,9 +48,9 @@ a transaction is the first transaction in a block, known as a
 [coinbase][coinbase-def] transaction, which includes the reward a coin miner
 receives for mining the coin.
 
-<CreateHypertable />
+<CreateHypertableBlockchain />
 
-<AddData />
+<AddDataBlockchain />
 
 </Collapsible>
 

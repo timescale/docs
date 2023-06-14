@@ -11,15 +11,22 @@ with Timescale tables similar to standard PostgreSQL.
 
 ### Creating a hypertable
 
-1.  Create a standard PostgreSQL table to store the real-time stock trade data
+1.  Create a standard PostgreSQL table to store the Bitcoin blockchain data
     using `CREATE TABLE`:
 
     ```sql
-    CREATE TABLE stocks_real_time (
-      time TIMESTAMPTZ NOT NULL,
-      symbol TEXT NOT NULL,
-      price DOUBLE PRECISION NULL,
-      day_volume INT NULL
+    CREATE TABLE transactions (
+       time TIMESTAMPTZ,
+       block_id INT,
+       hash TEXT,
+       size INT,
+       weight INT,
+       is_coinbase BOOLEAN,
+       output_total BIGINT,
+       output_total_usd DOUBLE PRECISION,
+       fee BIGINT,
+       fee_usd DOUBLE PRECISION,
+       details JSONB
     );
     ```
 
@@ -29,14 +36,27 @@ with Timescale tables similar to standard PostgreSQL.
     the timestamp data to use for partitioning:
 
     ```sql
-    SELECT create_hypertable('stocks_real_time','time');
+    SELECT create_hypertable('transactions', 'time');
     ```
 
-1.  Create an index to support efficient queries on the `symbol` and `time`
-    columns:
+1.  Create an index on the `hash` column to make queries for individual
+    transactions faster:
 
     ```sql
-    CREATE INDEX ix_symbol_time ON stocks_real_time (symbol, time DESC);
+    CREATE INDEX hash_idx ON public.transactions USING HASH (hash)
+    ```
+
+1.  Create an index on the `block_id` column to make block-level queries faster:
+
+    ```sql
+    CREATE INDEX block_idx ON public.transactions (block_id)
+    ```
+
+1.  Create a unique index on the `time` and `hash` columns to make sure you
+    don't accidentally insert duplicate records:
+
+    ```sql
+    CREATE UNIQUE INDEX time_hash_idx ON public.transactions (time, hash)
     ```
 
 <Highlight type="note">
@@ -45,34 +65,6 @@ you provide as the second parameter to `create_hypertable()`. Also, Timescale
 automatically creates an index on the time column. However, you'll often filter
 your time-series data on other columns as well. Using indexes appropriately helps
 your queries perform better.
-
-Because you often query the stock trade data by the company symbol, you
-should add an index for it. Include the time column because time-series data
-typically looks for data in a specific period of time.
 </Highlight>
-
-</Procedure>
-
-## Create standard PostgreSQL tables for relational data
-
-When you have other relational data that enhances your time-series data, you can
-create standard PostgreSQL tables just as you would normally. For this dataset,
-there is one other table of data called `company`.
-
-<Procedure>
-
-### Creating standard PostgreSQL tables
-
-1.  Add a table to store the company name and symbol for the stock trade data:
-
-    ```sql
-    CREATE TABLE company (
-      symbol TEXT NOT NULL,
-      name TEXT NOT NULL
-    );
-    ```
-
-1.  You now have two tables within your Timescale database. One hypertable
-    named `stocks_real_time`, and one normal PostgreSQL table named `company`.
 
 </Procedure>
