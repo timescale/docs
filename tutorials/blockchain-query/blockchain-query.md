@@ -1,8 +1,10 @@
 ---
-title: Verb the widget tutorial - query the data
-excerpt: Query data to verb your widgets to achieve an outcome using the tool
-keywords: [noun, verb, tutorial]
-tags: [noun, noun]
+title: Query the Bitcoin blockchain - query data
+excerpt: Query the Bitcoin blockchain dataset
+products: [cloud]
+keywords: [beginner, crypto, blockchain, Bitcoin, finance, analytics]
+layout_components: [next_prev_large]
+content_group: Query the Bitcoin blockchain
 ---
 
 # Query the data
