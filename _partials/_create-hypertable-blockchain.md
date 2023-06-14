@@ -43,20 +43,20 @@ with Timescale tables similar to standard PostgreSQL.
     transactions faster:
 
     ```sql
-    CREATE INDEX hash_idx ON public.transactions USING HASH (hash)
+    CREATE INDEX hash_idx ON public.transactions USING HASH (hash);
     ```
 
 1.  Create an index on the `block_id` column to make block-level queries faster:
 
     ```sql
-    CREATE INDEX block_idx ON public.transactions (block_id)
+    CREATE INDEX block_idx ON public.transactions (block_id);
     ```
 
 1.  Create a unique index on the `time` and `hash` columns to make sure you
     don't accidentally insert duplicate records:
 
     ```sql
-    CREATE UNIQUE INDEX time_hash_idx ON public.transactions (time, hash)
+    CREATE UNIQUE INDEX time_hash_idx ON public.transactions (time, hash);
     ```
 
 <Highlight type="note">

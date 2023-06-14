@@ -9,7 +9,7 @@ dataset and copy the data to your database.
 
 <Procedure>
 
-#### Ingesting the dataset
+### Ingesting the dataset
 
 1.  Download the `bitcoin_sample.zip` file. The file contains a `.csv`
     file that contains Bitcoin transactions for the past five days. Download:
@@ -32,8 +32,8 @@ dataset and copy the data to your database.
     \COPY transactions FROM 'tutorial_bitcoin_sample.csv' CSV HEADER;
     ```
 
-    Because there are millions of rows of data, the `COPY` process could take a
-    few minutes depending on your internet connection and local client
+    Because there is over a million rows of data, the `COPY` process could take
+    a few minutes depending on your internet connection and local client
     resources.
 
 </Procedure>
