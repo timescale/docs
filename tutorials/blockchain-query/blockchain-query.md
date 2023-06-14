@@ -21,7 +21,7 @@ queries that answer these questions:
 
 This dataset contains Bitcoin transactions for the last five days. To find out
 the most recent transactions in the dataset, you can use a `SELECT` statement.
-In this case, you want to find transactions that are not coinbase transaction,
+In this case, you want to find transactions that are not coinbase transactions,
 order them by time in descending order, and take the top five results. You also
 want to see the block ID, and the value of the transaction in US Dollars.
 
@@ -58,12 +58,13 @@ want to see the block ID, and the value of the transaction in US Dollars.
 ## What are the five most recent coinbase transactions?
 
 In the last procedure, you excluded coinbase transactions from the results.
-Coinbase transactions are the first transaction in a block, and they include the
-reward a coin miner receives for mining the coin. To find out the most recent
-coinbase transactions, you can use a similar `SELECT` statement, but search for
-transactions that are coinbase instead. If you include the transaction value in
-US Dollars again, you'll notice that the value is $0 for each. This is because
-the coin has not transferred ownership in coinbase transactions.
+[Coinbase][coinbase-def] transactions are the first transaction in a block, and
+they include the reward a coin miner receives for mining the coin. To find out
+the most recent coinbase transactions, you can use a similar `SELECT` statement,
+but search for transactions that are coinbase instead. If you include the
+transaction value in US Dollars again, you'll notice that the value is $0 for
+each. This is because the coin has not transferred ownership in coinbase
+transactions.
 
 <Procedure>
 
