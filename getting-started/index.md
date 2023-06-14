@@ -27,10 +27,10 @@ using useful functions like continuous aggregates.
 
 <CloudTrial />
 
-Completing this tutorial should take you about FIXME minutes. When you have
+Completing this tutorial should take you less than half an hour. When you have
 finished this one, you might want to check out some
-[more advanced tutorials][tutorials],
-or browse through [the other guides][use-timescale].
+[more advanced tutorials][tutorials], or browse through
+[the other guides][use-timescale].
 
 [tutorials]: /tutorials/:currentVersion:/
 [use-timescale]: /use-timescale/:currentVersion:/
