@@ -2,8 +2,7 @@
 
 When you have extracted the raw OHLCV data, you can use it to graph the result
 in a candlestick chart, using Grafana. To do this, you need to have Grafana set
-up to connect to your TimescaleDB database. For more information about how to do
-this, see the [Grafana setup instructions][grafana-setup].
+up to connect to your TimescaleDB database.
 
 <Procedure>
 
@@ -11,8 +10,7 @@ this, see the [Grafana setup instructions][grafana-setup].
 
 1.  Ensure you have Grafana installed, and you are using the TimescaleDB
     database that contains the Twelve Data stocks dataset set up as a
-    data source. For more information about how to do this, see the [Grafana
-    setup instructions][grafana-setup].
+    data source.
 1.  In Grafana, from the `Dashboards` menu, click `New Dashboard`. In the
     `New Dashboard` page, click `Add a new panel`.
 1.  In the `Visualizations` menu in the top right corner, select `Candlestick`
@@ -23,11 +21,9 @@ this, see the [Grafana setup instructions][grafana-setup].
 1.  Adjust elements of the table as required, and click `Apply` to save your
     graph to the dashboard.
 
-<img class="main-content__illustration"
-    src="https://s3.amazonaws.com/assets.timescale.com/docs/images/Grafana_candlestick_1day.png"
-    alt="Creating a candlestick graph in Grafana using 1-day OHLCV tick data"
-/>
+    <img class="main-content__illustration"
+        src="https://s3.amazonaws.com/assets.timescale.com/docs/images/Grafana_candlestick_1day.png"
+        alt="Creating a candlestick graph in Grafana using 1-day OHLCV tick data"
+    />
 
 </Procedure>
-
-[grafana-setup]: /tutorials/:currentVersion:/grafana/grafana-timescalecloud/

@@ -31,14 +31,14 @@ helpful if you've seen SQL before.
 
 You also need:
 
-*   Time-series dataset with missing data (Note: in case you don't have
-one handy, we include an optional step for creating one below.)
+*   Time-series dataset with missing data (Note: in case you don't have one
+    handy, we include an optional step for creating one below.)
 
-*   A working [installation of TimescaleDB][install-timescale]. Once your installation
-is complete, we can proceed to ingesting or creating sample data and finishing the tutorial.
+*   A working [installation of TimescaleDB][install-timescale]. Once your
+    installation is complete, we can proceed to ingesting or creating sample
+    data and finishing the tutorial.
 
-*   Grafana dashboard connected to your TimescaleDB instance ([setup
-instructions][get-grafana])
+*   Grafana dashboard connected to your TimescaleDB instance.
 
 ### Step 0 - Load your time-series data into TimescaleDB and simulate missing data (optional)
 
@@ -174,7 +174,7 @@ period.
 This is just one way to use TimescaleDB with Grafana to solve data
 problems and ensure that your applications, systems, and operations
 don't  suffer any negative consequences (for example, downtime, misbehaving
-applications, or a degregraded customer experience). For more ways on
+applications, or a degraded customer experience). For more ways on
 how to use TimescaleDB, check out our other [tutorials][tutorials]
 (which range from beginner to advanced).
 
@@ -182,7 +182,6 @@ how to use TimescaleDB, check out our other [tutorials][tutorials]
 [docs-hypertable]: /use-timescale/:currentVersion:/hypertables/
 [docs-timebucket-gapfill]: /api/:currentVersion:/hyperfunctions/gapfilling/time_bucket_gapfill/
 [docs-timebucket]: /api/:currentVersion:/hyperfunctions/time_bucket
-[get-grafana]: /tutorials/:currentVersion:/grafana
 [grafana-external]: https://grafana.com/
 [install-timescale]: /getting-started/latest/
 [tutorial-simulate-iot]: /tutorials/:currentVersion:/simulate-iot-sensor-data/
