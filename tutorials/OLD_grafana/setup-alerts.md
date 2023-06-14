@@ -26,14 +26,14 @@ Language (SQL). The tutorial walks you through each SQL command, but it is
 helpful if you've seen SQL before.
 
 *   To start, [install TimescaleDB][install-timescale].
-*   Next [setup Grafana][install-grafana].
+*   Next setup Grafana.
 
 Once your installation of TimescaleDB and Grafana are complete, configure
 Grafana to connect to that database. Be sure to follow the full tutorial if
 you're interested in background on how to use TimescaleDB.
 
 For this tutorial, you need to first create various Grafana visualizations before
-setting up alerts. Use our [full set of Grafana tutorials][tutorial-grafana] to
+setting up alerts. Use our full set of Grafana tutorials to
 obtain the necessary background on Grafana. In this tutorial, we'll simply
 inform you of which Grafana visualization to create and the query to use.
 
@@ -277,15 +277,13 @@ Grafana supports a number of notification platforms, including:
 *   VictorOps
 *   Webhooks
 
-Steps for integrating with all of these are similar to the steps you used for Slack (webhooks)
-and PagerDuty (API or Integration Key).
+Steps for integrating with all of these are similar to the steps you used for
+Slack (webhooks) and PagerDuty (API or Integration Key).
 
 ### Summary
 
-Complete your Grafana knowledge by following [all the TimescaleDB + Grafana tutorials][tutorial-grafana].
+Complete your Grafana knowledge by following all the TimescaleDB + Grafana tutorials.
 
-[install-grafana]: /tutorials/:currentVersion:/grafana/installation
 [install-timescale]: /getting-started/latest/
 [pagerduty-integration-key]: https://support.pagerduty.com/docs/services-and-integrations
 [slack-webhook-instructions]: https://slack.com/help/articles/115005265063-Incoming-Webhooks-for-Slack
-[tutorial-grafana]: /tutorials/:currentVersion:/grafana

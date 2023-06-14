@@ -41,8 +41,8 @@ topping or bottoming out.
 
 This tutorial shows you how to:
 
-*   [Create candlestick aggregates with raw data](#create-a-candlestick-with-raw-data)
-*   [Show transaction volume when querying with raw data](#show-transaction-volumes-in-a-candlestick-plot)
+*   Create candlestick aggregates with raw data.
+*   Show transaction volume when querying with raw data.
 
 ## Prerequisites
 
@@ -170,8 +170,4 @@ This tutorial shows you how to use TimescaleDB to generate candlestick values
 that includes open, high, low, and close, from raw data in a hypertable. It also
 shows you how to query the traded volume for each time interval.
 
-To see other examples of how you can use TimescaleDB and Grafana, check out
-all the [Grafana tutorials][grafana-tutorials].
-
 [continuous-aggregrate]: /tutorials/:currentVersion:/financial-tick-data/
-[grafana-tutorials]: /tutorials/:currentVersion:/grafana/
