@@ -43,7 +43,7 @@ want to see the block ID, and the value of the transaction in US Dollars.
 1.  The data you get back looks a bit like this:
 
     ```sql
-              time          |                               hash                               | block_id | fee_usd
+                  time          |                               hash                               | block_id | fee_usd
     ------------------------+------------------------------------------------------------------+----------+---------
      2023-06-12 23:54:18+00 | 6f709d52e9aa7b2569a7f8c40e7686026ede6190d0532220a73fdac09deff973 |   794111 |   7.614
      2023-06-12 23:54:18+00 | ece5429f4a76b1603aecbee31bf3d05f74142a260e4023316250849fe49115ae |   794111 |   9.306
@@ -83,7 +83,7 @@ the coin has not transferred ownership in coinbase transactions.
 1.  The data you get back looks a bit like this:
 
     ```sql
-              time          |                               hash                               | block_id | fee_usd
+                 time          |                               hash                               | block_id | fee_usd
     ------------------------+------------------------------------------------------------------+----------+---------
      2023-06-12 23:54:18+00 | 22e4610bc12d482bc49b7a1c5b27ad18df1a6f34256c16ee7e499b511e02d71e |   794111 |       0
      2023-06-12 23:53:08+00 | dde958bb96a302fd956ced32d7b98dd9860ff82d569163968ecfe29de457fedb |   794110 |       0
