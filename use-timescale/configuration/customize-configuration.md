@@ -5,8 +5,7 @@ products: [cloud]
 keywords: [configure, services, settings]
 cloud_ui:
     path:
-        - [services, :serviceID, operations, database_parameters]
-    priority: 1
+        - [services, :serviceId, operations, database_parameters]
 ---
 
 # Configure database parameters

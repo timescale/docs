@@ -6,8 +6,7 @@ keywords: [connect, services]
 tags: [storage, resources, disk space]
 cloud_ui:
     path:
-        - [services, :serviceID, overview]
-    priority: 1
+        - [services, :serviceId, overview]
 ---
 
 # Service overview

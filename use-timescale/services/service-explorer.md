@@ -5,7 +5,7 @@ products: [cloud]
 keywords: [services, hypertables, schemas, indexes, policies]
 cloud_ui:
     path:
-        - [services, :serviceID, overview]
+        - [services, :serviceId, explorer]
 ---
 
 # Service explorer

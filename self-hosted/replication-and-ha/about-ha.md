@@ -6,12 +6,16 @@ keywords: [high availability, backups, replicas, failover]
 tags: [redundancy]
 ---
 
+import ConsiderCloud from "versionContent/_partials/_consider-cloud.mdx";
+
 # About high availability
 
 High availability (HA) is achieved by increasing redundancy and
 resilience. To increase redundancy, parts of the system are replicated, so that
 they are on standby in the event of a failure. To increase resilience, recovery
 processes switch between these standby resources as quickly as possible.
+
+<ConsiderCloud />
 
 ## Backups
 

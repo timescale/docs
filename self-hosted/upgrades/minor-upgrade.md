@@ -5,7 +5,8 @@ products: [self_hosted]
 keywords: [upgrades]
 ---
 
-import PlanUpgrade from 'versionContent/_partials/_plan_upgrade.mdx';
+import PlanUpgrade from "versionContent/_partials/_plan_upgrade.mdx";
+import ConsiderCloud from "versionContent/_partials/_consider-cloud.mdx";
 
 # Minor TimescaleDB upgrades
 
@@ -16,6 +17,8 @@ TimescaleDB&nbsp;2.6.
 For upgrading to a new major version, for example upgrading from
 TimescaleDB&nbsp;1 to TimescaleDB&nbsp;2, see the
 [major upgrades section][upgrade-major].
+
+<ConsiderCloud />
 
 ## Plan your upgrade
 

@@ -6,6 +6,8 @@ keywords: [backups, restore]
 tags: [recovery]
 ---
 
+import ConsiderCloud from "versionContent/_partials/_consider-cloud.mdx";
+
 # Backup and restore
 
 TimescaleDB takes advantage of the reliable backup and restore functionality
@@ -16,6 +18,8 @@ backup your self-hosted TimescaleDB database:
 *   [Physical backups][physical-backups] with `pg_basebackup` or another tool.
 *   _DEPRECATED_ [Ongoing physical backups][ongoing-physical-backups] using write-ahead log
   (WAL) archiving.
+
+<ConsiderCloud />
 
 [logical-backups]: /self-hosted/:currentVersion:/backup-and-restore/pg-dump-and-restore/
 [ongoing-physical-backups]: /self-hosted/:currentVersion:/backup-and-restore/docker-and-wale/

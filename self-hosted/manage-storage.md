@@ -6,6 +6,8 @@ keywords: [storage, tablespaces]
 tags: [move, manage, chunks]
 ---
 
+import ConsiderCloud from "versionContent/_partials/_consider-cloud.mdx";
+
 # Manage storage using tablespaces
 
 If you are running Timescale on your own hardware, you can save storage
@@ -21,6 +23,8 @@ can also use [compression](/use-timescale/latest/compression) and
 [data retention](/use-timescale/latest/data-retention) to reduce
 your storage requirements.
 </Highlight>
+
+<ConsiderCloud />
 
 ## Move data
 

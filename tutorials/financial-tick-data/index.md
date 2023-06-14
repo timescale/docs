@@ -4,6 +4,8 @@ excerpt: Learn how to store financial tick data and create candlestick views to 
 products: [cloud, mst, self_hosted]
 keywords: [tutorials, finance, learn]
 tags: [tutorials, beginner]
+layout_components: [next_prev_large]
+content_group: Analyze financial tick data
 ---
 
 # Analyze financial tick data with TimescaleDB
@@ -39,6 +41,11 @@ This tutorial covers:
 1.  [Query your dataset][financial-tick-query]: Create candlestick views, query
     the aggregated data, and visualize the data in Grafana.
 
+    This tutorial shows you how to ingest real-time time-series data into a Timescale 
+    database using a websocket connection. To create candlestick views, query the 
+    aggregated data, and visualize the data in Grafana, see the 
+    [ingest real-time websocket data section][advanced-websocket].
+
 ## About OHLCV data and candlestick charts
 
 The financial sector regularly uses [candlestick charts][charts] to visualize
@@ -68,6 +75,7 @@ these stories from some Timescale community members:
 [cloud-install]: /getting-started/latest/
 [financial-tick-dataset]: /tutorials/:currentVersion:/financial-tick-data/financial-tick-dataset/
 [financial-tick-query]: /tutorials/:currentVersion:/financial-tick-data/financial-tick-query/
+[advanced-websocket]: /tutorials/:currentVersion:/ingest-real-time-websocket-data/
 [charts]: https://www.investopedia.com/terms/c/candlestick.asp
 [twelve-data]: https://twelvedata.com/
 [trading-strategy]: https://www.timescale.com/blog/how-trading-strategy-built-a-data-stack-for-crypto-quant-trading/
