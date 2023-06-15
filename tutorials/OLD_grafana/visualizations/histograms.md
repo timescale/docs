@@ -47,18 +47,17 @@ formats. Each comes with its own benefits and challenges:
 <Highlight type="note">
 Histograms are great for analyzing the spread or distribution of data, but they
 don't show the change of data over time. If you need to see the distribution of
-your data over time, try a [heatmap](https://grafana.com/docs/grafana/latest/visualizations/heatmap/)
-instead.
+your data over time, try a heatmap instead.
 </Highlight>
 
 ## What you'll learn
 
 This tutorial shows you how to:
 
-*   [Create a price/transaction histogram from raw data][raw-data]
-*   [Create a price/transaction histogram from pre-aggregated data][pre-agg-data]
-*   [Create a panel showing multiple histograms][create-panel]
-*   [Create a price/volume histogram][price-volume]
+*   Create a price/transaction histogram from raw data
+*   Create a price/transaction histogram from pre-aggregated data
+*   Create a panel showing multiple histograms
+*   Create a price/volume histogram
 
 ## Prerequisites
 
@@ -293,10 +292,6 @@ You can do this with a pre-aggregation query, using:
 
 </Procedure>
 
-[raw-data]: /tutorials/:currentVersion:/grafana/visualizations/histograms/#create-a-price-transaction-histogram-with-raw-data/
-[pre-agg-data]: /tutorials/:currentVersion:/grafana/visualizations/histograms/#create-a-price-transaction-histogram-with-aggregated-data/
-[create-panel]: /tutorials/:currentVersion:/grafana/visualizations/histograms/#create-a-panel-with-multiple-price-transaction-histograms
-[price-volume]: /tutorials/:currentVersion:/grafana/visualizations/histograms/#create-a-price-volume-histogram/
 [lag]: <https://www.postgresql.org/docs/14/functions-window.html>
 [max]: <https://www.postgresql.org/docs/current/tutorial-agg.html>
 [time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/

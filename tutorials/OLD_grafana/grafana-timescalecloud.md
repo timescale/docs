@@ -19,8 +19,8 @@ information about installing Grafana, see the
 [Grafana documentation][grafana-install].
 
 Alternatively, to connect your Grafana service on Managed Service for
-TimescaleDB with your Timescale service, create a [Grafana][install-grafana]
-service on Managed Service for TimescaleDB. You can try it for free for 30 days.
+TimescaleDB with your Timescale service, create a Grafana service on Managed
+Service for TimescaleDB. You can try it for free for 30 days.
 
 This section shows you how to connect Timescale as a data source in [Grafana][grafana-homepage].
 
@@ -77,5 +77,4 @@ panels that are populated with data using SQL.
 
 [grafana-homepage]: https://grafana.com/
 [tsc-portal]: https://console.cloud.timescale.com/
-[install-grafana]: /tutorials/:currentVersion:/grafana/installation/#create-a-new-service-for-grafana
 [grafana-install]: https://grafana.com/docs/grafana/latest/installation/

@@ -29,12 +29,9 @@ you want to plot multiple bar charts in a single panel.
 
 This tutorial shows you how to:
 
-*   [Create a bar chart](/tutorials/latest/grafana/visualizations/bar-chart/#create-a-bar-chart-with-preaggregated-data)
-    with pre-aggregated data using `time_bucket()`.
-*   [Create multiple bar charts](/tutorials/latest/grafana/visualizations/bar-chart/#create-multiple-bar-charts)
-    in a single panel.
-*   [Create a stacked bar chart](/tutorials/latest/grafana/visualizations/bar-chart/#create-stacked-bar-chart)
-    with pre-aggregated data.
+*   Create a bar chart with pre-aggregated data using `time_bucket()`.
+*   Create multiple bar charts in a single panel.
+*   Create a stacked bar chart with pre-aggregated data.
 
 There are a few different kinds of bar charts to choose from, including
 vertical, horizontal, and stacked bar charts. All of these types are covered in
@@ -206,9 +203,5 @@ calculation on a single trading day instead.
 
 </Procedure>
 
-There are plenty of great ways to visualize data using TimescaleDB and Grafana,
-check out the other
-[Grafana visualization tutorials][grafana-tutorials].
 
-[grafana-tutorials]: /tutorials/:currentVersion:/grafana/
 [gsg-data]: /getting-started/:currentVersion:/
