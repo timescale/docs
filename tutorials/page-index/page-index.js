@@ -27,11 +27,6 @@ module.exports = [
         ],
       },
       {
-        title: "Analyze cryptocurrency data",
-        href: "analyze-cryptocurrency-data",
-        excerpt: "Use Timescale to analyze cryptocurrency data",
-      },
-      {
         title: "Query the Bitcoin blockchain",
         href: "blockchain-query",
         excerpt: "Query the Bitcoin blockchain",
@@ -46,6 +41,24 @@ module.exports = [
             title: "Query the blockchain tutorial - query data",
             href: "blockchain-query",
             excerpt: "Query the Bitcoin blockchain dataset",
+          },
+        ],
+      },
+      {
+        title: "Analyze the Bitcoin blockchain",
+        href: "blockchain-analyze",
+        excerpt: "Analyze the Bitcoin blockchain with Timescale hyperfunctions",
+        children: [
+          {
+            title: "Analyze the blockchain tutorial - set up",
+            href: "blockchain-dataset",
+            excerpt:
+              "Set up a dataset so you can analyze the Bitcoin blockchain",
+          },
+          {
+            title: "Query the blockchain tutorial - query data",
+            href: "analyze-blockchain-query",
+            excerpt: "Analyze the Bitcoin blockchain dataset with Timescale hyperfunctions",
           },
         ],
       },
