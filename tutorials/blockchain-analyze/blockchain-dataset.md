@@ -63,5 +63,7 @@ Bitcoin blockchain dataset.
 
 <GrafanaConnect />
 
+</Collapsible>
+
 [satoshi-def]: https://www.pcmag.com/encyclopedia/term/satoshi
 [coinbase-def]: https://www.pcmag.com/encyclopedia/term/coinbase-transaction
