@@ -7,7 +7,7 @@ layout_components: [next_prev_large]
 content_group: Query the Bitcoin blockchain
 ---
 
-# Analyze the Bitcoin blockchain
+# Query the Bitcoin blockchain
 
 [Blockchains][blockchain-def] are, at their essence, a distributed database. The
 [transactions][transactions-def] in a blockchain are an example of time-series data. You can use
@@ -47,11 +47,12 @@ recent transactions on the blockchain, and gathering information about the
 transactions using aggregation functions.
 
 When you've completed this tutorial, you can use the same dataset to complete
-the advanced blockchain tutorial, which shows you how to analyze the blockchain
-data using Timescale hyperfunctions.
+the [advanced blockchain tutorial][analyze-blockchain], which shows you how to
+analyze the blockchain data using Timescale hyperfunctions.
 
 [cloud-install]: /getting-started/latest/
 [blockchain-dataset]: timescaledb/tutorials/query-blockchain/blockchain-dataset
 [blockchain-query]: timescaledb/tutorials/query-blockchain/blockchain-query
 [blockchain-def]: https://www.pcmag.com/encyclopedia/term/blockchain
 [transactions-def]: https://www.pcmag.com/encyclopedia/term/bitcoin-transaction
+[analyze-blockchain]: /tutorials/:currentVersion:/blockchain-analyze/

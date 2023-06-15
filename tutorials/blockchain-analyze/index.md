@@ -1,70 +1,60 @@
 ---
 title: Analyze the Bitcoin blockchain
-excerpt: Use Timescale hyperfunctions to analyze the Bitcoin blockchain
-products: [cloud, self-hosted]
-keywords: [advanced, crypto, blockchain, Bitcoin, finance, analytics]
+excerpt: Analyze the Bitcoin blockchain
+products: [cloud]
+keywords: [intermediate, crypto, blockchain, Bitcoin, finance, analytics]
 layout_components: [next_prev_large]
 content_group: Analyze the Bitcoin blockchain
 ---
 
 # Analyze the Bitcoin blockchain
 
-Blockchain data is time-series data. You can use TimescaleDB to ingest, store,
-and analyze data on blockchain transactions. This tutorial focuses on Bitcoin
-analysis, but you can apply the same principles and TimescaleDB features on any
-blockchain data. This includes Etheruem, Solana, and others.
+[Blockchains][blockchain-def] are, at their essence, a distributed database. The
+[transactions][transactions-def] in a blockchain are an example of time-series
+data. You can use Timescale to query transactions on a blockchain, in exactly the
+same way as you might query time-series transactions in any other database.
 
-<Highlight type="note">
-This tutorial shows you one approach to Doing Your Own Research in
-the blockchain space. Any
-conclusions made from the data are illustrative examples only. They're meant to help
-you learn about TimescaleDB features, and to inspire your own
-data analysis and conclusions. To read about the
-conclusions we made from
-analyzing 5 years' worth of Bitcoin transactions,
-[see our blog post](https://www.timescale.com/blog/analyzing-the-bitcoin-blockchain-looking-behind-the-hype-with-postgresql/).
-</Highlight>
+In this tutorial, you use Timescale hyperfunctions to analyze transactions
+on the Bitcoin blockchain. You can use these skills to query any data on a
+blockchain, including other cryptocurrencies, smart contracts, or health data.
 
 ## Prerequisites
 
 Before you begin, make sure you have:
 
-*   A TimescaleDB instance running locally or on the cloud.
-  For more information, see [installation options][install-docs].
-*   [`psql`][psql], or any other PostgreSQL client.
+*   Signed up for a [free Timescale account][cloud-install].
+*   <Optional />If you want to graph your queries, signed up for a
+    [Grafana account][grafana-setup].
 
 ## Steps in this tutorial
 
-A numbered list of the sub-pages in the tutorial. Remember that this is
-curricula content, so these steps must be in order:
+This tutorial covers:
 
-1.  [Set up up your dataset][tutorial-dataset]
-1.  [Query your dataset][tutorial-query]
-1.  [More things to try][tutorial-advanced]
+1.  [Set up up your dataset][blockchain-dataset]
+1.  [Analyze your dataset][blockchain-query]
 
-## About the widget and the tool
+## About analyzing the Bitcoin blockchain with Timescale
 
-This section collects all the concept information related to the tutorial, and
-the tools that are being used throughout. It answers the question "What is it?"
-This section should not include any procedures, but it can contain code samples
-if they are being used to explain the feature. Break this page up in a way that
-is logical, starting from simpler concepts and moving to more complicated ones.
-Use diagrams and screenshots sparingly, and ensure they add value. Try to keep
-this section succinct, by linking to lengthier material that exists elsewhere.
+This tutorial uses a sample Bitcoin dataset to show you how to aggregate
+blockchain transaction data, and construct queries to analyze information from
+the aggregations. The queries you do in this tutorial are used to do things like
+determine if a cryptocurrency has a high transaction fee, shows any correlation
+between transaction volumes and fees, or if it's expensive to mine.
 
-For example:
+It starts by setting up and connecting to a Timescale database, create tables,
+and load data into the tables using `psql`. If you have already completed the
+[beginner blockchain tutorial][query-blockchain], then you already have the
+dataset loaded, and you can skip straight to the queries.
 
-```txt
-Candlestick charts are used in the financial sector to visualize the price
-change of an asset. Each candlestick represents a time frame, such as 1
-minute, 1 hour, or similar, and shows how the asset's price changed
-during that time.
-```
+You then learn how to conduct analysis on your dataset using Timescale
+hyperfunctions. It walks you through creating a series of continuous aggregates,
+and querying the aggregates to analyze the data. You can also use those queries
+to graph the output in Grafana.
 
-Include reference-style links at the bottom of the page.
-
-[install-docs]: install/:currentVersion:/
-[psql]: timescaledb/:currentVersion:/how-to-guides/connecting/
-[tutorial-dataset]: timescaledb/tutorials/_template/_dataset-tutorial
-[tutorial-query]: timescaledb/tutorials/_template/_query-template
-[tutorial-advanced]: timescaledb/tutorials/_template/_advanced-tutorial
+[cloud-install]: /getting-started/latest/
+[blockchain-dataset]: timescaledb/tutorials/query-blockchain/blockchain-dataset
+[blockchain-query]: timescaledb/tutorials/query-blockchain/blockchain-query
+[blockchain-def]: https://www.pcmag.com/encyclopedia/term/blockchain
+[transactions-def]: https://www.pcmag.com/encyclopedia/term/bitcoin-transaction
+[query-blockchain]: /tutorials/:currentVersion:/blockchain-query/
+[grafana-setup]: /use-timescale/:currentVersion:/integrations/obervability-alerting/grafana/installation/
