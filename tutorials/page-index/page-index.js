@@ -19,11 +19,6 @@ module.exports = [
             href: "query-nyc",
             excerpt: "Query NYC data",
           },
-          {
-            title: "Time-series tutorial - advanced queries",
-            href: "advanced-nyc",
-            excerpt: "Advanced queries NYC data",
-          },
         ],
       },
       {
