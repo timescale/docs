@@ -38,7 +38,7 @@ a few test projects of your own.
 
 This tutorial covers:
 
-1.  [Set up up your dataset][financial-tick-dataset]: Load data from
+1.  [Set up your dataset][financial-tick-dataset]: Load data from
     [Twelve Data][twelve-data] into your TimescaleDB database.
 1.  [Query your dataset][financial-tick-query]: Create candlestick views, query
     the aggregated data, and visualize the data in Grafana.
