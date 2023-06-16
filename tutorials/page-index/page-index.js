@@ -22,6 +22,23 @@ module.exports = [
         ],
       },
       {
+        title: "Plot geospatial NYC taxi cab data",
+        href: "nyc-taxi-geospatial",
+        excerpt: "Learn how to plot geospatial time-series data with NYC taxi cabs",
+        children: [
+          {
+            title: "Geospatial tutorial - set up",
+            href: "dataset-nyc",
+            excerpt: "Set up a dataset so you can plot geospatial NYC taxi data",
+          },
+          {
+            title: "Geospatial tutorial - query data",
+            href: "plot-nyc",
+            excerpt: "Plot geospatial NYC taxi data",
+          },
+        ],
+      },
+      {
         title: "Analyze cryptocurrency data",
         href: "analyze-cryptocurrency-data",
         excerpt: "Use Timescale to analyze cryptocurrency data",
