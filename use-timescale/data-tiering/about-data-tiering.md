@@ -12,8 +12,6 @@ import ExperimentalPrivateBeta from 'versionContent/_partials/_early_access.mdx'
 
 Save on storage costs by tiering data to a low-cost object-storage layer.
 
-<ExperimentalPrivateBeta />
-
 Timescale includes traditional disk storage, and a low-cost object-storage
 layer built on Amazon S3. You can move your hypertable data across the different
 storage tiers to get the best price performance. You can use primary storage for
@@ -85,9 +83,9 @@ For more about how data tiering works, see the
     native data types, but not for non-native types, such as `JSON`, `JSONB`,
     and `GIS`.
 
-*   **Latency.** S3 has higher access latency than EBS however, S3 has 
-    comparatively greater throughput for large scans. This can affect the 
-    execution time of queries in latency-sensitive environments, especially 
+*   **Latency.** S3 has higher access latency than EBS however, S3 has
+    comparatively greater throughput for large scans. This can affect the
+    execution time of queries in latency-sensitive environments, especially
     lighter queries.
 
 ## Learn more

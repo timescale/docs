@@ -12,8 +12,6 @@ import ExperimentalPrivateBeta from 'versionContent/_partials/_early_access.mdx'
 
 Save on storage costs by tiering data to a low-cost object-storage layer.
 
-<ExperimentalPrivateBeta />
-
 *   Learn [how data tiering works][about-data-tiering] before you start using it.
 *   [Tier data to object storage][tier-data]
 *   [Untier data][untier-data]

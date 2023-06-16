@@ -15,8 +15,6 @@ Tier data from primary storage to object storage to save on storage costs. You
 can continue to query a hypertable as normal after migration. All queries,
 including `JOIN`s, work as usual.
 
-<ExperimentalPrivateBeta />
-
 ## Manually tier a chunk
 
 Move a single chunk to tiered S3 storage by calling the `tier_chunk` function

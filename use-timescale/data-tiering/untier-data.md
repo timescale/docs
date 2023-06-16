@@ -16,12 +16,10 @@ be changed. To update data in a tiered chunk, you need to move it back to EBS
 (elastic block storage). This is called untiering the data. You can untier data
 in a chunk using the `untier_chunk` stored procedure.
 
-<ExperimentalPrivateBeta />
-
 ## Untier data in a chunk
 
-Untiering chunks is a synchronous process that occurs when the `untier_chunk` procedure is called. 
-When you untier a chunk, the data is moved from S3 storage to EBS storage.  
+Untiering chunks is a synchronous process that occurs when the `untier_chunk` procedure is called.
+When you untier a chunk, the data is moved from S3 storage to EBS storage.
 Chunks are renamed when the data is untiered.
 
 <Procedure>
