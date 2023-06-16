@@ -15,21 +15,27 @@ import CreateHypertableNyc from "versionContent/_partials/_create-hypertable-nyc
 import AddDataNyc from "versionContent/_partials/_add-data-nyctaxis.mdx";
 import GrafanaConnect from "versionContent/_partials/_grafana-connect.mdx";
 
-## Sign up for Timescale
+<Collapsible heading="Sign up for Timescale">
 
 Your Timescale account is free for thirty days.
 
 <Install />
 
-## Create a service
+</Collapsible>
+
+<Collapsible heading="Create a service">
 
 <CreateService demoData={false} />
 
-## Connect to your service
+</Collapsible>
+
+<Collapsible heading="Connect to your service">
 
 <Connect />
 
-# The dataset
+</Collapsible>
+
+<Collapsible heading="The dataset">
 
 This tutorial uses historical data from New York's yellow taxi network, provided
 by the New York City Taxi and Limousine Commission [NYC TLC][nyc-tlc].
@@ -37,6 +43,8 @@ by the New York City Taxi and Limousine Commission [NYC TLC][nyc-tlc].
 <CreateHypertableNyc />
 
 <AddDataNyc />
+
+</Collapsible>
 
 <Collapsible heading="Connect to Grafana">
 
