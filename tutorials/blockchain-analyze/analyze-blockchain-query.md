@@ -252,7 +252,7 @@ fee. For this analysis, a larger time frame is required, so increase the
 analyzed time range to 5 days.
 
 If you choose to visualize the query in Grafana, you can see that the more
-transactions in a block, then the higher the mining fee becomes.
+transactions in a block, the higher the mining fee becomes.
 
 <Procedure>
 
