@@ -17,7 +17,7 @@ vehicles making about 1 million trips each day. Because nearly all of this data
 is time-series data, proper analysis requires a purpose-built time-series
 database, like Timescale.
 
-In the [beginner NYC taxis tutorial tutorial][beginner-fleet], you looked at
+In the [beginner NYC taxis tutorial][beginner-fleet], you looked at
 constructing queries that looked at how many rides were taken, and when. The NYC
 taxi cab dataset also contains information about where each ride was picked up.
 This is geospatial data, and you can use a PostgreSQL extension called PostGIS
