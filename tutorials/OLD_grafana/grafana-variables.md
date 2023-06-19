@@ -16,7 +16,7 @@ Language (SQL). The tutorial walks you through each SQL command, but it is
 helpful if you've seen SQL before.
 
 *   To start, [install TimescaleDB][install-timescale].
-*   Next [setup Grafana][install-grafana].
+*   Next setup Grafana.
 
 Once your installation of TimescaleDB and Grafana are complete, ingest the data found
 in the [NYC Taxi Cab][nyc-taxi] tutorial and configure Grafana to connect
@@ -72,10 +72,10 @@ Click 'Add' to save your variable.
 
 #### Use the variable in a Grafana panel
 
-Let's edit the WorldMap panel we created in the
-[Grafana geo-spatial queries][tutorial-grafana-geospatial] tutorial. The first thing you'll
-notice is that now that we've defined a variable for this dashboard, there's now a drop-down
-for that variable in the upper left hand corner of the panel.
+Let's edit the WorldMap panel we created in the Grafana geo-spatial queries
+tutorial. The first thing you'll notice is that now that we've defined a
+variable for this dashboard, there's now a drop-down for that variable in the
+upper left hand corner of the panel.
 
 We can use this variable to filter the results of our query using the `WHERE` clause in SQL.
 Check and see if `rides.payment_type` is in the array of the variable, which we've
@@ -228,10 +228,7 @@ Your dashboard should look something like this:
 
 ### Summary
 
-Complete your Grafana knowledge by following [all the TimescaleDB + Grafana tutorials][tutorial-grafana].
+Complete your Grafana knowledge by following all the TimescaleDB + Grafana tutorials.
 
-[install-grafana]: /tutorials/:currentVersion:/grafana/installation
 [install-timescale]: /getting-started/latest/
 [nyc-taxi]: /tutorials/:currentVersion:/nyc-taxi-cab
-[tutorial-grafana-geospatial]: /tutorials/:currentVersion:/grafana/geospatial-dashboards/
-[tutorial-grafana]: /tutorials/:currentVersion:/grafana

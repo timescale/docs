@@ -21,11 +21,11 @@ writing different types of data written by people who work with that data.
 
 ## Before you begin
 
-*   [Install Telegraf][install-telegraf] on the system where you want to collect metrics.
+*   [Install Telegraf][install-telegraf] on the system where you want to collect
+    metrics.
 *   Create a [Timescale service][create-service].
 *   Gather the connection details for [your service][connect-timescaledb].
-
-*   Install Grafana or create a Grafana service on [Managed Service for TimescaleDB][grafana-mst]
+*   Install Grafana
 
 ## Ingest metrics using the Telegraf plugin
 
@@ -46,8 +46,8 @@ writing different types of data written by people who work with that data.
     ```
 
     A configuration file enables a CPU input plugin that samples various metrics
-    about CPU usage, and the PostgreSQL output plugin. The file also includes all
-    available input, output, processor, and aggregator plugins. These are commented out
+    about CPU usage, and the PostgreSQL output plugin. The file also includes
+    all available input, output, processor, and aggregator plugins. These are
     commented out by default. You can enable them as required.
 
 1.  Test the sample configuration file `telegraf.conf` that you generated:
@@ -134,7 +134,8 @@ writing different types of data written by people who work with that data.
     2022-12-05T12:32:00Z I! [agent] Config: Interval:10s, Quiet:false, Hostname:"test", Flush Interval:10s
     ```
 
-1.  Stop running Telegraf to collect the metrics after approximately 15 to 20 seconds.
+1.  Stop running Telegraf to collect the metrics after approximately 15 to 20
+    seconds.
 
 1.  Connect to Timescale and provide the `<PASSWORD>` for `tsdbadmin`:
 
@@ -197,4 +198,3 @@ panels that are populated with data using SQL.
 [install-telegraf]: https://docs.influxdata.com/telegraf/v1.21/introduction/installation/
 [create-service]: /getting-started/latest/
 [connect-timescaledb]: /use-timescale/:currentVersion:/connecting/about-connecting/
-[grafana-mst]: /tutorials/:currentVersion:/grafana/installation/#create-a-new-service-for-grafana

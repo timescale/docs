@@ -11,8 +11,8 @@ content_group: Analyze financial tick data
 import Install from "versionContent/_partials/_cloud-installation.mdx";
 import CreateService from "versionContent/_partials/_cloud-create-service.mdx";
 import Connect from "versionContent/_partials/_cloud-connect.mdx";
-import CreateHypertable from "versionContent/_partials/_create-hypertable-twelvedata-crypto.mdx";
-import AddData from "versionContent/_partials/_add-data-twelvedata-crypto.mdx";
+import CreateHypertable from "versionContent/_partials/_create-hypertable-twelvedata-stocks.mdx";
+import AddData from "versionContent/_partials/_add-data-twelvedata-stocks.mdx";
 
 # Create the dataset
 
