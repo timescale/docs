@@ -20,7 +20,7 @@ and visualize data.
 Before you begin, make sure you have:
 
 *   [Installed TimescaleDB][install-timescale].
-*   [Set up Grafana][install-grafana].
+*   Set up Grafana.
 
 When your installation of TimescaleDB and Grafana are complete, ingest the data
 found in the [NYC Taxi Cab][nyc-taxi] tutorial and configure Grafana to connect
@@ -181,11 +181,8 @@ When you visualize this query, it looks like this:
 
 ### Summary
 
-Complete your Grafana knowledge by following
-[all the TimescaleDB + Grafana tutorials][tutorial-grafana].
+Complete your Grafana knowledge by following all the TimescaleDB + Grafana tutorials.
 
-[install-grafana]: /tutorials/:currentVersion:/grafana/installation
 [install-timescale]: /getting-started/latest/
 [nyc-taxi]: /tutorials/:currentVersion:/nyc-taxi-cab
 [time-bucket-reference]: /api/:currentVersion:/hyperfunctions/time_bucket
-[tutorial-grafana]: /tutorials/:currentVersion:/grafana

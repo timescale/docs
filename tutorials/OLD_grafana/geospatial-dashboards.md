@@ -18,7 +18,7 @@ Language (SQL). The tutorial walks you through each SQL command, but it is
 helpful if you've seen SQL before.
 
 *   To start, [install TimescaleDB][install-timescale].
-*   Next [setup Grafana][install-grafana].
+*   Next setup Grafana.
 
 Once your installation of TimescaleDB and Grafana are complete, ingest the data found
 in the [NYC Taxi Cab][nyc-taxi] tutorial and configure Grafana to connect
@@ -114,9 +114,7 @@ for different timeframes.
 
 ### Summary
 
-Complete your Grafana knowledge by following [all the TimescaleDB + Grafana tutorials][tutorial-grafana].
+Complete your Grafana knowledge by following all the TimescaleDB + Grafana tutorials.
 
-[install-grafana]: /tutorials/:currentVersion:/grafana/installation
 [install-timescale]: /getting-started/latest/
 [nyc-taxi]: /tutorials/:currentVersion:/nyc-taxi-cab
-[tutorial-grafana]: /tutorials/:currentVersion:/grafana
