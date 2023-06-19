@@ -53,7 +53,7 @@ create tables, and load data into the tables using `psql`.
 You then learn how to conduct analysis and monitoring on your dataset. It walks
 you through the steps to visulaize the results in Grafana.
 
-[dataset-energy]: /tutorials/:currentVersion:/energy/dataset-energy/
-[query-energy]: /tutorials/:currentVersion:/energy/query-energy/
+[dataset-energy]: /tutorials/:currentVersion:/energy-data/dataset-energy/
+[query-energy]: /tutorials/:currentVersion:/energy-data/query-energy/
 [cloud-install]: /getting-started/latest/
 [grafana-setup]: /use-timescale/:currentVersion:/integrations/obervability-alerting/grafana/installation/
