@@ -241,11 +241,7 @@ More information on how to do all of these is
 
 ## Next steps [](#next-steps)
 
-Congratulations! Now you are monitoring your Django application with Prometheus!
-
-Looking for something to do next? You can start building dashboards to
-monitor key metrics in real-time, using another open-source tool for your
-visualizations, like [Grafana][grafana].
+Congratulations. you are now monitoring your Django application with Prometheus.
 
 [django-first-app]: https://docs.djangoproject.com/en/3.0/intro/tutorial01/
 [get-django-prometheus-more]: https://github.com/korfuri/django-prometheus#monitoring-your-databases
@@ -253,7 +249,6 @@ visualizations, like [Grafana][grafana].
 [get-django]: https://docs.djangoproject.com/en/3.0/topics/install/
 [get-pip]: https://pip.pypa.io/en/latest/installing/#installing-with-get-pip-py
 [get-prometheus]: https://prometheus.io/docs/prometheus/latest/installation/
-[grafana]: /tutorials/:currentVersion:/grafana
 [localhost-metrics]: http://localhost:8000/metrics
 [localhost-prom-browser]: http://localhost:9090/graph
 [localhost-prom-example]: http://localhost:9090/graph?g0.range_input=1h&g0.stacked=1&g0.expr=django_http_requests_total_by_method_total&g0.tab=0

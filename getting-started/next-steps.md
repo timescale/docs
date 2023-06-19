@@ -41,10 +41,6 @@ Tableau, and Power BI, to name a few. Once you can see trends and query
 for specific data features using relational data, a whole new world of insights
 begins to open up.
 
-Check out the [growing set of visualization tutorials][visualize-data], showing
-you how to become a Grafana Superhero and connect to other third party
-visualization tools.
-
 ## Connect to your data with code
 
 While this may be the century of big data, the greatest power often happens in
@@ -59,4 +55,3 @@ and running with Timescale, including best practices.
 [ingest-real-time]: /tutorials/:currentVersion:/ingest-real-time-websocket-data
 [migrate-data]: /use-timescale/:currentVersion:/migration/
 [twelve-data]: https://twelvedata.com/
-[visualize-data]: /tutorials/:currentVersion:/grafana/

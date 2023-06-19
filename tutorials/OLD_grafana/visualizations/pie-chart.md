@@ -25,9 +25,9 @@ Pie charts can answer questions like:
 
 This tutorial shows you how to:
 
-*   [Create a pie chart][pie-chart] with pre-aggregated data using
+*   Create a pie chart with pre-aggregated data using
     `time_bucket()`.
-*   [Create a donut chart][donut-chart] to show volume of stock transactions.
+*   Create a donut chart to show volume of stock transactions.
 
 A pie chart can be in the traditional pie style or in donut style. Both display the
 same information. This tutorial shows you how to create both.
@@ -165,11 +165,3 @@ calculation on a single trading day instead.
 Pie charts are a great tool for comparing categorized data. They're especially good
 for visualizing percentages. But they don't work as well if you have too many categories
 with similar percentages or large amount of data.
-
-For more ways to visualize data using TimescaleDB and Grafana, see the other
-[Grafana visualization tutorials][grafana-tutorials].
-
-[pie-chart]: /tutorials/:currentVersion:/grafana/visualizations/pie-chart/#create-a-pie-chart-with-preaggregated-data
-[donut-chart]: /tutorials/:currentVersion:/grafana/visualizations/pie-chart/#create-a-donut-chart-with-volume-transactions
-[grafana-tutorials]: /tutorials/:currentVersion:/grafana/
-[gsg-data]: /getting-started/:currentVersion:/
