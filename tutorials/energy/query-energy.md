@@ -153,7 +153,7 @@ You may also want to check the energy consumption that on a monthly basis.
      select
        time,
        value
-     from kwh_day_by_day
+     FROM kwh_day_by_day
      where "time" > now() - interval '1 year'
      ORDER BY 1
     ), per_month AS (
