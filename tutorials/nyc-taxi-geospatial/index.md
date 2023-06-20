@@ -51,7 +51,7 @@ new roads and public services.
 It starts by teaching you how to set up and connect to a Timescale database,
 create tables, and load data into the tables using `psql`. If you have already
 completed the [beginner NYC taxis tutorial][beginner-fleet], then you already
-have the dataset loaded, and you can skip straight to the queries.
+have the dataset loaded, and you can skip [straight to the queries][plot-nyc].
 
 You then learn how to conduct analysis and monitoring on your dataset. It walks
 you through using PostgreSQL queries with the PostGIS extension to obtain
@@ -63,3 +63,4 @@ information, and plotting the results in Grafana.
 [cloud-install]: /getting-started/latest/
 [grafana-setup]: /use-timescale/:currentVersion:/integrations/obervability-alerting/grafana/installation/
 [beginner-fleet]: /tutorials/:currentVersion:/nyc-taxi-cab/
+[plot-nyc]: /tutorials/:currentVersion:/nyc-taxi-cab/plot-nyc/
