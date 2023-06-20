@@ -87,8 +87,7 @@ This tutorial uses the enegry consumption data for over a year in a typical hous
 1.  You can confirm that the continuous aggregates were created:
 
     ```sql
-       SELECT view_name, format('%I.%I', materialization_hypertable_schema,
-        materialization_hypertable_name) AS materialization_hypertable
+    SELECT view_name, format('%I.%I', materialization_hypertable_schema,materialization_hypertable_name) AS materialization_hypertable
     FROM timescaledb_information.continuous_aggregates;
     ```
 

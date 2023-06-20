@@ -10,12 +10,12 @@ content_group: Analyze energy consumption data
 
 # Analyze energy consumption data
 
-When you are planning to switch to a photovoltaic system it isn’t easy, even
+When you are planning to switch to a rooftop solar system it isn’t easy, even
 with a specialist at hand. You need details of your power consumption, typical
 usage hours, or distribution over a year. Collecting consumption data at the
 granularity of a few seconds is key to finding all the answers for more
-precision. This tutorial uses energy consumption data from a typical household for
-over a year. Because nearly all of this data is time-series data, proper
+precision. This tutorial uses energy consumption data from a typical household
+for over a year. Because nearly all of this data is time-series data, proper
 analysis requires a purpose-built time-series database, like Timescale.
 
 In this tutorial you can construct queries that look at how many watts were
@@ -34,11 +34,11 @@ Before you begin, make sure you have:
 
 This tutorial covers:
 
-1.  [Setting up up your dataset][dataset-energy]: Set up and connect to a Timescale
-    service, and load data into your database using `psql`.
+1.  [Setting up up your dataset][dataset-energy]: Set up and connect to a
+    Timescale service, and load data into your database using `psql`.
 1.  [Querying your dataset][query-energy]: Analyze a dataset containing energy
-        consumption data using Timescale and PostgreSQL, and visualize the
-        results in Grafana.
+    consumption data using Timescale and PostgreSQL, and visualize the
+    results in Grafana.
 
 ## About querying data with Timescale
 

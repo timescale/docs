@@ -72,23 +72,6 @@ module.exports = [
         excerpt: "Ingest real-time financial data with websocket",
       },
       {
-        title: "Analyze energy consumption data",
-        href: "energy-data",
-        excerpt: "Learn how to analyze energy consumption data",
-        children: [
-          {
-            title: "Energy consumption tutorial - set up",
-            href: "dataset-energy",
-            excerpt: "Set up a dataset so you can analyze energy consumption data",
-          },
-          {
-            title: "Energy consumption tutorial - queries",
-            href: "query-energy",
-            excerpt: "Queries energy consumption data",
-          },
-        ] 
-      },
-      {
         title: "Analyze NFT sales data",
         href: "analyze-nft-data",
         excerpt: "Analyze NFT sales data with Timescale",
@@ -125,6 +108,23 @@ module.exports = [
         title: "Simulate IoT sensor data",
         href: "simulate-iot-sensor-data",
         excerpt: "Simulate IoT Sensor Data with Timescale",
+      },
+      {
+        title: "Analyze energy consumption data",
+        href: "energy-data",
+        excerpt: "Learn how to analyze energy consumption data",
+        children: [
+          {
+            title: "Energy consumption tutorial - set up",
+            href: "dataset-energy",
+            excerpt: "Set up a dataset so you can analyze energy consumption data",
+          },
+          {
+            title: "Energy consumption tutorial - queries",
+            href: "query-energy",
+            excerpt: "Queries energy consumption data",
+          },
+        ] 
       },
     ],
   },
