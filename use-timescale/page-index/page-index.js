@@ -123,8 +123,21 @@ module.exports = [
               [
                 {
                   title: "Grafana",
-                  href: "FIXME",
+                  href: "grafana",
                   excerpt: "Use Grafana with Timescale",
+                  children:
+                    [
+                      {
+                        title: "Installing Grafana",
+                        href: "installation",
+                        excerpt: "Installing Grafana and connecting it to your Timescale service"
+                      },
+                      {
+                        title: "Create a Grafana dashboard and panel",
+                        href: "create-dashboard-and-panel",
+                        excerpt: "Create a Grafana dashboard and panel to display your Timescale data",
+                      },
+                    ]
                 },
                 {
                   title: "Datadog",
@@ -146,7 +159,7 @@ module.exports = [
               [
                 {
                   title: "Telegraf",
-                  href: "FIXME",
+                  href: "ingest-telegraf",
                   excerpt: "Use Telegraf with Timescale",
                 },
               ]
