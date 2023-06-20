@@ -151,7 +151,7 @@ You may also want to check the energy consumption that occurs on a monthly basis
 
     ```sql
         WITH per_day AS (
-     select
+     SELECT
        time,
        value
      FROM kwh_day_by_day
