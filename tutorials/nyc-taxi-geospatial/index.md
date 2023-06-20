@@ -45,7 +45,7 @@ This tutorial covers:
 
 This tutorial uses the [NYC taxi data][nyc-tlc] to show you how to construct
 queries for geospatial time-series data. The analysis you do in this tutorial is
-similar to the kind of analysis civic organizations use to do things like plan
+similar to the kind of analysis civic organizations do to plan
 new roads and public services.
 
 It starts by teaching you how to set up and connect to a Timescale database,

@@ -108,7 +108,7 @@ Times Square is located at (40.7589,-73.9851).
 
 ## Which rides traveled more than 5 miles in Manhattan?
 
-This query is especially well suited to being plotted on a map. It looks at
+This query is especially well suited to plot on a map. It looks at
 rides that were longer than 5 miles, within the city of Manhattan.
 
 In this query, you want to return rides longer than 5 miles, but also include
