@@ -155,7 +155,7 @@ You may also want to check the energy consumption that on a monthly basis.
        value
      from kwh_day_by_day
      where "time" > now() - interval '1 year'
-     order by 1
+     ORDER BY 1
     ), per_month AS (
        SELECT
           to_char(time, 'Mon') as month,
