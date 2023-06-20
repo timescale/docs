@@ -39,7 +39,7 @@ module.exports = [
           },
           {
             title: "Query the blockchain tutorial - query data",
-            href: "blockchain-query",
+            href: "beginner-blockchain-query",
             excerpt: "Query the Bitcoin blockchain dataset",
           },
         ],
