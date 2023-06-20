@@ -44,9 +44,9 @@ Time                | Value_1 | Value_2 |
 
 This tutorial shows you how to:
 
-*   [Create a time-series graph with raw data][raw-data]
-*   [Create a time-series graph with pre-aggregated data using time_bucket()][pre-agg-data]
-*   [Create multiple time-series graphs in a single panel][create-panel]
+*   Create a time-series graph with raw data
+*   Create a time-series graph with pre-aggregated data using time_bucket()
+*   Create multiple time-series graphs in a single panel
 
 ## Prerequisites
 
@@ -239,7 +239,4 @@ change to your query.
 
 </Procedure>
 
-[raw-data]: /tutorials/:currentVersion:/grafana/visualizations/time-series/#create-a-time-series-graph-with-raw-data/
-[pre-agg-data]: /tutorials/:currentVersion:/grafana/visualizations/time-series/#create-a-time-series-graph-from-pre-aggregated-data-using-time-bucket/
-[create-panel]: /tutorials/:currentVersion:/grafana/visualizations/time-series/#create-multiple-time-series-graphs-in-a-single-panel/
 [time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/

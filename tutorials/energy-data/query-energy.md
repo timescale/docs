@@ -23,6 +23,7 @@ queries, to answer these questions:
 When you have your database set up for energy consumption data, you can
 construct a query to find the median and the maximum consumption of energy on an
 hourly basis in a typical day.
+
 <Procedure>
 
 ### Finding how many kilowatts of energy is consumed on an hourly basis
@@ -137,7 +138,7 @@ weekends and the weekdays.
 
 ## What is the energy consumption on a monthly basis?
 
-You may also want to check the energy consumption that on a monthly basis.
+You may also want to check the energy consumption that occurs on a monthly basis.
 
 <Procedure>
 
@@ -150,12 +151,12 @@ You may also want to check the energy consumption that on a monthly basis.
 
     ```sql
         WITH per_day AS (
-     select
+     SELECT
        time,
        value
-     from kwh_day_by_day
-     where "time" > now() - interval '1 year'
-     order by 1
+     FROM kwh_day_by_day
+     WHERE "time" > now() - interval '1 year'
+     ORDER BY 1
     ), per_month AS (
        SELECT
           to_char(time, 'Mon') as month,
@@ -170,7 +171,6 @@ You may also want to check the energy consumption that on a monthly basis.
     FROM unnest(array['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']) WITH ORDINALITY AS m(month, ordinal)
     LEFT JOIN per_month pd ON lower(pd.month) = lower(m.month)
     ORDER BY ordinal;
-
     ```
 
 1.  The data you get back looks a bit like this:
@@ -190,8 +190,6 @@ You may also want to check the energy consumption that on a monthly basis.
         Oct   |      10 |                  
         Nov   |      11 |                  
         Dec   |      12 |                  
-        (12 rows)
-  
     ```
 
 </Procedure>
