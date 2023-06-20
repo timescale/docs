@@ -1,7 +1,7 @@
 ---
-title: Add time-series data
-excerpt: Add time-series data to your Timescale instance
-products: [cloud, mst, self_hosted]
+title: Time-series data
+excerpt: Add time-series data to your Timescale service
+products: [cloud]
 keywords: [ingest]
 tags: [add, data, time-series]
 layout_components: [next_prev_large]
@@ -9,8 +9,11 @@ content_group: Getting started
 ---
 
 import HypershiftAlt from "versionContent/_partials/_hypershift-alternatively.mdx";
+import TimeseriesIntro from "versionContent/_partials/_timeseries-intro.mdx";
 
-# Add time-series data
+# Time-series data
+
+<TimeseriesIntro />
 
 To explore Timescale's features, you need some sample data. This tutorial
 provides real-time stock trade data, also known as tick data, from
@@ -27,34 +30,8 @@ table named `company`.
 
 The dataset is updated on a nightly basis and contains data from the last four
 weeks, typically ~8 million rows of data. Stock trades are recorded in real-time
-Monday through Friday, typically during normal trading hours of the New York Stock
+Monday through Friday, during normal trading hours of the New York Stock
 Exchange (9:30&nbsp;AM - 4:00&nbsp;PM EST).
-
-<Highlight type="note">
-In case you want to ingest real-time data, instead of sample data,
-read the tutorial
-[Ingest real-time financial websocket data](https://docs.timescale.com/tutorials/latest/ingest-real-time-websocket-data)
-and ingest data directly from the Twelve Data financial API.
-</Highlight>
-
-### Table details
-
-`stocks_real_time`: contains stock data. Includes stock price quotes at every
-second during trading hours.
-
-|Field|Type|Description|
-|-|-|-|
-|time|timestamptz|Timestamp column incrementing second by second|
-|symbol|text|Symbols representing a company, mapped to company names in the `company` table|
-|price|double precision|Stock quote price for a company at the given timestamp|
-|day_volume|int|Number of shares traded each day, NULL values indicate the market is closed|
-
-`company`: contains a mapping for symbols to company names.
-
-|Field|Type|Description|
-|-|-|-|
-|symbol|text|the symbol representing a company name|
-|name|text|Corresponding company name|
 
 ## Ingest the dataset
 
@@ -94,19 +71,6 @@ dataset and copy the data to your database.
 
     Because there are millions of rows of data, the `COPY` process may take a few
     minutes depending on your internet connection and local client resources.
-
-<Highlight type="note">
-If you're using a Docker container, add the data files to your container before
-copying them into your database.
-
-To add files to your container:
-
-```bash
-docker cp tutorial_sample_tick.csv timescaledb:/tutorial_sample_tick.csv
-docker cp tutorial_sample_company.csv timescaledb:/tutorial_sample_company.csv
-```
-
-</Highlight>
 
 </Procedure>
 

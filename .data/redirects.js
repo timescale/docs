@@ -838,6 +838,30 @@ const redirector = new ThreeOhOneRedirector({
     "https://docs.timescale.com/tutorials/latest/grafana/installation/"
   )
   .add(
+    "/getting-started/latest/add-data",
+    "https://docs.timescale.com/getting-started/latest/time-series-data/"
+  )
+  .add(
+    "/getting-started/latest/create-cagg/",
+    "https://docs.timescale.com/getting-started/latest/aggregation/"
+  )
+  .add(
+    "/getting-started/latest/compress-data/",
+    "https://docs.timescale.com/use-timescale/latest/compression/"
+  )
+  .add(
+    "/getting-started/latest/create-hypertable",
+    "https://docs.timescale.com/getting-started/latest/tables-hypertables/"
+  )
+  .add(
+    "/getting-started/latest/data-retention/",
+    "https://docs.timescale.com/use-timescale/latest/data-retention/"
+  )
+  .add(
+    "/getting-started/latest/query-data",
+    "https://docs.timescale.com/getting-started/latest/queries/"
+  )
+  .add(
     "/getting-started/latest/installation",
     "https://docs.timescale.com/getting-started/latest/"
   )
@@ -951,7 +975,7 @@ const redirector = new ThreeOhOneRedirector({
   )
   .add(
     "/latest/getting-started/create-hypertable/",
-    "https://docs.timescale.com/getting-started/latest/create-hypertable/"
+    "https://docs.timescale.com/getting-started/latest/tables-hypertables/"
   )
   .add(
     "/latest/getting-started/creating-hypertables",
