@@ -8,6 +8,8 @@ layout_components: [next_prev_large]
 content_group: Analyze financial tick data
 ---
 
+import CandlestickIntro from "versionContent/_partials/_candlestick_intro.mdx";
+
 # Analyze financial tick data with TimescaleDB
 
 To analyze financial data, you can chart the open, high, low, close, and volume
@@ -48,19 +50,7 @@ This tutorial covers:
 
 ## About OHLCV data and candlestick charts
 
-The financial sector regularly uses [candlestick charts][charts] to visualize
-the price change of an asset. Each candlestick represents a time period, such as
-one minute or one hour, and shows how the asset's price changed during that time.
-
-Candlestick charts are generated from the open, high, low, close, and volume
-data for each financial asset during the time period. This is often abbreviated
-as OHLCV:
-
-*   Open: opening price
-*   High: highest price
-*   Low: lowest price
-*   Close: closing price
-*   Volume: volume of transactions
+<CandlestickIntro />
 
 ![candlestick](https://assets.timescale.com/docs/images/tutorials/intraday-stock-analysis/candlestick_fig.png)
 
@@ -75,8 +65,6 @@ these stories from some Timescale community members:
 [cloud-install]: /getting-started/latest/
 [financial-tick-dataset]: /tutorials/:currentVersion:/financial-tick-data/financial-tick-dataset/
 [financial-tick-query]: /tutorials/:currentVersion:/financial-tick-data/financial-tick-query/
-[advanced-websocket]: /tutorials/:currentVersion:/ingest-real-time-websocket-data/
-[charts]: https://www.investopedia.com/terms/c/candlestick.asp
 [twelve-data]: https://twelvedata.com/
 [trading-strategy]: https://www.timescale.com/blog/how-trading-strategy-built-a-data-stack-for-crypto-quant-trading/
 [messari]: https://www.timescale.com/blog/how-messari-uses-data-to-open-the-cryptoeconomy-to-everyone/
