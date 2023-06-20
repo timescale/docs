@@ -13,7 +13,7 @@ content_group: Analyze energy consumption data
 When you are planning to switch to a photovoltaic system it isn’t easy, even
 with a specialist at hand. You need details of your power consumption, typical
 usage hours, or distribution over a year. Collecting consumption data at the
-granularity of a few seconds is key to finding all the answers for the more
+granularity of a few seconds is key to finding all the answers for more
 precision. This tutorial uses energy consumption data of a typical household for
 over a year. Because nearly all of this data is time-series data, proper
 analysis requires a purpose-built time-series database, like Timescale.
