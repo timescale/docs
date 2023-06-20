@@ -191,11 +191,14 @@ You may also want to check the energy consumption that occurs on a monthly basis
         Dec   |      12 |
     ```
 
-1.  <Optional /> To visualize this in Grafana, create a new panel, and select
+1.  <Optional />
+    To visualize this in Grafana, create a new panel, and select
     the `Bar Chart` visualization. Select the energy consumption dataset as your
     data source, and type the query from the previous step. In the `Format as`
     section, select `Table`.
-1.  <Optional /> Select a color scheme so that different consumptions are shown
+
+1.  <Optional />
+    Select a color scheme so that different consumptions are shown
     in different colors. In the options panel, under `Standard options`, change
     the `Color scheme` to a useful `by value` range.
 
