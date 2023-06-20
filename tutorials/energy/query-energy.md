@@ -170,7 +170,6 @@ You may also want to check the energy consumption that on a monthly basis.
     FROM unnest(array['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']) WITH ORDINALITY AS m(month, ordinal)
     LEFT JOIN per_month pd ON lower(pd.month) = lower(m.month)
     ORDER BY ordinal;
-
     ```
 
 1.  The data you get back looks a bit like this:
