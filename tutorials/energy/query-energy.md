@@ -23,6 +23,7 @@ queries, to answer these questions:
 When you have your database set up for energy consumption data, you can
 construct a query to find the median and the maximum consumption of energy on an
 hourly basis in a typical day.
+
 <Procedure>
 
 ### Finding how many kilowatts of energy is consumed on an hourly basis
