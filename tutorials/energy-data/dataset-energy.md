@@ -100,8 +100,6 @@ This tutorial uses the enegry consumption data for over a year in a typical hous
         schedule_interval => INTERVAL '1 hour');
      ```
 
-</Procedure>
-
 1.  You can confirm that the continuous aggregates were created:
 
     ```sql
@@ -118,6 +116,8 @@ This tutorial uses the enegry consumption data for over a year in a typical hous
      kwh_hour_by_hour | _timescaledb_internal._materialized_hypertable_3
 
     ```
+
+</Procedure>
 
 </Collapsible>
 
