@@ -11,8 +11,11 @@ content_group: Analyze energy consumption data
 # Query the data
 
 When you have your dataset loaded, you can start constructing some queries to
-discover what your data tells you. In this section, you learn how to construct
-queries, to answer these questions:
+discover what your data tells you.
+This tutorial uses [Timescale hyperfunctions][about-hyperfunctions] to construct
+queries that are not possible in standard PostgreSQL.
+
+In this section, you learn how to construct queries, to answer these questions:
 
 *   [Energy consumption by hour of day](#what-is-the-energy-consumption-by-the-hour-of-the-day)
 *   [Energy consumption by weekday](#what-is-the-energy-consumption-by-the-day-of-the-week).
@@ -204,7 +207,9 @@ You may also want to check the energy consumption that occurs on a monthly basis
 
     <img
     class="main-content__illustration"
-    src="https://s3.amazonaws.com/assets.timescale.com/docs/images/grafana-postgis.webp"
+    src="https://s3.amazonaws.com/assets.timescale.com/docs/images/grafana-energy.webp"
     width={1375} height={944}
     alt="Visualizing energy consumptions in Grafana"
     />
+
+[about-hyperfunctions]: https://docs.timescale.com/use-timescale/latest/hyperfunctions/about-hyperfunctions/
