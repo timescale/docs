@@ -69,6 +69,15 @@ This tutorial uses the enegry consumption data for over a year in a typical hous
     GROUP BY 1;
     ```
 
+1.  Add a refresh policy to keep the continuous aggregate up-to-date:
+
+     ```sql
+     SELECT add_continuous_aggregate_policy('kwh_day_by_day',
+        start_offset => NULL,
+        end_offset => INTERVAL '1 hour',
+        schedule_interval => INTERVAL '1 hour');
+     ```
+
 1.  Create a continuous aggregate `kwh_hour_by_hour` for energy consumption on
     an hourly basis:
 
@@ -81,6 +90,15 @@ This tutorial uses the enegry consumption data for over a year in a typical hous
     WHERE type_id = 5
     GROUP BY 1;
     ```
+
+1.  Add a refresh policy to keep the continuous aggregate up-to-date:
+
+     ```sql
+     SELECT add_continuous_aggregate_policy('kwh_hour_by_hour',
+        start_offset => NULL,
+        end_offset => INTERVAL '1 hour',
+        schedule_interval => INTERVAL '1 hour');
+     ```
 
 </Procedure>
 

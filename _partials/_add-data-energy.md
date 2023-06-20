@@ -15,7 +15,7 @@ connection.
 1.  Download the dataset:
 
    <Tag type="download">
-   [metrics.tar.gz](https://assets.timescale.com/docs/downloads/metrics.tar.gz)
+   [metrics.csv.gz](https://assets.timescale.com/docs/downloads/metrics.csv.gz)
    </Tag>
 
 1.  Use your file manager to decompress the downloaded dataset, and take a note
