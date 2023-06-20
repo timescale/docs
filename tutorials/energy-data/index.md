@@ -10,7 +10,7 @@ content_group: Analyze energy consumption data
 
 # Analyze energy consumption data
 
-When you are planning to switch to a rooftop solar system it isn’t easy, even
+When you are planning to switch to a rooftop solar system it isn't easy, even
 with a specialist at hand. You need details of your power consumption, typical
 usage hours, or distribution over a year. Collecting consumption data at the
 granularity of a few seconds is key to finding all the answers for more
@@ -51,7 +51,7 @@ It starts by teaching you how to set up and connect to a Timescale database,
 create tables, and load data into the tables using `psql`.
 
 You then learn how to conduct analysis and monitoring on your dataset. It walks
-you through the steps to visulaize the results in Grafana.
+you through the steps to visualize the results in Grafana.
 
 [dataset-energy]: /tutorials/:currentVersion:/energy-data/dataset-energy/
 [query-energy]: /tutorials/:currentVersion:/energy-data/query-energy/

@@ -35,12 +35,12 @@ hourly basis in a typical day.
 
     ```sql
     WITH per_hour AS (
-    select
+    SELECT
     time,
     value
-    from kwh_hour_by_hour
-    where "time" at time zone 'Europe/Berlin' > date_trunc('month', time) - interval '1 year'
-    order by 1
+    FROM kwh_hour_by_hour
+    WHERE "time" at time zone 'Europe/Berlin' > date_trunc('month', time) - interval '1 year'
+    ORDER BY 1
     ), hourly AS (
      SELECT
           extract(HOUR FROM time) * interval '1 hour' as hour,
@@ -59,7 +59,7 @@ hourly basis in a typical day.
 1.  The data you get back looks a bit like this:
 
     ```sql
-          hour   |       median       | maximum 
+          hour   |       median       | maximum
         ----------+--------------------+---------
          00:00:00 | 0.5998949812512439 |     0.6
          01:00:00 | 0.5998949812512439 |     0.6
@@ -79,8 +79,7 @@ hourly basis in a typical day.
 
 ## What is the energy consumption by the day of the week?
 
-You may also want to check the energy consumption that varies during the
-weekends and the weekdays.
+You can also check how energy consumption varies between weekends and weekdays.
 
 <Procedure>
 
@@ -92,12 +91,12 @@ weekends and the weekdays.
 
     ```sql
     WITH per_day AS (
-     select
+     SELECT
        time,
        value
-     from kwh_day_by_day
-     where "time" at time zone 'Europe/Berlin' > date_trunc('month', time) - interval '1 year'
-     order by 1
+     FROM kwh_day_by_day
+     WHERE "time" at time zone 'Europe/Berlin' > date_trunc('month', time) - interval '1 year'
+     ORDER BY 1
     ), daily AS (
         SELECT
            to_char(time, 'Dy') as day,
@@ -123,15 +122,15 @@ weekends and the weekdays.
 1.  The data you get back looks a bit like this:
 
     ```sql
-        day | ordinal |       value        
+        day | ordinal |       value
     -----+---------+--------------------
      Mon |       2 |  23.08078714975423
      Sun |       1 | 19.511430831944395
      Tue |       3 | 25.003118897837307
      Wed |       4 |   8.09300571759772
-     Sat |       7 |                   
-     Fri |       6 |                   
-     Thu |       5 |  
+     Sat |       7 |
+     Fri |       6 |
+     Thu |       5 |
     ```
 
 </Procedure>
@@ -150,7 +149,7 @@ You may also want to check the energy consumption that occurs on a monthly basis
     year:
 
     ```sql
-        WITH per_day AS (
+     WITH per_day AS (
      SELECT
        time,
        value
@@ -176,20 +175,20 @@ You may also want to check the energy consumption that occurs on a monthly basis
 1.  The data you get back looks a bit like this:
 
     ```sql
-        month | ordinal |       value       
+        month | ordinal |       value
         -------+---------+-------------------
-        Jan   |       1 |                  
-        Feb   |       2 |                  
-        Mar   |       3 |                  
-        Apr   |       4 |                  
+        Jan   |       1 |
+        Feb   |       2 |
+        Mar   |       3 |
+        Apr   |       4 |
         May   |       5 | 75.69999999999999
-        Jun   |       6 |                  
-        Jul   |       7 |                  
-        Aug   |       8 |                  
-        Sep   |       9 |                  
-        Oct   |      10 |                  
-        Nov   |      11 |                  
-        Dec   |      12 |                  
+        Jun   |       6 |
+        Jul   |       7 |
+        Aug   |       8 |
+        Sep   |       9 |
+        Oct   |      10 |
+        Nov   |      11 |
+        Dec   |      12 |
     ```
 
 </Procedure>

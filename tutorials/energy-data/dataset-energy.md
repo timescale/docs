@@ -94,7 +94,7 @@ This tutorial uses the enegry consumption data for over a year in a typical hous
     You should see this:
 
     ```sql
-     view_name     |            materialization_hypertable            
+     view_name     |            materialization_hypertable
     ------------------+--------------------------------------------------
      kwh_day_by_day   | _timescaledb_internal._materialized_hypertable_2
      kwh_hour_by_hour | _timescaledb_internal._materialized_hypertable_3
