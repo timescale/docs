@@ -138,7 +138,7 @@ weekends and the weekdays.
 
 ## What is the energy consumption on a monthly basis?
 
-You may also want to check the energy consumption that on a monthly basis.
+You may also want to check the energy consumption that occurs on a monthly basis.
 
 <Procedure>
 
