@@ -191,8 +191,6 @@ You may also want to check the energy consumption that occurs on a monthly basis
         Dec   |      12 |
     ```
 
-</Procedure>
-
 1.  <Optional /> To visualize this in Grafana, create a new panel, and select
     the `Bar Chart` visualization. Select the energy consumption dataset as your
     data source, and type the query from the previous step. In the `Format as`
@@ -207,3 +205,5 @@ You may also want to check the energy consumption that occurs on a monthly basis
     width={1375} height={944}
     alt="Visualizing energy consumptions in Grafana"
     />
+
+</Procedure>
