@@ -60,7 +60,7 @@ This tutorial uses the enegry consumption data for over a year in a typical hous
     day to day basis:
 
     ```sql
-    create materialized view kwh_day_by_day(time, value)
+    CREATE MATERIALIZED VIEW kwh_day_by_day(time, value)
         with (timescaledb.continuous) as
     SELECT time_bucket('1 day', created, 'Europe/Berlin') AS "time",
             round((last(value, created) - first(value, created)) * 100.) / 100. AS value
