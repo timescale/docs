@@ -190,8 +190,6 @@ You may also want to check the energy consumption that on a monthly basis.
         Oct   |      10 |                  
         Nov   |      11 |                  
         Dec   |      12 |                  
-        (12 rows)
-  
     ```
 
 </Procedure>
