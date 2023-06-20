@@ -18,33 +18,19 @@ import CloudTrial from "versionContent/_partials/_cloudtrial.mdx";
 
 <TimescaleIntro />
 
+This guide shows you how to get started with a time-series database in
+Timescale. It steps you through creating your first Timescale service, adding
+some sample data to your database, helps you construct some queries, and start
+using useful functions like continuous aggregates.
+
 <CloudIntro />
-
-This guide helps you set up a Timescale database, so you can work with some
-real-time stock trading data, provided by [Twelve Data][twelve-data].
-
-If you have any questions or concerns as you go through the tutorial, check out
-the Timescale community [Slack][slack] and [Timescale Forum][forum], where you
-can find help from the Timescale community and team.
 
 <CloudTrial />
 
-## Create your Timescale account
+Completing this tutorial should take you less than half an hour. When you have
+finished this one, you might want to check out some
+[more advanced tutorials][tutorials], or browse through
+[the other guides][use-timescale].
 
-<Install />
-
-## Create your first service
-
-<CreateService demoData={false} />
-
-## Connect to your service
-
-<Connect />
-
-## Where to next
-
-<WhereNext />
-
-[forum]: https://www.timescale.com/forum
-[slack]: https://slack.timescale.com/
-[twelve-data]: https://twelvedata.com/
+[tutorials]: /tutorials/:currentVersion:/
+[use-timescale]: /use-timescale/:currentVersion:/
