@@ -7,31 +7,31 @@ keywords: [compression, backfilling, hypertables]
 
 # Inserting into compressed chunks
 
-Prior to version 2.10, inserting into compressed chunks was blocked due to certain
-limitations of the system. In 2.10, those limitations were reduced and we enabled
-insertion into compressed chunk with limitations. We were not able to check unique
-constraints so if you had any such constraints, we denied the operation. Also,
-newly inserted data needed to be compressed together with the already compressed
-data (either by a running recompression policy or running the recompress_chunk
-procedure manually on the chunk).
+In TimescaleDB&nbsp;2.11 and later, you can insert data into compressed chunks.
+This works even if the data you are inserting has unique constraints, and those
+constraints are preserved during the insert operation. This is done by using a
+PostgreSQL function that decompresses relevant data on the fly to check if the
+new data breaks unique checks. This means that any time you insert data into a
+compressed chunk, a small amount of data is decompressed to allow a speculative
+insertion, and block any inserts which could violate constraints.
 
-In version 2.11, we removed more limitation and implemented a way to insert into
-compressed chunks while enforcing unique constraints if any are present. The way
-we do this is by leveraging Postgres infrastructure and decompressing relevant
-data on the fly in order to check if the new data breaks unique checks. This means
-any such insert will decompress a (hopefully) limited amount of data necessary
-to do speculative insertion and block any inserts which would violate the constraints.
+In TimescaleDB&nbsp;2.10, you can insert data into compressed chunks with some
+limitations. The primary limitation is that you can't insert data with unique
+constraints. Additionally, newly inserted data needs to be compressed at the
+same time as the data in the chunk, either by a running recompression policy, or
+by using `recompress_chunk` manually on the chunk.
+
+In TimescaleDB&nbsp;2.9 and earlier, you cannot insert data into compressed chunks.
 
 # Modifying compressed rows
 
-Also in 2.11, we now support running UPDATE/DELETE commands to modify existing
-rows in the compressed chunks. Similar to previously mentioned insert operation,
-we have to decompress the relevant data before we can run these modifications.
-The system will try to filter out data necessary to decompress such that we
-reduce the amount of decompression work we do. In some naive cases, such
-modification commands can end up decompressing a lot of data (e.g. `UPDATE
-metric SET value = 1`) due to the fact qualifiers are not present or they
-cannot be used to filter. General recommendation here is to use columns used
-in compression configuration for `segmentby` and `orderby` so that we can
-filter out as much data as possible before attempting to decompress and modify
-compressed rows.
+In TimescaleDB&nbsp;2.11 and later, you can also use `UPDATE` and `DELETE`
+commands to modify existing rows in compressed chunks. This works in a similar
+way to insert operations, where a small amount of data is decompressed to be
+able to run the modifications. The system attempts to only decompress data that
+is necessary, to reduce the amount decompression that is done, but in some cases
+the modification commands can end up decompressing a large amount of data. This
+often happens if there are no qualifiers, or if the qualifiers can't be used to
+filter. You can try and avoid this by using columns for `segmentby` and
+`orderby`, which allows as much data as possible to be filtered out before the
+decompression and modification operations.
