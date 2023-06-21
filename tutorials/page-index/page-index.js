@@ -19,33 +19,58 @@ module.exports = [
             href: "query-nyc",
             excerpt: "Query NYC data",
           },
+        ],
+      },
+      {
+        title: "Plot geospatial NYC taxi cab data",
+        href: "nyc-taxi-geospatial",
+        excerpt: "Learn how to plot geospatial time-series data with NYC taxi cabs",
+        children: [
           {
-            title: "Time-series tutorial - advanced queries",
-            href: "advanced-nyc",
-            excerpt: "Advanced queries NYC data",
+            title: "Geospatial tutorial - set up",
+            href: "dataset-nyc",
+            excerpt: "Set up a dataset so you can plot geospatial NYC taxi data",
+          },
+          {
+            title: "Geospatial tutorial - query data",
+            href: "plot-nyc",
+            excerpt: "Plot geospatial NYC taxi data",
           },
         ],
       },
       {
-        title: "Analyze cryptocurrency data",
-        href: "analyze-cryptocurrency-data",
-        excerpt: "Use Timescale to analyze cryptocurrency data",
+        title: "Query the Bitcoin blockchain",
+        href: "blockchain-query",
+        excerpt: "Query the Bitcoin blockchain",
+        children: [
+          {
+            title: "Query the blockchain tutorial - set up",
+            href: "blockchain-dataset",
+            excerpt:
+              "Set up a dataset so you can query the Bitcoin blockchain",
+          },
+          {
+            title: "Query the blockchain tutorial - query data",
+            href: "beginner-blockchain-query",
+            excerpt: "Query the Bitcoin blockchain dataset",
+          },
+        ],
       },
       {
         title: "Analyze the Bitcoin blockchain",
-        href: "analyze-bitcoin-blockchain",
-        excerpt: "Store and query blockchain transactions",
+        href: "blockchain-analyze",
+        excerpt: "Analyze the Bitcoin blockchain with Timescale hyperfunctions",
         children: [
           {
-            title: "Ingest and query Bitcoin transactions",
-            href: "ingest-query-btc-transactions",
+            title: "Analyze the blockchain tutorial - set up",
+            href: "blockchain-dataset",
             excerpt:
-              "Design schema and ingest Bitcoin blockchain data with Timescale",
+              "Set up a dataset so you can analyze the Bitcoin blockchain",
           },
           {
-            title: "Analyze the blockchain with hyperfunctions",
-            href: "analyze-blockchain",
-            excerpt: "Use Timescale hyperfunctions for blockchain insights",
+            title: "Query the blockchain tutorial - query data",
+            href: "analyze-blockchain-query",
+            excerpt: "Analyze the Bitcoin blockchain dataset with Timescale hyperfunctions",
           },
         ],
       },
@@ -108,6 +133,23 @@ module.exports = [
         title: "Simulate IoT sensor data",
         href: "simulate-iot-sensor-data",
         excerpt: "Simulate IoT Sensor Data with Timescale",
+      },
+      {
+        title: "Analyze energy consumption data",
+        href: "energy-data",
+        excerpt: "Learn how to analyze energy consumption data",
+        children: [
+          {
+            title: "Energy consumption tutorial - set up",
+            href: "dataset-energy",
+            excerpt: "Set up a dataset so you can analyze energy consumption data",
+          },
+          {
+            title: "Energy consumption tutorial - queries",
+            href: "query-energy",
+            excerpt: "Queries energy consumption data",
+          },
+        ] 
       },
     ],
   },
