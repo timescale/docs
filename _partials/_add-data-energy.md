@@ -28,8 +28,7 @@ connection.
     ```sql
     \COPY metrics FROM metrics.csv CSV;
     ```
-
-
+    
 1. You can check that the data has been copied successfully with this command:
 
    ```sql
