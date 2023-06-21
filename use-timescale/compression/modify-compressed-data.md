@@ -5,7 +5,16 @@ products: [cloud, mst, self_hosted]
 keywords: [compression, backfilling, hypertables]
 ---
 
-# Inserting into compressed chunks
+# Insert and modify compressed data
+
+In TimescaleDB&nbsp;2.11 and later, you can insert data into compressed chunks,
+and modify data in compressed rows.
+
+## Insert data into compressed chunks
+
+<Tabs>
+
+<Tab title="TimescaleDB&nbsp;2.11 and later>
 
 In TimescaleDB&nbsp;2.11 and later, you can insert data into compressed chunks.
 This works even if the data you are inserting has unique constraints, and those
@@ -15,15 +24,27 @@ new data breaks unique checks. This means that any time you insert data into a
 compressed chunk, a small amount of data is decompressed to allow a speculative
 insertion, and block any inserts which could violate constraints.
 
+</Tab>
+
+<Tab title="TimescaleDB&nbsp;2.10">
+
 In TimescaleDB&nbsp;2.10, you can insert data into compressed chunks with some
 limitations. The primary limitation is that you can't insert data with unique
 constraints. Additionally, newly inserted data needs to be compressed at the
 same time as the data in the chunk, either by a running recompression policy, or
 by using `recompress_chunk` manually on the chunk.
 
+</Tab>
+
+<Tab title="TimescaleDB&nbsp;2.9 and earlier">
+
 In TimescaleDB&nbsp;2.9 and earlier, you cannot insert data into compressed chunks.
 
-# Modifying compressed rows
+</Tab>
+
+</Tabs>
+
+## Modify data in compressed rows
 
 In TimescaleDB&nbsp;2.11 and later, you can also use `UPDATE` and `DELETE`
 commands to modify existing rows in compressed chunks. This works in a similar
