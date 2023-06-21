@@ -43,8 +43,8 @@ This tutorial covers:
 
 This tutorial uses sample energy consumption data to show you how to construct
 queries for time-series data. The analysis you do in this tutorial is
-similar to the kind of analysis civic organizations use to do things like plan
-new roads and public services.
+similar to the kind of analysis households might use to do things like plan
+their solar installation, or optimize their energy use over time.
 
 It starts by teaching you how to set up and connect to a Timescale database,
 create tables, and load data into the tables using `psql`.
