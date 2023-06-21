@@ -27,8 +27,7 @@ in Grafana.
 Before you begin, make sure you have:
 
 *   Signed up for a [free Timescale account][cloud-install].
-*   <Optional /> If you want to graph your queries, signed up for a
-    [Grafana account][grafana-setup].
+*   <Optional />Signed up for a Grafana account][grafana-setup] to graph queries.
 
 ## Steps in this tutorial
 
