@@ -33,7 +33,7 @@ These are the currently supported extensions:
 |ltree|Data type for hierarchical tree-like structures|
 |pg_stat_statements|Track execution statistics of all SQL statements executed|
 |pg_trgm|Text similarity measurement and index searching based on trigrams|
-|pgcrypto|Cryptographic functions|
+|[pgcrypto][pgcrypto]|Cryptographic functions|
 |pgpcre|Perl-compatible RegEx|
 |pgrouting|pgRouting Extension|
 |[pgvector][pgvector]|Vector similarity search for PostgreSQL|
@@ -56,3 +56,4 @@ These are the currently supported extensions:
 <!-- vale Vale.Spelling = YES -->
 
 [pgvector]: /use-timescale/:currentVersion:/extensions/pgvector/
+[pgcrypto]: /use-timescale/:currentVersion:/extensions/pgcrypto/
