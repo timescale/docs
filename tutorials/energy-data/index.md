@@ -42,7 +42,7 @@ This tutorial covers:
 ## About querying data with Timescale
 
 This tutorial uses sample energy consumption data to show you how to construct
-queries for geospatial time-series data. The analysis you do in this tutorial is
+queries for time-series data. The analysis you do in this tutorial is
 similar to the kind of analysis civic organizations use to do things like plan
 new roads and public services.
 
