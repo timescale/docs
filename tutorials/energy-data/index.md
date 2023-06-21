@@ -49,7 +49,7 @@ their solar installation, or optimize their energy use over time.
 It starts by teaching you how to set up and connect to a Timescale database,
 create tables, and load data into the tables using `psql`.
 
-You then learn how to conduct analysis and monitoring on your dataset. It walks
+You then learn how to conduct analysis and monitoring on your dataset. It also walks
 you through the steps to visualize the results in Grafana.
 
 [dataset-energy]: /tutorials/:currentVersion:/energy-data/dataset-energy/
