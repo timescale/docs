@@ -48,4 +48,6 @@ You should get five records that look like this:
  2023-05-31 23:59:59.042603+00 |      12 |  0.96
 ```
 
+</Procedure>
+
 [parallel-copy]: https://github.com/timescale/timescaledb-parallel-copy
