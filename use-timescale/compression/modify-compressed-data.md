@@ -19,10 +19,10 @@ and modify data in compressed rows.
 In TimescaleDB&nbsp;2.11 and later, you can insert data into compressed chunks.
 This works even if the data you are inserting has unique constraints, and those
 constraints are preserved during the insert operation. This is done by using a
-PostgreSQL function that decompresses relevant data on the fly to check if the
-new data breaks unique checks. This means that any time you insert data into a
-compressed chunk, a small amount of data is decompressed to allow a speculative
-insertion, and block any inserts which could violate constraints.
+PostgreSQL function that decompresses relevant data during the insert to check
+if the new data breaks unique checks. This means that any time you insert data
+into a compressed chunk, a small amount of data is decompressed to allow a
+speculative insertion, and block any inserts which could violate constraints.
 
 </Tab>
 
