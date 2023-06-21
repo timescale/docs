@@ -22,7 +22,7 @@ queries that answer these questions:
 This dataset contains Bitcoin transactions for the last five days. To find out
 the most recent transactions in the dataset, you can use a `SELECT` statement.
 In this case, you want to find transactions that are not coinbase transactions,
-order them by time in descending order, and take the top five results. You also
+sort them by time in descending order, and take the top five results. You also
 want to see the block ID, and the value of the transaction in US Dollars.
 
 <Procedure>

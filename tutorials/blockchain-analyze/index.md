@@ -15,7 +15,7 @@ data. You can use Timescale to query transactions on a blockchain, in exactly th
 same way as you might query time-series transactions in any other database.
 
 In this tutorial, you use Timescale hyperfunctions to analyze transactions
-on the Bitcoin blockchain. You can use these skills to query any data on a
+on the Bitcoin blockchain. You can use these instructions to query any type of data on a
 blockchain, including other cryptocurrencies, smart contracts, or health data.
 
 ## Prerequisites
@@ -23,8 +23,7 @@ blockchain, including other cryptocurrencies, smart contracts, or health data.
 Before you begin, make sure you have:
 
 *   Signed up for a [free Timescale account][cloud-install].
-*   <Optional />If you want to graph your queries, signed up for a
-    [Grafana account][grafana-setup].
+*   <Optional />Signed up for a [Grafana account][grafana-setup] to graph your queries.
 
 ## Steps in this tutorial
 
@@ -37,7 +36,7 @@ This tutorial covers:
 
 This tutorial uses a sample Bitcoin dataset to show you how to aggregate
 blockchain transaction data, and construct queries to analyze information from
-the aggregations. The queries you do in this tutorial are used to do things like
+the aggregations. The queries in this tutorial help you
 determine if a cryptocurrency has a high transaction fee, shows any correlation
 between transaction volumes and fees, or if it's expensive to mine.
 
