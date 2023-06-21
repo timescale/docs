@@ -5,386 +5,386 @@ const redirector = new ThreeOhOneRedirector({
   legacyRedirects: [
     [
       /^\/v[0-1]\.[0-9]\/administration\/configuration/,
-      "https://docs.timescale.com/timescaledb/latest/how-to-guides/about-configuration/",
+      "https://docs.timescale.com/timescaledb/latest/how-to-guides/about-configuration/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/administration\/telemetry/,
-      "https://docs.timescale.com/timescaledb/latest/how-to-guides/configuration/telemetry/",
+      "https://docs.timescale.com/timescaledb/latest/how-to-guides/configuration/telemetry/"
     ],
     [/^\/v[0-1]\.[0-9]\/api/, "https://docs.timescale.com/api/latest/"],
     [
       /^\/v[0-1]\.[0-9]\/development/,
-      "https://docs.timescale.com/timescaledb/latest/contributed-to-timescaledb/",
+      "https://docs.timescale.com/timescaledb/latest/contributed-to-timescaledb/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/development\/contribute-to-docs/,
-      "https://docs.timescale.com/timescaledb/latest/contributed-to-timescaledb/",
+      "https://docs.timescale.com/timescaledb/latest/contributed-to-timescaledb/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/faq/,
-      "https://docs.timescale.com/timescaledb/latest/overview/faq/",
+      "https://docs.timescale.com/timescaledb/latest/overview/faq/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/getting-started/,
-      "https://docs.timescale.com/getting-started/latest/",
+      "https://docs.timescale.com/getting-started/latest/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/getting-started\/configuring/,
-      "https://docs.timescale.com/timescaledb/latest/administration/configuration/",
+      "https://docs.timescale.com/timescaledb/latest/administration/configuration/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/getting-started\/creating-hypertables/,
-      "https://docs.timescale.com/timescaledb/latest/how-to-guides/hypertables/",
+      "https://docs.timescale.com/timescaledb/latest/how-to-guides/hypertables/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/getting-started\/exploring-cloud/,
-      "https://docs.timescale.com/mst/latest/about-mst/",
+      "https://docs.timescale.com/mst/latest/about-mst/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/getting-started\/exploring-cloud\/cloud-multi-node/,
-      "https://docs.timescale.com/mst/latest/mst-multi-node/",
+      "https://docs.timescale.com/mst/latest/mst-multi-node/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/getting-started\/exploring-forge/,
-      "https://docs.timescale.com/cloud/latest/create-a-service/",
+      "https://docs.timescale.com/cloud/latest/create-a-service/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/getting-started\/exploring-forge\/forge-configuration/,
-      "https://docs.timescale.com/cloud/latest/customize-configuration/",
+      "https://docs.timescale.com/cloud/latest/customize-configuration/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/getting-started\/exploring-forge\/forge-multi-node/,
-      "https://docs.timescale.com/cloud/latest/forge-multi-node/",
+      "https://docs.timescale.com/cloud/latest/forge-multi-node/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/getting-started\/exploring-forge\/forge-resize/,
-      "https://docs.timescale.com/cloud/latest/scaling-a-service/",
+      "https://docs.timescale.com/cloud/latest/scaling-a-service/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/getting-started\/install-psql-tutorial/,
-      "https://docs.timescale.com/timescaledb/latest/how-to-guides/connecting/psql/",
+      "https://docs.timescale.com/timescaledb/latest/how-to-guides/connecting/psql/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/getting-started\/installation-grafana/,
-      "https://docs.timescale.com/tutorials/latest/grafana/installation/",
+      "https://docs.timescale.com/tutorials/latest/grafana/installation/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/getting-started\/installation/,
-      "https://docs.timescale.com/install/latest/",
+      "https://docs.timescale.com/install/latest/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/getting-started\/installation\/ami\/installation-ubuntu-ami/,
-      "https://docs.timescale.com/install/latest/self-hosted/installation-debian/",
+      "https://docs.timescale.com/install/latest/self-hosted/installation-debian/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/getting-started\/installation\/debian\/installation-apt-debian/,
-      "https://docs.timescale.com/install/latest/self-hosted/installation-debian/",
+      "https://docs.timescale.com/install/latest/self-hosted/installation-debian/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/getting-started\/installation\/debian\/installation-source/,
-      "https://docs.timescale.com/install/latest/self-hosted/installation-debian/",
+      "https://docs.timescale.com/install/latest/self-hosted/installation-debian/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/getting-started\/installation\/docker\/installation-docker/,
-      "https://docs.timescale.com/install/latest/installation-docker/",
+      "https://docs.timescale.com/install/latest/installation-docker/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/getting-started\/installation\/macos\/installation-homebrew/,
-      "https://docs.timescale.com/install/latest/self-hosted/installation-macos/",
+      "https://docs.timescale.com/install/latest/self-hosted/installation-macos/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/getting-started\/installation\/macos\/installation-source/,
-      "https://docs.timescale.com/install/latest/self-hosted/installation-macos/",
+      "https://docs.timescale.com/install/latest/self-hosted/installation-macos/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/getting-started\/installation\/rhel-centos\/installation-source/,
-      "https://docs.timescale.com/install/latest/self-hosted/installation-redhat/",
+      "https://docs.timescale.com/install/latest/self-hosted/installation-redhat/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/getting-started\/installation\/rhel-centos\/installation-yum/,
-      "https://docs.timescale.com/install/latest/self-hosted/installation-redhat/",
+      "https://docs.timescale.com/install/latest/self-hosted/installation-redhat/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/getting-started\/installation\/timescale-cloud\/installation-timescale-cloud/,
-      "https://docs.timescale.com/install/latest/installation-mst/",
+      "https://docs.timescale.com/install/latest/installation-mst/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/getting-started\/installation\/timescale-forge\/installation-timescale-forge/,
-      "https://docs.timescale.com/install/latest/installation-cloud/",
+      "https://docs.timescale.com/install/latest/installation-cloud/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/getting-started\/installation\/ubuntu\/installation-apt-ubuntu/,
-      "https://docs.timescale.com/install/latest/self-hosted/installation-debian/",
+      "https://docs.timescale.com/install/latest/self-hosted/installation-debian/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/getting-started\/installation\/ubuntu\/installation-source/,
-      "https://docs.timescale.com/install/latest/self-hosted/installation-debian/",
+      "https://docs.timescale.com/install/latest/self-hosted/installation-debian/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/getting-started\/installation\/windows\/installation-source-windows/,
-      "https://docs.timescale.com/install/latest/self-hosted/installation-windows/",
+      "https://docs.timescale.com/install/latest/self-hosted/installation-windows/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/getting-started\/installation\/windows\/installation-windows/,
-      "https://docs.timescale.com/install/latest/self-hosted/installation-windows/",
+      "https://docs.timescale.com/install/latest/self-hosted/installation-windows/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/getting-started\/migrating-data/,
-      "https://docs.timescale.com/timescaledb/latest/how-to-guides/migrate-data/",
+      "https://docs.timescale.com/timescaledb/latest/how-to-guides/migrate-data/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/getting-started\/setup-multi-node-basic/,
-      "https://docs.timescale.com/timescaledb/latest/how-to-guides/multi-node-setup/",
+      "https://docs.timescale.com/timescaledb/latest/how-to-guides/multi-node-setup/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/getting-started\/setup-multi-node-basic\/multi-node-self-managed/,
-      "https://docs.timescale.com/timescaledb/latest/how-to-guides/multi-node-setup/",
+      "https://docs.timescale.com/timescaledb/latest/how-to-guides/multi-node-setup/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/getting-started\/setup/,
-      "https://docs.timescale.com/install/latest/",
+      "https://docs.timescale.com/install/latest/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/introduction/,
-      "https://docs.timescale.com/timescaledb/latest/overview/",
+      "https://docs.timescale.com/timescaledb/latest/overview/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/introduction\/architecture/,
-      "https://docs.timescale.com/timescaledb/latest/overview/core-concepts/",
+      "https://docs.timescale.com/timescaledb/latest/overview/core-concepts/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/introduction\/data-model/,
-      "https://docs.timescale.com/timescaledb/latest/overview/data-model-flexibility/",
+      "https://docs.timescale.com/timescaledb/latest/overview/data-model-flexibility/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/introduction\/time-series-data/,
-      "https://docs.timescale.com/timescaledb/latest/overview/what-is-time-series-data/",
+      "https://docs.timescale.com/timescaledb/latest/overview/what-is-time-series-data/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/introduction\/timescaledb-vs-nosql\//,
-      "https://docs.timescale.com/timescaledb/latest/overview/how-does-it-compare/timescaledb-vs-nosql/",
+      "https://docs.timescale.com/timescaledb/latest/overview/how-does-it-compare/timescaledb-vs-nosql/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/introduction\/timescaledb-vs-postgres/,
-      "https://docs.timescale.com/timescaledb/latest/overview/how-does-it-compare/timescaledb-vs-postgres/",
+      "https://docs.timescale.com/timescaledb/latest/overview/how-does-it-compare/timescaledb-vs-postgres/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/main/,
-      "https://docs.timescale.com/timescaledb/latest/",
+      "https://docs.timescale.com/timescaledb/latest/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/release-notes/,
-      "https://docs.timescale.com/timescaledb/latest/overview/release-notes/",
+      "https://docs.timescale.com/timescaledb/latest/overview/release-notes/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/release-notes\/changes-in-timescaledb-2/,
-      "https://docs.timescale.com/timescaledb/latest/overview/release-notes/changes-in-timescaledb-2/",
+      "https://docs.timescale.com/timescaledb/latest/overview/release-notes/changes-in-timescaledb-2/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/tutorials/,
-      "https://docs.timescale.com/tutorials/latest/",
+      "https://docs.timescale.com/tutorials/latest/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/tutorials\/clustering/,
-      "https://docs.timescale.com/timescaledb/latest/how-to-guides/multi-node-setup/",
+      "https://docs.timescale.com/timescaledb/latest/how-to-guides/multi-node-setup/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/tutorials\/continuous-aggs-tutorial/,
-      "https://docs.timescale.com/getting-started/latest/",
+      "https://docs.timescale.com/getting-started/latest/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/tutorials\/getting-started-with-promscale/,
-      "https://docs.timescale.com/promscale/latest/",
+      "https://promscale-legacy-docs.timescale.com/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/tutorials\/getting-started-with-promscale\//,
-      "https://docs.timescale.com/promscale/latest/query-data/",
+      "https://promscale-legacy-docs.timescale.com/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/tutorials\/getting-started-with-promscale\/promscale-benefits/,
-      "https://docs.timescale.com/promscale/latest/",
+      "https://promscale-legacy-docs.timescale.com/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/tutorials\/getting-started-with-promscale\/promscale-how-it-works/,
-      "https://docs.timescale.com/promscale/latest/",
+      "https://promscale-legacy-docs.timescale.com/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/tutorials\/getting-started-with-promscale\/promscale-install/,
-      "https://docs.timescale.com/promscale/latest/",
+      "https://promscale-legacy-docs.timescale.com/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/tutorials\/other-sample-datasets/,
-      "https://docs.timescale.com/tutorials/latest/sample-datasets/",
+      "https://docs.timescale.com/tutorials/latest/sample-datasets/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/tutorials\/outflux/,
-      "https://docs.timescale.com/timescaledb/latest/how-to-guides/migrate-data/migrate-influxdb/",
+      "https://docs.timescale.com/timescaledb/latest/how-to-guides/migrate-data/migrate-influxdb/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/tutorials\/quickstart-go/,
-      "https://docs.timescale.com/quick-start/latest/go/",
+      "https://docs.timescale.com/quick-start/latest/go/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/tutorials\/quickstart-node/,
-      "https://docs.timescale.com/quick-start/latest/node/",
+      "https://docs.timescale.com/quick-start/latest/node/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/tutorials\/quickstart-python/,
-      "https://docs.timescale.com/quick-start/latest/python/",
+      "https://docs.timescale.com/quick-start/latest/python/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/tutorials\/quickstart-ruby/,
-      "https://docs.timescale.com/quick-start/latest/ruby/",
+      "https://docs.timescale.com/quick-start/latest/ruby/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/tutorials\/replication/,
-      "https://docs.timescale.com/timescaledb/latest/how-to-guides/replication-and-ha/replication/",
+      "https://docs.timescale.com/timescaledb/latest/how-to-guides/replication-and-ha/replication/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/tutorials\/telegraf-output-plugin/,
-      "https://docs.timescale.com/tutorials/latest/telegraf-output-plugin",
+      "https://docs.timescale.com/tutorials/latest/telegraf-output-plugin"
     ],
     [
       /^\/v[0-1]\.[0-9]\/tutorials\/tutorial-forecasting/,
-      "https://docs.timescale.com/tutorials/latest/time-series-forecast/",
+      "https://docs.timescale.com/tutorials/latest/time-series-forecast/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/tutorials\/tutorial-grafana-alerts/,
-      "https://docs.timescale.com/tutorials/latest/grafana/setup-alerts/",
+      "https://docs.timescale.com/tutorials/latest/grafana/setup-alerts/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/tutorials\/tutorial-grafana-dashboards/,
-      "https://docs.timescale.com/tutorials/latest/grafana/create-dashboard-and-panel/",
+      "https://docs.timescale.com/tutorials/latest/grafana/create-dashboard-and-panel/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/tutorials\/tutorial-grafana-geospatial/,
-      "https://docs.timescale.com/tutorials/latest/grafana/geospatial-dashboards/",
+      "https://docs.timescale.com/tutorials/latest/grafana/geospatial-dashboards/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/tutorials\/tutorial-grafana-variables/,
-      "https://docs.timescale.com/tutorials/latest/grafana/grafana-variables/",
+      "https://docs.timescale.com/tutorials/latest/grafana/grafana-variables/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/tutorials\/tutorial-grafana/,
-      "https://docs.timescale.com/tutorials/latest/grafana/",
+      "https://docs.timescale.com/tutorials/latest/grafana/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/tutorials\/tutorial-hello-timescale/,
-      "https://docs.timescale.com/getting-started/latest/",
+      "https://docs.timescale.com/getting-started/latest/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/tutorials\/tutorial-howto-monitor-django-prometheus/,
-      "https://docs.timescale.com/tutorials/latest/howto-monitor-django-prometheus",
+      "https://docs.timescale.com/tutorials/latest/howto-monitor-django-prometheus"
     ],
     [
       /^\/v[0-1]\.[0-9]\/tutorials\/tutorial-howto-simulate-iot-sensor-data/,
-      "https://docs.timescale.com/tutorials/latest/simulate-iot-sensor-data/",
+      "https://docs.timescale.com/tutorials/latest/simulate-iot-sensor-data/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/tutorials\/tutorial-howto-visualize-missing-data-grafana/,
-      "https://docs.timescale.com/tutorials/latest/grafana/visualize-missing-data/",
+      "https://docs.timescale.com/tutorials/latest/grafana/visualize-missing-data/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/tutorials\/tutorial-setting-up-timescale-cloud-endpoint-for-prometheus/,
-      "https://docs.timescale.com/tutorials/latest/setting-up-mst-for-prometheus/",
+      "https://docs.timescale.com/tutorials/latest/setting-up-mst-for-prometheus/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/tutorials\/visualizing-time-series-data-in-tableau/,
-      "https://docs.timescale.com/tutorials/latest/visualize-with-tableau/",
+      "https://docs.timescale.com/tutorials/latest/visualize-with-tableau/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/update-timescaledb/,
-      "https://docs.timescale.com/timescaledb/latest/how-to-guides/update-timescaledb/",
+      "https://docs.timescale.com/timescaledb/latest/how-to-guides/update-timescaledb/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/update-timescaledb\/update-docker/,
-      "https://docs.timescale.com/timescaledb/latest/how-to-guides/update-timescaledb/updating-docker/",
+      "https://docs.timescale.com/timescaledb/latest/how-to-guides/update-timescaledb/updating-docker/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/update-timescaledb\/update-tsdb-2/,
-      "https://docs.timescale.com/timescaledb/latest/how-to-guides/update-timescaledb/update-timescaledb-2/",
+      "https://docs.timescale.com/timescaledb/latest/how-to-guides/update-timescaledb/update-timescaledb-2/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/update-timescaledb\/upgrade-pg/,
-      "https://docs.timescale.com/timescaledb/latest/how-to-guides/update-timescaledb/upgrade-postgresql/",
+      "https://docs.timescale.com/timescaledb/latest/how-to-guides/update-timescaledb/upgrade-postgresql/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/using-timescaledb/,
-      "https://docs.timescale.com/timescaledb/latest/how-to-guides/",
+      "https://docs.timescale.com/timescaledb/latest/how-to-guides/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/using-timescaledb\/actions/,
-      "https://docs.timescale.com/timescaledb/latest/how-to-guides/user-defined-actions/",
+      "https://docs.timescale.com/timescaledb/latest/how-to-guides/user-defined-actions/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/using-timescaledb\/alerting/,
-      "https://docs.timescale.com/timescaledb/latest/how-to-guides/alerting",
+      "https://docs.timescale.com/timescaledb/latest/how-to-guides/alerting"
     ],
     [
       /^\/v[0-1]\.[0-9]\/using-timescaledb\/backup/,
-      "https://docs.timescale.com/timescaledb/latest/how-to-guides/backup-and-restore/",
+      "https://docs.timescale.com/timescaledb/latest/how-to-guides/backup-and-restore/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/using-timescaledb\/compression/,
-      "https://docs.timescale.com/timescaledb/latest/how-to-guides/compression/",
+      "https://docs.timescale.com/timescaledb/latest/how-to-guides/compression/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/using-timescaledb\/continuous-aggregates/,
-      "https://docs.timescale.com/timescaledb/latest/how-to-guides/continuous-aggregates/",
+      "https://docs.timescale.com/timescaledb/latest/how-to-guides/continuous-aggregates/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/using-timescaledb\/data-retention/,
-      "https://docs.timescale.com/timescaledb/latest/how-to-guides/data-retention/",
+      "https://docs.timescale.com/timescaledb/latest/how-to-guides/data-retention/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/using-timescaledb\/data-tiering/,
-      "https://docs.timescale.com/timescaledb/latest/how-to-guides/data-tiering/",
+      "https://docs.timescale.com/timescaledb/latest/how-to-guides/data-tiering/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/using-timescaledb\/distributed-hypertables\//,
-      "https://docs.timescale.com/timescaledb/latest/how-to-guides/distributed-hypertables/",
+      "https://docs.timescale.com/timescaledb/latest/how-to-guides/distributed-hypertables/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/using-timescaledb\/hypertables/,
-      "https://docs.timescale.com/timescaledb/latest/how-to-guides/hypertables/",
+      "https://docs.timescale.com/timescaledb/latest/how-to-guides/hypertables/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/using-timescaledb\/ingesting-data/,
-      "https://docs.timescale.com/timescaledb/latest/how-to-guides/ingest-data/",
+      "https://docs.timescale.com/timescaledb/latest/how-to-guides/ingest-data/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/using-timescaledb\/limitations/,
-      "https://docs.timescale.com/timescaledb/latest/overview/limitations/",
+      "https://docs.timescale.com/timescaledb/latest/overview/limitations/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/using-timescaledb\/reading-data/,
-      "https://docs.timescale.com/timescaledb/latest/how-to-guides/query-data/",
+      "https://docs.timescale.com/timescaledb/latest/how-to-guides/query-data/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/using-timescaledb\/schema-management/,
-      "https://docs.timescale.com/timescaledb/latest/how-to-guides/schema-management/",
+      "https://docs.timescale.com/timescaledb/latest/how-to-guides/schema-management/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/using-timescaledb\/telemetry/,
-      "https://docs.timescale.com/timescaledb/latest/how-to-guides/configuration/telemetry/",
+      "https://docs.timescale.com/timescaledb/latest/how-to-guides/configuration/telemetry/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/using-timescaledb\/tooling/,
-      "https://docs.timescale.com/timescaledb/latest/how-to-guides/tooling/",
+      "https://docs.timescale.com/timescaledb/latest/how-to-guides/tooling/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/using-timescaledb\/troubleshooting/,
-      "https://docs.timescale.com/timescaledb/latest/how-to-guides/troubleshoot-timescaledb",
+      "https://docs.timescale.com/timescaledb/latest/how-to-guides/troubleshoot-timescaledb"
     ],
     [
       /^\/v[0-1]\.[0-9]\/using-timescaledb\/visualizing-data/,
-      "https://docs.timescale.com/tutorials/latest/grafana/",
+      "https://docs.timescale.com/tutorials/latest/grafana/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/using-timescaledb\/writing-data/,
-      "https://docs.timescale.com/timescaledb/latest/how-to-guides/write-data/",
-    ],
-  ],
+      "https://docs.timescale.com/timescaledb/latest/how-to-guides/write-data/"
+    ]
+  ]
 })
   .add(
     "/administration/configuration",
@@ -396,7 +396,7 @@ const redirector = new ThreeOhOneRedirector({
   )
   .add("/api/api-timescaledb/", "https://docs.timescale.com/api/latest/", {
     exact: false,
-    appendPath: true,
+    appendPath: true
   })
   .add(
     "/api/data-retention/",
@@ -420,7 +420,7 @@ const redirector = new ThreeOhOneRedirector({
     "https://docs.timescale.com/api/latest/hyperfunctions/gapfilling-interpolation/time_bucket_gapfill/"
   )
   .add(
-    "/api/latest/continuous-aggregates/create_materialized_view/%20-?ref=timescale.com",
+    "/api/latest/continuous-aggregates/",
     "https://docs.timescale.com/api/latest/continuous-aggregates/create_materialized_view/"
   )
   .add(
@@ -439,25 +439,28 @@ const redirector = new ThreeOhOneRedirector({
     { exact: false }
   )
   .add(
-    "/api/latest/hyperfunctions/downsampling/null",
-    "https://docs.timescale.com/api/latest/hyperfunctions/downsampling",
-    { exact: false }
+    "/api/latest/hyperfunctions/financial-analysis/ohlc/",
+    "https://docs.timescale.com/api/latest/hyperfunctions/financial-analysis/candlestick_agg/"
   )
   .add(
-    "/api/latest/hyperfunctions/financial-analysis/ohlc/",
-    "https://docs.timescale.com/api/latest/hyperfunctions/financial-analysis/candlestick_agg/",
+    "/api/latest/hyperfunctions/financial-analysis/open-high-low-close/",
+    "https://docs.timescale.com/api/latest/hyperfunctions/financial-analysis/candlestick_agg/"
   )
   .add(
     "/api/latest/hyperfunctions/financial-analysis/open-high-low-close-time/",
-    "https://docs.timescale.com/api/latest/hyperfunctions/financial-analysis/candlestick_agg/",
+    "https://docs.timescale.com/api/latest/hyperfunctions/financial-analysis/candlestick_agg/"
   )
   .add(
     "/api/latest/hyperfunctions/financial-analysis/rollup/",
-    "https://docs.timescale.com/api/latest/hyperfunctions/financial-analysis/candlestick_agg/",
+    "https://docs.timescale.com/api/latest/hyperfunctions/financial-analysis/candlestick_agg/"
+  )
+  .add(
+    "/api/latest/hyperfunctions/frequency-analysis/",
+    "https://docs.timescale.com/api/latest/hyperfunctions/frequency-analysis/freq_agg/"
   )
   .add(
     "/api/latest/hyperfunctions/frequency-analysis/approx_count/",
-    "https://docs.timescale.com/api/latest/hyperfunctions/frequency-analysis/count_min_sketch#approx_count"
+    "https://docs.timescale.com/api/latest/hyperfunctions/frequency-analysis/count_min_sketch/"
   )
   .add(
     "/api/latest/hyperfunctions/frequency-analysis/duration_in",
@@ -472,27 +475,69 @@ const redirector = new ThreeOhOneRedirector({
     "https://docs.timescale.com/api/latest/hyperfunctions/state-aggregates/into_values-state_agg/"
   )
   .add(
-    "/api/latest/hyperfunctions/frequency-analysis/topn_agg/",
-    "https://docs.timescale.com/api/latest/hyperfunctions/frequency-analysis/freq_agg#topn"
-  )
-  .add(
     "/api/latest/hyperfunctions/frequency-analysis/state_agg",
     "https://docs.timescale.com/api/latest/hyperfunctions/state-aggregates/state_agg/"
   )
   .add(
-    "/api/latest/hyperfunctions/gapfilling/null",
-    "https://docs.timescale.com/api/latest/hyperfunctions/gapfilling/time_bucket_gapfill/"
+    "/api/latest/hyperfunctions/frequency-analysis/topn_agg/",
+    "https://docs.timescale.com/api/latest/hyperfunctions/frequency-analysis/freq_agg/#mcv_agg"
   )
   .add(
-    "/api/latest/hyperfunctions/percentile-approximation/num_vals/",
-    "https://docs.timescale.com/api/latest/hyperfunctions/percentile-approximation/num_vals-percentile/"
+    "/api/latest/hyperfunctions/gapfilling-interpolation/",
+    "https://docs.timescale.com/api/latest/hyperfunctions/gapfilling/time_bucket_gapfill/",
+    { exact: false }
+  )
+  .add(
+    "/api/latest/hyperfunctions/percentile-approximation/",
+    "https://docs.timescale.com/api/latest/hyperfunctions/percentile-approximation/uddsketch/"
+  )
+  .add(
+    "/api/latest/hyperfunctions/percentile-approximation/approx_percentile",
+    "https://docs.timescale.com/api/latest/hyperfunctions/percentile-approximation/uddsketch/"
+  )
+  .add(
+    "/api/latest/hyperfunctions/percentile-approximation/approx_percentile_rank",
+    "https://docs.timescale.com/api/latest/hyperfunctions/percentile-approximation/uddsketch/"
+  )
+  .add(
+    "/api/latest/hyperfunctions/percentile-approximation/error",
+    "https://docs.timescale.com/api/latest/hyperfunctions/percentile-approximation/uddsketch/"
+  )
+  .add(
+    "/api/latest/hyperfunctions/percentile-approximation/max_val",
+    "https://docs.timescale.com/api/latest/hyperfunctions/percentile-approximation/uddsketch/"
+  )
+  .add(
+    "/api/latest/hyperfunctions/percentile-approximation/mean",
+    "https://docs.timescale.com/api/latest/hyperfunctions/percentile-approximation/uddsketch/"
+  )
+  .add(
+    "/api/latest/hyperfunctions/percentile-approximation/min_val",
+    "https://docs.timescale.com/api/latest/hyperfunctions/percentile-approximation/uddsketch/"
+  )
+  .add(
+    "/api/latest/hyperfunctions/percentile-approximation/num_vals",
+    "https://docs.timescale.com/api/latest/hyperfunctions/percentile-approximation/uddsketch/"
+  )
+  .add(
+    "/api/latest/hyperfunctions/percentile-approximation/num_vals-pct",
+    "https://docs.timescale.com/api/latest/hyperfunctions/percentile-approximation/uddsketch/"
+  )
+  .add(
+    "/api/latest/hyperfunctions/percentile-approximation/percentile_agg",
+    "https://docs.timescale.com/api/latest/hyperfunctions/percentile-approximation/uddsketch/"
+  )
+  .add(
+    "/api/latest/hyperfunctions/percentile-approximation/percentile-aggregation-methods",
+    "https://docs.timescale.com/api/latest/hyperfunctions/percentile-approximation/uddsketch/",
+    { exact: false }
+  )
+  .add(
+    "/api/latest/hyperfunctions/percentile-approximation/rollup-percentile",
+    "https://docs.timescale.com/api/latest/hyperfunctions/percentile-approximation/uddsketch/"
   )
   .add(
     "/api/latest/hyperfunctions/saturating_math/",
-    "https://docs.timescale.com/api/latest/hyperfunctions/saturating-math/"
-  )
-  .add(
-    "/api/latest/hyperfunctions/saturating-math/null",
     "https://docs.timescale.com/api/latest/hyperfunctions/saturating-math/"
   )
   .add(
@@ -510,6 +555,11 @@ const redirector = new ThreeOhOneRedirector({
     { exact: false }
   )
   .add(
+    "/api/latest/hyperfunctions/stats_aggs/",
+    "https://docs.timescale.com/api/latest/hyperfunctions/statistical-and-regression-analysis/stats_agg-one-variable/",
+    { exact: false }
+  )
+  .add(
     "/api/latest/hyperfunctions/time-weighted-averages",
     "https://docs.timescale.com/api/latest/hyperfunctions/time-weighted-calculations/time_weight",
     { exact: false }
@@ -517,12 +567,8 @@ const redirector = new ThreeOhOneRedirector({
   .add("cloud", "https://docs.timescale.com/cloud/latest/")
   .add("/cloud/latest", "https://docs.timescale.com/use-timescale/latest/", {
     exact: false,
-    appendPath: true,
+    appendPath: true
   })
-  .add(
-    "/cloud-console/",
-    "https://docs.timescale.com/console/"
-  )
   .add(
     "/cloud/latest/account-management",
     "https://docs.timescale.com/use-timescale/latest/billing/"
@@ -658,6 +704,7 @@ const redirector = new ThreeOhOneRedirector({
     "/cloud/latest/vpc-peering",
     "https://docs.timescale.com/use-timescale/latest/vpc/"
   )
+  .add("/cloud-console/", "https://docs.timescale.com/console/")
   .add(
     "/clustering/getting-started/scaling-out/",
     "https://docs.timescale.com/timescaledb/latest/overview/core-concepts/scaling/"
@@ -791,6 +838,38 @@ const redirector = new ThreeOhOneRedirector({
     "https://docs.timescale.com/tutorials/latest/grafana/installation/"
   )
   .add(
+    "/getting-started/latest/add-data",
+    "https://docs.timescale.com/getting-started/latest/time-series-data/"
+  )
+  .add(
+    "/getting-started/latest/create-cagg/",
+    "https://docs.timescale.com/getting-started/latest/aggregation/"
+  )
+  .add(
+    "/getting-started/latest/compress-data/",
+    "https://docs.timescale.com/use-timescale/latest/compression/"
+  )
+  .add(
+    "/getting-started/latest/create-hypertable",
+    "https://docs.timescale.com/getting-started/latest/tables-hypertables/"
+  )
+  .add(
+    "/getting-started/latest/data-retention/",
+    "https://docs.timescale.com/use-timescale/latest/data-retention/"
+  )
+  .add(
+    "/getting-started/latest/query-data",
+    "https://docs.timescale.com/getting-started/latest/queries/"
+  )
+  .add(
+    "/getting-started/latest/installation",
+    "https://docs.timescale.com/getting-started/latest/"
+  )
+  .add(
+    "/getting-started/latest/installation/mac/installation-homebrew",
+    "https://docs.timescale.com/self-hosted/latest/install/installation-macos/"
+  )
+  .add(
     "/getting-started/migrating-data",
     "https://docs.timescale.com/timescaledb/latest/how-to-guides/migrate-data/"
   )
@@ -808,7 +887,7 @@ const redirector = new ThreeOhOneRedirector({
     "https://docs.timescale.com/self-hosted/latest/install/",
     {
       exact: false,
-      appendPath: true,
+      appendPath: true
     }
   )
   .add(
@@ -824,7 +903,7 @@ const redirector = new ThreeOhOneRedirector({
     "https://docs.timescale.com/self-hosted/latest/install",
     {
       exact: false,
-      appendPath: true,
+      appendPath: true
     }
   )
   .add(
@@ -866,7 +945,7 @@ const redirector = new ThreeOhOneRedirector({
   )
   .add("/latest/api", "https://docs.timescale.com/api/latest/", {
     exact: false,
-    appendPath: true,
+    appendPath: true
   })
   .add(
     "/latest/api/api-timescaledb/",
@@ -896,7 +975,7 @@ const redirector = new ThreeOhOneRedirector({
   )
   .add(
     "/latest/getting-started/create-hypertable/",
-    "https://docs.timescale.com/getting-started/latest/create-hypertable/"
+    "https://docs.timescale.com/getting-started/latest/tables-hypertables/"
   )
   .add(
     "/latest/getting-started/creating-hypertables",
@@ -949,6 +1028,10 @@ const redirector = new ThreeOhOneRedirector({
   .add(
     "/latest/getting-started/installation/docker/installation-docker",
     "https://docs.timescale.com/install/latest/installation-docker/"
+  )
+  .add(
+    "/latest/getting-started/installation/mac/installation-homebrew",
+    "https://docs.timescale.com/self-hosted/latest/install/installation-macos/"
   )
   .add(
     "/latest/getting-started/installation/macos/installation-homebrew",
@@ -1053,7 +1136,7 @@ const redirector = new ThreeOhOneRedirector({
     "/latest/release-notes/changes-in-timescaledb-2",
     "https://docs.timescale.com/timescaledb/latest/overview/release-notes/changes-in-timescaledb-2/"
   )
-  .add("/latest/tutorials", "tutorials/latest/")
+  .add("/latest/tutorials", "https://docs.timescale.com/tutorials/latest/")
   .add(
     "/latest/tutorials/analyze-cryptocurrency-data",
     "https://docs.timescale.com/tutorials/latest/analyze-cryptocurrency-data/"
@@ -1068,7 +1151,7 @@ const redirector = new ThreeOhOneRedirector({
   )
   .add(
     "/latest/tutorials/getting-started-with-promscale",
-    "https://docs.timescale.com/promscale/latest/",
+    "https://promscale-legacy-docs.timescale.com/",
     { exact: false }
   )
   .add(
@@ -1102,6 +1185,10 @@ const redirector = new ThreeOhOneRedirector({
   .add(
     "/latest/tutorials/quickstart-ruby",
     "https://docs.timescale.com/quick-start/latest/ruby/"
+  )
+  .add(
+    "/latest/tutorials/prometheus-adapter/",
+    "https://docs.timescale.com/tutorials/latest/"
   )
   .add(
     "/latest/tutorials/replication",
@@ -1158,6 +1245,10 @@ const redirector = new ThreeOhOneRedirector({
   .add(
     "/latest/tutorials/tutorial-setting-up-timescale-cloud-endpoint-for-prometheus",
     "https://docs.timescale.com/tutorials/latest/monitor-mst-with-prometheus/"
+  )
+  .add(
+    "/latest/tutorials/tutorial-setup-timescale-prometheus/",
+    "https://docs.timescale.com/tutorials/latest/"
   )
   .add(
     "/latest/tutorials/tutorial-use-timescale-prometheus-grafana/",
@@ -1230,30 +1321,41 @@ const redirector = new ThreeOhOneRedirector({
     "https://docs.timescale.com/mst/latest/about-mst"
   )
   .add("/mst", "https://docs.timescale.com/mst/latest/")
+  .add("/promscale", "https://promscale-legacy-docs.timescale.com/", {
+    exact: false
+  })
+  .add(
+    "/quick-start/latest/dotnet/",
+    "https://docs.timescale.com/quick-start/latest/"
+  )
   .add(
     "/release-notes",
     "https://docs.timescale.com/timescaledb/latest/overview/release-notes/",
     { exact: false, appendPath: true }
   )
   .add(
-    "/self-hosted/latest/install/installation-redhat/",
+    "/self-hosted/latest/install/installation-redhat",
     "https://docs.timescale.com/self-hosted/latest/install/installation-linux/"
   )
   .add(
-    "/self-hosted/latest/compression/<https://assets.timescale.com/images/diagrams/compression_diagram.png",
-    "https://docs.timescale.com/self-hosted/latest/compression/"
+    "/self-hosted/latest/self-hosted/backup-and-restore/troubleshooting/",
+    "https://docs.timescale.com/self-hosted/latest/troubleshooting/"
   )
   .add("/timescale-cloud", "https://docs.timescale.com/mst/latest/", {
-    exact: false,
+    exact: false
   })
   .add("/timescale-forge", "https://docs.timescale.com/cloud/latest/", {
-    exact: false,
+    exact: false
   })
   .add("/timescale-forge/latest", "https://docs.timescale.com/cloud/latest/")
   .add("/timescaledb/", "https://docs.timescale.com/use-timescale/latest/")
+  .add(
+    "/timescaledb/latest/",
+    "https://docs.timescale.com/use-timescale/latest/"
+  )
   .add("/timescaledb/latest/api", "https://docs.timescale.com/api/latest/", {
     exact: false,
-    appendPath: true,
+    appendPath: true
   })
   .add(
     "/timescaledb/latest/contribute-to-docs",
@@ -1265,14 +1367,15 @@ const redirector = new ThreeOhOneRedirector({
   )
   .add(
     "/timescaledb/latest/getting-started/",
-    "https://docs.timescale.com/getting-started/latest/"
+    "https://docs.timescale.com/getting-started/latest/",
+    { exact: false, appendPath: true }
   )
   .add(
     "/timescaledb/latest/how-to-guides",
     "https://docs.timescale.com/use-timescale/latest/",
     {
       exact: false,
-      appendPath: true,
+      appendPath: true
     }
   )
   .add(
@@ -1377,61 +1480,8 @@ const redirector = new ThreeOhOneRedirector({
     { exact: false, appendPath: true }
   )
   .add(
-    "/timescaledb/latest/overview/data-model-flexibility/",
-    "https://docs.timescale.com/about/latest/",
-  )
-  .add(
-    "/timescaledb/latest/overview/data-model-flexibility/?ref=timescale.com",
-    "https://docs.timescale.com/about/latest/",
-  )
-  .add(
-    "/timescaledb/latest/overview/data-model-flexibility/narrow-data-model/?ref=timescale.com",
-    "https://docs.timescale.com/about/latest/",
-  )
-  .add(
-    "/timescaledb/latest/overview/how-does-it-compare/?ref=timescale.com",
-    "https://docs.timescale.com/about/latest/",
-  )
-  .add(
-    "/timescaledb/latest/overview/how-does-it-compare/timescaledb-vs-postgres/",
-    "https://docs.timescale.com/about/latest/",
-  )
-  .add(
-    "/timescaledb/latest/overview/how-does-it-compare/timescaledb-vs-postgres/?ref=timescale.com",
-    "https://docs.timescale.com/about/latest/",
-  )
-  .add(
-    "/timescaledb/latest/timescaledb-edition-comparison",
-    "https://docs.timescale.com/about/latest/timescaledb-editions/"
-  )
-  .add(
-    "/timescaledb/latest/tutorials",
-    "https://docs.timescale.com/tutorials/latest",
-    { exact: false, appendPath: true }
-  )
-  .add(
-    "/timescaledb/latest/tutorials/financial-candlestick-tick-data/",
-    "https://docs.timescale.com/tutorials/latest/financial-tick-data/"
-  )
-  .add(
-    "/timescaledb/latest/tutorials/howto-monitor-django-prometheus",
-    "https://docs.timescale.com/tutorials/latest/monitor-django-with-prometheus/"
-  )
-  .add(
-    "/timescaledb/latest/tutorials/promscale/",
-    "https://docs.timescale.com/promscale/latest/"
-  )
-  .add(
-    "/timescaledb/latest/tutorials/setting-up-mst-endpoint-for-prometheus/",
-    "https://docs.timescale.com/tutorials/latest/monitor-mst-with-prometheus/"
-  )
-  .add(
-    "/timescaledb/latest/tutorials/",
-    "https://docs.timescale.com/tutorials/latest/monitor-mst-with-prometheus/"
-  )
-  .add(
-    "/timescaledb/latest/tutorials/visualize-with-tableu/",
-    "https://docs.timescale.com/tutorials/latest/visualize-with-tableau/"
+    "/timescaledb/latest/introduction",
+    "https://docs.timescale.com/use-timescale/latest/"
   )
   .add(
     "/timescaledb/latest/overview",
@@ -1505,9 +1555,62 @@ const redirector = new ThreeOhOneRedirector({
     "https://docs.timescale.com/about/latest/release-notes/"
   )
   .add(
+    "/timescaledb/latest/overview/release-notes/changes-in-timescaledb-2/",
+    "https://docs.timescale.com/about/latest/release-notes/changes-in-timescaledb-2/"
+  )
+  .add(
     "/timescaledb/latest/quick-start",
     "https://docs.timescale.com/quick-start/latest/",
     { exact: false, appendPath: true }
+  )
+  .add(
+    "/timescaledb/latest/release-notes/changes-in-timescaledb-2/",
+    "https://docs.timescale.com/about/latest/release-notes/changes-in-timescaledb-2/"
+  )
+  .add(
+    "/timescaledb/latest/timescaledb-edition-comparison",
+    "https://docs.timescale.com/about/latest/timescaledb-editions/"
+  )
+  .add(
+    "/timescaledb/latest/tutorials",
+    "https://docs.timescale.com/tutorials/latest/",
+    { exact: false, appendPath: true }
+  )
+  .add(
+    "/timescaledb/latest/tutorials/financial-candlestick-tick-data/",
+    "https://docs.timescale.com/tutorials/latest/financial-tick-data/"
+  )
+  .add(
+    "/timescaledb/latest/tutorials/howto-monitor-django-prometheus",
+    "https://docs.timescale.com/tutorials/latest/monitor-django-with-prometheus/"
+  )
+  .add(
+    "/timescaledb/latest/tutorials/promscale/",
+    "https://promscale-legacy-docs.timescale.com/"
+  )
+  .add(
+    "/timescaledb/latest/tutorials/setting-up-mst-endpoint-for-prometheus/",
+    "https://docs.timescale.com/tutorials/latest/monitor-mst-with-prometheus/"
+  )
+  .add(
+    "/timescaledb/latest/tutorials/visualize-with-tableu/",
+    "https://docs.timescale.com/tutorials/latest/visualize-with-tableau/"
+  )
+  .add(
+    "/timescaledb/latest/update-timescaledb/update-tsdb-2",
+    "https://docs.timescale.com/self-hosted/latest/upgrades/"
+  )
+  .add(
+    "/timescaledb/latest/using-timescaledb/actions",
+    "https://docs.timescale.com/use-timescale/latest/user-defined-actions/"
+  )
+  .add(
+    "/timescaledb/latest/using-timescaledb/distributed-hypertables",
+    "https://docs.timescale.com/use-timescale/latest/distributed-hypertables/"
+  )
+  .add(
+    "/timescaledb/latest/using-timescaledb/telemetry",
+    "https://docs.timescale.com/self-hosted/latest/configuration/telemetry/"
   )
   .add(
     "/tutorials/clustering",
@@ -1518,53 +1621,60 @@ const redirector = new ThreeOhOneRedirector({
     "https://docs.timescale.com/getting-started/latest/create-cagg/"
   )
   .add(
-    "/tutorials/latest/analyze-intraday-stocks/fetch-and-ingest/",
-    "https://docs.timescale.com/tutorials/latest/ingest-real-time-websocket-data/",
+    "/tutorials/getting-started-with-promscale",
+    "https://promscale-legacy-docs.timescale.com/",
+    { exact: false }
   )
   .add(
-    "/tutorials/latest/aws-lambda/3rd-party-api-ingest/",
+    "/tutorials/latest/analyze-intraday-stocks/",
     "https://docs.timescale.com/tutorials/latest/",
+    { exact: false }
   )
   .add(
-    "/tutorials/latest/aws-lambda/continuous-deployment/",
+    "/tutorials/latest/aws-lambda/",
     "https://docs.timescale.com/tutorials/latest/",
+    { exact: false }
   )
   .add(
-    "/tutorials/latest/aws-lambda/create-data-api/",
-    "https://docs.timescale.com/tutorials/latest/",
+    "/tutorials/latest/financial-candlestick-tick-data/create-candlestick-aggregates/",
+    "https://docs.timescale.com/tutorials/latest/financial-tick-data/financial-tick-query/"
+  )
+  .add(
+    "/tutorials/latest/howto-monitor-django-prometheus",
+    "https://docs.timescale.com/tutorials/latest/monitor-django-with-prometheus/"
   )
   .add(
     "/tutorials/latest/monitor-mst-with-prometheus/",
-    "https://docs.timescale.com/mst/latest/integrations/prometheus-mst/",
+    "https://docs.timescale.com/tutorials/latest/",
+    { exact: false }
   )
   .add(
-    "/tutorials/latest/prometheus-adapter",
+    "/tutorials/latest/nfl-analytics/",
+    "https://docs.timescale.com/tutorials/latest/"
+  )
+  .add(
+    "/tutorials/latest/prometheus-adapter/",
     "https://docs.timescale.com/tutorials/latest/",
+    { exact: false }
   )
   .add(
     "/tutorials/latest/sample-datasets/",
     "https://docs.timescale.com/tutorials/latest/",
-  )
-  .add(
-    "/tutorials/latest/telegraf-output-plugin",
-    "https://docs.timescale.com/use-timescale/latest/ingest-data/ingest-telegraf/",
-  )
-  .add(
-    "/tutorials/latest/telegraf-output-plugin/",
-    "https://docs.timescale.com/use-timescale/latest/ingest-data/ingest-telegraf/",
-  )
-  .add(
-    "/tutorials/latest/time-series-forecast/",
-    "https://docs.timescale.com/tutorials/latest/nyc-taxi-cab/",
-  )
-  .add(
-    "/tutorials/getting-started-with-promscale",
-    "https://docs.timescale.com/promscale/latest/",
     { exact: false }
   )
   .add(
     "/tutorials/other-sample-datasets",
     "https://docs.timescale.com/tutorials/latest/sample-datasets/"
+  )
+  .add(
+    "/tutorials/latest/telegraf-output-plugin/",
+    "https://docs.timescale.com/tutorials/latest/",
+    { exact: false }
+  )
+  .add(
+    "/tutorials/latest/time-series-forecast/",
+    "https://docs.timescale.com/tutorials/latest/",
+    { exact: false }
   )
   .add(
     "/tutorials/outflux",
@@ -1660,16 +1770,71 @@ const redirector = new ThreeOhOneRedirector({
     "https://docs.timescale.com/timescaledb/latest/how-to-guides/update-timescaledb/upgrade-postgresql/"
   )
   .add(
-    "/use-timescale/latest/account-management/undefined",
-    "https://docs.timescale.com/use-timescale/latest/account-management/"
+    "/use-timescale/latest/backup-and-restore/",
+    "https://docs.timescale.com/use-timescale/latest/backup-restore-cloud/"
   )
   .add(
-    "/use-timescale/latest/backup-restore-cloud/docs.timescale.com/use-timescale/latest/ha-replicas/high-availability/",
+    "/use-timescale/latest/compression/about-compression",
+    "https://docs.timescale.com/use-timescale/latest/compression"
+  )
+  .add(
+    "/use-timescale/latest/how-to-guides/compression/",
+    "https://docs.timescale.com/use-timescale/latest/compression/"
+  )
+  .add(
+    "/use-timescale/latest/hyperfunctions/install-toolkit/",
+    "https://docs.timescale.com/self-hosted/latest/tooling/install-toolkit/"
+  )
+  .add(
+    "/use-timescale/latest/install-timescaledb/self-hosted/",
+    "https://docs.timescale.com/self-hosted/latest/install/"
+  )
+  .add(
+    "/use-timescale/latest/install-timescaledb-toolkit/",
+    "https://docs.timescale.com/self-hosted/latest/tooling/install-toolkit/"
+  )
+  .add(
+    "/use-timescale/latest/migrate-data/",
+    "https://docs.timescale.com/use-timescale/latest/migration/",
+    { exact: false }
+  )
+  .add(
+    "/use-timescale/latest/migrate-db/",
+    "https://docs.timescale.com/use-timescale/latest/migration/",
+    { exact: false }
+  )
+  .add(
+    "/use-timescale/latest/schema-management/manage-storage/",
+    "https://docs.timescale.com/use-timescale/latest/schema-management/"
+  )
+  .add(
+    "/use-timescale/latest/services/autoscaling",
+    "https://docs.timescale.com/use-timescale/latest/resources/autoscaling/"
+  )
+  .add(
+    "/use-timescale/latest/services/maintenance",
+    "https://docs.timescale.com/use-timescale/latest/upgrades/"
+  )
+  .add(
+    "/use-timescale/latest/services/regions",
+    "https://docs.timescale.com/use-timescale/latest/regions/"
+  )
+  .add(
+    "/use-timescale/latest/services/replicas/",
     "https://docs.timescale.com/use-timescale/latest/ha-replicas/"
   )
   .add(
-    "/use-timescale/latest/user-defined-actions/\\",
-    "https://docs.timescale.com/use-timescale/latest/user-defined-actions/"
+    "/use-timescale/latest/services/resources/",
+    "https://docs.timescale.com/use-timescale/latest/resources/"
+  )
+  .add(
+    "/use-timescale/latest/update-timescaledb/",
+    "https://docs.timescale.com/self-hosted/latest/upgrades/",
+    { exact: false }
+  )
+  .add(
+    "/use-timescale/latest/vpc-peering-aws/",
+    "https://docs.timescale.com/use-timescale/latest/vpc/"
   )
   .add(
     "/using-timescaledb",
@@ -1716,55 +1881,51 @@ const redirector = new ThreeOhOneRedirector({
     "/using-timescaledb/writing-data",
     "https://docs.timescale.com/timescaledb/latest/how-to-guides/write-data/"
   )
-  .add(
-    "/use-timescale/latest/migrate-data/",
-    "https://docs.timescale.com/use-timescale/latest/migration/"
-  )
   .add("/v0.8/", "https://docs.timescale.com/timescaledb/latest/", {
     exact: false,
-    appendPath: true,
+    appendPath: true
   })
   .add("/v0.8/api", "https://docs.timescale.com/api/latest/", {
     exact: false,
-    appendPath: true,
+    appendPath: true
   })
   .add("/v0.9/", "https://docs.timescale.com/timescaledb/latest/", {
     exact: false,
-    appendPath: true,
+    appendPath: true
   })
   .add("/v0.9/api", "https://docs.timescale.com/api/latest/", {
     exact: false,
-    appendPath: true,
+    appendPath: true
   })
   .add("/v0.10/", "https://docs.timescale.com/timescaledb/latest/", {
     exact: false,
-    appendPath: true,
+    appendPath: true
   })
   .add("/v0.10/api", "https://docs.timescale.com/api/latest/", {
     exact: false,
-    appendPath: true,
+    appendPath: true
   })
   .add("/v0.11/", "https://docs.timescale.com/timescaledb/latest/", {
     exact: false,
-    appendPath: true,
+    appendPath: true
   })
   .add("/v0.11/api", "https://docs.timescale.com/api/latest/", {
     exact: false,
-    appendPath: true,
+    appendPath: true
   })
   .add("/v0.12/", "https://docs.timescale.com/timescaledb/latest/", {
     exact: false,
-    appendPath: true,
+    appendPath: true
   })
   .add("/v0.12/api", "https://docs.timescale.com/api/latest/", {
     exact: false,
-    appendPath: true,
+    appendPath: true
   })
   .add("/v2.0/", "https://docs.timescale.com/timescaledb/latest/", {
     exact: false,
-    appendPath: true,
+    appendPath: true
   })
   .add("/v2.0/api", "https://docs.timescale.com/api/latest/", {
     exact: false,
-    appendPath: true,
+    appendPath: true
   });
