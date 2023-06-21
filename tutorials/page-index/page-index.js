@@ -19,10 +19,22 @@ module.exports = [
             href: "query-nyc",
             excerpt: "Query NYC data",
           },
+        ],
+      },
+      {
+        title: "Plot geospatial NYC taxi cab data",
+        href: "nyc-taxi-geospatial",
+        excerpt: "Learn how to plot geospatial time-series data with NYC taxi cabs",
+        children: [
           {
-            title: "Time-series tutorial - advanced queries",
-            href: "advanced-nyc",
-            excerpt: "Advanced queries NYC data",
+            title: "Geospatial tutorial - set up",
+            href: "dataset-nyc",
+            excerpt: "Set up a dataset so you can plot geospatial NYC taxi data",
+          },
+          {
+            title: "Geospatial tutorial - query data",
+            href: "plot-nyc",
+            excerpt: "Plot geospatial NYC taxi data",
           },
         ],
       },
