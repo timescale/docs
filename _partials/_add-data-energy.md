@@ -29,7 +29,6 @@ connection.
     \COPY metrics FROM metrics.csv CSV;
     ```
 
-</Procedure>
 
 You can check that the data has been copied successfully with this command:
 
