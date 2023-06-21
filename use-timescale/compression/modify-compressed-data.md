@@ -14,7 +14,7 @@ and modify data in compressed rows.
 
 <Tabs>
 
-<Tab title="TimescaleDB&nbsp;2.11 and later>
+<Tab title="TimescaleDB&nbsp;2.11 and later">
 
 In TimescaleDB&nbsp;2.11 and later, you can insert data into compressed chunks.
 This works even if the data you are inserting has unique constraints, and those
