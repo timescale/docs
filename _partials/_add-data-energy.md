@@ -30,23 +30,23 @@ connection.
     ```
 
 
-You can check that the data has been copied successfully with this command:
+   You can check that the data has been copied successfully with this command:
 
-```sql
-SELECT * FROM metrics LIMIT 5;
-```
+   ```sql
+   SELECT * FROM metrics LIMIT 5;
+   ```
 
-You should get five records that look like this:
+   You should get five records that look like this:
 
-```sql
+   ```sql
             created            | type_id | value 
--------------------------------+---------+-------
- 2023-05-31 23:59:59.043264+00 |      13 |  1.78
- 2023-05-31 23:59:59.042673+00 |       2 |   126
- 2023-05-31 23:59:59.042667+00 |      11 |  1.79
- 2023-05-31 23:59:59.042623+00 |      23 | 0.408
- 2023-05-31 23:59:59.042603+00 |      12 |  0.96
-```
+   -------------------------------+---------+-------
+    2023-05-31 23:59:59.043264+00 |      13 |  1.78
+    2023-05-31 23:59:59.042673+00 |       2 |   126
+    2023-05-31 23:59:59.042667+00 |      11 |  1.79
+    2023-05-31 23:59:59.042623+00 |      23 | 0.408
+    2023-05-31 23:59:59.042603+00 |      12 |  0.96
+   ```
 
 </Procedure>
 
