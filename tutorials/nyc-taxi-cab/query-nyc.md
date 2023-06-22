@@ -195,7 +195,7 @@ trips going only to the new main airports.
 ### Finding what kind of trips are going to and from airports
 
 1.  Connect to the Timescale database that contains the NYC taxi dataset.
-2.  At the psql prompt, use this query to select all rides taken to and from JFK
+1.  At the psql prompt, use this query to select all rides taken to and from JFK
     and Newark airports, in the first week of January 2016, and return the number
     of trips to that airport, the average trip duration, average trip cost, and
     average number of passengers:
@@ -246,7 +246,7 @@ the data into time intervals instead.
 ### Finding how many rides took place on New Year's Day 2016
 
 1.  Connect to the Timescale database that contains the NYC taxi dataset.
-2.  At the psql prompt, use this query to select all rides taken on the first
+1.  At the psql prompt, use this query to select all rides taken on the first
     day of January 2016, and return a count of rides for each 30 minute interval:
 
     ```sql

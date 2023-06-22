@@ -49,17 +49,14 @@ or [contact us][contact-timescale] directly.
 Timescale is a versatile hosting service that provides a growing list of
 advanced features for your PostgreSQL and time-series data workloads.
 
-For additional documentation on how to:
-
-*   [Resize compute and storage][resize] at any time
-*   [Customize your database configuration][configuration] easily
+For more information about customizing your database configuration, see the
+[Configuration section][configuration].
 
 [aggregates-info]: /getting-started/:currentVersion:/create-cagg
 [configuration]: /use-timescale/:currentVersion:/configuration/
 [contact-timescale]: https://www.timescale.com/contact
 [gap-filling-info]: /use-timescale/:currentVersion:/query-data/advanced-analytic-queries#gap-filling
 [hypertable-info]: /use-timescale/:currentVersion:/hypertables
-[resize]: /use-timescale/:currentVersion:/resources/autoscaling/
 [slack-info]: https://slack-login.timescale.com
 [time-bucket-info]: /use-timescale/:currentVersion:/query-data/advanced-analytic-queries#time-bucket
 [terraform-provider-docs]: https://registry.terraform.io/providers/timescale/timescale/latest/docs
