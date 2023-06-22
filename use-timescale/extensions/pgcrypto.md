@@ -13,7 +13,7 @@ pgcrypto is a PostgreSQL extension that provides cryptographic functions such as
 *   General hashing
 *   Password hashing
 *   PGP encryption
-*   Raw Encryption
+*   Raw encryption
 *   Random-Data
 
 For more information about these fuctions and the options available, see the
