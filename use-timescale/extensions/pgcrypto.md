@@ -84,8 +84,8 @@ precious your data is and safeguards sensitive information.
     the password key that you created:
 
     ```sql
-        SELECT username, pgp_sym_decrypt(crypttext::bytea, '<Password_Key>')
-        FROM user_passwords;
+     SELECT username, pgp_sym_decrypt(crypttext::bytea, '<Password_Key>')
+     FROM user_passwords;
     ```
 
     The decrypted passwords are listed:
