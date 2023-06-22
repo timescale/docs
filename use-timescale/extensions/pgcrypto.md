@@ -80,7 +80,7 @@ precious your data is and safeguards sensitive information.
     (2 rows)
     ```
 
-1.  To view the decrypted passwords for the users replace `<Password_Key>` with
+1.  To view the decrypted passwords, replace `<Password_Key>` with
     the password key that you created:
 
     ```sql
