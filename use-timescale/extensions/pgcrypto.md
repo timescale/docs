@@ -67,8 +67,8 @@ precious your data is and safeguards sensitive information.
 1.  You can confirm that the password is encrypted using the command:
 
     ```sql
-     SELECT * FROM user_passwords;
-     ```
+    SELECT * FROM user_passwords;
+    ```
 
     The encrypted passwords are listed:
 
