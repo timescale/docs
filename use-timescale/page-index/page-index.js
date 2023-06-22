@@ -65,7 +65,12 @@ module.exports = [
           {
             title: "pgvector extension",
             href: "pgvector",
-            excerpt: "Using thr pgvector PostgreSQL extension",
+            excerpt: "Using the pgvector PostgreSQL extension",
+          },
+          {
+            title: "pgcrypto extension",
+            href: "pgcrypto",
+            excerpt: "Using the pgcrypto PostgreSQL extension",
           },
         ]
       },
