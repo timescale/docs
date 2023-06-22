@@ -27,7 +27,7 @@ precious your data is and safeguards sensitive information.
 
 <Procedure>
 
-### Using `pgcrypto` extension to encrypt the data you insert in Timescale
+### Using the `pgcrypto` extension to encrypt inserted data
 
 1.  Install the `pgcryto` extension:
 
