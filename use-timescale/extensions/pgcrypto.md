@@ -91,11 +91,11 @@ precious your data is and safeguards sensitive information.
     The decrypted passwords are listed:
 
     ```sql
-        username | pgp_sym_decrypt 
-        ----------+-----------------
-         user1   | user1_password
-         user2   | user2_password
-        (2 rows)
+     username | pgp_sym_decrypt 
+     ----------+-----------------
+      user1   | user1_password
+      user2   | user2_password
+     (2 rows)
     ```
 
 </Procedure>
