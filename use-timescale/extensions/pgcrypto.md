@@ -36,7 +36,7 @@ precious your data is and safeguards sensitive information.
     ```
 
 1.  You can confirm if the extension is installed using the `\dx` command.
-    The extensions that are instlled is listed:
+    The installed extensions are listed:
 
     ```sql
         List of installed extensions
