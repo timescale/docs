@@ -12,8 +12,8 @@ teach you how to construct interesting queries, find out what information your
 database has hidden in it, and even gives you options for visualizing and
 graphing your results.
 
-|Level|Fleet &#1F698; |Finance &#1F4B0; |Blockchain &#1F510; |Energy &#1F4A1; |
+|Level|Fleet &#x1F698; |Finance &#x1F4B0; |Blockchain &#x1F510; |Energy &#x1F4A1; |
 |-|-|-|-|-|
-| &#1F7E2; Beginner|NYC taxis &#1F695; |Tick data &#1F56F; |Query blockchain &#1FA99; |Energy &#1F50B; |
-| &#2B50; Intermediate|Geospatial &#1F30E; |Coming Soon! &#23F1; |Analyze blockchain &#1F4C8; |Coming Soon! &#23F1 |
-| &#2666; Advanced|Coming Soon! &#23F1; |Web socket &#1F4B8; |Coming Soon! &#23F1; |Coming Soon! &#23F1; 💡|
+| &#x1F7E2; Beginner|NYC taxis &#x1F695; |Tick data &#x1F56F; |Query blockchain &#x1FA99; |Energy &#x1F50B; |
+| &#x2B50; Intermediate|Geospatial &#x1F30E; |Coming Soon! &#x23F1; |Analyze blockchain &#x1F4C8; |Coming Soon! &#x23F1 |
+| &#x2666; Advanced|Coming Soon! &#x23F1; |Web socket &#x1F4B8; |Coming Soon! &#x23F1; |Coming Soon! &#x23F1; |
