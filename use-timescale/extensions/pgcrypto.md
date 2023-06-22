@@ -19,7 +19,7 @@ pgcrypto is a PostgreSQL extension that provides cryptographic functions such as
 For more information about these fuctions and the options available, see the
 [pgcryto documentation][pgcryto-docs].
 
-## Use `pgcrypto` extension with Timescale
+## Use the `pgcrypto` extension to encrypt inserted data
 
 `pgcrypto` is a PostgreSQL extension that enables you to encrypt, decrypt, hash,
 and create digital signatures within your database. Timescale understands how
