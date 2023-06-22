@@ -1,15 +1,19 @@
 ---
-title: Billing - Account management
-excerpt: Manage billing information for your Timescale account
+title: Billing and account management
+excerpt: Manage billing and account information for your Timescale account
 products: [cloud]
 keywords: [billing, accounts, admin]
-tags: [payment]
+tags: [payment, billing, costs]
 cloud_ui:
     path:
         - [billing]
 ---
 
+import UsageBasedStorage from "versionContent/_partials/_usage-based-storage-intro.mdx";
+
 # Billing and account management
+
+<UsageBasedStorage />
 
 If you haven't yet added a payment method, you can add one in this section. You
 can also update to a new credit card here.
@@ -35,19 +39,19 @@ delete the card in the `Wallet` without deleting the services.
 
 1.  [Log in to your Timescale account][cloud-login] and navigate to
     the `Billing` details section.
-2.  In the `Wallet` section, click `Add payment method`. If you already have
+1.  In the `Wallet` section, click `Add payment method`. If you already have
     three credit cards saved in the payment methods, you need to delete at least
     one of them before you start. Click the trash can icon to delete your saved
     credit card.
-3.  Type your credit card details, and click `Continue`.
+1.  Type your credit card details, and click `Continue`.
     The `Add payment method: billing address` page appears.
-4.  Type your billing and company addresses. The company address is
+1.  Type your billing and company addresses. The company address is
     required to determine any applicable sales tax.
     *   If your billing address is the same as your company address, select
       `Billing  address is the same as company address`, and click `Save`.
     *   If your billing address is not the same as your company address, click
       `Continue`. Type your company address, and click `Save`.
-5.  Confirm your new credit card is saved by checking the details on the
+1.  Confirm your new credit card is saved by checking the details on the
     `Billing` page.
     You can update your billing address and company address by clicking the edit
     icon in the `primary` payment method. However, you can only edit the billing
@@ -112,9 +116,9 @@ your payment method. You can change your company name and address in the
 
 1.  [Log in to your Timescale account][cloud-login] and navigate to
     the `Billing` details section.
-2.  In the `Billing details` tab, locate the `Company info` section and click
+1.  In the `Billing details` tab, locate the `Company info` section and click
     the pencil icon.
-3.  Complete the company name and address information, and click `Save`.
+1.  Complete the company name and address information, and click `Save`.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc_edit_companyinfo.png" alt="Adding or updating the company name and address in Timescale"/>
 
