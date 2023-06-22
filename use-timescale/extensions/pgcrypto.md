@@ -52,7 +52,7 @@ precious your data is and safeguards sensitive information.
 1.  Create a table named `user_passwords`:
 
     ```sql
-       CREATE TABLE user_passwords (username varchar(100) PRIMARY KEY, crypttext text);
+    CREATE TABLE user_passwords (username varchar(100) PRIMARY KEY, crypttext text);
     ```
 
 1.  Insert the values in the `user_passwords` table and replace `<Password_Key>`
