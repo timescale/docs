@@ -55,11 +55,6 @@ module.exports = [
             href: "change-resources",
             excerpt: "Manually adjust your service resources",
           },
-          {
-            title: "Autoscale",
-            href: "autoscaling",
-            excerpt: "Autoscaling in Timescale",
-          },
         ]
       },
       {

@@ -640,7 +640,7 @@ const redirector = new ThreeOhOneRedirector({
   )
   .add(
     "/cloud/latest/scaling-a-service",
-    "https://docs.timescale.com/use-timescale/latest/services/autoscaling"
+    "https://docs.timescale.com/use-timescale/latest/resources/"
   )
   .add(
     "/cloud/latest/service-explorer",
@@ -1523,7 +1523,7 @@ const redirector = new ThreeOhOneRedirector({
   )
   .add(
     "/timescaledb/latest/overview/core-concepts/scaling",
-    "https://docs.timescale.com/use-timescale/latest/services/autoscaling/"
+    "https://docs.timescale.com/use-timescale/latest/resources/"
   )
   .add(
     "/timescaledb/latest/overview/core-concepts/user-defined-actions",
@@ -1880,6 +1880,14 @@ const redirector = new ThreeOhOneRedirector({
   .add(
     "/using-timescaledb/writing-data",
     "https://docs.timescale.com/timescaledb/latest/how-to-guides/write-data/"
+  )
+  .add(
+    "/use-timescale/latest/migrate-data/",
+    "https://docs.timescale.com/use-timescale/latest/migration/"
+  )
+  .add(
+    "/use-timescale/latest/resources/autoscaling",
+    "https://docs.timescale.com/use-timescale/latest/resources/",
   )
   .add("/v0.8/", "https://docs.timescale.com/timescaledb/latest/", {
     exact: false,

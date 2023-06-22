@@ -39,25 +39,38 @@ module.exports = [
         ],
       },
       {
-        title: "Analyze cryptocurrency data",
-        href: "analyze-cryptocurrency-data",
-        excerpt: "Use Timescale to analyze cryptocurrency data",
+        title: "Query the Bitcoin blockchain",
+        href: "blockchain-query",
+        excerpt: "Query the Bitcoin blockchain",
+        children: [
+          {
+            title: "Query the blockchain tutorial - set up",
+            href: "blockchain-dataset",
+            excerpt:
+              "Set up a dataset so you can query the Bitcoin blockchain",
+          },
+          {
+            title: "Query the blockchain tutorial - query data",
+            href: "beginner-blockchain-query",
+            excerpt: "Query the Bitcoin blockchain dataset",
+          },
+        ],
       },
       {
         title: "Analyze the Bitcoin blockchain",
-        href: "analyze-bitcoin-blockchain",
-        excerpt: "Store and query blockchain transactions",
+        href: "blockchain-analyze",
+        excerpt: "Analyze the Bitcoin blockchain with Timescale hyperfunctions",
         children: [
           {
-            title: "Ingest and query Bitcoin transactions",
-            href: "ingest-query-btc-transactions",
+            title: "Analyze the blockchain tutorial - set up",
+            href: "blockchain-dataset",
             excerpt:
-              "Design schema and ingest Bitcoin blockchain data with Timescale",
+              "Set up a dataset so you can analyze the Bitcoin blockchain",
           },
           {
-            title: "Analyze the blockchain with hyperfunctions",
-            href: "analyze-blockchain",
-            excerpt: "Use Timescale hyperfunctions for blockchain insights",
+            title: "Query the blockchain tutorial - query data",
+            href: "analyze-blockchain-query",
+            excerpt: "Analyze the Bitcoin blockchain dataset with Timescale hyperfunctions",
           },
         ],
       },
@@ -120,6 +133,23 @@ module.exports = [
         title: "Simulate IoT sensor data",
         href: "simulate-iot-sensor-data",
         excerpt: "Simulate IoT Sensor Data with Timescale",
+      },
+      {
+        title: "Analyze energy consumption data",
+        href: "energy-data",
+        excerpt: "Learn how to analyze energy consumption data",
+        children: [
+          {
+            title: "Energy consumption tutorial - set up",
+            href: "dataset-energy",
+            excerpt: "Set up a dataset so you can analyze energy consumption data",
+          },
+          {
+            title: "Energy consumption tutorial - queries",
+            href: "query-energy",
+            excerpt: "Queries energy consumption data",
+          },
+        ] 
       },
     ],
   },
