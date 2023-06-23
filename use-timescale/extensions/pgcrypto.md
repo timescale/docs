@@ -21,7 +21,7 @@ For more information about these fuctions and the options available, see the
 
 ## Use the `pgcrypto` extension to encrypt inserted data
 
-`pgcrypto` is a PostgreSQL extension that enables you to encrypt, decrypt, hash,
+The `pgcrypto` extension allows you to encrypt, decrypt, hash,
 and create digital signatures within your database. Timescale understands how
 precious your data is and safeguards sensitive information.
 
