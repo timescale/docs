@@ -8,7 +8,7 @@ tags: [extensions, pgcrypto]
 
 # The `pgcrypto` extension
 
-pgcrypto is a PostgreSQL extension that provides cryptographic functions such as:
+The `pgcrypto` PostgreSQL extension provides cryptographic functions such as:
 
 *   General hashing
 *   Password hashing
