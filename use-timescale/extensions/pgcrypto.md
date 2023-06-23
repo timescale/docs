@@ -17,7 +17,7 @@ The `pgcrypto` PostgreSQL extension provides cryptographic functions such as:
 *   Random-data
 
 For more information about these fuctions and the options available, see the
-[pgcryto documentation][pgcryto-docs].
+[pgcrypto documentation][pgcrypto-docs].
 
 ## Use the `pgcrypto` extension to encrypt inserted data
 
