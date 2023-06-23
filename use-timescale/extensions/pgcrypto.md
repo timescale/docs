@@ -29,7 +29,7 @@ precious your data is and safeguards sensitive information.
 
 ### Using the `pgcrypto` extension to encrypt inserted data
 
-1.  Install the `pgcryto` extension:
+1.  Install the `pgcrypto` extension:
 
     ```sql
     CREATE EXTENSION IF NOT EXISTS pgcrypto;
