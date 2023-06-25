@@ -5,6 +5,8 @@ products: [cloud, mst, self_hosted]
 keywords: [data retention]
 ---
 
+import UsageBasedStorage from "versionContent/_partials/_usage-based-storage-intro.mdx";
+
 # About data retention
 
 In time-series applications, data often becomes less useful as it gets older. If
@@ -16,6 +18,8 @@ can also fine-tune data retention by [manually dropping chunks][manual-drop].
 Often, you want to keep summaries of your historical data, but you don't need
 the raw data. You can downsample your older data by
 [combining data retention with continuous aggregates][retention-with-caggs].
+
+<UsageBasedStorage />
 
 ## Drop data by chunk
 

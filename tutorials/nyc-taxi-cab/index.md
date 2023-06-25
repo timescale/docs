@@ -37,8 +37,6 @@ This tutorial covers:
     service, and load data into your database using `psql`.
 1.  [Querying your dataset][query-nyc]: Analyze a dataset containing NYC taxi
     trip data using Timescale and PostgreSQL.
-1.  [Advanced queries][advanced-nyc]: Use Timescale with the PostGIS
-    extension to query geospatial data.
 
 ## About querying data with Timescale
 
@@ -53,10 +51,6 @@ create tables, and load data into the tables using `psql`.
 You then learn how to conduct analysis and monitoring on your dataset. It walks
 you through using PostgreSQL queries to obtain information, including how to use
 JOINs to combine your time-series data with relational or business data.
-
-Finally, it covers some special Timescale SQL functions that can help you
-analyze your time-series data, and how to use other extensions, like PostGIS,
-for faster queries.
 
 [dataset-nyc]: /tutorials/:currentVersion:/nyc-taxi-cab/dataset-nyc/
 [query-nyc]: /tutorials/:currentVersion:/nyc-taxi-cab/query-nyc/

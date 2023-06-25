@@ -55,11 +55,6 @@ module.exports = [
             href: "change-resources",
             excerpt: "Manually adjust your service resources",
           },
-          {
-            title: "Autoscale",
-            href: "autoscaling",
-            excerpt: "Autoscaling in Timescale",
-          },
         ]
       },
       {
@@ -70,7 +65,12 @@ module.exports = [
           {
             title: "pgvector extension",
             href: "pgvector",
-            excerpt: "Using thr pgvector PostgreSQL extension",
+            excerpt: "Using the pgvector PostgreSQL extension",
+          },
+          {
+            title: "pgcrypto extension",
+            href: "pgcrypto",
+            excerpt: "Using the pgcrypto PostgreSQL extension",
           },
         ]
       },

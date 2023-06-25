@@ -8,35 +8,35 @@ tags: [extensions, pgcrypto]
 
 # The `pgcrypto` extension
 
-pgcrypto is a PostgreSQL extension that provides cryptographic functions such as:
+The `pgcrypto` PostgreSQL extension provides cryptographic functions such as:
 
-*   General Hashing
-*   Password Hashing
-*   PGP Encryption
-*   Raw Encryption
-*   Random-Data
+*   General hashing
+*   Password hashing
+*   PGP encryption
+*   Raw encryption
+*   Random-data
 
 For more information about these fuctions and the options available, see the
-[pgcryto documentation] [pgcryto-docs].
+[pgcrypto documentation][pgcrypto-docs].
 
-## Use `pgcrypto` extension with Timescale
+## Use the `pgcrypto` extension to encrypt inserted data
 
-`pgcrypto` is a PostgreSQL extension that enables you to encrypt, decrypt, hash,
+The `pgcrypto` extension allows you to encrypt, decrypt, hash,
 and create digital signatures within your database. Timescale understands how
 precious your data is and safeguards sensitive information.
 
 <Procedure>
 
-### Using `pgcrypto` extension to encrypt the data you insert in Timescale
+### Using the `pgcrypto` extension to encrypt inserted data
 
-1.  Install the `pgcryto` extension:
+1.  Install the `pgcrypto` extension:
 
     ```sql
     CREATE EXTENSION IF NOT EXISTS pgcrypto;
     ```
 
 1.  You can confirm if the extension is installed using the `\dx` command.
-    The extensions that are instlled is listed:
+    The installed extensions are listed:
 
     ```sql
         List of installed extensions
@@ -52,7 +52,7 @@ precious your data is and safeguards sensitive information.
 1.  Create a table named `user_passwords`:
 
     ```sql
-       CREATE TABLE user_passwords (username varchar(100) PRIMARY KEY, crypttext text);
+    CREATE TABLE user_passwords (username varchar(100) PRIMARY KEY, crypttext text);
     ```
 
 1.  Insert the values in the `user_passwords` table and replace `<Password_Key>`
@@ -67,8 +67,8 @@ precious your data is and safeguards sensitive information.
 1.  You can confirm that the password is encrypted using the command:
 
     ```sql
-     SELECT * FROM user_passwords;
-     ```
+    SELECT * FROM user_passwords;
+    ```
 
     The encrypted passwords are listed:
 
@@ -80,22 +80,22 @@ precious your data is and safeguards sensitive information.
     (2 rows)
     ```
 
-1.  To view the decrypted passwords for the users replace `<Password_Key>` with
+1.  To view the decrypted passwords, replace `<Password_Key>` with
     the password key that you created:
 
     ```sql
-        SELECT username, pgp_sym_decrypt(crypttext::bytea, '<Password_Key>')
-        FROM user_passwords;
+     SELECT username, pgp_sym_decrypt(crypttext::bytea, '<Password_Key>')
+     FROM user_passwords;
     ```
 
     The decrypted passwords are listed:
 
     ```sql
-        username | pgp_sym_decrypt 
-        ----------+-----------------
-         user1   | user1_password
-         user2   | user2_password
-        (2 rows)
+     username | pgp_sym_decrypt 
+     ----------+-----------------
+      user1   | user1_password
+      user2   | user2_password
+     (2 rows)
     ```
 
 </Procedure>
