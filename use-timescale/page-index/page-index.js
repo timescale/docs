@@ -72,6 +72,11 @@ module.exports = [
             href: "pgcrypto",
             excerpt: "Using the pgcrypto PostgreSQL extension",
           },
+          {
+            title: "postgis extension",
+            href: "postgis",
+            excerpt: "Using the postgis PostgreSQL extension",
+          },
         ]
       },
       {
