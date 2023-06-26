@@ -128,7 +128,7 @@ Insert this dataset into your TimescaleDB instance.
 
     ```bash
     psql -x "postgres://tsdbadmin:<YOUR_PASSWORD_HERE>@<YOUR_HOSTNAME_HERE>:<YOUR_PORT_HERE>/tsdb?sslmode=require"
-    
+
     \COPY transactions FROM 'tutorial_bitcoin_sample.csv' CSV HEADER;
     ```
 
@@ -144,7 +144,7 @@ transactions. Now, you can make your first queries.
 Query for the five most recent non-coinbase transactions:
 
 ```sql
-SELECT time, hash, block_id, weight  FROM transactions 
+SELECT time, hash, block_id, weight  FROM transactions
 WHERE is_coinbase IS NOT TRUE
 ORDER BY time DESC
 LIMIT 5
@@ -171,11 +171,11 @@ statistics such as block weight, transaction count, and value in USD:
 
 ```sql
 WITH recent_blocks AS (
- SELECT block_id FROM transactions 
+ SELECT block_id FROM transactions
  WHERE is_coinbase IS TRUE
- ORDER BY time DESC 
+ ORDER BY time DESC
  LIMIT 5
-) 
+)
 SELECT
  t.block_id, count(*) AS transaction_count,
  SUM(weight) AS block_weight,
@@ -197,8 +197,7 @@ block_id|transaction_count|block_weight|block_value_usd   |
   738485|             2602|     3991871| 761258578.3764017|
 
 At this point, you have Bitcoin blockchain data in your database and you've made
-your first SQL queries. In the [next section][next-section], dig deeper into the blockchain and use
+your first SQL queries. In the next section, dig deeper into the blockchain and use
 TimescaleDB hyperfunctions to generate insights!
 
 [create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
-[next-section]: /tutorials/:currentVersion:/analyze-bitcoin-blockchain/analyze-blockchain/

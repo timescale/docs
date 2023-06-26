@@ -108,7 +108,7 @@ Tableau is a powerful business intelligence tool and an ideal companion to data
 stored in TimescaleDB. This tutorial only scratched the surface of the kinds of
 data you can visualize using Tableau.
 
-[crypto-tutorial]: /tutorials/:currentVersion:/analyze-cryptocurrency-data/
+[crypto-tutorial]: /tutorials/:currentVersion:/blockchain-analyze/
 [get-tableau]: https://www.tableau.com/products/trial/
 [install-timescale]: /getting-started/latest/
 [timescale-products]: https://www.timescale.com/products/

@@ -27,7 +27,7 @@ in Grafana.
 Before you begin, make sure you have:
 
 *   Signed up for a [free Timescale account][cloud-install].
-*   <Optional />Signed up for a Grafana account][grafana-setup] to graph queries.
+*   <Optional /> [Signed up for a Grafana account][grafana-setup] to graph queries.
 
 ## Steps in this tutorial
 
@@ -54,5 +54,5 @@ you through the steps to visualize the results in Grafana.
 
 [dataset-energy]: /tutorials/:currentVersion:/energy-data/dataset-energy/
 [query-energy]: /tutorials/:currentVersion:/energy-data/query-energy/
-[cloud-install]: /getting-started/latest/
+[cloud-install]: /getting-started/:curentVersion:/
 [grafana-setup]: /use-timescale/:currentVersion:/integrations/obervability-alerting/grafana/installation/

@@ -428,6 +428,11 @@ module.exports = [
             excerpt: "Compress data chunks",
           },
           {
+            title: "Modify compressed data",
+            href: "modify-compressed-data",
+            excerpt: "Insert and modify data in compressed chunks",
+          },
+          {
             title: "Decompress chunks",
             href: "decompress-chunks",
             excerpt: "Decompress data chunks",
