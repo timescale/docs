@@ -38,7 +38,7 @@ These are the currently supported extensions:
 |pgrouting|pgRouting Extension|
 |[pgvector][pgvector]|Vector similarity search for PostgreSQL|
 |plpgsql|SQL procedural language|
-|postgis|PostGIS geometry and geography spatial types and functions|
+|[postgis][postgis]|PostGIS geometry and geography spatial types and functions|
 |postgis_raster|PostGIS raster types and functions|
 |postgis_sfcgal|PostGIS SFCGAL functions|
 |postgis_tiger_geocoder|PostGIS tiger geocoder and reverse geocoder|
@@ -57,3 +57,4 @@ These are the currently supported extensions:
 
 [pgvector]: /use-timescale/:currentVersion:/extensions/pgvector/
 [pgcrypto]: /use-timescale/:currentVersion:/extensions/pgcrypto/
+[postgis]: /use-timescale/:currentVersion:/extensions/postgis/
