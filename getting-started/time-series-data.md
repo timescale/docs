@@ -76,10 +76,4 @@ dataset and copy the data to your database.
 
 <Video url="https://www.youtube.com/embed/YwidcyBFgAU"></Video>
 
-## Next steps
-
-Now that you have data in your Timescale instance, learn how to
-[query the data][query-data].
-
 [twelve-data]: https://twelvedata.com/
-[query-data]: /getting-started/:currentVersion:/query-data/

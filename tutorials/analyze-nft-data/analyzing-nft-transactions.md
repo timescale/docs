@@ -171,7 +171,7 @@ ORDER BY total_volume DESC;
 
 For this query, you take advantage of the pre-calculated data about collections
 stored in the `collections_daily` continuous aggregate. You also perform an
-`INNER JOIN` on the collections relational table to find the  
+`INNER JOIN` on the collections relational table to find the
 collection name in human readable form, represented by the `slug`.
 
 Querying from continuous aggregates is faster and allows you to write shorter,
@@ -183,7 +183,7 @@ so look out for it!
 How many sales took place each day for a certain collection? This query looks
 at the daily volume of sales for NFTs in the `cryptokitties` collection. This
 can help you find which days the NFT traders have been more active, and help you
-spot patterns about which days of the week or month have higher or lower volume and why.  
+spot patterns about which days of the week or month have higher or lower volume and why.
 
 You can modify this query to look at your favorite NFT collection, such as
 `cryptopunks`, `lazy-lions`, or `afrodroids-by-owo`:
@@ -636,7 +636,7 @@ Check out these resources for more about using TimescaleDB with crypto data:
 *   [How one TimescaleDB user built a successful crypto trading bot][trading-bot]
 
 [analyze-bitcoin]: https://blog.timescale.com/blog/analyzing-bitcoin-ethereum-and-4100-other-cryptocurrencies-using-postgresql-and-timescaledb/
-[analyze-cryptocurrency]: /tutorials/:currentVersion:/analyze-cryptocurrency-data/
+[analyze-cryptocurrency]: /tutorials/:currentVersion:/blockchain-analyze/
 [cont-agg]: /use-timescale/:currentVersion:/continuous-aggregates
 [daliso-opensea]: https://opensea.io/daliso
 [eon-collection]: https://opensea.io/collection/time-travel-tigers-by-timescale
