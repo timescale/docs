@@ -77,7 +77,7 @@ challenges and helps you discover when things happened, and where they occurred.
     ```
 
 1.  Insert some randomly generated values in the `covid_location` table. The longitude and
-    latitude coordinates of New Jerssey is (-73.935242 40.730610), and New York
+    latitude coordinates of New Jersey are (-73.935242 40.730610), and New York
     are (-74.871826 39.833851):
 
     ```sql
