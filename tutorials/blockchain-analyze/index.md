@@ -30,7 +30,7 @@ Before you begin, make sure you have:
 This tutorial covers:
 
 1.  [Set up up your dataset][blockchain-dataset]
-1.  [Analyze your dataset][blockchain-query]
+1.  [Analyze your dataset][blockchain-analyze]
 
 ## About analyzing the Bitcoin blockchain with Timescale
 
@@ -42,7 +42,7 @@ between transaction volumes and fees, or if it's expensive to mine.
 
 It starts by setting up and connecting to a Timescale database, create tables,
 and load data into the tables using `psql`. If you have already completed the
-[beginner blockchain tutorial][query-blockchain], then you already have the
+[beginner blockchain tutorial][blockchain-query], then you already have the
 dataset loaded, and you can skip straight to the queries.
 
 You then learn how to conduct analysis on your dataset using Timescale
@@ -50,10 +50,10 @@ hyperfunctions. It walks you through creating a series of continuous aggregates,
 and querying the aggregates to analyze the data. You can also use those queries
 to graph the output in Grafana.
 
-[cloud-install]: /getting-started/latest/
-[blockchain-dataset]: timescaledb/tutorials/query-blockchain/blockchain-dataset
-[blockchain-query]: timescaledb/tutorials/query-blockchain/blockchain-query
+[cloud-install]: /getting-started/:currentVersion:/
+[blockchain-dataset]: /tutorials/:currentVersion:/blockchain-analyze/blockchain-dataset/
+[blockchain-analyze]: /tutorials/:currentVersion:/blockchain-analyze/analyze-blockchain-query/
+[blockchain-query]: /tutorials/:currentVersion:/blockchain-query/beginner-blockchain-query/
 [blockchain-def]: https://www.pcmag.com/encyclopedia/term/blockchain
 [transactions-def]: https://www.pcmag.com/encyclopedia/term/bitcoin-transaction
-[query-blockchain]: /tutorials/:currentVersion:/blockchain-query/
 [grafana-setup]: /use-timescale/:currentVersion:/integrations/obervability-alerting/grafana/installation/

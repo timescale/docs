@@ -16,5 +16,5 @@ The examples in this section use these variables and Grafana functions:
     function when aggregating data.
 
 [install-grafana]: https://grafana.com/get/
-[gsg-data]: /getting-started/:currentVersion:/add-data/
+[gsg-data]: /getting-started/:currentVersion:/
 [cloud-login]: https://console.cloud.timescale.com/

@@ -30,10 +30,7 @@ analyzing 5 years' worth of Bitcoin transactions,
 ## What you'll learn
 
 This tutorial teaches you to ingest and analyze blockchain data
-in TimescaleDB. Follow these two sections to learn how:
-
-*   [Ingest and query Bitcoin transactions][ingest-bitcoin]
-*   [Analyze the blockchain with hyperfunctions][analyze-blockchain]
+in TimescaleDB.
 
 ## Prerequisites
 
@@ -49,7 +46,5 @@ this tutorial is to
 (no credit card required).
 </Highlight>
 
-[analyze-blockchain]: /tutorials/:currentVersion:/analyze-bitcoin-blockchain/analyze-blockchain/
-[ingest-bitcoin]: /tutorials/:currentVersion:/analyze-bitcoin-blockchain/ingest-query-btc-transactions/
 [install-timescale]: /getting-started/latest/
 [psql-install]: /use-timescale/:currentVersion:/connecting/psql
