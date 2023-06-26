@@ -23,7 +23,7 @@ challenges and helps you discover when things happened, and where they occurred.
 
 <Procedure>
 
-### Using `postgis` extension to analyze the data you insert in Timescale
+### Using the `postgis` extension to analyze geospatial data
 
 1.  Install the `postgis` extension:
 
