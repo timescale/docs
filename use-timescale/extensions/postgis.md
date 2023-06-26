@@ -15,7 +15,7 @@ anomalies, and theories within spatial or geographical data.
 For more information about these fuctions and the options available, see the
 [PostGIS documentation] [postgis-docs].
 
-## Use `postgis` extension with Timescale
+## Use the `postgis` extension to analyze geospatial data
 
 `postgis` is a PostgreSQL extension that enables you to conduct complex analyses
 of your geospatial time-series data. Timescale understands multitude of data
