@@ -398,7 +398,7 @@ accessed. Skipping them does not affect statistics on your data.
 [analyze]: https://www.postgresql.org/docs/10/sql-analyze.html
 [cagg-policy]: /use-timescale/:currentVersion:/continuous-aggregates/refresh-policies/
 [copy]: https://www.postgresql.org/docs/9.2/sql-copy.html
-[compression-policy]: /getting-started/:currentVersion:/compress-data/
+[compression-policy]: /use-timescale/:currentVersion:/compression/
 [extensions]: /use-timescale/:currentVersion:/postgresql-extensions/
 [install-selfhosted]: /self-hosted/:currentVersion:/install/
 [pg_dump]: https://www.postgresql.org/docs/current/app-pgdump.html

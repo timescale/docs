@@ -8,15 +8,31 @@ keywords: [compression, backfilling, hypertables]
 # Backfill historical data on compressed chunks
 
 When you backfill data, you are inserting data into a chunk that has already
-been compressed. This section contains procedures for bulk backfilling, taking
+been compressed. As of version 2.10, this has been greatly simplified by running
+insert commands on compressed chunks directly. When doing bulk backfilling,
+it is recommended to pause the compression job until finished so the policy
+doesn't compress the chunk you are working on.
+
+This section contains procedures for bulk backfilling, taking
 you through these steps:
 
 1.  Temporarily turning off any existing compression policy. This stops the
     policy from trying to compress chunks that you are currently working on.
-1.  Decompressing chunks.
 1.  Performing the insertion or backfill.
 1.  Re-enabling the compression policy. This re-compresses the chunks you worked
     on.
+    
+Caveats:
+  *  Backfilling compressed chunks with unique constraints is only supported in version 2.11 and above.
+  *  In order to backfill the data and enforce unique constraints, it is possible that we end up decompressing some data. If we are backfilling larger amounts of data, it might be more performant to manully decompress the chunk that you are working on (as shown in the section [Backfilling manually][backfilling-manually] below).
+
+
+## Backfill with a supplied function
+
+To make backfilling easier, you can use the
+[backfilling functions][timescaledb-extras-backfill] in the
+[TimescaleDB extras][timescaledb-extras] GitHub repository. In particular, the
+`decompress_backfill` procedure automates many of the backfilling steps for you.
 
 <Highlight type="note">
 This section shows you how to bulk backfill data using a temporary table.
@@ -26,13 +42,6 @@ regular table instead, so that multiple writers can insert into the table at the
 same time. In this case, after you are done backfilling the data, clean up by
 truncating your table in preparation for the next backfill.
 </Highlight>
-
-## Backfill with a supplied function
-
-To make backfilling easier, you can use the
-[backfilling functions][timescaledb-extras-backfill] in the
-[TimescaleDB extras][timescaledb-extras] GitHub repository. In particular, the
-`decompress_backfill` procedure automates many of the backfilling steps for you.
 
 <Procedure>
 
@@ -118,3 +127,4 @@ manually.
 
 [timescaledb-extras]: https://github.com/timescale/timescaledb-extras
 [timescaledb-extras-backfill]: https://github.com/timescale/timescaledb-extras/blob/master/backfill.sql
+[backfilling-manually]: /use-timescale/:currentVersion:/compression/backfill-historical-data/#backfilling-manually

@@ -52,7 +52,7 @@ advanced features for your PostgreSQL and time-series data workloads.
 For more information about customizing your database configuration, see the
 [Configuration section][configuration].
 
-[aggregates-info]: /getting-started/:currentVersion:/create-cagg
+[aggregates-info]: /use-timescale/:currentVersion:/continuous-aggregates/
 [configuration]: /use-timescale/:currentVersion:/configuration/
 [contact-timescale]: https://www.timescale.com/contact
 [gap-filling-info]: /use-timescale/:currentVersion:/query-data/advanced-analytic-queries#gap-filling

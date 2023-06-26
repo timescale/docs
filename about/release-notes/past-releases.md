@@ -1728,9 +1728,8 @@ high-write amplification associated with trigger-based approaches. Instead,
 we use invalidation techniques to track what data has changed, and then correct
 the materialized aggregate the next time that the automated process executes.
 
-For more information on this release, read our [blog on continuous aggregates](https://blog.timescale.com/blog/continuous-aggregates-faster-queries-with-automatically-maintained-materialized-views/),
-[our docs overview](/use-timescale/:currentVersion:/continuous-aggregates/),
-and visit this [tutorial](/getting-started/:currentVersion:/create-cagg/).
+For more information on this release, read our [blog on continuous aggregates](https://blog.timescale.com/blog/continuous-aggregates-faster-queries-with-automatically-maintained-materialized-views/), or visit
+[our docs overview](/use-timescale/:currentVersion:/continuous-aggregates/).
 
 **Major features**
 
@@ -1943,7 +1942,7 @@ For more information on this release, read the [blog announcement](https://blog.
 **For releases prior to 1.0, please visit the [changelog](https://github.com/timescale/timescaledb/blob/master/CHANGELOG.md).**
 
 [whats-new]: /about/:currentVersion:/release-notes/#what-x27-s-new-in-timescaledb-2-8/
-[compress-data]: /getting-started/:currentVersion:/compress-data/
+[compress-data]: /use-timescale/:currentVersion:/compression/
 [distributed-hypertables]: /use-timescale/:currentVersion:/distributed-hypertables/
 [distributed-hypertables-setup]: /self-hosted/:currentVersion:/multi-node-setup/
 [github-issue]: <https://github.com/timescale/timescaledb/issues/new/choose>
