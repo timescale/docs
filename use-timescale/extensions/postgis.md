@@ -107,7 +107,7 @@ challenges and helps you with when things happened and where they occurred.
     (3 rows)
     ```
 
-1.  To fetch the lastest logged cases of all states using the
+1.  To fetch the latest logged cases of all states using the
     [Timescale SkipScan][skip-scan] feature, replace `<Interval_Time>` with the
     number of days between the day you are running the query and the day in the table,
     in this case 30, June, 2023:
