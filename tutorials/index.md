@@ -12,11 +12,11 @@ teach you how to construct interesting queries, find out what information your
 database has hidden in it, and even gives you options for visualizing and
 graphing your results.
 
-|**Level**|&#x1F698; Fleet|&#x1F4B0; Finance|&#x1F510; Blockchain|&#x1F4A1; Energy|
+|**Level**|&#x1F698; Fleet|&#x1F4B0; Finance|&#x1F510; Blockchain|&#x1F50B; Energy|
 |-|-|-|-|-|
-|&#x1F7E2; **Beginner**|[NYC taxis &#x1F695;][beginner-fleet]|[Tick data &#x1F56F;][beginner-finance]|[Query blockchain &#x1FA99;][beginner-crypto]|[Energy &#x1F50B;][beginner-energy]|
-|&#x2B50; **Intermediate**|[Geospatial &#x1F30E;][intermediate-fleet]|*Coming Soon!* &#x23F1;|[Analyze blockchain &#x1F4C8;][intermediate-crypto]|*Coming Soon!* &#x23F1;|
-|&#x2666; **Advanced**|*Coming Soon!* &#x23F1;|[Web socket &#x1F4B8;][advanced-finance]|*Coming Soon!* &#x23F1;|*Coming Soon!* &#x23F1;|
+|&#x1F7E2; **Beginner**|[NYC taxis][beginner-fleet]|[Tick data][beginner-finance]|[Query blockchain][beginner-crypto]|[Energy][beginner-energy]|
+|&#x2B50; **Intermediate**|[Geospatial][intermediate-fleet]|*Coming Soon!*|[Analyze blockchain][intermediate-crypto]|*Coming Soon!*|
+|&#x2666; **Advanced**|*Coming Soon!* |[Web socket][advanced-finance]|*Coming Soon!*|*Coming Soon!*|
 
 [beginner-fleet]: /tutorials/:currentVersion:/nyc-taxi-cab/index/
 [beginner-finance]: /tutorials/:currentVersion:/financial-tick-data/index/
