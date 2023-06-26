@@ -17,7 +17,7 @@ For more information about these fuctions and the options available, see the
 
 ## Use the `postgis` extension to analyze geospatial data
 
-`postgis` is a PostgreSQL extension that enables you to conduct complex analyses
+The `postgis` PostgreSQL extension allows you to conduct complex analyses
 of your geospatial time-series data. Timescale understands multitude of data
 challenges and helps you with when things happened and where they occurred.
 
