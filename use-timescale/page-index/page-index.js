@@ -134,16 +134,6 @@ module.exports = [
                       },
                     ]
                 },
-                {
-                  title: "Datadog",
-                  href: "FIXME",
-                  excerpt: "Use Datadog with Managed Service for TimescaleDB",
-                },
-                {
-                  title: "Loggly",
-                  href: "FIXME",
-                  excerpt: "Use Loggly with Managed Service for TimescaleDB",
-                },
               ]
           },
           {
