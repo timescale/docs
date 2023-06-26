@@ -17,9 +17,12 @@ For more information about these fuctions and the options available, see the
 
 ## Use the `postgis` extension to analyze geospatial data
 
-The `postgis` PostgreSQL extension allows you to conduct complex analyses
-of your geospatial time-series data. Timescale understands that you have a multitude of data
-challenges and helps you discover when things happened, and where they occurred.
+The `postgis` PostgreSQL extension allows you to conduct complex analyses of
+your geospatial time-series data. Timescale understands that you have a
+multitude of data challenges and helps you discover when things happened, and
+where they occurred. In this example you can query when the covid cases were
+reported, where they were reported, and how many were reported around a
+particular location.
 
 <Procedure>
 
@@ -35,8 +38,8 @@ challenges and helps you discover when things happened, and where they occurred.
     The extensions that are installed are listed:
 
     ```sql
-                                                            List of installed extensions
-            Name         | Version |   Schema   |                                      Description                                      
+                                        List of installed extensions
+    Name         | Version |   Schema   |                                      Description                                      
     ---------------------+---------+------------+---------------------------------------------------------------------------------------
      pg_stat_statements  | 1.10    | public     | track planning and execution statistics of all SQL statements executed
      pgcrypto            | 1.3     | public     | cryptographic functions
@@ -45,6 +48,7 @@ challenges and helps you discover when things happened, and where they occurred.
      timescaledb         | 2.11.0  | public     | Enables scalable inserts and complex queries for time-series data (Community Edition)
      timescaledb_toolkit | 1.16.0  | public     | Library of analytical hyperfunctions,     time-series pipelining, and other SQL utilities
     (6 rows)
+    ```
 
 1.  Create a table named `covid_location`, where, `location` is a `GEOGRAPHY`
     type column that stores GPS coordinates using the 4326/WGS84 coordinate
@@ -52,13 +56,13 @@ challenges and helps you discover when things happened, and where they occurred.
     specific `state_id`:
 
     ```sql
-       CREATE TABLE covid_location (
-        time TIMESTAMPTZ NOT NULL,
-        state_id INT NOT NULL,
-        location GEOGRAPHY(POINT, 4326),
-        cases INT NOT NULL,
-        deaths INT NOT NULL 
-        );
+    CREATE TABLE covid_location (
+    time TIMESTAMPTZ NOT NULL,
+    state_id INT NOT NULL,
+    location GEOGRAPHY(POINT, 4326),
+    cases INT NOT NULL,
+    deaths INT NOT NULL 
+    );
     ```
 
 1.  Convert the standard table into a hypertable partitioned on the `time` column
@@ -67,34 +71,34 @@ challenges and helps you discover when things happened, and where they occurred.
     timestamp data to use for partitioning:
 
     ```sql
-        SELECT create_hypertable('covid_location', 'time');
+    SELECT create_hypertable('covid_location', 'time');
     ```
 
 1.  Create an index ont he `state_id` column, to support efficient queries:
 
     ```sql
-        CREATE INDEX ON covid_location (state_id, time DESC);
+    CREATE INDEX ON covid_location (state_id, time DESC);
     ```
 
-1.  Insert some randomly generated values in the `covid_location` table. The longitude and
-    latitude coordinates of New Jersey are (-73.935242 40.730610), and New York
-    are (-74.871826 39.833851):
+1.  Insert some randomly generated values in the `covid_location` table. The
+    longitude and latitude coordinates of New Jersey are (-73.935242 40.730610),
+    and New York are (-74.871826 39.833851):
 
     ```sql
-       INSERT INTO covid_location VALUES
-        ('2023-06-28 20:00:00',34,'POINT(-74.871826 39.833851)',5,2),
-        ('2023-06-28 20:00:00',36,'POINT(-73.935242 40.730610)',7,1),
-        ('2023-06-29 20:00:00',34,'POINT(-74.871826 39.833851)',14,0),
-        ('2023-06-29 20:00:00',36,'POINT(-73.935242 40.730610)',12,1),
-        ('2023-06-30 20:00:00',34,'POINT(-74.871826 39.833851)',10,4);
+    INSERT INTO covid_location VALUES
+    ('2023-06-28 20:00:00',34,'POINT(-74.871826 39.833851)',5,2),
+    ('2023-06-28 20:00:00',36,'POINT(-73.935242 40.730610)',7,1),
+    ('2023-06-29 20:00:00',34,'POINT(-74.871826 39.833851)',14,0),
+    ('2023-06-29 20:00:00',36,'POINT(-73.935242 40.730610)',12,1),
+    ('2023-06-30 20:00:00',34,'POINT(-74.871826 39.833851)',10,4);
     ```
 
 1.  To fetch all cases of a specific state during a specific period, use:
 
     ```sql
-     SELECT * FROM covid_location 
-     WHERE state_id = 34 AND time BETWEEN '2023-06-28 00:00:00' AND '2023-06-30 23:59:59';
-     ```
+    SELECT * FROM covid_location 
+    WHERE state_id = 34 AND time BETWEEN '2023-06-28 00:00:00' AND '2023-06-30 23:59:59';
+    ```
 
     The data you get back looks a bit like this:
 
@@ -107,50 +111,50 @@ challenges and helps you discover when things happened, and where they occurred.
     (3 rows)
     ```
 
-1.  To fetch the latest logged cases of all states using the
-    [Timescale SkipScan][skip-scan] feature, replace `<Interval_Time>` with the
-    number of days between the day you are running the query and the day in the table,
-    in this case 30, June, 2023:
+1.  To fetch the latest logged cases of all states using the [Timescale
+    SkipScan][skip-scan] feature. Replace `<Interval_Time>` with the number of
+    days between the day you are running the query and the day the last report
+    was logged in the table, in this case 30, June, 2023:
 
     ```sql
-        SELECT DISTINCT ON (state_id) state_id, ST_AsText(location) AS location 
-        FROM covid_location 
-        WHERE time > now() - INTERVAL '<Interval_Time>' 
-        ORDER BY state_id, 
-        time DESC;
+    SELECT DISTINCT ON (state_id) state_id, ST_AsText(location) AS location 
+    FROM covid_location 
+    WHERE time > now() - INTERVAL '<Interval_Time>' 
+    ORDER BY state_id, 
+    time DESC;
     ```
 
     The `ST_AsText(location)` function converts the binary geospatial data into
     human-readable format. The data you get back looks a bit like this:
 
     ```sql
-            state_id |          location           
-        ----------+-----------------------------
-               34 | POINT(-74.871826 39.833851)
-        (1 row)
+    state_id |          location           
+    ----------+-----------------------------
+    34 | POINT(-74.871826 39.833851)
+    (1 row)
     ```
 
 1.  To fetch all cases and states that were within 10000 meters of Manhattan at
     any time:
 
      ```sql
-        SELECT DISTINCT cases, state_id 
-        FROM covid_location 
-        WHERE ST_DWithin(
-          location, 
-          ST_GeogFromText('POINT(-73.9851 40.7589)'), 
-          10000
-       );
+    SELECT DISTINCT cases, state_id 
+    FROM covid_location 
+    WHERE ST_DWithin(
+    location, 
+    ST_GeogFromText('POINT(-73.9851 40.7589)'), 
+    10000
+    );
     ```
 
     The data you get back looks a bit like this:
 
     ```sql
-         cases | state_id 
-        -------+----------
-             7 |       36
-            12 |       36
-        (2 rows)
+    cases | state_id 
+    -------+----------
+     7 |       36
+    12 |       36
+    (2 rows)
     ```
 
 </Procedure>
