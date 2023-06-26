@@ -76,7 +76,7 @@ challenges and helps you discover when things happened, and where they occurred.
         CREATE INDEX ON covid_location (state_id, time DESC);
     ```
 
-1.  Insert the values in the `covid_location` table, where the longitude and
+1.  Insert some randomly generated values in the `covid_location` table. The longitude and
     latitude coordinates of New Jerssey is (-73.935242 40.730610), and New York
     are (-74.871826 39.833851):
 
