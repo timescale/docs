@@ -128,7 +128,6 @@ challenges and helps you discover when things happened, and where they occurred.
         ----------+-----------------------------
                34 | POINT(-74.871826 39.833851)
         (1 row)
-
     ```
 
 1.  To fetch all cases and states that were within 10000 meters of Manhattan at
