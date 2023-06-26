@@ -78,7 +78,7 @@ challenges and helps you discover when things happened, and where they occurred.
 
 1.  Insert the values in the `covid_location` table, where the longitude and
     latitude coordinates of New Jerssey is (-73.935242 40.730610), and New York
-    is (-74.871826 39.833851):
+    are (-74.871826 39.833851):
 
     ```sql
        INSERT INTO covid_location VALUES
