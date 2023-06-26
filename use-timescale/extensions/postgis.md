@@ -70,7 +70,7 @@ challenges and helps you discover when things happened, and where they occurred.
         SELECT create_hypertable('covid_location', 'time');
     ```
 
-1.  Create an index to support efficient queries by `state_id`:
+1.  Create an index ont he `state_id` column, to support efficient queries:
 
     ```sql
         CREATE INDEX ON covid_location (state_id, time DESC);
