@@ -134,6 +134,11 @@ module.exports = [
                       },
                     ]
                 },
+                {
+                  title: "Tableau",
+                  href: "tableau",
+                  excerpt: "Use Tableau with Timescale",
+                },
               ]
           },
           {

@@ -10,6 +10,8 @@ tags: [integrations, observability, alerting]
 
 # Observability and alerting
 
-*   Grafana
-*   Datadog
-*   Loggly
+*   [Grafana][grafana]
+*   [Tableau][tableau]
+
+[grafana]: /use-timescale/:currentVersion:/integrations/obervability-alerting/grafana/
+[tableau]: /use-timescale/:currentVersion:/integrations/obervability-alerting/tableau/
