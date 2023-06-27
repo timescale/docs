@@ -120,8 +120,8 @@ src="https://assets.timescale.com/docs/images/tsc-replication-replicas-repaired-
 width={1375} height={944}
 alt="Diagram showing the old replica becoming the primary, and adding "/>
 
-The new replica is created in a new availability zone (AZ) to help protect
-against an availability zone outage.
+The new replica is created in a new availability zone to help protect against an
+availability zone outage.
 
 ## Trigger a switchover
 
