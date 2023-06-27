@@ -77,8 +77,9 @@ in the source location. Hypershift creates a full copy of the contents of
 your source database, and moves it into the target database. You can add
 parameters to the `clone` command to filter which contents to copy.
 
-For more information about the `clone` tool, use the `hypershift clone --help` 
+For more information about the `clone` tool, use the `hypershift clone --help`
 command.
+
 |Short command|Long command|Example use|Description|
 |-|-|-|-|
 |-s|--source|-s <SOURCE_URI>|URI to the source database|
