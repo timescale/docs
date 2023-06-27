@@ -11,12 +11,6 @@ keywords: [visualizations, analytics, Tableau]
 greater intelligence about your business. It is an ideal tool for visualizing
 data stored in Timescale.
 
-This section covers:
-
-*   Setting up Tableau to work with TimescaleDB
-*   Running queries on TimescaleDB from within Tableau
-*   Visualize data in Tableau
-
 ## Prerequisites
 
 Before you begin, make sure you have:
