@@ -12,11 +12,11 @@ teach you how to construct interesting queries, find out what information your
 database has hidden in it, and even gives you options for visualizing and
 graphing your results.
 
-|**Level**|&#x1F698; Fleet|&#x1F4B0; Finance|&#x1F510; Blockchain|&#x1F50B; Energy|
-|-|-|-|-|-|
-|&#x1F7E2; **Beginner**|[NYC taxis][beginner-fleet]|[Tick data][beginner-finance]|[Query blockchain][beginner-crypto]|[Energy][beginner-energy]|
-|&#x2B50; **Intermediate**|[Geospatial][intermediate-fleet]|*Coming Soon!*|[Analyze blockchain][intermediate-crypto]|*Coming Soon!*|
-|&#x2666; **Advanced**|*Coming Soon!* |[Web socket][advanced-finance]|*Coming Soon!*|*Coming Soon!*|
+|&#x1F698; Transport and IoT|&#x1F4B0; Finance|&#x1F510; Blockchain|&#x1F50B; Energy|
+|-|-|-|-|
+|&#x1F7E2; [Beginner][beginner-fleet]<br/>Find out about taxi rides taken in and around NYC|&#x1F7E2; [Beginner][beginner-finance]<br/>Chart the trading highs and lows for your favorite stock|&#x1F7E2; [Beginner][beginner-crypto]<br/>Do your own research on the Bitcoin blockchain|&#x1F7E2; [Beginner][beginner-energy]<br/>Optimize your energy consumption for a rooftop solar PV system|
+|&#x2B50; [Intermediate][intermediate-fleet]<br/>Map  the longest taxi rides are in NYC|&#x2B50; *Coming Soon!*|&#x2B50; [Intermediate][intermediate-crypto] <br/>Discover the relationship between transactions, blocks, fees, and miner revenue|&#x2B50; *Coming Soon!*|
+|&#x1F388; *Coming Soon!* |&#x1F388; [Advanced][advanced-finance]<br/>Use a websocket connection to visualize the trading highs and lows for your favorite stock|&#x1F388; *Coming Soon!*|&#x1F388; *Coming Soon!*|
 
 [beginner-fleet]: /tutorials/:currentVersion:/nyc-taxi-cab/index/
 [beginner-finance]: /tutorials/:currentVersion:/financial-tick-data/index/
