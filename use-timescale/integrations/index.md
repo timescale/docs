@@ -19,6 +19,7 @@ and extend what you can do with your data.
     *   [pgAdmin][pgadmin]
 *   [Observability and alerting][observability-alerting]
     *   [Grafana][grafana]
+    *   [Tableau][tableau]
 *   [Data ingestion][data-ingest]
     *   [Telegraf][telegraf]
 
@@ -31,3 +32,4 @@ and extend what you can do with your data.
 [pgadmin]: /use-timescale/:currentVersion:/integrations/query-admin/pgadmin/
 [grafana]: /use-timescale/:currentVersion:/integrations/obervability-alerting/grafana/
 [telegraf]: /use-timescale/:currentVersion:/integrations/data-ingest/telegraf/
+[tableau]: /use-timescale/:currentVersion:/integrations/obervability-alerting/tableau/
