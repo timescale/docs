@@ -23,8 +23,9 @@ It also shows you how to add a payment method, or update to a new credit card.
 This means that you don't need to select a storage size when you create a
 service, and your services are not locked to a fixed disk size. If you reduce
 the size of your data through compression, retention policies, or by deleting
-some of it, your bill is immediately decreased. With this billing system you don't need to scale your storage over time, you can just keep ingesting
-data as you need to. All Timescale services can store up to 16&nbsp;TB.
+some of it, your bill is immediately decreased. With this billing system you
+don't need to scale your storage over time, you can just keep ingesting data as
+you need to. All Timescale services can store up to 16&nbsp;TB.
 
 At the end of the month, you are charged for only the storage you have used. Storage
 charges are calculated according to this formula:
@@ -40,7 +41,7 @@ value of hourly data stored. Bills are calculated on a 730 hour month.
 If you want to estimate your bill ahead of the billing cycle, you can use the
 [calculator on the pricing page](https://www.timescale.com/pricing).
 The pricing calculator does not include volume discounts. If you want a
-personalized quote, [contact us](https://www.timescale.com/contact).
+personalized quote, [get in contact](https://www.timescale.com/contact).
 </Highlight>
 
 ### Compression and storage costs
@@ -69,8 +70,9 @@ delete the card in the `Wallet` without deleting the services.
 <Highlight type="important">
 If you prefer to pay by invoice, or if you are unable to provide a credit card
 for billing, you can switch your project to corporate billing instead. To switch
-from credit card to corporate billing, [contact us](https://www.timescale.com/contact/) and request to be
-changed to corporate billing.
+from credit card to corporate billing,
+[get in contact](https://www.timescale.com/contact/)
+and request to be changed to corporate billing.
 </Highlight>
 
 <Procedure>
@@ -165,5 +167,4 @@ your payment method. You can change your company name and address in the
 </Procedure>
 
 [cloud-login]: https://console.cloud.timescale.com/
-[contact]: https://www.timescale.com/contact/
 [compression]: /use-timescale/:currentVersion:/compression/
