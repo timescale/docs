@@ -82,7 +82,7 @@ alt="Creating a database replica in Timescale"
 ## Failover
 
 Failover (and switchover) is the process of redirecting traffic from your
-primary to the HA replica within 5 seconds of the primary becoming unresponsive.
+primary to the HA replica within 15 seconds of the primary becoming unresponsive.
 As part of failover, the HA replica is “promoted” to become the new primary.
 This process is invisible to the end user except for a connection reset. In the
 background, a new replica is immediately provisioned for the new primary.
