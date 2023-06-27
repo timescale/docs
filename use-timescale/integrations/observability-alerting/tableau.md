@@ -17,9 +17,8 @@ Before you begin, make sure you have:
 
 *   Created a [Timescale][cloud-login] service.
 *   Signed up for [Tableau][get-tableau].
-*   Found the connection details for the database you want to use as a data
-    source. The details are contained in the cheatsheet you downloaded when you
-    created the service.
+*   Downloaded the cheatsheet when you created the service. This sheet contains the 
+    connection details for the database you want to use as a data source.
 
 ## Add Timescale as a virtual connection in Tableau
 
