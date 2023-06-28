@@ -1010,10 +1010,6 @@ const redirector = new ThreeOhOneRedirector({
     "https://docs.timescale.com/install/latest/"
   )
   .add(
-    "/latest/getting-started/installation/ami/installation-ubuntu-ami",
-    "https://docs.timescale.com/install/latest/installation-cloud-image/"
-  )
-  .add(
     "/latest/getting-started/installation/debian/installation-apt-debian",
     "https://docs.timescale.com/install/latest/self-hosted/installation-debian/"
   )

@@ -55,14 +55,6 @@ module.exports = [
               "https://s3.amazonaws.com/assets.iobeam.com/images/docs/kubernetes-icon-color.svg",
             excerpt: "Install self-hosted TimescaleDB on Kubernetes",
           },
-          {
-            title: "Pre-built cloud images",
-            href: "installation-cloud-image",
-            iconSrc:
-              "https://s3.amazonaws.com/assets.iobeam.com/images/docs/aws_logo.svg",
-            excerpt:
-              "Install self-hosted TimescaleDB on Amazon with an Ubuntu AMI",
-          },
         ],
       },
       {
