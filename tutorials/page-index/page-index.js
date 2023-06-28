@@ -39,42 +39,6 @@ module.exports = [
         ],
       },
       {
-        title: "Query the Bitcoin blockchain",
-        href: "blockchain-query",
-        excerpt: "Query the Bitcoin blockchain",
-        children: [
-          {
-            title: "Query the blockchain tutorial - set up",
-            href: "blockchain-dataset",
-            excerpt:
-              "Set up a dataset so you can query the Bitcoin blockchain",
-          },
-          {
-            title: "Query the blockchain tutorial - query data",
-            href: "beginner-blockchain-query",
-            excerpt: "Query the Bitcoin blockchain dataset",
-          },
-        ],
-      },
-      {
-        title: "Analyze the Bitcoin blockchain",
-        href: "blockchain-analyze",
-        excerpt: "Analyze the Bitcoin blockchain with Timescale hyperfunctions",
-        children: [
-          {
-            title: "Analyze the blockchain tutorial - set up",
-            href: "blockchain-dataset",
-            excerpt:
-              "Set up a dataset so you can analyze the Bitcoin blockchain",
-          },
-          {
-            title: "Query the blockchain tutorial - query data",
-            href: "analyze-blockchain-query",
-            excerpt: "Analyze the Bitcoin blockchain dataset with Timescale hyperfunctions",
-          },
-        ],
-      },
-      {
         title: "Store financial tick data in Timescale",
         href: "financial-tick-data",
         excerpt: "Use Timescale to store financial tick data",
@@ -115,24 +79,40 @@ module.exports = [
         ],
       },
       {
-        title: "Monitor a Django application with Prometheus",
-        href: "monitor-django-with-prometheus",
-        excerpt: "Monitor a Django application with Prometheus",
+        title: "Query the Bitcoin blockchain",
+        href: "blockchain-query",
+        excerpt: "Query the Bitcoin blockchain",
+        children: [
+          {
+            title: "Query the blockchain tutorial - set up",
+            href: "blockchain-dataset",
+            excerpt:
+              "Set up a dataset so you can query the Bitcoin blockchain",
+          },
+          {
+            title: "Query the blockchain tutorial - query data",
+            href: "beginner-blockchain-query",
+            excerpt: "Query the Bitcoin blockchain dataset",
+          },
+        ],
       },
       {
-        title: "Visualize data in Tableau",
-        href: "visualize-with-tableau",
-        excerpt: "Visualize data in Tableau with Timescale",
-      },
-      {
-        title: "Custom Timescale dashboards",
-        href: "custom-timescaledb-dashboards",
-        excerpt: "Custom Timescale dashboards in Tableau",
-      },
-      {
-        title: "Simulate IoT sensor data",
-        href: "simulate-iot-sensor-data",
-        excerpt: "Simulate IoT Sensor Data with Timescale",
+        title: "Analyze the Bitcoin blockchain",
+        href: "blockchain-analyze",
+        excerpt: "Analyze the Bitcoin blockchain with Timescale hyperfunctions",
+        children: [
+          {
+            title: "Analyze the blockchain tutorial - set up",
+            href: "blockchain-dataset",
+            excerpt:
+              "Set up a dataset so you can analyze the Bitcoin blockchain",
+          },
+          {
+            title: "Query the blockchain tutorial - query data",
+            href: "analyze-blockchain-query",
+            excerpt: "Analyze the Bitcoin blockchain dataset with Timescale hyperfunctions",
+          },
+        ],
       },
       {
         title: "Analyze energy consumption data",
@@ -149,7 +129,7 @@ module.exports = [
             href: "query-energy",
             excerpt: "Queries energy consumption data",
           },
-        ] 
+        ]
       },
     ],
   },
