@@ -18,10 +18,10 @@ graphing your results.
 |&#x2B50; [Intermediate][intermediate-fleet]<br/>Map the longest taxi rides in NYC|&#x2B50; *Coming Soon!*|&#x2B50; [Intermediate][intermediate-crypto] <br/>Discover the relationship between transactions, blocks, fees, and miner revenue|&#x2B50; *Coming Soon!*|
 |&#x1F388; *Coming Soon!* |&#x1F388; [Advanced][advanced-finance]<br/>Use a websocket connection to visualize the trading highs and lows for your favorite stock|&#x1F388; *Coming Soon!*|&#x1F388; *Coming Soon!*|
 
-[beginner-fleet]: /tutorials/:currentVersion:/nyc-taxi-cab/index/
-[beginner-finance]: /tutorials/:currentVersion:/financial-tick-data/index/
-[beginner-crypto]: /tutorials/:currentVersion:/blockchain-query/index/
-[beginner-energy]: /tutorials/:currentVersion:/energy-data/index/
-[intermediate-fleet]: /tutorials/:currentVersion:/nyc-taxi-geospatial/index/
-[intermediate-crypto]: /tutorials/:currentVersion:/blockchain-analyze/index/
+[beginner-fleet]: /tutorials/:currentVersion:/nyc-taxi-cab/
+[beginner-finance]: /tutorials/:currentVersion:/financial-tick-data/
+[beginner-crypto]: /tutorials/:currentVersion:/blockchain-query/
+[beginner-energy]: /tutorials/:currentVersion:/energy-data/
+[intermediate-fleet]: /tutorials/:currentVersion:/nyc-taxi-geospatial/
+[intermediate-crypto]: /tutorials/:currentVersion:/blockchain-analyze/
 [advanced-finance]: /tutorials/:currentVersion:/ingest-realtime-web-socket-data/
