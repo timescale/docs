@@ -23,4 +23,4 @@ graphing your results.
 [beginner-energy]: /tutorials/:currentVersion:/energy-data/
 [intermediate-fleet]: /tutorials/:currentVersion:/nyc-taxi-geospatial/
 [intermediate-crypto]: /tutorials/:currentVersion:/blockchain-analyze/
-[advanced-finance]: /tutorials/:currentVersion:/ingest-real-time-web-socket-data/
+[advanced-finance]: /tutorials/:currentVersion:/ingest-real-time-websocket-data/
