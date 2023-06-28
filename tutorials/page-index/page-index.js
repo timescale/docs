@@ -5,7 +5,7 @@ module.exports = [
     excerpt: "Learn about common scenarios and use cases for Timescale",
     children: [
       {
-        title: "Cryptocurrency tutorial - part one",
+        title: "Cryptocurrency - part one",
         href: "blockchain-query",
         excerpt: "Query the Bitcoin blockchain",
         children: [
@@ -23,7 +23,7 @@ module.exports = [
         ],
       },
       {
-        title: "Cryptocurrency tutorial - part two",
+        title: "Cryptocurrency - part two",
         href: "blockchain-analyze",
         excerpt: "Analyze the Bitcoin blockchain with Timescale hyperfunctions",
         children: [
@@ -41,12 +41,12 @@ module.exports = [
         ],
       },
       {
-        title: "Energy tutorial - part one",
+        title: "Energy - part one",
         href: "energy-data",
         excerpt: "Learn how to analyze energy consumption data",
         children: [
           {
-            title: "ESet up",
+            title: "Set up",
             href: "dataset-energy",
             excerpt: "Set up a dataset so you can analyze energy consumption data",
           },
@@ -58,7 +58,7 @@ module.exports = [
         ]
       },
       {
-        title: "Finance tutorial - part one",
+        title: "Finance - part one",
         href: "financial-tick-data",
         excerpt: "Use Timescale to store financial tick data",
         children: [
@@ -75,12 +75,12 @@ module.exports = [
         ],
       },
       {
-        title: "Finance tutorial - part two",
+        title: "Finance - part two",
         href: "ingest-real-time-websocket-data",
         excerpt: "Ingest real-time financial data with websocket",
       },
       {
-        title: "Transport tutorial - part one",
+        title: "Transport - part one",
         href: "nyc-taxi-cab",
         excerpt: "An introduction to time-series using NYC taxi data",
         children: [
@@ -97,7 +97,7 @@ module.exports = [
         ],
       },
       {
-        title: "Transport tutorial - part two",
+        title: "Transport - part two",
         href: "nyc-taxi-geospatial",
         excerpt: "Learn how to plot geospatial time-series data with NYC taxi cabs",
         children: [
