@@ -169,7 +169,7 @@ primary is not in a state to safely switch.
     CALL tscloud.cluster_switchover();
     ```
 
-    By default, the switchover occurs in 30s. You can change the time by passing
+    By default, the switchover occurs in 30&nbsp;secs. You can change the time by passing
     an interval, like this:
 
     ```sql
