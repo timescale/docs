@@ -58,7 +58,7 @@ module.exports = [
         ]
       },
       {
-        title: "Financial tutorial - part one",
+        title: "Finance tutorial - part one",
         href: "financial-tick-data",
         excerpt: "Use Timescale to store financial tick data",
         children: [
@@ -75,7 +75,7 @@ module.exports = [
         ],
       },
       {
-        title: "Financial tutorial - part two",
+        title: "Finance tutorial - part two",
         href: "ingest-real-time-websocket-data",
         excerpt: "Ingest real-time financial data with websocket",
       },
