@@ -43,7 +43,7 @@ Start by creating a new dashboard.
 
 </Procedure>
 
-## The Grafana timeFilter function
+## The time filter function
 
 Grafana time-series panels include a tool that lets you filter on a given time
 range, called a time filter. Grafana allows you to link the user interface
