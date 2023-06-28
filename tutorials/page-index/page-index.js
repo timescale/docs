@@ -80,24 +80,6 @@ module.exports = [
         excerpt: "Ingest real-time financial data with websocket",
       },
       {
-        title: "Analyze NFT sales data",
-        href: "analyze-nft-data",
-        excerpt: "Analyze NFT sales data with Timescale",
-        children: [
-          {
-            title: "NFT schema design and ingestion",
-            href: "nft-schema-ingestion",
-            excerpt: "Design schema and ingest NFT data with Timescale",
-          },
-          {
-            title: "Analyzing NFT transactions",
-            href: "analyzing-nft-transactions",
-            excerpt:
-              "Analyze NFT data transactions with PostgreSQL and hyperfunctions in Timescale",
-          },
-        ],
-      },
-      {
         title: "Transport tutorial - part one",
         href: "nyc-taxi-cab",
         excerpt: "An introduction to time-series using NYC taxi data",
