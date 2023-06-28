@@ -140,11 +140,11 @@ import plotly.express as px
 import pandas as pd
 query = """
     SELECT symbol, bucket, max((closing_price-opening_price)/closing_price*100) AS price_change_pct
-    FROM ( 
-        SELECT 
-        symbol, 
-        time_bucket('{bucket}', time) AS bucket, 
-        first(price_open, time) AS opening_price, 
+    FROM (
+        SELECT
+        symbol,
+        time_bucket('{bucket}', time) AS bucket,
+        first(price_open, time) AS opening_price,
         last(price_close, time) AS closing_price
         FROM stocks_intraday
         GROUP BY bucket, symbol
@@ -181,7 +181,7 @@ Let's see a line chart with the FAANG (Facebook, Apple, Amazon, Netflix, Google/
 import plotly.express as px
 import pandas as pd
 query = """
-    SELECT symbol, time_bucket('{bucket}', time) AS bucket, 
+    SELECT symbol, time_bucket('{bucket}', time) AS bucket,
     last(price_close, time) AS last_closing_price
     FROM stocks_intraday
     WHERE symbol in {symbols}
@@ -206,11 +206,11 @@ import plotly.express as px
 import pandas as pd
 query = """
    SELECT symbol, bucket, max((closing_price-opening_price)/closing_price) AS price_change_pct
-    FROM ( 
-        SELECT 
-        symbol, 
-        time_bucket('{bucket}}', time) AS bucket, 
-        first(price_open, time) AS opening_price, 
+    FROM (
+        SELECT
+        symbol,
+        time_bucket('{bucket}}', time) AS bucket,
+        first(price_open, time) AS opening_price,
         last(price_close, time) AS closing_price
         FROM stocks_intraday
         WHERE symbol IN {symbols}
@@ -237,11 +237,11 @@ import plotly.express as px
 import pandas as pd
 query = """
    SELECT symbol, bucket, max((closing_price-opening_price)/closing_price) AS price_change_pct
-    FROM ( 
-        SELECT 
-        symbol, 
-        time_bucket('{bucket}', time) AS bucket, 
-        first(price_open, time) AS opening_price, 
+    FROM (
+        SELECT
+        symbol,
+        time_bucket('{bucket}', time) AS bucket,
+        first(price_open, time) AS opening_price,
         last(price_close, time) AS closing_price
         FROM stocks_intraday
         WHERE symbol IN {symbols}
@@ -268,13 +268,13 @@ For candlestick charts, you need to import Plotly's `graph_object` module.
 import pandas as pd
 import plotly.graph_objects as go
 query = """
-    SELECT time_bucket('{bucket}', time) AS bucket, 
-    FIRST(price_open, time) AS price_open, 
+    SELECT time_bucket('{bucket}', time) AS bucket,
+    FIRST(price_open, time) AS price_open,
     LAST(price_close, time) AS price_close,
     MAX(price_high) AS price_high,
     MIN(price_low) AS price_low
     FROM stocks_intraday
-    WHERE symbol = '{symbol}' AND date(time) = date('{date}') 
+    WHERE symbol = '{symbol}' AND date(time) = date('{date}')
     GROUP BY bucket
 """.format(bucket="15 min", symbol="AAPL", date="2021-06-09")
 df = pd.read_sql(query, conn)
@@ -293,18 +293,5 @@ Change `date` to see the candlesticks for another day.
 
 ![candlestick chart apple](https://assets.timescale.com/docs/images/tutorials/intraday-stock-analysis/candlestick.png)
 
-## Resources
-
-*   [Intraday stocks analysis on Github][github-intraday-stocks]
-*   [Alpha Vantage API docs][alpha-vantage-api]
-*   [Pandas docs][pandas-docs]
-*   [Plotly docs][plotly-docs]
-*   [Timescale free trial][timescale-signup]
-*   [Analyze cryptocurrency data][analyze-cryptocurrency-data]
-
-[alpha-vantage-api]: https://www.alphavantage.co/documentation/
-[analyze-cryptocurrency-data]: /tutorials/:currentVersion:/analyze-cryptocurrency-data/
-[github-intraday-stocks]: https://github.com/timescale/examples/tree/master/analyze-intraday-stocks
 [pandas-docs]: https://pandas.pydata.org
 [plotly-docs]: https://plotly.com/python/
-[timescale-signup]: https://www.timescale.com/timescale-signup
