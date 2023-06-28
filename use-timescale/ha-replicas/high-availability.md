@@ -82,8 +82,9 @@ alt="Creating a database replica in Timescale"
 
 Failover is the process of redirecting traffic from your primary to the HA
 replica within 15 seconds of the primary becoming unresponsive. As part of
-failover, the HA replica is promoted to become the new primary and the connection is reset. In the background, a new
-replica is immediately provisioned for the new primary.
+failover, the HA replica is promoted to become the new primary and the
+connection is reset. In the background, a new replica is immediately provisioned
+for the new primary.
 
 Failover also helps remove downtime for common operations which would normally
 cause a service to reset, like maintenance events and service resizes. In these
