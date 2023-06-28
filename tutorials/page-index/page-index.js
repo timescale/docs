@@ -5,41 +5,60 @@ module.exports = [
     excerpt: "Learn about common scenarios and use cases for Timescale",
     children: [
       {
-        title: "Introduction to time-series data",
-        href: "nyc-taxi-cab",
-        excerpt: "An introduction to time-series using NYC taxi data",
+        title: "Cryptocurrency tutorial - part one",
+        href: "blockchain-query",
+        excerpt: "Query the Bitcoin blockchain",
         children: [
           {
-            title: "Time-series tutorial - set up",
-            href: "dataset-nyc",
-            excerpt: "Set up a dataset so you can query NYC data",
+            title: "Query the blockchain tutorial - set up",
+            href: "blockchain-dataset",
+            excerpt:
+              "Set up a dataset so you can query the Bitcoin blockchain",
           },
           {
-            title: "Time-series tutorial - query data",
-            href: "query-nyc",
-            excerpt: "Query NYC data",
+            title: "Query the blockchain tutorial - query data",
+            href: "beginner-blockchain-query",
+            excerpt: "Query the Bitcoin blockchain dataset",
           },
         ],
       },
       {
-        title: "Plot geospatial NYC taxi cab data",
-        href: "nyc-taxi-geospatial",
-        excerpt: "Learn how to plot geospatial time-series data with NYC taxi cabs",
+        title: "Cryptocurrency tutorial - part two",
+        href: "blockchain-analyze",
+        excerpt: "Analyze the Bitcoin blockchain with Timescale hyperfunctions",
         children: [
           {
-            title: "Geospatial tutorial - set up",
-            href: "dataset-nyc",
-            excerpt: "Set up a dataset so you can plot geospatial NYC taxi data",
+            title: "Analyze the blockchain tutorial - set up",
+            href: "blockchain-dataset",
+            excerpt:
+              "Set up a dataset so you can analyze the Bitcoin blockchain",
           },
           {
-            title: "Geospatial tutorial - query data",
-            href: "plot-nyc",
-            excerpt: "Plot geospatial NYC taxi data",
+            title: "Query the blockchain tutorial - query data",
+            href: "analyze-blockchain-query",
+            excerpt: "Analyze the Bitcoin blockchain dataset with Timescale hyperfunctions",
           },
         ],
       },
       {
-        title: "Store financial tick data in Timescale",
+        title: "Energy tutorial - part one",
+        href: "energy-data",
+        excerpt: "Learn how to analyze energy consumption data",
+        children: [
+          {
+            title: "Energy consumption tutorial - set up",
+            href: "dataset-energy",
+            excerpt: "Set up a dataset so you can analyze energy consumption data",
+          },
+          {
+            title: "Energy consumption tutorial - queries",
+            href: "query-energy",
+            excerpt: "Queries energy consumption data",
+          },
+        ]
+      },
+      {
+        title: "Financial tutorial - part one",
         href: "financial-tick-data",
         excerpt: "Use Timescale to store financial tick data",
         children: [
@@ -56,7 +75,7 @@ module.exports = [
         ],
       },
       {
-        title: "Ingest real-time financial websocket data",
+        title: "Financial tutorial - part two",
         href: "ingest-real-time-websocket-data",
         excerpt: "Ingest real-time financial data with websocket",
       },
@@ -79,57 +98,38 @@ module.exports = [
         ],
       },
       {
-        title: "Query the Bitcoin blockchain",
-        href: "blockchain-query",
-        excerpt: "Query the Bitcoin blockchain",
+        title: "Transport tutorial - part one",
+        href: "nyc-taxi-cab",
+        excerpt: "An introduction to time-series using NYC taxi data",
         children: [
           {
-            title: "Query the blockchain tutorial - set up",
-            href: "blockchain-dataset",
-            excerpt:
-              "Set up a dataset so you can query the Bitcoin blockchain",
+            title: "Time-series tutorial - set up",
+            href: "dataset-nyc",
+            excerpt: "Set up a dataset so you can query NYC data",
           },
           {
-            title: "Query the blockchain tutorial - query data",
-            href: "beginner-blockchain-query",
-            excerpt: "Query the Bitcoin blockchain dataset",
+            title: "Time-series tutorial - query data",
+            href: "query-nyc",
+            excerpt: "Query NYC data",
           },
         ],
       },
       {
-        title: "Analyze the Bitcoin blockchain",
-        href: "blockchain-analyze",
-        excerpt: "Analyze the Bitcoin blockchain with Timescale hyperfunctions",
+        title: "Transport tutorial - part two",
+        href: "nyc-taxi-geospatial",
+        excerpt: "Learn how to plot geospatial time-series data with NYC taxi cabs",
         children: [
           {
-            title: "Analyze the blockchain tutorial - set up",
-            href: "blockchain-dataset",
-            excerpt:
-              "Set up a dataset so you can analyze the Bitcoin blockchain",
+            title: "Geospatial tutorial - set up",
+            href: "dataset-nyc",
+            excerpt: "Set up a dataset so you can plot geospatial NYC taxi data",
           },
           {
-            title: "Query the blockchain tutorial - query data",
-            href: "analyze-blockchain-query",
-            excerpt: "Analyze the Bitcoin blockchain dataset with Timescale hyperfunctions",
+            title: "Geospatial tutorial - query data",
+            href: "plot-nyc",
+            excerpt: "Plot geospatial NYC taxi data",
           },
         ],
-      },
-      {
-        title: "Analyze energy consumption data",
-        href: "energy-data",
-        excerpt: "Learn how to analyze energy consumption data",
-        children: [
-          {
-            title: "Energy consumption tutorial - set up",
-            href: "dataset-energy",
-            excerpt: "Set up a dataset so you can analyze energy consumption data",
-          },
-          {
-            title: "Energy consumption tutorial - queries",
-            href: "query-energy",
-            excerpt: "Queries energy consumption data",
-          },
-        ]
       },
     ],
   },
