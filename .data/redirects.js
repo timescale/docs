@@ -62,11 +62,11 @@ const redirector = new ThreeOhOneRedirector({
     ],
     [
       /^\/v[0-1]\.[0-9]\/getting-started\/install-psql-tutorial/,
-      "https://docs.timescale.com/timescaledb/latest/how-to-guides/connecting/psql/"
+      "https://docs.timescale.com/use-timescale/latest/integrations/query-admin/about-psql/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/getting-started\/installation-grafana/,
-      "https://docs.timescale.com/tutorials/latest/grafana/installation/"
+      "https://docs.timescale.com/use-timescale/latest/integrations/observability-alerting/grafana/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/getting-started\/installation/,
@@ -242,7 +242,7 @@ const redirector = new ThreeOhOneRedirector({
     ],
     [
       /^\/v[0-1]\.[0-9]\/tutorials\/telegraf-output-plugin/,
-      "https://docs.timescale.com/tutorials/latest/telegraf-output-plugin"
+      "https://docs.timescale.com/use-timescale/latest/integrations/data-storage/telegraf/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/tutorials\/tutorial-forecasting/,
@@ -250,23 +250,23 @@ const redirector = new ThreeOhOneRedirector({
     ],
     [
       /^\/v[0-1]\.[0-9]\/tutorials\/tutorial-grafana-alerts/,
-      "https://docs.timescale.com/tutorials/latest/grafana/setup-alerts/"
+      "https://docs.timescale.com/use-timescale/latest/integrations/observability-alerting/grafana/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/tutorials\/tutorial-grafana-dashboards/,
-      "https://docs.timescale.com/tutorials/latest/grafana/create-dashboard-and-panel/"
+      "https://docs.timescale.com/use-timescale/latest/integrations/observability-alerting/grafana/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/tutorials\/tutorial-grafana-geospatial/,
-      "https://docs.timescale.com/tutorials/latest/grafana/geospatial-dashboards/"
+      "https://docs.timescale.com/use-timescale/latest/integrations/observability-alerting/grafana/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/tutorials\/tutorial-grafana-variables/,
-      "https://docs.timescale.com/tutorials/latest/grafana/grafana-variables/"
+      "https://docs.timescale.com/use-timescale/latest/integrations/observability-alerting/grafana/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/tutorials\/tutorial-grafana/,
-      "https://docs.timescale.com/tutorials/latest/grafana/"
+      "https://docs.timescale.com/use-timescale/latest/integrations/observability-alerting/grafana/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/tutorials\/tutorial-hello-timescale/,
@@ -282,7 +282,7 @@ const redirector = new ThreeOhOneRedirector({
     ],
     [
       /^\/v[0-1]\.[0-9]\/tutorials\/tutorial-howto-visualize-missing-data-grafana/,
-      "https://docs.timescale.com/tutorials/latest/grafana/visualize-missing-data/"
+      "https://docs.timescale.com/use-timescale/latest/integrations/observability-alerting/grafana/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/tutorials\/tutorial-setting-up-timescale-cloud-endpoint-for-prometheus/,
@@ -290,7 +290,7 @@ const redirector = new ThreeOhOneRedirector({
     ],
     [
       /^\/v[0-1]\.[0-9]\/tutorials\/visualizing-time-series-data-in-tableau/,
-      "https://docs.timescale.com/tutorials/latest/visualize-with-tableau/"
+      "https://docs.timescale.com/use-timescale/latest/integrations/observability-alerting/tableau/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/update-timescaledb/,
@@ -378,7 +378,7 @@ const redirector = new ThreeOhOneRedirector({
     ],
     [
       /^\/v[0-1]\.[0-9]\/using-timescaledb\/visualizing-data/,
-      "https://docs.timescale.com/tutorials/latest/grafana/"
+      "https://docs.timescale.com/use-timescale/latest/integrations/observability-alerting/grafana/"
     ],
     [
       /^\/v[0-1]\.[0-9]\/using-timescaledb\/writing-data/,
@@ -770,7 +770,7 @@ const redirector = new ThreeOhOneRedirector({
   )
   .add(
     "/getting-started/install-psql-tutorial",
-    "https://docs.timescale.com/timescaledb/latest/how-to-guides/connecting/psql/"
+    "https://docs.timescale.com/use-timescale/latest/integrations/query-admin/about-psql/"
   )
   .add(
     "/getting-started/installation",
@@ -835,7 +835,7 @@ const redirector = new ThreeOhOneRedirector({
   )
   .add(
     "/getting-started/installation-grafana",
-    "https://docs.timescale.com/tutorials/latest/grafana/installation/"
+    "https://docs.timescale.com/use-timescale/latest/integrations/observability-alerting/grafana/"
   )
   .add(
     "/getting-started/latest/add-data",
@@ -1003,7 +1003,7 @@ const redirector = new ThreeOhOneRedirector({
   )
   .add(
     "/latest/getting-started/install-psql-tutorial",
-    "https://docs.timescale.com/timescaledb/latest/how-to-guides/connecting/"
+    "https://docs.timescale.com/use-timescale/latest/integrations/query-admin/"
   )
   .add(
     "/latest/getting-started/installation",
@@ -1072,7 +1072,7 @@ const redirector = new ThreeOhOneRedirector({
   )
   .add(
     "/latest/getting-started/installation-grafana",
-    "https://docs.timescale.com/tutorials/latest/grafana/installation/"
+    "https://docs.timescale.com/use-timescale/latest/integrations/observability-alerting/grafana/"
   )
   .add(
     "/latest/getting-started/migrating-data",
@@ -1097,7 +1097,7 @@ const redirector = new ThreeOhOneRedirector({
   )
   .add(
     "/latest/how-to-guides/psql-basics/",
-    "https://docs.timescale.com/timescaledb/latest/how-to-guides/connecting/about-psql/"
+    "https://docs.timescale.com/use-timescale/latest/integrations/query-admin/about-psql/"
   )
   .add(
     "/latest/how-to-guides/replication-and-ha/replication/",
@@ -1196,7 +1196,7 @@ const redirector = new ThreeOhOneRedirector({
   )
   .add(
     "/latest/tutorials/telegraf-output-plugin",
-    "https://docs.timescale.com/tutorials/latest/telegraf-output-plugin"
+    "https://docs.timescale.com/use-timescale/latest/integrations/data-storage/telegraf/"
   )
   .add(
     "/latest/tutorials/tutorial-forecasting",
@@ -1204,23 +1204,23 @@ const redirector = new ThreeOhOneRedirector({
   )
   .add(
     "/latest/tutorials/tutorial-grafana-alerts",
-    "https://docs.timescale.com/tutorials/latest/grafana/setup-alerts/"
+    "https://docs.timescale.com/use-timescale/latest/integrations/observability-alerting/grafana/"
   )
   .add(
     "/latest/tutorials/tutorial-grafana-dashboards",
-    "https://docs.timescale.com/tutorials/latest/grafana/create-dashboard-and-panel/"
+    "https://docs.timescale.com/use-timescale/latest/integrations/observability-alerting/grafana/"
   )
   .add(
     "^/latest/tutorials/tutorial-grafana-geospatial",
-    "https://docs.timescale.com/tutorials/latest/grafana/geospatial-dashboards/"
+    "https://docs.timescale.com/use-timescale/latest/integrations/observability-alerting/grafana/"
   )
   .add(
     "/latest/tutorials/tutorial-grafana-variables",
-    "https://docs.timescale.com/tutorials/latest/grafana/grafana-variables/"
+    "https://docs.timescale.com/use-timescale/latest/integrations/observability-alerting/grafana/"
   )
   .add(
     "/latest/tutorials/tutorial-grafana",
-    "https://docs.timescale.com/tutorials/latest/grafana/"
+    "https://docs.timescale.com/use-timescale/latest/integrations/observability-alerting/grafana/"
   )
   .add(
     "/latest/tutorials/tutorial-hello-nyc",
@@ -1240,7 +1240,7 @@ const redirector = new ThreeOhOneRedirector({
   )
   .add(
     "/latest/tutorials/tutorial-howto-visualize-missing-data-grafana",
-    "https://docs.timescale.com/tutorials/latest/grafana/visualize-missing-data/"
+    "https://docs.timescale.com/use-timescale/latest/integrations/observability-alerting/grafana/"
   )
   .add(
     "/latest/tutorials/tutorial-setting-up-timescale-cloud-endpoint-for-prometheus",
@@ -1252,11 +1252,11 @@ const redirector = new ThreeOhOneRedirector({
   )
   .add(
     "/latest/tutorials/tutorial-use-timescale-prometheus-grafana/",
-    "https://docs.timescale.com/tutorials/latest/grafana/"
+    "https://docs.timescale.com/use-timescale/latest/integrations/observability-alerting/grafana/"
   )
   .add(
     "/latest/tutorials/visualizing-time-series-data-in-tableau",
-    "https://docs.timescale.com/tutorials/latest/visualize-with-tableau/"
+    "https://docs.timescale.com/use-timescale/latest/integrations/observability-alerting/tableau/"
   )
   .add(
     "/latest/update-timescaledb",
@@ -1309,7 +1309,7 @@ const redirector = new ThreeOhOneRedirector({
   )
   .add(
     "/latest/using-timescaledb/visualizing-data",
-    "https://docs.timescale.com/tutorials/latest/grafana/"
+    "https://docs.timescale.com/use-timescale/latest/integrations/observability-alerting/grafana/"
   )
   .add(
     "/latest/using-timescaledb/writing-data",
@@ -1594,7 +1594,7 @@ const redirector = new ThreeOhOneRedirector({
   )
   .add(
     "/timescaledb/latest/tutorials/visualize-with-tableu/",
-    "https://docs.timescale.com/tutorials/latest/visualize-with-tableau/"
+    "https://docs.timescale.com/use-timescale/latest/integrations/observability-alerting/tableau/"
   )
   .add(
     "/timescaledb/latest/update-timescaledb/update-tsdb-2",
@@ -1668,7 +1668,7 @@ const redirector = new ThreeOhOneRedirector({
   )
   .add(
     "/tutorials/latest/telegraf-output-plugin/",
-    "https://docs.timescale.com/tutorials/latest/",
+    "https://docs.timescale.com/use-timescale/latest/integrations/data-storage/telegraf/",
     { exact: false }
   )
   .add(
@@ -1702,7 +1702,7 @@ const redirector = new ThreeOhOneRedirector({
   )
   .add(
     "/tutorials/telegraf-output-plugin",
-    "https://docs.timescale.com/tutorials/latest/telegraf-output-plugin"
+    "https://docs.timescale.com/use-timescale/latest/integrations/data-storage/telegraf/"
   )
   .add(
     "/tutorials/tutorial-forecasting",
@@ -1710,23 +1710,23 @@ const redirector = new ThreeOhOneRedirector({
   )
   .add(
     "^/tutorials/tutorial-grafana-alerts",
-    "https://docs.timescale.com/tutorials/latest/grafana/setup-alerts/"
+    "https://docs.timescale.com/use-timescale/latest/integrations/observability-alerting/grafana/"
   )
   .add(
     "/tutorials/tutorial-grafana-dashboards",
-    "https://docs.timescale.com/tutorials/latest/grafana/create-dashboard-and-panel/"
+    "https://docs.timescale.com/use-timescale/latest/integrations/observability-alerting/grafana/"
   )
   .add(
     "/tutorials/tutorial-grafana-geospatial",
-    "https://docs.timescale.com/tutorials/latest/grafana/geospatial-dashboards/"
+    "https://docs.timescale.com/use-timescale/latest/integrations/observability-alerting/grafana/"
   )
   .add(
     "/tutorials/tutorial-grafana-variables",
-    "https://docs.timescale.com/tutorials/latest/grafana/grafana-variables/"
+    "https://docs.timescale.com/use-timescale/latest/integrations/observability-alerting/grafana/"
   )
   .add(
     "/tutorials/tutorial-grafana",
-    "https://docs.timescale.com/tutorials/latest/grafana/"
+    "https://docs.timescale.com/use-timescale/latest/integrations/observability-alerting/grafana/"
   )
   .add(
     "/tutorials/tutorial-hello-timescale",
@@ -1742,7 +1742,7 @@ const redirector = new ThreeOhOneRedirector({
   )
   .add(
     "/tutorials/tutorial-howto-visualize-missing-data-grafana",
-    "https://docs.timescale.com/tutorials/latest/grafana/visualize-missing-data/"
+    "https://docs.timescale.com/use-timescale/latest/integrations/observability-alerting/grafana/"
   )
   .add(
     "/tutorials/tutorial-setting-up-timescale-cloud-endpoint-for-prometheus",
@@ -1750,7 +1750,7 @@ const redirector = new ThreeOhOneRedirector({
   )
   .add(
     "/tutorials/visualizing-time-series-data-in-tableau",
-    "https://docs.timescale.com/tutorials/latest/visualize-with-tableau/"
+    "https://docs.timescale.com/use-timescale/latest/integrations/observability-alerting/tableau/"
   )
   .add("/tutorials", "https://docs.timescale.com/tutorials/latest/")
   .add(
@@ -1772,6 +1772,10 @@ const redirector = new ThreeOhOneRedirector({
   .add(
     "/use-timescale/latest/backup-and-restore/",
     "https://docs.timescale.com/use-timescale/latest/backup-restore-cloud/"
+  )
+  .add(
+    "/use-timescale/latest/connecting/",
+    "https://docs.timescale.com/use-timescale/latest/integrations/query-admin/"
   )
   .add(
     "/use-timescale/latest/compression/about-compression",
@@ -1875,7 +1879,7 @@ const redirector = new ThreeOhOneRedirector({
   )
   .add(
     "/using-timescaledb/visualizing-data",
-    "https://docs.timescale.com/tutorials/latest/grafana/"
+    "https://docs.timescale.com/use-timescale/latest/integrations/observability-alerting/grafana/"
   )
   .add(
     "/using-timescaledb/writing-data",
