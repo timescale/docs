@@ -47,7 +47,7 @@ Before you begin, make sure you have:
 ### Using the `pgvector` extension to create a chatbot
 
 In this example, you create embeddings, insert the embeddings into Timescale and
-query the embeddings in Timescale using `pgvector`. The content for the
+query the embeddings using `pgvector`. The content for the
 embeddings is from the Timescale blog, specifically from the
 [Developer Q&A][developer-qa] section, which features posts by Timescale users talking
 about their real-world use cases.
