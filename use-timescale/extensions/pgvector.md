@@ -20,8 +20,8 @@ For more information about these functions and the options available, see the
 
 The `pgvector` PostgreSQL extension allows you to create, store, and query
 OpenAI [vector embeddings][vector-embeddings] in Timescale. Learn how to use
-[Retrieval Augmented Generation (RAG)][rag-docs] to create a `chatbot` that combines
-your data with the power of ChatGPT using OpenAI and pgvector. RAG addresses the
+[retrieval augmented generation (RAG)][rag-docs] to create a chatbot that combines
+your data with ChatGPT using OpenAI and `pgvector`. RAG provides a solution to the
 problem that a foundational model such as GPT-3 or GPT-4 may be missing some
 information needed to give a good answer because that information was not in the
 dataset used to train the model. For example, the information is stored in
