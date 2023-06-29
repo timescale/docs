@@ -27,6 +27,12 @@ information needed to give a good answer, because that information was not in th
 dataset used to train the model. This can happen if the information is stored in
 private documents or only became available recently.
 
+In this example, you create embeddings, insert the embeddings into Timescale and
+query the embeddings using `pgvector`. The content for the
+embeddings is from the Timescale blog, specifically from the
+[Developer Q&A][developer-qa] section, which features posts by Timescale users talking
+about their real-world use cases.
+
 ### Prerequisites
 
 Before you begin, make sure you have:
@@ -35,22 +41,17 @@ Before you begin, make sure you have:
 *   Created a [Timescale][cloud-login] service.
 *   Downloaded the cheatsheet when you created the service. This sheet contains
     the connection details for the database you want to use as a vector database.
+*   Cloned the [Timescale pgvector repository][timescale-pgvector] repository.
 *   Signed up for an [OpenAI developer account][openai-signup].
 *   Created an API key and made a note of your OpenAI [API key][api-key].
     <Highlight type="note">
-    If you are on a free plan there may be rate limiting for your API requests.
+    If you are on a free plan there may be rate limiting for
+    your API requests.
     </Highlight>
-*   Clone the [Timescale pgvector repository][timescale-pgvector] repository.
 
 <Procedure>
 
 ### Using the `pgvector` extension to create a chatbot
-
-In this example, you create embeddings, insert the embeddings into Timescale and
-query the embeddings using `pgvector`. The content for the
-embeddings is from the Timescale blog, specifically from the
-[Developer Q&A][developer-qa] section, which features posts by Timescale users talking
-about their real-world use cases.
 
 1.  Create and activate a Python virtual environment:
 
