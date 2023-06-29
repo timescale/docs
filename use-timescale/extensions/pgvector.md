@@ -41,7 +41,7 @@ Before you begin, make sure you have:
 *   Created a [Timescale][cloud-login] service.
 *   Downloaded the cheatsheet when you created the service. This sheet contains
     the connection details for the database you want to use as a vector database.
-*   Cloned the [Timescale pgvector repository][timescale-pgvector] repository.
+*   Cloned the [Timescale pgvector repository][timescale-pgvector].
 *   Signed up for an [OpenAI developer account][openai-signup].
 *   Created an API key and made a note of your OpenAI [API key][api-key].
     <Highlight type="note">
