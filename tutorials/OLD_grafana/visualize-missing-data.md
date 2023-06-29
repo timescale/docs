@@ -46,8 +46,8 @@ You also need:
 time-series data.)*
 
 For this tutorial, we are going to load our TimescaleDB instance with
-simulated IoT sensor data (available in our [How to explore TimescaleDB
-using simulated IoT sensor data tutorial][tutorial-simulate-iot]).
+simulated IoT sensor data (available in our How to explore TimescaleDB
+using simulated IoT sensor data tutorial).
 
 This dataset simulates four sensors that each collect temperature and CPU data, in a [hypertable][docs-hypertable] structured like this:
 
@@ -184,5 +184,4 @@ how to use TimescaleDB, check out our other [tutorials][tutorials]
 [docs-timebucket]: /api/:currentVersion:/hyperfunctions/time_bucket
 [grafana-external]: https://grafana.com/
 [install-timescale]: /getting-started/latest/
-[tutorial-simulate-iot]: /tutorials/:currentVersion:/simulate-iot-sensor-data/
 [tutorials]: /tutorials/:currentVersion:/
