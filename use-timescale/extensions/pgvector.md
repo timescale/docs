@@ -465,8 +465,10 @@ Before you begin, make sure you have:
     ```bash
     How does Density use Timescale?
     Density uses TimescaleDB as the main database in their smart city system.
-    They store counts of people in spaces over time and derive metrics such as dwell time and space usage. TimescaleDB's flexibility and ability to handle time-series data efficiently allows Density to slice, dice, and compose queries in various ways.
-    They also leverage TimescaleDB's continuous aggregates feature to roll up high-resolution data to lower resolutions, improving query performance. Additionally, TimescaleDB's support for percentile calculations has helped Density deliver accurate percentile values for their data.
+    They store counts of people in spaces over time and derive metrics such as dwell time and space usage.
+    TimescaleDB's flexibility and ability to handle time-series data efficiently allows Density to slice, dice, and compose queries in various ways.
+    They also leverage TimescaleDB's continuous aggregates feature to roll up high-resolution data to lower resolutions, improving query performance.
+    Additionally, TimescaleDB's support for percentile calculations has helped Density deliver accurate percentile values for their data.
     Overall, TimescaleDB has significantly improved the performance and scalability of Density's analytics workload.
     ```
 
