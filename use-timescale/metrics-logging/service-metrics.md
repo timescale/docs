@@ -9,18 +9,21 @@ cloud_ui:
         - [services, :serviceId, metrics]
 ---
 
+import EarlyAccess from "versionContent/_partials/_early_access.mdx";
+
 # Service metrics
 
 You can view your service metrics from the Timescale
 [metrics dashboard][metrics-dashboard]. This dashboard gives you service-level
 information, such as CPU, memory, and storage usage.
 
-You can also view your query-level statistics by using the pre-installed
+You can view query-level statistics from the `Query stats` tab. You can also
+view your query-level statistics by using the pre-installed
 [`pg_stat_statements`][pg-stat] extension from a PostgreSQL client.
 
 ## Metrics dashboard
 
-Timescale provides a Metrics dashboard for managing your services. You can
+Timescale provides a metrics dashboard for managing your services. You can
 see the Metrics dashboard in your Timescale account by navigating to the
 `Services` section, clicking the service you want to explore, and selecting the
 `Metrics` tab.
@@ -88,6 +91,20 @@ With your database in read-only mode, you need to decide if you are going to
 increase your storage capacity, or reduce the size of your database. When you
 have done that, you can also add a retention policy, or turn on compression, to
 avoid the problem occurring again in the future.
+
+## Query-level statistics in the Timescale dashboard
+
+You can analyze your queries by navigating to the `Query stats` tab from the Services dashboard.
+
+<EarlyAccess />
+
+Use the filter at the top of the page to view details of your queries, including
+how many rows the query returned, and the time the query took to run.
+
+<img class="main-content__illustration"
+src="FIXME.webp"
+width={1375} height={944}
+alt="The Timescale query stats viewer showing the statistics for a recent query" />
 
 ## Query-level statistics with pg_stat_statements
 
