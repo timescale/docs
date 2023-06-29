@@ -36,7 +36,7 @@ Before you begin, make sure you have:
 *   Downloaded the cheatsheet when you created the service. This sheet contains
     the connection details for the database you want to use as a vector database.
 *   Signed up for an [OpenAI developer account][openai-signup].
-*   Created and API key and made a note of your OpenAI [API key][api-key].
+*   Created an API key and made a note of your OpenAI [API key][api-key].
     <Highlight type="note">
     If you are on a free plan there may be rate limiting for your API requests.
     </Highlight>
