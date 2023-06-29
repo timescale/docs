@@ -13,14 +13,14 @@ learning-generated embeddings. It provides different capabilities that allows
 you to identify both exact and approximate nearest neighbors. It is designed to
 work seamlessly with other PostgreSQL features, including indexing and querying.
 
-For more information about these fuctions and the options available, see the
+For more information about these functions and the options available, see the
 [pgvector][pgvector-repo] repository.
 
-## Use the `pgvector` extension to create a chatbot
+## Use the `pgvector` extension to create a `chatbot`
 
 The `pgvector` PostgreSQL extension allows you to create, store, and query
 OpenAI [vector embeddings][vector-embeddings] in Timescale. Learn how to use
-[Retrieval Augmented Generation (RAG)][rag-docs] to create a chatbot that combines
+[Retrieval Augmented Generation (RAG)][rag-docs] to create a `chatbot` that combines
 your data with the power of ChatGPT using OpenAI and pgvector. RAG addresses the
 problem that a foundational model such as GPT-3 or GPT-4 may be missing some
 information needed to give a good answer because that information was not in the

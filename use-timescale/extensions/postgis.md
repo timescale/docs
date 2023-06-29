@@ -12,7 +12,7 @@ The `postgis` PostgreSQL extension provides storing, indexing and querying
 geographic data. It helps in spatial data analysis, the study of patterns,
 anomalies, and theories within spatial or geographical data.
 
-For more information about these fuctions and the options available, see the
+For more information about these functions and the options available, see the
 [PostGIS documentation] [postgis-docs].
 
 ## Use the `postgis` extension to analyze geospatial data
@@ -20,7 +20,7 @@ For more information about these fuctions and the options available, see the
 The `postgis` PostgreSQL extension allows you to conduct complex analyses of
 your geospatial time-series data. Timescale understands that you have a
 multitude of data challenges and helps you discover when things happened, and
-where they occurred. In this example you can query when the covid cases were
+where they occurred. In this example you can query when the `covid` cases were
 reported, where they were reported, and how many were reported around a
 particular location.
 
@@ -74,7 +74,7 @@ particular location.
     SELECT create_hypertable('covid_location', 'time');
     ```
 
-1.  Create an index ont he `state_id` column, to support efficient queries:
+1.  Create an index on the `state_id` column, to support efficient queries:
 
     ```sql
     CREATE INDEX ON covid_location (state_id, time DESC);
