@@ -8,7 +8,7 @@ tags: [extensions, pgvector]
 
 # The `pgvector` extension
 
-The `postgis` PostgreSQL extension helps you to store and search over machine
+The `pgvector` PostgreSQL extension helps you to store and search over machine
 learning-generated embeddings. It provides different capabilities that allows
 you to identify both exact and approximate nearest neighbors. It is designed to
 work seamlessly with other PostgreSQL features, including indexing and querying.
