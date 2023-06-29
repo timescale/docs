@@ -5,7 +5,7 @@ module.exports = [
     excerpt: "Learn about common scenarios and use cases for Timescale",
     children: [
       {
-        title: "Cryptocurrency - part one",
+        title: "Cryptocurrency - part 1",
         href: "blockchain-query",
         excerpt: "Query the Bitcoin blockchain",
         children: [
@@ -23,7 +23,7 @@ module.exports = [
         ],
       },
       {
-        title: "Cryptocurrency - part two",
+        title: "Cryptocurrency - part 2",
         href: "blockchain-analyze",
         excerpt: "Analyze the Bitcoin blockchain with Timescale hyperfunctions",
         children: [
@@ -41,7 +41,7 @@ module.exports = [
         ],
       },
       {
-        title: "Energy - part one",
+        title: "Energy - part 1",
         href: "energy-data",
         excerpt: "Learn how to analyze energy consumption data",
         children: [
@@ -58,7 +58,7 @@ module.exports = [
         ]
       },
       {
-        title: "Finance - part one",
+        title: "Finance - part 1",
         href: "financial-tick-data",
         excerpt: "Use Timescale to store financial tick data",
         children: [
@@ -75,12 +75,12 @@ module.exports = [
         ],
       },
       {
-        title: "Finance - part two",
+        title: "Finance - part 2",
         href: "ingest-real-time-websocket-data",
         excerpt: "Ingest real-time financial data with websocket",
       },
       {
-        title: "Transport - part one",
+        title: "Transport - part 1",
         href: "nyc-taxi-cab",
         excerpt: "An introduction to time-series using NYC taxi data",
         children: [
@@ -97,7 +97,7 @@ module.exports = [
         ],
       },
       {
-        title: "Transport - part two",
+        title: "Transport - part 2",
         href: "nyc-taxi-geospatial",
         excerpt: "Learn how to plot geospatial time-series data with NYC taxi cabs",
         children: [

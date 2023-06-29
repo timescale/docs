@@ -14,8 +14,8 @@ graphing your results.
 
 |&#x1F510; Cryptocurrency|&#x1F50B; Energy|&#x1F4B0; Finance|&#x1F698; Transport|
 |-|-|-|-|
-|&#x1F7E2; [Part one][beginner-crypto]<br/>Do your own research on the Bitcoin blockchain|&#x1F7E2; [Part one][beginner-energy]<br/>Optimize your energy consumption for a rooftop solar PV system|&#x1F7E2; [Part one][beginner-finance]<br/>Chart the trading highs and lows for your favorite stock|&#x1F7E2; [Part one][beginner-fleet]<br/>Find out about taxi rides taken in and around NYC|
-|&#x2B50; [Part two][intermediate-crypto] <br/>Discover the relationship between transactions, blocks, fees, and miner revenue|&#x2B50; *Coming Soon!*|&#x2B50; [Part two][advanced-finance]<br/>Use a websocket connection to visualize the trading highs and lows for your favorite stock|&#x2B50; [Part two][intermediate-fleet]<br/>Map the longest taxi rides in NYC|
+|&#x1F7E2; [Part 1][beginner-crypto]<br/>Do your own research on the Bitcoin blockchain|&#x1F7E2; [Part 1][beginner-energy]<br/>Optimize your energy consumption for a rooftop solar PV system|&#x1F7E2; [Part 1][beginner-finance]<br/>Chart the trading highs and lows for your favorite stock|&#x1F7E2; [Part 1][beginner-fleet]<br/>Find out about taxi rides taken in and around NYC|
+|&#x2B50; [Part 2][intermediate-crypto] <br/>Discover the relationship between transactions, blocks, fees, and miner revenue|&#x2B50; *Coming Soon!*|&#x2B50; [Part 2][advanced-finance]<br/>Use a websocket connection to visualize the trading highs and lows for your favorite stock|&#x2B50; [Part 2][intermediate-fleet]<br/>Map the longest taxi rides in NYC|
 
 [beginner-fleet]: /tutorials/:currentVersion:/nyc-taxi-cab/
 [beginner-finance]: /tutorials/:currentVersion:/financial-tick-data/
