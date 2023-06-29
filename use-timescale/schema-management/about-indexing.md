@@ -13,6 +13,12 @@ can create an index on any combination of columns, as long as you include the
 `time` column, for time-series data. Which column you choose to create your
 index on depends on what kind of data you have stored.
 
+<Highlight type="note">
+While it is possible to add an index that does not include the `time` column,
+doing so results in very slow ingest speeds. For time-series data, indexing
+on the time column allows one index to be created per chunk.
+</Highlight>
+
 Consider a simple example with temperatures collected from two locations named
 `office` and `garage`:
 
