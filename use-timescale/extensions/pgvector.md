@@ -24,7 +24,7 @@ OpenAI [vector embeddings][vector-embeddings] in Timescale. Learn how to use
 your data with ChatGPT using OpenAI and `pgvector`. RAG provides a solution to the
 problem that a foundational model such as GPT-3 or GPT-4 could be missing some
 information needed to give a good answer, because that information was not in the
-dataset used to train the model. For example, the information is stored in
+dataset used to train the model. This can happen if the information is stored in
 private documents or only became available recently.
 
 ### Prerequisites
