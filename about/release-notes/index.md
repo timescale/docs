@@ -17,6 +17,36 @@ GitHub and be notified by email whenever a new release is available. On the
 click `Watch`, select `Custom` and then check `Releases`.
 </Highlight>
 
+## TimescaleDB&nbsp;2.11.1 on 2023-06-29
+
+These release notes are for the release of TimescaleDB&nbsp;2.11.1 on
+2023-06-29.
+
+<Highlight type="note">
+This release contains bug fixes since the last release. It is considered low
+priority for upgrading. Upgrade your TimescaleDB installation at your next
+opportunity.
+</Highlight>
+
+### Complete list of bug fixes
+
+*   #5705 Scheduler accidentally getting killed when calling delete_job
+*   #5742 Fix Result node handling with ConstraintAwareAppend on compressed chunks
+*   #5750 Ensure tlist is present in decompress chunk plan
+*   #5754 Fixed handling of NULL values in bookend_sfunc
+*   #5798 Fixed batch look ahead in compressed sorted merge
+*   #5804 Mark cagg_watermark function as PARALLEL RESTRICTED
+*   #5807 Copy job config JSONB structure into current MemoryContext
+*   #5824 Improve continuous aggregate query chunk exclusion
+
+### Acknowledgments
+
+Timescale thanks:
+
+*   @JamieD9 for reporting an issue with a wrong result ordering
+*   @xvaara for reporting an issue with Result node handling in
+    ConstraintAwareAppend
+
 
 ## TimescaleDB&nbsp;2.11.0 on 2023-05-22
 
