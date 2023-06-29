@@ -11,12 +11,14 @@ In most cases, an automated compression policy is sufficient. However, if you
 want more control over compression, you can also manually compress specific
 chunks.
 
-<Highlight type="warning">
-Compression alters data on your disk, so always back up before you start.
-</Highlight>
+## Compress chunks manually
 
 Before you start, you need a list of chunks to compress. In this example, you
 use a hypertable called `example`, and compress chunks older than three days.
+
+<Highlight type="warning">
+Compression alters data on your disk, so always back up before you start.
+</Highlight>
 
 <Procedure>
 
@@ -89,6 +91,13 @@ SELECT compress_chunk(i, if_not_compressed => true)
         now()::timestamp - INTERVAL '3 weeks'
     ) i;
 ```
+
+<Highlight type="note">
+If you have already set a compression policy using
+`compress_chunk_time_interval`, and you then use `compress_chunk` without
+specific parameters to perform a manual compression, the manual compression
+honors the time interval previously set in the policy.
+</Highlight>
 
 ## Roll up uncompressed chunks when compressing
 
