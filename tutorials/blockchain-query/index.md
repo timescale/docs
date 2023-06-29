@@ -50,7 +50,7 @@ When you've completed this tutorial, you can use the same dataset to complete
 the [advanced blockchain tutorial][analyze-blockchain], which shows you how to
 analyze the blockchain data using Timescale hyperfunctions.
 
-[cloud-install]: /getting-started/:currentVersion/
+[cloud-install]: /getting-started/:currentVersion:/
 [blockchain-dataset]: /tutorials/:currentVersion:/blockchain-query/blockchain-dataset/
 [blockchain-query]: /tutorials/:currentVersion:/blockchain-query/beginner-blockchain-query/
 [blockchain-def]: https://www.pcmag.com/encyclopedia/term/blockchain
