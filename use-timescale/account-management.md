@@ -13,17 +13,51 @@ import UsageBasedStorage from "versionContent/_partials/_usage-based-storage-int
 
 # Billing and account management
 
+This section contains information about how your Timescale account is billed.
+It also shows you how to add a payment method, or update to a new credit card.
+
+## Usage-based storage
+
 <UsageBasedStorage />
 
-If you haven't yet added a payment method, you can add one in this section. You
-can also update to a new credit card here.
+This means that you don't need to select a storage size when you create a
+service, and your services are not locked to a fixed disk size. If you reduce
+the size of your data through compression, retention policies, or by deleting
+some of it, your bill is immediately decreased. With this billing system you
+don't need to scale your storage over time, you can just keep ingesting data as
+you need to. All Timescale services can store up to 16&nbsp;TB.
 
-<Highlight type="important">
-If you prefer to pay by invoice, or if you are unable to provide a credit card
-for billing, you can switch your project to corporate billing instead. To switch
-from credit card to corporate billing, [contact us](https://www.timescale.com/contact/) and ask to be
-changed to corporate billing.
+At the end of the month, you are charged for only the storage you have used. Storage
+charges are calculated according to this formula:
+
+```txt
+Storage used in GiB * (seconds stored / 3600) * price per hour
+```
+
+Disk usage is metered in 15 minute intervals over an hour to build an average
+value of hourly data stored. Bills are calculated on a 730 hour month.
+
+<Highlight type="note">
+If you want to estimate your bill ahead of the billing cycle, you can use the
+[calculator on the pricing page](https://www.timescale.com/pricing).
+The pricing calculator does not include volume discounts. If you want a
+personalized quote, [get in contact](https://www.timescale.com/contact).
 </Highlight>
+
+### Compression and storage costs
+
+If you enable compression, your bill decreases automatically. For example, if
+compression reduces your storage size by five times, then your effective storage
+cost is also five times lower. For more information about enabling storage
+compression, see the [compression section][compression].
+
+### Allocating additional storage for migration or backfill
+
+You do not need to allocate extra disk space for backfilling or migrating your
+data. Usage-based storage means that disk allocation is not a concern in
+Timescale. For example, if your recently migrated database requires less disk
+space after compression, you do not need to downscale your volume. The reduction
+in your storage bill proportionally matches the reduction in your disk usage.
 
 ## Add, update, or delete a payment method
 
@@ -32,6 +66,14 @@ You can add up to three credit cards to the `Wallet` and set one of the cards as
 have to first delete all the services and then schedule the last card to be
 deleted at the end of the month. However, if you are still on trial, you can
 delete the card in the `Wallet` without deleting the services.
+
+<Highlight type="important">
+If you prefer to pay by invoice, or if you are unable to provide a credit card
+for billing, you can switch your project to corporate billing instead. To switch
+from credit card to corporate billing,
+[get in contact](https://www.timescale.com/contact/)
+and request to be changed to corporate billing.
+</Highlight>
 
 <Procedure>
 
@@ -125,4 +167,4 @@ your payment method. You can change your company name and address in the
 </Procedure>
 
 [cloud-login]: https://console.cloud.timescale.com/
-[contact]: https://www.timescale.com/contact/
+[compression]: /use-timescale/:currentVersion:/compression/
