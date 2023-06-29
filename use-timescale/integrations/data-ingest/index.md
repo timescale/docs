@@ -10,4 +10,6 @@ tags: [integrations, telegraf, prometheus, kafka]
 
 # Data and ingestion integrations
 
-*   Telegraf
+*   [Telegraf][telegraf]
+
+[telegraf]: /use-timescale/:currentVersion:/integrations/data-ingest/telegraf/

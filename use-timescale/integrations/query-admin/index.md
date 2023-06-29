@@ -10,7 +10,12 @@ tags: [integrations, psql, dbeaver, azure data studio, pgadmin]
 
 # Query and administration integrations
 
-*   psql
-*   DBeaver
-*   Azure Data Studio
-*   PGAdmin
+*   [psql][psql]
+*   [DBeaver][dbeaver]
+*   [Azure Data Studio][ads]
+*   [PGAdmin][pgadmin]
+
+[psql]: /use-timescale/:currentVersion:/integrations/query-admin/psql/
+[dbeaver]: /use-timescale/:currentVersion:/integrations/query-admin/dbeaver/
+[ads]: /use-timescale/:currentVersion:/integrations/query-admin/azure-data-studio/
+[pgadmin]: /use-timescale/:currentVersion:/integrations/query-admin/pgadmin/
