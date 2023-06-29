@@ -134,9 +134,8 @@ information about feature changes between versions, see the
 
 <Highlight type="warning">
 Your Timescale service is unavailable until the upgrade is complete. This
-can take several hours. To estimate the length of time, it is usually one second
-of downtime per 100&nbsp;MB, but for a better estimate, you can test on a fork
-first.
+can take up to 20 minutes. It is recommended to test on a fork first for a 
+better estimate.
 </Highlight>
 
 ### Recommended practices for upgrading
