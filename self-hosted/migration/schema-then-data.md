@@ -399,7 +399,7 @@ accessed. Skipping them does not affect statistics on your data.
 [cagg-policy]: /use-timescale/:currentVersion:/continuous-aggregates/refresh-policies/
 [copy]: https://www.postgresql.org/docs/9.2/sql-copy.html
 [compression-policy]: /use-timescale/:currentVersion:/compression/
-[extensions]: /use-timescale/:currentVersion:/postgresql-extensions/
+[extensions]: /use-timescale/:currentVersion:/extensions/
 [install-selfhosted]: /self-hosted/:currentVersion:/install/
 [pg_dump]: https://www.postgresql.org/docs/current/app-pgdump.html
 [pg_restore]: https://www.postgresql.org/docs/current/app-pgrestore.html
