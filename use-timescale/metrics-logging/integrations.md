@@ -39,6 +39,7 @@ Export telemetry data by:
 
 1.  In the Timescale console, navigate to `Integrations`.
 1.  Click `Create exporter`.
+1.  Choose the telemetry data type that you would like to send to a provider.
 1.  Under `Choose a provider`, choose `Datadog`.
 1.  Choose an AWS region for your exporter to live within Timescale. The
     exporter is only available to database services in the same AWS region.
@@ -67,6 +68,7 @@ alt="Screenshot of the menu for adding a Datadog exporter" />
 
 1.  In the Timescale console, navigate to `Integrations`.
 1.  Click `Create exporter`.
+1.  Choose the telemetry data type that you would like to send to a provider.
 1.  Under `Choose a provider`, choose `AWS CloudWatch`.
 1.  Choose an AWS region for your exporter to live within Timescale. The
     exporter is only available to database services in the same AWS region.
@@ -81,7 +83,7 @@ alt="Screenshot of the menu for adding a Datadog exporter" />
     your new user has restricted access to only Cloudwatch, and keep your keys
     secret. For instructions, see the [AWS documentation][aws-access-keys].
 1.  Select an AWS Region for your CloudWatch instance.
-1.  <Optional />Define an IAM role to use for uploading metrics. Having a
+1.  <Optional />Define an ARN role to use for uploading metrics or logs. Having a
     dedicated role with only CloudWatch permissions is a recommended security
     practice.
 1.  Click `Create exporter`.
@@ -118,7 +120,13 @@ You can only have one exporter per service.
 1.  Navigate to `Services`. Click on the service you want to connect to your
     exporter.
 1.  Navigate to `Operations`, then `Integrations`.
-1.  Select and add an exporter.
+1.  Select an exporter and click `Attach exporter`.
+
+<Highlight type="warning">
+If you would like to attach a logs exporter to an already existing 
+service, you do not need to restart the service. The service only 
+needs to be restarted when you attach the first logs exporter.
+</Highlight>
 
 </Procedure>
 
