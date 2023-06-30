@@ -13,5 +13,5 @@ tags: [integrations, observability, alerting]
 *   [Grafana][grafana]
 *   [Tableau][tableau]
 
-[grafana]: /use-timescale/:currentVersion:/integrations/obervability-alerting/grafana/
-[tableau]: /use-timescale/:currentVersion:/integrations/obervability-alerting/tableau/
+[grafana]: /use-timescale/:currentVersion:/integrations/observability-alerting/grafana/
+[tableau]: /use-timescale/:currentVersion:/integrations/observability-alerting/tableau/

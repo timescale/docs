@@ -55,8 +55,4 @@ you through the steps to visualize the results in Grafana.
 [dataset-energy]: /tutorials/:currentVersion:/energy-data/dataset-energy/
 [query-energy]: /tutorials/:currentVersion:/energy-data/query-energy/
 [cloud-install]: /getting-started/:curentVersion:/
-[grafana-setup]: https://grafana.com/auth/sign-up/
-
-<!--- When integrations go live, use this link instead
-[grafana-setup]: /use-timescale/:currentVersion:/integrations/obervability-alerting/grafana/installation/
--->
+[grafana-setup]: /use-timescale/:currentVersion:/integrations/observability-alerting/grafana/installation/
