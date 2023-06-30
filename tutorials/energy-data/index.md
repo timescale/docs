@@ -54,7 +54,7 @@ you through the steps to visualize the results in Grafana.
 
 [dataset-energy]: /tutorials/:currentVersion:/energy-data/dataset-energy/
 [query-energy]: /tutorials/:currentVersion:/energy-data/query-energy/
-[cloud-install]: /getting-started/:curentVersion:/
+[cloud-install]: /getting-started/:currentVersion:/
 [grafana-setup]: https://grafana.com/auth/sign-up/
 
 <!--- When integrations go live, use this link instead
