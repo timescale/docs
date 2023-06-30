@@ -57,8 +57,8 @@ limited-edition Eon NFTs to your ETH address (at no cost to you!).
 
 You can see all NFTs in the Time Travel Tigers collection live on [OpenSea][eon-collection].
 
-1.  [NFT schema design and ingestion][nft-schema]
-1.  [Analyzing NFT transactions][nft-analyze]
+1.  NFT schema design and ingestion
+1.  Analyzing NFT transactions
 
 ## Prerequisites
 
@@ -69,9 +69,7 @@ You can see all NFTs in the Time Travel Tigers collection live on [OpenSea][eon-
 [eon-collection]: https://opensea.io/collection/time-travel-tigers-by-timescale
 [grafana]: https://grafana.com
 [install-ts]: /getting-started/latest/
-[nft-analyze]: /tutorials/:currentVersion:/analyze-nft-data/analyzing-nft-transactions
 [nft-form]: https://docs.google.com/forms/d/e/1FAIpQLSdZMzES-vK8K_pJl1n7HWWe5-v6D9A03QV6rys18woGTZr0Yw/viewform?usp=sf_link
-[nft-schema]: /tutorials/:currentVersion:/analyze-nft-data/nft-schema-ingestion
 [nft-wiki]: https://en.wikipedia.org/wiki/Non-fungible_token
 [opensea-key]: https://docs.opensea.io/reference/api-keys
 [opensea]: https://opensea.io/

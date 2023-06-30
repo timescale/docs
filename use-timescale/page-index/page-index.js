@@ -59,8 +59,25 @@ module.exports = [
       },
       {
         title: "PostgreSQL extensions",
-        href: "postgresql-extensions",
+        href: "extensions",
         excerpt: "Timescale PostgreSQL extensions",
+        children: [
+          {
+            title: "pgvector extension",
+            href: "pgvector",
+            excerpt: "Using the pgvector PostgreSQL extension",
+          },
+          {
+            title: "pgcrypto extension",
+            href: "pgcrypto",
+            excerpt: "Using the pgcrypto PostgreSQL extension",
+          },
+          {
+            title: "postgis extension",
+            href: "postgis",
+            excerpt: "Using the postgis PostgreSQL extension",
+          },
+        ]
       },
       {
         title: "Connecting to Timescale",
