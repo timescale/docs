@@ -12,7 +12,7 @@ tags: [integrations]
 You can integrate your Timescale database with third-party solutions to expand
 and extend what you can do with your data.
 
-|&#x1F50E; [Query and administration][query-admin]|&#x1F4CA; [Observability and alerting][observability-alerting]|&#x270D; [Data ingestion][data-ingest]
+|&#x1F6E0; [Query and administration][query-admin]|&#x1F50E; [Observability and alerting][observability-alerting]|&#x270D; [Data ingestion][data-ingest]
 |-|-|-|
 |[psql][psql]|[Grafana][grafana]|[Telegraf][telegraf]|
 |[DBeaver][dbeaver]|[Tableau][tableau]|
