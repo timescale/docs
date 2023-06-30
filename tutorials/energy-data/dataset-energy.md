@@ -38,7 +38,8 @@ Your Timescale account is free for thirty days.
 
 <Collapsible heading="The dataset">
 
-This tutorial uses the enegry consumption data for over a year in a typical household.
+This tutorial uses the enegry consumption data for over a year in a typical
+household. You can use this data to analyze the energy consumption pattern.
 
 <CreateHypertableEnergy />
 
