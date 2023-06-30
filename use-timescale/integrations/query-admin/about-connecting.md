@@ -5,6 +5,7 @@ products: [cloud, mst, self_hosted]
 keywords: [connect, Managed Service for TimescaleDB, Timescale]
 ---
 
+
 # Connecting to Timescale
 
 Regardless of the tool you use to connect to your database, you need to make

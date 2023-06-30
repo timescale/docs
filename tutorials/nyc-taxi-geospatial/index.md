@@ -63,8 +63,4 @@ information, and plotting the results in Grafana.
 [cloud-install]: /getting-started/latest/
 [beginner-fleet]: /tutorials/:currentVersion:/nyc-taxi-cab/
 [plot-nyc]: /tutorials/:currentVersion:/nyc-taxi-cab/plot-nyc/
-[grafana-setup]: https://grafana.com/auth/sign-up/
-
-<!--- When integrations go live, use this link instead
-[grafana-setup]: /use-timescale/:currentVersion:/integrations/obervability-alerting/grafana/installation/
--->
+[grafana-setup]: /use-timescale/:currentVersion:/integrations/observability-alerting/grafana/installation/
