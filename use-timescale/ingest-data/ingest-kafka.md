@@ -16,4 +16,4 @@ keeping up with changes in the database.
 For more information about the Kafka Connect JDBC sink connector, see the
 [JDBC Connector documentation][postgresql-connector-kafka].
 
-[postgresql-connector-kafka]: https://docs.confluent.io/5.4.1/connect/kafka-connect-jdbc/index.html
+[postgresql-connector-kafka]: https://docs.confluent.io/kafka-connectors/jdbc/current/sink-connector/overview.html
