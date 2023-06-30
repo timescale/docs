@@ -25,7 +25,7 @@ retain downsampled data in a continuous aggregate for a year, the continuous
 aggregate loses any data older than a month upon migration. If you must keep
 continuous aggregates calculated using deleted data, migrate your entire
 database at once. For more information, see the section on
-[choosing a migration method](/self-hosted/latest/migration/).
+[choosing a migration method](/use-timescale/latest/migration/).
 </Highlight>
 
 The procedure to migrate your database requires these steps:
@@ -46,7 +46,7 @@ database during this time, though performance could be slower. To avoid this
 problem, fork your database and migrate your data from the fork. If you write to
 the tables in your source database during the migration, the new writes might
 not be transferred to Timescale. To avoid this problem, see the section on
-[migrating an active database](/use-timescale/latest/migrate-db/).
+[migrating an active database](/use-timescale/latest/migration/).
 </Highlight>
 
 ## Prerequisites
@@ -398,8 +398,8 @@ accessed. Skipping them does not affect statistics on your data.
 [analyze]: https://www.postgresql.org/docs/10/sql-analyze.html
 [cagg-policy]: /use-timescale/:currentVersion:/continuous-aggregates/refresh-policies/
 [copy]: https://www.postgresql.org/docs/9.2/sql-copy.html
-[compression-policy]: /getting-started/:currentVersion:/compress-data/
-[extensions]: /use-timescale/:currentVersion:/postgresql-extensions/
+[compression-policy]: /use-timescale/:currentVersion:/compression/
+[extensions]: /use-timescale/:currentVersion:/extensions/
 [install-selfhosted]: /self-hosted/:currentVersion:/install/
 [pg_dump]: https://www.postgresql.org/docs/current/app-pgdump.html
 [pg_restore]: https://www.postgresql.org/docs/current/app-pgrestore.html

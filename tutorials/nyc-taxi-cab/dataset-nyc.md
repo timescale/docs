@@ -1,9 +1,10 @@
 ---
 title: Query time-series data tutorial - set up dataset
 excerpt: Set up a dataset so you can query time-series data
-products: [cloud, mst, self_hosted]
-keywords: [tutorials, create, dataset]
-tags: [tutorials, beginner]
+products: [cloud]
+keywords: [beginner, tutorials, create, dataset]
+layout_components: [next_prev_large]
+content_group: Analyze NYC taxi cab data
 ---
 
 import Install from "versionContent/_partials/_cloud-installation.mdx";
@@ -12,9 +13,9 @@ import Connect from "versionContent/_partials/_cloud-connect.mdx";
 import CreateHypertableNyc from "versionContent/_partials/_create-hypertable-nyctaxis.mdx";
 import AddDataNyc from "versionContent/_partials/_add-data-nyctaxis.mdx";
 
-## Sign up for Timescale Cloud
+## Sign up for Timescale
 
-Install Timescale Cloud by signing up for an account. It's free for thirty days.
+Your Timescale account is free for thirty days.
 
 <Install />
 

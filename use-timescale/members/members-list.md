@@ -11,14 +11,14 @@ cloud_ui:
 
 # Members
 
-When you log in to your [Timescale Cloud account][cloud-login], navigate to the
+When you log in to your [Timescale account][cloud-login], navigate to the
 `Members` page to manage users of your project. From here, you can see the
-current members of your Timescale Cloud project, and add and remove members.
+current members of your Timescale project, and add and remove members.
 
 ## Add or remove members
 
 You can add members to your project group from the `Members` section in your
-Cloud console. The new member does not need to have a Timescale Cloud account
+Cloud console. The new member does not need to have a Timescale account
 before you add them. If they do not yet have an account, they are prompted to
 create one.
 
@@ -26,21 +26,21 @@ create one.
 
 ### Adding members to a project group
 
-1.  [Log in to your Timescale Cloud account][cloud-login] and navigate to
+1.  [Log in to your Timescale account][cloud-login] and navigate to
     the `Members` section.
 1.  Click `Add new user`.
 1.  Type the email address of the person that you want to add, and click `Add
     user`. A confirmation email is sent to the email address you entered.
 1.  Follow the instructions in the confirmation email to confirm the email
-    address. Alternatively, the new member can sign in to a Timescale Cloud
+    address. Alternatively, the new member can sign in to a Timescale
     account with the invited email address, and accept the invitation by
     navigating to the `Invitations` section, and clicking `Accept`. For invitees
-    that do not have a Timescale Cloud account, the invite is automatically
+    that do not have a Timescale account, the invite is automatically
     accepted when they create a new account with the invited email address.
 1.  The new project member can switch to the shared project by selecting it from
     the `Project` drop-down menu.
 
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-add-members.png" alt="Adding a new member to a project in Timescale Cloud"/>
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-add-members.png" alt="Adding a new member to a project in Timescale"/>
 
 </Procedure>
 
@@ -48,7 +48,7 @@ create one.
 
 ### Removing members from a project group
 
-1.  [Log in to your Timescale Cloud account][cloud-login] and navigate to
+1.  [Log in to your Timescale account][cloud-login] and navigate to
     the `Members` section.
 1.  Locate the member you want to remove in the list, and click the trash can
     icon.
@@ -62,7 +62,7 @@ create one.
 
 ### Leaving a project group
 
-1.  [Log in to your Timescale Cloud account][cloud-login] and navigate to
+1.  [Log in to your Timescale account][cloud-login] and navigate to
     the `Members` section.
 1.  Click `Leave project`.
 1.  Confirm the action by clicking `Leave`.
@@ -71,7 +71,7 @@ create one.
 
 <img class="main-content__illustration"
 src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-leave-members.png"
-alt="Leaving a project in Timescale Cloud"/>
+alt="Leaving a project in Timescale"/>
 
 </Procedure>
 

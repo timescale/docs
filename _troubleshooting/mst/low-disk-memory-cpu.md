@@ -37,10 +37,8 @@ If you run out of resources regularly, you might need to consider using your
 resources more efficiently. Consider enabling [compression][howto-compression],
 using [continuous aggregates][howto-caggs], or
 [configuring data retention][howto-dataretention] to reduce the amount of
-resources your database uses. If you still need help, reach out to our [support
-team][timescale-support] to have a conversation.
+resources your database uses.
 
 [howto-compression]: /use-timescale/:currentVersion:/compression
 [howto-caggs]: /use-timescale/:currentVersion:/continuous-aggregates
 [howto-dataretention]: /use-timescale/:currentVersion:/data-retention
-[timescale-support]: https://www.timescale.com/support

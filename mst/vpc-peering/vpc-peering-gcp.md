@@ -7,8 +7,8 @@ keywords: [vpc, peer, gcp]
 
 # Configure VPC peering on GCP
 
-You can Configure VPC peering for your Managed Service for TimescaleDB project,
-using the VPC on GCP.
+You can configure VPC peering for your Managed Service for TimescaleDB project,
+using VPC provided by GCP.
 
 ## Before you begin
 

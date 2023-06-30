@@ -1,23 +1,20 @@
 ---
 title: Multi-node
-excerpt: Horizontally scale your database by setting up multi-node on Timescale Cloud
+excerpt: Horizontally scale your database by setting up multi-node on Timescale
 products: [cloud]
 keywords: [multi-node, scaling]
 tags: [cluster, distributed hypertables]
-cloud_ui:
-    path:
-        - [services]
 ---
 
 import EarlyAccess from "versionContent/_partials/_early_access.mdx";
 
 # Multi-node
 
-If you have a larger workload, you might need more than one Timescale Cloud
+If you have a larger workload, you might need more than one Timescale
 instance. Multi-node can give you faster data ingest, and more responsive and
 efficient queries for many large workloads.
 
-This section shows you how to use multi-node on Timescale Cloud. You can also
+This section shows you how to use multi-node on Timescale. You can also
 set up multi-node on [self-hosted TimescaleDB][multinode-timescaledb].
 
 <EarlyAccess />
@@ -29,7 +26,7 @@ nodes. It is important that you understand multi-node architecture before you
 begin, and plan your database according to your specific environment.
 </Highlight>
 
-## Set up multi-node on Timescale Cloud
+## Set up multi-node
 
 To create a multi-node cluster, you need an access node that stores metadata
 for the distributed hypertable and performs query planning across the cluster,
@@ -38,9 +35,9 @@ dataset and run queries locally.
 
 <Procedure>
 
-### Setting up multi-node on Timescale Cloud
+### Setting up multi-node
 
-1.  [Log in to your Timescale Cloud account][cloud-login] and click
+1.  [Log in to your Timescale account][cloud-login] and click
     `Create Service`.
 1.  Click `Advanced configuration`.
 1.  Under `Choose your architecture`, click `Multi-node`.
@@ -60,7 +57,7 @@ dataset and run queries locally.
 
 <img class="main-content__illustration"
 src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-running-service-multinode.png"
-alt="Timescale Cloud running multi-node service"/>
+alt="Timescale running multi-node service"/>
 
 </Procedure>
 

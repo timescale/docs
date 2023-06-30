@@ -1,28 +1,27 @@
 ---
 title: Members
-excerpt: User management for your Timescale Cloud project
+excerpt: User management for your Timescale project
 products: [cloud]
 keywords: [members, projects, admin, roles]
 tags: [users]
 cloud_ui:
     path:
         - [members]
-    priority: 1
 ---
 
 # Members
 
-When you log in to your [Timescale Cloud account][cloud-login], navigate to the
+When you log in to your [Timescale account][cloud-login], navigate to the
 `Members` page to manage users of your project. From here, you can see the
-current members of your Timescale Cloud project, and add and remove members.
+current members of your Timescale project, and add and remove members.
 
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-users-list.png" alt="Timescale Cloud Members"/>
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-users-list.png" alt="Timescale Members"/>
 
-## About Timescale Cloud user management
+## About Timescale user management
 
-Timescale Cloud allows you to collaborate with other users on your projects.
+Timescale allows you to collaborate with other users on your projects.
 When you have created your project, you can add other users so that they can see
-your project in their Timescale Cloud console. You can add, manage, and delete
+your project in their Timescale console. You can add, manage, and delete
 users from the `Members` section of the Cloud console.
 
 You are assigned an `Administrator` role for projects that you create,

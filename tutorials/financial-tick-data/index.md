@@ -4,7 +4,11 @@ excerpt: Learn how to store financial tick data and create candlestick views to 
 products: [cloud, mst, self_hosted]
 keywords: [tutorials, finance, learn]
 tags: [tutorials, beginner]
+layout_components: [next_prev_large]
+content_group: Analyze financial tick data
 ---
+
+import CandlestickIntro from "versionContent/_partials/_candlestick_intro.mdx";
 
 # Analyze financial tick data with TimescaleDB
 
@@ -22,10 +26,10 @@ aggregated data, and visualize the data in Grafana.
 
 Before you begin, make sure you have:
 
-*   Signed up for a [free Timescale Cloud account][cloud-install].
+*   Signed up for a [free Timescale account][cloud-install].
 
 <Highlight type="cloud" header="Run all tutorials free" button="Try for free">
-Your Timescale Cloud trial is completely free for you to use for the first
+Your Timescale trial is completely free for you to use for the first
 thirty days. This gives you enough time to complete all the tutorials and run
 a few test projects of your own.
 </Highlight>
@@ -34,26 +38,19 @@ a few test projects of your own.
 
 This tutorial covers:
 
-1.  [Set up up your dataset][financial-tick-dataset]: Load data from
+1.  [Set up your dataset][financial-tick-dataset]: Load data from
     [Twelve Data][twelve-data] into your TimescaleDB database.
 1.  [Query your dataset][financial-tick-query]: Create candlestick views, query
     the aggregated data, and visualize the data in Grafana.
 
+    This tutorial shows you how to ingest real-time time-series data into a Timescale
+    database using a websocket connection. To create candlestick views, query the
+    aggregated data, and visualize the data in Grafana, see the
+    [ingest real-time websocket data section][advanced-websocket].
+
 ## About OHLCV data and candlestick charts
 
-The financial sector regularly uses [candlestick charts][charts] to visualize
-the price change of an asset. Each candlestick represents a time period, such as
-one minute or one hour, and shows how the asset's price changed during that time.
-
-Candlestick charts are generated from the open, high, low, close, and volume
-data for each financial asset during the time period. This is often abbreviated
-as OHLCV:
-
-*   Open: opening price
-*   High: highest price
-*   Low: lowest price
-*   Close: closing price
-*   Volume: volume of transactions
+<CandlestickIntro />
 
 ![candlestick](https://assets.timescale.com/docs/images/tutorials/intraday-stock-analysis/candlestick_fig.png)
 
@@ -68,7 +65,6 @@ these stories from some Timescale community members:
 [cloud-install]: /getting-started/latest/
 [financial-tick-dataset]: /tutorials/:currentVersion:/financial-tick-data/financial-tick-dataset/
 [financial-tick-query]: /tutorials/:currentVersion:/financial-tick-data/financial-tick-query/
-[charts]: https://www.investopedia.com/terms/c/candlestick.asp
 [twelve-data]: https://twelvedata.com/
 [trading-strategy]: https://www.timescale.com/blog/how-trading-strategy-built-a-data-stack-for-crypto-quant-trading/
 [messari]: https://www.timescale.com/blog/how-messari-uses-data-to-open-the-cryptoeconomy-to-everyone/

@@ -1,15 +1,15 @@
-A service in Timescale Cloud is a cloud instance which contains your database.
+A service in Timescale is a cloud instance which contains your database.
 Each service contains a single database, named `tsdb`.
 
 <Procedure>
 
-### Create a Timescale Cloud service
+### Create a Timescale service
 
 <ol>
   <li>
     <p>
       Sign in to the{" "}
-      <a href="https://console.cloud.timescale.com/">Timescale Cloud portal</a>.
+      <a href="https://console.cloud.timescale.com/">Timescale portal</a>.
     </p>
   </li>
   <li>
@@ -20,7 +20,7 @@ Each service contains a single database, named `tsdb`.
           If this is your first service, we recommend that you choose the
           option to deploy a service with a {" "}
           <code>demo dataset</code>, because it is the best way to see how
-          Timescale Cloud works in the real world.
+          Timescale works in the real world.
         </>
       ) : (
         <>
@@ -40,10 +40,26 @@ Each service contains a single database, named `tsdb`.
       <img
         class="main-content__illustration"
         src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-create-service-demo.png"
-        alt="Create a new service in the Timescale Cloud portal"
+        alt="Create a new service in the Timescale portal"
       />
     </li>
   )}
+  <li>
+    <p>
+      Click <code>Download the cheatsheet</code> to download an SQL file that
+      contains the login details for your new service. You can also copy the
+      details directly from this page. When you have copied your password,
+      click <code>I stored my password, go to service overview</code>
+      at the bottom of the page.
+    </p>
+  </li>
+    <li>
+    <p>
+      When your service is ready to use, is shows a green <code>Running</code>
+      label in the Service Overview. You also receive an email confirming that
+      your service is ready to use.
+    </p>
+  </li>
 </ol>
 
 </Procedure>

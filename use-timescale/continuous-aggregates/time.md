@@ -52,7 +52,7 @@ timezone in the view query.
 ## Integer-based time
 
 Date and time is usually expressed as year-month-day and hours:minutes:seconds.
-Most TimescaleDB databases use a [date/time-type][postgres-date-time] column to
+Most Timescale databases use a [date/time-type][postgres-date-time] column to
 express the date and time. However, in some cases, you might need to convert
 these common time and date formats to a format that uses an integer. The most
 common integer time is Unix epoch time, which is the number of seconds since the
@@ -108,7 +108,7 @@ continuous aggregate.
     ```sql
     CREATE FUNCTION current_epoch() RETURNS BIGINT
     LANGUAGE SQL STABLE AS $$
-    SELECT EXTRACT(EPOCH FROM CURRENT_EPOCH)::bigint;$$;
+    SELECT EXTRACT(EPOCH FROM CURRENT_TIMESTAMP::bigint;$$;
 
      SELECT set_integer_now_func('devices', 'current_epoch');
      ```

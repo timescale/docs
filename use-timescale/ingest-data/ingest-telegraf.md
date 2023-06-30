@@ -1,6 +1,6 @@
 ---
 title: Telegraf
-excerpt: Ingest data into TimescaleDB using the Telegraf plugin
+excerpt: Ingest data into Timescale using the Telegraf plugin
 products: [cloud, mst, self_hosted]
 keywords: [ingest, Telegraf]
 tags: [insert]
@@ -21,12 +21,13 @@ writing different types of data written by people who work with that data.
 
 ## Before you begin
 
-*   [Install Telegraf][install-telegraf] on the system where you want to collect metrics.
-*   Create a [TimescaleDB service][create-service] on Timescale Cloud.
-*   Gather the connection details for [TimescaleDB][connect-timescaledb].
-*   Install Grafana or create a Grafana service on [Managed Service for TimescaleDB][grafana-mst]
+*   [Install Telegraf][install-telegraf] on the system where you want to collect
+    metrics.
+*   Create a [Timescale service][create-service].
+*   Gather the connection details for [your service][connect-timescaledb].
+*   Install Grafana
 
-## Ingest metrics using Telegraf plugin to TimescaleDB
+## Ingest metrics using the Telegraf plugin
 
 <Procedure>
 
@@ -45,8 +46,8 @@ writing different types of data written by people who work with that data.
     ```
 
     A configuration file enables a CPU input plugin that samples various metrics
-    about CPU usage, and the PostgreSQL output plugin. The file also includes all
-    available input, output, processor, and aggregator plugins. These are commented out
+    about CPU usage, and the PostgreSQL output plugin. The file also includes
+    all available input, output, processor, and aggregator plugins. These are
     commented out by default. You can enable them as required.
 
 1.  Test the sample configuration file `telegraf.conf` that you generated:
@@ -83,14 +84,17 @@ writing different types of data written by people who work with that data.
     ```
 
 1.  Set the `connection` parameter in the `[[outputs.postgresql]]` section to
-    the`<SERVICE URL>` of the TimescaleDB service that you created:
+    the`<SERVICE URL>` of the Timescale service that you created:
 
     ```bash
     connection = "<SERVICE URL>"
     ```
 
 1.  Create a hypertable by adding the `table_template` parameter in the config
-    file to execute when creating a new table:
+    file to execute when creating a new table. You can add this parameter in the
+    section that begins with the comment `## Templated statements to execute
+    when creating a new table.` After you add the `table_template` parameter, the
+    section in the configuration file looks like this:
 
     ```bash
     ## Templated statements to execute when creating a new table.
@@ -105,7 +109,7 @@ writing different types of data written by people who work with that data.
 
 <Procedure>
 
-### Viewing the metrics collected by Telegraf in TimescaleDB
+### Viewing the metrics collected by Telegraf
 
 1.  Run Telegraf to collect the metrics:
 
@@ -130,9 +134,10 @@ writing different types of data written by people who work with that data.
     2022-12-05T12:32:00Z I! [agent] Config: Interval:10s, Quiet:false, Hostname:"test", Flush Interval:10s
     ```
 
-1.  Stop running Telegraf to collect the metrics after approximately 15 to 20 seconds.
+1.  Stop running Telegraf to collect the metrics after approximately 15 to 20
+    seconds.
 
-1.  Connect to TimescaleDB and provide the `<PASSWORD>` for `tsdbadmin`:
+1.  Connect to Timescale and provide the `<PASSWORD>` for `tsdbadmin`:
 
     ```bash
     psql <SERVICE URL>
@@ -186,11 +191,10 @@ see [PostgreQL output plugin][output-plugin].
 
 <GrafanaConnect />
 
-When you have configured TimescaleDB as a data source in Grafana, you can create
+When you have configured Timescale as a data source in Grafana, you can create
 panels that are populated with data using SQL.
 
 [output-plugin]: https://github.com/influxdata/telegraf/blob/release-1.24/plugins/outputs/postgresql/README.md
 [install-telegraf]: https://docs.influxdata.com/telegraf/v1.21/introduction/installation/
 [create-service]: /getting-started/latest/
 [connect-timescaledb]: /use-timescale/:currentVersion:/connecting/about-connecting/
-[grafana-mst]: /tutorials/:currentVersion:/grafana/installation/#create-a-new-service-for-grafana

@@ -6,16 +6,20 @@ keywords: [services, operation, storage]
 tags: [disk space, resources, oom, memory]
 cloud_ui:
     path:
-        - [services, :serviceID, operations, resources]
+        - [services, :serviceId, operations, resources]
+        - [services, :serviceId, operations]
 ---
+
+import UsageBasedStorage from "versionContent/_partials/_usage-based-storage-intro.mdx";
 
 # Resources
 
-Disk size autoscaling is enabled by default on most services. Timescale Cloud
-also allows you to resize compute (CPU/RAM) and storage independently at any
+<UsageBasedStorage />
+
+Timescale allows you to resize compute (CPU/RAM) and storage independently at any
 time. This is useful when you need to do something like increasing your storage
 capacity, but not your compute size. You can resize compute and storage in the
-Timescale Cloud console for any service, including members of multi-node
+Timescale console for any service, including members of multi-node
 clusters.
 
 Storage changes are applied with no downtime, and the new storage capacity is
@@ -40,12 +44,12 @@ To modify the compute or storage of your service, select the service that you
 want to modify, and navigate to the `Operations` tab. Go to the `Resources`
 section to see the current resource settings for the service.
 
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-resources-unchanged.png" alt="View Timescale Cloud service resource information"/>
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-resources-unchanged.png" alt="View Timescale service resource information"/>
 
 When you change compute or storage settings, the current and new hourly charges
 are displayed immediately so that you can verify how the changes impact your
 costs.
 
-You can use the Timescale Cloud console to change how much CPU and memory
+You can use the Timescale console to change how much CPU and memory
 resources your service has available, as well as change the disk size for your
-service. You can adjust this manually as required, or for disk size you can use autoscaling.
+service. You can adjust this manually as required.

@@ -99,15 +99,17 @@ space used for uncompressed data. For example, if you have multiple smaller
 uncompressed chunks in your data, you can roll them up into a single compressed
 chunk.
 
-To roll up your uncompressed chunks into a compressed chunk, use this command,
-specifying the interval to use:
+To roll up your uncompressed chunks into a compressed chunk, alter the compression
+settings to set the compress chunk time interval, and run compression operations
+to roll up the chunks while compressing.
 
 ```sql
-SELECT compress_chunk_time_interval('<time_interval>',if_not_compressed => true)
+ALTER TABLE example SET (timescaledb.compress_chunk_time_interval = '<time_interval>');
+SELECT compress_chunk(c, if_not_compressed => true)
     FROM show_chunks(
         'example',
         now()::timestamp - INTERVAL '1 week',
-    ) ;
+    ) c;
 ```
 
 The time interval you choose must be a multiple of the uncompressed chunk

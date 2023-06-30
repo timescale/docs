@@ -1,6 +1,6 @@
 ---
-title: About migrating to Timescale Cloud with hypershift
-excerpt: Migrate an existing PostgreSQL database to Timescale Cloud in a single step
+title: About migrating to Timescale with hypershift
+excerpt: Migrate an existing PostgreSQL database to Timescale in a single step
 products: [cloud]
 keywords: [data migration, Hypershift]
 tags: [ingest, Hypershift, postgresql]
@@ -36,7 +36,7 @@ machines can impact the speed and duration of the migration.
 
 You can continue reading from your source database during the migration, though
 performance could be slower. If you write to tables in your source database
-during the migration, the new writes are not transferred to Timescale Cloud.
+during the migration, the new writes are not transferred to Timescale.
 
 <Highlight type="important">
 If you have a large database, and hypershift is going to have to run for a very
@@ -67,19 +67,32 @@ URIs in the configuration file.
 To see all available configuration options for hypershift, use this command:
 
 ```bash
-docker run -ti timescale/hypershift:0.5 --help
+docker run -ti timescale/hypershift:0.6 --help
 ```
+
+### The hypershift clone tool
+
+You can use the hypershift `clone` command to preserve a copy of your database
+in the source location. Hypershift creates a full copy of the contents of
+your source database, and moves it into the target database. You can add
+parameters to the `clone` command to filter which contents to copy.
+
+For more information about the `clone` tool, use the `hypershift clone --help`
+command.
 
 |Short command|Long command|Example use|Description|
 |-|-|-|-|
-|-c|--config-file|-C <CONFIG_FILE>|Path for hypershift configuration file|
 |-s|--source|-s <SOURCE_URI>|URI to the source database|
 |-t|--target|-t <TARGET_URI>|URI to the target database|
 ||--source-password|--source-password|Password for the source database|
 ||--target-password|--target-password|Password for the target database|
-||--ignore-missing-time-index||Ignore that hypertables may be missing a time index|
+||--parallel|--parallel <NUMBER\>|Number of workers that can simultaneously fetch data from the target database|
+||--verify|--verify|Verify the migrated data by comparing the source and target database|
+||--ignore-missing-time-index|--ignore-missing-time-index|Ignore that hypertables may be missing a time index|
+||--hide-progress|--hide-progress|Hide migration progress bar|
+||--verbose|--verbose|Display verbose logs with progress bar|
+|-c|--config-file|-c <PATH\>|Path to an advanced hypershift configuration file. For more information, see [hypershift-config]|
 |-h|--help||Print hypershift help|
-|-V|--version|Print hypershift version|
 
 ### Example hypershift commands
 
@@ -88,21 +101,21 @@ configuration file, providing the source and target database URIs at the command
 prompt:
 
 ```bash
-docker run -ti timescale/hypershift:0.5 -s='host=localhost dbname=postgres port=5432 user=postgres password=source_password' \
+docker run -ti timescale/hypershift:0.6 clone -s='host=localhost dbname=postgres port=5432 user=postgres password=source_password' \
 -t='host=localhost dbname=postgres port=5433 user=postgres password=target_password'
 ```
 
 Migrate using a configuration file only:
 
 ```bash
-docker run -v $(pwd)/config.yaml:/config.yaml -ti timescale/hypershift:0.5 -c=config.yaml
+docker run -v $(pwd)/config.yaml:/config.yaml -ti timescale/hypershift:0.6 clone -c=config.yaml
 ```
 
 Migrate using a configuration file, and provide source and target database URIs
 at the command prompt:
 
 ```bash
-docker run -v $(pwd)/config.yaml:/config.yaml -ti timescale/hypershift:0.5 -c=config.yaml \
+docker run -v $(pwd)/config.yaml:/config.yaml -ti timescale/hypershift:0.6 clone -c=config.yaml \
 -s='host=localhost dbname=postgres port=5432 user=postgres password=source_password' \
 -t='host=localhost dbname=postgres port=5433 user=postgres password=target_password'
 ```

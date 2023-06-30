@@ -1,6 +1,6 @@
 ---
 title: Configuring Hypershift
-excerpt: Migrate an existing PostgreSQL database to Timescale Cloud in a single step
+excerpt: Migrate an existing PostgreSQL database to Timescale in a single step
 products: [cloud]
 keywords: [data migration, Hypershift]
 tags: [ingest, Hypershift, postgresql]
@@ -27,14 +27,13 @@ Use this format:
 ```yml
 source: '<SOURCE_DB_URI>'
 target: '<TARGET_DU_URI>'
-actions: ['clone', 'verify']
+verify: <boolean>
 include_tables: []
 exclude_tables: []
 include_schemas: []
 exclude_schemas: []
-
 hypertable_configs:
-  name: <table_name>
+- name: <table_name>
   schema: <schema_name>
   time_column_name: <time_column_name>
   chunk_time_interval: 7d
@@ -44,6 +43,10 @@ hypertable_configs:
       - <column>
     orderby:
       - <column> <direction>
+parallel_min_table_size: <integer>
+foreign_keys_priority: <enum>
+create_db: <boolean>
+drop_incompatible_hypertable_constraints: <boolean>
 ```
 
 ## Source and target database details
@@ -69,17 +72,9 @@ For example:
 postgres://tsdbadmin:my_password@timescale-cloud.com:30001/my_database
 ```
 
-## Actions
+## Verify
 
-The available options for hypershift are `clone` and `verify`.
-
-### Clone
-
-Use the `clone` action to perform a hypershift migration.
-
-### Verify
-
-Use the `verify` action to check if the migration was successful. This does a
+Set `verify` to `true` to check if the migration was successful. This does a
 check over the data in the tables on the source and target database to ensure that
 they contain the same values.
 
@@ -191,7 +186,7 @@ in either inclusion or exclusion rules.
 In the hypertable configuration section, you can provide parameters that control
 how the hypertable is created on the target database.
 
-### Parallel minimum table size
+## Parallel minimum table size
 
 Use the `parallel_min_table_size` parameter to control the size a hypertable, in
 MiB, must be to use parallel copying. Hypershift uses parallel copying to speed
@@ -201,7 +196,7 @@ parameter are copied in a single transaction. Tables sized over the
 
 This parameter defaults to 128&nbsp;MiB.
 
-### Foreign key checking
+## Foreign key checking
 
 Use the `foreign_keys_priority` parameter to control when hypershift should
 check foreign keys. The options for this parameter are:
@@ -213,7 +208,7 @@ check foreign keys. The options for this parameter are:
 
 This parameter defaults to `unchecked`.
 
-### Logging format
+## Logging format
 
 Use the `log_format` parameter to control which file format to save log files
 in. The options for this parameter are:
@@ -223,7 +218,7 @@ in. The options for this parameter are:
 
 This parameter defaults to `text`.
 
-### Create the target database
+## Create the target database
 
 Use the `create_db` parameter to control whether or not hypershift creates a new
 target database during the migration. The options for this parameter are:
@@ -233,7 +228,7 @@ target database during the migration. The options for this parameter are:
 
 This parameter defaults to `false`.
 
-### Drop incompatible hypertable constraints
+## Drop incompatible hypertable constraints
 
 In some cases, tables can have constraints on them that can't be retained when
 they are converted to a hypertable. For example, if a table has a foreign key
@@ -256,46 +251,48 @@ to use as a starting point for creating your own.
 
 ```yml
 # Required.
-# Source database details. Can be provided as a database URI
-# or as "host=example.com dbname=mydb".
+# Source database details. Can be provided as a database URI or as "host=example.com dbname=mydb".
 source: <string>
+
 # Required.
-# Target database details. Can be provided as a database URI
-# or as "host=example.com dbname=mydb".
+# Target database details. Can be provided as a database URI or as "host=example.com dbname=mydb".
 target: <string>
-# Actions instructs Hypershift to perform operations against the
-# source or target database.
-# Available actions: clone, verify
-actions: [<string>] # Default = ['clone']
-# Clone specified sections only. These sections correspond to those in pg_dump.
-sections: [<string>] # Default = ['roles', 'pre-data', 'data', 'post-data']
+
 # Number of workers to fetch data parallely from the target database.
 parallel: <u16> # Default = 8
-# Copy the specified tables only. No other objects are copied during the migration.
+
+# Verify migrated data.
+verify: <boolean> # Default = false
+
+# Only copy the specified table. No other objects are copied.
 # * Tables must be specified schema-qualified (e.g. `include_tables: [ public.my_table ]`).
 # * Tables with mixed-case names must be quoted, e.g. `include_tables: [ '"MixedCase"."TABLE_name"' ]`.
 #
-# This field is mutually exclusive with `exclude_schemas`, `exclude_tables`, and `include_schemas`.
+# Mutually exclusive with `exclude_schemas`, `exclude_tables`, and `include_schemas`.
 #
-# Note: Similar to pg_dump's `--table`, this will copy the specified tables only, and not any
+# Note: As in `pg_dump`, this flag will cause only the table to be copied, and not any
 # dependent objects (e.g. schemas, types, required foreign-key relations, etc.). You must
 # ensure that all dependent objects are present in the target database before copying the
 # table with this filter.
 include_tables: [<string>] # Default = []
-# Exclude the specified table from being copied.
+
+# Exclude the specified table from the copy.
 # * Tables must be specified schema-qualified, e.g. `exclude_tables: [ public.my_table ]`.
 # * Tables with mixed-case names must be quoted, e.g. `exclude_tables: [ '"MixedCase"."TABLE_name"' ]`.
 #
-# This field is mutually exclusive with `include_tables`.
+# Mutually exclusive with `include_tables`.
 exclude_tables: [<string>] # Default = []
-# Copy objects from the specified schemas only. This field behaves same
-# as the `--schema` argument of pg_dump, but without pattern matching.
-# This field is mutually exclusive with `exclude_schemas`.
+
+# Only copy objects from the specified schemas. This flag behaves same
+# as the `--schema` argument of 'pg_dump', but without pattern matching.
+# Mutually exclusive with `exclude_schemas`.
 include_schemas: [<string>] # Default = []
-# Exclude specified schemas from clone operation. This field behaves same
-# as the `--exclude_schemas` argument of pg_dump, but without pattern matching.
-# This field is mutually exclusive with `include_schemas`.
+
+# Exclude specified schemas from clone operation. This flag behaves same
+# as the `--exclude_schemas` argument of 'pg_dump', but without pattern matching.
+# Mutually exclusive with `include_schemas`.
 exclude_schemas: [<string>] # Default = []
+
 # If applied, Hypershift will convert the given list of tables to
 # TimescaleDB hypertables while migration.
 # 'hypertable_configs' also allows compressing data while migration
@@ -305,46 +302,53 @@ exclude_schemas: [<string>] # Default = []
 # - schema: <string>                                    # Required.
 #   name: <string>                                      # Required.
 #   time_column_name: <string>                          # Required.
-#   chunk_time_interval: <microseconds> or <interval>
-#   compress:                                           # Compress hypertable if applied.
+#   chunk_time_interval: <microseconds> or <interval>   # Optional. Default "7d"
+#   compress:                                           # Compression settings (optional)
 #       after: <microseconds> or <interval>
 #       orderby:
-#           name: <string>      # Column name.
-#           direction: <string> # Sorting direction. Expected 'asc' or 'desc'.
-#       segmentby: [<string>]   # List of column names.
+#        - <column_name> <direction>    # Column name, sort direction ('asc' or 'desc').
+#       segmentby: [<string>]           # List of column names.
 #
 # Example:
 # hypertable_configs:
-# - name: metric
-#   schema: public
-#   time_column_name: time
-#   chunk_time_interval: 4w
+#  - name: metric
+#    schema: public
+#    time_column_name: time
+#    chunk_time_interval: 4w
+#    compress:
+#      after: 1w
+#      orderby:
+#       - time desc
+#      segmentby:
+#       - series_id
 # ----------------------------------------------------------------------------
 hypertable_configs: [<hypertable_configuration>] # Default = []
-# Minimum size of the table (in MiB) for which parallel
-# copying of data should be done.
+
+# Minimum size of the table (in MiB) for which parallel copying of data should be done.
 parallel_min_table_size: <u16> # Default = 128
-# Specify when should foreign keys be checked.
+
+# When Foreign Keys should be checked.
 foreign_keys_priority: <VALID: immediate, deferred, unchecked, disabled> # Default = unchecked
-# Specify the logging format to be used.
-log_format: <VALID: json, text> # Default = text
+
 # Create the target database.
 create_db: <boolean> # Default = false
+
 # Drop constraints that prevent hypertables from being created.
 #
-# Some constraints like foreign keys pointing to a Hypertable cannot be
+# Some constraints like foreign keys that point to a hypertable cannot be
 # retained when migrating and will throw an error.
 #
 # Use this option to not create those constraints instead.
 drop_incompatible_hypertable_constraints: <boolean> # Default = false
+
+# Ignore the fact that hypertables may be missing a time index.
+ignore_missing_time_index: <boolean> # Default = false
+
 # Hide migration progress bar.
 hide_progress: <boolean> # Default = false
+
 # Display verbose logs with progress bar.
 verbose: <boolean> # Default = false
-# Do not collect anonymous telemetry during migration. By default,
-# Hypershift collects anonymous statistics that are important for
-# its improvement.
-no_telemetry: <boolean> # Default = false
 ```
 
 </Collapsible>

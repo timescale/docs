@@ -28,7 +28,7 @@ Before you start, make sure you have:
 *   Installed the Node.js package manager [npm][npm-install].
 
 <highlight type="cloud" header="Run all tutorials free" button="Try for free">
-Your Timescale Cloud trial is completely free for you to use for the first
+Your Timescale trial is completely free for you to use for the first
 thirty days. This gives you enough time to complete all the tutorials and run
 a few test projects of your own.
 </highlight>
@@ -391,21 +391,9 @@ Now, when you reload the page, you should see all of the rows currently in the
 
 </procedure>
 
-## Next steps
-
-Now that you're able to connect, read, and write to a TimescaleDB instance from
-your Node application, check out these tutorials:
-
-*   [Time Series Forecasting using TimescaleDB, R, Apache MADlib and Python][time-series-forecasting]
-*   [Try Other Sample Datasets][other-samples]
-*   [Migrate your own Data][migrate]
-
-[migrate]: /use-timescale/:currentVersion:/migration/
 [node-install]: https://nodejs.org
 [npm-install]: https://www.npmjs.com/get-npm
-[other-samples]: /tutorials/:currentVersion:/sample-datasets/
 [sequelize-info]: https://sequelize.org
-[time-series-forecasting]: /tutorials/:currentVersion:/time-series-forecast/
 [connect]: #connect-to-timescaledb
 [create-table]: #create-a-relational-table
 [create-hypertable]: #create-hypertable
