@@ -166,7 +166,7 @@ module.exports = [
               [
                 {
                   title: "Telegraf",
-                  href: "ingest-telegraf",
+                  href: "telegraf",
                   excerpt: "Use Telegraf with Timescale",
                 },
               ]
