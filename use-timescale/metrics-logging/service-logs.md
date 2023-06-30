@@ -5,7 +5,7 @@ products: [cloud]
 keywords: [logs, services]
 cloud_ui:
     path:
-        - [services, :serviceID, logs]
+        - [services, :serviceId, logs]
 ---
 
 # Service logs

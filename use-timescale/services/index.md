@@ -6,7 +6,6 @@ keywords: [services]
 cloud_ui:
     path:
         - [services]
-    priority: 1
 ---
 
 import CloudIntro from "versionContent/_partials/_cloud-intro.mdx";
@@ -50,17 +49,14 @@ or [contact us][contact-timescale] directly.
 Timescale is a versatile hosting service that provides a growing list of
 advanced features for your PostgreSQL and time-series data workloads.
 
-For additional documentation on how to:
+For more information about customizing your database configuration, see the
+[Configuration section][configuration].
 
-*   [Resize compute and storage][resize] at any time
-*   [Customize your database configuration][configuration] easily
-
-[aggregates-info]: /getting-started/:currentVersion:/create-cagg
+[aggregates-info]: /use-timescale/:currentVersion:/continuous-aggregates/
 [configuration]: /use-timescale/:currentVersion:/configuration/
 [contact-timescale]: https://www.timescale.com/contact
 [gap-filling-info]: /use-timescale/:currentVersion:/query-data/advanced-analytic-queries#gap-filling
 [hypertable-info]: /use-timescale/:currentVersion:/hypertables
-[resize]: /use-timescale/:currentVersion:/resources/autoscaling/
 [slack-info]: https://slack-login.timescale.com
 [time-bucket-info]: /use-timescale/:currentVersion:/query-data/advanced-analytic-queries#time-bucket
 [terraform-provider-docs]: https://registry.terraform.io/providers/timescale/timescale/latest/docs

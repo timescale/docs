@@ -84,10 +84,7 @@ on Rails application.
     ```ruby
     class AddTimescale < ActiveRecord::Migration[7.0]
       def change
-       create_table :page_loads, id: false do |t|
-          t.string :user_agent
-
-          t.timestamps
+       enable_extension("timescaledb") unless extensions.include? "timescaledb"
        end
       end
     end
@@ -733,20 +730,6 @@ page by page, or all pages together, and group by path or not:
 
 </Procedure>
 
-## Next steps
-
-Now that you're able to connect, read, and write to a TimescaleDB instance from
-your Ruby application, and generate the scaffolding necessary to build a new
-application from an existing TimescaleDB instance, be sure to check out these
-advanced TimescaleDB tutorials:
-
-*   [Time Series Forecasting using TimescaleDB, R, Apache MADlib and Python][time-series-forecasting]
-*   [Continuous Aggregates][continuous-aggregates]
-*   [Migrate Your own Data][migrate]
-
-[continuous-aggregates]: /use-timescale/:currentVersion:/continuous-aggregates/
-[migrate]: /use-timescale/:currentVersion:/migration/
-[other-samples]: /tutorials/:currentVersion:/sample-datasets/
 [connect]: #connect-to-timescaledb
 [create-table]: #create-a-relational-table
 [create-hypertable]: #create-a-hypertable
@@ -759,6 +742,4 @@ advanced TimescaleDB tutorials:
 [active-record-query]: https://guides.rubyonrails.org/active_record_querying.html
 [around_action]: https://guides.rubyonrails.org/action_controller_overview.html#after-filters-and-around-filters
 [benchmark]: https://github.com/ruby/benchmark
-[continuous-aggregates]: /use-timescale/:currentVersion:/continuous-aggregates/
 [time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
-[time-series-forecasting]: /tutorials/:currentVersion:/time-series-forecast/

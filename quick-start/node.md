@@ -391,19 +391,9 @@ Now, when you reload the page, you should see all of the rows currently in the
 
 </procedure>
 
-## Next steps
-
-Now that you're able to connect, read, and write to a TimescaleDB instance from
-your Node application, check out these tutorials:
-
-*   [Time Series Forecasting using TimescaleDB, R, Apache MADlib and Python][time-series-forecasting]
-*   [Migrate your own Data][migrate]
-
-[migrate]: /use-timescale/:currentVersion:/migration/
 [node-install]: https://nodejs.org
 [npm-install]: https://www.npmjs.com/get-npm
 [sequelize-info]: https://sequelize.org
-[time-series-forecasting]: /tutorials/:currentVersion:/time-series-forecast/
 [connect]: #connect-to-timescaledb
 [create-table]: #create-a-relational-table
 [create-hypertable]: #create-hypertable

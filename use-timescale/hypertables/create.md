@@ -34,6 +34,7 @@ holds time values. This can be a timestamp, date, or integer.
     CREATE TABLE conditions (
        time        TIMESTAMPTZ       NOT NULL,
        location    TEXT              NOT NULL,
+       device      TEXT              NOT NULL,
        temperature DOUBLE PRECISION  NULL,
        humidity    DOUBLE PRECISION  NULL
     );

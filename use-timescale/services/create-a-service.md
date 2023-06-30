@@ -6,30 +6,33 @@ keywords: [services, create, installation]
 cloud_ui:
     path:
         - [services]
-    priority: 2
+        - [create_services]
 ---
 
 import WhereTonext from "versionContent/_partials/_where-to-next.mdx";
+import Install from "versionContent/_partials/_cloud-installation.mdx";
+import CreateService from "versionContent/_partials/_cloud-create-service.mdx";
+import Connect from "versionContent/_partials/_cloud-connect.mdx";
+import CloudTrial from "versionContent/_partials/_cloudtrial.mdx";
+import CloudIntro from "versionContent/_partials/_cloud-intro.mdx";
 
 # Create a Timescale service
 
-Timescale is a hosted, cloud-native Timescale service that allows you to
-quickly spin up new Timescale instances. You can
-[try Timescale for free][sign-up], no credit card required.
+<CloudIntro />
 
-For installation instructions, and help getting your first service up and
-running, see the [Timescale installation section][cloud-install].
+<CloudTrial />
 
-Each Timescale service can have a single database. The database must be
-named `tsdb`. If you try to create an additional database you receive an error
-like this:
+## Create your Timescale account
 
-```sql
-ERROR:  tsdb_admin: database <DB_NAME> is not an allowed database name
-HINT:  Contact your administrator to configure the "tsdb_admin.allowed_databases"
-```
+<Install />
 
-If you need another database, you need to create a new service.
+## Create your first service
+
+<CreateService demoData={false} />
+
+## Connect to your service
+
+<Connect />
 
 ## Where to next
 

@@ -23,11 +23,6 @@ module.exports = [
             excerpt: "Timescale services",
           },
           {
-            title: "Create a PostgreSQL service",
-            href: "create-a-pg-service",
-            excerpt: "PostgreSQL services",
-          },
-          {
             title: "Service explorer",
             href: "service-explorer",
             excerpt: "Timescale services explorer",
@@ -37,6 +32,11 @@ module.exports = [
             href: "service-management",
             excerpt:
               "Timescale services operations, Service management tab",
+          },
+          {
+            title: "Troubleshooting Timescale services",
+            href: "troubleshooting",
+            type: "placeholder",
           },
         ],
       },
@@ -55,17 +55,29 @@ module.exports = [
             href: "change-resources",
             excerpt: "Manually adjust your service resources",
           },
-          {
-            title: "Autoscale",
-            href: "autoscaling",
-            excerpt: "Autoscaling in Timescale",
-          },
         ]
       },
       {
         title: "PostgreSQL extensions",
-        href: "postgresql-extensions",
+        href: "extensions",
         excerpt: "Timescale PostgreSQL extensions",
+        children: [
+          {
+            title: "pgvector extension",
+            href: "pgvector",
+            excerpt: "Using the pgvector PostgreSQL extension",
+          },
+          {
+            title: "pgcrypto extension",
+            href: "pgcrypto",
+            excerpt: "Using the pgcrypto PostgreSQL extension",
+          },
+          {
+            title: "postgis extension",
+            href: "postgis",
+            excerpt: "Using the postgis PostgreSQL extension",
+          },
+        ]
       },
       {
         title: "Connecting to Timescale",
@@ -431,6 +443,11 @@ module.exports = [
             title: "Compress chunks",
             href: "compress-chunks",
             excerpt: "Compress data chunks",
+          },
+          {
+            title: "Modify compressed data",
+            href: "modify-compressed-data",
+            excerpt: "Insert and modify data in compressed chunks",
           },
           {
             title: "Decompress chunks",

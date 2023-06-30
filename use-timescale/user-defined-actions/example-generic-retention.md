@@ -7,7 +7,7 @@ keywords: [actions, data retention]
 
 # Use a user-defined action to create a generic retention policy
 
-TimescaleDB natively supports adding a
+Timescale natively supports adding a
 [data retention policy][data-retention-policy] to a hypertable. If you want to
 add a generic data retention policy to _all_ hypertables, you can write a
 user-defined action.

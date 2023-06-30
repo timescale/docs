@@ -39,7 +39,7 @@ INSERT INTO conditions
 
 <Highlight type="note">
 You can insert multiple rows belonging to different
-chunks within the same `INSERT` statement. Behind the scenes, the TimescaleDB
+chunks within the same `INSERT` statement. Behind the scenes, the Timescale
 engine batches the rows by chunk, and writes to each chunk in a single
 transaction.
 </Highlight>

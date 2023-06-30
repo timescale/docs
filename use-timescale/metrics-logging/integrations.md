@@ -7,7 +7,7 @@ tags: [telemetry, monitor]
 cloud_ui:
     path:
         - [integrations]
-        - [services, :serviceID, operations, integrations]
+        - [services, :serviceId, operations, integrations]
 ---
 
 import ExporterRegionNote from 'versionContent/_partials/_cloud-integrations-exporter-region.mdx';

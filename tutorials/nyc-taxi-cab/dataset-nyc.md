@@ -1,9 +1,10 @@
 ---
 title: Query time-series data tutorial - set up dataset
 excerpt: Set up a dataset so you can query time-series data
-products: [cloud, mst, self_hosted]
-keywords: [tutorials, create, dataset]
-tags: [tutorials, beginner]
+products: [cloud]
+keywords: [beginner, tutorials, create, dataset]
+layout_components: [next_prev_large]
+content_group: Analyze NYC taxi cab data
 ---
 
 import Install from "versionContent/_partials/_cloud-installation.mdx";

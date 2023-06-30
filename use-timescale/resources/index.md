@@ -6,13 +6,17 @@ keywords: [services, operation, storage]
 tags: [disk space, resources, oom, memory]
 cloud_ui:
     path:
-        - [services, :serviceID, operations, resources]
+        - [services, :serviceId, operations, resources]
+        - [services, :serviceId, operations]
 ---
+
+import UsageBasedStorage from "versionContent/_partials/_usage-based-storage-intro.mdx";
 
 # Resources
 
-Disk size autoscaling is enabled by default on most services. Timescale
-also allows you to resize compute (CPU/RAM) and storage independently at any
+<UsageBasedStorage />
+
+Timescale allows you to resize compute (CPU/RAM) and storage independently at any
 time. This is useful when you need to do something like increasing your storage
 capacity, but not your compute size. You can resize compute and storage in the
 Timescale console for any service, including members of multi-node
@@ -48,4 +52,4 @@ costs.
 
 You can use the Timescale console to change how much CPU and memory
 resources your service has available, as well as change the disk size for your
-service. You can adjust this manually as required, or for disk size you can use autoscaling.
+service. You can adjust this manually as required.

@@ -4,13 +4,10 @@ excerpt: Save on storage costs by tiering older data to separate storage
 product: cloud
 keywords: [data tiering]
 tags: [storage, data management]
-cloud_ui:
-    path:
-        - [services, :serviceID, operations, data-tiering]
-    priority: 1
 ---
 
-import ExperimentalPrivateBeta from 'versionContent/_partials/_early_access.mdx';
+import ExperimentalPrivateBeta from "versionContent/_partials/_early_access.mdx";
+import UsageBasedStorage from "versionContent/_partials/_usage-based-storage-intro.mdx";
 
 # Data tiering
 
@@ -24,6 +21,8 @@ storage tiers to get the best price performance. You can use primary storage for
 data that requires quick access, and low-cost object storage for historical
 data. Regardless of where your data is stored, you can query it with standard
 SQL.
+
+<UsageBasedStorage />
 
 ## Benefits of data tiering
 
@@ -89,10 +88,10 @@ For more about how data tiering works, see the
     native data types, but not for non-native types, such as `JSON`, `JSONB`,
     and `GIS`.
 
-*   **Latency.** S3 has much higher latency than EBS. Latency for S3 is in the
-    hundreds of milliseconds, compared to 1-10&nbsp;ms latency for EBS volumes.
-    This can affect the execution time of queries, especially lighter queries in
-    latency-sensitive environments.
+*   **Latency.** S3 has higher access latency than EBS however, S3 has 
+    comparatively greater throughput for large scans. This can affect the 
+    execution time of queries in latency-sensitive environments, especially 
+    lighter queries.
 
 ## Learn more
 
