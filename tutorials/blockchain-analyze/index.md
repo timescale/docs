@@ -29,8 +29,8 @@ Before you begin, make sure you have:
 
 This tutorial covers:
 
-1.  [Set up up your dataset][blockchain-dataset]
-1.  [Analyze your dataset][blockchain-analyze]
+1.  [Setting up your dataset][blockchain-dataset]
+1.  [Querying your dataset][blockchain-analyze]
 
 ## About analyzing the Bitcoin blockchain with Timescale
 

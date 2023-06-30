@@ -36,7 +36,7 @@ Before you begin, make sure you have:
 
 This tutorial covers:
 
-1.  [Setting up up your dataset][dataset-nyc]: Set up and connect to a Timescale
+1.  [Setting up your dataset][dataset-nyc]: Set up and connect to a Timescale
     service, and load data into your database using `psql`.
 1.  [Querying your dataset][query-nyc]: Analyze a dataset containing NYC taxi
     trip data using Timescale and PostgreSQL, and plot the results in Grafana.

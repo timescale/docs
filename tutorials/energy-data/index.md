@@ -33,8 +33,8 @@ Before you begin, make sure you have:
 
 This tutorial covers:
 
-1.  [Setting up up your dataset][dataset-energy]: Set up and connect to a
-    Timescale service, and load data into your database using `psql`.
+1.  [Setting up your dataset][dataset-energy]: Set up and connect to a
+    Timescale service, and load data into the database using `psql`.
 1.  [Querying your dataset][query-energy]: Analyze a dataset containing energy
     consumption data using Timescale and PostgreSQL, and visualize the
     results in Grafana.
