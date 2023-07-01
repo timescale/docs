@@ -2,7 +2,7 @@
 title: JDBC authentication type is not supported
 section: troubleshooting
 products: [cloud]
-topics: [integrations]
+topics: [query admin]
 errors:
   - language: text
     message: |-
