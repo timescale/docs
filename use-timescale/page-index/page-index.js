@@ -149,6 +149,11 @@ module.exports = [
                         href: "create-dashboard-and-panel",
                         excerpt: "Create a Grafana dashboard and panel to display your Timescale data",
                       },
+                      {
+                        title: "Use Grafana to visualize geospatial data",
+                        href: "geospatial-dashboards",
+                        excerpt: "Use Grafana to visualize geospatial data in Timescale",
+                      },
                     ]
                 },
                 {
