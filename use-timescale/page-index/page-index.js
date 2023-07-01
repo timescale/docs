@@ -149,6 +149,11 @@ module.exports = [
                         href: "create-dashboard-and-panel",
                         excerpt: "Create a Grafana dashboard and panel to display your Timescale data",
                       },
+                      {
+                        title: "Create a Grafana dashboard and panel",
+                        href: "create-dashboard-and-panel",
+                        excerpt: "Create a Grafana dashboard and panel to display your Timescale data",
+                      },
                     ]
                 },
                 {
