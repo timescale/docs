@@ -16,6 +16,6 @@ you can use to visualize time-series data. This section shows you how to:
 *   Visualize [geospatial data in Grafana][tutorial-grafana-geospatial].
 
 [grafana-website]: https://www.grafana.com
-[install-grafana]: /tutorials/:currentVersion:/grafana/installation
-[tutorial-grafana-dashboards]: /tutorials/:currentVersion:/grafana/create-dashboard-and-panel/
-[tutorial-grafana-geospatial]: /tutorials/:currentVersion:/grafana/geospatial-dashboards/
+[install-grafana]: /use-timescale/:currentVersion:/integrations/observability-alerting/grafana/installation
+[tutorial-grafana-dashboards]: /use-timescale/:currentVersion:/integrations/observability-alerting/grafana/create-dashboard-and-panel/
+[tutorial-grafana-geospatial]: /use-timescale/:currentVersion:/integrations/observability-alerting/grafana/geospatial-dashboards/
