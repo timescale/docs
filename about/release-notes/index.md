@@ -157,7 +157,10 @@ opportunity.
 Timescale thanks:
 
 *   @nikolaps for reporting an issue with the COPY fetcher
+<!-- Vale complains about the username -->
+<!-- vale Google.Slang = NO -->
 *   @S-imo-n for reporting the issue on Background Worker Scheduler crash
+<!-- vale Google.Slang = YES -->
 *   @geezhu for reporting issue on segfault in historgram()
 *   @mwahlhuetter for reporting the issue with joins in CAggs
 *   @mwahlhuetter for reporting issue with duplicated entries on
