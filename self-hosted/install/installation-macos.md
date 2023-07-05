@@ -193,5 +193,5 @@ psql -U postgres -h localhost -d tsdb
  <WhereTo />
 
 [homebrew]: https://docs.brew.sh/Installation
-[install-psql]: /use-timescale/:currentVersion:/connecting/psql/
+[install-psql]: /use-timescale/:currentVersion:/integrations/query-admin/about-psql/
 [macports]: https://guide.macports.org/#installing.macports

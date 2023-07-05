@@ -120,6 +120,6 @@ You can always [contact us][contact] if you need help working something out, or
 if you want to have a chat.
 
 [contact]: https://www.timescale.com/contact
-[install-psql]: /use-timescale/:currentVersion:/connecting/psql/
+[install-psql]: /use-timescale/:currentVersion:/integrations/query-admin/about-psql/
 [mst-docs]: /mst/:currentVersion:/
 [tutorials]: /tutorials/:currentVersion:/

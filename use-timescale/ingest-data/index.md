@@ -25,6 +25,6 @@ into Timescale, see the [Writing Data][writing-data] section.
 [ingest-kafka]: /use-timescale/:currentVersion:/ingest-data/ingest-kafka/
 [ingest-parallel]: /use-timescale/:currentVersion:/ingest-data/about-timescaledb-parallel-copy/
 [ingest-prometheus]: /use-timescale/:currentVersion:/ingest-data/ingest-prometheus/
-[ingest-telegraf]: /use-timescale/:currentVersion:/ingest-data/ingest-telegraf/
+[ingest-telegraf]: /use-timescale/:currentVersion:/integrations/ingest-data/telegraf/
 [writing-data]: /use-timescale/:currentVersion:/write-data/
 [ingest-csv]: /use-timescale/:currentVersion:/ingest-data/import-csv/

@@ -62,5 +62,5 @@ information, and plotting the results in Grafana.
 [nyc-tlc]: https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page
 [cloud-install]: /getting-started/latest/
 [beginner-fleet]: /tutorials/:currentVersion:/nyc-taxi-cab/
-[plot-nyc]: /tutorials/:currentVersion:/nyc-taxi-cab/plot-nyc/
+[plot-nyc]: /tutorials/:currentVersion:/nyc-taxi-geospatial/plot-nyc/
 [grafana-setup]: /use-timescale/:currentVersion:/integrations/observability-alerting/grafana/installation/
