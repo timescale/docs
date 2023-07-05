@@ -51,7 +51,7 @@ TimescaleDB.
     *   _Optional_: In the `Endpoint tags` section, you can add custom tags
         to help you manage your integrations.
 1.  Click `Add endpoint` to save the integration.
-    <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/add-datadog-integration.png" alt="Add Datadog endpoint"/>
+    <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/add-datadog-integration.webp" alt="Add Datadog endpoint"/>
 
 </Procedure>
 

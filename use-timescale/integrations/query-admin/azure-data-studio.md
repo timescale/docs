@@ -50,7 +50,7 @@ on-premises and cloud data platforms on Windows, macOS, and Linux.
 1.  Click `Connect`.
 
     <img class="main-content__illustration"
-    src="https://s3.amazonaws.com/assets.timescale.com/docs/images/timescale_cloud_connection_screen.png"
+    src="https://s3.amazonaws.com/assets.timescale.com/docs/images/timescale_cloud_connection_screen.webp"
     alt="Connecting to Timescale using Azure Data Studio"/>
 
 </Procedure>
@@ -87,7 +87,7 @@ security in Managed Service for TimescaleDB, see
 1.  Click `Connect`.
 
     <img class="main-content__illustration"
-    src="https://s3.amazonaws.com/assets.timescale.com/docs/images/mst_connection_screen.png"
+    src="https://s3.amazonaws.com/assets.timescale.com/docs/images/mst_connection_screen.webp"
     alt="Connecting to Managed Service for TimescaleDB using Azure Data
     Studio"/>
 
@@ -110,7 +110,7 @@ security in Managed Service for TimescaleDB, see
 1.  Click `Connect`.
 
     <img class="maincontent__illustration"
-    src="https://s3.amazonaws.com/assets.timescale.com/docs/images/local_remote_connection_screen.png"
+    src="https://s3.amazonaws.com/assets.timescale.com/docs/images/local_remote_connection_screen.webp"
     alt="Connecting to Timescale using Azure Data Studio"/>
 
 </Procedure>

@@ -43,7 +43,7 @@ cloud provider, which you can install your database on.
     have selected for your service, and click `Create Service`. The service
     takes a few minutes to provision.
 
-    <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/mst-new-service.png" alt="Create a new service in the Managed Service for TimescaleDB portal"/>
+    <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/mst-new-service.webp" alt="Create a new service in the Managed Service for TimescaleDB portal"/>
 
 </Procedure>
 
