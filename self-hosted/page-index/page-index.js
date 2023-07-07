@@ -106,11 +106,6 @@ module.exports = [
         ],
       },
       {
-        title: "Compression",
-        href: "about-compression",
-        excerpt: "Compress hypertables manually or with a policy",
-      },
-      {
         title: "Backup and restore",
         href: "backup-and-restore",
         children: [
