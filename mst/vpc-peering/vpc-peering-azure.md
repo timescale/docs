@@ -83,7 +83,11 @@ using the VPC on Azure.
         This is referred to as `$user_resource_group`.
     *   The Vnet name or the name  field from the output as `$user_vnet_name`
         The `$user_vnet_id` should have the format:
+        <!-- Vale seems to have trouble parsing this as inline code for some reason, maybe the length? -->
+        <!-- vale Google.Spacing = NO -->
         `/subscriptions/$user_subscription_id/resourceGroups/$user_resource_group/providers/Microsoft.Network/virtualNetworks/$user_vnet_name`.
+        
+        <!-- vale Google.Spacing = YES -->
 
 1.  Grant your service principal permissions to peer. The service principal that
     you created needs to be assigned a role that has permission for the
