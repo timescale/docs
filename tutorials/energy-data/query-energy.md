@@ -33,7 +33,7 @@ hourly basis in a typical day.
 
 1.  Connect to the Timescale database that contains the energy consumption dataset.
 1.  At the psql prompt, use the Timescale Toolkit functionality to get calculate
-    the 50th percentile or the median. Then calculate the maximum energy
+    the fiftieth percentile or the median. Then calculate the maximum energy
     consumed using the standard PostgreSQL max function:
 
     ```sql

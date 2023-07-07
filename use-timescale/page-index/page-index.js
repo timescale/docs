@@ -342,11 +342,6 @@ module.exports = [
             excerpt: "Ingest data into Timescale from Kafka",
           },
           {
-            title: "Ingesting data with Telegraf",
-            href: "ingest-telegraf",
-            excerpt: "Ingest data into Timescale from Telegraf",
-          },
-          {
             title: "Ingesting data with Timescale parallel copy",
             href: "about-timescaledb-parallel-copy",
             excerpt:
