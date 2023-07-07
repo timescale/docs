@@ -498,7 +498,7 @@ module.exports = [
         children: [
           {
             title: "Compress chunks",
-            href: "compress-chunks",
+            href: "manual-compression",
             excerpt: "Compress data chunks",
           },
           {
