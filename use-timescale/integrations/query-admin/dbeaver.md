@@ -140,5 +140,5 @@ appear in the `Main` tab of `Connection settings`.
 
 [dbeaver]: https://dbeaver.io/
 [dbeaver-downloads]: https://dbeaver.io/download/
-[connection-settings]: /use-timescale/:currentVersion:/connecting/dbeaver/#connection-settings-in-connect-to-a-database
+[connection-settings]: #connection-settings-in-connect-to-a-database
 [tsc-portal]: https://console.cloud.timescale.com/
