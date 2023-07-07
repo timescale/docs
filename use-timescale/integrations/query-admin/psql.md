@@ -36,10 +36,14 @@ wmic
 
 </Terminal>
 
-## Install psql on macOS
+## Install PostgreSQL package on macOS
 
 The `psql` tool is installed by default on macOS systems when you install
 PostgreSQL, and this is the most effective way to install the tool. On macOS you can use Homebrew or MacPorts to install the PostgreSQL package or just the `psql` tool.
+
+<Tabs label="Installing PostgreSQL package">
+
+<Tab title="Homebrew">
 
 <Procedure>
 
@@ -68,6 +72,10 @@ PostgreSQL, and this is the most effective way to install the tool. On macOS you
 
 </Procedure>
 
+</Tab>
+
+<Tab title="MacPorts">
+
 <Procedure>
 
 ### Installing PostgreSQL package using MacPorts
@@ -90,11 +98,19 @@ PostgreSQL, and this is the most effective way to install the tool. On macOS you
 
 </Procedure>
 
+</Tab>
+
+</Tabs>
+
 ### Installing psql on macOS
 
 If you do not want to install the entire PostgreSQL package, you can install the `psql` tool on its own. `libpqxx` is the official C++ client API for PostgreSQL.
 
 <Procedure>
+
+<Tabs label="Installing psql">
+
+<Tab title="Homebrew">
 
 #### Installing psql using Homebrew
 
@@ -130,6 +146,10 @@ If you do not want to install the entire PostgreSQL package, you can install the
 
 </Procedure>
 
+</Tab>
+
+<Tab title="MacPorts">
+
 <Procedure>
 
 #### Installing psql using MacPorts
@@ -149,6 +169,10 @@ If you do not want to install the entire PostgreSQL package, you can install the
     ```
 
 </Procedure>
+
+</Tab>
+
+<Tabs>
 
 ## Install psql on Debian and Ubuntu
 
