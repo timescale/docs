@@ -102,17 +102,17 @@ PostgreSQL, and this is the most effective way to install the tool. On macOS you
 
 </Tabs>
 
-### Installing psql on macOS
+## Install psql on macOS
 
 If you do not want to install the entire PostgreSQL package, you can install the `psql` tool on its own. `libpqxx` is the official C++ client API for PostgreSQL.
-
-<Procedure>
 
 <Tabs label="Installing psql">
 
 <Tab title="Homebrew">
 
-#### Installing psql using Homebrew
+<Procedure>
+
+### Installing psql using Homebrew
 
 1.  Install Homebrew, if you don't already have it:
 
@@ -152,10 +152,11 @@ If you do not want to install the entire PostgreSQL package, you can install the
 
 <Procedure>
 
-#### Installing psql using MacPorts
+### Installing psql using MacPorts
 
 1.  Install MacPorts by downloading and running the package installer.
-    For more information about MacPorts, including installation instructions, see the [MacPorts documentation][macports].
+    For more information about MacPorts, including installation instructions,
+    see the [MacPorts documentation][macports].
 1.  Install the latest version of libpqxx:
 
     ```bash
