@@ -279,4 +279,4 @@ then a separate job merges it with the chunk and compresses it later on.
 [decompress-chunks]: /use-timescale/:currentVersion:/compression/decompress-chunks
 [remove_compression_policy]: /api/:currentVersion:/compression/remove_compression_policy/
 [timescaledb_information-jobs]: /api/:currentVersion:/informational-views/jobs/
-[manusl-compression]: /use-timescale/:currentVersion:/compression/compress-chunks/
+[manual-compression]: /use-timescale/:currentVersion:/compression/compress-chunks/
