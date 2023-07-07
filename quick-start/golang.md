@@ -67,7 +67,7 @@ You can use it to help your Go application interact directly with TimescaleDB.
     connStr := "postgres://username:password@host:port/dbname?sslmode=require"
     ```
 
-1.  <Optional />You can check that you're connected to your database with this
+1.  [](#)<Optional />You can check that you're connected to your database with this
     hello world program:
 
     ```go
@@ -830,7 +830,7 @@ This section covers how to execute queries against your database.
     // use results here…
     ```
 
-1.  <Optional/>This example program runs a query, and accesses the results of
+1.  [](#)<Optional/>This example program runs a query, and accesses the results of
     that query:
 
     ```go

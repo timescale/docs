@@ -8,7 +8,7 @@
     sudo port install libpqxx 
     ```
 
-1.  <Optional />View the files that were installed by `libpqxx`:
+1.  [](#)<Optional />View the files that were installed by `libpqxx`:
 
     ```bash
     port contents libpqxx

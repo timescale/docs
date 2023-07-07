@@ -175,7 +175,7 @@ fees to decrease.
     ...
     ```
 
-1.  <Optional />To visualize this in Grafana, create a new panel, select the
+1.  [](#)<Optional />To visualize this in Grafana, create a new panel, select the
     Bitcoin dataset as your data source, and type the query from the previous
     step. In the `Format as` section, select `Time series`.
 
@@ -229,10 +229,10 @@ transaction volume, along with the BTC to US Dollar conversion rate.
      ...
     ```
 
-1.  <Optional />To visualize this in Grafana, create a new panel, select the
+1.  [](#)<Optional />To visualize this in Grafana, create a new panel, select the
     Bitcoin dataset as your data source, and type the query from the previous
     step. In the `Format as` section, select `Time series`.
-1.  <Optional />To make this visualization more useful, add an override to put
+1.  [](#)<Optional />To make this visualization more useful, add an override to put
     the fees on a different Y-axis. In the options panel, add an override for
     the `btc-usd rate` field for `Axis > Placement` and choose `Right`.
 
@@ -286,10 +286,10 @@ transactions in a block, the higher the mining fee becomes.
     ...
     ```
 
-1.  <Optional />To visualize this in Grafana, create a new panel, select the
+1.  [](#)<Optional />To visualize this in Grafana, create a new panel, select the
     Bitcoin dataset as your data source, and type the query from the previous
     step. In the `Format as` section, select `Time series`.
-1.  <Optional />To make this visualization more useful, add an override to put
+1.  [](#)<Optional />To make this visualization more useful, add an override to put
     the fees on a different Y-axis. In the options panel, add an override for
     the `mining fee` field for `Axis > Placement` and choose `Right`.
 
@@ -343,10 +343,10 @@ units, in which case it's impossible for a block to include more transactions.
     ...
     ```
 
-1.  <Optional />To visualize this in Grafana, create a new panel, select the
+1.  [](#)<Optional />To visualize this in Grafana, create a new panel, select the
     Bitcoin dataset as your data source, and type the query from the previous
     step. In the `Format as` section, select `Time series`.
-1.  <Optional />To make this visualization more useful, add an override to put
+1.  [](#)<Optional />To make this visualization more useful, add an override to put
     the fees on a different Y-axis. In the options panel, add an override for
     the `mining fee` field for `Axis > Placement` and choose `Right`.
 
@@ -408,10 +408,10 @@ few percentage points of overall revenue.
     ...
     ```
 
-1.  <Optional />To visualize this in Grafana, create a new panel, select the
+1.  [](#)<Optional />To visualize this in Grafana, create a new panel, select the
     Bitcoin dataset as your data source, and type the query from the previous
     step. In the `Format as` section, select `Time series`.
-1.  <Optional />To make this visualization more useful, stack the series to
+1.  [](#)<Optional />To make this visualization more useful, stack the series to
     100%. In the options panel, in the `Graph styles` section, for
     `Stack series` select `100%`.
 
@@ -475,10 +475,10 @@ grow for individual blocks, and they could include even more transactions.
     ...
     ```
 
-1.  <Optional />To visualize this in Grafana, create a new panel, select the
+1.  [](#)<Optional />To visualize this in Grafana, create a new panel, select the
     Bitcoin dataset as your data source, and type the query from the previous
     step. In the `Format as` section, select `Time series`.
-1.  <Optional />To make this visualization more useful, add an override to put
+1.  [](#)<Optional />To make this visualization more useful, add an override to put
     the fees on a different Y-axis. In the options panel, add an override for
     the `mining fee` field for `Axis > Placement` and choose `Right`.
 
@@ -529,10 +529,10 @@ increase the time range.
     ...
     ```
 
-1.  <Optional />To visualize this in Grafana, create a new panel, select the
+1.  [](#)<Optional />To visualize this in Grafana, create a new panel, select the
     Bitcoin dataset as your data source, and type the query from the previous
     step. In the `Format as` section, select `Time series`.
-1.  <Optional />To make this visualization more useful, add an override to put
+1.  [](#)<Optional />To make this visualization more useful, add an override to put
     the US Dollars on a different Y-axis. In the options panel, add an override
     for the `mining fee` field for `Axis > Placement` and choose `Right`.
 

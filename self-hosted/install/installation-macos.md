@@ -104,7 +104,7 @@ You can use MacPorts to install TimescaleDB on macOS-based systems.
     sudo port install timescaledb
     ```
 
-1.  <Optional />View the files that were installed:
+1.  [](#)<Optional />View the files that were installed:
 
     ```bash
     port contents timescaledb
