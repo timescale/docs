@@ -342,11 +342,6 @@ module.exports = [
             excerpt: "Ingest data into Timescale from Kafka",
           },
           {
-            title: "Ingesting data with Telegraf",
-            href: "ingest-telegraf",
-            excerpt: "Ingest data into Timescale from Telegraf",
-          },
-          {
             title: "Ingesting data with Timescale parallel copy",
             href: "about-timescaledb-parallel-copy",
             excerpt:
@@ -497,8 +492,13 @@ module.exports = [
         href: "compression",
         children: [
           {
-            title: "Compress chunks",
-            href: "compress-chunks",
+            title: "About compression",
+            href: "about-compression",
+            excerpt: "Compress data chunks",
+          },
+          {
+            title: "Manual compression",
+            href: "manual-compression",
             excerpt: "Compress data chunks",
           },
           {

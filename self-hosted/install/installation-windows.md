@@ -170,10 +170,9 @@ information on releases, check out the
 
 <WhereTo />
 
+[config]: /self-hosted/:currentVersion:/configuration/
 [gh-releases]: https://github.com/timescale/timescaledb/releases
-[install-psql]: /use-timescale/:currentVersion:/integrations/query-admin/about-psql/
 [ms-download]: https://www.microsoft.com/en-us/download/details.aspx?id=48145
 [pg-download]: https://www.postgresql.org/download/windows/
 [release-notes]: /about/:currentVersion:/release-notes/
-[tutorials]: /tutorials/:currentVersion:/
 [windows-releases]: #windows-releases
