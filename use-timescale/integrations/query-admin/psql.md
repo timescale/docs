@@ -172,7 +172,7 @@ If you do not want to install the entire PostgreSQL package, you can install the
 
 </Tab>
 
-<Tabs>
+</Tabs>
 
 ## Install psql on Debian and Ubuntu
 
