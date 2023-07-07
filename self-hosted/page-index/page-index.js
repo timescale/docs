@@ -107,7 +107,7 @@ module.exports = [
       },
       {
         title: "Compression",
-        href: "compression",
+        href: "about-compression",
         excerpt: "Compress hypertables manually or with a policy",
       },
       {
