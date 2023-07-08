@@ -21,6 +21,8 @@ This section explains how to enable native compression, and then goes into
 detail on the most important settings for compression, to help you get the
 best possible compression ratio.
 
+For more information about compressing chunks, see [manual compression][manual-compression].
+
 ## Enable compression
 
 You can enable compression on individual hypertables, by declaring which column
@@ -277,3 +279,4 @@ then a separate job merges it with the chunk and compresses it later on.
 [decompress-chunks]: /use-timescale/:currentVersion:/compression/decompress-chunks
 [remove_compression_policy]: /api/:currentVersion:/compression/remove_compression_policy/
 [timescaledb_information-jobs]: /api/:currentVersion:/informational-views/jobs/
+[manual-compression]: /use-timescale/:currentVersion:/compression/compress-chunks/
