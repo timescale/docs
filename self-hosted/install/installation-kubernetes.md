@@ -195,3 +195,4 @@ immediately.
 [kubectl-install]: https://kubernetes.io/docs/tasks/tools/
 [kubernetes-install]: https://kubernetes.io/docs/setup/
 [helm-install]: https://helm.sh/docs/intro/install/
+[admin-guide]: https://github.com/timescale/helm-charts/blob/main/charts/timescaledb-single/docs/admin-guide.md
