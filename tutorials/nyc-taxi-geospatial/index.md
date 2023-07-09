@@ -29,7 +29,7 @@ the data in Grafana, by overlaying it on a map.
 Before you begin, make sure you have:
 
 *   Signed up for a [free Timescale account][cloud-install].
-*   <Optional /> If you want to graph your queries, signed up for a
+*   [](#)<Optional /> If you want to graph your queries, signed up for a
     [Grafana account][grafana-setup].
 
 ## Steps in this tutorial
