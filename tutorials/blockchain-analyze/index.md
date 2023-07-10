@@ -23,7 +23,7 @@ blockchain, including other cryptocurrencies, smart contracts, or health data.
 Before you begin, make sure you have:
 
 *   Signed up for a [free Timescale account][cloud-install].
-*   <Optional />Signed up for a [Grafana account][grafana-setup] to graph your queries.
+*   [](#)<Optional />Signed up for a [Grafana account][grafana-setup] to graph your queries.
 
 ## Steps in this tutorial
 
