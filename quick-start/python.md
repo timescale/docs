@@ -236,7 +236,7 @@ section, you can use `psycopg2` with prepared statements, or you can use
     conn.commit()
     ```
 
-1.  <Optional />Alternatively, you can pass variables to the `cursor.execute`
+1.  [](#)<Optional />Alternatively, you can pass variables to the `cursor.execute`
     function and separate the formulation of the SQL statement, `SQL`, from the
     data being passed with it into the prepared statement, `data`:
 
@@ -313,7 +313,7 @@ from pgcopy import CopyManager
     conn.commit()
     ```
 
-1.  <Optional/>The full sample code to insert data into TimescaleDB using
+1.  [](#)<Optional/>The full sample code to insert data into TimescaleDB using
     `pgcopy`, using the example of sensor data from four sensors:
 
     ```python
@@ -345,7 +345,7 @@ from pgcopy import CopyManager
         conn.commit()
     ```
 
-1.  <Optional />You can also check if the insertion worked:
+1.  [](#)<Optional />You can also check if the insertion worked:
 
     ```python
     cursor.execute("SELECT * FROM sensor_data LIMIT 5;")
@@ -405,7 +405,7 @@ see the [psycopg2 documentation][psycopg2-docs-basics].
     cursor.close()
     ```
 
-1.  <Optional />If you want a list of dictionaries instead, you can define the
+1.  [](#)<Optional />If you want a list of dictionaries instead, you can define the
     cursor using [`DictCursor`][dictcursor-docs]:
 
     ```python

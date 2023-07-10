@@ -29,7 +29,7 @@ the data in Grafana, by overlaying it on a map.
 Before you begin, make sure you have:
 
 *   Signed up for a [free Timescale account][cloud-install].
-*   <Optional /> If you want to graph your queries, signed up for a
+*   [](#)<Optional /> If you want to graph your queries, signed up for a
     [Grafana account][grafana-setup].
 
 ## Steps in this tutorial
@@ -62,5 +62,5 @@ information, and plotting the results in Grafana.
 [nyc-tlc]: https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page
 [cloud-install]: /getting-started/latest/
 [beginner-fleet]: /tutorials/:currentVersion:/nyc-taxi-cab/
-[plot-nyc]: /tutorials/:currentVersion:/nyc-taxi-cab/plot-nyc/
+[plot-nyc]: /tutorials/:currentVersion:/nyc-taxi-geospatial/plot-nyc/
 [grafana-setup]: /use-timescale/:currentVersion:/integrations/observability-alerting/grafana/installation/

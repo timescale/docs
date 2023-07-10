@@ -62,7 +62,7 @@ Before you begin, make sure you have:
        -c smtp_server.from_address="grafana@yourcompany.com"
     ```
 
-1.  <Optional /> Review all available custom options, and configure:
+1.  [](#)<Optional /> Review all available custom options, and configure:
 
     ```bash
        avn service types -v
