@@ -12,7 +12,7 @@ You can create a compression policy within the Timescale console.
 In most cases, an automated compression policy is sufficient. However, if you
 want more control over compression, you can also manually compress specific
 chunks. For more information about manually compressing chunks, see the
-[compression in self-hosted TimescaleDB section][self-hosted-compression].
+[manual compression section][manual-compression].
 
 <Highlight type="warning">
 Compression alters data on your disk, so always back up before you start.
@@ -51,4 +51,4 @@ Cloud console.
 
 </Procedure>
 
-[self-hosted-compression]: /self-hosted/:currentVersion:/compression/manual-compression/
+[manual-compression]: /use-timescale/:currentVersion:/compression/manual-compression/

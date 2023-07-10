@@ -20,7 +20,8 @@ Time-series predictions can be used to:
 *   Forecast the value of a given stock in the future
 *   Forecast the number of units of a product likely to be sold next quarter
 *   Forecast the remaining lifespan of an IoT device
-*   Forecast the number of taxi or ride share drivers necessary for a big holiday evening
+*   Forecast the number of taxi or ride share drivers necessary for a big
+    holiday evening
 
 Time-series forecasting alone is a powerful tool. But time-series
 data joined with business data can be a competitive advantage for
@@ -33,7 +34,7 @@ to develop an even more insightful forecast into how your data
 This time-series forecasting example demonstrates how to integrate
 TimescaleDB with R, Apache MADlib, and Python to perform various time-series
 forecasting methods. It uses New York City taxicab data that is also
-used in the [Hello Timescale Tutorial][hello_timescale]. The dataset contains
+used in the Hello Timescale Tutorial. The dataset contains
 information about all yellow cab trips in New York City in January 2016,
 including pickup and dropoff times, GPS coordinates, and total price of a trip.
 You can extract some interesting insights from this rich dataset, build a
@@ -45,8 +46,8 @@ and machine learning tools.
 Prerequisites:
 
 *   [Installed TimescaleDB][install]
-*   Downloaded and loaded dataset from [Hello Timescale Tutorial][hello_timescale]
-*   [Installed and set up PostGIS in database][tutorial-postgis]
+*   Downloaded and loaded dataset from Hello Timescale Tutorial
+*   Installed and set up PostGIS in database
 *   [Installed R][install_r]
 *   [Installed Python][install_python]
 
@@ -178,12 +179,12 @@ SELECT * FROM rides_count
 WHERE one_hour >= '2016-01-22 00:00:00';
 ```
 
-R has an [RPostgres][rpostgres] package which allows you to connect to your database from R.
-The code below establishes a connection to the PostgreSQL database `nyc_data`.
-You can connect to a different database simply by changing the parameters of
-`dbConnect`. The final line of code should print out a list of all tables in
-your database. This means that you have successfully connected and are ready
-to query the database from R.
+R has an [RPostgres][rpostgres] package which allows you to connect to your
+database from R. The code below establishes a connection to the PostgreSQL
+database `nyc_data`. You can connect to a different database simply by changing
+the parameters of `dbConnect`. The final line of code should print out a list of
+all tables in your database. This means that you have successfully connected and
+are ready to query the database from R.
 
 ```r
 # Install and load RPostgres package
@@ -770,7 +771,6 @@ database.
 [arima]: https://en.wikipedia.org/wiki/Autoregressive_integrated_moving_average
 [forecast-sql]: http://assets.iobeam.com/sql/forecast.sql
 [gap_filling]: /use-timescale/:currentVersion:/query-data/advanced-analytic-queries/#gap-filling
-[hello_timescale]: /tutorials/:currentVersion:/nyc-taxi-cab/
 [holt-winters]: https://otexts.org/fpp2/holt-winters.html
 [install]: /getting-started/latest/
 [install_python]: https://www.python.org/downloads/
@@ -783,4 +783,3 @@ database.
 [r-forecast]: https://cran.r-project.org/web/packages/forecast/forecast.pdf
 [r-xts]: https://cran.r-project.org/web/packages/xts/xts.pdf
 [rpostgres]: https://cran.r-project.org/web/packages/RPostgres/index.html
-[tutorial-postgis]: /tutorials/:currentVersion:/nyc-taxi-cab/#mission-monitoring

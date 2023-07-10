@@ -50,7 +50,7 @@ new roads and public services.
 
 It starts by teaching you how to set up and connect to a Timescale database,
 create tables, and load data into the tables using `psql`. If you have already
-completed the [beginner NYC taxis tutorial][beginner-fleet], then you already
+completed the [first NYC taxis tutorial][beginner-fleet], then you already
 have the dataset loaded, and you can skip [straight to the queries][plot-nyc].
 
 You then learn how to conduct analysis and monitoring on your dataset. It walks
