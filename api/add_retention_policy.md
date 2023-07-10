@@ -12,17 +12,18 @@ api:
 # add_retention_policy() <Tag type="community">Community</Tag>
 
 Create a policy to drop chunks older than a given interval of a particular
-hypertable or continuous aggregate on a schedule in the background. (See [drop_chunks][drop_chunks]).
-This implements a data retention policy and removes data on a schedule. Only
-one retention policy may exist per hypertable.
+hypertable or continuous aggregate on a schedule in the background. For more
+information, see the [drop_chunks][drop_chunks] section. This implements a data
+retention policy and removes data on a schedule. Only one retention policy may
+exist per hypertable.
 
 ### Required arguments
 
 |Name|Type|Description|
-|---|---|---|
-| `relation` | REGCLASS | Name of the hypertable or continuous aggregate to create the policy for. |
-| `drop_after` | INTERVAL or INTEGER | Chunks fully older than this interval when the policy is run are dropped|
-|`initial_start`|TIMESTAMPTZ|Time the policy is first run. Defaults to NULL. If omitted, then the schedule interval is the interval between the finish time of the last execution and the next start. If provided, it serves as the origin with respect to which the next_start is calculated |
+|-|-|-|
+|`relation`|REGCLASS|Name of the hypertable or continuous aggregate to create the policy for|
+|`drop_after`|INTERVAL or INTEGER|Chunks fully older than this interval when the policy is run are dropped|
+|`initial_start`|TIMESTAMPTZ|Time the policy is first run. Defaults to NULL. If omitted, then the schedule interval is the interval between the finish time of the last execution and the next start. If provided, it serves as the origin with respect to which the next_start is calculated.|
 |`timezone`|TEXT|A valid time zone. If `initial_start` is also specified, subsequent executions of the retention policy are aligned on its initial start. However, daylight savings time (DST) changes may shift this alignment. Set to a valid time zone if this is an issue you want to mitigate. If omitted, UTC bucketing is performed. Defaults to `NULL`.|
 
 The `drop_after` parameter should be specified differently depending on the
@@ -36,14 +37,14 @@ integer type (this requires the [integer_now_func][set_integer_now_func] to be s
 ### Optional arguments
 
 |Name|Type|Description|
-|---|---|---|
-| `if_not_exists` | BOOLEAN | Set to true to avoid throwing an error if the drop_chunks_policy already exists. A notice is issued instead. Defaults to false. |
+|-|-|-|
+|`if_not_exists`|BOOLEAN|Set to `true` to avoid an error if the `drop_chunks_policy` already exists. A notice is issued instead. Defaults to `false`.|
 
 ### Returns
 
 |Column|Type|Description|
-|---|---|---|
-|`job_id`| INTEGER |  TimescaleDB background job id created to implement this policy|
+|-|-|-|
+|`job_id`|INTEGER|TimescaleDB background job ID created to implement this policy|
 
 ### Sample usage
 

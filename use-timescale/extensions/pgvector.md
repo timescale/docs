@@ -53,6 +53,9 @@ Before you begin, make sure you have:
 
 ### Using the `pgvector` extension to create a chatbot
 
+<!-- Vale has a lot of trouble detecting the code blocks -->
+<!-- vale off -->
+
 1.  Create and activate a Python virtual environment:
 
     ```bash
