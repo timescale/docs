@@ -77,7 +77,7 @@ time-series data uses `UNIQUE` indexes more rarely than relational data.
 
 If you do not want to create an index in a single transaction, you can use the
 [`CREATE_INDEX`][create-index]
-function. This uses a separate function top create an index on each chunk,
+function. This uses a separate function to create an index on each chunk,
 instead of a single transaction for the entire hypertable. This means that you
 can perform other actions on the table while the index is being created, rather
 than having to wait until index creation is complete.
