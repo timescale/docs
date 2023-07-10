@@ -28,8 +28,8 @@ Before you begin, make sure you have:
 
 This tutorial covers:
 
-1.  [Set up up your dataset][blockchain-dataset]
-1.  [Query your dataset][blockchain-query]
+1.  [Setting up your dataset][blockchain-dataset]
+1.  [Querying your dataset][blockchain-query]
 
 ## About querying the Bitcoin blockchain with Timescale
 

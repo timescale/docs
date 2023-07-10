@@ -233,6 +233,6 @@ information, see the [Docker documentation on logs][docker-logs].
 [docker-install]: https://docs.docker.com/get-docker/
 [docker-postgres]: https://hub.docker.com/_/postgres
 [dockerhub]: https://hub.docker.com/r/timescale/timescaledb/tags?page=1&ordering=last_updated
-[install-psql]: /use-timescale/:currentVersion:/connecting/psql/
+[install-psql]: /use-timescale/:currentVersion:/integrations/query-admin/about-psql/
 [ubuntu]: https://ubuntu.com
 [docker-logs]: https://docs.docker.com/config/containers/logging/

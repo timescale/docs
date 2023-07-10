@@ -48,12 +48,12 @@ This certificate authority is used to sign certificates used internally by your
 services to communicate between different cluster nodes and to management
 systems.
 
-You can download your project certificate authority in the
-[Managed Service for TimescaleDB portal][mst-portal]. In the `Services` tab,
-click the service you want to find the certificate for. In the service
-`Overview` tab, under `Connection information`, locate the
-`CA Certificate` section, and click `Show` to see the certificate. It is
-recommended that you set up your browser or client to trust that certificate.
+You can download your project certificate authority in the Managed Service for
+TimescaleDB portal. In the `Services` tab, click the service you want to find
+the certificate for. In the service `Overview` tab, under `Connection
+information`, locate the `CA Certificate` section, and click `Show` to see the
+certificate. It is recommended that you set up your browser or client to trust
+that certificate.
 
 All server certificates are signed by the Managed Service for TimescaleDB
 project certificate authority.
