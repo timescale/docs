@@ -79,5 +79,5 @@ possible.
 [github-tscopy]: https://github.com/timescale/timescaledb-parallel-copy
 [go-install]: https://go.dev/doc/install
 [create-service]: /getting-started/latest/
-[connect-timescaledb]: /use-timescale/latest/connecting/about-connecting/
+[connect-timescaledb]: /use-timescale/latest/integrations/query-admin/about-connecting/
 [create-hypertable]: /use-timescale/latest/hypertables/create/

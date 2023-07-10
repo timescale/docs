@@ -51,4 +51,4 @@ pip install pandas
 [explore]: /tutorials/:currentVersion:/analyze-intraday-stocks/explore-stocks-data
 [fetch-ingest]: /tutorials/:currentVersion:/analyze-intraday-stocks/fetch-and-ingest
 [install-timescale]: /getting-started/latest/
-[psql-install]: /use-timescale/:currentVersion:/connecting/psql
+[psql-install]: /use-timescale/:currentVersion:/integrations/query-admin/about-psql
