@@ -27,14 +27,14 @@ in Grafana.
 Before you begin, make sure you have:
 
 *   Signed up for a [free Timescale account][cloud-install].
-*   <Optional /> [Signed up for a Grafana account][grafana-setup] to graph queries.
+*   [](#)<Optional /> [Signed up for a Grafana account][grafana-setup] to graph queries.
 
 ## Steps in this tutorial
 
 This tutorial covers:
 
-1.  [Setting up up your dataset][dataset-energy]: Set up and connect to a
-    Timescale service, and load data into your database using `psql`.
+1.  [Setting up your dataset][dataset-energy]: Set up and connect to a
+    Timescale service, and load data into the database using `psql`.
 1.  [Querying your dataset][query-energy]: Analyze a dataset containing energy
     consumption data using Timescale and PostgreSQL, and visualize the
     results in Grafana.
@@ -55,8 +55,4 @@ you through the steps to visualize the results in Grafana.
 [dataset-energy]: /tutorials/:currentVersion:/energy-data/dataset-energy/
 [query-energy]: /tutorials/:currentVersion:/energy-data/query-energy/
 [cloud-install]: /getting-started/:currentVersion:/
-[grafana-setup]: https://grafana.com/auth/sign-up/
-
-<!--- When integrations go live, use this link instead
-[grafana-setup]: /use-timescale/:currentVersion:/integrations/obervability-alerting/grafana/installation/
--->
+[grafana-setup]: /use-timescale/:currentVersion:/integrations/observability-alerting/grafana/installation/
