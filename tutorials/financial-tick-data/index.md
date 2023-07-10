@@ -38,9 +38,9 @@ a few test projects of your own.
 
 This tutorial covers:
 
-1.  [Set up your dataset][financial-tick-dataset]: Load data from
+1.  [Setting up your dataset][financial-tick-dataset]: Load data from
     [Twelve Data][twelve-data] into your TimescaleDB database.
-1.  [Query your dataset][financial-tick-query]: Create candlestick views, query
+1.  [Querying your dataset][financial-tick-query]: Create candlestick views, query
     the aggregated data, and visualize the data in Grafana.
 
     This tutorial shows you how to ingest real-time time-series data into a Timescale
@@ -62,6 +62,7 @@ these stories from some Timescale community members:
 *   [How Messari uses data to open the cryptoeconomy to everyone][messari]
 *   [How I power a (successful) crypto trading bot with TimescaleDB][bot]
 
+[advanced-websocket]: /tutorials/:currentVersion:/ingest-real-time-websocket-data/
 [cloud-install]: /getting-started/latest/
 [financial-tick-dataset]: /tutorials/:currentVersion:/financial-tick-data/financial-tick-dataset/
 [financial-tick-query]: /tutorials/:currentVersion:/financial-tick-data/financial-tick-query/

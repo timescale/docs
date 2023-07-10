@@ -183,7 +183,7 @@ To ingest the data into your Timescale service, you need to implement the
 `on_event` function.
     
 After the websocket connection is set up, you can use the `on_event` function
-to ingest data into the database. This is a a data pipeline that ingests real-time 
+to ingest data into the database. This is a data pipeline that ingests real-time 
 financial data into your Timescale service.
 
 Stock trades are ingested in real-time Monday through Friday, typically during

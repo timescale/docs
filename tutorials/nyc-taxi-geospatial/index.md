@@ -29,14 +29,14 @@ the data in Grafana, by overlaying it on a map.
 Before you begin, make sure you have:
 
 *   Signed up for a [free Timescale account][cloud-install].
-*   <Optional /> If you want to graph your queries, signed up for a
+*   [](#)<Optional /> If you want to graph your queries, signed up for a
     [Grafana account][grafana-setup].
 
 ## Steps in this tutorial
 
 This tutorial covers:
 
-1.  [Setting up up your dataset][dataset-nyc]: Set up and connect to a Timescale
+1.  [Setting up your dataset][dataset-nyc]: Set up and connect to a Timescale
     service, and load data into your database using `psql`.
 1.  [Querying your dataset][query-nyc]: Analyze a dataset containing NYC taxi
     trip data using Timescale and PostgreSQL, and plot the results in Grafana.
@@ -62,9 +62,5 @@ information, and plotting the results in Grafana.
 [nyc-tlc]: https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page
 [cloud-install]: /getting-started/latest/
 [beginner-fleet]: /tutorials/:currentVersion:/nyc-taxi-cab/
-[plot-nyc]: /tutorials/:currentVersion:/nyc-taxi-cab/plot-nyc/
-[grafana-setup]: https://grafana.com/auth/sign-up/
-
-<!--- When integrations go live, use this link instead
-[grafana-setup]: /use-timescale/:currentVersion:/integrations/obervability-alerting/grafana/installation/
--->
+[plot-nyc]: /tutorials/:currentVersion:/nyc-taxi-geospatial/plot-nyc/
+[grafana-setup]: /use-timescale/:currentVersion:/integrations/observability-alerting/grafana/installation/

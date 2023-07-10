@@ -103,7 +103,7 @@ loaded into the editor. When you have made your changes, press `Esc`, then type
 `:`＋`w`＋`q` to save the changes, and return to the command prompt. Access the
 edited query by pressing `↑`, and press `Enter` to run it.
 
-[about-connecting]: /use-timescale/:currentVersion:/connecting/about-connecting/
+[about-connecting]: /use-timescale/:currentVersion:/integrations/query-admin/about-connecting/
 [psql-cheat-sheet]: https://postgrescheatsheet.com/
 [psql-docs]: https://www.postgresql.org/docs/13/app-psql.html
 [ssl-mode]: /use-timescale/:currentVersion:/security/strict-ssl/

@@ -736,7 +736,7 @@ page by page, or all pages together, and group by path or not:
 [insert]: #insert-rows-of-data
 [query]: #execute-a-query
 [install]: /getting-started/latest/
-[psql-install]: /use-timescale/:currentVersion:/connecting/psql/
+[psql-install]: /use-timescale/:currentVersion:/integrations/query-admin/about-psql/
 [rails-guide]: https://guides.rubyonrails.org/getting_started.html
 [ab]: https://httpd.apache.org/docs/2.4/programs/ab.html
 [active-record-query]: https://guides.rubyonrails.org/active_record_querying.html
