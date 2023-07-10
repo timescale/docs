@@ -1,5 +1,5 @@
 ---
-title: Service settings - PostgreSQL extensions
+title: PostgreSQL extensions
 excerpt: Use PostgreSQL extensions with your Timescale service
 products: [cloud]
 keywords: [services, settings, extensions]
@@ -33,12 +33,12 @@ These are the currently supported extensions:
 |ltree|Data type for hierarchical tree-like structures|
 |pg_stat_statements|Track execution statistics of all SQL statements executed|
 |pg_trgm|Text similarity measurement and index searching based on trigrams|
-|pgcrypto|Cryptographic functions|
+|[pgcrypto][pgcrypto]|Cryptographic functions|
 |pgpcre|Perl-compatible RegEx|
 |pgrouting|pgRouting Extension|
-|pgvector|Vector similarity search for PostgreSQL|
+|[pgvector][pgvector]|Vector similarity search for PostgreSQL|
 |plpgsql|SQL procedural language|
-|postgis|PostGIS geometry and geography spatial types and functions|
+|[postgis][postgis]|PostGIS geometry and geography spatial types and functions|
 |postgis_raster|PostGIS raster types and functions|
 |postgis_sfcgal|PostGIS SFCGAL functions|
 |postgis_tiger_geocoder|PostGIS tiger geocoder and reverse geocoder|
@@ -54,3 +54,7 @@ These are the currently supported extensions:
 |uuid-ossp|Generate universally unique identifiers (UUIDs)|
 
 <!-- vale Vale.Spelling = YES -->
+
+[pgvector]: /use-timescale/:currentVersion:/extensions/pgvector/
+[pgcrypto]: /use-timescale/:currentVersion:/extensions/pgcrypto/
+[postgis]: /use-timescale/:currentVersion:/extensions/postgis/

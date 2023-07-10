@@ -165,3 +165,5 @@ calculation on a single trading day instead.
 Pie charts are a great tool for comparing categorized data. They're especially good
 for visualizing percentages. But they don't work as well if you have too many categories
 with similar percentages or large amount of data.
+
+[gsg-data]: https://docs.timescale.com/getting-started/latest/time-series-data/

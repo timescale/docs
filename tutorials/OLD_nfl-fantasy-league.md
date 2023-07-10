@@ -588,4 +588,4 @@ draw_play(game_id=2018112900,
 [extra-download]: https://assets.timescale.com/docs/downloads/nfl_2018.zip
 [install-timescale]: /getting-started/latest/
 [kaggle-download]: https://www.kaggle.com/c/nfl-big-data-bowl-2021/data
-[psql-install]: /use-timescale/:currentVersion:/connecting/psql
+[psql-install]: /use-timescale/:currentVersion:/integrations/query-admin/about-psql

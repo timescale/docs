@@ -104,7 +104,7 @@ You can use MacPorts to install TimescaleDB on macOS-based systems.
     sudo port install timescaledb
     ```
 
-1.  <Optional />View the files that were installed:
+1.  [](#)<Optional />View the files that were installed:
 
     ```bash
     port contents timescaledb
@@ -193,5 +193,5 @@ psql -U postgres -h localhost -d tsdb
  <WhereTo />
 
 [homebrew]: https://docs.brew.sh/Installation
-[install-psql]: /use-timescale/:currentVersion:/connecting/psql/
+[install-psql]: /use-timescale/:currentVersion:/integrations/query-admin/about-psql/
 [macports]: https://guide.macports.org/#installing.macports
