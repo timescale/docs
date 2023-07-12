@@ -39,7 +39,9 @@ wmic
 ## Install PostgreSQL package on macOS
 
 The `psql` tool is installed by default on macOS systems when you install
-PostgreSQL, and this is the most effective way to install the tool. On macOS you can use Homebrew or MacPorts to install the PostgreSQL package or just the `psql` tool.
+PostgreSQL, and this is the most effective way to install the tool.
+On macOS you can use Homebrew or MacPorts to install the PostgreSQL package
+or just the `psql` tool.
 
 <Tabs label="Installing PostgreSQL package">
 
