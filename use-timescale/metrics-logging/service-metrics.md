@@ -94,7 +94,8 @@ avoid the problem occurring again in the future.
 
 ## Query-level statistics in the Timescale dashboard
 
-You can analyze your queries by navigating to the `Query stats` tab from the Services dashboard.
+You can analyze your queries by navigating to the `Query stats` tab from the
+Services dashboard.
 
 <EarlyAccess />
 
@@ -102,9 +103,30 @@ Use the filter at the top of the page to view details of your queries, including
 how many rows the query returned, and the time the query took to run.
 
 <img class="main-content__illustration"
-src="FIXME.webp"
+src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc_querystats_expanded.webp"
 width={1375} height={944}
 alt="The Timescale query stats viewer showing the statistics for a recent query" />
+
+In the results window, use the horizontal scroll bar at the bottom of the screen
+to see statistics for your query. You can also use the arrow to the left of the
+query to expand it. The columns show these details about your queries:
+
+|Column|Description|
+|-|-|
+|Executions|Number of times the query has been run during the results period|
+|Total rows|Total number of rows returned by the query during the results period|
+|Median rows|Median number of rows returned each time the query is run|
+|P05 time|FIXME|
+|Median time|Median number of microseconds (µs) or milliseconds (ms) it took to run the query|
+|P95 time|FIXME|
+|Median memory|Median amount of memory consumed by the query
+|P95 memory|FIXME|
+|Median bytes read|FIXME|
+|P95 bytes read|FIXME|
+|Cache hit ratio|FIXME|
+|Hypertables|A green check mark is shown if results were drawn from a hypertable|
+|Compressed tables|A green check mark is shown if results were drawn from a compressed table|
+|User name|Username of the logged in user running the query|
 
 ## Query-level statistics with pg_stat_statements
 
