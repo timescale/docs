@@ -128,6 +128,12 @@ query to expand it. The columns show these details about your queries:
 |Compressed tables|A green check mark is shown if results were drawn from a compressed table|
 |User name|Username of the logged in user running the query|
 
+<Highlight type="note">
+If you have just completed a query, it can take a minute or two for it to show
+in the query stats viewer. Wait a little, and then refresh the page to see your
+query.
+</Highlight>
+
 ## Query-level statistics with pg_stat_statements
 
 The `pg_stat_statements` extension gives you query-level statistics for your SQL
