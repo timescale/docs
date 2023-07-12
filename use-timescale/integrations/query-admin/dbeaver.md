@@ -95,10 +95,10 @@ appear in the `Main` tab of `Connection settings`.
 |-|-|-|
 |Host|localhost, postgresql.example.com, <REMOTE_HOST>.tsdb.cloud.timescale.com|The fully qualified server name. The host name of your Timescale service.|
 |Port|5432|The port number of the TimescaleDB server, Timescale service.|
-|Username|postgres, tsdbadmin|The user name you want to log in with. Use `tsdbadmin` for Timescale services|
+|Username|`postgres`, `tsdbadmin`|The user name you want to log in with. Use `tsdbadmin` for Timescale services|
 |Password|*password*|The password for the database user you are connecting to.|
 |Save password locally|*Check*|Check this box if you don't want to enter the password each time you connect.|
-|Database|tsdb, defaultdb|This option connects to the default database. The database name for a Timescale service is `tsdb`. You can also specify the name of the database to connect to.|
+|Database|`tsdb`|This option connects to the default database. The database name for a Timescale service is `tsdb`. You can also specify the name of the database to connect to.|
 
 [dbeaver]: https://dbeaver.io/
 [dbeaver-downloads]: https://dbeaver.io/download/
