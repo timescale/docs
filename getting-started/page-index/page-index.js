@@ -2,7 +2,6 @@ module.exports = [
   {
     title: "Get started",
     href: "getting-started",
-    pageComponents: ["featured-cards"],
     excerpt: "Get started with Timescale",
     children: [
       {
