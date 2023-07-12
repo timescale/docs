@@ -23,14 +23,14 @@ blockchain, including other cryptocurrencies, smart contracts, or health data.
 Before you begin, make sure you have:
 
 *   Signed up for a [free Timescale account][cloud-install].
-*   <Optional />Signed up for a [Grafana account][grafana-setup] to graph your queries.
+*   [](#)<Optional />Signed up for a [Grafana account][grafana-setup] to graph your queries.
 
 ## Steps in this tutorial
 
 This tutorial covers:
 
-1.  [Set up up your dataset][blockchain-dataset]
-1.  [Analyze your dataset][blockchain-analyze]
+1.  [Setting up your dataset][blockchain-dataset]
+1.  [Querying your dataset][blockchain-analyze]
 
 ## About analyzing the Bitcoin blockchain with Timescale
 
@@ -56,4 +56,4 @@ to graph the output in Grafana.
 [blockchain-query]: /tutorials/:currentVersion:/blockchain-query/beginner-blockchain-query/
 [blockchain-def]: https://www.pcmag.com/encyclopedia/term/blockchain
 [transactions-def]: https://www.pcmag.com/encyclopedia/term/bitcoin-transaction
-[grafana-setup]: /use-timescale/:currentVersion:/integrations/obervability-alerting/grafana/installation/
+[grafana-setup]: /use-timescale/:currentVersion:/integrations/observability-alerting/grafana/installation/

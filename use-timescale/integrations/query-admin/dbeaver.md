@@ -30,7 +30,7 @@ services.
     it is marked as `Running`.
 1.  Click the name of the service you want to connect to, and take a note
      of the `Host`, `Port`, `Database name`, and `Username`.
-1.  <Optional />If you do not know the password for the service, navigate to the
+1.  [](#)<Optional />If you do not know the password for the service, navigate to the
     `Operations` tab, and click `Reset password`. You can choose
     your own password for the service, or allow Timescale to generate a
     secure password for you. Take a note of your new password.
@@ -140,5 +140,5 @@ appear in the `Main` tab of `Connection settings`.
 
 [dbeaver]: https://dbeaver.io/
 [dbeaver-downloads]: https://dbeaver.io/download/
-[connection-settings]: /use-timescale/:currentVersion:/connecting/dbeaver/#connection-settings-in-connect-to-a-database
+[connection-settings]: #connection-settings-in-connect-to-a-database
 [tsc-portal]: https://console.cloud.timescale.com/

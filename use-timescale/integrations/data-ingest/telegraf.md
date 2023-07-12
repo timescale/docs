@@ -14,18 +14,20 @@ Telegraf collects metrics from a wide array of inputs and writes them to a wide
 array of outputs. It is plugin-driven for both collection and output of data so
 it is extendable. It is written in Go, which means that it is a compiled
 and standalone binary that can be run on any system with no need for
-external dependencies, or package management tools required.
+external dependencies, or package management tools.
 
 Telegraf is an open source tool. It contains over 200 plugins for gathering and
-writing different types of data written by people who work with that data.
+writing different types of data, written by people who work with that data.
 
 ## Before you begin
 
-*   [Install Telegraf][install-telegraf] on the system where you want to collect
+Before you start, make sure you have:
+
+*   [Installed Telegraf][install-telegraf] on the system where you want to collect
     metrics.
-*   Create a [Timescale service][create-service].
-*   Gather the connection details for [your service][connect-timescaledb].
-*   Install Grafana
+*   Created a [Timescale service][create-service].
+*   Gathered the connection details for [your service][connect-timescaledb].
+*   Installed [Grafana][grafana].
 
 ## Ingest metrics using the Telegraf plugin
 
@@ -45,10 +47,11 @@ writing different types of data written by people who work with that data.
     telegraf --input-filter=cpu --output-filter=postgresql config > telegraf.conf
     ```
 
-    A configuration file enables a CPU input plugin that samples various metrics
-    about CPU usage, and the PostgreSQL output plugin. The file also includes
-    all available input, output, processor, and aggregator plugins. These are
-    commented out by default. You can enable them as required.
+    The sample configuration file enables a CPU input plugin that samples
+    various metrics about CPU usage, and the PostgreSQL output plugin. The file
+    also includes all available input, output, processor, and aggregator
+    plugins. These are commented out by default. You can enable them as
+    required.
 
 1.  Test the sample configuration file `telegraf.conf` that you generated:
 
@@ -77,13 +80,8 @@ writing different types of data written by people who work with that data.
 
 ### Configuring the PostgreSQL output plugin
 
-1.  Open the `telegraf.conf` file using an editor of your choice:
-
-    ```bash
-    nano telegraf.conf
-    ```
-
-1.  Set the `connection` parameter in the `[[outputs.postgresql]]` section to
+1.  Open the `telegraf.conf` file in your preferred text editor and set the
+    `connection` parameter in the `[[outputs.postgresql]]` section to
     the`<SERVICE URL>` of the Timescale service that you created:
 
     ```bash
@@ -187,7 +185,7 @@ writing different types of data written by people who work with that data.
 </Procedure>
 
 For more information about the options that you can configure in Telegraf,
-see [PostgreQL output plugin][output-plugin].
+see the [PostgreQL output plugin][output-plugin].
 
 <GrafanaConnect />
 
@@ -197,4 +195,5 @@ panels that are populated with data using SQL.
 [output-plugin]: https://github.com/influxdata/telegraf/blob/release-1.24/plugins/outputs/postgresql/README.md
 [install-telegraf]: https://docs.influxdata.com/telegraf/v1.21/introduction/installation/
 [create-service]: /getting-started/latest/
-[connect-timescaledb]: /use-timescale/:currentVersion:/connecting/about-connecting/
+[connect-timescaledb]: /use-timescale/:currentVersion:/integrations/query-admin/about-connecting/
+[grafana]: /use-timescale/:currentVersion:/integrations/observability-alerting/grafana/installation/

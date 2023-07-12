@@ -42,7 +42,7 @@ To start, [install TimescaleDB][install-timescale]. When your installation is
 complete, you can start ingesting or creating sample data.
 
 This tutorial leads directly into a second tutorial that covers
-[how Timescale can be used with Tableau][tableau-tutorial] to visualize
+how Timescale can be used with Tableau to visualize
 time-series data.
 
 ## Design the database schema
@@ -656,4 +656,3 @@ GROUP BY
 [hypertable-blog]: https://blog.timescale.com/blog/when-boring-is-awesome-building-a-scalable-time-series-database-on-postgresql-2900ea453ee2/
 [hypertable-docs]: /use-timescale/:currentVersion:/hypertables
 [install-timescale]: /getting-started/latest/
-[tableau-tutorial]: /tutorials/:currentVersion:/visualize-with-tableau/
