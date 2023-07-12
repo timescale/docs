@@ -36,10 +36,16 @@ wmic
 
 </Terminal>
 
-## Install psql on macOS
+## Install PostgreSQL package on macOS
 
 The `psql` tool is installed by default on macOS systems when you install
-PostgreSQL, and this is the most effective way to install the tool. On macOS you can use Homebrew or MacPorts to install the PostgreSQL package or just the `psql` tool.
+PostgreSQL, and this is the most effective way to install the tool.
+On macOS you can use Homebrew or MacPorts to install the PostgreSQL package
+or just the `psql` tool.
+
+<Tabs label="Installing PostgreSQL package">
+
+<Tab title="Homebrew">
 
 <Procedure>
 
@@ -68,6 +74,10 @@ PostgreSQL, and this is the most effective way to install the tool. On macOS you
 
 </Procedure>
 
+</Tab>
+
+<Tab title="MacPorts">
+
 <Procedure>
 
 ### Installing PostgreSQL package using MacPorts
@@ -90,13 +100,21 @@ PostgreSQL, and this is the most effective way to install the tool. On macOS you
 
 </Procedure>
 
-### Installing psql on macOS
+</Tab>
+
+</Tabs>
+
+## Install psql on macOS
 
 If you do not want to install the entire PostgreSQL package, you can install the `psql` tool on its own. `libpqxx` is the official C++ client API for PostgreSQL.
 
+<Tabs label="Installing psql">
+
+<Tab title="Homebrew">
+
 <Procedure>
 
-#### Installing psql using Homebrew
+### Installing psql using Homebrew
 
 1.  Install Homebrew, if you don't already have it:
 
@@ -130,12 +148,17 @@ If you do not want to install the entire PostgreSQL package, you can install the
 
 </Procedure>
 
+</Tab>
+
+<Tab title="MacPorts">
+
 <Procedure>
 
-#### Installing psql using MacPorts
+### Installing psql using MacPorts
 
 1.  Install MacPorts by downloading and running the package installer.
-    For more information about MacPorts, including installation instructions, see the [MacPorts documentation][macports].
+    For more information about MacPorts, including installation instructions,
+    see the [MacPorts documentation][macports].
 1.  Install the latest version of libpqxx:
 
     ```bash
@@ -149,6 +172,10 @@ If you do not want to install the entire PostgreSQL package, you can install the
     ```
 
 </Procedure>
+
+</Tab>
+
+</Tabs>
 
 ## Install psql on Debian and Ubuntu
 
