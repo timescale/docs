@@ -94,12 +94,12 @@ This table provides the description and example values for the fields in the
 
 |Setting|Example value|Description|
 |-|-|-|
-|Host name/address|localhost, postgresql.example.com, <REMOTE_HOST>.tsdb.cloud.timescale.com|The fully qualified server name. The host name of your Timescale service.|
-|Port|5432|The port number of the TimescaleDB server, Timescale service.|
-|Username|postgres, tsdbadmin|The user name you want to log in with. Use `tsdbadmin` for Timescale services|
+|Host name/address|`localhost`,`127.0.0.1` `postgresql.example.com`, `<REMOTE_HOST>.tsdb.cloud.timescale.com`|The fully qualified server name or IP address of your TimescaleDB server ot the host name of your Timescale service.|
+|Port|`5432`|The port number of the TimescaleDB server or the Timescale service.|
+|Username|`postgres`, `tsdbadmin`|The user name you want to log in with. Use `tsdbadmin` for Timescale services|
 |Password|*password*|The password for the account you are logging in with|
 |Save password|*Toggle*|Enable if you don't want to enter the password each time you connect.|
-|Maintenance database name|postgres, tsdb, defaultdb|This option is used to specify the initial database that pgAdmin connects to. The database name for a Timescale service is `tsdb`. You can also specify the name of the database to connect to.|
+|Maintenance database name|`postgres`, `tsdb`|This option is used to specify the initial database that pgAdmin connects to. The database name for a Timescale service is `tsdb`. You can also specify the name of the database to connect to.|
 
 [pgadmin]: https://www.pgadmin.org/
 [connection-details]: #settings-in-the-connection
