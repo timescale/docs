@@ -11,7 +11,9 @@ jobs:
           fetch-depth: 0
       - name: Hercules
         uses: src-d/hercules@master
-      - uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9
-        with:
+      - uses: docker://srcd/hercules:latest
+      with:
+        args:
+          "/bin/bash -c pip install 'matplotlib==3.2.0' && hercules --devs --pb . | labours -m all -f pb --disable-projector -o hercules_charts && cd hercules_charts && tar -cf ../hercules_charts.tar * ../hercules_charts_* && cd .. && rm -r hercules_charts"
           name: hercules_charts
           path: hercules_charts.tar
