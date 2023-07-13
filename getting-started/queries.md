@@ -41,6 +41,12 @@ statement to add a condition on to the statement. In this section, you add a
 WHERE time > now() - INTERVAL '4 days'
 `} />
 
+You can also limit the number of rows that get returned:
+
+<CodeBlock canCopy={false} showLineNumbers={false} children={`
+LIMIT 10
+`} />
+
 <Procedure>
 
 ### Using SELECT to return data
@@ -49,24 +55,7 @@ WHERE time > now() - INTERVAL '4 days'
     you downloaded to connect to your database.
 1.  At the `psql` prompt, type this query:
 
-    ```sql
-    SELECT * FROM stocks_real_time srt
-    WHERE time > now() - INTERVAL '4 days';
-    ```
-
-    The data you get back looks a bit like this:
-
-    <CodeBlock canCopy={false} showLineNumbers={true} children={`
-              time          | symbol |    price     | day_volume
-    ------------------------+--------+--------------+------------
-     2023-06-07 12:00:04+00 | C      |        47.39 |
-     2023-06-07 12:00:04+00 | T      |        15.67 |
-     2023-06-07 12:00:04+00 | SQ     |        66.27 |
-     2023-06-07 12:00:04+00 | CRM    |        213.1 |
-     2023-06-07 12:00:04+00 | CVX    |        155.9 |
-     2023-06-07 12:00:04+00 | BAC    |        29.34 |
-     ...
-    `} />
+    <TryItOutCodeBlock query="getting-started-srt-4-days" />
 
 1.  Type `q` to return to the `psql` prompt.
 
@@ -184,26 +173,7 @@ For more information about these functions, see the API documentation for
     you downloaded to connect to your database.
 1.  At the `psql` prompt, type this query:
 
-    ```sql
-    SELECT symbol, first(price,time), last(price, time)
-    FROM stocks_real_time srt
-    WHERE time > now() - INTERVAL '4 days'
-    GROUP BY symbol
-    ORDER BY symbol;
-    ```
-
-    The data you get back looks a bit like this:
-
-    <CodeBlock canCopy={false} showLineNumbers={true} children={`
-         symbol |  first   |   last
-    --------+----------+----------
-     AAPL   | 179.0507 |   179.04
-     ABNB   |   118.83 | 117.9694
-     AMAT   |   133.55 | 134.8964
-     AMD    | 122.6476 |   125.13
-     AMZN   | 126.5599 |   126.69
-     ...
-    `} />
+    <TryItOutCodeBlock query="getting-started-srt-first-last" />
 
 1.  Type `q` to return to the `psql` prompt.
 

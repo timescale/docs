@@ -39,7 +39,5 @@ When you have finished this guide, you might want to check out some
 [more advanced tutorials][tutorials], or browse through
 [the other guides][use-timescale].
 
-<TryItOutCodeBlock queryId="test" />
-
 [tutorials]: /tutorials/:currentVersion:/
 [use-timescale]: /use-timescale/:currentVersion:/
