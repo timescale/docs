@@ -116,13 +116,13 @@ query to expand it. The columns show these details about your queries:
 |Executions|Number of times the query has been run during the results period|
 |Total rows|Total number of rows scanned, inserted, or updated by the query during the results period|
 |Median rows|Median number of rows touched each time the query is run|
-|P05 time|The 5th percentile, or the minimum time this query took|
+|P05 time|The fifth percentile, or the minimum time this query took|
 |Median time|Median number of microseconds (µs) or milliseconds (ms) it took to run the query|
-|P95 time|The 95th percentile, or the maximum time this query took|
+|P95 time|The ninety-fifth percentile, or the maximum time this query took|
 |Median memory|Median amount of memory consumed by the query
-|P95 memory|The 95th percentile, or the maximum memory this query used|
+|P95 memory|The ninety-fifth percentile, or the maximum memory this query used|
 |Median bytes read|Median number of bytes used each time the query is run|
-|P95 bytes read|The 95th percentile, or the maximum number of bytes this query used|
+|P95 bytes read|The ninety-fifth percentile, or the maximum number of bytes this query used|
 |Cache hit ratio|Total sum of memory used, as a percentage|
 |Hypertables|A green check mark is shown if results were drawn from a hypertable|
 |Compressed tables|A green check mark is shown if results were drawn from a compressed table|
