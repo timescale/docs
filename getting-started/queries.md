@@ -55,7 +55,7 @@ LIMIT 10
     you downloaded to connect to your database.
 1.  At the `psql` prompt, type this query:
 
-    <TryItOutCodeBlock query="getting-started-srt-4-days" />
+    <TryItOutCodeBlock queryId="getting-started-srt-4-days" />
 
 1.  Type `q` to return to the `psql` prompt.
 
@@ -173,7 +173,7 @@ For more information about these functions, see the API documentation for
     you downloaded to connect to your database.
 1.  At the `psql` prompt, type this query:
 
-    <TryItOutCodeBlock query="getting-started-srt-first-last" />
+    <TryItOutCodeBlock queryId="getting-started-srt-first-last" />
 
 1.  Type `q` to return to the `psql` prompt.
 

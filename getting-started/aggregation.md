@@ -132,7 +132,7 @@ ORDER BY day DESC, symbol
     you downloaded to connect to your database.
 1.  At the `psql` prompt, type this query:
 
-    <TryItOutCodeBlock query="getting-started-srt-aggregation" />
+    <TryItOutCodeBlock queryiId="getting-started-srt-aggregation" />
 
 1.  Type `q` to return to the `psql` prompt.
 
@@ -211,11 +211,11 @@ WHERE symbol='TSLA';
 
 1.  Query your continuous aggregate for all stocks:
 
-    <TryItOutCodeBlock query="getting-started-cagg" />
+    <TryItOutCodeBlock queryId="getting-started-cagg" />
 
 1.  Query your continuous aggregate for Tesla stock:
 
-    <TryItOutCodeBlock query="getting-started-cagg-tesla" />
+    <TryItOutCodeBlock queryId="getting-started-cagg-tesla" />
 
 </Procedure>
 
