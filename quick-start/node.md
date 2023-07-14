@@ -27,12 +27,6 @@ Before you start, make sure you have:
 *   Installed [Node.js][node-install].
 *   Installed the Node.js package manager [npm][npm-install].
 
-<highlight type="cloud" header="Run all tutorials free" button="Try for free">
-Your Timescale trial is completely free for you to use for the first
-thirty days. This gives you enough time to complete all the tutorials and run
-a few test projects of your own.
-</highlight>
-
 ## Connect to TimescaleDB
 
 In this section, you create a connection to TimescaleDB with a common Node.js

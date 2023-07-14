@@ -9,7 +9,6 @@ cloud_ui:
         - [services, :serviceId, operations, replication]
 ---
 
-import CloudTrial from "versionContent/_partials/_cloudtrial.mdx";
 
 # High availability
 
@@ -21,8 +20,6 @@ replicas. HA replicas significantly reduce the risk of downtime and data loss
 due to failures, and allow a service to avoid downtime for routine maintenance.
 This section covers how each of these work to help you make an informed decision
 about which is right for your service.
-
-<CloudTrial />
 
 ## HA replicas
 

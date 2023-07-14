@@ -22,12 +22,6 @@ Before you begin, make sure you have:
 
 ## Add Timescale as a virtual connection in Tableau
 
-<Highlight type="cloud" header="Run all tutorials free" button="Try for free">
-Your Timescale trial is completely free for you to use for the first
-thirty days. This gives you enough time to complete all the tutorials and run
-a few test projects of your own.
-</Highlight>
-
 <Procedure>
 
 ### Adding Timescale as a virtual connection in Tableau
