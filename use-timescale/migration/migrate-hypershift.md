@@ -7,7 +7,6 @@ tags: [ingest, Hypershift, postgresql]
 ---
 
 import HypershiftIntro from "versionContent/_partials/_hypershift-intro.mdx";
-import CloudTrial from "versionContent/_partials/_cloudtrial.mdx";
 
 # Migrate with Hypershift
 
@@ -19,8 +18,6 @@ Before you begin, make sure you have:
 
 *   Signed up for your [free Timescale account][cloud-install].
 *   Installed [Docker][docker-install].
-
-<CloudTrial />
 
 Before you begin the migration, it is recommended that you create an index on
 the `time` column of tables in your source database that are going to be
