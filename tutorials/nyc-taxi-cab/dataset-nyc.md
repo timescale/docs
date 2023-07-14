@@ -11,6 +11,13 @@ import CreateAndConnect from "versionContent/_partials/_cloud-create-connect-tut
 import CreateHypertableNyc from "versionContent/_partials/_create-hypertable-nyctaxis.mdx";
 import AddDataNyc from "versionContent/_partials/_add-data-nyctaxis.mdx";
 
+# Set up the database
+
+This tutorial uses a dataset that contains historical data from New York's
+yellow taxi network, in a hypertable named `rides`. It also includes a separate
+tables of payment types and rates, in a regular PostgreSQL table named
+`payment_types`, and `rates`.
+
 <Collapsible heading="Create a Timescale service and connect to your service" defaultExpanded={false}>
 
 <CreateAndConnect/>

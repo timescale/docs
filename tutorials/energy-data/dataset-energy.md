@@ -14,6 +14,11 @@ import AddDataEnergy from "versionContent/_partials/_add-data-energy.mdx";
 import GrafanaConnect from "versionContent/_partials/_grafana-connect.mdx";
 import CreateCaggs from "versionContent/_partials/_caggs-intro.mdx";
 
+# Set up the database
+
+This tutorial uses the energy consumption data for over a year in in a
+hypertable named `metrics`.
+
 <Collapsible heading="Create a Timescale service and connect to your service" defaultExpanded={false}>
 
 <CreateAndConnect/>

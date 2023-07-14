@@ -12,7 +12,7 @@ import CreateHypertableBlockchain from "versionContent/_partials/_create-hyperta
 import AddDataBlockchain from "versionContent/_partials/_add-data-blockchain.mdx";
 import GrafanaConnect from "versionContent/_partials/_grafana-connect.mdx";
 
-# Create the dataset
+# Set up the database
 
 This tutorial uses a dataset that contains Bitcoin blockchain data for
 the past five days, in a hypertable named `transactions`.

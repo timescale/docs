@@ -12,7 +12,7 @@ import CreateAndConnect from "versionContent/_partials/_cloud-create-connect-tut
 import CreateHypertable from "versionContent/_partials/_create-hypertable-twelvedata-stocks.mdx";
 import AddData from "versionContent/_partials/_add-data-twelvedata-stocks.mdx";
 
-# Create the dataset
+# Set up the database
 
 This tutorial uses a dataset that contains second-by-second stock-trade data for
 the top 100 most-traded symbols, in a hypertable named `stocks_real_time`. It
