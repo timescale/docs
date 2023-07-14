@@ -15,7 +15,7 @@ When you log in to your [Timescale account][cloud-login], navigate to the
 `Members` page to manage users of your project. From here, you can see the
 current members of your Timescale project, and add and remove members.
 
-<img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tsc-users-list.png" alt="Timescale Members"/>
+<img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tsc-users-list.webp" alt="Timescale Members"/>
 
 ## About Timescale user management
 
