@@ -24,7 +24,7 @@ tables of payment types and rates, in a regular PostgreSQL table named
 
 </Collapsible>
 
-# The dataset
+<Collapsible heading="The dataset" defaultExpanded={false}>
 
 This tutorial uses historical data from New York's yellow taxi network, provided
 by the New York City Taxi and Limousine Commission [NYC TLC][nyc-tlc].
@@ -32,5 +32,7 @@ by the New York City Taxi and Limousine Commission [NYC TLC][nyc-tlc].
 <CreateHypertableNyc />
 
 <AddDataNyc />
+
+</Collapsible>
 
 [nyc-tlc]: https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page
