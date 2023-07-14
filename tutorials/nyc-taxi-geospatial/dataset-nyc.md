@@ -8,32 +8,18 @@ layout_components: [next_prev_large]
 content_group: Analyze NYC taxi cab data
 ---
 
-import Install from "versionContent/_partials/_cloud-installation.mdx";
-import CreateService from "versionContent/_partials/_cloud-create-service.mdx";
-import Connect from "versionContent/_partials/_cloud-connect.mdx";
+import CreateAndConnect from "versionContent/_partials/_cloud-create-connect-tutorials.mdx";
 import CreateHypertableNyc from "versionContent/_partials/_create-hypertable-nyctaxis.mdx";
 import AddDataNyc from "versionContent/_partials/_add-data-nyctaxis.mdx";
 import GrafanaConnect from "versionContent/_partials/_grafana-connect.mdx";
 
-<Collapsible heading="Sign up for Timescale">
+<Collapsible heading="Create a Timescale service and connect to your service" defaultExpanded={false}>
 
-<Install />
-
-</Collapsible>
-
-<Collapsible heading="Create a service">
-
-<CreateService demoData={false} />
+<CreateAndConnect/>
 
 </Collapsible>
 
-<Collapsible heading="Connect to your service">
-
-<Connect />
-
-</Collapsible>
-
-<Collapsible heading="The dataset">
+<Collapsible heading="The dataset" defaultExpanded={false}>
 
 This tutorial uses historical data from New York's yellow taxi network, provided
 by the New York City Taxi and Limousine Commission [NYC TLC][nyc-tlc].
@@ -44,7 +30,7 @@ by the New York City Taxi and Limousine Commission [NYC TLC][nyc-tlc].
 
 </Collapsible>
 
-<Collapsible heading="Connect to Grafana">
+<Collapsible heading="Connect to Grafana" defaultExpanded={false}>
 
 The queries in this tutorial are suitable for visualizing in Grafana. If you
 want to visualize the results of your queries, connect your Grafana account to

@@ -54,5 +54,5 @@ you through the steps to visualize the results in Grafana.
 
 [dataset-energy]: /tutorials/:currentVersion:/energy-data/dataset-energy/
 [query-energy]: /tutorials/:currentVersion:/energy-data/query-energy/
-[cloud-install]: /getting-started/:currentVersion:/
+[cloud-install]: /getting-started/:currentVersion:/#create-your-timescale-account
 [grafana-setup]: /use-timescale/:currentVersion:/integrations/observability-alerting/grafana/installation/

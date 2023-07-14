@@ -7,23 +7,15 @@ layout_components: [next_prev_large]
 content_group: Analyze NYC taxi cab data
 ---
 
-import Install from "versionContent/_partials/_cloud-installation.mdx";
-import CreateService from "versionContent/_partials/_cloud-create-service.mdx";
-import Connect from "versionContent/_partials/_cloud-connect.mdx";
+import CreateAndConnect from "versionContent/_partials/_cloud-create-connect-tutorials.mdx";
 import CreateHypertableNyc from "versionContent/_partials/_create-hypertable-nyctaxis.mdx";
 import AddDataNyc from "versionContent/_partials/_add-data-nyctaxis.mdx";
 
-## Sign up for Timescale
+<Collapsible heading="Create a Timescale service and connect to your service" defaultExpanded={false}>
 
-<Install />
+<CreateAndConnect/>
 
-## Create a service
-
-<CreateService demoData={false} />
-
-## Connect to your service
-
-<Connect />
+</Collapsible>
 
 # The dataset
 

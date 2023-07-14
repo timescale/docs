@@ -7,9 +7,7 @@ layout_components: [next_prev_large]
 content_group: Analyze the Bitcoin blockchain
 ---
 
-import Install from "versionContent/_partials/_cloud-installation.mdx";
-import CreateService from "versionContent/_partials/_cloud-create-service.mdx";
-import Connect from "versionContent/_partials/_cloud-connect.mdx";
+import CreateAndConnect from "versionContent/_partials/_cloud-create-connect-tutorials.mdx";
 import CreateHypertableBlockchain from "versionContent/_partials/_create-hypertable-blockchain.mdx";
 import AddDataBlockchain from "versionContent/_partials/_add-data-blockchain.mdx";
 import GrafanaConnect from "versionContent/_partials/_grafana-connect.mdx";
@@ -19,25 +17,13 @@ import GrafanaConnect from "versionContent/_partials/_grafana-connect.mdx";
 This tutorial uses a dataset that contains Bitcoin blockchain data for
 the past five days, in a hypertable named `transactions`.
 
-<Collapsible heading="Sign up for Timescale">
+<Collapsible heading="Create a Timescale service and connect to your service" defaultExpanded={false}>
 
-<Install />
-
-</Collapsible>
-
-<Collapsible heading="Create a service">
-
-<CreateService demoData={false} />
+<CreateAndConnect/>
 
 </Collapsible>
 
-<Collapsible heading="Connect to your service">
-
-<Connect />
-
-</Collapsible>
-
-<Collapsible heading="The dataset">
+<Collapsible heading="The dataset" defaultExpanded={false}>
 
 The dataset is updated daily and contains data from the last five days,
 typically around 1.5 million Bitcoin transactions. The data includes information
@@ -53,7 +39,7 @@ receives for mining the coin.
 
 </Collapsible>
 
-<Collapsible heading="Connect to Grafana">
+<Collapsible heading="Connect to Grafana" defaultExpanded={false}>
 
 The queries in this tutorial are suitable for graphing in Grafana. If you want
 to visualize the results of your queries, connect your Grafana account to the

@@ -57,7 +57,7 @@ these stories from some Timescale community members:
 *   [How I power a (successful) crypto trading bot with TimescaleDB][bot]
 
 [advanced-websocket]: /tutorials/:currentVersion:/ingest-real-time-websocket-data/
-[cloud-install]: /getting-started/latest/
+[cloud-install]: /getting-started/:currentVersion:/#create-your-timescale-account
 [financial-tick-dataset]: /tutorials/:currentVersion:/financial-tick-data/financial-tick-dataset/
 [financial-tick-query]: /tutorials/:currentVersion:/financial-tick-data/financial-tick-query/
 [twelve-data]: https://twelvedata.com/

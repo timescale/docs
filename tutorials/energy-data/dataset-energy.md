@@ -8,33 +8,19 @@ layout_components: [next_prev_large]
 content_group: Analyze energy consumption data
 ---
 
-import Install from "versionContent/_partials/_cloud-installation.mdx";
-import CreateService from "versionContent/_partials/_cloud-create-service.mdx";
-import Connect from "versionContent/_partials/_cloud-connect.mdx";
+import CreateAndConnect from "versionContent/_partials/_cloud-create-connect-tutorials.mdx";
 import CreateHypertableEnergy from "versionContent/_partials/_create-hypertable-energy.mdx";
 import AddDataEnergy from "versionContent/_partials/_add-data-energy.mdx";
 import GrafanaConnect from "versionContent/_partials/_grafana-connect.mdx";
 import CreateCaggs from "versionContent/_partials/_caggs-intro.mdx";
 
-<Collapsible heading="Sign up for Timescale">
+<Collapsible heading="Create a Timescale service and connect to your service" defaultExpanded={false}>
 
-<Install />
-
-</Collapsible>
-
-<Collapsible heading="Create a service">
-
-<CreateService demoData={false} />
+<CreateAndConnect/>
 
 </Collapsible>
 
-<Collapsible heading="Connect to your service">
-
-<Connect />
-
-</Collapsible>
-
-<Collapsible heading="The dataset">
+<Collapsible heading="The dataset" defaultExpanded={false}>
 
 This tutorial uses the energy consumption data for over a year in a typical
 household. You can use this data to analyze the energy consumption pattern.
@@ -45,7 +31,7 @@ household. You can use this data to analyze the energy consumption pattern.
 
 </Collapsible>
 
-<Collapsible heading="Downsampling the data">
+<Collapsible heading="Downsampling the data" defaultExpanded={false}>
 
 <CreateCaggs />
 
@@ -120,7 +106,7 @@ household. You can use this data to analyze the energy consumption pattern.
 
 </Collapsible>
 
-<Collapsible heading="Connect to Grafana">
+<Collapsible heading="Connect to Grafana" defaultExpanded={false}>
 
 The queries in this tutorial are suitable for visualizing in Grafana. If you
 want to visualize the results of your queries, connect your Grafana account to

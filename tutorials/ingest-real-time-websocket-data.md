@@ -29,7 +29,7 @@ This tutorial uses Python and the API
 
 Before you begin, make sure you have:
 
-*   A Timescale [service and connect to the service][financial-tick-dataset].
+*   Signed up for a [free Timescale account][cloud-install]..
 *   Downloaded the file that contains your Timescale service credentials such as
     `<HOST>`, `<PORT>`, and `<PASSWORD>`. Alternatively, you can find these
     details in the `Connection Info` section for your service.
@@ -423,16 +423,14 @@ OHLCV values.
 </Procedure>
 
 </Collapsible>
-    
+
 <Collapsible heading="Visualize the OHLCV data in Grafana" defaultExpanded={false}>
 
 You can visualize the OHLCV data that you created using the queries in Grafana.
 <GraphOhlcv />
-    
+
 </Collapsible>
 
-    
-    
 [candlestick-tutorial]: /tutorials/:currentVersion:/financial-tick-data/
 [get-started]: /getting-started/:currentVersion:/
 [install-ts]: /getting-started/latest/
@@ -440,4 +438,4 @@ You can visualize the OHLCV data that you created using the queries in Grafana.
 [twelve-data]: https://twelvedata.com
 [twelve-signup]: https://twelvedata.com/pricing
 [twelve-wrapper]: https://github.com/twelvedata/twelvedata-python
-[financial-tick-dataset]: /tutorials/:currentVersion:/financial-tick-data/financial-tick-dataset/
+[cloud-install]: /getting-started/:currentVersion:/#create-your-timescale-account
