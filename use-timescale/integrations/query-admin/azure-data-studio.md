@@ -50,8 +50,46 @@ on-premises and cloud data platforms on Windows, macOS, and Linux.
 1.  Click `Connect`.
 
     <img class="main-content__illustration"
-    src="https://s3.amazonaws.com/assets.timescale.com/docs/images/timescale_cloud_connection_screen.png"
+    src="https://s3.amazonaws.com/assets.timescale.com/docs/images/timescale_cloud_connection_screen.webp"
     alt="Connecting to Timescale using Azure Data Studio"/>
+
+</Procedure>
+
+</Tab>
+
+<Tab title="Managed Service for TimescaleDB">
+
+<Highlight type="important">
+To ensure a secure network access to your Managed Service for TimescaleDB
+service, make sure you add the IP address of the machine running Azure Data
+Studio to the `Allowed IP Addresses`. For more information about network
+security in Managed Service for TimescaleDB, see
+[the security section](https://docs.timescale.com/mst/latest/security/).
+</Highlight>
+
+<Procedure>
+
+1.  Sign in to your Managed Service for TimescaleDB portal.
+1.  In the `Services` tab, find the service you want to connect to, and check
+    it is marked as `Running`.
+1.  Click the name of the service you want to connect to see the connection
+    information. Take a note of the `Host`, `Port`, `Database Name`, `User`, and
+    `Password`.
+1.  Start `Azure Data Studio`.
+1.  In the `SERVERS` page, click `New Connection`.
+1.  In the `Connection Details` dialog, navigate to `Connection type`, and
+    select `PostgreSQL`. Fill in the fields using the server name, database,
+    user name, port, and password for your Managed Service for TimescaleDB
+    service. For more information about these settings, see
+    [the connection details section][connection-details].
+1.  Click `Advanced`.
+1.  In the `Port` field, type the port number, and click `OK`.
+1.  Click `Connect`.
+
+    <img class="main-content__illustration"
+    src="https://s3.amazonaws.com/assets.timescale.com/docs/images/mst_connection_screen.webp"
+    alt="Connecting to Managed Service for TimescaleDB using Azure Data
+    Studio"/>
 
 </Procedure>
 
@@ -72,7 +110,7 @@ on-premises and cloud data platforms on Windows, macOS, and Linux.
 1.  Click `Connect`.
 
     <img class="maincontent__illustration"
-    src="https://s3.amazonaws.com/assets.timescale.com/docs/images/local_remote_connection_screen.png"
+    src="https://s3.amazonaws.com/assets.timescale.com/docs/images/local_remote_connection_screen.webp"
     alt="Connecting to Timescale using Azure Data Studio"/>
 
 </Procedure>

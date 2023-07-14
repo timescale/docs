@@ -10,7 +10,6 @@ import Install from "versionContent/_partials/_cloud-installation.mdx";
 import CreateService from "versionContent/_partials/_cloud-create-service.mdx";
 import Connect from "versionContent/_partials/_cloud-connect.mdx";
 import CloudIntro from "versionContent/_partials/_cloud-intro.mdx";
-import CloudTrial from "versionContent/_partials/_cloudtrial.mdx";
 
 # Timescale services
 
@@ -33,8 +32,6 @@ connect to it from the command prompt on your local machine. You can then use
 
 In this section, you sign up for a Timescale account, create a service, and
 connect to it from your local machine using `psql`.
-
-<CloudTrial />
 
 For more information, see
 [the services section][services-how-to].
