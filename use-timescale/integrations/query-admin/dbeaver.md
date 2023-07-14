@@ -61,43 +61,6 @@ service.
 
 </Tab>
 
-<Tab title="Managed Service for TimescaleDB">
-
-<Highlight type="important">
-To ensure a secure network access to your Managed Service for TimescaleDB
-service, make sure you add the IP address of the machine running DBeaver to the
-`Allowed IP Addresses`. For more information about network security in Managed
-Service for TimescaleDB, see
-[the security section](https://docs.timescale.com/mst/latest/security/).
-</Highlight>
-
-<Procedure>
-
-1.  Sign in to your Managed Service for TimescaleDB portal.
-1.  In the `Services` tab, find the service you want to connect to, and check
-    it is marked as `Running`.
-1.  Click the name of the service you want to connect to see the connection
-    information. Take a note of the `Host`, `Port`, `Database Name`, `User`, and
-    `Password`.
-1.  Start `DBeaver`.
-1.  In the `Database` menu, click `New Database Connection`.
-1.  In the `Connect to a database` window, search for `TimescaleDB`.
-1.  Select `TimescaleDB` and click `Next` to continue.
-1.  In the `Main` tab type the details for your connection, including the
-    `Host`, `Port`,`Database`, `Username` and `Password`. For more information
-    about these settings, see [the connection settings section][connection-settings].
-1.  Click the `Test Connection` button to check if the connection is successful.
-1.  Click the `Finish` button to connect to the database server. The server is
-    listed in the `Database Navigator` pane.
-
-    <img class="maincontent__illustration"
-    src="https://s3.amazonaws.com/assets.timescale.com/docs/images/mst_dbeaver.webp"
-    alt="Connecting to Managed Service for TimescaleDB using Dbeaver"/>
-
-</Procedure>
-
-</Tab>
-
 <Tab title="Self-hosted Timescale">
 
 <Procedure>
