@@ -1,6 +1,6 @@
 ---
 title: Managed Service for TimescaleDB
-excerpt: A fully managed TimescaleDB service on Azure or GCP
+excerpt: A fully managed TimescaleDB service
 products: [mst]
 ---
 
