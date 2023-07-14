@@ -15,8 +15,6 @@ import AddDataNyc from "versionContent/_partials/_add-data-nyctaxis.mdx";
 
 ## Sign up for Timescale
 
-Your Timescale account is free for thirty days.
-
 <Install />
 
 ## Create a service
