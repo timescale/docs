@@ -1,5 +1,5 @@
 ---
-title: Integrate Timescale Cloud services with third-party monitoring
+title: Integrate Timescale services with third-party monitoring
 excerpt: Export telemetry metrics to Datadog or AWS CloudWatch
 products: [cloud]
 keywords: [integration, metrics, Datadog, AWS CloudWatch]
@@ -7,12 +7,12 @@ tags: [telemetry, monitor]
 cloud_ui:
     path:
         - [integrations]
-        - [services, :serviceID, operations, integrations]
+        - [services, :serviceId, operations, integrations]
 ---
 
 import ExporterRegionNote from 'versionContent/_partials/_cloud-integrations-exporter-region.mdx';
 
-# Integrate Timescale Cloud services with third-party monitoring tools
+# Integrate Timescale services with third-party monitoring tools
 
 You can export your service telemetry to a third-party monitoring tool, such as
 [Datadog][datadog] or [AWS CloudWatch][cloudwatch]. Exported metrics include
@@ -37,10 +37,11 @@ Export telemetry data by:
 
 #### Creating a data exporter for Datadog
 
-1.  In the Timescale Cloud console, navigate to `Integrations`.
+1.  In the Timescale console, navigate to `Integrations`.
 1.  Click `Create exporter`.
+1.  Choose the telemetry data type that you would like to send to a provider.
 1.  Under `Choose a provider`, choose `Datadog`.
-1.  Choose an AWS region for your exporter to live within Timescale Cloud. The
+1.  Choose an AWS region for your exporter to live within Timescale. The
     exporter is only available to database services in the same AWS region.
 1.  Name your exporter. This name appears in the Cloud console, so choose a
     descriptive name.
@@ -65,10 +66,11 @@ alt="Screenshot of the menu for adding a Datadog exporter" />
 
 #### Creating a data exporter for AWS CloudWatch
 
-1.  In the Timescale Cloud console, navigate to `Integrations`.
+1.  In the Timescale console, navigate to `Integrations`.
 1.  Click `Create exporter`.
+1.  Choose the telemetry data type that you would like to send to a provider.
 1.  Under `Choose a provider`, choose `AWS CloudWatch`.
-1.  Choose an AWS region for your exporter to live within Timescale Cloud. The
+1.  Choose an AWS region for your exporter to live within Timescale. The
     exporter is only available to database services in the same AWS region.
 1.  Name your exporter. This name appears in the Cloud console, so choose a
     descriptive name.
@@ -81,7 +83,7 @@ alt="Screenshot of the menu for adding a Datadog exporter" />
     your new user has restricted access to only Cloudwatch, and keep your keys
     secret. For instructions, see the [AWS documentation][aws-access-keys].
 1.  Select an AWS Region for your CloudWatch instance.
-1.  <Optional />Define an IAM role to use for uploading metrics. Having a
+1.  <Optional />Define an ARN role to use for uploading metrics or logs. Having a
     dedicated role with only CloudWatch permissions is a recommended security
     practice.
 1.  Click `Create exporter`.
@@ -118,7 +120,13 @@ You can only have one exporter per service.
 1.  Navigate to `Services`. Click on the service you want to connect to your
     exporter.
 1.  Navigate to `Operations`, then `Integrations`.
-1.  Select and add an exporter.
+1.  Select an exporter and click `Attach exporter`.
+
+<Highlight type="warning">
+If you would like to attach a logs exporter to an already existing 
+service, you do not need to restart the service. The service only 
+needs to be restarted when you attach the first logs exporter.
+</Highlight>
 
 </Procedure>
 
@@ -130,7 +138,7 @@ page in AWS Console. For more information, see the [Datadog][datadog-docs] or
 [Cloudwatch][cloudwatch-docs] documentation.
 
 When you have set up your integration, you can check that it is working
-correctly by looking for the metrics that Timescale Cloud exports. The metric
+correctly by looking for the metrics that Timescale exports. The metric
 names are:
 
 *   `timescale.cloud.system.cpu.usage.millicores`
@@ -140,7 +148,7 @@ names are:
 *   `timescale.cloud.system.disk.usage.bytes`
 *   `timescale.cloud.system.disk.total.bytes`
 
-Additionally, Timescale Cloud exports tags that you can use to filter your
+Additionally, Timescale exports tags that you can use to filter your
 results. You can also check that these tags are being correctly exported:
 
 |Tag|Example variable|Description|
@@ -148,7 +156,7 @@ results. You can also check that these tags are being correctly exported:
 |`host`|`us-east-1.timescale.cloud`||
 |`project-id`|||
 |`service-id`|||
-|`region`|`us-east-1`|Timescale Cloud region|
+|`region`|`us-east-1`|Timescale region|
 |`role`|`replica` or `primary`|For services with replicas|
 |`node-id`||For multi-node services|
 

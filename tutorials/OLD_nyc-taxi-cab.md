@@ -13,7 +13,12 @@ In this tutorial, you learn:
 1.  How to get started with TimescaleDB
 2.  How to use TimescaleDB to analyze and monitor data from IoT sensors
 
-Dataset: <Tag type="download">[nyc_data.tar.gz](https://timescaledata.blob.core.windows.net/datasets/nyc_data.tar.gz)</Tag>
+<!--- This link no longer works, deleted. LKB 2023-05-11
+
+Dataset: <Tag type="download">[nyc_data.tar.gz]()</Tag>
+
+-->
+
 Estimated time for completion: 25 minutes.
 
 ### Prerequisites
@@ -25,7 +30,7 @@ SQL command, but it is helpful if you've seen SQL before.
 ### Accessing Timescale
 
 There are multiple options for using Timescale to follow along with this tutorial. **All connection information
-and database naming** throughout this tutorial assumes you are connected to **Timescale Cloud**, our hosted,
+and database naming** throughout this tutorial assumes you are connected to **Timescale**, our hosted,
 fully managed database-as-a-service. [Sign up for a free, 30-day demo account][cloud-signup], no credit-card
 required. Once you confirm the account and get logged in, proceed to the **Background** section below.
 
@@ -87,7 +92,11 @@ This download contains two files:
 
 You can download the files from the below link:
 
-<Tag type="download">[nyc_data.tar.gz](https://timescaledata.blob.core.windows.net/datasets/nyc_data.tar.gz)</Tag>
+<!--- This link no longer works, deleted. LKB 2023-05-10
+
+<Tag type="download">[nyc_data.tar.gz]()</Tag>
+
+-->
 
 #### Get connected to TimescaleDB
 
@@ -102,8 +111,6 @@ Afterward, connect to your TimescaleDB instance from `psql`
 by typing the command below into your terminal,
 ensuring that you replace the {curly brackets} with your real
 password, hostname, and port number.
-
->:TIP: Remember, this connection string assumes you are connecting to **Timescale Cloud**. Change the user and database name as needed depending on how you're connecting.
 
 ```bash
 psql -x "postgres://tsdbadmin:{YOUR_PASSWORD_HERE}@{YOUR_HOSTNAME_HERE}:{YOUR_PORT_HERE}/tsdb?sslmode=require"
@@ -161,7 +168,7 @@ automatically configures your TimescaleDB instance with the appropriate
 
 In the command below, be sure to substitute the items in the curly braces with
 information from your TimescaleDB instance, as you did earlier. Also take
-note that this command includes the Timescale Cloud database that is automatically created
+note that this command includes the Timescale database that is automatically created
 for you. If you are running the database locally, replace the database name as needed.
 
 ```bash
@@ -255,8 +262,7 @@ into the `rides` hypertable. To do this, we'll use the `psql` `\copy` command be
 
 >:WARNING: The PostgreSQL `\COPY` command is single-threaded and doesn't support batching
 inserts into multiple transactions. With nearly 11 million rows of data this import can take
-10 minutes or more depending on your Internet connection when copying into a cloud-hosted
-database like **Timescale Cloud**.
+10 minutes or more depending on your Internet connection.
 
 ```sql
 \COPY rides FROM nyc_data_rides.csv CSV;
@@ -814,21 +820,13 @@ how they make time-series analysis possible in fewer lines of code, as well
 as how TimescaleDB is compatible with other extensions like *PostGIS*, for fast
 querying by time and location.
 
-Ready for more learning? Here's a few suggestions:
-
-*   [Time Series Forecasting using TimescaleDB, R, Apache MADlib and Python][time-series-forecasting]
-*   [Continuous Aggregates][continuous-aggregates]
-*   [Try Other Sample Datasets][other-samples]
-*   [Migrate your own Data][migrate]
-
 [NYCTLC]: https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page
 [cloud-signup]: https://console.cloud.timescale.com/signup
 [continuous-aggregates]: /getting-started/:currentVersion:/create-cagg/
 [hypertables]: /use-timescale/:currentVersion:/hypertables
 [install-timescale]: /getting-started/latest/
-[migrate]: /use-timescale/:currentVersion:/migrate-data/
-[other-samples]: /tutorials/:currentVersion:/sample-datasets/
+[migrate]: /use-timescale/:currentVersion:/migration/
 [parallel-copy]: https://github.com/timescale/timescaledb-parallel-copy
 [postgis]: http://postgis.net/documentation
-[setup-psql]: /use-timescale/:currentVersion:/connecting/psql
+[setup-psql]: /use-timescale/:currentVersion:/integrations/query-admin/about-psql
 [time-series-forecasting]: /tutorials/:currentVersion:/time-series-forecast/

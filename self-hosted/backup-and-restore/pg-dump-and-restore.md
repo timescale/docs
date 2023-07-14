@@ -6,12 +6,16 @@ keywords: [backups, restore]
 tags: [recovery, logical backup, pg_dump, pg_restore]
 ---
 
+import ConsiderCloud from "versionContent/_partials/_consider-cloud.mdx";
+
 # Logical backups with `pg_dump` and `pg_restore`
 
 You can backup and restore an entire database or individual hypertables using
 the native PostgreSQL [`pg_dump`][pg_dump] and [`pg_restore`][pg_restore]
 commands. This works even for compressed hypertables, without having to
 decompress the chunks before you begin.
+
+<ConsiderCloud />
 
 Upgrades between different versions of TimescaleDB can be done in place; you
 don't need to backup and restore your data. See
@@ -168,7 +172,7 @@ take a complete dump of all PostgreSQL databases in a cluster including global
 objects that are common to all databases, namely database roles, tablespaces,
 and privilege grants using `pg_dumpall`. For more
 information about how to use the `pg_dumpall` utility, see
-[PostgreSQL documentation][postgres-docs].  
+[PostgreSQL documentation][postgres-docs].
 
 [parallel importer]: https://github.com/timescale/timescaledb-parallel-copy
 [pg_dump]: https://www.postgresql.org/docs/current/static/app-pgdump.html

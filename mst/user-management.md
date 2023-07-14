@@ -6,7 +6,7 @@ keywords: [users, admin]
 tags: [manage]
 ---
 
-# User Management
+# User management
 
 You can add new users, and manage existing users, in the Managed Service for
 TimescaleDB console. New users can be added to an entire project, or a single
@@ -32,8 +32,7 @@ and stop services permission.
 
 ### Adding project members
 
-1.  [Log in to your account][mst-login]. By default, you start in the
-    `Services` view, showing any services you currently have in your project.
+1.  Sign in to your Managed Service for TimescaleDB portal.
 1.  Check that you are in the project that you want to change the members for,
     and click `Members`.
 1.  In the `Project members` page, type the email address of the member you want
@@ -75,8 +74,9 @@ Your service must be running before you can manage users.
 
 ### Adding service users
 
-1.  [Log in to your account][mst-login]. By default, you start in the
-    `Services` view, showing any services you currently have in your project.
+1.  Sign in to your Managed Service for TimescaleDB portal. By
+    default, you start in the `Services` view, showing any services you
+    currently have in your project.
 1.  Click the name of the service that you want to add users to, and navigate
     to the `Users` tab.
 1.  In the `Username` field, type a name for your user. If you want to allow
@@ -86,7 +86,7 @@ Your service must be running before you can manage users.
     clicking the eye icon. Use the options in the list to change the replication
     setting and password, or delete the user.
 
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/mst-serviceuser.png" alt="Add a new MST service user"/>
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/mst-serviceuser.webp" alt="Add a new MST service user"/>
 
 </Procedure>
 
@@ -109,7 +109,7 @@ For more information, and installation instructions, see
 
 ### Configuring multi-factor authentication
 
-1.  [Log in to your account][mst-login].
+1.  Sign in to your Managed Service for TimescaleDB portal.
 1.  Click the `User information` icon in the top-right of the dashboard to go to
     the `User profile` section.
 1.  In the `Authentication` tab, toggle `Two-factor authentication` to
@@ -141,7 +141,7 @@ expiry date is adjusted every time the token is used. This means that tokens can
 be used indefinitely, if the user logs in at least every 30 days.
 
 You can see the list of all current authentication tokens in the Managed Service
-for TimescaleDB dashboard. [Log in to your account][mst-login], and click the
+for TimescaleDB dashboard. Sign in to your account, and click the
 `User information` icon in the top-right of the dashboard to go to the
 `User profile` section. In the `Authentication` tab, the table lists all current
 authentication tokens.
@@ -171,6 +171,5 @@ your authentication token. This is especially important for automation tools
 that automatically sign in.
 </Highlight>
 
-[mst-login]: https://portal.managed.timescale.com
 [pg-roles-doc]: https://www.postgresql.org/docs/current/role-attributes.html
 [install-google-authenticator]: https://support.google.com/accounts/answer/1066447

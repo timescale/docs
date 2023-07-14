@@ -34,6 +34,7 @@ holds time values. This can be a timestamp, date, or integer.
     CREATE TABLE conditions (
        time        TIMESTAMPTZ       NOT NULL,
        location    TEXT              NOT NULL,
+       device      TEXT              NOT NULL,
        temperature DOUBLE PRECISION  NULL,
        humidity    DOUBLE PRECISION  NULL
     );
@@ -51,7 +52,7 @@ If your table already has data, you can migrate the data when creating the
 hypertable. Set the `migrate_data` argument to true when you call the
 `create_hypertable` function. This might take a long time if you have a lot of
 data. For more information about migrating data, see the
-[data migration section](/use-timescale/latest/migrate-data).
+[data migration section](/use-timescale/latest/migration).
 </Highlight>
 
 </Procedure>

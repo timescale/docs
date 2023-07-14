@@ -12,14 +12,16 @@ server settings and send emails from Managed Service for
 TimescaleDB for Grafana, including invite emails, reset password emails, and alert
 messages.
 
-## Before you begin
+## Prerequisites
 
-*   Install [Aiven Client][aiven-client-mst].
-*   Sign in to your [Managed Service for TimescaleDB dashboard][mst-login].
-*   Create a service for [Grafana in MST][grafana-install]
-*   Make a note of these values in the SMTP server: `IP or hostname`, `SMTP
-    server port`, `Username`, `Password`, `Sender email address`, `Sender name`
-    (optional).
+Before you begin, make sure you have:
+
+*   Created a service in your Managed Service for TimescaleDB account.
+*   Installed [Aiven Client][aiven-client-mst].
+*   Created a service for Grafana in your Managed Service for TimescaleDB account.
+*   (Optional): Made a note of these values in the SMTP server:
+    `IP or hostname`, `SMTP server port`, `Username`, `Password`,
+    `Sender email address`, and `Sender name`.
 
 <Procedure>
 
@@ -60,7 +62,7 @@ messages.
        -c smtp_server.from_address="grafana@yourcompany.com"
     ```
 
-1.  (*OPTIONAL*) Review all available custom options, and configure:
+1.  [](#)<Optional /> Review all available custom options, and configure:
 
     ```bash
        avn service types -v
@@ -70,6 +72,4 @@ You can now send emails for your Grafana service on MST.
 
 </Procedure>
 
-[grafana-install]: /tutorials/:currentVersion:/grafana/installation/#create-a-new-service-for-grafana
-[mst-login]: https://portal.managed.timescale.com
 [aiven-client-mst]: /mst/:currentVersion:/aiven-client/aiven-client-install

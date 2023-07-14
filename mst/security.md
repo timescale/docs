@@ -48,12 +48,12 @@ This certificate authority is used to sign certificates used internally by your
 services to communicate between different cluster nodes and to management
 systems.
 
-You can download your project certificate authority in the
-[Managed Service for TimescaleDB portal][mst-portal]. In the `Services` tab,
-click the service you want to find the certificate for. In the service
-`Overview` tab, under `Connection information`, locate the
-`CA Certificate` section, and click `Show` to see the certificate. It is
-recommended that you set up your browser or client to trust that certificate.
+You can download your project certificate authority in the Managed Service for
+TimescaleDB portal. In the `Services` tab, click the service you want to find
+the certificate for. In the service `Overview` tab, under `Connection
+information`, locate the `CA Certificate` section, and click `Show` to see the
+certificate. It is recommended that you set up your browser or client to trust
+that certificate.
 
 All server certificates are signed by the Managed Service for TimescaleDB
 project certificate authority.
@@ -105,7 +105,7 @@ services.
 
 ### Configure allowed incoming IP addresses for your service
 
-1.  Sign in to the [Managed Service for TimescaleDB portal][mst-portal].
+1.  Sign in to your Managed Service for TimescaleDB portal.
 1.  In the `Services` tab, find the service you want to configure, and check
     it is marked as `Running`.
 1.  In the service `Overview` tab, under `Connection information`, locate the
@@ -120,7 +120,7 @@ services.
 1.  Check that the new allowed addresses are shown correctly in the
     `Allowed IP addresses` section.
 
-   <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/mst-allowed-incomingip.png" alt="Add a new allowed incoming IP address for Managed Service for TimescaleDB services"/>
+   <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/mst-allowed-incomingip.webp" alt="Add a new allowed incoming IP address for Managed Service for TimescaleDB services"/>
 
 </Procedure>
 
@@ -152,7 +152,7 @@ There is no ability for any customer or member of the public to access any
 virtual machines used in Managed Service for TimescaleDB.
 
 Managed Service for TimescaleDB services are periodically assessed and penetration
-tested for any security issues by an independent professional cyber security vendor.
+tested for any security issues by an independent professional cyber-security vendor.
 
 <!---
 The most
@@ -163,12 +163,11 @@ This link is currently timing out.
 
 Aiven is fully GDPR-compliant, and has executed data processing agreements
 (DPAs) with relevant cloud infrastructure providers. If you require a DPA, or if
-you want more information about information security policies, contact
-[Timescale Support][timescale-support].
+you want more information about information security policies,
+[contact Timescale][timescale-support].
 
 <!---
 [cloud-security-eval]: https://www.elfgroup.fi/ecc/1708-S6-71acd0046.pdf
 -->
 
-[mst-portal]: https://portal.managed.timescale.com
-[timescale-support]: https://www.timescale.com/support
+[timescale-support]: https://www.timescale.com/contact/

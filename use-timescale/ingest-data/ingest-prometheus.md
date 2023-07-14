@@ -2,7 +2,7 @@
 title: Prometheus
 excerpt: Use TimescaleDB to store your Prometheus metrics
 products: [cloud, mst, self_hosted]
-keywords: [ingest, Prometheus, Promscale]
+keywords: [ingest, Prometheus]
 tags: [insert]
 ---
 

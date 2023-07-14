@@ -1,5 +1,5 @@
 Time-series data represents how a system, process, or behavior changes over
-time. For example, if you are taking measurements from a temperature guage every
+time. For example, if you are taking measurements from a temperature gauge every
 five minutes, you are collecting time-series data. Another common example is
 stock price changes, or even the battery life of your smart phone. As these
 measurements change over time, each data point is recorded alongside its

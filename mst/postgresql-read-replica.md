@@ -1,6 +1,6 @@
 ---
 title: Create a read-only replica of PostgreSQL
-excerpt: Learn how to create and use a read-only replica for PostgreSQL service on Managed Service for TimescaleDB 
+excerpt: Learn how to create and use a read-only replica for PostgreSQL service on Managed Service for TimescaleDB
 products: [mst]
 ---
 
@@ -16,15 +16,16 @@ see the documentation on [creating a read replica using the CLI][read-replica-cl
 <Highlight type="note">
 If you are running a Managed Service for TimescaleDB
 [Pro plan](https://docs.timescale.com/mst/latest/about-mst/#service-configuration-plans),
-you have standby nodes available in a high availability setup. The standby nodes support
-read-only queries to reduce the effect of slow queries on the primary node.
+you have standby nodes available in a high availability setup. The standby nodes
+support read-only queries to reduce the effect of slow queries on the primary
+node.
 </Highlight>
 
 <Procedure>
 
 ## Creating a replica of PostgreSQL
 
-1.  In the [MST account][mst-login] `Services` view, click the PostgreSQL
+1.  Sign in to your Managed Service for TimescaleDB portal, and click the
     service for which you want to create a remote replica.
 
 1.  In the `Overview` tab, click `Create a read replica`.
@@ -71,5 +72,4 @@ delay of less than a second is expected for the change to propagate to the
 replica.
 </Highlight>
 
-[mst-login]: https://portal.managed.timescale.com
 [read-replica-cli]: /mst/:currentVersion:/aiven-client/replicas-cli

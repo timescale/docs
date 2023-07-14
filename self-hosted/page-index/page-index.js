@@ -55,14 +55,6 @@ module.exports = [
               "https://s3.amazonaws.com/assets.iobeam.com/images/docs/kubernetes-icon-color.svg",
             excerpt: "Install self-hosted TimescaleDB on Kubernetes",
           },
-          {
-            title: "Pre-built cloud images",
-            href: "installation-cloud-image",
-            iconSrc:
-              "https://s3.amazonaws.com/assets.iobeam.com/images/docs/aws_logo.svg",
-            excerpt:
-              "Install self-hosted TimescaleDB on Amazon with an Ubuntu AMI",
-          },
         ],
       },
       {
@@ -106,18 +98,6 @@ module.exports = [
         ],
       },
       {
-        title: "Compression",
-        href: "compression",
-        excerpt: "Compress hypertables manually or with a policy",
-        children: [
-          {
-            title: "Manual compression",
-            href: "manual-compression",
-            excerpt: "Compress hypertables manually",
-          }
-        ]
-      },
-      {
         title: "Backup and restore",
         href: "backup-and-restore",
         children: [
@@ -135,6 +115,32 @@ module.exports = [
             title: "Physical backups",
             href: "physical",
             excerpt: "Backing up and restoring with physical backups",
+          },
+        ],
+      },
+      {
+        title: "Migrate to self-hosted TimescaleDB",
+        href: "migration",
+        children: [
+          {
+            title: "Migrate entire database",
+            href: "entire-database",
+            excerpt: "Migrate an entire Timescale database to self-hosted Timescale in one go",
+          },
+          {
+            title: "Migrate schema then data",
+            href: "schema-then-data",
+            excerpt: "Migrate your Timescale data and schema to self-hosted TimescaleDB",
+          },
+          {
+            title: "Migrate tables from the same database",
+            href: "same-db",
+            excerpt: "Migrate data into a Timescale hypertable from a regular PostgreSQL table",
+          },
+          {
+            title: "Migrate data to Timescale from InfluxDB",
+            href: "migrate-influxdb",
+            excerpt: "Migrate data into Timescale using the Outflux tool",
           },
         ],
       },

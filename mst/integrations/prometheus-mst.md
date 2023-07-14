@@ -11,16 +11,18 @@ You can get more insights into the performance of your Managed Service for Times
 database by monitoring it using [Prometheus][get-prometheus], a popular
 open source metrics-based systems monitoring solution.
 
-## Before you begin
+## Prerequisites
 
-*   Create a [Managed Service for TimescaleDB][timescale-mst-get-started] instance.
-*   Make a note of the `Port`and `Host` of your Managed Service for TimescaleDB instance.
+Before you begin, make sure you have:
+
+*   Created a service in your Managed Service for TimescaleDB account.
+*   Made a note of the `Port`and `Host` for your service.
 
 <Procedure>
 
 ### Enabling Prometheus service integration
 
-1.  Log in to your [Managed Service for TimescaleDB account][mst-portal], and
+1.  Sign in to your Managed Service for TimescaleDB portal, and
     navigate to `Integration Endpoints`.
 1.  In the `Integration endpoints` page, navigate to `Prometheus`, and click
     `Create new`.
@@ -59,8 +61,8 @@ open source metrics-based systems monitoring solution.
      - url: "http://<HOST>:9201/read"
    ```
 
-1.  In the [Managed Service for TimescaleDB account][mst-portal], navigate to
-    `Services` and select the service you want to monitor.
+1.  In the Managed Service for TimescaleDB portal, navigate to `Services` and
+    select the service you want to monitor.
 1.  In the `Integrations` tab, go to `External integrations` section and select
     `Prometheus`.
 1.  In the `Prometheus integrations` dialog, select the Prometheus endpoint
@@ -72,15 +74,4 @@ open source metrics-based systems monitoring solution.
 
 </Procedure>
 
-### Next steps
-
-Next, [use Promscale][promscale] with Timescale, Grafana, and Prometheus to ingest
-and analyze Prometheus metrics from your Managed Service for TimescaleDB instance.
-
 [get-prometheus]: https://prometheus.io
-[node-exporter-metrics]: https://github.com/prometheus/node_exporter
-[pg-stats-metrics]: https://www.postgresql.org/docs/current/monitoring-stats.html
-[promscale]: https://github.com/timescale/timescale-prometheus
-[timescale-mst]: https://www.timescale.com/products
-[timescale-mst-get-started]: /mst/:currentVersion:/about-mst
-[mst-portal]: https://portal.managed.timescale.com

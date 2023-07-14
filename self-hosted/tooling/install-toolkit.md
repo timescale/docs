@@ -1,7 +1,7 @@
 ---
 title: Install and update TimescaleDB Toolkit
 excerpt: How to install TimescaleDB Toolkit to access more hyperfunctions and function pipelines
-products: [ mst, self_hosted]
+products: [mst, self_hosted]
 keywords: [Toolkit, installation, hyperfunctions, function pipelines]
 ---
 
@@ -11,7 +11,7 @@ Some hyperfunctions are included by default in Timescale. For additional
 hyperfunctions, you need to install the TimescaleDB Toolkit PostgreSQL
 extension.
 
-If you're using [Timescale Cloud][cloud], the Toolkit is already installed.
+If you're using [Timescale][cloud], the Toolkit is already installed.
 
 ## Install and update Toolkit on Managed Service for TimescaleDB
 
@@ -58,8 +58,9 @@ For more information on running TimescaleDB using Docker, see the section on
 
 ### Install Toolkit on CentOS 7 and other Red Hat-based systems
 
-These instructions use the `yum` package manager. They have been tested on CentOS 7
-and may also work on other Red Hat-based systems, such as Red Hat Enterprise Linux and Fedora.
+These instructions use the `yum` package manager. They have been tested on
+CentOS 7 and may also work on other Red Hat-based systems, such as Red Hat
+Enterprise Linux and Fedora.
 
 <Procedure>
 

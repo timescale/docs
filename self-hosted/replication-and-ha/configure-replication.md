@@ -5,10 +5,14 @@ products: [self_hosted]
 keywords: [replicas]
 ---
 
+import ConsiderCloud from "versionContent/_partials/_consider-cloud.mdx";
+
 # Configure replication
 
 This section outlines how to set up asynchronous streaming replication on one or
 more database replicas.
+
+<ConsiderCloud />
 
 Before you begin, make sure you have at least two separate instances of
 TimescaleDB running. If you installed TimescaleDB using a Docker container, use

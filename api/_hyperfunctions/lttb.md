@@ -41,7 +41,7 @@ api_details:
         description: >
           An object representing a series of values occurring at set intervals from a starting time.
           It can be unpacked with `unnest`.
-          For more information, see the documentation on [timevectors](/use-timescale/:currentVersion:/hyperfunctions/function-pipelines/#timevectors).
+          For more information, see the documentation on [timevectors](/use-timescale/latest/hyperfunctions/function-pipelines/#timevectors).
   examples:
     - description: >
         This example uses a table with raw data generated as a sine wave.

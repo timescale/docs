@@ -1,6 +1,6 @@
 ---
 title: Read scaling
-excerpt: Understand how read scaling works in Timescale Cloud
+excerpt: Understand how read scaling works in Timescale
 product: cloud
 keywords: [replicas, scaling]
 tags: [replicas, scaling, ha]
@@ -19,6 +19,15 @@ Queries on read replicas have minimal impact on the performance of the
 parent, or primary, service, making them ideal for creating isolated
 instances with up-to-date production data for analysis or scaling out
 reads.
+
+<Highlight type="important">
+Using a separate read replica for read-only access provides both security and
+resource isolation. This means that users with read-only permissions can't access the main
+database directly. If you need to restrict the access of a read-only user but do not
+want to isolate the resource, you can create a read-only role in your database
+instead. For more information, see the
+[security](/use-timescale/latest/security/read-only-role/) section.
+</Highlight>
 
 ## Analytics
 
@@ -62,7 +71,7 @@ represented, such as for user credentials.
 
 ### Creating a read replica
 
-1.  [Log in to your Timescale Cloud account][cloud-login] and click the service
+1.  [Log in to your Timescale account][cloud-login] and click the service
     you want to replicate.
 1.  Navigate to the `Operations` tab, and select `Read scaling`.
 1.  Click `Add read replica`. Select the configuration you want for your read

@@ -24,7 +24,7 @@ values.
 ### Time partitioning
 
 Each chunk of a hypertable only holds data from a specific time range. When you
-insert data from a time range that doesn't yet have a chunk, TimescaleDB
+insert data from a time range that doesn't yet have a chunk, Timescale
 automatically creates a chunk to store it.
 
 By default, each chunk covers 7 days. You can change this to better suit your
@@ -32,12 +32,12 @@ needs. For example, if you set `chunk_time_interval` to 1 day, each chunk stores
 data from the same day. Data from different days is stored in different chunks.
 
 <img class="main-content__illustration"
-src="https://s3.amazonaws.com/assets.timescale.com/docs/images/getting-started/hypertables-chunks.png"
+src="https://s3.amazonaws.com/assets.timescale.com/docs/images/getting-started/hypertables-chunks.webp"
 alt="A normal table compared to a hypertable. The normal table holds data for 3 different days in one container. The hypertable contains 3 containers, called chunks, each of which holds data for a separate day."
 />
 
 <Highlight type="note">
-TimescaleDB divides time into potential chunk ranges, based on the
+Timescale divides time into potential chunk ranges, based on the
 `chunk_time_interval`. If data exists for a potential chunk range, that chunk is
 created.
 
@@ -76,56 +76,20 @@ to view and set your chunk time intervals, see the section on
 ### Space partitioning
 
 Space partitioning is optional. It is not usually recommended for regular
-hypertables, except in very particular circumstances. It is recommended for
-distributed hypertables, to balance inserts between nodes. For more information,
-see the sections on
-[best practices for space partitioning][best-practices-space] and
-[distributed hypertables][about-distributed-hypertables].
+hypertables.
 
-When space partitioning is on, 2 dimensions are used to divide data into chunks:
-the time dimension and the space dimension. You can specify the number of
-partitions along the space dimension. Data is assigned to a partition by hashing
-its value on that dimension.
+A good alternative way to increase input/output performance on single
+hypertables is to use RAID (redundant array of inexpensive disks). RAID
+virtualizes multiple physical disks into a single logical disk. You can then use
+this single logical disk to store your hypertable, without any space
+partitioning.
 
-For example, say you use `device_id` as a space partitioning column. For each
-row, the value of the `device_id` column is hashed. Then the row is inserted
-into the correct partition for that hash value.
-
-<img class="main-content__illustration"
-src="https://s3.amazonaws.com/assets.timescale.com/docs/images/hypertable-time-space-partition.png"
-alt="A hypertable visualized as a rectangular plane carved into smaller rectangles, which are chunks. One dimension of the rectangular plane is time and the other is space. Data enters the hypertable and flows to a chunk based on its time and space values." />
-
-### Closed and open dimensions for space partitioning
-
-Space partitioning dimensions can be open or closed. A closed dimension has a
-fixed number of partitions, and usually uses some hashing to match values to
-partitions. An open dimension does not have a fixed number of partitions, and
-usually has each chunk cover a certain range. In most cases the time dimension
-is open and the space dimension is closed.
-
-If you use the `create_hypertable` command to create your hypertable, then the
-space dimension is open, and there is no way to adjust this. To create a
-hypertable with a closed space dimension, create the hypertable with only the
-time dimension first. Then use the `add_dimension` command to explicitly add an
-open device. If you set the range to `1`, each device has its own chunks. This
-can help you work around some limitations of normal space dimensions, and is
-especially useful if you want to make some chunks readily available for
-exclusion.
-
-### Best practices for space partitioning
-
-Space partitioning is not usually recommended for non-distributed hypertables.
-It's only useful if you have multiple physical disks, each corresponding to a
-separate tablespace. Each disk can then store some of the space partitions. If
-you partition by space without this setup, you increase query planning
-complexity without increasing I/O performance.
-
-<Highlight type="note">
-A more recommended way to increase input/output performance is to use RAID
-(redundant array of inexpensive disks). RAID virtualizes multiple physical disks
-into a single logical disk. You can then use this single logical disk to store
-your hypertable, without any space partitioning.
-</Highlight>
+Space partitioning is useful if you have multiple physical disks, each
+corresponding to a separate tablespace. Each disk can then store some of the
+space partitions. If you partition by space without this setup, you increase
+query planning complexity without increasing I/O performance. For more
+information, see the
+[distributed hypertables][about-distributed-hypertables] section.
 
 ## Hypertable indexes
 

@@ -9,10 +9,8 @@ keywords: [multi-node]
 
 <Highlight type="deprecation">
 This section describes a feature that is deprecated on Managed Service for
-TimescaleDB. If you want to use multi-node, you can use
-[Timescale Cloud](/use-timescale/latest/services), our hosted, cloud-native TimescaleDB service.
-You can also [self-host](/self-hosted/latest/install/) a TimescaleDB
-installation.
+TimescaleDB. If you want to use multi-node, you can
+[self-host](/self-hosted/latest/install/) a TimescaleDB installation.
 </Highlight>
 
 TimescaleDB 2.0 [introduces a number of new features][changes-in-tsdb2] to
@@ -20,7 +18,7 @@ supercharge time-series data even further. One of the most anticipated new
 features is what we call **multi-node** - the ability to create a cluster of
 TimescaleDB instances to scale both reads and writes.
 
-In this How To, we'll show you how to create a multi-node cluster in your
+This section shows you how to create a multi-node cluster in your
 Managed Service for TimescaleDB account with TimescaleDB 2.0 as a
 "do-it-yourself" (DIY) multi-node experience.
 
@@ -28,7 +26,7 @@ Managed Service for TimescaleDB account with TimescaleDB 2.0 as a
 
 Multi-node clusters consist of at least two or more TimescaleDB instances
 (called **Services** in Managed Service for TimescaleDB). Each cluster has one
-access node (AN) and one or more data nodes (DN). As outlined in our
+access node (AN) and one or more data nodes (DN). As outlined in these
 [architecture blog posts][distributed-architecture], the access node is intended
 to be the only TimescaleDB instance that you or your applications connect to
 once the cluster is set up. It becomes the "brains" and traffic controller of
@@ -85,7 +83,7 @@ Managed Service for TimescaleDB console.
 *   `pg.max_prepared_transactions` > 0 (150 is a recommended starting value)
 *   `enable_partitionwise_aggregate` should be set to `on` on the access node for good query performance. Otherwise, queries are not pushed down to the data nodes.
 
-<img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/cloud_images/timescale-cloud-adv-config.png" alt="Managed TimescaleDB advanced configuration"/>
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/timescale-cloud-adv-config.webp" alt="Managed TimescaleDB advanced configuration"/>
 
 ### Add data nodes to the cluster
 
@@ -119,7 +117,7 @@ For this step, you'll need to copy the `Host`, `Password`, and `Port` details
 listed under the `Connection Information` section of the Service details to use
 with the `add_data_node` command in the next section.
 
-<img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/cloud_images/timescale-cloud-connection-info.png" alt="Managed Service for TimescaleDB multi-node connection information"/>
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/timescale-cloud-connection-info.webp" alt="Managed Service for TimescaleDB multi-node connection information"/>
 
 When you have the `password` and `host` for each data node Service, connect to
 the access node using the `tsdbadmin` user. On Managed Service for TimescaleDB,
@@ -237,32 +235,17 @@ server:
 1.  There is no limitation on the number of distributed hypertables a user can
   create on the access node.
 1.  Finally, remember that once a Service is marked as an access node or data
-   node, it cannot be used as part of another TimescaleDB multi-node cluster.
+   node, it cannot be used as part of another multi-node cluster.
 
 ## Maintenance tasks
 
-A multi-node TimescaleDB setup requires regular maintenance; in particular,
-the distributed transaction log needs to be cleaned up and non-completed
-transactions should be "healed." Please refer to our standard
-[multi-node documentation][maintenance-tasks] for instructions on how to
-configure a user-defined action for this task.
-
-## Summary
-
-Now that you have a basic TimescaleDB multi-node cluster, consider using
-one of our [large sample datasets][sample-data] to create more distributed
-hypertables, or consider using your new cluster as a target for Prometheus data
-via [Promscale][promscale]. Whatever your time-series data needs, TimescaleDB
-multi-node opens up an entirely new level of opportunity for your time-series
-data.
-
-And as always, consider joining our vibrant community [Slack channel][slack] to
-ask questions and learn from Timescale staff and other community members.
+A multi-node setup requires regular maintenance; in particular, the distributed
+transaction log needs to be cleaned up and non-completed transactions should be
+"healed." Refer to the [multi-node documentation][maintenance-tasks] for
+instructions on how to configure a user-defined action for this task.
 
 [changes-in-tsdb2]: /about/:currentVersion:/release-notes/changes-in-timescaledb-2/
 [distributed-architecture]: https://blog.timescale.com/blog/building-a-distributed-time-series-database-on-postgresql/
 [maintenance-tasks]: /self-hosted/:currentVersion:/multinode-timescaledb/multinode-setup/
 [postgres-user-mapping]: https://www.postgresql.org/docs/current/view-pg-user-mappings.html
-[promscale]: https://github.com/timescale/promscale
-[sample-data]: /tutorials/:currentVersion:/sample-datasets/
 [slack]: https://slack.timescale.com/

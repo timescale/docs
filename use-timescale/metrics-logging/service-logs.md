@@ -1,11 +1,11 @@
 ---
 title: Service logs
-excerpt: View your Timescale Cloud service logs
+excerpt: View your Timescale service logs
 products: [cloud]
 keywords: [logs, services]
 cloud_ui:
     path:
-        - [services, :serviceID, logs]
+        - [services, :serviceId, logs]
 ---
 
 # Service logs
@@ -15,4 +15,4 @@ to the `Logs` tab. This section contains your service's logging data.
 
 <img class="main-content__illustration"
 src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-services-logs.png"
-alt="Timescale Cloud Services Logs"/>
+alt="Timescale Services Logs"/>

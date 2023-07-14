@@ -1,12 +1,12 @@
 ---
 title: Advanced parameters
-excerpt: Configure advanced parameters for your Timescale Cloud service
+excerpt: Configure advanced parameters for your Timescale service
 products: [cloud]
 keywords: [services, settings]
 tags: [configuration, schemas]
 cloud_ui:
     path:
-        - [services, :serviceID, operations, database_parameters]
+        - [services, :serviceId, operations, database_parameters]
 ---
 
 # Advanced parameters
@@ -17,13 +17,13 @@ configuration` heading.
 
 <img class="main-content__illustration"
 src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-settings-advanced.png"
-alt="View Timescale Cloud advanced configuration parameters"/>
+alt="View Timescale advanced configuration parameters"/>
 
 The advanced parameters are displayed in a scrollable and searchable list:
 
 <img class="main-content__illustration"
 src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-settings-search.png"
-alt="Search Timescale Cloud configuration parameters"/>
+alt="Search Timescale configuration parameters"/>
 
 As with the basic database configuration parameters, any changes are highlighted
 and the `Apply changes`, or `Apply changes and restart`, button is available,
@@ -31,8 +31,8 @@ prompting you to confirm changes before the service is modified.
 
 ## Multiple databases
 
-To create more than one Timescale Cloud database, you need to create a new
-service for each database. Timescale Cloud does not support multiple
+To create more than one Timescale database, you need to create a new
+service for each database. Timescale does not support multiple
 databases within the same service. Having a separate service for each database
 affords each database its own isolated resources.
 

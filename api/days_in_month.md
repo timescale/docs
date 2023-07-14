@@ -6,15 +6,15 @@ keywords: [hyperfunctions, Toolkit, normalization]
 api:
   license: community
   type: function
-  experimental: true
   toolkit: true
   version:
     experimental: 1.6.0
+    stable: 1.16.0
 hyperfunction:
   type: one-step operation
 ---
 
-# days_in_month() <Tag type="toolkit" content="Toolkit" /><Tag type="experimental" content="Experimental" />
+# days_in_month() <Tag type="toolkit" content="Toolkit" />
 
 Given a timestamptz, returns how many days are in that month.
 
@@ -29,7 +29,7 @@ Given a timestamptz, returns how many days are in that month.
 Calculate how many days in the month of January 1, 2022:
 
 ```sql
-SELECT toolkit_experimental.days_in_month('2021-01-01 00:00:00+03'::timestamptz)
+SELECT days_in_month('2021-01-01 00:00:00+03'::timestamptz)
 ```
 
 The output looks like this:

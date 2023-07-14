@@ -26,12 +26,6 @@ Before you start, make sure you have:
 *   Installed [Go][golang-install].
 *   Installed the [PGX driver for Go][pgx-driver-github].
 
-<Highlight type="cloud" header="Run all tutorials free" button="Try for free">
-Your Timescale Cloud trial is completely free for you to use for the first
-thirty days. This gives you enough time to complete all the tutorials and run
-a few test projects of your own.
-</Highlight>
-
 ## Connect to TimescaleDB
 
 In this section, you create a connection to TimescaleDB using the PGX driver.
@@ -67,7 +61,7 @@ You can use it to help your Go application interact directly with TimescaleDB.
     connStr := "postgres://username:password@host:port/dbname?sslmode=require"
     ```
 
-1.  <Optional />You can check that you're connected to your database with this
+1.  [](#)<Optional />You can check that you're connected to your database with this
     hello world program:
 
     ```go
@@ -84,7 +78,7 @@ You can use it to help your Go application interact directly with TimescaleDB.
     //connect to database using a single connection
     func main() {
         /***********************************************/
-        /* Single Connection to TimescaleDB/ PostresQL */
+        /* Single Connection to TimescaleDB/ PostgreSQL */
         /***********************************************/
         ctx := context.Background()
         connStr := "yourConnectionStringHere"
@@ -830,7 +824,7 @@ This section covers how to execute queries against your database.
     // use results here…
     ```
 
-1.  <Optional/>This example program runs a query, and accesses the results of
+1.  [](#)<Optional/>This example program runs a query, and accesses the results of
     that query:
 
     ```go

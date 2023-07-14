@@ -53,7 +53,7 @@ there is one other table of data called `crypto_assets`.
     );
     ```
 
-1.  You now have two tables within your TimescaleDB database. One hypertable
+1.  You now have two tables within your Timescale database. One hypertable
     named `crypto_ticks`, and one normal PostgreSQL table named `crypto_assets`.
 
 </Procedure>

@@ -1,7 +1,7 @@
 {
   "name": "timescale-docs",
   "version": "1.0.0",
-  "description": "Documentation for TimescaleDB, Timescale Cloud, and related Timescale products",
+  "description": "Documentation for Timescale and related products",
   "scripts": {
     "template:hyperfunction": "node ./.helper-scripts/mkdir-hyperfn.mjs"
   }

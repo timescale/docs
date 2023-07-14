@@ -5,7 +5,9 @@ products: [self_hosted]
 keywords: [upgrades]
 ---
 
-import PlanUpgrade from 'versionContent/_partials/_plan_upgrade.mdx';
+import PlanUpgrade from "versionContent/_partials/_plan_upgrade.mdx";
+import ExperimentalUpgrade from "versionContent/_partials/_experimental-schema-upgrade.mdx";
+import ConsiderCloud from "versionContent/_partials/_consider-cloud.mdx";
 
 # About upgrades
 
@@ -21,9 +23,20 @@ If you originally installed TimescaleDB using Docker, you can upgrade from
 within the Docker container. For more information, and instructions, see the
 [Upgrading with Docker section][upgrade-docker].
 
+<ExperimentalUpgrade />
+
+<ConsiderCloud />
+
 ## Plan your upgrade
 
 <PlanUpgrade />
+
+<Highlight type="note">
+If you use the Timescale Toolkit, ensure the `timescaledb_toolkit` extension is on
+version 1.6.0, then upgrade the `timescaledb` extension. If required, you
+can then later upgrade the `timescaledb_toolkit` extension to the most
+recent version.
+</Highlight>
 
 ## Check your version
 

@@ -19,26 +19,32 @@ In particular, many policies only apply to chunks of a certain age and a
 function that returns the current time is necessary to determine the age of a
 chunk.
 
-### Required arguments
+## Required arguments
 
 |Name|Type|Description|
-|---|---|---|
-| `main_table` | REGCLASS | Hypertable to set the integer now function for .|
-| `integer_now_func` | REGPROC | A function that returns the current time value in the same units as the time column. |
+|-|-|-|
+|`main_table`|REGCLASS|Hypertable to set the integer now function for|
+|`integer_now_func`|REGPROC|A function that returns the current time value in the same units as the time column|
 
-### Optional arguments
+## Optional arguments
 
 |Name|Type|Description|
-|---|---|---|
-| `replace_if_exists` | BOOLEAN | Whether to override the function if one is already set. Defaults to false.|
+|-|-|-|
+|`replace_if_exists`|BOOLEAN|Whether to override the function if one is already set. Defaults to false.|
 
-### Sample usage
+## Sample usage
 
 To set the integer now function for a hypertable with a time column in unix
 time (number of seconds since the unix epoch, UTC).
 
-```
-CREATE OR REPLACE FUNCTION unix_now() returns BIGINT LANGUAGE SQL STABLE as $$ SELECT extract(epoch from now())::BIGINT $$;
+<Highlight type="important">
+The `unix_now` function is not immutable by default, and this example could lead
+to incorrect query results if you are using it with prepared statements or plan
+caching.
+</Highlight>
+
+```sql
+CREATE OR REPLACE FUNCTION unix_now() returns BIGINT LANGUAGE SQL IMMUTABLE as $$ SELECT extract(epoch from now())::BIGINT $$;
 
 SELECT set_integer_now_func('test_table_bigint', 'unix_now');
 ```

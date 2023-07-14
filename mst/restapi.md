@@ -18,7 +18,7 @@ the token in the header to use the API endpoints.
 
 ## Creating an authentication token in Managed Service for TimescaleDB
 
-1.  Log in to your [Managed Service for TimescaleDB portal][mst-login].
+1.  Sign in to your Managed Service for TimescaleDB portal.
 1.  Click `User Information` in the top right corner.
 1.  In the `User Profile` page, navigate to the `Authentication`tab.
 1.  Click `Generate Token`.
@@ -68,5 +68,4 @@ the token in the header to use the API endpoints.
 
 </Procedure>
 
-[mst-login]: https://portal.managed.timescale.com
 [aiven-api]: https://api.aiven.io/doc/

@@ -5,12 +5,17 @@ products: [cloud, mst, self_hosted]
 keywords: [continuous aggregates]
 ---
 
-import CaggsFunctionSupport from 'versionContent/_partials/_caggs-function-support.mdx';
-import CaggsIntro from 'versionContent/_partials/_caggs-intro.mdx';
+import CaggsFunctionSupport from "versionContent/_partials/_caggs-function-support.mdx";
+import CaggsIntro from "versionContent/_partials/_caggs-intro.mdx";
+import CaggsTypes from "versionContent/_partials/_caggs-types.mdx";
 
 # About continuous aggregates
 
 <CaggsIntro />
+
+## Types of aggregation
+
+<CaggsTypes />
 
 ## Continuous aggregates on continuous aggregates
 
@@ -21,14 +26,102 @@ continuous aggregate on the hypertable to calculate hourly data. To calculate
 daily data, create a continuous aggregate on top of your hourly continuous
 aggregate.
 
-For more information, see the documentation about [continuous aggregates on
-continuous aggregates][caggs-on-caggs].
+For more information, see the documentation about
+[continuous aggregates on continuous aggregates][caggs-on-caggs].
+
+## Continuous aggregates with a `JOIN` clause
+
+In TimescaleDB 2.10.0 and later, continuous aggregates support JOINS, as long as they meet
+these conditions:
+
+*   Joins must be between one hypertable and one standard PostgreSQL table. The order of tables
+in the JOIN clause does not matter.
+
+*   Only changes to the hypertable are tracked, and are updated in the continuous aggregate
+when it is refreshed. Changes to the standard PostgreSQL table are not tracked.
+
+*   You must use an `INNER JOIN`, no other join type is supported.
+
+*   The `JOIN` conditions must be equality conditions, and there can only be ONE `JOIN` condition.
+Further conditions can be added in the `WHERE` clause as long as the `JOIN` condition is given
+in an `ON/USING` clause.
+
+*   You should use an `ON` or `USING` clauses to specify the `JOIN` condition because, if
+`JOIN` conditions are specified in the `WHERE` clause, no further conditions are allowed.
+
+*   The `USING` clause is only supported for PostgreSQL 13 and later.
+
+*   Joins on the materialized hypertable of a continuous aggregate are not supported.
+
+*   Hierarchical continuous aggregates can be created on top of a continuous aggregate with a `JOIN`
+clause, but cannot themselves have a `JOIN` clauses.
+
+This section includes some examples of `JOIN` conditions that work with continuous aggregates. For these
+to work, either `table_1` or `table_2` must be a hypertable. It does not matter which is
+the hypertable and which is a standard PostgreSQL table.
+
+`INNER JOIN` on a single equality condition, using the `ON` clause:
+
+```sql
+CREATE MATERIALIZED VIEW my_view WITH (timescaledb.continuous) AS
+SELECT ...
+FROM table_1 t1
+JOIN table_2 t2 ON t1.t2_id = t2.id
+GROUP BY ...
+```
+
+`INNER JOIN` on a single equality condition, using the `ON` clause, with a further
+condition added in the `WHERE` clause:
+
+```sql
+CREATE MATERIALIZED VIEW my_view WITH (timescaledb.continuous) AS
+SELECT ...
+FROM table_1 t1
+JOIN table_2 t2 ON t1.t2_id = t2.id
+WHERE t1.id IN (1, 2, 3, 4)
+GROUP BY ...
+```
+
+`INNER JOIN` on a single equality condition specified in `WHERE` clause, this is allowed but not recommended:
+
+```sql
+CREATE MATERIALIZED VIEW my_view WITH (timescaledb.continuous) AS
+SELECT ...
+FROM table_1 t1, table_2 t2
+WHERE t1.t2_id = t2.id
+GROUP BY ...
+```
+
+These are examples of `JOIN` conditions won't work with continuous aggregates:
+An `INNER JOIN` on multiple equality conditions is not allowed.
+
+```sql
+CREATE MATERIALIZED VIEW my_view WITH (timescaledb.continuous) AS
+SELECT ...
+FROM table_1 t1
+JOIN table_2 t2 ON t1.t2_id = t2.id AND t1.t2_id_2 = t2.id
+GROUP BY ...
+```
+
+A `JOIN` with a single equality condition specified in `WHERE` clause cannot be combined with further conditions in the `WHERE` clause.
+
+```sql
+CREATE MATERIALIZED VIEW my_view WITH (timescaledb.continuous) AS
+SELECT ...
+FROM table_1 t1, table_2 t2
+WHERE t1.t2_id = t2.id
+AND t1.id IN (1, 2, 3, 4)
+GROUP BY ...
+```
 
 ## Function support
 
 In TimescaleDB 2.7 and later, continuous aggregates support all PostgreSQL
 aggregate functions. This includes both parallelizable aggregates, such as `SUM`
 and `AVG`, and non-parallelizable aggregates, such as `RANK`.
+
+In TimescaleDB&nbsp;2.10.0 and later, the `FROM` clause supports `JOINS`, with
+some restrictions. For more information, see the [`JOIN` support section][caggs-joins].
 
 In older versions of Timescale, continuous aggregates only support
 [aggregate functions that can be parallelized by PostgreSQL][postgres-parallel-agg].
@@ -38,8 +131,9 @@ continuous aggregate, then
 
 <CaggsFunctionSupport />
 
-If you want the old behavior in TimescaleDB 2.7 and later, set the parameter
-`timescaledb.finalized` to `false` when creating your continuous aggregate.
+If you want the old behavior in later versions of TimescaleDB, set the
+`timescaledb.finalized` parameter to `false` when you create your continuous
+aggregate.
 
 ## Components of a continuous aggregate
 
@@ -98,7 +192,7 @@ partial sum is added up to a total sum, and each partial count is added up to a
 total count, then the average is computed as the total sum divided by the total
 count.
 
-### Invalidation Engine
+### Invalidation engine
 
 Any change to the data in a hypertable could potentially invalidate some
 materialized rows. The invalidation engine checks to ensure that the system does
@@ -158,3 +252,6 @@ For more information about setting up multi-node, see the
 [multi-node]: /self-hosted/:currentVersion:/multinode-timescaledb/
 [postgres-parallel-agg]: https://www.postgresql.org/docs/current/parallel-plans.html#PARALLEL-AGGREGATION
 [real-time-aggs]: /use-timescale/:currentVersion:/continuous-aggregates/hierarchical-continuous-aggregates/
+[pg-materialized views]: https://www.postgresql.org/docs/current/rules-materializedviews.html
+[real-time-aggs]: /use-timescale/:currentVersion:/continuous-aggregates/real-time-aggregates/
+[caggs-joins]: /use-timescale/:currentVersion:/continuous-aggregates/about-continuous-aggregates/#continuous-aggregates-with-a-join-clause

@@ -17,9 +17,6 @@ import CloudMSTComparison from "versionContent/_partials/_cloud-mst-comparison.m
 Your Managed Service for TimescaleDB account has three main components:
 projects, services, and databases.
 
-Before you begin, make sure you have
-[signed up to Managed Service for TimescaleDB][sign-up] and created your account.
-
 ## Projects
 
 When you sign up for Managed Service for TimescaleDB, an empty project is
@@ -30,7 +27,7 @@ groups of services. Each project can also have its own billing settings.
 To create a new project, click the project name in the navigation menu, and
 click `Create a new project`.
 
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/mst-empty-project.png" alt="Managed Service for TimescaleDB new empty project"/>
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/mst-empty-project.webp" alt="Managed Service for TimescaleDB new empty project"/>
 
 ## Services
 
@@ -41,7 +38,7 @@ can access all your services from the `Services` tab within your projects.
 For more information about getting your first service up and running, see the
 [Managed Service for Timescale installation section][mst-install].
 
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/mst-services.png" alt="Managed Service for TimescaleDB services list"/>
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/mst-services.webp" alt="Managed Service for TimescaleDB services list"/>
 
 <Highlight type="important">
 When you have created, and named, a new Managed Service for TimescaleDB service,
@@ -60,7 +57,7 @@ Each service can contain one or more databases. To view existing databases, or
 to create a new database, click the name of the service in the services list,
 and navigate to the `Databases` tab.
 
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/mst-databases.png" alt="Managed Service for TimescaleDB databases list"/>
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/mst-databases.webp" alt="Managed Service for TimescaleDB databases list"/>
 
 ## Service level agreement
 
@@ -112,7 +109,7 @@ Within each configuration plan option, there are several plan types available:
 *   `Dev-Only`: These configurations are typically smaller footprints, and lower
     cost, designed for development and testing scenarios.
 
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/mst-service-plans.png" alt="Managed Service for TimescaleDB selecting a service configuration plan"/>
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/mst-service-plans.webp" alt="Managed Service for TimescaleDB selecting a service configuration plan"/>
 
 ## High availability
 
@@ -206,10 +203,6 @@ run more slowly, and could run out of memory. Remain aware of how many open
 connections your have to your database at any given time.
 </Highlight>
 
-If you require a higher maximum number of connections, but cannot use connection
-pooling, contact the
-[Timescale support team][timescale-support].
-
 ## Service termination protection
 
 You can protect your services from accidentally being terminated, by enabling
@@ -282,7 +275,6 @@ SET statement_timeout = <milliseconds>
 
 [mst-install]: /mst/:currentVersion:/installation-mst/
 [sign-up]: https://www.timescale.com/cloud-signup
-[timescale-support]: https://www.timescale.com/support
 [aiven-sla]: https://aiven.io/sla
 [pg-keepalive]: http://www.postgresql.org/docs/9.5/static/libpq-connect.html#LIBPQ-KEEPALIVES
 [connection-pooling]: /mst/:currentVersion:/connection-pools/

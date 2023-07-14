@@ -2,7 +2,7 @@
 title: JDBC authentication type is not supported
 section: troubleshooting
 products: [cloud]
-topics: [connections]
+topics: [integrations/query admin]
 errors:
   - language: text
     message: |-
@@ -22,13 +22,13 @@ tags: [passwords, md5, scram, jdbc]
 * Copy this comment at the top of every troubleshooting page
 -->
 
-When connecting to Timescale Cloud with a Java Database Connectivity (JDBC)
+When connecting to Timescale with a Java Database Connectivity (JDBC)
 driver, you might get this error message.
 
-Your Timescale Cloud authentication type doesn't match your JDBC driver's
+Your Timescale authentication type doesn't match your JDBC driver's
 supported authentication types. The recommended approach is to upgrade your JDBC
 driver to a version that supports `scram-sha-256` encryption. If that isn't an
-option, you can change the authentication type for your Timescale Cloud service
+option, you can change the authentication type for your Timescale service
 to `md5`. Note that `md5` is less secure, and is provided solely for
 compatibility with older clients.
 

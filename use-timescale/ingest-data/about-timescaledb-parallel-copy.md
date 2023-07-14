@@ -27,9 +27,9 @@ possible.
 ## Before you begin
 
 *   Install [Go runtime][go-install] version 1.13 or later.
-*   Create a [TimescaleDB service][create-service] on Timescale Cloud.
-*   Gather the connection details for [TimescaleDB][connect-timescaledb].
-*   Create a [hypertable on the TimescaleDB][create-hypertable] database to
+*   Create a [Timescale service][create-service].
+*   Gather the connection details for [your service][connect-timescaledb].
+*   Create a [hypertable on the database][create-hypertable] to
     insert the data. Ensure that you use a schema that matches the data in your
     `.csv` file.
 
@@ -79,5 +79,5 @@ possible.
 [github-tscopy]: https://github.com/timescale/timescaledb-parallel-copy
 [go-install]: https://go.dev/doc/install
 [create-service]: /getting-started/latest/
-[connect-timescaledb]: /use-timescale/latest/connecting/about-connecting/
+[connect-timescaledb]: /use-timescale/latest/integrations/query-admin/about-connecting/
 [create-hypertable]: /use-timescale/latest/hypertables/create/

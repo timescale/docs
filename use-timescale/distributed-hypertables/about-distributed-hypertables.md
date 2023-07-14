@@ -31,16 +31,13 @@ on the data nodes. When you insert data or run a query, the access node
 communicates with the relevant data nodes and pushes down any processing if it
 can.
 
-## Space partitions for distributed hypertables
+## Space partitioning
 
 Distributed hypertables are always partitioned by time, just like standard
-hypertables. But unlike standard hypertables, distributed hypertables should also
-be partitioned by space. This allows you to balance inserts and queries between
-data nodes, similar to traditional sharding. Without space partitioning, all
-data in the same time range would write to the same chunk on a single node. For
-more information about space partitioning, see the
-[space partitioning][space-partitioning] and
-[multi-node][multi-node] sections.
+hypertables. But unlike standard hypertables, distributed hypertables should
+also be partitioned by space. This allows you to balance inserts and queries
+between data nodes, similar to traditional sharding. Without space partitioning,
+all data in the same time range would write to the same chunk on a single node.
 
 By default, Timescale creates as many space partitions as there are data
 nodes. You can change this number, but having too many space partitions degrades
@@ -50,6 +47,36 @@ balancing when mapping items to partitions.
 Data is assigned to space partitions by hashing. Each hash bucket in the space
 dimension corresponds to a data node. One data node may hold many buckets, but
 each bucket may belong to only one node for each time interval.
+
+When space partitioning is on, 2 dimensions are used to divide data into chunks:
+the time dimension and the space dimension. You can specify the number of
+partitions along the space dimension. Data is assigned to a partition by hashing
+its value on that dimension.
+
+For example, say you use `device_id` as a space partitioning column. For each
+row, the value of the `device_id` column is hashed. Then the row is inserted
+into the correct partition for that hash value.
+
+<img class="main-content__illustration"
+src="https://s3.amazonaws.com/assets.timescale.com/docs/images/hypertable-time-space-partition.webp"
+alt="A hypertable visualized as a rectangular plane carved into smaller rectangles, which are chunks. One dimension of the rectangular plane is time and the other is space. Data enters the hypertable and flows to a chunk based on its time and space values." />
+
+### Closed and open dimensions for space partitioning
+
+Space partitioning dimensions can be open or closed. A closed dimension has a
+fixed number of partitions, and usually uses some hashing to match values to
+partitions. An open dimension does not have a fixed number of partitions, and
+usually has each chunk cover a certain range. In most cases the time dimension
+is open and the space dimension is closed.
+
+If you use the `create_hypertable` command to create your hypertable, then the
+space dimension is open, and there is no way to adjust this. To create a
+hypertable with a closed space dimension, create the hypertable with only the
+time dimension first. Then use the `add_dimension` command to explicitly add an
+open device. If you set the range to `1`, each device has its own chunks. This
+can help you work around some limitations of regular space dimensions, and is
+especially useful if you want to make some chunks readily available for
+exclusion.
 
 ### Repartitioning distributed hypertables
 
@@ -61,7 +88,7 @@ was added during the third time interval. The fourth time interval now includes
 four chunks, while the previous time intervals still include three:
 
 <img class="main-content__illustration"
-src="https://s3.amazonaws.com/assets.timescale.com/docs/images/repartitioning.png"
+src="https://s3.amazonaws.com/assets.timescale.com/docs/images/repartitioning.webp"
 alt="Diagram showing repartitioning on a distributed hypertable"
 />
 

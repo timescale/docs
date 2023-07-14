@@ -10,100 +10,171 @@ module.exports = [
       {
         title: "Services",
         href: "services",
-        excerpt: "Timescale Cloud services",
+        excerpt: "Timescale services",
         children: [
-          {
-            title: "Create a Timescale service",
-            href: "create-a-service",
-            excerpt: "Timescale Cloud services",
-          },
-          {
-            title: "Create a PostgreSQL service",
-            href: "create-a-pg-service",
-            excerpt: "PostgreSQL services",
-          },
           {
             title: "Service overview",
             href: "service-overview",
-            excerpt: "Timescale Cloud services overview",
+            excerpt: "Timescale services overview",
           },
           {
-            title: "Clouds and regions",
-            href: "regions",
-            excerpt: "Timescale Cloud AWS regions",
+            title: "Create a Timescale service",
+            href: "create-a-service",
+            excerpt: "Timescale services",
           },
           {
             title: "Service explorer",
             href: "service-explorer",
-            excerpt: "Timescale Cloud services explorer",
-          },
-          {
-            title: "Resources",
-            href: "resources",
-            excerpt: "Timescale Cloud services operations, Resources tab",
-          },
-          {
-            title: "Autoscale",
-            href: "autoscaling",
-            excerpt: "Timescale Cloud services operations, Autoscaling tab",
-          },
-          {
-            title: "Maintenance",
-            href: "maintenance",
-            excerpt: "Timescale Cloud services operations, Maintenance tab",
+            excerpt: "Timescale services explorer",
           },
           {
             title: "Service management",
             href: "service-management",
             excerpt:
-              "Timescale Cloud services operations, Service management tab",
+              "Timescale services operations, Service management tab",
           },
           {
-            title: "PostgreSQL extensions",
-            href: "postgresql-extensions",
-            excerpt: "Timescale Cloud PostgreSQL extensions",
+            title: "Troubleshooting Timescale services",
+            href: "troubleshooting",
+            type: "placeholder",
           },
         ],
       },
       {
-        title: "Connecting to Timescale",
-        href: "connecting",
-        excerpt: "Connect to Timescale",
+        title: "Clouds and regions",
+        href: "regions",
+        excerpt: "Timescale AWS regions",
+      },
+      {
+        title: "Resources",
+        href: "resources",
+        excerpt: "Using and changing resources in Timescale",
         children: [
           {
-            title: "About connecting to Timescale",
-            href: "about-connecting",
-            excerpt: "Learn about connecting to Timescale",
+            title: "Manually change resources",
+            href: "change-resources",
+            excerpt: "Manually adjust your service resources",
+          },
+        ]
+      },
+      {
+        title: "PostgreSQL extensions",
+        href: "extensions",
+        excerpt: "Timescale PostgreSQL extensions",
+        children: [
+          {
+            title: "pgvector extension",
+            href: "pgvector",
+            excerpt: "Using the pgvector PostgreSQL extension",
           },
           {
-            title: "About psql",
-            href: "about-psql",
-            excerpt: "Learn about using psql to connect to Timescale",
+            title: "pgcrypto extension",
+            href: "pgcrypto",
+            excerpt: "Using the pgcrypto PostgreSQL extension",
           },
           {
-            title: "Install psql",
-            href: "psql",
-            excerpt: "Install psql to connect to Timescale",
+            title: "postgis extension",
+            href: "postgis",
+            excerpt: "Using the postgis PostgreSQL extension",
+          },
+        ]
+      },
+      {
+        title: "Timescale integrations",
+        href: "integrations",
+        excerpt: "Integrate your Timescale database with third-party solutions",
+        children: [
+          {
+            title: "Query and administration",
+            href: "query-admin",
+            excerpt: "Integrate your Timescale database with third-party query and administration solutions",
+            children:
+              [
+                {
+                  title: "About connecting to Timescale",
+                  href: "about-connecting",
+                  excerpt: "Learn about using connecting to your Timescale database",
+                },
+                {
+                  title: "About psql",
+                  href: "about-psql",
+                  excerpt: "Learn about using psql to connect to Timescale",
+                },
+                {
+                  title: "Install psql",
+                  href: "psql",
+                  excerpt: "Install psql to connect to Timescale",
+                },
+                {
+                  title: "Connect using Azure Data Studio",
+                  href: "azure-data-studio",
+                  excerpt: "Install Azure Data Studio to connect to Timescale",
+                },
+                {
+                  title: "Connect using DBeaver",
+                  href: "dbeaver",
+                  excerpt: "Install DBeaver to connect to Timescale",
+                },
+                {
+                  title: "Connect using pgAdmin",
+                  href: "pgadmin",
+                  excerpt: "Install pgAdmin to connect to Timescale",
+                },
+                {
+                  title: "Troubleshooting Timescale connections",
+                  href: "troubleshooting",
+                  type: "placeholder",
+                },
+              ]
           },
           {
-            title: "Connect using Azure Data Studio",
-            href: "azure-data-studio",
-            excerpt: "Install Azure Data Studio to connect to Timescale",
+            title: "Observability and alerting",
+            href: "observability-alerting",
+            excerpt: "Integrate your Timescale database with third-party observability and alerting solutions",
+            children:
+              [
+                {
+                  title: "Grafana",
+                  href: "grafana",
+                  excerpt: "Use Grafana with Timescale",
+                  children:
+                    [
+                      {
+                        title: "Installing Grafana",
+                        href: "installation",
+                        excerpt: "Installing Grafana and connecting it to your Timescale service"
+                      },
+                      {
+                        title: "Create a Grafana dashboard and panel",
+                        href: "create-dashboard-and-panel",
+                        excerpt: "Create a Grafana dashboard and panel to display your Timescale data",
+                      },
+                      {
+                        title: "Use Grafana to visualize geospatial data",
+                        href: "geospatial-dashboards",
+                        excerpt: "Use Grafana to visualize geospatial data in Timescale",
+                      },
+                    ]
+                },
+                {
+                  title: "Tableau",
+                  href: "tableau",
+                  excerpt: "Use Tableau with Timescale",
+                },
+              ]
           },
           {
-            title: "Connect using DBeaver",
-            href: "dbeaver",
-            excerpt: "Install DBeaver to connect to Timescale",
-          },
-          {
-            title: "Install pgAdmin",
-            href: "pgadmin",
-            excerpt: "Install pgAdmin to connect to Timescale",
-          },
-          {
-            title: "Troubleshooting Timescale connections",
-            href: "troubleshooting",
-            type: "placeholder",
+            title: "Data ingestion",
+            href: "data-ingest",
+            excerpt: "Integrate your Timescale database with third-party data and ingestion solutions",
+            children:
+              [
+                {
+                  title: "Telegraf",
+                  href: "telegraf",
+                  excerpt: "Use Telegraf with Timescale",
+                },
+              ]
           },
         ],
       },
@@ -252,39 +323,6 @@ module.exports = [
         ],
       },
       {
-        title: "Data migration",
-        href: "migrate-data",
-        excerpt: "Migrate your data into Timescale",
-        children: [
-          {
-            title: "Migrate from the same database",
-            href: "same-db",
-            excerpt: "Migrate data from the same PostgreSQL database",
-          },
-          {
-            title: "Migrate from a different database",
-            href: "different-db",
-            excerpt: "Migrate data from a different PostgreSQL database",
-          },
-          {
-            title: "Import from CSV",
-            href: "import-csv",
-            excerpt: "Migrate data from a .csv file",
-          },
-          {
-            title: "Migrate InfluxDB data",
-            href: "migrate-influxdb",
-            excerpt: "Migrate data from an existing InfluxDB database",
-          },
-          {
-            title: "Troubleshoot data migration",
-            href: "troubleshooting",
-            type: "placeholder",
-            excerpt: "Troubleshoot problems that occur during data migration",
-          },
-        ],
-      },
-      {
         title: "Ingest data from other sources",
         href: "ingest-data",
         children: [
@@ -304,45 +342,40 @@ module.exports = [
             excerpt: "Ingest data into Timescale from Kafka",
           },
           {
-            title: "Ingesting data with Telegraf",
-            href: "ingest-telegraf",
-            excerpt: "Ingest data into Timescale from Telegraf",
-          },
-          {
             title: "Ingesting data with Timescale parallel copy",
             href: "about-timescaledb-parallel-copy",
             excerpt:
               "Quickly insert bulk data by parallelizing `COPY` operations",
           },
+          {
+            title: "Ingesting data from a .csv file",
+            href: "import-csv",
+            excerpt:
+              "Import data into your Timescale instance from an external .csv file",
+          },
         ],
       },
       {
-        title: "Database migration",
-        href: "migrate-db",
-        excerpt: "Migrate your existing database to a Timescale database",
+        title: "Migration",
+        href: "migration",
+        excerpt: "Migrate your existing PostgreSQL database to Timescale",
         children: [
           {
+            title: "About Hypershift",
+            href: "about-hypershift",
+            excerpt:
+              "About using the Hypershift tool to migrate an existing PostgreSQL database to Timescale in a single step",
+          },
+          {
             title: "Migrate with Hypershift",
-            href: "hypershift",
+            href: "migrate-hypershift",
             excerpt:
-              "Migrate an existing PostgreSQL database to Timescale Cloud in a single step with Hypershift",
+              "Migrate an existing PostgreSQL database to Timescale",
           },
           {
-            title: "Migrate the entire database at once",
-            href: "entire-database",
-            excerpt: "Migrate an entire Timescale database to Timescale Cloud",
-          },
-          {
-            title: "Migrate schema and data separately",
-            href: "schema-then-data",
-            excerpt: "Migrate a Timescale database schema to Timescale Cloud ",
-          },
-          {
-            title: "Troubleshoot database migration",
-            href: "troubleshooting",
-            type: "placeholder",
-            excerpt:
-              "Troubleshoot problems that occur during database migration",
+            title: "Hypershift configuration",
+            href: "hypershift-config",
+            excerpt: "About creating a Hypershift configuration file",
           },
         ],
       },
@@ -389,13 +422,13 @@ module.exports = [
           {
             title: "Customize configuration",
             href: "customize-configuration",
-            excerpt: "Customize your Timescale Cloud database configuration",
+            excerpt: "Customize your Timescale database configuration",
           },
           {
             title: "Advanced parameters",
             href: "advanced-parameters",
             excerpt:
-              "Configure advanced database parameters for your Timescale Cloud service",
+              "Configure advanced database parameters for your Timescale service",
           },
           {
             title: "Troubleshooting",
@@ -459,14 +492,24 @@ module.exports = [
         href: "compression",
         children: [
           {
-            title: "Manually compress chunks",
-            href: "manually-compress-chunks",
-            excerpt: "Manually compress data chunks",
+            title: "About compression",
+            href: "about-compression",
+            excerpt: "Compress data chunks",
+          },
+          {
+            title: "Manual compression",
+            href: "manual-compression",
+            excerpt: "Compress data chunks",
+          },
+          {
+            title: "Modify compressed data",
+            href: "modify-compressed-data",
+            excerpt: "Insert and modify data in compressed chunks",
           },
           {
             title: "Decompress chunks",
             href: "decompress-chunks",
-            excerpt: "Manually decompress data chunks",
+            excerpt: "Decompress data chunks",
           },
           {
             title: "Backfill historical data",
@@ -588,17 +631,17 @@ module.exports = [
       {
         title: "High availability and replication",
         href: "ha-replicas",
-        excerpt: "Timescale Cloud high availability and replicas",
+        excerpt: "Timescale high availability and replicas",
         children: [
           {
             title: "High availability",
             href: "high-availability",
-            excerpt: "Set up HA replicas on Timescale Cloud for high availability",
+            excerpt: "Set up HA replicas on Timescale for high availability",
           },
           {
             title: "Read scaling",
             href: "read-scaling",
-            excerpt: "Understand how read scaling works in Timescale Cloud",
+            excerpt: "Understand how read scaling works in Timescale",
           },
         ],
       },
@@ -662,32 +705,32 @@ module.exports = [
       {
         title: "VPC",
         href: "vpc",
-        excerpt: "Timescale Cloud services operations, VPC tab",
+        excerpt: "Timescale services operations, VPC tab",
       },
       {
         title: "Backup and restore",
         href: "backup-restore-cloud",
-        excerpt: "Timescale Cloud backup and restore",
+        excerpt: "Timescale backup and restore",
       },
       {
         title: "Billing and account management",
         href: "account-management",
-        excerpt: "Timescale Cloud account management",
+        excerpt: "Timescale account management",
       },
       {
         title: "Metrics and logging",
         href: "metrics-logging",
-        excerpt: "Timescale Cloud metrics and logging",
+        excerpt: "Timescale metrics and logging",
         children: [
           {
             title: "Service metrics",
             href: "service-metrics",
-            excerpt: "Timescale Cloud services metrics",
+            excerpt: "Timescale services metrics",
           },
           {
             title: "Service logs",
             href: "service-logs",
-            excerpt: "Timescale Cloud services logs",
+            excerpt: "Timescale services logs",
           },
           {
             title: "Export to a monitoring service",
@@ -700,14 +743,19 @@ module.exports = [
       {
         title: "User Management",
         href: "members",
-        excerpt: "Timescale Cloud user management",
+        excerpt: "Timescale user management",
         children: [
           {
             title: "Members list",
             href: "members-list",
-            excerpt: "Timescale Cloud members list",
+            excerpt: "Timescale members list",
           },
         ],
+      },
+      {
+        title: "Upgrades",
+        href: "upgrades",
+        excerpt: "Keeping your service up-to-date",
       },
       {
         title: "Hyperfunctions",
@@ -833,11 +881,6 @@ module.exports = [
         ],
       },
       {
-        title: "Multi-node",
-        href: "cloud-multi-node",
-        excerpt: "Timescale Cloud Multi-node",
-      },
-      {
         title: "Data tiering",
         href: "data-tiering",
         excerpt: "Tier older data to save storage costs",
@@ -851,40 +894,45 @@ module.exports = [
           {
             title: "Tier data",
             href: "tier-data-object-storage",
-            excerpt: "How to tier Timescale Cloud data to object storage",
+            excerpt: "How to tier Timescale data to object storage",
           },
           {
             title: "Untier data",
             href: "untier-data",
-            excerpt: "How to untier Timescale Cloud data",
+            excerpt: "How to untier Timescale data",
           },
         ],
       },
       {
         title: "Security",
         href: "security",
-        excerpt: "Learn how your Timescale Cloud instance is secured",
+        excerpt: "Learn how your Timescale instance is secured",
         children: [
           {
             title: "Security overview",
             href: "overview",
-            excerpt: "Get an overview of Timescale Cloud security",
+            excerpt: "Get an overview of Timescale security",
           },
           {
             title: "Multi-factor Authentication",
             href: "multi-factor-authentication",
-            excerpt: "Multi-factor authentication for your Timescale Cloud account",
+            excerpt: "Multi-factor authentication for your Timescale account",
           },
           {
             title: "Client credentials",
             href: "client-credentials",
-            excerpt: "Client credentials to programmatically access your Timescale Cloud account",
+            excerpt: "Client credentials to programmatically access your Timescale account",
+          },
+          {
+            title: "Read only role",
+            href: "read-only-role",
+            excerpt: "Create a read-only role to access your database",
           },
           {
             title: "Connect with a stricter SSL mode",
             href: "strict-ssl",
             excerpt:
-              "Connect to Timescale Cloud with a stricter SSL mode of verify-ca or verify-full",
+              "Connect to Timescale with a stricter SSL mode of verify-ca or verify-full",
           },
         ],
       },

@@ -28,12 +28,6 @@ Before you start, make sure you have:
     [psycopg2 documentation][psycopg2-docs].
 *   [](#)<Optional />A [Python virtual environment][virtual-env].
 
-<Highlight type="cloud" header="Run all tutorials free" button="Try for free">
-Your Timescale Cloud trial is completely free for you to use for the first
-thirty days. This gives you enough time to complete all the tutorials and run
-a few test projects of your own.
-</Highlight>
-
 ## Connect to TimescaleDB
 
 In this section, you create a connection to TimescaleDB using the `psycopg2`
@@ -236,7 +230,7 @@ section, you can use `psycopg2` with prepared statements, or you can use
     conn.commit()
     ```
 
-1.  <Optional />Alternatively, you can pass variables to the `cursor.execute`
+1.  [](#)<Optional />Alternatively, you can pass variables to the `cursor.execute`
     function and separate the formulation of the SQL statement, `SQL`, from the
     data being passed with it into the prepared statement, `data`:
 
@@ -313,7 +307,7 @@ from pgcopy import CopyManager
     conn.commit()
     ```
 
-1.  <Optional/>The full sample code to insert data into TimescaleDB using
+1.  [](#)<Optional/>The full sample code to insert data into TimescaleDB using
     `pgcopy`, using the example of sensor data from four sensors:
 
     ```python
@@ -345,7 +339,7 @@ from pgcopy import CopyManager
         conn.commit()
     ```
 
-1.  <Optional />You can also check if the insertion worked:
+1.  [](#)<Optional />You can also check if the insertion worked:
 
     ```python
     cursor.execute("SELECT * FROM sensor_data LIMIT 5;")
@@ -405,7 +399,7 @@ see the [psycopg2 documentation][psycopg2-docs-basics].
     cursor.close()
     ```
 
-1.  <Optional />If you want a list of dictionaries instead, you can define the
+1.  [](#)<Optional />If you want a list of dictionaries instead, you can define the
     cursor using [`DictCursor`][dictcursor-docs]:
 
     ```python
@@ -449,24 +443,9 @@ executed safely against the database.
 
 </Procedure>
 
-## Next steps
-
-Now that you're able to connect, read, and write to a TimescaleDB instance from
-your Python application, and generate the scaffolding necessary to build a new
-application from an existing TimescaleDB instance, be sure to check out these
-advanced TimescaleDB tutorials:
-
-*   [Time Series Forecasting using TimescaleDB, R, Apache MADlib and Python][time-series-forecasting]
-*   [Continuous Aggregates][continuous-aggregates]
-*   [Try Other Sample Datasets][other-samples]
-*   [Migrate Your own Data][migrate]
-
 [install]: /getting-started/latest/
-[continuous-aggregates]: /use-timescale/:currentVersion:/continuous-aggregates/
 [create-hypertable-docs]: /api/:currentVersion:/hypertable/create_hypertable
 [dictcursor-docs]: https://www.psycopg.org/docs/extras.html#dictionary-like-cursor
-[migrate]: /use-timescale/:currentVersion:/migrate-data/
-[other-samples]: /tutorials/:currentVersion:/sample-datasets/
 [pg-libpq-string]: https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING
 [pgcopy-install]: https://pypi.org/project/pgcopy/
 [psycopg2-connect]: https://www.psycopg.org/docs/module.html?highlight=connect#psycopg2.connect
@@ -474,7 +453,6 @@ advanced TimescaleDB tutorials:
 [psycopg2-docs-basics]: https://www.psycopg.org/docs/usage.html
 [psycopg2-docs]: https://pypi.org/project/psycopg2/
 [results-retrieval-methods]:https://www.psycopg.org/docs/cursor.html
-[time-series-forecasting]: /tutorials/:currentVersion:/time-series-forecast/
 [virtual-env]: https://docs.python.org/3/library/venv.html
 [connect]: #connect-to-timescaledb
 [create-table]: #create-a-relational-table

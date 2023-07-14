@@ -9,7 +9,7 @@ keywords: [time buckets]
 
 The [`time_bucket`][time_bucket] function allows you to aggregate data into
 buckets of time, for example: 5 minutes, 1 hour, or 3 days. It's similar to
-PostgreSQL's [`date_trunc`][date_trunc] function, but it gives you more
+PostgreSQL's [`date_bin`][date_bin] function, but it gives you more
 flexibility in bucket size and start time.
 
 Time bucketing is essential to working with time-series data. You can use it to
@@ -32,7 +32,7 @@ aggregate data. For example, you can calculate the average, maximum, minimum, or
 sum of values within a bucket.
 
 <img class="main-content__illustration"
-    src="https://s3.amazonaws.com/assets.timescale.com/docs/images/getting-started/time-bucket.jpg"
+    src="https://s3.amazonaws.com/assets.timescale.com/docs/images/getting-started/time-bucket.webp"
     alt="Diagram showing time-bucket aggregating data into daily buckets, and calculating the daily sum of a value"
 />
 
@@ -53,7 +53,7 @@ exactly on a possible start date, the immediately preceding start date is used
 for the beginning of the bucket.
 
 <img
-  src="https://s3.amazonaws.com/assets.timescale.com/docs/images/time-bucket-origin.jpg"
+  src="https://s3.amazonaws.com/assets.timescale.com/docs/images/time-bucket-origin.webp"
   class="main-content__illustration"
   alt="Diagram showing how time buckets are calculated from the origin"
 />
@@ -95,7 +95,7 @@ If you use `TIMESTAMPTZ`, by default, bucket start times are aligned with
 parameter.
 
 [caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
-[date_trunc]: https://www.postgresql.org/docs/current/functions-datetime.html#FUNCTIONS-DATETIME-TRUNC
+[date_bin]: https://www.postgresql.org/docs/current/functions-datetime.html#FUNCTIONS-DATETIME-BIN
 [origin]: /api/:currentVersion:/hyperfunctions/time_bucket/#optional-arguments-for-interval-time-inputs
 [time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
 [use-time-buckets]: /use-timescale/:currentVersion:/time-buckets/use-time-buckets/

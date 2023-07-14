@@ -19,7 +19,7 @@ find the service you want to review, and check it is marked as `Running`.
 Navigate to the `Logs` tab to see a constantly updated list of logged events.
 
 <img class="main-content__illustration"
-src="https://s3.amazonaws.com/assets.timescale.com/docs/images/mst-view-logs.png"
+src="https://s3.amazonaws.com/assets.timescale.com/docs/images/mst-view-logs.webp"
 alt="Managed Service for TimescaleDB native logging"/>
 
 ## Dump logs to a text file with the Aiven CLI
@@ -27,7 +27,7 @@ alt="Managed Service for TimescaleDB native logging"/>
 If you want to dump your Managed Service for TimescaleDB logs to a text file or
 an archive for use later on, you can use the Aiven CLI.
 
-Log in to your Managed Service for TimescaleDB account from the Aiven CLI tool,
+Sign in to your Managed Service for TimescaleDB account from the Aiven CLI tool,
 and use this command to dump your logs to a text file called `tslogs.txt`:
 
 ```bash
@@ -56,7 +56,7 @@ Service for TimescaleDB.
     `Customer Tokens` from the top menu bar.
 1.  On the `Customer Tokens` page, click `Add New` to create a new token. Give your
     token a name, and click `Save`. Copy your new token to your clipboard.
-1.  Log in to your [Managed Service for TimescaleDB account][mst-portal], and navigate
+1.  Log in to your Managed Service for TimescaleDB account, and navigate
     to `Service Integrations`.
 1.  In the `Service Integrations` page, navigate to `Syslog`, and click
     `Add new endpoint`.
@@ -79,11 +79,10 @@ Service for TimescaleDB.
     From here, you can create custom dashboards and view reports for your logs.
 
     <img class="main-content__illustration"
-      src="https://s3.amazonaws.com/assets.timescale.com/docs/images/loggly-view-logs.png" alt="Viewing incoming MST logs in Loggly"
+      src="https://s3.amazonaws.com/assets.timescale.com/docs/images/loggly-view-logs.webp" alt="Viewing incoming MST logs in Loggly"
     />
 
 </Procedure>
 
 [loggly-site]: https://www.loggly.com/
-[mst-portal]: https://portal.managed.timescale.com
 [aiven-cli]: /mst/:currentVersion:/aiven-client/aiven-client-install/
