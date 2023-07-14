@@ -162,7 +162,11 @@ candidates, and are eventually compressed when they become old enough according
 to the compression policy.
 
 <img
+<<<<<<< HEAD:use-timescale/compression/about-compression.md
 class="main-content__illustration" src="<https://assets.timescale.com/images/diagrams/compression_diagram.png"alt="Compression>>
+=======
+class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/compression_diagram.webp"alt="Compression>
+>>>>>>> 375040ef14bda3a2bd80aa64e1a3a498905b1c66:self-hosted/compression/index.md
 timeline"/>
 
 ## Segment by columns

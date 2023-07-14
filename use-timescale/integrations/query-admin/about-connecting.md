@@ -64,7 +64,7 @@ alt="View Timescale connection info"
 
 <img
 class="main-content__illustration"
-src="https://s3.amazonaws.com/assets.timescale.com/docs/images/mst-connection-info.png"
+src="https://s3.amazonaws.com/assets.timescale.com/docs/images/mst-connection-info.webp"
 alt="View Managed Service for TimescaleDB connection info"
 />
 

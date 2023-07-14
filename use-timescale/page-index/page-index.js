@@ -116,7 +116,7 @@ module.exports = [
                   excerpt: "Install DBeaver to connect to Timescale",
                 },
                 {
-                  title: "Install pgAdmin",
+                  title: "Connect using pgAdmin",
                   href: "pgadmin",
                   excerpt: "Install pgAdmin to connect to Timescale",
                 },

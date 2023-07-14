@@ -120,7 +120,7 @@ services.
 1.  Check that the new allowed addresses are shown correctly in the
     `Allowed IP addresses` section.
 
-   <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/mst-allowed-incomingip.png" alt="Add a new allowed incoming IP address for Managed Service for TimescaleDB services"/>
+   <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/mst-allowed-incomingip.webp" alt="Add a new allowed incoming IP address for Managed Service for TimescaleDB services"/>
 
 </Procedure>
 
