@@ -56,7 +56,7 @@ dataset and run queries locally.
     information, and to make changes.
 
 <img class="main-content__illustration"
-src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-running-service-multinode.png"
+src="https://assets.timescale.com/docs/images/tsc-running-service-multinode.png"
 alt="Timescale running multi-node service"/>
 
 </Procedure>

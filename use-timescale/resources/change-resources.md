@@ -38,7 +38,7 @@ plan for this before you begin!
 1.  Review the new allocations and costs in the comparison chart.
 1.  Click `Apply` to save your changes. If you have changed the CPU and memory
     allocation, your service goes down briefly while the changes are applied.
-    <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-resources-changed-apply.png" alt="Configure resource allocations"/>
+    <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tsc-resources-changed-apply.png" alt="Configure resource allocations"/>
 
 </Procedure>
 

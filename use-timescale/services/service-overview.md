@@ -18,7 +18,7 @@ an overview of the configuration and resource usage for the service.
 
 <img
 class="main-content__illustration"
-src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-services-overview.webp"
+src="https://assets.timescale.com/docs/images/tsc-services-overview.webp"
 width={1375} height={944}
 alt="Timescale Services Overview"
 />
