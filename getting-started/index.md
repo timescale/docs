@@ -12,7 +12,6 @@ import Connect from "versionContent/_partials/_cloud-connect.mdx";
 import CloudIntro from "versionContent/_partials/_cloud-intro.mdx";
 import TimescaleIntro from "versionContent/_partials/_timescale-intro.mdx";
 import WhereNext from "versionContent/_partials/_where-to-next.mdx";
-import CloudTrial from "versionContent/_partials/_cloudtrial.mdx";
 
 # Get started with Timescale
 
@@ -24,8 +23,6 @@ some sample data to your database, helps you construct some queries, and start
 using useful functions like continuous aggregates.
 
 <CloudIntro />
-
-<CloudTrial />
 
 Completing this tutorial should take you less than half an hour. When you have
 finished this one, you might want to check out some

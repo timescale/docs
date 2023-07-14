@@ -22,7 +22,7 @@ up to connect to your TimescaleDB database.
     graph to the dashboard.
 
     <img class="main-content__illustration"
-        src="https://s3.amazonaws.com/assets.timescale.com/docs/images/Grafana_candlestick_1day.png"
+        src="https://assets.timescale.com/docs/images/Grafana_candlestick_1day.webp"
         alt="Creating a candlestick graph in Grafana using 1-day OHLCV tick data"
     />
 

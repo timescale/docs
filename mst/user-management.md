@@ -86,7 +86,7 @@ Your service must be running before you can manage users.
     clicking the eye icon. Use the options in the list to change the replication
     setting and password, or delete the user.
 
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/mst-serviceuser.png" alt="Add a new MST service user"/>
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/mst-serviceuser.webp" alt="Add a new MST service user"/>
 
 </Procedure>
 

@@ -28,12 +28,6 @@ Before you start, make sure you have:
 *   Installed [Rails][rails-guide].
 *   Installed [psql to connect][psql-install] to TimescaleDB.
 
-<Highlight type="cloud" header="Run all tutorials free" button="Try for free">
-Your Timescale trial is completely free for you to use for the first
-thirty days. This gives you enough time to complete all the tutorials and run
-a few test projects of your own.
-</Highlight>
-
 ## Connect to TimescaleDB
 
 In this section, you create a connection to TimescaleDB Cloud through the Ruby
