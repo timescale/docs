@@ -48,7 +48,7 @@ distribute data across chunks in both time and space dimensions. The
 figure in this section shows how an access node (AN) partitions data in the same
 time interval across multiple data nodes (DN1, DN2, and DN3).
 
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/multi-node-arch.png" alt="Diagram showing how multi-node access and data nodes interact"/>
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/multi-node-arch.webp" alt="Diagram showing how multi-node access and data nodes interact"/>
 
 A database user connects to the access node to issue commands and
 execute queries, similar to how one connects to a regular single
