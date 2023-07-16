@@ -38,9 +38,9 @@ Before you begin, make sure you have:
 
 This tutorial covers:
 
-1.  [Setting up your dataset][financial-tick-dataset]: Load data from
+1.  [Setting up your dataset][financial-ingest-dataset]: Load data from
     [Twelve Data][twelve-data] into your TimescaleDB database.
-1.  [Querying your dataset][financial-tick-query]: Create candlestick views, query
+1.  [Querying your dataset][financial-ingest-query]: Create candlestick views, query
     the aggregated data, and visualize the data in Grafana.
 
     This tutorial shows you how to ingest real-time time-series data into a Timescale
@@ -56,11 +56,9 @@ This tutorial covers:
 TimescaleDB is well suited to storing and analyzing financial candlestick data,
 and many Timescale community members use it for exactly this purpose.
 
-[advanced-websocket]: /tutorials/:currentVersion:/ingest-real-time-websocket-data/
-[cloud-install]: /getting-started/:currentVersion:/#create-your-timescale-account
-[financial-tick-dataset]: /tutorials/:currentVersion:/financial-tick-data/financial-tick-dataset/
-[financial-tick-query]: /tutorials/:currentVersion:/financial-tick-data/financial-tick-query/
+
+[financial-ingest-dataset]: /tutorials/:currentVersion:/financial-ingest-real-time/financial-ingest-dataset/
+[financial-ingest-query]: /tutorials/:currentVersion:/financial-ingest-real-time/financial-ingest-query/
 [twelve-data]: https://twelvedata.com/
-[trading-strategy]: https://www.timescale.com/blog/
 [twelve-signup]: https://twelvedata.com/login
 [twelve-wrapper]: https://github.com/twelvedata/twelvedata-python
