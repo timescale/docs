@@ -322,5 +322,15 @@ Then check that you use a proper API key received from Twelve Data.
 
 </Collapsible>
 
+<Collapsible heading="Connect to Grafana" defaultExpanded={false}>
+
+The queries in this tutorial are suitable for visualizing in Grafana. If you
+want to visualize the results of your queries, connect your Grafana account to
+the energy consumption dataset.
+
+<GrafanaConnect />
+
+</Collapsible>
+
 [twelve-wrapper]: https://github.com/twelvedata/twelvedata-python
 [psycopg2]: https://www.psycopg.org/docs/

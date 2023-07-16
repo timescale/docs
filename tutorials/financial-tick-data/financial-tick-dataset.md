@@ -37,3 +37,13 @@ New York Stock Exchange (9:30&nbsp;AM - 4:00&nbsp;PM EST).
 <AddData />
 
 </Collapsible>
+
+<Collapsible heading="Connect to Grafana" defaultExpanded={false}>
+
+The queries in this tutorial are suitable for visualizing in Grafana. If you
+want to visualize the results of your queries, connect your Grafana account to
+the energy consumption dataset.
+
+<GrafanaConnect />
+
+</Collapsible>
