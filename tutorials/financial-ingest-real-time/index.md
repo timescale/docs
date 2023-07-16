@@ -56,7 +56,7 @@ This tutorial covers:
 TimescaleDB is well suited to storing and analyzing financial candlestick data,
 and many Timescale community members use it for exactly this purpose.
 
-
+[cloud-install]: /getting-started/:currentVersion:/#create-your-timescale-account
 [financial-ingest-dataset]: /tutorials/:currentVersion:/financial-ingest-real-time/financial-ingest-dataset/
 [financial-ingest-query]: /tutorials/:currentVersion:/financial-ingest-real-time/financial-ingest-query/
 [twelve-data]: https://twelvedata.com/

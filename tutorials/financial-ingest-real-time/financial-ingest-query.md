@@ -98,8 +98,4 @@ OHLCV values.
 
 </Procedure>
 
-## Visualize the OHLCV data in Grafana
-
-You can visualize the OHLCV data that you created using the queries in Grafana.
 <GraphOhlcv />
-
