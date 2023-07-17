@@ -15,10 +15,10 @@ hyperfunction:
     - heartbeat_agg()
 api_details:
   summary: |
-    Given a heartbeat aggregate, this will reduce the time range covered by
+    Given a heartbeat aggregate, this reduces the time range covered by
     that aggregate. This can only be used to narrow the covered interval,
     passing arguments that would extend beyond the range covered by the
-    initial aggregate will give an error.
+    initial aggregate gives an error.
   signatures:
     - language: sql
       code: |
@@ -37,11 +37,11 @@ api_details:
       - name: start
         type: TimestampTz
         description: >
-          The start of the trimmed range. If not provided the returned heartbeat agg will start from the same time as the starting one.
+          The start of the trimmed range. If not provided, the returned heartbeat aggregate starts from the same time as the starting one.
       - name: duration
         type: Interval
         description: >
-          How long the resulting aggregate should cover. If not provided the returned heartbeat agg will end at the same time as the starting one.
+          How long the resulting aggregate should cover. If not provided, the returned heartbeat aggregate ends at the same time as the starting one.
     returns:
       - column: trim_to
         type: heartbeat_agg
@@ -49,7 +49,7 @@ api_details:
           The trimmed aggregate.
   examples:
     - description: >
-        Given a table called `liveness` containing weekly heartbeat aggregates in column `health` with timestamp column `date`, we can use the following to rollup several weeks and trim the result to an exact month.
+        Given a table called `liveness` containing weekly heartbeat aggregates in column `health` with timestamp column `date`, use this query to roll up several weeks and trim the result to an exact month:
       command:
         code: |
           SELECT trim_to(rollup(health), '03-1-2022 UTC', '1 month')

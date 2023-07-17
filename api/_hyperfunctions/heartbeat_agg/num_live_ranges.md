@@ -15,7 +15,7 @@ hyperfunction:
     - heartbeat_agg()
 api_details:
   summary: |
-    Given a heartbeat aggregate, this will return the number of live periods.
+    Given a heartbeat aggregate, this returns the number of live periods.
   signatures:
     - language: sql
       code: |
@@ -35,7 +35,7 @@ api_details:
           The number of live ranges in the aggregate.
   examples:
     - description: >
-        Given a table called `liveness` containing weekly heartbeat aggregates in column `health` with timestamp column `date`, we can use the following to see how many intervals the system was up in a given week.
+        Given a table called `liveness` containing weekly heartbeat aggregates in column `health` with timestamp column `date`, use this query to see how many intervals the system was up in a given week:
       command:
         code: |
           SELECT num_live_ranges(health)

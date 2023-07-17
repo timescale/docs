@@ -15,8 +15,8 @@ hyperfunction:
     - heartbeat_agg()
 api_details:
   summary: |
-    Given a heartbeat aggregate, this will return the number of gaps between
-    the periods of liveness. Additionally if the aggregate is not live at the
+    Given a heartbeat aggregate, this returns the number of gaps between
+    the periods of liveness. Additionally, if the aggregate is not live at the
     start or end of its covered interval, these are also considered gaps.
   signatures:
     - language: sql
@@ -34,10 +34,10 @@ api_details:
       - column: num_gaps
         type: bigint
         description: >
-          The number of dead ranges in the aggregate.
+          The number of gaps in the aggregate.
   examples:
     - description: >
-        Given a table called `liveness` containing weekly heartbeat aggregates in column `health` with timestamp column `date`, we can use the following to see how many times the system was down in a particular week.
+        Given a table called `liveness` containing weekly heartbeat aggregates in column `health` with timestamp column `date`, use this query to see how many times the system was down in a particular week:
       command:
         code: |
           SELECT num_gaps(health)
