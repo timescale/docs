@@ -76,8 +76,20 @@ module.exports = [
       },
       {
         title: "Finance - part 2",
-        href: "ingest-real-time-websocket-data",
+        href: "financial-ingest-real-time",
         excerpt: "Ingest real-time financial data with websocket",
+        children: [
+          {
+            title: "Set up",
+            href: "financial-ingest-dataset",
+            excerpt: "Set up a dataset so you can query the real-time data",
+          },
+          {
+            title: "Query data",
+            href: "financial-ingest-query",
+            excerpt: "Query and visualize real-time data",
+          },
+        ],
       },
       {
         title: "Transport - part 1",
