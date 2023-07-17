@@ -20,8 +20,6 @@ the past five days, in a hypertable named `transactions`.
 
 <Collapsible heading="Sign up for Timescale">
 
-Your Timescale account is free for thirty days.
-
 <Install />
 
 </Collapsible>

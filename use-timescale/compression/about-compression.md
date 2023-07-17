@@ -162,7 +162,11 @@ candidates, and are eventually compressed when they become old enough according
 to the compression policy.
 
 <img
-class="main-content__illustration" src="https://assets.timescale.com/images/diagrams/compression_diagram.png"alt="Compression>
+<<<<<<< HEAD:use-timescale/compression/about-compression.md
+class="main-content__illustration" src="<https://assets.timescale.com/images/diagrams/compression_diagram.png"alt="Compression>>
+=======
+class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/compression_diagram.webp"alt="Compression>
+>>>>>>> 375040ef14bda3a2bd80aa64e1a3a498905b1c66:self-hosted/compression/index.md
 timeline"/>
 
 ## Segment by columns
@@ -264,8 +268,8 @@ results in the same order. You can also avoid a `SORT`. Additionally, the system
 automatically creates additional columns to store the minimum and maximum value
 of any `orderby` column. This way, the query executor looks at this additional
 column that specifies the range of values in the compressed column, without
-first performing any decompression, in order to determine whether the row could
-possibly match a time predicate specified by the query.
+first performing any decompression, to determine whether the row could possibly
+match a time predicate specified by the query.
 
 ## Insert historical data into compressed chunks
 
@@ -279,4 +283,4 @@ then a separate job merges it with the chunk and compresses it later on.
 [decompress-chunks]: /use-timescale/:currentVersion:/compression/decompress-chunks
 [remove_compression_policy]: /api/:currentVersion:/compression/remove_compression_policy/
 [timescaledb_information-jobs]: /api/:currentVersion:/informational-views/jobs/
-[manual-compression]: /use-timescale/:currentVersion:/compression/compress-chunks/
+[manual-compression]: /use-timescale/:currentVersion:/compression/manual-compression/

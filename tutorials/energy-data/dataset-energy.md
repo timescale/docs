@@ -18,8 +18,6 @@ import CreateCaggs from "versionContent/_partials/_caggs-intro.mdx";
 
 <Collapsible heading="Sign up for Timescale">
 
-Your Timescale account is free for thirty days.
-
 <Install />
 
 </Collapsible>

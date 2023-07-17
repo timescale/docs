@@ -21,7 +21,7 @@ helpful if you've seen SQL before.
 *   Next setup Grafana.
 
 Once your installation of TimescaleDB and Grafana are complete, ingest the data found
-in the [NYC Taxi Cab][nyc-taxi] tutorial and configure Grafana to connect
+in the NYC Taxi Cab tutorial and configure Grafana to connect
 to that database. Be sure to follow the full tutorial if you're interested in background
 on how to use TimescaleDB.
 
@@ -34,7 +34,7 @@ on how to use TimescaleDB.
 ### Build a geospatial query
 
 The NYC Taxi Cab data also contains the location of each ride pickup. In the
-[NYC Taxi Cab][nyc-taxi] tutorial, we examined rides that originated
+NYC Taxi Cab tutorial, we examined rides that originated
 near Times Square. Let's build on that query and
 **visualize rides whose distance traveled was greater than five miles in Manhattan**.
 
@@ -117,4 +117,3 @@ for different timeframes.
 Complete your Grafana knowledge by following all the TimescaleDB + Grafana tutorials.
 
 [install-timescale]: /getting-started/latest/
-[nyc-taxi]: /tutorials/:currentVersion:/nyc-taxi-cab

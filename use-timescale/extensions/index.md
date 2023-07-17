@@ -8,11 +8,8 @@ tags: [extensions]
 
 # PostgreSQL extensions
 
-You can use PostgreSQL extensions with Timescale. If you run
-`pg_available_extensions` at the command prompt, the returned list of extensions
-is inaccurate.
-
-These are the currently supported extensions:
+You can use PostgreSQL extensions with Timescale. These are the currently
+supported extensions:
 
 <!-- vale Vale.Spelling = NO -->
 

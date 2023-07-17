@@ -12,12 +12,6 @@ Before you begin, make sure you have:
     source. The details are contained in the cheatsheet you downloaded when you
     created the service.
 
-<Highlight type="cloud" header="Run all tutorials free" button="Try for free">
-Your Timescale trial is completely free for you to use for the first
-thirty days. This gives you enough time to complete all the tutorials and run
-a few test projects of your own.
-</Highlight>
-
 <Tabs label="Add Timescale as a data source in Grafana">
 
 <Tab title="Self-hosted Grafana">

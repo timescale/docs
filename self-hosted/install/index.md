@@ -12,12 +12,10 @@ import TimescaleIntro from "versionContent/_partials/_timescale-intro.mdx";
 <TimescaleIntro />
 
 You can install self-hosted TimescaleDB for free from
-[source][self-hosted-source], a
-[pre-built container][self-hosted-container], or a pre-built
-[cloud image][self-hosted-cloud].
+[source][self-hosted-source], or a
+[pre-built container][self-hosted-container]
 
 <Installation />
 
 [self-hosted-source]: /self-hosted/:currentVersion:/install/installation-source/
 [self-hosted-container]: /self-hosted/:currentVersion:/install/installation-docker/
-[self-hosted-cloud]: /self-hosted/:currentVersion:/install/installation-linux/

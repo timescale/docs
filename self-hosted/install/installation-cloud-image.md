@@ -42,7 +42,7 @@ supports public AMIs.
     search term to find all available TimescaleDB images.
 1.  Select the image you want to use, and click `Launch instance from image`.
     <img class="main-content__illustration"
-    src="https://s3.amazonaws.com/assets.timescale.com/docs/images/aws_launch_ami.png"
+    src="https://s3.amazonaws.com/assets.timescale.com/docs/images/aws_launch_ami.webp"
     alt="Launch an AMI in AWS EC2"/>
 
 </Procedure>
@@ -121,5 +121,5 @@ tsdb=# \dx
 [aws-dashboard]: https://console.aws.amazon.com/ec2/
 [aws-instance-config]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html
 [aws-connect]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstances.html
-[install-psql]: /use-timescale/:currentVersion:/integrations/query-admin/about-psql/
+[install-psql]: /use-timescale/:currentVersion:/connecting/psql/
 [config]: /self-hosted/:currentVersion:/configuration/

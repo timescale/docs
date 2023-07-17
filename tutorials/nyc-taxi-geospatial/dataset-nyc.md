@@ -17,8 +17,6 @@ import GrafanaConnect from "versionContent/_partials/_grafana-connect.mdx";
 
 <Collapsible heading="Sign up for Timescale">
 
-Your Timescale account is free for thirty days.
-
 <Install />
 
 </Collapsible>

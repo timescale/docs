@@ -27,12 +27,6 @@ Before you start, make sure you have:
 *   Installed the [Java Development Kit (JDK)][jdk].
 *   Installed the [PostgreSQL JDBC driver][pg-jdbc-driver].
 
-<highlight type="cloud" header="Run all tutorials free" button="Try for free">
-Your Timescale trial is completely free for you to use for the first
-thirty days. This gives you enough time to complete all the tutorials and run
-a few test projects of your own.
-</highlight>
-
 All code in this quick start is for Java&nbsp;16 and later. If you are working
 with older JDK versions, use legacy coding techniques.
 
