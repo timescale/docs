@@ -1,42 +1,27 @@
 ---
-title: Ingest real-time financial websocket data
-excerpt: Set up a data pipeline to get data from different financial APIs
+title: Ingest real-time financial websocket data - Set up the dataset
+excerpt: Set up a dataset so you can query financial tick data to analyze price changes
 products: [cloud, mst, self_hosted]
-keywords: [finance, analytics, websockets, data pipeline]
+keywords: [tutorials, finance, learn]
+tags: [tutorials, advanced]
 ---
 
+import CreateAndConnect from "versionContent/_partials/_cloud-create-connect-tutorials.mdx";
+import CreateHypertable from "versionContent/_partials/_create-hypertable-twelvedata-stocks.mdx";
 import CreateHypertableStocks from "versionContent/_partials/_create-hypertable-twelvedata-stocks.mdx";
-import GraphOhlcv from "versionContent/_partials/_graphing-ohlcv-data.mdx";
 
-# Ingest real-time financial websocket data
+# Set up the database
 
-This tutorial shows you how to ingest real-time time-series data into
-TimescaleDB using a websocket connection. The tutorial sets up a data pipeline
-to ingest real-time data from our data partner, [Twelve Data][twelve-data].
-Twelve Data provides a number of different financial APIs, including stock,
-cryptocurrencies, foreign exchanges, and ETFs. It also supports websocket
-connections in case you want to update your database frequently. With
-websockets, you need to connect to the server, subscribe to symbols, and you can
-start receiving data in real-time during market hours.
+This tutorial uses a dataset that contains second-by-second stock-trade data for
+the top 100 most-traded symbols, in a hypertable named `stocks_real_time`. It
+also includes a separate table of company symbols and company names, in a
+regular PostgreSQL table named `company`.
 
-When you complete this tutorial, you'll have a data pipeline set
-up that ingests real-time financial data into your Timescale.
+<Collapsible heading="Create a Timescale service and connect to your service" defaultExpanded={false}>
 
-This tutorial uses Python and the API
-[wrapper library][twelve-wrapper] provided by Twelve Data.
+<CreateAndConnect/>
 
-## Prerequisites
-
-Before you begin, make sure you have:
-
-*   Signed up for a [free Timescale account][cloud-install]..
-*   Downloaded the file that contains your Timescale service credentials such as
-    `<HOST>`, `<PORT>`, and `<PASSWORD>`. Alternatively, you can find these
-    details in the `Connection Info` section for your service.
-*   Installed Python 3
-*   Signed up for [Twelve Data][twelve-signup]. The free tier is perfect for
-    this tutorial.
-*   Made a note of your Twelve Data [API key](https://twelvedata.com/account/api-keys).
+</Collapsible>
 
 <Collapsible heading="Connect to the websocket server" defaultExpanded={false}>
 
@@ -178,10 +163,10 @@ two arguments to create a websocket object and establish connection.
 </Collapsible>
 
 <Collapsible heading="The real-time dataset" headingLevel={2} defaultExpanded={false}>
-    
+
 To ingest the data into your Timescale service, you need to implement the
 `on_event` function.
-    
+
 After the websocket connection is set up, you can use the `on_event` function
 to ingest data into the database. This is a data pipeline that ingests real-time 
 financial data into your Timescale service.
@@ -337,105 +322,15 @@ Then check that you use a proper API key received from Twelve Data.
 
 </Collapsible>
 
-<Collapsible heading="Query the data" defaultExpanded={false}>
+<Collapsible heading="Connect to Grafana" defaultExpanded={false}>
 
-To look at OHLCV values, the most effective way is to create a continuous
-aggregate. You can create a continuous aggregate to aggregate data
-for each hour, then set the aggregate to refresh every hour, and aggregate
-the last two hours' worth of data.
+The queries in this tutorial are suitable for visualizing in Grafana. If you
+want to visualize the results of your queries, connect your Grafana account to
+the energy consumption dataset.
 
-<Procedure>
-
-### Creating a continuous aggregate
-
-1.  Connect to the Timescale database `tsdb` that contains the Twelve Data
-    stocks dataset.
-
-1.  At the psql prompt, create the continuous aggregate to aggregate data every
-    minute:
-
-    ```sql
-    CREATE MATERIALIZED VIEW one_hour_candle
-    WITH (timescaledb.continuous) AS
-        SELECT
-            time_bucket('1 hour', time) AS bucket,
-            symbol,
-            FIRST(price, time) AS "open",
-            MAX(price) AS high,
-            MIN(price) AS low,
-            LAST(price, time) AS "close",
-            LAST(day_volume, time) AS day_volume
-        FROM stocks_real_time
-        GROUP BY bucket, symbol;
-    ```
-
-    When you create the continuous aggregate, it refreshes by default.
-
-1.  Set a refresh policy to update the continuous aggregate every hour,
-    if there is new data available in the hypertable for the last two hours:
-
-    ```sql
-    SELECT add_continuous_aggregate_policy('one_hour_candle',
-        start_offset => INTERVAL '3 hours',
-        end_offset => INTERVAL '1 hour',
-        schedule_interval => INTERVAL '1 hour');
-    ```
-
-</Procedure>
-
-## Query the continuous aggregate
-
-When you have your continuous aggregate set up, you can query it to get the
-OHLCV values.
-
-<Procedure>
-
-### Querying the continuous aggregate
-
-1.  Connect to the Timescale database that contains the Twelve Data
-    stocks dataset.
-
-1.  At the psql prompt, use this query to select all `AAPL` OHLCV data for the
-    past 5 hours, by time bucket:
-
-    ```sql
-    SELECT * FROM one_hour_candle
-    WHERE symbol = 'AAPL' AND bucket >= NOW() - INTERVAL '5 hours'
-    ORDER BY bucket;
-    ```
-
-    The result of the query looks like this:
-
-    ```sql
-             bucket         | symbol  |  open   |  high   |   low   |  close  | day_volume
-    ------------------------+---------+---------+---------+---------+---------+------------
-     2023-05-30 08:00:00+00 | AAPL   | 176.31 | 176.31 |    176 | 176.01 |           
-     2023-05-30 08:01:00+00 | AAPL   | 176.27 | 176.27 | 176.02 |  176.2 |           
-     2023-05-30 08:06:00+00 | AAPL   | 176.03 | 176.04 | 175.95 |    176 |           
-     2023-05-30 08:07:00+00 | AAPL   | 175.95 |    176 | 175.82 | 175.91 |           
-     2023-05-30 08:08:00+00 | AAPL   | 175.92 | 176.02 |  175.8 | 176.02 |           
-     2023-05-30 08:09:00+00 | AAPL   | 176.02 | 176.02 |  175.9 | 175.98 |           
-     2023-05-30 08:10:00+00 | AAPL   | 175.98 | 175.98 | 175.94 | 175.94 |           
-     2023-05-30 08:11:00+00 | AAPL   | 175.94 | 175.94 | 175.91 | 175.91 |           
-     2023-05-30 08:12:00+00 | AAPL   |  175.9 | 175.94 |  175.9 | 175.94 |
-    ```
-
-</Procedure>
+<GrafanaConnect />
 
 </Collapsible>
 
-<Collapsible heading="Visualize the OHLCV data in Grafana" defaultExpanded={false}>
-
-You can visualize the OHLCV data that you created using the queries in Grafana.
-<GraphOhlcv />
-
-</Collapsible>
-
-[candlestick-tutorial]: /tutorials/:currentVersion:/financial-tick-data/
-[get-started]: /getting-started/:currentVersion:/
-[install-ts]: /getting-started/latest/
-[psycopg2]: https://www.psycopg.org/docs/
-[twelve-data]: https://twelvedata.com
-[twelve-signup]: https://twelvedata.com/pricing
 [twelve-wrapper]: https://github.com/twelvedata/twelvedata-python
-[cloud-install]: /getting-started/:currentVersion:/#create-your-timescale-account
+[psycopg2]: https://www.psycopg.org/docs/
