@@ -123,7 +123,7 @@ query to expand it. The columns show these details about your queries:
 |P95 memory|The ninety-fifth percentile, or the maximum memory this query used|
 |Median bytes read|Median number of bytes used each time the query is run|
 |P95 bytes read|The ninety-fifth percentile, or the maximum number of bytes this query used|
-|Cache hit ratio|Total sum of memory used, as a percentage|
+|Cache hit ratio|Ratio of memory used compared to disk used, as a percentage. Calculated as `cache hit / (cache hit + cache miss)`.|
 |Hypertables|A green check mark is shown if results were drawn from a hypertable|
 |Compressed tables|A green check mark is shown if results were drawn from a compressed table|
 |User name|Username of the logged in user running the query|
