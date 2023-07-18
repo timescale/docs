@@ -1,5 +1,5 @@
 ---
-title: "Quick Start: Python and TimescaleDB"
+title: "Quick Start: Node.js and TimescaleDB"
 excerpt: Get started with TimescaleDB for a Node.js application
 keywords: [Node, node.js]
 ---
