@@ -1,26 +1,21 @@
 ---
-title: Migrations using pg_dump and pg_restore
-excerpt: Migrate a hypertable or entire database with native PostgreSQL commands
-products: [cloud, self_hosted]
+title: Logical backups with pg_dump and pg_restore
+excerpt: Back up and restore a hypertable or entire database with native PostgreSQL commands
+products: [self_hosted]
 keywords: [backups, restore]
 tags: [recovery, logical backup, pg_dump, pg_restore]
 ---
 
 import ConsiderCloud from "versionContent/_partials/_consider-cloud.mdx";
 
-# Migrations using `pg_dump` and `pg_restore`
+# Logical backups with `pg_dump` and `pg_restore`
 
 You can backup and restore an entire database or individual hypertables using
 the native PostgreSQL [`pg_dump`][pg_dump] and [`pg_restore`][pg_restore]
 commands. This works even for compressed hypertables, without having to
-decompress the chunks before you begin. You can also use this method to migrate
-data from one database to another.
+decompress the chunks before you begin.
 
-<Highlight type="note">
-Timescale handles backups automatically by default. You do not need to manually
-back up your content. For more information about backups in Timescale, see the
-[backup and restore section](https://docs.timescale.com/use-timescale/latest/backup-restore-cloud/).
-</Highlight>
+<ConsiderCloud />
 
 Upgrades between different versions of TimescaleDB can be done in place; you
 don't need to backup and restore your data. See
@@ -29,8 +24,8 @@ the [upgrading instructions][timescaledb-upgrade].
 <Highlight type="warning">
 If you are using this `pg_dump` backup method regularly, make sure you keep
 track of which versions of PostgreSQL and TimescaleDB you are running. For more
-information, see the
-[Troubleshooting section](https://docs.timescale.com/self-hosted/latest/self-hosted/backup-and-restore/troubleshooting/).
+information, see "Versions are mismatched when dumping and restoring a database"
+in the [Troubleshooting section](https://docs.timescale.com/self-hosted/latest/self-hosted/backup-and-restore/troubleshooting/).
 </Highlight>
 
 ## Back up your entire database

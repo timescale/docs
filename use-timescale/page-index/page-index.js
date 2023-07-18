@@ -361,10 +361,21 @@ module.exports = [
         excerpt: "Migrate your existing PostgreSQL database to Timescale",
         children: [
           {
-            title: "Migrate with pg_dump and pg_restore",
-            href: "pg-dump-and-restore",
+            title: "About Hypershift",
+            href: "about-hypershift",
             excerpt:
-              "Migrate a hypertable or entire database with native PostgreSQL commands",
+              "About using the Hypershift tool to migrate an existing PostgreSQL database to Timescale in a single step",
+          },
+          {
+            title: "Migrate with Hypershift",
+            href: "migrate-hypershift",
+            excerpt:
+              "Migrate an existing PostgreSQL database to Timescale",
+          },
+          {
+            title: "Hypershift configuration",
+            href: "hypershift-config",
+            excerpt: "About creating a Hypershift configuration file",
           },
         ],
       },
