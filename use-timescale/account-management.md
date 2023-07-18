@@ -99,7 +99,7 @@ and request to be changed to corporate billing.
     icon in the `primary` payment method. However, you can only edit the billing
     address on other payment methods.
 
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-add-creditcard.png" alt="Adding a payment method in Timescale"/>
+<img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tsc-add-creditcard.png" alt="Adding a payment method in Timescale"/>
 
 </Procedure>
 
@@ -142,7 +142,7 @@ email address you add, and the original email address that you signed up with.
     address. Another email is sent to the address you signed up with to notify
     that the new email address is saved.
 
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-add-billing-email.png" alt="Adding a new billing email address in Timescale"/>
+<img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tsc-add-billing-email.png" alt="Adding a new billing email address in Timescale"/>
 
 </Procedure>
 
@@ -162,7 +162,7 @@ your payment method. You can change your company name and address in the
     the pencil icon.
 1.  Complete the company name and address information, and click `Save`.
 
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc_edit_companyinfo.png" alt="Adding or updating the company name and address in Timescale"/>
+<img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tsc_edit_companyinfo.png" alt="Adding or updating the company name and address in Timescale"/>
 
 </Procedure>
 

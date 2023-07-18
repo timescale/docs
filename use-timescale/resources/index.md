@@ -44,7 +44,7 @@ To modify the compute or storage of your service, select the service that you
 want to modify, and navigate to the `Operations` tab. Go to the `Resources`
 section to see the current resource settings for the service.
 
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-resources-unchanged.png" alt="View Timescale service resource information"/>
+<img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tsc-resources-unchanged.png" alt="View Timescale service resource information"/>
 
 When you change compute or storage settings, the current and new hourly charges
 are displayed immediately so that you can verify how the changes impact your
