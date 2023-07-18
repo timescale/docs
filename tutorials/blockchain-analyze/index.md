@@ -50,7 +50,7 @@ hyperfunctions. It walks you through creating a series of continuous aggregates,
 and querying the aggregates to analyze the data. You can also use those queries
 to graph the output in Grafana.
 
-[cloud-install]: /getting-started/:currentVersion:/
+[cloud-install]: /getting-started/:currentVersion:/#create-your-timescale-account
 [blockchain-dataset]: /tutorials/:currentVersion:/blockchain-analyze/blockchain-dataset/
 [blockchain-analyze]: /tutorials/:currentVersion:/blockchain-analyze/analyze-blockchain-query/
 [blockchain-query]: /tutorials/:currentVersion:/blockchain-query/beginner-blockchain-query/
