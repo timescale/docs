@@ -15,11 +15,6 @@ aggregate. You can create a continuous aggregate to aggregate data
 for each hour, then set the aggregate to refresh every hour, and aggregate
 the last two hours' worth of data.
 
-To look at OHLCV values, the most effective way is to create a continuous
-aggregate. You can create a continuous aggregate to aggregate data
-for each hour, then set the aggregate to refresh every hour, and aggregate
-the last two hours' worth of data.
-
 <Procedure>
 
 ## Creating a continuous aggregate
