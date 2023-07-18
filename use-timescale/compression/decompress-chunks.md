@@ -29,6 +29,13 @@ data, see the [backfilling section][backfill].
 
 There are several methods for selecting chunks and decompressing them.
 
+<highlight type="note">
+ Before decompressing chunks, stop any compression policy
+ on the hypertable you are decompressing. When you finish backfilling or updating
+ data, turn the policy back on. The database automatically recompresses your
+ chunks in the next scheduled job.
+ </highlight>
+
 ### Decompress individual chunks
 
 To decompress a single chunk by name, run this command:
@@ -45,9 +52,12 @@ To decompress a set of chunks based on a time range, you can use the output of
 `show_chunks` to decompress each one:
 
 ```sql
-SELECT decompress_chunk(i)
-    FROM show_chunks('table_name', older_than, newer_than) i;
+SELECT decompress_chunk(c, true)
+    FROM show_chunks('table_name', older_than, newer_than) c;
 ```
+
+For more information about the `decompress_chunk` function, see the `decompress_chunk`
+[API reference][api-reference-decompress].
 
 ### Decompress chunks on more precise constraints
 
@@ -65,3 +75,4 @@ SELECT tableoid::regclass FROM metrics
 ```
 
 [backfill]: /use-timescale/:currentVersion:/compression/backfill-historical-data/
+[api-reference-decompress]: /api/:currentVersion:/compression/decompress_chunk/
