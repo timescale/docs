@@ -61,7 +61,7 @@ data discrepancy between services.
 
 <img
 class="main-content__illustration"
-src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-forked-service.png"
+src="https://assets.timescale.com/docs/images/tsc-forked-service.webp"
 alt="Fork a Timescale service"
 />
 

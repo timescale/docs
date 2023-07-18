@@ -54,7 +54,7 @@ service.
     listed in the `Database Navigator` pane.
 
     <img class="maincontent__illustration"
-    src="https://s3.amazonaws.com/assets.timescale.com/docs/images/timescale_cloud_dbeaver.webp"
+    src="https://assets.timescale.com/docs/images/timescale_cloud_dbeaver.webp"
     alt="Connecting to Timescale using DBeaver"/>
 
 </Procedure>
@@ -77,7 +77,7 @@ service.
     listed in the `Database Navigator` pane.
 
     <img class="maincontent__illustration"
-    src="https://s3.amazonaws.com/assets.timescale.com/docs/images/on_premise_dbeaver.webp"
+    src="https://assets.timescale.com/docs/images/on_premise_dbeaver.webp"
     alt="Connecting to Timescale using DBeaver"/>
 
 </Procedure>

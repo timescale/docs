@@ -73,7 +73,7 @@ can either:
 *   Redefine the yearly continuous aggregate on top of the daily continuous
     aggregate.
 
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/cagg_hierarchy.webp" alt="Example of hierarchical continuous aggregates in a finance application"/>
+<img class="main-content__illustration" src="https://assets.timescale.com/docs/images/cagg_hierarchy.webp" alt="Example of hierarchical continuous aggregates in a finance application"/>
 
 ## Roll up calculations
 
