@@ -8,7 +8,8 @@ keywords: [data migration]
 # Migrate your Managed Service for TimescaleDB data to Timescale
 
 If you prefer Timescale's features, you can migrate your data from Managed
-Service for TimescaleDB to Timescale using the hypershift tool. To learn about
-hypershift, see the [migration section][migration].
+Service for TimescaleDB to Timescale using the PostgreSQL `pg_backup` and
+`pg_restore` tools. To learn more about migration, see the
+[migration section][migration].
 
 [migration]: /use-timescale/:currentVersion:/migration/
