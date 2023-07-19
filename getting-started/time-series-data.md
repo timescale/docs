@@ -8,7 +8,6 @@ layout_components: [next_prev_large]
 content_group: Getting started
 ---
 
-import HypershiftAlt from "versionContent/_partials/_hypershift-alternatively.mdx";
 import TimeseriesIntro from "versionContent/_partials/_timeseries-intro.mdx";
 
 # Time-series data
@@ -18,8 +17,6 @@ import TimeseriesIntro from "versionContent/_partials/_timeseries-intro.mdx";
 To explore Timescale's features, you need some sample data. This tutorial
 provides real-time stock trade data, also known as tick data, from
 [Twelve Data][twelve-data].
-
-<HypershiftAlt />
 
 ## About the dataset
 
@@ -37,8 +34,6 @@ Exchange (9:30&nbsp;AM - 4:00&nbsp;PM EST).
 
 To ingest data into the tables that you created, you need to download the
 dataset and copy the data to your database.
-
-<HypershiftAlt />
 
 <Procedure>
 
