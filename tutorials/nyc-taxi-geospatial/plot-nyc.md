@@ -173,7 +173,7 @@ Grafana can plot the data properly.
 
     <img
     class="main-content__illustration"
-    src="https://s3.amazonaws.com/assets.timescale.com/docs/images/grafana-postgis.webp"
+    src="https://assets.timescale.com/docs/images/grafana-postgis.webp"
     width={1375} height={944}
     alt="Visualizing taxi journeys by distance in Grafana"
     />

@@ -36,7 +36,7 @@ automation policies and actions, it provides pointers to tutorials and
 documentation to help you get started.
 
 <img class="main-content__illustration"
-src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-explorer.png"
+src="https://assets.timescale.com/docs/images/tsc-explorer.png"
 alt="Timescale Explorer, General Information section"/>
 
 ## Tables
@@ -54,7 +54,7 @@ see the
 
 <img
 class="main-content__illustration"
-src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-explorer-tables.png"
+src="https://assets.timescale.com/docs/images/tsc-explorer-tables.png"
 alt="Timescale Explorer, Tables section"
 />
 
@@ -69,7 +69,7 @@ configured for real-time aggregation, and their refresh periods.
 
 <img
 class="main-content__illustration"
-src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-explorer-caggs.png"
+src="https://assets.timescale.com/docs/images/tsc-explorer-caggs.png"
 alt="Timescale Explorer, Continuous aggregates section"
 />
 
