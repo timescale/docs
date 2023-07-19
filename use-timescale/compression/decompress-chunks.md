@@ -29,12 +29,12 @@ data, see the [backfilling section][backfill].
 
 There are several methods for selecting chunks and decompressing them.
 
-<highlight type="note">
- Before decompressing chunks, stop any compression policy
- on the hypertable you are decompressing. When you finish backfilling or updating
- data, turn the policy back on. The database automatically recompresses your
- chunks in the next scheduled job.
- </highlight>
+<Highlight type="note">
+Before decompressing chunks, stop any compression policy
+on the hypertable you are decompressing. When you finish backfilling or updating
+data, turn the policy back on. The database automatically recompresses your
+chunks in the next scheduled job.
+</Highlight>
 
 ### Decompress individual chunks
 
