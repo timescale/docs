@@ -1,7 +1,7 @@
 ---
 title: Query data in distributed hypertables
 excerpt: How to query data in distributed hypertables
-products: [cloud, mst, self_hosted]
+products: [self_hosted]
 keywords: [distributed hypertables, multi-node, queries]
 ---
 
