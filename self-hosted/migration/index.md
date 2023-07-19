@@ -2,7 +2,7 @@
 title: Migrate your PostgreSQL database to self-hosted TimescaleDB
 excerpt: Migrate an existing PostgreSQL database to Timescale
 products: [self_hosted]
-keywords: [data migration, self_hosted, postgresql, hypershift, RDS]
+keywords: [data migration, self_hosted, postgresql, RDS]
 tags: [ingest, migrate, RDS]
 ---
 
@@ -35,10 +35,6 @@ There are several methods for migrating your data:
     discovery, validation, and creation. Outflux works with earlier versions of
     InfluxDB. It does not work with InfluxDB version 2 and later.
 
-Additionally, the hypershift tool can be used to migrate most PostgreSQL
-databases to self-hosted TimescaleDB. For more information about hypershift, see
-the [hypershift documentation][hypershift].
-
 ## Choose a migration method
 
 Which method you choose depends on your database size, network upload and
@@ -52,10 +48,7 @@ data egressed, even if the migration fails.
 </Highlight>
 
 If your database is smaller than 100&nbsp;GB, choose to migrate your entire
-database at once. If your source database is PostgreSQL, use the hypershift
-tool to avoid having to dump your data to a directory before restoring it.
-
-You can also migrate larger databases using this method, but
+database at once. You can also migrate larger databases using this method, but
 the copying process must keep running, potentially over days or weeks. If the
 copy is interrupted, the process needs to be restarted. If you think an
 interruption in the copy is possible, choose to migrate your schema and data
@@ -86,4 +79,3 @@ backfill your data with one of the two migration methods.
 [migrate-separately]: /self-hosted/:currentVersion:/migration/schema-then-data/
 [migrate-same-db]: /self-hosted/:currentVersion:/migration/same-db/
 [outflux]: /self-hosted/:currentVersion:/migration/migrate-influxdb/
-[hypershift]: /use-timescale/:currentVersion:/migration/

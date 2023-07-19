@@ -60,7 +60,7 @@ information, and plotting the results in Grafana.
 [dataset-nyc]: /tutorials/:currentVersion:/nyc-taxi-geospatial/dataset-nyc/
 [query-nyc]: /tutorials/:currentVersion:/nyc-taxi-geospatial/plot-nyc/
 [nyc-tlc]: https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page
-[cloud-install]: /getting-started/latest/
+[cloud-install]: /getting-started/:currentVersion:/#create-your-timescale-account
 [beginner-fleet]: /tutorials/:currentVersion:/nyc-taxi-cab/
 [plot-nyc]: /tutorials/:currentVersion:/nyc-taxi-geospatial/plot-nyc/
 [grafana-setup]: /use-timescale/:currentVersion:/integrations/observability-alerting/grafana/installation/

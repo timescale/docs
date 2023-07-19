@@ -44,7 +44,7 @@ module.exports = [
             title: "Pre-built containers",
             href: "installation-docker",
             iconSrc:
-              "https://s3.amazonaws.com/assets.iobeam.com/images/docs/moby.png",
+              "https://assets.iobeam.com/images/docs/moby.png",
             excerpt:
               "Install self-hosted TimescaleDB with a pre-built Docker container",
           },
@@ -52,7 +52,7 @@ module.exports = [
             title: "Kubernetes",
             href: "installation-kubernetes",
             iconSrc:
-              "https://s3.amazonaws.com/assets.iobeam.com/images/docs/kubernetes-icon-color.svg",
+              "https://assets.iobeam.com/images/docs/kubernetes-icon-color.svg",
             excerpt: "Install self-hosted TimescaleDB on Kubernetes",
           },
         ],

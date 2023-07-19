@@ -23,11 +23,11 @@ leading to lower resource use on the server and better total performance.
 
 Without connection pooling, the database connections are handled directly by
 PostgreSQL backend processes, one process per connection:
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/pgbouncer-pooling-none.webp" alt="Connection pooling - pooling disabled"/>
+<img class="main-content__illustration" src="https://assets.timescale.com/docs/images/pgbouncer-pooling-none.webp" alt="Connection pooling - pooling disabled"/>
 
 When you add connection pooling, fewer backend connections are required. This
 frees up server resources for other tasks, such as disk caching:
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/pgbouncer-pooling-enabled.webp" alt="Connection pooling - pooling enabled"/>
+<img class="main-content__illustration" src="https://assets.timescale.com/docs/images/pgbouncer-pooling-enabled.webp" alt="Connection pooling - pooling enabled"/>
 
 Connection pooling allows you to handle up to 5000 database client connections
 simultaneously. You can calculate how many connections you can handle by the

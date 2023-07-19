@@ -69,7 +69,7 @@ you add a replica. Restarts typically take about one minute to complete.
 
 <img
 class="main-content__illustration"
-src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-replication-add.png"
+src="https://assets.timescale.com/docs/images/tsc-replication-add.png"
 alt="Creating a database replica in Timescale"
 />
 

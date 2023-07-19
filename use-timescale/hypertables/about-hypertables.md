@@ -32,7 +32,7 @@ needs. For example, if you set `chunk_time_interval` to 1 day, each chunk stores
 data from the same day. Data from different days is stored in different chunks.
 
 <img class="main-content__illustration"
-src="https://s3.amazonaws.com/assets.timescale.com/docs/images/getting-started/hypertables-chunks.webp"
+src="https://assets.timescale.com/docs/images/getting-started/hypertables-chunks.webp"
 alt="A normal table compared to a hypertable. The normal table holds data for 3 different days in one container. The hypertable contains 3 containers, called chunks, each of which holds data for a separate day."
 />
 
