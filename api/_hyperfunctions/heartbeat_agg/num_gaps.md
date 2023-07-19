@@ -45,7 +45,8 @@ api_details:
           WHERE date = '01-9-2022 UTC'
       return:
         code: |
-           num_gaps     
-          ---------
+           num_gaps
+           ---------
            4
 ---
+
