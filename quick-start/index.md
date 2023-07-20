@@ -1,9 +1,9 @@
 ---
-title: Language quick starts
+title: Code quick starts
 excerpt: Get started with TimescaleDB and your favorite language
 ---
 
-# Language quick starts
+# Code quick starts
 
 Here is a collection of quick starts for various programming languages.
 
