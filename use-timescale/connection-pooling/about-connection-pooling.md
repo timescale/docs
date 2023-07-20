@@ -1,11 +1,7 @@
-# Connection pooling
 ---
-title: About connection pooling
-excerpt: Learn how connection pooling works in Timescale
-products: [cloud]
-keywords: [connection pooling, connection pooler, pooler, connections]
-cloud_ui:
-    path:
+title: About connection pooling excerpt: Learn how connection pooling works in
+Timescale products: [cloud] keywords: [connection pooling, connection pooler,
+pooler, connections] cloud_ui: path:
         - [services, :serviceId]
 ---
 
@@ -37,3 +33,7 @@ the beta, connection pooling will be free, but we will likely charge for
 connection pooling after the beta ends. During the beta, we do not recommend
 using it for production use as we may deploy changes outside of standard
 maintenance windows.
+
+Throughout the beta, if you have feedback, please open a support ticket or reach
+out to your CSM, and they can connect you with the product manager and lead
+engineer for connection pooling.
