@@ -1,6 +1,6 @@
 module.exports = [
   {
-    title: "Get started",
+    title: "Getting started",
     href: "getting-started",
     excerpt: "Get started with Timescale",
     children: [
