@@ -21,6 +21,6 @@ backup your self-hosted TimescaleDB database:
 
 <ConsiderCloud />
 
-[logical-backups]: /self-hosted/:currentVersion:/backup-and-restore/pg-dump-and-restore/
+[logical-backups]: /use-timescale/:currentVersion:/migration/pg-dump-and-restore/
 [ongoing-physical-backups]: /self-hosted/:currentVersion:/backup-and-restore/docker-and-wale/
 [physical-backups]: /self-hosted/:currentVersion:/backup-and-restore/physical/

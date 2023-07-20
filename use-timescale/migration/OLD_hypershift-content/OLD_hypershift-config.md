@@ -58,7 +58,7 @@ database, the name of the database, the port the database can be accessed on,
 and username and password details to log in to the database. If you do not want
 to provide this information in the configuration file, you can provide these
 details on the command line instead. For more information, see the
-[hypershift command line options][hypershift-cli].
+hypershift command line options.
 
 Connection strings are in the format:
 
@@ -354,4 +354,3 @@ verbose: <boolean> # Default = false
 </Collapsible>
 
 [chunk-time]: /use-timescale/:currentVersion:/hypertables/about-hypertables#best-practices-for-time-partitioning
-[hypershift-cli]: /use-timescale/:currentVersion:/migration/about-hypershift#the-hypershift-command-line-tool

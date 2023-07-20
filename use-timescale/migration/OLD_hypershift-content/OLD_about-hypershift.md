@@ -56,8 +56,7 @@ describes the various options.
 
 You can also provide configuration to hypershift using a YAML configuration
 file. For more information about constructing a hypershift configuration file,
-see the
-[hypershift configuration section][hypershift-config].
+see the hypershift configuration section.
 
 You can provide the source and target database URIs using either command line
 flags, or the configuration file. If the information is provided in both,
@@ -119,5 +118,3 @@ docker run -v $(pwd)/config.yaml:/config.yaml -ti timescale/hypershift:0.6 clone
 -s='host=localhost dbname=postgres port=5432 user=postgres password=source_password' \
 -t='host=localhost dbname=postgres port=5433 user=postgres password=target_password'
 ```
-
-[hypershift-config]: /use-timescale/:currentVersion:/migration/hypershift-config/

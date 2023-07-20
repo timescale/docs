@@ -13,9 +13,9 @@ using Timescale Hypershift. You can also use hypershift to migrate your data
 from Managed Service for TimescaleDB, from a self-hosted Timescale instance, or
 from another PostgreSQL database, including Amazon RDS.
 
-*   [Understand how hypershift works][about-hypershift] before you begin using it.
-*   [Migrate your data with hypershift][migrate-hypershift].
-*   [Configure hypershift][configure-hypershift].
+*   Understand how hypershift works before you begin using it.
+*   Migrate your data with hypershift.
+*   Configure hypershift.
 
 If you want to import data from another format, such as a `.csv` file, into a
 new Timescale service, see the [data ingest section][data-ingest].
@@ -29,6 +29,3 @@ the [Managed Service for TimescaleDB migration section][mst-migration].
 [data-ingest]: /use-timescale/:currentVersion:/ingest-data/
 [self-hosted-migration]: /self-hosted/:currentVersion:/migration/
 [mst-migration]: /mst/:currentVersion:/migrate-to-mst/
-[about-hypershift]: /use-timescale/:currentVersion:/migration/about-hypershift/
-[migrate-hypershift]: /use-timescale/:currentVersion:/migration/migrate-hypershift/
-[configure-hypershift]: /use-timescale/:currentVersion:/migration/hypershift-config/
