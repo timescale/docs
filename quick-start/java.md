@@ -650,7 +650,7 @@ public class Main {
 [pg-jdbc-driver]: https://jdbc.postgresql.org
 [connect]: #connect-java-to-timescaledb
 [create-table]: #create-a-relational-table
-[create-hypertable]: #generate-a-hypertable
+[create-a-hypertable]: #create-a-hypertable
 [insert]: #insert-a-batch-of-rows-into-timescaledb
 [query]: #execute-queries-on-timescaledb
 [install]: /getting-started/latest/

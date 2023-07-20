@@ -456,6 +456,6 @@ executed safely against the database.
 [virtual-env]: https://docs.python.org/3/library/venv.html
 [connect]: #connect-to-timescaledb
 [create-table]: #create-a-relational-table
-[create-hypertable]: #create-hypertable
+[create-a-hypertable]: #create-a-hypertable
 [insert]: #insert-rows-of-data
 [query]: #execute-a-query

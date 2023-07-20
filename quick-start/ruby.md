@@ -726,7 +726,7 @@ page by page, or all pages together, and group by path or not:
 
 [connect]: #connect-to-timescaledb
 [create-table]: #create-a-relational-table
-[create-hypertable]: #create-a-hypertable
+[create-a-hypertable]: #create-a-hypertable
 [insert]: #insert-rows-of-data
 [query]: #execute-a-query
 [install]: /getting-started/latest/

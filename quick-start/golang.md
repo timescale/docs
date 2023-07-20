@@ -926,7 +926,7 @@ your Go application, be sure to check out these advanced TimescaleDB tutorials:
 [install]: /getting-started/latest/
 [connect]: #connect-to-timescaledb
 [create-table]: #create-a-relational-table
-[create-hypertable]: #generate-a-hypertable
+[create-a-hypertable]: #create-a-hypertable
 [insert]: #insert-rows-of-data
 [query]: #execute-a-query
 [create-hypertable-docs]: /use-timescale/:currentVersion:/hypertables/create/
