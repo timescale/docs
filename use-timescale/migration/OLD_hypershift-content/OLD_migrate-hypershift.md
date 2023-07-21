@@ -101,7 +101,7 @@ configuration file, see the
 
 1.  Open the `hypershift.yml` configuration file, and adjust parameters
     accordingly. For more information about creating a Hypershift configuration
-    file, see the [Hypershift configuration section][hypershift-config].
+    file, see the Hypershift configuration section.
 
 1.  At the command prompt, run the Hypershift container. Include the source and
     destination database passwords, and the path to your `hypershift.yml`
@@ -122,4 +122,3 @@ configuration file, see the
 
 [cloud-install]: /getting-started/latest/
 [docker-install]: https://docs.docker.com/get-docker/
-[hypershift-config]: /use-timescale/:currentVersion:/migration/hypershift-config/
