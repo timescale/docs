@@ -1,6 +1,6 @@
 ---
-title: Get started with Timescale
-excerpt: Get started with your first Timescale instance
+title: Getting started with Timescale
+excerpt: Getting started with your first Timescale instance
 products: [cloud]
 layout_components: [next_prev_large]
 content_group: Getting started
@@ -13,7 +13,7 @@ import CloudIntro from "versionContent/_partials/_cloud-intro.mdx";
 import TimescaleIntro from "versionContent/_partials/_timescale-intro.mdx";
 import WhereNext from "versionContent/_partials/_where-to-next.mdx";
 
-# Get started with Timescale
+# Getting started with Timescale
 
 <TimescaleIntro />
 
