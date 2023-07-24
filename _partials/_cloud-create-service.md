@@ -39,7 +39,7 @@ Each service contains a single database, named `tsdb`.
       </p>
       <img
         class="main-content__illustration"
-        src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-create-service-demo.png"
+        src="https://assets.timescale.com/docs/images/tsc-create-service-demo.png"
         alt="Create a new service in the Timescale portal"
       />
     </li>

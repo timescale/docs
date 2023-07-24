@@ -70,13 +70,13 @@ are run.
 A `timevector` is a collection of time,value pairs with a defined start and end
 time, that could something like this:
 
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/timevector.webp" alt="An example timevector"/>
+<img class="main-content__illustration" src="https://assets.timescale.com/docs/images/timevector.webp" alt="An example timevector"/>
 
 Your entire database might have time,value pairs that go well into the past and
 continue into the future, but the `timevector` has a defined start and end time
 within that dataset, which could look something like this:
 
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/timeseries_vector.webp" alt="An example of a timevector within a larger dataset"/>
+<img class="main-content__illustration" src="https://assets.timescale.com/docs/images/timeseries_vector.webp" alt="An example of a timevector within a larger dataset"/>
 
 To construct a `timevector` from your data, use a custom aggregate and pass
 in the columns to become the time,value pairs. It uses a `WHERE` clause to

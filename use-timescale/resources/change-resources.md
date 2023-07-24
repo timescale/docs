@@ -1,5 +1,5 @@
 ---
-title: Manually change resources
+title: Manually change compute resources
 excerpt: Manually adjust your service resources
 products: [cloud]
 keywords: [services, operation, storage]
@@ -9,7 +9,7 @@ cloud_ui:
         - [services, :serviceId, operations, resources]
 ---
 
-# Manually change resources
+# Manually change compute resources
 
 You can manually change your compute resources.
 
@@ -19,6 +19,12 @@ You can change the CPU and memory allocation for your service at any time, with
 minimal downtime, usually less than thirty seconds. The new resources become
 available as soon as the service restarts. You can change the CPU and memory
 allocation up or down, as frequently as required.
+
+There is momentary downtime while the new compute settings are applied. In most
+cases, this downtime is less than 30 seconds.
+
+When you change resource settings, the current and new charges are displayed
+immediately so that you can verify how the changes impact your costs.
 
 <Highlight type="warning">
 Changing your compute settings usually requires a short downtime. Make sure you
@@ -32,13 +38,17 @@ plan for this before you begin!
 1.  In the Timescale console, from the `Services` list, click the name of
     the service you want to modify.
 1.  In the `Service details` page, navigate to the `Operations` tab, and click
-    `Resources`.
-1.  In the `Resize CPU / memory` field, select the new CPU and memory
+    `Compute`.
+1.  In the `Change CPU/Memory` field, select the new CPU and memory
     allocation.
 1.  Review the new allocations and costs in the comparison chart.
-1.  Click `Apply` to save your changes. If you have changed the CPU and memory
-    allocation, your service goes down briefly while the changes are applied.
-    <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-resources-changed-apply.png" alt="Configure resource allocations"/>
+1.  Click `Apply` to save your changes. Your service goes down briefly while the
+    changes are applied.
+
+    <img class="main-content__illustration"
+    src="https://assets.timescale.com/docs/images/tsc-resources-changed.webp"
+    width={1375} height={944}
+    alt="Changing Timescale service compute size" />
 
 </Procedure>
 
