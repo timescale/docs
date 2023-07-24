@@ -22,6 +22,8 @@ pooler is a great way to improve performance. For example, web, serverless, and
 IoT applications often use an event-based architecture where data is read or
 written from the database for very short amount of time.
 
+## Pool types
+
 When you create a connection pooler, there are two pools types to choose from:
 session and transaction. Each pool type uses a different mode to handle
 connections. Session pool connections remain open until they are closed by the
