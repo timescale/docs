@@ -20,7 +20,7 @@ Timescale makes managing a connection pooler seamless, with adding and deleting 
     you want to replicate.
 1.  Navigate to the service you would like to add a connection pooler
  to.
-1.  Under `Connection info`, click the `Connection pooler` tab and 
+1.  Under `Connection info`, click the `Connection pooler` tab and
 click `+ Add connection pooler`.
 1.  Confirm the modal by clicking `Add pooler`.
 1.  You can now select which pool you would like to connect to and get
@@ -34,14 +34,14 @@ click `+ Add connection pooler`.
 
 1.  [Log in to your Timescale account][cloud-login] and click the service
     you want to replicate.
-1.  Navigate to the service you would like to remove a connection 
+1.  Navigate to the service you would like to remove a connection
 pooler from.
 1.  Under `Connection info`, click the `Connection pooler` tab.
 1.  In the bottom right corner, click `Remove connection pooler`
 1.  Confirm the modal by clicking `Remove pooler`.
-1.  Make sure you update your application to adjust the port used to 
+1.  Make sure you update your application to adjust the port used to
 connect to your service if you were connecting through the pooler.
-1.  If you add a pooler back in the future, it will have the same 
+1.  If you add a pooler back in the future, it will have the same
 connection string (and port) that was used before.
 
 </Procedure>
@@ -59,7 +59,7 @@ connections frequently, we recommend primarily using the transaction pool.
 The number of connections available in each pool is a function of
 `max_connections`. The pooler will use 60% of the total `max_connections`. 3/4
 of these (45% of `max_connections`) will be for the session pool, and 1/4 of
-these (15% of `max_connections`) will be available in the transaction pool. 
+these (15% of `max_connections`) will be available in the transaction pool.
 
 
 
