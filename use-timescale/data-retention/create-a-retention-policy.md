@@ -1,6 +1,6 @@
 ---
 title: Create a data retention policy
-excerpt: Create a data retention policy to automatially drop historical data
+excerpt: Create a data retention policy to automatically drop historical data
 products: [cloud, mst, self_hosted]
 keywords: [data retention, policies]
 tags: [drop, delete]
@@ -21,7 +21,7 @@ Add a data retention policy by using the
 
 ### Adding a data retention policy
 
-1.  Choose which hypertable you want to add the policy to. Decide how long want
+1.  Choose which hypertable you want to add the policy to. Decide how long
     you want to keep data before dropping it. In this example, the hypertable
     named `conditions` retains the data for 24 hours.
 1.  Call `add_retention_policy`:
@@ -33,7 +33,7 @@ Add a data retention policy by using the
 </Procedure>
 
 <Highlight type="note">
-A data retention poilcy only allows you to drop chunks based on how far they are
+A data retention policy only allows you to drop chunks based on how far they are
 in the past. To drop chunks based on how far they are in the future,
 [manually drop chunks](/use-timescale/latest/data-retention/manually-drop-chunks).
 </Highlight>

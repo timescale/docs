@@ -42,7 +42,7 @@ TimescaleDB Community Edition is the latest, most updated version of TimescaleDB
 available under the
 [Timescale License (TSL)][timescale-license].
 
-For more information about the Timescale licence, see [this blog post][license-blog].
+For more information about the Timescale license, see [this blog post][license-blog].
 
 Many of the most recent features of TimescaleDB are only available in
 TimescaleDB Community Edition.
@@ -60,11 +60,8 @@ to repair" and make modifications to the source code and run it in their own
 on-premises or cloud infrastructure. However, you cannot make modifications to
 the TimescaleDB Community Edition source code and offer it as a service.
 
-Timescale provides hosted versions of TimescaleDB Community Edition:
-[Timescale][timescale-cloud] and
-[Managed Service for TimescaleDB][mst]. Timescale is a cloud-native
-platform for time-series, hosted in AWS. MST is a database-as-a-service offering
-for TimescaleDB. MST is offered in AWS, Azure, and Google Cloud.
+You can access a hosted version of TimescaleDB Community Edition through
+[Timescale][timescale-cloud], which is a cloud-native platform for time-series.
 
 ### Feature comparison
 
