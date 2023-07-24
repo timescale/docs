@@ -1,7 +1,7 @@
 ---
 title: Use triggers on distributed hypertables
 excerpt: How to set up triggers on a distributed hypertable
-products: [cloud, mst, self_hosted]
+products: [self_hosted]
 keywords: [distributed hypertables, triggers, multi-node]
 ---
 
