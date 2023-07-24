@@ -11,14 +11,17 @@ api:
 
 # timescaledb_post_restore()
 
-Perform the proper operations after restoring the database has completed.
-Specifically this resets the `timescaledb.restoring` GUC and restarts any
-background workers. See [backup/restore docs][backup-restore] for more information.
+Perform the required operations after you have finished restoring the database
+using `pg_restore`. Specifically, this resets the `timescaledb.restoring` GUC
+and restarts any background workers. For more information, see the
+[backup and restore section][backup-restore].
 
-### Sample usage  
+## Sample usage
+
+Prepare the database for normal use after a restore:
 
 ```sql
 SELECT timescaledb_post_restore();
 ```
 
-[backup-restore]: /self-hosted/:currentVersion:/backup-and-restore/pg-dump-and-restore/
+[backup-restore]: /use-timescale/:currentVersion:/migration/pg-dump-and-restore/
