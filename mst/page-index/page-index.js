@@ -4,7 +4,7 @@ module.exports = [
     href: "mst",
     filePath: "index.md",
     pageComponents: ["content-list"],
-    excerpt: "Managed TimescaleDB in the cloud for Azure and GCP deployments",
+    excerpt: "Managed Service for TimescaleDB",
     children: [
       {
         title: "About Managed Service for TimescaleDB",
@@ -13,10 +13,6 @@ module.exports = [
       {
         title: "Get started with Managed Service for TimescaleDB",
         href: "installation-mst",
-      },
-      {
-        title: "Clouds and regions",
-        href: "cloud-regions",
       },
       {
         title: "Ingest data",
@@ -125,7 +121,7 @@ module.exports = [
         title: "Aiven Client",
         href: "aiven-client",
         excerpt:
-          "A Command Line tool for fully managed TimescaleDB service on AWS, Azure, or GCP.",
+          "A command line tool for Managed Service for TimescaleDB",
         children: [
           {
             title: "Install Aiven Client",
