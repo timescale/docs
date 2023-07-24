@@ -46,7 +46,7 @@ the Timescale portal.
 
 </Procedure>
 
-## Removing a connection pooler
+## Remove a connection pooler
 
 If you no longer need a connection pooler, you can remove it in the Timescale
 portal. When you have removed your connection pooler, make sure that you also
