@@ -1,7 +1,7 @@
 ---
 title: Insert data
 excerpt: How to insert data into distributed hypertables
-products: [cloud, mst, self_hosted]
+products: [self_hosted]
 keywords: [write, distributed hypertables]
 tags: [ingest, insert]
 ---

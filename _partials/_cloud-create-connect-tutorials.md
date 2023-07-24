@@ -8,8 +8,7 @@ command-line utility. If you've used PostgreSQL before, you might already have
 
 ### Create a Timescale service and connect to the service
 
-1.  Sign in to the [Timescale portal][timescale-portal].
-1.  Click `Create service`.
+1.  In the [Timescale portal][timescale-portal], click `Create service`.
 1.  Click `Download the cheatsheet` to download an SQL file that contains the
     login details for your new service. You can also copy the details directly
     from this page. When you have copied your password,

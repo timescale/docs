@@ -13,20 +13,19 @@ manage a cluster of databases, which can give you faster data ingest,
 and more responsive and efficient queries for large workloads.
 
 <Highlight type="important">
-In some cases, your queries could be
-slower in a multi-node cluster due to the extra network communication
-between the various nodes. Queries perform the best when the query
-processing is distributed among the nodes and the result set is small
-relative to the queried data set. It is important that you understand
-multi-node architecture before you begin, and plan your database
-according to your specific requirements.
+In some cases, your queries could be slower in a multi-node cluster due to the
+extra network communication between the various nodes. Queries perform the best
+when the query processing is distributed among the nodes and the result set is
+small relative to the queried dataset. It is important that you understand
+multi-node architecture before you begin, and plan your database according to
+your specific requirements.
 </Highlight>
 
 ## Multi-node architecture
 
-Multi-node TimescaleDB allows you to tie several databases together
-into a logical distributed database in order to combine the
-processing power of many physical PostgreSQL instances.
+Multi-node TimescaleDB allows you to tie several databases together into a
+logical distributed database to combine the processing power of many physical
+PostgreSQL instances.
 
 One of the databases exists on an access node and stores
 metadata about the other databases. The other databases are
