@@ -74,6 +74,7 @@ Paulo
 Plotly
 pre
 PostgreSQL
+[Pp]ooler?
 Prometheus
 PromLens
 PromQL
