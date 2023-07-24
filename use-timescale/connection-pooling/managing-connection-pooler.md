@@ -48,13 +48,13 @@ connection string (and port) that was used before.
 
 ### About connection pools
 
-By default, your pooler will have two pools available: session and transaction.
-Each pool will use a different mode to handle connections. Session pools will
+By default, the pooler has two pools available: session and transaction.
+Each pool uses a different mode to handle connections. Session pools
 handle connections similar to a standard Postgres connection. Session pool
-connections will remain open until they are closed by the application.
-Transaction pools will close connections automatically at the end of each
+connections remain open until they are closed by the application.
+Transaction pools close connections automatically at the end of each
 transaction. For improved performance for applications that open and close
-connections frequently, we recommend primarily using the transaction pool.
+connections frequently, it is recommended to primarily use the transaction pool.
 
 The number of connections available in each pool is a function of
 `max_connections`. The pooler will use 60% of the total `max_connections`. 3/4
