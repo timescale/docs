@@ -13,47 +13,9 @@ When you have your dataset loaded, you can start constructing some queries to
 discover what your data tells you. In this section, you learn how to write
 queries that answer these questions:
 
-*   [What are the five most recent transactions?](#what-are-the-five-most-recent-transactions)
 *   [What are the five most recent coinbase transactions?](#what-are-the-five-most-recent-coinbase-transactions)
+*   [What are the five most recent transactions?](#what-are-the-five-most-recent-transactions)
 *   [What are the five most recent blocks?](#what-are-the-five-most-recent-blocks?)
-
-## What are the five most recent transactions?
-
-This dataset contains Bitcoin transactions for the last five days. To find out
-the most recent transactions in the dataset, you can use a `SELECT` statement.
-In this case, you want to find transactions that are not coinbase transactions,
-sort them by time in descending order, and take the top five results. You also
-want to see the block ID, and the value of the transaction in US Dollars.
-
-<Procedure>
-
-### Finding the five most recent transactions
-
-1.  Connect to the Timescale database that contains the Bitcoin dataset.
-1.  At the psql prompt, use this query to select the five most recent
-    non-coinbase transactions:
-
-    ```sql
-    SELECT time, hash, block_id, fee_usd  FROM transactions
-    WHERE is_coinbase IS NOT TRUE
-    ORDER BY time DESC
-    LIMIT 5;
-    ```
-
-1.  The data you get back looks a bit like this:
-
-    ```sql
-                  time          |                               hash                               | block_id | fee_usd
-    ------------------------+------------------------------------------------------------------+----------+---------
-     2023-06-12 23:54:18+00 | 6f709d52e9aa7b2569a7f8c40e7686026ede6190d0532220a73fdac09deff973 |   794111 |   7.614
-     2023-06-12 23:54:18+00 | ece5429f4a76b1603aecbee31bf3d05f74142a260e4023316250849fe49115ae |   794111 |   9.306
-     2023-06-12 23:54:18+00 | 54a196398880a7e2e38312d4285fa66b9c7129f7d14dc68c715d783322544942 |   794111 | 13.1928
-     2023-06-12 23:54:18+00 | 3e83e68735af556d9385427183e8160516fafe2f30f30405711c4d64bf0778a6 |   794111 |  3.5416
-     2023-06-12 23:54:18+00 | ca20d073b1082d7700b3706fe2c20bc488d2fc4a9bb006eb4449efe3c3fc6b2b |   794111 |  8.6842
-    (5 rows)
-    ```
-
-</Procedure>
 
 ## What are the five most recent coinbase transactions?
 
@@ -91,6 +53,44 @@ transactions.
      2023-06-12 23:44:50+00 | 75ac1fa7febe1233ee57ca11180124c5ceb61b230cdbcbcba99aecc6a3e2a868 |   794109 |       0
      2023-06-12 23:44:14+00 | 1e941d66b92bf0384514ecb83231854246a94c86ff26270fbdd9bc396dbcdb7b |   794108 |       0
      2023-06-12 23:41:08+00 | 60ae50447254d5f4561e1c297ee8171bb999b6310d519a0d228786b36c9ffacf |   794107 |       0
+    (5 rows)
+    ```
+
+</Procedure>
+
+## What are the five most recent transactions?
+
+This dataset contains Bitcoin transactions for the last five days. To find out
+the most recent transactions in the dataset, you can use a `SELECT` statement.
+In this case, you want to find transactions that are not coinbase transactions,
+sort them by time in descending order, and take the top five results. You also
+want to see the block ID, and the value of the transaction in US Dollars.
+
+<Procedure>
+
+### Finding the five most recent transactions
+
+1.  Connect to the Timescale database that contains the Bitcoin dataset.
+1.  At the psql prompt, use this query to select the five most recent
+    non-coinbase transactions:
+
+    ```sql
+    SELECT time, hash, block_id, fee_usd  FROM transactions
+    WHERE is_coinbase IS NOT TRUE
+    ORDER BY time DESC
+    LIMIT 5;
+    ```
+
+1.  The data you get back looks a bit like this:
+
+    ```sql
+                  time          |                               hash                               | block_id | fee_usd
+    ------------------------+------------------------------------------------------------------+----------+---------
+     2023-06-12 23:54:18+00 | 6f709d52e9aa7b2569a7f8c40e7686026ede6190d0532220a73fdac09deff973 |   794111 |   7.614
+     2023-06-12 23:54:18+00 | ece5429f4a76b1603aecbee31bf3d05f74142a260e4023316250849fe49115ae |   794111 |   9.306
+     2023-06-12 23:54:18+00 | 54a196398880a7e2e38312d4285fa66b9c7129f7d14dc68c715d783322544942 |   794111 | 13.1928
+     2023-06-12 23:54:18+00 | 3e83e68735af556d9385427183e8160516fafe2f30f30405711c4d64bf0778a6 |   794111 |  3.5416
+     2023-06-12 23:54:18+00 | ca20d073b1082d7700b3706fe2c20bc488d2fc4a9bb006eb4449efe3c3fc6b2b |   794111 |  8.6842
     (5 rows)
     ```
 
