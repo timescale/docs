@@ -14,7 +14,7 @@ This quick start guide walks you through:
 
 *   [Connecting to TimescaleDB][connect]
 *   [Creating a relational table][create-table]
-*   [Creating a hypertable][create-hypertable]
+*   [Creating a hypertable][create-a-hypertable]
 *   [Inserting data][insert]
 *   [Executing a query][query]
 
@@ -926,7 +926,7 @@ your Go application, be sure to check out these advanced TimescaleDB tutorials:
 [install]: /getting-started/latest/
 [connect]: #connect-to-timescaledb
 [create-table]: #create-a-relational-table
-[create-hypertable]: #generate-a-hypertable
+[create-a-hypertable]: #create-a-hypertable
 [insert]: #insert-rows-of-data
 [query]: #execute-a-query
 [create-hypertable-docs]: /use-timescale/:currentVersion:/hypertables/create/
