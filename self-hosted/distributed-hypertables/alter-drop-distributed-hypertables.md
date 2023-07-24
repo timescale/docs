@@ -1,7 +1,7 @@
 ---
 title: Alter and drop distributed hypertables
 excerpt: How to alter and drop distributed hypertables
-products: [cloud, mst, self_hosted]
+products: [self_hosted]
 keywords: [distributed hypertables, alter, delete]
 tags: [change, delete]
 ---
