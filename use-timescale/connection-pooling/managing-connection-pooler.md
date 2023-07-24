@@ -1,6 +1,6 @@
 ---
 title: Managing connection pooler
-excerpt: Learn how to add, delete, and manage your connection pooler
+excerpt: Add, delete, and manage your connection pooler
 products: [cloud]
 keywords: [connection pooling, connection pooler, pooler, connections]
 cloud_ui:
@@ -8,9 +8,18 @@ cloud_ui:
         - [services, :serviceId]
 ---
 
+import PoolingIntro from "versionContent/_partials/_early_access.mdx";
+import EarlyAccess from "versionContent/_partials/_early_access.mdx";
+
 # Managing a connection pooler
 
-Timescale makes managing a connection pooler seamless, with adding and deleting a connection pooler possible with the click of a button.
+<PoolingIntro />
+
+<EarlyAccess />
+
+## Add a connection pooler
+
+When you create
 
 <Procedure>
 
@@ -60,7 +69,5 @@ The number of connections available in each pool is a function of
 `max_connections`. The pooler will use 60% of the total `max_connections`. 3/4
 of these (45% of `max_connections`) will be for the session pool, and 1/4 of
 these (15% of `max_connections`) will be available in the transaction pool.
-
-
 
 [cloud-login]: https://console.cloud.timescale.com
