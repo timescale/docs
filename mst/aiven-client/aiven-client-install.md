@@ -1,6 +1,6 @@
 ---
 title: Aiven Client for Managed Service for TimescaleDB
-excerpt: Install and configure Aiven Command Line tool for fully managed services on AWS, Azure, or GCP.
+excerpt: Install and configure Aiven Command Line tool for Managed Service for TimescaleDB.
 products: [mst]
 ---
 

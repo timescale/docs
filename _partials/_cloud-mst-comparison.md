@@ -2,11 +2,10 @@
   type="cloud"
   header="Timescale or Managed Service for TimescaleDB?"
 >
-If your workload lives in AWS, use [Timescale](/getting-started/latest/). Built
-and exclusively operated by Timescale, Timescale is a PostgreSQL data platform
-for time-series, events and analytics.
 
-If you need Azure or GCP, contact
-[Timescale support](https://www.timescale.com/contact/) about
-[Managed Service for TimescaleDB](/mst/latest/) instead.
+Looking for instructions to start using Timescale? Built and exclusively operated by
+Timescale, Timescale is a PostgreSQL data platform for time-series, events and
+analytics. You can find Timescale documentation under the
+[Use Timescale section](https://docs.timescale.com/use-timescale/latest/).
+
 </Highlight>
