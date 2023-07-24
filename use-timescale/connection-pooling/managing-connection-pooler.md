@@ -70,3 +70,4 @@ update your application to adjust the port it uses to connect to your service.
 </Procedure>
 
 [cloud-login]: https://console.cloud.timescale.com
+[about-connection-pooling-types]: /use-timescale/:currentVersion:/connection-pooling/about-connection-pooling#pool-types
