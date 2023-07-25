@@ -2,7 +2,7 @@
 title: Connection pooling
 excerpt: Use a connection pool for your Timescale services
 products: [cloud]
-keywords: [connection pooling, connection pooler, pooler, connections]
+keywords: [connection pooling, pooler, connections, services]
 cloud_ui:
     path:
         - [services, :serviceId]
@@ -39,7 +39,7 @@ opens and closes connections frequently, choose the transaction pool type.
 The number of connections available in each pool is managed by the
 `max_connections` parameter. The pooler uses 60% of the total `max_connections`.
 45% of `max_connections` are for the session pool, and 15% of `max_connections`
-is available in the transaction pool.
+are available for the transaction pool.
 
 ## Add a connection pooler
 
