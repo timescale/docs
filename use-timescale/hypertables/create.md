@@ -57,6 +57,6 @@ data. For more information about migrating data, see the
 
 </Procedure>
 
-[create-distributed-hypertable]: /use-timescale/:currentVersion:/distributed-hypertables/create-distributed-hypertables/
+[create-distributed-hypertable]: /self-hosted/:currentVersion:/distributed-hypertables/create-distributed-hypertables/
 [install]: /getting-started/latest/
 [postgres-createtable]: https://www.postgresql.org/docs/current/sql-createtable.html

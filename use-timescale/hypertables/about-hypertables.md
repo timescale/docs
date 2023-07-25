@@ -121,7 +121,7 @@ PostgreSQL planner to create the best query plan. For more information about the
 *   Read about the
     [benefits and architecture of hypertables][hypertable-concepts]
 
-[about-distributed-hypertables]: /use-timescale/:currentVersion:/distributed-hypertables/about-distributed-hypertables/
+[about-distributed-hypertables]: /self-hosted/:currentVersion:/distributed-hypertables/about-distributed-hypertables/
 [best-practices-space]: #best-practices-for-space-partitioning
 [blog-chunk-time]: https://www.timescale.com/blog/timescale-cloud-tips-testing-your-chunk-size/
 [change-chunk-intervals]: /use-timescale/:currentVersion:/hypertables/change-chunk-intervals/
