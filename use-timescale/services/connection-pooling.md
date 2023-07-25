@@ -15,33 +15,45 @@ import EarlyAccess from "versionContent/_partials/_early_access.mdx";
 You can scale your Timescale connections and improve your database performance
 using connection poolers. Timescale uses pgBouncer for connection pooling.
 
-If your database needs a large number of short-lived connections, a connection pooler is a great way to improve performance. For example, web, serverless, and IoT applications often use an event-based architecture where data is read or written from the database for very short amount of time.
+If your database needs a large number of short-lived connections, a connection
+pooler is a great way to improve performance. For example, web, serverless, and
+IoT applications often use an event-based architecture where data is read or
+written from the database for very short amount of time.
 
 <EarlyAccess />
 
 Your application rapidly opens and closes connections while the pooler
 maintains a set of long-running connections to the database. This improves
-performance because the pooler open the connections in advance,  allowing the 
-application to open many short-lived connections, while the database opens few, 
+performance because the pooler open the connections in advance,  allowing the
+application to open many short-lived connections, while the database opens few,
 long-lived connections.
 
 ## Pool types
 
-When you create a connection pooler, there are two pools types to choose from:
-**session** and **transaction**. Each pool type uses a different mode to handle
-connections. Session pool allocates a connection from the pool until they are closed by the
-application, similar to a regular PostgreSQL connection, but when the application closes the connection, it is sent back to the pool. 
-Transaction pools work differently: the connection is allocated only for the duration of the transaction, releasing the connection back to the pool when the transaction ends.
-Choose the transaction pool type if your application opens and closes connections frequently.
+When you create a connection pooler, there are two pool types to choose from:
+session or transaction. Each pool type uses a different mode to handle
+connections.
+
+Session pools allocate a connection from the pool until they are closed by the
+application, similar to a regular PostgreSQL connection. When the application
+closes the connection, it is sent back to the pool.
+
+Transaction pool connections are allocated only for the duration of the
+transaction, releasing the connection back to the pool when the transaction
+ends. If your application opens and closes connections frequently, choose the
+transaction pool type.
 
 The number of connections allocated in each pool is managed by the
-`max_connections` parameter set in the service. The pooler will keep allocating the connections until 60% of the total `max_connections.
-45% of `max_connections` parameter is for the session pool, and 15% left is available for the transaction pool.
+`max_connections` parameter set in the service. The pooler keeps allocating
+connections until 60% of the total `max_connections`. 45% of the
+`max_connections` parameter is used for the session pool, and the remaining 15%
+is available for the transaction pool.
 
-While the connection pooler limits the connections opened in the database, they support the following max connections for the application:
+While the connection pooler limits the connections opened in the database, they
+support these maximum connections for the application:
 
-* in the session mode: 45% of `max_connections`
-* in the transaction mode: 100% of `max_connections`
+*   Session pool types use 45% of `max_connections`
+*   Transaction pool types use 100% of `max_connections`
 
 ## Add a connection pooler
 
