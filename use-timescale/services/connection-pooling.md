@@ -13,7 +13,7 @@ import EarlyAccess from "versionContent/_partials/_early_access.mdx";
 # Connection pooling
 
 You can scale your Timescale connections and improve your database performance
-using connection poolers. Timescale uses pgBouncer for connection pooling.
+using connection poolers. Timescale uses `pgBouncer` for connection pooling.
 
 If your database needs a large number of short-lived connections, a connection
 pooler is a great way to improve performance. For example, web, serverless, and
