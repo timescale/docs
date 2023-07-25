@@ -8,7 +8,7 @@ cloud_ui:
         - [services, :serviceId]
 ---
 
-import EarlyAccess from "versionContent/_partials/pooling-intro.mdx";
+import EarlyAccess from "versionContent/_partials/_early_access.mdx";
 
 # Connection pooling
 
