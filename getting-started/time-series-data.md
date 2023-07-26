@@ -69,6 +69,4 @@ dataset and copy the data to your database.
 
 </Procedure>
 
-<Video url="https://www.youtube.com/embed/YwidcyBFgAU"></Video>
-
 [twelve-data]: https://twelvedata.com/

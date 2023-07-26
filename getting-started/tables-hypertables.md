@@ -112,6 +112,4 @@ you would normally. For this dataset, there is one other table of data called
 
 </Procedure>
 
-<Video url="https://www.youtube.com/embed/MpMw7yIjauI"></Video>
-
 [hypertable-how-to]: /use-timescale/:currentVersion:/hypertables/

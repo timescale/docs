@@ -209,7 +209,5 @@ For more information about these functions, see the API documentation for
 
 </Procedure>
 
-<Video url="https://www.youtube.com/embed/WFg0B1Bihtg"></Video>
-
 [first]: /api/:currentVersion:/hyperfunctions/first
 [last]: /api/:currentVersion:/hyperfunctions/last
