@@ -29,17 +29,17 @@ This first section uses a `SELECT` statement to ask your database to return
 everything, represented by the asterisk, from the `stocks_real_time srt` table,
 like this:
 
-```sql
+<CodeBlock canCopy={false} showLineNumbers={false} children={`
 SELECT * FROM stocks_real_time srt
-```
+`} />
 
 You don't want everything from the entire table, though, so you can use a `WHERE`
 statement to add a condition on to the statement. In this section, you add a
 `WHERE` condition to limit your results to only the last four days, like this:
 
-```sql
+<CodeBlock canCopy={false} showLineNumbers={false} children={`
 WHERE time > now() - INTERVAL '4 days'
-```
+`} />
 
 <Procedure>
 
@@ -56,7 +56,7 @@ WHERE time > now() - INTERVAL '4 days'
 
     The data you get back looks a bit like this:
 
-    ```sql
+    <CodeBlock canCopy={false} showLineNumbers={true} children={`
               time          | symbol |    price     | day_volume
     ------------------------+--------+--------------+------------
      2023-06-07 12:00:04+00 | C      |        47.39 |
@@ -66,7 +66,7 @@ WHERE time > now() - INTERVAL '4 days'
      2023-06-07 12:00:04+00 | CVX    |        155.9 |
      2023-06-07 12:00:04+00 | BAC    |        29.34 |
      ...
-    ```
+    `} />
 
 1.  Type `q` to return to the `psql` prompt.
 
@@ -82,27 +82,27 @@ In this section, you query Tesla's stock with a `SELECT` query like this,
 which asks for all of the trades from the `stocks_real_time srt` table, with the
 `TSLA` symbol, and which has day volume data:
 
-```sql
+<CodeBlock canCopy={false} showLineNumbers={false} children={`
 SELECT * FROM stocks_real_time srt
 WHERE symbol='TSLA' and day_volume is not null
-```
+`} />
 
 Then, you add an `ORDER BY` statement to order the results by time in descending
 order, and also by day volume in descending order. The day volume shows the
 total number of trades for this stock for the day. Every time another trade
 occurs, the day volume figure increases by 1. Here is the `ORDER BY` statement:
 
-```sql
+<CodeBlock canCopy={false} showLineNumbers={false} children={`
 ORDER BY time DESC, day_volume desc
-```
+`} />
 
 Finally, because Tesla has such a large volume of trades, and you might not
 want to see all of them, you can add a limit to the number of results you want
 to see, like this:
 
-```sql
+<CodeBlock canCopy={false} showLineNumbers={false} children={`
 LIMIT 10
-```
+`} />
 
 <Procedure>
 
@@ -121,8 +121,8 @@ LIMIT 10
 
     The data you get back looks a bit like this:
 
-    ```sql
-              time          | symbol |  price   | day_volume
+    <CodeBlock canCopy={false} showLineNumbers={true} children={`
+                  time          | symbol |  price   | day_volume
     ------------------------+--------+----------+------------
      2023-06-06 20:15:06+00 | TSLA   |   221.61 |  143483212
      2023-06-06 19:57:44+00 | TSLA   | 221.6775 |  139585954
@@ -135,7 +135,7 @@ LIMIT 10
      2023-06-06 19:57:37+00 | TSLA   |   221.66 |  139448852
      2023-06-06 19:57:36+00 | TSLA   |   221.65 |  139430492
     (10 rows)
-    ```
+    `} />
 
     There are multiple trades every second, but you know that the order is
     correct, because the `day_volume` column is ordered correctly.
@@ -158,20 +158,20 @@ with an increasing `time` column.
 In this query, you start by selecting the `first()` and `last()` trading price
 for every stock in the `stocks_real_time srt` table for the last four days:
 
-```sql
+<CodeBlock canCopy={false} showLineNumbers={false} children={`
 SELECT symbol, first(price,time), last(price, time)
 FROM stocks_real_time srt
 WHERE time > now() - INTERVAL '4 days'
-```
+`} />
 
 Then, you organize the results so that you can see the first and last value for
 each stock together with a `GROUP BY` statement, and in alphabetical order with
 an `ORDER BY` statement, like this:
 
-```sql
+<CodeBlock canCopy={false} showLineNumbers={false} children={`
 GROUP BY symbol
 ORDER BY symbol
-```
+`} />
 
 For more information about these functions, see the API documentation for
 [first()][first], and [last()][last].
@@ -194,8 +194,8 @@ For more information about these functions, see the API documentation for
 
     The data you get back looks a bit like this:
 
-    ```sql
-     symbol |  first   |   last
+    <CodeBlock canCopy={false} showLineNumbers={true} children={`
+         symbol |  first   |   last
     --------+----------+----------
      AAPL   | 179.0507 |   179.04
      ABNB   |   118.83 | 117.9694
@@ -203,7 +203,7 @@ For more information about these functions, see the API documentation for
      AMD    | 122.6476 |   125.13
      AMZN   | 126.5599 |   126.69
      ...
-    ```
+    `} />
 
 1.  Type `q` to return to the `psql` prompt.
 
