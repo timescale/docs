@@ -58,16 +58,16 @@ For more information, see
     provide the name of the table (`stocks_real_time`) and the column in that
     table that holds the timestamp data to use for partitioning (`time`):
 
-    ```sql
+    <CodeBlock canCopy={true} showLineNumbers={false} children={`
     SELECT create_hypertable('stocks_real_time','time');
-    ```
+    `} />
 
-1.  Create an index to support efficient queries on the `symbol` and `time`
+2.  Create an index to support efficient queries on the `symbol` and `time`
     columns:
 
-    ```sql
+    <CodeBlock canCopy={true} showLineNumbers={false} children={`
     CREATE INDEX ix_symbol_time ON stocks_real_time (symbol, time DESC);
-    ```
+    `} />
 
 </Procedure>
 
@@ -95,20 +95,20 @@ you would normally. For this dataset, there is one other table of data called
     `stocks_real_time`, and one normal PostgreSQL table named `company`. You can
     check this by running this command at the `psql` prompt:
 
-    ```sql
+    <CodeBlock canCopy={true} showLineNumbers={false} children={`
     \dt
-    ```
+    `} />
 
     This command returns information about your tables, like this:
 
-    ```sql
-                       List of relations
+    <CodeBlock canCopy={false} showLineNumbers={true} children={`
+                           List of relations
      Schema |       Name       | Type  |   Owner
     --------+------------------+-------+-----------
      public | company          | table | tsdbadmin
      public | stocks_real_time | table | tsdbadmin
     (2 rows)
-    ```
+    `} />
 
 </Procedure>
 
