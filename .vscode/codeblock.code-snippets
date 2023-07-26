@@ -12,10 +12,10 @@
       "CodeBlock"
     ],
     "body": [
-      "<CodeBlock canCopy={false} showLineNumbers={false} children={`
-      `
-    } />"
-  ],
-  "description": "Inserts a CodeBlock component"
-}
+      "<CodeBlock canCopy={false} showLineNumbers={false} children={`",
+      "INSERT CODE HERE",
+      "`} />"
+    ],
+    "description": "Inserts a CodeBlock component"
+  }
 }
