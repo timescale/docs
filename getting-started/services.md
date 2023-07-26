@@ -42,6 +42,8 @@ For more information, see
 
 ## Create your first service
 
+Create a service to use for the tasks in this guide. You can use the default values.
+
 <CreateService demoData={false} />
 
 ## Connect to your service
