@@ -24,7 +24,7 @@ using useful functions like continuous aggregates.
 
 <CloudIntro />
 
-Completing this tutorial should take you less than half an hour. When you have
+Completing this guide should take you less than half an hour. When you have
 finished this one, you might want to check out some
 [more advanced tutorials][tutorials], or browse through
 [the other guides][use-timescale].

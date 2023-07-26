@@ -14,8 +14,8 @@ import TimeseriesIntro from "versionContent/_partials/_timeseries-intro.mdx";
 
 <TimeseriesIntro />
 
-To explore Timescale's features, you need some sample data. This tutorial
-provides real-time stock trade data, also known as tick data, from
+To explore Timescale's features, you need some sample data. This guide
+uses real-time stock trade data, also known as tick data, from
 [Twelve Data][twelve-data].
 
 ## About the dataset
