@@ -17,19 +17,19 @@ psql][install-psql] section.
 1.  On your local system, at the command prompt, connect to the service using
     your unique connection string provided by Timescale:
 
-    <CodeBlock showLineNumbers={false} children={`
+    <CodeBlock canCopy={true} showLineNumbers={false} children={`
     psql "postgres://tsdbadmin:<PASSWORD>@<HOST>:<PORT>/tsdb?sslmode=require"
     `} />
 
     If your connection is successful, you'll see a message like this, followed
     by the `psql` prompt:
 
-    ```bash
+    <CodeBlock canCopy={false} showLineNumbers={true} children={`
     psql (14.5, server 15.3 (Ubuntu 15.3-1.pgdg22.04+1))
     SSL connection (protocol: TLSv1.3, cipher: TLS_AES_256_GCM_SHA384, bits: 256, compression: off)
     Type "help" for help.
     tsdb=>
-    ```
+    `} />
 
 </Procedure>
 
