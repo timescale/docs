@@ -31,7 +31,7 @@ information about the trading data.
 ## Find average stock prices for the last week
 
 Timescale has custom SQL functions that can help make time-series analysis
-easier and faster. In this procedure, you'll learn about another common
+easier and faster. In this section, you'll learn about another common
 Timescale function, `time_bucket` which allows you to take a time column and
 "bucket" the values based on an interval of your choice.
 
@@ -41,7 +41,7 @@ data into bigger buckets and look at, for example, the data for each day. You
 can then perform an aggregation and, for example, get the average of the
 values for each day.
 
-In this procedure, you time bucket the entire dataset for the last week into
+In this section, you time bucket the entire dataset for the last week into
 days, and calculate the average of each bucket:
 
 ```sql
@@ -102,7 +102,7 @@ the query. For more information about how time buckets are calculated, see the
 
 <CandlestickIntro />
 
-In this procedure, you use a `SELECT` statement to find the high and low values
+In this section, you use a `SELECT` statement to find the high and low values
 with `min` and `max` functions, and the open and close values with `first` and
 `last` functions. You then aggregate the data into 1 day buckets, like this:
 
@@ -167,7 +167,7 @@ ORDER BY day DESC, symbol
 Now that you have an aggregation query, you can use it to create a continuous
 aggregate.
 
-In this procedure, your query starts by creating a materialized view called
+In this section, your query starts by creating a materialized view called
 `stock_candlestick_daily`, then converting it into a Timescale continuous
 aggregate:
 

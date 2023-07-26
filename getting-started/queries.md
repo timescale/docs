@@ -25,7 +25,7 @@ data is stored in your database in the way you expect it to be.
 
 ## Use SELECT to return data
 
-This first procedure uses a `SELECT` statement to ask your database to return
+This first section uses a `SELECT` statement to ask your database to return
 everything, represented by the asterisk, from the `stocks_real_time srt` table,
 like this:
 
@@ -34,7 +34,7 @@ SELECT * FROM stocks_real_time srt
 ```
 
 You don't want everything from the entire table, though, so you can use a `WHERE`
-statement to add a condition on to the statement. In this procedure, you add a
+statement to add a condition on to the statement. In this section, you add a
 `WHERE` condition to limit your results to only the last four days, like this:
 
 ```sql
@@ -74,11 +74,11 @@ WHERE time > now() - INTERVAL '4 days'
 
 ## Use ORDER BY to organize results
 
-In the previous procedure, you ordered the results of your query by time in
+In the previous section, you ordered the results of your query by time in
 descending order, so the most recent trades were at the top of the list. You can
 change how your results are displayed using an `ORDER BY` statement.
 
-In this procedure, you query Tesla's stock with a `SELECT` query like this,
+In this section, you query Tesla's stock with a `SELECT` query like this,
 which asks for all of the trades from the `stocks_real_time srt` table, with the
 `TSLA` symbol, and which has day volume data:
 
@@ -145,7 +145,7 @@ LIMIT 10
 ## Get the first and last value
 
 Timescale has custom SQL functions that can help make time-series analysis
-easier and faster. In this procedure, you'll learn about two common Timescale
+easier and faster. In this section, you'll learn about two common Timescale
 functions: `first` to find the earliest value within a group, and `last` to find
 the most recent value within a group.
 
