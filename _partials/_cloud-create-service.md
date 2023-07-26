@@ -9,7 +9,7 @@ Each service contains a single database, named `tsdb`.
   <li>
     <p>
       Sign in to the{" "}
-      <a href="https://console.cloud.timescale.com/">Timescale portal and click <code>Create service</code>.</a>.
+      <a href="https://console.cloud.timescale.com/">Timescale portal</a> and click <code>Create service</code>.
     </p>
   </li>
   {props.demoData && (
