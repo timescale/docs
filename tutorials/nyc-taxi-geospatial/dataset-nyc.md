@@ -1,11 +1,11 @@
 ---
-title: Query time-series data tutorial - set up dataset
-excerpt: Set up a dataset so you can query time-series data
-products: [cloud, mst, self_hosted]
-keywords: [tutorials, create, dataset]
-tags: [tutorials, beginner]
+title: Plot geospatial time-series data tutorial - set up dataset
+excerpt: Set up a dataset so you can query geospatial time-series data
+products: [cloud]
+keywords: [tutorials, GIS, geospatial, learn]
+tags: [tutorials, intermediate]
 layout_components: [next_prev_large]
-content_group: Analyze NYC taxi cab data
+content_group: Plot geospatial NYC taxi cab data
 ---
 
 import CreateAndConnect from "versionContent/_partials/_cloud-create-connect-tutorials.mdx";

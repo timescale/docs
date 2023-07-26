@@ -1,9 +1,11 @@
 ---
 title: Ingest real-time financial websocket data - Query the data
 excerpt: Create candlestick views and query financial tick data to analyze price changes
-products: [cloud, mst, self_hosted]
-keywords: [tutorials, finance, learn]
-tags: [tutorials, advanced]
+products: [cloud]
+keywords: [finance, analytics, websockets, data pipeline]
+tags: [tutorials, intermediate]
+layout_components: [next_prev_large]
+content_group: Ingest real-time financial websocket data
 ---
 
 import GraphOhlcv from "versionContent/_partials/_graphing-ohlcv-data.mdx";
@@ -80,14 +82,14 @@ OHLCV values.
     ```sql
              bucket         | symbol  |  open   |  high   |   low   |  close  | day_volume
     ------------------------+---------+---------+---------+---------+---------+------------
-     2023-05-30 08:00:00+00 | AAPL   | 176.31 | 176.31 |    176 | 176.01 |           
-     2023-05-30 08:01:00+00 | AAPL   | 176.27 | 176.27 | 176.02 |  176.2 |           
-     2023-05-30 08:06:00+00 | AAPL   | 176.03 | 176.04 | 175.95 |    176 |           
-     2023-05-30 08:07:00+00 | AAPL   | 175.95 |    176 | 175.82 | 175.91 |           
-     2023-05-30 08:08:00+00 | AAPL   | 175.92 | 176.02 |  175.8 | 176.02 |           
-     2023-05-30 08:09:00+00 | AAPL   | 176.02 | 176.02 |  175.9 | 175.98 |           
-     2023-05-30 08:10:00+00 | AAPL   | 175.98 | 175.98 | 175.94 | 175.94 |           
-     2023-05-30 08:11:00+00 | AAPL   | 175.94 | 175.94 | 175.91 | 175.91 |           
+     2023-05-30 08:00:00+00 | AAPL   | 176.31 | 176.31 |    176 | 176.01 |
+     2023-05-30 08:01:00+00 | AAPL   | 176.27 | 176.27 | 176.02 |  176.2 |
+     2023-05-30 08:06:00+00 | AAPL   | 176.03 | 176.04 | 175.95 |    176 |
+     2023-05-30 08:07:00+00 | AAPL   | 175.95 |    176 | 175.82 | 175.91 |
+     2023-05-30 08:08:00+00 | AAPL   | 175.92 | 176.02 |  175.8 | 176.02 |
+     2023-05-30 08:09:00+00 | AAPL   | 176.02 | 176.02 |  175.9 | 175.98 |
+     2023-05-30 08:10:00+00 | AAPL   | 175.98 | 175.98 | 175.94 | 175.94 |
+     2023-05-30 08:11:00+00 | AAPL   | 175.94 | 175.94 | 175.91 | 175.91 |
      2023-05-30 08:12:00+00 | AAPL   |  175.9 | 175.94 |  175.9 | 175.94 |
     ```
 
