@@ -213,7 +213,7 @@ multiple standard tables, with a few differences. For example, if you `JOIN` a
 standard table and a distributed hypertable, the access node needs to fetch the
 raw data from the data nodes and perform the `JOIN` locally.
 
-[limitations]: /use-timescale/:currentVersion:/distributed-hypertables/about-distributed-hypertables/#query-push-down/
+[limitations]: /self-hosted/:currentVersion:/distributed-hypertables/about-distributed-hypertables/#query-push-down/
 [hypertables]: /use-timescale/:currentVersion:/hypertables/
 [limitations-pushing-down]: #limitations-of-query-push-down
 [multi-node-ha]: /self-hosted/:currentVersion:/multinode-timescaledb/multinode-ha/
