@@ -62,7 +62,7 @@ For more information, see
     SELECT create_hypertable('stocks_real_time','time');
     `} />
 
-2.  Create an index to support efficient queries on the `symbol` and `time`
+1.  Create an index to support efficient queries on the `symbol` and `time`
     columns:
 
     <CodeBlock canCopy={true} showLineNumbers={false} children={`
