@@ -43,7 +43,7 @@ within a database.
 Use this code to create the function:
 
 ```sql
-CREATE FUNCTION totalRecords ()
+CREATE FUNCTION totalRecords (job_id INT DEFAULT NULL, config JSONB DEFAULT NULL)
 RETURNS integer AS $total$
 declare
  total integer;
