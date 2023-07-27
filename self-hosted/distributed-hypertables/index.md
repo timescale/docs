@@ -30,7 +30,7 @@ In this section:
 [alter-drop]: /self-hosted/:currentVersion:/distributed-hypertables/alter-drop-distributed-hypertables
 [create]: /self-hosted/:currentVersion:/distributed-hypertables/create-distributed-hypertables/
 [foreign-keys]: /self-hosted/:currentVersion:/distributed-hypertables/foreign-keys/
-[hypertables]: /self-hosted/:currentVersion:/hypertables/
+[hypertables]: /use-timescale/:currentVersion:/hypertables/
 [insert]: /self-hosted/:currentVersion:/distributed-hypertables/insert/
 [query]: /self-hosted/:currentVersion:/distributed-hypertables/query/
 [triggers]: /self-hosted/:currentVersion:/distributed-hypertables/triggers/
