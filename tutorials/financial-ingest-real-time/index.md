@@ -1,8 +1,11 @@
 ---
 title: Ingest real-time financial websocket data
 excerpt: Set up a data pipeline to get data from different financial APIs
-products: [cloud, mst, self_hosted]
+products: [cloud]
 keywords: [finance, analytics, websockets, data pipeline]
+tags: [tutorials, intermediate]
+layout_components: [next_prev_large]
+content_group: Ingest real-time financial websocket data
 ---
 
 import CandlestickIntro from "versionContent/_partials/_candlestick_intro.mdx";

@@ -1,9 +1,11 @@
 ---
 title: Ingest real-time financial websocket data - Set up the dataset
 excerpt: Set up a dataset so you can query financial tick data to analyze price changes
-products: [cloud, mst, self_hosted]
-keywords: [tutorials, finance, learn]
-tags: [tutorials, advanced]
+products: [cloud]
+keywords: [finance, analytics, websockets, data pipeline]
+tags: [tutorials, intermediate]
+layout_components: [next_prev_large]
+content_group: Ingest real-time financial websocket data
 ---
 
 import CreateAndConnect from "versionContent/_partials/_cloud-create-connect-tutorials.mdx";
@@ -26,7 +28,7 @@ regular PostgreSQL table named `company`.
 <Collapsible heading="Connect to the websocket server" defaultExpanded={false}>
 
 When you connect to the Twelve Data API through a websocket, you create a
-persistent connection between your computer and the websocket server. 
+persistent connection between your computer and the websocket server.
 You set up a Python environment, and pass two arguments to create a
 websocket object and establish the connection.
 
@@ -168,11 +170,11 @@ To ingest the data into your Timescale service, you need to implement the
 `on_event` function.
 
 After the websocket connection is set up, you can use the `on_event` function
-to ingest data into the database. This is a data pipeline that ingests real-time 
+to ingest data into the database. This is a data pipeline that ingests real-time
 financial data into your Timescale service.
 
 Stock trades are ingested in real-time Monday through Friday, typically during
-normal trading hours of the New York Stock Exchange (9:30&nbsp;AM to 
+normal trading hours of the New York Stock Exchange (9:30&nbsp;AM to
 4:00&nbsp;PM&nbsp;EST).
 
 <CreateHypertableStocks />
@@ -246,7 +248,7 @@ This function needs to:
             if self.conn is not None:
                 cursor = self.conn.cursor()
                 sql = f"""
-                INSERT INTO {self.DB_TABLE} ({','.join(self.DB_COLUMNS)}) 
+                INSERT INTO {self.DB_TABLE} ({','.join(self.DB_COLUMNS)})
                 VALUES %s;"""
                 execute_values(cursor, sql, data)
                 self.conn.commit()
@@ -274,7 +276,7 @@ This function needs to:
                     print(f"Batch insert #{self.insert_counter}")
                     self.current_batch = []
             def start(self, symbols):
-                """Connect to the web socket server and start streaming real-time data 
+                """Connect to the web socket server and start streaming real-time data
                 into the database.
 
                 Args:
@@ -287,12 +289,12 @@ This function needs to:
                 while True:
                    ws.heartbeat()
                    time.sleep(10)
-        onn = psycopg2.connect(database="tsdb", 
-                            host="<HOST>", 
-                            user="tsdbadmin", 
+        onn = psycopg2.connect(database="tsdb",
+                            host="<HOST>",
+                            user="tsdbadmin",
                             password="<PASSWORD>",
                             port="<PORT>")
-    
+
         symbols = ["BTC/USD", "ETH/USD", "MSFT", "AAPL"]
         websocket = WebsocketPipeline(conn)
         websocket.start(symbols=symbols)
