@@ -48,12 +48,12 @@ This certificate authority is used to sign certificates used internally by your
 services to communicate between different cluster nodes and to management
 systems.
 
-You can download your project certificate authority in the
-[Managed Service for TimescaleDB portal][mst-portal]. In the `Services` tab,
-click the service you want to find the certificate for. In the service
-`Overview` tab, under `Connection information`, locate the
-`CA Certificate` section, and click `Show` to see the certificate. It is
-recommended that you set up your browser or client to trust that certificate.
+You can download your project certificate authority in the Managed Service for
+TimescaleDB portal. In the `Services` tab, click the service you want to find
+the certificate for. In the service `Overview` tab, under `Connection
+information`, locate the `CA Certificate` section, and click `Show` to see the
+certificate. It is recommended that you set up your browser or client to trust
+that certificate.
 
 All server certificates are signed by the Managed Service for TimescaleDB
 project certificate authority.
@@ -120,7 +120,7 @@ services.
 1.  Check that the new allowed addresses are shown correctly in the
     `Allowed IP addresses` section.
 
-   <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/mst-allowed-incomingip.png" alt="Add a new allowed incoming IP address for Managed Service for TimescaleDB services"/>
+   <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/mst-allowed-incomingip.webp" alt="Add a new allowed incoming IP address for Managed Service for TimescaleDB services"/>
 
 </Procedure>
 

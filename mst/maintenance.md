@@ -57,7 +57,7 @@ system during the upgrade.
 1.  In the `Service Maintenance Window` dialog, select the day of the week and
     the time (in Universal Coordinated Time) you want the maintenance window to
     start. Maintenance windows can run for up to four hours.
-    <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/mst-maintwindow.png" alt="Adjust maintenance window"/>
+    <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/mst-maintwindow.webp" alt="Adjust maintenance window"/>
 1.  Click `Save Changes`.
 
 </Procedure>

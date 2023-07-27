@@ -14,7 +14,7 @@ This quick start guide walks you through:
 
 *   [Connecting to TimescaleDB][connect]
 *   [Creating a relational table][create-table]
-*   [Creating a hypertable][create-hypertable]
+*   [Creating a hypertable][create-a-hypertable]
 *   [Inserting data][insert]
 *   [Executing a query][query]
 
@@ -25,12 +25,6 @@ Before you start, make sure you have:
 *   Installed [TimescaleDB][install].
 *   Installed [Go][golang-install].
 *   Installed the [PGX driver for Go][pgx-driver-github].
-
-<Highlight type="cloud" header="Run all tutorials free" button="Try for free">
-Your Timescale trial is completely free for you to use for the first
-thirty days. This gives you enough time to complete all the tutorials and run
-a few test projects of your own.
-</Highlight>
 
 ## Connect to TimescaleDB
 
@@ -67,7 +61,7 @@ You can use it to help your Go application interact directly with TimescaleDB.
     connStr := "postgres://username:password@host:port/dbname?sslmode=require"
     ```
 
-1.  <Optional />You can check that you're connected to your database with this
+1.  [](#)<Optional />You can check that you're connected to your database with this
     hello world program:
 
     ```go
@@ -830,7 +824,7 @@ This section covers how to execute queries against your database.
     // use results here…
     ```
 
-1.  <Optional/>This example program runs a query, and accesses the results of
+1.  [](#)<Optional/>This example program runs a query, and accesses the results of
     that query:
 
     ```go
@@ -932,7 +926,7 @@ your Go application, be sure to check out these advanced TimescaleDB tutorials:
 [install]: /getting-started/latest/
 [connect]: #connect-to-timescaledb
 [create-table]: #create-a-relational-table
-[create-hypertable]: #generate-a-hypertable
+[create-a-hypertable]: #create-a-hypertable
 [insert]: #insert-rows-of-data
 [query]: #execute-a-query
 [create-hypertable-docs]: /use-timescale/:currentVersion:/hypertables/create/

@@ -14,7 +14,7 @@ This quick start guide walks you through:
 
 *   [Connecting to TimescaleDB][connect]
 *   [Creating a relational table][create-table]
-*   [Creating a hypertable][create-hypertable]
+*   [Creating a hypertable][create-a-hypertable]
 *   [Inserting data][insert]
 *   [Executing a query][query]
 
@@ -26,12 +26,6 @@ Before you start, make sure you have:
     [installation documentation][install].
 *   Installed the [Java Development Kit (JDK)][jdk].
 *   Installed the [PostgreSQL JDBC driver][pg-jdbc-driver].
-
-<highlight type="cloud" header="Run all tutorials free" button="Try for free">
-Your Timescale trial is completely free for you to use for the first
-thirty days. This gives you enough time to complete all the tutorials and run
-a few test projects of your own.
-</highlight>
 
 All code in this quick start is for Java&nbsp;16 and later. If you are working
 with older JDK versions, use legacy coding techniques.
@@ -656,7 +650,7 @@ public class Main {
 [pg-jdbc-driver]: https://jdbc.postgresql.org
 [connect]: #connect-java-to-timescaledb
 [create-table]: #create-a-relational-table
-[create-hypertable]: #generate-a-hypertable
+[create-a-hypertable]: #create-a-hypertable
 [insert]: #insert-a-batch-of-rows-into-timescaledb
 [query]: #execute-queries-on-timescaledb
 [install]: /getting-started/latest/

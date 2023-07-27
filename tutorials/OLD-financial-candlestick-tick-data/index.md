@@ -73,4 +73,4 @@ Follow this tutorial and see how to set up your TimescaleDB database to consume 
 [create]: /tutorials/:currentVersion:/financial-candlestick-tick-data/create-candlestick-aggregates
 [query]: /tutorials/:currentVersion:/financial-candlestick-tick-data/query-candlestick-views
 [manage]: /tutorials/:currentVersion:/financial-candlestick-tick-data/advanced-data-management
-[psql]: /use-timescale/:currentVersion:/connecting/psql/
+[psql]: /use-timescale/:currentVersion:/integrations/query-admin/about-psql/

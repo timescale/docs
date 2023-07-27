@@ -14,7 +14,7 @@ This quick start guide walks you through:
 
 *   [Connecting to TimescaleDB][connect]
 *   [Creating a relational table][create-table]
-*   [Creating a hypertable][create-hypertable]
+*   [Creating a hypertable][create-a-hypertable]
 *   [Inserting data][insert]
 *   [Executing a query][query]
 
@@ -27,12 +27,6 @@ Before you start, make sure you have:
 *   Installed the `psycopg2` library. For more information, see the
     [psycopg2 documentation][psycopg2-docs].
 *   [](#)<Optional />A [Python virtual environment][virtual-env].
-
-<Highlight type="cloud" header="Run all tutorials free" button="Try for free">
-Your Timescale trial is completely free for you to use for the first
-thirty days. This gives you enough time to complete all the tutorials and run
-a few test projects of your own.
-</Highlight>
 
 ## Connect to TimescaleDB
 
@@ -236,7 +230,7 @@ section, you can use `psycopg2` with prepared statements, or you can use
     conn.commit()
     ```
 
-1.  <Optional />Alternatively, you can pass variables to the `cursor.execute`
+1.  [](#)<Optional />Alternatively, you can pass variables to the `cursor.execute`
     function and separate the formulation of the SQL statement, `SQL`, from the
     data being passed with it into the prepared statement, `data`:
 
@@ -313,7 +307,7 @@ from pgcopy import CopyManager
     conn.commit()
     ```
 
-1.  <Optional/>The full sample code to insert data into TimescaleDB using
+1.  [](#)<Optional/>The full sample code to insert data into TimescaleDB using
     `pgcopy`, using the example of sensor data from four sensors:
 
     ```python
@@ -345,7 +339,7 @@ from pgcopy import CopyManager
         conn.commit()
     ```
 
-1.  <Optional />You can also check if the insertion worked:
+1.  [](#)<Optional />You can also check if the insertion worked:
 
     ```python
     cursor.execute("SELECT * FROM sensor_data LIMIT 5;")
@@ -405,7 +399,7 @@ see the [psycopg2 documentation][psycopg2-docs-basics].
     cursor.close()
     ```
 
-1.  <Optional />If you want a list of dictionaries instead, you can define the
+1.  [](#)<Optional />If you want a list of dictionaries instead, you can define the
     cursor using [`DictCursor`][dictcursor-docs]:
 
     ```python
@@ -462,6 +456,6 @@ executed safely against the database.
 [virtual-env]: https://docs.python.org/3/library/venv.html
 [connect]: #connect-to-timescaledb
 [create-table]: #create-a-relational-table
-[create-hypertable]: #create-hypertable
+[create-a-hypertable]: #create-a-hypertable
 [insert]: #insert-rows-of-data
 [query]: #execute-a-query

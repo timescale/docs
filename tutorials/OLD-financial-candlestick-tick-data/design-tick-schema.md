@@ -46,7 +46,7 @@ CREATE TABLE crypto_assets (
     symbol TEXT UNIQUE,
     "name" TEXT
 );
- 
+
 CREATE TABLE crypto_ticks (
     "time" TIMESTAMPTZ,
     symbol TEXT,
@@ -100,7 +100,7 @@ into your TimescaleDB instance.
 
     ```bash
     psql -x "postgres://tsdbadmin:{YOUR_PASSWORD_HERE}@{YOUR_HOSTNAME_HERE}:{YOUR_PORT_HERE}/tsdb?sslmode=require"
-    
+
     \COPY crypto_assets FROM 'crypto_assets.csv' CSV HEADER;
     \COPY crypto_ticks FROM 'crypto_ticks.csv' CSV HEADER;
     ```
@@ -108,10 +108,8 @@ into your TimescaleDB instance.
 </Procedure>
 
 If you want to ingest real-time market data, instead of sample data, check out
-our complementing tutorial
-[Ingest real-time financial websocket data][ingest-real-time] to
+our complementing tutorial Ingest real-time financial websocket data to
 ingest data directly from the [Twelve Data][twelve-data] financial API.
 
 [hypertable]: /use-timescale/:currentVersion:/hypertables/
-[ingest-real-time]: /tutorials/:currentVersion:/ingest-real-time-websocket-data
 [twelve-data]: https://twelvedata.com/
