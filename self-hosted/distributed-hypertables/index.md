@@ -1,7 +1,7 @@
 ---
 title: Distributed hypertables
 excerpt: Distributed hypertables help you horizontally scale your data storage in multi-node clusters
-products: [cloud, mst, self_hosted]
+products: [self_hosted]
 keywords: [distributed hypertables, multi-node]
 ---
 
@@ -26,11 +26,11 @@ In this section:
 *   [Create foreign keys][foreign-keys] on distributed hypertables
 *   [Set triggers][triggers] on distributed hypertables
 
-[about-distributed-hypertables]: /use-timescale/:currentVersion:/distributed-hypertables/about-distributed-hypertables/
-[alter-drop]: /use-timescale/:currentVersion:/distributed-hypertables/alter-drop-distributed-hypertables
-[create]: /use-timescale/:currentVersion:/distributed-hypertables/create-distributed-hypertables/
-[foreign-keys]: /use-timescale/:currentVersion:/distributed-hypertables/foreign-keys/
-[hypertables]: /use-timescale/:currentVersion:/hypertables/
-[insert]: /use-timescale/:currentVersion:/distributed-hypertables/insert/
-[query]: /use-timescale/:currentVersion:/distributed-hypertables/query/
-[triggers]: /use-timescale/:currentVersion:/distributed-hypertables/triggers/
+[about-distributed-hypertables]: /self-hosted/:currentVersion:/distributed-hypertables/about-distributed-hypertables/
+[alter-drop]: /self-hosted/:currentVersion:/distributed-hypertables/alter-drop-distributed-hypertables
+[create]: /self-hosted/:currentVersion:/distributed-hypertables/create-distributed-hypertables/
+[foreign-keys]: /self-hosted/:currentVersion:/distributed-hypertables/foreign-keys/
+[hypertables]: /self-hosted/:currentVersion:/hypertables/
+[insert]: /self-hosted/:currentVersion:/distributed-hypertables/insert/
+[query]: /self-hosted/:currentVersion:/distributed-hypertables/query/
+[triggers]: /self-hosted/:currentVersion:/distributed-hypertables/triggers/

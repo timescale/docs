@@ -1,5 +1,5 @@
 ---
-title: "Quick Start: Python and TimescaleDB"
+title: "Quick Start: Node.js and TimescaleDB"
 excerpt: Get started with TimescaleDB for a Node.js application
 keywords: [Node, node.js]
 ---
@@ -14,7 +14,7 @@ This quick start guide walks you through:
 
 *   [Connecting to TimescaleDB][connect]
 *   [Creating a relational table][create-table]
-*   [Creating a hypertable][create-hypertable]
+*   [Creating a hypertable][create-a-hypertable]
 *   [Inserting data][insert]
 *   [Executing a query][query]
 
@@ -390,7 +390,7 @@ Now, when you reload the page, you should see all of the rows currently in the
 [sequelize-info]: https://sequelize.org
 [connect]: #connect-to-timescaledb
 [create-table]: #create-a-relational-table
-[create-hypertable]: #create-hypertable
+[create-a-hypertable]: #create-a-hypertable
 [insert]: #insert-rows-of-data
 [query]: #execute-a-query
 [install]: /getting-started/latest/

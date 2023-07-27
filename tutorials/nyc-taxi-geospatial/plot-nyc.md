@@ -1,11 +1,11 @@
 ---
-title: Query time-series data tutorial - query the data
-excerpt: Query time-series data
-products: [cloud, mst, self_hosted]
-keywords: [tutorials, query]
-tags: [tutorials, beginner]
+title: Plot geospatial time-series data tutorial - query the data
+excerpt: Query geospatial time-series data
+products: [cloud]
+keywords: [tutorials, GIS, geospatial, learn]
+tags: [tutorials, intermediate]
 layout_components: [next_prev_large]
-content_group: Analyze NYC taxi cab data
+content_group: Plot geospatial NYC taxi cab data
 ---
 
 # Query the data

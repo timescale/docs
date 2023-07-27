@@ -221,55 +221,6 @@ module.exports = [
         ],
       },
       {
-        title: "Distributed hypertables",
-        href: "distributed-hypertables",
-        excerpt: "Distributed hypertables for multi-node Timescale",
-        children: [
-          {
-            title: "About distributed hypertables",
-            href: "about-distributed-hypertables",
-            excerpt: "Learn about distributed hypertables",
-          },
-          {
-            title: "Create distributed hypertables",
-            href: "create-distributed-hypertables",
-            excerpt: "Create a distributed hypertable",
-          },
-          {
-            title: "Insert data",
-            href: "insert",
-            excerpt: "Insert data into a distributed hypertable",
-          },
-          {
-            title: "Query data",
-            href: "query",
-            excerpt: "Query data in distributed hypertables",
-          },
-          {
-            title: "Alter and drop distributed hypertables",
-            href: "alter-drop-distributed-hypertables",
-            excerpt: "Alter schema for and drop distributed hypertables",
-          },
-          {
-            title: "Create foreign keys on distributed hypertables",
-            href: "foreign-keys",
-            excerpt:
-              "Create foreign keys from distributed hypertables to other tables",
-          },
-          {
-            title: "Use triggers in distributed hypertables",
-            href: "triggers",
-            excerpt:
-              "Use row- and statement-level triggers in distributed hypertables",
-          },
-          {
-            title: "Troubleshooting",
-            href: "troubleshooting",
-            type: "placeholder",
-          },
-        ],
-      },
-      {
         title: "Time buckets",
         href: "time-buckets",
         excerpt: "Aggregate data by time interval with time buckets",

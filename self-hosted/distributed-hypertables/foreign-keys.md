@@ -1,7 +1,7 @@
 ---
 title: Create foreign keys in a distributed hypertable
 excerpt: Add foreign keys to the nodes of a distributed hypertable
-products: [cloud, mst, self_hosted]
+products: [self_hosted]
 keywords: [distributed hypertable, foreign keys]
 tags: [constraints]
 ---

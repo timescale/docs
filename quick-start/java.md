@@ -14,7 +14,7 @@ This quick start guide walks you through:
 
 *   [Connecting to TimescaleDB][connect]
 *   [Creating a relational table][create-table]
-*   [Creating a hypertable][create-hypertable]
+*   [Creating a hypertable][create-a-hypertable]
 *   [Inserting data][insert]
 *   [Executing a query][query]
 
@@ -650,7 +650,7 @@ public class Main {
 [pg-jdbc-driver]: https://jdbc.postgresql.org
 [connect]: #connect-java-to-timescaledb
 [create-table]: #create-a-relational-table
-[create-hypertable]: #generate-a-hypertable
+[create-a-hypertable]: #create-a-hypertable
 [insert]: #insert-a-batch-of-rows-into-timescaledb
 [query]: #execute-queries-on-timescaledb
 [install]: /getting-started/latest/
