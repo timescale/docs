@@ -43,17 +43,27 @@ transaction, releasing the connection back to the pool when the transaction
 ends. If your application opens and closes connections frequently, choose the
 transaction pool type.
 
-The number of connections allocated in each pool is managed by the
+## Connection allocations
+
+A connection pooler manages connections to both the database itself, and the
+client application.
+
+The number of database connections allocated in each pool is managed by the
 `max_connections` parameter set in the service. The pooler keeps allocating
 connections until 60% of the total `max_connections`. 45% of the
 `max_connections` parameter is used for the session pool, and the remaining 15%
 is available for the transaction pool.
 
-While the connection pooler limits the connections opened in the database, they
-support these maximum connections for the application:
+The connection pooler can then allocate connections for the client application.
+Up to 45% of `max_connections` is available for the session pool, and up to 100%
+of `max_connections` is available for the transaction pool.
 
-*   Session pool types use 45% of `max_connections`
-*   Transaction pool types use 100% of `max_connections`
+For example, if `max_connections` is set to 500, the maximum number of database
+connections is 300, or 60% of `max_connections`. For the client application, in
+session mode, the maximum number of connections is 225, which limits the total
+number of database connections to 225. In transaction mode, the maximum number
+of connections is 500, which limits the total number of database connections to
+75.
 
 ## Add a connection pooler
 
