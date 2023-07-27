@@ -32,7 +32,7 @@ aggregate data. For example, you can calculate the average, maximum, minimum, or
 sum of values within a bucket.
 
 <img class="main-content__illustration"
-    src="https://s3.amazonaws.com/assets.timescale.com/docs/images/getting-started/time-bucket.jpg"
+    src="https://assets.timescale.com/docs/images/getting-started/time-bucket.webp"
     alt="Diagram showing time-bucket aggregating data into daily buckets, and calculating the daily sum of a value"
 />
 
@@ -53,7 +53,7 @@ exactly on a possible start date, the immediately preceding start date is used
 for the beginning of the bucket.
 
 <img
-  src="https://s3.amazonaws.com/assets.timescale.com/docs/images/time-bucket-origin.jpg"
+  src="https://assets.timescale.com/docs/images/time-bucket-origin.webp"
   class="main-content__illustration"
   alt="Diagram showing how time buckets are calculated from the origin"
 />

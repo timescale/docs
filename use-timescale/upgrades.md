@@ -95,7 +95,7 @@ system during the upgrade.
 4.  Check `Apply new maintenance window to all services` if you want to use the
     same maintenance window settings for all of your Timescale services.
 5.  Click `Apply Changes`.
-    <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-maintenance-change.png" alt="Timescale change maintenance window"/>
+    <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tsc-maintenance-change.png" alt="Timescale change maintenance window"/>
 
 </Procedure>
 
@@ -134,9 +134,8 @@ information about feature changes between versions, see the
 
 <Highlight type="warning">
 Your Timescale service is unavailable until the upgrade is complete. This
-can take several hours. To estimate the length of time, it is usually one second
-of downtime per 100&nbsp;MB, but for a better estimate, you can test on a fork
-first.
+can take up to 20 minutes. It is recommended to test on a fork first for a 
+better estimate.
 </Highlight>
 
 ### Recommended practices for upgrading

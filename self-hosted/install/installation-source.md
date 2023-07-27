@@ -53,7 +53,7 @@ Visual Studio components for CMake and Git when you run the installer.
     our [Releases page][gh-releases]:
 
     ```bash
-    git checkout 2.9.1
+    git checkout 2.11.1
     ```
 
     This command produces an error that you are now in `detached head` state. It
@@ -282,7 +282,7 @@ tsdb=>
 
 <WhereTo />
 
-[install-psql]: /use-timescale/:currentVersion:/connecting/psql/
+[install-psql]: /use-timescale/:currentVersion:/integrations/query-admin/about-psql/
 [config]: /self-hosted/:currentVersion:/configuration/
 [postgres-download]: https://www.postgresql.org/download/
 [cmake-download]: https://cmake.org/download/

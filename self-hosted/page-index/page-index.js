@@ -44,7 +44,7 @@ module.exports = [
             title: "Pre-built containers",
             href: "installation-docker",
             iconSrc:
-              "https://s3.amazonaws.com/assets.iobeam.com/images/docs/moby.png",
+              "https://assets.iobeam.com/images/docs/moby.png",
             excerpt:
               "Install self-hosted TimescaleDB with a pre-built Docker container",
           },
@@ -52,16 +52,8 @@ module.exports = [
             title: "Kubernetes",
             href: "installation-kubernetes",
             iconSrc:
-              "https://s3.amazonaws.com/assets.iobeam.com/images/docs/kubernetes-icon-color.svg",
+              "https://assets.iobeam.com/images/docs/kubernetes-icon-color.svg",
             excerpt: "Install self-hosted TimescaleDB on Kubernetes",
-          },
-          {
-            title: "Pre-built cloud images",
-            href: "installation-cloud-image",
-            iconSrc:
-              "https://s3.amazonaws.com/assets.iobeam.com/images/docs/aws_logo.svg",
-            excerpt:
-              "Install self-hosted TimescaleDB on Amazon with an Ubuntu AMI",
           },
         ],
       },
@@ -104,18 +96,6 @@ module.exports = [
             excerpt: "Configure telemetry gathered by self-hosted TimescaleDB",
           },
         ],
-      },
-      {
-        title: "Compression",
-        href: "compression",
-        excerpt: "Compress hypertables manually or with a policy",
-        children: [
-          {
-            title: "Manual compression",
-            href: "manual-compression",
-            excerpt: "Compress hypertables manually",
-          }
-        ]
       },
       {
         title: "Backup and restore",
@@ -212,6 +192,55 @@ module.exports = [
             title: "Multi-node maintenance",
             href: "multinode-maintenance",
             excerpt: "Maintain a multi-node environment",
+          },
+        ],
+      },
+      {
+        title: "Distributed hypertables",
+        href: "distributed-hypertables",
+        excerpt: "Distributed hypertables for multi-node Timescale",
+        children: [
+          {
+            title: "About distributed hypertables",
+            href: "about-distributed-hypertables",
+            excerpt: "Learn about distributed hypertables",
+          },
+          {
+            title: "Create distributed hypertables",
+            href: "create-distributed-hypertables",
+            excerpt: "Create a distributed hypertable",
+          },
+          {
+            title: "Insert data",
+            href: "insert",
+            excerpt: "Insert data into a distributed hypertable",
+          },
+          {
+            title: "Query data",
+            href: "query",
+            excerpt: "Query data in distributed hypertables",
+          },
+          {
+            title: "Alter and drop distributed hypertables",
+            href: "alter-drop-distributed-hypertables",
+            excerpt: "Alter schema for and drop distributed hypertables",
+          },
+          {
+            title: "Create foreign keys on distributed hypertables",
+            href: "foreign-keys",
+            excerpt:
+              "Create foreign keys from distributed hypertables to other tables",
+          },
+          {
+            title: "Use triggers in distributed hypertables",
+            href: "triggers",
+            excerpt:
+              "Use row- and statement-level triggers in distributed hypertables",
+          },
+          {
+            title: "Troubleshooting",
+            href: "troubleshooting",
+            type: "placeholder",
           },
         ],
       },

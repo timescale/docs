@@ -64,5 +64,5 @@ currently unsupported features might still work on individual data nodes,
 but such usage is neither tested nor officially supported. Future versions
 of Timescale might remove some of these limitations.
 
-[native-replication]: /use-timescale/:currentVersion:/distributed-hypertables/about-distributed-hypertables/#replicating-distributed-hypertables
+[native-replication]: /self-hosted/:currentVersion:/distributed-hypertables/about-distributed-hypertables/#replicating-distributed-hypertables
 [create_distributed_restore_point]: /api/:currentVersion:/distributed-hypertables/create_distributed_restore_point/

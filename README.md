@@ -115,7 +115,7 @@ the screen on wide windows).
 
 ### Code blocks
 
-**Command formatting**
+#### Command formatting
 
 When showing commands being entered from a command line, do not include a
 character for the prompt. Do this:
@@ -138,7 +138,7 @@ or this:
 
 Otherwise the code highlighter may be disrupted.
 
-**Syntax highlighting**
+#### Syntax highlighting
 
 When using a code block, add the appropriate language identifier after the
 initial three backticks to provide the appropriate highlighting on the
@@ -146,6 +146,30 @@ rendered documentation site.
 
 Programming language samples aside, most code blocks are one of:
 `bash`, `sql`, `json`.
+
+#### Line numbers and copy button
+
+Code blocks have line numbers and copy buttons by default. To remove line
+numbers and copy buttons on a case-by-case basis, use the `CodeBlock` component
+directly rather than a native Markdown code block.
+
+To remove the copy button, set `canCopy` to `false`.
+
+To remove line numbers, set `showLineNumbers` to `false`.
+
+```markdown
+<CodeBlock canCopy={false} showLineNumbers={false} children={`
+time                   | symbol |    price     | day_volume
+-----------------------+--------+--------------+------------
+2023-06-07 12:00:04+00 | C      |        47.39 |
+2023-06-07 12:00:04+00 | T      |        15.67 |
+2023-06-07 12:00:04+00 | SQ     |        66.27 |
+2023-06-07 12:00:04+00 | CRM    |        213.1 |
+2023-06-07 12:00:04+00 | CVX    |        155.9 |
+2023-06-07 12:00:04+00 | BAC    |        29.34 |
+...
+`} />
+```
 
 ### Partials
 
@@ -218,6 +242,13 @@ metadata about functions. Available tags:
     `<Tag type="experimental-toolkit" content="Experimental" />`
 *   Toolkit tag: `<Tag type="toolkit" content="Toolkit" />`
 *   Community tag: `<Tag type="community" content="Community" />`
+
+By default, tags have a solid background and gray text. There is also a hollow
+variant:
+
+```markdown
+<Tag variant="hollow">Text to display in a tag</Tag>
+```
 
 ### Procedures
 

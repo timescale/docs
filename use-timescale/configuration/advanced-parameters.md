@@ -16,13 +16,13 @@ navigating to the `Advanced parameters` tab under the `Database
 configuration` heading.
 
 <img class="main-content__illustration"
-src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-settings-advanced.png"
+src="https://assets.timescale.com/docs/images/tsc-settings-advanced.webp"
 alt="View Timescale advanced configuration parameters"/>
 
 The advanced parameters are displayed in a scrollable and searchable list:
 
 <img class="main-content__illustration"
-src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-settings-search.png"
+src="https://assets.timescale.com/docs/images/tsc-settings-search.webp"
 alt="Search Timescale configuration parameters"/>
 
 As with the basic database configuration parameters, any changes are highlighted

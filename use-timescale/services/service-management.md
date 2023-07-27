@@ -51,9 +51,9 @@ data discrepancy between services.
 1.  In the `Service management` section, click `Fork service`. In the dialog,
     confirm by clicking `Fork service`. The forked service takes a few minutes
     to start.
-1.  <Optional />To change the configuration of your fork, click `Advanced
-    options`. You can set different compute and storage options, separate from
-    your original database.
+1.  [](#)<Optional />To change the configuration of your fork, click
+    `Advanced options`. You can set different compute and storage options,
+    separate from your original database.
 1.  Confirm by clicking `Fork service`. The forked service takes a few minutes
     to start.
 1.  The forked service shows in the `Services` dashboard with a label stating
@@ -61,7 +61,7 @@ data discrepancy between services.
 
 <img
 class="main-content__illustration"
-src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-forked-service.png"
+src="https://assets.timescale.com/docs/images/tsc-forked-service.webp"
 alt="Fork a Timescale service"
 />
 
