@@ -57,11 +57,11 @@ dataset and copy the data to your database.
     specify the file paths in the following commands:
 
     <CodeBlock canCopy={true} showLineNumbers={false} children={`
-    &#92;COPY stocks_real_time from './tutorial_sample_tick.csv' DELIMITER ',' CSV HEADER;
+    //COPY stocks_real_time from './tutorial_sample_tick.csv' DELIMITER ',' CSV HEADER;
     `} />
 
     <CodeBlock canCopy={true} showLineNumbers={false} children={`
-    &#92;COPY company from './tutorial_sample_company.csv' DELIMITER ',' CSV HEADER;
+    //COPY company from './tutorial_sample_company.csv' DELIMITER ',' CSV HEADER;
     `} />
 
     Because there are millions of rows of data, the `COPY` process may take a few

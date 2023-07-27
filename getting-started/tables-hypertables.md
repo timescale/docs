@@ -96,7 +96,7 @@ you would normally. For this dataset, there is one other table of data called
     check this by running this command at the `psql` prompt:
 
     <CodeBlock canCopy={true} showLineNumbers={false} children={`
-    &#92;dt
+    //dt
     `} />
 
     This command returns information about your tables, like this:
