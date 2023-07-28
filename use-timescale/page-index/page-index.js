@@ -8,11 +8,6 @@ module.exports = [
       "How to connect to Timescale, administer, and configure the database.",
     children: [
       {
-        title: "Clouds and regions",
-        href: "regions",
-        excerpt: "Timescale AWS regions",
-      },
-      {
         title: "Services",
         href: "services",
         excerpt: "Timescale services",
@@ -44,6 +39,184 @@ module.exports = [
             type: "placeholder",
           },
         ],
+      },
+      {
+        title: "Time buckets",
+        href: "time-buckets",
+        excerpt: "Aggregate data by time interval with time buckets",
+        children: [
+          {
+            title: "About time buckets",
+            href: "about-time-buckets",
+            excerpt: "Learn how time buckets work in Timescale.",
+          },
+          {
+            title: "Use time buckets to group time-series data",
+            href: "use-time-buckets",
+            excerpt:
+              "How to group time series data with the time_bucket function.",
+          },
+          {
+            title: "Troubleshoot problems with time buckets",
+            href: "troubleshooting",
+            type: "placeholder",
+          },
+        ],
+      },
+      {
+        title: "Hypertables",
+        href: "hypertables",
+        children: [
+          {
+            title: "About hypertables",
+            href: "about-hypertables",
+            excerpt: "Learn about hypertables in Timescale",
+          },
+          {
+            title: "Create hypertables",
+            href: "create",
+            excerpt: "Create hypertables",
+          },
+          {
+            title: "Change hypertable chunk intervals",
+            href: "change-chunk-intervals",
+            excerpt: "Change and view chunk time intervals for a hypertable",
+          },
+          {
+            title: "Alter hypertables",
+            href: "alter",
+            excerpt: "Alter hypertables",
+          },
+          {
+            title: "Create unique indexes on hypertables",
+            href: "hypertables-and-unique-indexes",
+            excerpt: "Create hypertables with unique indexes",
+          },
+          {
+            title: "Drop hypertables",
+            href: "drop",
+            excerpt: "Drop hypertables",
+          },
+          {
+            title: "Troubleshoot hypertables",
+            href: "troubleshooting",
+            type: "placeholder",
+            excerpt: "Troubleshooting and error fixes for hypertables",
+          },
+        ],
+      },
+      {
+        href: "compression",
+        children: [
+          {
+            title: "About compression",
+            href: "about-compression",
+            excerpt: "Compress data chunks",
+          },
+          {
+            title: "Manual compression",
+            href: "manual-compression",
+            excerpt: "Compress data chunks",
+          },
+          {
+            title: "Modify compressed data",
+            href: "modify-compressed-data",
+            excerpt: "Insert and modify data in compressed chunks",
+          },
+          {
+            title: "Decompress chunks",
+            href: "decompress-chunks",
+            excerpt: "Decompress data chunks",
+          },
+          {
+            title: "Backfill historical data",
+            href: "backfill-historical-data",
+            excerpt: "Backfill historical data to compressed chunks",
+          },
+          {
+            title: "Modify a schema",
+            href: "modify-a-schema",
+            excerpt: "Change the data schema in compressed chunks",
+          },
+          {
+            title: "Troubleshooting",
+            href: "troubleshooting",
+            type: "placeholder",
+          },
+        ],
+      },
+      {
+        title: "Continuous aggregates",
+        href: "continuous-aggregates",
+        children: [
+          {
+            title: "About continuous aggregates",
+            href: "about-continuous-aggregates",
+            excerpt: "About continuous aggregates",
+          },
+          {
+            title: "Create a continuous aggregate",
+            href: "create-a-continuous-aggregate",
+            excerpt: "Create continuous aggregates",
+          },
+          {
+            title: "Hierarchical continuous aggregates",
+            href: "hierarchical-continuous-aggregates",
+          },
+          {
+            title: "Refresh policies for continuous aggregates",
+            href: "refresh-policies",
+            excerpt: "Manage refresh policies for continuous aggregates",
+          },
+          {
+            title: "Create an index on a continuous aggregate",
+            href: "create-index",
+            excerpt:
+              "Manage automatic index creation and manually create additional indexes",
+          },
+          {
+            title: "Time in continuous aggregates",
+            href: "time",
+            excerpt: "Manage time in continuous aggregates",
+          },
+          {
+            title: "Drop data from continuous aggregates",
+            href: "drop-data",
+            excerpt: "Drop data from continuous aggregates",
+          },
+          {
+            title: "Manage materialized hypertables",
+            href: "materialized-hypertables",
+            excerpt: "Manage materialized hypertables in continuous aggregates",
+          },
+          {
+            title: "Real time aggregates",
+            href: "real-time-aggregates",
+            excerpt: "Manage real time aggregates in continuous aggregates",
+          },
+          {
+            title: "Compress continuous aggregates",
+            href: "compression-on-continuous-aggregates",
+            excerpt: "Compress continuous aggregates",
+          },
+          {
+            title: "Migrate a continuous aggregate to the new form",
+            href: "migrate",
+            excerpt:
+              "Migrate old continuous aggregates to the new form introduced in Timescale 2.7",
+          },
+          {
+            title: "Troubleshoot continuous aggregates",
+            href: "troubleshooting",
+            type: "placeholder",
+            excerpt: "Troubleshoot continuous aggregates",
+          },
+        ],
+      },
+      {
+        title: "Clouds and regions",
+        href: "regions",
+        excerpt: "Timescale AWS regions",
       },
       {
         title: "Resources",
@@ -131,71 +304,6 @@ module.exports = [
         ],
       },
       {
-        title: "Time buckets",
-        href: "time-buckets",
-        excerpt: "Aggregate data by time interval with time buckets",
-        children: [
-          {
-            title: "About time buckets",
-            href: "about-time-buckets",
-            excerpt: "Learn how time buckets work in Timescale.",
-          },
-          {
-            title: "Use time buckets to group time-series data",
-            href: "use-time-buckets",
-            excerpt:
-              "How to group time series data with the time_bucket function.",
-          },
-          {
-            title: "Troubleshoot problems with time buckets",
-            href: "troubleshooting",
-            type: "placeholder",
-          },
-        ],
-      },
-      {
-        title: "Hypertables",
-        href: "hypertables",
-        children: [
-          {
-            title: "About hypertables",
-            href: "about-hypertables",
-            excerpt: "Learn about hypertables in Timescale",
-          },
-          {
-            title: "Create hypertables",
-            href: "create",
-            excerpt: "Create hypertables",
-          },
-          {
-            title: "Change hypertable chunk intervals",
-            href: "change-chunk-intervals",
-            excerpt: "Change and view chunk time intervals for a hypertable",
-          },
-          {
-            title: "Alter hypertables",
-            href: "alter",
-            excerpt: "Alter hypertables",
-          },
-          {
-            title: "Create unique indexes on hypertables",
-            href: "hypertables-and-unique-indexes",
-            excerpt: "Create hypertables with unique indexes",
-          },
-          {
-            title: "Drop hypertables",
-            href: "drop",
-            excerpt: "Drop hypertables",
-          },
-          {
-            title: "Troubleshoot hypertables",
-            href: "troubleshooting",
-            type: "placeholder",
-            excerpt: "Troubleshooting and error fixes for hypertables",
-          },
-        ],
-      },
-      {
         title: "Schema management",
         href: "schema-management",
         children: [
@@ -241,46 +349,6 @@ module.exports = [
           },
           {
             title: "Troubleshoot schema management",
-            href: "troubleshooting",
-            type: "placeholder",
-          },
-        ],
-      },
-      {
-        href: "compression",
-        children: [
-          {
-            title: "About compression",
-            href: "about-compression",
-            excerpt: "Compress data chunks",
-          },
-          {
-            title: "Manual compression",
-            href: "manual-compression",
-            excerpt: "Compress data chunks",
-          },
-          {
-            title: "Modify compressed data",
-            href: "modify-compressed-data",
-            excerpt: "Insert and modify data in compressed chunks",
-          },
-          {
-            title: "Decompress chunks",
-            href: "decompress-chunks",
-            excerpt: "Decompress data chunks",
-          },
-          {
-            title: "Backfill historical data",
-            href: "backfill-historical-data",
-            excerpt: "Backfill historical data to compressed chunks",
-          },
-          {
-            title: "Modify a schema",
-            href: "modify-a-schema",
-            excerpt: "Change the data schema in compressed chunks",
-          },
-          {
-            title: "Troubleshooting",
             href: "troubleshooting",
             type: "placeholder",
           },
@@ -363,74 +431,6 @@ module.exports = [
         title: "Billing and account management",
         href: "account-management",
         excerpt: "Timescale account management",
-      },
-      {
-        title: "Continuous aggregates",
-        href: "continuous-aggregates",
-        children: [
-          {
-            title: "About continuous aggregates",
-            href: "about-continuous-aggregates",
-            excerpt: "About continuous aggregates",
-          },
-          {
-            title: "Create a continuous aggregate",
-            href: "create-a-continuous-aggregate",
-            excerpt: "Create continuous aggregates",
-          },
-          {
-            title: "Hierarchical continuous aggregates",
-            href: "hierarchical-continuous-aggregates",
-          },
-          {
-            title: "Refresh policies for continuous aggregates",
-            href: "refresh-policies",
-            excerpt: "Manage refresh policies for continuous aggregates",
-          },
-          {
-            title: "Create an index on a continuous aggregate",
-            href: "create-index",
-            excerpt:
-              "Manage automatic index creation and manually create additional indexes",
-          },
-          {
-            title: "Time in continuous aggregates",
-            href: "time",
-            excerpt: "Manage time in continuous aggregates",
-          },
-          {
-            title: "Drop data from continuous aggregates",
-            href: "drop-data",
-            excerpt: "Drop data from continuous aggregates",
-          },
-          {
-            title: "Manage materialized hypertables",
-            href: "materialized-hypertables",
-            excerpt: "Manage materialized hypertables in continuous aggregates",
-          },
-          {
-            title: "Real time aggregates",
-            href: "real-time-aggregates",
-            excerpt: "Manage real time aggregates in continuous aggregates",
-          },
-          {
-            title: "Compress continuous aggregates",
-            href: "compression-on-continuous-aggregates",
-            excerpt: "Compress continuous aggregates",
-          },
-          {
-            title: "Migrate a continuous aggregate to the new form",
-            href: "migrate",
-            excerpt:
-              "Migrate old continuous aggregates to the new form introduced in Timescale 2.7",
-          },
-          {
-            title: "Troubleshoot continuous aggregates",
-            href: "troubleshooting",
-            type: "placeholder",
-            excerpt: "Troubleshoot continuous aggregates",
-          },
-        ],
       },
       {
         title: "Alerting",
