@@ -58,40 +58,6 @@ operations team.
 
 <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tsc-disk-metrics.png" alt="Timescale metrics dashboard"/>
 
-If your database exceeds a storage threshold of available resources, some
-automated actions are triggered, including notifications and preventative
-actions.
-
-### Automated user alerting
-
-When your disk usage exceeds certain thresholds, you receive an email
-notification. These notifications occur at:
-
-*   75%
-*   85%
-*   95%
-
-So that you aren't overwhelmed by automated messages, the alerting thresholds use
-low and high watermarks, and we limit the frequency of messages we send you
-about a particular service.
-
-### Automated overload protection
-
-If your database continues to increase in size past these thresholds, automated
-overload protection is activated when your disk becomes 99% full. When this
-happens, your database is put into read-only mode, you receive an
-email notification, and the Timescale console shows the changed status.
-
-When your disk is in read-only mode, you can still query your database, but you
-cannot add any new data to it. This ensures that your disk does not fill up
-to 100%, and thus prevents the database from crashing due to an out of memory (OOM)
-error.
-
-With your database in read-only mode, you need to decide if you are going to
-increase your storage capacity, or reduce the size of your database. When you
-have done that, you can also add a retention policy, or turn on compression, to
-avoid the problem occurring again in the future.
-
 ## Query-level statistics in the Timescale dashboard
 
 You can analyze your queries by navigating to the `Query stats` tab from the
