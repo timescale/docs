@@ -101,30 +101,7 @@ LIMIT 10
     you downloaded to connect to your database.
 1.  At the `psql` prompt, type this query:
 
-    ```sql
-    SELECT * FROM stocks_real_time srt
-    WHERE symbol='TSLA' and day_volume is not null
-    ORDER BY time DESC, day_volume desc
-    LIMIT 10;
-    ```
-
-    The data you get back looks a bit like this:
-
-    <CodeBlock canCopy={false} showLineNumbers={true} children={`
-                  time          | symbol |  price   | day_volume
-    ------------------------+--------+----------+------------
-     2023-06-06 20:15:06+00 | TSLA   |   221.61 |  143483212
-     2023-06-06 19:57:44+00 | TSLA   | 221.6775 |  139585954
-     2023-06-06 19:57:43+00 | TSLA   |   221.68 |  139541647
-     2023-06-06 19:57:42+00 | TSLA   |    221.7 |  139537050
-     2023-06-06 19:57:42+00 | TSLA   |  221.655 |  139519760
-     2023-06-06 19:57:41+00 | TSLA   |   221.65 |  139497262
-     2023-06-06 19:57:39+00 | TSLA   |   221.65 |  139481020
-     2023-06-06 19:57:38+00 | TSLA   |   221.64 |  139469621
-     2023-06-06 19:57:37+00 | TSLA   |   221.66 |  139448852
-     2023-06-06 19:57:36+00 | TSLA   |   221.65 |  139430492
-    (10 rows)
-    `} />
+    <TryItOutCodeBlock queryId="getting-started-srt-orderby" />
 
     There are multiple trades every second, but you know that the order is
     correct, because the `day_volume` column is ordered correctly.
