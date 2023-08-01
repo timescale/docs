@@ -114,10 +114,11 @@ the Timescale portal.
 1.  When the pooler has been added, your pooler connection details are displayed
     in the `Connection pooler` tab. Use this information to connect to your
     pooler.
-1.  By default, your pooler is started as a session pool. You can change this to
-    a transaction pool by selecting it from the drop-down menu. For more
-    information about the different pool types, see the
-    [pool types][about-connection-pooling-types] section.
+1.  By default, you are shown the connection string for the session pool. You
+    can change this to see the details for a transaction pool instead, by
+    selecting it from the drop-down menu. For more information about the
+    different pool types, see the [pool types][about-connection-pooling-types]
+    section.
 
     <img class="main-content__illustration"
     src="https://assets.timescale.com/docs/images/connection_pooler.webp"
