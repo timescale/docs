@@ -117,6 +117,7 @@ Unix
 [Rr]ebalanc(?:e|ing)
 [Rr]epos?
 [Rr]ollups?
+[Ss]erverless
 [Ss]hard(?:s|ing)?
 (?i)timestamptz
 URLs?

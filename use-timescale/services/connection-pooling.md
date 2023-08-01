@@ -43,6 +43,36 @@ transaction, releasing the connection back to the pool when the transaction
 ends. If your application opens and closes connections frequently, choose the
 transaction pool type.
 
+By default, the pooler supports both modes simultaneously. However, the
+connection string you use to connect your application is different, depending on
+whether you want a session or transaction pool type. When you create a
+connection pool in the Timescale console, you are given the correct connection
+string for the mode you choose.
+
+For example, a connection string to connect directly to your database looks a
+bit like this:
+
+<CodeBlock canCopy={false} showLineNumbers={false} children={`
+postgres://<USERNAME>:<PASSWORD>@service.example.cloud.timescale.com:30133/tsdb?sslmode=require
+`} />
+
+A session pool connection string is the same, but uses a different port number,
+like this:
+
+<CodeBlock canCopy={false} showLineNumbers={false} children={`
+postgres://<USERNAME>:<PASSWORD>@service.example.cloud.timescale.com:29303/tsdb?sslmode=require
+`} />
+
+The transaction pool connection string uses the same port number as a session
+pool connection, but uses a different database name, like this:
+
+<CodeBlock canCopy={false} showLineNumbers={false} children={`
+postgres://<USERNAME>:<PASSWORD>@service.example.cloud.timescale.com:29303/tsdb_transaction?sslmode=require
+`} />
+
+Make sure you check the Timescale console output for the correct connection
+string to use in your application.
+
 ## Connection allocations
 
 A connection pooler manages connections to both the database itself, and the
@@ -55,8 +85,10 @@ connections until 60% of the total `max_connections`. 45% of the
 is available for the transaction pool.
 
 The connection pooler can then allocate connections for the client application.
-Up to 45% of `max_connections` is available for the session pool, and up to 100%
-of `max_connections` is available for the transaction pool.
+By default, up to 45% of `max_connections` is available for the session pool,
+and up to 100% of `max_connections` is available for the transaction pool.
+However, if you want to make use of all available connections stipulated by
+`max_connections`, you can connect directly instead.
 
 For example, if `max_connections` is set to 500, the maximum number of database
 connections is 300, or 60% of `max_connections`. For the client application, in
