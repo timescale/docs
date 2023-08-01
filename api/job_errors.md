@@ -81,7 +81,7 @@ The owner of the retention job can alter it and delete it.
 For example, the owner can change the retention interval like this:
 
 ```sql
-SELECT alter_job(2,config:=jsonb_set(config,'{drop_after}', '2 weeks'));
+SELECT alter_job(id,config:=jsonb_set(config,'{drop_after}', '"2 weeks"')) FROM _timescaledb_config.bgw_job WHERE id = 2;
 ```
 
 [actions]: /api/:currentVersion:/actions/
