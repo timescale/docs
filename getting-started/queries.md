@@ -41,8 +41,9 @@ statement to add a condition on to the statement. In this section, you add a
 WHERE time > now() - INTERVAL '4 days'
 `} />
 
-You can also limit the number of rows that get returned:
+You can also limit the number of rows that get returned with a `LIMIT` clause:
 
+```sql
 <CodeBlock canCopy={false} showLineNumbers={false} children={`
 LIMIT 10
 `} />
@@ -53,7 +54,12 @@ LIMIT 10
 
 1.  At the command prompt, use the `psql` connection string from the cheat sheet
     you downloaded to connect to your database.
-1.  At the `psql` prompt, type this query:
+1.  At the `psql` prompt, type this query.
+
+    <Highlight type="note">
+    Get a sneak peek at the results by clicking "Run query" below. This runs the
+    SQL query against a live instance curated by Timescale.
+    </Highlight>
 
     <TryItOutCodeBlock queryId="getting-started-srt-4-days" />
 
@@ -85,9 +91,7 @@ occurs, the day volume figure increases by 1. Here is the `ORDER BY` statement:
 ORDER BY time DESC, day_volume desc
 `} />
 
-Finally, because Tesla has such a large volume of trades, and you might not
-want to see all of them, you can add a limit to the number of results you want
-to see, like this:
+Finally, to limit the number of results, you can use a `LIMIT` clause again:
 
 <CodeBlock canCopy={false} showLineNumbers={false} children={`
 LIMIT 10
