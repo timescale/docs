@@ -7,10 +7,14 @@ keywords: [connect]
 
 # Connect to Timescale using qStudio
 
-[qStudio][qstudio] qStudio is a free SQL GUI, it allows running SQL scripts, easy browsing of tables, charting and exporting of results. 
-It works on every operating system, with every database including Timescale. 
-You can connect to Timescale hosted on your local machine or on a remote server or a Timescale
+[qStudio][qstudio] is a free SQL GUI to run SQL scripts, browse the tables,
+create charts and export the results. You can install qStudio on every operating
+system and connect to every database including Timescale. You can connect to
+Timescale hosted on your local machine or on a remote server or a Timescale
 service.
+
+For more information about `qStudio`, including download and installation
+instructions, see [timestored.com][qstudio-downloads].
 
 ## Before you begin
 
@@ -27,16 +31,47 @@ service.
     it is marked as `Running`.
 1.  Click the name of the service you want to connect to, and take a note
      of the `Host`, `Port`, `Database name`, and `Username`.
-1.  [](#)<Optional />If you do not know the password for the service, navigate to the
-    `Operations` tab, and click `Reset password`. You can choose
-    your own password for the service, or allow Timescale to generate a
+1.  [](#)<Optional />If you do not know the password for the service, navigate
+    to the `Operations` tab, and click `Reset password`. You can choose your own
+    password for the service, or allow Timescale to generate a
     secure password for you. Take a note of your new password.
 1.  Start `qStudio`.
-1.  Click on the menu options `Server->Add Server` or on the add server button on the toolbar.
-1.  Select Server Type: `Postgres`.
-1.  Set the `Host`, `Port`,`Database`, `Username` and `Password`.
-1.  Click the `Test` button to check if the connection is successful.
-1.  Click the `Add` button to add the database server. The server is listed in the `Server Tree` pane.
+1.  In the `Server` tab click `Add Server`.
+1.  In the `Server Properties` dialog select `Server Type` as `Postgres`.
+1.  Set `Connect By` as `URL`
+1.  Set the `Host`, `Port`,`Database`, `Username` and `Password`.For more
+    information about these settings,
+    see [the connection section][connection-details].
+1.  Click `Test` to check if the connection is successful.
+1.  Click `Add` to add the database server.
+    The server is listed in the `Server Tree` pane.
+
+    <img class="maincontent__illustration"
+    src="https://s3.amazonaws.com/assets.timescale.com/docs/images/qstudio_timescale.webp"
+    alt="Connecting to Timescale service using qstudio"/>
+
+</Procedure>
+
+</Tab>
+
+<Tab title="Self-hosted Timescale">
+
+<Procedure>
+
+1.  Start `qStudio`.
+1.  In the `Server` tab click `Add Server`.
+1.  In the `Server Properties` dialog select `Server Type` as `Postgres`.
+1.  Set `Connect By`as `Host`.
+1.  Set the `Host`, `Port`,`Database`, `Username` and `Password`. For more
+    information about these settings,
+    see [the connection section][connection-details].
+1.  Click `Test` to check if the connection is successful.
+1.  Click `Add` to add the database server.
+    The server is listed in the `Server Tree` pane.
+
+    <img class="maincontent__illustration"
+    src="https://s3.amazonaws.com/assets.timescale.com/docs/images/qstudio_self_hosted.webp"
+    alt="Connecting to Timescale using qstudio"/>
 
 </Procedure>
 
@@ -44,18 +79,20 @@ service.
 
 </Tabs>
 
-## Connection settings in `Connect to a database`
+## Settings in `Connection`
 
-This table provides the description and example values for the fields that
-appear in the `Main` tab of `Connection settings`.
+This table provides the description and example values for the fields in
+`Connection` dialog of `Server Properties`.
 
 |Setting|Example value|Description|
 |-|-|-|
-|Host|localhost, postgresql.example.com, <REMOTE_HOST>.tsdb.cloud.timescale.com|The fully qualified server name. The host name of your Timescale service.|
-|Port|5432|The port number of the TimescaleDB server, Timescale service.|
+|Host|`localhost`, `postgresql.example.com`, `<REMOTE_HOST>.tsdb.cloud.timescale.com`|The fully qualified server name or IP address of your TimescaleDB server or the host name of your Timescale service.|
+|Port|`5432`|The port number of the TimescaleDB server, Timescale service.|
 |Username|`postgres`, `tsdbadmin`|The user name you want to log in with. Use `tsdbadmin` for Timescale services|
 |Password|*password*|The password for the database user you are connecting to.|
 |Database|`tsdb`|This option connects to the default database. The database name for a Timescale service is `tsdb`. You can also specify the name of the database to connect to.|
 
 [qstudio]: https://www.timestored.com/qstudio
 [qstudio-downloads]: https://www.timestored.com/qstudio/download
+[tsc-portal]: https://console.cloud.timescale.com/
+[connection-details]: #settings-in-connection
