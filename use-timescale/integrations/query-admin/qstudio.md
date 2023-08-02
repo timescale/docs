@@ -30,13 +30,13 @@ instructions, see [timestored.com][qstudio-downloads].
     to the `Operations` tab, and click `Reset password`. You can choose your own
     password for the service, or allow Timescale to generate a
     secure password for you. Take a note of your new password.
-1.  Start `qStudio`.
-1.  In the `Server` tab click `Add Server`.
-1.  In the `Server Properties` dialog select `Server Type` as `Postgres`.
-1.  Set `Connect By` as `URL`
-1.  Set the `Host`, `Port`,`Database`, `Username` and `Password`.For more
-    information about these settings,
-    see [the connection section][connection-details].
+1.  Start `qStudio`, navigate to the `Server` tab, and click `Add Server`.
+1.  In the `Server Properties` dialog, complete these details:
+    *   For `Server Type`, select `Postgres`.
+    *   For `URL`, select `Connect By`.
+    *   For the `Host`, `Port`,`Database`, `Username` and `Password`, use 
+         your Service connection details. For more information about these 
+         settings, see [the connection section][connection-details].
 1.  Click `Test` to check if the connection is successful.
 1.  Click `Add` to add the database server.
     The server is listed in the `Server Tree` pane.
