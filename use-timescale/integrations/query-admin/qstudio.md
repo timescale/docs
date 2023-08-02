@@ -59,7 +59,7 @@ instructions, see [timestored.com][qstudio-downloads].
     *   For `Server Type`, select `Postgres`.
     *   For `Connect By`, select `Host`.
     *   For the `Host`, `Port`, `Database`, `Username` and `Password`, use 
-         your Service connection details. For more information about these 
+         your service connection details. For more information about these 
          settings, see [the connection section][connection-details].
 1.  Click `Test` to check if the connection is successful.
 1.  Click `Add` to add the connection.
