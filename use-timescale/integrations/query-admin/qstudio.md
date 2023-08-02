@@ -74,7 +74,7 @@ instructions, see [timestored.com][qstudio-downloads].
 
 </Tabs>
 
-## Settings in `Connection`
+## Connection settings
 
 This table provides the description and example values for the fields in
 `Connection` dialog of `Server Properties`.
