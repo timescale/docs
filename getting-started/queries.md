@@ -43,7 +43,6 @@ WHERE time > now() - INTERVAL '4 days'
 
 You can also limit the number of rows that get returned with a `LIMIT` clause:
 
-```sql
 <CodeBlock canCopy={false} showLineNumbers={false} children={`
 LIMIT 10
 `} />
