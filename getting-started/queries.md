@@ -41,32 +41,26 @@ statement to add a condition on to the statement. In this section, you add a
 WHERE time > now() - INTERVAL '4 days'
 `} />
 
+You can also limit the number of rows that get returned with a `LIMIT` clause:
+
+<CodeBlock canCopy={false} showLineNumbers={false} children={`
+LIMIT 10
+`} />
+
 <Procedure>
 
 ### Using SELECT to return data
 
 1.  At the command prompt, use the `psql` connection string from the cheat sheet
     you downloaded to connect to your database.
-1.  At the `psql` prompt, type this query:
+1.  At the `psql` prompt, type this query.
 
-    ```sql
-    SELECT * FROM stocks_real_time srt
-    WHERE time > now() - INTERVAL '4 days';
-    ```
+    <Highlight type="note">
+    Get a sneak peek at the results by clicking "Run query" below. This runs the
+    SQL query against a live instance curated by Timescale.
+    </Highlight>
 
-    The data you get back looks a bit like this:
-
-    <CodeBlock canCopy={false} showLineNumbers={true} children={`
-              time          | symbol |    price     | day_volume
-    ------------------------+--------+--------------+------------
-     2023-06-07 12:00:04+00 | C      |        47.39 |
-     2023-06-07 12:00:04+00 | T      |        15.67 |
-     2023-06-07 12:00:04+00 | SQ     |        66.27 |
-     2023-06-07 12:00:04+00 | CRM    |        213.1 |
-     2023-06-07 12:00:04+00 | CVX    |        155.9 |
-     2023-06-07 12:00:04+00 | BAC    |        29.34 |
-     ...
-    `} />
+    <TryItOutCodeBlock queryId="getting-started-srt-4-days" />
 
 1.  Type `q` to return to the `psql` prompt.
 
@@ -96,9 +90,7 @@ occurs, the day volume figure increases by 1. Here is the `ORDER BY` statement:
 ORDER BY time DESC, day_volume desc
 `} />
 
-Finally, because Tesla has such a large volume of trades, and you might not
-want to see all of them, you can add a limit to the number of results you want
-to see, like this:
+Finally, to limit the number of results, you can use a `LIMIT` clause again:
 
 <CodeBlock canCopy={false} showLineNumbers={false} children={`
 LIMIT 10
@@ -112,30 +104,7 @@ LIMIT 10
     you downloaded to connect to your database.
 1.  At the `psql` prompt, type this query:
 
-    ```sql
-    SELECT * FROM stocks_real_time srt
-    WHERE symbol='TSLA' and day_volume is not null
-    ORDER BY time DESC, day_volume desc
-    LIMIT 10;
-    ```
-
-    The data you get back looks a bit like this:
-
-    <CodeBlock canCopy={false} showLineNumbers={true} children={`
-                  time          | symbol |  price   | day_volume
-    ------------------------+--------+----------+------------
-     2023-06-06 20:15:06+00 | TSLA   |   221.61 |  143483212
-     2023-06-06 19:57:44+00 | TSLA   | 221.6775 |  139585954
-     2023-06-06 19:57:43+00 | TSLA   |   221.68 |  139541647
-     2023-06-06 19:57:42+00 | TSLA   |    221.7 |  139537050
-     2023-06-06 19:57:42+00 | TSLA   |  221.655 |  139519760
-     2023-06-06 19:57:41+00 | TSLA   |   221.65 |  139497262
-     2023-06-06 19:57:39+00 | TSLA   |   221.65 |  139481020
-     2023-06-06 19:57:38+00 | TSLA   |   221.64 |  139469621
-     2023-06-06 19:57:37+00 | TSLA   |   221.66 |  139448852
-     2023-06-06 19:57:36+00 | TSLA   |   221.65 |  139430492
-    (10 rows)
-    `} />
+    <TryItOutCodeBlock queryId="getting-started-srt-orderby" />
 
     There are multiple trades every second, but you know that the order is
     correct, because the `day_volume` column is ordered correctly.
@@ -184,26 +153,7 @@ For more information about these functions, see the API documentation for
     you downloaded to connect to your database.
 1.  At the `psql` prompt, type this query:
 
-    ```sql
-    SELECT symbol, first(price,time), last(price, time)
-    FROM stocks_real_time srt
-    WHERE time > now() - INTERVAL '4 days'
-    GROUP BY symbol
-    ORDER BY symbol;
-    ```
-
-    The data you get back looks a bit like this:
-
-    <CodeBlock canCopy={false} showLineNumbers={true} children={`
-         symbol |  first   |   last
-    --------+----------+----------
-     AAPL   | 179.0507 |   179.04
-     ABNB   |   118.83 | 117.9694
-     AMAT   |   133.55 | 134.8964
-     AMD    | 122.6476 |   125.13
-     AMZN   | 126.5599 |   126.69
-     ...
-    `} />
+    <TryItOutCodeBlock queryId="getting-started-srt-first-last" />
 
 1.  Type `q` to return to the `psql` prompt.
 
