@@ -25,16 +25,16 @@ instructions, see [timestored.com][qstudio-downloads].
 
 1.  Sign in to the [Timescale portal][tsc-portal], and navigate to the `Services` 
      tab. For the service you want to connect to, check it is marked as `Running`, 
-     and take a note of the `Host`, `Port`, `Database name`, and `Username`.
+     and take note of the `Host`, `Port`, `Database name`, and `Username`.
 1.  [](#)<Optional />If you do not know the password for the service, navigate
     to the `Operations` tab, and click `Reset password`. You can choose your own
     password for the service, or allow Timescale to generate a
-    secure password for you. Take a note of your new password.
+    secure password for you. Take note of your new password.
 1.  Start `qStudio`, navigate to the `Server` tab, and click `Add Server`.
 1.  In the `Server Properties` dialog, complete these details:
     *   For `Server Type`, select `Postgres`.
-    *   For `URL`, select `Connect By`.
-    *   For the `Host`, `Port`,`Database`, `Username` and `Password`, use 
+    *   For `Connect By`, select `Host`.
+    *   For the `Host`, `Port`, `Database`, `Username` and `Password`, use 
          your Service connection details. For more information about these 
          settings, see [the connection section][connection-details].
 1.  Click `Test` to check if the connection is successful.
@@ -55,13 +55,14 @@ instructions, see [timestored.com][qstudio-downloads].
 
 1.  Start `qStudio`.
 1.  In the `Server` tab click `Add Server`.
-1.  In the `Server Properties` dialog select `Server Type` as `Postgres`.
-1.  Set `Connect By`as `Host`.
-1.  Set the `Host`, `Port`,`Database`, `Username` and `Password`. For more
-    information about these settings,
-    see [the connection section][connection-details].
+1.  In the `Server Properties` dialog, complete these details:
+    *   For `Server Type`, select `Postgres`.
+    *   For `Connect By`, select `Host`.
+    *   For the `Host`, `Port`, `Database`, `Username` and `Password`, use 
+         your Service connection details. For more information about these 
+         settings, see [the connection section][connection-details].
 1.  Click `Test` to check if the connection is successful.
-1.  Click `Add` to add the database server.
+1.  Click `Add` to add the connection.
     The server is listed in the `Server Tree` pane.
 
     <img class="maincontent__illustration"
@@ -90,4 +91,4 @@ This table provides the description and example values for the fields in
 [qstudio]: https://www.timestored.com/qstudio
 [qstudio-downloads]: https://www.timestored.com/qstudio/download
 [tsc-portal]: https://console.cloud.timescale.com/
-[connection-details]: #settings-in-connection
+[connection-details]: #connection-settings
