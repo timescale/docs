@@ -7,11 +7,8 @@ keywords: [connect]
 
 # Connect to Timescale using qStudio
 
-[qStudio][qstudio] is a free SQL GUI to run SQL scripts, browse the tables,
-create charts and export the results. You can install qStudio on every operating
-system and connect to every database including Timescale. You can connect to
-Timescale hosted on your local machine or on a remote server or a Timescale
-service.
+You can use [qStudio][qstudio] to run queries, browse tables, and create charts 
+for your Timescale database.
 
 For more information about `qStudio`, including download and installation
 instructions, see [timestored.com][qstudio-downloads].
