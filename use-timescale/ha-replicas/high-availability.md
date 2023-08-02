@@ -45,10 +45,6 @@ primary and the other node undergoes maintenance.
 
 ## Create a database replica
 
-<Highlight type="warning">
-If you created your service before June 2022, your service might restart when
-you add a replica. Restarts typically take about one minute to complete.
-</Highlight>
 
 <Procedure>
 
