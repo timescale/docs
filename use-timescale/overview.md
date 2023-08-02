@@ -17,6 +17,7 @@ import CompressionIntro from "versionContent/_partials/_compression-intro.mdx";
 import UbsIntro from "versionContent/_partials/_usage-based-storage-intro.mdx";
 import ElasticComputeIntro from "versionContent/_partials/_elastic-compute-intro.mdx";
 import DataTieringIntro from "versionContent/_partials/_data-tiering-intro.mdx";
+import DataTieringNext from "versionContent/_partials/_data-tiering-next.mdx";
 import Architecture from "versionContent/_partials/_architecture-overview.mdx";
 import TimeBucketIntro from "versionContent/_partials/_time-bucket-intro.mdx";
 
@@ -58,6 +59,8 @@ For more information about time bucketing, see the
 ## Data tiering
 
 <DataTieringIntro />
+
+<DataTieringNext />
 
 For more information about data tiering, see the
 [data tiering section][data-tiering]
