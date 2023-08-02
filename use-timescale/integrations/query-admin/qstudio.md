@@ -83,7 +83,7 @@ This table provides the description and example values for the fields in
 |Setting|Example value|Description|
 |-|-|-|
 |Host|`localhost`, `postgresql.example.com`, `<REMOTE_HOST>.tsdb.cloud.timescale.com`|The fully qualified server name or IP address of your TimescaleDB server, or the hostname of your Timescale service.|
-|Port|`5432`|The port number of the TimescaleDB server, Timescale service.|
+|Port|`5432`|The port number of the TimescaleDB server, or Timescale service.|
 |Username|`postgres`, `tsdbadmin`|The user name you want to log in with. Use `tsdbadmin` for Timescale services.|
 |Password||The password for the database user you are connecting to.|
 |Database|`tsdb`|The name of the database to connect to. For a Timescale service, use `tsdb`.|
