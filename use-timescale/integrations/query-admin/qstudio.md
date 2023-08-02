@@ -86,7 +86,7 @@ This table provides the description and example values for the fields in
 |Port|`5432`|The port number of the TimescaleDB server, Timescale service.|
 |Username|`postgres`, `tsdbadmin`|The user name you want to log in with. Use `tsdbadmin` for Timescale services|
 |Password|*password*|The password for the database user you are connecting to.|
-|Database|`tsdb`|This option connects to the default database. The database name for a Timescale service is `tsdb`. You can also specify the name of the database to connect to.|
+|Database|`tsdb`|The name of the database to connect to. For a Timescale service, use `tsdb`.|
 
 [qstudio]: https://www.timestored.com/qstudio
 [qstudio-downloads]: https://www.timestored.com/qstudio/download
