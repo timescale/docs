@@ -24,7 +24,7 @@ hypertable is always partitioned on time, but can also be partitioned on
 additional columns as well. The other special thing about hypertables is that
 they are broken down into smaller tables called chunks.
 
-In this section, you create a hypertables for time-series data, and regular
+In this section, you create a hypertable for time-series data, and regular
 PostgreSQL tables for relational data. You also create an index on your
 hypertable, which isn't required, but can help your queries run more efficiently.
 One of the other special qualities of hypertables is that you can also create
@@ -34,6 +34,10 @@ For more information, see
 [the hypertables section][hypertable-how-to].
 
 ## Create your first hypertable
+
+For the financial dataset used in this guide, create a hypertable named
+`stocks_real_time` that contains second-by-second stock-trade data for the top
+100 most-traded symbols.
 
 <Procedure>
 
@@ -58,16 +62,16 @@ For more information, see
     provide the name of the table (`stocks_real_time`) and the column in that
     table that holds the timestamp data to use for partitioning (`time`):
 
-    ```sql
+    <CodeBlock canCopy={true} showLineNumbers={false} children={`
     SELECT create_hypertable('stocks_real_time','time');
-    ```
+    `} />
 
 1.  Create an index to support efficient queries on the `symbol` and `time`
     columns:
 
-    ```sql
+    <CodeBlock canCopy={true} showLineNumbers={false} children={`
     CREATE INDEX ix_symbol_time ON stocks_real_time (symbol, time DESC);
-    ```
+    `} />
 
 </Procedure>
 
@@ -95,23 +99,21 @@ you would normally. For this dataset, there is one other table of data called
     `stocks_real_time`, and one normal PostgreSQL table named `company`. You can
     check this by running this command at the `psql` prompt:
 
-    ```sql
-    \dt
-    ```
+    <CodeBlock canCopy={true} showLineNumbers={false} children={`
+    \/dt
+    `} />
 
     This command returns information about your tables, like this:
 
-    ```sql
-                       List of relations
+    <CodeBlock canCopy={false} showLineNumbers={true} children={`
+                           List of relations
      Schema |       Name       | Type  |   Owner
     --------+------------------+-------+-----------
      public | company          | table | tsdbadmin
      public | stocks_real_time | table | tsdbadmin
     (2 rows)
-    ```
+    `} />
 
 </Procedure>
-
-<Video url="https://www.youtube.com/embed/MpMw7yIjauI"></Video>
 
 [hypertable-how-to]: /use-timescale/:currentVersion:/hypertables/
