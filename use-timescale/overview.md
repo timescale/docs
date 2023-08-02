@@ -82,9 +82,9 @@ For more information about compression, see the
 
 ## Elastic compute and usage-based storage
 
-<ElasticComputeIntro />
-
 <UbsIntro />
+
+<ElasticComputeIntro />
 
 For more information about elastic compute and usage-based storage, see the
 [billing section][billing]

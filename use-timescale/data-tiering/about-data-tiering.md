@@ -8,6 +8,8 @@ tags: [storage, data management]
 
 import ExperimentalPrivateBeta from "versionContent/_partials/_early_access.mdx";
 import UsageBasedStorage from "versionContent/_partials/_usage-based-storage-intro.mdx";
+import DataTieringIntro from "versionContent/_partials/_data-tiering-intro.mdx";
+import DataTieringNext from "versionContent/_partials/_data-tiering-next.mdx";
 
 # Data tiering
 
@@ -15,12 +17,7 @@ Save on storage costs by tiering data to a low-cost object-storage layer.
 
 <ExperimentalPrivateBeta />
 
-Timescale includes traditional disk storage, and a low-cost object-storage
-layer built on Amazon S3. You can move your hypertable data across the different
-storage tiers to get the best price performance. You can use primary storage for
-data that requires quick access, and low-cost object storage for historical
-data. Regardless of where your data is stored, you can query it with standard
-SQL.
+<DataTieringIntro />
 
 <UsageBasedStorage />
 
@@ -43,23 +40,7 @@ With data tiering, you get:
 
 ## Architecture
 
-Data tiering works by periodically and asynchronously moving older chunks to S3
-storage. There, it's stored in the Apache Parquet format, which is a compressed
-columnar format well-suited for S3. Data remains accessible both during and
-after migration.
-
-When you run regular SQL queries, a behind-the-scenes process transparently
-pulls data from wherever it's located: disk storage, object storage, or both.
-Various SQL optimizations limit what needs to be read from S3:
-
-*   Chunk exclusion avoids processing chunks that fall outside the query's time
-    window
-*   The database uses metadata about row groups and columnar offsets, so only
-    part of an object needs to be read from S3
-
-The result is transparent queries across standard PostgreSQL storage and S3
-storage, so your queries fetch the same data as before, with minimal added
-latency.
+<DataTieringNext />
 
 For more about how data tiering works, see the
 [blog post on data tiering][blog-data-tiering].
@@ -88,9 +69,9 @@ For more about how data tiering works, see the
     native data types, but not for non-native types, such as `JSON`, `JSONB`,
     and `GIS`.
 
-*   **Latency.** S3 has higher access latency than EBS however, S3 has 
-    comparatively greater throughput for large scans. This can affect the 
-    execution time of queries in latency-sensitive environments, especially 
+*   **Latency.** S3 has higher access latency than EBS however, S3 has
+    comparatively greater throughput for large scans. This can affect the
+    execution time of queries in latency-sensitive environments, especially
     lighter queries.
 
 ## Learn more
