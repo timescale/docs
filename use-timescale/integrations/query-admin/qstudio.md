@@ -38,7 +38,7 @@ instructions, see [timestored.com][qstudio-downloads].
          your Service connection details. For more information about these 
          settings, see [the connection section][connection-details].
 1.  Click `Test` to check if the connection is successful.
-1.  Click `Add` to add the database server.
+1.  Click `Add` to add the connection.
     The server is listed in the `Server Tree` pane.
 
     <img class="maincontent__illustration"
