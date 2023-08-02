@@ -8,6 +8,11 @@ module.exports = [
       "How to connect to Timescale, administer, and configure the database.",
     children: [
       {
+        title: "Timescale overview",
+        href: "overview",
+        excerpt: "Learn about core Timescale concepts, architecture, and features",
+      },
+      {
         title: "Services",
         href: "services",
         excerpt: "Timescale services",
