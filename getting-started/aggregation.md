@@ -31,7 +31,7 @@ information about the trading data.
 ## Find average stock prices for the last week
 
 Timescale has custom SQL functions that can help make time-series analysis
-easier and faster. In this procedure, you'll learn about another common
+easier and faster. In this section, you'll learn about another common
 Timescale function, `time_bucket` which allows you to take a time column and
 "bucket" the values based on an interval of your choice.
 
@@ -41,24 +41,24 @@ data into bigger buckets and look at, for example, the data for each day. You
 can then perform an aggregation and, for example, get the average of the
 values for each day.
 
-In this procedure, you time bucket the entire dataset for the last week into
+In this section, you time bucket the entire dataset for the last week into
 days, and calculate the average of each bucket:
 
-```sql
+<CodeBlock canCopy={false} showLineNumbers={false} children={`
 SELECT
   time_bucket('1 day', time) AS bucket,
   symbol,
   avg(price)
 FROM stocks_real_time srt
 WHERE time > now() - INTERVAL '1 week'
-```
+`} />
 
 Then, you organize the results by bucket and symbol:
 
-```sql
+<CodeBlock canCopy={false} showLineNumbers={false} children={`
 GROUP BY bucket, symbol
 ORDER BY bucket, symbol
-```
+`} />
 
 <Procedure>
 
@@ -81,8 +81,8 @@ ORDER BY bucket, symbol
 
     The data you get back looks a bit like this:
 
-    ```sql
-             bucket         | symbol |        avg
+    <CodeBlock canCopy={false} showLineNumbers={true} children={`
+                 bucket         | symbol |        avg
     ------------------------+--------+--------------------
      2023-06-01 00:00:00+00 | AAPL   |  179.3242530284364
      2023-06-01 00:00:00+00 | ABNB   | 112.05498586371293
@@ -90,7 +90,7 @@ ORDER BY bucket, symbol
      2023-06-01 00:00:00+00 | AMD    | 119.43332772033834
      2023-06-01 00:00:00+00 | AMZN   |  122.3446364966392
      ...
-    ```
+    `} />
 
 </Procedure>
 
@@ -102,11 +102,11 @@ the query. For more information about how time buckets are calculated, see the
 
 <CandlestickIntro />
 
-In this procedure, you use a `SELECT` statement to find the high and low values
+In this section, you use a `SELECT` statement to find the high and low values
 with `min` and `max` functions, and the open and close values with `first` and
 `last` functions. You then aggregate the data into 1 day buckets, like this:
 
-```sql
+<CodeBlock canCopy={false} showLineNumbers={false} children={`
 SELECT
   time_bucket('1 day', "time") AS day,
   symbol,
@@ -115,14 +115,14 @@ SELECT
   last(price, time) AS close,
   min(price) AS low
 FROM stocks_real_time srt
-```
+`} />
 
 Then, you organize the results by day and symbol:
 
-```sql
+<CodeBlock canCopy={false} showLineNumbers={false} children={`
 GROUP BY day, symbol
 ORDER BY day DESC, symbol
-```
+`} />
 
 <Procedure>
 
@@ -147,8 +147,8 @@ ORDER BY day DESC, symbol
 
     The data you get back looks a bit like this:
 
-    ```sql
-             day           | symbol |     high     |   open   |  close   |     low
+    <CodeBlock canCopy={false} showLineNumbers={true} children={`
+                 day           | symbol |     high     |   open   |  close   |     low
     ------------------------+--------+--------------+----------+----------+--------------
      2023-06-07 00:00:00+00 | AAPL   |       179.25 |   178.91 |   179.04 |       178.17
      2023-06-07 00:00:00+00 | ABNB   |       117.99 |    117.4 | 117.9694 |          117
@@ -156,7 +156,7 @@ ORDER BY day DESC, symbol
      2023-06-07 00:00:00+00 | AMD    |       125.33 |   124.11 |   125.13 |       123.82
      2023-06-07 00:00:00+00 | AMZN   |       127.45 |   126.22 |   126.69 |       125.81
      ...
-    ```
+    `} />
 
 1.  Type `q` to return to the `psql` prompt.
 
@@ -167,29 +167,29 @@ ORDER BY day DESC, symbol
 Now that you have an aggregation query, you can use it to create a continuous
 aggregate.
 
-In this procedure, your query starts by creating a materialized view called
+In this section, your query starts by creating a materialized view called
 `stock_candlestick_daily`, then converting it into a Timescale continuous
 aggregate:
 
-```sql
+<CodeBlock canCopy={false} showLineNumbers={false} children={`
 CREATE MATERIALIZED VIEW stock_candlestick_daily
 WITH (timescaledb.continuous) AS
-```
+`} />
 
 Then, you give the aggregate query you created earlier as the contents for the
 continuous aggregate:
 
-```sql
-    SELECT
-      time_bucket('1 day', "time") AS day,
-      symbol,
-      max(price) AS high,
-      first(price, time) AS open,
-      last(price, time) AS close,
-      min(price) AS low
-    FROM stocks_real_time srt
-    GROUP BY day, symbol
-```
+<CodeBlock canCopy={false} showLineNumbers={false} children={`
+SELECT
+  time_bucket('1 day', "time") AS day,
+  symbol,
+  max(price) AS high,
+  first(price, time) AS open,
+  last(price, time) AS close,
+  min(price) AS low
+FROM stocks_real_time srt
+GROUP BY day, symbol
+`} />
 
 When you run this query, you create the view, and populate the view with the
 aggregated calculation. This can take a few minutes to run, because it needs to
@@ -199,17 +199,17 @@ When you continuous aggregate has been created and the data aggregated for the
 first time, you can query your continuous aggregate. For example, you can look
 at all the aggregated data, like this:
 
-```sql
+<CodeBlock canCopy={false} showLineNumbers={false} children={`
 SELECT * FROM stock_candlestick_daily
   ORDER BY day DESC, symbol;
-```
+`} />
 
 Or you can look at a single stock, like this:
 
-```sql
+<CodeBlock canCopy={false} showLineNumbers={false} children={`
 SELECT * FROM stock_candlestick_daily
 WHERE symbol='TSLA';
-```
+`} />
 
 <Procedure>
 
