@@ -14,6 +14,7 @@ import HypertablesNext from "versionContent/_partials/_hypertables-next.mdx";
 import TimeSeriesIntro from "versionContent/_partials/_timeseries-intro.mdx";
 import TimescaleIntro from "versionContent/_partials/_timescale-intro.mdx";
 import CompressionIntro from "versionContent/_partials/_compression-intro.mdx";
+import CompressionNext from "versionContent/_partials/_compression-next.mdx";
 import UbsIntro from "versionContent/_partials/_usage-based-storage-intro.mdx";
 import ElasticComputeIntro from "versionContent/_partials/_elastic-compute-intro.mdx";
 import DataTieringIntro from "versionContent/_partials/_data-tiering-intro.mdx";
@@ -79,6 +80,8 @@ For more information about continuous aggregation, see the
 ## Compression
 
 <CompressionIntro />
+
+<CompressionNext />
 
 For more information about compression, see the
 [compression section][time-buckets]
