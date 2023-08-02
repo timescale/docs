@@ -34,6 +34,12 @@ module.exports = [
               "Timescale services operations, Service management tab",
           },
           {
+            title: "Connection pooling",
+            href: "connection-pooling",
+            excerpt:
+              "Using a connection pool with your Timescale services",
+          },
+          {
             title: "Troubleshooting Timescale services",
             href: "troubleshooting",
             type: "placeholder",
