@@ -33,5 +33,5 @@ psql][install-psql] section.
 
 </Procedure>
 
-[install-psql]: /use-timescale/:currentVersion:/integrations/query-admin/about-psql/
+[install-psql]: /use-timescale/:currentVersion:/integrations/query-admin/psql/
 [tsc-portal]: https://console.cloud.timescale.com/

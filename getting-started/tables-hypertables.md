@@ -24,7 +24,7 @@ hypertable is always partitioned on time, but can also be partitioned on
 additional columns as well. The other special thing about hypertables is that
 they are broken down into smaller tables called chunks.
 
-In this section, you create a hypertables for time-series data, and regular
+In this section, you create a hypertable for time-series data, and regular
 PostgreSQL tables for relational data. You also create an index on your
 hypertable, which isn't required, but can help your queries run more efficiently.
 One of the other special qualities of hypertables is that you can also create
@@ -34,6 +34,10 @@ For more information, see
 [the hypertables section][hypertable-how-to].
 
 ## Create your first hypertable
+
+For the financial dataset used in this guide, create a hypertable named
+`stocks_real_time` that contains second-by-second stock-trade data for the top
+100 most-traded symbols.
 
 <Procedure>
 
