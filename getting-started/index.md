@@ -28,12 +28,11 @@ functions like continuous aggregates.
 Completing this guide should take you less than half an hour. As you go through
 the guide, you learn how to:
 
-*   Create your first Timescale service
-*   Connect to your service
-*   Ingest some real financial data into your database
-*   Construct some interesting queries
-*   Create continuous aggregates
-*   Query your continuous aggregates
+1.  [Create your first Timescale service][services-create]
+1.  [Connect to your service][services-connect]
+1.  [Ingest some real financial data into your database][ingest-data]
+1.  [Construct some interesting queries][queries]
+1.  [Create and query a continuous aggregates][caggs]
 
 When you have finished this guide, you might want to check out some
 [more advanced tutorials][tutorials], or browse through
@@ -41,3 +40,8 @@ When you have finished this guide, you might want to check out some
 
 [tutorials]: /tutorials/:currentVersion:/
 [use-timescale]: /use-timescale/:currentVersion:/
+[services-create]: /getting-started/:currentVersion:/services#create-your-timescale-account
+[services-connect]: /getting-started/:currentVersion:/services/#connect-to-your-service
+[ingest-data]: /getting-started/:currentVersion:/time-series-data/
+[queries]: /getting-started/:currentVersion:/queries/
+[caggs]: /getting-started/:currentVersion:/aggregation/
