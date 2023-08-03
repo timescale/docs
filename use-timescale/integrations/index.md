@@ -18,6 +18,7 @@ and extend what you can do with your data.
 |[DBeaver][dbeaver]|[Tableau][tableau]|
 |[Azure Data Studio][ads]|
 |[pgAdmin][pgadmin]|
+|[qStudio][qstudio]|
 
 [query-admin]: /use-timescale/:currentVersion:/integrations/query-admin/
 [observability-alerting]: /use-timescale/:currentVersion:/integrations/observability-alerting/
@@ -26,6 +27,7 @@ and extend what you can do with your data.
 [dbeaver]: /use-timescale/:currentVersion:/integrations/query-admin/dbeaver/
 [ads]: /use-timescale/:currentVersion:/integrations/query-admin/azure-data-studio/
 [pgadmin]: /use-timescale/:currentVersion:/integrations/query-admin/pgadmin/
+[qstudio]: /use-timescale/:currentVersion:/integrations/query-admin/qstudio/
 [grafana]: /use-timescale/:currentVersion:/integrations/observability-alerting/grafana/
 [telegraf]: /use-timescale/:currentVersion:/integrations/data-ingest/telegraf/
 [tableau]: /use-timescale/:currentVersion:/integrations/observability-alerting/tableau/

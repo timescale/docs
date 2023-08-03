@@ -82,6 +82,7 @@ Promscale
 Protobuf
 psql
 [Qq]uantiles?
+qStudio
 [Rr]edistribut(?:e|able)
 [Rr]eindex(?:ed)?
 [Rr]eusability
