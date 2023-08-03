@@ -40,8 +40,8 @@ When you have finished this guide, you might want to check out some
 
 [tutorials]: /tutorials/:currentVersion:/
 [use-timescale]: /use-timescale/:currentVersion:/
-[services-create]: /getting-started/:currentversion:/services#create-your-timescale-account
-[services-connect]: /getting-started/:currentversion:/services#connect-to-your-service
-[ingest-data]: /getting-started/:currentversion:/time-series-data/
-[queries]: /getting-started/:currentversion:/queries/
-[caggs]: /getting-started/:currentversion:/aggregation/
+[services-create]: /getting-started/:currentVersion:/services#create-your-timescale-account
+[services-connect]: /getting-started/:currentVersion:/services/#connect-to-your-service
+[ingest-data]: /getting-started/:currentVersion:/time-series-data/
+[queries]: /getting-started/:currentVersion:/queries/
+[caggs]: /getting-started/:currentVersion:/aggregation/
