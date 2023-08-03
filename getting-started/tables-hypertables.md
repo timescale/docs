@@ -97,12 +97,7 @@ you would normally. For this dataset, there is one other table of data called
 
 1.  You now have two tables within your Timescale database. One hypertable named
     `stocks_real_time`, and one normal PostgreSQL table named `company`. You can
-    check this by running this command at the `psql` prompt:
-
-    <CodeBlock canCopy={true} showLineNumbers={false} children={`
-    \\dt
-    `} />
-
+    check this by running the `\dt`command at the `psql` prompt.
     This command returns information about your tables, like this:
 
     <CodeBlock canCopy={false} showLineNumbers={true} children={`
