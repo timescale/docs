@@ -8,7 +8,7 @@ cloud_ui:
         - [services, :serviceId]
 ---
 
-import EarlyAccess from "versionContent/_partials/_early_access.mdx";
+import Beta from "versionContent/_partials/_beta.mdx";
 
 # Connection pooling
 
@@ -20,7 +20,7 @@ pooler is a great way to improve performance. For example, web, serverless, and
 IoT applications often use an event-based architecture where data is read or
 written from the database for very short amount of time.
 
-
+<Beta />
 
 Your application rapidly opens and closes connections while the pooler
 maintains a set of long-running connections to the database. This improves
