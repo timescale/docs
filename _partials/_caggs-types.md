@@ -1,16 +1,16 @@
-There are three main types of aggregation: materialized views, continuous
-aggregates, and real time aggregates.
+There are three main ways to make aggregation easier: materialized views,
+continuous aggregates, and real time aggregates.
 
 [Materialized views][pg-materialized views] are a standard PostgreSQL function.
 They are used to cache the result of a complex query so that you can reuse it
 later on. Materialized views do not update regularly, although you can manually
 refresh them as required.
 
-[Continuous aggregates][about-caggs] are a Timescale only feature. They work in a similar way
-to a materialized view, but they are refreshed automatically. Continuous
-aggregates update to a set point in time called the materialization threshold,
-which means that they do not include the most recent data chunk from the
-underlying hypertable.
+[Continuous aggregates][about-caggs] are a Timescale only feature. They work in
+a similar way to a materialized view, but they are refreshed automatically in
+the background, as new data is added to your database. Continuous aggregates are
+based on hypertables, and you can query them in the same way as you do your
+other tables.
 
 [Real time aggregates][real-time-aggs] are a Timescale only feature. They are
 the same as continuous aggregates, but they add the most recent raw data to the
