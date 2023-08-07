@@ -74,6 +74,7 @@ Paulo
 Plotly
 pre
 PostgreSQL
+[Pp]ooler?
 Prometheus
 PromLens
 PromQL
@@ -81,6 +82,7 @@ Promscale
 Protobuf
 psql
 [Qq]uantiles?
+qStudio
 [Rr]edistribut(?:e|able)
 [Rr]eindex(?:ed)?
 [Rr]eusability
@@ -116,6 +118,7 @@ Unix
 [Rr]ebalanc(?:e|ing)
 [Rr]epos?
 [Rr]ollups?
+[Ss]erverless
 [Ss]hard(?:s|ing)?
 (?i)timestamptz
 URLs?

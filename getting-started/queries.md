@@ -25,21 +25,27 @@ data is stored in your database in the way you expect it to be.
 
 ## Use SELECT to return data
 
-This first procedure uses a `SELECT` statement to ask your database to return
+This first section uses a `SELECT` statement to ask your database to return
 everything, represented by the asterisk, from the `stocks_real_time srt` table,
 like this:
 
-```sql
+<CodeBlock canCopy={false} showLineNumbers={false} children={`
 SELECT * FROM stocks_real_time srt
-```
+`} />
 
 You don't want everything from the entire table, though, so you can use a `WHERE`
-statement to add a condition on to the statement. In this procedure, you add a
+statement to add a condition on to the statement. In this section, you add a
 `WHERE` condition to limit your results to only the last four days, like this:
 
-```sql
+<CodeBlock canCopy={false} showLineNumbers={false} children={`
 WHERE time > now() - INTERVAL '4 days'
-```
+`} />
+
+You can also limit the number of rows that get returned with a `LIMIT` clause:
+
+<CodeBlock canCopy={false} showLineNumbers={false} children={`
+LIMIT 10
+`} />
 
 <Procedure>
 
@@ -47,26 +53,14 @@ WHERE time > now() - INTERVAL '4 days'
 
 1.  At the command prompt, use the `psql` connection string from the cheat sheet
     you downloaded to connect to your database.
-1.  At the `psql` prompt, type this query:
+1.  At the `psql` prompt, type this query.
 
-    ```sql
-    SELECT * FROM stocks_real_time srt
-    WHERE time > now() - INTERVAL '4 days';
-    ```
+    <Highlight type="note">
+    Get a sneak peek at the results by clicking "Run query" below. This runs the
+    SQL query against a live instance curated by Timescale.
+    </Highlight>
 
-    The data you get back looks a bit like this:
-
-    ```sql
-              time          | symbol |    price     | day_volume
-    ------------------------+--------+--------------+------------
-     2023-06-07 12:00:04+00 | C      |        47.39 |
-     2023-06-07 12:00:04+00 | T      |        15.67 |
-     2023-06-07 12:00:04+00 | SQ     |        66.27 |
-     2023-06-07 12:00:04+00 | CRM    |        213.1 |
-     2023-06-07 12:00:04+00 | CVX    |        155.9 |
-     2023-06-07 12:00:04+00 | BAC    |        29.34 |
-     ...
-    ```
+    <TryItOutCodeBlock queryId="getting-started-srt-4-days" />
 
 1.  Type `q` to return to the `psql` prompt.
 
@@ -74,35 +68,33 @@ WHERE time > now() - INTERVAL '4 days'
 
 ## Use ORDER BY to organize results
 
-In the previous procedure, you ordered the results of your query by time in
+In the previous section, you ordered the results of your query by time in
 descending order, so the most recent trades were at the top of the list. You can
 change how your results are displayed using an `ORDER BY` statement.
 
-In this procedure, you query Tesla's stock with a `SELECT` query like this,
+In this section, you query Tesla's stock with a `SELECT` query like this,
 which asks for all of the trades from the `stocks_real_time srt` table, with the
 `TSLA` symbol, and which has day volume data:
 
-```sql
+<CodeBlock canCopy={false} showLineNumbers={false} children={`
 SELECT * FROM stocks_real_time srt
 WHERE symbol='TSLA' and day_volume is not null
-```
+`} />
 
 Then, you add an `ORDER BY` statement to order the results by time in descending
 order, and also by day volume in descending order. The day volume shows the
 total number of trades for this stock for the day. Every time another trade
 occurs, the day volume figure increases by 1. Here is the `ORDER BY` statement:
 
-```sql
+<CodeBlock canCopy={false} showLineNumbers={false} children={`
 ORDER BY time DESC, day_volume desc
-```
+`} />
 
-Finally, because Tesla has such a large volume of trades, and you might not
-want to see all of them, you can add a limit to the number of results you want
-to see, like this:
+Finally, to limit the number of results, you can use a `LIMIT` clause again:
 
-```sql
+<CodeBlock canCopy={false} showLineNumbers={false} children={`
 LIMIT 10
-```
+`} />
 
 <Procedure>
 
@@ -112,30 +104,7 @@ LIMIT 10
     you downloaded to connect to your database.
 1.  At the `psql` prompt, type this query:
 
-    ```sql
-    SELECT * FROM stocks_real_time srt
-    WHERE symbol='TSLA' and day_volume is not null
-    ORDER BY time DESC, day_volume desc
-    LIMIT 10;
-    ```
-
-    The data you get back looks a bit like this:
-
-    ```sql
-              time          | symbol |  price   | day_volume
-    ------------------------+--------+----------+------------
-     2023-06-06 20:15:06+00 | TSLA   |   221.61 |  143483212
-     2023-06-06 19:57:44+00 | TSLA   | 221.6775 |  139585954
-     2023-06-06 19:57:43+00 | TSLA   |   221.68 |  139541647
-     2023-06-06 19:57:42+00 | TSLA   |    221.7 |  139537050
-     2023-06-06 19:57:42+00 | TSLA   |  221.655 |  139519760
-     2023-06-06 19:57:41+00 | TSLA   |   221.65 |  139497262
-     2023-06-06 19:57:39+00 | TSLA   |   221.65 |  139481020
-     2023-06-06 19:57:38+00 | TSLA   |   221.64 |  139469621
-     2023-06-06 19:57:37+00 | TSLA   |   221.66 |  139448852
-     2023-06-06 19:57:36+00 | TSLA   |   221.65 |  139430492
-    (10 rows)
-    ```
+    <TryItOutCodeBlock queryId="getting-started-srt-orderby" />
 
     There are multiple trades every second, but you know that the order is
     correct, because the `day_volume` column is ordered correctly.
@@ -145,7 +114,7 @@ LIMIT 10
 ## Get the first and last value
 
 Timescale has custom SQL functions that can help make time-series analysis
-easier and faster. In this procedure, you'll learn about two common Timescale
+easier and faster. In this section, you'll learn about two common Timescale
 functions: `first` to find the earliest value within a group, and `last` to find
 the most recent value within a group.
 
@@ -158,20 +127,20 @@ with an increasing `time` column.
 In this query, you start by selecting the `first()` and `last()` trading price
 for every stock in the `stocks_real_time srt` table for the last four days:
 
-```sql
+<CodeBlock canCopy={false} showLineNumbers={false} children={`
 SELECT symbol, first(price,time), last(price, time)
 FROM stocks_real_time srt
 WHERE time > now() - INTERVAL '4 days'
-```
+`} />
 
 Then, you organize the results so that you can see the first and last value for
 each stock together with a `GROUP BY` statement, and in alphabetical order with
 an `ORDER BY` statement, like this:
 
-```sql
+<CodeBlock canCopy={false} showLineNumbers={false} children={`
 GROUP BY symbol
 ORDER BY symbol
-```
+`} />
 
 For more information about these functions, see the API documentation for
 [first()][first], and [last()][last].
@@ -184,32 +153,11 @@ For more information about these functions, see the API documentation for
     you downloaded to connect to your database.
 1.  At the `psql` prompt, type this query:
 
-    ```sql
-    SELECT symbol, first(price,time), last(price, time)
-    FROM stocks_real_time srt
-    WHERE time > now() - INTERVAL '4 days'
-    GROUP BY symbol
-    ORDER BY symbol;
-    ```
-
-    The data you get back looks a bit like this:
-
-    ```sql
-     symbol |  first   |   last
-    --------+----------+----------
-     AAPL   | 179.0507 |   179.04
-     ABNB   |   118.83 | 117.9694
-     AMAT   |   133.55 | 134.8964
-     AMD    | 122.6476 |   125.13
-     AMZN   | 126.5599 |   126.69
-     ...
-    ```
+    <TryItOutCodeBlock queryId="getting-started-srt-first-last" />
 
 1.  Type `q` to return to the `psql` prompt.
 
 </Procedure>
-
-<Video url="https://www.youtube.com/embed/WFg0B1Bihtg"></Video>
 
 [first]: /api/:currentVersion:/hyperfunctions/first
 [last]: /api/:currentVersion:/hyperfunctions/last

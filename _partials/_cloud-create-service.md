@@ -9,24 +9,7 @@ Each service contains a single database, named `tsdb`.
   <li>
     <p>
       Sign in to the{" "}
-      <a href="https://console.cloud.timescale.com/">Timescale portal</a>.
-    </p>
-  </li>
-  <li>
-    <p>
-      {" "}
-      {props.demoData ? (
-        <>
-          If this is your first service, we recommend that you choose the
-          option to deploy a service with a {" "}
-          <code>demo dataset</code>, because it is the best way to see how
-          Timescale works in the real world.
-        </>
-      ) : (
-        <>
-          Click <code>Create service</code>.
-        </>
-      )}
+      <a href="https://console.cloud.timescale.com/">Timescale portal</a> and click <code>Create service</code>.
     </p>
   </li>
   {props.demoData && (

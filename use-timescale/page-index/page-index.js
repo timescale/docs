@@ -34,6 +34,12 @@ module.exports = [
               "Timescale services operations, Service management tab",
           },
           {
+            title: "Connection pooling",
+            href: "connection-pooling",
+            excerpt:
+              "Using a connection pool with your Timescale services",
+          },
+          {
             title: "Troubleshooting Timescale services",
             href: "troubleshooting",
             type: "placeholder",
@@ -119,6 +125,11 @@ module.exports = [
                   title: "Connect using pgAdmin",
                   href: "pgadmin",
                   excerpt: "Install pgAdmin to connect to Timescale",
+                },
+                {
+                  title: "Connect using qStudio",
+                  href: "qstudio",
+                  excerpt: "Install qStudio to connect to Timescale",
                 },
                 {
                   title: "Troubleshooting Timescale connections",

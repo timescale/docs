@@ -44,6 +44,7 @@ exceptions:
   - Promscale
   - Promscale Connector
   - Python
+  - qStudio
   - Red
   - REPL
   - Ruby
