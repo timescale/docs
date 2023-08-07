@@ -15,7 +15,7 @@ automatically updated in the background. This does not add any maintenance
 burden to your database, and does not slow down `INSERT` operations.
 
 Because continuous aggregates are based on hypertables, you can query them in
-exactly the same way as your other tables. You can even do things like enable
+exactly the same way as your other tables. You can even enable
 [data tiering][data-tiering] or [compression][compression] on your continuous aggregates.
 
 By default, querying continuous aggregates provides you with real-time data.
