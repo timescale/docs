@@ -15,5 +15,7 @@ jobs:
 
     - name: Vale
       uses: errata-ai/vale-action@c4213d4de3d5f718b8497bd86161531c78992084
+      with:
+        files: '["_partials", "_troubleshooting", "about", "api", "getting-started", "mst", "navigation", "quick-start", "self-hosted", "tutorials", "use-timescale"]'
       env:
         GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}

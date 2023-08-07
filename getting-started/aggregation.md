@@ -68,29 +68,7 @@ ORDER BY bucket, symbol
     you downloaded to connect to your database.
 1.  At the `psql` prompt, type this query:
 
-    ```sql
-    SELECT
-      time_bucket('1 day', time) AS bucket,
-      symbol,
-      avg(price)
-    FROM stocks_real_time srt
-    WHERE time > now() - INTERVAL '1 week'
-    GROUP BY bucket, symbol
-    ORDER BY bucket, symbol;
-    ```
-
-    The data you get back looks a bit like this:
-
-    <CodeBlock canCopy={false} showLineNumbers={true} children={`
-                 bucket         | symbol |        avg
-    ------------------------+--------+--------------------
-     2023-06-01 00:00:00+00 | AAPL   |  179.3242530284364
-     2023-06-01 00:00:00+00 | ABNB   | 112.05498586371293
-     2023-06-01 00:00:00+00 | AMAT   | 134.41263567849518
-     2023-06-01 00:00:00+00 | AMD    | 119.43332772033834
-     2023-06-01 00:00:00+00 | AMZN   |  122.3446364966392
-     ...
-    `} />
+    <TryItOutCodeBlock queryId="getting-started-week-average" />
 
 </Procedure>
 
@@ -132,31 +110,7 @@ ORDER BY day DESC, symbol
     you downloaded to connect to your database.
 1.  At the `psql` prompt, type this query:
 
-    ```sql
-    SELECT
-      time_bucket('1 day', "time") AS day,
-      symbol,
-      max(price) AS high,
-      first(price, time) AS open,
-      last(price, time) AS close,
-      min(price) AS low
-    FROM stocks_real_time srt
-    GROUP BY day, symbol
-    ORDER BY day DESC, symbol;
-    ```
-
-    The data you get back looks a bit like this:
-
-    <CodeBlock canCopy={false} showLineNumbers={true} children={`
-                 day           | symbol |     high     |   open   |  close   |     low
-    ------------------------+--------+--------------+----------+----------+--------------
-     2023-06-07 00:00:00+00 | AAPL   |       179.25 |   178.91 |   179.04 |       178.17
-     2023-06-07 00:00:00+00 | ABNB   |       117.99 |    117.4 | 117.9694 |          117
-     2023-06-07 00:00:00+00 | AMAT   |     134.8964 |   133.73 | 134.8964 |       133.13
-     2023-06-07 00:00:00+00 | AMD    |       125.33 |   124.11 |   125.13 |       123.82
-     2023-06-07 00:00:00+00 | AMZN   |       127.45 |   126.22 |   126.69 |       125.81
-     ...
-    `} />
+    <TryItOutCodeBlock queryId="getting-started-srt-aggregation" />
 
 1.  Type `q` to return to the `psql` prompt.
 
@@ -235,17 +189,11 @@ WHERE symbol='TSLA';
 
 1.  Query your continuous aggregate for all stocks:
 
-    ```sql
-    SELECT * FROM stock_candlestick_daily
-      ORDER BY day DESC, symbol;
-    ```
+    <TryItOutCodeBlock queryId="getting-started-cagg" />
 
 1.  Query your continuous aggregate for Tesla stock:
 
-    ```sql
-    SELECT * FROM stock_candlestick_daily
-    WHERE symbol='TSLA';
-    ```
+    <TryItOutCodeBlock queryId="getting-started-cagg-tesla" />
 
 </Procedure>
 

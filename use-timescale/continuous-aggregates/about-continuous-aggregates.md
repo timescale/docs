@@ -31,34 +31,30 @@ For more information, see the documentation about
 
 ## Continuous aggregates with a `JOIN` clause
 
-In TimescaleDB 2.10.0 and later, continuous aggregates support JOINS, as long as they meet
-these conditions:
+In TimescaleDB 2.10.0 and later, continuous aggregates support JOINS, as long as
+they meet these conditions:
 
-*   Joins must be between one hypertable and one standard PostgreSQL table. The order of tables
-in the JOIN clause does not matter.
-
-*   Only changes to the hypertable are tracked, and are updated in the continuous aggregate
-when it is refreshed. Changes to the standard PostgreSQL table are not tracked.
-
+*   Joins must be between one hypertable and one standard PostgreSQL table. The
+    order of tables in the JOIN clause does not matter.
+*   Only changes to the hypertable are tracked, and are updated in the
+    continuous aggregate when it is refreshed. Changes to the standard
+    PostgreSQL table are not tracked.
 *   You must use an `INNER JOIN`, no other join type is supported.
-
-*   The `JOIN` conditions must be equality conditions, and there can only be ONE `JOIN` condition.
-Further conditions can be added in the `WHERE` clause as long as the `JOIN` condition is given
-in an `ON/USING` clause.
-
-*   You should use an `ON` or `USING` clauses to specify the `JOIN` condition because, if
-`JOIN` conditions are specified in the `WHERE` clause, no further conditions are allowed.
-
+*   The `JOIN` conditions must be equality conditions, and there can only be ONE
+    `JOIN` condition. Further conditions can be added in the `WHERE` clause as
+    long as the `JOIN` condition is given in an `ON/USING` clause.
+*   You should use an `ON` or `USING` clauses to specify the `JOIN` condition
+    because, if `JOIN` conditions are specified in the `WHERE` clause, no
+    further conditions are allowed.
 *   The `USING` clause is only supported for PostgreSQL 13 and later.
-
 *   Joins on the materialized hypertable of a continuous aggregate are not supported.
+*   Hierarchical continuous aggregates can be created on top of a continuous
+    aggregate with a `JOIN` clause, but cannot themselves have a `JOIN` clauses.
 
-*   Hierarchical continuous aggregates can be created on top of a continuous aggregate with a `JOIN`
-clause, but cannot themselves have a `JOIN` clauses.
-
-This section includes some examples of `JOIN` conditions that work with continuous aggregates. For these
-to work, either `table_1` or `table_2` must be a hypertable. It does not matter which is
-the hypertable and which is a standard PostgreSQL table.
+This section includes some examples of `JOIN` conditions that work with
+continuous aggregates. For these to work, either `table_1` or `table_2` must be
+a hypertable. It does not matter which is the hypertable and which is a standard
+PostgreSQL table.
 
 `INNER JOIN` on a single equality condition, using the `ON` clause:
 
@@ -217,41 +213,8 @@ determine which rows in the aggregation table need to be recalculated. This
 logging does cause some write load, but because the threshold lags behind the
 area of data that is currently changing, the writes are small and rare.
 
-## Using continuous aggregates in a multi-node environment
-
-If you are using Timescale in a multi-node environment, there are some
-additional considerations for continuous aggregates.
-
-When you create a continuous aggregate within a multi-node environment, the
-continuous aggregate should be created on the access node. While it is possible
-to create a continuous aggregate on data nodes, it interferes with the
-continuous aggregates on the access node and can cause problems.
-
-When you refresh a continuous aggregate on an access node, it computes a single
-window to update the time buckets. This could slow down your query if the actual
-number of rows that were updated is small, but widely spread apart. This is
-aggravated if the network latency is high if, for example, you have remote data
-nodes.
-
-Invalidation logs are on kept on the data nodes, which is designed to limit the
-amount of data that needs to be transferred. However, some statements send
-invalidations directly to the log, for example, when dropping a chunk or
-truncate a hypertable. This action could slow down performance, in comparison to
-a local update. Additionally, if you have infrequent refreshes but a lot of
-changes to the hypertable, the invalidation logs could get very large, which
-could cause performance issues. Make sure you are maintaining your invalidation
-log size to avoid this, for example, by refreshing the continuous aggregate
-frequently.
-
-For more information about setting up multi-node, see the
-[multi-node section][multi-node]
-
 [cagg-mat-hypertables]: /use-timescale/:currentVersion:/continuous-aggregates/materialized-hypertables
 [cagg-window-functions]: /use-timescale/:currentVersion:/continuous-aggregates/create-a-continuous-aggregate/#use-continuous-aggregates-with-window-functions
 [caggs-on-caggs]: /use-timescale/:currentVersion:/continuous-aggregates/hierarchical-continuous-aggregates/
-[multi-node]: /self-hosted/:currentVersion:/multinode-timescaledb/
 [postgres-parallel-agg]: https://www.postgresql.org/docs/current/parallel-plans.html#PARALLEL-AGGREGATION
-[real-time-aggs]: /use-timescale/:currentVersion:/continuous-aggregates/hierarchical-continuous-aggregates/
-[pg-materialized views]: https://www.postgresql.org/docs/current/rules-materializedviews.html
-[real-time-aggs]: /use-timescale/:currentVersion:/continuous-aggregates/real-time-aggregates/
 [caggs-joins]: /use-timescale/:currentVersion:/continuous-aggregates/about-continuous-aggregates/#continuous-aggregates-with-a-join-clause
