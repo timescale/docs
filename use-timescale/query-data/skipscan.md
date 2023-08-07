@@ -11,6 +11,11 @@ SkipScan improves query times for `DISTINCT` queries. It works on PostgreSQL
 tables, Timescale hypertables, and Timescale distributed hypertables.
 SkipScan is included in TimescaleDB&nbsp;2.2.1 and later.
 
+<Highlight type="note">
+This page discusses the Timescale Skipscan feature. SkipScan is not currently
+available in standard PostgreSQL.
+</Highlight>
+
 ## Speed up `DISTINCT` queries
 
 To query your database and find the most recent value of an item, you
@@ -34,11 +39,6 @@ SkipScan allows queries to incrementally jump from one ordered value to the next
 without reading all of the rows in between. Without support for this feature,
 the database engine has to scan the entire ordered index and then de-duplicate
 at the end, which is a much slower process.
-
-<Highlight type="note">
-PostgreSQL has plans to implement a native feature like SkipScan. This section
-documents Timescale SkipScan, which is not a native PostgreSQL feature.
-</Highlight>
 
 SkipScan is an optimization for queries of the form `SELECT DISTINCT ON
 column_name`. Conceptually, SkipScan is a regular IndexScan that skips across an
