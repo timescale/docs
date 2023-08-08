@@ -205,6 +205,14 @@ For more information about time bucketing, see the [time bucket section][time-bu
 
 1.  Type `q` to return to the `psql` prompt.
 
+    <Highlight type="note">
+    When you create a hypertable, Timescale automatically creates an index on
+    the time column. However, you often need to filter your time-series data on
+    other columns as well. Using indexes appropriately helps your queries
+    perform better. For more information about indexing, see the
+    [about indexing section](https://docs.timescale.com/use-timescale/latest/schema-management/about-indexing/)
+    </Highlight>
+
 </Procedure>
 
 [first]: /api/:currentVersion:/hyperfunctions/first/
