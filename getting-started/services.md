@@ -38,16 +38,28 @@ For more information, see
 
 ## Create your Timescale account
 
+<Collapsible heading="Creating your Timescale account" defaultExpanded={false}>
+
 <Install />
+
+</Collapsible>
 
 ## Create your first service
 
 Create a service to use for the tasks in this guide. You can use the default values.
 
+<Collapsible heading="Creating your first service" defaultExpanded={false}>
+
 <CreateService demoData={false} />
+
+</Collapsible>
 
 ## Connect to your service
 
+<Collapsible heading="Connecting to your service">
+
 <Connect />
+
+</Collapsible>
 
 [services-how-to]: /use-timescale/:currentVersion:/services/
