@@ -11,7 +11,8 @@ api:
 
 # ALTER MATERIALIZED VIEW (Continuous Aggregate) <Tag type="community">Community</Tag>
 
-`ALTER MATERIALIZED VIEW` statement can be used to modify some of the `WITH` clause [options][create_materialized_view] for the continuous aggregate view.
+`ALTER MATERIALIZED VIEW` statement can be used to modify some of the `WITH`
+clause [options][create_materialized_view] for the continuous aggregate view.
 `ALTER MATERIALIZED VIEW` statement also supports the following
 [PostgreSQL clauses][postgres-alterview] on the
 continuous aggregate view:
