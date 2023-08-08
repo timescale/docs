@@ -18,7 +18,7 @@ clause [options][create_materialized_view] for the continuous aggregate view.
 continuous aggregate view:
 
 *   `RENAME TO` clause to rename the continuous aggregate view;
-*   `RENAME [ COLUMN ]` clause to rename the continuous aggregate column;
+*   `RENAME [COLUMN]` clause to rename the continuous aggregate column
 *   `SET SCHEMA` clause to set the new schema for the continuous aggregate view;
 *   `SET TABLESPACE` clause to move the materialization of the continuous
   aggregate view to the new tablespace;
