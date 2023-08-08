@@ -792,6 +792,11 @@ module.exports = [
                   excerpt: "Install pgAdmin to connect to Timescale",
                 },
                 {
+                  title: "Connect using qStudio",
+                  href: "qstudio",
+                  excerpt: "Install qstudio to connect to Timescale",
+                },
+                {
                   title: "Troubleshooting Timescale connections",
                   href: "troubleshooting",
                   type: "placeholder",
