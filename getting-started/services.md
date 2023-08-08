@@ -31,7 +31,9 @@ connect to it from the command prompt on your local machine. You can then use
 `psql` to create tables and add data directly into your database.
 
 In this section, you sign up for a Timescale account, create a service, and
-connect to it from your local machine using `psql`.
+connect to it from your local machine using `psql`. Don't forget to download the
+cheatsheet when you create your service, it gives you important information that
+you need later on.
 
 For more information, see
 [the services section][services-how-to].
