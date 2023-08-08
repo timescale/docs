@@ -11,38 +11,46 @@ api:
 
 # timescaledb_information.dimensions
 
-Get metadata about the dimensions of hypertables, returning one row of metadata
-for each dimension of a hypertable. For a time-and-space-partitioned
-hypertable, for example, two rows of metadata are returned for the
-hypertable.
+Returns information about the dimensions of a hypertable. Hypertables can be
+partitioned on a range of different dimensions. By default, all hypertables are
+partitioned on time, but it is also possible to partition on other dimensions in
+addition to time.
 
-A time-based dimension column has either an integer datatype
-(bigint, integer, smallint) or a time-related datatype
-(timestamptz, timestamp, date).
-The `time_interval` column is defined for hypertables that use time datatypes.
-Alternatively, for hypertables that use integer datatypes,
- the `integer_interval` and `integer_now_func` columns are defined.
+For hypertables that are partitioned solely on time,
+`timescaledb_information.dimensions` returns a single row of metadata. For
+hypertables that are partitioned on more than one dimension, the call returns a
+row for each dimension.
 
-For space-based dimensions, metadata is returned that specifies their number
-of `num_partitions`. The `time_interval` and `integer_interval` columns are
-not applicable for space based dimensions.
+For time-based dimensions, the metadata returned indicates the integer datatype,
+such as BIGINT, INTEGER, or SMALLINT, and the time-related datatype, such as
+TIMESTAMPTZ, TIMESTAMP, or DATE. For space-based dimension, the metadata
+returned specifies the number of `num_partitions`.
 
-### Available columns
+If the hypertable uses time datatypes, the `time_interval` column is defined.
+Alternatively, if the hypertable uses integer datatypes, the `integer_interval`
+and `integer_now_func` columns are defined.
+
+## Available columns
 
 |Name|Type|Description|
-|---|---|---|
-| `hypertable_schema` | TEXT | Schema name of the hypertable |
-| `hypertable_name` | TEXT | Table name of the hypertable |
-| `dimension_number` | BIGINT | Dimension number of the hypertable, starting from 1 |
-| `column_name` | TEXT | Name of the column used to create this dimension |
-| `column_type` | REGTYPE | Type of the column used to create this dimension|
-| `dimension_type` | TEXT | Is this time based or space based dimension?|
-| `time_interval` | INTERVAL | Time interval for primary dimension if the column type is based on Postgres time datatypes |
-| `integer_interval` | BIGINT | Integer interval for primary dimension if the column type is an integer datatype |
-| `integer_now_func` | TEXT | integer_now function for primary dimension if the column type is integer based datatype|
-| `num_partitions` | SMALLINT | Number of partitions for the dimension |
+|-|-|-|
+|`hypertable_schema`|TEXT|Schema name of the hypertable|
+|`hypertable_name`|TEXT|Table name of the hypertable|
+|`dimension_number`|BIGINT|Dimension number of the hypertable, starting from 1|
+|`column_name`|TEXT|Name of the column used to create this dimension|
+|`column_type`|REGTYPE|Type of the column used to create this dimension|
+|`dimension_type`|TEXT|Is this a time based or space based dimension|
+|`time_interval`|INTERVAL|Time interval for primary dimension if the column type is a time datatype|
+|`integer_interval`|BIGINT|Integer interval for primary dimension if the column type is an integer datatype|
+|`integer_now_func`|TEXT|`integer_now`` function for primary dimension if the column type is an integer datatype|
+|`num_partitions`|SMALLINT|Number of partitions for the dimension|
 
-### Sample usage
+<Highlight type="note">
+The `time_interval` and `integer_interval` columns are not applicable for space
+based dimensions.
+</Highlight>
+
+## Sample usage
 
 Get information about the dimensions of hypertables.
 
