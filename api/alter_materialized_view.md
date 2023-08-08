@@ -22,7 +22,7 @@ continuous aggregate view:
 *   `SET SCHEMA` clause to set the new schema for the continuous aggregate view
 *   `SET TABLESPACE` clause to move the materialization of the continuous
   aggregate view to the new tablespace
-*   `OWNER TO` clause to set new owner for the continuous aggregate view.
+*   `OWNER TO` clause to set new owner for the continuous aggregate view
 
 ``` sql
 ALTER MATERIALIZED VIEW <view_name> SET ( timescaledb.<option> =  <value> [, ... ] )
@@ -32,7 +32,7 @@ ALTER MATERIALIZED VIEW <view_name> SET ( timescaledb.<option> =  <value> [, ...
 
 |Name|Type|Description|
 |---|---|---|
-| `<view_name>` | TEXT | Name (optionally schema-qualified) of continuous aggregate view to be created.|
+|`<view_name>`|TEXT|Name (optionally schema-qualified) of continuous aggregate view to be created.|
 
 ### Options
 
