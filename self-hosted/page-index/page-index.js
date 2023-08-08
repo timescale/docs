@@ -102,11 +102,6 @@ module.exports = [
         href: "backup-and-restore",
         children: [
           {
-            title: "Using pg_dump/pg_restore",
-            href: "pg-dump-and-restore",
-            excerpt: "Backing up and restoring with the pg_dump and pg_restore",
-          },
-          {
             title: "Docker & WAL-E",
             href: "docker-and-wale",
             excerpt: "Backing up and restoring with Docker and WAL-E",
