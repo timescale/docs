@@ -128,8 +128,8 @@ individually.
     ```
 
    <Highlight type="note">
-    To upgrade TimescaleDB in a Docker container, see the
-   [Upgrades within a Docker container](/self-hosted/latest/upgrades/upgrade-docker)section.
+    To upgrade TimescaleDB in a Docker container, see the Upgrades within a
+    [Docker container](/self-hosted/latest/upgrades/upgrade-docker) section.
    </Highlight>
 
 </Procedure>
