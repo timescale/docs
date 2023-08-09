@@ -56,7 +56,7 @@ individually.
 
    <Highlight type="note">
     To upgrade TimescaleDB in a Docker container, see the
-   [Upgrades within a Docker container][upgrade-docker] documentation.
+   [Upgrades within a Docker container] [upgrade-docker] documentation.
    </Highlight>
 
 </Procedure>
