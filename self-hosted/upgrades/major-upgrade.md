@@ -81,7 +81,7 @@ individually.
     ```
 
 1.  Use this command to save the current settings for your continuous aggregates
-   to a `.csv` file:
+    to a `.csv` file:
 
     ```sql
     COPY (SELECT * FROM timescaledb_information.continuous_aggregate_stats)
@@ -126,6 +126,11 @@ individually.
     ```sql
     \dx timescaledb
     ```
+
+   <Highlight type="note">
+    To upgrade TimescaleDB in a Docker container, see the
+   [Upgrades within a Docker container][upgrade-docker] documentation.
+   </Highlight>
 
 </Procedure>
 
@@ -191,3 +196,4 @@ total_failures         | 0
 [changes-in-ts2]: /about/:currentVersion:/release-notes/changes-in-timescaledb-2
 [relnotes-20]: /about/:currentVersion:/release-notes/changes-in-timescaledb-2#retention-and-caggs
 [upgrade-minor]: /self-hosted/:currentVersion:/upgrades/minor-upgrade/
+[upgrade-docker]: /self-hosted/:currentVersion:/upgrades/upgrade-docker/

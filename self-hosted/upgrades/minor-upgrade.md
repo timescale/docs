@@ -54,6 +54,12 @@ individually.
     \dx timescaledb
     ```
 
+   <Highlight type="note">
+    To upgrade TimescaleDB in a Docker container, see the
+   [Upgrades within a Docker container][upgrade-docker] documentation.
+   </Highlight>
+
 </Procedure>
 
 [upgrade-major]: /self-hosted/:currentVersion:/upgrades/major-upgrade/
+[upgrade-docker]: /self-hosted/:currentVersion:/upgrades/upgrade-docker/
