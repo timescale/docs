@@ -129,7 +129,7 @@ individually.
 
    <Highlight type="note">
     To upgrade TimescaleDB in a Docker container, see the
-   [Upgrades within a Docker container] [upgrade-docker] documentation.
+   [Upgrades within a Docker container](/self-hosted/latest/upgrades/upgrade-docker)section.
    </Highlight>
 
 </Procedure>
@@ -196,4 +196,3 @@ total_failures         | 0
 [changes-in-ts2]: /about/:currentVersion:/release-notes/changes-in-timescaledb-2
 [relnotes-20]: /about/:currentVersion:/release-notes/changes-in-timescaledb-2#retention-and-caggs
 [upgrade-minor]: /self-hosted/:currentVersion:/upgrades/minor-upgrade/
-[upgrade-docker]: /self-hosted/:currentVersion:/upgrades/upgrade-docker/
