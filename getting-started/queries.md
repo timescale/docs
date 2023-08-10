@@ -166,7 +166,7 @@ Timescale `time_bucket` function. Time buckets are used to group data, so that
 you can perform calculations over different time periods.
 
 In this section, you use the same query as the previous section to find the
-`first` and `last` values, but start by organizing the data into 1-day time
+`first` and `last` values, but start by organizing the data into 1-hour time
 buckets.
 
 Start by declaring the time bucket interval to use, and give your time bucket a
