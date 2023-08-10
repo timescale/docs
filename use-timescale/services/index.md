@@ -20,7 +20,7 @@ management resources for Timescale. You can use it to create, rename, resize,
 delete, and import service. For more information about the supported service
 configurations and operations, see
 [Timescale Terraform provider documentation][terraform-provider-docs].
-</Hghlight>
+</Highlight>
 
 ## Learn more about Timescale
 
