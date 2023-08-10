@@ -166,10 +166,10 @@ Timescale `time_bucket` function. Time buckets are used to group data, so that
 you can perform calculations over different time periods.
 
 In this section, you use the same query as the previous section to find the
-`first` and `last` values, but start by organising the data into 1-day time
+`first` and `last` values, but start by organizing the data into 1-day time
 buckets.
 
-Start by declaring the time_bucket interval to use, and give your time bucket a
+Start by declaring the time bucket interval to use, and give your time bucket a
 name:
 
 <CodeBlock canCopy={false} showLineNumbers={false} children={`
@@ -185,7 +185,8 @@ FROM stocks_real_time srt
 WHERE time > now() - INTERVAL '4 days'
 `} />
 
-Finally, organize the results by time bucket, using the `GROUP BY` statement, like this:
+Finally, organize the results by time bucket, using the `GROUP BY` statement,
+like this:
 
 <CodeBlock canCopy={false} showLineNumbers={false} children={`
 GROUP BY bucket
