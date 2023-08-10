@@ -108,7 +108,7 @@ ALTER TABLE example SET (timescaledb.compress_chunk_time_interval = '<time_inter
 SELECT compress_chunk(c, if_not_compressed => true)
     FROM show_chunks(
         'example',
-        now()::timestamp - INTERVAL '1 week',
+        now()::timestamp - INTERVAL '1 week'
     ) c;
 ```
 
