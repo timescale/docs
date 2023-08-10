@@ -26,8 +26,8 @@ such as BIGINT, INTEGER, or SMALLINT, and the time-related datatype, such as
 TIMESTAMPTZ, TIMESTAMP, or DATE. For space-based dimension, the metadata
 returned specifies the number of `num_partitions`.
 
-If the hypertable uses time datatypes, the `time_interval` column is defined.
-Alternatively, if the hypertable uses integer datatypes, the `integer_interval`
+If the hypertable uses time data types, the `time_interval` column is defined.
+Alternatively, if the hypertable uses integer data types, the `integer_interval`
 and `integer_now_func` columns are defined.
 
 ## Available columns
