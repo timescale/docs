@@ -173,22 +173,22 @@ Start by declaring the time_bucket interval to use, and give your time bucket a
 name:
 
 <CodeBlock canCopy={false} showLineNumbers={false} children={`
-SELECT time_bucket('1 day', time) AS bucket,
+SELECT time_bucket('1 hour', time) AS bucket,
 `} />
 
 Then, you can add the query in the same way as you used before:
 
 <CodeBlock canCopy={false} showLineNumbers={false} children={`
-    symbol, first(price,time), last(price, time)
+    first(price,time),
+    last(price, time)
 FROM stocks_real_time srt
 WHERE time > now() - INTERVAL '4 days'
 `} />
 
-Finally, organize the results with `GROUP BY` and `ORDER BY`, like this:
+Finally, organize the results by time bucket, using the `GROUP BY` statement, like this:
 
 <CodeBlock canCopy={false} showLineNumbers={false} children={`
-GROUP BY symbol
-ORDER BY symbol
+GROUP BY bucket
 `} />
 
 For more information about time bucketing, see the [time bucket section][time-buckets].
@@ -201,7 +201,7 @@ For more information about time bucketing, see the [time bucket section][time-bu
     you downloaded to connect to your database.
 1.  At the `psql` prompt, type this query:
 
-    <TryItOutCodeBlock queryId="getting-started-srt-buckets" />
+    <TryItOutCodeBlock queryId="getting-started-srt-bucket-first-last" />
 
 1.  Type `q` to return to the `psql` prompt.
 
