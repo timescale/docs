@@ -9,9 +9,19 @@ cloud_ui:
         - [services, :serviceId, operations, resources]
 ---
 
-# Manually change compute resources
+import UsageBasedStorage from "versionContent/_partials/_usage-based-storage-intro.mdx";
 
-You can manually change your compute resources.
+# Resources
+
+<UsageBasedStorage />
+
+Timescale allows you to resize compute (CPU/RAM) resources independently at any
+time. You can resize compute in the Timescale console for any service, with a
+short downtime.
+
+Because compute changes require an interruption to your service, plan
+accordingly so that the settings are applied during an appropriate service
+window.
 
 ## Compute resources
 
@@ -28,7 +38,7 @@ immediately so that you can verify how the changes impact your costs.
 
 <Highlight type="warning">
 Changing your compute settings usually requires a short downtime. Make sure you
-plan for this before you begin!
+plan for this before you begin.
 </Highlight>
 
 <Procedure>
