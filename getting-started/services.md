@@ -32,7 +32,7 @@ connect to it from the command prompt on your local machine. You can then use
 
 In this section, you sign up for a Timescale account, create a service, and
 connect to it from your local machine using `psql`. Don't forget to download the
-cheatsheet when you create your service, it gives you important information that
+cheatsheet when you create your service, it contains important information that
 you need later on.
 
 For more information, see
