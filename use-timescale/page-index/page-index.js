@@ -39,6 +39,11 @@ module.exports = [
               "Timescale services operations, Service management tab",
           },
           {
+            title: "Manually change resources",
+            href: "change-resources",
+            excerpt: "Manually adjust your service resources",
+          },
+          {
             title: "Connection pooling",
             href: "connection-pooling",
             excerpt:
@@ -50,18 +55,6 @@ module.exports = [
             type: "placeholder",
           },
         ],
-      },
-      {
-        title: "Resources",
-        href: "resources",
-        excerpt: "Using and changing resources in Timescale",
-        children: [
-          {
-            title: "Manually change resources",
-            href: "change-resources",
-            excerpt: "Manually adjust your service resources",
-          },
-        ]
       },
       {
         title: "User Management",
