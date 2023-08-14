@@ -19,10 +19,11 @@ data showing temperature changes over time, you can calculate an average of
 those temperatures, or a count of how many readings have been taken. Average,
 sum, and count are all example of simple aggregates.
 
-However, aggregation calculations can get complicated, quickly. If you want to
+However, aggregation calculations can get big and slow, quickly. If you want to
 find the average open and closing values of a range of stocks for each day, then
 you need something a little more sophisticated. That's where Timescale
-continuous aggregates come in.
+continuous aggregates come in. Continuous aggregates can minimize the number of
+records that you need to look up to perform your query.
 
 ## Continuous aggregates
 
