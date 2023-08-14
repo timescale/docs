@@ -21,7 +21,10 @@ can be restored to any point during this time period.
 In the event of a storage failure, a service automatically restores from backup
 to the point of failure. In the event of a user error where a point-in-time
 recovery needs to be done, contact Support by clicking the `Support` button in
-the Timescale console.
+the Timescale console. To help get things moving quickly, make sure 
+you provide the relevant service ID, and the date and time in UTC format. The Timescale 
+support team usually restores to a fork, but if you need an in-place restore, make sure
+you include that information in your support request.
 
 This diagram describes how a restore from backup occurs after a storage failure:
 
