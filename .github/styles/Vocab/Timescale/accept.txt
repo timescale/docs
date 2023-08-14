@@ -120,6 +120,7 @@ Unix
 [Rr]ollups?
 [Ss]erverless
 [Ss]hard(?:s|ing)?
+SkipScan
 (?i)timestamptz
 URLs?
 URIs?
