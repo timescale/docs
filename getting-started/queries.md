@@ -163,11 +163,14 @@ For more information about these functions, see the API documentation for
 
 To make it easier to look at numbers over different time ranges, you can use the
 Timescale `time_bucket` function. Time buckets are used to group data, so that
-you can perform calculations over different time periods.
+you can perform calculations over different time periods. Time buckets represent
+a specific point in time, so all the timestamps for data in a single time bucket
+use the bucket timestamp.
 
 In this section, you use the same query as the previous section to find the
 `first` and `last` values, but start by organizing the data into 1-hour time
-buckets.
+buckets. In the last section, you retrieves the first and last value of a
+column, this time, you retrieve the first and last value for a 1-hour time bucket.
 
 Start by declaring the time bucket interval to use, and give your time bucket a
 name:
