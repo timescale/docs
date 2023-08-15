@@ -10,15 +10,15 @@ tags: [learn, contribute]
 
 There are two versions of TimescaleDB available:
 
-*   TimescaleDB with an Apache 2 licence
+*   TimescaleDB Apache 2 Edition
 *   TimescaleDB Community Edition
 
 The TimescaleDB Apache 2 Edition is the version of TimescaleDB that is available
-under the [Apache 2.0 license][apache-license]. This is a classic open source license,
-meaning that it is completely unrestricted - anyone can take this code and offer it
-as a service.
+under the [Apache 2.0 license][apache-license]. This is a classic open source
+license, meaning that it is completely unrestricted - anyone can take this code
+and offer it as a service.
 
-### TimescaleDB Apache 2 Edition
+## TimescaleDB Apache 2 Edition
 
 You can install TimescaleDB Apache 2 Edition on your own on-premises or cloud
 infrastructure and run it for free.
@@ -36,7 +36,7 @@ TimescaleDB Apache 2 Edition is available from these service providers:
 *   [Aiven for PostgreSQL][aiven]
 *   [Neon. Serverless Postgres][neon]
 
-### TimescaleDB Community Edition
+## TimescaleDB Community Edition
 
 TimescaleDB Community Edition is the latest, most updated version of TimescaleDB,
 available under the
@@ -63,7 +63,7 @@ the TimescaleDB Community Edition source code and offer it as a service.
 You can access a hosted version of TimescaleDB Community Edition through
 [Timescale][timescale-cloud], which is a cloud-native platform for time-series.
 
-### Feature comparison
+## Feature comparison
 
 <table>
   <tr>
