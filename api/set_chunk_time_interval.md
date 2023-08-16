@@ -19,7 +19,7 @@ not changed.
 
 |Name|Type|Description|
 |-|-|-|
-|`hypertable`|REGCLASS| Hypertable or continuous aggregate to update interval for|
+|`hypertable`|REGCLASS|Hypertable or continuous aggregate to update interval for|
 |`chunk_time_interval`|See note|Event time that each new chunk covers|
 
 The valid types for the `chunk_time_interval` depend on the type used for the
