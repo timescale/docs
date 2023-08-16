@@ -13,6 +13,7 @@ import HypertablesIntro from "versionContent/_partials/_hypertables-intro.mdx";
 import HypertablesNext from "versionContent/_partials/_hypertables-next.mdx";
 import TimeSeriesIntro from "versionContent/_partials/_timeseries-intro.mdx";
 import TimescaleIntro from "versionContent/_partials/_timescale-intro.mdx";
+import TimescaleValueProp from "versionContent/_partials/_timescale-value-prop.mdx";
 import CompressionIntro from "versionContent/_partials/_compression-intro.mdx";
 import CompressionNext from "versionContent/_partials/_compression-next.mdx";
 import UbsIntro from "versionContent/_partials/_usage-based-storage-intro.mdx";
@@ -25,6 +26,8 @@ import TimeBucketIntro from "versionContent/_partials/_time-bucket-intro.mdx";
 # Timescale overview
 
 <TimescaleIntro />
+
+<TimescaleValueProp />
 
 This section provides an overview of Timescale architecture, introducing you
 to special Timescale concepts and features.
