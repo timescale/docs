@@ -28,19 +28,19 @@ specified one.
 Chunks can only be dropped based on their time intervals. They cannot be dropped
 based on a space partition.
 
-### Required arguments
+## Required arguments
 
 |Name|Type|Description|
-|---|---|---|
-| `relation` | REGCLASS | Hypertable or continuous aggregate from which to drop chunks. |
-| `older_than` | INTERVAL | Specification of cut-off point where any full chunks older than this timestamp should be removed. |
+|-|-|-|
+|`relation`|REGCLASS|Hypertable or continuous aggregate from which to drop chunks.|
+|`older_than`|INTERVAL|Specification of cut-off point where any full chunks older than this timestamp should be removed.|
 
-### Optional arguments
+## Optional arguments
 
 |Name|Type|Description|
-|---|---|---|
-| `newer_than` | INTERVAL | Specification of cut-off point where any full chunks newer than this timestamp should be removed. |
-| `verbose` | BOOLEAN | Setting to true displays messages about the progress of the reorder command. Defaults to false.|
+|-|-|-|
+|`newer_than`|INTERVAL|Specification of cut-off point where any full chunks newer than this timestamp should be removed.|
+|`verbose`|BOOLEAN|Setting to true displays messages about the progress of the reorder command. Defaults to false.|
 
 The `older_than` and `newer_than` parameters can be specified in two ways:
 
@@ -60,13 +60,15 @@ you are removing things _in the past_. If you want to remove data
 in the future, for example to delete erroneous entries, use a timestamp.
 </Highlight>
 
-When both arguments are used, the function returns the intersection of the resulting two ranges. For example,
-specifying `newer_than => 4 months` and `older_than => 3 months` drops all full chunks that are between 3 and
-4 months old. Similarly, specifying `newer_than => '2017-01-01'` and `older_than => '2017-02-01'` drops
-all full chunks between '2017-01-01' and '2017-02-01'. Specifying parameters that do not result in an overlapping
+When both arguments are used, the function returns the intersection of the
+resulting two ranges. For example, specifying `newer_than => 4 months` and
+`older_than => 3 months` drops all full chunks that are between 3 and 4 months
+old. Similarly, specifying `newer_than => '2017-01-01'` and
+`older_than => '2017-02-01'` drops all full chunks between '2017-01-01' and
+'2017-02-01'. Specifying parameters that do not result in an overlapping
 intersection between two ranges results in an error.
 
-### Sample usage
+## Sample usage
 
 Drop all chunks from hypertable `conditions` older than 3 months:
 
