@@ -15,14 +15,15 @@ Sets the `chunk_time_interval` on a hypertable. The new interval is used
 when new chunks are created, and time intervals on existing chunks are
 not changed.
 
-### Required arguments
+## Required arguments
 
 |Name|Type|Description|
 |-|-|-|
-|`hypertable`|REGCLASS| Hypertable to update interval for|
+|`hypertable`|REGCLASS|Hypertable or continuous aggregate to update interval for|
 |`chunk_time_interval`|See note|Event time that each new chunk covers|
 
-The valid types for the `chunk_time_interval` depend on the type used for the hypertable `time` column:
+The valid types for the `chunk_time_interval` depend on the type used for the
+hypertable `time` column:
 
 |`time` column type|`chunk_time_interval` type|Time unit|
 |-|-|-|
@@ -38,7 +39,7 @@ The valid types for the `chunk_time_interval` depend on the type used for the hy
 
 For more information, see the [`create_hypertable` section][create-hypertable].
 
-### Optional arguments
+## Optional arguments
 
 |TEXT|Description|
 |-|-|-|
@@ -47,7 +48,7 @@ For more information, see the [`create_hypertable` section][create-hypertable].
 You need to use `dimension_name` argument only if your hypertable has multiple
 time dimensions.
 
-### Sample usage
+## Sample usage
 
 For a TIMESTAMP column, set `chunk_time_interval` to 24 hours:
 
