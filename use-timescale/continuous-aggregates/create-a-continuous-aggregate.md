@@ -83,12 +83,12 @@ have very small intervals, it can be more efficient to run the aggregate query
 on the raw data in the hypertable. You should test both methods to determine
 what is best for your dataset and desired bucket interval.
 
-If you want to use [time_bucket_gapfill][api-time-bucket-gapfill], run it in the
-`SELECT` statement on the continuous aggregate view, do not run it in the
-continuous aggregate directly.
-
-For more information about the time bucket function, see the
-[API documentation][api-time-bucket].
+You can't use [time_bucket_gapfill][api-time-bucket-gapfill] directly in a
+continuous aggregate. This is because you need access to previous data to
+determine the gapfill content, which isn't yet available when you create the
+continuous aggregate. You can work around this by creating the continuous
+aggregate using [`time_bucket`][api-time-bucket], then querying the continuous
+aggregate using `time_bucket_gapfill`.
 
 ## Using the WITH NO DATA option
 
