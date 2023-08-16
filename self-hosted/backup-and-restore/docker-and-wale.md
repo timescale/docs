@@ -22,8 +22,6 @@ ready to implement this in your production deployment, you can adapt the
 instructions here to do archiving against cloud providers such as AWS S3, and
 run it in an orchestration framework such as Kubernetes.
 
-<Deprecation />
-
 <ConsiderCloud />
 
 ## Run the TimescaleDB container in Docker
@@ -36,6 +34,8 @@ write-ahead log (`POSTGRES_INITDB_WALDIR`) and data directory (`PGDATA`) so that
 you can share them with the WAL-E sidecar. Both must reside in a Docker volume,
 by default a volume is created for `/var/lib/postgresql/data`. When you have
 started TimescaleDB, you can log in and create tables and data.
+
+<Deprecation />
 
 <Procedure>
 
