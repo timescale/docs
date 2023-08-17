@@ -19,7 +19,7 @@ hypertables.
 <UsageBasedStorage />
 
 <Highlight type="warning">
-Compression alters data on your disk, so always back up before you start.
+For databases in production, first test compression on a fork.
 </Highlight>
 
 [backfill-historical]: /use-timescale/:currentVersion:/compression/backfill-historical-data/
