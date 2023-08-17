@@ -17,6 +17,36 @@ GitHub and be notified by email whenever a new release is available. On the
 click `Watch`, select `Custom` and then check `Releases`.
 </Highlight>
 
+## TimescaleDB&nbsp;2.11.2 on 2023-08-17
+
+These release notes are for the release of TimescaleDB&nbsp;2.11.2 on
+2023-08-17.
+
+<Highlight type="note">
+This release contains bug fixes since the 2.11.1 release.
+We recommend that you upgrade at the next available opportunity.
+</Highlight>
+
+### Complete list of features
+
+* #5923 Feature flags for TimescaleDB features
+
+### Complete list of bug fixes
+
+* #5680 Fix DISTINCT query with JOIN on multiple segmentby columns
+* #5774 Fixed two bugs in decompression sorted merge code
+* #5786 Ensure pg_config --cppflags are passed
+* #5906 Fix quoting owners in sql scripts.
+* #5912 Fix crash in 1-step integer policy creation
+
+### Acknowledgments
+
+Timescale thanks:
+
+* @mrksngl for submitting a PR to fix extension upgrade scripts
+* @ericdevries for reporting an issue with DISTINCT queries using
+segmentby columns of compressed hypertable
+
 ## TimescaleDB&nbsp;2.11.1 on 2023-06-29
 
 These release notes are for the release of TimescaleDB&nbsp;2.11.1 on
