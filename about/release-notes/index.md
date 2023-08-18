@@ -33,7 +33,7 @@ It is recommended that you upgrade at the next available opportunity.
 
 ### Complete list of bug fixes
 
-* #5680 Fix DISTINCT query with JOIN on multiple segmentby columns
+* #5680 Fix DISTINCT query with `JOIN` on multiple `segmentby` columns
 * #5774 Fixed two bugs in decompression sorted merge code
 * #5786 Ensure pg_config --cppflags are passed
 * #5906 Fix quoting owners in sql scripts.
@@ -45,7 +45,7 @@ Timescale thanks:
 
 * @mrksngl for submitting a PR to fix extension upgrade scripts
 * @ericdevries for reporting an issue with DISTINCT queries using
-segmentby columns of compressed hypertable
+  `segmentby` columns of compressed hypertable
 
 ## TimescaleDB&nbsp;2.11.1 on 2023-06-29
 
