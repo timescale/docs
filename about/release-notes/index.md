@@ -36,7 +36,7 @@ It is recommended that you upgrade at the next available opportunity.
 * #5680 Fix DISTINCT query with `JOIN` on multiple `segmentby` columns
 * #5774 Fixed two bugs in decompression sorted merge code
 * #5786 Ensure pg_config --cppflags are passed
-* #5906 Fix quoting owners in sql scripts.
+* #5906 Fix quoting owners in SQL scripts.
 * #5912 Fix crash in 1-step integer policy creation
 
 ### Acknowledgments
