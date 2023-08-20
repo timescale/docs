@@ -102,13 +102,14 @@ TimescaleDB extension on the data node unless it is already installed.
 ### Sample usage
 
 If you have an existing hypertable `conditions` and want to use `time`
-as the time partitioning column. You also want to distribute the chunks
-of the hypertable on two data nodes `dn1.example.com` and `dn2.example.com`:
+as the time partitioning column and `location` as the space partitioning
+column. You also want to distribute the chunks of the hypertable on two
+data nodes `dn1.example.com` and `dn2.example.com`:
 
 ```sql
 SELECT add_data_node('dn1', host => 'dn1.example.com');
 SELECT add_data_node('dn2', host => 'dn2.example.com');
-SELECT create_distributed_hypertable('conditions', 'time');
+SELECT create_distributed_hypertable('conditions', 'time', 'location');
 ```
 
 If you want to create a distributed database with the two data nodes
@@ -117,7 +118,7 @@ local to this instance, you can write:
 ```sql
 SELECT add_data_node('dn1', host => 'localhost', database => 'dn1');
 SELECT add_data_node('dn2', host => 'localhost', database => 'dn2');
-SELECT create_distributed_hypertable('conditions', 'time');
+SELECT create_distributed_hypertable('conditions', 'time', 'location');
 ```
 
 Note that this does not offer any performance advantages over using a
