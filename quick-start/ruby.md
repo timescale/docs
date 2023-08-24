@@ -72,24 +72,6 @@ on Rails application.
     A new migration file `<migration-datetime>_add_timescale.rb` is created in
     the `my_app/db/migrate` directory.
 
-1.  Update the contents of the `<migration-datetime>_add_timescale.rb` file with
-    these instructions to load the TimescaleDB extension to PostgreSQL:
-
-    ```ruby
-    class AddTimescale < ActiveRecord::Migration[7.0]
-      def change
-       enable_extension("timescaledb") unless extensions.include? "timescaledb"
-       end
-      end
-    end
-    ```
-
-1.  Add the TimescaleDB extension to the PostgreSQL database:
-
-    ```ruby
-       rails db:migrate
-    ```
-
 1.  Connect to TimescalDB Cloud using Rails:
 
     ```bash
