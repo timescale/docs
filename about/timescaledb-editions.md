@@ -18,7 +18,7 @@ under the [Apache 2.0 license][apache-license]. This is a classic open source li
 meaning that it is completely unrestricted - anyone can take this code and offer it
 as a service.
 
-### TimescaleDB Apache 2 Edition
+## TimescaleDB Apache 2 Edition
 
 You can install TimescaleDB Apache 2 Edition on your own on-premises or cloud
 infrastructure and run it for free.
@@ -29,7 +29,7 @@ main contributor.
 You can modify the TimescaleDB Apache 2 Edition source code and run it for
 production use.
 
-### TimescaleDB Community Edition
+## TimescaleDB Community Edition
 
 TimescaleDB Community Edition is the advanced, best, and most feature complete 
 version of TimescaleDB, available under the terms of the
@@ -56,7 +56,7 @@ the TimescaleDB Community Edition source code and offer it as a service.
 You can access a hosted version of TimescaleDB Community Edition through
 [Timescale][timescale-cloud], which is a cloud-native platform for time-series.
 
-### Feature comparison
+## Feature comparison
 
 <table>
   <tr>
