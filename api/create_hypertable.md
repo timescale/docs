@@ -147,19 +147,6 @@ SELECT create_hypertable('conditions', 'time', chunk_time_interval => 8640000000
 SELECT create_hypertable('conditions', 'time', chunk_time_interval => INTERVAL '1 day');
 ```
 
-Convert table `conditions` to hypertable with time partitioning on `time` and
-space partitioning (4 partitions) on `location`:
-
-```sql
-SELECT create_hypertable('conditions', 'time', 'location', 4);
-```
-
-The same as above, but using a custom partitioning function:
-
-```sql
-SELECT create_hypertable('conditions', 'time', 'location', 4, partitioning_func => 'location_hash');
-```
-
 Convert table `conditions` to hypertable. Do not raise a warning
 if `conditions` is already a hypertable:
 

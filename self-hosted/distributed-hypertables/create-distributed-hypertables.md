@@ -35,8 +35,7 @@ hypertable. To set up multi-node, see the
 
 1.  Convert the table to a distributed hypertable. Specify the name of the table
     you want to convert, the column that holds its time values, and a
-    space-partitioning parameter. For more information about space partitions,
-    see the [space-partitioning section][space-partitions].
+    space-partitioning parameter.
 
      ```sql
      SELECT create_distributed_hypertable('conditions', 'time', 'location');
@@ -46,4 +45,3 @@ hypertable. To set up multi-node, see the
 
 [multi-node]: /self-hosted/:currentVersion:/multinode-timescaledb/
 [postgres-createtable]: https://www.postgresql.org/docs/current/sql-createtable.html
-[space-partitions]: /use-timescale/:currentVersion:/hypertables/about-hypertables#space-partitions-for-distributed-hypertables
