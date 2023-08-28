@@ -18,10 +18,6 @@ hypertables.
 
 <UsageBasedStorage />
 
-<Highlight type="warning">
-Compression alters data on your disk, so always back up before you start.
-</Highlight>
-
 [backfill-historical]: /use-timescale/:currentVersion:/compression/backfill-historical-data/
 [decompress-chunks]: /use-timescale/:currentVersion:/compression/decompress-chunks/
 [modify-schema]: /use-timescale/:currentVersion:/compression/modify-a-schema/
