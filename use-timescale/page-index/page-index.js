@@ -356,6 +356,12 @@ module.exports = [
             excerpt:
               "Migrate a hypertable or entire database with native PostgreSQL commands",
           },
+          {
+            title: "Dual-write and backfill",
+            href: "dual-write-and-backfill",
+            excerpt:
+              "Migrate a large database with low downtime",
+          },
         ],
       },
       {
