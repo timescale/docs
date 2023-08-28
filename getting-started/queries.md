@@ -60,7 +60,7 @@ LIMIT 10
     SQL query against a live instance curated by Timescale.
     </Highlight>
 
-    <TryItOutCodeBlock queryId="getting-started-srt-4-days" />
+    <TryItOutCodeBlock id="try-it-out-code-block-1" queryId="getting-started-srt-4-days" />
 
 1.  Type `q` to return to the `psql` prompt.
 
