@@ -37,14 +37,14 @@ You can view metrics for your services for any of these time ranges:
 
 To change the view, select the time range from the drop-down menu.
 
-<img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tsc-metrics_lastmonth.png" alt="Timescale Metrics dashboard"/>
+<img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tsc-metrics_lastmonth.webp" alt="Timescale Metrics dashboard"/>
 
 Additionally, you can turn automatic metric refreshes on and off. When automatic
 metric refresh is on, the dashboard updates every thirty seconds.
 
 In some cases, gray vertical bars display on the metrics dashboard, like this:
 
-<img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tsc-metrics_graybar.png" alt="Timescale Metrics not collected"/>
+<img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tsc-metrics_graybar.webp" alt="Timescale Metrics not collected"/>
 
 This indicates that metrics have not been collected for the period shown. It
 does not mean that your Timescale service was down.
@@ -56,7 +56,7 @@ database services. You can check your health data by navigating to the `metrics`
 tab in your service dashboard. These metrics are also monitored by the Timescale
 operations team.
 
-<img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tsc-disk-metrics.png" alt="Timescale metrics dashboard"/>
+<img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tsc-disk-metrics.webp" alt="Timescale metrics dashboard"/>
 
 ## Query-level statistics in the Timescale dashboard
 
