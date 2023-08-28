@@ -74,6 +74,10 @@ For more about how data tiering works, see the
     execution time of queries in latency-sensitive environments, especially
     lighter queries.
 
+*   **Number of dimensions.** You cannot use data tiering on hypertables
+    partitioned on more than one dimension. Make sure your hypertables is
+    partitioned on time only, before you enable data tiering.
+
 ## Learn more
 
 Learn [how data tiering works][how-to].
