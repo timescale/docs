@@ -28,6 +28,11 @@ module.exports = [
             excerpt: "Timescale services",
           },
           {
+            title: "Create a PostgreSQL service",
+            href: "create-pg-service",
+            excerpt: "PostgreSQL services",
+          },
+          {
             title: "Service explorer",
             href: "service-explorer",
             excerpt: "Timescale services explorer",
