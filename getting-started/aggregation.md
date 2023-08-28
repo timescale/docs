@@ -1,5 +1,5 @@
 ---
-title: Aggregation
+title: Continuous aggregation
 excerpt: Create an aggregate and query it
 products: [cloud]
 keywords: [continuous aggregates, create]
@@ -11,7 +11,7 @@ import CaggsIntro from "versionContent/_partials/_caggs-intro.mdx";
 import CaggsTypes from "versionContent/_partials/_caggs-types.mdx";
 import CandlestickIntro from "versionContent/_partials/_candlestick_intro.mdx";
 
-# Aggregation
+# Continuous aggregation
 
 Aggregation is a way of combing data to get insights from it. At its simplest,
 aggregation is something like looking for an average. For example, if you have
@@ -31,10 +31,10 @@ records that you need to look up to perform your query.
 
 <CaggsTypes />
 
-In this section, you create a simple aggregation by finding the average trade
-price over a week. Then, you create a materialized
-view, transform it into a continuous aggregate, and query it for more
-information about the trading data.
+In this section, you create a materialized view, transform it into a continuous
+aggregate, and query it for more information about the trading data.
+
+<!-- Removing the average stock price procedure. --LKB 20230828
 
 ## Find average stock prices for the last week
 
@@ -83,6 +83,8 @@ ORDER BY bucket, symbol
 You might notice that the `bucket` column doesn't start at the time that you run
 the query. For more information about how time buckets are calculated, see the
 [time bucketing section][time-buckets].
+
+-->
 
 ## Create an aggregate query
 
