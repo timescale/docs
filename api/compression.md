@@ -12,9 +12,11 @@ Before you set up compression, you need to
 [set up a compression policy][add_compression_policy].
 
 <Highlight type="note">
-Before you set up compression for the first time, read the compression
-[blog post][blog-compression] and
-[documentation][using-compression].
+Before you set up compression for the first time, read
+the compression
+[blog post](https://blog.timescale.com/blog/building-columnar-compression-in-a-row-oriented-database/)
+and
+[documentation](https://docs.timescale.com/use-timescale/latest/compression/).
 </Highlight>
 
 You can also [compress chunks manually][compress_chunk], instead of using an
@@ -54,8 +56,6 @@ In TimescaleDB&nbsp;2.11 and later, you can update and delete compressed data.
 You can also use advanced insert statements like `ON CONFLICT` and `RETURNING`.
 
 [add_compression_policy]: /api/:currentVersion:/compression/add_compression_policy/
-[blog-compression]: https://blog.timescale.com/blog/building-columnar-compression-in-a-row-oriented-database/
 [compress_chunk]: /api/:currentVersion:/compression/compress_chunk/
 [configure-compression]: /api/:currentVersion:/compression/alter_table_compression/
-[using-compression]: /use-timescale/:currentVersion:/compression/
 [skipscan]: /use-timescale/:currentVersion:/query-data/skipscan/

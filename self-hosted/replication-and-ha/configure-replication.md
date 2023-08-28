@@ -424,7 +424,7 @@ check out [Patroni][patroni-github].
 [configure-replication]: /self-hosted/:currentVersion:/replication-and-ha/configure-replication#configure-replication-and-recovery-settings
 [create-base-backup]: /self-hosted/:currentVersion:/replication-and-ha/configure-replication#create-a-base-backup-on-the-replica
 [create-replication-slots]: /self-hosted/:currentVersion:/replication-and-ha/configure-replication#create-replication-slots
-[docker-postgres-scripts]: https://docs.docker.com/samples/library/postgres/#how-to-extend-this-image
+[docker-postgres-scripts]: https://hub.docker.com/_/postgres/
 [failover-docs]: https://www.postgresql.org/docs/current/static/warm-standby-failover.html
 [patroni-github]: https://github.com/zalando/patroni
 [pg-hba-docs]: https://www.postgresql.org/docs/current/static/auth-pg-hba-conf.html

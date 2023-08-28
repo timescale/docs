@@ -13,11 +13,19 @@ import CandlestickIntro from "versionContent/_partials/_candlestick_intro.mdx";
 
 # Aggregation
 
-Aggregation refers to a number of different calculations that you can perform on
-your data. For example, if you have data showing temperature changes over time,
-you can calculate an average of those temperatures, or a count of how many
-readings have been taken. Average, sum, and count are all example of simple
-aggregates.
+Aggregation is a way of combing data to get insights from it. At its simplest,
+aggregation is something like looking for an average. For example, if you have
+data showing temperature changes over time, you can calculate an average of
+those temperatures, or a count of how many readings have been taken. Average,
+sum, and count are all example of simple aggregates.
+
+However, aggregation calculations can get big and slow, quickly. If you want to
+find the average open and closing values of a range of stocks for each day, then
+you need something a little more sophisticated. That's where Timescale
+continuous aggregates come in. Continuous aggregates can minimize the number of
+records that you need to look up to perform your query.
+
+## Continuous aggregates
 
 <CaggsIntro />
 
