@@ -8,6 +8,8 @@ layout_components: [next_prev_large]
 content_group: Analyze NYC taxi cab data
 ---
 
+import PreloadedData from "versionContent/_partials/_preloaded-data.mdx";
+
 # Analyze NYC taxi cab data
 
 New York City is home to about 9 million people. This tutorial uses historical
@@ -45,6 +47,8 @@ create tables, and load data into the tables using `psql`.
 You then learn how to conduct analysis and monitoring on your dataset. It walks
 you through using PostgreSQL queries to obtain information, including how to use
 JOINs to combine your time-series data with relational or business data.
+
+<PreloadedData />
 
 [dataset-nyc]: /tutorials/:currentVersion:/nyc-taxi-cab/dataset-nyc/
 [query-nyc]: /tutorials/:currentVersion:/nyc-taxi-cab/query-nyc/
