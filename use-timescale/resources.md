@@ -1,8 +1,8 @@
 ---
-title: Manually change compute resources
-excerpt: Manually adjust your service resources
+title: Resources
+excerpt: Learn about how Timescale manages compute and storage resources
 products: [cloud]
-keywords: [services, operation, storage]
+keywords: [services, operation, storage, compute]
 tags: [disk space, resources, oom, memory]
 cloud_ui:
     path:
@@ -30,7 +30,7 @@ minimal downtime, usually less than thirty seconds. The new resources become
 available as soon as the service restarts. You can change the CPU and memory
 allocation up or down, as frequently as required.
 
-There is momentary downtime while the new compute settings are applied. In most
+There is a short downtime while the new compute settings are applied. In most
 cases, this downtime is less than 30 seconds.
 
 When you change resource settings, the current and new charges are displayed
@@ -62,6 +62,21 @@ plan for this before you begin.
 
 </Procedure>
 
+## Storage resources
+
+Your Timescale service dynamically adjusts your storage resources as your data
+grows and shrinks, so you do not need to manually adjust your storage resources.
+However, there are some important things to know about how your storage
+resources are managed:
+
+There is a hard maximum storage limit of 16&nbsp;TB per service. If you expect that
+your storage requirements are going to exceed this limit, make sure you
+enable [data tiering][data-tiering] to avoid hitting this limit.
+
+In the backend, hardware is allocated for more than your current storage use. If
+your storage requirements grow very quickly, the storage allocated also needs to
+be scaled up quickly. As the service is scaled up, you might notice FIXME.
+
 ## Out of memory errors
 
 If you run intensive queries on your Timescale services, you might
@@ -92,3 +107,5 @@ immediately. The error log looks like this:
 ```yml
 2022-02-03 17:12:04 UTC [2253150]:TimescaleDB: tsdbadmin@tsdb,app=psql [53200] ERROR: out of memory
 ```
+
+[data-tiering]: /use-timescale/:currentVersion:/data-tiering/
