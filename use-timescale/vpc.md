@@ -76,7 +76,7 @@ trial has finished.
         for your Timescale VPC does not overlap with the CIDR block used
         by your AWS VPC peer. If the CIDR blocks overlap, the peering process
         fails. You can find the CIDR block of your AWS VPC from the AWS console.
-        This example uses the `10.0.0.0/16` CIDR block.
+        This example uses the `10.0.0.0/24` CIDR block.
 
 <img class="main-content__illustration"
 width={1375} height={944}
