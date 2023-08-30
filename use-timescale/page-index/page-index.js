@@ -251,7 +251,12 @@ module.exports = [
           {
             title: "About compression",
             href: "about-compression",
-            excerpt: "Compress data chunks",
+            excerpt: "Learn about how compression works",
+          },
+          {
+            title: "Enable a compression policy",
+            href: "compression-policy",
+            excerpt: "Create a compression policy on a hypertable",
           },
           {
             title: "Manual compression",
