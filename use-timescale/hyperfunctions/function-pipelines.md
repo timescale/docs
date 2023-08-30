@@ -305,7 +305,7 @@ FROM (VALUES (TimestampTZ '2021-01-06 UTC',   0.0 ),
 The output for this example:
 
 ```sql
-          time          |        value         
+          time          |        value
 ------------------------+----------------------
  2021-01-06 00:00:00+00 |                    0
  2021-01-01 00:00:00+00 |                  625
@@ -658,7 +658,7 @@ FROM (VALUES (TimestampTZ '2021-01-06 UTC',   0.0 ),
 The output for this example:
 
 ```sql
-      ?column?      
+      ?column?
 --------------------
  12.924666339987272
 (1 row)
@@ -794,8 +794,8 @@ toolkit_experimental.to_text(
 ```
 
 This function produces a text representation, formatted according to the
-`format_string`. The format string can use any valid [Tera template
-syntax][tera], and it can include any of the built-in variables:
+`format_string`. The format string can use any valid Tera template
+syntax, and it can include any of the built-in variables:
 
 *   `TIMES`: All the times in the timevector, as an array
 *   `VALUES`: All the values in the timevector, as an array
@@ -910,4 +910,3 @@ This table lists all function pipeline elements in alphabetical order:
 |`unnest`|Output|`TABLE (time TIMESTAMPTZ, value DOUBLE PRECISION)`|
 
 [plotly]: https://plotly.com/chart-studio-help/json-chart-schema/
-[tera]: https://tera.netlify.app/docs/#templates
