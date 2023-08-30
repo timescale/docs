@@ -42,3 +42,36 @@ pg_restore -d "$TARGET" \
     --no-privileges \
     dump
 ```
+
+## Restoring with concurrency
+
+If the directory format is used for pg_dump and pg_restore, concurrency can be
+employed to speed up the process. Unfortunately, loading the tables in the 
+`timescaledb_catalog` schema concurrently will cause errors. Furthermore, the 
+`tsdbadmin` does not have sufficient privileges to disable triggers in this 
+schema. To get around this limitation, load this schema serially, and then load 
+the rest of the database concurrently.
+
+```bash
+# first, load JUST the _timescaledb_catalog serially
+pg_restore -d "$TARGET" \
+    --format=directory \
+    --schema='_timescaledb_catalog' \
+    --exit-on-error \
+    --no-tablespaces \
+    --no-owner \
+    --no-privileges \
+    dump
+
+# next, load everything EXCEPT the _timescaledb_catalog with concurrency
+pg_restore -d "$TARGET" \
+    --format=directory \
+    --jobs=8 \
+    --exclude-schema='_timescaledb_catalog' \
+    --exit-on-error \
+    --disable-triggers \
+    --no-tablespaces \
+    --no-owner \
+    --no-privileges \
+    dump
+```
