@@ -362,6 +362,12 @@ module.exports = [
             excerpt:
               "Migrate a large database with low downtime",
           },
+          {
+            title: "Troubleshooting",
+            href: "troubleshooting",
+            excerpt:
+                "Troubleshooting known issues in database migrations",
+          },
         ],
       },
       {

@@ -47,3 +47,4 @@ For other ingestion methods, see the [data ingest section][data-ingest].
 [dual-write]: /use-timescale/:currentVersion:/migration/dual-write-and-backfill/
 [pg-dump-restore]: /use-timescale/:currentVersion:/migration/pg-dump-and-restore/
 [parallel-copy]: /use-timescale/:currentVersion:/ingest-data/import-csv/
+[troubleshooting]: /use-timescale/:currentVersion:/migration/troubleshooting/
