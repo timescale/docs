@@ -79,6 +79,9 @@ this method in production. It is not a secure method of operation.
     pg_ctl reload
     ```
 
+    On some operating systems, you might need to use the `pg_ctlcluster` command
+    instead.
+
 1.  If you have not already done so, add the data nodes to the access node. For
     instructions, see the [multi-node setup][multi-node-setup] section.
 1.  On the access node, create the trust role. In this example, we call
@@ -252,7 +255,7 @@ node certificate to create and sign new user certificates for the data nodes.
 Keys and certificates serve different purposes on the data nodes and access
 node. For the access node, a signed certificate is used to verify user
 certificates for access. For the data nodes, a signed certificate authenticates
-the node to the access node.  
+the node to the access node.
 
 <Procedure>
 
@@ -394,7 +397,7 @@ the access node to log in to the data nodes.
     openssl genpkey -algorithm RSA -out "$key_file"
     ```
 
-1.  Generate a certificate signing request (CSR). This file is temporary,  
+1.  Generate a certificate signing request (CSR). This file is temporary,
     stored in the `data` directory, and is deleted later on:
 
     ```bash
