@@ -21,8 +21,6 @@ This section explains how to enable native compression, and then goes into
 detail on the most important settings for compression, to help you get the
 best possible compression ratio.
 
-For more information about compressing chunks, see [manual compression][manual-compression].
-
 ## Compression policy intervals
 
 Data is usually compressed after an interval of time, and not

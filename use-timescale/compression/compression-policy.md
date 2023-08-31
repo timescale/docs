@@ -14,9 +14,9 @@ you want to segment by.
 
 ## Enable a compression policy
 
-This procedure uses an example table, called `example`,
-and segments it by the `device_id` column. Every chunk that is more than seven
-days old is then marked to be automatically compressed.
+This procedure uses an example table, called `example`, and segments it by the
+`device_id` column. Every chunk that is more than seven days old is then marked
+to be automatically compressed. The source data is organized like this:
 
 |time|device_id|cpu|disk_io|energy_consumption|
 |-|-|-|-|-|
@@ -47,11 +47,6 @@ days old is then marked to be automatically compressed.
 For more information, see the API reference for
 [`ALTER TABLE (compression)`][alter-table-compression] and
 [`add_compression_policy`][add_compression_policy].
-
-You can also set a compression policy through
-the Timescale console. The compression tool automatically generates and
-runs the compression commands for you. To learn more, see the
-[Timescale documentation](/use-timescale/latest/services/service-explorer/#setting-a-compression-policy-from-timescale-cloud-console).
 
 ## View current compression policy
 
