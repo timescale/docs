@@ -29,6 +29,13 @@ Each service contains a single database, named `tsdb`.
     </li>
   )}
   <li>
+    On the <code>Pick your service type</code> page, click <code>Time Series</code>.
+  </li>
+  <li>
+    Complete the other fields according to your environment, or keep the default
+    values.
+  </li>
+  <li>
     <p>
       Click <code>Download the cheatsheet</code> to download an SQL file that
       contains the login details for your new service. You can also copy the
