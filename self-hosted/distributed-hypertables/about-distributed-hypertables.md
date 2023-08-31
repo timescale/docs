@@ -58,6 +58,7 @@ row, the value of the `device_id` column is hashed. Then the row is inserted
 into the correct partition for that hash value.
 
 <img class="main-content__illustration"
+width={1375} height={944}
 src="https://assets.timescale.com/docs/images/hypertable-time-space-partition.webp"
 alt="A hypertable visualized as a rectangular plane carved into smaller rectangles, which are chunks. One dimension of the rectangular plane is time and the other is space. Data enters the hypertable and flows to a chunk based on its time and space values." />
 
@@ -88,6 +89,7 @@ was added during the third time interval. The fourth time interval now includes
 four chunks, while the previous time intervals still include three:
 
 <img class="main-content__illustration"
+width={1375} height={944}
 src="https://assets.timescale.com/docs/images/repartitioning.webp"
 alt="Diagram showing repartitioning on a distributed hypertable"
 />

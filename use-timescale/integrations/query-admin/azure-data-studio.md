@@ -50,6 +50,7 @@ on-premises and cloud data platforms on Windows, macOS, and Linux.
 1.  Click `Connect`.
 
     <img class="main-content__illustration"
+    width={1375} height={944}
     src="https://assets.timescale.com/docs/images/timescale_cloud_connection_screen.webp"
     alt="Connecting to Timescale using Azure Data Studio"/>
 
@@ -72,6 +73,7 @@ on-premises and cloud data platforms on Windows, macOS, and Linux.
 1.  Click `Connect`.
 
     <img class="maincontent__illustration"
+    width={1375} height={944}
     src="https://assets.timescale.com/docs/images/local_remote_connection_screen.webp"
     alt="Connecting to Timescale using Azure Data Studio"/>
 

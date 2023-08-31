@@ -32,6 +32,7 @@ Overview, Explorer, Operations, Metrics, and Logs. Select `Operations`, then
 `Database parameters`.
 
 <img class="main-content__illustration"
+width={1375} height={944}
 src="https://assets.timescale.com/docs/images/tsc-settings.webp"
 alt="View Timescale service settings"/>
 
@@ -50,6 +51,7 @@ ranges from 25 to 500 in higher compute tiers.
 </Highlight>
 
 <img class="main-content__illustration"
+width={1375} height={944}
 src="https://assets.timescale.com/docs/images/tsc-settings-change.webp"
 alt="Change Timescale configuration parameters"/>
 
@@ -64,5 +66,6 @@ A confirmation dialog is displayed which indicates whether a restart is
 required. Click `Confirm` to apply the changes, and restart if necessary.
 
 <img class="main-content__illustration"
+width={1375} height={944}
 src="https://assets.timescale.com/docs/images/tsc-settings-confirm.webp"
 alt="Confirm Timescale configuration changes"/>
