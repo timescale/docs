@@ -45,7 +45,7 @@ used.
 
     <img
         class="main-content__illustration"
-        src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-create-pgservice.png"
+        src="https://s3.amazonaws.com/assets.timescale.com/docs/images/FIXME.png"
         alt="Create a new PostgreSQL service in the Timescale portal"
     />
 
