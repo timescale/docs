@@ -141,7 +141,7 @@ pg_restore -d "$TARGET" \
 The `_timescaledb_config.bgw_jobs` table is used to manage background jobs. This
 includes both user-defined actions, compression policies, retention policies,
 and continuous aggregate refresh policies. On Timescale, this table has a
-trigger which ensures that no database use can create or modify jobs owned by
+trigger which ensures that no database user can create or modify jobs owned by
 another database user. This trigger can provide an obstacle for migrations.
 
 If the `--no-owner` flag is used with pg_dump and pg_restore, all objects in the
