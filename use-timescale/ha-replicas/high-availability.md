@@ -65,7 +65,8 @@ primary and the other node undergoes maintenance.
 
 <img
 class="main-content__illustration"
-src="https://assets.timescale.com/docs/images/tsc-replication-add.png"
+width={1375} height={944}
+src="https://assets.timescale.com/docs/images/tsc-replication-add.webp"
 alt="Creating a database replica in Timescale"
 />
 
