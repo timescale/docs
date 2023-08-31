@@ -43,6 +43,66 @@ pg_restore -d "$TARGET" \
     dump
 ```
 
+## Dumping and locks
+
+When `pg_dump` starts, it takes an `ACCESS SHARE` lock on all tables which it
+dumps. This ensures that tables aren't dropped before `pg_dump` is able to drop
+them. A side effect of this is that any query which tries to take an
+`ACCESS EXCLUSIVE` lock on a table will be blocked by the `ACCESS SHARE` lock.
+
+A number of timescale-internal processes require taking `ACCESS EXCLUSIVE`
+locks to ensure consistency of the data. The following is a non-exhaustive list
+of potentially affected operations:
+
+- compress/decompress/recompress chunk
+- continuous aggregate refresh (before 2.12)
+- create hypertable with foreign keys, truncate hypertable
+- enable compression on hypertable
+- drop chunks
+
+The most likely impact of the above is that background jobs for retention
+policies, compression policies, and continuous aggregate refresh policies will
+be blocked for the duration of the `pg_dump` command. This may have unintended
+consequences for your database performance.
+
+## Dumping with concurrency
+
+When using the `pg_dump` directory format, it is possible to use concurrency to
+use multiple connections to the source database to dump data. This speeds up
+the dump process. Due to the fact that there are multiple connections, it is
+possible for `pg_dump` to end up in a deadlock situation. When it detects a
+deadlock it aborts the dump.
+
+In principle, any query which takes an `ACCESS EXCLUSIVE` lock on a table will
+cause such a deadlock. As mentioned above, some common operations which take an
+`ACCESS EXCLUSIVE` lock are:
+- retention policies
+- compression policies
+- continuous aggregate refresh policies
+
+If you would like to use concurrency nonetheless, we recommend that you disable
+all background jobs in the source database before running `pg_dump`, and
+re-enable them once the dump is complete. If the dump procedure takes longer
+than the continuous aggregate refresh policy's window, you will need to
+manually refresh the continuous aggregate in the correct time range. For more
+information, consult the [refresh policies documentation][refresh-policies].
+
+To disable the jobs:
+```sql
+SELECT public.alter_job(id::integer, scheduled=>false)
+FROM _timescaledb_config.bgw_job
+WHERE id >= 1000; 
+```
+
+To re-enable the jobs:
+```sql
+SELECT public.alter_job(id::integer, scheduled=>true)
+FROM _timescaledb_config.bgw_job
+WHERE id >= 1000; 
+```
+
+[refresh-policies]: https://docs.timescale.com/use-timescale/latest/continuous-aggregates/refresh-policies/
+
 ## Restoring with concurrency
 
 If the directory format is used for pg_dump and pg_restore, concurrency can be
