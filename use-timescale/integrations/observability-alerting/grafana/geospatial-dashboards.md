@@ -56,7 +56,10 @@ tutorial as a starting point.
 1.  In the `Threshold Options` section, set the `Thresholds` to `2,5,10`. This
     automatically configures a set of colors, which you can adjust later.
 
-<img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/screenshots-for-grafana-tutorial/grafana_worldmap_query_results.png" alt="Visualizing time series data in PostgreSQL using the Grafana Worldmap"/>
+<img class="main-content__illustration"
+width={1375} height={944}
+src="https://assets.iobeam.com/images/docs/screenshots-for-grafana-tutorial/grafana_worldmap_query_results.png"
+alt="Visualizing time series data in PostgreSQL using the Grafana Worldmap"/>
 
 </Procedure>
 

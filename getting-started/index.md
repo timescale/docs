@@ -31,7 +31,7 @@ the guide, you learn how to:
 1.  [Create your first Timescale service][services-create]
 1.  [Connect to your service][services-connect]
 1.  [Ingest some real financial data into your database][ingest-data]
-1.  [Construct some interesting queries][queries]
+1.  [Construct some interesting queries][queries] <FeaturedCTA href="/getting-started/latest/queries/#try-it-out-code-block-1" data-tracking="cta-try-out-queries">Try out some <b>live queries</b></FeaturedCTA>
 1.  [Create and query a continuous aggregates][caggs]
 
 When you have finished this guide, you might want to check out some

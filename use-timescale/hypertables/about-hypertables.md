@@ -32,6 +32,7 @@ needs. For example, if you set `chunk_time_interval` to 1 day, each chunk stores
 data from the same day. Data from different days is stored in different chunks.
 
 <img class="main-content__illustration"
+width={1375} height={944}
 src="https://assets.timescale.com/docs/images/getting-started/hypertables-chunks.webp"
 alt="A normal table compared to a hypertable. The normal table holds data for 3 different days in one container. The hypertable contains 3 containers, called chunks, each of which holds data for a separate day."
 />
@@ -72,24 +73,6 @@ For a detailed analysis of how to optimize your chunk sizes, see the
 [blog post on chunk time intervals][blog-chunk-time]. To learn how
 to view and set your chunk time intervals, see the section on
 [changing hypertable chunk intervals][change-chunk-intervals].
-
-### Space partitioning
-
-Space partitioning is optional. It is not usually recommended for regular
-hypertables.
-
-A good alternative way to increase input/output performance on single
-hypertables is to use RAID (redundant array of inexpensive disks). RAID
-virtualizes multiple physical disks into a single logical disk. You can then use
-this single logical disk to store your hypertable, without any space
-partitioning.
-
-Space partitioning is useful if you have multiple physical disks, each
-corresponding to a separate tablespace. Each disk can then store some of the
-space partitions. If you partition by space without this setup, you increase
-query planning complexity without increasing I/O performance. For more
-information, see the
-[distributed hypertables][about-distributed-hypertables] section.
 
 ## Hypertable indexes
 
