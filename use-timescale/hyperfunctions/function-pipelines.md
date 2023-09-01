@@ -70,13 +70,19 @@ are run.
 A `timevector` is a collection of time,value pairs with a defined start and end
 time, that could something like this:
 
-<img class="main-content__illustration" src="https://assets.timescale.com/docs/images/timevector.webp" alt="An example timevector"/>
+<img class="main-content__illustration"
+width={1375} height={944}
+src="https://assets.timescale.com/docs/images/timevector.webp"
+alt="An example timevector"/>
 
 Your entire database might have time,value pairs that go well into the past and
 continue into the future, but the `timevector` has a defined start and end time
 within that dataset, which could look something like this:
 
-<img class="main-content__illustration" src="https://assets.timescale.com/docs/images/timeseries_vector.webp" alt="An example of a timevector within a larger dataset"/>
+<img class="main-content__illustration"
+width={1375} height={944}
+src="https://assets.timescale.com/docs/images/timeseries_vector.webp"
+alt="An example of a timevector within a larger dataset"/>
 
 To construct a `timevector` from your data, use a custom aggregate and pass
 in the columns to become the time,value pairs. It uses a `WHERE` clause to
@@ -305,7 +311,7 @@ FROM (VALUES (TimestampTZ '2021-01-06 UTC',   0.0 ),
 The output for this example:
 
 ```sql
-          time          |        value         
+          time          |        value
 ------------------------+----------------------
  2021-01-06 00:00:00+00 |                    0
  2021-01-01 00:00:00+00 |                  625
@@ -658,7 +664,7 @@ FROM (VALUES (TimestampTZ '2021-01-06 UTC',   0.0 ),
 The output for this example:
 
 ```sql
-      ?column?      
+      ?column?
 --------------------
  12.924666339987272
 (1 row)
@@ -794,8 +800,8 @@ toolkit_experimental.to_text(
 ```
 
 This function produces a text representation, formatted according to the
-`format_string`. The format string can use any valid [Tera template
-syntax][tera], and it can include any of the built-in variables:
+`format_string`. The format string can use any valid Tera template
+syntax, and it can include any of the built-in variables:
 
 *   `TIMES`: All the times in the timevector, as an array
 *   `VALUES`: All the values in the timevector, as an array
@@ -910,4 +916,3 @@ This table lists all function pipeline elements in alphabetical order:
 |`unnest`|Output|`TABLE (time TIMESTAMPTZ, value DOUBLE PRECISION)`|
 
 [plotly]: https://plotly.com/chart-studio-help/json-chart-schema/
-[tera]: https://tera.netlify.app/docs/#templates
