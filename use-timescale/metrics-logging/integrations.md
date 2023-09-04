@@ -53,6 +53,7 @@ Export telemetry data by:
 1.  Click `Create exporter`.
 
 <img class="main-content__illustration"
+width={1375} height={944}
 src="https://assets.timescale.com/docs/images/tsc-integrations-datadog.webp"
 alt="Screenshot of the menu for adding a Datadog exporter" />
 
@@ -95,6 +96,7 @@ safe location.
 </Highlight>
 
 <img class="main-content__illustration"
+width={1375} height={944}
 src="https://assets.timescale.com/docs/images/tsc-integrations-cloudwatch.webp"
 alt="Screenshot of the menu for adding a Datadog exporter" />
 

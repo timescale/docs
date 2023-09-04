@@ -85,7 +85,9 @@ ORDER BY time
 
 When you visualize this query in Grafana, you see this:
 
-<img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/screenshots-for-grafana-tutorial/grafana_query_results.png" alt="Visualizing time-series data in Grafana"/>
+<img class="main-content__illustration"
+width={1375} height={944}
+src="https://assets.iobeam.com/images/docs/screenshots-for-grafana-tutorial/grafana_query_results.png" alt="Visualizing time-series data in Grafana"/>
 
 You can adjust the `time_bucket` function and compare the graphs, like this:
 
@@ -103,4 +105,7 @@ ORDER BY time
 
 When you visualize this query, it looks like this:
 
-<img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/screenshots-for-grafana-tutorial/grafana_query_results_5m.png" alt="Visualizing time-series data in Grafana"/>
+<img class="main-content__illustration"
+width={1375} height={944}
+src="https://assets.iobeam.com/images/docs/screenshots-for-grafana-tutorial/grafana_query_results_5m.png"
+alt="Visualizing time-series data in Grafana"/>

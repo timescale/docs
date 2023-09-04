@@ -42,6 +42,7 @@ supports public AMIs.
     search term to find all available TimescaleDB images.
 1.  Select the image you want to use, and click `Launch instance from image`.
     <img class="main-content__illustration"
+    width={1375} height={944}
     src="https://assets.timescale.com/docs/images/aws_launch_ami.webp"
     alt="Launch an AMI in AWS EC2"/>
 

@@ -1,5 +1,5 @@
 ---
-title: Aggregation
+title: Continuous aggregation
 excerpt: Create an aggregate and query it
 products: [cloud]
 keywords: [continuous aggregates, create]
@@ -11,22 +11,30 @@ import CaggsIntro from "versionContent/_partials/_caggs-intro.mdx";
 import CaggsTypes from "versionContent/_partials/_caggs-types.mdx";
 import CandlestickIntro from "versionContent/_partials/_candlestick_intro.mdx";
 
-# Aggregation
+# Continuous aggregation
 
-Aggregation refers to a number of different calculations that you can perform on
-your data. For example, if you have data showing temperature changes over time,
-you can calculate an average of those temperatures, or a count of how many
-readings have been taken. Average, sum, and count are all example of simple
-aggregates.
+Aggregation is a way of combing data to get insights from it. At its simplest,
+aggregation is something like looking for an average. For example, if you have
+data showing temperature changes over time, you can calculate an average of
+those temperatures, or a count of how many readings have been taken. Average,
+sum, and count are all example of simple aggregates.
+
+However, aggregation calculations can get big and slow, quickly. If you want to
+find the average open and closing values of a range of stocks for each day, then
+you need something a little more sophisticated. That's where Timescale
+continuous aggregates come in. Continuous aggregates can minimize the number of
+records that you need to look up to perform your query.
+
+## Continuous aggregates
 
 <CaggsIntro />
 
 <CaggsTypes />
 
-In this section, you create a simple aggregation by finding the average trade
-price over a week. Then, you create a materialized
-view, transform it into a continuous aggregate, and query it for more
+In this section, you create a continuous aggregate, and query it for more
 information about the trading data.
+
+<!-- Removing the average stock price procedure. --LKB 20230828
 
 ## Find average stock prices for the last week
 
@@ -75,6 +83,8 @@ ORDER BY bucket, symbol
 You might notice that the `bucket` column doesn't start at the time that you run
 the query. For more information about how time buckets are calculated, see the
 [time bucketing section][time-buckets].
+
+-->
 
 ## Create an aggregate query
 

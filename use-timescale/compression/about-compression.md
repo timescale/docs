@@ -144,6 +144,7 @@ candidates, and are eventually compressed when they become old enough according
 to the compression policy.
 
 <img class="main-content__illustration"
+width={1375} height={944}
 src="https://s3.amazonaws.com/assets.timescale.com/docs/images/compression_diagram.webp"
 alt="Compression timeline" />
 

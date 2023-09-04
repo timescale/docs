@@ -42,6 +42,7 @@ instructions, see [timestored.com][qstudio-downloads].
     The server is listed in the `Server Tree` pane.
 
     <img class="maincontent__illustration"
+    width={1375} height={944}
     src="https://s3.amazonaws.com/assets.timescale.com/docs/images/qstudio_timescale.webp"
     alt="Connecting to Timescale service using qstudio"/>
 
@@ -66,6 +67,7 @@ instructions, see [timestored.com][qstudio-downloads].
     The server is listed in the `Server Tree` pane.
 
     <img class="maincontent__illustration"
+    width={1375} height={944}
     src="https://s3.amazonaws.com/assets.timescale.com/docs/images/qstudio_self_hosted.webp"
     alt="Connecting to Timescale using qstudio"/>
 

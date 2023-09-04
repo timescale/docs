@@ -16,12 +16,14 @@ navigating to the `Advanced parameters` tab under the `Database
 configuration` heading.
 
 <img class="main-content__illustration"
+width={1375} height={944}
 src="https://assets.timescale.com/docs/images/tsc-settings-advanced.webp"
 alt="View Timescale advanced configuration parameters"/>
 
 The advanced parameters are displayed in a scrollable and searchable list:
 
 <img class="main-content__illustration"
+width={1375} height={944}
 src="https://assets.timescale.com/docs/images/tsc-settings-search.webp"
 alt="Search Timescale configuration parameters"/>
 

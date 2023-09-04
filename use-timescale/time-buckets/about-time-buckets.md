@@ -29,6 +29,7 @@ for the beginning of the bucket.
 
 <img
   src="https://assets.timescale.com/docs/images/time-bucket-origin.webp"
+  width={1375} height={944}
   class="main-content__illustration"
   alt="Diagram showing how time buckets are calculated from the origin"
 />
