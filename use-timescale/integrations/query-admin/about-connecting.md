@@ -42,6 +42,7 @@ For more information about using these details to connect with `psql`, see the
 
 <img
 class="main-content__illustration"
+width={1375} height={944}
 src="https://assets.timescale.com/docs/images/tsc-connection-info.webp"
 alt="View Timescale connection info"
 />
@@ -64,6 +65,7 @@ alt="View Timescale connection info"
 
 <img
 class="main-content__illustration"
+width={1375} height={944}
 src="https://assets.timescale.com/docs/images/mst-connection-info.webp"
 alt="View Managed Service for TimescaleDB connection info"
 />
