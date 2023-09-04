@@ -45,7 +45,7 @@ In detail, the migration process consists of the following steps:
 1. Modify the application to write to a secondary database
 1. Migrate schema and relational data from source to target
 1. Start the application in dual-write mode
-1. Determine the consistency time `T`
+1. Determine the completion point `T`
 1. Backfill time-series data from source to target
 1. Enable retention and compression policies
 1. Validate that all data is present in target database
@@ -170,7 +170,7 @@ TODO
 With the target database set up, your application can now be started in
 dual-write mode.
 
-### 5. Determine the consistency time `T`
+### 5. Determine the completion point `T`
 
 After dual-writes have been executing for a while, the target hypertable will
 contain data in three time ranges: missing writes, late-arriving data, and the
@@ -199,7 +199,7 @@ and the beginning of the late-arriving data range.
 
 The length of these ranges is defined by the properties of the application,
 there is no one-size-fits-all way to determine what they are.
-The consistency time `T` is an arbitrarily chosen time in the consistency range.
+The completion point `T` is an arbitrarily chosen time in the consistency range.
 
 ### 6. Backfill data from source to target
 
