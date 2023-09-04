@@ -23,6 +23,7 @@ exist per hypertable.
 |-|-|-|
 |`relation`|REGCLASS|Name of the hypertable or continuous aggregate to create the policy for|
 |`drop_after`|INTERVAL or INTEGER|Chunks fully older than this interval when the policy is run are dropped|
+|`schedule_interval`|INTERVAL|The interval between the finish time of the last execution and the next start. Defaults to NULL.|
 |`initial_start`|TIMESTAMPTZ|Time the policy is first run. Defaults to NULL. If omitted, then the schedule interval is the interval between the finish time of the last execution and the next start. If provided, it serves as the origin with respect to which the next_start is calculated.|
 |`timezone`|TEXT|A valid time zone. If `initial_start` is also specified, subsequent executions of the retention policy are aligned on its initial start. However, daylight savings time (DST) changes may shift this alignment. Set to a valid time zone if this is an issue you want to mitigate. If omitted, UTC bucketing is performed. Defaults to `NULL`.|
 
