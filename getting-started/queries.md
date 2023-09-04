@@ -114,7 +114,7 @@ LIMIT 10
 ## Get the first and last value
 
 Timescale has custom SQL functions that can help make time-series analysis
-easier and faster. In this section, you'll learn about two common Timescale
+easier and faster. In this section, you learn about two common Timescale
 functions: `first` to find the earliest value within a group, and `last` to find
 the most recent value within a group.
 
@@ -159,5 +159,66 @@ For more information about these functions, see the API documentation for
 
 </Procedure>
 
-[first]: /api/:currentVersion:/hyperfunctions/first
-[last]: /api/:currentVersion:/hyperfunctions/last
+## Use time buckets to get values
+
+To make it easier to look at numbers over different time ranges, you can use the
+Timescale `time_bucket` function. Time buckets are used to group data, so that
+you can perform calculations over different time periods. Time buckets represent
+a specific point in time, so all the timestamps for data in a single time bucket
+use the bucket timestamp.
+
+In this section, you use the same query as the previous section to find the
+`first` and `last` values, but start by organizing the data into 1-hour time
+buckets. In the last section, you retrieves the first and last value of a
+column, this time, you retrieve the first and last value for a 1-hour time bucket.
+
+Start by declaring the time bucket interval to use, and give your time bucket a
+name:
+
+<CodeBlock canCopy={false} showLineNumbers={false} children={`
+SELECT time_bucket('1 hour', time) AS bucket,
+`} />
+
+Then, you can add the query in the same way as you used before:
+
+<CodeBlock canCopy={false} showLineNumbers={false} children={`
+    first(price,time),
+    last(price, time)
+FROM stocks_real_time srt
+WHERE time > now() - INTERVAL '4 days'
+`} />
+
+Finally, organize the results by time bucket, using the `GROUP BY` statement,
+like this:
+
+<CodeBlock canCopy={false} showLineNumbers={false} children={`
+GROUP BY bucket
+`} />
+
+For more information about time bucketing, see the [time bucket section][time-buckets].
+
+<Procedure>
+
+### Using time buckets to get values
+
+1.  At the command prompt, use the `psql` connection string from the cheat sheet
+    you downloaded to connect to your database.
+1.  At the `psql` prompt, type this query:
+
+    <TryItOutCodeBlock queryId="getting-started-srt-bucket-first-last" />
+
+1.  Type `q` to return to the `psql` prompt.
+
+    <Highlight type="note">
+    When you create a hypertable, Timescale automatically creates an index on
+    the time column. However, you often need to filter your time-series data on
+    other columns as well. Using indexes appropriately helps your queries
+    perform better. For more information about indexing, see the
+    [about indexing section](https://docs.timescale.com/use-timescale/latest/schema-management/about-indexing/)
+    </Highlight>
+
+</Procedure>
+
+[first]: /api/:currentVersion:/hyperfunctions/first/
+[last]: /api/:currentVersion:/hyperfunctions/last/
+[time-buckets]: /use-timescale/:currentVersion:/time-buckets/
