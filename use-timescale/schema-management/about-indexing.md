@@ -12,6 +12,9 @@ data in your hypertable, you can use an index to speed up read operations. You
 can create an index on any combination of columns, as long as you include the
 `time` column, for time-series data. Which column you choose to create your
 index on depends on what kind of data you have stored.
+When you create a hypertable, set the datatype for the `time` column as
+`timestamptz` and not `timestamp`.
+For more information, see [PostgreSQL timestamp][postgresql-timestamp].
 
 <Highlight type="note">
 While it is possible to add an index that does not include the `time` column,
@@ -120,3 +123,5 @@ SELECT * FROM devices WHERE store_id = M, device_id = M, time > 10
 
 This is an accurate query for this index. It narrows down the list to a very
 specific portion.
+
+[postgresql-timestamp]: https://wiki.postgresql.org/wiki/Don't_Do_This#Don.27t_use_timestamp_.28without_time_zone.29

@@ -55,6 +55,7 @@ instructions, see [pgadmin.org][pgadmin].
 1.  Click `Save`.
 
     <img class="main-content__illustration"
+    width={1375} height={944}
     src="https://s3.amazonaws.com/assets.timescale.com/docs/images/pgadmin_timescale_cloud.webp"
     alt="Connecting to Timescale using pgAdmin"/>
 
@@ -78,6 +79,7 @@ instructions, see [pgadmin.org][pgadmin].
 1.  Click `Save` to save the configuratiosn that you set.
 
     <img class="maincontent__illustration"
+    width={1375} height={944}
     src="https://s3.amazonaws.com/assets.timescale.com/docs/images/pgadmin_self_hosted.webp"
     alt="Connecting to Timescale using pgAdmin"/>
 
