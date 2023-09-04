@@ -101,7 +101,7 @@ FROM _timescaledb_config.bgw_job
 WHERE id >= 1000; 
 ```
 
-[refresh-policies]: https://docs.timescale.com/use-timescale/latest/continuous-aggregates/refresh-policies/
+[refresh-policies]: /use-timescale/:currentVersion:/continuous-aggregates/refresh-policies/
 
 ## Restoring with concurrency
 

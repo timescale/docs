@@ -25,11 +25,25 @@ this is not the case, subtle data corruption issues may arise.
 Timescale does not allow having multiple databases per instance.
 </Highlight>
 
+<Highlight type="warning">
+A long-running `pg_dump` against a database can cause various issues due to the
+types of locks that `pg_dump` takes. Consult the troubleshooting section
+[Dumping and locks][dumping-and-locks] for more details.
+</Highlight>
+
 ## Dump the source database
 
-You can dump the source database using the `pg_dump` command. For example, to
-backup a database named `tsdb`, where `$SOURCE` has been configured to be the
-url connection string to your database (for example `postgres://postgres@localhost:5432`):
+Dump the roles from the source database (only necessary if you're using roles
+other than the default `postgres` role in your database):
+
+```bash
+pg_dumpall -d "$SOURCE" \
+  --quote-all-identifiers \
+  --roles-only \
+  --file=roles.sql
+```
+
+Dump the source database schema and data:
 
 ```bash
 pg_dump -d "$SOURCE" \
@@ -41,15 +55,19 @@ pg_dump -d "$SOURCE" \
   --file=dump.sql
 ```
 
+<Highlight type="note">
+For the sake of convenience, we refer to connection strings to the source and
+target databases as `$SOURCE` and `$TARGET` throughout this guide. This can be
+set in your shell, for example:
+
+```bash
+export SOURCE=postgres://<user>@<source host>:5432
+export TARGET=postgres://<user>@<target host>:5432
+```
+</Highlight>
+
 You might see some errors when running `pg_dump`. To learn if they can be safely
 ignored, see the [troubleshooting section][troubleshooting].
-
-You can determine the version of TimescaleDB in the source database with the
-following command:
-
-```SQL
-SELECT extversion FROM pg_extension WHERE extname = 'timescaledb';
-```
 
 ## Restore your entire database from backup
 
@@ -58,10 +76,17 @@ SELECT extversion FROM pg_extension WHERE extname = 'timescaledb';
 It is very important that the version of the TimescaleDB extension in the
 target database is the same as it was in the source database.
 
+You can determine the version of TimescaleDB in the source database with the
+following command:
+
+```bash
+psql $SOURCE -c "SELECT extversion FROM pg_extension WHERE extname = 'timescaledb';"
+```
+
 You can alter the extension version in Timescale with the following query:
 
-```SQL
-ALTER EXTENSION timescaledb UPDATE TO '<version here>';
+```bash
+psql $TARGET -c "ALTER EXTENSION timescaledb UPDATE TO '<version here>';"
 ```
 
 The extension version must be present on Timescale in order for this to be
@@ -80,47 +105,52 @@ database and restore the data.
 
 <Procedure>
 
-### Restoring an entire database from backup
+### Restoring the database from the dump
 
-1.  In `psql`, create a new database to restore to, and connect to it:
+1. Restore the roles to the database:  
 
-    ```sql
-    CREATE DATABASE tsdb;
-    \c tsdb
-    CREATE EXTENSION IF NOT EXISTS timescaledb;
-
+    ```bash
+    psql $TARGET -f roles.sql
+    ```
+ 
 1.  Run [timescaledb_pre_restore][timescaledb_pre_restore] to put your database
     in the right state for restoring:
 
-    ```sql
-    SELECT timescaledb_pre_restore();
+    ```bash
+    psql $TARGET -c "SELECT timescaledb_pre_restore();"
     ```
 
 1.  Restore the database:
 
-    ```sql
-    \! pg_restore -Fc -d tsdb tsdb.bak
+    ```bash
+    psql $TARGET -f dump.sql
+    ```
 
 1.  Run [`timescaledb_post_restore`][timescaledb_post_restore] to return your
     database to normal operations:
 
-    ```sql
-    SELECT timescaledb_post_restore();
+    ```bash
+    psql $TARGET -c "SELECT timescaledb_post_restore();"
     ```
 
 </Procedure>
 
-<Highlight type="warning">
-Do not use the `pg_restore` command with -j option. This option does not
-correctly restore the TimescaleDB catalogs.
+<Highlight type="note">
+`pg_dump` and `pg_restore` support parallel dump/restore when used in
+`directory` mode. It is possible, in principle, to use this option with
+TimescaleDB, but there are some caveats. Please read the following sections of
+the troubleshooting documentation:
+- [Dumping with concurrency][dumping-with-concurrency]
+- [Restoring with concurrency][restoring-with-concurrency]
 </Highlight>
 
 
-[parallel importer]: https://github.com/timescale/timescaledb-parallel-copy
 [pg_dump]: https://www.postgresql.org/docs/current/static/app-pgdump.html
 [pg_restore]: https://www.postgresql.org/docs/current/static/app-pgrestore.html
 [timescaledb_pre_restore]: /api/:currentVersion:/administration/timescaledb_pre_restore/
 [timescaledb_post_restore]: /api/:currentVersion:/administration/timescaledb_post_restore/
-[timescaledb-upgrade]: /self-hosted/:currentVersion:/upgrades/
 [troubleshooting]: /self-hosted/:currentVersion:/troubleshooting/#versions-are-mismatched-when-dumping-and-restoring-a-database
 [postgres-docs]: https://www.postgresql.org/docs/current/app-pg-dumpall.html
+[dumping-and-locks]: /use-timescale/:currentVersion:/migration/troubleshooting#dumping-and-locks
+[dumping-with-concurrency]: /use-timescale/:currentVersion:/migration/troubleshooting#dumping-with-concurrency
+[restoring-with-concurrency]: /use-timescale/:currentVersion:/migration/troubleshooting#restoring-with-concurrency
