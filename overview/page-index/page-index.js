@@ -1,9 +1,9 @@
 module.exports = [
-	{
-		title: "Overview",
-		href: "overview",
-		filePath: "index.md",
-		excerpt:
-			"What is Timescale?",
-	},
+  {
+    title: "What is Timescale?",
+    href: "overview",
+    filePath: "index.md",
+    excerpt:
+      "What is Timescale?",
+  },
 ];
