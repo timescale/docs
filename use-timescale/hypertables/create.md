@@ -22,7 +22,9 @@ To create a hypertable, you need to create a standard PostgreSQL table, and then
 convert it into a hypertable.
 
 Hypertables are intended for time-series data, so your table needs a column that
-holds time values. This can be a timestamp, date, or integer.
+holds time values. This can be a timestamptz, date, or integer. Ensure that you
+set the datatype for the `time` column as `timestamptz` and not `timestamp`. For
+more information, see [PostgreSQL timestamp][postgresql-timestamp].
 
 <Procedure>
 
@@ -60,3 +62,4 @@ data. For more information about migrating data, see the
 [create-distributed-hypertable]: /self-hosted/:currentVersion:/distributed-hypertables/create-distributed-hypertables/
 [install]: /getting-started/latest/
 [postgres-createtable]: https://www.postgresql.org/docs/current/sql-createtable.html
+[postgresql-timestamp]: https://wiki.postgresql.org/wiki/Don't_Do_This#Don.27t_use_timestamp_.28without_time_zone.29
