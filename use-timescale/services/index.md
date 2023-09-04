@@ -14,14 +14,6 @@ import CloudIntro from "versionContent/_partials/_cloud-intro.mdx";
 
 <CloudIntro />
 
-<Highlight type="note">
-The [Timescale Terraform provider](https://registry.terraform.io/providers/timescale/timescale/latest/)
-provides configuration management resources for Timescale. You can use it to
-create, rename, resize, delete, and import service. For more information about
-the supported service configurations and operations, see the
-[Timescale Terraform provider documentation](https://registry.terraform.io/providers/timescale/timescale/latest/docs).
-</Highlight>
-
 ## Learn more about Timescale
 
 Read about Timescale features in the documentation:
@@ -51,6 +43,14 @@ advanced features for your PostgreSQL and time-series data workloads.
 
 For more information about customizing your database configuration, see the
 [Configuration section][configuration].
+
+<Highlight type="note">
+The [Timescale Terraform provider](https://registry.terraform.io/providers/timescale/timescale/latest/)
+provides configuration management resources for Timescale. You can use it to
+create, rename, resize, delete, and import service. For more information about
+the supported service configurations and operations, see the
+[Timescale Terraform provider documentation](https://registry.terraform.io/providers/timescale/timescale/latest/docs).
+</Highlight>
 
 [aggregates-info]: /use-timescale/:currentVersion:/continuous-aggregates/
 [configuration]: /use-timescale/:currentVersion:/configuration/
