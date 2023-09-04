@@ -31,8 +31,8 @@ records that you need to look up to perform your query.
 
 <CaggsTypes />
 
-In this section, you create a materialized view, transform it into a continuous
-aggregate, and query it for more information about the trading data.
+In this section, you create a continuous aggregate, and query it for more
+information about the trading data.
 
 <!-- Removing the average stock price procedure. --LKB 20230828
 
