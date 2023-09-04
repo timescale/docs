@@ -1,35 +1,34 @@
 # timescaledb-backfill
 
-The timescaledb-backfill tool is a command-line utility designed to support
-migrations from Timescale instances by backfilling data from hypertables. It
-allows users to copy hypertable chunks directly, without the need for
-intermediate storage or decompressing compressed chunks. The tool operates
-transactionally, ensuring data integrity during the migration process.
+The `timescaledb-backfill` tool is a command-line utility designed to support
+migrations from Timescale instances by copying historic data from one database
+to another ("backfilling"). `timescaledb-backfill` efficiently copies
+hypertable chunks directly, without the need for intermediate storage or
+decompressing compressed chunks. It operates transactionally, ensuring data
+integrity throughout the migration process. It is designed to be used in the
+[dual-write and backfill][dual-write-backfill] migration procedure.
 
 ## Limitations
 
 - The tool only supports backfilling of hypertables. Schema migrations and
   non-hypertable migrations should be handled separately before using this
-  tool. 
-- The tool is optimized for append-only workloads, and other
-  scenarios may not be fully supported.
+  tool.
+- The tool is optimized for append-only workloads. Other scenarios may not
+  be fully supported.
 - To prevent continuous aggregates from refreshing with incomplete data, any
   refresh and retention policies targeting the tables that are going to be
   backfilled should be disabled.
 
 ## Installation
 
-The tool performs best when executed in a instance located as close as possible
-to the target database. The ideal scenario is a Linux AWS EC2 instance located
-on the same availability zone as the Timescale service. 
-
-As for the operating system, as long as is a Linux based distribution, then it
-doesn't really matter A good choice Amazon Linux, since it doesn't incur in
-extra costs.
+The tool performs best when executed in an instance located close to the target
+database. The ideal scenario is an EC2 instance located in the same
+availability zone as the Timescale service. We recommend using a Linux-based
+distribution on x86_64.
 
 <!-- TODO: Recommended spec for the instance.  -->
 
-With the instance that will run the timescaledb-backfill ready, logged in and
+With the instance that will run the timescaledb-backfill ready, log in and
 download the tool's binary:
 
 <!-- TODO: replace with the correct URL -->
@@ -116,20 +115,20 @@ shortcut from the terminal where the tool is currently running.
 
 When the tool receives the first signal, it will interpret it as a request for
 a graceful shutdown. It will then notify the copy workers that they should exit
-once they finish copying the chunk they are currently processing.
+once they finish copying the chunk they are currently processing. Depending on
+the chunk size, this could take many minutes to complete.
 
-If a second signal is received, it will be treated as a forced shutdown, and
-all work will stop immediately. There is no risk of inconsistency when forcing
-the copy workers to stop, since all the work is wrapped inside a transaction.
-The difference from a graceful shutdown is that all the data that wasn't
-committed will be rolled back on the target and will have to be copied again
-during the next `copy` run.
+When a second signal is received, it forces the tool to shut down immediately,
+interrupting all ongoing work. Due to the tool's usage of transactions, there
+is no risk of data inconsistency when using forced shutdown. The difference to
+a graceful shutdown is that data in partially-copied chunks will be removed on
+the target and must be copied again during the next `copy` run.
 
 ### Inspect tasks progress
 
 Each hypertable chunk that's going to be backfilled has a corresponding task
 stored in the target's database `__backfill.task` table. You can use this
-information to inspect how's the backfill for your hypertables is progressing:
+information to inspect the backfill's progress:
 
 ```sql
 select
@@ -143,3 +142,5 @@ group by
     1,
     2
 ```
+
+[dual-write-backfill]: /use-timescale/:currentVersion:/migration/dual-write-and-backfill/
