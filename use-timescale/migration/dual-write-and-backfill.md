@@ -186,12 +186,28 @@ EOF
 ```
 
 <Highlight type="note">
-Background jobs need to be disabled to prevent continuous aggregates from
-updating with incomplete data. Once the migration is complete, we will
-refresh the continuous aggregates for the required range.
+Background are disabled to prevent continuous aggregate refresh jobs from
+updating the continuous aggregate with incomplete/missing data. The continuous
+aggregates must be manually updated in the required range once the migration is
+complete.
 </Highlight>
 
 #### From plain PostgreSQL
+
+If you're migrating from plain PostgreSQL then we assume that you would like to
+convert some of your large tables which contain time-series data into
+hypertables. This step will consist of identifying those tables, excluding
+their data from the database dump, copying the database schema and tables, and
+setting up the time-series tables as hypertables. The data is backfilled into
+these hypertables in a subsequent step.
+
+Determine which tables to convert to hypertables:
+
+Ideal candidates for hypertables are large tables containing
+[time-series data][time-series-data].
+This is usually data with some form of timestamp value (`TIMESTAMPTZ`,
+`TIMESTAMP`, `BIGINT`, `INT` etc.) as the primary dimension, and some other
+measurement values.
 
 Dump the database roles from the source database:
 
@@ -225,8 +241,8 @@ This command works only with the GNU implementation of sed (sometimes referred
 to as gsed). For the BSD implementation (the default on macOS), you need to
 add an extra argument to change the `-i` flag to `-i ''`.
 
-To check the sed version, you can use the command sed --version. While the GNU
-version will explicitly identify itself as GNU, the BSD version of sed
+To check the sed version, you can use the command `sed --version`. While the
+GNU version will explicitly identify itself as GNU, the BSD version of sed
 generally doesn't provide a straightforward --version flag and will simply
 output an "illegal option" error.
 </Highlight>
@@ -244,7 +260,8 @@ output an "illegal option" error.
   current user, and this clause mainly serves the purpose of SQL compatibility.
   Therefore, it's safe to remove it.
 
-Dump all plain tables and the TimescaleDB catalog from the source database:
+Dump all tables from the source database, excluding data from hypertable
+candidates:
 
 ```
 pg_dump -d "$SOURCE" \
@@ -253,21 +270,25 @@ pg_dump -d "$SOURCE" \
   --no-tablespaces \
   --no-owner \
   --no-privileges \
+  --exclude-table-data=<table name or pattern> \
   --file=dump.sql
 ```
 
-a. `--no-tablespaces` is required because Timescale does not support
+a. `--exclude-table-data` is used to exclude all data from hypertable
+   candidates. You can either specify a table pattern, or specify
+   `--exclude-table-data` multiple times, once for each table to be converted.
+b. `--no-tablespaces` is required because Timescale does not support
    tablespaces other than the default. This is a limitation.
-b. `--no-owner` is required because tsdbadmin is not a superuser and cannot
+c. `--no-owner` is required because tsdbadmin is not a superuser and cannot
    assign ownership in all cases. This flag means that everything will be
-   owned by the tsdbadmin user in the target regardless of ownership in the
-   source. This is a limitation.
-c. `--no-privileges` is required because tsdbadmin is not a superuser and
+   owned by the user used to connect to the target, regardless of ownership in
+   the source. This is a limitation.
+d. `--no-privileges` is required because tsdbadmin is not a superuser and
    cannot assign privileges in all cases. This flag means that privileges
    assigned to other users will need to be reassigned in the target
    database as a manual clean-up task. This is a limitation.
 
-Load the roles and schema into the target database.
+Load the roles and schema into the target database:
 
 ```
 psql -X -d "$TARGET" \
@@ -277,9 +298,39 @@ psql -X -d "$TARGET" \
   -f dump.sql
 ```
 
-TODO: Should we add a mention that customers can exclude the data from large
-tables and backfill manually using (these
-instructions](/self-hosted/:currentVersion:/migration/schema-then-data/#restore-hypertables-in-timescale)?
+Convert the plain tables to hypertables, optionally enabling compression:
+
+For each table which should be converted to a hypertable in the target
+database, execute:
+```
+SELECT create_hypertable('<table name>', '<time column name>');
+```
+
+For more information about the options which you can pass to
+`create_hypertable`, consult the [create_table API reference][create-api]. For
+more information about hypertables in general, consult the
+[hypertable documentation][hypertable-docs].
+
+You may also wish to consider taking advantage of some of Timescale's killer
+features, such as:
+- [retention policies][retention-policies] to automatically drop unneeded data
+- [data tiering][data-tiering] to automatically move data to cheap storage
+- [compression][compression] to reduce the size of your hypertables
+- [continuous aggregates][caggs] to write blazingly-fast aggregate queries on your data
+
+<Highlight type="note">
+Compression cannot be enabled on a hypertable once it has data in it, so this
+is the only time that you can enable compression. All other features mentioned
+can be enabled at a later point in time.
+</Highlight>
+
+[time-series-data]: /getting-started/:currentVersion:/time-series-data/
+[create-api]: /api/:currentVersion:/hypertable/create_hypertable/
+[hypertable-docs]: /use-timescale/:currentVersion:/hypertables/
+[retention-policies]: /use-timescale/:currentVersion:/data-retention/
+[data-tiering]: /use-timescale/:currentVersion:/data-tiering/
+[compression]: /use-timescale/:currentVersion:/compression/about-compression/
+[caggs]: /use-timescale/:currentVersion:/continuous-aggregates
 
 #### From some other database
 
