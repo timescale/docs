@@ -7,14 +7,7 @@ keywords: [compression, schema, tables]
 
 # Designing for compression
 
-Traditionally, databases are considered either row-based, or column based. And
-each type of database brings benefits and drawbacks, including query speed,
-insert speed, and the level to which they can effectively compress data.
-Generally speaking, column-oriented databases are highly compressible, but
-inserting data can take longer. Conversely, row-oriented databases have faster
-queries, but can't compress as well.
-
-Time-series data can be unique, in that it needs to handle both shall and wide
+Time-series data can be unique, in that it needs to handle both shallow and wide
 queries, such as "What's happened across the deployment in the last 10 minutes,"
 and deep and narrow, such as "What is the average CPU usage for this server
 over the last 24 hours." Time-series data usually has a very high rate of
@@ -28,13 +21,13 @@ consider the design of your database, before you start ingesting data. This
 section covers some of the things you need to take into consideration when
 designing your database for maximum compression effectiveness.
 
-## Array format
+## Compressing data
 
 TimescaleDB is built on PostgreSQL which is, by nature, a row-based database.
-Because time-series data is accessed in order of time, TimescaleDB converts many
-wide rows of data into a single row of data, called an array form. This means
-that each field of that new, wide row stores an ordered set of data comprising
-the entire column.
+Because time-series data is accessed in order of time, when you enable
+compression, TimescaleDB converts many wide rows of data into a single row of
+data, called an array form. This means that each field of that new, wide row
+stores an ordered set of data comprising the entire column.
 
 For example, if you had a table with data that looked a bit like this:
 
@@ -54,11 +47,9 @@ You can convert this to a single row in array form, like this:
 |[12:00:01, 12:00:01, 12:00:02, 12:00:02, 12:00:03, 12:00:03]|[A, B, A, B, A, B]|[0, 0, 0, 0, 0, 4]|[70.11, 69.70, 70.12, 69.69, 70.14, 69.70]|
 
 Even before you compress any data, this format immediately saves storage by
-reducing the per-row overhead. PostgreSQL typically adds around 27 bytes of
-overhead per row. So even without any compression, if our schema above is say 32
-bytes, then 1000 rows of data which previously took about 59 kilobytes
-(`1000 x (32 + 27) ~= 59 kilobytes`), now takes about 32 kilobytes
-(`1000 x 32 + 27 ~= 32 kilobytes`) in this format.
+reducing the per-row overhead. PostgreSQL typically adds a small number of bytes
+of overhead per row. So even without any compression, the schema in this example
+is now smaller on disk than the previous format.
 
 This format arranges the data so that similar data, such as timestamps, device
 IDs, or temperature readings, is stored contiguously. This means that you can
@@ -100,12 +91,13 @@ required.
 
 TimescaleDB automatically includes more information in the row and includes
 additional groupings to improve query performance. When you compress a
-hypertable, either manually or through a compression policy, you need to specify
+hypertable, either manually or through a compression policy, it can help to specify
 an `ORDER BY` column.
 
-`ORDER BY` columns specify how the rows that are part of a compressed patch are
-ordered. For most time-series workloads, this is by timestamp, but you can also
-specify a second dimension, such as location.
+`ORDER BY` columns specify how the rows that are part of a compressed batch are
+ordered. For most time-series workloads, this is by timestamp, so if you don't
+specify an `ORDER BY` column, TimescaleDB defaults to using the time column. You
+can also specify additional dimensions, such as location.
 
 For each `ORDER BY` column, TimescaleDB automatically creates additional columns
 that store the minimum and maximum value of that column. This way, the query
@@ -114,10 +106,11 @@ having to do any decompression, and determine whether the row could possibly
 match the query.
 
 When you compress your hypertable, you can also choose to specify a `SEGMENT BY`
-column. This allows you to segment compressed rows by a specific column,
-so that each compressed row corresponds to a data about a single item such as,
-for example, a specific device ID. This further allows the query planner to
-determine if the row could possibly match the query. For example:
+column. This allows you to segment compressed rows by a specific column, so that
+each compressed row corresponds to a data about a single item such as, for
+example, a specific device ID. This further allows the query planner to
+determine if the row could possibly match the query without having to decompress
+the column first. For example:
 
 |Device ID|Timestamp|Status Code|Temperature|Min Timestamp|Max Timestamp|
 |-|-|-|-|-|-|
