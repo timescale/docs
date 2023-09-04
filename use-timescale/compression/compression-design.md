@@ -121,7 +121,7 @@ With the data segmented in this way, a query for device A between a time
 interval becomes quite fast. The query planner can use an index to find those
 rows for device A that contain at least some timestamps corresponding to the
 specified interval, and even a sequential scan is quite fast since evaluating
-device IDs or timestamps does not require decompression. This means the the
+device IDs or timestamps does not require decompression. This means the
 query executor only decompresses the timestamp and temperature columns
 corresponding to those selected rows.
 
