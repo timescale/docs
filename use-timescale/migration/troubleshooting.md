@@ -123,14 +123,19 @@ another database user. This trigger can provide an obstacle for migrations.
 
 If the `--no-owner` flag is used with pg_dump and pg_restore, all objects in the
 target database will be owned by the user that ran pg_restore, likely tsdbadmin.
+
 If all the background jobs in the source database were owned by a user of the
 same name as the user running pg_restore (again likely tsdbadmin), then loading
-the `_timescaledb_config.bgw_jobs` table will work. If the background jobs in 
-the source database were not owned by this user, and especially if they were
-owned by the postgres user, restoring into this table will fail due to the
-trigger.
+the `_timescaledb_config.bgw_jobs` table should work.
 
-To work around this issue, do not dump this table with pg_dump. Provide either
+If the background jobs in the source were owned by the postgres user, they will 
+be automatically changed to be owned by the tsdbadmin. In this case, one just 
+needs to verify that the jobs do not make use of privileges that the tsdbadmin
+user does not possess.
+
+If background jobs are owned by one or more users other than the user employed 
+in restoring, then there could be issues. To work around this issue, do not dump
+this table with pg_dump. Provide either
 `--exclude-table-data='_timescaledb_config.bgw_job'` or 
 `--exclude-table='_timescaledb_config.bgw_job'` to pg_dump to skip this table.
 Then, use psql and the COPY command to dump and restore this table with modified
@@ -171,3 +176,7 @@ EOF
 psql -X -d "$TARGET" -v ON_ERROR_STOP=1 --echo-errors \
     -c "\copy _timescaledb_config.bgw_job from 'bgw_job.csv' with (format csv, header match)"
 ```
+
+Once the table has been loaded and the restore completed, you may then use SQL
+to adjust the ownership of the jobs and/or the associated stored procedures and 
+functions as you wish.
