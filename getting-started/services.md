@@ -38,24 +38,24 @@ you need later on.
 For more information, see
 [the services section][services-how-to].
 
-## Create your Timescale account
+<Collapsible heading="Create your Timescale account" defaultExpanded={false}>
 
 Before you can create your first service, you need to sign up for a free
 Timescale account.
 
-<Collapsible heading="Creating your Timescale account" defaultExpanded={false} headingLevel={3}>
+### Creating your Timescale account
 
 <Install />
 
 </Collapsible>
 
-## Create your first service
+<Collapsible heading="Create your first service" defaultExpanded={false}>
 
 Create a service to use for the tasks in this guide. A service in Timescale is a
 cloud instance which contains your database. You can use the default values when
 you create your service, which sets up a single database, named `tsdb`.
 
-<Collapsible heading="Creating your first service" defaultExpanded={false} headingLevel={3}>
+### Creating your first service
 
 <CreateService demoData={false} />
 
