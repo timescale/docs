@@ -28,6 +28,49 @@ performance because the pooler open the connections in advance,  allowing the
 application to open many short-lived connections, while the database opens few,
 long-lived connections.
 
+## User authentication
+
+By default, the pooler is configured to pass through the authentication to the 
+database, so you could keep using your custom users as usual.
+
+There is no problem with using the `tsdbadmin` user, but for some corner cases, 
+it will be useful to add some custom configurations for the user, like 
+`statement_timeout`, for example. 
+
+### Example: creating a new user with custom settings
+
+With the `tsdbadmin` user run:
+
+```sql
+CREATE ROLE my_app LOGIN PASSWORD 'super-new-password';
+ALTER ROLE my_app SET statement_timeout TO '2s';
+```
+
+Then connect on the pooler with the new user:
+
+```bash
+❯ PGPASSWORD=super-new-password psql 'postgres://my_app@service.project.tsdb.cloud.timescale.com:30477/tsdb?sslmode=require'
+psql (15.3 (Homebrew), server 15.4 (Ubuntu 15.4-1.pgdg22.04+1))
+SSL connection (protocol: TLSv1.3, cipher: TLS_AES_256_GCM_SHA384, compression: off)
+Type "help" for help.
+
+tsdb=> select current_user;
+┌──────────────┐
+│ current_user │
+├──────────────┤
+│ my_app       │
+└──────────────┘
+(1 row)
+
+tsdb=> show statement_timeout;
+┌───────────────────┐
+│ statement_timeout │
+├───────────────────┤
+│ 2s                │
+└───────────────────┘
+(1 row)
+```
+
 ## Pool types
 
 When you create a connection pooler, there are two pool types to choose from:
