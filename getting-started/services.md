@@ -38,7 +38,7 @@ you need later on.
 For more information, see
 [the services section][services-how-to].
 
-<Collapsible heading="Create your Timescale account" defaultExpanded={false}>
+## Create your Timescale account
 
 Before you can create your first service, you need to sign up for a free
 Timescale account.
