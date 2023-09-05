@@ -20,41 +20,6 @@ If you intend on migrating more than 400&nbspGB of data to Timescale, please
 open a support case in order for the required storage to be pre-allocated in
 your database instance.
 
-## The metadata table
-
-The `_timescaledb_catalog.metadata` table contains data used in telemetry. By 
-default, this table is populated automatically. Therefore, the target database
-will most likely already contain rows. The table has a primary key constraint. 
-Dumping the data from this table out of the source database and loading it into
-the target database will cause a primary key constraint violation.
-
-One option is to avoid dumping the table out of the source. You may use this
-argument to pg_dump to do so: `--exclude-table='_timescaledb_catalog.metadata'`.
-
-Alternatively, you can use the `--list` flag to pg_restore to create a file 
-listing the contents of the dump. Then, you can remove the 
-`_timescaledb_catalog.metadata` line from the file, and provide the file to
-pg_restore's `--use-list` argument which will cause it to skip over the table.
-
-```bash
-pg_restore \
-    --format=directory \
-    --schema='_timescaledb_catalog' \
-    --list \
-    dump > list
-
-sed -i -E -e '/ TABLE DATA _timescaledb_catalog metadata /d' list
-
-pg_restore -d "$TARGET" \
-    --format=directory \
-    --use-list=list \
-    --exit-on-error \
-    --no-tablespaces \
-    --no-owner \
-    --no-privileges \
-    dump
-```
-
 ## Dumping and locks
 
 When `pg_dump` starts, it takes an `ACCESS SHARE` lock on all tables which it
