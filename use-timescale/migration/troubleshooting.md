@@ -199,3 +199,29 @@ inner join
     where name = 'extwlist.extensions'
 ) w on (x.name = w.name)
 ```
+
+## Timescaledb extension in the public schema
+
+When self-hosting, the timescaledb extension may be installed in an arbitrary
+schema. Timescale only supports installing the timescaledb extension in the
+`public` schema. How to go about resolving this depends heavily on the 
+particular details of the source schema and the migration approach chosen.
+
+## Tablespaces
+
+Timescale does not support using custom tablespaces. Providing the 
+`--no-tablespaces` flag to pg_dump and pg_restore when dumping/restoring the
+schema will result in all objects being in the default tablespace as desired.
+
+## Only one database per instance
+
+While postgres clusters can contain many databases, Timescale instances are 
+limited to a single database. When migrating a cluster with multiple databases
+to Timescale, one can either migrate each source database to a separate 
+Timescale instance or "merge" source databases to target schemas.
+
+## Superuser privileges
+
+The tsdbadmin database user is the most powerful available on Timescale, but it
+is not a true superuser. Review your application for use of superuser privileged
+operations and mitigate before migrating.
