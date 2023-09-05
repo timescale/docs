@@ -43,8 +43,6 @@ For more information, see
 Before you can create your first service, you need to sign up for a free
 Timescale account.
 
-### Creating your Timescale account
-
 <Install />
 
 </Collapsible>
@@ -54,8 +52,6 @@ Timescale account.
 Create a service to use for the tasks in this guide. A service in Timescale is a
 cloud instance which contains your database. You can use the default values when
 you create your service, which sets up a single database, named `tsdb`.
-
-### Creating your first service
 
 <CreateService demoData={false} />
 
