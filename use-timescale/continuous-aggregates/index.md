@@ -21,7 +21,6 @@ only the data that has changed needs to be computed, not the entire dataset.
 *   [Manage time][cagg-time] in your continuous aggregates.
 *   [Drop data][cagg-drop] from your continuous aggregates.
 *   [Manage materialized hypertables][cagg-mat-hypertables].
-*   [Use real-time aggregates][cagg-realtime].
 *   [Compression with continuous aggregates][cagg-compression].
 *   [Migrate your continuous aggregates][cagg-migrate] from old to new format.
     Continuous aggregates created in Timescale&nbsp;2.7 and later are in the new

@@ -408,11 +408,6 @@ module.exports = [
             excerpt: "Manage materialized hypertables in continuous aggregates",
           },
           {
-            title: "Real time aggregates",
-            href: "real-time-aggregates",
-            excerpt: "Manage real time aggregates in continuous aggregates",
-          },
-          {
             title: "Compress continuous aggregates",
             href: "compression-on-continuous-aggregates",
             excerpt: "Compress continuous aggregates",
