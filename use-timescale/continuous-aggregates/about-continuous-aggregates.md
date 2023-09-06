@@ -181,7 +181,8 @@ JOIN table_2 t2 ON t1.t2_id = t2.id AND t1.t2_id_2 = t2.id
 GROUP BY ...
 ```
 
-A `JOIN` with a single equality condition specified in `WHERE` clause cannot be combined with further conditions in the `WHERE` clause.
+A `JOIN` with a single equality condition specified in `WHERE` clause cannot be
+combined with further conditions in the `WHERE` clause.
 
 ```sql
 CREATE MATERIALIZED VIEW my_view WITH (timescaledb.continuous) AS

@@ -35,7 +35,6 @@ only the data that has changed needs to be computed, not the entire dataset.
 [cagg-drop]: /use-timescale/:currentVersion:/continuous-aggregates/drop-data
 [cagg-mat-hypertables]: /use-timescale/:currentVersion:/continuous-aggregates/materialized-hypertables
 [cagg-migrate]: /use-timescale/:currentVersion:/continuous-aggregates/migrate
-[cagg-realtime]: /use-timescale/:currentVersion:/continuous-aggregates/real-time-aggregates
 [cagg-time]: /use-timescale/:currentVersion:/continuous-aggregates/time
 [cagg-tshoot]: /use-timescale/:currentVersion:/continuous-aggregates/troubleshooting
 [postgres-materialized-views]: https://www.postgresql.org/docs/current/rules-materializedviews.html
