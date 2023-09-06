@@ -186,19 +186,9 @@ functions as you wish.
 There are a vast number of PostgreSQL extensions available in the wild. 
 Timescale supports many of the most popular extensions, but not all extensions.
 Before migrating, check that the extensions you are using are supported on
-Timescale. Use the query below in a Timescale instance to get an up-to-date list
-of supported extensions.
+Timescale. Consult the [list of supported extensions][supported-extensions].
 
-```sql
-select x.*
-from pg_available_extensions x
-inner join
-(
-    select unnest(regexp_split_to_array(setting, ',')) as name
-    from pg_settings
-    where name = 'extwlist.extensions'
-) w on (x.name = w.name)
-```
+[supported-extensions]: /use-timescale/:currentVersion:/extensions/
 
 ## Timescaledb extension in the public schema
 
