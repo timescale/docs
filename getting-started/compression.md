@@ -32,7 +32,9 @@ how you want the data to be segmented before compression, which is useful
 depending on the type of queries you want to do. If you want to find out more
 about how `ORDER_BY` and `SEGMENT_BY` works for compression, see the [compression section][compression-design].
 
-In this section, you start by altering the `stocks_real_time srt` table by declaring which column you want to segment by. In this example, the data is ordered by time, and segmented by stock symbol:
+In this section, you start by altering the `stocks_real_time srt` table by
+declaring which column you want to segment by. In this example, the data is
+ordered by time, and segmented by stock symbol:
 
 <CodeBlock canCopy={false} showLineNumbers={false} children={`
 ALTER TABLE stocks_real_time srt SET (
