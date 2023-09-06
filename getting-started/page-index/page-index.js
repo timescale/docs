@@ -25,9 +25,14 @@ module.exports = [
         excerpt: "Query your data using full SQL",
       },
       {
-        title: "Aggregation",
+        title: "Continuous aggregation",
         href: "aggregation",
         excerpt: "Query aggregated data, and create a continuous aggregate",
+      },
+      {
+        title: "Compression",
+        href: "compression",
+        excerpt: "Compress your data",
       },
       {
         title: "Next steps",
