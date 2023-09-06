@@ -1,5 +1,5 @@
-While continuous aggregates are built on PostgreSQL materialized views, there
-are some important differences:
+While continuous aggregates and PostgreSQL materialized views are similar in
+concept, there are some important differences:
 
 [Materialized views][pg-materialized views] are a standard PostgreSQL function.
 They are used to cache the result of a complex query so that you can reuse it

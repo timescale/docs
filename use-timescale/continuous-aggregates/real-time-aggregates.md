@@ -14,13 +14,14 @@ In Timescale&nbsp;1.7 and later, real time aggregates are enabled by default.
 You do not need to manually enable real-time aggregation.
 </Highlight>
 
-Real-time aggregates use the aggregated data and add the most recent raw data to
-provide accurate and up-to-date results, without needing to aggregate data as it
-is being written. Real-time aggregates use a `UNION ALL` operator to combine
-both materialized and non-materialized data. To do that, it queries the
-underlying source table and aggregates data for the missing time range. This
-means that when you create a continuous aggregate view, queries to the view
-include the most recent data, even if it has not yet been aggregated.
+Real-time aggregates use a live query to combine aggregated data and
+not-yet-materialized data that can provide accurate and up-to-date results,
+without needing to aggregate data as it is being written. Real-time aggregates
+use a `UNION ALL` operator to combine both materialized and non-materialized
+data. To do that, it queries the underlying source table and aggregates data for
+the missing time range. This means that when you create a continuous aggregate
+view, queries to the view include the most recent data, even if it has not yet
+been aggregated.
 
 ## Use real time aggregates
 
