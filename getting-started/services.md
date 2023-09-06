@@ -40,7 +40,7 @@ For more information, see
 
 ## Create your Timescale account
 
-<Collapsible heading="Creating your Timescale account" defaultExpanded={false}>
+<Collapsible heading="Creating your Timescale account" defaultExpanded={false} headingLevel={3}>
 
 <Install />
 
@@ -50,7 +50,7 @@ For more information, see
 
 Create a service to use for the tasks in this guide. You can use the default values.
 
-<Collapsible heading="Creating your first service" defaultExpanded={false}>
+<Collapsible heading="Creating your first service" defaultExpanded={false} headingLevel={3}>
 
 <CreateService demoData={false} />
 
@@ -58,7 +58,7 @@ Create a service to use for the tasks in this guide. You can use the default val
 
 ## Connect to your service
 
-<Collapsible heading="Connecting to your service">
+<Collapsible heading="Connecting to your service" headingLevel={3}>
 
 <Connect />
 
