@@ -2,7 +2,7 @@
 title: About continuous aggregates
 excerpt: Learn how continuous aggregates can speed up your Timescale queries
 products: [cloud, mst, self_hosted]
-keywords: [continuous aggregates]
+keywords: [continuous aggregates, real-time aggregates]
 ---
 
 import CaggsFunctionSupport from "versionContent/_partials/_caggs-function-support.mdx";

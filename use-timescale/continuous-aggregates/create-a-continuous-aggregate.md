@@ -2,7 +2,7 @@
 title: Create a continuous aggregate
 excerpt: How to create a continuous aggregate
 products: [cloud, mst, self_hosted]
-keywords: [continuous aggregates, create]
+keywords: [continuous aggregates, create, real-time aggregates]
 ---
 
 # Create continuous aggregates

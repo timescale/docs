@@ -9,27 +9,34 @@ import CaggsRealTimeHistoricalDataRefreshes from 'versionContent/_partials/_cagg
 
 # Real time aggregates
 
-Continuous aggregates do not include the most recent data chunk from the
-underlying hypertable. Real time aggregates use the aggregated data and add the
-most recent raw data to it to provide accurate and up to date results, without
-needing to aggregate data as it is being written. In Timescale&nbsp;1.7 and later,
-real time aggregates are enabled by default. When you create a continuous
-aggregate view, queries to that view include the most recent data, even if
-it has not yet been aggregated.
+<Highlight type="important">
+In Timescale&nbsp;1.7 and later, real time aggregates are enabled by default.
+You do not need to manually enable real-time aggregation.
+</Highlight>
 
-For more detail on the comparison between continuous and real time aggregates,
-see our [real time aggregate blog post][blog-rtaggs].
+Real-time aggregates use the aggregated data and add the most recent raw data to
+provide accurate and up-to-date results, without needing to aggregate data as it
+is being written. Real-time aggregates use a `UNION ALL` operator to combine
+both materialized and non-materialized data. To do that, it queries the
+underlying source table and aggregates data for the missing time range. This
+means that when you create a continuous aggregate view, queries to the view
+include the most recent data, even if it has not yet been aggregated.
 
 ## Use real time aggregates
 
-You can enable and disable real time aggregation by setting the
-`materialized_only` parameter when you create or alter the view.
+You can turn real time aggregation on or off by setting the `materialized_only`
+parameter when you create or alter the view.
+
+<Highlight type="important">
+In Timescale&nbsp;1.7 and later, real time aggregates are enabled by default.
+You do not need to manually enable real-time aggregation.
+</Highlight>
 
 <Procedure>
 
 ### Using real time aggregation
 
-1.  For an existing table, at the `psql` prompt, disable real time aggregation:
+1.  For an existing table, at the `psql` prompt, turn off real time aggregation:
 
     ```sql
     ALTER MATERIALIZED VIEW table_name set (timescaledb.materialized_only = true);
@@ -49,5 +56,4 @@ You can enable and disable real time aggregation by setting the
 
 For more information, see the [troubleshooting section][troubleshooting].
 
-[blog-rtaggs]: https://blog.timescale.com/blog/achieving-the-best-of-both-worlds-ensuring-up-to-date-results-with-real-time-aggregation/
 [troubleshooting]: /use-timescale/:currentVersion:/continuous-aggregates/troubleshooting/#updates-to-previously-materialized-regions-are-not-shown-in-continuous-aggregates
