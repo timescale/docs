@@ -50,7 +50,7 @@ aggregate.
 
 ## Create a continuous aggregate
 
-In this example, we are using a hypertable called `conditions`, and creating a
+In this example, you use a hypertable called `conditions`, and create a
 continuous aggregate view for daily weather data. The `GROUP BY` clause must
 include a `time_bucket` expression which uses time dimension column of the
 hypertable. Additionally, all functions and their arguments included in
@@ -281,9 +281,47 @@ FROM example_aggregate;
 This speeds up your query by calculating the aggregation ahead of time. The
 delta still needs to be calculated at query time.
 
+## Use real time aggregates
+
+You can turn real time aggregation on or off by setting the `materialized_only`
+parameter when you create or alter the view.
+
+<Highlight type="important">
+In Timescale&nbsp;1.7 and later, real time aggregates are enabled by default.
+You do not need to manually enable real-time aggregation.
+</Highlight>
+
+<Procedure>
+
+### Using real time aggregation
+
+1.  For an existing table, at the `psql` prompt, turn off real time aggregation:
+
+    ```sql
+    ALTER MATERIALIZED VIEW table_name set (timescaledb.materialized_only = true);
+    ```
+
+1.  Re-enable real time aggregation:
+
+    ```sql
+    ALTER MATERIALIZED VIEW table_name set (timescaledb.materialized_only = false);
+    ```
+
+</Procedure>
+
+### Real-time aggregates and refreshing historical data
+
+<CaggsRealTimeHistoricalDataRefreshes />
+
+For more information, see the [troubleshooting section][troubleshooting].
+
 [api-time-bucket-gapfill]: /api/:currentVersion:/hyperfunctions/gapfilling/time_bucket_gapfill/
 [api-time-bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
 [cagg-function-support]: /use-timescale/:currentVersion:/continuous-aggregates/about-continuous-aggregates/#function-support
 [postgres-immutable]: <https://www.postgresql.org/docs/current/xfunc-volatility.html>
 [postgres-rls]: <https://www.postgresql.org/docs/current/ddl-rowsecurity.html>
 [postgres-security-barrier]: <https://www.postgresql.org/docs/current/rules-privileges.html>
+[cagg-window-functions]: /use-timescale/:currentVersion:/continuous-aggregates/create-a-continuous-aggregate/#use-continuous-aggregates-with-window-functions
+[postgres-parallel-agg]: https://www.postgresql.org/docs/current/parallel-plans.html#PARALLEL-AGGREGATION
+[troubleshooting]: /use-timescale/:currentVersion:/continuous-aggregates/troubleshooting/
+[caggs-joins]: /use-timescale/:currentVersion:/continuous-aggregates/about-continuous-aggregates/#continuous-aggregates-with-a-join-clause

@@ -17,22 +17,6 @@ import CaggsTypes from "versionContent/_partials/_caggs-types.mdx";
 
 <CaggsTypes />
 
-## Real time aggregates
-
-<Highlight type="important">
-In Timescale&nbsp;1.7 and later, real time aggregates are enabled by default.
-You do not need to manually enable real-time aggregation.
-</Highlight>
-
-Real-time aggregates use a live query to combine aggregated data and
-not-yet-materialized data that can provide accurate and up-to-date results,
-without needing to aggregate data as it is being written. Real-time aggregates
-use a `UNION ALL` operator to combine both materialized and non-materialized
-data. To do that, it queries the underlying source table and aggregates data for
-the missing time range. This means that when you create a continuous aggregate
-view, queries to the view include the most recent data, even if it has not yet
-been aggregated.
-
 ## Components of a continuous aggregate
 
 Continuous aggregates consist of:
@@ -208,42 +192,21 @@ AND t1.id IN (1, 2, 3, 4)
 GROUP BY ...
 ```
 
-## Use real time aggregates
-
-You can turn real time aggregation on or off by setting the `materialized_only`
-parameter when you create or alter the view.
+## Real time aggregates
 
 <Highlight type="important">
 In Timescale&nbsp;1.7 and later, real time aggregates are enabled by default.
 You do not need to manually enable real-time aggregation.
 </Highlight>
 
-<Procedure>
-
-### Using real time aggregation
-
-1.  For an existing table, at the `psql` prompt, turn off real time aggregation:
-
-    ```sql
-    ALTER MATERIALIZED VIEW table_name set (timescaledb.materialized_only = true);
-    ```
-
-1.  Re-enable real time aggregation:
-
-    ```sql
-    ALTER MATERIALIZED VIEW table_name set (timescaledb.materialized_only = false);
-    ```
-
-</Procedure>
-
-### Real-time aggregates and refreshing historical data
-
-<CaggsRealTimeHistoricalDataRefreshes />
-
-For more information, see the [troubleshooting section][troubleshooting].
+Real-time aggregates use a live query to combine aggregated data and
+not-yet-materialized data that can provide accurate and up-to-date results,
+without needing to aggregate data as it is being written. Real-time aggregates
+use a `UNION ALL` operator to combine both materialized and non-materialized
+data. To do that, it queries the underlying source table and aggregates data for
+the missing time range. This means that when you create a continuous aggregate
+view, queries to the view include the most recent data, even if it has not yet
+been aggregated.
 
 [cagg-mat-hypertables]: /use-timescale/:currentVersion:/continuous-aggregates/materialized-hypertables
-[cagg-window-functions]: /use-timescale/:currentVersion:/continuous-aggregates/create-a-continuous-aggregate/#use-continuous-aggregates-with-window-functions
 [caggs-on-caggs]: /use-timescale/:currentVersion:/continuous-aggregates/hierarchical-continuous-aggregates/
-[postgres-parallel-agg]: https://www.postgresql.org/docs/current/parallel-plans.html#PARALLEL-AGGREGATION
-[caggs-joins]: /use-timescale/:currentVersion:/continuous-aggregates/about-continuous-aggregates/#continuous-aggregates-with-a-join-clause
