@@ -26,6 +26,28 @@ example, if the original hypertable's chunk time interval is 7 days, the
 continuous aggregates that are on top of it have a 70 day chunk time
 interval.
 
+## Function support
+
+In TimescaleDB 2.7 and later, continuous aggregates support all PostgreSQL
+aggregate functions. This includes both parallelizable aggregates, such as `SUM`
+and `AVG`, and non-parallelizable aggregates, such as `RANK`.
+
+In TimescaleDB&nbsp;2.10.0 and later, the `FROM` clause supports `JOINS`, with
+some restrictions. For more information, see the
+[`JOIN` support section][caggs-joins].
+
+In older versions of Timescale, continuous aggregates only support
+[aggregate functions that can be parallelized by PostgreSQL][postgres-parallel-agg].
+You can work around this by aggregating the other parts of your query in the
+continuous aggregate, then
+[using the window function to query the aggregate][cagg-window-functions].
+
+<CaggsFunctionSupport />
+
+If you want the old behavior in later versions of TimescaleDB, set the
+`timescaledb.finalized` parameter to `false` when you create your continuous
+aggregate.
+
 ## Create a continuous aggregate
 
 In this example, we are using a hypertable called `conditions`, and creating a

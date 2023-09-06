@@ -2,7 +2,7 @@
 title: About continuous aggregates
 excerpt: Learn how continuous aggregates can speed up your Timescale queries
 products: [cloud, mst, self_hosted]
-keywords: [continuous aggregates, real-time aggregates]
+keywords: [continuous aggregates, real-time aggregates, materialization, materialized views, joins]
 ---
 
 import CaggsFunctionSupport from "versionContent/_partials/_caggs-function-support.mdx";
@@ -16,6 +16,104 @@ import CaggsTypes from "versionContent/_partials/_caggs-types.mdx";
 ## Types of aggregation
 
 <CaggsTypes />
+
+## Real time aggregates
+
+<Highlight type="important">
+In Timescale&nbsp;1.7 and later, real time aggregates are enabled by default.
+You do not need to manually enable real-time aggregation.
+</Highlight>
+
+Real-time aggregates use a live query to combine aggregated data and
+not-yet-materialized data that can provide accurate and up-to-date results,
+without needing to aggregate data as it is being written. Real-time aggregates
+use a `UNION ALL` operator to combine both materialized and non-materialized
+data. To do that, it queries the underlying source table and aggregates data for
+the missing time range. This means that when you create a continuous aggregate
+view, queries to the view include the most recent data, even if it has not yet
+been aggregated.
+
+## Components of a continuous aggregate
+
+Continuous aggregates consist of:
+
+*   Materialization hypertable to store the aggregated data in
+*   Materialization engine to aggregate data from the raw, underlying, table to
+    the materialization hypertable
+*   Invalidation engine to determine when data needs to be re-materialized, due
+    to changes in the data
+*   Query engine to access the aggregated data
+
+### Materialization hypertable
+
+Continuous aggregates take raw data from the original hypertable, aggregate it,
+and store the intermediate state in a materialization hypertable. When you query
+the continuous aggregate view, the state is returned to you as needed.
+
+Using the same temperature example, the materialization table looks like this:
+
+|day|location|chunk|avg temperature partial|
+|-|-|-|-|
+|2021/01/01|New York|1|{3, 219}|
+|2021/01/01|Stockholm|1|{4, 280}|
+|2021/01/02|New York|2||
+|2021/01/02|Stockholm|2|{5, 345}|
+
+The materialization table is stored as a Timescale hypertable, to take
+advantage of the scaling and query optimizations that hypertables offer.
+Materialization tables contain a column for each group-by clause in the query,
+a `chunk` column identifying which chunk in the raw data this entry came from,
+and a `partial aggregate` column for each aggregate in the query.
+
+The partial column is used internally to calculate the output. In this example,
+because the query looks for an average, the partial column contains the number
+of rows seen, and the sum of all their values. The most important thing to know
+about partials is that they can be combined to create new partials spanning all
+of the old partials' rows. This is important if you combine groups that span
+multiple chunks.
+
+For more information, see [materialization hypertables][cagg-mat-hypertables].
+
+### Materialization engine
+
+The materialization engine performs two transactions. The first transaction
+blocks all INSERTs, UPDATEs, and DELETEs, determines the time range to
+materialize, and updates the invalidation threshold. The second transaction
+unblocks other transactions, and materializes the aggregates. The first
+transaction is very quick, and most of the work happens during the second
+transaction, to ensure that the work does not interfere with other operations.
+
+When you query the continuous aggregate view, the materialization engine
+combines the aggregate partials into a single partial for each time range, and
+calculates the value that is returned. For example, to compute an average, each
+partial sum is added up to a total sum, and each partial count is added up to a
+total count, then the average is computed as the total sum divided by the total
+count.
+
+### Invalidation engine
+
+Any change to the data in a hypertable could potentially invalidate some
+materialized rows. The invalidation engine checks to ensure that the system does
+not become swamped with invalidations.
+
+Fortunately, time-series data means that nearly all INSERTs and UPDATEs have a
+recent timestamp, so the invalidation engine does not materialize all the data,
+but to a set point in time called the materialization threshold. This threshold
+is set so that the vast majority of INSERTs contain more recent timestamps.
+These data points have never been materialized by the continuous aggregate, so
+there is no additional work needed to notify the continuous aggregate that they
+have been added. When the materializer next runs, it is responsible for
+determining how much new data can be materialized without invalidating the
+continuous aggregate. It then materializes the more recent data and moves the
+materialization threshold forward in time. This ensures that the threshold lags
+behind the point-in-time where data changes are common, and that most INSERTs do
+not require any extra writes.
+
+When data older than the invalidation threshold is changed, the maximum and
+minimum timestamps of the changed rows is logged, and the values are used to
+determine which rows in the aggregation table need to be recalculated. This
+logging does cause some write load, but because the threshold lags behind the
+area of data that is currently changing, the writes are small and rare.
 
 ## Continuous aggregates on continuous aggregates
 
@@ -110,108 +208,39 @@ AND t1.id IN (1, 2, 3, 4)
 GROUP BY ...
 ```
 
-## Function support
+## Use real time aggregates
 
-In TimescaleDB 2.7 and later, continuous aggregates support all PostgreSQL
-aggregate functions. This includes both parallelizable aggregates, such as `SUM`
-and `AVG`, and non-parallelizable aggregates, such as `RANK`.
+You can turn real time aggregation on or off by setting the `materialized_only`
+parameter when you create or alter the view.
 
-In TimescaleDB&nbsp;2.10.0 and later, the `FROM` clause supports `JOINS`, with
-some restrictions. For more information, see the [`JOIN` support section][caggs-joins].
+<Highlight type="important">
+In Timescale&nbsp;1.7 and later, real time aggregates are enabled by default.
+You do not need to manually enable real-time aggregation.
+</Highlight>
 
-In older versions of Timescale, continuous aggregates only support
-[aggregate functions that can be parallelized by PostgreSQL][postgres-parallel-agg].
-You can work around this by aggregating the other parts of your query in the
-continuous aggregate, then
-[using the window function to query the aggregate][cagg-window-functions].
+<Procedure>
 
-<CaggsFunctionSupport />
+### Using real time aggregation
 
-If you want the old behavior in later versions of TimescaleDB, set the
-`timescaledb.finalized` parameter to `false` when you create your continuous
-aggregate.
+1.  For an existing table, at the `psql` prompt, turn off real time aggregation:
 
-## Components of a continuous aggregate
+    ```sql
+    ALTER MATERIALIZED VIEW table_name set (timescaledb.materialized_only = true);
+    ```
 
-Continuous aggregates consist of:
+1.  Re-enable real time aggregation:
 
-*   Materialization hypertable to store the aggregated data in
-*   Materialization engine to aggregate data from the raw, underlying, table to
-    the materialization hypertable
-*   Invalidation engine to determine when data needs to be re-materialized, due
-    to changes in the data
-*   Query engine to access the aggregated data
+    ```sql
+    ALTER MATERIALIZED VIEW table_name set (timescaledb.materialized_only = false);
+    ```
 
-### Materialization hypertable
+</Procedure>
 
-Continuous aggregates take raw data from the original hypertable, aggregate it,
-and store the intermediate state in a materialization hypertable. When you query
-the continuous aggregate view, the state is returned to you as needed.
+### Real-time aggregates and refreshing historical data
 
-Using the same temperature example, the materialization table looks like this:
+<CaggsRealTimeHistoricalDataRefreshes />
 
-|day|location|chunk|avg temperature partial|
-|-|-|-|-|
-|2021/01/01|New York|1|{3, 219}|
-|2021/01/01|Stockholm|1|{4, 280}|
-|2021/01/02|New York|2||
-|2021/01/02|Stockholm|2|{5, 345}|
-
-The materialization table is stored as a Timescale hypertable, to take
-advantage of the scaling and query optimizations that hypertables offer.
-Materialization tables contain a column for each group-by clause in the query,
-a `chunk` column identifying which chunk in the raw data this entry came from,
-and a `partial aggregate` column for each aggregate in the query.
-
-The partial column is used internally to calculate the output. In this example,
-because the query looks for an average, the partial column contains the number
-of rows seen, and the sum of all their values. The most important thing to know
-about partials is that they can be combined to create new partials spanning all
-of the old partials' rows. This is important if you combine groups that span
-multiple chunks.
-
-For more information, see [materialization hypertables][cagg-mat-hypertables].
-
-### Materialization engine
-
-The materialization engine performs two transactions. The first transaction
-blocks all INSERTs, UPDATEs, and DELETEs, determines the time range to
-materialize, and updates the invalidation threshold. The second transaction
-unblocks other transactions, and materializes the aggregates. The first
-transaction is very quick, and most of the work happens during the second
-transaction, to ensure that the work does not interfere with other operations.
-
-When you query the continuous aggregate view, the materialization engine
-combines the aggregate partials into a single partial for each time range, and
-calculates the value that is returned. For example, to compute an average, each
-partial sum is added up to a total sum, and each partial count is added up to a
-total count, then the average is computed as the total sum divided by the total
-count.
-
-### Invalidation engine
-
-Any change to the data in a hypertable could potentially invalidate some
-materialized rows. The invalidation engine checks to ensure that the system does
-not become swamped with invalidations.
-
-Fortunately, time-series data means that nearly all INSERTs and UPDATEs have a
-recent timestamp, so the invalidation engine does not materialize all the data,
-but to a set point in time called the materialization threshold. This threshold
-is set so that the vast majority of INSERTs contain more recent timestamps.
-These data points have never been materialized by the continuous aggregate, so
-there is no additional work needed to notify the continuous aggregate that they
-have been added. When the materializer next runs, it is responsible for
-determining how much new data can be materialized without invalidating the
-continuous aggregate. It then materializes the more recent data and moves the
-materialization threshold forward in time. This ensures that the threshold lags
-behind the point-in-time where data changes are common, and that most INSERTs do
-not require any extra writes.
-
-When data older than the invalidation threshold is changed, the maximum and
-minimum timestamps of the changed rows is logged, and the values are used to
-determine which rows in the aggregation table need to be recalculated. This
-logging does cause some write load, but because the threshold lags behind the
-area of data that is currently changing, the writes are small and rare.
+For more information, see the [troubleshooting section][troubleshooting].
 
 [cagg-mat-hypertables]: /use-timescale/:currentVersion:/continuous-aggregates/materialized-hypertables
 [cagg-window-functions]: /use-timescale/:currentVersion:/continuous-aggregates/create-a-continuous-aggregate/#use-continuous-aggregates-with-window-functions
