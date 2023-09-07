@@ -27,34 +27,27 @@ Continuous aggregates consist of:
 *   Invalidation engine to determine when data needs to be re-materialized, due
     to changes in the data
 *   Query engine to access the aggregated data
+*   <Optional/>A refresh policy, used to keep the continuous aggregate updated
+    in the background.
 
 ### Materialization hypertable
 
-Continuous aggregates take raw data from the original hypertable, aggregate it,
+Continuous aggregates take raw data from the original hypertable, aggregates it,
 and store the intermediate state in a materialization hypertable. When you query
 the continuous aggregate view, the state is returned to you as needed.
 
-Using the same temperature example, the materialization table looks like this:
+The materialization table is stored as a hypertable, to take advantage of the
+scaling and query optimizations that hypertables offer. Materialization tables
+contain a column for each group-by clause in the query, a `chunk` column
+identifying which chunk in the raw data this entry came from, and a
+`partial aggregate` column for each aggregate in the query.
 
-|day|location|chunk|avg temperature partial|
-|-|-|-|-|
-|2021/01/01|New York|1|{3, 219}|
-|2021/01/01|Stockholm|1|{4, 280}|
-|2021/01/02|New York|2||
-|2021/01/02|Stockholm|2|{5, 345}|
-
-The materialization table is stored as a Timescale hypertable, to take
-advantage of the scaling and query optimizations that hypertables offer.
-Materialization tables contain a column for each group-by clause in the query,
-a `chunk` column identifying which chunk in the raw data this entry came from,
-and a `partial aggregate` column for each aggregate in the query.
-
-The partial column is used internally to calculate the output. In this example,
-because the query looks for an average, the partial column contains the number
-of rows seen, and the sum of all their values. The most important thing to know
-about partials is that they can be combined to create new partials spanning all
-of the old partials' rows. This is important if you combine groups that span
-multiple chunks.
+The partial column is used internally to calculate the output. For example, if
+the query looks for an average, the partial column contains the number of rows
+seen, and the sum of all their values. The most important thing to know about
+partials is that they can be combined to create new partials spanning all of the
+old partials' rows. This is important if you combine groups that span multiple
+chunks.
 
 For more information, see [materialization hypertables][cagg-mat-hypertables].
 
@@ -63,11 +56,9 @@ For more information, see [materialization hypertables][cagg-mat-hypertables].
 The materialization engine performs two transactions. The first transaction
 blocks all INSERTs, UPDATEs, and DELETEs, determines the time range to
 materialize, and updates the invalidation threshold. The second transaction
-unblocks other transactions, and materializes the aggregates. The first
-transaction is very quick, and most of the work happens during the second
-transaction, to ensure that the work does not interfere with other operations.
+unblocks other transactions, and materializes the aggregates.
 
-When you query the continuous aggregate view, the materialization engine
+When you query the continuous aggregate, the materialization engine
 combines the aggregate partials into a single partial for each time range, and
 calculates the value that is returned. For example, to compute an average, each
 partial sum is added up to a total sum, and each partial count is added up to a
@@ -82,22 +73,29 @@ not become swamped with invalidations.
 
 Fortunately, time-series data means that nearly all INSERTs and UPDATEs have a
 recent timestamp, so the invalidation engine does not materialize all the data,
-but to a set point in time called the materialization threshold. This threshold
-is set so that the vast majority of INSERTs contain more recent timestamps.
-These data points have never been materialized by the continuous aggregate, so
-there is no additional work needed to notify the continuous aggregate that they
-have been added. When the materializer next runs, it is responsible for
-determining how much new data can be materialized without invalidating the
-continuous aggregate. It then materializes the more recent data and moves the
-materialization threshold forward in time. This ensures that the threshold lags
+but to a set point in time called the materialization threshold, or watermark.
+The watermark is set so that the vast majority of INSERTs contain more recent
+timestamps. These data points have never been materialized by the continuous
+aggregate, so there is no additional work needed to notify the continuous
+aggregate that they have been added. When the materializer next runs, it is
+responsible for determining how much new data can be materialized without
+invalidating the continuous aggregate. It then materializes the more recent data
+and moves the watermark forward in time. This ensures that the watermark lags
 behind the point-in-time where data changes are common, and that most INSERTs do
 not require any extra writes.
 
-When data older than the invalidation threshold is changed, the maximum and
-minimum timestamps of the changed rows is logged, and the values are used to
-determine which rows in the aggregation table need to be recalculated. This
-logging does cause some write load, but because the threshold lags behind the
-area of data that is currently changing, the writes are small and rare.
+When data older than the watermark is changed, the maximum and minimum
+timestamps of the changed rows is logged, and the values are used to determine
+which rows in the aggregation table need to be recalculated. This logging does
+cause some write load, but because the watermark lags behind the area of data
+that is currently changing, the writes are small and rare.
+
+### Refresh policy
+
+Continuous aggregates can have a range of different refresh policies. It is
+generally best to set an automated refresh policy to keep your continuous
+aggregate updated in the background. For more information about refresh
+policies, see the [refresh policy][refresh-policy] section.
 
 ## Continuous aggregates on continuous aggregates
 
@@ -160,7 +158,8 @@ WHERE t1.id IN (1, 2, 3, 4)
 GROUP BY ...
 ```
 
-`INNER JOIN` on a single equality condition specified in `WHERE` clause, this is allowed but not recommended:
+`INNER JOIN` on a single equality condition specified in `WHERE` clause, this is
+allowed but not recommended:
 
 ```sql
 CREATE MATERIALIZED VIEW my_view WITH (timescaledb.continuous) AS
@@ -211,3 +210,4 @@ been aggregated.
 
 [cagg-mat-hypertables]: /use-timescale/:currentVersion:/continuous-aggregates/materialized-hypertables
 [caggs-on-caggs]: /use-timescale/:currentVersion:/continuous-aggregates/hierarchical-continuous-aggregates/
+[refresh-policy]: /use-timescale/:currentVersion:/continuous-aggregates/refresh-policies/
