@@ -31,9 +31,10 @@ distribution on x86_64.
 With the instance that will run the timescaledb-backfill ready, log in and
 download the tool's binary:
 
-<!-- TODO: replace with the correct URL -->
 ```sh
-wget LINK_TO_THE_BINARY
+wget https://assets.timescale.com/releases/timescaledb-backfill-0.3.0-x86_64-linux.tar.gz
+tar xf timescaledb-backfill-0.3.0-x86_64-linux.tar.gz
+sudo mv timescaledb-backfill /usr/local/bin/
 ```
 
 ## How to Use
