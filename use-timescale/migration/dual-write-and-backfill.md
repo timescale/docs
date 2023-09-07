@@ -374,20 +374,79 @@ The completion point `T` is an arbitrarily chosen time in the consistency range.
 
 ### 6. Backfill data from source to target
 
+#### Backfilling from TimescaleDB
+
 If your source database is using TimescaleDB, we recommend using our backfill
-tool `timescaledb-backfill`.
+tool [timescaledb-backfill][timescaledb-backfill].
+
+Running timescaledb-backfill is a four-phase process:
+
+1. Stage:
+   ```
+   timescaledb-backfill stage --source $SOURCE --target $TARGET --until <completion point>
+   ```
+1. Copy:
+   ```
+   timescaledb-backfill copy --source $SOURCE --target $TARGET
+   ```
+1. Verify (optional):
+   ```
+   timescaledb-backfill verify --source $SOURCE --target $TARGET
+   ```
+1. Clean:
+   ```
+   timescaledb-backfill clean --target $SOURCE
+   ```
+
+#### Backfilling from PostgreSQL or some other source
 
 If your source database is not using TimescaleDB, we recommend dumping the data
 from your source database on a per-table basis into CSV format, and restoring
 those CSVs into the target database using the `timescaledb-parallel-copy` tool.
 
-### 7. Enable retention and compression policies
+Before you load the CSV data into the target hypertable, you must remove all
+rows which were inserted by dual writes, and which are before the completion
+point:
 
-Reenable all retention and compression policies.
+```SQL
+DELETE FROM <target_hypertable> WHERE <time_column> < <completion point time>;
+```
+
+You must also ensure that all rows in the CSV data which you load into the
+target hypertable must be before the completion point. You should apply this
+filter when dumping the data from the source database.
+
+You can load a CSV file into a hypertable using `timescaledb-parallel-copy` as
+follows:
+
+```
+timescaledb-parallel-copy \
+  --connection $TARGET \
+  --table <target_hypertable> \
+  --workers 8 \
+  --file <your dumped csv data>
+```
+
+### 7. Enable background jobs
+
+TODO: what about continuous aggregates?
+
+Reenable all background jobs:
+
+```bash
+psql -d $TARGET -f <<EOF
+  select public.alter_job(id::integer, scheduled=>true)
+  from _timescaledb_config.bgw_job
+  where id >= 1000;
+EOF
+```
+
+<Highlight type="note">
 If the backfill process took long enough for there to be significant
 retention/compression work to be done, it may be preferable to run the jobs
 manually in order to have control over the pacing of the work until it is
 caught up before reenabling.
+</Highlight>
 
 ### 8. Validate that all data is present in target database
 
@@ -413,4 +472,5 @@ database as your primary. You may want to continue writing to the old database
 for a period, until you are certain that the new database is holding up to all
 production traffic.
 
-[create-service]:  /use-timescale/:currentVersion:/services/create-a-service/
+[create-service]: /use-timescale/:currentVersion:/services/create-a-service/
+[timescaledb-backfill]: /use-timescale/:currentVersion:/migration/timescaledb-backfill/
