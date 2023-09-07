@@ -14,11 +14,12 @@ Timescale's platform automatically manages the underlying disk volume. Due to
 platform limitations, it is only possible to resize the disk once every six
 hours. Depending on the rate at which you're able to copy data, you may be
 affected by this restriction. Affected instances will be unable to accept new
-data and will error with: TODO error here.
+data and will error with:
+`FATAL: terminating connection due to administrator command`.
 
 If you intend on migrating more than 400&nbspGB of data to Timescale, please
-open a support case in order for the required storage to be pre-allocated in
-your database instance.
+contact [support@timescale.com](mailto:support@timescale.com) requesting the
+required storage to be pre-allocated in your database instance.
 
 ## Dumping and locks
 
