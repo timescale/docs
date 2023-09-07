@@ -363,6 +363,12 @@ module.exports = [
               "Migrate a large database with low downtime",
           },
           {
+            title: "timescaledb-backfill",
+            href: "timescaledb-backfill",
+            excerpt:
+              "A tool for backfilling data as part of data migration",
+          },
+          {
             title: "Troubleshooting",
             href: "troubleshooting",
             excerpt:
