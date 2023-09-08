@@ -145,6 +145,11 @@ module.exports = [
         excerpt: "Manage storage by moving data between tablespaces",
       },
       {
+        title: "Tier data to object storage",
+        href: "data-tiering",
+        excerpt: "How to tier Timescale data to object storage",
+      },
+      {
         title: "Multi-node",
         href: "multinode-timescaledb",
         children: [

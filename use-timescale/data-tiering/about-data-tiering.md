@@ -13,8 +13,6 @@ import UsageBasedStorage from "versionContent/_partials/_usage-based-storage-int
 
 Save on storage costs by tiering data to a low-cost object-storage layer.
 
-<ExperimentalPrivateBeta />
-
 Timescale includes traditional disk storage, and a low-cost object-storage
 layer built on Amazon S3. You can move your hypertable data across the different
 storage tiers to get the best price performance. You can use primary storage for

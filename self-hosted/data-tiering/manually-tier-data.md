@@ -1,7 +1,7 @@
 ---
 title: Tier data to object storage
 excerpt: How to tier Timescale data to object storage
-products: [cloud]
+products: [self-hosted]
 keywords: [data tiering]
 tags: [storage, data management]
 ---
@@ -14,8 +14,6 @@ import TieringBeta from 'versionContent/_partials/_cloud-data-tiering-beta.mdx';
 Tier data from primary storage to object storage to save on storage costs. You
 can continue to query a hypertable as normal after migration. All queries,
 including `JOIN`s, work as usual.
-
-<ExperimentalPrivateBeta />
 
 ## Manually tier a chunk
 
