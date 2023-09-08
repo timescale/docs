@@ -16,12 +16,12 @@ can continue to query a hypertable as normal after migration. All queries,
 including `JOIN`s, work as usual.
 
 This section describes how to tier data in the Timescale console. For
-information abotu manually tiering and untiering your data, see the
+information about manually tiering and untiering your data, see the
 [self-hosted data tiering][self-hosted-data-tiering] section
 
 ## Turn on data tiering
 
-You can turn on data tiering from the Services Overview page in the Timeascale console.
+You can turn on data tiering from the Services Overview page in the Timescale console.
 
 <Procedure>
 
@@ -41,8 +41,8 @@ You can turn on data tiering from the Services Overview page in the Timeascale c
 
 </Procedure>
 
+If you need to untier your data, see the
+[manually untier data][untier-data] section.
 
-
-[data-retention]: /use-timescale/:currentVersion:/data-retention/
-[show_chunks]: /api/:currentVersion:/hypertable/show_chunks/
 [self-hosted-data-tiering]: /self-hosted/:currentVersion:/data-tiering/
+[untier-data]: /self-hosted/:currentVersion:/data-tiering/manually-untier-data/
