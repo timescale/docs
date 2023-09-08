@@ -32,31 +32,37 @@ connect to it from the command prompt on your local machine. You can then use
 
 In this section, you sign up for a Timescale account, create a service, and
 connect to it from your local machine using `psql`. Don't forget to download the
-cheatsheet when you create your service, it contains important information that
+cheat sheet when you create your service, it contains important information that
 you need later on.
 
 For more information, see
 [the services section][services-how-to].
 
-## Create your Timescale account
+<Collapsible heading="Create your Timescale account" defaultExpanded={false}>
 
-<Collapsible heading="Creating your Timescale account" defaultExpanded={false} headingLevel={3}>
+Before you can create your first service, you need to sign up for a free
+Timescale account.
 
 <Install />
 
 </Collapsible>
 
-## Create your first service
+<Collapsible heading="Create your first service" defaultExpanded={false}>
 
-Create a service to use for the tasks in this guide. You can use the default values.
-
-<Collapsible heading="Creating your first service" defaultExpanded={false} headingLevel={3}>
+Create a service to use for the tasks in this guide. A service in Timescale is a
+cloud instance which contains your database. You can use the default values when
+you create your service, which sets up a single database, named `tsdb`.
 
 <CreateService demoData={false} />
 
 </Collapsible>
 
 ## Connect to your service
+
+When you have a service up and running, you can connect to it from your local
+system using the `psql` command-line utility. If you've used PostgreSQL before,
+you might already have `psql` installed. If not, check out the
+[installing psql][install-psql] section.
 
 <Collapsible heading="Connecting to your service" headingLevel={3}>
 
@@ -65,3 +71,4 @@ Create a service to use for the tasks in this guide. You can use the default val
 </Collapsible>
 
 [services-how-to]: /use-timescale/:currentVersion:/services/
+[install-psql]: /use-timescale/:currentVersion:/integrations/query-admin/psql/
