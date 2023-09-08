@@ -1,8 +1,8 @@
 ---
 title: Data tiering
-excerpt: Learn about high availability
+excerpt: Manually tier and untier data to object storage
 products: [self_hosted]
-keywords: [high availability]
+keywords: [data tiering]
 ---
 
 import ConsiderCloud from "versionContent/_partials/_consider-cloud.mdx";
@@ -22,9 +22,9 @@ For more information about how data tiering works, see the
 [about data tiering][about-data-tiering] section.
 
 This section describes how to manually tier and untier data in a self-hosted
-enviornment. If you are using Timescale, you can turn data tiering on and off
-within the Timescale Console. For more information about data tiering in
-Timescale, see the [Timescale data tiering][cloud-data-tiering] section
+environment. If you are using Timescale, you can turn data tiering on and off
+within the Timescale console. For more information about data tiering in
+Timescale, see the [Timescale data tiering][cloud-data-tiering] section.
 
 <ConsiderCloud />
 

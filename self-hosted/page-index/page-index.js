@@ -148,6 +148,18 @@ module.exports = [
         title: "Tier data to object storage",
         href: "data-tiering",
         excerpt: "How to tier Timescale data to object storage",
+        children: [
+          {
+            title: "Manually tier data to object storage",
+            href: "manually-tier-data",
+            excerpt: "How to manually tier Timescale data to object storage",
+          },
+          {
+            title: "Manually untier data to object storage",
+            href: "manually-untier-data",
+            excerpt: "How to manually untier Timescale data",
+          },
+        ]
       },
       {
         title: "Multi-node",

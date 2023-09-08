@@ -1,7 +1,7 @@
 ---
-title: Untier data
-excerpt: How to untier Timescale data
-product: cloud
+title: Manually untier data
+excerpt: How to manualy untier Timescale data
+product: [self_hosted]
 keywords: [data tiering, untiering]
 tags: [storage, data management]
 ---
@@ -20,8 +20,8 @@ in a chunk using the `untier_chunk` stored procedure.
 
 ## Untier data in a chunk
 
-Untiering chunks is a synchronous process that occurs when the `untier_chunk` procedure is called. 
-When you untier a chunk, the data is moved from S3 storage to EBS storage.  
+Untiering chunks is a synchronous process that occurs when the `untier_chunk` procedure is called.
+When you untier a chunk, the data is moved from S3 storage to EBS storage.
 Chunks are renamed when the data is untiered.
 
 <Procedure>

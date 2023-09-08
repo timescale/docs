@@ -1,7 +1,7 @@
 ---
-title: Tier data to object storage
-excerpt: How to tier Timescale data to object storage
-products: [self-hosted]
+title: Manually tier data to object storage
+excerpt: How to manually tier Timescale data to object storage
+products: [self_hosted]
 keywords: [data tiering]
 tags: [storage, data management]
 ---
