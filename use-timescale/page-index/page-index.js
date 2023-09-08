@@ -464,7 +464,7 @@ module.exports = [
             title: "About data tiering",
             href: "about-data-tiering",
             excerpt:
-              "Save on storage costs by tiering older data to separate storage",
+              "Learn how data tiering helps you save on storage costs",
           },
           {
             title: "Tier data",
