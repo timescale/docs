@@ -1,8 +1,3 @@
-When you have a service up and running, you can connect to it from your local
-system using the `psql` command-line utility. If you've used PostgreSQL before,
-you might already have `psql` installed. If not, check out the [installing
-psql][install-psql] section.
-
 <Procedure>
 
 ### Connecting to your service from the command prompt
@@ -33,5 +28,4 @@ psql][install-psql] section.
 
 </Procedure>
 
-[install-psql]: /use-timescale/:currentVersion:/integrations/query-admin/psql/
 [tsc-portal]: https://console.cloud.timescale.com/
