@@ -15,10 +15,6 @@ Tier data from primary storage to object storage to save on storage costs. You
 can continue to query a hypertable as normal after migration. All queries,
 including `JOIN`s, work as usual.
 
-This section describes how to tier data in the Timescale console. For
-information about manually tiering and untiering your data, see the
-[self-hosted data tiering][self-hosted-data-tiering] section
-
 ## Turn on data tiering
 
 You can turn on data tiering from the Services Overview page in the Timescale
@@ -116,7 +112,6 @@ SELECT * FROM timescaledb_osm.tiered_chunks;
 If you need to untier your data, see the
 [manually untier data][untier-data] section.
 
-[self-hosted-data-tiering]: /self-hosted/:currentVersion:/data-tiering/
-[untier-data]: /self-hosted/:currentVersion:/data-tiering/manually-untier-data/
+[untier-data]: /use-timescale/:currentVersion:/data-tiering/manually-untier-data/
 [data-retention]: /use-timescale/:currentVersion:/data-retention/
 [show_chunks]: /api/:currentVersion:/hypertable/show_chunks/
