@@ -36,11 +36,9 @@ Continuous aggregates take raw data from the original hypertable, aggregates it,
 and store the intermediate state in a materialization hypertable. When you query
 the continuous aggregate view, the state is returned to you as needed.
 
-The materialization table is stored as a hypertable, to take advantage of the
-scaling and query optimizations that hypertables offer. Materialization tables
-contain a column for each group-by clause in the query, a `chunk` column
-identifying which chunk in the raw data this entry came from, and a
-`partial aggregate` column for each aggregate in the query.
+Materialization tables contain a column for each group-by clause in the query, a
+`chunk` column identifying which chunk in the raw data this entry came from, and
+a `partial aggregate` column for each aggregate in the query.
 
 The partial column is used internally to calculate the output. For example, if
 the query looks for an average, the partial column contains the number of rows
@@ -199,7 +197,7 @@ In Timescale&nbsp;1.7 and later, real time aggregates are enabled by default.
 You do not need to manually enable real-time aggregation.
 </Highlight>
 
-Real-time aggregates use a live query to combine aggregated data and
+Real-time aggregates perform a query on the fly to combine aggregated data and
 not-yet-materialized data that can provide accurate and up-to-date results,
 without needing to aggregate data as it is being written. Real-time aggregates
 use a `UNION ALL` operator to combine both materialized and non-materialized

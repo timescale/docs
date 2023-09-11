@@ -32,8 +32,8 @@ In TimescaleDB 2.7 and later, continuous aggregates support all PostgreSQL
 aggregate functions. This includes both parallelizable aggregates, such as `SUM`
 and `AVG`, and non-parallelizable aggregates, such as `RANK`.
 
-In TimescaleDB&nbsp;2.10.0 and later, the `FROM` clause supports `JOINS`, with
-some restrictions. For more information, see the
+TimescaleDB&nbsp;2.10.0 and later supports `JOINS` in continuous aggregates,
+with some restrictions. For more information, see the
 [`JOIN` support section][caggs-joins].
 
 In older versions of Timescale, continuous aggregates only support
