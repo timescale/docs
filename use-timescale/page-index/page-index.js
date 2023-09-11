@@ -472,11 +472,6 @@ module.exports = [
             excerpt: "How to tier Timescale data to object storage",
           },
           {
-            title: "Manually tier data",
-            href: "manually-tier-data",
-            excerpt: "Manually tier Timescale data to object storage",
-          },
-          {
             title: "Manually untier data",
             href: "manually-untier-data",
             excerpt: "Manually untier Timescale data to object storage",
