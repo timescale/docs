@@ -10,16 +10,10 @@ import ConsiderCloud from "versionContent/_partials/_consider-cloud.mdx";
 
 # Migrate using `pg_dump` and `pg_restore`
 
-It is possible to migrate from self-hosted TimescaleDB to Timescale using the
-native PostgreSQL [`pg_dump`][pg_dump] and [`pg_restore`][pg_restore] programs.
-This works for compressed hypertables, without having to decompress the chunks
-before you begin.
-
-<Highlight type="note">
-When dumping and restoring with `pg_dump` and `pg_restore`, the version of the
-TimescaleDB extension must be the same in the source and target databases. If
-this is not the case, subtle data corruption issues may arise.
-</Highlight>
+It is possible to migrate from self-hosted PostgreSQL or TimescaleDB to
+Timescale using the native PostgreSQL [`pg_dump`][pg_dump] and
+[`pg_restore`][pg_restore] programs. This works for compressed hypertables,
+without having to decompress data before you begin.
 
 <Highlight type="warning">
 Timescale does not allow having multiple databases per instance.
@@ -31,7 +25,18 @@ types of locks that `pg_dump` takes. Consult the troubleshooting section
 [Dumping and locks][dumping-and-locks] for more details.
 </Highlight>
 
-## Dump the source database
+## Migrating from TimescaleDB to Timescale
+
+If you are already using TimescaleDB hosted in your own cloud, and would like
+to move your data to the Timescale cloud service, follow these instructions.
+
+<Highlight type="note">
+When dumping and restoring with `pg_dump` and `pg_restore`, the version of the
+TimescaleDB extension must be the same in the source and target databases. If
+this is not the case, subtle data corruption issues may arise.
+</Highlight>
+
+### Dump the source database
 
 Dump the roles from the source database (only necessary if you're using roles
 other than the default `postgres` role in your database):
@@ -69,9 +74,9 @@ export TARGET=postgres://<user>@<target host>:5432
 You might see some errors when running `pg_dump`. To learn if they can be safely
 ignored, see the [troubleshooting section][troubleshooting].
 
-## Restore your entire database from backup
+### Restore your entire database from backup
 
-### Ensure that the correct TimescaleDB version is installed
+#### Ensure that the correct TimescaleDB version is installed
 
 It is very important that the version of the TimescaleDB extension in the
 target database is the same as it was in the source database.
@@ -105,7 +110,7 @@ database and restore the data.
 
 <Procedure>
 
-### Restoring the database from the dump
+#### Restoring the database from the dump
 
 1. Restore the roles to the database:  
 
@@ -143,6 +148,68 @@ the troubleshooting documentation:
 - [Dumping with concurrency][dumping-with-concurrency]
 - [Restoring with concurrency][restoring-with-concurrency]
 </Highlight>
+
+## Migrating from PostgreSQL to Timescale
+
+The following instructions show you how to move your data from self-hosted
+PostgreSQL to a Timescale instance. Note that this will just move the data, but
+will not configure a hypertable for your data, or other Timescale features like
+data compression or retention.
+
+### Dump the source database
+
+Dump the roles from the source database (only necessary if you're using roles
+other than the default `postgres` role in your database):
+
+```bash
+pg_dumpall -d "$SOURCE" \
+  --quote-all-identifiers \
+  --roles-only \
+  --file=roles.sql
+```
+
+Dump the source database schema and data:
+
+```bash
+pg_dump -d "$SOURCE" \
+  --format=plain \
+  --quote-all-identifiers \
+  --no-tablespaces \
+  --no-owner \
+  --no-privileges \
+  --file=dump.sql
+```
+
+<Highlight type="note">
+For the sake of convenience, we refer to connection strings to the source and
+target databases as `$SOURCE` and `$TARGET` throughout this guide. This can be
+set in your shell, for example:
+
+```bash
+export SOURCE=postgres://<user>@<source host>:5432
+export TARGET=postgres://<user>@<target host>:5432
+```
+</Highlight>
+
+You might see some errors when running `pg_dump`. To learn if they can be safely
+ignored, see the [troubleshooting section][troubleshooting].
+
+<Procedure>
+### Restore your entire database from backup
+
+1. Restore the roles to the database:
+
+    ```bash
+    psql $TARGET -f roles.sql
+    ```
+
+1.  Restore the database:
+
+    ```bash
+    psql $TARGET -f dump.sql
+    ```
+
+</Procedure>
 
 
 [pg_dump]: https://www.postgresql.org/docs/current/static/app-pgdump.html
