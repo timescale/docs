@@ -26,22 +26,15 @@ data is stored in your database in the way you expect it to be.
 ## Use SELECT to return data
 
 This first section uses a `SELECT` statement to ask your database to return
-everything, represented by the asterisk, from the `stocks_real_time srt` table,
-like this:
+every column, represented by the asterisk, from the `stocks_real_time srt`
+table, like this:
 
 <CodeBlock canCopy={false} showLineNumbers={false} children={`
 SELECT * FROM stocks_real_time srt
 `} />
 
-You don't want everything from the entire table, though, so you can use a `WHERE`
-statement to add a condition on to the statement. In this section, you add a
-`WHERE` condition to limit your results to only the last four days, like this:
-
-<CodeBlock canCopy={false} showLineNumbers={false} children={`
-WHERE time > now() - INTERVAL '4 days'
-`} />
-
-You can also limit the number of rows that get returned with a `LIMIT` clause:
+If your table is very big, you might not want to return every row. You can
+limit the number of rows that get returned with a `LIMIT` clause:
 
 <CodeBlock canCopy={false} showLineNumbers={false} children={`
 LIMIT 10
@@ -68,8 +61,8 @@ LIMIT 10
 
 ## Use ORDER BY to organize results
 
-In the previous section, you ordered the results of your query by time in
-descending order, so the most recent trades were at the top of the list. You can
+In the previous section, you saw a selection of rows from the table. Usually,
+you want to order the rows so that you see the most recent trades. You can
 change how your results are displayed using an `ORDER BY` statement.
 
 In this section, you query Tesla's stock with a `SELECT` query like this,
