@@ -1,7 +1,7 @@
 ---
 title: About data tiering
 excerpt: Learn how data tiering helps you save on storage costs
-product: cloud
+product: [cloud]
 keywords: [data tiering]
 tags: [storage, data management]
 ---

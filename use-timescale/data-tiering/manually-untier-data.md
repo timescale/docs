@@ -1,7 +1,7 @@
 ---
 title: Manually untier data
 excerpt: How to manualy untier Timescale data
-product: [self_hosted]
+product: [cloud]
 keywords: [data tiering, untiering]
 tags: [storage, data management]
 ---
