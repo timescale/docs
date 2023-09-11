@@ -61,11 +61,12 @@ configurations for a pooler user, such as `statement_timeout`.
 
     The output looks something like this:
 
-    <CodeBlock canCopy={false} showLineNumbers={true} children={`
+    <CodeBlock canCopy={false}
+    showLineNumbers={true}
+    children={`
     psql (15.3 (Homebrew), server 15.4 (Ubuntu 15.4-1.pgdg22.04+1))
     SSL connection (protocol: TLSv1.3, cipher: TLS_AES_256_GCM_SHA384, compression: off)
     Type "help" for help.
-
     tsdb=> select current_user;
     ┌──────────────┐
     │ current_user │
@@ -73,7 +74,6 @@ configurations for a pooler user, such as `statement_timeout`.
     │ my_app       │
     └──────────────┘
     (1 row)
-
     tsdb=> show statement_timeout;
     ┌───────────────────┐
     │ statement_timeout │
