@@ -31,22 +31,23 @@ long-lived connections.
 ## User authentication
 
 By default, the poolers have authentication to the database, so you can use any
-custom users you already have set up without further configuration. You can continue
-using the `tsdbadmin` user if that is your preferred method. However, you might need
-to add custom configurations for some cases such as `statement_timeout` for a pooler user.
+custom users you already have set up without further configuration. You can
+continue using the `tsdbadmin` user if that is your preferred method. However,
+you might need to add custom configurations for some cases such as
+`statement_timeout` for a pooler user.
 
 <Procedure>
 
 ### Creating a new user with custom settings
 
-1.  Log in to your database as the `tsdbadmin` user, and create a new role named `<MY_APP>` with the password as `<PASSWORD>`:
+1.  Log in to your database as the `tsdbadmin` user, and create a new role named
+    `<MY_APP>` with the password as `<PASSWORD>`:
 
     ```sql
-    CREATE ROLE my_app LOGIN PASSWORD '<NEW_PASSWORD>';
+    CREATE ROLE <MY_APP> LOGIN PASSWORD '<PASSWORD>';
     ```
 
-1.  To change the `statement_timeout` settings to 2 seconds for this user:
-   
+1.  Change the `statement_timeout` settings to 2 seconds for this user
 
     ```sql
     ALTER ROLE my_app SET statement_timeout TO '2s';
@@ -66,13 +67,23 @@ to add custom configurations for some cases such as `statement_timeout` for a po
     psql (15.3 (Homebrew), server 15.4 (Ubuntu 15.4-1.pgdg22.04+1))
     SSL connection (protocol: TLSv1.3, cipher: TLS_AES_256_GCM_SHA384, compression: off)
     Type "help" for help.
-    tsdb=> select current_user;
+    `} />
+
+1.  Check that the settings are correct by logging in as the `<MY_APP>` user:
+
+    ```sql
+    SELECT current_user;
+
     ┌──────────────┐
     │ current_user │
     ├──────────────┤
     │ my_app       │
     └──────────────┘
     (1 row)
+    ```
+
+    Check the `statement_timeout` setting is correct for the `<MY_APP>` user:
+
     tsdb=> show statement_timeout;
     ┌───────────────────┐
     │ statement_timeout │
@@ -80,7 +91,7 @@ to add custom configurations for some cases such as `statement_timeout` for a po
     │ 2s                │
     └───────────────────┘
     (1 row)
-    `} />
+    ```
 
 </Procedure>
 
