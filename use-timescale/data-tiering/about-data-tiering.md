@@ -9,7 +9,7 @@ tags: [storage, data management]
 import ExperimentalPrivateBeta from "versionContent/_partials/_early_access.mdx";
 import UsageBasedStorage from "versionContent/_partials/_usage-based-storage-intro.mdx";
 
-# Data tiering
+# About data tiering
 
 Save on storage costs by tiering data to a low-cost object-storage layer.
 
