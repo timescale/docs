@@ -83,6 +83,8 @@ configurations for a pooler user, such as `statement_timeout`.
     (1 row)
     `} />
 
+</Procedure>
+
 ## Pool types
 
 When you create a connection pooler, there are two pool types to choose from:
