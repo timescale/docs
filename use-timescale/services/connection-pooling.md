@@ -30,46 +30,58 @@ long-lived connections.
 
 ## User authentication
 
-By default, the pooler is configured to pass through the authentication to the 
-database, so you could keep using your custom users as usual.
+By default, the pooler passes through authentication to the database, so you can
+keep using any custom users you already have set up without further
+configuration. You can also continue using the `tsdbadmin` user, if that is your
+preferred method. However, for some cases, you might need to add custom
+configurations for a pooler user, such as `statement_timeout`.
 
-There is no problem with using the `tsdbadmin` user, but for some corner cases, 
-it will be useful to add some custom configurations for the user, like 
-`statement_timeout`, for example. 
+<Procedure>
 
-### Example: creating a new user with custom settings
+### Creating a new user with custom settings
 
-With the `tsdbadmin` user run:
+1.  Log in to your database as the `tsdbadmin` user, and create a new role:
 
-```sql
-CREATE ROLE my_app LOGIN PASSWORD 'super-new-password';
-ALTER ROLE my_app SET statement_timeout TO '2s';
-```
+    ```sql
+    CREATE ROLE my_app LOGIN PASSWORD '<NEW_PASSWORD>';
+    ```
 
-Then connect on the pooler with the new user:
+1.  Alter the role to change the setting for this user. This example changes the
+   `statement_timeout` to 2 seconds:
 
-```bash
-❯ PGPASSWORD=super-new-password psql 'postgres://my_app@service.project.tsdb.cloud.timescale.com:30477/tsdb?sslmode=require'
-psql (15.3 (Homebrew), server 15.4 (Ubuntu 15.4-1.pgdg22.04+1))
-SSL connection (protocol: TLSv1.3, cipher: TLS_AES_256_GCM_SHA384, compression: off)
-Type "help" for help.
+    ```sql
+    ALTER ROLE my_app SET statement_timeout TO '2s';
+    ```
 
-tsdb=> select current_user;
-┌──────────────┐
-│ current_user │
-├──────────────┤
-│ my_app       │
-└──────────────┘
-(1 row)
+1.  Connect on the pooler with the new user:
 
-tsdb=> show statement_timeout;
-┌───────────────────┐
-│ statement_timeout │
-├───────────────────┤
-│ 2s                │
-└───────────────────┘
-(1 row)
-```
+    ```bash
+    ❯ PGPASSWORD=<NEW_PASSWORD> psql 'postgres://my_app@service.project.tsdb.cloud.timescale.com:30477/tsdb?sslmode=require'
+    ```
+
+    The output looks something like this:
+
+    <CodeBlock canCopy={false} showLineNumbers={true} children={`
+    psql (15.3 (Homebrew), server 15.4 (Ubuntu 15.4-1.pgdg22.04+1))
+    SSL connection (protocol: TLSv1.3, cipher: TLS_AES_256_GCM_SHA384, compression: off)
+    Type "help" for help.
+
+    tsdb=> select current_user;
+    ┌──────────────┐
+    │ current_user │
+    ├──────────────┤
+    │ my_app       │
+    └──────────────┘
+    (1 row)
+
+    tsdb=> show statement_timeout;
+    ┌───────────────────┐
+    │ statement_timeout │
+    ├───────────────────┤
+    │ 2s                │
+    └───────────────────┘
+    (1 row)
+    `} />
 
 ## Pool types
 
