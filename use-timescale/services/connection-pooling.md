@@ -30,30 +30,29 @@ long-lived connections.
 
 ## User authentication
 
-By default, the pooler passes through authentication to the database, so you can
-keep using any custom users you already have set up without further
-configuration. You can also continue using the `tsdbadmin` user, if that is your
-preferred method. However, for some cases, you might need to add custom
-configurations for a pooler user, such as `statement_timeout`.
+By default, the poolers have authentication to the database, so you can use any
+custom users you already have set up without further configuration. You can continue
+using the `tsdbadmin` user if that is your preferred method. However, you might need
+to add custom configurations for some cases such as `statement_timeout` for a pooler user.
 
 <Procedure>
 
 ### Creating a new user with custom settings
 
-1.  Log in to your database as the `tsdbadmin` user, and create a new role:
+1.  Log in to your database as the `tsdbadmin` user, and create a new role named `<MY_APP>` with the password as `<PASSWORD>`:
 
     ```sql
     CREATE ROLE my_app LOGIN PASSWORD '<NEW_PASSWORD>';
     ```
 
-1.  Alter the role to change the setting for this user. This example changes the
-   `statement_timeout` to 2 seconds:
+1.  To change the `statement_timeout` settings to 2 seconds for this user:
+   
 
     ```sql
     ALTER ROLE my_app SET statement_timeout TO '2s';
     ```
 
-1.  Connect on the pooler with the new user:
+1.  In a new terminal window, connect on the pooler with the new user `<MY_APP>`:
 
     ```bash
     ❯ PGPASSWORD=<NEW_PASSWORD> psql 'postgres://my_app@service.project.tsdb.cloud.timescale.com:30477/tsdb?sslmode=require'
