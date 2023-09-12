@@ -62,9 +62,8 @@ safe location.
 </Highlight>
 
 <img class="main-content__illustration"
-width={1375} height={944}
 src="https://assets.timescale.com/docs/images/tsc-integrations-cloudwatch.webp"
-alt="Screenshot of the menu for adding a Datadog exporter" />
+alt="Screenshot of the menu for adding a CloudWatch exporter" />
 
 </Procedure>
 

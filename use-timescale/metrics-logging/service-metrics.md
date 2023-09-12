@@ -40,22 +40,21 @@ You can view metrics for your services for any of these time ranges:
 *   Last seven days, with one hour granularity
 *   Last 30 days, with one hour granularity
 
-To change the view, select the time range from the drop-down menu.
+To change the view, select the time range from the drop-down menu. Additionally,
+you can turn automatic metric refreshes on and off. When automatic metric
+refresh is on, the dashboard updates every thirty seconds.
 
 The metrics available are:
 
 *   CPU
 *   Memory
-*   Storage use
+*   Storage used
 *   Storage IO
 *   Storage bandwidth
 
 <img class="main-content__illustration"
 src="https://assets.timescale.com/docs/images/tsc_metrics_all.webp"
 alt="All metrics available in the Timescale dashboard"/>
-
-Additionally, you can turn automatic metric refreshes on and off. When automatic
-metric refresh is on, the dashboard updates every thirty seconds.
 
 In some cases, gray vertical bars display on the metrics dashboard, like this:
 
@@ -71,7 +70,7 @@ does not mean that your Timescale service was down.
 
 Disk bandwidth and disk IO metrics provide insight into the load and performance
 of the storage associated with your Timescale services, indicating the number of
-bytes/sec being written or read from storage, and the number of disk IO
+bytes per second written or read from storage, and the number of disk IO
 operations (IOPS) per second.
 
 Each Timescale service has a maximum limit for storage bandwidth and IO, which
