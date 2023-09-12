@@ -15,10 +15,10 @@ and extend what you can do with your data.
 |&#x1F6E0; [Query and administration][query-admin]|&#x1F50E; [Observability and alerting][observability-alerting]|&#x270D; [Data ingestion][data-ingest]
 |-|-|-|
 |[psql][psql]|[Grafana][grafana]|[Telegraf][telegraf]|
-|[DBeaver][dbeaver]|[Tableau][tableau]|
-|[Azure Data Studio][ads]|
-|[pgAdmin][pgadmin]|
-|[qStudio][qstudio]|
+|[DBeaver][dbeaver]|[Tableau][tableau]||
+|[Azure Data Studio][ads]|AWS CloudWatch[cloudwatch]||
+|[pgAdmin][pgadmin]|DataDog[datadog]||
+|[qStudio][qstudio]|||
 
 [query-admin]: /use-timescale/:currentVersion:/integrations/query-admin/
 [observability-alerting]: /use-timescale/:currentVersion:/integrations/observability-alerting/
@@ -31,3 +31,5 @@ and extend what you can do with your data.
 [grafana]: /use-timescale/:currentVersion:/integrations/observability-alerting/grafana/
 [telegraf]: /use-timescale/:currentVersion:/integrations/data-ingest/telegraf/
 [tableau]: /use-timescale/:currentVersion:/integrations/observability-alerting/tableau/
+[cloudwatch]: /use-timescale/:currentVersion:/integrations/observability-alerting/aws-cloudwatch/
+[datadog]: /use-timescale/:currentVersion:/integrations/observability-alerting/datadog/
