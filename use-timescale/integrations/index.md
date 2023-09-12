@@ -16,8 +16,8 @@ and extend what you can do with your data.
 |-|-|-|
 |[psql][psql]|[Grafana][grafana]|[Telegraf][telegraf]|
 |[DBeaver][dbeaver]|[Tableau][tableau]||
-|[Azure Data Studio][ads]|AWS CloudWatch[cloudwatch]||
-|[pgAdmin][pgadmin]|DataDog[datadog]||
+|[Azure Data Studio][ads]|[AWS CloudWatch][cloudwatch]||
+|[pgAdmin][pgadmin]|[DataDog][datadog]||
 |[qStudio][qstudio]|||
 
 [query-admin]: /use-timescale/:currentVersion:/integrations/query-admin/
