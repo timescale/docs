@@ -4,6 +4,9 @@ excerpt: How to tier data to object storage
 products: [cloud]
 keywords: [data tiering]
 tags: [storage, data management]
+cloud_ui:
+    path:
+        - [services, :serviceId, overview]
 ---
 
 import ExperimentalPrivateBeta from 'versionContent/_partials/_early_access.mdx';
