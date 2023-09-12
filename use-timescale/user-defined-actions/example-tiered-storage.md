@@ -24,30 +24,44 @@ moves automatically, you can write a user-defined action.
     LANGUAGE PLPGSQL
     AS $$
     DECLARE
-      ht REGCLASS;
-      lag interval;
-      destination name;
-      chunk REGCLASS;
+       ht REGCLASS;
+       lag interval;
+       destination_tablespace name;
+       index_destination_tablespace name;
+       reorder_index REGCLASS;
+       chunk REGCLASS;
+       tmp_name name;
     BEGIN
-      SELECT jsonb_object_field_text (config, 'hypertable')::regclass INTO STRICT ht;
-      SELECT jsonb_object_field_text (config, 'lag')::interval INTO STRICT lag;
-      SELECT jsonb_object_field_text (config, 'tablespace') INTO STRICT destination;
+       SELECT jsonb_object_field_text (config, 'hypertable')::regclass INTO STRICT ht;
+       SELECT jsonb_object_field_text (config, 'lag')::interval INTO STRICT lag;
+       SELECT jsonb_object_field_text (config, 'destination_tablespace') INTO STRICT destination_tablespace;
+       SELECT jsonb_object_field_text (config, 'index_destination_tablespace') INTO STRICT index_destination_tablespace;
+       SELECT jsonb_object_field_text (config, 'reorder_index') INTO STRICT reorder_index;
 
-      IF ht IS NULL OR lag IS NULL OR destination IS NULL THEN
-        RAISE EXCEPTION 'Config must have hypertable, lag and destination';
-      END IF;
+     IF ht IS NULL OR lag IS NULL OR destination_tablespace IS NULL THEN
+       RAISE EXCEPTION 'Config must have hypertable, lag and destination_tablespace';
+     END IF;
 
-      FOR chunk IN
-      SELECT show.oid
-      FROM show_chunks(ht, older_than => lag)
-      SHOW (oid)
-        INNER JOIN pg_class pgc ON pgc.oid = show.oid
-        INNER JOIN pg_tablespace pgts ON pgts.oid = pgc.reltablespace
-      WHERE pgts.spcname != destination
-      LOOP
-        RAISE NOTICE 'Moving chunk: %', chunk::text;
-        EXECUTE format('ALTER TABLE %s SET TABLESPACE %I;', chunk, destination);
-      END LOOP;
+     IF index_destination_tablespace IS NULL THEN
+       index_destination_tablespace := destination_tablespace;
+     END IF;
+
+     FOR chunk IN
+        SELECT c.oid
+        FROM pg_class AS c
+          LEFT JOIN pg_tablespace AS t ON (c.reltablespace = t.oid)
+          JOIN pg_namespace AS n ON (c.relnamespace = n.oid)
+          JOIN (SELECT * FROM show_chunks(ht, older_than => lag) SHOW (oid)) AS chunks ON (chunks.oid::text = n.nspname || '.' || c.relname)
+        WHERE t.spcname != destination_tablespace OR t.spcname IS NULL
+     LOOP
+       RAISE NOTICE 'Moving chunk: %', chunk::text;
+       PERFORM move_chunk(
+           chunk => chunk,
+           destination_tablespace => destination_tablespace,
+           index_destination_tablespace => index_destination_tablespace,
+           reorder_index => reorder_index
+       );
+     END LOOP;
     END
     $$;
     ```

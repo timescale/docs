@@ -13,20 +13,19 @@ manage a cluster of databases, which can give you faster data ingest,
 and more responsive and efficient queries for large workloads.
 
 <Highlight type="important">
-In some cases, your queries could be
-slower in a multi-node cluster due to the extra network communication
-between the various nodes. Queries perform the best when the query
-processing is distributed among the nodes and the result set is small
-relative to the queried data set. It is important that you understand
-multi-node architecture before you begin, and plan your database
-according to your specific requirements.
+In some cases, your queries could be slower in a multi-node cluster due to the
+extra network communication between the various nodes. Queries perform the best
+when the query processing is distributed among the nodes and the result set is
+small relative to the queried dataset. It is important that you understand
+multi-node architecture before you begin, and plan your database according to
+your specific requirements.
 </Highlight>
 
 ## Multi-node architecture
 
-Multi-node TimescaleDB allows you to tie several databases together
-into a logical distributed database in order to combine the
-processing power of many physical PostgreSQL instances.
+Multi-node TimescaleDB allows you to tie several databases together into a
+logical distributed database to combine the processing power of many physical
+PostgreSQL instances.
 
 One of the databases exists on an access node and stores
 metadata about the other databases. The other databases are
@@ -48,7 +47,10 @@ distribute data across chunks in both time and space dimensions. The
 figure in this section shows how an access node (AN) partitions data in the same
 time interval across multiple data nodes (DN1, DN2, and DN3).
 
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/multi-node-arch.png" alt="Diagram showing how multi-node access and data nodes interact"/>
+<img class="main-content__illustration"
+width={1375} height={944}
+src="https://assets.timescale.com/docs/images/multi-node-arch.webp"
+alt="Diagram showing how multi-node access and data nodes interact"/>
 
 A database user connects to the access node to issue commands and
 execute queries, similar to how one connects to a regular single
@@ -158,5 +160,35 @@ requires a lot of coordination and management, which can negatively effect
 performance, and it is therefore not implemented by default for distributed
 hypertables.
 
+## Using continuous aggregates in a multi-node environment
+
+If you are using Timescale in a multi-node environment, there are some
+additional considerations for continuous aggregates.
+
+When you create a continuous aggregate within a multi-node environment, the
+continuous aggregate should be created on the access node. While it is possible
+to create a continuous aggregate on data nodes, it interferes with the
+continuous aggregates on the access node and can cause problems.
+
+When you refresh a continuous aggregate on an access node, it computes a single
+window to update the time buckets. This could slow down your query if the actual
+number of rows that were updated is small, but widely spread apart. This is
+aggravated if the network latency is high if, for example, you have remote data
+nodes.
+
+Invalidation logs are on kept on the data nodes, which is designed to limit the
+amount of data that needs to be transferred. However, some statements send
+invalidations directly to the log, for example, when dropping a chunk or
+truncate a hypertable. This action could slow down performance, in comparison to
+a local update. Additionally, if you have infrequent refreshes but a lot of
+changes to the hypertable, the invalidation logs could get very large, which
+could cause performance issues. Make sure you are maintaining your invalidation
+log size to avoid this, for example, by refreshing the continuous aggregate
+frequently.
+
+For more information about setting up multi-node, see the
+[multi-node section][multi-node]
+
 [2pc]: https://www.postgresql.org/docs/current/sql-prepare-transaction.html
 [hypertables]: /use-timescale/:currentVersion:/hypertables/
+[multi-node]: /self-hosted/:currentVersion:/multinode-timescaledb/

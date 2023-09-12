@@ -33,7 +33,7 @@ hourly basis in a typical day.
 
 1.  Connect to the Timescale database that contains the energy consumption dataset.
 1.  At the psql prompt, use the Timescale Toolkit functionality to get calculate
-    the 50th percentile or the median. Then calculate the maximum energy
+    the fiftieth percentile or the median. Then calculate the maximum energy
     consumed using the standard PostgreSQL max function:
 
     ```sql
@@ -194,18 +194,18 @@ You may also want to check the energy consumption that occurs on a monthly basis
         Dec   |      12 |
     ```
 
-1.  <Optional /> To visualize this in Grafana, create a new panel, and select
+1.  [](#)<Optional /> To visualize this in Grafana, create a new panel, and select
     the `Bar Chart` visualization. Select the energy consumption dataset as your
     data source, and type the query from the previous step. In the `Format as`
     section, select `Table`.
 
-1.  <Optional /> Select a color scheme so that different consumptions are shown
+1.  [](#)<Optional /> Select a color scheme so that different consumptions are shown
     in different colors. In the options panel, under `Standard options`, change
     the `Color scheme` to a useful `by value` range.
 
     <img
     class="main-content__illustration"
-    src="https://s3.amazonaws.com/assets.timescale.com/docs/images/grafana-energy.webp"
+    src="https://assets.timescale.com/docs/images/grafana-energy.webp"
     width={1375} height={944}
     alt="Visualizing energy consumptions in Grafana"
     />

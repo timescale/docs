@@ -1,6 +1,3 @@
-A service in Timescale is a cloud instance which contains your database.
-Each service contains a single database, named `tsdb`.
-
 <Procedure>
 
 ### Create a Timescale service
@@ -9,24 +6,7 @@ Each service contains a single database, named `tsdb`.
   <li>
     <p>
       Sign in to the{" "}
-      <a href="https://console.cloud.timescale.com/">Timescale portal</a>.
-    </p>
-  </li>
-  <li>
-    <p>
-      {" "}
-      {props.demoData ? (
-        <>
-          If this is your first service, we recommend that you choose the
-          option to deploy a service with a {" "}
-          <code>demo dataset</code>, because it is the best way to see how
-          Timescale works in the real world.
-        </>
-      ) : (
-        <>
-          Click <code>Create service</code>.
-        </>
-      )}
+      <a href="https://console.cloud.timescale.com/">Timescale portal</a> and click <code>Create service</code>.
     </p>
   </li>
   {props.demoData && (
@@ -39,7 +19,8 @@ Each service contains a single database, named `tsdb`.
       </p>
       <img
         class="main-content__illustration"
-        src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-create-service-demo.png"
+        width={1375} height={944}
+        src="https://assets.timescale.com/docs/images/tsc-create-service-demo.png"
         alt="Create a new service in the Timescale portal"
       />
     </li>

@@ -14,5 +14,6 @@ From the `Services` page, click the service you are interested in and navigate
 to the `Logs` tab. This section contains your service's logging data.
 
 <img class="main-content__illustration"
-src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-services-logs.png"
+width={1375} height={944}
+src="https://assets.timescale.com/docs/images/tsc-services-logs.webp"
 alt="Timescale Services Logs"/>

@@ -10,6 +10,10 @@ keywords: [compression, backfilling, hypertables]
 In TimescaleDB&nbsp;2.11 and later, you can insert data into compressed chunks,
 and modify data in compressed rows.
 
+<Highlight type="warning">
+This feature requires PostgreSQL 14 or later
+</Highlight>
+
 ## Insert data into compressed chunks
 
 <Tabs>

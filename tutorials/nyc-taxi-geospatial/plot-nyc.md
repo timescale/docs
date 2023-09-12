@@ -1,11 +1,11 @@
 ---
-title: Query time-series data tutorial - query the data
-excerpt: Query time-series data
-products: [cloud, mst, self_hosted]
-keywords: [tutorials, query]
-tags: [tutorials, beginner]
+title: Plot geospatial time-series data tutorial - query the data
+excerpt: Query geospatial time-series data
+products: [cloud]
+keywords: [tutorials, GIS, geospatial, learn]
+tags: [tutorials, intermediate]
 layout_components: [next_prev_large]
-content_group: Analyze NYC taxi cab data
+content_group: Plot geospatial NYC taxi cab data
 ---
 
 # Query the data
@@ -157,23 +157,23 @@ Grafana can plot the data properly.
      ...
     ```
 
-1.  <Optional /> To visualize this in Grafana, create a new panel, and select the
+1.  [](#)<Optional /> To visualize this in Grafana, create a new panel, and select the
     `Geomap` visualization. Select the NYC taxis dataset as your data source,
     and type the query from the previous step. In the `Format as` section,
     select `Table`. Your world map now shows a dot over New York, zoom in
     to see the visualization.
-1.  <Optional /> To make this visualization more useful, change the way that the
+1.  [](#)<Optional /> To make this visualization more useful, change the way that the
     rides are displayed. In the options panel, under `Data layer`, add a layer
     called `Distance traveled` and select the `markers` option. In the `Color`
     section, select `value`. You can also adjust the symbol and size here.
-1.  <Optional /> Select a color scheme so that different ride lengths are shown
+1.  [](#)<Optional /> Select a color scheme so that different ride lengths are shown
     in different colors. In the options panel, under `Standard options`, change
     the `Color scheme` to a useful `by value` range. This example uses the
     `Blue-Yellow-Red (by value)` option.
 
     <img
     class="main-content__illustration"
-    src="https://s3.amazonaws.com/assets.timescale.com/docs/images/grafana-postgis.webp"
+    src="https://assets.timescale.com/docs/images/grafana-postgis.webp"
     width={1375} height={944}
     alt="Visualizing taxi journeys by distance in Grafana"
     />

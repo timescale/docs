@@ -12,8 +12,12 @@ api:
 # timescaledb_information.compression_settings
 
 Get information about compression-related settings for hypertables.
-Each row of the view provides information about individual orderby
-and segmentby columns used by compression.
+Each row of the view provides information about individual `orderby`
+and `segmentby` columns used by compression.
+
+How you use `segmentby` is the single most important thing for compression. It
+affects compresion rates, query performance, and what is compressed or
+decompressed by mutable compression.
 
 ### Available columns
 
@@ -33,7 +37,7 @@ and segmentby columns used by compression.
 CREATE TABLE hypertab (a_col integer, b_col integer, c_col integer, d_col integer, e_col integer);
 SELECT table_name FROM create_hypertable('hypertab', 'a_col', chunk_time_interval => 864000000);
 
-ALTER TABLE hypertab SET (timescaledb.compress, timescaledb.compress_segmentby = 'a_col,b_col', 
+ALTER TABLE hypertab SET (timescaledb.compress, timescaledb.compress_segmentby = 'a_col,b_col',
   timescaledb.compress_orderby = 'c_col desc, d_col asc nulls last');
 
 SELECT * FROM timescaledb_information.compression_settings WHERE hypertable_name = 'hypertab';
@@ -43,22 +47,22 @@ hypertable_schema      | public
 hypertable_name        | hypertab
 attname                | a_col
 segmentby_column_index | 1
-orderby_column_index   | 
-orderby_asc            | 
-orderby_nullsfirst     | 
+orderby_column_index   |
+orderby_asc            |
+orderby_nullsfirst     |
 -[ RECORD 2 ]----------+---------
 hypertable_schema      | public
 hypertable_name        | hypertab
 attname                | b_col
 segmentby_column_index | 2
-orderby_column_index   | 
-orderby_asc            | 
-orderby_nullsfirst     | 
+orderby_column_index   |
+orderby_asc            |
+orderby_nullsfirst     |
 -[ RECORD 3 ]----------+---------
 hypertable_schema      | public
 hypertable_name        | hypertab
 attname                | c_col
-segmentby_column_index | 
+segmentby_column_index |
 orderby_column_index   | 1
 orderby_asc            | f
 orderby_nullsfirst     | t
@@ -66,7 +70,7 @@ orderby_nullsfirst     | t
 hypertable_schema      | public
 hypertable_name        | hypertab
 attname                | d_col
-segmentby_column_index | 
+segmentby_column_index |
 orderby_column_index   | 2
 orderby_asc            | t
 orderby_nullsfirst     | f

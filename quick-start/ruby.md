@@ -14,7 +14,7 @@ This quick start guide walks you through:
 
 *   [Connecting to TimescaleDB][connect]
 *   [Creating a relational table][create-table]
-*   [Creating a hypertable][create-hypertable]
+*   [Creating a hypertable][create-a-hypertable]
 *   [Inserting data][insert]
 *   [Executing a query][query]
 
@@ -27,12 +27,6 @@ Before you start, make sure you have:
     `Password`, and `Port` in the TimescaleDB Cloud instance that you created.
 *   Installed [Rails][rails-guide].
 *   Installed [psql to connect][psql-install] to TimescaleDB.
-
-<Highlight type="cloud" header="Run all tutorials free" button="Try for free">
-Your Timescale trial is completely free for you to use for the first
-thirty days. This gives you enough time to complete all the tutorials and run
-a few test projects of your own.
-</Highlight>
 
 ## Connect to TimescaleDB
 
@@ -77,24 +71,6 @@ on Rails application.
 
     A new migration file `<migration-datetime>_add_timescale.rb` is created in
     the `my_app/db/migrate` directory.
-
-1.  Update the contents of the `<migration-datetime>_add_timescale.rb` file with
-    these instructions to load the TimescaleDB extension to PostgreSQL:
-
-    ```ruby
-    class AddTimescale < ActiveRecord::Migration[7.0]
-      def change
-       enable_extension("timescaledb") unless extensions.include? "timescaledb"
-       end
-      end
-    end
-    ```
-
-1.  Add the TimescaleDB extension to the PostgreSQL database:
-
-    ```ruby
-       rails db:migrate
-    ```
 
 1.  Connect to TimescalDB Cloud using Rails:
 
@@ -732,11 +708,11 @@ page by page, or all pages together, and group by path or not:
 
 [connect]: #connect-to-timescaledb
 [create-table]: #create-a-relational-table
-[create-hypertable]: #create-a-hypertable
+[create-a-hypertable]: #create-a-hypertable
 [insert]: #insert-rows-of-data
 [query]: #execute-a-query
 [install]: /getting-started/latest/
-[psql-install]: /use-timescale/:currentVersion:/connecting/psql/
+[psql-install]: /use-timescale/:currentVersion:/integrations/query-admin/about-psql/
 [rails-guide]: https://guides.rubyonrails.org/getting_started.html
 [ab]: https://httpd.apache.org/docs/2.4/programs/ab.html
 [active-record-query]: https://guides.rubyonrails.org/active_record_querying.html

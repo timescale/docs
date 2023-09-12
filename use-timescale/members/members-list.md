@@ -40,7 +40,10 @@ create one.
 1.  The new project member can switch to the shared project by selecting it from
     the `Project` drop-down menu.
 
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-add-members.png" alt="Adding a new member to a project in Timescale"/>
+<img class="main-content__illustration"
+width={1375} height={944}
+src="https://assets.timescale.com/docs/images/tsc-add-members.webp"
+alt="Adding a new member to a project in Timescale"/>
 
 </Procedure>
 
@@ -70,7 +73,8 @@ create one.
     switch to the shared project.
 
 <img class="main-content__illustration"
-src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-leave-members.png"
+width={1375} height={944}
+src="https://assets.timescale.com/docs/images/tsc-leave-members.webp"
 alt="Leaving a project in Timescale"/>
 
 </Procedure>

@@ -83,7 +83,10 @@ Managed Service for TimescaleDB console.
 *   `pg.max_prepared_transactions` > 0 (150 is a recommended starting value)
 *   `enable_partitionwise_aggregate` should be set to `on` on the access node for good query performance. Otherwise, queries are not pushed down to the data nodes.
 
-<img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/cloud_images/timescale-cloud-adv-config.png" alt="Managed TimescaleDB advanced configuration"/>
+<img class="main-content__illustration"
+width={1375} height={944}
+src="https://assets.timescale.com/docs/images/timescale-cloud-adv-config.webp"
+alt="Managed TimescaleDB advanced configuration"/>
 
 ### Add data nodes to the cluster
 
@@ -117,7 +120,10 @@ For this step, you'll need to copy the `Host`, `Password`, and `Port` details
 listed under the `Connection Information` section of the Service details to use
 with the `add_data_node` command in the next section.
 
-<img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/cloud_images/timescale-cloud-connection-info.png" alt="Managed Service for TimescaleDB multi-node connection information"/>
+<img class="main-content__illustration"
+width={1375} height={944}
+src="https://assets.timescale.com/docs/images/timescale-cloud-connection-info.webp"
+alt="Managed Service for TimescaleDB multi-node connection information"/>
 
 When you have the `password` and `host` for each data node Service, connect to
 the access node using the `tsdbadmin` user. On Managed Service for TimescaleDB,

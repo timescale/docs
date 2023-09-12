@@ -19,7 +19,8 @@ find the service you want to review, and check it is marked as `Running`.
 Navigate to the `Logs` tab to see a constantly updated list of logged events.
 
 <img class="main-content__illustration"
-src="https://s3.amazonaws.com/assets.timescale.com/docs/images/mst-view-logs.png"
+width={1375} height={944}
+src="https://assets.timescale.com/docs/images/mst-view-logs.webp"
 alt="Managed Service for TimescaleDB native logging"/>
 
 ## Dump logs to a text file with the Aiven CLI
@@ -79,7 +80,9 @@ Service for TimescaleDB.
     From here, you can create custom dashboards and view reports for your logs.
 
     <img class="main-content__illustration"
-      src="https://s3.amazonaws.com/assets.timescale.com/docs/images/loggly-view-logs.png" alt="Viewing incoming MST logs in Loggly"
+    width={1375} height={944}
+    src="https://assets.timescale.com/docs/images/loggly-view-logs.webp"
+    alt="Viewing incoming MST logs in Loggly"
     />
 
 </Procedure>

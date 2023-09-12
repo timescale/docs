@@ -8,40 +8,24 @@ layout_components: [next_prev_large]
 content_group: Analyze financial tick data
 ---
 
-import Install from "versionContent/_partials/_cloud-installation.mdx";
-import CreateService from "versionContent/_partials/_cloud-create-service.mdx";
-import Connect from "versionContent/_partials/_cloud-connect.mdx";
+import CreateAndConnect from "versionContent/_partials/_cloud-create-connect-tutorials.mdx";
 import CreateHypertable from "versionContent/_partials/_create-hypertable-twelvedata-stocks.mdx";
 import AddData from "versionContent/_partials/_add-data-twelvedata-stocks.mdx";
 
-# Create the dataset
+# Set up the database
 
 This tutorial uses a dataset that contains second-by-second stock-trade data for
 the top 100 most-traded symbols, in a hypertable named `stocks_real_time`. It
 also includes a separate table of company symbols and company names, in a
 regular PostgreSQL table named `company`.
 
-<Collapsible heading="Sign up for Timescale">
+<Collapsible heading="Create a Timescale service and connect to your service" defaultExpanded={false}>
 
-Your Timescale account is free for thirty days.
-
-<Install />
+<CreateAndConnect/>
 
 </Collapsible>
 
-<Collapsible heading="Create a service">
-
-<CreateService demoData={false} />
-
-</Collapsible>
-
-<Collapsible heading="Connect to your service">
-
-<Connect />
-
-</Collapsible>
-
-<Collapsible heading="The dataset">
+<Collapsible heading="The dataset" defaultExpanded={false}>
 
 The dataset is updated on a nightly basis and contains data from the last four
 weeks, typically around 8 million rows of data. Stock trades are recorded in
@@ -51,5 +35,15 @@ New York Stock Exchange (9:30&nbsp;AM - 4:00&nbsp;PM EST).
 <CreateHypertable />
 
 <AddData />
+
+</Collapsible>
+
+<Collapsible heading="Connect to Grafana" defaultExpanded={false}>
+
+The queries in this tutorial are suitable for visualizing in Grafana. If you
+want to visualize the results of your queries, connect your Grafana account to
+the energy consumption dataset.
+
+<GrafanaConnect />
 
 </Collapsible>

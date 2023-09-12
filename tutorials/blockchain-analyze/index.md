@@ -23,14 +23,14 @@ blockchain, including other cryptocurrencies, smart contracts, or health data.
 Before you begin, make sure you have:
 
 *   Signed up for a [free Timescale account][cloud-install].
-*   <Optional />Signed up for a [Grafana account][grafana-setup] to graph your queries.
+*   [](#)<Optional />Signed up for a [Grafana account][grafana-setup] to graph your queries.
 
 ## Steps in this tutorial
 
 This tutorial covers:
 
-1.  [Set up up your dataset][blockchain-dataset]
-1.  [Analyze your dataset][blockchain-analyze]
+1.  [Setting up your dataset][blockchain-dataset]
+1.  [Querying your dataset][blockchain-analyze]
 
 ## About analyzing the Bitcoin blockchain with Timescale
 
@@ -50,14 +50,10 @@ hyperfunctions. It walks you through creating a series of continuous aggregates,
 and querying the aggregates to analyze the data. You can also use those queries
 to graph the output in Grafana.
 
-[cloud-install]: /getting-started/:currentVersion:/
+[cloud-install]: /getting-started/:currentVersion:/#create-your-timescale-account
 [blockchain-dataset]: /tutorials/:currentVersion:/blockchain-analyze/blockchain-dataset/
 [blockchain-analyze]: /tutorials/:currentVersion:/blockchain-analyze/analyze-blockchain-query/
 [blockchain-query]: /tutorials/:currentVersion:/blockchain-query/beginner-blockchain-query/
 [blockchain-def]: https://www.pcmag.com/encyclopedia/term/blockchain
 [transactions-def]: https://www.pcmag.com/encyclopedia/term/bitcoin-transaction
-[grafana-setup]: https://grafana.com/auth/sign-up/
-
-<!--- When integrations go live, use this link instead
-[grafana-setup]: /use-timescale/:currentVersion:/integrations/obervability-alerting/grafana/installation/
--->
+[grafana-setup]: /use-timescale/:currentVersion:/integrations/observability-alerting/grafana/installation/

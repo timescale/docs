@@ -17,6 +17,66 @@ GitHub and be notified by email whenever a new release is available. On the
 click `Watch`, select `Custom` and then check `Releases`.
 </Highlight>
 
+## TimescaleDB&nbsp;2.11.2 on 2023-08-17
+
+These release notes are for the release of TimescaleDB&nbsp;2.11.2 on
+2023-08-17.
+
+<Highlight type="note">
+This release contains bug fixes since the 2.11.1 release.
+It is recommended that you upgrade at the next available opportunity.
+</Highlight>
+
+### Complete list of features
+
+* #5923 Feature flags for TimescaleDB features
+
+### Complete list of bug fixes
+
+* #5680 Fix DISTINCT query with `JOIN` on multiple `segmentby` columns
+* #5774 Fixed two bugs in decompression sorted merge code
+* #5786 Ensure pg_config --cppflags are passed
+* #5906 Fix quoting owners in SQL scripts.
+* #5912 Fix crash in 1-step integer policy creation
+
+### Acknowledgments
+
+Timescale thanks:
+
+* @mrksngl for submitting a PR to fix extension upgrade scripts
+* @ericdevries for reporting an issue with DISTINCT queries using
+`segmentby` columns of compressed hypertable
+
+## TimescaleDB&nbsp;2.11.1 on 2023-06-29
+
+These release notes are for the release of TimescaleDB&nbsp;2.11.1 on
+2023-06-29.
+
+<Highlight type="note">
+This release contains bug fixes since the last release. It is considered low
+priority for upgrading. Upgrade your TimescaleDB installation at your next
+opportunity.
+</Highlight>
+
+### Complete list of bug fixes
+
+*   #5705 Scheduler accidentally getting killed when calling delete_job
+*   #5742 Fix Result node handling with ConstraintAwareAppend on compressed chunks
+*   #5750 Ensure tlist is present in decompress chunk plan
+*   #5754 Fixed handling of NULL values in bookend_sfunc
+*   #5798 Fixed batch look ahead in compressed sorted merge
+*   #5804 Mark cagg_watermark function as PARALLEL RESTRICTED
+*   #5807 Copy job config JSONB structure into current MemoryContext
+*   #5824 Improve continuous aggregate query chunk exclusion
+
+### Acknowledgments
+
+Timescale thanks:
+
+*   @JamieD9 for reporting an issue with a wrong result ordering
+*   @xvaara for reporting an issue with Result node handling in
+    ConstraintAwareAppend
+
 
 ## TimescaleDB&nbsp;2.11.0 on 2023-05-22
 
@@ -127,7 +187,10 @@ opportunity.
 Timescale thanks:
 
 *   @nikolaps for reporting an issue with the COPY fetcher
+<!-- Vale complains about the username -->
+<!-- vale Google.Slang = NO -->
 *   @S-imo-n for reporting the issue on Background Worker Scheduler crash
+<!-- vale Google.Slang = YES -->
 *   @geezhu for reporting issue on segfault in historgram()
 *   @mwahlhuetter for reporting the issue with joins in CAggs
 *   @mwahlhuetter for reporting issue with duplicated entries on

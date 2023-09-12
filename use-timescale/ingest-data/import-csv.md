@@ -67,7 +67,7 @@ Import data from a `csv`.
         --file <FILENAME>.csv --workers 4 --copy-options "CSV"
     ```
 
-1.  <Optional />If you don't want to use `timescaledb-parallel-copy`,
+1.  [](#)<Optional />If you don't want to use `timescaledb-parallel-copy`,
     insert data into the hypertable by using PostgreSQL's native `COPY`command.
     At the command line, run:
 

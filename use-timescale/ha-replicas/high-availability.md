@@ -9,7 +9,6 @@ cloud_ui:
         - [services, :serviceId, operations, replication]
 ---
 
-import CloudTrial from "versionContent/_partials/_cloudtrial.mdx";
 
 # High availability
 
@@ -21,8 +20,6 @@ replicas. HA replicas significantly reduce the risk of downtime and data loss
 due to failures, and allow a service to avoid downtime for routine maintenance.
 This section covers how each of these work to help you make an informed decision
 about which is right for your service.
-
-<CloudTrial />
 
 ## HA replicas
 
@@ -48,10 +45,6 @@ primary and the other node undergoes maintenance.
 
 ## Create a database replica
 
-<Highlight type="warning">
-If you created your service before June 2022, your service might restart when
-you add a replica. Restarts typically take about one minute to complete.
-</Highlight>
 
 <Procedure>
 
@@ -72,7 +65,8 @@ you add a replica. Restarts typically take about one minute to complete.
 
 <img
 class="main-content__illustration"
-src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-replication-add.png"
+width={1375} height={944}
+src="https://assets.timescale.com/docs/images/tsc-replication-add.webp"
 alt="Creating a database replica in Timescale"
 />
 

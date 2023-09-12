@@ -8,18 +8,15 @@ layout_components: [next_prev_large]
 content_group: Getting started
 ---
 
-import HypershiftAlt from "versionContent/_partials/_hypershift-alternatively.mdx";
 import TimeseriesIntro from "versionContent/_partials/_timeseries-intro.mdx";
 
 # Time-series data
 
 <TimeseriesIntro />
 
-To explore Timescale's features, you need some sample data. This tutorial
-provides real-time stock trade data, also known as tick data, from
+To explore Timescale's features, you need some sample data. This guide
+uses real-time stock trade data, also known as tick data, from
 [Twelve Data][twelve-data].
-
-<HypershiftAlt />
 
 ## About the dataset
 
@@ -38,8 +35,6 @@ Exchange (9:30&nbsp;AM - 4:00&nbsp;PM EST).
 To ingest data into the tables that you created, you need to download the
 dataset and copy the data to your database.
 
-<HypershiftAlt />
-
 <Procedure>
 
 ### Ingesting the dataset
@@ -53,27 +48,25 @@ dataset and copy the data to your database.
 
 1.  In a new terminal window, run this command to unzip the `.csv` files:
 
-    ```bash
+    <CodeBlock canCopy={true} showLineNumbers={false} children={`
     unzip real_time_stock_data.zip
-    ```
+    `} />
 
 1.  At the `psql` prompt, use the `COPY` command to transfer data into your
     Timescale instance. If the `.csv` files aren't in your current directory,
     specify the file paths in the following commands:
 
-    ```sql
-    \COPY stocks_real_time from './tutorial_sample_tick.csv' DELIMITER ',' CSV HEADER;
-    ```
+    <CodeBlock canCopy={true} showLineNumbers={false} children={`
+    \\COPY stocks_real_time from './tutorial_sample_tick.csv' DELIMITER ',' CSV HEADER;
+    `} />
 
-    ```sql
-    \COPY company from './tutorial_sample_company.csv' DELIMITER ',' CSV HEADER;
-    ```
+    <CodeBlock canCopy={true} showLineNumbers={false} children={`
+    \\COPY company from './tutorial_sample_company.csv' DELIMITER ',' CSV HEADER;
+    `} />
 
     Because there are millions of rows of data, the `COPY` process may take a few
     minutes depending on your internet connection and local client resources.
 
 </Procedure>
-
-<Video url="https://www.youtube.com/embed/YwidcyBFgAU"></Video>
 
 [twelve-data]: https://twelvedata.com/

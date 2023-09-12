@@ -11,16 +11,10 @@
     password you set:
     <img
       class="main-content__illustration"
-      src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-portal-noservices.webp"
+      src="https://assets.timescale.com/docs/images/tsc-portal-noservices.webp"
       width={1375} height={944}
       alt="Timescale Portal"
     />
-
-<Highlight type="important">
-Your trial is completely free for you to use for the first
-thirty days. This gives you enough time to complete all the tutorials and run a
-few test projects of your own.
-</Highlight>
 
 </Procedure>
 

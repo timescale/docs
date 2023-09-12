@@ -27,7 +27,10 @@ groups of services. Each project can also have its own billing settings.
 To create a new project, click the project name in the navigation menu, and
 click `Create a new project`.
 
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/mst-empty-project.png" alt="Managed Service for TimescaleDB new empty project"/>
+<img class="main-content__illustration"
+width={1375} height={944}
+src="https://assets.timescale.com/mst-empty-project.webp"
+alt="Managed Service for TimescaleDB new empty project"/>
 
 ## Services
 
@@ -38,7 +41,10 @@ can access all your services from the `Services` tab within your projects.
 For more information about getting your first service up and running, see the
 [Managed Service for Timescale installation section][mst-install].
 
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/mst-services.png" alt="Managed Service for TimescaleDB services list"/>
+<img class="main-content__illustration"
+width={1375} height={944}
+src="https://assets.timescale.com/mst-services.webp"
+alt="Managed Service for TimescaleDB services list"/>
 
 <Highlight type="important">
 When you have created, and named, a new Managed Service for TimescaleDB service,
@@ -57,7 +63,10 @@ Each service can contain one or more databases. To view existing databases, or
 to create a new database, click the name of the service in the services list,
 and navigate to the `Databases` tab.
 
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/mst-databases.png" alt="Managed Service for TimescaleDB databases list"/>
+<img class="main-content__illustration"
+width={1375} height={944}
+src="https://assets.timescale.com/mst-databases.webp"
+alt="Managed Service for TimescaleDB databases list"/>
 
 ## Service level agreement
 
@@ -109,7 +118,10 @@ Within each configuration plan option, there are several plan types available:
 *   `Dev-Only`: These configurations are typically smaller footprints, and lower
     cost, designed for development and testing scenarios.
 
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/mst-service-plans.png" alt="Managed Service for TimescaleDB selecting a service configuration plan"/>
+<img class="main-content__illustration"
+width={1375} height={944}
+src="https://assets.timescale.com/mst-service-plans.webp"
+alt="Managed Service for TimescaleDB selecting a service configuration plan"/>
 
 ## High availability
 

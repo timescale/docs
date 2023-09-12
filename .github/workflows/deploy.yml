@@ -19,7 +19,7 @@ jobs:
         id: timescale
         run: |
           echo "DEV_FOLDER=$(echo ${GITHUB_HEAD_REF})" >> $GITHUB_OUTPUT
-          echo "HYPHENATED_BRANCH_NAME=$(echo "${GITHUB_HEAD_REF}" | sed 's|/|-|')" >> $GITHUB_ENV
+          echo "HYPHENATED_BRANCH_NAME=$(echo "${GITHUB_HEAD_REF}" | sed 's|/|-|' | sed 's/\./-/g')" >> $GITHUB_ENV
 
       - name: Repository Dispatch
         uses: peter-evans/repository-dispatch@26b39ed245ab8f31526069329e112ab2fb224588
@@ -30,7 +30,7 @@ jobs:
           client-payload: '{"branch": "${{ steps.timescale.outputs.DEV_FOLDER }}", "pr_number": "${{ env.PR_NUMBER }}"}'
 
       - name: Write comment
-        uses: marocchino/sticky-pull-request-comment@f61b6cf21ef2fcc468f4345cdfcc9bda741d2343
+        uses: marocchino/sticky-pull-request-comment@efaaab3fd41a9c3de579aba759d2552635e590fd
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           message: |

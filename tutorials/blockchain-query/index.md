@@ -28,8 +28,8 @@ Before you begin, make sure you have:
 
 This tutorial covers:
 
-1.  [Set up up your dataset][blockchain-dataset]
-1.  [Query your dataset][blockchain-query]
+1.  [Setting up your dataset][blockchain-dataset]
+1.  [Querying your dataset][blockchain-query]
 
 ## About querying the Bitcoin blockchain with Timescale
 
@@ -50,7 +50,7 @@ When you've completed this tutorial, you can use the same dataset to complete
 the [advanced blockchain tutorial][analyze-blockchain], which shows you how to
 analyze the blockchain data using Timescale hyperfunctions.
 
-[cloud-install]: /getting-started/:currentVersion:/
+[cloud-install]: /getting-started/:currentVersion:/#create-your-timescale-account
 [blockchain-dataset]: /tutorials/:currentVersion:/blockchain-query/blockchain-dataset/
 [blockchain-query]: /tutorials/:currentVersion:/blockchain-query/beginner-blockchain-query/
 [blockchain-def]: https://www.pcmag.com/encyclopedia/term/blockchain

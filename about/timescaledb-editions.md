@@ -10,7 +10,7 @@ tags: [learn, contribute]
 
 There are two versions of TimescaleDB available:
 
-*   TimescaleDB with an Apache 2 licence
+*   TimescaleDB Apache 2 Edition
 *   TimescaleDB Community Edition
 
 The TimescaleDB Apache 2 Edition is the version of TimescaleDB that is available
@@ -18,7 +18,7 @@ under the [Apache 2.0 license][apache-license]. This is a classic open source li
 meaning that it is completely unrestricted - anyone can take this code and offer it
 as a service.
 
-### TimescaleDB Apache 2 Edition
+## TimescaleDB Apache 2 Edition
 
 You can install TimescaleDB Apache 2 Edition on your own on-premises or cloud
 infrastructure and run it for free.
@@ -29,20 +29,13 @@ main contributor.
 You can modify the TimescaleDB Apache 2 Edition source code and run it for
 production use.
 
-TimescaleDB Apache 2 Edition is available from these service providers:
+## TimescaleDB Community Edition
 
-*   [Azure Database for PostgreSQL][azure-database]
-*   [Digital Ocean][digital-ocean]
-*   [Aiven for PostgreSQL][aiven]
-*   [Neon. Serverless Postgres][neon]
-
-### TimescaleDB Community Edition
-
-TimescaleDB Community Edition is the latest, most updated version of TimescaleDB,
-available under the
+TimescaleDB Community Edition is the advanced, best, and most feature complete 
+version of TimescaleDB, available under the terms of the
 [Timescale License (TSL)][timescale-license].
 
-For more information about the Timescale licence, see [this blog post][license-blog].
+For more information about the Timescale license, see [this blog post][license-blog].
 
 Many of the most recent features of TimescaleDB are only available in
 TimescaleDB Community Edition.
@@ -60,13 +53,10 @@ to repair" and make modifications to the source code and run it in their own
 on-premises or cloud infrastructure. However, you cannot make modifications to
 the TimescaleDB Community Edition source code and offer it as a service.
 
-Timescale provides hosted versions of TimescaleDB Community Edition:
-[Timescale][timescale-cloud] and
-[Managed Service for TimescaleDB][mst]. Timescale is a cloud-native
-platform for time-series, hosted in AWS. MST is a database-as-a-service offering
-for TimescaleDB. MST is offered in AWS, Azure, and Google Cloud.
+You can access a hosted version of TimescaleDB Community Edition through
+[Timescale][timescale-cloud], which is a cloud-native platform for time-series.
 
-### Feature comparison
+## Feature comparison
 
 <table>
   <tr>
@@ -520,12 +510,8 @@ for TimescaleDB. MST is offered in AWS, Azure, and Google Cloud.
 
 <!-- vale Google.Units = NO -->
 
-[aiven]: https://aiven.io/postgresql
-[azure-database]: https://azure.microsoft.com/en-us/services/postgresql/?&ef_id=CjwKCAjwhOyJBhA4EiwAEcJdcWZ6_o9d5INkZvm1MGsOsinuXgDwV_ySL5vc34z3pyxxrP0R49J_8xoCVvIQAvD_BwE:G:s&OCID=AID2200277_SEM_CjwKCAjwhOyJBhA4EiwAEcJdcWZ6_o9d5INkZvm1MGsOsinuXgDwV_ySL5vc34z3pyxxrP0R49J_8xoCVvIQAvD_BwE:G:s&gclid=CjwKCAjwhOyJBhA4EiwAEcJdcWZ6_o9d5INkZvm1MGsOsinuXgDwV_ySL5vc34z3pyxxrP0R49J_8xoCVvIQAvD_BwE#overview
-[digital-ocean]: https://docs.digitalocean.com/products/databases/postgresql/details/supported-extensions/
 [license-blog]: https://blog.timescale.com/blog/building-open-source-business-in-cloud-era-v2/
 [mst]: /mst/:currentVersion:
 [timescale-cloud]: /use-timescale/:currentVersion:/services/
 [timescale-license]: https://github.com/timescale/timescaledb/blob/master/tsl/LICENSE-TIMESCALE
-[neon]: https://neon.tech/
 [apache-license]: https://github.com/timescale/timescaledb/blob/master/LICENSE-APACHE
