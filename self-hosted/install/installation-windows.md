@@ -13,16 +13,16 @@ import WhereTo from "versionContent/_partials/_where-to-next.mdx";
 You can host TimescaleDB yourself on your Microsoft Windows system.
 These instructions use a `zip` installer on these versions:
 
-*   Microsoft Windows 10
-*   Microsoft Windows 11
-*   Microsoft Windows Server 2019
+*   Microsoft Windows&nbsp;10
+*   Microsoft Windows&nbsp;11
+*   Microsoft Windows Server&nbsp;2019
 
 The minimum supported PostgreSQL versions are:
 
-*   PostgreSQL 12.8
-*   PostgreSQL 13.5
-*   PostgreSQL 14.0
-*   PostgreSQL 15.0
+*   PostgreSQL&nbsp;12.8
+*   PostgreSQL&nbsp;13.5
+*   PostgreSQL&nbsp;14.0
+*   PostgreSQL&nbsp;15.0
 
 <Highlight type="warning">
 If you have already installed PostgreSQL using another method, you could
