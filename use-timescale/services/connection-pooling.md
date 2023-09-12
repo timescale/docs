@@ -5,7 +5,7 @@ products: [cloud]
 keywords: [connection pooling, pooler, connections, services]
 cloud_ui:
     path:
-        - [services, :serviceId]
+        - [services, :serviceId, overview]
 ---
 
 import Beta from "versionContent/_partials/_beta.mdx";

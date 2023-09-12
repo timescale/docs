@@ -7,6 +7,9 @@ tags: [payment, billing, costs]
 cloud_ui:
     path:
         - [billing]
+        - [billing, details]
+        - [billing, payments]
+        - [billing, emails]
 ---
 
 import UsageBasedStorage from "versionContent/_partials/_usage-based-storage-intro.mdx";
