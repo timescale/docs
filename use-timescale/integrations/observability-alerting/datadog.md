@@ -1,0 +1,152 @@
+---
+title: Integrate Timescale services with Datadog for monitoring
+excerpt: Export telemetry metrics to Datadog
+products: [cloud]
+keywords: [integration, metrics, logging, Datadog]
+tags: [telemetry, monitor]
+cloud_ui:
+    path:
+        - [integrations]
+        - [services, :serviceId, operations, integrations]
+---
+
+import ExporterRegionNote from 'versionContent/_partials/_cloud-integrations-exporter-region.mdx';
+
+# Integrate Timescale services with Datadog
+
+You can export your service telemetry to [Datadog][datadog] for third-party
+metrics monitoring. Exported metrics include CPU usage, RAM usage, and storage.
+
+## Export telemetry data
+
+Export telemetry data by:
+
+1.  [Creating a data exporter][create-exporter]
+1.  [Attaching the exporter to a database service][attach-exporter]
+
+### Create a data exporter
+
+<ExporterRegionNote />
+
+<Procedure>
+
+### Creating a data exporter for Datadog
+
+1.  In the Timescale console, navigate to `Integrations`.
+1.  Click `Create exporter`.
+1.  Choose the telemetry data type that you would like to send to a provider.
+1.  Under `Choose a provider`, choose `Datadog`.
+1.  Choose an AWS region for your exporter to live within Timescale. The
+    exporter is only available to database services in the same AWS region.
+1.  Name your exporter. This name appears in the Cloud console, so choose a
+    descriptive name.
+1.  Add a Datadog API key. If you don't have an API key yet, you can create one
+    by following the instructions in the [Datadog
+    documentation][datadog-api-key].
+1.  Under Site, choose your Datadog region. You can choose a region to meet any
+    regulatory requirements or application needs you might have.
+1.  Click `Create exporter`.
+
+<img class="main-content__illustration"
+width={1375} height={944}
+src="https://assets.timescale.com/docs/images/tsc-integrations-datadog.webp"
+alt="Screenshot of the menu for adding a Datadog exporter" />
+
+</Procedure>
+
+## Attach a data exporter to a service
+
+Once you create a data exporter, you can attach it to a service. The exporter
+then exports that service's telemetry data.
+
+You can only have one exporter per service.
+
+<ExporterRegionNote />
+
+<Procedure>
+
+### Attaching a data exporter to a service
+
+1.  Navigate to `Services`. Click on the service you want to connect to your
+    exporter.
+1.  Navigate to `Operations`, then `Integrations`.
+1.  Select an exporter and click `Attach exporter`.
+
+<Highlight type="warning">
+If you would like to attach a logs exporter to an already existing
+service, you do not need to restart the service. The service only
+needs to be restarted when you attach the first logs exporter.
+</Highlight>
+
+</Procedure>
+
+## Monitor service metrics
+
+You can now monitor your service metrics from the
+[metrics explorer in Datadog][datadog-metrics-explorer].
+For more information, see the [Datadog][datadog-docs] documentation.
+
+When you have set up your integration, you can check that it is working
+correctly by looking for the metrics that Timescale exports. The metric
+names are:
+
+*   `timescale.cloud.system.cpu.usage.millicores`
+*   `timescale.cloud.system.cpu.total.millicores`
+*   `timescale.cloud.system.memory.usage.bytes`
+*   `timescale.cloud.system.memory.total.bytes`
+*   `timescale.cloud.system.disk.usage.bytes`
+*   `timescale.cloud.system.disk.total.bytes`
+
+Additionally, Timescale exports tags that you can use to filter your
+results. You can also check that these tags are being correctly exported:
+
+|Tag|Example variable|Description|
+|-|-|-|
+|`host`|`us-east-1.timescale.cloud`||
+|`project-id`|||
+|`service-id`|||
+|`region`|`us-east-1`|Timescale region|
+|`role`|`replica` or `primary`|For services with replicas|
+|`node-id`||For multi-node services|
+
+## Edit a data exporter
+
+You can edit a data exporter after you create it. Some fields, such as the
+provider and AWS region, can't be changed.
+
+<Procedure>
+
+### Editing a data exporter
+
+1.  Navigate to `Integrations`.
+1.  Beside the exporter you want to edit, click the menu button. Click `Edit`.
+1.  Edit the exporter fields and save your changes.
+
+</Procedure>
+
+## Delete a data exporter
+
+Delete any data exporters that you no longer need.
+
+<Procedure>
+
+### Deleting a data exporter
+
+1.  Before deleting a data exporter, remove all connected services.
+1.  For each connected service, navigate to the service `Operations` tab.
+1.  Click `Integrations`.
+1.  Click the trash can icon to remove the exporter from the service. This
+    doesn't delete the exporter itself.
+1.  In the main menu, navigate to `Integrations`.
+1.  Beside the exporter you want to delete, click the menu button. Click
+    `Delete`.
+1.  Confirm that you want to delete.
+
+</Procedure>
+
+[attach-exporter]: #attach-a-data-exporter-to-a-service
+[create-exporter]: #create-a-data-exporter
+[datadog]: https://www.datadoghq.com
+[datadog-api-key]: https://docs.datadoghq.com/account_management/api-app-keys/#add-an-api-key-or-client-token
+[datadog-docs]: https://docs.datadoghq.com/
+[datadog-metrics-explorer]: https://app.datadoghq.com/metric/explorer

@@ -1,8 +1,8 @@
 ---
-title: Integrate Timescale services with third-party monitoring
-excerpt: Export telemetry metrics to Datadog or AWS CloudWatch
+title: Integrate Timescale services with AWS CloudWatch
+excerpt: Export telemetry metrics to AWS CloudWatch
 products: [cloud]
-keywords: [integration, metrics, Datadog, AWS CloudWatch]
+keywords: [integration, metrics, logging, AWS CloudWatch]
 tags: [telemetry, monitor]
 cloud_ui:
     path:
@@ -12,11 +12,11 @@ cloud_ui:
 
 import ExporterRegionNote from 'versionContent/_partials/_cloud-integrations-exporter-region.mdx';
 
-# Integrate Timescale services with third-party monitoring tools
+# Integrate Timescale services with AWS CloudWatch
 
-You can export your service telemetry to a third-party monitoring tool, such as
-[Datadog][datadog] or [AWS CloudWatch][cloudwatch]. Exported metrics include
-CPU usage, RAM usage, and storage.
+You can export your service telemetry to [AWS CloudWatch][cloudwatch] for
+third-party metrics monitoring. Exported metrics include CPU usage, RAM usage,
+and storage.
 
 ## Export telemetry data
 
@@ -25,47 +25,13 @@ Export telemetry data by:
 1.  [Creating a data exporter][create-exporter]
 1.  [Attaching the exporter to a database service][attach-exporter]
 
-### Create a data exporter
+## Create a data exporter
 
 <ExporterRegionNote />
 
-<Tabs label="Create a data exporter">
-
-<Tab title="Datadog">
-
 <Procedure>
 
-#### Creating a data exporter for Datadog
-
-1.  In the Timescale console, navigate to `Integrations`.
-1.  Click `Create exporter`.
-1.  Choose the telemetry data type that you would like to send to a provider.
-1.  Under `Choose a provider`, choose `Datadog`.
-1.  Choose an AWS region for your exporter to live within Timescale. The
-    exporter is only available to database services in the same AWS region.
-1.  Name your exporter. This name appears in the Cloud console, so choose a
-    descriptive name.
-1.  Add a Datadog API key. If you don't have an API key yet, you can create one
-    by following the instructions in the [Datadog
-    documentation][datadog-api-key].
-1.  Under Site, choose your Datadog region. You can choose a region to meet any
-    regulatory requirements or application needs you might have.
-1.  Click `Create exporter`.
-
-<img class="main-content__illustration"
-width={1375} height={944}
-src="https://assets.timescale.com/docs/images/tsc-integrations-datadog.webp"
-alt="Screenshot of the menu for adding a Datadog exporter" />
-
-</Procedure>
-
-</Tab>
-
-<Tab title="AWS CloudWatch">
-
-<Procedure>
-
-#### Creating a data exporter for AWS CloudWatch
+### Creating a data exporter for AWS CloudWatch
 
 1.  In the Timescale console, navigate to `Integrations`.
 1.  Click `Create exporter`.
@@ -102,10 +68,6 @@ alt="Screenshot of the menu for adding a Datadog exporter" />
 
 </Procedure>
 
-</Tab>
-
-</Tabs>
-
 ### Attach a data exporter to a service
 
 Once you create a data exporter, you can attach it to a service. The exporter
@@ -125,8 +87,8 @@ You can only have one exporter per service.
 1.  Select an exporter and click `Attach exporter`.
 
 <Highlight type="warning">
-If you would like to attach a logs exporter to an already existing 
-service, you do not need to restart the service. The service only 
+If you would like to attach a logs exporter to an already existing
+service, you do not need to restart the service. The service only
 needs to be restarted when you attach the first logs exporter.
 </Highlight>
 
@@ -134,9 +96,8 @@ needs to be restarted when you attach the first logs exporter.
 
 ## Monitor service metrics
 
-You can now monitor your service metrics from the [metrics explorer in
-Datadog][datadog-metrics-explorer], or query them from the cloudWatch metrics
-page in AWS Console. For more information, see the [Datadog][datadog-docs] or
+You can now monitor your service metrics by querying them from the CloudWatch
+metrics page in the AWS Console. For more information, see the
 [Cloudwatch][cloudwatch-docs] documentation.
 
 When you have set up your integration, you can check that it is working
@@ -203,7 +164,3 @@ Delete any data exporters that you no longer need.
 [cloudwatch-docs]: https://docs.aws.amazon.com/cloudwatch/index.html
 [cloudwatch-log-naming]: https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html
 [create-exporter]: #create-a-data-exporter
-[datadog]: https://www.datadoghq.com
-[datadog-api-key]: https://docs.datadoghq.com/account_management/api-app-keys/#add-an-api-key-or-client-token
-[datadog-docs]: https://docs.datadoghq.com/
-[datadog-metrics-explorer]: https://app.datadoghq.com/metric/explorer

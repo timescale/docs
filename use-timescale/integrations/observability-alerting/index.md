@@ -10,8 +10,12 @@ tags: [integrations, observability, alerting]
 
 # Observability and alerting
 
+*   [AWS CloudWatch][cloudwatch]
+*   [Datadog][datadog]
 *   [Grafana][grafana]
 *   [Tableau][tableau]
 
 [grafana]: /use-timescale/:currentVersion:/integrations/observability-alerting/grafana/
 [tableau]: /use-timescale/:currentVersion:/integrations/observability-alerting/tableau/
+[cloudwatch]: /use-timescale/:currentVersion:/integrations/observability-alerting/aws-cloudwatch/
+[datadog]: /use-timescale/:currentVersion:/integrations/observability-alerting/datadog/

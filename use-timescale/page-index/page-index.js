@@ -803,6 +803,16 @@ module.exports = [
             children:
               [
                 {
+                  title: "AWS CloudWatch",
+                  href: "aws-cloudwatch",
+                  excerpt: "Use AWS CloudWatch with Timescale",
+                },
+                {
+                  title: "Datadog",
+                  href: "datadog",
+                  excerpt: "Use Datadog with Timescale",
+                },
+                {
                   title: "Grafana",
                   href: "grafana",
                   excerpt: "Use Grafana with Timescale",
