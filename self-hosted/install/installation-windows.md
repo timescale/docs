@@ -13,16 +13,16 @@ import WhereTo from "versionContent/_partials/_where-to-next.mdx";
 You can host TimescaleDB yourself on your Microsoft Windows system.
 These instructions use a `zip` installer on these versions:
 
-*   Microsoft Windows 10
-*   Microsoft Windows 11
-*   Microsoft Windows Server 2019
+*   Microsoft Windows&nbsp;10
+*   Microsoft Windows&nbsp;11
+*   Microsoft Windows Server&nbsp;2019
 
 The minimum supported PostgreSQL versions are:
 
-*   PostgreSQL 12.8
-*   PostgreSQL 13.5
-*   PostgreSQL 14.0
-*   PostgreSQL 15.0
+*   PostgreSQL&nbsp;12.8
+*   PostgreSQL&nbsp;13.5
+*   PostgreSQL&nbsp;14.0
+*   PostgreSQL&nbsp;15.0
 
 <Highlight type="warning">
 If you have already installed PostgreSQL using another method, you could
@@ -34,9 +34,11 @@ current PostgreSQL installation, do not install TimescaleDB using this method.
 
 ## Prerequisites
 
-To install PostgreSQL version 15.1.1 or later, make sure you have:
+To install TimescaleDB&nbsp;2.11.2 or later, make sure you have installed
+OpenSSL&nbsp;3.x.
 
-*   Installed OpenSSL 1.1.1
+For older versions of TimescaleDB, OpenSSL&nbsp;1.1.1 is
+required.
 
 <Procedure>
 
@@ -48,10 +50,10 @@ To install PostgreSQL version 15.1.1 or later, make sure you have:
     You might need to add the `pg_config` file location to your path. In the Windows
     Search tool, search for `system environment variables`. The path should be
     `C:\Program Files\PostgreSQL\<version>\bin`.
-2.  Download the TimescaleDB installation `.zip` file from
+1.  Download the TimescaleDB installation `.zip` file from
     [Windows releases][windows-releases].
-3.  Locate the downloaded file on your local file system, and extract the files.
-4.  In the extracted TimescaleDB directory, right-click the `setup.exe` file and
+1.  Locate the downloaded file on your local file system, and extract the files.
+1.  In the extracted TimescaleDB directory, right-click the `setup.exe` file and
     select `Run as Administrator` to start the installer.
 
 </Procedure>
