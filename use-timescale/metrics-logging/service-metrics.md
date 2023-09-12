@@ -15,11 +15,16 @@ import EarlyAccess from "versionContent/_partials/_early_access.mdx";
 
 You can view your service metrics from the Timescale
 [metrics dashboard][metrics-dashboard]. This dashboard gives you service-level
-information, such as CPU, memory, and storage usage.
+information, such as CPU, memory, storage usage, and storage performance.
 
 You can view query-level statistics from the `Query stats` tab. You can also
 view your query-level statistics by using the pre-installed
 [`pg_stat_statements`][pg-stat] extension from a PostgreSQL client.
+
+<img class="main-content__illustration"
+width={1375} height={944}
+src="https://assets.timescale.com/docs/images/tsc-metrics_lastmonth.webp"
+alt="Timescale Metrics dashboard"/>
 
 ## Metrics dashboard
 
@@ -37,10 +42,18 @@ You can view metrics for your services for any of these time ranges:
 
 To change the view, select the time range from the drop-down menu.
 
+The metrics available are:
+
+*   CPU
+*   Memory
+*   Storage use
+*   Storage IO
+*   Storage bandwidth
+
 <img class="main-content__illustration"
-width={1375} height={944}
-src="https://assets.timescale.com/docs/images/tsc-metrics_lastmonth.webp"
-alt="Timescale Metrics dashboard"/>
+width={1375}
+src="https://assets.timescale.com/docs/images/tsc_metrics_all.webp"
+alt="All metrics available in the Timescale dashboard"/>
 
 Additionally, you can turn automatic metric refreshes on and off. When automatic
 metric refresh is on, the dashboard updates every thirty seconds.
@@ -55,7 +68,38 @@ alt="Timescale Metrics not collected"/>
 This indicates that metrics have not been collected for the period shown. It
 does not mean that your Timescale service was down.
 
-## Continuous storage monitoring
+## Storage performance metrics
+
+Disk bandwidth and disk IO metrics provide insight into the load and performance
+of the storage associated with your Timescale services, indicating the number of
+bytes/sec being written or read from storage, and the number of disk IO
+operations (IOPS) per second.
+
+Each Timescale service has a maximum limit for storage bandwidth and IO, which
+is automatically adjusted based on the total volume of data stored. To see the
+limits for your service, hover on the storage IO or storage bandwidth graph.
+
+<img class="main-content__illustration"
+src="https://assets.timescale.com/docs/images/tsc_storageperf_hover.webp"
+width={1375} height={944}
+alt="Timescale storage performance metrics, showing additional information on hover"/>
+
+The auto-adjusted limits work well in most cases. However, you might need higher
+limits for some workloads. If you want to increase your storage limits,
+[contact us][contact-us].
+
+## Additional service metrics
+
+More metrics are available from the PostgreSQL `pg_stats` view within your
+Timescale service. These include additional metrics, including the number of
+database connections, active rows, and deadlocks.
+
+If you'd like to collect and store these metrics in an external observability
+platform, there are a variety of tools you can use. For more information about
+using third-party tools for Timescale metrics and observability, see the
+[integration][integrations] section.
+
+## Continuous monitoring
 
 Timescale continuously monitors the health and resource consumption of all
 database services. You can check your health data by navigating to the `metrics`
@@ -144,7 +188,7 @@ run:
 SELECT * FROM pg_stat_statements WHERE pg_get_userbyid(userid) = current_user;
 ```
 
-### Example usage
+### Example use
 
 With `pg_stat_statements`, you can view performance statistics that help you
 monitor and optimize your queries.
@@ -186,3 +230,5 @@ performance bottlenecks with `pg_stat_statements`][blog-pg_stat_statements].
 [pg-stat]: /use-timescale/:currentVersion:/metrics-logging/service-metrics/#query-level-statistics-with-pg_stat_statements
 [blog-pg_stat_statements]: <https://www.timescale.com/blog/identify-postgresql-performance-bottlenecks-with-pg_stat_statements/>
 [psql]: /use-timescale/:currentVersion:/connecting/about-psql/
+[integrations]: /use-timescale/:currentVersion:/integrations/observability-alerting/
+[contact-us]: https://www.timescale.com/contact/
