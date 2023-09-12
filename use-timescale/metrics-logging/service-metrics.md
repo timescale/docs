@@ -51,7 +51,6 @@ The metrics available are:
 *   Storage bandwidth
 
 <img class="main-content__illustration"
-width={1375}
 src="https://assets.timescale.com/docs/images/tsc_metrics_all.webp"
 alt="All metrics available in the Timescale dashboard"/>
 
