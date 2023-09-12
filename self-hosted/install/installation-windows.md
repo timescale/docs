@@ -34,9 +34,8 @@ current PostgreSQL installation, do not install TimescaleDB using this method.
 
 ## Prerequisites
 
-To install PostgreSQL version 15.1.1 or later, make sure you have:
-
-*   Installed OpenSSL 1.1.1
+To install TimescaleDB 2.11.2 or later, make sure you have installed OpenSSL 3.x.
+For older versions of TimescaleDB, OpenSSL 1.1.1 is required.
 
 <Procedure>
 
