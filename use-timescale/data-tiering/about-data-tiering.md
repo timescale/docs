@@ -98,9 +98,4 @@ For more about how data tiering works, see the
     partitioned on more than one dimension. Make sure your hypertables is
     partitioned on time only, before you enable data tiering.
 
-## Learn more
-
-Learn [how data tiering works][how-to].
-
 [blog-data-tiering]: https://www.timescale.com/blog/expanding-the-boundaries-of-postgresql-announcing-a-bottomless-consumption-based-object-storage-layer-built-on-amazon-s3/
-[how-to]: /use-timescale/:currentVersion:/data-tiering/tier-data-object-storage/
