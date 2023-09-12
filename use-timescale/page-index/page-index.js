@@ -744,7 +744,7 @@ module.exports = [
         ],
       },
       {
-        title: "Timescale integrations",
+        title: "Integrations",
         href: "integrations",
         excerpt: "Integrate your Timescale database with third-party solutions",
         children: [

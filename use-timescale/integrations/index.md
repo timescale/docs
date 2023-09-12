@@ -1,5 +1,5 @@
 ---
-title: Timescale integrations
+title: Integrations
 excerpt: Integrate your Timescale database with third-party solutions
 products: [cloud]
 keywords: [integrations]
