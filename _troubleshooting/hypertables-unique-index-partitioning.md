@@ -2,7 +2,7 @@
 title: Can't create unique index on hypertable, or can't create hypertable with unique index
 section: troubleshooting
 products: [cloud, mst, self_hosted]
-topics: [hypertables, distributed hypertables, data migration]
+topics: [hypertables, distributed hypertables]
 errors:
   - language: text
     message: |-
