@@ -12,6 +12,8 @@ import TimescaleValueProp from "versionContent/_partials/_timescale-value-prop.m
 
 <TimescaleIntro />
 
+## What can Timescale do for your database?
+
 <TimescaleValueProp />
 
 This section provides an overview of Timescale architecture, introducing you

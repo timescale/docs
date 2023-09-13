@@ -1,9 +1,19 @@
-Timescale is a database platform engineered to deliver speed and scale to
-resource-intensive workloads, which makes it great for things like time series,
-event, and analytics data. Timescale is built on PostgreSQL, so you have access
-to the entire PostgreSQL ecosystem, with a user-friendly interface that
-simplifies database deployment and management. Timescale dramatically improves
-your database performance with hypertables and continuous aggregates, and can
-save you money with features like compression, usage-based storage, and data
-tiering. And the Timescale expert support team is available to assist at no
-extra charge 24 hours a day, 7 days a week, 365 days a year.
+Timescale is the database platform built for developers. It's engineered to
+deliver speed and scale for your resource-intensive workloads&mdash;like those using
+time series, event, and analytics data.
+
+*   _PostgreSQL++_ - Timescale is the PostgreSQL you know and love, giving you
+    access to the entire PostgreSQL ecosystem, but Timescale has additional
+    features like hypertables, compression and continuous aggregates.
+*   _Faster query performance_ - Timescale dramatically improves your
+    performance with automatic partitioning using Timescale hypertables and
+    automatically refreshed materialized views with Timescale continuous
+    aggregates.
+*   _Lower costs as you scale_ - Timescale's straightforward and predictable
+    pricing is based on two metrics, compute and storage. You only pay for what
+    you use, and Timescale can save you even more money with features like
+    native compression and data tiering to S3.
+*   _Worry-free_ - Timescale simplifies deployment and management with a
+    user-friendly interface, along with one-click replicas, forks, monitoring,
+    high availability, connection pooling, and more. And our expert support team
+    is available to assist you at no extra charge.
