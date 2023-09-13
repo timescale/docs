@@ -1,35 +1,21 @@
 ---
-title: Timescale overview
-excerpt: Learn about core Timescale concepts, architecture, and features
+title: Dynamic compute and usage-based storage
+excerpt: What is dynamic compute and usage-based storage?
 products: [cloud, mst, self_hosted]
-keywords: [learn, architecture, hypertables, time buckets, compression, continuous aggregates]
+keywords: [learn, overview, storage, compute, billing]
 ---
 
-import CaggsIntro from "versionContent/_partials/_caggs-intro.mdx";
-import CaggsTypes from "versionContent/_partials/_caggs-types.mdx";
-import CaggsNext from "versionContent/_partials/_caggs-next.mdx";
-import CloudIntro from "versionContent/_partials/_cloud-intro.mdx";
-import HypertablesIntro from "versionContent/_partials/_hypertables-intro.mdx";
-import HypertablesNext from "versionContent/_partials/_hypertables-next.mdx";
-import TimeSeriesIntro from "versionContent/_partials/_timeseries-intro.mdx";
-import TimescaleIntro from "versionContent/_partials/_timescale-intro.mdx";
-import TimescaleValueProp from "versionContent/_partials/_timescale-value-prop.mdx";
-import CompressionIntro from "versionContent/_partials/_compression-intro.mdx";
-import CompressionNext from "versionContent/_partials/_compression-next.mdx";
-import UbsIntro from "versionContent/_partials/_usage-based-storage-intro.mdx";
-import ElasticComputeIntro from "versionContent/_partials/_elastic-compute-intro.mdx";
-import DataTieringIntro from "versionContent/_partials/_data-tiering-intro.mdx";
-import DataTieringNext from "versionContent/_partials/_data-tiering-next.mdx";
-import Architecture from "versionContent/_partials/_architecture-overview.mdx";
-import TimeBucketIntro from "versionContent/_partials/_time-bucket-intro.mdx";
 
-# Elastic compute and usage-based storage
+import UbsIntro from "versionContent/_partials/_usage-based-storage-intro.mdx";
+import DynamicComputeIntro from "versionContent/_partials/_dynamic-compute-intro.mdx";
+
+# Dynamic compute and usage-based storage
 
 <UbsIntro />
 
-<ElasticComputeIntro />
+<DynamicComputeIntro />
 
-For more information about elastic compute and usage-based storage, see the
+For more information about dynamic compute and usage-based storage, see the
 [billing section][billing]
 
 [billing]: /use-timescale/:currentVersion:/account-management/
