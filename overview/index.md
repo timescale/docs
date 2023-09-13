@@ -8,7 +8,7 @@ keywords: [learn, overview, hypertables, time buckets, compression, continuous a
 import TimescaleIntro from "versionContent/_partials/_timescale-intro.mdx";
 import TimescaleValueProp from "versionContent/_partials/_timescale-value-prop.mdx";
 
-# Timescale overview
+# What is Timescale?
 
 <TimescaleIntro />
 
