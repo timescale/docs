@@ -23,11 +23,13 @@ import DataTieringNext from "versionContent/_partials/_data-tiering-next.mdx";
 import Architecture from "versionContent/_partials/_architecture-overview.mdx";
 import TimeBucketIntro from "versionContent/_partials/_time-bucket-intro.mdx";
 
-# Timescale overview
+# Elastic compute and usage-based storage
 
-<TimescaleIntro />
+<UbsIntro />
 
-<TimescaleValueProp />
+<ElasticComputeIntro />
 
-This section provides an overview of Timescale architecture, introducing you
-to special Timescale concepts and features.
+For more information about elastic compute and usage-based storage, see the
+[billing section][billing]
+
+[billing]: /use-timescale/:currentVersion:/account-management/

@@ -23,11 +23,15 @@ import DataTieringNext from "versionContent/_partials/_data-tiering-next.mdx";
 import Architecture from "versionContent/_partials/_architecture-overview.mdx";
 import TimeBucketIntro from "versionContent/_partials/_time-bucket-intro.mdx";
 
-# Timescale overview
+# Continuous aggregation
 
-<TimescaleIntro />
+<CaggsIntro />
 
-<TimescaleValueProp />
+<CaggsTypes />
 
-This section provides an overview of Timescale architecture, introducing you
-to special Timescale concepts and features.
+<CaggsNext />
+
+For more information about continuous aggregation, see the
+[continuous aggregates section][caggs]
+
+[caggs]: /use-timescale/:currentVersion:/continuous-aggregates/

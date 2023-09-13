@@ -23,11 +23,6 @@ import DataTieringNext from "versionContent/_partials/_data-tiering-next.mdx";
 import Architecture from "versionContent/_partials/_architecture-overview.mdx";
 import TimeBucketIntro from "versionContent/_partials/_time-bucket-intro.mdx";
 
-# Timescale overview
+# Timescale
 
-<TimescaleIntro />
-
-<TimescaleValueProp />
-
-This section provides an overview of Timescale architecture, introducing you
-to special Timescale concepts and features.
+<CloudIntro />
