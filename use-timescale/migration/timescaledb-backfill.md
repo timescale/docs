@@ -53,29 +53,50 @@ migration.
   timescaledb-backfill stage --source $SOURCE_DB --target $TARGET_DB --until '2016-01-02T00:00:00' 
   ```
 
-  Here's a breakdown of how the filter and cascading options operate:
+  The tables to be included in the stage can be controlled by providing
+  filtering options:
 
-  `--filter`: This matches either hypertable names or continuous aggregates
-  view names.
+  `--filter`: This option accepts a schema-qualified hypertable or continuous
+  aggregate view name, and stages only objects which match the filter. The
+  filter can be a regex, which is evaluated in the database by PostgreSQL's
+  regex engine.
+
+  By default, the filter includes only the matching objects, and does not
+  concern itself with dependencies between objects. This is problematic for
+  continuous aggregates, as they form a dependency hierarchy. This behaviour
+  can be modified through cascade options.
+ 
+  For example, assuming a hierarchy of continuous aggregates for hourly, daily,
+  and weekly rollups of data in an underlying hypertable called `raw_data` (all
+  in the `public` schema). This could look as follows:
+
+  ```
+  raw_data -> hourly_agg -> daily_agg -> monthly_agg
+  ``` 
+  
+  If the filter `--filter=public.data` is applied, then no data from the
+  continuous aggregates is staged. If the filter
+  `--filter=public.daily_agg` is applied, then only materialized data in the
+  continuous aggregate `daily_agg` is staged. 
 
   `--cascade-up`: When activated, this option ensures that any continuous
-  aggregates associated with hypertables matching the filter will be
-  automatically included in the staging process, moving "up the hierarchy
-  tree".
+  aggregates which depend on the filtered object are included in the staging
+  process. It is called "cascade up" because it cascades up the hierarchy.
+  Using the example from before, if the filter
+  `--filter=public.data --cascade up` is applied, the data in `raw_data`,
+  `hourly_agg`, `daily_agg`, and `monthly_agg` is staged.
 
-  `--cascade-down`: Utilizing this option includes not just the continuous
-  aggregates, but also the underlying hypertables in the staging process, which
-  means it navigates "down the hierarchy tree".
+  `--cascade-down`: When activated, this option ensures that any objects which
+  the filtered object depends on are included in the staging process. It is
+  called "cascade down" because it cascades down the hierarchy.
+  Using the example from before, if the filter
+  `--filter=public.daily_agg --cascade-down` is applied, the data in
+  `daily_agg`, `hourly_agg`, and `raw_data` is staged.
 
-  Both `--cascade-up` and `--cascade-down` options can be combined. Consider a
-  hierarchical structure of continuous aggregates (in the `public` schema):
-
-  ```
-  raw (hypertable) -> hourly_agg -> daily_agg -> monthly_agg
-  ```
-
-  When filtering by `daily_agg` and using both cascading options, all objects
-  in the hierarchy will be included.
+  The `--cascade-up` and `--cascade-down` options can be combined. Using the
+  example from before, if the filter
+  `--filter=public.daily_agg --cascade-up --cascade-down` is applied, data in
+  all objects in the example scenario is staged.
 
   ```sh
   timescaledb-backfill stage --source $SOURCE_DB --target $TARGET_DB \
@@ -153,15 +174,15 @@ The `copy` command can be safely stopped by sending an interrupt signal
 (SIGINT) to the process. This can be achieved by using the Ctrl-C keyboard
 shortcut from the terminal where the tool is currently running.
 
-When the tool receives the first signal, it will interpret it as a request for
-a graceful shutdown. It will then notify the copy workers that they should exit
-once they finish copying the chunk they are currently processing. Depending on
-the chunk size, this could take many minutes to complete.
+When the tool receives the first signal, it interprets it as a request for a
+graceful shutdown. It then notifies the copy workers that they should exit once
+they finish copying the chunk they are currently processing. Depending on the
+chunk size, this could take many minutes to complete.
 
 When a second signal is received, it forces the tool to shut down immediately,
 interrupting all ongoing work. Due to the tool's usage of transactions, there
 is no risk of data inconsistency when using forced shutdown. The difference to
-a graceful shutdown is that data in partially-copied chunks will be removed on
+a graceful shutdown is that data in partially-copied chunks is be removed on
 the target and must be copied again during the next `copy` run.
 
 ### Inspect tasks progress
