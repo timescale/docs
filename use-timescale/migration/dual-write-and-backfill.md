@@ -347,6 +347,13 @@ After dual-writes have been executing for a while, the target hypertable will
 contain data in three time ranges: missing writes, late-arriving data, and the
 "consistency" range
 
+<img
+  class="main-content__illustration"
+  width={1375} height={944}
+  src="https://assets.timescale.com/docs/images/hypertable_backfill_consistency.png"
+  alt="Hypertable dual-write ranges"
+/>
+
 #### Missing writes
 
 If the application is made up of multiple writers, and these writers did not
