@@ -45,9 +45,9 @@ verifying data integrity and cleaning up the administrative schema after the
 migration.
 
 - **Stage Command:** is used to create copy tasks for hypertable chunks based
-  on the specified completion point (`--until`). An optional regex filter
-  (`--filter`) can be used to refine the hypertables and caggs targeted for
-  staging.
+  on the specified completion point (`--until`). An optional filter
+  (`--filter`) can be used to refine the hypertables and continuous aggregates
+  targeted for staging.
 
   ```sh
   timescaledb-backfill stage --source $SOURCE_DB --target $TARGET_DB --until '2016-01-02T00:00:00' 
@@ -56,10 +56,10 @@ migration.
   The tables to be included in the stage can be controlled by providing
   filtering options:
 
-  `--filter`: This option accepts a schema-qualified hypertable or continuous
+  `--filter`: this option accepts a schema-qualified hypertable or continuous
   aggregate view name, and stages only objects which match the filter. The
-  filter can be a regex, which is evaluated in the database by PostgreSQL's
-  regex engine.
+  filter can be a regular expression, which is evaluated in the database by
+  PostgreSQL's regular expression engine.
 
   By default, the filter includes only the matching objects, and does not
   concern itself with dependencies between objects. This is problematic for
@@ -79,14 +79,14 @@ migration.
   `--filter=public.daily_agg` is applied, then only materialized data in the
   continuous aggregate `daily_agg` is staged. 
 
-  `--cascade-up`: When activated, this option ensures that any continuous
+  `--cascade-up`: when activated, this option ensures that any continuous
   aggregates which depend on the filtered object are included in the staging
   process. It is called "cascade up" because it cascades up the hierarchy.
   Using the example from before, if the filter
   `--filter=public.data --cascade up` is applied, the data in `raw_data`,
   `hourly_agg`, `daily_agg`, and `monthly_agg` is staged.
 
-  `--cascade-down`: When activated, this option ensures that any objects which
+  `--cascade-down`: when activated, this option ensures that any objects which
   the filtered object depends on are included in the staging process. It is
   called "cascade down" because it cascades down the hierarchy.
   Using the example from before, if the filter
@@ -182,7 +182,7 @@ chunk size, this could take many minutes to complete.
 When a second signal is received, it forces the tool to shut down immediately,
 interrupting all ongoing work. Due to the tool's usage of transactions, there
 is no risk of data inconsistency when using forced shutdown. The difference to
-a graceful shutdown is that data in partially-copied chunks is be removed on
+a graceful shutdown is that data in partially copied chunks is be removed on
 the target and must be copied again during the next `copy` run.
 
 ### Inspect tasks progress
