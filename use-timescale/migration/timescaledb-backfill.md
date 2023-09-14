@@ -32,8 +32,8 @@ With the instance that will run the timescaledb-backfill ready, log in and
 download the tool's binary:
 
 ```sh
-wget https://assets.timescale.com/releases/timescaledb-backfill-0.3.0-x86_64-linux.tar.gz
-tar xf timescaledb-backfill-0.3.0-x86_64-linux.tar.gz
+wget https://assets.timescale.com/releases/timescaledb-backfill-x86_64-linux.tar.gz
+tar xf timescaledb-backfill-x86_64-linux.tar.gz
 sudo mv timescaledb-backfill /usr/local/bin/
 ```
 
@@ -45,11 +45,44 @@ verifying data integrity and cleaning up the administrative schema after the
 migration.
 
 - **Stage Command:** is used to create copy tasks for hypertable chunks based
-  on the specified completion point (`--until`) and, optionally, a regex filter
-  (`--filter`). 
+  on the specified completion point (`--until`). An optional regex filter
+  (`--filter`) can be used to refine the hypertables and caggs targeted for
+  staging.
 
   ```sh
   timescaledb-backfill stage --source $SOURCE_DB --target $TARGET_DB --until '2016-01-02T00:00:00' 
+  ```
+
+  Here's a breakdown of how the filter and cascading options operate:
+
+  `--filter`: This matches either hypertable names or continuous aggregates
+  view names.
+
+  `--cascade-up`: When activated, this option ensures that any continuous
+  aggregates associated with hypertables matching the filter will be
+  automatically included in the staging process, moving "up the hierarchy
+  tree".
+
+  `--cascade-down`: Utilizing this option includes not just the continuous
+  aggregates, but also the underlying hypertables in the staging process, which
+  means it navigates "down the hierarchy tree".
+
+  Both `--cascade-up` and `--cascade-down` options can be combined. Consider a
+  hierarchical structure of continuous aggregates (in the `public` schema):
+
+  ```
+  raw (hypertable) -> hourly_agg -> daily_agg -> monthly_agg
+  ```
+
+  When filtering by `daily_agg` and using both cascading options, all objects
+  in the hierarchy will be included.
+
+  ```sh
+  timescaledb-backfill stage --source $SOURCE_DB --target $TARGET_DB \
+    --until '2016-01-02T00:00:00' \
+    --filter 'public.daily_agg' \
+    --cascade-up \
+    --cascade-down
   ```
 
 - **Copy Command:** processes the tasks created during the staging phase and
@@ -78,16 +111,17 @@ migration.
 
 ### Usage examples 
 
-<!-- TODO: Add continuous aggregates examples? -->
-
 - Backfilling with a filter and until date: 
 
   ```sh
   timescaledb-backfill stage --source $SOURCE_DB --target $TARGET_DB \
     --filter 'my_table.*' \
     --until '2016-01-02T00:00:00'
+
   timescaledb-backfill copy --source $SOURCE_DB --target $TARGET_DB
+
   timescaledb-backfill verify --source $SOURCE_DB --target $TARGET_DB
+
   timescaledb-backfill clean --target $TARGET_DB
   ```
 
@@ -97,14 +131,19 @@ migration.
   timescaledb-backfill stage --source $SOURCE_DB --target $TARGET_DB \
     --filter 'schema1.table_with_time_as_timestampz' \
     --until '2015-01-01T00:00:00'
+
   timescaledb-backfill stage --source $SOURCE_DB --target $TARGET_DB \
     --filter 'schema1.table_with_time_as_bigint' \
     --until '91827364'
+
   timescaledb-backfill stage --source $SOURCE_DB --target $TARGET_DB \
     --filter 'schema2.*' \
     --until '2017-01-01T00:00:00'
+
   timescaledb-backfill copy --source $SOURCE_DB --target $TARGET_DB
+
   timescaledb-backfill verify --source $SOURCE_DB --target $TARGET_DB
+
   timescaledb-backfill clean --target $TARGET_DB
   ```
 
