@@ -59,7 +59,7 @@ migration.
   `--filter`: this option accepts a POSIX regular expression to match schema-qualified hypertable names or continuous aggregate view names. Only hypertables and/or continuous aggregates matching the filter are staged.
 
   By default, the filter includes only the matching objects, and does not
-  concern itself with dependencies between objects. This is problematic for
+  concern itself with dependencies between objects. Depending on what is intended, this could be problematic for
   continuous aggregates, as they form a dependency hierarchy. This behaviour
   can be modified through cascade options.
  
