@@ -71,7 +71,7 @@ migration.
   raw_data -> hourly_agg -> daily_agg -> monthly_agg
   ``` 
   
-  If the filter `--filter=public.data` is applied, then no data from the
+  If the filter `--filter='^public\.raw_data$'` is applied, then no data from the
   continuous aggregates is staged. If the filter
   `--filter=public.daily_agg` is applied, then only materialized data in the
   continuous aggregate `daily_agg` is staged. 
