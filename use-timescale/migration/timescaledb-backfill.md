@@ -98,7 +98,7 @@ migration.
   ```sh
   timescaledb-backfill stage --source $SOURCE_DB --target $TARGET_DB \
     --until '2016-01-02T00:00:00' \
-    --filter 'public.daily_agg' \
+    --filter '^public\.daily_agg$' \
     --cascade-up \
     --cascade-down
   ```
@@ -133,7 +133,7 @@ migration.
 
   ```sh
   timescaledb-backfill stage --source $SOURCE_DB --target $TARGET_DB \
-    --filter 'my_table.*' \
+    --filter '.*\.my_table.*' \
     --until '2016-01-02T00:00:00'
 
   timescaledb-backfill copy --source $SOURCE_DB --target $TARGET_DB
