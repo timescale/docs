@@ -155,7 +155,7 @@ migration.
     --until '91827364'
 
   timescaledb-backfill stage --source $SOURCE_DB --target $TARGET_DB \
-    --filter 'schema2.*' \
+    --filter '^schema2\..*' \
     --until '2017-01-01T00:00:00'
 
   timescaledb-backfill copy --source $SOURCE_DB --target $TARGET_DB
