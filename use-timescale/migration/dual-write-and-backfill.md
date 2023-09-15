@@ -41,16 +41,17 @@ Dual-write and backfill works well when:
 ## Migration process
 
 In detail, the migration process consists of the following steps:
-1. Set up a second database
-1. Modify the application to write to a secondary database
-1. Migrate schema and relational data from source to target
-1. Start the application in dual-write mode
-1. Determine the completion point `T`
-1. Backfill time-series data from source to target
-1. Enable retention and compression policies
-1. Validate that all data is present in target database
-1. Validate that target database can handle production load
-1. Switch application to treat target database as primary (potentially continuing to write into source database, as a backup)
+1. Set up a second database.
+1. Modify the application to write to a secondary database.
+1. Migrate schema and relational data from source to target.
+1. Start the application in dual-write mode.
+1. Determine the completion point `T`.
+1. Backfill time-series data from source to target.
+1. Enable background jobs (policies) in the target database.
+1. Validate that all data is present in target database.
+1. Validate that target database can handle production load.
+1. Switch application to treat target database as primary (potentially
+   continuing to write into source database, as a backup).
 
 ### 1. Set up a second database
 
@@ -450,7 +451,7 @@ timescaledb-parallel-copy \
   --file <your dumped csv data>
 ```
 
-### 7. Enable background jobs
+### 7. Enable background jobs in target database
 
 Before enabling the jobs, verify if any continuous aggregate refresh policies
 exist.
@@ -461,9 +462,9 @@ from _timescaledb_config.bgw_job
 where proc_name = 'policy_refresh_continuous_aggregate'
 ```
 
-If they do exist, refresh them before re-enabling the jobs. The scripts below
-refresh the continuous aggregates in hierarchical order by retrieving the
-latest watermark from the source and then refreshing:
+If they do exist, refresh the continuous aggregates before re-enabling the
+jobs. The scripts below refresh the continuous aggregates in hierarchical order
+by retrieving the latest watermark from the source and then refreshing:
 
 ```sh
 wget https://assets.timescale.com/releases/refresh_cagg.tar.gz
