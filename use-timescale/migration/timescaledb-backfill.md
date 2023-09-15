@@ -178,9 +178,12 @@ chunk size, this could take many minutes to complete.
 
 When a second signal is received, it forces the tool to shut down immediately,
 interrupting all ongoing work. Due to the tool's usage of transactions, there
-is no risk of data inconsistency when using forced shutdown. The difference to
-a graceful shutdown is that data in partially copied chunks is be removed on
-the target and must be copied again during the next `copy` run.
+is no risk of data inconsistency when using forced shutdown.
+
+While a graceful shutdown waits for in-progress chunks to finish copying, a
+force shutdown rolls back the in-progress copy transactions. Any data
+copied into those chunks is lost, but the database is left in a transactional
+consistent state, and the backfill process can be safely resumed.
 
 ### Inspect tasks progress
 
