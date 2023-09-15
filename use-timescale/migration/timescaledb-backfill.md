@@ -80,7 +80,7 @@ migration.
   aggregates which depend on the filtered object are included in the staging
   process. It is called "cascade up" because it cascades up the hierarchy.
   Using the example from before, if the filter
-  `--filter=public.data --cascade up` is applied, the data in `raw_data`,
+  `--filter='^public\.raw_data$' --cascade up` is applied, the data in `raw_data`,
   `hourly_agg`, `daily_agg`, and `monthly_agg` is staged.
 
   `--cascade-down`: when activated, this option ensures that any objects which
