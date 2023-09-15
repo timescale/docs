@@ -56,10 +56,7 @@ migration.
   The tables to be included in the stage can be controlled by providing
   filtering options:
 
-  `--filter`: this option accepts a schema-qualified hypertable or continuous
-  aggregate view name, and stages only objects which match the filter. The
-  filter can be a regular expression, which is evaluated in the database by
-  PostgreSQL's regular expression engine.
+  `--filter`: this option accepts a POSIX regular expression to match schema-qualified hypertable names or continuous aggregate view names. Only hypertables and/or continuous aggregates matching the filter are staged.
 
   By default, the filter includes only the matching objects, and does not
   concern itself with dependencies between objects. This is problematic for
