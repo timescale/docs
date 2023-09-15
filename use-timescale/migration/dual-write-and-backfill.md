@@ -41,16 +41,17 @@ Dual-write and backfill works well when:
 ## Migration process
 
 In detail, the migration process consists of the following steps:
-1. Set up a second database
-1. Modify the application to write to a secondary database
-1. Migrate schema and relational data from source to target
-1. Start the application in dual-write mode
-1. Determine the completion point `T`
-1. Backfill time-series data from source to target
-1. Enable retention and compression policies
-1. Validate that all data is present in target database
-1. Validate that target database can handle production load
-1. Switch application to treat target database as primary (potentially continuing to write into source database, as a backup)
+1. Set up a second database.
+1. Modify the application to write to a secondary database.
+1. Migrate schema and relational data from source to target.
+1. Start the application in dual-write mode.
+1. Determine the completion point `T`.
+1. Backfill time-series data from source to target.
+1. Enable background jobs (policies) in the target database.
+1. Validate that all data is present in target database.
+1. Validate that target database can handle production load.
+1. Switch application to treat target database as primary (potentially
+   continuing to write into source database, as a backup).
 
 ### 1. Set up a second database
 
@@ -142,26 +143,30 @@ pg_dump -d "$SOURCE" \
   --file=dump.sql
 ```
 
-a. `--no-tablespaces` is required because Timescale does not support
+- `--no-tablespaces` is required because Timescale does not support
    tablespaces other than the default. This is a limitation.
-b. `--no-owner` is required because tsdbadmin is not a superuser and cannot
+
+- `--no-owner` is required because tsdbadmin is not a superuser and cannot
    assign ownership in all cases. This flag means that everything will be
    owned by the tsdbadmin user in the target regardless of ownership in the
    source. This is a limitation.
-c. `--no-privileges` is required because tsdbadmin is not a superuser and
+
+- `--no-privileges` is required because tsdbadmin is not a superuser and
    cannot assign privileges in all cases. This flag means that privileges
    assigned to other users will need to be reassigned in the target
    database as a manual clean-up task. This is a limitation.
-d. `--exclude-table-data='_timescaledb_internal.*'` will dump the structure
+
+- `--exclude-table-data='_timescaledb_internal.*'` will dump the structure
    of the hypertable chunks, but not the data. This will create empty
    chunks on the target ready for the backfill process.
 
-1. If the source database has the timescaledb extension installed in a schema
-   other than "public" it will cause issues on Timescale. Edit the dump file to
-   remove any references to the non-public schema. We need the extension in the
-   "public" schema on Timescale. This is a limitation.
-1. If any background jobs are owned by the "postgres" user, they need to be
-   owned by "tsdbadmin" on the target database. Edit the dump file accordingly.
+If the source database has the timescaledb extension installed in a schema
+other than "public" it will cause issues on Timescale. Edit the dump file to
+remove any references to the non-public schema. We need the extension in the
+"public" schema on Timescale. This is a limitation.
+
+If any background jobs are owned by the "postgres" user, they need to be owned
+by "tsdbadmin" on the target database. Edit the dump file accordingly.
 
 Load the roles and schema into the target database, and disable all background jobs.
 
@@ -186,7 +191,7 @@ EOF
 ```
 
 <Highlight type="note">
-Background are disabled to prevent continuous aggregate refresh jobs from
+Background jobs are disabled to prevent continuous aggregate refresh jobs from
 updating the continuous aggregate with incomplete/missing data. The continuous
 aggregates must be manually updated in the required range once the migration is
 complete.
@@ -274,16 +279,19 @@ pg_dump -d "$SOURCE" \
   --file=dump.sql
 ```
 
-a. `--exclude-table-data` is used to exclude all data from hypertable
+- `--exclude-table-data` is used to exclude all data from hypertable
    candidates. You can either specify a table pattern, or specify
    `--exclude-table-data` multiple times, once for each table to be converted.
-b. `--no-tablespaces` is required because Timescale does not support
+
+- `--no-tablespaces` is required because Timescale does not support
    tablespaces other than the default. This is a limitation.
-c. `--no-owner` is required because tsdbadmin is not a superuser and cannot
+
+- `--no-owner` is required because tsdbadmin is not a superuser and cannot
    assign ownership in all cases. This flag means that everything will be
    owned by the user used to connect to the target, regardless of ownership in
    the source. This is a limitation.
-d. `--no-privileges` is required because tsdbadmin is not a superuser and
+
+- `--no-privileges` is required because tsdbadmin is not a superuser and
    cannot assign privileges in all cases. This flag means that privileges
    assigned to other users will need to be reassigned in the target
    database as a manual clean-up task. This is a limitation.
@@ -386,6 +394,22 @@ The completion point `T` is an arbitrarily chosen time in the consistency range.
 If your source database is using TimescaleDB, we recommend using our backfill
 tool [timescaledb-backfill][timescaledb-backfill].
 
+The tool performs best when executed in an instance located close to the target
+database. The ideal scenario is an EC2 instance located in the same
+availability zone as the Timescale service. We recommend using a Linux-based
+distribution on x86_64.
+
+<!-- TODO: Recommended spec for the instance.  -->
+
+With the instance that will run the timescaledb-backfill ready, log in and
+download the tool's binary:
+
+```sh
+wget https://assets.timescale.com/releases/timescaledb-backfill-x86_64-linux.tar.gz
+tar xf timescaledb-backfill-x86_64-linux.tar.gz
+sudo mv timescaledb-backfill /usr/local/bin/
+```
+
 Running timescaledb-backfill is a four-phase process:
 
 1. Stage:
@@ -434,11 +458,30 @@ timescaledb-parallel-copy \
   --file <your dumped csv data>
 ```
 
-### 7. Enable background jobs
+### 7. Enable background jobs in target database
 
-TODO: what about continuous aggregates?
+Before enabling the jobs, verify if any continuous aggregate refresh policies
+exist.
 
-Reenable all background jobs:
+```sql
+select count(*)
+from _timescaledb_config.bgw_job
+where proc_name = 'policy_refresh_continuous_aggregate'
+```
+
+If they do exist, refresh the continuous aggregates before re-enabling the
+jobs. The scripts below refresh the continuous aggregates in hierarchical order
+by retrieving the latest watermark from the source and then refreshing:
+
+```sh
+wget https://assets.timescale.com/releases/refresh_cagg.tar.gz
+tar xf refresh_cagg.tar.gz
+psql -d $SOURCE -f refresh_cagg_step1_source.sql
+psql -d $TARGET -f refresh_cagg_step2_target.sql
+```
+
+Once the continuous aggregates are updated, you can re-enable all background
+jobs:
 
 ```bash
 psql -d $TARGET -f <<EOF
