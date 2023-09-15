@@ -24,7 +24,7 @@ jobs:
       - name: Repository Dispatch
         uses: peter-evans/repository-dispatch@26b39ed245ab8f31526069329e112ab2fb224588
         with:
-          token: ${{ secrets.REPO_ACCESS_TOKEN }}
+          token: ${{ secrets.ORG_AUTOMATION_TOKEN }}
           repository: timescale/web-documentation
           event-type: build-docs-content
           client-payload: '{"branch": "${{ steps.timescale.outputs.DEV_FOLDER }}", "pr_number": "${{ env.PR_NUMBER }}"}'
