@@ -87,7 +87,7 @@ migration.
   the filtered object depends on are included in the staging process. It is
   called "cascade down" because it cascades down the hierarchy.
   Using the example from before, if the filter
-  `--filter=public.daily_agg --cascade-down` is applied, the data in
+  `--filter='^public\.daily_agg$' --cascade-down` is applied, the data in
   `daily_agg`, `hourly_agg`, and `raw_data` is staged.
 
   The `--cascade-up` and `--cascade-down` options can be combined. Using the
