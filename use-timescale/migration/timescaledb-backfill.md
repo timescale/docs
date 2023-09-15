@@ -92,7 +92,7 @@ migration.
 
   The `--cascade-up` and `--cascade-down` options can be combined. Using the
   example from before, if the filter
-  `--filter=public.daily_agg --cascade-up --cascade-down` is applied, data in
+  `--filter='^public\.daily_agg$' --cascade-up --cascade-down` is applied, data in
   all objects in the example scenario is staged.
 
   ```sh
