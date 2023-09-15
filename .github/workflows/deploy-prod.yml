@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Repository Dispatch
-        uses: peter-evans/repository-dispatch@26b39ed245ab8f31526069329e112ab2fb224588
+        uses: peter-evans/repository-dispatch@bf47d102fdb849e755b0b0023ea3e81a44b6f570
         with:
           token: ${{ secrets.ORG_AUTOMATION_TOKEN }}
           repository: timescale/web-documentation
