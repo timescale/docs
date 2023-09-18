@@ -204,4 +204,4 @@ group by
     2
 ```
 
-[dual-write-backfill]: /use-timescale/:currentVersion:/migration/dual-write-and-backfill/
+[dual-write-backfill]: /migrate/:currentVersion:/dual-write-and-backfill/

@@ -91,7 +91,7 @@ schema. To get around this limitation, load this schema serially, and then load
 the rest of the database concurrently.
 
 ```bash
-# first, load JUST the _timescaledb_catalog serially
+# first, serially load JUST the _timescaledb_catalog
 pg_restore -d "$TARGET" \
     --format=directory \
     --schema='_timescaledb_catalog' \
@@ -101,7 +101,7 @@ pg_restore -d "$TARGET" \
     --no-privileges \
     dump
 
-# next, load everything EXCEPT the _timescaledb_catalog with concurrency
+# next, concurrently load everything EXCEPT the _timescaledb_catalog 
 pg_restore -d "$TARGET" \
     --format=directory \
     --jobs=8 \

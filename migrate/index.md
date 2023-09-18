@@ -44,7 +44,7 @@ data to Timescale is by exporting the data from your existing database as a
 For other ingestion methods, see the [data ingest section][data-ingest].
 
 [data-ingest]: /use-timescale/:currentVersion:/ingest-data/
-[dual-write]: /use-timescale/:currentVersion:/migration/dual-write-and-backfill/
-[pg-dump-restore]: /use-timescale/:currentVersion:/migration/pg-dump-and-restore/
+[dual-write]: /migrate/:currentVersion:/dual-write-and-backfill/
+[pg-dump-restore]: /migrate/:currentVersion:/pg-dump-and-restore/
 [parallel-copy]: /use-timescale/:currentVersion:/ingest-data/import-csv/
-[troubleshooting]: /use-timescale/:currentVersion:/migration/troubleshooting/
+[troubleshooting]: /migrate/:currentVersion:/troubleshooting/

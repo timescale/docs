@@ -346,37 +346,6 @@ module.exports = [
         ],
       },
       {
-        title: "Migration",
-        href: "migration",
-        excerpt: "Migrate your existing PostgreSQL database to Timescale",
-        children: [
-          {
-            title: "Migrate with pg_dump and pg_restore",
-            href: "pg-dump-and-restore",
-            excerpt:
-              "Migrate a hypertable or entire database with native PostgreSQL commands",
-          },
-          {
-            title: "Dual-write and backfill",
-            href: "dual-write-and-backfill",
-            excerpt:
-              "Migrate a large database with low downtime",
-          },
-          {
-            title: "timescaledb-backfill",
-            href: "timescaledb-backfill",
-            excerpt:
-              "A tool for backfilling data as part of data migration",
-          },
-          {
-            title: "Troubleshooting",
-            href: "troubleshooting",
-            excerpt:
-                "Troubleshooting known issues in database migrations",
-          },
-        ],
-      },
-      {
         title: "Billing and account management",
         href: "account-management",
         excerpt: "Timescale account management",
