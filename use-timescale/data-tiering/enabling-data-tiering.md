@@ -9,33 +9,27 @@ cloud_ui:
         - [services, :serviceId, overview]
 ---
 
-import ExperimentalPrivateBeta from 'versionContent/_partials/_early_access.mdx';
-import TieringBeta from 'versionContent/_partials/_cloud-data-tiering-beta.mdx';
-
 # Tier data to object storage
 
-Tier data from primary storage to object storage to save on storage costs. You
-can continue to query a hypertable as normal after migration. All queries,
-including `JOIN`s, work as usual.
+Enable Data Tiering to begin migrating rarely used data from primary storage to object storage to save on storage costs. 
+You can still query data after migration. 
 
-## Turn on data tiering
+## Enabling Data Tiering
 
-You can turn on data tiering from the Services Overview page in the Timescale
-console. When you have turned it on the console, you need to set up a tiering
-policy, or manually tier your data for it to move.
+You can enable data tiering from the Services Overview page in the Timescale
+console. 
 
 <Procedure>
 
-### Turning on data tiering
+### Enabling Data Tiering
 
 1.  In the Timescale console, from the `Services` list, click the name of
     the service you want to modify.
 1.  In the `Overview` tab, locate the `Data tiering` card, and click
     `Enable data tiering`. Confirm the action.
-1.  Data tiering can take a few seconds to turn on. When it is working, you
-    need to set up a tiering policy, or manually tier your data for it to move.
-    When your data has begun moving, the `Data tiering` card shows the amount of
-    data that has been tiered.
+1.  Data tiering can take a few seconds to turn on and will show the amount of
+    data that has been tiered. Once enabled, data can be tiered by manually tiering 
+    a chunk or by creating a tiering policy.     
 
     <img class="main-content__illustration"
     src="FIXME"
