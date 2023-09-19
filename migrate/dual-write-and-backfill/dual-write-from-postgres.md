@@ -97,7 +97,7 @@ A brief explanation of this script is:
   current user, and this clause mainly serves the purpose of SQL compatibility.
   Therefore, it's safe to remove it.
 
-### 3b. Determine which tables to convert to hypertables:
+### 3b. Determine which tables to convert to hypertables
 
 [//]: # (TODO: we should add a reference to timescale doctor here when it is ready)
 
@@ -224,12 +224,23 @@ timescaledb-parallel-copy \
 
 ## 7. Validate that all data is present in target database
 
-One possible approach to validating this is to compare row counts on a
-chunk-by-chunk basis. One way to do so is to run `select count(*) ...` which is
-exact but potentially costly. Another way to do it would be to run analyze on
-both the source and target chunk and then look at the `reltuples` column of the
-`pg_class` table for the chunks' rows. This would not be exact but would be
-less costly.
+Now that all data has been backfilled, and the application is writing data to
+both databases, the contents of both databases should be the same. How exactly
+this should best be validated is dependent on your application.
+
+If you are reading from both databases in parallel for every production query,
+you could  consider adding an application-level validation that both databases
+are returning the same data.
+
+Another option is to compare the number of rows in the source and target
+tables, although this will read all data in the table which may have an impact
+on your production workload.
+
+Another option is to run `ANALYZE` on both the source and target tables and
+then look at the `reltuples` column of the `pg_class` table. This is not exact,
+but doesn't require reading all rows from the table. Note: for hypertables, the
+reltuples value belongs to the chunk table, so you must take the sum of
+`reltuples` for all chunks belonging to the hypertable.
 
 ## 8. Validate that target database can handle production load
 

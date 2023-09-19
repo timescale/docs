@@ -47,9 +47,9 @@ versions, as long as the target version is greater than that of the source.
 The version of TimescaleDB used in both databases must be exactly the same.
 </Highlight>
 
-Dump the database roles from the source database:
+### 3a. Dump the database roles from the source database
 
-```
+```bash
 pg_dumpall -d "$SOURCE" \
   --quote-all-identifiers \
   --roles-only \
@@ -67,7 +67,7 @@ to be compliant with the security model.
 You can use the following `sed` command to remove unsupported statements and
 permissions from your roles.sql file:
 
-```
+```bash
 sed -i -E \
 -e '/CREATE ROLE "postgres";/d' \
 -e '/ALTER ROLE "postgres"/d' \
@@ -89,6 +89,8 @@ generally doesn't provide a straightforward --version flag and will simply
 output an "illegal option" error.
 </Highlight>
 
+A brief explanation of this script is:
+
 - `CREATE ROLE "postgres"`; and `ALTER ROLE "postgres"`: These statements are
   removed because they require superuser access, which is not supported
   by Timescale.
@@ -102,9 +104,9 @@ output an "illegal option" error.
   current user, and this clause mainly serves the purpose of SQL compatibility.
   Therefore, it's safe to remove it.
 
-Dump all plain tables and the TimescaleDB catalog from the source database:
+### 3b. Dump all plain tables and the TimescaleDB catalog from the source database
 
-```
+```bash
 pg_dump -d "$SOURCE" \
   --format=plain \
   --quote-all-identifiers \
@@ -116,17 +118,17 @@ pg_dump -d "$SOURCE" \
 ```
 
 - `--no-tablespaces` is required because Timescale does not support
-  tablespaces other than the default. This is a limitation.
+  tablespaces other than the default. This is a known limitation.
 
 - `--no-owner` is required because tsdbadmin is not a superuser and cannot
   assign ownership in all cases. This flag means that everything will be
   owned by the tsdbadmin user in the target regardless of ownership in the
-  source. This is a limitation.
+  source. This is a known limitation.
 
 - `--no-privileges` is required because tsdbadmin is not a superuser and
   cannot assign privileges in all cases. This flag means that privileges
   assigned to other users will need to be reassigned in the target
-  database as a manual clean-up task. This is a limitation.
+  database as a manual clean-up task. This is a known limitation.
 
 - `--exclude-table-data='_timescaledb_internal.*'` will dump the structure
   of the hypertable chunks, but not the data. This will create empty
@@ -134,12 +136,12 @@ pg_dump -d "$SOURCE" \
 
 If the source database has the timescaledb extension installed in a schema
 other than "public" it will cause issues on Timescale. Edit the dump file to
-remove any references to the non-public schema. We need the extension in the
-"public" schema on Timescale. This is a limitation.
+remove any references to the non-public schema. The extension must be in the
+"public" schema on Timescale. This is a known limitation.
 
-Load the roles and schema into the target database, and disable all background jobs.
+### 3c. Load the roles and schema into the target database, and disable all background jobs
 
-```
+```bash
 psql -X -d "$TARGET" \
   -v ON_ERROR_STOP=1 \
   --echo-errors \
@@ -173,19 +175,21 @@ complete.
 ## 6. Backfill data from source to target
 
 To backfill from TimescaleDB, we recommend using our backfill tool
-[timescaledb-backfill][timescaledb-backfill].
+[timescaledb-backfill][timescaledb-backfill]. It efficiently copies compressed
+and uncompressed hypertables, and data stored in continuous aggregates from one
+database to another.
 
-The tool performs best when executed in an instance located close to the target
-database. The ideal scenario is an EC2 instance located in the same
-availability zone as the Timescale service. We recommend using a Linux-based
+timescaledb-backfill performs best when executed from a machine located close
+to the target database. The ideal scenario is an EC2 instance located in the
+same region as the Timescale service. We recommend using a Linux-based
 distribution on x86_64.
 
 <!-- TODO: Recommended spec for the instance.  -->
 
 With the instance that will run the timescaledb-backfill ready, log in and
-download the tool's binary:
+download timescaledb-backfill:
 
-```sh
+```bash
 wget https://assets.timescale.com/releases/timescaledb-backfill-x86_64-linux.tar.gz
 tar xf timescaledb-backfill-x86_64-linux.tar.gz
 sudo mv timescaledb-backfill /usr/local/bin/
@@ -194,20 +198,35 @@ sudo mv timescaledb-backfill /usr/local/bin/
 Running timescaledb-backfill is a four-phase process:
 
 1. Stage:
-   ```
+   This step prepares metadata about the data to be copied in the target
+   database. On completion, it outputs the number of chunks which will be
+   copied.
+   ```bash
    timescaledb-backfill stage --source $SOURCE --target $TARGET --until <completion point>
    ```
 1. Copy:
-   ```
+   This step copies data on a chunk-by-chunk basis from the source to the
+   target. If it fails or is interrupted, it can safely be resumed. You should
+   be aware of the `--parallelism` parameter, which dictates how many
+   connections are used to copy data. The default is 8, which, depending on the
+   size of your source and target databases, may be too high or too low. We
+   recommend that you closely observe the performance of your source database
+   and tune this parameter accordingly.
+   ```bash
    timescaledb-backfill copy --source $SOURCE --target $TARGET
    ```
 1. Verify (optional):
-   ```
+   This step verifies that the data in the source and target is the same. It
+   reads all the data on a chunk-by-chunk basis from both the source and target
+   databases, so may also impact the performance of your source database.
+   ```bash
    timescaledb-backfill verify --source $SOURCE --target $TARGET
    ```
 1. Clean:
-   ```
-   timescaledb-backfill clean --target $SOURCE
+   This step removes the metadata which was created in the target database by
+   the `stage` command.
+   ```bash
+   timescaledb-backfill clean --target $TARGET
    ```
 
 ## 7. Enable background jobs in target database
@@ -215,21 +234,18 @@ Running timescaledb-backfill is a four-phase process:
 Before enabling the jobs, verify if any continuous aggregate refresh policies
 exist.
 
-```sql
-select count(*)
-from _timescaledb_config.bgw_job
-where proc_name = 'policy_refresh_continuous_aggregate'
+```bash
+psql -d $TARGET \
+  -c "select count(*)
+  from _timescaledb_config.bgw_job
+  where proc_name = 'policy_refresh_continuous_aggregate'"
 ```
 
 If they do exist, refresh the continuous aggregates before re-enabling the
-jobs. The scripts below refresh the continuous aggregates in hierarchical order
-by retrieving the latest watermark from the source and then refreshing:
+jobs. The timescaledb-backfill tool provides a utility to do this:
 
-```sh
-wget https://assets.timescale.com/releases/refresh_cagg.tar.gz
-tar xf refresh_cagg.tar.gz
-psql -d $SOURCE -f refresh_cagg_step1_source.sql
-psql -d $TARGET -f refresh_cagg_step2_target.sql
+```bash
+timescaledb-backfill refresh-caggs --source $SOURCE --target $TARGET
 ```
 
 Once the continuous aggregates are updated, you can re-enable all background
@@ -252,19 +268,31 @@ caught up before reenabling.
 
 ## 8. Validate that all data is present in target database
 
-One possible approach to validating this is to compare row counts on a
-chunk-by-chunk basis. One way to do so is to run `select count(*) ...` which is
-exact but potentially costly. Another way to do it would be to run analyze on
-both the source and target chunk and then look at the `reltuples` column of the
-`pg_class` table for the chunks' rows. This would not be exact but would be
-less costly.
+Now that all data has been backfilled, and the application is writing data to
+both databases, the contents of both databases should be the same. How exactly
+this should best be validated is dependent on your application.
+
+If you are reading from both databases in parallel for every production query,
+you could  consider adding an application-level validation that both databases
+are returning the same data.
+
+Another option is to compare the number of rows in the source and target
+tables, although this will read all data in the table which may have an impact
+on your production workload. `timescaledb-backfill`'s `verify` subcommand will
+perform this check.
+
+Another option is to run `ANALYZE` on both the source and target tables and
+then look at the `reltuples` column of the `pg_class` table on a chunk-by-chunk
+basis. The result is not exact, but doesn't require reading all rows from the
+table.
 
 ## 9. Validate that target database can handle production load
 
-Assuming dual-writes have been in place, the target database should be holding
-up to production write traffic. Now would be the right time to determine if the
-new database can serve all production traffic (both reads _and_ writes). How
-exactly this is done is application-specific and up to you to determine.
+Now that dual-writes have been in place for a while, the target database should
+be holding up to production write traffic. Now would be the right time to
+determine if the new database can serve all production traffic (both reads
+_and_ writes). How exactly this is done is application-specific and up to you
+to determine.
 
 ## 10. Switch production workload to new database
 
