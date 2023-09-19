@@ -21,12 +21,12 @@ module.exports = [
             excerpt:
                 "Migrate from TimescaleDB using dual-write and backfill",
           },
-          {
-            title: "Dual-write from other databases",
-            href: "dual-write-from-other",
-            excerpt:
-                "Migrate from other databases using dual-write and backfill",
-          },
+          // {
+          //   title: "Dual-write from other databases",
+          //   href: "dual-write-from-other",
+          //   excerpt:
+          //       "Migrate from other databases using dual-write and backfill",
+          // },
           {
             title: "timescaledb-backfill",
             href: "timescaledb-backfill",

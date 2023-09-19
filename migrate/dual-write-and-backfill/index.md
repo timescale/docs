@@ -44,7 +44,8 @@ that you will use:
 
 - [Dual-write and backfill from TimescaleDB][from-timescaledb]
 - [Dual-write and backfill from PostgreSQL][from-postgres]
-- [Dual-write and backfill from other][from-other]
+
+[//]: # (- [Dual-write and backfill from other][from-other])
 
 ## Getting help
 

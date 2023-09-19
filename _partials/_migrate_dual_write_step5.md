@@ -42,7 +42,7 @@ It is the point in time to which data can safely be backfilled, ensuring that
 there is no data loss.
 
 The completion point should be expressed as the type of the `time` column of
-the hypertables to be backfilled. For instance, if you're using a `timestamptz`
+the hypertables to be backfilled. For instance, if you're using a `TIMESTAMPTZ`
 `time` column, then the completion point may be `2023-08-10T12:00:00.00Z`. If
 you're using a `BIGINT` column it may be `1695036737000`.
 
