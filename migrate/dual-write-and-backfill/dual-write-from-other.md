@@ -10,6 +10,8 @@ import StepOne from "versionContent/_partials/_migrate_dual_write_step1.mdx";
 import StepTwo from "versionContent/_partials/_migrate_dual_write_step2.mdx";
 import StepFour from "versionContent/_partials/_migrate_dual_write_step4.mdx";
 import StepFive from "versionContent/_partials/_migrate_dual_write_step5.mdx";
+import ValidateProductionLoad from "versionContent/_partials/_migrate_dual_write_validate_production_load.mdx";
+import SwitchProductionWorkload from "versionContent/_partials/_migrate_dual_write_switch_production_workload.mdx";
 
 # Dual-write and backfill from non-PostgreSQL database
 
@@ -122,18 +124,11 @@ less costly.
 
 ## 9. Validate that target database can handle production load
 
-Assuming dual-writes have been in place, the target database should be holding
-up to production write traffic. Now would be the right time to determine if the
-new database can serve all production traffic (both reads _and_ writes). How
-exactly this is done is application-specific and up to you to determine.
+<ValidateProductionLoad />
 
 ## 10. Switch production workload to new database
 
-Once you've validated that all the data is present, and that the new database
-can handle the production workload, the final step is to switch to the new
-database as your primary. You may want to continue writing to the old database
-for a period, until you are certain that the new database is holding up to all
-production traffic.
+<SwitchProductionWorkload />
 
 [create-service]: /use-timescale/:currentVersion:/services/create-a-service/
 [dual-write-and-backfill]: /migrate/:currentVersion:/dual-write-and-backfill/

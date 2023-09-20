@@ -28,18 +28,18 @@ pg_dump and pg_restore][pg-dump-restore].
 If you are looking for a low-downtime alternative (downtime on the order of
 minutes), are willing to modify your ingestion code, and the bulk of your data
 is stored in time-series tables, you can use the [dual-write and backfill][dual-write]
-strategy for a low-downtime migration. This strategy also works if your source
-database is not PostgreSQL-based.
+strategy for a low-downtime migration. This strategy also works if you are not
+migrating from PostgreSQL.
 
 If you're using PostgreSQL, you may also have heard of logical replication
 being the recommended strategy for migrations with low downtime. Currently,
 TimescaleDB doesn't work with logical replication, so this is not a viable
 option, but we are actively working on making this possible.
 
-If you're migrating from some other source than PostgreSQL, and don't want to
-use the dual-write and backfill approach, then the easiest way to move your
-data to Timescale is by exporting the data from your existing database as a
-`.csv` file, and importing it with [timescaledb-parallel-copy][parallel-copy].
+If you're migrating from something other than PostgreSQL, and don't want to use
+the dual-write and backfill approach, then the easiest way to move your data to
+Timescale is by exporting the data from your existing database as a `.csv` file,
+and importing it with [timescaledb-parallel-copy][parallel-copy].
 
 For other ingestion methods, see the [data ingest section][data-ingest].
 

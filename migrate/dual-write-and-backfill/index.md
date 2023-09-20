@@ -6,14 +6,18 @@ keywords: [backups, restore]
 tags: [recovery, logical backup, pg_dump, pg_restore]
 ---
 
+import SourceTargetNote from "versionContent/_partials/_migrate_source_target_note.mdx";
+
 # Dual-write and backfill
 
 Dual-write and backfill is a migration strategy to move a large amount of
-time-series data (100&nbsp;GB-4&nbsp;TB+) with low downtime (on the order of 
+time-series data (100&nbsp;GB-10&nbsp;TB+) with low downtime (on the order of
 minutes of downtime). It is significantly more complicated to execute than a
 migration with downtime using [pg_dump/restore][pg-dump-and-restore], and has
 some prerequisites on the data ingest patterns of your application, so it may
 not be universally-applicable.
+
+<SourceTargetNote />
 
 Roughly, it consists of three steps:
 
@@ -28,8 +32,7 @@ source, and from TimescaleDB to TimescaleDB.
 Dual-write and backfill works well when:
 1. The bulk of the (on-disk) data is in time-series tables.
 1. Writes by the application do not reference historical time-series data.
-1. There is no requirement for transactional consistency (that is, it is possible
-   to filter the time-series data by time and retain data integrity).
+1. Writes to time-series data are append-only.
 1. No `UPDATE` or `DELETE` queries will be run on time-series data in the
    source database during the migration process (or if they are, it happens in
    a controlled manner, such that it's possible to either ignore, or
@@ -56,8 +59,8 @@ to [support@timescale.com][email]) or take your issue to the `#migration`
 channel in our [community slack][slack], where the developers of this migration
 method are there to help.
 
-[from-timescaledb]: /migrate/:currentVersion:/dual-write-and-backfill/from-timescaledb/
-[from-postgres]: /migrate/:currentVersion:/dual-write-and-backfill/from-postgres/
+[from-timescaledb]: /migrate/:currentVersion:/dual-write-and-backfill/dual-write-from-timescaledb/
+[from-postgres]: /migrate/:currentVersion:/dual-write-and-backfill/dual-write-from-postgres/
 [from-other]: /migrate/:currentVersion:/dual-write-and-backfill/from-other/
 [pg-dump-and-restore]: /migrate/:currentVersion:/pg-dump-and-restore/
 [slack]: https://slack.timescale.com/

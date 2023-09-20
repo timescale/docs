@@ -11,6 +11,9 @@ import StepTwo from "versionContent/_partials/_migrate_dual_write_step2.mdx";
 import StepFour from "versionContent/_partials/_migrate_dual_write_step4.mdx";
 import StepFive from "versionContent/_partials/_migrate_dual_write_step5.mdx";
 import SetupSourceTarget from "versionContent/_partials/_migrate_set_up_source_and_target.mdx";
+import ValidateProductionLoad from "versionContent/_partials/_migrate_dual_write_validate_production_load.mdx";
+import SwitchProductionWorkload from "versionContent/_partials/_migrate_dual_write_switch_production_workload.mdx";
+import SourceTargetNote from "versionContent/_partials/_migrate_source_target_note.mdx";
 
 # Dual-write and backfill from PostgreSQL database
 
@@ -18,9 +21,11 @@ This document provides detailed step-by-step instructions to migrate data using
 the [dual-write and backfill][dual-write-and-backfill] migration method from a
 source database which is using PostgreSQL to Timescale.
 
+<SourceTargetNote />
+
 In detail, the migration process consists of the following steps:
 1. Set up a target database instance in Timescale.
-1. Modify the application to write to a secondary database.
+1. Modify the application to write to the target database.
 1. Migrate schema and relational data from source to target.
 1. Start the application in dual-write mode.
 1. Determine the completion point `T`.
@@ -34,7 +39,7 @@ In detail, the migration process consists of the following steps:
 
 <StepTwo />
 
-## 3. Set up schema and migrate relational data to new database
+## 3. Set up schema and migrate relational data to target database
 
 You would probably like to convert some of your large tables which contain
 time-series data into hypertables. This step consists of identifying those
@@ -246,17 +251,13 @@ reltuples value belongs to the chunk table, so you must take the sum of
 
 Now that dual-writes have been in place for a while, the target database should
 be holding up to production write traffic. Now would be the right time to
-determine if the new database can serve all production traffic (both reads
+determine if the target database can serve all production traffic (both reads
 _and_ writes). How exactly this is done is application-specific and up to you
 to determine.
 
-## 9. Switch production workload to new database
+## 9. Switch production workload to target database
 
-Once you've validated that all the data is present, and that the new database
-can handle the production workload, the final step is to switch to the new
-database as your primary. You may want to continue writing to the old database
-for a period, until you are certain that the new database is holding up to all
-production traffic.
+<SwitchProductionWorkload />
 
 [create-service]: /use-timescale/:currentVersion:/services/create-a-service/
 [dual-write-and-backfill]: /migrate/:currentVersion:/dual-write-and-backfill/

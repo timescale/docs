@@ -1,3 +1,5 @@
+import SourceTargetNote from "versionContent/_partials/_migrate_source_target_note.mdx";
+
 # timescaledb-backfill
 
 The `timescaledb-backfill` tool is a command-line utility designed to support
@@ -43,6 +45,8 @@ The timescaledb-backfill tool offers four main commands: `stage`, `copy`,
 `verify` and `clean`. The workflow involves creating tasks, copying chunks,
 verifying data integrity and cleaning up the administrative schema after the
 migration.
+
+<SourceTargetNote />
 
 - **Stage Command:** is used to create copy tasks for hypertable chunks based
   on the specified completion point (`--until`). An optional filter
