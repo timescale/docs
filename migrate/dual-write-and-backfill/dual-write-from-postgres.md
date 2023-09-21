@@ -178,7 +178,7 @@ both databases, the contents of both databases should be the same. How exactly
 this should best be validated is dependent on your application.
 
 If you are reading from both databases in parallel for every production query,
-you could  consider adding an application-level validation that both databases
+you could consider adding an application-level validation that both databases
 are returning the same data.
 
 Another option is to compare the number of rows in the source and target
@@ -189,7 +189,8 @@ Another option is to run `ANALYZE` on both the source and target tables and
 then look at the `reltuples` column of the `pg_class` table. This is not exact,
 but doesn't require reading all rows from the table. Note: for hypertables, the
 reltuples value belongs to the chunk table, so you must take the sum of
-`reltuples` for all chunks belonging to the hypertable.
+`reltuples` for all chunks belonging to the hypertable. If the chunk is
+compressed in one database, but not the other, then this check cannot be used.
 
 ## 8. Validate that target database can handle production load
 

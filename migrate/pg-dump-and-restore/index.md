@@ -23,13 +23,17 @@ For more information, consult the step-by-step guide for your source database:
 If you're planning on migrating to Timescale, there are a few limitations that
 you must be aware of:
 
-1. Timescale does not allow having multiple databases per instance.
-   If you would like to migrate a PostgreSQL database cluster consisting of
-   multiple databases, you must either create a timescale instance per
-   database, or you can merge each database into its own schema in the
-   Timescale instance.
+- [Timescale does not allow having multiple databases per instance].
+- [Timescale does not support tablespaces].
+- [Timescale does not support all available extensions].
+- [Timescale does not provide a superuser]. 
 
-TODO: more caveats?
+[Timescale does not allow having multiple databases per instance]: /migrate/:currentVersion:/troubleshooting/#only-one-database-per-instance
+[Timescale does not support tablespaces]: /migrate/:currentVersion:/troubleshooting/#tablespaces
+[Timescale does not support all available extensions]: /migrate/:currentVersion:/troubleshooting/#extension-availability
+[Timescale does not provide a superuser]: /migrate/:currentVersion:/troubleshooting/#superuser-privileges
+
+[//]: # (TODO: more caveats?)
 
 <Highlight type="info">
 A long-running `pg_dump` against a database can cause various issues due to the

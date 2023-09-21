@@ -225,7 +225,7 @@ both databases, the contents of both databases should be the same. How exactly
 this should best be validated is dependent on your application.
 
 If you are reading from both databases in parallel for every production query,
-you could  consider adding an application-level validation that both databases
+you could consider adding an application-level validation that both databases
 are returning the same data.
 
 Another option is to compare the number of rows in the source and target
