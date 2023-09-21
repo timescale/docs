@@ -6,6 +6,7 @@ keywords: [migration, low-downtime]
 tags: [migration, logical backup]
 ---
 
+import GettingHelp from "versionContent/_partials/_migrate_dual_write_backfill_getting_help.mdx";
 import StepOne from "versionContent/_partials/_migrate_dual_write_step1.mdx";
 import StepTwo from "versionContent/_partials/_migrate_dual_write_step2.mdx";
 import StepFour from "versionContent/_partials/_migrate_dual_write_step4.mdx";
@@ -14,6 +15,7 @@ import SetupSourceTarget from "versionContent/_partials/_migrate_set_up_source_a
 import ValidateProductionLoad from "versionContent/_partials/_migrate_dual_write_validate_production_load.mdx";
 import SwitchProductionWorkload from "versionContent/_partials/_migrate_dual_write_switch_production_workload.mdx";
 import SourceTargetNote from "versionContent/_partials/_migrate_source_target_note.mdx";
+import TimescaleDBVersion from "versionContent/_partials/_migrate_from_timescaledb_version.mdx";
 
 # Dual-write and backfill from TimescaleDB database
 
@@ -35,6 +37,8 @@ In detail, the migration process consists of the following steps:
 1. Validate that target database can handle production load.
 1. Switch application to treat target database as primary (potentially
    continuing to write into source database, as a backup).
+
+<GettingHelp />
 
 <StepOne />
 
@@ -143,7 +147,11 @@ other than "public" it will cause issues on Timescale. Edit the dump file to
 remove any references to the non-public schema. The extension must be in the
 "public" schema on Timescale. This is a known limitation.
 
-### 3c. Load the roles and schema into the target database, and disable all background jobs
+### 3c. Ensure that the correct TimescaleDB version is installed
+
+<TimescaleDBVersion />
+
+### 3d. Load the roles and schema into the target database, and disable all background jobs
 
 ```bash
 psql -X -d "$TARGET" \

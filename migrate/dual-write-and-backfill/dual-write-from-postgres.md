@@ -6,6 +6,7 @@ keywords: [migration, low-downtime]
 tags: [migration, logical backup]
 ---
 
+import GettingHelp from "versionContent/_partials/_migrate_dual_write_backfill_getting_help.mdx";
 import StepOne from "versionContent/_partials/_migrate_dual_write_step1.mdx";
 import StepTwo from "versionContent/_partials/_migrate_dual_write_step2.mdx";
 import StepFour from "versionContent/_partials/_migrate_dual_write_step4.mdx";
@@ -34,6 +35,8 @@ In detail, the migration process consists of the following steps:
 1. Validate that target database can handle production load.
 1. Switch application to treat target database as primary (potentially
    continuing to write into source database, as a backup).
+
+<GettingHelp />
 
 <StepOne />
 

@@ -6,6 +6,8 @@ keywords: [backups, restore]
 tags: [recovery, logical backup, pg_dump, pg_restore]
 ---
 
+import OpenSupportRequest from "versionContent/_partials/_migrate_open_support_request.mdx"
+
 # Troubleshooting known issues
 
 ## Large migrations blocked
@@ -18,8 +20,10 @@ data and will error with:
 `FATAL: terminating connection due to administrator command`.
 
 If you intend on migrating more than 400&nbspGB of data to Timescale, please
-contact [support@timescale.com](mailto:support@timescale.com) requesting the
-required storage to be pre-allocated in your database instance.
+open a support request, requesting the required storage to be pre-allocated in
+your Timescale instance.
+
+<OpenSupportRequest />
 
 ## Dumping and locks
 

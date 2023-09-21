@@ -15,6 +15,12 @@ Timescale using the native PostgreSQL [`pg_dump`][pg_dump] and
 [`pg_restore`][pg_restore] programs. This works for compressed hypertables,
 without having to decompress data before you begin.
 
+For more information, consult the step-by-step guide for the source database
+that you will use:
+
+- [pg_dump/restore from TimescaleDB][from-timescaledb]
+- [pg_dump/restore from PostgreSQL][from-postgres]
+
 If you're planning on migrating to Timescale, there are a few limitations that
 you must be aware of:
 
@@ -32,6 +38,7 @@ types of locks that `pg_dump` takes. Consult the troubleshooting section
 [Dumping and locks][dumping-and-locks] for more details.
 </Highlight>
 
-
 [pg_dump]: https://www.postgresql.org/docs/current/static/app-pgdump.html
 [pg_restore]: https://www.postgresql.org/docs/current/static/app-pgrestore.html
+[from-timescaledb]: /migrate/:currentVersion:/pg-dump-and-restore/pg-dump-restore-from-timescaledb/
+[from-postgres]: /migrate/:currentVersion:/pg-dump-and-restore/pg-dump-restore-from-postgres/

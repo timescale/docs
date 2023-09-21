@@ -7,6 +7,7 @@ tags: [recovery, logical backup, pg_dump, pg_restore]
 ---
 
 import SourceTargetNote from "versionContent/_partials/_migrate_source_target_note.mdx";
+import GettingHelp from "versionContent/_partials/_migrate_dual_write_backfill_getting_help.mdx";
 
 # Dual-write and backfill
 
@@ -50,19 +51,9 @@ that you will use:
 
 [//]: # (- [Dual-write and backfill from other][from-other])
 
-## Getting help
-
-The dual-write and backfill migration method is relatively new, so the
-documentation and tooling may have some rough edges. If you are stuck, you can
-either contact support (in the [Timescale console][support-help], or via email
-to [support@timescale.com][email]) or take your issue to the `#migration`
-channel in our [community slack][slack], where the developers of this migration
-method are there to help.
+<GettingHelp />
 
 [from-timescaledb]: /migrate/:currentVersion:/dual-write-and-backfill/dual-write-from-timescaledb/
 [from-postgres]: /migrate/:currentVersion:/dual-write-and-backfill/dual-write-from-postgres/
 [from-other]: /migrate/:currentVersion:/dual-write-and-backfill/from-other/
 [pg-dump-and-restore]: /migrate/:currentVersion:/pg-dump-and-restore/
-[slack]: https://slack.timescale.com/
-[email]: mailto:support@timescale.com
-[support-help]: https://console.cloud.timescale.com/dashboard/support

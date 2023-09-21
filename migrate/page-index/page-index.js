@@ -5,21 +5,41 @@ module.exports = [
     excerpt: "Migrating your data to Timescale",
     children: [
       {
+        title: "With downtime: pg_dump/restore",
+        href: "pg-dump-and-restore",
+        excerpt:
+            "Migrate a hypertable or entire database with native PostgreSQL commands",
+        children: [
+          {
+            title: "pg_dump/restore from TimescaleDB",
+            href: "pg-dump-restore-from-timescaledb",
+            excerpt:
+                "Migrate from TimescaleDB using pg_dump/restore",
+          },
+          {
+            title: "pg_dump/restore from PostgreSQL",
+            href: "pg-dump-restore-from-postgres",
+            excerpt:
+                "Migrate from PostgreSQL using pg_dump/restore",
+          },
+        ]
+      },
+      {
         title: "Low-downtime: Dual-write and backfill",
         href: "dual-write-and-backfill",
         excerpt: "Migrate a large database with low downtime",
         children: [
           {
-            title: "Dual-write from PostgreSQL",
-            href: "dual-write-from-postgres",
-            excerpt:
-                "Migrate from PostgreSQL using dual-write and backfill",
-          },
-          {
             title: "Dual-write from TimescaleDB",
             href: "dual-write-from-timescaledb",
             excerpt:
                 "Migrate from TimescaleDB using dual-write and backfill",
+          },
+          {
+            title: "Dual-write from PostgreSQL",
+            href: "dual-write-from-postgres",
+            excerpt:
+                "Migrate from PostgreSQL using dual-write and backfill",
           },
           // {
           //   title: "Dual-write from other databases",
@@ -34,26 +54,6 @@ module.exports = [
                 "A tool for backfilling data as part of data migration",
           },
         ],
-      },
-      {
-        title: "With downtime: pg_dump/restore",
-        href: "pg-dump-and-restore",
-        excerpt:
-            "Migrate a hypertable or entire database with native PostgreSQL commands",
-        children: [
-          {
-            title: "pg_dump/restore from PostgreSQL",
-            href: "pg-dump-restore-from-postgres",
-            excerpt:
-                "Migrate from PostgreSQL using pg_dump/restore",
-          },
-          {
-            title: "pg_dump/restore from TimescaleDB",
-            href: "pg-dump-restore-from-timescaledb",
-            excerpt:
-                "Migrate from TimescaleDB using pg_dump/restore",
-          },
-        ]
       },
       {
         title: "Troubleshooting",
