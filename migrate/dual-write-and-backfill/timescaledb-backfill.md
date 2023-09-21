@@ -19,16 +19,15 @@ integrity throughout the migration process. It is designed to be used in the
   be fully supported.
 - To prevent continuous aggregates from refreshing with incomplete data, any
   refresh and retention policies targeting the tables that are going to be
-  backfilled should be disabled.
+  backfilled should be turned off.
 
 ## Installation
 
 The tool performs best when executed in an instance located close to the target
-database. The ideal scenario is an EC2 instance located in the same
-availability zone as the Timescale service. We recommend using a Linux-based
-distribution on x86_64.
+database. The ideal scenario is an EC2 instance located in the same region as
+the Timescale service. Use a Linux-based distribution on x86_64.
 
-<!-- TODO: Recommended spec for the instance.  -->
+[//]: # (TODO: Recommended spec for the instance.)
 
 With the instance that will run the timescaledb-backfill ready, log in and
 download the tool's binary:
@@ -39,7 +38,7 @@ tar xf timescaledb-backfill-x86_64-linux.tar.gz
 sudo mv timescaledb-backfill /usr/local/bin/
 ```
 
-## How to Use
+## How to use
 
 The timescaledb-backfill tool offers four main commands: `stage`, `copy`,
 `verify` and `clean`. The workflow involves creating tasks, copying chunks,

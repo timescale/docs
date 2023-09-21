@@ -6,6 +6,8 @@ keywords: [data migration, postgresql, RDS]
 tags: [ingest, migrate, RDS]
 ---
 
+import OpenSupportRequest from "versionContent/_partials/_migrate_open_support_request.mdx"
+
 # Migrate your data to Timescale
 
 There are a number of different ways to migrate your data to Timescale. Which
@@ -42,6 +44,11 @@ Timescale is by exporting the data from your existing database as a `.csv` file,
 and importing it with [timescaledb-parallel-copy][parallel-copy].
 
 For other ingestion methods, see the [data ingest section][data-ingest].
+
+If you encounter any difficulties while migrating, consult the
+[troubleshooting] documentation, or open a support request.
+
+<OpenSupportRequest />
 
 [data-ingest]: /use-timescale/:currentVersion:/ingest-data/
 [dual-write]: /migrate/:currentVersion:/dual-write-and-backfill/

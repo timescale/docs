@@ -85,9 +85,9 @@ to as gsed). For the BSD implementation (the default on macOS), you need to
 add an extra argument to change the `-i` flag to `-i ''`.
 
 To check the sed version, you can use the command `sed --version`. While the
-GNU version will explicitly identify itself as GNU, the BSD version of sed
-generally doesn't provide a straightforward --version flag and will simply
-output an "illegal option" error.
+GNU version explicitly identifies itself as GNU, the BSD version of sed
+generally doesn't provide a straightforward --version flag and simply outputs
+an "illegal option" error.
 </Highlight>
 
 A brief explanation of this script is:
@@ -107,10 +107,10 @@ A brief explanation of this script is:
 
 ### 3b. Determine which tables to convert to hypertables
 
-[//]: # (TODO: we should add a reference to timescale doctor here when it is ready)
+[//]: # (TODO: add a reference to timescale doctor here when it is ready)
 
 Ideal candidates for hypertables are large tables containing
-[time-series data][time-series-data].
+[time-series data].
 This is usually data with some form of timestamp value (`TIMESTAMPTZ`,
 `TIMESTAMP`, `BIGINT`, `INT` etc.) as the primary dimension, and some other
 measurement values.
@@ -137,13 +137,13 @@ pg_dump -d "$SOURCE" \
 
 - `--no-owner` is required because Timescale's `tsdbadmin` user is not a
   superuser and cannot assign ownership in all cases. This flag means that
-  everything will be owned by the user used to connect to the target,
-  regardless of ownership in the source. This is a known limitation.
+  everything is owned by the user used to connect to the target, regardless of
+  ownership in the source. This is a known limitation.
 
 - `--no-privileges` is required because Timescale's `tsdbadmin` user is not a
   superuser and cannot assign privileges in all cases. This flag means that
-  privileges assigned to other users will need to be reassigned in the target
-  database as a manual clean-up task. This is a known limitation.
+  privileges assigned to other users must be reassigned in the target database
+  as a manual clean-up task. This is a known limitation.
 
 ### 3d. Load the roles and schema into the target database
 
@@ -164,24 +164,24 @@ SELECT create_hypertable('<table name>', '<time column name>');
 ```
 
 For more information about the options which you can pass to
-`create_hypertable`, consult the [create_table API reference][create-api]. For
+`create_hypertable`, consult the [create_table API reference]. For
 more information about hypertables in general, consult the
-[hypertable documentation][hypertable-docs].
+[hypertable documentation].
 
 You may also wish to consider taking advantage of some of Timescale's killer
 features, such as:
-- [retention policies][retention-policies] to automatically drop unneeded data
-- [data tiering][data-tiering] to automatically move data to cheap storage
-- [compression][compression] to reduce the size of your hypertables
-- [continuous aggregates][caggs] to write blazingly-fast aggregate queries on your data
+- [retention policies] to automatically drop unneeded data
+- [data tiering] to automatically move data to cheap storage
+- [compression] to reduce the size of your hypertables
+- [continuous aggregates] to write blisteringly fast aggregate queries on your data
 
-[time-series-data]: /getting-started/:currentVersion:/time-series-data/
-[create-api]: /api/:currentVersion:/hypertable/create_hypertable/
-[hypertable-docs]: /use-timescale/:currentVersion:/hypertables/
-[retention-policies]: /use-timescale/:currentVersion:/data-retention/
-[data-tiering]: /use-timescale/:currentVersion:/data-tiering/
+[time-series data]: /getting-started/:currentVersion:/time-series-data/
+[create_table API reference]: /api/:currentVersion:/hypertable/create_hypertable/
+[hypertable documentation]: /use-timescale/:currentVersion:/hypertables/
+[retention policies]: /use-timescale/:currentVersion:/data-retention/
+[data tiering]: /use-timescale/:currentVersion:/data-tiering/
 [compression]: /use-timescale/:currentVersion:/compression/about-compression/
-[caggs]: /use-timescale/:currentVersion:/continuous-aggregates
+[continuous aggregates]: /use-timescale/:currentVersion:/continuous-aggregates
 
 <StepFour />
 
@@ -189,8 +189,8 @@ features, such as:
 
 ## 6. Backfill data from source to target
 
-We recommend dumping the data from your source database on a per-table basis
-into CSV format, and restoring those CSVs into the target database using the
+Dump the data from your source database on a per-table basis into CSV format,
+and restore those CSVs into the target database using the
 `timescaledb-parallel-copy` tool.
 
 To dump rows from the source table in CSV format, you can use `psql`'s `\copy`
@@ -241,8 +241,8 @@ you could  consider adding an application-level validation that both databases
 are returning the same data.
 
 Another option is to compare the number of rows in the source and target
-tables, although this will read all data in the table which may have an impact
-on your production workload.
+tables, although this reads all data in the table which may have an impact on
+your production workload.
 
 Another option is to run `ANALYZE` on both the source and target tables and
 then look at the `reltuples` column of the `pg_class` table. This is not exact,
@@ -262,5 +262,4 @@ to determine.
 
 <SwitchProductionWorkload />
 
-[create-service]: /use-timescale/:currentVersion:/services/create-a-service/
 [dual-write-and-backfill]: /migrate/:currentVersion:/dual-write-and-backfill/

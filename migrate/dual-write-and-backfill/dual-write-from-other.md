@@ -46,9 +46,9 @@ TODO
 
 ## 6. Backfill data from source to target
 
-If your source database is not using TimescaleDB, we recommend dumping the data
-from your source database on a per-table basis into CSV format, and restoring
-those CSVs into the target database using the `timescaledb-parallel-copy` tool.
+If your source database is not using TimescaleDB, you can dump the data from
+your source database on a per-table basis into CSV format, and restoring those
+CSVs into the target database using the `timescaledb-parallel-copy` tool.
 
 Before you load the CSV data into the target hypertable, you must remove all
 rows which were inserted by dual writes, and which are before the completion
@@ -109,8 +109,8 @@ EOF
 <Highlight type="note">
 If the backfill process took long enough for there to be significant
 retention/compression work to be done, it may be preferable to run the jobs
-manually in order to have control over the pacing of the work until it is
-caught up before reenabling.
+manually to have control over the pacing of the work until it is caught up
+before re-enabling.
 </Highlight>
 
 ## 8. Validate that all data is present in target database
@@ -130,5 +130,4 @@ less costly.
 
 <SwitchProductionWorkload />
 
-[create-service]: /use-timescale/:currentVersion:/services/create-a-service/
 [dual-write-and-backfill]: /migrate/:currentVersion:/dual-write-and-backfill/

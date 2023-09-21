@@ -15,8 +15,8 @@ psql $TARGET -c "ALTER EXTENSION timescaledb UPDATE TO '<version here>';"
 ```
 
 The extension version must be present on Timescale in order for this to be
-successful. The following table gives an overview of the postgres version and
-lowest available extension version:
+successful. The following table gives an overview of the PostgreSQL version and
+lowest available TimescaleDB extension version:
 
 | pg12  | pg13  | pg14  | pg15  |
 |-------|-------|-------|-------|
@@ -25,6 +25,6 @@ lowest available extension version:
 [//]: # (Note: to update this table, consult https://timescale.slab.com/posts/migrations-and-version-compatibility-5red287x)
 
 By default, Timescale instances run on PostgreSQL version 15. If you require a
-lower version for a migration, please open a support request.
+lower version for a migration, open a support request.
 
 <OpenSupportRequest />

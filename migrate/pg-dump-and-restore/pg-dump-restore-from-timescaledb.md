@@ -14,21 +14,21 @@ import TimescaleDBVersion from "versionContent/_partials/_migrate_from_timescale
 # Migrate from TimescaleDB using pg_dump/restore
 
 The following instructions show you how to move your data from self-hosted
-TimescaleDB to a Timescale instance using `pg_dump` and `psql`. In order to not
-lose any data, applications which connect to the database should be taken
-offline. The duration of the migration is proportional to the amount of data
-stored in your database.
+TimescaleDB to a Timescale instance using `pg_dump` and `psql`. To not lose any
+data, applications which connect to the database should be taken offline. The
+duration of the migration is proportional to the amount of data stored in your
+database.
 
-We do not recommend using this migration method to migrate more than 100GB of
-data, primarily because of the amount of downtime that it implies for your
-application, instead we recommend our [dual-write and backfill][dual-write-bf]
+We do not recommend using this migration method to migrate more than
+100&nbsp;GB of data, primarily because of the amount of downtime that it
+implies for your application, instead use the [dual-write and backfill]
 low-downtime migration solution. Should you nonetheless wish to migrate more
-than 400GB of data with this method, please open a support request to ensure
+than 400&nbsp;GB of data with this method, open a support request to ensure
 that enough disk is pre-provisioned on your Timescale instance.
 
 <OpenSupportRequest />
 
-[dual-write-bf]: /migrate/:currentVersion:/dual-write-and-backfill
+[dual-write and backfill]: /migrate/:currentVersion:/dual-write-and-backfill
 
 <SourceTargetNote />
 
@@ -43,21 +43,20 @@ Timescale instance.
 Before you begin, ensure that you have:
 
 - Installed the PostgreSQL client libraries on the machine that you will
-  perform the migration from. We will use `pg_dump` and `psql`.
-- [Created a database service in Timescale][create-service].
+  perform the migration from, you will require `pg_dump` and `psql`.
+- [Created a database service in Timescale].
 - Checked that all PostgreSQL extensions you use are available on Timescale.
-  For more information, see the [list of compatible extensions][extensions].
+  For more information, see the [list of compatible extensions].
 - Checked that the version of PostgreSQL in your target database is greater
   than or equal to that of the source database.
 - Checked that you're running the exact same version of Timescale on both your
   target and source databases (the major/minor/patch version must all be the
-  same). For more information, see the
-  [upgrade instructions for self-hosted TimescaleDB][upgrade-self-hosted-ts]
-  section.
+  same). For more information, see the [upgrade instructions] for self-hosted
+  TimescaleDB.
 
-[create-service]: /use-timescale/:currentVersion:/services/create-a-service/
-[extensions]: /use-timescale/:currentVersion:/extensions/
-[upgrade-self-hosted-ts]: /self-hosted/latest/:currentVersion:/about-upgrades/
+[Created a database service in Timescale]: /use-timescale/:currentVersion:/services/create-a-service/
+[list of compatible extensions]: /use-timescale/:currentVersion:/extensions/
+[upgrade instructions]: /self-hosted/latest/:currentVersion:/about-upgrades/
 
 ## Dump the source database
 
@@ -103,20 +102,17 @@ psql $TARGET -v ON_ERROR_STOP=1 --echo-errors \
     -c "SELECT timescaledb_post_restore();"
 ```
 
-It uses [`timescaledb_pre_restore`][timescaledb_pre_restore] and
-[`timescaledb_post_restore`][timescaledb_post_restore] to put your database in
-the right state for restoring.
+It uses [timescaledb_pre_restore] and [timescaledb_post_restore] to put your
+database in the right state for restoring.
 
 <Highlight type="note">
 `pg_dump` and `pg_restore` support parallel dump/restore when used in
 `directory` mode. It is possible, in principle, to use this option with
-TimescaleDB, but there are some caveats. Please read the troubleshooting pages
-[Dumping with concurrency](/migrate/:currentVersion:/troubleshooting#dumping-with-concurrency),
-and [Restoring with concurrency](/migrate/:currentVersion:/troubleshooting#restoring-with-concurrency).
+TimescaleDB, but there are some caveats. Read the troubleshooting pages
+[Dumping with concurrency], and [Restoring with concurrency].
 </Highlight>
 
 [timescaledb_pre_restore]: /api/:currentVersion:/administration/timescaledb_pre_restore/
 [timescaledb_post_restore]: /api/:currentVersion:/administration/timescaledb_post_restore/
-[troubleshooting]: /self-hosted/:currentVersion:/troubleshooting/#versions-are-mismatched-when-dumping-and-restoring-a-database
-[postgres-docs]: https://www.postgresql.org/docs/current/app-pg-dumpall.html
-[dumping-and-locks]: /migrate/:currentVersion:/troubleshooting#dumping-and-locks
+[Dumping with concurrency]: /migrate/:currentVersion:/troubleshooting#dumping-with-concurrency
+[Restoring with concurrency]: /migrate/:currentVersion:/troubleshooting#restoring-with-concurrency

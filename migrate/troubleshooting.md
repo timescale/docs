@@ -15,13 +15,12 @@ import OpenSupportRequest from "versionContent/_partials/_migrate_open_support_r
 Timescale's platform automatically manages the underlying disk volume. Due to
 platform limitations, it is only possible to resize the disk once every six
 hours. Depending on the rate at which you're able to copy data, you may be
-affected by this restriction. Affected instances will be unable to accept new
-data and will error with:
-`FATAL: terminating connection due to administrator command`.
+affected by this restriction. Affected instances are unable to accept new data
+and error with: `FATAL: terminating connection due to administrator command`.
 
-If you intend on migrating more than 400&nbspGB of data to Timescale, please
-open a support request, requesting the required storage to be pre-allocated in
-your Timescale instance.
+If you intend on migrating more than 400&nbspGB of data to Timescale, open a
+support request requesting the required storage to be pre-allocated in your
+Timescale instance.
 
 <OpenSupportRequest />
 
@@ -30,7 +29,7 @@ your Timescale instance.
 When `pg_dump` starts, it takes an `ACCESS SHARE` lock on all tables which it
 dumps. This ensures that tables aren't dropped before `pg_dump` is able to drop
 them. A side effect of this is that any query which tries to take an
-`ACCESS EXCLUSIVE` lock on a table will be blocked by the `ACCESS SHARE` lock.
+`ACCESS EXCLUSIVE` lock on a table is be blocked by the `ACCESS SHARE` lock.
 
 A number of timescale-internal processes require taking `ACCESS EXCLUSIVE`
 locks to ensure consistency of the data. The following is a non-exhaustive list
@@ -43,8 +42,8 @@ of potentially affected operations:
 - drop chunks
 
 The most likely impact of the above is that background jobs for retention
-policies, compression policies, and continuous aggregate refresh policies will
-be blocked for the duration of the `pg_dump` command. This may have unintended
+policies, compression policies, and continuous aggregate refresh policies are
+blocked for the duration of the `pg_dump` command. This may have unintended
 consequences for your database performance.
 
 ## Dumping with concurrency
@@ -55,44 +54,44 @@ the dump process. Due to the fact that there are multiple connections, it is
 possible for `pg_dump` to end up in a deadlock situation. When it detects a
 deadlock it aborts the dump.
 
-In principle, any query which takes an `ACCESS EXCLUSIVE` lock on a table will
-cause such a deadlock. As mentioned above, some common operations which take an
-`ACCESS EXCLUSIVE` lock are:
+In principle, any query which takes an `ACCESS EXCLUSIVE` lock on a table
+causes such a deadlock. As mentioned above, some common operations which take
+an `ACCESS EXCLUSIVE` lock are:
 - retention policies
 - compression policies
 - continuous aggregate refresh policies
 
-If you would like to use concurrency nonetheless, we recommend that you disable
-all background jobs in the source database before running `pg_dump`, and
-re-enable them once the dump is complete. If the dump procedure takes longer
-than the continuous aggregate refresh policy's window, you will need to
-manually refresh the continuous aggregate in the correct time range. For more
-information, consult the [refresh policies documentation][refresh-policies].
+If you would like to use concurrency nonetheless, turn off all background jobs
+in the source database before running `pg_dump`, and turn them on once the dump
+is complete. If the dump procedure takes longer than the continuous aggregate
+refresh policy's window, you must manually refresh the continuous aggregate in
+the correct time range. For more information, consult the
+[refresh policies documentation].
 
-To disable the jobs:
+To turn off the jobs:
 ```sql
 SELECT public.alter_job(id::integer, scheduled=>false)
 FROM _timescaledb_config.bgw_job
 WHERE id >= 1000; 
 ```
 
-To re-enable the jobs:
+To turn on the jobs:
 ```sql
 SELECT public.alter_job(id::integer, scheduled=>true)
 FROM _timescaledb_config.bgw_job
 WHERE id >= 1000; 
 ```
 
-[refresh-policies]: /use-timescale/:currentVersion:/continuous-aggregates/refresh-policies/
+[refresh policies documentation]: /use-timescale/:currentVersion:/continuous-aggregates/refresh-policies/
 
 ## Restoring with concurrency
 
 If the directory format is used for pg_dump and pg_restore, concurrency can be
 employed to speed up the process. Unfortunately, loading the tables in the 
-`timescaledb_catalog` schema concurrently will cause errors. Furthermore, the 
-`tsdbadmin` does not have sufficient privileges to disable triggers in this 
-schema. To get around this limitation, load this schema serially, and then load 
-the rest of the database concurrently.
+`timescaledb_catalog` schema concurrently causes errors. Furthermore, the
+`tsdbadmin` user does not have sufficient privileges to turn off triggers in
+this schema. To get around this limitation, load this schema serially, and then
+load the rest of the database concurrently.
 
 ```bash
 # first, serially load JUST the _timescaledb_catalog
@@ -120,27 +119,28 @@ pg_restore -d "$TARGET" \
 
 ## Ownership of background jobs
 
-The `_timescaledb_config.bgw_jobs` table is used to manage background jobs. This
-includes both user-defined actions, compression policies, retention policies,
-and continuous aggregate refresh policies. On Timescale, this table has a
-trigger which ensures that no database user can create or modify jobs owned by
-another database user. This trigger can provide an obstacle for migrations.
+The `_timescaledb_config.bgw_jobs` table is used to manage background jobs.
+This includes both user-defined actions, compression policies, retention
+policies, and continuous aggregate refresh policies. On Timescale, this table
+has a trigger which ensures that no database user can create or modify jobs
+owned by another database user. This trigger can provide an obstacle for migrations.
 
-If the `--no-owner` flag is used with pg_dump and pg_restore, all objects in the
-target database will be owned by the user that ran pg_restore, likely tsdbadmin.
+If the `--no-owner` flag is used with pg_dump and pg_restore, all objects in
+the target database are owned by the user that ran pg_restore, likely
+`tsdbadmin`.
 
 If all the background jobs in the source database were owned by a user of the
-same name as the user running pg_restore (again likely tsdbadmin), then loading
-the `_timescaledb_config.bgw_jobs` table should work.
+same name as the user running the restore (again likely `tsdbadmin`), then
+loading the `_timescaledb_config.bgw_jobs` table should work.
 
-If the background jobs in the source were owned by the postgres user, they will 
-be automatically changed to be owned by the tsdbadmin. In this case, one just 
-needs to verify that the jobs do not make use of privileges that the tsdbadmin
-user does not possess.
+If the background jobs in the source were owned by the `postgres` user, they
+are be automatically changed to be owned by the `tsdbadmin` user. In this case,
+one just needs to verify that the jobs do not make use of privileges that the
+`tsdbadmin` user does not possess.
 
 If background jobs are owned by one or more users other than the user employed 
 in restoring, then there could be issues. To work around this issue, do not dump
-this table with pg_dump. Provide either
+this table with `pg_dump`. Provide either
 `--exclude-table-data='_timescaledb_config.bgw_job'` or 
 `--exclude-table='_timescaledb_config.bgw_job'` to pg_dump to skip this table.
 Then, use psql and the COPY command to dump and restore this table with modified
@@ -186,14 +186,14 @@ Once the table has been loaded and the restore completed, you may then use SQL
 to adjust the ownership of the jobs and/or the associated stored procedures and 
 functions as you wish.
 
-## Extension Availability
+## Extension availability
 
 There are a vast number of PostgreSQL extensions available in the wild. 
 Timescale supports many of the most popular extensions, but not all extensions.
 Before migrating, check that the extensions you are using are supported on
-Timescale. Consult the [list of supported extensions][supported-extensions].
+Timescale. Consult the [list of supported extensions].
 
-[supported-extensions]: /use-timescale/:currentVersion:/extensions/
+[list of supported extensions]: /use-timescale/:currentVersion:/extensions/
 
 ## Timescaledb extension in the public schema
 
@@ -206,11 +206,11 @@ particular details of the source schema and the migration approach chosen.
 
 Timescale does not support using custom tablespaces. Providing the 
 `--no-tablespaces` flag to pg_dump and pg_restore when dumping/restoring the
-schema will result in all objects being in the default tablespace as desired.
+schema results in all objects being in the default tablespace as desired.
 
 ## Only one database per instance
 
-While postgres clusters can contain many databases, Timescale instances are 
+While PostgreSQL clusters can contain many databases, Timescale instances are 
 limited to a single database. When migrating a cluster with multiple databases
 to Timescale, one can either migrate each source database to a separate 
 Timescale instance or "merge" source databases to target schemas.

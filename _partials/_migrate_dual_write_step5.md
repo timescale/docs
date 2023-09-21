@@ -1,7 +1,7 @@
 ## 5. Determine the completion point `T`
 
-After dual-writes have been executing for a while, the target hypertable will
-contain data in three time ranges: missing writes, late-arriving data, and the
+After dual-writes have been executing for a while, the target hypertable
+contains data in three time ranges: missing writes, late-arriving data, and the
 "consistency" range
 
 <img

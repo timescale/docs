@@ -5,7 +5,7 @@ import OpenSupportRequest from "versionContent/_partials/_migrate_open_support_r
 The dual-write and backfill migration method is relatively new, so the
 documentation and tooling may have some rough edges. If you are stuck, you can
 either open a support request, or take your issue to the `#migration` channel
-in our [community slack][slack], where the developers of this migration method
+in the [community slack][slack], where the developers of this migration method
 are there to help.
 
 <OpenSupportRequest />

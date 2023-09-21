@@ -23,16 +23,16 @@ features like hypertables, data compression or retention. These must be
 manually enabled after the migration, for which you must also take your
 application offline.
 
-We do not recommend using this migration method to migrate more than 100GB of
-data, primarily because of the amount of downtime that it implies for your
-application, instead we recommend our [dual-write and backfill][dual-write-bf]
+We do not recommend using this migration method to migrate more than
+100&nbsp;GB of data, primarily because of the amount of downtime that it
+implies for your application, instead use the [dual-write and backfill]
 low-downtime migration solution. Should you nonetheless wish to migrate more
-than 400GB of data with this method, please open a support request to ensure
+than 400&nbsp;GB of data with this method, open a support request to ensure
 that enough disk is pre-provisioned on your Timescale instance.
 
 <OpenSupportRequest />
 
-[dual-write-bf]: /migrate/:currentVersion:/dual-write-and-backfill
+[dual-write and backfill]: /migrate/:currentVersion:/dual-write-and-backfill
 
 <SourceTargetNote />
 
@@ -40,22 +40,21 @@ that enough disk is pre-provisioned on your Timescale instance.
 
 For minimal downtime, the `pg_dump` and `psql` commands should be run from a
 machine with a low-latency, high-throughput link to the database that they are
-connected to. As Timescale instances run in the Amazon cloud, our
-recommendation is that you use an AWS EC2 instance in the same region as your
-Timescale instance.
+connected to. As Timescale instances run in the Amazon cloud, use an AWS EC2
+instance in the same region as your Timescale instance.
 
 Before you begin, ensure that you have:
 
 - Installed the PostgreSQL client libraries on the machine that you will
   perform the migration from, you will require `pg_dump` and `psql`.
-- [Created a database service in Timescale][create-service].
+- [Created a database service in Timescale].
 - Checked that all PostgreSQL extensions you use are available on Timescale.
-  For more information, see the [list of compatible extensions][extensions].
+  For more information, see the [list of compatible extensions].
 - Checked that the version of PostgreSQL in your target database is greater
   than or equal to that of the source database.
 
-[create-service]: /use-timescale/:currentVersion:/services/create-a-service/
-[extensions]: /use-timescale/:currentVersion:/extensions/
+[Created a database service in Timescale]: /use-timescale/:currentVersion:/services/create-a-service/
+[list of compatible extensions]: /use-timescale/:currentVersion:/extensions/
 
 ## Dump the source database
 
@@ -90,12 +89,12 @@ The following is a brief explanation of the flags used:
 
 - `--no-owner` is required because Timescale's `tsdbadmin` user is not a
   superuser and cannot assign ownership in all cases. This flag means that
-  everything will be owned by the user used to connect to the target,
-  regardless of ownership in the source. This is a known limitation.
+  everything is owned by the user used to connect to the target, regardless of
+  ownership in the source. This is a known limitation.
 
 - `--no-privileges` is required because Timescale's `tsdbadmin` user is not a
   superuser and cannot assign privileges in all cases. This flag means that
-  privileges assigned to other users will need to be reassigned in the target
+  privileges assigned to other users need to be reassigned in the target
   database as a manual clean-up task. This is a known limitation.
 
 ## Restore into the target database

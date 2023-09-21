@@ -10,7 +10,9 @@ https?
 [Bb]itemporal
 [Bb]lockchains?
 [Bb]oolean
+BSD
 [Cc]allouts?
+COPY
 [Cc]lickstreams?
 Cloudformation
 Cloudwatch
@@ -32,7 +34,10 @@ Ethereum
 [Gg]apfill(?:ing)?
 [Gg]eospatial
 GitHub
+GNU
 Grafana
+GUC
+gsed
 gzip(?:ped)?
 Hasura
 HipChat
@@ -48,6 +53,8 @@ Indri
 [Ii]ntraday
 [Iin]validation
 jpg
+JDBC
+JDK
 JSON
 Kafka
 Kaggle
@@ -70,9 +77,12 @@ Outflux
 Patroni
 Paulo
 [Pp]erformant
+pg_dump
+pg_restore
 [Pp]laintext
 Plotly
 pre
+POSIX
 PostgreSQL
 [Pp]ooler?
 Prometheus
@@ -83,8 +93,10 @@ Protobuf
 psql
 [Qq]uantiles?
 qStudio
+RDS
 [Rr]edistribut(?:e|able)
 [Rr]eindex(?:ed)?
+reltuples
 [Rr]eusability
 [Rr]unbooks?
 [Ss]crollable
@@ -92,6 +104,7 @@ Sequelize
 [Ss]ignups?
 [Ss]iloed
 (?i)smallint
+sed
 src
 [Ss]ubquer(?:y|ies)
 [Ss]ubsets?
@@ -105,6 +118,7 @@ Threema
 Timescale(?:DB)?
 tobs
 [Tt]ransactionally
+tsdbadmin
 Uber
 [Uu]nary
 [Uu]ncomment
@@ -126,6 +140,7 @@ URLs?
 URIs?
 versionContent
 [Vv]irtualenv
+WAL
 [Ww]ebsockets?
 Worldmap
 www
