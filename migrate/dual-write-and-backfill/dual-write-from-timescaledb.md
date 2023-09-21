@@ -16,6 +16,8 @@ import ValidateProductionLoad from "versionContent/_partials/_migrate_dual_write
 import SwitchProductionWorkload from "versionContent/_partials/_migrate_dual_write_switch_production_workload.mdx";
 import SourceTargetNote from "versionContent/_partials/_migrate_source_target_note.mdx";
 import TimescaleDBVersion from "versionContent/_partials/_migrate_from_timescaledb_version.mdx";
+import DumpDatabaseRoles from "versionContent/_partials/_migrate_dual_write_dump_database_roles.mdx";
+import ExplainPgDumpFlags from "versionContent/_partials/_migrate_explain_pg_dump_flags.mdx";
 
 # Dual-write and backfill from TimescaleDB database
 
@@ -57,60 +59,11 @@ versions, as long as the target version is greater than that of the source.
 The version of TimescaleDB used in both databases must be exactly the same.
 </Highlight>
 
-### 3a. Dump the database roles from the source database
-
-```bash
-pg_dumpall -d "$SOURCE" \
-  --quote-all-identifiers \
-  --roles-only \
-  --file=roles.sql
-```
-
 <SetupSourceTarget />
 
-Timescale services do not support roles with superuser access. If your SQL
-dump includes roles that have such permissions, you'll need to modify the file
-to be compliant with the security model.
+### 3a. Dump the database roles from the source database
 
-You can use the following `sed` command to remove unsupported statements and
-permissions from your roles.sql file:
-
-```bash
-sed -i -E \
--e '/CREATE ROLE "postgres";/d' \
--e '/ALTER ROLE "postgres"/d' \
--e 's/(NO)*SUPERUSER//g' \
--e 's/(NO)*REPLICATION//g' \
--e 's/(NO)*BYPASSRLS//g' \
--e 's/GRANTED BY "[^"]*"//g' \
-roles.sql
-```
-
-<Highlight type="note">
-This command works only with the GNU implementation of sed (sometimes referred
-to as gsed). For the BSD implementation (the default on macOS), you need to
-add an extra argument to change the `-i` flag to `-i ''`.
-
-To check the sed version, you can use the command sed --version. While the GNU
-version explicitly identifies itself as GNU, the BSD version of sed generally
-doesn't provide a straightforward --version flag and simply outputs an "illegal
-option" error.
-</Highlight>
-
-A brief explanation of this script is:
-
-- `CREATE ROLE "postgres"`; and `ALTER ROLE "postgres"`: These statements are
-  removed because they require superuser access, which is not supported
-  by Timescale.
-
-- `(NO)SUPERUSER` | `(NO)REPLICATION` | `(NO)BYPASSRLS`: These are permissions
-  that require superuser access.
-
-- `GRANTED BY role_specification`: The GRANTED BY clause can also have permissions that
-  require superuser access and should therefore be removed. Note: Per the
-  TimescaleDB documentation, the GRANTOR in the GRANTED BY clause must be the
-  current user, and this clause mainly serves the purpose of SQL compatibility.
-  Therefore, it's safe to remove it.
+<DumpDatabaseRoles />
 
 ### 3b. Dump all plain tables and the TimescaleDB catalog from the source database
 
@@ -125,22 +78,11 @@ pg_dump -d "$SOURCE" \
   --file=dump.sql
 ```
 
-- `--no-tablespaces` is required because Timescale does not support
-  tablespaces other than the default. This is a known limitation.
-
-- `--no-owner` is required because tsdbadmin is not a superuser and cannot
-  assign ownership in all cases. This flag means that everything is owned by
-  the tsdbadmin user in the target regardless of ownership in the source. This
-  is a known limitation.
-
-- `--no-privileges` is required because tsdbadmin is not a superuser and
-  cannot assign privileges in all cases. This flag means that privileges
-  assigned to other users need to be reassigned in the target database as a
-  manual clean-up task. This is a known limitation.
-
 - `--exclude-table-data='_timescaledb_internal.*'` dumps the structure of the
   hypertable chunks, but not the data. This creates empty chunks on the target,
   ready for the backfill process.
+
+<ExplainPgDumpFlags />
 
 If the source database has the timescaledb extension installed in a schema
 other than "public" it causes issues on Timescale. Edit the dump file to remove

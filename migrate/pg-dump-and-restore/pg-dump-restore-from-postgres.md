@@ -6,9 +6,11 @@ keywords: [migration, low-downtime]
 tags: [migration, logical backup, pg_dump, pg_restore]
 ---
 
-import OpenSupportRequest from "versionContent/_partials/_migrate_open_support_request.mdx"
+import DoNotRecommendForLargeMigration from "versionContent/_partials/_migrate_pg_dump_do_not_recommend_for_large_migration.mdx";
+import MinimalDowntime from "versionContent/_partials/_migrate_pg_dump_minimal_downtime.mdx";
 import SetupSourceTarget from "versionContent/_partials/_migrate_set_up_source_and_target.mdx";
 import SourceTargetNote from "versionContent/_partials/_migrate_source_target_note.mdx";
+import ExplainPgDumpFlags from "versionContent/_partials/_migrate_explain_pg_dump_flags.mdx";
 
 # Migrate from PostgreSQL using pg_dump/restore
 
@@ -23,25 +25,13 @@ features like hypertables, data compression or retention. These must be
 manually enabled after the migration, for which you must also take your
 application offline.
 
-We do not recommend using this migration method to migrate more than
-100&nbsp;GB of data, primarily because of the amount of downtime that it
-implies for your application, instead use the [dual-write and backfill]
-low-downtime migration solution. Should you nonetheless wish to migrate more
-than 400&nbsp;GB of data with this method, open a support request to ensure
-that enough disk is pre-provisioned on your Timescale instance.
-
-<OpenSupportRequest />
-
-[dual-write and backfill]: /migrate/:currentVersion:/dual-write-and-backfill
+<DoNotRecommendForLargeMigration />
 
 <SourceTargetNote />
 
 ## Prerequisites
 
-For minimal downtime, the `pg_dump` and `psql` commands should be run from a
-machine with a low-latency, high-throughput link to the database that they are
-connected to. As Timescale instances run in the Amazon cloud, use an AWS EC2
-instance in the same region as your Timescale instance.
+<MinimalDowntime />
 
 Before you begin, ensure that you have:
 
@@ -82,20 +72,18 @@ pg_dump -d "$SOURCE" \
   --file=dump.sql
 ```
 
+<Highlight type="note">
+It is possible to dump using multiple connections to the source database, which
+may dramatically reduce the time taken to dump the source database. For more
+information, see [dumping with concurrency] and [restoring with concurrency].
+
+[dumping with concurrency]: /migrate/:currentVersion:/troubleshooting/#dumping-with-concurrency
+[restoring with concurrency]: /migrate/:currentVersion:/troubleshooting/##restoring-with-concurrency
+</Highlight>
+
 The following is a brief explanation of the flags used:
 
-- `--no-tablespaces` is required because Timescale does not support
-  tablespaces other than the default. This is a known limitation.
-
-- `--no-owner` is required because Timescale's `tsdbadmin` user is not a
-  superuser and cannot assign ownership in all cases. This flag means that
-  everything is owned by the user used to connect to the target, regardless of
-  ownership in the source. This is a known limitation.
-
-- `--no-privileges` is required because Timescale's `tsdbadmin` user is not a
-  superuser and cannot assign privileges in all cases. This flag means that
-  privileges assigned to other users need to be reassigned in the target
-  database as a manual clean-up task. This is a known limitation.
+<ExplainPgDumpFlags />
 
 ## Restore into the target database
 

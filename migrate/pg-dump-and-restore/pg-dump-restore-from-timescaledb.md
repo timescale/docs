@@ -6,10 +6,12 @@ keywords: [migration, low-downtime]
 tags: [migration, logical backup, pg_dump, pg_restore, timescaledb]
 ---
 
-import OpenSupportRequest from "versionContent/_partials/_migrate_open_support_request.mdx"
+import DoNotRecommendForLargeMigration from "versionContent/_partials/_migrate_pg_dump_do_not_recommend_for_large_migration.mdx";
+import CommonPrerequisites from "versionContent/_partials/_migrate_pg_dump_common_prerequisites.mdx";
 import SourceTargetNote from "versionContent/_partials/_migrate_source_target_note.mdx";
 import SetupSourceTarget from "versionContent/_partials/_migrate_set_up_source_and_target.mdx";
 import TimescaleDBVersion from "versionContent/_partials/_migrate_from_timescaledb_version.mdx";
+import ExplainPgDumpFlags from "versionContent/_partials/_migrate_explain_pg_dump_flags.mdx";
 
 # Migrate from TimescaleDB using pg_dump/restore
 
@@ -19,26 +21,13 @@ data, applications which connect to the database should be taken offline. The
 duration of the migration is proportional to the amount of data stored in your
 database.
 
-We do not recommend using this migration method to migrate more than
-100&nbsp;GB of data, primarily because of the amount of downtime that it
-implies for your application, instead use the [dual-write and backfill]
-low-downtime migration solution. Should you nonetheless wish to migrate more
-than 400&nbsp;GB of data with this method, open a support request to ensure
-that enough disk is pre-provisioned on your Timescale instance.
-
-<OpenSupportRequest />
-
-[dual-write and backfill]: /migrate/:currentVersion:/dual-write-and-backfill
+<DoNotRecommendForLargeMigration />
 
 <SourceTargetNote />
 
 ## Prerequisites
 
-For minimal downtime, the `pg_dump` and `psql` commands should be run from a
-machine with a low-latency, high-throughput link to the database that they are
-connected to. Timescale instances run in the Amazon cloud, so our
-recommendation is that you use an EC2 instance in the same region as your
-Timescale instance.
+<MinimalDowntime />
 
 Before you begin, ensure that you have:
 
@@ -84,6 +73,19 @@ pg_dump -d "$SOURCE" \
   --file=dump.sql
 ```
 
+<Highlight type="note">
+It is possible to dump using multiple connections to the source database, which
+may dramatically reduce the time taken to dump the source database. For more
+information, see [dumping with concurrency] and [restoring with concurrency].
+
+[dumping with concurrency]: /migrate/:currentVersion:/troubleshooting/#dumping-with-concurrency
+[restoring with concurrency]: /migrate/:currentVersion:/troubleshooting/##restoring-with-concurrency
+</Highlight>
+
+The following is a brief explanation of the flags used:
+
+<ExplainPgDumpFlags />
+
 ## Restore into the target database
 
 ### Ensure that the correct TimescaleDB version is installed
@@ -116,3 +118,15 @@ TimescaleDB, but there are some caveats. Read the troubleshooting pages
 [timescaledb_post_restore]: /api/:currentVersion:/administration/timescaledb_post_restore/
 [Dumping with concurrency]: /migrate/:currentVersion:/troubleshooting#dumping-with-concurrency
 [Restoring with concurrency]: /migrate/:currentVersion:/troubleshooting#restoring-with-concurrency
+
+### Verify data in the target and restart applications
+
+Verify that the data has been successfully restored by connecting to the target
+database and querying the restored data.
+
+Once you have verified that the data is present, and returns the results that
+you expect, you can reconfigure your application to use the target database and
+start it.
+
+[//]: # (TODO: add something about which pg_dump mode to use &#40;plain / binary / custom&#41;)
+[//]: # (TODO: add something about expected migration duration)
