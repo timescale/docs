@@ -7,7 +7,6 @@ tags: [migration, logical backup, pg_dump, pg_restore, timescaledb]
 ---
 
 import DoNotRecommendForLargeMigration from "versionContent/_partials/_migrate_pg_dump_do_not_recommend_for_large_migration.mdx";
-import CommonPrerequisites from "versionContent/_partials/_migrate_pg_dump_common_prerequisites.mdx";
 import SourceTargetNote from "versionContent/_partials/_migrate_source_target_note.mdx";
 import SetupSourceTarget from "versionContent/_partials/_migrate_set_up_source_and_target.mdx";
 import TimescaleDBVersion from "versionContent/_partials/_migrate_from_timescaledb_version.mdx";
