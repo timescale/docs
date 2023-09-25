@@ -48,13 +48,6 @@ on the type of the time column of the hypertable or continuous aggregate:
 |-|-|-|
 |`if_not_exists`|BOOLEAN|Setting to `true` causes the command to fail with a warning instead of an error if a compression policy already exists on the hypertable. Defaults to false.|
 
-<Highlight type="important">
-Compression policies on continuous aggregates should be set up so that they do
-not overlap with refresh policies on continuous aggregates. This is due to a
-current TimescaleDB limitation that prevents refresh of compressed regions of
-continuous aggregates.
-</Highlight>
-
 ### Sample usage
 
 Add a policy to compress chunks older than 60 days on the `cpu` hypertable.
