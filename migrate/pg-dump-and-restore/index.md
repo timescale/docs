@@ -35,14 +35,14 @@ you must be aware of:
 
 [//]: # (TODO: more caveats?)
 
-<Highlight type="info">
+<Highlight type="note">
 A long-running `pg_dump` against a database can cause various issues due to the
 types of locks that `pg_dump` takes. Consult the troubleshooting section
-[Dumping and locks] for more details.
+[dumping and locks](/migrate/:currentVersion:/troubleshooting/#dumping-and-locks)
+for more details.
 </Highlight>
 
 [pg_dump]: https://www.postgresql.org/docs/current/static/app-pgdump.html
 [pg_restore]: https://www.postgresql.org/docs/current/static/app-pgrestore.html
 [from-timescaledb]: /migrate/:currentVersion:/pg-dump-and-restore/pg-dump-restore-from-timescaledb/
 [from-postgres]: /migrate/:currentVersion:/pg-dump-and-restore/pg-dump-restore-from-postgres/
-[Dumping and locks]: /migrate/:currentVersion:/troubleshooting/#dumping-and-locks

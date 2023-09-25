@@ -44,7 +44,7 @@ Before you begin, ensure that you have:
 
 [Created a database service in Timescale]: /use-timescale/:currentVersion:/services/create-a-service/
 [list of compatible extensions]: /use-timescale/:currentVersion:/extensions/
-[upgrade instructions]: /self-hosted/latest/:currentVersion:/about-upgrades/
+[upgrade instructions]: /self-hosted/:currentVersion:/upgrades/about-upgrades/
 
 ## Dump the source database
 
@@ -75,10 +75,8 @@ pg_dump -d "$SOURCE" \
 <Highlight type="note">
 It is possible to dump using multiple connections to the source database, which
 may dramatically reduce the time taken to dump the source database. For more
-information, see [dumping with concurrency] and [restoring with concurrency].
-
-[dumping with concurrency]: /migrate/:currentVersion:/troubleshooting/#dumping-with-concurrency
-[restoring with concurrency]: /migrate/:currentVersion:/troubleshooting/##restoring-with-concurrency
+information, see [dumping with concurrency](/migrate/:currentVersion:/troubleshooting/#dumping-with-concurrency)
+and [restoring with concurrency](/migrate/:currentVersion:/troubleshooting/#restoring-with-concurrency).
 </Highlight>
 
 The following is a brief explanation of the flags used:
@@ -106,17 +104,8 @@ psql $TARGET -v ON_ERROR_STOP=1 --echo-errors \
 It uses [timescaledb_pre_restore] and [timescaledb_post_restore] to put your
 database in the right state for restoring.
 
-<Highlight type="note">
-`pg_dump` and `pg_restore` support parallel dump/restore when used in
-`directory` mode. It is possible, in principle, to use this option with
-TimescaleDB, but there are some caveats. Read the troubleshooting pages
-[Dumping with concurrency], and [Restoring with concurrency].
-</Highlight>
-
 [timescaledb_pre_restore]: /api/:currentVersion:/administration/timescaledb_pre_restore/
 [timescaledb_post_restore]: /api/:currentVersion:/administration/timescaledb_post_restore/
-[Dumping with concurrency]: /migrate/:currentVersion:/troubleshooting#dumping-with-concurrency
-[Restoring with concurrency]: /migrate/:currentVersion:/troubleshooting#restoring-with-concurrency
 
 ### Verify data in the target and restart applications
 

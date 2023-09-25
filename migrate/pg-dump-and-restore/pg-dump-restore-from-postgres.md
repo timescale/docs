@@ -75,10 +75,8 @@ pg_dump -d "$SOURCE" \
 <Highlight type="note">
 It is possible to dump using multiple connections to the source database, which
 may dramatically reduce the time taken to dump the source database. For more
-information, see [dumping with concurrency] and [restoring with concurrency].
-
-[dumping with concurrency]: /migrate/:currentVersion:/troubleshooting/#dumping-with-concurrency
-[restoring with concurrency]: /migrate/:currentVersion:/troubleshooting/##restoring-with-concurrency
+information, see [dumping with concurrency](/migrate/:currentVersion:/troubleshooting/#dumping-with-concurrency)
+and [restoring with concurrency](/migrate/:currentVersion:/troubleshooting/#restoring-with-concurrency).
 </Highlight>
 
 The following is a brief explanation of the flags used:
