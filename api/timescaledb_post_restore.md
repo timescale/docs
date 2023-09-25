@@ -24,4 +24,4 @@ Prepare the database for normal use after a restore:
 SELECT timescaledb_post_restore();
 ```
 
-[backup-restore]: /use-timescale/:currentVersion:/migration/pg-dump-and-restore/
+[backup-restore]: /migrate/:currentVersion:/pg-dump-and-restore/

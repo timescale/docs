@@ -655,4 +655,4 @@ public class Main {
 [query]: #execute-queries-on-timescaledb
 [install]: /getting-started/latest/
 [continuous-aggregates]: /use-timescale/:currentVersion:/continuous-aggregates/
-[migrate]: /use-timescale/:currentVersion:/migration/
+[migrate]: /migrate/:currentVersion:/
