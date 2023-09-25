@@ -53,7 +53,7 @@ migration.
   targeted for staging.
 
   ```sh
-  timescaledb-backfill stage --source $SOURCE_DB --target $TARGET_DB --until '2016-01-02T00:00:00' 
+  timescaledb-backfill stage --source $SOURCE --target $TARGET --until '2016-01-02T00:00:00' 
   ```
 
   The tables to be included in the stage can be controlled by providing
@@ -72,8 +72,8 @@ migration.
 
   ```
   raw_data -> hourly_agg -> daily_agg -> monthly_agg
-  ``` 
-  
+  ```
+
   If the filter `--filter='^public\.raw_data$'` is applied, then no data from the
   continuous aggregates is staged. If the filter
   `--filter='^public\.daily_agg$'` is applied, then only materialized data in the
@@ -99,7 +99,7 @@ migration.
   all objects in the example scenario is staged.
 
   ```sh
-  timescaledb-backfill stage --source $SOURCE_DB --target $TARGET_DB \
+  timescaledb-backfill stage --source $SOURCE --target $TARGET \
     --until '2016-01-02T00:00:00' \
     --filter '^public\.daily_agg$' \
     --cascade-up \
@@ -110,7 +110,7 @@ migration.
   copies the corresponding hypertable chunks to the target Timescale service.
 
    ```sh 
-   timescaledb-backfill copy --source $SOURCE_DB --target $TARGET_DB
+   timescaledb-backfill copy --source $SOURCE --target $TARGET
    ```
 
 - **Verify Command:** checks for discrepancies between the source and target
@@ -120,14 +120,76 @@ migration.
 
 
    ```sh 
-   timescaledb-backfill verify --source $SOURCE_DB --target $TARGET_DB
+   timescaledb-backfill verify --source $SOURCE --target $TARGET
    ```
+
+- **Refresh Continuous Aggregates Command:** refreshes the continuous
+  aggregates of the target system. It covers the period from the last refresh
+  in the target to the last refresh in the source, solving the problem of
+  continuous aggregates being outdated beyond the coverage of the refresh
+  policies.
+
+  ```sh
+  timescaledb-backfill refresh-caggs --source $SOURCE --target $TARGET
+  ```
+
+  To refresh the continuous aggregates, the command executes the following SQL
+  statement for all the matched continuous aggregates:
+
+  ```sql
+  CALL refresh_continuous_aggregate({CAGG NAME}, {TARGET_WATERMARK}, {SOURCE_WATERMARK})
+  ```
+
+  The continuous aggregates to be refreshed can be controlled by providing
+  filtering options:
+
+  `--filter`: this option accepts a POSIX regular expression to match
+  schema-qualified hypertable continuous aggregate view names.
+
+  By default, the filter includes only the matching objects, and does not
+  concern itself with dependencies between objects. Depending on what is
+  intended, this could be problematic as continuous aggregates form a
+  dependency hierarchy. This behaviour can be modified through cascade options.
+ 
+  For example, assuming a hierarchy of continuous aggregates for hourly, daily,
+  and weekly rollups of data in an underlying hypertable called `raw_data` (all
+  in the `public` schema). This could look as follows:
+
+  ```
+  raw_data -> hourly_agg -> daily_agg -> monthly_agg
+  ```
+
+  If the filter `--filter='^public\.daily_agg$'` is applied, only
+  materialized data in the continuous aggregate `daily_agg` will be updated.
+  However, this approach can lead to potential issues. For example, if
+  `hourly_agg` is not up to date, then `daily_agg` won't be either, as it
+  requires the missing data from `hourly_agg`. Additionally, it's important to
+  remember to refresh `monthly_agg` at some point to ensure its data remains
+  current. In both cases, relying solely on refresh policies may result in data
+  gaps if the policy doesn't cover the entire required period.
+
+  `--cascade-up`: when activated, this option ensures that any continuous
+  aggregates which depend on the filtered object are refreshed. It is called
+  "cascade up" because it cascades up the hierarchy. Using the example from
+  before, if the filter `--filter='^public\.daily_agg$' --cascade up` is
+  applied, the `hourly_agg`, `daily_agg`, and `monthly_agg` will be refreshed.
+
+  `--cascade-down`: when activated, this option ensures that any continuous
+  aggregates which the filtered object depends on are refreshed. It is called
+  "cascade down" because it cascades down the hierarchy. Using the example from
+  before, if the filter `--filter='^public\.daily_agg$' --cascade-down` is
+  applied, the data in `daily_agg` and `hourly_agg` will be refreshed.
+
+  The `--cascade-up` and `--cascade-down` options can be combined. Using the
+  example from before, if the filter `--filter='^public\.daily_agg$'
+  --cascade-up --cascade-down` is applied, then all the continuous aggregates
+  will be refreshed.
 
 - **Clean Command:** removes the administrative schema (`__backfill`) that was
   used to store the tasks once the migration is completed successfully.
 
   ```sh 
-  timescaledb-backfill clean --target $TARGET_DB 
+  timescaledb-backfill clean --target $TARGET
   ```
 
 ### Usage examples 
@@ -139,34 +201,46 @@ migration.
     --filter '.*\.my_table.*' \
     --until '2016-01-02T00:00:00'
 
-  timescaledb-backfill copy --source $SOURCE_DB --target $TARGET_DB
+  timescaledb-backfill copy --source $SOURCE --target $TARGET
 
-  timescaledb-backfill verify --source $SOURCE_DB --target $TARGET_DB
+  timescaledb-backfill refresh-caggs --source $SOURCE --target $TARGET
 
-  timescaledb-backfill clean --target $TARGET_DB
+  timescaledb-backfill verify --source $SOURCE --target $TARGET
+
+  timescaledb-backfill clean --target $TARGET
   ```
 
 - Running multiple stages with different filters and until dates: 
 
   ```sh
-  timescaledb-backfill stage --source $SOURCE_DB --target $TARGET_DB \
+  timescaledb-backfill stage --source $SOURCE --target $TARGET \
     --filter '^schema1\.table_with_time_as_timestampz$' \
     --until '2015-01-01T00:00:00'
 
-  timescaledb-backfill stage --source $SOURCE_DB --target $TARGET_DB \
+  timescaledb-backfill stage --source $SOURCE --target $TARGET \
     --filter '^schema1\.table_with_time_as_bigint$' \
     --until '91827364'
 
-  timescaledb-backfill stage --source $SOURCE_DB --target $TARGET_DB \
+  timescaledb-backfill stage --source $SOURCE --target $TARGET \
     --filter '^schema2\..*' \
     --until '2017-01-01T00:00:00'
 
-  timescaledb-backfill copy --source $SOURCE_DB --target $TARGET_DB
+  timescaledb-backfill copy --source $SOURCE --target $TARGET
 
-  timescaledb-backfill verify --source $SOURCE_DB --target $TARGET_DB
+  timescaledb-backfill refresh-caggs --source $SOURCE --target $TARGET
 
-  timescaledb-backfill clean --target $TARGET_DB
+  timescaledb-backfill verify --source $SOURCE --target $TARGET
+
+  timescaledb-backfill clean --target $TARGET
   ```
+
+- Refreshing a continuous aggregates hierarchy
+
+```sh
+  timescaledb-backfill refresh-caggs --source $SOURCE --target $TARGET \
+    --filter='^public\.daily_agg$' --cascade-up --cascade-down
+```
+
 
 ### Stop and resume
 
