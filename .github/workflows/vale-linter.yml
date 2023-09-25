@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9
+      uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608
 
     - name: Vale
       uses: errata-ai/vale-action@c4213d4de3d5f718b8497bd86161531c78992084
