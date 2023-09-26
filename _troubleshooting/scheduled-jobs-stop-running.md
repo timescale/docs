@@ -32,7 +32,7 @@ Your scheduled jobs might stop running for various reasons. On self-hosted
 TimescaleDB, you can fix this by restarting background workers:
 
 ```sql
-SELECT _timescaledb_internal.start_background_workers();
+SELECT _timescaledb_functions.start_background_workers();
 ```
 
 <CloudMSTRestartWorkers />

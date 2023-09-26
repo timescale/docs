@@ -238,7 +238,7 @@ and most other tasks are executed on the hypertable.
     Indexes:
       "page_loads_created_at_idx" btree (created_at DESC)
     Triggers:
-      ts_insert_blocker BEFORE INSERT ON page_loads FOR EACH ROW EXECUTE FUNCTION _timescaledb_internal.insert_blocker()
+      ts_insert_blocker BEFORE INSERT ON page_loads FOR EACH ROW EXECUTE FUNCTION _timescaledb_functions.insert_blocker()
     ```
 
 </Collapsible>
