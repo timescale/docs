@@ -68,9 +68,6 @@ lock the table for a significant amount of time, depending on how much data is
 in the table. It can also run into deadlock if foreign key constraints exist to
 other tables.
 
-If you would like finer control over index formation and other aspects of your
-hypertable, [follow these migration instructions instead][migrate].
-
 When converting a normal SQL table to a hypertable, pay attention to how you handle
 constraints. A hypertable can contain foreign keys to normal SQL table columns,
 but the reverse is not allowed. UNIQUE and PRIMARY constraints must include the
@@ -186,4 +183,3 @@ SELECT create_hypertable('events', 'event', time_partitioning_func => 'event_sta
 [create_distributed_hypertable]: /api/:currentVersion:/distributed-hypertables/create_distributed_hypertable
 [hash-partitions]: /use-timescale/:currentVersion:/hypertables/about-hypertables/#hypertable-partitioning
 [hypertable-docs]: /use-timescale/:currentVersion:/hypertables/
-[migrate]: /use-timescale/latest/migration/
