@@ -134,41 +134,98 @@ Dump the data from your source database on a per-table basis into CSV format,
 and restore those CSVs into the target database using the
 `timescaledb-parallel-copy` tool.
 
-To dump rows from the source table in CSV format, you can use `psql`'s `\copy`
-command. Note that all rows in the CSV data which you load into the target
-hypertable must be before the completion point. This filter can be applied when
-dumping the data from the source database:
+### 6a. Determine the time range of data that you want to move
+
+You need to determine the window of data that you would like to move from the
+source database to the target. Depending on the volume of data in the source
+table, you may wish to split the source table into multiple chunks of data to
+move independently. In the following steps, this time range is called `<start>`
+and `<end>`.
+
+Usually the `time` column is of type `timestamp with time zone`, so the values
+of `<start>` and `<end>` are something like `2023-08-01T00:00:00Z`. If the
+`time` column is not a `timestamp with time zone` then the values of `<start>`
+and `<end>` must be the correct type for the column.
+
+If you intend to backfill all historic data of the source table, then the value
+of `<start>` can be `'-infinity'`, and the `<end>` value is the value of the
+completion point `T` that you determined.
+
+### 6b. Remove overlapping data in the target
+
+The dual-write process may have already written data into the target database
+in the time range that you want to move. In this case, the dual-written data
+must be removed. This can be achieved with a `DELETE` statement, as follows:
 
 ```bash
-psql -d $SOURCE \
-  -c "\copy (
-    SELECT * FROM <table name>
-    WHERE <time_column> < <completion point time
-  )
-  TO
-  '<table name>.csv' WITH (FORMAT CSV)"
+psql $TARGET -c "DELETE FROM <hypertable> WHERE time >= <start> AND time < <end>);"
 ```
 
-Before you load the CSV data into the target hypertable, you must remove all
-rows which were inserted by dual writes, and which are before the completion
-point:
+<Highlight type="important">
+The BETWEEN operator is inclusive of both the start and end ranges, so it is
+not recommended to use it.
+</Highlight>
+
+### 6c. Turn off compression policies in the target for the hypertable
+
+Compression policies must be turned off for the target hypertable while data is
+being backfilled. This prevents the compression policy from compressing chunks
+which are only half full.
+
+In the following command, replace `<hypertable>` with the fully qualified table
+name of the target hypertable, for example `public.metrics`:
 
 ```bash
-psql -d $TARGET \
-  -c "DELETE FROM <target_hypertable>
-      WHERE <time_column> < <completion point time>";
+psql -d $TARGET -f -v hypertable=<hypertable> - <<'EOF'
+SELECT public.alter_job(j.id, scheduled=>false)
+FROM _timescaledb_config.bgw_job j
+JOIN _timescaledb_catalog.hypertable h ON h.id = j.hypertable_id
+WHERE j.proc_schema IN ('_timescaledb_internal', '_timescaledb_functions')
+  AND j.proc_name = 'policy_compression'
+  AND j.id >= 1000
+  AND format('%I.%I', h.schema_name, h.table_name)::text::regclass = :'hypertable'::text::regclass;
+EOF
 ```
 
-You can load a CSV file into a hypertable using `timescaledb-parallel-copy` as
-follows, note to set the number of workers equal to the number of cores in your
-target database:
+### 6d. Copy the data with a streaming copy
 
-```
-timescaledb-parallel-copy \
+Execute the following command, replacing `<source table>` and `<hypertable>`
+with the fully qualified names of the source table and target hypertable
+respectively:
+
+```bash
+psql $SOURCE -f - <<EOF
+  \copy ( \
+      SELECT * FROM <source table> WHERE time >= <start> AND time < <end> \
+    ) TO stdout WITH (format CSV);" | timescaledb-parallel-copy \
   --connection $TARGET \
-  --table <target_hypertable> \
-  --workers 8 \
-  --file <table name>.csv
+  --table <hypertable> \
+  --log-batches \
+  --batch-size=1000 \
+  --workers=4
+EOF
+```
+
+The above command is not transactional. If there is a connection issue, or some
+other issue which causes it to stop copying, the partially copied rows must be
+removed from the target (using the instructions in step 6b above), and then the
+copy can be restarted.
+
+### 6e. Turn on compression policies in the target
+
+In the following command, replace `<hypertable>` with the fully qualified table
+name of the target hypertable, for example `public.metrics`:
+
+```bash
+psql -d $TARGET -f -v hypertable=<hypertable> - <<'EOF'
+SELECT public.alter_job(j.id, scheduled=>true)
+FROM _timescaledb_config.bgw_job j
+JOIN _timescaledb_catalog.hypertable h ON h.id = j.hypertable_id
+WHERE j.proc_schema IN ('_timescaledb_internal', '_timescaledb_functions')
+  AND j.proc_name = 'policy_compression'
+  AND j.id >= 1000
+  AND format('%I.%I', h.schema_name, h.table_name)::text::regclass = :'hypertable'::text::regclass;
+EOF
 ```
 
 ## 7. Validate that all data is present in target database
