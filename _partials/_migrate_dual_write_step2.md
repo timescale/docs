@@ -9,6 +9,6 @@ such a failure.
 
 You may also want to execute the same read queries on the source and target
 database to evaluate the correctness and performance of the results which the
-queries deliver. Bear in mind that the new database spends a certain amount of
-time without all data being present, so you should expect that the results are
-not the same for some period (potentially a number of days).
+queries deliver. Bear in mind that the target database spends a certain amount
+of time without all data being present, so you should expect that the results
+are not the same for some period (potentially a number of days).
