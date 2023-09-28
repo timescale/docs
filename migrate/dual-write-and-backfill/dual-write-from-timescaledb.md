@@ -204,7 +204,7 @@ Once the continuous aggregates are updated, you can re-enable all background
 jobs:
 
 ```bash
-psql -d $TARGET -f <<EOF
+psql -d $TARGET -f - <<EOF
   select public.alter_job(id::integer, scheduled=>true)
   from _timescaledb_config.bgw_job
   where id >= 1000;
