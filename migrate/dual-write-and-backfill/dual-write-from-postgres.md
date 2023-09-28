@@ -16,6 +16,8 @@ import ValidateProductionLoad from "versionContent/_partials/_migrate_dual_write
 import SwitchProductionWorkload from "versionContent/_partials/_migrate_dual_write_switch_production_workload.mdx";
 import SourceTargetNote from "versionContent/_partials/_migrate_source_target_note.mdx";
 import DumpDatabaseRoles from "versionContent/_partials/_migrate_dual_write_dump_database_roles.mdx";
+import Step6eTurnOnCompressionPolicies from "versionContent/_partials/_migrate_dual_write_6e_turn_on_compression_policies.mdx";
+import Step6aThroughc from "versionContent/_partials/_migrate_dual_write_6a_through_c.mdx";
 
 # Dual-write and backfill from PostgreSQL database
 
@@ -130,62 +132,7 @@ features, such as:
 
 ## 6. Backfill data from source to target
 
-Dump the data from your source database on a per-table basis into CSV format,
-and restore those CSVs into the target database using the
-`timescaledb-parallel-copy` tool.
-
-### 6a. Determine the time range of data that you want to move
-
-You need to determine the window of data that you would like to move from the
-source database to the target. Depending on the volume of data in the source
-table, you may wish to split the source table into multiple chunks of data to
-move independently. In the following steps, this time range is called `<start>`
-and `<end>`.
-
-Usually the `time` column is of type `timestamp with time zone`, so the values
-of `<start>` and `<end>` are something like `2023-08-01T00:00:00Z`. If the
-`time` column is not a `timestamp with time zone` then the values of `<start>`
-and `<end>` must be the correct type for the column.
-
-If you intend to backfill all historic data of the source table, then the value
-of `<start>` can be `'-infinity'`, and the `<end>` value is the value of the
-completion point `T` that you determined.
-
-### 6b. Remove overlapping data in the target
-
-The dual-write process may have already written data into the target database
-in the time range that you want to move. In this case, the dual-written data
-must be removed. This can be achieved with a `DELETE` statement, as follows:
-
-```bash
-psql $TARGET -c "DELETE FROM <hypertable> WHERE time >= <start> AND time < <end>);"
-```
-
-<Highlight type="important">
-The BETWEEN operator is inclusive of both the start and end ranges, so it is
-not recommended to use it.
-</Highlight>
-
-### 6c. Turn off compression policies in the target for the hypertable
-
-Compression policies must be turned off for the target hypertable while data is
-being backfilled. This prevents the compression policy from compressing chunks
-which are only half full.
-
-In the following command, replace `<hypertable>` with the fully qualified table
-name of the target hypertable, for example `public.metrics`:
-
-```bash
-psql -d $TARGET -f -v hypertable=<hypertable> - <<'EOF'
-SELECT public.alter_job(j.id, scheduled=>false)
-FROM _timescaledb_config.bgw_job j
-JOIN _timescaledb_catalog.hypertable h ON h.id = j.hypertable_id
-WHERE j.proc_schema IN ('_timescaledb_internal', '_timescaledb_functions')
-  AND j.proc_name = 'policy_compression'
-  AND j.id >= 1000
-  AND format('%I.%I', h.schema_name, h.table_name)::text::regclass = :'hypertable'::text::regclass;
-EOF
-```
+<Step6aThroughc />
 
 ### 6d. Copy the data with a streaming copy
 
@@ -211,22 +158,7 @@ other issue which causes it to stop copying, the partially copied rows must be
 removed from the target (using the instructions in step 6b above), and then the
 copy can be restarted.
 
-### 6e. Turn on compression policies in the target
-
-In the following command, replace `<hypertable>` with the fully qualified table
-name of the target hypertable, for example `public.metrics`:
-
-```bash
-psql -d $TARGET -f -v hypertable=<hypertable> - <<'EOF'
-SELECT public.alter_job(j.id, scheduled=>true)
-FROM _timescaledb_config.bgw_job j
-JOIN _timescaledb_catalog.hypertable h ON h.id = j.hypertable_id
-WHERE j.proc_schema IN ('_timescaledb_internal', '_timescaledb_functions')
-  AND j.proc_name = 'policy_compression'
-  AND j.id >= 1000
-  AND format('%I.%I', h.schema_name, h.table_name)::text::regclass = :'hypertable'::text::regclass;
-EOF
-```
+<Step6eTurnOnCompressionPolicies />
 
 ## 7. Validate that all data is present in target database
 
@@ -251,11 +183,7 @@ compressed in one database, but not the other, then this check cannot be used.
 
 ## 8. Validate that target database can handle production load
 
-Now that dual-writes have been in place for a while, the target database should
-be holding up to production write traffic. Now would be the right time to
-determine if the target database can serve all production traffic (both reads
-_and_ writes). How exactly this is done is application-specific and up to you
-to determine.
+<ValidateProductionLoad />
 
 ## 9. Switch production workload to target database
 
