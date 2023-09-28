@@ -24,17 +24,15 @@ source database which is not using PostgreSQL to Timescale.
 <SourceTargetNote />
 
 In detail, the migration process consists of the following steps:
-1. Set up a target database instance in Timescale.
-1. Modify the application to write to a secondary database.
-1. Set up schema and migrate relational data to target database.
-1. Start the application in dual-write mode.
-1. Determine the completion point `T`.
-1. Backfill time-series data from source to target.
-1. Enable background jobs (policies) in the target database.
-1. Validate that all data is present in target database.
-1. Validate that target database can handle production load.
-1. Switch application to treat target database as primary (potentially
-   continuing to write into source database, as a backup).
+1. [Set up a target database instance in Timescale](#1-set-up-a-target-database-instance-in-timescale).
+1. [Modify the application to write to the target database](#2-modify-the-application-to-write-to-the-target-database).
+1. [Set up schema and migrate relational data to target database](#3-set-up-schema-and-migrate-relational-data-to-target-database).
+1. [Start the application in dual-write mode](#4-start-application-in-dual-write-mode).
+1. [Determine the completion point `T`](#5-determine-the-completion-point-t).
+1. [Backfill data from source to target](#6-backfill-data-from-source-to-target).
+1. [Validate that all data is present in target database](#7-validate-that-all-data-is-present-in-target-database).
+1. [Validate that target database can handle production load](#8-validate-that-target-database-can-handle-production-load).
+1. [Switch production workload to target database](#9-switch-production-workload-to-target-database).
 
 <StepOne />
 

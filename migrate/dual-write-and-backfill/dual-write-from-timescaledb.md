@@ -28,17 +28,16 @@ source database which is using TimescaleDB to Timescale.
 <SourceTargetNote />
 
 In detail, the migration process consists of the following steps:
-1. Set up a target database instance in Timescale.
-1. Modify the application to write to a secondary database.
-1. Migrate schema and relational data from source to target.
-1. Start the application in dual-write mode.
-1. Determine the completion point `T`.
-1. Backfill time-series data from source to target.
-1. Enable background jobs (policies) in the target database.
-1. Validate that all data is present in target database.
-1. Validate that target database can handle production load.
-1. Switch application to treat target database as primary (potentially
-   continuing to write into source database, as a backup).
+1. [Set up a target database instance in Timescale](#1-set-up-a-target-database-instance-in-timescale).
+1. [Modify the application to write to the target database](#2-modify-the-application-to-write-to-the-target-database).
+1. [Set up scheme and migrate relational data to target database](#3-set-up-schema-and-migrate-relational-data-to-target-database).
+1. [Start the application in dual-write mode](#4-start-application-in-dual-write-mode).
+1. [Determine the completion point `T`](#5-determine-the-completion-point-t).
+1. [Backfill hypertable data from source to target](#6-backfill-hypertable-data-from-source-to-target).
+1. [Enable background jobs in the target database](#7-enable-background-jobs-in-target-database).
+1. [Validate that all data is present in target database](#8-validate-that-all-data-is-present-in-target-database).
+1. [Validate that target database can handle production load](#9-validate-that-target-database-can-handle-production-load).
+1. [Switch production workload to target database](#10-switch-production-workload-to-target-database).
 
 <GettingHelp />
 
@@ -126,7 +125,7 @@ the migration is complete.
 
 <StepFive />
 
-## 6. Backfill data from source to target
+## 6. Backfill hypertable data from source to target
 
 The simplest way to backfill from TimescaleDB, is to use the
 [timescaledb-backfill][timescaledb-backfill] backfill tool. It efficiently
