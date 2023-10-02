@@ -52,5 +52,5 @@ Some popular alerting tools that work with Timescale include:
 [PostgreSQL datasource]: https://grafana.com/docs/features/datasources/postgres/
 [datadog-install]: https://docs.datadoghq.com/integrations/postgres/
 [define alert rules]: https://grafana.com/docs/alerting/rules/
-[nagios-install]: https://www.nagios.com/solutions/postgres-monitoring/
+[nagios-install]: https://www.nagios.com/solutions/postgresql-monitoring/
 [zabbix-install]: https://www.zabbix.com/documentation/current/en/manual/appendix/install/timescaledb
