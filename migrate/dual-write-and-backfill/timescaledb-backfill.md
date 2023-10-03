@@ -114,15 +114,32 @@ migration.
    timescaledb-backfill copy --source $SOURCE --target $TARGET
    ```
 
+  In addition to the `--source` and `--target` parameters, the `copy` command
+  takes one optional parameter:
+
+  `--parallelism` specifies the number of `COPY` jobs which will be run in
+  parallel, the default is 8. It should ideally be set to the number of cores
+  that the source and target database have, and is the most important parameter
+  in dictating both how much load the source database experiences, and how
+  quickly data is transferred from the source to the target database.
+
 - **Verify Command:** checks for discrepancies between the source and target
   chunks' data. It compares the results of the count for each chunk's table, as
   well as per-column count, max, min, and sum values (when applicable,
   depending on the column data type).
 
-
    ```sh 
    timescaledb-backfill verify --source $SOURCE --target $TARGET
    ```
+
+  In addition to the `--source` and `--target` parameters, the `verify` command
+  takes one optional parameter:
+
+  `--parallelism` specifies the number of verification jobs which will be run
+  in parallel, the default is 8. It should ideally be set to the number of cores
+  that the source and target database have, and is the most important parameter
+  in dictating both how much load the source and target databases experience
+  during verification, and how long it takes for verification to complete.
 
 - **Refresh Continuous Aggregates Command:** refreshes the continuous
   aggregates of the target system. It covers the period from the last refresh
