@@ -12,8 +12,9 @@ import ConsiderCloud from "versionContent/_partials/_consider-cloud.mdx";
 
 It is possible to migrate from self-hosted PostgreSQL or TimescaleDB to
 Timescale using the native PostgreSQL [`pg_dump`][pg_dump] and
-[`pg_restore`][pg_restore] programs. This works for compressed hypertables,
-without having to decompress data before you begin.
+[`pg_restore`][pg_restore] programs. If you are migrating from self-hosted
+TimescaleDB, this works for compressed hypertables, without having to
+decompress data before you begin.
 
 For more information, consult the step-by-step guide for your source database:
 
