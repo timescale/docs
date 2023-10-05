@@ -15,6 +15,8 @@ import ExporterRegionNote from 'versionContent/_partials/_cloud-integrations-exp
 
 # Export metrics to Prometheus
 
+You can export your Timescale service telemetry to Prometheus.
+
 ## Create a monitoring user
 
 1. Connect to the Timescale service as tsdbadmin (using psql or a similar tool).
