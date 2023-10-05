@@ -86,7 +86,7 @@ window.
 
     ```sql
     SELECT COALESCE(
-        _timescaledb_internal.to_timestamp(_timescaledb_internal.cagg_watermark(<ID>)),
+        _timescaledb_functions.to_timestamp(_timescaledb_functions.cagg_watermark(<ID>)),
         '-infinity'::timestamp with time zone
     );
     ```

@@ -32,7 +32,7 @@ The custom maintenance job can be run as a user-defined action. For example:
 CREATE OR REPLACE PROCEDURE data_node_maintenance(job_id int, config jsonb)
 LANGUAGE SQL AS
 $$
-    SELECT _timescaledb_internal.remote_txn_heal_data_node(fs.oid)
+    SELECT _timescaledb_functions.remote_txn_heal_data_node(fs.oid)
     FROM pg_foreign_server fs, pg_foreign_data_wrapper fdw
     WHERE fs.srvfdw = fdw.oid
     AND fdw.fdwname = 'timescaledb_fdw';

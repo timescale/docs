@@ -34,5 +34,5 @@ Prepare to restore the database:
 SELECT timescaledb_pre_restore();
 ```
 
-[backup-restore]: /use-timescale/:currentVersion:/migration/pg-dump-and-restore/
+[backup-restore]: /migrate/:currentVersion:/pg-dump-and-restore/
 [timescaledb_post_restore]: /api/:currentVersion:/administration/timescaledb_post_restore/

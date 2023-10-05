@@ -6,6 +6,7 @@ const timescaleUsingPageIndex = require("../use-timescale/page-index/page-index"
 const navigationPageIndex = require("../navigation/page-index/page-index");
 const tutorialsPageIndex = require("../tutorials/page-index/page-index.js");
 const codeQuickStartsPageIndex = require("../quick-start/page-index/page-index.js");
+const migrationPageIndex = require("../migrate/page-index/page-index.js");
 const timescaleAboutPageIndex = require("../about/page-index/page-index");
 
 module.exports = [
@@ -18,6 +19,7 @@ module.exports = [
   ...timescaleMSTPageIndex,
   ...timescaleAboutPageIndex,
   ...navigationPageIndex,
+  ...migrationPageIndex,
   {
     Title: "GitHub",
     type: "external",

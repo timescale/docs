@@ -18,7 +18,7 @@ package manager on these distributions:
 |-|-|-|-|-|
 |Debian 10 Buster|Ubuntu 20.04 LTS Focal Fossa|Red Hat Enterprise Linux 7|Rocky Linux 8|Fedora 33|
 |Debian 11 Bullseye|Ubuntu 22.04 LTS Jammy Jellyfish|Red Hat Enterprise Linux 8|Rocky Linux 9|Fedora 34|
-| | |Red Hat Enterprise Linux 9| |Fedora 35|
+|Debian 12 Bookworm|Ubuntu 23.04 Lunar Lobster|Red Hat Enterprise Linux 9| |Fedora 35|
 
 <Highlight type="warning">
 If you have already installed PostgreSQL using a method other than the `apt`

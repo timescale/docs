@@ -12,4 +12,4 @@ Service for TimescaleDB to Timescale using the PostgreSQL `pg_backup` and
 `pg_restore` tools. To learn more about migration, see the
 [migration section][migration].
 
-[migration]: /use-timescale/:currentVersion:/migration/
+[migration]: /migrate/:currentVersion:/

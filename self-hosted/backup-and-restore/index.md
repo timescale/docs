@@ -14,13 +14,12 @@ TimescaleDB takes advantage of the reliable backup and restore functionality
 provided by PostgreSQL. There are a few different mechanisms you can use to
 backup your self-hosted TimescaleDB database:
 
-*   Logical backups with [pg_dump and pg_restore][logical-backups].
+*   Logical backups with pg_dump and pg_restore.
 *   [Physical backups][physical-backups] with `pg_basebackup` or another tool.
 *   _DEPRECATED_ [Ongoing physical backups][ongoing-physical-backups] using write-ahead log
   (WAL) archiving.
 
 <ConsiderCloud />
 
-[logical-backups]: /use-timescale/:currentVersion:/migration/pg-dump-and-restore/
 [ongoing-physical-backups]: /self-hosted/:currentVersion:/backup-and-restore/docker-and-wale/
 [physical-backups]: /self-hosted/:currentVersion:/backup-and-restore/physical/

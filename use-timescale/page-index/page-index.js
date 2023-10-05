@@ -346,19 +346,6 @@ module.exports = [
         ],
       },
       {
-        title: "Migration",
-        href: "migration",
-        excerpt: "Migrate your existing PostgreSQL database to Timescale",
-        children: [
-          {
-            title: "Migrate with pg_dump and pg_restore",
-            href: "pg-dump-and-restore",
-            excerpt:
-              "Migrate a hypertable or entire database with native PostgreSQL commands",
-          },
-        ],
-      },
-      {
         title: "Billing and account management",
         href: "account-management",
         excerpt: "Timescale account management",
