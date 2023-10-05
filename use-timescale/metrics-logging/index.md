@@ -23,4 +23,4 @@ can also integrate with third-party logging services.
 [metrics]: /use-timescale/:currentVersion:/metrics-logging/service-metrics/
 [logs]: /use-timescale/:currentVersion:/metrics-logging/service-logs/
 [integrations]: /use-timescale/:currentVersion:/metrics-logging/integrations/
-[prometheus]: /use-timescale/:currentVersion:/metrics-logging/export-metrics-prometheus/
+[prometheus]: /use-timescale/:currentVersion:/metrics-logging/metrics-to-prometheus/
