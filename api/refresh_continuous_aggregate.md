@@ -66,6 +66,7 @@ DECLARE
 BEGIN
   WHILE start_timestamp < '2020-02-01T00:00:00Z' LOOP
     CALL refresh_continuous_aggregate('conditions', start_timestamp, end_timestamp);
+    COMMIT;
     RAISE NOTICE 'finished with timestamp %', end_timestamp;
     start_timestamp = end_timestamp;
     end_timestamp = end_timestamp + refresh_interval;
