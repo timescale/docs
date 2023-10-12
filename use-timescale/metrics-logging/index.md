@@ -17,8 +17,10 @@ can also integrate with third-party logging services.
 
 *   View [service metrics][metrics] in the dashboard.
 *   View [service logs][logs] in the dashboard.
-*   Integrate with a [third-party logging service][integrations].
+*   Integrate with a [third-party metrics service][integrations].
+*   Export metrics to [Prometheus][prometheus].
 
 [metrics]: /use-timescale/:currentVersion:/metrics-logging/service-metrics/
 [logs]: /use-timescale/:currentVersion:/metrics-logging/service-logs/
 [integrations]: /use-timescale/:currentVersion:/metrics-logging/integrations/
+[prometheus]: /use-timescale/:currentVersion:/metrics-logging/metrics-to-prometheus/
