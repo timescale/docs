@@ -78,7 +78,8 @@ WHERE t1.id IN (1, 2, 3, 4)
 GROUP BY ...
 ```
 
-`INNER JOIN` on a single equality condition specified in `WHERE` clause, this is allowed but not recommended:
+`INNER JOIN` on a single equality condition specified in `WHERE` clause, this is
+allowed but not recommended:
 
 ```sql
 CREATE MATERIALIZED VIEW my_view WITH (timescaledb.continuous) AS
@@ -99,7 +100,8 @@ JOIN table_2 t2 ON t1.t2_id = t2.id AND t1.t2_id_2 = t2.id
 GROUP BY ...
 ```
 
-A `JOIN` with a single equality condition specified in `WHERE` clause cannot be combined with further conditions in the `WHERE` clause.
+A `JOIN` with a single equality condition specified in `WHERE` clause cannot be
+combined with further conditions in the `WHERE` clause.
 
 ```sql
 CREATE MATERIALIZED VIEW my_view WITH (timescaledb.continuous) AS

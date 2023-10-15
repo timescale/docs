@@ -5,39 +5,13 @@ products: [cloud, mst, self_hosted]
 keywords: [time buckets]
 ---
 
+import TimeBucketIntro from "versionContent/_partials/_time-bucket-intro.mdx";
+
 # About time buckets
 
-The [`time_bucket`][time_bucket] function allows you to aggregate data into
-buckets of time, for example: 5 minutes, 1 hour, or 3 days. It's similar to
-PostgreSQL's [`date_bin`][date_bin] function, but it gives you more
-flexibility in bucket size and start time.
+<TimeBucketIntro />
 
-Time bucketing is essential to working with time-series data. You can use it to
-roll up data for analysis or downsampling. For example, you can calculate
-5-minute averages for a sensor reading over the last day. You can perform these
-rollups as needed, or pre-calculate them in [continuous aggregates][caggs].
-
-This section explains how time bucketing works. For examples of the
-`time_bucket` function, see the section on
-[using time buckets][use-time-buckets].
-
-## How time bucketing works
-
-Time bucketing groups data into time intervals. With `time_bucket`, the interval
-length can be any number of microseconds, milliseconds, seconds, minutes, hours,
-days, weeks, months, years, or centuries.
-
-The `time_bucket` function is usually used in combination with `GROUP BY` to
-aggregate data. For example, you can calculate the average, maximum, minimum, or
-sum of values within a bucket.
-
-<img class="main-content__illustration"
-width={1375} height={944}
-src="https://assets.timescale.com/docs/images/getting-started/time-bucket.webp"
-alt="Diagram showing time-bucket aggregating data into daily buckets, and calculating the daily sum of a value"
-/>
-
-### Origin
+## Origin
 
 The origin determines when time buckets start and end. By default, a time bucket
 doesn't start at the earliest timestamp in your data. There is often a more
@@ -67,7 +41,7 @@ preceding Monday. It starts on April 13, because you can get to April 13, 2020,
 by counting in two-week increments from January 3, 2000, which is the default
 origin in this case.
 
-#### Default origins
+### Default origins
 
 For intervals that don't include months or years, the default origin is January
 3, 2000. For month, year, or century intervals, the default origin is January 1,
@@ -83,7 +57,7 @@ If you prefer another origin, you can set it yourself using the [`origin`
 parameter][origin]. For example, to start weeks on Sunday, set the origin to
 Sunday, January 2, 2000.
 
-### Timezones
+## Timezones
 
 The origin time depends on the data type of your time values.
 
