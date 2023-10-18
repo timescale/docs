@@ -142,6 +142,56 @@ psql [your connect flags] -d your_timescale_db < dump_meta_data.sql > dumpfile.t
 
 and then inspect `dump_file.txt` before sending it together with a bug report or support question.
 
+## Debugging background jobs
+
+By default, background workers do not print a lot of information about
+execution. The reason for this is to avoid writing a lot of debug
+information to the PostgreSQL log unless necessary.
+
+To aid in debugging the background jobs, it is possible to increase
+the log level of the background workers without having to restart the
+server by setting the `timescaledb.bgw_log_level` GUC and reloading
+the configuration.
+
+```sql
+ALTER SYSTEM SET timescaledb.bgw_log_level TO 'DEBUG1';
+SELECT pg_reload_conf();
+```
+
+This variable is set to the value of
+[`log_min_messages`][log_min_messages] by default, which typically is
+`WARNING`. If the value of [`log_min_messages`][log_min_messages] is
+changed in the configuration file, this value will be used instead for
+`timescaledb.bgw_log_level`.
+
+### Debug level 1
+
+The amount of information printed at each level varies between jobs,
+but the information printed at `DEBUG1` is currently shown below.
+
+| Source            | Event                                                |
+|-------------------|------------------------------------------------------|
+| All jobs          | Job exit with runtime information                    |
+| All jobs          | Job scheduled for fast restart                       |
+| Custom job        | Execution started                                    |
+| Recompression job | Recompression job completed                          |
+| Reorder job       | Chunk reorder completed                              |
+| Reorder job       | Chunk reorder started                                |
+| Scheduler         | New jobs discovered and added to scheduled jobs list |
+| Scheduler         | Scheduling job for launch                            |
+
+### Debug level 2
+
+The amount of information printed at each level varies between jobs,
+but the information printed at `DEBUG2` is currently shown below. Note
+that all messages at `DEBUG1` are also printed.
+
+| Source    | Event                              |
+|-----------|------------------------------------|
+| All jobs  | Job found in jobs table            |
+| All jobs  | Job starting execution             |
+| Scheduler | Scheduled jobs list update started |
+
 [downloaded separately]: https://raw.githubusercontent.com/timescale/timescaledb/master/scripts/dump_meta_data.sql
 [github]: https://github.com/timescale/timescaledb/issues
 [slack]: https://slack.timescale.com/
@@ -149,3 +199,5 @@ and then inspect `dump_file.txt` before sending it together with a bug report or
 [update-db]: /self-hosted/:currentVersion:/upgrades/
 [using explain]: https://www.postgresql.org/docs/current/static/using-explain.html
 [worker-config]: /self-hosted/latest/configuration/about-configuration/#workers
+[log_min_messages]: https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-MIN-MESSAGES
+
