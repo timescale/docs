@@ -16,6 +16,10 @@ import UsageBasedStorage from "versionContent/_partials/_usage-based-storage-int
 This section contains information about how your Timescale account is billed.
 It also shows you how to add a payment method, or update to a new credit card.
 
+## Enterprise Tier 
+
+The Enterprise Tier is available to all customers, please reach out to your customer success contact person to set this up. For more information, visit [here](https://www.timescale.com/enterprise-tier).
+
 ## Usage-based storage
 
 <UsageBasedStorage />
