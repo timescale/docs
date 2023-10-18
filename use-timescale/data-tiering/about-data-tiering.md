@@ -1,45 +1,37 @@
 ---
-title: Data tiering
-excerpt: Save on storage costs by tiering older data to separate storage
-product: cloud
+title: About data tiering
+excerpt: Learn how data tiering helps you save on storage costs
+product: [cloud]
 keywords: [data tiering]
 tags: [storage, data management]
+cloud_ui:
+    path:
+        - [services, :serviceId, overview]
 ---
 
-import ExperimentalPrivateBeta from "versionContent/_partials/_early_access.mdx";
-import UsageBasedStorage from "versionContent/_partials/_usage-based-storage-intro.mdx";
+# About data tiering
 
-# Data tiering
+Save on storage costs by tiering rarely used data to a low-cost object storage layer.
 
-Save on storage costs by tiering data to a low-cost object-storage layer.
-
-<ExperimentalPrivateBeta />
-
-Timescale includes traditional disk storage, and a low-cost object-storage
+Timescale includes traditional disk storage, and a low-cost object storage
 layer built on Amazon S3. You can move your hypertable data across the different
 storage tiers to get the best price performance. You can use primary storage for
-data that requires quick access, and low-cost object storage for historical
-data. Regardless of where your data is stored, you can query it with standard
-SQL.
+data that requires quick access, and low-cost object storage for rarely used historical
+data. Regardless of where your data is stored, you can still query it with
+[standard SQL][querying-tiered-data].
 
-<UsageBasedStorage />
 
 ## Benefits of data tiering
 
-With data tiering, you get:
+Data tiering is more than an archiving solution:
 
-*   **Low-cost scalability.** Store high volumes of time-series data
-    cost-efficiently in the object store. You pay only for what you store, with
-    no extra cost for queries.
+*   **Cost effective.** Store high volumes of data cost-efficiently.
+    You pay only for what you store, with no extra cost for queries.
 
-*   **Data warehousing.** Access all your data without leaving Timescale.
-    Rather than running a separate system to tier and archive historical data,
-    move it to native object storage.
+*   **Scalable.**  Scale past the restrictions imposed by storage that can be attached
+    directly to a Timescale service (currently 16 TB).
 
-*   **Transparent SQL queries.** You can interact with your data normally even
-    when it's distributed across different storage layers. Your hypertable is
-    spread across the layers, so queries and `JOIN`s work and fetch the same
-    data as usual.
+*   **Online.**  Your data is always there and can be [queried when needed][querying-tiered-data]. 
 
 ## Architecture
 
@@ -48,7 +40,10 @@ storage. There, it's stored in the Apache Parquet format, which is a compressed
 columnar format well-suited for S3. Data remains accessible both during and
 after migration.
 
-When you run regular SQL queries, a behind-the-scenes process transparently
+By default, tiered data is not included when querying from a Timescale instance. 
+However, it is possible to access tiered data by [enabling a data tiering reads][querying-tiered-data] for a session, query, or even for all sessions.   
+
+With data tiering reads enabled, when you run regular SQL queries, a behind-the-scenes process transparently
 pulls data from wherever it's located: disk storage, object storage, or both.
 Various SQL optimizations limit what needs to be read from S3:
 
@@ -88,18 +83,13 @@ For more about how data tiering works, see the
     native data types, but not for non-native types, such as `JSON`, `JSONB`,
     and `GIS`.
 
-*   **Latency.** S3 has higher access latency than EBS however, S3 has
-    comparatively greater throughput for large scans. This can affect the
+*   **Latency.** S3 has higher access latency than local storage. This can affect the
     execution time of queries in latency-sensitive environments, especially
     lighter queries.
 
 *   **Number of dimensions.** You cannot use data tiering on hypertables
-    partitioned on more than one dimension. Make sure your hypertables is
+    partitioned on more than one dimension. Make sure your hypertables are
     partitioned on time only, before you enable data tiering.
 
-## Learn more
-
-Learn [how data tiering works][how-to].
-
 [blog-data-tiering]: https://www.timescale.com/blog/expanding-the-boundaries-of-postgresql-announcing-a-bottomless-consumption-based-object-storage-layer-built-on-amazon-s3/
-[how-to]: /use-timescale/:currentVersion:/data-tiering/tier-data-object-storage/
+[querying-tiered-data]: /use-timescale/:currentVersion:/data-tiering/querying-tiered-data/
