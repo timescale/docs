@@ -161,8 +161,8 @@ SELECT pg_reload_conf();
 This variable is set to the value of
 [`log_min_messages`][log_min_messages] by default, which typically is
 `WARNING`. If the value of [`log_min_messages`][log_min_messages] is
-changed in the configuration file, this value will be used instead for
-`timescaledb.bgw_log_level`.
+changed in the configuration file, it is used for
+`timescaledb.bgw_log_level` when starting the workers.
 
 ### Debug level 1
 
@@ -183,8 +183,11 @@ but the information printed at `DEBUG1` is currently shown below.
 ### Debug level 2
 
 The amount of information printed at each level varies between jobs,
-but the information printed at `DEBUG2` is currently shown below. Note
-that all messages at `DEBUG1` are also printed.
+but the information printed at `DEBUG2` is currently shown below.
+
+Note that all messages at level `DEBUG1` are also printed when you set
+the log level to `DEBUG2`, which is [normal PostgreSQL
+behaviour][log_min_messages].
 
 | Source    | Event                              |
 |-----------|------------------------------------|
@@ -200,4 +203,3 @@ that all messages at `DEBUG1` are also printed.
 [using explain]: https://www.postgresql.org/docs/current/static/using-explain.html
 [worker-config]: /self-hosted/latest/configuration/about-configuration/#workers
 [log_min_messages]: https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-MIN-MESSAGES
-
