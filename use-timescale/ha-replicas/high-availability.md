@@ -25,10 +25,17 @@ about which is right for your service.
 
 HA replicas are exact, up-to-date copies of your database that automatically
 take over operations if your primary becomes unavailable, including during
-maintenance. HA replicas also have a unique address that you can use to serve
-read requests. In technical terms, HA replicas are multi-AZ, asynchronous hot
+maintenance. In technical terms, HA replicas are multi-AZ, asynchronous hot
 standbys. They use streaming replication to minimize the chance of data loss
 during failover. There is more information on these terms later in this section.
+
+HA replicas also have a separate unique address that you can use to serve read
+requests, but this read-only unique address is not highly available during failures.
+That is, when an HA-replicated primary fails and your connection automatically 
+"fails over" to the former HA replica, the read-only unique address is no longer
+accessible until a new HA replica is fully recovered. This recovery happens
+automatically but its recovery period is dependent on several factors,
+including database size.
 
 ### Maintenance downtime
 
@@ -98,6 +105,7 @@ through a load balancer"/>
 When the primary database fails, the platform updates the roles. The replica is
 promoted to the primary role, and the primary load balancer redirects traffic to
 the new primary. In the meantime, the system begins recovery of the failed node.
+The former read-replica connection remains unavailable until replica recovery completes.
 
 <img class="main-content__illustration"
 src="https://assets.timescale.com/docs/images/tsc-replication-replicas-failover-state.webp"
@@ -107,7 +115,8 @@ traffic to the replica"/>
 
 When the failed node recovers or a new node is created, it assumes the replica
 role. The previously promoted node remains the primary, streaming the WAL
-(write-ahead log) to its replica.
+(write-ahead log) to its replica. The read-replica connection becomes available
+again.
 
 <img class="main-content__illustration"
 src="https://assets.timescale.com/docs/images/tsc-replication-replicas-repaired-state.webp"
