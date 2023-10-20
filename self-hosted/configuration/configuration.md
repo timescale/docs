@@ -196,6 +196,13 @@ Max background worker processes allocated to TimescaleDB. Set to at
 least 1 + number of databases in Postgres instance to use background
 workers. Default value is 8.
 
+### `timescaledb.bgw_scheduler_restart_time (int)`
+
+Scheduler restart time in seconds. If the scheduler encounters an
+error, it exits with an error code and restart after
+`timescaledb.bgw_scheduler_restart_time` seconds. Default value is 30
+seconds. You can set this to a value between 1 and 3600 seconds.
+
 ### Distributed hypertables
 
 #### `timescaledb.hypertable_distributed_default (enum)`
