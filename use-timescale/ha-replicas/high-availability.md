@@ -33,7 +33,7 @@ HA replicas also have a separate unique address that you can use to serve read
 requests, but this read-only unique address is not highly available during failures.
 That is, when an HA-replicated primary fails and your connection automatically 
 "fails over" to the former HA replica, the read-only unique address is no longer
-accessible until a new HA replica is fully recovered.  This recovery happens
+accessible until a new HA replica is fully recovered. This recovery happens
 automatically but its recovery period is dependent on several factors,
 including database size.
 
@@ -104,7 +104,7 @@ through a load balancer"/>
 
 When the primary database fails, the platform updates the roles. The replica is
 promoted to the primary role, and the primary load balancer redirects traffic to
-the new primary.  In the meantime, the system begins recovery of the failed node.
+the new primary. In the meantime, the system begins recovery of the failed node.
 The former read-replica connection remains unavailable until replica recovery completes.
 
 <img class="main-content__illustration"
@@ -115,7 +115,7 @@ traffic to the replica"/>
 
 When the failed node recovers or a new node is created, it assumes the replica
 role. The previously promoted node remains the primary, streaming the WAL
-(write-ahead log) to its replica.  The read-replica connection becomes available
+(write-ahead log) to its replica. The read-replica connection becomes available
 again.
 
 <img class="main-content__illustration"
