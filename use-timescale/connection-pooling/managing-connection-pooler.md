@@ -46,6 +46,17 @@ connection string (and port) that was used before.
 
 </Procedure>
 
+<Procedure>
+
+### Seeing pgBouncer statistics
+
+1.  Connect to your database.
+1.  Switch to the `pgbouncer` database: `\c pgbouncer`
+1.  Run any read-only command for the pgBouncer cli (e.g., `SHOW STATS;`).
+1.  For full options, see the pgBouncer [docs here][pgbouncer].
+
+</Procedure>
+
 ### About connection pools
 
 By default, your pooler will have two pools available: session and transaction.
@@ -64,3 +75,4 @@ these (15% of `max_connections`) will be available in the transaction pool.
 
 
 [cloud-login]: https://console.cloud.timescale.com
+[pgbouncer]: https://www.pgbouncer.org/usage.html
