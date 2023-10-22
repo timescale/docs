@@ -217,5 +217,17 @@ update your application to adjust the port it uses to connect to your service.
 
 </Procedure>
 
+<Procedure>
+
+### Seeing pgBouncer statistics
+
+1.  Connect to your database.
+1.  Switch to the `pgbouncer` database: `\c pgbouncer`
+1.  Run any read-only command for the pgBouncer cli (e.g., `SHOW STATS;`).
+1.  For full options, see the pgBouncer [docs here][pgbouncer].
+
+</Procedure>
+
+[pgbouncer]: https://www.pgbouncer.org/usage.html
 [cloud-login]: https://console.cloud.timescale.com
 [about-connection-pooling-types]: /use-timescale/:currentVersion:/services/connection-pooling#pool-types
