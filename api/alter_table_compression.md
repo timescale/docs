@@ -16,7 +16,7 @@ options.
 
 By itself, this `ALTER` statement alone does not compress a hypertable. To do so, either create a
 compression policy using the [add_compression_policy][add_compression_policy] function or manually
-compress a specific hypertable chunk via the [compress_chunk][compress_chunk] function.
+compress a specific hypertable chunk using the [compress_chunk][compress_chunk] function.
 
 The syntax is:
 
@@ -52,9 +52,9 @@ ALTER TABLE <table_name> SET (timescaledb.compress,
 
 ## Sample usage
 
-Configure a hypertable that ingests device data to use compression. Here, because we will
-often query the hypertable about a specific device or set of devices, we segment the
-compression using the `device_id` for greater performance.
+Configure a hypertable that ingests device data to use compression. Here, if the hypertable
+is often queried about a specific device or set of devices, the compression should be
+segmented using the `device_id` for greater performance.
 
 ```sql
 ALTER TABLE metrics SET (timescaledb.compress, timescaledb.compress_orderby = 'time DESC', timescaledb.compress_segmentby = 'device_id');
