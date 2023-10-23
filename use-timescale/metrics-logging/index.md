@@ -21,6 +21,7 @@ can also integrate with third-party logging services.
 *   Export metrics to [Prometheus][prometheus].
 
 [metrics]: /use-timescale/:currentVersion:/metrics-logging/service-metrics/
+[insights]: /use-timescale/:currentVersion:/metrics-logging/insights/
 [logs]: /use-timescale/:currentVersion:/metrics-logging/service-logs/
 [integrations]: /use-timescale/:currentVersion:/metrics-logging/integrations/
 [prometheus]: /use-timescale/:currentVersion:/metrics-logging/metrics-to-prometheus/
