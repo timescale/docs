@@ -26,6 +26,7 @@ Data Tiering is available only on Timescale Cloud, and is not supported on self-
 
 In this section: 
 * [Learn about data tiering][about-data-tiering] before you start using it.
+* Quick [tour of data tiering][tour-data-tiering].
 * [Learn how to enable data tiering][enabling-data-tiering] on your instance.
 *   Manually [tier chunks][manual-tier-chunk] to schedule individual chunks to be tiered.
 *  Create a [Data Tiering Policy][creating-data-tiering-policy] to automatically schedule chunks to be tiered.
@@ -34,6 +35,7 @@ In this section:
 
 
 [about-data-tiering]: /use-timescale/:currentVersion:/data-tiering/about-data-tiering/
+[tour-data-tiering]: /use-timescale/:currentVersion:/data-tiering/tour-data-tiering/
 [enabling-data-tiering]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/
 [manual-tier-chunk]: /use-timescale/:currentVersion:/data-tiering/manual-tier-chunk/
 [creating-data-tiering-policy]: /use-timescale/:currentVersion:/data-tiering/creating-data-tiering-policy/
