@@ -48,17 +48,23 @@ applied when your service is resumed.
 
 ## Replicas and maintenance
 
-Services with replicas do not require maintenance downtime. Instead, they have
-one or two failover events during maintenance, taking less than a few seconds
-each.
+Services with replicas require minimal write downtime during maintenance,
+while read-only queries keep working through the maintenance. The maintenance
+requires up to two failovers, performed automatically, taking less than a few
+seconds each.
 
 During a maintenance event, services with replicas perform maintenance on each
-node independently. Maintenance begins on one node, and when it is finished,
-that node is promoted to primary. The other node then begins maintenance, and
-when it is complete, it remains the replica. Sometimes, maintenance begins with
-the primary. This causes the replica node to be promoted at the start. If this
-happens, the service experiences two promotions, or failovers, during the
-maintenance event.
+node independently. When maintenance goes on with the primary node, the primary
+node needs to be restarted. If the restart takes more than a minute, the replica
+node is promoted to the primary, given that the replica has no replication lag.
+If the maintenance on the primary node is completed within a minute and it comes
+back online, the replica remains as a replica.
+
+When maintenance starts on the primary and results in the promotion of the replica
+node, the maintenance proceeds then with the newly promoted replica, following the same
+sequence. If the newly promoted replica takes more than a minute to restart, the former
+primary is promoted back. In total, the process may result in up to two minutes of write
+downtime and two failover events.
 
 For more information about replicas, see the
 [replicas section][replicas-docs].
