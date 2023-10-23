@@ -219,7 +219,7 @@ update your application to adjust the port it uses to connect to your service.
 
 <Procedure>
 
-### Seeing pgBouncer statistics
+### pgBouncer statistics commands
 
 1.  Connect to your database.
 1.  Switch to the `pgbouncer` database: `\c pgbouncer`
