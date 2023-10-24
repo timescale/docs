@@ -8,7 +8,7 @@ tags: [integrations, terraform]
 
 
 
-# Data and ingestion integrations
+# Configuration and deployment integrations
 
 *   [Terraform][terraform]
 
