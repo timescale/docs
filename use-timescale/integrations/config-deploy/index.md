@@ -1,5 +1,5 @@
 ---
-title: Configuration and Deployment integrations
+title: Configuration and deployment integrations
 excerpt: Integrate your Timescale database with third-party configuration and deployment solutions
 products: [cloud]
 keywords: [integrations, configuration, deployment]

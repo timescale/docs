@@ -8,7 +8,7 @@ tags: [terraform, manage]
 
 # Terraform
 
-Terraform is an open-source infrastructure as code (IaC) tool developed by
+Terraform is an open source infrastructure as code (IaC) tool developed by
 HashiCorp. The Timescale Terraform provider allows you to manage Timescale
 services through a Terraform configuration.
 
