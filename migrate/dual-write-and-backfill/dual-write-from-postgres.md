@@ -18,6 +18,7 @@ import SourceTargetNote from "versionContent/_partials/_migrate_source_target_no
 import DumpDatabaseRoles from "versionContent/_partials/_migrate_dual_write_dump_database_roles.mdx";
 import Step6eTurnOnCompressionPolicies from "versionContent/_partials/_migrate_dual_write_6e_turn_on_compression_policies.mdx";
 import Step6aThroughc from "versionContent/_partials/_migrate_dual_write_6a_through_c.mdx";
+import ExplainPgDumpFlags from "versionContent/_partials/_migrate_explain_pg_dump_flags.mdx";
 
 # Dual-write and backfill from PostgreSQL database
 
