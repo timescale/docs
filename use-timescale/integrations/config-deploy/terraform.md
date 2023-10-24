@@ -10,7 +10,8 @@ Terraform is an open-source infrastructure as code (IaC) tool developed by
 HashiCorp. The Timescale Terraform provider allows you to manage Timescale
 services through a Terraform configuration.
 
-Full documentation for the Timescale Terraform provider is available in
-the [Terraform registry][terraform-registry].
+For more information about the supported service configurations and
+operations, see the
+[Timescale Terraform provider documentation][terraform-docs].
 
-[terraform-registry]: https://registry.terraform.io/providers/timescale/timescale/latest/docs
+[terraform-docs]: https://registry.terraform.io/providers/timescale/timescale/latest/docs
