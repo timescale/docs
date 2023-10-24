@@ -13,6 +13,8 @@ cloud_ui:
 
 Insights allows you to gain a comprehensive understanding of how your queries perform over time. It empowers you to optimize your queries and make the most efficient use of your instance resources.
 
+You can view query-level insights from the `Insights` tab on your service Cloud Dashboard.
+
 <img class="main-content__illustration"
     width={1375} height={944}
     src="https://assets.timescale.com/docs/images/insights_overview.png"
@@ -20,15 +22,19 @@ Insights allows you to gain a comprehensive understanding of how your queries pe
 
 At the top of the page, you'll find a set of filters, including query types, query text matching, minimum execution time, and a time frame selector, enabling you to find the queries you would like to analyze. Moreover, within the Queries table list view, you can customize the order of the result set by selecting a specific metric. For instance, when seeking out slow queries, you can sort by P95 Time, which brings the slowest queries to the forefront. The result set is limited to 50 queries, so if you're dealing with many unique queries, these filters are useful in helping you pinpoint the information you need.
 
-
-## Metrics
+## Resource metrics
 
 The Metrics graph provides a visual representation of CPU, memory, and Storage IO usage over time. In addition, it overlays the top 3 queries execution times from the list view onto the resource metrics. This feature allows you to easily correlate your query executions with resource utilization. Moreover, you can zoom the graph, enabling you to define specific time frames for a more detailed analysis.
 
-
-### Query list view
+## Query list view
 
 The query list view displays the top 50 entries that match the selected filters. In this table, the following metrics are shown: executions, total rows, hypertables, compressed tables, user name,  median, and p95 execution time. The metrics are calculated based on the entire period you've selected. For example, if you've chosen the past 6 hours in the time frame selector, all the metrics represent an aggregation of the last 6 hours of executions of data.
+
+<img class="main-content__illustration"
+    width={1375} height={944}
+    src="https://assets.timescale.com/docs/images/insights_query_text.png"
+    alt="The image shows the Timescale Insights queries list table, showing an example with some metrics available at this table"/>
+
 
 #### Details
 |Column|Description|
@@ -56,12 +62,11 @@ Each query entry in the Queries table is clickable, leading you to the detailed 
 <img class="main-content__illustration"
     width={1375} height={944}
     src="https://assets.timescale.com/docs/images/drill_down_view.png"
-    alt="Timescale Insights drill down page showing illustrations for all the graphs"/>
+    alt="Timescale Insights drill down page showing illustrations for all available graphs"/>
 
 ### Execution time
 
 The execution time graph displays the median and p95 query execution times over the selected period. This information is useful for understanding the consistency and efficiency of your query's execution over time
-
 
 ### Rows
 
