@@ -6,7 +6,7 @@ keywords: [metrics, monitoring, services, query, performance, insights]
 tags: [dashboard, cpu, memory, storage, query, performance]
 cloud_ui:
     path:
-        - [services, :serviceId, metrics]
+        - [services, :serviceId, insights]
 ---
 
 # Insights
