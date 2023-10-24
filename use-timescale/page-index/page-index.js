@@ -814,7 +814,7 @@ module.exports = [
               ]
           },
           {
-            title: "Configuration and Deployment",
+            title: "Configuration and deployment",
             href: "config-deploy",
             excerpt: "Integrate your Timescale account with third-party configuration and deployment solutions",
             children:
