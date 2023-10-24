@@ -667,6 +667,11 @@ module.exports = [
             excerpt: "Timescale services logs",
           },
           {
+            title: "Insights",
+            href: "insights",
+            excerpt: "Query-level performance insights",
+          },
+          {
             title: "Export to a monitoring service",
             href: "integrations",
             excerpt:
