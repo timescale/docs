@@ -1,3 +1,4 @@
+---
 title: Insights
 excerpt: Get query-level performance insights, such as slow queries, memory and data access patterns, and execution metrics
 products: [cloud]
@@ -27,7 +28,7 @@ The Metrics graph provides a visual representation of CPU, memory, and Storage I
 
 ### Query list view
 
-The query list view displays the top 50 entries that match the selected filters. In this table, the following metrics are shown: executions, total rows, median and, p95 execution time, hypertables, compressed tables and the user name. The metrics are calculated based on the entire period you've selected. For example, if you've chosen the past 6 hours in the time frame selector, all the metrics represent an aggregation of the last 6 hours of executions of data.
+The query list view displays the top 50 entries that match the selected filters. In this table, the following metrics are shown: executions, total rows, hypertables, compressed tables, user name,  median, and p95 execution time. The metrics are calculated based on the entire period you've selected. For example, if you've chosen the past 6 hours in the time frame selector, all the metrics represent an aggregation of the last 6 hours of executions of data.
 
 #### Details
 |Column|Description|
