@@ -814,6 +814,19 @@ module.exports = [
               ]
           },
           {
+            title: "Configuration & Deployment",
+            href: "config-deploy",
+            excerpt: "Integrate your Timescale account with third-party configuration and deployment solutions",
+            children:
+              [
+                {
+                  title: "Terraform",
+                  href: "terraform",
+                  excerpt: "Manage your Timescale services via Terraform",
+                },
+              ]
+          },
+          {
             title: "Observability and alerting",
             href: "observability-alerting",
             excerpt: "Integrate your Timescale database with third-party observability and alerting solutions",
