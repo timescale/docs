@@ -31,6 +31,7 @@ sudo /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh
 sudo apt install -y pgcopydb
 ```
 
+On other distributions, you can use the following installation instructions:
 - `pgcopydb`: Installation instructions can be found in the [official
   repository][install-pgcopydb]. When installing from package managers like
   `apt`, `yum`, or `dnf`, the other required tools are usually also installed
@@ -74,7 +75,7 @@ running the commands) should have enough capacity to store the files, and it
 should be actively monitored to prevent any issues that might result due to
 lack of space.
 
-Use the `pgcopydb`'s follow command to create a replication slot:
+Use `pgcopydb`'s follow command to create a replication slot:
 
 ```sh
 pgcopydb follow \
@@ -105,7 +106,7 @@ follow` command outputs many messages, if they are not redirected, using the
 terminal becomes cumbersome due to the constant pop up of messages.
 
 The `follow` command not only creates the replication slot for streaming
-changes, but also exports a [snapshot][snapshot] ID to `tmp/pgcopydb/snapshot`.
+changes, but also exports a [snapshot][snapshot] ID to `/tmp/pgcopydb/snapshot`.
 This ID can be used to migrate the data that was stored in the database prior
 to the creation of the replication slot.
 
@@ -145,7 +146,7 @@ pg_dump -d "$SOURCE" \
 - `--schema-only` is used to dump only the object definitions (schema), not
   data.
 
-- `--snapshot` is use to specified the synchronized [snapshot][snapshot] when
+- `--snapshot` is used to specified the synchronized [snapshot][snapshot] when
   making a dump of the database.
 
 <ExplainPgDumpFlags />
@@ -193,7 +194,7 @@ while it's being inserted.
 
 ## 5. Migrate initial data from source to target
 
-Use `pgcopydb` and the snapshot ID obtained in the [step 2][step-2]
+Use `pgcopydb` and the snapshot ID obtained in [step 2][step-2]
 (`/tmp/pgcopydb/snapshot`) to copy the data:
 
 ```sh
