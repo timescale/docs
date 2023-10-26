@@ -35,8 +35,9 @@ migrating from PostgreSQL.
 
 If you're using PostgreSQL, you may also have heard of logical replication
 being the recommended strategy for migrations with low downtime. Currently,
-TimescaleDB doesn't work with logical replication, so this is not a viable
-option, but we are actively working on making this possible.
+TimescaleDB supports logical replication only from sources that are using
+PostgreSQL without Timescale. There's active work being made for supporting
+Timescale sources.
 
 If you're migrating from something other than PostgreSQL, and don't want to use
 the dual-write and backfill approach, then the easiest way to move your data to

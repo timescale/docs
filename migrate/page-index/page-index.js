@@ -25,7 +25,7 @@ module.exports = [
         ]
       },
       {
-        title: "Low-downtime: live migration",
+        title: "Low-downtime: Live migration",
         href: "live-migration",
         excerpt: "Migrate a large database with low downtime",
         children: [

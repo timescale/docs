@@ -18,6 +18,12 @@ This document provides detailed step-by-step instructions to migrate data using
 [pgcopydb][pgcopydb] to perform a live migration from a source database which
 is using PostgreSQL to Timescale.
 
+It's suggested to provision a dedicated instance to run the migration steps.
+Ideally an AWS EC2 instance that's in the same region as the Timescale target
+service. For a 10K transactions/s ingestion load, with the assumption of
+historical data copy takes 2 days, the recommend is 4 CPU with 4 to 8 GiB of
+RAM and a 1.2 TiB of storage.
+
 Before beginning the migration process, ensure that tools `psql`, `pg_dump`,
 `pg_dumpall`, and `pgcopydb` are installed and available on the system that
 performs the migration.
@@ -32,6 +38,7 @@ sudo apt install -y pgcopydb
 ```
 
 On other distributions, you can use the following installation instructions:
+
 - `pgcopydb`: Installation instructions can be found in the [official
   repository][install-pgcopydb]. When installing from package managers like
   `apt`, `yum`, or `dnf`, the other required tools are usually also installed
@@ -44,24 +51,60 @@ On other distributions, you can use the following installation instructions:
 
 <SourceTargetNote />
 
-<!-- TODO:  what about schema changes are they allowed? What other conditions
-are there? -->
-
 In detail, the migration process consists of the following steps:
 
 1. Set up a target database instance in Timescale.
+1. Prepare the source database for the live migration.
 1. Set up a replication slot and snapshot.
 1. Migrate roles and schema from source to target.
-1. Convert hypertables and enable Timescale features.
+1. Enable hypertables.
 1. Migrate initial data from source to target.
-1. Apply replication changes.
+1. Apply the replicated changes from source.
 1. Promote target database as new primary.
 
 <GettingHelp />
 
 <StepOne />
 
-## 2. Set up a replication slot and snapshot
+## 2. Prepare the source database for the live migration
+
+It's important to ensure that the `old_snapshot_threshold` value is set to the
+default value of `-1` in your source database. This prevents PostgreSQL from
+treating the data in a snapshot as outdated. If this value is set other than
+`-1`, it might affect the existing data migration step.
+
+To check the current value of `old_snapshot_threshold`, run the command:
+
+```sh
+psql -X -d $SOURCE -c 'show old_snapshot_threshold'
+```
+
+If the query returns something other than `-1`, run the following command
+to set it up:
+
+```sh
+psql -X -d $SOURCE -c 'alter system set old_snapshot_threshold=-1'
+```
+
+Next, you should set `wal_level` to `logical` so that the write-ahead log (WAL)
+records information that is needed for logical decoding.
+
+To check the current value of  `wal_level`, run the command:
+
+```sh
+psql -X -d $SOURCE -c 'show wal_level'
+```
+
+If the query returns something other than `logical`, run the following command
+to set it up:
+
+```sh
+psql -X -d $SOURCE -c 'alter system set wal_level=logical'
+```
+
+You should restart your database for the changes to take effect.
+
+## 3. Set up a replication slot and snapshot
 
 The [replication slot][replication-slot] forms the backbone of the replication
 strategy.
@@ -75,7 +118,30 @@ running the commands) should have enough capacity to store the files, and it
 should be actively monitored to prevent any issues that might result due to
 lack of space.
 
-Use `pgcopydb`'s follow command to create a replication slot:
+Before starting, there's an important caveat. To replicate `DELETE` and
+`UPDATE` operations, the source table must either have a primary key or
+`REPLICA IDENTITY` set. Replica identity assists logical decoding in
+identifying the rows being modified. It defaults to using the table's primary
+key.
+
+If a table doesn't have a primary key, you'll have to manually set the replica
+identity. One option is to use a unique, non-partial, non-deferrable index that
+includes only columns marked as `NOT NULL`. This can be set as the replica
+identity:
+
+```sql
+ALTER TABLE {table_name} REPLICA IDENTITY USING INDEX {_index_name}
+```
+
+If there's no primary key or viable unique index to use, you'll have to set it
+to full:
+
+```sql
+ALTER TABLE {table_name} REPLICA IDENTITY FULL
+```
+
+Once you're sure all your tables are properly configured for replication, use
+`pgcopydb`'s follow command to create a replication slot:
 
 ```sh
 pgcopydb follow \
@@ -114,22 +180,20 @@ to the creation of the replication slot.
 the snapshot. Synchronized snapshots are necessary when two or more sessions
 need to see identical content in the database.
 
-<!-- TODO:  mention the housekeeping script that clears the buffered file s -->
-
 Before the stream of changes can be applied, the schema and data that existed
 prior to the creation of the replication slot must be migrated ([step
-3][step-3]). The point that marks the beginning of the replication and
+4][step-4]). The point that marks the beginning of the replication and
 buffering of changes is given by the exported snapshot. The larger the
 database, the more time it takes to perform the initial migration, and the
 longer the buffered files need to be stored.
 
-## 3. Migrate roles and schema from source to target
+## 4. Migrate roles and schema from source to target
 
-### 3a. Dump the database roles from the source database
+### 4a. Dump the database roles from the source database
 
 <DumpDatabaseRoles />
 
-### 3b. Dump the database schema from the source database
+### 4b. Dump the database schema from the source database
 
 ```sh
 pg_dump -d "$SOURCE" \
@@ -151,7 +215,7 @@ pg_dump -d "$SOURCE" \
 
 <ExplainPgDumpFlags />
 
-### 3c. Load the roles and schema into the target database
+### 4c. Load the roles and schema into the target database
 
 ```sh
 psql -X -d "$TARGET" \
@@ -161,7 +225,7 @@ psql -X -d "$TARGET" \
   -f dump.sql
 ```
 
-## 4. Convert hypertables and enable Timescale features
+## 5. Enable hypertables
 
 This is the ideal point to convert regular tables into hypertables. In simple
 terms, you'll want to convert the tables that contain time series data. For
@@ -178,8 +242,7 @@ A more detailed explanation can be found in the [hypertable
 documentation][hypertable-docs].
 
 Once the table is converted, you can follow the guides to enable more Timescale
-features like [retention][retention-docs], [compression][compression-docs], and
-[data tiering][data-tiering-docs].
+features like [retention][retention-docs] and [compression][compression-docs].
 
 This step is optional. Although it's strongly recommended to perform it at this
 point, it can be done after all the data has been migrated, since Hypertables
@@ -192,21 +255,35 @@ the table, the longer it is going to remain locked. Conversely, inserting into
 an already converted Hypertable is a fast operation that partitions the data
 while it's being inserted.
 
-## 5. Migrate initial data from source to target
+## 6. Migrate initial data from source to target
 
-Use `pgcopydb` and the snapshot ID obtained in [step 2][step-2]
-(`/tmp/pgcopydb/snapshot`) to copy the data:
+Use pgcopydb and the snapshot ID obtained in [step 3][step-3]
+(/tmp/pgcopydb/snapshot) to copy the data. This action can take a significant
+amount of time, up to several days, depending on the size of the source
+database. You must wait until it finishes before moving on to the next step. To
+start copying data, execute the following command:
 
 ```sh
 pgcopydb copy table-data \
   --source "$SOURCE" \
   --target "$TARGET" \
   --snapshot $(cat /tmp/pgcopydb/snapshot) \
-  --split-tables-larger-than <same-table concurrency size threshold>  \
-  --table-jobs <jobs: usually the number of core in SOURCE>
+  --split-tables-larger-than '10 GB'  \
+  --table-jobs 8
 ```
 
-## 6. Apply the replication changes
+- `--snapshot` specifies the synchronized [snapshot][snapshot] to use when
+  retrieving the data. It must be set up to the snapshot exported in
+  [step-3][step-3], that guarantees that the only data copied is the one that
+  existed on the database prior to the creation of the replication slot.
+
+- `--split-tables-larger-than` defines the table size threshold after which
+  more than once process is going be use at the same time to process a single
+  source table.
+
+- `--table-jobs` is the number of concurrent `COPY` jobs to run.
+
+## 7. Apply the replicated changes from source
 
 With the schema and initial data loaded, you can now apply the buffered and
 live changes emitted by the replication slot:
@@ -230,7 +307,7 @@ EOF
 - `replay_lag`: Time elapsed between flushing recent WAL locally and receiving
   notification that this standby server has written, flushed and applied it.
 
-## 7. Promote target database as new primary
+## 8. Promote target database as new primary
 
 To proceed with this step, you need to wait until the replication lag is
 minimized as much as possible. For instance, you can move forward when the
@@ -271,7 +348,7 @@ pgcopydb copy sequences \
   --not-consistent
 ```
 
-Wait until the `pgcopydb follow` process from [step 2][step-2] finishes its
+Wait until the `pgcopydb follow` process from [step 3][step-3] finishes its
 execution. The process runs until the end position is reached. If you started
 `pgcopydb follow` in the background you can bring it to the foreground with the
 `fg` command.
@@ -313,8 +390,8 @@ pgcopydb stream cleanup \
 [install-pgcopydb]: https://github.com/dimitri/pgcopydb#installing-pgcopydb
 [replication-slot]: https://www.postgresql.org/docs/current/logicaldecoding-explanation.html#LOGICALDECODING-REPLICATION-SLOTS
 [snapshot]: https://www.postgresql.org/docs/current/functions-admin.html#FUNCTIONS-SNAPSHOT-SYNCHRONIZATION
-[step-3]: #3.-set-up-schema-and-migrate-initial-data-to-target-database
-[step-2]: #2.-set-up-a-replication-slot-and-snapshot
+[step-4]: #4.-set-up-schema-and-migrate-initial-data-to-target-database
+[step-3]: #3.-set-up-a-replication-slot-and-snapshot
 [hypertable-docs]: /use-timescale/:currentVersion:/hypertables/
 [retention-docs]: /use-timescale/:currentVersion:/data-retention/
 [compression-docs]: /use-timescale/:currentVersion:/compression/
