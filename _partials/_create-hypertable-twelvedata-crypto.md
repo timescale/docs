@@ -29,7 +29,7 @@ with Timescale tables similar to standard PostgreSQL.
     the timestamp data to use for partitioning:
 
     ```sql
-    SELECT create_hypertable('crypto_ticks', 'time');
+    SELECT create_hypertable('crypto_ticks', by_range('time'));
     ```
 
 </Procedure>
