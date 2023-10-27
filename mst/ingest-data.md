@@ -67,7 +67,7 @@ and can connect to it using `psql`.
 1.  Convert the SQL table into a hypertable:
 
     ```sql
-    SELECT create_hypertable('conditions', 'time');
+    SELECT create_hypertable('conditions', by_range('time'));
     ```
 
 </Procedure>

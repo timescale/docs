@@ -19,6 +19,10 @@ module.exports = [
             href: "create_hypertable",
           },
           {
+            title: "create_hypertable (old interface)",
+            href: "create_hypertable_old",
+          },
+          {
             title: "show_chunks",
             href: "show_chunks",
           },
@@ -69,6 +73,10 @@ module.exports = [
           {
             title: "add_dimension",
             href: "add_dimension",
+          },
+          {
+            title: "add_dimension (old interface)",
+            href: "add_dimension_old",
           },
           {
             title: "create_index (transaction per chunk)",
