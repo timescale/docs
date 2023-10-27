@@ -166,20 +166,19 @@ restart, it is advisable to estimate a good setting that also allows
 some growth. For most use cases we recommend the following setting:
 
 ```
-max_locks_per_transaction = 2 * num_chunks
+max_locks_per_transaction = 2 * num_chunks / max_connections
 ```
-
-where `num_chunks` is the maximum number of chunks you expect to have in a hypertable.
-This setting takes into account that the number of locks taken by a hypertable query
-is roughly equal to the
-number of chunks in the hypertable, or double that number if the query
-also uses an index. You can see how many chunks you currently have using the
-[`chunks_detailed_size`][chunks_detailed_size] command.
- Also note that `max_locks_per_transaction` is not
-an exact setting; it only controls the *average* number of object
-locks allocated for each transaction. For more information, please
-review the official PostgreSQL documentation on
-[lock management][lock-management].
+where `num_chunks` is the maximum number of chunks you expect to have in a
+hypertable and `max_connections` is the number of connections configured for
+PostgreSQL.
+This takes into account that the number of locks used by a hypertable query is
+roughly equal to the number of chunks in the hypertable if you need to access
+all chunks in a query, or double that number if the query uses an index.
+You can see how many chunks you currently have using the
+[`timescaledb_information.hypertables`][timescaledb_information-hypertables] view.
+Changing this parameter requires a database restart, so make sure you pick a larger
+number to allow for some growth.  For more information about lock management,
+see the [PostgreSQL documentation][lock-management].
 
 ## TimescaleDB configuration and tuning
 
