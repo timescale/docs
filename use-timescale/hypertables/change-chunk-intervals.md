@@ -47,7 +47,8 @@ values in a column named `time`:
 ```sql
 SELECT create_hypertable(
   'conditions',
-  by_range('time', INTERVAL '1 day')
+  'time',
+  chunk_time_interval => INTERVAL '1 day'
 );
 ```
 

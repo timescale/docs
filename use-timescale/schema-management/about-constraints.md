@@ -29,7 +29,7 @@ CREATE TABLE conditions (
     PRIMARY KEY(time, device_id)
 );
 
-SELECT create_hypertable('conditions', by_range('time'));
+SELECT create_hypertable('conditions', 'time');
 ```
 
 This example also references values in another `locations` table using a foreign

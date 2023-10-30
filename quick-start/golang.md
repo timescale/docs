@@ -256,7 +256,7 @@ and most other tasks are executed on the hypertable.
     [`create_hypertable` docs][create-hypertable-docs]:
 
     ```go
-    queryCreateHypertable := `SELECT create_hypertable('sensor_data', by_range('time'));`
+    queryCreateHypertable := `SELECT create_hypertable('sensor_data', 'time');`
     ```
 
 1.  Execute the `CREATE TABLE` statement and `SELECT` statement which converts
@@ -297,7 +297,7 @@ and most other tasks are executed on the hypertable.
             FOREIGN KEY (sensor_id) REFERENCES sensors (id));
             `
 
-        queryCreateHypertable := `SELECT create_hypertable('sensor_data', by_range('time'));`
+        queryCreateHypertable := `SELECT create_hypertable('sensor_data', 'time');`
 
         //execute statement
         _, err = dbpool.Exec(ctx, queryCreateTable+queryCreateHypertable)

@@ -102,7 +102,7 @@ TimescaleDB extension on the data node unless it is already installed.
 ### Sample usage
 
 If you have an existing hypertable `conditions` and want to use `time`
-as the range partitioning column and `location` as the hash partitioning
+as the time partitioning column and `location` as the space partitioning
 column. You also want to distribute the chunks of the hypertable on two
 data nodes `dn1.example.com` and `dn2.example.com`:
 

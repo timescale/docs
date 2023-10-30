@@ -36,7 +36,7 @@ with Timescale tables similar to standard PostgreSQL.
     the timestamp data to use for partitioning:
 
     ```sql
-    SELECT create_hypertable('transactions', by_range('time'));
+    SELECT create_hypertable('transactions', 'time');
     ```
 
 1.  Create an index on the `hash` column to make queries for individual

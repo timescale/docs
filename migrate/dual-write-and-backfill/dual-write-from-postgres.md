@@ -104,7 +104,7 @@ psql -X -d "$TARGET" \
 For each table which should be converted to a hypertable in the target
 database, execute:
 ```
-SELECT create_hypertable('<table name>', by_range('<time column name>'));
+SELECT create_hypertable('<table name>', '<time column name>');
 ```
 
 For more information about the options which you can pass to

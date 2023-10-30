@@ -27,7 +27,7 @@ with Timescale tables similar to standard PostgreSQL.
     the timestamp data to use for partitioning:
 
     ```sql
-    SELECT create_hypertable('metrics', by_range('created'));
+    SELECT create_hypertable('metrics', 'created');
     ```
 
 </Procedure>
