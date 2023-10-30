@@ -19,7 +19,7 @@ Timescale also offers self-initiated point-in-time recovery (PITR) via the UI.
 This allows you to restore your service to any point in the last 3 days in a 
 fork of the service being restored.
 
-*   [Backup and restore][backup-restore] in Timescale
+*   [Backup and restore][backup-recovery] in Timescale
 *   Performing a [point-in-time recovery][pitr] in Timescale
 
 [backup-recovery]: /use-timescale/:currentVersion:/backup-restore/backup-restore-cloud/
