@@ -99,7 +99,7 @@ Before you start, make sure you have:
     # create_templates = [
     #   '''CREATE TABLE {{ .table }} ({{ .columns }})''',
     # ]
-    #  table_template=`CREATE TABLE IF NOT EXISTS {TABLE}({COLUMNS}); SELECT create_hypertable({TABLELITERAL},'time',chunk_time_interval := INTERVAL '1 week',if_not_exists := true);`
+    #  table_template=`CREATE TABLE IF NOT EXISTS {TABLE}({COLUMNS}); SELECT create_hypertable({TABLELITERAL},by_range('time', INTERVAL '1 week'),if_not_exists := true);`
 
     ```
 

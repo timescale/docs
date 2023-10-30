@@ -55,7 +55,7 @@ Import data from a `csv`.
     name of the column storing time values in your table.
 
     ```sql
-    SELECT create_hypertable('<TABLE_NAME>', 'ts')
+    SELECT create_hypertable('<TABLE_NAME>', by_range('ts'))
     ```
 
 1.  At the command line, insert data into the hypertable from your `csv`. Use
