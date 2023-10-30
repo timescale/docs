@@ -27,7 +27,7 @@ To create a unique index on a hypertable:
 Before you create a unique index, you need to determine which unique indexes are
 allowed on your hypertable. Begin by identifying your partitioning columns.
 
-Timescale traditionally uses these columns to partition hypertables:
+Timescale uses these columns to partition hypertables:
 
 *   The `time` column used to create the hypertable. Every Timescale hypertable
     is partitioned by time.
@@ -115,15 +115,19 @@ in your unique index.
 1.  Turn the table into a hypertable partitioned on `time` alone:
 
     ```sql
-    SELECT * from create_hypertable('hypertable_example', by_range('time'));
+    SELECT * from create_hypertable('hypertable_example', 'time');
     ```
 
     Alternatively, turn the table into a hypertable partitioned on `time` and
     `device_id`:
 
     ```sql
-    SELECT * FROM create_hypertable('hypertable_example', by_range('time'));
-	SELECT * FROM add_dimension('hypertable_example', by_hash('device_id', 4));
+    SELECT * FROM create_hypertable(
+      'hypertable_example',
+      'time',
+      partitioning_column => 'device_id',
+      number_partitions => 4
+    );
     ```
 
 </Procedure>
@@ -133,8 +137,12 @@ because `user_id` isn't part of the unique index. This doesn't work:
 
 ```sql
 -- This gives you an error
-SELECT * FROM create_hypertable('hypertable_example', by_range('time'));
-SELECT * FROM add_dimension('hypertable_example', by_hash('user_id', 4));
+SELECT * FROM create_hypertable(
+  'hypertable_example',
+  'time',
+  partitioning_column => 'user_id',
+  number_partitions => 4
+);
 ```
 
 You get the error:

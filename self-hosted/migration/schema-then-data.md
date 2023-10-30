@@ -125,9 +125,9 @@ restore them.
 
     ```sql
     SELECT create_hypertable(
-       '<TABLE_NAME>',
-	   by_range('<COLUMN_NAME>', INTERVAL '<CHUNK_INTERVAL>')
-    );
+       '<TABLE_NAME>', '<TIME_COLUMN_NAME>',
+        chunk_time_interval =>
+            INTERVAL '<CHUNK_TIME_INTERVAL>');
     ```
 
 </Procedure>

@@ -62,7 +62,7 @@ Migrate your data into Timescale from within the same database.
     name of the column that holds time values in your table.
 
     ```sql
-    SELECT create_hypertable('new_table', by_range('ts'));
+    SELECT create_hypertable('new_table', 'ts');
     ```
 
 1.  Insert data from the old table to the new table.

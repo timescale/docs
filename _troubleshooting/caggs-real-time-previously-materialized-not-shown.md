@@ -37,7 +37,8 @@ CREATE TABLE conditions(
   temperature INT NOT NULL);
 
 SELECT create_hypertable(
-  'conditions', by_range('day', INTERVAL '1 day')
+  'conditions', 'day',
+  chunk_time_interval => INTERVAL '1 day'
 );
 
 INSERT INTO conditions (day, city, temperature) VALUES

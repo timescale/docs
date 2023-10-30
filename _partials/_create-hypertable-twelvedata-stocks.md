@@ -29,7 +29,7 @@ with Timescale tables similar to standard PostgreSQL.
     the timestamp data to use for partitioning:
 
     ```sql
-    SELECT create_hypertable('stocks_real_time', by_range('time'));
+    SELECT create_hypertable('stocks_real_time','time');
     ```
 
 1.  Create an index to support efficient queries on the `symbol` and `time`

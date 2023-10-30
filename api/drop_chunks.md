@@ -26,7 +26,7 @@ data may still contain timestamps that are before (or after) the
 specified one.
 
 Chunks can only be dropped based on their time intervals. They cannot be dropped
-based on a hash partition.
+based on a space partition.
 
 ## Required arguments
 
