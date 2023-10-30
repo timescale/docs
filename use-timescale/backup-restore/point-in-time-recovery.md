@@ -11,13 +11,13 @@ tags: [recovery, restore, pitr]
 Timescale allows you to perform a point-in-time recovery of your service to any 
 point in the last 3 days. Point-in-time recovery allows you to recover your 
 database from a destructive or unwanted action or change. Initiating a 
-point-in-time recovery of your service creates a fork of your service that will 
-match the state of your database at the specified time of recovery. The 
-original service will not be deleted to avoid losing data created since the 
+point-in-time recovery of your service creates a fork of your service that
+matches the state of your database at the specified time of recovery. The 
+original service stays untouched to avoid losing data created since the 
 time of recovery. 
 
 Since the point-in-time recovery is done in a fork, in order to migrate your 
-application to the point of recovery you will need to switch out the connection 
+application to the point of recovery, switch out the connection 
 strings in your application to use the fork. The provision time for the 
 recovery fork is typically less than twenty minutes, but can take longer 
 depending on the amount of WAL to be replayed. 
