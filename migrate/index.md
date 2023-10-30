@@ -70,4 +70,4 @@ If you encounter any difficulties while migrating, consult the
 [pg-dump-restore]: /migrate/:currentVersion:/pg-dump-and-restore/
 [parallel-copy]: /use-timescale/:currentVersion:/ingest-data/import-csv/
 [troubleshooting]: /migrate/:currentVersion:/troubleshooting/
-[live-migrations]: /migrate/:currentVersion:/live-migrations/
+[live-migrations]: /migrate/:currentVersion:/live-migration/
