@@ -21,13 +21,6 @@ Max background worker processes allocated to TimescaleDB. Set to at least 1 +
 the number of databases loaded with a TimescaleDB extension in a PostgreSQL
 instance. Default value is 16.
 
-### `timescaledb.bgw_scheduler_restart_time (int)`
-
-Scheduler restart time in seconds. If the scheduler encounters an
-error, it exits with an error code and restart after
-`timescaledb.bgw_scheduler_restart_time` seconds. Default value is 30
-seconds. You can set this to a value between 1 and 3600 seconds.
-
 ## Distributed hypertables
 
 ### `timescaledb.enable_2pc (bool)`
@@ -36,7 +29,7 @@ Enables two-phase commit for distributed hypertables. If disabled, it
 uses a one-phase commit instead, which is faster but can result in
 inconsistent data. It is by default enabled.
 
-### `timescaledb.enable_per_data_node_queries (bool)`
+### `timescaledb.enable_per_data_node_queries`
 
 If enabled, TimescaleDB combines different chunks belonging to the
 same hypertable into a single query per data node. It is by default enabled.
