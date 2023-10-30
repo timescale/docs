@@ -12,10 +12,10 @@ api:
 # create_distributed_hypertable()  <Tag type="community">Community</Tag>
 
 Creates a TimescaleDB hypertable distributed across a multinode
-environment. Use this function in place of [`create_hypertable`][create-hypertable-old]
+environment. Use this function in place of [`create_hypertable`][create-hypertable]
 when creating distributed hypertables.
 
-**Note that distributed tables use the old API. The new generalized API is described in [`create_hypertable`][create-hypertable-new].**
+**Note that distributed tables use the old API. The new generalized API is described in [`create_hypertable`](create_hypertable.md).**
 
 ### Required arguments
 
@@ -72,7 +72,7 @@ SELECT create_distributed_hypertable('conditions', 'time', 'location',
 #### Best practices
 
 **Hash partitions:** As opposed to the normal
-[`create_hypertable` best practices][create-hypertable-old],
+[`create_hypertable` best practices][create-hypertable],
 hash partitions are highly recommended for distributed hypertables.
 Incoming data is divided among data nodes based upon the hash
 partition (the first one if multiple hash partitions have been
@@ -80,7 +80,7 @@ defined).  If there is no hash partition, all the data for each time
 slice is written to a single data node.
 
 **Time intervals:** Follow the same guideline in setting the `chunk_time_interval`
-as with [`create_hypertable`][create-hypertable-old],
+as with [`create_hypertable`][create-hypertable],
 bearing in mind that the calculation needs to be based on the memory
 capacity of the data nodes. However, one additional thing to
 consider, assuming hash partitioning is being used, is that the
@@ -111,5 +111,4 @@ recommend using `replication_factor` > 1, and instead rely on physical
 replication of each data node if such fault-tolerance is required.
 
 [best-practices]: /use-timescale/:currentVersion:/hypertables/about-hypertables/#best-practices-for-time-partitioning
-[create-hypertable-new]: /api/:currentVersion:/hypertable/create_hypertable
-[create-hypertable-old]: /api/:currentVersion:/hypertable/create_hypertable_old
+[create-hypertable]: /api/:currentVersion:/hypertables/create_hypertable_old
