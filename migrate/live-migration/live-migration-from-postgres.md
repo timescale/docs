@@ -18,11 +18,11 @@ This document provides detailed step-by-step instructions to migrate data using
 [pgcopydb][pgcopydb] to perform a live migration from a source database which
 is using PostgreSQL to Timescale.
 
-It's suggested to provision a dedicated instance to run the migration steps.
+You should provision a dedicated instance to run the migration steps from.
 Ideally an AWS EC2 instance that's in the same region as the Timescale target
-service. For a 10K transactions/s ingestion load, with the assumption of
-historical data copy takes 2 days, the recommend is 4 CPU with 4 to 8 GiB of
-RAM and a 1.2 TiB of storage.
+service. For an ingestion load of 10'000 transactions/s, and assuming that the
+historical data copy takes 2 days, we recommend 4 CPUs with 4 to 8 GiB of RAM
+and 1.2 TiB of storage.
 
 Before beginning the migration process, ensure that tools `psql`, `pg_dump`,
 `pg_dumpall`, and `pgcopydb` are installed and available on the system that
@@ -79,12 +79,16 @@ To check the current value of `old_snapshot_threshold`, run the command:
 psql -X -d $SOURCE -c 'show old_snapshot_threshold'
 ```
 
-If the query returns something other than `-1`, run the following command
-to set it up:
+If the query returns something other than `-1`, you must change it.
+
+If you have a superuser on a self-hosted database, run the following command:
 
 ```sh
 psql -X -d $SOURCE -c 'alter system set old_snapshot_threshold=-1'
 ```
+
+Otherwise, if you are using a managed service, use your cloud provider's
+configuration mechanism to set `old_snapshot_threshold` to `-1`.
 
 Next, you should set `wal_level` to `logical` so that the write-ahead log (WAL)
 records information that is needed for logical decoding.
@@ -95,14 +99,19 @@ To check the current value of  `wal_level`, run the command:
 psql -X -d $SOURCE -c 'show wal_level'
 ```
 
-If the query returns something other than `logical`, run the following command
-to set it up:
+If the query returns something other than `logical`, you must change it.
+
+If you have a superuser on a self-hosted database, run the following command:
 
 ```sh
 psql -X -d $SOURCE -c 'alter system set wal_level=logical'
 ```
 
-You should restart your database for the changes to take effect.
+Otherwise, if you are using a managed service, use your cloud provider's
+configuration mechanism to set `wal_level` to `logical`.
+
+Restart your database for the changes to take effect, and verify that the
+settings are reflected in your database.
 
 ## 3. Set up a replication slot and snapshot
 
@@ -133,8 +142,12 @@ identity:
 ALTER TABLE {table_name} REPLICA IDENTITY USING INDEX {_index_name}
 ```
 
-If there's no primary key or viable unique index to use, you'll have to set it
-to full:
+If there's no primary key or viable unique index to use, you'll have to set
+`REPLICA IDENTITY` to `FULL`. If you are expecting a large number of `UPDATE`
+or `DELETE` operations on the table we **do not recommend** using `FULL`. For
+each `UPDATE` or `DELETE` statement, Postgres will have to read the whole table
+to find all matching rows, which will result in significantly slower
+replication.
 
 ```sql
 ALTER TABLE {table_name} REPLICA IDENTITY FULL
@@ -244,16 +257,13 @@ documentation][hypertable-docs].
 Once the table is converted, you can follow the guides to enable more Timescale
 features like [retention][retention-docs] and [compression][compression-docs].
 
-This step is optional. Although it's strongly recommended to perform it at this
-point, it can be done after all the data has been migrated, since Hypertables
-can be created from tables with existing data.
+<Highlight type="note">
+This step is optional, but we strongly recommend that you perform it now.
 
-The disadvantage of converting after inserting all the data is that the table
-must be locked while the data is being partitioned. This means that no new data
-can be written into the table while the table is being converted. The larger
-the table, the longer it is going to remain locked. Conversely, inserting into
-an already converted Hypertable is a fast operation that partitions the data
-while it's being inserted.
+While it is possible to convert a table to a hypertable after the migration is
+complete, that requires effectively rewriting all data in the table, which
+locks the table for the duration of the operation and prevents writes.
+</Highlight>
 
 ## 6. Migrate initial data from source to target
 
@@ -274,7 +284,7 @@ pgcopydb copy table-data \
 
 - `--snapshot` specifies the synchronized [snapshot][snapshot] to use when
   retrieving the data. It must be set up to the snapshot exported in
-  [step-3][step-3], that guarantees that the only data copied is the one that
+  [step 3][step-3], that guarantees that the only data copied is the one that
   existed on the database prior to the creation of the replication slot.
 
 - `--split-tables-larger-than` defines the table size threshold after which
@@ -309,33 +319,40 @@ EOF
 
 ## 8. Promote target database as new primary
 
-To proceed with this step, you need to wait until the replication lag is
-minimized as much as possible. For instance, you can move forward when the
-`replay_lag` is close to just a few seconds. At this point, the source and
-target should be almost identical.
+In this step you will switch production traffic over to the new database. In
+order to achieve transactional consistency, your application must stop writing
+data to the source database, and all writes should be flushed from the source
+to the target before your application starts writing to the target database.
 
-Ideally the `replay_lag` should be as close to zero as possible. The next step
-is about stopping write traffic to process all the pending changes. The bigger
-the replay lag, the longer is going to take to apply the pending changes.
-Since ingest has to be turned off to prevent data loss, the longer it takes to
-apply the pending changes, the longer the application needs to have write
-traffic off. When deciding the moment to perform the switch-over and make target
-your new primary database, take into consideration what `replay_lag` value you're
-comfortable with and how that value translate in time without ingest.
+This means that your application will experience partial downtime (in writes).
+The duration of this downtime is proportional to the steady-state `replay_lag`.
+Ideally, this is on the order of seconds or minutes.
 
-To continue with the switch-over, stop the write traffic to the source
-database. With no new data being ingested the replication slot should not emit
-any more changes and `replay_lag` should decrease considerably faster.
+Before you proceed, ensure that you have checked the current value of
+`replay_lag`, and that you are comfortable with a partial downtime of this
+duration.
 
-With ingest turned off, `pgcopydb` can be instructed to stop when it's done
-applying the changes that have been generated up to this point:
+Update the table statistics by running `ANALYZE` on all data:
+
+```sh
+psql $TARGET -c "ANALYZE;"
+```
+
+<Highlight type="note">
+Application downtime begins here
+</Highlight>
+
+Stop the write traffic to the source database. With no new data being ingested,
+the `replay_lag` should decrease considerably faster.
+
+Instruct `pgcopydb` to stop when it's done applying the changes that have been
+generated up to this point:
 
 ```sh
 pgcopydb stream sentinel set endpos --current --source $SOURCE
 ```
 
 Data written to the source database after this point won't be replicated.
-That's the reason why you've stop the write traffic.
 
 Changes to sequences are not replicated. Fortunately, `pgcopydb` has a command
 to migrate them:
@@ -354,7 +371,7 @@ execution. The process runs until the end position is reached. If you started
 `fg` command.
 
 A successful execution of the follow command should have logs stating that the
-end position has been reached and the that the process is done.
+end position has been reached and the that the process is done:
 
 ```
 07:58:28.859 119 INFO   Transform reached end position 0/2ECDB58 at 0/2ECDB58
@@ -370,14 +387,13 @@ If the command output was redirected to a file the messages won't be shown in
 the terminal even if you bring the process to the foreground. In this case,
 inspect the log file.
 
-Update the table statistics by running `ANALYZE` on all data:
+Switch your application to use the target database, and start accepting writes again.
 
-```sh
-psql $TARGET -c "ANALYZE;"
-```
+<Highlight type="note">
+Application downtime ends here
+</Highlight>
 
-Finally, switch the application to use the target database and clean up the
-`pgcopydb` artifacts:
+Finally, and clean up the `pgcopydb` artifacts:
 
 ```sh
 pgcopydb stream cleanup \
