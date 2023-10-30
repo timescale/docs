@@ -464,17 +464,41 @@ module.exports = [
             title: "About data tiering",
             href: "about-data-tiering",
             excerpt:
-              "Save on storage costs by tiering older data to separate storage",
+              "Learn how data tiering helps you save on storage costs",
           },
           {
-            title: "Tier data",
-            href: "tier-data-object-storage",
-            excerpt: "How to tier Timescale data to object storage",
+            title: "Enabling data tiering",
+            href: "enabling-data-tiering",
+            excerpt:
+                "How to manually tier Timescale data",
           },
           {
-            title: "Untier data",
+            title: "Manually tier data",
+            href: "manual-tier-chunk",
+            excerpt:
+                "How to manually tier Timescale data",
+          },
+          {
+            title: "Creating data tiering policies",
+            href: "creating-data-tiering-policy",
+            excerpt:
+                "How to create a data tiering policy",
+          },
+          {
+            title: "Querying Tiered Data",
+            href: "querying-tiered-data",
+            excerpt:
+                "How to query tiered data",
+          },
+          {
+            title: "Manually untier data",
             href: "untier-data",
-            excerpt: "How to untier Timescale data",
+            excerpt: "Manually untier Timescale data to object storage",
+          },
+          {
+            title: "Troubleshooting",
+            href: "troubleshooting",
+            type: "placeholder",
           },
         ],
       },
@@ -786,6 +810,19 @@ module.exports = [
                   title: "Troubleshooting Timescale connections",
                   href: "troubleshooting",
                   type: "placeholder",
+                },
+              ]
+          },
+          {
+            title: "Configuration and deployment",
+            href: "config-deploy",
+            excerpt: "Integrate your Timescale account with third-party configuration and deployment solutions",
+            children:
+              [
+                {
+                  title: "Terraform",
+                  href: "terraform",
+                  excerpt: "Manage your Timescale services via Terraform",
                 },
               ]
           },

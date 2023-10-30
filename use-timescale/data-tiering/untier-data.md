@@ -1,28 +1,23 @@
 ---
-title: Untier data
-excerpt: How to untier Timescale data
-product: cloud
+title: Manually untier data
+excerpt: How to manualy untier Timescale data
+product: [cloud]
 keywords: [data tiering, untiering]
 tags: [storage, data management]
 ---
 
-import ExperimentalPrivateBeta from 'versionContent/_partials/_early_access.mdx';
-import TieringBeta from 'versionContent/_partials/_cloud-data-tiering-beta.mdx';
-
 # Untier data
 
-Tiered data is stored on Amazon S3 storage. Data in S3 is immutable, and cannot
-be changed. To update data in a tiered chunk, you need to move it back to EBS
-(elastic block storage). This is called untiering the data. You can untier data
+Tiered data is stored on Amazon S3 object storage. Tiered data is immutable, and cannot
+be changed. To update data in a tiered chunk, you need to move it back to local 
+storage. This is called untiering the data. You can untier data
 in a chunk using the `untier_chunk` stored procedure.
-
-<ExperimentalPrivateBeta />
 
 ## Untier data in a chunk
 
-Untiering chunks is a synchronous process that occurs when the `untier_chunk` procedure is called. 
-When you untier a chunk, the data is moved from S3 storage to EBS storage.  
-Chunks are renamed when the data is untiered.
+Untiering chunks is a synchronous process that occurs when the `untier_chunk`
+procedure is called. When you untier a chunk, the data is moved from S3 storage
+to local storage. Chunks are renamed when the data is untiered.
 
 <Procedure>
 
