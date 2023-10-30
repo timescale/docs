@@ -157,7 +157,7 @@ reserved for superuser by default, and another 5 for Timescale operations.
 For example, if `max_connections` is set to 500, the maximum number of client 
 connections for your session pool is 483 (500 - 17) and 9,660 (483 * 20) for 
 your transaction pool. The default value of `max_connections` varies depending 
-on your service's configuration.
+on your service's compute size.
 
 ## Add a connection pooler
 
