@@ -13,7 +13,7 @@ cloud_ui:
 
 Insights allows you to gain a comprehensive understanding of how your queries perform over time. It empowers you to optimize your queries and make the most efficient use of your instance resources.
 
-You can view query-level insights from the `Insights` tab on your service Cloud Dashboard.
+On the `Insights` tab, you can access insights on queries and instance resources for the previous 24 hours.
 
 <img class="main-content__illustration"
     width={1375} height={944}
