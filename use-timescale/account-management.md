@@ -18,7 +18,7 @@ It also shows you how to add a payment method, or update to a new credit card.
 
 ## Enterprise Tier 
 
-The Enterprise Tier is available to all customers, please reach out to your customer success contact person to set this up. For more information, visit [here](https://www.timescale.com/enterprise-tier).
+The Enterprise Tier is available to all customers, reach out to your customer success contact person to set this up. For more information, visit [here](https://www.timescale.com/enterprise).
 
 ## Usage-based storage
 
