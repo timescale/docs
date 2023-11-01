@@ -11,11 +11,13 @@ tags: [ storage, data management ]
 <!-- vale Google.Acronyms = NO -->
 <!-- vale Google.Headings = NO -->
 
-Once rarely used data is tiered and migrated to low cost object storage it can still be queried with standard SQL by
-enabling the `timescaledb.enable_tiered_reads` GUC. 
+Once rarely used data is tiered and migrated to low cost object storage it can still be queried 
+with standard SQL by enabling the `timescaledb.enable_tiered_reads` GUC. 
 
-The `timescaledb.enable_tiered_reads` GUC, or Grand Unified Configuration variable, is a setting that controls if tiered data is queried. 
-The configuration variable can be set at different levels, including globally for the entire database server, for individual databases, and for individual sessions.
+The `timescaledb.enable_tiered_reads` GUC, or Grand Unified Configuration variable, is a setting 
+that controls if tiered data is queried. The configuration variable can be set at different levels,
+ including globally for the entire database server, for individual databases, and for individual 
+sessions.
 
 With data tiering reads enabled, query your data normally even when it's distributed across different storage layers. Your hypertable is
 spread across the layers, so queries and `JOIN`s work and fetch the same data as usual.
@@ -84,11 +86,25 @@ alter database tsdb set timescaledb.enable_tiered_reads to true;
 
 ## Performance considerations
 
-Queries over tiered data is expected to be slower than over local data. However, in a limited number of scenarios data tiering can impact queries over local data as well. 
+Queries over tiered data is expected to be slower than over local data. However, in a limited number of scenarios data tiering can impact query planning time over local data as well. 
 
 * Queries without time boundaries specified are expected to perform slower when querying tiered data, both during query planning and during query execution.
 
-* Queries with predicates computed at runtime (such as `NOW()`) might perform slower than statically assigned values.
+* Queries with predicates computed at runtime (such as `NOW()`) are not always optimized at 
+planning time and as a result might perform slower than statically assigned values when
+ querying against S3.
+For example, this query is optimized at planning time
+```
+SELECT * FROM metrics WHERE ts > '2023-01-01' AND ts < '2023-02-01' 
+```
+
+and this query does not do chunk pruning at query planning time.
+```
+SELECT * FROM metrics WHERE ts < now() - '10 days':: interval
+```
+
+At the moment, queries against tiered data work best when the query optimizer can apply 
+planning time optimizations.
 
 <!-- vale Google.Acronyms = NO -->
 * Text and non-native types (JSON, JSONB, GIS) filtering is slower with data tiering.

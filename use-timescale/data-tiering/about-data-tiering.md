@@ -53,8 +53,7 @@ Various SQL optimizations limit what needs to be read from S3:
     part of an object needs to be read from S3
 
 The result is transparent queries across standard PostgreSQL storage and S3
-storage, so your queries fetch the same data as before, with minimal added
-latency.
+storage, so your queries fetch the same data as before.
 
 For more about how data tiering works, see the
 [blog post on data tiering][blog-data-tiering].
