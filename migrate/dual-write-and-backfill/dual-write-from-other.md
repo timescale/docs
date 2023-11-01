@@ -6,6 +6,7 @@ keywords: [migration, low-downtime]
 tags: [migration, logical backup]
 ---
 
+import GettingHelp from "versionContent/_partials/_migrate_dual_write_backfill_getting_help.mdx";
 import SourceTargetNote from "versionContent/_partials/_migrate_source_target_note.mdx";
 import StepOne from "versionContent/_partials/_migrate_dual_write_step1.mdx";
 import StepTwo from "versionContent/_partials/_migrate_dual_write_step2.mdx";
@@ -37,6 +38,8 @@ In detail, the migration process consists of the following steps:
 1. Switch application to treat target database as primary (potentially
    continuing to write into source database, as a backup).
 
+<GettingHelp />
+
 <StepOne />
 
 <StepTwo />
@@ -67,7 +70,7 @@ snapshot of the relational metadata without stopping your application. If this
 is not the case for your application, you should reconsider using the
 dual-write and backfill method.
 
-<Highlight type="information">
+<Highlight type="note">
 If you're planning on experimenting with continuous aggregates, we recommend
 that you first complete the dual-write and backfill migration, and only then
 create continuous aggregates on the data. If you create continuous aggregates
