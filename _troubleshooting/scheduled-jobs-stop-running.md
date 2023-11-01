@@ -2,7 +2,7 @@
 title: Scheduled jobs stop running
 section: troubleshooting
 products: [cloud, mst, self_hosted]
-topics: [jobs, continuous aggregates, data retention, compression]
+topics: [jobs, continuous aggregates, data retention, compression, data tiering]
 apis:
   - [continuous aggregates, add_continuous_aggregate_policy()]
   - [continuous aggregates, add_policies()]
@@ -31,8 +31,23 @@ import CloudMSTRestartWorkers from 'versionContent/_partials/_cloud-mst-restart-
 Your scheduled jobs might stop running for various reasons. On self-hosted
 TimescaleDB, you can fix this by restarting background workers:
 
+<Tabs title="Restart Background Workers">
+<Tab title="TimescaleDB >= 2.12">
+
 ```sql
 SELECT _timescaledb_functions.start_background_workers();
 ```
+
+</Tab>
+
+<Tab title="TimescaleDB < 2.12">
+
+```sql
+SELECT _timescaledb_internal.start_background_workers();
+```
+
+</Tab>
+</Tabs>
+
 
 <CloudMSTRestartWorkers />

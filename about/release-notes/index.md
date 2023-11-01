@@ -17,6 +17,44 @@ GitHub and be notified by email whenever a new release is available. On the
 click `Watch`, select `Custom` and then check `Releases`.
 </Highlight>
 
+## TimescaleDB&nbsp;2.12.2 on 2023-10-20
+
+These release notes are for the release of TimescaleDB&nbsp;2.12.2 on
+2023-10-20.
+
+<Highlight type="note">
+This release contains bug fixes since the 2.12.1 release.
+It is recommended that you upgrade at the next available opportunity.
+</Highlight>
+
+### Complete list of bug fixes
+
+* #6155 Align gapfill bucket generation with time_bucket
+* #6181 Ensure fixed_schedule field is populated
+* #6210 Fix EXPLAIN ANALYZE for compressed DML
+
+## TimescaleDB&nbsp;2.12.1 on 2023-10-12
+
+These release notes are for the release of TimescaleDB&nbsp;2.12.1 on
+2023-10-12.
+
+<Highlight type="note">
+This release contains bug fixes since the 2.12.0 release.
+It is recommended that you upgrade at the next available opportunity.
+</Highlight>
+
+### Complete list of bug fixes
+
+* #6113 Fix planner distributed table count
+* #6117 Avoid decompressing batches using an empty slot
+* #6123 Fix concurrency errors in OSM API
+* #6142 do not throw an error when deprecation GUC cannot be read
+
+### Acknowledgments
+
+Timescale thanks:
+
+* @symbx for reporting a crash when selecting from empty hypertables
 
 ## TimescaleDB&nbsp;2.12.0 on 2023-09-27
 

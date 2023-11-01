@@ -84,9 +84,20 @@ window.
 
 1.  Use the returned ID to query for the watermark's timestamp:
 
+    For TimescaleDB >= 2.12:
+
     ```sql
     SELECT COALESCE(
         _timescaledb_functions.to_timestamp(_timescaledb_functions.cagg_watermark(<ID>)),
+        '-infinity'::timestamp with time zone
+    );
+    ```
+
+    For TimescaleDB < 2.12:
+
+    ```sql
+    SELECT COALESCE(
+        _timescaledb_internal.to_timestamp(_timescaledb_internal.cagg_watermark(<ID>)),
         '-infinity'::timestamp with time zone
     );
     ```
