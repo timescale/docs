@@ -6,6 +6,7 @@ keywords: [migration, low-downtime]
 tags: [migration, logical backup]
 ---
 
+import SourceTargetNote from "versionContent/_partials/_migrate_source_target_note.mdx";
 import StepOne from "versionContent/_partials/_migrate_dual_write_step1.mdx";
 import StepTwo from "versionContent/_partials/_migrate_dual_write_step2.mdx";
 import StepFour from "versionContent/_partials/_migrate_dual_write_step4.mdx";
