@@ -24,11 +24,11 @@ At the top of the page, you'll find a set of filters, including query types, que
 
 ## Resource metrics
 
-The Metrics graph provides a visual representation of CPU, memory, and Storage IO usage over time. In addition, it overlays the top 3 queries execution times from the list view onto the resource metrics. This feature allows you to easily correlate your query executions with resource utilization. Moreover, you can zoom the graph, enabling you to define specific time frames for a more detailed analysis.
+The Metrics graph provides a visual representation of CPU, memory, and Storage IO usage over time. In addition, it overlays the top 3 queries' execution times from the list view onto the resource metrics. This feature allows you to easily correlate your query executions with resource utilization. Moreover, you can zoom the graph, enabling you to define specific time frames for a more detailed analysis.
 
 ## Query list view
 
-The query list view displays the top 50 entries that match the selected filters. In this table, the following metrics are shown: executions, total rows, hypertables, compressed tables, user name,  median, and p95 execution time. The metrics are calculated based on the entire period you've selected. For example, if you've chosen the past 6 hours in the time frame selector, all the metrics represent an aggregation of the last 6 hours of executions of data.
+The query list view displays the top 50 entries that match the selected filters. In this table, the following metrics are shown: executions, total rows, hypertables, compressed tables, user name,  median, and P95 execution time. The metrics are calculated based on the entire period you've selected. For example, if you've chosen the past 6 hours in the time frame selector, all the metrics represent an aggregation of the last 6 hours of executions of data.
 
 <img class="main-content__illustration"
     width={1375} height={944}
@@ -45,19 +45,19 @@ The query list view displays the top 50 entries that match the selected filters.
 |P95 time|The ninety-fifth percentile, or the maximum time this query took|
 |Hypertables|A green check mark is shown if the query touched a hypertable|
 |Compressed tables|A green check mark is shown if results were drawn from a compressed chunk|
-|User name|Username of the logged in user running the query|
+|User name|Username of the logged-in user running the query|
 
 
 <Highlight type="note">
 If you have just completed a query, it can take some minutes for it to show
 in the query stats viewer. Wait a little, and then refresh the page to see your
-query. Check out the Last update value at the top of the queries list table to identify the timestamp from last processed query stat.
+query. Check out the Last update value at the top of the queries list table to identify the timestamp from the last processed query stat.
 </Highlight>
 
 
-## Drill down view
+## Drill-down view
 
-Each query entry in the Queries table is clickable, leading you to the detailed query drill-down page. Graphs shows 5-minute granularity data points for every graph, providing you with insights into your query's behavior over time. These graphs not only help you identify spikes and unexpected behaviors but also offer information to optimize your query.
+Each query entry in the Queries table is clickable, leading you to the detailed query drill-down page. Graphs show 5-minute granularity data points for every graph, providing you with insights into your query's behavior over time. These graphs not only help you identify spikes and unexpected behaviors but also offer information to optimize your query.
 
 <img class="main-content__illustration"
     width={1375} height={944}
@@ -66,7 +66,7 @@ Each query entry in the Queries table is clickable, leading you to the detailed 
 
 ### Execution time
 
-The execution time graph displays the median and p95 query execution times over the selected period. This information is useful for understanding the consistency and efficiency of your query's execution over time
+The execution time graph displays the median and P95 query execution times over the selected period. This information is useful for understanding the consistency and efficiency of your query's execution over time
 
 ### Rows
 
@@ -82,4 +82,4 @@ Shared buffers play a critical role in PostgreSQL's performance by caching data 
 
 ### Cache hit ratio
 
-The Cache Hit Ratio is a direct metric that measures how much of your query's data is read from shared buffers. A 100% value indicates that all the data required by the query was found in the shared buffer, while a 0% value means none of the necessary data blocks were in the shared buffers. This metric provides a clear understanding of how efficiently your query leverages shared buffers, helping you optimize data access and database performance.
+The cache hit ratio is a direct metric that measures how much of your query's data is read from shared buffers. A 100% value indicates that all the data required by the query was found in the shared buffer, while a 0% value means none of the necessary data blocks were in the shared buffers. This metric provides a clear understanding of how efficiently your query leverages shared buffers, helping you optimize data access and database performance.
