@@ -75,7 +75,7 @@ Delta-of-delta encoding takes delta encoding one step further and applies
 delta-encoding over data that has previously been delta-encoded. With
 time-series datasets where data collection happens at regular intervals, you can
 apply delta-of-delta encoding to the time column, which results in only needing to
-store a series of 0s.
+store a series of zeroes.
 
 In other words, delta encoding stores the first derivative of the dataset, while
 delta-of-delta encoding stores the second derivative of the dataset.
@@ -157,7 +157,7 @@ encoding. This method works well for values that don't change very often, or if
 an earlier transformation removes the changes.
 
 Run-length encoding is one of the classic compression algorithms. For
-time-series data with billions of contiguous 0s, or even a document with a
+time-series data with billions of contiguous zeroes, or even a document with a
 million identically repeated strings, run-length encoding works incredibly well.
 
 For example, if you wanted to store a temperature that changed minimally over
@@ -210,7 +210,7 @@ faster.
 ### XOR-based compression
 
 Floating point numbers are usually more difficult to compress than integers.
-Fixed-length integers often have leading 0s, but floating point numbers usually
+Fixed-length integers often have leading zeroes, but floating point numbers usually
 use all of their available bits, especially if they are converted from decimal
 numbers, which can't be represented precisely in binary.
 
