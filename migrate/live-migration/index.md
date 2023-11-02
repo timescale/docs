@@ -5,6 +5,7 @@ products: [cloud]
 keywords: [migration, low-downtime, backup]
 tags: [recovery, logical backup, replication]
 ---
+import SourceTargetNote from "versionContent/_partials/_migrate_source_target_note.mdx";
 
 # Live migration
 
