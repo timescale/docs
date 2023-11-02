@@ -251,7 +251,17 @@ module.exports = [
           {
             title: "About compression",
             href: "about-compression",
-            excerpt: "Compress data chunks",
+            excerpt: "Learn about how compression works",
+          },
+          {
+            title: "About compression methods",
+            href: "compression-methods",
+            excerpt: "Learn about the different compression methods",
+          },
+          {
+            title: "Enable a compression policy",
+            href: "compression-policy",
+            excerpt: "Create a compression policy on a hypertable",
           },
           {
             title: "Manual compression",
@@ -467,10 +477,16 @@ module.exports = [
               "Learn how data tiering helps you save on storage costs",
           },
           {
+            title: "Tour of data tiering",
+            href: "tour-data-tiering",
+            excerpt:
+               "A quick tour of data tiering",
+          },
+          {
             title: "Enabling data tiering",
             href: "enabling-data-tiering",
             excerpt:
-                "How to manually tier Timescale data",
+                "How to enable tiering on Timescale Cloud",
           },
           {
             title: "Manually tier data",
