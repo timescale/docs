@@ -104,7 +104,8 @@ settings to set the compress chunk time interval, and run compression operations
 to roll up the chunks while compressing.
 
 ```sql
-ALTER TABLE example SET (timescaledb.compress_chunk_time_interval = '<time_interval>');
+ALTER TABLE example SET (timescaledb.compress_chunk_time_interval = '<time_interval>',
+                         timescaledb.compress_orderby = 'time ASC');
 SELECT compress_chunk(c, if_not_compressed => true)
     FROM show_chunks(
         'example',
@@ -116,5 +117,9 @@ The time interval you choose must be a multiple of the uncompressed chunk
 interval. For example, if your uncompressed chunk interval is one week, your
 `<time_interval>` of the compressed chunk could be two weeks, or six weeks, but
 not one month.
+
+NOTE: The default setting of `compress_orderby` is `'time ASC'` which causes chunks to re-compressed
+many times during rollup which can have a steep performance penalty.
+Set `timescaledb.compress_orderby = 'time ASC'` to avoid this penalty.
 
 [add_compression_policy]: /api/:currentVersion:/compression/add_compression_policy/
