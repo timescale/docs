@@ -23,5 +23,5 @@ fork of the service being restored.
 *   Performing a [point-in-time recovery][pitr] in Timescale
 
 [backup-recovery]: /use-timescale/:currentVersion:/backup-restore/backup-restore-cloud/
-[pitr]: /use-timescale/:currentVersion:/backup-restore/pitr/
+[pitr]: /use-timescale/:currentVersion:/backup-restore/point-in-time-recovery/
 
