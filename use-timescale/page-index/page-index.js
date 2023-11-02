@@ -477,10 +477,16 @@ module.exports = [
               "Learn how data tiering helps you save on storage costs",
           },
           {
+            title: "Tour of data tiering",
+            href: "tour-data-tiering",
+            excerpt:
+               "A quick tour of data tiering",
+          },
+          {
             title: "Enabling data tiering",
             href: "enabling-data-tiering",
             excerpt:
-                "How to manually tier Timescale data",
+                "How to enable tiering on Timescale Cloud",
           },
           {
             title: "Manually tier data",

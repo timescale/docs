@@ -1,3 +1,5 @@
+import OpenSupportRequest from "versionContent/_partials/_migrate_open_support_request.mdx"
+
 It is very important that the version of the TimescaleDB extension in the
 target database is the same as it was in the source database.
 
