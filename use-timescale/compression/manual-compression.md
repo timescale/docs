@@ -118,8 +118,10 @@ interval. For example, if your uncompressed chunk interval is one week, your
 `<time_interval>` of the compressed chunk could be two weeks, or six weeks, but
 not one month.
 
-NOTE: The default setting of `compress_orderby` is `'time ASC'` which causes chunks to re-compressed
+<Highlight type="note">
+The default setting of `compress_orderby` is `'time ASC'` which causes chunks to re-compressed
 many times during rollup which can have a steep performance penalty.
 Set `timescaledb.compress_orderby = 'time ASC'` to avoid this penalty.
+</Highlight>
 
 [add_compression_policy]: /api/:currentVersion:/compression/add_compression_policy/
