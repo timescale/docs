@@ -10,7 +10,7 @@ tags: [recovery, restore, pitr]
 
 Point-in-time recovery allows you to recover your database from a destructive 
 or unwanted action or change. Timescale allows you to perform a point-in-time 
-recovery of your service to any point in the last 3 days.  Initiating a 
+recovery of your service to any point in the last 3 days. Initiating a 
 point-in-time recovery of your service creates a fork of your service that
 matches the state of your database at the specified time of recovery. The 
 original service stays untouched to avoid losing data created since the 
