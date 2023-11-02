@@ -720,9 +720,20 @@ module.exports = [
         ]
       },
       {
-        title: "Backup and restore",
-        href: "backup-restore-cloud",
-        excerpt: "Timescale backup and restore",
+        title: "Backup, restore, and PITR",
+        href: "backup-restore",
+        children: [
+          {
+            title: "Backup and restore",
+            href: "backup-restore-cloud",
+            excerpt: "Timescale backup and restore",
+          },
+          {
+            title: "Point-in-time recovery",
+            href: "pitr",
+            excerpt: "PITR on Timescale services"
+          }
+        ]
       },
       {
         title: "User-defined actions",
