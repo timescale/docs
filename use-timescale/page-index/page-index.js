@@ -730,7 +730,7 @@ module.exports = [
           },
           {
             title: "Point-in-time recovery",
-            href: "pitr",
+            href: "point-in-time-recovery",
             excerpt: "PITR on Timescale services"
           }
         ]
