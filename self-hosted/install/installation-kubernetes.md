@@ -5,6 +5,8 @@ products: [self_hosted]
 keywords: [installation, self-hosted, Kubernetes]
 ---
 
+import WhereTo from "versionContent/_partials/_where-to-next.mdx";
+
 # Install TimescaleDB on Kubernetes
 
 You can install a TimescaleDB instance on any Kubernetes deployment. Use the

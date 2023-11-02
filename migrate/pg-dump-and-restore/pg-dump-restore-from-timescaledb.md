@@ -11,6 +11,7 @@ import SourceTargetNote from "versionContent/_partials/_migrate_source_target_no
 import SetupSourceTarget from "versionContent/_partials/_migrate_set_up_source_and_target.mdx";
 import TimescaleDBVersion from "versionContent/_partials/_migrate_from_timescaledb_version.mdx";
 import ExplainPgDumpFlags from "versionContent/_partials/_migrate_explain_pg_dump_flags.mdx";
+import MinimalDowntime from "versionContent/_partials/_migrate_pg_dump_minimal_downtime.mdx";
 
 # Migrate from TimescaleDB using pg_dump/restore
 
