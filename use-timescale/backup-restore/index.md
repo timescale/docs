@@ -15,7 +15,7 @@ Timescale automatically handles backup and restore for all
 services using the `pgBackRest` tool. You don't need to perform
 backups for your Timescale service manually. 
 
-Timescale also offers self-initiated point-in-time recovery (PITR) via the console. 
+Timescale also offers self-initiated point-in-time recovery (PITR) in the console. 
 This allows you to fork a service to any point in the last 3 days in a 
 fork of the service being restored.
 
