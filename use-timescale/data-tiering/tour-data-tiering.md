@@ -68,7 +68,7 @@ You can view chunks in the tiering queue, that is, chunks that are scheduled
  to be tiered, by using this query.
 
 ```
-try=# SELECT * FROM timescaledb_osm.chunks_queued_for_tiering ;
+SELECT * FROM timescaledb_osm.chunks_queued_for_tiering ;
 -[ RECORD 1 ]-----+-----------------
 hypertable_schema | public
 hypertable_name   | metrics_table
