@@ -20,6 +20,12 @@ module.exports = [
             href: "beginner-blockchain-query",
             excerpt: "Query the Bitcoin blockchain dataset",
           },
+          {
+            title: "Bonus: set up compression",
+            href: "blockchain-compress",
+            excerpt:
+              "Compress the dataset so you can store the Bitcoin blockchain more efficiently",
+          },
         ],
       },
       {
