@@ -25,8 +25,7 @@ functions like continuous aggregates.
 
 <CloudIntro />
 
-Timescale offers two products: a time-series database with TimescaleDB, and 
-Dynamic PostgreSQL. The time-series database is optimized for your time-series 
+Timescale offers two products: a Time-series and Dynamic PostgreSQL database service. The time-series database is optimized for your time-series 
 and analytics workloads. Dynamic PostgreSQL is built for all of other 
 production database workloads. Both products have everything the Timescale data 
 platform has to offer. This guide walks you through creating a time-series 

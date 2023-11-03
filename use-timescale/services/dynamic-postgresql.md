@@ -19,8 +19,8 @@ the performance and cost-effectiveness of a statically allocated DBaaS.
 
 ## Dynamic compute
 
-With Dynamic PostgreSQL and dynamic compute, you choose a compute range with a 
-minimum and maximum. Your database always has the minimum compute 
+Dynamic compute means you choose a compute range with a 
+minimum and maximum instead of a single static compute option. Your database always has the minimum compute 
 allocated to it. As your load increases and your application demands more of 
 your database, your database can use up to the maximum of your range with zero 
 delay.
@@ -30,13 +30,17 @@ corresponding to the maximum of the compute range. For example, in a 4 - 8 CPU
 configuration, your database has 32 GB of effective memory. 
 
 In this model, you only pay for your minimum compute, and are metered for any 
-usage above your minimum. Currently, the product has early access pricing, 
-where any usage above the minimum is free.
+usage above your minimum.
+
+<Highlight type="note">
+Dynamic PostgreSQL is currently using early access pricing, 
+where any metered usage above the minimum is free.
+</Highlight>
 
 ## Usage-based storage
 
 Dynamic PostgreSQL comes with Timescale's usage-based storage. With usage-based 
-storage, you only pay for your storage, rather than the allocated disk. 
+storage, you only pay for the storage saved on disk, rather than the amount of disk space allocated. 
 Usage-based storage is billed hourly per gigabyte of data.
 
 ## Who is Dynamic PostgreSQL for?
