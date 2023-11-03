@@ -24,7 +24,7 @@ At the top of the page, you'll find a set of filters, including query types, que
 
 ## Resource metrics
 
-The Metrics graph provides a visual representation of CPU, memory, and storage I/O usage over time. In addition, it overlays the top three queries' execution times from the list view onto the resource metrics. This feature allows you to easily correlate your query executions with resource utilization. Moreover, you can zoom the graph, enabling you to define specific time frames for a more detailed analysis.
+The Metrics graph provides a visual representation of CPU, memory, and storage input/output usage over time. In addition, it overlays the top three queries' execution times from the list view onto the resource metrics. This feature allows you to easily correlate your query executions with resource utilization. Moreover, you can zoom the graph, enabling you to define specific time frames for a more detailed analysis.
 
 ## Query list view
 
