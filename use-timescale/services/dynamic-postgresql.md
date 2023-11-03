@@ -20,18 +20,18 @@ the performance and cost-effectiveness of a statically allocated DBaaS.
 ## Dynamic compute
 
 With Dynamic PostgreSQL and dynamic compute, you choose a compute range with a 
-minimum and maximum. Your database will always have the minimum compute 
+minimum and maximum. Your database always has the minimum compute 
 allocated to it. As your load increases and your application demands more of 
 your database, your database can use up to the maximum of your range with zero 
 delay.
 
 With dynamic compute, your database always has the effective memory 
 corresponding to the maximum of the compute range. For example, in a 4 - 8 CPU
-configuration, your database will have 32GB of effective memory. 
+configuration, your database has 32 GB of effective memory. 
 
 In this model, you only pay for your minimum compute, and are metered for any 
 usage above your minimum. Currently, the product has early access pricing, 
-where any usage above the minimum will be free.
+where any usage above the minimum is free.
 
 ## Usage-based storage
 
@@ -52,7 +52,7 @@ overprovisioning.
 
 Variable and bursty workloads have some kind of seasonality or spikiness. 
 Dynamic PostgreSQL is great for these workloads as it allows you to scale 
-seamlessly and only pay for the usage fluctuation above your minumum.
+seamlessly and only pay for the usage fluctuation above your minimum.
 
 Intermittent workloads are workloads that happen only occasionally, don't need 
 in-memory caching, and can tolerate a cold start. Serverless databases are 
