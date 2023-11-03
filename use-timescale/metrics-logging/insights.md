@@ -24,11 +24,11 @@ At the top of the page, you'll find a set of filters, including query types, que
 
 ## Resource metrics
 
-The Metrics graph provides a visual representation of CPU, memory, and Storage IO usage over time. In addition, it overlays the top 3 queries' execution times from the list view onto the resource metrics. This feature allows you to easily correlate your query executions with resource utilization. Moreover, you can zoom the graph, enabling you to define specific time frames for a more detailed analysis.
+The Metrics graph provides a visual representation of CPU, memory, and storage I/O usage over time. In addition, it overlays the top three queries' execution times from the list view onto the resource metrics. This feature allows you to easily correlate your query executions with resource utilization. Moreover, you can zoom the graph, enabling you to define specific time frames for a more detailed analysis.
 
 ## Query list view
 
-The query list view displays the top 50 entries that match the selected filters. In this table, the following metrics are shown: executions, total rows, hypertables, compressed tables, user name,  median, and P95 execution time. The metrics are calculated based on the entire period you've selected. For example, if you've chosen the past 6 hours in the time frame selector, all the metrics represent an aggregation of the last 6 hours of executions of data.
+The query list view displays the top 50 entries that match the selected filters. In this table, the following metrics are shown: executions, total rows, hypertables, compressed tables, user name,  median, and P95 execution time. The metrics are calculated based on the entire period you've selected. For example, if you've chosen the past six hours in the time frame selector, all the metrics represent an aggregation of the last six hours of executions of data.
 
 <img class="main-content__illustration"
     width={1375} height={944}
@@ -57,7 +57,7 @@ query. Check out the Last update value at the top of the queries list table to i
 
 ## Drill-down view
 
-Each query entry in the Queries table is clickable, leading you to the detailed query drill-down page. Graphs show 5-minute granularity data points for every graph, providing you with insights into your query's behavior over time. These graphs not only help you identify spikes and unexpected behaviors but also offer information to optimize your query.
+Each query entry in the Queries table is clickable, leading you to the detailed query drill-down page. Graphs show five-minute granularity data points for every graph, providing you with insights into your query's behavior over time. These graphs not only help you identify spikes and unexpected behaviors but also offer information to optimize your query.
 
 <img class="main-content__illustration"
     width={1375} height={944}
@@ -66,7 +66,7 @@ Each query entry in the Queries table is clickable, leading you to the detailed 
 
 ### Execution time
 
-The execution time graph displays the median and P95 query execution times over the selected period. This information is useful for understanding the consistency and efficiency of your query's execution over time
+The execution time graph displays the median and P95 query execution times over the selected period. This information is useful for understanding the consistency and efficiency of your query's execution over time.
 
 ### Rows
 
