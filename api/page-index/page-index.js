@@ -98,6 +98,10 @@ module.exports = [
             title: "chunks_detailed_size",
             href: "chunks_detailed_size",
           },
+          {
+            title: "dimension builders",
+            href: "dimension_info",
+          },
         ],
       },
       {

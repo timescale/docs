@@ -23,7 +23,7 @@ on the resulting hypertable.
 For more information about using hypertables, including chunk size partitioning,
 see the [hypertable section][hypertable-docs].
 
-**Note: this reference describes the new generalized hypertable API. The [old interface for `create_hypertable is also available](create_hypertable_old.md).**
+**Note: this reference describes the new generalized hypertable API. The [old interface for `create_hypertable is also available][create-hypertable-old].**
 
 ## Required arguments
 
@@ -79,9 +79,8 @@ this constraint on the table when it is executed.
 #### Dimension info
  
 When creating a hypertable, you need to provide dimension info using
-one of the [dimension info constructors](dimension_info.md). This is
-used to specify what column to partition by and in what way to
-partition.
+one of the [dimension builders][dimension-builders]). This is used to
+specify what column to partition by and in what way to partition.
 
 ## Sample use
 
@@ -137,3 +136,6 @@ SELECT create_hypertable('events', by_range('event', time_partitioning_func => '
 [create_distributed_hypertable]: /api/:currentVersion:/distributed-hypertables/create_distributed_hypertable
 [hash-partitions]: /use-timescale/:currentVersion:/hypertables/about-hypertables/#hypertable-partitioning
 [hypertable-docs]: /use-timescale/:currentVersion:/hypertables/
+[create-hypertable-old]: /api/:currentVersion:/hypertable/create_hypertable_old
+[dimension-builders]: /api/:currentVersion:/hypertable/dimension_info
+[by-range]: /api/:currentVersion:/hypertable/dimension_info/#by_range
