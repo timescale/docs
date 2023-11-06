@@ -925,6 +925,11 @@ module.exports = [
             excerpt: "Get an overview of Timescale security",
           },
           {
+            title: "SAML",
+            href: "saml",
+            excerpt: "SAML / SSO authentication for your Timescale account",
+          },
+          {
             title: "Multi-factor Authentication",
             href: "multi-factor-authentication",
             excerpt: "Multi-factor authentication for your Timescale account",
