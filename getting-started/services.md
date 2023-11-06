@@ -19,6 +19,13 @@ In the Timescale console, you create a service to house your Timescale
 database. Each service contains a single database. If you need more
 databases, you can create additional services for each.
 
+When creating a service, you have two options: a time-series database and 
+Dynamic PostgreSQL. The time-series database is optimized for your production 
+time-series and analytics workloads. Dynamic PostgreSQL is built for all of 
+your other production database workloads. Both are 100% PostgreSQL and use 
+usage-based storage. The time-series option includes TimescaleDB. Dynamic 
+PostgreSQL includes dynamic compute.
+
 When you create a new service, a new `tsdbadmin` user is created. This is your
 administration user that you can connect to your database with.
 
