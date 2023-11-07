@@ -64,9 +64,9 @@ generally a better fit for these workloads.
 
 ## Billing
 
-With Dynamic PostgreSQL, your bill has 3 components: 
-*   Usage-based storage, based on your data-volume in GB/hours
-*   Compute base, the minimum of your compute range, in CPU/hours
-*   Any metered usage above your compute base, in CPU/hours
+With Dynamic PostgreSQL, your bill has 2 components: 
+*   Your storage costs, billed in GB/hours
+*   Your compute costs, which is your base compute plus any fractional 
+    CPU usage above your base, up to your max, in CPU/hours
 
 
