@@ -9,11 +9,34 @@ content_group: Query the Bitcoin blockchain
 
 # Set up compression and compress the dataset
 
-This tutorial uses a dataset that contains Bitcoin blockchain data for
-the past five days, in a hypertable named `transactions`.
+You have now seen how to create a hypertable for your Bitcoin dataset
+and query it for blockchain data. When ingesting a dataset like this
+is seldom necessary to update old data and over time the amount of
+data in the tables grows. Over time you end up with a lot of data and
+since this is mostly immutable you can compress it to save space and
+avoid incurring additional cost.
 
-Storing a lot of data can be expensive. Using compression, you can store
-the same dataset much more efficiently and potentially query it even faster.
+It is possible to use disk-oriented compression like the support
+offered by ZFS and Btrfs but since TimescaleDB is build for handling
+event-oriented data (such as time-series) it comes with support for
+compressing data in hypertables.
+
+TimescaleDB compression allows you to store the data in a vastly more
+efficient format allowing up to 20x compression ratio compared to a
+normal PostgreSQL table, but this is of course highly dependent on the
+data and configuration.
+
+TimescaleDB compression is implemented natively in PostgreSQL and does
+not require special storage formats. Instead it relies on features of
+PostgreSQL to transform the data into columnar format before
+compression. The use of a columnar format allows better compression
+ratio since similar data is stored adjacently. For more details on how
+the compression format looks, you can look at the [compression
+design][compression-design] section.
+
+A beneficial side-effect of compressing data is that certain queries
+are significantly faster since less data has to be read into
+memory.
 
 <Procedure>
 
@@ -111,3 +134,4 @@ Try it yourself and see what you get!
 
 [segment-by-columns]: /use-timescale/:currentVersion:/compression/about-compression/#segment-by-columns
 [automatic-compression]: /tutorials/:currentVersion:/blockchain-query/blockchain-compress/#automatic-compression
+[compression-design]: /use-timescale/:currentVersion:/compression/compression-design/
