@@ -103,6 +103,14 @@ To roll up your uncompressed chunks into a compressed chunk, alter the compressi
 settings to set the compress chunk time interval and run compression operations
 to roll up the chunks while compressing.
 
+<Highlight type="note">
+The default setting of `compress_orderby` is `'time ASC'` (the ascending or ASC command is used to sort the data returned in ascending order), which causes chunks to be re-compressed
+many times during the rollup, possibly leading to a steep performance penalty. 
+Set `timescaledb.compress_orderby = 'time ASC'` to avoid this penalty.
+</Highlight>
+
+
+
 ```sql
 ALTER TABLE example SET (timescaledb.compress_chunk_time_interval = '<time_interval>',
                          timescaledb.compress_orderby = 'time ASC');
@@ -117,11 +125,5 @@ The time interval you choose must be a multiple of the uncompressed chunk
 interval. For example, if your uncompressed chunk interval is one week, your
 `<time_interval>` of the compressed chunk could be two weeks or six weeks, but
 not one month.
-
-<Highlight type="note">
-The default setting of `compress_orderby` is `'time ASC'` (the ASC command is used to sort the data returned in ascending order), which causes chunks to be re-compressed
-many times during the rollup, possibly leading to a steep performance penalty. 
-Set `timescaledb.compress_orderby = 'time ASC'` to avoid this penalty.
-</Highlight>
 
 [add_compression_policy]: /api/:currentVersion:/compression/add_compression_policy/
