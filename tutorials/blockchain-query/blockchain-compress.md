@@ -42,8 +42,15 @@ memory.
 
 ## Compression setup
 
-1.  Connect to the Timescale database that contains the Bitcoin dataset.
-1.  At the psql prompt, run the ALTER command to enable compression on the hypertable:
+In the previous section you learned how to different queries on data
+in the `transactions` table, so if you want to compress the data that
+table, you follow these step:
+
+1.  Connect to the Timescale database that contains the Bitcoin
+    dataset using, for example `psql`.
+1.  Enable compression on the table and pick suitable segment-by and
+    order-by column using the `ALTER TABLE` command:
+
     ```sql
     ALTER TABLE transactions 
     SET (
@@ -52,20 +59,35 @@ memory.
         timescaledb.compress_orderby='time DESC'
     );
     ``` 
-    To get more details on how to pick the right columns for the job, see [here][segment-by-columns].
-1.  Compress all the chunks of the hypertable:
+
+    Depending on the choice if segment-by and order-by column you can
+    get very different performance and compression ratio. To learn
+    more about how to pick the correct columns, see
+    [here][segment-by-columns].
+
+1.  You can manually compress all the chunks of the hypertable using
+    `compress_chunk` in this manner:
+
     ```sql
     SELECT compress_chunk(c) from show_chunks('transactions') c;
     ```
-    This is necessary because we did not [automate compression][automatic-compression] yet.
-1.  See the dataset size before and after compression:
+
+    You can also [automate compression][automatic-compression] by
+    adding a [compression policy][compression-policy] which will be
+    covered below.
+
+1.  Now that you have compressed the table you can compare the size of
+    the dataset before and after compression:
+
     ```sql
     SELECT 
         pg_size_pretty(before_compression_total_bytes) as before,
         pg_size_pretty(after_compression_total_bytes) as after
      FROM hypertable_compression_stats('transactions');
     ```
-1.  The output should show considerable storage savings, something like this:
+
+	This shows a significant improvement in data usage:
+
     ```sql
      before  | after  
     ---------+--------
