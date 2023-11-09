@@ -38,6 +38,8 @@ This tutorial covers:
 1.  [Querying your dataset][query-energy]: Analyze a dataset containing energy
     consumption data using Timescale and PostgreSQL, and visualize the
     results in Grafana.
+1.  [Bonus: Store data efficiently][compress-energy]: Learn how to store and query your
+energy consumption data more efficiently using compression feature of Timescale.
 
 ## About querying data with Timescale
 
@@ -54,5 +56,6 @@ you through the steps to visualize the results in Grafana.
 
 [dataset-energy]: /tutorials/:currentVersion:/energy-data/dataset-energy/
 [query-energy]: /tutorials/:currentVersion:/energy-data/query-energy/
+[compress-energy]: /tutorials/:currentVersion:/energy-data/compress-energy/
 [cloud-install]: /getting-started/:currentVersion:/#create-your-timescale-account
 [grafana-setup]: /use-timescale/:currentVersion:/integrations/observability-alerting/grafana/installation/
