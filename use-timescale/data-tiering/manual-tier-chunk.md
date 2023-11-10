@@ -9,8 +9,9 @@ tags: [ storage, data management ]
 # Manually tiering chunks
 
 Once Data Tiering has been enabled on a service individual chunks from a Hypertable may be tiered to object storage.
-
 Before you start, you need a list of chunks to tier. In this example, you use a hypertable called example, and tier chunks older than three days.
+Tiered storage data cannot be modified - so inserts, updates, and deletes will not work on tiered data. So make sure that
+you are not tiering data that is being <\b>actively modified<\b> to tiered storage
 
 <Procedure>
 
@@ -26,8 +27,6 @@ Before you start, you need a list of chunks to tier. In this example, you use a 
 1. This returns a list of chunks. Take a note of the chunk names:
 
    ```sql
-   ||show_chunks|
-   |---|---|
    |1|_timescaledb_internal_hyper_1_2_chunk|
    |2|_timescaledb_internal_hyper_1_3_chunk|
    ```
@@ -66,6 +65,16 @@ informational view:
 
 ```sql
 SELECT * FROM timescaledb_osm.tiered_chunks;
+```
+
+## Find chunks that are scheduled to be tiered
+
+Chunks are tiered asynchronously. Chunks are tiered one at a time in order to minimize db resource
+consumption during the tiering process. You can see chunks scheduled for tiering (either by the policy or
+ by a manual call to `tier_chunk`) but have not yet been moved to tiered storage using this view.
+
+```sql
+SELECT * FROM timescaledb_osm.chunks_queued_for_tiering ;
 ```
 
 If you need to untier your data, see the
