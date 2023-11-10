@@ -13,6 +13,7 @@ tags: [ storage, data management ]
 
 Once rarely used data is tiered and migrated to low cost object storage it can still be queried 
 with standard SQL by enabling the `timescaledb.enable_tiered_reads` GUC. 
+By default, the GUC is set to false so that queries on TimescaleDB do not touch tiered data.
 
 The `timescaledb.enable_tiered_reads` GUC, or Grand Unified Configuration variable, is a setting 
 that controls if tiered data is queried. The configuration variable can be set at different levels,
@@ -86,9 +87,13 @@ alter database tsdb set timescaledb.enable_tiered_reads to true;
 
 ## Performance considerations
 
-Queries over tiered data is expected to be slower than over local data. However, in a limited number of scenarios data tiering can impact query planning time over local data as well. 
+Queries over tiered data are expected to be slower than over local data. However, in a limited number of scenarios data tiering can impact query planning time over local data as well. In order to prevent any unexpected performance degradation for application queries, we keep the GUC `timescaledb.enable_tiered_reads` to false.
 
-* Queries without time boundaries specified are expected to perform slower when querying tiered data, both during query planning and during query execution.
+* Queries without time boundaries specified are expected to perform slower when querying tiered data, both during query planning and during query execution. TimescaleDB's chunk exclusion algorithms cannot be applied for this case.
+
+```
+SELECT * FROM device_readings WHERE id = 10;
+```
 
 * Queries with predicates computed at runtime (such as `NOW()`) are not always optimized at 
 planning time and as a result might perform slower than statically assigned values when
