@@ -2,9 +2,9 @@
 title: Slow tiering of chunks
 section: troubleshooting
 products: [cloud]
-topics: [data tiering]
-keywords: [data tiering]
-tags: [data tiering]
+topics: [tiered storage]
+keywords: [tiered storage]
+tags: [tiered storage]
 ---
 
 

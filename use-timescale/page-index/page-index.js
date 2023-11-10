@@ -471,24 +471,24 @@ module.exports = [
         ],
       },
       {
-        title: "Data tiering",
+        title: "Tiered Storage",
         href: "data-tiering",
         excerpt: "Tier older data to save storage costs",
         children: [
           {
-            title: "About data tiering",
+            title: "About Tiered Storage",
             href: "about-data-tiering",
             excerpt:
-              "Learn how data tiering helps you save on storage costs",
+              "Learn how tiered storage helps you save on storage costs",
           },
           {
-            title: "Tour of data tiering",
+            title: "Tour of Tiered Storage",
             href: "tour-data-tiering",
             excerpt:
-               "A quick tour of data tiering",
+               "A quick tour of tiered storage",
           },
           {
-            title: "Enabling data tiering",
+            title: "Enabling Tiered Storage",
             href: "enabling-data-tiering",
             excerpt:
                 "How to enable tiering on Timescale Cloud",
@@ -500,10 +500,10 @@ module.exports = [
                 "How to manually tier Timescale data",
           },
           {
-            title: "Creating data tiering policies",
+            title: "Creating tiering policies",
             href: "creating-data-tiering-policy",
             excerpt:
-                "How to create a data tiering policy",
+                "How to create a tiering policy",
           },
           {
             title: "Querying Tiered Data",
@@ -514,7 +514,7 @@ module.exports = [
           {
             title: "Manually untier data",
             href: "untier-data",
-            excerpt: "Manually untier Timescale data to object storage",
+            excerpt: "Manually untier Timescale data from the low-cost bottomless storage tier",
           },
           {
             title: "Troubleshooting",

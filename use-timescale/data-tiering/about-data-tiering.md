@@ -1,27 +1,28 @@
 ---
-title: About data tiering
-excerpt: Learn how data tiering helps you save on storage costs
+title: About tiered storage
+excerpt: Learn how tiered storage helps you save on storage costs
 product: [cloud]
-keywords: [data tiering]
+keywords: [tiered storage]
 tags: [storage, data management]
 cloud_ui:
     path:
         - [services, :serviceId, overview]
 ---
 
-# About data tiering
+# About tiered storage
 
-Timescale Cloud services include traditional disk storage, and a low-cost object storage
-layer built on Amazon S3. You can move your hypertable data across the different
-storage tiers to get the best price performance. You can use primary storage for
-data that requires quick access, and low-cost object storage for rarely used historical
-data. Regardless of where your data is stored, you can still query it with
+Tiered storage complements Timescale's standard high-performance storage tier with a low-cost bottomless storage tier backed by S3.
+
+You can move your hypertable data across the different storage tiers to get the best price performance.
+You can use the standard high-performance storage tier for data that requires quick access,
+and the low-cost bottomless storage tier for rarely used historical data. 
+Regardless of where your data is stored, you can still query it with
 [standard SQL][querying-tiered-data].
 
 
-## Benefits of data tiering
+## Benefits of tiered storage
 
-Data tiering is more than an archiving solution:
+Tiered storage is more than an archiving solution:
 
 *   **Cost effective.** Store high volumes of data cost-efficiently.
     You pay only for what you store, with no extra cost for queries.
@@ -33,16 +34,16 @@ Data tiering is more than an archiving solution:
 
 ## Architecture
 
-Data tiering works by periodically and asynchronously moving older chunks to S3
+Tiered storage works by periodically and asynchronously moving older chunks to S3
 storage. There, it's stored in the Apache Parquet format, which is a compressed
 columnar format well-suited for S3. Data remains accessible both during and
 after migration.
 
 By default, tiered data is not included when querying from a Timescale instance. 
-However, it is possible to access tiered data by [enabling a data tiering reads][querying-tiered-data] for a session, query, or even for all sessions.   
+However, it is possible to access tiered data by [enabling tiered storage reads][querying-tiered-data] for a session, query, or even for all sessions.   
 
-With data tiering reads enabled, when you run regular SQL queries, a behind-the-scenes process transparently
-pulls data from wherever it's located: disk storage, object storage, or both.
+With tiered storage reads enabled, when you run regular SQL queries, a behind-the-scenes process transparently
+pulls data from wherever it's located: the standard high-performance storage tier, the low-cost bottomless storage tier, or both.
 Various SQL optimizations limit what needs to be read from S3:
 
 *   Chunk exclusion avoids processing chunks that fall outside the query's time
@@ -53,8 +54,8 @@ Various SQL optimizations limit what needs to be read from S3:
 The result is transparent queries across standard PostgreSQL storage and S3
 storage, so your queries fetch the same data as before.
 
-For more about how data tiering works, see the
-[blog post on data tiering][blog-data-tiering].
+For more about how tiered storage works, see the
+[blog post on tiered storage][blog-data-tiering].
 
 ## Limitations
 
@@ -75,8 +76,8 @@ For more about how data tiering works, see the
     scheduled for tiering.
 
 *   **Inefficient query planner filtering for non-native data types.** The query
-    planner speeds up reads from object storage by using metadata to filter out
-    columns and row groups that don't satisfy the query. This works for all
+    planner speeds up reads from our low-cost bottomless storage tier by using metadata
+    to filter out columns and row groups that don't satisfy the query. This works for all
     native data types, but not for non-native types, such as `JSON`, `JSONB`,
     and `GIS`.
 
@@ -84,9 +85,9 @@ For more about how data tiering works, see the
     execution time of queries in latency-sensitive environments, especially
     lighter queries.
 
-*   **Number of dimensions.** You cannot use data tiering on hypertables
+*   **Number of dimensions.** You cannot use tiered storage on hypertables
     partitioned on more than one dimension. Make sure your hypertables are
-    partitioned on time only, before you enable data tiering.
+    partitioned on time only, before you enable tiered storage.
 
 [blog-data-tiering]: https://www.timescale.com/blog/expanding-the-boundaries-of-postgresql-announcing-a-bottomless-consumption-based-object-storage-layer-built-on-amazon-s3/
 [querying-tiered-data]: /use-timescale/:currentVersion:/data-tiering/querying-tiered-data/

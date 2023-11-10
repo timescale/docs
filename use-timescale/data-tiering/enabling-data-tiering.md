@@ -1,43 +1,44 @@
 ---
-title: Tier data to object storage
-excerpt: How to tier data to object storage
+title: Tier data to the low-cost bottomless storage tier
+excerpt: How to tier data to the low-cost bottomless storage tier
 products: [cloud]
-keywords: [data tiering]
+keywords: [tiered storage]
 tags: [storage, data management]
 cloud_ui:
     path:
         - [services, :serviceId, overview]
 ---
 
-# Tier data to object storage
+# Tier data to the low-cost bottomless storage tier
 
-Enable Data Tiering to begin migrating rarely used data from primary storage to object storage to save on storage costs. 
+Enable tiered storage to begin migrating rarely used data from Timescale's standard high-performance storage tier
+to the low-cost bottomless storage tier to save on storage costs. 
 
-## Enabling data tiering
+## Enabling tiered storage
 
-You can enable data tiering from the Services Overview page in the Timescale
+You can enable tiered storage from the Services Overview page in the Timescale
 console. 
 
 <Procedure>
 
-### Enabling data tiering
+### Enabling tiered storage
 
 1.  In the Timescale console, from the `Services` list, click the name of
     the service you want to modify.
-1.  In the `Overview` tab, locate the `Data tiering` card, and click
-    `Enable data tiering`. Confirm the action.
-1.  Data tiering can take a few seconds to turn on and once activated shows the amount of
+1.  In the `Overview` tab, locate the `Tiered Storage` card, and click
+    `Enable tiered storage`. Confirm the action.
+1.  Tiered storage can take a few seconds to turn on and once activated shows the amount of
     data that has been tiered. Once enabled, data can be tiered by manually tiering 
     a chunk or by creating a tiering policy.     
 
     <img class="main-content__illustration"
-    src="https://assets.timescale.com/docs/images/enable-data-tiering.png"
+    src="https://assets.timescale.com/docs/images/enable-data-tiering-ga.png"
     width={1375} height={944}
-    alt="The Timescale Console showing data tiering enabled" />
+    alt="The Timescale Console showing tiered storage enabled" />
 
 </Procedure>
 
-After data tiering is enabled you must either [manually tier data][manual-tier-chunk] or [setup a tiering policy][creating-data-tiering-policy] 
+After tiered storage is enabled you must either [manually tier data][manual-tier-chunk] or [setup a tiering policy][creating-data-tiering-policy] 
 to begin tiering data from your hypertables.
 
 

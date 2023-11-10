@@ -2,16 +2,17 @@
 title: Manually Tier data
 excerpt: How to manually tier Timescale data
 product: [ cloud ]
-keywords: [ data tiering, tiering ]
+keywords: [ tiered storage, tiering ]
 tags: [ storage, data management ]
 ---
 
 # Manually tiering chunks
 
-Once Data Tiering has been enabled on a service individual chunks from a Hypertable may be tiered to object storage.
+Once tiered storage has been enabled on a service, individual chunks from a Hypertable may be tiered to the low-cost bottomless storage tier.
+
 Before you start, you need a list of chunks to tier. In this example, you use a hypertable called example, and tier chunks older than three days.
 Tiered storage data cannot be modified - so inserts, updates, and deletes will not work on tiered data. So make sure that
-you are not tiering data that is being <\b>actively modified<\b> to tiered storage
+you are not tiering data that is being <b>actively modified<\b> to tiered storage
 
 <Procedure>
 
@@ -56,11 +57,11 @@ When you are happy with the list of chunks, you can use the `tier_chunk` functio
 ## List tiered chunks
 
 <Highlight type="info">
-Tiering a chunk schedules the chunk for migration to object storage but, won't be tiered immediately. 
+Tiering a chunk schedules the chunk for migration to the low-cost bottomless storage tier but, won't be tiered immediately. 
 It may take some time tiering to complete. You can continue to query a chunk during migration.
 </Highlight>
 
-To see which chunks are tiered into object storage, use the `tiered_chunks`
+To see which chunks are tiered into the low-cost bottomless storage tier, use the `tiered_chunks`
 informational view:
 
 ```sql
@@ -82,7 +83,7 @@ If you need to untier your data, see the
 
 ## Creating a tiering policy
 
-Most users don't need to manually tier chunks and instead create a [data tiering policy][creating-data-tiering-policy] to automate when chunks are tiered. 
+Most users don't need to manually tier chunks and instead create a [tiering policy][creating-data-tiering-policy] to automate when chunks are tiered. 
 
 
 [creating-data-tiering-policy]: /use-timescale/:currentVersion:/data-tiering/creating-data-tiering-policy/

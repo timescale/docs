@@ -2,13 +2,13 @@
 title: Manually untier data
 excerpt: How to manualy untier Timescale data
 product: [cloud]
-keywords: [data tiering, untiering]
+keywords: [tiered storage, untiering]
 tags: [storage, data management]
 ---
 
 # Untier data
 
-Tiered data is stored on Amazon S3 object storage. Tiered data is immutable, and cannot
+Tiered data is stored on tour low-cost bottomless storage tier. Tiered data is immutable, and cannot
 be changed. To update data in a tiered chunk, you need to move it back to local 
 storage. This is called untiering the data. You can untier data
 in a chunk using the `untier_chunk` stored procedure.

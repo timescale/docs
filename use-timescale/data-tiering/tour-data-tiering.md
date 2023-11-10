@@ -1,39 +1,39 @@
 ---
-title: Quick tour of data tiering
-excerpt: A tour of the data tiering feature
+title: Quick tour of tiered storage
+excerpt: A tour of the tiered storage feature
 product: [cloud]
-keywords: [data tiering]
+keywords: [tiered storage]
 tags: [storage, data management]
 ---
 
-# Data tiering
+# Tiered Storage
 
 Timescale offers a new cloud capability to allow users to store data 
 long-term on Timescale Cloud in a cost-effective manner. In particular,
- users have the ability to transparently tier hypertables chunks into 
-object storage (S3) on Timescale Cloud for highly scalable, long-term storage.
+ users have the ability to transparently tier hypertable chunks into 
+the low-cost bottomless storage tier on Timescale Cloud for highly scalable, long-term storage.
 
 But this is not just an archive! Once tiered, these chunks remain fully and 
 directly queryable from within your database using standard SQL. Chunks for a 
 given hypertable can now stretch across standard storage (in block form) and 
 tiered storage (in object form), but a single SQL query transparently 
 pulls data from the appropriate chunks using TimescaleDB’s chunk exclusion algorithms.
- In fact, chunks in object storage are stored in compressed, columnar format 
+ In fact, chunks in the low-cost bottomless storage tier are stored in compressed, columnar format 
 (in a different format from the internals of the database, for better 
 interoperability across various platforms). This format allows for more 
 efficient columnar scans across longer time periods, and Timescale uses other 
 metadata and query optimizations to reduce the amount of data that needs to be 
-fetched from object storage to satisfy a query.
+fetched from the low-cost bottomless storage tier to satisfy a query.
 
 Let's get started!
 
-First, [enable data tiering][enabling-data-tiering] from the UI on Timescale Cloud console.
+First, [enable tiered storage][enabling-data-tiering] from the UI on Timescale Cloud console.
 
 In an existing database service with a hypertable, you can tier chunks to
- object storage via automated policies on the hypertable, or via manual 
+ the low-cost bottomless storage tier via automated policies on the hypertable, or via manual 
 commands on specific chunks. While users will likely adopt automated policies 
 in production scenarios, the manual command is a good way to start
-experimenting with data tiering.
+experimenting with tiered storage.
 
 ## Manually tier a specific chunk
 
@@ -60,7 +60,7 @@ range_end    | 2017-08-09 20:00:00-04
 Executing the tier_chunk command on a specific chunk does not immediately and 
 synchronously move the chunk to tiered storage, but instead schedules the 
 chunk for migration. In the background, a cloud service will asynchronously 
-migrate the chunk to object storage, and only mark the chunk as migrated 
+migrate the chunk to the low-cost bottomless storage tier, and only mark the chunk as migrated 
 (and delete it from within the database’s primary storage) once it has been 
 durably stored in the tiered storage.
 
@@ -80,19 +80,19 @@ a few minutes, although the chunk will remain fully queryable while it is being
  migrated: the database engine continues to access the chunk in primary storage
  until it fully switches over to use the chunk in tiered storage. And yes, 
 you can tier a compressed chunk seamlessly, although it uses a different 
-storage representation once tiered to object storage.
+storage representation once tiered to the low-cost bottomless storage tier.
 
 
-## Automate through a data tiering policy
+## Automate through a tiering policy
 
-Users can create a data tiering policy to automate moving data to object 
+Users can create a tiering policy to automate moving data to object 
 storage, such that any chunks whose time range falls before the move_after 
-threshold will be moved to object storage. This interval-threshold-based 
+threshold will be moved to the low-cost bottomless storage tier. This interval-threshold-based 
 policy is similar to age thresholds with compression and data retention policies.  
 
-The data tiering policy operates at a chunk level, such that the policy starts 
+The tiering policy operates at a chunk level, such that the policy starts 
 up a job periodically that will asynchronously move SELECTed chunks over to 
-object storage. By default, the tiering policy runs hourly on your database; 
+the low-cost bottomless storage tier. By default, the tiering policy runs hourly on your database; 
 this can be modified via alter_job. 
 
 Example:
@@ -105,12 +105,12 @@ We also provide a [remove tiering policy][creating-data-tiering-policy] interfac
 data.
 
 This function removes the background job that automates tiering. Any chunks 
-that were already moved to object storage will remain there, however. Any 
+that were already moved to the low-cost bottomless storage tier will remain there, however. Any 
 chunks that are scheduled for tiering will also not be affected by this command. 
 
 ## List a set of tiered chunks
 
-You can review the set of chunks that are tiered into object storage via a 
+You can review the set of chunks that are tiered into the low-cost bottomless storage tier via a 
 standard informational view within the database:
 
 ```
@@ -144,7 +144,8 @@ CREATE TABLE metrics ( ts timestamp with time zone, device_id integer, val float
 SELECT create_hypertable('metrics', 'ts');
 ```
 
-Once you insert data into the tables, you can then tier some of the hypertable’s data to object storage. A simple query against the informational view illustrates which chunks are tiered to object storage.
+Once you insert data into the tables, you can then tier some of the hypertable’s data to the low-cost bottomless storage tier.
+A simple query against the informational view illustrates which chunks are tiered to the low-cost bottomless storage tier.
 
 ```
  SELECT chunk_name, range_start, range_end FROM timescaledb_osm.tiered_chunks where hypertable_name = 'metrics';
@@ -178,9 +179,9 @@ hypertable.
 (5 rows)
 ```
 
-If your query predicate never needs to touch object storage, it will only 
+If your query predicate never needs to touch the low-cost bottomless storage tier, it will only 
 process those chunks stored in regular storage; in this case, the time 
-predicate refers to newer data that is not yet tiered to object storage.
+predicate refers to newer data that is not yet tiered to the low-cost bottomless storage tier.
 This query does not touch tiered storage at all. We know that because 
 `Match tiered objects :0 ` in the plan indicates that no tiered data matches
  the query constraint.
@@ -234,7 +235,7 @@ Lets dig a bit deeper into how data is organized on S3. When chunks are tiered
 they are written out as Parquet objects. Parquet is a columnar storage format.
 Within a Parquet file, we group a set of rows together to form a row group.
 Within the row group, values for a single column (across multiple rows) are 
-stored together. The query planner optimizes object storage access at
+stored together. The query planner optimizes access to the low-cost bottomless storage tier at
  multiple stages:
 1. Chunk pruning - match only chunks that satisfy the query constraints.
 This is done by looking at the hypertable's dimension column metadata, typically a timestamp.
@@ -243,8 +244,8 @@ This is done by looking at the hypertable's dimension column metadata, typically
 
 The following query is against a bigger data set tiered on S3 and you can see
 the query optimizations in action here.
-EXPLAIN will illustrate which chunks are being pulled in from object storage.
-First, we only fetch data from chunks 42, 43 and 44 from object storage. Then
+EXPLAIN will illustrate which chunks are being pulled in from the low-cost bottomless storage tier.
+First, we only fetch data from chunks 42, 43 and 44 from the low-cost bottomless storage tier. Then
  we prune row groups and limit the fetch to a subset of the offsets in the
  Parquet object that potentially match the query filter. We only fetch the data
 for the columns device_uuid, sensor_id and observed_at as the query needs
