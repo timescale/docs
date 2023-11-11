@@ -7,7 +7,16 @@ tags: [storage, data management]
 ---
 
 # Tiered Storage
-Tiered storage complements Timescale's standard high-performance storage tier with a low-cost bottomless storage tier backed by S3.
+Tiered Storage is Timescale's multi-tiered storage architecture engineered to enable infinite, low-cost scalability for time series and analytical databases in the Timescale platform.
+Tiered storage complements Timescale's standard high-performance storage tier with a low-cost bottomless storage tier;
+an object store built on Amazon S3.
+
+<img
+class="main-content__illustration"
+src="https://assets.timescale.com/docs/images/timescale-tiered-storage-architecture.png"
+width={1228} height={688}
+alt="Timescale Tiered Storage architecture"
+/>
 
 This low-cost bottomless storage tier is designed for data that is rarely accessed and has lower performance requirements.
 For example, it is a great solution to keep old data for long periods of time (even forever) for auditing or reporting purposes
@@ -15,8 +24,8 @@ without incurring the higher costs or data size limitations of our high-performa
 
 <!-- vale Google.SmartQuotes = NO -->
 
-Timescale offers a simple API to define policies to tier data from the high-performance storage tier to the low-cost bottomless storage
-tier as it ages without the need of any ETL process or infrastructure changes;
+Timescale offers a simple API to define policies to tier data from the high-performance storage tier to the object storage tier
+as it ages without the need of any ETL process or infrastructure changes;
 no need to implement and maintain custom-built, bespoke solutions to offload data to secondary storage
 or fetch it back in case they are needed for analysis.
 And if you have or want to not keep very old data around, you can also add retention policies over tiered data as well.
