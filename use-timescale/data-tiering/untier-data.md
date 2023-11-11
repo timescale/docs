@@ -1,6 +1,6 @@
 ---
-title: Manually untier data
-excerpt: How to manualy untier Timescale data
+title: Manually untier data from the object storage tier
+excerpt: How to manualy untier data from the object storage tier
 product: [cloud]
 keywords: [tiered storage, untiering]
 tags: [storage, data management]
@@ -8,15 +8,14 @@ tags: [storage, data management]
 
 # Untier data
 
-Tiered data is stored on tour low-cost bottomless storage tier. Tiered data is immutable, and cannot
-be changed. To update data in a tiered chunk, you need to move it back to local 
-storage. This is called untiering the data. You can untier data
-in a chunk using the `untier_chunk` stored procedure.
+Tiered data is stored on our object storage tier. Tiered data is immutable, and cannot
+be changed. To update data in a tiered chunk, you need to move it back to local storage (Timescale's standard high-performance storage tier).
+This is called untiering the data. You can untier data in a chunk using the `untier_chunk` stored procedure.
 
 ## Untier data in a chunk
 
 Untiering chunks is a synchronous process that occurs when the `untier_chunk`
-procedure is called. When you untier a chunk, the data is moved from S3 storage
+procedure is called. When you untier a chunk, the data is moved from the object storage tier
 to local storage. Chunks are renamed when the data is untiered.
 
 <Procedure>

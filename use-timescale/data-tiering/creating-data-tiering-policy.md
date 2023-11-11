@@ -1,5 +1,5 @@
 ---
-title: Creating a Tiering Policy
+title: Creating a tiering policy
 excerpt: How to create a tiering policy
 product: [ cloud ]
 keywords: [ tiered storage, tiering ]
@@ -8,8 +8,8 @@ tags: [ storage, data management ]
 
 # Creating a tiering policy
 
-To automate archival of historical data, create a tiering policy that
-automatically moves data to the low-cost bottomless storage tier. Any chunks that only contain data
+To automate the archival of data not actively accessed, create a tiering policy that
+automatically moves data to the object storage tier. Any chunks that only contain data
 older than the `move_after` threshold are moved. This works similarly to a
 [data retention policy](https://docs.timescale.com/use-timescale/latest/data-retention/), but chunks are moved rather than deleted.
 
@@ -63,11 +63,11 @@ to untier chunks to local storage that have already been tiered.
 ## List tiered chunks
 
 <Highlight type="info">
-Tiering a chunk schedules the chunk for migration to the low-cost bottomless storage tier but, won't be tiered immediately. 
+Tiering a chunk schedules the chunk for migration to the object storage tier but, won't be tiered immediately. 
 It may take some time tiering to complete. You can continue to query a chunk during migration.
 </Highlight>
 
-To see which chunks are tiered into the low-cost bottomless storage tier, use the `tiered_chunks`
+To see which chunks are tiered into the object storage tier, use the `tiered_chunks`
 informational view:
 
 ```sql

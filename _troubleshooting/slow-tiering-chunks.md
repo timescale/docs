@@ -17,7 +17,7 @@ tags: [tiered storage]
 * Copy this comment at the top of every troubleshooting page
 -->
 
-Chunks are tiered asynchronously. Chunks are selected to be tiered to s3 one at a time ordered by their enqueue time.
+Chunks are tiered asynchronously. Chunks are selected to be tiered to the object storage tier one at a time ordered by their enqueue time.
 
 To see the chunks waiting to be tiered query the `timescaledb_osm.chunks_queued_for_tiering` view
 
@@ -25,4 +25,4 @@ To see the chunks waiting to be tiered query the `timescaledb_osm.chunks_queued_
 select count(*) from timescaledb_osm.chunks_queued_for_tiering
 ```
 
-Processing all the chunks in the queue may take considerable time if a large quantity of data is being migrated to tiered storage.
+Processing all the chunks in the queue may take considerable time if a large quantity of data is being migrated to the object storage tier.

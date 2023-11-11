@@ -1,6 +1,6 @@
 ---
-title: Manually Tier data
-excerpt: How to manually tier Timescale data
+title: Manually tier data to the object storage tier
+excerpt: How to manually tier data to the object storage tier
 product: [ cloud ]
 keywords: [ tiered storage, tiering ]
 tags: [ storage, data management ]
@@ -8,11 +8,11 @@ tags: [ storage, data management ]
 
 # Manually tiering chunks
 
-Once tiered storage has been enabled on a service, individual chunks from a Hypertable may be tiered to the low-cost bottomless storage tier.
+Once tiered storage has been enabled on a service, individual chunks from a hypertable may be tiered to the object storage tier.
 
 Before you start, you need a list of chunks to tier. In this example, you use a hypertable called example, and tier chunks older than three days.
-Tiered storage data cannot be modified - so inserts, updates, and deletes will not work on tiered data. So make sure that
-you are not tiering data that is being <b>actively modified<\b> to tiered storage
+Data on the object storage tier cannot be modified - so inserts, updates, and deletes will not work on tiered data. So make sure that
+you are not tiering data that is being <b>actively modified<\b> to the object storage tier
 
 <Procedure>
 
@@ -57,11 +57,11 @@ When you are happy with the list of chunks, you can use the `tier_chunk` functio
 ## List tiered chunks
 
 <Highlight type="info">
-Tiering a chunk schedules the chunk for migration to the low-cost bottomless storage tier but, won't be tiered immediately. 
+Tiering a chunk schedules the chunk for migration to the object storage tier but, won't be tiered immediately. 
 It may take some time tiering to complete. You can continue to query a chunk during migration.
 </Highlight>
 
-To see which chunks are tiered into the low-cost bottomless storage tier, use the `tiered_chunks`
+To see which chunks are tiered into the object storage tier, use the `tiered_chunks`
 informational view:
 
 ```sql
@@ -72,7 +72,7 @@ SELECT * FROM timescaledb_osm.tiered_chunks;
 
 Chunks are tiered asynchronously. Chunks are tiered one at a time in order to minimize db resource
 consumption during the tiering process. You can see chunks scheduled for tiering (either by the policy or
- by a manual call to `tier_chunk`) but have not yet been moved to tiered storage using this view.
+ by a manual call to `tier_chunk`) but have not yet been moved to the object storage tier using this view.
 
 ```sql
 SELECT * FROM timescaledb_osm.chunks_queued_for_tiering ;

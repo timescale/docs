@@ -115,7 +115,7 @@ more information about hypertables in general, consult the
 You may also wish to consider taking advantage of some of Timescale's killer
 features, such as:
 - [retention policies] to automatically drop unneeded data
-- [tiered storage] to automatically move data to cheap storage
+- [tiered storage] to automatically move data to Timescale's low-cost bottomless object storage tier
 - [compression] to reduce the size of your hypertables
 - [continuous aggregates] to write blisteringly fast aggregate queries on your data
 

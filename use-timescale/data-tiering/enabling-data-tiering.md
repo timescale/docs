@@ -1,6 +1,6 @@
 ---
-title: Tier data to the low-cost bottomless storage tier
-excerpt: How to tier data to the low-cost bottomless storage tier
+title: Enabling the object storage tier
+excerpt: How to enable the object storage tier
 products: [cloud]
 keywords: [tiered storage]
 tags: [storage, data management]
@@ -9,12 +9,12 @@ cloud_ui:
         - [services, :serviceId, overview]
 ---
 
-# Tier data to the low-cost bottomless storage tier
+# Tier data to the object storage tier
 
 Enable tiered storage to begin migrating rarely used data from Timescale's standard high-performance storage tier
-to the low-cost bottomless storage tier to save on storage costs. 
+to the object storage tier to save on storage costs. 
 
-## Enabling tiered storage
+## Enabling the object storage tier
 
 You can enable tiered storage from the Services Overview page in the Timescale
 console. 
