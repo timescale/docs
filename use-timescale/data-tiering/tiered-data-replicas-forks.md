@@ -33,9 +33,9 @@ Dropping or untiering a chunk from a fork does not delete it from any other serv
 You can have one, multiple or 0 servers referencing the same chunk of data:
 * That means that deleting data from a fork does not affect the other servers (including the primary);
   it just removes the reference to that data, which is for all intends and purposes equal to deleting that data from the point of view of that fork
-* The primary and other servers are unaffected, as they still have their reference(s) and the metadata on their catalog(s) intact
+* The primary and other servers are unaffected, as they still have their references and the metadata on their catalogs intact
 * We never delete anything on the object storage tier if at least one server references it:
-  The data is only permanently deleted (or hard deleted as we internally call this operation) once the references drop to 0.
+  The data is only permanently deleted (or hard deleted as we internally call this operation) once the references drop to 0
 
 As described above, tiered chunks are only counted once for billing purposes, so dropping or untiering a chunk that is shared with other servers
 from a fork will not affect billing as it was never counted for billing purposes.
@@ -64,7 +64,7 @@ The data is only permanently deleted (or hard deleted as we internally call this
 In addition to that, we delay hard deleting the data by 14 days, so that in case of a restore or PITR, all tiered data will be available.
 In the case of such a restore, new references are added to the deleted tiered chunks, so they are not any more candidates for a hard deletion. 
 
-Once 14 days pass after soft deleting the data (i.e. the number of references to the tiered data drop to 0), we hard delete the tiered data.
+Once 14 days pass after soft deleting the data,that is the number of references to the tiered data drop to 0, we hard delete the tiered data.
 
 [ha-replica]: /use-timescale/:currentVersion:/ha-replicas/high-availability/
 [read-replica]: /use-timescale/:currentVersion:/ha-replicas/read-scaling/#read-replicas
