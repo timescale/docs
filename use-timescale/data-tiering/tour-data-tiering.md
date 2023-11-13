@@ -17,7 +17,7 @@ But this is not just an archive! Once tiered, these chunks remain fully and
 directly queryable from within your database using standard SQL. Chunks for a 
 given hypertable can now stretch across standard storage (in block form) and 
 the object storage tier (in object form), but a single SQL query transparently 
-pulls data from the appropriate chunks using TimescaleDB’s chunk exclusion algorithms.
+pulls data from the appropriate chunks using TimescaleDB's chunk exclusion algorithms.
 
 In fact, chunks in the object storage tier are stored in compressed, columnar format 
 (in a different format from the internals of the database, for better 
@@ -38,7 +38,7 @@ experimenting with tiered storage.
 
 ## Manually tier a specific chunk
 
-Users can move a single chunk to the object storage tier by explicitly specifying the chunk’s name.
+Users can move a single chunk to the object storage tier by explicitly specifying the chunk's name.
 
 ```
 SELECT tier_chunk('_timescaledb_internal._hyper_2_3_chunk');
@@ -61,8 +61,8 @@ Executing the tier_chunk command on a specific chunk does not immediately and
 synchronously move the chunk to the object storage tier, but instead schedules the 
 chunk for migration. In the background, a cloud service will asynchronously 
 migrate the chunk to the object storage tier, and only mark the chunk as migrated 
-(and delete it from within the database’s primary storage) once it has been 
-durably stored in the the object storage tier.
+(and delete it from within the database's primary storage) once it has been 
+durably stored in the object storage tier.
 
 You can view chunks in the tiering queue, that is, chunks that are scheduled
  to be tiered, by using this query.
@@ -143,7 +143,7 @@ CREATE TABLE metrics ( ts timestamp with time zone, device_id integer, val float
 SELECT create_hypertable('metrics', 'ts');
 ```
 
-Once you insert data into the tables, you can then tier some of the hypertable’s data to the object storage tier.
+Once you insert data into the tables, you can then tier some of the hypertable's data to the object storage tier.
 A simple query against the informational view illustrates which chunks are tiered to the object storage tier.
 
 ```
