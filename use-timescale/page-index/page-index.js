@@ -517,6 +517,12 @@ module.exports = [
             excerpt: "How to manualy untier data from the object storage tier",
           },
           {
+            title: "Replicas and forks with tiered data",
+            href: "tiered-data-replicas-forks",
+            excerpt:
+                "How tiered data works on replicas and forks",
+          },
+          {
             title: "Troubleshooting",
             href: "troubleshooting",
             type: "placeholder",

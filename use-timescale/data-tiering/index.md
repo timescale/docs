@@ -40,7 +40,7 @@ When you run a query, Timescale seamlessly figures out what storage tiers it nee
 Tiered storage is available only on the Timescale Platform, and is not supported on self-hosted instances.  
 </Highlight>
 
-In this section: 
+In this section:
 * [Learn about the object storage tier][about-data-tiering] before you start using tiered storage.
 * Quick [tour of tiered storage][tour-data-tiering].
 * [Learn how to enable the object storage tier][enabling-data-tiering] on your service.
