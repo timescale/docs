@@ -9,7 +9,8 @@ tags: [storage, data management]
 # How tiered data works on replicas and forks 
 
 There is one more thing that makes Tiered Storage even more amazing: when you keep data in the low-cost object storage tier,
-you pay for this data only once, independently of if you have a [high-availability replica][ha-replica]
+you pay for this data only once, regardless of whether you have a [high-availability replica][ha-replica]
+
 or [read replicas][read-replica] running in your service. We call this the savings multiplication effect of Tiered Storage.
 
 The same applies to [forks][operations-forking], which you can use, for example, for running tests or creating dev environments.
@@ -48,7 +49,8 @@ As a reminder, tiered data is immutable - there is no such thing as updating the
 
 You can untier or drop a chunk, in which case what is described in the previous section covers what happens.
 
-And you can tier new data, at which point a fork deviates form the primary in a similar way as all forks do.
+And you can tier new data, at which point a fork deviates from the primary in a similar way as all forks do.
+
 New data tiered are not shared with parent or sibling servers, this is new data tiered for that server and we count them as a new object for the purposes of billing.
 
 If you decide to tier more data that’s not in the primary, you will pay to store it in the low-cost tier,
