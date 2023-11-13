@@ -14,9 +14,9 @@ you pay for this data only once, regardless of whether you have a [high-availabi
 or [read replicas][read-replica] running in your service. We call this the savings multiplication effect of Tiered Storage.
 
 The same applies to [forks][operations-forking], which you can use, for example, for running tests or creating dev environments.
-When creating one (or more) forks, you won’t be billed for data shared with the primary in the low-cost storage.
+When creating one (or more) forks, you won't be billed for data shared with the primary in the low-cost storage.
 
-If you decide to tier more data that’s not in the primary, you will pay to store it in the low-cost tier,
+If you decide to tier more data that's not in the primary, you will pay to store it in the low-cost tier,
 but you will still see substantial savings by moving that data from the high-performance tier of the fork to the cheaper object storage tier.
 
 ## How this works behind the scenes
@@ -53,7 +53,7 @@ And you can tier new data, at which point a fork deviates from the primary in a 
 
 New data tiered are not shared with parent or sibling servers, this is new data tiered for that server and we count them as a new object for the purposes of billing.
 
-If you decide to tier more data that’s not in the primary, you will pay to store it in the low-cost tier,
+If you decide to tier more data that's not in the primary, you will pay to store it in the low-cost tier,
 but you will still see substantial savings by moving that data from the high-performance tier of the fork to the cheaper object storage tier.
 
 Similar to other types of storage tiers, this type of deviation can not happen for replicas as they have to be identical with the primary server, that's why we don't mention replicas when discussing about droping chunks or tiering additional data.

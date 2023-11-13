@@ -12,7 +12,7 @@ Once tiered storage has been enabled on a service, individual chunks from a hype
 
 Before you start, you need a list of chunks to tier. In this example, you use a hypertable called example, and tier chunks older than three days.
 Data on the object storage tier cannot be modified - so inserts, updates, and deletes will not work on tiered data. So make sure that
-you are not tiering data that is being <b>actively modified<\b> to the object storage tier
+you are not tiering data that is being <b>actively modified</b> to the object storage tier
 
 <Procedure>
 
