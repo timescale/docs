@@ -2,7 +2,7 @@
 title: Querying Tiered Data
 excerpt: How to query tiered data
 product: [ cloud ]
-keywords: [ data tiering, tiering ]
+keywords: [ tiered storage, tiering ]
 tags: [ storage, data management ]
 ---
 
@@ -11,7 +11,7 @@ tags: [ storage, data management ]
 <!-- vale Google.Acronyms = NO -->
 <!-- vale Google.Headings = NO -->
 
-Once rarely used data is tiered and migrated to low cost object storage it can still be queried 
+Once rarely used data is tiered and migrated to the object storage tier, it can still be queried 
 with standard SQL by enabling the `timescaledb.enable_tiered_reads` GUC. 
 By default, the GUC is set to false so that queries on TimescaleDB do not touch tiered data.
 
@@ -20,15 +20,15 @@ that controls if tiered data is queried. The configuration variable can be set a
  including globally for the entire database server, for individual databases, and for individual 
 sessions.
 
-With data tiering reads enabled, query your data normally even when it's distributed across different storage layers. Your hypertable is
-spread across the layers, so queries and `JOIN`s work and fetch the same data as usual.
+With tiered reads enabled, you can query your data normally even when it's distributed across different storage tiers.
+Your hypertable is spread across the tiers, so queries and `JOIN`s work and fetch the same data as usual.
 
 <!-- vale Google.Acronyms = YES -->
 
 <Highlight type="warning">
-By default, tiered data is not accessed by queries. Querying tiered data may slow down query performance as the data is not stored locally.     
+By default, tiered data is not accessed by queries. Querying tiered data may slow down query performance 
+as the data is not stored locally on Timescale's high-performance storage tier.     
 </Highlight>
-
 
 <Procedure>
 
@@ -54,7 +54,7 @@ This queries data from all chunks including tiered chunks and non tiered chunks:
 
 ### Querying tiered data for an entire session
 
-All future queries within a session can be enabled to use data tiering by enabling `timescaledb.enable_tiered_reads` within a session. 
+All future queries within a session can be enabled to use the object storage tier by enabling `timescaledb.enable_tiered_reads` within a session. 
 
 <Procedure>
 
@@ -87,7 +87,7 @@ alter database tsdb set timescaledb.enable_tiered_reads to true;
 
 ## Performance considerations
 
-Queries over tiered data are expected to be slower than over local data. However, in a limited number of scenarios data tiering can impact query planning time over local data as well. In order to prevent any unexpected performance degradation for application queries, we keep the GUC `timescaledb.enable_tiered_reads` to false.
+Queries over tiered data are expected to be slower than over local data. However, in a limited number of scenarios tiered reads can impact query planning time over local data as well. In order to prevent any unexpected performance degradation for application queries, we keep the GUC `timescaledb.enable_tiered_reads` to false.
 
 * Queries without time boundaries specified are expected to perform slower when querying tiered data, both during query planning and during query execution. TimescaleDB's chunk exclusion algorithms cannot be applied for this case.
 
@@ -96,22 +96,22 @@ SELECT * FROM device_readings WHERE id = 10;
 ```
 
 * Queries with predicates computed at runtime (such as `NOW()`) are not always optimized at 
-planning time and as a result might perform slower than statically assigned values when
- querying against S3.
-For example, this query is optimized at planning time
-```
-SELECT * FROM metrics WHERE ts > '2023-01-01' AND ts < '2023-02-01' 
-```
+  planning time and as a result might perform slower than statically assigned values
+  when querying against the object storage tier.
 
-and this query does not do chunk pruning at query planning time.
-```
-SELECT * FROM metrics WHERE ts < now() - '10 days':: interval
-```
+  For example, this query is optimized at planning time
+  ```
+  SELECT * FROM metrics WHERE ts > '2023-01-01' AND ts < '2023-02-01' 
+  ```
 
-At the moment, queries against tiered data work best when the query optimizer can apply 
-planning time optimizations.
+  while the following query does not do chunk pruning at query planning time
+  ```
+  SELECT * FROM metrics WHERE ts < now() - '10 days':: interval
+  ```
+
+  At the moment, queries against tiered data work best when the query optimizer can apply planning time optimizations.
 
 <!-- vale Google.Acronyms = NO -->
-* Text and non-native types (JSON, JSONB, GIS) filtering is slower with data tiering.
+* Text and non-native types (JSON, JSONB, GIS) filtering is slower when querying tiered data.
 <!-- vale Google.Acronyms = YES -->
 

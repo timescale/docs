@@ -471,42 +471,42 @@ module.exports = [
         ],
       },
       {
-        title: "Data tiering",
+        title: "Tiered Storage",
         href: "data-tiering",
-        excerpt: "Tier older data to save storage costs",
+        excerpt: "Save on storage costs by tiering older data to a low-cost bottomless object storage tier",
         children: [
           {
-            title: "About data tiering",
+            title: "About the object storage tier",
             href: "about-data-tiering",
             excerpt:
-              "Learn how data tiering helps you save on storage costs",
+              "Learn how the object storage tier helps you save on storage costs",
           },
           {
-            title: "Tour of data tiering",
+            title: "Tour of tiered storage",
             href: "tour-data-tiering",
             excerpt:
-               "A quick tour of data tiering",
+               "A quick tour of tiered storage",
           },
           {
-            title: "Enabling data tiering",
+            title: "Enabling the object storage tier",
             href: "enabling-data-tiering",
             excerpt:
-                "How to enable tiering on Timescale Cloud",
+                "How to enable the object storage tier",
           },
           {
             title: "Manually tier data",
             href: "manual-tier-chunk",
             excerpt:
-                "How to manually tier Timescale data",
+                "How to manually tier data to the object storage tier",
           },
           {
-            title: "Creating data tiering policies",
+            title: "Creating tiering policies",
             href: "creating-data-tiering-policy",
             excerpt:
-                "How to create a data tiering policy",
+                "How to create a tiering policy",
           },
           {
-            title: "Querying Tiered Data",
+            title: "Querying tiered data",
             href: "querying-tiered-data",
             excerpt:
                 "How to query tiered data",
@@ -514,7 +514,13 @@ module.exports = [
           {
             title: "Manually untier data",
             href: "untier-data",
-            excerpt: "Manually untier Timescale data to object storage",
+            excerpt: "How to manualy untier data from the object storage tier",
+          },
+          {
+            title: "Replicas and forks with tiered data",
+            href: "tiered-data-replicas-forks",
+            excerpt:
+                "How tiered data works on replicas and forks",
           },
           {
             title: "Troubleshooting",

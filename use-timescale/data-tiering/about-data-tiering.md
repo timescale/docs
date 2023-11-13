@@ -1,27 +1,28 @@
 ---
-title: About data tiering
-excerpt: Learn how data tiering helps you save on storage costs
+title: About the object storage tier
+excerpt: Learn how the object storage tier helps you save on storage costs
 product: [cloud]
-keywords: [data tiering]
+keywords: [tiered storage]
 tags: [storage, data management]
 cloud_ui:
     path:
         - [services, :serviceId, overview]
 ---
 
-# About data tiering
+# About the object storage tier
 
-Timescale Cloud services include traditional disk storage, and a low-cost object storage
-layer built on Amazon S3. You can move your hypertable data across the different
-storage tiers to get the best price performance. You can use primary storage for
-data that requires quick access, and low-cost object storage for rarely used historical
-data. Regardless of where your data is stored, you can still query it with
+The tiered storage architecture complements Timescale's standard high-performance storage tier with a low-cost object storage tier.
+
+You can move your hypertable data across the different storage tiers to get the best price performance.
+You can use the standard high-performance storage tier for data that requires quick access,
+and the low-cost object storage tier for rarely used historical data. 
+Regardless of where your data is stored, you can still query it with
 [standard SQL][querying-tiered-data].
 
 
-## Benefits of data tiering
+## Benefits of the object storage tier
 
-Data tiering is more than an archiving solution:
+The object storage tier is more than an archiving solution:
 
 *   **Cost effective.** Store high volumes of data cost-efficiently.
     You pay only for what you store, with no extra cost for queries.
@@ -33,28 +34,24 @@ Data tiering is more than an archiving solution:
 
 ## Architecture
 
-Data tiering works by periodically and asynchronously moving older chunks to S3
-storage. There, it's stored in the Apache Parquet format, which is a compressed
-columnar format well-suited for S3. Data remains accessible both during and
-after migration.
+The tiered storage backend works by periodically and asynchronously moving older chunks to the object storage tier;
+an object store built on Amazon S3.
+There, it's stored in the Apache Parquet format, which is a compressed
+columnar format well-suited for S3. Data remains accessible both during and after the migration.
 
-By default, tiered data is not included when querying from a Timescale instance. 
-However, it is possible to access tiered data by [enabling a data tiering reads][querying-tiered-data] for a session, query, or even for all sessions.   
+By default, tiered data is not included when querying from a Timescale service. 
+However, it is possible to access tiered data by [enabling tiered reads][querying-tiered-data] for a session, query, or even for all sessions.   
 
-With data tiering reads enabled, when you run regular SQL queries, a behind-the-scenes process transparently
-pulls data from wherever it's located: disk storage, object storage, or both.
+With tiered reads enabled, when you run regular SQL queries, a behind-the-scenes process transparently
+pulls data from wherever it's located: the standard high-performance storage tier, the object storage tier, or both.
 Various SQL optimizations limit what needs to be read from S3:
 
-*   Chunk exclusion avoids processing chunks that fall outside the query's time
-    window
+*   Chunk exclusion avoids processing chunks that fall outside the query's time window
 *   The database uses metadata about row groups and columnar offsets, so only
     part of an object needs to be read from S3
 
 The result is transparent queries across standard PostgreSQL storage and S3
 storage, so your queries fetch the same data as before.
-
-For more about how data tiering works, see the
-[blog post on data tiering][blog-data-tiering].
 
 ## Limitations
 
@@ -75,8 +72,8 @@ For more about how data tiering works, see the
     scheduled for tiering.
 
 *   **Inefficient query planner filtering for non-native data types.** The query
-    planner speeds up reads from object storage by using metadata to filter out
-    columns and row groups that don't satisfy the query. This works for all
+    planner speeds up reads from our object storage tier by using metadata
+    to filter out columns and row groups that don't satisfy the query. This works for all
     native data types, but not for non-native types, such as `JSON`, `JSONB`,
     and `GIS`.
 
@@ -84,9 +81,9 @@ For more about how data tiering works, see the
     execution time of queries in latency-sensitive environments, especially
     lighter queries.
 
-*   **Number of dimensions.** You cannot use data tiering on hypertables
+*   **Number of dimensions.** You cannot use tiered storage with hypertables
     partitioned on more than one dimension. Make sure your hypertables are
-    partitioned on time only, before you enable data tiering.
+    partitioned on time only, before you enable tiered storage.
 
 [blog-data-tiering]: https://www.timescale.com/blog/expanding-the-boundaries-of-postgresql-announcing-a-bottomless-consumption-based-object-storage-layer-built-on-amazon-s3/
 [querying-tiered-data]: /use-timescale/:currentVersion:/data-tiering/querying-tiered-data/
