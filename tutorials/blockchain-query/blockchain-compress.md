@@ -73,8 +73,8 @@ table, you follow these step:
     ```
 
     You can also [automate compression][automatic-compression] by
-    adding a [compression policy][compression-policy] which will be
-    covered below.
+    adding a [compression policy][add_compression_policy] which will
+    be covered below.
 
 1.  Now that you have compressed the table you can compare the size of
     the dataset before and after compression:
