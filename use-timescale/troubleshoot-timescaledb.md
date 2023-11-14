@@ -103,7 +103,7 @@ For more information, see the [worker configuration docs][worker-config].
 ### Cannot compress chunk
 
 You might see this error message when trying to compress a chunk if
-the ACL for the compressed hypertable is corrupt.
+the ACL for the compressed hypertable is corrupt:
 
 ```sql
 tsdb=> SELECT compress_chunk('_timescaledb_internal._hyper_65_587239_chunk');
