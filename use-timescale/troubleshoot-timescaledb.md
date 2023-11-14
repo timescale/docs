@@ -111,7 +111,7 @@ ERROR: role 149910 was concurrently dropped
 ```
 
 This can be caused if you dropped a user for the hypertable before
-TimescaleDB 2.5. For this case, the user would be removed from
+TimescaleDB 2.5. In this case, the user would be removed from
 `pg_authid` but not revoked from the compressed table. As a result,
 the compressed table will contain an ACL item that refers to a
 numerical value rather than an existing user:
@@ -127,7 +127,7 @@ tsdb=> \dp _timescaledb_internal._compressed_hypertable_2
 (1 row)
 ```
 
-This means that the `relacl` column of `pg_class` need to be updated
+This means that the `relacl` column of `pg_class` needs to be updated
 and the offending user removed, but it is not possible to drop a user
 by numerical value. Instead, you can use the internal function
 `repair_relation_acls` in `_timescaledb_function` schema:
