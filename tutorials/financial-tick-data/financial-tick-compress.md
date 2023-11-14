@@ -76,16 +76,23 @@ memory.
 
 </Procedure>
 
-## Automatic compression
+## Add a compression policy
 
-
-If this was a production use-case, you could automate compression by adding a policy which would compress data after a certain age:
+To avoid running the compression step each time you have some data to
+compress you can set up a compression policy. The compression policy
+allows you to compress data that is older than a particular age, for
+example, to compress all chunks that are older than 8 days:
 
 ```sql
 SELECT add_compression_policy('stocks_real_time', INTERVAL '8 days');
 ```
 
-Previous command would compress the chunks after they reach 8 days of age.
+Compression policies run on a regular schedule, by default once every
+day, which means that you might have up to 9 days of uncompressed data
+with the setting above.
+
+You can find more information on compression policies in the
+[add_compression_policy][add_compression_policy] section.
 
 
 ## Taking advantage of query speedups
@@ -131,5 +138,6 @@ Try it yourself and see what you get!
 
 
 [segment-by-columns]: /use-timescale/:currentVersion:/compression/about-compression/#segment-by-columns
-[automatic-compression]: /tutorials/:currentVersion:/blockchain-query/blockchain-compress/#automatic-compression
+[automatic-compression]: /tutorials/:currentVersion:/financial-tick-data/financial-tick-compress/#add-a-compression-policy
 [compression-design]: /use-timescale/:currentVersion:/compression/compression-design/
+[add_compression_policy]: /api/:currentVersion:/compression/add_compression_policy/
