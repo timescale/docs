@@ -24,7 +24,7 @@ instance. Default value is 16.
 ### `timescaledb.bgw_scheduler_restart_time (int)`
 
 Scheduler restart time in seconds. If the scheduler encounters an
-error, it exits with an error code and restart after
+error, it exits with an error code and restarts after
 `timescaledb.bgw_scheduler_restart_time` seconds. Default value is 30
 seconds. You can set this to a value between 1 and 3600 seconds.
 
