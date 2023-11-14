@@ -100,6 +100,46 @@ equal the sum of `timescaledb.max_background_workers` and
 
 For more information, see the [worker configuration docs][worker-config].
 
+### Cannot compress chunk
+
+You might see this error message when trying to compress a chunk if
+the ACL for the compressed hypertable is corrupt.
+
+```sql
+tsdb=> SELECT compress_chunk('_timescaledb_internal._hyper_65_587239_chunk');
+ERROR: role 149910 was concurrently dropped
+```
+
+This can be caused if you dropped a user for the hypertable before
+TimescaleDB 2.5. For this case, the user would be removed from
+`pg_authid` but not revoked from the compressed table. As a result,
+the compressed table will contain an ACL item that refers to a
+numerical value rather than an existing user:
+
+```sql
+tsdb=> \dp _timescaledb_internal._compressed_hypertable_2
+                                 Access privileges
+ Schema |     Name     | Type  |  Access privileges  | Column privileges | Policies
+--------+--------------+-------+---------------------+-------------------+----------
+ public | transactions | table | mats=arwdDxt/mats  +|                   |
+        |              |       | wizard=arwdDxt/mats+|                   |
+        |              |       | 149910=r/mats       |                   |
+(1 row)
+```
+
+This means that the `relacl` column of `pg_class` need to be updated
+and the offending user removed, but it is not possible to drop a user
+by numerical value. Instead, you can use the internal function
+`repair_relation_acls` in `_timescaledb_function` schema:
+
+```sql
+tsdb=> CALL _timescaledb_functions.repair_relation_acls();
+```
+
+> **WARNING:** Note that this requires superuser privileges (since
+> you're modifying the `pg_class` table) and that it removes any user
+> not present in `pg_authid` from *all* tables, so use with caution.
+
 ## Getting more information
 
 ### EXPLAINing query performance
