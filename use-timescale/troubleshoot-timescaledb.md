@@ -254,6 +254,14 @@ behaviour][log_min_messages].
 | All jobs  | Job found in jobs table            |
 | All jobs  | Job starting execution             |
 | Scheduler | Scheduled jobs list update started |
+| Scheduler | Scheduler dispatching job |
+
+### Debug level 5
+
+| Source    | Event                                |
+|-----------|--------------------------------------|
+| Scheduler | Scheduled wakeup                     |
+| Scheduler | Scheduler delayed in dispatching job |
 
 [downloaded separately]: https://raw.githubusercontent.com/timescale/timescaledb/master/scripts/dump_meta_data.sql
 [github]: https://github.com/timescale/timescaledb/issues
