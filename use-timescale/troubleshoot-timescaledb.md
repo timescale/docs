@@ -114,9 +114,9 @@ This can be caused if you dropped a user for the hypertable before
 TimescaleDB 2.5. For this case, the user would be removed from
 `pg_authid` but not revoked from the compressed table.
 
-As a result, the compressed table will contain a permission item that
-refers to a numerical value rather than an existing user (see below
-for how to find the compressed hypertable from a normal hypertable):
+As a result, the compressed table contains permission items that
+refers to numerical values rather than existing users (see below for
+how to find the compressed hypertable from a normal hypertable):
 
 ```sql
 tsdb=> \dp _timescaledb_internal._compressed_hypertable_2
