@@ -16,3 +16,7 @@ upgrade the extension with the following query:
 ```bash
 psql $SOURCE -c "ALTER EXTENSION timescaledb UPDATE TO '<version here>';"
 ```
+
+For more information and guidance, consult the [Upgrade TimescaleDB] page.
+
+[Upgrade TimescaleDB]: https://docs.timescale.com/self-hosted/latest/upgrades/
