@@ -23,7 +23,7 @@ converted to a hypertable (via `create_hypertable`), but must similarly
 be run only on an empty hypertable.
 </Highlight>
 
-**Hash partitions (previosly called space partitions)**: Using hash partitions is highly recommended
+**Hash partitions (previously called space partitions)**: Using hash partitions is highly recommended
 for [distributed hypertables][distributed-hypertables] to achieve
 efficient scale-out performance. For [regular hypertables][regular-hypertables]
 that exist only on a single node, additional partitioning can be used
