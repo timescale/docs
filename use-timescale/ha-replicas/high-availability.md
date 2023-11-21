@@ -272,4 +272,4 @@ primary is in an AZ that experiences an outage, the service can easily fail over
 to the replica.
 
 [cloud-login]: https://console.cloud.timescale.com
-[backup-recovery]: /cloud/:currentVersion:/backup-restore-cloud/
+[backup-recovery]: /cloud/:currentVersion:/backup-restore/backup-restore-cloud/
