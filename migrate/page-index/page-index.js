@@ -29,14 +29,6 @@ module.exports = [
         href: "multi-node-to-timescale-service",
         excerpt:
             "Migrate an entire multi-node deployment to a TimescaleDB service",
-        children: [
-          {
-            title: "Multi-node to TimescaleDB service",
-            href: "multi-node-to-timescale-service",
-            excerpt:
-                "Migrate from multi-node to TimescaleDB service using COPY",
-          },
-        ]
       },
       {
         title: "Low-downtime: Live migration",
