@@ -39,7 +39,9 @@ on the type of the time column of the hypertable or continuous aggregate:
     an integer type (this requires the [integer_now_func][set_integer_now_func]
     to be set).
 
-### Optional arguments
+## Optional arguments
+<!-- vale Google.Acronyms = NO -->
+<!-- vale Vale.Spelling = NO -->
 
 |Name|Type|Description|
 |-|-|-|
@@ -47,8 +49,10 @@ on the type of the time column of the hypertable or continuous aggregate:
 |`initial_start`|TIMESTAMPTZ|Time the policy is first run. Defaults to NULL. If omitted, then the schedule interval is the interval from the finish time of the last execution to the next start. If provided, it serves as the origin with respect to which the next_start is calculated |
 |`timezone`|TEXT|A valid time zone. If `initial_start` is also specified, subsequent executions of the compression policy are aligned on its initial start. However, daylight savings time (DST) changes may shift this alignment. Set to a valid time zone if this is an issue you want to mitigate. If omitted, UTC bucketing is performed. Defaults to `NULL`.|
 |`if_not_exists`|BOOLEAN|Setting to `true` causes the command to fail with a warning instead of an error if a compression policy already exists on the hypertable. Defaults to false.|
+<!-- vale Google.Acronyms = YES -->
+<!-- vale Vale.Spelling = YES -->
 
-### Sample usage
+## Sample usage
 
 Add a policy to compress chunks older than 60 days on the `cpu` hypertable.
 
