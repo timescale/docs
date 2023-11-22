@@ -3,13 +3,14 @@ title: Migrate from RDS to Timescale using pg_dump
 excerpt: Migrate from a PostgreSQL database in AWS RDS to Timescale using pg_dump
 products: [cloud]
 keywords: [data migration, postgresql, RDS]
-tags: [ingest, migrate, RDS]
+tags: [migrate, AWS, RDS, downtime, pg_dump, psql]
 ---
 
-import ExplainPgDumpFlags from "versionContent/_partials/_migrate_explain_pg_dump_flags.mdx";
+import GettingHelp from "versionContent/_partials/_migrate_dual_write_backfill_getting_help.mdx";
+import SourceTargetNote from "versionContent/_partials/_migrate_source_target_note.mdx";
+import StepOne from "versionContent/_partials/_migrate_dual_write_step1.mdx";
 
-# AWS RDS Migration Guide with Downtime
-
+# Migrate from AWS RDS to Timescale using pg_dump with downtime
 This guide illustrates the process of migrating a Postgres database from an
 AWS RDS service to a Timescale instance. We will use Postgres community tools
 like `pg_dump` and `pg_restore` to facilitate the migration process.
@@ -167,10 +168,9 @@ Password for user postgres:
 
 ## Performing data migration
 
-<Highlight type="info">
-$SOURCE and $TARGET refers to URIs of your source/production database and
-Timescale instance.
-</Highlight>
+<GettingHelp />
+
+<SourceTargetNote />
 
 The migration process consists of the following steps:
 1. Set up a target database instance in Timescale.
@@ -179,16 +179,9 @@ The migration process consists of the following steps:
 4. Migrate data from source to target.
 5. Verify data in target by comparing with source.
 
-### 1. Set up a target database instance in Timescale
-Create a database service in Timescale.
+<StepOne />
 
-If you intend on migrating more than 400 GB, open a support request to ensure
-that enough disk is pre-provisioned on your Timescale instance.
-
-You can open a support request directly from the Timescale console, or by
-email to support@timescale.com.
-
-### 2. Migrate roles and schema from source to target
+## 2. Migrate roles and schema from source to target
 Before starting the migration process, you should ensure that your source database
 is not receiving any DML queries. This is important to guarantee a consistent
 migration and to ensure that the resulting database accurately reflects your source database.
@@ -201,7 +194,7 @@ For a low-downtime migration solution from AWS RDS Postgres service to Timescale
 please refer the following document: TODO Harkishen
 </Highlight>
 
-#### 2.a Migrate database roles from the source to target
+### 2.a Migrate database roles from the source to target
 ```sh
 pg_dumpall -d "$SOURCE" \
   --quote-all-identifiers \
@@ -265,7 +258,7 @@ TimescaleDB documentation, the GRANTOR in the GRANTED BY clause must be the
 current user, and this clause mainly serves the purpose of SQL compatibility.
 Therefore, it's safe to remove it.
 
-#### 2.b Dump the database schema from the source database
+### 2.b Dump the database schema from the source database
 ```sh
 pg_dump -d "$SOURCE" \
   --format=plain \
@@ -323,8 +316,8 @@ complete, this requires effectively rewriting all data in the table, which locks
 the table for the duration of the operation and prevents writes.
 </Highlight>
 
-### 4. Migrate data from source to target database
-#### 4.a Dump data from source database
+## 4. Migrate data from source to target database
+### 4.a Dump data from source database
 Using pg_dump, dump the data from source database into intermediate storage
 ```sh
 pg_dump -d "$SOURCE" \
@@ -337,7 +330,7 @@ pg_dump -d "$SOURCE" \
   --file=dump.sql
 ```
 
-#### 4.b Restore data to target database
+### 4.b Restore data to target database
 Restore the dump file to Timescale instance
 ```sh
 psql -d $TARGET -v ON_ERROR_STOP=1 --echo-errors \
@@ -348,7 +341,7 @@ Update the table statistics by running ANALYZE on all data
 psql -d $TARGET -c "ANALYZE;"
 ```
 
-### 5. Verify data in the target database
+## 5. Verify data in the target database
 Verify that the data has been successfully restored by connecting to the target
 database and querying the restored data.
 
