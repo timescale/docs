@@ -18,6 +18,7 @@ import SourceTargetNote from "versionContent/_partials/_migrate_source_target_no
 import DumpDatabaseRoles from "versionContent/_partials/_migrate_dual_write_dump_database_roles.mdx";
 import Step6eTurnOnCompressionPolicies from "versionContent/_partials/_migrate_dual_write_6e_turn_on_compression_policies.mdx";
 import Step6aThroughc from "versionContent/_partials/_migrate_dual_write_6a_through_c.mdx";
+import ExplainPgDumpFlags from "versionContent/_partials/_migrate_explain_pg_dump_flags.mdx";
 
 # Dual-write and backfill from PostgreSQL database
 
@@ -114,7 +115,7 @@ more information about hypertables in general, consult the
 You may also wish to consider taking advantage of some of Timescale's killer
 features, such as:
 - [retention policies] to automatically drop unneeded data
-- [data tiering] to automatically move data to cheap storage
+- [tiered storage] to automatically move data to Timescale's low-cost bottomless object storage tier
 - [compression] to reduce the size of your hypertables
 - [continuous aggregates] to write blisteringly fast aggregate queries on your data
 
@@ -122,7 +123,7 @@ features, such as:
 [create_table API reference]: /api/:currentVersion:/hypertable/create_hypertable/
 [hypertable documentation]: /use-timescale/:currentVersion:/hypertables/
 [retention policies]: /use-timescale/:currentVersion:/data-retention/
-[data tiering]: /use-timescale/:currentVersion:/data-tiering/
+[tiered storage]: /use-timescale/:currentVersion:/data-tiering/
 [compression]: /use-timescale/:currentVersion:/compression/about-compression/
 [continuous aggregates]: /use-timescale/:currentVersion:/continuous-aggregates
 

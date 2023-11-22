@@ -28,6 +28,9 @@ job that regularly cleans up any unfinished distributed transactions.
 
 The custom maintenance job can be run as a user-defined action. For example:
 
+<Tabs title="Custom Maintenance Job">
+<Tab title="TimescaleDB >= 2.12">
+
 ```sql
 CREATE OR REPLACE PROCEDURE data_node_maintenance(job_id int, config jsonb)
 LANGUAGE SQL AS
@@ -40,6 +43,26 @@ $$;
 
 SELECT add_job('data_node_maintenance', '5m');
 ```
+
+</Tab>
+
+<Tab title="TimescaleDB < 2.12">
+
+```sql
+CREATE OR REPLACE PROCEDURE data_node_maintenance(job_id int, config jsonb)
+LANGUAGE SQL AS
+$$
+    SELECT _timescaledb_internal.remote_txn_heal_data_node(fs.oid)
+    FROM pg_foreign_server fs, pg_foreign_data_wrapper fdw
+    WHERE fs.srvfdw = fdw.oid
+    AND fdw.fdwname = 'timescaledb_fdw';
+$$;
+
+SELECT add_job('data_node_maintenance', '5m');
+```
+
+</Tab>
+</Tabs>
 
 ## Statistics for distributed hypertables
 

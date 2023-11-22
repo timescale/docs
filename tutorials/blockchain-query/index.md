@@ -30,6 +30,7 @@ This tutorial covers:
 
 1.  [Setting up your dataset][blockchain-dataset]
 1.  [Querying your dataset][blockchain-query]
+1.  [Bonus: Store data efficiently][blockchain-compress]
 
 ## About querying the Bitcoin blockchain with Timescale
 
@@ -53,6 +54,7 @@ analyze the blockchain data using Timescale hyperfunctions.
 [cloud-install]: /getting-started/:currentVersion:/#create-your-timescale-account
 [blockchain-dataset]: /tutorials/:currentVersion:/blockchain-query/blockchain-dataset/
 [blockchain-query]: /tutorials/:currentVersion:/blockchain-query/beginner-blockchain-query/
+[blockchain-compress]: /tutorials/:currentVersion:/blockchain-query/blockchain-compress/
 [blockchain-def]: https://www.pcmag.com/encyclopedia/term/blockchain
 [transactions-def]: https://www.pcmag.com/encyclopedia/term/bitcoin-transaction
 [analyze-blockchain]: /tutorials/:currentVersion:/blockchain-analyze/

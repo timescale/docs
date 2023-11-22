@@ -122,10 +122,17 @@ WITH (timescaledb.continuous)
 AS SELECT
     time_bucket('1 d'::interval, bucket) as bucket_daily,
     api_id,
+    mean(rollup(percentile_hourly)) as mean,
     rollup(percentile_hourly) as percentile_daily
 FROM response_times_hourly
 GROUP BY 1, 2;
 ```
+
+The `mean` function of the TimescaleDB Toolkit is used to calculate the concrete
+mean value of the rolled up values. The additional `percentile_daily` attribute
+contains the raw rolled up values, which can be used in an additional continuous
+aggregate on top of this continuous aggregate (for example a continuous
+aggregate for the daily values).
 
 For more information and examples about using `rollup` functions to stack
 calculations, see the [percentile approximation API documentation][percentile_agg_api].

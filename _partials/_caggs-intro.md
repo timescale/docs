@@ -22,7 +22,7 @@ database.
 
 Because continuous aggregates are based on hypertables, you can query them in
 exactly the same way as your other tables, and enable [compression][compression]
-or [data tiering][data-tiering] on your continuous aggregates. You can even
+or [tiered storage][data-tiering] on your continuous aggregates. You can even
 create
 [continuous aggregates on top of your continuous aggregates][hierarchical-caggs].
 
