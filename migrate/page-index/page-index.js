@@ -80,10 +80,16 @@ module.exports = [
         excerpt: "Step-by-step migration playbook to Timescale",
         children: [
           {
-            title: "From RDS using pg_dump",
+            title: "From AWS RDS using pg_dump",
             href: "rds-timescale-pg-dump",
             excerpt:
                 "Migrate from RDS to Timescale using pg_dump",
+          },
+          {
+            title: "From AWS RDS using live migration",
+            href: "rds-timescale-live-migration",
+            excerpt:
+                "Migrate from RDS to Timescale using live migration",
           },
         ],
       },

@@ -10,7 +10,7 @@ import GettingHelp from "versionContent/_partials/_migrate_dual_write_backfill_g
 import SourceTargetNote from "versionContent/_partials/_migrate_source_target_note.mdx";
 import StepOne from "versionContent/_partials/_migrate_dual_write_step1.mdx";
 import DumpDatabaseRoles from "versionContent/_partials/_migrate_dual_write_dump_database_roles.mdx";
-import ExplainPgDumpFlags from "versionContent/_partials/_migrate_explain_pg_dump_flags.mdx";
+import DumpSourceSchema from "versionContent/_partials/_migrate_dump_source_schema.mdx";
 
 # Live migration from PostgreSQL database with pgcopydb
 
@@ -208,25 +208,7 @@ longer the buffered files need to be stored.
 
 ### 4b. Dump the database schema from the source database
 
-```sh
-pg_dump -d "$SOURCE" \
-  --format=plain \
-  --quote-all-identifiers \
-  --no-tablespaces \
-  --no-owner \
-  --no-privileges \
-  --schema-only \
-  --file=dump.sql \
-  --snapshot=$(cat /tmp/pgcopydb/snapshot)
-```
-
-- `--schema-only` is used to dump only the object definitions (schema), not
-  data.
-
-- `--snapshot` is used to specified the synchronized [snapshot][snapshot] when
-  making a dump of the database.
-
-<ExplainPgDumpFlags />
+<DumpSourceSchema />
 
 ### 4c. Load the roles and schema into the target database
 
