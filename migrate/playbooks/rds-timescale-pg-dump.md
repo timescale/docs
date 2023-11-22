@@ -9,6 +9,8 @@ tags: [migrate, AWS, RDS, downtime, pg_dump, psql]
 import GettingHelp from "versionContent/_partials/_migrate_dual_write_backfill_getting_help.mdx";
 import SourceTargetNote from "versionContent/_partials/_migrate_source_target_note.mdx";
 import StepOne from "versionContent/_partials/_migrate_dual_write_step1.mdx";
+import LiveMigrationRoles from "versionContent/_partials/_migrate_live_migration_rds_roles.mdx";
+import DumpSourceSchema from "versionContent/_partials/_migrate_dump_source_schema.mdx";
 
 # Migrate from AWS RDS to Timescale using pg_dump with downtime
 This guide illustrates the process of migrating a Postgres database from an
@@ -195,91 +197,10 @@ please refer the following document: TODO Harkishen
 </Highlight>
 
 ### 2.a Migrate database roles from the source to target
-```sh
-pg_dumpall -d "$SOURCE" \
-  --quote-all-identifiers \
-  --roles-only \
-  --no-role-passwords \
-  --file=roles.sql
-```
-
-<Highlight type="important">
-Please note that AWS RDS does not permit dumping of roles with passwords, which
-is why the above command is executed with the `--no-role-passwords`. However,
-when the migration of roles to your Timescale instance is complete, you will
-need to manually assign passwords to the necessary roles using the following
-command: `ALTER ROLE role_name WITH PASSWORD 'password';`
-</Highlight>
-
-Timescale services do not support roles with superuser access. If your SQL dump
-includes roles that have such permissions, you'll need to modify the file to be
-compliant with the security model.
-
-You can use the following `sed` command to remove unsupported statements and
-permissions from your `roles.sql` file:
-```sh
-sed -i -E \
--e '/CREATE ROLE "postgres";/d' \
--e '/ALTER ROLE "postgres"/d' \
--e '/CREATE ROLE "rds/d' \
--e '/ALTER ROLE "rds/d' \
--e '/TO "rds/d' \
--e '/GRANT "rds/d' \
--e 's/(NO)*SUPERUSER//g' \
--e 's/(NO)*REPLICATION//g' \
--e 's/(NO)*BYPASSRLS//g' \
--e 's/GRANTED BY "[^"]*"//g' \
-roles.sql
-```
-
-<Highlight type="info">
-This command works only with the GNU implementation of `sed` (sometimes referred
-to as `gsed`). For the BSD implementation (the default on macOS), you need to add
-an extra argument to change the `-i` flag to `-i ''`.
-
-To check the sed version, you can use the command `sed --version`. While the
-GNU version explicitly identifies itself as GNU, the BSD version of sed
-generally doesn't provide a straightforward `--version` flag and simply outputs
-an "illegal option" error.
-</Highlight>
-
-A brief explanation of this script is:
-* `CREATE ROLE "postgres";` and `ALTER ROLE "postgres"`: These statements are
-removed because they require superuser access, which is not supported by Timescale.
-* `CREATE ROLE "rds`, `ALTER ROLE “rds`, `TO "rds`, `GRANT "rds`: Any creation
-or alteration of rds prefixed roles are removed because of their lack of any use
-in a Timescale instance. Similarly, any grants to or from "rds" prefixed roles
-are ignored as well.
-* `(NO)SUPERUSER`, `(NO)REPLICATION`, `(NO)BYPASSRLS`: Assigning these permissions
-to a role is an action that requires superuser privileges.
-* `GRANTED BY` role_specification: The GRANTED BY clause can also have permissions
-that require superuser access and should therefore be removed. Note: As per the
-TimescaleDB documentation, the GRANTOR in the GRANTED BY clause must be the
-current user, and this clause mainly serves the purpose of SQL compatibility.
-Therefore, it's safe to remove it.
+<LiveMigrationRoles />
 
 ### 2.b Dump the database schema from the source database
-```sh
-pg_dump -d "$SOURCE" \
-  --format=plain \
-  --quote-all-identifiers \
-  --no-tablespaces \
-  --no-owner \
-  --no-privileges \
-  --schema-only \
-  --file=schema.sql
-```
-* `--schema-only` is used to dump only the object definitions (schema), not data.
-* `--no-tablespaces` is required because Timescale does not support tablespaces
-other than the default. This is a known limitation.
-* `--no-owner` is required because Timescale's tsdbadmin user is not a superuser
-and cannot assign ownership in all cases. This flag means that everything is owned
-by the user used to connect to the target, regardless of ownership in the source.
-This is a known limitation.
-* `--no-privileges` is required because Timescale's tsdbadmin user is not a
-superuser and cannot assign privileges in all cases. This flag means that
-privileges assigned to other users must be reassigned in the target database as a
-manual clean-up task. This is a known limitation.
+<DumpSourceSchema />
 
 #### 2.c Load the roles and schema into the target database
 ```sh
@@ -304,7 +225,7 @@ psql -X -d "$TARGET" \
   -c "SELECT create_hypertable('<table name>', '<time column name>')"
 ```
 
-A more detailed explanation can be found in the [hypertable documentation][hypertable-docs].
+A more detailed explanation can be found in the [hypertable documentation].
 Once the table is converted, you can follow the guides to enable more Timescale
 features like [retention] and [compression].
 
@@ -348,6 +269,6 @@ database and querying the restored data.
 Once you have verified that the data is present, and returns the results that you
 expect, you can reconfigure your applications to use the target database.
 
-[hypertable-docs]: https://docs.timescale.com/use-timescale/latest/hypertables/
-[retention]: https://docs.timescale.com/use-timescale/latest/data-retention/
-[compression]: https://docs.timescale.com/use-timescale/latest/compression/
+[hypertable documentation]: /use-timescale/:currentVersion:/hypertables/
+[retention]: /use-timescale/:currentVersion:/data-retention/
+[compression]: /use-timescale/:currentVersion:/compression/
