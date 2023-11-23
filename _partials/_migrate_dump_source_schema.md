@@ -19,3 +19,5 @@ pg_dump -d "$SOURCE" \
   making a dump of the database.
 
 <ExplainPgDumpFlags />
+
+[snapshot]: https://www.postgresql.org/docs/current/functions-admin.html#FUNCTIONS-SNAPSHOT-SYNCHRONIZATION

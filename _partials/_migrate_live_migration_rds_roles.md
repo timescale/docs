@@ -7,11 +7,11 @@ pg_dumpall -d "$SOURCE" \
 ```
 
 <Highlight type="important">
-Please note that AWS RDS does not permit dumping of roles with passwords, which
+AWS RDS does not permit dumping of roles with passwords, which
 is why the above command is executed with the `--no-role-passwords`. However,
-when the migration of roles to your Timescale instance is complete, you will
+when the migration of roles to your Timescale instance is complete, you
 need to manually assign passwords to the necessary roles using the following
-command: `ALTER ROLE role_name WITH PASSWORD 'password';`
+command: `ALTER ROLE name WITH PASSWORD 'password';`
 </Highlight>
 
 Timescale services do not support roles with superuser access. If your SQL dump
