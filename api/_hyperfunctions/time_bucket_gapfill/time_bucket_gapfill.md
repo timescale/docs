@@ -58,7 +58,7 @@ api_details:
           The end of the period to gapfill.
           Values after `finish` are passed through, but no gapfilling is performed.
           Use `INTEGER` only if your time column is integer-based.
-          We recommend using a `WHERE` clause rather than specifying `start`, which is a legacy option.
+          We recommend using a `WHERE` clause rather than specifying `finish`, which is a legacy option.
           The `WHERE` is more performant, because the query planner can filter out chunks by constraint exclusion.
     returns:
       - column: time_bucket_gapfill
