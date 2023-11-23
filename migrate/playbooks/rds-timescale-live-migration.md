@@ -1,5 +1,5 @@
 ---
-title: Migrate from RDS to Timescale using live migration
+title: Migrate from AWS RDS to Timescale using live migration
 excerpt: Migrate from a PostgreSQL database in AWS RDS to Timescale using live migration
 products: [cloud]
 keywords: [data migration, postgresql, RDS]
@@ -15,20 +15,19 @@ import DumpSourceSchema from "versionContent/_partials/_migrate_dump_source_sche
 
 # Migrate from AWS RDS to Timescale using live migration with low-downtime
 This document provides a step-by-step guide to migrating a database from an AWS
-RDS Postgres instance to Timescale using our [Live migration] strategy to achieve
+RDS Postgres instance to Timescale using our [live migration] strategy to achieve
 low application downtime (on the order of minutes).
 
 Live migration's replication mechanism is fundamentally based on Postgres' logical
 decoding feature. However, for the purpose of this guide, an in-depth understanding
-of logical decoding is not necessary. It is important to note that the "Live migration"
-strategy is significantly more complicated than a migration using [pg_dump/pg_restore].
+of logical decoding is not necessary.
 
 <SourceTargetNote />
 
 ## Prerequisites
 Before you start the migration process, you will need to:
 1. Gather information about your RDS instance.
-1. Prepare your RDS instance for Live Migration.
+1. Prepare your RDS instance for Live migration.
 1. Prepare an intermediate machine.
 
 ### Gather information about your RDS instance
@@ -43,8 +42,8 @@ You will need the following information about your Postgres RDS instance:
 To gather the required information, navigate to the "Databases" panel and select your
 RDS instance.
 <img class="main-content__illustration"
- src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-live-migration/TODO.jpeg"
- alt="TODO"/>
+ src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-live-migration/list-of-databases.jpeg"
+ alt="RDS instances"/>
 
 Note the **Endpoint**, **Port**, and **VPC** details from the "Connectivity & Security"
 tab, and the **Master Username**, and **DB instance parameter group** from the "Configuration"
@@ -52,13 +51,13 @@ tab. Remember to use the **Master Password** that was supplied when the Postgres
 was created.
 
 <img class="main-content__illustration"
- src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-live-migration/TODO.jpeg"
- alt="TODO"/>
+ src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-live-migration/connectivity-details.jpeg"
+ alt="Record endpoint, port, VPC details"/>
 <img class="main-content__illustration"
- src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-live-migration/TODO.jpeg"
- alt="TODO"/>
+ src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-live-migration/db-configuration-details.jpeg"
+ alt="Record master username and DB parameter group"/>
 
-### Prepare your RDS instance for Live Migration
+### Prepare your RDS instance for Live migration
 To use your RDS instance as the source database for a Live migration, and to ensure the
 replication process runs smoothly, set the following configuration parameters:
 
@@ -100,8 +99,8 @@ RDS instance is using, go to the "Configuration" tab of your RDS service and loo
 value listed under "DB instance parameter group".
 
 <img class="main-content__illustration"
- src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-live-migration/TODO.jpeg"
- alt="TODO"/>
+ src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-live-migration/know-db-parameter.jpeg"
+ alt="Know your DB parameter group"/>
 
 #### Create DB parameter group for configuring replication
 Let’s create a DB parameter group that modifies the values for "wal_level" and "old_snapshot_threshold"
@@ -109,14 +108,14 @@ fields. We will base this group on the existing "prod-pr-group" so that we can m
 the other fields as they are while only changing the ones we need.
 
 <Highlight type="important">
-If your RDS service is a Multi-AZ DB Cluster deployment, then you will need to use
+If your AWS RDS service is a Multi-AZ DB Cluster deployment, then you will need to use
 "DB Cluster Parameter Group" instead of "DB Parameter Group".
 </Highlight>
 
 1. Navigate to the "Parameter groups" panel using the sidebar.
 <img class="main-content__illustration"
- src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-live-migration/TODO.jpeg"
- alt="TODO"/>
+ src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-live-migration/create-pg-1.jpeg"
+ alt="Navigate to parameter group panel"/>
 
 2. Copy the parameter group that is active in your RDS instance.
 <Highlight type="important">
@@ -125,52 +124,52 @@ a new DB parameter group. To do this, select "Create parameter group" and opt fo
 the "Parameter group family" field.
 </Highlight>
 <img class="main-content__illustration"
- src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-live-migration/TODO.jpeg"
- alt="TODO"/>
+ src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-live-migration/create-pg-2.jpeg"
+ alt="Copy your existing parameter group"/>
 
 3. Rename the parameter group, provide a description and click on "Create".
 <img class="main-content__illustration"
- src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-live-migration/TODO.jpeg"
- alt="TODO"/>
+ src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-live-migration/create-pg-3.jpg"
+ alt="Rename the new parameter group"/>
 
 * You will find the new parameter group in the "Parameter group" panel. Open the newly created
 parameter group by clicking on it.
 <img class="main-content__illustration"
- src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-live-migration/TODO.jpeg"
- alt="TODO"/>
+ src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-live-migration/create-pg-4.jpeg"
+ alt="Open the new parameter group"/>
 
 4. Click on "Edit".
 <img class="main-content__illustration"
- src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-live-migration/TODO.jpeg"
- alt="TODO"/>
+ src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-live-migration/create-pg-5.jpeg"
+ alt="Edit the new parameter group"/>
 
 5. Locate "rds.logical_replication" using the search box and adjust its value from 0 to 1. Next,
 locate "old_snapshot_threshold" and set its value to -1. Once you’ve made these changes, remember
 to click on "Save Changes".
 <img class="main-content__illustration"
- src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-live-migration/TODO.jpeg"
- alt="TODO"/>
+ src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-live-migration/create-pg-6.jpeg"
+ alt="Modify rds.logical_replication field"/>
 <img class="main-content__illustration"
- src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-live-migration/TODO.jpeg"
- alt="TODO"/>
+ src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-live-migration/create-pg-7.jpeg"
+ alt="Modify old_snapshot_threshold field"/>
 
 6. Navigate back to your RDS instance and click on "Modify".
 <img class="main-content__illustration"
- src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-live-migration/TODO.jpeg"
- alt="TODO"/>
+ src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-live-migration/create-pg-8.jpeg"
+ alt="Navigate back to your RDS instance"/>
 
 7. Navigate to the "Additional configuration" section and change the "DB parameter group" value
 to the new DB parameter group that includes the updated parameter values. After making this
 change, click "Continue" located at the bottom of the page.
 <img class="main-content__illustration"
- src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-live-migration/TODO.jpeg"
- alt="TODO"/>
+ src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-live-migration/create-pg-9.jpg"
+ alt="Modify DB parameter group"/>
 
 8. Once you have verified the new parameter group value, select "Apply immediately" and click
 on "Modify DB Instance".
 <img class="main-content__illustration"
- src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-live-migration/TODO.jpeg"
- alt="TODO"/>
+ src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-live-migration/create-pg-10.jpg"
+ alt="Apply DB parameter group"/>
 <Highlight type="important">
 Configuring the new parameter group will not cause your database to be restarted. In the next
 step you will manually reboot the database.
@@ -179,8 +178,8 @@ step you will manually reboot the database.
 9. Your RDS service will be in the "Modifying" state for a short while, after which, you should
 see that the parameter group is in the "Pending reboot" state and must be rebooted to be applied.
 <img class="main-content__illustration"
- src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-live-migration/TODO.jpeg"
- alt="TODO"/>
+ src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-live-migration/create-pg-11.jpg"
+ alt=""/>
 
 10. Manually reboot your service in order to apply the changes. In the "Actions" dropdown, click
 "Reboot" and then "Confirm".
@@ -188,8 +187,8 @@ see that the parameter group is in the "Pending reboot" state and must be reboot
 11. After your service reboots, ensure that the new "DB parameter group" is applied in your RDS
 instance.
 <img class="main-content__illustration"
- src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-live-migration/TODO.jpeg"
- alt="TODO"/>
+ src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-live-migration/create-pg-12.jpeg"
+ alt="Ensure the new DB parameter group on your RDS instance"/>
 
 12. Reconnect to your RDS instance and verify the configuration parameter values.
 ```sh
@@ -216,57 +215,51 @@ instance. We will set up an EC2 instance in the same VPC as the RDS service.
 #### Create an EC2 instance
 1. In the AWS search, type "EC2" and select the "EC2" option under services.
 <img class="main-content__illustration"
- src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-live-migration/TODO.jpeg"
- alt="TODO"/>
+ src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-live-migration/search-ec2.jpg"
+ alt="Search for EC2 services"/>
 
 2. Click on "Launch instance".
 <img class="main-content__illustration"
- src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-live-migration/TODO.jpeg"
- alt="TODO"/>
+ src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-live-migration/launch-ec2-instance.jpg"
+ alt="Launch EC2 instance"/>
 
 3. Configure your EC2 instance.
-* For "Instance type", use 2 CPU and 8 GB memory at least. If your migration
-involves a larger database, you should choose accordingly.
+
+  a. For "Application and OS image", choose Ubuntu Server LTS.
+
+  b. For "Instance type", use 2 CPU and 8 GB memory at least. If your migration involves a larger database, you should choose accordingly.
+  <img class="main-content__illustration"
+    src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-live-migration/config-instance-type.jpg"
+    alt="Configure instance type"/>
+
+  c. For "Key pair", you can choose to use an existing key pair or create a new one. This will be necessary when connecting to the EC2 instance from your local machine.
+
+  d. For "Network Settings", select the same VPC that your RDS instance is located in. Also, modify the "Source Type" of the security group to "My IP" so that your local machine can connect to the EC2 instance.
+  <img class="main-content__illustration"
+    src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-live-migration/config-network.jpg"
+    alt="Configure network"/>
+
+  e. For "Configure Storage" section, adjust the volume size to match the *1.5x the size of your database*. If necessary, you should enable encryption on your volume.
+  <img class="main-content__illustration"
+    src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-live-migration/config-storage.jpg"
+    alt="Configure storage"/>
+
+4. Review the summary of the instance and click "Launch instance".
 <img class="main-content__illustration"
- src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-live-migration/TODO.jpeg"
- alt="TODO"/>
-
-<Highlight type="info">
-The procedures outlined in this, as well as subsequent sections, are based on the
-assumption that an Ubuntu Amazon Machine Image (AMI) was selected during the setup
-of the EC2 instance.
-</Highlight>
-
-* For "Key pair", you can choose to use an existing key pair or create a new one.
-This will be necessary when connecting to the EC2 instance from your local machine.
-* For "Network Settings", select the same VPC that your RDS instance is located in.
-Also, modify the "Source Type" of the security group to "My IP" so that your local
-machine can connect to the EC2 instance.
-
-<img class="main-content__illustration"
- src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-live-migration/TODO.jpeg"
- alt="TODO"/>
-
-* For "Configure Storage" section, adjust the volume size to match the *1.5x the size of your database*.
-If necessary, you should enable encryption on your volume.
-
-<img class="main-content__illustration"
- src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-live-migration/TODO.jpeg"
- alt="TODO"/>
-
-* Review the summary of the instance and click "Launch instance".
+ src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-pg_dump/configure-ec2-4.jpeg"
+ alt="Review EC2 instance"/>
 
 ### Prepare the EC2 instance
 To prepare your EC2 instance for a low-downtime migration:
 1. Navigate to your EC2 instance and click on "Connect".
 <img class="main-content__illustration"
- src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-live-migration/TODO.jpeg"
- alt="TODO"/>
+ src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-live-migration/navigate-to-ec2-instance.jpg"
+ alt="Navigate to your EC2 instance"/>
 
 2. Select the "SSH client" tab.
 <img class="main-content__illustration"
- src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-live-migration/TODO.jpeg"
- alt="TODO"/>
+ src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-live-migration/connect-ssh.jpg"
+ alt="Connect to your EC2 using SSH client"/>
 
 3. Connect to your EC2 instance using the "Key pair" you received while creating the EC2 instance.
 ```sh
@@ -281,32 +274,27 @@ wget -qO- https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo tee /etc/apt
 sudo apt update
 sudo apt install postgresql-client-15 pgcopydb -y
 psql --version && pg_dump --version && pgcopydb --version
-# psql (PostgreSQL) 15.5 (Ubuntu 15.5-1.pgdg22.04+1)
-# pg_dump (PostgreSQL) 15.5 (Ubuntu 15.5-1.pgdg22.04+1)
-# 10:20:32 3037 INFO   Running pgcopydb version 0.13-1.pgdg22.04+1 from "/usr/bin/pgcopydb"
-# pgcopydb version 0.13-1.pgdg22.04+1
-# compiled with PostgreSQL 15.3 (Ubuntu 15.3-1.pgdg22.04+1) on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 11.3.0-1ubuntu1~22.04) 11.3.0, 64-bit
-# compatible with Postgres 10, 11, 12, 13, 14, and 15
 ```
 
 5. To allow an EC2 instance to connect to an RDS instance, you need to modify the
 security group associated with your RDS instance.
-* Note the Private IPv4 address of your EC2 instance.
-<img class="main-content__illustration"
- src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-live-migration/TODO.jpeg"
- alt="TODO"/>
 
-* Go to the security group associated with your RDS instance and select "Edit inbound rules".
-<img class="main-content__illustration"
- src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-live-migration/TODO.jpeg"
- alt="TODO"/>
+  a. Note the Private IPv4 address of your EC2 instance.
+  <img class="main-content__illustration"
+    src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-live-migration/note-private-ipv4.jpg"
+    alt="Note the private IPv4 address"/>
 
-* Click "Add rule". In the "Type" field, select "PostgreSQL". For "Source", select
-"Custom" and input the Private IPv4 address of your EC2 instance. Add a suitable
-description for this rule. Finally, click on "Save rules" to apply the changes.
-<img class="main-content__illustration"
- src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-live-migration/TODO.jpeg"
- alt="TODO"/>
+  b. Go to the security group associated with your RDS instance and select "Edit inbound rules".
+  <img class="main-content__illustration"
+    src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-live-migration/edit-security-group.jpg"
+    alt="Edit the security group"/>
+
+  c. Click "Add rule". In the "Type" field, select "PostgreSQL". For "Source", select
+  "Custom" and input the Private IPv4 address of your EC2 instance. Add a suitable
+  description for this rule. Finally, click on "Save rules" to apply the changes.
+  <img class="main-content__illustration"
+    src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-live-migration/add-new-rule.jpg"
+    alt="Add new rule"/>
 
 6. Verify the connection to the RDS service from your EC2 instance. Please note,
 you will be prompted to enter the master password. This should be the same password
@@ -321,13 +309,16 @@ Password for user postgres:
 (1 row)
 ```
 
+<GettingHelp />
+
 ## Performing data migration
+
 The migration process consists of the following steps:
 1. Set up a target database instance in Timescale.
 1. Prepare the source database for the live migration.
 1. Set up a replication slot and snapshot.
 1. Migrate roles and schema from source to target.
-1. Follow the remaining steps from "Live migration" documentation.
+1. Perform "Live migration".
 
 <StepOne />
 
@@ -348,8 +339,8 @@ ALTER TABLE {table_name} REPLICA IDENTITY USING INDEX {_index_name};
 If there's no primary key or viable unique index to use, you will have to set
 `REPLICA IDENTITY` to `FULL`. If you are expecting a large number of `UPDATE` or `DELETE`
 operations on the table, we do not recommend using `FULL`. For each `UPDATE` or `DELETE`
-statement, Postgres will have to read the whole table to find all matching rows, which
-will result in significantly slower replication.
+statement, Postgres will have to read the whole table to find all matching rows
+slowing the replication process.
 
 ```sql
 ALTER TABLE {table_name} REPLICA IDENTITY FULL;
@@ -371,7 +362,7 @@ pgcopydb follow \
   --plugin wal2json
 ```
 
-This command is going to be active during most of the migration process. You can
+This command is going to be active during most of the migration process. You should
 run it in the background or use terminal multiplexers like `screen` or `tmux`.
 
 The `follow` command sets up a replication slot in the source database to stream
@@ -383,8 +374,8 @@ This ID can be utilized to migrate data that was in the database before the repl
 slot was created.
 
 ## 4. Migrate roles and schema from source to target
-Before the stream of changes can be applied, the schema and data that existed prior
-to the creation of the replication slot in the source database must be migrated.
+Before applying DML operations from the replication slot, the schema and data from
+the source database need to be migrated.
 The larger the size of the source database, the more time it takes to perform the
 initial migration, and the longer the buffered files need to be stored.
 
@@ -403,12 +394,11 @@ psql -X -d "$TARGET" \
   -f schema.sql
 ```
 
-## 5. Follow the remaining steps from Live migration documentation
+## 5. Perform "live migration"
 The remaining steps for migrating data from a RDS Postgres instance to Timescale
 with low-downtime are the same as the ones mentioned in "Live migration"
 documentation from [Step 5] onwards. You should follow the mentioned steps
 to successfully complete the migration process.
 
-[pg_dump/pg_restore]: /migrate/:currentVersion:/playbooks/rds-timescale-pg-dump/
-[Live migration]: /migrate/:currentVersion:/live-migration/live-migration-from-postgres/
+[live migration]: /migrate/:currentVersion:/live-migration/live-migration-from-postgres/
 [Step 5]: /migrate/:currentVersion:/live-migration/live-migration-from-postgres/#5-enable-hypertables
