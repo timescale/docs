@@ -29,7 +29,7 @@ dropping data by the chunk is faster, because it deletes an entire file from
 disk. It doesn't need garbage collection and defragmentation.
 
 Whether you use a policy or manually drop chunks, Timescale drops data by the
-chunk. It only drops chunks where _all_ the data is wihin the specified time
+chunk. It only drops chunks where _all_ the data is within the specified time
 range.
 
 For example, consider the setup where you have 3 chunks containing data:
