@@ -80,5 +80,6 @@ SELECT timescaledb_experimental.add_policies(
     drop_after => '1 year'::interval
 );
 ```
-
+<!-- vale Vale.Terms = NO -->
 [add_continuous_aggregate_policy]: /api/:currentVersion/continuous-aggregates/add_continuous_aggregate_policy/
+<!-- vale Vale.Terms = YES -->
