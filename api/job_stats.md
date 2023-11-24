@@ -21,6 +21,7 @@ used to implement the policy succeeded and when it is scheduled to run next.
 
 ### Available columns
 
+<!-- vale Google.Acronyms = NO -->
 |Name|Type|Description|
 |---|---|---|
 |`hypertable_schema` | TEXT | Schema name of the hypertable |
@@ -35,6 +36,7 @@ used to implement the policy succeeded and when it is scheduled to run next.
 |`total_runs` | BIGINT | The total number of runs of this job|
 |`total_successes` | BIGINT | The total number of times this job succeeded |
 |`total_failures` | BIGINT | The total number of times this job failed |
+<!-- vale Google.Acronyms = YES -->
 
 ### Sample usage
 
