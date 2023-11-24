@@ -114,13 +114,15 @@ data volume using the `-v` flag.
 
 <Highlight type="warning">
 The two container types store PostgreSQL data dir in different places,
-please make sure you select the correct one to mount:
+make sure you select the correct one to mount:
 
+<!-- vale Vale.Terms = NO -->
 |Container|PGDATA location|
 |-|-|
 `timescaledb-ha`|`/home/postgres/pgdata/data`
 `timescaledb`| `/var/lib/postgresql/data`
 </Highlight>
+<!-- vale Vale.Terms = YES -->
 
 ```bash
 docker run -d --name timescaledb -p 5432:5432 \
