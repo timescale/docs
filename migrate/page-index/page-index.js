@@ -25,6 +25,12 @@ module.exports = [
         ]
       },
       {
+        title: "With downtime: Multi-node to TimescaleDB service",
+        href: "multi-node-to-timescale-service",
+        excerpt:
+            "Migrate an entire multi-node deployment to a TimescaleDB service",
+      },
+      {
         title: "Low-downtime: Live migration",
         href: "live-migration",
         excerpt: "Migrate a large database with low downtime",
