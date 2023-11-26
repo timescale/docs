@@ -21,6 +21,7 @@ used to implement the policy succeeded and when it is scheduled to run next.
 
 ### Available columns
 
+<!-- vale Google.Acronyms = NO -->
 |Name|Type|Description|
 |---|---|---|
 |`hypertable_schema` | TEXT | Schema name of the hypertable |
@@ -31,10 +32,11 @@ used to implement the policy succeeded and when it is scheduled to run next.
 |`last_run_status` | TEXT | Whether the last run succeeded or failed |
 |`job_status`| TEXT | Status of the job. Valid values are 'Running', 'Scheduled' and 'Paused'|
 |`last_run_duration`| INTERVAL | Duration of last run of the job|
-|`next_scheduled_run` | TIMESTAMP WITH TIME ZONE | Start time of the next run |
+|`next_start` | TIMESTAMP WITH TIME ZONE | Start time of the next run |
 |`total_runs` | BIGINT | The total number of runs of this job|
 |`total_successes` | BIGINT | The total number of times this job succeeded |
 |`total_failures` | BIGINT | The total number of times this job failed |
+<!-- vale Google.Acronyms = YES -->
 
 ### Sample usage
 
@@ -70,7 +72,7 @@ last_successful_finish | 2020-10-02 09:38:06.932675-04
 last_run_status        | Success
 job_status             | Scheduled
 last_run_duration      | 00:00:00.060722
-next_scheduled_run     | 2020-10-02 10:38:06.932675-04
+next_start             | 2020-10-02 10:38:06.932675-04
 total_runs             | 1
 total_successes        | 1
 total_failures         | 0
