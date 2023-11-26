@@ -68,7 +68,7 @@ information, see the [configuration][config] section.
 The TimescaleDB HA Docker image includes [Ubuntu][ubuntu] as its operating
 system. The lighter-weight TimescaleDB (non-HA) image uses [Alpine][alpine]. The
 commands in this section use the TimescaleDB HA image, but the steps are the
-same for both.
+same for both (except for the location of the data-dir, see below).
 
 You can use the Docker image in different ways, depending on your use case.
 
@@ -110,7 +110,19 @@ persists on disk until you explicitly delete it. You can use the `docker volume
 ls` command to list existing docker volumes. If you want to store the data from
 your Docker container in a host directory, or you want to run the Docker image
 on top of an existing data directory, you can specify the directory to mount a
-data volume using the `-v` flag. For example:
+data volume using the `-v` flag. 
+
+<Highlight type="warning">
+The two container types store PostgreSQL data dir in different places,
+make sure you select the correct one to mount:
+
+<!-- vale Vale.Terms = NO -->
+|Container|PGDATA location|
+|-|-|
+`timescaledb-ha`|`/home/postgres/pgdata/data`
+`timescaledb`| `/var/lib/postgresql/data`
+</Highlight>
+<!-- vale Vale.Terms = YES -->
 
 ```bash
 docker run -d --name timescaledb -p 5432:5432 \
