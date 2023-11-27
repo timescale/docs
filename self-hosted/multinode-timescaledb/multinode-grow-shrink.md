@@ -6,6 +6,10 @@ keywords: [multi-node, data nodes]
 tags: [add, remove]
 ---
 
+import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";
+
+<MultiNodeDeprecation />
+
 # Grow and shrink multi-node
 
 When you are working within a multi-node environment, you might discover that

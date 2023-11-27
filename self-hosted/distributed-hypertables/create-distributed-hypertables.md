@@ -5,6 +5,10 @@ products: [self_hosted]
 keywords: [distributed hypertables, multi-node, create]
 ---
 
+import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";
+
+<MultiNodeDeprecation />
+
 # Create distributed hypertables
 
 If you have a [multi-node environment][multi-node], you can create a distributed

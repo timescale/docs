@@ -5,6 +5,10 @@ products: [self_hosted]
 keywords: [distributed hypertables, triggers, multi-node]
 ---
 
+import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";
+
+<MultiNodeDeprecation />
+
 # Use triggers on distributed hypertables
 
 Triggers on distributed hypertables work in much the same way as triggers on
