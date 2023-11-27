@@ -15,9 +15,9 @@ or installation tool.
 
 Before you start, make sure you have installed:
 
-*   PostgreSQL 12 or later, with a development environment. For more information
-    about PostgreSQL installation, including downloads and instructions, see the
-    [PostgreSQL documentation][postgres-download].
+*   A [supported version of PostgreSQL][compatibility-matrix], with a development environment. 
+    For more information about PostgreSQL installation, including downloads and instructions, 
+    see the [PostgreSQL documentation][postgres-download].
 
 You also need:
 
