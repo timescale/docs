@@ -53,7 +53,7 @@ Visual Studio components for CMake and Git when you run the installer.
     our [Releases page][gh-releases]:
 
     ```bash
-    git checkout 2.12.1
+    git checkout 2.13.0
     ```
 
     This command produces an error that you are now in `detached head` state. It
