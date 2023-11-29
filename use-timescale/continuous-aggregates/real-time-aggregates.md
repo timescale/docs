@@ -15,7 +15,7 @@ most recent raw data to it to provide accurate and up to date results, without
 needing to aggregate data as it is being written. In Timescale versions 1.7 to 2.12,
 real time aggregates are enabled by default; when you create a continuous
 aggregate view, queries to that view include the most recent data, even if
-it has not yet been aggregated. In Timescale&nbsp;2.13 and later real time aggregates are *NOT* enabled by default.
+it has not yet been aggregated. In Timescale&nbsp;2.13 and later real time aggregates are *DISABLED* by default.
 
 For more detail on the comparison between continuous and real time aggregates,
 see our [real time aggregate blog post][blog-rtaggs].
