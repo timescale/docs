@@ -1,0 +1,95 @@
+---
+title: Key vector database concepts
+excerpt: The most important concepts for understanding vectors in PostgreSQL
+products: [cloud]
+keywords: [ai, vector, pgvector, timescale vector]
+tags: [ai, vector]
+---
+
+# Key vector database concepts
+
+## `Vector` data type
+
+Vectors inside of the database are stored in regular PostgreSQL tables using `vector` columns. The `vector` column type is provided by the [pgvector](https://github.com/pgvector/pgvector) extension. A common way to store vectors is alongside the data they have indexed. For example, to store embeddings for documents, a common table structure is:
+
+```sql
+CREATE TABLE IF NOT EXISTS document_embedding  (
+    id BIGSERIAL PRIMARY KEY,
+    document_id BIGINT FOREIGN KEY(document.id)
+    metadata JSONB,
+    contents TEXT,
+    embedding VECTOR(1536)
+)
+```
+
+This table contains a primary key, a foreign key to the document table, some metadata, the text being embedded (in the `contents` column) and the embedded vector.
+
+This may seem like a bit of a weird design—why don’t we just stick the embedding column in the document table? The answer has to do with context length limits of embedding models and of LLMs. When embedding data, there is a limit to the length of content you can embed (e.g., for OpenAI’s ada-002 this limit is [8191 tokens]((https://platform.openai.com/docs/guides/embeddings/second-generation-models)), and so, if you are embedding a long piece of text, you have to break it up into smaller chunks and embed each chunk individually. Therefore, when thinking about this at the database layer, there is usually a one-to-many relationship between the thing being embedded and the embeddings which is represented by a foreign key from the embedding to the thing.
+
+Of course, if you do not want to store the original data in the database and you are just storing only the embeddings, that’s totally fine too. Just omit the foreign key from the table. Another popular alternative is to put the foreign key into the metadata JSONB.
+
+## Querying vectors
+
+The canonical query for vectors is for the closest query vectors to an embedding of the user’s query. This is also known as finding the [K nearest neighbors](https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm).
+
+In the example query below, $1 is a parameter taking a query embedding, and the `<=>` operator calculates the distance between the query embedding and embedding vectors stored in the database (and returns a float value).
+
+```sql
+SELECT *
+FROM document_embedding
+ORDER BY embedding <=> $1
+LIMIT 10
+```
+
+The query above returns the 10 rows with the smallest distance between the query’s embedding and the row’s embedding. Of course, this being PostgreSQL, you can add additional `WHERE` clauses (such as filters on the metadata), joins, etc.
+
+
+### Vector distance types
+
+The query we showed above uses something called cosine distance (via the <=> operator) as a measure of how similar two embeddings are. But, there are multiple ways to quantify how far apart two vectors are from each other.
+
+Note: In practice, we don’t believe the choice of distance measure matters much and recommend just sticking with cosine distance for most applications.
+
+#### Description of cosine distance, negative inner product, and Euclidean distance
+
+Here's a succinct description of three common vector distance measures
+
+*Cosine distance a.k.a. angular distance*: This measures the cosine of the angle between two vectors. It's not a true “distance” in the mathematical sense but a similarity measure, where a smaller angle corresponds to a higher similarity. The cosine distance is particularly useful in high-dimensional spaces where the magnitude of the vectors (their length) is less important, such as in text analysis or information retrieval. It ranges from -1 (meaning exactly opposite) to 1 (exactly the same), with 0 typically indicating orthogonality (no similarity). See here for more on [cosine similarity](https://en.wikipedia.org/wiki/Cosine_similarity).
+
+*Negative inner product*: This is simply the negative of the inner product (also known as the dot product) of two vectors. The inner product measures vector similarity based on the vectors' magnitudes and the cosine of the angle between them. A higher inner product indicates greater similarity. However, it's important to note that, unlike cosine similarity, the magnitude of the vectors influences the inner product.
+
+*Euclidean distance*: This is the "ordinary" straight-line distance between two points in Euclidean space. In terms of vectors, it's the square root of the sum of the squared differences between corresponding elements of the vectors. This measure is sensitive to the magnitude of the vectors and is widely used in various fields such as clustering and nearest neighbor search.
+
+Many embedding systems (for example OpenAI’s ada-002) use vectors with length 1 (unit vectors). For those systems, the rankings (ordering) of all three measures is the same. In particular,
+The cosine distance is 1−dot product.
+The negative inner product is −dot product.
+The Euclidean distance is related to the dot product, where the squared Euclidean distance is 2(1−dot product).
+
+#### Recommended vector distance
+
+We recommend using cosine distance, especially on unit vectors. We base these recommendations on OpenAI’s [recommendation](https://platform.openai.com/docs/guides/embeddings/which-distance-function-should-i-use) as well as the fact that the ranking of different distances on unit vectors is preserved.
+
+## Vector search indexing (Approximate Nearest Neighbor search)
+
+In PostgreSQL and other relational databases, indexing is a way to speed up queries. For vector data, indexes speed up the similarity search query shown above where you find the most similar embedding to some given query embedding. This problem is often referred to as finding the [K nearest neighbors](https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm).
+
+> Note: The term “index” in the context of vector databases has multiple meanings. It can refer to both the storage mechanism for your data and the tool that enhances query efficiency. Here, we are using the latter meaning.
+
+Finding the K nearest neighbors is not a new problem in PostgreSQL, but existing techniques only work with low-dimensional data. These approaches cease to be effective when dealing with data larger than approximately 10 dimensions due to the "curse of dimensionality." Given that embeddings often consist of more than a thousand dimensions—OpenAI’s are 1,536—new techniques had to be developed.
+
+There are no known exact algorithms for efficiently searching in such high-dimensional spaces. Nevertheless, there are excellent approximate algorithms that fall into the category of approximate nearest neighbor algorithms.
+
+There are 3 different indexing algorithms available as part of Timescale Vector: Timescale Vector index, pgvector HNSW, and pgvector ivfflat. The table below illustrates the high-level differences between these algorithms:
+
+| Algorithm       | Build Speed | Query Speed | Need to rebuild after updates |
+|------------------|-------------|-------------|-------------------------------|
+| Timescale Vector | Slow        | Fastest     | No                            |
+| pgvector hnsw    | Slowest     | Fast      | No                            |
+| pgvector ivfflat | Fastest     | Slowest     | Yes                           |
+
+
+See our [performance benchmarks](https://www.timescale.com/blog/how-we-made-postgresql-the-best-vector-database/) for details on how the each index performs on a dataset of 1 million OpenAI embeddings.
+
+## Recommended index types
+
+For most applications, we recommend using the Timescale Vector index.
