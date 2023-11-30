@@ -7,8 +7,7 @@ tags: [backup, restore, set up]
 
 # Administrative Functions
 
-These administrative APIs help you prepare a database before and after a restore
-event,. They also help you keep track of your TimescaleDB setup data.
+These administrative APIs help you prepare a database before and after a restore event. They also help you keep track of your TimescaleDB setup data.
 
 ## Dump TimescaleDB meta data
 
