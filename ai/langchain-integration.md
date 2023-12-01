@@ -1,6 +1,6 @@
 ---
-title: Langchain Integration
-excerpt: Langchain integration for Timescale Vector
+title: LangChain Integration
+excerpt: LangChain integration for Timescale Vector
 products: [cloud]
 keywords: [ai, vector, pgvector, timescale vector, python, langchain]
 tags: [ai, vector, python, langchain]

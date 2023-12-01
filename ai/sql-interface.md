@@ -50,15 +50,15 @@ ORDER BY embedding <=> $1
 LIMIT 10
 ```
 
-Which returns the 10 rows whose distance is the smallest. The distance function used here is cosine distance (specified by using the <=> operator). Other distance functions are available, see the [discussion](TODO).
+Which returns the 10 rows whose distance is the smallest. The distance function used here is cosine distance (specified by using the <=> operator). Other distance functions are available, see the [discussion][distance-functions].
 
 The available distance types and their operators are:
 
 | Distance type          | Operator      |
 |------------------------|---------------|
-| Cosine/Angular         | <=>           |
-| Euclidean              | <->           |
-| Negative inner product | <#>           |
+| Cosine/Angular         | `<=>`           |
+| Euclidean              | `<->`           |
+| Negative inner product | `<#>`           |
 
 Note: If you are using an index, you need to make sure that the distance function used in index creation is the same one used during query (see below). This is important because if you create your index with one distance function but query with another, your index will not be used and your searches will be slowed down.
 
@@ -76,7 +76,7 @@ LIMIT 10
 
 The key part is that the `ORDER BY` contains a distance measure against a constant or a pseudo-constant.
 
-Note that if performing a query without an index, you will always get an exact result, but the query will be slow (it has to read all of the data you store for every query). With an index, your queries will be order-of-magnitude faster, but the results are approximate (because there are no known indexing techniques that are exact see [here for more](TODO)).
+Note that if performing a query without an index, you will always get an exact result, but the query will be slow (it has to read all of the data you store for every query). With an index, your queries will be order-of-magnitude faster, but the results are approximate (because there are no known indexing techniques that are exact see [here for more][vector-search-indexing]).
 
 Nevertheless, there are excellent approximate algorithms. There are 3 different indexing algorithms available on the Timescale platform: Timescale Vector Index, pgvector HNSW, and pgvector ivfflat. Below is the trade-offs between these algorithms:
 
@@ -102,7 +102,7 @@ Let’s explore the details of each index in order to learn more.
 The Timescale Vector index is a graph-based algorithm that uses the [DiskANN](https://github.com/microsoft/DiskANN) algorithm. You can read more about it on our [blog](https://www.timescale.com/blog/how-we-made-postgresql-the-best-vector-database/) announcing its release.
 
 
-To create this index, run:
+To create an index named `document_embedding_idx` on table `document_embedding` having a vector column named `embedding`, run:
 ```sql
 CREATE INDEX document_embedding_idx ON document_embedding
 USING tsv (embedding);
@@ -168,7 +168,7 @@ LIMIT 10
 
 Pgvector provides a graph-based indexing algorithm based on the popular [HNSW algorithm](https://arxiv.org/abs/1603.09320).
 
-To create this index, run:
+To create an index named `document_embedding_idx` on table `document_embedding` having a vector column named `embedding`, run:
 ```sql
 CREATE INDEX document_embedding_idx ON document_embedding
 USING hnsw(embedding vector_cosine_ops);
@@ -178,9 +178,9 @@ This command creates an index for cosine-distance queries because of `vector_cos
 
 | Distance type          | Query operator | Index ops class  |
 |------------------------|----------------|-------------------|
-| Cosine / Angular       | <=>            | vector_cosine_ops |
-| Euclidean / L2         | <->            | vector_ip_ops     |
-| Negative inner product | <#>            | vector_l2_ops     |
+| Cosine / Angular       | `<=>`            | vector_cosine_ops |
+| Euclidean / L2         | `<->`            | vector_ip_ops     |
+| Negative inner product | `<#>`            | vector_l2_ops     |
 
 Pgvector HNSW also includes several index build-time and query-time parameters.
 
@@ -234,7 +234,7 @@ LIMIT 10
 
 Pgvector provides a clustering-based indexing algorithm. Our [blog post](https://www.timescale.com/blog/nearest-neighbor-indexes-what-are-ivfflat-indexes-in-pgvector-and-how-do-they-work/) describes how it works in detail. It provides the fastest index-build speed but the slowest query speeds of any indexing algorithm.
 
-To create this index, run:
+To create an index named `document_embedding_idx` on table `document_embedding` having a vector column named `embedding`, run:
 ```sql
 CREATE INDEX document_embedding_idx ON document_embedding
 USING ivfflat(embedding vector_cosine_ops) WITH (lists = 100);
@@ -244,9 +244,9 @@ This command creates an index for cosine-distance queries because of `vector_cos
 
 | Distance type          | Query operator | Index ops class  |
 |------------------------|----------------|-------------------|
-| Cosine / Angular       | <=>            | vector_cosine_ops |
-| Euclidean / L2         | <->            | vector_ip_ops     |
-| Negative inner product | <#>            | vector_l2_ops     |
+| Cosine / Angular       | `<=>`            | vector_cosine_ops |
+| Euclidean / L2         | `<->`            | vector_ip_ops     |
+| Negative inner product | `<#>`            | vector_l2_ops     |
 
 Note: *ivfflat should never be created on empty tables* because it needs to cluster data, and that only happens when an index is first created, not when new rows are inserted or modified. Also, if your table undergoes a lot of modifications, you will need to rebuild this index occasionally to maintain good accuracy. See our [blog post](https://www.timescale.com/blog/nearest-neighbor-indexes-what-are-ivfflat-indexes-in-pgvector-and-how-do-they-work/) for details.
 
@@ -318,3 +318,6 @@ FROM document_embedding
 ORDER BY embedding <=> $1
 LIMIT 10
 ```
+
+[distance-functions]: /ai/:currentVersion:/concepts/#vector-distance-types
+[vector-search-indexing]: /ai/:currentVersion:/concepts/#vector-search-indexing-approximate-nearest-neighbor-search

@@ -9,14 +9,14 @@ tags: [ai, vector]
 # Overview of Timescale Vector
 
 ## What is Timescale Vector
-Timescale Vector is PostgreSQL++ for AI applications. With Timescale Vector, you can power production AI applications with PostgreSQL as your vector database, storing both vector embeddings, relational data (e.g., metadata, and time-based data in the same database.
+Timescale Vector is PostgreSQL++ for AI applications. With Timescale Vector, you can power production AI applications with PostgreSQL as your vector database, storing both vector embeddings, relational data (e.g., metadata), and time-based data in the same database.
 
 Timescale Vector is a cloud-based vector database. There is no self-hosted version at this time. To use Timescale Vector, [sign up here](https://console.cloud.timescale.com/signup?utm_campaign=vectorlaunch&utm_source=tsv-docs&utm_medium=direct).
 
 ## Timescale Vector vs. pgvector
 [Pgvector](https://github.com/pgvector/pgvector) is a popular open-source extension for vector storage and similarity search in PostgreSQL. Pgvector is packaged as part of Timescale Vector, so you can think of Timescale Vector as a complement, not a replacement for pgvector. Timescale Vector uses the same vector data type as pgvector, offering all its other capabilities (like HNSW and ivfflat indexes). Timescale Vector also offers features not present in pgvector, such as the Timescale Vector index and time-based vector search.
 
-This makes it easy to migrate your existing pgvector deployment and take advantage of additional features for scale in Timescale Vector. You also have the flexibility to create different index types suited to your needs. See the [vector search indexing]() section for more sections.
+This makes it easy to migrate your existing pgvector deployment and take advantage of additional features for scale in Timescale Vector. You also have the flexibility to create different index types suited to your needs. See the [vector search indexing][vector-search-indexing] section for more sections.
 
 ## What are vector embeddings?
 
@@ -62,3 +62,4 @@ And here are some popular choices for image embeddings:
 - [VGG](https://pytorch.org/vision/stable/models/vgg.html)
 - [Vision Transformer (ViT)](https://github.com/lukemelas/PyTorch-Pretrained-ViT)
 
+[vector-search-indexing]: /ai/:currentVersion:/concepts/#vector-search-indexing-approximate-nearest-neighbor-search
