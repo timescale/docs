@@ -13,7 +13,7 @@ PostgreSQL++ for AI Applications.
 - [Sign up for Timescale Vector](https://console.cloud.timescale.com/signup?utm_campaign=vectorlaunch&utm_source=docs&utm_medium=direct): Get 90 days free to try Timescale Vector on the Timescale cloud data platform. There is no self-managed version at this time.
 - [Getting Started Tutorial](https://timescale.github.io/python-vector/tsv_python_getting_started_tutorial.html): Learn how to use Timescale Vector for semantic search on a real-world dataset.
 
-If you prefer to use an LLM development or data framework, see Timescale Vector’s integrations with [LangChain](https://python.langchain.com/docs/integrations/vectorstores/timescalevector) and [LlamaIndex](https://gpt-index.readthedocs.io/en/stable/examples/vector_stores/Timescalevector.html).
+If you prefer to use an LLM development or data framework, see Timescale Vector's integrations with [LangChain](https://python.langchain.com/docs/integrations/vectorstores/timescalevector) and [LlamaIndex](https://gpt-index.readthedocs.io/en/stable/examples/vector_stores/Timescalevector.html).
 
 
 ## Install
@@ -24,7 +24,7 @@ To install the main library use:
 pip install timescale_vector
 ```
 
-We also use `dotenv` in our examples for passing around secrets and keys. You can install that with:
+`dotenv` is used in these examples for passing around secrets and keys. You can install that with:
 
 ```bash
 pip install python-dotenv
@@ -42,23 +42,23 @@ import uuid
 from datetime import datetime, timedelta
 ```
 
-Load up your PostgreSQL credentials, the dafest way is with a `.env` file:
+Load up your PostgreSQL credentials, the safest way is with a `.env` file:
 
 ``` python
 _ = load_dotenv(find_dotenv(), override=True)
 service_url  = os.environ['TIMESCALE_SERVICE_URL']
 ```
 
-Next, create the client. In this tutorial, we will use the sync client. But we have an async client as well (with an identical interface that
+Next, create the client. This tutorial, uses the sync client. But the library have an async client as well (with an identical interface that
 uses async functions).
 
 The client constructor takes three required arguments:
 
 | name           | description                                                                               |
 |----------------|-------------------------------------------------------------------------------------------|
-| service_url    | Timescale service URL / connection string                                                 |
-| table_name     | Name of the table to use for storing the embeddings. Think of this as the collection name |
-| num_dimensions | Number of dimensions in the vector                                                        |
+| `service_url`    | Timescale service URL / connection string                                                 |
+| `table_name`     | Name of the table to use for storing the embeddings. Think of this as the collection name |
+| `num_dimensions` | Number of dimensions in the vector                                                        |
 
 ``` python
 vec  = client.Sync(service_url, "my_data", 2)
@@ -77,7 +77,7 @@ Next, insert some data. The data record contains:
 - The text the embedding represents
 - The embedding itself
 
-Because this data includes UUIDs which become primary keys, we ingest with upserts.
+Because this data includes UUIDs which become primary keys, upserts should be used for ingest.
 
 ``` python
 vec.upsert([\
@@ -109,11 +109,11 @@ vec.search([1.0, 9.0])
       array([1. , 1.3], dtype=float32),
       0.14489260377438218]]
 
-There are many search options which we will cover below in the
+There are many search options which are be covered below in the
 `Advanced search` section.
 
-As one example, we will return one item using a similarity search
-constrained by a metadata filter.
+A simple search example that returns one item using a similarity search
+constrained by a metadata filter is shown below:
 
 ``` python
 vec.search([1.0, 9.0], limit=1, filter={"action": "jump"})
@@ -169,7 +169,7 @@ vec.delete_all()
 
 ## Advanced usage
 
-In this section, we will go into more detail about the Python interface. We will cover:
+This section goes into more detail about the Python interface. It covers:
 
 1.  Search filter options - how to narrow your search by additional
     constraints
@@ -180,15 +180,13 @@ In this section, we will go into more detail about the Python interface. We will
 
 ### Search options
 
-The `search` function is very versatile and allows you to search for the right vector in a wide variety of ways. We’ll describe the search option in 3 parts:
+The `search` function is very versatile and allows you to search for the right vector in a wide variety of ways. This section describes the search option in 3 parts:
 
-1.  We’ll cover basic similarity search.
-2.  Then, we’ll describe how to filter your search based on the
-    associated metadata.
-3.  Finally, we’ll talk about filtering on time when time-partitioning
-    is enabled.
+1.  Basic similarity search.
+2.  How to filter your search based on the associated metadata.
+3.  Filtering on time when time-partitioning is enabled.
 
-Let’s use the following data for our example:
+The following examples are based on this data:
 
 ``` python
 vec.upsert([\
@@ -228,13 +226,13 @@ vec.search([1.0, 9.0], limit=1)
 
 #### Narrowing your search by metadata
 
-We have two main ways to filter results by metadata: 
+There are two main ways to filter results by metadata:
 - `filters` for equality matches on metadata.
 - `predicates` for complex conditions on metadata.
 
-Filters are are more limited in what they can express, but are also more performant. We suggest using these if your use case allows it.
+Filters are more limited in what they can express, but are also more performant. You should use filters if your use case allows it.
 
-##### Filters
+##### Using filters for equality matches
 
 You could specify a match on the metadata as a dictionary where all keys
 have to match the provided values (keys not in the filter are
@@ -268,7 +266,7 @@ vec.search([1.0, 9.0], limit=2, filter=[{"action": "jump"}, {"animal": "fox"}])
       array([1. , 1.3], dtype=float32),
       0.14489260377438218]]
 
-##### Predicates
+##### Using predicates for more advanced filtering on metadata
 
 Predicates allow for more complex search conditions. For example, you
 could use greater than and less than conditions on numeric values.
@@ -289,12 +287,12 @@ objects are defined by the name of the metadata key, an operator, and a value.
 The supported operators are: `==`, `!=`, `<`, `<=`, `>`, `>=`
 
 The type of the values determines the type of comparison to perform. For
-example, passing in `"Sam"` (a string) will do a string comparison while
-a `10` (an int) will perform an integer comparison, and a `10.0`
-(float) will do a float comparison. It is important to note that using a
-value of `"10"` will do a string comparison as well so it’s important to
+example, passing in `"Sam"` (a string) performs a string comparison while
+a `10` (an int) performs an integer comparison, and a `10.0`
+(float) performs a float comparison. It is important to note that using a
+value of `"10"` performs a string comparison as well so it's important to
 use the right type. Supported Python types are: `str`, `int`, and
-`float`. 
+`float`.
 
 One more example with a string comparison:
 
@@ -309,7 +307,7 @@ vec.search([1.0, 9.0], limit=2, predicates=client.Predicates("action", "==", "ju
       0.00016793422934946456]]
 
 The real power of predicates is that they can also be combined using the
-`&` operator (for combining predicates with AND semantics) and `|`(for
+`&` operator (for combining predicates with `AND` semantics) and `|`(for
 combining using OR semantic). So you can do:
 
 ``` python
@@ -322,7 +320,7 @@ vec.search([1.0, 9.0], limit=2, predicates=client.Predicates("action", "==", "ju
       array([ 1. , 10.8], dtype=float32),
       0.00016793422934946456]]
 
-Just for sanity, let’s show a case where no results are returned because
+Just for sanity, the next example shows a case where no results are returned because
 of predicates:
 
 ``` python
@@ -331,7 +329,7 @@ vec.search([1.0, 9.0], limit=2, predicates=client.Predicates("action", "==", "ju
 
     []
 
-And one more example where we define the predicates as a variable
+And one more example where the predicates are defined as a variable
 and use grouping with parenthesis:
 
 ``` python
@@ -345,7 +343,7 @@ vec.search([1.0, 9.0], limit=2, predicates=my_predicates)
       array([ 1. , 10.8], dtype=float32),
       0.00016793422934946456]]
 
-We also have some semantic sugar for combining many predicates with AND
+There is also semantic sugar for combining many predicates with `AND`
 semantics. You can pass in multiple 3-tuples to
 `Predicates`:
 
@@ -363,7 +361,7 @@ vec.search([1.0, 9.0], limit=2, predicates=client.Predicates(("action", "==", "j
 
 When using `time-partitioning` (see below) you can very efficiently
 filter your search by time. Time-partitioning associates the timestamp embedded
-in a UUID-based ID with an embedding. Let us first
+in a UUID-based ID with an embedding. First,
 create a collection with time partitioning and insert some data (one
 item from January 2018 and another in January 2019):
 
@@ -378,7 +376,7 @@ tpvec.upsert([\
 ])
 ```
 
-Then, you can filter using the timestamps by specifing a
+Then, you can filter using the timestamps by specifying a
 `uuid_time_filter`:
 
 ``` python
@@ -393,8 +391,8 @@ tpvec.search([1.0, 9.0], limit=4, uuid_time_filter=client.UUIDTimeRange(specific
 
 A
 [`UUIDTimeRange`](https://timescale.github.io/python-vector/vector.html#uuidtimerange)
-can specify a start_date or end_date or both(as in the example above).
-Specifying only the start_date or end_date leaves the other end
+can specify a `start_date` or `end_date` or both(as in the example above).
+Specifying only the `start_date` or `end_date` leaves the other end
 unconstrained.
 
 ``` python
@@ -412,8 +410,8 @@ tpvec.search([1.0, 9.0], limit=4, uuid_time_filter=client.UUIDTimeRange(start_da
       array([1. , 1.3], dtype=float32),
       0.14489260377438218]]
 
-You have the option to define the inclusivity of the start and end dates
-with the `start_inclusive` and `end_inclusive` parameters. Setting
+You have the option to define whether the start and end dates
+are inclusive with the `start_inclusive` and `end_inclusive` parameters. Setting
 `start_inclusive` to true results in comparisons using the `>=`
 operator, whereas setting it to false applies the `>` operator. By
 default, the start date is inclusive, while the end date is exclusive.
@@ -429,15 +427,15 @@ tpvec.search([1.0, 9.0], limit=4, uuid_time_filter=client.UUIDTimeRange(start_da
       array([ 1. , 10.8], dtype=float32),
       0.00016793422934946456]]
 
-Notice how the results are different when we use the
+Notice how the results are different when using the
 `start_inclusive=False` option because the first row has the exact
 timestamp specified by `start_date`.
 
-We’ve also made it easy to integrate time filters using the `filter` and
+It is also easy to integrate time filters using the `filter` and
 `predicates` parameters described above using special reserved key names
-to make it appear that the timestamps are part of your metadata. We found
-this useful when integrating with other systems that just want to
-specify a set of filters (often these are “auto retriever” type
+to make it appear that the timestamps are part of your metadata. This
+is useful when integrating with other systems that just want to
+specify a set of filters (often these are "auto retriever" type
 systems). The reserved key names are `__start_date` and `__end_date` for
 filters and `__uuid_timestamp` for predicates. Some examples below:
 
@@ -464,34 +462,34 @@ tpvec.search([1.0, 9.0], limit=4,
 
 ### Indexing
 
-Indexing speeds up queries over your data. By default, we set up indexes
+Indexing speeds up queries over your data. By default, the system creates indexes
 to query your data by the UUID and the metadata.
 
 To speed up similarity search based on the embeddings, you have to
 create additional indexes.
 
-Note that if performing a query without an index, you will always get an
-exact result, but the query will be slow (it has to read all of the data
-you store for every query). With an index, your queries will be
+Note that if performing a query without an index, you always get an
+exact result, but the query is slow (it has to read all of the data
+you store for every query). With an index, your queries are
 order-of-magnitude faster, but the results are approximate (because there
 are no known indexing techniques that are exact).
 
 Luckily, Timescale provides 3 excellent approximate indexing algorithms,
-Timescale Vector index, pgvector HNSW, and pgvector ivfflat. 
+Timescale Vector index, pgvector HNSW, and pgvector ivfflat.
 
 Below are the trade-offs between these algorithms:
 
 | Algorithm        | Build speed | Query speed | Need to rebuild after updates |
 |------------------|-------------|-------------|-------------------------------|
-| timescale vector | Slow        | Fastest     | No                            |
-| pgvector hnsw    | Slowest     | Faster      | No                            |
+| Timescale Vector | Slow        | Fastest     | No                            |
+| pgvector HNSW    | Slowest     | Faster      | No                            |
 | pgvector ivfflat | Fastest     | Slowest     | Yes                           |
 
 You can see
 [benchmarks](https://www.timescale.com/blog/how-we-made-postgresql-the-best-vector-database/)
-on our blog.
+on the blog.
 
-We recommend using the Timescale Vector index for most use cases. This
+You should use the Timescale Vector index for most use cases. This
 can be created with:
 
 ``` python
@@ -505,15 +503,17 @@ below.
 
 Each of these indexes has a set of build-time options for controlling
 the speed/accuracy trade-off when creating the index and an additional
-query-time option for controlling accuracy during a particular query. We
-have smart defaults for all of these options but will also describe the
-details below so that you can adjust these options manually.
+query-time option for controlling accuracy during a particular query. The
+library uses smart defaults for all of these options. The
+details for how to adjust these options manually are below.
 
+<!-- vale Google.Headings = NO -->
 #### Timescale Vector index
+<!-- vale Google.Headings = YES -->
 
 The Timescale Vector index is a graph-based algorithm that uses the
 [DiskANN](https://github.com/microsoft/DiskANN) algorithm. You can read
-more about it on our
+more about it in the
 [blog](https://www.timescale.com/blog/how-we-made-postgresql-the-best-vector-database/)
 announcing its release.
 
@@ -523,7 +523,7 @@ To create this index, run:
 vec.create_embedding_index(client.TimescaleVectorIndex())
 ```
 
-The above command will create the index using smart defaults. There are
+The above command creates the index using smart defaults. There are
 a number of parameters you could tune to adjust the accuracy/speed
 trade-off.
 
@@ -531,9 +531,9 @@ The parameters you can set at index build time are:
 
 | Parameter name   | Description                                                                                                                                                   | Default value |
 |------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|
-| num_neighbors    | Sets the maximum number of neighbors per node. Higher values increase accuracy but make the graph traversal slower.                                           | 50            |
-| search_list_size | This is the S parameter used in the greedy search algorithm used during construction. Higher values improve graph quality at the cost of slower index builds. | 100           |
-| max_alpha        | Is the alpha parameter in the algorithm. Higher values improve graph quality at the cost of slower index builds.                                              | 1.0           |
+| `num_neighbors`    | Sets the maximum number of neighbors per node. Higher values increase accuracy but make the graph traversal slower.                                           | 50            |
+| `search_list_size` | This is the S parameter used in the greedy search algorithm used during construction. Higher values improve graph quality at the cost of slower index builds. | 100           |
+| `max_alpha`        | Is the alpha parameter in the algorithm. Higher values improve graph quality at the cost of slower index builds.                                              | 1.0           |
 
 To set these parameters, you could run:
 
@@ -543,7 +543,7 @@ vec.create_embedding_index(client.TimescaleVectorIndex(num_neighbors=50, search_
 
 You can also set a parameter to control the accuracy vs. query speed
 trade-off at query time. The parameter is set in the `search()` function
-using the `query_params` argment. You can set the
+using the `query_params` argument. You can set the
 `search_list_size`(default: 100). This is the number of additional
 candidates considered during the graph search at query time. Higher
 values improve query accuracy while making the query slower.
@@ -571,7 +571,7 @@ To create this index, run:
 vec.create_embedding_index(client.HNSWIndex())
 ```
 
-The above command will create the index using smart defaults. There are
+The above command creates the index using smart defaults. There are
 a number of parameters you could tune to adjust the accuracy/speed
 trade-off.
 
@@ -579,8 +579,8 @@ The parameters you can set at index build time are:
 
 | Parameter name  | Description                                                                                                                                                                                                                                                            | Default value |
 |-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|
-| m               | Represents the maximum number of connections per layer. Think of these connections as edges created for each node during graph construction. Increasing m increases accuracy but also increases index build time and size.                                             | 16            |
-| ef_construction | Represents the size of the dynamic candidate list for constructing the graph. It influences the trade-off between index quality and construction speed. Increasing ef_construction enables more accurate search results at the expense of lengthier index build times. | 64            |
+| `m`               | Represents the maximum number of connections per layer. Think of these connections as edges created for each node during graph construction. Increasing m increases accuracy but also increases index build time and size.                                             | 16            |
+| `ef_construction` | Represents the size of the dynamic candidate list for constructing the graph. It influences the trade-off between index quality and construction speed. Increasing `ef_construction` enables more accurate search results at the expense of lengthier index build times. | 64            |
 
 To set these parameters, you could run:
 
@@ -609,7 +609,7 @@ vec.drop_embedding_index()
 
 #### pgvector ivfflat index
 
-Pgvector provides a clustering-based indexing algorithm. Our [blog
+Pgvector provides a clustering-based indexing algorithm. The [blog
 post](https://www.timescale.com/blog/nearest-neighbor-indexes-what-are-ivfflat-indexes-in-pgvector-and-how-do-they-work/)
 describes how it works in detail. It provides the fastest
 index-build speed but the slowest query speeds of any indexing
@@ -624,14 +624,14 @@ vec.create_embedding_index(client.IvfflatIndex())
 Note: *ivfflat should never be created on empty tables* because it needs
 to cluster data, and that only happens when an index is first created,
 not when new rows are inserted or modified. Also, if your table
-undergoes a lot of modifications, you will need to rebuild this index
-occasionally to maintain good accuracy. See our [blog
+undergoes a lot of modifications, you need to rebuild this index
+occasionally to maintain good accuracy. See the [blog
 post](https://www.timescale.com/blog/nearest-neighbor-indexes-what-are-ivfflat-indexes-in-pgvector-and-how-do-they-work/)
 for details.
 
 Pgvector ivfflat has a `lists` index parameter that is automatically set
 with a smart default based on the number of rows in your table. If you
-know that you’ll have a different table size, you can specify the number
+know that you'll have a different table size, you can specify the number
 of records to use for calculating the `lists` parameter as follows:
 
 ``` python
@@ -669,10 +669,10 @@ vec.drop_embedding_index()
 In many use cases where you have many embeddings, time is an important
 component associated with the embeddings. For example, when embedding
 news stories, you often search by time as well as similarity
-(e.g., stories related to Bitcoin in the past week or stories about
+(for example, stories related to Bitcoin in the past week or stories about
 Clinton in November 2016).
 
-Yet, traditionally, searching by two components “similarity” and “time”
+Yet, traditionally, searching by two components "similarity" and "time"
 is challenging for Approximate Nearest Neighbor (ANN) indexes and makes the
 similarity-search index less effective.
 
@@ -680,15 +680,15 @@ One approach to solving this is partitioning the data by time and
 creating ANN indexes on each partition individually. Then, during search,
 you can:
 
-- Step 1: filter our partitions that don’t match the time predicate.
+- Step 1: filter partitions that don't match the time predicate.
 - Step 2: perform the similarity search on all matching partitions.
-- Step 3: combine all the results from each partition in step 2, rerank,
+- Step 3: combine all the results from each partition in step 2, re-rank,
   and filter out results by time.
 
 Step 1 makes the search a lot more efficient by filtering out whole
 swaths of data in one go.
 
-Timescale-vector supports time partitioning using TimescaleDB’s
+Timescale-vector supports time partitioning using TimescaleDB's
 hypertables. To use this feature, simply indicate the length of time for
 each partition when creating the client:
 
@@ -711,10 +711,8 @@ id = uuid.uuid1()
 await vec.upsert([(id, {"key": "val"}, "the brown fox", [1.0, 1.2])])
 ```
 
-To insert data for a specific time in the past, create the UUID using
-our
-[`uuid_from_time`](https://timescale.github.io/python-vector/vector.html#uuid_from_time)
-function
+To insert data for a specific time in the past, create the UUID using the
+`uuid_from_time` function
 
 ``` python
 specific_datetime = datetime(2018, 8, 10, 15, 30, 0)
@@ -730,9 +728,9 @@ rec = await vec.search([1.0, 2.0], limit=4, uuid_time_filter=client.UUIDTimeRang
 
 ### Distance metrics
 
-By default, we use cosine distance to measure how similarly an embedding
-is to a given query. In addition to cosine distance, we also support
-Euclidean/L2 distance. The distance type is set when creating the client
+Cosine distance is used by default to measure how similarly an embedding
+is to a given query. In addition to cosine distance, Euclidean/L2 distance is
+also supported. The distance type is set when creating the client
 using the `distance_type` parameter. For example, to use the Euclidean
 distance metric, you can create the client with:
 
@@ -746,5 +744,5 @@ It is important to note that you should use consistent distance types on
 clients that create indexes and perform queries. That is because an
 index is only valid for one particular type of distance measure.
 
-Please note the Timescale Vector index only supports cosine distance at
+Note that the Timescale Vector index only supports cosine distance at
 this time.

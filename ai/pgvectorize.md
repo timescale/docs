@@ -10,15 +10,15 @@ tags: [ai, vector, pgvectorize]
 
 PgVectorize enables you to create vector embeddings from any data that
 you already have stored in PostgreSQL. You can get more background
-information in our [blog
+information in the [blog
 post](https://www.timescale.com/blog/a-complete-guide-to-creating-and-storing-embeddings-for-postgresql-data/)
-announcing this feature, as well as the [“how we built
-it”](https://www.timescale.com/blog/how-we-designed-a-resilient-vector-embedding-creation-system-for-postgresql-data/)
+announcing this feature, as well as the ["how we built
+it"](https://www.timescale.com/blog/how-we-designed-a-resilient-vector-embedding-creation-system-for-postgresql-data/)
 post going into the details of the design.
 
 To create vector embeddings, simply attach PgVectorize to any PostgreSQL
-table, and it will automatically sync that table’s data with a set of
-embeddings stored in Timescale Vector. For example, let’s say you have a
+table to automatically sync that table's data with a set of
+embeddings stored in Timescale Vector. For example, say you have a
 blog table defined in the following way:
 
 ``` python
@@ -96,7 +96,7 @@ def embed_and_write(blog_instances, vectorizer):
 
     documents = []
     for blog in blog_instances:
-        # skip blogs that are not published yet, or are deleted (in which case it will be NULL)
+        # skip blogs that are not published yet, or are deleted (in which case the column is NULL)
         if blog['published_time'] != None:
             documents.extend(get_document(blog))
 
@@ -119,8 +119,8 @@ while vectorizer.process(embed_and_write) > 0:
     pass
 ```
 
-Every time that job runs, it will sync the table with your embeddings. It
-will sync all inserts, updates, and deletes to an embeddings table called
+Every time that job runs, it syncs the table with your embeddings. It
+syncs all inserts, updates, and deletes to an embeddings table called
 `blog_embedding`.
 
 Now, you can simply search the embeddings as follows (again, using

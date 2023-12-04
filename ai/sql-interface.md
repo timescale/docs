@@ -33,11 +33,11 @@ CREATE TABLE IF NOT EXISTS document_embedding  (
 
 This table contains a primary key, a foreign key to the document table, some metadata, the text being embedded (in the `contents` column) and the embedded vector.
 
-You may ask why don’t we just add an embedding column to the document table? The answer is that there is a limit on the length of text an embedding can encode and so there needs to be a one-to-many relationship between the full document and its embeddings.
+You may ask why not just add an embedding column to the document table? The answer is that there is a limit on the length of text an embedding can encode and so there needs to be a one-to-many relationship between the full document and its embeddings.
 
-The above table is just an illustration, it’s totally fine to have a table without a foreign key and/or without a metadata column. The important thing is to have a column with the data being embedded and the vector in the same row, enabling you to return the raw data for a given similarity search query
+The above table is just an illustration, it's totally fine to have a table without a foreign key and/or without a metadata column. The important thing is to have a column with the data being embedded and the vector in the same row, enabling you to return the raw data for a given similarity search query
 
-The vector type can specify an optional number of dimensions (1,538) in the example above). If specified, it will enforce the constraint that all vectors in the column have that number of dimensions. A plain `VECTOR` (without specifying the number of dimensions) column is also possible and will allow a variable number of dimensions.
+The vector type can specify an optional number of dimensions (1,538) in the example above). If specified, it enforces the constraint that all vectors in the column have that number of dimensions. A plain `VECTOR` (without specifying the number of dimensions) column is also possible and allows a variable number of dimensions.
 
 ## Query the table
 
@@ -61,7 +61,7 @@ The available distance types and their operators are:
 | Negative inner product | `<#>`           |
 
 <Highlight type="note">
-If you are using an index, you need to make sure that the distance function used in index creation is the same one used during query (see below). This is important because if you create your index with one distance function but query with another, your index will not be used and your searches will be slowed down.
+If you are using an index, you need to make sure that the distance function used in index creation is the same one used during query (see below). This is important because if you create your index with one distance function but query with another, your index cannot be used to speed up the query.
 </Highlight>
 
 
@@ -78,30 +78,31 @@ LIMIT 10
 
 The key part is that the `ORDER BY` contains a distance measure against a constant or a pseudo-constant.
 
-Note that if performing a query without an index, you will always get an exact result, but the query will be slow (it has to read all of the data you store for every query). With an index, your queries will be order-of-magnitude faster, but the results are approximate (because there are no known indexing techniques that are exact see [here for more][vector-search-indexing]).
+Note that if performing a query without an index, you always get an exact result, but the query is slow (it has to read all of the data you store for every query). With an index, your queries are an order-of-magnitude faster, but the results are approximate (because there are no known indexing techniques that are exact see [here for more][vector-search-indexing]).
 
+<!-- vale Google.Colons = NO -->
 Nevertheless, there are excellent approximate algorithms. There are 3 different indexing algorithms available on the Timescale platform: Timescale Vector Index, pgvector HNSW, and pgvector ivfflat. Below is the trade-offs between these algorithms:
+<!-- vale Google.Colons = Yes -->
 
 | Algorithm       | Build Speed | Query Speed | Need to rebuild after updates |
 |------------------|-------------|-------------|-------------------------------|
 | Timescale Vector | Slow        | Fastest     | No                            |
-| pgvector hnsw    | Slowest     | Fast      | No                            |
+| pgvector HNSW    | Slowest     | Fast      | No                            |
 | pgvector ivfflat | Fastest     | Slowest     | Yes                           |
 
 
-You can see [benchmarks](https://www.timescale.com/blog/how-we-made-postgresql-the-best-vector-database/) on our blog.
+You can see [benchmarks](https://www.timescale.com/blog/how-we-made-postgresql-the-best-vector-database/) in the blog.
 
-We recommend using the timescale vector index for most use cases.
+For most use cases, the Timescale Vector index is recommended.
 
 Each of these indexes has a set of build-time options for controlling the speed/accuracy trade-off when creating the index and an additional query-time option for controlling accuracy during a particular query.
 
-Let’s explore the details of each index in order to learn more.
-
+You can see the details of each index below.
 
 ### Timescale Vector index
 
 
-The Timescale Vector index is a graph-based algorithm that uses the [DiskANN](https://github.com/microsoft/DiskANN) algorithm. You can read more about it on our [blog](https://www.timescale.com/blog/how-we-made-postgresql-the-best-vector-database/) announcing its release.
+The Timescale Vector index is a graph-based algorithm that uses the [DiskANN](https://github.com/microsoft/DiskANN) algorithm. You can read more about it on the [blog](https://www.timescale.com/blog/how-we-made-postgresql-the-best-vector-database/) announcing its release.
 
 
 To create an index named `document_embedding_idx` on table `document_embedding` having a vector column named `embedding`, run:
@@ -112,7 +113,7 @@ USING tsv (embedding);
 
 Timescale Vector indexes only support cosine distance at this time, so you should use the `<=>` operator in your queries.
 
-This will create the index with our smart defaults for all the index parameters. These should be the right value for most cases. But if you want to delve deeper, the available parameters are below.
+This creates the index with smart defaults for all the index parameters. These should be the right value for most cases. But if you want to delve deeper, the available parameters are below.
 
 #### Timescale Vector index build-time parameters
 
@@ -120,11 +121,11 @@ These parameters can be set when an index is created.
 
 | Parameter name   | Description                                                                                                                                                    | Default value |
 |------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|
-| num_neighbors    | Sets the maximum number of neighbors per node.  Higher values increase accuracy but make the graph traversal slower.                                           | 50            |
-| search_list_size | This is the S parameter used in the greedy search algorithm used during construction. Higher values improve graph quality at the cost of slower index builds. | 100           |
-| max_alpha        | Is the alpha parameter in the algorithm. Higher values improve graph quality at the cost of slower index builds.                                              | 1.0           |
+| `num_neighbors`    | Sets the maximum number of neighbors per node. Higher values increase accuracy but make the graph traversal slower.                                           | 50            |
+| `search_list_size` | This is the S parameter used in the greedy search algorithm used during construction. Higher values improve graph quality at the cost of slower index builds. | 100           |
+| `max_alpha`        | Is the alpha parameter in the algorithm. Higher values improve graph quality at the cost of slower index builds.                                              | 1.0           |
 
-An example of how to set the num_neighbors parameter is:
+An example of how to set the `num_neighbors` parameter is:
 
 ```sql
 CREATE INDEX document_embedding_idx ON document_embedding
@@ -136,7 +137,7 @@ TODO: Add PQ options
 -->
 
 
-#### Timescale vector query-time parameters
+#### Timescale Vector query-time parameters
 
 You can also set a parameter to control the accuracy vs. query speed trade-off at query time. The parameter is called `tsv.query_search_list_size`. This is the number of additional candidates considered during the graph search at query time. Defaults to 100. Higher values improve query accuracy while making the query slower.
 
@@ -155,9 +156,9 @@ SELECT * FROM document_embedding ORDER BY embedding <=> $1 LIMIT 10
 COMMIT;
 ```
 
-#### Timescale vector index-supported queries
+#### Timescale Vector index-supported queries
 
-You need to use the cosine-distance embedding measure (`<=>`) in your ORDER BY clause. A canonical query would be:
+You need to use the cosine-distance embedding measure (`<=>`) in your `ORDER BY` clause. A canonical query would be:
 
 ```sql
 SELECT *
@@ -176,13 +177,13 @@ CREATE INDEX document_embedding_idx ON document_embedding
 USING hnsw(embedding vector_cosine_ops);
 ```
 
-This command creates an index for cosine-distance queries because of `vector_cosine_ops`. There are also “ops” classes for Euclidean distance and negative inner product:
+This command creates an index for cosine-distance queries because of `vector_cosine_ops`. There are also "ops" classes for Euclidean distance and negative inner product:
 
 | Distance type          | Query operator | Index ops class  |
 |------------------------|----------------|-------------------|
-| Cosine / Angular       | `<=>`            | vector_cosine_ops |
-| Euclidean / L2         | `<->`            | vector_ip_ops     |
-| Negative inner product | `<#>`            | vector_l2_ops     |
+| Cosine / Angular       | `<=>`            | `vector_cosine_ops` |
+| Euclidean / L2         | `<->`            | `vector_ip_ops`     |
+| Negative inner product | `<#>`            | `vector_l2_ops`     |
 
 Pgvector HNSW also includes several index build-time and query-time parameters.
 
@@ -192,8 +193,8 @@ These parameters can be set at index build time:
 
 | Parameter name   | Description                                                                                                                                                    | Default value |
 |------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|
-| m    | Represents the maximum number of connections per layer. Think of these connections as edges created for each node during graph construction. Increasing m increases accuracy but also increases index build time and size.                                       | 16            |
-| ef_construction | Represents the size of the dynamic candidate list for constructing the graph. It influences the trade-off between index quality and construction speed. Increasing ef_construction enables more accurate search results at the expense of lengthier index build times. | 64 |
+| `m`    | Represents the maximum number of connections per layer. Think of these connections as edges created for each node during graph construction. Increasing m increases accuracy but also increases index build time and size.                                       | 16            |
+| `ef_construction` | Represents the size of the dynamic candidate list for constructing the graph. It influences the trade-off between index quality and construction speed. Increasing `ef_construction` enables more accurate search results at the expense of lengthier index build times. | 64 |
 
 An example of how to set the m parameter is:
 
@@ -223,7 +224,7 @@ COMMIT;
 
 #### pgvector HNSW index-supported queries
 
-You need to use the distance operator (`<=>`, `<->`, or `<#>`) matching the ops class you used during index creation in your ORDER BY clause. A canonical query would be:
+You need to use the distance operator (`<=>`, `<->`, or `<#>`) matching the ops class you used during index creation in your `ORDER BY` clause. A canonical query would be:
 
 ```sql
 SELECT *
@@ -234,7 +235,7 @@ LIMIT 10
 
 ### pgvector ivfflat
 
-Pgvector provides a clustering-based indexing algorithm. Our [blog post](https://www.timescale.com/blog/nearest-neighbor-indexes-what-are-ivfflat-indexes-in-pgvector-and-how-do-they-work/) describes how it works in detail. It provides the fastest index-build speed but the slowest query speeds of any indexing algorithm.
+Pgvector provides a clustering-based indexing algorithm. The [blog post](https://www.timescale.com/blog/nearest-neighbor-indexes-what-are-ivfflat-indexes-in-pgvector-and-how-do-they-work/) describes how it works in detail. It provides the fastest index-build speed but the slowest query speeds of any indexing algorithm.
 
 To create an index named `document_embedding_idx` on table `document_embedding` having a vector column named `embedding`, run:
 ```sql
@@ -242,15 +243,15 @@ CREATE INDEX document_embedding_idx ON document_embedding
 USING ivfflat(embedding vector_cosine_ops) WITH (lists = 100);
 ```
 
-This command creates an index for cosine-distance queries because of `vector_cosine_ops`. There are also “ops” classes for Euclidean distance and negative inner product:
+This command creates an index for cosine-distance queries because of `vector_cosine_ops`. There are also "ops" classes for Euclidean distance and negative inner product:
 
 | Distance type          | Query operator | Index ops class  |
 |------------------------|----------------|-------------------|
-| Cosine / Angular       | `<=>`            | vector_cosine_ops |
-| Euclidean / L2         | `<->`            | vector_ip_ops     |
-| Negative inner product | `<#>`            | vector_l2_ops     |
+| Cosine / Angular       | `<=>`            | `vector_cosine_ops` |
+| Euclidean / L2         | `<->`            | `vector_ip_ops`     |
+| Negative inner product | `<#>`            | `vector_l2_ops`     |
 
-Note: *ivfflat should never be created on empty tables* because it needs to cluster data, and that only happens when an index is first created, not when new rows are inserted or modified. Also, if your table undergoes a lot of modifications, you will need to rebuild this index occasionally to maintain good accuracy. See our [blog post](https://www.timescale.com/blog/nearest-neighbor-indexes-what-are-ivfflat-indexes-in-pgvector-and-how-do-they-work/) for details.
+Note: *ivfflat should never be created on empty tables* because it needs to cluster data, and that only happens when an index is first created, not when new rows are inserted or modified. Also, if your table undergoes a lot of modifications, you need to rebuild this index occasionally to maintain good accuracy. See the [blog post](https://www.timescale.com/blog/nearest-neighbor-indexes-what-are-ivfflat-indexes-in-pgvector-and-how-do-they-work/) for details.
 
 Pgvector ivfflat has a `lists` index parameter that should be set. See the next section.
 
@@ -312,7 +313,7 @@ COMMIT;
 
 #### pgvector ivfflat index-supported queries
 
-You need to use the distance operator (`<=>`, `<->`, or `<#>`) matching the ops class you used during index creation in your ORDER BY clause. A canonical query would be:
+You need to use the distance operator (`<=>`, `<->`, or `<#>`) matching the ops class you used during index creation in your `ORDER BY` clause. A canonical query would be:
 
 ```sql
 SELECT *
