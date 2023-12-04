@@ -42,7 +42,7 @@ import uuid
 from datetime import datetime, timedelta
 ```
 
-Load up your PostgreSQL credentials. Safest way is with a .env file:
+Load up your PostgreSQL credentials, the dafest way is with a `.env` file:
 
 ``` python
 _ = load_dotenv(find_dotenv(), override=True)
@@ -92,7 +92,7 @@ You can now create a vector index to speed up similarity search:
 vec.create_embedding_index(client.TimescaleVectorIndex())
 ```
 
-Now, you can query for similar items:
+Then, you can query for similar items:
 
 ``` python
 vec.search([1.0, 9.0])
@@ -169,7 +169,7 @@ vec.delete_all()
 
 ## Advanced usage
 
-In this section, we will go into more detail about our feature. We will cover:
+In this section, we will go into more detail about the Python interface. We will cover:
 
 1.  Search filter options - how to narrow your search by additional
     constraints
@@ -197,7 +197,7 @@ vec.upsert([\
 ])
 ```
 
-The basic query looks like:
+The basic query looks like this:
 
 ``` python
 vec.search([1.0, 9.0])
@@ -228,12 +228,11 @@ vec.search([1.0, 9.0], limit=1)
 
 #### Narrowing your search by metadata
 
-We have two main ways to filter results by metadata: - `filters` for
-equality matches on metadata. - `predicates` for complex conditions on
-metadata.
+We have two main ways to filter results by metadata: 
+- `filters` for equality matches on metadata.
+- `predicates` for complex conditions on metadata.
 
-Filters are more likely to be performant but are more limited in what
-they can express, so we suggest using those if your use case allows it.
+Filters are are more limited in what they can express, but are also more performant. We suggest using these if your use case allows it.
 
 ##### Filters
 
@@ -291,11 +290,13 @@ The supported operators are: `==`, `!=`, `<`, `<=`, `>`, `>=`
 
 The type of the values determines the type of comparison to perform. For
 example, passing in `"Sam"` (a string) will do a string comparison while
-a `10` (an int) will perform an integer comparison while a `10.0`
+a `10` (an int) will perform an integer comparison, and a `10.0`
 (float) will do a float comparison. It is important to note that using a
 value of `"10"` will do a string comparison as well so it’s important to
 use the right type. Supported Python types are: `str`, `int`, and
-`float`. One more example with a string comparison:
+`float`. 
+
+One more example with a string comparison:
 
 ``` python
 vec.search([1.0, 9.0], limit=2, predicates=client.Predicates("action", "==", "jump"))
@@ -322,7 +323,7 @@ vec.search([1.0, 9.0], limit=2, predicates=client.Predicates("action", "==", "ju
       0.00016793422934946456]]
 
 Just for sanity, let’s show a case where no results are returned because
-or predicates:
+of predicates:
 
 ``` python
 vec.search([1.0, 9.0], limit=2, predicates=client.Predicates("action", "==", "jump") & client.Predicates("times", "==", 1))
@@ -360,9 +361,9 @@ vec.search([1.0, 9.0], limit=2, predicates=client.Predicates(("action", "==", "j
 
 #### Filter your search by time
 
-When using `time-partitioning`(see below). You can very efficiently
-filter your search by time. Time-partitioning makes a timestamp embedded
-as part of the UUID-based ID associated with an embedding. Let us first
+When using `time-partitioning` (see below) you can very efficiently
+filter your search by time. Time-partitioning associates the timestamp embedded
+in a UUID-based ID with an embedding. Let us first
 create a collection with time partitioning and insert some data (one
 item from January 2018 and another in January 2019):
 
@@ -466,7 +467,7 @@ tpvec.search([1.0, 9.0], limit=4,
 Indexing speeds up queries over your data. By default, we set up indexes
 to query your data by the UUID and the metadata.
 
-But to speed up similarity search based on the embeddings, you have to
+To speed up similarity search based on the embeddings, you have to
 create additional indexes.
 
 Note that if performing a query without an index, you will always get an
@@ -475,10 +476,10 @@ you store for every query). With an index, your queries will be
 order-of-magnitude faster, but the results are approximate (because there
 are no known indexing techniques that are exact).
 
-Nevertheless, there are excellent approximate algorithms. There are 3
-different indexing algorithms available on the Timescale platform:
-Timescale Vector index, pgvector HNSW, and pgvector ivfflat. Below are
-the trade-offs between these algorithms:
+Luckily, Timescale provides 3 excellent approximate indexing algorithms,
+Timescale Vector index, pgvector HNSW, and pgvector ivfflat. 
+
+Below are the trade-offs between these algorithms:
 
 | Algorithm        | Build speed | Query speed | Need to rebuild after updates |
 |------------------|-------------|-------------|-------------------------------|
