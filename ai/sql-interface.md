@@ -50,7 +50,7 @@ ORDER BY embedding <=> $1
 LIMIT 10
 ```
 
-Which returns the 10 rows whose distance is the smallest. The distance function used here is cosine distance (specified by using the <=> operator). Other distance functions are available, see the [discussion][distance-functions].
+Which returns the 10 rows whose distance is the smallest. The distance function used here is cosine distance (specified by using the `<=>` operator). Other distance functions are available, see the [discussion][distance-functions].
 
 The available distance types and their operators are:
 
@@ -60,7 +60,9 @@ The available distance types and their operators are:
 | Euclidean              | `<->`           |
 | Negative inner product | `<#>`           |
 
-Note: If you are using an index, you need to make sure that the distance function used in index creation is the same one used during query (see below). This is important because if you create your index with one distance function but query with another, your index will not be used and your searches will be slowed down.
+<Highlight type="note">
+If you are using an index, you need to make sure that the distance function used in index creation is the same one used during query (see below). This is important because if you create your index with one distance function but query with another, your index will not be used and your searches will be slowed down.
+</Highlight>
 
 
 ## Indexing the vector data in the table
@@ -114,7 +116,7 @@ This will create the index with our smart defaults for all the index parameters.
 
 #### Timescale Vector index build-time parameters
 
-These parameters can be set at index build time:
+These parameters can be set when an index is created.
 
 | Parameter name   | Description                                                                                                                                                    | Default value |
 |------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|
