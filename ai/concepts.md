@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS document_embedding  (
 )
 ```
 
-This table contains a primary key, a foreign key to the document table, some metadata, the text being embedded (in the `contents` column) and the embedded vector.
+This table contains a primary key, a foreign key to the document table, some metadata, the text being embedded (in the `contents` column), and the embedded vector.
 
 This may seem like a bit of a weird design—why don’t we just stick the embedding column in the document table? The answer has to do with context length limits of embedding models and of LLMs. When embedding data, there is a limit to the length of content you can embed (e.g., for OpenAI’s ada-002 this limit is [8191 tokens]((https://platform.openai.com/docs/guides/embeddings/second-generation-models))), and so, if you are embedding a long piece of text, you have to break it up into smaller chunks and embed each chunk individually. Therefore, when thinking about this at the database layer, there is usually a one-to-many relationship between the thing being embedded and the embeddings which is represented by a foreign key from the embedding to the thing.
 
@@ -32,7 +32,7 @@ Of course, if you do not want to store the original data in the database and you
 
 The canonical query for vectors is for the closest query vectors to an embedding of the user’s query. This is also known as finding the [K nearest neighbors](https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm).
 
-In the example query below, $1 is a parameter taking a query embedding, and the `<=>` operator calculates the distance between the query embedding and embedding vectors stored in the database (and returns a float value).
+In the example query below, `$1` is a parameter taking a query embedding, and the `<=>` operator calculates the distance between the query embedding and embedding vectors stored in the database (and returns a float value).
 
 ```sql
 SELECT *
@@ -54,16 +54,16 @@ Note: In practice, we don’t believe the choice of distance measure matters muc
 
 Here's a succinct description of three common vector distance measures
 
-*Cosine distance a.k.a. angular distance*: This measures the cosine of the angle between two vectors. It's not a true “distance” in the mathematical sense but a similarity measure, where a smaller angle corresponds to a higher similarity. The cosine distance is particularly useful in high-dimensional spaces where the magnitude of the vectors (their length) is less important, such as in text analysis or information retrieval. It ranges from -1 (meaning exactly opposite) to 1 (exactly the same), with 0 typically indicating orthogonality (no similarity). See here for more on [cosine similarity](https://en.wikipedia.org/wiki/Cosine_similarity).
+- **Cosine distance a.k.a. angular distance**: This measures the cosine of the angle between two vectors. It's not a true “distance” in the mathematical sense but a similarity measure, where a smaller angle corresponds to a higher similarity. The cosine distance is particularly useful in high-dimensional spaces where the magnitude of the vectors (their length) is less important, such as in text analysis or information retrieval. It ranges from -1 (meaning exactly opposite) to 1 (exactly the same), with 0 typically indicating orthogonality (no similarity). See here for more on [cosine similarity](https://en.wikipedia.org/wiki/Cosine_similarity).
 
-*Negative inner product*: This is simply the negative of the inner product (also known as the dot product) of two vectors. The inner product measures vector similarity based on the vectors' magnitudes and the cosine of the angle between them. A higher inner product indicates greater similarity. However, it's important to note that, unlike cosine similarity, the magnitude of the vectors influences the inner product.
+- **Negative inner product**: This is simply the negative of the inner product (also known as the dot product) of two vectors. The inner product measures vector similarity based on the vectors' magnitudes and the cosine of the angle between them. A higher inner product indicates greater similarity. However, it's important to note that, unlike cosine similarity, the magnitude of the vectors influences the inner product.
 
-*Euclidean distance*: This is the "ordinary" straight-line distance between two points in Euclidean space. In terms of vectors, it's the square root of the sum of the squared differences between corresponding elements of the vectors. This measure is sensitive to the magnitude of the vectors and is widely used in various fields such as clustering and nearest neighbor search.
+- **Euclidean distance**: This is the "ordinary" straight-line distance between two points in Euclidean space. In terms of vectors, it's the square root of the sum of the squared differences between corresponding elements of the vectors. This measure is sensitive to the magnitude of the vectors and is widely used in various fields such as clustering and nearest neighbor search.
 
 Many embedding systems (for example OpenAI’s ada-002) use vectors with length 1 (unit vectors). For those systems, the rankings (ordering) of all three measures is the same. In particular,
-The cosine distance is 1−dot product.
-The negative inner product is −dot product.
-The Euclidean distance is related to the dot product, where the squared Euclidean distance is 2(1−dot product).
+- The cosine distance is `1−dot product`.
+- The negative inner product is `−dot product`.
+- The Euclidean distance is related to the dot product, where the squared Euclidean distance is `2(1−dot product)`.
 
 #### Recommended vector distance
 
@@ -73,7 +73,9 @@ We recommend using cosine distance, especially on unit vectors. We base these re
 
 In PostgreSQL and other relational databases, indexing is a way to speed up queries. For vector data, indexes speed up the similarity search query shown above where you find the most similar embedding to some given query embedding. This problem is often referred to as finding the [K nearest neighbors](https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm).
 
-> Note: The term “index” in the context of vector databases has multiple meanings. It can refer to both the storage mechanism for your data and the tool that enhances query efficiency. Here, we are using the latter meaning.
+<Highlight type="note">
+The term "index" in the context of vector databases has multiple meanings. It can refer to both the storage mechanism for your data and the tool that enhances query efficiency. Here, we are using the latter meaning.
+</Highlight>
 
 Finding the K nearest neighbors is not a new problem in PostgreSQL, but existing techniques only work with low-dimensional data. These approaches cease to be effective when dealing with data larger than approximately 10 dimensions due to the "curse of dimensionality." Given that embeddings often consist of more than a thousand dimensions—OpenAI’s are 1,536—new techniques had to be developed.
 
