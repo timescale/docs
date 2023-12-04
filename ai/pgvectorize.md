@@ -12,7 +12,7 @@ PgVectorize enables you to create vector embeddings from any data that
 you already have stored in PostgreSQL. You can get more background
 information in our [blog
 post](https://www.timescale.com/blog/a-complete-guide-to-creating-and-storing-embeddings-for-postgresql-data/)
-announcing this feature, as well as a [“how we built
+announcing this feature, as well as the [“how we built
 it”](https://www.timescale.com/blog/how-we-designed-a-resilient-vector-embedding-creation-system-for-postgresql-data/)
 post going into the details of the design.
 
