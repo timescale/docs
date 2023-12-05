@@ -214,7 +214,7 @@ server by setting the `timescaledb.bgw_log_level` GUC and reloading
 the configuration.
 
 ```sql
-ALTER SYSTEM SET timescaledb.bgw_log_level TO 'DEBUG1';
+ALTER DATABASE SET timescaledb.bgw_log_level TO 'DEBUG1';
 SELECT pg_reload_conf();
 ```
 
@@ -260,7 +260,7 @@ behaviour][log_min_messages].
 
 | Source    | Event                                |
 |-----------|--------------------------------------|
-| Scheduler | Scheduled wakeup                     |
+| Scheduler | Scheduled wake up                     |
 | Scheduler | Scheduler delayed in dispatching job |
 
 [downloaded separately]: https://raw.githubusercontent.com/timescale/timescaledb/master/scripts/dump_meta_data.sql
