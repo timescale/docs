@@ -17,12 +17,13 @@ This guide illustrates the process of migrating a Postgres database from an
 AWS RDS service to a Timescale instance. We will use Postgres community tools
 like `pg_dump` and `pg_restore` to facilitate the migration process.
 
-<Highlight type="important">
-Please be aware that this migration process requires a period of downtime for
-your production database, the duration of which is subject to the size of your
-database. If you want a migration solution from your RDS instance to Timescale
-that offers low downtime, please refer the following document: [RDS to Timescale using live migration]
-</Highlight>
+Migrating data using pg_dump requires a period of downtime for
+your production database, the duration of which is proportional to the size of your
+database. Your applications will not be able to write to your production database
+during the migration process. If you want a migration solution from your RDS instance to Timescale
+that offers low downtime, please refer to [AWS RDS to Timescale using live migration][live-migration]
+
+<SourceTargetNote />
 
 ## Prerequisites
 Before initiating the migration process, you will require:
@@ -76,27 +77,29 @@ machine in the same VPC as the RDS service.
 
 3. Configure your EC2 instance.
 
-3.a. For "Instance type", use 2 CPU and 8 GB memory at least. If your migration involves
-a larger database, you should choose accordingly.
-<img class="main-content__illustration"
- src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-pg_dump/configure-ec2-1.jpeg"
- alt="Choose instance type"/>
+  a. For "Application and OS image", choose Ubuntu Server LTS.
 
-3.b. For "Key pair", you can choose to use an existing key pair or create a new one.
-This will be necessary when connecting to the EC2 instance from your local machine.
+  b. For "Instance type", use 2 CPU and 8 GB memory at least. If your migration involves
+  a larger database, you should choose accordingly.
+  <img class="main-content__illustration"
+    src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-pg_dump/configure-ec2-1.jpeg"
+    alt="Choose instance type"/>
 
-3.c. For "Network Settings", select the same VPC that your RDS instance is located in.
-Also, modify the "Source Type" of the security group to "My IP" so that your local
-machine can connect to the EC2 instance.
-<img class="main-content__illustration"
- src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-pg_dump/configure-ec2-2.jpeg"
- alt="Configure network"/>
+  c. For "Key pair", you can choose to use an existing key pair or create a new one.
+  This will be necessary when connecting to the EC2 instance from your local machine.
 
-3.d. For "Configure Storage" section, adjust the volume size to match the size of
-your database. If necessary, you should enable encryption on your volume.
-<img class="main-content__illustration"
- src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-pg_dump/configure-ec2-3.jpeg"
- alt="Configure storage"/>
+  d. For "Network Settings", select the same VPC that your RDS instance is located in.
+  Also, modify the "Source Type" of the security group to "My IP" so that your local
+  machine can connect to the EC2 instance.
+  <img class="main-content__illustration"
+    src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-pg_dump/configure-ec2-2.jpeg"
+    alt="Configure network"/>
+
+  e. For "Configure Storage" section, adjust the volume size to match the size of
+  your database. If necessary, you should enable encryption on your volume.
+  <img class="main-content__illustration"
+    src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-pg_dump/configure-ec2-3.jpeg"
+    alt="Configure storage"/>
 
 4. Review the summary of the instance and click "Launch instance".
 <img class="main-content__illustration"
@@ -104,13 +107,6 @@ your database. If necessary, you should enable encryption on your volume.
  alt="Review EC2 instance"/>
 
 #### Prepare the EC2 instance
-
-<Highlight type="info">
-The procedures outlined in this, as well as subsequent sections, are based on the
-assumption that an Ubuntu Amazon Machine Image (AMI) was selected during the
-setup of the EC2 instance.
-</Highlight>
-
 To prepare your EC2 instance for migration:
 1. Navigate to your EC2 instance and click on the "Connect" button.
 <img class="main-content__illustration"
@@ -140,23 +136,23 @@ psql --version && pg_dump --version
 5. To allow an EC2 instance to connect to an RDS instance, you need to modify the
 security group associated with your RDS instance.
 
-5.a. Note the Private IPv4 address of your EC2 instance.
-<img class="main-content__illustration"
- src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-pg_dump/private-ipv4-address.jpeg"
- alt="Note private IPv4 address of your EC2 instance"/>
+  a. Note the Private IPv4 address of your EC2 instance.
+  <img class="main-content__illustration"
+    src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-pg_dump/private-ipv4-address.jpeg"
+    alt="Note private IPv4 address of your EC2 instance"/>
 
-5.b. Go to the security group associated with your RDS instance and select
-"Edit inbound rules".
-<img class="main-content__illustration"
- src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-pg_dump/modify-firewall-rules.jpeg"
- alt="Edit inbound rules"/>
+  b. Go to the security group associated with your RDS instance and select
+  "Edit inbound rules".
+  <img class="main-content__illustration"
+    src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-pg_dump/modify-firewall-rules.jpeg"
+    alt="Edit inbound rules"/>
 
-5.c. Choose "Add rule". In the "Type" field, select "PostgreSQL". For "Source", select
-"Custom" and input the Private IPv4 address of your EC2 instance. Add a
-suitable description for this rule. Finally, click on "Save rules" to apply the changes.
-<img class="main-content__illustration"
- src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-pg_dump/add-firewall-rule.jpeg"
- alt="Add a new rule"/>
+  c. Choose "Add rule". In the "Type" field, select "PostgreSQL". For "Source", select
+  "Custom" and input the Private IPv4 address of your EC2 instance. Add a
+  suitable description for this rule. Finally, click on "Save rules" to apply the changes.
+  <img class="main-content__illustration"
+    src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-pg_dump/add-firewall-rule.jpeg"
+    alt="Add a new rule"/>
 
 6. Verify the connection to the RDS service from your EC2 instance. Please note,
 you will be prompted to enter the master password. This should be the same password
@@ -171,11 +167,9 @@ Password for user postgres:
 (1 row)
 ```
 
-## Performing data migration
-
 <GettingHelp />
 
-<SourceTargetNote />
+## Performing data migration
 
 The migration process consists of the following steps:
 1. Set up a target database instance in Timescale.
@@ -192,11 +186,13 @@ is not receiving any DML queries. This is important to guarantee a consistent
 migration and to ensure that the resulting database accurately reflects your source database.
 
 <Highlight type="important">
-This will cause a downtime on applications that depend (write) on the source
-database. The duration of downtime depends on the size of the source database.
+For a consistent migration of data from source to target, your production applications
+should not be writing to your source database (i.e., they will have to undergo a downtime),
+otherwise, the data written to the source database after starting the migration process
+will not be present on the target database.
 
-For a low-downtime migration solution from AWS RDS Postgres service to Timescale,
-please refer the following document: TODO Harkishen
+If you want to write to your source database during the migration process, please refer
+to the [live-migration] playbook.
 </Highlight>
 
 ### 2.a Migrate database roles from the source to target
@@ -272,7 +268,7 @@ database and querying the restored data.
 Once you have verified that the data is present, and returns the results that you
 expect, you can reconfigure your applications to use the target database.
 
-[RDS to Timescale using live migration]: /migrate/:currentVersion:/playbooks/rds-timescale-live-migration/
+[live-migration]: /migrate/:currentVersion:/playbooks/rds-timescale-live-migration/
 [hypertable documentation]: /use-timescale/:currentVersion:/hypertables/
 [retention]: /use-timescale/:currentVersion:/data-retention/
 [compression]: /use-timescale/:currentVersion:/compression/

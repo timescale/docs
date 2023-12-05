@@ -15,7 +15,7 @@ import DumpSourceSchema from "versionContent/_partials/_migrate_dump_source_sche
 
 # Migrate from AWS RDS to Timescale using live migration with low-downtime
 This document provides a step-by-step guide to migrating a database from an AWS
-RDS Postgres instance to Timescale using our [Live migration] strategy to achieve
+RDS Postgres instance to Timescale using our [live migration] strategy to achieve
 low application downtime (on the order of minutes).
 
 Live migration's replication mechanism is fundamentally based on Postgres' logical
@@ -225,28 +225,24 @@ instance. We will set up an EC2 instance in the same VPC as the RDS service.
 
 3. Configure your EC2 instance.
 
-3.a For "Instance type", use 2 CPU and 8 GB memory at least. If your migration involves a larger database, you should choose accordingly.
-<img class="main-content__illustration"
- src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-live-migration/config-instance-type.jpg"
- alt="Configure instance type"/>
+  a. For "Application and OS image", choose Ubuntu Server LTS.
 
-<Highlight type="info">
-The procedures outlined in this, as well as subsequent sections, are based on the
-assumption that an Ubuntu Amazon Machine Image (AMI) was selected during the setup
-of the EC2 instance.
-</Highlight>
+  b. For "Instance type", use 2 CPU and 8 GB memory at least. If your migration involves a larger database, you should choose accordingly.
+  <img class="main-content__illustration"
+    src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-live-migration/config-instance-type.jpg"
+    alt="Configure instance type"/>
 
-3.b. For "Key pair", you can choose to use an existing key pair or create a new one. This will be necessary when connecting to the EC2 instance from your local machine.
+  c. For "Key pair", you can choose to use an existing key pair or create a new one. This will be necessary when connecting to the EC2 instance from your local machine.
 
-3.c. For "Network Settings", select the same VPC that your RDS instance is located in. Also, modify the "Source Type" of the security group to "My IP" so that your local machine can connect to the EC2 instance.
-<img class="main-content__illustration"
- src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-live-migration/config-network.jpg"
- alt="Configure network"/>
+  d. For "Network Settings", select the same VPC that your RDS instance is located in. Also, modify the "Source Type" of the security group to "My IP" so that your local machine can connect to the EC2 instance.
+  <img class="main-content__illustration"
+    src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-live-migration/config-network.jpg"
+    alt="Configure network"/>
 
-3.d. For "Configure Storage" section, adjust the volume size to match the *1.5x the size of your database*. If necessary, you should enable encryption on your volume.
-<img class="main-content__illustration"
- src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-live-migration/config-storage.jpg"
- alt="Configure storage"/>
+  e. For "Configure Storage" section, adjust the volume size to match the *1.5x the size of your database*. If necessary, you should enable encryption on your volume.
+  <img class="main-content__illustration"
+    src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-live-migration/config-storage.jpg"
+    alt="Configure storage"/>
 
 4. Review the summary of the instance and click "Launch instance".
 <img class="main-content__illustration"
@@ -283,22 +279,22 @@ psql --version && pg_dump --version && pgcopydb --version
 5. To allow an EC2 instance to connect to an RDS instance, you need to modify the
 security group associated with your RDS instance.
 
-5.a. Note the Private IPv4 address of your EC2 instance.
-<img class="main-content__illustration"
- src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-live-migration/note-private-ipv4.jpg"
- alt="Note the private IPv4 address"/>
+  a. Note the Private IPv4 address of your EC2 instance.
+  <img class="main-content__illustration"
+    src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-live-migration/note-private-ipv4.jpg"
+    alt="Note the private IPv4 address"/>
 
-5.b. Go to the security group associated with your RDS instance and select "Edit inbound rules".
-<img class="main-content__illustration"
- src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-live-migration/edit-security-group.jpg"
- alt="Edit the security group"/>
+  b. Go to the security group associated with your RDS instance and select "Edit inbound rules".
+  <img class="main-content__illustration"
+    src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-live-migration/edit-security-group.jpg"
+    alt="Edit the security group"/>
 
-5.c. Click "Add rule". In the "Type" field, select "PostgreSQL". For "Source", select
-"Custom" and input the Private IPv4 address of your EC2 instance. Add a suitable
-description for this rule. Finally, click on "Save rules" to apply the changes.
-<img class="main-content__illustration"
- src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-live-migration/add-new-rule.jpg"
- alt="Add new rule"/>
+  c. Click "Add rule". In the "Type" field, select "PostgreSQL". For "Source", select
+  "Custom" and input the Private IPv4 address of your EC2 instance. Add a suitable
+  description for this rule. Finally, click on "Save rules" to apply the changes.
+  <img class="main-content__illustration"
+    src="https://assets.timescale.com/docs/images/playbooks/rds-to-ts-live-migration/add-new-rule.jpg"
+    alt="Add new rule"/>
 
 6. Verify the connection to the RDS service from your EC2 instance. Please note,
 you will be prompted to enter the master password. This should be the same password
@@ -313,8 +309,9 @@ Password for user postgres:
 (1 row)
 ```
 
-## Performing data migration
 <GettingHelp />
+
+## Performing data migration
 
 The migration process consists of the following steps:
 1. Set up a target database instance in Timescale.
@@ -365,7 +362,7 @@ pgcopydb follow \
   --plugin wal2json
 ```
 
-This command is going to be active during most of the migration process. You can
+This command is going to be active during most of the migration process. You should
 run it in the background or use terminal multiplexers like `screen` or `tmux`.
 
 The `follow` command sets up a replication slot in the source database to stream
@@ -377,8 +374,8 @@ This ID can be utilized to migrate data that was in the database before the repl
 slot was created.
 
 ## 4. Migrate roles and schema from source to target
-Before applying Change Data Capture (CDC) operations such as inserts, updates, and deletes
-from the replication slot, the schema and data from the source database need to be migrated.
+Before applying DML operations from the replication slot, the schema and data from
+the source database need to be migrated.
 The larger the size of the source database, the more time it takes to perform the
 initial migration, and the longer the buffered files need to be stored.
 
@@ -403,5 +400,5 @@ with low-downtime are the same as the ones mentioned in "Live migration"
 documentation from [Step 5] onwards. You should follow the mentioned steps
 to successfully complete the migration process.
 
-[Live migration]: /migrate/:currentVersion:/live-migration/live-migration-from-postgres/
+[live migration]: /migrate/:currentVersion:/live-migration/live-migration-from-postgres/
 [Step 5]: /migrate/:currentVersion:/live-migration/live-migration-from-postgres/#5-enable-hypertables
