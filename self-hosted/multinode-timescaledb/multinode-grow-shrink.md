@@ -6,6 +6,10 @@ keywords: [multi-node, data nodes]
 tags: [add, remove]
 ---
 
+import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";
+
+<MultiNodeDeprecation />
+
 # Grow and shrink multi-node
 
 When you are working within a multi-node environment, you might discover that
@@ -64,7 +68,7 @@ distributed hypertable so that your database can use them.
 <Highlight type="important">
 When you attach a new data node, the partitioning configuration of the
 distributed hypertable is updated to account for the additional data node, and
-the number of space partitions are automatically increased to match. You can
+the number of hash partitions are automatically increased to match. You can
 prevent this happening by setting the function parameter `repartition` to
 `FALSE`.
 </Highlight>

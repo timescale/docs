@@ -7,6 +7,9 @@ keywords: [hypertables, create]
 
 # Create hypertables
 
+**Note: this uses the new generalized hypertable API. The [old interface for `create_hypertable is also available](create_hypertable_old.md).**
+
+
 After [creating a Timescale database][install], you're ready to create your
 first hypertable. Creating a hypertable is a two-step process:
 
@@ -46,7 +49,7 @@ more information, see [PostgreSQL timestamp][postgresql-timestamp].
     convert, and the column that holds its time values.
 
      ```sql
-     SELECT create_hypertable('conditions', 'time');
+     SELECT create_hypertable('conditions', by_range('time'));
      ```
 
 <Highlight type="note">

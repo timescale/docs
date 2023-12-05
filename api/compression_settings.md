@@ -35,7 +35,7 @@ decompressed by mutable compression.
 
 ```sql
 CREATE TABLE hypertab (a_col integer, b_col integer, c_col integer, d_col integer, e_col integer);
-SELECT table_name FROM create_hypertable('hypertab', 'a_col', chunk_time_interval => 864000000);
+SELECT table_name FROM create_hypertable('hypertab', by_range('a_col', 864000000));
 
 ALTER TABLE hypertab SET (timescaledb.compress, timescaledb.compress_segmentby = 'a_col,b_col',
   timescaledb.compress_orderby = 'c_col desc, d_col asc nulls last');

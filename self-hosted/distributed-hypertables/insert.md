@@ -6,6 +6,10 @@ keywords: [write, distributed hypertables]
 tags: [ingest, insert]
 ---
 
+import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";
+
+<MultiNodeDeprecation />
+
 # Insert data
 
 You can insert data into a distributed hypertable with an `INSERT` statement.

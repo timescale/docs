@@ -239,7 +239,7 @@ and most other tasks are executed on the hypertable.
 1.  Create a statement, execute the query you created in the previous step:
 
 ```sql
-SELECT create_hypertable('sensor_data', 'time');
+SELECT create_hypertable('sensor_data', by_range('time'));
 ```
 
 1.  Execute the two statements you created, and commit your changes to the
@@ -287,7 +287,7 @@ SELECT create_hypertable('sensor_data', 'time');
             }
 
             try (var stmt = conn.createStatement()) {
-                stmt.execute("SELECT create_hypertable('sensor_data', 'time')");
+                stmt.execute("SELECT create_hypertable('sensor_data', by_range('time'))");
             }
         }
     }
@@ -486,7 +486,7 @@ public class Main {
         }
 
         try (var stmt = conn.createStatement()) {
-            stmt.execute("SELECT create_hypertable('sensor_data', 'time')");
+            stmt.execute("SELECT create_hypertable('sensor_data', by_range('time'))");
         }
     }
 
@@ -577,7 +577,7 @@ public class Main {
         }
 
         try (var stmt = conn.createStatement()) {
-            stmt.execute("SELECT create_hypertable('sensor_data', 'time')");
+            stmt.execute("SELECT create_hypertable('sensor_data', by_range('time'))");
         }
     }
 
