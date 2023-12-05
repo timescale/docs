@@ -17,8 +17,7 @@ You can view your service metrics from the Timescale
 [metrics dashboard][metrics-dashboard]. This dashboard gives you service-level
 information, such as CPU, memory, and storage usage.
 
-You can view query-level statistics from the `Query stats` tab. You can also
-view your query-level statistics by using the pre-installed
+You can view your query-level statistics by using the pre-installed
 [`pg_stat_statements`][pg-stat] extension from a PostgreSQL client.
 
 ## Metrics dashboard
@@ -66,48 +65,6 @@ operations team.
 width={1375} height={944}
 src="https://assets.timescale.com/docs/images/tsc-disk-metrics.webp"
 alt="Timescale metrics dashboard"/>
-
-## Query-level statistics in the Timescale dashboard
-
-You can analyze your queries by navigating to the `Query stats` tab from the
-Services dashboard.
-
-<EarlyAccess />
-
-Use the filter at the top of the page to view details of your queries, including
-how many rows the query returned, and the time the query took to run.
-
-<img class="main-content__illustration"
-src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc_querystats_expanded.webp"
-width={1375} height={944}
-alt="The Timescale query stats viewer showing the statistics for a recent query" />
-
-In the results window, use the horizontal scroll bar at the bottom of the screen
-to see statistics for your query. You can also use the arrow to the left of the
-query to expand it. The columns show these details about your queries:
-
-|Column|Description|
-|-|-|
-|Executions|Number of times the query has been run during the results period|
-|Total rows|Total number of rows scanned, inserted, or updated by the query during the results period|
-|Median rows|Median number of rows touched each time the query is run|
-|P05 time|The fifth percentile, or the minimum time this query took|
-|Median time|Median number of microseconds (µs) or milliseconds (ms) it took to run the query|
-|P95 time|The ninety-fifth percentile, or the maximum time this query took|
-|Median memory|Median amount of memory consumed by the query
-|P95 memory|The ninety-fifth percentile, or the maximum memory this query used|
-|Median bytes read|Median number of bytes used each time the query is run|
-|P95 bytes read|The ninety-fifth percentile, or the maximum number of bytes this query used|
-|Cache hit ratio|Ratio of memory used compared to disk used, as a percentage. Calculated as `cache hit / (cache hit + cache miss)`.|
-|Hypertables|A green check mark is shown if results were drawn from a hypertable|
-|Compressed tables|A green check mark is shown if results were drawn from a compressed table|
-|User name|Username of the logged in user running the query|
-
-<Highlight type="note">
-If you have just completed a query, it can take a minute or two for it to show
-in the query stats viewer. Wait a little, and then refresh the page to see your
-query.
-</Highlight>
 
 ## Query-level statistics with pg_stat_statements
 

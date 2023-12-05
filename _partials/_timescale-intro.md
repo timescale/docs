@@ -1,2 +1,2 @@
-Timescale extends PostgreSQL for time-series and analytics, so you can build
-faster, scale further, and stay under budget.
+Timescale extends PostgreSQL for all of your resource-intensive production workloads, so you 
+can build faster, scale further, and stay under budget.

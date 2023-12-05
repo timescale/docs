@@ -212,6 +212,17 @@ update your application to adjust the port it uses to connect to your service.
 
 </Procedure>
 
+<Procedure>
+
+### pgBouncer statistics commands
+
+1.  Connect to your database.
+1.  Switch to the `pgbouncer` database: `\c pgbouncer`
+1.  Run any read-only command for the pgBouncer cli (e.g., `SHOW STATS;`).
+1.  For full options, see the pgBouncer [docs here][pgbouncer].
+
+</Procedure>
+
 ### VPC and connection pooling
 VPCs are supported with connection pooling. It does not matter the order you 
 add the pooler or connect to a VPC. Your connection strings will automatically 
@@ -219,3 +230,4 @@ be updated to use the VPC connection string.
 
 [cloud-login]: https://console.cloud.timescale.com
 [about-connection-pooling-types]: /use-timescale/:currentVersion:/services/connection-pooling#pool-types
+[pgbouncer]: https://www.pgbouncer.org/usage.html

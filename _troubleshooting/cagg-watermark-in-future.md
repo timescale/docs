@@ -74,11 +74,11 @@ window.
     continuous aggregate data:
 
     ```sql
-    SELECT id from _timescaledb_catalog.hypertable
+    SELECT id FROM _timescaledb_catalog.hypertable
         WHERE table_name=(
             SELECT materialization_hypertable_name
                 FROM timescaledb_information.continuous_aggregates
-                WHERE view_name='<continuous_aggregate_name'
+                WHERE view_name='<continuous_aggregate_name>'
         );
     ```
 

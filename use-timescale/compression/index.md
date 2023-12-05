@@ -17,8 +17,3 @@ data to the form of compressed columns. This occurs across chunks of Timescale
 hypertables.
 
 <UsageBasedStorage />
-
-[backfill-historical]: /use-timescale/:currentVersion:/compression/backfill-historical-data/
-[decompress-chunks]: /use-timescale/:currentVersion:/compression/decompress-chunks/
-[modify-schema]: /use-timescale/:currentVersion:/compression/modify-a-schema/
-[compression-tshoot]: /use-timescale/:currentVersion:/compression/troubleshooting/

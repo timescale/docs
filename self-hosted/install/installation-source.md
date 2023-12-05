@@ -15,9 +15,9 @@ or installation tool.
 
 Before you start, make sure you have installed:
 
-*   PostgreSQL 12 or later, with a development environment. For more information
-    about PostgreSQL installation, including downloads and instructions, see the
-    [PostgreSQL documentation][postgres-download].
+*   A [supported version of PostgreSQL][compatibility-matrix], with a development environment. 
+    For more information about PostgreSQL installation, including downloads and instructions, 
+    see the [PostgreSQL documentation][postgres-download].
 
 You also need:
 
@@ -53,7 +53,7 @@ Visual Studio components for CMake and Git when you run the installer.
     our [Releases page][gh-releases]:
 
     ```bash
-    git checkout 2.12.1
+    git checkout 2.13.0
     ```
 
     This command produces an error that you are now in `detached head` state. It

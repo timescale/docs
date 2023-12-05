@@ -70,7 +70,7 @@ Optional `WITH` clause options:
 
 |Name|Type|Description|Default value|
 |-|-|-|-|
-|`timescaledb.materialized_only`|BOOLEAN|Return only materialized data when querying the continuous aggregate view|`FALSE`|
+|`timescaledb.materialized_only`|BOOLEAN|Return only materialized data when querying the continuous aggregate view|`TRUE`|
 |`timescaledb.create_group_indexes`|BOOLEAN|Create indexes on the continuous aggregate for columns in its `GROUP BY` clause. Indexes are in the form `(<GROUP_BY_COLUMN>, time_bucket)`|`TRUE`|
 |`timescaledb.finalized`|BOOLEAN|In TimescaleDB 2.7 and above, use the new version of continuous aggregates, which stores finalized results for aggregate functions. Supports all aggregate functions, including ones that use `FILTER`, `ORDER BY`, and `DISTINCT` clauses.|`TRUE`|
 

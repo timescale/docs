@@ -20,11 +20,8 @@ can be restored to any point during this time period.
 
 In the event of a storage failure, a service automatically restores from backup
 to the point of failure. In the event of a user error where a point-in-time
-recovery needs to be done, contact Support by clicking the `Support` button in
-the Timescale console. To help get things moving quickly, make sure 
-you provide the relevant service ID, and the date and time in UTC format. The Timescale 
-support team usually restores to a fork, but if you need an in-place restore, make sure
-you include that information in your support request.
+recovery needs to be done, you can create a PITR fork by following the
+instructions [here][pitr].
 
 This diagram describes how a restore from backup occurs after a storage failure:
 
@@ -43,3 +40,4 @@ Finally, WAL is replayed to cover any remaining gap."/>
 
 [wal]: https://www.postgresql.org/docs/current/wal-intro.html
 [support]: https://www.timescale.com/contact/
+[pitr]: /use-timescale/:currentVersion:/backup-restore/point-in-time-recovery/

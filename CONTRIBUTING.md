@@ -200,9 +200,3 @@ Timescale has comprehensive writing and style standards, that are constantly
 being updated and improved. For the current guidelines, see
 [contributing to documentation](https://docs.timescale.com/about/latest/contribute-to-docs/).
 
-## The Timescale documentation team
-
-*   Lana Brindley <https://github.com/Loquacity>
-*   Rajakavitha Kodhandapani <https://github.com/Rajakavitha1>
-*   Charis Lam <https://github.com/charislam>
-*   Jacob Prall <https://github.com/jacobprall>
