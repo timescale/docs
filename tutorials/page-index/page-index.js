@@ -20,6 +20,12 @@ module.exports = [
             href: "beginner-blockchain-query",
             excerpt: "Query the Bitcoin blockchain dataset",
           },
+          {
+            title: "Bonus: set up compression",
+            href: "blockchain-compress",
+            excerpt:
+              "Compress the dataset so you can store the Bitcoin blockchain more efficiently",
+          },
         ],
       },
       {
@@ -55,6 +61,12 @@ module.exports = [
             href: "query-energy",
             excerpt: "Queries energy consumption data",
           },
+          {
+            title: "Bonus: set up compression",
+            href: "compress-energy",
+            excerpt:
+              "Compress the dataset so you can store the data more efficiently",
+          },
         ]
       },
       {
@@ -71,6 +83,12 @@ module.exports = [
             title: "Query data",
             href: "financial-tick-query",
             excerpt: "Query and visualize financial tick data",
+          },
+          {
+            title: "Bonus: set up compression",
+            href: "financial-tick-compress",
+            excerpt:
+              "Compress the dataset so you can store the data more efficiently",
           },
         ],
       },
@@ -105,6 +123,12 @@ module.exports = [
             title: "Query data",
             href: "query-nyc",
             excerpt: "Query NYC data",
+          },
+          {
+            title: "Bonus: set up compression",
+            href: "compress-nyc",
+            excerpt:
+              "Compress the dataset so you can store the data more efficiently",
           },
         ],
       },

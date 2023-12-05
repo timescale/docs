@@ -33,6 +33,13 @@ hypertable chunks. If this occurs, the index on the root table of the hypertable
 is marked as invalid. You can check this by running `\d+` on the hypertable. The
 index still works, and is created on new chunks, but if you want to ensure all
 chunks have a copy of the index, drop and recreate it.
+
+You can also use the following query to find all invalid indexes:
+
+```SQL
+SELECT * FROM pg_index i WHERE i.indisvalid IS FALSE;
+```
+
 </Highlight>
 
 ### Sample usage

@@ -28,6 +28,11 @@ module.exports = [
             excerpt: "Timescale services",
           },
           {
+            title: "Dynamic PostgreSQL",
+            href: "dynamic-postgresql",
+            excerpt: "Dynamic PostgreSQL overview",
+          },
+          {
             title: "Service explorer",
             href: "service-explorer",
             excerpt: "Timescale services explorer",
@@ -251,7 +256,22 @@ module.exports = [
           {
             title: "About compression",
             href: "about-compression",
-            excerpt: "Compress data chunks",
+            excerpt: "Learn about how compression works",
+          },
+          {
+            title: "Compression design",
+            href: "compression-design",
+            excerpt: "The design of TimescaleDB compression",
+          },
+          {
+            title: "About compression methods",
+            href: "compression-methods",
+            excerpt: "Learn about the different compression methods",
+          },
+          {
+            title: "Enable a compression policy",
+            href: "compression-policy",
+            excerpt: "Create a compression policy on a hypertable",
           },
           {
             title: "Manual compression",
@@ -456,36 +476,42 @@ module.exports = [
         ],
       },
       {
-        title: "Data tiering",
+        title: "Tiered Storage",
         href: "data-tiering",
-        excerpt: "Tier older data to save storage costs",
+        excerpt: "Save on storage costs by tiering older data to a low-cost bottomless object storage tier",
         children: [
           {
-            title: "About data tiering",
+            title: "About the object storage tier",
             href: "about-data-tiering",
             excerpt:
-              "Learn how data tiering helps you save on storage costs",
+              "Learn how the object storage tier helps you save on storage costs",
           },
           {
-            title: "Enabling data tiering",
+            title: "Tour of tiered storage",
+            href: "tour-data-tiering",
+            excerpt:
+               "A quick tour of tiered storage",
+          },
+          {
+            title: "Enabling the object storage tier",
             href: "enabling-data-tiering",
             excerpt:
-                "How to manually tier Timescale data",
+                "How to enable the object storage tier",
           },
           {
             title: "Manually tier data",
             href: "manual-tier-chunk",
             excerpt:
-                "How to manually tier Timescale data",
+                "How to manually tier data to the object storage tier",
           },
           {
-            title: "Creating data tiering policies",
+            title: "Creating tiering policies",
             href: "creating-data-tiering-policy",
             excerpt:
-                "How to create a data tiering policy",
+                "How to create a tiering policy",
           },
           {
-            title: "Querying Tiered Data",
+            title: "Querying tiered data",
             href: "querying-tiered-data",
             excerpt:
                 "How to query tiered data",
@@ -493,7 +519,13 @@ module.exports = [
           {
             title: "Manually untier data",
             href: "untier-data",
-            excerpt: "Manually untier Timescale data to object storage",
+            excerpt: "How to manualy untier data from the object storage tier",
+          },
+          {
+            title: "Replicas and forks with tiered data",
+            href: "tiered-data-replicas-forks",
+            excerpt:
+                "How tiered data works on replicas and forks",
           },
           {
             title: "Troubleshooting",
@@ -646,6 +678,11 @@ module.exports = [
             excerpt: "Timescale services logs",
           },
           {
+            title: "Insights",
+            href: "insights",
+            excerpt: "Query-level performance insights",
+          },
+          {
             title: "Export to a monitoring service",
             href: "integrations",
             excerpt:
@@ -704,9 +741,20 @@ module.exports = [
         ]
       },
       {
-        title: "Backup and restore",
-        href: "backup-restore-cloud",
-        excerpt: "Timescale backup and restore",
+        title: "Backup, restore, and PITR",
+        href: "backup-restore",
+        children: [
+          {
+            title: "Backup and restore",
+            href: "backup-restore-cloud",
+            excerpt: "Timescale backup and restore",
+          },
+          {
+            title: "Point-in-time recovery",
+            href: "point-in-time-recovery",
+            excerpt: "PITR on Timescale services"
+          }
+        ]
       },
       {
         title: "User-defined actions",
@@ -886,6 +934,11 @@ module.exports = [
             title: "Security overview",
             href: "overview",
             excerpt: "Get an overview of Timescale security",
+          },
+          {
+            title: "SAML authentication",
+            href: "saml",
+            excerpt: "SAML / SSO authentication for your Timescale account",
           },
           {
             title: "Multi-factor Authentication",

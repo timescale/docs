@@ -5,6 +5,10 @@ products: [self_hosted]
 keywords: [multi-node]
 ---
 
+import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";
+
+<MultiNodeDeprecation />
+
 # About multi-node
 
 If you have a larger petabyte-scale workload, you might need more than

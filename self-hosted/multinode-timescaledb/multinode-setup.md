@@ -5,6 +5,10 @@ products: [self_hosted]
 keywords: [multi-node, self-hosted]
 ---
 
+import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";
+
+<MultiNodeDeprecation />
+
 # Set up multi-node on self-hosted TimescaleDB
 
 To set up multi-node on a self-hosted TimescaleDB instance, you need:
