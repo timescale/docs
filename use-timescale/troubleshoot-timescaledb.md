@@ -100,6 +100,66 @@ equal the sum of `timescaledb.max_background_workers` and
 
 For more information, see the [worker configuration docs][worker-config].
 
+### Cannot compress chunk
+
+You might see this error message when trying to compress a chunk if
+the permissions for the compressed hypertable is corrupt.
+
+```sql
+tsdb=> SELECT compress_chunk('_timescaledb_internal._hyper_65_587239_chunk');
+ERROR: role 149910 was concurrently dropped
+```
+
+This can be caused if you dropped a user for the hypertable before
+TimescaleDB 2.5. For this case, the user would be removed from
+`pg_authid` but not revoked from the compressed table.
+
+As a result, the compressed table contains permission items that
+refers to numerical values rather than existing users (see below for
+how to find the compressed hypertable from a normal hypertable):
+
+```sql
+tsdb=> \dp _timescaledb_internal._compressed_hypertable_2
+                                 Access privileges
+ Schema |     Name     | Type  |  Access privileges  | Column privileges | Policies
+--------+--------------+-------+---------------------+-------------------+----------
+ public | transactions | table | mats=arwdDxt/mats  +|                   |
+        |              |       | wizard=arwdDxt/mats+|                   |
+        |              |       | 149910=r/mats       |                   |
+(1 row)
+```
+
+This means that the `relacl` column of `pg_class` needs to be updated
+and the offending user removed, but it is not possible to drop a user
+by numerical value. Instead, you can use the internal function
+`repair_relation_acls` in `_timescaledb_function` schema:
+
+```sql
+tsdb=> CALL _timescaledb_functions.repair_relation_acls();
+```
+
+> **WARNING:** Note that this requires superuser privileges (since
+> you're modifying the `pg_class` table) and that it removes any user
+> not present in `pg_authid` from *all* tables, so use with caution.
+
+The permissions are usually corrupted for the hypertable as well, but
+not always, so it is better to look at the compressed hypertable to
+see if the problem is present. To find the compressed hypertable for
+an associated hypertable (`readings` in this case):
+
+```sql
+tsdb=> select ht.table_name,
+tsdb->        (select format('%I.%I', schema_name, table_name)::regclass
+tsdb->           from _timescaledb_catalog.hypertable
+tsdb->			where ht.compressed_hypertable_id = id) as compressed_table
+tsdb->   from _timescaledb_catalog.hypertable ht
+tsdb->  where table_name = 'readings';
+  format  |                     format
+----------+------------------------------------------------
+ readings | _timescaledb_internal._compressed_hypertable_2
+(1 row)
+```
+
 ## Getting more information
 
 ### EXPLAINing query performance
