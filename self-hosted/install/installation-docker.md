@@ -121,8 +121,8 @@ make sure you select the correct one to mount:
 |-|-|
 `timescaledb-ha`|`/home/postgres/pgdata/data`
 `timescaledb`| `/var/lib/postgresql/data`
-<!-- vale Vale.Terms = YES -->
 </Highlight>
+<!-- vale Vale.Terms = YES -->
 
 ```bash
 docker run -d --name timescaledb -p 5432:5432 \
