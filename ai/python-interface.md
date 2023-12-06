@@ -49,7 +49,7 @@ _ = load_dotenv(find_dotenv(), override=True)
 service_url  = os.environ['TIMESCALE_SERVICE_URL']
 ```
 
-Next, create the client. This tutorial, uses the sync client. But the library have an async client as well (with an identical interface that
+Next, create the client. This tutorial, uses the sync client. But the library has an async client as well (with an identical interface that
 uses async functions).
 
 The client constructor takes three required arguments:
@@ -109,7 +109,7 @@ vec.search([1.0, 9.0])
       array([1. , 1.3], dtype=float32),
       0.14489260377438218]]
 
-There are many search options which are be covered below in the
+There are many search options which are covered below in the
 `Advanced search` section.
 
 A simple search example that returns one item using a similarity search
