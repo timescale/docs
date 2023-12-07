@@ -7,13 +7,14 @@ pg_dump -d "$SOURCE" \
   --no-tablespaces \
   --no-owner \
   --no-privileges \
-  --schema-only \
-  --file=dump.sql \
+  --section=post-data \
+  --file=post-data-dump.sql \
   --snapshot=$(cat /tmp/pgcopydb/snapshot)
 ```
 
-- `--schema-only` is used to dump only the object definitions (schema), not
-  data.
+- `--section=post-data` is used to dump post-data items include definitions of
+   indexes, triggers, rules, and constraints other than validated check
+   constraints.
 
 - `--snapshot` is used to specified the synchronized [snapshot][snapshot] when
   making a dump of the database.
