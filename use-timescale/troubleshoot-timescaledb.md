@@ -214,7 +214,7 @@ server by setting the `timescaledb.bgw_log_level` GUC and reloading
 the configuration.
 
 ```sql
-ALTER DATABASE SET timescaledb.bgw_log_level TO 'DEBUG1';
+ALTER SYSTEM SET timescaledb.bgw_log_level TO 'DEBUG1';
 SELECT pg_reload_conf();
 ```
 
@@ -223,6 +223,18 @@ This variable is set to the value of
 `WARNING`. If the value of [`log_min_messages`][log_min_messages] is
 changed in the configuration file, it is used for
 `timescaledb.bgw_log_level` when starting the workers.
+
+<Highlight type="note">
+Both `ALTER SYSTEM` and `pg_reload_conf()` requires superuser
+privileges by default and that you need to grant `EXECUTE` permissions
+to `pg_reload_conf()` and `ALTER SYSTEM` privileges to
+`timescaledb.bgw_log_level` if you want this to work for a
+non-superuser.
+
+Since `ALTER SYSTEM` privileges only exist on PostgreSQL 15 and later,
+the necessary grants for executing these statements just exists on
+TimescaleDB Cloud for PostgreSQL 15 or later.
+</Highlight>
 
 ### Debug level 1
 
