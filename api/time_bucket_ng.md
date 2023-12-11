@@ -180,6 +180,10 @@ ORDER BY bucket;
 (3 rows)
 ```
 
+<Highlight type="note">
+The `by_range` dimension info constructor is an addition to TimescaleDB 2.13.
+</Highlight>
+
 For more information, see the [continuous aggregates documentation][caggs].
 
 <Highlight type="important">

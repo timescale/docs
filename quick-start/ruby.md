@@ -214,6 +214,10 @@ and most other tasks are executed on the hypertable.
     end
     ```
 
+	<Highlight type="note">
+	The `by_range` and `by_hash` dimension info constructor is an addition to TimescaleDB 2.13.
+	</Highlight>
+
 1.  Generate the hypertable:
 
     ```ruby

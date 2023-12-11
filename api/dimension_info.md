@@ -1,5 +1,9 @@
 # Dimension Info Constructurs
 
+<highlight type="note">
+Dimension info constructors were introduced with TimescaleDB 2.13.
+</highlight>
+
 The `create_hypertable` and `add_dimension` are used together with
 dimension info constructors to specify the dimensions to partition a
 hypertable on.

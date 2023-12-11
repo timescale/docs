@@ -283,6 +283,10 @@ and most other tasks are executed on the hypertable.
     };
     ```
 
+	<Highlight type="note">
+	The `by_range` dimension info constructor is an addition to TimescaleDB 2.13.
+	</Highlight>
+
 1.  At the command prompt, run the migration command:
 
     ```bash

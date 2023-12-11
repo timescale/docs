@@ -11,11 +11,15 @@ api:
 
 # add_dimension()
 
+<Highlight type="note">
+This reference describes the new generalized hypertable API introduced
+with 2.13. The [old interface for `add_dimension` is also
+available](add_dimension_old.md).
+</Highlight>
+
 Add an additional partitioning dimension to a Timescale hypertable.
 The column selected as the dimension can either use interval
 partitioning (for example, for a second range partition) or hash partitioning.
-
-**Note: this reference describes the new generalized hypertable API. The [old interface for `add_dimension` is also available](add_dimension_old.md).**
 
 <Highlight type="warning">
 The `add_dimension` command can only be executed after a table has been
