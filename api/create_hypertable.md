@@ -120,7 +120,7 @@ CREATE FUNCTION report_reported(report)
   IMMUTABLE AS
   'SELECT $1.reported';
 
-SELECT create_hypertable('measurements', by_range('report', time_partitioning_func => 'report_reported'));
+SELECT create_hypertable('measurements', by_range('report', partition_func => 'report_reported'));
 ```
 
 Time partition table `events`, on a column type `jsonb` (`event`), which has
@@ -133,7 +133,7 @@ CREATE FUNCTION event_started(jsonb)
   IMMUTABLE AS
   $func$SELECT ($1->>'started')::timestamptz$func$;
 
-SELECT create_hypertable('events', by_range('event', time_partitioning_func => 'event_started'));
+SELECT create_hypertable('events', by_range('event', partition_func => 'event_started'));
 ```
 
 [create_distributed_hypertable]: /api/:currentVersion:/distributed-hypertables/create_distributed_hypertable
