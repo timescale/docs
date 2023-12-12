@@ -46,6 +46,10 @@ with Timescale tables similar to standard PostgreSQL.
     SELECT add_dimension('rides', by_hash('payment_type', 2));
     ```
 
+	<Highlight type="note">
+	The `by_range` and `by_hash` dimension info constructor is an addition to TimescaleDB 2.13.
+	</Highlight>
+
 1.  Create an index to support efficient queries by vendor, rate code, and
     passenger count:
 

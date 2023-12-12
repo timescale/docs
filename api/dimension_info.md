@@ -1,5 +1,9 @@
 # Dimension Info Constructurs
 
+<Highlight type="note">
+Dimension info constructors were introduced in TimescaleDB 2.13.
+</Highlight>
+
 The `create_hypertable` and `add_dimension` are used together with
 dimension info constructors to specify the dimensions to partition a
 hypertable on.
@@ -7,11 +11,11 @@ hypertable on.
 TimescaleDB currently supports two partition types: partitioning by
 range and partitioning by hash.
 
-<highlight type="tip">
+<Highlight type="tip">
 For incompatible data types (for example, `jsonb`) you can specify a function to
 the `time_partitioning_func` argument which can extract a compatible
 data type
-</highlight>
+</Highlight>
 
 ## Partition Function
 

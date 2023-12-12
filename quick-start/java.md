@@ -114,11 +114,11 @@ are ready to connect to TimescaleDB from Java.
 
     For more information about creating connection strings, see the [JDBC documentation][pg-jdbc-driver-conn-docs].
 
-    <highlight type="warning">
+    <Highlight type="warning">
     This method of composing a connection string is for test or development
     purposes only. For production, use environment variables for sensitive
     details like your password, hostname, and port number.
-    </highlight>
+    </Highlight>
 
     ```java
     package com.timescale.java;
@@ -238,9 +238,13 @@ and most other tasks are executed on the hypertable.
 
 1.  Create a statement, execute the query you created in the previous step:
 
-```sql
-SELECT create_hypertable('sensor_data', by_range('time'));
-```
+    ```sql
+    SELECT create_hypertable('sensor_data', by_range('time'));
+    ```
+
+	<Highlight type="note">
+	The `by_range` and `by_hash` dimension info constructor is an addition to TimescaleDB 2.13.
+	</Highlight>
 
 1.  Execute the two statements you created, and commit your changes to the
     database:

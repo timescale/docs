@@ -75,3 +75,8 @@ orderby_column_index   | 2
 orderby_asc            | t
 orderby_nullsfirst     | f
 ```
+
+<Highlight type="note">
+The `by_range` dimension info constructor is an addition to TimescaleDB 2.13.
+</Highlight>
+

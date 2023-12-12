@@ -15,7 +15,9 @@ Creates a TimescaleDB hypertable distributed across a multinode
 environment. Use this function in place of [`create_hypertable`][create-hypertable-old]
 when creating distributed hypertables.
 
-**Note that distributed tables use the old API. The new generalized API is described in [`create_hypertable`][create-hypertable-new].**
+<Highlight type="note">
+Distributed tables use the old API. The new generalized API introduced in 2.13 is described in [`create_hypertable`][create-hypertable-new].
+</Highlight>
 
 ### Required arguments
 
