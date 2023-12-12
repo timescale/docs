@@ -24,9 +24,8 @@ For more information about using hypertables, including chunk size partitioning,
 see the [hypertable section][hypertable-docs].
 
 <highlight type="note">
-This reference describes the new generalized hypertable API. The [old
-interface for `create_hypertable is also
-available][create-hypertable-old].
+This reference describes the new generalized hypertable API that was introduced with TimescaleDB 2.13.
+The [old interface for `create_hypertable is also available][create-hypertable-old].
 </highlight>
 
 ## Required arguments
