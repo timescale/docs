@@ -114,11 +114,11 @@ are ready to connect to TimescaleDB from Java.
 
     For more information about creating connection strings, see the [JDBC documentation][pg-jdbc-driver-conn-docs].
 
-    <highlight type="warning">
+    <Highlight type="warning">
     This method of composing a connection string is for test or development
     purposes only. For production, use environment variables for sensitive
     details like your password, hostname, and port number.
-    </highlight>
+    </Highlight>
 
     ```java
     package com.timescale.java;

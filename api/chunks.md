@@ -43,9 +43,9 @@ If the chunk's primary dimension is of a time datatype, `range_start` and
 
 Get information about the chunks of a hypertable.
 
-<highlight type="note">
+<Highlight type="note">
 Dimension info constructor `by_range` was introduced in TimescaleDB 2.13.
-</highlight>
+</Highlight>
 
 ```sql
 CREATE TABLESPACE tablespace1 location '/usr/local/pgsql/data1';

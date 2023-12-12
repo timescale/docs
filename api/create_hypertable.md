@@ -23,10 +23,10 @@ on the resulting hypertable.
 For more information about using hypertables, including chunk size partitioning,
 see the [hypertable section][hypertable-docs].
 
-<highlight type="note">
+<Highlight type="note">
 This reference describes the new generalized hypertable API that was introduced in TimescaleDB 2.13.
 The [old interface for `create_hypertable is also available][create-hypertable-old].
-</highlight>
+</Highlight>
 
 ## Required arguments
 
