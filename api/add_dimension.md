@@ -12,9 +12,8 @@ api:
 # add_dimension()
 
 <Highlight type="note">
-This reference describes the new generalized hypertable API introduced
-with 2.13. The [old interface for `add_dimension` is also
-available](add_dimension_old.md).
+This reference describes the new generalized hypertable API introduced with 2.13.
+The [old interface for `add_dimension` is also available](add_dimension_old.md).
 </Highlight>
 
 Add an additional partitioning dimension to a Timescale hypertable.
