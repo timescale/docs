@@ -44,7 +44,7 @@ If the chunk's primary dimension is of a time datatype, `range_start` and
 Get information about the chunks of a hypertable.
 
 <highlight type="note">
-Dimension info constructor `by_range` was introduced with TimescaleDB 2.13.
+Dimension info constructor `by_range` was introduced in TimescaleDB 2.13.
 </highlight>
 
 ```sql

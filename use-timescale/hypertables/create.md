@@ -7,8 +7,11 @@ keywords: [hypertables, create]
 
 # Create hypertables
 
-**Note: this uses the new generalized hypertable API. The [old interface for `create_hypertable is also available](create_hypertable_old.md).**
-
+<highlight type="note">
+This code uses the new generalized hypertable API introduced in
+TimescaleDB 2.13. The [old interface for `create_hypertable is also
+available](create_hypertable_old.md).
+</highlight>
 
 After [creating a Timescale database][install], you're ready to create your
 first hypertable. Creating a hypertable is a two-step process:

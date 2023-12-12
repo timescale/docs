@@ -1,7 +1,7 @@
 # Dimension Info Constructurs
 
 <highlight type="note">
-Dimension info constructors were introduced with TimescaleDB 2.13.
+Dimension info constructors were introduced in TimescaleDB 2.13.
 </highlight>
 
 The `create_hypertable` and `add_dimension` are used together with
