@@ -10,7 +10,8 @@ import GettingHelp from "versionContent/_partials/_migrate_dual_write_backfill_g
 import SourceTargetNote from "versionContent/_partials/_migrate_source_target_note.mdx";
 import StepOne from "versionContent/_partials/_migrate_dual_write_step1.mdx";
 import DumpDatabaseRoles from "versionContent/_partials/_migrate_dual_write_dump_database_roles.mdx";
-import DumpSourceSchema from "versionContent/_partials/_migrate_dump_source_schema.mdx";
+import DumpPreDataSourceSchema from "versionContent/_partials/_migrate_pre_data_dump_source_schema.mdx";
+import DumpPostDataSourceSchema from "versionContent/_partials/_migrate_post_data_dump_source_schema.mdx";
 
 # Live migration from PostgreSQL database with pgcopydb
 
@@ -206,9 +207,9 @@ longer the buffered files need to be stored.
 
 <DumpDatabaseRoles />
 
-### 4b. Dump the database schema from the source database
+### 4b. Dump the database table schema from the source database
 
-<DumpSourceSchema />
+<DumpPreDataSourceSchema />
 
 ### 4c. Load the roles and schema into the target database
 
@@ -217,7 +218,7 @@ psql -X -d "$TARGET" \
   -v ON_ERROR_STOP=1 \
   --echo-errors \
   -f roles.sql \
-  -f dump.sql
+  -f pre-data-dump.sql
 ```
 
 ## 5. Enable hypertables
@@ -249,6 +250,8 @@ locks the table for the duration of the operation and prevents writes.
 
 ## 6. Migrate initial data from source to target
 
+### 6.a. Migrate table data from source to target
+
 Use pgcopydb and the snapshot ID obtained in [step 3][step-3]
 (/tmp/pgcopydb/snapshot) to copy the data. This action can take a significant
 amount of time, up to several days, depending on the size of the source
@@ -274,6 +277,19 @@ pgcopydb copy table-data \
   source table.
 
 - `--table-jobs` is the number of concurrent `COPY` jobs to run.
+
+### 6b. Dump the database indexes, constraints and other objects
+
+<DumpPostDataSourceSchema />
+
+### 6c. Load the indexes, constraints and other objects into the target database
+
+```sh
+psql -X -d "$TARGET" \
+  -v ON_ERROR_STOP=1 \
+  --echo-errors \
+  -f post-data-dump.sql
+```
 
 ## 7. Apply the replicated changes from source
 

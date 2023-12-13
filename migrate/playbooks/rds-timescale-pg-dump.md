@@ -10,7 +10,8 @@ import GettingHelp from "versionContent/_partials/_migrate_dual_write_backfill_g
 import SourceTargetNote from "versionContent/_partials/_migrate_source_target_note.mdx";
 import StepOne from "versionContent/_partials/_migrate_dual_write_step1.mdx";
 import LiveMigrationRoles from "versionContent/_partials/_migrate_live_migration_rds_roles.mdx";
-import DumpSourceSchema from "versionContent/_partials/_migrate_dump_source_schema.mdx";
+import DumpPreDataSourceSchema from "versionContent/_partials/_migrate_pre_data_dump_source_schema.mdx";
+import DumpPostDataSourceSchema from "versionContent/_partials/_migrate_post_data_dump_source_schema.mdx";
 
 # Migrate from AWS RDS to Timescale using pg_dump with downtime
 This guide illustrates the process of migrating a Postgres database from an
@@ -199,7 +200,7 @@ to the [live-migration] playbook.
 <LiveMigrationRoles />
 
 ### 2.b Dump the database schema from the source database
-<DumpSourceSchema />
+<DumpPreDataSourceSchema />
 
 #### 2.c Load the roles and schema into the target database
 ```sh
@@ -207,7 +208,7 @@ psql -X -d "$TARGET" \
   -v ON_ERROR_STOP=1 \
   --echo-errors \
   -f roles.sql \
-  -f schema.sql
+  -f pre-data-dump.sql
 ```
 
 ### 3. [Optional] Enable TimescaleDB Hypertables
@@ -250,11 +251,15 @@ pg_dump -d "$SOURCE" \
   --file=dump.sql
 ```
 
+### 4b. Dump the database indexes, constraints and other objects
+<DumpPostDataSourceSchema />
+
 ### 4.b Restore data to target database
 Restore the dump file to Timescale instance
 ```sh
 psql -d $TARGET -v ON_ERROR_STOP=1 --echo-errors \
-    -f dump.sql
+    -f dump.sql \
+    -f post-data-dump.sql
 ```
 Update the table statistics by running ANALYZE on all data
 ```sh
