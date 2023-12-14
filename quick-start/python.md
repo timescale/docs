@@ -184,8 +184,12 @@ and most other tasks are executed on the hypertable.
     the [`create_hypertable` docs][create-hypertable-docs]:
 
     ```python
-    query_create_sensordata_hypertable = "SELECT create_hypertable('sensor_data', 'time');"
+    query_create_sensordata_hypertable = "SELECT create_hypertable('sensor_data', by_range('time'));"
     ```
+
+	<Highlight type="note">
+	The `by_range` dimension info constructor is an addition to TimescaleDB 2.13.
+	</Highlight>
 
 3.  Open a cursor with the connection, execute the statements from the previous
     steps, commit your changes, and close the cursor:

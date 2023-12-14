@@ -42,8 +42,13 @@ with Timescale tables similar to standard PostgreSQL.
     the timestamp data to use for partitioning:
 
     ```sql
-    SELECT create_hypertable('rides', 'pickup_datetime', 'payment_type', 2, create_default_indexes=>FALSE);
+    SELECT create_hypertable('rides', by_range('pickup_datetime'), create_default_indexes=>FALSE);
+    SELECT add_dimension('rides', by_hash('payment_type', 2));
     ```
+
+	<Highlight type="note">
+	The `by_range` and `by_hash` dimension info constructor is an addition to TimescaleDB 2.13.
+	</Highlight>
 
 1.  Create an index to support efficient queries by vendor, rate code, and
     passenger count:

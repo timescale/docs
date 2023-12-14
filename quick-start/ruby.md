@@ -209,10 +209,14 @@ and most other tasks are executed on the hypertable.
     ```ruby
     class AddHypertable < ActiveRecord::Migration[7.0]
       def change
-       execute "SELECT create_hypertable('page_loads', 'created_at');"
+       execute "SELECT create_hypertable('page_loads', by_range('created_at'));"
       end
     end
     ```
+
+	<Highlight type="note">
+	The `by_range` and `by_hash` dimension info constructor is an addition to TimescaleDB 2.13.
+	</Highlight>
 
 1.  Generate the hypertable:
 

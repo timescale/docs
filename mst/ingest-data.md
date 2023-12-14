@@ -67,8 +67,12 @@ and can connect to it using `psql`.
 1.  Convert the SQL table into a hypertable:
 
     ```sql
-    SELECT create_hypertable('conditions', 'time');
+    SELECT create_hypertable('conditions', by_range('time'));
     ```
+
+	<Highlight type="note">
+	The `by_range` dimension info constructor is an addition to TimescaleDB 2.13.
+	</Highlight>
 
 </Procedure>
 

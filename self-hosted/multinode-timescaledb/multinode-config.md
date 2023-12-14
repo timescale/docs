@@ -5,6 +5,10 @@ products: [self_hosted]
 keywords: [configuration, settings, multi-node]
 ---
 
+import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";
+
+<MultiNodeDeprecation />
+
 # Multi-node configuration
 
 In addition to the

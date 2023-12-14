@@ -129,12 +129,16 @@ restore them.
 
     ```sql
     SELECT create_hypertable(
-       '<TABLE_NAME>', '<TIME_COLUMN_NAME>',
-        chunk_time_interval =>
-            INTERVAL '<CHUNK_TIME_INTERVAL>');
+       '<TABLE_NAME>',
+	   by_range('<COLUMN_NAME>', INTERVAL '<CHUNK_INTERVAL>')
+    );
     ```
 
 </Procedure>
+
+<Highlight type="note">
+The `by_range` dimension info constructor is an addition to TimescaleDB 2.13.
+</Highlight>
 
 ## Copy data from the source database
 

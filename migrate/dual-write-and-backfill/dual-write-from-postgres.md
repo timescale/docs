@@ -104,8 +104,12 @@ psql -X -d "$TARGET" \
 For each table which should be converted to a hypertable in the target
 database, execute:
 ```
-SELECT create_hypertable('<table name>', '<time column name>');
+SELECT create_hypertable('<table name>', by_range('<time column name>'));
 ```
+
+<Highlight type="note">
+The `by_range` dimension info constructor is an addition to TimescaleDB 2.13.
+</Highlight>
 
 For more information about the options which you can pass to
 `create_hypertable`, consult the [create_table API reference]. For

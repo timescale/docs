@@ -137,8 +137,12 @@ out of it.
 1.  Create a hypertable partitioned on the `ts` column:
 
     ```sql
-    SELECT create_hypertable('example', 'ts', chunk_time_interval=> '15 days'::interval, migrate_data => true);
+    SELECT create_hypertable('example', by_range('ts', '15 days'::interval), migrate_data => true);
     ```
+
+	<Highlight type="note">
+	The `by_range` dimension info constructor is an addition to TimescaleDB 2.13.
+	</Highlight>
 
 1.  Create the continuous aggregate:
 
