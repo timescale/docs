@@ -49,6 +49,25 @@ alt="Adding a new member to a project in Timescale"/>
 
 <Procedure>
 
+### Resend a project Invitation
+
+The invitations to join a project that are sent are valid for 7 days. 
+In case an user you invited did not click in time or did not receive the email, 
+you can send them a project invitation again.
+1.  [Log in to your Timescale account][cloud-login] and navigate to
+    the `Members` section.
+2.  Click the `Resend invitation` next to the desired members' name.
+
+<img class="main-content__illustration"
+width={1375} height={944}
+src="https://assets.timescale.com/docs/images/tsc-resend-invitation.webp"
+alt="Resend an invitation to a project in Timescale"/>
+
+</Procedure>
+
+
+<Procedure>
+
 ### Removing members from a project group
 
 1.  [Log in to your Timescale account][cloud-login] and navigate to
