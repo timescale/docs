@@ -10,7 +10,7 @@ keywords: [hypertables, create]
 <Highlight type="note">
 This code uses the new generalized hypertable API introduced in
 TimescaleDB 2.13. The [old interface for `create_hypertable` is also
-available][create-hypertable-old].
+available](/api/:currentVersion:/hypertable/create_hypertable_old/).
 </Highlight>
 
 After [creating a Timescale database][install], you're ready to create your
