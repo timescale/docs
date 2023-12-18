@@ -25,7 +25,7 @@ see the [hypertable section][hypertable-docs].
 
 <Highlight type="note">
 This reference describes the new generalized hypertable API that was introduced in TimescaleDB 2.13.
-The [old interface for `create_hypertable` is also available][create-hypertable-old].
+The [old interface for `create_hypertable` is also available](/api/:currentVersion:/hypertable/create_hypertable_old/).
 </Highlight>
 
 ## Required arguments
