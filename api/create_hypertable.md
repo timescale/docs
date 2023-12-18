@@ -25,7 +25,7 @@ see the [hypertable section][hypertable-docs].
 
 <Highlight type="note">
 This reference describes the new generalized hypertable API that was introduced in TimescaleDB 2.13.
-The [old interface for `create_hypertable is also available][create-hypertable-old].
+The [old interface for `create_hypertable` is also available](/api/:currentVersion:/hypertable/create_hypertable_old/).
 </Highlight>
 
 ## Required arguments
@@ -139,6 +139,5 @@ SELECT create_hypertable('events', by_range('event', time_partitioning_func => '
 [create_distributed_hypertable]: /api/:currentVersion:/distributed-hypertables/create_distributed_hypertable
 [hash-partitions]: /use-timescale/:currentVersion:/hypertables/about-hypertables/#hypertable-partitioning
 [hypertable-docs]: /use-timescale/:currentVersion:/hypertables/
-[create-hypertable-old]: /api/:currentVersion:/hypertable/create_hypertable_old
 [dimension-builders]: /api/:currentVersion:/hypertable/dimension_info
 [by-range]: /api/:currentVersion:/hypertable/dimension_info/#by_range
