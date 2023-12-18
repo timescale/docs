@@ -8,7 +8,7 @@ api:
   type: function
 ---
 
-# create_hypertable()
+# create_hypertable() (old interface)
 
 Creates a TimescaleDB hypertable from a PostgreSQL table (replacing the latter),
 partitioned on time and with the option to partition on one or more other
