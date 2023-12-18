@@ -69,4 +69,3 @@ data. For more information about migrating data, see the
 [install]: /getting-started/latest/
 [postgres-createtable]: https://www.postgresql.org/docs/current/sql-createtable.html
 [postgresql-timestamp]: https://wiki.postgresql.org/wiki/Don't_Do_This#Don.27t_use_timestamp_.28without_time_zone.29
-[create-hypertable-old]: /api/:currentVersion:/hypertable/create_hypertable_old/
