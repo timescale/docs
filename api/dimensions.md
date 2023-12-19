@@ -88,7 +88,7 @@ num_partitions    | 2
 ```
 
 <Highlight type="note">
-The `by_range` and `by_hash` dimension info constructor is an addition to TimescaleDB 2.13.
+The `by_range` and `by_hash` dimension builder is an addition to TimescaleDB 2.13.
 </Highlight>
 
 Get information about dimensions of a hypertable that has two time-based dimensions.

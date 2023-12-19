@@ -47,7 +47,7 @@ with Timescale tables similar to standard PostgreSQL.
     ```
 
 	<Highlight type="note">
-	The `by_range` and `by_hash` dimension info constructor is an addition to TimescaleDB 2.13.
+	The `by_range` and `by_hash` dimension builder is an addition to TimescaleDB 2.13.
 	</Highlight>
 
 1.  Create an index to support efficient queries by vendor, rate code, and

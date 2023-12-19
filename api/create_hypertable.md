@@ -33,7 +33,7 @@ The [old interface for `create_hypertable` is also available](/api/:currentVersi
 |Name|Type|Description|
 |-|-|-|
 |`relation`|REGCLASS|Identifier of table to convert to hypertable.|
-| `dimension` | DIMENSION_INFO | Dimension info object for the column to partition on. |
+| `dimension` | DIMENSION_INFO | Dimension builder for the column to partition on. |
 
 ## Optional arguments
 

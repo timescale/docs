@@ -260,7 +260,7 @@ and most other tasks are executed on the hypertable.
     ```
 
 	<Highlight type="note">
-	The `by_range` dimension info constructor is an addition to TimescaleDB 2.13.
+	The `by_range` dimension builder is an addition to TimescaleDB 2.13.
 	</Highlight>
 
 1.  Execute the `CREATE TABLE` statement and `SELECT` statement which converts

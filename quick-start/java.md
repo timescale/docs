@@ -243,7 +243,7 @@ and most other tasks are executed on the hypertable.
     ```
 
 	<Highlight type="note">
-	The `by_range` and `by_hash` dimension info constructor is an addition to TimescaleDB 2.13.
+	The `by_range` and `by_hash` dimension builder is an addition to TimescaleDB 2.13.
 	</Highlight>
 
 1.  Execute the two statements you created, and commit your changes to the

@@ -1,11 +1,11 @@
-# Dimension Info Constructors
+# Dimension Builders
 
 <Highlight type="note">
-Dimension info constructors were introduced in TimescaleDB 2.13.
+Dimension builders were introduced in TimescaleDB 2.13.
 </Highlight>
 
 The `create_hypertable` and `add_dimension` are used together with
-dimension info constructors to specify the dimensions to partition a
+dimension builders to specify the dimensions to partition a
 hypertable on.
 
 TimescaleDB currently supports two partition types: partitioning by
@@ -34,7 +34,7 @@ function.
 
 ## by_range()
 
-Creates a by-range dimension info object that can be used with
+Creates a by-range dimension builder that can be used with
 `create_hypertable` and `add_dimension`.
 
 ### Required Arguments
@@ -53,8 +53,9 @@ Creates a by-range dimension info object that can be used with
 	
 ### Returns 
 
-An instance of `_timescaledb_internal.dimension_info`, which is an
-opaque type holding the dimension information.
+An *dimension builder*, which is an which is an opaque type
+`_timescaledb_internal.dimension_info`, holding the dimension
+information.
 
 ### Notes
 
@@ -96,8 +97,8 @@ column type is summarized below.
 |------------------|---------|----------------------------------------------------------|
 | `partition_func` | REGPROC | The function to use for calculating a value's partition. |
 
-
 ### Returns 
 
-An instance of `_timescaledb_internal.dimension_info`, which is an
-opaque type holding the dimension information.
+An *dimension builder*, which is an which is an opaque type
+`_timescaledb_internal.dimension_info`, holding the dimension
+information.
