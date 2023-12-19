@@ -33,7 +33,7 @@ SELECT create_hypertable('conditions', by_range('time'));
 ```
 
 <Highlight type="note">
-The `by_range` dimension info constructor is an addition to TimescaleDB 2.13.
+The `by_range` dimension builder is an addition to TimescaleDB 2.13.
 </Highlight>
 
 This example also references values in another `locations` table using a foreign
