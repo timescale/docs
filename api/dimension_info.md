@@ -1,4 +1,4 @@
-# Dimension Info Constructurs
+# Dimension Info Constructors
 
 <Highlight type="note">
 Dimension info constructors were introduced in TimescaleDB 2.13.
