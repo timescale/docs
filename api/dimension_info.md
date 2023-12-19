@@ -53,7 +53,7 @@ Creates a by-range dimension builder that can be used with
 	
 ### Returns 
 
-An *dimension builder*, which is an which is an opaque type
+A *dimension builder*, which is an which is an opaque type
 `_timescaledb_internal.dimension_info`, holding the dimension
 information.
 
