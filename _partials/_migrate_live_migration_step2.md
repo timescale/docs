@@ -1,3 +1,7 @@
+import SetupSourceTarget from "versionContent/_partials/_migrate_set_up_source_and_target.mdx";
+
+<SetupSourceTarget />
+
 It's important to ensure that the `old_snapshot_threshold` value is set to the
 default value of `-1` in your source database. This prevents PostgreSQL from
 treating the data in a snapshot as outdated. If this value is set other than

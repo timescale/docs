@@ -16,14 +16,12 @@ import LiveMigrationStep2 from "versionContent/_partials/_migrate_live_migration
 
 # Live migration from TimescaleDB database with pgcopydb
 
-This document provides detailed instructions on how to perform a database migration
-from a production TimescaleDB that is either a [Managed Service for TimescaleDB] or
-self-hosted instance to Timescale in a way that requires minimal downtime
-(in the order of few minutes) of your production applications.
-
-The migration process will be carried out using the [live migration] strategy. You
-will use a live migration image that streamlines the process of replicating live
-transactions from your source database to Timescale.
+This document provides detailed instructions to migrate data from your
+TimescaleDB database (self-hosted or on [Managed Service for TimescaleDB]) to a
+Timescale instance with minimal downtime (on the order of a few minutes) of
+your production applications, using the [live migration] strategy. To simplify
+the migration, we provide you with a docker image containing all the tools and
+scripts that you need to perform the live migration.
 
 You should provision a dedicated instance to run the migration steps from.
 Ideally an AWS EC2 instance that's in the same region as the Timescale target service.
@@ -34,9 +32,9 @@ data copy takes 2 days, we recommend 4 CPUs with 4 to 8 GiB of RAM and 1.2 TiB o
 
 In detail, the migration process consists of the following steps:
 1. Set up a target database instance in Timescale.
-2. Prepare the source database for live migration.
-3. Run the live migration image.
-4. Validate the data in target database and promote as new primary.
+1. Prepare the source database for live migration.
+1. Run the live migration docker image.
+1. Validate the data in target database and use it as new primary.
 
 <GettingHelp />
 
@@ -46,7 +44,7 @@ In detail, the migration process consists of the following steps:
 
 <LiveMigrationStep2 />
 
-Next, you will need to ensure that your source tables and hypertables have either a primary key
+Next, you need to ensure that your source tables and hypertables have either a primary key
 or `REPLICA IDENTITY` set. This is important as it is a requirement for replicating `DELETE` and
 `UPDATE` operations. Replica identity assists the replication process in identifying the rows
 being modified. It defaults to using the table's primary key.
@@ -59,10 +57,14 @@ marked as `NOT NULL`. This can be set as the replica identity:
 ALTER TABLE {table_name} REPLICA IDENTITY USING INDEX {_index_name}
 ```
 
-If there's no primary key or viable unique index to use, you will have to set `REPLICA IDENTITY`
+If there's no primary key or viable unique index to use, you have to set `REPLICA IDENTITY`
 to `FULL`. If you are expecting a large number of `UPDATE` or `DELETE` operations on the table,
-we do not recommend using `FULL`. For each `UPDATE` or `DELETE` statement, Postgres will have
-to read the whole table to find all matching rows, which will result in significantly slower replication.
+using `FULL` is not recommended. For each `UPDATE` or `DELETE` statement, PostgreSQL reads the
+whole table to find all matching rows, resulting in significantly slower replication.
+
+```sh
+ALTER TABLE {table_name} REPLICA IDENTITY FULL
+```
 
 <Highlight type="important">
 TimescaleDB 2.12 and above allows setting `REPLICA IDENTITY` on hypertables. However,
@@ -72,7 +74,7 @@ primary key or `REPLICA IDENTITY`, operations such as `DELETE` and `UPDATE`�
 which will impact the consistency of your data post migration.
 </Highlight>
 
-## 3. Run live migration image
+## 3. Run live migration docker image
 
 First, set the database URIs as environment variables:
 
@@ -81,17 +83,23 @@ export SOURCE=""
 export TARGET=""
 ```
 
-Next, download and run the live migration image:
+Next, download and run the live migration docker image:
 
 ```sh
-docker run --rm -it \
+docker run --rm -dit --name live-migration \
   -e PGCOPYDB_SOURCE_PGURI=$SOURCE \
   -e PGCOPYDB_TARGET_PGURI=$TARGET \
-  timescale/live-migration:0.0.1
+  -v ~/live-migration:/opt/timescale/ts_cdc \
+  timescale/live-migration:v0.0.1
 ```
 
-This command may take a while to complete. It’s recommended to run it in the background
-or use terminal multiplexers like `screen` or `tmux`.
+<Highlight type="note">
+The above command runs in background may take a while to complete.
+You can use `docker attach` to interact with the migration image.
+
+Ensure `/live-migration` directory has sufficient space available.
+Ideally, 1.5 times the source database size should be good.
+</Highlight>
 
 The command will take a snapshot of your source database, migrate existing data to the
 target, and stream live transactions from the source to the target. During this process,
@@ -106,41 +114,25 @@ start `ANALYZE` on the target database. This updates statistics in the target 
 which is necessary for optimal querying performance in the target database. Wait for
 `ANALYZE` to complete.
 
-<Highlight type="note">
+<Highlight type="important">
 Application downtime begins here.
 </Highlight>
 
-When you're _ready to take downtime_ (i.e., stop normal operations) on your production
-applications that are dependent on your source database and the _lag between the databases is below 30 megabytes_,
-you should stop your applications that perform DML queries on your source database.
-This is the downtime phase and will last until you have completed the validation step (4).
-Be sure to go through the validation step (4) and prepare the validation queries before
-you enter the downtime phase to keep the overall downtime minimal.
+Once the lag between the databases is below 30 megabytes, and you're ready to
+take your applications offline, stop all applications which are writing to the
+source database. This is the downtime phase and will last until you have
+completed the validation step (4). Be sure to go through the validation step
+(4) before you enter the downtime phase to keep the overall downtime minimal.
 
-Stopping DML queries on your source database allows the live migration image to make
-the target database even with the source. This will be evident when the lag outputs
-0 megabytes.
+Stopping writes to the source database allows the live migration process to
+finish replicating data to the target database. This will be evident when the
+replication lag reduces to 0 megabytes.
 
-When the lag between the two databases shows 0 megabytes, wait for a few minutes and
-then provide the signal to stop the live replay by pressing key `s` or giving a
-`SIGUSR1` signal, as per your log. You should see `Stopped` message.
+Once the replication lag is 0, wait for a few minutes and then provide the
+signal to proceed by pressing key `c`.
 
 ```sh
-[WATCH] Source DB - Target DB => 0MB. Press 's' (and ENTER) to stop live-replay
-Stopped
-```
-
-Now, compare tables in the target against those in the source to ensure that
-both have the same data.
-
-
-Once you are confident that the tables in the source are identical to the target,
-you need to signal "continue". This is done either by pressing key `c` or giving a `SIGUSR1`
-signal, as mentioned in your log.
-
-```sh
-[ACTION NEEDED] Now, you should check the integrity of your data. Once you are confident, press 'c' (and ENTER) to continue
-Continuing ...
+[WATCH] Source DB - Target DB => 0MB. Press "c" (and ENTER) to stop live-replay
 Syncing last LSN in Source DB to Target DB ...
 ```
 
@@ -152,20 +144,19 @@ following message if all the mentioned steps were successful.
 Migration successfully completed
 ```
 
-## 4. Validate the data in target database and promote as new primary
+## 4. Validate the data in target database and use it as new primary
 
 Now that all data has been migrated, the contents of both databases should be the
 same. How exactly this should best be validated is dependent on your application.
 You could compare the number of rows or an aggregate of columns to validate that
 the target database matches with the source.
 
-<Highlight type="note">
+<Highlight type="important">
 Application downtime ends here.
 </Highlight>
 
-Once you are confident with the validation perspective, the final step is to
-promote the target database as your new production database by using the target
-database's URI in your production application.
+Once you are confident with the data validation, the final step is to configure
+your applications to use the target database.
 
 [Managed Service for TimescaleDB]: https://www.timescale.com/mst-signup/
 [live migration]: https://docs.timescale.com/migrate/latest/live-migration/
