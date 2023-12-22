@@ -138,9 +138,11 @@ by numerical value. Instead, you can use the internal function
 tsdb=> CALL _timescaledb_functions.repair_relation_acls();
 ```
 
-> **WARNING:** Note that this requires superuser privileges (since
-> you're modifying the `pg_class` table) and that it removes any user
-> not present in `pg_authid` from *all* tables, so use with caution.
+<Highlight type="warning">
+This requires superuser privileges (since you're modifying the
+`pg_class` table) and that it removes any user not present in
+`pg_authid` from *all* tables, so use with caution.
+</Highlight>
 
 The permissions are usually corrupted for the hypertable as well, but
 not always, so it is better to look at the compressed hypertable to
