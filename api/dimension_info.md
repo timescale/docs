@@ -13,8 +13,8 @@ range and partitioning by hash.
 
 <Highlight type="tip">
 For incompatible data types (for example, `jsonb`) you can specify a function to
-the `time_partitioning_func` argument which can extract a compatible
-data type
+the `partition_func` argument of the dimension build to extract a compatible
+data type. Look in the example section below.
 </Highlight>
 
 ## Partition Function
@@ -81,6 +81,35 @@ column type is summarized below.
 | `SMALLINT`                   | SMALLINT         | 10000         |
 | `INT`                        | INT              | 100000        |
 | `BIGINT`                     | BIGINT           | 1000000       |
+
+### Examples
+
+The simplest usage is to partition on a time column:
+
+```sql
+SELECT create_hypertable('my_table', by_range('time'));
+```
+
+In this case, the dimension builder can be excluded since
+`create_hypertable` by default assumes that a single provided column
+is range partitioned by time.
+
+If you have a table with a non-time column containing the time, for
+example a JSON column, you can add a partition function to extract the
+time. 
+
+```sql
+CREATE TABLE my_table (
+   metric_id serial not null,
+   data jsonb,
+);
+
+CREATE FUNCTION get_time(jsonb) RETURNS timestamptz AS $$
+  SELECT ($1->>'time')::timestamptz
+$$ LANGUAGE sql IMMUTABLE;
+
+SELECT create_hypertable('my_table', by_range('data', '1 day', 'get_time'));
+```
 
 ## by_hash()
 

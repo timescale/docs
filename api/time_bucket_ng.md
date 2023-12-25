@@ -181,7 +181,13 @@ ORDER BY bucket;
 ```
 
 <Highlight type="note">
-The `by_range` dimension builder is an addition to TimescaleDB 2.13.
+The `by_range` dimension builder is an addition to TimescaleDB
+2.13. For simpler cases, like this one, you can also create the
+hypertable using the old syntax:
+
+```sql
+SELECT create_hypertable('<table name>', '<time column name>');
+```
 </Highlight>
 
 For more information, see the [continuous aggregates documentation][caggs].
