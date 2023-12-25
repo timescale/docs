@@ -13,7 +13,7 @@ range and partitioning by hash.
 
 <Highlight type="tip">
 For incompatible data types (for example, `jsonb`) you can specify a function to
-the `partition_func` to the dimension build which can extract a compatible
+the `partition_func` argument of the dimension build to extract a compatible
 data type. Look in the example section below.
 </Highlight>
 
