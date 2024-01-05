@@ -1,6 +1,6 @@
 ---
-title: Migrate from PostgreSQL using live migration
-excerpt: Migrate from a PostgreSQL database using the low-downtime live migration method
+title: Migrate from TimescaleDB using live migration
+excerpt: Migrate from a TimescaleDB database using the low-downtime live migration method
 products: [cloud]
 keywords: [migration, low-downtime]
 tags: [migration, logical backup, replication]
@@ -14,25 +14,23 @@ import DumpPreDataSourceSchema from "versionContent/_partials/_migrate_pre_data_
 import DumpPostDataSourceSchema from "versionContent/_partials/_migrate_post_data_dump_source_schema.mdx";
 import LiveMigrationStep2 from "versionContent/_partials/_migrate_live_migration_step2.mdx";
 
-# Live migration from PostgreSQL database with pgcopydb
+# Live migration from TimescaleDB database with pgcopydb
 
 This document provides detailed instructions to migrate data from your
-PostgreSQL database to a Timescale instance with minimal downtime (on the order
-of a few minutes) of your production applications, using the [live migration]
-strategy. To simplify the migration, we provide you with a docker image
-containing all the tools and scripts that you need to perform the live
-migration.
+TimescaleDB database (self-hosted or on [Managed Service for TimescaleDB]) to a
+Timescale instance with minimal downtime (on the order of a few minutes) of
+your production applications, using the [live migration] strategy. To simplify
+the migration, we provide you with a docker image containing all the tools and
+scripts that you need to perform the live migration.
 
 You should provision a dedicated instance to run the migration steps from.
-Ideally an AWS EC2 instance that's in the same region as the Timescale target
-service. For an ingestion load of 10,000 transactions/s, and assuming that the
-historical data copy takes 2 days, we recommend 4 CPUs with 4 to 8 GiB of RAM
-and 1.2 TiB of storage.
+Ideally an AWS EC2 instance that's in the same region as the Timescale target service.
+For an ingestion load of 10,000 transactions/s, and assuming that the historical
+data copy takes 2 days, we recommend 4 CPUs with 4 to 8 GiB of RAM and 1.2 TiB of storage.
 
 <SourceTargetNote />
 
 In detail, the migration process consists of the following steps:
-
 1. Set up a target database instance in Timescale.
 1. Prepare the source database for live migration.
 1. Run the live migration docker image.
@@ -68,7 +66,15 @@ whole table to find all matching rows, resulting in significantly slower replica
 ALTER TABLE {table_name} REPLICA IDENTITY FULL
 ```
 
-## 3. Run the live migration docker image
+<Highlight type="important">
+TimescaleDB 2.12 and above allows setting `REPLICA IDENTITY` on hypertables. However,
+if you're using a version below 2.12, it’s important that your hypertables have primary keys.
+If they don't, you will need to upgrade your TimescaleDB instance. This is because, without a
+primary key or `REPLICA IDENTITY`, operations such as `DELETE` and `UPDATE` will not be replicated,
+which will impact the consistency of your data post migration.
+</Highlight>
+
+## 3. Run live migration docker image
 
 First, set the database URIs as environment variables:
 
@@ -95,30 +101,18 @@ Ensure `/live-migration` directory has sufficient space available.
 Ideally, 1.5 times the source database size should be good.
 </Highlight>
 
-The command will take a snapshot of your source database and migrate the schema
-to the target database. After migrating the schema, it will prompt you to create
-hypertables in the target database.
-
-Ideally, tables that contain time-series data should be converted to Hypertables.
-You need to run `create_hypertable()` for each table that you want to convert to
-a Hypertable in the target database. For more information, see [Hypertable docs].
-
-Once you have finished creating Hypertables, you need to signal "continue" to proceed.
-You can do it by pressing the `c` key.
-
-Next, the live migration image will migrate the existing data in the source database
-to target database and start streaming live transactions (live replay) received on
-the source side to the target. During this process, it will display the lag between
-the source and target databases in terms of WAL offset size.
+The command will take a snapshot of your source database, migrate existing data to the
+target, and stream live transactions from the source to the target. During this process,
+it will display the lag between the source and target databases in terms of WAL offset size.
 
 ```sh
 [WATCH] Source DB - Target DB => 126MB
 ```
 
-When the lag between the source and target database is less than 30 megabytes,
-it will start `ANALYZE` on the target database. This updates statistics in the
-target database, which is necessary for optimal querying performance in the
-target database. Wait for `ANALYZE` to complete.
+When the lag between the source and target database is less than 30 megabytes, it will
+start `ANALYZE` on the target database. This updates statistics in the target database,
+which is necessary for optimal querying performance in the target database. Wait for
+`ANALYZE` to complete.
 
 <Highlight type="important">
 Application downtime begins here.
@@ -128,7 +122,7 @@ Once the lag between the databases is below 30 megabytes, and you're ready to
 take your applications offline, stop all applications which are writing to the
 source database. This is the downtime phase and will last until you have
 completed the validation step (4). Be sure to go through the validation step
-before you enter the downtime phase to keep the overall downtime minimal.
+(4) before you enter the downtime phase to keep the overall downtime minimal.
 
 Stopping writes to the source database allows the live migration process to
 finish replicating data to the target database. This will be evident when the
@@ -138,13 +132,13 @@ Once the replication lag is 0, wait for a few minutes and then provide the
 signal to proceed by pressing key `c`.
 
 ```sh
-[WATCH] Source DB - Target DB => 0MB. Press "c" (and ENTER) to proceed
+[WATCH] Source DB - Target DB => 0MB. Press "c" (and ENTER) to stop live-replay
 Syncing last LSN in Source DB to Target DB ...
 ```
 
-The live migration image will continue the remaining work that includes
-migrating sequences and cleaning up resources. You should see the following
-message if all the mentioned steps were successful.
+The live migration image will continue the remaining work under live replay,
+copy TimescaleDB metadata, sequences, and run policies. You should see the
+following message if all the mentioned steps were successful.
 
 ```sh
 Migration successfully completed
@@ -152,10 +146,10 @@ Migration successfully completed
 
 ## 4. Validate the data in target database and use it as new primary
 
-Now that all data has been migrated, the contents of both databases should
-be the same. How exactly this should best be validated is dependent on
-your application. You could compare the number of rows or an aggregate of
-columns to validate that the target database matches with the source.
+Now that all data has been migrated, the contents of both databases should be the
+same. How exactly this should best be validated is dependent on your application.
+You could compare the number of rows or an aggregate of columns to validate that
+the target database matches with the source.
 
 <Highlight type="important">
 Application downtime ends here.
@@ -164,5 +158,5 @@ Application downtime ends here.
 Once you are confident with the data validation, the final step is to configure
 your applications to use the target database.
 
-[Hypertable docs]: /use-timescale/:currentVersion:/hypertables/
+[Managed Service for TimescaleDB]: https://www.timescale.com/mst-signup/
 [live migration]: https://docs.timescale.com/migrate/latest/live-migration/
