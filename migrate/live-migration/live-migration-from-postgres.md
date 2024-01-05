@@ -14,9 +14,9 @@ import DumpPreDataSourceSchema from "versionContent/_partials/_migrate_pre_data_
 import DumpPostDataSourceSchema from "versionContent/_partials/_migrate_post_data_dump_source_schema.mdx";
 import LiveMigrationStep2 from "versionContent/_partials/_migrate_live_migration_step2.mdx";
 
-# Live migration from PostgreSQL database with pgcopydb
+# Live migration from PostgreSQL database
 
-This document provides detailed instructions to migrate data from your
+This document provides instructions to migrate data from your
 PostgreSQL database to a Timescale instance with minimal downtime (on the order
 of a few minutes) of your production applications, using the [live migration]
 strategy. To simplify the migration, we provide you with a docker image
@@ -26,10 +26,8 @@ migration.
 You should provision a dedicated instance to run the migration steps from.
 Ideally an AWS EC2 instance that's in the same region as the Timescale target
 service. For an ingestion load of 10,000 transactions/s, and assuming that the
-historical data copy takes 2 days, we recommend 4 CPUs with 4 to 8 GiB of RAM
-and 1.2 TiB of storage.
-
-<SourceTargetNote />
+historical data of size 2 TB, we recommend 4 CPUs with 4 to 8 GiB of RAM
+and 1.2 TiB of storage, this approximates takes 24 hours to complete the migration.
 
 In detail, the migration process consists of the following steps:
 
@@ -46,7 +44,7 @@ In detail, the migration process consists of the following steps:
 
 <LiveMigrationStep2 />
 
-Next, you need to ensure that your source tables and hypertables have either a primary key
+Next, you need to ensure that your source tables have either a primary key
 or `REPLICA IDENTITY` set. This is important as it is a requirement for replicating `DELETE` and
 `UPDATE` operations. Replica identity assists the replication process in identifying the rows
 being modified. It defaults to using the table's primary key.
@@ -120,19 +118,14 @@ it will start `ANALYZE` on the target database. This updates statistics in the
 target database, which is necessary for optimal querying performance in the
 target database. Wait for `ANALYZE` to complete.
 
-<Highlight type="important">
-Application downtime begins here.
-</Highlight>
+## 4. Validate the data in target database and use it as new primary
 
-Once the lag between the databases is below 30 megabytes, and you're ready to
-take your applications offline, stop all applications which are writing to the
-source database. This is the downtime phase and will last until you have
-completed the validation step (4). Be sure to go through the validation step
-before you enter the downtime phase to keep the overall downtime minimal.
+Once the lag between the databases is below 130 megabytes, we recommend performing data integrity checks. There are two ways to do this:
 
-Stopping writes to the source database allows the live migration process to
-finish replicating data to the target database. This will be evident when the
-replication lag reduces to 0 megabytes.
+1. With downtime: Stop database operations from your application, which will result in downtime. This allows the live migration to catch up on the lag between the source and target databases, enabling the validation checks to be performed. The downtime will last until the lag is eliminated and the data integrity checks are completed.
+2. Without downtime: Since the difference between the source and target databases is less than 130 MB, you can perform data integrity checks, excluding the latest data that is still being written. This approach does not require taking your application down.
+
+Now that the data integrity checks are complete, it's time to switch your target database to become the primary one. If you have selected option 2 for data integrity checks, stop writing to the source database and immediately start writing to the target database from the application. This will minimize application downtime to as low as application restart. It allows the live migration process to complete replicating data to the target database, as the source will no longer receive any new transactions. You will know the process is complete when the replication lag reduces to 0 megabytes. If you have chosen option 1 for data integrity checks, start your application to write data to the target database.
 
 Once the replication lag is 0, wait for a few minutes and then provide the
 signal to proceed by pressing key `c`.
@@ -149,20 +142,6 @@ message if all the mentioned steps were successful.
 ```sh
 Migration successfully completed
 ```
-
-## 4. Validate the data in target database and use it as new primary
-
-Now that all data has been migrated, the contents of both databases should
-be the same. How exactly this should best be validated is dependent on
-your application. You could compare the number of rows or an aggregate of
-columns to validate that the target database matches with the source.
-
-<Highlight type="important">
-Application downtime ends here.
-</Highlight>
-
-Once you are confident with the data validation, the final step is to configure
-your applications to use the target database.
 
 [Hypertable docs]: /use-timescale/:currentVersion:/hypertables/
 [live migration]: https://docs.timescale.com/migrate/latest/live-migration/

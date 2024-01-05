@@ -24,7 +24,7 @@ Below are the different migration options we offer. You can choose the one that 
 |-------------------------------------------|----------------------------------|----------------------------------------------------------------------|--------------------------------|
 | [pg_dump and pg_restore][pg-dump-restore] | Postgres, TimescaleDB            | Downtime is okay                                                     | Requires some downtime         |
 | [Dual-write and backfill][dual-write]     | Postgres, TimescaleDB and others | Append-only data, heavy insert workload (~20,000 inserts per second) | Optimized for minimal downtime |
-| [Live migration][live-migration]          | Postgres                         | Simplified end-to-end migration with almost zero downtime            | Optimized for minimal downtime |
+| [Live migration][live-migration]          | Postgres, TimescaleDB            | Simplified end-to-end migration with almost zero downtime            | Optimized for minimal downtime |
 
 If you are using PostgreSQL or TimescaleDB and can afford to take your
 application offline for a few hours, the simplest option is to migrate data
