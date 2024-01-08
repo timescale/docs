@@ -14,15 +14,15 @@ cloud_ui:
 There must be one `owner` in a project at any given time. Project ownership grants you the ability to remove any member from the project.
 <Procedure>
 
-### Project Ownership transfer
+### Project ownership transfer
 
 If you are the `owner` of a project, and have a [two-factor authentication][2fa] method enabled, you can 
-transfer project ownership to another `member` of the project. You will lose your ownership rights in the operation.
+transfer project ownership to another `member` of the project (losing your own ownership rights).
 
 1.  [Log in to your Timescale account][cloud-login] and navigate to
     the `Members` section.
 2.  Click the ⋮ menu next to the person you want to transfer project ownership to. 
-    If you are unable to make this action at this time, hovering the greyed out button will explain why.
+    If you are unable to transfer ownership at this time then hovering over the greyed out button should provide details.
 3.  Enter your password, and click `Verify`.
 4.  Complete the proposed two-factor authentication challenge and click `Confirm`.
 
@@ -35,7 +35,7 @@ alt="Transfer ownership of a project in Timescale"/>
 
 <Highlight type="note">
 
-If you don't have two-factor authentication or login to Timescale using an [SAML authentication][saml], this option is unavailable to you and on hovering a tooltip will tell so.
+If you don't have two-factor authentication or log in to Timescale using an [SAML authentication][saml], this option is unavailable as noted in the tooltip.
 Instead you can [reach out](https://www.timescale.com/contact) to have this action done.
 
 </Highlight>
