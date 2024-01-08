@@ -9,15 +9,15 @@ cloud_ui:
         - [members]
 ---
 
-# Project Ownership
+# Project ownership
 
-There must be one `Owner` in a project at any given time. Project ownership grants you the ability to remove any member from the project.
+There must be one `owner` in a project at any given time. Project ownership grants you the ability to remove any member from the project.
 <Procedure>
 
 ### Project Ownership transfer
 
-If you are the `Owner` of a project, and have a [two-factor authentication][2fa] method enabled, you can 
-transfer project ownership to another `Member` of the project. You will lose your ownership rights in the operation.
+If you are the `owner` of a project, and have a [two-factor authentication][2fa] method enabled, you can 
+transfer project ownership to another `member` of the project. You will lose your ownership rights in the operation.
 
 1.  [Log in to your Timescale account][cloud-login] and navigate to
     the `Members` section.
