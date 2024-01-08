@@ -28,7 +28,7 @@ transfer project ownership to another `member` of the project (losing your own o
 
 <img class="main-content__illustration"
 width={1375} height={944}
-src="https://assets.timescale.com/docs/images/tsc-transfer-ownership.webp"
+src="https://assets.timescale.com/docs/images/transfer-ownership/members-table-contextual-menu.png"
 alt="Transfer ownership of a project in Timescale"/>
 
 </Procedure>

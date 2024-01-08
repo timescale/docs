@@ -58,11 +58,6 @@ you can send them a project invitation again.
     the `Members` section.
 2.  Click the `Resend invitation` next to the desired members' name.
 
-<img class="main-content__illustration"
-width={1375} height={944}
-src="https://assets.timescale.com/docs/images/tsc-resend-invitation.webp"
-alt="Resend an invitation to a project in Timescale"/>
-
 </Procedure>
 
 

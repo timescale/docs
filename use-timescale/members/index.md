@@ -13,7 +13,7 @@ cloud_ui:
 
 When you log in to your [Timescale account][cloud-login], navigate to the
 `Members` page to manage users of your project. From here, you can see the
-current members of your Timescale project, transfer project ownership and add
+current members of your Timescale project, transfer project ownership, add
 and remove members.
 
 <img class="main-content__illustration"
