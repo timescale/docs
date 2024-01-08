@@ -35,7 +35,7 @@ alt="Transfer ownership of a project in Timescale"/>
 
 <Highlight type="note">
 
-If you don't have two-factor authentication or log in to Timescale using an [SAML authentication][saml], this option is unavailable as noted in the tooltip.
+If you don't have two-factor authentication or log in to Timescale using an [SAML authentication][saml] this option is unavailable.
 Instead you can [reach out](https://www.timescale.com/contact) to have this action done.
 
 </Highlight>
