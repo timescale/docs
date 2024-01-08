@@ -49,7 +49,7 @@ alt="Adding a new member to a project in Timescale"/>
 
 <Procedure>
 
-### Resend a project Invitation
+### Resend a project invitation
 
 The invitations to join a project that are sent are valid for 7 days. 
 In case an user you invited did not click in time or did not receive the email, 
