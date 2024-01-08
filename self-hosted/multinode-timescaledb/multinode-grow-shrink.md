@@ -68,7 +68,7 @@ distributed hypertable so that your database can use them.
 <Highlight type="important">
 When you attach a new data node, the partitioning configuration of the
 distributed hypertable is updated to account for the additional data node, and
-the number of space partitions are automatically increased to match. You can
+the number of hash partitions are automatically increased to match. You can
 prevent this happening by setting the function parameter `repartition` to
 `FALSE`.
 </Highlight>

@@ -43,11 +43,15 @@ If the chunk's primary dimension is of a time datatype, `range_start` and
 
 Get information about the chunks of a hypertable.
 
+<Highlight type="note">
+Dimension builder `by_range` was introduced in TimescaleDB 2.13.
+</Highlight>
+
 ```sql
 CREATE TABLESPACE tablespace1 location '/usr/local/pgsql/data1';
 
 CREATE TABLE hyper_int (a_col integer, b_col integer, c integer);
-SELECT table_name from create_hypertable('hyper_int', 'a_col', chunk_time_interval=> 10);
+SELECT table_name from create_hypertable('hyper_int', by_range('a_col', 10));
 CREATE OR REPLACE FUNCTION integer_now_hyper_int() returns int LANGUAGE SQL STABLE as $$ SELECT coalesce(max(a_col), 0) FROM hyper_int $$;
 SELECT set_integer_now_func('hyper_int', 'integer_now_hyper_int');
 

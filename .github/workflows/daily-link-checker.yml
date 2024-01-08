@@ -15,7 +15,7 @@ jobs:
       - uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9
 
       - name: Check links
-        uses: gaurav-nelson/github-action-markdown-link-check@d53a906aa6b22b8979d33bc86170567e619495ec
+        uses: gaurav-nelson/github-action-markdown-link-check@0f074c8562c5a8fed38282b7c741d1970bb1512d
         id: linkcheck
         with:
           use-quiet-mode: "yes"

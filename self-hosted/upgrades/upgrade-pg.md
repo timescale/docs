@@ -22,15 +22,16 @@ TimescaleDB supports these PostgreSQL releases. If you are not running a
 compatible PostgreSQL version, make sure you upgrade PostgreSQL before you
 upgrade TimescaleDB:
 
-||PostgreSQL&nbsp;15|PostgreSQL&nbsp;14|PostgreSQL&nbsp;13|PostgreSQL&nbsp;12|PostgreSQL&nbsp;11|PostgreSQL&nbsp;10|PostgreSQL&nbsp;9.6|
-|-|-|-|-|-|-|-|-|
-|TimescaleDB&nbsp;2.12 and higher|&#9989;|&#9989;|&#9989;|&#10060;|&#10060;|&#10060;|&#10060;|
-|TimescaleDB&nbsp;2.10|&#9989;|&#9989;|&#9989;|&#9989;|&#10060;|&#10060;|&#10060;|
-|TimescaleDB&nbsp;2.5 to 2.9|&#10060;|&#9989;|&#9989;|&#9989;|&#10060;|&#10060;|&#10060;|
-|TimescaleDB&nbsp;2.4|&#10060;|&#10060;|&#9989;|&#9989;|&#10060;|&#10060;|&#10060;|
-|TimescaleDB&nbsp;2.1 to 2.3|&#10060;|&#10060;|&#9989;|&#9989;|&#9989;|&#10060;|&#10060;|
-|TimescaleDB&nbsp;2.0|&#10060;|&#10060;|&#10060;|&#9989;|&#9989;|&#10060;|&#10060;
-|TimescaleDB&nbsp;1.7|&#10060;|&#10060;|&#10060;|&#9989;|&#9989;|&#9989;|&#9989;|
+||PostgreSQL&nbsp;16|PostgreSQL&nbsp;15|PostgreSQL&nbsp;14|PostgreSQL&nbsp;13|PostgreSQL&nbsp;12|PostgreSQL&nbsp;11|PostgreSQL&nbsp;10|PostgreSQL&nbsp;9.6|
+|-|-|-|-|-|-|-|-|-|
+|TimescaleDB&nbsp;2.13 and higher|&#9989;|&#9989;|&#9989;|&#9989;|&#10060;|&#10060;|&#10060;|&#10060;|
+|TimescaleDB&nbsp;2.12 and higher|&#10060;|&#9989;|&#9989;|&#9989;|&#10060;|&#10060;|&#10060;|&#10060;|
+|TimescaleDB&nbsp;2.10|&#10060;|&#9989;|&#9989;|&#9989;|&#9989;|&#10060;|&#10060;|&#10060;|
+|TimescaleDB&nbsp;2.5 to 2.9|&#10060;|&#10060;|&#9989;|&#9989;|&#9989;|&#10060;|&#10060;|&#10060;|
+|TimescaleDB&nbsp;2.4|&#10060;|&#10060;|&#10060;|&#9989;|&#9989;|&#10060;|&#10060;|&#10060;|
+|TimescaleDB&nbsp;2.1 to 2.3|&#10060;|&#10060;|&#10060;|&#9989;|&#9989;|&#9989;|&#10060;|&#10060;|
+|TimescaleDB&nbsp;2.0|&#10060;|&#10060;|&#10060;|&#10060;|&#9989;|&#9989;|&#10060;|&#10060;
+|TimescaleDB&nbsp;1.7|&#10060;|&#10060;|&#10060;|&#10060;|&#9989;|&#9989;|&#9989;|&#9989;|
 
 You need to upgrade PostgreSQL and TimescaleDB in two separate steps. This is so
 that you can make sure each upgrade completes properly. For example, if you are

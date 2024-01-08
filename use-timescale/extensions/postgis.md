@@ -71,7 +71,7 @@ particular location.
     timestamp data to use for partitioning:
 
     ```sql
-    SELECT create_hypertable('covid_location', 'time');
+    SELECT create_hypertable('covid_location', by_range('time'));
     ```
 
 1.  Create an index on the `state_id` column, to support efficient queries:
