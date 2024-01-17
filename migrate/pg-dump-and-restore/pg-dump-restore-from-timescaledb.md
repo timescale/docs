@@ -97,9 +97,9 @@ The following command loads the dumped data into the target database:
 ```bash
 psql $TARGET -v ON_ERROR_STOP=1 --echo-errors \
     -f roles.sql \
-    -c "SELECT timescaledb_pre_restore();" \
+    -c "SELECT public.timescaledb_pre_restore();" \
     -f dump.sql \
-    -c "SELECT timescaledb_post_restore();"
+    -c "SELECT public.timescaledb_post_restore();"
 ```
 
 It uses [timescaledb_pre_restore] and [timescaledb_post_restore] to put your
