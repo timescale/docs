@@ -46,10 +46,9 @@ refresh window as an `INTEGER` type.
 
 
 <Highlight type="warning">
-Note that it's not guaranteed that all buckets will be updated:
-
-1. buckets that are materialized with no data changes will not refreshed again.
-2. buckets with changes only in the secondary table used in the JOIN are not refreshed.
+Note that it's not guaranteed that all buckets are updated, skipping refresh
+when buckets are materialized with no data changes or changes occurred only in
+the secondary table used in the JOIN.
 </Highlight>
 
 ### Sample usage
