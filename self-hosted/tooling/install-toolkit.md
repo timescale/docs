@@ -44,7 +44,7 @@ The recommended way to install the Toolkit is to use the
 To get Toolkit, use the high availability image, `timescaledb-ha`:
 
 ```bash
-docker pull timescale/timescaledb-ha:pg14-latest
+docker pull timescale/timescaledb-ha:pg14
 ```
 
 <Highlight type="important">
