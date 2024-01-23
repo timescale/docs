@@ -9,19 +9,21 @@ tags: [ssl]
 # Connect with a stricter SSL mode
 
 The default connection string for Timescale uses the SSL mode `require`.
-If you want your connection client to verify the server's identity, you can
-connect with an [SSL mode][ssl-modes] of `verify-ca` or `verify-full`. To do so,
-you need to store a copy of the certificate chain where your connection tool can
-find it.
+Clients can choose to not use TLS while connecting to their databases, but it's
+strongly discouraged to connect to production databases without encryption. To
+achieve even stronger security, clients may select to verify identity of the
+server. If you want your connection client to verify the server's identity, you
+can connect with an [SSL mode][ssl-modes] of `verify-ca` or `verify-full`. To
+do so, you need to store a copy of the certificate chain where your connection
+tool can find it.
 
 This section provides instructions for setting up a stricter SSL connection.
 
 ## SSL certificates
 
-All connections to Timescale are encrypted. As part of the secure
-connection protocol, the server proves its identity by providing clients with a
-certificate. This certificate should be issued and signed by a well-known and
-trusted Certificate Authority.
+As part of the secure connection protocol, the server proves its identity by
+providing clients with a certificate. This certificate should be issued and
+signed by a well-known and trusted Certificate Authority.
 
 Because requesting a certificate from a Certificate Authority takes some time,
 Timescale databases are initialized with a self-signed certificate. This
