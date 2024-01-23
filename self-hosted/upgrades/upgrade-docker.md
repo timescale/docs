@@ -84,7 +84,7 @@ data.
     [TimescaleDB HA Docker Hub repository](https://hub.docker.com/r/timescale/timescaledb-ha/tags).
 
     ```bash
-    docker pull timescale/timescaledb-ha:pg14
+    docker pull timescale/timescaledb-ha:pg16
     ```
 
 1.  Stop the old container, and remove it:
