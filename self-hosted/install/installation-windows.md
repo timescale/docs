@@ -19,10 +19,10 @@ These instructions use a `zip` installer on these versions:
 
 The minimum supported PostgreSQL versions are:
 
-*   PostgreSQL&nbsp;12.8
 *   PostgreSQL&nbsp;13.5
 *   PostgreSQL&nbsp;14.0
 *   PostgreSQL&nbsp;15.0
+*   PostgreSQL&nbsp;16.0
 
 <Highlight type="warning">
 If you have already installed PostgreSQL using another method, you could
@@ -150,11 +150,14 @@ tsdb=>
 
 ## Windows releases
 
-Here are the latest TimescaleDB releases for PostgreSQL 12, 13, 14, and 15. To see
+Here are the latest TimescaleDB releases for PostgreSQL 13, 14, 15, and 16. To see
 information on releases, check out the
 [GitHub releases page][gh-releases]. Also see the
 [release notes][release-notes].
 
+*   <Tag type="download">
+    [PostgreSQL 16: Timescale release](https://github.com/timescale/timescaledb/releases/latest/download/timescaledb-postgresql-16-windows-amd64.zip)
+    </Tag>
 *   <Tag type="download">
     [PostgreSQL 15: Timescale release](https://github.com/timescale/timescaledb/releases/latest/download/timescaledb-postgresql-15-windows-amd64.zip)
     </Tag>
@@ -163,9 +166,6 @@ information on releases, check out the
     </Tag>
 *   <Tag type="download">
     [PostgreSQL 13: Timescale release](https://github.com/timescale/timescaledb/releases/latest/download/timescaledb-postgresql-13-windows-amd64.zip)
-    </Tag>
-*   <Tag type="download">
-    [PostgreSQL 12: Timescale release](https://github.com/timescale/timescaledb/releases/latest/download/timescaledb-postgresql-12-windows-amd64.zip)
     </Tag>
 
 ## Where to next
