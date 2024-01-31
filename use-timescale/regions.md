@@ -12,7 +12,6 @@ Timescale is available in these AWS (Amazon Web Services) regions:
 |-|-|-|
 |`ap-southeast-1`|Asia|Singapore|
 |`ap-southeast-2`|Australia|Sydney|
-|`ap-northeast-1`|Japan|Tokyo|
 |`eu-central-1`|Europe|Frankfurt|
 |`eu-west-1`|Europe|Ireland|
 |`us-east-1`|United States|North Virginia|
