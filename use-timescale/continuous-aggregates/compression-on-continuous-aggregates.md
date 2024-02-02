@@ -16,9 +16,6 @@ Compression on continuous aggregates works similarly to
 they can't be updated or deleted. For continuous aggregates, that means
 compressed chunks can't be refreshed.
 
-If you receive historical data and need to refresh a compressed chunk, see
-[the troubleshooting guide][troubleshooting].
-
 <Highlight type="warning">
 You can't refresh the compressed regions of a continuous aggregate. To avoid
 conflicts between compression and refresh, make sure you set `compress_after`
@@ -85,4 +82,3 @@ SELECT add_compression_policy('cagg_name', compress_after=>'45 days'::interval);
 [compression]: /use-timescale/:currentVersion:/compression/
 [decompress-chunks]:  /use-timescale/:currentVersion:/compression/decompress-chunks
 [refresh-policy]: /use-timescale/:currentVersion:/continuous-aggregates/refresh-policies
-[troubleshooting]: /use-timescale/:currentVersion:/continuous-aggregates/troubleshooting/#cannot-refresh-compressed-chunks-of-a-continuous-aggregate
