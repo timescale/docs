@@ -71,6 +71,11 @@ module.exports = [
             href: "members-list",
             excerpt: "Timescale members list",
           },
+          {
+            title: "Project Ownership",
+            href: "project-ownership",
+            excerpt: "Timescale project ownership",
+          },
         ],
       },
       {

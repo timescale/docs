@@ -120,6 +120,10 @@ SELECT create_hypertable('conditions', by_range('time'));
 SELECT add_dimension('conditions', by_hash('location', 4));
 ```
 
+<Highlight type="note">
+The `by_range` and `by_hash` dimension builders are an addition to TimescaleDB 2.13.
+</Highlight>
+
 Convert table `conditions` to hypertable with range partitioning on
 `time` then add three additional dimensions: one hash partitioning on
 `location`, one range partition on `time_received`, and one hash

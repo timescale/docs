@@ -25,7 +25,7 @@ see the [hypertable section][hypertable-docs].
 
 <Highlight type="note">
 This reference describes the new generalized hypertable API that was introduced in TimescaleDB 2.13.
-The [old interface for `create_hypertable is also available][create-hypertable-old].
+The [old interface for `create_hypertable` is also available](/api/:currentVersion:/hypertable/create_hypertable_old/).
 </Highlight>
 
 ## Required arguments
@@ -33,7 +33,7 @@ The [old interface for `create_hypertable is also available][create-hypertable-o
 |Name|Type|Description|
 |-|-|-|
 |`relation`|REGCLASS|Identifier of table to convert to hypertable.|
-| `dimension` | DIMENSION_INFO | Dimension info object for the column to partition on. |
+| `dimension` | DIMENSION_INFO | Dimension builder for the column to partition on. |
 
 ## Optional arguments
 
@@ -120,7 +120,7 @@ CREATE FUNCTION report_reported(report)
   IMMUTABLE AS
   'SELECT $1.reported';
 
-SELECT create_hypertable('measurements', by_range('report', time_partitioning_func => 'report_reported'));
+SELECT create_hypertable('measurements', by_range('report', partition_func => 'report_reported'));
 ```
 
 Time partition table `events`, on a column type `jsonb` (`event`), which has
@@ -133,12 +133,11 @@ CREATE FUNCTION event_started(jsonb)
   IMMUTABLE AS
   $func$SELECT ($1->>'started')::timestamptz$func$;
 
-SELECT create_hypertable('events', by_range('event', time_partitioning_func => 'event_started'));
+SELECT create_hypertable('events', by_range('event', partition_func => 'event_started'));
 ```
 
 [create_distributed_hypertable]: /api/:currentVersion:/distributed-hypertables/create_distributed_hypertable
 [hash-partitions]: /use-timescale/:currentVersion:/hypertables/about-hypertables/#hypertable-partitioning
 [hypertable-docs]: /use-timescale/:currentVersion:/hypertables/
-[create-hypertable-old]: /api/:currentVersion:/hypertable/create_hypertable_old
 [dimension-builders]: /api/:currentVersion:/hypertable/dimension_info
 [by-range]: /api/:currentVersion:/hypertable/dimension_info/#by_range
