@@ -802,11 +802,6 @@ module.exports = [
             excerpt: "Example user-defined action for downsample and compress",
           },
           {
-            title: "Use an action to backfill data periodically",
-            href: "example-backfill",
-            excerpt: "Example user-defined action for scheduled backfills",
-          },
-          {
             title: "Troubleshooting",
             href: "troubleshooting",
             type: "placeholder",
