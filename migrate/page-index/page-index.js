@@ -36,19 +36,19 @@ module.exports = [
         excerpt: "Migrate a large database with low downtime",
         children: [
           {
-            title: "Live migration from PostgreSQL",
+            title: "From PostgreSQL",
             href: "live-migration-from-postgres",
             excerpt:
                 "Migrate from PostgreSQL using live migration",
           },
           {
-            title: "Live migration from TimescaleDB",
+            title: "From TimescaleDB",
             href: "live-migration-from-timescaledb",
             excerpt:
                 "Migrate from TimescaleDB using live migration",
           },
           {
-            title: "(Advanced) Live migration from PostgreSQL manually",
+            title: "(Advanced) From PostgreSQL manually",
             href: "live-migration-from-postgres-manually",
             excerpt:
                 "Migrate from TimescaleDB using live migration manually",

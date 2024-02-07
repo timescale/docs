@@ -346,6 +346,7 @@ ALTER TABLE {table_name} REPLICA IDENTITY FULL;
 ```
 
 ## 3. Set up a replication slot and snapshot
+
 Once you're sure that the tables which will be affected by `UPDATE` and `DELETE`
 queries have `REPLICA IDENTITY` set, you will need to create a replication slot.
 
@@ -372,32 +373,12 @@ Additionally, `follow` command exports a snapshot ID to `/tmp/pgcopydb/snapsho
 This ID can be utilized to migrate data that was in the database before the replication
 slot was created.
 
-## 4. Migrate roles and schema from source to target
-Before applying DML operations from the replication slot, the schema and data from
-the source database need to be migrated.
-The larger the size of the source database, the more time it takes to perform the
-initial migration, and the longer the buffered files need to be stored.
+## 4. Perform Live Migration
 
-### 4.a Migrate database roles from source database
-<LiveMigrationRoles />
-
-### 4.b Dump the database schema from the source database
-<DumpPreDataSourceSchema />
-
-### 4.c Load the roles and schema into the target database
-```sh
-psql -X -d "$TARGET" \
-  -v ON_ERROR_STOP=1 \
-  --echo-errors \
-  -f roles.sql \
-  -f pre-data-dump.sql
-```
-
-## 5. Perform "live migration"
 The remaining steps for migrating data from a RDS Postgres instance to Timescale
 with low-downtime are the same as the ones mentioned in "Live migration"
-documentation from [Step 5] onwards. You should follow the mentioned steps
+documentation from [Step 3] onwards. You should follow the mentioned steps
 to successfully complete the migration process.
 
 [live migration]: /migrate/:currentVersion:/live-migration/live-migration-from-postgres/
-[Step 5]: /migrate/:currentVersion:/live-migration/live-migration-from-postgres/#5-enable-hypertables
+[Step 3]: /migrate/:currentVersion:/live-migration/live-migration-from-postgres/#3-run-the-live-migration-docker-image

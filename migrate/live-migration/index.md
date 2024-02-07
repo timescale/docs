@@ -9,10 +9,9 @@ import SourceTargetNote from "versionContent/_partials/_migrate_source_target_no
 
 # Live migration
 
-Live migration is a migration strategy to move a large amount of data
-(100&nbsp;GB-10&nbsp;TB+) with low downtime (on the order of few minutes). It requires
-more steps to execute than a migration with downtime using [pg_dump/restore][pg-dump-and-restore],
-but supports more use-cases and has less requirements than the [dual-write and backfill] method.
+Live migration is a strategy used to move a large amount of data (100&nbsp;GB-10&nbsp;TB+) with minimal downtime (typically a few minutes). It involves copying existing data from the source to the target and supports change data capture to stream ongoing changes from the source during the migration process.
+
+In contrast, [pg_dump/restore][pg-dump-and-restore] only supports copying the database from the source to the target without capturing ongoing changes, which results in downtime. On the other hand, the [dual-write and backfill] method requires setting up dual write in the application logic. This method is recommended only for append-only workloads as it does not support updates and deletes during migration.
 
 <SourceTargetNote />
 
@@ -23,8 +22,8 @@ Roughly, it consists of four steps:
 
 1. Prepare and create replication slot in source database.
 2. Copy schema from source to target, optionally enabling hypertables.
-3. Copy data from source to target while capturing changes.
-4. Apply captured changes from source to target.
+3. Copy data from source to target while capturing ongoing changes from source.
+4. Apply captured ongoing changes to target.
 
 Live migration works well when:
 - Large, busy tables have primary keys, or don't have many `UPDATE` or
@@ -38,7 +37,7 @@ For more information, refer to the step-by-step migration guide:
 - [Live migration from PostgreSQL][from-postgres]
 - [Live migration from TimescaleDB][from-timescaledb]
 
-If you want to manually migrate data from PostgreSQL, refer to
+If you want to have more control over migration and prefer to manually migrate data from PostgreSQL, refer to 
 [Live migration from PostgreSQL manually][live-migration-manual].
 
 If you are migrating from AWS RDS to Timescale, you can refer to [this][live-migration-playbook] playbook
