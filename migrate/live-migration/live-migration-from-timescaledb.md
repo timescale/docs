@@ -90,7 +90,7 @@ docker run --rm -dit --name live-migration \
   -e PGCOPYDB_SOURCE_PGURI=$SOURCE \
   -e PGCOPYDB_TARGET_PGURI=$TARGET \
   -v ~/live-migration:/opt/timescale/ts_cdc \
-  timescale/live-migration:v0.0.1
+  timescale/live-migration:v0.0.5
 ```
 
 <Highlight type="note">
