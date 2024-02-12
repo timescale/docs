@@ -6,12 +6,15 @@ keywords: [installation, self-hosted]
 ---
 
 import WhereTo from "versionContent/_partials/_where-to-next.mdx";
+import Skip from "versionContent/_partials/_selfhosted_cta.mdx";
 
 # Install self-hosted TimescaleDB from source
 
 You can host TimescaleDB yourself, on any system, by downloading the source code
 and compiling it. These instructions do not require the use of a package manager
 or installation tool.
+
+< Skip />
 
 Before you start, make sure you have installed:
 

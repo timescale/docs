@@ -7,10 +7,14 @@ keywords: [installation, self-hosted, Windows]
 
 import Windows from "versionContent/_partials/_psql-installation-windows.mdx";
 import WhereTo from "versionContent/_partials/_where-to-next.mdx";
+import Skip from "versionContent/_partials/_selfhosted_cta.mdx";
 
 # Install self-hosted TimescaleDB on Windows systems
 
 You can host TimescaleDB yourself on your Microsoft Windows system.
+
+< Skip /> 
+
 These instructions use a `zip` installer on these versions:
 
 *   Microsoft Windows&nbsp;10
