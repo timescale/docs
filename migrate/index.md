@@ -75,6 +75,8 @@ and importing it with [timescaledb-parallel-copy][parallel-copy].
 
 For other ingestion methods, see the [data ingest section][data-ingest].
 
+For a detailed, step-by-step guide on migrating from various databases to Timescale, please refer to the migration [playbooks].
+
 If you encounter any difficulties while migrating, consult the
 [troubleshooting] documentation, open a support requestl, or take
 your issue to the `#migration` channel in the [community slack](https://slack.timescale.com/),
@@ -89,3 +91,4 @@ where the developers of this migration method are there to help.
 [troubleshooting]: /migrate/:currentVersion:/troubleshooting/
 [live-migration]: /migrate/:currentVersion:/live-migration/
 [pgcopydb]: https://github.com/dimitri/pgcopydb
+[playbooks]: /migrate/:currentVersion:/playbooks/

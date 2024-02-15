@@ -21,6 +21,14 @@ a range of time, and only contains data from that range. If the hypertable is
 also partitioned by space, each chunk is also assigned a subset of the space
 values.
 
+<Highlight type="note">
+When a chunk is created then its creation time is stored in the
+catalog metadata. This chunk creation time should not be confused with
+the partition ranges for the data that the chunk contains. Certain
+functionality can use this chunk creation time metadata in cases where
+it makes sense.
+</Highlight>
+
 ### Time partitioning
 
 Each chunk of a hypertable only holds data from a specific time range. When you
