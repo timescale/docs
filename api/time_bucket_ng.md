@@ -140,8 +140,7 @@ CREATE TABLE conditions(
   temperature INT NOT NULL);
 
 SELECT create_hypertable(
-  'conditions', 'day',
-  chunk_time_interval => INTERVAL '1 day'
+  'conditions', by_range('day', INTERVAL '1 day')
 );
 
 INSERT INTO conditions (day, city, temperature) VALUES
@@ -180,6 +179,16 @@ ORDER BY bucket;
  2021-06-26 | Moscow |  31 |  32
 (3 rows)
 ```
+
+<Highlight type="note">
+The `by_range` dimension builder is an addition to TimescaleDB
+2.13. For simpler cases, like this one, you can also create the
+hypertable using the old syntax:
+
+```sql
+SELECT create_hypertable('<table name>', '<time column name>');
+```
+</Highlight>
 
 For more information, see the [continuous aggregates documentation][caggs].
 

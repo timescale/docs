@@ -55,9 +55,10 @@ based dimensions.
 Get information about the dimensions of hypertables.
 
 ```sql
---Create a time and space partitioned hypertable
+-- Create a range and hash partitioned hypertable
 CREATE TABLE dist_table(time timestamptz, device int, temp float);
-SELECT create_hypertable('dist_table', 'time',  'device', chunk_time_interval=> INTERVAL '7 days', number_partitions=>3);
+SELECT create_hypertable('dist_table', by_range('time', INTERVAL '7 days'));
+SELECT add_dimension('dist_table', by_hash('device', 3));
 
 SELECT * from timescaledb_information.dimensions
   ORDER BY hypertable_name, dimension_number;
@@ -86,12 +87,16 @@ integer_now_func  |
 num_partitions    | 2
 ```
 
+<Highlight type="note">
+The `by_range` and `by_hash` dimension builders are an addition to TimescaleDB 2.13.
+</Highlight>
+
 Get information about dimensions of a hypertable that has two time-based dimensions.
 
 ``` sql
 CREATE TABLE hyper_2dim (a_col date, b_col timestamp, c_col integer);
-SELECT table_name from create_hypertable('hyper_2dim', 'a_col');
-SELECT add_dimension('hyper_2dim', 'b_col', chunk_time_interval=> '7 days');
+SELECT table_name from create_hypertable('hyper_2dim', by_range('a_col'));
+SELECT add_dimension('hyper_2dim', by_range('b_col', INTERVAL '7 days'));
 
 SELECT * FROM timescaledb_information.dimensions WHERE hypertable_name = 'hyper_2dim';
 
