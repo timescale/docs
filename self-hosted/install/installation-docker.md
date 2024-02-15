@@ -6,14 +6,21 @@ keywords: [installation, self-hosted, Docker]
 ---
 
 import WhereTo from "versionContent/_partials/_where-to-next.mdx";
+import Skip from "versionContent/_partials/_selfhosted_cta.mdx";
 
 # Install TimescaleDB from a pre-built container
 
 You can install a TimescaleDB instance on any local system, from a pre-built
-container. This is the simplest method to install TimescaleDB, and it means you
+container. 
+
+< Skip/>
+
+
+This is the simplest method to self-host TimescaleDB, and it means you
 always have access to the latest version without worrying about local
 dependencies. You can access the Docker image directly from locally installed
 PostgreSQL client tools such as `psql`.
+
 
 <Highlight type="warning">
 If you have already installed PostgreSQL using a method other than the pre-built
