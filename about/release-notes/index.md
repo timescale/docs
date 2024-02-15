@@ -17,6 +17,25 @@ GitHub and be notified by email whenever a new release is available. On the
 click `Watch`, select `Custom` and then check `Releases`.
 </Highlight>
 
+## TimescaleDB&nbsp;2.14.1 on 2024-02-14
+
+<Highlight type="note">
+This release contains bug fixes since the 2.14.0 release.
+We recommend that you upgrade at the next available opportunity.
+</Highlight>
+
+### Complete list of features
+* #6630 Add views for per chunk compression settings
+
+### Complete list of bugfixes
+* #6636 Fixes extension update of compressed hypertables with dropped columns
+* #6637 Reset sequence numbers on non-rollup compression
+* #6639 Disable default indexscan for compression
+* #6651 Fix DecompressChunk path generation with per chunk settings
+
+### Acknowledgments
+* @anajavi for reporting an issue with extension update of compressed hypertables
+
 ## TimescaleDB&nbsp;2.14.0 on 2024-02-08
 
 <Highlight type="note">
@@ -93,6 +112,7 @@ CAggs
 * @JerkoNikolic for reporting the issue with gapfill and DST
 * @pdipesh02 for working on removing the old Continuous Aggregate format
 * @raymalt and @martinhale for reporting very slow query plans on realtime CAggs queries
+
 ## TimescaleDB&nbsp;2.13.1 on 2024-01-08
 
 These release notes are for the release of TimescaleDB&nbsp;2.13.1 on
