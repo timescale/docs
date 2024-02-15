@@ -33,6 +33,9 @@ Live migration works well when:
   inserts are batched. If your application exceeds this, you should use
   the [dual-write and backfill] migration method.
 
+Live migration has the following shortcomings:
+- It does not support schema changes (DDL) during the migration process
+
 For more information, refer to the step-by-step migration guide:
 
 - [Live migration from PostgreSQL][from-postgres]
