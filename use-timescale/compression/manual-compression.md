@@ -104,7 +104,7 @@ settings to set the compress chunk time interval and run compression operations
 to roll up the chunks while compressing.
 
 <Highlight type="note">
-The default setting of `compress_orderby` is `'time ASC'` (the ascending or ASC command is used to sort the data returned in ascending order), which causes chunks to be re-compressed
+The default setting of `compress_orderby` is `'time DESC'` (the descending or DESC command is used to sort the data returned in ascending order), which causes chunks to be re-compressed
 many times during the rollup, possibly leading to a steep performance penalty. 
 Set `timescaledb.compress_orderby = 'time ASC'` to avoid this penalty.
 </Highlight>
