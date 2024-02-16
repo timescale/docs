@@ -21,7 +21,7 @@ Timescale extends PostgreSQL for all of your resource-intensive production workl
 
 - [**Time-series data**](https://www.timescale.com/blog/what-is-a-time-series-database/#what-is-a-time-series-database): a
   TimescaleDB instance optimized for your time-series and analytics workloads, with cloud-only features like transparent low-cost bottomless storage.
-- **All other workloads**: a Dynamic PostgreSQL instance where you select a compute range, only paying for the base and the amount of extra CPU as you scale.
+- **All other workloads**: a [Dynamic PostgreSQL](https://www.timescale.com/dynamic-postgresql)  instance where you select a compute range, only paying for the base and the amount of extra CPU as you scale.
 
 Each database instance in Timescale is called a service.
 
