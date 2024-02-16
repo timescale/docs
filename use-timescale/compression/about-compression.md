@@ -160,7 +160,7 @@ instead, using these commands:
 ```sql
 ALTER TABLE  example
   SET (timescaledb.compress,
-       timescaledb.compress_orderby = 'device_id, time ASC');
+       timescaledb.compress_orderby = 'device_id, time');
 ```
 
 Using those settings, the compressed table now shows each measurement in
