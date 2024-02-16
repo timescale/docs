@@ -30,9 +30,9 @@ speculative insertion, and block any inserts which could violate constraints.
 
 </Tab>
 
-<Tab title="TimescaleDB&nbsp;2.10">
+<Tab title="TimescaleDB&nbsp;2.3-2.10">
 
-In TimescaleDB&nbsp;2.10, you can insert data into compressed chunks with some
+From TimescaleDB&nbsp;2.3, you could insert data into compressed chunks with some
 limitations. The primary limitation is that you can't insert data with unique
 constraints. Additionally, newly inserted data needs to be compressed at the
 same time as the data in the chunk, either by a running recompression policy, or
@@ -40,9 +40,9 @@ by using `recompress_chunk` manually on the chunk.
 
 </Tab>
 
-<Tab title="TimescaleDB&nbsp;2.9 and earlier">
+<Tab title="TimescaleDB&nbsp;2.2 and earlier">
 
-In TimescaleDB&nbsp;2.9 and earlier, you cannot insert data into compressed chunks.
+In TimescaleDB&nbsp;2.2 and earlier, you cannot insert data into compressed chunks.
 
 </Tab>
 

@@ -24,3 +24,5 @@ Timescale is working on releasing 🔜 in the following AWS regions:
 |-|-|-|
 |`ap-northeast-1`|Japan|Tokyo|
 |`eu-west-2`|Europe|London|
+|`sa-east-1`|South America|São Paulo|
+|`ca-central-1`|Canada|Central|
