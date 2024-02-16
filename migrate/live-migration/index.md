@@ -6,18 +6,40 @@ keywords: [migration, low-downtime, backup]
 tags: [recovery, logical backup, replication]
 ---
 import SourceTargetNote from "versionContent/_partials/_migrate_source_target_note.mdx";
+import OpenSupportRequest from "versionContent/_partials/_migrate_open_support_request.mdx"
 
 # Live migration
 
-Live migration is a migration strategy to move a large amount of data
-(100&nbsp;GB-10&nbsp;TB+) with low downtime (on the order of few minutes). It requires
-more steps to execute than a migration with downtime using [pg_dump/restore][pg-dump-and-restore],
-but supports more use-cases and has less requirements than the [dual-write and backfill] method.
+Live migration is a new migration strategy to move a large amount of data
+(100&nbsp;GB-10&nbsp;TB+) with low downtime (on the order of few minutes). It
+requires more steps to execute than a migration with downtime using
+[pg_dump/restore][pg-dump-and-restore], but supports more use-cases and has
+fewer requirements than the [dual-write and backfill] method.
 
-<SourceTargetNote />
+<Highlight type="important">
+
+Be aware that the live migration tooling is currently experimental. Concretely,
+this means that you may run into the following shortcomings:
+
+- You may experience failure to migrate your database due to incompatibilities
+  between the source and target (e.g. tables with generated columns cannot be
+  replicated).
+- In most cases it is not possible to resume a failed migration, and must be
+  restarted from the beginning.
+- By default, numeric fields containing `NaN`/`+Inf`/`-Inf` values are not
+  correctly replicated, and will be converted to `NULL`. A workaround is
+  available, but is not enabled by default.
+
+Should you run into any problems, please open a support request before losing
+any time debugging issues.
+<OpenSupportRequest />
+
+</Highlight>
 
 Live migration leverages Postgres' built-in replication functionality to
 provide a seamless migration with very little application downtime.
+
+<SourceTargetNote />
 
 Roughly, it consists of four steps:
 
