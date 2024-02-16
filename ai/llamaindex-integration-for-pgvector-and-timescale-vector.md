@@ -1,14 +1,14 @@
 ---
-title: LlamaIndex Integration
+title: LlamaIndex Integration for pgvector and Timescale Vector
 excerpt: LlamaIndex integration for Timescale Vector
 products: [cloud]
 keywords: [ai, vector, pgvector, timescale vector, python, llamaindex]
 tags: [ai, vector, python, llamaindex]
 ---
 
-## LlamaIndex integration
+## LlamaIndex integration for pgvector and Timescale Vector
 
-[LlamaIndex](https://www.llamaindex.ai/) is a popular data framework for connecting custom data sources to large language models (LLMs). Timescale Vector has a native LlamaIndex integration, enabling you to use Timescale Vector as a vector store and leverage all its capabilities in your applications built with LlamaIndex.
+[LlamaIndex](https://www.llamaindex.ai/) is a popular data framework for connecting custom data sources to large language models (LLMs). Timescale Vector has a native LlamaIndex integration that supports all the features of pgvector and Timescale Vector. It enables you to use Timescale Vector as a vector store and leverage all its capabilities in your applications built with LlamaIndex.
 
 Here are resources about using Timescale Vector with LlamaIndex:
 

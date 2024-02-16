@@ -1,12 +1,12 @@
 ---
-title: Python inteface
-excerpt: Python inteface for Timescale Vector and pgvector
+title: Python inteface for pgvector and Timescale Vector
+excerpt: Working with Timescale Vector and pgvector in python
 products: [cloud]
 keywords: [ai, vector, pgvector, timescale vector, python]
 tags: [ai, vector, python]
 ---
 
-# Python interface
+# Python interface for pgvector and Timescale Vector
 
 PostgreSQL++ for AI Applications.
 
@@ -30,7 +30,7 @@ pip install timescale_vector
 pip install python-dotenv
 ```
 
-## Basic usage
+## Basic usage of the timescale_vector library
 
 First, import all the necessary libraries:
 

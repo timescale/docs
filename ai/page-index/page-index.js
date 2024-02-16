@@ -8,28 +8,28 @@ module.exports = [
       "Information about Timescale Vector and how to use it.",
     children: [
       {
-        title: "Key vector database concepts",
-        href: "concepts",
+        title: "Key vector database concepts for understanding pgvector",
+        href: "key-vector-database-concepts-for-understanding-pgvector",
         excerpt: "Key concepts for working with vector data in PostgreSQL",
       },
       {
-        title: "SQL interface",
-        href: "sql-interface",
+        title: "SQL interface for pgvector and Timescale Vector",
+        href: "sql-interface-for-pgvector-and-timescale-vector",
         excerpt: "SQL interface for Timescale Vector and pgvector in PostgreSQL",
       },
       {
-        title: "Python interface",
-        href: "python-interface",
+        title: "Python interface for pgvector and Timescale Vector",
+        href: "python-interface-for-pgvector-and-timescale-vector",
         excerpt: "Python interface for Timescale Vector and pgvector in PostgreSQL",
       },
       {
-        title: "LangChain integration",
-        href: "langchain-integration",
+        title: "LangChain integration for pgvector and Timescale Vector",
+        href: "langchain-integration-for-pgvector-and-timescale-vector",
         excerpt: "Integration of LangChain with Timescale Vector",
       },
       {
-        title: "LlamaIndex integration",
-        href: "llamaindex-integration",
+        title: "LlamaIndex integration for pgvector and Timescale Vector",
+        href: "llamaindex-integration-for-pgvector-and-timescale-vector",
         excerpt: "Integration of LlamaIndex with Timescale Vector",
       },
       {

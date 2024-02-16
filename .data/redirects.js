@@ -390,6 +390,26 @@ const redirector = new ThreeOhOneRedirector({
 	]
 })
 	.add(
+		"/ai/latest/concepts",
+		"https://docs.timescale.com/ai/latest/key-vector-database-concepts-for-understanding-pgvector/"
+	)
+	.add(
+		"/ai/latest/langchain-integration",
+		"https://docs.timescale.com/ai/latest/langchain-integration-for-pgvector-and-timescale-vector/"
+	)
+	.add(
+		"/ai/latest/llamaindex-integration",
+		"https://docs.timescale.com/ai/latest/llamaindex-integration-for-pgvector-and-timescale-vector/"
+	)
+	.add(
+		"/ai/latest/python-interface",
+		"https://docs.timescale.com/ai/latest/python-interface-for-pgvector-and-timescale-vector/"
+	)
+	.add(
+		"/ai/latest/sql-interface",
+		"https://docs.timescale.com/ai/latest/sql-interface-for-pgvector-and-timescale-vector/"
+	)
+	.add(
 		"/administration/configuration",
 		"https://docs.timescale.com/timescaledb/latest/how-to-guides/configuration/about-configuration/"
 	)
