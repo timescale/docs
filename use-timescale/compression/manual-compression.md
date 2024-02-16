@@ -111,15 +111,15 @@ Set `timescaledb.compress_orderby = 'time ASC'` to avoid this penalty.
 
 
 
-```sql
-ALTER TABLE example SET (timescaledb.compress_chunk_time_interval = '<time_interval>',
-                         timescaledb.compress_orderby = 'time ASC');
-SELECT compress_chunk(c, if_not_compressed => true)
-    FROM show_chunks(
-        'example',
-        now()::timestamp - INTERVAL '1 week'
-    ) c;
-```
+    ```sql
+    ALTER TABLE example SET (timescaledb.compress_chunk_time_interval = '<time_interval>',
+                             timescaledb.compress_orderby = 'time ASC');
+    SELECT compress_chunk(c, if_not_compressed => true)
+        FROM show_chunks(
+            'example',
+            now()::timestamp - INTERVAL '1 week'
+        ) c;
+    ```
 
 The time interval you choose must be a multiple of the uncompressed chunk
 interval. For example, if your uncompressed chunk interval is one week, your
