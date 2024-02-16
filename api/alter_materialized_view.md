@@ -38,8 +38,11 @@ ALTER MATERIALIZED VIEW <view_name> SET ( timescaledb.<option> =  <value> [, ...
 
 |Name|Description|
 |-|-|
-|timescaledb.materialized_only|Enable and disable real time aggregation|
-|timescaledb.compress|Enable and disable compression|
+|`timescaledb.materialized_only`|Enable and disable real time aggregation|
+|`timescaledb.compress`|Enable and disable compression|
+|`timescaledb.compress_orderby`|TEXT|Order used by compression, specified in the same way as the ORDER BY clause in a SELECT query. The default is the descending order of the hypertable's time column.|
+|`timescaledb.compress_segmentby`|TEXT|Column list on which to key the compressed segments. An identifier representing the source of the data such as `device_id` or `tags_id` is usually a good candidate. The default is no `segment by` columns.|
+|`timescaledb.compress_chunk_time_interval`|TEXT|EXPERIMENTAL: Set compressed chunk time interval used to roll compressed chunks into. This parameter compresses every chunk, and then merges it into a previous adjacent chunk if possible, to reduce the total number of chunks in the hypertable. It should be set to a multiple of the current chunk interval. This option can be changed independently of other compression settings and does not require the `timescaledb.compress` argument.|
 
 ### Sample usage
 
