@@ -154,7 +154,7 @@ showing numbers around 88, and device 2 showing numbers around 300:
 |-|-|-|-|-|
 |[12:00:02, 12:00:02, 12:00:01, 12:00:01 ]|[1, 2, 1, 2]|[88.2, 300.5, 88.6, 299.1]|[20, 30, 25, 40]|[0.8, 0.9, 0.85, 0.95]|
 
-To improve the performance of this data, you can order by `device_id, time ASC`
+To improve the performance of this data, you can order by `device_id, time`
 instead, using these commands:
 
 ```sql
