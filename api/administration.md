@@ -25,7 +25,7 @@ Inspect `dumpfile.txt` before sending it together with a bug report or support q
 
 Returns the background [telemetry][telemetry] string sent to Timescale servers. 
 
-If telemetry is disabled, it sends the string that would be sent if telemetry were enabled.
+If telemetry is turned off, it sends the string that would be sent if telemetry were enabled.
 
 ### Sample usage
 
@@ -58,7 +58,7 @@ The background workers are stopped until the [timescaledb_post_restore()](#times
 For more information, see [Migrate using pg_dump and pg_restore].
 
 <Highlight type="important">
-After using `timescaledb_pre_restore()`, you need to run [timescaledb_post_restore()](#timescaledb_post_restore) before you can use the database normally.
+After using `timescaledb_pre_restore()`, you need to run [`timescaledb_post_restore()`](#timescaledb_post_restore) before you can use the database normally.
 </Highlight>
 
 ### Sample usage
