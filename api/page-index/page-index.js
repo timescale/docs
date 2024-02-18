@@ -584,24 +584,6 @@ module.exports = [
         href: "administration",
         description:
           "These administrative APIs help you prepare a database before and after a restore event, and also helps you keep track of your TimescaleDB setup data.",
-        children: [
-          {
-            title: "timescaledb_pre_restore",
-            href: "timescaledb_pre_restore",
-          },
-          {
-            title: "timescaledb_post_restore",
-            href: "timescaledb_post_restore",
-          },
-          {
-            title: "get_telemetry_report",
-            href: "get_telemetry_report",
-          },
-          {
-            title: "dump_meta_data",
-            href: "dump_meta_data",
-          },
-        ],
       },
       {
         title: "API Reference Tag Overview",

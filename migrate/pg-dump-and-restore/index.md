@@ -114,8 +114,8 @@ psql $TARGET -v ON_ERROR_STOP=1 --echo-errors \
 
 It uses [timescaledb_pre_restore] and [timescaledb_post_restore] to put your database in the right state for restoring.
 
-[timescaledb_pre_restore]: /api/:currentVersion:/administration/
-[timescaledb_post_restore]: /api/:currentVersion:/administration/
+[timescaledb_pre_restore]: /api/:currentVersion:/administration/#timescaledb_post_restore
+[timescaledb_post_restore]: /api/:currentVersion:/administration/#timescaledb_post_restore
 
 #### Verify data in the target and restart applications
 
