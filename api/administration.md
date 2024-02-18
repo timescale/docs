@@ -11,7 +11,7 @@ These administrative APIs help you prepare a database before and after a restore
 
 ## Dump TimescaleDB meta data
 
-To help when asking for support and reporting bugs, TimescaleDB includes a SQL dump script. It outputs metadata from the internal TimescaleDB tables, along with version information.
+To help when asking for support and reporting bugs, TimescaleDB includes an SQL dump script. It outputs metadata from the internal TimescaleDB tables, along with version information.
 
 This script is available in the source distribution in `scripts/`. To use it, run:
 
