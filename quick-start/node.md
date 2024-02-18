@@ -275,13 +275,17 @@ and most other tasks are executed on the hypertable.
 
     module.exports = {
       up: (queryInterface, Sequelize) => {
-        return queryInterface.sequelize.query("SELECT create_hypertable('page_loads', 'time');");
+        return queryInterface.sequelize.query("SELECT create_hypertable('page_loads', by_range('time'));");
       },
 
       down: (queryInterface, Sequelize) => {
       }
     };
     ```
+
+	<Highlight type="note">
+	The `by_range` dimension builder is an addition to TimescaleDB 2.13.
+	</Highlight>
 
 1.  At the command prompt, run the migration command:
 

@@ -19,6 +19,10 @@ module.exports = [
             href: "create_hypertable",
           },
           {
+            title: "create_hypertable (old interface)",
+            href: "create_hypertable_old",
+          },
+          {
             title: "show_chunks",
             href: "show_chunks",
           },
@@ -71,6 +75,10 @@ module.exports = [
             href: "add_dimension",
           },
           {
+            title: "add_dimension (old interface)",
+            href: "add_dimension_old",
+          },
+          {
             title: "create_index (transaction per chunk)",
             href: "create_index",
           },
@@ -79,8 +87,16 @@ module.exports = [
             href: "hypertable_size",
           },
           {
+            title: "hypertable_approximate_size",
+            href: "hypertable_approximate_size",
+          },
+          {
             title: "hypertable_detailed_size",
             href: "hypertable_detailed_size",
+          },
+          {
+            title: "hypertable_approximate_detailed_size",
+            href: "hypertable_approximate_detailed_size",
           },
           {
             title: "hypertable_index_size",
@@ -89,6 +105,10 @@ module.exports = [
           {
             title: "chunks_detailed_size",
             href: "chunks_detailed_size",
+          },
+          {
+            title: "dimension builders",
+            href: "dimension_info",
           },
         ],
       },

@@ -6,6 +6,10 @@ keywords: [multi-node, authenticate]
 tags: [admin]
 ---
 
+import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";
+
+<MultiNodeDeprecation />
+
 # Multi-node authentication
 
 When you have your instances set up, you need to configure them to accept

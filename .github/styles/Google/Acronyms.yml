@@ -24,18 +24,22 @@ exceptions:
   - GCC
   - GDB
   - GET
+  - GPT
   - GPU
   - GTK
   - GUI
+  - HNSW
   - HTML
   - HTTP
   - HTTPS
   - IDE
   - JAR
   - JSON
+  - JSONB
   - JSX
   - LESS
   - LLDB
+  - LLM
   - NET
   - NFT
   - NOTE
@@ -45,6 +49,7 @@ exceptions:
   - PDF
   - PHP
   - POST
+  - RAG
   - RAM
   - REPL
   - REST

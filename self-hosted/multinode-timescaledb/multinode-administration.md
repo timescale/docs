@@ -6,6 +6,10 @@ keywords: [multi-node, admin]
 tags: [manage]
 ---
 
+import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";
+
+<MultiNodeDeprecation />
+
 # Multi-node administration
 
 Multi-node TimescaleDB allows you to administer your cluster directly

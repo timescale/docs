@@ -41,9 +41,9 @@ For more information about compression, see the
 |`after_compression_total_bytes`|BIGINT|Size of the entire table (table+indexes+toast) after compression|
 |`node_name`|TEXT|nodes on which the hypertable is located, applicable only to distributed hypertables|
 
-<highlight type="note">
+<Highlight type="note">
 Returns show `NULL` if the data is currently uncompressed.
-</highlight>
+</Highlight>
 
 ### Sample usage
 

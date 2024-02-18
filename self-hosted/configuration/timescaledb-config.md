@@ -21,6 +21,21 @@ Max background worker processes allocated to TimescaleDB. Set to at least 1 +
 the number of databases loaded with a TimescaleDB extension in a PostgreSQL
 instance. Default value is 16.
 
+## Query Planning and Execution
+
+### `timescaledb.enable_chunkwise_aggregation (bool)`
+If enabled, aggregations are converted into partial aggregations during query
+planning. The first part of the aggregation is executed on a per-chunk basis.
+Then, these partial results are combined and finalized. Splitting aggregations
+decreases the size of the created hash tables and increases data locality, which
+speeds up queries.
+ 
+
+### `timescaledb.vectorized_aggregation (bool)`
+Enables or disables the vectorized optimizations in the query executor. For
+example, the `sum()` aggregation function on compressed chunks can be optimized
+in this way.
+
 ## Distributed hypertables
 
 ### `timescaledb.enable_2pc (bool)`

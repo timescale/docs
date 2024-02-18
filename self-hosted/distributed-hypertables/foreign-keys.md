@@ -6,6 +6,10 @@ keywords: [distributed hypertable, foreign keys]
 tags: [constraints]
 ---
 
+import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";
+
+<MultiNodeDeprecation />
+
 # Create foreign keys in a distributed hypertable
 
 Tables and values referenced by a distributed hypertable must be present on the

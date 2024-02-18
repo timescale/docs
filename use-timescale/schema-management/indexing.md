@@ -37,7 +37,7 @@ CREATE INDEX ON conditions (time DESC);
 ```
 
 When you create a hypertable with the `create_hypertable` command, and you
-specify an optional space partition in addition to time, such as a `location`
+specify an optional hash partition in addition to time, such as a `location`
 column, an additional index is created on the optional column and time. For
 example:
 
@@ -53,9 +53,13 @@ If you do not want to create these default indexes, you can set
 For example:
 
 ```sql
-SELECT create_hypertable('conditions', 'time')
+SELECT create_hypertable('conditions', by_range('time'))
   CREATE_DEFAULT_INDEXES false;
 ```
+
+<Highlight type="note">
+The `by_range` dimension builder is an addition to TimescaleDB 2.13.
+</Highlight>
 
 ## Best practices for indexing
 

@@ -5,6 +5,10 @@ products: [self_hosted]
 keywords: [multi-node, scaling]
 ---
 
+import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";
+
+<MultiNodeDeprecation />
+
 # Multi-node
 
 If you have a larger workload, you might need more than one TimescaleDB
