@@ -6,14 +6,21 @@ keywords: [installation, self-hosted, Docker]
 ---
 
 import WhereTo from "versionContent/_partials/_where-to-next.mdx";
+import Skip from "versionContent/_partials/_selfhosted_cta.mdx";
 
 # Install TimescaleDB from a pre-built container
 
 You can install a TimescaleDB instance on any local system, from a pre-built
-container. This is the simplest method to install TimescaleDB, and it means you
+container. 
+
+< Skip/>
+
+
+This is the simplest method to self-host TimescaleDB, and it means you
 always have access to the latest version without worrying about local
 dependencies. You can access the Docker image directly from locally installed
 PostgreSQL client tools such as `psql`.
+
 
 <Highlight type="warning">
 If you have already installed PostgreSQL using a method other than the pre-built
@@ -34,7 +41,7 @@ instead.
 1.  At the command prompt, run the TimescaleDB Docker image:
 
     ```bash
-    docker pull timescale/timescaledb-ha:pg14-latest
+    docker pull timescale/timescaledb-ha:pg16
     ```
 
 <Highlight type="important">
@@ -76,7 +83,7 @@ If you want to run the image directly from the container, you can use this
 command:
 
 ```bash
-docker run -d --name timescaledb -p 5432:5432 -e POSTGRES_PASSWORD=password timescale/timescaledb-ha:pg14-latest
+docker run -d --name timescaledb -p 5432:5432 -e POSTGRES_PASSWORD=password timescale/timescaledb-ha:pg16
 ```
 
 The `-p` flag binds the container port to the host port. This means that
@@ -91,7 +98,7 @@ using this command:
 
 ```bash
 docker run -d --name timescaledb -p 127.0.0.1:5432:5432 \
--e POSTGRES_PASSWORD=password timescale/timescaledb-ha:pg14-latest
+-e POSTGRES_PASSWORD=password timescale/timescaledb-ha:pg16
 ```
 
 If you don't want to install `psql` and other PostgreSQL client tools locally,
@@ -127,7 +134,7 @@ make sure you select the correct one to mount:
 ```bash
 docker run -d --name timescaledb -p 5432:5432 \
 -v /your/data/dir:/home/postgres/pgdata/data \
--e POSTGRES_PASSWORD=password timescale/timescaledb-ha:pg14-latest
+-e POSTGRES_PASSWORD=password timescale/timescaledb-ha:pg16
 ```
 
 When you install TimescaleDB using a Docker container, the PostgreSQL settings

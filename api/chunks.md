@@ -38,10 +38,16 @@ If the chunk's primary dimension is of a time datatype, `range_start` and
 | `is_compressed` | BOOLEAN | Is the data in the chunk compressed? <br/><br/> Note that for distributed hypertables, this is the cached compression status of the chunk on the access node. The cached status on the access node and data node is not in sync in some scenarios. For example, if a user compresses or decompresses the chunk on the data node instead of the access node, or sets up compression policies directly on data nodes. <br/><br/> Use `chunk_compression_stats()` function to get real-time compression status for distributed chunks.|
 | `chunk_tablespace` | TEXT | Tablespace used by the chunk|
 | `data_nodes` | ARRAY | Nodes on which the chunk is replicated. This is applicable only to chunks for distributed hypertables |
+| `chunk_creation_time` | TIMESTAMP WITH TIME ZONE | The time when this chunk was created for data addition |
 
 ### Sample usage
 
 Get information about the chunks of a hypertable.
+
+<Highlight type="note">
+Dimension builder `by_range` was introduced in TimescaleDB 2.13.
+The `chunk_creation_time` metadata was introduced in TimescaleDB 2.13.
+</Highlight>
 
 ```sql
 CREATE TABLESPACE tablespace1 location '/usr/local/pgsql/data1';

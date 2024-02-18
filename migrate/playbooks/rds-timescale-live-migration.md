@@ -10,8 +10,7 @@ import GettingHelp from "versionContent/_partials/_migrate_dual_write_backfill_g
 import SourceTargetNote from "versionContent/_partials/_migrate_source_target_note.mdx";
 import StepOne from "versionContent/_partials/_migrate_dual_write_step1.mdx";
 import LiveMigrationRoles from "versionContent/_partials/_migrate_live_migration_rds_roles.mdx";
-import DumpDatabaseRoles from "versionContent/_partials/_migrate_dual_write_dump_database_roles.mdx";
-import DumpSourceSchema from "versionContent/_partials/_migrate_dump_source_schema.mdx";
+import DumpPreDataSourceSchema from "versionContent/_partials/_migrate_pre_data_dump_source_schema.mdx";
 
 # Migrate from AWS RDS to Timescale using live migration with low-downtime
 This document provides a step-by-step guide to migrating a database from an AWS
@@ -383,7 +382,7 @@ initial migration, and the longer the buffered files need to be stored.
 <LiveMigrationRoles />
 
 ### 4.b Dump the database schema from the source database
-<DumpSourceSchema />
+<DumpPreDataSourceSchema />
 
 ### 4.c Load the roles and schema into the target database
 ```sh
@@ -391,7 +390,7 @@ psql -X -d "$TARGET" \
   -v ON_ERROR_STOP=1 \
   --echo-errors \
   -f roles.sql \
-  -f schema.sql
+  -f pre-data-dump.sql
 ```
 
 ## 5. Perform "live migration"

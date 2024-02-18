@@ -44,6 +44,13 @@ depending on the type of the time column of the hypertable. For hypertables with
 an `INTERVAL` type. For hypertables with integer-based timestamps, set the
 refresh window as an `INTEGER` type.
 
+
+<Highlight type="warning">
+Note that it's not guaranteed that all buckets will be updated: refreshes will
+not take place when buckets are materialized with no data changes or with
+changes that only occurred in the secondary table used in the JOIN.
+</Highlight>
+
 ### Sample usage
 
 Refresh the continuous aggregate `conditions` between `2020-01-01` and

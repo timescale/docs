@@ -1,17 +1,21 @@
-# Dimension Info Constructurs
+# Dimension Builders
+
+<Highlight type="note">
+Dimension builders were introduced in TimescaleDB 2.13.
+</Highlight>
 
 The `create_hypertable` and `add_dimension` are used together with
-dimension info constructors to specify the dimensions to partition a
+dimension builders to specify the dimensions to partition a
 hypertable on.
 
 TimescaleDB currently supports two partition types: partitioning by
 range and partitioning by hash.
 
-<highlight type="tip">
+<Highlight type="tip">
 For incompatible data types (for example, `jsonb`) you can specify a function to
-the `time_partitioning_func` argument which can extract a compatible
-data type
-</highlight>
+the `partition_func` argument of the dimension build to extract a compatible
+data type. Look in the example section below.
+</Highlight>
 
 ## Partition Function
 
@@ -30,7 +34,7 @@ function.
 
 ## by_range()
 
-Creates a by-range dimension info object that can be used with
+Creates a by-range dimension builder that can be used with
 `create_hypertable` and `add_dimension`.
 
 ### Required Arguments
@@ -49,8 +53,9 @@ Creates a by-range dimension info object that can be used with
 	
 ### Returns 
 
-An instance of `_timescaledb_internal.dimension_info`, which is an
-opaque type holding the dimension information.
+A *dimension builder*, which is an which is an opaque type
+`_timescaledb_internal.dimension_info`, holding the dimension
+information.
 
 ### Notes
 
@@ -77,6 +82,35 @@ column type is summarized below.
 | `INT`                        | INT              | 100000        |
 | `BIGINT`                     | BIGINT           | 1000000       |
 
+### Examples
+
+The simplest usage is to partition on a time column:
+
+```sql
+SELECT create_hypertable('my_table', by_range('time'));
+```
+
+In this case, the dimension builder can be excluded since
+`create_hypertable` by default assumes that a single provided column
+is range partitioned by time.
+
+If you have a table with a non-time column containing the time, for
+example a JSON column, you can add a partition function to extract the
+time. 
+
+```sql
+CREATE TABLE my_table (
+   metric_id serial not null,
+   data jsonb,
+);
+
+CREATE FUNCTION get_time(jsonb) RETURNS timestamptz AS $$
+  SELECT ($1->>'time')::timestamptz
+$$ LANGUAGE sql IMMUTABLE;
+
+SELECT create_hypertable('my_table', by_range('data', '1 day', 'get_time'));
+```
+
 ## by_hash()
 
 ### Required Arguments
@@ -92,8 +126,8 @@ column type is summarized below.
 |------------------|---------|----------------------------------------------------------|
 | `partition_func` | REGPROC | The function to use for calculating a value's partition. |
 
-
 ### Returns 
 
-An instance of `_timescaledb_internal.dimension_info`, which is an
-opaque type holding the dimension information.
+An *dimension builder*, which is an which is an opaque type
+`_timescaledb_internal.dimension_info`, holding the dimension
+information.

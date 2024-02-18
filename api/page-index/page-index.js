@@ -87,8 +87,16 @@ module.exports = [
             href: "hypertable_size",
           },
           {
+            title: "hypertable_approximate_size",
+            href: "hypertable_approximate_size",
+          },
+          {
             title: "hypertable_detailed_size",
             href: "hypertable_detailed_size",
+          },
+          {
+            title: "hypertable_approximate_detailed_size",
+            href: "hypertable_approximate_detailed_size",
           },
           {
             title: "hypertable_index_size",

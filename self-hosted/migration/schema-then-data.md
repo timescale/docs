@@ -136,6 +136,10 @@ restore them.
 
 </Procedure>
 
+<Highlight type="note">
+The `by_range` dimension builder is an addition to TimescaleDB 2.13.
+</Highlight>
+
 ## Copy data from the source database
 
 After restoring your hypertables, return to your source database to copy your

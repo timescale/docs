@@ -8,20 +8,21 @@ tags: [ssl]
 
 # Connect with a stricter SSL mode
 
-The default connection string for Timescale uses the SSL mode `require`.
-If you want your connection client to verify the server's identity, you can
-connect with an [SSL mode][ssl-modes] of `verify-ca` or `verify-full`. To do so,
-you need to store a copy of the certificate chain where your connection tool can
-find it.
+The default connection string for Timescale uses the Secure Sockets Layer (SSL) mode `require`.
+Users can choose not to use Transport Layer Security (TLS) while connecting to their databases, but connecting to production databases without encryption is strongly discouraged. To
+achieve even stronger security, clients may select to verify the identity of the
+server. If you want your connection client to verify the server's identity, you
+can connect with an [SSL mode][ssl-modes] of `verify-ca` or `verify-full`. To
+do so, you need to store a copy of the certificate chain where your connection
+tool can find it.
 
 This section provides instructions for setting up a stricter SSL connection.
 
 ## SSL certificates
 
-All connections to Timescale are encrypted. As part of the secure
-connection protocol, the server proves its identity by providing clients with a
-certificate. This certificate should be issued and signed by a well-known and
-trusted Certificate Authority.
+As part of the secure connection protocol, the server proves its identity by
+providing clients with a certificate. This certificate should be issued and
+signed by a well-known and trusted Certificate Authority.
 
 Because requesting a certificate from a Certificate Authority takes some time,
 Timescale databases are initialized with a self-signed certificate. This
@@ -90,7 +91,7 @@ To set up a stricter SSL connection:
     </Terminal>
 
 1.  Navigate to <https://whatsmychaincert.com/>. This online tool generates a
-    full certificate chain, including the root CA certificate, which is not
+    full certificate chain, including the root Certificate Authority certificate, which is not
     included in the certificate bundle returned by the database.
 
 1.  Paste your certificate bundle in the provided box.
@@ -108,7 +109,7 @@ To set up a stricter SSL connection:
 
 </Procedure>
 
-## Verify certificate type used by your database
+## Verify the certificate type used by your database
 
 To check whether the certificate has been replaced yet, connect to your database
 instance and inspect the returned certificate:

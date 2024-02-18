@@ -17,8 +17,8 @@ more database replicas.
 Before you begin, make sure you have at least two separate instances of
 TimescaleDB running. If you installed TimescaleDB using a Docker container, use
 a [PostgreSQL entry point script][docker-postgres-scripts] to run the
-configuration. For sample Docker configuration and run scripts, see the
-[streaming replication Docker repository][timescale-streamrep-docker].
+configuration. For more advanced examples, see the
+[Timescale Helm Charts repository][timescale-streamrep-helm].
 
 To configure replication on self-hosted TimescaleDB, you need to perform these
 procedures:
@@ -436,5 +436,5 @@ check out [Patroni][patroni-github].
 [postgres-rslots-docs]: https://www.postgresql.org/docs/current/static/warm-standby.html#STREAMING-REPLICATION-SLOTS
 [postgres-synchronous-commit-docs]: https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-SYNCHRONOUS-COMMIT
 [replication-modes]: /self-hosted/:currentVersion:/replication-and-ha/configure-replication#replication-modes
-[timescale-streamrep-docker]: https://github.com/timescale/streaming-replication-docker
+[timescale-streamrep-helm]: https://github.com/timescale/helm-charts/tree/main/charts/timescaledb-single
 [verify-replica]: /self-hosted/:currentVersion:/replication-and-ha/configure-replication#verify-that-the-replica-is-working
