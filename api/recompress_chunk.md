@@ -26,6 +26,12 @@ You can also recompress chunks by
 allowing you to target a specific chunk.
 
 <Highlight type="important">
+`recompress_chunk` is deprecated since version 2.14 and will be removed in the future. 
+The procedure is now a wrapper which calls [`compress_chunk`](/api/latest/compression/compress_chunk/) 
+instead of it. 
+</Highlight>
+
+<Highlight type="important">
 `recompress_chunk` is implemented as an SQL procedure and not a function. Call
 the procedure with `CALL`. Don't use a `SELECT` statement.
 </Highlight>
