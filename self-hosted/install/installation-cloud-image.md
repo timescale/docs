@@ -7,12 +7,16 @@ tags: [cloud image]
 ---
 
 import WhereTo from "versionContent/_partials/_where-to-next.mdx";
+import Skip from "versionContent/_partials/_selfhosted_cta.mdx";
 
 # Install TimescaleDB from a pre-built cloud image
 
 You can install TimescaleDB on a cloud hosting provider,
 from a pre-built, publicly available machine image. These instructions show you
 how to use a pre-built Amazon machine image (AMI), on Amazon Web Services (AWS).
+
+< Skip />
+
 The currently available pre-built cloud image is:
 
 *   Ubuntu 20.04 Amazon EBS-backed AMI

@@ -71,6 +71,11 @@ module.exports = [
             href: "members-list",
             excerpt: "Timescale members list",
           },
+          {
+            title: "Project Ownership",
+            href: "project-ownership",
+            excerpt: "Timescale project ownership",
+          },
         ],
       },
       {
@@ -795,11 +800,6 @@ module.exports = [
             title: "Use an action for downsampling and compression",
             href: "example-downsample-and-compress",
             excerpt: "Example user-defined action for downsample and compress",
-          },
-          {
-            title: "Use an action to backfill data periodically",
-            href: "example-backfill",
-            excerpt: "Example user-defined action for scheduled backfills",
           },
           {
             title: "Troubleshooting",

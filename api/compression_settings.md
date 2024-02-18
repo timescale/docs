@@ -77,6 +77,6 @@ orderby_nullsfirst     | f
 ```
 
 <Highlight type="note">
-The `by_range` dimension info constructor is an addition to TimescaleDB 2.13.
+The `by_range` dimension builder is an addition to TimescaleDB 2.13.
 </Highlight>
 

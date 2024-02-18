@@ -12,6 +12,7 @@ import SetupSourceTarget from "versionContent/_partials/_migrate_set_up_source_a
 import TimescaleDBVersion from "versionContent/_partials/_migrate_from_timescaledb_version.mdx";
 import ExplainPgDumpFlags from "versionContent/_partials/_migrate_explain_pg_dump_flags.mdx";
 import MinimalDowntime from "versionContent/_partials/_migrate_pg_dump_minimal_downtime.mdx";
+import DumpDatabaseRoles from "versionContent/_partials/_migrate_dual_write_dump_database_roles.mdx";
 
 # Migrate from TimescaleDB using pg_dump/restore
 
@@ -49,17 +50,12 @@ Before you begin, ensure that you have:
 
 ## Dump the source database
 
+<SetupSourceTarget />
+
 Dump the roles from the source database (only necessary if you're using roles
 other than the default `postgres` role in your database):
 
-```bash
-pg_dumpall -d "$SOURCE" \
-  --quote-all-identifiers \
-  --roles-only \
-  --file=roles.sql
-```
-
-<SetupSourceTarget />
+<DumpDatabaseRoles />
 
 Dump the source database schema and data:
 
@@ -97,9 +93,9 @@ The following command loads the dumped data into the target database:
 ```bash
 psql $TARGET -v ON_ERROR_STOP=1 --echo-errors \
     -f roles.sql \
-    -c "SELECT timescaledb_pre_restore();" \
+    -c "SELECT public.timescaledb_pre_restore();" \
     -f dump.sql \
-    -c "SELECT timescaledb_post_restore();"
+    -c "SELECT public.timescaledb_post_restore();"
 ```
 
 It uses [timescaledb_pre_restore] and [timescaledb_post_restore] to put your
