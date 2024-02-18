@@ -1,2 +1,2 @@
-Managed Service for TimescaleDB is offered in partnership with Timescale and
-Aiven.
+Timescale for Azure and GCP is offered in partnership with Aiven 
+under the name Managed Service for TimescaleDB (MST).

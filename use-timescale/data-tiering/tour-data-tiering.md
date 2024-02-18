@@ -1,44 +1,44 @@
 ---
-title: Quick tour of data tiering
-excerpt: A tour of the data tiering feature
+title: Tour of tiered storage
+excerpt: A quick tour of tiered storage
 product: [cloud]
-keywords: [data tiering]
+keywords: [tiered storage]
 tags: [storage, data management]
 ---
 
-# Data tiering
+# Tiered Storage
 
-Timescale offers a new cloud capability to allow users to store data 
-long-term on Timescale Cloud in a cost-effective manner. In particular,
- users have the ability to transparently tier hypertables chunks into 
-object storage (S3) on Timescale Cloud for highly scalable, long-term storage.
+The tiered storage architecture complements Timescale's standard high-performance storage tier with
+a low-cost object storage tier; an object store built on Amazon S3.
+In particular, users have the ability to transparently tier hypertable chunks into 
+the object storage tier on the Timescale platform for highly scalable, long-term storage.
 
 But this is not just an archive! Once tiered, these chunks remain fully and 
 directly queryable from within your database using standard SQL. Chunks for a 
 given hypertable can now stretch across standard storage (in block form) and 
-tiered storage (in object form), but a single SQL query transparently 
-pulls data from the appropriate chunks using TimescaleDB’s chunk exclusion algorithms.
- In fact, chunks in object storage are stored in compressed, columnar format 
+the object storage tier (in object form), but a single SQL query transparently 
+pulls data from the appropriate chunks using TimescaleDB's chunk exclusion algorithms.
+
+In fact, chunks in the object storage tier are stored in compressed, columnar format 
 (in a different format from the internals of the database, for better 
 interoperability across various platforms). This format allows for more 
 efficient columnar scans across longer time periods, and Timescale uses other 
 metadata and query optimizations to reduce the amount of data that needs to be 
-fetched from object storage to satisfy a query.
+fetched from the object storage tier to satisfy a query.
 
 Let's get started!
 
-First, [enable data tiering][enabling-data-tiering] from the UI on Timescale Cloud console.
+First, [enable tiered storage][enabling-data-tiering] from the UI on the Timescale cloud console.
 
 In an existing database service with a hypertable, you can tier chunks to
- object storage via automated policies on the hypertable, or via manual 
+ the object storage tier via automated policies on the hypertable, or via manual 
 commands on specific chunks. While users will likely adopt automated policies 
 in production scenarios, the manual command is a good way to start
-experimenting with data tiering.
+experimenting with tiered storage.
 
 ## Manually tier a specific chunk
 
-Users can move a single chunk to tiered S3 storage by explicitly specifying the chunk’s name.
-
+Users can move a single chunk to the object storage tier by explicitly specifying the chunk's name.
 
 ```
 SELECT tier_chunk('_timescaledb_internal._hyper_2_3_chunk');
@@ -46,7 +46,6 @@ SELECT tier_chunk('_timescaledb_internal._hyper_2_3_chunk');
 
 To get the name of a chunk for tiering, you can use the chunks informational 
 view. For example:
-
 
 ```
 SELECT chunk_schema, chunk_name, range_start, range_end FROM timescaledb_information.chunks WHERE hypertable_name = 'metrics_table';
@@ -57,18 +56,19 @@ range_start  | 2017-08-02 20:00:00-04
 range_end    | 2017-08-09 20:00:00-04
 
 ```
+
 Executing the tier_chunk command on a specific chunk does not immediately and 
-synchronously move the chunk to tiered storage, but instead schedules the 
+synchronously move the chunk to the object storage tier, but instead schedules the 
 chunk for migration. In the background, a cloud service will asynchronously 
-migrate the chunk to object storage, and only mark the chunk as migrated 
-(and delete it from within the database’s primary storage) once it has been 
-durably stored in the tiered storage.
+migrate the chunk to the object storage tier, and only mark the chunk as migrated 
+(and delete it from within the database's primary storage) once it has been 
+durably stored in the object storage tier.
 
 You can view chunks in the tiering queue, that is, chunks that are scheduled
  to be tiered, by using this query.
 
 ```
-try=# SELECT * FROM timescaledb_osm.chunks_queued_for_tiering ;
+SELECT * FROM timescaledb_osm.chunks_queued_for_tiering ;
 -[ RECORD 1 ]-----+-----------------
 hypertable_schema | public
 hypertable_name   | metrics_table
@@ -78,21 +78,20 @@ chunk_name        | _hyper_2_3_chunk
 For smaller chunks, this asynchronous migration should happen within seconds or
 a few minutes, although the chunk will remain fully queryable while it is being
  migrated: the database engine continues to access the chunk in primary storage
- until it fully switches over to use the chunk in tiered storage. And yes, 
+ until it fully switches over to use the chunk in the object storage tier. And yes, 
 you can tier a compressed chunk seamlessly, although it uses a different 
-storage representation once tiered to object storage.
+storage representation once tiered to the object storage tier.
 
+## Automate through a tiering policy
 
-## Automate through a data tiering policy
-
-Users can create a data tiering policy to automate moving data to object 
+Users can create a tiering policy to automate moving data to object 
 storage, such that any chunks whose time range falls before the move_after 
-threshold will be moved to object storage. This interval-threshold-based 
+threshold will be moved to the object storage tier. This interval-threshold-based 
 policy is similar to age thresholds with compression and data retention policies.  
 
-The data tiering policy operates at a chunk level, such that the policy starts 
+The tiering policy operates at a chunk level, such that the policy starts 
 up a job periodically that will asynchronously move SELECTed chunks over to 
-object storage. By default, the tiering policy runs hourly on your database; 
+the object storage tier. By default, the tiering policy runs hourly on your database; 
 this can be modified via alter_job. 
 
 Example:
@@ -105,12 +104,12 @@ We also provide a [remove tiering policy][creating-data-tiering-policy] interfac
 data.
 
 This function removes the background job that automates tiering. Any chunks 
-that were already moved to object storage will remain there, however. Any 
+that were already moved to the object storage tier will remain there, however. Any 
 chunks that are scheduled for tiering will also not be affected by this command. 
 
 ## List a set of tiered chunks
 
-You can review the set of chunks that are tiered into object storage via a 
+You can review the set of chunks that are tiered into the object storage tier via a 
 standard informational view within the database:
 
 ```
@@ -130,7 +129,7 @@ range_start       | 2022-05-26 00:00:00+00
 range_end         | 2022-06-02 00:00:00+00
 ```
 
-## Querying data in tiered storage
+## Querying data in the object storage tier
 
 Once a hypertable is tiered across storage, you can continue to query it as 
 normal, including JOINing it with other relational tables, and all that SQL 
@@ -144,7 +143,8 @@ CREATE TABLE metrics ( ts timestamp with time zone, device_id integer, val float
 SELECT create_hypertable('metrics', 'ts');
 ```
 
-Once you insert data into the tables, you can then tier some of the hypertable’s data to object storage. A simple query against the informational view illustrates which chunks are tiered to object storage.
+Once you insert data into the tables, you can then tier some of the hypertable's data to the object storage tier.
+A simple query against the informational view illustrates which chunks are tiered to the object storage tier.
 
 ```
  SELECT chunk_name, range_start, range_end FROM timescaledb_osm.tiered_chunks where hypertable_name = 'metrics';
@@ -156,14 +156,14 @@ Once you insert data into the tables, you can then tier some of the hypertable�
 
 ```
 
-By default, querying tiered storage is disabled. Lets first enable this and 
+By default, querying the object storage tier is disabled. Lets first enable this and 
 then run the query. See [querying tiered data][querying-tiered-data] for 
-detailed steps on enabling reads from tiered storage.
+detailed steps on enabling reads from the object storage tier.
 ```
 set timescaledb.enable_tiered_reads = true;
 ```
 
-This query fetches data only from tiered storage. This makes sense based on the
+This query fetches data only from the object storage tier. This makes sense based on the
 WHERE clause specified by the query an the chunk ranges listed above for this
 hypertable.
 ```
@@ -178,10 +178,10 @@ hypertable.
 (5 rows)
 ```
 
-If your query predicate never needs to touch object storage, it will only 
+If your query predicate never needs to touch the object storage tier, it will only 
 process those chunks stored in regular storage; in this case, the time 
-predicate refers to newer data that is not yet tiered to object storage.
-This query does not touch tiered storage at all. We know that because 
+predicate refers to newer data that is not yet tiered to the object storage tier.
+This query does not touch the object storage tier at all. We know that because 
 `Match tiered objects :0 ` in the plan indicates that no tiered data matches
  the query constraint.
 
@@ -234,7 +234,7 @@ Lets dig a bit deeper into how data is organized on S3. When chunks are tiered
 they are written out as Parquet objects. Parquet is a columnar storage format.
 Within a Parquet file, we group a set of rows together to form a row group.
 Within the row group, values for a single column (across multiple rows) are 
-stored together. The query planner optimizes object storage access at
+stored together. The query planner optimizes access to the object storage tier at
  multiple stages:
 1. Chunk pruning - match only chunks that satisfy the query constraints.
 This is done by looking at the hypertable's dimension column metadata, typically a timestamp.
@@ -243,8 +243,8 @@ This is done by looking at the hypertable's dimension column metadata, typically
 
 The following query is against a bigger data set tiered on S3 and you can see
 the query optimizations in action here.
-EXPLAIN will illustrate which chunks are being pulled in from object storage.
-First, we only fetch data from chunks 42, 43 and 44 from object storage. Then
+EXPLAIN will illustrate which chunks are being pulled in from the object storage tier.
+First, we only fetch data from chunks 42, 43 and 44 from the object storage tier. Then
  we prune row groups and limit the fetch to a subset of the offsets in the
  Parquet object that potentially match the query filter. We only fetch the data
 for the columns device_uuid, sensor_id and observed_at as the query needs

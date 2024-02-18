@@ -63,7 +63,7 @@ For the financial dataset used in this guide, create a hypertable named
     table that holds the timestamp data to use for partitioning (`time`):
 
     <CodeBlock canCopy={true} showLineNumbers={false} children={`
-    SELECT create_hypertable('stocks_real_time','time');
+    SELECT create_hypertable('stocks_real_time', by_range('time'));
     `} />
 
 1.  Create an index to support efficient queries on the `symbol` and `time`

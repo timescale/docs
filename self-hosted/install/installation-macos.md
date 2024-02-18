@@ -8,10 +8,14 @@ keywords: [installation, self-hosted, macOS]
 import Homebrew from "versionContent/_partials/_psql-installation-homebrew.mdx";
 import MacPorts from "versionContent/_partials/_psql-installation-macports.mdx";
 import WhereTo from "versionContent/_partials/_where-to-next.mdx";
+import Skip from "versionContent/_partials/_selfhosted_cta.mdx";
 
 # Install self-hosted TimescaleDB on macOS systems
 
 You can host TimescaleDB yourself on your Apple macOS system.
+
+< Skip /> 
+
 These instructions use a Homebrew or MacPorts installer on these versions:
 
 *   Apple macOS 10.15 Catalina

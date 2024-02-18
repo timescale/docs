@@ -23,6 +23,7 @@ exceptions:
   - Grafana
   - gRPC
   - Hat
+  - HNSW
   - Homebrew
   - I
   - InfluxDB
@@ -39,6 +40,7 @@ exceptions:
   - Node
   - NFT
   - pgAdmin
+  - PgVectorize
   - PostgreSQL
   - Prometheus
   - Promscale
@@ -50,6 +52,7 @@ exceptions:
   - Ruby
   - Service
   - Studio
+  - SQL
   - Tableau
   - Telegraf
   - Timescale
@@ -58,6 +61,7 @@ exceptions:
   - TypeScript
   - Ubuntu
   - URLs
+  - Vector
   - Visual
   - VPC
   - VS
