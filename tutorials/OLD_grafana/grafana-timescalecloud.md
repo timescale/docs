@@ -49,28 +49,27 @@ installation, log in to Grafana and proceed to step 5 in this procedure.
     your new Grafana service.
 1.  On the service details page, take a note of the `User` and `Password` field for
     your service.
-1.  Navigate over to Grafana and log in with your service credentials.
+1.  Navigate to Grafana and log in with your service credentials.
 1.  Navigate to `Configuration` → `Data sources`. The data sources page lists
-    supported data sources previously configured for the Grafana instance.
+    supported data sources for the Grafana instance.
 1.  Click `Add data source`.
-1. Type `PostgreSQL` in the search field and click `Select`. The choose a method of
-    connection.
-1.  To configure the data source:
-    *   In the `Name` field, type name that you would like for dataset on TimescaleDB.
+1.  Type `PostgreSQL` in the search field and click `Select`.
+1.  Configure the data source:
+    *   In the `Name` field, type the name that you would like for your dataset on      TimescaleDB.
     *   In the `PostgreSQL Connection` section, type the  `Database`, `User`,
         and `Password` fields using the `.sql` file that you downloaded when
         creating the TimescaleDB service.
     *   In the `Host` type `<HOST>:<PORT>` from the `.sql` file that you downloaded.
     *   Set `TLS/SSL Mode` as `require`.
     *   In `PostgreSQL details` enable `TimescaleDB`
-1.  Click the `Connect` button. `Connected! Now it's time to build some panels for your
-    first dashboard.` should now appear.
-1. To double check if the connection is successful, navigate over to `Connections` and
-   under `Data sources` confirm that your new data source is listed.
+1.  Click the `Save & test` button. A connected message will now appear.
 
 </Procedure>
 
-When you have configured TimescaleDB as a data source in Grafana, you can create
+To double check if the connection is successful, click through to `Connections` and
+confirm that your new data source is listed under `Data sources`.
+
+When you configure TimescaleDB as a data source in Grafana, you can create
 panels that are populated with data using SQL. Learn more about ways to visualize this 
 data with the [NYC Taxi Cab][nyc-taxi] tutorial.
 
