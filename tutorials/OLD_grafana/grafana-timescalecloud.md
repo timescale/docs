@@ -1,11 +1,11 @@
 ---
-title: Connect TimescaleDB and Grafana
+title: Get Started with TimescaleDB and Grafana
 excerpt: Connect Timescale to Grafana to visualize your data
 products: [cloud, mst]
 keywords: [Grafana, visualizations, analytics]
 ---
 
-# Connect TimescaleDB and Grafana
+# Get Started with TimescaleDB and Grafana
 
 Grafana ships with built-in Prometheus, PostgreSQL, Jaeger, and other data
 source plugins that allow you to query and visualize data from a compatible
@@ -17,8 +17,8 @@ information about installing Grafana, see the
 [Grafana documentation][grafana-install].
 
 Alternatively, to connect your Grafana service on Managed Service for
-TimescaleDB with your Timescale service, create a Grafana service on Managed
-Service for TimescaleDB. You can try it for free for 30 days.
+TimescaleDB with your Timescale service, create a Grafana service on [Managed
+Service for TimescaleDB][managed-service]. You can try it for free for 30 days.
 
 This section shows you how to connect Timescale as a data source in [Grafana][grafana-homepage].
 
@@ -33,7 +33,7 @@ and then configure Timescale as the data source in Grafana.
 
 1.  Sign in to the [Timescale portal][tsc-portal].
 1.  Click `Create service`.
-1.  Click `Download the cheatsheet`. This `.sql` file contains the credentials
+1.  Click `Download the config`. This `.sql` file contains the credentials
     that you require to configure TimescaleDB as a data source on Grafana.
 
 </Procedure>
@@ -45,17 +45,17 @@ and then configure Timescale as the data source in Grafana.
 To configure TimescaleDB service on Timescale with your Grafana
 installation, log in to Grafana and proceed to step 5 in this procedure.
 
-1.  Sign in to your Managed Service for Timescale account, and click the name of
+1.  Sign in to your Timescale account, and click the name of
     your new Grafana service.
 1.  On the service details page, take a note of the `User` and `Password` field for
     your service.
-1.  Click the link in the `Service URI` field to open Grafana.
-1.  Log in to Grafana with your service credentials.
+1.  Navigate over to Grafana and log in with your service credentials.
 1.  Navigate to `Configuration` → `Data sources`. The data sources page lists
-    previously configured data sources for the Grafana instance.
-1.  Click `Add data source` to see a list of all supported data sources.
-1.  Type `PostgreSQL` in the search field and click `Select`.
-1.  Configure the data source:
+    supported data sources previously configured for the Grafana instance.
+1.  Click `Add data source`.
+1. Type `PostgreSQL` in the search field and click `Select`. The choose a method of
+    connection.
+1.  To configure the data source:
     *   In the `Name` field, type name that you would like for dataset on TimescaleDB.
     *   In the `PostgreSQL Connection` section, type the  `Database`, `User`,
         and `Password` fields using the `.sql` file that you downloaded when
@@ -63,14 +63,19 @@ installation, log in to Grafana and proceed to step 5 in this procedure.
     *   In the `Host` type `<HOST>:<PORT>` from the `.sql` file that you downloaded.
     *   Set `TLS/SSL Mode` as `require`.
     *   In `PostgreSQL details` enable `TimescaleDB`
-1.  Click `Save & test` button. If the connection is successful
-    `Database Connection OK` appears.
+1.  Click the `Connect` button. `Connected! Now it's time to build some panels for your
+    first dashboard.` should now appear.
+1. To double check if the connection is successful, navigate over to `Connections` and
+   under `Data sources` confirm that your new data source is listed.
 
 </Procedure>
 
 When you have configured TimescaleDB as a data source in Grafana, you can create
-panels that are populated with data using SQL.
+panels that are populated with data using SQL. Learn more about ways to visualize this 
+data with the [NYC Taxi Cab][nyc-taxi] tutorial.
 
 [grafana-homepage]: https://grafana.com/
-[tsc-portal]: https://console.cloud.timescale.com/
+[tsc-portal]: https://www.timescale.com/
 [grafana-install]: https://grafana.com/docs/grafana/latest/installation/
+[managed-service]: https://www.timescale.com/mst-signup
+[nyc-taxi]: https://docs.timescale.com/tutorials/latest/nyc-taxi-cab/
