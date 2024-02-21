@@ -14,18 +14,14 @@ To easily migrate from self-hosted PostgreSQL or TimescaleDB to Timescale, you u
 [`pg_dump`][pg_dump] and [`pg_restore`][pg_restore]. If you are migrating from self-hosted TimescaleDB, this works for 
 compressed hypertables without having to decompress data before you begin.
 
-For more information, consult the step-by-step guide for your source database:
+Before you migrate to Timescale, be aware that each Timescale instance [has a single database], does
+not support [tablespaces] or [all available extensions]. Also [there is no superuser associated with a Timescale
+instance].
+
+This page shows you how to:
 
 - [Migrate from TimescaleDB](#migrate-from-timescaledb-using-pg_dumprestore)
 - [Migrate from PostgreSQL](#migrate-from-postgresql-using-pg_dumprestore)
-
-When you migrate to Timescale, be aware of the following:
-
-- [Timescale does not allow having multiple databases per instance].
-- [Timescale does not support tablespaces].
-- [Timescale does not support all available extensions].
-- [Timescale does not provide a superuser]. 
-- [A long-running `pg_dump` can cause various issues](/migrate/:currentVersion:/troubleshooting/#dumping-and-locks)
 
 [//]: # (TODO: more caveats?)
 
@@ -55,8 +51,9 @@ The following instructions show you how to move your data from self-hosted Times
 
 <SourceTargetNote />
 
-Before you migrate, check that you're running the exact same version of Timescale on both your target and source 
-databases (the major/minor/patch version must all be the same). For more information, see the [upgrade instructions] for self-hosted TimescaleDB.
+Before you migrate, ensure that you're running the exact same version of Timescale on both your target and source 
+databases. That is, the major,minor, and patch version must all be the same. For more information, see the [upgrade 
+instructions] for self-hosted TimescaleDB.
 
 ### Dump the source database
 
@@ -83,6 +80,8 @@ pg_dump -d "$SOURCE" \
   --no-privileges \
   --file=dump.sql
 ```
+
+Check the run time, [a long-running `pg_dump` can cause various issues](/migrate/:currentVersion:/troubleshooting/#dumping-and-locks)
 
 <Highlight type="note">
 It is possible to dump using multiple connections to the source database. This may dramatically reduce the time taken to dump the source database. For more information, see [dumping with concurrency](/migrate/:currentVersion:/troubleshooting/#dumping-with-concurrency) and [restoring with concurrency](/migrate/:currentVersion:/troubleshooting/#restoring-with-concurrency).
@@ -160,6 +159,8 @@ pg_dump -d "$SOURCE" \
   --file=dump.sql
 ```
 
+Check the run time, [a long-running `pg_dump` can cause various issues](/migrate/:currentVersion:/troubleshooting/#dumping-and-locks)
+
 <Highlight type="note">
 It is possible to dump using multiple connections to the source database. This  may dramatically reduce the time taken to dump the source database. For more information, see [dumping with concurrency](/migrate/:currentVersion:/troubleshooting/#dumping-with-concurrency)
 and [restoring with concurrency](/migrate/:currentVersion:/troubleshooting/#restoring-with-concurrency).
@@ -194,10 +195,10 @@ Once you have verified that the data is present, and returns the results that yo
 [//]: # (TODO: add something about which pg_dump mode to use &#40;plain / binary / custom&#41;)
 [//]: # (TODO: add something about expected migration duration)
 
-[Timescale does not allow having multiple databases per instance]: /migrate/:currentVersion:/troubleshooting/#only-one-database-per-instance
-[Timescale does not support tablespaces]: /migrate/:currentVersion:/troubleshooting/#tablespaces
-[Timescale does not support all available extensions]: /migrate/:currentVersion:/troubleshooting/#extension-availability
-[Timescale does not provide a superuser]: /migrate/:currentVersion:/troubleshooting/#superuser-privileges
+[has a single database]: /migrate/:currentVersion:/troubleshooting/#only-one-database-per-instance
+[tablespaces]: /migrate/:currentVersion:/troubleshooting/#tablespaces
+[all available extensions]: /migrate/:currentVersion:/troubleshooting/#extension-availability
+[there is no superuser associated with a Timescale instance]: /migrate/:currentVersion:/troubleshooting/#superuser-privileges
 [Created a database service in Timescale]: /use-timescale/:currentVersion:/services/create-a-service/
 [list of compatible extensions]: /use-timescale/:currentVersion:/extensions/
 [upgrade instructions]: /self-hosted/:currentVersion:/upgrades/about-upgrades/
