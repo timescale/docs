@@ -81,5 +81,6 @@ SELECT timescaledb_experimental.add_policies(
 );
 ```
 <!-- vale Vale.Terms = NO -->
-[add_continuous_aggregate_policy]: /api/:currentVersion/continuous-aggregates/add_continuous_aggregate_policy/
+[add_continuous_aggregate_policy]: /api/:currentVersion:/continuous-aggregates/add_continuous_aggregate_policy/
+
 <!-- vale Vale.Terms = YES -->

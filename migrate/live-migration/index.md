@@ -71,7 +71,7 @@ for a detailed migration guide.
 
 [from-postgres]: /migrate/:currentVersion:/live-migration/live-migration-from-postgres/
 [from-timescaledb]: /migrate/:currentVersion:/live-migration/live-migration-from-timescaledb/
-[live-migration-manual]: /migrate/:currentVersion:/playbooks/live-migration-from-timescaledb-manually/
+[live-migration-manual]: /migrate/:currentVersion:/live-migration/live-migration-from-postgres/
 [pg-dump-and-restore]: /migrate/:currentVersion:/pg-dump-and-restore/
 [dual-write and backfill]: /migrate/:currentVersion:/dual-write-and-backfill/
 [live-migration-playbook]: /migrate/:currentVersion:/playbooks/rds-timescale-live-migration/
