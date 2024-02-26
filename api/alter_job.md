@@ -62,7 +62,7 @@ automatically return to the schedule.
 |`job_id`|`INTEGER`|The ID of the job being modified|
 |`schedule_interval`|`INTERVAL`|The interval at which the job runs. Defaults to 24 hours|
 |`max_runtime`|`INTERVAL`|The maximum amount of time the job is allowed to run by the background worker scheduler before it is stopped|
-|`max_retries`|INTEGER|The number of times the job is retried if it fails|
+|`max_retries`|INTEGER|The number of times the job is retried if it fails. 0 means no retries, -1 means an infinite number of retries. |
 |`retry_period`|`INTERVAL`|The amount of time the scheduler waits between retries of the job on failure|
 |`scheduled`|`BOOLEAN`|Returns `true` if the job is executed by the TimescaleDB scheduler|
 |`config`|`JSONB`|Job-specific configuration, passed to the function when it runs|
