@@ -1,4 +1,4 @@
-Timescale is a cloud based PostgreSQL platform for demanding workloads. We help you you build faster, scale further, and stay under budget. Timescale offers the following PostgreSQL database optimisations:
+Timescale is a cloud based PostgreSQL platform for resource-intensive workloads. We help you you build faster, scale further, and stay under budget. Timescale offers the following PostgreSQL database optimisations:
 
 - [**Time-series data**](https://www.timescale.com/blog/what-is-a-time-series-database/#what-is-a-time-series-database): a
   TimescaleDB instance optimized for your time-series and analytics workloads. Get automated dynamic data partitioning, hybrid row-columnar storage, advanced compression techniques, incremental up-to-date materializations, and specialized analysis functions as well as cloud-only features like transparent tiering to low-cost object storage.
