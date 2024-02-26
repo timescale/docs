@@ -13,14 +13,13 @@ import CloudIntro from "versionContent/_partials/_cloud-intro.mdx";
 
 # Create your first Timescale service
 
-You use Timescale Console to create and manage Timescale services. Each service is a single 100% PostgreSQL database
-with usage-based storage.
+You use Timescale Console to create and manage Timescale services. Each service is a single 100% PostgreSQL database with usage-based storage.
 
 Timescale offers the following PostgreSQL service types:
 
 - [**Time-series and Analytics**](https://www.timescale.com/blog/what-is-a-time-series-database/#what-is-a-time-series-database)
   : a Timescale DB instance optimized for your time-series and analytics workloads.
-- **All other workloads**: a [Dynamic PostgreSQL](https://www.timescale.com/dynamic-postgresql) instance where you select a compute range, only paying for the base and the amount of extra CPU as you scale.
+- **All other workloads**: a [Dynamic PostgreSQL](https://www.timescale.com/dynamic-postgresql) instance where you select a compute range. You only pay for the base and the amount of extra CPU as you scale.
 
 This section shows you how to create a Timescale service using Timescale Console, then connect to your service from the
 command line.
