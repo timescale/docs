@@ -66,9 +66,10 @@ ingest pipeline of your application.
 
 We recommend using live migration if modifying your application logic to
 perform dual writes is a significant effort on your end, or if you are using
-`UPDATE` and `DELETE` statements on your time-series data. If your application
-is writing more than 20'000 rows per second, you should use dual-write and
-backfill instead.
+`UPDATE` and `DELETE` statements on your uncompressed time-series data (live
+migration does not support replicating `INSERT`/`UPDATE`/`DELETE` statements on
+compressed data). If your application is writing more than 20'000 rows per
+second, you should use dual-write and backfill instead.
 
 We recommend using dual-write and backfill if modifying your ingest pipeline is
 not an issue, and if you want to evaluate your existing solution side-by-side

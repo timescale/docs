@@ -17,6 +17,21 @@ GitHub and be notified by email whenever a new release is available. On the
 click `Watch`, select `Custom` and then check `Releases`.
 </Highlight>
 
+## TimescaleDB&nbsp;2.14.2 on 2024-02-20
+
+<Highlight type="note">
+This release contains bug fixes since the 2.14.1 release.
+We recommend that you upgrade at the next available opportunity.
+</Highlight>
+
+### Complete list of bugfixes
+* #6655 Fix segfault in cagg_validate_query
+* #6660 Fix refresh on empty CAgg with variable bucket
+* #6670 Don't try to compress osm chunks
+
+### Acknowledgments
+* @kav23alex for reporting a segfault in cagg_validate_query
+
 ## TimescaleDB&nbsp;2.14.1 on 2024-02-14
 
 <Highlight type="note">
