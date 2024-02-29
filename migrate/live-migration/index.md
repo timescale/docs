@@ -12,7 +12,7 @@ import OpenSupportRequest from "versionContent/_partials/_migrate_open_support_r
 
 Live migration is a new migration strategy to move a large amount of data
 (100&nbsp;GB-10&nbsp;TB+) with low downtime (on the order of few minutes). It
-requires more steps to execute than a migration with downtime using
+is significantly more complex to execute than a migration with downtime using
 [pg_dump/restore][pg-dump-and-restore], but supports more use-cases and has
 fewer requirements than the [dual-write and backfill] method.
 
