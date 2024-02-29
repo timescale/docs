@@ -23,11 +23,3 @@ Timescale is available in these Amazon Web Services (AWS) regions:
 | `us-east-2`      | United States | Ohio           |
 | `us-west-2`      | United States | Oregon         |
 
-Timescale is working on releasing 🔜 in the following AWS regions:
-
-| Region           | Zone          | Location  |
-|------------------|---------------|-----------|
-| `ap-northeast-1` | Japan         | Tokyo     |
-| `eu-west-2`      | Europe        | London    |
-| `sa-east-1`      | South America | São Paulo |
-| `ca-central-1`   | Canada        | Central   |
