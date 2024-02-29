@@ -1,23 +1,20 @@
 <Procedure>
 
-### Connecting to your service from the command prompt
+### Check your service and connect to it
 
-1.  In the [Timescale portal][tsc-portal], at the `Services` tab, find the
-    service you want to connect to, and check it is marked as `Running`.
-1.  [](#)<Optional /> If you have not stored a copy of your password, you can
-    reset it by navigating to the `Operations` tab, and clicking
-    `Reset password`. You can choose your own password for the service, or allow
-    Timescale to generate a secure password for you. Take a note of your new
-    password.
-1.  On your local system, at the command prompt, connect to the service using
-    your unique connection string provided by Timescale:
+To check a service associated with your account is running, then connect to it:
 
+1.  In the [Services section in Timescale Console][services-portal], check that your service is marked as `Running`.
+
+1.  In your development environment open [psql][install-psql] and connect to your service with the value of
+    `Service URL` in the config file you just saved.
+
+    The command line looks like:
     <CodeBlock canCopy={true} showLineNumbers={false} children={`
     psql "postgres://tsdbadmin:<PASSWORD>@<HOST>:<PORT>/tsdb?sslmode=require"
     `} />
 
-    If your connection is successful, you'll see a message like this, followed
-    by the `psql` prompt:
+    You are connected to your service and are now able to issue commands. You see something like:
 
     <CodeBlock canCopy={false} showLineNumbers={true} children={`
     psql (14.5, server 15.3 (Ubuntu 15.3-1.pgdg22.04+1))
@@ -26,6 +23,35 @@
     tsdb=>
     `} />
 
+1.  To create a PostgreSQL table, copy the following into the psql prompt and press Enter:
+
+    ```sql
+    CREATE TABLE stocks_real_time (
+      time TIMESTAMPTZ NOT NULL,
+      symbol TEXT NOT NULL,
+      price DOUBLE PRECISION NULL,
+      day_volume INT NULL
+    );
+    ```
+
+1.  Check that the table exists in your service with the `\dt` command. In psql:
+
+    <CodeBlock canCopy={true} showLineNumbers={false} children={`
+    \\dt
+    `} />
+
+    You see the table listing in your service.
+
+1. To disconnect, type `exit`.
+
+
+Quick recap, you find configuration information about your
+services in [Services section in Timescale Console][tsc-portal], you find configuration and security information in your
+config file.
+
 </Procedure>
 
 [tsc-portal]: https://console.cloud.timescale.com/
+[account-portal]: https://console.cloud.timescale.com/dashboard/account
+[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[install-psql]: /use-timescale/:currentVersion:/integrations/query-admin/psql/

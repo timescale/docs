@@ -1,14 +1,14 @@
 ---
-title: SQL inteface
-excerpt: SQL inteface for Timescale Vector and pgvector
+title: SQL inteface for pgvector and Timescale Vector
+excerpt: A detailed description of how to work with pgvector and Timescale Vector using SQL.
 products: [cloud]
 keywords: [ai, vector, pgvector, timescale vector, sql]
 tags: [ai, vector, sql]
 ---
 
-# SQL interface
+# SQL interface for pgvector and Timescale vector
 
-## Installing relevant extensions
+## Installing the pgvector and Timescale Vector extensions
 
 If not already installed, install the `vector` and `timescale_vector` extensions on your Timescale database.
 
@@ -17,7 +17,7 @@ CREATE EXTENSION IF NOT EXISTS vector;
 CREATE EXTENSION IF NOT EXISTS timescale_vector;
 ```
 
-## Creating the table
+## Creating the table for storing embeddings using pgvector
 
 Vectors inside of the database are stored in regular PostgreSQL tables using `vector` columns. The `vector` column type is provided by the pgvector extension. A common way to store vectors is alongside the data they are embedding. For example, to store embeddings for documents, a common table structure is:
 
@@ -39,7 +39,7 @@ The above table is just an illustration, it's totally fine to have a table witho
 
 The vector type can specify an optional number of dimensions (1,538) in the example above). If specified, it enforces the constraint that all vectors in the column have that number of dimensions. A plain `VECTOR` (without specifying the number of dimensions) column is also possible and allows a variable number of dimensions.
 
-## Query the table
+## Query the vector embeddings
 
 The canonical query is:
 
@@ -65,7 +65,7 @@ If you are using an index, you need to make sure that the distance function used
 </Highlight>
 
 
-## Indexing the vector data in the table
+## Indexing the vector data using indexes provided by pgvector and Timescale Vector
 
 Indexing helps speed up similarity queries of the basic form:
 

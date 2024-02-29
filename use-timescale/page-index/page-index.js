@@ -23,11 +23,6 @@ module.exports = [
             excerpt: "Timescale services overview",
           },
           {
-            title: "Create a Timescale service",
-            href: "create-a-service",
-            excerpt: "Timescale services",
-          },
-          {
             title: "Dynamic PostgreSQL",
             href: "dynamic-postgresql",
             excerpt: "Dynamic PostgreSQL overview",
