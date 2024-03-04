@@ -1,16 +1,16 @@
 ---
-title: Key vector database concepts
-excerpt: The most important concepts for understanding vectors in PostgreSQL
+title: Key vector database concepts for understanding pgvector
+excerpt: The most important vector database concepts for understanding pgvector and Timescale Vector in PostgreSQL
 products: [cloud]
 keywords: [ai, vector, pgvector, timescale vector]
 tags: [ai, vector]
 ---
 
 <!-- vale Google.Headings = NO -->
-# Key vector database concepts
+# Key vector database concepts for understanding pgvector
 <!-- vale Google.Headings = YES -->
 
-## `Vector` data type
+## `Vector` data type provided by pgvector
 
 Vectors inside of the database are stored in regular PostgreSQL tables using `vector` columns. The `vector` column type is provided by the [pgvector](https://github.com/pgvector/pgvector) extension. A common way to store vectors is alongside the data they have indexed. For example, to store embeddings for documents, a common table structure is:
 
@@ -30,7 +30,7 @@ This may seem like a bit of a weird design: why aren't the embeddings simply a s
 
 Of course, if you do not want to store the original data in the database and you are just storing only the embeddings, that's totally fine too. Just omit the foreign key from the table. Another popular alternative is to put the foreign key into the metadata JSONB.
 
-## Querying vectors
+## Querying vectors using pgvector
 
 The canonical query for vectors is for the closest query vectors to an embedding of the user's query. This is also known as finding the [K nearest neighbors](https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm).
 
@@ -70,7 +70,7 @@ Many embedding systems (for example OpenAI's ada-002) use vectors with length 1 
 - The Euclidean distance is related to the dot product, where the squared Euclidean distance is `2(1−dot product)`.
 
 <!-- vale Google.Headings = NO -->
-#### Recommended vector distance
+#### Recommended vector distance for use in PostgreSQL
 <!-- vale Google.Headings = YES -->
 
 Using cosine distance, especially on unit vectors, is recommended. These recommendations are based on OpenAI's [recommendation](https://platform.openai.com/docs/guides/embeddings/which-distance-function-should-i-use) as well as the fact that the ranking of different distances on unit vectors is preserved.

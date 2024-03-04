@@ -49,7 +49,7 @@ const redirector = new ThreeOhOneRedirector({
 		],
 		[
 			/^\/v[0-1]\.[0-9]\/getting-started\/exploring-forge/,
-			"https://docs.timescale.com/cloud/latest/create-a-service/"
+			"https://https://docs.timescale.com/getting-started/latest/services/"
 		],
 		[
 			/^\/v[0-1]\.[0-9]\/getting-started\/exploring-forge\/forge-configuration/,
@@ -390,6 +390,26 @@ const redirector = new ThreeOhOneRedirector({
 	]
 })
 	.add(
+		"/ai/latest/concepts",
+		"https://docs.timescale.com/ai/latest/key-vector-database-concepts-for-understanding-pgvector/"
+	)
+	.add(
+		"/ai/latest/langchain-integration",
+		"https://docs.timescale.com/ai/latest/langchain-integration-for-pgvector-and-timescale-vector/"
+	)
+	.add(
+		"/ai/latest/llamaindex-integration",
+		"https://docs.timescale.com/ai/latest/llamaindex-integration-for-pgvector-and-timescale-vector/"
+	)
+	.add(
+		"/ai/latest/python-interface",
+		"https://docs.timescale.com/ai/latest/python-interface-for-pgvector-and-timescale-vector/"
+	)
+	.add(
+		"/ai/latest/sql-interface",
+		"https://docs.timescale.com/ai/latest/sql-interface-for-pgvector-and-timescale-vector/"
+	)
+	.add(
 		"/administration/configuration",
 		"https://docs.timescale.com/timescaledb/latest/how-to-guides/configuration/about-configuration/"
 	)
@@ -582,7 +602,7 @@ const redirector = new ThreeOhOneRedirector({
 	)
 	.add(
 		"/cloud/latest/create-a-service",
-		"https://docs.timescale.com/use-timescale/latest/services/"
+		"https://https://docs.timescale.com/getting-started/latest/services/"
 	)
 	.add(
 		"/cloud/latest/customize-configuration",
@@ -644,6 +664,10 @@ const redirector = new ThreeOhOneRedirector({
 	.add(
 		"/cloud/latest/scaling-a-service",
 		"https://docs.timescale.com/use-timescale/latest/services/autoscaling"
+	)
+	.add(
+		"/use-timescale/latest/services/create-a-service",
+		"https://https://docs.timescale.com/getting-started/latest/services/"
 	)
 	.add(
 		"/cloud/latest/service-explorer",
@@ -735,7 +759,7 @@ const redirector = new ThreeOhOneRedirector({
 	.add("/faq", "https://docs.timescale.com/timescaledb/latest/overview/faq/")
 	.add(
 		"/forge/getting-started-forge/",
-		"https://docs.timescale.com/cloud/latest/create-a-service/"
+		"https://https://docs.timescale.com/getting-started/latest/services/"
 	)
 	.add("/forge", "https://docs.timescale.com/cloud/latest/")
 	.add("/getting-started", "https://docs.timescale.com/getting-started/latest/")
@@ -757,7 +781,7 @@ const redirector = new ThreeOhOneRedirector({
 	)
 	.add(
 		"/getting-started/exploring-forge",
-		"https://docs.timescale.com/cloud/latest/create-a-service/"
+		"https://https://docs.timescale.com/getting-started/latest/services/"
 	)
 	.add(
 		"/getting-started/exploring-forge/forge-configuration",
@@ -995,7 +1019,7 @@ const redirector = new ThreeOhOneRedirector({
 	)
 	.add(
 		"/latest/getting-started/exploring-forge",
-		"https://docs.timescale.com/cloud/latest/create-a-service/"
+		"https://https://docs.timescale.com/getting-started/latest/services/"
 	)
 	.add(
 		"/latest/getting-started/exploring-forge/forge-multi-node",
