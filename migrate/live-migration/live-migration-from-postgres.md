@@ -91,8 +91,11 @@ docker run --rm -dit --name live-migration \
 The above command runs in background may take a while to complete.
 You can use `docker attach` to interact with the migration image.
 
-Ensure `/live-migration` directory has sufficient space available.
-Ideally, 1.5 times the source database size should be good.
+Ensure that the machine that you're running live migration on has sufficient
+space available to contain the buffered changes which occur while the data is
+being copied. This is approximately proportional to the amount of new data
+(uncompressed) being written to the database during this period. As a general
+rule of thumb, something between 100&nbsp;GB and 500&nbsp;GB should suffice.
 </Highlight>
 
 The command will take a snapshot of your source database and migrate the schema
