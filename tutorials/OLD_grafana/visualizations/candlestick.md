@@ -8,8 +8,6 @@ seo:
   metaImage: https://s3.amazonaws.com/assets.timescale.com/docs/images/meta-images/meta-image-grafana-candlestick.png
 ---
 
-import GrafanaVizPrereqs from 'versionContent/_partials/_grafana-viz-prereqs.mdx';
-
 # Build a candlestick chart in Grafana
 
 Candlestick charts show the opening, closing, high, and low prices
@@ -39,7 +37,7 @@ patterns in the changing price of an asset. For example, you can tell whether an
 asset is entering bullish or bearish territory, or whether its market activity is
 topping or bottoming out.
 
-This tutorial shows you how to:
+Follow along with this tutorial to learn how to:
 
 *   Create candlestick aggregates with raw data.
 *   Show transaction volume when querying with raw data.
@@ -48,9 +46,33 @@ This tutorial shows you how to:
 
 <GrafanaVizPrereqs />
 
-Check out this video for a step-by-step walk-through on creating
-candlestick visualizations in Grafana:
-<Video url="https://www.youtube-nocookie.com/embed/08CydeL9lIk"/>
+To begin, populate your TimescaleDB service with the tick data from 
+[Twelve Data][twelve-data-zip]. Once you have ingested this zip file, you will
+have two `.csv` files, one of which contains a table of data called `company`, 
+and the other containing financial tick data from the last month.
+
+In your `psql` prompt, use the `COPY` command to transfer the data into your Timescale instance.
+
+  ```sql
+\COPY stocks_real_time from './tutorial_sample_tick.csv' DELIMITER ',' CSV HEADER;
+  ```
+
+```sql
+\COPY company from './tutorial_sample_company.csv' DELIMITER ',' CSV HEADER;
+  ```
+
+Once done with that, check out this [video][youtube-video] for a step-by-step walk-through 
+on creating candlestick visualizations in Grafana. The video covers:
+
+* Creating a new Grafana panel
+* Creating the `$bucket_interval` and `$symbol` variables
+* Connecting the candlstick chart
+* Finding transaction volume
+
+*Note: The Grafana interface has been updated since the video's original publishing date.
+To create the `$bucket_interval` and `$symbol` variables, navigate over to
+`Dashboard settings` now located at the top of the screen when viewing your dashboard. 
+Once there select the variables tab and proceed.*
 
 ## Create a candlestick with raw data
 
@@ -65,15 +87,15 @@ Create a candlestick visualization using the raw data in the table `stocks_real_
 
       ```sql
       SELECT
-          time_bucket('$bucket_interval', time) AS time,
-          symbol,
-          FIRST(price, time) AS "open",
-          MAX(price) AS high,
-          MIN(price) AS low,
-          LAST(price, time) AS "close"
+        time_bucket('$bucket_interval', time) AS time,
+        symbol,
+        FIRST(price, time) AS "open",
+        MAX(price) AS high,
+        MIN(price) AS low,
+        LAST(price, time) AS "close"
       FROM stocks_real_time
-      WHERE symbol IN ($symbol)
-          AND time > $__timeFrom()::timestamptz and time < $__timeTo()::timestamptz
+      WHERE symbol IN ('$symbol')
+        AND time > $__timeFrom()::timestamptz and time < $__timeTo()::timestamptz
       GROUP BY time_bucket('$bucket_interval', time), symbol;
       ```
 
@@ -106,17 +128,15 @@ applications.
 <Procedure>
 
   When you use the `$bucket_interval` variable, you can switch intervals. For
-  example, switching to a 15 minute bucket interval gives you this data.
+  example, switching to a 30 minute bucket interval gives you this data.
 
-  1.  Switch your bucket interval to 15-min from the dropdown
+  1.  Switch your bucket interval to 30-min from the dropdown
 
       <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/candlestick/timebucket_dropdown.png" alt="Screenshot of the Grafana variable dropdown."/>
 
   1.  Refresh the dashboard to get the updated chart
 
       <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/candlestick/15_min.png" alt="Screenshot of the Grafana variable dropdown."/>
-
-The query execution took more than 6 seconds. To decrease query execution time to sub-seconds, use continuous aggregates. See the how-to guide on [continuous aggregrates][continuous-aggregrate] to learn more.
 
 </Procedure>
 
@@ -165,9 +185,19 @@ difference gives the traded volume for that bucket.
 
 </Procedure>
 
+# Next Steps
 In conclusion, candlestick charts are a great way to visualize financial data.
 This tutorial shows you how to use TimescaleDB to generate candlestick values
 that includes open, high, low, and close, from raw data in a hypertable. It also
 shows you how to query the traded volume for each time interval.
 
-[continuous-aggregrate]: /tutorials/:currentVersion:/financial-tick-data/
+Curious about how to decrease query execution time to sub-seconds?
+See the how-to guide on [continuous aggregrates][continuous-aggregrate] to learn more. 
+
+[twelve-data-zip]: #
+
+[there is a link on the live site that allows users to directly download the zip file with the necessary data, but I am unsure of how to copy this over hence the blank link]: #
+
+[youtube-video]: https://www.youtube.com/watch?v=08CydeL9lIk
+[continuous-aggregrate]: https://docs.timescale.com/use-timescale/latest/continuous-aggregates/create-a-continuous-aggregate/
+
