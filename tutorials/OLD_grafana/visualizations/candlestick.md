@@ -194,10 +194,8 @@ shows you how to query the traded volume for each time interval.
 Curious about how to decrease query execution time to sub-seconds?
 See the how-to guide on [continuous aggregrates][continuous-aggregrate] to learn more. 
 
-[twelve-data-zip]: #
 
-[there is a link on the live site that allows users to directly download the zip file with the necessary data, but I am unsure of how to copy this over hence the blank link]: #
-
+[twelve-data-zip]: https://assets.timescale.com/docs/downloads/get-started/real_time_stock_data.zip
 [youtube-video]: https://www.youtube.com/watch?v=08CydeL9lIk
 [continuous-aggregrate]: https://docs.timescale.com/use-timescale/latest/continuous-aggregates/create-a-continuous-aggregate/
 
