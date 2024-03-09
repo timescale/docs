@@ -1,12 +1,12 @@
 ---
-title: LangChain Integration
-excerpt: LangChain integration for Timescale Vector
+title: LangChain Integration for pgvector and Timescale Vector
+excerpt: Integrating LangChain with pgvector and Timescale Vector
 products: [cloud]
 keywords: [ai, vector, pgvector, timescale vector, python, langchain]
 tags: [ai, vector, python, langchain]
 ---
 
-# LangChain integration
+# LangChain integration for pgvector and Timescale Vector
 
 [LangChain](https://www.langchain.com/) is a popular framework for development applications powered by LLMs. Timescale Vector has a native LangChain integration, enabling you to use Timescale Vector as a vector store and leverage all its capabilities in your applications built with LangChain.
 

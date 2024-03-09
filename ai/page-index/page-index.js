@@ -9,28 +9,28 @@ module.exports = [
     children: [
       {
         title: "Key vector database concepts",
-        href: "concepts",
-        excerpt: "Key concepts for working with vector data in PostgreSQL",
+        href: "key-vector-database-concepts-for-understanding-pgvector",
+        excerpt: "Key concepts for working with pgvector data in PostgreSQL",
       },
       {
         title: "SQL interface",
-        href: "sql-interface",
+        href: "sql-interface-for-pgvector-and-timescale-vector",
         excerpt: "SQL interface for Timescale Vector and pgvector in PostgreSQL",
       },
       {
         title: "Python interface",
-        href: "python-interface",
+        href: "python-interface-for-pgvector-and-timescale-vector",
         excerpt: "Python interface for Timescale Vector and pgvector in PostgreSQL",
       },
       {
         title: "LangChain integration",
-        href: "langchain-integration",
-        excerpt: "Integration of LangChain with Timescale Vector",
+        href: "langchain-integration-for-pgvector-and-timescale-vector",
+        excerpt: "Integration of LangChain with Timescale Vector and pgvector",
       },
       {
         title: "LlamaIndex integration",
-        href: "llamaindex-integration",
-        excerpt: "Integration of LlamaIndex with Timescale Vector",
+        href: "llamaindex-integration-for-pgvector-and-timescale-vector",
+        excerpt: "Integration of LlamaIndex with Timescale Vector and pgvector",
       },
       {
         title: "Embed PostgreSQL data with PgVectorize",

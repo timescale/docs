@@ -47,12 +47,6 @@ module.exports = [
             excerpt:
                 "Migrate from TimescaleDB using live migration",
           },
-          {
-            title: "(Advanced) Live migration from PostgreSQL manually",
-            href: "live-migration-from-postgres-manually",
-            excerpt:
-                "Migrate from TimescaleDB using live migration manually",
-          },
         ],
       },
       {

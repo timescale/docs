@@ -23,11 +23,6 @@ module.exports = [
             excerpt: "Timescale services overview",
           },
           {
-            title: "Create a Timescale service",
-            href: "create-a-service",
-            excerpt: "Timescale services",
-          },
-          {
             title: "Dynamic PostgreSQL",
             href: "dynamic-postgresql",
             excerpt: "Dynamic PostgreSQL overview",
@@ -800,11 +795,6 @@ module.exports = [
             title: "Use an action for downsampling and compression",
             href: "example-downsample-and-compress",
             excerpt: "Example user-defined action for downsample and compress",
-          },
-          {
-            title: "Use an action to backfill data periodically",
-            href: "example-backfill",
-            excerpt: "Example user-defined action for scheduled backfills",
           },
           {
             title: "Troubleshooting",

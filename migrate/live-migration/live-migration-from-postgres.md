@@ -13,6 +13,8 @@ import DumpDatabaseRoles from "versionContent/_partials/_migrate_dual_write_dump
 import DumpPreDataSourceSchema from "versionContent/_partials/_migrate_pre_data_dump_source_schema.mdx";
 import DumpPostDataSourceSchema from "versionContent/_partials/_migrate_post_data_dump_source_schema.mdx";
 import LiveMigrationStep2 from "versionContent/_partials/_migrate_live_migration_step2.mdx";
+import LiveMigrationDockerSubcommand from "versionContent/_partials/_migrate_live_migration_docker_subcommand.mdx";
+import LiveMigrationDockerCleanup from "versionContent/_partials/_migrate_live_migration_cleanup.mdx";
 
 # Live migration from PostgreSQL database with pgcopydb
 
@@ -24,10 +26,11 @@ containing all the tools and scripts that you need to perform the live
 migration.
 
 You should provision a dedicated instance to run the migration steps from.
-Ideally an AWS EC2 instance that's in the same region as the Timescale target
-service. For an ingestion load of 10,000 transactions/s, and assuming that the
-historical data copy takes 2 days, we recommend 4 CPUs with 4 to 8 GiB of RAM
-and 1.2 TiB of storage.
+This instance should have sufficient space available to contain the
+buffered changes which occur while the data is being copied. This is
+approximately proportional to the amount of new data (uncompressed) being
+written to the database during this period. As a general rule of thumb,
+something between 100&nbsp;GB and 500&nbsp;GB should suffice.
 
 <SourceTargetNote />
 
@@ -70,32 +73,9 @@ ALTER TABLE {table_name} REPLICA IDENTITY FULL
 
 ## 3. Run the live migration docker image
 
-First, set the database URIs as environment variables:
+<LiveMigrationDockerSubcommand />
 
-```sh
-export SOURCE=""
-export TARGET=""
-```
-
-Next, download and run the live migration docker image:
-
-```sh
-docker run --rm -dit --name live-migration \
-  -e PGCOPYDB_SOURCE_PGURI=$SOURCE \
-  -e PGCOPYDB_TARGET_PGURI=$TARGET \
-  -v ~/live-migration:/opt/timescale/ts_cdc \
-  timescale/live-migration:v0.0.1
-```
-
-<Highlight type="note">
-The above command runs in background may take a while to complete.
-You can use `docker attach` to interact with the migration image.
-
-Ensure `/live-migration` directory has sufficient space available.
-Ideally, 1.5 times the source database size should be good.
-</Highlight>
-
-The command will take a snapshot of your source database and migrate the schema
+`migrate` will utilize the snapshot created in the previous step and migrate the schema
 to the target database. After migrating the schema, it will prompt you to create
 hypertables in the target database.
 
@@ -106,8 +86,8 @@ a Hypertable in the target database. For more information, see [Hypertable docs]
 Once you have finished creating Hypertables, you need to signal "continue" to proceed.
 You can do it by pressing the `c` key.
 
-Next, the live migration image will migrate the existing data in the source database
-to target database and start streaming live transactions (live replay) received on
+Next, the live migration will migrate the existing data in the source database
+to target database. Then, it will stream live transactions (live replay) received on
 the source side to the target. During this process, it will display the lag between
 the source and target databases in terms of WAL offset size.
 
@@ -163,6 +143,8 @@ Application downtime ends here.
 
 Once you are confident with the data validation, the final step is to configure
 your applications to use the target database.
+
+<LiveMigrationDockerCleanup />
 
 [Hypertable docs]: /use-timescale/:currentVersion:/hypertables/
 [live migration]: https://docs.timescale.com/migrate/latest/live-migration/

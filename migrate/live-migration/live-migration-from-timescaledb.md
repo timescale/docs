@@ -13,6 +13,8 @@ import DumpDatabaseRoles from "versionContent/_partials/_migrate_dual_write_dump
 import DumpPreDataSourceSchema from "versionContent/_partials/_migrate_pre_data_dump_source_schema.mdx";
 import DumpPostDataSourceSchema from "versionContent/_partials/_migrate_post_data_dump_source_schema.mdx";
 import LiveMigrationStep2 from "versionContent/_partials/_migrate_live_migration_step2.mdx";
+import LiveMigrationDockerSubcommand from "versionContent/_partials/_migrate_live_migration_docker_subcommand.mdx";
+import LiveMigrationDockerCleanup from "versionContent/_partials/_migrate_live_migration_cleanup.mdx";
 
 # Live migration from TimescaleDB database with pgcopydb
 
@@ -24,9 +26,11 @@ the migration, we provide you with a docker image containing all the tools and
 scripts that you need to perform the live migration.
 
 You should provision a dedicated instance to run the migration steps from.
-Ideally an AWS EC2 instance that's in the same region as the Timescale target service.
-For an ingestion load of 10,000 transactions/s, and assuming that the historical
-data copy takes 2 days, we recommend 4 CPUs with 4 to 8 GiB of RAM and 1.2 TiB of storage.
+This instance should have sufficient space available to contain the
+buffered changes which occur while the data is being copied. This is
+approximately proportional to the amount of new data (uncompressed) being
+written to the database during this period. As a general rule of thumb,
+something between 100&nbsp;GB and 500&nbsp;GB should suffice.
 
 <SourceTargetNote />
 
@@ -76,33 +80,10 @@ which will impact the consistency of your data post migration.
 
 ## 3. Run live migration docker image
 
-First, set the database URIs as environment variables:
+<LiveMigrationDockerSubcommand />
 
-```sh
-export SOURCE=""
-export TARGET=""
-```
-
-Next, download and run the live migration docker image:
-
-```sh
-docker run --rm -dit --name live-migration \
-  -e PGCOPYDB_SOURCE_PGURI=$SOURCE \
-  -e PGCOPYDB_TARGET_PGURI=$TARGET \
-  -v ~/live-migration:/opt/timescale/ts_cdc \
-  timescale/live-migration:v0.0.1
-```
-
-<Highlight type="note">
-The above command runs in background may take a while to complete.
-You can use `docker attach` to interact with the migration image.
-
-Ensure `/live-migration` directory has sufficient space available.
-Ideally, 1.5 times the source database size should be good.
-</Highlight>
-
-The command will take a snapshot of your source database, migrate existing data to the
-target, and stream live transactions from the source to the target. During this process,
+`migrate` will utilize the snapshot created in the previous step and migrate existing data to the
+target. Then, it will stream live transactions from the source to the target. During this process,
 it will display the lag between the source and target databases in terms of WAL offset size.
 
 ```sh
@@ -157,6 +138,8 @@ Application downtime ends here.
 
 Once you are confident with the data validation, the final step is to configure
 your applications to use the target database.
+
+<LiveMigrationDockerCleanup />
 
 [Managed Service for TimescaleDB]: https://www.timescale.com/mst-signup/
 [live migration]: https://docs.timescale.com/migrate/latest/live-migration/
