@@ -119,9 +119,9 @@ can plan accordingly. However, in some cases, we might not be able to do so.
 
 ## Upgrade to a new PostgreSQL version
 
-Timescale currently supports PostgreSQL&nbsp;12, 13, 14, and 15. You can see
-your PostgreSQL and Timescale versions from the Timescale service
-overview page.
+You can see your PostgreSQL and Timescale versions from the Timescale service
+overview page. You can check the list of [supported PostgreSQL versions][postgres-versions]
+for more information.
 
 <!-- TODO: Add screenshot
 <img class="main-content__illustration"
@@ -132,7 +132,7 @@ overview page.
 -->
 
 You can also manually upgrade to the newest supported PostgreSQL version
-(PostgreSQL&nbsp;15) from the service overview page.
+from the service overview page.
 
 Upgrading to a newer version of PostgreSQL allows you to take advantage of new
 features, enhancements, and security fixes. It also ensures that you are using a
@@ -193,3 +193,5 @@ with a replica,  you must first delete the replica and then upgrade the service.
 [replicas-docs]: /use-timescale/:currentVersion:/ha-replicas/high-availability/
 [status-page]: https://status.timescale.com/
 [timescale-relnotes]: /about/latest/release-notes/
+[postgres-versions]: /self-hosted/:currentVersion:/latest/upgrades/upgrade-pg/
+
