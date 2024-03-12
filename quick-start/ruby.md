@@ -1,6 +1,6 @@
 ---
-title: "Quick Start: Ruby and TimescaleDB"
-excerpt: Get started with TimescaleDB for a Ruby application
+title: "Quick Start: Ruby and Timescale"
+excerpt: Get started with Timescale for a Ruby application
 keywords: [Ruby]
 ---
 
@@ -12,7 +12,7 @@ import QuickstartIntro from "versionContent/_partials/_quickstart-intro.mdx";
 
 This quick start guide walks you through:
 
-*   [Connecting to TimescaleDB][connect]
+*   [Connecting to a Timescale service][connect]
 *   [Creating a relational table][create-table]
 *   [Creating a hypertable][create-a-hypertable]
 *   [Inserting data][insert]
@@ -22,15 +22,15 @@ This quick start guide walks you through:
 
 Before you start, make sure you have:
 
-*   Installed TimescaleDB. For more information, see the
-    [installation documentation][install]. Make a note of the `Service URL`,
-    `Password`, and `Port` in the TimescaleDB Cloud instance that you created.
+*   Created a Timescale service. For more information, see the
+    [start up documentation][install]. Make a note of the `Service URL`,
+    `Password`, and `Port` in the Timescale service that you created.
 *   Installed [Rails][rails-guide].
-*   Installed [psql to connect][psql-install] to TimescaleDB.
+*   Installed [psql to connect][psql-install] to the Timescale service.
 
 ## Connect to TimescaleDB
 
-In this section, you create a connection to TimescaleDB Cloud through the Ruby
+In this section, you create a connection to your Timescale service through the Ruby
 on Rails application.
 
 <Procedure>
@@ -38,7 +38,7 @@ on Rails application.
 <Collapsible heading="Connecting to TimescaleDB" headingLevel={3}>
 
 1.  Create a new Rails application configured to use PostgreSQL as the database.
-    TimescaleDB is a PostgreSQL extension.
+    TimescaleDB works as a PostgreSQL extension.
 
     ```bash
     rails new my_app -d=postgresql
@@ -48,10 +48,10 @@ on Rails application.
     required Gems in the process.
 
 1.  Update `port` in the `database.yml` located in the `my_app/config`
-    directory with `<PORT>` of the TimescaleDB Cloud instance.
+    directory with `<PORT>` of the Timescale service.
 
 1.  Set the environment variable for `DATABASE_URL` to `<SERVICE_URL>` of
-    TimescaleDB Cloud. For example in a `ZSH` shell edit the `~/.zshrc` file with:
+    the service. For example in a `ZSH` shell edit the `~/.zshrc` file with:
 
     ```bash
     export DATABASE_URL="<SERVICE_URL>"
@@ -63,7 +63,7 @@ on Rails application.
     source ~/.zshrc
     ```
 
-1.  Add TimescaleDB to Rails migration:
+1.  Add Timescale to your Rails migration:
 
     ```ruby
     rails generate migration add_timescale
@@ -72,15 +72,15 @@ on Rails application.
     A new migration file `<migration-datetime>_add_timescale.rb` is created in
     the `my_app/db/migrate` directory.
 
-1.  Connect to TimescalDB Cloud using Rails:
+1.  Connect to your service using Rails:
 
     ```bash
     echo "\dx" | rails dbconsole
     ```
 
     If the connection is successful, you are prompted for the password to
-    connect to TimescaleDB. Type the `<PASSWORD>` for `tsdbadmin` in the
-    TimescaleDB Cloud.
+    connect to the service. Type the `<PASSWORD>` for `tsdbadmin` in the
+    Timescale service.
 
     The result is similar to this:
 
@@ -124,7 +124,7 @@ store a host of additional web analytics of interest to you.
 
    A new migration file `<migration-datetime>_create_page_loads.rb` is created in
    the `my_app/db/migrate` directory.
-   TimescaleDB requires that any `UNIQUE` or `PRIMARY KEY` indexes on the table
+   Timescale requires that any `UNIQUE` or `PRIMARY KEY` indexes on the table
    include all partitioning columns, which in this case is the time column. A new
    Rails model includes a `PRIMARY KEY` index for id by default, so you need to
    either remove the column or make sure that the index includes time as part of
@@ -255,7 +255,7 @@ You can insert data into your hypertables in several different ways. Create a
 new view and controller so that you can insert a value into the database, store
 the user agent and time in the database, retrieve the user agent of the browser
 for site visitor. You can then create a `PageLoad` object, store the user agent
-information and time, and save the object to TimescaleDB database.
+information and time, and save the object to the Timescale service.
 
 <Procedure>
 
@@ -337,7 +337,7 @@ information and time, and save the object to TimescaleDB database.
     psql -x <SERVICE_URL>
     ```
 
-1.  View the entries in the TimescaleDB `tsdb` database:
+1.  View the entries in the Timescale `tsdb` database:
 
     ```sql
     SELECT * FROM page_loads ORDER BY created_at DESC;
@@ -389,7 +389,7 @@ You can retrieve the data that you inserted and view it.
     ```
 
    Now, each time you refresh the page, you can see that a record is being inserted
-   into the `tsdb` TimescaleDB database, and the counter is incremented on the page.
+   into the `tsdb` Timescale database, and the counter is incremented on the page.
 
 1.  You need to have a lot of page loads to research and explore
     the [time_bucket] function. You can use [Apache Bench][ab] aka `ab` to
