@@ -6,7 +6,7 @@ docker run --rm -it --name live-migration \
     -e PGCOPYDB_TARGET_PGURI=$TARGET \
     --pid=host \
     -v ~/live-migration:/opt/timescale/ts_cdc \
-    timescale/live-migration:v0.0.7 --help
+    timescale/live-migration:v0.0.9 --help
 
 Live migration moves your PostgreSQL/TimescaleDB to Timescale Cloud with minimal downtime.
 
@@ -53,7 +53,7 @@ docker run --rm -it --name live-migration-snapshot \
     -e PGCOPYDB_TARGET_PGURI=$TARGET \
     --pid=host \
     -v ~/live-migration:/opt/timescale/ts_cdc \
-    timescale/live-migration:v0.0.7 snapshot
+    timescale/live-migration:v0.0.9 snapshot
 ```
 
 ### 3.b Perform live-migration
@@ -67,12 +67,12 @@ docker run --rm -it --name live-migration-migrate \
     -e PGCOPYDB_TARGET_PGURI=$TARGET \
     --pid=host \
     -v ~/live-migration:/opt/timescale/ts_cdc \
-    timescale/live-migration:v0.0.7 migrate
+    timescale/live-migration:v0.0.9 migrate
 ```
 <Highlight type="note">
 If the migrate command stops for any reason during execution, you can resume
 the migration from where it left off by adding a `--resume` flag. This is only
 possible if the `snapshot` command is intact and if a volume mount, such
-as ~/live-migration, is utilized. Note that the `snapshot` command is required
+as `~/live-migration`, is utilized. Note that the `snapshot` command is required
 only if you want to resume live migration in event of a crash.
 </Highlight>
