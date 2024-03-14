@@ -26,8 +26,6 @@ this means that you may run into the following shortcomings:
   replicated).
 - Live migration does not yet support mutable compression (`INSERT`, `UPDATE`,
   `DELETE` on compressed data).
-- In most cases it is not possible to resume a failed migration, and must be
-  restarted from the beginning.
 - By default, numeric fields containing `NaN`/`+Inf`/`-Inf` values are not
   correctly replicated, and will be converted to `NULL`. A workaround is
   available, but is not enabled by default.
