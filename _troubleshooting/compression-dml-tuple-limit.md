@@ -31,7 +31,7 @@ The limit can be increased or turned off (set to 0) like so:
 
 ```sql
 -- set limit to a milion tuples
-SET timescaledb.timescaledb.max_tuples_decompressed_per_dml_transaction TO 1000000;
+SET timescaledb.max_tuples_decompressed_per_dml_transaction TO 1000000;
 -- disable limit by setting to 0
-SET timescaledb.timescaledb.max_tuples_decompressed_per_dml_transaction TO 0;
+SET timescaledb.max_tuples_decompressed_per_dml_transaction TO 0;
 ```
