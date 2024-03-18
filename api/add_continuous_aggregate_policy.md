@@ -48,7 +48,7 @@ about how continuous aggregates use real-time aggregation, see the
 
 |Name|Type|Description|
 |-|-|-|
-|`if_not_exists`|BOOLEAN|Set to `true` to issue a notice instead of an error if the job does not exist. Defaults to false.|
+|`if_not_exists`|BOOLEAN|Set to `true` to issue a notice instead of an error if the job already exists. Defaults to false.|
 
 ### Returns
 
