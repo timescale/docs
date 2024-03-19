@@ -82,4 +82,4 @@ You can switch to `project-fork` and view the newly created `replica-fork` using
 avn service list
 ```
 
-[aiven-client-install]: /mst/:currentVersion:/aiven-client/aiven-client-install/
+[aiven-client-install]: /mst/:currentVersion:/aiven-client/#install-and-configure-the-aiven-client
