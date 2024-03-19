@@ -13,6 +13,8 @@ import DumpDatabaseRoles from "versionContent/_partials/_migrate_dual_write_dump
 import DumpPreDataSourceSchema from "versionContent/_partials/_migrate_pre_data_dump_source_schema.mdx";
 import DumpPostDataSourceSchema from "versionContent/_partials/_migrate_post_data_dump_source_schema.mdx";
 import LiveMigrationStep2 from "versionContent/_partials/_migrate_live_migration_step2.mdx";
+import LiveMigrationDockerSubcommand from "versionContent/_partials/_migrate_live_migration_docker_subcommand.mdx";
+import LiveMigrationDockerCleanup from "versionContent/_partials/_migrate_live_migration_cleanup.mdx";
 
 # Live migration from PostgreSQL database with pgcopydb
 
@@ -24,10 +26,11 @@ containing all the tools and scripts that you need to perform the live
 migration.
 
 You should provision a dedicated instance to run the migration steps from.
-Ideally an AWS EC2 instance that's in the same region as the Timescale target
-service. For an ingestion load of 10,000 transactions/s, and assuming that the
-historical data copy takes 2 days, we recommend 4 CPUs with 4 to 8 GiB of RAM
-and 1.2 TiB of storage.
+This instance should have sufficient space available to contain the
+buffered changes which occur while the data is being copied. This is
+approximately proportional to the amount of new data (uncompressed) being
+written to the database during this period. As a general rule of thumb,
+something between 100&nbsp;GB and 500&nbsp;GB should suffice.
 
 <SourceTargetNote />
 
@@ -70,32 +73,9 @@ ALTER TABLE {table_name} REPLICA IDENTITY FULL
 
 ## 3. Run the live migration docker image
 
-First, set the database URIs as environment variables:
+<LiveMigrationDockerSubcommand />
 
-```sh
-export SOURCE=""
-export TARGET=""
-```
-
-Next, download and run the live migration docker image:
-
-```sh
-docker run --rm -dit --name live-migration \
-  -e PGCOPYDB_SOURCE_PGURI=$SOURCE \
-  -e PGCOPYDB_TARGET_PGURI=$TARGET \
-  -v ~/live-migration:/opt/timescale/ts_cdc \
-  timescale/live-migration:v0.0.5
-```
-
-<Highlight type="note">
-The above command runs in background may take a while to complete.
-You can use `docker attach` to interact with the migration image.
-
-Ensure `/live-migration` directory has sufficient space available.
-Ideally, 1.5 times the source database size should be good.
-</Highlight>
-
-The command will take a snapshot of your source database and migrate the schema
+`migrate` will utilize the snapshot created in the previous step and migrate the schema
 to the target database. After migrating the schema, it will prompt you to create
 hypertables in the target database.
 
@@ -106,45 +86,57 @@ a Hypertable in the target database. For more information, see [Hypertable docs]
 Once you have finished creating Hypertables, you need to signal "continue" to proceed.
 You can do it by pressing the `c` key.
 
-Next, the live migration image will migrate the existing data in the source database
-to target database and start streaming live transactions (live replay) received on
-the source side to the target. During this process, it will display the lag between
-the source and target databases in terms of WAL offset size.
+Next, the live migration will migrate the existing data in the source database
+to target database. Then, it will stream live transactions (live replay) received on
+the source side to the target. During this process, it will display the status of the
+replay process.
 
 ```sh
-[WATCH] Source DB - Target DB => 126MB
+Live-replay will complete in 1 minute 38.631 seconds (source_wal_rate: 106.0B/s, target_replay_rate: 589.0KiB/s, replay_lag: 56MiB)
 ```
 
-When the lag between the source and target database is less than 30 megabytes,
-it will start `ANALYZE` on the target database. This updates statistics in the
-target database, which is necessary for optimal querying performance in the
-target database. Wait for `ANALYZE` to complete.
+If the live replay is not able to keep up with the load on the source database, you
+see a message like:
+
+```sh
+WARN live-replay not keeping up with source load (source_wal_rate: 3.0MiB/s, target_replay_rate: 462.0KiB/s, replay_lag: 73MiB)
+```
+
+Once the live replay has caught up, live migration surfaces this:
+
+```sh
+Target has caught up with source (source_wal_rate: 751.0B/s, target_replay_rate: 0B/s, replay_lag: 7KiB)
+    To stop replication, hit 'c' and then ENTER
+```
 
 <Highlight type="important">
-Application downtime begins here.
+Application downtime begins here. Ensure that you have a strategy to validate
+the data in your target database before taking your applications offline, to
+keep the overall downtime minimal.
 </Highlight>
 
-Once the lag between the databases is below 30 megabytes, and you're ready to
-take your applications offline, stop all applications which are writing to the
-source database. This is the downtime phase and will last until you have
-completed the validation step (4). Be sure to go through the validation step
-before you enter the downtime phase to keep the overall downtime minimal.
+Once the live replay has caught up, and you're ready to take your applications
+offline, stop all applications which are writing to the source database. This
+marks the beginning of the downtime phase, which lasts until you have
+[validated] the data in the target database.
+
+[validated]: #4-validate-the-data-in-target-database-and-use-it-as-new-primary 
 
 Stopping writes to the source database allows the live migration process to
-finish replicating data to the target database. This will be evident when the
-replication lag reduces to 0 megabytes.
+finish replicating data to the target database.
 
-Once the replication lag is 0, wait for a few minutes and then provide the
-signal to proceed by pressing key `c`.
+When you see the `Target has caught up with source` message, and your
+applications are not writing to the database, press `c` followed by ENTER to
+stop replication.
 
 ```sh
-[WATCH] Source DB - Target DB => 0MB. Press "c" (and ENTER) to proceed
-Syncing last LSN in Source DB to Target DB ...
+Target has caught up with source (source_wal_rate: 46.0B/s, target_replay_rate: 0B/s, replay_lag: 221KiB)
+    To stop replication, hit 'c' and then ENTER
 ```
 
-The live migration image will continue the remaining work that includes
-migrating sequences and cleaning up resources. You should see the following
-message if all the mentioned steps were successful.
+The live migration tool continues the remaining work, which includes migrating
+sequences and cleaning up resources. When the migration completes, you see the
+following message:
 
 ```sh
 Migration successfully completed
@@ -164,5 +156,7 @@ Application downtime ends here.
 Once you are confident with the data validation, the final step is to configure
 your applications to use the target database.
 
+<LiveMigrationDockerCleanup />
+
 [Hypertable docs]: /use-timescale/:currentVersion:/hypertables/
-[live migration]: https://docs.timescale.com/migrate/latest/live-migration/
+[live migration]: /migrate/:currentVersion:/live-migration/

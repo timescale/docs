@@ -1,11 +1,11 @@
 module.exports = [
   {
-    title: "Getting started",
+    title: "Get started",
     href: "getting-started",
     excerpt: "Get started with Timescale",
     children: [
       {
-        title: "Timescale services",
+        title: "Create your first Timescale service",
         href: "services",
         excerpt: "Create a Timescale service and connect to it",
       },
