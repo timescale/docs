@@ -117,7 +117,7 @@ information about compression and decompression, see the
 [pg_dump]: https://www.postgresql.org/docs/current/app-pgdump.html
 [pg_restore]: https://www.postgresql.org/docs/current/app-pgrestore.html
 [psql]: /use-timescale/:currentVersion:/integrations/query-admin/about-psql/
-[timescaledb_pre_restore]: /api/:currentVersion:/administration/timescaledb_pre_restore/
-[timescaledb_post_restore]: /api/:currentVersion:/administration/timescaledb_post_restore/
+[timescaledb_pre_restore]: /api/:currentVersion:/administration/#timescaledb_pre_restore
+[timescaledb_post_restore]: /api/:currentVersion:/administration/#timescaledb_post_restore
 [upgrading-postgresql-self-hosted]: /self-hosted/:currentVersion:/upgrades/upgrade-pg/
 [upgrading-timescaledb]: /self-hosted/:currentVersion:/upgrades/major-upgrade/

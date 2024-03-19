@@ -122,38 +122,6 @@ module.exports = [
         href: "aiven-client",
         excerpt:
           "A command line tool for Managed Service for TimescaleDB",
-        children: [
-          {
-            title: "Install Aiven Client",
-            href: "aiven-client-install",
-            excerpt:
-              "Install Aiven Client to manage your services on MST"
-          },
-          {
-            title: "Create a fork of the service using Aiven Client",
-            href: "create-fork",
-            excerpt:
-              "Create a fork of the service using Aiven Client"
-          },
-          {
-            title: "Create a read-only replica using Aiven Client",
-            href: "replicas-cli",
-            excerpt:
-              "Create a read-only replica using Aivent Client"
-          },
-          {
-            title: "Integrate authentication plugins in Grafana",
-            href: "grafana-authentication-plugins",
-            excerpt:
-              "Configure Google, GitHub, or GitLab authentication plugins for Grafana",
-          },
-          {
-            title: "Send Grafana emails using Aiven Client",
-            href: "grafana-email",
-            excerpt:
-              "Configure the Simple Mail Transfer Protocol (SMTP) server in MST for Grafana"
-          },
-        ],
       },
       {
         title: "Migrate your data to Managed Service for TimescaleDB",
