@@ -81,7 +81,7 @@ on Rails application.
     echo "\dx" | rails dbconsole
     ```
 
-    You are prompted for the password to connect to the service. Type the `<PASSWORD>` for `tsdbadmin` in the Timescale service.
+    Enter the `tsdbadmin` password for the Timescale service in the password prompt.
 
     The result looks like:
 
