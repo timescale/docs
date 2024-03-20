@@ -88,43 +88,55 @@ You can do it by pressing the `c` key.
 
 Next, the live migration will migrate the existing data in the source database
 to target database. Then, it will stream live transactions (live replay) received on
-the source side to the target. During this process, it will display the lag between
-the source and target databases in terms of WAL offset size.
+the source side to the target. During this process, it will display the status of the
+replay process.
 
 ```sh
-[WATCH] Source DB - Target DB => 126MB
+Live-replay will complete in 1 minute 38.631 seconds (source_wal_rate: 106.0B/s, target_replay_rate: 589.0KiB/s, replay_lag: 56MiB)
 ```
 
-When the lag between the source and target database is less than 30 megabytes,
-it will start `ANALYZE` on the target database. This updates statistics in the
-target database, which is necessary for optimal querying performance in the
-target database. Wait for `ANALYZE` to complete.
+If the live replay is not able to keep up with the load on the source database, you
+see a message like:
+
+```sh
+WARN live-replay not keeping up with source load (source_wal_rate: 3.0MiB/s, target_replay_rate: 462.0KiB/s, replay_lag: 73MiB)
+```
+
+Once the live replay has caught up, live migration surfaces this:
+
+```sh
+Target has caught up with source (source_wal_rate: 751.0B/s, target_replay_rate: 0B/s, replay_lag: 7KiB)
+    To stop replication, hit 'c' and then ENTER
+```
 
 <Highlight type="important">
-Application downtime begins here.
+Application downtime begins here. Ensure that you have a strategy to validate
+the data in your target database before taking your applications offline, to
+keep the overall downtime minimal.
 </Highlight>
 
-Once the lag between the databases is below 30 megabytes, and you're ready to
-take your applications offline, stop all applications which are writing to the
-source database. This is the downtime phase and will last until you have
-completed the validation step (4). Be sure to go through the validation step
-before you enter the downtime phase to keep the overall downtime minimal.
+Once the live replay has caught up, and you're ready to take your applications
+offline, stop all applications which are writing to the source database. This
+marks the beginning of the downtime phase, which lasts until you have
+[validated] the data in the target database.
+
+[validated]: #4-validate-the-data-in-target-database-and-use-it-as-new-primary 
 
 Stopping writes to the source database allows the live migration process to
-finish replicating data to the target database. This will be evident when the
-replication lag reduces to 0 megabytes.
+finish replicating data to the target database.
 
-Once the replication lag is 0, wait for a few minutes and then provide the
-signal to proceed by pressing key `c`.
+When you see the `Target has caught up with source` message, and your
+applications are not writing to the database, press `c` followed by ENTER to
+stop replication.
 
 ```sh
-[WATCH] Source DB - Target DB => 0MB. Press "c" (and ENTER) to proceed
-Syncing last LSN in Source DB to Target DB ...
+Target has caught up with source (source_wal_rate: 46.0B/s, target_replay_rate: 0B/s, replay_lag: 221KiB)
+    To stop replication, hit 'c' and then ENTER
 ```
 
-The live migration image will continue the remaining work that includes
-migrating sequences and cleaning up resources. You should see the following
-message if all the mentioned steps were successful.
+The live migration tool continues the remaining work, which includes migrating
+sequences and cleaning up resources. When the migration completes, you see the
+following message:
 
 ```sh
 Migration successfully completed
@@ -147,4 +159,4 @@ your applications to use the target database.
 <LiveMigrationDockerCleanup />
 
 [Hypertable docs]: /use-timescale/:currentVersion:/hypertables/
-[live migration]: https://docs.timescale.com/migrate/latest/live-migration/
+[live migration]: /migrate/:currentVersion:/live-migration/
