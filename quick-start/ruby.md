@@ -1,6 +1,6 @@
 ---
-title: "Quick Start: Ruby and TimescaleDB"
-excerpt: Get started with TimescaleDB for a Ruby application
+title: "Quick Start: Ruby and Timescale"
+excerpt: Get started with Timescale for a Ruby application
 keywords: [Ruby]
 ---
 
@@ -10,35 +10,38 @@ import QuickstartIntro from "versionContent/_partials/_quickstart-intro.mdx";
 
 <QuickstartIntro />
 
-This quick start guide walks you through:
+This quick start guide shows you how to:
 
-*   [Connecting to TimescaleDB][connect]
-*   [Creating a relational table][create-table]
-*   [Creating a hypertable][create-a-hypertable]
-*   [Inserting data][insert]
-*   [Executing a query][query]
+*   [Connect to a Timescale service][connect]
+*   [Create a relational table][create-table]
+*   [Create a hypertable][create-a-hypertable]
+*   [Insert data][insert]
+*   [Execute a query][query]
+*   [Create scopes to reuse][create-scopes]
+*   [Add performance and path attributes to PageLoad][add-performance]
+*   [Explore aggregation functions][explore]
 
 ## Prerequisites
 
 Before you start, make sure you have:
 
-*   Installed TimescaleDB. For more information, see the
-    [installation documentation][install]. Make a note of the `Service URL`,
-    `Password`, and `Port` in the TimescaleDB Cloud instance that you created.
+*   Created a Timescale service. For more information, see the
+    [start up documentation][install]. Make a note of the `Service URL`,
+    `Password`, and `Port` in the Timescale service that you created.
 *   Installed [Rails][rails-guide].
-*   Installed [psql to connect][psql-install] to TimescaleDB.
+*   Installed [psql to connect][psql-install] to the Timescale service.
 
-## Connect to TimescaleDB
+## Connect to a Timescale service
 
-In this section, you create a connection to TimescaleDB Cloud through the Ruby
+In this section, you create a connection to your Timescale service through the Ruby
 on Rails application.
 
 <Procedure>
 
-<Collapsible heading="Connecting to TimescaleDB" headingLevel={3}>
+<Collapsible heading="Connect to Timescale" headingLevel={3}>
 
 1.  Create a new Rails application configured to use PostgreSQL as the database.
-    TimescaleDB is a PostgreSQL extension.
+    Your Timescale service works as a PostgreSQL extension.
 
     ```bash
     rails new my_app -d=postgresql
@@ -48,10 +51,10 @@ on Rails application.
     required Gems in the process.
 
 1.  Update `port` in the `database.yml` located in the `my_app/config`
-    directory with `<PORT>` of the TimescaleDB Cloud instance.
+    directory with `<PORT>` of the Timescale service.
 
 1.  Set the environment variable for `DATABASE_URL` to `<SERVICE_URL>` of
-    TimescaleDB Cloud. For example in a `ZSH` shell edit the `~/.zshrc` file with:
+    the service. For example in a `ZSH` shell edit the `~/.zshrc` file with:
 
     ```bash
     export DATABASE_URL="<SERVICE_URL>"
@@ -63,7 +66,7 @@ on Rails application.
     source ~/.zshrc
     ```
 
-1.  Add TimescaleDB to Rails migration:
+1.  Add Timescale to your Rails migration:
 
     ```ruby
     rails generate migration add_timescale
@@ -72,17 +75,15 @@ on Rails application.
     A new migration file `<migration-datetime>_add_timescale.rb` is created in
     the `my_app/db/migrate` directory.
 
-1.  Connect to TimescalDB Cloud using Rails:
+1.  Connect to your service using Rails:
 
     ```bash
     echo "\dx" | rails dbconsole
     ```
 
-    If the connection is successful, you are prompted for the password to
-    connect to TimescaleDB. Type the `<PASSWORD>` for `tsdbadmin` in the
-    TimescaleDB Cloud.
+    Enter the `tsdbadmin` password for the Timescale service in the password prompt.
 
-    The result is similar to this:
+    The result looks like:
 
     ```bash
                                                        List of installed extensions
@@ -99,7 +100,7 @@ on Rails application.
     To ensure that your tests run successfully, in the
     `config/environments/test.rb` file, add
     `config.active_record.verify_foreign_keys_for_fixtures = false`.
-    Otherwise you get an error because TimescaleDB uses internal foreign keys.
+    Otherwise you get an error because Timescale uses internal foreign keys.
     </Highlight>
 
 </Collapsible>
@@ -114,7 +115,7 @@ store a host of additional web analytics of interest to you.
 
 <Procedure>
 
-<Collapsible heading="Creating a relational table" headingLevel={3}>
+<Collapsible heading="Create a relational table" headingLevel={3}>
 
 1.  Generate a Rails scaffold to represent the user agent information in a table:
 
@@ -124,7 +125,7 @@ store a host of additional web analytics of interest to you.
 
    A new migration file `<migration-datetime>_create_page_loads.rb` is created in
    the `my_app/db/migrate` directory.
-   TimescaleDB requires that any `UNIQUE` or `PRIMARY KEY` indexes on the table
+   Timescale requires that any `UNIQUE` or `PRIMARY KEY` indexes on the table
    include all partitioning columns, which in this case is the time column. A new
    Rails model includes a `PRIMARY KEY` index for id by default, so you need to
    either remove the column or make sure that the index includes time as part of
@@ -192,7 +193,7 @@ and most other tasks are executed on the hypertable.
 
 <Procedure>
 
-<Collapsible heading="Creating a hypertable" headingLevel={3}>
+<Collapsible heading="Create a hypertable" headingLevel={3}>
 
 1.  Create a migration to modify the `page_loads` database and create a hypertable:
 
@@ -249,17 +250,17 @@ and most other tasks are executed on the hypertable.
 
 </Procedure>
 
-## Insert rows of data
+## Insert data
 
 You can insert data into your hypertables in several different ways. Create a
 new view and controller so that you can insert a value into the database, store
 the user agent and time in the database, retrieve the user agent of the browser
 for site visitor. You can then create a `PageLoad` object, store the user agent
-information and time, and save the object to TimescaleDB database.
+information and time, and save the object to the Timescale service.
 
 <Procedure>
 
-<Collapsible heading="Inserting rows into TimescaleDB" headingLevel={3}>
+<Collapsible heading="Insert data into Timescale" headingLevel={3}>
 
 1.  Create a new view and controller so that you can insert a value into the database:
 
@@ -302,7 +303,7 @@ information and time, and save the object to TimescaleDB database.
 
 1.  Update the `static_pages_controller.rb` controller file to create a
     `PageLoad` object, store the user agent information and time, and save the
-    object to TimescaleDB `tsdb` database:
+    object to the Timescale `tsdb` database:
 
     ```ruby
     class StaticPagesController < ApplicationController
@@ -331,13 +332,13 @@ information and time, and save the object to TimescaleDB database.
     Completed 200 OK in 917ms (Views: 10.4ms | ActiveRecord: 682.9ms | Allocations: 4542)
     ```
 
-1.  Connect to TimescaleDB `tsdb` database using psql:
+1.  Connect to the `tsdb` database using psql:
 
     ```bash
     psql -x <SERVICE_URL>
     ```
 
-1.  View the entries in the TimescaleDB `tsdb` database:
+1.  View the entries in the Timescale `tsdb` database:
 
     ```sql
     SELECT * FROM page_loads ORDER BY created_at DESC;
@@ -367,7 +368,7 @@ You can retrieve the data that you inserted and view it.
 
 <Procedure>
 
-<Collapsible heading="Executing a simple query" headingLevel={3}>
+<Collapsible heading="Execute a query" headingLevel={3}>
 
 1.  In the `static_pages_controller.rb` file modify the `home` method
     to [use Active Record to query][active-record-query] on all items in
@@ -389,7 +390,7 @@ You can retrieve the data that you inserted and view it.
     ```
 
    Now, each time you refresh the page, you can see that a record is being inserted
-   into the `tsdb` TimescaleDB database, and the counter is incremented on the page.
+   into the `tsdb` Timescale database, and the counter is incremented on the page.
 
 1.  You need to have a lot of page loads to research and explore
     the [time_bucket] function. You can use [Apache Bench][ab] aka `ab` to
@@ -441,7 +442,7 @@ function:
 
 <Procedure>
 
-<Collapsible heading="Executing queries using scopes" headingLevel={3}>
+<Collapsible heading="Execute queries using scopes" headingLevel={3}>
 
 1.  In the `page_load.rb` file located at `my_app/app/models` directory, add
     these scopes:
@@ -514,7 +515,7 @@ store the endpoint path and the time necessary to return the response.
 
 <Procedure>
 
-<Collapsible heading="Adding performace and path attributes" headingLevel={3}>
+<Collapsible heading="Add performace and path attributes" headingLevel={3}>
 
 1.  Add columns to the database using rails migrations:
 
@@ -589,7 +590,7 @@ page by page, or all pages together, and group by path or not:
 
 <Procedure>
 
-<Collapsible heading="Exploring aggregation functions" headingLevel={3}>
+<Collapsible heading="Explore aggregation functions" headingLevel={3}>
 
 1.  In the `page_load.rb` file located at `my_app/app/models` directory, add
     these scopes, for average response time, `min` and `max` requests, and
@@ -715,6 +716,9 @@ page by page, or all pages together, and group by path or not:
 [create-a-hypertable]: #create-a-hypertable
 [insert]: #insert-rows-of-data
 [query]: #execute-a-query
+[create-scopes]: #create-scopes-to-reuse
+[add-performance]: #add-performance-and-path-attributes-to-pageload
+[explore]: #explore-aggregation-functions
 [install]: /getting-started/latest/
 [psql-install]: /use-timescale/:currentVersion:/integrations/query-admin/about-psql/
 [rails-guide]: https://guides.rubyonrails.org/getting_started.html
