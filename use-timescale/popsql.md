@@ -19,6 +19,8 @@ keywords: [popsql, sql editor, chart, dashboard]
 - [Schedules](https://docs.popsql.com/docs/scheduled-queries): Automatically refresh queries and dashboards to create push alerts.
 - [Query variables](https://docs.popsql.com/docs/query-variables): Use Liquid to parameterize your queries or use `if` statements.
 
+![Screenshot of PopSQL](../images/popsql/popsql_product_screenshot.png)
+
 ## Get started
 
 ### 1. From Timescale Console, click PopSQL
