@@ -1,6 +1,6 @@
 ---
-title: Migrate from Multi-node to TimescaleDB
-excerpt: Migrate an entire multi-node deployment to a TimescaleDB instance with downtime using COPY
+title: Migrate from Multi-node to Timescale
+excerpt: Migrate an entire multi-node deployment to a Timescale instance with downtime using COPY
 products: [cloud]
 keywords: [migration, downtime]
 tags: [migration, multi-node, timescaledb]
@@ -59,7 +59,7 @@ Before you begin, ensure that you have:
 
 ## Migrate schema pre-data
 
-Migrate your pre-data from your source database to TimescaleDB instance. This
+Migrate your pre-data from your source database to your Timescale instance. This
 includes table and schema definitions, as well as information on sequences,
 owners, and settings. This doesn't include Timescale-specific schemas.
 
@@ -90,11 +90,11 @@ owners, and settings. This doesn't include Timescale-specific schemas.
 
 </Procedure>
 
-## Restore hypertables in TimescaleDB instance
+## Restore hypertables in your Timescale instance
 
 After pre-data migration, your distributed hypertables from your source database
 become regular PostgreSQL tables. Recreate them as regular hypertables
-in TimescaleDB instance to restore them. 
+in your Timescale instance to restore them. 
 
 <Highlight type="note">
 Distributed hypertables are typically created with additional
@@ -165,7 +165,7 @@ and copy each range individually. For example:
 ## Restore data into TimescaleDB instance
 
 When you have copied your data into `.csv` files, you can restore it to
-TimescaleDB instance by copying from the `.csv` files. There are two methods: using
+Timescale instance by copying from the `.csv` files. There are two methods: using
 regular PostgreSQL [`COPY`][copy], or using the TimescaleDB
 [`timescaledb-parallel-copy`][timescaledb-parallel-copy] function. The `timescaledb-parallel-copy`
 tool is not included by default. You must install the tool.
