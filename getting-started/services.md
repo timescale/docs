@@ -58,3 +58,4 @@ And that is it, you are up and running. Enjoy developing with Timescale.
 [install-psql]: /use-timescale/:currentVersion:/integrations/query-admin/psql/
 [connect-to-your-service]: /getting-started/:currentVersion:/services/#check-your-service-and-connect-to-it
 [create-service]: https://console.cloud.timescale.com/dashboard/create_services
+[popsql]: /use-timescale/:currentVersion:/popsql/

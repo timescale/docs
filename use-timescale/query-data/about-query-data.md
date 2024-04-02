@@ -13,6 +13,7 @@ database.
 
 Timescale also provides some additional features to help with data analysis:
 
+* Use [PopSQL][popsql] to work on data with centralized SQL queries, interactive visuals and real-time collaboration
 *   The [`SkipScan`][skipscan] feature speeds up `DISTINCT` queries
 *   [Hyperfunctions][hyperfunctions] improve the experience of writing many data
     analysis queries
@@ -22,3 +23,4 @@ Timescale also provides some additional features to help with data analysis:
 [hyperfunctions]: /use-timescale/:currentVersion:/hyperfunctions/
 [pipelines]: /use-timescale/:currentVersion:/hyperfunctions/function-pipelines/
 [skipscan]: /use-timescale/:currentVersion:/query-data/skipscan/
+[popsql]: /use-timescale/:currentVersion:/popsql/
