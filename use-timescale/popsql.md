@@ -8,9 +8,9 @@ keywords: [popsql, sql editor, chart, dashboard]
 
 You use Timescale's [PopSQL](https://popsql.com) editor to write queries, visualize data, and share your results. 
 
-![Screenshot of PopSQL](../images/popsql/popsql_product_screenshot.png)
+![Screenshot of PopSQL](https://assets.timescale.com/docs/images/popsql_product_screenshot.png)
 
-Key features include:
+Available features are:
 
 - **Cross platform**:  Works as a [web app](https://app.popsql.com) or for [desktop](https://popsql.com/download) on macOS, Windows, and Linux.
 - **Easy connection**: To PostgreSQL, Timescale, Redshift, Snowflake, BigQuery, MySQL, SQL
@@ -42,7 +42,7 @@ To use PopSQL with Timescale:
     Log in to [Timescale Console](https://console.cloud.timescale.com/), then click `PopSQL`. 
   
     ![PopSQL button within Timescale
-    Console](../images/popsql/popsql_button_in_console.png)
+    Console](https://assets.timescale.com/docs/images/popsql_button_in_console.png)
 
     You may be prompted to sign into Timescale again.
 
@@ -50,7 +50,7 @@ To use PopSQL with Timescale:
 
    If you use the same email for existing Timescale and PopSQL accounts, these accounts are linked automatically. If you are using PopSQL for the first time, confirm that you want to create a PopSQL account. 
 
-    ![Agree to PopSQL terms](../images/popsql/popsql_terms.png)
+    ![Agree to PopSQL terms](https://assets.timescale.com/docs/images/popsql_terms.png)
 
    This creates a new PopSQL organization that is associated with your Timescale project.
 
@@ -58,7 +58,7 @@ To use PopSQL with Timescale:
 
     Select a service and enter your credentials, then click `Connect`.
 
-   ![Enter service credentials](../images/popsql/enter_service_credentials.png)
+   ![Enter service credentials](https://assets.timescale.com/docs/images/popsql_enter_service_credentials.png)
 
     If your Timescale service runs in a VPC, follow the instructions in [What if my service
     is inside a VPC?](#what-if-my-service-is-within-a-vpc).
@@ -68,7 +68,7 @@ To use PopSQL with Timescale:
       You've successfully connected PopSQL to your Timescale service!
       Try running a test query like `select current_date`.
       
-      ![Running a test query in PopSQL](../images/popsql/test_query.png)
+      ![Running a test query in PopSQL](https://assets.timescale.com/docs/images/popsql_test_query.png)
 
 </Procedure>
 
@@ -98,12 +98,12 @@ You connect from either:
     - When you open Timescale Console, click `PopSQL`:
     
         ![PopSQL button within Timescale
-        Console](../images/popsql/popsql_button_in_console.png)
+        Console](https://assets.timescale.com/docs/images/popsql_button_in_console.png)
 
     - In Timescale Console, click  `Project settings`, then click `View Project in
       PopSQL`. 
     
-      ![Timescale project settings](../images/popsql/project_settings.png)
+      ![Timescale project settings](https://assets.timescale.com/docs/images/popsql_project_settings.png)
 
       This resyncs your Timescale project with your PopSQL organization. Any new services are added automatically.
 
