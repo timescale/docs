@@ -15,7 +15,7 @@ Available features are:
 - **Cross platform**:  Works as a [web app](https://app.popsql.com) or for [desktop](https://popsql.com/download) on macOS, Windows, and Linux.
 - **Easy connection**: To PostgreSQL, Timescale, Redshift, Snowflake, BigQuery, MySQL, SQL
   Server, [and more](https://popsql.com/connections)
-- **Real-time collaboration**: work with your team directly in the SQL query
+- **Real-time collaboration**: Work with your team directly in the SQL query
   editor with live presence and multiple cursors.
 - **[Schema browser](https://docs.popsql.com/docs/schema)**: Understand the
   structure of your database and see usage data on tables and columns.
@@ -72,7 +72,7 @@ To use PopSQL with Timescale:
 
 </Procedure>
 
-Now you have setup PopSQL, see how to easily do the following:
+Now you have set up PopSQL, see how to easily do the following:
 
 - [Write a query](https://docs.popsql.com/docs/writing-a-query)
 - [Share a query with your
@@ -127,7 +127,7 @@ If your Timescale Service runs inside a VPC, do one of the following to enable a
 A PopSQL user account is created for the Timescale project member. This 
 user is automatically added to your PopSQL organization. Unless you 
 [share the connection within PopSQL](https://docs.popsql.com/docs/shared-connections), this 
-new use must input their own credentials for each service/connection.
+new user must input their own credentials for each service/connection.
 
 ### Will using PopSQL affect the performance of my Timescale service?
 
