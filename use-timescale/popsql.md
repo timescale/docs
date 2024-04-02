@@ -124,10 +124,10 @@ If your Timescale Service runs inside a VPC, do one of the following to enable a
 
 ### What happens if another member of my Timescale project opens PopSQL?
 
-A PopSQL user account is created for them, it is automatically added
-to your PopSQL organization. Unless you [share the connection within
-PopSQL](https://docs.popsql.com/docs/shared-connections), this new use must input their own
-credentials for each service/connection.
+A PopSQL user account is created for the Timescale project member. This 
+user is automatically added to your PopSQL organization. Unless you 
+[share the connection within PopSQL](https://docs.popsql.com/docs/shared-connections), this 
+new use must input their own credentials for each service/connection.
 
 ### Will using PopSQL affect the performance of my Timescale service?
 
@@ -139,11 +139,9 @@ There are a few factors to consider:
 
 If you have a small number of users running performant SQL queries against a
 service with sufficient resources, then there should be no degradation to
-performance.
-
-However, if you have a large number of users running queries, or if the queries
-are computationally expensive, then you'll likely want to create a replica and
-send analytical queries there instead.
+performance. However, if you have a large number of users running queries, or if 
+the queries are computationally expensive, best practice is to create 
+a replica and send analytical queries there.
 
 If you'd like to prevent write operations such as insert or update. Instead 
 of using the `tsdbadmin` superuser, create a read-only user for your service and
@@ -151,8 +149,6 @@ use that within PopSQL.
 
 ### How does pricing work?
 
-Timescale customers get the PopSQL Business plan for free for up to 10
-users.
+Timescale customers get PopSQL Business for free for up to 10 users.
 
-PopSQL has a free plan available to everyone, as well as paid plans. Refer to the  [PopSQL Pricing page]
-(https://popsql.com/pricing) for full details.
+PopSQL has a free plan available to everyone, as well as paid plans. See  [PopSQL Pricing](https://popsql.com/pricing) for full details.
