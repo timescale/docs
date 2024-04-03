@@ -2,13 +2,13 @@
 
 ### Check your service and connect to it
 
-To check a service associated with your account is running, then connect to it:
+To ensure a Timescale service is running correctly:
 
 1.  In the [Services section in Timescale Console][services-portal], check that your service is marked as `Running`.
 
 1. Use PopSQL or psql to connect to your service:
-    - [Setup PopSQL][popsql]: follow the instructions to easily connect to your service in the UI.
-    - [psql][install-psql]: connect to your service with the value of `Service URL` from the config file you 
+    - [Setup PopSQL][popsql]: Follow the instructions to easily connect to your service in the UI.
+    - [psql][install-psql]: Connect to your service with the value of `Service URL` from the config file you 
       just saved.
 
       <CodeBlock canCopy={true} showLineNumbers={false} children={`

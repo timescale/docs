@@ -30,7 +30,7 @@ command line.
 
 ### Create a Timescale service
 
-Now you have an active Timescale account, you create and manage your services in Timescale Console:
+Now that you have an active Timescale account, you can create and manage your services in Timescale Console:
 
 1. In the [service creation page][create-service],
    choose **Time Series and Analytics** or **Dynamic PostgreSQL**.
@@ -38,8 +38,7 @@ Now you have an active Timescale account, you create and manage your services in
 3. In the **Service Information** page:
     1. Click **Download the config** and store your configuration information in a secure location.
 
-       This page contains all you need to connect to your service. Spoiler alert, you need the config
-       page to complete this get started.
+       This page contains all you need to connect to your service. Spoiler alert, you need the config page to complete this Get Started process.
 
     1. Either:
         - Follow the instructions and connect to your service.
