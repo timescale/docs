@@ -14,7 +14,7 @@ Available features are:
 
 - **Cross platform**:  Works as a [web app](https://app.popsql.com) or for [desktop](https://popsql.com/download) on macOS, Windows, and Linux.
 - **Easy connection**: To PostgreSQL, Timescale, Redshift, Snowflake, BigQuery, MySQL, SQL
-  Server, [and more](https://popsql.com/connections)
+  Server, [and more](https://popsql.com/connections).
 - **Real-time collaboration**: Work with your team directly in the SQL query
   editor with live presence and multiple cursors.
 - **[Schema browser](https://docs.popsql.com/docs/schema)**: Understand the
@@ -44,7 +44,6 @@ To use PopSQL with Timescale:
     Console](https://assets.timescale.com/docs/images/popsql_button_in_console.png)
 
     You may be prompted to sign into Timescale again.
-    
 
 2. **Link your Timescale and PopSQL accounts** 
 
