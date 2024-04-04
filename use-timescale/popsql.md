@@ -20,8 +20,7 @@ Available features are:
 - **[Schema browser](https://docs.popsql.com/docs/schema)**: Understand the
   structure of your database and see usage data on tables and columns.
 - **Autocomplete**: Get suggestions as you type your queries.
-- **[Version history](https://docs.popsql.com/docs/version-history)**: Use the
-  built-in revision history, or connect to a git repo.
+- **[Version history](https://docs.popsql.com/docs/version-history)**: Access previous versions of a query from the built-in revision history, or connect to a git repo.
 - **[Charts](https://docs.popsql.com/docs/creating-charts)**: Visualize data from inside your SQL editor rather than 
   switch to Sheets or Excel.
 - **[Dashboards](https://docs.popsql.com/docs/creating-dashboards)**: Create
@@ -45,6 +44,7 @@ To use PopSQL with Timescale:
     Console](https://assets.timescale.com/docs/images/popsql_button_in_console.png)
 
     You may be prompted to sign into Timescale again.
+    
 
 2. **Link your Timescale and PopSQL accounts** 
 
@@ -90,28 +90,20 @@ Now you have set up PopSQL, see how to easily do the following:
 
 ### How do I access PopSQL?
 
-You connect from either:
+Either:
 
--  **Timescale Console**
+- When you open Timescale Console, click `PopSQL`:
 
-    Either:
-    - When you open Timescale Console, click `PopSQL`:
-    
-        ![PopSQL button within Timescale
-        Console](https://assets.timescale.com/docs/images/popsql_button_in_console.png)
+    ![PopSQL button within Timescale
+    Console](https://assets.timescale.com/docs/images/popsql_button_in_console.png)
 
-    - In Timescale Console, click  `Project settings`, then click `View Project in
-      PopSQL`. 
-    
-      ![Timescale project settings](https://assets.timescale.com/docs/images/popsql_project_settings.png)
+- In Timescale Console, click  `Project settings`, then click `View Project in
+  PopSQL`. 
 
-      This resyncs your Timescale project with your PopSQL organization. Any new services are added automatically.
+  ![Timescale project settings](https://assets.timescale.com/docs/images/popsql_project_settings.png)
 
-- **app.popsql.com**
+  This resyncs your Timescale project with your PopSQL organization. Any new services are added automatically.
 
-    Once you've connected your Timescale account to PopSQL, you can access PopSQL
-    directly at [app.popsql.com](https://app.popsql.com) or use the [desktop
-    app](https://popsql.com/download).
 
 ### What if my service is within a VPC?
 
@@ -141,7 +133,7 @@ If you have a small number of users running performant SQL queries against a
 service with sufficient resources, then there should be no degradation to
 performance. However, if you have a large number of users running queries, or if 
 the queries are computationally expensive, best practice is to create 
-a replica and send analytical queries there.
+a [read replica][readreplica] and send analytical queries there.
 
 If you'd like to prevent write operations such as insert or update. Instead 
 of using the `tsdbadmin` superuser, create a read-only user for your service and
@@ -152,3 +144,6 @@ use that within PopSQL.
 Timescale customers get PopSQL Business for free for up to 10 users.
 
 PopSQL has a free plan available to everyone, as well as paid plans. See  [PopSQL Pricing](https://popsql.com/pricing) for full details.
+
+
+[readreplica]: /use-timescale/:currentVersion:/ha-replicas/read-scaling/
