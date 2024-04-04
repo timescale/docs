@@ -17,12 +17,12 @@ You use Timescale Console to create and manage Timescale services. Each service 
 
 Timescale offers the following PostgreSQL service types:
 
-- [**Time-series and Analytics**](https://www.timescale.com/blog/what-is-a-time-series-database/#what-is-a-time-series-database)
-  : a Timescale DB instance optimized for your time-series and analytics workloads.
-- **All other workloads**: a [Dynamic PostgreSQL](https://www.timescale.com/dynamic-postgresql) instance where you select a compute range. You only pay for the base and the amount of extra CPU as you scale.
+- [**Time-series and Analytics**](https://www.timescale.com/blog/what-is-a-time-series-database/#what-is-a-time-series-database): a Timescale DB instance optimized for your time-series and analytics workloads.
+- **All other workloads**: a [Dynamic PostgreSQL](https://www.timescale.com/dynamic-postgresql) instance with a Dynamic Compute Range aligned to your business needs. You only pay for the base and the amount of extra CPU as we dynamically scale up and down between your min/max limits.
 
-This section shows you how to create a Timescale service using Timescale Console, then connect to your service from the
-command line.
+
+
+This section shows you how to create a Timescale service using Timescale Console, then connect to your service using PopSQL or the command line.
 
 <Install />
 

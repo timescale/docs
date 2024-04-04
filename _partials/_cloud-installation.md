@@ -2,7 +2,7 @@
 
 ### Create a Timescale account
 
-If you have not already signed up for Timescale:
+To setup Timescale:
 
 1.  Sign up for a [30 day free trial][sign-up].
 
