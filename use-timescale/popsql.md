@@ -141,7 +141,7 @@ use that within PopSQL.
 
 ### How does pricing work?
 
-Timescale customers get PopSQL Business for free for up to 10 users.
+Timescale customers get PopSQL Business for free for up to 10 users. To add more than 10 seats to your account, [Contact us](https://www.timescale.com/contact) for further assistance.  
 
 PopSQL has a free plan available to everyone, as well as paid plans. See  [PopSQL Pricing](https://popsql.com/pricing) for full details.
 
