@@ -141,7 +141,7 @@ If you have a small number of users running performant SQL queries against a
 service with sufficient resources, then there should be no degradation to
 performance. However, if you have a large number of users running queries, or if 
 the queries are computationally expensive, best practice is to create 
-a replica and send analytical queries there.
+a [read replica][readreplica] and send analytical queries there.
 
 If you'd like to prevent write operations such as insert or update. Instead 
 of using the `tsdbadmin` superuser, create a read-only user for your service and
