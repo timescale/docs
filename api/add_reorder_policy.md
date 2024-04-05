@@ -12,7 +12,7 @@ api:
 # add_reorder_policy() <Tag type="community">Community</Tag>
 
 Create a policy to reorder chunks on a given hypertable index in the background.
-You can only one reorder policy on each hypertable. Only chunks that are the
+You can only have one reorder policy on each hypertable. Only chunks that are the
 third from the most recent are reordered to avoid reordering chunks that are
 still being inserted into. For more information about reordering chunks, see the
 [reorder_chunk][reorder_chunk] section.
