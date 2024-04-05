@@ -47,7 +47,7 @@ Before you begin, ensure that you have:
   same). For more information, see the [upgrade instructions] for self-hosted
   TimescaleDB.
 
-[Created a database service in Timescale]: /use-timescale/:currentVersion:/services/create-a-service/
+[Created a database service in Timescale]: /getting-started/:currentVersion:/services/
 [list of compatible extensions]: /use-timescale/:currentVersion:/extensions/
 [upgrade instructions]: /self-hosted/:currentVersion:/upgrades/about-upgrades/
 

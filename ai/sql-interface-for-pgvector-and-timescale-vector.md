@@ -322,5 +322,5 @@ ORDER BY embedding <=> $1
 LIMIT 10
 ```
 
-[distance-functions]: /ai/:currentVersion:/concepts/#vector-distance-types
-[vector-search-indexing]: /ai/:currentVersion:/concepts/#vector-search-indexing-approximate-nearest-neighbor-search
+[distance-functions]: /ai/:currentVersion:/key-vector-database-concepts-for-understanding-pgvector/#vector-distance-types
+[vector-search-indexing]: /ai/:currentVersion:/key-vector-database-concepts-for-understanding-pgvector/#vector-search-indexing-approximate-nearest-neighbor-search
