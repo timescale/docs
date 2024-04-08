@@ -17,6 +17,12 @@
       "pattern": "^https://mvnrepository.com"
     },
     {
+      "pattern": "^https://platform.openai.com/docs"
+    },
+    {
+      "pattern": "^https://www.pcmag.com/encyclopedia"
+    },
+    {
       "pattern": "^https://www.microsoft.com/en-us/download/details.aspx?"
     },
     {
