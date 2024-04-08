@@ -83,4 +83,4 @@ For example:
 ALTER TABLE conditions DROP COLUMN temperature;
 ```
 
-[decompression]: /use-timescale/:currentVersion:/compression/decompress-chunks/
+[decompression]: /use-timescale/:currentVersion:/compression/decompress-chunks
