@@ -94,7 +94,7 @@ SELECT create_distributed_hypertable('conditions', 'time', 'location',
   data nodes. Rows written to a chunk are inserted into all data notes in a two-phase commit protocol.
 
   If a data node fails or is removed, no data is lost. Writes succeed on the other data nodes. However, the
-  chunks on the lost data node are now under-replicated. When the failed data node becomes available, re-balance the chunks with a call to [copy_chunk][copy_chunk].
+  chunks on the lost data node are now under-replicated. When the failed data node becomes available, rebalance the chunks with a call to [copy_chunk][copy_chunk].
 
 
 [best-practices]: /use-timescale/:currentVersion:/hypertables/about-hypertables/#best-practices-for-time-partitioning
