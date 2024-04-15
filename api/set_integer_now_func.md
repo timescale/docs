@@ -13,7 +13,7 @@ api:
 
 Override the [`now()`](https://www.postgresql.org/docs/16/functions-datetime.html) date/time function used to
 set the current time in the integer `time` column in a hypertable. Many policies only apply to 
-[chunks][hash-partitions] of a certain age. `integer_now_func` determines the age of each chunk.
+[chunks][chunks] of a certain age. `integer_now_func` determines the age of each chunk.
 
 The function you set as `integer_now_func` has no arguments. It must be either:
  
@@ -48,17 +48,16 @@ Set the integer `now` function for a hypertable with a time column in [unix time
 
 - `IMMUTABLE`: when you execute the query each time: 
     ```sql
-    CREATE OR REPLACE FUNCTION unix_now_immutable() returns BIGINT LANGUAGE SQL IMMUTABLE as $$ SELECT extract(epoch 
-  from now())::BIGINT $$;
+    CREATE OR REPLACE FUNCTION unix_now_immutable() returns BIGINT LANGUAGE SQL IMMUTABLE as $$  SELECT extract (epoch from now())::BIGINT $$;
     
     SELECT set_integer_now_func('test_table_bigint', 'unix_now_immutable');
     ```
 
 - `STABLE`: for prepared statements:
     ```sql
-    CREATE OR REPLACE FUNCTION unix_now_stable() returns BIGINT: Can you supply an example please. 
+    CREATE OR REPLACE FUNCTION unix_now_stable() returns BIGINT LANGUAGE SQL STABLE AS $$ SELECT extract(epoch from now())::BIGINT $$;
     
     SELECT set_integer_now_func('test_table_bigint', 'unix_now_stable');
     ```
 
-[hash-partitions]: /use-timescale/:currentVersion:/hypertables/about-hypertables/#hypertable-partitioning
+[chunks]: /use-timescale/:currentVersion:/hypertables/about-hypertables/#hypertable-partitioning
