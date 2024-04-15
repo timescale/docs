@@ -9,6 +9,10 @@ api:
   type: procedure
 ---
 
+import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";
+
+<MultiNodeDeprecation />
+
 # distributed_exec() <Tag type="community">Community</Tag>
 
 This procedure is used on an access node to execute a SQL command

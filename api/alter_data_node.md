@@ -9,6 +9,10 @@ api:
   type: function
 ---
 
+import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";
+
+<MultiNodeDeprecation />
+
 # alter_data_node() <Tag type="community">Community</Tag>
 
 Change the configuration of a data node that was originally set up with
