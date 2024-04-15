@@ -9,6 +9,9 @@ api:
   type: function
   experimental: true
 ---
+import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";
+
+<MultiNodeDeprecation />
 
 import Experimental from 'versionContent/_partials/_experimental.mdx';
 

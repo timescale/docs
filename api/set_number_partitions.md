@@ -8,6 +8,10 @@ api:
   type: function
 ---
 
+import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";
+
+<MultiNodeDeprecation />
+
 # set_number_partitions() <Tag type="community">Community</Tag>
 
 Sets the number of partitions (slices) of a space dimension on a
