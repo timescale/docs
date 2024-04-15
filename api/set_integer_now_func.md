@@ -50,14 +50,14 @@ Set the integer `now` function for a hypertable with a time column in [unix time
     ```sql
     CREATE OR REPLACE FUNCTION unix_now_immutable() returns BIGINT LANGUAGE SQL IMMUTABLE as $$  SELECT extract (epoch from now())::BIGINT $$;
     
-    SELECT set_integer_now_func('test_table_bigint', 'unix_now_immutable');
+    SELECT set_integer_now_func('hypertable_name', 'unix_now_immutable');
     ```
 
 - `STABLE`: for prepared statements:
     ```sql
     CREATE OR REPLACE FUNCTION unix_now_stable() returns BIGINT LANGUAGE SQL STABLE AS $$ SELECT extract(epoch from now())::BIGINT $$;
     
-    SELECT set_integer_now_func('test_table_bigint', 'unix_now_stable');
+    SELECT set_integer_now_func('hypertable_name', 'unix_now_stable');
     ```
 
 [chunks]: /use-timescale/:currentVersion:/hypertables/about-hypertables/#hypertable-partitioning
