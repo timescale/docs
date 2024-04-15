@@ -8,6 +8,9 @@ api:
   license: community
   type: function
 ---
+import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";
+
+<MultiNodeDeprecation />
 
 # create_distributed_hypertable()  <Tag type="community">Community</Tag>
 
