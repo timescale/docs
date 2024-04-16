@@ -14,7 +14,7 @@ of your hourly aggregate. This is more efficient than creating the daily
 aggregate on top of the original hypertable, because you can reuse the
 calculations from the hourly aggregate.
 
-This feature is available in Timescale&nbsp;2.9 and later.
+This feature is available from [Timescale v2.9][hierarchical-continuous-aggregates].
 
 ## Create a continuous aggregate on top of another continuous aggregate
 
@@ -28,15 +28,13 @@ For more information, see the instructions for
 
 ## Use real-time aggregation with hierarchical continuous aggregates
 
-By default, all continuous aggregates use real-time aggregation. That means they
-always return up-to-date data in response to queries. They accomplish this by
-joining the materialized data in the continuous aggregate with unmaterialized
-raw data from the source table or view.
+When you enable real-time aggregation, continuous aggregates always return up-to-date 
+data in response to queries. Real-time aggregation joins the materialized data in the 
+continuous aggregate with unmaterialized raw data from the source table or view.
 
 When continuous aggregates are stacked, each continuous aggregate is only aware
-of the layer immediately below. The joining of unmaterialized data happens
-recursively until it reaches the bottom layer, giving you access to recent data
-down to that layer.
+of the layer immediately below. Joining unmaterialized data happens recursively 
+until it reaches the bottom layer. This gives access to recent data down to that layer.
 
 If you keep all continuous aggregates in the stack as real-time aggregates, the
 bottom layer is the source hypertable. That means every continuous aggregate in
@@ -182,3 +180,7 @@ ensure valid time-bucketing:
 [postgresql-views]: https://www.postgresql.org/docs/current/rules-views.html
 [stats-aggs]: /api/:currentVersion:/hyperfunctions/statistical-and-regression-analysis/stats_agg-one-variable/
 [percentile_agg_api]: /api/:currentVersion:/hyperfunctions/percentile-approximation/uddsketch/#aggregate-and-roll-up-percentile-data-to-calculate-daily-percentiles-using-percentile_agg
+
+[rta-disabled-release-notes]: /about/:currentVersion:/release-notes/#starting-from-timescaledb-2130
+
+[hierarchical-continuous-aggregates]: /about/:currentVersion:/release-notes/past-releases/

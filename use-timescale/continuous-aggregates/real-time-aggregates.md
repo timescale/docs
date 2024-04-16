@@ -15,7 +15,7 @@ most recent raw data to it to provide accurate and up to date results, without
 needing to aggregate data as it is being written. In Timescale versions 1.7 to 2.12,
 real time aggregates are enabled by default; when you create a continuous
 aggregate view, queries to that view include the most recent data, even if
-it has not yet been aggregated. In Timescale&nbsp;2.13 and later real time aggregates are *DISABLED* by default.
+it has not yet been aggregated. In [Timescale v2.13 and later][rta-disabled-release-notes] real time aggregates are *DISABLED* by default.
 
 For more detail on the comparison between continuous and real time aggregates,
 see our [real time aggregate blog post][blog-rtaggs].
@@ -51,3 +51,4 @@ For more information, see the [troubleshooting section][troubleshooting].
 
 [blog-rtaggs]: https://blog.timescale.com/blog/achieving-the-best-of-both-worlds-ensuring-up-to-date-results-with-real-time-aggregation/
 [troubleshooting]: /use-timescale/:currentVersion:/continuous-aggregates/troubleshooting/#updates-to-previously-materialized-regions-are-not-shown-in-continuous-aggregates
+[rta-disabled-release-notes]: /about/:currentVersion:/release-notes/#starting-from-timescaledb-2130
