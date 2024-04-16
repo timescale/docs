@@ -9,6 +9,11 @@ api:
   type: function
 ---
 
+import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";
+
+<MultiNodeDeprecation />
+
+
 # detach_data_node() <Tag type="community">Community</Tag>
 
 Detach a data node from one hypertable or from all hypertables.
