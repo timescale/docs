@@ -15,22 +15,21 @@ see [best practices for time partitioning][best-practices].
 ## Check current setting for chunk intervals
 
 Check the current setting for chunk intervals by querying the Timescale
-catalog:
+catalog. For example:
 
 ```sql
-SELECT h.table_name, c.interval_length
-  FROM _timescaledb_catalog.dimension c
-  JOIN _timescaledb_catalog.hypertable h
-    ON h.id = c.hypertable_id;
+SELECT * 
+  FROM timescaledb_information.dimensions 
+  WHERE hypertable_name = 'metrics';
+
 ```
 
-The result looks like this:
+The result looks like:
 
 ```sql
-table_name | interval_length
------------+-----------------
-metrics    |    604800000000
-(1 row)
+hypertable_schema | hypertable_name | dimension_number | column_name |       column_type        | dimension_type | time_interval | integer_interval | integer_now_func | num_partitions
+-------------------+-----------------+------------------+-------------+--------------------------+----------------+---------------+------------------+------------------+----------------
+ public           | metrics          |                1 | recorded    | timestamp with time zone | Time           | 1 day         |                  |                  |
 ```
 
 <Highlight type="note">
