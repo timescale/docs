@@ -6,11 +6,21 @@ keywords: [tiered storage]
 tags: [storage, data management]
 ---
 
-# Tiered Storage
-Tiered Storage is Timescale's multi-tiered storage architecture engineered to enable infinite, low-cost scalability for time series and analytical databases in the Timescale platform.
+# Tiered storage
 
-Tiered storage complements Timescale's standard high-performance storage tier with a low-cost bottomless storage tier;
-an object store built on Amazon S3. We'll refer to this low-cost bottomless storage tier as object storage in our documentation.
+Tiered storage is Timescale's [hierarchical storage management architecture](https://en.wikipedia.org/wiki/Hierarchical_storage_management). Engineered for infinite, low-cost scalability, Tiered Storage
+is available for the [Time series and analytics](https://www.timescale.com/products) instances you create in [Timescale](https://console.cloud.timescale.com/).
+
+Tiered storage consists of the:
+* **High-performance tier**: rapid access to the most recent, and frequently accessed data.
+
+* **Object storage tier**: hold data that is rarely accessed and has lower performance requirements.
+  For example, to save old data for auditing or reporting purposes over long periods of time, even forever.
+  The Object store is low-cost bottomless data storage built on Amazon S3. You use it to avoid the
+  higher costs and data size limitations associated with the high-performance tier. 
+
+No matter the tier your data is stored in, you [query it when you need it][querying-tiered-data]. 
+Timescale seamlessly figures out the storage tier to access and generates the response.
 
 <img
 class="main-content__illustration"
@@ -19,26 +29,16 @@ width={1228} height={688}
 alt="Timescale Tiered Storage architecture"
 />
 
-This object storage tier is designed for data that is rarely accessed and has lower performance requirements.
-For example, it is a great solution to keep old data for long periods of time (even forever) for auditing or reporting purposes
-without incurring the higher costs or data size limitations of our high-performance storage tier.
-
 <!-- vale Google.SmartQuotes = NO -->
 
-Timescale offers a simple API to define policies to tier data from the high-performance storage tier to the object storage tier
-as it ages without the need of any ETL process or infrastructure changes;
-no need to implement and maintain custom-built, bespoke solutions to offload data to secondary storage
-or fetch it back in case they are needed for analysis.
-And if you have or want to not keep very old data around, you can also add retention policies over tiered data as well.
+You use the API to [define tiering policies][creating-data-tiering-policy] that automatically migrate 
+data from the high-performance storage tier to the object store as it ages. You use 
+[retention policies][add-retention-policies] to remove very old data from the object store.
+
+With tiered storage you don't need an ETL process, infrastructure changes, or custom-built, bespoke 
+solutions to offload data to secondary storage and fetch it back in when needed.   
 
 <!-- vale Google.SmartQuotes = YES -->
-
-Your data is always there and can be [queried when needed][querying-tiered-data].
-When you run a query, Timescale seamlessly figures out what storage tiers it needs to access to generate the response.
-
-<Highlight type="info">
-Tiered storage is available only on the Timescale Platform, and is not supported on self-hosted instances.  
-</Highlight>
 
 In this section:
 * [Learn about the object storage tier][about-data-tiering] before you start using tiered storage.
@@ -57,3 +57,4 @@ In this section:
 [creating-data-tiering-policy]: /use-timescale/:currentVersion:/data-tiering/creating-data-tiering-policy/
 [querying-tiered-data]: /use-timescale/:currentVersion:/data-tiering/querying-tiered-data/
 [untier-data]: /use-timescale/:currentVersion:/data-tiering/untier-data/
+[add-retention-policies]: /api/:currentVersion:/continuous-aggregates/add_policies/
