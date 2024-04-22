@@ -9,7 +9,15 @@ api:
   type: function
 ---
 
-# add_dimension()
+# add_dimension(), deprecated interface
+
+<Highlight type="note">
+
+This interface is deprecated since [TimescaleDB v2.13.0][rn-2130].
+
+For information about the supported hypertable interface, see [add_dimension()][add-dimension].
+</Highlight>
+
 
 Add an additional partitioning dimension to a Timescale hypertable.
 The column selected as the dimension can either use interval
@@ -168,3 +176,5 @@ SELECT add_dimension('conditions', 'location', number_partitions => 2);
 [distributed-hypertable-partitioning-best-practices]: /use-timescale/:currentVersion:/hypertables/about-hypertables/#space-partitioning
 [distributed-hypertables]: /api/:currentVersion:/distributed-hypertables/create_distributed_hypertable/
 [regular-hypertables]: /api/:currentVersion:/hypertable/create_hypertable/
+[add-dimension]: /api/:currentVersion:/hypertable/add_dimension/
+[rn-2130]: /about/:currentVersion:/release-notes/#timescaledb-2130-on-2023-11-28
