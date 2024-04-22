@@ -422,7 +422,7 @@ statistics related to all jobs.
 
 #### Removed
 
-*   [`timescaledb_information.continuous_aggregate_stats`](https://legacy-docs.timescale.com/v1.7/api#timescaledb_information-continuous_aggregate_stats): Removed in favor of the `job_stats` view mentioned above.
+*   `timescaledb_information.continuous_aggregate_stats`: Removed in favor of the `job_stats` view mentioned above.
 
 ### Updating existing continuous aggregates
 
@@ -465,9 +465,9 @@ policies are now available in the main jobs view.
 
 #### Removed
 
-*   [`add_drop_chunks_policy`](https://legacy-docs.timescale.com/v1.7/api#add_drop_chunks_policy): removed in favor of the
+*   `add_drop_chunks_policy`: removed in favor of the
 explicit functions above.
-*   [`timescaledb_information.drop_chunks_policies`](https://legacy-docs.timescale.com/v1.7/api#timescaledb_information-drop_chunks_policies):
+*   `timescaledb_information.drop_chunks_policies`:
  view has been removed in favor of the more general jobs view.
 
 ### Compression
@@ -487,11 +487,11 @@ compression policies are now available in the main jobs view.
 
 #### Removed
 
-*   [`add_compress_chunk_policy`](https://legacy-docs.timescale.com/v1.7/api#add_compress_chunks_policy): Removed in favor of the
+*   `add_compress_chunk_policy`: Removed in favor of the
 explicit functions above.
-*   [`timescaledb_information.compressed_hypertable_stats`](https://legacy-docs.timescale.com/v1.7/api#timescaledb_information-compressed_hypertable_stats):
+*   `timescaledb_information.compressed_hypertable_stats`:
 Removed in favor of the new `hypertable_compression_stats(hypertable)` function linked above
-*   [`timescaledb_information.compressed_chunk_stats`](https://legacy-docs.timescale.com/v1.7/api#timescaledb_information-compressed_chunk_stats):
+*   `timescaledb_information.compressed_chunk_stats`:
 Removed in favor of the new `chunk_compression_stats(hypertable)` function linked above.
 
 ## Managing policies and other jobs
@@ -517,10 +517,10 @@ features has been removed. All features are available either under the community
 open-source Apache-2 License. [This blog post](https://blog.timescale.com/blog/building-open-source-business-in-cloud-era-v2/)
 explains the changes. The following changes were made to license API:
 
-*   [`timescaledb_information.license`](https://legacy-docs.timescale.com/v1.7/api#timescaledb_information-license):  This view
+*   `timescaledb_information.license`:  This view
 has been removed, as it primarily provided information on the enterprise license key's expiration date, which is no
 longer applicable. The current license used by the extension can instead be viewed in the GUC below.
-*   `timescaledb.license`: This GUC value (which replaces the former [`timescaledb.license_key`](https://legacy-docs.timescale.com/v1.7/api#timescaledb_license-key) GUC)
+*   `timescaledb.license`: This GUC value (which replaces the former `timescaledb.license_key` GUC)
 can take the value `timescale` or `apache`. It can be set only at startup (in the postgresql.conf configuration file
 or on the server command line), and allows limiting access to certain features
 by license. For example, setting the

@@ -4,6 +4,10 @@ excerpt: Create and manage distributed hypertables
 keywords: [distributed hypertables]
 ---
 
+import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";
+
+<MultiNodeDeprecation />
+
 # Distributed Hypertables <Tag type="community">Community</Tag>
 
 Distributed hypertables are an extension of regular hypertables, available when

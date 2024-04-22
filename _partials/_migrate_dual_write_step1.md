@@ -9,4 +9,4 @@ ensure that enough disk is pre-provisioned on your Timescale instance.
 
 <OpenSupportRequest />
 
-[create-service]: /use-timescale/:currentVersion:/services/create-a-service/
+[create-service]: /getting-started/:currentVersion:/services/
