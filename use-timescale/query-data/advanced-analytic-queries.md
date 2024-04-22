@@ -353,7 +353,7 @@ CREATE TABLE location (
   longitude FLOAT
 );
 
-SELECT create_hypertable('location', 'time');
+SELECT create_hypertable('location', by_range('time'));
 ```
 
 You can use the first table, which gives a distinct set of vehicles, to

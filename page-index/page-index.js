@@ -8,6 +8,7 @@ const tutorialsPageIndex = require("../tutorials/page-index/page-index.js");
 const codeQuickStartsPageIndex = require("../quick-start/page-index/page-index.js");
 const migrationPageIndex = require("../migrate/page-index/page-index.js");
 const timescaleAboutPageIndex = require("../about/page-index/page-index");
+const AIPageIndex = require("../ai/page-index/page-index");
 
 module.exports = [
   ...gsgPageIndex,
@@ -20,6 +21,7 @@ module.exports = [
   ...timescaleAboutPageIndex,
   ...navigationPageIndex,
   ...migrationPageIndex,
+  ...AIPageIndex,
   {
     Title: "GitHub",
     type: "external",

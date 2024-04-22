@@ -6,16 +6,20 @@ product: cloud
 
 # Available regions
 
-Timescale is available in these clouds and regions:
 
-Amazon Web Services:
+Timescale is available in these Amazon Web Services (AWS) regions:
 
-|Region|Zone|Location|
-|-|-|-|
-|`ap-southeast-1`|Asia|Singapore|
-|`ap-southeast-2`|Australia|Sydney|
-|`eu-central-1`|Europe|Frankfurt|
-|`eu-west-1`|Europe|Ireland|
-|`us-east-1`|United States|North Virginia|
-|`us-east-2`|United States|Ohio|
-|`us-west-2`|United States|Oregon|
+| Region           | Zone          | Location       |
+|------------------|---------------|----------------|
+| `ap-southeast-1` | Asia Pacific  | Singapore      |
+| `ap-southeast-2` | Asia Pacific  | Sydney         |
+| `ap-northeast-1` | Asia Pacific  | Tokyo          |
+| `ca-central-1`   | Canada        | Central        |
+| `eu-central-1`   | Europe        | Frankfurt      |
+| `eu-west-1`      | Europe        | Ireland        |
+| `eu-west-2`      | Europe        | London         |
+| `sa-east-1`      | South America | São Paulo      |
+| `us-east-1`      | United States | North Virginia |
+| `us-east-2`      | United States | Ohio           |
+| `us-west-2`      | United States | Oregon         |
+

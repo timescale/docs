@@ -25,5 +25,5 @@ jobs:
               issue_number: PR_NUMBER,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: 'Site build failed. For Timescale internal contributors, check the logs in the web-documentation repo to see the failure reason. For help, contact the docs team.'
+              body: 'Oh no, the docs build failed! To see why visit the [failing build](https://github.com/timescale/web-documentation/actions/runs/${{ github.event.client_payload.run_id }}) (link only accessible to Timescalers).'
             })

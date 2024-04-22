@@ -35,6 +35,12 @@ module.exports = [
             excerpt:
                 "Migrate from PostgreSQL using live migration",
           },
+          {
+            title: "Live migration from TimescaleDB",
+            href: "live-migration-from-timescaledb",
+            excerpt:
+                "Migrate from TimescaleDB using live migration",
+          },
         ],
       },
       {
@@ -65,6 +71,31 @@ module.exports = [
             href: "timescaledb-backfill",
             excerpt:
                 "A tool for backfilling data as part of data migration",
+          },
+        ],
+      },
+      {
+        title: "Playbooks",
+        href: "playbooks",
+        excerpt: "Step-by-step migration playbook to Timescale",
+        children: [
+          {
+            title: "From AWS RDS using pg_dump",
+            href: "rds-timescale-pg-dump",
+            excerpt:
+                "Migrate from RDS to Timescale using pg_dump",
+          },
+          {
+            title: "From AWS RDS using live migration",
+            href: "rds-timescale-live-migration",
+            excerpt:
+                "Migrate from RDS to Timescale using live migration",
+          },
+          {
+            title: "Multi-node to Timescale",
+            href: "multi-node-to-timescale-service",
+            excerpt:
+                "Migrate an entire multi-node deployment to Timescale",
           },
         ],
       },
