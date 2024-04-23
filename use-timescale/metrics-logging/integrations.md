@@ -40,6 +40,7 @@ Export telemetry data by:
 1.  In the Timescale console, navigate to `Integrations`.
 1.  Click `Create exporter`.
 1.  Choose the telemetry data type that you would like to send to a provider.
+    Datadog provider supports only metrics data type.
 1.  Under `Choose a provider`, choose `Datadog`.
 1.  Choose an AWS region for your exporter to live within Timescale. The
     exporter is only available to database services in the same AWS region.
@@ -79,14 +80,32 @@ alt="Screenshot of the menu for adding a Datadog exporter" />
     you're uncertain, use the default values. For more information on naming log
     groups and logs streams, see [the AWS CloudWatch
     docs][cloudwatch-log-naming].
+1.  Choose which authentication method you would like to use with your
+    exporter. We support CloudWatch credentials and IAM role. `CloudWatch
+    credentials` requires creating an IAM user in your AWS account and sharing
+    credentials of that user with Timescale. `IAM role` requires creating a
+    role with all necessary permissions and sharing only the role with
+    timescale.
+<! -- At this place another branching should begin depending on what user
+selected above. I'm not sure whether we need to represent this graphically by
+adding tabs inside the existing tabs or just keep the options flat and explain
+the alternatives in text. Writing it with text now and hope to get feedback on
+this -->
+<! -- Credentials case begin -- >
 1.  Enter your AWS credentials. To get your AWS keys, you need to create a new
     Identity and Access Management (IAM) user in your AWS console. Make sure
     your new user has restricted access to only Cloudwatch, and keep your keys
     secret. For instructions, see the [AWS documentation][aws-access-keys].
+<! -- Credentials case end -- >
+<! -- IAM role case begin -- >
+1.  We are using [IRSA][irsa] in order to manage access from our cloud to
+    various resources within AWS. In order to grant permissions to a service
+    running in our AWS account to perform actions in your AWS account, the role
+    needs to be setup accordingly. Please refer to this [AWS
+    blog][cross-account-iam-roles] to understand the configuration elements
+    involved into that.
+<! -- IAM role case end -- >
 1.  Select an AWS Region for your CloudWatch instance.
-1.  <Optional />Define an ARN role to use for uploading metrics or logs. Having a
-    dedicated role with only CloudWatch permissions is a recommended security
-    practice.
 1.  Click `Create exporter`.
 
 <Highlight type="warning">
@@ -199,6 +218,8 @@ Delete any data exporters that you no longer need.
 
 [attach-exporter]: #attach-a-data-exporter-to-a-service
 [aws-access-keys]: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html#id_users_create_console
+[irsa]: https://aws.amazon.com/blogs/opensource/introducing-fine-grained-iam-roles-service-accounts/
+[cross-account-iam-roles]: https://aws.amazon.com/blogs/containers/cross-account-iam-roles-for-kubernetes-service-accounts/
 [cloudwatch]: https://aws.amazon.com/cloudwatch/
 [cloudwatch-docs]: https://docs.aws.amazon.com/cloudwatch/index.html
 [cloudwatch-log-naming]: https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html
