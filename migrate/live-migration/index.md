@@ -66,8 +66,11 @@ For more information, refer to the step-by-step migration guide:
 If you are migrating from AWS RDS to Timescale, you can refer to [this][live-migration-playbook] playbook
 for a detailed migration guide.
 
+If you encounter any issues or have questions about live migration, refer to the [FAQ] section.
+
 [from-postgres]: /migrate/:currentVersion:/live-migration/live-migration-from-postgres/
 [from-timescaledb]: /migrate/:currentVersion:/live-migration/live-migration-from-timescaledb/
 [pg-dump-and-restore]: /migrate/:currentVersion:/pg-dump-and-restore/
 [dual-write and backfill]: /migrate/:currentVersion:/dual-write-and-backfill/
 [live-migration-playbook]: /migrate/:currentVersion:/playbooks/rds-timescale-live-migration/
+[FAQ]: /migrate/:currentVersion:/live-migration/live-migration-faq/
