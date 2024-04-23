@@ -6,7 +6,7 @@ docker run --rm -it --name live-migration-clean \
     -e PGCOPYDB_TARGET_PGURI=$TARGET \
     --pid=host \
     -v ~/live-migration:/opt/timescale/ts_cdc \
-    timescale/live-migration:v0.0.11 clean --prune
+    timescale/live-migration:v0.0.13 clean --prune
 ```
 
 The `--prune` flag is used to delete temporary files in the `~/live-migration` directory
