@@ -104,7 +104,9 @@ this -->
     needs to be setup accordingly. Please refer to this [AWS
     blog][cross-account-iam-roles] to understand the configuration elements
     involved into that.
-    The URL that should be used depends on the region where the exporter is being created, it can be taken from this list:
+    Following the blog mentioned above, there is a step to create an IAM OIDC provider. 
+    The URL that should be used depends on the region where the exporter is being created, 
+    it can be taken from this list:
     
    
  | Region           | Zone          | Location       | URL
