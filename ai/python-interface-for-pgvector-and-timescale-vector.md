@@ -30,6 +30,8 @@ pip install timescale_vector
 pip install python-dotenv
 ```
 
+If you run into installation errors related to the psycopg2 package, you will need to install some prerequisites. The timescale-vector package explicitly depends on psycopg2 (the non-binary version). This adheres to [the advice provided by psycopg2](https://www.psycopg.org/docs/install.html#psycopg-vs-psycopg-binary). Building psycopg from source [requires a few prerequisites to be installed](https://www.psycopg.org/docs/install.html#build-prerequisites). Make sure these are installed before trying to pip install timescale_vector.
+
 ## Basic usage of the timescale_vector library
 
 First, import all the necessary libraries:
