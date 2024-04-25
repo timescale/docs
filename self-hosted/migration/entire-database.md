@@ -14,12 +14,14 @@ databases, consider [migrating your schema and data
 separately][migrate-separately].
 
 <Highlight type="warning">
+
 Depending on your database size and network speed, migration can take a very
 long time. You can continue reading from your source database during this time,
 though performance could be slower. To avoid this problem, fork your database
 and migrate your data from the fork. If you write to tables in your source
 database during the migration, the new writes might not be transferred to
-Timescale. To avoid this problem, see the section on [migrating an active database](/migrate/:currentVersion:/live-migration/).
+Timescale. To avoid this problem, see [Live migration][live-migration].
+
 </Highlight>
 
 ## Prerequisites
