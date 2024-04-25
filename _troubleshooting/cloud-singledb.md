@@ -1,5 +1,5 @@
 ---
-title: Cannot add column to a compressed hypertable
+title: Cannot create another database
 section: troubleshooting
 products: [cloud, mst, self_hosted]
 topics: [services]
@@ -26,7 +26,8 @@ tags: [services]
 * Copy this comment at the top of every troubleshooting page
 -->
 
-Each Timescale service can have a single database. The database must be
-named `tsdb`. If you try to create an additional database you receive this error.
+Each Timescale service hosts a single database named `tsdb`. You see this error when you try 
+to create an additional database in a service. If you need another database, 
+[create a new service][create-service].
 
-If you need another database, you need to create a new service.
+[create-service]: /getting-started/:currentVersion:/services/#create-a-timescale-service
