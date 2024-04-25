@@ -33,6 +33,7 @@ supported extensions:
 |[pgcrypto][pgcrypto]|Cryptographic functions|
 |pgpcre|Perl-compatible RegEx|
 |pgrouting|pgRouting Extension|
+|pgstattuple|Obtain tuple-level statistics|
 |[pgvector][pgvector]|Vector similarity search for PostgreSQL|
 |plpgsql|SQL procedural language|
 |[postgis][postgis]|PostGIS geometry and geography spatial types and functions|
