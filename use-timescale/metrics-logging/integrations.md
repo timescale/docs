@@ -14,16 +14,16 @@ import ExporterRegionNote from 'versionContent/_partials/_cloud-integrations-exp
 
 # Integrate Timescale services with third-party monitoring tools
 
-You can export your service telemetry to a third-party monitoring tool, such as
+You can export your service telemetry to a third-party monitoring tool such as
 [Datadog][datadog] or [AWS CloudWatch][cloudwatch]. Exported metrics include
 CPU usage, RAM usage, and storage.
 
 ## Export telemetry data
 
-Export telemetry data by:
+To export telemetry data you:
 
-1.  [Creating a data exporter][create-exporter]
-1.  [Attaching the exporter to a database service][attach-exporter]
+1.  [Create a data exporter][create-exporter]
+1.  [Attach the exporter to a Timescale service][attach-exporter]
 
 ### Create a data exporter
 
@@ -35,28 +35,22 @@ Export telemetry data by:
 
 <Procedure>
 
-#### Creating a data exporter for Datadog
+#### Create an exporter for Datadog
 
-1.  In the Timescale console, navigate to `Integrations`.
-1.  Click `Create exporter`.
-1.  Choose the telemetry data type that you would like to send to a provider.
-    Datadog provider supports only metrics data type.
-1.  Under `Choose a provider`, choose `Datadog`.
-1.  Choose an AWS region for your exporter to live within Timescale. The
-    exporter is only available to database services in the same AWS region.
-1.  Name your exporter. This name appears in the Cloud console, so choose a
-    descriptive name.
-1.  Add a Datadog API key. If you don't have an API key yet, you can create one
-    by following the instructions in the [Datadog
-    documentation][datadog-api-key].
-1.  Under Site, choose your Datadog region. You can choose a region to meet any
-    regulatory requirements or application needs you might have.
-1.  Click `Create exporter`.
+1.  In Timescale Console, open [Integrations][console-integrations].
+1.  Click `Create exporter`, then click `Metrics` and choose `Datadog` as the provider.
+     
+    <img class="main-content__illustration"
+    src="https://assets.timescale.com/docs/images/tsc-integrations-datadog.webp"
+    alt="Screenshot of the menu for adding a Datadog exporter" />
 
-<img class="main-content__illustration"
-width={1375} height={944}
-src="https://assets.timescale.com/docs/images/tsc-integrations-datadog.webp"
-alt="Screenshot of the menu for adding a Datadog exporter" />
+1.  Fill the UI with your Datadog configuration. 
+
+    The exporter must be in the same region as the provider. If you don't have an 
+    API key, [Create one][datadog-api-key]. 
+
+1.  Set `Site` to your Datadog region then click `Create exporter`.
+
 
 </Procedure>
 
@@ -66,96 +60,95 @@ alt="Screenshot of the menu for adding a Datadog exporter" />
 
 <Procedure>
 
-#### Creating a data exporter for AWS CloudWatch
+#### Create a data exporter for AWS CloudWatch
 
-1.  In the Timescale console, navigate to `Integrations`.
-1.  Click `Create exporter`.
-1.  Choose the telemetry data type that you would like to send to a provider.
-1.  Under `Choose a provider`, choose `AWS CloudWatch`.
-1.  Choose an AWS region for your exporter to live within Timescale. The
-    exporter is only available to database services in the same AWS region.
+1.  In Timescale Console, open [Integrations][console-integrations].
+1.  Click `Create exporter`, choose a data type, then click `AWS CloudWatch`.
+
+    <img class="main-content__illustration"
+    src="https://assets.timescale.com/docs/images/tsc-integrations-cloudwatch.webp"
+    alt="Screenshot of the menu for adding a Datadog exporter" />
+
+1.  Choose the AWS region for your exporter. to live within Timescale. 
+
+    Your Timescale Service and the provider must be hosted in the same AWS region.
+
 1.  Name your exporter. This name appears in the Cloud console, so choose a
     descriptive name.
-1.  Define names for your CloudWatch log group, log stream, and namespace. If
-    you're uncertain, use the default values. For more information on naming log
-    groups and logs streams, see [the AWS CloudWatch
-    docs][cloudwatch-log-naming].
-1.  Choose which authentication method you would like to use with your
-    exporter. We support CloudWatch credentials and IAM role. `CloudWatch
-    credentials` requires creating an IAM user in your AWS account and sharing
-    credentials of that user with Timescale. `IAM role` requires creating a
-    role with all necessary permissions and sharing only the role with
-    timescale.
-<! -- At this place another branching should begin depending on what user
-selected above. I'm not sure whether we need to represent this graphically by
-adding tabs inside the existing tabs or just keep the options flat and explain
-the alternatives in text. Writing it with text now and hope to get feedback on
-this -->
-<! -- Credentials case begin -- >
-1.  Enter your AWS credentials. To get your AWS keys, you need to create a new
-    Identity and Access Management (IAM) user in your AWS console. Make sure
-    your new user has restricted access to only Cloudwatch, and keep your keys
-    secret. For instructions, see the [AWS documentation][aws-access-keys].
-<! -- Credentials case end -- >
-<! -- IAM role case begin -- >
-1.  We are using [IRSA][irsa] in order to manage access from our cloud to
-    various resources within AWS. In order to grant permissions to a service
-    running in our AWS account to perform actions in your AWS account, the role
-    needs to be setup accordingly. Please refer to this [AWS
-    blog][cross-account-iam-roles] to understand the configuration elements
-    involved into that.
-    Following the blog mentioned above, there is a step to create an IAM OIDC provider. 
-    The URL that should be used depends on the region where the exporter is being created, 
-    it can be taken from this list:
+ 
+1. Define names for your CloudWatch log group, log stream, and namespace. 
+
+    If you're uncertain, use the default values. For more information on naming log
+    groups and logs streams, see [the AWS CloudWatch docs][cloudwatch-log-naming].
+
+1.  Choose the authentication method to use for the exporter:
+
+    <Tabs label="Authentication methods">
     
+    <Tab title="CloudWatch credentials">   
+    
+    <Procedure>
+
+     When you use CloudWatch credentials, you link an Identity and Access Management (IAM) 
+     user with access to Cloudwatch only with your Timescale service:  
+
+    1. Retrieve the user information from the [AWS console](https://console.aws.amazon.com/iam/home#/users).   
+    
+       If you do not have an AWS user with access restricted to CloudWatch only, 
+       [create one][create-an-iam-user]. 
+       For more information, see [Creating IAM users (console)][aws-access-keys].
+    2. Enter the credentials for the AWS IAM user. 
+
+   </Procedure>
+    
+   </Tab>
+    
+   <Tab title="IAM role">
+
+   <Procedure>
+   Timescale services run in AWS. Best practice is to use IRSA to manage access 
+   between Timescale services and your AWS resources.  
+    
+   To create a role that securely communicates between your Timescale service and your AWS 
+   account:
    
- | Region           | Zone          | Location       | URL
-|------------------|---------------|----------------|--------------------|
-| `ap-southeast-1` | Asia Pacific  | Singapore      | `irsa-oidc-discovery-prod-ap-southeast-1.s3.ap-southeast-1.amazonaws.com`
-| `ap-southeast-2` | Asia Pacific  | Sydney         | `irsa-oidc-discovery-prod-ap-southeast-2.s3.ap-southeast-2.amazonaws.com`
-| `ap-northeast-1` | Asia Pacific  | Tokyo          | `irsa-oidc-discovery-prod-ap-northeast-1.s3.ap-northeast-1.amazonaws.com`
-| `ca-central-1`   | Canada        | Central        | `irsa-oidc-discovery-prod-ca-central-1.s3.ca-central-1.amazonaws.com`
-| `eu-central-1`   | Europe        | Frankfurt      | `irsa-oidc-discovery-prod-eu-central-1.s3.eu-central-1.amazonaws.com`
-| `eu-west-1`      | Europe        | Ireland        | `irsa-oidc-discovery-prod-eu-west-1.s3.eu-west-1.amazonaws.com`
-| `eu-west-2`      | Europe        | London         | `irsa-oidc-discovery-prod-eu-west-2.s3.eu-west-2.amazonaws.com`
-| `sa-east-1`      | South America | São Paulo      | `irsa-oidc-discovery-prod-sa-east-1.s3.sa-east-1.amazonaws.com`
-| `us-east-1`      | United States | North Virginia | `irsa-oidc-discovery-prod.s3.us-east-1.amazonaws.com`
-| `us-east-2`      | United States | Ohio           | `irsa-oidc-discovery-prod-us-east-2.s3.us-east-2.amazonaws.com`
-| `us-west-2`      | United States | Oregon         | `irsa-oidc-discovery-prod-us-west-2.s3.us-west-2.amazonaws.com`
-  
-A Full example of a role called `my-exporter-role`, that has been configured following the [AWS
-    blog][cross-account-iam-roles] should look like:
+    1. Create the [IRSA][irsa] role following this [AWS blog][cross-account-iam-roles].   
+    
+       When you create the IAM OIDC provider, the URL depends on the region where the exporter is being 
+       created. It must be [one of the following](#reference). Also, you must add the role itself as a 
+       trusted entity.
 
-- Permission Policy:
-```json
-  {
-        "Version": "2012-10-17",
-        "Statement": [
-            {
-                "Effect": "Allow",
-                "Action": [
-                    "logs:PutLogEvents",
-                    "logs:CreateLogGroup",
-                    "logs:CreateLogStream",
-                    "logs:DescribeLogStreams",
-                    "logs:DescribeLogGroups",
-                    "logs:PutRetentionPolicy",
-                    "xray:PutTraceSegments",
-                    "xray:PutTelemetryRecords",
-                    "xray:GetSamplingRules",
-                    "xray:GetSamplingTargets",
-                    "xray:GetSamplingStatisticSummaries",
-                    "ssm:GetParameters"
-                ],
-                "Resource": "*"
-            }
-        ]
-    } 
-```
-
-Trust Policy:
-```json
-    {
+   The following example shows a correctly configured IRSA role:
+   
+   **Permission Policy**:
+   ```json
+   {
+       "Version": "2012-10-17",
+       "Statement": [
+           {
+               "Effect": "Allow",
+               "Action": [
+                   "logs:PutLogEvents",
+                   "logs:CreateLogGroup",
+                   "logs:CreateLogStream",
+                   "logs:DescribeLogStreams",
+                   "logs:DescribeLogGroups",
+                   "logs:PutRetentionPolicy",
+                   "xray:PutTraceSegments",
+                   "xray:PutTelemetryRecords",
+                   "xray:GetSamplingRules",
+                   "xray:GetSamplingTargets",
+                   "xray:GetSamplingStatisticSummaries",
+                   "ssm:GetParameters"
+               ],
+               "Resource": "*"
+           }
+       ]
+   }      
+   ```
+   **Trust Policy**:
+   ```json
+   {
         "Version": "2012-10-17",
         "Statement": [
             {
@@ -179,25 +172,22 @@ Trust Policy:
                 "Action": "sts:AssumeRole"
             }
         ]
-    }
-```
-**Note** It's important to not forget adding the role itself as a trusted entity as shown above.
+    }        
+   ```    
+   </Procedure>
 
-<! -- IAM role case end -- >
+   </Tab>
+    
+   </Tabs>
 
-1.  Select an AWS Region for your CloudWatch instance.
-2.  Click `Create exporter`.
+1. Select an AWS Region for your CloudWatch instance.
+1. Click `Create exporter`.
 
 <Highlight type="warning">
 AWS keys give access to your AWS services. To keep your AWS account secure,
 restrict users to the minimum required permissions. Always store your keys in a
 safe location.
 </Highlight>
-
-<img class="main-content__illustration"
-width={1375} height={944}
-src="https://assets.timescale.com/docs/images/tsc-integrations-cloudwatch.webp"
-alt="Screenshot of the menu for adding a Datadog exporter" />
 
 </Procedure>
 
@@ -296,6 +286,25 @@ Delete any data exporters that you no longer need.
 
 </Procedure>
 
+## Reference
+
+When you create the IAM OIDC provider, the URL depends on the region where the exporter is being 
+created. It must be one of the following: 
+
+| Region           | Zone          | Location       | URL
+|------------------|---------------|----------------|--------------------|
+| `ap-southeast-1` | Asia Pacific  | Singapore      | `irsa-oidc-discovery-prod-ap-southeast-1.s3.ap-southeast-1.amazonaws.com`
+| `ap-southeast-2` | Asia Pacific  | Sydney         | `irsa-oidc-discovery-prod-ap-southeast-2.s3.ap-southeast-2.amazonaws.com`
+| `ap-northeast-1` | Asia Pacific  | Tokyo          | `irsa-oidc-discovery-prod-ap-northeast-1.s3.ap-northeast-1.amazonaws.com`
+| `ca-central-1`   | Canada        | Central        | `irsa-oidc-discovery-prod-ca-central-1.s3.ca-central-1.amazonaws.com`
+| `eu-central-1`   | Europe        | Frankfurt      | `irsa-oidc-discovery-prod-eu-central-1.s3.eu-central-1.amazonaws.com`
+| `eu-west-1`      | Europe        | Ireland        | `irsa-oidc-discovery-prod-eu-west-1.s3.eu-west-1.amazonaws.com`
+| `eu-west-2`      | Europe        | London         | `irsa-oidc-discovery-prod-eu-west-2.s3.eu-west-2.amazonaws.com`
+| `sa-east-1`      | South America | São Paulo      | `irsa-oidc-discovery-prod-sa-east-1.s3.sa-east-1.amazonaws.com`
+| `us-east-1`      | United States | North Virginia | `irsa-oidc-discovery-prod.s3.us-east-1.amazonaws.com`
+| `us-east-2`      | United States | Ohio           | `irsa-oidc-discovery-prod-us-east-2.s3.us-east-2.amazonaws.com`
+| `us-west-2`      | United States | Oregon         | `irsa-oidc-discovery-prod-us-west-2.s3.us-west-2.amazonaws.com`
+
 [attach-exporter]: #attach-a-data-exporter-to-a-service
 [aws-access-keys]: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html#id_users_create_console
 [irsa]: https://aws.amazon.com/blogs/opensource/introducing-fine-grained-iam-roles-service-accounts/
@@ -308,3 +317,5 @@ Delete any data exporters that you no longer need.
 [datadog-api-key]: https://docs.datadoghq.com/account_management/api-app-keys/#add-an-api-key-or-client-token
 [datadog-docs]: https://docs.datadoghq.com/
 [datadog-metrics-explorer]: https://app.datadoghq.com/metric/explorer
+[console-integrations]: https://console.cloud.timescale.com/dashboard/integrations
+[create-an-iam-user]: https://console.aws.amazon.com/iam/home#/users/create
