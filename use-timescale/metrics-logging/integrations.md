@@ -1,5 +1,5 @@
 ---
-title: Integrate Timescale services with third-party monitoring
+title: Integrate Timescale Services with third-party monitoring
 excerpt: Export telemetry metrics to Datadog or AWS CloudWatch
 products: [cloud]
 keywords: [integration, metrics, Datadog, AWS CloudWatch]
@@ -12,20 +12,27 @@ cloud_ui:
 
 import ExporterRegionNote from 'versionContent/_partials/_cloud-integrations-exporter-region.mdx';
 
-# Integrate Timescale services with third-party monitoring tools
+# Integrate Timescale Services with third-party monitoring tools
 
-You can export your service telemetry to a third-party monitoring tool such as
-[Datadog][datadog] or [AWS CloudWatch][cloudwatch]. Exported metrics include
+You can export telemetry data from your Timescale _Time Series and Analytics_ services to third-party 
+monitoring tools such as [Datadog][datadog] or [AWS CloudWatch][cloudwatch]. Available metrics include
 CPU usage, RAM usage, and storage.
 
-## Export telemetry data
+This page shows you how to securely connect a data exporter to a monitoring tool, and manage 
+the lifecycle of data exporters.
+
+## Create a data exporter and securely connect it a monitoring tool
 
 To export telemetry data you:
 
-1.  [Create a data exporter][create-exporter]
-1.  [Attach the exporter to a Timescale service][attach-exporter]
+1.  [Create a data exporter][create-exporter] - configure a Timescale data exporter to securely communicate with 
+    an external monitoring tool.
+1.  [Attach the exporter to a Timescale Service][attach-exporter] - connect the exporter to a Timescale Service.
 
 ### Create a data exporter
+
+A data exporter sends telemetry data from a Timescale Service to a third-party monitoring
+ service. Each Timescale Service is attached to a single data exporter.    
 
 <ExporterRegionNote />
 
@@ -35,21 +42,19 @@ To export telemetry data you:
 
 <Procedure>
 
-#### Create an exporter for Datadog
-
 1.  In Timescale Console, open [Integrations][console-integrations].
-1.  Click `Create exporter`, then click `Metrics` and choose `Datadog` as the provider.
+1.  Click `Create exporter`, click `Metrics`, then choose `Datadog`.
      
     <img class="main-content__illustration"
     src="https://assets.timescale.com/docs/images/tsc-integrations-datadog.webp"
     alt="Screenshot of the menu for adding a Datadog exporter" />
 
-1.  Fill the UI with your Datadog configuration. 
+1.  Fill the UI with your Datadog configuration: 
 
-    The exporter must be in the same region as the provider. If you don't have an 
-    API key, [Create one][datadog-api-key]. 
+    - The AWS region must be the same for your Timescale exporter and the Datadog provider.
+    - If you don't have an API key, [Create one][datadog-api-key]. 
 
-1.  Set `Site` to your Datadog region then click `Create exporter`.
+1.  Set `Site` to your Datadog region, then click `Create exporter`.
 
 
 </Procedure>
@@ -60,26 +65,22 @@ To export telemetry data you:
 
 <Procedure>
 
-#### Create a data exporter for AWS CloudWatch
-
 1.  In Timescale Console, open [Integrations][console-integrations].
 1.  Click `Create exporter`, choose a data type, then click `AWS CloudWatch`.
 
     <img class="main-content__illustration"
-    src="https://assets.timescale.com/docs/images/tsc-integrations-cloudwatch.webp"
-    alt="Screenshot of the menu for adding a Datadog exporter" />
+    src="https://assets.timescale.com/docs/images/tsc-integrations-cloudwatch.png"
+    alt="The UI to add an AWS CloudWatch exporter" />
 
-1.  Choose the AWS region for your exporter. to live within Timescale. 
+   1.  Fill the UI with your AWS CloudWatch configuration:  
 
-    Your Timescale Service and the provider must be hosted in the same AWS region.
-
-1.  Name your exporter. This name appears in the Cloud console, so choose a
-    descriptive name.
- 
-1. Define names for your CloudWatch log group, log stream, and namespace. 
-
-    If you're uncertain, use the default values. For more information on naming log
-    groups and logs streams, see [the AWS CloudWatch docs][cloudwatch-log-naming].
+       - The AWS region must be the same for your Timescale exporter and AWS CloudWatch Log group.
+       - The exporter name appears in Cloud console, best practice is to make this name easily understandable. 
+       - Enter your CloudWatch credentials:
+       
+       Either use an [existing CloudWatch Log group][console-cloudwatch-configuration] 
+       or [create a new one][console-cloudwatch-create-group]. If you're uncertain, use 
+       the default values. For more information, see [Working with log groups and log streams][cloudwatch-log-naming].
 
 1.  Choose the authentication method to use for the exporter:
 
@@ -90,9 +91,9 @@ To export telemetry data you:
     <Procedure>
 
      When you use CloudWatch credentials, you link an Identity and Access Management (IAM) 
-     user with access to Cloudwatch only with your Timescale service:  
+     user with access to Cloudwatch only with your Timescale Service:  
 
-    1. Retrieve the user information from the [AWS console](https://console.aws.amazon.com/iam/home#/users).   
+    1. Retrieve the user information from [IAM > Users in AWS console][list-iam-users].   
     
        If you do not have an AWS user with access restricted to CloudWatch only, 
        [create one][create-an-iam-user]. 
@@ -106,17 +107,17 @@ To export telemetry data you:
    <Tab title="IAM role">
 
    <Procedure>
-   Timescale services run in AWS. Best practice is to use IRSA to manage access 
-   between Timescale services and your AWS resources.  
-    
-   To create a role that securely communicates between your Timescale service and your AWS 
-   account:
    
-    1. Create the [IRSA][irsa] role following this [AWS blog][cross-account-iam-roles].   
+   Timescale Services run in AWS. Best practice is to use [IAM Roles for Service Accounts (IRSA)][irsa] to 
+   manage access between Timescale Services and your AWS resources.  
     
-       When you create the IAM OIDC provider, the URL depends on the region where the exporter is being 
-       created. It must be [one of the following](#reference). Also, you must add the role itself as a 
-       trusted entity.
+   To create a role that securely communicates between Timescale Service and your AWS account:
+   
+    1. Create the IRSA role following this [AWS blog][cross-account-iam-roles].   
+    
+       When you create the IAM OIDC provider, you must: 
+       - Set the URL to the [region where the exporter is being created][reference]. 
+       - Add the role as a trusted entity.
 
    The following example shows a correctly configured IRSA role:
    
@@ -180,8 +181,7 @@ To export telemetry data you:
     
    </Tabs>
 
-1. Select an AWS Region for your CloudWatch instance.
-1. Click `Create exporter`.
+1. Select an AWS Region your CloudWatch services run in, then click `Create exporter`.
 
 <Highlight type="warning">
 AWS keys give access to your AWS services. To keep your AWS account secure,
@@ -197,29 +197,24 @@ safe location.
 
 ### Attach a data exporter to a service
 
-Once you create a data exporter, you can attach it to a service. The exporter
-then exports that service's telemetry data.
-
-You can only have one exporter per service.
-
-<ExporterRegionNote />
+To send telemetry data to an external monitoring tool, you attach the data exporter to a 
+Timescale Service. Each service has one exporter only. The exporter sends telemetry data from that
+service to the monitoring provider.    
 
 <Procedure>
 
-### Attaching a data exporter to a service
-
-1.  Navigate to `Services`. Click on the service you want to connect to your
-    exporter.
-1.  Navigate to `Operations`, then `Integrations`.
-1.  Select an exporter and click `Attach exporter`.
+1.  In [Timescale Portal > Services][services-portal], choose the service to monitor.
+1.  Click `Operations`, then `Integrations`.
+1.  Select an exporter, then click `Attach exporter`.
 
 <Highlight type="warning">
-If you would like to attach a logs exporter to an already existing 
-service, you do not need to restart the service. The service only 
-needs to be restarted when you attach the first logs exporter.
+You need to restart the Timescale Services when you attach a first Logs 
+data type exporter to it.
 </Highlight>
 
 </Procedure>
+
+<ExporterRegionNote />
 
 ## Monitor service metrics
 
@@ -228,9 +223,7 @@ Datadog][datadog-metrics-explorer], or query them from the cloudWatch metrics
 page in AWS Console. For more information, see the [Datadog][datadog-docs] or
 [Cloudwatch][cloudwatch-docs] documentation.
 
-When you have set up your integration, you can check that it is working
-correctly by looking for the metrics that Timescale exports. The metric
-names are:
+Use the following metrics to check the service is running correctly:
 
 *   `timescale.cloud.system.cpu.usage.millicores`
 *   `timescale.cloud.system.cpu.total.millicores`
@@ -239,8 +232,7 @@ names are:
 *   `timescale.cloud.system.disk.usage.bytes`
 *   `timescale.cloud.system.disk.total.bytes`
 
-Additionally, Timescale exports tags that you can use to filter your
-results. You can also check that these tags are being correctly exported:
+Additionally, use the following tags to filter your results. 
 
 |Tag|Example variable|Description|
 |-|-|-|
@@ -253,32 +245,29 @@ results. You can also check that these tags are being correctly exported:
 
 ## Edit a data exporter
 
-You can edit a data exporter after you create it. Some fields, such as the
-provider and AWS region, can't be changed.
+To update a data exporter:
 
 <Procedure>
-
-### Editing a data exporter
 
 1.  Navigate to `Integrations`.
 1.  Beside the exporter you want to edit, click the menu button. Click `Edit`.
 1.  Edit the exporter fields and save your changes.
 
+You cannot change fields such as the provider or the AWS region.
 </Procedure>
 
 ## Delete a data exporter
 
-Delete any data exporters that you no longer need.
+To remove any data exporters that you no longer need.
 
 <Procedure>
-
-### Deleting a data exporter
 
 1.  Before deleting a data exporter, remove all connected services.
 1.  For each connected service, navigate to the service `Operations` tab.
 1.  Click `Integrations`.
-1.  Click the trash can icon to remove the exporter from the service. This
-    doesn't delete the exporter itself.
+1.  Click the trash can icon to remove the exporter from the service.
+
+    This does not delete the exporter itself.
 1.  In the main menu, navigate to `Integrations`.
 1.  Beside the exporter you want to delete, click the menu button. Click
     `Delete`.
@@ -305,17 +294,22 @@ created. It must be one of the following:
 | `us-east-2`      | United States | Ohio           | `irsa-oidc-discovery-prod-us-east-2.s3.us-east-2.amazonaws.com`
 | `us-west-2`      | United States | Oregon         | `irsa-oidc-discovery-prod-us-west-2.s3.us-west-2.amazonaws.com`
 
-[attach-exporter]: #attach-a-data-exporter-to-a-service
-[aws-access-keys]: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html#id_users_create_console
-[irsa]: https://aws.amazon.com/blogs/opensource/introducing-fine-grained-iam-roles-service-accounts/
+[attach-exporter]: /use-timescale/:currentVersion:/metrics-logging/integrations/#attach-a-data-exporter-to-a-service 
+[aws-access-keys]: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html#id_users_create_console 
+[irsa]: https://aws.amazon.com/blogs/opensource/introducing-fine-grained-iam-roles-service-accounts/ 
 [cross-account-iam-roles]: https://aws.amazon.com/blogs/containers/cross-account-iam-roles-for-kubernetes-service-accounts/
 [cloudwatch]: https://aws.amazon.com/cloudwatch/
 [cloudwatch-docs]: https://docs.aws.amazon.com/cloudwatch/index.html
 [cloudwatch-log-naming]: https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html
-[create-exporter]: #create-a-data-exporter
+[create-exporter]: /use-timescale/:currentVersion:/metrics-logging/integrations/#create-a-data-exporter
 [datadog]: https://www.datadoghq.com
 [datadog-api-key]: https://docs.datadoghq.com/account_management/api-app-keys/#add-an-api-key-or-client-token
 [datadog-docs]: https://docs.datadoghq.com/
 [datadog-metrics-explorer]: https://app.datadoghq.com/metric/explorer
 [console-integrations]: https://console.cloud.timescale.com/dashboard/integrations
+[list-iam-users]: https://console.aws.amazon.com/iam/home#/users
 [create-an-iam-user]: https://console.aws.amazon.com/iam/home#/users/create
+[reference]: /use-timescale/:currentVersion:/metrics-logging/integrations/#reference
+[console-cloudwatch-configuration]: https://console.aws.amazon.com/cloudwatch/home#logsV2:log-groups
+[console-cloudwatch-create-group]: https://console.aws.amazon.com/cloudwatch/home#logsV2:log-groups/create-log-group
+[services-portal]: https://console.cloud.timescale.com/dashboard/services
