@@ -31,7 +31,7 @@ Timescale Services run in the following Amazon Web Services (AWS) regions:
 <Highlight type="cloud"  header="Need to deploy on Azure or Google Cloud Platform?">
 
 Use [Managed Services for Timescale][aiven-client-mst] to run TimescaleDB on Azure and 
-GCP for you in partnership with Aiven.”
+GCP for you in partnership with Aiven.
 
 </Highlight>
 
