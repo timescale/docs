@@ -88,7 +88,6 @@ A data exporter sends telemetry data from a Timescale Service to a third-party m
     
     <Tab title="CloudWatch credentials">   
     
-
     <Procedure>
 
      When you use CloudWatch credentials, you link an Identity and Access Management (IAM) 
@@ -105,10 +104,10 @@ A data exporter sends telemetry data from a Timescale Service to a third-party m
     AWS keys give access to your AWS services. To keep your AWS account secure,
     restrict users to the minimum required permissions. Always store your keys in a
     safe location. To avoid this issue, use the IAM role authentication method. 
-    </Highlight>
-    
+    </Highlight>    
+
    </Procedure>
-        
+                    
    </Tab>
     
    <Tab title="IAM role">
