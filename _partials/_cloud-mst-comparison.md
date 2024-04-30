@@ -5,8 +5,8 @@
 
 If you need to run TimescaleDB on GCP or Azure, you're in the right place — keep reading. 
 
-If you want Timescale to manage our own software on AWS for you, [Create a Timescale service][aiven-client-mst]. 
+If you want Timescale to manage our own software on AWS for you, [Create a Timescale Service][timescale-service]. 
 
 </Highlight>
 
-[aiven-client-mst]: /getting-started/:currentVersion:/services
+[timescale-service]: /getting-started/:currentVersion:/services
