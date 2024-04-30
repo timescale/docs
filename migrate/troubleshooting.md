@@ -222,24 +222,28 @@ The `tsdbadmin` database user is the most powerful available on Timescale, but i
 is not a true superuser. Review your application for use of superuser privileged
 operations and mitigate before migrating.
 
-## Migrating partial continuous aggregates (created before TimescaleDB 2.7)
+## Migrate partial continuous aggregates
 
-TimescaleDB 2.7 introduced "finalized" continuous aggregates to improve
-performance and compatibility of continuous aggregates. These have now replaced
-the previous "partial" form of continuous aggregate. Partial form continuous
-aggregates cannot be migrated across PostgreSQL versions. If you have partial
-form continuous aggregates and intend to migrate across PostgreSQL versions,
-you must first [migrate] the continuous aggregates from partial to finalized
-form.
+In order to improve the performance and compatibility of continuous aggregates, 
+[TimescaleDB v2.7][release-270] replaces _partial_ continuous aggregate with 
+_finalized_ continuous aggregates.
 
-The following query returns true if you have partial continuous aggregates:
+To test your database for partial continuous aggregates, run the following query:
 
 ```SQL
 SELECT exists (SELECT 1 FROM timescaledb_information.continuous_aggregates WHERE NOT finalized);
 ```
 
-If you do happen to migrate partial continuous aggregates across PostgreSQL
-versions, the following error appears when the continuous aggregate is queried:
-`ERROR:  insufficient data left in message`.
+If you have partial continuous aggregates in your database,  [migrate your existing database][migrate] 
+from partial to finalized continuous aggregates before you upgrade your PostgreSQL installation 
+
+If you accidentally migrate partial continuous aggregates across PostgreSQL
+versions, you see the following error when you query any continuous aggregates:
+
+```
+ERROR:  insufficient data left in message`.
+```
 
 [migrate]: /migrate/:currentVersion:/live-migration/
+[release-270]: /about/:currentVersion:/release-notes/past-releases/#270-2022-05-24
+
