@@ -234,7 +234,7 @@ To test your database for partial continuous aggregates, run the following query
 SELECT exists (SELECT 1 FROM timescaledb_information.continuous_aggregates WHERE NOT finalized);
 ```
 
-If you have partial continuous aggregates in your database, [convert them][migrate] 
+If you have partial continuous aggregates in your database, [migrate them][migrate] 
 from partial to finalized before you migrate your database.
 
 If you accidentally migrate partial continuous aggregates across PostgreSQL
