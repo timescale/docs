@@ -17,6 +17,216 @@ GitHub and be notified by email whenever a new release is available. On the
 click `Watch`, select `Custom` and then check `Releases`.
 </Highlight>
 
+## TimescaleDB&nbsp;2.14.2 on 2024-02-20
+
+<Highlight type="note">
+This release contains bug fixes since the 2.14.1 release.
+We recommend that you upgrade at the next available opportunity.
+</Highlight>
+
+### Complete list of bugfixes
+* #6655 Fix segfault in cagg_validate_query
+* #6660 Fix refresh on empty CAgg with variable bucket
+* #6670 Don't try to compress osm chunks
+
+### Acknowledgments
+* @kav23alex for reporting a segfault in cagg_validate_query
+
+## TimescaleDB&nbsp;2.14.1 on 2024-02-14
+
+<Highlight type="note">
+This release contains bug fixes since the 2.14.0 release.
+We recommend that you upgrade at the next available opportunity.
+</Highlight>
+
+### Complete list of features
+* #6630 Add views for per chunk compression settings
+
+### Complete list of bugfixes
+* #6636 Fixes extension update of compressed hypertables with dropped columns
+* #6637 Reset sequence numbers on non-rollup compression
+* #6639 Disable default indexscan for compression
+* #6651 Fix DecompressChunk path generation with per chunk settings
+
+### Acknowledgments
+* @anajavi for reporting an issue with extension update of compressed hypertables
+
+## TimescaleDB&nbsp;2.14.0 on 2024-02-08
+
+<Highlight type="note">
+This release contains performance improvements and bug fixes since 
+the 2.13.1 release. We recommend that you upgrade at the next
+available opportunity.
+
+For this release only, you will need to restart the database before running `ALTER EXTENSION`
+</Highlight>
+ 
+
+#### Highlighted features in this release
+* Ability to change compression settings on existing compressed hypertables at any time. 
+New compression settings take effect on any new chunks that are compressed after the change.
+* Reduced locking requirements during chunk recompression
+* Limiting tuple decompression during DML operations to avoid decompressing a lot of tuples and causing storage issues (100k limit, configurable)
+* Helper functions for determining compression settings
+* Plan-time chunk exclusion for real-time Continuous Aggregate by constifying the cagg_watermark function call, leading to faster queries using real-time continuous aggregates
+
+#### Removal notice: Multi-node support
+Following the deprecation announcement for Multi-node in TimescaleDB 2.13,
+Multi-node is no longer supported starting with TimescaleDB 2.14.
+
+TimescaleDB 2.13 is the last version that includes multi-node support. Learn more about it [here][multi-node-deprecation].
+
+If you want to migrate from multi-node TimescaleDB to single-node TimescaleDB, read the
+[migration documentation][multi-node-to-timescale-service].
+
+#### Deprecation notice: recompress_chunk procedure
+TimescaleDB 2.14 is the last version that will include the recompress_chunk procedure. Its
+functionality will be replaced by the compress_chunk function, which, starting on TimescaleDB 2.14, 
+works on both uncompressed and partially compressed chunks. 
+The compress_chunk function should be used going forward to fully compress all types of chunks or even recompress 
+old fully compressed chunks using new compression settings (through the newly introduced recompress optional parameter).
+
+### Complete list of features
+* #6325 Add plan-time chunk exclusion for real-time CAggs
+* #6360 Remove support for creating Continuous Aggregates with old format
+* #6386 Add functions for determining compression defaults
+* #6410 Remove multinode public API
+* #6440 Allow SQLValueFunction pushdown into compressed scan
+* #6463 Support approximate hypertable size
+* #6513 Make compression settings per chunk
+* #6529 Remove reindex_relation from recompression
+* #6531 Fix if_not_exists behavior for CAgg policy with NULL offsets
+* #6545 Remove restrictions for changing compression settings
+* #6566 Limit tuple decompression during DML operations
+* #6579 Change compress_chunk and decompress_chunk to idempotent version by default
+* #6608 Add LWLock for OSM usage in loader 
+* #6609 Deprecate recompress_chunk
+* #6609 Add optional recompress argument to compress_chunk
+
+### Complete list of bug fixes
+* #6541 Inefficient join plans on compressed hypertables.
+* #6491 Enable now() plantime constification with BETWEEN
+* #6494 Fix create_hypertable referenced by fk succeeds
+* #6498 Suboptimal query plans when using time_bucket with query parameters
+* #6507 time_bucket_gapfill with timezones doesn't handle daylight savings 
+* #6509 Make extension state available through function
+* #6512 Log extension state changes
+* #6522 Disallow triggers on CAggs
+* #6523 Reduce locking level on compressed chunk index during segmentwise recompression
+* #6531 Fix if_not_exists behavior for CAgg policy with NULL offsets
+* #6571 Fix pathtarget adjustment for MergeAppend paths in aggregation pushdown code 
+* #6575 Fix compressed chunk not found during upserts
+* #6592 Fix recompression policy ignoring partially compressed chunks
+* #6610 Ensure qsort comparison function is transitive
+
+### Acknowledgments
+* @coney21 and @GStechschulte for reporting the problem with inefficient join plans on compressed hypertables.
+* @HollowMan6 for reporting triggers not working on materialized views of
+CAggs
+* @jbx1 for reporting suboptimal query plans when using time_bucket with query parameters
+* @JerkoNikolic for reporting the issue with gapfill and DST
+* @pdipesh02 for working on removing the old Continuous Aggregate format
+* @raymalt and @martinhale for reporting very slow query plans on realtime CAggs queries
+
+## TimescaleDB&nbsp;2.13.1 on 2024-01-08
+
+These release notes are for the release of TimescaleDB&nbsp;2.13.1 on
+2024-01-08.
+
+<Highlight type="note">
+This release contains bug fixes since the 2.13.0 release.
+It is recommended that you upgrade at the next available opportunity.
+</Highlight>
+
+### Complete list of bug fixes
+
+* #6365 Use numrows_pre_compression in approximate row count
+* #6377 Use processed group clauses in PG16
+* #6384 Change bgw_log_level to use PGC_SUSET
+* #6393 Disable vectorized sum for expressions.
+* #6405 Read CAgg watermark from materialized data
+* #6408 Fix groupby pathkeys for gapfill in PG16
+* #6428 Fix index matching during DML decompression
+* #6439 Fix compressed chunk permission handling on PG16
+* #6443 Fix lost concurrent CAgg updates
+* #6454 Fix unique expression indexes on compressed chunks
+* #6465 Fix use of freed path in decompression sort logic
+
+### Acknowledgments
+* @MA-MacDonald for reporting an issue with gapfill in PG16
+* @aarondglover for reporting an issue with unique expression indexes on compressed chunks
+* @adriangb for reporting an issue with security barrier views on pg16
+
+
+## TimescaleDB&nbsp;2.13.0 on 2023-11-28
+
+<Highlight type="note">
+This release contains performance improvements, an improved hypertable DDL API
+and bug fixes since the 2.12.2 release. We recommend that you upgrade at the next
+available opportunity.
+</Highlight>
+
+#### Highlighted features in this release
+* Full PostgreSQL 16 support for all existing features
+* Vectorized aggregation execution for sum()
+* Track chunk creation time used in retention/compression policies
+
+#### Deprecation notice: Multi-node support
+TimescaleDB 2.13 is the last version that will include multi-node support. Multi-node
+support in 2.13 is available for PostgreSQL 13, 14 and 15. Learn more about it
+[here][multi-node-deprecation].
+
+If you want to migrate from multi-node TimescaleDB to single-node TimescaleDB read the
+[migration documentation][multi-node-to-timescale-service].
+
+#### PostgreSQL 13 deprecation announcement
+We will continue supporting PostgreSQL 13 until April 2024. Sooner to that time, we will announce the specific version of TimescaleDB in which PostgreSQL 13 support will not be included going forward.
+
+#### Starting from TimescaleDB 2.13.0
+* No Amazon Machine Images (AMI) are published. If you previously used AMI, please 
+use another [installation method](https://docs.timescale.com/self-hosted/latest/install/)
+* Continuous Aggregates are materialized only (non-realtime) by default
+
+### Complete list of features
+* #5575 Add chunk-wise sorted paths for compressed chunks
+* #5761 Simplify hypertable DDL API
+* #5890 Reduce WAL activity by freezing compressed tuples immediately
+* #6050 Vectorized aggregation execution for sum() 
+* #6062 Add metadata for chunk creation time
+* #6077 Make Continous Aggregates materialized only (non-realtime) by default
+* #6177 Change show_chunks/drop_chunks using chunk creation time
+* #6178 Show batches/tuples decompressed during DML operations in EXPLAIN output
+* #6185 Keep track of catalog version
+* #6227 Use creation time in retention/compression policy
+* #6307 Add SQL function cagg_validate_query
+
+### Complete list of bug fixes
+* #6188 Add GUC for setting background worker log level
+* #6222 Allow enabling compression on hypertable with unique expression index
+* #6240 Check if worker registration succeeded
+* #6254 Fix exception detail passing in compression_policy_execute
+* #6264 Fix missing bms_del_member result assignment
+* #6275 Fix negative bitmapset member not allowed in compression
+* #6280 Potential data loss when compressing a table with a partial index that matches compression order.
+* #6289 Add support for startup chunk exclusion with aggs 
+* #6290 Repair relacl on upgrade
+* #6297 Fix segfault when creating a cagg using a NULL width in time bucket function
+* #6305 Make timescaledb_functions.makeaclitem strict
+* #6332 Fix typmod and collation for segmentby columns
+* #6339 Fix tablespace with constraints
+* #6343 Enable segmentwise recompression in compression policy
+
+### Acknowledgments
+* @fetchezar for reporting an issue with compression policy error messages
+* @jflambert for reporting the background worker log level issue
+* @torazem for reporting an issue with compression and large oids
+* @fetchezar for reporting an issue in the compression policy
+* @lyp-bobi for reporting an issue with tablespace with constraints
+* @pdipesh02 for contributing to the implementation of the metadata for chunk creation time, 
+             the generalized hypertable API, and show_chunks/drop_chunks using chunk creation time
+* @lkshminarayanan for all his work on PG16 support
+
+
 ## TimescaleDB&nbsp;2.12.2 on 2023-10-20
 
 These release notes are for the release of TimescaleDB&nbsp;2.12.2 on
@@ -482,3 +692,5 @@ For release notes for older TimescaleDB versions, see the
 [pg-upgrade]: /self-hosted/:currentVersion:/upgrades/upgrade-pg/
 [migrate-caggs]: /use-timescale/:currentVersion:/continuous-aggregates/migrate/
 [join-caggs]: /use-timescale/:currentVersion:/continuous-aggregates/create-a-continuous-aggregate/#create-a-continuous-aggregate-with-a-join
+[multi-node-to-timescale-service]:/migrate/:currentVersion:/playbooks/multi-node-to-timescale-service/
+[multi-node-deprecation]: https://github.com/timescale/timescaledb/blob/main/docs/MultiNodeDeprecation.md

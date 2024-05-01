@@ -5,6 +5,10 @@ products: [self_hosted]
 keywords: [distributed hypertables, multi-node, queries]
 ---
 
+import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";
+
+<MultiNodeDeprecation />
+
 # Query data in distributed hypertables
 
 You can query a distributed hypertable just as you would query a standard

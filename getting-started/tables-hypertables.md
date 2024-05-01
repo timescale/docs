@@ -15,7 +15,7 @@ import HypertableIntro from "versionContent/_partials/_hypertables-intro.mdx";
 
 Databases in are made up of tables that contain your data. In PostgreSQL, these
 tables are relational, so the data in one table relates to the data in another
-table. In Timescale, you use regular PostregSQL relational tables, in addition
+table. In Timescale, you use regular PostgreSQL relational tables, in addition
 to special time-series hypertables.
 
 Hypertables are designed specifically for time-series data, so they have a few
@@ -63,7 +63,7 @@ For the financial dataset used in this guide, create a hypertable named
     table that holds the timestamp data to use for partitioning (`time`):
 
     <CodeBlock canCopy={true} showLineNumbers={false} children={`
-    SELECT create_hypertable('stocks_real_time','time');
+    SELECT create_hypertable('stocks_real_time', by_range('time'));
     `} />
 
 1.  Create an index to support efficient queries on the `symbol` and `time`

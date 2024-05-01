@@ -256,8 +256,12 @@ and most other tasks are executed on the hypertable.
     [`create_hypertable` docs][create-hypertable-docs]:
 
     ```go
-    queryCreateHypertable := `SELECT create_hypertable('sensor_data', 'time');`
+    queryCreateHypertable := `SELECT create_hypertable('sensor_data', by_range('time'));`
     ```
+
+	<Highlight type="note">
+	The `by_range` dimension builder is an addition to TimescaleDB 2.13.
+	</Highlight>
 
 1.  Execute the `CREATE TABLE` statement and `SELECT` statement which converts
     the table into a hypertable. You can do this by calling the `Exec()`
@@ -297,7 +301,7 @@ and most other tasks are executed on the hypertable.
             FOREIGN KEY (sensor_id) REFERENCES sensors (id));
             `
 
-        queryCreateHypertable := `SELECT create_hypertable('sensor_data', 'time');`
+        queryCreateHypertable := `SELECT create_hypertable('sensor_data', by_range('time'));`
 
         //execute statement
         _, err = dbpool.Exec(ctx, queryCreateTable+queryCreateHypertable)

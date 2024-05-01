@@ -10,8 +10,8 @@ api:
 
 # decompress_chunk() <Tag type="community">Community</Tag>
 
-If you need to modify or add data to a chunk that has already been
-compressed, you need to decompress the chunk first. This is especially
+If you need to modify or add a lot of data to a chunk that has already been
+compressed, you should decompress the chunk first. This is especially
 useful for backfilling old data.
 
 <Highlight type="important">
@@ -32,7 +32,7 @@ the next scheduled job.
 
 |Name|Type|Description|
 |-|-|-|
-|`if_compressed`|`BOOLEAN`|Setting to true skips chunks that are not compressed. Defaults to false.|
+|`if_compressed`|`BOOLEAN`| Disabling this will make the function error out on chunks that are not compressed. Defaults to true.|
 
 ### Sample usage
 

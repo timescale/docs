@@ -5,6 +5,10 @@ products: [self_hosted]
 keywords: [multi-node, high availability]
 ---
 
+import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";
+
+<MultiNodeDeprecation />
+
 # High availability with multi-node
 
 A multi-node installation of TimescaleDB can be made highly available

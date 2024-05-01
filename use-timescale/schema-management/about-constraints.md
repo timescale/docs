@@ -29,14 +29,18 @@ CREATE TABLE conditions (
     PRIMARY KEY(time, device_id)
 );
 
-SELECT create_hypertable('conditions', 'time');
+SELECT create_hypertable('conditions', by_range('time'));
 ```
+
+<Highlight type="note">
+The `by_range` dimension builder is an addition to TimescaleDB 2.13.
+</Highlight>
 
 This example also references values in another `locations` table using a foreign
 key constraint.
 
 <Highlight type="note">
-By default, time columns used for partitioning do not allow `NULL` values. A
+Time columns used for partitioning must not allow `NULL` values. A
 `NOT NULL` constraint is added by default to these columns if it doesn't already
 exist.
 </Highlight>

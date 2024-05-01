@@ -9,6 +9,11 @@
       <a href="https://console.cloud.timescale.com/">Timescale portal</a> and click <code>Create service</code>.
     </p>
   </li>
+  <li>
+    <p>
+      Choose if you want a Time-series or Dynamic PostgreSQL service.
+    </p>
+  </li>
   {props.demoData && (
     <li>
       <p>
