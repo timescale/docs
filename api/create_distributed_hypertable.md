@@ -74,7 +74,7 @@ SELECT create_distributed_hypertable('conditions', 'time', 'location',
 
 * **Hash partitions**: Best practice for distributed hypertables is to enable [hash partitions](https://www.techopedia.com/definition/31996/hash-partitioning).
   With hash partitions, incoming data is divided between the data nodes. Without hash partition, all
-  data for each  time slice is written to a single data node.
+  data for each time slice is written to a single data node.
 
 * **Time intervals**: Follow the guidelines for `chunk_time_interval` defined in [`create_hypertable`]
   [create-hypertable-old].
