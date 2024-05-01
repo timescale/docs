@@ -11,17 +11,19 @@ cloud_ui:
 
 # Service overview
 
-When you log in to your [Timescale account][cloud-login], you see the
-`Services` page. Click the service you are interested in to see the `Services
-Overview` tab. This section contains your service's connection information, and
-an overview of the configuration and resource usage for the service.
+When you log into your [Timescale account][cloud-login], you see the
+Project overview. Click a service to view run-time data and connection information. 
+Click Operations to configure your service. 
 
 <img
 class="main-content__illustration"
-src="https://assets.timescale.com/docs/images/tsc-services-overview.webp"
+src="https://assets.timescale.com/docs/images/tsc-services-overview.png"
 width={1375} height={944}
 alt="Timescale Services Overview"
 />
+
+Each service hosts a single database managed for you by Timescale in the cloud. 
+If you need more than one database, [create a new service][create-service].
 
 ## Service users
 
@@ -38,8 +40,9 @@ On Timescale services, the `tsdbadmin` user can create another user
 with any other roles. For a complete list of roles available, see the
 [PostgreSQL role attributes documentation][pg-roles-doc].
 
-Additionally, you cannot create multiple databases on a single Timescale
+You cannot create multiple databases on a single Timescale
 service. If you need data isolation, use schemas or create additional services.
 
 [cloud-login]: https://console.cloud.timescale.com/
 [pg-roles-doc]: https://www.postgresql.org/docs/current/role-attributes.html
+[create-service]: /getting-started/:currentVersion:/services/#create-a-timescale-service
