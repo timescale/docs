@@ -9,6 +9,10 @@ api:
   type: function
 ---
 
+import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";
+
+<MultiNodeDeprecation />
+
 # add_data_node() <Tag type="community">Community</Tag>
 
 Add a new data node on the access node to be used by distributed

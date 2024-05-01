@@ -44,7 +44,7 @@ Before you begin, ensure that you have:
 - Checked that the version of PostgreSQL in your target database is greater
   than or equal to that of the source database.
 
-[Created a database service in Timescale]: /use-timescale/:currentVersion:/services/create-a-service/
+[Created a database service in Timescale]: /getting-started/:currentVersion:/services/
 [list of compatible extensions]: /use-timescale/:currentVersion:/extensions/
 
 ## Dump the source database

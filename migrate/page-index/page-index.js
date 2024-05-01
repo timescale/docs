@@ -25,12 +25,6 @@ module.exports = [
         ]
       },
       {
-        title: "With downtime: Multi-node to TimescaleDB service",
-        href: "multi-node-to-timescale-service",
-        excerpt:
-            "Migrate an entire multi-node deployment to a TimescaleDB service",
-      },
-      {
         title: "Low-downtime: Live migration",
         href: "live-migration",
         excerpt: "Migrate a large database with low downtime",
@@ -46,6 +40,12 @@ module.exports = [
             href: "live-migration-from-timescaledb",
             excerpt:
                 "Migrate from TimescaleDB using live migration",
+          },
+          {
+            title: "Frequently Asked Questions",
+            href: "live-migration-faq",
+            excerpt:
+                "Frequently Asked Questions",
           },
         ],
       },
@@ -96,6 +96,12 @@ module.exports = [
             href: "rds-timescale-live-migration",
             excerpt:
                 "Migrate from RDS to Timescale using live migration",
+          },
+          {
+            title: "Multi-node to Timescale",
+            href: "multi-node-to-timescale-service",
+            excerpt:
+                "Migrate an entire multi-node deployment to Timescale",
           },
         ],
       },
