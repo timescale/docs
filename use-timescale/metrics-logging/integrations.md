@@ -153,7 +153,7 @@ A data exporter sends telemetry data from a Timescale Service to a third-party m
        ]
    }      
    ```
-   **Trust Policy**:
+   **Role with a Trust Policy**:
    ```json
    {
         "Version": "2012-10-17",
