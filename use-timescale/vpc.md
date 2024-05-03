@@ -20,7 +20,7 @@ attack vector surface and improves security.
 You are not charged for VPCs during your Timescale trial.
 </Highlight>
 
-The data isolation architecture used to ensure a highly secure connection between your apps and Timescale:
+The data isolation architecture that ensures a highly secure connection between your apps and Timescale:
 
 <img class="main-content__illustration"
 src="https://assets.timescale.com/docs/images/tsc-vpc-architecture.svg"
