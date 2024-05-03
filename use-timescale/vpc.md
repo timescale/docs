@@ -12,29 +12,25 @@ cloud_ui:
 
 # Securely connect to Timescale Services
 
-Intro
-
-You use Virtual Private Cloud (VPC) peering to ensure that your Timescale Services are only accessible through
-your secured AWS infrastructure. This reduces the potential attack vector surface and 
-improves security.
+You use Virtual Private Cloud (VPC) peering to ensure that your Timescale Services are 
+only accessible through your secured AWS infrastructure. This reduces the potential 
+attack vector surface and improves security.
 
 <Highlight type="cloud" header="Sign up for Timescale" button="Try for free">
 You are not charged for VPCs during your Timescale trial.
 </Highlight>
 
-The following figure shows the data isolation architecture used to ensure a 
-highly secure connection between your apps and Timescale.
+The data isolation architecture used to ensure a highly secure connection between your apps and Timescale:
 
 <img class="main-content__illustration"
 src="https://assets.timescale.com/docs/images/tsc-vpc-architecture.svg"
 alt="The AWS Security Groups dashboard"/>
 
-In this architecture, your apps run inside your AWS Customer VPC. Your Timescale 
-Services always run inside the secure Timescale VPC. The connection between 
-your VPC and Timescale is managed through a dedicated Peering VPC. The AWS 
-PrivateLink connecting Timescale VPC to your Peering VPC gives a similar 
-level of protection, and only enables communication between your Customer VPC
-and your Timescale Services.
+Your apps run inside your AWS Customer VPC, your Timescale Services always run 
+inside the secure Timescale VPC. You control secure communication between apps in
+your VPC and your Timescale Services using a dedicated Peering VPC. The AWS PrivateLink connecting 
+Timescale VPC to the dedicated Peering VPC gives a similar level of protection. 
+It only enables communication between your Customer VPC and your Timescale Services.
 
 To configure this secure connection, you first create the Peering VPC with 
 AWS PrivateLink in Timescale. After you have accepted and configured the 
