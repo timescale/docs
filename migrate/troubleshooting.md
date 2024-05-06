@@ -221,3 +221,29 @@ Timescale instance or "merge" source databases to target schemas.
 The `tsdbadmin` database user is the most powerful available on Timescale, but it
 is not a true superuser. Review your application for use of superuser privileged
 operations and mitigate before migrating.
+
+## Migrate partial continuous aggregates
+
+In order to improve the performance and compatibility of continuous aggregates, 
+[TimescaleDB v2.7][release-270] replaces _partial_ continuous aggregates with 
+_finalized_ continuous aggregates.
+
+To test your database for partial continuous aggregates, run the following query:
+
+```SQL
+SELECT exists (SELECT 1 FROM timescaledb_information.continuous_aggregates WHERE NOT finalized);
+```
+
+If you have partial continuous aggregates in your database, [migrate them][migrate] 
+from partial to finalized before you migrate your database.
+
+If you accidentally migrate partial continuous aggregates across PostgreSQL
+versions, you see the following error when you query any continuous aggregates:
+
+```
+ERROR:  insufficient data left in message.
+```
+
+[migrate]: /migrate/:currentVersion:/live-migration/
+[release-270]: /about/:currentVersion:/release-notes/past-releases/#270-2022-05-24
+
