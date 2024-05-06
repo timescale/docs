@@ -1,8 +1,8 @@
 ---
 title: Virtual Private Cloud
-excerpt: Use VPC peering to secure your Timescale Service
+excerpt: Use a Peering VPC and AWS PrivateLink to secure your Timescale Service
 products: [cloud]
-keywords: [vpc, services, operations]
+keywords: [PrivateLink, AWS, vpc, services, operations, ]
 tags: [aws]
 cloud_ui:
     path:
@@ -10,15 +10,11 @@ cloud_ui:
         - [vpc]
 ---
 
-# Securely connect to Timescale Services
+# Secure your Timescale Service with VPC Peering and AWS PrivateLink
 
 You use Virtual Private Cloud (VPC) peering to ensure that your Timescale Services are 
 only accessible through your secured AWS infrastructure. This reduces the potential 
 attack vector surface and improves security.
-
-<Highlight type="cloud" header="Sign up for Timescale" button="Try for free">
-You are not charged for VPCs during your Timescale trial.
-</Highlight>
 
 The data isolation architecture that ensures a highly secure connection between your apps and Timescale:
 
@@ -173,8 +169,7 @@ AWS VPC. It is no longer accessible using the public internet.
 <Procedure>
 
 1.  In [Timescale Console > Services][console-services] select the Service you want to
-    connect to the VPC. 
-   If you don't have a Timescale Service, [create a new one][create-service].
+    connect to the VPC.
 1. Click `Operations` > `VPC`.
 1. Select the VPC, then click `Attach VPC`.
 
