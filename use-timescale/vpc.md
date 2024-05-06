@@ -29,7 +29,7 @@ alt="The AWS Security Groups dashboard"/>
 Your apps run inside your AWS Customer VPC, your Timescale Services always run 
 inside the secure Timescale VPC. You control secure communication between apps in
 your VPC and your Timescale Services using a dedicated Peering VPC. The AWS PrivateLink connecting 
-Timescale VPC to the dedicated Peering VPC gives a similar level of protection. 
+Timescale VPC to the dedicated Peering VPC gives the same level of protection as using a direct AWS PrivateLink connection. 
 It only enables communication between your Customer VPC and your Timescale Services.
 
 To configure this secure connection, you first create the Peering VPC with 
@@ -37,7 +37,7 @@ AWS PrivateLink in Timescale. After you have accepted and configured the
 peering connection to your Customer VPC, you use AWS Security Groups to 
 restrict the services in your Customer VPC that are visible to the Peering VPC.
 The last step is to attach individual Timescale Services to the Peering 
-Connection. 
+VPC. 
 
 You can run three VPCs in each project, and each Timescale VPC can have as 
 many peering connections as you need. If you need more VPCs click `Support` 
@@ -108,7 +108,7 @@ peering request from an unknown account.
 
     Copy the peering connection ID to the clipboard. The connection request starts with `pcx-`.
  
-1. In the peering connection, click  `Route Tables`, the select the `Route Table ID`
+1. In the peering connection, click  `Route Tables`, then select the `Route Table ID`
     that corresponds to your VPC.
 1.  In `Routes`, click `Edit routes`. You see the list of existing Destinations.
 
@@ -180,7 +180,7 @@ AWS VPC. It is no longer accessible using the public internet.
 
 </Procedure>
 
-And that is it, your Timescale Service is now securely communicating securely with your AWS
+And that is it, your Timescale Service is now securely communicating with your AWS
 account inside a VPC.
 
 ## Migrate a Timescale Service between VPCs
