@@ -6,6 +6,10 @@ keywords: [multi-node, maintenance]
 tags: [manage]
 ---
 
+import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";
+
+<MultiNodeDeprecation />
+
 # Multi-node maintenance tasks
 
 Various maintenance activities need to be carried out for effective

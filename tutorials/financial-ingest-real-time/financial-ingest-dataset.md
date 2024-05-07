@@ -11,6 +11,7 @@ content_group: Ingest real-time financial websocket data
 import CreateAndConnect from "versionContent/_partials/_cloud-create-connect-tutorials.mdx";
 import CreateHypertable from "versionContent/_partials/_create-hypertable-twelvedata-stocks.mdx";
 import CreateHypertableStocks from "versionContent/_partials/_create-hypertable-twelvedata-stocks.mdx";
+import GrafanaConnect from "versionContent/_partials/_grafana-connect.mdx";
 
 # Set up the database
 

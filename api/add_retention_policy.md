@@ -40,6 +40,7 @@ integer type (this requires the [integer_now_func][set_integer_now_func] to be s
 |Name|Type|Description|
 |-|-|-|
 |`if_not_exists`|BOOLEAN|Set to `true` to avoid an error if the `drop_chunks_policy` already exists. A notice is issued instead. Defaults to `false`.|
+|`drop_created_before`|INTERVAL|Chunks with creation time older than this cut-off point are dropped. The cut-off point is computed as `now() - drop_created_before`. Defaults to `NULL`. Not supported for continuous aggregates yet.|
 
 ### Returns
 
@@ -52,14 +53,25 @@ integer type (this requires the [integer_now_func][set_integer_now_func] to be s
 Create a data retention policy to discard chunks greater than 6 months old:
 
 ```sql
-SELECT add_retention_policy('conditions', INTERVAL '6 months');
+SELECT add_retention_policy('conditions', drop_after => INTERVAL '6 months');
 ```
 
 Create a data retention policy with an integer-based time column:
 
 ```sql
-SELECT add_retention_policy('conditions', BIGINT '600000');
+SELECT add_retention_policy('conditions', drop_after => BIGINT '600000');
 ```
+
+Create a data retention policy to discard chunks created before 6 months:
+
+```sql
+SELECT add_retention_policy('conditions', drop_created_before => INTERVAL '6 months');
+```
+
+Note above that when `drop_after` is used then the time data range
+present in the partitioning time column is used to select the target
+chunks. Whereas, when `drop_created_before` is used then the chunks
+which were created 3 months ago are selected.
 
 [drop_chunks]: /api/:currentVersion:/hypertable/drop_chunks/
 [set_integer_now_func]: /api/:currentVersion:/hypertable/set_integer_now_func/

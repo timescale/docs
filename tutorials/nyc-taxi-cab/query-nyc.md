@@ -126,13 +126,13 @@ shows you the nuber of trips taken for each different fare type. It also uses a
     ```sql
      rate_code | num_trips
     -----------+-----------
-             1 |  10626315
-             2 |    225019
-             3 |     16822
-             4 |      4696
-             5 |     33688
-             6 |       102
-            99 |       216
+             1 |   2266401
+             2 |     54832
+             3 |      4126
+             4 |       967
+             5 |      7193
+             6 |        17
+            99 |        42
     ```
 
 </Procedure>

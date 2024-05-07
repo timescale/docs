@@ -1,41 +1,69 @@
 ---
-title: Data tiering
-excerpt: Save on storage costs by tiering older data to separate storage
+title: Tiered Storage
+excerpt: Save on storage costs by tiering older data to a low-cost bottomless object storage tier
 products: [cloud]
-keywords: [data tiering]
+keywords: [tiered storage]
 tags: [storage, data management]
 ---
 
-# Data tiering
-Data Tiering provides a cost-effective way to store data that is rarely accessed and allows you to keep on scaling past the 16 TB limit. 
+# Tiered storage
 
-Your data is always there and can be [queried when needed][querying-tiered-data].
+Tiered storage is Timescale's [hierarchical storage management architecture](https://en.wikipedia.org/wiki/Hierarchical_storage_management). 
+Engineered for infinite low-cost scalability, tiered storage is available for the 
+[Time series and analytics](https://www.timescale.com/products) instances you create in 
+[Timescale](https://console.cloud.timescale.com/).
+
+Tiered storage consists of the:
+* **High-performance tier**: rapid access to the most recent, and frequently accessed data.
+
+* **Object storage tier**: store data that is rarely accessed and has lower performance requirements.
+  For example, to save old data for auditing or reporting purposes over long periods of time, even forever.
+  The Object store is low-cost bottomless data storage built on Amazon S3. You use it to avoid the
+  higher costs and data size limitations associated with the high-performance tier. 
+
+No matter the tier your data is stored in, [query it when you need it][querying-tiered-data]. 
+Timescale seamlessly accesses the correct storage tier and generates the response.
+
+<img
+class="main-content__illustration"
+src="https://assets.timescale.com/docs/images/timescale-tiered-storage-architecture.png"
+width={1228} height={688}
+alt="Timescale Tiered Storage architecture"
+/>
 
 <!-- vale Google.SmartQuotes = NO -->
 
-Data Tiering’s focus on simplicity allows for seamless tiering through easy to set up policies;
-no need to implement and maintain custom-built, bespoke solutions to offload data to secondary storage
-or fetch it back in case they are needed for analysis.
-And if you have or want to not keep very old data around, you can also add retention policies over tiered data as well.
+You use the API to [define tiering policies][creating-data-tiering-policy] that automatically migrate 
+data from the high-performance storage tier to the object store as it ages. You use 
+[retention policies][add-retention-policies] to remove very old data from the object store.
+
+With tiered storage you don't need an ETL process, infrastructure changes, or custom-built, bespoke 
+solutions to offload data to secondary storage and fetch it back in when needed. Kick back and relax, 
+we do the work for you. 
+
+<Highlight type="info">
+Tiered storage is only available for the [Time series and analytics](https://www.timescale.com/products)
+instances you create in [Timescale](https://console.cloud.timescale.com/). 
+Tiered storage **DOES NOT** work on Self-hosted TimescaleDB or Managed Service for TimescaleDB.  
+</Highlight>
 
 <!-- vale Google.SmartQuotes = YES -->
 
-<Highlight type="info">
-Data Tiering is available only on Timescale Cloud, and is not supported on self-hosted instances.  
-</Highlight>
-
-In this section: 
-* [Learn about data tiering][about-data-tiering] before you start using it.
-* [Learn how to enable data tiering][enabling-data-tiering] on your instance.
-*   Manually [tier chunks][manual-tier-chunk] to schedule individual chunks to be tiered.
-*  Create a [Data Tiering Policy][creating-data-tiering-policy] to automatically schedule chunks to be tiered.
+In this section you can:
+* [Learn about the object storage tier][about-data-tiering] before you start using tiered storage.
+* Take a [tour of tiered storage features][tour-data-tiering].
+* [Learn how to enable the object storage tier][enabling-data-tiering] on your service.
+* Manually [tier chunks][manual-tier-chunk] to schedule individual chunks to be tiered.
+* Create a [Tiering Policy][creating-data-tiering-policy] to automatically schedule chunks to be tiered.
 * [Learn how to query tiered data][querying-tiered-data].
-*   Manually [untier chunks][untier-data] to move data back to local storage.
+* Manually [untier chunks][untier-data] to move data back to the high-performance local storage tier.
 
 
 [about-data-tiering]: /use-timescale/:currentVersion:/data-tiering/about-data-tiering/
+[tour-data-tiering]: /use-timescale/:currentVersion:/data-tiering/tour-data-tiering/
 [enabling-data-tiering]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/
 [manual-tier-chunk]: /use-timescale/:currentVersion:/data-tiering/manual-tier-chunk/
 [creating-data-tiering-policy]: /use-timescale/:currentVersion:/data-tiering/creating-data-tiering-policy/
 [querying-tiered-data]: /use-timescale/:currentVersion:/data-tiering/querying-tiered-data/
 [untier-data]: /use-timescale/:currentVersion:/data-tiering/untier-data/
+[add-retention-policies]: /api/:currentVersion:/continuous-aggregates/add_policies/

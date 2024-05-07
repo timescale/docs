@@ -1,5 +1,5 @@
 ---
-title: Timescale services
+title: Create your first Timescale service
 excerpt: Sign up for Timescale and create your first service
 products: [cloud]
 layout_components: [next_prev_large]
@@ -11,64 +11,51 @@ import CreateService from "versionContent/_partials/_cloud-create-service.mdx";
 import Connect from "versionContent/_partials/_cloud-connect.mdx";
 import CloudIntro from "versionContent/_partials/_cloud-intro.mdx";
 
-# Timescale services
+# Create your first Timescale service
 
-<CloudIntro />
+You use Timescale Console to create and manage Timescale services. Each service is a single 100% PostgreSQL database with usage-based storage.
 
-In the Timescale console, you create a service to house your Timescale
-database. Each service contains a single database. If you need more
-databases, you can create additional services for each.
+Timescale offers the following PostgreSQL service types:
 
-When you create a new service, a new `tsdbadmin` user is created. This is your
-administration user that you can connect to your database with.
+- [**Time-series and Analytics**](https://www.timescale.com/blog/what-is-a-time-series-database/#what-is-a-time-series-database): a Timescale DB instance optimized for your time-series and analytics workloads.
+- **All other workloads**: a [Dynamic PostgreSQL](https://www.timescale.com/dynamic-postgresql) instance with a Dynamic Compute range aligned to your business needs. For this Early Access product, you only pay the base. If your workload demands it, we dynamically scale CPU use between your min and max limits.
+  
 
-The Timescale Service Explorer shows you all the information about your service,
-including the tables you have created, how much data has been ingested, and
-additional information like compression, policies, and continuous aggregates.
 
-When you have your service up and running, you can use a tool like `psql` to
-connect to it from the command prompt on your local machine. You can then use
-`psql` to create tables and add data directly into your database.
 
-In this section, you sign up for a Timescale account, create a service, and
-connect to it from your local machine using `psql`. Don't forget to download the
-cheat sheet when you create your service, it contains important information that
-you need later on.
-
-For more information, see
-[the services section][services-how-to].
-
-<Collapsible heading="Create your Timescale account" defaultExpanded={false}>
-
-Before you can create your first service, you need to sign up for a free
-Timescale account.
+This section shows you how to create a Timescale service using Timescale Console, then connect to your service using PopSQL or the command line.
 
 <Install />
 
-</Collapsible>
+<Procedure>
 
-<Collapsible heading="Create your first service" defaultExpanded={false}>
+### Create a Timescale service
 
-Create a service to use for the tasks in this guide. A service in Timescale is a
-cloud instance which contains your database. You can use the default values when
-you create your service, which sets up a single database, named `tsdb`.
+Now that you have an active Timescale account, you can create and manage your services in Timescale Console:
 
-<CreateService demoData={false} />
+1. In the [service creation page][create-service],
+   choose **Time Series and Analytics** or **Dynamic PostgreSQL**.
+2. Configure your service, then click **Create service**.
+3. In the **Service Information** page:
+    1. Click **Download the config** and store your configuration information in a secure location.
 
-</Collapsible>
+       This page contains all you need to connect to your service. Spoiler alert, you need the config page to complete this Get Started process.
 
-## Connect to your service
+    1. Either:
+        - Follow the instructions and connect to your service.
+        - Click **I stored my password, go to service overview**.
 
-When you have a service up and running, you can connect to it from your local
-system using the `psql` command-line utility. If you've used PostgreSQL before,
-you might already have `psql` installed. If not, check out the
-[installing psql][install-psql] section.
+If you choose to go to the service overview, [Check your service and connect to it][connect-to-your-service] shows you how to connect.
 
-<Collapsible heading="Connecting to your service" headingLevel={3}>
+</Procedure> 
 
 <Connect />
 
-</Collapsible>
+And that is it, you are up and running. Enjoy developing with Timescale.
 
+[tsc-portal]: https://console.cloud.timescale.com/
 [services-how-to]: /use-timescale/:currentVersion:/services/
 [install-psql]: /use-timescale/:currentVersion:/integrations/query-admin/psql/
+[connect-to-your-service]: /getting-started/:currentVersion:/services/#check-your-service-and-connect-to-it
+[create-service]: https://console.cloud.timescale.com/dashboard/create_services
+[popsql]: /use-timescale/:currentVersion:/popsql/

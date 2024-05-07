@@ -19,11 +19,9 @@ TimescaleDB. This section contains instructions to:
     [directly using a message queue](#insert-data-directly-using-a-message-queue),
     such as Kafka
 
-<Highlight type="note">
 Before you begin, make sure you have
-[created your Managed Service for TimescaleDB service](/mst/latest/create-a-service/),
+[created your Managed Service for TimescaleDB service][create-managed-service],
 and can connect to it using `psql`.
-</Highlight>
 
 <Procedure>
 
@@ -67,8 +65,12 @@ and can connect to it using `psql`.
 1.  Convert the SQL table into a hypertable:
 
     ```sql
-    SELECT create_hypertable('conditions', 'time');
+    SELECT create_hypertable('conditions', by_range('time'));
     ```
+
+	<Highlight type="note">
+	The `by_range` dimension builder is an addition to TimescaleDB 2.13.
+	</Highlight>
 
 </Procedure>
 
@@ -154,3 +156,4 @@ See [these instructions][gh-kafkaconnector] for using the Kafka connector.
 [gh-kafkaconnector]: https://github.com/debezium/debezium/tree/master/debezium-connector-postgres
 [github-parallel-copy]: https://github.com/timescale/timescaledb-parallel-copy
 [postgres-odbc]: https://odbc.postgresql.org/
+[create-managed-service]: /mst/:currentVersion:/installation-mst/

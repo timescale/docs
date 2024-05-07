@@ -11,6 +11,7 @@ import MinimalDowntime from "versionContent/_partials/_migrate_pg_dump_minimal_d
 import SetupSourceTarget from "versionContent/_partials/_migrate_set_up_source_and_target.mdx";
 import SourceTargetNote from "versionContent/_partials/_migrate_source_target_note.mdx";
 import ExplainPgDumpFlags from "versionContent/_partials/_migrate_explain_pg_dump_flags.mdx";
+import DumpDatabaseRoles from "versionContent/_partials/_migrate_dual_write_dump_database_roles.mdx";
 
 # Migrate from PostgreSQL using pg_dump/restore
 
@@ -43,22 +44,17 @@ Before you begin, ensure that you have:
 - Checked that the version of PostgreSQL in your target database is greater
   than or equal to that of the source database.
 
-[Created a database service in Timescale]: /use-timescale/:currentVersion:/services/create-a-service/
+[Created a database service in Timescale]: /getting-started/:currentVersion:/services/
 [list of compatible extensions]: /use-timescale/:currentVersion:/extensions/
 
 ## Dump the source database
 
+<SetupSourceTarget />
+
 Dump the roles from the source database (only necessary if you're using roles
 other than the default `postgres` role in your database):
 
-```bash
-pg_dumpall -d "$SOURCE" \
-  --quote-all-identifiers \
-  --roles-only \
-  --file=roles.sql
-```
-
-<SetupSourceTarget />
+<DumpDatabaseRoles />
 
 Dump the source database schema and data:
 

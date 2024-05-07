@@ -1,5 +1,5 @@
 ---
-title: Getting started with Timescale
+title: Get started with Timescale
 excerpt: Getting started with your first Timescale instance
 products: [cloud]
 layout_components: [next_prev_large]
@@ -13,30 +13,22 @@ import CloudIntro from "versionContent/_partials/_cloud-intro.mdx";
 import TimescaleIntro from "versionContent/_partials/_timescale-intro.mdx";
 import WhereNext from "versionContent/_partials/_where-to-next.mdx";
 
-# Getting started with Timescale
-
-<TimescaleIntro />
-
-This guide shows you how to get started with a time-series database in
-Timescale. It steps you through creating your first Timescale service, adding
-some sample financial data to your database, helps you construct some queries to
-find out some interesting things about your data, and start using useful
-functions like continuous aggregates.
+# Get started with Timescale
 
 <CloudIntro />
 
-Completing this guide should take you less than half an hour. As you go through
-the guide, you learn how to:
+Each database instance in Timescale is called a service.
 
-1.  [Create your first Timescale service][services-create]
-1.  [Connect to your service][services-connect]
+This section shows you how to:
+
+1.  [Create and connect to a Timescale service][services-create]
 1.  [Ingest some real financial data into your database][ingest-data]
 1.  [Construct some interesting queries][queries] <FeaturedCTA href="/getting-started/latest/queries/#try-it-out-code-block-1" data-tracking="cta-try-out-queries">Try out some <b>live queries</b></FeaturedCTA>
 1.  [Create and query a continuous aggregates][caggs]
 
-When you have finished this guide, you might want to check out some
-[more advanced tutorials][tutorials], or browse through
-[the other guides][use-timescale].
+Already know the basics? See the
+[more advanced tutorials][tutorials], or see how to
+[Use Timescale][use-timescale].
 
 [tutorials]: /tutorials/:currentVersion:/
 [use-timescale]: /use-timescale/:currentVersion:/

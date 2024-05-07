@@ -5,11 +5,13 @@ products: [self_hosted]
 keywords: [installation]
 ---
 
-import TimescaleIntro from "versionContent/_partials/_timescale-intro.mdx";
+import TimescaleDB from "versionContent/_partials/_timescaledb.mdx";
+import CTA from "versionContent/_partials/_selfhosted_cta.mdx";
 
 # Install TimescaleDB
 
-<TimescaleIntro />
+<TimescaleDB />
+<CTA />
 
 You can install self-hosted TimescaleDB for free from
 [source][self-hosted-source], or a [pre-built container][self-hosted-container].

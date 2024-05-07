@@ -25,6 +25,31 @@ module.exports = [
         ]
       },
       {
+        title: "Low-downtime: Live migration",
+        href: "live-migration",
+        excerpt: "Migrate a large database with low downtime",
+        children: [
+          {
+            title: "Live migration from PostgreSQL",
+            href: "live-migration-from-postgres",
+            excerpt:
+                "Migrate from PostgreSQL using live migration",
+          },
+          {
+            title: "Live migration from TimescaleDB",
+            href: "live-migration-from-timescaledb",
+            excerpt:
+                "Migrate from TimescaleDB using live migration",
+          },
+          {
+            title: "Frequently Asked Questions",
+            href: "live-migration-faq",
+            excerpt:
+                "Frequently Asked Questions",
+          },
+        ],
+      },
+      {
         title: "Low-downtime: Dual-write and backfill",
         href: "dual-write-and-backfill",
         excerpt: "Migrate a large database with low downtime",
@@ -52,6 +77,31 @@ module.exports = [
             href: "timescaledb-backfill",
             excerpt:
                 "A tool for backfilling data as part of data migration",
+          },
+        ],
+      },
+      {
+        title: "Playbooks",
+        href: "playbooks",
+        excerpt: "Step-by-step migration playbook to Timescale",
+        children: [
+          {
+            title: "From AWS RDS using pg_dump",
+            href: "rds-timescale-pg-dump",
+            excerpt:
+                "Migrate from RDS to Timescale using pg_dump",
+          },
+          {
+            title: "From AWS RDS using live migration",
+            href: "rds-timescale-live-migration",
+            excerpt:
+                "Migrate from RDS to Timescale using live migration",
+          },
+          {
+            title: "Multi-node to Timescale",
+            href: "multi-node-to-timescale-service",
+            excerpt:
+                "Migrate an entire multi-node deployment to Timescale",
           },
         ],
       },
