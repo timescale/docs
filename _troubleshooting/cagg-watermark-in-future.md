@@ -74,19 +74,30 @@ window.
     continuous aggregate data:
 
     ```sql
-    SELECT id from _timescaledb_catalog.hypertable
+    SELECT id FROM _timescaledb_catalog.hypertable
         WHERE table_name=(
             SELECT materialization_hypertable_name
                 FROM timescaledb_information.continuous_aggregates
-                WHERE view_name='<continuous_aggregate_name'
+                WHERE view_name='<continuous_aggregate_name>'
         );
     ```
 
 1.  Use the returned ID to query for the watermark's timestamp:
 
+    For TimescaleDB >= 2.12:
+
     ```sql
     SELECT COALESCE(
         _timescaledb_functions.to_timestamp(_timescaledb_functions.cagg_watermark(<ID>)),
+        '-infinity'::timestamp with time zone
+    );
+    ```
+
+    For TimescaleDB < 2.12:
+
+    ```sql
+    SELECT COALESCE(
+        _timescaledb_internal.to_timestamp(_timescaledb_internal.cagg_watermark(<ID>)),
         '-infinity'::timestamp with time zone
     );
     ```

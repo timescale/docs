@@ -14,13 +14,14 @@ databases, consider [migrating your schema and data
 separately][migrate-separately].
 
 <Highlight type="warning">
+
 Depending on your database size and network speed, migration can take a very
 long time. You can continue reading from your source database during this time,
 though performance could be slower. To avoid this problem, fork your database
 and migrate your data from the fork. If you write to tables in your source
 database during the migration, the new writes might not be transferred to
-Timescale. To avoid this problem, see the section on [migrating an active
-database](/use-timescale/latest/migrate-db/).
+Timescale. To avoid this problem, see [Live migration][live-migration].
+
 </Highlight>
 
 ## Prerequisites
@@ -121,3 +122,4 @@ information about compression and decompression, see the
 [timescaledb_post_restore]: /api/:currentVersion:/administration/timescaledb_post_restore/
 [upgrading-postgresql-self-hosted]: /self-hosted/:currentVersion:/upgrades/upgrade-pg/
 [upgrading-timescaledb]: /self-hosted/:currentVersion:/upgrades/major-upgrade/
+[live-migration]: /migrate/:currentVersion:/live-migration/

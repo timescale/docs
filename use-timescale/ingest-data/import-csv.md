@@ -40,7 +40,7 @@ Import data from a `csv`.
 
 1.  Connect to your database and create a new empty table. Use a schema that
     matches the data in your `.csv` file. In this example, the `.csv` file
-    contains the columns `time`, `location`, and `temperature`.
+    contains the columns `ts`, `location`, and `temperature`.
 
     ```sql
     CREATE TABLE <TABLE_NAME> (
@@ -55,7 +55,7 @@ Import data from a `csv`.
     name of the column storing time values in your table.
 
     ```sql
-    SELECT create_hypertable('<TABLE_NAME>', 'ts')
+    SELECT create_hypertable('<TABLE_NAME>', by_range('ts'))
     ```
 
 1.  At the command line, insert data into the hypertable from your `csv`. Use

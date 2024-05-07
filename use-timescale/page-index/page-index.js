@@ -23,9 +23,9 @@ module.exports = [
             excerpt: "Timescale services overview",
           },
           {
-            title: "Create a Timescale service",
-            href: "create-a-service",
-            excerpt: "Timescale services",
+            title: "Dynamic PostgreSQL",
+            href: "dynamic-postgresql",
+            excerpt: "Dynamic PostgreSQL overview",
           },
           {
             title: "Service explorer",
@@ -65,6 +65,11 @@ module.exports = [
             title: "Members list",
             href: "members-list",
             excerpt: "Timescale members list",
+          },
+          {
+            title: "Project Ownership",
+            href: "project-ownership",
+            excerpt: "Timescale project ownership",
           },
         ],
       },
@@ -128,6 +133,11 @@ module.exports = [
             type: "placeholder",
           },
         ],
+      },
+      {
+        title: "PopSQL",
+        href: "popsql",
+        excerpt: "Run SQL queries, create charts and dashboards, and collaborate with teammates",
       },
       {
         title: "Time buckets",
@@ -251,7 +261,22 @@ module.exports = [
           {
             title: "About compression",
             href: "about-compression",
-            excerpt: "Compress data chunks",
+            excerpt: "Learn about how compression works",
+          },
+          {
+            title: "Compression design",
+            href: "compression-design",
+            excerpt: "The design of TimescaleDB compression",
+          },
+          {
+            title: "About compression methods",
+            href: "compression-methods",
+            excerpt: "Learn about the different compression methods",
+          },
+          {
+            title: "Enable a compression policy",
+            href: "compression-policy",
+            excerpt: "Create a compression policy on a hypertable",
           },
           {
             title: "Manual compression",
@@ -456,25 +481,61 @@ module.exports = [
         ],
       },
       {
-        title: "Data tiering",
+        title: "Tiered Storage",
         href: "data-tiering",
-        excerpt: "Tier older data to save storage costs",
+        excerpt: "Save on storage costs by tiering older data to a low-cost bottomless object storage tier",
         children: [
           {
-            title: "About data tiering",
+            title: "About the object storage tier",
             href: "about-data-tiering",
             excerpt:
-              "Save on storage costs by tiering older data to separate storage",
+              "Learn how the object storage tier helps you save on storage costs",
           },
           {
-            title: "Tier data",
-            href: "tier-data-object-storage",
-            excerpt: "How to tier Timescale data to object storage",
+            title: "Tour of tiered storage",
+            href: "tour-data-tiering",
+            excerpt:
+               "A quick tour of tiered storage",
           },
           {
-            title: "Untier data",
+            title: "Enabling the object storage tier",
+            href: "enabling-data-tiering",
+            excerpt:
+                "How to enable the object storage tier",
+          },
+          {
+            title: "Manually tier data",
+            href: "manual-tier-chunk",
+            excerpt:
+                "How to manually tier data to the object storage tier",
+          },
+          {
+            title: "Creating tiering policies",
+            href: "creating-data-tiering-policy",
+            excerpt:
+                "How to create a tiering policy",
+          },
+          {
+            title: "Querying tiered data",
+            href: "querying-tiered-data",
+            excerpt:
+                "How to query tiered data",
+          },
+          {
+            title: "Manually untier data",
             href: "untier-data",
-            excerpt: "How to untier Timescale data",
+            excerpt: "How to manualy untier data from the object storage tier",
+          },
+          {
+            title: "Replicas and forks with tiered data",
+            href: "tiered-data-replicas-forks",
+            excerpt:
+                "How tiered data works on replicas and forks",
+          },
+          {
+            title: "Troubleshooting",
+            href: "troubleshooting",
+            type: "placeholder",
           },
         ],
       },
@@ -622,6 +683,11 @@ module.exports = [
             excerpt: "Timescale services logs",
           },
           {
+            title: "Insights",
+            href: "insights",
+            excerpt: "Query-level performance insights",
+          },
+          {
             title: "Export to a monitoring service",
             href: "integrations",
             excerpt:
@@ -680,9 +746,20 @@ module.exports = [
         ]
       },
       {
-        title: "Backup and restore",
-        href: "backup-restore-cloud",
-        excerpt: "Timescale backup and restore",
+        title: "Backup, restore, and PITR",
+        href: "backup-restore",
+        children: [
+          {
+            title: "Backup and restore",
+            href: "backup-restore-cloud",
+            excerpt: "Timescale backup and restore",
+          },
+          {
+            title: "Point-in-time recovery",
+            href: "point-in-time-recovery",
+            excerpt: "PITR on Timescale services"
+          }
+        ]
       },
       {
         title: "User-defined actions",
@@ -723,11 +800,6 @@ module.exports = [
             title: "Use an action for downsampling and compression",
             href: "example-downsample-and-compress",
             excerpt: "Example user-defined action for downsample and compress",
-          },
-          {
-            title: "Use an action to backfill data periodically",
-            href: "example-backfill",
-            excerpt: "Example user-defined action for scheduled backfills",
           },
           {
             title: "Troubleshooting",
@@ -786,6 +858,19 @@ module.exports = [
                   title: "Troubleshooting Timescale connections",
                   href: "troubleshooting",
                   type: "placeholder",
+                },
+              ]
+          },
+          {
+            title: "Configuration and deployment",
+            href: "config-deploy",
+            excerpt: "Integrate your Timescale account with third-party configuration and deployment solutions",
+            children:
+              [
+                {
+                  title: "Terraform",
+                  href: "terraform",
+                  excerpt: "Manage your Timescale services via Terraform",
                 },
               ]
           },
@@ -849,6 +934,11 @@ module.exports = [
             title: "Security overview",
             href: "overview",
             excerpt: "Get an overview of Timescale security",
+          },
+          {
+            title: "SAML authentication",
+            href: "saml",
+            excerpt: "SAML / SSO authentication for your Timescale account",
           },
           {
             title: "Multi-factor Authentication",

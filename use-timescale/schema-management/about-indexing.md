@@ -8,9 +8,11 @@ keywords: [schemas, indexes]
 # Indexing data
 
 Because looking up data can take a long time, especially if you have a lot of
-data in your hypertable, you can use an index to speed up read operations. You
-can create an index on any combination of columns, as long as you include the
-`time` column, for time-series data. Which column you choose to create your
+data in your hypertable, you can use an index to speed up read operations from
+non-compressed chunks (which use their [own columnar indexes][about-compression]).
+
+You can create an index on any combination of columns, as long as you include 
+the `time` column, for time-series data. Which column you choose to create your
 index on depends on what kind of data you have stored.
 When you create a hypertable, set the datatype for the `time` column as
 `timestamptz` and not `timestamp`.
@@ -125,3 +127,4 @@ This is an accurate query for this index. It narrows down the list to a very
 specific portion.
 
 [postgresql-timestamp]: https://wiki.postgresql.org/wiki/Don't_Do_This#Don.27t_use_timestamp_.28without_time_zone.29
+[about-compression]: /use-timescale/:currentVersion:/compression/about-compression

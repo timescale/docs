@@ -1,13 +1,13 @@
 ---
 title: Manual compression
-excerpt: Manually compress a hypertable
+excerpt: Learn how to manually compress a hypertable
 products: [self_hosted]
 keywords: [compression, hypertables]
 ---
 
 # Manually compress chunks
 
-In most cases, an [automated compression policy][add_compression_policy] is sufficient. However, if you
+In most cases, an [automated compression policy][add_compression_policy] is sufficient to manually compress your chunks. However, if you
 want more control over compression, you can also manually compress specific
 chunks.
 
@@ -29,7 +29,7 @@ use a hypertable called `example`, and compress chunks older than three days.
     SELECT show_chunks('example', older_than => INTERVAL '3 days');
     ```
 
-1.  This returns a list of chunks. Take a note of the chunk names:
+1.  This returns a list of chunks. Take note of the chunks' names:
 
     ```sql
     ||show_chunks|
@@ -100,21 +100,30 @@ uncompressed chunks in your data, you can roll them up into a single compressed
 chunk.
 
 To roll up your uncompressed chunks into a compressed chunk, alter the compression
-settings to set the compress chunk time interval, and run compression operations
+settings to set the compress chunk time interval and run compression operations
 to roll up the chunks while compressing.
 
-```sql
-ALTER TABLE example SET (timescaledb.compress_chunk_time_interval = '<time_interval>');
-SELECT compress_chunk(c, if_not_compressed => true)
-    FROM show_chunks(
-        'example',
-        now()::timestamp - INTERVAL '1 week'
-    ) c;
-```
+<Highlight type="note">
+The default setting of `compress_orderby` is `'time DESC'` (the descending or DESC command is used to sort the data returned in ascending order), which causes chunks to be re-compressed
+many times during the rollup, possibly leading to a steep performance penalty. 
+Set `timescaledb.compress_orderby = 'time ASC'` to avoid this penalty.
+</Highlight>
+
+
+
+    ```sql
+    ALTER TABLE example SET (timescaledb.compress_chunk_time_interval = '<time_interval>',
+                             timescaledb.compress_orderby = 'time ASC');
+    SELECT compress_chunk(c, if_not_compressed => true)
+        FROM show_chunks(
+            'example',
+            now()::timestamp - INTERVAL '1 week'
+        ) c;
+    ```
 
 The time interval you choose must be a multiple of the uncompressed chunk
 interval. For example, if your uncompressed chunk interval is one week, your
-`<time_interval>` of the compressed chunk could be two weeks, or six weeks, but
+`<time_interval>` of the compressed chunk could be two weeks or six weeks, but
 not one month.
 
 [add_compression_policy]: /api/:currentVersion:/compression/add_compression_policy/

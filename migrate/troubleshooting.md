@@ -86,7 +86,7 @@ WHERE id >= 1000;
 
 ## Restoring with concurrency
 
-If the directory format is used for pg_dump and pg_restore, concurrency can be
+If the directory format is used for `pg_dump` and `pg_restore`, concurrency can be
 employed to speed up the process. Unfortunately, loading the tables in the 
 `timescaledb_catalog` schema concurrently causes errors. Furthermore, the
 `tsdbadmin` user does not have sufficient privileges to turn off triggers in
@@ -125,9 +125,9 @@ policies, and continuous aggregate refresh policies. On Timescale, this table
 has a trigger which ensures that no database user can create or modify jobs
 owned by another database user. This trigger can provide an obstacle for migrations.
 
-If the `--no-owner` flag is used with pg_dump and pg_restore, all objects in
-the target database are owned by the user that ran pg_restore, likely
-`tsdbadmin`.
+If the `--no-owner` flag is used with `pg_dump` and `pg_restore`, all
+objects in the target database are owned by the user that ran
+`pg_restore`, likely `tsdbadmin`.
 
 If all the background jobs in the source database were owned by a user of the
 same name as the user running the restore (again likely `tsdbadmin`), then
@@ -138,13 +138,13 @@ are be automatically changed to be owned by the `tsdbadmin` user. In this case,
 one just needs to verify that the jobs do not make use of privileges that the
 `tsdbadmin` user does not possess.
 
-If background jobs are owned by one or more users other than the user employed 
-in restoring, then there could be issues. To work around this issue, do not dump
-this table with `pg_dump`. Provide either
-`--exclude-table-data='_timescaledb_config.bgw_job'` or 
-`--exclude-table='_timescaledb_config.bgw_job'` to pg_dump to skip this table.
-Then, use psql and the COPY command to dump and restore this table with modified
-values for the `owner` column.
+If background jobs are owned by one or more users other than the user
+employed in restoring, then there could be issues. To work around this
+issue, do not dump this table with `pg_dump`. Provide either
+`--exclude-table-data='_timescaledb_config.bgw_job'` or
+`--exclude-table='_timescaledb_config.bgw_job'` to `pg_dump` to skip
+this table.  Then, use `psql` and the `COPY` command to dump and
+restore this table with modified values for the `owner` column.
 
 ```bash
 # dump the _timescaledb_config.bgw_job table to a csv file replacing the owner 
@@ -204,9 +204,10 @@ particular details of the source schema and the migration approach chosen.
 
 ## Tablespaces
 
-Timescale does not support using custom tablespaces. Providing the 
-`--no-tablespaces` flag to pg_dump and pg_restore when dumping/restoring the
-schema results in all objects being in the default tablespace as desired.
+Timescale does not support using custom tablespaces. Providing the
+`--no-tablespaces` flag to `pg_dump` and `pg_restore` when
+dumping/restoring the schema results in all objects being in the
+default tablespace as desired.
 
 ## Only one database per instance
 
@@ -217,6 +218,32 @@ Timescale instance or "merge" source databases to target schemas.
 
 ## Superuser privileges
 
-The tsdbadmin database user is the most powerful available on Timescale, but it
+The `tsdbadmin` database user is the most powerful available on Timescale, but it
 is not a true superuser. Review your application for use of superuser privileged
 operations and mitigate before migrating.
+
+## Migrate partial continuous aggregates
+
+In order to improve the performance and compatibility of continuous aggregates, 
+[TimescaleDB v2.7][release-270] replaces _partial_ continuous aggregates with 
+_finalized_ continuous aggregates.
+
+To test your database for partial continuous aggregates, run the following query:
+
+```SQL
+SELECT exists (SELECT 1 FROM timescaledb_information.continuous_aggregates WHERE NOT finalized);
+```
+
+If you have partial continuous aggregates in your database, [migrate them][migrate] 
+from partial to finalized before you migrate your database.
+
+If you accidentally migrate partial continuous aggregates across PostgreSQL
+versions, you see the following error when you query any continuous aggregates:
+
+```
+ERROR:  insufficient data left in message.
+```
+
+[migrate]: /migrate/:currentVersion:/live-migration/
+[release-270]: /about/:currentVersion:/release-notes/past-releases/#270-2022-05-24
+

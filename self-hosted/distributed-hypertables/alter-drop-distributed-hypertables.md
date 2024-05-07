@@ -6,6 +6,10 @@ keywords: [distributed hypertables, alter, delete]
 tags: [change, delete]
 ---
 
+import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";
+
+<MultiNodeDeprecation />
+
 # Alter and drop distributed hypertables
 
 You can alter and drop distributed hypertables in the same way as standard

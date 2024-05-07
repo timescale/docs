@@ -1,12 +1,16 @@
 ---
 api_name: set_number_partitions()
-excerpt: Set the number of space partitions for a hypertable
+excerpt: Set the number of hash partitions for a hypertable
 topics: [distributed hypertables, hypertables]
 keywords: [hypertables, partitions]
 api:
   license: community
   type: function
 ---
+
+import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";
+
+<MultiNodeDeprecation />
 
 # set_number_partitions() <Tag type="community">Community</Tag>
 

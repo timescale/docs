@@ -9,6 +9,10 @@ api:
   type: function
 ---
 
+import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";
+
+<MultiNodeDeprecation />
+
 # add_data_node() <Tag type="community">Community</Tag>
 
 Add a new data node on the access node to be used by distributed
@@ -102,7 +106,7 @@ TimescaleDB extension on the data node unless it is already installed.
 ### Sample usage
 
 If you have an existing hypertable `conditions` and want to use `time`
-as the time partitioning column and `location` as the space partitioning
+as the range partitioning column and `location` as the hash partitioning
 column. You also want to distribute the chunks of the hypertable on two
 data nodes `dn1.example.com` and `dn2.example.com`:
 

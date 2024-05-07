@@ -5,6 +5,10 @@ products: [self_hosted]
 keywords: [distributed hypertables, multi-node]
 ---
 
+import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";
+
+<MultiNodeDeprecation />
+
 # Distributed hypertables
 
 Distributed hypertables are hypertables that span multiple nodes. With

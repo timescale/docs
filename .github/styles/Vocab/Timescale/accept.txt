@@ -2,8 +2,11 @@
 Aiven
 Alertmanager
 API
+Anthropic
+async
 [Aa]utoscal(?:e|ing)
 [Bb]ackfill(?:ing)?
+cron
 csv
 https?
 (?i)bigint
@@ -52,6 +55,7 @@ Indri
 [Ii]nserter
 [Ii]ntraday
 [Iin]validation
+ivfflat
 jpg
 JDBC
 JDK
@@ -60,6 +64,9 @@ Kafka
 Kaggle
 Kinesis
 [Ll]ambda
+LangChain
+LlamaIndex
+LLMs
 [Ll]ookups?
 loopback
 [Mm]atchers?
@@ -79,6 +86,7 @@ Paulo
 [Pp]erformant
 pg_dump
 pg_restore
+[Pp]gvector
 [Pp]laintext
 Plotly
 pre
@@ -138,6 +146,7 @@ SkipScan
 (?i)timestamptz
 URLs?
 URIs?
+UUID
 versionContent
 [Vv]irtualenv
 WAL

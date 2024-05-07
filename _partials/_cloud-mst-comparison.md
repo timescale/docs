@@ -3,9 +3,10 @@
   header="Timescale or Managed Service for TimescaleDB?"
 >
 
-Looking for instructions to start using Timescale? Built and exclusively operated by
-Timescale, Timescale is a PostgreSQL data platform for time-series, events and
-analytics. You can find Timescale documentation under the
-[Use Timescale section](https://docs.timescale.com/use-timescale/latest/).
+If you have a requirement to use Timescale on GCP or Azure, you're in the right 
+place—keep reading. 
+
+If you want Timescale on AWS using Timescale's own PostgreSQL database cloud, 
+start with the [Use Timescale section](https://docs.timescale.com/use-timescale/latest/).
 
 </Highlight>
