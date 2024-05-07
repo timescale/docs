@@ -47,10 +47,10 @@ refresh window as an `INTEGER` type.
 <Highlight type="note">
 A `NULL` value for `window_start` is equivalent to the lowest changed element
 in the raw hypertable of the CAgg. A `NULL` value for `window_end` is
-equivalent to the largest changed element in raw hypertable of the CAgg. Since
-tracking of changed elements is only performed after the initial refresh of
-the CAgg is done, the initial refresh of the CAgg without `window_start` and
-`window_end` covers the entire time range.
+equivalent to the largest changed element in raw hypertable of the CAgg. As 
+changed element tracking is performed after the initial CAgg refresh, running 
+CAgg refresh without `window_start` and `window_end` covers the entire time 
+range.
 </Highlight>
 
 <Highlight type="warning">
