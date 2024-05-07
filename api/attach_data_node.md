@@ -9,6 +9,10 @@ api:
   type: function
 ---
 
+import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";
+
+<MultiNodeDeprecation />
+
 # attach_data_node() <Tag type="community">Community</Tag>
 
 Attach a data node to a hypertable. The data node should have been

@@ -23,11 +23,6 @@ module.exports = [
             excerpt: "Timescale services overview",
           },
           {
-            title: "Create a Timescale service",
-            href: "create-a-service",
-            excerpt: "Timescale services",
-          },
-          {
             title: "Dynamic PostgreSQL",
             href: "dynamic-postgresql",
             excerpt: "Dynamic PostgreSQL overview",
@@ -138,6 +133,11 @@ module.exports = [
             type: "placeholder",
           },
         ],
+      },
+      {
+        title: "PopSQL",
+        href: "popsql",
+        excerpt: "Run SQL queries, create charts and dashboards, and collaborate with teammates",
       },
       {
         title: "Time buckets",

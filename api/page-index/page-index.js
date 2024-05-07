@@ -87,8 +87,16 @@ module.exports = [
             href: "hypertable_size",
           },
           {
+            title: "hypertable_approximate_size",
+            href: "hypertable_approximate_size",
+          },
+          {
             title: "hypertable_detailed_size",
             href: "hypertable_detailed_size",
+          },
+          {
+            title: "hypertable_approximate_detailed_size",
+            href: "hypertable_approximate_detailed_size",
           },
           {
             title: "hypertable_index_size",
@@ -529,6 +537,10 @@ module.exports = [
             href: "chunks",
           },
           {
+            title: "timescaledb_information.chunk_compression_settings",
+            href: "chunk_compression_settings",
+          },
+          {
             title: "timescaledb_information.continuous_aggregates",
             href: "continuous_aggregates",
           },
@@ -547,6 +559,10 @@ module.exports = [
           {
             title: "timescaledb_information.hypertables",
             href: "hypertables",
+          },
+          {
+            title: "timescaledb_information.hypertable_compression_settings",
+            href: "hypertable_compression_settings",
           },
           {
             title: "timescaledb_information.jobs",

@@ -8,7 +8,6 @@ tags: [ai, vector]
 
 # Overview of Timescale Vector
 
-## What is Timescale Vector
 Timescale Vector is PostgreSQL++ for AI applications. With Timescale Vector, you can power production AI applications with PostgreSQL as your vector database, storing both vector embeddings, relational data (for example, related metadata), and time-based data in the same database.
 
 Timescale Vector is a cloud-based vector database. There is no self-hosted version at this time. To use Timescale Vector, [sign up here](https://console.cloud.timescale.com/signup?utm_campaign=vectorlaunch&utm_source=tsv-docs&utm_medium=direct).
@@ -56,7 +55,7 @@ Under the hood, embeddings are represented as a vector (a list of numbers) that 
 
 Timescale Vector works with the most popular embedding models that have output vectors of 2,000 dimensions or less. Here are some popular choices for text embeddings for use with Timescale Vector:
 
-- [OpenAI embedding models](https://platform.openai.com/docs/guides/embeddings): text-embedding-ada-002 is OpenAI's recommended embedding generation model.
+- [OpenAI embedding models](https://platform.openai.com/docs/guides/embeddings/): text-embedding-ada-002 is OpenAI's recommended embedding generation model.
 - [Sentence transformers](https://huggingface.co/sentence-transformers): Several popular open source models for embedding generation from text.
 - [Cohere representation models](https://docs.cohere.com/docs/models#representation): Cohere offers many models that can be used to generate embeddings from text in English or multiple languages.
 
@@ -69,4 +68,4 @@ And here are some popular choices for image embeddings:
 - [VGG](https://pytorch.org/vision/stable/models/vgg.html)
 - [Vision Transformer (ViT)](https://github.com/lukemelas/PyTorch-Pretrained-ViT)
 
-[vector-search-indexing]: /ai/:currentVersion:/concepts/#vector-search-indexing-approximate-nearest-neighbor-search
+[vector-search-indexing]: /ai/:currentVersion:/key-vector-database-concepts-for-understanding-pgvector/#vector-search-indexing-approximate-nearest-neighbor-search

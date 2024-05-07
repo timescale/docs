@@ -10,6 +10,14 @@ import OpenSupportRequest from "versionContent/_partials/_migrate_open_support_r
 
 # Migrate your data to Timescale
 
+<Highlight type="note">
+Migration assistance is included with Timescale's support service. If you would
+like help understanding your options, please reach out to our support.
+
+<OpenSupportRequest />
+
+</Highlight>
+
 There are a number of different ways to migrate your data to Timescale. Which
 option you choose depends on a few different factors, the most important of
 which are:
@@ -24,7 +32,7 @@ Below are the different migration options we offer. You can choose the one that 
 |-------------------------------------------|----------------------------------|----------------------------------------------------------------------|--------------------------------|
 | [pg_dump and pg_restore][pg-dump-restore] | Postgres, TimescaleDB            | Downtime is okay                                                     | Requires some downtime         |
 | [Dual-write and backfill][dual-write]     | Postgres, TimescaleDB and others | Append-only data, heavy insert workload (~20,000 inserts per second) | Optimized for minimal downtime |
-| [Live migration][live-migration]          | Postgres                         | Simplified end-to-end migration with almost zero downtime            | Optimized for minimal downtime |
+| [Live migration][live-migration]          | Postgres, TimescaleDB            | Simplified end-to-end migration with almost zero downtime            | Optimized for minimal downtime |
 
 If you are using PostgreSQL or TimescaleDB and can afford to take your
 application offline for a few hours, the simplest option is to migrate data
@@ -45,8 +53,7 @@ Live migration is Timescale's packaging of Postgres' logical replication
 functionality, which leverages the excellent [pgcopydb] project from the
 Postgres community. Live migration is an end-to-end solution which copies the
 database schema and data, and then replicates changes in real-time from one
-database to the other. At present, live migration only supports Postgres as the
-source database (not TimescaleDB).
+database to the other.
 
 Dual-write and backfill is a method to write from your application to two
 databases at once, and gives tooling and guidance to move your existing data
@@ -59,9 +66,10 @@ ingest pipeline of your application.
 
 We recommend using live migration if modifying your application logic to
 perform dual writes is a significant effort on your end, or if you are using
-`UPDATE` and `DELETE` statements on your time-series data. If your application
-is writing more than 20'000 rows per second, you should use dual-write and
-backfill instead.
+`UPDATE` and `DELETE` statements on your uncompressed time-series data (live
+migration does not support replicating `INSERT`/`UPDATE`/`DELETE` statements on
+compressed data). If your application is writing more than 20'000 rows per
+second, you should use dual-write and backfill instead.
 
 We recommend using dual-write and backfill if modifying your ingest pipeline is
 not an issue, and if you want to evaluate your existing solution side-by-side
@@ -78,7 +86,7 @@ For other ingestion methods, see the [data ingest section][data-ingest].
 For a detailed, step-by-step guide on migrating from various databases to Timescale, please refer to the migration [playbooks].
 
 If you encounter any difficulties while migrating, consult the
-[troubleshooting] documentation, open a support requestl, or take
+[troubleshooting] documentation, open a support request, or take
 your issue to the `#migration` channel in the [community slack](https://slack.timescale.com/),
 where the developers of this migration method are there to help.
 

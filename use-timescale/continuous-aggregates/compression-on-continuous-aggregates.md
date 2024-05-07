@@ -11,20 +11,20 @@ Continuous aggregates are often used to downsample historical data. If the data
 is only used for analytical queries and never modified, you can compress the
 aggregate to save on storage.
 
-Compression on continuous aggregates works similarly to
-[compression on hypertables][compression]. Compressed chunks can be queried, but
-they can't be updated or deleted. For continuous aggregates, that means
-compressed chunks can't be refreshed.
-
-If you receive historical data and need to refresh a compressed chunk, see
-[the troubleshooting guide][troubleshooting].
-
 <Highlight type="warning">
-You can't refresh the compressed regions of a continuous aggregate. To avoid
-conflicts between compression and refresh, make sure you set `compress_after`
-to a larger interval than the `start_offset` of your
-[refresh policy](/api/latest/continuous-aggregates/add_continuous_aggregate_policy).
+Before version
+[2.11.0](/about/latest/release-notes/#timescaledb-2110-on-2023-05-22), you can't
+refresh the compressed regions of a continuous aggregate. To avoid conflicts
+between compression and refresh, make sure you set `compress_after` to a larger
+interval than the `start_offset` of your [refresh
+policy](/api/latest/continuous-aggregates/add_continuous_aggregate_policy).
 </Highlight>
+
+Compression on continuous aggregates works similarly to [compression on
+hypertables][compression]. When compression is enabled and no other options are
+provided, the `segment_by` value will be automatically set to the group by
+columns of the continuous aggregate and the `time_bucket` column will be used as
+the `order_by` column in the compression configuration.
 
 ## Enable compression on continuous aggregates
 
@@ -85,4 +85,3 @@ SELECT add_compression_policy('cagg_name', compress_after=>'45 days'::interval);
 [compression]: /use-timescale/:currentVersion:/compression/
 [decompress-chunks]:  /use-timescale/:currentVersion:/compression/decompress-chunks
 [refresh-policy]: /use-timescale/:currentVersion:/continuous-aggregates/refresh-policies
-[troubleshooting]: /use-timescale/:currentVersion:/continuous-aggregates/troubleshooting/#cannot-refresh-compressed-chunks-of-a-continuous-aggregate

@@ -1,36 +1,53 @@
 ---
-title: Python inteface
-excerpt: Python inteface for Timescale Vector and pgvector
+title: Python inteface for pgvector and Timescale Vector
+excerpt: Working with Timescale Vector and pgvector in python
 products: [cloud]
 keywords: [ai, vector, pgvector, timescale vector, python]
 tags: [ai, vector, python]
 ---
 
-# Python interface
+# Python interface for pgvector and Timescale Vector
 
-PostgreSQL++ for AI Applications.
+You use Timescale Vector to power production grade AI applications. `timescale_vector` is the
+ Python interface you use to interact with a Timescale Vector service programmatically.
+
+Before you get started with `timescale_vector`:
 
 - [Sign up for Timescale Vector](https://console.cloud.timescale.com/signup?utm_campaign=vectorlaunch&utm_source=docs&utm_medium=direct): Get 90 days free to try Timescale Vector on the Timescale cloud data platform. There is no self-managed version at this time.
-- [Getting Started Tutorial](https://timescale.github.io/python-vector/tsv_python_getting_started_tutorial.html): Learn how to use Timescale Vector for semantic search on a real-world dataset.
+- [Follow the Get Started Tutorial](https://timescale.github.io/python-vector/tsv_python_getting_started_tutorial.html): 
+Learn how to use Timescale Vector for semantic search on a real-world dataset.
 
 If you prefer to use an LLM development or data framework, see Timescale Vector's integrations with [LangChain](https://python.langchain.com/docs/integrations/vectorstores/timescalevector) and [LlamaIndex](https://gpt-index.readthedocs.io/en/stable/examples/vector_stores/Timescalevector.html).
 
+## Prerequisites 
+
+`timescale_vector` depends on the source distribution of `psycopg2` and adheres 
+to [best practices for psycopg2](https://www.psycopg.org/docs/install.html#psycopg-vs-psycopg-binary). 
+
+Before you install `timescale_vector`: 
+
+* Follow the [psycopg2 build prerequisites](https://www.psycopg.org/docs/install.html#build-prerequisites).
 
 ## Install
 
-To install the main library use:
+To interact with Timescale Vector using Python:
 
-```bash
-pip install timescale_vector
-```
+1. Install `timescale_vector`: 
 
-`dotenv` is used in these examples for passing around secrets and keys. You can install that with:
+    ```bash
+    pip install timescale_vector
+    ```
+1. Install `dotenv`:
 
-```bash
-pip install python-dotenv
-```
+    ```bash
+    pip install python-dotenv
+    ```
 
-## Basic usage
+    In these examples, you use `dotenv` to pass secrets and keys. 
+
+That is it, you are ready to go. 
+
+## Basic usage of the timescale_vector library
 
 First, import all the necessary libraries:
 

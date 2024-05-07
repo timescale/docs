@@ -111,11 +111,13 @@ To set up a stricter SSL connection:
 
 ## Verify the certificate type used by your database
 
-To check whether the certificate has been replaced yet, connect to your database
-instance and inspect the returned certificate:
+To check whether the certificate has been replaced yet, connect to your
+database instance and inspect the returned certificate. We are using two
+certificate providers - Google and ZeroSSL, that's why chances are you can have
+a certificate issued by either of those CAs:
 
 ```shell
-openssl s_client -showcerts -partial_chain -starttls postgres -connect <HOST>:<PORT> < /dev/null 2>/dev/null  | grep "ZeroSSL"
+openssl s_client -showcerts -partial_chain -starttls postgres -connect <HOST>:<PORT> < /dev/null 2>/dev/null  | grep "Google\|ZeroSSL"
 ```
 
 [ssl-modes]: https://www.postgresql.org/docs/current/libpq-ssl.html#LIBPQ-SSL-SSLMODE-STATEMENTS
