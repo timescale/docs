@@ -19,6 +19,56 @@ the migration. The logs of these processes can be helpful for troubleshooting
 unexpected behavior. You can find these logs in the `<volume_mount>/logs` directory.
 
 
+## Source and target databases have different TimescaleDB versions
+
+When you migrate a [self-hosted][self hosted] or [Managed Service for TimescaleDB (MST)][mst]
+database to Timescale, the source database and the destination
+[Timescale Service][timescale-service] must run the same version of TimescaleDB.
+
+Before you start [live migration][live migration]:
+
+
+1. Check the version of TimescaleDB running on the source database and the
+   target Timescale Service:
+    ```sql
+    select extversion from pg_extension where extname = 'timescaledb';
+    ```
+
+1. If the version of TimescaleDB on the source database is lower than your Timescale Service, either:
+   - **Downgrade**: reinstall an older version of TimescaleDB on your Timescale
+      Service that matches the source database:
+
+     1. Connect to your Timescale Service and check the versions of TimescaleDB available:
+        ```sql
+        SELECT version FROM pg_available_extension_versions WHERE name = 'timescaledb' ORDER BY 1 DESC;
+        ```
+
+     2. If an available TimescaleDB release matches your source database:
+
+        1. Uninstall TimescaleDB from your Timescale Service:
+           ```sql
+           DROP EXTENSION timescaledb;
+           ```
+
+        1. Reinstall the correct version of TimescaleDB:
+           ```sql
+           CREATE EXTENSION timescaledb VERSION '<version>';
+           ```
+
+        <Highlight type="note">
+        You may need to reconnect to your Timescale Service using `psql -X` when you're creating the TimescaleDB extension.
+        </Highlight>
+
+   - **Upgrade**: for self-hosted databases,
+     [upgrade TimescaleDB][self hosted upgrade] to match your Timescale Service.
+
+[live migration]: /migrate/:currentVersion:/live-migration/
+[self hosted]: /self-hosted/:currentVersion:/
+[self hosted upgrade]: /self-hosted/:currentVersion:/upgrades/
+[mst]: /mst/:currentVersion:/
+[timescale-service]: https://console.cloud.timescale.com/dashboard/services
+
+
 ## Why does live migration log "no tuple identifier" warning?
 
 Live migration logs a warning `WARNING: no tuple identifier for UPDATE in table`
