@@ -277,8 +277,8 @@ To remove any data exporters that you no longer need.
 
 ## Reference
 
-When you create the IAM OIDC provider, the URL must match the region you create the exporter in. 
-It must be one of the following: 
+When you create the IAM OIDC provider, the URL depends on the region where the exporter is being 
+created. It must be one of the following: 
 
 | Region           | Zone          | Location       | URL
 |------------------|---------------|----------------|--------------------|
