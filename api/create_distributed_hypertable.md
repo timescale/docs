@@ -8,23 +8,22 @@ api:
   license: community
   type: function
 ---
+import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";
+
+<MultiNodeDeprecation />
 
 # create_distributed_hypertable()  <Tag type="community">Community</Tag>
 
-Creates a TimescaleDB hypertable distributed across a multinode
-environment. Use this function in place of [`create_hypertable`][create-hypertable-old]
-when creating distributed hypertables.
+Create a TimescaleDB hypertable distributed across a multinode environment.
 
-<Highlight type="note">
-Distributed tables use the old API. The new generalized API introduced in 2.13 is described in [`create_hypertable`][create-hypertable-new].
-</Highlight>
+`create_distributed_hypertable()` replaces [`create_hypertable() (old interface)`][create-hypertable-old]. Distributed tables use the old API. The new generalized [`create_hypertable`][create-hypertable-new] API was introduced in TimescaleDB v2.13.
 
 ### Required arguments
 
-|Name|Type|Description|
-|---|---|---|
-| `relation` | REGCLASS | Identifier of table to convert to hypertable. |
-| `time_column_name` | TEXT | Name of the column containing time values as well as the primary column to partition by. |
+|Name|Type| Description                                                                                  |
+|---|---|----------------------------------------------------------------------------------------------|
+| `relation` | REGCLASS | Identifier of the table you want to convert to a hypertable.                                 |
+| `time_column_name` | TEXT | Name of the column that contains time values, as well as the primary column to partition by. |
 
 ### Optional arguments
 
@@ -73,45 +72,37 @@ SELECT create_distributed_hypertable('conditions', 'time', 'location',
 
 #### Best practices
 
-**Hash partitions:** As opposed to the normal
-[`create_hypertable` best practices][create-hypertable-old],
-hash partitions are highly recommended for distributed hypertables.
-Incoming data is divided among data nodes based upon the hash
-partition (the first one if multiple hash partitions have been
-defined).  If there is no hash partition, all the data for each time
-slice is written to a single data node.
+* **Hash partitions**: Best practice for distributed hypertables is to enable [hash partitions](https://www.techopedia.com/definition/31996/hash-partitioning).
+  With hash partitions, incoming data is divided between the data nodes. Without hash partition, all
+  data for each time slice is written to a single data node.
 
-**Time intervals:** Follow the same guideline in setting the `chunk_time_interval`
-as with [`create_hypertable`][create-hypertable-old],
-bearing in mind that the calculation needs to be based on the memory
-capacity of the data nodes. However, one additional thing to
-consider, assuming hash partitioning is being used, is that the
-hypertable is evenly distributed across the data nodes, allowing
-a larger time interval.
+* **Time intervals**: Follow the guidelines for `chunk_time_interval` defined in [`create_hypertable`]
+  [create-hypertable-old].
 
-For example, assume you are ingesting 10&nbsp;GB of data per day and you
-have five data nodes, each with 64&nbsp;GB of memory. If this is the only
-table being served by these data nodes, then you should use a time
-interval of 1 week (`7 * 10 GB / 5 * 64 GB ~= 22% main memory` used for
-most recent chunks).
+  When you enable hash partitioning, the hypertable is evenly distributed across the data nodes. This
+  means you can set a larger time interval. For example, you ingest 10 GB of data per day shared over
+  five data nodes, each node has 64 GB of memory. If this is the only table being served by these data nodes, use a time interval of 1 week:
 
-If hash partitioning is not being used, the `chunk_time_interval`
-should be the same as the non-distributed case, as all of the incoming
-data is handled by a single node.
+  ```
+   7 days * 10 GB             70
+   --------------------  ==  ---  ~= 22% of main memory used for the most recent chunks
+   5 data nodes * 64 GB      320 
+   ```
 
-**Replication factor:**  The hypertable's `replication_factor` defines to how
-many data nodes a newly created chunk is replicated. That is, a chunk
-with a `replication_factor` of three exists on three separate data nodes,
-and rows written to that chunk are inserted (as part of a two-phase
-commit protocol) to all three chunk copies. For chunks replicated more
-than once, if a data node fails or is removed, no data is lost, and writes
-can continue to succeed on the remaining chunk copies. However, the chunks
-present on the lost data node are now under-replicated. Currently, it is
-not possible to restore under-replicated chunks, although this limitation might
-be removed in a future release. To avoid such inconsistency, we do not yet
-recommend using `replication_factor` > 1, and instead rely on physical
-replication of each data node if such fault-tolerance is required.
+  If you do not enable hash partitioning, use the same `chunk_time_interval` settings as a non-distributed
+  instance. This is because all incoming data is handled by a single node.
+
+* **Replication factor**: `replication_factor` defines the number of data nodes a newly created chunk is
+  replicated in. For example, when you set `replication_factor` to `3`, each chunk exists on 3 separate
+  data nodes. Rows written to a chunk are inserted into all data notes in a two-phase commit protocol.
+
+  If a data node fails or is removed, no data is lost. Writes succeed on the other data nodes. However, the
+  chunks on the lost data node are now under-replicated. When the failed data node becomes available, rebalance the chunks with a call to [copy_chunk][copy_chunk].
+
 
 [best-practices]: /use-timescale/:currentVersion:/hypertables/about-hypertables/#best-practices-for-time-partitioning
-[create-hypertable-new]: /api/:currentVersion:/hypertable/create_hypertable
+
+[create-hypertable-new]: /api/:currentVersion:/hypertable/create_hypertable/
+
 [create-hypertable-old]: /api/:currentVersion:/hypertable/create_hypertable_old
+[copy_chunk]: /api/:currentVersion://distributed-hypertables/copy_chunk_experimental/
