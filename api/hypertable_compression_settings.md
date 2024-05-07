@@ -44,4 +44,4 @@ orderby                  | "time"
 compress_interval_length | 
 ```
 
-[rollup-compression]: /use-timescale/:currentVersion/compression/manual-compression/#roll-up-uncompressed-chunks-when-compressing
+[rollup-compression]: /use-timescale/:currentVersion:/compression/manual-compression/#roll-up-uncompressed-chunks-when-compressing

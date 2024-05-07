@@ -41,6 +41,12 @@ module.exports = [
             excerpt:
                 "Migrate from TimescaleDB using live migration",
           },
+          {
+            title: "Frequently Asked Questions",
+            href: "live-migration-faq",
+            excerpt:
+                "Frequently Asked Questions",
+          },
         ],
       },
       {
