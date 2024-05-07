@@ -21,7 +21,7 @@ CPU usage, RAM usage, and storage.
 This page shows you how to securely connect a data exporter to a monitoring tool, and manage 
 the lifecycle of data exporters.
 
-## Create a data exporter and securely connect it a monitoring tool
+## Create a data exporter and securely connect it to a monitoring tool
 
 To export telemetry data you:
 
