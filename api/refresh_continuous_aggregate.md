@@ -35,8 +35,8 @@ to align with bucket boundaries.
 |Name|Type|Description|
 |-|-|-|
 |`continuous_aggregate`|REGCLASS|The continuous aggregate to refresh.|
-|`window_start`|INTERVAL, TIMESTAMPTZ, INTEGER|Start of the window to refresh, has to be before `window_end`. `NULL` is equivalent to `MIN(timestamp)` of the hypertable.|
-|`window_end`|INTERVAL, TIMESTAMPTZ, INTEGER|End of the window to refresh, has to be after `window_start`. `NULL` is equivalent to `MAX(timestamp)` of the hypertable.|
+|`window_start`|INTERVAL, TIMESTAMPTZ, INTEGER|Start of the window to refresh, has to be before `window_end`.|
+|`window_end`|INTERVAL, TIMESTAMPTZ, INTEGER|End of the window to refresh, has to be after `window_start`.|
 
 You must specify the `window_start` and `window_end` parameters differently,
 depending on the type of the time column of the hypertable. For hypertables with
@@ -44,6 +44,14 @@ depending on the type of the time column of the hypertable. For hypertables with
 an `INTERVAL` type. For hypertables with integer-based timestamps, set the
 refresh window as an `INTEGER` type.
 
+<Highlight type="note">
+A `NULL` value for `window_start` is equivalent to the lowest changed element
+in the raw hypertable of the CAgg. A `NULL` value for `window_end` is
+equivalent to the largest changed element in raw hypertable of the CAgg. As 
+changed element tracking is performed after the initial CAgg refresh, running 
+CAgg refresh without `window_start` and `window_end` covers the entire time 
+range.
+</Highlight>
 
 <Highlight type="warning">
 Note that it's not guaranteed that all buckets will be updated: refreshes will

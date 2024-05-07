@@ -9,6 +9,10 @@ api:
   type: function
 ---
 
+import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";
+
+<MultiNodeDeprecation />
+
 # set_replication_factor() <Tag type="community">Community</Tag>
 
 Sets the replication factor of a distributed hypertable to the given value.

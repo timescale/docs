@@ -30,28 +30,25 @@ other useful statistics for deciding what the new schedule should be.
 
 |Name|Type|Description|
 |-|-|-|
-|`schedule_interval`|`INTERVAL`|The interval at which the job runs. Defaults to 24 hours|
-|`max_runtime`|`INTERVAL`|The maximum amount of time the job is allowed to run by the background worker scheduler before it is stopped|
-|`max_retries`|`INTEGER`|The number of times the job is retried if it fails|
-|`retry_period`|`INTERVAL`|The amount of time the scheduler waits between retries of the job on failure|
-|`scheduled`|`BOOLEAN`|Set to `FALSE` to exclude this job from being run as background job|
-|`config`|`JSONB`|Job-specific configuration, passed to the function when it runs|
-|`next_start`|`TIMESTAMPTZ`|The next time at which to run the job. The job can be paused by setting this value to `infinity`, and restarted with a value of `now()`|
+|`schedule_interval`|`INTERVAL`|The interval at which the job runs. Defaults to 24 hours.|
+|`max_runtime`|`INTERVAL`|The maximum amount of time the job is allowed to run by the background worker scheduler before it is stopped.|
+|`max_retries`|`INTEGER`|The number of times the job is retried if it fails.|
+|`retry_period`|`INTERVAL`|The amount of time the scheduler waits between retries of the job on failure.|
+|`scheduled`|`BOOLEAN`|Set to `FALSE` to exclude this job from being run as background job.|
+|`config`|`JSONB`|Job-specific configuration, passed to the function when it runs.|
+|`next_start`|`TIMESTAMPTZ`|The next time at which to run the job. The job can be paused by setting this value to `infinity`, and restarted with a value of `now()`.|
 |`if_exists`|`BOOLEAN`|Set to `true`to issue a notice instead of an error if the job does not exist. Defaults to false.|
 |`check_config`|`REGPROC`|A function that takes a single argument, the `JSONB` `config` structure. The function is expected to raise an error if the configuration is not valid, and return nothing otherwise. Can be used to validate the configuration when updating a job. Only functions, not procedures, are allowed as values for `check_config`.|
+|`fixed_schedule`|`BOOLEAN`|To enable fixed scheduled job runs, set to `TRUE`.|
+|`initial_start`|`TIMESTAMPTZ`|Set the time when the `fixed_schedule` job run starts. For example, `19:10:25-07`.|
+|`timezone`|`TEXT`|Address the 1-hour shift in start time when clocks change from [Daylight Saving Time to Standard Time](https://en.wikipedia.org/wiki/Daylight_saving_time). For example, `America/Sao_Paulo`.|
 
 When a job begins, the `next_start` parameter is set to `infinity`. This
 prevents the job from attempting to be started again while it is running. When
 the job completes, whether or not the job is successful, the parameter is
 automatically updated to the next computed start time.
 
-Note that, the optional parameters `initial_start` and `timezone` are not
-modifiable with `alter_job`. It is not currently possible to alter these
-parameters for an existing job. If you wish to do so, you must drop the
-existing job and register it again with the new values. It is also not possible
-to change the value of the `fixed_schedule` parameter. You must drop and
-recreate the job if you wish to alter this behavior.
-Also note that altering the `next_start` value is only effective for the next
+Note that altering the `next_start` value is only effective for the next
 execution of the job in case of fixed schedules. On the next execution, it will
 automatically return to the schedule.
 
