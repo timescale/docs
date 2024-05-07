@@ -11,26 +11,28 @@ api:
 
 # add_dimension()
 
+Add an additional partitioning dimension to a Timescale hypertable. You can only execute this 
+`add_dimension` command on an empty hypertable. To convert a normal table to a hypertable, 
+call [create hypertable][create_hypertable].
+
+The column you select as the dimension can use either:
+ 
+- Interval partitions: For example, for a second range partition.
+- [hash partitions][hash-partition]: for [distributed hypertables][distributed-hypertables]
+
 <Highlight type="note">
-This reference describes the new generalized hypertable API introduced with 2.13.
-The [old interface for `add_dimension` is also available](add_dimension_old.md).
+
+This page describes the generalized hypertable API introduced in [TimescaleDB v2.13.0][rn-2130].
+
+For information about the deprecated interface, see [add_dimension(), deprecated interface][add-dimension-old].
 </Highlight>
 
-Add an additional partitioning dimension to a Timescale hypertable.
-The column selected as the dimension can either use interval
-partitioning (for example, for a second range partition) or hash partitioning.
+### Hash partitions 
 
-<Highlight type="warning">
-The `add_dimension` command can only be executed after a table has been
-converted to a hypertable (via `create_hypertable`), but must similarly
-be run only on an empty hypertable.
-</Highlight>
-
-**Hash partitions (previously called space partitions)**: Using hash partitions is highly recommended
-for [distributed hypertables][distributed-hypertables] to achieve
-efficient scale-out performance. For [regular hypertables][regular-hypertables]
-that exist only on a single node, additional partitioning can be used
-for specialized use cases and not recommended for most users.
+To achieve efficient scale-out performance, best practice is to use hash partitions
+for [distributed hypertables][distributed-hypertables]. For [regular hypertables][regular-hypertables]
+that exist on a single node only, it is possible to configure additional partitioning
+for specialized use cases. However, this is is an expert option.
 
 Every distinct item in hash partitioning is hashed to one of
 *N* buckets. Remember that we are already using (flexible) range
@@ -155,3 +157,6 @@ SELECT add_dimension('conditions', by_hash('location', 2));
 [distributed-hypertable-partitioning-best-practices]: /use-timescale/:currentVersion:/hypertables/about-hypertables/#space-partitioning
 [distributed-hypertables]: /api/:currentVersion:/distributed-hypertables/create_distributed_hypertable/
 [regular-hypertables]: /api/:currentVersion:/hypertable/create_hypertable/
+[add-dimension-old]: /api/:currentVersion:/hypertable/add_dimension_old/
+[rn-2130]: /about/:currentVersion:/release-notes/#timescaledb-2130-on-2023-11-28
+[hash-partition]: /api/:currentVersion:/hypertable/add_dimension/#hash-partitions

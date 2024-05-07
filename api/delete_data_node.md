@@ -9,6 +9,10 @@ api:
   type: function
 ---
 
+import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";
+
+<MultiNodeDeprecation />
+
 # delete_data_node() <Tag type="community">Community</Tag>
 
 This function is executed on an access node to remove a data

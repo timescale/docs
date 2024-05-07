@@ -14,11 +14,13 @@ and extend what you can do with your data.
 
 |&#x1F6E0; [Query and administration][query-admin]|&#x1F5A5; [Configuration and deployment][config-deploy]|&#x1F50E; [Observability and alerting][observability-alerting]|&#x270D; [Data ingestion][data-ingest]|
 |-|-|-|-|
+|[PopSQL][popsql]|
 |[psql][psql]|[Terraform][terraform]|[Grafana][grafana]|[Telegraf][telegraf]|
 |[DBeaver][dbeaver]||[Tableau][tableau]|
 |[Azure Data Studio][ads]|
 |[pgAdmin][pgadmin]|
 |[qStudio][qstudio]|
+
 
 
 [query-admin]: /use-timescale/:currentVersion:/integrations/query-admin/
@@ -34,3 +36,4 @@ and extend what you can do with your data.
 [telegraf]: /use-timescale/:currentVersion:/integrations/data-ingest/telegraf/
 [tableau]: /use-timescale/:currentVersion:/integrations/observability-alerting/tableau/
 [terraform]: /use-timescale/:currentVersion:/integrations/config-deploy/terraform/
+[popsql]: /use-timescale/:currentVersion:/popsql/
