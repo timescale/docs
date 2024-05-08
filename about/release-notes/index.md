@@ -37,7 +37,7 @@ TimescaleDB v2.14.2. Best practice is to upgrade at the next available opportuni
 #### Deprecation warning
 
 * You can no longer create continuous aggregates using `time_bucket_ng`.
-  This feature will be completely removed the next release. Best practice is to 
+  This feature will be completely removed in the next release. Best practice is to 
   [migrate your current continuous aggregates to the new form](/use-timescale/:currentVersion:/continuous-aggregates/migrate/), 
 * This is the last release supporting PostgreSQL 13.
 
