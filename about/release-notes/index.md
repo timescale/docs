@@ -74,7 +74,7 @@ After you run `ALTER EXTENSION`, you must run [this SQL script](https://github.c
 * #6870 Fix bool expression pushdown for queries on compressed chunks
 
 ### Acknowledgments
-* @brasic for reporting a crash when the ts_hypertable_insert_blocker was called directly
+* @brasic for reporting a crash when `ts_hypertable_insert_blocker` was called directly
 * @bvanelli for reporting an issue with the jobs retry count
 * @djzurawsk for reporting an error about dropping chunks
 * @Dzuzepppe for reporting the issue that DELETEs using a subquery on compressed chunks was working incorrectly
