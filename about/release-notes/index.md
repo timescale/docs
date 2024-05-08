@@ -38,7 +38,7 @@ TimescaleDB v2.14.2. Best practice is to upgrade at the next available opportuni
 * This is the last release supporting PostgreSQL 13.
 
 #### For self-hosted deployments of TimescaleDB v2.15.0 only
-You will need to run [this SQL script](https://github.com/timescale/timescaledb-extras/blob/master/utils/2.15.X-fix_hypertable_foreign_keys.sql) after running `ALTER EXTENSION`. More details can be found in the pull request [#6786](#6797).
+After you run `ALTER EXTENSION`, you must run [this SQL script](https://github.com/timescale/timescaledb-extras/blob/master/utils/2.15.X-fix_hypertable_foreign_keys.sql). For more details, see the following pull requests [#6786](#6797).
 
 ### Complete list of features
 * #6382 Support for time_bucket with origin and offset in CAggs
