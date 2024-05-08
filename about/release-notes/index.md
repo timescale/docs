@@ -20,21 +20,20 @@ click `Watch`, select `Custom` and then check `Releases`.
 ## TimescaleDB&nbsp;2.15.0 on 2024-05-08
 
 <Highlight type="note">
-This release contains performance improvements and bug fixes since
-the 2.14.2 release. We recommend that you upgrade at the next
-available opportunity.
+This release contains performance improvements and bug fixes introduced since
+TimescaleDB v2.14.2. Best practice is to upgrade at the next available opportunity.
 </Highlight>
 
 #### Highlighted features in this release
-* Support `time_bucket` with `origin` and/or `offset` on Continuous Aggregate
-* Compression improvements:
-  - Improve expression pushdown
-  - Add minmax sparse indexes when compressing columns with btree indexes
-  - Make compression use the defaults functions
-  - Vectorize filters in WHERE clause that contain text equality operators and LIKE expressions
+* [Continuous Aggregate](/api/:currentVersion:/continuous-aggregates/create_materialized_view/#sample-usage) now support `time_bucket` with `origin` and/or `offset`.
+* The following improvements have been introduced for [hypertable compression](/api/:currentVersion:/compression/):
+  - Add planner support to check more kinds of WHERE conditions before decompression, therefore reducing the number of rows that have to be decompressed.
+  - You can now use `minmax` sparse indexes when you compress columns with `btree` indexes.
+  - Make compression use the defaults functions.
+  - Vectorize filters in WHERE clause that contain text equality operators and LIKE expressions.
 
 #### Deprecation warning
-* Starting on this release will not be possible to create Continuous Aggregate using `time_bucket_ng` anymore and it will be completely removed on the upcoming releases.
+* You can no longer create continuous aggregates using `time_bucket_ng`. Best practice is to [migrate your current continuous aggregates to the new format](/use-timescale/:currentVersion:/continuous-aggregates/migrate/), this feature will be completely removed the next release.
 * Recommend users to [migrate their old Continuous Aggregate format to the new one](https://docs.timescale.com/use-timescale/latest/continuous-aggregates/migrate/) because it support will be completely removed in next releases prevent them to migrate.
 * This is the last release supporting PostgreSQL 13.
 
@@ -77,12 +76,12 @@ You will need to run [this SQL script](https://github.com/timescale/timescaledb-
 ### Acknowledgments
 * @brasic for reporting a crash when the ts_hypertable_insert_blocker was called directly
 * @bvanelli for reporting an issue with the jobs retry count
-* @djzurawsk For reporting error when dropping chunks
-* @Dzuzepppe for reporting an issue with DELETEs using subquery on compressed chunk working incorrectly.
-* @hongquan For reporting a 'timestamp out of range' error during CAgg migrations
-* @kevcenteno for reporting an issue with the show_chunks API showing incorrect output when 'created_before/created_after' was used with time-partitioned columns.
-* @mahipv For starting working on the job history PR
-* @rovo89 For reporting constify cagg_watermark not working using window function when querying a CAgg
+* @djzurawsk for reporting an error about dropping chunks
+* @Dzuzepppe for reporting the issue that DELETEs using a subquery on compressed chunks was working incorrectly
+* @hongquan for reporting a 'timestamp out of range' error during CAgg migrations
+* @kevcenteno for reporting that the `show_chunks` API returned an incorrect output when 'created_before/created_after' was used with time-partitioned columns
+* @mahipv for starting working on the job history PR
+* @rovo89 for reporting that constify `cagg_watermark` was not working using the window function when querying a CAgg
 
 ## TimescaleDB&nbsp;2.14.2 on 2024-02-20
 
