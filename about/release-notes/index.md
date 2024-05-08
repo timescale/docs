@@ -37,7 +37,7 @@ TimescaleDB v2.14.2. Best practice is to upgrade at the next available opportuni
 * Recommend users to [migrate their old Continuous Aggregate format to the new one](https://docs.timescale.com/use-timescale/latest/continuous-aggregates/migrate/) because it support will be completely removed in next releases prevent them to migrate.
 * This is the last release supporting PostgreSQL 13.
 
-#### For on-premise users and this release only
+#### For self-hosted deployments of TimescaleDB v2.15.0 only
 You will need to run [this SQL script](https://github.com/timescale/timescaledb-extras/blob/master/utils/2.15.X-fix_hypertable_foreign_keys.sql) after running `ALTER EXTENSION`. More details can be found in the pull request [#6786](#6797).
 
 ### Complete list of features
