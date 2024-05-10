@@ -105,4 +105,4 @@ SELECT create_distributed_hypertable('conditions', 'time', 'location',
 [create-hypertable-new]: /api/:currentVersion:/hypertable/create_hypertable/
 
 [create-hypertable-old]: /api/:currentVersion:/hypertable/create_hypertable_old
-[copy_chunk]: /api/:currentVersion://distributed-hypertables/copy_chunk_experimental/
+[copy_chunk]: /api/:currentVersion:/distributed-hypertables/copy_chunk_experimental/
