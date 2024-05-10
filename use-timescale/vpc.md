@@ -181,7 +181,7 @@ account inside a VPC.
 ## Migrate a Timescale Service between VPCs
 
 To ensure that your applications continue to run without interruption, you keep 
-Timescale Services attached to the VPC. However, you can change the VPN your 
+Timescale Services attached to the VPC. However, you can change the VPC your 
 Timescale Service is attached to, or disconnect from a VPC and enable access to the 
 Timescale Service from the public internet.
 
