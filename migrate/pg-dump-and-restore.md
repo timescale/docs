@@ -190,7 +190,7 @@ Once you have verified that the data is present, and returns the results that yo
 [tablespaces]: /migrate/:currentVersion:/troubleshooting/#tablespaces
 [all available extensions]: /migrate/:currentVersion:/troubleshooting/#extension-availability
 [there is no superuser associated with a Timescale instance]: /migrate/:currentVersion:/troubleshooting/#superuser-privileges
-[Created a database service in Timescale]: /use-timescale/:currentVersion:/services/create-a-service/
+[Created a database service in Timescale]: /getting-started/:currentVersion:/services/
 [list of compatible extensions]: /use-timescale/:currentVersion:/extensions/
 [upgrade instructions]: /self-hosted/:currentVersion:/upgrades/about-upgrades/
 [pg_dump]: https://www.postgresql.org/docs/current/app-pgdump.html
