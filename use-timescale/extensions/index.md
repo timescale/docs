@@ -33,6 +33,7 @@ supported extensions:
 |[pgcrypto][pgcrypto]|Cryptographic functions|
 |pgpcre|Perl-compatible RegEx|
 |pgrouting|pgRouting Extension|
+|pgstattuple|Obtain tuple-level statistics|
 |[pgvector][pgvector]|Vector similarity search for PostgreSQL|
 |plpgsql|SQL procedural language|
 |[postgis][postgis]|PostGIS geometry and geography spatial types and functions|
@@ -48,6 +49,7 @@ supported extensions:
 |tsm_system_rows|TABLESAMPLE method which accepts number of rows as a limit|
 |tsm_system_time|TABLESAMPLE method which accepts time in milliseconds as a limit|
 |unaccent|Text search dictionary that removes accents|
+|unit|SI Units for PostgreSQL|
 |uuid-ossp|Generate universally unique identifiers (UUIDs)|
 
 <!-- vale Vale.Spelling = YES -->

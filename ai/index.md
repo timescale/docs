@@ -8,7 +8,6 @@ tags: [ai, vector]
 
 # Overview of Timescale Vector
 
-## What is Timescale Vector
 Timescale Vector is PostgreSQL++ for AI applications. With Timescale Vector, you can power production AI applications with PostgreSQL as your vector database, storing both vector embeddings, relational data (for example, related metadata), and time-based data in the same database.
 
 Timescale Vector is a cloud-based vector database. There is no self-hosted version at this time. To use Timescale Vector, [sign up here](https://console.cloud.timescale.com/signup?utm_campaign=vectorlaunch&utm_source=tsv-docs&utm_medium=direct).
