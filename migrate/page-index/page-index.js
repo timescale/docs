@@ -9,20 +9,6 @@ module.exports = [
         href: "pg-dump-and-restore",
         excerpt:
             "Migrate a hypertable or entire database with native PostgreSQL commands",
-        children: [
-          {
-            title: "pg_dump/restore from TimescaleDB",
-            href: "pg-dump-restore-from-timescaledb",
-            excerpt:
-                "Migrate from TimescaleDB using pg_dump/restore",
-          },
-          {
-            title: "pg_dump/restore from PostgreSQL",
-            href: "pg-dump-restore-from-postgres",
-            excerpt:
-                "Migrate from PostgreSQL using pg_dump/restore",
-          },
-        ]
       },
       {
         title: "Low-downtime: Live migration",
