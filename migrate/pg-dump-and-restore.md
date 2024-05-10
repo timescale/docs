@@ -19,8 +19,8 @@ instance].
 
 This page shows you how to:
 
-- [Migrate from TimescaleDB](#migrate-from-timescaledb-using-pg_dumprestore)
-- [Migrate from PostgreSQL](#migrate-from-postgresql-using-pg_dumprestore)
+- [Migrate from TimescaleDB][migrate-from-timescaledb]
+- [Migrate from PostgreSQL][migrate-from-postgresql]
 
 [//]: # (TODO: more caveats?)
 
@@ -39,7 +39,7 @@ import DumpDatabaseRoles from "versionContent/_partials/_migrate_dual_write_dump
 Before you begin, ensure that you have:
 
 - Installed the PostgreSQL client libraries on the machine that you will perform the migration from. You will need `pg_dump` and `psql`.
-- [Created a database service in Timescale].
+- [Created a database service in Timescale][created-a-database-service-in-timescale].
 - Checked that all PostgreSQL extensions you use are available on Timescale. For more information, see the [list of compatible extensions].
 - Checked that the version of PostgreSQL in your target database is greater than or equal to that of the source database.
 
@@ -80,7 +80,11 @@ pg_dump -d "$SOURCE" \
 Check the run time, [a long-running `pg_dump` can cause various issues](/migrate/:currentVersion:/troubleshooting/#dumping-and-locks)
 
 <Highlight type="note">
-It is possible to dump using multiple connections to the source database. This may dramatically reduce the time taken to dump the source database. For more information, see [dumping with concurrency](/migrate/:currentVersion:/troubleshooting/#dumping-with-concurrency) and [restoring with concurrency](/migrate/:currentVersion:/troubleshooting/#restoring-with-concurrency).
+
+It is possible to dump using multiple connections to the source database. This may dramatically reduce the time 
+taken to dump the source database. For more information, see 
+[dumping with concurrency][dumping-with-concurrency] and [restoring with concurrency][restoring-with-concurrency].
+
 </Highlight>
 
 The following is a brief explanation of the flags used:
@@ -153,8 +157,11 @@ pg_dump -d "$SOURCE" \
 Check the run time, [a long-running `pg_dump` can cause various issues](/migrate/:currentVersion:/troubleshooting/#dumping-and-locks)
 
 <Highlight type="note">
-It is possible to dump using multiple connections to the source database. This  may dramatically reduce the time taken to dump the source database. For more information, see [dumping with concurrency](/migrate/:currentVersion:/troubleshooting/#dumping-with-concurrency)
-and [restoring with concurrency](/migrate/:currentVersion:/troubleshooting/#restoring-with-concurrency).
+
+It is possible to dump using multiple connections to the source database. This may dramatically reduce the time
+taken to dump the source database. For more information, see
+[dumping with concurrency][dumping-with-concurrency] and [restoring with concurrency][restoring-with-concurrency].
+
 </Highlight>
 
 The following is a brief explanation of the flags used:
@@ -190,8 +197,13 @@ Once you have verified that the data is present, and returns the results that yo
 [tablespaces]: /migrate/:currentVersion:/troubleshooting/#tablespaces
 [all available extensions]: /migrate/:currentVersion:/troubleshooting/#extension-availability
 [there is no superuser associated with a Timescale instance]: /migrate/:currentVersion:/troubleshooting/#superuser-privileges
-[Created a database service in Timescale]: /getting-started/:currentVersion:/services/
+[created-a-database-service-in-timescale]: /getting-started/:currentVersion:/services/
 [list of compatible extensions]: /use-timescale/:currentVersion:/extensions/
 [upgrade instructions]: /self-hosted/:currentVersion:/upgrades/about-upgrades/
 [pg_dump]: https://www.postgresql.org/docs/current/app-pgdump.html
 [pg_restore]: https://www.postgresql.org/docs/current/app-pgrestore.html
+[migrate-from-timescaledb]: /migrate/:currentVersion:/pg-dump-and-restore/#migrate-from-timescaledb-using-pg_dumprestore
+[migrate-from-postgresql]: /migrate/:currentVersion:/pg-dump-and-restore/#migrate-from-postgresql-using-pg_dumprestore
+[dumping-with-concurrency]: /migrate/:currentVersion:/troubleshooting/#dumping-with-concurrency
+[restoring-with-concurrency]: /migrate/:currentVersion:/troubleshooting/#restoring-with-concurrency 
+

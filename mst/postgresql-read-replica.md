@@ -72,4 +72,4 @@ delay of less than a second is expected for the change to propagate to the
 replica.
 </Highlight>
 
-[read-replica-cli]: /mst/:currentVersion:/aiven-client/#replicas-cli
+[read-replica-cli]: /mst/:currentVersion:/aiven-client/#create-a-read-only-replica-with-aiven-client

@@ -47,11 +47,12 @@ Before you begin, check that you have:
     [upgrading Timescale section][upgrading-timescaledb].
 
 <Highlight type="note">
+
 To speed up migration, compress your data. You can compress any chunks where
 data is not being currently inserted, updated, or deleted. When you finish the
 migration, you can decompress chunks as needed for normal operation. For more
-information about compression and decompression, see the
-[compression section](https://docs.timescale.com/self-hosted/latest/compression/).
+information about compression and decompression, see [Compression][compression].
+
 </Highlight>
 
 <Procedure>
@@ -123,3 +124,4 @@ information about compression and decompression, see the
 [upgrading-postgresql-self-hosted]: /self-hosted/:currentVersion:/upgrades/upgrade-pg/
 [upgrading-timescaledb]: /self-hosted/:currentVersion:/upgrades/major-upgrade/
 [live-migration]: /migrate/:currentVersion:/live-migration/
+[compression]: /use-timescale/:currentVersion:/compression/

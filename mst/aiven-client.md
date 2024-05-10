@@ -17,11 +17,11 @@ You can use the Aiven Client tool to:
 
 Instructions: 
 
-- [Install and configure the Aiven client](#install-and-configure-the-aiven-client)
-- [Fork services with Aiven client](#fork-services-with-aiven-client)
-- [Configure Grafana authentication plugins](#configure-grafana-authentication-plugins)
-- [Send Grafana emails](#send-grafana-emails)
-- [Create a read-only replica with the Aiven client](#create-a-read-only-replica-with-aiven-client)
+- [Install and configure the Aiven client]
+- [Fork services with Aiven client]
+- [Configure Grafana authentication plugins]
+- [Send Grafana emails]
+- [Create a read-only replica with the Aiven client]
 
 ## Install and configure the Aiven client
 
@@ -116,7 +116,7 @@ services,see [Services][about-mst].
 ### Creating a fork of your service
 
 1.  In the Aiven client, connect to your
-    [Managed Service for TimescaleDB service](#install-and-configure-the-aiven-client).
+    [Managed Service for TimescaleDB service][Install and configure the Aiven client].
 
 2.  Switch to the project that contains the service you want to fork:
 
@@ -180,7 +180,7 @@ To integrate Google authentication with Grafana service on Managed Service for T
 #### How to integrate the Google authentication plugin
 
 1.  In the Aiven Client, connect to your
-    [Managed Service for TimescaleDB service](#install-and-configure-the-aiven-client).
+    [Managed Service for TimescaleDB service][Install and configure the Aiven client].
 
 2.  Switch to the project that contains the Grafana service you want to integrate:
 
@@ -228,7 +228,7 @@ for TimescaleDB, you need to create your [GitHub OAuth application][github-oauth
 
 #### How to integrate the GitHub authentication plugin
 
-1.  In the Aiven Client, connect to your [Managed Service for TimescaleDB service](#install-and-configure-the-aiven-client).
+1.  In the Aiven Client, connect to your [Managed Service for TimescaleDB service][Install and configure the Aiven client].
 
 2.  Switch to the project that contains the Grafana service you want to integrate:
 
@@ -284,7 +284,7 @@ If you use your own instance of GitLab instead of gitlab.com, then you need to s
 
 #### How to integrate the GitLab authentication plugin
 
-1.  In the Aiven Client, connect to your [Managed Service for TimescaleDB service](#install-and-configure-the-aiven-client).
+1.  In the Aiven Client, connect to your [Managed Service for TimescaleDB service][Install and configure the Aiven client].
 
 2.  Switch to the project that contains the Grafana service you want to integrate:
 
@@ -340,7 +340,7 @@ Before you begin, make sure you have:
 
 ### Configuring the SMTP server for Grafana service
 
-1.  In the Aiven client, connect to your [Managed Service for TimescaleDB service](#install-and-configure-the-aiven-client).
+1.  In the Aiven client, connect to your [Managed Service for TimescaleDB service][Install and configure the Aiven client].
 
 2.  Switch to the project that contains the Grafana service you want to integrate:
 
@@ -391,7 +391,7 @@ good way to optimize query response times across different geographical location
 
 ### Creating a read-only replica of your service
 
-1.  In the Aiven client, connect to your [Managed Service for TimescaleDB service](#install-and-configure-the-aiven-client).
+1.  In the Aiven client, connect to your [Managed Service for TimescaleDB service][Install and configure the Aiven client].
 
 2.  Switch to the project that contains the TimescaleDB service you want to create a read-only replica for:
 
@@ -451,3 +451,12 @@ avn service list
 [github-oauth-keys]: https://grafana.com/docs/grafana/v9.0/setup-grafana/configure-security/configure-authentication/github/
 [gitlab-oauth-keys]: https://grafana.com/docs/grafana/v9.0/setup-grafana/configure-security/configure-authentication/gitlab/
 [about-mst]: /mst/:currentVersion:/about-mst/
+[Install and configure the Aiven client]: /mst/:currentVersion:/aiven-client/#install-and-configure-the-aiven-client
+[Fork services with Aiven client]: /mst/:currentVersion:/aiven-client/#fork-services-with-aiven-client
+[Configure Grafana authentication plugins]: /mst/:currentVersion:/aiven-client/#configure-grafana-authentication-plugins
+[Send Grafana emails]: /mst/:currentVersion:/aiven-client/#send-grafana-emails
+[Create a read-only replica with the Aiven client]: /mst/:currentVersion:/aiven-client/#create-a-read-only-replica-with-aiven-client
+
+[Fork services with Aiven client]: /mst/:currentVersion:/aiven-client/#fork-services-with-aiven-client
+[Configure Grafana authentication plugins]: /mst/:currentVersion:/aiven-client/#configure-grafana-authentication-plugins
+[Send Grafana emails]: /mst/:currentVersion:/aiven-client/#send-grafana-emails

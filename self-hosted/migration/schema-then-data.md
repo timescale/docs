@@ -17,19 +17,23 @@ data. This method copies each table or chunk separately, which allows you to
 restart midway if one copy operation fails.
 
 <Highlight type="note">
+
 For smaller databases, it may be more convenient to migrate your entire database
 at once. For more information, see the section on
-[choosing a migration method](/self-hosted/latest/migration/).
+[choosing a migration method][migration].
+
 </Highlight>
 
 <Highlight type="warning">
+
 This method does not retain continuous aggregates calculated using
 already-deleted data. For example, if you delete raw data after a month but
 retain downsampled data in a continuous aggregate for a year, the continuous
 aggregate loses any data older than a month upon migration. If you must keep
 continuous aggregates calculated using deleted data, migrate your entire
 database at once. For more information, see the section on
-[choosing a migration method](/use-timescale/latest/migration/).
+[choosing a migration method][migration].
+
 </Highlight>
 
 The procedure to migrate your database requires these steps:
@@ -44,13 +48,15 @@ The procedure to migrate your database requires these steps:
 *   [Update table statistics](#update-table-statistics)
 
 <Highlight type="warning">
+
 Depending on your database size and network speed, steps that involve copying
 data can take a very long time. You can continue reading from your source
 database during this time, though performance could be slower. To avoid this
 problem, fork your database and migrate your data from the fork. If you write to
 the tables in your source database during the migration, the new writes might
 not be transferred to Timescale. To avoid this problem, see the section on
-[migrating an active database](/migrate/).
+[migrating an active database][migration].
+
 </Highlight>
 
 ## Prerequisites
@@ -209,3 +215,4 @@ the [compression section](https://docs.timescale.com/use-timescale/latest/compre
 [upgrading-postgresql]: https://kb-managed.timescale.com/en/articles/5368016-perform-a-postgresql-major-version-upgrade
 [upgrading-postgresql-self-hosted]: /self-hosted/:currentVersion:/upgrades/upgrade-pg/
 [upgrading-timescaledb]: /self-hosted/:currentVersion:/upgrades/major-upgrade/
+[migration]: /migrate/:currentVersion:/
