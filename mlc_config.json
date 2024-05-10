@@ -29,6 +29,9 @@
       "pattern": "^https://opensea.io/"
     },
     {
+      "pattern": "^https://www.techopedia.com/definition/31996/hash-partitioning"
+    },
+    {
       "pattern": "^https://docs.github.com/"
     },
     {
