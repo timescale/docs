@@ -9,7 +9,18 @@ api:
   type: view
 ---
 
+import DeprecationNotice from "versionContent/_partials/_deprecated.mdx";
+
 # timescaledb_information.compression_settings
+
+This view exists for backwards compatibility. The supported views to retrieve information about compression are:
+
+- [timescaledb_information.hypertable_compression_settings][hypertable_compression_settings]
+- [timescaledb_information.chunk_compression_settings][chunk_compression_settings].
+
+<DeprecationNotice />
+
+
 
 Get information about compression-related settings for hypertables.
 Each row of the view provides information about individual `orderby`
@@ -18,6 +29,7 @@ and `segmentby` columns used by compression.
 How you use `segmentby` is the single most important thing for compression. It
 affects compresion rates, query performance, and what is compressed or
 decompressed by mutable compression.
+
 
 ### Available columns
 
@@ -79,4 +91,7 @@ orderby_nullsfirst     | f
 <Highlight type="note">
 The `by_range` dimension builder is an addition to TimescaleDB 2.13.
 </Highlight>
+
+[chunk_compression_settings]: /api/:currentVersion:/informational-views/chunk_compression_settings/
+[hypertable_compression_settings]: /api/:currentVersion:/informational-views/hypertable_compression_settings/
 
