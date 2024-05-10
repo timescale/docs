@@ -53,7 +53,7 @@
 1.  **Install TimescaleDB**
 
     ```bash
-    sudo apt install timescaledb-2-postgresql-14 postgresql-client
+    sudo apt install timescaledb-2-postgresql-16 postgresql-client
     ```
     
     To install a specific TimescaleDB [release][releases-page], set the version. For example:
@@ -74,7 +74,7 @@
 1.  **Restart PostgreSQL**
 
     ```bash
-    systemctl restart postgresql
+    sudo systemctl restart postgresql
     ```
     
 1.  **Login to PostgreSQL as `postgres`**

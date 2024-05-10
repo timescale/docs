@@ -74,7 +74,7 @@
 1.  **Install TimescaleDB**
 
     ```bash
-    sudo yum install timescaledb-2-postgresql-14 postgresql14
+    sudo yum install timescaledb-2-postgresql-16 postgresql16
     ```
 
     <!-- hack until we have bandwidth to rewrite this linting rule -->
@@ -91,13 +91,13 @@
  1.  Initialize the PostgreSQL instance:
 
     ```bash
-    sudo /usr/pgsql-14/bin/postgresql-14-setup initdb
+    sudo /usr/pgsql-16/bin/postgresql-16-setup initdb
     ```   
 
 1.  **Tune your PostgreSQL instance for TimescaleDB**
 
     ```bash
-    sudo timescaledb-tune --pg-config=/usr/pgsql-14/bin/pg_config 
+    sudo timescaledb-tune --pg-config=/usr/pgsql-16/bin/pg_config 
     ```   
 
     This script is included with the `timescaledb-tools` package when you install TimescaleDB.
@@ -106,8 +106,8 @@
 1.  **Enable and start PostgreSQL**
 
     ```bash
-    sudo systemctl enable postgresql-14
-    sudo systemctl start postgresql-14
+    sudo systemctl enable postgresql-16
+    sudo systemctl start postgresql-16
     ```
 
 1.  **Login to PostgreSQL as `postgres`**
