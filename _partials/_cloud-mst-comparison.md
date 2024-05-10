@@ -1,12 +1,12 @@
 <Highlight
   type="cloud"
-  header="Timescale or Managed Service for TimescaleDB?"
+  header="Timescale or Managed Service for TimescaleDB (MST)?"
 >
 
-If you have a requirement to use Timescale on GCP or Azure, you're in the right 
-place—keep reading. 
+If you need to run TimescaleDB on GCP or Azure, you're in the right place — keep reading. 
 
-If you want Timescale on AWS using Timescale's own PostgreSQL database cloud, 
-start with the [Use Timescale section](https://docs.timescale.com/use-timescale/latest/).
+If you want Timescale to manage our own software on AWS for you, [Create a Timescale Service][timescale-service]. 
 
 </Highlight>
+
+[timescale-service]: /getting-started/:currentVersion:/services

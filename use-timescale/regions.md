@@ -4,10 +4,15 @@ excerpt: Available AWS regions for your Timescale services
 product: cloud
 ---
 
+
+
 # Available regions
 
+<Highlight type="cloud" header="Want your databases to run in the Timescale cloud?" button="Try for free">
+We tune your database for performance and handle scalability, high availability, backups and management so you can relax.
+</Highlight>
 
-Timescale is available in these Amazon Web Services (AWS) regions:
+Timescale Services run in the following Amazon Web Services (AWS) regions:
 
 | Region           | Zone          | Location       |
 |------------------|---------------|----------------|
@@ -23,3 +28,10 @@ Timescale is available in these Amazon Web Services (AWS) regions:
 | `us-east-2`      | United States | Ohio           |
 | `us-west-2`      | United States | Oregon         |
 
+<Highlight type="cloud"  header="Need to deploy on Azure or Google Cloud Platform?">
+
+Use [Managed Service for TimescaleDB (MST)][aiven-client-mst] to run TimescaleDB on Azure and GCP.
+
+</Highlight>
+
+[aiven-client-mst]: /mst/:currentVersion:/
