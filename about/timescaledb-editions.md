@@ -487,22 +487,22 @@ You can access a hosted version of TimescaleDB Community Edition through
     <td><strong>Administration functions</strong></td>
   </tr>
   <tr>
-    <td><a href="https://docs.timescale.com/api/latest/administration/timescaledb_pre_restore/">timescaledb_pre_restore</a></td>
+    <td><a href="https://docs.timescale.com/api/latest/administration/#timescaledb_pre_restore">timescaledb_pre_restore</a></td>
     <td>✅</td>
     <td>✅</td>
   </tr>
   <tr>
-    <td><a href="https://docs.timescale.com/api/latest/administration/timescaledb_post_restore/">timescaledb_post_restore</a></td>
+    <td><a href="https://docs.timescale.com/api/latest/administration/#timescaledb_post_restore">timescaledb_post_restore</a></td>
     <td>✅</td>
     <td>✅</td>
   </tr>
   <tr>
-    <td><a href="https://docs.timescale.com/api/latest/administration/get_telemetry_report/">get_telemetry_report</a></td>
+    <td><a href="https://docs.timescale.com/api/latest/administration/#get_telemetry_report">get_telemetry_report</a></td>
     <td>✅</td>
     <td>✅</td>
   </tr>
   <tr>
-    <td><a href="https://docs.timescale.com/api/latest/administration/dump_meta_data/">dump_meta_data</a></td>
+    <td><a href="https://docs.timescale.com/api/latest/administration/#dump-timescaledb-meta-data">dump_meta_data</a></td>
     <td>✅</td>
     <td>✅</td>
   </tr>
