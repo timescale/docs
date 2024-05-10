@@ -115,7 +115,7 @@ the column first. For example:
 |Device ID|Timestamp|Status Code|Temperature|Min Timestamp|Max Timestamp|
 |-|-|-|-|-|-|
 |A|[12:00:01, 12:00:02, 12:00:03]|[0, 0, 0]|[70.11, 70.12, 70.14]|12:00:01|12:00:03|
-|B|[12:00:01, 12:00:02, 12:00:03]|[0, 0, 0]|[70.11, 70.12, 70.14]|12:00:01|12:00:03|
+|B|[12:00:01, 12:00:02, 12:00:03]|[0, 0, 4]|[69.70, 69.69, 69.70]|12:00:01|12:00:03|
 
 With the data segmented in this way, a query for device A between a time
 interval becomes quite fast. The query planner can use an index to find those
