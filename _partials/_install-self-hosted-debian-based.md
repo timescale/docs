@@ -58,7 +58,7 @@
     
     To install a specific TimescaleDB [release][releases-page], set the version. For example:
     
-    `sudo apt-get install timescaledb-2-postgresql-12='2.6.0*' timescaledb-2-loader-postgresql-12='2.6.0*'`
+    `sudo apt-get install timescaledb-2-postgresql-14='2.6.0*' timescaledb-2-loader-postgresql-14='2.6.0*'`
 
     Older versions of TimescaleDB may not support all the OS versions listed on this page.
 
