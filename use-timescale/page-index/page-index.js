@@ -540,9 +540,9 @@ module.exports = [
         ],
       },
       {
-        title: "VPC",
+        title: "VPC Peering and AWS PrivateLink",
         href: "vpc",
-        excerpt: "Timescale services operations, VPC tab",
+        excerpt: "Secure your Timescale Service with VPC Peering and AWS PrivateLink",
       },
       {
         title: "Hyperfunctions",
