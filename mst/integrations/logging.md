@@ -88,4 +88,4 @@ Service for TimescaleDB.
 </Procedure>
 
 [loggly-site]: https://www.loggly.com/
-[aiven-cli]: /mst/:currentVersion:/aiven-client/aiven-client-install/
+[aiven-cli]: /mst/:currentVersion:/aiven-client/#install-and-configure-the-aiven-client
