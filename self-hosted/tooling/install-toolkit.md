@@ -78,7 +78,7 @@ Enterprise Linux and Fedora.
 1.  Install TimescaleDB Toolkit:
 
     ```bash
-    yum install timescaledb-toolkit-postgresql-14
+    yum install timescaledb-toolkit-postgresql-16
     ```
 
 1.  Connect to the database where you want to use Toolkit.
@@ -111,7 +111,7 @@ and may also work on other Debian-based systems.
 1.  Install TimescaleDB Toolkit:
 
     ```bash
-    apt install timescaledb-toolkit-postgresql-14
+    apt install timescaledb-toolkit-postgresql-16
     ```
 
 1.  Connect to the database where you want to use Toolkit.
@@ -210,7 +210,7 @@ Update Toolkit by installing the latest version and running `ALTER EXTENSION`.
     <tab label='CentOS 7'>
 
     ```bash
-    yum install timescaledb-toolkit-postgresql-14
+    yum install timescaledb-toolkit-postgresql-16
     ```
 
     </tab>
@@ -218,7 +218,7 @@ Update Toolkit by installing the latest version and running `ALTER EXTENSION`.
     <tab label='Debian'>
 
     ```bash
-    apt install timescaledb-toolkit-postgresql-14
+    apt install timescaledb-toolkit-postgresql-16
     ```
 
     </tab>
