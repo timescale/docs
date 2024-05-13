@@ -10,7 +10,7 @@
 1. **Create a database**
 
     ```sql
-    CREATE database tsdb;
+    CREATE DATABASE tsdb;
     ```
 
 1.  **Connect to the database**
