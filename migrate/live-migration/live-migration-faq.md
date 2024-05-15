@@ -110,3 +110,5 @@ No, Timescale Cloud cannot be used as a source database for live migration.
 
 At present, live migration does not allow for excluding schemas or tables from
 replication, but this feature is expected to be added in future releases.
+However, a workaround is available for skipping table data using the `--skip-table-data` flag.
+For more information, please refer to the help text under the `migrate` subcommand.
