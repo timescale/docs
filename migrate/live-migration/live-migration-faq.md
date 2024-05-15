@@ -94,6 +94,13 @@ provide a connection string that points directly to your source database for
 live migration.
 
 
+## Can I use live migration with a Postgres connection pooler like PgBouncer?
+
+Live migration does not support connection poolers. You must provide a
+connection string that points directly to your source and target databases
+for live migration to work smoothly.
+
+
 ## Can I use Timescale Cloud instance as source for live migration?
 
 No, Timescale Cloud cannot be used as a source database for live migration.
