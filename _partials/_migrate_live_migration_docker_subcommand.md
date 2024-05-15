@@ -6,7 +6,7 @@ docker run --rm -it --name live-migration \
     -e PGCOPYDB_TARGET_PGURI=$TARGET \
     --pid=host \
     -v ~/live-migration:/opt/timescale/ts_cdc \
-    timescale/live-migration:v0.0.15 --help
+    timescale/live-migration:v0.0.16 --help
 
 Live migration moves your PostgreSQL/TimescaleDB to Timescale Cloud with minimal downtime.
 
@@ -53,7 +53,7 @@ docker run --rm -it --name live-migration-snapshot \
     -e PGCOPYDB_TARGET_PGURI=$TARGET \
     --pid=host \
     -v ~/live-migration:/opt/timescale/ts_cdc \
-    timescale/live-migration:v0.0.15 snapshot
+    timescale/live-migration:v0.0.16 snapshot
 ```
 
 In addition to creating a snapshot, this process also validates prerequisites on the source and target to ensure the database instances are ready for replication.
@@ -69,7 +69,36 @@ Press 'c' and ENTER to continue
 
 ### 3.b Perform live-migration
 
-Next, open a new terminal and initiate the live migration. Allow it to
+The `migrate` subcommand supports following flags
+
+```sh
+docker run --rm -it --name live-migration-migrate \
+    -e PGCOPYDB_SOURCE_PGURI=$SOURCE \
+    -e PGCOPYDB_TARGET_PGURI=$TARGET \
+    --pid=host \
+    -v ~/live-migration:/opt/timescale/ts_cdc \
+    timescale/live-migration:v0.0.16 migrate --help
+usage: main.py migrate [-h] [--dir DIR] [--resume] [--skip-roles] [--table-jobs TABLE_JOBS] [--index-jobs INDEX_JOBS]
+                       [--skip-extensions [SKIP_EXTENSIONS ...]] [--skip-table-data SKIP_TABLE_DATA [SKIP_TABLE_DATA ...]]
+
+options:
+  -h, --help            Show this help message and exit
+  --resume              Resume the migration
+  --skip-roles          Skip roles migration
+  --table-jobs TABLE_JOBS
+                        Number of parallel jobs to copy "existing data" from source db to target db (Default: 8)
+  --index-jobs INDEX_JOBS
+                        Number of parallel jobs to create indexes in target db (Default: 8)
+  --skip-extensions [SKIP_EXTENSIONS ...]
+                        Skips the given extensions during migration. Empty list skips all extensions.
+  --skip-table-data SKIP_TABLE_DATA [SKIP_TABLE_DATA ...]
+                        Skips data from the given table during migration. However, the table schema will be migrated. To skip data from a
+                        Hypertable, you will need to specify a list of schema qualified chunks belonging to the Hypertable. Currently, this
+                        flag does not skip data during live replay from the specified table. Values for this flag must be schema qualified. Eg:
+                        --skip-table-data public.exclude_table_1 public.exclude_table_2
+```
+
+Next, we will start the migration process. Open a new terminal and initiate the live migration, and allow it to
 run uninterrupted.
 
 ```sh
@@ -78,7 +107,7 @@ docker run --rm -it --name live-migration-migrate \
     -e PGCOPYDB_TARGET_PGURI=$TARGET \
     --pid=host \
     -v ~/live-migration:/opt/timescale/ts_cdc \
-    timescale/live-migration:v0.0.15 migrate
+    timescale/live-migration:v0.0.16 migrate
 ```
 <Highlight type="note">
 If the migrate command stops for any reason during execution, you can resume
