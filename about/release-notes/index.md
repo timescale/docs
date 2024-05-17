@@ -28,11 +28,11 @@ TimescaleDB v2.14.2. Best practice is to upgrade at the next available opportuni
 
 * [Continuous Aggregate](/api/:currentVersion:/continuous-aggregates/create_materialized_view/#sample-usage) now supports `time_bucket` with `origin` and/or `offset`.
 * The following improvements have been introduced for [hypertable compression](/api/:currentVersion:/compression/):
+  - Recommend optimized defaults for `segment by` and `order by` when configuring compression through analysis of table configuration and statistics.
   - Added planner support to check more kinds of WHERE conditions before decompression. 
     This reduces the number of rows that have to be decompressed.
   - You can now use `minmax` sparse indexes when you compress columns with `btree` indexes.
-  - Make compression uses the defaults functions.
-  - Vectorize filters in the WHERE clause contain text equality operators and LIKE expressions.
+  - Vectorize filters in the WHERE clause that contain text equality operators and LIKE expressions.
 
 #### Deprecation warning
 
