@@ -50,7 +50,7 @@
     sudo tee /etc/yum.repos.d/timescale_timescaledb.repo <<EOL
     [timescale_timescaledb]
     name=timescale_timescaledb
-    baseurl=https://packagecloud.io/timescale/timescaledb/el/8/$basearch
+    baseurl=https://packagecloud.io/timescale/timescaledb/el/9/\$basearch
     repo_gpgcheck=1
     gpgcheck=0
     enabled=1
