@@ -44,7 +44,7 @@ TimescaleDB v2.14.2. Best practice is to upgrade at the next available opportuni
 #### For self-hosted TimescaleDB v2.15.0 deployments only
 
 After you run `ALTER EXTENSION`, you must run [this SQL script](https://github.com/timescale/timescaledb-extras/blob/master/utils/2.15.X-fix_hypertable_foreign_keys.sql). For more details, see the 
-following pull requests [#6786](#6797).
+following pull requests [#6797](https://github.com/timescale/timescaledb/pull/6797).
 
 ### Complete list of features
 * #6382 Support for `time_bucket` with origin and offset in CAggs.
