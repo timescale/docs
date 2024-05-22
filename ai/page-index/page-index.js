@@ -33,9 +33,9 @@ module.exports = [
         excerpt: "Integration of LlamaIndex with Timescale Vector and pgvector",
       },
       {
-        title: "Embed PostgreSQL data with PgVectorize",
-        href: "pgvectorize",
-        excerpt: "Create vector embeddings from PostgreSQL data with PgVectorize",
+        title: "Embed PostgreSQL data with PgVectorizer",
+        href: "PgVectorizer",
+        excerpt: "Create vector embeddings from PostgreSQL data with PgVectorizer",
       },
     ],
   },
