@@ -1,14 +1,14 @@
 ---
-title: Embed your PostgreSQL data with PgVectorize
-excerpt: Create and sync vector embeddings from data in PostgreSQL with PgVectorize
+title: Embed your PostgreSQL data with PgVectorizer
+excerpt: Create and sync vector embeddings from data in PostgreSQL with PgVectorizer
 products: [cloud]
-keywords: [ai, vector, pgvector, timescale vector, pgvectorize]
-tags: [ai, vector, pgvectorize]
+keywords: [ai, vector, pgvector, timescale vector, pgvectorizer]
+tags: [ai, vector, pgvectorizer]
 ---
 
-## PgVectorize your PostgreSQL data
+## Embed PostgreSQL data with PgVectorizer 
 
-PgVectorize enables you to create vector embeddings from any data that
+PgVectorizer enables you to create vector embeddings from any data that
 you already have stored in PostgreSQL. You can get more background
 information in the [blog
 post](https://www.timescale.com/blog/a-complete-guide-to-creating-and-storing-embeddings-for-postgresql-data/)
@@ -16,7 +16,7 @@ announcing this feature, as well as the ["how we built
 it"](https://www.timescale.com/blog/how-we-designed-a-resilient-vector-embedding-creation-system-for-postgresql-data/)
 post going into the details of the design.
 
-To create vector embeddings, simply attach PgVectorize to any PostgreSQL
+To create vector embeddings, simply attach PgVectorizer to any PostgreSQL
 table to automatically sync that table's data with a set of
 embeddings stored in Timescale Vector. For example, say you have a
 blog table defined in the following way:
