@@ -390,6 +390,10 @@ const redirector = new ThreeOhOneRedirector({
 	]
 })
 	.add(
+		"/ai/latest/pgvectorize",
+		"https://docs.timescale.com/ai/latest/pgvectorizer"
+	)
+	.add(
 		"/ai/latest/concepts",
 		"https://docs.timescale.com/ai/latest/key-vector-database-concepts-for-understanding-pgvector/"
 	)
