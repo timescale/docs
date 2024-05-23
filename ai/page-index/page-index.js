@@ -34,7 +34,7 @@ module.exports = [
       },
       {
         title: "Embed PostgreSQL data with PgVectorizer",
-        href: "PgVectorizer",
+        href: "pgvectorizer",
         excerpt: "Create vector embeddings from PostgreSQL data with PgVectorizer",
       },
     ],
