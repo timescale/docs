@@ -30,6 +30,7 @@ supported extensions:
 |ltree|Data type for hierarchical tree-like structures|
 |pg_stat_statements|Track execution statistics of all SQL statements executed|
 |pg_trgm|Text similarity measurement and index searching based on trigrams|
+|pgaudit|Detailed session and/or object audit logging|
 |[pgcrypto][pgcrypto]|Cryptographic functions|
 |pgpcre|Perl-compatible RegEx|
 |pgrouting|pgRouting Extension|
