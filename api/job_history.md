@@ -52,7 +52,7 @@ ORDER BY id, job_id;
 
 ### Error retention policy
 
-The informational view `timescaledb_information.job_history` is defined on top
+The `timescaledb_information.job_history` informational view is defined on top
 of the `_timescaledb_internal.bgw_job_stat_history` table in the internal schema. To
 prevent this table from growing too large, a system background job
 `Job History Log Retention Policy [3]` is enabled by default,
