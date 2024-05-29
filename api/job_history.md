@@ -10,7 +10,7 @@ api:
 
 ## timescaledb_information.job_history
 
-Shows information about failed and successull jobs run by the automation framework.
+Shows information about the jobs run by the automation framework.
 This includes jobs set up for user-defined actions and jobs run by policies
 created to manage data retention, continuous aggregates, compression, and
 other automation policies. For more information about automation policies,
