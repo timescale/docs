@@ -34,7 +34,7 @@ see [User-Defined Actions][actions].
 
 ### Sample usage
 
-See information about recent job executions:
+To retrieve information about recent jobs:
 
 ```sql
 SELECT job_id, pid, proc_schema, proc_name, succeeded, config, sqlerrcode, err_message
