@@ -54,7 +54,7 @@ ORDER BY id, job_id;
 
 The `timescaledb_information.job_history` informational view is defined on top
 of the `_timescaledb_internal.bgw_job_stat_history` table in the internal schema. To
-prevent this table from growing too large, a system background job
+prevent this table from growing too large, the
 `Job History Log Retention Policy [3]` is enabled by default,
 with this configuration:
 
