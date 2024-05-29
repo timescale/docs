@@ -22,7 +22,7 @@ see [User-Defined Actions][actions].
 |-|-|-|
 |`id`|INTEGER|The sequencial ID to identify the job execution|
 |`job_id`|INTEGER|The ID of the background job created to implement the policy|
-|`succeeded`|BOOLEAN|`TRUE` if the job run without any error, `FALSE` for failed executions|
+|`succeeded`|BOOLEAN|`TRUE` when the job ran successfully, `FALSE` for failed executions|
 |`proc_schema`|TEXT|Schema name of the function or procedure executed by the job|
 |`proc_name`|TEXT|Name of the function or procedure executed by the job|
 |`pid`|INTEGER|The process ID of the background worker executing the job. This is `NULL` in the case of a job crash|
