@@ -14,7 +14,7 @@ Shows information about the jobs run by the automation framework.
 This includes jobs set up for user-defined actions, and jobs run by policies
 created to manage data retention, continuous aggregates, compression, and
 other automation policies. For more information about automation policies,
-see the [policies][actions] section.
+see [User-Defined Actions][actions].
 
 ### Available columns
 
