@@ -24,7 +24,7 @@ see [User-Defined Actions][actions].
 |`job_id`|INTEGER|The ID of the background job created to implement the policy|
 |`succeeded`|BOOLEAN|`TRUE` when the job ran successfully, `FALSE` for failed executions|
 |`proc_schema`|TEXT| The schema name of the function or procedure executed by the job|
-|`proc_name`|TEXT|Name of the function or procedure executed by the job|
+|`proc_name`|TEXT| The name of the function or procedure executed by the job|
 |`pid`|INTEGER|The process ID of the background worker executing the job. This is `NULL` in the case of a job crash|
 |`start_time`|TIMESTAMP WITH TIME ZONE|Start time of the job|
 |`finish_time`|TIMESTAMP WITH TIME ZONE|Time when error was reported|
