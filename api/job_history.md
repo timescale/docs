@@ -26,7 +26,7 @@ see [User-Defined Actions][actions].
 |`proc_schema`|TEXT| The schema name of the function or procedure executed by the job|
 |`proc_name`|TEXT| The name of the function or procedure executed by the job|
 |`pid`|INTEGER|The process ID of the background worker executing the job. This is `NULL` in the case of a job crash|
-|`start_time`|TIMESTAMP WITH TIME ZONE|Start time of the job|
+|`start_time`|TIMESTAMP WITH TIME ZONE| The time the job started|
 |`finish_time`|TIMESTAMP WITH TIME ZONE|Time when error was reported|
 |`config`|JSONB|Job configuration at the moment of the execution|
 |`sqlerrcode`|TEXT|The error code associated with this error, if any. See the [official PostgreSQL documentation](https://www.postgresql.org/docs/current/errcodes-appendix.html) for a full list of error codes|
