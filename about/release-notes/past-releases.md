@@ -1,10 +1,10 @@
 ---
-title: TimescaleDB release notes and future plans
+title: TimescaleDB v2.0.0 - v2.9.3
 excerpt: New features and fixes are released regularly
 keywords: [upgrades, updates, releases]
 ---
 
-# Release notes for past releases
+# TimescaleDB v2.0.0 - v2.9.3
 
 <Highlight type="warning">
 This is an historical document, which contains release notes for older versions

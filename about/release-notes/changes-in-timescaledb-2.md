@@ -1,5 +1,5 @@
 ---
-title: Changes in TimescaleDB 2.0
+title: TimescaleDB v1.0 - 2.0
 excerpt: New features and capabilities introduced in TimescaleDB 2.0
 keywords: [upgrades, releases]
 ---
