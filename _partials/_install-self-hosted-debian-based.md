@@ -12,6 +12,11 @@
     sudo /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh
     ```
 
+    If you want to do some development on PostgreSQL, add the libraries:
+    ```
+    sudo apt install postgresql-server-dev-16
+    ```
+
 1.  **Add the TimescaleDB package**
 
     <Terminal>
@@ -53,7 +58,7 @@
 1.  **Install TimescaleDB**
 
     ```bash
-    sudo apt install timescaledb-2-postgresql-16 postgresql-client
+    sudo apt install timescaledb-2-postgresql-16 postgresql-client-16
     ```
     
     To install a specific TimescaleDB [release][releases-page], set the version. For example:
