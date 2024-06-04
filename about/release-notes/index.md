@@ -17,6 +17,34 @@ GitHub and be notified by email whenever a new release is available. On the
 click `Watch`, select `Custom` and then check `Releases`.
 </Highlight>
 
+## TimescaleDB&nbsp;2.15.1 on 2024-05-28
+
+<Highlight type="note">
+This release contains the performance improvements and bug fixes introduced since
+TimescaleDB v2.15.0. Best practice is to upgrade at the next available opportunity.
+</Highlight>
+
+#### Migrating from self-hosted TimescaleDB v2.14.x and earlier
+
+After you run `ALTER EXTENSION`, you must run [this SQL script](https://github.com/timescale/timescaledb-extras/blob/master/utils/2.15.X-fix_hypertable_foreign_keys.sql). For more details, see the following pull request [#6797](https://github.com/timescale/timescaledb/pull/6797).
+
+If you are migrating from TimescaleDB v2.15.0, no changes are required.
+
+#### Bugfixes
+* #6540: Segmentation fault when you backfill data using COPY into a compressed chunk.
+* #6858: `BEFORE UPDATE` trigger not working correctly.
+* #6908: Fix `time_bucket_gapfill()` with timezone behaviour around daylight savings time (DST) switches.
+* #6911: Fix dropped chunk metadata removal in the update script.
+* #6940: Fix `pg_upgrade` failure by removing `regprocedure` from the catalog table.
+* #6957: Fix the `segfault` in UNION queries that contain ordering on compressed chunks.
+
+#### Thanks
+* @DiAifU, @kiddhombre and @intermittentnrg for reporting the issues with gapfill and daylight saving time.
+* @edgarzamora for reporting the issue with update triggers.
+* @hongquan for reporting the issue with the update script.
+* @iliastsa and @SystemParadox for reporting the issue with COPY into a compressed chunk.
+
+
 ## TimescaleDB&nbsp;2.15.0 on 2024-05-08
 
 <Highlight type="note">
