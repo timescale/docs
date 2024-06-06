@@ -8,177 +8,93 @@ keywords: [installation, self-hosted, Windows]
 import Windows from "versionContent/_partials/_psql-installation-windows.mdx";
 import WhereTo from "versionContent/_partials/_where-to-next.mdx";
 import Skip from "versionContent/_partials/_selfhosted_cta.mdx";
+import SelfHostedWindowsBased from "versionContent/_partials/_install-self-hosted-windows-based.mdx";
+import AddTimescaleDBToDB from "versionContent/_partials/_add-timescaledb-to-a-database.mdx";
 
-# Install self-hosted TimescaleDB on Windows systems
+# Install TimescaleDB on Windows
 
-You can host TimescaleDB yourself on your Microsoft Windows system.
+TimescaleDB is a [PostgreSQL extension](https://www.postgresql.org/docs/current/external-extensions.html) for
+time series and demanding workloads that ingest and query high volumes of data.
 
-< Skip /> 
+< Skip />
 
-These instructions use a `zip` installer on these versions:
+This section shows you how to:
 
-*   Microsoft Windows&nbsp;10
-*   Microsoft Windows&nbsp;11
-*   Microsoft Windows Server&nbsp;2019
-
-The minimum supported PostgreSQL versions are:
-
-*   PostgreSQL&nbsp;13.5
-*   PostgreSQL&nbsp;14.0
-*   PostgreSQL&nbsp;15.0
-*   PostgreSQL&nbsp;16.0
+* [Install and configure TimescaleDB on PostgreSQL](#install-and-configure-timescaledb-on-postgresql) - set up
+  a self-hosted PostgreSQL instance to efficiently run TimescaleDB. 
+* [Add the TimescaleDB extension to your database](#add-the-timescaledb-extension-to-your-database) - enable TimescaleDB features and
+  performance improvements on a database.
 
 <Highlight type="warning">
-If you have already installed PostgreSQL using another method, you could
-encounter errors following these instructions. It is safest to remove any
-existing PostgreSQL installations before you begin. If you want to keep your
-current PostgreSQL installation, do not install TimescaleDB using this method.
-[Install from source](/self-hosted/latest/install/installation-source/) instead.
+
+If you have previously installed PostgreSQL without a package manager, you may encounter errors
+following these install instructions. Best practice is to full remove any existing PostgreSQL
+installations before you begin.
+
+To keep your current PostgreSQL installation, [Install from source][install-from-source].
 </Highlight>
 
-## Prerequisites
+### Prerequisites
 
-To install TimescaleDB&nbsp;2.11.2 or later, make sure you have installed
-OpenSSL&nbsp;3.x.
+To install TimescaleDB on your Windows device, you need:
 
-For older versions of TimescaleDB, OpenSSL&nbsp;1.1.1 is
-required.
+* OpenSSL v3.x
+* [Visual C++ Redistributable for Visual Studio 2015][ms-download]
 
-<Procedure>
 
-## Installing self-hosted TimescaleDB on Windows-based systems
+## Install and configure TimescaleDB on PostgreSQL
 
-1.  Download and install the Visual C++ Redistributable for Visual Studio from
-    [www.microsoft.com][ms-download].
-1.  Download and install PostgreSQL from [www.postgresql.org][pg-download].
-    You might need to add the `pg_config` file location to your path. In the Windows
-    Search tool, search for `system environment variables`. The path should be
-    `C:\Program Files\PostgreSQL\<version>\bin`.
-1.  Download the TimescaleDB installation `.zip` file from
-    [Windows releases][windows-releases].
-1.  Locate the downloaded file on your local file system, and extract the files.
-1.  In the extracted TimescaleDB directory, right-click the `setup.exe` file and
-    select `Run as Administrator` to start the installer.
+Best practice for self-hosting TimescaleDB is to install the latest version of PostgreSQL and
+TimescaleDB on a [supported platform](#supported-platforms) using the packages supplied by Timescale.
 
-</Procedure>
+<SelfHostedWindowsBased />
 
-When you have completed the installation, you need to configure your database so
-that you can use it. The easiest way to do this is to run the `timescaledb-tune`
-script, which is included with the `timescaledb-tools` package. For more
-information, see the [configuration][config] section.
 
-## Set up the TimescaleDB extension
+## Add the TimescaleDB extension to your database
 
-When you have PostgreSQL and TimescaleDB installed, you can connect to it from
-your local system using the `psql` command-line utility.
+For improved performance, you enable TimescaleDB on each database on your self-hosted PostgreSQL instance.
+This section shows you how to enable TimescaleDB for a new database in PostgreSQL using `psql` from the command line.
 
-<Windows />
 
-<Procedure>
+<AddTimescaleDBToDB />
 
-### Setting up the TimescaleDB extension
+And that is, you have TimescaleDB running on a database on a self-hosted instance of PostgreSQL.
 
-1.  On your local system, at the command prompt, connect to the PostgreSQL
-    instance as the `postgres` superuser:
-
-    ```powershell
-    psql -U postgres -h localhost
-    ```
-
-    If your connection is successful, you'll see a message like this, followed
-    by the `psql` prompt:
-
-    ```powershell
-    psql (13.3, server 12.8 (Ubuntu 12.8-1.pgdg21.04+1))
-    SSL connection (protocol: TLSv1.3, cipher: TLS_AES_256_GCM_SHA384, bits: 256, compression: off)
-    Type "help" for help.
-    tsdb=>
-    ```
-
-1.  At the `psql` prompt, create an empty database. Our database is
-    called `example`:
-
-    ```sql
-    CREATE database example;
-    ```
-
-1.  Connect to the database you created:
-
-    ```sql
-    \c example
-    ```
-
-1.  Add the TimescaleDB extension:
-
-    ```sql
-    CREATE EXTENSION IF NOT EXISTS timescaledb;
-    ```
-
-1.  You can now connect to your database using this command:
-
-    ```powershell
-    psql -U postgres -h localhost -d example
-    ```
-
-</Procedure>
-
-You can check that the TimescaleDB extension is installed by using the `\dx`
-command at the `psql` prompt. It looks like this:
-
-```sql
-tsdb=> \dx
-List of installed extensions
--[ RECORD 1 ]------------------------------------------------------------------
-Name        | pg_stat_statements
-Version     | 1.7
-Schema      | public
-Description | track execution statistics of all SQL statements executed
--[ RECORD 2 ]------------------------------------------------------------------
-Name        | plpgsql
-Version     | 1.0
-Schema      | pg_catalog
-Description | PL/pgSQL procedural language
--[ RECORD 3 ]------------------------------------------------------------------
-Name        | timescaledb
-Version     | 2.4.1
-Schema      | public
-Description | Enables scalable inserts and complex queries for time-series data
--[ RECORD 4 ]------------------------------------------------------------------
-Name        | timescaledb_toolkit
-Version     | 1.3.1
-Schema      | public
-Description | timescaledb_toolkit
-
-tsdb=>
-```
-
-## Windows releases
-
-Here are the latest TimescaleDB releases for PostgreSQL 13, 14, 15, and 16. To see
-information on releases, check out the
-[GitHub releases page][gh-releases]. Also see the
-[release notes][release-notes].
-
-*   <Tag type="download">
-    [PostgreSQL 16: Timescale release](https://github.com/timescale/timescaledb/releases/latest/download/timescaledb-postgresql-16-windows-amd64.zip)
-    </Tag>
-*   <Tag type="download">
-    [PostgreSQL 15: Timescale release](https://github.com/timescale/timescaledb/releases/latest/download/timescaledb-postgresql-15-windows-amd64.zip)
-    </Tag>
-*   <Tag type="download">
-    [PostgreSQL 14: Timescale release](https://github.com/timescale/timescaledb/releases/latest/download/timescaledb-postgresql-14-windows-amd64.zip)
-    </Tag>
-*   <Tag type="download">
-    [PostgreSQL 13: Timescale release](https://github.com/timescale/timescaledb/releases/latest/download/timescaledb-postgresql-13-windows-amd64.zip)
-    </Tag>
 
 ## Where to next
 
 <WhereTo />
 
+## Supported platforms
+
+* The latest TimescaleDB releases for PostgreSQL 13, 14, 15, and 16 are:
+
+    *   <Tag type="download">
+        [PostgreSQL 16: Timescale release](https://github.com/timescale/timescaledb/releases/latest/download/timescaledb-postgresql-16-windows-amd64.zip)
+        </Tag>
+    *   <Tag type="download">
+        [PostgreSQL 15: Timescale release](https://github.com/timescale/timescaledb/releases/latest/download/timescaledb-postgresql-15-windows-amd64.zip)
+        </Tag>
+    *   <Tag type="download">
+        [PostgreSQL 14: Timescale release](https://github.com/timescale/timescaledb/releases/latest/download/timescaledb-postgresql-14-windows-amd64.zip)
+        </Tag>
+    *   <Tag type="download">
+        [PostgreSQL 13: Timescale release](https://github.com/timescale/timescaledb/releases/latest/download/timescaledb-postgresql-13-windows-amd64.zip)
+        </Tag>
+
+* TimescaleDB is supported on the following platforms:
+
+  *   Microsoft Windows&nbsp;10
+  *   Microsoft Windows&nbsp;11
+  *   Microsoft Windows Server&nbsp;2019
+
+
+    For release information, see the [GitHub releases page][gh-releases] and the [release notes][release-notes].
+    
 [config]: /self-hosted/:currentVersion:/configuration/
 [gh-releases]: https://github.com/timescale/timescaledb/releases
 [ms-download]: https://www.microsoft.com/en-us/download/details.aspx?id=48145
 [pg-download]: https://www.postgresql.org/download/windows/
 [release-notes]: /about/:currentVersion:/release-notes/
 [windows-releases]: #windows-releases
+[install-from-source]: /self-hosted/:currentVersion:/install/installation-source/

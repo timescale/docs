@@ -1,5 +1,5 @@
 ---
-title: Install TimescaleDB from Docker container
+title: Install TimescaleDB on Docker
 excerpt: Install self-hosted TimescaleDB from a pre-built Docker container
 products: [self_hosted]
 keywords: [installation, self-hosted, Docker]
@@ -7,77 +7,76 @@ keywords: [installation, self-hosted, Docker]
 
 import WhereTo from "versionContent/_partials/_where-to-next.mdx";
 import Skip from "versionContent/_partials/_selfhosted_cta.mdx";
+import SelfHostedDocker from "versionContent/_partials/_install-self-hosted-docker-based.mdx";
+import AddTimescaleDBToDB from "versionContent/_partials/_add-timescaledb-to-a-database.mdx";
 
-# Install TimescaleDB from a pre-built container
+# Install TimescaleDB from a Docker container
 
-You can install a TimescaleDB instance on any local system, from a pre-built
-container. 
+TimescaleDB is a [PostgreSQL extension](https://www.postgresql.org/docs/current/external-extensions.html) for
+time series and demanding workloads that ingest and query high volumes of data. You can install a TimescaleDB 
+instance on any local system, from a pre-built container. 
 
 < Skip/>
 
+This section shows you how to:
 
-This is the simplest method to self-host TimescaleDB, and it means you
-always have access to the latest version without worrying about local
-dependencies. You can access the Docker image directly from locally installed
-PostgreSQL client tools such as `psql`.
-
+* [Install and configure TimescaleDB on PostgreSQL](#install-and-configure-timescaledb-on-postgresql) - set up
+  a self-hosted PostgreSQL instance to efficiently run TimescaleDB1.
+* [Add the TimescaleDB extension to your database](#add-the-timescaledb-extension-to-your-database) - enable TimescaleDB features and
+  performance improvements on a database.
 
 <Highlight type="warning">
+
 If you have already installed PostgreSQL using a method other than the pre-built
-container provided here, you could encounter errors following these
-instructions. It is safest to remove any existing PostgreSQL installations
-before you begin. If you want to keep your current PostgreSQL installation, do
-not install TimescaleDB using this method.
-[Install from source](/self-hosted/latest/install/installation-source/)
-instead.
+container provided here, you may encounter errors
+following these install instructions. Best practice is to full remove any existing PostgreSQL
+installations before you begin.
+
+To keep your current PostgreSQL installation, [Install from source][install-from-source].
 </Highlight>
 
-<Procedure>
+### Prerequisites
 
-## Installing TimescaleDB from a Docker container
+To connect to a PostgreSQL installation on Docker, you need to install:
 
-1.  Install Docker, if you don't already have it. For packages and
-    instructions, see the [Docker installation documentation][docker-install].
-1.  At the command prompt, run the TimescaleDB Docker image:
+- [Docker][docker-install]
+- [psql][install-psql]
 
-    ```bash
-    docker pull timescale/timescaledb-ha:pg16
-    ```
 
-<Highlight type="important">
-The [`timescaledb-ha`](https://hub.docker.com/r/timescale/timescaledb-ha) image
-offers the most complete TimescaleDB experience. It
-includes the
-[TimescaleDB Toolkit](https://github.com/timescale/timescaledb-toolkit),
-and support for PostGIS and Patroni. If you need the smallest possible image, use
-the `timescale/timescaledb:latest-pg14` image instead.
-</Highlight>
+## Install and configure TimescaleDB on PostgreSQL
 
-</Procedure>
+Best practice for self-hosting TimescaleDB is to install the latest version of PostgreSQL and
+TimescaleDB on a [supported platform](#supported-platforms) using the packages supplied by Timescale.
 
-<Highlight type="warning">
-If your system uses Linux Uncomplicated Firewall (UFW) for security rules,
-Docker could override your UFW port binding settings. Docker binds the container
-on Unix-based systems by modifying the Linux IP tables. If you are relying on
-UFW rules for network security, consider adding `DOCKER_OPTS="--iptables=false"`
-to `/etc/default/docker` to prevent Docker from overwriting the IP tables. For
-more information about this vulnerability, see
-[Docker's information about the UFW flaw](https://www.techrepublic.com/article/how-to-fix-the-docker-and-ufw-security-flaw/).
-</Highlight>
+<SelfHostedDocker />
 
-When you have completed the installation, you need to configure your database so
-that you can use it. The easiest way to do this is to run the `timescaledb-tune`
-script, which is included with the `timescaledb-tools` package. For more
-information, see the [configuration][config] section.
+
+## Add the TimescaleDB extension to your database
+
+For improved performance, you enable TimescaleDB on each database on your self-hosted PostgreSQL instance.
+This section shows you how to enable TimescaleDB for a new database in PostgreSQL using `psql` from the command line.
+
+
+<AddTimescaleDBToDB />
+
+And that is, you have TimescaleDB running on a database on a self-hosted instance of PostgreSQL.
 
 ## More Docker options
 
-The TimescaleDB HA Docker image includes [Ubuntu][ubuntu] as its operating
-system. The lighter-weight TimescaleDB (non-HA) image uses [Alpine][alpine]. The
-commands in this section use the TimescaleDB HA image, but the steps are the
-same for both (except for the location of the data-dir, see below).
+The [TimescaleDB HA](https://hub.docker.com/r/timescale/timescaledb-ha) Docker image 
+includes [Ubuntu][ubuntu] as its operating system and offers the most complete TimescaleDB 
+experience. It includes the [TimescaleDB Toolkit](https://github.com/timescale/timescaledb-toolkit),
+and support for PostGIS and Patroni.  The lighter-weight TimescaleDB 
+(non-HA) `timescale/timescaledb:latest-pg14` image uses [Alpine][alpine]. 
 
-You can use the Docker image in different ways, depending on your use case.
+<Highlight type="warning">
+If your system uses Linux Uncomplicated Firewall (UFW) for security rules, Docker could override your 
+UFW port binding settings. Docker binds the container on Unix-based systems by modifying the Linux IP tables. 
+If you are relying on UFW rules for network security, consider adding `DOCKER_OPTS="--iptables=false"`
+to `/etc/default/docker` to prevent Docker from overwriting the IP tables. For more information about this 
+vulnerability, see
+[Docker's information about the UFW flaw](https://www.techrepublic.com/article/how-to-fix-the-docker-and-ufw-security-flaw/).
+</Highlight>
 
 If you want to run the image directly from the container, you can use this
 command:
@@ -117,7 +116,7 @@ persists on disk until you explicitly delete it. You can use the `docker volume
 ls` command to list existing docker volumes. If you want to store the data from
 your Docker container in a host directory, or you want to run the Docker image
 on top of an existing data directory, you can specify the directory to mount a
-data volume using the `-v` flag. 
+data volume using the `-v` flag.
 
 <Highlight type="warning">
 The two container types store PostgreSQL data dir in different places,
@@ -147,95 +146,6 @@ The link provided in these instructions is for the latest version of TimescaleDB
 on PostgreSQL 14. To find other Docker tags you can use, see the
 [Dockerhub repository][dockerhub].
 
-## Set up the TimescaleDB extension
-
-When you have PostgreSQL and TimescaleDB installed, you can connect to it from
-your local system using the `psql` command-line utility. This is the same tool
-you might have used to connect to PostgreSQL before, but if you haven't
-installed it yet, check out the [installing psql][install-psql] section.
-
-<Procedure>
-
-### Setting up the TimescaleDB extension
-
-<Highlight type="important">
-If you installed TimescaleDB from the pre-built Docker container, then you
-probably already have the TimescaleDB extension, and you can skip this procedure.
-</Highlight>
-
-1.  On your local system, at the command prompt, connect to the PostgreSQL
-    instance as the `postgres` superuser:
-
-    ```bash
-    psql -U postgres -h localhost
-    ```
-
-    If your connection is successful, you'll see a message like this, followed
-    by the `psql` prompt:
-
-    ```
-    psql (13.3, server 12.8 (Ubuntu 12.8-1.pgdg21.04+1))
-    SSL connection (protocol: TLSv1.3, cipher: TLS_AES_256_GCM_SHA384, bits: 256, compression: off)
-    Type "help" for help.
-    tsdb=>
-    ```
-
-1.  At the `psql` prompt, create an empty database. Our database is
-    called `example`:
-
-    ```sql
-    CREATE database example;
-    ```
-
-1.  Connect to the database you created:
-
-    ```sql
-    \c example
-    ```
-
-1.  Add the TimescaleDB extension:
-
-    ```sql
-    CREATE EXTENSION IF NOT EXISTS timescaledb;
-    ```
-
-1.  You can now connect to your database using this command:
-
-    ```bash
-    psql -U postgres -h localhost -d example
-    ```
-
-</Procedure>
-
-You can check that the TimescaleDB extension is installed by using the `\dx`
-command at the `psql` prompt. It looks like this:
-
-```sql
-tsdb=> \dx
-List of installed extensions
--[ RECORD 1 ]------------------------------------------------------------------
-Name        | pg_stat_statements
-Version     | 1.7
-Schema      | public
-Description | track execution statistics of all SQL statements executed
--[ RECORD 2 ]------------------------------------------------------------------
-Name        | plpgsql
-Version     | 1.0
-Schema      | pg_catalog
-Description | PL/pgSQL procedural language
--[ RECORD 3 ]------------------------------------------------------------------
-Name        | timescaledb
-Version     | 2.5.1
-Schema      | public
-Description | Enables scalable inserts and complex queries for time-series data
--[ RECORD 4 ]------------------------------------------------------------------
-Name        | timescaledb_toolkit
-Version     | 1.3.1
-Schema      | public
-Description | timescaledb_toolkit
-
-tsdb=>
-```
 
 ### View logs in Docker
 
@@ -255,3 +165,4 @@ information, see the [Docker documentation on logs][docker-logs].
 [install-psql]: /use-timescale/:currentVersion:/integrations/query-admin/about-psql/
 [ubuntu]: https://ubuntu.com
 [docker-logs]: https://docs.docker.com/config/containers/logging/
+[install-from-source]: /self-hosted/:currentVersion:/install/installation-source/

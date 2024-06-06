@@ -34,14 +34,14 @@ module.exports = [
             excerpt: "Install self-hosted TimescaleDB on MacOS using homebrew",
           },
           {
-            title: "From source",
+            title: "Source",
             href: "installation-source",
             iconSrc: "https://assets.iobeam.com/images/docs/source.png",
             excerpt:
               "Install self-hosted TimescaleDB on any operating system from source",
           },
           {
-            title: "Pre-built containers",
+            title: "Docker",
             href: "installation-docker",
             iconSrc:
               "https://assets.iobeam.com/images/docs/moby.png",
