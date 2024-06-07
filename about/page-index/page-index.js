@@ -8,6 +8,11 @@ module.exports = [
       "Additional information about Timescale, including how to contribute, and release notes",
     children: [
       {
+        title: "Changelog",
+        href: "changelog",
+        excerpt: "Timescale Changelog",
+      },
+      {
         title: "Release notes",
         href: "release-notes",
         excerpt: "Timescale release documentation",
