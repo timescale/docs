@@ -1,23 +1,23 @@
 ---
-title: Python inteface for pgvector and Timescale Vector
-excerpt: Working with Timescale Vector and pgvector in python
+title: Python interface for pgvector and pgvectorscale
+excerpt: Working with pgvectorscale and pgvector in python
 products: [cloud]
-keywords: [ai, vector, pgvector, timescale vector, python]
+keywords: [ai, vector, pgvector, timescale vector, pgvectorscale, python]
 tags: [ai, vector, python]
 ---
 
-# Python interface for pgvector and Timescale Vector
+# Python interface for pgvector and pgvectorscale
 
-You use Timescale Vector to power production grade AI applications. `timescale_vector` is the
- Python interface you use to interact with a Timescale Vector service programmatically.
+You use pgvectorscale to power production grade AI applications. `timescale_vector` is the
+ Python interface you use to interact with a pgvectorscale service programmatically.
 
 Before you get started with `timescale_vector`:
 
-- [Sign up for Timescale Vector](https://console.cloud.timescale.com/signup?utm_campaign=vectorlaunch&utm_source=docs&utm_medium=direct): Get 90 days free to try Timescale Vector on the Timescale cloud data platform. There is no self-managed version at this time.
+- [Sign up for pgvectorscale](https://console.cloud.timescale.com/signup?utm_campaign=vectorlaunch&utm_source=docs&utm_medium=direct): Get 90 days free to try pgvectorscale on the Timescale cloud data platform. There is no self-managed version at this time.
 - [Follow the Get Started Tutorial](https://timescale.github.io/python-vector/tsv_python_getting_started_tutorial.html): 
-Learn how to use Timescale Vector for semantic search on a real-world dataset.
+Learn how to use pgvectorscale for semantic search on a real-world dataset.
 
-If you prefer to use an LLM development or data framework, see Timescale Vector's integrations with [LangChain](https://python.langchain.com/docs/integrations/vectorstores/timescalevector) and [LlamaIndex](https://gpt-index.readthedocs.io/en/stable/examples/vector_stores/Timescalevector.html).
+If you prefer to use an LLM development or data framework, see pgvectorscale's integrations with [LangChain](https://python.langchain.com/docs/integrations/vectorstores/timescalevector) and [LlamaIndex](https://gpt-index.readthedocs.io/en/stable/examples/vector_stores/Timescalevector.html).
 
 ## Prerequisites 
 
@@ -30,7 +30,7 @@ Before you install `timescale_vector`:
 
 ## Install
 
-To interact with Timescale Vector using Python:
+To interact with pgvectorscale using Python:
 
 1. Install `timescale_vector`: 
 
@@ -492,13 +492,13 @@ order-of-magnitude faster, but the results are approximate (because there
 are no known indexing techniques that are exact).
 
 Luckily, Timescale provides 3 excellent approximate indexing algorithms,
-Timescale Vector index, pgvector HNSW, and pgvector ivfflat.
+pgvectorscale index, pgvector HNSW, and pgvector ivfflat.
 
 Below are the trade-offs between these algorithms:
 
 | Algorithm        | Build speed | Query speed | Need to rebuild after updates |
 |------------------|-------------|-------------|-------------------------------|
-| Timescale Vector | Slow        | Fastest     | No                            |
+| pgvectorscale | Slow        | Fastest     | No                            |
 | pgvector HNSW    | Slowest     | Faster      | No                            |
 | pgvector ivfflat | Fastest     | Slowest     | Yes                           |
 
@@ -506,7 +506,7 @@ You can see
 [benchmarks](https://www.timescale.com/blog/how-we-made-postgresql-the-best-vector-database/)
 on the blog.
 
-You should use the Timescale Vector index for most use cases. This
+You should use the pgvectorscale index for most use cases. This
 can be created with:
 
 ``` python
@@ -525,10 +525,10 @@ library uses smart defaults for all of these options. The
 details for how to adjust these options manually are below.
 
 <!-- vale Google.Headings = NO -->
-#### Timescale Vector index
+#### pgvectorscale index
 <!-- vale Google.Headings = YES -->
 
-The Timescale Vector index is a graph-based algorithm that uses the
+The pgvectorscale index is a graph-based algorithm that uses the
 [DiskANN](https://github.com/microsoft/DiskANN) algorithm. You can read
 more about it in the
 [blog](https://www.timescale.com/blog/how-we-made-postgresql-the-best-vector-database/)
@@ -761,5 +761,5 @@ It is important to note that you should use consistent distance types on
 clients that create indexes and perform queries. That is because an
 index is only valid for one particular type of distance measure.
 
-Note that the Timescale Vector index only supports cosine distance at
+Note that the pgvectorscale index only supports cosine distance at
 this time.
