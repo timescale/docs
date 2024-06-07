@@ -1,8 +1,8 @@
 ---
 title: Key vector database concepts for understanding pgvector
-excerpt: The most important vector database concepts for understanding pgvector and pgvectorscale in PostgreSQL
+excerpt: The most important vector database concepts for understanding AI in PostgreSQL: pgvector, pgvectorscale, and pgai
 products: [cloud]
-keywords: [ai, vector, pgvector, timescale vector, pgvectorscale]
+keywords: [ai, vector, pgvector, pgvectorscale, pgai]
 tags: [ai, vector]
 ---
 
@@ -88,7 +88,7 @@ Finding the K nearest neighbors is not a new problem in PostgreSQL, but existing
 There are no known exact algorithms for efficiently searching in such high-dimensional spaces. Nevertheless, there are excellent approximate algorithms that fall into the category of approximate nearest neighbor algorithms.
 
 <!-- vale Google.Colons = NO -->
-There are 3 different indexing algorithms available as part of pgvectorscale: pgvectorscale index, pgvector HNSW, and pgvector ivfflat. The table below illustrates the high-level differences between these algorithms:
+There are 3 different indexing algorithms available as part of pgai on Timescale: StreamingDiskANN, HNSW, and ivfflat. The table below illustrates the high-level differences between these algorithms:
 <!-- vale Google.Colons = YES -->
 
 | Algorithm       | Build Speed | Query Speed | Need to rebuild after updates |
@@ -102,4 +102,4 @@ See the [performance benchmarks](https://www.timescale.com/blog/how-we-made-post
 
 ## Recommended index types
 
-For most applications, the pgvectorscale index is recommended.
+For most applications, the StreamingDiskANN index is recommended.

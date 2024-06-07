@@ -1,14 +1,14 @@
 ---
-title: Embed your PostgreSQL data with pgvectorscale
-excerpt: Create and sync vector embeddings from data in PostgreSQL with pgvectorscale
+title: Embed your PostgreSQL data with PgVectorizer
+excerpt: Create and sync vector embeddings from data in PostgreSQL with PgVectorizer
 products: [cloud]
-keywords: [ai, vector, pgvector, timescale vector, pgvectorscale]
-tags: [ai, vector, pgvectorscale]
+keywords: [ai, vector, pgvector, timescale vector, pgvectorizer]
+tags: [ai, vector, pgvectorizer]
 ---
 
-## Embed PostgreSQL data with pgvectorscale 
+## Embed PostgreSQL data with PgVectorizer
 
-pgvectorscale enables you to create vector embeddings from any data that
+PgVectorizer enables you to create vector embeddings from any data that
 you already have stored in PostgreSQL. You can get more background
 information in the [blog
 post](https://www.timescale.com/blog/a-complete-guide-to-creating-and-storing-embeddings-for-postgresql-data/)
@@ -16,16 +16,16 @@ announcing this feature, as well as the ["how we built
 it"](https://www.timescale.com/blog/how-we-designed-a-resilient-vector-embedding-creation-system-for-postgresql-data/)
 post going into the details of the design.
 
-To create vector embeddings, simply attach pgvectorscale to any PostgreSQL
+To create vector embeddings, simply attach PgVectorizer to any PostgreSQL
 table to automatically sync that table's data with a set of
-embeddings stored in pgvectorscale. For example, say you have a
+embeddings stored in PostgreSQL. For example, say you have a
 blog table defined in the following way:
 
 ``` python
 import psycopg2
 from langchain.docstore.document import Document
 from langchain.text_splitter import CharacterTextSplitter
-from timescale_vector import client, pgvector
+from timescale_vector import client, pgvectorizer
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.vectorstores.timescalevector import TimescaleVector
 from datetime import timedelta
@@ -56,7 +56,7 @@ with psycopg2.connect(service_url) as conn:
         ''')
 ```
 
-Now, say you want to embed these blogs in pgvectorscale. First, you
+Now, say you want to embed these blogs and store the embeddings in PostgreSQL. First, you
 need to define an `embed_and_write` function that takes a set of blog
 posts, creates the embeddings, and writes them into TimescaleVector. For
 example, if using LangChain, it could look something like the following.
@@ -114,7 +114,7 @@ Then, all you have to do is run the following code in a scheduled job
 
 ``` python
 # this job should be run on a schedule
-vectorizer = pgvector.Vectorize(service_url, 'blog')
+vectorizer = pgvectorizer.Vectorize(service_url, 'blog')
 while vectorizer.process(embed_and_write) > 0:
     pass
 ```

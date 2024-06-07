@@ -81,7 +81,7 @@ The key part is that the `ORDER BY` contains a distance measure against a consta
 Note that if performing a query without an index, you always get an exact result, but the query is slow (it has to read all of the data you store for every query). With an index, your queries are an order-of-magnitude faster, but the results are approximate (because there are no known indexing techniques that are exact see [here for more][vector-search-indexing]).
 
 <!-- vale Google.Colons = NO -->
-Nevertheless, there are excellent approximate algorithms. There are 3 different indexing algorithms available on the Timescale platform: pgvectorscale Index, pgvector HNSW, and pgvector ivfflat. Below is the trade-offs between these algorithms:
+Nevertheless, there are excellent approximate algorithms. There are 3 different indexing algorithms available on the Timescale platform: StreamingDiskANN, HNSW, and ivfflat. Below is the trade-offs between these algorithms:
 <!-- vale Google.Colons = Yes -->
 
 | Algorithm       | Build Speed | Query Speed | Need to rebuild after updates |
@@ -93,16 +93,16 @@ Nevertheless, there are excellent approximate algorithms. There are 3 different 
 
 You can see [benchmarks](https://www.timescale.com/blog/how-we-made-postgresql-the-best-vector-database/) in the blog.
 
-For most use cases, the pgvectorscale index is recommended.
+For most use cases, the StreamingDiskANN index is recommended.
 
 Each of these indexes has a set of build-time options for controlling the speed/accuracy trade-off when creating the index and an additional query-time option for controlling accuracy during a particular query.
 
 You can see the details of each index below.
 
-### pgvectorscale index
+### StreamingDiskANN index
 
 
-The pgvectorscale index is a graph-based algorithm that uses the [DiskANN](https://github.com/microsoft/DiskANN) algorithm. You can read more about it on the [blog](https://www.timescale.com/blog/how-we-made-postgresql-the-best-vector-database/) announcing its release.
+The StreamingDiskANN index is a graph-based algorithm that was inspired by the [DiskANN](https://github.com/microsoft/DiskANN) algorithm. You can read more about it on the [blog](https://www.timescale.com/blog/how-we-made-postgresql-the-best-vector-database/) announcing its release.
 
 
 To create an index named `document_embedding_idx` on table `document_embedding` having a vector column named `embedding`, run:
@@ -111,11 +111,11 @@ CREATE INDEX document_embedding_idx ON document_embedding
 USING tsv (embedding);
 ```
 
-pgvectorscale indexes only support cosine distance at this time, so you should use the `<=>` operator in your queries.
+StreamingDiskANN indexes only support cosine distance at this time, so you should use the `<=>` operator in your queries.
 
 This creates the index with smart defaults for all the index parameters. These should be the right value for most cases. But if you want to delve deeper, the available parameters are below.
 
-#### pgvectorscale index build-time parameters
+#### StreamingDiskANN index build-time parameters
 
 These parameters can be set when an index is created.
 
@@ -137,7 +137,7 @@ TODO: Add PQ options
 -->
 
 
-#### pgvectorscale query-time parameters
+#### StreamingDiskANN query-time parameters
 
 You can also set a parameter to control the accuracy vs. query speed trade-off at query time. The parameter is called `tsv.query_search_list_size`. This is the number of additional candidates considered during the graph search at query time. Defaults to 100. Higher values improve query accuracy while making the query slower.
 
@@ -156,7 +156,7 @@ SELECT * FROM document_embedding ORDER BY embedding <=> $1 LIMIT 10
 COMMIT;
 ```
 
-#### pgvectorscale index-supported queries
+#### StreamingDiskANN index-supported queries
 
 You need to use the cosine-distance embedding measure (`<=>`) in your `ORDER BY` clause. A canonical query would be:
 
