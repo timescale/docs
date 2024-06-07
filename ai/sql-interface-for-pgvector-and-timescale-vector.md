@@ -86,9 +86,9 @@ Nevertheless, there are excellent approximate algorithms. There are 3 different 
 
 | Algorithm       | Build Speed | Query Speed | Need to rebuild after updates |
 |------------------|-------------|-------------|-------------------------------|
-| pgvectorscale | Slow        | Fastest     | No                            |
-| pgvector HNSW    | Slowest     | Fast      | No                            |
-| pgvector ivfflat | Fastest     | Slowest     | Yes                           |
+| StreamingDiskANN | Fast        | Fastest     | No                            |
+| HNSW    | Fast     | Fast      | No                            |
+| ivfflat | Fastest     | Slowest     | Yes                           |
 
 
 You can see [benchmarks](https://www.timescale.com/blog/how-we-made-postgresql-the-best-vector-database/) in the blog.

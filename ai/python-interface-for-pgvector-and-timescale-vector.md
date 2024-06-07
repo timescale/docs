@@ -498,9 +498,9 @@ Below are the trade-offs between these algorithms:
 
 | Algorithm        | Build speed | Query speed | Need to rebuild after updates |
 |------------------|-------------|-------------|-------------------------------|
-| pgvectorscale | Slow        | Fastest     | No                            |
-| pgvector HNSW    | Slowest     | Faster      | No                            |
-| pgvector ivfflat | Fastest     | Slowest     | Yes                           |
+| StreamingDiskAnn | Fast        | Fastest     | No                            |
+| HNSW    | Fast   | Faster      | No                            |
+| ivfflat | Fastest     | Slowest     | Yes                           |
 
 You can see
 [benchmarks](https://www.timescale.com/blog/how-we-made-postgresql-the-best-vector-database/)

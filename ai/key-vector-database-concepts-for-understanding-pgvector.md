@@ -93,9 +93,9 @@ There are 3 different indexing algorithms available as part of pgai on Timescale
 
 | Algorithm       | Build Speed | Query Speed | Need to rebuild after updates |
 |------------------|-------------|-------------|-------------------------------|
-| pgvectorscale | Slow        | Fastest     | No                            |
-| pgvector HNSW    | Slowest     | Fast      | No                            |
-| pgvector ivfflat | Fastest     | Slowest     | Yes                           |
+| StreamingDiskANN | Fast        | Fastest     | No                            |
+| HNSW    | Fast     | Fast      | No                            |
+| ivfflat | Fastest     | Slowest     | Yes                           |
 
 
 See the [performance benchmarks](https://www.timescale.com/blog/how-we-made-postgresql-the-best-vector-database/) for details on how the each index performs on a dataset of 1 million OpenAI embeddings.
