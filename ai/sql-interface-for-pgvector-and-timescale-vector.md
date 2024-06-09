@@ -10,11 +10,11 @@ tags: [ai, vector, sql]
 
 ## Installing the pgvector and pgvectorscale extensions
 
-If not already installed, install the `vector` and `timescale_vector` extensions on your Timescale database.
+If not already installed, install the `vector` and `vectorscale` extensions on your Timescale database.
 
 ```sql
 CREATE EXTENSION IF NOT EXISTS vector;
-CREATE EXTENSION IF NOT EXISTS timescale_vector;
+CREATE EXTENSION IF NOT EXISTS vectorscale;
 ```
 
 ## Creating the table for storing embeddings using pgvector
@@ -108,7 +108,7 @@ The StreamingDiskANN index is a graph-based algorithm that was inspired by the [
 To create an index named `document_embedding_idx` on table `document_embedding` having a vector column named `embedding`, run:
 ```sql
 CREATE INDEX document_embedding_idx ON document_embedding
-USING tsv (embedding);
+USING diskann (embedding);
 ```
 
 StreamingDiskANN indexes only support cosine distance at this time, so you should use the `<=>` operator in your queries.
@@ -121,15 +121,18 @@ These parameters can be set when an index is created.
 
 | Parameter name   | Description                                                                                                                                                    | Default value |
 |------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|
+| `storage_layout` | `memory_optimized` which uses SBQ to compress vector data or `plain` which stores data uncompressed | memory_optimized
 | `num_neighbors`    | Sets the maximum number of neighbors per node. Higher values increase accuracy but make the graph traversal slower.                                           | 50            |
 | `search_list_size` | This is the S parameter used in the greedy search algorithm used during construction. Higher values improve graph quality at the cost of slower index builds. | 100           |
-| `max_alpha`        | Is the alpha parameter in the algorithm. Higher values improve graph quality at the cost of slower index builds.                                              | 1.0           |
+| `max_alpha`        | Is the alpha parameter in the algorithm. Higher values improve graph quality at the cost of slower index builds.                                              | 1.2           |
+| `num_dimensions` | The number of dimensions to index. By default, all dimensions are indexed. But you can also index less dimensions to make use of [Matryoshka embeddings](https://huggingface.co/blog/matryoshka) | 0 (all dimensions)
+| `num_bits_per_dimension` | Number of bits used to encode each dimension when using SBQ | 2 for less than 900 dimensions, 1 otherwise
 
 An example of how to set the `num_neighbors` parameter is:
 
 ```sql
 CREATE INDEX document_embedding_idx ON document_embedding
-USING tsv (embedding) WITH(num_neighbors=50);
+USING diskann (embedding) WITH(num_neighbors=50);
 ```
 
 <!---
@@ -139,19 +142,25 @@ TODO: Add PQ options
 
 #### StreamingDiskANN query-time parameters
 
-You can also set a parameter to control the accuracy vs. query speed trade-off at query time. The parameter is called `tsv.query_search_list_size`. This is the number of additional candidates considered during the graph search at query time. Defaults to 100. Higher values improve query accuracy while making the query slower.
+You can also set two parameters to control the accuracy vs. query speed trade-off at query time. We suggest adjusting `diskann.query_rescore` to fine-tune accuracy.
 
-You can set the value by running:
+| Parameter name   | Description                                                                                                                                                    | Default value |
+|------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|
+| `diskann.query_search_list_size` | The number of additional candidates considered during the graph search. | 100
+| `diskann.query_rescore` | The number of elements rescored (0 to disable rescoring) | 50
+
+You can set the value by using `SET` before executing a query. For example:
 
 ```sql
-SET tsv.query_search_list_size = 120;
+SET diskann.query_rescore = 400;
 ```
 
-Before executing the query, note the [SET command](https://www.postgresql.org/docs/current/sql-set.html) applies to the entire session (database connection) from the point of execution. You can use a transaction-local variant using `LOCAL`:
+Note the [SET command](https://www.postgresql.org/docs/current/sql-set.html) applies to the entire session (database connection) from the point of execution. You can use a transaction-local variant using `LOCAL` which will
+be reset after the end of the transaction:
 
 ```sql
 BEGIN;
-SET LOCAL tsv.query_search_list_size= 10;
+SET LOCAL diskann.query_search_list_size= 10;
 SELECT * FROM document_embedding ORDER BY embedding <=> $1 LIMIT 10
 COMMIT;
 ```
