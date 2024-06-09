@@ -17,7 +17,7 @@ module.exports = [
         href: "sql-interface-for-pgvector-and-timescale-vector",
         excerpt: "SQL interface for pgai, pgvector and pgvectorscale in PostgreSQL",
       },
-      {
+      /*{
         title: "Python interface",
         href: "python-interface-for-pgvector-and-timescale-vector",
         excerpt: "Python interface for pgai, pgvector, and pgvectorscale in PostgreSQL",
@@ -31,7 +31,7 @@ module.exports = [
         title: "LlamaIndex integration",
         href: "llamaindex-integration-for-pgvector-and-timescale-vector",
         excerpt: "Integration of LlamaIndex with pgvector and pgvectorscale",
-      },
+      },*/
       {
         title: "Embed PostgreSQL data with PgVectorizer",
         href: "pgvectorizer",
