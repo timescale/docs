@@ -102,7 +102,9 @@ You can see the details of each index below.
 ### StreamingDiskANN index
 
 
-The StreamingDiskANN index is a graph-based algorithm that was inspired by the [DiskANN](https://github.com/microsoft/DiskANN) algorithm. You can read more about it on the [blog](https://www.timescale.com/blog/how-we-made-postgresql-the-best-vector-database/) announcing its release.
+The StreamingDiskANN index is a graph-based algorithm that was inspired by the [DiskANN](https://github.com/microsoft/DiskANN) algorithm. 
+You can read more about it in 
+[How We Made PostgreSQL as Fast as Pinecone for Vector Data](www.timescale.com/blog/how-we-made-postgresql-as-fast-as-pinecone-for-vector-data).
 
 
 To create an index named `document_embedding_idx` on table `document_embedding` having a vector column named `embedding`, run:
