@@ -15,8 +15,10 @@ jobs:
 
       - name: Install Vale
         run: |
-          curl -fsSL https://install.goreleaser.com/github.com/errata-ai/vale.sh | sh
-          echo "::add-path::$(pwd)/bin"  # Add the Vale binary directory to the PATH
+          curl -sSfL https://github.com/errata-ai/vale/releases/download/v2.14.0/vale_2.14.0_Linux_64-bit.tar.gz -o vale.tar.gz
+          tar -xzf vale.tar.gz
+          sudo mv vale /usr/local/bin/vale  # Move vale to a directory in PATH
+          sudo chmod +x /usr/local/bin/vale
 
       - name: Run Vale
         env:
