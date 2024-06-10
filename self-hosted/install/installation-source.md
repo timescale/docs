@@ -47,7 +47,7 @@ To install TimescaleDB from source, you need:
 
 ## Install and configure TimescaleDB on PostgreSQL
 
-Best practice for self-hosting TimescaleDB is to install the latest version of PostgreSQL and
+This section shows you how to install the latest version of PostgreSQL and
 TimescaleDB on a supported platform using source supplied by Timescale.
 
 <SelfHostedSource />

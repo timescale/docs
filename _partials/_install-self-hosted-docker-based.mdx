@@ -6,11 +6,45 @@
     docker pull timescale/timescaledb-ha:pg16
     ```
 
+    In this image, the timescaledb extension is pre-created in the default postgres database in both
+    the -ha and non-ha docker images. By default, timescaledb is added to any new database you create
+    in these images.
+
+
 1. Run the container:
 
     ```bash
     docker run -d --name timescaledb -p 5432:5432 -e POSTGRES_PASSWORD=password timescale/timescaledb-ha:pg16
     ```
+
+    If you are running multiple container instances remember to change the port each Docker instance runs on.
+
+
+ 1. **Connect to a database on your PostgreSQL instance**
+
+   In PostgreSQL, the default user and database are both `postgres`. To use a
+   different database, set `<database-name>` to the name of that database:
+
+   ```bash
+   psql -d "postgres://<username>:<password>@<host>:<port>/<database-name>"
+   ```
+
+1.  **Check that TimescaleDB is installed**
+
+    ```sql
+    \dx
+    ```
+
+    You see the list of installed extensions:
+
+    ```sql
+    List of installed extensions
+    Name     | Version |   Schema   |                                      Description
+    -------------+---------+------------+---------------------------------------------------------------------------------------
+    plpgsql     | 1.0     | pg_catalog | PL/pgSQL procedural language
+    timescaledb | 2.15.1  | public     | Enables scalable inserts and complex queries for time-series data (Community Edition)
+    ```
+    Press q to exit the list of extensions.
 
 </Procedure>
 

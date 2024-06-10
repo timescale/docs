@@ -18,22 +18,8 @@ instance on any local system, from a pre-built container.
 
 < Skip/>
 
-This section shows you how to:
-
-* [Install and configure TimescaleDB on PostgreSQL](#install-and-configure-timescaledb-on-postgresql) - set up
-  a self-hosted PostgreSQL instance to efficiently run TimescaleDB1.
-* [Add the TimescaleDB extension to your database](#add-the-timescaledb-extension-to-your-database) - enable TimescaleDB features and
-  performance improvements on a database.
-
-<Highlight type="warning">
-
-If you have already installed PostgreSQL using a method other than the pre-built
-container provided here, you may encounter errors
-following these install instructions. Best practice is to full remove any existing PostgreSQL
-installations before you begin.
-
-To keep your current PostgreSQL installation, [Install from source][install-from-source].
-</Highlight>
+This section shows you how to 
+[Install and configure TimescaleDB on PostgreSQL](#install-and-configure-timescaledb-on-postgresql).
 
 ### Prerequisites
 
@@ -45,21 +31,13 @@ To connect to a PostgreSQL installation on Docker, you need to install:
 
 ## Install and configure TimescaleDB on PostgreSQL
 
-Best practice for self-hosting TimescaleDB is to install the latest version of PostgreSQL and
+This section shows you how to install the latest version of PostgreSQL and
 TimescaleDB on a [supported platform](#supported-platforms) using the packages supplied by Timescale.
 
 <SelfHostedDocker />
 
 
-## Add the TimescaleDB extension to your database
-
-For improved performance, you enable TimescaleDB on each database on your self-hosted PostgreSQL instance.
-This section shows you how to enable TimescaleDB for a new database in PostgreSQL using `psql` from the command line.
-
-
-<AddTimescaleDBToDB />
-
-And that is, you have TimescaleDB running on a database on a self-hosted instance of PostgreSQL.
+And that is it! You have TimescaleDB running on a database on a self-hosted instance of PostgreSQL.
 
 ## More Docker options
 
@@ -162,7 +140,7 @@ information, see the [Docker documentation on logs][docker-logs].
 [docker-install]: https://docs.docker.com/get-docker/
 [docker-postgres]: https://hub.docker.com/_/postgres
 [dockerhub]: https://hub.docker.com/r/timescale/timescaledb/tags?page=1&ordering=last_updated
-[install-psql]: /use-timescale/:currentVersion:/integrations/query-admin/about-psql/
+[install-psql]: https://www.timescale.com/blog/how-to-install-psql-on-mac-ubuntu-debian-windows/
 [ubuntu]: https://ubuntu.com
 [docker-logs]: https://docs.docker.com/config/containers/logging/
 [install-from-source]: /self-hosted/:currentVersion:/install/installation-source/

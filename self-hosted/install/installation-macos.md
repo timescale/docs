@@ -42,7 +42,7 @@ To keep your current PostgreSQL installation, [Install from source][install-from
 
 ## Install and configure TimescaleDB on PostgreSQL
 
-Best practice for self-hosting TimescaleDB is to install the latest version of PostgreSQL and
+This section shows you how to install the latest version of PostgreSQL and
 TimescaleDB on a [supported platform](#supported-platforms) using the packages supplied by Timescale.
 
 <Tabs label="Install TimescaleDB">
