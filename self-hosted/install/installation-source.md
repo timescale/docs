@@ -60,7 +60,7 @@ This section shows you how to enable TimescaleDB for a new database in PostgreSQ
 
 <AddTimescaleDBToDB />
 
-And that is, you have TimescaleDB running on a database on a self-hosted instance of PostgreSQL.
+And that is it! You have TimescaleDB running on a database on a self-hosted instance of PostgreSQL.
 
 ## Where to next
 
