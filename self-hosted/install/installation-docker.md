@@ -67,7 +67,7 @@ The [TimescaleDB HA](https://hub.docker.com/r/timescale/timescaledb-ha) Docker i
 includes [Ubuntu][ubuntu] as its operating system and offers the most complete TimescaleDB 
 experience. It includes the [TimescaleDB Toolkit](https://github.com/timescale/timescaledb-toolkit),
 and support for PostGIS and Patroni.  The lighter-weight TimescaleDB 
-(non-HA) `timescale/timescaledb:latest-pg14` image uses [Alpine][alpine]. 
+(non-HA) `timescale/timescaledb:latest-pg16` image uses [Alpine][alpine]. 
 
 <Highlight type="warning">
 If your system uses Linux Uncomplicated Firewall (UFW) for security rules, Docker could override your 
