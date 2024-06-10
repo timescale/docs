@@ -13,30 +13,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Debugging - List home directory
-        run: ls -alh /github/home
-
-      - name: Debugging - List workspace directory
-        run: ls -alh /github/workspace
-
-      - name: Debugging - List root directory
-        run: ls -alh /
-
-      - name: Vale
-        uses: errata-ai/vale-action@c4213d4de3d5f718b8497bd86161531c78992084
-        with:
-          files: '["_partials", "_troubleshooting", "about", "api", "getting-started", "mst", "navigation", "quick-start", "self-hosted", "tutorials", "use-timescale", "ai"]'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Install Vale (fallback)
-        if: failure()
+      - name: Install Vale
         run: |
           curl -L -o vale.tar.gz https://github.com/errata-ai/vale/releases/latest/download/vale.tgz
           tar -xzf vale.tar.gz
           sudo mv vale /usr/local/bin/
           sudo chmod +x /usr/local/bin/vale
-          vale --version
+
+      - name: Run Vale
+        run: |
           vale --output=github --files _partials _troubleshooting about api getting-started mst navigation quick-start self-hosted tutorials use-timescale ai
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
