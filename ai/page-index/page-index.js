@@ -1,6 +1,6 @@
 module.exports = [
   {
-    title: "AI with pgai on Timescale",
+    title: "AI  and Vector: pgai on Timescale",
     href: "ai",
     filePath: "index.md",
     pageComponents: ["featured-cards"],

@@ -1,5 +1,5 @@
 ---
-title: Power your AI apps with pgai on Timescale
+title: Power your AI apps with PostgreSQL
 excerpt: A description of Timescale Vector and vectors in general
 products: [cloud]
 keywords: [ai, vector, pgvector, pgvectorscale, pgai]
@@ -9,10 +9,10 @@ tags: [ai, vector]
 
 # Power your AI apps with pgai on Timescale
 
-Pgai on Timescale is PostgreSQL++ for AI applications. This suite of tools empowers you to deploy production AI applications with PostgreSQL as your vector database, storing both vector embeddings, relational data (for example, related metadata), and time-based data in the same database.
+Pgai on Timescale is a cloud solution for building search, RAG, and AI agents with PostgreSQL. This suite of tools empowers you to deploy production AI applications with PostgreSQL as your vector database, storing both vector embeddings, relational data (for example, related metadata), and time-based data in the same database.
 
-<Highlight type="cloud" header="Try out pgvectorscale" button="Try for free">
-Pgai on Timescale Cloud is comprised of two extensions: pgvectorscale and pgai. Pgvectorscale provides the StreamingDiskANN index to superpower embedding search and make vector queries performant.  Pgai allow you to easily run AI queries from inside the database. Both are installed in your Timescale Cloud instance by default.```
+<Highlight type="cloud" header="Start building today" button="Try for free">
+Pgai on Timescale Cloud is comprised of three extensions: pgvector, pgvectorscale and pgai. pgvector provides the vector data type and HNSW search index. Pgvectorscale provides the StreamingDiskANN index to superpower embedding search and make vector queries performant.  Pgai allows you to easily call AI embedding and generation models from inside the database. All three extensions are installed in your Timescale Cloud instance by default.```
 </Highlight>
 
 <!-- vale Google.Headings = NO -->
