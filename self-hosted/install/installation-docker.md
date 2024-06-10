@@ -143,7 +143,7 @@ Docker `run` command. For more information, see the
 [Docker documentation][docker-postgres].
 
 The link provided in these instructions is for the latest version of TimescaleDB
-on PostgreSQL 14. To find other Docker tags you can use, see the
+on PostgreSQL 16. To find other Docker tags you can use, see the
 [Dockerhub repository][dockerhub].
 
 
