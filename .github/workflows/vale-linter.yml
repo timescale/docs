@@ -1,21 +1,22 @@
-name: Linting
+name: Vale Linter
 
-on: pull_request
-
-permissions:
-  contents: read
+on: [push, pull_request]
 
 jobs:
-  prose:
-    if: github.repository == 'timescale/docs'
+  lint:
     runs-on: ubuntu-latest
-    steps:
-    - name: Checkout
-      uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9
 
-    - name: Vale
-      uses: errata-ai/vale-action@c4213d4de3d5f718b8497bd86161531c78992084
-      with:
-        files: '["_partials", "_troubleshooting", "about", "api", "getting-started", "mst", "navigation", "quick-start", "self-hosted", "tutorials", "use-timescale", "ai"]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Install Vale
+      run: |
+        curl -sSfL https://github.com/errata-ai/vale/releases/latest/download/vale.tgz | tar xz -C /usr/local/bin
+
+    - name: Run Vale
+      run: |
+        vale --version
+        vale --output=github --files _partials _troubleshooting about api getting-started mst navigation quick-start self-hosted tutorials use-timescale ai
       env:
-        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
