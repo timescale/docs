@@ -11,18 +11,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2 # Updated to the latest version
 
       - name: Install Vale
         run: |
-          curl -L -o vale.tar.gz https://github.com/errata-ai/vale/releases/latest/download/vale.tgz
-          tar -xzf vale.tar.gz
-          sudo mv vale /usr/local/bin/
-          sudo chmod +x /usr/local/bin/vale
+          curl -fsSL https://install.goreleaser.com/github.com/errata-ai/vale.sh | sh
 
       - name: Run Vale
-        run: |
-          vale --output=github --files _partials _troubleshooting about api getting-started mst navigation quick-start self-hosted tutorials use-timescale ai
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          ./bin/vale --version
+          ./bin/vale --glob='["_partials/**/*", "_troubleshooting/**/*", "about/**/*", "api/**/*", "getting-started/**/*", "mst/**/*", "navigation/**/*", "quick-start/**/*", "self-hosted/**/*", "tutorials/**/*", "use-timescale/**/*", "ai/**/*"]'
 
