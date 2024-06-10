@@ -8,6 +8,8 @@ keywords: [changelog, upgrades, updates, releases]
 
 ## TimescaleDB 2.15.2
 
+June 7, 2024
+
 🐛 Bugfixes
 
 - [#6975](https://github.com/timescale/timescaledb/issues/6975): Fix sort pushdown for partially compressed chunks.
@@ -16,6 +18,8 @@ keywords: [changelog, upgrades, updates, releases]
 - [#6993](https://github.com/timescale/timescaledb/issues/6993): Disallow hash partitioning on the primary column.
 
 ## May 2024 Update
+
+May 31, 2024
 
 ### 🔍 Database audit logging via the pg_audit extension
 
