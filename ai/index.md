@@ -56,13 +56,10 @@ Under the hood, embeddings are represented as a vector (a list of numbers) that 
 
 ## Embedding models
 
-pgai on Timescale works with the most popular embedding models that have output vectors of 2,000 dimensions or less. Here are some popular choices for text embeddings:
+pgai on Timescale works with the most popular embedding models that have output vectors of 2,000 dimensions or less.:
 
 - [OpenAI embedding models](https://platform.openai.com/docs/guides/embeddings/): text-embedding-ada-002 is OpenAI's recommended embedding generation model.
-- [Sentence transformers](https://huggingface.co/sentence-transformers): Several popular open source models for embedding generation from text.
 - [Cohere representation models](https://docs.cohere.com/docs/models#representation): Cohere offers many models that can be used to generate embeddings from text in English or multiple languages.
-
-See the [HuggingFace Massive Text Embedding Benchmark (MTEB) Leaderboard](https://huggingface.co/spaces/mteb/leaderboard) for more embedding model options.
 
 
 And here are some popular choices for image embeddings:
