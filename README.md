@@ -21,7 +21,7 @@ any suggestions or bug reports, or by forking this repository, making your own
 contribution, and submitting a pull request.
 
 Before we accept any contributions, Timescale contributors need to
-sign the [Contributor License Agreement](https://cla-assistant.io/timescale/docs) (CLA).
+sign the [Contributor License Agreement](https://cla-assistant.io/timescale/docs)(CLA).
 By signing a CLA, we can ensure that the community is free and confident in its
 ability to use your contributions.
 
