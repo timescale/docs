@@ -24,7 +24,7 @@ This section shows you how to:
 
 * [Install and configure TimescaleDB on PostgreSQL](#install-and-configure-timescaledb-on-postgresql) - set up
   a self-hosted PostgreSQL instance to efficiently run TimescaleDB.
-* [Set up TimescaleDB on a database](#set-up-timescaledb-on-a-database) - enable TimescaleDB features and 
+* [Add the TimescaleDB extension to your database](#add-the-timescaledb-extension-to-your-database) - enable TimescaleDB features and 
   performance improvements on a database. 
 
 <Highlight type="warning">
@@ -38,7 +38,7 @@ To keep your current PostgreSQL installation, [Install from source][install-from
 
 ## Install and configure TimescaleDB on PostgreSQL 
 
-Best practice for self-hosting TimescaleDB is to install the latest version of PostgreSQL and 
+This section shows you how to install the latest version of PostgreSQL and 
 TimescaleDB on a [supported platform](#supported-platforms) using the packages supplied by Timescale. 
 
 <Tabs label="Install TimescaleDB">
@@ -65,7 +65,7 @@ TimescaleDB on a [supported platform](#supported-platforms) using the packages s
 
 Job jobbed, you have installed PostgreSQL and TimescaleDB.
 
-## Set up TimescaleDB on a database
+## Add the TimescaleDB extension to your database
 
 For improved performance, you enable TimescaleDB on each database on your self-hosted PostgreSQL instance.
 This section shows you how to enable TimescaleDB for a new database in PostgreSQL using `psql` from the command line.
@@ -73,7 +73,7 @@ This section shows you how to enable TimescaleDB for a new database in PostgreSQ
 
 <AddTimescaleDBToDB />
 
-And that is, you have TimescaleDB running on a database on a self-hosted instance of PostgreSQL.  
+And that is it! You have TimescaleDB running on a database on a self-hosted instance of PostgreSQL.  
 
 ## Where to next
 
