@@ -8,7 +8,7 @@ keywords: [changelog, upgrades, updates, releases]
 
 ## TimescaleDB 2.15.2
 
-June 7, 2024
+<Label type="date">June 7, 2024</Label>
 
 🐛 Bugfixes
 
@@ -19,7 +19,7 @@ June 7, 2024
 
 ## May 2024 Update
 
-May 31, 2024
+<Label type="date">May 31, 2024</Label>
 
 ### 🔍 Database audit logging via the pg_audit extension
 
