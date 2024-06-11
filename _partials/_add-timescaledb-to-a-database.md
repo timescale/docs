@@ -1,23 +1,13 @@
 <Procedure >
 
+1. **Connect to a database on your PostgreSQL instance**
 
-1. **Connect to your PostgreSQL instance**
+   In PostgreSQL, the default user and database are both `postgres`. To use a 
+   different database, set `<database-name>` to the name of that database:
 
-    ```bash
-    psql -U postgres -h localhost
-    ```
-
-1. **Create a database**
-
-    ```sql
-    CREATE DATABASE tsdb;
-    ```
-
-1.  **Connect to the database**
-
-    ```sql
-    \c tsdb
-    ```
+   ```bash
+   psql -d "postgres://<username>:<password>@<host>:<port>/<database-name>"
+   ```
 
 1.  **Add TimescaleDB to the database**
 
@@ -38,7 +28,7 @@
     Name     | Version |   Schema   |                                      Description                                      
     -------------+---------+------------+---------------------------------------------------------------------------------------
     plpgsql     | 1.0     | pg_catalog | PL/pgSQL procedural language
-    timescaledb | 2.14.2  | public     | Enables scalable inserts and complex queries for time-series data (Community Edition)
+    timescaledb | 2.15.1  | public     | Enables scalable inserts and complex queries for time-series data (Community Edition)
     ```
     Press q to exit the list of extensions.
 

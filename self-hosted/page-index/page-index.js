@@ -13,10 +13,39 @@ module.exports = [
         excerpt: "Install self-hosted TimescaleDB",
         children: [
           {
+            title: "Docker",
+            href: "installation-docker",
+            iconSrc:
+                "https://assets.iobeam.com/images/docs/moby.png",
+            excerpt:
+                "Install self-hosted TimescaleDB with a pre-built Docker container",
+          },
+          {
+            title: "Kubernetes",
+            href: "installation-kubernetes",
+            iconSrc:
+                "https://assets.iobeam.com/images/docs/kubernetes-icon-color.svg",
+            excerpt: "Install self-hosted TimescaleDB on Kubernetes",
+          },
+          {
             title: "Linux",
             href: "installation-linux",
             iconSrc: "https://assets.iobeam.com/images/docs/linux-icon.svg",
             excerpt: "Install self-hosted TimescaleDB on Linux",
+          },
+          {
+            title: "MacOS",
+            href: "installation-macos",
+            iconSrc:
+                "https://assets.iobeam.com/images/docs/Apple_logo_black.svg",
+            excerpt: "Install self-hosted TimescaleDB on MacOS using homebrew",
+          },
+          {
+            title: "Source",
+            href: "installation-source",
+            iconSrc: "https://assets.iobeam.com/images/docs/source.png",
+            excerpt:
+                "Install self-hosted TimescaleDB on any operating system from source",
           },
           {
             title: "Windows",
@@ -25,35 +54,6 @@ module.exports = [
               "https://assets.iobeam.com/images/docs/Windows_logo_-_2012.svg",
             excerpt:
               "Install self-hosted TimescaleDB on Microsoft Windows using a zipped .exe file",
-          },
-          {
-            title: "MacOS",
-            href: "installation-macos",
-            iconSrc:
-              "https://assets.iobeam.com/images/docs/Apple_logo_black.svg",
-            excerpt: "Install self-hosted TimescaleDB on MacOS using homebrew",
-          },
-          {
-            title: "From source",
-            href: "installation-source",
-            iconSrc: "https://assets.iobeam.com/images/docs/source.png",
-            excerpt:
-              "Install self-hosted TimescaleDB on any operating system from source",
-          },
-          {
-            title: "Pre-built containers",
-            href: "installation-docker",
-            iconSrc:
-              "https://assets.iobeam.com/images/docs/moby.png",
-            excerpt:
-              "Install self-hosted TimescaleDB with a pre-built Docker container",
-          },
-          {
-            title: "Kubernetes",
-            href: "installation-kubernetes",
-            iconSrc:
-              "https://assets.iobeam.com/images/docs/kubernetes-icon-color.svg",
-            excerpt: "Install self-hosted TimescaleDB on Kubernetes",
           },
         ],
       },
