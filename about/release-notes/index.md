@@ -32,7 +32,7 @@ If you are migrating from TimescaleDB v2.15.0 or v2.15.1, no changes are require
 
 #### Bugfixes
 * #6975: Fix sort pushdown for partially compressed chunks.
-* #6976: Fix removal of metadata function and the update script.
+* #6976: Fix removal of the metadata function and the update script.
 * #6978: Fix segfault in `compress_chunk` with a primary space partition.
 * #6993: Disallow hash partitioning on the primary column.
 
