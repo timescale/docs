@@ -6,7 +6,7 @@ keywords: [ai, vector, pgvector, timescale vector, pgvectorizer]
 tags: [ai, vector, pgvectorizer]
 ---
 
-## Embed PostgreSQL data with PgVectorizer 
+## Embed PostgreSQL data with PgVectorizer
 
 PgVectorizer enables you to create vector embeddings from any data that
 you already have stored in PostgreSQL. You can get more background
@@ -18,7 +18,7 @@ post going into the details of the design.
 
 To create vector embeddings, simply attach PgVectorizer to any PostgreSQL
 table to automatically sync that table's data with a set of
-embeddings stored in Timescale Vector. For example, say you have a
+embeddings stored in PostgreSQL. For example, say you have a
 blog table defined in the following way:
 
 ``` python
@@ -56,7 +56,7 @@ with psycopg2.connect(service_url) as conn:
         ''')
 ```
 
-Now, say you want to embed these blogs in Timescale Vector. First, you
+Now, say you want to embed these blogs and store the embeddings in PostgreSQL. First, you
 need to define an `embed_and_write` function that takes a set of blog
 posts, creates the embeddings, and writes them into TimescaleVector. For
 example, if using LangChain, it could look something like the following.
