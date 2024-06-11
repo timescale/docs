@@ -17,6 +17,30 @@ GitHub and be notified by email whenever a new release is available. On the
 click `Watch`, select `Custom` and then check `Releases`.
 </Highlight>
 
+## TimescaleDB&nbsp;2.15.2 on 2024-06-07
+
+<Highlight type="note">
+This release contains the bug fixes introduced since TimescaleDB v2.15.1.
+Best practice is to upgrade at the next available opportunity.
+</Highlight>
+
+#### Migrating from self-hosted TimescaleDB v2.14.x and earlier
+
+After you run `ALTER EXTENSION`, you must run [this SQL script](https://github.com/timescale/timescaledb-extras/blob/master/utils/2.15.X-fix_hypertable_foreign_keys.sql). For more details, see the following pull request [#6797](https://github.com/timescale/timescaledb/pull/6797).
+
+If you are migrating from TimescaleDB v2.15.0 or v2.15.1, no changes are required.
+
+#### Bugfixes
+* #6975: Fix sort pushdown for partially compressed chunks.
+* #6976: Fix removal of the metadata function and the update script.
+* #6978: Fix segfault in `compress_chunk` with a primary space partition.
+* #6993: Disallow hash partitioning on the primary column.
+
+#### Thanks
+* @gugu for reporting the issue with catalog corruption due to update.
+* @srieding for reporting the issue with partially compressed chunks and ordering on joined columns.
+
+
 ## TimescaleDB&nbsp;2.15.1 on 2024-05-28
 
 <Highlight type="note">
