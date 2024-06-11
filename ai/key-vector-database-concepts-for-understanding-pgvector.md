@@ -1,8 +1,8 @@
 ---
 title: Key vector database concepts for understanding pgvector
-excerpt: The most important vector database concepts for understanding pgvector and Timescale Vector in PostgreSQL
+excerpt: The most important vector database concepts for understanding AI in PostgreSQL - pgvector, pgvectorscale, and pgai
 products: [cloud]
-keywords: [ai, vector, pgvector, timescale vector]
+keywords: [ai, vector, pgvector, pgvectorscale, pgai]
 tags: [ai, vector]
 ---
 
@@ -88,18 +88,18 @@ Finding the K nearest neighbors is not a new problem in PostgreSQL, but existing
 There are no known exact algorithms for efficiently searching in such high-dimensional spaces. Nevertheless, there are excellent approximate algorithms that fall into the category of approximate nearest neighbor algorithms.
 
 <!-- vale Google.Colons = NO -->
-There are 3 different indexing algorithms available as part of Timescale Vector: Timescale Vector index, pgvector HNSW, and pgvector ivfflat. The table below illustrates the high-level differences between these algorithms:
+There are 3 different indexing algorithms available as part of pgai on Timescale: StreamingDiskANN, HNSW, and ivfflat. The table below illustrates the high-level differences between these algorithms:
 <!-- vale Google.Colons = YES -->
 
 | Algorithm       | Build Speed | Query Speed | Need to rebuild after updates |
 |------------------|-------------|-------------|-------------------------------|
-| Timescale Vector | Slow        | Fastest     | No                            |
-| pgvector HNSW    | Slowest     | Fast      | No                            |
-| pgvector ivfflat | Fastest     | Slowest     | Yes                           |
+| StreamingDiskANN | Fast        | Fastest     | No                            |
+| HNSW    | Fast     | Fast      | No                            |
+| ivfflat | Fastest     | Slowest     | Yes                           |
 
 
 See the [performance benchmarks](https://www.timescale.com/blog/how-we-made-postgresql-the-best-vector-database/) for details on how the each index performs on a dataset of 1 million OpenAI embeddings.
 
 ## Recommended index types
 
-For most applications, the Timescale Vector index is recommended.
+For most applications, the StreamingDiskANN index is recommended.
