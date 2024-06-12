@@ -6,6 +6,8 @@ keywords: [changelog, upgrades, updates, releases]
 
 # Changelog
 
+This page provides a summery of the latest changes to Timescale products.
+
 ## TimescaleDB 2.15.2
 
 <Label type="date">June 7, 2024</Label>
