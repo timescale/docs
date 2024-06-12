@@ -45,8 +45,8 @@ If you are migrating from TimescaleDB v2.15.0 or v2.15.1, no changes are require
 
 <Highlight type="note">
 
-Nostra culpa. We found a couple of bugs in this release. Best practice is to 
-update directly to [TimescaleDB v2.15.2](#timescaledb2152-on-2024-06-07).
+Nostra culpa. We found a couple of bugs in the update script for this release.
+Best practice is to update directly to [TimescaleDB v2.15.2](#timescaledb2152-on-2024-06-07).
 
 </Highlight>
 
@@ -77,8 +77,8 @@ If you are migrating from TimescaleDB v2.15.0, no changes are required.
 
 <Highlight type="note">
 
-Nostra culpa. We found a couple of bugs in this release. Best practice is to
-update directly to [TimescaleDB v2.15.2](#timescaledb2152-on-2024-06-07).
+Nostra culpa. We found a couple of bugs in the update script for this release. 
+Best practice is to update directly to [TimescaleDB v2.15.2](#timescaledb2152-on-2024-06-07).
 
 </Highlight>
 
