@@ -33,7 +33,7 @@ To install the extension, simply go to `Service > Operations > Extensions` and s
 
 For more details on how to use the extension, please refer to the [pgaudit documentation](https://github.com/pgaudit/pgaudit/).
 
-### 🌡 Timescale now supports the unit extension :thermometer:
+### 🌡 Timescale now supports the unit extension
 
 Timescale now also supports the [unit](https://github.com/df7cb/postgresql-unit) extension.
 
