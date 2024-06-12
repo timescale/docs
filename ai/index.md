@@ -1,23 +1,26 @@
 ---
-title: Overview of Timescale Vector
+title: Power your AI apps with PostgreSQL
 excerpt: A description of Timescale Vector and vectors in general
 products: [cloud]
-keywords: [ai, vector, pgvector, timescale vector]
+keywords: [ai, vector, pgvector, pgvectorscale, pgai]
 tags: [ai, vector]
 ---
 
-# Overview of Timescale Vector
 
-Timescale Vector is PostgreSQL++ for AI applications. With Timescale Vector, you can power production AI applications with PostgreSQL as your vector database, storing both vector embeddings, relational data (for example, related metadata), and time-based data in the same database.
+# Power your AI apps with pgai on Timescale
 
-Timescale Vector is a cloud-based vector database. There is no self-hosted version at this time. To use Timescale Vector, [sign up here](https://console.cloud.timescale.com/signup?utm_campaign=vectorlaunch&utm_source=tsv-docs&utm_medium=direct).
+Pgai on Timescale is a cloud solution for building search, RAG, and AI agents with PostgreSQL. This suite of tools empowers you to deploy production AI applications with PostgreSQL as your vector database, storing both vector embeddings, relational data (for example, related metadata), and time-based data in the same database.
+
+<Highlight type="cloud" header="Start building today" button="Try for free">
+Pgai on Timescale Cloud is comprised of three extensions: pgvector, pgvectorscale and pgai. pgvector provides the vector data type and HNSW search index. Pgvectorscale provides the StreamingDiskANN index to superpower embedding search and make vector queries performant.  Pgai allows you to easily call AI embedding and generation models from inside the database. All three extensions are installed in your Timescale Cloud instance by default.
+</Highlight>
 
 <!-- vale Google.Headings = NO -->
-## Timescale Vector vs. pgvector
+## pgvectorscale ❤️ pgvector
 <!-- vale Google.Headings = Yes -->
-[Pgvector](https://github.com/pgvector/pgvector) is a popular open source extension for vector storage and similarity search in PostgreSQL. Pgvector is packaged as part of Timescale Vector, so you can think of Timescale Vector as a complement, not a replacement for pgvector. Timescale Vector uses the same vector data type as pgvector, offering all its other capabilities (like HNSW and ivfflat indexes). Timescale Vector also offers features not present in pgvector, such as the Timescale Vector index and time-based vector search.
+[Pgvector](https://github.com/pgvector/pgvector) is a popular open source extension for vector storage and similarity search in PostgreSQL and [pgvectorscale](https://github.com/timescale/pgvectorscale) adds advanced indexing capabilities to pgvector. Pgai on Timescale offers both extensions so you can use all the capabilities already available in pgvector (like HNSW and ivfflat indexes) and also make use of the StreamingDiskANN index in pgvectorscale to speed up vector search.
 
-This makes it easy to migrate your existing pgvector deployment and take advantage of additional features for scale in Timescale Vector. You also have the flexibility to create different index types suited to your needs. See the [vector search indexing][vector-search-indexing] section for more information.
+This makes it easy to migrate your existing pgvector deployment and take advantage of the additional performance features in pgvectorscale. You also have the flexibility to create different index types suited to your needs. See the [vector search indexing][vector-search-indexing] section for more information.
 
 ## What are vector embeddings?
 
@@ -53,13 +56,10 @@ Under the hood, embeddings are represented as a vector (a list of numbers) that 
 
 ## Embedding models
 
-Timescale Vector works with the most popular embedding models that have output vectors of 2,000 dimensions or less. Here are some popular choices for text embeddings for use with Timescale Vector:
+pgai on Timescale works with the most popular embedding models that have output vectors of 2,000 dimensions or less.:
 
 - [OpenAI embedding models](https://platform.openai.com/docs/guides/embeddings/): text-embedding-ada-002 is OpenAI's recommended embedding generation model.
-- [Sentence transformers](https://huggingface.co/sentence-transformers): Several popular open source models for embedding generation from text.
 - [Cohere representation models](https://docs.cohere.com/docs/models#representation): Cohere offers many models that can be used to generate embeddings from text in English or multiple languages.
-
-See the [HuggingFace Massive Text Embedding Benchmark (MTEB) Leaderboard](https://huggingface.co/spaces/mteb/leaderboard) for more embedding model options.
 
 
 And here are some popular choices for image embeddings:

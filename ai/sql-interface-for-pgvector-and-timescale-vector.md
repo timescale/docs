@@ -1,20 +1,20 @@
 ---
-title: SQL inteface for pgvector and Timescale Vector
-excerpt: A detailed description of how to work with pgvector and Timescale Vector using SQL.
+title: SQL inteface for pgvector and pgvectorscale
+excerpt: A detailed description of how to work with pgvector and pgvectorscale using SQL.
 products: [cloud]
-keywords: [ai, vector, pgvector, timescale vector, sql]
+keywords: [ai, vector, pgvector, timescale vector, sql, pgvectorscale]
 tags: [ai, vector, sql]
 ---
 
-# SQL interface for pgvector and Timescale vector
+# SQL interface for pgvector and pgvectorscale
 
-## Installing the pgvector and Timescale Vector extensions
+## Installing the pgvector and pgvectorscale extensions
 
-If not already installed, install the `vector` and `timescale_vector` extensions on your Timescale database.
+If not already installed, install the `vector` and `vectorscale` extensions on your Timescale database.
 
 ```sql
 CREATE EXTENSION IF NOT EXISTS vector;
-CREATE EXTENSION IF NOT EXISTS timescale_vector;
+CREATE EXTENSION IF NOT EXISTS vectorscale;
 ```
 
 ## Creating the table for storing embeddings using pgvector
@@ -65,7 +65,7 @@ If you are using an index, you need to make sure that the distance function used
 </Highlight>
 
 
-## Indexing the vector data using indexes provided by pgvector and Timescale Vector
+## Indexing the vector data using indexes provided by pgvector and pgvectorscale
 
 Indexing helps speed up similarity queries of the basic form:
 
@@ -81,55 +81,60 @@ The key part is that the `ORDER BY` contains a distance measure against a consta
 Note that if performing a query without an index, you always get an exact result, but the query is slow (it has to read all of the data you store for every query). With an index, your queries are an order-of-magnitude faster, but the results are approximate (because there are no known indexing techniques that are exact see [here for more][vector-search-indexing]).
 
 <!-- vale Google.Colons = NO -->
-Nevertheless, there are excellent approximate algorithms. There are 3 different indexing algorithms available on the Timescale platform: Timescale Vector Index, pgvector HNSW, and pgvector ivfflat. Below is the trade-offs between these algorithms:
+Nevertheless, there are excellent approximate algorithms. There are 3 different indexing algorithms available on the Timescale platform: StreamingDiskANN, HNSW, and ivfflat. Below is the trade-offs between these algorithms:
 <!-- vale Google.Colons = Yes -->
 
 | Algorithm       | Build Speed | Query Speed | Need to rebuild after updates |
 |------------------|-------------|-------------|-------------------------------|
-| Timescale Vector | Slow        | Fastest     | No                            |
-| pgvector HNSW    | Slowest     | Fast      | No                            |
-| pgvector ivfflat | Fastest     | Slowest     | Yes                           |
+| StreamingDiskANN | Fast        | Fastest     | No                            |
+| HNSW    | Fast     | Fast      | No                            |
+| ivfflat | Fastest     | Slowest     | Yes                           |
 
 
 You can see [benchmarks](https://www.timescale.com/blog/how-we-made-postgresql-the-best-vector-database/) in the blog.
 
-For most use cases, the Timescale Vector index is recommended.
+For most use cases, the StreamingDiskANN index is recommended.
 
 Each of these indexes has a set of build-time options for controlling the speed/accuracy trade-off when creating the index and an additional query-time option for controlling accuracy during a particular query.
 
 You can see the details of each index below.
 
-### Timescale Vector index
+### StreamingDiskANN index
 
 
-The Timescale Vector index is a graph-based algorithm that uses the [DiskANN](https://github.com/microsoft/DiskANN) algorithm. You can read more about it on the [blog](https://www.timescale.com/blog/how-we-made-postgresql-the-best-vector-database/) announcing its release.
+The StreamingDiskANN index is a graph-based algorithm that was inspired by the [DiskANN](https://github.com/microsoft/DiskANN) algorithm. 
+You can read more about it in 
+[How We Made PostgreSQL as Fast as Pinecone for Vector Data](https://www.timescale.com/blog/how-we-made-postgresql-as-fast-as-pinecone-for-vector-data/).
 
 
 To create an index named `document_embedding_idx` on table `document_embedding` having a vector column named `embedding`, run:
 ```sql
 CREATE INDEX document_embedding_idx ON document_embedding
-USING tsv (embedding);
+USING diskann (embedding);
 ```
 
-Timescale Vector indexes only support cosine distance at this time, so you should use the `<=>` operator in your queries.
+StreamingDiskANN indexes only support cosine distance at this time, so you should use the `<=>` operator in your queries.
 
 This creates the index with smart defaults for all the index parameters. These should be the right value for most cases. But if you want to delve deeper, the available parameters are below.
 
-#### Timescale Vector index build-time parameters
+#### StreamingDiskANN index build-time parameters
 
 These parameters can be set when an index is created.
 
 | Parameter name   | Description                                                                                                                                                    | Default value |
 |------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|
+| `storage_layout` | `memory_optimized` which uses SBQ to compress vector data or `plain` which stores data uncompressed | memory_optimized
 | `num_neighbors`    | Sets the maximum number of neighbors per node. Higher values increase accuracy but make the graph traversal slower.                                           | 50            |
 | `search_list_size` | This is the S parameter used in the greedy search algorithm used during construction. Higher values improve graph quality at the cost of slower index builds. | 100           |
-| `max_alpha`        | Is the alpha parameter in the algorithm. Higher values improve graph quality at the cost of slower index builds.                                              | 1.0           |
+| `max_alpha`        | Is the alpha parameter in the algorithm. Higher values improve graph quality at the cost of slower index builds.                                              | 1.2           |
+| `num_dimensions` | The number of dimensions to index. By default, all dimensions are indexed. But you can also index less dimensions to make use of [Matryoshka embeddings](https://huggingface.co/blog/matryoshka) | 0 (all dimensions)
+| `num_bits_per_dimension` | Number of bits used to encode each dimension when using SBQ | 2 for less than 900 dimensions, 1 otherwise
 
 An example of how to set the `num_neighbors` parameter is:
 
 ```sql
 CREATE INDEX document_embedding_idx ON document_embedding
-USING tsv (embedding) WITH(num_neighbors=50);
+USING diskann (embedding) WITH(num_neighbors=50);
 ```
 
 <!---
@@ -137,26 +142,32 @@ TODO: Add PQ options
 -->
 
 
-#### Timescale Vector query-time parameters
+#### StreamingDiskANN query-time parameters
 
-You can also set a parameter to control the accuracy vs. query speed trade-off at query time. The parameter is called `tsv.query_search_list_size`. This is the number of additional candidates considered during the graph search at query time. Defaults to 100. Higher values improve query accuracy while making the query slower.
+You can also set two parameters to control the accuracy vs. query speed trade-off at query time. We suggest adjusting `diskann.query_rescore` to fine-tune accuracy.
 
-You can set the value by running:
+| Parameter name   | Description                                                                                                                                                    | Default value |
+|------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|
+| `diskann.query_search_list_size` | The number of additional candidates considered during the graph search. | 100
+| `diskann.query_rescore` | The number of elements rescored (0 to disable rescoring) | 50
+
+You can set the value by using `SET` before executing a query. For example:
 
 ```sql
-SET tsv.query_search_list_size = 120;
+SET diskann.query_rescore = 400;
 ```
 
-Before executing the query, note the [SET command](https://www.postgresql.org/docs/current/sql-set.html) applies to the entire session (database connection) from the point of execution. You can use a transaction-local variant using `LOCAL`:
+Note the [SET command](https://www.postgresql.org/docs/current/sql-set.html) applies to the entire session (database connection) from the point of execution. You can use a transaction-local variant using `LOCAL` which will
+be reset after the end of the transaction:
 
 ```sql
 BEGIN;
-SET LOCAL tsv.query_search_list_size= 10;
+SET LOCAL diskann.query_search_list_size= 10;
 SELECT * FROM document_embedding ORDER BY embedding <=> $1 LIMIT 10
 COMMIT;
 ```
 
-#### Timescale Vector index-supported queries
+#### StreamingDiskANN index-supported queries
 
 You need to use the cosine-distance embedding measure (`<=>`) in your `ORDER BY` clause. A canonical query would be:
 
