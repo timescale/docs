@@ -45,7 +45,7 @@ To enable pgaudit:
 
 For more details on how to use the extension, refer to the [pgaudit documentation](https://github.com/pgaudit/pgaudit/).
 
-### 🌡 Timescale now supports the unit extension
+### 🌡 Timescale Cloud now supports the unit extension
 
 [postgresql-unit](https://github.com/df7cb/postgresql-unit) provides support for the [International System of Units](https://en.wikipedia.org/wiki/International_System_of_Units) inside your Timescale Cloud service. You can use Timescale Cloud to solve day-to-day questions. For example, to see what 50°C is in °F, run the following query in your Timescale Cloud service:
 
