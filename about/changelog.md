@@ -43,8 +43,6 @@ psql -d "postgres://<username>:<password>@<host>:<port>/<service-name>"
 CREATE EXTENSION IF NOT EXISTS "pgaudit" VERSION '16.0' CASCADE;
 ```
 
-To change the configuration parameters, go to `Database parameters > Advanced parameters` and search for `pgaudit`.
-
 For more details on how to use the extension, refer to the [pgaudit documentation](https://github.com/pgaudit/pgaudit/).
 
 ### 🌡 Timescale now supports the unit extension
