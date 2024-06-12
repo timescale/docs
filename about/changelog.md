@@ -29,7 +29,21 @@ The [PostgreSQL Audit Extension (pgaudit)](https://github.com/pgaudit/pgaudit/) 
 
 If you have strict security and compliance requirements and you need to log all operations on the database level, pgaudit can help. You can also export audit logs to CloudWatch.
 
-To install the extension, simply go to `Service > Operations > Extensions` and search for `pgaudit`. To change the configuration parameters, go to `Database parameters > Advanced parameters` and search for `pgaudit`.
+To enable pgaudit:
+
+1. Connect to your Timescale Cloud service
+
+```
+psql -d "postgres://<username>:<password>@<host>:<port>/<service-name>"
+```
+
+2.Add pgaudit to the service
+
+```
+CREATE EXTENSION IF NOT EXISTS "pgaudit" VERSION '16.0' CASCADE;
+```
+
+To change the configuration parameters, go to `Database parameters > Advanced parameters` and search for `pgaudit`.
 
 For more details on how to use the extension, please refer to the [pgaudit documentation](https://github.com/pgaudit/pgaudit/).
 
