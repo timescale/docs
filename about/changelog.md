@@ -23,7 +23,7 @@ This page provides a summery of the latest changes to Timescale products.
 
 <Label type="date">May 31, 2024</Label>
 
-### 🔍 Database audit logging via the pg_audit extension
+### 🔍 Database audit logging with pgaudit
 
 The [PostgreSQL Audit Extension (pgaudit)](https://github.com/pgaudit/pgaudit/) is now available on Timescale. It provides detailed database session and/or object audit logging in the Timescale logs.
 
