@@ -33,15 +33,15 @@ To enable pgaudit:
 
 1. Connect to your Timescale Cloud service
 
-```
-psql -d "postgres://<username>:<password>@<host>:<port>/<service-name>"
-```
+  ```
+  psql -d "postgres://<username>:<password>@<host>:<port>/<service-name>"
+  ```
 
 2. Add pgaudit to the service
 
-```
-CREATE EXTENSION IF NOT EXISTS "pgaudit" VERSION '16.0' CASCADE;
-```
+  ```
+  CREATE EXTENSION IF NOT EXISTS "pgaudit" VERSION '16.0' CASCADE;
+  ```
 
 For more details on how to use the extension, refer to the [pgaudit documentation](https://github.com/pgaudit/pgaudit/).
 
@@ -61,15 +61,15 @@ To enable postgresql-unit:
 
 1. Connect to your Timescale Cloud service
 
-```
-psql -d "postgres://<username>:<password>@<host>:<port>/<service-name>"
-```
+  ```
+  psql -d "postgres://<username>:<password>@<host>:<port>/<service-name>"
+  ```
 
 2. Add `unit` to the service
 
-```
-CREATE EXTENSION IF NOT EXISTS "unit" VERSION '7' CASCADE;
-```
+  ```
+  CREATE EXTENSION IF NOT EXISTS "unit" VERSION '7' CASCADE;
+  ```
 
 ### PopSQL
 
