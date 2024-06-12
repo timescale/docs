@@ -49,25 +49,13 @@ For more details on how to use the extension, refer to the [pgaudit documentatio
 
 ### 🌡 Timescale now supports the unit extension
 
-The [unit](https://github.com/df7cb/postgresql-unit) extension provides SI Unit support in Postgres. This means that you can use Postgres to solve some of the more annoying day-to-day questions in your life.
-
-When your colleague in India says it was 50°C, now you can do:
+[postgresql-unit](https://github.com/df7cb/postgresql-unit) provides support for the [International System of Units](https://en.wikipedia.org/wiki/International_System_of_Units) inside your Timescale Cloud service. You can use Timescale Cloud to solve day-to-day questions. For example, to see what 50°C is in °F, run the following query in your Timescale Cloud service:
 
 ```
-tsdb=> SELECT '50°C'::unit @ '°F' as temp;
+SELECT '50°C'::unit @ '°F' as temp;
   temp
 --------
  122 °F
-(1 row)
-```
-
-And when your colleague in Alabama says they caught a two-foot fish:
-
-```
-tsdb=> SELECT '2 feet'::unit @ 'cm' as fish_length;
- fish_length
--------------
- 60.96 cm
 (1 row)
 ```
 
