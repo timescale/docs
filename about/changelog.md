@@ -35,9 +35,7 @@ For more details on how to use the extension, please refer to the [pgaudit docum
 
 ### 🌡 Timescale now supports the unit extension
 
-Timescale Cloud now also supports the [unit](https://github.com/df7cb/postgresql-unit) extension.
-
-This extension provides SI Unit support in Postgres. This means that you can use Postgres to solve some of the more annoying day-to-day questions in your life.
+The [unit](https://github.com/df7cb/postgresql-unit) extension provides SI Unit support in Postgres. This means that you can use Postgres to solve some of the more annoying day-to-day questions in your life.
 
 When your colleague in India says it was 50°C, now you can do:
 
