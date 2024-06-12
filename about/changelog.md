@@ -15,7 +15,7 @@ This page provides a summery of the latest changes to Timescale products.
 🐛 Bugfixes
 
 - [#6975](https://github.com/timescale/timescaledb/issues/6975): Fix sort pushdown for partially compressed chunks.
-- [#6976](https://github.com/timescale/timescaledb/issues/6976): Fix removal of metadata function and the update script.
+- [#6976](https://github.com/timescale/timescaledb/issues/6976): Fix removal of the metadata function and the update script.
 - [#6978](https://github.com/timescale/timescaledb/issues/6978): Fix segfault in compress_chunk with primary space partition.
 - [#6993](https://github.com/timescale/timescaledb/issues/6993): Disallow hash partitioning on the primary column.
 
