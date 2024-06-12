@@ -75,4 +75,4 @@ CREATE EXTENSION IF NOT EXISTS "unit" VERSION '7' CASCADE;
 
 ### Other improvements
 
-- 🎨 PopSQL's theme was changed to match the Timescale brand, and it is now faster to open within Timescale Console
+- 🎨 PopSQL's theme now matches the Timescale brand, and it is now faster to open within Timescale Console
