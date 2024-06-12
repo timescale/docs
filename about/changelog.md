@@ -73,6 +73,6 @@ psql -d "postgres://<username>:<password>@<host>:<port>/<service-name>"
 CREATE EXTENSION IF NOT EXISTS "unit" VERSION '7' CASCADE;
 ```
 
-### Other improvements
+### PopSQL
 
 - 🎨 PopSQL's theme now matches the Timescale brand, and it is now faster to open within Timescale Console
