@@ -27,7 +27,7 @@ This page provides a summery of the latest changes to Timescale products.
 
 The [PostgreSQL Audit Extension (pgaudit)](https://github.com/pgaudit/pgaudit/) is now available on Timescale Cloud. pgaudit provides detailed database session and/or object audit logging in the Timescale logs.
 
-If you have strict security and compliance requirements and you need to log all operations on the database level, pgaudit can help. You can also export audit logs to CloudWatch if you like.
+If you have strict security and compliance requirements and you need to log all operations on the database level, pgaudit can help. You can also export audit logs to CloudWatch.
 
 To install the extension, simply go to `Service > Operations > Extensions` and search for `pgaudit`. To change the configuration parameters, go to `Database parameters > Advanced parameters` and search for `pgaudit`.
 
