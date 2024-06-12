@@ -37,7 +37,7 @@ To enable pgaudit:
 psql -d "postgres://<username>:<password>@<host>:<port>/<service-name>"
 ```
 
-2.Add pgaudit to the service
+2. Add pgaudit to the service
 
 ```
 CREATE EXTENSION IF NOT EXISTS "pgaudit" VERSION '16.0' CASCADE;
