@@ -44,9 +44,13 @@ If you are migrating from TimescaleDB v2.15.0 or v2.15.1, no changes are require
 ## TimescaleDB&nbsp;2.15.1 on 2024-05-28
 
 <Highlight type="note">
-This release contains the performance improvements and bug fixes introduced since
-TimescaleDB v2.15.0. Best practice is to upgrade at the next available opportunity.
+
+Nostra culpa. We found a couple of bugs in this release. Best practice is to 
+update directly to [TimescaleDB v2.15.2](#timescaledb2152-on-2024-06-07).
+
 </Highlight>
+
+
 
 #### Migrating from self-hosted TimescaleDB v2.14.x and earlier
 
@@ -72,9 +76,14 @@ If you are migrating from TimescaleDB v2.15.0, no changes are required.
 ## TimescaleDB&nbsp;2.15.0 on 2024-05-08
 
 <Highlight type="note">
+
+Nostra culpa. We found a couple of bugs in this release. Best practice is to
+update directly to [TimescaleDB v2.15.2](#timescaledb2152-on-2024-06-07).
+
+</Highlight>
+
 This release contains the performance improvements and bug fixes introduced since
 TimescaleDB v2.14.2. Best practice is to upgrade at the next available opportunity.
-</Highlight>
 
 #### Highlighted features in this release
 
