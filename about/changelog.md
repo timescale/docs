@@ -25,7 +25,7 @@ This page provides a summery of the latest changes to Timescale products.
 
 ### 🔍 Database audit logging with pgaudit
 
-The [PostgreSQL Audit Extension (pgaudit)](https://github.com/pgaudit/pgaudit/) is now available on Timescale Cloud. pgaudit provides detailed database session and/or object audit logging in the Timescale logs.
+The [PostgreSQL Audit Extension (pgaudit)](https://github.com/pgaudit/pgaudit/) is now available on Timescale Cloud. pgaudit provides detailed database session and/or object audit logging in the Timescale Cloud logs.
 
 If you have strict security and compliance requirements and you need to log all operations on the database level, pgaudit can help. You can also export audit logs to CloudWatch.
 
@@ -73,4 +73,4 @@ To enable postgresql-unit:
 
 ### PopSQL
 
-- 🎨 PopSQL's theme now matches the Timescale brand, and it is now faster to open within Timescale Console
+🎨 PopSQL's theme now matches the Timescale brand, and it is now faster to open within Timescale Console.
