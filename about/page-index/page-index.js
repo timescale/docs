@@ -10,7 +10,7 @@ module.exports = [
       {
         title: "Changelog",
         href: "changelog",
-        excerpt: "Timescale Changelog",
+        excerpt: "Changelog",
       },
       {
         title: "Release notes",
