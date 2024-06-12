@@ -59,6 +59,20 @@ SELECT '50°C'::unit @ '°F' as temp;
 (1 row)
 ```
 
+To enable postgresql-unit:
+
+1. Connect to your Timescale Cloud service
+
+```
+psql -d "postgres://<username>:<password>@<host>:<port>/<service-name>"
+```
+
+2. Add `unit` to the service
+
+```
+CREATE EXTENSION IF NOT EXISTS "unit" VERSION '7' CASCADE;
+```
+
 ### Other improvements
 
 - 🎨 PopSQL's theme was changed to match the Timescale brand, and it is now faster to open within Timescale Console
