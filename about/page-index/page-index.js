@@ -10,12 +10,12 @@ module.exports = [
       {
         title: "Changelog",
         href: "changelog",
-        excerpt: "Changelog",
+        excerpt: "A summery of the latest changes to all Timescale products.",
       },
       {
         title: "Release notes",
         href: "release-notes",
-        excerpt: "Timescale release documentation",
+        excerpt: "Release information for TimescaleDB v2.0.0 - v2.15.1",
         children: [
           {
             title: "Release notes for TimescaleDB 2.0.0 to 2.9.3",

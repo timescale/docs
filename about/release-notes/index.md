@@ -6,8 +6,11 @@ keywords: [upgrades, updates, releases]
 
 # TimescaleDB release notes
 
-This page contains release notes for TimescaleDB&nbsp;2.10.0 and newer. For
-release notes for older versions, see the
+For information about the latest release of all Timescale product, including TimescaleDB v2.15.2 and 
+greater, see the [Changelog][changelog].
+
+This page contains the release notes from TimescaleDB [v2.10.0](#timescaledb2100-on-2023-02-21) 
+to [v2.15.1](#timescaledb2151-on-2024-05-28). For release notes for older versions, see the
 [past releases section][past-relnotes].
 
 <Highlight type="note">
@@ -823,6 +826,7 @@ For release notes for older TimescaleDB versions, see the
 [past releases section][past-relnotes].
 
 [past-relnotes]: /about/:currentVersion:/release-notes/past-releases/
+[changelog]: /about/:currentVersion:/changelog/
 [pg-upgrade]: /self-hosted/:currentVersion:/upgrades/upgrade-pg/
 [migrate-caggs]: /use-timescale/:currentVersion:/continuous-aggregates/migrate/
 [join-caggs]: /use-timescale/:currentVersion:/continuous-aggregates/create-a-continuous-aggregate/#create-a-continuous-aggregate-with-a-join
