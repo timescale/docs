@@ -64,7 +64,7 @@ from within PostgreSQL in a SQL query:
 * Retrieve LLM chat completions from models like OpenAI GPT4o.
 * Reason over your data and facilitate use cases like classification, summarization, and data enrichment on your existing relational data in PostgreSQL.
 
-To enable pgaudit:
+To enable pgai:
 
 1. Connect to your Timescale Cloud service
 
