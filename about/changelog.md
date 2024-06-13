@@ -100,6 +100,12 @@ After you run `ALTER EXTENSION`, you must run [this SQL script](https://github.c
 
 If you are migrating from TimescaleDB v2.15.0 or v2.15.1, no changes are required.
 
+#### Thanks
+
+* @gugu for reporting the issue with catalog corruption due to update.
+* @srieding for reporting the issue with partially compressed chunks and ordering on joined columns.
+
+
 <ReleaseNotification />
 
 ## May 2024 update
