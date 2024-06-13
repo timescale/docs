@@ -1,6 +1,6 @@
 ---
 title: Changelog
-excerpt: Changelog
+excerpt: A summery of the latest changes to all Timescale products.
 keywords: [changelog, upgrades, updates, releases]
 ---
 
@@ -8,17 +8,20 @@ import ReleaseNotification from "versionContent/_partials/_release_notification.
 
 # Changelog
 
+
+
 This page provides a summery of the latest changes to all Timescale products. For information about TimescaleDB 
 v2.15.1 and earlier, see the [Release notes][release-notes].
 
-## June 2024 update
+## June 2024 updates
 
+Timescale has added the following new features.
 
 ### 🏎️💨 High performance AI apps with pgvectorscale
 
 <Label type="date">June 11, 2024</Label>
 
-The [vectorscale extension][pgvectorscale] is now available on Timescale Cloud.
+The [vectorscale extension][pgvectorscale] is now available on [Timescale Cloud][signup].
 
 pgvectorscale complements pgvector, the open-source vector data extension for PostgreSQL, and introduces the 
 following key innovations for pgvector data:
@@ -52,7 +55,7 @@ For more details on how to use the extension, refer to the [pgvectorscale docume
 
 <Label type="date">June 11, 2024</Label>
 
-The [pgai extension][pgai] is now available on Timescale Cloud.
+The [pgai extension][pgai] is now available on [Timescale Cloud][signup].
 
 pgai brings embedding and generation AI models closer to the database. With pgai, you can now do the following directly 
 from within PostgreSQL in a SQL query:
@@ -78,7 +81,7 @@ To enable pgaudit:
 For more details on how to use the extension, refer to the [pgai documentation][pgai].
 
 
-### 🐛 Bugfixes to TimescaleDB
+### 🐛 Bugfixes for TimescaleDB
 
 <Label type="date">June 7, 2024</Label>
 
@@ -108,15 +111,15 @@ If you are migrating from TimescaleDB v2.15.0 or v2.15.1, no changes are require
 
 <ReleaseNotification />
 
-## May 2024 update
+## May 2024 updates
 
-Timescale Cloud has added the following new features. 
+Timescale has added the following new features. 
 
 ### 🔍 Database audit logging with pgaudit
 
 <Label type="date">May 31, 2024</Label>
 
-The [PostgreSQL Audit extension(pgaudit)](https://github.com/pgaudit/pgaudit/) is now available on Timescale Cloud. 
+The [PostgreSQL Audit extension(pgaudit)](https://github.com/pgaudit/pgaudit/) is now available on [Timescale Cloud][signup]. 
 pgaudit provides detailed database session and object audit logging in the Timescale 
 Cloud logs.
 
@@ -145,7 +148,7 @@ For more details on how to use the extension, refer to the [pgaudit documentatio
 <Label type="date">May 31, 2024</Label>
 
 The [SI Units for PostgreSQL extension(unit)](https://github.com/df7cb/postgresql-unit) provides support for the 
-[ISU](https://en.wikipedia.org/wiki/International_System_of_Units) in Timescale Cloud. 
+[ISU](https://en.wikipedia.org/wiki/International_System_of_Units) in [Timescale Cloud][signup]. 
 
 You can use Timescale Cloud to solve day-to-day questions. For example, to see what 50°C is in °F, run the following 
 query in your Timescale Cloud service:
@@ -181,3 +184,4 @@ PopSQL's theme now matches the Timescale brand, and it is now faster to open wit
 [timescaledb-releases]: https://github.com/timescale/timescaledb/releases/
 [pgai]: https://github.com/timescale/pgai
 [pgvectorscale]: https://github.com/timescale/pgvectorscale/
+[signup]: https://console.cloud.timescale.com/signup

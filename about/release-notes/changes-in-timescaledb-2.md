@@ -7,10 +7,13 @@ keywords: [upgrades, releases]
 # Changes in TimescaleDB 2.0
 
 <Highlight type="warning">
+
 This is an historical document, which outlines the primary differences between
 Timescale&nbsp;1 and Timescale&nbsp;2.0. Timescale&nbsp;2.0 was released in
 February, 2021. For release notes pertaining to the most recent version of
-Timescale, see the [current release section](https://docs.timescale.com/about/latest/release-notes/).
+Timescale, For details on the most recent release, see the
+[Changelog][changelog]..
+
 </Highlight>
 
 TimescaleDB 2.0 introduces new features and capabilities to its advanced
@@ -531,3 +534,4 @@ license to `apache` allows access to only Apache-2 licensed features.
 [timescaledb2]: https://github.com/timescale/timescaledb/releases/2.0.0
 [upgrade-timescaledb2]: /self-hosted/:currentVersion:/upgrades/major-upgrade/
 [upgrades]: /self-hosted/:currentVersion:/upgrades/
+[changelog]: /about/:currentVersion:/changelog/
