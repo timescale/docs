@@ -8,6 +8,7 @@ import ReleaseNotification from "versionContent/_partials/_release_notification.
 
 # Changelog
 
+All the latest features and updates to Timescale products.
 
 ## 🏎️💨 High performance AI apps with pgvectorscale
 
