@@ -9,17 +9,7 @@ import ReleaseNotification from "versionContent/_partials/_release_notification.
 # Changelog
 
 
-
-This page provides a summary of the latest changes to all Timescale products. For information about TimescaleDB 
-v2.15.1 and earlier, see the [Release notes][release-notes].
-
-## June 2024 updates
-
-Timescale has added the following new features.
-
-### 🏎️💨 High performance AI apps with pgvectorscale
-
-<Label type="date">June 11, 2024</Label>
+## 🏎️💨 High performance AI apps with pgvectorscale
 
 The [vectorscale extension][pgvectorscale] is now available on [Timescale Cloud][signup].
 
@@ -35,25 +25,14 @@ pgvectorscale achieves 28x lower p95 latency and 16x higher query throughput com
 optimized (s1) index for approximate nearest neighbor queries at 99% recall, all at 75% less cost when 
 self-hosted on AWS EC2.
 
-To enable pgvectorscale:
+To enable pgvectorscale, run the following command in your Timescale Cloud service:
+```
+CREATE EXTENSION IF NOT EXISTS "vectorscale" VERSION '0.2.0' CASCADE;
+```
 
-1. Connect to your Timescale Cloud service
+Want to use this extension? See [pgvectorscale documentation][pgvectorscale].
 
-    ```
-    psql -d "postgres://<username>:<password>@<host>:<port>/<service-name>"
-    ```
-
-2. Add pgai to the service
-
-   ```
-   CREATE EXTENSION IF NOT EXISTS "vectorscale" VERSION '0.2.0' CASCADE;
-   ```
-
-For more details on how to use the extension, refer to the [pgvectorscale documentation][pgvectorscale].
-
-### 🧐 Integrate AI into your database using pgai
-
-<Label type="date">June 11, 2024</Label>
+## 🧐 Integrate AI into your database using pgai
 
 The [pgai extension][pgai] is now available on [Timescale Cloud][signup].
 
@@ -64,30 +43,16 @@ from within PostgreSQL in a SQL query:
 * Retrieve LLM chat completions from models like OpenAI GPT4o.
 * Reason over your data and facilitate use cases like classification, summarization, and data enrichment on your existing relational data in PostgreSQL.
 
-To enable pgai:
+To enable pgai, run the following command in your Timescale Cloud service::
 
-1. Connect to your Timescale Cloud service
+```
+CREATE EXTENSION IF NOT EXISTS "ai" VERSION '0.1.0' CASCADE;
+```
 
-    ```
-    psql -d "postgres://<username>:<password>@<host>:<port>/<service-name>"
-    ```
-
-2. Add pgai to the service
-
-   ```
-   CREATE EXTENSION IF NOT EXISTS "ai" VERSION '0.1.0' CASCADE;
-   ```
-
-For more details on how to use the extension, refer to the [pgai documentation][pgai].
+Want to use this extension? See [pgai documentation][pgai].
 
 
-### 🐛 Bugfixes for TimescaleDB
-
-<Label type="date">June 7, 2024</Label>
-
-This section lists updates included in [TimescaleDB 2.15.2][timescaledb-releases].
-
-#### Bugfixes
+## 🐛 Bugfixes for TimescaleDB
 
 This release contains bug fixes introduced since TimescaleDB v2.15.1.
 Best practice is to upgrade at the next available opportunity.
@@ -97,27 +62,9 @@ Best practice is to upgrade at the next available opportunity.
 - [#6978](https://github.com/timescale/timescaledb/issues/6978): Fix segfault in compress_chunk with primary space partition.
 - [#6993](https://github.com/timescale/timescaledb/issues/6993): Disallow hash partitioning on the primary column.
 
-#### Migrate from self-hosted TimescaleDB v2.14.x and earlier
+Want to know more? See the [release notes][timescaledb-releases].
 
-After you run `ALTER EXTENSION`, you must run [this SQL script](https://github.com/timescale/timescaledb-extras/blob/master/utils/2.15.X-fix_hypertable_foreign_keys.sql). For more details, see [#6797](https://github.com/timescale/timescaledb/pull/6797).
-
-If you are migrating from TimescaleDB v2.15.0 or v2.15.1, no changes are required.
-
-#### Thanks
-
-* @gugu for reporting the issue with catalog corruption due to update.
-* @srieding for reporting the issue with partially compressed chunks and ordering on joined columns.
-
-
-<ReleaseNotification />
-
-## May 2024 updates
-
-Timescale has added the following new features. 
-
-### 🔍 Database audit logging with pgaudit
-
-<Label type="date">May 31, 2024</Label>
+## 🔍 Database audit logging with pgaudit
 
 The [PostgreSQL Audit extension(pgaudit)](https://github.com/pgaudit/pgaudit/) is now available on [Timescale Cloud][signup]. 
 pgaudit provides detailed database session and object audit logging in the Timescale 
@@ -127,25 +74,15 @@ If you have strict security and compliance requirements and need to log all oper
 on the database level, pgaudit can help. You can also export these audit logs to
 [Amazon CloudWatch](https://aws.amazon.com/cloudwatch/).
 
-To enable pgaudit:
+To enable pgaudit, run the following command in your Timescale Cloud service:
 
-1. Connect to your Timescale Cloud service
-
-    ```
-    psql -d "postgres://<username>:<password>@<host>:<port>/<service-name>"
-    ```
-
-2. Add pgaudit to the service
-
-   ```
-   CREATE EXTENSION IF NOT EXISTS "pgaudit" VERSION '16.0' CASCADE;
-   ```
+```
+CREATE EXTENSION IF NOT EXISTS "pgaudit" VERSION '16.0' CASCADE;
+```
 
 For more details on how to use the extension, refer to the [pgaudit documentation](https://github.com/pgaudit/pgaudit/).
 
-### 🌡 International System of Unit support with postgresql-unit
-
-<Label type="date">May 31, 2024</Label>
+## 🌡 International System of Unit support with postgresql-unit
 
 The [SI Units for PostgreSQL extension(unit)](https://github.com/df7cb/postgresql-unit) provides support for the 
 [ISU](https://en.wikipedia.org/wiki/International_System_of_Units) in [Timescale Cloud][signup]. 
@@ -161,22 +98,13 @@ SELECT '50°C'::unit @ '°F' as temp;
 (1 row)
 ```
 
-To enable postgresql-unit:
+To enable postgresql-unit, run the following command in your Timescale Cloud service:
 
-1. Connect to your Timescale Cloud service
+```
+CREATE EXTENSION IF NOT EXISTS "unit" VERSION '7' CASCADE;
+```
 
-   ```
-   psql -d "postgres://<username>:<password>@<host>:<port>/<service-name>"
-   ```
-
-2. Add `unit` to the service
-
-   ```
-   CREATE EXTENSION IF NOT EXISTS "unit" VERSION '7' CASCADE;
-   ```
-
-### 🎨 PopSQL improvements
-<Label type="date">May 31, 2024</Label>
+## 🎨 PopSQL improvements
 
 PopSQL's theme now matches the Timescale brand, and it is now faster to open within Timescale Console.
 
