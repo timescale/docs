@@ -10,7 +10,6 @@
     the -ha and non-ha docker images. By default, timescaledb is added to any new database you create
     in these images.
 
-
 1. Run the container:
 
     ```bash
@@ -19,15 +18,13 @@
 
     If you are running multiple container instances remember to change the port each Docker instance runs on.
 
-
  1. **Connect to a database on your PostgreSQL instance**
 
-   In PostgreSQL, the default user and database are both `postgres`. To use a
-   different database, set `<database-name>` to the name of that database:
+   In PostgreSQL, the default user and database are both `postgres`. The default command for this Docker container is:
 
-   ```bash
-   psql -d "postgres://<username>:<password>@<host>:<port>/<database-name>"
-   ```
+    ```bash
+    psql -d "postgres://postgres:password@localhost/postgres"
+    ```
 
 1.  **Check that TimescaleDB is installed**
 
