@@ -11,6 +11,8 @@ import ReleaseNotification from "versionContent/_partials/_release_notification.
 
 ## 🏎️💨 High performance AI apps with pgvectorscale
 
+<Label type="date">June, 2024</Label>
+
 The [vectorscale extension][pgvectorscale] is now available on [Timescale Cloud][signup].
 
 pgvectorscale complements pgvector, the open-source vector data extension for PostgreSQL, and introduces the 
@@ -25,14 +27,16 @@ pgvectorscale achieves 28x lower p95 latency and 16x higher query throughput com
 optimized (s1) index for approximate nearest neighbor queries at 99% recall, all at 75% less cost when 
 self-hosted on AWS EC2.
 
-To enable pgvectorscale, run the following command in your Timescale Cloud service:
+To enable pgvectorscale, run the following command in your [Timescale Cloud][signup] service:
 ```
 CREATE EXTENSION IF NOT EXISTS "vectorscale" VERSION '0.2.0' CASCADE;
 ```
 
-Want to use this extension? See [pgvectorscale documentation][pgvectorscale].
+Want to use this extension? See the [pgvectorscale documentation][pgvectorscale].
 
 ## 🧐 Integrate AI into your database using pgai
+
+<Label type="date">June, 2024</Label>
 
 The [pgai extension][pgai] is now available on [Timescale Cloud][signup].
 
@@ -43,16 +47,17 @@ from within PostgreSQL in a SQL query:
 * Retrieve LLM chat completions from models like OpenAI GPT4o.
 * Reason over your data and facilitate use cases like classification, summarization, and data enrichment on your existing relational data in PostgreSQL.
 
-To enable pgai, run the following command in your Timescale Cloud service::
+To enable pgai, run the following command in your [Timescale Cloud][signup] service::
 
 ```
 CREATE EXTENSION IF NOT EXISTS "ai" VERSION '0.1.0' CASCADE;
 ```
 
-Want to use this extension? See [pgai documentation][pgai].
+Want to use this extension? See the [pgai documentation][pgai].
 
 
 ## 🐛 Bugfixes for TimescaleDB
+<Label type="date">June, 2024</Label>
 
 This release contains bug fixes introduced since TimescaleDB v2.15.1.
 Best practice is to upgrade at the next available opportunity.
@@ -65,6 +70,7 @@ Best practice is to upgrade at the next available opportunity.
 Want to know more? See the [release notes][timescaledb-releases].
 
 ## 🔍 Database audit logging with pgaudit
+<Label type="date">May, 2024</Label>
 
 The [PostgreSQL Audit extension(pgaudit)](https://github.com/pgaudit/pgaudit/) is now available on [Timescale Cloud][signup]. 
 pgaudit provides detailed database session and object audit logging in the Timescale 
@@ -74,15 +80,16 @@ If you have strict security and compliance requirements and need to log all oper
 on the database level, pgaudit can help. You can also export these audit logs to
 [Amazon CloudWatch](https://aws.amazon.com/cloudwatch/).
 
-To enable pgaudit, run the following command in your Timescale Cloud service:
+To enable pgaudit, run the following command in your [Timescale Cloud][signup] service:
 
 ```
 CREATE EXTENSION IF NOT EXISTS "pgaudit" VERSION '16.0' CASCADE;
 ```
 
-For more details on how to use the extension, refer to the [pgaudit documentation](https://github.com/pgaudit/pgaudit/).
+Want to use this extension? See the [pgaudit documentation](https://github.com/pgaudit/pgaudit/).
 
 ## 🌡 International System of Unit support with postgresql-unit
+<Label type="date">May, 2024</Label>
 
 The [SI Units for PostgreSQL extension(unit)](https://github.com/df7cb/postgresql-unit) provides support for the 
 [ISU](https://en.wikipedia.org/wiki/International_System_of_Units) in [Timescale Cloud][signup]. 
@@ -98,13 +105,16 @@ SELECT '50°C'::unit @ '°F' as temp;
 (1 row)
 ```
 
-To enable postgresql-unit, run the following command in your Timescale Cloud service:
+To enable postgresql-unit, run the following command in your [Timescale Cloud][signup] service:
 
 ```
 CREATE EXTENSION IF NOT EXISTS "unit" VERSION '7' CASCADE;
 ```
 
+Want to use this extension? See the [postgresql-unit documentation](https://github.com/df7cb/postgresql-unit).
+
 ## 🎨 PopSQL improvements
+<Label type="date">May, 2024</Label>
 
 PopSQL's theme now matches the Timescale brand, and it is now faster to open within Timescale Console.
 
