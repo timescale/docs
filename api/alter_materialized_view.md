@@ -50,7 +50,7 @@ To disable real-time aggregates for a
 continuous aggregate:
 
 ```sql
-ALTER MATERIALIZED VIEW contagg_view SET (timescaledb.materialized_only = true);
+ALTER MATERIALIZED VIEW contagg_view SET (timescaledb.materialized_only);
 ```
 
 To enable compression for a continuous aggregate:
