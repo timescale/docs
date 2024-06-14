@@ -10,6 +10,15 @@ import ReleaseNotification from "versionContent/_partials/_release_notification.
 
 All the latest features and updates to Timescale products.
 
+## ⚡️ Compression wizard in Timescale Console
+<Label type="date">June, 2024</Label>
+
+Save money, optimize storage and query performance by compressing hypertable data from the UI! 
+
+![Run the compression wizard in Timescale Console](https://assets.timescale.com/docs/images/compress-data-in-console.png)
+
+
+
 ## 🏎️💨 High performance AI apps with pgvectorscale
 
 <Label type="date">June, 2024</Label>
