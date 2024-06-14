@@ -1,6 +1,6 @@
 ---
 title: Changelog
-excerpt: A summery of the latest changes to all Timescale products.
+excerpt: A summary of the latest changes to all Timescale products.
 keywords: [changelog, upgrades, updates, releases]
 ---
 
@@ -10,7 +10,7 @@ import ReleaseNotification from "versionContent/_partials/_release_notification.
 
 
 
-This page provides a summery of the latest changes to all Timescale products. For information about TimescaleDB 
+This page provides a summary of the latest changes to all Timescale products. For information about TimescaleDB 
 v2.15.1 and earlier, see the [Release notes][release-notes].
 
 ## June 2024 updates

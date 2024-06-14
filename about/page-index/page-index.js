@@ -10,7 +10,7 @@ module.exports = [
       {
         title: "Changelog",
         href: "changelog",
-        excerpt: "A summery of the latest changes to all Timescale products.",
+        excerpt: "A summary of the latest changes to all Timescale products.",
       },
       {
         title: "Release notes",
