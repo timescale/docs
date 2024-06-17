@@ -68,8 +68,49 @@ Best practice is to upgrade at the next available opportunity.
 
 Want to know more? See the [release notes][timescaledb-releases].
 
-## 🔍 Database Audit Logging with pgaudit
-<Label type="date">May 27, 2024</Label>
+## May 2024 Updates
+<Label type="date">May 31, 2024</Label>
+
+### TimescaleDB 2.15.0
+
+We released TimescaleDB 2.15.0 with a ton of new features and bugfixes.
+
+💡 Features
+
+-   [#6382](https://github.com/timescale/timescaledb/pull/6382) Support for `time_bucket` with origin and offset in CAggs.
+-   [#6696](https://github.com/timescale/timescaledb/pull/6696) Improve the defaults for compression `segment_by` and `order_by`.
+-   [#6705](https://github.com/timescale/timescaledb/pull/6705) Add sparse minmax indexes for compressed columns that have uncompressed btree indexes.
+-   [#6754](https://github.com/timescale/timescaledb/pull/6754) Allow `DROP CONSTRAINT` on compressed hypertables.
+-   [#6767](https://github.com/timescale/timescaledb/pull/6767) Add metadata table `_timestaledb_internal.bgw_job_stat_history` for tracking job execution history.
+-   [#6798](https://github.com/timescale/timescaledb/pull/6798) Prevent usage of the deprecated `time_bucket_ng` in the CAgg definition.
+-   [#6810](https://github.com/timescale/timescaledb/pull/6810) Add telemetry for access methods.
+-   [#6811](https://github.com/timescale/timescaledb/pull/6811) Remove the no longer relevant `timescaledb.allow_install_without_preload` GUC.
+-   [#6837](https://github.com/timescale/timescaledb/pull/6837) Add migration path for CAggs using `time_bucket_ng`.
+-   [#6865](https://github.com/timescale/timescaledb/pull/6865) Update the watermark when truncating a CAgg.
+
+🐛 Bugfixes
+
+-   [#6617](https://github.com/timescale/timescaledb/pull/6617) Fix error in show_chunks.
+-   [#6621](https://github.com/timescale/timescaledb/pull/6621) Remove metadata when dropping chunks.
+-   [#6677](https://github.com/timescale/timescaledb/pull/6677) Fix snapshot usage in CAgg invalidation scanner.
+-   [#6698](https://github.com/timescale/timescaledb/pull/6698) Define meaning of 0 retries for jobs as no retries.
+-   [#6717](https://github.com/timescale/timescaledb/pull/6717) Fix handling of compressed tables with primary or unique index in COPY path.
+-   [#6726](https://github.com/timescale/timescaledb/pull/6726) Fix constify cagg_watermark using window function when querying a CAgg.
+-   [#6729](https://github.com/timescale/timescaledb/pull/6729) Fix NULL start value handling in CAgg refresh.
+-   [#6732](https://github.com/timescale/timescaledb/pull/6732) Fix CAgg migration with custom timezone / date format settings.
+-   [#6752](https://github.com/timescale/timescaledb/pull/6752) Remove custom autovacuum setting from compressed chunks.
+-   [#6770](https://github.com/timescale/timescaledb/pull/6770) Fix plantime chunk exclusion for OSM chunk.
+-   [#6789](https://github.com/timescale/timescaledb/pull/6789) Fix deletes with subqueries and compression.
+-   [#6796](https://github.com/timescale/timescaledb/pull/6796) Fix a crash involving a view on a hypertable.
+-   [#6797](https://github.com/timescale/timescaledb/pull/6797) Fix foreign key constraint handling on compressed hypertables.
+-   [#6816](https://github.com/timescale/timescaledb/pull/6816) Fix handling of chunks with no constraints.
+-   [#6820](https://github.com/timescale/timescaledb/pull/6820) Fix a crash when the ts_hypertable_insert_blocker was called directly.
+-   [#6849](https://github.com/timescale/timescaledb/pull/6849) Use non-orderby compressed metadata in compressed DML.
+-   [#6867](https://github.com/timescale/timescaledb/pull/6867) Clean up compression settings when deleting compressed CAgg.
+-   [#6869](https://github.com/timescale/timescaledb/pull/6869) Fix compressed DML with constraints of form value OP column.
+-   [#6870](https://github.com/timescale/timescaledb/pull/6870) Fix bool expression pushdown for queries on compressed chunks.
+
+### 🔍 Database Audit Logging with pgaudit
 
 The [PostgreSQL Audit extension(pgaudit)](https://github.com/pgaudit/pgaudit/) is now available on [Timescale Cloud][signup].
 pgaudit provides detailed database session and object audit logging in the Timescale
@@ -81,8 +122,7 @@ on the database level, pgaudit can help. You can also export these audit logs to
 
 See the [pgaudit documentation](https://github.com/pgaudit/pgaudit/) to learn more.
 
-## 🌡 International System of Unit support with postgresql-unit
-<Label type="date">May 13, 2024</Label>
+### 🌡 International System of Unit support with postgresql-unit
 
 The [SI Units for PostgreSQL extension(unit)](https://github.com/df7cb/postgresql-unit) provides support for the
 [ISU](https://en.wikipedia.org/wiki/International_System_of_Units) in [Timescale Cloud][signup].
