@@ -1,19 +1,32 @@
 module.exports = [
   {
-    title: "About Timescale",
+    title: "About Timescale products",
     href: "about",
     filePath: "index.md",
-    pageComponents: ["featured-cards"],
     excerpt:
       "Additional information about Timescale, including how to contribute, and release notes",
     children: [
+      {
+        title: "Timescale product features",
+        href: "timescale-features",
+        excerpt: "Exhaustive list of the features offered by Timescale products and services",
+      },      {
+        title: "Billing and account management",
+        href: "account-management",
+        excerpt: "Timescale account management",
+      },
       {
         title: "Changelog",
         href: "changelog",
         excerpt: "A summary of the latest changes to all Timescale products.",
       },
       {
-        title: "Release notes",
+        title: "Regions",
+        href: "regions",
+        excerpt: "Timescale Cloud runs in the AWS regions:",
+      },
+      {
+        title: "Timescale DB release notes",
         href: "release-notes",
         excerpt: "Release information for TimescaleDB v2.0.0 - v2.15.1",
         children: [
@@ -28,6 +41,12 @@ module.exports = [
             excerpt:
               "An overview of major changes between TimescaleDB 1.0 and 2.0",
           },
+          {
+            title: "TimescaleDB licenses",
+            href: "timescaledb-editions",
+            excerpt: "Discover the different TimescaleDB editions and licences",
+          },
+        ],
         ],
       },
       {

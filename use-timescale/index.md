@@ -1,5 +1,5 @@
 ---
-title: Use Timescale
+title: Manage your data with Timescale
 excerpt: Learn how to work with Timescale
 ---
 

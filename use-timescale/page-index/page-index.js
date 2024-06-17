@@ -1,17 +1,12 @@
 module.exports = [
   {
-    title: "Use Timescale",
+    title: "Manage data with Timescale",
     href: "use-timescale",
     filePath: "index.md",
     pageComponents: ["content-list"],
     excerpt:
       "How to connect to Timescale, administer, and configure the database.",
     children: [
-      {
-        title: "Clouds and regions",
-        href: "regions",
-        excerpt: "Timescale AWS regions",
-      },
       {
         title: "Services",
         href: "services",
