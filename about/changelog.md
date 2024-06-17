@@ -79,12 +79,6 @@ If you have strict security and compliance requirements and need to log all oper
 on the database level, pgaudit can help. You can also export these audit logs to
 [Amazon CloudWatch](https://aws.amazon.com/cloudwatch/).
 
-<!-- To enable pgaudit, run the following command in your [Timescale Cloud][signup] service:
-
-```
-CREATE EXTENSION IF NOT EXISTS "pgaudit" VERSION '16.0' CASCADE;
-``` -->
-
 See the [pgaudit documentation](https://github.com/pgaudit/pgaudit/) to learn more.
 
 ## 🌡 International System of Unit support with postgresql-unit
@@ -104,18 +98,7 @@ SELECT '50°C'::unit @ '°F' as temp;
 (1 row)
 ```
 
-<!-- To enable postgresql-unit, run the following command in your [Timescale Cloud][signup] service:
-
-```
-CREATE EXTENSION IF NOT EXISTS "unit" VERSION '7' CASCADE;
-``` -->
-
 See the [postgresql-unit documentation](https://github.com/df7cb/postgresql-unit) to learn more.
-
-<!-- ## 🎨 PopSQL improvements
-<Label type="date">June 5, 2024</Label>
-
-PopSQL's theme now matches the Timescale brand, and it is now faster to open within Timescale Console. -->
 
 [release-notes]: /about/:currentVersion:/release-notes/
 [timescaledb-releases]: https://github.com/timescale/timescaledb/releases/
