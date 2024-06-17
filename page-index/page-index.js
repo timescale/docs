@@ -12,13 +12,13 @@ const AIPageIndex = require("../ai/page-index/page-index");
 
 module.exports = [
   ...gsgPageIndex,
+  ...timescaleAboutPageIndex,
   ...timescaleUsingPageIndex,
   ...tutorialsPageIndex,
   ...codeQuickStartsPageIndex,
   ...apiReferencePageIndex,
   ...selfHostedPageIndex,
   ...timescaleMSTPageIndex,
-  ...timescaleAboutPageIndex,
   ...navigationPageIndex,
   ...migrationPageIndex,
   ...AIPageIndex,
