@@ -28,7 +28,7 @@ This reference describes the new generalized hypertable API that was introduced 
 The [old interface for `create_hypertable` is also available](/api/:currentVersion:/hypertable/create_hypertable_old/).
 </Highlight>
 
-## Examples
+##  Sample usage
 
 Convert table `conditions` to hypertable with just range partitioning on column `time`:
 
