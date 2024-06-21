@@ -10,7 +10,6 @@
     the -ha and non-ha docker images. By default, timescaledb is added to any new database you create
     in these images.
 
-
 1. Run the container:
 
     ```bash
@@ -19,15 +18,18 @@
 
     If you are running multiple container instances remember to change the port each Docker instance runs on.
 
-
  1. **Connect to a database on your PostgreSQL instance**
 
-   In PostgreSQL, the default user and database are both `postgres`. To use a
-   different database, set `<database-name>` to the name of that database:
+    ```bash
+    psql -d "postgres://<username>:<password>@<host>:<port>/<database-name>"
+    ```
 
-   ```bash
-   psql -d "postgres://<username>:<password>@<host>:<port>/<database-name>"
-   ```
+    In the timescaledb-ha:pg16 image, the default user and database are both `postgres`. You set the password in
+    `POSTGRES_PASSWORD` when you run the image. The default command to connect to PostgreSQL in this image is:
+
+    ```bash
+    psql -d "postgres://postgres:password@localhost/postgres"
+    ```
 
 1.  **Check that TimescaleDB is installed**
 
@@ -39,10 +41,12 @@
 
     ```sql
     List of installed extensions
-    Name     | Version |   Schema   |                                      Description
-    -------------+---------+------------+---------------------------------------------------------------------------------------
-    plpgsql     | 1.0     | pg_catalog | PL/pgSQL procedural language
-    timescaledb | 2.15.1  | public     | Enables scalable inserts and complex queries for time-series data (Community Edition)
+    Name         | Version |   Schema   |                                      Description
+    ---------------------+---------+------------+---------------------------------------------------------------------------------------
+    plpgsql             | 1.0     | pg_catalog | PL/pgSQL procedural language
+    timescaledb         | 2.15.2  | public     | Enables scalable inserts and complex queries for time-series data (Community Edition)
+    timescaledb_toolkit | 1.18.0  | public     | Library of analytical hyperfunctions, time-series pipelining, and other SQL utilities
+    (3 rows)
     ```
     Press q to exit the list of extensions.
 
