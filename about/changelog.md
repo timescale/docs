@@ -9,6 +9,7 @@ keywords: [changelog, upgrades, updates, releases]
 All the latest features and updates to Timescale products.
 
 ## 🧙 Compression Wizard
+
 <Label type="date">June 13, 2024</Label>
 
 The compression wizard is now available on Timescale Cloud. Select a hypertable and be guided through enabling compression through the UI!
