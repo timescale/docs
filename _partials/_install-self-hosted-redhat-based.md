@@ -64,7 +64,6 @@
     </tab>
     </Terminal>  
 
-
 1.  **Update your local repository list**
 
     ```bash
