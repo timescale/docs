@@ -14,7 +14,7 @@ To reset your password:
 
 1. Open [MST Portal][mst-login].
 2. Click `Forgot password`.
-3. Enter your email address, then click `Restet password`.
+3. Enter your email address, then click `Reset password`.
 
 A secure reset password link is sent to the email associated with this account. Click the link 
 and update your password. 
