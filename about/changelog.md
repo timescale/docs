@@ -8,6 +8,16 @@ keywords: [changelog, upgrades, updates, releases]
 
 All the latest features and updates to Timescale products.
 
+## :bug: Fixes and improvements
+<Label type="date">June 27, 2024</Label>
+
+- Automatic retries for live migration
+  - We updated table filtering for migration from PostgreSQL to a Timescale Cloud. If you have an error or backoff during live migration, Timescale Cloud retries automatically. 
+  - To learn more, see the [live migration docs](https://docs.timescale.com/migrate/latest/live-migration/).
+- Resolved Deadlock Bug in pgcopydb for Seamless Live-Migrations and Enhanced Performance
+  - We've fixed a critical deadlock bug in pgcopydb that caused live-migrations to get stuck without applying new changes and replication lag to increase. This issue previously required manual intervention. This is not only resolved for live-migrations, but also all pgcopydb users.
+ 
+
 ## 🦙Ollama integration in pgai
 
 <Label type="date">June 21, 2024</Label>
