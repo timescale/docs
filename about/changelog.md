@@ -8,7 +8,7 @@ keywords: [changelog, upgrades, updates, releases]
 
 All the latest features and updates to Timescale products.
 
-## ![](https://ollama.com/public/icon-16x16.png) Ollama integration in pgai
+## 🦙Ollama integration in pgai
 
 <Label type="date">June 21, 2024</Label>
 
