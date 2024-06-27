@@ -8,6 +8,36 @@ keywords: [changelog, upgrades, updates, releases]
 
 All the latest features and updates to Timescale products.
 
+## 🦙Ollama integration in pgai
+
+<Label type="date">June 21, 2024</Label>
+
+Ollama is now integrated with [pgai](https://github.com/timescale/pgai).
+
+Ollama is the easiest and most popular way to get up and running with open-source 
+language models. Think of Ollama as _Docker for LLMs_, enabling easy access and usage 
+of a variety of open-source models like Llama 3, Mistral, Phi 3, Gemma, and more. 
+
+With the pgai extension integrated in your database, embed Ollama AI into your app using
+SQL. For example:
+
+```sql
+select ollama_generate
+( 'llava:7b'
+, 'Please describe this image.'
+, _images=> array[pg_read_binary_file('/pgai/tests/postgresql-vs-pinecone.jpg')]
+, _system=>'you are a helpful assistant'
+, _options=> jsonb_build_object
+  ( 'seed', 42
+  , 'temperature', 0.9
+  )
+)->>'response'
+;
+```
+
+To learn more, see the [pgai Ollama documentation](https://github.com/timescale/pgai/blob/main/docs/ollama.md).
+
+
 ## 🧙 Compression Wizard
 
 <Label type="date">June 13, 2024</Label>
@@ -38,7 +68,7 @@ self-hosted on AWS EC2.
 
 To learn more, see the [pgvectorscale documentation][pgvectorscale].
 
-## 🧐 Integrate AI Into Your Database Using pgai
+## 🧐Integrate AI Into Your Database Using pgai
 
 <Label type="date">June 11, 2024</Label>
 
