@@ -20,6 +20,12 @@
       "pattern": "^https://platform.openai.com/docs"
     },
     {
+      "pattern": "^https://www.promptingguide.ai/techniques/rag"
+    },
+    {
+      "pattern": "^https://otexts.org/fpp2/holt-winters.html"
+    },
+    {
       "pattern": "^https://www.pcmag.com/encyclopedia"
     },
     {
