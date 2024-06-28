@@ -6,7 +6,7 @@ docker run --rm -it --name live-migration \
     -e PGCOPYDB_TARGET_PGURI=$TARGET \
     --pid=host \
     -v ~/live-migration:/opt/timescale/ts_cdc \
-    timescale/live-migration:v0.0.20 --help
+    timescale/live-migration:v0.0.21 --help
 
 Live migration moves your PostgreSQL/TimescaleDB to Timescale Cloud with minimal downtime.
 
@@ -53,7 +53,7 @@ docker run --rm -it --name live-migration-snapshot \
     -e PGCOPYDB_TARGET_PGURI=$TARGET \
     --pid=host \
     -v ~/live-migration:/opt/timescale/ts_cdc \
-    timescale/live-migration:v0.0.20 snapshot
+    timescale/live-migration:v0.0.21 snapshot
 ```
 
 In addition to creating a snapshot, this process also validates prerequisites on the source and target to ensure the database instances are ready for replication.
@@ -77,7 +77,7 @@ docker run --rm -it --name live-migration-migrate \
     -e PGCOPYDB_TARGET_PGURI=$TARGET \
     --pid=host \
     -v ~/live-migration:/opt/timescale/ts_cdc \
-    timescale/live-migration:v0.0.20 migrate --help
+    timescale/live-migration:v0.0.21 migrate --help
 usage: main.py migrate [-h] [--dir DIR] [--resume] [--skip-roles] [--table-jobs TABLE_JOBS] [--index-jobs INDEX_JOBS]
                        [--skip-extensions [SKIP_EXTENSIONS ...]] [--skip-table-data SKIP_TABLE_DATA [SKIP_TABLE_DATA ...]]
 
@@ -107,7 +107,7 @@ docker run --rm -it --name live-migration-migrate \
     -e PGCOPYDB_TARGET_PGURI=$TARGET \
     --pid=host \
     -v ~/live-migration:/opt/timescale/ts_cdc \
-    timescale/live-migration:v0.0.20 migrate
+    timescale/live-migration:v0.0.21 migrate
 ```
 <Highlight type="note">
 If the migrate command stops for any reason during execution, you can resume
