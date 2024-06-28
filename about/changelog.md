@@ -14,7 +14,7 @@ All the latest features and updates to Timescale products.
 The following improvements have been made to the Timescale [live-migration docker image](https://hub.docker.com/r/timescale/live-migration/tags):
 
 - With updated table filtering, live-migration retries automatically if you have an error or backoff. 
-- Improvements to pbcopydb increase performance and removes unhelpful warning messages.
+- Improvements to pbcopydb increase performance and remove unhelpful warning messages.
 - The user notification log enables you to always select the most recent release for a migration run.
 
 For improved stability and new features, update to the latest [timescale/live-migration](https://hub.docker.com/r/timescale/live-migration/tags) docker image. To learn more, see the [live migration docs](https://docs.timescale.com/migrate/latest/live-migration/).
