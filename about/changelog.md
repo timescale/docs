@@ -13,7 +13,7 @@ All the latest features and updates to Timescale products.
 
 The following improvements have been made to the Timescale [live-migration docker image](https://hub.docker.com/r/timescale/live-migration/tags):
 
-- Table-based filtering and is now available during live migration.  
+- Table-based filtering is now available during live migration.  
 - Improvements to pbcopydb increase performance and remove unhelpful warning messages.
 - The user notification log enables you to always select the most recent release for a migration run.
 
