@@ -8,6 +8,17 @@ keywords: [changelog, upgrades, updates, releases]
 
 All the latest features and updates to Timescale products.
 
+## ⚡ Performance improvements for live migration to Timescale Cloud
+<Label type="date">June 27, 2024</Label>
+
+The following improvements have been made to the Timescale [live-migration docker image](https://hub.docker.com/r/timescale/live-migration/tags):
+
+- Table-based filtering is now available during live migration.  
+- Improvements to pbcopydb increase performance and remove unhelpful warning messages.
+- The user notification log enables you to always select the most recent release for a migration run.
+
+For improved stability and new features, update to the latest [timescale/live-migration](https://hub.docker.com/r/timescale/live-migration/tags) docker image. To learn more, see the [live migration docs](https://docs.timescale.com/migrate/latest/live-migration/).
+
 ## 🦙Ollama integration in pgai
 
 <Label type="date">June 21, 2024</Label>
