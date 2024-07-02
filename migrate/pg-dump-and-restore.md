@@ -1,5 +1,5 @@
 ---
-title: Migrations using pg_dump and pg_restore
+title: Migration with Downtime
 excerpt: Migrate a hypertable or entire database with native PostgreSQL commands
 products: [cloud, self_hosted]
 keywords: [backups, restore]
@@ -8,7 +8,7 @@ tags: [recovery, logical backup, pg_dump, pg_restore]
 
 import ConsiderCloud from "versionContent/_partials/_consider-cloud.mdx";
 
-# Migrate using `pg_dump` and `pg_restore`
+# Migration with Downtime
 
 To easily migrate from self-hosted PostgreSQL or TimescaleDB to Timescale, you use native PostgreSQL 
 [`pg_dump`][pg_dump] and [`pg_restore`][pg_restore]. If you are migrating from self-hosted TimescaleDB, this works for compressed hypertables without having to decompress data before you begin.
@@ -17,12 +17,6 @@ Before you migrate to Timescale, be aware that each Timescale instance [has a si
 not support [tablespaces] or [all available extensions]. Also [there is no superuser associated with a Timescale
 instance].
 
-This page shows you how to:
-
-- [Migrate from TimescaleDB][migrate-from-timescaledb]
-- [Migrate from PostgreSQL][migrate-from-postgresql]
-
-[//]: # (TODO: more caveats?)
 
 import DoNotRecommendForLargeMigration from "versionContent/_partials/_migrate_pg_dump_do_not_recommend_for_large_migration.mdx";
 import SourceTargetNote from "versionContent/_partials/_migrate_source_target_note.mdx";
@@ -43,6 +37,9 @@ Before you begin, ensure that you have:
 - Checked that all PostgreSQL extensions you use are available on Timescale. For more information, see the [list of compatible extensions].
 - Checked that the version of PostgreSQL in your target database is greater than or equal to that of the source database.
 
+<Tabs label="Migrate with downtime">
+
+<Tab title="Migrate from TimescaleDB ">
 ## Migrate from TimescaleDB using pg_dump/restore
 
 The following instructions show you how to move your data from self-hosted TimescaleDB to a Timescale instance using `pg_dump` and `psql`. To avoid data loss, you should take applications that connect to the database offline. The duration of the migration is proportional to the amount of data stored in your database.
@@ -123,7 +120,8 @@ Once you have verified that the data is present, and returns the results that yo
 [//]: # (TODO: add something about which pg_dump mode to use &#40;plain / binary / custom&#41;)
 [//]: # (TODO: add something about expected migration duration)
 
-## Migrate from PostgreSQL using pg_dump/restore
+</Tab>
+<Tab title="Migrate from PostgreSQL">
 
 The following instructions show you how to move your data from self-hosted PostgreSQL to a Timescale instance using `pg_dump` and `psql`. To avoid data loss, you should take applications that connect to the database  offline. The duration of the migration is proportional to the amount of data stored in your database.
 
@@ -190,8 +188,9 @@ Verify that the data has been successfully restored by connecting to the target 
 
 Once you have verified that the data is present, and returns the results that you expect, you can reconfigure your application to use the target database and then start your application. 
 
-[//]: # (TODO: add something about which pg_dump mode to use &#40;plain / binary / custom&#41;)
-[//]: # (TODO: add something about expected migration duration)
+</Tab>
+
+</Tabs>
 
 [has a single database]: /migrate/:currentVersion:/troubleshooting/#only-one-database-per-instance
 [tablespaces]: /migrate/:currentVersion:/troubleshooting/#tablespaces
