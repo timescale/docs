@@ -80,7 +80,7 @@
 
     <!-- markdownlint-disable TS007 -->
     <Highlight type="note">
-    On Red Hat Enterprise Linux 8, disable the built-in PostgreSQL module:
+    On Red Hat Enterprise Linux 8 and later, disable the built-in PostgreSQL module:
     
     `sudo dnf -qy module disable postgresql`
     </Highlight>

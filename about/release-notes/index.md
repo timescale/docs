@@ -6,19 +6,28 @@ keywords: [upgrades, updates, releases]
 
 # TimescaleDB release notes
 
-For information about the latest release of all Timescale product, including TimescaleDB v2.15.2 and 
-greater, see the [Changelog][changelog].
+For information about major release for all Timescale product, including TimescaleDB v2.15.2 and 
+greater, see the [Changelog][changelog]. For product release notes, see:
+
+* [TimescaleDB](https://github.com/timescale/timescaledb/releases) -  an open-source database that makes SQL scalable for time-series data.
+* [TimescaleDB Toolkit](https://github.com/timescale/timescaledb-toolkit/releases) - ease all things analytics when using TimescaleDB.
+* [pgai](https://github.com/timescale/pgai/releases) - brings AI workflows to your PostgreSQL database.
+* [pgvectorscale](https://github.com/timescale/pgvectorscale/releases/tag/0.2.0) -  higher performance embedding search and cost-efficient storage for AI applications.
+* [pgspot](https://github.com/timescale/pgspot/releases) - spot vulnerabilities in PostgreSQL extension scripts.
+* [live-migration](https://hub.docker.com/r/timescale/live-migration/tags) - a Docker image to migrate data to a Timescale Cloud service.
+
+<Highlight type="note">
+
+Want to stay up-to-date with new releases? On the main page for each repository
+click `Watch`, select `Custom` and then check `Releases`.
+
+</Highlight>
+
 
 This page contains the release notes from TimescaleDB [v2.10.0](#timescaledb2100-on-2023-02-21) 
 to [v2.15.1](#timescaledb2151-on-2024-05-28). For release notes for older versions, see the
 [past releases section][past-relnotes].
 
-<Highlight type="note">
-Want to stay up-to-date with new releases? You can subscribe to new releases on
-GitHub and be notified by email whenever a new release is available. On the
-[Github page](https://github.com/timescale/timescaledb),
-click `Watch`, select `Custom` and then check `Releases`.
-</Highlight>
 
 ## TimescaleDB&nbsp;2.15.1 on 2024-05-28
 
