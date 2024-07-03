@@ -31,6 +31,11 @@ module.exports = [
         ],
       },
       {
+        title: "Supported platforms",
+        href: "supported-platforms",
+        excerpt: "The platforms and systems supported by Timescale products.",
+      },
+      {
         title: "TimescaleDB editions",
         href: "timescaledb-editions",
         excerpt: "Discover the different TimescaleDB editions and licences",

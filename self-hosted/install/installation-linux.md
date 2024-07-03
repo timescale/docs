@@ -39,7 +39,7 @@ To keep your current PostgreSQL installation, [Install from source][install-from
 ## Install and configure TimescaleDB on PostgreSQL 
 
 This section shows you how to install the latest version of PostgreSQL and 
-TimescaleDB on a [supported platform](#supported-platforms) using the packages supplied by Timescale. 
+TimescaleDB on a [supported platform][supported-platforms-self-hosted] using the packages supplied by Timescale. 
 
 <Tabs label="Install TimescaleDB">
 
@@ -79,15 +79,5 @@ And that is it! You have TimescaleDB running on a database on a self-hosted inst
 
 <WhereTo />
 
-
-## Supported platforms
-
-TimescaleDB is supported on the following platforms:
-
-|Debian|Ubuntu|Red Hat Enterprise|Fedora|Rocky Linux|
-|-|-|-|-|-|
-|Debian 10 Buster|Ubuntu 20.04 LTS Focal Fossa|Red Hat Enterprise Linux 7|Fedora 33|Rocky Linux 8|
-|Debian 11 Bullseye|Ubuntu 22.04 LTS Jammy Jellyfish|Red Hat Enterprise Linux 8|Fedora 34|Rocky Linux 9|
-|Debian 12 Bookworm|Ubuntu 23.04 Lunar Lobster|Red Hat Enterprise Linux 9|Fedora 35| |
-
 [install-from-source]: /self-hosted/:currentVersion:/install/installation-source/
+[supported-platforms-self-hosted]: /about/:currentVersion:/supported-platforms/#self-hosted-timescaledb
