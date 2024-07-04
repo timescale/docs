@@ -1,6 +1,6 @@
 ---
-title: Migrate your data to Timescale
-excerpt: Migrate existing database to Timescale
+title: Migrate your data to Timescale Cloud
+excerpt: Migrate existing database to Timescale Cloud
 products: [cloud]
 keywords: [data migration, postgresql, RDS]
 tags: [ingest, migrate, RDS]
@@ -8,15 +8,18 @@ tags: [ingest, migrate, RDS]
 
 import OpenSupportRequest from "versionContent/_partials/_migrate_open_support_request.mdx"
 
-# Migrate your data to Timescale
+# Migrate your data to Timescale Cloud
 
-<Highlight type="note">
-Migration assistance is included with Timescale's support service. If you would
-like help understanding your options, please reach out to our support.
+You have chosen to migrate your data to Timescale Cloud, thank you. Depending on the amount of data 
+you need to migrate, and the amount of downtime you can afford, we offer a couple of ways to migrate 
+your data to Timescale Cloud. 
 
-<OpenSupportRequest />
+The following diagram guides you to the migration method that best suits you:
 
-</Highlight>
+TODO : ADD a diagram here:
+
+IAIN: I will probably delete most of the rest of this page as it is saying the same thing in different
+words about 345345 times. 
 
 There are a number of different ways to migrate your data to Timescale. Which
 option you choose depends on a few different factors, the most important of
@@ -38,6 +41,15 @@ If you are using PostgreSQL or TimescaleDB and can afford to take your
 application offline for a few hours, the simplest option is to migrate data
 from another database into Timescale using PostgreSQL's `pg_dump` and
 `pg_restore` commands. 
+
+<Highlight type="note">
+Migration assistance is included with Timescale's support service. If you would
+like help understanding your options, please reach out to our support.
+
+<OpenSupportRequest />
+
+</Highlight>
+
 
 You can also use these tools to migrate your data from Managed Service for
 TimescaleDB, from a self-hosted TimescaleDB instance, or from another

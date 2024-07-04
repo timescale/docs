@@ -1,5 +1,5 @@
 ---
-title: Migration with Downtime
+title: Migrate with downtime
 excerpt: Migrate a hypertable or entire database with native PostgreSQL commands
 products: [cloud, self_hosted]
 keywords: [backups, restore]
@@ -7,17 +7,7 @@ tags: [recovery, logical backup, pg_dump, pg_restore]
 ---
 
 import ConsiderCloud from "versionContent/_partials/_consider-cloud.mdx";
-
-# Migration with Downtime
-
-To easily migrate from self-hosted PostgreSQL or TimescaleDB to Timescale, you use native PostgreSQL 
-[`pg_dump`][pg_dump] and [`pg_restore`][pg_restore]. If you are migrating from self-hosted TimescaleDB, this works for compressed hypertables without having to decompress data before you begin.
-
-Before you migrate to Timescale, be aware that each Timescale instance [has a single database], does
-not support [tablespaces] or [all available extensions]. Also [there is no superuser associated with a Timescale
-instance].
-
-
+import MigrationPrerequisites from "versionContent/_partials/_migration-prerequisites.mdx";
 import DoNotRecommendForLargeMigration from "versionContent/_partials/_migrate_pg_dump_do_not_recommend_for_large_migration.mdx";
 import SourceTargetNote from "versionContent/_partials/_migrate_source_target_note.mdx";
 import SetupSourceTarget from "versionContent/_partials/_migrate_set_up_source_and_target.mdx";
@@ -26,23 +16,32 @@ import ExplainPgDumpFlags from "versionContent/_partials/_migrate_explain_pg_dum
 import MinimalDowntime from "versionContent/_partials/_migrate_pg_dump_minimal_downtime.mdx";
 import DumpDatabaseRoles from "versionContent/_partials/_migrate_dual_write_dump_database_roles.mdx";
 
-## Prerequisites
+# Migrate with downtime
+
+To easily migrate from self-hosted PostgreSQL or TimescaleDB to a Timescale Cloud service, you 
+use the native PostgreSQL [`pg_dump`][pg_dump] and [`pg_restore`][pg_restore] commands. If you 
+are migrating from self-hosted TimescaleDB, this works for compressed hypertables without having 
+to decompress data before you begin.
 
 <MinimalDowntime />
 
-Before you begin, ensure that you have:
+## Prerequisites
 
-- Installed the PostgreSQL client libraries on the machine that you will perform the migration from. You will need `pg_dump` and `psql`.
-- [Created a database service in Timescale][created-a-database-service-in-timescale].
-- Checked that all PostgreSQL extensions you use are available on Timescale. For more information, see the [list of compatible extensions].
-- Checked that the version of PostgreSQL in your target database is greater than or equal to that of the source database.
+<MigrationPrerequisites />
+
+- Install the PostgreSQL client tools on the machine you perform the migration from. This includes 
+  `psql`, `pg_dump`, and `pg_dumpall`.
+
+
+## Migrate to Timescale Cloud
+
+To move your data from a self-hosted database to a Timescale Cloud service:
 
 <Tabs label="Migrate with downtime">
 
-<Tab title="Migrate from TimescaleDB ">
-## Migrate from TimescaleDB using pg_dump/restore
+<Tab title="TimescaleDB to Timescale Cloud">
 
-The following instructions show you how to move your data from self-hosted TimescaleDB to a Timescale instance using `pg_dump` and `psql`. To avoid data loss, you should take applications that connect to the database offline. The duration of the migration is proportional to the amount of data stored in your database.
+The following instructions show you how to move your data from self-hosted TimescaleDB to a Timescale service using `pg_dump` and `psql`. To avoid data loss, you should take applications that connect to the database offline. The duration of the migration is proportional to the amount of data stored in your database.
 
 <DoNotRecommendForLargeMigration />
 
@@ -121,9 +120,9 @@ Once you have verified that the data is present, and returns the results that yo
 [//]: # (TODO: add something about expected migration duration)
 
 </Tab>
-<Tab title="Migrate from PostgreSQL">
+<Tab title="PostgreSQL to Timescale Cloud">
 
-The following instructions show you how to move your data from self-hosted PostgreSQL to a Timescale instance using `pg_dump` and `psql`. To avoid data loss, you should take applications that connect to the database  offline. The duration of the migration is proportional to the amount of data stored in your database.
+The following instructions show you how to move your data from self-hosted PostgreSQL to a Timescale service using `pg_dump` and `psql`. To avoid data loss, you should take applications that connect to the database  offline. The duration of the migration is proportional to the amount of data stored in your database.
 
 This migration method only moves the data. It does not enable Timescale features like hypertables, data compression or retention. You must 
 manually enable these after the migration, which also requires taking your application offline.
@@ -190,13 +189,18 @@ Once you have verified that the data is present, and returns the results that yo
 
 </Tab>
 
+<Tab title="AWS RDS to Timescale Cloud">
+
+</Tab>
+
+<Tab title="Multi-node to Timescale Cloud">
+
+</Tab>
+
 </Tabs>
 
-[has a single database]: /migrate/:currentVersion:/troubleshooting/#only-one-database-per-instance
-[tablespaces]: /migrate/:currentVersion:/troubleshooting/#tablespaces
-[all available extensions]: /migrate/:currentVersion:/troubleshooting/#extension-availability
-[there is no superuser associated with a Timescale instance]: /migrate/:currentVersion:/troubleshooting/#superuser-privileges
-[created-a-database-service-in-timescale]: /getting-started/:currentVersion:/services/
+
+
 [list of compatible extensions]: /use-timescale/:currentVersion:/extensions/
 [upgrade instructions]: /self-hosted/:currentVersion:/upgrades/about-upgrades/
 [pg_dump]: https://www.postgresql.org/docs/current/app-pgdump.html

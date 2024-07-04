@@ -21,10 +21,16 @@ module.exports = [
         excerpt: "Migrate a large database with low downtime",
       },
       {
-        title: "Troubleshooting",
+        title: "FAQ and troubleshooting",
         href: "troubleshooting",
         excerpt:
             "Troubleshooting known issues in database migrations",
+      },
+      {
+        title: "timescaledb-backfill",
+        href: "timescaledb-backfill",
+        excerpt:
+            "A command-line utility that copies historic data from one database to another",
       },
     ],
   },
