@@ -158,7 +158,7 @@ You can access a hosted version of TimescaleDB Community Edition through
     <td>✅</td>
   </tr>
   <tr>
-    <td colspan="3"><strong>Distributed hypertables</strong>: This feature is deprecated in all editions.</td>
+    <td colspan="3"><strong>Distributed hypertables</strong>: This feature is deprecated in all editions after TimescaleDB 2.13. Learn more about it [here](https://github.com/timescale/timescaledb/blob/2.14.0/docs/MultiNodeDeprecation.md).</td>
   </tr>
 
   <tr>
