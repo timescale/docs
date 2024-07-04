@@ -46,16 +46,16 @@ To move your data from a self-hosted database to a Timescale Cloud service:
 
 <Tabs label="Live migration">
 
-<Tab title="TimescaleDB to Timescale Cloud">
+<Tab title="From TimescaleDB">
 
 </Tab>
-<Tab title="PostgreSQL to Timescale Cloud">
+<Tab title="From PostgreSQL">
 
 </Tab>
-<Tab title="AWS RDS to Timescale Cloud">
+<Tab title="From AWS RDS">
 
 </Tab>
-<Tab title="Non-PostgreSQL to Timescale Cloud">
+<Tab title="From Non-PostgreSQL">
 
 </Tab>
 </Tabs>

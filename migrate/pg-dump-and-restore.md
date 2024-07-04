@@ -39,7 +39,7 @@ To move your data from a self-hosted database to a Timescale Cloud service:
 
 <Tabs label="Migrate with downtime">
 
-<Tab title="TimescaleDB to Timescale Cloud">
+<Tab title="From TimescaleDB">
 
 The following instructions show you how to move your data from self-hosted TimescaleDB to a Timescale service using `pg_dump` and `psql`. To avoid data loss, you should take applications that connect to the database offline. The duration of the migration is proportional to the amount of data stored in your database.
 
@@ -120,7 +120,7 @@ Once you have verified that the data is present, and returns the results that yo
 [//]: # (TODO: add something about expected migration duration)
 
 </Tab>
-<Tab title="PostgreSQL to Timescale Cloud">
+<Tab title="From PostgreSQL">
 
 The following instructions show you how to move your data from self-hosted PostgreSQL to a Timescale service using `pg_dump` and `psql`. To avoid data loss, you should take applications that connect to the database  offline. The duration of the migration is proportional to the amount of data stored in your database.
 
@@ -189,11 +189,11 @@ Once you have verified that the data is present, and returns the results that yo
 
 </Tab>
 
-<Tab title="AWS RDS to Timescale Cloud">
+<Tab title="From AWS RDS">
 
 </Tab>
 
-<Tab title="Multi-node to Timescale Cloud">
+<Tab title="From Multi-node">
 
 </Tab>
 
