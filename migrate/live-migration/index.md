@@ -21,9 +21,6 @@ fewer requirements than the [dual-write and backfill] method.
 Be aware that the live migration tooling is currently experimental. Concretely,
 this means that you may run into the following shortcomings:
 
-- You may experience failure to migrate your database due to incompatibilities
-  between the source and target (e.g. tables with generated columns cannot be
-  replicated).
 - Live migration does not yet support mutable compression (`INSERT`, `UPDATE`,
   `DELETE` on compressed data).
 - By default, numeric fields containing `NaN`/`+Inf`/`-Inf` values are not
