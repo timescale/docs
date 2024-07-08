@@ -7,7 +7,8 @@ tags: [recovery, logical backup, pg_dump, pg_restore]
 ---
 
 import ConsiderCloud from "versionContent/_partials/_consider-cloud.mdx";
-import MigrationPrerequisites from "versionContent/_partials/_migration-prerequisites.mdx";
+import MigrationPrerequisites from "versionContent/_partials/_migrate_prerequisites.mdx";
+import MigrationProcedureUntilUpload from "versionContent/_partials/_migrate_to_upload_to_target.mdx";
 import DoNotRecommendForLargeMigration from "versionContent/_partials/_migrate_pg_dump_do_not_recommend_for_large_migration.mdx";
 import SourceTargetNote from "versionContent/_partials/_migrate_source_target_note.mdx";
 import SetupSourceTarget from "versionContent/_partials/_migrate_set_up_source_and_target.mdx";
@@ -23,7 +24,12 @@ use the native PostgreSQL [`pg_dump`][pg_dump] and [`pg_restore`][pg_restore] co
 are migrating from self-hosted TimescaleDB, this works for compressed hypertables without having 
 to decompress data before you begin.
 
+<DoNotRecommendForLargeMigration />
+
 <MinimalDowntime />
+
+This page shows you how to move your data from a self-hosted database to a Timescale Cloud service using 
+shell commands.
 
 ## Prerequisites
 
@@ -31,6 +37,10 @@ to decompress data before you begin.
 
 - Install the PostgreSQL client tools on the machine you perform the migration from. This includes 
   `psql`, `pg_dump`, and `pg_dumpall`.
+- The GNU implementation of `sed`.
+
+  Run `sed --version` on your migration machine. GNU sed identifies itself 
+  as GNU software, BSD sed returns `sed: illegal option -- -`.
 
 
 ## Migrate to Timescale Cloud
@@ -41,158 +51,116 @@ To move your data from a self-hosted database to a Timescale Cloud service:
 
 <Tab title="From TimescaleDB">
 
-The following instructions show you how to move your data from self-hosted TimescaleDB to a Timescale service using `pg_dump` and `psql`. To avoid data loss, you should take applications that connect to the database offline. The duration of the migration is proportional to the amount of data stored in your database.
+This section shows you how to move your data from self-hosted TimescaleDB to a Timescale Cloud service 
+using `pg_dump` and `psql` from Terminal. 
 
-<DoNotRecommendForLargeMigration />
+<Procedure>
 
-<SourceTargetNote />
+<MigrationProcedureUntilUpload />
 
-Before you migrate, ensure that you're running the exact same version of Timescale on both your target and source 
-databases. That is, the major,minor, and patch version must all be the same. For more information, see the [upgrade 
-instructions] for self-hosted TimescaleDB.
+8. **Upload your data to the target Timescale Cloud service**
 
-### Dump the source database
+   This command uses the [timescaledb_pre_restore] and [timescaledb_post_restore] functions to put your database in the
+   correct state.
 
-<SetupSourceTarget />
-
-Dump the roles from the source database (only necessary if you're using roles
-other than the default `postgres` role in your database):
-
-
-<DumpDatabaseRoles />
-
-Dump the source database schema and data:
-
-```bash
-pg_dump -d "$SOURCE" \
-  --format=plain \
-  --quote-all-identifiers \
-  --no-tablespaces \
-  --no-owner \
-  --no-privileges \
-  --file=dump.sql
-```
-
-Check the run time, [a long-running `pg_dump` can cause various issues](/migrate/:currentVersion:/troubleshooting/#dumping-and-locks)
-
-<Highlight type="note">
-
-It is possible to dump using multiple connections to the source database. This may dramatically reduce the time 
-taken to dump the source database. For more information, see 
-[dumping with concurrency][dumping-with-concurrency] and [restoring with concurrency][restoring-with-concurrency].
-
-</Highlight>
-
-The following is a brief explanation of the flags used:
-
-<ExplainPgDumpFlags />
-
-### Restore into the target database
-
-#### Ensure that the correct TimescaleDB version is installed
-
-<TimescaleDBVersion />
-
-#### Restore the database from the dump
-
-The following command loads the dumped data into the target database:
-
-```bash
-psql $TARGET -v ON_ERROR_STOP=1 --echo-errors \
+    ```bash
+    psql $TARGET -v ON_ERROR_STOP=1 --echo-errors \
     -f roles.sql \
     -c "SELECT timescaledb_pre_restore();" \
     -f dump.sql \
     -c "SELECT timescaledb_post_restore();"
-```
+    ```
 
-It uses [timescaledb_pre_restore] and [timescaledb_post_restore] to put your database in the right state for restoring.
+1. **Verify the data in the target Timescale Cloud service, then restart your app**
 
-[timescaledb_pre_restore]: /api/:currentVersion:/administration/#timescaledb_post_restore
-[timescaledb_post_restore]: /api/:currentVersion:/administration/#timescaledb_post_restore
+    Once you have verified that your data is correct, and returns the results that you expect, 
+    reconfigure your app to use the target database and then restart it.
 
-#### Verify data in the target and restart applications
+</Procedure> 
 
-Verify that the data has been successfully restored by connecting to the target database by querying the restored data.
-
-Once you have verified that the data is present, and returns the results that you expect, you can reconfigure your application to use the target database and then restart the application.
-
-[//]: # (TODO: add something about which pg_dump mode to use &#40;plain / binary / custom&#41;)
-[//]: # (TODO: add something about expected migration duration)
+And that is it, you have migrated your data from a self-hosted instance running TimescaleDB to a Timescale Cloud service. 
 
 </Tab>
 <Tab title="From PostgreSQL">
 
-The following instructions show you how to move your data from self-hosted PostgreSQL to a Timescale service using `pg_dump` and `psql`. To avoid data loss, you should take applications that connect to the database  offline. The duration of the migration is proportional to the amount of data stored in your database.
+This section shows you how to move your data from self-hosted PostgreSQL to a Timescale Cloud service
+using `pg_dump` and `psql` from Terminal.
 
-This migration method only moves the data. It does not enable Timescale features like hypertables, data compression or retention. You must 
-manually enable these after the migration, which also requires taking your application offline.
+Migration from PostgreSQL moves the data only. You must manually enable Timescale Cloud features like 
+hypertables, data compression or retention after the migration is complete. You enable Timescale Cloud 
+features while your database is offline.
 
-<DoNotRecommendForLargeMigration />
+<MigrationProcedureUntilUpload />
 
-<SourceTargetNote />
+8. **Upload your data to the target Timescale Cloud service**
 
-### Dump the source database
+    This command uses the [timescaledb_pre_restore] and [timescaledb_post_restore] functions to put your database in the
+    correct state.
 
-<SetupSourceTarget />
-
-Dump the roles from the source database (only necessary if you're using roles other than the default `postgres` role in your database):
-
-<DumpDatabaseRoles />
-
-Dump the source database schema and data:
-
-```bash
-pg_dump -d "$SOURCE" \
-  --format=plain \
-  --quote-all-identifiers \
-  --no-tablespaces \
-  --no-owner \
-  --no-privileges \
-  --file=dump.sql
-```
-
-Check the run time, [a long-running `pg_dump` can cause various issues](/migrate/:currentVersion:/troubleshooting/#dumping-and-locks)
-
-<Highlight type="note">
-
-It is possible to dump using multiple connections to the source database. This may dramatically reduce the time
-taken to dump the source database. For more information, see
-[dumping with concurrency][dumping-with-concurrency] and [restoring with concurrency][restoring-with-concurrency].
-
-</Highlight>
-
-The following is a brief explanation of the flags used:
-
-<ExplainPgDumpFlags />
-
-### Restore into the target database
-
-Load the dumped roles and data into the target database:
-
-```bash
-psql $TARGET -v ON_ERROR_STOP=1 --echo-errors \
+    ```bash
+    psql $TARGET -v ON_ERROR_STOP=1 --echo-errors \
     -f roles.sql \
     -f dump.sql
-```
+    ```
 
-Update the table statistics by running `ANALYZE` on all data:
+1. **Update the table statistics**
 
-```bash
-psql $TARGET -c "ANALYZE;"
-```
+    ```bash
+    psql $TARGET -c "ANALYZE;"
+    ```
 
-### Verify data in the target and restart applications
+1. **Verify the data in the target Timescale Cloud service**
 
-Verify that the data has been successfully restored by connecting to the target database and querying the restored data.
+   Check that your data is correct, and returns the results that you expect,
 
-Once you have verified that the data is present, and returns the results that you expect, you can reconfigure your application to use the target database and then start your application. 
+1. **Enable any Timescale Cloud features you want to use**
+
+    Migration from PostgreSQL moves the data only. Now manually enable Timescale Cloud features like
+    [hypertables][about-hypertables], [data compression][data-compression] or [data retention][data-retention] 
+    while your database is offline.
+
+1. **Reconfigure your app to use the target database, then restart it**
+
 
 </Tab>
 
 <Tab title="From AWS RDS">
 
+<Highlight type="important">
+
+Some providers like Managed Service for TimescaleDB (MST) and AWS RDS don't
+support role password dumps. If dumping the passwords results in the error:
+
+```
+pg_dumpall: error: query failed: ERROR:  permission denied for table pg_authid
+```
+
+Execute the command adding the `--no-role-passwords` flag. After restoring the
+roles into the target database, manually set passwords with `ALTER ROLE name
+WITH PASSWORD '<YOUR_PASSOWRD>';`
+
+</Highlight>
+
 </Tab>
 
+<Tab title="From MST">
+
+<Highlight type="important">
+
+Some providers like Managed Service for TimescaleDB (MST) and AWS RDS don't
+support role password dumps. If dumping the passwords results in the error:
+
+```
+pg_dumpall: error: query failed: ERROR:  permission denied for table pg_authid
+```
+
+Execute the command adding the `--no-role-passwords` flag. After restoring the
+roles into the target database, manually set passwords with `ALTER ROLE name
+WITH PASSWORD '<YOUR_PASSOWRD>';`
+
+</Highlight>
+
+</Tab>
 <Tab title="From Multi-node">
 
 </Tab>
@@ -202,11 +170,16 @@ Once you have verified that the data is present, and returns the results that yo
 
 
 [list of compatible extensions]: /use-timescale/:currentVersion:/extensions/
-[upgrade instructions]: /self-hosted/:currentVersion:/upgrades/about-upgrades/
 [pg_dump]: https://www.postgresql.org/docs/current/app-pgdump.html
 [pg_restore]: https://www.postgresql.org/docs/current/app-pgrestore.html
 [migrate-from-timescaledb]: /migrate/:currentVersion:/pg-dump-and-restore/#migrate-from-timescaledb-using-pg_dumprestore
 [migrate-from-postgresql]: /migrate/:currentVersion:/pg-dump-and-restore/#migrate-from-postgresql-using-pg_dumprestore
 [dumping-with-concurrency]: /migrate/:currentVersion:/troubleshooting/#dumping-with-concurrency
 [restoring-with-concurrency]: /migrate/:currentVersion:/troubleshooting/#restoring-with-concurrency 
-
+[long-running-pgdump]: /migrate/:currentVersion:/troubleshooting/#dumping-and-locks
+[Upgrade TimescaleDB]: https://docs.timescale.com/self-hosted/latest/upgrades/
+[timescaledb_pre_restore]: /api/:currentVersion:/administration/#timescaledb_post_restore
+[timescaledb_post_restore]: /api/:currentVersion:/administration/#timescaledb_post_restore
+[about-hypertables]: /use-timescale/:currentVersion:/hypertables/about-hypertables/
+[data-compression]: /use-timescale/:currentVersion:/compression/about-compression/
+[data-retention]: /use-timescale/:currentVersion:/data-retention/about-data-retention/

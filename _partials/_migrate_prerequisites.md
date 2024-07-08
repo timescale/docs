@@ -6,8 +6,6 @@ Before you migrate your data:
   [following extensions][all available extensions]. Timescale Cloud services do not support [tablespaces],
   and [there is no superuser associated with a Timescale service][no-superuser-for-timescale-instance].
 
-- Ensure that the version of PostgreSQL running in your target Timescale Cloud service is greater than or equal to the source database.
-- In your target Timescale Cloud service, enable the PostgreSQL extensions used in your source database.
 
 
 [created-a-database-service-in-timescale]: /getting-started/:currentVersion:/services/
@@ -15,3 +13,4 @@ Before you migrate your data:
 [all available extensions]: /migrate/:currentVersion:/troubleshooting/#extension-availability
 [tablespaces]: /migrate/:currentVersion:/troubleshooting/#tablespaces
 [no-superuser-for-timescale-instance]: /migrate/:currentVersion:/troubleshooting/#superuser-privileges
+[upgrade instructions]: /self-hosted/:currentVersion:/upgrades/about-upgrades/

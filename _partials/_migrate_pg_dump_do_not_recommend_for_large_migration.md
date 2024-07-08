@@ -1,12 +1,12 @@
-import OpenSupportRequest from "versionContent/_partials/_migrate_open_support_request.mdx"
 
-We do not recommend using this migration method to migrate more than
-100&nbsp;GB of data, primarily because of the amount of downtime that it
-implies for your application, instead use the [live migration]
-low-downtime migration solution. Should you nonetheless wish to migrate more
-than 400&nbsp;GB of data with this method, open a support request to ensure
-that enough disk is pre-provisioned on your Timescale instance.
+You use downtime migration when your source database holds less than 100GB of data. This is because 
+downtime migration for large amounts of data takes a large amount of time. Best practice is migrate 
+big data using [live migration]. 
 
-<OpenSupportRequest />
+If you want to migrate more than 400GB of data using downtime migration, create a 
+[Timescale Console support request][support-link], or send us an email at [support@timescale.com](mailto:support@timescale.com) saying 
+how much data you want to migrate. We will pre-provision your Timescale Cloud instance for you.
+
 
 [live migration]: /migrate/:currentVersion:/live-migration
+[support-link]: https://console.cloud.timescale.com/dashboard/support
