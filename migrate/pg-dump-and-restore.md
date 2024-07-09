@@ -8,7 +8,16 @@ tags: [recovery, logical backup, pg_dump, pg_restore]
 
 import ConsiderCloud from "versionContent/_partials/_consider-cloud.mdx";
 import MigrationPrerequisites from "versionContent/_partials/_migrate_prerequisites.mdx";
+import MigrationSetupFirstSteps from "versionContent/_partials/_migrate_set_up_database_first_steps.mdx";
+import MigrationSetupDBConnectionPostgres from "versionContent/_partials/_migrate_set_up_align_db_extensions_postgres_based.mdx";
+import MigrationSetupDBConnectionTimescaleDB from "versionContent/_partials/_migrate_set_up_align_db_extensions_timescaledb.mdx";
 import MigrationProcedureUntilUpload from "versionContent/_partials/_migrate_to_upload_to_target.mdx";
+import MigrationProcedureDumpSchemaPostgres from "versionContent/_partials/_migrate_dump_roles_schema_data_postgres.mdx";
+
+import MigrationProcedureDumpSchemaMST from "versionContent/_partials/_migrate_dump_roles_schema_data_mst.mdx";
+import MigrationValidateRestartApp from "versionContent/_partials/_migrate_validate_and_restart_app.mdx";
+import MigrateAWSRDSConnectIntermediary from "versionContent/_partials/_migrate_awsrds_connect_intermediary.mdx";
+import MigrateAWSRDSMigrateData from "versionContent/_partials/_migrate_awsrds_migrate_data_downtime.mdx";
 import DoNotRecommendForLargeMigration from "versionContent/_partials/_migrate_pg_dump_do_not_recommend_for_large_migration.mdx";
 import SourceTargetNote from "versionContent/_partials/_migrate_source_target_note.mdx";
 import SetupSourceTarget from "versionContent/_partials/_migrate_set_up_source_and_target.mdx";
@@ -37,7 +46,7 @@ shell commands.
 
 - Install the PostgreSQL client tools on the machine you perform the migration from. This includes 
   `psql`, `pg_dump`, and `pg_dumpall`.
-- The GNU implementation of `sed`.
+- Install the GNU implementation of `sed`.
 
   Run `sed --version` on your migration machine. GNU sed identifies itself 
   as GNU software, BSD sed returns `sed: illegal option -- -`.
@@ -54,11 +63,19 @@ To move your data from a self-hosted database to a Timescale Cloud service:
 This section shows you how to move your data from self-hosted TimescaleDB to a Timescale Cloud service 
 using `pg_dump` and `psql` from Terminal. 
 
-<Procedure>
+<MigrationSetupFirstSteps />
 
-<MigrationProcedureUntilUpload />
+2. **Align the source and target database versions and extensions** 
 
-8. **Upload your data to the target Timescale Cloud service**
+    <MigrationSetupDBConnectionTimescaleDB />
+
+3. **Migrate the roles from TimescaleDB to your Timescale Cloud service**
+
+    Roles manage database access permissions. To migrate your role-based security hierarchy to your Timescale Cloud service:
+
+    <MigrationProcedureDumpSchemaPostgres />
+
+4. **Upload your data to the target Timescale Cloud service**
 
    This command uses the [timescaledb_pre_restore] and [timescaledb_post_restore] functions to put your database in the
    correct state.
@@ -71,12 +88,10 @@ using `pg_dump` and `psql` from Terminal.
     -c "SELECT timescaledb_post_restore();"
     ```
 
-1. **Verify the data in the target Timescale Cloud service, then restart your app**
+5. **Validate your Timescale Cloud service and restart your app**
 
-    Once you have verified that your data is correct, and returns the results that you expect, 
-    reconfigure your app to use the target database and then restart it.
+    <MigrationValidateRestartApp />
 
-</Procedure> 
 
 And that is it, you have migrated your data from a self-hosted instance running TimescaleDB to a Timescale Cloud service. 
 
@@ -86,16 +101,22 @@ And that is it, you have migrated your data from a self-hosted instance running 
 This section shows you how to move your data from self-hosted PostgreSQL to a Timescale Cloud service
 using `pg_dump` and `psql` from Terminal.
 
-Migration from PostgreSQL moves the data only. You must manually enable Timescale Cloud features like 
-hypertables, data compression or retention after the migration is complete. You enable Timescale Cloud 
+Migration from PostgreSQL moves the data only. You must manually enable Timescale Cloud features like
+[hypertables][about-hypertables], [data compression][data-compression] or [data retention][data-retention] after the migration is complete. You enable Timescale Cloud 
 features while your database is offline.
 
-<MigrationProcedureUntilUpload />
+<MigrationSetupFirstSteps />
 
-8. **Upload your data to the target Timescale Cloud service**
+3. **Align the source and target database versions and extensions**
 
-    This command uses the [timescaledb_pre_restore] and [timescaledb_post_restore] functions to put your database in the
-    correct state.
+    <MigrationSetupDBConnectionPostgres />
+
+4. **Migrate the roles from PostgreSQL to your Timescale Cloud service**
+
+   Roles manage database access permissions. To migrate your role-based security hierarchy to your Timescale Cloud service:
+    <MigrationProcedureDumpSchemaPostgres />
+
+5. **Upload your data to the target Timescale Cloud service**
 
     ```bash
     psql $TARGET -v ON_ERROR_STOP=1 --echo-errors \
@@ -103,67 +124,110 @@ features while your database is offline.
     -f dump.sql
     ```
 
-1. **Update the table statistics**
+6. **Validate your Timescale Cloud service and restart your app**
 
-    ```bash
-    psql $TARGET -c "ANALYZE;"
-    ```
+    <MigrationValidateRestartApp />
 
-1. **Verify the data in the target Timescale Cloud service**
 
-   Check that your data is correct, and returns the results that you expect,
-
-1. **Enable any Timescale Cloud features you want to use**
-
-    Migration from PostgreSQL moves the data only. Now manually enable Timescale Cloud features like
-    [hypertables][about-hypertables], [data compression][data-compression] or [data retention][data-retention] 
-    while your database is offline.
-
-1. **Reconfigure your app to use the target database, then restart it**
-
+And that is it, you have migrated your data from a self-hosted instance running PostgreSQL to a Timescale Cloud service.
 
 </Tab>
 
 <Tab title="From AWS RDS">
 
-<Highlight type="important">
+To migrate your data from an Amazon RDS instance to a Timescale Cloud service, you extract the data to an intermediary 
+EC2 Ubuntu instance in the same AWS region as your RDS instance. You then upload your data to a Timescale Cloud service. 
+To make this process as painless as possible, ensure that the intermediary machine has enough CPU and disk space to 
+rapidy extract and store your data before uploading to Timescale Cloud.  
 
-Some providers like Managed Service for TimescaleDB (MST) and AWS RDS don't
-support role password dumps. If dumping the passwords results in the error:
+Migration from RDS moves the data only. You must manually enable Timescale Cloud features like
+[hypertables][about-hypertables], [data compression][data-compression] or [data retention][data-retention] after the migration is complete. You enable Timescale Cloud
+features while your database is offline.
 
-```
-pg_dumpall: error: query failed: ERROR:  permission denied for table pg_authid
-```
+This section shows you how to move your data from an Amazon RDS instance to a Timescale Cloud service
+using `pg_dump` and `psql` from Terminal.
 
-Execute the command adding the `--no-role-passwords` flag. After restoring the
-roles into the target database, manually set passwords with `ALTER ROLE name
-WITH PASSWORD '<YOUR_PASSOWRD>';`
+The steps are:
 
-</Highlight>
+* [Setup secure connectivity between RDS and an intermediary EC2 instance](#setup-secure-connectivity-between-rds-and-an-intermediary-ec2-instance-)
+* [Migrate your data to your Timescale Cloud service](#migrate-your-data-to-your-timescale-cloud-service)
+
+### Setup secure connectivity between RDS and an intermediary EC2 instance 
+
+To create the secured connection between migration machines:
+
+<MigrateAWSRDSConnectIntermediary />
+
+### Migrate your data to your Timescale Cloud service
+
+To securely migrate data from your RDS instance:
+
+<MigrateAWSRDSMigrateData />
+
+6. **Validate your Timescale Cloud service and restart your app**
+
+    <MigrationValidateRestartApp />
+
+And that is it, you have migrated your data from an RDS instance to a Timescale Cloud service.
 
 </Tab>
+
 
 <Tab title="From MST">
 
-<Highlight type="important">
+This section shows you how to move your data from a Managed Service for Timescale (MST) instance to a 
+Timescale Cloud service using `pg_dump` and `psql` from Terminal.
 
-Some providers like Managed Service for TimescaleDB (MST) and AWS RDS don't
-support role password dumps. If dumping the passwords results in the error:
 
-```
-pg_dumpall: error: query failed: ERROR:  permission denied for table pg_authid
-```
+<MigrationSetupFirstSteps />
 
-Execute the command adding the `--no-role-passwords` flag. After restoring the
-roles into the target database, manually set passwords with `ALTER ROLE name
-WITH PASSWORD '<YOUR_PASSOWRD>';`
+2. **Align the source and target database versions and extensions**
 
-</Highlight>
+    <MigrationSetupDBConnectionTimescaleDB />
+
+3. **Migrate the roles from TimescaleDB to your Timescale Cloud service**
+
+   Roles manage database access permissions. To migrate your role-based security hierarchy to your Timescale Cloud service:
+
+    <MigrationProcedureDumpSchemaMST />
+
+4. **Upload your data to the target Timescale Cloud service**
+
+   This command uses the [timescaledb_pre_restore] and [timescaledb_post_restore] functions to put your database in the
+   correct state.
+
+   1. Upload your data.
+     ```bash
+     psql $TARGET -v ON_ERROR_STOP=1 --echo-errors \
+       -f roles.sql \
+       -c "SELECT timescaledb_pre_restore();" \
+       -f dump.sql \
+       -c "SELECT timescaledb_post_restore();"
+     ```
+   1. Manually assign passwords to the roles.
+
+      MST did not allow you to export passwords with roles. For each role, use the following command to manually
+      assign a password to a role:
+
+      ```bash
+       psql $TARGET -c "ALTER ROLE <role name> WITH PASSWORD '<highly secure password>';"
+       ```
+
+5. **Validate your Timescale Cloud service and restart your app**
+
+    <MigrationValidateRestartApp />
+
+And that is it, you have migrated your data from a self-hosted instance running TimescaleDB to a Timescale Cloud service.
+
 
 </Tab>
+
 <Tab title="From Multi-node">
 
+Sigh
+
 </Tab>
+
 
 </Tabs>
 

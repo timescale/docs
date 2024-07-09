@@ -1,51 +1,4 @@
 
-
-1. **Take the applications that connect to the source database offline**
-
-   The duration of the migration is proportional to the amount of data stored in your database. By
-   disconnection your app from your database you avoid and possible data loss.
-
-1. **Set your connection strings**
-
-   These variables hold the connection information for the source database and target Timescale Cloud service:
-
-   ```bash
-   export SOURCE=postgres://<user>:<password>@<source host>:<source port>/<db_name>
-   export TARGET=postgres://tsdbadmin:<PASSWORD>@<HOST>:<PORT>/tsdb?sslmode=require
-   ```
-   You find the connection information for your Timescale Cloud Service in the configuration file you
-   downloaded when you created the service.
-
-1. **Ensure that the source and target databases are running the same version of TimescaleDB**
-
-    1. Check the version of TimescaleDB running on your Timescale Cloud service:
-
-       ```bash
-       psql $TARGET -c "SELECT extversion FROM pg_extension WHERE extname = 'timescaledb';"
-       ```
-
-    1. Update the TimescaleDB extension in your source database to match the target source:
-
-       If the timescaleDB extension is the same version on the source database and target service,
-       you do not need to do this.
-
-       ```bash
-       psql $SOURCE -c "ALTER EXTENSION timescaledb UPDATE TO '<version here>';"
-       ```
-
-       For more information and guidance, see [Upgrade TimescaleDB].
-
-1. **Ensure that the Timescale Cloud service is running the PostgreSQL extensions used in your source database**
-
-    1. Check the extensions on the source database:
-       ```bash
-       psql $SOURCE  -c "SELECT * FROM pg_extension;"
-       ```
-    1. For each extension, enable it on your target Timescale Cloud service:
-       ```bash
-       psql $TARGET  -c "CREATE EXTENSION IF NOT EXISTS <extension name> CASCADE;"
-       ```
-       
 1. **Dump the roles from your source database**
 
    Export your role-based security hierarchy. If you only use the default `postgres` role, this step is not
@@ -102,3 +55,4 @@
 [Upgrade TimescaleDB]: https://docs.timescale.com/self-hosted/latest/upgrades/
 [timescaledb_pre_restore]: /api/:currentVersion:/administration/#timescaledb_post_restore
 [timescaledb_post_restore]: /api/:currentVersion:/administration/#timescaledb_post_restore
+
