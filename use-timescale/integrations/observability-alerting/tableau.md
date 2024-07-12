@@ -42,5 +42,5 @@ Before you begin, make sure you have:
 
 </Procedure>
 
-[get-tableau]: https://www.tableau.com/products/trial/
+[get-tableau]: https://www.tableau.com/products/trial
 [cloud-login]: https://console.cloud.timescale.com/
