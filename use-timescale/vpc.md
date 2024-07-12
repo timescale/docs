@@ -26,7 +26,8 @@ Your apps run inside your AWS Customer VPC, your Timescale Services always run
 inside the secure Timescale VPC. You control secure communication between apps in
 your VPC and your Timescale Services using a dedicated Peering VPC. The AWS PrivateLink connecting 
 Timescale VPC to the dedicated Peering VPC gives the same level of protection as using a direct AWS PrivateLink connection. 
-It only enables communication between your Customer VPC and your Timescale Services.
+It only enables communication to be initiated from your Customer VPC to Timescale Services running
+in the Timescale VPC but not the other way around.
 
 To configure this secure connection, you first create the Peering VPC with 
 AWS PrivateLink in Timescale. After you have accepted and configured the 
