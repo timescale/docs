@@ -8,7 +8,7 @@ keywords: [changelog, upgrades, updates, releases]
 
 All the latest features and updates to Timescale products.
 
-## ⚡ Performance and stability improvements for Timescale Cloud, timescaleDB, and Live Migration  
+## ⚡ Performance and stability improvements for Timescale Cloud, and TimescaleDB  
 <Label type="date">July 12, 2024</Label>
 The following improvements have been made to Timescale products:
 
@@ -26,9 +26,6 @@ The following improvements have been made to Timescale products:
     a primary space partition. The metadata function is removed from the update script, and has partitioning on a
     primary column is disallowed. For more information, see the [release note](https://github.com/timescale/timescaledb/releases/tag/2.15.2)
 
-- **Live Migration**
-  Performance improvements mean that pgcopydb fork used for 
-  [Live migration](https://docs.timescale.com/migrate/latest/live-migration/) is now twice as fast and far more robust. 
 
 
 ## ⚡ Performance improvements for live migration to Timescale Cloud
