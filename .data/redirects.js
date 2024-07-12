@@ -1125,7 +1125,7 @@ const redirector = new ThreeOhOneRedirector({
 	)
 	.add(
 		"/latest/how-to-guides/psql-basics/",
-		"https://docs.timescale.com/timescaledb/latest/how-to-guides/connecting/about-psql/"
+		"https://docs.timescale.com/use-timescale/latest/integrations/query-admin/about-psql/"
 	)
 	.add(
 		"/latest/how-to-guides/replication-and-ha/replication/",

@@ -142,4 +142,4 @@ performance bottlenecks with `pg_stat_statements`][blog-pg_stat_statements].
 [metrics-dashboard]: /use-timescale/:currentVersion:/metrics-logging/service-metrics/
 [pg-stat]: /use-timescale/:currentVersion:/metrics-logging/service-metrics/#query-level-statistics-with-pg_stat_statements
 [blog-pg_stat_statements]: <https://www.timescale.com/blog/identify-postgresql-performance-bottlenecks-with-pg_stat_statements/>
-[psql]: /use-timescale/:currentVersion:/connecting/about-psql/
+[psql]: /use-timescale/:currentVersion:/integrations/query-admin/about-psql/
