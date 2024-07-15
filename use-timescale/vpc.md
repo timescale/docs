@@ -7,7 +7,6 @@ tags: [aws]
 cloud_ui:
     path:
         - [services, :serviceId, operations, vpc]
-        - [vpc]
 ---
 
 # Secure your Timescale Service with VPC Peering and AWS PrivateLink
@@ -27,7 +26,7 @@ inside the secure Timescale VPC. You control secure communication between apps i
 your VPC and your Timescale Services using a dedicated Peering VPC. The AWS PrivateLink connecting 
 Timescale VPC to the dedicated Peering VPC gives the same level of protection as using a direct AWS PrivateLink connection. 
 It only enables communication to be initiated from your Customer VPC to Timescale Services running
-in the Timescale VPC. Timescale cannot initiate the communication with your VPC.
+in the Timescale VPC. Timescale cannot initiate communication with your VPC.
 
 To configure this secure connection, you first create the Peering VPC with 
 AWS PrivateLink in Timescale. After you have accepted and configured the 
@@ -194,8 +193,9 @@ to update your connection string.
 
 <Procedure>
 
-1.  In [Timescale Console > Services][console-services] select the Service to migrate.
-    If you don't have a Timescale Service, [create a new one][create-service].
+1. In [Timescale Console > Services][console-services] select the Service to migrate.
+
+   If you don't have a Timescale Service, [create a new one][create-service].
 1. Click `Operations` > `VPC`.
 1. Select the VPC, then click `Attach VPC`.
 
