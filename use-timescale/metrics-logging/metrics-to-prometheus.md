@@ -47,7 +47,7 @@ You can export your Timescale service telemetry to Prometheus.
     -e DATA_SOURCE_NAME="postgres://monitoring:<PASSWORD>@<TIMESCALE-HOST:PORT>/tsdb?sslmode=require" \
     quay.io/prometheuscommunity/postgres-exporter
     ```
-    It is recommended to run the postgresql_exporter in the same AWS region as your Timescale Service to reduce latency and potential data transfer costs. 
+    To reduce latency and potential data transfer costs,  best practice is to run `postgresql_exporter` in the same AWS region as your Timescale Cloud service.
 
 1. Once the postgresql_exporter is up and running, and successfully connected to the Timescale service, you can configure your Prometheus server to scrape the postgresql_exporter metrics endpoint. This endpoint exposes all the metrics provided by the exporter. 
 
