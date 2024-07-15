@@ -182,11 +182,11 @@ Timescale Cloud service using `pg_dump` and `psql` from Terminal.
 
 <MigrationSetupFirstSteps />
 
-2. **Align the source and target database versions and extensions**
+3. **Align the source and target database versions and extensions**
 
     <MigrationSetupDBConnectionTimescaleDB />
 
-3. **Migrate the roles from TimescaleDB to your Timescale Cloud service**
+1. **Migrate the roles from TimescaleDB to your Timescale Cloud service**
 
    Roles manage database access permissions. To migrate your role-based security hierarchy to your Timescale Cloud service:
 
@@ -241,40 +241,47 @@ Timescale Cloud service using pg_dump and psql from Terminal.
 
     <MigrationProcedureDumpSchemaMultiNode />
 
+    3. Upload the roles to your Timescale Cloud service. 
+
+        
+       ```bash
+       psql $TARGET -v ON_ERROR_STOP=1 --echo-errors \
+         -f roles.sql \
+         -c "SELECT timescaledb_pre_restore();"
+        ```
+
 4. **Migrate the pre-data from your TimescaleDB multi-node deployment to your Timescale Cloud service**
    
-   Pre-data contains all information related to table and schema definition, sequences, owner and settings.
-   During pre-data migration, the distributed hypertables from your source database become regular PostgreSQL 
-   tables. After you upload the the schema to your Timescale Cloud service, you recreate the distributed hypertables as 
-   regular hypertables. To do this:
+  Pre-data contains all information related to table and schema definition, sequences, owner and settings.
+  During pre-data migration, the distributed hypertables from your source database become regular PostgreSQL 
+  tables. After you upload the the schema to your Timescale Cloud service, you recreate the distributed hypertables as 
+  regular hypertables. To do this:
 
-
-   1. **Dump the source database schema and data**
+   1. Dump the source database schema and data:
       ```bash
       pg_dump -d "$SOURCE" \
         -Fc -v \
         --section=pre-data \
         --exclude-schema="_timescaledb*" \
-        --file=pre-data-dump.sql \
+        --file=pre-data-dump.dump \
       ```
 
    1. Upload the schema to your Timescale Cloud service.
 
       ```bash
-      psql -X -d "$TARGET" \
-        -v ON_ERROR_STOP=1 \
-        --echo-errors \
-        -f pre-data-dump.sql
+      pg_restore -d "$TARGET" \
+        --no-owner -Fc \
+        -v dump_pre_data.dump
       ```
 
    1. Restore hypertables in your Timescale instance.
 
-      Distributed hypertables are typically created with additional
-      [space dimensions][space-partitioning]. This works for data distributed across data nodes
-      However, these additional dimensions might not be useful in standard single node deployments. 
-      Consider dropping space dimensions when you convert distributed to regular hypertables.
+      Distributed hypertables are often created with additional [space dimensions][space-partitioning]. 
+      This works for data distributed across data nodes. However, these additional dimensions may not 
+      be useful in standard single node deployments. Best practice is to drop space dimensions when you 
+      convert distributed to regular hypertables.
 
-       For each hypertable:
+      **For each hypertable**:
 
        ```bash
         psql  -d $TARGET -c "SELECT create_hypertable('<TABLE_NAME>', '<TIME_COLUMN_NAME>', chunk_time_interval => INTERVAL '<CHUNK_TIME_INTERVAL>');"
