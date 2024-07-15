@@ -61,27 +61,9 @@ of minutes), you can choose one of our low downtime migration offerings:
 1. Live migration
 2. Dual-write and backfill
 
-Live migration is Timescale's packaging of Postgres' logical replication
-functionality, which leverages the excellent [pgcopydb] project from the
-Postgres community. Live migration is an end-to-end solution which copies the
-database schema and data, and then replicates changes in real-time from one
-database to the other.
 
-Dual-write and backfill is a method to write from your application to two
-databases at once, and gives tooling and guidance to move your existing data
-from the one database to the other. It is specifically catered for, and relies
-on, your data being predominantly append-only time-series data. As such, it
-comes with some caveats and prerequisites which live migration does not
-(dual-write and backfill does not support executing `UPDATE` or `DELETE`
-statements on your data). Additionally, it requires you to make changes to the
-ingest pipeline of your application.
 
-We recommend using live migration if modifying your application logic to
-perform dual writes is a significant effort on your end, or if you are using
-`UPDATE` and `DELETE` statements on your uncompressed time-series data (live
-migration does not support replicating `INSERT`/`UPDATE`/`DELETE` statements on
-compressed data). If your application is writing more than 20'000 rows per
-second, you should use dual-write and backfill instead.
+
 
 We recommend using dual-write and backfill if modifying your ingest pipeline is
 not an issue, and if you want to evaluate your existing solution side-by-side

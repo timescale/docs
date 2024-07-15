@@ -36,8 +36,6 @@ to decompress data before you begin.
 
 <DoNotRecommendForLargeMigration />
 
-<MinimalDowntime />
-
 This page shows you how to move your data from a self-hosted database to a Timescale Cloud service using 
 shell commands.
 
