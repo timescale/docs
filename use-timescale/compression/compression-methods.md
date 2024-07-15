@@ -228,7 +228,7 @@ data points are represented using their XOR'd values.
 
 ## Data-agnostic compression
 
-For values that are not integers or floating point, TiemscaleDB uses dictionary
+For values that are not integers or floating point, TimescaleDB uses dictionary
 compression.
 
 ### Dictionary compression
