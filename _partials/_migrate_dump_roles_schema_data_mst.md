@@ -1,11 +1,12 @@
 
 1. **Dump the roles from your source database**
 
-   Export your role-based security hierarchy. If you only use the default `postgres` role, this step is not
-   necessary.
+   Export your role-based security hierarchy.  &lt;db_name&gt; has the same value as &lt;db_name&gt; in $SOURCE.
+   I know, it confuses me as well.
 
    ```bash
    pg_dumpall -d "$SOURCE" \
+     -l <db_name>  \
      --quote-all-identifiers \
      --roles-only \
      --no-role-passwords \
@@ -24,6 +25,9 @@
    sed -i -E \
    -e '/CREATE ROLE "postgres";/d' \
    -e '/ALTER ROLE "postgres"/d' \
+   -e '/CREATE ROLE "tsdbadmin";/d' \
+   -e '/ALTER ROLE "tsdbadmin"/d' \
+   -e '/GRANT "pg_read_all_stats" TO "tsdbadmin"/d' \
    -e 's/(NO)*SUPERUSER//g' \
    -e 's/(NO)*REPLICATION//g' \
    -e 's/(NO)*BYPASSRLS//g' \
@@ -45,6 +49,7 @@
    --no-privileges \
    --file=dump.sql
    ```
+   
    To dramatically reduce the time taken to dump the source database, using multiple connections. For more information,
    see [dumping with concurrency][dumping-with-concurrency] and [restoring with concurrency][restoring-with-concurrency].
 

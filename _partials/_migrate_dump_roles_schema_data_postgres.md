@@ -1,15 +1,18 @@
 
 1. **Dump the roles from your source database**
 
-   Export your role-based security hierarchy. If you only use the default `postgres` role, this step is not
-   necessary.
+   Export your role-based security hierarchy. &lt;db_name&gt; has the same value as &lt;db_name&gt; in $SOURCE.
+   I know, it confuses me as well.
 
    ```bash
    pg_dumpall -d "$SOURCE" \
+     -l <db_name> 
      --quote-all-identifiers \
      --roles-only \
      --file=roles.sql
    ```
+
+   If you only use the default `postgres` role, this step is not necessary.
 
 1. **Remove roles with superuser access**
 
@@ -20,6 +23,8 @@
    sed -i -E \
    -e '/CREATE ROLE "postgres";/d' \
    -e '/ALTER ROLE "postgres"/d' \
+   -e '/CREATE ROLE "tsdbadmin";/d' \
+   -e '/ALTER ROLE "tsdbadmin"/d' \
    -e 's/(NO)*SUPERUSER//g' \
    -e 's/(NO)*REPLICATION//g' \
    -e 's/(NO)*BYPASSRLS//g' \
