@@ -6,8 +6,6 @@ pg_dumpall -d "$SOURCE" \
   --file=roles.sql
 ```
 
-
-
 Timescale services do not support roles with superuser access. If your SQL
 dump includes roles that have such permissions, you'll need to modify the file
 to be compliant with the security model.
@@ -19,6 +17,8 @@ permissions from your roles.sql file:
 sed -i -E \
 -e '/CREATE ROLE "postgres";/d' \
 -e '/ALTER ROLE "postgres"/d' \
+-e '/CREATE ROLE "tsdbadmin";/d' \
+-e '/ALTER ROLE "tsdbadmin"/d' \
 -e 's/(NO)*SUPERUSER//g' \
 -e 's/(NO)*REPLICATION//g' \
 -e 's/(NO)*BYPASSRLS//g' \
