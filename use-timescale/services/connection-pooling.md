@@ -206,9 +206,11 @@ update your application to adjust the port it uses to connect to your service.
 After you have removed a pooler, if you add it back in the future, it uses the
 same connection string and port that was used before.
 
-<Procedure>
+</Procedure>
 
 ### pgBouncer statistics commands
+
+<Procedure>
 
 1.  Connect to your database.
 1.  Switch to the `pgbouncer` database: `\c pgbouncer`
