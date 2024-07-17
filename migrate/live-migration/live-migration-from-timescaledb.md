@@ -117,6 +117,7 @@ marks the beginning of the downtime phase, which lasts until you have
 
 [validated]: #4-validate-the-data-in-target-database-and-use-it-as-new-primary
 
+
 Stopping writes to the source database allows the live migration process to
 finish replicating data to the target database.
 

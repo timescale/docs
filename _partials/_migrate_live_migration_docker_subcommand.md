@@ -1,4 +1,4 @@
-Next, download the live migration docker image:
+Next, download the live-migration docker image:
 
 ```sh
 docker run --rm -it --name live-migration \
