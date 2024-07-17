@@ -69,6 +69,13 @@ using live-migration from Terminal.
 </Tab>
 <Tab title="From PostgreSQL">
 
+This section shows you how to move your data from self-hosted PostgreSQL to a Timescale Cloud service using 
+live-migration from Terminal.
+
+<MigrateSetupEnvironment />
+
+<MigrateDataToCloud />
+
 </Tab>
 <Tab title="From AWS RDS">
 

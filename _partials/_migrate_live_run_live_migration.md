@@ -51,7 +51,11 @@
        -v ~/live-migration:/opt/timescale/ts_cdc \
        timescale/live-migration:v0.0.20 migrate
    ```
-   
+ 
+   After migrating the schema, live-migration prompts you to create hypertables for tables that 
+   contain time-series data in your Timescale Cloud service. Run `create_hypertable()` to convert these
+   table. For more information, see the [Hypertable docs][Hypertable docs].   
+
    During this process, you see the migration process:
 
    ```shell
@@ -81,6 +85,4 @@
    Migration successfully completed
    ```
 
-
-
-
+[Hypertable docs]: /use-timescale/:currentVersion:/hypertables/
