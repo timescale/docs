@@ -10,6 +10,7 @@ All the latest features and updates to Timescale products.
 
 ## ⚡ Performance and stability improvements for Timescale Cloud, and TimescaleDB  
 <Label type="date">July 12, 2024</Label>
+
 The following improvements have been made to Timescale products:
 
 - **Timescale Cloud**:
@@ -23,8 +24,8 @@ The following improvements have been made to Timescale products:
     the tuple lock acquisition for tiered chunks on replicas, and fixes an issue with ORDER BY/GROUP BY in our
     HashAggregate optimization on PG16. For more information, see the [release note](https://github.com/timescale/timescaledb/releases/tag/2.15.3).
   - The TimescaleDB v2.15.2 patch release improves sort pushdown for partially compressed chunks, and compress_chunk with
-    a primary space partition. The metadata function is removed from the update script, and has partitioning on a
-    primary column is disallowed. For more information, see the [release note](https://github.com/timescale/timescaledb/releases/tag/2.15.2)
+    a primary space partition. The metadata function is removed from the update script, and hash partitioning on a
+    primary column is disallowed. For more information, see the [release note](https://github.com/timescale/timescaledb/releases/tag/2.15.2).
 
 
 
