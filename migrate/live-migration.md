@@ -12,7 +12,7 @@ import DoNotRecommendForLargeMigration from "versionContent/_partials/_migrate_p
 import MigrateSetupEnvironment from "versionContent/_partials/_migrate_live_setup_environment.mdx";
 import MigrateSetupEnvironmentMST from "versionContent/_partials/_migrate_live_setup_environment_mst.mdx";
 import MigrateDataToCloud from "versionContent/_partials/_migrate_live_migrate_data.mdx";
-
+import MigrateAWSRDSConnectIntermediary from "versionContent/_partials/_migrate_awsrds_connect_intermediary.mdx";
 
 # Live migration
 
@@ -78,6 +78,25 @@ live-migration from Terminal.
 
 </Tab>
 <Tab title="From AWS RDS">
+
+To migrate your data from an Amazon RDS instance to a Timescale Cloud service, you extract the data to an intermediary
+EC2 Ubuntu instance in the same AWS region as your RDS instance. You then upload your data to a Timescale Cloud service.
+To make this process as painless as possible, ensure that the intermediary machine has enough CPU and disk space to
+rapidy extract and store your data before uploading to Timescale Cloud.
+
+Migration from RDS moves the data only. You manually enable Timescale Cloud features like
+[hypertables][about-hypertables], [data compression][data-compression] or [data retention][data-retention] after the migration is complete. You enable Timescale Cloud
+features while your database is offline.
+
+This section shows you how to move your data from an Amazon RDS instance to a Timescale Cloud service
+using live-migration.
+
+
+<MigrateAWSRDSConnectIntermediary />
+
+<MigrateSetupEnvironmentMST />
+
+<MigrateDataToCloud />
 
 </Tab>
 

@@ -1,3 +1,5 @@
+## Prepare to migrate
+<Procedure>
 
 1. **Take the applications that connect to the RDS instance offline**
 
@@ -23,120 +25,129 @@
    You find the connection information for `SOURCE` in your RDS configuration. For `TARGET` in the configuration file you
    downloaded when you created the Timescale Cloud service.
 
-1. **Migrate the roles and schema from your RDS instance to your Timescale Cloud service**
+</Procedure>
 
-   Roles manage database access permissions. To migrate your role-based security hierarchy to your Timescale Cloud 
-   service:
+## Migrate the roles and schema from RDS to your Timescale Cloud service
 
-   1. Dump the roles from your RDS instance.
+Roles manage database access permissions. To migrate your role-based security hierarchy to your Timescale Cloud 
+service:
 
-      Export your role-based security hierarchy. If you only use the default `postgres` role, this 
-      step is not necessary. 
+<Procedure>
 
-      ```bash
-      pg_dumpall -d "$SOURCE" \
-        --quote-all-identifiers \
-        --roles-only \
-        --no-role-passwords \
-        --file=roles.sql
-      ```
+1. **Dump the roles from your RDS instance**
 
-      AWS RDS does not allow you to export passwords with roles. You assign passwords to these roles
-      when you have uploaded them to your Timescale Cloud service. 
+   Export your role-based security hierarchy. If you only use the default `postgres` role, this 
+   step is not necessary. 
 
-   1. Remove roles with superuser access.
+   ```bash
+   pg_dumpall -d "$SOURCE" \
+     --quote-all-identifiers \
+     --roles-only \
+     --no-role-passwords \
+     --file=roles.sql
+   ```
 
-      Timescale Cloud services do not support roles with superuser access. Run the following script
-      to remove statements, permissions and clauses that require superuser permissions from `roles.sql`:
+   AWS RDS does not allow you to export passwords with roles. You assign passwords to these roles
+   when you have uploaded them to your Timescale Cloud service. 
 
-      ```bash
-      sed -i -E \
-      -e '/CREATE ROLE "postgres";/d' \
-      -e '/ALTER ROLE "postgres"/d' \
-      -e '/CREATE ROLE "rds/d' \
-      -e '/ALTER ROLE "rds/d' \
-      -e '/TO "rds/d' \
-      -e '/GRANT "rds/d' \
-      -e 's/(NO)*SUPERUSER//g' \
-      -e 's/(NO)*REPLICATION//g' \
-      -e 's/(NO)*BYPASSRLS//g' \
-      -e 's/GRANTED BY "[^"]*"//g' \
-      roles.sql
-      ```
-   1. Dump the database schema from your RDS instance. 
-      ```bash
-      pg_dump -d "$SOURCE" \
-        --format=plain \
-        --quote-all-identifiers \
-        --no-tablespaces \
-        --no-owner \
-        --no-privileges \
-        --section=pre-data \
-        --file=pre-data-dump.sql \
-        --snapshot=$(cat /tmp/pgcopydb/snapshot)
-      ```
+1. **Remove roles with superuser access**
 
-   1. Upload the roles and schema to your Timescale Cloud service.
+   Timescale Cloud services do not support roles with superuser access. Run the following script
+   to remove statements, permissions and clauses that require superuser permissions from `roles.sql`:
 
-      ```bash
-      psql -X -d "$TARGET" \
-        -v ON_ERROR_STOP=1 \
-        --echo-errors \
-        -f roles.sql \
-        -f pre-data-dump.sql
-      ```
+   ```bash
+   sed -i -E \
+   -e '/CREATE ROLE "postgres";/d' \
+   -e '/ALTER ROLE "postgres"/d' \
+   -e '/CREATE ROLE "rds/d' \
+   -e '/ALTER ROLE "rds/d' \
+   -e '/TO "rds/d' \
+   -e '/GRANT "rds/d' \
+   -e 's/(NO)*SUPERUSER//g' \
+   -e 's/(NO)*REPLICATION//g' \
+   -e 's/(NO)*BYPASSRLS//g' \
+   -e 's/GRANTED BY "[^"]*"//g' \
+   roles.sql
+   ```
+1. **Dump the database schema from your RDS instance
 
-   1. Manually assign passwords to the roles.
+   ```bash
+   pg_dump -d "$SOURCE" \
+     --format=plain \
+     --quote-all-identifiers \
+     --no-tablespaces \
+     --no-owner \
+     --no-privileges \
+     --section=pre-data \
+     --file=pre-data-dump.sql \
+     --snapshot=$(cat /tmp/pgcopydb/snapshot)
+   ```
+
+1. Upload the roles and schema to your Timescale Cloud service.
+
+   ```bash
+   psql -X -d "$TARGET" \
+     -v ON_ERROR_STOP=1 \
+     --echo-errors \
+     -f roles.sql \
+     -f pre-data-dump.sql
+   ```
+
+1. Manually assign passwords to the roles.
    
-      AWS RDS did not allow you to export passwords with roles. For each role, use the following command to manually 
-      assign a password to a role:
+   AWS RDS did not allow you to export passwords with roles. For each role, use the following command to manually 
+   assign a password to a role:
    
-      ```bash
-       psql $TARGET -c "ALTER ROLE <role name> WITH PASSWORD '<highly secure password>';"
-       ```
- 
-4. **Migrate data from your RDS instance to your Timescale Cloud service**
+   ```bash
+    psql $TARGET -c "ALTER ROLE <role name> WITH PASSWORD '<highly secure password>';"
+    ```
 
-   1. Dump the data from your RDS instance to your intermediary EC2 instance.
+</Procedure> 
 
-      The `pg_dump` flags remove superuser access and tablespaces from your data. When you run
-      `pgdump`, check the run time, [a long-running `pg_dump` can cause issues][long-running-pgdump].
+## Migrate data from your RDS instance to your Timescale Cloud service
 
-      ```bash
-      pg_dump -d "$SOURCE" \
+<Procedure>
+
+1. Dump the data from your RDS instance to your intermediary EC2 instance.
+
+   The `pg_dump` flags remove superuser access and tablespaces from your data. When you run
+   `pgdump`, check the run time, [a long-running `pg_dump` can cause issues][long-running-pgdump].
+
+   ```bash
+   pg_dump -d "$SOURCE" \
+   --format=plain \
+   --quote-all-identifiers \
+   --no-tablespaces \
+   --no-owner \
+   --no-privileges \
+   --file=dump.sql
+   ```
+   To dramatically reduce the time taken to dump the RDS instance, using multiple connections. For more information,
+   see [dumping with concurrency][dumping-with-concurrency] and [restoring with concurrency][restoring-with-concurrency].
+
+1. Dump the database indexes, constraints and other objects.
+
+   ```bash
+   pg_dump -d "$SOURCE" \
       --format=plain \
       --quote-all-identifiers \
       --no-tablespaces \
       --no-owner \
       --no-privileges \
-      --file=dump.sql
-      ```
-      To dramatically reduce the time taken to dump the RDS instance, using multiple connections. For more information,
-      see [dumping with concurrency][dumping-with-concurrency] and [restoring with concurrency][restoring-with-concurrency].
+      --section=post-data \
+      --file=post-data-dump.sql \
+      --snapshot=$(cat /tmp/pgcopydb/snapshot)
+   ```
+1. Upload your data to your Timescale Cloud service.
 
-   1. Dump the database indexes, constraints and other objects.
+   ```bash
+   psql -d $TARGET -v ON_ERROR_STOP=1 --echo-errors \
+     -f dump.sql \
+     -f post-data-dump.sql
+   ```
 
-      ```bash
-      pg_dump -d "$SOURCE" \
-         --format=plain \
-         --quote-all-identifiers \
-         --no-tablespaces \
-         --no-owner \
-         --no-privileges \
-         --section=post-data \
-         --file=post-data-dump.sql \
-         --snapshot=$(cat /tmp/pgcopydb/snapshot)
-      ```
-   1. Upload your data to your Timescale Cloud service.
+</Procedure>
 
-      ```bash
-      psql -d $TARGET -v ON_ERROR_STOP=1 --echo-errors \
-        -f dump.sql \
-        -f post-data-dump.sql
-      ```
-
-[about-hypertables]: /use-timescale/:currentVersion:/hypertables/about-hypertables/
-[data-compression]: /use-timescale/:currentVersion:/compression/about-compression/
 [data-retention]: /use-timescale/:currentVersion:/data-retention/about-data-retention/
 
 [pg_dump]: https://www.postgresql.org/docs/current/app-pgdump.html
