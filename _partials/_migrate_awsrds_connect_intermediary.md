@@ -39,14 +39,15 @@
 
 ## Setup secure connectivity between your RDS and EC2 instances
 <Procedure>
-   1. In [https://console.aws.amazon.com/rds/home#databases:](https://console.aws.amazon.com/rds/home#databases:),
-       select the RDS instance to migrate.
-   1. Scroll down to `Security group rules (1)` and select the `EC2 Security Group - Inbound` group. The
-      `Security Groups (1)` window opens. Click the `Security group ID`, then click `Edit inbound rules`
 
-      <img class="main-content__illustration"
-      src="https://assets.timescale.com/docs/images/migrate/rds-add-security-rule-to-ec2-instance.svg"
-      alt="Create security group rule to enable RDS EC2 connection"/>
+1. In [https://console.aws.amazon.com/rds/home#databases:](https://console.aws.amazon.com/rds/home#databases:),
+    select the RDS instance to migrate.
+1. Scroll down to `Security group rules (1)` and select the `EC2 Security Group - Inbound` group. The
+   `Security Groups (1)` window opens. Click the `Security group ID`, then click `Edit inbound rules`
+
+   <img class="main-content__illustration"
+   src="https://assets.timescale.com/docs/images/migrate/rds-add-security-rule-to-ec2-instance.svg"
+   alt="Create security group rule to enable RDS EC2 connection"/>
 
 1. On your intermediary EC2 instance, get your local IP address:
    ```sh

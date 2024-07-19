@@ -11,6 +11,7 @@ import OpenSupportRequest from "versionContent/_partials/_migrate_open_support_r
 import DoNotRecommendForLargeMigration from "versionContent/_partials/_migrate_pg_dump_do_not_recommend_for_large_migration.mdx";
 import MigrateSetupEnvironment from "versionContent/_partials/_migrate_live_setup_environment.mdx";
 import MigrateSetupEnvironmentMST from "versionContent/_partials/_migrate_live_setup_environment_mst.mdx";
+import MigrateSetupEnvironmentAWSRDS from "versionContent/_partials/_migrate_live_setup_environment_awsrds.mdx";
 import MigrateDataToCloud from "versionContent/_partials/_migrate_live_migrate_data.mdx";
 import MigrateAWSRDSConnectIntermediary from "versionContent/_partials/_migrate_awsrds_connect_intermediary.mdx";
 
@@ -53,6 +54,8 @@ the live-migration Docker image.
   A general rule of thumb is between 100GB and 500GB.
 - Before starting live-migration, read the [Frequently Asked Questions][FAQ].
 
+### Migrate to Timescale Cloud
+
 To move your data from a self-hosted database to a Timescale Cloud service:
 
 <Tabs label="Live migration">
@@ -79,7 +82,7 @@ live-migration from Terminal.
 </Tab>
 <Tab title="From AWS RDS">
 
-To migrate your data from an Amazon RDS instance to a Timescale Cloud service, you extract the data to an intermediary
+To migrate your data from an Amazon RDS Postgres instance to a Timescale Cloud service, you extract the data to an intermediary
 EC2 Ubuntu instance in the same AWS region as your RDS instance. You then upload your data to a Timescale Cloud service.
 To make this process as painless as possible, ensure that the intermediary machine has enough CPU and disk space to
 rapidy extract and store your data before uploading to Timescale Cloud.
@@ -94,7 +97,7 @@ using live-migration.
 
 <MigrateAWSRDSConnectIntermediary />
 
-<MigrateSetupEnvironmentMST />
+<MigrateSetupEnvironmentAWSRDS />
 
 <MigrateDataToCloud />
 

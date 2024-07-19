@@ -46,7 +46,7 @@ shell commands.
   as GNU software, BSD sed returns `sed: illegal option -- -`.
 
 
-## Migrate to Timescale Cloud
+### Migrate to Timescale Cloud
 
 To move your data from a self-hosted database to a Timescale Cloud service:
 
@@ -90,8 +90,8 @@ Migration from RDS moves the data only. You must manually enable Timescale Cloud
 [hypertables][about-hypertables], [data compression][data-compression] or [data retention][data-retention] after the migration is complete. You enable Timescale Cloud
 features while your database is offline.
 
-This section shows you how to move your data from a PostgreSQL database running in an Amazon RDS instance to a Timescale Cloud service
-using `pg_dump` and `psql` from Terminal.
+This section shows you how to move your data from a PostgreSQL database running in an Amazon RDS instance to a 
+Timescale Cloud service using `pg_dump` and `psql` from Terminal.
 
 
 <MigrateFromAWSRDS />
