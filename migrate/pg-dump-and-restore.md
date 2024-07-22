@@ -24,12 +24,17 @@ import MigrateAWSRDSMigrateData from "versionContent/_partials/_migrate_awsrds_m
 
 # Migrate with downtime
 
-To easily migrate from self-hosted PostgreSQL or TimescaleDB to a Timescale Cloud service, you 
-use the native PostgreSQL [`pg_dump`][pg_dump] and [`pg_restore`][pg_restore] commands. If you 
-are migrating from self-hosted TimescaleDB, this works for compressed hypertables without having 
-to decompress data before you begin.
+You use downtime migration to move less than 100GB of data from self-hosted database to a Timescale Cloud 
+service.
+
+Downtime migration uses the native PostgreSQL [`pg_dump`][pg_dump] and [`pg_restore`][pg_restore] commands. 
+If you are migrating from self-hosted TimescaleDB, this method works for compressed hypertables without having 
+to decompress data before you begin. 
 
 <DoNotRecommendForLargeMigration />
+
+However, downtime migration for large amounts of data takes a large amount of time. For more than 100GB of data, best
+practice is to follow [live migration].
 
 This page shows you how to move your data from a self-hosted database to a Timescale Cloud service using 
 shell commands.
@@ -131,5 +136,5 @@ And that is it, you have migrated your data from a Managed Service for Timescale
 [about-hypertables]: /use-timescale/:currentVersion:/hypertables/about-hypertables/
 [data-compression]: /use-timescale/:currentVersion:/compression/about-compression/
 [data-retention]: /use-timescale/:currentVersion:/data-retention/about-data-retention/
-
+[live migration]: /migrate/:currentVersion:/live-migration
 [space-partitioning]: /use-timescale/:currentVersion:/hypertables/about-hypertables#space-partitioning
