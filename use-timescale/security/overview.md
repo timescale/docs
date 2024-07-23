@@ -15,7 +15,7 @@ use to identify security issues with Postgres extensions. This has helped tighte
 Timescale products do not have any identified weaknesses.
 
 This page lists the additional things we do to ensure operational security and to lock-down Timescale Cloud services. 
-To see our security features at a glance, see [Security at timescale][security-at-timescale].
+To see our security features at a glance, see [Security at Timescale][security-at-timescale].
 
 ## Data encryption
 
