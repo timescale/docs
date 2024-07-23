@@ -8,8 +8,9 @@ tags: [encryption, VPC, privacy]
 
 # Timescale security
 
-Timescale implements a variety of secure software engineering practices in timescaledb, including code static analysis 
-for security hardening. Timescale has developed the https://github.com/timescale/pgspot open-source extension that we 
+Timescale implements a variety of secure software engineering practices in TimescaleDB, including code static analysis 
+for security hardening, automated scanning for dependency vulnerabilities, and code security reviews. 
+Additionally, Timescale has developed the https://github.com/timescale/pgspot open-source extension that we 
 use to identify security issues with Postgres extensions. This has helped tighten our security posture.
 Timescale products do not have any identified weaknesses.
 
