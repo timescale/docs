@@ -104,6 +104,6 @@ loaded into the editor. When you have made your changes, press `Esc`, then type
 edited query by pressing `↑`, and press `Enter` to run it.
 
 [about-connecting]: /use-timescale/:currentVersion:/integrations/query-admin/about-connecting/
-[psql-cheat-sheet]: https://postgrescheatsheet.com/
+[psql-cheat-sheet]: https://www.timescale.com/learn/postgres-cheat-sheet
 [psql-docs]: https://www.postgresql.org/docs/13/app-psql.html
 [ssl-mode]: /use-timescale/:currentVersion:/security/strict-ssl/
