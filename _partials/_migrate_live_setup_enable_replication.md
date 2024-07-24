@@ -1,5 +1,5 @@
  Replica identity assists data replication by identifying the rows being modified. Your options are that
-   each table and hypertable in the source database has:
+   each table and hypertable in the source database should either have:
 - **A primary key**: Data replication defaults to the primary key of the table being replicated. 
   Nothing to do.   
 - **A viable unique index**: each table has a unique, non-partial, non-deferrable index that includes only columns
