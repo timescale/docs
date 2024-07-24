@@ -41,10 +41,10 @@ TimescaleDB.
 
 <Procedure>
 
-1.  Sign in to your Managed Service for TimescaleDB portal.
-1.  Check that you are in the project that you want to connect to Datadog,
+1.  In [MST Portal][mst-login], choose the project you want to connect to Datadog,
     and click `Integration Endpoints`.
-1.  In the `Datadog` section, click `Add new endpoint`, and complete these details:
+1.  Select `Datadog`, then choose `Create new`. 
+2.  In `Add new Datadog service integration`. complete these details:
     *   In the `Endpoint integration` section, give your endpoint a name, and
         paste the API key from your Datadog dashboard. Ensure you choose the
         site location that matches where your Datadog service is hosted.
@@ -52,8 +52,7 @@ TimescaleDB.
         to help you manage your integrations.
 1.  Click `Add endpoint` to save the integration.
     <img class="main-content__illustration"
-    width={1375} height={944}
-    src="https://assets.timescale.com/docs/images/add-datadog-integration.webp"
+    src="https://assets.timescale.com/docs/images/mst/add-datadog-integration.png"
     alt="Add Datadog endpoint"/>
 
 </Procedure>
@@ -88,3 +87,4 @@ see the [Datadog Dashboard documentation][datadog-dashboard-docs].
 
 [datadog-login]: https://app.datadoghq.com/
 [datadog-dashboard-docs]: https://docs.datadoghq.com/dashboards/
+[mst-login]:https://portal.managed.timescale.com/login

@@ -24,7 +24,7 @@ projects. Only Admin and operator user roles can create a VPC.
 
 To set up VPC peering for your project:
 
-1.  In the MST portal, click `VPC`.
+1.  In [MST Portal][mst-login], click `VPC`.
 
 1.  Click `Create VPC`.
 
@@ -40,3 +40,6 @@ To set up VPC peering for your project:
 The state of the VPC is listed in the table.
 
 </Procedure>
+
+
+[mst-login]:https://portal.managed.timescale.com/login

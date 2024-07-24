@@ -26,9 +26,13 @@ cloud provider, which you can install your database on.
 
 ### Creating your first service
 
-1.  Sign in to your Managed Service for TimescaleDB portal.
-1.  Click `Create a new service`, and complete these details:
-    *   In the `Select Your Service` field, click `TimescaleDB`.
+1.  [Sign in][mst-login] to your Managed Service for TimescaleDB portal.
+1.  Click `Create service` and choose `TimescaleDB`, and update your preferences:
+
+    <img class="main-content__illustration"
+    src="https://assets.timescale.com/docs/images/mst/new-service.png"
+    alt="Create a new service in the Managed Service for TimescaleDB portal"/>
+
     *   In the `Select Your Cloud Service Provider` field, click your
         preferred provider.
     *   In the `Select Your Cloud Service Region` field, click your preferred
@@ -43,11 +47,6 @@ cloud provider, which you can install your database on.
     have selected for your service, and click `Create Service`. The service
     takes a few minutes to provision.
 
-    <img class="main-content__illustration"
-    width={1375} height={944}
-    src="https://assets.timescale.com/docs/images/mst-new-service.webp"
-    alt="Create a new service in the Managed Service for TimescaleDB portal"/>
-
 </Procedure>
 
 ## Connect to your service from the command prompt
@@ -61,7 +60,7 @@ check out the [installing psql][install-psql] section.
 
 ### Connecting to your service from the command prompt
 
-1.  Sign in to your Managed Service for TimescaleDB portal.
+1.  [Sign in][mst-login]  to your Managed Service for TimescaleDB portal.
 1.  In the `Services` tab, find the service you want to connect to, and check
     it is marked as `Running`.
 1.  Click the name of the service you want to connect to see the connection
@@ -126,3 +125,5 @@ if you want to have a chat.
 [install-psql]: /use-timescale/:currentVersion:/integrations/query-admin/about-psql/
 [mst-docs]: /mst/:currentVersion:/
 [tutorials]: /tutorials/:currentVersion:/
+[mst-signup]: https://www.timescale.com/mst-signup
+[mst-login]:https://portal.managed.timescale.com/login
