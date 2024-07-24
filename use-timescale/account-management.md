@@ -42,10 +42,10 @@ Disk usage is metered in 15 minute intervals over an hour to build an average
 value of hourly data stored. Bills are calculated on a 730 hour month.
 
 <Highlight type="note">
-If you want to estimate your bill ahead of the billing cycle, you can use the
-[calculator on the pricing page](https://www.timescale.com/pricing).
-The pricing calculator does not include volume discounts. If you want a
-personalized quote, [get in contact](https://www.timescale.com/contact).
+If you want to estimate your costs ahead of the billing cycle, you can use the
+[pricing calculator](http://timescale.com/pricing/calculator).
+However, the pricing calculator does not include volume discounts. For a
+personalized quote, [get in touch with Timescale](https://www.timescale.com/contact).
 </Highlight>
 
 ### Compression and storage costs
