@@ -90,7 +90,8 @@ connection pooling to.
 
 ### Setting up a connection pool
 
-1.  In the MST portal, navigate to the `Services` list, and click the name of
+
+1.  In [MST Portal][mst-login], navigate to the `Services` list, and click the name of
     the service you want to add connection pooling to.
 1.  In the `Service overview` page, navigate to the `Pools` tab. When you have
     created some pools, they are shown here.
@@ -117,3 +118,6 @@ connection pooling to.
 Pooled servers use a different port number than regular servers. This allows you
 to use both pooled and un-pooled connections at the same time.
 </Highlight>
+
+
+[mst-login]:https://portal.managed.timescale.com/login

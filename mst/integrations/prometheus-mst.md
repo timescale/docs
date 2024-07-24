@@ -22,8 +22,7 @@ Before you begin, make sure you have:
 
 ### Enabling Prometheus service integration
 
-1.  Sign in to your Managed Service for TimescaleDB portal, and
-    navigate to `Integration Endpoints`.
+1.  In [MST Portal][mst-login], choose a project and navigate to `Integration Endpoints`.
 1.  In the `Integration endpoints` page, navigate to `Prometheus`, and click
     `Create new`.
 1.  In the `Create new Prometheus endpoint` dialog, complete these fields:
@@ -75,3 +74,4 @@ Before you begin, make sure you have:
 </Procedure>
 
 [get-prometheus]: https://prometheus.io
+[mst-login]:https://portal.managed.timescale.com/login
