@@ -33,7 +33,7 @@ Best practice is to use live-migration when:
 - Your source database:
   - Uses `UPDATE` and `DELETE` statements on uncompressed time-series data.
 
-    live-migration does not support replicating `INSERT`/`UPDATE`/`DELETE` statements on compressed data.
+    Live-migration does not support replicating `INSERT`/`UPDATE`/`DELETE` statements on compressed data.
   - Has large, busy tables with primary keys.
   - Does not have many `UPDATE` or `DELETE` statements.
 
