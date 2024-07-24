@@ -105,24 +105,18 @@ services.
 
 ### Configure allowed incoming IP addresses for your service
 
-1.  Sign in to your Managed Service for TimescaleDB portal.
-1.  In the `Services` tab, find the service you want to configure, and check
-    it is marked as `Running`.
-1.  In the service `Overview` tab, under `Connection information`, locate the
-    port number. This is the port that you are managing inbound access for.
-1.  Scroll down and locate the `Allowed IP addresses` section. By default, this
-    is set to `0.0.0.0/0`, which accepts incoming access from all sources.
-1.  Click `Change`, and type the CIDR value for your incoming source traffic.
-    For example, if you enter a value of `192.168.1.15/32` only traffic from
-    this IP address is allowed, and all other traffic is blocked. Alternatively,
-    you could enter an address block to allow all traffic from within the block.
-    Click `+` to add the address to the allowed list. Click `Save changes`.
-1.  Check that the new allowed addresses are shown correctly in the
-    `Allowed IP addresses` section.
+1.  In [MST Portal][mst-login], select the service to update.
+1.  In `Overview` check the `Port` number.
+
+    This is the port that you are managing inbound access for.
+1.  In `Network`, check `IP filters`. The default value is `Open for all.
+
+1. Click the ellipsis (...) to the right of Network, then select `Set public IP filters`.  
+
+1. Set the `Allowed inbound IP addresses`:
 
    <img class="main-content__illustration"
-   width={1375} height={944}
-   src="https://assets.timescale.com/docs/images/mst-allowed-incomingip.webp"
+   src="https://assets.timescale.com/docs/images/mst/set-allowed-ip-addresses.png"
    alt="Add a new allowed incoming IP address for Managed Service for TimescaleDB services"/>
 
 </Procedure>
@@ -174,3 +168,4 @@ you want more information about information security policies,
 -->
 
 [timescale-support]: https://www.timescale.com/contact/
+[mst-login]:https://portal.managed.timescale.com/login

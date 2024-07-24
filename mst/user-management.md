@@ -32,7 +32,7 @@ and stop services permission.
 
 ### Adding project members
 
-1.  Sign in to your Managed Service for TimescaleDB portal.
+1.  [Sign in][mst-login] to your Managed Service for TimescaleDB portal.
 1.  Check that you are in the project that you want to change the members for,
     and click `Members`.
 1.  In the `Project members` page, type the email address of the member you want
@@ -74,22 +74,25 @@ Your service must be running before you can manage users.
 
 ### Adding service users
 
-1.  Sign in to your Managed Service for TimescaleDB portal. By
+1.  [Sign in][mst-login] to your Managed Service for TimescaleDB portal. By
     default, you start in the `Services` view, showing any services you
     currently have in your project.
-1.  Click the name of the service that you want to add users to, and navigate
-    to the `Users` tab.
+1.  Click the name of the service that you want to add users to.
+1.  Select `Users`, then click `Add service user`:
+
+    <img class="main-content__illustration"
+    src="https://assets.timescale.com/docs/images/mst/create-service-user.png"
+    alt="Add a new MST service user"/>
+
 1.  In the `Username` field, type a name for your user. If you want to allow
     the user to be replicated, toggle `Allow replication`. Click
     `Add service user` to save the user.
-1.  The new user shows in the `Username` list. You can view the password by
-    clicking the eye icon. Use the options in the list to change the replication
-    setting and password, or delete the user.
+1.  The new user shows in the `Username` list. 
 
-<img class="main-content__illustration"
-width={1375} height={944}
-src="https://assets.timescale.com/docs/images/mst-serviceuser.webp"
-alt="Add a new MST service user"/>
+    To view the password, click the eye icon. Use the options in the list to change 
+    the replication setting and password, or delete the user.
+
+
 
 </Procedure>
 
@@ -112,7 +115,7 @@ For more information, and installation instructions, see
 
 ### Configuring multi-factor authentication
 
-1.  Sign in to your Managed Service for TimescaleDB portal.
+1.  [Sign in][mst-login] to your Managed Service for TimescaleDB portal.
 1.  Click the `User information` icon in the top-right of the dashboard to go to
     the `User profile` section.
 1.  In the `Authentication` tab, toggle `Two-factor authentication` to
@@ -176,3 +179,4 @@ that automatically sign in.
 
 [pg-roles-doc]: https://www.postgresql.org/docs/current/role-attributes.html
 [install-google-authenticator]: https://support.google.com/accounts/answer/1066447
+[mst-login]:https://portal.managed.timescale.com/login
