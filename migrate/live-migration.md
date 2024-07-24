@@ -21,8 +21,8 @@ You use the [live-migration][live-migration-docker-image] Docker image to move 1
 seamlessly with only a few minutes downtime. 
 
 [Live-migration][live-migration-docker-image] is an end-to-end solution that copies the database schema and data to 
-your target Timescale Cloud service, then replicates updates in your source database 
-to the target service in real-time. live-migration uses the Postgres logical replication 
+your target Timescale Cloud service, then replicates the database activity in your source database 
+to the target service in real-time. Live-migration uses the Postgres logical decoding 
 functionality and leverages [pgcopydb]. 
 
 Best practice is to use live-migration when:
