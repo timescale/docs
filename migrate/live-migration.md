@@ -20,7 +20,7 @@ import MigrateAWSRDSConnectIntermediary from "versionContent/_partials/_migrate_
 You use the [live-migration][live-migration-docker-image] Docker image to move 100GB-10TB+ of data to a Timescale Cloud service 
 seamlessly with only a few minutes downtime. 
 
-[live-migration][live-migration-docker-image] is an end-to-end solution that copies the database schema and data to 
+[Live-migration][live-migration-docker-image] is an end-to-end solution that copies the database schema and data to 
 your target Timescale Cloud service, then replicates updates in your source database 
 to the target service in real-time. live-migration uses the Postgres logical replication 
 functionality and leverages [pgcopydb]. 
