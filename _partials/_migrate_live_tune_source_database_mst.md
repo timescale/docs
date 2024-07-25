@@ -20,6 +20,8 @@ import EnableReplication from "versionContent/_partials/_migrate_live_setup_enab
      ```shell
      wal_level=logical
      ```
+     If this command throws an error, [install wal2json](https://github.com/eulerto/wal2json) on
+     your source database. 
 
 1. **Restart the source database**
 

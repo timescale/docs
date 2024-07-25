@@ -64,25 +64,35 @@
 
    If `migrate` stops add `--resume` and restart the command. 
 
-   Once the data is coordinated, you see the following message:
+   Once the data in your target Timescale Cloud service has almost caught up with the source database, 
+   you see the following message:
 
    ```shell
    Target has caught up with source (source_wal_rate: 751.0B/s, target_replay_rate: 0B/s, replay_lag: 7KiB)
        To stop replication, hit 'c' and then ENTER
    ```
+   
+   Wait until `replay_lag` is down to a few kilobytes before you move to the next step. Otherwise, data 
+   replication may not have finished.
 
 1. **Start app downtime**
 
-   ```shell
-   hit 'c' and then ENTER
-   ```
+   1. Stop your app writing to the source database, then let the the remaining transactions 
+      finish to fully sync with the target. You can use tools like the pg_top CLI or `pg_stat_activity` 
+      to view the current transaction on the source database. 
 
-   live-migration continues the remaining work. This includes copying
-   TimescaleDB metadata, sequences, and run policies. When the migration completes,
-   you see the following message:
+   1. Stop Live-migration. 
    
-   ```sh
-   Migration successfully completed
-   ```
+      ```shell
+      hit 'c' and then ENTER
+      ```
+
+      Live-migration continues the remaining work. This includes copying
+      TimescaleDB metadata, sequences, and run policies. When the migration completes,
+      you see the following message:
+   
+      ```sh
+      Migration successfully completed
+      ```
 
 [Hypertable docs]: /use-timescale/:currentVersion:/hypertables/

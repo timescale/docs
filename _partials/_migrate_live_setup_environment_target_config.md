@@ -1,11 +1,7 @@
 1. **Disable connection pooling**
          
-   By default, Timescale Cloud services are created without connection pools. If you have 
-   added connection pools to your target service:
-
-   1. In [Timescale Console][tsc-portal], select the service you are migrating your data to. 
-   1. Select `Operations`, then `Connection pooling`. 
-   1. Remove any connection pools. 
+   By default, Timescale Cloud services are created without connection pools. Ensure 
+   that connection pooling is disabled for your source database. 
 
 1. **Setup the connections for migration**
 
@@ -14,8 +10,14 @@
 
    1. In [Timescale Console][tsc-portal], select `Database parameters` and search for `max_connections`.
    2. Hover the mouse over the value column, click the pencil icon, then change the value. 
-      
-      **IAIN**: some kind of formula to calculate the max connections would help. 
+
+      By default, for each table, Live-migration consumes 10 connections to the source database and 20 
+      connections to your target Timescale Cloud service. Update `max_connections` to handle at least
+      `20 * <number of tables to migrate>`. Alternatively, use the `--table-jobs` and `--index-jobs`
+      flags to reduce the number of connection when you 
+      [run the migrate command](#migrate-your-data-then-start-downtime). The default value for both 
+      parameters is 8.
+
    3. Click outside the row, then click `Apply changes and restart`.
    
    Your service restarts. 
