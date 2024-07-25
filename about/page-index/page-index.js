@@ -31,6 +31,11 @@ module.exports = [
         ],
       },
       {
+        title: "Plans and account management",
+        href: "pricing-and-account-management",
+        excerpt: "Pricing tiers for Timescale Cloud services",
+      },
+      {
         title: "TimescaleDB editions",
         href: "timescaledb-editions",
         excerpt: "Discover the different TimescaleDB editions and licences",

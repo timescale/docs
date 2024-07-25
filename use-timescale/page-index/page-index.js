@@ -371,11 +371,6 @@ module.exports = [
         ],
       },
       {
-        title: "Billing and account management",
-        href: "account-management",
-        excerpt: "Timescale account management",
-      },
-      {
         title: "Continuous aggregates",
         href: "continuous-aggregates",
         children: [
