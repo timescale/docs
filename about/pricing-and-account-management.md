@@ -11,31 +11,59 @@ cloud_ui:
 
 import UsageBasedStorage from "versionContent/_partials/_usage-based-storage-intro.mdx";
 
-# Plans and account management
+# Pricing plans and account management
 
-This page explains the pricing plans for Timescale Cloud services, and how to easily manage your 
-Timescale account. 
+As we enhance our offerings and align them with your evolving needs, tiered
+pricing plans provide more value, flexibility, and efficiency for your business.
+Whether you're a growing startup or a well-established enterprise, our new tiers
+are structured to support your journey towards greater success.
 
-<img class="main-content__illustration"
-src="https://assets.timescale.com/docs/images/timescale-plans.png"
-alt="Adding a payment method in Timescale"/>
+Tiered pricing plans give you:
 
-Using self-hosted TimescaleDB and our open-source products is free.  
+* **Enhanced performance**: with increased CPU and storage capacities, your apps run smoother and more
+  efficiently, even under heavy loads.
+* **Improved scalability**: scale up or down based on your current needs, ensuring that you only pay
+  for what you use.
+* **Better support**: access to enhanced support options, including production support and dedicated
+  account management, ensures you have the help you need when you need it.
+* **Greater flexibility**: the ability to add features like IO Boost and customize your plan means you
+  can tailor Timescale services to fit your specific needs.
+* **Cost efficiency**: by aligning our pricing with the value delivered, we help you maximize your return
+  on investment.
 
-## How Plans work
+Using self-hosted TimescaleDB and our open-source products is still free.  
 
-The Timescale pricing plans are designed to give you the best value as your project moves from initial development
-through to mission critical enterprise applications. 
+This page explains tiered pricing plans for Timescale Cloud, and how to easily manage your
+Timescale account.
 
-* **Compute**: pay the base rate for your plan, and only what you use. We even provide services that help you 
-     lower your compute needs and improve query performance at the same time.
-* **Storage**: use standard storage for your most-often used data, then use [tiered storage][data-tiering] for 
-    low-cost, long-term storage. How you use each is up to you, but we can help you compress your data 10x 
-    or more, so you pay even less.
-* **That’s it**: you don't pay for backups, or networking costs such as data ingest/egress. There are no per-query
-    fees. Timescale pricing is completely transparent and up to you.
+## Why we moved to tiered pricing plans
 
-After you have completed your 30 day trial period on the Performance plan, choose the [Pricing plan](#pricing-plans) 
+We understand that every business is unique, with its own set of challenges and opportunities.
+Tiered pricing plans are tailored solutions that ensure you get the most out of our platform. Here's
+why we've revamped our plans:
+
+- **Scalability**: as your business grows, so do your demands. Tiered pricing plans scale with
+  you, they provide the resources and support you need at each stage of your growth.
+- **Flexibility**: we know that one size doesn't fit all. Tiered pricing plans give you the
+  flexibility to choose the features and support levels that best match your business
+  and engineering requirements.
+- **Value**: by aligning our pricing with the value delivered, we ensure that you get the most
+  out of every dollar spent. Our goal is to help you achieve more with less.
+
+## How plans work
+
+Tiered pricing plans are designed to give you the best value as your project moves 
+from initial development through to mission critical enterprise applications. 
+
+* **Compute**: pay the base rate for your plan, and only what you use. We even provide services 
+  that help you lower your compute needs and improve query performance at the same time.
+* **Storage**: use standard storage for your most-often used data, then use [tiered storage][data-tiering]
+  for low-cost, long-term storage. How you use each is up to you, but we can help you compress your data 
+  10x or more, so you pay even less.
+* **That’s it**: you don't pay for backups, or networking costs such as data ingest/egress. There are 
+  no per-query fees. Timescale pricing is completely transparent and up to you.
+
+After you have completed your 30 day trial period on the Performance plan, choose the [Pricing plan][plan-features] 
 that suits your business and engineering needs. You easily upgrade or downgrade your plan whenever you need in 
 [Timescale Console][cloud-login]. You are billed monthly on the date you signed up. Any changes to your plan or 
 add-ons are reflected in your next billing cycle.
@@ -44,8 +72,14 @@ You keep track of your monthly usage in [Timescale Console][cloud-billing]. It p
 into your current usage alerts you if you approach the limits for your plan. If you exceed plan limits, we don't 
 interrupt your service when you upgrade, you can keep working without any hassle.
 
+## Features included in each plan
 
-## Plan features
+The available plans are:
+
+* **Performance**: for small to mid-sized businesses that need robust performance without the overhead
+  of managing large-scale infrastructure.
+* **Scale**: for larger businesses and apps that demand higher performance and scalability.
+* **Enterprise**: for enterprises with complex requirements and a need for dedicated support and compliance.
 
 The features included in each [plan][pricing-plans] are:
 
@@ -89,33 +123,26 @@ If you want to estimate your costs ahead of the billing cycle, you can use the
 However, the pricing calculator does not include volume discounts. For a
 personalized quote, [get in touch with Timescale](https://www.timescale.com/contact).
 
-
-### Usage-based storage
+## Optimize storage and reduce data costs
 
 <UsageBasedStorage />
+
+You do not need to allocate extra disk space for backfilling or migrating your
+data. Usage-based storage means that disk allocation is not an issue in
+Timescale Cloud. For example, if your recently migrated database requires less disk
+space after compression, you do not need to downscale your volume. The reduction
+in your storage bill proportionally matches the reduction in your disk usage.
 
 Disk usage is metered in 15 minute intervals over an hour to build an average
 value of hourly data stored. Bills are calculated on a 730 hour month.
 
-You are charged for only the storage you have used using the following formula:
+You are charged for only the storage you have used, using the following formula:
 
 ```txt
 Storage used in GiB * (seconds stored / 3600) * price per hour
 ```
 
-### Reduce storage costs with compression
 
-When you [enable compression][compression], your bill decreases automatically. 
-For example, when compression reduces your storage size by five times, your effective 
-storage cost is five times lower. 
-
-### Additional storage for migration or backfill
-
-You do not need to allocate extra disk space for backfilling or migrating your
-data. Usage-based storage means that disk allocation is not a concern in
-Timescale Cloud. For example, if your recently migrated database requires less disk
-space after compression, you do not need to downscale your volume. The reduction
-in your storage bill proportionally matches the reduction in your disk usage.
 
 ## Manage your Timescale account
 
@@ -138,8 +165,7 @@ alt="Adding a payment method in Timescale"/>
   Payment confirmations and alerts are sent to the email address you signed up with.
   Add another address to send details to other departments in your organization. 
 
-- **Plans**: choose the [Plan](#pricing-plans) that suits your business 
-  and engineering needs.
+- **Plans**: choose the [features][plan-features] that suit your business and engineering needs.
 
 - **Add-ons**: add top-tier support and improved database performance for mission critical workloads.  
 
@@ -149,3 +175,4 @@ alt="Adding a payment method in Timescale"/>
 [cloud-billing]: https://console.cloud.timescale.com/dashboard/billing/details
 [commercial-sla]: https://www.timescale.com/legal/timescale-cloud-terms-of-service
 [pricing-plans]: https://www.timescale.com/pricing
+[plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-plan
