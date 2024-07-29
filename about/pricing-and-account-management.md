@@ -22,35 +22,22 @@ Tiered pricing plans give you:
 
 * **Enhanced performance**: with increased CPU and storage capacities, your apps run smoother and more
   efficiently, even under heavy loads.
-* **Improved scalability**: scale up or down based on your current needs, ensuring that you only pay
-  for what you use.
+* **Improved scalability**: as your business grows, so do your demands. Tiered pricing plans scale with
+  you, they provide the resources and support you need at each stage of your growth. scale up or down 
+  based on your current needs, ensuring that you only pay for what you use.
 * **Better support**: access to enhanced support options, including production support and dedicated
   account management, ensures you have the help you need when you need it.
-* **Greater flexibility**: the ability to add features like IO Boost and customize your plan means you
+* **Greater flexibility**: we know that one size doesn't fit all. Tiered pricing plans give you the
+  flexibility to choose the features and support levels that best match your business
+  and engineering requirements. The ability to add features like IO Boost and customize your plan means you
   can tailor Timescale services to fit your specific needs.
-* **Cost efficiency**: by aligning our pricing with the value delivered, we help you maximize your return
-  on investment.
+* **Cost efficiency**: by aligning our pricing with the value delivered, we ensure that you get the most
+  out of every dollar spent. Our goal is to help you achieve more with less.
 
 Using self-hosted TimescaleDB and our open-source products is still free.  
 
 This page explains tiered pricing plans for Timescale Cloud, and how to easily manage your
 Timescale account.
-
-## Why we moved to tiered pricing plans
-
-We understand that every business is unique, with its own set of challenges and opportunities.
-Tiered pricing plans are tailored solutions that ensure you get the most out of our platform. Here's
-why we've revamped our plans:
-
-- **Scalability**: as your business grows, so do your demands. Tiered pricing plans scale with
-  you, they provide the resources and support you need at each stage of your growth.
-
-- **Flexibility**: we know that one size doesn't fit all. Tiered pricing plans give you the
-  flexibility to choose the features and support levels that best match your business
-  and engineering requirements.
-
-- **Value**: by aligning our pricing with the value delivered, we ensure that you get the most
-  out of every dollar spent. Our goal is to help you achieve more with less.
 
 ## How plans work
 
@@ -125,8 +112,6 @@ Timescale Cloud is very efficient and generally needs less compute than other da
 the same performance. The best way to size your needs is to signup for a free trial and to test
 with a realistic workload.
 
-### Unlimited storage
-
 We make it easy for you to store unlimited amounts of data using Tiered Storage, which is
 comprised of a high-performance storage tier and a low-cost bottomless storage tier. You can
 keep up to 16 TB compressed (typically 80-100 TBs uncompressed) in the high-performance storage
@@ -197,7 +182,7 @@ The features included in each [plan][pricing-plans] are:
 | Email support                                                 | ✓                            | ✓                                     | ✓                                   |
 | Production support                                            | 	Add-on                      | 	Add-on                               | ✓                                   |
 | Named account manager                                         |                              |                                       | ✓                                   |
-|JOIN services (Jumpstart Onboarding and INtegration)|                              | Available at minimum spend            | Available at minimum spend          | 
+|JOIN services (Jumpstart Onboarding and INtegration)|                              | Available at minimum spend            | ✓ | 
 
 If you want to estimate your costs ahead of the billing cycle, you can use the
 [pricing calculator](http://timescale.com/pricing/calculator).
