@@ -44,9 +44,11 @@ why we've revamped our plans:
 
 - **Scalability**: as your business grows, so do your demands. Tiered pricing plans scale with
   you, they provide the resources and support you need at each stage of your growth.
+
 - **Flexibility**: we know that one size doesn't fit all. Tiered pricing plans give you the
   flexibility to choose the features and support levels that best match your business
   and engineering requirements.
+
 - **Value**: by aligning our pricing with the value delivered, we ensure that you get the most
   out of every dollar spent. Our goal is to help you achieve more with less.
 
@@ -55,96 +57,177 @@ why we've revamped our plans:
 Tiered pricing plans are designed to give you the best value as your project moves 
 from initial development through to mission critical enterprise applications. 
 
-* **Compute**: pay the base rate for your plan, and only what you use. We even provide services 
-  that help you lower your compute needs and improve query performance at the same time.
-* **Storage**: use standard storage for your most-often used data, then use [tiered storage][data-tiering]
-  for low-cost, long-term storage. How you use each is up to you, but we can help you compress your data 
-  10x or more, so you pay even less.
-* **That’s it**: you don't pay for backups, or networking costs such as data ingest/egress. There are 
-  no per-query fees. Timescale pricing is completely transparent and up to you.
+* **Compute** 
 
-After you have completed your 30 day trial period on the Performance plan, choose the [Pricing plan][plan-features] 
-that suits your business and engineering needs. You easily upgrade or downgrade your plan whenever you need in 
-[Timescale Console][cloud-login]. You are billed monthly on the date you signed up. Any changes to your plan or 
-add-ons are reflected in your next billing cycle.
+   Pay only for the compute resources you run. Compute is metered on an hourly 
+   basis, and you can scale it up and down at any time. You an also scale out using replicas 
+  as your application grows. We even provide services to help you lower your compute needs 
+  while improving query performance.
 
-You keep track of your monthly usage in [Timescale Console][cloud-billing]. It provides detailed insights 
-into your current usage alerts you if you approach the limits for your plan. If you exceed plan limits, we don't 
-interrupt your service when you upgrade, you can keep working without any hassle.
+* **Storage** 
+
+   Pay only for the storage you consume. Storage is metered on your average GB 
+   consumption per hour; it grows and shrinks automatically with your data. You have 
+   high-performance storage for more-accessed data, and [tiered storage][data-tiering] 
+   for low-cost, bottomless storage. We can help you compress your data up to 10x or more 
+   so you pay even less.
+
+* **It’s that simple**
+
+   You don't pay for backups or networking costs, such as data ingest 
+   or egress.  There are no per-query fees, nor additional costs to read or write data.  
+   It's all completely transparent, easily understood, and up to you.
+
+  
+### Timescale Cloud free trial for the different tiers
+
+We offer new users a free, 30-day trial period of our Performance plan with no credit card required.  
+During your trial, you can contact sales@timescale.com to request information about, and access
+to, our Scale plan to determine how it fits your needs. Once you become a paying user, we can make 
+certain features of higher plans available to you for testing without upgrading your entire plan.
+
+After you have completed your 30 day trial period on the Performance plan, choose the 
+[Pricing plan][plan-features] that suits your business and engineering needs.
+
+### Upgrade or downgrade your plan at any time
+
+You can easily upgrade or downgrade or downgrade between the Performance and Scale plans 
+whenever you want using [Timescale Console][cloud-login]. If you switch your plan mid-month, 
+your prices are pro-rated to when you switch. Your services are not interrupted when you switch, 
+you can keep working without any hassle.
+
+### Monitor usage and costs
+
+You keep track of your monthly usage in [Timescale Console][cloud-billing]. Console shows your 
+resource usage and dashboards with performance insights. This allows you to closely monitor your 
+services’ performance, and any need to scale your services or upgrade your plan.
+
+Console also shows your month-to-date accrued charges, as well as a forecast of your expected 
+month-end bill. Your previous invoices are also available as PDFs for download.
+
+### Timescale support 
+
+Timescale runs a global support organization with Customer Satisfaction (CSAT) scores above 99%
+Support covers all timezones, and is fully staffed at weekend hours. 
+
+All plans have free Developer Support through email with a target response time of 1 business 
+day; we are often faster. If you need 24x7 responsiveness, talk to us about 
+[Production Support][production-support].
+
+### Don’t worry about storage or sizing
+
+Unlike Amazon RDS or self-managed infrastructure where you pre-provision your disk and pay for
+its allocation, Timescale charges by the actual storage used. As your data volume grows, at
+no additional cost within your plan’s range, Timescale Cloud autoscales the IOPS and storage
+bandwidth of your service to meet those needs.
+
+Timescale Cloud is very efficient and generally needs less compute than other databases to deliver
+the same performance. The best way to size your needs is to signup for a free trial and to test
+with a realistic workload.
+
+### Unlimited storage
+
+We make it easy for you to store unlimited amounts of data using Tiered Storage, which is
+comprised of a high-performance storage tier and a low-cost bottomless storage tier. You can
+keep up to 16 TB compressed (typically 80-100 TBs uncompressed) in the high-performance storage
+tier. and configure less-frequently accessed data to be moved to our low-cost storage tier
+built on S3.
+
+### Charging for HA and read replicas
+
+HA and read replicas are both charged at the same rate as your primary service, based on the 
+compute and primary storage consumed by your replicas.  Data tiered to our bottomless storage 
+tier is shared by all database replicas; replicas accessing tiered storage do not add to your 
+bill.
+
+### Charging over regions
+
+Storage is priced the same across all regions. However, compute prices vary depending on the 
+region. This is because our cloud provider (AWS) prices infrastructure differently based on region.
 
 ## Features included in each plan
 
 The available plans are:
 
-* **Performance**: for small to mid-sized businesses that need robust performance without the overhead
-  of managing large-scale infrastructure.
-* **Scale**: for larger businesses and apps that demand higher performance and scalability.
-* **Enterprise**: for enterprises with complex requirements and a need for dedicated support and compliance.
+* **Performance**: for cost-focused, smaller projects. No credit card required to start.
+* **Scale**: for developers handling critical and demanding apps.
+* **Enterprise**: for enterprises with mission-critical apps.
 
 The features included in each [plan][pricing-plans] are:
 
-|                                    | Performance   | Scale                                | Enterprise |
-|------------------------------------|---------------|--------------------------------------|-----------|
-| Compute and storage                |               |                                      |           |
-| Number of services	                | 4	            | Unlimited	                           |Unlimited|
-| CPU limit per service              | 	Up to 8 CPU	 | Up to 32 CPU	                        | Up to 32 CPU | 
-| Memory limit per service           | 	Up to 16 TB  | 	Up to 128 TB                        | 	Up to 128 TB | 
-| Storage limit per service	         | Up to 16 TB	  | Up to 16 TB	                         | Up to 16 TB | 
-| Tiered storage on S3	              |               | 	Unlimited	                          | Unlimited |
-| Storage and networking             |               |                                      |
-| IOPS (autoscales)                  | 	3k-5k	       | 5k-8k	                               | 5k-8k | 
-| Bandwidth (autoscales)	            | Up to 250 mbps | 	Up to 500 mbps                      | 	Up to 500 mbps | 
-| IO Boost	                          |               | 	Add-on: <br/>16K IOPS, 1000 Mbps BW	 | Add-on: <br/>16K IOPS, 1000 Mbps BW | 
-| Availability and monitoring        |   ||
-| High-availability replicas         |  ✓              |✓ |✓ |
-| Read replicas		                    |               |✓ |✓ |
-| Point-in-time recovery and forking | 	3 days       |14 days|14 days|
-| Insights                           | 24 hours      |24 hours|24 hours|
-| Metrics and log exporters	         |               |✓|✓|
-| Security and compliance            ||||
-| End-to-end encryption              |✓|✓|✓|
-| Private Networking (VPC)           | 1 multi-attach VPC	| Unlimited multi-attach VPCs| 	Unlimited multi-attach VPCs| 
-| Multi-factor authentication        |✓|✓|✓|
-| Federated authentication (SAML)			 |||✓|
-| SOC 2 Type 2 report		              ||✓|✓|
-| Penetration testing report         |||✓|			
-| Security questionnaire and review  |||✓|			
-| Pay by invoice                     |	Available at minimum spend	|Available at minimum spend|
-| [Commercial SLAs][commercial-sla]  |	Standard|	Standard|	Enterprise|
-| Support||||
-| Community support|✓|✓|✓|
-| Email support|✓|✓|✓|
-| Production support| 	Add-on| 	Add-on|✓|
-| Named account manager|||✓|
-
+| Feature                                                       | Performance   | Scale         | Enterprise    |
+|---------------------------------------------------------------|---------------|---------------|---------------|
+| **Compute and storage**                                       |               |               |               |
+| Number of services	                                           | Up to 4	      | Unlimited	    | Unlimited     |
+| CPU limit per service                                         | 	Up to 8 CPU	 | Up to 32 CPU	 | Up to 32 CPU  | 
+| Memory limit per service                                      | 	Up to 16 TB  | 	Up to 128 TB | 	Up to 128 TB | 
+| Storage limit per service	                                    | Up to 16 TB	  | Up to 16 TB	  | Up to 16 TB   | 
+| Tiered storage on S3	                                         |               | 	Unlimited	   | Unlimited     |
+| Independently scale compute and storage	                      | ✓             | 	✓	           | ✓             |
+| **Data Services and Workloads**                               |               |               |
+| Relational                                                    | ✓             | ✓             | ✓             | 
+| Time-series                                                   | ✓             | ✓             | ✓             |
+| Vector search                                                 | ✓             | ✓             | ✓             |
+| AI workflows (coming soon)                                    | ✓             | ✓             | ✓             |
+| Cloud SQL editor   (coming soon)                              | 3 seats       | 10 seats      | 10 seats      |
+| Charts                                                        | ✓             | ✓             |✓ |
+| Dashboards                                                    | 2             | Unlimited     | Unlimited |
+| Scheduled queries                                             | 2             | ✓             |✓ |
+| **Storage and performance**                                   |                              |              ||
+| IOPS (autoscales)                                             | 	3,000 - 5,000	                      | 5,000 - 8,000        | 5,000 - 8,000 | 
+| Bandwidth (autoscales)	                                       | 125 - 250 Mbps              | 	250 - 500 Mbps     | 	Up to 500 mbps | 
+| IO Boost	                                                     |                              | 	Add-on: <br/>16K IOPS, 1000 Mbps BW	 | Add-on: <br/>16K IOPS, 1000 Mbps BW | 
+| **Availability and monitoring**                               |                              |||
+| High-availability replicas <br/>(Automated multi-AZ failover) | ✓                            |✓ |✓ |
+| Read replicas		                                               |                              |✓ |✓ |
+| Point-in-time recovery and forking                            | 	3 days                      |14 days|14 days|
+| Performance insights                                          | ✓                     |✓|✓|
+| Metrics and log exporters	                                    |                              |✓|✓|
+| **Security and compliance**                                   |                              |||
+| End-to-end encryption                                         | ✓                            |✓|✓|
+| Private Networking (VPC)                                      | 1 multi-attach VPC	          | Unlimited multi-attach VPCs| 	Unlimited multi-attach VPCs| 
+| Multi-factor authentication                                   | ✓                            |✓|✓|
+| Federated authentication (SAML)			                            |                              ||✓|
+| SOC 2 Type 2 report		                                         |                              |✓|✓|
+| Penetration testing report                                    |                              ||✓|			
+| Security questionnaire and review                             |                              ||✓|			
+| Pay by invoice                                                | 	Available at minimum spend	 |Available at minimum spend|
+| [Uptime SLAs][commercial-sla]                                 | 	Standard                    |	Standard|	Enterprise|
+| **Support and technical services**                            |                              |||
+| Community support                                             | ✓                            |✓|✓|
+| Email support                                                 | ✓                            |✓|✓|
+| Production support                                            | 	Add-on                      | 	Add-on|✓|
+| Named account manager                                         |                              ||✓|
+|JOIN services (Jumpstart Onboarding and INtegration)||Available at minimum spend|Available at minimum spend| 
 
 If you want to estimate your costs ahead of the billing cycle, you can use the
 [pricing calculator](http://timescale.com/pricing/calculator).
 However, the pricing calculator does not include volume discounts. For a
 personalized quote, [get in touch with Timescale](https://www.timescale.com/contact).
 
-## Optimize storage and reduce data costs
 
-<UsageBasedStorage />
+## Example billing calculation
 
-You do not need to allocate extra disk space for backfilling or migrating your
-data. Usage-based storage means that disk allocation is not an issue in
-Timescale Cloud. For example, if your recently migrated database requires less disk
-space after compression, you do not need to downscale your volume. The reduction
-in your storage bill proportionally matches the reduction in your disk usage.
+You are billed at the end of each month in arrears, based on your actual usage that month.  
+Your monthly invoice includes an itemized cost accounting for each Timescale Cloud service and 
+any additional charges.
 
-Disk usage is metered in 15 minute intervals over an hour to build an average
-value of hourly data stored. Bills are calculated on a 730 hour month.
+Timescale Cloud charges are based on consumption: 
 
-You are charged for only the storage you have used, using the following formula:
+- **Compute**: metered on an hourly basis, and you can scale it up and down at any time.  
+- **Storage**: metered based on your average GB consumption per hour. Storage grows and shrinks automatically 
+  with your data.
 
-```txt
-Storage used in GiB * (seconds stored / 3600) * price per hour
-```
+For example, over the last month your Timescale Cloud service has been running for 500 hours total:
+  - 375 hours with 2 CPU 
+  - 125 hours 4 CPU 
+   
+**Compute cost** = (`375` x `hourly price for 2 CPU`) + (`125` * `hourly price for 4 CPU`)  
+ 
+Your monthly price for storage is computed similarly. Some add-on features such as VPC peering, 
+HA replicas, IO Boost, Tiered Storage and Production Support may incur additional charges.
 
-
-
-## Manage your Timescale account
+## Manage your Timescale plan
 
 You handle all details about your Timescale project including updates to your pricing plan, 
 payment methods, and add-ons in the [billing section in Timescale Console][cloud-billing]:
@@ -176,3 +259,4 @@ alt="Adding a payment method in Timescale"/>
 [commercial-sla]: https://www.timescale.com/legal/timescale-cloud-terms-of-service
 [pricing-plans]: https://www.timescale.com/pricing
 [plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-plan
+[production-support]: https://www.timescale.com/support
