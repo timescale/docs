@@ -33,7 +33,7 @@ For more information, see the documentation about
 
 Continuous aggregates supports the following JOINS.  
 
-| Feature | PostgreSQL | TimescaleDB | 
+| Feature | TimescaleDB < 2.10.x | TimescaleDB <= 2.15.x | TimescaleDB >= 2.16.x| 
 |---------|------------|-------------|
 |         |            |             |
 |         |            |             | 
