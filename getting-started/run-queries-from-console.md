@@ -4,9 +4,44 @@ excerpt: Use PopSQL to run SQL queries, create charts and dashboards, and collab
 keywords: [popsql, sql editor, chart, dashboard]
 ---
 
-# PopSQL
+# Run queries from Timescale Console
 
-You use Timescale's [PopSQL](https://popsql.com) editor to write queries, visualize data, and share your results. 
+As Timescale Cloud is based on PostgreSQL, you can use lots of [different tools][integrations] to 
+connect to your service and interact with your data. To securely manage your date from inside 
+Console, Timescale offers the following UIs:
+
+- [SQL editor][run-sqleditor]: a simple UI to run queries for each individual service.
+- [PopSQL][run-popsql]: a comprehensive UI that you use to write queries, visualize data, 
+   and share your results.
+
+
+## SQL editor
+
+SQL editor is an integrated secure UI that you use to run queries and see the results 
+for an Timescale Cloud service.
+
+![Screenshot of SQL editor](https://assets.timescale.com/docs/images/sqleditor.png)
+
+### Run queries from Console with SQL editor
+
+<Procedure>
+
+To use SQL editor with Timescale:
+
+1.  **Open SQL editor from Timescale Console**
+
+    1. Log in to [Timescale Console][timescale-console], then select a service.
+    1. Click SQL editor.
+
+4. **Run a test query**
+
+    Type your query in the UI, then click `Run`. The results appear in the lower window. 
+
+</Procedure>
+
+## PopSQL
+
+You use [PopSQL](https://popsql.com) to write queries, visualize data, and share your results. 
 
 ![Screenshot of PopSQL](https://assets.timescale.com/docs/images/popsql_product_screenshot.png)
 
@@ -30,15 +65,14 @@ Available features are:
 - **[Query variables](https://docs.popsql.com/docs/query-variables)**: Use Liquid to
   parameterize your queries or use `if` statements.
 
+### Connect to your Timescale Cloud service with PopSQL 
 <Procedure>
-
-## Get started
 
 To use PopSQL with Timescale:
 
 1.  **Open PopSQL from Timescale Console**
 
-    Log in to [Timescale Console](https://console.cloud.timescale.com/), then click `PopSQL`. 
+    Log in to [Timescale Console][timescale-console], then click `PopSQL`. 
   
     ![PopSQL button within Timescale
     Console](https://assets.timescale.com/docs/images/popsql_button_in_console.png)
@@ -85,9 +119,9 @@ Now you have set up PopSQL, see how to easily do the following:
 
 
 
-## FAQ
+### FAQ
 
-### How do I access PopSQL?
+#### How do I access PopSQL?
 
 Either:
 
@@ -104,7 +138,7 @@ Either:
   This resyncs your Timescale project with your PopSQL organization. Any new services are added automatically.
 
 
-### What if my service is within a VPC?
+#### What if my service is within a VPC?
 
 If your Timescale Service runs inside a VPC, do one of the following to enable access for PopSQL:
 
@@ -113,14 +147,14 @@ If your Timescale Service runs inside a VPC, do one of the following to enable a
   - When you configure the connection in PopSQL, under `Advanced Options`, enable `Connect over SSH`
 - Add PopSQL's static IPs (`23.20.131.72, 54.211.234.135`) to your allowlist
 
-### What happens if another member of my Timescale project opens PopSQL?
+#### What happens if another member of my Timescale project opens PopSQL?
 
 A PopSQL user account is created for the Timescale project member. This 
 user is automatically added to your PopSQL organization. Unless you 
 [share the connection within PopSQL](https://docs.popsql.com/docs/shared-connections), this 
 new user must input their own credentials for each service/connection.
 
-### Will using PopSQL affect the performance of my Timescale service?
+#### Will using PopSQL affect the performance of my Timescale service?
 
 There are a few factors to consider:
 
@@ -138,7 +172,7 @@ If you'd like to prevent write operations such as insert or update. Instead
 of using the `tsdbadmin` superuser, create a read-only user for your service and
 use that within PopSQL.
 
-### How does pricing work?
+#### How does pricing work?
 
 Timescale customers get PopSQL Business for free for up to 10 users. To add more than 10 seats to your account, [Contact us](https://www.timescale.com/contact) for further assistance.  
 
@@ -146,3 +180,7 @@ PopSQL has a free plan available to everyone, as well as paid plans. See  [PopSQ
 
 
 [readreplica]: /use-timescale/:currentVersion:/ha-replicas/read-scaling/
+[run-popsql]: /getting-started/:currentVersion:/run-queries-from-console/#popsql
+[run-sqleditor]: /getting-started/:currentVersion:/run-queries-from-console/#sql-editor
+[integrations]: /use-timescale/:currentVersion:/integrations/query-admin/
+[timescale-console]: https://console.cloud.timescale.com/

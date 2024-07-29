@@ -6,9 +6,6 @@ layout_components: [next_prev_large]
 content_group: Getting started
 ---
 
-import Install from "versionContent/_partials/_cloud-installation.mdx";
-import CreateService from "versionContent/_partials/_cloud-create-service.mdx";
-import Connect from "versionContent/_partials/_cloud-connect.mdx";
 import CloudIntro from "versionContent/_partials/_cloud-intro.mdx";
 import TimescaleIntro from "versionContent/_partials/_timescale-intro.mdx";
 import WhereNext from "versionContent/_partials/_where-to-next.mdx";

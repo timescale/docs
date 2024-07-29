@@ -36,4 +36,4 @@ and extend what you can do with your data.
 [telegraf]: /use-timescale/:currentVersion:/integrations/data-ingest/telegraf/
 [tableau]: /use-timescale/:currentVersion:/integrations/observability-alerting/tableau/
 [terraform]: /use-timescale/:currentVersion:/integrations/config-deploy/terraform/
-[popsql]: /use-timescale/:currentVersion:/popsql/
+[popsql]: /getting-started/:currentVersion:/run-queries-from-console/#popsql

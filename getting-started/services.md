@@ -21,15 +21,13 @@ Timescale offers the following PostgreSQL service types:
 - **All other workloads**: a [Dynamic PostgreSQL](https://www.timescale.com/dynamic-postgresql) instance with a Dynamic Compute range aligned to your business needs. For this Early Access product, you only pay the base. If your workload demands it, we dynamically scale CPU use between your min and max limits.
   
 
-
-
 This section shows you how to create a Timescale service using Timescale Console, then connect to your service using PopSQL or the command line.
 
 <Install />
 
 <Procedure>
 
-### Create a Timescale service
+## Create a Timescale service
 
 Now that you have an active Timescale account, you can create and manage your services in Timescale Console:
 
@@ -58,4 +56,4 @@ And that is it, you are up and running. Enjoy developing with Timescale.
 [install-psql]: /use-timescale/:currentVersion:/integrations/query-admin/psql/
 [connect-to-your-service]: /getting-started/:currentVersion:/services/#check-your-service-and-connect-to-it
 [create-service]: https://console.cloud.timescale.com/dashboard/create_services
-[popsql]: /use-timescale/:currentVersion:/popsql/
+[popsql]: /getting-started/:currentVersion:/run-queries-from-console/#popsql
