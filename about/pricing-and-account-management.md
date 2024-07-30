@@ -223,7 +223,7 @@ alt="Adding a payment method in Timescale"/>
   [contact Timescale](https://www.timescale.com/contact/) and ask to change to corporate billing.
 
 - **Details**: the list of your downloadable Timescale invoices.
-- **Emails**: the addresses Timescale uses to communicate with you. Pyment 
+- **Emails**: the addresses Timescale uses to communicate with you. Payment 
   confirmations and alerts are sent to the email address you signed up with.
   Add another address to send details to other departments in your organization. 
 
