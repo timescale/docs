@@ -44,26 +44,20 @@ Timescale account.
 Tiered pricing plans are designed to give you the best value as your project moves 
 from initial development through to mission critical enterprise applications. 
 
-* **Compute** 
-
-   Pay only for the compute resources you run. Compute is metered on an hourly 
+* **Compute**: pay only for the compute resources you run. Compute is metered on an hourly 
    basis, and you can scale it up and down at any time. You an also scale out using replicas 
   as your application grows. We even provide services to help you lower your compute needs 
   while improving query performance.
 
-* **Storage** 
-
-   Pay only for the storage you consume. Storage is metered on your average GB 
+* **Storage**: pay only for the storage you consume. Storage is metered on your average GB 
    consumption per hour; it grows and shrinks automatically with your data. You have 
    high-performance storage for more-accessed data, and [tiered storage][data-tiering] 
    for low-cost, bottomless storage. We can help you compress your data up to 10x or more 
    so you pay even less.
 
-* **It’s that simple**
-
-   You don't pay for backups or networking costs, such as data ingest 
-   or egress.  There are no per-query fees, nor additional costs to read or write data.  
-   It's all completely transparent, easily understood, and up to you.
+* **It’s that simple**: you don't pay for backups or networking costs, such as data ingest 
+   or egress.  There are no per-query fees, nor additional costs to read or write data. It's all completely 
+   transparent, easily understood, and up to you.
 
   
 ### Timescale Cloud free trial for the different tiers
@@ -81,7 +75,7 @@ After you have completed your 30 day trial period on the Performance plan, choos
 You can easily upgrade or downgrade or downgrade between the Performance and Scale plans 
 whenever you want using [Timescale Console][cloud-login]. If you switch your plan mid-month, 
 your prices are pro-rated to when you switch. Your services are not interrupted when you switch, 
-you can keep working without any hassle.
+you can keep working without any hassle. To move to Enterprise, [get in touch with Timescale][get-in-touch].
 
 ### Monitor usage and costs
 
@@ -94,7 +88,7 @@ month-end bill. Your previous invoices are also available as PDFs for download.
 
 ### Timescale support 
 
-Timescale runs a global support organization with Customer Satisfaction (CSAT) scores above 99%
+Timescale runs a global support organization with Customer Satisfaction (CSAT) scores above 99%.
 Support covers all timezones, and is fully staffed at weekend hours. 
 
 All plans have free Developer Support through email with a target response time of 1 business 
@@ -108,15 +102,14 @@ its allocation, Timescale charges by the actual storage used. As your data volum
 no additional cost within your plan’s range, Timescale Cloud autoscales the IOPS and storage
 bandwidth of your service to meet those needs.
 
+We make it easy for you to store unlimited amounts of data using Tiered Storage; a high-performance
+storage tier and a low-cost bottomless storage tier. You can keep up to 16 TB compressed
+(typically 80-100 TBs uncompressed) in the high-performance storage tier, and configure less-frequently
+accessed data to be moved to our low-cost storage tier built on S3.
+
 Timescale Cloud is very efficient and generally needs less compute than other databases to deliver
 the same performance. The best way to size your needs is to signup for a free trial and to test
 with a realistic workload.
-
-We make it easy for you to store unlimited amounts of data using Tiered Storage, which is
-comprised of a high-performance storage tier and a low-cost bottomless storage tier. You can
-keep up to 16 TB compressed (typically 80-100 TBs uncompressed) in the high-performance storage
-tier. and configure less-frequently accessed data to be moved to our low-cost storage tier
-built on S3.
 
 ### Charging for HA and read replicas
 
@@ -186,7 +179,7 @@ The features included in each [plan][pricing-plans] are:
 
 If you want to estimate your costs ahead of the billing cycle, you can use the
 [pricing calculator](http://timescale.com/pricing/calculator).
-However, the pricing calculator does not include volume discounts. For a personalized quote, [get in touch with Timescale](https://www.timescale.com/contact).
+However, the pricing calculator does not include volume discounts. For a personalized quote, [get in touch with Timescale][get-in-touch].
 
 
 ## Example billing calculation
@@ -197,18 +190,24 @@ any additional charges.
 
 Timescale Cloud charges are based on consumption: 
 
-- **Compute**: metered on an hourly basis, and you can scale it up and down at any time.  
+- **Compute**: metered on an hourly basis. You can scale compute up and down at any time.  
 - **Storage**: metered based on your average GB consumption per hour. Storage grows and shrinks automatically 
   with your data.
 
-For example, over the last month your Timescale Cloud service has been running for 500 hours total:
+
+Your monthly price for compute and storage is computed similarly. For example, over the last month your 
+Timescale Cloud service has been running Compute for 500 hours total:
   - 375 hours with 2 CPU 
   - 125 hours 4 CPU 
    
 **Compute cost** = (`375` x `hourly price for 2 CPU`) + (`125` * `hourly price for 4 CPU`)  
  
-Your monthly price for storage is computed similarly. Some add-on features such as VPC peering, 
-HA replicas, IO Boost, Tiered Storage and Production Support may incur additional charges.
+Some add-ons such as Elastic storage, Tiered storage  and Connection pooling may incur 
+additional charges. These charges are clearly marked in your billing snapshot: 
+
+<img class="main-content__illustration"
+src="https://assets.timescale.com/docs/images/billing-snapshot.png"
+alt="Adding a payment method in Timescale"/>
 
 ## Manage your Timescale plan
 
@@ -219,19 +218,17 @@ payment methods, and add-ons in the [billing section in Timescale Console][cloud
 src="https://assets.timescale.com/docs/images/timescale-console-billing.png"
 alt="Adding a payment method in Timescale"/>
 
-- **Details**: an overview of your plan, usage and payment details.
-
-  You can add up to three credit cards to your `Wallet`. If you prefer to pay by invoice, 
-  [contact Timescale](https://www.timescale.com/contact/) and ask to change to corporate 
-  billing.
+- **Details**: an overview of your plan, usage and payment details. You can add up 
+  to three credit cards to your `Wallet`. If you prefer to pay by invoice, 
+  [contact Timescale](https://www.timescale.com/contact/) and ask to change to corporate billing.
 
 - **Details**: the list of your downloadable Timescale invoices.
-- **Emails**: the addresses Timescale uses to communicate with you,
-
-  Payment confirmations and alerts are sent to the email address you signed up with.
+- **Emails**: the addresses Timescale uses to communicate with you. Pyment 
+  confirmations and alerts are sent to the email address you signed up with.
   Add another address to send details to other departments in your organization. 
 
-- **Plans**: choose the [features][plan-features] that suit your business and engineering needs.
+- **Plans**: choose the plan supplying the [features][plan-features] that suit your business and
+  engineering needs.
 
 - **Add-ons**: add top-tier support and improved database performance for mission critical workloads.  
 
@@ -243,3 +240,4 @@ alt="Adding a payment method in Timescale"/>
 [pricing-plans]: https://www.timescale.com/pricing
 [plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-plan
 [production-support]: https://www.timescale.com/support
+[get-in-touch]: https://www.timescale.com/contact
