@@ -205,9 +205,6 @@ Timescale Cloud service has been running Compute for 500 hours total:
 Some add-ons such as Elastic storage, Tiered storage  and Connection pooling may incur 
 additional charges. These charges are clearly marked in your billing snapshot: 
 
-<img class="main-content__illustration"
-src="https://assets.timescale.com/docs/images/billing-snapshot.png"
-alt="Adding a payment method in Timescale"/>
 
 ## Manage your Timescale plan
 
