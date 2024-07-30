@@ -1,27 +1,20 @@
 import EnableReplication from "versionContent/_partials/_migrate_live_setup_enable_replication.mdx";
 
-**IAIN**: I can't see how to do this in MST.
+1. **Check your database is correctly tuned for migration**
 
-1. **Open MST Portal**
+   These are the default values for MST. 
+ 
+   - Prevent PostgreSQL from treating the data in a snapshot as outdated:
 
-   In the [Managed Service for TimescaleDB Portal][mst-portal], update the following parameters for
-   the database you want to migrate:
+    ```sh
+    psql -X -d $SOURCE -c 'alter system set old_snapshot_threshold=-1'
+    ```
+
+   - Set the write-Ahead Log (WAL) to record the information needed for logical decoding:
    
-   <img class="main-content__illustration"
-   src="https://assets.timescale.com/docs/images/mts-portal-configure.png"
-   alt="MST configuration" />
-
-   - Prevent PostgreSQL from treating the data in a snapshot as outdated
      ```shell
-     old_snapshot_threshold=-1
+     psql -X -d $SOURCE -c 'alter system set wal_level=logical'
      ```
-
-   - Set the write-Ahead Log (WAL) to record the information needed for logical decoding
-     ```shell
-     wal_level=logical
-     ```
-     If this command throws an error, [install wal2json](https://github.com/eulerto/wal2json) on
-     your source database. 
 
 1. **Restart the source database**
 

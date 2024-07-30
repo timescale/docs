@@ -1,4 +1,4 @@
-1. **Pull the live-migration docker image to you migration machine**
+2. **Pull the live-migration docker image to you migration machine**
 
    ```shell
    sudo docker pull timescale/live-migration
@@ -11,8 +11,7 @@
    ```shell
    sudo docker run --rm -it -e PGCOPYDB_SOURCE_PGURI=$SOURCE  timescale/live-migration migrate --help
    ```
-
-   
+ 
 1. **Create a snapshot image of your source database in your Timescale Cloud service**
 
    This process checks that you have tuned your source database and target service correctly for replication, 
@@ -51,11 +50,7 @@
        -v ~/live-migration:/opt/timescale/ts_cdc \
        timescale/live-migration:v0.0.20 migrate
    ```
- 
-   After migrating the schema, live-migration prompts you to create hypertables for tables that 
-   contain time-series data in your Timescale Cloud service. Run `create_hypertable()` to convert these
-   table. For more information, see the [Hypertable docs][Hypertable docs].   
-
+   
    During this process, you see the migration process:
 
    ```shell

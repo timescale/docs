@@ -10,9 +10,12 @@ import SourceTargetNote from "versionContent/_partials/_migrate_source_target_no
 import OpenSupportRequest from "versionContent/_partials/_migrate_open_support_request.mdx"
 import DoNotRecommendForLargeMigration from "versionContent/_partials/_migrate_pg_dump_do_not_recommend_for_large_migration.mdx";
 import MigrateSetupEnvironment from "versionContent/_partials/_migrate_live_setup_environment.mdx";
+import MigrateSetupEnvironmentPostgres from "versionContent/_partials/_migrate_live_setup_environment_postgres.mdx";
 import MigrateSetupEnvironmentMST from "versionContent/_partials/_migrate_live_setup_environment_mst.mdx";
 import MigrateSetupEnvironmentAWSRDS from "versionContent/_partials/_migrate_live_setup_environment_awsrds.mdx";
 import MigrateDataToCloud from "versionContent/_partials/_migrate_live_migrate_data.mdx";
+import MigrateDataToCloudTimescaleDB from "versionContent/_partials/_migrate_live_migrate_data_timescaledb.mdx";
+import ValidateDataInCloud from "versionContent/_partials/_migrate_live_validate_data.mdx";
 import MigrateAWSRDSConnectIntermediary from "versionContent/_partials/_migrate_awsrds_connect_intermediary.mdx";
 
 # Live migration
@@ -67,7 +70,9 @@ using live-migration from Terminal.
 
 <MigrateSetupEnvironment />
 
-<MigrateDataToCloud />
+<MigrateDataToCloudTimescaleDB />
+
+<ValidateDataInCloud />
 
 </Tab>
 <Tab title="From PostgreSQL">
@@ -75,9 +80,11 @@ using live-migration from Terminal.
 This section shows you how to move your data from self-hosted PostgreSQL to a Timescale Cloud service using 
 live-migration from Terminal.
 
-<MigrateSetupEnvironment />
+<MigrateSetupEnvironmentPostgres />
 
 <MigrateDataToCloud />
+
+<ValidateDataInCloud />
 
 </Tab>
 <Tab title="From AWS RDS">
@@ -101,6 +108,8 @@ using live-migration.
 
 <MigrateDataToCloud />
 
+<ValidateDataInCloud />
+
 </Tab>
 
 <Tab title="From MST">
@@ -110,7 +119,9 @@ Timescale Cloud service using live-migration from Terminal.
 
 <MigrateSetupEnvironmentMST />
 
-<MigrateDataToCloud />
+<MigrateDataToCloudTimescaleDB />
+
+<ValidateDataInCloud />
 
 </Tab>
 </Tabs>
