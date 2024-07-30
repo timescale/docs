@@ -26,7 +26,7 @@
        timescale/live-migration:v0.0.20 snapshot
    ```
 
-   If best practice is to make changes to the source and target, live-migration supplies information. For example:   
+   Live-migration supplies information about updates you need to make to the source database and target service. For example:   
 
    ```shell
    2024-03-25T12:40:40.884 WARNING: The following tables in the Source DB have neither a primary key nor a REPLICA IDENTITY (FULL/INDEX)
@@ -57,7 +57,7 @@
    Live-replay will complete in 1 minute 38.631 seconds (source_wal_rate: 106.0B/s, target_replay_rate: 589.0KiB/s, replay_lag: 56MiB)
    ```
 
-   If `migrate` stops add `--resume` and restart the command. 
+   If `migrate` stops add `--resume` to start from where it left off. 
 
    Once the data in your target Timescale Cloud service has almost caught up with the source database, 
    you see the following message:
