@@ -19,8 +19,8 @@ a managed service, follow the instructions in the `From MST` tab on this page.
 1. **Tune system messaging**
    ```shell
    psql -X -d $SOURCE -c 'alter system set tcp_keepalives_count=60'
-   psql -X -d $SOURCE -c 'alter system set tcp_keepalives_idle=10 tcp_'
-   psql -X -d $SOURCE -c 'alter system set keepalives_interval=10'
+   psql -X -d $SOURCE -c 'alter system set tcp_keepalives_idle=10'
+   psql -X -d $SOURCE -c 'alter system set tcp_keepalives_interval=10'
    psql -X -d $SOURCE -c 'alter system set wal_sender_timeout=30m'
    ```
    
