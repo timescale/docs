@@ -1,3 +1,5 @@
+import MigrationSetupDBConnectionPostgresql from "versionContent/_partials/_migrate_set_up_align_db_extensions_postgres_based.mdx";
+
 ## Prepare to migrate
 <Procedure>
 
@@ -24,6 +26,13 @@
    ```
    You find the connection information for `SOURCE` in your RDS configuration. For `TARGET` in the configuration file you
    downloaded when you created the Timescale Cloud service.
+
+</Procedure>
+
+## Align the extensions on the source and target
+<Procedure>
+
+<MigrationSetupDBConnectionPostgresql />
 
 </Procedure>
 

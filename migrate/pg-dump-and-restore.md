@@ -43,8 +43,11 @@ shell commands.
 
 <MigrationPrerequisites />
 
-- Install the PostgreSQL client tools on the machine you perform the migration from. This includes 
-  `psql`, `pg_dump`, and `pg_dumpall`.
+
+- Install the PostgreSQL client tools on your migration machine. 
+
+  This includes `psql`, `pg_dump`, and `pg_dumpall`. 
+
 - Install the GNU implementation of `sed`.
 
   Run `sed --version` on your migration machine. GNU sed identifies itself 

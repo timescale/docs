@@ -1,8 +1,7 @@
 
-Best practice is to run the migration commands from a machine with a low-latency, 
-high-throughput link to the source database and the target Timescale Cloud service. 
-If you are using an AWS EC2 Ubuntu instance, ensure it is in the same region as your 
-target service.
+Best practice is to use an [Ubuntu EC2 instance][create-ec2-instance] hosted in the same region as your
+Timescale Cloud service as a migration machine. That is, the machine you run the commands on to move your 
+data from your source database to your target Timescale Cloud service. 
 
 Before you migrate your data:
 
@@ -20,3 +19,4 @@ Before you migrate your data:
 [no-superuser-for-timescale-instance]: /migrate/:currentVersion:/troubleshooting/#superuser-privileges
 [upgrade instructions]: /self-hosted/:currentVersion:/upgrades/about-upgrades/
 [pg_hbaconf]: https://www.timescale.com/blog/5-common-connection-errors-in-postgresql-and-how-to-solve-them/#no-pg_hbaconf-entry-for-host
+[create-ec2-instance]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html#ec2-launch-instance

@@ -51,10 +51,10 @@ the live-migration Docker image.
 
 - [Install Docker][install-docker] on your migration machine.
 
-  This machine needs sufficient space to store the buffered changes that occur 
-  while your data is being copied. This space is proportional to the amount 
-  of new uncompressed data being written to the Timescale Cloud service during migration. 
-  A general rule of thumb is between 100GB and 500GB.
+  This machine needs sufficient space to store the buffered changes that occur while your data is 
+  being copied. This space is proportional to the amount of new uncompressed data being written to 
+  the Timescale Cloud service during migration. A general rule of thumb is between 100GB and 500GB.
+
 - Before starting live-migration, read the [Frequently Asked Questions][FAQ].
 
 ### Migrate to Timescale Cloud

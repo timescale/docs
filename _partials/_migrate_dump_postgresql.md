@@ -10,7 +10,7 @@ import MigrationValidateRestartApp from "versionContent/_partials/_migrate_valid
 
 </Procedure>
 
-## Align the source and target database versions and extensions
+## Align the extensions on the source and target
 <Procedure>
 
 <MigrationSetupDBConnectionPostgresql />
