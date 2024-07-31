@@ -23,13 +23,13 @@ Tiered pricing plans give you:
 * **Enhanced performance**: with increased CPU and storage capacities, your apps run smoother and more
   efficiently, even under heavy loads.
 * **Improved scalability**: as your business grows, so do your demands. Tiered pricing plans scale with
-  you, they provide the resources and support you need at each stage of your growth. scale up or down 
+  you, they provide the resources and support you need at each stage of your growth. Scale up or down 
   based on your current needs, ensuring that you only pay for what you use.
 * **Better support**: access to enhanced support options, including production support and dedicated
   account management, ensures you have the help you need when you need it.
 * **Greater flexibility**: we know that one size doesn't fit all. Tiered pricing plans give you the
   flexibility to choose the features and support levels that best match your business
-  and engineering requirements. The ability to add features like IO Boost and customize your plan means you
+  and engineering requirements. The ability to add features like IO Boost, and customize your plan means you
   can tailor Timescale services to fit your specific needs.
 * **Cost efficiency**: by aligning our pricing with the value delivered, we ensure that you get the most
   out of every dollar spent. Our goal is to help you achieve more with less.
@@ -184,9 +184,8 @@ However, the pricing calculator does not include volume discounts. For a persona
 
 ## Example billing calculation
 
-You are billed at the end of each month in arrears, based on your actual usage that month.  
-Your monthly invoice includes an itemized cost accounting for each Timescale Cloud service and 
-any additional charges.
+You are billed at the end of each month in arrears, based on your actual usage that month. Your monthly invoice 
+includes an itemized cost accounting for each Timescale Cloud service and any additional charges.
 
 Timescale Cloud charges are based on consumption: 
 
@@ -203,7 +202,7 @@ Timescale Cloud service has been running Compute for 500 hours total:
 **Compute cost** = (`375` x `hourly price for 2 CPU`) + (`125` x `hourly price for 4 CPU`)  
  
 Some add-ons such as Elastic storage, Tiered storage  and Connection pooling may incur 
-additional charges. These charges are clearly marked in your billing snapshot: 
+additional charges. These charges are clearly marked in your billing snapshot in Timescale Console.
 
 
 ## Manage your Timescale plan
@@ -219,7 +218,7 @@ alt="Adding a payment method in Timescale"/>
   to three credit cards to your `Wallet`. If you prefer to pay by invoice, 
   [contact Timescale](https://www.timescale.com/contact/) and ask to change to corporate billing.
 
-- **Details**: the list of your downloadable Timescale invoices.
+- **History**: the list of your downloadable Timescale invoices.
 - **Emails**: the addresses Timescale uses to communicate with you. Payment 
   confirmations and alerts are sent to the email address you signed up with.
   Add another address to send details to other departments in your organization. 
