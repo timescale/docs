@@ -1,15 +1,15 @@
 1. **Pull the live-migration docker image to you migration machine**
 
    ```shell
-   sudo docker pull timescale/live-migration
+   sudo docker pull timescale/live-migration:latest
    ```
    To list the available commands, run:
    ```shell
-   sudo docker run --rm -it -e PGCOPYDB_SOURCE_PGURI=$SOURCE  timescale/live-migration --help
+   sudo docker run --rm -it -e PGCOPYDB_SOURCE_PGURI=$SOURCE  timescale/live-migration:latest --help
    ```
    To see the available flags for each command, run `--help` for that command. For example:
    ```shell
-   sudo docker run --rm -it -e PGCOPYDB_SOURCE_PGURI=$SOURCE  timescale/live-migration migrate --help
+   sudo docker run --rm -it -e PGCOPYDB_SOURCE_PGURI=$SOURCE  timescale/live-migration:latest migrate --help
    ```
 
    
@@ -24,7 +24,7 @@
        -e PGCOPYDB_TARGET_PGURI=$TARGET \
        --pid=host \
        -v ~/live-migration:/opt/timescale/ts_cdc \
-       timescale/live-migration:v0.0.20 snapshot
+       timescale/live-migration:latest snapshot
    ```
 
    Live-migration supplies information about updates you need to make to the source database and target service. For example:   
@@ -49,7 +49,7 @@
        -e PGCOPYDB_TARGET_PGURI=$TARGET \
        --pid=host \
        -v ~/live-migration:/opt/timescale/ts_cdc \
-       timescale/live-migration:v0.0.20 migrate
+       timescale/live-migration:latest migrate
    ```
  
    After migrating the schema, live-migration prompts you to create hypertables for tables that 

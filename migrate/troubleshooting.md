@@ -128,25 +128,6 @@ replication, but this feature is expected to be added in future releases.
 However, a workaround is available for skipping table data using the `--skip-table-data` flag.
 For more information, please refer to the help text under the `migrate` subcommand.
 
-
-## "target_replay_rate" is 0B/s even after waiting for several minutes
-
-This is a known issue with live migration. In some cases, live migration may log the
-following progress information.
-
-```sh
-WARNING: live-replay not keeping up with source load (source_wal_rate: 2.0MiB/s, target_replay_rate: 0B/s, replay_lag: 288MiB)
-```
-
-This means that live migration is not replicating changes to the target, causing the
-replay lag to keep increasing. If you see the `target_replay_rate` at `0B/s` for more
-than 10 minutes, a workaround is to stop the live migration using `CTRL + C` and
-resume it using the resume flag: `./live-migration migrate --resume`.
-This will restart the `migrate` process from where it left, and the `target_replay_rate` should no
-longer be `0B/s`. If the issue persists, please reach out to the Timescale migration team
-or share it in the `#migration` channel on Timescale community Slack.
-
-
 ## Large migrations blocked
 
 Timescale's platform automatically manages the underlying disk volume. Due to

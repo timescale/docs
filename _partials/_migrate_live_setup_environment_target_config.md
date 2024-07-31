@@ -12,11 +12,14 @@
    2. Hover the mouse over the value column, click the pencil icon, then change the value. 
 
       By default, for each table, Live-migration consumes 10 connections to the source database and 20 
-      connections to your target Timescale Cloud service. Update `max_connections` to handle at least
-      `20 * <number of tables to migrate>`. Alternatively, use the `--table-jobs` and `--index-jobs`
-      flags to reduce the number of connection when you 
-      [run the migrate command](#migrate-your-data-then-start-downtime). The default value for both 
-      parameters is 8.
+      connections to your target Timescale Cloud service. 
+
+      - Source: `2` + (value of `--table-jobs`). The default value is `10`
+      - Target: `4` + (`2` * (value of `--table-jobs`)) + (value of `--index-jobs`). The default value is `20`. 
+      
+      Either update `max_connections` to handle at least `20 * <number of tables to migrate>` or set the 
+      `--table-jobs` and `--index-jobs` flags to reduce the number of connection when you  
+      [run the migrate command](#migrate-your-data-then-start-downtime). 
 
    3. Click outside the row, then click `Apply changes and restart`.
    

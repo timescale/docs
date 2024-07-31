@@ -20,5 +20,5 @@
        -e PGCOPYDB_TARGET_PGURI=$TARGET \
        --pid=host \
        -v ~/live-migration:/opt/timescale/ts_cdc \
-       timescale/live-migration clean --prune
+       timescale/live-migration:latest clean --prune
    ```
