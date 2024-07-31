@@ -394,6 +394,11 @@ const redirector = new ThreeOhOneRedirector({
 		"https://docs.timescale.com/ai/latest/pgvectorizer"
 	)
 	.add(
+		"/self-hosted/latest/multinode-timescaledb/",
+		"https://docs.timescale.com/about/latest/release-notes/#removal-notice-multi-node-support"
+	)
+
+	.add(
 		"/ai/latest/concepts",
 		"https://docs.timescale.com/ai/latest/key-vector-database-concepts-for-understanding-pgvector/"
 	)
