@@ -598,7 +598,7 @@ const redirector = new ThreeOhOneRedirector({
 	})
 	.add(
 		"/cloud/latest/account-management",
-		"https://docs.timescale.com/use-timescale/latest/billing/"
+		"https://docs.timescale.com/about/latest/pricing-and-account-management/"
 	)
 	.add(
 		"/cloud/latest/backup-restore-cloud.md/",
@@ -668,6 +668,10 @@ const redirector = new ThreeOhOneRedirector({
 	.add(
 		"/cloud/latest/scaling-a-service",
 		"https://docs.timescale.com/use-timescale/latest/services/autoscaling"
+	)
+	.add(
+		"/use-timescale/latest/account-management",
+		"https://docs.timescale.com/about/latest/pricing-and-account-management/"
 	)
 	.add(
 		"/use-timescale/latest/services/create-a-service",
