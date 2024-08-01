@@ -22,7 +22,7 @@ for an Timescale Cloud service.
 
 ![Screenshot of SQL editor](https://assets.timescale.com/docs/images/sqleditor.png)
 
-To enable or disable SQL editor, in your service, click `Operations` > `Service management`, then 
+To enable or disable SQL editor in your service, click `Operations` > `Service management`, then 
 update the setting for SQL editor.
 
 ### Run queries from Console with SQL editor
