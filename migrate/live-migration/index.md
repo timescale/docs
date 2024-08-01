@@ -19,15 +19,6 @@ fewer requirements than the [dual-write and backfill] method.
 <Highlight type="important">
 
 
-- Live migration does not yet support mutable compression (`INSERT`, `UPDATE`,
-  `DELETE` on compressed data).
-- By default, numeric fields containing `NaN`/`+Inf`/`-Inf` values are not
-  correctly replicated, and will be converted to `NULL`. A workaround is
-  available, but is not enabled by default.
-
-Should you run into any problems, please open a support request before losing
-any time debugging issues.
-<OpenSupportRequest />
 
 </Highlight>
 
