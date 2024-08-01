@@ -17,8 +17,7 @@
       - Source: `2` + (value of `--table-jobs`). The default value is `10`
       - Target: `4` + (`2` * (value of `--table-jobs`)) + (value of `--index-jobs`). The default value is `20`. 
       
-      Either update `max_connections` to handle at least `20 * <number of tables to migrate>` or set the 
-      `--table-jobs` and `--index-jobs` flags to reduce the number of connection when you  
+      Set the `--table-jobs` and `--index-jobs` flags to reduce the number of connection when you  
       [run the migrate command](#migrate-your-data-then-start-downtime). 
 
    3. Click outside the row, then click `Apply changes and restart`.
