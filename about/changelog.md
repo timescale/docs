@@ -9,7 +9,7 @@ keywords: [changelog, upgrades, updates, releases]
 All the latest features and updates to Timescale products.
 
 
-## 🏄 Optimization for compressed data and extended join support in continuous aggregates
+## 🏄 Optimizations for compressed data and extended join support in continuous aggregates
 <Label type="date">July 31, 2024</Label>
 
 TimescaleDB v2.16.0 contains significant performance improvements when working with compressed data, extended join
