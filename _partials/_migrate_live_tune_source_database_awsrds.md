@@ -23,8 +23,8 @@ Updating parameters on a PostgreSQL instance will cause an outage. Choose a time
       - `old_snapshot_threshold` set to `-1`: prevent PostgreSQL from treating the data in a snapshot as outdated.
       - `rds.logical_replication` set to `1`: record the information needed for logical decoding.
       - `tcp_keepalives_count` set to `60`:  the number of messages that can be lost before the client is considered dead.
-      - `tcp_keepalives_idle` set to `10 tcp_`: the amount of time with no network activity before the IS sends a TCP keepalive message to the client.
-      - `keepalives_interval` set to `10`: the amount of time before a unacknowledged TCP keepalive message is restransmitted. 
+      - `tcp_keepalives_idle` set to `10`: the amount of time with no network activity before the IS sends a TCP keepalive message to the client.
+      - `tcp_keepalives_interval` set to `10`: the amount of time before a unacknowledged TCP keepalive message is restransmitted. 
       - `wal_sender_timeout` set to `30m`: the maximum time to wait for WAL replication.
 
 
