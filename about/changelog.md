@@ -8,7 +8,7 @@ keywords: [changelog, upgrades, updates, releases]
 
 All the latest features and updates to Timescale products.
 
-## ⚡ Performance and stability improvements for Timescale Cloud, and TimescaleDB  
+## ⚡ Performance and stability improvements for Timescale Cloud and TimescaleDB  
 <Label type="date">July 12, 2024</Label>
 
 The following improvements have been made to Timescale products:
