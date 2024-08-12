@@ -56,16 +56,19 @@ more information, see [PostgreSQL timestamp][postgresql-timestamp].
      ```
 
 <Highlight type="note">
+
 If your table already has data, you can migrate the data when creating the
 hypertable. Set the `migrate_data` argument to true when you call the
 `create_hypertable` function. This might take a long time if you have a lot of
 data. For more information about migrating data, see the
-[data migration section](/use-timescale/latest/migration).
+[Migrate your data to Timescale Cloud][data-migration].
+
 </Highlight>
 
 </Procedure>
 
 [create-distributed-hypertable]: /self-hosted/:currentVersion:/distributed-hypertables/create-distributed-hypertables/
-[install]: /getting-started/latest/
+[install]: /getting-started/:currentVersion:/
 [postgres-createtable]: https://www.postgresql.org/docs/current/sql-createtable.html
 [postgresql-timestamp]: https://wiki.postgresql.org/wiki/Don't_Do_This#Don.27t_use_timestamp_.28without_time_zone.29
+[data-migration]: /migrate/:currentVersion:/
