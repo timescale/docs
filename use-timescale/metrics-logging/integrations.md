@@ -252,7 +252,7 @@ To update a data exporter:
 
 <Procedure>
 
-1.  Navigate to `Integrations`.
+1.  In Timescale Console, open [Integrations][console-integrations].
 1.  Beside the exporter you want to edit, click the menu button. Click `Edit`.
 1.  Edit the exporter fields and save your changes.
 
@@ -261,17 +261,21 @@ You cannot change fields such as the provider or the AWS region.
 
 ## Delete a data exporter
 
-To remove any data exporters that you no longer need.
+To remove a data exporter that you no longer need:
 
 <Procedure>
 
-1.  Before deleting a data exporter, remove all connected services.
-1.  For each connected service, navigate to the service `Operations` tab.
-1.  Click `Integrations`.
-1.  Click the trash can icon to remove the exporter from the service.
+1. Disconnect the data exporter from your Timescale Cloud Services:
 
-    This does not delete the exporter itself.
-1.  In the main menu, navigate to `Integrations`.
+   For each Timescale Cloud Services the data exporter is connected to:
+   1. In Timescale Console, open [Services][console-services], then select the Timescale Cloud Service to 
+      update.
+   1.  Click `Operations`, then click `Integrations`.
+   1.  Click the trash can icon. 
+
+   This removes the data exporter from the service, it does not delete it from your Timescale Cloud project.
+
+1.  In Timescale Console, open [Integrations][console-integrations].
 1.  Beside the exporter you want to delete, click the menu button. Click
     `Delete`.
 1.  Confirm that you want to delete.
@@ -310,6 +314,7 @@ It must be one of the following:
 [datadog-docs]: https://docs.datadoghq.com/
 [datadog-metrics-explorer]: https://app.datadoghq.com/metric/explorer
 [console-integrations]: https://console.cloud.timescale.com/dashboard/integrations
+[console-services]: https://console.cloud.timescale.com/dashboard/services
 [list-iam-users]: https://console.aws.amazon.com/iam/home#/users
 [create-an-iam-user]: https://console.aws.amazon.com/iam/home#/users/create
 [reference]: /use-timescale/:currentVersion:/metrics-logging/integrations/#reference
