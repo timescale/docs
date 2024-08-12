@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS document_embedding  (
     document_id BIGINT FOREIGN KEY(document.id)
     metadata JSONB,
     contents TEXT,
-    embedding VECTOR(1538)
+    embedding VECTOR(1536)
 )
 ```
 
