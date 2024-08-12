@@ -371,11 +371,6 @@ module.exports = [
         ],
       },
       {
-        title: "Billing and account management",
-        href: "account-management",
-        excerpt: "Timescale account management",
-      },
-      {
         title: "Continuous aggregates",
         href: "continuous-aggregates",
         children: [
@@ -688,7 +683,7 @@ module.exports = [
             excerpt: "Query-level performance insights",
           },
           {
-            title: "Export to a monitoring service",
+            title: "Third-party monitoring for Timescale Cloud Services",
             href: "integrations",
             excerpt:
               "Export telemetry data to a third-party monitoring service",
