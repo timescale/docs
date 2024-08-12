@@ -79,6 +79,14 @@ module.exports = [
             href: "add_dimension_old",
           },
           {
+            title: "enable_column_stats",
+            href: "enable_column_stats",
+          },
+          {
+            title: "disable_column_stats",
+            href: "disable_column_stats",
+          },
+          {
             title: "create_index (transaction per chunk)",
             href: "create_index",
           },
