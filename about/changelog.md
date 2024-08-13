@@ -7,7 +7,7 @@ keywords: [changelog, upgrades, updates, releases]
 # Changelog
 
 All the latest features and updates to Timescale products.
-
+ 
 ## 📦 Performance, packaging and stability improvements for Timescale Cloud
 <Label type="date">August 8, 2024</Label>
 
@@ -32,7 +32,8 @@ Improvements:
 - Support for chunk mapping for hypertables with custom schema and table prefixes
 
 
-## ⚡ Performance and stability improvements for Timescale Cloud, and TimescaleDB  
+
+## ⚡ Performance and stability improvements for Timescale Cloud and TimescaleDB  
 <Label type="date">July 12, 2024</Label>
 
 The following improvements have been made to Timescale products:
