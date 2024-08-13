@@ -32,6 +32,7 @@ Improvements:
 - Support for chunk mapping for hypertables with custom schema and table prefixes
 
 
+
 ## ⚡ Performance and stability improvements for Timescale Cloud and TimescaleDB  
 <Label type="date">July 12, 2024</Label>
 
