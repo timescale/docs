@@ -90,8 +90,7 @@ See the following `JOIN` examples on Continuous Aggregates:
     JOIN devices ON devices.id = conditions.device_id
     GROUP BY bucket, devices.name
     WITH NO DATA;
-    ```
-    TimescaleDB v2.15.x and higher. 
+    ``` 
 
 - `INNER JOIN` on a single equality condition, using the `ON` clause, with a further condition added in the `WHERE` clause:
 
@@ -104,7 +103,6 @@ See the following `JOIN` examples on Continuous Aggregates:
     GROUP BY bucket, devices.name
     WITH NO DATA;
     ```
-    TimescaleDB v2.15.x and higher,
 
 - `INNER JOIN` on a single equality condition specified in `WHERE` clause:
 
@@ -116,7 +114,6 @@ See the following `JOIN` examples on Continuous Aggregates:
     GROUP BY bucket, devices.name
     WITH NO DATA;
     ```
-   TimescaleDB v2.15.x and higher.
 
 - `INNER JOIN` on multiple equality conditions:
 
