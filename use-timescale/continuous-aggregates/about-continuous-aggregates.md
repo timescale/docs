@@ -31,7 +31,7 @@ For more information, see the documentation about
 
 ## Continuous aggregates with a `JOIN` clause
 
-Continuous aggregates supports the following JOINS.  
+Continuous aggregates supports the following JOIN features: 
 
 | Feature | TimescaleDB < 2.10.x | TimescaleDB <= 2.15.x | TimescaleDB >= 2.16.x| 
 |-|-|-|-|
@@ -46,8 +46,8 @@ Continuous aggregates supports the following JOINS.
 
 JOINS in TimescaleDB must that meet the following conditions:
 
-*   Only changes to the hypertable are tracked, and are updated in the
-    continuous aggregate when it is refreshed. Changes to the standard
+*   Only changes to the hypertable are tracked, they are updated in the
+    continuous aggregate when it is refreshed. Changes to standard
     PostgreSQL table are not tracked.
 *   You can use an `INNER`, `LEFT` and `LATERAL` joins, no other join type is supported.
 *   Joins on the materialized hypertable of a continuous aggregate are not supported.
@@ -79,7 +79,7 @@ CREATE TABLE conditions (
 SELECT create_hypertable('conditions', by_range('time'));
 ```
 
-Let's check some examples of `JOINs` on Continuous Aggregates:
+See the following `JOIN` examples on Continuous Aggregates:
 
 - `INNER JOIN` on a single equality condition, using the `ON` clause:
 
@@ -91,6 +91,7 @@ Let's check some examples of `JOINs` on Continuous Aggregates:
     GROUP BY bucket, devices.name
     WITH NO DATA;
     ```
+    TimescaleDB v2.15.x and higher. 
 
 - `INNER JOIN` on a single equality condition, using the `ON` clause, with a further condition added in the `WHERE` clause:
 
@@ -103,6 +104,7 @@ Let's check some examples of `JOINs` on Continuous Aggregates:
     GROUP BY bucket, devices.name
     WITH NO DATA;
     ```
+    TimescaleDB v2.15.x and higher,
 
 - `INNER JOIN` on a single equality condition specified in `WHERE` clause:
 
@@ -114,8 +116,9 @@ Let's check some examples of `JOINs` on Continuous Aggregates:
     GROUP BY bucket, devices.name
     WITH NO DATA;
     ```
+   TimescaleDB v2.15.x and higher.
 
-- `INNER JOIN` on multiple equality conditions (*not allowed in 2.15.x and below*):
+- `INNER JOIN` on multiple equality conditions:
 
     ```sql
     CREATE MATERIALIZED VIEW conditions_by_day WITH (timescaledb.continuous) AS
@@ -125,8 +128,9 @@ Let's check some examples of `JOINs` on Continuous Aggregates:
     GROUP BY bucket, devices.name
     WITH NO DATA;
     ```
+   TimescaleDB v2.16.x and higher.
 
-- `INNER JOIN` with a single equality condition specified in `WHERE` clause can be combined with further conditions in the `WHERE` clause (*not allowed in 2.15.x and below*):
+- `INNER JOIN` with a single equality condition specified in `WHERE` clause can be combined with further conditions in the `WHERE` clause:
 
     ```sql
     CREATE MATERIALIZED VIEW conditions_by_day WITH (timescaledb.continuous) AS
@@ -137,8 +141,9 @@ Let's check some examples of `JOINs` on Continuous Aggregates:
     GROUP BY bucket, devices.name
     WITH NO DATA;
     ```
+    TimescaleDB v2.16.x and higher.
 
-- `INNER JOIN` between an hypertable and multiple Postgres tables (*not allowed in 2.15.x and below*):
+- `INNER JOIN` between an hypertable and multiple Postgres tables:
 
     ```sql
     CREATE MATERIALIZED VIEW conditions_by_day WITH (timescaledb.continuous) AS
@@ -149,8 +154,9 @@ Let's check some examples of `JOINs` on Continuous Aggregates:
     GROUP BY bucket, devices.name, locations.name
     WITH NO DATA;
     ```
+   TimescaleDB v2.16.x and higher.
 
-- `LEFT JOIN` between an hypertable and a Postgres table (*not allowed in 2.15.x and below*):
+- `LEFT JOIN` between an hypertable and a Postgres table:
 
     ```sql
     CREATE MATERIALIZED VIEW conditions_by_day WITH (timescaledb.continuous) AS
@@ -160,8 +166,9 @@ Let's check some examples of `JOINs` on Continuous Aggregates:
     GROUP BY bucket, devices.name
     WITH NO DATA;
     ```
+    TimescaleDB v2.16.x and higher.
 
-- `LATERAL JOIN` between an hypertable and a sub-query (*not allowed in 2.15.x and below*):
+- `LATERAL JOIN` between an hypertable and a sub-query:
 
     ```sql
     CREATE MATERIALIZED VIEW conditions_by_day WITH (timescaledb.continuous) AS
@@ -171,6 +178,7 @@ Let's check some examples of `JOINs` on Continuous Aggregates:
     GROUP BY bucket, devices.name
     WITH NO DATA;
     ```
+   TimescaleDB v2.16.x and higher.
 
 ## Function support
 
