@@ -17,6 +17,7 @@ import MigrateDataToCloud from "versionContent/_partials/_migrate_live_migrate_d
 import MigrateDataToCloudTimescaleDB from "versionContent/_partials/_migrate_live_migrate_data_timescaledb.mdx";
 import ValidateDataInCloud from "versionContent/_partials/_migrate_live_validate_data.mdx";
 import MigrateAWSRDSConnectIntermediary from "versionContent/_partials/_migrate_awsrds_connect_intermediary.mdx";
+import FAQ from "versionContent/_partials/_migrate_live_migrate_faq_all.mdx";
 
 # Live migration
 
@@ -127,6 +128,12 @@ Timescale Cloud service using live-migration from Terminal.
 </Tabs>
 
 And you are done, your data is now in your Timescale Cloud service. 
+
+## FAQ
+
+This section shows you how to workaround issues frequently seen issues using Live-migration.
+
+<FAQ />
 
 [from-postgres]: /migrate/:currentVersion:/live-migration/live-migration-from-postgres/
 [from-timescaledb]: /migrate/:currentVersion:/live-migration/live-migration-from-timescaledb/

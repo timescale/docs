@@ -5,10 +5,10 @@ module.exports = [
     excerpt: "Migrating your data to Timescale",
     children: [
       {
-        title: "Migration with downtime",
+        title: "Migrate with downtime",
         href: "pg-dump-and-restore",
         excerpt:
-            "Migrate a hypertable or entire database with native PostgreSQL commands",
+          "Migrate a hypertable or entire database with native PostgreSQL commands",
       },
       {
         title: "Live migration",
@@ -16,22 +16,43 @@ module.exports = [
         excerpt: "Migrate a large database with low downtime",
       },
       {
-        title: "Dual write and backfill",
+        title: "Dual-write and backfill",
         href: "dual-write-and-backfill",
         excerpt: "Migrate a large database with low downtime",
+        children: [
+          {
+            title: "Dual-write from TimescaleDB",
+            href: "dual-write-from-timescaledb",
+            excerpt:
+              "Migrate from TimescaleDB using dual-write and backfill",
+          },
+          {
+            title: "Dual-write from PostgreSQL",
+            href: "dual-write-from-postgres",
+            excerpt:
+              "Migrate from PostgreSQL using dual-write and backfill",
+          },
+          {
+            title: "Dual-write from other databases",
+            href: "dual-write-from-other",
+            excerpt:
+              "Migrate from other databases using dual-write and backfill",
+          },
+          {
+            title: "timescaledb-backfill",
+            href: "timescaledb-backfill",
+            excerpt:
+              "A tool for backfilling data as part of data migration",
+          },
+
+        ],
       },
       {
         title: "FAQ and troubleshooting",
         href: "troubleshooting",
         excerpt:
-            "Troubleshooting known issues in database migrations",
-      },
-      {
-        title: "timescaledb-backfill",
-        href: "timescaledb-backfill",
-        excerpt:
-            "A command-line utility that copies historic data from one database to another",
+          "Troubleshooting known issues in database migrations",
       },
     ],
-  },
+  }
 ];
