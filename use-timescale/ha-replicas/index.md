@@ -1,5 +1,5 @@
 ---
-title: High availability and replicas
+title: High availability and read replicas
 excerpt: Set up high availability for disaster recovery in Timescale
 products: [cloud]
 keywords: [high availability, replicas]
@@ -9,28 +9,25 @@ cloud_ui:
         - [services, :serviceId, operations, replication]
 ---
 
-# High availability and replicas
+# High availability and read replicas
 
-You can use high availability and read replicas on your Timescale services
-to significantly reduce the risk of downtime and data loss due to failures, and
-to more effectively scale the limits of your service.
+In <Variable name="CLOUD" /> high availability replicas are exact, up-to-date copies of the primary data instance in 
+your <Variable name="SERVICE_LONG" /> (<Variable name="SERVICE_SHORT" />). If your primary becomes unavailable, <Variable name="CLOUD" /> automatically 
+fails over to your HA replica. You use high availability and read replicas to:
 
-HA replicas in Timescale are exact, up-to-date copies of your database
-that automatically take over operations if your primary becomes unavailable,
-including during maintenance.
+- Significantly reduce the risk of downtime and data loss.
+- More effectively scale the limits of your <Variable name="SERVICE_LONG" />.
+- Create an isolated environment to run heavy analytical queries rather than compromise performance on your production 
+  instance.
 
-Read replicas can create an isolated environment to run heavy analytical
-queries, so that you don't need to run them on a production instance, and risk
-impacting performance.
+This section shows you how to:
 
-*   Creating an [HA replica][ha-replica] in Timescale
-*   Creating a [read replica][read-replica] in Timescale
+* Reduce the risk of downtime and data loss with [HA replication][ha-replica]
+* Safely scale a <Variable name="SERVICE_LONG" /> using [read replica][read-replica]
 
-If you are using Managed Service for TimescaleDB, see the
-[Managed Service for TimescaleDB failover section][mst-failover].
 
-If you are using self-hosted TimescaleDB, see the
-[self-hosted HA section][self-hosted-ha].
+For <Variable name="MST_SHORT" />, see [Failover in <Variable name="MST_LONG" />][mst-failover]. 
+For <Variable name="SELF_LONG" />, see [Replication and high availability][self-hosted-ha].
 
 [ha-replica]: /use-timescale/:currentVersion:/ha-replicas/high-availability/
 [read-replica]: /use-timescale/:currentVersion:/ha-replicas/read-scaling/

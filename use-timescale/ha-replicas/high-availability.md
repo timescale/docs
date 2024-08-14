@@ -12,11 +12,14 @@ cloud_ui:
 
 # High availability
 
-All Timescale services come with a rapid recovery feature enabled by default.
-Rapid recovery ensures that all services experience minimal downtime and data
-loss in the most common failure scenarios and during maintenance. For services
-with very low tolerance for downtime, Timescale offers high availability (HA)
-replicas. HA replicas significantly reduce the risk of downtime and data loss
+To ensure that all <Variable name="SERVICE_LONG" /> have minimum downtown and data loss in the most common 
+failure scenarios and during maintenance, rapid recovery is enabled by default.
+
+
+For services with very low tolerance for downtime, Timescale offers high availability (HA)
+replicas. 
+
+HA replicas significantly reduce the risk of downtime and data loss
 due to failures, and allow a service to avoid downtime for routine maintenance.
 This section covers how each of these work to help you make an informed decision
 about which is right for your service.
