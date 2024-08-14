@@ -78,6 +78,7 @@ docker run --rm -it --name live-migration-migrate \
     --pid=host \
     -v ~/live-migration:/opt/timescale/ts_cdc \
     timescale/live-migration:latest migrate --help
+    
 usage: main.py migrate [-h] [--dir DIR] [--resume] [--skip-roles] [--table-jobs TABLE_JOBS] [--index-jobs INDEX_JOBS]
                        [--skip-extensions [SKIP_EXTENSIONS ...]] [--skip-table-data SKIP_TABLE_DATA [SKIP_TABLE_DATA ...]]
 

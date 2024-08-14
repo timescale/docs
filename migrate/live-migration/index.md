@@ -16,12 +16,6 @@ is significantly more complex to execute than a migration with downtime using
 [pg_dump/restore][pg-dump-and-restore], but supports more use-cases and has
 fewer requirements than the [dual-write and backfill] method.
 
-<Highlight type="important">
-
-
-
-</Highlight>
-
 Live migration leverages Postgres' built-in replication functionality to
 provide a seamless migration with very little application downtime.
 
