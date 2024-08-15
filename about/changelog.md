@@ -8,13 +8,13 @@ keywords: [changelog, upgrades, updates, releases]
 
 All the latest features and updates to Timescale products.
 
-
 ## 🏄 Optimizations for compressed data and extended join support in continuous aggregates
 <Label type="date">August 15, 2024</Label>
 
 TimescaleDB v2.16.0 contains significant performance improvements when working with compressed data, extended join
 support in continuous aggregates, and the ability to define foreign keys from regular tables towards hypertables.
-We recommend that you upgrade at the next available opportunity.
+
+Any new service created on Timescale Cloud starting today uses TimescaleDB v2.16.0.
 
 In TimescaleDB v2.16.0 we:
 
@@ -83,9 +83,32 @@ Following the deprecation announcement for PostgreSQL 13 in TimescaleDB v2.13,
 PostgreSQL 13 is no longer supported in TimescaleDB v2.16.
 
 The Currently supported PostgreSQL major versions are 14, 15 and 16.
+ 
+## 📦 Performance, packaging and stability improvements for Timescale Cloud
+<Label type="date">August 8, 2024</Label>
+
+### New plans
+To support evolving customer needs, Timescale Cloud now offers three plans to provide more value, flexibility, and efficiency.
+- **Performance:** for cost-focused, smaller projects. No credit card required to start.
+- **Scale:** for developers handling critical and demanding apps.
+- **Enterprise:** for enterprises with mission-critical apps.
+
+Each plan continues to bill based on hourly usage, primarily for compute you run and storage you consume.  You can upgrade or downgrade between Performance and Scale plans via the Console UI at any time.  More information about the specifics and differences between these pricing plans can be found [here in the docs](https://docs.timescale.com/about/latest/pricing-and-account-management/).
+![Pricing plans in the console](https://assets.timescale.com/docs/images/pricing-plans-in-console.png)
+
+### Improvements to the Timescale console UI
+The individual tiles on the services page have been enhanced with new information, including high-availability status.  This will let you better assess the state of your services at a glance.
+![New service tile](https://assets.timescale.com/docs/images/new-service-tile-high-availability.png)
+
+### Live migration release v0.0.24
+Improvements:
+- Automatic retries are now available for the initial data copy of the migration
+- Now uses pgcopydb for initial data copy for PG to TSDB migrations also (already did for TS to TS) which has a significant performance boost.
+- Fixes issues with TimescaleDB v2.13.x migrations
+- Support for chunk mapping for hypertables with custom schema and table prefixes
 
 
-## ⚡ Performance and stability improvements for Timescale Cloud, and TimescaleDB  
+## ⚡ Performance and stability improvements for Timescale Cloud and TimescaleDB  
 <Label type="date">July 12, 2024</Label>
 
 The following improvements have been made to Timescale products:
