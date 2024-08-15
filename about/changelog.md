@@ -13,6 +13,7 @@ All the latest features and updates to Timescale products.
 
 TimescaleDB v2.16.0 contains significant performance improvements when working with compressed data, extended join
 support in continuous aggregates, and the ability to define foreign keys from regular tables towards hypertables.
+We recommend upgrading at the next available opportunity.
 
 Any new service created on Timescale Cloud starting today uses TimescaleDB v2.16.0.
 
