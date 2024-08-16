@@ -3,7 +3,7 @@ title: Start coding with Timescale
 excerpt: Get started with Timescale and your favorite language
 ---
 
-# Code quick start
+# Start coding with Timescale
 
 Start using data stored in your Timescale database in your app.
 
@@ -13,8 +13,7 @@ Bla bla. Diagram
 
 To follow this page, you must either:
 
-* Create a Timescale Cloud for AWS service
-* Create a Timescale Cloud for GCP and Azure service
+* Create a Timescale Cloud service
 * Install TimescaleDB in your developer environment
 
 ## Create your app
