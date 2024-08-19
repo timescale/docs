@@ -2,7 +2,7 @@
 ## Create an intermediary EC2 Ubuntu instance
 <Procedure>
 
-1. In [https://console.aws.amazon.com/rds/home?region=us-east-1#databases:](https://us-east-1.console.aws.amazon.com/rds/home?region=us-east-1#databases:),
+1. In [https://console.aws.amazon.com/rds/home#databases:][databases],
    select the RDS instance to migrate.
 1. Click `Actions` > `Set up EC2 connection`.
    Press `Create EC2 instance` and use the following settings:
@@ -40,7 +40,7 @@
 ## Setup secure connectivity between your RDS and EC2 instances
 <Procedure>
 
-1. In [https://console.aws.amazon.com/rds/home#databases:](https://console.aws.amazon.com/rds/home#databases:),
+1. In [https://console.aws.amazon.com/rds/home#databases:][databases],
     select the RDS instance to migrate.
 1. Scroll down to `Security group rules (1)` and select the `EC2 Security Group - Inbound` group. The
    `Security Groups (1)` window opens. Click the `Security group ID`, then click `Edit inbound rules`
@@ -66,7 +66,7 @@
 ## Test the connection between your RDS and EC2 instances
 <Procedure>
 
-1. In [https://console.aws.amazon.com/rds/home#databases:](https://console.aws.amazon.com/rds/home#databases:),
+1. In [https://console.aws.amazon.com/rds/home#databases:][databases],
     select the RDS instance to migrate.
 1. On your intermediary EC2 instance, use the values of `Endpoint`, `Port`, `Master username`, and `DB name`  
    to create the postgres connectivity string to the `SOURCE` variable.
@@ -90,3 +90,4 @@
 
 [about-hypertables]: /use-timescale/:currentVersion:/hypertables/about-hypertables/
 [data-compression]: /use-timescale/:currentVersion:/compression/about-compression/
+[databases]: https://console.aws.amazon.com/rds/home#databases:

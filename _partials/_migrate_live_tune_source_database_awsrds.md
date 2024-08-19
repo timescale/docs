@@ -4,7 +4,7 @@ Updating parameters on a PostgreSQL instance will cause an outage. Choose a time
 
 1. **Update the DB instance parameter group for your source database**
 
-   1. In [https://console.aws.amazon.com/rds/home#databases:](https://console.aws.amazon.com/rds/home#databases:),
+   1. In [https://console.aws.amazon.com/rds/home#databases:][databases],
       select the RDS instance to migrate.
 
    1. Click `Configuration`, scroll down and note the `DB instance parameter group`, then click `Parameter Groups`
@@ -41,4 +41,4 @@ Updating parameters on a PostgreSQL instance will cause an outage. Choose a time
    <EnableReplication />
    
 [mst-portal]: https://portal.managed.timescale.com/login
-[databases]: "https://console.aws.amazon.com/rds/home#databases:"
+[databases]: https://console.aws.amazon.com/rds/home#databases:
