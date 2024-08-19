@@ -1,7 +1,7 @@
 ### ERROR: relation "xxx.yy" does not exist
 
 This may happen when a relation is removed after executing the `snapshot` command. A relation can be
-a table, indexe, view, or materialized view. When you see you this error:
+a table, index, view, or materialized view. When you see you this error:
 
 - Do not perform any explicit DDL operation on the source database during the course of migration.
 
