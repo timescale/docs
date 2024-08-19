@@ -93,11 +93,6 @@ This rare phenomenon may happen when:
 
   Upgrade to better instances types until migration completes.
 
-### duplicate key value violates the `metadata_pkey` unique constraint on TimescaleDB
-
-Live-migration is compatible with TimescaleDB v2.14.x and greater. To migrate from previous versions,
-[Align the version of TimescaleDB on the source and target][align-versions].
-
 
 [tune-connections]: /migrate/:currentVersion:/live-migration/#tune-the-target-timescale-cloud-service
 [align-versions]: /migrate/:currentVersion:/live-migration/#align-the-version-of-timescaledb-on-the-source-and-target
