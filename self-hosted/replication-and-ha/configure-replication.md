@@ -131,7 +131,7 @@ provide the strongest protection for streaming replication.
     is arbitrary. In this example, it is called `replica_1_slot`:
 
     ```sql
-    SELECT * FROM pg_create_physical_replication_slot('replica_1_slot');
+    SELECT * FROM pg_create_physical_replication_slot('replica_1_slot', true);
     ```
 
 1.  Repeat for each required replication slot.
