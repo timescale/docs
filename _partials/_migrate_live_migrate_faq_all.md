@@ -30,7 +30,7 @@ To resolve this issue:
 
 1. When you run the `migrate`, add the following flags to exclude specific materialized views being materialized:
    ```shell
-   --skip-table-data &lt;matview1> &lt;matview2>” 
+   --skip-table-data <matview1> <matview2>” 
    ```
 
 1. When `migrate` has finished, manually refresh the materialized views you excluded.
