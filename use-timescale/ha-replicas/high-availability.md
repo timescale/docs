@@ -12,131 +12,87 @@ cloud_ui:
 
 # High availability
 
-To ensure that all <Variable name="SERVICE_LONG" /> have minimum downtown and data loss in the most common 
-failure scenarios and during maintenance, rapid recovery is enabled by default.
+For Timescale Cloud Service with very low tolerance for downtime, Timescale Cloud offers 
+High Availability(HA) replicas. HA replicas significantly reduce the risk of downtime and data loss due to 
+system failure, and enable services to avoid downtime during routine maintenance.
 
-For services with very low tolerance for downtime, Timescale offers high availability (HA)
-replicas. 
+This pages shows you how to choose the best high availability option for your Timescale Cloud Service.  
 
-HA replicas significantly reduce the risk of downtime and data loss
-due to failures, and allow a service to avoid downtime for routine maintenance.
-This section covers how each of these work to help you make an informed decision
-about which is right for your service.
+## What is HA replication?
 
-## HA replicas
+HA replicas are exact, up-to-date copies of your database that automatically take over operations as your primary data 
+node if the original primary data node becomes unavailable. HA replicas are synchronous or asynchronous hot standbys 
+hosted in multiple AWS availability zones(AZ) that use streaming replication to minimize the chance of data loss during 
+failover. That is, the primary node streams its write-ahead log (WAL) to the replicas.
 
-HA replicas are exact, up-to-date copies of your database that automatically
-take over operations if your primary becomes unavailable, including during
-maintenance. In technical terms, HA replicas are multi-AZ, asynchronous hot
-standbys. They use streaming replication to minimize the chance of data loss
-during failover. There is more information on these terms later in this section.
+HA replicas have separate unique addresses that you can use to serve read-only requests in parallel to your 
+primary data node. When your primary data node fails, Timescale Cloud automatically _fails over_ to 
+a HA replica. During failover, the read-only address is unavailable while Timescale Cloud automatically create 
+a new HA replica. The time to make this replica depends on several factors, including the size of your data.
 
-HA replicas also have a separate unique address that you can use to serve read
-requests, but this read-only unique address is not highly available during failures.
-That is, when an HA-replicated primary fails and your connection automatically 
-"fails over" to the former HA replica, the read-only unique address is no longer
-accessible until a new HA replica is fully recovered. This recovery happens
-automatically but its recovery period is dependent on several factors,
-including database size.
+Operations such as upgrading your Timescale Cloud Service to a new major or minor version may necessitate 
+a service restart. Restarts are run during the [maintenance window][upgrade]. To avoid any downtime, each data
+node is updated in turn. That is, while the primary data node is updated, a replica is promoted to primary. 
+After the primary is updated and online, the same maintenance is performed on the HA replicas.
 
-### Maintenance downtime
+To ensure that all Timescale Cloud Services have minimum downtown and data loss in the most common
+failure scenarios and during maintenance, [rapid recovery][rapid-recovery] is enabled by default for all services.
 
-Some operations on your database cannot avoid downtime, such as upgrading to a
-new major version of PostgreSQL. For routine maintenance, like upgrading to a
-new minor version of PostgreSQL, a service restart may be required, but this
-only happens during the maintenance window you set.
+## Choose an HA strategy
 
-Adding an HA replica to your service prevents downtime during maintenance
-events, as maintenance is applied to each node individually. For example, your
-replica can have maintenance performed on it while the primary remains
-operational. When the maintenance is completed, the replica is promoted to the
-primary and the other node undergoes maintenance.
+The following HA configurations are available in Timescale Cloud:
 
-## Create a database replica
+- Non-production: no replica, best for developer environments.
+- High availability: a single replica in a separate AWS availability zone. Available replication modes are:
+  - Optimized: best when zone latency is high, performance is more important than data integrity, and cost
+    considerations are paramount. Transactions are complete without waiting for the replica to confirm.
+    Async replication provides faster  write speeds and improved performance for apps with less stringent
+    consistency requirements.
+  - High data integrity: best for mission critical apps where latency due to AZ geographical proximity is not an issue.
+    All changes are replicated and confirmed across the primary data node and the HA replica
+    before the transaction is considered complete. Synchronous replication ensures the highest level of data consistency
+    and safety.
+- Highest availability: two readable replicas in separate AWS availability zones. Available replication modes are:
+  - Optimized: best when zone latency is high, performance is more important than data integrity, and cost
+    considerations are paramount. Transactions are complete without waiting for the replicas to confirm.
+    Async replication provides faster write speeds and improved performance for apps with less stringent
+    consistency requirements.
+  - High data integrity: best for mission critical apps where latency due to AZ geographical proximity is not an issue.
+    All changes are replicated and confirmed across the primary data node and the HA replicas
+    before the transaction is considered complete. Synchronous replication ensures the highest level of data consistency
+    and safety.
 
+High availability and Highest availability are available with [Scale and the Enterprise][pricing-plans] pricing plans.
+
+To enable HA for a Timescale Cloud Service:  
 
 <Procedure>
 
-### Creating an HA replica
-
-1.  [Log in to your Timescale account][cloud-login] and click the service
-    you want to replicate.
-1.  Navigate to the `Operations` tab, and select `High availability`.
-1.  Check the pricing of the replica, and click `Add a replica`. Confirm the
-    action by clicking `Add replica`.
-1.  You can see the replicas for each service by clicking on the service name,
-    navigating to the `Operations` tab, and selecting `High availability`. Replicas
-    are not shown in the main `Services` section, as they are not independent.
-1.  You can see connection information for the replica by navigating to the
-    `Overview` tab. In the `Connection info` section, select the replica from
-    the `Role` drop-down menu to populate the section with the replica's
-    connection details.
-
-<img
-class="main-content__illustration"
-width={1375} height={944}
-src="https://assets.timescale.com/docs/images/tsc-replication-add.webp"
-alt="Creating a database replica in Timescale"
-/>
+1.  In [Timescale Console][cloud-login], select the service to enable replication for.
+1.  Click `Operations`, then select `High availability`.
+1.  Choose your replication strategy, then click `Change configuration`.
+    <img
+    class="main-content__illustration"
+    src="https://assets.timescale.com/docs/images/tsc-replication-add.png"
+    alt="Creating a database replica in Timescale"
+    />
+    
+1. In `Change high availability configuration`, click `Change config`. 
 
 </Procedure>
 
-## Failover
+To change your HA replica strategy, click `Change configuration`, choose a strategy and click `Change configuration`.
+To download the connection information for the HA replica, either click the link next to the replica 
+`Active configuration`, or find the information in the `Overview` tab for this service. 
 
-Failover is the process of redirecting traffic from your primary to the HA
-replica within 15 seconds of the primary becoming unresponsive. As part of
-failover, the HA replica is promoted to become the new primary and the
-connection is reset. In the background, a new replica is immediately provisioned
-for the new primary.
 
-Failover also helps remove downtime for common operations which would normally
-cause a service to reset, like maintenance events and service resizes. In these
-cases, changes are made to each node sequentially so that there is always a
-node available.
-
-In a normal operating state, the application is connected to the primary and
-optionally to its replica. The load balancer handles the connection and defines
-the role for each node.
-
-<img class="main-content__illustration"
-src="https://assets.timescale.com/docs/images/tsc-replication-replicas-normal-state.webp"
-width={1375} height={944}
-alt="Diagram showing an application connecting to a service with a replica
-through a load balancer"/>
-
-When the primary database fails, the platform updates the roles. The replica is
-promoted to the primary role, and the primary load balancer redirects traffic to
-the new primary. In the meantime, the system begins recovery of the failed node.
-The former read-replica connection remains unavailable until replica recovery completes.
-
-<img class="main-content__illustration"
-src="https://assets.timescale.com/docs/images/tsc-replication-replicas-failover-state.webp"
-width={1375} height={944}
-alt="Diagram showing the primary failing, and the load balancer redirecting
-traffic to the replica"/>
-
-When the failed node recovers or a new node is created, it assumes the replica
-role. The previously promoted node remains the primary, streaming the WAL
-(write-ahead log) to its replica. The read-replica connection becomes available
-again.
-
-<img class="main-content__illustration"
-src="https://assets.timescale.com/docs/images/tsc-replication-replicas-repaired-state.webp"
-width={1375} height={944}
-alt="Diagram showing the old replica becoming the primary, and adding "/>
-
-The new replica is created in a new availability zone to help protect against an
-availability zone outage.
-
-## Trigger a switchover
+## Test failover for your HA replicas
 
 To test the failover mechanism, you can trigger a switchover. A switchover is a
 safe operation that attempts a failover, and throws an error if the replica or
 primary is not in a state to safely switch.
 
 <Procedure>
-
-### Triggering a switchover
 
 1.  Connect to your primary node as `tsdbadmin` or another user that is part of
     the `tsdbowner` group.
@@ -153,7 +109,7 @@ primary is not in a state to safely switch.
 
     You should see `postgres=>` prompt.
 
-1.  Check if your instance is currently in recovery:
+1.  Check if your node is currently in recovery:
 
     ```sql
     select pg_is_in_recovery();
@@ -213,8 +169,8 @@ can be caused by hardware failing, or through things like unoptimized queries,
 causing increased load that maxes out the CPU usage. In these cases, only the
 compute and memory needs replacing since the data on disk is unaffected. If this
 kind of failure occurs, your Timescale service immediately provisions a new
-database instance and mounts the database's existing storage to the new
-instance. Any WAL that was in memory then replays. This process typically only
+database node and mounts the database's existing storage to the new
+node. Any WAL that was in memory then replays. This process typically only
 takes thirty seconds, though it may take up to twenty minutes in some
 circumstances, depending on the amount of WAL that needs replaying. Even in the
 worst-case scenario, this recovery is an order of magnitude faster than a
@@ -236,42 +192,9 @@ these kinds of scenarios, to try and prevent data loss events before a failure
 occurs.
 </Highlight>
 
-## HA replicas in detail
-
-HA replicas are multi-AZ, asynchronous hot standbys. They use streaming
-replication to minimize the chance of data loss during failover. This section
-defines those terms in a little more detail.
-
-### Asynchronous commits
-
-Timescale HA replicas are asynchronous. That means the primary database
-reports success once a transaction is completed locally. It doesn't wait to see
-if the replica successfully commits the transaction as well. This improves ingest
-rates and allows you to keep writing to your database even if a node fails.
-
-Timescale doesn't currently offer synchronous replicas.
-
-### Hot standbys
-
-Timescale replicas are hot standbys. That means they are ready to take
-over when the primary fails. It also means you can read from your replica, even
-when the primary is running. You can reduce the load on your primary by
-distributing your read queries.
-
-### Streaming replication
-
-To keep data in sync between the primary and the replicas, the primary streams
-its write-ahead log (WAL). WAL records are streamed as soon as they're written
-rather than waiting to be batched and shipped. This reduces the chance of data
-loss.
-
-### Multi-AZ
-
-By default, Timescale replicas are created in a different availability
-zone (AZ) than the primary. This provides additional availability for Timescale
-Cloud services with replicas, as it protects against entire AZ outages. If a
-primary is in an AZ that experiences an outage, the service can easily fail over
-to the replica.
 
 [cloud-login]: https://console.cloud.timescale.com
 [backup-recovery]: /use-timescale/:currentVersion:/backup-restore/backup-restore-cloud/
+[upgrade]: /use-timescale/:currentVersion:/upgrades/
+[pricing-plans]: /about/:currentVersion:/pricing-and-account-management/
+[rapid-recovery]: (/use-timescale/:currentVersion:/ha-replicas/high-availability/#rapid-recovery)
