@@ -171,6 +171,68 @@ select ollama_generate
 To learn more, see the [pgai Ollama documentation](https://github.com/timescale/pgai/blob/main/docs/ollama.md).
 
 
+## ⚡ Performance and stability improvements for Timescale Cloud, and TimescaleDB  
+<Label type="date">July 12, 2024</Label>
+
+The following improvements have been made to Timescale products:
+
+- **Timescale Cloud**:
+  - The connection pooler has been updated and now avoids multiple reloads
+  - The tsdbadmin user can now grant the following roles to other users: `pg_checkpoint`,`pg_monitor`,`pg_signal_backend`,`pg_read_all_stats`,`pg_stat_scan_tables`
+  - Timescale Console is far more reliable.
+
+- **TimescaleDB**
+  - The TimescaleDB v2.15.3 patch release improves handling of multiple unique indexes in a compressed INSERT,
+    removes the recheck of ORDER when querying compressed data, improves memory management in DML functions, improves
+    the tuple lock acquisition for tiered chunks on replicas, and fixes an issue with ORDER BY/GROUP BY in our
+    HashAggregate optimization on PG16. For more information, see the [release note](https://github.com/timescale/timescaledb/releases/tag/2.15.3).
+  - The TimescaleDB v2.15.2 patch release improves sort pushdown for partially compressed chunks, and compress_chunk with
+    a primary space partition. The metadata function is removed from the update script, and hash partitioning on a
+    primary column is disallowed. For more information, see the [release note](https://github.com/timescale/timescaledb/releases/tag/2.15.2).
+
+
+
+## ⚡ Performance improvements for live migration to Timescale Cloud
+<Label type="date">June 27, 2024</Label>
+
+The following improvements have been made to the Timescale [live-migration docker image](https://hub.docker.com/r/timescale/live-migration/tags):
+
+- Table-based filtering is now available during live migration.  
+- Improvements to pbcopydb increase performance and remove unhelpful warning messages.
+- The user notification log enables you to always select the most recent release for a migration run.
+
+For improved stability and new features, update to the latest [timescale/live-migration](https://hub.docker.com/r/timescale/live-migration/tags) docker image. To learn more, see the [live migration docs](https://docs.timescale.com/migrate/latest/live-migration/).
+
+## 🦙Ollama integration in pgai
+
+<Label type="date">June 21, 2024</Label>
+
+Ollama is now integrated with [pgai](https://github.com/timescale/pgai).
+
+Ollama is the easiest and most popular way to get up and running with open-source 
+language models. Think of Ollama as _Docker for LLMs_, enabling easy access and usage 
+of a variety of open-source models like Llama 3, Mistral, Phi 3, Gemma, and more. 
+
+With the pgai extension integrated in your database, embed Ollama AI into your app using
+SQL. For example:
+
+```sql
+select ollama_generate
+( 'llava:7b'
+, 'Please describe this image.'
+, _images=> array[pg_read_binary_file('/pgai/tests/postgresql-vs-pinecone.jpg')]
+, _system=>'you are a helpful assistant'
+, _options=> jsonb_build_object
+  ( 'seed', 42
+  , 'temperature', 0.9
+  )
+)->>'response'
+;
+```
+
+To learn more, see the [pgai Ollama documentation](https://github.com/timescale/pgai/blob/main/docs/ollama.md).
+
+
 ## 🧙 Compression Wizard
 
 <Label type="date">June 13, 2024</Label>
