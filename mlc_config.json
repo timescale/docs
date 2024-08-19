@@ -11,6 +11,9 @@
   ],
   "ignorePatterns": [
     {
+      "pattern": "^https://console.aws.amazon.com/rds/home#databases"
+    },
+    {
       "pattern": "^https?://localhost"
     },
     {
