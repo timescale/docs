@@ -16,23 +16,6 @@ is significantly more complex to execute than a migration with downtime using
 [pg_dump/restore][pg-dump-and-restore], but supports more use-cases and has
 fewer requirements than the [dual-write and backfill] method.
 
-<Highlight type="important">
-
-Be aware that the live migration tooling is currently experimental. Concretely,
-this means that you may run into the following shortcomings:
-
-- Live migration does not yet support mutable compression (`INSERT`, `UPDATE`,
-  `DELETE` on compressed data).
-- By default, numeric fields containing `NaN`/`+Inf`/`-Inf` values are not
-  correctly replicated, and will be converted to `NULL`. A workaround is
-  available, but is not enabled by default.
-
-Should you run into any problems, please open a support request before losing
-any time debugging issues.
-<OpenSupportRequest />
-
-</Highlight>
-
 Live migration leverages Postgres' built-in replication functionality to
 provide a seamless migration with very little application downtime.
 
