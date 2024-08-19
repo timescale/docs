@@ -54,53 +54,60 @@ organization. Billing groups make it easier to manage your costs since you
 receive a consolidated invoice for all projects assigned to a billing group 
 and can pay with one saved payment method. 
 
-Billing groups can only be used in one organization. Aiven 
-credits are assigned per billing group and are automatically used to 
-cover charges of any project assigned to that group.
+Billing groups can only be used in one organization. Credits are assigned 
+per billing group and are automatically used to cover charges of any project 
+assigned to that group.
 
 You can track spending by exporting cost information to business 
 intelligence tools using the [invoice API][invoice-api].
 
-To access billing groups in the [Aiven Console][aiven-console], you must be a
+To access billing groups in the [MST Console][mst-console], you must be a
 super admin or account owner.
 
 ### Create a billing group
 
 To create a billing group, take the following steps:
 
-1. In the organization, click **Billing** > **Create billing group**.
+1. In [MST Console][mst-console], click **Billing** > **Billing 
+   groups** > **Create billing group**.
 1. Enter a name for the billing group and click **Continue**.
-1. Enter the billing details. You can copy these details from another 
-   billing group by selecting it from the list. Click **Continue**.
-1. Select the projects to add to this billing group. You can skip this step and 
-   add projects later. Click **Continue**.
+1. Enter the billing details. 
+   
+   You can copy these details from another billing group by selecting it from 
+   the list. Click **Continue**.
+1. Select the projects to add to this billing group and click **Continue**
+   
+   You can skip this step and add projects later. 
 1. Check the information in the **Summary** step. To make changes to any 
    section, click **Edit**.
-1. When you have confirmed everything is correct, click **Create**.
+1. When you have confirmed everything is correct, click **Create & Assign**.
 
 ### Manage billing groups
 
-To view and update your billing groups, go to the organization and click 
-**Billing**.
+To view and update your billing groups, take the following steps:
 
 - Rename billing groups:
 
-    1. Find the billing group to rename and click **Actions > Rename**.
+    1. In [MST Console][mst-console], go to **Billing** > **Billing 
+       groups** and find the billing group to rename. 
+    1. Click **Actions > Rename**.
     1. Enter the new name and click **Rename**.
 
 - Update your billing information:
 
-    1. Select the name of the billing group to update.
-    1. Click **Edit** to update the details for that section.
+    1. In [MST Console][mst-console], go to **Billing** > **Billing
+       groups** and click on the name of the group to update.
+    1. Open the **Billing information** tab and click **Edit** to update the 
+       details for each section.
 
 - Delete billing groups
 
-    1. Select the name of the billing group to delete.
+    1. In [MST Console][mst-console], open **Billing** > **Billing groups** 
+       and select the group to delete.
     1. On the **Projects** tab, confirm that the billing group has no 
-       projects. If there are projects listed, move them to a different 
-       billing group.
-    1. Click **Actions** next to the current accumulated monthly bill amount.
-    1. Click **Delete** and **Confirm**.
+       projects. If there are projects listed, move them to a different billing group.
+    1. Go back to the list of billing groups and click **Actions** > 
+       **Delete** next to the group to be deleted.
 
 ### Assign and unassign projects
 
@@ -108,7 +115,7 @@ To manage projects in billing groups, take the following steps.
 
 - Assign projects to a billing group:
 
-  1. Go to **Billing > Billing groups**.
+  1. In [MST Console][mst-console], go to **Billing > Billing groups**.
   1. Select the billing group to assign the project to.
   1. On the **Projects** tab, click **Assign projects**.
   1. Select the projects and click **Assign projects**.
@@ -121,7 +128,9 @@ To manage projects in billing groups, take the following steps.
 
 - Move a project to another billing group
 
-  1. Select the name of the billing group.
+  1. In [MST Console][mst-console], go to **Billing > Billing groups**. 
+  1. Click on the name of the billing group that the project is currently 
+     assigned to.
   1. On the **Projects** tab, find the project to move.
   1. Click the three dots for that project and select the billing group to 
      move it to.
@@ -165,6 +174,6 @@ to the [Timescale support team][timescale-support] asking to be changed to corpo
 billing.
 
 [timescale-support]: https://www.timescale.com/contact/
-[aiven-console]: https://console.aiven.io/
+[mst-console]: https://portal.managed.timescale.com
 [invoice-api]: https://api.aiven.io/doc/#tag/BillingGroup
 
