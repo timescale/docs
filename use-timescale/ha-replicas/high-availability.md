@@ -15,7 +15,6 @@ cloud_ui:
 To ensure that all <Variable name="SERVICE_LONG" /> have minimum downtown and data loss in the most common 
 failure scenarios and during maintenance, rapid recovery is enabled by default.
 
-
 For services with very low tolerance for downtime, Timescale offers high availability (HA)
 replicas. 
 
