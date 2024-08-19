@@ -26,7 +26,7 @@ This section shows you how to:
 * Safely scale a Timescale Cloud Service using [read replica][read-replica]
 
 
-For MST, see [Failover in <Variable name="MST_LONG" />][mst-failover]. 
+For MST, see [Failover in Managed Service for TimescaleDB][mst-failover]. 
 For Self-hosted, see [Replication and high availability][self-hosted-ha].
 
 [ha-replica]: /use-timescale/:currentVersion:/ha-replicas/high-availability/
