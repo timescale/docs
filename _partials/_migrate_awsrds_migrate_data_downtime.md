@@ -78,7 +78,7 @@ service:
    -e 's/GRANTED BY "[^"]*"//g' \
    roles.sql
    ```
-1. **Dump the database schema from your RDS instance
+1. **Dump the database schema from your RDS instance**
 
    ```bash
    pg_dump -d "$SOURCE" \
@@ -92,7 +92,7 @@ service:
      --snapshot=$(cat /tmp/pgcopydb/snapshot)
    ```
 
-1. Upload the roles and schema to your Timescale Cloud service.
+1. **Upload the roles and schema to your Timescale Cloud service**
 
    ```bash
    psql -X -d "$TARGET" \
@@ -102,7 +102,7 @@ service:
      -f pre-data-dump.sql
    ```
 
-1. Manually assign passwords to the roles.
+1. **Manually assign passwords to the roles**
    
    AWS RDS did not allow you to export passwords with roles. For each role, use the following command to manually 
    assign a password to a role:
@@ -117,7 +117,7 @@ service:
 
 <Procedure>
 
-1. Dump the data from your RDS instance to your intermediary EC2 instance.
+1. **Dump the data from your RDS instance to your intermediary EC2 instance**
 
    The `pg_dump` flags remove superuser access and tablespaces from your data. When you run
    `pgdump`, check the run time, [a long-running `pg_dump` can cause issues][long-running-pgdump].
@@ -134,7 +134,7 @@ service:
    To dramatically reduce the time taken to dump the RDS instance, using multiple connections. For more information,
    see [dumping with concurrency][dumping-with-concurrency] and [restoring with concurrency][restoring-with-concurrency].
 
-1. Dump the database indexes, constraints and other objects.
+1. **Dump the database indexes, constraints and other objects**
 
    ```bash
    pg_dump -d "$SOURCE" \
@@ -147,7 +147,7 @@ service:
       --file=post-data-dump.sql \
       --snapshot=$(cat /tmp/pgcopydb/snapshot)
    ```
-1. Upload your data to your Timescale Cloud service.
+1. **Upload your data to your Timescale Cloud service**
 
    ```bash
    psql -d $TARGET -v ON_ERROR_STOP=1 --echo-errors \
