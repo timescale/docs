@@ -88,8 +88,7 @@ service:
      --no-owner \
      --no-privileges \
      --section=pre-data \
-     --file=pre-data-dump.sql \
-     --snapshot=$(cat /tmp/pgcopydb/snapshot)
+     --file=pre-data-dump.sql
    ```
 
 1. **Upload the roles and schema to your Timescale Cloud service**
@@ -144,8 +143,7 @@ service:
       --no-owner \
       --no-privileges \
       --section=post-data \
-      --file=post-data-dump.sql \
-      --snapshot=$(cat /tmp/pgcopydb/snapshot)
+      --file=post-data-dump.sql
    ```
 1. **Upload your data to your Timescale Cloud service**
 
