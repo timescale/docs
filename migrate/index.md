@@ -18,7 +18,7 @@ your data:
 |--------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|-----------------------|
 | [Migrate with downtime][pg-dump-restore]   | Use `pg_dump` and `pg_restore` to migrate when you can afford downtime.                                                     | Some downtime         |
 | [Live migration][live-migration]           | Simplified end-to-end migration with almost zero downtime.                                                                  | Minimal downtime      |
-| [Dual-write and backfill][dual-write]      | Append-only data, heavy insert workload (~20,000 inserts per second) when modifying you ingestion pipeline is not an issue. | Minimal downtime      |
+| [Dual-write and backfill][dual-write]      | Append-only data, heavy insert workload (~20,000 inserts per second) when modifying your ingestion pipeline is not an issue. | Minimal downtime      |
 
 All strategies work to migrate from PostgreSQL, TimescaleDB, AWS RDS, and Managed Service for Timescale. Migration 
 assistance is included with Timescale support. If you encounter any difficulties while migrating your data,
