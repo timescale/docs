@@ -27,10 +27,10 @@ We've released permission granting via role assumption to CloudWatch. Role assum
 For more details take a look at [our documentation](https://docs.timescale.com/use-timescale/latest/metrics-logging/integrations/).
 
 ### Replica lag
-Customers now have more visibility into the state of replicas running on Timescale Cloud. We’ve released a new parameter called Replica Lag within the Operations tab for both Read and High Availability Replicas. Replica lag is measure in bytes against the current state of the primary database. For questions or concerns about the relative lag state of your replica, please reach out to Customer Support.
+Customers now have more visibility into the state of replicas running on Timescale Cloud. We’ve released a new parameter called Replica Lag within the Operations tab for both Read and High Availability Replicas. Replica lag is measured in bytes against the current state of the primary database. For questions or concerns about the relative lag state of your replica, please reach out to Customer Support.
 
 ### Adjust chunk interval
-Customers can now adjust their chunk interval for their hypertables and continuous aggregates through the Timescale UI. In the Explorer, select the corresponding hypertable you would like to adjust the chunk interval. Under "Chunk information," you can change the chunk interval. Note that this only changes the chunk interval going forward, and does not retroactively change existing chunks.
+Customers can now adjust their chunk interval for their hypertables and continuous aggregates through the Timescale UI. In the Explorer, select the corresponding hypertable you would like to adjust the chunk interval for. Under *Chunk information*, you can change the chunk interval. Note that this only changes the chunk interval going forward, and does not retroactively change existing chunks.
 
 ### pgai Extension: Support for Anthropic and Cohere Models
 The pgai extension v0.3.0 now supports embedding creation and LLM reasoning using models from Anthropic and Cohere. For details and examples, see [this post for pgai and Cohere](https://www.timescale.com/blog/build-search-and-rag-systems-on-postgresql-using-cohere-and-pgai/), and [this post for pgai and Anthropic](https://www.timescale.com/blog/use-anthropic-claude-sonnet-3-5-in-postgresql-with-pgai/).
@@ -140,7 +140,7 @@ Improvements:
 - Support for chunk mapping for hypertables with custom schema and table prefixes
 
 
-## ⚡ Performance and stability improvements for Timescale Cloud and TimescaleDB  
+## ⚡ Performance and stability improvements for Timescale Cloud and TimescaleDB
 <Label type="date">July 12, 2024</Label>
 
 The following improvements have been made to Timescale products:
@@ -202,7 +202,7 @@ select ollama_generate
 To learn more, see the [pgai Ollama documentation](https://github.com/timescale/pgai/blob/main/docs/ollama.md).
 
 
-## ⚡ Performance and stability improvements for Timescale Cloud, and TimescaleDB  
+## ⚡ Performance and stability improvements for Timescale Cloud, and TimescaleDB
 <Label type="date">July 12, 2024</Label>
 
 The following improvements have been made to Timescale products:
