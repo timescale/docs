@@ -14,8 +14,8 @@ All the latest features and updates to Timescale products.
 ### 2FA Indicator
 We’ve added a 2FA status column to the Members page, allowing customers to easily see whether each project member has 2FA enabled or disabled.
 
-### CSV import tool in the Timescale console
-We have added a CSV import tool available on service creation within the Timescale console.  For all TimescaleDB services, after service creation you can: 
+### CSV Import
+We have added a CSV import tool to the Timescale Console.  For all TimescaleDB services, after service creation you can: 
 * Choose a local file
 * Select the name of the data collection to be uploaded (default is file name)
 * Choose data types for each column
