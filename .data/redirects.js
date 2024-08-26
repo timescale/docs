@@ -1352,7 +1352,31 @@ const redirector = new ThreeOhOneRedirector({
 		"https://docs.timescale.com/timescaledb/latest/how-to-guides/write-data/"
 	)
 	.add("/main", "https://docs.timescale.com/timescaledb/latest/")
-	.add(
+  .add(
+    "/migrate/latest/live-migration/live-migration-from-postgres/",
+    "https://docs.timescale.com/migrate/latest/live-migration"
+  )
+  .add(
+    "/migrate/latest/live-migration/live-migration-from-timescaledb",
+    "https://docs.timescale.com/migrate/latest/live-migration"
+  )
+  .add(
+    "/migrate/latest/live-migration/live-migration-faq",
+    "https://docs.timescale.com/migrate/latest/live-migration"
+  )
+  .add(
+    "/migrate/latest/playbooks/rds-timescale-pg-dump",
+    "https://docs.timescale.com/migrate/latest/pg-dump-and-restore"
+  )
+  .add(
+    "/migrate/latest/playbooks/rds-timescale-live-migration",
+    "https://docs.timescale.com/migrate/latest/live-migration"
+  )
+  .add(
+    "/migrate/latest/playbooks/multi-node-to-timescale-service",
+    "https://docs.timescale.com/migrate/latest/live-migration"
+  )
+  .add(
 		"/mst/latest/create-a-service",
 		"https://docs.timescale.com/mst/latest/about-mst"
 	)
