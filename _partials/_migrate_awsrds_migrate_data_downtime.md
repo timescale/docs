@@ -36,7 +36,7 @@ import MigrationSetupDBConnectionPostgresql from "versionContent/_partials/_migr
 
 </Procedure>
 
-## Migrate the roles and schema from RDS to your Timescale Cloud service
+## Migrate roles from RDS to your Timescale Cloud service
 
 Roles manage database access permissions. To migrate your role-based security hierarchy to your Timescale Cloud 
 service:
@@ -78,27 +78,13 @@ service:
    -e 's/GRANTED BY "[^"]*"//g' \
    roles.sql
    ```
-1. **Dump the database schema from your RDS instance**
-
-   ```bash
-   pg_dump -d "$SOURCE" \
-     --format=plain \
-     --quote-all-identifiers \
-     --no-tablespaces \
-     --no-owner \
-     --no-privileges \
-     --section=pre-data \
-     --file=pre-data-dump.sql
-   ```
-
-1. **Upload the roles and schema to your Timescale Cloud service**
+1. **Upload the roles to your Timescale Cloud service**
 
    ```bash
    psql -X -d "$TARGET" \
      -v ON_ERROR_STOP=1 \
      --echo-errors \
-     -f roles.sql \
-     -f pre-data-dump.sql
+     -f roles.sql
    ```
 
 1. **Manually assign passwords to the roles**
@@ -133,24 +119,11 @@ service:
    To dramatically reduce the time taken to dump the RDS instance, using multiple connections. For more information,
    see [dumping with concurrency][dumping-with-concurrency] and [restoring with concurrency][restoring-with-concurrency].
 
-1. **Dump the database indexes, constraints and other objects**
-
-   ```bash
-   pg_dump -d "$SOURCE" \
-      --format=plain \
-      --quote-all-identifiers \
-      --no-tablespaces \
-      --no-owner \
-      --no-privileges \
-      --section=post-data \
-      --file=post-data-dump.sql
-   ```
 1. **Upload your data to your Timescale Cloud service**
 
    ```bash
    psql -d $TARGET -v ON_ERROR_STOP=1 --echo-errors \
-     -f dump.sql \
-     -f post-data-dump.sql
+     -f dump.sql
    ```
 
 </Procedure>
