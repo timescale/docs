@@ -42,14 +42,19 @@ module.exports = [
             excerpt: "Learn about how compression works",
           },
           {
-            title: "Compression design",
-            href: "compression-design",
-            excerpt: "The design of TimescaleDB compression",
-          },
-          {
             title: "About compression methods",
             href: "compression-methods",
             excerpt: "Learn about the different compression methods",
+          },
+          {
+            title: "Backfill historical data",
+            href: "backfill-historical-data",
+            excerpt: "Backfill historical data to compressed chunks",
+          },
+          {
+            title: "Compression design",
+            href: "compression-design",
+            excerpt: "The design of TimescaleDB compression",
           },
           {
             title: "Enable a compression policy",
@@ -71,11 +76,7 @@ module.exports = [
             href: "decompress-chunks",
             excerpt: "Decompress data chunks",
           },
-          {
-            title: "Backfill historical data",
-            href: "backfill-historical-data",
-            excerpt: "Backfill historical data to compressed chunks",
-          },
+
           {
             title: "Modify a schema",
             href: "modify-a-schema",
