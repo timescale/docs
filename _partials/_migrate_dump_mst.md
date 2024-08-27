@@ -33,7 +33,7 @@ correct state.
 
 <Procedure>
 
-1. Upload your data.
+1. **Upload your data**
    ```bash
    psql $TARGET -v ON_ERROR_STOP=1 --echo-errors \
    -f roles.sql \
@@ -41,7 +41,7 @@ correct state.
    -f dump.sql \
    -c "SELECT timescaledb_post_restore();"
    ```
-1. Manually assign passwords to the roles.
+1. **Manually assign passwords to the roles**
 
    MST did not allow you to export passwords with roles. For each role, use the following command to manually
    assign a password to a role:
@@ -58,3 +58,6 @@ correct state.
 <MigrationValidateRestartApp />
 
 </Procedure>
+
+[timescaledb_pre_restore]: /api/:currentVersion:/administration/#timescaledb_pre_restore
+[timescaledb_post_restore]: /api/:currentVersion:/administration/#timescaledb_post_restore       
