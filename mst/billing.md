@@ -163,7 +163,7 @@ this model, invoices are generated at the end of the month based on actual
 usage, and are sent in `.pdf` format by email to the billing email addresses you
 configured in your dashboard.
 
-Payment terms for corporate invoices are 10 days net, by bank transfer, to the
+Payment terms for corporate invoices are 14 days net, by bank transfer, to the
 bank details provided on the invoice. By default, services are charged in US
 Dollars (USD), but you can request your invoices be sent in either Euros (EUR)
 or Pounds Sterling (GBP) at the invoice date's currency exchange rates.
