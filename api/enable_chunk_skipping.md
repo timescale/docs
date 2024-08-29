@@ -1,17 +1,17 @@
 ---
-api_name: enable_column_stats()
+api_name: enable_chunk_skipping()
 excerpt: Enable range tracking for columns of chunks from a hypertable  
 topics: [hypertables]
-keywords: [hypertables, chunks, range-tracking]
+keywords: [hypertables, chunks, range-tracking, skipping]
 tags: [columns, ranges, min-max, chunks]
 api:
   license: apache
   type: function
 ---
 
-# enable_column_stats()
+# enable_chunk_skipping()
 
-Track a range of values in a specific column of chunks in a hypertable.
+Enable range statistics for a specific column in a hypertable. This tracks a range of values for that column per chunk. Used for chunk pruning during query optimization.
 
 ### Required arguments
 
@@ -47,7 +47,7 @@ partitioning on the `time` column. You then specify and enable additional column
 
 ```sql
 SELECT create_hypertable('conditions', 'time');
-SELECT enable_column_stats('conditions', 'device_id');
+SELECT enable_chunk_skipping('conditions', 'device_id');
 ```
 
 <Highlight type="note">
