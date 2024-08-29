@@ -11,7 +11,7 @@ api:
 
 # enable_chunk_skipping()
 
-Enable range statistics for a specific column in a hypertable. This tracks range of values for that column per chunk. This is used for chunk pruning during query optimization
+Enable range statistics for a specific column in a hypertable. This tracks a range of values for that column per chunk. Used for chunk pruning during query optimization.
 
 ### Required arguments
 
