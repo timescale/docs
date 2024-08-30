@@ -37,8 +37,6 @@ We've released permission granting via role assumption to CloudWatch. Role assum
 
 For more details take a look at [our documentation](https://docs.timescale.com/use-timescale/latest/metrics-logging/integrations/).
 
-![CloudWatch authentication via role assumption](https://s3.amazonaws.com/assets.timescale.com/docs/images/cloudwatch-role-assumption.png)
-
 <img src="https://s3.amazonaws.com/assets.timescale.com/docs/images/cloudwatch-role-assumption.png" width="600px" alt="CloudWatch authentication via role assumption" />
 
 ### Two-factor authentication (2FA) indicator
