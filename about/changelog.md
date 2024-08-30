@@ -8,7 +8,7 @@ keywords: [changelog, upgrades, updates, releases]
 
 All the latest features and updates to Timescale products.
 
-## Query your database from the Console and easier options to add data
+## 😎 Query your database directly from the Console and enhanced data import and migration options
 <Label type="date">August 30, 2024</Label>
 
 ### SQL Editor in Timescale Console 
