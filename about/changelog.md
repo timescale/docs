@@ -42,7 +42,7 @@ For more details take a look at [our documentation](https://docs.timescale.com/
 ### Two-factor authentication (2FA) indicator
 We’ve added a 2FA status column to the Members page, allowing customers to easily see whether each project member has 2FA enabled or disabled.
 
-![2FA status](https://s3.amazonaws.com/assets.timescale.com/docs/images/2FA-status-indicator.png | width=100)
+![2FA status](https://s3.amazonaws.com/assets.timescale.com/docs/images/2FA-status-indicator.png)
 
 ### Anthropic and Cohere integrations in pgai
 The pgai extension v0.3.0 now supports embedding creation and LLM reasoning using models from Anthropic and Cohere. For details and examples, see [this post for pgai and Cohere](https://www.timescale.com/blog/build-search-and-rag-systems-on-postgresql-using-cohere-and-pgai/), and [this post for pgai and Anthropic](https://www.timescale.com/blog/use-anthropic-claude-sonnet-3-5-in-postgresql-with-pgai/).
