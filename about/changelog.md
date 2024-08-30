@@ -27,7 +27,7 @@ The enhanced Postgres import instructions now offer several options: single tabl
 ![Data import screen](https://s3.amazonaws.com/assets.timescale.com/docs/images/data-import-screen.png)
 
 ### Improvements to Live migration
-Live migration v0.0.25 comes with the following improvements:
+We've released v0.0.25 of Live migration that includes the following improvements:
 * Support migrating tsdb on non public schema to public schema
 * Pre-migration compatibility checks
 * Docker compose build fixes
