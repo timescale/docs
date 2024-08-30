@@ -17,7 +17,7 @@ We've added a new tab to the service screen that allows users to query their dat
 * Users can disable the SQL Editor at any time by toggling the option under the Operations tab.
 * The editor supports all DML and DDL operations (any single-statement SQL query), but doesn't support multiple SQL statements in a single query.
   
-![SQL Editor](https://s3.amazonaws.com/assets.timescale.com/docs/images/slq-editor-query.png)
+![SQL Editor](https://s3.amazonaws.com/assets.timescale.com/docs/images/sql-editor-query.png)
 
 ### Enhanced Data Import Options for Quick Evaluation
 After service creation, we now offer a dedicated section for data import, including options to import from Postgres as a source or from CSV files.
