@@ -12,15 +12,19 @@ All the latest features and updates to Timescale products.
 <Label type="date">August 30, 2024</Label>
 
 ### SQL Editor in Timescale Console 
-We've added a new feature to the console that allows users to query their database directly, without having to leave the console interface. 
+We've added a new tab to the service screen that allows users to query their database directly, without having to leave the console interface. 
 * For existing services on Timescale, this is an opt-in feature. For all newly created services, the SQL Editor will be enabled by default.
 * Users can disable the SQL Editor at any time by toggling the option under the Operations tab.
 * The editor supports all DML and DDL operations (any single-statement SQL query), but doesn't support multiple SQL statements in a single query.
+  
+![SQL Editor](https://s3.amazonaws.com/assets.timescale.com/docs/images/slq-editor-query.png)
 
 ### Enhanced Data Import Options for Quick Evaluation
 After service creation, we now offer a dedicated section for data import, including options to import from Postgres as a source or from CSV files.
 
 The enhanced Postgres import instructions now offer several options: single table import, schema-only import, partial data import (allowing selection of a specific time range), and complete database import. Users can execute any of these data imports with just one or two simple commands provided in the data import section.
+
+![Data import screen](https://s3.amazonaws.com/assets.timescale.com/docs/images/data-import-screen.png)
 
 ### Improvements to Live migration
 Live migration v0.0.25 comes with the following improvements:
