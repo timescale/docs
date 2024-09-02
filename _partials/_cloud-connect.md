@@ -6,23 +6,30 @@ To ensure a Timescale service is running correctly:
 
 1. **Check your service**
 
-    In the [Services section in Timescale Console][services-portal], check that your service is marked as `Running`.
+    In [Timescale Console][services-portal], select a service and check that it is marked as `Running`.
+
+   ![Check service is running](https://assets.timescale.com/docs/images/cloud-sql-editors.png)
 
 1. **Connect to your service**
-    - [Run SQLeditor][run-sqleditor]: in Timescale Console, click `SQLeditor`. 
-    - [Setup PopSQL][popsql]: follow the instructions to easily connect to your service in the UI.
-    - [psql][install-psql]: connect to your service with the value of `Service URL` from the config file you 
-      just saved.
 
-      <CodeBlock canCopy={true} showLineNumbers={false} children={`
-      psql "postgres://tsdbadmin:<PASSWORD>@<HOST>:<PORT>/tsdb?sslmode=require"
-      `} />
+    Use either: 
+    - A Cloud SQL editor from Timescale Console:
+      - [SQL editor][run-sqleditor]: in Timescale Console, click `SQL editor`. You can now run queries for this service. 
+      - [PopSQL][popsql]:  in Timescale Console, click `PopSQL`, then follow the instructions to easily connect to 
+        this service with PopSQL.
+    - The command line:
+      - [psql][install-psql]: connect to your service with the value of `Service URL` from the config file you 
+        just saved.
 
-    You are connected to your service and are now able to issue commands. 
+        <CodeBlock canCopy={true} showLineNumbers={false} children={`
+        psql "postgres://tsdbadmin:<PASSWORD>@<HOST>:<PORT>/tsdb?sslmode=require"
+        `} />
+
+    You are connected to your service and can issue commands. 
 
 1. **Create a PostgreSQL table** 
 
-    Copy the following into [PopSQL][popsql] or psql, then run your query:
+    Copy the following into your SQL editor, then run your query:
 
     ```sql
     CREATE TABLE stocks_real_time (
@@ -34,8 +41,14 @@ To ensure a Timescale service is running correctly:
     ```
 
 1.  **Check that the table exists**
-    - In PopSQL, you see the table in the UI. 
-    - In psql, run the `\dt` command, You see the table listing in your service. To disconnect, type `exit`.
+   - **SQL editor**: run the following query:
+     ```sql
+     SELECT * FROM information_schema.tables where table_name = 'stocks_real_time';
+     ```
+     You see the table listed in the UI.
+
+   - **PopSQL**: the table is automatically displayed when you run the `CREATE` query.  
+   - **psql**: run the `\dt` command. You see the table listing for your service. To disconnect, type `exit`.
 
 
 Quick recap, you find configuration information about your
@@ -50,3 +63,4 @@ config file.
 [install-psql]: /use-timescale/:currentVersion:/integrations/query-admin/psql/
 [popsql]: /getting-started/:currentVersion:/run-queries-from-console/#popsql
 [run-sqleditor]: /getting-started/:currentVersion:/run-queries-from-console/#sql-editor
+[install-psql]: /use-timescale/:currentVersion:/integrations/query-admin/psql/

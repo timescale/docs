@@ -8,12 +8,13 @@ keywords: [popsql, sql editor, chart, dashboard]
 
 As Timescale Cloud is based on PostgreSQL, you can use lots of [different tools][integrations] to 
 connect to your service and interact with your data. To securely manage your date from inside 
-Console, Timescale offers the following UIs:
+Console, Timescale offers the following Cloud SQL editors:
 
 - [SQL editor][run-sqleditor]: a simple UI to run queries for each individual service.
 - [PopSQL][run-popsql]: a comprehensive UI that you use to write queries, visualize data, 
    and share your results.
 
+If you prefer the command line to a Cloud SQL editor, use [psql][install-psql].
 
 ## SQL editor
 
@@ -33,8 +34,8 @@ To use SQL editor with Timescale:
 
 1.  **Open SQL editor from Timescale Console**
 
-    1. Log in to [Timescale Console][timescale-console], then select a service.
-    1. Click SQL editor.
+    1. In [Timescale Console][timescale-console-services], select a service.
+    1. Click `SQL editor`. You can now run queries for this service. 
 
 4. **Run a test query**
 
@@ -122,7 +123,7 @@ Now you have set up PopSQL, see how to easily do the following:
 
 
 
-### FAQ
+### PopSQL FAQ
 
 #### How do I access PopSQL?
 
@@ -157,7 +158,7 @@ user is automatically added to your PopSQL organization. Unless you
 [share the connection within PopSQL](https://docs.popsql.com/docs/shared-connections), this 
 new user must input their own credentials for each service/connection.
 
-#### Will using PopSQL affect the performance of my Timescale service?
+#### Will using PopSQL affect the performance of my Timescale Cloud service?
 
 There are a few factors to consider:
 
@@ -175,11 +176,13 @@ If you'd like to prevent write operations such as insert or update. Instead
 of using the `tsdbadmin` superuser, create a read-only user for your service and
 use that within PopSQL.
 
-#### How does pricing work?
+## Cloud SQL editor seats
 
-Timescale customers get PopSQL Business for free for up to 10 users. To add more than 10 seats to your account, [Contact us](https://www.timescale.com/contact) for further assistance.  
+* **Timescale Cloud**: the number of Cloud SQL editor seats you are allocated depends on your 
+  [Pricing Plan][pricing-plan-features].
+* **PopSQL**: there is a free plan available to everyone, as well as paid plans. See  [PopSQL Pricing](https://popsql.com/pricing) for full 
+  details.
 
-PopSQL has a free plan available to everyone, as well as paid plans. See  [PopSQL Pricing](https://popsql.com/pricing) for full details.
 
 
 [readreplica]: /use-timescale/:currentVersion:/ha-replicas/read-scaling/
@@ -187,3 +190,6 @@ PopSQL has a free plan available to everyone, as well as paid plans. See  [PopSQ
 [run-sqleditor]: /getting-started/:currentVersion:/run-queries-from-console/#sql-editor
 [integrations]: /use-timescale/:currentVersion:/integrations/query-admin/
 [timescale-console]: https://console.cloud.timescale.com/
+[timescale-console-services]: https://console.cloud.timescale.com/dashboard/services
+[pricing-plan-features]: https://www.timescale.com/pricing#features
+[install-psql]: /use-timescale/:currentVersion:/integrations/query-admin/psql/
