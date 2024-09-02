@@ -18,10 +18,11 @@ You use Timescale Console to create and manage Timescale services. Each service 
 Timescale offers the following PostgreSQL service types:
 
 - [**Time-series and Analytics**](https://www.timescale.com/blog/what-is-a-time-series-database/#what-is-a-time-series-database): a Timescale DB instance optimized for your time-series and analytics workloads.
-- **All other workloads**: a [Dynamic PostgreSQL](https://www.timescale.com/dynamic-postgresql) instance with a Dynamic Compute range aligned to your business needs. For this Early Access product, you only pay the base. If your workload demands it, we dynamically scale CPU use between your min and max limits.
-  
+- [**Dynamic PostgreSQL**](https://www.timescale.com/dynamic-postgresql): for all other workloads. A PostgreSQL instance with a dynamic compute range aligned to 
+   your business needs.
 
-This section shows you how to create a Timescale service using Timescale Console, then connect to your service using PopSQL or the command line.
+This section shows you how to create a Timescale service, then connect to your service using either a secure Cloud SQL 
+editor in Timescale Console, or command line tools.
 
 <Install />
 
@@ -33,17 +34,21 @@ Now that you have an active Timescale account, you can create and manage your se
 
 1. In the [service creation page][create-service],
    choose **Time Series and Analytics** or **Dynamic PostgreSQL**.
-2. Configure your service, then click **Create service**.
-3. In the **Service Information** page:
-    1. Click **Download the config** and store your configuration information in a secure location.
+1. In **Create a service**, configure your service, then click **Create service**.
 
-       This page contains all you need to connect to your service. Spoiler alert, you need the config page to complete this Get Started process.
+   Your service is constructed immediately and is ready to use.
 
-    1. Either:
-        - Follow the instructions and connect to your service.
-        - Click **I stored my password, go to service overview**.
+1. Click **Download the config** and store the configuration information you need to connect to this service in a 
+   secure location. 
 
-If you choose to go to the service overview, [Check your service and connect to it][connect-to-your-service] shows you how to connect.
+   This file contains the passwords and configuration information you need to connect to your service from the command 
+   line, or third party database administration tools. You can also connect to your service from Timescale Console 
+   using our Cloud SQL editors.
+
+1. Follow the service creation wizard.   
+
+If you choose to go directly to the service overview, [Check your service and connect to it][connect-to-your-service] 
+shows you how to connect.
 
 </Procedure> 
 

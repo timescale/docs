@@ -19,7 +19,7 @@ To ensure a Timescale service is running correctly:
         this service with PopSQL.
     - The command line:
       - [psql][install-psql]: connect to your service with the value of `Service URL` from the config file you 
-        just saved.
+        just saved:
 
         <CodeBlock canCopy={true} showLineNumbers={false} children={`
         psql "postgres://tsdbadmin:<PASSWORD>@<HOST>:<PORT>/tsdb?sslmode=require"
@@ -41,14 +41,15 @@ To ensure a Timescale service is running correctly:
     ```
 
 1.  **Check that the table exists**
-   - **SQL editor**: run the following query:
-     ```sql
-     SELECT * FROM information_schema.tables where table_name = 'stocks_real_time';
-     ```
-     You see the table listed in the UI.
 
-   - **PopSQL**: the table is automatically displayed when you run the `CREATE` query.  
-   - **psql**: run the `\dt` command. You see the table listing for your service. To disconnect, type `exit`.
+    - **SQL editor**: run the following query:
+      ```sql
+      SELECT * FROM information_schema.tables where table_name = 'stocks_real_time';
+      ```
+      You see the table listed in the UI.
+
+    - **PopSQL**: the table is automatically displayed when you run the `CREATE` query.  
+    - **psql**: run the `\dt` command. You see the table listing for your service. To disconnect, type `exit`.
 
 
 Quick recap, you find configuration information about your
