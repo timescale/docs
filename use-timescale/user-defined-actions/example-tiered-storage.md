@@ -85,16 +85,6 @@ to move data to low-cost object storage backed by Amazon S3.
       config => '{"hypertable":"metrics","lag":"12 month","destination_tablespace":"old_chunks"}'
     );
     ```
-
-<Highlight type="note">
-This procedure uses PostgreSQL's regular `ALTER TABLE ... SET TABLESPACE` syntax
-to move chunks. You could also write the procedure using TimescaleDB's
-[`move_chunk`](/api/latest/hypertable/move_chunk) function. The
-`move_chunk` function reorders the data as part of the move, which makes
-subsequent queries faster. It also requires lower lock levels, so the chunk
-remains available for reads during the move.
-</Highlight>
-
 </Procedure>
 
 [moving-data]: /use-timescale/:currentVersion:/user-defined-actions/example-tiered-storage/
