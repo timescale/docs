@@ -85,6 +85,8 @@ to move data to low-cost object storage backed by Amazon S3.
       config => '{"hypertable":"metrics","lag":"12 month","destination_tablespace":"old_chunks"}'
     );
     ```
+
 </Procedure>
+
 
 [moving-data]: /use-timescale/:currentVersion:/user-defined-actions/example-tiered-storage/
