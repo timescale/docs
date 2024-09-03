@@ -52,7 +52,7 @@ values for each day.
 In this section, you time bucket the entire dataset for the last week into
 days, and calculate the average of each bucket:
 
-<CodeBlock canCopy={false} showLineNumbers={false} children={`
+<CodeBlock canCopy={true} showLineNumbers={false} children={`
 SELECT
   time_bucket('1 day', time) AS bucket,
   symbol,
@@ -63,7 +63,7 @@ WHERE time > now() - INTERVAL '1 week'
 
 Then, you organize the results by bucket and symbol:
 
-<CodeBlock canCopy={false} showLineNumbers={false} children={`
+<CodeBlock canCopy={true} showLineNumbers={false} children={`
 GROUP BY bucket, symbol
 ORDER BY bucket, symbol
 `} />
@@ -76,7 +76,20 @@ ORDER BY bucket, symbol
     you downloaded to connect to your database.
 1.  At the `psql` prompt, type this query:
 
-    <TryItOutCodeBlock queryId="getting-started-week-average" />
+    <CodeBlock canCopy={true} showLineNumbers={false} children={`
+    SELECT
+      time_bucket('1 day', time) AS bucket,
+      symbol,
+      max(price) AS high,
+      first(price, time) AS open,
+      last(price, time) AS close,
+      min(price) AS low
+    FROM stocks_real_time srt
+    WHERE time > now() - INTERVAL '1 week'
+    GROUP BY bucket, symbol
+    ORDER BY bucket, symbol
+    LIMIT 10;
+    `} />
 
 </Procedure>
 
@@ -94,7 +107,7 @@ In this section, you use a `SELECT` statement to find the high and low values
 with `min` and `max` functions, and the open and close values with `first` and
 `last` functions. You then aggregate the data into 1 day buckets, like this:
 
-<CodeBlock canCopy={false} showLineNumbers={false} children={`
+<CodeBlock canCopy={true} showLineNumbers={false} children={`
 SELECT
   time_bucket('1 day', "time") AS day,
   symbol,
@@ -107,7 +120,7 @@ FROM stocks_real_time srt
 
 Then, you organize the results by day and symbol:
 
-<CodeBlock canCopy={false} showLineNumbers={false} children={`
+<CodeBlock canCopy={true} showLineNumbers={false} children={`
 GROUP BY day, symbol
 ORDER BY day DESC, symbol
 `} />
@@ -119,8 +132,21 @@ ORDER BY day DESC, symbol
 1.  At the command prompt, use the `psql` connection string from the cheat sheet
     you downloaded to connect to your database.
 1.  At the `psql` prompt, type this query:
-
-    <TryItOutCodeBlock queryId="getting-started-srt-aggregation" />
+    
+    <CodeBlock canCopy={true} showLineNumbers={false} children={`
+    SELECT
+      time_bucket('1 day', time) AS bucket,
+      symbol,
+      max(price) AS high,
+      first(price, time) AS open,
+      last(price, time) AS close,
+      min(price) AS low
+    FROM stocks_real_time srt
+    WHERE time > now() - INTERVAL '1 week'
+    GROUP BY bucket, symbol
+    ORDER BY bucket, symbol
+    LIMIT 10;
+    `} />
 
 1.  Type `q` to return to the `psql` prompt.
 
@@ -135,7 +161,7 @@ In this section, your query starts by creating a materialized view called
 `stock_candlestick_daily`, then converting it into a Timescale continuous
 aggregate:
 
-<CodeBlock canCopy={false} showLineNumbers={false} children={`
+<CodeBlock canCopy={true} showLineNumbers={false} children={`
 CREATE MATERIALIZED VIEW stock_candlestick_daily
 WITH (timescaledb.continuous) AS
 `} />
@@ -143,7 +169,7 @@ WITH (timescaledb.continuous) AS
 Then, you give the aggregate query you created earlier as the contents for the
 continuous aggregate:
 
-<CodeBlock canCopy={false} showLineNumbers={false} children={`
+<CodeBlock canCopy={true} showLineNumbers={false} children={`
 SELECT
   time_bucket('1 day', "time") AS day,
   symbol,
@@ -163,14 +189,14 @@ When you continuous aggregate has been created and the data aggregated for the
 first time, you can query your continuous aggregate. For example, you can look
 at all the aggregated data, like this:
 
-<CodeBlock canCopy={false} showLineNumbers={false} children={`
+<CodeBlock canCopy={true} showLineNumbers={false} children={`
 SELECT * FROM stock_candlestick_daily
   ORDER BY day DESC, symbol;
 `} />
 
 Or you can look at a single stock, like this:
 
-<CodeBlock canCopy={false} showLineNumbers={false} children={`
+<CodeBlock canCopy={true} showLineNumbers={false} children={`
 SELECT * FROM stock_candlestick_daily
 WHERE symbol='TSLA';
 `} />
@@ -198,12 +224,21 @@ WHERE symbol='TSLA';
     ```
 
 1.  Query your continuous aggregate for all stocks:
-
-    <TryItOutCodeBlock queryId="getting-started-cagg" />
+    
+    <CodeBlock canCopy={true} showLineNumbers={false} children={`
+    SELECT * FROM stock_candlestick_daily
+    ORDER BY day DESC, symbol
+    LIMIT 10;
+    `} />
 
 1.  Query your continuous aggregate for Tesla stock:
-
-    <TryItOutCodeBlock queryId="getting-started-cagg-tesla" />
+    
+    <CodeBlock canCopy={true} showLineNumbers={false} children={`
+    SELECT * FROM stock_candlestick_daily
+    WHERE symbol='TSLA'
+    ORDER BY day DESC
+    LIMIT 10;
+    `} />
 
 </Procedure>
 

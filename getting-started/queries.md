@@ -10,9 +10,7 @@ content_group: Getting started
 # Queries
 
 Timescale supports full SQL, so you don't need to learn a custom query language.
-This section contains some simple queries that you can run directly on this
-page. When you have constructed the perfect query, use the copy button to use it
-on your own database.
+This section contains some simple queries that you can use on your own database.
 
 Most of the queries in this section look for the last four days of data. This is
 to account for the fact there are no stock trades over the weekends, and to make
@@ -29,14 +27,14 @@ This first section uses a `SELECT` statement to ask your database to return
 every column, represented by the asterisk, from the `stocks_real_time srt`
 table, like this:
 
-<CodeBlock canCopy={false} showLineNumbers={false} children={`
+<CodeBlock canCopy={true} showLineNumbers={false} children={`
 SELECT * FROM stocks_real_time srt
 `} />
 
 If your table is very big, you might not want to return every row. You can
 limit the number of rows that get returned with a `LIMIT` clause:
 
-<CodeBlock canCopy={false} showLineNumbers={false} children={`
+<CodeBlock canCopy={true} showLineNumbers={false} children={`
 LIMIT 10
 `} />
 
@@ -46,15 +44,11 @@ LIMIT 10
 
 1.  At the command prompt, use the `psql` connection string from the cheat sheet
     you downloaded to connect to your database.
-1.  At the `psql` prompt, type this query.
-
-    <Highlight type="note">
-    Get a sneak peek at the results by clicking "Run query" below. This runs the
-    SQL query against a live instance curated by Timescale.
-    </Highlight>
-
-    <TryItOutCodeBlock id="try-it-out-code-block-1" queryId="getting-started-srt-4-days" />
-
+1. At the `psql` prompt, type this query:
+   <CodeBlock canCopy={true} showLineNumbers={false} children={`
+   SELECT * FROM stocks_real_time srt
+   LIMIT 10;
+   `} />
 1.  Type `q` to return to the `psql` prompt.
 
 </Procedure>
@@ -69,7 +63,7 @@ In this section, you query Tesla's stock with a `SELECT` query like this,
 which asks for all of the trades from the `stocks_real_time srt` table, with the
 `TSLA` symbol, and which has day volume data:
 
-<CodeBlock canCopy={false} showLineNumbers={false} children={`
+<CodeBlock canCopy={true} showLineNumbers={false} children={`
 SELECT * FROM stocks_real_time srt
 WHERE symbol='TSLA' and day_volume is not null
 `} />
@@ -79,13 +73,13 @@ order, and also by day volume in descending order. The day volume shows the
 total number of trades for this stock for the day. Every time another trade
 occurs, the day volume figure increases by 1. Here is the `ORDER BY` statement:
 
-<CodeBlock canCopy={false} showLineNumbers={false} children={`
+<CodeBlock canCopy={true} showLineNumbers={false} children={`
 ORDER BY time DESC, day_volume desc
 `} />
 
 Finally, to limit the number of results, you can use a `LIMIT` clause again:
 
-<CodeBlock canCopy={false} showLineNumbers={false} children={`
+<CodeBlock canCopy={true} showLineNumbers={false} children={`
 LIMIT 10
 `} />
 
@@ -97,7 +91,12 @@ LIMIT 10
     you downloaded to connect to your database.
 1.  At the `psql` prompt, type this query:
 
-    <TryItOutCodeBlock queryId="getting-started-srt-orderby" />
+    <CodeBlock canCopy={true} showLineNumbers={false} children={`
+    SELECT * FROM stocks_real_time srt
+    WHERE symbol='TSLA' and day_volume is not null
+    ORDER BY time DESC, day_volume desc
+    LIMIT 10;
+    `} />
 
     There are multiple trades every second, but you know that the order is
     correct, because the `day_volume` column is ordered correctly.
@@ -120,7 +119,7 @@ with an increasing `time` column.
 In this query, you start by selecting the `first()` and `last()` trading price
 for every stock in the `stocks_real_time srt` table for the last four days:
 
-<CodeBlock canCopy={false} showLineNumbers={false} children={`
+<CodeBlock canCopy={true} showLineNumbers={false} children={`
 SELECT symbol, first(price,time), last(price, time)
 FROM stocks_real_time srt
 WHERE time > now() - INTERVAL '4 days'
@@ -130,7 +129,7 @@ Then, you organize the results so that you can see the first and last value for
 each stock together with a `GROUP BY` statement, and in alphabetical order with
 an `ORDER BY` statement, like this:
 
-<CodeBlock canCopy={false} showLineNumbers={false} children={`
+<CodeBlock canCopy={true} showLineNumbers={false} children={`
 GROUP BY symbol
 ORDER BY symbol
 `} />
@@ -145,8 +144,15 @@ For more information about these functions, see the API documentation for
 1.  At the command prompt, use the `psql` connection string from the cheat sheet
     you downloaded to connect to your database.
 1.  At the `psql` prompt, type this query:
-
-    <TryItOutCodeBlock queryId="getting-started-srt-first-last" />
+    
+    <CodeBlock canCopy={true} showLineNumbers={false} children={`
+    SELECT symbol, first(price,time), last(price, time)
+    FROM stocks_real_time srt
+    WHERE time > now() - INTERVAL '4 days'
+    GROUP BY symbol
+    ORDER BY symbol
+    LIMIT 10;
+    `} />
 
 1.  Type `q` to return to the `psql` prompt.
 
@@ -162,19 +168,19 @@ use the bucket timestamp.
 
 In this section, you use the same query as the previous section to find the
 `first` and `last` values, but start by organizing the data into 1-hour time
-buckets. In the last section, you retrieves the first and last value of a
-column, this time, you retrieve the first and last value for a 1-hour time bucket.
+buckets. In the last section, you retrieve the first and last value of a
+column, but this time you retrieve the first and last value for a 1-hour time bucket.
 
 Start by declaring the time bucket interval to use, and give your time bucket a
 name:
 
-<CodeBlock canCopy={false} showLineNumbers={false} children={`
+<CodeBlock canCopy={true} showLineNumbers={false} children={`
 SELECT time_bucket('1 hour', time) AS bucket,
 `} />
 
 Then, you can add the query in the same way as you used before:
 
-<CodeBlock canCopy={false} showLineNumbers={false} children={`
+<CodeBlock canCopy={true} showLineNumbers={false} children={`
     first(price,time),
     last(price, time)
 FROM stocks_real_time srt
@@ -184,7 +190,7 @@ WHERE time > now() - INTERVAL '4 days'
 Finally, organize the results by time bucket, using the `GROUP BY` statement,
 like this:
 
-<CodeBlock canCopy={false} showLineNumbers={false} children={`
+<CodeBlock canCopy={true} showLineNumbers={false} children={`
 GROUP BY bucket
 `} />
 
@@ -197,8 +203,15 @@ For more information about time bucketing, see the [time bucket section][time-bu
 1.  At the command prompt, use the `psql` connection string from the cheat sheet
     you downloaded to connect to your database.
 1.  At the `psql` prompt, type this query:
-
-    <TryItOutCodeBlock queryId="getting-started-srt-bucket-first-last" />
+   
+    <CodeBlock canCopy={true} showLineNumbers={false} children={`
+    SELECT time_bucket('1 hour', time) AS bucket,
+        first(price,time),
+        last(price, time)
+    FROM stocks_real_time srt
+    WHERE time > now() - INTERVAL '4 days'
+    GROUP BY bucket;
+    `} />
 
 1.  Type `q` to return to the `psql` prompt.
 
