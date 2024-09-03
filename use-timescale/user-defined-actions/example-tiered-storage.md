@@ -82,7 +82,7 @@ to move data to low-cost object storage backed by Amazon S3.
     SELECT add_job(
       'move_chunks',
       '1d',
-      config => '{"hypertable":"metrics","lag":"12 month","tablespace":"old_chunks"}'
+      config => '{"hypertable":"metrics","lag":"12 month","destination_tablespace":"old_chunks"}'
     );
     ```
 
