@@ -1,6 +1,6 @@
-<Procedure>
-
 ## Create a Timescale account
+
+<Procedure>
 
 To set up Timescale:
 

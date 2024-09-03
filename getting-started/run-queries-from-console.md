@@ -1,10 +1,10 @@
 ---
-title: PopSQL
-excerpt: Use PopSQL to run SQL queries, create charts and dashboards, and collaborate with teammates.
+title: Run your queries from Timescale Console
+excerpt: Use PopSQL or SQL editor to run SQL queries, create charts and dashboards, and collaborate with teammates.
 keywords: [popsql, sql editor, chart, dashboard]
 ---
 
-# Run queries from Timescale Console
+# Run your queries from Timescale Console
 
 As Timescale Cloud is based on PostgreSQL, you can use lots of [different tools][integrations] to 
 connect to your service and interact with your data. To securely manage your date from inside 

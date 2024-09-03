@@ -1,6 +1,6 @@
-<Procedure>
-
 ## Check your service and connect to it
+
+<Procedure>
 
 To ensure a Timescale service is running correctly:
 

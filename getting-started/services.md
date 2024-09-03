@@ -15,20 +15,21 @@ import CloudIntro from "versionContent/_partials/_cloud-intro.mdx";
 
 You use Timescale Console to create and manage Timescale services. Each service is a single 100% PostgreSQL database with usage-based storage.
 
-Timescale offers the following PostgreSQL service types:
+Timescale Cloud offers the following PostgreSQL optimized database services:
 
-- [**Time-series and Analytics**](https://www.timescale.com/blog/what-is-a-time-series-database/#what-is-a-time-series-database): a Timescale DB instance optimized for your time-series and analytics workloads.
-- [**Dynamic PostgreSQL**](https://www.timescale.com/dynamic-postgresql): for all other workloads. A PostgreSQL instance with a dynamic compute range aligned to 
-   your business needs.
+- **Time-series and Analytics**: a Timescale DB instance optimized for your 
+    [time-series and analytics][what-is-time-series] workloads.
+- **Dynamic PostgreSQL**: for all other workloads. A PostgreSQL instance with a 
+    [dynamic compute range][what-is-dynamic-postgres] aligned to your business needs.
 
 This section shows you how to create a Timescale service, then connect to your service using either a secure Cloud SQL 
 editor in Timescale Console, or command line tools.
 
 <Install />
 
-<Procedure>
-
 ## Create a Timescale service
+
+<Procedure>
 
 Now that you have an active Timescale account, you can create and manage your services in Timescale Console:
 
@@ -62,3 +63,5 @@ And that is it, you are up and running. Enjoy developing with Timescale.
 [connect-to-your-service]: /getting-started/:currentVersion:/services/#check-your-service-and-connect-to-it
 [create-service]: https://console.cloud.timescale.com/dashboard/create_services
 [popsql]: /getting-started/:currentVersion:/run-queries-from-console/#popsql
+[what-is-time-series]: https://www.timescale.com/blog/what-is-a-time-series-database/#what-is-a-time-series-database
+[what-is-dynamic-postgres]: https://www.timescale.com/blog/what-is-a-time-series-database/#what-is-a-time-series-database
