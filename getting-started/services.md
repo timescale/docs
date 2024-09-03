@@ -64,4 +64,4 @@ And that is it, you are up and running. Enjoy developing with Timescale.
 [create-service]: https://console.cloud.timescale.com/dashboard/create_services
 [popsql]: /getting-started/:currentVersion:/run-queries-from-console/#popsql
 [what-is-time-series]: https://www.timescale.com/blog/what-is-a-time-series-database/#what-is-a-time-series-database
-[what-is-dynamic-postgres]: https://www.timescale.com/blog/what-is-a-time-series-database/#what-is-a-time-series-database
+[what-is-dynamic-postgres]: https://www.timescale.com/dynamic-postgresql

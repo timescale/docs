@@ -13,5 +13,5 @@ All databases are extended with lightning fast vector search, and include all th
 with automatic backups, high availability, read replicas, data forking, connection pooling, usage-based storage, and much more.
 
 [what-is-time-series]: https://www.timescale.com/blog/what-is-a-time-series-database/#what-is-a-time-series-database
-[what-is-dynamic-postgres]: https://www.timescale.com/blog/what-is-a-time-series-database/#what-is-a-time-series-database
+[what-is-dynamic-postgres]: https://www.timescale.com/dynamic-postgresql
 [create-service]: /getting-started/:currentVersion:/services/
