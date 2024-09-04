@@ -15,37 +15,41 @@ import CloudIntro from "versionContent/_partials/_cloud-intro.mdx";
 
 You use Timescale Console to create and manage Timescale services. Each service is a single 100% PostgreSQL database with usage-based storage.
 
-Timescale offers the following PostgreSQL service types:
+Timescale Cloud offers the following PostgreSQL optimized database services:
 
-- [**Time-series and Analytics**](https://www.timescale.com/blog/what-is-a-time-series-database/#what-is-a-time-series-database): a Timescale DB instance optimized for your time-series and analytics workloads.
-- **All other workloads**: a [Dynamic PostgreSQL](https://www.timescale.com/dynamic-postgresql) instance with a Dynamic Compute range aligned to your business needs. For this Early Access product, you only pay the base. If your workload demands it, we dynamically scale CPU use between your min and max limits.
-  
+- **Time-series and Analytics**: a Timescale DB instance optimized for your 
+    [time-series and analytics][what-is-time-series] workloads.
+- **Dynamic PostgreSQL**: for all other workloads. A PostgreSQL instance with a 
+    [dynamic compute range][what-is-dynamic-postgres] aligned to your business needs.
 
-
-
-This section shows you how to create a Timescale service using Timescale Console, then connect to your service using PopSQL or the command line.
+This section shows you how to create a Timescale service, then connect to your service using either a secure Cloud SQL 
+editor in Timescale Console, or command line tools.
 
 <Install />
 
-<Procedure>
+## Create a Timescale service
 
-### Create a Timescale service
+<Procedure>
 
 Now that you have an active Timescale account, you can create and manage your services in Timescale Console:
 
 1. In the [service creation page][create-service],
    choose **Time Series and Analytics** or **Dynamic PostgreSQL**.
-2. Configure your service, then click **Create service**.
-3. In the **Service Information** page:
-    1. Click **Download the config** and store your configuration information in a secure location.
+1. In **Create a service**, configure your service, then click **Create service**.
 
-       This page contains all you need to connect to your service. Spoiler alert, you need the config page to complete this Get Started process.
+   Your service is constructed immediately and is ready to use.
 
-    1. Either:
-        - Follow the instructions and connect to your service.
-        - Click **I stored my password, go to service overview**.
+1. Click **Download the config** and store the configuration information you need to connect to this service in a 
+   secure location. 
 
-If you choose to go to the service overview, [Check your service and connect to it][connect-to-your-service] shows you how to connect.
+   This file contains the passwords and configuration information you need to connect to your service from the command 
+   line, or third party database administration tools. You can also connect to your service from Timescale Console 
+   using our Cloud SQL editors.
+
+1. Follow the service creation wizard.   
+
+If you choose to go directly to the service overview, [Check your service and connect to it][connect-to-your-service] 
+shows you how to connect.
 
 </Procedure> 
 
@@ -58,4 +62,6 @@ And that is it, you are up and running. Enjoy developing with Timescale.
 [install-psql]: /use-timescale/:currentVersion:/integrations/query-admin/psql/
 [connect-to-your-service]: /getting-started/:currentVersion:/services/#check-your-service-and-connect-to-it
 [create-service]: https://console.cloud.timescale.com/dashboard/create_services
-[popsql]: /use-timescale/:currentVersion:/popsql/
+[popsql]: /getting-started/:currentVersion:/run-queries-from-console/#popsql
+[what-is-time-series]: https://www.timescale.com/blog/what-is-a-time-series-database/#what-is-a-time-series-database
+[what-is-dynamic-postgres]: https://www.timescale.com/dynamic-postgresql
