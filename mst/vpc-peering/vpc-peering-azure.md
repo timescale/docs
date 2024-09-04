@@ -265,4 +265,4 @@ using the VPC on Azure.
 
 </Procedure>
 
-[aiven-client-install]: /mst/:currentVersion:/aiven-client/aiven-client-install/
+[aiven-client-install]: /mst/:currentVersion:/aiven-client/#install-and-configure-the-aiven-client

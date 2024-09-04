@@ -21,7 +21,7 @@ any suggestions or bug reports, or by forking this repository, making your own
 contribution, and submitting a pull request.
 
 Before we accept any contributions, Timescale contributors need to
-sign the [Contributor License Agreement](https://cla-assistant.io/timescale/docs) (CLA).
+sign the [Contributor License Agreement](https://cla-assistant.io/timescale/docs)(CLA).
 By signing a CLA, we can ensure that the community is free and confident in its
 ability to use your contributions.
 
@@ -264,7 +264,7 @@ Used to indicate an optional step within a procedure. Syntax: `<Optional />`
 Multi-code blocks are code blocks with a language or OS selector. For syntax,
 see [the multi-code-block example](./_multi-code-block.md).
 
-### Tabs
+### Tabs 
 
 Tabs can be used to display content that differs based on a user selection. The
 syntax is:

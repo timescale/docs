@@ -6,33 +6,82 @@ keywords: [upgrades, updates, releases]
 
 # TimescaleDB release notes
 
-This page contains release notes for TimescaleDB&nbsp;2.10.0 and newer. For
-release notes for older versions, see the
-[past releases section][past-relnotes].
+For information about major release for all Timescale product, including TimescaleDB v2.15.2 and 
+greater, see the [Changelog][changelog]. For product release notes, see:
+
+* [TimescaleDB](https://github.com/timescale/timescaledb/releases) -  an open-source database that makes SQL scalable for time-series data.
+* [TimescaleDB Toolkit](https://github.com/timescale/timescaledb-toolkit/releases) - ease all things analytics when using TimescaleDB.
+* [pgai](https://github.com/timescale/pgai/releases) - brings AI workflows to your PostgreSQL database.
+* [pgvectorscale](https://github.com/timescale/pgvectorscale/releases/tag/0.2.0) -  higher performance embedding search and cost-efficient storage for AI applications.
+* [pgspot](https://github.com/timescale/pgspot/releases) - spot vulnerabilities in PostgreSQL extension scripts.
+* [live-migration](https://hub.docker.com/r/timescale/live-migration/tags) - a Docker image to migrate data to a Timescale Cloud service.
 
 <Highlight type="note">
-Want to stay up-to-date with new releases? You can subscribe to new releases on
-GitHub and be notified by email whenever a new release is available. On the
-[Github page](https://github.com/timescale/timescaledb),
+
+Want to stay up-to-date with new releases? On the main page for each repository
 click `Watch`, select `Custom` and then check `Releases`.
+
 </Highlight>
+
+
+This page contains the release notes from TimescaleDB [v2.10.0](#timescaledb2100-on-2023-02-21) 
+to [v2.15.1](#timescaledb2151-on-2024-05-28). For release notes for older versions, see the
+[past releases section][past-relnotes].
+
+
+## TimescaleDB&nbsp;2.15.1 on 2024-05-28
+
+<Highlight type="note">
+
+Nostra culpa. We found a couple of bugs in the update script for this release.
+Best practice is to update directly to [TimescaleDB v2.15.2](#timescaledb2152-on-2024-06-07).
+
+</Highlight>
+
+
+
+#### Migrating from self-hosted TimescaleDB v2.14.x and earlier
+
+After you run `ALTER EXTENSION`, you must run [this SQL script](https://github.com/timescale/timescaledb-extras/blob/master/utils/2.15.X-fix_hypertable_foreign_keys.sql). For more details, see the following pull request [#6797](https://github.com/timescale/timescaledb/pull/6797).
+
+If you are migrating from TimescaleDB v2.15.0, no changes are required.
+
+#### Bugfixes
+* #6540: Segmentation fault when you backfill data using COPY into a compressed chunk.
+* #6858: `BEFORE UPDATE` trigger not working correctly.
+* #6908: Fix `time_bucket_gapfill()` with timezone behaviour around daylight savings time (DST) switches.
+* #6911: Fix dropped chunk metadata removal in the update script.
+* #6940: Fix `pg_upgrade` failure by removing `regprocedure` from the catalog table.
+* #6957: Fix the `segfault` in UNION queries that contain ordering on compressed chunks.
+
+#### Thanks
+* @DiAifU, @kiddhombre and @intermittentnrg for reporting the issues with gapfill and daylight saving time.
+* @edgarzamora for reporting the issue with update triggers.
+* @hongquan for reporting the issue with the update script.
+* @iliastsa and @SystemParadox for reporting the issue with COPY into a compressed chunk.
+
 
 ## TimescaleDB&nbsp;2.15.0 on 2024-05-08
 
 <Highlight type="note">
+
+Nostra culpa. We found a couple of bugs in the update script for this release. 
+Best practice is to update directly to [TimescaleDB v2.15.2](#timescaledb2152-on-2024-06-07).
+
+</Highlight>
+
 This release contains the performance improvements and bug fixes introduced since
 TimescaleDB v2.14.2. Best practice is to upgrade at the next available opportunity.
-</Highlight>
 
 #### Highlighted features in this release
 
 * [Continuous Aggregate](/api/:currentVersion:/continuous-aggregates/create_materialized_view/#sample-usage) now supports `time_bucket` with `origin` and/or `offset`.
 * The following improvements have been introduced for [hypertable compression](/api/:currentVersion:/compression/):
+  - Recommend optimized defaults for `segment by` and `order by` when configuring compression through analysis of table configuration and statistics.
   - Added planner support to check more kinds of WHERE conditions before decompression. 
     This reduces the number of rows that have to be decompressed.
   - You can now use `minmax` sparse indexes when you compress columns with `btree` indexes.
-  - Make compression uses the defaults functions.
-  - Vectorize filters in the WHERE clause contain text equality operators and LIKE expressions.
+  - Vectorize filters in the WHERE clause that contain text equality operators and LIKE expressions.
 
 #### Deprecation warning
 
@@ -44,7 +93,7 @@ TimescaleDB v2.14.2. Best practice is to upgrade at the next available opportuni
 #### For self-hosted TimescaleDB v2.15.0 deployments only
 
 After you run `ALTER EXTENSION`, you must run [this SQL script](https://github.com/timescale/timescaledb-extras/blob/master/utils/2.15.X-fix_hypertable_foreign_keys.sql). For more details, see the 
-following pull requests [#6786](#6797).
+following pull requests [#6797](https://github.com/timescale/timescaledb/pull/6797).
 
 ### Complete list of features
 * #6382 Support for `time_bucket` with origin and offset in CAggs.
@@ -149,9 +198,6 @@ Multi-node is no longer supported starting with TimescaleDB 2.14.
 
 TimescaleDB 2.13 is the last version that includes multi-node support. Learn more about it [here][multi-node-deprecation].
 
-If you want to migrate from multi-node TimescaleDB to single-node TimescaleDB, read the
-[migration documentation][multi-node-to-timescale-service].
-
 #### Deprecation notice: recompress_chunk procedure
 TimescaleDB 2.14 is the last version that will include the recompress_chunk procedure. Its
 functionality will be replaced by the compress_chunk function, which, starting on TimescaleDB 2.14, 
@@ -248,9 +294,6 @@ available opportunity.
 TimescaleDB 2.13 is the last version that will include multi-node support. Multi-node
 support in 2.13 is available for PostgreSQL 13, 14 and 15. Learn more about it
 [here][multi-node-deprecation].
-
-If you want to migrate from multi-node TimescaleDB to single-node TimescaleDB read the
-[migration documentation][multi-node-to-timescale-service].
 
 #### PostgreSQL 13 deprecation announcement
 We will continue supporting PostgreSQL 13 until April 2024. Sooner to that time, we will announce the specific version of TimescaleDB in which PostgreSQL 13 support will not be included going forward.
@@ -762,8 +805,8 @@ For release notes for older TimescaleDB versions, see the
 [past releases section][past-relnotes].
 
 [past-relnotes]: /about/:currentVersion:/release-notes/past-releases/
+[changelog]: /about/:currentVersion:/changelog/
 [pg-upgrade]: /self-hosted/:currentVersion:/upgrades/upgrade-pg/
 [migrate-caggs]: /use-timescale/:currentVersion:/continuous-aggregates/migrate/
 [join-caggs]: /use-timescale/:currentVersion:/continuous-aggregates/create-a-continuous-aggregate/#create-a-continuous-aggregate-with-a-join
-[multi-node-to-timescale-service]:/migrate/:currentVersion:/playbooks/multi-node-to-timescale-service/
 [multi-node-deprecation]: https://github.com/timescale/timescaledb/blob/main/docs/MultiNodeDeprecation.md

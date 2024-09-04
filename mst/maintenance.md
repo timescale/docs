@@ -51,15 +51,13 @@ system during the upgrade.
 
 ### Adjusting your maintenance window
 
-1.  Sign in to your Managed Service for TimescaleDB portal, and click the name
-    of the service that you want to manage the maintenance window for.
-1.  In the `Maintenance window` section, click `Change`.
+1.  In [MST Portal][mst-login], click the service that you want to manage the maintenance window for.
+1.  Click the ellipses (...) to the right of `Maintenance`, then click `Change maintenence window`.
 1.  In the `Service Maintenance Window` dialog, select the day of the week and
     the time (in Universal Coordinated Time) you want the maintenance window to
     start. Maintenance windows can run for up to four hours.
     <img class="main-content__illustration"
-    width={1375} height={944}
-    src="https://assets.timescale.com/docs/images/mst-maintwindow.webp"
+    src="https://assets.timescale.com/docs/images/mst/change-service-mainenence-window.png"
     alt="Adjust maintenance window"/>
 1.  Click `Save Changes`.
 
@@ -78,3 +76,6 @@ retired automatically after the new servers have taken over. The controlled
 failover is a very quick and safe operation and it takes less than a minute to
 get clients connected again. In most cases, there is five to ten second outage
 during this process.
+
+
+[mst-login]:https://portal.managed.timescale.com/login

@@ -25,12 +25,12 @@ node.
 
 ## Creating a replica of PostgreSQL
 
-1.  Sign in to your Managed Service for TimescaleDB portal, and click the
-    service for which you want to create a remote replica.
+1.  In [MST Portal][mst-login], click the
+    service you want to create a remote replica for.
 
-1.  In the `Overview` tab, click `Create a read replica`.
+1.  In `Overview`, click `Create a read replica`.
 
-1.  In the `Create a PostgreSQL read replica` page, type a name for the remote replica,
+1.  In `Create a PostgreSQL read replica`, type a name for the remote replica,
     select the cloud provider, location, plan that you want to use, and click
     `Create`.
 
@@ -72,4 +72,6 @@ delay of less than a second is expected for the change to propagate to the
 replica.
 </Highlight>
 
-[read-replica-cli]: /mst/:currentVersion:/aiven-client/replicas-cli
+[read-replica-cli]: /mst/:currentVersion:/aiven-client/#create-a-read-only-replica-with-aiven-client
+
+[mst-login]:https://portal.managed.timescale.com/login

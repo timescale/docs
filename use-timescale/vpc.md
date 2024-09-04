@@ -1,235 +1,223 @@
 ---
 title: Virtual Private Cloud
-excerpt: Use VPC peering to secure your Timescale database
+excerpt: Use a Peering VPC and AWS PrivateLink to secure your Timescale Service
 products: [cloud]
-keywords: [vpc, services, operations]
+keywords: [PrivateLink, AWS, vpc, services, operations, ]
 tags: [aws]
 cloud_ui:
     path:
         - [services, :serviceId, operations, vpc]
-        - [vpc]
 ---
 
-# Virtual Private Cloud
+# Secure your Timescale Service with VPC Peering and AWS PrivateLink
 
-Timescale allows you to create a virtual private cloud (VPC) network
-between an external cloud provider and your Timescale services. This
-allows you to isolate your Timescale services so that they are only
-accessible using your external cloud account, and is useful if you need to
-improve security through a reduction in the potential attack vector surface.
+You use Virtual Private Cloud (VPC) peering to ensure that your Timescale Services are 
+only accessible through your secured AWS infrastructure. This reduces the potential 
+attack vector surface and improves security.
 
-When you have VPC peering set up in your external cloud provider, you can create
-and configure your VPC peering connections in the Timescale console.
-Timescale provides controls for adding and removing VPC peering
-connections, migrating services to and from VPCs, and creating new services with
-VPC peering attachments.
+The data isolation architecture that ensures a highly secure connection between your apps and Timescale:
 
-To use VPC peering, you need your own cloud VPC, where your
-applications and infrastructure are already running. This section covers how to
-get your VPC peering set up in Amazon Web Services (AWS). You can peer your VPC
-from any AWS region, though the Timescale VPC itself must be within one of
-the [Cloud-supported regions][tsc-regions].
+<img class="main-content__illustration"
+src="https://assets.timescale.com/docs/images/tsc-vpc-architecture.svg"
+alt="The AWS Security Groups dashboard"/>
 
-You need to have these permissions on your cloud provider account to set up
-VPC peering:
+Your apps run inside your AWS Customer VPC, your Timescale Services always run 
+inside the secure Timescale VPC. You control secure communication between apps in
+your VPC and your Timescale Services using a dedicated Peering VPC. The AWS PrivateLink connecting 
+Timescale VPC to the dedicated Peering VPC gives the same level of protection as using a direct AWS PrivateLink connection. 
+It only enables communication to be initiated from your Customer VPC to Timescale Services running
+in the Timescale VPC. Timescale cannot initiate communication with your VPC.
+
+To configure this secure connection, you first create the Peering VPC with 
+AWS PrivateLink in Timescale. After you have accepted and configured the 
+peering connection to your Customer VPC, you use AWS Security Groups to 
+restrict the services in your Customer VPC that are visible to the Peering VPC.
+The last step is to attach individual Timescale Services to the Peering 
+VPC. 
+
+You can run three VPCs in each project, and each Timescale VPC can have as 
+many peering connections as you need. If you need more VPCs click `Support` 
+in Timescale Console and ask for a quota increase. 
+
+
+## Prerequisites
+
+In order to set up VPC peering you need the following permissions in your AWS account:
 
 *   Accept VPC peering requests
 *   Configure route table rules
 *   Configure security group and firewall rules
 
-By default, you can have three VPCs in each project. If you need more VPCs,
-contact Support by clicking the `Support` button in the Timescale console and
-ask for a quota increase. Each VPC can have as many peering connections as you
-need.
+## Set up a secured connection between Timescale and AWS
 
-<Highlight type="warning">
-When you have attached your Timescale service to a VPC, it is no longer
-accessible using the public internet. It is only accessible using a peered
-AWS VPC.
-</Highlight>
+To connect to a Timescale Service using VPC peering, your apps and infrastructure must be already
+running in an Amazon Web Services (AWS) VPC. You can peer your VPC from any AWS region.
+However, your Timescale VPC must be within one of the [Cloud-supported regions][tsc-regions].
 
-<Highlight type="cloud" header="Sign up for Timescale" button="Try for free">
-</Highlight>
+The stages to create a secured connection between Timescale Services and your AWS infrastructure are:
 
-## Create a new VPC in Timescale
+1. [Create a Peering VPC in Timescale][aws-vpc-setup-vpc]
+1. [Complete the VPC connection in your AWS][aws-vpc-complete]
+1. [Set up security groups in your AWS][aws-vpc-security-groups]
+1. [Attach a Timescale Service to the Peering VPC][aws-vpc-connect-vpcs]
 
-To begin, you need to create a new VPC in the Timescale console.
+### Create a Peering VPC in Timescale
 
-<Procedure>
-
-### Creating a new VPC
-
-<Highlight type="note">
-You can create a VPC during your Timescale trial for free, but you need to
-enter a valid payment method. You are not charged for the service until your
-trial has finished.
-</Highlight>
-
-1.  [Log in to your Timescale account][cloud-login] and navigate to
-    the `VPC` section.
-1.  Click `Create VPC`.
-1.  In the `Create a VPC` dialog:
-    *   Type a name for your new VPC and select the region that matches the
-        region of the service you want to attach it to.
-    *   Provide an IPv4 CIDR block. Make sure that your VPC CIDR block has its
-        mask in the range between 16 and 28 and that the CIDR block you choose
-        for your Timescale VPC does not overlap with the CIDR block used
-        by your AWS VPC peer. If the CIDR blocks overlap, the peering process
-        fails. You can find the CIDR block of your AWS VPC from the AWS console.
-        This example uses the `10.0.0.0/24` CIDR block.
-
-<img class="main-content__illustration"
-width={1375} height={944}
-src="https://assets.timescale.com/docs/images/tsc-vpc-create.webp" 
-alt="Create a new Timescale VPC"/>
-
-</Procedure>
-
-## Create a peering connection
-
-When you have created a Timescale VPC, you can create a peering connection
-between your Timescale VPC and your AWS VPC.
+Create the VPC and the peering connection that enables you to securely route traffic 
+between Timescale and your own VPC in a logically isolated virtual network.
 
 <Procedure>
 
-### Creating a peering connection
+1.  In [Timescale Console > VPC][console-vpc], click `Create VPC`.
+1.  Choose your region and IP range, then click `Create VPC`. 
 
-1.  [Log in to your Timescale account][cloud-login] and navigate to
-    the `VPC` section. Click the name of the VPC you want to modify.
-1.  In the `VPC Peering` column, click `Add`.
-1.  Provide the AWS account ID, the VPC ID, and the AWS VPC region for the new
-    peering connection.
-1.  Click `Add peering connection` to begin the peering process.
-1.  Repeat for each peering connection you require.
+    <img class="main-content__illustration"
+    src="https://assets.timescale.com/docs/images/tsc-vpc-create.png" 
+    alt="Create a new Timescale VPC"/>
 
-<img class="main-content__illustration"
-width={1375} height={944}
-src="https://assets.timescale.com/docs/images/tsc-vpc-addpeering.webp"
-alt="Expand the VPC Peering dropdown menu and enter info"/>
+1.  For as many peering connections as you need:
 
+    1. In the `VPC Peering` column, click `Add`.
+    2. Enter information about your existing AWS VPC, then click `Add Connection`.
+
+        <img class="main-content__illustration"
+        src="https://assets.timescale.com/docs/images/tsc-vpc-add-peering.png"
+        alt="Create a new Timescale VPC"/>
+
+Timescale sends a peering request to your AWS account so you can 
+[complete the VPC connection in AWS][aws-vpc-complete].
 </Procedure>
 
-## Complete the VPC connection in AWS
 
-When you create a peering connection in Timescale, the peering request is
-sent to your AWS account for you to accept. When you have accepted the request,
-you need to edit the routing table so that network traffic can flow between the
-AWS VPC, and your Timescale services.
+### Complete the VPC connection in AWS
+ 
+When you receive the Timescale peering request in AWS, edit your routing table to match 
+the `IP Range` and `CIDR block` between your AWS and Timescale VPCs.
 
-<Highlight type="warning">
 The request acceptance process is an important safety mechanism. Do not accept a
-peering connection from an unknown account.
+peering request from an unknown account.
+
+<Procedure>
+
+1. In [AWS > VPC Dashboard > Peering connections][aws-dashboard], select the peering connection 
+    request from Timescale.
+
+    Copy the peering connection ID to the clipboard. The connection request starts with `pcx-`.
+ 
+1. In the peering connection, click  `Route Tables`, then select the `Route Table ID`
+    that corresponds to your VPC.
+1.  In `Routes`, click `Edit routes`. You see the list of existing Destinations.
+
+    <img class="main-content__illustration"
+    src="https://assets.timescale.com/docs/images/tsc-vpc-add-route.png"
+    alt="Create a new VPC route"/>
+
+    If you do not already have a destination that corresponds to the `IP range / CIDR block` of 
+    your Timescale VPC: 
+
+    1.  Click `Add route`, and set:
+        * `Destination`: the CIDR block of your Timescale VPC. For example: `10.0.0.7/17`.
+        * `Target`: the peering connection ID you copied to your clipboard.
+    2.  Click `Save changes`.
+
+Network traffic is secured between your AWS account and Timescale for this project. 
+</Procedure>
+
+### Set up security groups in AWS
+
+Security groups allow specific inbound and outbound traffic at the resource level. 
+You can associate a VPC with one or more security groups and each instance in your 
+VPC may belong to a different set of security groups. The security group choices 
+for your VPC are:
+
+* Create a security group to use for your Timescale VPC only.
+* Associate your VPC with an existing security group.
+* Do nothing, your VPC is automatically associated with the default one.
+
+<Procedure>
+To create a security group specific to your Timescale VPC:
+
+1. [AWS > VPC Dashboard > Security Groups][aws-security-groups], click `Create security group`.
+
+1. Enter the rules for this security group:
+
+   <img class="main-content__illustration"
+   src="https://assets.timescale.com/docs/images/aws-vpc-securitygroup.webp"
+   alt="The AWS Security Groups dashboard"/>
+
+    *  `VPC`: select the VPC that is peered with Timescale.
+    *  `Inbound rules`: leave empty.
+    *  `Outbound rules`:
+       * `Type`: `Custom TCP`
+       * `Protocol`: `TCP`
+       * `Port range`: `5432`
+       * `Destination`: `Custom`
+       * `Info`: the CIDR block of your Timescale VPC.
+1.  Click `Add rule`, then click `Create security group`.
+
+</Procedure>
+
+### Attach a Timescale Service to the Peering VPC
+
+Now that Timescale is communicating securely with your AWS infrastructure, you can attach 
+one or more Timescale Services to the VPC. 
+
+After you attach a Timescale Service to a VPC, you can only access it through the peered
+AWS VPC. It is no longer accessible using the public internet.
+
+
+<Procedure>
+
+1.  In [Timescale Console > Services][console-services] select the Service you want to
+    connect to the VPC.
+1. Click `Operations` > `VPC`.
+1. Select the VPC, then click `Attach VPC`.
+
+</Procedure>
+
+And that is it, your Timescale Service is now securely communicating with your AWS
+account inside a VPC.
+
+## Migrate a Timescale Service between VPCs
+
+To ensure that your applications continue to run without interruption, you keep 
+Timescale Services attached to the VPC. However, you can change the VPC your 
+Timescale Service is attached to, or disconnect from a VPC and enable access to the 
+Timescale Service from the public internet.
+
+<Highlight type="info">
+Timescale uses a different DNS for Timescale Services that are attached to a VPC.
+When you migrate a Timescale Service between public access and a VPC, you need
+to update your connection string.
 </Highlight>
 
 <Procedure>
 
-### Completing the VPC connection in AWS
+1. In [Timescale Console > Services][console-services] select the Service to migrate.
 
-1.  [Log in to your AWS dashboard][aws-dashboard], and navigate
-    to `Peering Connections` to accept the new peering connection request sent
-    from Timescale.
-1.  Take a note of the peering connection ID, which starts with `pcx-`.
-1.  Navigate to the `Route Tables` section, and select the route table
-    corresponding to your VPC.
-1.  In the `Detail` menu, select the `Routes` tab, and click `Edit routes`.
-1.  Click `Add route`, and complete these details:
-    *   In the `Destination` column, type the CIDR block of the Timescale
-        VPC you set up earlier.
-    *   In the `Target` column, type the peering connection ID from the incoming
-        peering connection, which starts with `pcx-`.
-2.  Click `Save routes`.
-
-<img class="main-content__illustration"
-width={1375} height={944}
-src="https://assets.timescale.com/docs/images/aws-vpc-routetable.webp"
-alt="Route table on AWS"/>
+   If you don't have a Timescale Service, [create a new one][create-service].
+1. Click `Operations` > `VPC`.
+1. Select the VPC, then click `Attach VPC`.
 
 </Procedure>
 
-## Set up security groups in AWS
-
-You need to create a security group within AWS that allows you to connect to any
-of your Timescale services from the peered VPC. These instructions show
-you how to create a new security group for your VPC, but you can also use an
-existing security group if you already have one.
-
-<Procedure>
-
-### Setting up security groups in AWS
-
-1.  [Log in to your AWS dashboard][aws-dashboard], and navigate
-    to `Security Groups`.
-1.  Click `Create security group`, and complete these details:
-    *   In the `Security group name` field, type a name for your security group.
-    *   In the `VPC` field, select the VPC that is peered with your Timescale
-        Cloud VPC.
-    *   Leave the `Inbound rules` section empty.
-    *   In the `Outbound rules` section, select `Custom TCP` for the rule
-        type, `TCP` for the protocol, and `5432` for the port. Select `Custom`
-        for the destination, and type the CIDR block of your Timescale
-        VPC.
-1.  Click `Add rule`.
-1.  Click `Create security group`.
-
-<img class="main-content__illustration"
-width={1375} height={944}
-src="https://assets.timescale.com/docs/images/aws-vpc-securitygroup.webp"
-alt="The AWS Security Groups dashboard"/>
-
-</Procedure>
-
-## Create a Timescale service with VPC attachment
-
-Now that your VPC peering connection is set up, you can create a new Timescale
-Cloud service with the VPC attachment.
-
-<Procedure>
-
-### Creating a Timescale service with VPC attachment
-
-1.  [Log in to your Timescale account][cloud-login] and navigate to
-    the `Services` section. Click `Create service` and select the compute and
-    disk size as required for your database.
-1.  In the `Select a VPC` section, expand the dropdown menu, and select the VPC
-    you created earlier.
-1.  Click `Create Service`.
-
-</Procedure>
-
-## Migrating a VPC service between networks
-
-In most cases, when you have connected a service to a VPC, you need to keep it
-attached to ensure that your applications continue to run without interruption.
-However, you can migrate Timescale services between VPCs within a project,
-or migrate them to and from the public network, if you need to.
-
-<Highlight type="warning">
-Timescale uses a different DNS name for a Timescale service once it has
-been attached to a VPC. This means that you need to update your connection
-string if you are migrating a service between the public internet and a VPC.
-</Highlight>
-
-Before you begin, ensure you already have your VPC connection set up.
-
-<Procedure>
-
-### Migrating Timescale services to or between VPCs
-
-1.  [Log in to your Timescale account][cloud-login] and navigate to
-    the `Services` section. Click the name of the service you want to migrate.
-1.  In the `Operations` tab, navigate to the `VPC` section, and select the new
-    VPC to attach the service to. The migration can take a few minutes to
-    complete, and your services are not accessible during this time.
-
-<Highlight type="important">
-Migrating your services to a VPC requires a change to the DNS settings for the
-service. If you receive a DNS error, allow some more time for DNS propagation to
-complete.
-</Highlight>
-
-</Procedure>
+Migration takes a few minutes to complete and requires a change to DNS settings for the
+Service. The Service is not accessible during this time. If you receive a DNS error, allow
+some time for DNS propagation.
 
 [aws-dashboard]: https://console.aws.amazon.com/vpc/home#PeeringConnections:
-[cloud-login]: https://console.cloud.timescale.com/
+[aws-security-groups]: https://console.aws.amazon.com/vpcconsole/home#securityGroups:
+[console-login]: https://console.cloud.timescale.com/
+[console-vpc]: https://console.cloud.timescale.com/dashboard/vpc
+[console-services]: https://console.cloud.timescale.com/dashboard/services
 [timescale-support]: https://www.timescale.com/contact/
 [tsc-regions]: /use-timescale/:currentVersion:/regions/
+
+
+[aws-vpc-setup-vpc]: /use-timescale/:currentVersion:/vpc/#create-a-peering-vpc-in-timescale
+[aws-vpc-complete]: /use-timescale/:currentVersion:/vpc/#complete-the-vpc-connection-in-aws
+[aws-vpc-security-groups]: /use-timescale/:currentVersion:/vpc/#set-up-security-groups-in-aws
+[aws-vpc-connect-vpcs]: /use-timescale/:currentVersion:/vpc/#attach-a-timescale-service-to-the-peering-vpc
+
+
+[create-service]: /getting-started/:currentVersion:/services/#create-a-timescale-service

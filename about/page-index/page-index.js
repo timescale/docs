@@ -8,9 +8,14 @@ module.exports = [
       "Additional information about Timescale, including how to contribute, and release notes",
     children: [
       {
+        title: "Changelog",
+        href: "changelog",
+        excerpt: "A summary of the latest changes to all Timescale products.",
+      },
+      {
         title: "Release notes",
         href: "release-notes",
-        excerpt: "Timescale release documentation",
+        excerpt: "Release information for TimescaleDB v2.0.0 - v2.15.1",
         children: [
           {
             title: "Release notes for TimescaleDB 2.0.0 to 2.9.3",
@@ -24,6 +29,11 @@ module.exports = [
               "An overview of major changes between TimescaleDB 1.0 and 2.0",
           },
         ],
+      },
+      {
+        title: "Pricing plans and account management",
+        href: "pricing-and-account-management",
+        excerpt: "Pricing tiers for Timescale Cloud services",
       },
       {
         title: "TimescaleDB editions",

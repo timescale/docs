@@ -1,0 +1,173 @@
+<Procedure>
+
+1. **Install the latest PostgreSQL source**
+
+    1.  At the command prompt, clone the TimescaleDB GitHub repository:
+
+        ```bash
+        git clone https://github.com/timescale/timescaledb
+        ```
+
+    1.  Change into the cloned directory:
+
+        ```bash
+        cd timescaledb
+        ```
+
+    1.  Checkout the latest release. You can find the latest release tag on
+        our [Releases page][gh-releases]:
+
+        ```bash
+        git checkout 2.15.1
+        ```
+
+        This command produces an error that you are now in `detached head` state. It
+        is expected behavior, and it occurs because you have checked out a tag, and
+        not a branch. Continue with the steps in this procedure as normal.
+
+1.  **Build the source**
+
+    1.  Bootstrap the build system:
+
+        <Terminal>
+
+        <tab label='Linux'>
+
+        ```bash
+        ./bootstrap
+        ```
+
+        </tab>
+
+        <tab label="Windows">
+
+        ```powershell
+        bootstrap.bat
+        ```
+
+        </tab>
+
+        </Terminal>
+
+        For installation on Microsoft Windows, you might need to add the `pg_config`
+        and `cmake` file locations to your path. In the Windows Search tool, search
+        for `system environment variables`. The path for `pg_config` should be
+        `C:\Program Files\PostgreSQL\<version>\bin`. The path for `cmake` is within
+        the Visual Studio directory.
+
+    1.  Build the extension:
+
+        <Terminal>
+
+        <tab label='Linux'>
+
+        ```bash
+        cd build && make
+        ```
+
+        </tab>
+
+        <tab label="Windows">
+
+        ```powershell
+        cmake --build ./build --config Release
+        ```
+
+        </tab>
+
+        </Terminal>
+
+1.  **Install TimescaleDB**
+
+    <Terminal>
+
+    <tab label='Linux'>
+
+    ```bash
+    make install
+    ```
+
+    </tab>
+
+    <tab label="Windows">
+
+    ```powershell
+    cmake --build ./build --config Release --target install
+    ```
+
+    </tab>
+
+    </Terminal>
+
+1. **Configure PostgreSQL**
+
+    If you have more than one version of PostgreSQL installed, TimescaleDB can only
+    be associated with one of them. The TimescaleDB build scripts use `pg_config` to
+    find out where PostgreSQL stores its extension files, so you can use `pg_config`
+    to find out which PostgreSQL installation TimescaleDB is using.
+
+    1.  Locate the `postgresql.conf` configuration file:
+
+        ```bash
+        psql -d postgres -c "SHOW config_file;"
+        ```
+
+    1.  Open the `postgresql.conf` file and update `shared_preload_libraries` to:
+
+        ```bash
+        shared_preload_libraries = 'timescaledb'
+        ```
+
+        If you use other preloaded libraries, make sure they are comma separated.
+
+    1.  Tune your PostgreSQL instance for TimescaleDB
+
+        ```bash
+        sudo timescaledb-tune
+        ```
+
+        This script is included with the `timescaledb-tools` package when you install TimescaleDB.
+        For more information, see [configuration][config].
+
+    1.  Restart the PostgreSQL instance:
+
+        <Terminal>
+
+        <tab label='Linux'>
+
+        ```bash
+        service postgresql restart
+        ```
+
+        </tab>
+
+        <tab label="Windows">
+
+        ```powershell
+        pg_ctl restart
+        ```
+
+        </tab>
+
+        </Terminal>
+
+1. **Set the user password**
+
+    1.  Login to PostgreSQL as `postgres`
+
+        ```bash
+        sudo -u postgres psql
+        ```
+        You are in the psql shell.
+
+    1. Set the password for `postgres`
+
+        ```bash
+        \password postgres
+        ```
+
+        When you have set the password, type `\q` to exit psql.
+
+</Procedure>
+
+[config]: /self-hosted/:currentVersion:/configuration/

@@ -47,12 +47,6 @@ To get Toolkit, use the high availability image, `timescaledb-ha`:
 docker pull timescale/timescaledb-ha:pg16
 ```
 
-<Highlight type="important">
-The `timescaledb-ha` image does not support ARM64. For ARM64 environments, use the
-`timescaledb` Docker image. By default, this image does not contain Toolkit. You can add
-Toolkit using the package installation method, or by building from source.
-</Highlight>
-
 For more information on running TimescaleDB using Docker, see the section on
 [pre-built containers][docker-install].
 
@@ -78,7 +72,7 @@ Enterprise Linux and Fedora.
 1.  Install TimescaleDB Toolkit:
 
     ```bash
-    yum install timescaledb-toolkit-postgresql-14
+    yum install timescaledb-toolkit-postgresql-16
     ```
 
 1.  Connect to the database where you want to use Toolkit.
@@ -111,7 +105,7 @@ and may also work on other Debian-based systems.
 1.  Install TimescaleDB Toolkit:
 
     ```bash
-    apt install timescaledb-toolkit-postgresql-14
+    apt install timescaledb-toolkit-postgresql-16
     ```
 
 1.  Connect to the database where you want to use Toolkit.
@@ -210,7 +204,7 @@ Update Toolkit by installing the latest version and running `ALTER EXTENSION`.
     <tab label='CentOS 7'>
 
     ```bash
-    yum install timescaledb-toolkit-postgresql-14
+    yum install timescaledb-toolkit-postgresql-16
     ```
 
     </tab>
@@ -218,7 +212,7 @@ Update Toolkit by installing the latest version and running `ALTER EXTENSION`.
     <tab label='Debian'>
 
     ```bash
-    apt install timescaledb-toolkit-postgresql-14
+    apt install timescaledb-toolkit-postgresql-16
     ```
 
     </tab>

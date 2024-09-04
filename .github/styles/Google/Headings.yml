@@ -40,7 +40,7 @@ exceptions:
   - Node
   - NFT
   - pgAdmin
-  - PgVectorize
+  - PgVectorizer
   - PostgreSQL
   - Prometheus
   - Promscale

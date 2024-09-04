@@ -6,19 +6,6 @@ pg_dumpall -d "$SOURCE" \
   --file=roles.sql
 ```
 
-<Highlight type="important">
-Some providers like Managed Service for TimescaleDB (MST) and AWS RDS don't
-support role password dumps. If dumping the passwords results in the error:
-
-```
-pg_dumpall: error: query failed: ERROR:  permission denied for table pg_authid
-```
-
-Execute the command adding the `--no-role-passwords` flag. After restoring the
-roles into the target database, manually set passwords with `ALTER ROLE name
-WITH PASSWORD '<YOUR_PASSOWRD>';`
-</Highlight>
-
 Timescale services do not support roles with superuser access. If your SQL
 dump includes roles that have such permissions, you'll need to modify the file
 to be compliant with the security model.
@@ -30,6 +17,8 @@ permissions from your roles.sql file:
 sed -i -E \
 -e '/CREATE ROLE "postgres";/d' \
 -e '/ALTER ROLE "postgres"/d' \
+-e '/CREATE ROLE "tsdbadmin";/d' \
+-e '/ALTER ROLE "tsdbadmin"/d' \
 -e 's/(NO)*SUPERUSER//g' \
 -e 's/(NO)*REPLICATION//g' \
 -e 's/(NO)*BYPASSRLS//g' \

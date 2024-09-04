@@ -11,10 +11,6 @@ In most cases, an [automated compression policy][add_compression_policy] is suff
 want more control over compression, you can also manually compress specific
 chunks.
 
-<Highlight type="warning">
-Compression alters data on your disk, so always back up before you start.
-</Highlight>
-
 Before you start, you need a list of chunks to compress. In this example, you
 use a hypertable called `example`, and compress chunks older than three days.
 
@@ -111,15 +107,15 @@ Set `timescaledb.compress_orderby = 'time ASC'` to avoid this penalty.
 
 
 
-    ```sql
-    ALTER TABLE example SET (timescaledb.compress_chunk_time_interval = '<time_interval>',
-                             timescaledb.compress_orderby = 'time ASC');
-    SELECT compress_chunk(c, if_not_compressed => true)
-        FROM show_chunks(
-            'example',
-            now()::timestamp - INTERVAL '1 week'
-        ) c;
-    ```
+```sql
+ALTER TABLE example SET (timescaledb.compress_chunk_time_interval = '<time_interval>',
+                            timescaledb.compress_orderby = 'time ASC');
+SELECT compress_chunk(c, if_not_compressed => true)
+    FROM show_chunks(
+        'example',
+        now()::timestamp - INTERVAL '1 week'
+    ) c;
+```
 
 The time interval you choose must be a multiple of the uncompressed chunk
 interval. For example, if your uncompressed chunk interval is one week, your

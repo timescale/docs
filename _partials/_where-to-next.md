@@ -1,9 +1,7 @@
-Now that you have your first Timescale database up and running, you can check
-out the [Use Timescale][tsdb-docs] section, and find out what
-you can do with it.
+Now you have TimescaleDB running, have a look at the:
 
-If you want to work through some tutorials to help you get up and running with
-Timescale and time-series data, check out the [tutorials][tutorials] section.
+* [Tutorials][tutorials]: walk through a variety of business scenarios using example datasets.
+* [Use Timescale][tsdb-docs]: browse the features available with TimescaleDB.
 
 [tsdb-docs]: /use-timescale/:currentVersion:/
 [tutorials]: /tutorials/:currentVersion:/

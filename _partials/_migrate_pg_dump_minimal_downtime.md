@@ -1,4 +1,4 @@
-For minimal downtime, the `pg_dump` and `psql` commands should be run from a
-machine with a low-latency, high-throughput link to the database that they are
-connected to. As Timescale instances run in the Amazon cloud, use an AWS EC2
-instance in the same region as your Timescale instance.
+For minimal downtime, run the migration commands from a machine with a low-latency, 
+high-throughput link to the source and target databases. If you are using an AWS 
+EC2 instance to run the migration commands, use one in the same region as your target 
+Timescale Cloud instance.  
