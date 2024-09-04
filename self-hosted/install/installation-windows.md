@@ -41,16 +41,6 @@ To install TimescaleDB on your Windows device, you need:
 * OpenSSL v3.x
 * [Visual C++ Redistributable for Visual Studio 2015][ms-download]
 
-<Highlight type="warning">
-
-If you are blocked by an error like `could not load library "C:/Program Files/PostgreSQL/14/lib/timescaledb-2.16.1.dll": The specified module could not be found.`, you are likely missing dependencies (or their version is incompatible) on your machine.
-
-You can inspect the dependencies of your `dll` with https://github.com/lucasg/Dependencies to ensure that you have the appropriate versions installed -
-
-![image](https://github.com/user-attachments/assets/71b5d5ed-5616-423a-8b88-aaae03016848)
-
-</Highlight>
-
 ## Install and configure TimescaleDB on PostgreSQL
 
 This section shows you how to install the latest version of PostgreSQL and
