@@ -45,4 +45,4 @@ service. If you need data isolation, use schemas or create additional services.
 
 [cloud-login]: https://console.cloud.timescale.com/
 [pg-roles-doc]: https://www.postgresql.org/docs/current/role-attributes.html
-[create-service]: /getting-started/:currentVersion:/services/#create-a-timescale-service
+[create-service]: /getting-started/:currentVersion:/services/#create-a-timescale-cloud-service

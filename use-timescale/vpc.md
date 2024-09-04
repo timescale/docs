@@ -220,4 +220,4 @@ some time for DNS propagation.
 [aws-vpc-connect-vpcs]: /use-timescale/:currentVersion:/vpc/#attach-a-timescale-service-to-the-peering-vpc
 
 
-[create-service]: /getting-started/:currentVersion:/services/#create-a-timescale-service
+[create-service]: /getting-started/:currentVersion:/services/#create-a-timescale-cloud-service

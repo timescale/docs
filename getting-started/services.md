@@ -27,7 +27,7 @@ editor in Timescale Console, or command line tools.
 
 <Install />
 
-## Create a Timescale service
+## Create a Timescale Cloud service
 
 <Procedure>
 
