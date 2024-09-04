@@ -24,19 +24,19 @@ import MigrateAWSRDSMigrateData from "versionContent/_partials/_migrate_awsrds_m
 
 # Migrate with downtime
 
-You use downtime migration to move less than 100GB of data from self-hosted database to a Timescale Cloud 
+You use downtime migration to move less than 100GB of data from self-hosted database to a Timescale Cloud
 service.
 
-Downtime migration uses the native PostgreSQL [`pg_dump`][pg_dump] and [`pg_restore`][pg_restore] commands. 
-If you are migrating from self-hosted TimescaleDB, this method works for compressed hypertables without having 
-to decompress data before you begin. 
+Downtime migration uses the native PostgreSQL [`pg_dump`][pg_dump] and [`pg_restore`][pg_restore] commands.
+If you are migrating from self-hosted TimescaleDB, this method works for compressed hypertables without having
+to decompress data before you begin.
 
 <DoNotRecommendForLargeMigration />
 
 However, downtime migration for large amounts of data takes a large amount of time. For more than 100GB of data, best
 practice is to follow [live migration].
 
-This page shows you how to move your data from a self-hosted database to a Timescale Cloud service using 
+This page shows you how to move your data from a self-hosted database to a Timescale Cloud service using
 shell commands.
 
 ## Prerequisites
@@ -44,13 +44,13 @@ shell commands.
 <MigrationPrerequisites />
 
 
-- Install the PostgreSQL client tools on your migration machine. 
+- Install the PostgreSQL client tools on your migration machine.
 
-  This includes `psql`, `pg_dump`, and `pg_dumpall`. 
+  This includes `psql`, `pg_dump`, and `pg_dumpall`.
 
 - Install the GNU implementation of `sed`.
 
-  Run `sed --version` on your migration machine. GNU sed identifies itself 
+  Run `sed --version` on your migration machine. GNU sed identifies itself
   as GNU software, BSD sed returns `sed: illegal option -- -`.
 
 
@@ -62,21 +62,22 @@ To move your data from a self-hosted database to a Timescale Cloud service:
 
 <Tab title="From TimescaleDB">
 
-This section shows you how to move your data from self-hosted TimescaleDB to a Timescale Cloud service 
+This section shows you how to move your data from self-hosted TimescaleDB to a Timescale Cloud service
 using `pg_dump` and `psql` from Terminal.
 
 <MigrateFromTimescaleDB />
 
-And that is it, you have migrated your data from a self-hosted instance running TimescaleDB to a Timescale Cloud service. 
+And that is it, you have migrated your data from a self-hosted instance running TimescaleDB to a Timescale Cloud service.
 
 </Tab>
+
 <Tab title="From PostgreSQL">
 
 This section shows you how to move your data from self-hosted PostgreSQL to a Timescale Cloud service
 using `pg_dump` and `psql` from Terminal.
 
 Migration from PostgreSQL moves the data only. You must manually enable Timescale Cloud features like
-[hypertables][about-hypertables], [data compression][data-compression] or [data retention][data-retention] after the migration is complete. You enable Timescale Cloud 
+[hypertables][about-hypertables], [data compression][data-compression] or [data retention][data-retention] after the migration is complete. You enable Timescale Cloud
 features while your database is offline.
 
 
@@ -89,16 +90,16 @@ And that is it, you have migrated your data from a self-hosted instance running 
 
 <Tab title="From AWS RDS">
 
-To migrate your data from an Amazon RDS instance to a Timescale Cloud service, you extract the data to an intermediary 
-EC2 Ubuntu instance in the same AWS region as your RDS instance. You then upload your data to a Timescale Cloud service. 
-To make this process as painless as possible, ensure that the intermediary machine has enough CPU and disk space to 
-rapidy extract and store your data before uploading to Timescale Cloud.  
+To migrate your data from an Amazon RDS instance to a Timescale Cloud service, you extract the data to an intermediary
+EC2 Ubuntu instance in the same AWS region as your RDS instance. You then upload your data to a Timescale Cloud service.
+To make this process as painless as possible, ensure that the intermediary machine has enough CPU and disk space to
+rapidy extract and store your data before uploading to Timescale Cloud.
 
 Migration from RDS moves the data only. You must manually enable Timescale Cloud features like
 [hypertables][about-hypertables], [data compression][data-compression] or [data retention][data-retention] after the migration is complete. You enable Timescale Cloud
 features while your database is offline.
 
-This section shows you how to move your data from a PostgreSQL database running in an Amazon RDS instance to a 
+This section shows you how to move your data from a PostgreSQL database running in an Amazon RDS instance to a
 Timescale Cloud service using `pg_dump` and `psql` from Terminal.
 
 
@@ -111,7 +112,7 @@ And that is it, you have migrated your data from an RDS instance to a Timescale 
 
 <Tab title="From MST">
 
-This section shows you how to move your data from a Managed Service for Timescale (MST) instance to a 
+This section shows you how to move your data from a Managed Service for Timescale (MST) instance to a
 Timescale Cloud service using `pg_dump` and `psql` from Terminal.
 
 <MigrateFromMST />
@@ -131,7 +132,7 @@ And that is it, you have migrated your data from a Managed Service for Timescale
 [migrate-from-timescaledb]: /migrate/:currentVersion:/pg-dump-and-restore/#migrate-from-timescaledb-using-pg_dumprestore
 [migrate-from-postgresql]: /migrate/:currentVersion:/pg-dump-and-restore/#migrate-from-postgresql-using-pg_dumprestore
 [dumping-with-concurrency]: /migrate/:currentVersion:/troubleshooting/#dumping-with-concurrency
-[restoring-with-concurrency]: /migrate/:currentVersion:/troubleshooting/#restoring-with-concurrency 
+[restoring-with-concurrency]: /migrate/:currentVersion:/troubleshooting/#restoring-with-concurrency
 [long-running-pgdump]: /migrate/:currentVersion:/troubleshooting/#dumping-and-locks
 [Upgrade TimescaleDB]: https://docs.timescale.com/self-hosted/latest/upgrades/
 [timescaledb_pre_restore]: /api/:currentVersion:/administration/#timescaledb_post_restore

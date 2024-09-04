@@ -6,14 +6,14 @@ topics: [backups]
 keywords: [backups, restore]
 ---
 
-<!---
+{/*
 * Use this format for writing troubleshooting sections:
  - Cause: What causes the problem?
  - Consequence: What does the user see when they hit this problem?
  - Fix/Workaround: What can the user do to fix or work around the problem? Provide a "Resolving" Procedure if required.
  - Result: When the user applies the fix, what is the result when the same action is applied?
 * Copy this comment at the top of every troubleshooting page
--->
+*/}
 
  The PostgreSQL `pg_dump` command does not allow you to specify which version of
  the extension to use when backing up. This can create problems if you have a

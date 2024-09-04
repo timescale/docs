@@ -11,12 +11,12 @@ All the latest features and updates to Timescale products.
 ## 😎 Query your database directly from the Console and enhanced data import and migration options
 <Label type="date">August 30, 2024</Label>
 
-### SQL Editor in Timescale Console 
-We've added a new tab to the service screen that allows users to query their database directly, without having to leave the console interface. 
+### SQL Editor in Timescale Console
+We've added a new tab to the service screen that allows users to query their database directly, without having to leave the console interface.
 * For existing services on Timescale, this is an opt-in feature. For all newly created services, the SQL Editor will be enabled by default.
 * Users can disable the SQL Editor at any time by toggling the option under the Operations tab.
 * The editor supports all DML and DDL operations (any single-statement SQL query), but doesn't support multiple SQL statements in a single query.
-  
+
 ![SQL Editor](https://s3.amazonaws.com/assets.timescale.com/docs/images/sql-editor-query.png)
 
 ### Enhanced Data Import Options for Quick Evaluation
@@ -36,7 +36,7 @@ We've released v0.0.25 of Live migration that includes the following improvement
 <Label type="date">August 22, 2024</Label>
 
 ### CSV import
-We have added a CSV import tool to the Timescale Console.  For all TimescaleDB services, after service creation you can: 
+We have added a CSV import tool to the Timescale Console.  For all TimescaleDB services, after service creation you can:
 * Choose a local file
 * Select the name of the data collection to be uploaded (default is file name)
 * Choose data types for each column
@@ -59,7 +59,7 @@ Customers can now adjust their chunk interval for their hypertables and continuo
 ### CloudWatch permissions via role assumption
 We've released permission granting via role assumption to CloudWatch. Role assumption is both more secure and more convenient for customers who no longer need to rotate credentials and update their exporter config.
 
-For more details take a look at [our documentation](https://docs.timescale.com/use-timescale/latest/metrics-logging/integrations/).
+For more details take a look at [our documentation](https://docs.timescale.com/use-timescale/latest/metrics-logging/integrations/).
 
 <img src="https://s3.amazonaws.com/assets.timescale.com/docs/images/cloudwatch-role-assumption.png" width="600px" alt="CloudWatch authentication via role assumption" />
 
@@ -151,7 +151,7 @@ Following the deprecation announcement for PostgreSQL 13 in TimescaleDB v2.13,
 PostgreSQL 13 is no longer supported in TimescaleDB v2.16.
 
 The currently supported PostgreSQL major versions are 14, 15, and 16.
- 
+
 ## 📦 Performance, packaging and stability improvements for Timescale Cloud
 <Label type="date">August 8, 2024</Label>
 
@@ -202,7 +202,7 @@ The following improvements have been made to Timescale products:
 
 The following improvements have been made to the Timescale [live-migration docker image](https://hub.docker.com/r/timescale/live-migration/tags):
 
-- Table-based filtering is now available during live migration.  
+- Table-based filtering is now available during live migration.
 - Improvements to pbcopydb increase performance and remove unhelpful warning messages.
 - The user notification log enables you to always select the most recent release for a migration run.
 
@@ -214,9 +214,9 @@ For improved stability and new features, update to the latest [timescale/live-mi
 
 Ollama is now integrated with [pgai](https://github.com/timescale/pgai).
 
-Ollama is the easiest and most popular way to get up and running with open-source 
-language models. Think of Ollama as _Docker for LLMs_, enabling easy access and usage 
-of a variety of open-source models like Llama 3, Mistral, Phi 3, Gemma, and more. 
+Ollama is the easiest and most popular way to get up and running with open-source
+language models. Think of Ollama as _Docker for LLMs_, enabling easy access and usage
+of a variety of open-source models like Llama 3, Mistral, Phi 3, Gemma, and more.
 
 With the pgai extension integrated in your database, embed Ollama AI into your app using
 SQL. For example:

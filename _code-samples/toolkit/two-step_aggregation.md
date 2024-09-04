@@ -1,5 +1,5 @@
-<!-- markdownlint-disable -->
-<!-- vale off -->
+{/* markdownlint-disable */}
+{/* vale off */}
 # Two-Step Aggregation - What It Is and Why We Use It
 
 ## What is a Two-Step Aggregate <a id="two-step-description"></a>

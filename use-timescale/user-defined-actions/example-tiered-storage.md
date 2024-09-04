@@ -88,5 +88,4 @@ to move data to low-cost object storage backed by Amazon S3.
 
 </Procedure>
 
-
 [moving-data]: /use-timescale/:currentVersion:/user-defined-actions/example-tiered-storage/

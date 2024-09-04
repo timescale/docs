@@ -13,11 +13,11 @@ In this tutorial, you learn:
 1.  How to get started with TimescaleDB
 2.  How to use TimescaleDB to analyze and monitor data from IoT sensors
 
-<!--- This link no longer works, deleted. LKB 2023-05-11
+/* This link no longer works, deleted. LKB 2023-05-11
 
 Dataset: <Tag type="download">[nyc_data.tar.gz]()</Tag>
 
--->
+*/}
 
 Estimated time for completion: 25 minutes.
 
@@ -92,11 +92,11 @@ This download contains two files:
 
 You can download the files from the below link:
 
-<!--- This link no longer works, deleted. LKB 2023-05-10
+/* This link no longer works, deleted. LKB 2023-05-10
 
 <Tag type="download">[nyc_data.tar.gz]()</Tag>
 
--->
+*/}
 
 #### Get connected to TimescaleDB
 

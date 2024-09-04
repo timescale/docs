@@ -37,7 +37,7 @@ before they are fully available.
 
 These extensions are available on Managed Service for TimescaleDB:
 
-<!-- vale Vale.Spelling = NO -->
+{/* vale Vale.Spelling = NO */}
 
 *   address_standardizer
 *   address_standardizer_data_us
@@ -89,7 +89,7 @@ These extensions are available on Managed Service for TimescaleDB:
 *   uuid-ossp
 *   wal2json
 
-<!-- vale Vale.Spelling = YES -->
+{/* vale Vale.Spelling = YES */}
 
 <Highlight type="note">
 The `postgis_legacy` extension is not packaged or supported as an extension by

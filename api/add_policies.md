@@ -11,7 +11,7 @@ api:
 
 import Experimental from "versionContent/_partials/_experimental.mdx";
 
-<!-- markdownlint-disable-next-line line-length -->
+{/* markdownlint-disable-next-line line-length */}
 # add_policies() <Tag type="community" content="Community" /><Tag type="experimental" content="Experimental" />
 
 Add refresh, compression, and data retention policies to a continuous aggregate
@@ -32,7 +32,7 @@ timescaledb_experimental.add_policies(
 <Experimental />
 
 <Highlight type="note">
-`add_policies()` does not allow the `schedule_interval` for the continuous aggregate to be set, instead using a default value of 1 hour. 
+`add_policies()` does not allow the `schedule_interval` for the continuous aggregate to be set, instead using a default value of 1 hour.
 
 If you would like to set this add your policies manually (see [`add_continuous_aggregate_policy`][add_continuous_aggregate_policy]).
 </Highlight>
@@ -80,6 +80,6 @@ SELECT timescaledb_experimental.add_policies(
     drop_after => '1 year'::interval
 );
 ```
-<!-- vale Vale.Terms = NO -->
+{/* vale Vale.Terms = NO */}
 [add_continuous_aggregate_policy]: /api/:currentVersion:/continuous-aggregates/add_continuous_aggregate_policy/
-<!-- vale Vale.Terms = YES -->
+{/* vale Vale.Terms = YES */}

@@ -31,9 +31,9 @@ For more information, see the documentation about
 
 ## Continuous aggregates with a `JOIN` clause
 
-Continuous aggregates supports the following JOIN features: 
+Continuous aggregates supports the following JOIN features:
 
-| Feature | TimescaleDB < 2.10.x | TimescaleDB <= 2.15.x | TimescaleDB >= 2.16.x| 
+| Feature | TimescaleDB < 2.10.x | TimescaleDB <= 2.15.x | TimescaleDB >= 2.16.x|
 |-|-|-|-|
 |INNER JOIN|&#10060;|&#9989;|&#9989;|
 |LEFT JOIN|&#10060;|&#10060;|&#9989;|
@@ -90,7 +90,7 @@ See the following `JOIN` examples on Continuous Aggregates:
     JOIN devices ON devices.id = conditions.device_id
     GROUP BY bucket, devices.name
     WITH NO DATA;
-    ``` 
+    ```
 
 - `INNER JOIN` on a single equality condition, using the `ON` clause, with a further condition added in the `WHERE` clause:
 
@@ -170,7 +170,7 @@ See the following `JOIN` examples on Continuous Aggregates:
     ```sql
     CREATE MATERIALIZED VIEW conditions_by_day WITH (timescaledb.continuous) AS
     SELECT time_bucket('1 day', time) AS bucket, devices.name, MIN(temperature), MAX(temperature)
-    FROM conditions, 
+    FROM conditions,
     LATERAL (SELECT * FROM devices WHERE devices.id = conditions.device_id) AS devices
     GROUP BY bucket, devices.name
     WITH NO DATA;

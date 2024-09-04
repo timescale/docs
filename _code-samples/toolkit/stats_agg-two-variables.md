@@ -1,5 +1,5 @@
-<!-- markdownlint-disable -->
-<!-- vale off -->
+{/* markdownlint-disable */}
+{/* vale off */}
 # Statistical Aggregates (1D)
 
 ## 2-D Statistical Regression Functions
@@ -37,14 +37,14 @@ for these things, when being used for statistical regression with two
 dimensions, the dependent variable comes first and the independent variable
 second, ie:
 
-<!-- DOCS-DESCRIPTION: Create a two-dimensional statistical aggregate from columns `x` and `y` in table `foo` -->
+{/* DOCS-DESCRIPTION: Create a two-dimensional statistical aggregate from columns `x` and `y` in table `foo` */}
 ```SQL, ignore-output, publish(stats_agg)
 SELECT stats_agg(y, x) FROM foo;
 ```
 
 You can access single variable statistics by calling the function with `_x` or `_y` like so:
 
-<!-- DOCS-DESCRIPTION: Calculate the average of variable `x` from two-dimensional data -->
+{/* DOCS-DESCRIPTION: Calculate the average of variable `x` from two-dimensional data */}
 ```SQL, ignore-output, publish(average_x)
 SELECT average_x(
     stats_agg(y, x)
@@ -53,7 +53,7 @@ SELECT average_x(
 
 Statistics involving both variables are called normally:
 
-<!-- DOCS-DESCRIPTION: Calculate the slope from a two-dimensional statistical aggregate -->
+{/* DOCS-DESCRIPTION: Calculate the slope from a two-dimensional statistical aggregate */}
 ```SQL, ignore-output, publish(slope)
 SELECT slope(
     stats_agg(y, x)
@@ -62,7 +62,7 @@ SELECT slope(
 
 For those statistics which have variants for either the sample or population we have made these accessible via a separate variable ie:
 
-<!-- DOCS-DESCRIPTION: Calculate the covariance from a two-dimensional statistical aggregate -->
+{/* DOCS-DESCRIPTION: Calculate the covariance from a two-dimensional statistical aggregate */}
 ```SQL, ignore-output, publish(covariance)
 SELECT covariance(
     stats_agg(y, x),
@@ -72,7 +72,7 @@ SELECT covariance(
 
 The default for all of these is 'population' (the abbreviations 'pop' and 'samp' are also acceptable). The default means the function may also be called without the second argument, like so:
 
-<!-- DOCS-DESCRIPTION: Calculate the covariance with an implicit argument of `population` -->
+{/* DOCS-DESCRIPTION: Calculate the covariance with an implicit argument of `population` */}
 ```SQL, ignore-output, publish(covariance)
 SELECT covariance(
     stats_agg(y, x)

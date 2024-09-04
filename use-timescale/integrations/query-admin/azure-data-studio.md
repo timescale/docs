@@ -90,7 +90,7 @@ This table provides the description and example values for the fields in the
 
 |Setting|Example value|Description|
 |-|-|-|
-|Server name|localhost, postgresql.example.com, <REMOTE_HOST>.tsdb.cloud.timescale.com|The fully qualified server name. The host name of your Timescale service.|
+|Server name|localhost, postgresql.example.com, \<REMOTE_HOST>.tsdb.cloud.timescale.com|The fully qualified server name. The host name of your Timescale service.|
 |Authentication type|Password|The authentication type to log in with|
 |User name|`postgres`, `tsdbadmin`|The user name you want to log in with. Use `tsdbadmin` for Timescale services|
 |Password|*password*|The password for the account you are logging in with|

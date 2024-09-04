@@ -12,8 +12,8 @@ cloud_ui:
 # Service overview
 
 When you log into your [Timescale account][cloud-login], you see the
-Project overview. Click a service to view run-time data and connection information. 
-Click Operations to configure your service. 
+Project overview. Click a service to view run-time data and connection information.
+Click Operations to configure your service.
 
 <img
 class="main-content__illustration"
@@ -22,7 +22,7 @@ width={1375} height={944}
 alt="Timescale Services Overview"
 />
 
-Each service hosts a single database managed for you by Timescale in the cloud. 
+Each service hosts a single database managed for you by Timescale in the cloud.
 If you need more than one database, [create a new service][create-service].
 
 ## Service users

@@ -40,8 +40,8 @@ on the type of the time column of the hypertable or continuous aggregate:
     to be set).
 
 ## Optional arguments
-<!-- vale Google.Acronyms = NO -->
-<!-- vale Vale.Spelling = NO -->
+{/* vale Google.Acronyms = NO */}
+{/* vale Vale.Spelling = NO */}
 
 |Name|Type|Description|
 |-|-|-|
@@ -50,8 +50,8 @@ on the type of the time column of the hypertable or continuous aggregate:
 |`timezone`|TEXT|A valid time zone. If `initial_start` is also specified, subsequent executions of the compression policy are aligned on its initial start. However, daylight savings time (DST) changes may shift this alignment. Set to a valid time zone if this is an issue you want to mitigate. If omitted, UTC bucketing is performed. Defaults to `NULL`.|
 |`if_not_exists`|BOOLEAN|Setting to `true` causes the command to fail with a warning instead of an error if a compression policy already exists on the hypertable. Defaults to false.|
 |`compress_created_before`|INTERVAL|Chunks with creation time older than this cut-off point are compressed. The cut-off point is computed as `now() - compress_created_before`. Defaults to `NULL`. Not supported for continuous aggregates yet.|
-<!-- vale Google.Acronyms = YES -->
-<!-- vale Vale.Spelling = YES -->
+{/* vale Google.Acronyms = YES */}
+{/* vale Vale.Spelling = YES */}
 
 ## Sample usage
 

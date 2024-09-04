@@ -23,5 +23,5 @@ Timescale also provides some additional features to help with data analysis:
 [hyperfunctions]: /use-timescale/:currentVersion:/hyperfunctions/
 [pipelines]: /use-timescale/:currentVersion:/hyperfunctions/function-pipelines/
 [skipscan]: /use-timescale/:currentVersion:/query-data/skipscan/
-[popsql]: /getting-started/:currentVersion:/run-queries-from-console/#popsql
+[popsql]: /use-timescale/:currentVersion:/popsql/
 [readreplica]: /use-timescale/:currentVersion:/ha-replicas/read-scaling/

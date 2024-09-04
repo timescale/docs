@@ -142,21 +142,21 @@ string to use in your application.
 
 A connection pooler manages connections to both the database itself, and the
 client application. It keeps a fixed number of connections open with the
-database, while allowing clients to open and close connections. Clients can 
-request a connection from the session pool or the transaction pool. The 
+database, while allowing clients to open and close connections. Clients can
+request a connection from the session pool or the transaction pool. The
 connection pooler will then allocate the connection if there is one free.
 
 The number of client connections allowed to each pool is proportional to the
-`max_connections` parameter set for the database. The session pool can have a 
-maximum of `max_connections - 17` client connections, while the transaction 
-pool can have a maximum of `(max_connections - 17) * 20` client connections. 
+`max_connections` parameter set for the database. The session pool can have a
+maximum of `max_connections - 17` client connections, while the transaction
+pool can have a maximum of `(max_connections - 17) * 20` client connections.
 
-Of the 17 reserved connections that are not allocated to either pool, 12 are 
-reserved for superuser by default, and another 5 for Timescale operations. 
+Of the 17 reserved connections that are not allocated to either pool, 12 are
+reserved for superuser by default, and another 5 for Timescale operations.
 
-For example, if `max_connections` is set to 500, the maximum number of client 
-connections for your session pool is `483 (500 - 17)` and `9,660 (483 * 20)` for 
-your transaction pool. The default value of `max_connections` varies depending 
+For example, if `max_connections` is set to 500, the maximum number of client
+connections for your session pool is `483 (500 - 17)` and `9,660 (483 * 20)` for
+your transaction pool. The default value of `max_connections` varies depending
 on your service's compute size.
 
 ## Add a connection pooler
@@ -197,11 +197,11 @@ update your application to adjust the port it uses to connect to your service.
 
 <Procedure>
 
-1. In [Timescale Cloud Console][tsc-portal], select the service you want to remove a connection pooler from. 
-1. Select `Operations`, then `Connection pooling`. 
+1. In [Timescale Cloud Console][tsc-portal], select the service you want to remove a connection pooler from.
+1. Select `Operations`, then `Connection pooling`.
 1. Select the pooler to remove, then click `Remove connection pooler`.
 
-   Confirm that you want to remove the connection pooler. 
+   Confirm that you want to remove the connection pooler.
 
 After you have removed a pooler, if you add it back in the future, it uses the
 same connection string and port that was used before.
@@ -220,8 +220,8 @@ same connection string and port that was used before.
 </Procedure>
 
 ### VPC and connection pooling
-VPCs are supported with connection pooling. It does not matter the order you 
-add the pooler or connect to a VPC. Your connection strings will automatically 
+VPCs are supported with connection pooling. It does not matter the order you
+add the pooler or connect to a VPC. Your connection strings will automatically
 be updated to use the VPC connection string.
 
 [cloud-login]: https://console.cloud.timescale.com

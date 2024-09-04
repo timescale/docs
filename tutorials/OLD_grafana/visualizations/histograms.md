@@ -154,11 +154,11 @@ called `bucket_interval`.
 
 1.  In Grafana, add a new variable called `$bucket_interval`, of type `INTERVAL`.
 
-    <!-- vale Google.Units = NO -->
+    {/* vale Google.Units = NO */}
 
     <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/histograms/bucket_interval_variable_options.png" alt="Grafana screenshot showing the Variables > Edit dialog. The variable name is 'bucket_interval', the type is 'interval', and values for interval options have been given from 10s to 30d."/>
 
-    <!-- vale Google.Units = YES -->
+    {/* vale Google.Units = YES */}
 
 1.  Use the `$bucket_interval` variable to aggregate the price for
     the selected interval:

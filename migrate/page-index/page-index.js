@@ -23,14 +23,12 @@ module.exports = [
           {
             title: "Dual-write from TimescaleDB",
             href: "dual-write-from-timescaledb",
-            excerpt:
-              "Migrate from TimescaleDB using dual-write and backfill",
+            excerpt: "Migrate from TimescaleDB using dual-write and backfill",
           },
           {
             title: "Dual-write from PostgreSQL",
             href: "dual-write-from-postgres",
-            excerpt:
-              "Migrate from PostgreSQL using dual-write and backfill",
+            excerpt: "Migrate from PostgreSQL using dual-write and backfill",
           },
           {
             title: "Dual-write from other databases",
@@ -41,18 +39,15 @@ module.exports = [
           {
             title: "timescaledb-backfill",
             href: "timescaledb-backfill",
-            excerpt:
-              "A tool for backfilling data as part of data migration",
+            excerpt: "A tool for backfilling data as part of data migration",
           },
-
         ],
       },
       {
         title: "FAQ and troubleshooting",
         href: "troubleshooting",
-        excerpt:
-          "Troubleshooting known issues in database migrations",
+        excerpt: "Troubleshooting known issues in database migrations",
       },
     ],
-  }
+  },
 ];

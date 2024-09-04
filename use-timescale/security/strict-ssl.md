@@ -90,7 +90,7 @@ To set up a stricter SSL connection:
 
     </Terminal>
 
-1.  Navigate to <https://whatsmychaincert.com/>. This online tool generates a
+1.  Navigate to \<https://whatsmychaincert.com/>. This online tool generates a
     full certificate chain, including the root Certificate Authority certificate, which is not
     included in the certificate bundle returned by the database.
 

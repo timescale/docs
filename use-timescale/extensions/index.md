@@ -11,7 +11,7 @@ tags: [extensions]
 You can use PostgreSQL extensions with Timescale. These are the currently
 supported extensions:
 
-<!-- vale Vale.Spelling = NO -->
+{/* vale Vale.Spelling = NO */}
 
 |Extension|Description|
 |-|-|
@@ -53,7 +53,7 @@ supported extensions:
 |unit|SI Units for PostgreSQL|
 |uuid-ossp|Generate universally unique identifiers (UUIDs)|
 
-<!-- vale Vale.Spelling = YES -->
+{/* vale Vale.Spelling = YES */}
 
 [pgvector]: /use-timescale/:currentVersion:/extensions/pgvector/
 [pgcrypto]: /use-timescale/:currentVersion:/extensions/pgcrypto/

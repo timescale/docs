@@ -1,12 +1,12 @@
-Timescale Cloud is a cloud-based PostgreSQL platform for resource-intensive workloads. We help you build faster, 
+Timescale Cloud is a cloud-based PostgreSQL platform for resource-intensive workloads. We help you build faster,
 scale further, and stay under budget. Timescale Cloud offers the following PostgreSQL optimized database services:
 
 - **[Time-series and Analytics][create-service]**: a Timescale DB instance optimized for your
-  [time-series and analytics][what-is-time-series] workloads. Get automated dynamic data partitioning, hybrid 
-  row-columnar storage, advanced compression techniques, incremental up-to-date materializations, and specialized 
+  [time-series and analytics][what-is-time-series] workloads. Get automated dynamic data partitioning, hybrid
+  row-columnar storage, advanced compression techniques, incremental up-to-date materializations, and specialized
   analysis functions as well as cloud-only features like transparent tiering and low-cost object storage.
 - **[Dynamic PostgreSQL][create-service]**: for all other workloads. A PostgreSQL instance with a
-  [dynamic compute range][what-is-dynamic-postgres] aligned to your business needs. You select a compute range, only 
+  [dynamic compute range][what-is-dynamic-postgres] aligned to your business needs. You select a compute range, only
   paying for the base and the amount of extra CPU as you scale.
 
 All databases are extended with lightning fast vector search, and include all the cloud tooling you'd expect for production use,

@@ -33,7 +33,7 @@ see your changes:
 pg_ctl reload
 ```
 
-<!--these need a better structure --LKB 2021-10-20-->
+/*these need a better structure --LKB 2021-10-20*/}
 ### `max_prepared_transactions`
 
 If not already set, ensure that `max_prepared_transactions` is a non-zero value

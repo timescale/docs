@@ -111,7 +111,7 @@ services.
     This is the port that you are managing inbound access for.
 1.  In `Network`, check `IP filters`. The default value is `Open for all.
 
-1. Click the ellipsis (...) to the right of Network, then select `Set public IP filters`.  
+1. Click the ellipsis (...) to the right of Network, then select `Set public IP filters`.
 
 1. Set the `Allowed inbound IP addresses`:
 
@@ -151,21 +151,21 @@ virtual machines used in Managed Service for TimescaleDB.
 Managed Service for TimescaleDB services are periodically assessed and penetration
 tested for any security issues by an independent professional cyber-security vendor.
 
-<!---
+/*
 The most
 recent evaluation report
 [is available for download][cloud-security-eval].
 This link is currently timing out.
--->
+*/}
 
 Aiven is fully GDPR-compliant, and has executed data processing agreements
 (DPAs) with relevant cloud infrastructure providers. If you require a DPA, or if
 you want more information about information security policies,
 [contact Timescale][timescale-support].
 
-<!---
+/*
 [cloud-security-eval]: https://www.elfgroup.fi/ecc/1708-S6-71acd0046.pdf
--->
+*/}
 
 [timescale-support]: https://www.timescale.com/contact/
 [mst-login]:https://portal.managed.timescale.com/login

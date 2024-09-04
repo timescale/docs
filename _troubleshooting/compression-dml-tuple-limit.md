@@ -14,7 +14,7 @@ keywords: [hypertables, compression, insert, update, delete]
 tags: [hypertables, compression, insert, update, delete]
 ---
 
-<!---
+{/*
 * Use this format for writing troubleshooting sections:
  - Cause: What causes the problem?
  - Consequence: What does the user see when they hit this problem?
@@ -23,7 +23,7 @@ tags: [hypertables, compression, insert, update, delete]
  - Result: When the user applies the fix, what is the result when the same
    action is applied?
 * Copy this comment at the top of every troubleshooting page
--->
+*/}
 
 When inserting, updating, or deleting tuples from compressed chunks it might be necessary to decompress tuples. This happens either when you are updating existing tuples or have constraints that need to be verified during insert time. If you happen to trigger a lot of decompression with a single command, you may end up running out of storage space. For this reason, a limit has been put in place on the number of tuples you can decompress for a single command.
 

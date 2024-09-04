@@ -17,12 +17,12 @@ You use Timescale Console to create and manage Timescale services. Each service 
 
 Timescale Cloud offers the following PostgreSQL optimized database services:
 
-- **Time-series and Analytics**: a Timescale DB instance optimized for your 
+- **Time-series and Analytics**: a Timescale DB instance optimized for your
     [time-series and analytics][what-is-time-series] workloads.
-- **Dynamic PostgreSQL**: for all other workloads. A PostgreSQL instance with a 
+- **Dynamic PostgreSQL**: for all other workloads. A PostgreSQL instance with a
     [dynamic compute range][what-is-dynamic-postgres] aligned to your business needs.
 
-This section shows you how to create a Timescale service, then connect to your service using either a secure Cloud SQL 
+This section shows you how to create a Timescale service, then connect to your service using either a secure Cloud SQL
 editor in Timescale Console, or command line tools.
 
 <Install />
@@ -39,19 +39,19 @@ Now that you have an active Timescale account, you can create and manage your se
 
    Your service is constructed immediately and is ready to use.
 
-1. Click **Download the config** and store the configuration information you need to connect to this service in a 
-   secure location. 
+1. Click **Download the config** and store the configuration information you need to connect to this service in a
+   secure location.
 
-   This file contains the passwords and configuration information you need to connect to your service from the command 
-   line, or third party database administration tools. You can also connect to your service from Timescale Console 
+   This file contains the passwords and configuration information you need to connect to your service from the command
+   line, or third party database administration tools. You can also connect to your service from Timescale Console
    using our Cloud SQL editors.
 
-1. Follow the service creation wizard.   
+1. Follow the service creation wizard.
 
-If you choose to go directly to the service overview, [Check your service and connect to it][connect-to-your-service] 
+If you choose to go directly to the service overview, [Check your service and connect to it][connect-to-your-service]
 shows you how to connect.
 
-</Procedure> 
+</Procedure>
 
 <Connect />
 

@@ -1,4 +1,4 @@
-<!-- Note the spacing and labeling are very important! -->
+{/* Note the spacing and labeling are very important! */}
 <Terminal>
 
 <tab label='ruby'>

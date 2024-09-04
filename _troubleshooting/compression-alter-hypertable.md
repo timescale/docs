@@ -15,7 +15,7 @@ keywords: [hypertables, compression, alter_table]
 tags: [hypertables, compression, alter_table, columns]
 ---
 
-<!---
+{/*
 * Use this format for writing troubleshooting sections:
  - Cause: What causes the problem?
  - Consequence: What does the user see when they hit this problem?
@@ -24,7 +24,7 @@ tags: [hypertables, compression, alter_table, columns]
  - Result: When the user applies the fix, what is the result when the same
    action is applied?
 * Copy this comment at the top of every troubleshooting page
--->
+*/}
 
 If you attempt to add a column with constraints or defaults to a hypertable that
 has compression enabled, you might get this error. To add the column, you need

@@ -21,7 +21,7 @@ used to implement the policy succeeded and when it is scheduled to run next.
 
 ### Available columns
 
-<!-- vale Google.Acronyms = NO -->
+{/* vale Google.Acronyms = NO */}
 |Name|Type|Description|
 |---|---|---|
 |`hypertable_schema` | TEXT | Schema name of the hypertable |
@@ -36,18 +36,18 @@ used to implement the policy succeeded and when it is scheduled to run next.
 |`total_runs` | BIGINT | The total number of runs of this job|
 |`total_successes` | BIGINT | The total number of times this job succeeded |
 |`total_failures` | BIGINT | The total number of times this job failed |
-<!-- vale Google.Acronyms = YES -->
+{/* vale Google.Acronyms = YES */}
 
 ### Sample usage
 
 Get job success/failure information for a specific hypertable.
 
 ```sql
-SELECT job_id, total_runs, total_failures, total_successes 
+SELECT job_id, total_runs, total_failures, total_successes
   FROM timescaledb_information.job_stats
   WHERE hypertable_name = 'test_table';
 
- job_id | total_runs | total_failures | total_successes 
+ job_id | total_runs | total_failures | total_successes
 --------+------------+----------------+-----------------
    1001 |          1 |              0 |               1
    1004 |          1 |              0 |               1
@@ -60,7 +60,7 @@ Get information about continuous aggregate policy related statistics
 ``` sql
 SELECT  js.* FROM
   timescaledb_information.job_stats js, timescaledb_information.continuous_aggregates cagg
-  WHERE cagg.view_name = 'max_mat_view_timestamp' 
+  WHERE cagg.view_name = 'max_mat_view_timestamp'
   and cagg.materialization_hypertable_name = js.hypertable_name;
 
 -[ RECORD 1 ]----------+------------------------------

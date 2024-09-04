@@ -11,7 +11,7 @@ api:
 
 import Experimental from "versionContent/_partials/_experimental.mdx";
 
-<!-- markdownlint-disable-next-line line-length -->
+{/* markdownlint-disable-next-line line-length */}
 # show_policies() <Tag type="community" content="Community" /><Tag type="experimental" content="Experimental" />
 
 Show all policies that are currently set on a continuous aggregate.
@@ -48,7 +48,7 @@ SELECT timescaledb_experimental.show_policies('example_continuous_aggregate');
 Example of returned data:
 
 ```bash
-show_policies                                                                
+show_policies
 --------------------------------------------------------------------------------
 {"policy_name": "policy_compression", "compress_after": 11, "compress_interval": "@ 1 day"}
 {"policy_name": "policy_refresh_continuous_aggregate", "refresh_interval": "@ 1 hour", "refresh_end_offset": 1, "refresh_start_offset": 10}

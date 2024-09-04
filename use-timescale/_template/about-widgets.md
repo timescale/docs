@@ -1,4 +1,4 @@
-<!-- vale off -->
+{/* vale off */}
 # About widgets
 This page collects all the concept information about the feature. It answers the
 question "What is it"? This page should not include any procedures, but it can

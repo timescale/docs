@@ -175,7 +175,7 @@ a vulnerable state until all chunks are fully replicated.
 When you have restored a failed data node or marked it available again, you can
 see the chunks that need to be replicated with this query:
 
-<!--- Still experimental? --LKB 2021-10-20-->
+{/* Still experimental? --LKB 2021-10-20*/}
 
 ```sql
 SELECT chunk_schema, chunk_name, replica_nodes, non_replica_nodes
@@ -198,16 +198,16 @@ With the information from the chunk replication status view, an
 under-replicated chunk can be copied to a new node to ensure the chunk
 has the sufficient number of replicas. For example:
 
-<!--- Still experimental? --LKB 2021-10-20-->
+{/* Still experimental? --LKB 2021-10-20*/}
 
 ```sql
 CALL timescaledb_experimental.copy_chunk('_timescaledb_internal._dist_hyper_1_1_chunk', 'data_node_3', 'data_node_2');
 ```
 
-<Highlight type="important">>
+<Highlight type="important">
 When you restore chunk replication, the operation uses more than one transaction. This means that it cannot be automatically rolled back. If you cancel the operation before it is completed, an operation ID for the copy is logged. You can use this operation ID to clean up any state left by the cancelled operation. For example:
 
-<!--- Still experimental? --LKB 2021-10-20-->
+{/* Still experimental? --LKB 2021-10-20*/}
 
 ```sql
 CALL timescaledb_experimental.cleanup_copy_chunk_operation('ts_copy_1_31');

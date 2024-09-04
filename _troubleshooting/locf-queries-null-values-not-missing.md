@@ -9,14 +9,14 @@ keywords: [continuous aggregates, hyperfunctions, gapfilling]
 tags: [continuous aggregates, hyperfunctions, gapfilling, locf, queries]
 ---
 
-<!---
+{/*
 * Use this format for writing troubleshooting sections:
  - Cause: What causes the problem?
  - Consequence: What does the user see when they hit this problem?
  - Fix/Workaround: What can the user do to fix or work around the problem? Provide a "Resolving" Procedure if required.
  - Result: When the user applies the fix, what is the result when the same action is applied?
 * Copy this comment at the top of every troubleshooting page
--->
+*/}
 
 When you have a query that uses a last observation carried forward (locf)
 function, the query carries forward NULL values by default. If you want the

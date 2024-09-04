@@ -5,7 +5,7 @@ keywords: [noun, verb, tutorial]
 tags: [noun, noun]
 ---
 
-<!-- markdown-link-check-disable -->
+{/* markdown-link-check-disable */}
 
 # Query the data
 

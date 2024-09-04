@@ -190,14 +190,14 @@ To turn off the jobs:
 ```sql
 SELECT public.alter_job(id::integer, scheduled=>false)
 FROM _timescaledb_config.bgw_job
-WHERE id >= 1000; 
+WHERE id >= 1000;
 ```
 
 To turn on the jobs:
 ```sql
 SELECT public.alter_job(id::integer, scheduled=>true)
 FROM _timescaledb_config.bgw_job
-WHERE id >= 1000; 
+WHERE id >= 1000;
 ```
 
 [refresh policies documentation]: /use-timescale/:currentVersion:/continuous-aggregates/refresh-policies/
@@ -205,7 +205,7 @@ WHERE id >= 1000;
 ## Restoring with concurrency
 
 If the directory format is used for `pg_dump` and `pg_restore`, concurrency can be
-employed to speed up the process. Unfortunately, loading the tables in the 
+employed to speed up the process. Unfortunately, loading the tables in the
 `timescaledb_catalog` schema concurrently causes errors. Furthermore, the
 `tsdbadmin` user does not have sufficient privileges to turn off triggers in
 this schema. To get around this limitation, load this schema serially, and then
@@ -222,7 +222,7 @@ pg_restore -d "$TARGET" \
     --no-privileges \
     dump
 
-# next, concurrently load everything EXCEPT the _timescaledb_catalog 
+# next, concurrently load everything EXCEPT the _timescaledb_catalog
 pg_restore -d "$TARGET" \
     --format=directory \
     --jobs=8 \
@@ -265,7 +265,7 @@ this table.  Then, use `psql` and the `COPY` command to dump and
 restore this table with modified values for the `owner` column.
 
 ```bash
-# dump the _timescaledb_config.bgw_job table to a csv file replacing the owner 
+# dump the _timescaledb_config.bgw_job table to a csv file replacing the owner
 # values with tsdbadmin
 psql -d "$SOURCE" -X -v ON_ERROR_STOP=1 --echo-errors -f - <<'EOF'
 begin;
@@ -286,7 +286,7 @@ on (c.oid = a.attrelid and a.attnum > 0)
 \gset
 copy
 (
-    select :cols 
+    select :cols
     from _timescaledb_config.bgw_job
     where id >= 1000
 ) to stdout with (format csv, header true)
@@ -301,12 +301,12 @@ psql -X -d "$TARGET" -v ON_ERROR_STOP=1 --echo-errors \
 ```
 
 Once the table has been loaded and the restore completed, you may then use SQL
-to adjust the ownership of the jobs and/or the associated stored procedures and 
+to adjust the ownership of the jobs and/or the associated stored procedures and
 functions as you wish.
 
 ## Extension availability
 
-There are a vast number of PostgreSQL extensions available in the wild. 
+There are a vast number of PostgreSQL extensions available in the wild.
 Timescale supports many of the most popular extensions, but not all extensions.
 Before migrating, check that the extensions you are using are supported on
 Timescale. Consult the [list of supported extensions].
@@ -317,7 +317,7 @@ Timescale. Consult the [list of supported extensions].
 
 When self-hosting, the timescaledb extension may be installed in an arbitrary
 schema. Timescale only supports installing the timescaledb extension in the
-`public` schema. How to go about resolving this depends heavily on the 
+`public` schema. How to go about resolving this depends heavily on the
 particular details of the source schema and the migration approach chosen.
 
 ## Tablespaces
@@ -329,9 +329,9 @@ default tablespace as desired.
 
 ## Only one database per instance
 
-While PostgreSQL clusters can contain many databases, Timescale instances are 
+While PostgreSQL clusters can contain many databases, Timescale instances are
 limited to a single database. When migrating a cluster with multiple databases
-to Timescale, one can either migrate each source database to a separate 
+to Timescale, one can either migrate each source database to a separate
 Timescale instance or "merge" source databases to target schemas.
 
 ## Superuser privileges
@@ -342,8 +342,8 @@ operations and mitigate before migrating.
 
 ## Migrate partial continuous aggregates
 
-In order to improve the performance and compatibility of continuous aggregates, 
-[TimescaleDB v2.7][release-270] replaces _partial_ continuous aggregates with 
+In order to improve the performance and compatibility of continuous aggregates,
+[TimescaleDB v2.7][release-270] replaces _partial_ continuous aggregates with
 _finalized_ continuous aggregates.
 
 To test your database for partial continuous aggregates, run the following query:
@@ -352,7 +352,7 @@ To test your database for partial continuous aggregates, run the following query
 SELECT exists (SELECT 1 FROM timescaledb_information.continuous_aggregates WHERE NOT finalized);
 ```
 
-If you have partial continuous aggregates in your database, [migrate them][migrate] 
+If you have partial continuous aggregates in your database, [migrate them][migrate]
 from partial to finalized before you migrate your database.
 
 If you accidentally migrate partial continuous aggregates across PostgreSQL
@@ -364,4 +364,3 @@ ERROR:  insufficient data left in message.
 
 [migrate]: /migrate/:currentVersion:/live-migration/
 [release-270]: /about/:currentVersion:/release-notes/past-releases/#270-2022-05-24
-

@@ -1,4 +1,4 @@
-<!-- vale off -->
+/* vale off */}
 # Create a widget
 
 This is the first page that contains procedures. It should cover the most

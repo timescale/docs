@@ -5,7 +5,7 @@ keywords: [finance, analytics]
 tags: [candlestick]
 ---
 
-<!-- markdown-link-check-disable -->
+{/* markdown-link-check-disable */}
 
 # Store financial tick data in TimescaleDB using the OHLCV (candlestick) format
 

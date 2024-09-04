@@ -62,7 +62,7 @@
     ```
 
     </tab>
-    </Terminal>  
+    </Terminal>
 
 1.  **Update your local repository list**
 
@@ -76,28 +76,28 @@
     sudo yum install timescaledb-2-postgresql-16 postgresql16
     ```
 
-    <!-- hack until we have bandwidth to rewrite this linting rule -->
+    {/* hack until we have bandwidth to rewrite this linting rule */}
 
-    <!-- markdownlint-disable TS007 -->
+    {/* markdownlint-disable TS007 */}
     <Highlight type="note">
     On Red Hat Enterprise Linux 8 and later, disable the built-in PostgreSQL module:
-    
+
     `sudo dnf -qy module disable postgresql`
     </Highlight>
 
-    <!-- markdownlint-enable TS007 -->
-    
+    {/* markdownlint-enable TS007 */}
+
  1.  Initialize the PostgreSQL instance:
 
     ```bash
     sudo /usr/pgsql-16/bin/postgresql-16-setup initdb
-    ```   
+    ```
 
 1.  **Tune your PostgreSQL instance for TimescaleDB**
 
     ```bash
-    sudo timescaledb-tune --pg-config=/usr/pgsql-16/bin/pg_config 
-    ```   
+    sudo timescaledb-tune --pg-config=/usr/pgsql-16/bin/pg_config
+    ```
 
     This script is included with the `timescaledb-tools` package when you install TimescaleDB.
     For more information, see [configuration][config].
@@ -114,8 +114,8 @@
     ```bash
     sudo -u postgres psql
     ```
-    You are now in the psql shell. 
-    
+    You are now in the psql shell.
+
 1. **Set the password for `postgres`**
 
     ```bash

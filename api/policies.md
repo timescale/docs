@@ -12,10 +12,10 @@ api:
 
 import Experimental from "versionContent/_partials/_experimental.mdx";
 
-<!-- vale Google.Headings = NO -->
-<!-- markdownlint-disable-next-line line-length -->
+{/* vale Google.Headings = NO */}
+{/* markdownlint-disable-next-line line-length */}
 ## timescaledb_experimental.policies <Tag type="community" content="Community" /><Tag type="experimental" content="Experimental" />
-<!-- vale Google.Headings = YES -->
+{/* vale Google.Headings = YES */}
 
 The `policies` view provides information on all policies set on continuous
 aggregates.

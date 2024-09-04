@@ -306,8 +306,8 @@ ORDER BY total_price DESC
 LIMIT 5
 ```
 
-<!-- markdown-link-check-disable -->
-<!-- vale Google.Units = NO -->
+{/* markdown-link-check-disable */}
+{/* vale Google.Units = NO */}
 
 nft            |total_price|time               |url                                                                    |
 ---------------|-----------|-------------------|-----------------------------------------------------------------------|
@@ -317,8 +317,8 @@ Founder Cat #17|      177.0|2021-09-03 01:58:13|<https://opensea.io/assets/0x060
 grey           |      149.0|2021-09-03 02:32:26|<https://opensea.io/assets/0x06012c8cf97bead5deae237070f9587f8e7a266d/16>|
 Founder Cat #38|      148.0|2021-09-03 01:58:13|<https://opensea.io/assets/0x06012c8cf97bead5deae237070f9587f8e7a266d/38>|
 
-<!-- vale Google.Units = YES -->
-<!-- markdown-link-check-enable -->
+{/* vale Google.Units = YES */}
+{/* markdown-link-check-enable */}
 
 ### Daily ETH volume of assets in a collection
 
@@ -579,8 +579,8 @@ INNER JOIN LATERAL (
 ) assets ON TRUE;```
 ```
 
-<!-- markdown-link-check-disable -->
-<!-- vale Google.Units = NO -->
+{/* markdown-link-check-disable */}
+{/* vale Google.Units = NO */}
 
 bucket             |nft           |url                                                                           |open_price|close_price|intraday_max_change|
 -------------------|--------------|------------------------------------------------------------------------------|----------|-----------|-------------------|
@@ -590,8 +590,8 @@ bucket             |nft           |url                                          
 2021-09-25 02:00:00|Page          |<https://opensea.io/assets/0xa7206d878c5c3871826dfdb42191c49b1d11f466/1>        |      1.41|      1.475|               61.3|
 2021-09-26 02:00:00|Page          |<https://opensea.io/assets/0xa7206d878c5c3871826dfdb42191c49b1d11f466/1>        |      1.48|      4.341|              43.05|
 
-<!-- vale Google.Units = YES -->
-<!-- markdown-link-check-enable -->
+{/* vale Google.Units = YES */}
+{/* markdown-link-check-enable */}
 
 ## Resources and next steps
 

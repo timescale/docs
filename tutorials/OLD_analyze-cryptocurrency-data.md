@@ -27,10 +27,10 @@ You can also download the resources for this tutorial:
 
 *   Schema creation script: <Tag type="download" >[schema.sql](https://github.com/timescale/examples/blob/master/crypto_tutorial/schema.sql)</Tag>
 *   Dataset creation script: <Tag type="download" >[crypto_data_extraction.py](https://github.com/timescale/examples/blob/master/crypto_tutorial/crypto_data_extraction.py)</Tag>
-<!-- vale Google.Units = NO -->
+{/* vale Google.Units = NO */}
 *   Dataset: <Tag type="download" >[Crypto Currency Dataset September 2019](https://github.com/timescale/examples/tree/master/crypto_tutorial/Cryptocurrency%20dataset%20Sept%2016%202019)</Tag> (Note that this data is from
     September 2019. Follow the steps in Section 2 of this tutorial if you require fresh data)
-<!-- vale Google.Units = YES -->
+{/* vale Google.Units = YES */}
 
 ## Prerequisites
 

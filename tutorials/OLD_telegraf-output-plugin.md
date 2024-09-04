@@ -38,13 +38,13 @@ the different plugins must be part of that binary. Timescale have an unofficial
 build of Telegraf version 1.13.0 with the plugin added, that you can download
 from:
 
-<!--- These links no longer work, deleted. LKB 2023-05-10
+/* These links no longer work, deleted. LKB 2023-05-10
 
 *   Linux amd64: <Tag type="download">[deb]()</Tag> <Tag type="download">[rpm]()</Tag> <Tag type="download">[binary]()</Tag>
 *   Windows amd64: <Tag type="download">[binary/exe]()</Tag>
 *   MacOS amd64: <Tag type="download">[binary]()</Tag>
 
--->
+*/}
 
 Timescale also provide you with builds for:
 

@@ -1,5 +1,3 @@
-## Create a Timescale Cloud account
-
 <Procedure>
 
 To set up Timescale:

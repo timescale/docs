@@ -114,7 +114,7 @@ incomplete sentences, do not end each item with punctuation. However, if any of
 the list items are a longer phrase with more than one full sentence, finish all
 list items with a period.
 
-<!-- markdownlint-disable -->
+{/* markdownlint-disable */}
 
 ```txt
 1.   Use numbers
@@ -126,7 +126,7 @@ list items with a period.
 *   Bullets
 ```
 
-<!-- markdownlint-enable -->
+{/* markdownlint-enable */}
 
 ## Processes and procedures
 
@@ -139,7 +139,7 @@ within a process.
 
 Procedures contain these elements:
 
-<!-- markdownlint-disable -->
+{/* markdownlint-disable */}
 
 1.  Level two section title in simple verb form
 1.  Short introduction
@@ -149,7 +149,7 @@ Procedures contain these elements:
 1.  Screenshot
 1.  Close `</Procedure>` tag
 
-<!-- markdownlint-enable -->
+{/* markdownlint-enable */}
 
 For example:
 

@@ -31,7 +31,7 @@ production use.
 
 ## TimescaleDB Community Edition
 
-TimescaleDB Community Edition is the advanced, best, and most feature complete 
+TimescaleDB Community Edition is the advanced, best, and most feature complete
 version of TimescaleDB, available under the terms of the
 [Timescale License (TSL)][timescale-license].
 
@@ -454,7 +454,7 @@ You can access a hosted version of TimescaleDB Community Edition through
   </tr>
 </table>
 
-<!-- vale Google.Units = NO -->
+{/* vale Google.Units = NO */}
 
 [license-blog]: https://blog.timescale.com/blog/building-open-source-business-in-cloud-era-v2/
 [mst]: /mst/:currentVersion:

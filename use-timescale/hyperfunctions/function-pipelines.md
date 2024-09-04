@@ -419,7 +419,7 @@ The largest triangle three buckets (LTTB) transform uses the LTTB graphical
 downsampling algorithm to downsample a `timevector` to the specified resolution
 while maintaining visual acuity.
 
-<!---- Insert example here. --LKB 2021-10-19-->
+{/* Insert example here. --LKB 2021-10-19 */}
 
 #### Sort transform
 

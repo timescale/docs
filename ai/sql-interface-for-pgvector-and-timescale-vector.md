@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS document_embedding  (
     document_id BIGINT FOREIGN KEY(document.id)
     metadata JSONB,
     contents TEXT,
-    embedding VECTOR(1536)
+    embedding VECTOR(1538)
 )
 ```
 
@@ -80,9 +80,9 @@ The key part is that the `ORDER BY` contains a distance measure against a consta
 
 Note that if performing a query without an index, you always get an exact result, but the query is slow (it has to read all of the data you store for every query). With an index, your queries are an order-of-magnitude faster, but the results are approximate (because there are no known indexing techniques that are exact see [here for more][vector-search-indexing]).
 
-<!-- vale Google.Colons = NO -->
+{/* vale Google.Colons = NO */}
 Nevertheless, there are excellent approximate algorithms. There are 3 different indexing algorithms available on the Timescale platform: StreamingDiskANN, HNSW, and ivfflat. Below is the trade-offs between these algorithms:
-<!-- vale Google.Colons = Yes -->
+{/* vale Google.Colons = Yes */}
 
 | Algorithm       | Build Speed | Query Speed | Need to rebuild after updates |
 |------------------|-------------|-------------|-------------------------------|
@@ -102,8 +102,8 @@ You can see the details of each index below.
 ### StreamingDiskANN index
 
 
-The StreamingDiskANN index is a graph-based algorithm that was inspired by the [DiskANN](https://github.com/microsoft/DiskANN) algorithm. 
-You can read more about it in 
+The StreamingDiskANN index is a graph-based algorithm that was inspired by the [DiskANN](https://github.com/microsoft/DiskANN) algorithm.
+You can read more about it in
 [How We Made PostgreSQL as Fast as Pinecone for Vector Data](https://www.timescale.com/blog/how-we-made-postgresql-as-fast-as-pinecone-for-vector-data/).
 
 
@@ -137,9 +137,9 @@ CREATE INDEX document_embedding_idx ON document_embedding
 USING diskann (embedding) WITH(num_neighbors=50);
 ```
 
-<!---
+{/*
 TODO: Add PQ options
--->
+*/}
 
 
 #### StreamingDiskANN query-time parameters

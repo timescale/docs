@@ -35,8 +35,7 @@ module.exports = [
           {
             title: "Service management",
             href: "service-management",
-            excerpt:
-              "Timescale services operations, Service management tab",
+            excerpt: "Timescale services operations, Service management tab",
           },
           {
             title: "Manually change resources",
@@ -46,8 +45,7 @@ module.exports = [
           {
             title: "Connection pooling",
             href: "connection-pooling",
-            excerpt:
-              "Using a connection pool with your Timescale services",
+            excerpt: "Using a connection pool with your Timescale services",
           },
           {
             title: "Troubleshooting Timescale services",
@@ -133,6 +131,12 @@ module.exports = [
             type: "placeholder",
           },
         ],
+      },
+      {
+        title: "PopSQL",
+        href: "popsql",
+        excerpt:
+          "Run SQL queries, create charts and dashboards, and collaborate with teammates",
       },
       {
         title: "Time buckets",
@@ -473,7 +477,8 @@ module.exports = [
       {
         title: "Tiered Storage",
         href: "data-tiering",
-        excerpt: "Save on storage costs by tiering older data to a low-cost bottomless object storage tier",
+        excerpt:
+          "Save on storage costs by tiering older data to a low-cost bottomless object storage tier",
         children: [
           {
             title: "About the object storage tier",
@@ -484,32 +489,27 @@ module.exports = [
           {
             title: "Tour of tiered storage",
             href: "tour-data-tiering",
-            excerpt:
-               "A quick tour of tiered storage",
+            excerpt: "A quick tour of tiered storage",
           },
           {
             title: "Enabling the object storage tier",
             href: "enabling-data-tiering",
-            excerpt:
-                "How to enable the object storage tier",
+            excerpt: "How to enable the object storage tier",
           },
           {
             title: "Manually tier data",
             href: "manual-tier-chunk",
-            excerpt:
-                "How to manually tier data to the object storage tier",
+            excerpt: "How to manually tier data to the object storage tier",
           },
           {
             title: "Creating tiering policies",
             href: "creating-data-tiering-policy",
-            excerpt:
-                "How to create a tiering policy",
+            excerpt: "How to create a tiering policy",
           },
           {
             title: "Querying tiered data",
             href: "querying-tiered-data",
-            excerpt:
-                "How to query tiered data",
+            excerpt: "How to query tiered data",
           },
           {
             title: "Manually untier data",
@@ -519,8 +519,7 @@ module.exports = [
           {
             title: "Replicas and forks with tiered data",
             href: "tiered-data-replicas-forks",
-            excerpt:
-                "How tiered data works on replicas and forks",
+            excerpt: "How tiered data works on replicas and forks",
           },
           {
             title: "Troubleshooting",
@@ -532,7 +531,8 @@ module.exports = [
       {
         title: "VPC Peering and AWS PrivateLink",
         href: "vpc",
-        excerpt: "Secure your Timescale Service with VPC Peering and AWS PrivateLink",
+        excerpt:
+          "Secure your Timescale Service with VPC Peering and AWS PrivateLink",
       },
       {
         title: "Hyperfunctions",
@@ -686,8 +686,7 @@ module.exports = [
           {
             title: "Export to Prometheus",
             href: "metrics-to-prometheus",
-            excerpt:
-              "Export telemetry data to Prometheus",
+            excerpt: "Export telemetry data to Prometheus",
           },
         ],
       },
@@ -733,7 +732,7 @@ module.exports = [
             href: "postgis",
             excerpt: "Using the postgis PostgreSQL extension",
           },
-        ]
+        ],
       },
       {
         title: "Backup, restore, and PITR",
@@ -747,9 +746,9 @@ module.exports = [
           {
             title: "Point-in-time recovery",
             href: "point-in-time-recovery",
-            excerpt: "PITR on Timescale services"
-          }
-        ]
+            excerpt: "PITR on Timescale services",
+          },
+        ],
       },
       {
         title: "User-defined actions",
@@ -806,112 +805,115 @@ module.exports = [
           {
             title: "Query and administration",
             href: "query-admin",
-            excerpt: "Integrate your Timescale database with third-party query and administration solutions",
-            children:
-              [
-                {
-                  title: "About connecting to Timescale",
-                  href: "about-connecting",
-                  excerpt: "Learn about using connecting to your Timescale database",
-                },
-                {
-                  title: "About psql",
-                  href: "about-psql",
-                  excerpt: "Learn about using psql to connect to Timescale",
-                },
-                {
-                  title: "Install psql",
-                  href: "psql",
-                  excerpt: "Install psql to connect to Timescale",
-                },
-                {
-                  title: "Connect using Azure Data Studio",
-                  href: "azure-data-studio",
-                  excerpt: "Install Azure Data Studio to connect to Timescale",
-                },
-                {
-                  title: "Connect using DBeaver",
-                  href: "dbeaver",
-                  excerpt: "Install DBeaver to connect to Timescale",
-                },
-                {
-                  title: "Connect using pgAdmin",
-                  href: "pgadmin",
-                  excerpt: "Install pgAdmin to connect to Timescale",
-                },
-                {
-                  title: "Connect using qStudio",
-                  href: "qstudio",
-                  excerpt: "Install qstudio to connect to Timescale",
-                },
-                {
-                  title: "Troubleshooting Timescale connections",
-                  href: "troubleshooting",
-                  type: "placeholder",
-                },
-              ]
+            excerpt:
+              "Integrate your Timescale database with third-party query and administration solutions",
+            children: [
+              {
+                title: "About connecting to Timescale",
+                href: "about-connecting",
+                excerpt:
+                  "Learn about using connecting to your Timescale database",
+              },
+              {
+                title: "About psql",
+                href: "about-psql",
+                excerpt: "Learn about using psql to connect to Timescale",
+              },
+              {
+                title: "Install psql",
+                href: "psql",
+                excerpt: "Install psql to connect to Timescale",
+              },
+              {
+                title: "Connect using Azure Data Studio",
+                href: "azure-data-studio",
+                excerpt: "Install Azure Data Studio to connect to Timescale",
+              },
+              {
+                title: "Connect using DBeaver",
+                href: "dbeaver",
+                excerpt: "Install DBeaver to connect to Timescale",
+              },
+              {
+                title: "Connect using pgAdmin",
+                href: "pgadmin",
+                excerpt: "Install pgAdmin to connect to Timescale",
+              },
+              {
+                title: "Connect using qStudio",
+                href: "qstudio",
+                excerpt: "Install qstudio to connect to Timescale",
+              },
+              {
+                title: "Troubleshooting Timescale connections",
+                href: "troubleshooting",
+                type: "placeholder",
+              },
+            ],
           },
           {
             title: "Configuration and deployment",
             href: "config-deploy",
-            excerpt: "Integrate your Timescale account with third-party configuration and deployment solutions",
-            children:
-              [
-                {
-                  title: "Terraform",
-                  href: "terraform",
-                  excerpt: "Manage your Timescale services via Terraform",
-                },
-              ]
+            excerpt:
+              "Integrate your Timescale account with third-party configuration and deployment solutions",
+            children: [
+              {
+                title: "Terraform",
+                href: "terraform",
+                excerpt: "Manage your Timescale services via Terraform",
+              },
+            ],
           },
           {
             title: "Observability and alerting",
             href: "observability-alerting",
-            excerpt: "Integrate your Timescale database with third-party observability and alerting solutions",
-            children:
-              [
-                {
-                  title: "Grafana",
-                  href: "grafana",
-                  excerpt: "Use Grafana with Timescale",
-                  children:
-                    [
-                      {
-                        title: "Installing Grafana",
-                        href: "installation",
-                        excerpt: "Installing Grafana and connecting it to your Timescale service"
-                      },
-                      {
-                        title: "Create a Grafana dashboard and panel",
-                        href: "create-dashboard-and-panel",
-                        excerpt: "Create a Grafana dashboard and panel to display your Timescale data",
-                      },
-                      {
-                        title: "Use Grafana to visualize geospatial data",
-                        href: "geospatial-dashboards",
-                        excerpt: "Use Grafana to visualize geospatial data in Timescale",
-                      },
-                    ]
-                },
-                {
-                  title: "Tableau",
-                  href: "tableau",
-                  excerpt: "Use Tableau with Timescale",
-                },
-              ]
+            excerpt:
+              "Integrate your Timescale database with third-party observability and alerting solutions",
+            children: [
+              {
+                title: "Grafana",
+                href: "grafana",
+                excerpt: "Use Grafana with Timescale",
+                children: [
+                  {
+                    title: "Installing Grafana",
+                    href: "installation",
+                    excerpt:
+                      "Installing Grafana and connecting it to your Timescale service",
+                  },
+                  {
+                    title: "Create a Grafana dashboard and panel",
+                    href: "create-dashboard-and-panel",
+                    excerpt:
+                      "Create a Grafana dashboard and panel to display your Timescale data",
+                  },
+                  {
+                    title: "Use Grafana to visualize geospatial data",
+                    href: "geospatial-dashboards",
+                    excerpt:
+                      "Use Grafana to visualize geospatial data in Timescale",
+                  },
+                ],
+              },
+              {
+                title: "Tableau",
+                href: "tableau",
+                excerpt: "Use Tableau with Timescale",
+              },
+            ],
           },
           {
             title: "Data ingestion",
             href: "data-ingest",
-            excerpt: "Integrate your Timescale database with third-party data and ingestion solutions",
-            children:
-              [
-                {
-                  title: "Telegraf",
-                  href: "telegraf",
-                  excerpt: "Use Telegraf with Timescale",
-                },
-              ]
+            excerpt:
+              "Integrate your Timescale database with third-party data and ingestion solutions",
+            children: [
+              {
+                title: "Telegraf",
+                href: "telegraf",
+                excerpt: "Use Telegraf with Timescale",
+              },
+            ],
           },
         ],
       },
@@ -938,7 +940,8 @@ module.exports = [
           {
             title: "Client credentials",
             href: "client-credentials",
-            excerpt: "Client credentials to programmatically access your Timescale account",
+            excerpt:
+              "Client credentials to programmatically access your Timescale account",
           },
           {
             title: "Read only role",

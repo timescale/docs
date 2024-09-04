@@ -23,7 +23,7 @@ keywords: [migration, pg_dump]
 tags: [migration, pg_dump]
 ---
 
-<!---
+{/*
 * Use this format for writing troubleshooting sections:
  - Cause: What causes the problem?
  - Consequence: What does the user see when they hit this problem?
@@ -32,7 +32,7 @@ tags: [migration, pg_dump]
  - Result: When the user applies the fix, what is the result when the same
    action is applied?
 * Copy this comment at the top of every troubleshooting page
--->
+*/}
 
 If you see these errors during the migration process, you can safely ignore
 them. The migration still occurs successfully.

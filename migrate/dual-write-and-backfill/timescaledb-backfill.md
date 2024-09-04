@@ -59,12 +59,12 @@ migration.
 
 - **Stage Command:** is used to create copy tasks for hypertable chunks based
   on the specified completion point (`--until`). If a starting point (`--from`)
-  is not specified, data will be copied from the beginning of time up to the 
+  is not specified, data will be copied from the beginning of time up to the
   completion point (`--until`). An optional filter (`--filter`) can be used to
-  refine the hypertables and continuous aggregates targeted for staging. 
+  refine the hypertables and continuous aggregates targeted for staging.
 
   ```sh
-  timescaledb-backfill stage --source $SOURCE --target $TARGET --until '2016-01-02T00:00:00' 
+  timescaledb-backfill stage --source $SOURCE --target $TARGET --until '2016-01-02T00:00:00'
   ```
 
   The tables to be included in the stage can be controlled by providing
@@ -76,7 +76,7 @@ migration.
   concern itself with dependencies between objects. Depending on what is intended, this could be problematic for
   continuous aggregates, as they form a dependency hierarchy. This behaviour
   can be modified through cascade options.
- 
+
   For example, assuming a hierarchy of continuous aggregates for hourly, daily,
   and weekly rollups of data in an underlying hypertable called `raw_data` (all
   in the `public` schema). This could look as follows:
@@ -88,7 +88,7 @@ migration.
   If the filter `--filter='^public\.raw_data$'` is applied, then no data from the
   continuous aggregates is staged. If the filter
   `--filter='^public\.daily_agg$'` is applied, then only materialized data in the
-  continuous aggregate `daily_agg` is staged. 
+  continuous aggregate `daily_agg` is staged.
 
   `--cascade-up`: when activated, this option ensures that any continuous
   aggregates which depend on the filtered object are included in the staging
@@ -120,7 +120,7 @@ migration.
 - **Copy Command:** processes the tasks created during the staging phase and
   copies the corresponding hypertable chunks to the target Timescale service.
 
-   ```sh 
+   ```sh
    timescaledb-backfill copy --source $SOURCE --target $TARGET
    ```
 
@@ -138,7 +138,7 @@ migration.
   well as per-column count, max, min, and sum values (when applicable,
   depending on the column data type).
 
-   ```sh 
+   ```sh
    timescaledb-backfill verify --source $SOURCE --target $TARGET
    ```
 
@@ -178,7 +178,7 @@ migration.
   concern itself with dependencies between objects. Depending on what is
   intended, this could be problematic as continuous aggregates form a
   dependency hierarchy. This behaviour can be modified through cascade options.
- 
+
   For example, assuming a hierarchy of continuous aggregates for hourly, daily,
   and weekly rollups of data in an underlying hypertable called `raw_data` (all
   in the `public` schema). This could look as follows:
@@ -216,13 +216,13 @@ migration.
 - **Clean Command:** removes the administrative schema (`__backfill`) that was
   used to store the tasks once the migration is completed successfully.
 
-  ```sh 
+  ```sh
   timescaledb-backfill clean --target $TARGET
   ```
 
-### Usage examples 
+### Usage examples
 
-- Backfilling with a filter and until date: 
+- Backfilling with a filter and until date:
 
   ```sh
   timescaledb-backfill stage --source $SOURCE_DB --target $TARGET_DB \
@@ -238,7 +238,7 @@ migration.
   timescaledb-backfill clean --target $TARGET
   ```
 
-- Running multiple stages with different filters and until dates: 
+- Running multiple stages with different filters and until dates:
 
   ```sh
   timescaledb-backfill stage --source $SOURCE --target $TARGET \

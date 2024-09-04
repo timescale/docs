@@ -19,14 +19,14 @@ tags: [jobs, scheduled jobs, background jobs, background workers, automation fra
 
 import CloudMSTRestartWorkers from 'versionContent/_partials/_cloud-mst-restart-workers.mdx';
 
-<!---
+{/*
 * Use this format for writing troubleshooting sections:
  - Cause: What causes the problem?
  - Consequence: What does the user see when they hit this problem?
  - Fix/Workaround: What can the user do to fix or work around the problem? Provide a "Resolving" Procedure if required.
  - Result: When the user applies the fix, what is the result when the same action is applied?
 * Copy this comment at the top of every troubleshooting page
--->
+*/}
 
 Your scheduled jobs might stop running for various reasons. On self-hosted
 TimescaleDB, you can fix this by restarting background workers:

@@ -1,16 +1,16 @@
 # api_call() <Tag type="FIXME" content="FIXME" />
-<!--Single sentence description of the API call-->
+{/* Single sentence description of the API call */}
 ```sql
 FIXME: Syntax example
 ```
 
-<!--Any special notes about the API call-->
+{/* Any special notes about the API call */}
 
-<!---
+{/*
 <Highlight type="note"
 Use a highlight for any important information. Choose `note`, `important`, or `warning`.
 </Highlight>
--->
+*/}
 
 For more information about `api_call`, see the [ docs][].
 
@@ -20,7 +20,7 @@ For more information about `api_call`, see the [ docs][].
 |-|-|-|
 |<FIXME>|<FIXME>|<FIXME>|
 
-<!---Any special notes about the required arguments-->
+{/* Any special notes about the required arguments */}
 
 ### Optional arguments
 
@@ -28,7 +28,7 @@ For more information about `api_call`, see the [ docs][].
 |-|-|-|
 |<FIXME>|<FIXME>|<FIXME>|
 
-<!---Any special notes about the optional arguments-->
+/*Any special notes about the optional arguments*/}
 
 ## Returns
 
@@ -36,16 +36,16 @@ For more information about `api_call`, see the [ docs][].
 |-|-|-|
 |<FIXME>|<FIXME>|<FIXME>|
 
-<!---Any special notes about the returns-->
+{/* Any special notes about the returns */}
 
 ## Sample usage
-<!---Single sentence description of what this example does-->
+{/* Single sentence description of what this example does */}
 
 ``` sql
 <FIXME>
 ```
 
-<!---Single sentence description of what this example does-->
+{/* Single sentence description of what this example does */}
 
 ``` sql
 <FIXME>

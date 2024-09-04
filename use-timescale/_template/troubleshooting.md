@@ -1,9 +1,9 @@
-<!-- vale off -->
+{/* vale off */}
 # Troubleshooting widgetsg
 This section contains some ideas for troubleshooting common problems experienced
 with widgets.
 
-<!---
+{/*
 * Keep this section in alphabetical order
 * Use this format for writing troubleshooting sections:
  - Cause: What causes the problem?
@@ -13,7 +13,7 @@ with widgets.
  - Result: When the user applies the fix, what is the result when the same action
    is applied?
 * Copy this comment at the top of every troubleshooting page
--->
+*/}
 
 For example:
 

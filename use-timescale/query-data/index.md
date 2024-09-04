@@ -20,3 +20,4 @@ use [PopSQL][popsql] to work on data with centralized SQL queries, interactive v
 [advanced-analytics]: /use-timescale/:currentVersion:/query-data/advanced-analytic-queries/
 [selecting-data]: /use-timescale/:currentVersion:/query-data/select/
 [skipscan]: /use-timescale/:currentVersion:/query-data/skipscan/
+[popsql]: /use-timescale/:currentVersion:/popsql/

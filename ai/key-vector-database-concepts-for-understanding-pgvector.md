@@ -6,9 +6,9 @@ keywords: [ai, vector, pgvector, pgvectorscale, pgai]
 tags: [ai, vector]
 ---
 
-<!-- vale Google.Headings = NO -->
+{/* vale Google.Headings = NO */}
 # Key vector database concepts for understanding pgvector
-<!-- vale Google.Headings = YES -->
+{/* vale Google.Headings = YES */}
 
 ## `Vector` data type provided by pgvector
 
@@ -48,7 +48,7 @@ The query above returns the 10 rows with the smallest distance between the query
 
 ### Vector distance types
 
-The query shown above uses something called cosine distance (using the <=> operator) as a measure of how similar two embeddings are. But, there are multiple ways to quantify how far apart two vectors are from each other.
+The query shown above uses something called cosine distance (using the {'<=>'} operator) as a measure of how similar two embeddings are. But, there are multiple ways to quantify how far apart two vectors are from each other.
 
 <Highlight type="note">
 In practice, the choice of distance measure doesn't matters much and it is recommended to just stick with cosine distance for most applications.
@@ -69,9 +69,9 @@ Many embedding systems (for example OpenAI's ada-002) use vectors with length 1 
 - The negative inner product is `−dot product`.
 - The Euclidean distance is related to the dot product, where the squared Euclidean distance is `2(1−dot product)`.
 
-<!-- vale Google.Headings = NO -->
+{/* vale Google.Headings = NO */}
 #### Recommended vector distance for use in PostgreSQL
-<!-- vale Google.Headings = YES -->
+{/* vale Google.Headings = YES */}
 
 Using cosine distance, especially on unit vectors, is recommended. These recommendations are based on OpenAI's [recommendation](https://platform.openai.com/docs/guides/embeddings/which-distance-function-should-i-use) as well as the fact that the ranking of different distances on unit vectors is preserved.
 
@@ -87,9 +87,9 @@ Finding the K nearest neighbors is not a new problem in PostgreSQL, but existing
 
 There are no known exact algorithms for efficiently searching in such high-dimensional spaces. Nevertheless, there are excellent approximate algorithms that fall into the category of approximate nearest neighbor algorithms.
 
-<!-- vale Google.Colons = NO -->
+{/* vale Google.Colons = NO */}
 There are 3 different indexing algorithms available as part of pgai on Timescale: StreamingDiskANN, HNSW, and ivfflat. The table below illustrates the high-level differences between these algorithms:
-<!-- vale Google.Colons = YES -->
+{/* vale Google.Colons = YES */}
 
 | Algorithm       | Build Speed | Query Speed | Need to rebuild after updates |
 |------------------|-------------|-------------|-------------------------------|

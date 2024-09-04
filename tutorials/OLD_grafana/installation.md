@@ -57,6 +57,6 @@ When your service is built, you can log and set up your data services.
 
 <GrafanaConnect />
 
-<!---
+/*
 I appreciate that this doesn't really fit here well at the moment, but I'm coming back to this tutorial next, and will rewrite it properly then. I promise! --LKB 2023-02-28
--->
+*/}

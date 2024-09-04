@@ -13,18 +13,18 @@ You use pgai on Timescale to power production grade AI applications. `timescale_
 
 Before you get started with `timescale_vector`:
 
-- [Sign up for pgai on Timescale](https://console.cloud.timescale.com/signup?utm_campaign=vectorlaunch&utm_source=docs&utm_medium=direct): Get 90 days free to try pgai on the Timescale cloud data platform. 
-- [Follow the Get Started Tutorial](https://timescale.github.io/python-vector/tsv_python_getting_started_tutorial.html): 
+- [Sign up for pgai on Timescale](https://console.cloud.timescale.com/signup?utm_campaign=vectorlaunch&utm_source=docs&utm_medium=direct): Get 90 days free to try pgai on the Timescale cloud data platform.
+- [Follow the Get Started Tutorial](https://timescale.github.io/python-vector/tsv_python_getting_started_tutorial.html):
 Learn how to use pgai on Timescale for semantic search on a real-world dataset.
 
 If you prefer to use an LLM development or data framework, see pgai's integrations with [LangChain](https://python.langchain.com/docs/integrations/vectorstores/timescalevector) and [LlamaIndex](https://gpt-index.readthedocs.io/en/stable/examples/vector_stores/Timescalevector.html).
 
-## Prerequisites 
+## Prerequisites
 
-`timescale_vector` depends on the source distribution of `psycopg2` and adheres 
-to [best practices for psycopg2](https://www.psycopg.org/docs/install.html#psycopg-vs-psycopg-binary). 
+`timescale_vector` depends on the source distribution of `psycopg2` and adheres
+to [best practices for psycopg2](https://www.psycopg.org/docs/install.html#psycopg-vs-psycopg-binary).
 
-Before you install `timescale_vector`: 
+Before you install `timescale_vector`:
 
 * Follow the [psycopg2 build prerequisites](https://www.psycopg.org/docs/install.html#build-prerequisites).
 
@@ -32,7 +32,7 @@ Before you install `timescale_vector`:
 
 To interact with pgai on Timescale using Python:
 
-1. Install `timescale_vector`: 
+1. Install `timescale_vector`:
 
     ```bash
     pip install timescale_vector
@@ -43,9 +43,9 @@ To interact with pgai on Timescale using Python:
     pip install python-dotenv
     ```
 
-    In these examples, you use `dotenv` to pass secrets and keys. 
+    In these examples, you use `dotenv` to pass secrets and keys.
 
-That is it, you are ready to go. 
+That is it, you are ready to go.
 
 ## Basic usage of the timescale_vector library
 
@@ -524,9 +524,9 @@ query-time option for controlling accuracy during a particular query. The
 library uses smart defaults for all of these options. The
 details for how to adjust these options manually are below.
 
-<!-- vale Google.Headings = NO -->
+{/* vale Google.Headings = NO */}
 #### StreamingDiskANN index
-<!-- vale Google.Headings = YES -->
+{/* vale Google.Headings = YES */}
 
 The StreamingDiskANN index is a graph-based algorithm that uses the
 [DiskANN](https://github.com/microsoft/DiskANN) algorithm. You can read

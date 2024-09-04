@@ -15,9 +15,9 @@ Pgai on Timescale is a cloud solution for building search, RAG, and AI agents wi
 Pgai on Timescale Cloud is comprised of three extensions: pgvector, pgvectorscale and pgai. pgvector provides the vector data type and HNSW search index. Pgvectorscale provides the StreamingDiskANN index to superpower embedding search and make vector queries performant.  Pgai allows you to easily call AI embedding and generation models from inside the database. All three extensions are installed in your Timescale Cloud instance by default.
 </Highlight>
 
-<!-- vale Google.Headings = NO -->
+{/* vale Google.Headings = NO */}
 ## pgvectorscale ❤️ pgvector
-<!-- vale Google.Headings = Yes -->
+{/* vale Google.Headings = Yes */}
 [Pgvector](https://github.com/pgvector/pgvector) is a popular open source extension for vector storage and similarity search in PostgreSQL and [pgvectorscale](https://github.com/timescale/pgvectorscale) adds advanced indexing capabilities to pgvector. Pgai on Timescale offers both extensions so you can use all the capabilities already available in pgvector (like HNSW and ivfflat indexes) and also make use of the StreamingDiskANN index in pgvectorscale to speed up vector search.
 
 This makes it easy to migrate your existing pgvector deployment and take advantage of the additional performance features in pgvectorscale. You also have the flexibility to create different index types suited to your needs. See the [vector search indexing][vector-search-indexing] section for more information.

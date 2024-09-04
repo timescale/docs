@@ -21,7 +21,7 @@ table to automatically sync that table's data with a set of
 embeddings stored in PostgreSQL. For example, say you have a
 blog table defined in the following way:
 
-``` python
+```python
 import psycopg2
 from langchain.docstore.document import Document
 from langchain.text_splitter import CharacterTextSplitter
@@ -31,7 +31,7 @@ from langchain.vectorstores.timescalevector import TimescaleVector
 from datetime import timedelta
 ```
 
-``` python
+```python
 with psycopg2.connect(service_url) as conn:
     with conn.cursor() as cursor:
         cursor.execute('''
@@ -48,7 +48,7 @@ with psycopg2.connect(service_url) as conn:
 
 You can insert some data as follows:
 
-``` python
+```python
 with psycopg2.connect(service_url) as conn:
     with conn.cursor() as cursor:
         cursor.execute('''
@@ -61,7 +61,7 @@ need to define an `embed_and_write` function that takes a set of blog
 posts, creates the embeddings, and writes them into TimescaleVector. For
 example, if using LangChain, it could look something like the following.
 
-``` python
+```python
 def get_document(blog):
     text_splitter = CharacterTextSplitter(
         chunk_size=1000,
@@ -112,7 +112,7 @@ def embed_and_write(blog_instances, vectorizer):
 Then, all you have to do is run the following code in a scheduled job
 (cron job, Lambda job, etc):
 
-``` python
+```python
 # this job should be run on a schedule
 vectorizer = pgvectorizer.Vectorize(service_url, 'blog')
 while vectorizer.process(embed_and_write) > 0:
@@ -126,7 +126,7 @@ syncs all inserts, updates, and deletes to an embeddings table called
 Now, you can simply search the embeddings as follows (again, using
 LangChain in the example):
 
-``` python
+```python
 embedding = OpenAIEmbeddings()
 vector_store = TimescaleVector(
     collection_name="blog_embedding",
@@ -139,7 +139,8 @@ res = vector_store.similarity_search_with_score("Blogs about cats")
 res
 ```
 
+{/*
     [(Document(page_content='Author Matvey Arye, title: First Post, contents:some super interesting content about cats.', metadata={'id': '4a784000-4bc4-11eb-855a-06302dbc8ce7', 'author': 'Matvey Arye', 'blog_id': 1, 'category': 'AI', 'published_time': '2021-01-01T00:00:00+00:00'}),
       0.12595687795193833)]
 
-
+*/}

@@ -101,7 +101,7 @@ system during the upgrade.
 4.  Check `Apply new maintenance window to all services` if you want to use the
     same maintenance window settings for all of your Timescale services.
 5.  Click `Apply Changes`.
-  
+
     <img class="main-content__illustration"
     width={1375} height={944}
     src="https://assets.timescale.com/docs/images/tsc-maintenance-change.webp"
@@ -123,13 +123,13 @@ Timescale currently supports PostgreSQL&nbsp;12, 13, 14, and 15. You can see
 your PostgreSQL and Timescale versions from the Timescale service
 overview page.
 
-<!-- TODO: Add screenshot
+/* TODO: Add screenshot
 <img class="main-content__illustration"
     src="FIXME"
     alt="The Timescale dashboard, showing the PostgreSQL and Timescale
     versions"
 />
--->
+*/}
 
 You can also manually upgrade to the newest supported PostgreSQL version
 (PostgreSQL&nbsp;15) from the service overview page.
@@ -144,7 +144,7 @@ information about feature changes between versions, see the
 
 <Highlight type="warning">
 Your Timescale service is unavailable until the upgrade is complete. This
-can take up to 20 minutes. It is recommended to test on a fork first for a 
+can take up to 20 minutes. It is recommended to test on a fork first for a
 better estimate.
 </Highlight>
 

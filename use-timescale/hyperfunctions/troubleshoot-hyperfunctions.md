@@ -10,7 +10,7 @@ keywords: [hyperfunctions, Toolkit, troubleshooting]
 This section contains some ideas for troubleshooting common problems experienced
 with hyperfunctions and TimescaleDB Toolkit.
 
-<!---
+{/*
 * Keep this section in alphabetical order
 * Use this format for writing troubleshooting sections:
  - Cause: What causes the problem?
@@ -18,7 +18,7 @@ with hyperfunctions and TimescaleDB Toolkit.
  - Fix/Workaround: What can the user do to fix or work around the problem? Provide a "Resolving" Procedure if required.
  - Result: When the user applies the fix, what is the result when the same action is applied?
 * Copy this comment at the top of every troubleshooting page
--->
+*/}
 
 ## Updating the Toolkit extension fails with an error saying `no update path`
 

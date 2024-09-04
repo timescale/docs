@@ -13,12 +13,12 @@ import AddTimescaleDBToDB from "versionContent/_partials/_add-timescaledb-to-a-d
 # Install TimescaleDB from a Docker container
 
 TimescaleDB is a [PostgreSQL extension](https://www.postgresql.org/docs/current/external-extensions.html) for
-time series and demanding workloads that ingest and query high volumes of data. You can install a TimescaleDB 
-instance on any local system, from a pre-built container. 
+time series and demanding workloads that ingest and query high volumes of data. You can install a TimescaleDB
+instance on any local system, from a pre-built container.
 
 < Skip/>
 
-This section shows you how to 
+This section shows you how to
 [Install and configure TimescaleDB on PostgreSQL](#install-and-configure-timescaledb-on-postgresql).
 
 ### Prerequisites
@@ -41,17 +41,17 @@ And that is it! You have TimescaleDB running on a database on a self-hosted inst
 
 ## More Docker options
 
-The [TimescaleDB HA](https://hub.docker.com/r/timescale/timescaledb-ha) Docker image 
-includes [Ubuntu][ubuntu] as its operating system and offers the most complete TimescaleDB 
+The [TimescaleDB HA](https://hub.docker.com/r/timescale/timescaledb-ha) Docker image
+includes [Ubuntu][ubuntu] as its operating system and offers the most complete TimescaleDB
 experience. It includes the [TimescaleDB Toolkit](https://github.com/timescale/timescaledb-toolkit),
-and support for PostGIS and Patroni.  The lighter-weight TimescaleDB 
-(non-HA) `timescale/timescaledb:latest-pg16` image uses [Alpine][alpine]. 
+and support for PostGIS and Patroni.  The lighter-weight TimescaleDB
+(non-HA) `timescale/timescaledb:latest-pg16` image uses [Alpine][alpine].
 
 <Highlight type="warning">
-If your system uses Linux Uncomplicated Firewall (UFW) for security rules, Docker could override your 
-UFW port binding settings. Docker binds the container on Unix-based systems by modifying the Linux IP tables. 
+If your system uses Linux Uncomplicated Firewall (UFW) for security rules, Docker could override your
+UFW port binding settings. Docker binds the container on Unix-based systems by modifying the Linux IP tables.
 If you are relying on UFW rules for network security, consider adding `DOCKER_OPTS="--iptables=false"`
-to `/etc/default/docker` to prevent Docker from overwriting the IP tables. For more information about this 
+to `/etc/default/docker` to prevent Docker from overwriting the IP tables. For more information about this
 vulnerability, see
 [Docker's information about the UFW flaw](https://www.techrepublic.com/article/how-to-fix-the-docker-and-ufw-security-flaw/).
 </Highlight>
@@ -100,12 +100,12 @@ data volume using the `-v` flag.
 The two container types store PostgreSQL data dir in different places,
 make sure you select the correct one to mount:
 
-<!-- vale Vale.Terms = NO -->
+{/* vale Vale.Terms = NO */}
 |Container|PGDATA location|
 |-|-|
 `timescaledb-ha`|`/home/postgres/pgdata/data`
 `timescaledb`| `/var/lib/postgresql/data`
-<!-- vale Vale.Terms = YES -->
+{/* vale Vale.Terms = YES */}
 </Highlight>
 
 ```bash

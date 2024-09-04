@@ -1,5 +1,5 @@
-<!-- markdownlint-disable -->
-<!-- vale off -->
+{/* markdownlint-disable */}
+{/* vale off */}
 # Statistical Aggregates (1D)
 
 ## Common 1-D Statistical Functions
@@ -33,7 +33,7 @@ CREATE TABLE foo (
 In order to run any of these statistical functions you must first perform the
 `stats_agg` aggregate.
 
-<!-- DOCS-DESCRIPTION: Create a one-dimensional statistical aggregate from column `x` in table `foo` -->
+{/* DOCS-DESCRIPTION: Create a one-dimensional statistical aggregate from column `x` in table `foo` */}
 ```SQL, ignore-output, publish(stats_agg)
 SELECT stats_agg(x) FROM foo;
 ```
@@ -41,7 +41,7 @@ SELECT stats_agg(x) FROM foo;
 As with other aggregates in the Toolkit, you can use any of the accessors on the
 results of the aggregation, so:
 
-<!-- DOCS-DESCRIPTION: Calculate the average of column `x` in table `foo` -->
+{/* DOCS-DESCRIPTION: Calculate the average of column `x` in table `foo` */}
 ```SQL, ignore-output, publish(average)
 SELECT average(
     stats_agg(x)

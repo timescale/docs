@@ -73,5 +73,6 @@ Before you begin, make sure you have:
 
 </Tabs>
 
+
 [install-grafana]: https://grafana.com/get/
 [cloud-login]: https://console.cloud.timescale.com/

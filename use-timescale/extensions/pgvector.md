@@ -53,8 +53,8 @@ Before you begin, make sure you have:
 
 ### Using the `pgvector` extension to create a chatbot
 
-<!-- Vale has a lot of trouble detecting the code blocks -->
-<!-- vale off -->
+{/* Vale has a lot of trouble detecting the code blocks */}
+{/* vale off */}
 
 1.  Create and activate a Python virtual environment:
 
@@ -482,10 +482,10 @@ Before you begin, make sure you have:
 [pgvector-repo]: https://github.com/pgvector/pgvector/blob/master/README.md
 [rag-docs]: https://www.promptingguide.ai/techniques/rag
 [cloud-login]: https://console.cloud.timescale.com/
-<!-- markdown-link-check-disable -->
+{/* markdown-link-check-disable */}
 [vector-embeddings]: https://platform.openai.com/docs/guides/embeddings/what-are-embeddings
 [openai-signup]: https://platform.openai.com/overview
 [api-key]:https://platform.openai.com/account/api-keys
-<!-- markdown-link-check-enable-->
+{/* markdown-link-check-enable*/}
 [timescale-pgvector]: https://github.com/timescale/vector-cookbook/tree/main/openai_pgvector_helloworld
 [developer-qa]: https://www.timescale.com/blog/tag/dev-q-a/

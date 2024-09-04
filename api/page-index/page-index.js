@@ -79,14 +79,6 @@ module.exports = [
             href: "add_dimension_old",
           },
           {
-            title: "enable_chunk_skipping",
-            href: "enable_chunk_skipping",
-          },
-          {
-            title: "disable_chunk_skipping",
-            href: "disable_chunk_skipping",
-          },
-          {
             title: "create_index (transaction per chunk)",
             href: "create_index",
           },
