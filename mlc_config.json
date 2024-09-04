@@ -11,6 +11,9 @@
   ],
   "ignorePatterns": [
     {
+      "pattern": "^https://console.aws.amazon.com/rds/home#databases"
+    },
+    {
       "pattern": "^https?://localhost"
     },
     {
@@ -20,6 +23,15 @@
       "pattern": "^https://platform.openai.com/docs"
     },
     {
+      "pattern": "^https://www.tableau.com/products/trial"
+    },
+    {
+      "pattern": "^https://www.promptingguide.ai/techniques/rag"
+    },
+    {
+      "pattern": "^https://otexts.org/fpp2/holt-winters.html"
+    },
+    {
       "pattern": "^https://www.pcmag.com/encyclopedia"
     },
     {
@@ -27,6 +39,9 @@
     },
     {
       "pattern": "^https://opensea.io/"
+    },
+    {
+      "pattern": "^https://www.techopedia.com/definition/31996/hash-partitioning"
     },
     {
       "pattern": "^https://docs.github.com/"

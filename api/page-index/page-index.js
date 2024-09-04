@@ -79,6 +79,14 @@ module.exports = [
             href: "add_dimension_old",
           },
           {
+            title: "enable_chunk_skipping",
+            href: "enable_chunk_skipping",
+          },
+          {
+            title: "disable_chunk_skipping",
+            href: "disable_chunk_skipping",
+          },
+          {
             title: "create_index (transaction per chunk)",
             href: "create_index",
           },
@@ -577,6 +585,10 @@ module.exports = [
             href: "job_errors",
           },
           {
+            title: "timescaledb_information.job_history",
+            href: "job_history",
+          },
+          {
             title: "timescaledb_experimental.policies",
             href: "policies",
           },
@@ -592,24 +604,6 @@ module.exports = [
         href: "administration",
         description:
           "These administrative APIs help you prepare a database before and after a restore event, and also helps you keep track of your TimescaleDB setup data.",
-        children: [
-          {
-            title: "timescaledb_pre_restore",
-            href: "timescaledb_pre_restore",
-          },
-          {
-            title: "timescaledb_post_restore",
-            href: "timescaledb_post_restore",
-          },
-          {
-            title: "get_telemetry_report",
-            href: "get_telemetry_report",
-          },
-          {
-            title: "dump_meta_data",
-            href: "dump_meta_data",
-          },
-        ],
       },
       {
         title: "API Reference Tag Overview",

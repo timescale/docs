@@ -135,11 +135,6 @@ module.exports = [
         ],
       },
       {
-        title: "PopSQL",
-        href: "popsql",
-        excerpt: "Run SQL queries, create charts and dashboards, and collaborate with teammates",
-      },
-      {
         title: "Time buckets",
         href: "time-buckets",
         excerpt: "Aggregate data by time interval with time buckets",
@@ -371,11 +366,6 @@ module.exports = [
         ],
       },
       {
-        title: "Billing and account management",
-        href: "account-management",
-        excerpt: "Timescale account management",
-      },
-      {
         title: "Continuous aggregates",
         href: "continuous-aggregates",
         children: [
@@ -540,9 +530,9 @@ module.exports = [
         ],
       },
       {
-        title: "VPC",
+        title: "VPC Peering and AWS PrivateLink",
         href: "vpc",
-        excerpt: "Timescale services operations, VPC tab",
+        excerpt: "Secure your Timescale Service with VPC Peering and AWS PrivateLink",
       },
       {
         title: "Hyperfunctions",
@@ -688,7 +678,7 @@ module.exports = [
             excerpt: "Query-level performance insights",
           },
           {
-            title: "Export to a monitoring service",
+            title: "Third-party monitoring for Timescale Cloud Services",
             href: "integrations",
             excerpt:
               "Export telemetry data to a third-party monitoring service",

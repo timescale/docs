@@ -1,0 +1,57 @@
+<Procedure>
+
+
+1. **Install the latest version of PostgreSQL and psql**
+
+    1. Download [PostgreSQL][pg-download], then run the installer.
+
+        1. In the `Select Components` dialog, check `Command Line Tools`, along with any other components
+           you want to install, and click `Next`.
+
+        1. Complete the installation wizard.
+
+    1. Check that you can run `pg_config`.
+        If you cannot run `pg_config` from the command line, in the Windows
+        Search tool, enter `system environment variables`.
+        The path should be `C:\Program Files\PostgreSQL\<version>\bin`.
+
+1.  **Install TimescaleDB**
+
+    1.  Unzip the [TimescaleDB installer](#supported-platforms) to <install_dir>.
+
+        Best practice is to use the latest version.
+
+    1.  In <install_dir>, right-click `setup.exe`, then choose `Run as Administrator`.
+
+    1. Complete the installation wizard.
+
+1.  **Tune your PostgreSQL instance for TimescaleDB**
+
+     Run the `timescaledb-tune` script included in the `timescaledb-tools` package with TimescaleDB. For more
+            information, see [configuration][config].
+
+1.  **Login to PostgreSQL as `postgres`**
+
+    ```bash
+    sudo -u postgres psql
+    ```
+    You are in the psql shell.
+
+1. **Set the password for `postgres`**
+
+    ```bash
+    \password postgres
+    ```
+
+    When you have set the password, type `\q` to exit psql.
+
+</Procedure>
+
+
+[config]: /self-hosted/:currentVersion:/configuration/
+[gh-releases]: https://github.com/timescale/timescaledb/releases
+[ms-download]: https://www.microsoft.com/en-us/download/details.aspx?id=48145
+[pg-download]: https://www.postgresql.org/download/windows/
+[release-notes]: /about/:currentVersion:/release-notes/
+[windows-releases]: https://github.com/timescale/timescaledb/releases/
+[windows-installer]: https://www.postgresql.org/download/windows/

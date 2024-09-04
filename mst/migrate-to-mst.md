@@ -53,11 +53,12 @@ Ensure that you have:
     information, see the [upgrading Timescale section][upgrading-timescaledb].
 
 <Highlight type="note">
+
 To speed up migration, compress your data. You can compress any chunks where
 data is not currently inserted, updated, or deleted. When you finish the
 migration, you can decompress chunks as needed for normal operation. For more
-information about compression and decompression, see the
-[compression section](https://docs.timescale.com/use-timescale/latest/compression/).
+information about compression and decompression, see [Compression][compression].
+
 </Highlight>
 
 <Procedure>

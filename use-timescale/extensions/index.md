@@ -30,6 +30,7 @@ supported extensions:
 |ltree|Data type for hierarchical tree-like structures|
 |pg_stat_statements|Track execution statistics of all SQL statements executed|
 |pg_trgm|Text similarity measurement and index searching based on trigrams|
+|pgaudit|Detailed session and/or object audit logging|
 |[pgcrypto][pgcrypto]|Cryptographic functions|
 |pgpcre|Perl-compatible RegEx|
 |pgrouting|pgRouting Extension|
@@ -49,6 +50,7 @@ supported extensions:
 |tsm_system_rows|TABLESAMPLE method which accepts number of rows as a limit|
 |tsm_system_time|TABLESAMPLE method which accepts time in milliseconds as a limit|
 |unaccent|Text search dictionary that removes accents|
+|unit|SI Units for PostgreSQL|
 |uuid-ossp|Generate universally unique identifiers (UUIDs)|
 
 <!-- vale Vale.Spelling = YES -->
