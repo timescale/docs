@@ -135,11 +135,6 @@ module.exports = [
         ],
       },
       {
-        title: "PopSQL",
-        href: "popsql",
-        excerpt: "Run SQL queries, create charts and dashboards, and collaborate with teammates",
-      },
-      {
         title: "Time buckets",
         href: "time-buckets",
         excerpt: "Aggregate data by time interval with time buckets",

@@ -6,7 +6,7 @@
        psql $TARGET -c "SELECT extversion FROM pg_extension WHERE extname = 'timescaledb';"
        ```
 
-    1. Update the TimescaleDB extension in your source database to match the target source:
+    1. Update the TimescaleDB extension in your source database to match the target service:
 
        If the timescaleDB extension is the same version on the source database and target service,
        you do not need to do this.
@@ -15,7 +15,7 @@
        psql $SOURCE -c "ALTER EXTENSION timescaledb UPDATE TO '<version here>';"
        ```
 
-       For more information and guidance, see [Upgrade TimescaleDB].
+       For more information and guidance, see [Upgrade TimescaleDB](https://docs.timescale.com/self-hosted/latest/upgrades/).
 
 1. Ensure that the Timescale Cloud service is running the PostgreSQL extensions used in your source database.
 

@@ -198,9 +198,6 @@ Multi-node is no longer supported starting with TimescaleDB 2.14.
 
 TimescaleDB 2.13 is the last version that includes multi-node support. Learn more about it [here][multi-node-deprecation].
 
-If you want to migrate from multi-node TimescaleDB to single-node TimescaleDB, read the
-[migration documentation][multi-node-to-timescale-service].
-
 #### Deprecation notice: recompress_chunk procedure
 TimescaleDB 2.14 is the last version that will include the recompress_chunk procedure. Its
 functionality will be replaced by the compress_chunk function, which, starting on TimescaleDB 2.14, 
@@ -297,9 +294,6 @@ available opportunity.
 TimescaleDB 2.13 is the last version that will include multi-node support. Multi-node
 support in 2.13 is available for PostgreSQL 13, 14 and 15. Learn more about it
 [here][multi-node-deprecation].
-
-If you want to migrate from multi-node TimescaleDB to single-node TimescaleDB read the
-[migration documentation][multi-node-to-timescale-service].
 
 #### PostgreSQL 13 deprecation announcement
 We will continue supporting PostgreSQL 13 until April 2024. Sooner to that time, we will announce the specific version of TimescaleDB in which PostgreSQL 13 support will not be included going forward.
@@ -815,5 +809,4 @@ For release notes for older TimescaleDB versions, see the
 [pg-upgrade]: /self-hosted/:currentVersion:/upgrades/upgrade-pg/
 [migrate-caggs]: /use-timescale/:currentVersion:/continuous-aggregates/migrate/
 [join-caggs]: /use-timescale/:currentVersion:/continuous-aggregates/create-a-continuous-aggregate/#create-a-continuous-aggregate-with-a-join
-[multi-node-to-timescale-service]:/migrate/:currentVersion:/playbooks/multi-node-to-timescale-service/
 [multi-node-deprecation]: https://github.com/timescale/timescaledb/blob/main/docs/MultiNodeDeprecation.md
