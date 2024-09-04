@@ -8,6 +8,73 @@ keywords: [changelog, upgrades, updates, releases]
 
 All the latest features and updates to Timescale products.
 
+## 😎 Query your database directly from the Console and enhanced data import and migration options
+<Label type="date">August 30, 2024</Label>
+
+### SQL Editor in Timescale Console 
+We've added a new tab to the service screen that allows users to query their database directly, without having to leave the console interface. 
+* For existing services on Timescale, this is an opt-in feature. For all newly created services, the SQL Editor will be enabled by default.
+* Users can disable the SQL Editor at any time by toggling the option under the Operations tab.
+* The editor supports all DML and DDL operations (any single-statement SQL query), but doesn't support multiple SQL statements in a single query.
+  
+![SQL Editor](https://s3.amazonaws.com/assets.timescale.com/docs/images/sql-editor-query.png)
+
+### Enhanced Data Import Options for Quick Evaluation
+After service creation, we now offer a dedicated section for data import, including options to import from Postgres as a source or from CSV files.
+
+The enhanced Postgres import instructions now offer several options: single table import, schema-only import, partial data import (allowing selection of a specific time range), and complete database import. Users can execute any of these data imports with just one or two simple commands provided in the data import section.
+
+![Data import screen](https://s3.amazonaws.com/assets.timescale.com/docs/images/data-import-screen.png)
+
+### Improvements to Live migration
+We've released v0.0.25 of Live migration that includes the following improvements:
+* Support migrating tsdb on non public schema to public schema
+* Pre-migration compatibility checks
+* Docker compose build fixes
+
+## 🛠️ Improved tooling in Timescale Cloud and new AI and Vector extension releases
+<Label type="date">August 22, 2024</Label>
+
+### CSV import
+We have added a CSV import tool to the Timescale Console.  For all TimescaleDB services, after service creation you can: 
+* Choose a local file
+* Select the name of the data collection to be uploaded (default is file name)
+* Choose data types for each column
+* Upload the file as a new hypertable within your service
+Look for the `Import data from .csv` tile in the `Import your data` step of service creation.
+
+![CSV import](https://s3.amazonaws.com/assets.timescale.com/docs/images/csv-import.png)
+
+### Replica lag
+Customers now have more visibility into the state of replicas running on Timescale Cloud. We’ve released a new parameter called Replica Lag within the Service Overview for both Read and High Availability Replicas. Replica lag is measured in bytes against the current state of the primary database. For questions or concerns about the relative lag state of your replica, reach out to Customer Support.
+
+![Replica lag indicator](https://s3.amazonaws.com/assets.timescale.com/docs/images/replica-lag-indicator.png)
+
+### Adjust chunk interval
+Customers can now adjust their chunk interval for their hypertables and continuous aggregates through the Timescale UI. In the Explorer, select the corresponding hypertable you would like to adjust the chunk interval for. Under *Chunk information*, you can change the chunk interval. Note that this only changes the chunk interval going forward, and does not retroactively change existing chunks.
+
+![Edit chunk interval](https://s3.amazonaws.com/assets.timescale.com/docs/images/edit-chunk-interval.png)
+
+
+### CloudWatch permissions via role assumption
+We've released permission granting via role assumption to CloudWatch. Role assumption is both more secure and more convenient for customers who no longer need to rotate credentials and update their exporter config.
+
+For more details take a look at [our documentation](https://docs.timescale.com/use-timescale/latest/metrics-logging/integrations/).
+
+<img src="https://s3.amazonaws.com/assets.timescale.com/docs/images/cloudwatch-role-assumption.png" width="600px" alt="CloudWatch authentication via role assumption" />
+
+### Two-factor authentication (2FA) indicator
+We’ve added a 2FA status column to the Members page, allowing customers to easily see whether each project member has 2FA enabled or disabled.
+
+![2FA status](https://s3.amazonaws.com/assets.timescale.com/docs/images/2FA-status-indicator.png)
+
+### Anthropic and Cohere integrations in pgai
+The pgai extension v0.3.0 now supports embedding creation and LLM reasoning using models from Anthropic and Cohere. For details and examples, see [this post for pgai and Cohere](https://www.timescale.com/blog/build-search-and-rag-systems-on-postgresql-using-cohere-and-pgai/), and [this post for pgai and Anthropic](https://www.timescale.com/blog/use-anthropic-claude-sonnet-3-5-in-postgresql-with-pgai/).
+
+### pgvectorscale extension: ARM builds and improved recall for low dimensional vectors
+pgvectorscale extension [v0.3.0](https://github.com/timescale/pgvectorscale/releases/tag/0.3.0) adds support for ARM processors and improves recall when using StreamingDiskANN indexes with low dimensionality vectors. We recommend updating to this version if you are self-hosting.
+
+
 ## 🏄 Optimizations for compressed data and extended join support in continuous aggregates
 <Label type="date">August 15, 2024</Label>
 
@@ -97,7 +164,7 @@ To support evolving customer needs, Timescale Cloud now offers three plans to pr
 Each plan continues to bill based on hourly usage, primarily for compute you run and storage you consume.  You can upgrade or downgrade between Performance and Scale plans via the Console UI at any time.  More information about the specifics and differences between these pricing plans can be found [here in the docs](https://docs.timescale.com/about/latest/pricing-and-account-management/).
 ![Pricing plans in the console](https://assets.timescale.com/docs/images/pricing-plans-in-console.png)
 
-### Improvements to the Timescale console UI
+### Improvements to the Timescale Console
 The individual tiles on the services page have been enhanced with new information, including high-availability status.  This will let you better assess the state of your services at a glance.
 ![New service tile](https://assets.timescale.com/docs/images/new-service-tile-high-availability.png)
 
@@ -109,7 +176,7 @@ Improvements:
 - Support for chunk mapping for hypertables with custom schema and table prefixes
 
 
-## ⚡ Performance and stability improvements for Timescale Cloud and TimescaleDB  
+## ⚡ Performance and stability improvements for Timescale Cloud and TimescaleDB
 <Label type="date">July 12, 2024</Label>
 
 The following improvements have been made to Timescale products:
@@ -169,7 +236,6 @@ select ollama_generate
 ```
 
 To learn more, see the [pgai Ollama documentation](https://github.com/timescale/pgai/blob/main/docs/ollama.md).
-
 
 ## 🧙 Compression Wizard
 

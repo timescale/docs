@@ -390,6 +390,10 @@ const redirector = new ThreeOhOneRedirector({
 	]
 })
 	.add(
+		"/use-timescale/latest/popsql",
+		"https://docs.timescale.com/getting-started/latest/run-queries-from-console/"
+	)
+	.add(
 		"/ai/latest/pgvectorize",
 		"https://docs.timescale.com/ai/latest/pgvectorizer"
 	)
@@ -611,7 +615,7 @@ const redirector = new ThreeOhOneRedirector({
 	)
 	.add(
 		"/cloud/latest/create-a-service",
-		"https://https://docs.timescale.com/getting-started/latest/services/"
+		"https://docs.timescale.com/getting-started/latest/services/"
 	)
 	.add(
 		"/cloud/latest/customize-configuration",
@@ -680,7 +684,7 @@ const redirector = new ThreeOhOneRedirector({
 	)
 	.add(
 		"/use-timescale/latest/services/create-a-service",
-		"https://https://docs.timescale.com/getting-started/latest/services/"
+		"https://docs.timescale.com/getting-started/latest/services/"
 	)
 	.add(
 		"/cloud/latest/service-explorer",
@@ -772,7 +776,7 @@ const redirector = new ThreeOhOneRedirector({
 	.add("/faq", "https://docs.timescale.com/timescaledb/latest/overview/faq/")
 	.add(
 		"/forge/getting-started-forge/",
-		"https://https://docs.timescale.com/getting-started/latest/services/"
+		"https://docs.timescale.com/getting-started/latest/services/"
 	)
 	.add("/forge", "https://docs.timescale.com/cloud/latest/")
 	.add("/getting-started", "https://docs.timescale.com/getting-started/latest/")
@@ -794,7 +798,7 @@ const redirector = new ThreeOhOneRedirector({
 	)
 	.add(
 		"/getting-started/exploring-forge",
-		"https://https://docs.timescale.com/getting-started/latest/services/"
+		"https://docs.timescale.com/getting-started/latest/services/"
 	)
 	.add(
 		"/getting-started/exploring-forge/forge-configuration",
@@ -1032,7 +1036,7 @@ const redirector = new ThreeOhOneRedirector({
 	)
 	.add(
 		"/latest/getting-started/exploring-forge",
-		"https://https://docs.timescale.com/getting-started/latest/services/"
+		"https://docs.timescale.com/getting-started/latest/services/"
 	)
 	.add(
 		"/latest/getting-started/exploring-forge/forge-multi-node",
@@ -1353,7 +1357,31 @@ const redirector = new ThreeOhOneRedirector({
 		"https://docs.timescale.com/timescaledb/latest/how-to-guides/write-data/"
 	)
 	.add("/main", "https://docs.timescale.com/timescaledb/latest/")
-	.add(
+  .add(
+    "/migrate/latest/live-migration/live-migration-from-postgres/",
+    "https://docs.timescale.com/migrate/latest/live-migration"
+  )
+  .add(
+    "/migrate/latest/live-migration/live-migration-from-timescaledb",
+    "https://docs.timescale.com/migrate/latest/live-migration"
+  )
+  .add(
+    "/migrate/latest/live-migration/live-migration-faq",
+    "https://docs.timescale.com/migrate/latest/live-migration"
+  )
+  .add(
+    "/migrate/latest/playbooks/rds-timescale-pg-dump",
+    "https://docs.timescale.com/migrate/latest/pg-dump-and-restore"
+  )
+  .add(
+    "/migrate/latest/playbooks/rds-timescale-live-migration",
+    "https://docs.timescale.com/migrate/latest/live-migration"
+  )
+  .add(
+    "/migrate/latest/playbooks/multi-node-to-timescale-service",
+    "https://docs.timescale.com/migrate/latest/live-migration"
+  )
+  .add(
 		"/mst/latest/create-a-service",
 		"https://docs.timescale.com/mst/latest/about-mst"
 	)
