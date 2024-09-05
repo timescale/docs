@@ -8,11 +8,25 @@ keywords: [changelog, upgrades, updates, releases]
 
 All the latest features and updates to Timescale products.
 
+## One-click SQL statement execution from Timescale console
+<Label type="date">September 05, 2024</Label>
+
+* Enable Continuous Aggregates from the CAGGs wizard by clicking the "Run" button below the SQL snippet.
+![362465912-63b0d5c7-95ae-4f37-8beb-fe3918658b92](https://github.com/user-attachments/assets/cd9f7f99-2b1c-488c-9e40-bb01e325b279)
+
+* Enable database extensions by clicking the "Run" button below the SQL statement.
+![362884384-ec2822e8-fe0b-4bc2-8609-4d74848378ea](https://github.com/user-attachments/assets/9f48a08e-9882-493f-8c08-77e5fb87a99f)
+
+* Query data instantly with a single click in the console after successfully uploading a CSV file.
+![362402890-2a0bd220-221d-4d3d-b031-f6a0f8122267](https://github.com/user-attachments/assets/e4914899-ba6f-43d4-8c84-9bb5a6001ef8)
+
+
 ## 😎 Query your database directly from the Console and enhanced data import and migration options
 <Label type="date">August 30, 2024</Label>
 
 ### SQL Editor in Timescale Console 
-We've added a new tab to the service screen that allows users to query their database directly, without having to leave the console interface. 
+We've added a new tab to the service screen that allows users to query their database directly, without having to leave the console interface.
+
 * For existing services on Timescale, this is an opt-in feature. For all newly created services, the SQL Editor will be enabled by default.
 * Users can disable the SQL Editor at any time by toggling the option under the Operations tab.
 * The editor supports all DML and DDL operations (any single-statement SQL query), but doesn't support multiple SQL statements in a single query.
