@@ -2,6 +2,8 @@
 title: Run your queries from Timescale Console
 excerpt: Use PopSQL or SQL editor to run SQL queries, create charts and dashboards, and collaborate with teammates.
 keywords: [popsql, sql editor, chart, dashboard]
+layout_components: [next_prev_large]
+content_group: Getting started
 ---
 
 # Run your queries from Timescale Console
