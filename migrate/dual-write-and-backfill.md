@@ -12,29 +12,24 @@ import GettingHelp from "versionContent/_partials/_migrate_dual_write_backfill_g
 
 # Dual-write and backfill
 
-Dual-write and backfill is a migration strategy to move a large amount of
-time-series data (100&nbsp;GB-10&nbsp;TB+) with low downtime (on the order of
-minutes of downtime). It is significantly more complicated to execute than a
-migration with downtime using [pg_dump/restore][pg-dump-and-restore], and has
-some prerequisites on the data ingest patterns of your application, so it may
-not be universally applicable.
-
-Dual-write and backfill can be used for any source database type, as long as it
-can provide data in csv format. It can be used to move data from a PostgresSQL
-source, and from TimescaleDB to TimescaleDB.
+You use dual-write and backfill to migrate 100GB-10TB+ of time-series data to a Timescale Cloud service seamlessly, 
+with only a few minutes downtime. Dual-write and backfill migrates data from any source database that can export your 
+data to csv format. For example, from PostgresSQL or TimescaleDB to a Timescale Cloud service .
 
 Dual-write and backfill works well when:
-1. The bulk of the (on-disk) data is in time-series tables.
-1. Writes by the application do not reference historical time-series data.
-1. Writes to time-series data are append-only.
-1. No `UPDATE` or `DELETE` queries will be run on time-series data in the
-   source database during the migration process (or if they are, it happens in
-   a controlled manner, such that it's possible to either ignore, or
-   re-backfill).
-1. Either the relational (non-time-series) data is small enough to be copied
-   from source to target in an acceptable amount of time for this to be done
-   with downtime, or the relational data can be copied asynchronously while the
-   application continues to run (that is, changes relatively infrequently).
+1. The bulk of the on-disk data is already in time-series tables.
+1. Writes by the app:
+   - Do not reference historical time-series data.
+   - Are append-only for time-series data.
+1. No `UPDATE` or `DELETE` queries are run on time-series data in the source database during migration. 
+   If queries are run, they are done in a controlled manner so you can ignore them, or re-backfill.
+1. Either the relational (non-time-series) data in the source database is:
+   - Small enough to be copied from source to target with downtime.
+   - Has infrequent changes and can be copied asynchronously while your app continues to run.
+
+Dual-write and backfill is significantly more complicated to execute than
+[Migrate with downtime][pg-dump-and-restore], and has some prerequisites on the data ingest patterns of your app, so it may
+not be universally applicable.
 
 ## Prerequisites
 
