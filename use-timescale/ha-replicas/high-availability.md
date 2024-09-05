@@ -42,27 +42,26 @@ failure scenarios and during maintenance, [rapid recovery][rapid-recovery] is en
 
 The following HA configurations are available in Timescale Cloud:
 
-- Non-production: no replica, best for developer environments.
-- High availability: a single replica in a separate AWS availability zone. Available replication modes are:
-  - Optimized: best when zone latency is high, performance is more important than data integrity, and cost
-    considerations are paramount. Transactions are complete without waiting for the replica to confirm.
+- **Non-production**: no replica, best for developer environments.
+- **High**: a single replica in a separate AWS availability zone. Available replication modes are:
+  - *Optimized*: good for both price sensitive customers and those who care most about failover speed and performance.
     Async replication provides faster  write speeds and improved performance for apps with less stringent
     consistency requirements.
-  - High data integrity: best for mission critical apps where latency due to AZ geographical proximity is not an issue.
-    All changes are replicated and confirmed across the primary data node and the HA replica
-    before the transaction is considered complete. Synchronous replication ensures the highest level of data consistency
-    and safety.
-- Highest availability: two readable replicas in separate AWS availability zones. Available replication modes are:
-  - Optimized: best when zone latency is high, performance is more important than data integrity, and cost
-    considerations are paramount. Transactions are complete without waiting for the replicas to confirm.
-    Async replication provides faster write speeds and improved performance for apps with less stringent
+  - *High data integrity*: all changes are replicated and confirmed across nodes before the transaction is considered 
+    complete, ensuring the highest level of data consistency and safety.
+
+- **Highest**: two readable replicas in separate AWS availability zones. Available replication modes are:
+  - *Optimized* - two asynchronous replicas: transactions are considered complete without waiting for the replicas to 
+    confirm. Async replication provides faster write speeds and improved performance for apps with less stringent
     consistency requirements.
-  - High data integrity: best for mission critical apps where latency due to AZ geographical proximity is not an issue.
-    All changes are replicated and confirmed across the primary data node and the HA replicas
-    before the transaction is considered complete. Synchronous replication ensures the highest level of data consistency
+  - *High data integrity* - one synchronous replica and one asynchronous replica: A synchronous replica is guaranteed to 
+    always be in the exact same state as the primary, minimizing failover time and ensuring no data loss. However, 
+    synchronous replicas reduce ingest performance and do not provide a replica endpoint 
+     
+    Synchronous replication ensures the highest level of data consistency
     and safety.
 
-High availability and Highest availability are available with [Scale and the Enterprise][pricing-plans] pricing plans.
+The `High` and `Highest` HA strategies are available with the [Scale and the Enterprise][pricing-plans] pricing plans.
 
 To enable HA for a Timescale Cloud Service:  
 
@@ -79,11 +78,13 @@ To enable HA for a Timescale Cloud Service:
     
 1. In `Change high availability configuration`, click `Change config`. 
 
+To change your HA replica strategy, click `Change configuration`, choose a strategy and click `Change configuration`.
+To download the connection information for the HA replica, either click the link next to the replica
+`Active configuration`, or find the information in the `Overview` tab for this service.
+
 </Procedure>
 
-To change your HA replica strategy, click `Change configuration`, choose a strategy and click `Change configuration`.
-To download the connection information for the HA replica, either click the link next to the replica 
-`Active configuration`, or find the information in the `Overview` tab for this service. 
+
 
 
 ## Test failover for your HA replicas
