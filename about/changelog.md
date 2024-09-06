@@ -26,9 +26,9 @@ Now you can simply click to run SQL statements in various places in the Console.
 
 ### Session support in the SQL editor
 
-Last week we announced the new in-console SQL editor. However, there was a limitation where sessions were not supported. 
+Last week we announced the new in-console SQL editor. However, there was a limitation where a new database session was created for each query execution. 
 
-Today we removed that limitation and added support for sessions, which means you can do things like start transactions:
+Today we removed that limitation and added support for keeping one database session for each user logged in, which means you can do things like start transactions:
 
 ```
 begin;
