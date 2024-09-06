@@ -12,13 +12,13 @@ All the latest features and updates to Timescale products.
 <Label type="date">September 05, 2024</Label>
 
 * Enable Continuous Aggregates from the CAGGs wizard by clicking **Run** below the SQL snippet.
-![362465912-63b0d5c7-95ae-4f37-8beb-fe3918658b92](https://github.com/user-attachments/assets/cd9f7f99-2b1c-488c-9e40-bb01e325b279)
+![Enable Continuous Aggregates](https://s3.amazonaws.com/assets.timescale.com/docs/images/enable-continuous-aggregates.gif)
 
 * Enable database extensions by clicking **Run** below the SQL statement.
-![362884384-ec2822e8-fe0b-4bc2-8609-4d74848378ea](https://github.com/user-attachments/assets/9f48a08e-9882-493f-8c08-77e5fb87a99f)
+![Enable extensions from Console](https://s3.amazonaws.com/assets.timescale.com/docs/images/enable-extensions-from-console.gif)
 
 * Query data instantly with a single click in the Console after successfully uploading a CSV file.
-![362402890-2a0bd220-221d-4d3d-b031-f6a0f8122267](https://github.com/user-attachments/assets/e4914899-ba6f-43d4-8c84-9bb5a6001ef8)
+![Query data after CSV import](https://s3.amazonaws.com/assets.timescale.com/docs/images/query-data-after-csv-import.gif)
 
 
 ## 😎 Query your database directly from the Console and enhanced data import and migration options
