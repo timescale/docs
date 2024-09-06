@@ -13,7 +13,7 @@ All the latest features and updates to Timescale products.
 
 ### One-click SQL statement execution from Timescale Console
 
-Now you can simply click to run SQL statements in various places in the Console.
+Now you can simply click to run SQL statements in various places in the Console. This requires that the [SQL Editor][sql-editor] is enabled for the service.
 
 * Enable Continuous Aggregates from the CAGGs wizard by clicking **Run** below the SQL statement.
 ![Enable Continuous Aggregates](https://s3.amazonaws.com/assets.timescale.com/docs/images/enable-continuous-aggregates.gif)
@@ -378,3 +378,4 @@ To learn more, see the [postgresql-unit documentation](https://github.com/df7cb/
 [pgai]: https://github.com/timescale/pgai
 [pgvectorscale]: https://github.com/timescale/pgvectorscale/
 [signup]: https://console.cloud.timescale.com/signup
+[sql-editor]: /getting-started/:currentVersion:/run-queries-from-console/#sql-editor
