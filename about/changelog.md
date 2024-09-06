@@ -8,10 +8,14 @@ keywords: [changelog, upgrades, updates, releases]
 
 All the latest features and updates to Timescale products.
 
-## One-click SQL statement execution from Timescale Console
+## One-click SQL statement execution from Timescale Console, and session support in the SQL editor
 <Label type="date">September 05, 2024</Label>
 
-* Enable Continuous Aggregates from the CAGGs wizard by clicking **Run** below the SQL snippet.
+### One-click SQL statement execution from Timescale Console
+
+Now you can simply click to run SQL statements in various places in the Console.
+
+* Enable Continuous Aggregates from the CAGGs wizard by clicking **Run** below the SQL statement.
 ![Enable Continuous Aggregates](https://s3.amazonaws.com/assets.timescale.com/docs/images/enable-continuous-aggregates.gif)
 
 * Enable database extensions by clicking **Run** below the SQL statement.
@@ -19,6 +23,32 @@ All the latest features and updates to Timescale products.
 
 * Query data instantly with a single click in the Console after successfully uploading a CSV file.
 ![Query data after CSV import](https://s3.amazonaws.com/assets.timescale.com/docs/images/query-data-after-csv-import.gif)
+
+### Session support in the SQL editor
+
+Last week we announced the new in-console SQL editor. However, there was a limitation where sessions were not supported. 
+
+Today we removed that limitation and added support for sessions, which means you can do things like start transactions:
+
+```
+begin;
+insert into users (name, email) values ('john doe', 'john@example.com');
+abort; -- nothing inserted
+```
+
+Or work with temporary tables:
+
+```
+create temporary table temp_users (email text);
+insert into temp_sales (email) values ('john@example.com');
+-- table will automatically disappear after your session ends
+```
+
+Or use the `set` command:
+
+```
+set search_path to 'myschema', 'public';
+```
 
 
 ## 😎 Query your database directly from the Console and enhanced data import and migration options
