@@ -10,6 +10,11 @@ module.exports = [
         excerpt: "Create a Timescale service and connect to it",
       },
       {
+        title: "Run your queries from Timescale Console",
+        href: "run-queries-from-console",
+        excerpt: "Run your queries securely from inside Timescale Console",
+      },
+      {
         title: "Tables and hypertables",
         href: "tables-hypertables",
         excerpt: "Create tables and hypertables for your data",
