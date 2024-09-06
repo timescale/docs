@@ -29,6 +29,7 @@ HA replicas have separate unique addresses that you can use to serve read-only r
 primary data node. When your primary data node fails, Timescale Cloud automatically _fails over_ to 
 a HA replica. During failover, the read-only address is unavailable while Timescale Cloud automatically create 
 a new HA replica. The time to make this replica depends on several factors, including the size of your data.
+You
 
 Operations such as upgrading your Timescale Cloud Service to a new major or minor version may necessitate 
 a service restart. Restarts are run during the [maintenance window][upgrade]. To avoid any downtime, each data
@@ -43,23 +44,21 @@ failure scenarios and during maintenance, [rapid recovery][rapid-recovery] is en
 The following HA configurations are available in Timescale Cloud:
 
 - **Non-production**: no replica, best for developer environments.
-- **High**: a single replica in a separate AWS availability zone. Available replication modes are:
-  - *Optimized*: good for both price sensitive customers and those who care most about failover speed and performance.
+- **High**: a single replica in a separate AWS availability zone. The High availability optimized mode is
+    good for both price sensitive customers and those who care most about failover speed and performance.
     Async replication provides faster  write speeds and improved performance for apps with less stringent
     consistency requirements.
-  - *High data integrity*: all changes are replicated and confirmed across nodes before the transaction is considered 
-    complete, ensuring the highest level of data consistency and safety.
 
 - **Highest**: two readable replicas in separate AWS availability zones. Available replication modes are:
   - *Optimized* - two asynchronous replicas: transactions are considered complete without waiting for the replicas to 
     confirm. Async replication provides faster write speeds and improved performance for apps with less stringent
-    consistency requirements.
+    consistency requirements. When you access a HA read endpoint Timescale Cloud load balances across the replicas.
   - *High data integrity* - one synchronous replica and one asynchronous replica: A synchronous replica is guaranteed to 
     always be in the exact same state as the primary, minimizing failover time and ensuring no data loss. However, 
     synchronous replicas reduce ingest performance and do not provide a replica endpoint 
      
-    Synchronous replication ensures the highest level of data consistency
-    and safety.
+    Synchronous replication ensures the highest level of data consistency and safety. 
+
 
 The `High` and `Highest` HA strategies are available with the [Scale and the Enterprise][pricing-plans] pricing plans.
 
@@ -83,8 +82,6 @@ To download the connection information for the HA replica, either click the link
 `Active configuration`, or find the information in the `Overview` tab for this service.
 
 </Procedure>
-
-
 
 
 ## Test failover for your HA replicas
