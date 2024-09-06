@@ -1,5 +1,5 @@
 ---
-title: High availability
+title: Manage high availability
 excerpt: Set up HA replicas on Timescale for high availability
 products: [cloud]
 keywords: [high availability, replicas]
@@ -10,13 +10,13 @@ cloud_ui:
 ---
 
 
-# High availability
+# Manage high availability
 
 For Timescale Cloud Service with very low tolerance for downtime, Timescale Cloud offers 
 High Availability(HA) replicas. HA replicas significantly reduce the risk of downtime and data loss due to 
 system failure, and enable services to avoid downtime during routine maintenance.
 
-This pages shows you how to choose the best high availability option for your Timescale Cloud Service.  
+This page shows you how to choose the best high availability option for your Timescale Cloud Service.  
 
 ## What is HA replication?
 
@@ -38,6 +38,44 @@ After the primary is updated and online, the same maintenance is performed on th
 
 To ensure that all Timescale Cloud Services have minimum downtown and data loss in the most common
 failure scenarios and during maintenance, [rapid recovery][rapid-recovery] is enabled by default for all services.
+
+## Rapid recovery
+
+By default, all Timescale services have rapid recovery enabled. Because compute
+and storage are handled separately, there are different approaches available for
+different types of failures, and you don't always have to recover from backup.
+In particular, Timescale services recover quickly from compute failures, but
+usually need a full recovery from backup for storage failures.
+
+Compute failures are the most common cause of database failure. Compute failures
+can be caused by hardware failing, or through things like unoptimized queries,
+causing increased load that maxes out the CPU usage. In these cases, only the
+compute and memory needs replacing since the data on disk is unaffected. If this
+kind of failure occurs, your Timescale service immediately provisions a new
+database node and mounts the database's existing storage to the new
+node. Any WAL that was in memory then replays. This process typically only
+takes thirty seconds, though it may take up to twenty minutes in some
+circumstances, depending on the amount of WAL that needs replaying. Even in the
+worst-case scenario, this recovery is an order of magnitude faster than a
+standard recovery from backup procedure. The entire process for detecting and
+recovering from a compute failure like this is fully automated, and you don't
+need to take any action.
+
+While compute failures are more common, it is also possible for disk hardware to
+fail. This is rare, but if it happens, your Timescale service automatically
+performs a full recovery from backup. For more information about backup and
+recovery, see the [backup section][backup-recovery].
+
+<Highlight type="important">
+Always try to avoid situations that could max out your CPU usage. If your CPU
+usage runs high for long periods of time, it can result in some issues, such as
+WAL archiving getting queued behind other processes, which can cause a failure
+and could result in a larger data loss. Timescale services are monitored for
+these kinds of scenarios, to try and prevent data loss events before a failure
+occurs.
+</Highlight>
+
+
 
 ## Choose an HA strategy
 
@@ -153,43 +191,6 @@ primary is not in a state to safely switch.
     now be `-an-0`. If it was `-an-0`, it should now be `-an-1`.
 
 </Procedure>
-
-## Rapid recovery
-
-By default, all Timescale services have rapid recovery enabled. Because compute
-and storage are handled separately, there are different approaches available for
-different types of failures, and you don't always have to recover from backup.
-In particular, Timescale services recover quickly from compute failures, but
-usually need a full recovery from backup for storage failures.
-
-Compute failures are the most common cause of database failure. Compute failures
-can be caused by hardware failing, or through things like unoptimized queries,
-causing increased load that maxes out the CPU usage. In these cases, only the
-compute and memory needs replacing since the data on disk is unaffected. If this
-kind of failure occurs, your Timescale service immediately provisions a new
-database node and mounts the database's existing storage to the new
-node. Any WAL that was in memory then replays. This process typically only
-takes thirty seconds, though it may take up to twenty minutes in some
-circumstances, depending on the amount of WAL that needs replaying. Even in the
-worst-case scenario, this recovery is an order of magnitude faster than a
-standard recovery from backup procedure. The entire process for detecting and
-recovering from a compute failure like this is fully automated, and you don't
-need to take any action.
-
-While compute failures are more common, it is also possible for disk hardware to
-fail. This is rare, but if it happens, your Timescale service automatically
-performs a full recovery from backup. For more information about backup and
-recovery, see the [backup section][backup-recovery].
-
-<Highlight type="important">
-Always try to avoid situations that could max out your CPU usage. If your CPU
-usage runs high for long periods of time, it can result in some issues, such as
-WAL archiving getting queued behind other processes, which can cause a failure
-and could result in a larger data loss. Timescale services are monitored for
-these kinds of scenarios, to try and prevent data loss events before a failure
-occurs.
-</Highlight>
-
 
 [cloud-login]: https://console.cloud.timescale.com
 [backup-recovery]: /use-timescale/:currentVersion:/backup-restore/backup-restore-cloud/
