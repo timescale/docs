@@ -11,19 +11,16 @@ cloud_ui:
 
 # High availability and read replicas
 
-In Timescale Cloud, high availability replicas are exact, up-to-date copies of the primary data instance in 
-your Timescale Cloud Service. If your primary becomes unavailable, Timescale Cloud automatically 
-fails over to your HA replica. You use high availability and read replicas to:
+In Timescale Cloud, replicas are copies of the primary data instance in a Timescale Cloud Service. 
+If your primary becomes unavailable, Timescale Cloud automatically fails over to your HA replica.
 
-- Significantly reduce the risk of downtime and data loss.
-- More effectively scale the limits of your Timescale Cloud Service.
-- Create an isolated environment to run heavy analytical queries rather than compromise performance on your production 
-  instance.
+The replication strategies offered by Timescale Cloud are:
 
-This section shows you how to:
+- [High Availability(HA) replicas][ha-replica]: significantly reduce the risk of downtime and data 
+  loss due to system failure, and enable services to avoid downtime during routine maintenance.
 
-* Reduce the risk of downtime and data loss with [HA replication][ha-replica]
-* Safely scale a Timescale Cloud Service using [read replica][read-replica]
+- [Read replicas][read-replica]: safely scale a Timescale Cloud Service to power your read-intensive
+  apps and business intelligence tooling and remove load from the primary data instance.
 
 
 For MST, see [Failover in Managed Service for TimescaleDB][mst-failover]. 

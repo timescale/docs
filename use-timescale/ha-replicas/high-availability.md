@@ -41,8 +41,9 @@ failure scenarios and during maintenance, [rapid recovery][rapid-recovery] is en
 
 ## Rapid recovery
 
-By default, all Timescale services have rapid recovery enabled. Because compute
-and storage are handled separately, there are different approaches available for
+By default, all Timescale Cloud services have rapid recovery enabled. 
+
+Because compute and storage are handled separately, there are different approaches available for
 different types of failures, and you don't always have to recover from backup.
 In particular, Timescale services recover quickly from compute failures, but
 usually need a full recovery from backup for storage failures.
