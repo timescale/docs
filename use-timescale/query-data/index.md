@@ -9,7 +9,7 @@ keywords: [queries]
 
 Timescale hypertables _are_ PostgreSQL tables. That means you can query them
 with standard SQL commands. In addition to the extra benefits you get from Timescale architecture and query planning,
-use [PopSQL][popsql] to work on data with centralized SQL queries, interactive visuals and real-time collaboration
+use [PopSQL](https://popsql.com/) to work on data with centralized SQL queries, interactive visuals and real-time collaboration
 
 *   [About querying data][about-querying-data]
 *   [Select data with `SELECT`][selecting-data]
