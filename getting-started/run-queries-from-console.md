@@ -2,6 +2,8 @@
 title: Run your queries from Timescale Console
 excerpt: Use PopSQL or SQL editor to run SQL queries, create charts and dashboards, and collaborate with teammates.
 keywords: [popsql, sql editor, chart, dashboard]
+layout_components: [next_prev_large]
+content_group: Getting started
 ---
 
 # Run your queries from Timescale Console
@@ -176,11 +178,12 @@ If you'd like to prevent write operations such as insert or update. Instead
 of using the `tsdbadmin` superuser, create a read-only user for your service and
 use that within PopSQL.
 
-## Cloud SQL editor seats
+## Cloud SQL editor licenses
 
-* **Timescale Cloud**: the number of Cloud SQL editor seats you are allocated depends on your 
+* **SQL editor**: free for anyone with a [Timescale Cloud account][create-cloud-account].
+* **PopSQL with Timescale Cloud**: the number of Cloud SQL editor seats you are allocated depends on your 
   [Pricing Plan][pricing-plan-features].
-* **PopSQL**: there is a free plan available to everyone, as well as paid plans. See  [PopSQL Pricing](https://popsql.com/pricing) for full 
+* **PopSQL standalone**: there is a free plan available to everyone, as well as paid plans. See  [PopSQL Pricing](https://popsql.com/pricing) for full 
   details.
 
 
@@ -193,3 +196,5 @@ use that within PopSQL.
 [timescale-console-services]: https://console.cloud.timescale.com/dashboard/services
 [pricing-plan-features]: https://www.timescale.com/pricing#features
 [install-psql]: /use-timescale/:currentVersion:/integrations/query-admin/psql/
+[create-cloud-account]: /getting-started/:currentVersion:/services/#create-a-timescale-cloud-account
+

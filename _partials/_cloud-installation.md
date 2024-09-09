@@ -1,4 +1,4 @@
-## Create a Timescale account
+## Create a Timescale Cloud account
 
 <Procedure>
 
