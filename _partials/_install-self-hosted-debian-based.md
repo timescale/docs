@@ -24,7 +24,7 @@
     <tab label='Debian'>
 
     ```bash
-    echo "deb https://packagecloud.io/timescale/timescaledb/debian/ $(lsb_release -c -s) main" | sudo tee /etc/apt/sources.list.d/timescaledb.list
+    curl -s https://packagecloud.io/install/repositories/timescale/timescaledb/script.deb.sh | sudo bash
     ```
 
     </tab>
