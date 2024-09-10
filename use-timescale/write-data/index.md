@@ -1,12 +1,12 @@
 ---
-title: Writing data
+title: Write data
 excerpt: Write data to TimescaleDB
 products: [cloud, mst, self_hosted]
 keywords: [ingest]
 tags: [write]
 ---
 
-# Writing data
+# Write data
 
 Writing data to TimescaleDB works the same way as writing data to regular
 PostgreSQL. You can add and modify data in both regular tables and hypertables
