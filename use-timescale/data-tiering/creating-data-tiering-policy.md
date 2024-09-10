@@ -24,7 +24,7 @@ To add a tiering policy, use the `add_tiering_policy` function:
 SELECT add_tiering_policy(hypertable REGCLASS, move_after INTERVAL, if_not_exists BOOL = false);
 ```
 
-Tiering policy can be added for either a hypertable or a continuous aggregate. In this example, you use a hypertable called `example`, and tier chunks older than three days.
+You can add a tiering policy to hypertables and continuous aggregates. In the following example, you tier chunks that are more than three days old in the `example` hypertable.
 
 <Procedure>
 
@@ -60,13 +60,13 @@ If you remove a tiering policy, the removal automatically prevents scheduled chu
 Any chunks that were already tiered won't be untiered automatically. You can use the [untier_chunk][untier-data] procedure 
 to untier chunks to local storage that have already been tiered.
 
-The procedure for adding and removing tiering policy for a continuous aggregate is identical to a hypertable. For the following example we'll use a continuous aggregate called `example_day_avg`.
+The procedure for adding and removing tiering policy for a continuous aggregate is identical to a hypertable. The following example uses a continuous aggregate called `example_day_avg`.
 
 <Procedure>
 
 ### Adding a tiering policy for a continuous aggregate
 
-1. At the psql prompt, specify the continuous aggregate name and the interval, after which chunks need to be moved to the tiered storage:
+1. At the psql prompt, specify the continuous aggregate name and the interval after which chunks are moved to  tiered storage:
 
 ```sql
 SELECT add_tiering_policy('example_day_avg', move_after => '1 month'::interval)
