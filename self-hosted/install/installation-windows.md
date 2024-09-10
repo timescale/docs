@@ -41,7 +41,6 @@ To install TimescaleDB on your Windows device, you need:
 * OpenSSL v3.x
 * [Visual C++ Redistributable for Visual Studio 2015][ms-download]
 
-
 ## Install and configure TimescaleDB on PostgreSQL
 
 This section shows you how to install the latest version of PostgreSQL and
