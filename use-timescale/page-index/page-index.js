@@ -258,17 +258,17 @@ module.exports = [
         ],
       },
       {
-        title: "High availability and replication",
+        title: "High availability and read replication",
         href: "ha-replicas",
-        excerpt: "Timescale high availability and replication",
+        excerpt: "Timescale high availability and read replication",
         children: [
           {
-            title: "High availability",
+            title: "Manage high availability",
             href: "high-availability",
             excerpt: "Set up HA replicas on Timescale for high availability",
           },
           {
-            title: "Read scaling",
+            title: "Manage read replication",
             href: "read-scaling",
             excerpt: "Understand how read scaling works in Timescale",
           },
@@ -827,23 +827,6 @@ module.exports = [
             href: "troubleshooting",
             type: "placeholder",
           },          
-        ],
-      },
-      {
-        title: "High availability and read replication",
-        href: "ha-replicas",
-        excerpt: "Timescale high availability and replicas",
-        children: [
-          {
-            title: "Manage high availability",
-            href: "high-availability",
-            excerpt: "Set up HA replicas on Timescale for high availability",
-          },
-          {
-            title: "Manage read replication",
-            href: "read-scaling",
-            excerpt: "Understand how read scaling works in Timescale",
-          },
         ],
       },
       {
