@@ -1,5 +1,5 @@
 ---
-title: Service overview
+title: About services
 excerpt: See information on your service's connection parameters, configuration, and resource usage
 products: [cloud]
 keywords: [connect, services]
@@ -9,7 +9,7 @@ cloud_ui:
         - [services, :serviceId, overview]
 ---
 
-# Service overview
+# About services
 
 When you log into your [Timescale account][cloud-login], you see the
 Project overview. Click a service to view run-time data and connection information. 
@@ -46,3 +46,4 @@ service. If you need data isolation, use schemas or create additional services.
 [cloud-login]: https://console.cloud.timescale.com/
 [pg-roles-doc]: https://www.postgresql.org/docs/current/role-attributes.html
 [create-service]: /getting-started/:currentVersion:/services/#create-a-timescale-cloud-service
+
