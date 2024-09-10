@@ -1,6 +1,6 @@
 ---
-title: Members
-excerpt: User management for your Timescale project
+title: User management
+excerpt: User management in Timescale Cloud
 products: [cloud]
 keywords: [members, projects, admin, roles]
 tags: [users]
@@ -9,7 +9,7 @@ cloud_ui:
         - [members]
 ---
 
-# Members
+# User management
 
 When you log in to your [Timescale account][cloud-login], navigate to the
 `Members` page to manage users of your project. From here, you can see the

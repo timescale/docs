@@ -8,6 +8,50 @@ module.exports = [
       "How to connect to Timescale, administer, and configure the database.",
     children: [
       {
+        title: "About Timescale Cloud services",
+        href: "services",
+        excerpt: "About Timescale Cloud services",
+        children: [
+          {
+            title: "About services",
+            href: "service-overview",
+            excerpt: "Timescale services overview",
+          },
+          {
+            title: "Connection pooling",
+            href: "connection-pooling",
+            excerpt:
+              "Using a connection pool with your Timescale services",
+          },
+          {
+            title: "Dynamic PostgreSQL",
+            href: "dynamic-postgresql",
+            excerpt: "Dynamic PostgreSQL overview",
+          },
+          {
+            title: "Manually change resources",
+            href: "change-resources",
+            excerpt: "Manually adjust your service resources",
+          },
+          {
+            title: "Service explorer",
+            href: "service-explorer",
+            excerpt: "Timescale services explorer",
+          },
+          {
+            title: "Service management",
+            href: "service-management",
+            excerpt:
+              "Timescale services operations, Service management tab",
+          },
+          {
+            title: "Troubleshooting Timescale services",
+            href: "troubleshooting",
+            type: "placeholder",
+          },
+        ],
+      },
+      {
         title: "Alerting",
         href: "alerting",
         excerpt: "Configure alerting within Timescale",
@@ -27,11 +71,6 @@ module.exports = [
             excerpt: "PITR on Timescale services"
           }
         ]
-      },
-      {
-        title: "Clouds and regions",
-        href: "regions",
-        excerpt: "Timescale AWS regions",
       },
       {
         href: "compression",
@@ -218,7 +257,7 @@ module.exports = [
       {
         title: "High availability and replication",
         href: "ha-replicas",
-        excerpt: "Timescale high availability and replicas",
+        excerpt: "Timescale high availability and replication",
         children: [
           {
             title: "High availability",
@@ -398,7 +437,7 @@ module.exports = [
         ],
       },
       {
-        title: "Ingest data from other sources",
+        title: "Ingest data using third-party tools",
         href: "ingest-data",
         children: [
           {
@@ -431,316 +470,9 @@ module.exports = [
         ],
       },
       {
-        title: "Metrics and logging",
-        href: "metrics-logging",
-        excerpt: "Timescale metrics and logging",
-        children: [
-          {
-            title: "Export to Prometheus",
-            href: "metrics-to-prometheus",
-            excerpt:
-              "Export telemetry data to Prometheus",
-          },
-          {
-            title: "Insights",
-            href: "insights",
-            excerpt: "Query-level performance insights",
-          },
-          {
-            title: "Service metrics",
-            href: "service-metrics",
-            excerpt: "Timescale services metrics",
-          },
-          {
-            title: "Service logs",
-            href: "service-logs",
-            excerpt: "Timescale services logs",
-          },
-          {
-            title: "Third-party monitoring for Timescale Cloud Services",
-            href: "integrations",
-            excerpt:
-              "Export telemetry data to a third-party monitoring service",
-          },
-        ],
-      },
-      {
-        title: "PopSQL",
-        href: "popsql",
-        excerpt: "Run SQL queries, create charts and dashboards, and collaborate with teammates",
-      },
-      {
-        title: "PostgreSQL extensions",
-        href: "extensions",
-        excerpt: "Timescale PostgreSQL extensions",
-        children: [
-          {
-            title: "pgcrypto extension",
-            href: "pgcrypto",
-            excerpt: "Using the pgcrypto PostgreSQL extension",
-          },
-          {
-            title: "pgvector extension",
-            href: "pgvector",
-            excerpt: "Using the pgvector PostgreSQL extension",
-          },
-          {
-            title: "postgis extension",
-            href: "postgis",
-            excerpt: "Using the postgis PostgreSQL extension",
-          },
-        ]
-      },
-      {
-        title: "Query data",
-        href: "query-data",
-        children: [
-          {
-            title: "About querying data",
-            href: "about-query-data",
-            excerpt: "Learn how to query data in Timescale",
-          },
-          {
-            title: "Perform DISTINCT queries with SkipScan",
-            href: "skipscan",
-            excerpt: "Make DISTINCT queries faster with SkipScan",
-          },
-          {
-            title: "Perform advanced analytic queries",
-            href: "advanced-analytic-queries",
-            excerpt: "Use advanced analytics queries",
-          },
-          {
-            title: "SELECT data",
-            href: "select",
-            excerpt: "Select data in hypertables",
-          },
-          {
-            title: "Troubleshooting",
-            href: "troubleshooting",
-            type: "placeholder",
-          },
-        ],
-      },
-      {
-        title: "Schema management",
-        href: "schema-management",
-        children: [
-          {
-            title: "About constraints",
-            href: "about-constraints",
-            excerpt: "About schema constraints",
-          },
-          {
-            title: "About indexing",
-            href: "about-indexing",
-            excerpt: "About schema indexes",
-          },
-          {
-            title: "About schemas",
-            href: "about-schemas",
-            excerpt: "About hypertable schemas",
-          },
-          {
-            title: "About tablespaces",
-            href: "about-tablespaces",
-            excerpt: "About schema tablespaces",
-          },
-          {
-            title: "Alter hypertables",
-            href: "alter",
-            excerpt: "Change the schema of a hypertable",
-          },
-          {
-            title: "Index",
-            href: "indexing",
-            excerpt: "Create an index on a hypertable",
-          },
-          {
-            title: "JSON",
-            href: "json",
-            excerpt: "Using JSON data types in a hypertable",
-          },
-          {
-            title: "Triggers",
-            href: "triggers",
-            excerpt: "Create triggers on a hypertable",
-          },
-          {
-            title: "Troubleshoot schema management",
-            href: "troubleshooting",
-            type: "placeholder",
-          },
-        ],
-      },
-      {
-        title: "Security",
-        href: "security",
-        excerpt: "Learn how your Timescale instance is secured",
-        children: [
-          {
-            title: "Client credentials",
-            href: "client-credentials",
-            excerpt: "Client credentials to programmatically access your Timescale account",
-          },
-          {
-            title: "Connect with a stricter SSL mode",
-            href: "strict-ssl",
-            excerpt:
-              "Connect to Timescale with a stricter SSL mode of verify-ca or verify-full",
-          },
-          {
-            title: "Multi-factor Authentication",
-            href: "multi-factor-authentication",
-            excerpt: "Multi-factor authentication for your Timescale account",
-          },
-          {
-            title: "Read only role",
-            href: "read-only-role",
-            excerpt: "Create a read-only role to access your database",
-          },
-          {
-            title: "SAML authentication",
-            href: "saml",
-            excerpt: "SAML / SSO authentication for your Timescale account",
-          },
-          {
-            title: "Security overview",
-            href: "overview",
-            excerpt: "Get an overview of Timescale security",
-          },
-        ],
-      },
-      {
-        title: "Services",
-        href: "services",
-        excerpt: "Timescale services",
-        children: [
-          {
-            title: "Connection pooling",
-            href: "connection-pooling",
-            excerpt:
-              "Using a connection pool with your Timescale services",
-          },
-          {
-            title: "Dynamic PostgreSQL",
-            href: "dynamic-postgresql",
-            excerpt: "Dynamic PostgreSQL overview",
-          },
-          {
-            title: "Manually change resources",
-            href: "change-resources",
-            excerpt: "Manually adjust your service resources",
-          },
-          {
-            title: "Service explorer",
-            href: "service-explorer",
-            excerpt: "Timescale services explorer",
-          },
-          {
-            title: "Service management",
-            href: "service-management",
-            excerpt:
-              "Timescale services operations, Service management tab",
-          },
-          {
-            title: "Service overview",
-            href: "service-overview",
-            excerpt: "Timescale services overview",
-          },
-          {
-            title: "Troubleshooting Timescale services",
-            href: "troubleshooting",
-            type: "placeholder",
-          },
-        ],
-      },
-      {
-        title: "Tiered Storage",
-        href: "data-tiering",
-        excerpt: "Save on storage costs by tiering older data to a low-cost bottomless object storage tier",
-        children: [
-          {
-            title: "About the object storage tier",
-            href: "about-data-tiering",
-            excerpt:
-              "Learn how the object storage tier helps you save on storage costs",
-          },
-          {
-            title: "Creating tiering policies",
-            href: "creating-data-tiering-policy",
-            excerpt:
-                "How to create a tiering policy",
-          },
-          {
-            title: "Enabling the object storage tier",
-            href: "enabling-data-tiering",
-            excerpt:
-                "How to enable the object storage tier",
-          },
-          {
-            title: "Manually tier data",
-            href: "manual-tier-chunk",
-            excerpt:
-                "How to manually tier data to the object storage tier",
-          },
-          {
-            title: "Manually untier data",
-            href: "untier-data",
-            excerpt: "How to manualy untier data from the object storage tier",
-          },
-          {
-            title: "Querying tiered data",
-            href: "querying-tiered-data",
-            excerpt:
-                "How to query tiered data",
-          },
-          {
-            title: "Replicas and forks with tiered data",
-            href: "tiered-data-replicas-forks",
-            excerpt:
-                "How tiered data works on replicas and forks",
-          },
-          {
-            title: "Tour of tiered storage",
-            href: "tour-data-tiering",
-            excerpt:
-               "A quick tour of tiered storage",
-          },
-          {
-            title: "Troubleshooting",
-            href: "troubleshooting",
-            type: "placeholder",
-          },
-        ],
-      },
-      {
-        title: "Time buckets",
-        href: "time-buckets",
-        excerpt: "Aggregate data by time interval with time buckets",
-        children: [
-          {
-            title: "About time buckets",
-            href: "about-time-buckets",
-            excerpt: "Learn how time buckets work in Timescale.",
-          },
-          {
-            title: "Troubleshoot problems with time buckets",
-            href: "troubleshooting",
-            type: "placeholder",
-          },
-          {
-            title: "Use time buckets to group time-series data",
-            href: "use-time-buckets",
-            excerpt:
-              "How to group time series data with the time_bucket function.",
-          },
-        ],
-      },
-      {
-        title: "Timescale integrations",
+        title: "Integrate tooling with Timescale Cloud",
         href: "integrations",
-        excerpt: "Integrate your Timescale database with third-party solutions",
+        excerpt: "Integrate third-party solutions with Timescale Cloud",
         children: [
           {
             title: "Configuration and deployment",
@@ -855,6 +587,274 @@ module.exports = [
         ],
       },
       {
+        title: "Maintenance and upgrades",
+        href: "upgrades",
+        excerpt: "Keep your Timescale Cloud service up-to-date",
+      },
+      {
+        title: "Metrics and logging",
+        href: "metrics-logging",
+        excerpt: "Timescale metrics and logging",
+        children: [
+          {
+            title: "Export to Prometheus",
+            href: "metrics-to-prometheus",
+            excerpt:
+              "Export telemetry data to Prometheus",
+          },
+          {
+            title: "Insights",
+            href: "insights",
+            excerpt: "Query-level performance insights",
+          },
+          {
+            title: "Service metrics",
+            href: "service-metrics",
+            excerpt: "Timescale services metrics",
+          },
+          {
+            title: "Service logs",
+            href: "service-logs",
+            excerpt: "Timescale services logs",
+          },
+          {
+            title: "Third-party monitoring for Timescale Cloud Services",
+            href: "integrations",
+            excerpt:
+              "Export telemetry data to a third-party monitoring service",
+          },
+        ],
+      },
+      {
+        title: "PostgreSQL extensions",
+        href: "extensions",
+        excerpt: "Timescale PostgreSQL extensions",
+        children: [
+          {
+            title: "pgcrypto extension",
+            href: "pgcrypto",
+            excerpt: "Using the pgcrypto PostgreSQL extension",
+          },
+          {
+            title: "pgvector extension",
+            href: "pgvector",
+            excerpt: "Using the pgvector PostgreSQL extension",
+          },
+          {
+            title: "postgis extension",
+            href: "postgis",
+            excerpt: "Using the postgis PostgreSQL extension",
+          },
+        ]
+      },
+      {
+        title: "Query data",
+        href: "query-data",
+        children: [
+          {
+            title: "About querying data",
+            href: "about-query-data",
+            excerpt: "Learn how to query data in Timescale",
+          },
+          {
+            title: "Perform DISTINCT queries with SkipScan",
+            href: "skipscan",
+            excerpt: "Make DISTINCT queries faster with SkipScan",
+          },
+          {
+            title: "Perform advanced analytic queries",
+            href: "advanced-analytic-queries",
+            excerpt: "Use advanced analytics queries",
+          },
+          {
+            title: "SELECT data",
+            href: "select",
+            excerpt: "Select data in hypertables",
+          },
+          {
+            title: "Troubleshooting",
+            href: "troubleshooting",
+            type: "placeholder",
+          },
+        ],
+      },
+      {
+        title: "Schema management",
+        href: "schema-management",
+        children: [
+          {
+            title: "About constraints",
+            href: "about-constraints",
+            excerpt: "About schema constraints",
+          },
+          {
+            title: "About indexing",
+            href: "about-indexing",
+            excerpt: "About schema indexes",
+          },
+          {
+            title: "About schemas",
+            href: "about-schemas",
+            excerpt: "About hypertable schemas",
+          },
+          {
+            title: "About tablespaces",
+            href: "about-tablespaces",
+            excerpt: "About schema tablespaces",
+          },
+          {
+            title: "Alter hypertables",
+            href: "alter",
+            excerpt: "Change the schema of a hypertable",
+          },
+          {
+            title: "Index",
+            href: "indexing",
+            excerpt: "Create an index on a hypertable",
+          },
+          {
+            title: "JSON",
+            href: "json",
+            excerpt: "Using JSON data types in a hypertable",
+          },
+          {
+            title: "Triggers",
+            href: "triggers",
+            excerpt: "Create triggers on a hypertable",
+          },
+          {
+            title: "Troubleshoot schema management",
+            href: "troubleshooting",
+            type: "placeholder",
+          },
+        ],
+      },
+      {
+        title: "Security",
+        href: "security",
+        excerpt: "Learn how your Timescale instance is secured",
+        children: [
+          {
+            title: "About security in Timescale Cloud",
+            href: "overview",
+            excerpt: "Get an overview of Timescale security",
+          },
+          {
+            title: "Client credentials",
+            href: "client-credentials",
+            excerpt: "Client credentials to programmatically access your Timescale account",
+          },
+          {
+            title: "Connect with a stricter SSL mode",
+            href: "strict-ssl",
+            excerpt:
+              "Connect to Timescale with a stricter SSL mode of verify-ca or verify-full",
+          },
+          {
+            title: "Multi-factor Authentication",
+            href: "multi-factor-authentication",
+            excerpt: "Multi-factor authentication for your Timescale account",
+          },
+          {
+            title: "Read only role",
+            href: "read-only-role",
+            excerpt: "Create a read-only role to access your database",
+          },
+          {
+            title: "SAML authentication",
+            href: "saml",
+            excerpt: "SAML / SSO authentication for your Timescale account",
+          },
+        ],
+      },
+      {
+        title: "Tiered storage",
+        href: "data-tiering",
+        excerpt: "Save on storage costs by tiering older data to a low-cost bottomless object storage tier",
+        children: [
+          {
+            title: "About the object storage tier",
+            href: "about-data-tiering",
+            excerpt:
+              "Learn how the object storage tier helps you save on storage costs",
+          },
+          {
+            title: "Creating tiering policies",
+            href: "creating-data-tiering-policy",
+            excerpt:
+                "How to create a tiering policy",
+          },
+          {
+            title: "Enabling the object storage tier",
+            href: "enabling-data-tiering",
+            excerpt:
+                "How to enable the object storage tier",
+          },
+          {
+            title: "Manually tier data",
+            href: "manual-tier-chunk",
+            excerpt:
+                "How to manually tier data to the object storage tier",
+          },
+          {
+            title: "Manually untier data",
+            href: "untier-data",
+            excerpt: "How to manualy untier data from the object storage tier",
+          },
+          {
+            title: "Querying tiered data",
+            href: "querying-tiered-data",
+            excerpt:
+                "How to query tiered data",
+          },
+          {
+            title: "Replicas and forks with tiered data",
+            href: "tiered-data-replicas-forks",
+            excerpt:
+                "How tiered data works on replicas and forks",
+          },
+          {
+            title: "Tour of tiered storage",
+            href: "tour-data-tiering",
+            excerpt:
+               "A quick tour of tiered storage",
+          },
+          {
+            title: "Troubleshooting",
+            href: "troubleshooting",
+            type: "placeholder",
+          },
+        ],
+      },
+      {
+        title: "Time buckets",
+        href: "time-buckets",
+        excerpt: "Aggregate data by time interval with time buckets",
+        children: [
+          {
+            title: "About time buckets",
+            href: "about-time-buckets",
+            excerpt: "Learn how time buckets work in Timescale.",
+          },
+          {
+            title: "Troubleshoot problems with time buckets",
+            href: "troubleshooting",
+            type: "placeholder",
+          },
+          {
+            title: "Use time buckets to group time-series data",
+            href: "use-time-buckets",
+            excerpt:
+              "How to group time series data with the time_bucket function.",
+          },
+        ],
+      },
+      {
+        title: "Timescale Cloud regions",
+        href: "regions",
+        excerpt: "Timescale AWS regions",
+      },
+      {
         title: "Timescale limitations",
         href: "limitations",
         excerpt: "Current limitations of Timescale features",
@@ -863,11 +863,6 @@ module.exports = [
         title: "Troubleshoot Timescale",
         href: "troubleshoot-timescaledb",
         excerpt: "Troubleshooting Timescale",
-      },
-      {
-        title: "Upgrades",
-        href: "upgrades",
-        excerpt: "Keeping your service up-to-date",
       },
       {
         title: "User-defined actions",
@@ -917,9 +912,9 @@ module.exports = [
         ],
       },
       {
-        title: "User Management",
+        title: "User management",
         href: "members",
-        excerpt: "Timescale user management",
+        excerpt: "User management in Timescale Cloud",
         children: [
           {
             title: "Members list",

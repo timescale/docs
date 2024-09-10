@@ -7,7 +7,7 @@ tags: [integrations]
 ---
 
 
-# Integrations
+# Integrate tooling with Timescale Cloud
 
 You can integrate your Timescale database with third-party solutions to expand
 and extend what you can do with your data.

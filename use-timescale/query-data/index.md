@@ -1,11 +1,11 @@
 ---
-title: Querying data
+title: Query data
 excerpt: Query data in Timescale
 products: [cloud, mst, self_hosted]
 keywords: [queries]
 ---
 
-# Querying data
+# Query data
 
 Timescale hypertables _are_ PostgreSQL tables. That means you can query them
 with standard SQL commands. In addition to the extra benefits you get from Timescale architecture and query planning,

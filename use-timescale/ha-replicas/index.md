@@ -1,5 +1,5 @@
 ---
-title: High availability and replicas
+title: High availability and replication
 excerpt: Set up high availability for disaster recovery in Timescale
 products: [cloud]
 keywords: [high availability, replicas]
@@ -9,7 +9,7 @@ cloud_ui:
         - [services, :serviceId, operations, replication]
 ---
 
-# High availability and replicas
+# High availability and replication
 
 You can use high availability and read replicas on your Timescale services
 to significantly reduce the risk of downtime and data loss due to failures, and
