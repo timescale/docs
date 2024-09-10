@@ -73,6 +73,7 @@ module.exports = [
         ]
       },
       {
+        title: "Compression",
         href: "compression",
         children: [
           {
@@ -128,6 +129,7 @@ module.exports = [
         ],
       },
       {
+        title: "Configuration",
         href: "configuration",
         children: [
           {
