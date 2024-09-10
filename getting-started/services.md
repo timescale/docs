@@ -16,6 +16,10 @@ Reference:
   - [Mardown reference link without a variable][markdown-reference-link-1]
   - [Mardown reference link with a variable][markdown-reference-link-2]
 
+No anchor used: 
+
+  <Variable name="COMPANY_URL"/>
+
 [markdown-reference-link-1]: https://www.timescale.com
 [markdown-reference-link-2]: <Variable name="COMPANY_URL"/>
 
