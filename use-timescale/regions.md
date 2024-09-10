@@ -1,18 +1,18 @@
 ---
-title: Timescale regions
-excerpt: Available AWS regions for your Timescale services
+title: Timescale Cloud regions
+excerpt: The AWS regions available for Timescale Cloud services  
 product: cloud
 ---
 
 
 
-# Available regions
+# Timescale Cloud regions
 
 <Highlight type="cloud" header="Want your databases to run in the Timescale cloud?" button="Try for free">
 We tune your database for performance and handle scalability, high availability, backups and management so you can relax.
 </Highlight>
 
-Timescale Services run in the following Amazon Web Services (AWS) regions:
+Timescale Cloud services run in the following Amazon Web Services (AWS) regions:
 
 | Region           | Zone          | Location       |
 |------------------|---------------|----------------|

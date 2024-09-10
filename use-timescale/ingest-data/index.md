@@ -1,11 +1,11 @@
 ---
-title: Ingesting data to your Timescale database
+title: Ingest data using third-party tools
 excerpt: Use third-party tools to ingest data into TimescaleDB
 products: [cloud]
 keywords: [ingest, pipelines, Prometheus, Kafka, Telegraf, timescaledb-parallel-copy, csv]
 ---
 
-# Ingesting data with third-party tools
+# Ingest data using third-party tools
 
 By default, Timescale supports standard SQL inserts. Additionally, you can use
 third-party tools to build data ingest pipelines.

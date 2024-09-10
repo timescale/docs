@@ -1,12 +1,12 @@
 ---
-title: Timescale security
+title: About security in Timescale Cloud
 excerpt: Get an overview of security on Timescale
 products: [cloud]
 keywords: [security]
 tags: [encryption, VPC, privacy]
 ---
 
-# Timescale security
+# About security in Timescale Cloud
 
 Timescale implements a variety of secure software engineering practices in TimescaleDB, including code static analysis 
 for security hardening, automated scanning for dependency vulnerabilities, and code security reviews. 

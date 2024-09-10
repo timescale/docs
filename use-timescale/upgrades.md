@@ -1,5 +1,5 @@
 ---
-title: Upgrades
+title: Maintenance and upgrades
 excerpt: Keeping your service up-to-date
 products: [cloud]
 keywords: [updates, upgrades, maintenance]
