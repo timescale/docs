@@ -28,7 +28,7 @@ This diagram describes how a restore from backup occurs after a storage failure:
 <Highlight type="note">
 Compute failures do not require a full restore from backup. For more
 information, see the
-[rapid recovery section](/use-timescale/latest/ha-replicas/high-availability/#rapid-recovery).
+[rapid recovery section](/use-timescale/latest/ha-replicas/ha-replicas/#rapid-recovery).
 </Highlight>
 
 <img class="main-content__illustration"
