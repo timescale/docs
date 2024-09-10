@@ -131,6 +131,7 @@ module.exports = [
       {
         title: "Configuration",
         href: "configuration",
+        excerpt: "Configure your Timescale Cloud service",
         children: [
           {
             title: "About Configuration",

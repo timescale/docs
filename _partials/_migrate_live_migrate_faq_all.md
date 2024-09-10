@@ -15,7 +15,7 @@ service. By default, live-migration needs around ~10 connections on the source a
 For information on tuning the number of connections during migration, see [Tune the target Timescale Cloud service][tune-connections].
 
 
-### Migration seem to stuck with “x GB copied to Target DB (Source DB is y GB)”
+### Migration seems to be stuck with “x GB copied to Target DB (Source DB is y GB)”
 
 When you are migrating a lot of data involved in aggregation, or there are many materialized views taking time
 to complete the materialization, this may be due to `REFRESH MATERIALIZED VIEWS` happening at the end of initial 
@@ -36,7 +36,7 @@ To resolve this issue:
 1. When `migrate` has finished, manually refresh the materialized views you excluded.
 
 
-### Role privileges passwords
+### Role passwords
 
 Because of issues dumping passwords from various managed service providers, Live-migration 
 migrates roles without passwords. You have to migrate passwords manually.

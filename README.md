@@ -264,7 +264,7 @@ Used to indicate an optional step within a procedure. Syntax: `<Optional />`
 Multi-code blocks are code blocks with a language or OS selector. For syntax,
 see [the multi-code-block example](./_multi-code-block.md).
 
-### Tabs
+### Tabs 
 
 Tabs can be used to display content that differs based on a user selection. The
 syntax is:

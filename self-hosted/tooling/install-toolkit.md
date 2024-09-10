@@ -47,12 +47,6 @@ To get Toolkit, use the high availability image, `timescaledb-ha`:
 docker pull timescale/timescaledb-ha:pg16
 ```
 
-<Highlight type="important">
-The `timescaledb-ha` image does not support ARM64. For ARM64 environments, use the
-`timescaledb` Docker image. By default, this image does not contain Toolkit. You can add
-Toolkit using the package installation method, or by building from source.
-</Highlight>
-
 For more information on running TimescaleDB using Docker, see the section on
 [pre-built containers][docker-install].
 

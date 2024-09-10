@@ -1,15 +1,15 @@
 ---
-api_name: disable_column_stats()
+api_name: disable_chunk_skipping()
 excerpt: Disable range tracking for columns of chunks from a hypertable  
 topics: [hypertables]
-keywords: [hypertables, chunks, range-tracking]
+keywords: [hypertables, chunks, range-tracking, skipping]
 tags: [columns, ranges, min-max, chunks]
 api:
   license: apache
   type: function
 ---
 
-# disable_column_stats()
+# disable_chunk_skipping()
 
 Disable range tracking in a specific column of chunks in a hypertable.
 
@@ -36,7 +36,7 @@ Disable range tracking in a specific column of chunks in a hypertable.
 not removed|
 
 <Highlight type="note">
- To `disable_column_stats()`, you must have first called [enable_column_stats][enable_column_stats]
+ To `disable_chunk_skipping()`, you must have first called [enable_chunk_skipping][enable_chunk_skipping]
  and enabled range tracking on a column in the hypertable.
 
 </Highlight>
@@ -49,8 +49,8 @@ columns to track ranges for. You then disable range tracking:
 
 ```sql
 SELECT create_hypertable('conditions', 'time');
-SELECT enable_column_stats('conditions', 'device_id');
-SELECT disable_column_stats('conditions', 'device_id');
+SELECT enable_chunk_skipping('conditions', 'device_id');
+SELECT disable_chunk_skipping('conditions', 'device_id');
 ```
 
 <Highlight type="note">
@@ -62,4 +62,4 @@ SELECT disable_column_stats('conditions', 'device_id');
 
 </Highlight>
 
-[enable_column_stats]: /api/:currentVersion:/hypertable/enable_column_stats/
+[enable_chunk_skipping]: /api/:currentVersion:/hypertable/enable_chunk_skipping/
