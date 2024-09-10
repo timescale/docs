@@ -8,11 +8,55 @@ keywords: [changelog, upgrades, updates, releases]
 
 All the latest features and updates to Timescale products.
 
+## One-click SQL statement execution from Timescale Console, and session support in the SQL editor
+<Label type="date">September 05, 2024</Label>
+
+### One-click SQL statement execution from Timescale Console
+
+Now you can simply click to run SQL statements in various places in the Console. This requires that the [SQL Editor][sql-editor] is enabled for the service.
+
+* Enable Continuous Aggregates from the CAGGs wizard by clicking **Run** below the SQL statement.
+![Enable Continuous Aggregates](https://s3.amazonaws.com/assets.timescale.com/docs/images/enable-continuous-aggregates.gif)
+
+* Enable database extensions by clicking **Run** below the SQL statement.
+![Enable extensions from Console](https://s3.amazonaws.com/assets.timescale.com/docs/images/enable-extensions-from-console.gif)
+
+* Query data instantly with a single click in the Console after successfully uploading a CSV file.
+![Query data after CSV import](https://s3.amazonaws.com/assets.timescale.com/docs/images/query-data-after-csv-import.gif)
+
+### Session support in the SQL editor
+
+Last week we announced the new in-console SQL editor. However, there was a limitation where a new database session was created for each query execution. 
+
+Today we removed that limitation and added support for keeping one database session for each user logged in, which means you can do things like start transactions:
+
+```
+begin;
+insert into users (name, email) values ('john doe', 'john@example.com');
+abort; -- nothing inserted
+```
+
+Or work with temporary tables:
+
+```
+create temporary table temp_users (email text);
+insert into temp_sales (email) values ('john@example.com');
+-- table will automatically disappear after your session ends
+```
+
+Or use the `set` command:
+
+```
+set search_path to 'myschema', 'public';
+```
+
+
 ## 😎 Query your database directly from the Console and enhanced data import and migration options
 <Label type="date">August 30, 2024</Label>
 
 ### SQL Editor in Timescale Console 
-We've added a new tab to the service screen that allows users to query their database directly, without having to leave the console interface. 
+We've added a new tab to the service screen that allows users to query their database directly, without having to leave the console interface.
+
 * For existing services on Timescale, this is an opt-in feature. For all newly created services, the SQL Editor will be enabled by default.
 * Users can disable the SQL Editor at any time by toggling the option under the Operations tab.
 * The editor supports all DML and DDL operations (any single-statement SQL query), but doesn't support multiple SQL statements in a single query.
@@ -334,3 +378,4 @@ To learn more, see the [postgresql-unit documentation](https://github.com/df7cb/
 [pgai]: https://github.com/timescale/pgai
 [pgvectorscale]: https://github.com/timescale/pgvectorscale/
 [signup]: https://console.cloud.timescale.com/signup
+[sql-editor]: /getting-started/:currentVersion:/run-queries-from-console/#sql-editor
