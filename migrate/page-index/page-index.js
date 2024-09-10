@@ -16,6 +16,11 @@ module.exports = [
         excerpt: "Migrate a large database with low downtime",
       },
       {
+        title: "Sigh",
+        href: "sigh",
+        excerpt: "Migrate a large database with low downtime",
+      },
+      {
         title: "Dual-write and backfill",
         href: "dual-write-and-backfill",
         excerpt: "Migrate a large database with low downtime",

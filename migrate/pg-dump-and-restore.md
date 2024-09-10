@@ -6,8 +6,8 @@ keywords: [backups, restore]
 tags: [recovery, logical backup, pg_dump, pg_restore]
 ---
 
-import DoNotRecommendForLargeMigration from "versionContent/_partials/_migrate_pg_dump_do_not_recommend_for_large_migration.mdx";
 import MigrationPrerequisites from "versionContent/_partials/_migrate_prerequisites.mdx";
+import MigrationPrerequisitesDumpRestore from "versionContent/_partials/_migrate_prerequisites_tools_dump_restore.mdx";
 import MigrateFromTimescaleDB from "versionContent/_partials/_migrate_dump_timescaledb.mdx";
 import MigrateFromPostgres from "versionContent/_partials/_migrate_dump_postgresql.mdx";
 import MigrateFromMST from "versionContent/_partials/_migrate_dump_mst.mdx";
@@ -31,8 +31,6 @@ Downtime migration uses the native PostgreSQL [`pg_dump`][pg_dump] and [`pg_rest
 If you are migrating from self-hosted TimescaleDB, this method works for compressed hypertables without having 
 to decompress data before you begin. 
 
-<DoNotRecommendForLargeMigration />
-
 However, downtime migration for large amounts of data takes a large amount of time. For more than 100GB of data, best
 practice is to follow [live migration].
 
@@ -43,15 +41,7 @@ shell commands.
 
 <MigrationPrerequisites />
 
-
-- Install the PostgreSQL client tools on your migration machine. 
-
-  This includes `psql`, `pg_dump`, and `pg_dumpall`. 
-
-- Install the GNU implementation of `sed`.
-
-  Run `sed --version` on your migration machine. GNU sed identifies itself 
-  as GNU software, BSD sed returns `sed: illegal option -- -`.
+<MigrationPrerequisitesDumpRestore />
 
 
 ### Migrate to Timescale Cloud

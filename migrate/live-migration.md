@@ -8,7 +8,6 @@ tags: [recovery, logical backup, replication]
 import MigrationPrerequisites from "versionContent/_partials/_migrate_prerequisites.mdx";
 import SourceTargetNote from "versionContent/_partials/_migrate_source_target_note.mdx";
 import OpenSupportRequest from "versionContent/_partials/_migrate_open_support_request.mdx"
-import DoNotRecommendForLargeMigration from "versionContent/_partials/_migrate_pg_dump_do_not_recommend_for_large_migration.mdx";
 import MigrateSetupEnvironment from "versionContent/_partials/_migrate_live_setup_environment.mdx";
 import MigrateSetupEnvironmentPostgres from "versionContent/_partials/_migrate_live_setup_environment_postgres.mdx";
 import MigrateSetupEnvironmentMST from "versionContent/_partials/_migrate_live_setup_environment_mst.mdx";
@@ -40,8 +39,6 @@ Best practice is to use live-migration when:
     Live-migration does not support replicating `INSERT`/`UPDATE`/`DELETE` statements on compressed data.
   - Has large, busy tables with primary keys.
   - Does not have many `UPDATE` or `DELETE` statements.
-
-<DoNotRecommendForLargeMigration />
 
 This page shows you how to move your data from a self-hosted database to a Timescale Cloud service using
 the live-migration Docker image.  
