@@ -25,7 +25,7 @@ You can now add a tiering policy directly on a Continuous Aggregate: add_tiering
 
 It's also now possible to drop columns on tiered hypertables. The only limitation is that you cannot add a column with the same name (as the dropped column) to the hypertable.
 
-## Other improvements
+### Other improvements
 * In the in-console SQL editor, we now indicate if your database session is healthy or has been disconnected. If it's been disconnected, the session will reconnect on your next query execution.
 <include the GIF here> I requested for this one from Justin 
 * Released live-migration v0.0.26 and then v0.0.27 which includes multiple performance improvements and bugfixes as well as better support for PostgreSQL 12.
