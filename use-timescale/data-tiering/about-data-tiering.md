@@ -62,14 +62,16 @@ storage, so your queries fetch the same data as before.
     with `NULL` defaults, adding indexes, changing or renaming the hypertable
     schema, and adding `CHECK` constraints. For `CHECK` constraints, only
     untiered data is verified.
+    Columns can be deleted. However, you cannot add a new column with the same
+    name to the hypertable after enabling tiering.
 
     _Disallowed_ modifications include: adding a column with non-`NULL`
-    defaults, renaming a column, deleting a column, changing the data type of a
+    defaults, renaming a column, changing the data type of a
     column, and adding a `NOT NULL` constraint to the column.
 
 *   **Limited data changes.** You cannot insert data into, update, or delete a
     tiered chunk. These limitations take effect as soon as the chunk is
-    scheduled for tiering.
+    scheduled for tiering. 
 
 *   **Inefficient query planner filtering for non-native data types.** The query
     planner speeds up reads from our object storage tier by using metadata
