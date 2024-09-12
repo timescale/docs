@@ -12,14 +12,7 @@ import MigrateFromTimescaleDB from "versionContent/_partials/_migrate_dump_times
 import MigrateFromPostgres from "versionContent/_partials/_migrate_dump_postgresql.mdx";
 import MigrateFromMST from "versionContent/_partials/_migrate_dump_mst.mdx";
 import MigrateFromAWSRDS from "versionContent/_partials/_migrate_dump_awsrds.mdx";
-import MigrationSetupFirstSteps from "versionContent/_partials/_migrate_set_up_database_first_steps.mdx";
-import MigrationSetupDBConnectionPostgres from "versionContent/_partials/_migrate_set_up_align_db_extensions_postgres_based.mdx";
-import MigrationSetupDBConnectionTimescaleDB from "versionContent/_partials/_migrate_set_up_align_db_extensions_timescaledb.mdx";
-import MigrationProcedureDumpSchemaPostgres from "versionContent/_partials/_migrate_dump_roles_schema_data_postgres.mdx";
-import MigrationProcedureDumpSchemaMST from "versionContent/_partials/_migrate_dump_roles_schema_data_mst.mdx";
-import MigrationValidateRestartApp from "versionContent/_partials/_migrate_validate_and_restart_app.mdx";
-import MigrateAWSRDSConnectIntermediary from "versionContent/_partials/_migrate_awsrds_connect_intermediary.mdx";
-import MigrateAWSRDSMigrateData from "versionContent/_partials/_migrate_awsrds_migrate_data_downtime.mdx";
+
 
 
 # Migrate with downtime

@@ -12,11 +12,12 @@ import SourceTargetNote from "versionContent/_partials/_migrate_source_target_no
 import GettingHelp from "versionContent/_partials/_migrate_dual_write_backfill_getting_help.mdx";
 import MigrateFromTimescaleDB from "versionContent/_partials/_migrate_backfill_timescaledb.mdx";
 
-# Dual-write and backfill
 
-You use dual-write and backfill to migrate 100GB-10TB+ of time-series data to a Timescale Cloud service seamlessly, 
-with only a few minutes downtime. Dual-write and backfill migrates data from any source database that can export your 
-data to csv format. For example, from PostgresSQL or TimescaleDB to a Timescale Cloud service .
+# Migrate time-series data using dual-write and backfill
+
+You use dual-write and backfill to migrate 100GB-10TB+ of time-series data to a <Variable name="SERVICE"/> seamlessly, 
+with only a few minutes downtime. You use Dual-write and backfill to migrate from any source database that can 
+export your data to csv format. For example, from PostgresSQL or <Variable name="TIMESCALE_DB"/>.
 
 Best practice is to use dual-write and backfill when:
 
@@ -24,21 +25,18 @@ Best practice is to use dual-write and backfill when:
 1. Writes by the app:
    - Do not reference historical time-series data.
    - Are append-only for time-series data.
-1. During migration, no `UPDATE` or `DELETE` queries are run on time-series data in the source database. 
+1. During migration, no `UPDATE` or `DELETE` queries are run on time-series data in the source database.
    If queries are run, it is done in a controlled manner so you can ignore them, or re-backfill.
 1. The relational (non-time-series) data in the source database is either:
    - Small enough to be copied from source to target with downtime.
    - Has infrequent changes and can be copied asynchronously while your app continues to run.
 
-<DoNotRecommendForLargeMigration />
-
-Dual-write and backfill is significantly more complicated to execute than [Migrate with downtime][pg-dump-and-restore], 
-and has some prerequisites on the data ingest patterns of your app, so it may not be universally applicable. If the 
-time-series data in your source database has foreign-key references in a plain table, best practice is to follow 
+Dual-write and backfill is significantly more complicated to execute than [Migrate with downtime][pg-dump-and-restore],
+and has some prerequisites on the data ingest patterns of your app, so it may not be universally applicable. If the
+time-series data in your source database has foreign-key references in a plain table, best practice is to follow
 [live migration].
 
-This page shows you how to move your data from a self-hosted database to a Timescale Cloud service using
-dual-write and backfill.
+This page shows you how to move your data to a <Variable name="SERVICE"/> using dual-write and backfill.
 
 ## Prerequisites
 
@@ -48,7 +46,7 @@ dual-write and backfill.
 
 ### Migrate to Timescale Cloud
 
-To move your data from a self-hosted database to a Timescale Cloud service:
+To move your data from a self-hosted database to a <Variable name="SERVICE"/>:
 
 <Tabs label="Dual write and backfill">
 
@@ -70,3 +68,4 @@ To move your data from a self-hosted database to a Timescale Cloud service:
 
 
 [pg-dump-and-restore]: /migrate/:currentVersion:/pg-dump-and-restore/
+[live migration]: /migrate/:currentVersion:/live-migration/
