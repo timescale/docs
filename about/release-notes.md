@@ -24,3 +24,6 @@ Want to stay up-to-date with new releases? On the main page for each repository
 click `Watch`, select `Custom` and then check `Releases`.
 
 </Highlight>
+
+
+[changelog]: /about/:currentVersion:/changelog/
