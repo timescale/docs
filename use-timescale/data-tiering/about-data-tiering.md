@@ -62,8 +62,8 @@ storage, so your queries fetch the same data as before.
     with `NULL` defaults, adding indexes, changing or renaming the hypertable
     schema, and adding `CHECK` constraints. For `CHECK` constraints, only
     untiered data is verified.
-    Columns can be deleted. However, you cannot add a new column with the same
-    name to the hypertable after enabling tiering.
+    Columns can also be deleted, but you cannot subsequently add a new column
+    to a tiered hypertable with the same name as the now-deleted column.
 
     _Disallowed_ modifications include: adding a column with non-`NULL`
     defaults, renaming a column, changing the data type of a
