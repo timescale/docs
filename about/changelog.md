@@ -8,41 +8,28 @@ keywords: [changelog, upgrades, updates, releases]
 
 All the latest features and updates to Timescale products.
 
+## High Availability, usability and migrations improvements
 <Label type="date">September 12, 2024</Label>
 
-
-## Ease of use updates for Tiered Storage
-* Do you have a really large Continuous Aggregate with lots of historical data that is no longer actively queried?
-* You can now add a tiering policy directly on a Continuous Aggregate: add_tiering_policy( <continuous_aggregate name > )
-* You can now drop columns on tiered hypertables. Previously, you could not drop columns after tiering data. The only limitation is that you cannot add a column with the same name (as the dropped column) to the hypertable.
-  
-## Live-migration tooling new releases v0.0.26 and v0.0.27
-Includes the following improvements:
-* Parallel VACUUM ANALYZE for Hypertable Chunks
-* Fixed ctid-based same table copy concurrency
-* Enhanced query compatibility with PG12
-* Resolved deadlock during pipeline sync
-* Added warning and skip setting for REPLICA IDENTITY FULL on CAGGs
-* Included rds_tools in extension skip list
-  
-## Multiple HA replicas
+### Multiple HA replicas
 Scale and Enterprise customers can now configure two new multiple High Availability (HA) Replica options directly through the console:
 * Two HA Replicas (both asynchronous) - Our highest availability configuration
 * Two HA Replicas (one asynchronous, one synchronous) - Our highest data integrity configuration
 Previously, Timescale offered only a single synchronous replica for customers seeking High Availability. The single HA option is still available.
 More details on multiple HA replicas here (https://docs.timescale.com/use-timescale/latest/ha-replicas/high-availability/).
 <include images>
-## SQL Editor now displays connection status
-<include the GIF here> I requested for this one from Justin
-Ease of use updates for Tiered Storage (Timescale Cloud exclusive)
-* Do you have a really large Continuous Aggregate with lots of historical data that is no longer actively queried?
-* You can now add a tiering policy directly on a Continuous Aggregate:
-* add_tiering_policy( <continuous_aggregate name > )
-* You can now drop columns on tiered hypertables. Previously, you could not drop columns after tiering data. The only limitation is that you cannot add a column with the same name (as the dropped column) to the hypertable.
-Other improvements
-* In the in-console SQL editor, we now indicate if your database session is healthy or has been disconnected. If it's been disconnected, the session will reconnect on your next query execution.
 
--- 
+### Ease of use updates for Tiered Storage
+Do you have a really large Continuous Aggregate with lots of historical data that is no longer actively queried?
+You can now add a tiering policy directly on a Continuous Aggregate: add_tiering_policy( <continuous_aggregate name > )
+
+It's also now possible to drop columns on tiered hypertables. The only limitation is that you cannot add a column with the same name (as the dropped column) to the hypertable.
+
+## Other improvements
+* In the in-console SQL editor, we now indicate if your database session is healthy or has been disconnected. If it's been disconnected, the session will reconnect on your next query execution.
+<include the GIF here> I requested for this one from Justin 
+* Released live-migration v0.0.26 and then v0.0.27 which includes multiple performance improvements and bugfixes as well as better support for PostgreSQL 12.
+  
 
 
 ## One-click SQL statement execution from Timescale Console, and session support in the SQL editor
