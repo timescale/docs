@@ -3,13 +3,13 @@
 <Procedure>
 
 1. In [https://console.aws.amazon.com/rds/home#databases:][databases],
-   select the RDS instance to migrate.
+   select the RDS/Aurora PostgreSQL instance to migrate.
 1. Click `Actions` > `Set up EC2 connection`.
    Press `Create EC2 instance` and use the following settings:
     - **AMI**: Ubuntu Server.
     - **Key pair**: use an existing pair or create a new one that you will use to access the intermediary machine.
     - **VPC**: by default, this is the same as the database instance.
-    - **Configure Storage**: adjust the volume to at least the size of RDS instance you are migrating from.
+    - **Configure Storage**: adjust the volume to at least the size of RDS/Aurora PostgreSQL instance you are migrating from.
     You can reduce the space used by your data on Timescale Cloud using [data compression][data-compression].
 1. Click `Lauch instance`. AWS creates your EC2 instance, then click `Connect to instance` > `SSH client`.
    Follow the instructions to create the connection to your intermediary EC2 instance. 
@@ -33,41 +33,41 @@
    psql --version && pg_dump --version
    ```
 
-  Keep this terminal open, you need it to connect to the RDS instance for migration. 
+  Keep this terminal open, you need it to connect to the RDS/Aurora PostgreSQL instance for migration. 
 
 </Procedure>
 
-## Setup secure connectivity between your RDS and EC2 instances
+## Setup secure connectivity between your RDS/Aurora PostgreSQL and EC2 instances
 <Procedure>
 
 1. In [https://console.aws.amazon.com/rds/home#databases:][databases],
-    select the RDS instance to migrate.
+    select the RDS/Aurora PostgreSQL instance to migrate.
 1. Scroll down to `Security group rules (1)` and select the `EC2 Security Group - Inbound` group. The
    `Security Groups (1)` window opens. Click the `Security group ID`, then click `Edit inbound rules`
 
    <img class="main-content__illustration"
    src="https://assets.timescale.com/docs/images/migrate/rds-add-security-rule-to-ec2-instance.svg"
-   alt="Create security group rule to enable RDS EC2 connection"/>
+   alt="Create security group rule to enable RDS/Aurora PostgreSQL EC2 connection"/>
 
 1. On your intermediary EC2 instance, get your local IP address:
    ```sh
    ec2metadata --local-ipv4
    ```
-   Bear with me on this one, you need this IP address to enable access to your RDS instance,
+   Bear with me on this one, you need this IP address to enable access to your RDS/Aurora PostgreSQL instance,
 1. In `Edit inbound rules`, click `Add rule`, then create a `PostgreSQL`, `TCP` rule granting access
    to the local IP address for your EC2 instance (told you :-)). Then click `Save rules`. 
 
    <img class="main-content__illustration"
    src="https://assets.timescale.com/docs/images/migrate/rds-add-inbound-rule-for-ec2-instance.png"
-   alt="Create security rule to enable RDS EC2 connection"/>
+   alt="Create security rule to enable RDS/Aurora PostgreSQL EC2 connection"/>
 
 </Procedure>
 
-## Test the connection between your RDS and EC2 instances
+## Test the connection between your RDS/Aurora PostgreSQL and EC2 instances
 <Procedure>
 
 1. In [https://console.aws.amazon.com/rds/home#databases:][databases],
-    select the RDS instance to migrate.
+    select the RDS/Aurora PostgreSQL instance to migrate.
 1. On your intermediary EC2 instance, use the values of `Endpoint`, `Port`, `Master username`, and `DB name`  
    to create the postgres connectivity string to the `SOURCE` variable.
    
@@ -78,13 +78,13 @@
    ```sh
    export SOURCE="postgres://<Master username>:<Master password>@<Endpoint>:<Port>/<DB name>"
    ```
-   The value of `Master password` was supplied when this Postgres RDS instance was created.
+   The value of `Master password` was supplied when this RDS/Aurora PostgreSQL instance was created.
 
 1. Test your connection:
    ```sh
    psql -d $SOURCE 
    ```
-   You are connected to your RDS instance from your intermediary EC2 instance.
+   You are connected to your RDS/Aurora PostgreSQL instance from your intermediary EC2 instance.
 
 </Procedure>
 

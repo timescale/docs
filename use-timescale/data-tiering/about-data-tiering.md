@@ -17,7 +17,11 @@ You can move your hypertable data across the different storage tiers to get the 
 You can use the standard high-performance storage tier for data that requires quick access,
 and the low-cost object storage tier for rarely used historical data. 
 Regardless of where your data is stored, you can still query it with
-[standard SQL][querying-tiered-data].
+[standard SQL][querying-tiered-data].  
+Because it's queried normally with SQL, you can still JOIN against tiered data, 
+build views on tiered data, and even define continuous aggregates on tiered data.
+In fact, because the implementation of continuous aggregates also use hypertables, 
+they can be tiered to low-cost storage as well.
 
 
 ## Benefits of the object storage tier
@@ -62,14 +66,16 @@ storage, so your queries fetch the same data as before.
     with `NULL` defaults, adding indexes, changing or renaming the hypertable
     schema, and adding `CHECK` constraints. For `CHECK` constraints, only
     untiered data is verified.
+    Columns can also be deleted, but you cannot subsequently add a new column
+    to a tiered hypertable with the same name as the now-deleted column.
 
     _Disallowed_ modifications include: adding a column with non-`NULL`
-    defaults, renaming a column, deleting a column, changing the data type of a
+    defaults, renaming a column, changing the data type of a
     column, and adding a `NOT NULL` constraint to the column.
 
 *   **Limited data changes.** You cannot insert data into, update, or delete a
     tiered chunk. These limitations take effect as soon as the chunk is
-    scheduled for tiering.
+    scheduled for tiering. 
 
 *   **Inefficient query planner filtering for non-native data types.** The query
     planner speeds up reads from our object storage tier by using metadata
