@@ -1,13 +1,13 @@
 ---
-title: Timescale release notes and future plans
+title: Timescale release notes
 excerpt: New features and fixes are released regularly in all Timescale products
 keywords: [TimescaleDB, Timescale Cloud, TimescaleDB Toolkit, pgai, pgvectorscale, pgspot, live-migration, upgrades, updates, releases]
 ---
 
 # Timescale release notes
 
-For information about new updates and improvement to Timescale Cloud, see the [Changelog][changelog]. For product release 
-notes for our self-hosted / downloadable products, see:
+For information about new updates and improvement to Timescale Cloud, see the [Changelog][changelog]. For release 
+notes about our downloadable products, see:
 
 * [TimescaleDB](https://github.com/timescale/timescaledb/releases) -  an open-source database that makes SQL scalable for time-series data, packaged as a PostgreSQL extension.
 * [TimescaleDB Toolkit](https://github.com/timescale/timescaledb-toolkit/releases) - additional functions to ease all things analytics when using TimescaleDB.
