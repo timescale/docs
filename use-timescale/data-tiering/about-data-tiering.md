@@ -17,7 +17,11 @@ You can move your hypertable data across the different storage tiers to get the 
 You can use the standard high-performance storage tier for data that requires quick access,
 and the low-cost object storage tier for rarely used historical data. 
 Regardless of where your data is stored, you can still query it with
-[standard SQL][querying-tiered-data].
+[standard SQL][querying-tiered-data].  
+Because it's queried normally with SQL, you can still JOIN against tiered data, 
+build views on tiered data, and even define continuous aggregates on tiered data.
+In fact, because the implementation of continuous aggregates also use hypertables, 
+they can be tiered to low-cost storage as well.
 
 
 ## Benefits of the object storage tier
