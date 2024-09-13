@@ -19,9 +19,10 @@ import MigrationValidateRestartApp from "versionContent/_partials/_migrate_valid
 
 </Procedure>
 
-## Download the roles and relational data from the source
+## Download roles and relational data from source
 
-Roles manage database access permissions. To migrate your role-based security hierarchy to your <Variable name="SERVICE"/>:
+Roles manage database access permissions. To download the role-based security hierarchy and relational
+data to your migration machine:
 
 <Procedure>
 
