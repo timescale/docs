@@ -26,10 +26,10 @@ Previously, Timescale offered only a single synchronous replica for customers se
 
 For more details on multiple HA replicas, see [Manage high availability](https://docs.timescale.com/use-timescale/latest/ha-replicas/high-availability/).
 
-### Ease of use updates for Tiered Storage
+### Ease of use updates for tiered storage
 
-Do you have a really large Continuous Aggregate with lots of historical data that is no longer actively queried?
-You can now add a tiering policy directly on a Continuous Aggregate in the following way: `add_tiering_policy( <continuous_aggregate name > )`.
+Do you have a really large continuous aggregate with lots of historical data that is no longer actively queried?
+You can now add a tiering policy directly on a continuous aggregate in the following way: `add_tiering_policy( <continuous_aggregate name > )`.
 
 It's also now possible to drop columns on tiered hypertables. The only limitation is that you cannot add a column with the same name as the dropped column to the hypertable.
 
