@@ -10,7 +10,8 @@ Before you migrate your data:
   Each Timescale Cloud service [has a single database] that supports the
   [most popular extensions][all available extensions]. Timescale Cloud services do not support [tablespaces],
   and [there is no superuser associated with a Timescale service][no-superuser-for-timescale-instance].
- 
+
+- [Adjust the maintenance window][adjust-maintenance-window] to ensure that maintenance does not run while the migration is in progress.
 
 [created-a-database-service-in-timescale]: /getting-started/:currentVersion:/services/
 [has a single database]: /migrate/:currentVersion:/troubleshooting/#only-one-database-per-instance
@@ -20,3 +21,4 @@ Before you migrate your data:
 [upgrade instructions]: /self-hosted/:currentVersion:/upgrades/about-upgrades/
 [pg_hbaconf]: https://www.timescale.com/blog/5-common-connection-errors-in-postgresql-and-how-to-solve-them/#no-pg_hbaconf-entry-for-host
 [create-ec2-instance]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html#ec2-launch-instance
+[adjust-maintenance-window]: /use-timescale/:currentVersion/upgrades/#adjusting-your-maintenance-window
