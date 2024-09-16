@@ -6,19 +6,25 @@ layout_components: [next_prev_large]
 content_group: Getting started
 ---
 
-In-text:
+## Regular syntax
+
+- In-text:
 
   - [Markdown in-text link without a variable](https://www.timescale.com)
   - [Markdown in-text link with a variable](<Variable name="COMPANY_URL"/>)
 
-Reference:
+- Reference:
 
   - [Mardown reference link without a variable][markdown-reference-link-1]
   - [Mardown reference link with a variable][markdown-reference-link-2]
 
-No anchor used: 
+- No anchor used: 
 
   <Variable name="COMPANY_URL"/>
+  
+## New syntax
+
+- [Markdown in-text link with a variable]($COMPANY_URL)
 
 [markdown-reference-link-1]: https://www.timescale.com
 [markdown-reference-link-2]: <Variable name="COMPANY_URL"/>
