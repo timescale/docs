@@ -119,7 +119,7 @@ can plan accordingly. However, in some cases, we might not be able to do so.
 
 ## Upgrade to a new PostgreSQL version
 
-Timescale currently supports PostgreSQL&nbsp;12, 13, 14, and 15. You can see
+Timescale currently supports PostgreSQL&nbsp;14, 15, and 16. You can see
 your PostgreSQL and Timescale versions from the Timescale service
 overview page.
 
