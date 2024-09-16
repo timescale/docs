@@ -11,7 +11,7 @@ Before you migrate your data:
   [most popular extensions][all available extensions]. Timescale Cloud services do not support [tablespaces],
   and [there is no superuser associated with a Timescale service][no-superuser-for-timescale-instance].
 
-- [Adjust the maintenance window][adjust-maintenance-window] to ensure that maintenance does not run while the migration is in progress.
+- To ensure that maintenance does not run while migration is in progress, best practice is to [adjust the maintenance window][adjust-maintenance-window]. 
 
 [created-a-database-service-in-timescale]: /getting-started/:currentVersion:/services/
 [has a single database]: /migrate/:currentVersion:/troubleshooting/#only-one-database-per-instance
