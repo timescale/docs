@@ -132,7 +132,7 @@ overview page.
 -->
 
 You can also manually upgrade to the newest supported PostgreSQL version
-(PostgreSQL&nbsp;15) from the service overview page.
+(PostgreSQL&nbsp;16) from the service overview page.
 
 Upgrading to a newer version of PostgreSQL allows you to take advantage of new
 features, enhancements, and security fixes. It also ensures that you are using a
