@@ -7,20 +7,17 @@ keywords: [hypertables, create]
 
 # Create hypertables
 
-<Highlight type="note">
-This code uses the new generalized hypertable API introduced in
-TimescaleDB 2.13. The [old interface for `create_hypertable` is also
-available](/api/:currentVersion:/hypertable/create_hypertable_old/).
-</Highlight>
-
 After [creating a Timescale database][install], you're ready to create your
 first hypertable. Creating a hypertable is a two-step process:
 
 1.  Create a PostgreSQL table as usual
 1.  Convert it to a hypertable
 
-You can also create distributed hypertables. For more information, see the
-[distributed hypertables section][create-distributed-hypertable].
+<Highlight type="note">
+This code uses the new generalized hypertable API introduced in
+TimescaleDB 2.13. The [old interface for `create_hypertable` is also
+available](/api/:currentVersion:/hypertable/create_hypertable_old/).
+</Highlight>
 
 ## Create a hypertable
 
