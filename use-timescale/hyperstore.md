@@ -18,6 +18,9 @@ Timescale Cloud to deliver the best of both worlds, solving the key challenges i
 - Efficient handling of data updates and late-arriving data 
 - Streamlined data management
 
+Currently, much of this functionality is available as [compression][compression]. However, we are actively 
+updating our APIs and docs so you can more easily integrate these features under the hyperstore umbrella.
+
 Hyperstore’s hybrid approach combines the benefits of row-oriented and column-oriented formats 
 in each Timescale Cloud service:
 
@@ -38,8 +41,5 @@ in each Timescale Cloud service:
 
 ![Hyperstore workflow](https://assets.timescale.com/docs/images/hyperstore-overview.png)
 
-Currently, much of this functionality is made available and documented under [compression][compression]. 
-However, we are actively updating our APIs and documentation to fully integrate these features under the 
-hyperstore umbrella. 
 
 [compression]: /use-timescale/:currentVersion:/compression/
