@@ -2,8 +2,11 @@
 
 You call [`create_hypertable`][create_hypertable] and [`add_dimension`][add_dimension] to specify the dimensions to 
 partition a hypertable on. TimescaleDB supports partitioning [`by_range`][by-range] and [`by_hash`][by-hash]. You can 
-partition `by_range` on it's own. However, because `by_hash` makes a fixed number of partitions which can grow 
-very large, best practice is to set `by_range` when you use `by_hash`. 
+partition `by_range` on it's own. 
+
+Hypertables must always have a primary range dimension, followed by an arbitrary number of additional dimensions that 
+can be either range or hash, Typically this is just one hash.
+ 
 
 For incompatible data types such as `jsonb`, you can specify a function to
 the `partition_func` argument of the dimension build to extract a compatible
