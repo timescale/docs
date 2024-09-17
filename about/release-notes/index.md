@@ -23,10 +23,7 @@ click `Watch`, select `Custom` and then check `Releases`.
 
 </Highlight>
 
-This page contains the release notes from TimescaleDB [v2.10.0](#timescaledb2100-on-2023-02-21) 
-
-to [v2.15.1](#timescaledb2151-on-2024-05-28). For release notes for older versions, see the
-[past releases section][past-relnotes].
+This page contains the release notes from TimescaleDB [v2.10.0](#timescaledb2100-on-2023-02-21) to [v2.15.1](#timescaledb2151-on-2024-05-28). 
 
 
 ## TimescaleDB&nbsp;2.15.1 on 2024-05-28
@@ -733,9 +730,7 @@ Timescale thanks:
 
 <!---
 
-Use this template when writing new release notes. Make sure you include only the
-most recent release notes on this page, and cut and paste the older release
-notes to the `past-releases` page.
+Use this template when writing new release notes. 
 
 ## TimescaleDB&nbsp;<RELEASE_NUMBER> on <DATE>
 
@@ -801,10 +796,6 @@ Timescale thanks:
 
 --->
 
-For release notes for older TimescaleDB versions, see the
-[past releases section][past-relnotes].
-
-[past-relnotes]: /about/:currentVersion:/release-notes/past-releases/
 [changelog]: /about/:currentVersion:/changelog/
 [pg-upgrade]: /self-hosted/:currentVersion:/upgrades/upgrade-pg/
 [migrate-caggs]: /use-timescale/:currentVersion:/continuous-aggregates/migrate/
