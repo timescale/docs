@@ -13,6 +13,11 @@ api:
 
 Add an additional partitioning dimension to a Timescale hypertable. 
 
+<Highlight type="cloud" header="These instructions are for self-hosted TimescaleDB deployments" button="Try Timescale Cloud">
+Best practice is to not use additional dimensions. However, Timescale Cloud transparently provides seamless storage scaling, 
+both in terms of storage capacity and available storage IOPS/bandwidth. 
+</Highlight>
+
 You can only execute this `add_dimension` command on an empty hypertable. To convert a normal table to a hypertable, 
 call [create hypertable][create_hypertable].
 
@@ -52,7 +57,12 @@ For the following options:
 
   Multiple tablespaces only supports concurrent queries.
 
-When using hash partitions, best practice is to use 1 hash partition per disk.
+When using hash partitions, best practice is to have at least one hash partition per disk.
+
+set number of partitions to a multiple of number of disks. For example, the number of 
+partitions P=N*Pd where N is the number of disks and Pd is the number of partitions per 
+disk. This enables you to add more disks later and move partitions to the new disk from other disks.
+
 
 TimescaleDB does *not* benefit from a very large number of hash
 partitions, such as the number of unique items you expect in partition
@@ -92,7 +102,7 @@ partitioning on column `time`, then add an additional partition key on
 
 ```sql
 SELECT create_hypertable('conditions', by_range('time'));
-SELECT add_dimension('conditions', by_range('time'), by_hash('location', 4));
+SELECT add_dimension('conditions', by_hash('location', 4));
 ```
 
 <Highlight type="note">
@@ -106,10 +116,10 @@ partitionining on `device_id`.
 
 ```sql
 SELECT create_hypertable('conditions', by_range('time'));
-SELECT add_dimension('conditions', by_range('time'), by_hash('location', 2));
+SELECT add_dimension('conditions', by_hash('location', 2));
 SELECT add_dimension('conditions', by_range('time_received', INTERVAL '1 day'));
-SELECT add_dimension('conditions', by_range('time'), by_hash('device_id', 2));
-SELECT add_dimension('conditions', by_range('time'), by_hash('device_id', 2), if_not_exists => true);
+SELECT add_dimension('conditions', by_hash('device_id', 2));
+SELECT add_dimension('conditions', by_hash('device_id', 2), if_not_exists => true);
 ```
 
 In a multi-node example for distributed hypertables with a cluster
