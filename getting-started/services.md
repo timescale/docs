@@ -6,7 +6,7 @@ layout_components: [next_prev_large]
 content_group: Getting started
 ---
 
-## Regular syntax
+## Old syntax
 
 - In-text:
 
@@ -25,9 +25,12 @@ content_group: Getting started
 ## New syntax
 
 - [Markdown in-text link with a variable]($COMPANY_URL)
+- One-word variable: $COMPANY
+- Compound variable: $CLOUD
+- URL variable: $COMPANY_URL
+
 
 [markdown-reference-link-1]: https://www.timescale.com
-[markdown-reference-link-2]: <Variable name="COMPANY_URL"/>
 
 
 
