@@ -6,7 +6,9 @@ layout_components: [next_prev_large]
 content_group: Getting started
 ---
 
-## Old syntax
+## Testing out variables
+
+### Old syntax
 
 - In-text:
 
@@ -22,15 +24,20 @@ content_group: Getting started
 
   <Variable name="COMPANY_URL"/>
   
-## New syntax
+### New syntax
 
 - [Markdown in-text link with a variable]($COMPANY_URL)
 - One-word variable: $COMPANY
 - Compound variable: $CLOUD
 - URL variable: $COMPANY_URL
 
-
 [markdown-reference-link-1]: https://www.timescale.com
+
+## Testing out live queries
+
+<TryItOutCodeBlock queryId="some-interesting-query" />
+
+
 
 
 
