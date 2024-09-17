@@ -19,7 +19,7 @@ Timescale Cloud to deliver the best of both worlds, solving the key challenges i
 - Streamlined data management
 
 Currently, much of this functionality is available as [compression][compression]. However, we are actively 
-updating our APIs and docs so you can more easily integrate these features under the hyperstore umbrella.
+updating our APIs and docs so you can more easily integrate the following features under the hyperstore umbrella.
 
 Hyperstore’s hybrid approach combines the benefits of row-oriented and column-oriented formats 
 in each Timescale Cloud service:
