@@ -158,7 +158,7 @@ In TimescaleDB v2.16.0 we:
 
 * Introduced multiple performance focused optimizations for data manipulation operations (DML) over compressed chunks.
 
-  Improved upsert performance by more than 100x in some cases and more than 1000x in some update/delete scenarios.
+  Improved upsert performance by more than 100x in some cases and more than 500x in some update/delete scenarios.
 
 * Added the ability to define chunk skipping indexes on non-partitioning columns of compressed hypertables.
 
