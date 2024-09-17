@@ -7,7 +7,7 @@ tags: [integrations]
 ---
 
 
-# Integrations
+# Integrate tooling with Timescale Cloud
 
 You can integrate your Timescale database with third-party solutions to expand
 and extend what you can do with your data.
@@ -37,3 +37,4 @@ and extend what you can do with your data.
 [tableau]: /use-timescale/:currentVersion:/integrations/observability-alerting/tableau/
 [terraform]: /use-timescale/:currentVersion:/integrations/config-deploy/terraform/
 [popsql]: /getting-started/:currentVersion:/run-queries-from-console/#popsql
+

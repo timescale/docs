@@ -10,6 +10,9 @@
 
         1. Complete the installation wizard.
 
+            If you see an error like `could not load library "C:/Program Files/PostgreSQL/14/lib/timescaledb-2.16.1.dll": The specified module could not be found.`, use 
+            [Dependencies][dependencies] to ensure that your system can find the compatible DLLs for this release of TimescaleDB. 
+
     1. Check that you can run `pg_config`.
         If you cannot run `pg_config` from the command line, in the Windows
         Search tool, enter `system environment variables`.
@@ -55,3 +58,4 @@
 [release-notes]: /about/:currentVersion:/release-notes/
 [windows-releases]: https://github.com/timescale/timescaledb/releases/
 [windows-installer]: https://www.postgresql.org/download/windows/
+[dependencies]: https://github.com/lucasg/Dependencies

@@ -8,6 +8,32 @@ keywords: [changelog, upgrades, updates, releases]
 
 All the latest features and updates to Timescale products.
 
+## High availability, usability, and migrations improvements
+<Label type="date">September 12, 2024</Label>
+
+### Multiple HA replicas
+
+Scale and Enterprise customers can now configure two new multiple high availability (HA) replica options directly through Timescale Console:
+
+* Two HA replicas (both asynchronous) - our highest availability configuration.
+* Two HA replicas (one asynchronous, one synchronous) - our highest data integrity configuration.
+
+Previously, Timescale offered only a single synchronous replica for customers seeking high availability. The single HA option is still available.
+
+![Change Replica Configuration](https://s3.amazonaws.com/assets.timescale.com/docs/images/change-replica-configuration.png)
+
+![High Availability](https://s3.amazonaws.com/assets.timescale.com/docs/images/high-availability.png)
+
+For more details on multiple HA replicas, see [Manage high availability](https://docs.timescale.com/use-timescale/latest/ha-replicas/high-availability/).
+
+### Other improvements
+
+* In the Console SQL editor, we now indicate if your database session is healthy or has been disconnected. If it's been disconnected, the session will reconnect on your next query execution.
+
+   ![Session Status Indicator](https://s3.amazonaws.com/assets.timescale.com/docs/images/session-status-indicator.gif)
+
+* Released live-migration v0.0.26 and then v0.0.27 which includes multiple performance improvements and bugfixes as well as better support for PostgreSQL 12.
+
 ## One-click SQL statement execution from Timescale Console, and session support in the SQL editor
 <Label type="date">September 05, 2024</Label>
 
