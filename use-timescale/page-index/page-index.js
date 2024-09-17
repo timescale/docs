@@ -711,7 +711,7 @@ module.exports = [
             excerpt: "Change the schema of a hypertable",
           },
           {
-            title: "Index",
+            title: "Index data",
             href: "indexing",
             excerpt: "Create an index on a hypertable",
           },

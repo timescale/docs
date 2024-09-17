@@ -11,79 +11,52 @@ api:
 
 # add_dimension()
 
-Add an additional partitioning dimension to a Timescale hypertable. You can only execute this 
-`add_dimension` command on an empty hypertable. To convert a normal table to a hypertable, 
+Add an additional partitioning dimension to a Timescale hypertable. 
+
+You can only execute this `add_dimension` command on an empty hypertable. To convert a normal table to a hypertable, 
 call [create hypertable][create_hypertable].
 
 The column you select as the dimension can use either:
  
 - Interval partitions: For example, for a second range partition.
-- [hash partitions][hash-partition]: for [distributed hypertables][distributed-hypertables]
-
-<Highlight type="note">
+- [hash partitions][hash-partition]: to enable parallelization across multiple disks.
 
 This page describes the generalized hypertable API introduced in [TimescaleDB v2.13.0][rn-2130].
-
 For information about the deprecated interface, see [add_dimension(), deprecated interface][add-dimension-old].
-</Highlight>
 
 ### Hash partitions 
 
-To achieve efficient scale-out performance, best practice is to use hash partitions
-for [distributed hypertables][distributed-hypertables]. For [regular hypertables][regular-hypertables]
-that exist on a single node only, it is possible to configure additional partitioning
-for specialized use cases. However, this is is an expert option.
+Every distinct item in hash partitioning is hashed to one of *N* buckets. By default, 
+TimescaleDB uses flexible range intervals to manage chunk sizes. The main purpose of hash
+partitioning is to enable parallelization across multiple disks within the same time 
+interval.
 
-Every distinct item in hash partitioning is hashed to one of
-*N* buckets. Remember that we are already using (flexible) range
-intervals to manage chunk sizes; the main purpose of hash
-partitioning is to enable parallelization across multiple
-data nodes (in the case of distributed hypertables) or
-across multiple disks within the same time interval
-(in the case of single-node deployments).
+### Parallelizing disk I/O 
 
-### Parallelizing queries across multiple data nodes
+You use Parallel I/O in the following scenarios:
 
-In a distributed hypertable, hash partitioning enables inserts to be
-parallelized across data nodes, even while the inserted rows share
-timestamps from the same time interval, and thus increases the ingest rate.
-Query performance also benefits by being able to parallelize queries
-across nodes, particularly when full or partial aggregations can be
-"pushed down" to data nodes (for example, as in the query
-`avg(temperature) FROM conditions GROUP BY hour, location`
-when using `location` as a hash partition). Please see our
-[best practices about partitioning in distributed hypertables][distributed-hypertable-partitioning-best-practices]
-for more information.
+- Two or more concurrent queries should be able to read from different disks in parallel.
+- A single query should be able to use query parallelization to read from multiple disks in parallel.
 
-### Parallelizing disk I/O on a single node
+For the following options:
 
-Parallel I/O can benefit in two scenarios: (a) two or more concurrent
-queries should be able to read from different disks in parallel, or
-(b) a single query should be able to use query parallelization to read
-from multiple disks in parallel.
+- **RAID**: use a RAID setup across multiple physical disks, and expose a single logical disk to the hypertable.
+  That is, using a single tablespace.
 
-Thus, users looking for parallel I/O have two options:
+  Best practice is to use RAID when possible. This is because it supports the concurrent and single
+  scenarios and *no spatial partitioning is required*.
 
-1.  Use a RAID setup across multiple physical disks, and expose a
-single logical disk to the hypertable (that is, via a single tablespace).
+- **Multiple tablespaces**: for each physical disk, add a separate tablespace to the database. TimescaleDB allows you to add 
+  multiple tablespaces to a *single* hypertable. However, although under the hood, a hypertable's
+  chunks are spread across the tablespaces associated with that hypertable.
 
-1.  For each physical disk, add a separate tablespace to the
-database. Timescale allows you to actually add multiple tablespaces
-to a *single* hypertable (although under the covers, a hypertable's
-chunks are spread across the tablespaces associated with that hypertable).
+  Multiple tablespaces only supports concurrent queries.
 
-We recommend a RAID setup when possible, as it supports both forms of
-parallelization described above (that is, separate queries to separate
-disks, single query to multiple disks in parallel).  The multiple
-tablespace approach only supports the former. With a RAID setup,
-*no spatial partitioning is required*.
+When using hash partitions, best practice is to use 1 hash partition per disk.
 
-That said, when using hash partitions, we recommend using 1
-hash partition per disk.
-
-Timescale does *not* benefit from a very large number of hash
-partitions (such as the number of unique items you expect in partition
-field).  A very large number of such partitions leads both to poorer
+TimescaleDB does *not* benefit from a very large number of hash
+partitions, such as the number of unique items you expect in partition
+field.  A very large number of hash partitions leads both to poorer
 per-partition load balancing (the mapping of items to partitions using
 hashing), as well as much increased planning latency for some types of
 queries.
@@ -119,7 +92,7 @@ partitioning on column `time`, then add an additional partition key on
 
 ```sql
 SELECT create_hypertable('conditions', by_range('time'));
-SELECT add_dimension('conditions', by_hash('location', 4));
+SELECT add_dimension('conditions', by_range('time'), by_hash('location', 4));
 ```
 
 <Highlight type="note">
@@ -133,13 +106,13 @@ partitionining on `device_id`.
 
 ```sql
 SELECT create_hypertable('conditions', by_range('time'));
-SELECT add_dimension('conditions', , by_hash('location', 2));
+SELECT add_dimension('conditions', by_range('time'), by_hash('location', 2));
 SELECT add_dimension('conditions', by_range('time_received', INTERVAL '1 day'));
-SELECT add_dimension('conditions', by_hash('device_id', 2));
-SELECT add_dimension('conditions', by_hash('device_id', 2), if_not_exists => true);
+SELECT add_dimension('conditions', by_range('time'), by_hash('device_id', 2));
+SELECT add_dimension('conditions', by_range('time'), by_hash('device_id', 2), if_not_exists => true);
 ```
 
-Now in a multi-node example for distributed hypertables with a cluster
+In a multi-node example for distributed hypertables with a cluster
 of one access node and two data nodes, configure the access node for
 access to the two data nodes. Then, convert table `conditions` to
 a distributed hypertable with just range partitioning on column `time`,
@@ -150,7 +123,7 @@ with two partitions (as the number of the attached data nodes).
 SELECT add_data_node('dn1', host => 'dn1.example.com');
 SELECT add_data_node('dn2', host => 'dn2.example.com');
 SELECT create_distributed_hypertable('conditions', 'time');
-SELECT add_dimension('conditions', by_hash('location', 2));
+SELECT add_dimension('conditions', by_range('time'), by_hash('location', 2));
 ```
 
 [create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/

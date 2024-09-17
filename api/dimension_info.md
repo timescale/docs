@@ -1,41 +1,36 @@
 # Dimension Builders
 
-<Highlight type="note">
-Dimension builders were introduced in TimescaleDB 2.13.
-</Highlight>
+You call [`create_hypertable`][create_hypertable] and [`add_dimension`][add_dimension] to specify the dimensions to 
+partition a hypertable on. TimescaleDB supports partitioning [`by_range`][by-range] and [`by_hash`][by-hash]. You can 
+partition `by_range` on it's own. However, because `by_hash` makes a fixed number of partitions which can grow 
+very large, best practice is to set `by_range` when you use `by_hash`. 
 
-The `create_hypertable` and `add_dimension` are used together with
-dimension builders to specify the dimensions to partition a
-hypertable on.
-
-TimescaleDB currently supports two partition types: partitioning by
-range and partitioning by hash.
-
-<Highlight type="tip">
-For incompatible data types (for example, `jsonb`) you can specify a function to
+For incompatible data types such as `jsonb`, you can specify a function to
 the `partition_func` argument of the dimension build to extract a compatible
 data type. Look in the example section below.
-</Highlight>
+
+Dimension builders were introduced in TimescaleDB 2.13.
+
+
 
 ## Partition Function
 
-It is possible to specify a custom partitioning function for both
+If you do not set custom partitioning, TimescaleDB calls PostgreSQL's internal hash function for the given type.
+You use custom partitioning function for value types that do not have a native PostgreSQL hash
+function.
+
+You can specify a custom partitioning function for both
 range and hash partitioning. A partitioning function should take a
 `anyelement` argument as the only parameter and return a positive
-`integer` hash value. Note that this hash value is _not_ a partition
-identifier, but rather the inserted value's position in the
-dimension's key space, which is then divided across the partitions.
+`integer` hash value. This hash value is _not_ a partition identifier, but rather the 
+inserted value's position in the dimension's key space, which is then divided across 
+the partitions.
 
-If no custom partitioning function is specified, the default
-partitioning function is used, which calls PostgreSQL's internal hash
-function for the given type. Thus, a custom partitioning function can
-be used for value types that do not have a native PostgreSQL hash
-function.
 
 ## by_range()
 
-Creates a by-range dimension builder that can be used with
-`create_hypertable` and `add_dimension`.
+Create a by-range dimension builder that can be used with
+[`create_hypertable`][create_hypertable] and [`add_dimension`][add_dimension].
 
 ### Required Arguments
 
@@ -59,19 +54,15 @@ information.
 
 ### Notes
 
-The `partition_interval` should be specified as follows:
+Specify the `partition_interval` as follows. If the column to be partitioned is a:
 
-- If the column to be partitioned is a `TIMESTAMP`, `TIMESTAMPTZ`, or
-  `DATE`, this length should be specified either as an `INTERVAL` type
+- `TIMESTAMP`, `TIMESTAMPTZ`, or `DATE`: specify `partition_interval` either as an `INTERVAL` type
   or an integer value in *microseconds*.
 
-- If the column is some other integer type, this length should be an
-  integer that reflects the column's underlying semantics (for example, the
-  `partition_interval` should be given in milliseconds if this column
-  is the number of milliseconds since the UNIX epoch).
+- Another integer type: specify `partition_interval` as an integer that reflects the column's 
+  underlying semantics. For example, if this column is in UNIX time, specify `partition_interval` in milliseconds.
 
-A summary of the partition type and default value depending on the
-column type is summarized below.
+The partition type and default value depending on column type is:
 
 | Column Type                  | Partition Type   | Default value |
 |------------------------------|------------------|---------------|
@@ -90,13 +81,12 @@ The simplest usage is to partition on a time column:
 SELECT create_hypertable('my_table', by_range('time'));
 ```
 
-In this case, the dimension builder can be excluded since
-`create_hypertable` by default assumes that a single provided column
+In this case, the dimension builder can be excluded since by default, 
+`create_hypertable`  assumes that a single provided column
 is range partitioned by time.
 
-If you have a table with a non-time column containing the time, for
-example a JSON column, you can add a partition function to extract the
-time. 
+If you have a table with a non-time column containing the time, such as 
+a JSON column, add a partition function to extract the time. 
 
 ```sql
 CREATE TABLE my_table (
@@ -131,3 +121,10 @@ SELECT create_hypertable('my_table', by_range('data', '1 day', 'get_time'));
 An *dimension builder*, which is an which is an opaque type
 `_timescaledb_internal.dimension_info`, holding the dimension
 information.
+
+[create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
+[add_dimension]: /api/:currentVersion:/hypertable/add_dimension/
+[dimension_builders]: /api/:currentVersion://hypertable/dimension_info/
+[by-range]: /api/:currentVersion:/hypertable/dimension_info/#by_range
+[by-hash]: /api/:currentVersion:/hypertable/dimension_info/#by_hash
+
