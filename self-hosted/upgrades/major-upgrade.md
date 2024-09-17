@@ -24,12 +24,6 @@ TimescaleDB&nbsp;2.5 to TimescaleDB&nbsp;2.6, see the
 
 <PlanUpgrade />
 
-Additionally, before you begin this major upgrade, read the
-[changes in TimescaleDB&nbsp;2 section][changes-in-ts2].
-This section provides a more detailed look at the major changes in
-TimescaleDB&nbsp;2. It also includes information about how these major changes
-impact the way your applications and scripts interact with the TimescaleDB API.
-
 ## Breaking changes
 
 When you upgrade from TimescaleDB&nbsp;1, to TimescaleDB&nbsp;2, scripts
@@ -44,9 +38,6 @@ with your existing continuous aggregates.
 If incompatible retention policies are present when you perform the upgrade, the
 `ignore_invalidation_older_than` setting is automatically turned off, and a
 notice is shown.
-
-For more information about changes to continuous aggregates and data retention
-policies, see the [release notes][relnotes-20].
 
 ## Upgrade TimescaleDB to the next major version
 
@@ -194,6 +185,4 @@ total_failures         | 0
 
 </Procedure>
 
-[changes-in-ts2]: /about/:currentVersion:/release-notes/changes-in-timescaledb-2
-[relnotes-20]: /about/:currentVersion:/release-notes/changes-in-timescaledb-2#retention-and-caggs
 [upgrade-minor]: /self-hosted/:currentVersion:/upgrades/minor-upgrade/

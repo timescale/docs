@@ -133,9 +133,9 @@ This section shows you how to workaround issues frequently seen issues using Liv
 
 <Troubleshooting />
 
-[about-hypertables]: /use-timescale/:currentVersion/hypertables/
-[data-compression]: /use-timescale/:currentVersion/compression/
-[data-retention]: /use-timescale/:currentVersion/data-retention/
+[about-hypertables]: /use-timescale/:currentVersion:/hypertables/
+[data-compression]: /use-timescale/:currentVersion:/compression/
+[data-retention]: /use-timescale/:currentVersion:/data-retention/
 [from-postgres]: /migrate/:currentVersion:/live-migration/live-migration-from-postgres/
 [from-timescaledb]: /migrate/:currentVersion:/live-migration/live-migration-from-timescaledb/
 [pg-dump-and-restore]: /migrate/:currentVersion:/pg-dump-and-restore/
