@@ -17,8 +17,8 @@ performance and user experience for time-series data.
 *   [Change hypertable chunk intervals][change-chunk-intervals]
 *   [Alter a hypertable][alter-hypertables]
 *   [Create unique indexes on hypertables][create-unique-indexes]
-*   [Skip chunks][skip-chunks]
 *   [Drop a hypertable][drop-hypertables]
+*   [Improve query performance][improve-query-performance]
 *   [Troubleshoot hypertable issues][troubleshooting]
 
 [about-hypertables]: /use-timescale/:currentVersion:/hypertables/about-hypertables/
@@ -26,6 +26,6 @@ performance and user experience for time-series data.
 [change-chunk-intervals]: /use-timescale/:currentVersion:/hypertables/change-chunk-intervals/
 [create-hypertables]: /use-timescale/:currentVersion:/hypertables/create/
 [create-unique-indexes]: /use-timescale/:currentVersion:/hypertables/hypertables-and-unique-indexes/
-[skip-chunks]: /use-timescale/:currentVersion:/hypertables/skip-chunks/
+[improve-query-performance]: /use-timescale/:currentVersion:/hypertables/improve-query-performance/
 [drop-hypertables]: /use-timescale/:currentVersion:/hypertables/drop/
 [troubleshooting]: /use-timescale/:currentVersion:/hypertables/troubleshooting/

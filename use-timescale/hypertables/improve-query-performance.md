@@ -12,10 +12,10 @@ to satisfy the query. This works well when the `WHERE` clause of a query uses th
 partitioned. For example, in a hypertable where every day of the year is a separate chunk, a query for September 1 
 accesses only the chunk for that day. However, many queries use columns other than the partitioning one. For example, 
 a table might have two columns: one for when data was gathered and one for when it was added to the database. If you 
-partition by the date of gathering, a query by the date of adding access all chunks in the hypertable and slows 
+partition by the date of gathering, a query by the date of adding accesses all chunks in the hypertable and slows the 
 performance.
 
-To improve query performance, TimescaleDB enables you skip hypertable chunks on non-partitioning columns. 
+To improve query performance, TimescaleDB enables you to skip hypertable chunks on non-partitioning columns. 
 
 ## How chunk skipping works
 
