@@ -432,6 +432,11 @@ module.exports = [
             excerpt: "Drop hypertables",
           },
           {
+            title: "Skip chunks",
+            href: "skip-chunks",
+            excerpt: "Skip chunks",
+          },
+          {
             title: "Troubleshoot hypertables",
             href: "troubleshooting",
             type: "placeholder",
