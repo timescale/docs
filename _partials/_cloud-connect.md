@@ -6,19 +6,20 @@ To ensure a Timescale service is running correctly:
 
 1. **Check your service**
 
-    In [Timescale Console][services-portal], select a service and check that it is marked as `Running`.
+    In [Timescale Console][services-portal], check that your service marked as `Running`.
 
    ![Check service is running](https://assets.timescale.com/docs/images/cloud-sql-editors.png)
 
 1. **Connect to your service**
 
-    Use either: 
-    - A Cloud SQL editor from Timescale Console:
-      - [SQL editor][run-sqleditor]: in Timescale Console, click `SQL editor`. You can now run queries for this service. 
-      - [PopSQL][popsql]:  in Timescale Console, click `PopSQL`, then follow the instructions to easily connect to 
+    Use either:  
+    - [Data mode][popsql]: click `Data`, then follow the instructions to easily connect to 
         this service with PopSQL.
-    - The command line:
-      - [psql][install-psql]: connect to your service with the value of `Service URL` from the config file you 
+    - [SQL editor][run-sqleditor]: select a Service, then click `SQL editor`. You can now run queries for this service.
+   
+      ![Check service is running](https://assets.timescale.com/docs/images/ops-view-sql-editor.png)
+    - [psql][install-psql]:
+      Connect to your service with the value of `Service URL` from the config file you 
         just saved:
 
         <CodeBlock canCopy={true} showLineNumbers={false} children={`
