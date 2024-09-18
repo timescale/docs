@@ -12,38 +12,12 @@ As Timescale Cloud is based on PostgreSQL, you can use lots of [different tools]
 connect to your service and interact with your data. To securely manage your date from inside 
 Console, Timescale offers the following Cloud SQL editors:
 
-- [SQL editor][run-sqleditor]: a simple UI to run queries for each individual service.
 - [PopSQL][run-popsql]: a comprehensive UI that you use to write queries, visualize data, 
    and share your results.
+- [SQL editor][run-sqleditor]: a simple UI to run queries for each individual service.
+
 
 If you prefer the command line to a Cloud SQL editor, use [psql][install-psql].
-
-## SQL editor
-
-SQL editor is an integrated secure UI that you use to run queries and see the results 
-for an Timescale Cloud service.
-
-![Screenshot of SQL editor](https://assets.timescale.com/docs/images/sqleditor.png)
-
-To enable or disable SQL editor in your service, click `Operations` > `Service management`, then 
-update the setting for SQL editor.
-
-### Run queries from Console with SQL editor
-
-<Procedure>
-
-To use SQL editor with Timescale:
-
-1.  **Open SQL editor from Timescale Console**
-
-    1. In [Timescale Console][timescale-console-services], select a service.
-    1. Click `SQL editor`. You can now run queries for this service. 
-
-4. **Run a test query**
-
-    Type your query in the UI, then click `Run`. The results appear in the lower window. 
-
-</Procedure>
 
 ## PopSQL
 
@@ -178,6 +152,37 @@ If you'd like to prevent write operations such as insert or update. Instead
 of using the `tsdbadmin` superuser, create a read-only user for your service and
 use that within PopSQL.
 
+
+
+## SQL editor
+
+SQL editor is an integrated secure UI that you use to run queries and see the results
+for an Timescale Cloud service.
+
+![Screenshot of SQL editor](https://assets.timescale.com/docs/images/sqleditor.png)
+
+To enable or disable SQL editor in your service, click `Operations` > `Service management`, then
+update the setting for SQL editor.
+
+### Run queries from Console with SQL editor
+
+<Procedure>
+
+To use SQL editor with Timescale:
+
+1.  **Open SQL editor from Timescale Console**
+
+    In [`Ops` in Timescale Console][portal-ops-mode], select a service, then click `SQL editor`.
+
+    ![Check service is running](https://assets.timescale.com/docs/images/ops-view-sql-editor.png)
+
+4. **Run a test query**
+
+   Type your query in the UI, then click `Run`. The results appear in the lower window.
+
+</Procedure>
+
+
 ## Cloud SQL editor licenses
 
 * **SQL editor**: free for anyone with a [Timescale Cloud account][create-cloud-account].
@@ -193,7 +198,7 @@ use that within PopSQL.
 [run-sqleditor]: /getting-started/:currentVersion:/run-queries-from-console/#sql-editor
 [integrations]: /use-timescale/:currentVersion:/integrations/query-admin/
 [timescale-console]: https://console.cloud.timescale.com/
-[timescale-console-services]: https://console.cloud.timescale.com/dashboard/services
+[portal-ops-mode]: https://console.cloud.timescale.com/dashboard/services
 [pricing-plan-features]: https://www.timescale.com/pricing#features
 [install-psql]: /use-timescale/:currentVersion:/integrations/query-admin/psql/
 [create-cloud-account]: /getting-started/:currentVersion:/services/#create-a-timescale-cloud-account
