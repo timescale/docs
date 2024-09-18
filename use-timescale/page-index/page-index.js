@@ -432,8 +432,8 @@ module.exports = [
             excerpt: "Drop hypertables",
           },
           {
-            title: "Skip chunks",
-            href: "skip-chunks",
+            title: "Improve query performance",
+            href: "improve-query-performance",
             excerpt: "Skip chunks",
           },
           {
