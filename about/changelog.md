@@ -16,13 +16,13 @@ We've been listening to your feedback and noticed that Timescale Console users h
 
 **To better serve you, we've introduced new modes to the Timescale Console UI—tailoring the experience based on what you're trying to accomplish.**
 
-Ops mode is where you can manage your services, add replicas, configure compression, change parameters, etc. 
+Ops mode is where you can manage your services, add replicas, configure compression, change parameters, and so on.
 
 Data mode is the full PopSQL experience: write queries with autocomplete, visualize data with charts and dashboards, schedule queries and dashboards to create alerts or recurring reports, share queries and dashboards, and more.
 
 Try it today and let us know what you think! 
 
-![Timescale Console Ops and Data mode](https://s3.amazonaws.com/assets.timescale.com/docs/images/ops-data-mode.gif)
+![Timescale Console Ops and Data mode](https://assets.timescale.com/docs/images/ops-data-mode.gif)
 
 ### Other improvements
 
