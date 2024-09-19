@@ -26,9 +26,10 @@ Try it today and let us know what you think!
 
 ## Console based Parquet File Import
 
-* Now users can upload from Parquet  to Timescale by uploading the file from their local file system.  For files larger than 250 MB or if you want to do it yourself, follow the three-step process to upload Parquet files to Timescale.
+Now users can upload from Parquet to Timescale Cloud by uploading the file from their local file system. For files larger than 250 MB, or if you want to do it yourself, follow the three-step process to upload Parquet files to Timescale.
 
-https://github.com/user-attachments/assets/b1048bfe-e2a2-433a-a767-d7e00a20f715
+![Upload from Parquet to Timescale Cloud](https://assets.timescale.com/docs/images/upload-parquet.gif)
+
 
 ### SQL editor improvements
 
