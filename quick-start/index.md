@@ -13,5 +13,5 @@ These pages help you to quickly integrate Timescale Cloud and TimescaleDB into y
 * [Golang](/quick-start/:currentVersion:/golang/)
 * [Java](/quick-start/:currentVersion:/java/)
 
-You are not limited to these languages, as Timescale Cloud is based on PosgreSQL, you can interface
+You are not limited to these languages. Timescale Cloud is based on PosgreSQL, you can interface
 with TimescaleDB and Timescale Cloud using any [PostgreSQL client driver](https://wiki.postgresql.org/wiki/List_of_drivers).
