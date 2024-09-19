@@ -23,7 +23,7 @@ Data mode is the full PopSQL experience: write queries with autocomplete, visual
 
 Try it today and let us know what you think! 
 
-![Timescale Console Ops and Data mode]( !!! URL !!! )
+![Timescale Console Ops and Data mode](https://s3.amazonaws.com/assets.timescale.com/docs/images/ops-data-mode.gif)
 
 ### Other improvements
 
