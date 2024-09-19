@@ -28,7 +28,7 @@ Try it today and let us know what you think!
 
 Now users can upload from Parquet to Timescale Cloud by uploading the file from their local file system. For files larger than 250 MB, or if you want to do it yourself, follow the three-step process to upload Parquet files to Timescale.
 
-![Upload from Parquet to Timescale Cloud](https://assets.timescale.com/docs/images/upload-parquet.gif)
+![Upload from Parquet to Timescale Cloud](https://assets.timescale.com/docs/images/upload_parquet.gif)
 
 
 ### SQL editor improvements
