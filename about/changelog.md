@@ -27,13 +27,12 @@ Try it today and let us know what you think!
 ## Console based Parquet File Import
 
 * Now users can upload from Parquet  to Timescale by uploading the file from their local file system.  For files larger than 250 MB or if you want to do it yourself, follow the three-step process to upload Parquet files to Timescale.
-* For files larger than 250 MB or if users prefer to do it themselves, they can follow a three-step process to upload Parquet files into Timescale.
 
 https://github.com/user-attachments/assets/b1048bfe-e2a2-433a-a767-d7e00a20f715
 
-### Other improvements
+### SQL editor improvements
 
-* In the Ops mode SQL editor, you can now highlight a statement to just run that specific statement
+* In the Ops mode SQL editor, you can now highlight a statement to run a specific statement.
 
 ## High availability, usability, and migrations improvements
 <Label type="date">September 12, 2024</Label>
