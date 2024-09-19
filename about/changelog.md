@@ -8,10 +8,9 @@ keywords: [changelog, upgrades, updates, releases]
 
 All the latest features and updates to Timescale products.
 
-## Timescale Console, and SQL editor improvements
-<Label type="date">September 19, 2024</Label>
+## 🤝 New modes in Timescale Console: Ops and Data mode
 
-### 🤝 New modes in Timescale Console: Ops and Data mode
+<Label type="date">September 19, 2024</Label>
 
 We've been listening to your feedback and noticed that Timescale Console users have diverse needs. Some of you are focused on operational tasks like adding replicas or changing parameters, while others are diving deep into data analysis to gather insights.
 
