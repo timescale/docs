@@ -1,6 +1,6 @@
 module.exports = [
   {
-    title: "Tutorials",
+    title: "Implement engineering user cases",
     href: "tutorials",
     excerpt: "Learn about common scenarios and use cases for Timescale",
     children: [

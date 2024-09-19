@@ -1,5 +1,5 @@
 ---
-title: Create your first Timescale service
+title: Create your first Timescale Cloud service
 excerpt: Sign up for Timescale and create your first service
 products: [cloud]
 layout_components: [next_prev_large]
