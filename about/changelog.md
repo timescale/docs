@@ -8,6 +8,27 @@ keywords: [changelog, upgrades, updates, releases]
 
 All the latest features and updates to Timescale products.
 
+## Timescale Console, and SQL editor improvements
+<Label type="date">September 19, 2024</Label>
+
+### 🤝 New modes in Timescale Console: Ops and Data mode
+
+We've been listening to your feedback and noticed that Timescale Console users have diverse needs. Some of you are focused on operational tasks like adding replicas or changing parameters, while others are diving deep into data analysis to gather insights.
+
+**To better serve you, we've introduced new modes to the Timescale Console UI—tailoring the experience based on what you're trying to accomplish.**
+
+Ops mode is where you can manage your services, add replicas, configure compression, change parameters, etc. 
+
+Data mode is the full PopSQL experience: write queries with autocomplete, visualize data with charts and dashboards, schedule queries and dashboards to create alerts or recurring reports, share queries and dashboards, and more.
+
+Try it today and let us know what you think! 
+
+![Timescale Console Ops and Data mode]( !!! URL !!! )
+
+### Other improvements
+
+* In the Ops mode SQL editor, you can now highlight a statement to just run that specific statement
+
 ## High availability, usability, and migrations improvements
 <Label type="date">September 12, 2024</Label>
 
