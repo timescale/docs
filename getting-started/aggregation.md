@@ -13,6 +13,8 @@ import CandlestickIntro from "versionContent/_partials/_candlestick_intro.mdx";
 
 # Continuous aggregation
 
+$CLOUD_LONG
+
 Aggregation is a way of combing data to get insights from it. At its simplest,
 aggregation is something like looking for an average. For example, if you have
 data showing temperature changes over time, you can calculate an average of
