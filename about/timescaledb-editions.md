@@ -6,7 +6,7 @@ keywords: [Apache, community, license]
 tags: [learn, contribute]
 ---
 
-# TimescaleDB Apache 2 and TimescaleDB Community Edition
+# TimescaleDB Apache 2 and TimescaleDB Community licenses
 
 There are two versions of TimescaleDB available:
 

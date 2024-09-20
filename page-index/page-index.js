@@ -9,18 +9,19 @@ const codeQuickStartsPageIndex = require("../quick-start/page-index/page-index.j
 const migrationPageIndex = require("../migrate/page-index/page-index.js");
 const timescaleAboutPageIndex = require("../about/page-index/page-index");
 const AIPageIndex = require("../ai/page-index/page-index");
+const AdminPageIndex = require("../ops/page-index/page-index");
 
 module.exports = [
   ...gsgPageIndex,
-  ...timescaleUsingPageIndex,
-  ...tutorialsPageIndex,
-  ...codeQuickStartsPageIndex,
-  ...apiReferencePageIndex,
-  ...selfHostedPageIndex,
-  ...timescaleMSTPageIndex,
-  ...timescaleAboutPageIndex,
-  ...navigationPageIndex,
   ...migrationPageIndex,
+  ...timescaleAboutPageIndex,
+  ...timescaleUsingPageIndex,
+  ...selfHostedPageIndex,
+  ...apiReferencePageIndex,
+  ...timescaleMSTPageIndex,
+  ...tutorialsPageIndex,
+  ...navigationPageIndex,
+  ...AdminPageIndex,
   ...AIPageIndex,
   {
     Title: "GitHub",

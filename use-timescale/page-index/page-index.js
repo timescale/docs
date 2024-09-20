@@ -1,6 +1,6 @@
 module.exports = [
   {
-    title: "Use Timescale",
+    title: "Manage your data",
     href: "use-timescale",
     filePath: "index.md",
     pageComponents: ["content-list"],
