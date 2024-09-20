@@ -1,15 +1,6 @@
----
-title: Tables and hypertables
-excerpt: Create tables and hypertables in your Timescale account
-products: [cloud]
-keywords: [hypertables, create]
-layout_components: [next_prev_large]
-content_group: Getting started
----
-
 import HypertableIntro from "versionContent/_partials/_hypertables-intro.mdx";
 
-# Tables and hypertables
+## Organize your data using tables and hypertables 
 
 <HypertableIntro />
 
@@ -33,7 +24,7 @@ indexes later on, if you need to.
 For more information, see
 [the hypertables section][hypertable-how-to].
 
-## Create your first hypertable
+### Create your first hypertable
 
 For the financial dataset used in this guide, create a hypertable named
 `stocks_real_time` that contains second-by-second stock-trade data for the top
@@ -41,7 +32,7 @@ For the financial dataset used in this guide, create a hypertable named
 
 <Procedure>
 
-### Creating your first hypertable
+
 
 1.  At the command prompt, use the `psql` connection string from the cheat sheet
     you downloaded to connect to your database.
@@ -75,7 +66,7 @@ For the financial dataset used in this guide, create a hypertable named
 
 </Procedure>
 
-## Create regular PostgreSQL tables for relational data
+### Create regular PostgreSQL tables for relational data
 
 Timescale isn't just for hypertables. When you have other relational data that
 enhances your time-series data, you can create regular PostgreSQL tables just as
@@ -83,8 +74,6 @@ you would normally. For this dataset, there is one other table of data called
 `company`.
 
 <Procedure>
-
-### Creating regular PostgreSQL tables
 
 1.  Add a table to store the company name and symbol for the stock trade data:
 

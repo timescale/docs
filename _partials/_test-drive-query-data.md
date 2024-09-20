@@ -1,13 +1,5 @@
----
-title: Queries
-excerpt: Query your time-series data
-products: [cloud]
-keywords: [queries]
-layout_components: [next_prev_large]
-content_group: Getting started
----
 
-# Queries
+## Query uour data 
 
 Timescale supports full SQL, so you don't need to learn a custom query language.
 This section contains some simple queries that you can run directly on this
@@ -23,7 +15,7 @@ instruction to select data from a database. Doing a quick `SELECT` query is
 often the first thing you do with a new database, just to make sure that your
 data is stored in your database in the way you expect it to be.
 
-## Use SELECT to return data
+### Use SELECT to return data
 
 This first section uses a `SELECT` statement to ask your database to return
 every column, represented by the asterisk, from the `stocks_real_time srt`
@@ -42,8 +34,6 @@ LIMIT 10
 
 <Procedure>
 
-### Using SELECT to return data
-
 1.  At the command prompt, use the `psql` connection string from the cheat sheet
     you downloaded to connect to your database.
 1.  At the `psql` prompt, type this query.
@@ -59,7 +49,7 @@ LIMIT 10
 
 </Procedure>
 
-## Use ORDER BY to organize results
+### Use ORDER BY to organize results
 
 In the previous section, you saw a selection of rows from the table. Usually,
 you want to order the rows so that you see the most recent trades. You can
@@ -91,8 +81,6 @@ LIMIT 10
 
 <Procedure>
 
-### Using ORDER BY to organize results
-
 1.  At the command prompt, use the `psql` connection string from the cheat sheet
     you downloaded to connect to your database.
 1.  At the `psql` prompt, type this query:
@@ -104,7 +92,7 @@ LIMIT 10
 
 </Procedure>
 
-## Get the first and last value
+### Get the first and last value
 
 Timescale has custom SQL functions that can help make time-series analysis
 easier and faster. In this section, you learn about two common Timescale
@@ -140,7 +128,6 @@ For more information about these functions, see the API documentation for
 
 <Procedure>
 
-### Getting the first and last value
 
 1.  At the command prompt, use the `psql` connection string from the cheat sheet
     you downloaded to connect to your database.
@@ -152,7 +139,7 @@ For more information about these functions, see the API documentation for
 
 </Procedure>
 
-## Use time buckets to get values
+### Use time buckets to get values
 
 To make it easier to look at numbers over different time ranges, you can use the
 Timescale `time_bucket` function. Time buckets are used to group data, so that
@@ -191,8 +178,6 @@ GROUP BY bucket
 For more information about time bucketing, see the [time bucket section][time-buckets].
 
 <Procedure>
-
-### Using time buckets to get values
 
 1.  At the command prompt, use the `psql` connection string from the cheat sheet
     you downloaded to connect to your database.

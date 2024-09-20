@@ -25,6 +25,9 @@ To follow this page, you must either:
 
 <Tabs label="Start Coding">
 
+You are not limited to these languages. Timescale Cloud is based on PosgreSQL, you can interface
+with TimescaleDB and Timescale Cloud using any [PostgreSQL client driver](https://wiki.postgresql.org/wiki/List_of_drivers).
+
 <Tab title="Python">
 
 <Python />

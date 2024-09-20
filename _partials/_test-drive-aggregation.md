@@ -1,17 +1,9 @@
----
-title: Continuous aggregation
-excerpt: Create an aggregate and query it
-products: [cloud]
-keywords: [continuous aggregates, create]
-layout_components: [next_prev_large]
-content_group: Getting started
----
 
 import CaggsIntro from "versionContent/_partials/_caggs-intro.mdx";
 import CaggsTypes from "versionContent/_partials/_caggs-types.mdx";
 import CandlestickIntro from "versionContent/_partials/_candlestick_intro.mdx";
 
-# Continuous aggregation
+## Speed up your queries with continuous aggregates
 
 Aggregation is a way of combing data to get insights from it. At its simplest,
 aggregation is something like looking for an average. For example, if you have
@@ -25,7 +17,7 @@ you need something a little more sophisticated. That's where Timescale
 continuous aggregates come in. Continuous aggregates can minimize the number of
 records that you need to look up to perform your query.
 
-## Continuous aggregates
+### Continuous aggregates
 
 <CaggsIntro />
 
@@ -70,8 +62,6 @@ ORDER BY bucket, symbol
 
 <Procedure>
 
-### Finding average stock prices for the last week
-
 1.  At the command prompt, use the `psql` connection string from the cheat sheet
     you downloaded to connect to your database.
 1.  At the `psql` prompt, type this query:
@@ -86,7 +76,7 @@ the query. For more information about how time buckets are calculated, see the
 
 -->
 
-## Create an aggregate query
+### Create an aggregate query
 
 <CandlestickIntro />
 
@@ -114,8 +104,6 @@ ORDER BY day DESC, symbol
 
 <Procedure>
 
-### Creating an aggregate query
-
 1.  At the command prompt, use the `psql` connection string from the cheat sheet
     you downloaded to connect to your database.
 1.  At the `psql` prompt, type this query:
@@ -126,7 +114,7 @@ ORDER BY day DESC, symbol
 
 </Procedure>
 
-## Create a continuous aggregate
+### Create a continuous aggregate
 
 Now that you have an aggregation query, you can use it to create a continuous
 aggregate.
@@ -176,8 +164,6 @@ WHERE symbol='TSLA';
 `} />
 
 <Procedure>
-
-### Creating a continuous aggregate
 
 1.  At the command prompt, use the `psql` connection string from the cheat sheet
     you downloaded to connect to your database.

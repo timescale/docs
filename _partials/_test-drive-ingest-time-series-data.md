@@ -1,24 +1,13 @@
----
-title: Time-series data
-excerpt: Add time-series data to your Timescale service
-products: [cloud]
-keywords: [ingest]
-tags: [add, data, time-series]
-layout_components: [next_prev_large]
-content_group: Getting started
----
 
-import TimeseriesIntro from "versionContent/_partials/_timeseries-intro.mdx";
 
-# Time-series data
+## Ingest time-series data
 
-<TimeseriesIntro />
 
 To explore Timescale's features, you need some sample data. This guide
 uses real-time stock trade data, also known as tick data, from
 [Twelve Data][twelve-data].
 
-## About the dataset
+### About the dataset
 
 The dataset contains second-by-second stock-trade data for the top 100
 most-traded symbols, in a hypertable named `stocks_real_time`. It also includes
@@ -30,7 +19,7 @@ weeks, typically ~8 million rows of data. Stock trades are recorded in real-time
 Monday through Friday, during normal trading hours of the New York Stock
 Exchange (9:30&nbsp;AM - 4:00&nbsp;PM EST).
 
-## Ingest the dataset
+### Ingest the dataset
 
 To ingest data into the tables that you created, you need to download the
 dataset and copy the data to your database.
