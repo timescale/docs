@@ -38,7 +38,7 @@ You can enable chunk skipping on compressed hypertables for `smallint`, `int`, `
 You can enable chunk skipping on as many columns as you need. However, best practice is to enable it on columns that are both:
  
 - correlated, that is, related to the partitioning column in some way, and
-- referenced in the `WHERE` clauses. 
+- Referenced in the `WHERE` clauses. 
 
 In the satellite example above, the time of adding data to a database inevitably follows the time of gathering. Sequential IDs and the creation timestamp for both entities also increase synchronously. This means those two columns are correlated. 
 
