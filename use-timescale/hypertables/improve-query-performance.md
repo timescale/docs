@@ -35,7 +35,7 @@ You can enable chunk skipping on compressed hypertables for `smallint`, `int`, `
 
 ## When to enable chunk skipping
 
-You can enable chunk skipping on as many columns as you need. However, best practice is to enable it on the following columns:
+You can enable chunk skipping on as many columns as you need. However, best practice is to enable it on columns that are both:
  
 - correlated, that is, related to the partitioning column in some way, and
 - referenced in the `WHERE` clauses. 
