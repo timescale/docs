@@ -8,6 +8,33 @@ keywords: [changelog, upgrades, updates, releases]
 
 All the latest features and updates to Timescale products.
 
+## 🤝 New modes in Timescale Console: Ops and Data mode, and Console based Parquet File Import
+
+<Label type="date">September 19, 2024</Label>
+
+We've been listening to your feedback and noticed that Timescale Console users have diverse needs. Some of you are focused on operational tasks like adding replicas or changing parameters, while others are diving deep into data analysis to gather insights.
+
+**To better serve you, we've introduced new modes to the Timescale Console UI—tailoring the experience based on what you're trying to accomplish.**
+
+Ops mode is where you can manage your services, add replicas, configure compression, change parameters, and so on.
+
+Data mode is the full PopSQL experience: write queries with autocomplete, visualize data with charts and dashboards, schedule queries and dashboards to create alerts or recurring reports, share queries and dashboards, and more.
+
+Try it today and let us know what you think! 
+
+![Timescale Console Ops and Data mode](https://assets.timescale.com/docs/images/ops-data-mode.gif)
+
+## Console based Parquet File Import
+
+Now users can upload from Parquet to Timescale Cloud by uploading the file from their local file system. For files larger than 250 MB, or if you want to do it yourself, follow the three-step process to upload Parquet files to Timescale.
+
+![Upload from Parquet to Timescale Cloud](https://assets.timescale.com/docs/images/upload_parquet.gif)
+
+
+### SQL editor improvements
+
+* In the Ops mode SQL editor, you can now highlight a statement to run a specific statement.
+
 ## High availability, usability, and migrations improvements
 <Label type="date">September 12, 2024</Label>
 
