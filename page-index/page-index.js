@@ -9,7 +9,7 @@ const codeQuickStartsPageIndex = require("../quick-start/page-index/page-index.j
 const migrationPageIndex = require("../migrate/page-index/page-index.js");
 const timescaleAboutPageIndex = require("../about/page-index/page-index");
 const AIPageIndex = require("../ai/page-index/page-index");
-const AdminTimscaleCloud = require("../administer-timescale-cloud/page-index/page-index");
+const AdminTimscaleCloud = require("../administer-your-deployment/page-index/page-index");
 const AdminMST = require("../administer-mst/page-index/page-index");
 const AdminSelfHosted = require("../administer-self-hosted/page-index/page-index");
 const Troubleshooting = require("../troubleshooting/page-index/page-index");
@@ -26,8 +26,6 @@ module.exports = [
   ...navigationPageIndex,
   ...AdminTimscaleCloud,
   ...Troubleshooting,
-  ...AdminMST,
-  ...AdminSelfHosted,
   ...AIPageIndex,
   {
     Title: "GitHub",

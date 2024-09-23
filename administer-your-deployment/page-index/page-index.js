@@ -1,58 +1,30 @@
 module.exports = [
   {
-    title: "Administer Timescale Cloud",
-    href: "administer-timescale-cloud",
+    title: "Administer your deployment",
+    href: "administer-your-deployment",
     filePath: "index.md",
-    pageComponents: ["content-list"],
     excerpt:
       "Create, configure, optimize and administer your Timescale installation.",
     children: [
       {
-        title: "About Timescale Cloud services",
-        href: "services",
-        excerpt: "About Timescale Cloud services",
+        title: "User management",
+        href: "members",
+        excerpt: "User management in Timescale Cloud",
         children: [
           {
-            title: "About services",
-            href: "service-overview",
-            excerpt: "Timescale services overview",
+            title: "Members list",
+            href: "members-list",
+            excerpt: "Timescale members list",
           },
           {
-            title: "Connection pooling",
-            href: "connection-pooling",
-            excerpt:
-              "Using a connection pool with your Timescale services",
-          },
-          {
-            title: "Dynamic PostgreSQL",
-            href: "dynamic-postgresql",
-            excerpt: "Dynamic PostgreSQL overview",
-          },
-          {
-            title: "Manually change resources",
-            href: "change-resources",
-            excerpt: "Manually adjust your service resources",
-          },
-          {
-            title: "Service explorer",
-            href: "service-explorer",
-            excerpt: "Timescale services explorer",
-          },
-          {
-            title: "Service management",
-            href: "service-management",
-            excerpt:
-              "Timescale services operations, Service management tab",
-          },
-          {
-            title: "Troubleshooting Timescale services",
-            href: "troubleshooting",
-            type: "placeholder",
+            title: "Project Ownership",
+            href: "project-ownership",
+            excerpt: "Timescale project ownership",
           },
         ],
       },
       {
-        title: "Alerting",
+        title: "Monitoring and lerting",
         href: "alerting",
         excerpt: "Configure alerting within Timescale",
       },
@@ -71,6 +43,55 @@ module.exports = [
             excerpt: "PITR on Timescale services"
           }
         ]
+      },
+      {
+        title: "Security",
+        href: "security",
+        excerpt: "Learn how your Timescale instance is secured",
+        children: [
+          {
+            title: "About security in Timescale Cloud",
+            href: "overview",
+            excerpt: "Get an overview of Timescale security",
+          },
+          {
+            title: "Client credentials",
+            href: "client-credentials",
+            excerpt: "Client credentials to programmatically access your Timescale account",
+          },
+          {
+            title: "Connect with a stricter SSL mode",
+            href: "strict-ssl",
+            excerpt:
+              "Connect to Timescale with a stricter SSL mode of verify-ca or verify-full",
+          },
+          {
+            title: "Multi-factor Authentication",
+            href: "multi-factor-authentication",
+            excerpt: "Multi-factor authentication for your Timescale account",
+          },
+          {
+            title: "Read only role",
+            href: "read-only-role",
+            excerpt: "Create a read-only role to access your database",
+          },
+          {
+            title: "SAML authentication",
+            href: "saml",
+            excerpt: "SAML / SSO authentication for your Timescale account",
+          },
+        ],
+      },
+      {
+        title: "VPC Peering and AWS PrivateLink",
+        href: "vpc",
+        excerpt: "Secure your Timescale Service with VPC Peering and AWS PrivateLink",
+      },
+      {
+        title: "Connection pooling",
+        href: "connection-pooling",
+        excerpt:
+          "Using a connection pool with your Timescale services",
       },
       {
         title: "Configuration",
@@ -297,44 +318,6 @@ module.exports = [
         ]
       },
       {
-        title: "Security",
-        href: "security",
-        excerpt: "Learn how your Timescale instance is secured",
-        children: [
-          {
-            title: "About security in Timescale Cloud",
-            href: "overview",
-            excerpt: "Get an overview of Timescale security",
-          },
-          {
-            title: "Client credentials",
-            href: "client-credentials",
-            excerpt: "Client credentials to programmatically access your Timescale account",
-          },
-          {
-            title: "Connect with a stricter SSL mode",
-            href: "strict-ssl",
-            excerpt:
-              "Connect to Timescale with a stricter SSL mode of verify-ca or verify-full",
-          },
-          {
-            title: "Multi-factor Authentication",
-            href: "multi-factor-authentication",
-            excerpt: "Multi-factor authentication for your Timescale account",
-          },
-          {
-            title: "Read only role",
-            href: "read-only-role",
-            excerpt: "Create a read-only role to access your database",
-          },
-          {
-            title: "SAML authentication",
-            href: "saml",
-            excerpt: "SAML / SSO authentication for your Timescale account",
-          },
-        ],
-      },
-      {
         title: "Timescale Cloud regions",
         href: "regions",
         excerpt: "Timescale AWS regions",
@@ -390,28 +373,6 @@ module.exports = [
             excerpt: "Example user-defined action for downsample and compress",
           },
         ],
-      },
-      {
-        title: "User management",
-        href: "members",
-        excerpt: "User management in Timescale Cloud",
-        children: [
-          {
-            title: "Members list",
-            href: "members-list",
-            excerpt: "Timescale members list",
-          },
-          {
-            title: "Project Ownership",
-            href: "project-ownership",
-            excerpt: "Timescale project ownership",
-          },
-        ],
-      },
-      {
-        title: "VPC Peering and AWS PrivateLink",
-        href: "vpc",
-        excerpt: "Secure your Timescale Service with VPC Peering and AWS PrivateLink",
       },
     ],
   },

@@ -1,14 +1,15 @@
 ---
 title: Timescale products
+plans: [scale, enterprise]
 ---
 
 # Products and services
 
-3.2M+ Timescale databases power apps across IoT, sensors, AI, dev tools, crypto, and
+3.2M+ $COMPANY databases power apps across IoT, sensors, AI, dev tools, crypto, and
 finance—all built on PostgreSQL. We use PostgreSQL for everything; Choose the deployment 
 that matches your engineering requirements:
 
-* **Timescale Cloud**: all the latest Timescale products and features that just work. A reliable and worry-free PostgreSQL cloud for all your workloads.
+* **$CLOUD_LONG**: all the latest $COMPANY products and features that just work. A reliable and worry-free PostgreSQL cloud for all your workloads.
 * **Self hosted**: create your best app from the comfort of your own developer environment.
 
 
