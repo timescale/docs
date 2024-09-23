@@ -10,12 +10,16 @@ keywords: [hypertables, indexes, chunks]
 When you execute a query on a hypertable, you do not parse the whole table; you only access the chunks necessary
 to satisfy the query. This works well when the `WHERE` clause of a query uses the column by which a hypertable is 
 partitioned. For example, in a hypertable where every day of the year is a separate chunk, a query for September 1 
-accesses only the chunk for that day. However, many queries use columns other than the partitioning one. For example, 
-a table might have two columns: one for when data was gathered and one for when it was added to the database. If you 
-partition by the date of gathering, a query by the date of adding accesses all chunks in the hypertable and slows the 
+accesses only the chunk for that day. 
+
+However, many queries use columns other than the partitioning one. For example, a satellite company might have a table with two columns: one for when data was gathered by a satellite and one for when it was added to the database. If you partition by the date of gathering, a query by the date of adding accesses all chunks in the hypertable and slows the 
 performance.
 
-To improve query performance, TimescaleDB enables you to skip hypertable chunks on non-partitioning columns. 
+To improve query performance, TimescaleDB enables you to skip chunks on non-partitioning columns in hypertables. 
+
+<Highlight type="important">
+Chunk skipping can only be enabled for **compressed** hypertables.
+</Highlight>
 
 ## How chunk skipping works
 
@@ -24,10 +28,21 @@ each chunk. These ranges are stored in the start (inclusive) and end (exclusive)
 catalog table. TimescaleDB uses these ranges for dynamic chunk exclusion when the `WHERE` clause of an SQL query 
 specifies ranges on the column. 
 
+![Chunk skipping](https://assets.timescale.com/docs/images/hypertable-with-chunk-skipping.png)
+
 You can enable chunk skipping on compressed hypertables for `smallint`, `int`, `bigint`, `serial`, `bigserial`, `date`,
-`timestamp`, or `timestamptz` type columns. Best practice is to enable chunk skipping on the columns correlated to the 
-partitioning column and referenced in the `WHERE` clauses. However, you can enable chunk skipping on as many columns as 
-you need.
+`timestamp`, or `timestamptz` type columns. 
+
+## When to enable chunk skipping
+
+You can enable chunk skipping on as many columns as you need. However, best practice is to enable it on the following columns:
+ 
+- correlated, that is, related to the partitioning column in some way, and
+- referenced in the `WHERE` clauses. 
+
+In the satellite example above, the time of adding data to a database inevitably follows the time of gathering. Sequential IDs and the creation timestamp for both entities also increase synchronously. This means those two columns are correlated. 
+
+For a more in-depth look on chunk skipping, see [our blog post](https://www.timescale.com/blog/boost-postgres-performance-by-7x-with-chunk-skipping-indexes/).
 
 ## Enable chunk skipping
 
@@ -38,7 +53,7 @@ the following query enables chunk skipping on the `order_id` column in the `orde
 SELECT enable_chunk_skipping('orders', 'order_id');
 ```
 
-For more details, see the [API Reference][api-reference].
+For more details on how to implement chunk skipping, see the [API Reference][api-reference].
 
 [api-reference]: /api/:currentVersion:/hypertable/enable_chunk_skipping/
 
