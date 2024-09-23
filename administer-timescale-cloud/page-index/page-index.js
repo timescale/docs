@@ -1,7 +1,7 @@
 module.exports = [
   {
     title: "Administer Timescale Cloud",
-    href: "ops",
+    href: "administer-timescale-cloud",
     filePath: "index.md",
     pageComponents: ["content-list"],
     excerpt:
