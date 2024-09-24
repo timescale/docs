@@ -3,7 +3,7 @@ title: Manage your data with Timescale
 excerpt: Learn how to work with Timescale
 ---
 
-# Manage your datea
+# Manage your data
 
 This section contains information about using Timescale. If you're not sure how
 to find the information you need, try the [Find a docs page][find-docs] section.
