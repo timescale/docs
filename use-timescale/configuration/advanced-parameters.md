@@ -13,19 +13,9 @@ cloud_ui:
 
 It is possible to configure a wide variety of service database parameters by
 navigating to the `Advanced parameters` tab under the `Database
-configuration` heading.
+configuration` heading. The advanced parameters are displayed in a scrollable and searchable list.
 
-<img class="main-content__illustration"
-width={1375} height={944}
-src="https://assets.timescale.com/docs/images/tsc-settings-advanced.webp"
-alt="View Timescale advanced configuration parameters"/>
-
-The advanced parameters are displayed in a scrollable and searchable list:
-
-<img class="main-content__illustration"
-width={1375} height={944}
-src="https://assets.timescale.com/docs/images/tsc-settings-search.webp"
-alt="Search Timescale configuration parameters"/>
+![Database configuration advanced parameters](https://assets.timescale.com/docs/images/database-configuration-advanced-parameters.png)
 
 As with the basic database configuration parameters, any changes are highlighted
 and the `Apply changes`, or `Apply changes and restart`, button is available,
