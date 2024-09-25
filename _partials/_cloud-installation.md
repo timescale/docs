@@ -1,8 +1,7 @@
-## Create a Timescale Cloud account
 
 <Procedure>
 
-To set up Timescale:
+To create a Timscale Cloud account:
 
 1.  Sign up for a [30 day free trial][sign-up].
 
