@@ -34,6 +34,13 @@ and interact with your data in each service.
 
        ![Add credentials to the CLI](https://assets.timescale.com/docs/images/timescale-cli-add-security-information.png)
 
+       The variables to update in `~/.timescalecli` are:
+       ```shell
+       TIMESCALE_API_ACCESS_KEY=<Your Public Key>
+       TIMESCALE_API_SECRET_KEY=<Your Secret Key>
+       TIMESCALE_PROJECT_ID=<Your Project ID>
+       ```
+
        You can now use timescalecli in multiple terminal sessions.
 
    - **Add credentials to your current Terminal session**:
