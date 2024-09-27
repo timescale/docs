@@ -1,14 +1,14 @@
 ---
-title: Hyperstore
+title: Hypercore
 excerpt: The Timescale hybrid row-columnar storage engine for real-time analytics, powered by time-series data
 products: [cloud,]
-keywords: [hyperstore, hypertable, compression, row-columnar storage]
+keywords: [hyperscore, hypertable, compression, row-columnar storage, hyperstore]
 ---
 
-# Hyperstore
+# Hypercore
 
-Hyperstore is the Timescale hybrid row-columnar storage engine, designed specifically for 
-real-time analytics and powered by time-series data. The advantage of hyperstore is its ability 
+Hypercore is the Timescale hybrid row-columnar storage engine, designed specifically for 
+real-time analytics and powered by time-series data. The advantage of hypercore is its ability 
 to seamlessly switch between row-oriented and column-oriented storage. This flexibility enables 
 Timescale Cloud to deliver the best of both worlds, solving the key challenges in real-time analytics: 
 
@@ -19,9 +19,9 @@ Timescale Cloud to deliver the best of both worlds, solving the key challenges i
 - Streamlined data management
 
 Currently, much of this functionality is available as [compression][compression]. However, we are actively 
-updating our APIs and docs so you can more easily integrate the following features under the hyperstore umbrella.
+updating our APIs and docs so you can more easily integrate the following features under the hypercore umbrella.
 
-Hyperstore’s hybrid approach combines the benefits of row-oriented and column-oriented formats 
+Hypercore’s hybrid approach combines the benefits of row-oriented and column-oriented formats 
 in each Timescale Cloud service:
 
 - **Fast ingest with Rowstore**: new data is initially written to the rowstore, it is optimized for 
@@ -35,11 +35,11 @@ in each Timescale Cloud service:
   saving significant storage space.
 
 - **Full mutability with transactional semantics**: regardless of where data is stored,
-  hyperstore provides full ACID support. Like in a vanilla Postgres database, inserts and updates 
+  hypercore provides full ACID support. Like in a vanilla Postgres database, inserts and updates 
   to the rowstore and columnstore are always consistent, and available to queries as soon as they are 
   completed.
 
-![Hyperstore workflow](https://assets.timescale.com/docs/images/hyperstore-overview.png)
+![Hypercore workflow](https://assets.timescale.com/docs/images/hypercore-overview.png)
 
 
 [compression]: /use-timescale/:currentVersion:/compression/
