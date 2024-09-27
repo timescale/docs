@@ -398,8 +398,8 @@ module.exports = [
         ],
       },
       {
-        title: "Hyperstore",
-        href: "hyperstore",
+        title: "Hypercore",
+        href: "hypercore",
         excerpt: "The Timescale hybrid row-columnar storage engine for real-time analytics, powered by time-series data",
       },
       {
