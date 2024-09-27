@@ -11,16 +11,16 @@ cloud_ui:
 
 # About services
 
+You use Timescale Console to create and manage `Ops` for your Timescale Cloud services, and securely manage
+`Data` in your services.
+
+![Timescle Console overview](https://assets.timescale.com/docs/images/console-overview.png)
+
 When you log into your [Timescale account][cloud-login], you see the
 Project overview. Click a service to view run-time data and connection information. 
-Click Operations to configure your service. 
+Click `Operations` to configure your service. 
 
-<img
-class="main-content__illustration"
-src="https://assets.timescale.com/docs/images/tsc-services-overview.png"
-width={1375} height={944}
-alt="Timescale Services Overview"
-/>
+![Select a query to edit](https://assets.timescale.com/docs/images/ops-mode-overview.png)
 
 Each service hosts a single database managed for you by Timescale in the cloud. 
 If you need more than one database, [create a new service][create-service].

@@ -7,9 +7,9 @@ keywords: [time buckets]
 
 # About time buckets
 
-The [`time_bucket`][time_bucket] function allows you to aggregate data into
-buckets of time, for example: 5 minutes, 1 hour, or 3 days. It's similar to
-PostgreSQL's [`date_bin`][date_bin] function, but it gives you more
+The [`time_bucket`][time_bucket] function allows you to aggregate data in a 
+[hypertable][create-hypertable] into buckets of time. For example: 5 minutes, 1 hour, or 3 days. 
+It's similar to PostgreSQL's [`date_bin`][date_bin] function, but it gives you more
 flexibility in bucket size and start time.
 
 Time bucketing is essential to working with time-series data. You can use it to
@@ -101,3 +101,4 @@ parameter.
 [origin]: /api/:currentVersion:/hyperfunctions/time_bucket/#optional-arguments-for-interval-time-inputs
 [time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
 [use-time-buckets]: /use-timescale/:currentVersion:/time-buckets/use-time-buckets/
+[create-hypertable]: /use-timescale/:currentVersion:/hypertables/create/

@@ -1,8 +1,7 @@
 module.exports = [
   {
-    title: "Code quick starts",
+    title: "Start coding with Timescale",
     href: "quick-start",
-    pageComponents: ["featured-cards"],
     excerpt: "A collection of quick starts for common programming languages.",
     children: [
       {
