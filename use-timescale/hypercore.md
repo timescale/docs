@@ -2,7 +2,7 @@
 title: Hypercore
 excerpt: The Timescale hybrid row-columnar storage engine for real-time analytics, powered by time-series data
 products: [cloud,]
-keywords: [hyperscore, hypertable, compression, row-columnar storage, hyperstore]
+keywords: [hyperscore, hypertable, compression, row-columnar storage, hypercore]
 ---
 
 # Hypercore
