@@ -531,6 +531,53 @@ module.exports = [
         excerpt: "Troubleshooting Timescale",
       },
       {
+        title: "User-defined actions",
+        href: "user-defined-actions",
+        children: [
+          {
+            title: "About user-defined actions",
+            href: "about-user-defined-actions",
+            excerpt: "Learn about user-defined actions",
+          },
+          {
+            title: "Alter and delete a user-defined action",
+            href: "alter-and-delete",
+            excerpt: "Edit and delete user-defined actions",
+          },
+          {
+            title: "Create and register a user-defined action",
+            href: "create-and-register",
+            excerpt: "Create a user-defined action",
+          },
+          {
+            title: "Test and debug a user-defined action",
+            href: "test-and-debug",
+            excerpt: "Test and debug user-defined actions",
+          },
+          {
+            title: "Troubleshooting",
+            href: "troubleshooting",
+            type: "placeholder",
+          },
+          {
+            title: "Use an action for generic retention",
+            href: "example-generic-retention",
+            excerpt: "Example user-defined action for a retention policy",
+          },
+          {
+            title: "Use an action for tablespace management",
+            href: "example-tiered-storage",
+            excerpt:
+              "Example user-defined action for automatically moving chunks between tablespaces",
+          },
+          {
+            title: "Use an action for downsampling and compression",
+            href: "example-downsample-and-compress",
+            excerpt: "Example user-defined action for downsample and compress",
+          },
+        ],
+      },
+      {
         href: "write-data",
         children: [
           {
