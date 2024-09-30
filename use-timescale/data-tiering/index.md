@@ -10,7 +10,7 @@ tags: [storage, data management]
 
 Tiered storage is Timescale's [hierarchical storage management architecture](https://en.wikipedia.org/wiki/Hierarchical_storage_management). 
 Engineered for infinite low-cost scalability, tiered storage is available for the 
-[Time series and analytics](https://www.timescale.com/products) instances you create in 
+[Time series](https://www.timescale.com/products) instances you create in 
 [Timescale](https://console.cloud.timescale.com/).
 
 Tiered storage consists of the:
@@ -42,7 +42,7 @@ solutions to offload data to secondary storage and fetch it back in when needed.
 we do the work for you. 
 
 <Highlight type="info">
-Tiered storage is only available for the [Time series and analytics](https://www.timescale.com/products)
+Tiered storage is only available for the [Time series](https://www.timescale.com/products)
 instances you create in [Timescale](https://console.cloud.timescale.com/). 
 Tiered storage **DOES NOT** work on Self-hosted TimescaleDB or Managed Service for TimescaleDB.  
 </Highlight>

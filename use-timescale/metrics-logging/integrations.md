@@ -12,7 +12,7 @@ cloud_ui:
 
 # Integrate Timescale Cloud Services with third-party monitoring tools
 
-You can export telemetry data from your Timescale Cloud _Time Series and Analytics_ services to third-party
+You can export telemetry data from your Timescale Cloud _Time Series_ services to third-party
 monitoring tools such as [Datadog][datadog] or [AWS CloudWatch][cloudwatch]. Available metrics include
 CPU usage, RAM usage, and storage. Third-party monitoring is available for [Scale or Enterprise][pricing-plan-features]
 Timescale Projects.
