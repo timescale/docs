@@ -18,7 +18,7 @@ import CloudIntro from "versionContent/_partials/_cloud-intro.mdx";
 
 Read about Timescale features in the documentation:
 
-*   Determine if you want a [general-purpose][dynamic-pg] database or one with additional capabilities   
+*   Determine if you want a [general-purpose][dynamic-pg] database or one with additional capabilities. 
 *   Create your first [hypertable][hypertable-info].
 *   Run your first query using [time_bucket()][time-bucket-info].
 *   Try more advanced time-series functions, starting with
