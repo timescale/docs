@@ -5,7 +5,7 @@ products: [cloud, mst, self_hosted]
 keywords: [hypertables, indexes]
 ---
 
-# Indexing data
+# Index data
 
 You can use an index on your database to speed up read operations. You can
 create an index on any combination of columns, as long as you include the `time`
@@ -36,7 +36,7 @@ use this command:
 CREATE INDEX ON conditions (time DESC);
 ```
 
-When you create a hypertable with the `create_hypertable` command, and you
+When you create a hypertable with [`create_hypertable`][create_hypertable], and you
 specify an optional hash partition in addition to time, such as a `location`
 column, an additional index is created on the optional column and time. For
 example:
@@ -57,13 +57,12 @@ SELECT create_hypertable('conditions', by_range('time'))
   CREATE_DEFAULT_INDEXES false;
 ```
 
-<Highlight type="note">
-The `by_range` dimension builder is an addition to TimescaleDB 2.13.
-</Highlight>
+[`by_range`][by-range] is an addition [dimension builder][dimension_builders] since TimescaleDB v2.13.
+
 
 ## Best practices for indexing
 
-If you have sparse data, with columns that are often NULL, you can add a clause
+If you have sparse data with columns that are often NULL, you can add a clause
 to the index, saying `WHERE column IS NOT NULL`. This prevents the index from
 indexing NULL data, which can lead to a more compact and efficient index. For
 example:
@@ -95,3 +94,5 @@ to perform indexing transactions on an individual chunk.
 [create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
 [about-index]: /use-timescale/:currentVersion:/schema-management/about-indexing/
 [create-index]: https://docs.timescale.com/api/latest/hypertable/create_index/
+[by-range]: /api/:currentVersion:/hypertable/dimension_info/#by_range
+[dimension_builders]: /api/:currentVersion://hypertable/dimension_info/
