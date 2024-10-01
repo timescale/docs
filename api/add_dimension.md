@@ -57,9 +57,9 @@ For the following options:
 
   Multiple tablespaces only supports concurrent queries.
 
-When using hash partitions, best practice is to have at least one hash partition per disk.
+When using multiple tablespaces, a best practice is to also add a second hash-partitioned dimension to your hypertable and to have at least one hash partition per disk. While a single time dimension would also work, it would mean that the first chunk is written to one tablespace, the second to another, and so on, and thus would parallelize only if a query's time range exceeds a single chunk.
 
-set number of partitions to a multiple of number of disks. For example, the number of 
+When adding a hash partitioned dimension, set the number of partitions to a multiple of number of disks. For example, the number of 
 partitions P=N*Pd where N is the number of disks and Pd is the number of partitions per 
 disk. This enables you to add more disks later and move partitions to the new disk from other disks.
 
