@@ -43,7 +43,7 @@ volume    double precision         NOT NULL
   SELECT DISTINCT ON (symbol)
   symbol,symbol_id, first(time, time) as first_candle, last(time, time) as last_candle
   FROM candle
-  GROUP BY symbol,symbol_id;
+  GROUP BY symbol_id;
   ```
 
 [postgres-parallel-agg]: https://www.postgresql.org/docs/current/parallel-plans.html#PARALLEL-AGGREGATION
