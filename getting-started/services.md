@@ -13,7 +13,7 @@ import CreateAHypertable from "versionContent/_partials/_create-hypertable.mdx";
 # Create your first $SERVICE_LONG
 
 You use $CONSOLE to create and manage `Ops` for your $SERVICE_LONG ($SERVICE_SHORT), and securely manage 
-`Data` in your $SERVICE_SHORTs. 
+`Data` in your $SERVICE_SHORT. 
 
 ![$CONSOLE overview](https://assets.timescale.com/docs/images/console-overview.png)
 
@@ -52,21 +52,29 @@ Now that you have an active $CLOUD_LONG account, you create and manage your serv
 
 1. Follow the service creation wizard.   
 
-If you choose to go directly to the service overview, [Check your service and connect to it][connect-to-your-service] 
+IAIN: playing with URLS
+
+WORK as expected: If you choose to go directly to the service overview, [Check your service and connect to it][connect-to-your-service] 
 shows you how to connect.
 
-Hmm, try with a variable [Check your service and connect to it]($CONNECT_TO_SERVICE) which?  
 
-A variable 
+WORK as expected: Hmm, try with a variable [Check your service and connect to it]($CONNECT_TO_SERVICE) which?  
 
-$SIGH
+NOT WORK as expected: A variable $BLOG_URL and a link [$BLOG_URL]($BLOG_URL)
+
+What happens here ${BLOG_URL}  or $BLOG_URL.
+
+WORK as expected: SIGH $SIGH
 
 Another variable
 
-$GNNNN
+WORK as expected: $GNNNN
 
 Wow
 
+NOT WORK as expected: Annd  [Compound blog URL]($BLOG_PATH)
+
+WORKS as expected: Annd  [Compound blog URL]($WHATEVER)
 
 </Procedure> 
 
