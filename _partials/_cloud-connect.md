@@ -34,12 +34,13 @@ To connect to a service:
         psql "postgres://tsdbadmin:<PASSWORD>@<HOST>:<PORT>/tsdb?sslmode=require"
         `} />
 
-   You can now run queries for this service.  
-
+   You can now run queries for this service.
 
 Quick recap. You:
-- Manage your services in the [`Ops` in Timescale Console][portal-ops-mode]
-- Manage your data in [`Data` in Timescale Console][portal-data-mode]
+- Manage your services in the [`Ops` in Timescale Console][portal-ops-mode]:  add read replicas and enable 
+  high-availability, configure compression, change parameters and so on.
+- Analyze your data in [`Data` in Timescale Console][portal-data-mode]: write queries with
+  autocomplete, save them in folders, share them, create charts/dashboards, and much more.
 - Store configuration and security information in your config file.
 
 </Procedure>

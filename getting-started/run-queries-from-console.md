@@ -9,15 +9,19 @@ content_group: Getting started
 # Run your queries from Timescale Console
 
 As Timescale Cloud is based on PostgreSQL, you can use lots of [different tools][integrations] to 
-connect to your service and interact with your data. To securely manage your date from inside 
-Console, Timescale offers the following Cloud SQL editors:
+connect to your service and interact with your data. 
 
-- [Data mode][run-popsql]: a comprehensive UI that you use to write queries, visualize data, 
-   and share your results.
-- [SQL editor][run-sqleditor]: a simple UI to run queries for each individual service.
+In Timescale Console you can use the following ways to run SQL queries against your database:
+
+- [Data mode][run-popsql]: a rich experience powered by PopSQL. You can write queries with 
+  autocomplete, save them in folders, share them, create charts/dashboards, and much more.
+
+- [SQL editor][run-sqleditor]: a simple UI in Ops mode that you use to run ad-hoc ephemeral 
+  queries. This is useful for quick one-off tasks like creating an index on a small table or 
+  inspecting pg_stat_statements.
 
 
-If you prefer the command line to a Cloud SQL editor, use [psql][install-psql].
+If you prefer the command line to Ops mode SQL editors in Timescale Console, use [psql][install-psql].
 
 ## Data mode
 
@@ -33,7 +37,7 @@ Available features are:
 - **Autocomplete**: get suggestions as you type your queries.
 - **[Version history](https://docs.popsql.com/docs/version-history)**: access previous versions of a query from the built-in revision history, or connect to a 
   git repo.
-- **[Charts](https://docs.popsql.com/docs/creating-charts)**: visualize data from inside your SQL editor rather than switch to Sheets or Excel.
+- **[Charts](https://docs.popsql.com/docs/creating-charts)**: visualize data from inside the UI rather than switch to Sheets or Excel.
 - **[Schedules](https://docs.popsql.com/docs/scheduled-queries)**: automatically refresh queries and dashboards to create push alerts.
 - **[Query variables](https://docs.popsql.com/docs/query-variables)**: use Liquid to parameterize your queries or use `if` statements.
 - **Cross platform**:  works from [Timescale Console][portal-data-mode] or download the 
@@ -125,7 +129,7 @@ use that in Data mode.
 
 
 
-## SQL editor
+## Ops mode SQL editor
 
 SQL editor is an integrated secure UI that you use to run queries and see the results
 for an Timescale Cloud service.
@@ -135,7 +139,7 @@ for an Timescale Cloud service.
 To enable or disable SQL editor in your service, click `Operations` > `Service management`, then
 update the setting for SQL editor.
 
-### Run queries from Console with SQL editor
+### Run queries from Ops Mode in Timescale Console
 
 <Procedure>
 
