@@ -147,7 +147,7 @@ To use SQL editor with Timescale:
 
 1.  **Open SQL editor from Timescale Console**
 
-    In [`Ops` in Timescale Console][portal-ops-mode], select a service, then click `SQL editor`.
+    In [Ops mode][portal-ops-mode] in Timescale Console, select a service, then click `SQL editor`.
 
     ![Check service is running](https://assets.timescale.com/docs/images/ops-view-sql-editor.png)
 
