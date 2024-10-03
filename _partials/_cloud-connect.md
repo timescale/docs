@@ -13,7 +13,7 @@ To connect to a service:
 
     Use either:  
     - [Data mode][popsql] in Timescale Console:  
-      1. In [data mode][portal-data-mode] in Timescale Console, select a service and enter your password, then click `Connect`.
+      1. In the [data mode][portal-data-mode] in Timescale Console, select a service and enter your password, then click **Connect**.
       
          You find your password in the config file you just downloaded.
       2. Select a query to edit:
@@ -21,7 +21,7 @@ To connect to a service:
 
     - [SQL editor][run-sqleditor] in Timescale Console:
     
-       In [ops mode][portal-ops-mode] in Timescale Console, select a service, then click `SQL editor`. 
+       In the [ops mode][portal-ops-mode] in Timescale Console, select a service, then click **SQL editor**. 
    
       ![Check service is running](https://assets.timescale.com/docs/images/ops-view-sql-editor.png)
    
@@ -38,8 +38,8 @@ To connect to a service:
 
 Quick recap. You:
 - Manage your services in the [ops mode][portal-ops-mode] in Timescale Console:  add read replicas and enable 
-  high-availability, configure compression, change parameters and so on.
-- Analyze your data in [data mode][portal-data-mode] in Timescale Console: write queries with
+  high-availability, configure compression, change parameters, and so on.
+- Analyze your data in the [data mode][portal-data-mode] in Timescale Console: write queries with
   autocomplete, save them in folders, share them, create charts/dashboards, and much more.
 - Store configuration and security information in your config file.
 

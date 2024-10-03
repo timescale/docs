@@ -11,7 +11,7 @@ manage your services and interact with your data in Timescale Console using the 
     <td >
     <img class="main-content__illustration"
     src="https://assets.timescale.com/docs/images/ops-mode-overview.png"
-    alt="Timescale Console data mode"/>
+    alt="Timescale Console ops mode"/>
 </td>
     <td >
     <img class="main-content__illustration"
@@ -22,7 +22,7 @@ manage your services and interact with your data in Timescale Console using the 
   </tr>
   <tr>
     <td >
-Perform sysops on your services:
+You use the ops mode to:
 <ul>
 <li>Ensure data security with high availability and read replicas</li>
 <li>Save money using compressed and tiered storage</li>
@@ -32,7 +32,7 @@ Perform sysops on your services:
 </ul>
 </td>
     <td >
-Powered by PopSQL, you use Data mode to:
+Powered by PopSQL, you use the data mode to:
 <ul>
 <li>Write queries with autocomplete</li> 
 <li>Visualize data with charts and dashboards</li> 
