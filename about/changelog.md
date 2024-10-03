@@ -8,6 +8,14 @@ keywords: [changelog, upgrades, updates, releases]
 
 All the latest features and updates to Timescale products.
 
+## CIDR & VPC Updates
+
+<Label type="date">October 3, 2024</Label>
+
+Timescale now supports multiple CIDRs on the customer VPC. Customers who want to take advantage of multiple CIDRs will need to recreate their peering.
+
+We've also added postponed workflow for pending peering connections.
+
 ## 🤝 New modes in Timescale Console: Ops and Data mode, and Console based Parquet File Import
 
 <Label type="date">September 19, 2024</Label>
