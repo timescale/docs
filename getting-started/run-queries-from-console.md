@@ -104,7 +104,7 @@ If your Timescale Service runs inside a VPC, do one of the following to enable a
   - When you configure the connection in PopSQL, under `Advanced Options`, enable `Connect over SSH`
 - Add PopSQL's static IPs (`23.20.131.72, 54.211.234.135`) to your allowlist
 
-#### What happens if another member of my Timescale project data mode?
+#### What happens if another member of my Timescale project uses data mode?
 
 The number of data mode seats you are allocated depends on your
 [Pricing Plan][pricing-plan-features].
