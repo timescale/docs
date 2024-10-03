@@ -3,7 +3,7 @@ manage your services and interact with your data in Timescale Console using the 
 
 <table class="tg"><thead>
   <tr>
-    <th align="center" >Ops mode</th>
+    <th align="center">Ops mode</th>
     <th align="center">Data mode</th>
   </tr></thead>
 <tbody>
