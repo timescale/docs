@@ -121,65 +121,6 @@ module.exports = [
         ],
       },
       {
-        title: "Distributed hypertables",
-        type: "directory",
-        href: "distributed-hypertables",
-        children: [
-          {
-            title: "create_distributed_hypertable",
-            href: "create_distributed_hypertable",
-          },
-          {
-            title: "add_data_node",
-            href: "add_data_node",
-          },
-          {
-            title: "attach_data_node",
-            href: "attach_data_node",
-          },
-          {
-            title: "alter_data_node",
-            href: "alter_data_node",
-          },
-          {
-            title: "detach_data_node",
-            href: "detach_data_node",
-          },
-          {
-            title: "delete_data_node",
-            href: "delete_data_node",
-          },
-          {
-            title: "distributed_exec",
-            href: "distributed_exec",
-          },
-          {
-            title: "set_number_partitions",
-            href: "set_number_partitions",
-          },
-          {
-            title: "set_replication_factor",
-            href: "set_replication_factor",
-          },
-          {
-            title: "copy_chunk",
-            href: "copy_chunk_experimental",
-          },
-          {
-            title: "move_chunk",
-            href: "move_chunk_experimental",
-          },
-          {
-            title: "cleanup_copy_chunk_operation",
-            href: "cleanup_copy_chunk_operation_experimental",
-          },
-          {
-            title: "create_distributed_restore_point",
-            href: "create_distributed_restore_point",
-          },
-        ],
-      },
-      {
         title: "Compression",
         type: "directory",
         href: "compression",
