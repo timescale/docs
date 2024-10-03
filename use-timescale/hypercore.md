@@ -24,11 +24,11 @@ updating our APIs and docs so you can more easily integrate the following featur
 Hypercore’s hybrid approach combines the benefits of row-oriented and column-oriented formats 
 in each Timescale Cloud service:
 
-- **Fast ingest with Rowstore**: new data is initially written to the rowstore, which is optimized for 
+- **Fast ingest with rowstore**: new data is initially written to the rowstore, which is optimized for 
   high-speed inserts and updates. This process ensures that real-time applications easily handle 
   rapid streams of incoming data. Mutability—upserts, updates, and deletes happen seamlessly.
 
-- **Efficient analytics with Columnstore**: as the data _cools_ and becomes more suited for 
+- **Efficient analytics with columnstore**: as the data _cools_ and becomes more suited for 
   analytics, it is automatically migrated to the columnstore. Your data is compressed into small 
   batches and organized for efficient, large-scale queries. This columnar format enables for 
   fast scanning and aggregation, optimizing performance for analytical workloads while also 
