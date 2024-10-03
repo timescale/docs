@@ -1,5 +1,5 @@
 ---
-title: Upgrades
+title: Maintenance and upgrades
 excerpt: Keeping your service up-to-date
 products: [cloud]
 keywords: [updates, upgrades, maintenance]
@@ -119,7 +119,7 @@ can plan accordingly. However, in some cases, we might not be able to do so.
 
 ## Upgrade to a new PostgreSQL version
 
-Timescale currently supports PostgreSQL&nbsp;12, 13, 14, and 15. You can see
+Timescale currently supports PostgreSQL&nbsp;14, 15, and 16. You can see
 your PostgreSQL and Timescale versions from the Timescale service
 overview page.
 
@@ -132,7 +132,7 @@ overview page.
 -->
 
 You can also manually upgrade to the newest supported PostgreSQL version
-(PostgreSQL&nbsp;15) from the service overview page.
+(PostgreSQL&nbsp;16) from the service overview page.
 
 Upgrading to a newer version of PostgreSQL allows you to take advantage of new
 features, enhancements, and security fixes. It also ensures that you are using a

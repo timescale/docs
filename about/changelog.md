@@ -8,6 +8,59 @@ keywords: [changelog, upgrades, updates, releases]
 
 All the latest features and updates to Timescale products.
 
+## 🤝 New modes in Timescale Console: Ops and Data mode, and Console based Parquet File Import
+
+<Label type="date">September 19, 2024</Label>
+
+We've been listening to your feedback and noticed that Timescale Console users have diverse needs. Some of you are focused on operational tasks like adding replicas or changing parameters, while others are diving deep into data analysis to gather insights.
+
+**To better serve you, we've introduced new modes to the Timescale Console UI—tailoring the experience based on what you're trying to accomplish.**
+
+Ops mode is where you can manage your services, add replicas, configure compression, change parameters, and so on.
+
+Data mode is the full PopSQL experience: write queries with autocomplete, visualize data with charts and dashboards, schedule queries and dashboards to create alerts or recurring reports, share queries and dashboards, and more.
+
+Try it today and let us know what you think! 
+
+![Timescale Console Ops and Data mode](https://assets.timescale.com/docs/images/ops-data-mode.gif)
+
+## Console based Parquet File Import
+
+Now users can upload from Parquet to Timescale Cloud by uploading the file from their local file system. For files larger than 250 MB, or if you want to do it yourself, follow the three-step process to upload Parquet files to Timescale.
+
+![Upload from Parquet to Timescale Cloud](https://assets.timescale.com/docs/images/upload_parquet.gif)
+
+
+### SQL editor improvements
+
+* In the Ops mode SQL editor, you can now highlight a statement to run a specific statement.
+
+## High availability, usability, and migrations improvements
+<Label type="date">September 12, 2024</Label>
+
+### Multiple HA replicas
+
+Scale and Enterprise customers can now configure two new multiple high availability (HA) replica options directly through Timescale Console:
+
+* Two HA replicas (both asynchronous) - our highest availability configuration.
+* Two HA replicas (one asynchronous, one synchronous) - our highest data integrity configuration.
+
+Previously, Timescale offered only a single synchronous replica for customers seeking high availability. The single HA option is still available.
+
+![Change Replica Configuration](https://s3.amazonaws.com/assets.timescale.com/docs/images/change-replica-configuration.png)
+
+![High Availability](https://s3.amazonaws.com/assets.timescale.com/docs/images/high-availability.png)
+
+For more details on multiple HA replicas, see [Manage high availability](https://docs.timescale.com/use-timescale/latest/ha-replicas/high-availability/).
+
+### Other improvements
+
+* In the Console SQL editor, we now indicate if your database session is healthy or has been disconnected. If it's been disconnected, the session will reconnect on your next query execution.
+
+   ![Session Status Indicator](https://s3.amazonaws.com/assets.timescale.com/docs/images/session-status-indicator.gif)
+
+* Released live-migration v0.0.26 and then v0.0.27 which includes multiple performance improvements and bugfixes as well as better support for PostgreSQL 12.
+
 ## One-click SQL statement execution from Timescale Console, and session support in the SQL editor
 <Label type="date">September 05, 2024</Label>
 
@@ -132,7 +185,7 @@ In TimescaleDB v2.16.0 we:
 
 * Introduced multiple performance focused optimizations for data manipulation operations (DML) over compressed chunks.
 
-  Improved upsert performance by more than 100x in some cases and more than 1000x in some update/delete scenarios.
+  Improved upsert performance by more than 100x in some cases and more than 500x in some update/delete scenarios.
 
 * Added the ability to define chunk skipping indexes on non-partitioning columns of compressed hypertables.
 

@@ -1,6 +1,6 @@
 ---
-title: Timescale services
-excerpt: Learn more about Timescale services
+title: About Timescale Cloud services
+excerpt: Learn more about Timescale Cloud services
 products: [cloud]
 keywords: [services]
 cloud_ui:
@@ -10,7 +10,7 @@ cloud_ui:
 
 import CloudIntro from "versionContent/_partials/_cloud-intro.mdx";
 
-# Timescale services
+# About Timescale Cloud services
 
 <CloudIntro />
 

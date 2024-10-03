@@ -11,7 +11,7 @@ api:
 
 # disable_chunk_skipping()
 
-Disable range tracking in a specific column of chunks in a hypertable.
+Disable range tracking for a specific column in a **compressed** hypertable.
 
 ### Required arguments
 

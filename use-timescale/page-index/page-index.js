@@ -8,17 +8,17 @@ module.exports = [
       "How to connect to Timescale, administer, and configure the database.",
     children: [
       {
-        title: "Clouds and regions",
+        title: "Timescale Cloud regions",
         href: "regions",
         excerpt: "Timescale AWS regions",
       },
       {
-        title: "Services",
+        title: "Timescale Cloud services",
         href: "services",
-        excerpt: "Timescale services",
+        excerpt: "About Timescale Cloud services",
         children: [
           {
-            title: "Service overview",
+            title: "Services overview",
             href: "service-overview",
             excerpt: "Timescale services overview",
           },
@@ -57,9 +57,9 @@ module.exports = [
         ],
       },
       {
-        title: "User Management",
+        title: "User management",
         href: "members",
-        excerpt: "Timescale user management",
+        excerpt: "User management in Timescale Cloud",
         children: [
           {
             title: "Members list",
@@ -74,6 +74,7 @@ module.exports = [
         ],
       },
       {
+        title: "Write data",
         href: "write-data",
         children: [
           {
@@ -187,6 +188,11 @@ module.exports = [
             excerpt: "Create hypertables with unique indexes",
           },
           {
+            title: "Improve query performance",
+            href: "improve-query-performance",
+            excerpt: "Skip chunks",
+          },
+          {
             title: "Drop hypertables",
             href: "drop",
             excerpt: "Drop hypertables",
@@ -251,6 +257,7 @@ module.exports = [
         ],
       },
       {
+        title: "Compression",
         href: "compression",
         children: [
           {
@@ -306,7 +313,9 @@ module.exports = [
         ],
       },
       {
+        title: "Configuration",
         href: "configuration",
+        excerpt: "Configure your Timescale Cloud service",
         children: [
           {
             title: "About Configuration",
@@ -439,6 +448,7 @@ module.exports = [
         excerpt: "Configure alerting within Timescale",
       },
       {
+        title: "Data retention",
         href: "data-retention",
         excerpt: "Drop data by time value either automatically or manually",
         children: [
@@ -471,7 +481,7 @@ module.exports = [
         ],
       },
       {
-        title: "Tiered Storage",
+        title: "Tiered storage",
         href: "data-tiering",
         excerpt: "Save on storage costs by tiering older data to a low-cost bottomless object storage tier",
         children: [
@@ -485,31 +495,31 @@ module.exports = [
             title: "Tour of tiered storage",
             href: "tour-data-tiering",
             excerpt:
-               "A quick tour of tiered storage",
+              "A quick tour of tiered storage",
           },
           {
             title: "Enabling the object storage tier",
             href: "enabling-data-tiering",
             excerpt:
-                "How to enable the object storage tier",
+              "How to enable the object storage tier",
           },
           {
             title: "Manually tier data",
             href: "manual-tier-chunk",
             excerpt:
-                "How to manually tier data to the object storage tier",
+              "How to manually tier data to the object storage tier",
           },
           {
             title: "Creating tiering policies",
             href: "creating-data-tiering-policy",
             excerpt:
-                "How to create a tiering policy",
+              "How to create a tiering policy",
           },
           {
             title: "Querying tiered data",
             href: "querying-tiered-data",
             excerpt:
-                "How to query tiered data",
+              "How to query tiered data",
           },
           {
             title: "Manually untier data",
@@ -520,7 +530,7 @@ module.exports = [
             title: "Replicas and forks with tiered data",
             href: "tiered-data-replicas-forks",
             excerpt:
-                "How tiered data works on replicas and forks",
+              "How tiered data works on replicas and forks",
           },
           {
             title: "Troubleshooting",
@@ -692,26 +702,26 @@ module.exports = [
         ],
       },
       {
-        title: "High availability and replication",
+        title: "High availability and read replication",
         href: "ha-replicas",
-        excerpt: "Timescale high availability and replicas",
+        excerpt: "Timescale high availability and read replication",
         children: [
           {
-            title: "High availability",
+            title: "Manage high availability",
             href: "high-availability",
             excerpt: "Set up HA replicas on Timescale for high availability",
           },
           {
-            title: "Read scaling",
+            title: "Manage read replication",
             href: "read-scaling",
             excerpt: "Understand how read scaling works in Timescale",
           },
         ],
       },
       {
-        title: "Upgrades",
+        title: "Maintenance and upgrades",
         href: "upgrades",
-        excerpt: "Keeping your service up-to-date",
+        excerpt: "Keep your Timescale Cloud service up-to-date",
       },
       {
         title: "PostgreSQL extensions",
@@ -799,9 +809,9 @@ module.exports = [
         ],
       },
       {
-        title: "Timescale integrations",
+        title: "Timescale Cloud integrations",
         href: "integrations",
-        excerpt: "Integrate your Timescale database with third-party solutions",
+        excerpt: "Integrate third-party solutions with Timescale Cloud",
         children: [
           {
             title: "Query and administration",
@@ -963,6 +973,7 @@ module.exports = [
         href: "troubleshoot-timescaledb",
         excerpt: "Troubleshooting Timescale",
       },
+
     ],
   },
 ];

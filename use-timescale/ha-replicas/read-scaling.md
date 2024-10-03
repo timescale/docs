@@ -1,100 +1,79 @@
 ---
-title: Read scaling
+title: Manage read replication
 excerpt: Understand how read scaling works in Timescale
 product: cloud
 keywords: [replicas, scaling]
 tags: [replicas, scaling, ha]
 ---
 
-# Read scaling
+# Manage read replication
 
-Read replicas are read-only copies of a database that allow you to safely scale
-beyond the limits of your service. You can create as many read replicas as you
-need. Read replicas can power your read-intensive application, business
-intelligence tool, or both. Each read replica appears as its own service. The
-replica uses a unique connection string that is different from the parent and
-any HA replicas.
+You use read replicas to power your read-intensive apps and business intelligence tooling. Using read replicas to serve 
+reads for your app removes load from the primary data instance, and enables your service to improve ingest performance. 
+This is particularly useful when read traffic is very spiky and risks impacting ingest performance, or where reads have 
+a lower priority to writes. 
 
-Queries on read replicas have minimal impact on the performance of the
-parent, or primary, service, making them ideal for creating isolated
-instances with up-to-date production data for analysis or scaling out
-reads.
+This page shows you how to create and manage read replicas.
 
-<Highlight type="important">
-Using a separate read replica for read-only access provides both security and
-resource isolation. This means that users with read-only permissions can't access the main
-database directly. If you need to restrict the access of a read-only user but do not
-want to isolate the resource, you can create a read-only role in your database
-instead. For more information, see the
-[security](/use-timescale/latest/security/read-only-role/) section.
-</Highlight>
+## What is read replication?
 
-## Analytics
+A read replica is a read-only copy of the primary data instance in your Timescale Cloud service. Queries on read 
+replicas have minimal impact on the performance of the primary data instance. This enables you to interact with 
+up-to-date production data for analysis or to scale out reads beyond the limits of your primary data instance. You use 
+read replicas for read scaling. To limit data loss for your Timescale Cloud services, use [High availability][ha].
 
-Read replicas can create an isolated environment for a business analyst to run
-heavy analytical queries, rather than running them on a production instance, and
-risk impacting performance. The read replica can be short-lived and deleted when
-the analysis is complete, or long-running to power a business intelligence (BI)
-tool.
-
-When creating a read replica for analytics, it is recommended that you also
-create a new read-only user for the person using the replica. Users must
-be created on the primary, they are then propagated to the read replica.
-Read replicas are read-only and have their own connection string. Since
-credentials are the same for both, having a read-only user creates an
-additional layer of safety in case you accidentally use the
-wrong connection string to connect.
-
-Read replicas can also have a different configuration to the primary.
-Analytics environments can benefit from higher CPU for heavy queries, or
-lower CPU to power long-running dashboards to save on costs.
-
-## Read replicas
-
-Read replicas can be used to serve reads for an application. This removes load
-from the primary, and allows the primary to improve ingest performance. Doing
-this can be particularly useful in environments where read traffic is very spiky
-and risks impacting ingest performance, or where reads should always be lower
-priority than writes.
-
-One consideration for using this approach is that read replicas use
-asynchronous replication. This can cause slight lag on the parent service,
-which is acceptable in certain circumstances. Allowable lag can be
-reduced significantly by adjusting the `max_standby_streaming_delay`,
-and `max_standby_archive_delay` parameters. That said, it is not
-recommended that you use this approach where changes must be immediately
-represented, such as for user credentials.
+You can create as many read replicas as you need. Each read replica appears as its own service. You use a unique
+connection string to interact with each read replica. This provides both security and resource isolation. To restrict 
+access without isolation, you can create a [read-only role][read-only-role] for each Timescale Cloud service. Users 
+with read-only permissions cannot access the primary data instance directly.
 
 ## Create a read replica
 
+Read replicas can be short-lived and deleted when the analysis is complete, or long-running to power a
+business intelligence (BI) tool. To create a secure read replica for your read-intensive apps: 
+
 <Procedure>
 
-### Creating a read replica
+1. Best practice is to create a [read-only role][read-only-role] for the person using the replica.
 
-1.  [Log in to your Timescale account][cloud-login] and click the service
-    you want to replicate.
-1.  Navigate to the `Operations` tab, and select `Read scaling`.
-1.  Click `Add read replica`. Select the configuration you want for your read
-    replica and click `Add read replica`.
-1.  To see the read replicas for a service, click the service name, navigate to
-    the `Operations` tab, and select `Read scaling`. Read replicas are also
-    shown in the `Services` section.
-1.  You can see connection information for the read replica in the same way as a
-    regular service.
+   You create the read-only user on the primary data instance. This user is propagated to the read
+   replica when you create it.
+1. In [Timescale Console][timescale-console-services], select the service to replicate.
+1. Click `Operations`, then click `Read replicas`.
+1. Click `Add read replica`, then select the configuration you want and click `Add read replica`.
+1. Note the connection information for the read replica. 
+
+    The connection string for each read replica is unique, and different to one you use for the primary data instance. 
 
 </Procedure>
 
-## High availability replicas
+## Manage data lag for your read replicas
 
-HA replicas automatically come with a read-only endpoint that can be used to
-serve read queries. Queries against this endpoint can impact the performance of
-the primary, unlike read replicas. Primaries hold any WAL that would impact a
-query currently being executed on an HA replica, potentially causing performance
-degradation. By default, the query timeout on HA replicas is low, around 30
-seconds, which can help mitigate this risk. This approach is likely allowable
-for simple read queries, but heavier read queries risk timing out or causing
-performance degradation on the primary. For more information, see the
-[high availability][ha] section.
+Read replicas use asynchronous replication. This can cause slight lag in data to the primary data instance. Replica lag
+is measured in bytes against the current state of the primary database. To see the lag for both read and
+high-availability replicas replicas running on Timescale Cloud:
+
+To check the status and lag for your read replicas:
+
+<Procedure>
+
+1. In [Timescale Console][timescale-console-services], select a service.
+   
+   The status of the read-replica and data lag is displayed:
+
+    ![Read replica status and lag](https://assets.timescale.com/docs/images/read-replica-lag-status.png)
+
+    You can also see this information in the `Operations` tab.
+
+1. To reduce the allowable lag, adjust the `max_standby_streaming_delay`, and `max_standby_archive_delay` parameters.
+
+   This is not best practice where changes must be immediately represented, such as for user credentials.
+
+</Procedure> 
+
+
 
 [cloud-login]: https://console.cloud.timescale.com
 [ha]: /use-timescale/:currentVersion:/ha-replicas/high-availability/
+[read-only-role]: /use-timescale/:currentVersion:/security/read-only-role/#create-a-read-only-user
+[timescale-console-services]: https://console.cloud.timescale.com/dashboard/services
