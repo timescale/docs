@@ -545,6 +545,11 @@ module.exports = [
         excerpt: "Secure your Timescale Service with VPC Peering and AWS PrivateLink",
       },
       {
+        title: "Hypercore",
+        href: "hypercore",
+        excerpt: "The Timescale hybrid row-columnar storage engine for real-time analytics, powered by time-series data",
+      },
+      {
         title: "Hyperfunctions",
         href: "hyperfunctions",
         pageComponents: ["featured-cards"],
