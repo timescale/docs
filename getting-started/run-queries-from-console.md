@@ -16,7 +16,7 @@ In Timescale Console you can use the following ways to run SQL queries against y
 - [Data mode][run-popsql]: a rich experience powered by PopSQL. You can write queries with 
   autocomplete, save them in folders, share them, create charts/dashboards, and much more.
 
-- [SQL editor][run-sqleditor]: a simple UI in the ops mode that you use to run ad-hoc ephemeral 
+- [SQL editor in Ops mode][run-sqleditor]: a simple SQL editor in Ops mode that lets you run ad-hoc ephemeral 
   queries. This is useful for quick one-off tasks like creating an index on a small table or 
   inspecting `pg_stat_statements`.
 
