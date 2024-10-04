@@ -24,9 +24,9 @@ Timescale Cloud offers the following PostgreSQL optimized database services:
 
 <ServiceOverview />
 
-
-This section shows you how to create a service, then connect to it using either a secure Cloud SQL 
-editor in Timescale Console, or command line tools.
+This section shows you how to create a service, connect to it, create a standard PostgreSQL table, then 
+convert it into a [Hypertable][hypertables]. Anything you can do with regular PostgreSQL tables, you can 
+do with hypertables, just with better performance and improved an user experience for time-series data.
 
 <Install />
 
@@ -73,3 +73,4 @@ And that is it, you are up and running. Enjoy developing with Timescale.
 [create-service]: https://console.cloud.timescale.com/dashboard/create_services
 [what-is-time-series]: https://www.timescale.com/blog/what-is-a-time-series-database/#what-is-a-time-series-database
 [what-is-dynamic-postgres]: https://www.timescale.com/dynamic-postgresql
+[hypertables]: /use-timescale/:currentVersion:/hypertables/about-hypertables/#hypertable-partitioning
