@@ -95,7 +95,8 @@ When you receive the $CLOUD_LONG peering request in AWS, edit your routing table
 the `IP Range` and `CIDR block` between your AWS and $CLOUD_LONG VPCs.
 
 When you peer a VPC with multiple CIDRs, all CIDRs are added to the $CLOUD_LONG rules automatically.
-However, if you change your CIDRs, you have to recreate another peering connection to $CLOUD_LONG. 
+After you have finished peering, further changes in your VPC's CIDRs are not detected automatically. 
+If you need to refresh the CIDRs, please recreate the peering connection. 
 
 The request acceptance process is an important safety mechanism. Do not accept a
 peering request from an unknown account.
