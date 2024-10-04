@@ -48,14 +48,13 @@ For the following options:
 - **RAID**: use a RAID setup across multiple physical disks, and expose a single logical disk to the hypertable.
   That is, using a single tablespace.
 
-  Best practice is to use RAID when possible. This is because it supports the concurrent and single
-  scenarios and *no spatial partitioning is required*.
+  Best practice is to use RAID when possible, as you do not need to manually manage tablespaces
+  in the database. 
 
 - **Multiple tablespaces**: for each physical disk, add a separate tablespace to the database. TimescaleDB allows you to add 
   multiple tablespaces to a *single* hypertable. However, although under the hood, a hypertable's
   chunks are spread across the tablespaces associated with that hypertable.
 
-  Multiple tablespaces only supports concurrent queries.
 
 When using multiple tablespaces, a best practice is to also add a second hash-partitioned dimension to your hypertable and to have at least one hash partition per disk. While a single time dimension would also work, it would mean that the first chunk is written to one tablespace, the second to another, and so on, and thus would parallelize only if a query's time range exceeds a single chunk.
 
