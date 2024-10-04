@@ -10,12 +10,19 @@ api:
 
 # create_hypertable()
 
-Creates a TimescaleDB hypertable from a PostgreSQL table (replacing the latter),
-partitioned on one dimension. The PostgreSQL table cannot be an already partitioned table
-(declarative partitioning or inheritance). In case of a non-empty table, it is
-possible to migrate the data during hypertable creation using the `migrate_data`
+Replace a standard PostgreSQL table with a hypertable that is partitioned on one 
+dimension. If table to be replaced already contains data, use the 
+[`migrate_data`][this-optional-arguments] argument to migrate your data when you
+create the hypertable. 
+
+In case of a non-empty table, it is
+possible to migrate the data during hypertable creation using the 
 option, although this might take a long time and has certain limitations when
 the table contains foreign key constraints (see below).
+
+The PostgreSQL table cannot be an already partitioned table
+(declarative partitioning or inheritance).
+
 
 After creation, all actions, such as `ALTER TABLE`, `SELECT`, etc., still work
 on the resulting hypertable.
@@ -141,3 +148,4 @@ SELECT create_hypertable('events', by_range('event', partition_func => 'event_st
 [hypertable-docs]: /use-timescale/:currentVersion:/hypertables/
 [dimension-builders]: /api/:currentVersion:/hypertable/dimension_info
 [by-range]: /api/:currentVersion:/hypertable/dimension_info/#by_range
+[this-optional-arguments]: /api/:currentVersion:/hypertable/add_dimension/#optional-arguments
