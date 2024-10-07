@@ -802,6 +802,11 @@ module.exports = [
             excerpt: "Example user-defined action for downsample and compress",
           },
           {
+            title: "User-defined actions vs. pg_cron jobs",
+            href: "user-actions-vs-pg-cron-jobs",
+            excerpt: "Compare user-defined actions and pg_crone jobs",
+          },
+          {
             title: "Troubleshooting",
             href: "troubleshooting",
             type: "placeholder",

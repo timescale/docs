@@ -27,6 +27,7 @@ In this section:
         [automatic moving of chunks between tablespaces][manage-storage]
     *   Use a user-defined action to automatically
         [downsample and compress][downsample-compress] older chunks
+*   [Compare pg_cron jobs][pg-cron-jobs] and user-defined actions
 
 [about-user-defined-actions]: /use-timescale/:currentVersion:/user-defined-actions/about-user-defined-actions/
 [alter-and-delete]: /use-timescale/:currentVersion:/user-defined-actions/alter-and-delete/
@@ -35,3 +36,4 @@ In this section:
 [generic-retention]: /use-timescale/:currentVersion:/user-defined-actions/example-generic-retention
 [manage-storage]: /use-timescale/:currentVersion:/user-defined-actions/example-tiered-storage/
 [test-and-debug]: /use-timescale/:currentVersion:/user-defined-actions/test-and-debug/
+[pg-cron-jobs]: /use-timescale/:currentVersion:/user-defined-actions/schedule-pg-cron-jobs/
