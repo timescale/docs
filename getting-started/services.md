@@ -9,15 +9,9 @@ content_group: Getting started
 import Install from "versionContent/_partials/_cloud-installation.mdx";
 import Connect from "versionContent/_partials/_cloud-connect.mdx";
 import CreateAHypertable from "versionContent/_partials/_create-hypertable.mdx";
+import ServiceOverview from "versionContent/_partials/_service-overview.mdx";
 
 # Create your first Timescale service
-
-You use Timescale Console to create and manage `Ops` for your Timescale Cloud services, and securely manage 
-`Data` in your services. 
-
-![Timescle Console overview](https://assets.timescale.com/docs/images/console-overview.png)
-
-Each service is a single 100% PostgreSQL database with [usage-based storage][how-plans-work].
 
 Timescale Cloud offers the following PostgreSQL optimized database services:
 
@@ -25,9 +19,14 @@ Timescale Cloud offers the following PostgreSQL optimized database services:
     [time-series and analytics][what-is-time-series] workloads.
 - **Dynamic PostgreSQL**: for all other workloads. A PostgreSQL instance with a 
     [dynamic compute range][what-is-dynamic-postgres] aligned to your business needs.
+- **Vector and AI**: for apps that require fast search on vector embeddings and metadata, like semantic search, image
+  search, RAG and Agents. Powered by Timescale Vector and available on Time-series and Dynamic PostgreSQL services. 
 
-This section shows you how to create a service, then connect to it using either a secure Cloud SQL 
-editor in Timescale Console, or command line tools.
+<ServiceOverview />
+
+This section shows you how to create a service, connect to it, create a standard PostgreSQL table, then 
+convert it into a [Hypertable][hypertables]. Anything you can do with regular PostgreSQL tables, you can 
+do with hypertables, just with better performance and improved an user experience for time-series data.
 
 <Install />
 
@@ -74,4 +73,4 @@ And that is it, you are up and running. Enjoy developing with Timescale.
 [create-service]: https://console.cloud.timescale.com/dashboard/create_services
 [what-is-time-series]: https://www.timescale.com/blog/what-is-a-time-series-database/#what-is-a-time-series-database
 [what-is-dynamic-postgres]: https://www.timescale.com/dynamic-postgresql
-[how-plans-work]: /about/:currentVersion:/pricing-and-account-management/#how-plans-work
+[hypertables]: /use-timescale/:currentVersion:/hypertables/about-hypertables/#hypertable-partitioning
