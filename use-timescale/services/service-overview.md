@@ -8,13 +8,11 @@ cloud_ui:
     path:
         - [services, :serviceId, overview]
 ---
+import ServiceOverview from "versionContent/_partials/_service-overview.mdx";
 
 # About services
 
-You use Timescale Console to create and manage `Ops` for your Timescale Cloud services, and securely manage
-`Data` in your services.
-
-![Timescle Console overview](https://assets.timescale.com/docs/images/console-overview.png)
+<ServiceOverview />
 
 When you log into your [Timescale account][cloud-login], you see the
 Project overview. Click a service to view run-time data and connection information. 
