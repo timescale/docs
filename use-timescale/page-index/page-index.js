@@ -60,18 +60,6 @@ module.exports = [
         title: "User management",
         href: "members",
         excerpt: "User management in Timescale Cloud",
-        children: [
-          {
-            title: "Members list",
-            href: "members-list",
-            excerpt: "Timescale members list",
-          },
-          {
-            title: "Project Ownership",
-            href: "project-ownership",
-            excerpt: "Timescale project ownership",
-          },
-        ],
       },
       {
         title: "Write data",
