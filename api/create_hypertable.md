@@ -61,8 +61,7 @@ in the table. It can also run into deadlock if foreign key constraints exist to
 other tables.
 
 When converting a normal SQL table to a hypertable, pay attention to how you handle
-constraints. A hypertable can contain foreign keys to normal SQL table columns,
-but the reverse is not allowed. UNIQUE and PRIMARY constraints must include the
+constraints. A hypertable can contain foreign keys to normal SQL table columns and vice versa. However, this does not work between hypertables. UNIQUE and PRIMARY constraints must include the
 partitioning key.
 
 The deadlock is likely to happen when concurrent transactions simultaneously try
