@@ -13,19 +13,6 @@ import ServiceOverview from "versionContent/_partials/_service-overview.mdx";
 
 # Create your first $SERVICE_LONG
 
-To start using $CLOUD_LONG for your database, you need to take the following steps:
-
-1. Create a $COMPANY account: register in $CONSOLE to get a centralized point to administer and interact with your data.
-1. Create a $SERVICE_LONG, that is, a PostgreSQL database instance, powered by [$TIMESCALE_DB][timescaledb], built for production, and extended with cloud features like transparent data tiering to object storage.
-1. Establish a connection with your newly created service to run queries on it and migrate your data from other sources, if necessary.
-1. Create a standard PostgreSQL table in your service and convert it into a [hypertable][hypertables]. 
-
-   Anything you can do with regular PostgreSQL tables, you can do with hypertables, just with better performance and improved user experience for time-series data.
-
-This page takes you through those steps. 
-
-## $SERVICE_LONG types
-
 $CLOUD_LONG offers the following PostgreSQL optimized database services:
 
 - **Time-series and Analytics**: a $TIMESCALE_DB instance optimized for your 
@@ -36,6 +23,14 @@ $CLOUD_LONG offers the following PostgreSQL optimized database services:
 
 <ServiceOverview />
 
+To start using $CLOUD_LONG for your data:
+
+1. [Create a $COMPANY account][creatre-an-account]: register in $CONSOLE to get a centralized point to administer and interact with your data.
+1. [Create a $SERVICE_LONG][creatre-a-service]: that is, a PostgreSQL database instance, powered by [$TIMESCALE_DB][timescaledb], built for production, and extended with cloud features like transparent data tiering to object storage.
+1. [Connect to your $SERVICE_LONG][connect-to-your-service]: to run queries, add and migrate your data from other sources.
+1. [Create a hypertable][create-a-hypertable]: create a standard PostgreSQL table in your service, the convert it into a [hypertable][hypertables].
+
+   Anything you can do with regular PostgreSQL tables, you can do with hypertables, just with better performance and improved user experience for time-series data.
 
 <Install />
 
@@ -80,7 +75,11 @@ And that is it, you are up and running. Enjoy developing with $COMPANY.
 [tsc-portal]: https://console.cloud.timescale.com/
 [services-how-to]: /use-timescale/:currentVersion:/services/
 [install-psql]: /use-timescale/:currentVersion:/integrations/query-admin/psql/
+
+[creatre-an-account]: /getting-started/:currentVersion:/services/#create-a-timescale-cloud-account
+[creatre-a-service]: /getting-started/:currentVersion:/services/#create-a-timescale-cloud-service
 [connect-to-your-service]: /getting-started/:currentVersion:/services/#connect-to-your-service
+[create-a-hypertable]: /getting-started/:currentVersion:/services/#create-a-hypertable
 [create-service]: https://console.cloud.timescale.com/dashboard/create_services
 [what-is-time-series]: https://www.timescale.com/blog/what-is-a-time-series-database/#what-is-a-time-series-database
 [what-is-dynamic-postgres]: https://www.timescale.com/dynamic-postgresql
