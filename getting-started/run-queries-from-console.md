@@ -1,6 +1,6 @@
 ---
 title: Run your queries from Timescale Console
-excerpt: Use Data mode or SQL editor to run SQL queries, create charts and dashboards, and collaborate with teammates.
+excerpt: Use the data mode or SQL editor to run SQL queries, create charts and dashboards, and collaborate with teammates.
 keywords: [popsql, sql editor, chart, dashboard]
 layout_components: [next_prev_large]
 content_group: Getting started
@@ -9,38 +9,42 @@ content_group: Getting started
 # Run your queries from Timescale Console
 
 As Timescale Cloud is based on PostgreSQL, you can use lots of [different tools][integrations] to 
-connect to your service and interact with your data. To securely manage your date from inside 
-Console, Timescale offers the following Cloud SQL editors:
+connect to your service and interact with your data. 
 
-- [Data mode][run-popsql]: a comprehensive UI that you use to write queries, visualize data, 
-   and share your results.
-- [SQL editor][run-sqleditor]: a simple UI to run queries for each individual service.
+In Timescale Console you can use the following ways to run SQL queries against your database:
+
+- [Data mode][run-popsql]: a rich experience powered by PopSQL. You can write queries with 
+  autocomplete, save them in folders, share them, create charts/dashboards, and much more.
+
+- [SQL editor in Ops mode][run-sqleditor]: a simple SQL editor in Ops mode that lets you run ad-hoc ephemeral 
+  queries. This is useful for quick one-off tasks like creating an index on a small table or 
+  inspecting `pg_stat_statements`.
 
 
-If you prefer the command line to a Cloud SQL editor, use [psql][install-psql].
+If you prefer the command line to the ops mode SQL editor in Timescale Console, use [psql][install-psql].
 
 ## Data mode
 
-You use `Data` in Timescale Console to write queries, visualize data, and share your results. 
+You use the data mode in Timescale Console to write queries, visualize data, and share your results. 
 
-![Screenshot of Data](https://assets.timescale.com/docs/images/data-mode-schema-chart.png)
+![Screenshot of data mode](https://assets.timescale.com/docs/images/data-mode-schema-chart.png)
 
 Available features are:
 
-- **Real-time collaboration**: work with your team directly in the Data query editor with live presence and multiple 
+- **Real-time collaboration**: work with your team directly in the data mode query editor with live presence and multiple 
    cursors.
 - **[Schema browser](https://docs.popsql.com/docs/schema)**: understand the structure of your database and see usage data on tables and columns.
 - **Autocomplete**: get suggestions as you type your queries.
 - **[Version history](https://docs.popsql.com/docs/version-history)**: access previous versions of a query from the built-in revision history, or connect to a 
   git repo.
-- **[Charts](https://docs.popsql.com/docs/creating-charts)**: visualize data from inside your SQL editor rather than switch to Sheets or Excel.
+- **[Charts](https://docs.popsql.com/docs/creating-charts)**: visualize data from inside the UI rather than switch to Sheets or Excel.
 - **[Schedules](https://docs.popsql.com/docs/scheduled-queries)**: automatically refresh queries and dashboards to create push alerts.
 - **[Query variables](https://docs.popsql.com/docs/query-variables)**: use Liquid to parameterize your queries or use `if` statements.
 - **Cross platform**:  works from [Timescale Console][portal-data-mode] or download the 
   [desktop](https://popsql.com/download) app for macOS, Windows, and Linux.
 - **Easy connection**: to Timescale Cloud, PostgreSQL, Redshift, Snowflake, BigQuery, MySQL, SQL Server, [and more](https://popsql.com/connections).
 
-### Connect to your Timescale Cloud service in Data mode
+### Connect to your Timescale Cloud service in the data mode
 
 <Procedure>
 
@@ -54,7 +58,7 @@ To connect to a service:
 
 1. **Connect to your service**
 
-   1. In [`Data` in Timescale Console][portal-data-mode], select a service and enter your password, then click `Connect`.
+   1. In the [data mode][portal-data-mode] in Timescale Console, select a service and enter your password, then click **Connect**.
 
       ![Select a connection](https://assets.timescale.com/docs/images/data-mode-connections.png)
 
@@ -68,14 +72,14 @@ To connect to a service:
 
 
 Quick recap. You:
-- Manage your services in the [`Ops` in Timescale Console][portal-ops-mode]
-- Manage your data in [`Data` in Timescale Console][portal-data-mode]
+- Manage your services in the [ops mode in Timescale Console][portal-ops-mode]
+- Manage your data in the [data mode in Timescale Console][portal-data-mode]
 - Store configuration and security information in your config file.
 
 </Procedure>
 
 
-Now you have used Data mode in Timescale Console, see how to easily do the following:
+Now you have used the data mode in Timescale Console, see how to easily do the following:
 
 - [Write a query](https://docs.popsql.com/docs/writing-a-query)
 - [Share a query with your
@@ -100,12 +104,12 @@ If your Timescale Service runs inside a VPC, do one of the following to enable a
   - When you configure the connection in PopSQL, under `Advanced Options`, enable `Connect over SSH`
 - Add PopSQL's static IPs (`23.20.131.72, 54.211.234.135`) to your allowlist
 
-#### What happens if another member of my Timescale project Data mode?
+#### What happens if another member of my Timescale project uses data mode?
 
-The number of Data mode seats you are allocated depends on your
+The number of data mode seats you are allocated depends on your
 [Pricing Plan][pricing-plan-features].
 
-#### Will using Data mode affect the performance of my Timescale Cloud service?
+#### Will using the data mode affect the performance of my Timescale Cloud service?
 
 There are a few factors to consider:
 
@@ -121,11 +125,11 @@ a [read replica][readreplica] and send analytical queries there.
 
 If you'd like to prevent write operations such as insert or update. Instead 
 of using the `tsdbadmin` superuser, create a read-only user for your service and
-use that in Data mode.
+use that in the data mode.
 
 
 
-## SQL editor
+## Ops mode SQL editor
 
 SQL editor is an integrated secure UI that you use to run queries and see the results
 for an Timescale Cloud service.
@@ -135,7 +139,7 @@ for an Timescale Cloud service.
 To enable or disable SQL editor in your service, click `Operations` > `Service management`, then
 update the setting for SQL editor.
 
-### Run queries from Console with SQL editor
+### Run queries from the ops mode in Timescale Console
 
 <Procedure>
 
@@ -143,7 +147,7 @@ To use SQL editor with Timescale:
 
 1.  **Open SQL editor from Timescale Console**
 
-    In [`Ops` in Timescale Console][portal-ops-mode], select a service, then click `SQL editor`.
+    In the [ops mode][portal-ops-mode] in Timescale Console, select a service, then click **SQL editor**.
 
     ![Check service is running](https://assets.timescale.com/docs/images/ops-view-sql-editor.png)
 
@@ -156,9 +160,8 @@ To use SQL editor with Timescale:
 
 ## Cloud SQL editor licenses
 
-* **SQL editor**: free for anyone with a [Timescale Cloud account][create-cloud-account].
-* **Data mode with Timescale Cloud**: the number of Cloud SQL editor seats you are allocated depends on your 
-  [Pricing Plan][pricing-plan-features].
+* **SQL editor in the ops mode**: free for anyone with a [Timescale Cloud account][create-cloud-account].
+* **Data mode**: the number of seats you are allocated depends on your [Pricing Plan][pricing-plan-features].
 * **PopSQL standalone**: there is a free plan available to everyone, as well as paid plans. See  [PopSQL Pricing](https://popsql.com/pricing) for full 
   details.
 
