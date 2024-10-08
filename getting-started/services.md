@@ -13,6 +13,14 @@ import ServiceOverview from "versionContent/_partials/_service-overview.mdx";
 
 # Create your first Timescale service
 
+To start using Timescale Cloud for your database, you need to take the following steps:
+
+1. Create a Timescale account: register in Timescale Console to get a centralized point for your database management.
+1. Create a Timescale service, that is, a PostgreSQL database instance, in Timescale Console.
+1. Establish a connection with your newly created service to run queries on it and migrate your data from other sources, if necessary.
+
+This page takes you through those steps. It also explains how to create a standard PostgreSQL table in your service and convert it into a [hypertable][hypertables]. Anything you can do with regular PostgreSQL tables, you can do with hypertables, just with better performance and improved user experience for time-series data.
+
 Timescale Cloud offers the following PostgreSQL optimized database services:
 
 - **Time-series and Analytics**: a Timescale DB instance optimized for your 
@@ -24,9 +32,7 @@ Timescale Cloud offers the following PostgreSQL optimized database services:
 
 <ServiceOverview />
 
-This section shows you how to create a service, connect to it, create a standard PostgreSQL table, then 
-convert it into a [Hypertable][hypertables]. Anything you can do with regular PostgreSQL tables, you can 
-do with hypertables, just with better performance and improved an user experience for time-series data.
+
 
 <Install />
 
