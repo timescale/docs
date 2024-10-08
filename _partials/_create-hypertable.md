@@ -33,7 +33,7 @@ To create a hypertable:
     ```sql
     SELECT create_hypertable('stocks_real_time', by_range('time'));
     ```
-    In `Data`, you see the result immediately:
+    In data mode, you see the result immediately:
 
     ![Data mode create hypertable](https://assets.timescale.com/docs/images/data-mode-create-hypertable.png)
 
