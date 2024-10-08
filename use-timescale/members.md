@@ -91,6 +91,30 @@ You can now manage the users and services in this project
 
 </Procedure>
 
+## Transfer project ownership
+
+Each project in $CONSOLE has one `owner`. As the project owner, you have rights to
+to add and delete users, edit project settings and transfer the owner role to another user. When you transfer
+ownership to another user, you lose ownerships rights.
+
+To transfer project ownership:
+
+<Procedure>
+
+1.  In [$CONSOLE][cloud-login], click `Invite users`.
+2.  Next to the person you want to transfer project ownership to, click `⋮`.
+    ![Transfer project ownership in $CONSOLE](https://assets.timescale.com/docs/images/console-transfer-ownership.png)
+    If you are unable to transfer ownership, hover over the greyed out button to see details.
+3.  Enter your password, and click `Verify`.
+4.  Complete the two-factor authentication challenge and click `Confirm`.
+
+</Procedure>
+
+If you have the [Enterprise pricing plan][pricing-plans], and log in to Timescale using [SAML authentication][saml]
+or have not enabled [two-factor authentication][2fa], [contact support](https://www.timescale.com/contact) to transfer
+project ownership.
+
+
 ## Leave a project
 
 To stop working in a project:
@@ -120,29 +144,6 @@ To remove a user's access to a project:
 The user is deleted immediately, they can no longer access your project.
 
 </Procedure>
-
-## Transfer project ownership
-
-Each project in $CONSOLE has one `owner`. As the project owner, you have rights to
-to add and delete users, edit project settings and transfer the owner role to another user. When you transfer
-ownership to another user, you lose ownerships rights.
-
-To transfer project ownership:
-
-<Procedure>
-
-1.  In [$CONSOLE][cloud-login], click `Invite users`.
-2.  Next to the person you want to transfer project ownership to, click `⋮`.
-    ![Transfer project ownership in $CONSOLE](https://assets.timescale.com/docs/images/console-transfer-ownership.png)
-    If you are unable to transfer ownership, hover over the greyed out button to see details.
-3.  Enter your password, and click `Verify`.
-4.  Complete the two-factor authentication challenge and click `Confirm`.
-
-</Procedure>
-
-If you have the [Enterprise pricing plan][pricing-plans], and log in to Timescale using [SAML authentication][saml]
-or have not enabled [two-factor authentication][2fa], [contact support](https://www.timescale.com/contact) to transfer
-project ownership.
 
 
 [cloud-login]: https://console.cloud.timescale.com/
