@@ -21,7 +21,7 @@ available](/api/:currentVersion:/hypertable/create_hypertable_old/).
 
 ## Create a hypertable
 
-To create a hypertable, you need to create a standard PostgreSQL table, and then
+To create a hypertable, you create a standard PostgreSQL table and then
 convert it into a hypertable.
 
 Hypertables are intended for time-series data, so your table needs a column that
