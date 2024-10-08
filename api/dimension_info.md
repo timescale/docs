@@ -66,7 +66,7 @@ The `partition_interval` should be specified as follows:
   or an integer value in *microseconds*.
 
   <Highlight type="note">
-  While both `timestamp` and `timestamptz` data types are supported for partitioning columns, a best practice is to use `timestamptz`. For why the use of `timestamp` is discouraged, see [PostgreSQL timestamp](https://wiki.postgresql.org/wiki/Don't_Do_This#Don.27t_use_timestamp_.28without_time_zone.29).
+  While both `timestamp` and `timestamptz` data types are supported for partitioning columns, best practice is to use `timestamptz`. [PostgreSQL timestamp](https://wiki.postgresql.org/wiki/Don't_Do_This#Don.27t_use_timestamp_.28without_time_zone.29) explains why using `timestamp` is discouraged.
   </Highlight>
 
 - If the column is some other integer type, this length should be an
