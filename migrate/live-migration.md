@@ -21,13 +21,10 @@ import Troubleshooting from "versionContent/_partials/_migrate_live_migrate_faq_
 
 # Live migration
 
-You use the [live-migration][live-migration-docker-image] Docker image to move 100GB-10TB+ of data to a Timescale Cloud service 
-seamlessly with only a few minutes downtime. 
+Live-migration is an end-to-end solution that copies the database schema and data to
+your target Timescale Cloud service, then replicates the database activity in your source database to the target service in real-time. Live-migration uses the PostgreSQL logical decoding functionality and leverages [pgcopydb].
 
-[Live-migration][live-migration-docker-image] is an end-to-end solution that copies the database schema and data to 
-your target Timescale Cloud service, then replicates the database activity in your source database 
-to the target service in real-time. Live-migration uses the PostgreSQL logical decoding 
-functionality and leverages [pgcopydb]. 
+You use the live-migration Docker image to move 100GB-10TB+ of data to a Timescale Cloud service seamlessly with only a few minutes downtime.
 
 Best practice is to use live-migration when:
 - Modifying your application logic to perform dual writes is a significant effort. 
@@ -144,4 +141,3 @@ This section shows you how to workaround issues frequently seen issues using Liv
 [FAQ]: /migrate/:currentVersion:/troubleshooting
 [pgcopydb]: https://github.com/dimitri/pgcopydb
 [install-docker]: https://docs.docker.com/engine/install/
-[live-migration-docker-image]: https://hub.docker.com/r/timescale/live-migration
