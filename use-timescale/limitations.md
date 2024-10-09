@@ -14,12 +14,12 @@ hypertables.
 
 ## Hypertable limitations
 
-*   Foreign key constraints referencing a hypertable are not supported.
 *   Time dimensions (columns) used for partitioning cannot have NULL values.
 *   Unique indexes must include all columns that are partitioning
   dimensions.
 *   `UPDATE` statements that move values between partitions (chunks) are not
     supported. This includes upserts (`INSERT ... ON CONFLICT UPDATE`).
+*   Foreign key constraints from a hypertable referencing another hypertable are not supported.
 
 ## Distributed hypertable limitations
 
