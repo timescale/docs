@@ -53,7 +53,7 @@ Creates a by-range dimension builder that can be used with
 	
 ### Returns 
 
-A *dimension builder*, which is an which is an opaque type
+A *dimension builder*, which is an opaque type
 `_timescaledb_internal.dimension_info`, holding the dimension
 information.
 
@@ -64,6 +64,10 @@ The `partition_interval` should be specified as follows:
 - If the column to be partitioned is a `TIMESTAMP`, `TIMESTAMPTZ`, or
   `DATE`, this length should be specified either as an `INTERVAL` type
   or an integer value in *microseconds*.
+
+  <Highlight type="note">
+  While both `timestamp` and `timestamptz` data types are supported for partitioning columns, best practice is to use `timestamptz`. [PostgreSQL timestamp](https://wiki.postgresql.org/wiki/Don't_Do_This#Don.27t_use_timestamp_.28without_time_zone.29) explains why using `timestamp` is discouraged.
+  </Highlight>
 
 - If the column is some other integer type, this length should be an
   integer that reflects the column's underlying semantics (for example, the
