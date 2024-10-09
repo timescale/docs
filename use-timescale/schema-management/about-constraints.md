@@ -13,7 +13,7 @@ delete constraints on your hypertables, the constraints are propagated to the
 underlying chunks, and to any indexes.
 
 Hypertables support all standard PostgreSQL constraint types, except for
-foreign key constraints on other tables that reference values in a hypertable.
+foreign key constraints from a hypertable referencing another hypertable.
 
 For example, you can create a table that only allows positive device IDs, and
 non-null temperature readings. You can also check that time values for all
