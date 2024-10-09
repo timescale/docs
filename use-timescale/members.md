@@ -11,7 +11,7 @@ cloud_ui:
 
 # User management
 
-When you sign up for a [30 day free trial][sign-up], $CLOUD_LONG creates a project for you, and
+When you sign up for a [30-day free trial][sign-up], $CLOUD_LONG creates a project for you, and
 you are assigned the `Owner` role for the project. As the project owner, you have rights to
 add and delete other users, and edit project settings. Users that you add to the project are 
 assigned the `Member` role. Members have rights to collaborate with you on your project, and help 
@@ -94,7 +94,7 @@ You can now manage the users and services in this project
 ## Transfer project ownership
 
 Each project in $CONSOLE has one `owner`. As the project owner, you have rights to
-to add and delete users, edit project settings and transfer the owner role to another user. When you transfer
+add and delete users, edit project settings, and transfer the owner role to another user. When you transfer
 ownership to another user, you lose ownerships rights.
 
 To transfer project ownership:
@@ -137,7 +137,7 @@ To remove a user's access to a project:
 <Procedure>
 
 1.  In [$CONSOLE][cloud-login], click `Invite users`.
-1.  Next to the person you want to remove, click `⋮`, then click the trash can.
+1.  Next to the person you want to remove, click `⋮`, then click the trash can icon.
     ![Remove a user in $CONSOLE](https://assets.timescale.com/docs/images/console-remove-user.png)
 1.  In `Remove user`, click `Remove`.
 
