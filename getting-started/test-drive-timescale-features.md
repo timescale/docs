@@ -10,6 +10,7 @@ content_group: Getting started
 import TablesHypertables from "versionContent/_partials/_test-drive-tables-hypertables.mdx";
 import IngestTimeSeriesData from "versionContent/_partials/_test-drive-ingest-time-series-data.mdx";
 import QueryData from "versionContent/_partials/_test-drive-query-data.mdx";
+import CompressData from "versionContent/_partials/_test-drive-query-data.mdx";
 import ContinuousAggregates from "versionContent/_partials/_test-drive-aggregation.mdx";
 
 # Test drive Timescale features
@@ -30,11 +31,11 @@ To follow this page, you must either:
 
 * Followed the get started
 
-<TablesHypertables />
-
 <IngestTimeSeriesData />
 
-<QueryData />
+<TablesHypertables />
+
+<CompressData />
 
 <ContinuousAggregates />
 

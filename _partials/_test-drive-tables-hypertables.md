@@ -1,6 +1,6 @@
 import HypertableIntro from "versionContent/_partials/_hypertables-intro.mdx";
 
-## Organize your data using tables and hypertables 
+## Improve query performance with hypertables and time buckets 
 
 <HypertableIntro />
 

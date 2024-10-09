@@ -5,6 +5,11 @@ module.exports = [
     excerpt: "Learn about common scenarios and use cases for Timescale",
     children: [
       {
+        title: "Implement real-time analytics",
+        href: "real-time-analytics",
+        excerpt: "Exhaustive list of the features offered by Timescale products and services",
+      },
+      {
         title: "Use Timescale hyperfunctions to analyze Bitcoin transactions",
         href: "analyse-bitcoin-transactions",
         excerpt: "Analyze Bitcoing transactions using Hyperfunctions",

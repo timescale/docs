@@ -8,25 +8,35 @@ const tutorialsPageIndex = require("../tutorials/page-index/page-index.js");
 const codeQuickStartsPageIndex = require("../quick-start/page-index/page-index.js");
 const migrationPageIndex = require("../migrate/page-index/page-index.js");
 const timescaleAboutPageIndex = require("../about/page-index/page-index");
-const AIPageIndex = require("../ai/page-index/page-index");
+const AIPageIndex = require("../embed-ai-in-your-data/page-index/page-index");
 const AdminTimscaleCloud = require("../administer-your-deployment/page-index/page-index");
 const AdminMST = require("../administer-mst/page-index/page-index");
 const AdminSelfHosted = require("../administer-self-hosted/page-index/page-index");
 const Troubleshooting = require("../troubleshooting/page-index/page-index");
+const AccessAndControl = require("../access-and-control/page-index/page-index");
+const DataSecurity = require("../data-security-and-reliability/page-index/page-index");
+const DataIngestMigrate = require("../data-ingestion-and-migration/page-index/page-index");
+
+const EfficientStorage = require("../efficient-storage/page-index/page-index");
+const QueryPerformance = require("../query-performance-and-scalability/page-index/page-index");
+const Reference = require("../reference/page-index/page-index");
+
 
 module.exports = [
   ...gsgPageIndex,
-  ...migrationPageIndex,
   ...timescaleAboutPageIndex,
-  ...timescaleUsingPageIndex,
   ...selfHostedPageIndex,
-  ...apiReferencePageIndex,
   ...timescaleMSTPageIndex,
   ...tutorialsPageIndex,
   ...navigationPageIndex,
-  ...AdminTimscaleCloud,
   ...Troubleshooting,
   ...AIPageIndex,
+  ...AccessAndControl,
+  ...DataSecurity,
+  ...DataIngestMigrate,
+  ...EfficientStorage,
+  ...QueryPerformance,
+  ...Reference,
   {
     Title: "GitHub",
     type: "external",

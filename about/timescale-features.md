@@ -1,15 +1,45 @@
 ---
-title: Timescale products and services
+title:  Features in Timescale products
 excerpt: An exhaustive list of the features supplied by Timescale products
 product: Timescale
 ---
 
 
-# Timescale features
+# Features in Timescale products
 
-This page gives a full list of the features offered by all Timescale products and services.
+First sentence in every page is marketing and SEO friendly. How this helps the user and what the 
+feature is. 
 
-## Timescale Cloud for AWS
+This page explains how to make your data run faster, more reliably and cheaper using
+Timscale products:
+
+
+## Access and Control
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+## Data security and reliability
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+## Data ingestion and migration
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+## Embed AI into your data
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+## Efficient storage
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+## Query performance and scalability
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+
+### Timescale Cloud for AWS
 
 Timescale Cloud for AWS has the following features:
 
@@ -41,7 +71,7 @@ Grow your app, not your costs:
 * **Simplified bills** that you will understand, without backup, ingress/egress/data transfer, cost-per-query, or cost-per-data-scanned charges.
 
 
-## Timescale Cloud for GCP and Azure
+### Timescale Cloud for GCP and Azure
 
 A reliable and worry-free PostgreSQL cloud for all your workloads for:
 
@@ -51,7 +81,7 @@ A reliable and worry-free PostgreSQL cloud for all your workloads for:
 
 sigh
 
-## Support Services
+### Support Services
 
 Support options to adapt to your use case, infrastructure, and budget.
 * Cloud support
@@ -63,21 +93,21 @@ Support options to adapt to your use case, infrastructure, and budget.
 
 sigh
 
-## Time series and analytics
+### Time series and analytics
 PostgreSQL but faster. Built for lightning-fast ingest and querying of time-based and event data.
 
 | Feature        | Description  | 
 |----------------|--------------|
 | Something cool | How it helps |
 
-## AI and Vector
+### AI and Vector
 PostgreSQL for AI. Seamlessly build RAG, search, and AI agents with the pgvector, pgvectorscale, and pgai extensions.
 
 | Feature        | Description  | 
 |----------------|--------------|
 | Something cool | How it helps |
 
-## Dynamic PostgreSQL (Early Access)
+### Dynamic PostgreSQL (Early Access)
 
 Managed PostgreSQL with the benefits of serverless but none of the problems.
 
@@ -85,7 +115,7 @@ Managed PostgreSQL with the benefits of serverless but none of the problems.
 |----------------|--------------|
 | Something cool | How it helps |
 
-## Open-Source Extensions and Tools
+### Open-Source Extensions and Tools
 
 Open-source PostgreSQL extensions you can run on your own instances.
 

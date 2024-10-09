@@ -6,12 +6,9 @@ products: [cloud, mst, self_hosted]
 
 # Implement engineering use cases
 
-Timescale tutorials are designed to help you get up and running with Timescale
-fast. They walk you through a variety of scenarios using example datasets, to
-teach you how to construct interesting queries, find out what information your
-database has hidden in it, and even gives you options for visualizing and
-graphing your results.
+This section shows how to use the features in Timscale products to implement real world use cases. 
 
+* **Implement real-time analytics**: ipsum lorum 
 * [Analyze bitcoin transactions][analyse-bitcoin-transactions]: Use Timescale hyperfunctions to analyze Bitcoin transactions
 * **Analyze energy consumption data**: construct queries that look at how many watts were consumed, and when
 * **Ingest real-time financial websocket data**: set up data pipelines that ingest real-time financial data into 

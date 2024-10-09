@@ -9,39 +9,17 @@ plans: [scale, enterprise]
 finance—all built on PostgreSQL. We use PostgreSQL for everything; Choose the deployment 
 that matches your engineering requirements:
 
+![Timescale product map](https://assets.timescale.com/docs/images/tsc-vpc-architecture.svg)
+
 * **$CLOUD_LONG**: all the latest $COMPANY products and features that just work. A reliable and worry-free PostgreSQL cloud for all your workloads.
 * **Self hosted**: create your best app from the comfort of your own developer environment.
 
 
-<table>
-    <thead>
-        <tr>
-            <th style="width:20%">Deployment</th>
-            <th>Service type</th>
-            <th>Extensions</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td rowspan="4"><strong>Timescale Cloud</strong></td>
-            <td><strong>Time series and analytics</strong> <p>Lightning-fast ingest and querying of time-based and event data.</p></td>
-            <td><ul><li>TimescaleDB</li><li>TimescaleDB toolkit</li></ul>   </td>
-        </tr>
-        <tr>
-            <td ><strong>AI and vector </strong><p>Seamlessly build RAG, search, and AI agents.</p></td>
-            <td><ul><li>TimescaleDB</li><li>TimescaleDB toolkit</li><li>pgvector</li><li>pgvectorscale</li><li>pgai</li><li>pgspot</li></ul></td>
-        </tr>
-        <tr>
-            <td ><strong>Dynamic PostgreSQL</strong><p>Managed PostgreSQL with the benefits of serverless but none of the problems.</p></td>
-            <td><ul><li>TimescaleDB</li><li>TimescaleDB toolkit</li><li>pgspot</li></ul></td>
-        </tr>
-        <tr>
-            <td colspan="2"><strong>Support</strong><p>Something to explain why support helps.</p></td>
-        </tr>
-        <tr>
-            <td><strong>Self-hosted</strong></td>
-            <td><strong>Support</strong><p>Something to explain why support helps.</p></td>
-            <td>Roll your own using open source Timescale extensions.</td>
-        </tr>
-    </tbody>
-</table>
+This section shows you about
+* **Features in Timescale products**: Timescale products make your data run faster, more reliably and cheaper 
+   using Timscale products: 
+* **Timescale Cloud technical architecture**: see how Timescale Cloud uses best practice ...  
+* **Pricing plans and account management**: tiered pricing plans provide more value, flexibility, and efficiency for your business.
+* **Changelog**: all the latest features and updates to Timescale products.
+* **Release notes**: links to the release notes in all Timescale Open Source products.
+* **Contribute to Timescale**: want to help us with the code or the docs? This is how. 

@@ -1,7 +1,8 @@
 
 
-## Ingest time-series data
+## Load data into your service
 
+Explain about migration and upload. 
 
 To explore Timescale's features, you need some sample data. This guide
 uses real-time stock trade data, also known as tick data, from
