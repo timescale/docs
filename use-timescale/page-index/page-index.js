@@ -533,6 +533,12 @@ module.exports = [
               "How tiered data works on replicas and forks",
           },
           {
+            title: "Disabling tiering for a hypertable",
+            href: "disabling-data-tiering",
+            excerpt:
+              "How to disable tiering for a hypertable",
+          },
+          {
             title: "Troubleshooting",
             href: "troubleshooting",
             type: "placeholder",
