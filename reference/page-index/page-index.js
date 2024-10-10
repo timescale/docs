@@ -12,6 +12,11 @@ module.exports = [
         excerpt: "Exhaustive list of the features offered by Timescale products and services",
       },
       {
+        title: "pgvectorscale API reference",
+        href: "pgvectorscale-api",
+        excerpt: "Exhaustive list of the features offered by Timescale products and services",
+      },
+      {
         title: "TimescaleDB API reference",
         href: "timescaledb-api",
         excerpt: "Exhaustive list of the features offered by Timescale products and services",

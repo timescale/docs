@@ -7,8 +7,8 @@ module.exports = [
       "Additional information about Timescale, including how to contribute, and release notes",
     children: [
       {
-        title: "Timescale products and services",
-        href: "timescale-features",
+        title: "Timescale products",
+        href: "timescale-products",
         excerpt: "Exhaustive list of the features offered by Timescale products and services",
       },
       {

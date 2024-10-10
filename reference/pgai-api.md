@@ -6,4 +6,4 @@ keywords: [reference]
 
 # pgai API reference
 
-pgai is, GREAT. 
+pgai simplifies the process of building search, and Retrieval Augmented Generation(RAG) AI applications with PostgreSQL. 
