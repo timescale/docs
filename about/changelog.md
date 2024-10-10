@@ -8,6 +8,39 @@ keywords: [changelog, upgrades, updates, releases]
 
 All the latest features and updates to Timescale products.
 
+## ✨ Production-Ready Low-Downtime Migrations, MySQL Import, Actions Tab, and Current Lock Contention Visibility in SQL Editor
+<Label type="date">October 10, 2024</Label>
+
+### 🏗️ Live Migrations v1.0 Release
+
+Last year, we began developing a solution for low-downtime migration from PostgreSQL and TimescaleDB. Since then, this solution has evolved significantly, featuring enhanced functionality, improved reliability, and performance optimizations. We're now proud to announce that **live migration is production-ready** with the release of version 1.0.
+
+- Many of our customers have successfully migrated databases to Timescale using live migration, with some databases as large as a few terabytes in size.
+
+### 🔁 Actions Tab
+
+As part of the service creation flow, we offer three steps: 
+
+1. Connecting to services from different sources
+2. Importing and migrating data from various sources
+3. Hypertable creation
+
+Previously, these actions were only visible during the service creation process and couldn't be accessed later. Now, these actions are **persisted within the service**, allowing users to leverage them on-demand whenever they're ready to perform these tasks.
+
+<img width="1491" alt="Screenshot 2024-10-10 at 8 30 03 PM" src="https://github.com/user-attachments/assets/920a343b-5bab-467e-a5f4-88ee45a35adc">
+
+### 🧭 Import Data from MySQL
+
+We've noticed users struggling to convert their MySQL schema and data into Timescale due to the semantic differences between MySQL and PostgreSQL. To simplify this process, we now offer **easy-to-follow instructions** for importing data from MySQL to Timescale. This feature is available as part of the data import wizard, under the "Import from MySQL" option.
+
+![Screenshot 2024-10-02 at 8 17 11 PM](https://github.com/user-attachments/assets/51a9fee3-9bfe-4ca7-bc16-16679590b8c2)
+
+### 🔐 Current Lock Contention
+
+In the console, we offer an SQL editor for directly querying the database. As a new improvement, we now display current lock contention in the result section **if a query is waiting on locks and can't complete execution**.
+
+![image (7)](https://github.com/user-attachments/assets/7529d903-59c3-4aef-802e-7581979a5c35)
+
 ## CIDR & VPC Updates
 
 <Label type="date">October 3, 2024</Label>
