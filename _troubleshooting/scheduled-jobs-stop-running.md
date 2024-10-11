@@ -2,7 +2,7 @@
 title: Scheduled jobs stop running
 section: troubleshooting
 products: [cloud, mst, self_hosted]
-topics: [jobs, continuous aggregates, data retention, compression, data tiering]
+topics: [jobs, continuous aggregates, data retention, compression]
 apis:
   - [continuous aggregates, add_continuous_aggregate_policy()]
   - [continuous aggregates, add_policies()]
