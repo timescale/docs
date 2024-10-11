@@ -27,7 +27,7 @@ As part of the service creation flow, we offer the following:
 
 Previously, these actions were only visible during the service creation process and couldn't be accessed later. Now, these actions are **persisted within the service**, allowing users to leverage them on-demand whenever they're ready to perform these tasks.
 
-<img width="1491" alt="Screenshot 2024-10-10 at 8 30 03 PM" src="https://github.com/user-attachments/assets/920a343b-5bab-467e-a5f4-88ee45a35adc">
+![Timescale Console Actions tab](https://assets.timescale.com/docs/images/timescale-console-actions-tab.png)
 
 ### 🧭 Import Data from MySQL
 
