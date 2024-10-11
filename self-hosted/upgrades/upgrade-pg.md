@@ -10,7 +10,7 @@ import ConsiderCloud from "versionContent/_partials/_consider-cloud.mdx";
 # Upgrade PostgreSQL
 
 Because TimescaleDB is a PostgreSQL extension, you need to ensure you keep your
-underlying PotsgreSQL installation up to date. When you upgrade your TimescaleDB
+underlying PostgreSQL installation up to date. When you upgrade your TimescaleDB
 extension to a new version, always take the time to check if you need to also
 upgrade your PostgreSQL version. If you are running an older version of
 PostgreSQL, you need to upgrade it first, before you upgrade your TimescaleDB

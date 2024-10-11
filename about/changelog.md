@@ -8,6 +8,39 @@ keywords: [changelog, upgrades, updates, releases]
 
 All the latest features and updates to Timescale products.
 
+## ✨ Production-Ready Low-Downtime Migrations, MySQL Import, Actions Tab, and Current Lock Contention Visibility in SQL Editor
+<Label type="date">October 10, 2024</Label>
+
+### 🏗️ Live Migrations v1.0 Release
+
+Last year, we began developing a solution for low-downtime migration from PostgreSQL and TimescaleDB. Since then, this solution has evolved significantly, featuring enhanced functionality, improved reliability, and performance optimizations. We're now proud to announce that **live migration is production-ready** with the release of version 1.0.
+
+Many of our customers have successfully migrated databases to Timescale using [live migration](https://docs.timescale.com/migrate/latest/live-migration/), with some databases as large as a few terabytes in size.
+
+### 🔁 Actions Tab
+
+As part of the service creation flow, we offer the following: 
+
+- Connect to services from different sources
+- Import and migrate data from various sources
+- Create hypertables
+
+Previously, these actions were only visible during the service creation process and couldn't be accessed later. Now, these actions are **persisted within the service**, allowing users to leverage them on-demand whenever they're ready to perform these tasks.
+
+![Timescale Console Actions tab](https://assets.timescale.com/docs/images/timescale-console-actions-tab.png)
+
+### 🧭 Import Data from MySQL
+
+We've noticed users struggling to convert their MySQL schema and data into their Timescale Cloud services. This was due to the semantic differences between MySQL and PostgreSQL. To simplify this process, we now offer **easy-to-follow instructions** to import data from MySQL to Timescale Cloud.  This feature is available as part of the data import wizard, under the **Import from MySQL** option.
+
+![MySQL import instructions](https://assets.timescale.com/docs/images/mysql-import-instructions.png)
+
+### 🔐 Current Lock Contention
+
+In Timescale Console, we offer the SQL editor so you can directly querying your service. As a new improvement,  **if a query is waiting on locks and can't complete execution**, Timescale Console now displays the current lock contention in the results section .
+
+![View console services](https://assets.timescale.com/docs/images/current-lock-contention.png)
+
 ## CIDR & VPC Updates
 
 <Label type="date">October 3, 2024</Label>
