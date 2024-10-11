@@ -15,7 +15,7 @@ All the latest features and updates to Timescale products.
 
 Last year, we began developing a solution for low-downtime migration from PostgreSQL and TimescaleDB. Since then, this solution has evolved significantly, featuring enhanced functionality, improved reliability, and performance optimizations. We're now proud to announce that **live migration is production-ready** with the release of version 1.0.
 
-- Many of our customers have successfully migrated databases to Timescale using live migration, with some databases as large as a few terabytes in size.
+- Many of our customers have successfully migrated databases to Timescale using [live migration](https://docs.timescale.com/migrate/latest/live-migration/), with some databases as large as a few terabytes in size.
 
 ### 🔁 Actions Tab
 
