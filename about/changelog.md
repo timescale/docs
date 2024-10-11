@@ -21,7 +21,7 @@ Last year, we began developing a solution for low-downtime migration from Postgr
 
 As part of the service creation flow, we offer the following: 
 
-1. Connecting to services from different sources
+- Connect to services from different sources
 2. Importing and migrating data from various sources
 3. Hypertable creation
 
