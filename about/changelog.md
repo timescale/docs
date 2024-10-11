@@ -31,7 +31,7 @@ Previously, these actions were only visible during the service creation process 
 
 ### 🧭 Import Data from MySQL
 
-We've noticed users struggling to convert their MySQL schema and data into Timescale due to the semantic differences between MySQL and PostgreSQL. To simplify this process, we now offer **easy-to-follow instructions** for importing data from MySQL to Timescale. This feature is available as part of the data import wizard, under the "Import from MySQL" option.
+We've noticed users struggling to convert their MySQL schema and data into their Timescale Cloud services. This was due to the semantic differences between MySQL and PostgreSQL. To simplify this process, we now offer **easy-to-follow instructions** to import data from MySQL to Timescale Cloud.  This feature is available as part of the data import wizard, under the **Import from MySQL** option.
 
 ![Screenshot 2024-10-02 at 8 17 11 PM](https://github.com/user-attachments/assets/51a9fee3-9bfe-4ca7-bc16-16679590b8c2)
 
