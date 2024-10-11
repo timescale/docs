@@ -9,9 +9,9 @@ content_group: Getting started
 
 # Queries
 
-Timescale supports full SQL, so you don't need to learn a custom query language.
+$COMPANY supports full SQL, so you don't need to learn a custom query language.
 This section contains some simple queries that you can run directly on this
-page. When you have constructed the perfect query, use the copy button to use it
+page. When you have constructed the perfect query, use the copy button to run it
 on your own database.
 
 Most of the queries in this section look for the last four days of data. This is
@@ -50,7 +50,7 @@ LIMIT 10
 
     <Highlight type="note">
     Get a sneak peek at the results by clicking "Run query" below. This runs the
-    SQL query against a live instance curated by Timescale.
+    SQL query against a live instance curated by $COMPANY.
     </Highlight>
 
     <TryItOutCodeBlock id="try-it-out-code-block-1" queryId="getting-started-srt-4-days" />
@@ -106,8 +106,8 @@ LIMIT 10
 
 ## Get the first and last value
 
-Timescale has custom SQL functions that can help make time-series analysis
-easier and faster. In this section, you learn about two common Timescale
+$COMPANY has custom SQL functions that can help make time-series analysis
+easier and faster. In this section, you learn about two common $COMPANY
 functions: `first` to find the earliest value within a group, and `last` to find
 the most recent value within a group.
 
@@ -152,20 +152,19 @@ For more information about these functions, see the API documentation for
 
 </Procedure>
 
-## Use time buckets to get values
+## Use $TIME_BUCKETs to get values
 
 To make it easier to look at numbers over different time ranges, you can use the
-Timescale `time_bucket` function. Time buckets are used to group data, so that
-you can perform calculations over different time periods. Time buckets represent
-a specific point in time, so all the timestamps for data in a single time bucket
-use the bucket timestamp.
+$COMPANY `time_bucket` function. $TIME_BUCKET_CAPs are used to group data, so that
+you can perform calculations over different time periods. $TIME_BUCKET_CAPs represent
+a specific point in time, so all the timestamps for data in a single $TIME_BUCKET use the bucket timestamp.
 
 In this section, you use the same query as the previous section to find the
 `first` and `last` values, but start by organizing the data into 1-hour time
-buckets. In the last section, you retrieves the first and last value of a
-column, this time, you retrieve the first and last value for a 1-hour time bucket.
+buckets. In the last section, you retrieve the first and last value of a
+column, this time, you retrieve the first and last value for a 1-hour $TIME_BUCKET.
 
-Start by declaring the time bucket interval to use, and give your time bucket a
+Start by declaring the $TIME_BUCKET interval to use, and give your $TIME_BUCKET a
 name:
 
 <CodeBlock canCopy={false} showLineNumbers={false} children={`
@@ -181,18 +180,18 @@ FROM stocks_real_time srt
 WHERE time > now() - INTERVAL '4 days'
 `} />
 
-Finally, organize the results by time bucket, using the `GROUP BY` statement,
+Finally, organize the results by $TIME_BUCKET, using the `GROUP BY` statement,
 like this:
 
 <CodeBlock canCopy={false} showLineNumbers={false} children={`
 GROUP BY bucket
 `} />
 
-For more information about time bucketing, see the [time bucket section][time-buckets].
+For more information about $TIME_BUCKETing, see the [$TIME_BUCKET section][time-buckets].
 
 <Procedure>
 
-### Using time buckets to get values
+### Using $TIME_BUCKETs to get values
 
 1.  At the command prompt, use the `psql` connection string from the cheat sheet
     you downloaded to connect to your database.
@@ -203,7 +202,7 @@ For more information about time bucketing, see the [time bucket section][time-bu
 1.  Type `q` to return to the `psql` prompt.
 
     <Highlight type="note">
-    When you create a hypertable, Timescale automatically creates an index on
+    When you create a $HYPERTABLE, $COMPANY automatically creates an index on
     the time column. However, you often need to filter your time-series data on
     other columns as well. Using indexes appropriately helps your queries
     perform better. For more information about indexing, see the

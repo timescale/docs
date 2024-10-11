@@ -14,14 +14,14 @@ import TimeseriesIntro from "versionContent/_partials/_timeseries-intro.mdx";
 
 <TimeseriesIntro />
 
-To explore Timescale's features, you need some sample data. This guide
+To explore $COMPANY's features, you need some sample data. This guide
 uses real-time stock trade data, also known as tick data, from
 [Twelve Data][twelve-data].
 
 ## About the dataset
 
 The dataset contains second-by-second stock-trade data for the top 100
-most-traded symbols, in a hypertable named `stocks_real_time`. It also includes
+most-traded symbols, in a $HYPERTABLE named `stocks_real_time`. It also includes
 a separate table of company symbols and company names, in a regular PostgreSQL
 table named `company`.
 
@@ -38,11 +38,11 @@ dataset and copy the data to your database.
 <Procedure>
 
 1. Unzip <Tag type="download">[real_time_stock_data.zip](https://assets.timescale.com/docs/downloads/get-started/real_time_stock_data.zip)</Tag> to your local device. 
-   This archive one `.csv` file with company information, and one with real-time stock trades for
+   This archive has one `.csv` file with company information, and one with real-time stock trades for
     the past month. 
 
 1.  At the `psql` prompt, use the `COPY` command to transfer data into your
-    Timescale instance. If the `.csv` files aren't in your current directory,
+    $COMPANY instance. If the `.csv` files aren't in your current directory,
     specify the file paths in the following commands:
 
     <CodeBlock canCopy={true} showLineNumbers={false} children={`

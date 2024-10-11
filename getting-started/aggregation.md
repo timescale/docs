@@ -22,69 +22,17 @@ sum, and count are all example of simple aggregates.
 However, aggregation calculations can get big and slow, quickly. If you want to
 find the average open and closing values of a range of stocks for each day, then
 you need something a little more sophisticated. That's where Timescale
-continuous aggregates come in. Continuous aggregates can minimize the number of
+$CAGGs come in. $CAGG_CAPs can minimize the number of
 records that you need to look up to perform your query.
 
-## Continuous aggregates
+## $CAGGs
 
 <CaggsIntro />
 
 <CaggsTypes />
 
-In this section, you create a continuous aggregate, and query it for more
+In this section, you create a $CAGG, and query it for more
 information about the trading data.
-
-<!-- Removing the average stock price procedure. --LKB 20230828
-
-## Find average stock prices for the last week
-
-Timescale has custom SQL functions that can help make time-series analysis
-easier and faster. In this section, you'll learn about another common
-Timescale function, `time_bucket` which allows you to take a time column and
-"bucket" the values based on an interval of your choice.
-
-Time bucketing is useful for data like stock data which has a lot of
-information. Instead of looking at each trade individually, you can combine the
-data into bigger buckets and look at, for example, the data for each day. You
-can then perform an aggregation and, for example, get the average of the
-values for each day.
-
-In this section, you time bucket the entire dataset for the last week into
-days, and calculate the average of each bucket:
-
-<CodeBlock canCopy={false} showLineNumbers={false} children={`
-SELECT
-  time_bucket('1 day', time) AS bucket,
-  symbol,
-  avg(price)
-FROM stocks_real_time srt
-WHERE time > now() - INTERVAL '1 week'
-`} />
-
-Then, you organize the results by bucket and symbol:
-
-<CodeBlock canCopy={false} showLineNumbers={false} children={`
-GROUP BY bucket, symbol
-ORDER BY bucket, symbol
-`} />
-
-<Procedure>
-
-### Finding average stock prices for the last week
-
-1.  At the command prompt, use the `psql` connection string from the cheat sheet
-    you downloaded to connect to your database.
-1.  At the `psql` prompt, type this query:
-
-    <TryItOutCodeBlock queryId="getting-started-week-average" />
-
-</Procedure>
-
-You might notice that the `bucket` column doesn't start at the time that you run
-the query. For more information about how time buckets are calculated, see the
-[time bucketing section][time-buckets].
-
--->
 
 ## Create an aggregate query
 
@@ -126,14 +74,12 @@ ORDER BY day DESC, symbol
 
 </Procedure>
 
-## Create a continuous aggregate
+## Create a $CAGG
 
-Now that you have an aggregation query, you can use it to create a continuous
-aggregate.
+Now that you have an aggregation query, you can use it to create a $CAGG.
 
 In this section, your query starts by creating a materialized view called
-`stock_candlestick_daily`, then converting it into a Timescale continuous
-aggregate:
+`stock_candlestick_daily`, then converting it into a $COMPANY $CAGG:
 
 <CodeBlock canCopy={false} showLineNumbers={false} children={`
 CREATE MATERIALIZED VIEW stock_candlestick_daily
@@ -141,7 +87,7 @@ WITH (timescaledb.continuous) AS
 `} />
 
 Then, you give the aggregate query you created earlier as the contents for the
-continuous aggregate:
+$CAGGs:
 
 <CodeBlock canCopy={false} showLineNumbers={false} children={`
 SELECT
@@ -159,8 +105,8 @@ When you run this query, you create the view, and populate the view with the
 aggregated calculation. This can take a few minutes to run, because it needs to
 perform these calculations across all of your stock trade data the first time.
 
-When you continuous aggregate has been created and the data aggregated for the
-first time, you can query your continuous aggregate. For example, you can look
+When your $CAGG has been created and the data aggregated for the
+first time, you can query your $CAGG. For example, you can look
 at all the aggregated data, like this:
 
 <CodeBlock canCopy={false} showLineNumbers={false} children={`
@@ -177,7 +123,7 @@ WHERE symbol='TSLA';
 
 <Procedure>
 
-### Creating a continuous aggregate
+### Creating a $CAGG
 
 1.  At the command prompt, use the `psql` connection string from the cheat sheet
     you downloaded to connect to your database.
@@ -197,18 +143,18 @@ WHERE symbol='TSLA';
     GROUP BY day, symbol;
     ```
 
-1.  Query your continuous aggregate for all stocks:
+1.  Query your $CAGG for all stocks:
 
     <TryItOutCodeBlock queryId="getting-started-cagg" />
 
-1.  Query your continuous aggregate for Tesla stock:
+1.  Query your $CAGG for Tesla stock:
 
     <TryItOutCodeBlock queryId="getting-started-cagg-tesla" />
 
 </Procedure>
 
-For more information about how continuous aggregates work, see the
-[continuous aggregates section][continuous-aggregates].
+For more information about how $CAGGs work, see the
+[$CAGGs section][continuous-aggregates].
 
 [continuous-aggregates]: /use-timescale/:currentVersion:/continuous-aggregates
 [time-buckets]: /use-timescale/:currentVersion:/time-buckets/

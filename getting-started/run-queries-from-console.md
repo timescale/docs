@@ -6,26 +6,25 @@ layout_components: [next_prev_large]
 content_group: Getting started
 ---
 
-# Run your queries from Timescale Console
+# Run your queries from $CONSOLE
 
-As Timescale Cloud is based on PostgreSQL, you can use lots of [different tools][integrations] to 
-connect to your service and interact with your data. 
+As $CLOUD_LONG is based on PostgreSQL, you can use lots of [different tools][integrations] to 
+connect to your $SERVICE_SHORT and interact with your data. 
 
-In Timescale Console you can use the following ways to run SQL queries against your database:
+In $CONSOLE you can use the following ways to run SQL queries against your database:
 
-- [Data mode][run-popsql]: a rich experience powered by PopSQL. You can write queries with 
+- [Data mode][run-popsql]: a rich experience powered by $POPSQL. You can write queries with 
   autocomplete, save them in folders, share them, create charts/dashboards, and much more.
 
-- [SQL editor in Ops mode][run-sqleditor]: a simple SQL editor in Ops mode that lets you run ad-hoc ephemeral 
+- [$SQL_EDITOR in Ops mode][run-sqleditor]: a simple SQL editor in Ops mode that lets you run ad-hoc ephemeral 
   queries. This is useful for quick one-off tasks like creating an index on a small table or 
   inspecting `pg_stat_statements`.
 
-
-If you prefer the command line to the ops mode SQL editor in Timescale Console, use [psql][install-psql].
+If you prefer the command line to the ops mode $SQL_EDITOR in $CONSOLE, use [psql][install-psql].
 
 ## Data mode
 
-You use the data mode in Timescale Console to write queries, visualize data, and share your results. 
+You use the data mode in $CONSOLE to write queries, visualize data, and share your results. 
 
 ![Screenshot of data mode](https://assets.timescale.com/docs/images/data-mode-schema-chart.png)
 
@@ -40,29 +39,29 @@ Available features are:
 - **[Charts](https://docs.popsql.com/docs/creating-charts)**: visualize data from inside the UI rather than switch to Sheets or Excel.
 - **[Schedules](https://docs.popsql.com/docs/scheduled-queries)**: automatically refresh queries and dashboards to create push alerts.
 - **[Query variables](https://docs.popsql.com/docs/query-variables)**: use Liquid to parameterize your queries or use `if` statements.
-- **Cross platform**:  works from [Timescale Console][portal-data-mode] or download the 
+- **Cross platform**:  works from [$CONSOLE][portal-data-mode] or download the 
   [desktop](https://popsql.com/download) app for macOS, Windows, and Linux.
-- **Easy connection**: to Timescale Cloud, PostgreSQL, Redshift, Snowflake, BigQuery, MySQL, SQL Server, [and more](https://popsql.com/connections).
+- **Easy connection**: to $CLOUD_LONG, PostgreSQL, Redshift, Snowflake, BigQuery, MySQL, SQL Server, [and more](https://popsql.com/connections).
 
-### Connect to your Timescale Cloud service in the data mode
+### Connect to your $SERVICE_LONG in the data mode
 
 <Procedure>
 
-To connect to a service:
+To connect to a $SERVICE_SHORT:
 
-1. **Check your service is running correctly**
+1. **Check your $SERVICE_SHORT is running correctly**
 
-   In [Timescale Console][services-portal], check that your service is marked as `Running`.
+   In [$CONSOLE][services-portal], check that your $SERVICE_SHORT is marked as `Running`.
 
-   ![Check service is running](https://assets.timescale.com/docs/images/console-services-view.png)
+   ![Check $SERVICE_SHORT is running](https://assets.timescale.com/docs/images/console-services-view.png)
 
-1. **Connect to your service**
+1. **Connect to your $SERVICE_SHORT**
 
-   1. In the [data mode][portal-data-mode] in Timescale Console, select a service and enter your password, then click **Connect**.
+   1. In the [data mode][portal-data-mode] in $CONSOLE, select a $SERVICE_SHORT and enter your password, then click **Connect**.
 
       ![Select a connection](https://assets.timescale.com/docs/images/data-mode-connections.png)
 
-      You find your password in the config file you downloaded when you created the service.
+      You find your password in the config file you downloaded when you created the $SERVICE_SHORT.
 
 1. **Run a test query**
 
@@ -72,14 +71,14 @@ To connect to a service:
 
 
 Quick recap. You:
-- Manage your services in the [ops mode in Timescale Console][portal-ops-mode]
-- Manage your data in the [data mode in Timescale Console][portal-data-mode]
+- Manage your $SERVICE_SHORTs in the [ops mode in $CONSOLE][portal-ops-mode]
+- Manage your data in the [data mode in $CONSOLE][portal-data-mode]
 - Store configuration and security information in your config file.
 
 </Procedure>
 
 
-Now you have used the data mode in Timescale Console, see how to easily do the following:
+Now you have used the data mode in $CONSOLE, see how to easily do the following:
 
 - [Write a query](https://docs.popsql.com/docs/writing-a-query)
 - [Share a query with your
@@ -95,21 +94,21 @@ Now you have used the data mode in Timescale Console, see how to easily do the f
 
 ### FAQ
 
-#### What if my service is within a VPC?
+#### What if my $SERVICE_SHORT is within a VPC?
 
-If your Timescale Service runs inside a VPC, do one of the following to enable access for the PopSQL desktop app:
+If your $SERVICE_LONG runs inside a VPC, do one of the following to enable access for the $POPSQL desktop app:
 
-- Use PopSQL's [bridge connector](https://docs.popsql.com/docs/bridge-connector)
+- Use $POPSQL's [bridge connector](https://docs.popsql.com/docs/bridge-connector)
 - Use an SSH tunnel
-  - When you configure the connection in PopSQL, under `Advanced Options`, enable `Connect over SSH`
-- Add PopSQL's static IPs (`23.20.131.72, 54.211.234.135`) to your allowlist
+  - When you configure the connection in $POPSQL, under `Advanced Options`, enable `Connect over SSH`
+- Add $POPSQL's static IPs (`23.20.131.72, 54.211.234.135`) to your allowlist
 
-#### What happens if another member of my Timescale project uses data mode?
+#### What happens if another member of my $COMPANY project uses data mode?
 
 The number of data mode seats you are allocated depends on your
 [Pricing Plan][pricing-plan-features].
 
-#### Will using the data mode affect the performance of my Timescale Cloud service?
+#### Will using the data mode affect the performance of my $SERVICE_LONG?
 
 There are a few factors to consider:
 
@@ -118,13 +117,13 @@ There are a few factors to consider:
 1. How computationally intensive are the queries?
 
 If you have a small number of users running performant SQL queries against a
-service with sufficient resources, then there should be no degradation to
+$SERVICE_SHORT with sufficient resources, then there should be no degradation to
 performance. However, if you have a large number of users running queries, or if 
 the queries are computationally expensive, best practice is to create 
-a [read replica][readreplica] and send analytical queries there.
+a [$READ_REPLICA][readreplica] and send analytical queries there.
 
-If you'd like to prevent write operations such as insert or update. Instead 
-of using the `tsdbadmin` superuser, create a read-only user for your service and
+If you'd like to prevent write operations such as insert or update, instead 
+of using the `tsdbadmin` superuser, create a read-only user for your $SERVICE_SHORT and
 use that in the data mode.
 
 
@@ -139,15 +138,15 @@ for an Timescale Cloud service.
 To enable or disable SQL editor in your service, click `Operations` > `Service management`, then
 update the setting for SQL editor.
 
-### Run queries from the ops mode in Timescale Console
+### Run queries from the ops mode in $CONSOLE
 
 <Procedure>
 
 To use SQL editor with Timescale:
 
-1.  **Open SQL editor from Timescale Console**
+1.  **Open SQL editor from $CONSOLE**
 
-    In the [ops mode][portal-ops-mode] in Timescale Console, select a service, then click **SQL editor**.
+    In the [ops mode][portal-ops-mode] in $CONSOLE, select a service, then click **SQL editor**.
 
     ![Check service is running](https://assets.timescale.com/docs/images/ops-view-sql-editor.png)
 

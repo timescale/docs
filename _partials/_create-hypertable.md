@@ -1,15 +1,15 @@
 
 <Procedure>
 
-[Hypertables][hypertables] are PostgreSQL tables that automatically partition your data by time. You interact
-with hypertables in the same way as regular PostgreSQL tables, but with extra features that makes managing your
+[$HYPERTABLEs][hypertables] are PostgreSQL tables that automatically partition your data by time. You interact
+with $HYPERTABLEs in the same way as regular PostgreSQL tables, but with extra features that makes managing your
 time-series data much easier.
 
-To create a hypertable:
+To create a $HYPERTABLE:
 
-1. **Connect to your service**
+1. **Connect to your $SERVICE_SHORT**
 
-    In Timescale Console, click `Data`, then select a service.
+    In $CONSOLE, click `Data`, then select a $SERVICE_SHORT.
 
 1. **Create a PostgreSQL table** 
 
@@ -27,9 +27,9 @@ To create a hypertable:
 
     ![Data mode create table](https://assets.timescale.com/docs/images/data-mode-create-table.png)
 
-1.  **Make a hypertable**
+1.  **Make a $HYPERTABLE**
 
-    Copy the following into your SQL editor, then run your query:
+    Copy the following into your $SQL_EDITOR, then run your query:
     ```sql
     SELECT create_hypertable('stocks_real_time', by_range('time'));
     ```
