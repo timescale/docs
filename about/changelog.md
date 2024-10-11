@@ -19,7 +19,7 @@ Last year, we began developing a solution for low-downtime migration from Postgr
 
 ### 🔁 Actions Tab
 
-As part of the service creation flow, we offer three steps: 
+As part of the service creation flow, we offer the following: 
 
 1. Connecting to services from different sources
 2. Importing and migrating data from various sources
