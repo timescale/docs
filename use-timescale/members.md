@@ -9,7 +9,7 @@ cloud_ui:
         - [members]
 ---
 
-# User management
+# Control user access to $CLOUD_LONG projects
 
 When you sign up for a [30-day free trial][sign-up], $CLOUD_LONG creates a project for you, and
 you are assigned the `Owner` role for the project. As the project owner, you have rights to
@@ -17,10 +17,10 @@ add and delete other users, and edit project settings. Users that you add to the
 assigned the `Member` role. Members have rights to collaborate with you on your project, and help 
 create and administer the services running in the project. 
 
-![Project users in $CONSOLE](https://assets.timescale.com/docs/images/console-users.png)
+![Project users in $CONSOLE](https://assets.timescale.com/docs/images/console-users-overview.png)
 
-If you have the [Enterprise pricing plan][pricing-plans], you can use your company identity 
-provider to log in to $CONSOLE.
+If you have the [Enterprise pricing plan][pricing-plans], you can use your company [SAML][saml] 
+identity provider to log in to $CONSOLE.
 
 ## Add a user to your project
 
@@ -33,12 +33,13 @@ To add a user to a project:
 <Procedure>
 
 1.  In [$CONSOLE][cloud-login], click `Invite users`, then click `Add new user`.
-    ![Send a user invitation in $CONSOLE](https://assets.timescale.com/docs/images/console-add-user.png)
+    ![Send a user invitation in $CONSOLE](https://assets.timescale.com/docs/images/console-add-users.png)
 
 1.  Type the email address of the person that you want to add, and click `Add
     user`.
 
-    $CONSOLE sends a confirmation email to the new user, who [joins the project][join-a-project].
+    [Enterprise tier][pricing-plans] and SAML users receive a notification in $CONSOLE. Users in the 
+    other pricing tiers receive a confirmation email. The new user then [joins the project][join-a-project].
 
 </Procedure>
 
@@ -59,10 +60,12 @@ instructions in the invitation email to join the project:
 
      $CLOUD_LONG opens and you are added to the project.
 
-- **Enterprise $CLOUD_LONG user**:
-  1. In the invitation email, click **Use your company identity provider to log in to Timescale**.
+- **[Enterprise tier][pricing-plans] and SAML user**:
+  1. Log in to $CONSOLE using your company's identity provider.
+  2. Click `Notifications`, then accept the invitation. 
 
-     $CLOUD_LONG opens and you are added to the project.
+     $CLOUD_LONG opens and you are added to the project. As you are now 
+     included in more than one project, you easily [change project][change-project].
 
 
 ## Resend a project invitation
@@ -72,7 +75,7 @@ Project invitations are valid for 7 days. To resend a project invitation:
 <Procedure>
 
 1.  In [$CONSOLE][cloud-login], click `Invite users`.
-    ![Resend a user invitation $CONSOLE](https://assets.timescale.com/docs/images/console-resend-invitation.png)
+    ![Resend a user invitation $CONSOLE](https://assets.timescale.com/docs/images/console-resend-invitations.png)
 1.  Next to the person you want to invite to your project, click `Resend invitation`.
 
 </Procedure>
@@ -103,7 +106,7 @@ To transfer project ownership:
 
 1.  In [$CONSOLE][cloud-login], click `Invite users`.
 2.  Next to the person you want to transfer project ownership to, click `⋮`.
-    ![Transfer project ownership in $CONSOLE](https://assets.timescale.com/docs/images/console-transfer-ownership.png)
+    ![Transfer project ownership in $CONSOLE](https://assets.timescale.com/docs/images/console-transfer-owner.png)
     If you are unable to transfer ownership, hover over the greyed out button to see details.
 3.  Enter your password, and click `Verify`.
 4.  Complete the two-factor authentication challenge and click `Confirm`.
@@ -123,7 +126,7 @@ To stop working in a project:
 
 1. In [$CONSOLE][cloud-login], click `Invite users`.
 1. Click `Leave project`, then click `Leave`.
-   ![Leave project in $CONSOLE](https://assets.timescale.com/docs/images/console-leave-project.png)
+   ![Leave project in $CONSOLE](https://assets.timescale.com/docs/images/console-leave-projects.png)
 
 Your account is removed from the project immediately, you can no longer access this project.
 
@@ -138,7 +141,7 @@ To remove a user's access to a project:
 
 1.  In [$CONSOLE][cloud-login], click `Invite users`.
 1.  Next to the person you want to remove, click `⋮`, then click the trash can icon.
-    ![Remove a user in $CONSOLE](https://assets.timescale.com/docs/images/console-remove-user.png)
+    ![Remove a user in $CONSOLE](https://assets.timescale.com/docs/images/console-remove-users.png)
 1.  In `Remove user`, click `Remove`.
 
 The user is deleted immediately, they can no longer access your project.
@@ -153,3 +156,5 @@ The user is deleted immediately, they can no longer access your project.
 [sign-up]: https://console.cloud.timescale.com/
 [pricing-plans]: /about/:currentVersion:/pricing-and-account-management/
 [join-a-project]: /use-timescale/:currentVersion:/members/#join-a-project
+[change-project]: /use-timescale/:currentVersion:/members/#change-the-current-project
+[saml]: https://en.wikipedia.org/wiki/SAML_2.0

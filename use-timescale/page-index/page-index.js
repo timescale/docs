@@ -57,7 +57,7 @@ module.exports = [
         ],
       },
       {
-        title: "User management",
+        title: "Control user access to Timescale Cloud projects",
         href: "members",
         excerpt: "User management in Timescale Cloud",
       },
