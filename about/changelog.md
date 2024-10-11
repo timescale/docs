@@ -39,7 +39,7 @@ We've noticed users struggling to convert their MySQL schema and data into their
 
 In Timescale Console, we offer the SQL editor so you can directly querying your service. As a new improvement,  **if a query is waiting on locks and can't complete execution**, Timescale Console now displays the current lock contention in the results section .
 
-![View console services](https://assets.timescale.com/docs/images/console-services-view.png)
+![View console services](https://assets.timescale.com/docs/images/current-lock-contention.png)
 
 ## CIDR & VPC Updates
 
