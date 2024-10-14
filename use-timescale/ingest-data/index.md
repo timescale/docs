@@ -1,11 +1,13 @@
 ---
-title: Ingest data using third-party tools
+title: Import and ingest data
 excerpt: Use third-party tools to ingest data into TimescaleDB
 products: [cloud]
 keywords: [ingest, pipelines, Prometheus, Kafka, Telegraf, timescaledb-parallel-copy, csv]
 ---
 
-# Import and Ingest data
+# Import and ingest data
+
+
 
 ## Import data
 

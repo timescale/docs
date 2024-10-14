@@ -1,73 +1,105 @@
 ---
-title: Import data into Timescale from an Parquet file
-excerpt: Import data into your Timescale instance from an external Parquet file
+title: Import data from Parquet
+excerpt: Import data into a Timescale Cloud service from an external Apache Parquet file
 products: [cloud]
 keywords: [data migration]
 tags: [import, parquet]
 ---
 
-# Import data from a Parquet file
+import ImportPrerequisites from "versionContent/_partials/_migrate_import_prerequisites.mdx";
+import SetupConnectionString from "versionContent/_partials/_migrate_import_setup_connection_strings_parquet.mdx";
+
+# Import data from Parquet
+
+[Apache Parquet][apache-parquet] is a free and open-source column-oriented data storage format in the 
+Apache Hadoop ecosystem. It provides efficient data compression and encoding schemes with 
+enhanced performance to handle complex data in bulk. 
+
+This page shows you how to import data into your $SERVICE_LONG from a Parquet file.
 
 ## Prerequisites
 
-Before you start, make sure you have:
+Add ImportPrerequisites here 
+- [Install DuckDB][install-duckdb] on the source machine where the Parquet file is located.
+- Ensured that the time column in the Parquet file uses the `TIMESTAMP` data type. 
 
-- Checked that the parquet file schema is compatible with the table you want to import it into.
-- Ensured that the time  column in the source data uses the TIMESTAMPTZ  data type.
-- Install DuckDB on the source machine where the Parquet file is located. You can download 
-  and install DuckDB from https://duckdb.org/docs/installation/
+## Import data into your $SERVICE_SHORT
 
-## Import data
+To import data from a Parquet file:
 
-Follow these steps to import data from a Parquet file:
+<Procedure>
 
-1.  Create a new empty table: Use a schema that matches the data in your parquet file. In this example, the parquet file contains the columns ts, location, and temperature with types 
-    TIMESTAMP, STRING, and DOUBLE.
+1. **Setup your connection string**
 
-    ```sql
-    CREATE TABLE <TABLE_NAME> (
-        ts          TIMESTAMPTZ         NOT NULL,
-        location    TEXT                NOT NULL,
-        temperature DOUBLE PRECISION    NULL
-    );
-    ```
+    <SetupConnectionString />
 
-2.  Convert the empty table to a hypertable: Use the create_hypertable function. 
-    Replace <TABLE_NAME> and <COLUMN_NAME> with the name of the column storing time values in your table.
+1. **Create a [hypertable][hypertable-docs] to hold your data** 
 
-    ```sql
-    SELECT create_hypertable('<TABLE_NAME>', by_range('<COLUMN_NAME>'))
-    ```
-
-3.  Start a new DuckDB interactive session. In your system's command line interface, run:
-
-    ```bash
-    duckdb
-    ```
-
-4.  In the DuckDB session, replace the following placeholders with the appropriate values 
-    and execute the following commands::
-
-    - `<TIMESCALE_DB_PASSWORD>` - Timescale service password
-    - `<TIMESCALE_DB_HOST>` - Timescale service host
-    - `<TIMESCALE_DB_PORT>` - Timescale service port
-    - `<TABLE_NAME>` - Name of the table to import the data into
-    - `<FILENAME>` - Name of the Parquet file to import
+   1.  Create a new empty table with a schema that is compatible with the data in your parquet file.  
   
+       For example, if your parquet file contains the columns `ts`, `location`, and `temperature` with types 
+       `TIMESTAMP`, `STRING`, and `DOUBLE`:
+  
+       ```sql
+       psql $TARGET -c  "CREATE TABLE <TABLE_NAME> ( \
+           ts          TIMESTAMPTZ         NOT NULL,  \
+           location    TEXT                NOT NULL,  \
+           temperature DOUBLE PRECISION    NULL  \
+       );"
+       ```
+       If you prefer using a secure UI to the command line, use [Data mode in $CONSOLE][data-mode].
 
-    ```bash
-    ATTACH 'postgres://tsdbadmin:<TIMESCALE_DB_PASSWORD>@<TIMESCALE_DB_HOST>:<TIMESCALE_DB_PORT>/tsdb?sslmode=require' AS db (type postgres);
-    COPY db.<TABLE_NAME> FROM '<FILENAME>.parquet' (FORMAT parquet);
-    ```
+   1.  Convert the empty table to a hypertable:
 
-5. Exit the DuckDB session:
+       Replace the `<META NAMES>` with the correct column names, then create the hypertable.
+       ```sql
+       psql $TARGET -c  "SELECT create_hypertable('<TABLE_NAME>', by_range('<COLUMN_NAME>'))"
+       ```
 
-    ```bash
-    EXIT;
-    ```
+1. **Setup a DuckDB connection to your $SERVICE_SHORT**
 
-6. Verify the data was imported correctly:
+   1.  In Terminal on the source machine with your Parquet files, start a new DuckDB interactive session:
 
-    ```sql
-    SELECT * FROM <TABLE_NAME>;
-    ```
+       ```bash
+       duckdb
+       ```
+   1. Connect to your $SERVICE_SHORT in your DuckDB session:
+   
+      ```bash
+      ATTACH '<Paste the value of $TARGET here' AS db (type postgres);
+      ```
+      `$TARGET` is the connection string you used to connect to your $SERVICE_SHORT using psql. 
+
+1. **Import data from Parquet to your $SERVICE_SHORT**
+
+   1. In DuckDB, upload the table data to your $SERVICE_SHORT    
+      ```bash
+      COPY db.<TABLE_NAME> FROM '<FILENAME>.parquet' (FORMAT parquet);
+      ```
+      Where: 
+
+      - `<TABLE_NAME>`: the hypertable you created to import data to 
+      - `<FILENAME>`: the Parquet file to import data from
+
+   1. Exit the DuckDB session:
+
+       ```bash
+       EXIT;
+       ```
+
+1. **Verify the data was imported correctly into your $SERVICE_SHORT**
+
+   In your `psql` session, or using [Data mode in $CONSOLE][data-mode], view the data in <TABLE_NAME>  
+   ```sql
+   SELECT * FROM <TABLE_NAME>;
+   ```
+
+</Procedure>
+
+And that is it, you have imported your data from a Parquet file to a Timescale Cloud service.
+
+[apache-parquet]: https://parquet.apache.org/
+[apache-parquet-file-format]: https://parquet.apache.org/docs/file-format/
+[install-duckdb]: https://duckdb.org/docs/installation/
+[hypertable-docs]: /use-timescale/:currentVersion:/hypertables/
+[data-mode]: /getting-started/:currentVersion:/run-queries-from-console/#data-mode

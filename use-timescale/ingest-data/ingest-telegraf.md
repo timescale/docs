@@ -1,6 +1,6 @@
 ---
-title: Telegraf
-excerpt: Ingest data into Timescale using the Telegraf plugin
+title: Ingest data using Telegraf
+excerpt: Ingest data into a Timescale Cloud service using using the Telegraf plugin
 products: [cloud, mst, self_hosted]
 keywords: [ingest, Telegraf]
 tags: [insert]
@@ -8,7 +8,7 @@ tags: [insert]
 
 import GrafanaConnect from "versionContent/_partials/_grafana-connect.mdx";
 
-# Telegraf
+# Ingest data using Telegraf
 
 Telegraf collects metrics from a wide array of inputs and writes them to a wide
 array of outputs. It is plugin-driven for both collection and output of data so

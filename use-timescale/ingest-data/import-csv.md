@@ -1,12 +1,12 @@
 ---
-title: Import data into Timescale from .csv
-excerpt: Import data into your Timescale instance from an external .csv file
+title: Import data from CSV
+excerpt: Import data into a Timescale Cloud service from an external .csv file
 products: [cloud]
 keywords: [data migration]
 tags: [import, csv]
 ---
 
-# Importing Data into Timescale from CSV Files
+# Import data from CSV
 
 ## Introduction
 
