@@ -143,9 +143,8 @@ day                    |              value
 ### Use `time_bucket_gapfill` and use linear interpolation with `prev` and `next` expression
 
 Get the daily average metric value. Use the optional `prev` and `next`
-arguments of `interpolate` to extrapolate, i.e. to fill the gaps at the
-beginning and end of the queried time range. Note that the `prev` and
-`next` expressions each return a tuple with time and value.
+arguments to `interpolate` to extrapolate the missing values starting and ending the queried time range. Note that the `prev` and
+`next` expressions each return a tuple with time and value. The time is necessary to compute the missing values correctly.
 
 ```sql
 SELECT time_bucket_gapfill('1 day', time) AS day,
