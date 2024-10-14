@@ -69,9 +69,9 @@ day                    |              value
 
 ### Use `time_bucket_gapfill` and carry last value forward with `prev` expression
 
-Get the daily average metric value. Use the optional `prev` argument of `locf`
-to fill any gaps at the beginning of the queried time range. Note that the
-`prev` expression returns just a value without a time reference.
+Get the daily average metric value. Use the optional `prev` argument to `locf`
+to fill gaps at the beginning of the queried time range. Note that the
+`prev` expression returns just a value to fill the gap with. This is sufficient since the value is just carried forward and not further processed.
 
 ```sql
 SELECT time_bucket_gapfill('1 day', time) AS day,
