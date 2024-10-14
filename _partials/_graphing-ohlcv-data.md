@@ -2,13 +2,13 @@
 
 When you have extracted the raw OHLCV data, you can use it to graph the result
 in a candlestick chart, using Grafana. To do this, you need to have Grafana set
-up to connect to your TimescaleDB database.
+up to connect to your $TIMESCALE_DB database.
 
 <Procedure>
 
 ### Graphing OHLCV data
 
-1.  Ensure you have Grafana installed, and you are using the TimescaleDB
+1.  Ensure you have Grafana installed, and you are using the $TIMESCALE_DB
     database that contains the Twelve Data stocks dataset set up as a
     data source.
 1.  In Grafana, from the `Dashboards` menu, click `New Dashboard`. In the

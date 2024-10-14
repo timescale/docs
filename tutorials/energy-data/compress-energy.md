@@ -10,7 +10,7 @@ content_group: Analyze energy consumption data
 
 # Set up compression and compress the dataset
 
-You have now seen how to create a hypertable for your energy consumption
+You have now seen how to create a $HYPERTABLE for your energy consumption
 dataset and query it. When ingesting a dataset like this
 is seldom necessary to update old data and over time the amount of
 data in the tables grows. Over time you end up with a lot of data and
@@ -18,16 +18,16 @@ since this is mostly immutable you can compress it to save space and
 avoid incurring additional cost.
 
 It is possible to use disk-oriented compression like the support
-offered by ZFS and Btrfs but since TimescaleDB is build for handling
+offered by ZFS and Btrfs but since $TIMESCALE_DB is build for handling
 event-oriented data (such as time-series) it comes with support for
-compressing data in hypertables.
+compressing data in $HYPERTABLEs.
 
-TimescaleDB compression allows you to store the data in a vastly more
+$TIMESCALE_DB compression allows you to store the data in a vastly more
 efficient format allowing up to 20x compression ratio compared to a
 normal PostgreSQL table, but this is of course highly dependent on the
 data and configuration.
 
-TimescaleDB compression is implemented natively in PostgreSQL and does
+$TIMESCALE_DB compression is implemented natively in PostgreSQL and does
 not require special storage formats. Instead it relies on features of
 PostgreSQL to transform the data into columnar format before
 compression. The use of a columnar format allows better compression
@@ -43,7 +43,7 @@ memory.
 
 ## Compression setup
 
-1.  Connect to the Timescale database that contains the energy
+1.  Connect to the $COMPANY database that contains the energy
     dataset using, for example `psql`.
 1.  Enable compression on the table and pick suitable segment-by and
     order-by column using the `ALTER TABLE` command:
@@ -56,11 +56,11 @@ memory.
         timescaledb.compress_orderby='created DESC'
     );
     ``` 
-    Depending on the choice if segment-by and order-by column you can
+    Depending on the choice of segment-by and order-by column you can
     get very different performance and compression ratio. To learn
     more about how to pick the correct columns, see
     [here][segment-by-columns].
-1.  You can manually compress all the chunks of the hypertable using
+1.  You can manually compress all the $CHUNKs of the $HYPERTABLE using
     `compress_chunk` in this manner:
     ```sql
     SELECT compress_chunk(c) from show_chunks('metrics') c;
@@ -94,7 +94,7 @@ memory.
 To avoid running the compression step each time you have some data to
 compress you can set up a compression policy. The compression policy
 allows you to compress data that is older than a particular age, for
-example, to compress all chunks that are older than 8 days:
+example, to compress all $CHUNKs that are older than 8 days:
 
 ```sql
 SELECT add_compression_policy('metrics', INTERVAL '8 days');

@@ -10,7 +10,7 @@ content_group: Analyze financial tick data
 
 import CandlestickIntro from "versionContent/_partials/_candlestick_intro.mdx";
 
-# Analyze financial tick data with TimescaleDB
+# Analyze financial tick data with $TIMESCALE_DB
 
 To analyze financial data, you can chart the open, high, low, close, and volume
 (OHLCV) information for a financial asset. Using this data, you can create
@@ -26,20 +26,20 @@ aggregated data, and visualize the data in Grafana.
 
 Before you begin, make sure you have:
 
-*   Signed up for a [free Timescale account][cloud-install].
+*   Signed up for a [free $COMPANY account][cloud-install].
 
 ## Steps in this tutorial
 
 This tutorial covers:
 
 1.  [Setting up your dataset][financial-tick-dataset]: Load data from
-    [Twelve Data][twelve-data] into your TimescaleDB database.
+    [Twelve Data][twelve-data] into your $TIMESCALE_DB database.
 1.  [Querying your dataset][financial-tick-query]: Create candlestick views, query
     the aggregated data, and visualize the data in Grafana.
 1.  [Bonus: Store data efficiently][financial-tick-compress]: Learn how to store and query
-your financial tick data more efficiently using compression feature of Timescale.
+your financial tick data more efficiently using compression feature of $COMPANY.
 
-    This tutorial shows you how to ingest real-time time-series data into a Timescale
+    This tutorial shows you how to ingest real-time time-series data into a $COMPANY
     database. To create candlestick views, query the
     aggregated data, and visualize the data in Grafana, see the
     [ingest real-time websocket data section][advanced-websocket].
@@ -50,13 +50,13 @@ your financial tick data more efficiently using compression feature of Timescale
 
 ![candlestick](https://assets.timescale.com/docs/images/tutorials/intraday-stock-analysis/candlestick_fig.png)
 
-TimescaleDB is well suited to storing and analyzing financial candlestick data,
-and many Timescale community members use it for exactly this purpose. Check out
-these stories from some Timescale community members:
+$TIMESCALE_DB is well suited to storing and analyzing financial candlestick data,
+and many $COMPANY community members use it for exactly this purpose. Check out
+these stories from some $COMPANY community members:
 
 *   [How Trading Strategy built a data stack for crypto quant trading][trading-strategy]
 *   [How Messari uses data to open the cryptoeconomy to everyone][messari]
-*   [How I power a (successful) crypto trading bot with TimescaleDB][bot]
+*   [How I power a (successful) crypto trading bot with $TIMESCALE_DB][bot]
 
 [advanced-websocket]: /tutorials/:currentVersion:/financial-ingest-real-time/
 [cloud-install]: /getting-started/:currentVersion:/#create-your-timescale-account

@@ -12,19 +12,18 @@ import GraphOhlcv from "versionContent/_partials/_graphing-ohlcv-data.mdx";
 
 # Query the data
 
-To look at OHLCV values, the most effective way is to create a continuous
-aggregate. You can create a continuous aggregate to aggregate data
+To look at OHLCV values, the most effective way is to create a $CAGG. You can create a $CAGG to aggregate data
 for each hour, then set the aggregate to refresh every hour, and aggregate
 the last two hours' worth of data.
 
 <Procedure>
 
-## Creating a continuous aggregate
+## Creating a $CAGG
 
-1.  Connect to the Timescale database `tsdb` that contains the Twelve Data
+1.  Connect to the $COMPANY database `tsdb` that contains the Twelve Data
     stocks dataset.
 
-1.  At the psql prompt, create the continuous aggregate to aggregate data every
+1.  At the psql prompt, create the $CAGG to aggregate data every
     minute:
 
     ```sql
@@ -42,9 +41,9 @@ the last two hours' worth of data.
         GROUP BY bucket, symbol;
     ```
 
-    When you create the continuous aggregate, it refreshes by default.
+    When you create the $CAGG, it refreshes by default.
 
-1.  Set a refresh policy to update the continuous aggregate every hour,
+1.  Set a refresh policy to update the $CAGG every hour,
     if there is new data available in the hypertable for the last two hours:
 
     ```sql
@@ -56,20 +55,20 @@ the last two hours' worth of data.
 
 </Procedure>
 
-## Query the continuous aggregate
+## Query the $CAGG
 
-When you have your continuous aggregate set up, you can query it to get the
+When you have your $CAGG set up, you can query it to get the
 OHLCV values.
 
 <Procedure>
 
-### Querying the continuous aggregate
+### Querying the $CAGG
 
-1.  Connect to the Timescale database that contains the Twelve Data
+1.  Connect to the $COMPANY database that contains the Twelve Data
     stocks dataset.
 
 1.  At the psql prompt, use this query to select all `AAPL` OHLCV data for the
-    past 5 hours, by time bucket:
+    past 5 hours, by $TIME_BUCKET:
 
     ```sql
     SELECT * FROM one_hour_candle

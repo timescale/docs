@@ -13,10 +13,10 @@ import GraphOhlcv from "versionContent/_partials/_graphing-ohlcv-data.mdx";
 # Query the data
 
 Turning raw, real-time tick data into aggregated candlestick views is a common
-task for users who work with financial data. TimescaleDB includes
+task for users who work with financial data. $TIMESCALE_DB includes
 [hyperfunctions][hyperfunctions]
 that you can use to store and query your financial data more easily.
-Hyperfunctions are SQL functions within TimescaleDB that make it easier to
+Hyperfunctions are SQL functions within $TIMESCALE_DB that make it easier to
 manipulate and analyze time-series data in PostgreSQL with fewer lines of code.
 
 There are three hyperfunctions that are essential for calculating candlestick
@@ -27,27 +27,26 @@ help you calculate the opening and closing prices. To calculate highest and
 lowest prices, you can use the standard PostgreSQL aggregate functions `MIN` and
 `MAX`.
 
-In TimescaleDB, the most efficient way to create candlestick views is to use
-[continuous aggregates][caggs].
-In this tutorial, you create a continuous aggregate for a candlestick time
+In $TIMESCALE_DB, the most efficient way to create candlestick views is to use
+[$CAGGs][caggs].
+In this tutorial, you create a $CAGG for a candlestick time
 bucket, and then query the aggregate with different refresh policies. Finally,
 you can use Grafana to visualize your data as a candlestick chart.
 
-## Create a continuous aggregate
+## Create a $CAGG
 
-To look at OHLCV values, the most effective way is to create a continuous
-aggregate. In this tutorial, you create a continuous aggregate to aggregate data
+To look at OHLCV values, the most effective way is to create a $CAGG. In this tutorial, you create a $CAGG to aggregate data
 for each day. You then set the aggregate to refresh every day, and to aggregate
 the last two days' worth of data.
 
 <Procedure>
 
-### Creating a continuous aggregate
+### Creating a $CAGG
 
-1.  Connect to the Timescale database that contains the Twelve Data
+1.  Connect to the $COMPANY database that contains the Twelve Data
     cryptocurrency dataset.
 
-1.  At the psql prompt, create the continuous aggregate to aggregate data every
+1.  At the psql prompt, create the $CAGG to aggregate data every
     minute:
 
     ```sql
@@ -65,10 +64,10 @@ the last two days' worth of data.
         GROUP BY bucket, symbol;
     ```
 
-    When you create the continuous aggregate, it refreshes by default.
+    When you create the $CAGG, it refreshes by default.
 
-1.  Set a refresh policy to update the continuous aggregate every day,
-    if there is new data available in the hypertable for the last two days:
+1.  Set a refresh policy to update the $CAGG every day,
+    if there is new data available in the $HYPERTABLE for the last two days:
 
     ```sql
     SELECT add_continuous_aggregate_policy('one_day_candle',
@@ -79,16 +78,16 @@ the last two days' worth of data.
 
 </Procedure>
 
-## Query the continuous aggregate
+## Query the $CAGG
 
-When you have your continuous aggregate set up, you can query it to get the
+When you have your $CAGG set up, you can query it to get the
 OHLCV values.
 
 <Procedure>
 
-### Querying the continuous aggregate
+### Querying the $CAGG
 
-1.  Connect to the Timescale database that contains the Twelve Data
+1.  Connect to the $COMPANY database that contains the Twelve Data
     cryptocurrency dataset.
 
 1.  At the psql prompt, use this query to select all Bitcoin OHLCV data for the

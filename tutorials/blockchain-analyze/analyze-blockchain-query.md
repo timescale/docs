@@ -9,9 +9,9 @@ content_group: Analyze the Bitcoin blockchain
 
 # Analyze the data
 
-When you have your dataset loaded, you can create some continuous aggregates,
+When you have your dataset loaded, you can create some $CAGGs,
 and start constructing queries to discover what your data tells you. This
-tutorial uses [Timescale hyperfunctions][about-hyperfunctions] to construct
+tutorial uses [$COMPANY hyperfunctions][about-hyperfunctions] to construct
 queries that are not possible in standard PostgreSQL.
 
 In this section, you learn how to write queries that answer these questions:
@@ -23,21 +23,21 @@ In this section, you learn how to write queries that answer these questions:
 *   [How does block weight affect miner fees?](#how-does-block-weight-affect-miner-fees)
 *   [What's the average miner revenue per block?](#whats-the-average-miner-revenue-per-block)
 
-## Create continuous aggregates
+## Create $CAGGs
 
-You can use [continuous aggregates][docs-cagg] to simplify and speed up your
-queries. For this tutorial, you need three continuous aggregates, focusing on
+You can use [$CAGGs][docs-cagg] to simplify and speed up your
+queries. For this tutorial, you need three $CAGGs, focusing on
 three aspects of the dataset: Bitcoin transactions, blocks, and coinbase
-transactions. In each continuous aggregate definition, the `time_bucket()`
-function controls how large the time buckets are. The examples all use 1-hour
-time buckets.
+transactions. In each $CAGG definition, the `time_bucket()`
+function controls how large the $TIME_BUCKETs are. The examples all use 1-hour
+$TIME_BUCKETs.
 
 <Procedure>
 
-### Continuous aggregate: transactions
+### $CAGG: transactions
 
-1.  Connect to the Timescale database that contains the Bitcoin dataset.
-1.  At the psql prompt, create a continuous aggregate called
+1.  Connect to the $COMPANY database that contains the Bitcoin dataset.
+1.  At the psql prompt, create a $CAGG called
     `one_hour_transactions`. This view holds aggregated data about each hour of
     transactions:
 
@@ -61,7 +61,7 @@ time buckets.
     GROUP BY bucket;
     ```
 
-1.  Add a refresh policy to keep the continuous aggregate up-to-date:
+1.  Add a refresh policy to keep the $CAGG up-to-date:
 
     ```sql
     SELECT add_continuous_aggregate_policy('one_hour_transactions',
@@ -70,7 +70,7 @@ time buckets.
        schedule_interval => INTERVAL '1 hour');
     ```
 
-1.  Create a continuous aggregate called `one_hour_blocks`. This view holds
+1.  Create a $CAGG called `one_hour_blocks`. This view holds
     aggregated data about all the blocks that were mined each hour:
 
     ```sql
@@ -95,7 +95,7 @@ time buckets.
     GROUP BY bucket, block_id;
     ```
 
-1.  Add a refresh policy to keep the continuous aggregate up-to-date:
+1.  Add a refresh policy to keep the $CAGG up-to-date:
 
     ```sql
     SELECT add_continuous_aggregate_policy('one_hour_blocks',
@@ -104,7 +104,7 @@ time buckets.
        schedule_interval => INTERVAL '1 hour');
     ```
 
-1.  Create a continuous aggregate called `one_hour_coinbase`. This view holds
+1.  Create a $CAGG called `one_hour_coinbase`. This view holds
    aggregated data about all the transactions that miners received as rewards
    each hour:
 
@@ -121,7 +121,7 @@ time buckets.
     GROUP BY bucket;
     ```
 
-1.  Add a refresh policy to keep the continuous aggregate up-to-date:
+1.  Add a refresh policy to keep the continuous aggregate $CAGG:
 
     ```sql
     SELECT add_continuous_aggregate_policy('one_hour_coinbase',
@@ -148,9 +148,9 @@ fees to decrease.
 
 ### Finding a connection between the number of transactions and the transaction fees
 
-1.  Connect to the Timescale database that contains the Bitcoin dataset.
+1.  Connect to the $COMPANY database that contains the Bitcoin dataset.
 1.  At the psql prompt, use this query to average transaction volume and the
-    fees from the `one_hour_transactions` continuous aggregate:
+    fees from the `one_hour_transactions` $CAGG:
 
     ```sql
     SELECT
@@ -193,18 +193,18 @@ fees to decrease.
 In cryptocurrency trading, there's a lot of speculation. You can adopt a
 data-based trading strategy by looking at correlations between blockchain
 metrics, such as transaction volume and the current exchange rate between
-Bitcoin and US Dollars.
+Bitcoin and US dollars.
 
 If you choose to visualize the query in Grafana, you can see the average
-transaction volume, along with the BTC to US Dollar conversion rate.
+transaction volume, along with the BTC to US dollar conversion rate.
 
 <Procedure>
 
 ### Finding the transaction volume and the BTC-USD rate
 
-1.  Connect to the Timescale database that contains the Bitcoin dataset.
+1.  Connect to the $COMPANY database that contains the Bitcoin dataset.
 1.  At the psql prompt, use this query to return the trading volume and the BTC
-    to US Dollar exchange rate:
+    to US dollar exchange rate:
 
     ```sql
     SELECT
@@ -258,7 +258,7 @@ transactions in a block, the higher the mining fee becomes.
 
 ## Finding if more transactions in a block mean the block is more expensive to mine
 
-1.  Connect to the Timescale database that contains the Bitcoin dataset.
+1.  Connect to the $COMPANY database that contains the Bitcoin dataset.
 1.  At the psql prompt, use this query to return the number of transactions in a
     block, compared to the mining fee:
 
@@ -315,7 +315,7 @@ units, in which case it's impossible for a block to include more transactions.
 
 ### Finding if higher block weight means the block is more expensive to mine
 
-1.  Connect to the Timescale database that contains the Bitcoin dataset.
+1.  Connect to the $COMPANY database that contains the Bitcoin dataset.
 1.  At the psql prompt, use this query to return the block weight, compared to
     the mining fee:
 
@@ -376,7 +376,7 @@ few percentage points of overall revenue.
 
 ### Finding what percentage of the average miner's revenue comes from fees compared to block rewards
 
-1.  Connect to the Timescale database that contains the Bitcoin dataset.
+1.  Connect to the $COMPANY database that contains the Bitcoin dataset.
 1.  At the psql prompt, use this query to return coinbase transactions, along
     with the block fees and rewards:
 
@@ -441,7 +441,7 @@ grow for individual blocks, and they could include even more transactions.
 
 ### Finding how block weight affects miner fees
 
-1.  Connect to the Timescale database that contains the Bitcoin dataset.
+1.  Connect to the $COMPANY database that contains the Bitcoin dataset.
 1.  At the psql prompt, use this query to return block weight, along with the
     block fees and rewards:
 
@@ -502,7 +502,7 @@ increase the time range.
 
 ### Finding the average miner revenue per block
 
-1.  Connect to the Timescale database that contains the Bitcoin dataset.
+1.  Connect to the $COMPANY database that contains the Bitcoin dataset.
 1.  At the psql prompt, use this query to return the average miner revenue per
     block, with a 12-hour moving average:
 

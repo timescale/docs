@@ -32,7 +32,7 @@ transactions.
 
 ### Finding the five most recent coinbase transactions
 
-1.  Connect to the Timescale database that contains the Bitcoin dataset.
+1.  Connect to the $COMPANY database that contains the Bitcoin dataset.
 1.  At the psql prompt, use this query to select the five most recent
     coinbase transactions:
 
@@ -70,7 +70,7 @@ want to see the block ID, and the value of the transaction in US Dollars.
 
 ### Finding the five most recent transactions
 
-1.  Connect to the Timescale database that contains the Bitcoin dataset.
+1.  Connect to the $COMPANY database that contains the Bitcoin dataset.
 1.  At the psql prompt, use this query to select the five most recent
     non-coinbase transactions:
 
@@ -101,13 +101,13 @@ want to see the block ID, and the value of the transaction in US Dollars.
 In this procedure, you use a more complicated query to return the five most
 recent blocks, and show some additional information about each, including the
 block weight, number of transactions in each block, and the total block value in
-US Dollars.
+US dollars.
 
 <Procedure>
 
 ### Finding the five most recent blocks
 
-1.  Connect to the Timescale database that contains the Bitcoin dataset.
+1.  Connect to the $COMPANY database that contains the Bitcoin dataset.
 1.  At the psql prompt, use this query to select the five most recent
     coinbase transactions:
 

@@ -15,11 +15,11 @@ import AddData from "versionContent/_partials/_add-data-twelvedata-stocks.mdx";
 # Set up the database
 
 This tutorial uses a dataset that contains second-by-second stock-trade data for
-the top 100 most-traded symbols, in a hypertable named `stocks_real_time`. It
+the top 100 most-traded symbols, in a $HYPERTABLE named `stocks_real_time`. It
 also includes a separate table of company symbols and company names, in a
 regular PostgreSQL table named `company`.
 
-<Collapsible heading="Create a Timescale service and connect to your service" defaultExpanded={false}>
+<Collapsible heading="Create a $SERVICE_LONG and connect to your $SERVICE_SHORT" defaultExpanded={false}>
 
 <CreateAndConnect/>
 

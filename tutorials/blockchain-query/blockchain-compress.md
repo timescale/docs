@@ -9,32 +9,32 @@ content_group: Query the Bitcoin blockchain
 
 # Set up compression and compress the dataset
 
-You have now seen how to create a hypertable for your Bitcoin dataset
-and query it for blockchain data. When ingesting a dataset like this
+You have now seen how to create a $HYPERTABLE for your Bitcoin dataset
+and query it for blockchain data. When ingesting a dataset like this, it
 is seldom necessary to update old data and over time the amount of
-data in the tables grows. Over time you end up with a lot of data and
-since this is mostly immutable you can compress it to save space and
+data in the tables grows. You end up with a lot of data and
+since it is mostly immutable, you can compress it to save space and
 avoid incurring additional cost.
 
 It is possible to use disk-oriented compression like the support
-offered by ZFS and Btrfs but since TimescaleDB is build for handling
-event-oriented data (such as time-series) it comes with support for
-compressing data in hypertables.
+offered by ZFS and Btrfs, but since $TIMESCALE_DB is built for handling
+event-oriented data (such as time-series), it comes with support for
+compressing data in $HYPERTABLEs.
 
-TimescaleDB compression allows you to store the data in a vastly more
-efficient format allowing up to 20x compression ratio compared to a
+$TIMESCALE_DB compression allows you to store the data in a vastly more
+efficient format, allowing up to 20x compression ratio compared to a
 normal PostgreSQL table, but this is of course highly dependent on the
-data and configuration.
+data itself and its configuration.
 
-TimescaleDB compression is implemented natively in PostgreSQL and does
-not require special storage formats. Instead it relies on features of
+$TIMESCALE_DB compression is implemented natively in PostgreSQL and does
+not require special storage formats. Instead, it relies on the features of
 PostgreSQL to transform the data into columnar format before
 compression. The use of a columnar format allows better compression
-ratio since similar data is stored adjacently. For more details on how
-the compression format looks, you can look at the [compression
-design][compression-design] section.
+ratio since similar data is stored adjacently. For more details on 
+the compression format, see [compression
+design][compression-design].
 
-A beneficial side-effect of compressing data is that certain queries
+A beneficial side effect of compressing data is that certain queries
 are significantly faster since less data has to be read into
 memory.
 
@@ -42,12 +42,12 @@ memory.
 
 ## Compression setup
 
-In the previous section you learned how to different queries on data
-in the `transactions` table, so if you want to compress the data that
-table, you follow these step:
+In the previous section you learned how to run different queries on data
+in the `transactions` table. To compress the data in that
+table, follow these steps:
 
-1.  Connect to the Timescale database that contains the Bitcoin
-    dataset using, for example `psql`.
+1.  Connect to the $COMPANY database that contains the Bitcoin
+    dataset, for example, using `psql`.
 1.  Enable compression on the table and pick suitable segment-by and
     order-by column using the `ALTER TABLE` command:
 
@@ -60,12 +60,11 @@ table, you follow these step:
     );
     ``` 
 
-    Depending on the choice if segment-by and order-by column you can
-    get very different performance and compression ratio. To learn
-    more about how to pick the correct columns, see
+    Depending on the choice of the segment-by and order-by column, you can
+    get very different performance and compression ratio. To learn how to pick the correct columns, see
     [here][segment-by-columns].
 
-1.  You can manually compress all the chunks of the hypertable using
+1.  You can manually compress all the $CHUNKs of the hypertable using
     `compress_chunk` in this manner:
 
     ```sql
@@ -76,7 +75,7 @@ table, you follow these step:
     adding a [compression policy][add_compression_policy] which will
     be covered below.
 
-1.  Now that you have compressed the table you can compare the size of
+1.  Now that you have compressed the table, you can compare the size of
     the dataset before and after compression:
 
     ```sql
@@ -100,9 +99,9 @@ table, you follow these step:
 ## Add a compression policy
 
 To avoid running the compression step each time you have some data to
-compress you can set up a compression policy. The compression policy
+compress, you can set up a compression policy. A compression policy
 allows you to compress data that is older than a particular age, for
-example, to compress all chunks that are older than 8 days:
+example, to compress all $CHUNKs that are older than 8 days:
 
 ```sql
 SELECT add_compression_policy('transactions', INTERVAL '8 days');
@@ -117,13 +116,13 @@ You can find more information on compression policies in the
 
 ## Taking advantage of query speedups
 
-
 Previously, compression was set up to be segmented by `block_id` column value.
 This means fetching data by filtering or grouping on that column will be 
-more efficient. Ordering is also set to time descending so if you run queries
+more efficient. Ordering is also set to time descending, so if you run queries
 which try to order data with that ordering, you should see performance benefits. 
 
 For instance, if you run the query example from previous section:
+
 ```sql
 WITH recent_blocks AS (
  SELECT block_id FROM transactions
@@ -141,16 +140,16 @@ WHERE is_coinbase IS NOT TRUE
 GROUP BY t.block_id;
 ```
 
-You should see a decent performance difference when the dataset is compressed and
-when is decompressed. Try it yourself by running the previous query, decompressing
+You should see a decent performance difference when the dataset is compressed and decompressed. Try it yourself by running the previous query, decompressing
 the dataset and running it again while timing the execution time. You can enable
-timing query times in psql by running:
+measuring query times in psql by running:
 
 ```sql
     \timing
 ```
 
 To decompress the whole dataset, run:
+
 ```sql
     SELECT decompress_chunk(c) from show_chunks('transactions') c;
 ```
@@ -159,7 +158,6 @@ On an example setup, speedup performance observed was two orders of magnitude,
 15 ms when compressed vs 1 second when decompressed.
 
 Try it yourself and see what you get!
-
 
 [segment-by-columns]: /use-timescale/:currentVersion:/compression/about-compression/#segment-by-columns
 [automatic-compression]: /tutorials/:currentVersion:/blockchain-query/blockchain-compress/#add-a-compression-policy

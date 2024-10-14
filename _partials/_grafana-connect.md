@@ -1,24 +1,24 @@
 
-## Add Timescale as a data source in Grafana
+## Add $COMPANY as a data source in Grafana
 
-You can use Grafana to visualize queries directly from your Timescale database.
+You can use Grafana to visualize queries directly from your $COMPANY database.
 
 Before you begin, make sure you have:
 
-*   Created a [Timescale Cloud][cloud-login] service.
+*   Created a [$CLOUD_LONG][cloud-login] service.
 *   Installed a self-managed Grafana account, or signed up for
     [Grafana Cloud][install-grafana].
 *   Found the connection details for the database you want to use as a data
     source. The details are contained in the cheatsheet you downloaded when you
-    created the service.
+    created the $SERVICE_SHORT.
 
-<Tabs label="Add Timescale as a data source in Grafana">
+<Tabs label="Add $COMPANY as a data source in Grafana">
 
 <Tab title="Self-hosted Grafana">
 
 <Procedure>
 
-### Adding Timescale as a data source in self-hosted Grafana
+### Adding $COMPANY as a data source in self-hosted Grafana
 
 1.  In your web browser, log in to the Grafana dashboard at
     `http://localhost:3000/`. The default username is `admin` with a default
@@ -47,7 +47,7 @@ Before you begin, make sure you have:
 
 <Procedure>
 
-### Adding Timescale as a data source in Grafana Cloud
+### Adding $COMPANY as a data source in Grafana Cloud
 
 1.  In your web browser, log in to the Grafana dashboard with the URL and
     credentials you set when you created your account.

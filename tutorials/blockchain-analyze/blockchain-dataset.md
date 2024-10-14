@@ -15,9 +15,9 @@ import GrafanaConnect from "versionContent/_partials/_grafana-connect.mdx";
 # Set up the database
 
 This tutorial uses a dataset that contains Bitcoin blockchain data for
-the past five days, in a hypertable named `transactions`.
+the past five days, in a $HYPERTABLE named `transactions`.
 
-<Collapsible heading="Create a Timescale service and connect to your service" defaultExpanded={false}>
+<Collapsible heading="Create a $SERVICE_LONG and connect to your $SERVICE_SHORT" defaultExpanded={false}>
 
 <CreateAndConnect/>
 

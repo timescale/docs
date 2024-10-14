@@ -19,7 +19,7 @@ import CreateCaggs from "versionContent/_partials/_caggs-intro.mdx";
 This tutorial uses the energy consumption data for over a year in a
 hypertable named `metrics`.
 
-<Collapsible heading="Create a Timescale service and connect to your service" defaultExpanded={false}>
+<Collapsible heading="Create a $SERVICE_LONG and connect to your $SERVICE_SHORT" defaultExpanded={false}>
 
 <CreateAndConnect/>
 
@@ -40,14 +40,14 @@ household. You can use this data to analyze the energy consumption pattern.
 
 <CreateCaggs />
 
-## Create continuous aggregates
+## Create $CAGGs
 
 <Procedure>
 
-### Creating continuous aggregates for energy consumption by day and hour
+### Creating $CAGGs for energy consumption by day and hour
 
-1.  Create a continuous aggregate `kwh_day_by_day` for energy consumption on a
-    day to day basis:
+1.  Create a $CAGG `kwh_day_by_day` for energy consumption on a
+    day-to-day basis:
 
     ```sql
     CREATE MATERIALIZED VIEW kwh_day_by_day(time, value)
@@ -59,7 +59,7 @@ household. You can use this data to analyze the energy consumption pattern.
     GROUP BY 1;
     ```
 
-1.  Add a refresh policy to keep the continuous aggregate up-to-date:
+1.  Add a refresh policy to keep the $CAGG up-to-date:
 
      ```sql
      SELECT add_continuous_aggregate_policy('kwh_day_by_day',
@@ -68,7 +68,7 @@ household. You can use this data to analyze the energy consumption pattern.
         schedule_interval => INTERVAL '1 hour');
      ```
 
-1.  Create a continuous aggregate `kwh_hour_by_hour` for energy consumption on
+1.  Create a $CAGG `kwh_hour_by_hour` for energy consumption on
     an hourly basis:
 
     ```sql
@@ -81,7 +81,7 @@ household. You can use this data to analyze the energy consumption pattern.
     GROUP BY 1;
     ```
 
-1.  Add a refresh policy to keep the continuous aggregate up-to-date:
+1.  Add a refresh policy to keep the $CAGG up-to-date:
 
      ```sql
      SELECT add_continuous_aggregate_policy('kwh_hour_by_hour',
@@ -90,7 +90,7 @@ household. You can use this data to analyze the energy consumption pattern.
         schedule_interval => INTERVAL '1 hour');
      ```
 
-1.  You can confirm that the continuous aggregates were created:
+1.  You can confirm that the $CAGGs were created:
 
     ```sql
     SELECT view_name, format('%I.%I', materialization_hypertable_schema,materialization_hypertable_name) AS materialization_hypertable

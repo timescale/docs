@@ -1,15 +1,15 @@
 
-## Create a hypertable
+## Create a $HYPERTABLE
 
-Hypertables are the core of Timescale. Hypertables enable Timescale to work
-efficiently with time-series data. Because Timescale is PostgreSQL, all the
+$HYPERTABLE_CAPs are the core of $COMPANY. $HYPERTABLE_CAPs enable $COMPANY to work
+efficiently with time-series data. Because $COMPANY is PostgreSQL, all the
 standard PostgreSQL tables, indexes, stored procedures and other objects can be
-created alongside your Timescale hypertables. This makes creating and working
-with Timescale tables similar to standard PostgreSQL.
+created alongside your $COMPANY $HYPERTABLEs. This makes creating and working
+with $COMPANY tables similar to standard PostgreSQL.
 
 <Procedure>
 
-### Creating a hypertable
+### Creating a $HYPERTABLE
 
 1.  Create a standard PostgreSQL table to store the real-time stock trade data
     using `CREATE TABLE`:
@@ -23,8 +23,8 @@ with Timescale tables similar to standard PostgreSQL.
     );
     ```
 
-1.  Convert the standard table into a hypertable partitioned on the `time`
-    column using the `create_hypertable()` function provided by Timescale. You
+1.  Convert the standard table into a $HYPERTABLE partitioned on the `time`
+    column using the `create_hypertable()` function provided by $COMPANY. You
     must provide the name of the table and the column in that table that holds
     the timestamp data to use for partitioning:
 
@@ -40,8 +40,8 @@ with Timescale tables similar to standard PostgreSQL.
     ```
 
 <Highlight type="note">
-When you create a hypertable, it is automatically partitioned on the time column
-you provide as the second parameter to `create_hypertable()`. Also, Timescale
+When you create a $HYPERTABLE, it is automatically partitioned on the time column
+you provide as the second parameter to `create_hypertable()`. Also, $COMPANY
 automatically creates an index on the time column. However, you'll often filter
 your time-series data on other columns as well. Using indexes appropriately helps
 your queries perform better.
@@ -72,7 +72,7 @@ there is one other table of data called `company`.
     );
     ```
 
-1.  You now have two tables within your Timescale database. One hypertable
+1.  You now have two tables within your $COMPANY database. One $HYPERTABLE
     named `stocks_real_time`, and one normal PostgreSQL table named `company`.
 
 </Procedure>

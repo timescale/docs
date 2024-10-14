@@ -12,7 +12,7 @@ content_group: Analyze energy consumption data
 
 When you have your dataset loaded, you can start constructing some queries to
 discover what your data tells you.
-This tutorial uses [Timescale hyperfunctions][about-hyperfunctions] to construct
+This tutorial uses [$COMPANY hyperfunctions][about-hyperfunctions] to construct
 queries that are not possible in standard PostgreSQL.
 
 In this section, you learn how to construct queries, to answer these questions:
@@ -31,8 +31,8 @@ hourly basis in a typical day.
 
 ### Finding how many kilowatts of energy is consumed on an hourly basis
 
-1.  Connect to the Timescale database that contains the energy consumption dataset.
-1.  At the psql prompt, use the Timescale Toolkit functionality to get calculate
+1.  Connect to the $COMPANY database that contains the energy consumption dataset.
+1.  At the psql prompt, use the $TOOLKIT_LONG functionality to calculate
     the fiftieth percentile or the median. Then calculate the maximum energy
     consumed using the standard PostgreSQL max function:
 
@@ -88,7 +88,7 @@ You can also check how energy consumption varies between weekends and weekdays.
 
 ### Finding energy consumption during the weekdays
 
-1.  Connect to the Timescale database that contains the energy consumption dataset.
+1.  Connect to the $COMPANY database that contains the energy consumption dataset.
 1.  At the psql prompt, use this query to find difference in consumption during
     the weekdays and the weekends:
 
@@ -146,7 +146,7 @@ You may also want to check the energy consumption that occurs on a monthly basis
 
 ### Finding energy consumption for each month of the year
 
-1.  Connect to the Timescale database that contains the energy consumption
+1.  Connect to the $COMPANY database that contains the energy consumption
     dataset.
 1.  At the psql prompt, use this query to find consumption for each month of the
     year:
