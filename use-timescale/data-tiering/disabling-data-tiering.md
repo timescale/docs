@@ -12,7 +12,7 @@ If you no longer want to use tiered storage for a particular hypertable, you
 can drop the associated metadata by calling the `disable_tiering` function.
 
 In order to use this API, first call [remove_tiering_policy][tiering-policy] to drop 
-any tiering policy associated with this hypertable. Second, make sure that there is 
+the tiering policy associated with this hypertable. Second, make sure that there is 
 no tiered data associated with this hypertable.
 
 This query lists the tiered chunks associated with this hypertable.
