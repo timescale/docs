@@ -41,7 +41,7 @@ To disable tiering on a hypertable:
 
 </Procedure>
 
-And that is it, you have disable tiering on a hypertable. 
+And that is it, you have disabled tiering on a hypertable. 
 
 [untier-data]: /use-timescale/:currentVersion:/data-tiering/untier-data/
 [tiering-policy]: /use-timescale/:currentVersion:/data-tiering/creating-data-tiering-policy/
