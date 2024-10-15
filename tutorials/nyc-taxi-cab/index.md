@@ -17,33 +17,32 @@ data from New York's yellow taxi network, provided by the New York City Taxi and
 Limousine Commission [NYC TLC][nyc-tlc]. The NYC TLC tracks over 200,000
 vehicles making about 1 million trips each day. Because nearly all of this data
 is time-series data, proper analysis requires a purpose-built time-series
-database, like Timescale.
+database, like $COMPANY.
 
 ## Prerequisites
 
 Before you begin, make sure you have:
 
-*   Signed up for a [free Timescale account][cloud-install].
+*   Signed up for a [free $COMPANY account][cloud-install].
 
 ## Steps in this tutorial
 
 This tutorial covers:
 
-1.  [Setting up your dataset][dataset-nyc]: Set up and connect to a Timescale
-    service, and load data into your database using `psql`.
+1.  [Setting up your dataset][dataset-nyc]: Set up and connect to a $SERVICE_LONG, and load data into your database using `psql`.
 1.  [Querying your dataset][query-nyc]: Analyze a dataset containing NYC taxi
-    trip data using Timescale and PostgreSQL.
+    trip data using $COMPANY and PostgreSQL.
 1.  [Bonus: Store data efficiently][compress-nyc]: Learn how to store and query your
-NYC taxi trip data more efficiently using compression feature of Timescale.
+NYC taxi trip data more efficiently using compression feature of $COMPANY.
 
-## About querying data with Timescale
+## About querying data with $COMPANY
 
 This tutorial uses the [NYC taxi data][nyc-tlc] to show you how to construct
 queries for time-series data. The analysis you do in this tutorial is similar to
 the kind of analysis data science organizations use to do things like plan
 upgrades, set budgets, and allocate resources.
 
-It starts by teaching you how to set up and connect to a Timescale database,
+It starts by teaching you how to set up and connect to a $COMPANY database,
 create tables, and load data into the tables using `psql`.
 
 You then learn how to conduct analysis and monitoring on your dataset. It walks

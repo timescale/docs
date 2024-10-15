@@ -22,11 +22,11 @@ answer these questions:
 
 To answer these geospatial questions, you need the ride count data from the NYC
 taxi dataset, but you also need some geospatial data to work out which trips
-originated where. Timescale is compatible with all other PostgreSQL extensions
+originated where. $COMPANY is compatible with all other PostgreSQL extensions
 so you can use the [PostGIS][postgis] extension to slice the data by time and
 location.
 
-With the extension loaded, you alter your hypertable so it's ready for geospatial
+With the extension loaded, you alter your $HYPERTABLE so it's ready for geospatial
 queries. The `rides` table contains columns for pickup latitude and longitude,
 but it needs to be converted into geometry coordinates so that it works well
 with PostGIS.
@@ -35,7 +35,7 @@ with PostGIS.
 
 ### Setting up your dataset for PostGIS
 
-1.  Connect to the Timescale database that contains the NYC taxi dataset.
+1.  Connect to the $COMPANY database that contains the NYC taxi dataset.
 1.  At the psql prompt, add the PostGIS extension:
 
     ```sql
@@ -44,7 +44,7 @@ with PostGIS.
 
     You can check that PostGIS is installed properly by checking that it appears
     in the extension list when you run the `\dx` command.
-1.  Alter the hypertable to add geometry columns for ride pick up and drop off
+1.  Alter the $HYPERTABLE to add geometry columns for ride pick up and drop off
     locations:
 
     ```sql
@@ -77,7 +77,7 @@ in 30-minute buckets.
 Times Square is located at (40.7589,-73.9851).
 </Highlight>
 
-1.  Connect to the Timescale database that contains the NYC taxi dataset.
+1.  Connect to the $COMPANY database that contains the NYC taxi dataset.
 1.  At the psql prompt, use this query to select all rides taken in the first
     day of January 2016 that picked up within 400m of Times Square, and return a
     count of rides for each 30 minute interval:
@@ -122,7 +122,7 @@ Grafana can plot the data properly.
 
 ### Finding rides that traveled more than 5 miles in Manhattan
 
-1.  Connect to the Timescale database that contains the NYC taxi dataset.
+1.  Connect to the $COMPANY database that contains the NYC taxi dataset.
 1.  At the psql prompt, use this query to find rides longer than 5 miles in
     Manhattan:
 

@@ -20,7 +20,7 @@ yellow taxi network, in a hypertable named `rides`. It also includes a separate
 tables of payment types and rates, in a regular PostgreSQL table named
 `payment_types`, and `rates`.
 
-<Collapsible heading="Create a Timescale service and connect to your service" defaultExpanded={false}>
+<Collapsible heading="Create a $SERVICE_LONG and connect to your $SERVICE_SHORT" defaultExpanded={false}>
 
 <CreateAndConnect/>
 

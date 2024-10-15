@@ -22,7 +22,7 @@ connection.
     of the path to the `nyc_data_rides.csv` file.
 
 1.  At the psql prompt, copy the data from the `nyc_data_rides.csv` file into
-    your hypertable. Make sure you point to the correct path, if it is not in
+    your $HYPERTABLE. Make sure you point to the correct path, if it is not in
     your current working directory:
 
     ```sql

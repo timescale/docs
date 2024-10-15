@@ -1,14 +1,14 @@
-## Create a hypertable
+## Create a $HYPERTABLE
 
-Hypertables are the core of Timescale. Hypertables enable Timescale to work
-efficiently with time-series data. Because Timescale is PostgreSQL, all the
-standard PostgreSQL tables, indexes, stored procedures and other objects can be
-created alongside your Timescale hypertables. This makes creating and working
-with Timescale tables similar to standard PostgreSQL.
+$HYPERTABLE_CAPs are the core of $COMPANY. $HYPERTABLE_CAPs enable $COMPANY to work
+efficiently with time-series data. Because $COMPANY is PostgreSQL, all the
+standard PostgreSQL tables, indexes, stored procedures, and other objects can be
+created alongside your $COMPANY $HYPERTABLEs. This makes creating and working
+with $COMPANY tables similar to standard PostgreSQL.
 
 <Procedure>
 
-### Creating a hypertable
+### Creating a $HYPERTABLE
 
 1.  Create a standard PostgreSQL table to store the taxi trip data
     using `CREATE TABLE`:
@@ -36,8 +36,8 @@ with Timescale tables similar to standard PostgreSQL.
     );
     ```
 
-1.  Convert the standard table into a hypertable partitioned on the `time`
-    column using the `create_hypertable()` function provided by Timescale. You
+1.  Convert the standard table into a $HYPERTABLE partitioned on the `time`
+    column using the `create_hypertable()` function provided by $COMPANY. You
     must provide the name of the table and the column in that table that holds
     the timestamp data to use for partitioning:
 
@@ -47,7 +47,7 @@ with Timescale tables similar to standard PostgreSQL.
     ```
 
 	<Highlight type="note">
-	The `by_range` and `by_hash` dimension builder is an addition to TimescaleDB 2.13.
+	The `by_range` and `by_hash` dimension builder is an addition to $TIMESCALE_DB 2.13.
 	</Highlight>
 
 1.  Create an index to support efficient queries by vendor, rate code, and

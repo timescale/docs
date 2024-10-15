@@ -30,7 +30,7 @@ count the total number of rides each day, and show them in a list by date.
 
 ### Finding how many rides take place every day
 
-1.  Connect to the Timescale database that contains the NYC taxi dataset.
+1.  Connect to the $COMPANY database that contains the NYC taxi dataset.
 1.  At the psql prompt, use this query to select all rides taken in the first
     week of January 2016, and return a count of rides for each day:
 
@@ -67,7 +67,7 @@ paid by each passenger.
 
 ### Finding the average fare amount
 
-1.  Connect to the Timescale database that contains the NYC taxi dataset.
+1.  Connect to the $COMPANY database that contains the NYC taxi dataset.
 2.  At the psql prompt, use this query to select all rides taken in the first
     week of January 2016, and return the average fare paid on each day:
 
@@ -101,14 +101,14 @@ paid by each passenger.
 Taxis in New York City use a range of different rate types for different kinds
 of trips. For example, trips to the airport are charged at a flat rate from any
 location within the city. This section shows you how to construct a query that
-shows you the nuber of trips taken for each different fare type. It also uses a
+shows you the number of trips taken for each different fare type. It also uses a
 `JOIN` statement to present the data in a more informative way.
 
 <Procedure>
 
 ### Finding the number of rides for each fare type
 
-1.  Connect to the Timescale database that contains the NYC taxi dataset.
+1.  Connect to the $COMPANY database that contains the NYC taxi dataset.
 2.  At the psql prompt, use this query to select all rides taken in the first
     week of January 2016, and return the total number of trips taken for each
     rate code:
@@ -147,7 +147,7 @@ information from both in your results.
 
 ### Displaying the number of rides for each fare type
 
-1.  Connect to the Timescale database that contains the NYC taxi dataset.
+1.  Connect to the $COMPANY database that contains the NYC taxi dataset.
 2.  At the psql prompt, copy this query to select all rides taken in the first
     week of January 2016, join the `rides` and `rates` tables, and return the
     total number of trips taken for each rate code, with a description of the
@@ -194,7 +194,7 @@ trips going only to the new main airports.
 
 ### Finding what kind of trips are going to and from airports
 
-1.  Connect to the Timescale database that contains the NYC taxi dataset.
+1.  Connect to the $COMPANY database that contains the NYC taxi dataset.
 1.  At the psql prompt, use this query to select all rides taken to and from JFK
     and Newark airports, in the first week of January 2016, and return the number
     of trips to that airport, the average trip duration, average trip cost, and
@@ -238,14 +238,14 @@ quotient of the minute that a ride began in divided by 30, then truncate the
 result to take the floor of that quotient. When you had that result, you could
 multiply the truncated quotient by 30.
 
-In your Timescale database, you can use the `time_bucket` function to segment
+In your $COMPANY database, you can use the `time_bucket` function to segment
 the data into time intervals instead.
 
 <Procedure>
 
 ### Finding how many rides took place on New Year's Day 2016
 
-1.  Connect to the Timescale database that contains the NYC taxi dataset.
+1.  Connect to the $COMPANY database that contains the NYC taxi dataset.
 1.  At the psql prompt, use this query to select all rides taken on the first
     day of January 2016, and return a count of rides for each 30 minute interval:
 

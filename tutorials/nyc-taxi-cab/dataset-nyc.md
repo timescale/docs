@@ -21,7 +21,7 @@ tables of payment types and rates, in a regular PostgreSQL table named
 
 <PreloadedData />
 
-<Collapsible heading="Create a Timescale service and connect to your service" defaultExpanded={false}>
+<Collapsible heading="Create a $SERVICE_LONG and connect to your service" defaultExpanded={false}>
 
 <CreateAndConnect/>
 
