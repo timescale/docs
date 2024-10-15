@@ -11,7 +11,9 @@ tags: [ storage, data management ]
 If you no longer want to use tiered storage for a particular hypertable, you 
 can drop the associated metadata by calling the `disable_tiering` function.
 
-In order to disable tiering on a hypertable:
+To disable tiering on a hypertable:
+
+<Procedure>
 
 1. Call [remove_tiering_policy][tiering-policy] and drop any tiering policy associated with this hypertable.
 
@@ -36,6 +38,8 @@ In order to disable tiering on a hypertable:
    ```sql
    select * from timescaledb_osm.tiered_hypertables;
    ```
+
+</Procedure>
 
 And that is it, you have disable tiering on a hypertable. 
 
