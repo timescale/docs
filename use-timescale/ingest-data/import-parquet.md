@@ -19,7 +19,8 @@ This page shows you how to import data into your $SERVICE_LONG from a Parquet fi
 
 ## Prerequisites
 
-Add ImportPrerequisites here 
+<ImportPrerequisites />
+
 - [Install DuckDB][install-duckdb] on the source machine where the Parquet file is located.
 - Ensured that the time column in the Parquet file uses the `TIMESTAMP` data type. 
 
@@ -51,7 +52,8 @@ To import data from a Parquet file:
 
    1.  Convert the empty table to a hypertable:
 
-       Replace the `<META NAMES>` with the correct column names, then create the hypertable.
+       In the following command, replace `<TABLE NAME>` with the name of the table you just created, and `<COLUMN_NAME>`
+       with the partitioning column in `<TABLE NAME>`.
        ```sql
        psql $TARGET -c  "SELECT create_hypertable('<TABLE_NAME>', by_range('<COLUMN_NAME>'))"
        ```
@@ -96,7 +98,7 @@ To import data from a Parquet file:
 
 </Procedure>
 
-And that is it, you have imported your data from a Parquet file to a Timescale Cloud service.
+And that is it, you have imported your data from a Parquet file to your $SERVICE_LONG.
 
 [apache-parquet]: https://parquet.apache.org/
 [apache-parquet-file-format]: https://parquet.apache.org/docs/file-format/
