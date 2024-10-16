@@ -8,6 +8,8 @@ tags: [saml, sso]
 
 # SAML authentication
 
+<!-- TODO: add more details -->
+
 Timescale offers SAML authentication as part of its [Enterprise Tier][enterprise-tier] offering. SAML (Security Assertion Markup Language) is an open standard for exchanging authentication and authorization data between parties. With SAML enabled Timescale customers will be able to log into their Timescale account using their existing SSO service provider credentials. 
 
 <Highlight type="note">
