@@ -5,6 +5,11 @@ module.exports = [
     excerpt: "Learn about common scenarios and use cases for Timescale",
     children: [
       {
+        title: "Build a Real-Time Cryptocurrency Data Pipeline with TimescaleDB and Python",
+        href: "real-time-cryptocurrency-data-pipeline",
+        excerpt: "Create a real-time cryptocurrency data pipeline using TimescaleDB and Python",
+      },
+      {
         title: "Cryptocurrency - part 1",
         href: "blockchain-query",
         excerpt: "Query the Bitcoin blockchain",
