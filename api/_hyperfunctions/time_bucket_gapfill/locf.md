@@ -35,6 +35,7 @@ api_details:
         description: >
           If no previous value is available for gapfilling, use the `prev` lookup expression to get a previous value.
           For example, you can use `prev` to fill in the first bucket in a queried time range.
+          The expression must return just a value (not a tuple as expected by the [`interpolate`](#interpolate) function) with the same type as the `value` parameter.
       - name: treat_null_as_missing
         type: BOOLEAN
         description: When `true`, `NULL` values are ignored, and only non-`NULL` values are carried forward.
