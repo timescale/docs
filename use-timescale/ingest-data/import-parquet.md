@@ -24,13 +24,16 @@ This page shows you how to import data into your $SERVICE_LONG from a Parquet fi
 - [Install DuckDB][install-duckdb] on the source machine where the Parquet file is located.
 - Ensured that the time column in the Parquet file uses the `TIMESTAMP` data type. 
 
+For faster data transfer, best practice is that your target $SERVICE_SHORT, and the system
+running the data import are in the same region.
+
 ## Import data into your $SERVICE_SHORT
 
 To import data from a Parquet file:
 
 <Procedure>
 
-1. **Setup your connection string**
+1. **Setup your $SERVICE_SHORT connection string**
 
     <SetupConnectionString />
 

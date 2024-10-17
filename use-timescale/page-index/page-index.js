@@ -342,7 +342,7 @@ module.exports = [
         ],
       },
       {
-        title: "Ingest data from other sources",
+        title: "Import and ingest data",
         href: "ingest-data",
         excerpt: "Ingest data into a Timescale Cloud service from third-party sources",
         children: [

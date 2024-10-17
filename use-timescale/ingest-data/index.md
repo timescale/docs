@@ -1,35 +1,30 @@
 ---
 title: Import and ingest data
-excerpt: Use third-party tools to ingest data into TimescaleDB
+excerpt: Use third-party tools to ingest data into a Timescale Cloud service
 products: [cloud]
 keywords: [ingest, pipelines, Prometheus, Kafka, Telegraf, timescaledb-parallel-copy, csv]
 ---
 
 # Import and ingest data
 
+By default, you add data to your $SERVICE_LONG using [SQL inserts][writing-data]. You can also 
+import data from other tools, and build data ingest pipelines. A data ingest pipeline can
+increase your data ingest rates using batch writes, instead of inserting data one row or metric at a time. 
 
+- **Import data**
 
-## Import data
+  You can Import data into your $SERVICE_LONG from:
+  * [CSV][import-csv]
+  * [Parquet][import-parquet]
+  * [MySQL][import-mysql]
 
-Import data into Timescale from various formats and databases:
-*   Import data from a [`.csv` file][import-csv]
-*   Import data from a [`.parquet` file][import-parquet]
-*   Import data from a [MySQL database][import-mysql]
+- **Ingest data**
 
-## Ingest data
+  You can ingest data into your $SERVICE_LONG from:
+    * [Kafka][ingest-kafka]
+    * [Telegraf][ingest-telegraf]
 
-By default, Timescale supports standard SQL inserts. Additionally, you can use
-third-party tools to build data ingest pipelines. A data ingest pipeline can
-increase your data ingest rates by using batch writes, instead of inserting data
-one row or metric at a time. Any tool that can read or write to PostgreSQL also
-works with Timescale.
-
-For more information about how to use standard SQL insert queries to write data
-into Timescale, see the [Writing Data][writing-data] section.
-
-Ingest data from the following sources:
-*   Ingest data using [Kafka][ingest-kafka]
-*   Ingest data using [Telegraf][ingest-telegraf]
+Any tool that can read or write to PostgreSQL also works with $CLOUD_LONG.
 
 [ingest-kafka]: /use-timescale/:currentVersion:/ingest-data/ingest-kafka/
 [ingest-telegraf]: /use-timescale/:currentVersion:/ingest-data/telegraf/
