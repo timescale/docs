@@ -52,21 +52,9 @@ module.exports = [
         ],
       },
       {
-        title: "User management",
+        title: "Control user access to Timescale Cloud projects",
         href: "members",
         excerpt: "User management in Timescale Cloud",
-        children: [
-          {
-            title: "Members list",
-            href: "members-list",
-            excerpt: "Timescale members list",
-          },
-          {
-            title: "Project Ownership",
-            href: "project-ownership",
-            excerpt: "Timescale project ownership",
-          },
-        ],
       },
       {
         title: "Write data",
@@ -526,6 +514,12 @@ module.exports = [
             href: "tiered-data-replicas-forks",
             excerpt:
               "How tiered data works on replicas and forks",
+          },
+          {
+            title: "Disabling tiering for a hypertable",
+            href: "disabling-data-tiering",
+            excerpt:
+              "How to disable tiering for a hypertable",
           },
           {
             title: "Troubleshooting",
