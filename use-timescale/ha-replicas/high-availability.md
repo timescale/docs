@@ -13,14 +13,14 @@ cloud_ui:
 # Manage high availability
 
 For Timescale Cloud Service with very low tolerance for downtime, Timescale Cloud offers 
-High Availability(HA) replicas. HA replicas significantly reduce the risk of downtime and data loss due to 
+High Availability (HA) replicas. HA replicas significantly reduce the risk of downtime and data loss due to 
 system failure, and enable services to avoid downtime during routine maintenance.
 
 This page shows you how to choose the best high availability option for your Timescale Cloud Service.  
 
 ## What is HA replication?
 
-HA replicas are exact, up-to-date copies of your database hosted in multiple AWS availability zones (AZ) within the same region as your primary node. They automatically take over operations as your primary data node if the original primary data node becomes unavailable. The primary node streams its write-ahead log (WAL) to the replicas to minimize the chances of data loss during failover. 
+HA replicas are exact, up-to-date copies of your database hosted in multiple AWS availability zones (AZ) within the same region as your primary node. They automatically take over operations if the original primary data node becomes unavailable. The primary node streams its write-ahead log (WAL) to the replicas to minimize the chances of data loss during failover. 
 
 HA replicas can be synchronous and asynchronous. 
 
@@ -48,22 +48,22 @@ The following HA configurations are available in Timescale Cloud:
 
 - **Non-production**: no replica, best for developer environments.
 
-- **High availability**: a single async replica in a different AWS availability zone. Provides high availability with cost efficiency. Best for production apps. 
+- **High availability**: a single async replica in a different AWS availability zone from your primary. Provides high availability with cost efficiency. Best for production apps. 
 
-- **Highest availability**: two replicas in different AWS availability zones. Available replication modes are:
+- **Highest availability**: two replicas in different AWS availability zones from your primary. Available replication modes are:
 
-  - *Optimized* - two async replicas. Provides the highest level of availability (two AZs) and the ability to query the HA system. Best for absolutely critical apps.
-  - *High data integrity* - one sync replica and one async replica. The sync replica is identical to the primary at all times. Best for apps that can tolerate no data loss.
+  - **Optimized data performance** - two async replicas. Provides the highest level of availability (two AZs) and the ability to query the HA system. Best for absolutely critical apps.
+  - **High data integrity** - one sync replica and one async replica. The sync replica is identical to the primary at all times. Best for apps that can tolerate no data loss.
 
 The following table summarizes the differences between these HA configurations:
 
-|| High availability <br/> (1 async) | Optimized <br/> (2 async) | High data integrity <br/> (1 sync + 1 async) | 
+|| High availability <br/> (1 async) | Optimized data performance <br/> (2 async) | High data integrity <br/> (1 sync + 1 async) | 
 |-------|----------|------------|-----|
-|Write flow |The primary streams its WAL to the async replica, which may have a slight lag compared to the primary, providing 99.9% uptime SLA. |The primary streams its writes to both async replicas, providing 99.9+% uptime SLA.|The primary streams its writes to the sync and async replicas. The primary waits for a completion callback from the sync replica to send additional writes. The async replica is never ahead of the sync one.|
-|Additional read replica|Recommended. Reads from the HA replica may cause availability and lag issues. |Not needed. You can still read from the HA replica even if one of them is down. Configure an additional read replica only if your read use case is significantly different from your write use case.|Highly recommended. If you run heavy queries on a sync replica, it may fall behind the primary. Specifically, the primary holds until a write transaction completion is confirmed by the sync replica. If it takes too long, the transaction is canceled.|
+|Write flow |The primary streams its WAL to the async replica, which may have a slight lag compared to the primary, providing 99.9% uptime SLA. |The primary streams its writes to both async replicas, providing 99.9+% uptime SLA.|The primary streams its writes to the sync and async replicas. The async replica is never ahead of the sync one.|
+|Additional read replica|Recommended. Reads from the HA replica may cause availability and lag issues. |Not needed. You can still read from the HA replica even if one of them is down. Configure an additional read replica only if your read use case is significantly different from your write use case.|Highly recommended. If you run heavy queries on a sync replica, it may fall behind the primary. Specifically, if it takes too long for the replica to confirm a transaction, the next transaction is canceled.|
 |Choosing the replica to read from manually| Not applicable. |Not available. Queries are load-balanced against all available HA replicas. |Not available. Queries are load-balanced against all available HA replicas.|
 | Sync replication | Only async replicas are supported in this configuration. |Only async replicas are supported in this configuration. | Supported.|
-| Failover flow | <ul><li>If the primary fails, the replica becomes the primary while a new node is created, with only seconds of downtime.</li><li>If the replica fails, a new async replica is created without impacting the primary. If you read from the async HA replica, those will fail until the new replica is available.</li></ul> |<ul><li>If the primary fails, one of the replicas becomes the primary while a new node is created, with the other one still available for reads.</li><li>If the replica fails, a new async replica is created in another AZ, without impacting the primary. The newly created replica is behind the primary and the original replica while it catches up.</li></ul>|<ul><li>If the primary fails, the sync replica becomes the primary while a new node is created, with the async one still available for reads.</li><li>If the async replica fails, a new async replica is created. Heavy reads on the sync replica may delay the ingest time of the primary while a new async HA is created. Data integrity remains high but primary ingest performance may degrade.</li><li>If the sync replica fails, the async replica becomes the sync one, and a new async replica is created. The primary may experience some ingest performance degradation during this time.</li></ul>|
+| Failover flow | <ul><li>If the primary fails, the replica becomes the primary while a new node is created, with only seconds of downtime.</li><li>If the replica fails, a new async replica is created without impacting the primary. If you read from the async HA replica, those reads fail until the new replica is available.</li></ul> |<ul><li>If the primary fails, one of the replicas becomes the primary while a new node is created, with the other one still available for reads.</li><li>If the replica fails, a new async replica is created in another AZ, without impacting the primary. The newly created replica is behind the primary and the original replica while it catches up.</li></ul>|<ul><li>If the primary fails, the sync replica becomes the primary while a new node is created, with the async one still available for reads.</li><li>If the async replica fails, a new async replica is created. Heavy reads on the sync replica may delay the ingest time of the primary while a new async replica is created. Data integrity remains high but primary ingest performance may degrade.</li><li>If the sync replica fails, the async replica becomes the sync one, and a new async replica is created. The primary may experience some ingest performance degradation during this time.</li></ul>|
 | Cost composition | Primary + async (2x) |Primary + 2 async (3x)|Primary + 1 async + 1 sync (3x)|
 | Tier | Performance, Scale, and Enterprise  |Scale and Enterprise|Scale and Enterprise|
 
