@@ -1,88 +1,110 @@
 ---
-title: Import data into Timescale from .csv
-excerpt: Import data into your Timescale instance from an external .csv file
+title: Import data from CSV
+excerpt: Import data into a Timescale Cloud service from an external .csv file
 products: [cloud]
 keywords: [data migration]
 tags: [import, csv]
 ---
 
-# Import data into Timescale from .csv
+import ImportPrerequisites from "versionContent/_partials/_migrate_import_prerequisites.mdx";
+import SetupConnectionString from "versionContent/_partials/_migrate_import_setup_connection_strings_parquet.mdx";
 
-If you have data stored in an external `.csv` file, you can import it into
-Timescale.
+# Import data from CSV
 
-<Highlight type="note">
-You can use the Timescale
-[parallel copy](https://github.com/timescale/timescaledb-parallel-copy)
-tool to speed up data copying. The tool parallelizes migration by using several
-workers to run multiple `COPY` operations concurrently. It also offers options
-to improve the copying experience. If you prefer not to use
-`timescaledb-parallel-copy`, you can also use regular PostgreSQL `COPY`. This
-section provides instructions for both methods.
-</Highlight>
+CSV is a file format that is widely used for data migration. 
+
+This page shows you how to import data into your $SERVICE_LONG from a CSV file. 
 
 ## Prerequisites
 
-Before you start, make sure you have:
+<ImportPrerequisites />
 
-*   Signed up for your [free Timescale account][install].
-*   Checked that your source data uses a schema that matches the database you
-    want to import it into.
-*   Ensured that the `time` column in the source data uses the `TIMESTAMPTZ` data type.
+- Install [Go](https://go.dev/doc/install) v1.13 or later
 
-## Import data
+- Install [timescaledb-parallel-copy][install-parallel-copy]
+  
+  [timescaledb-parallel-copy][parallel importer] Improves performance for large datasets by parallelizing the import
+  process. It also preserves row order and uses a round-robin approach to optimize memory management and disk operations.
 
-Import data from a `csv`.
+  To verify your installation, run `timescaledb-parallel-copy --version`.
+
+- Ensured that the time column in the CSV file uses the `TIMESTAMPZ` data type.
+
+For faster data transfer, best practice is that your target $SERVICE_SHORT, and the system 
+running the data import are in the same region.
+
+## Import data into your $SERVICE_SHORT
+
+To import data from a CSV file:
 
 <Procedure>
 
-### Importing data
+1. **Setup your $SERVICE_SHORT connection string**
 
-1.  Connect to your database and create a new empty table. Use a schema that
-    matches the data in your `.csv` file. In this example, the `.csv` file
-    contains the columns `ts`, `location`, and `temperature`.
+    <SetupConnectionString />
 
-    ```sql
-    CREATE TABLE <TABLE_NAME> (
-        ts        TIMESTAMPTZ           NOT NULL,
-        location    TEXT                NOT NULL,
-        temperature DOUBLE PRECISION    NULL
-    );
-    ```
+1. **Create a [hypertable][hypertable-docs] to hold your data**
 
-1.  Convert the empty table to a hypertable using the
-    [`create_hypertable`][create_hypertable] function. Replace `ts` with the
-    name of the column storing time values in your table.
+   1.  Create a new empty table with a schema that is compatible with the data in your parquet file.
 
-    ```sql
-    SELECT create_hypertable('<TABLE_NAME>', by_range('ts'))
-    ```
+       For example, if your parquet file contains the columns `ts`, `location`, and `temperature` with types
+       `TIMESTAMP`, `STRING`, and `DOUBLE`:
 
-1.  At the command line, insert data into the hypertable from your `csv`. Use
-    `timescaledb-parallel-copy` to speed up migration. Adjust the number of
-    workers as desired. Alternatively see the next step.
+       ```sql
+       psql $TARGET -c  "CREATE TABLE <TABLE_NAME> ( \
+          ts          TIMESTAMPTZ         NOT NULL,  \
+          location    TEXT                NOT NULL,  \
+          temperature DOUBLE PRECISION    NULL  \
+       );"
+       ```
+       If you prefer using a secure UI to the command line, use [Data mode in $CONSOLE][data-mode].
 
-    ```bash
-    timescaledb-parallel-copy --db-name <DATABASE_NAME> --table <TABLE_NAME> \
-        --file <FILENAME>.csv --workers 4 --copy-options "CSV"
-    ```
+   1.  Convert the empty table to a hypertable:
 
-1.  [](#)<Optional />If you don't want to use `timescaledb-parallel-copy`,
-    insert data into the hypertable by using PostgreSQL's native `COPY`command.
-    At the command line, run:
+       In the following command, replace `<TABLE NAME>` with the name of the table you just created, and `<COLUMN_NAME>`
+       with the partitioning column in `<TABLE NAME>`.
+       ```sql
+       psql $TARGET -c  "SELECT create_hypertable('<TABLE_NAME>', by_range('<COLUMN_NAME>'))"
+       ```
 
-    ```bash
-    psql -d <DATABASE_NAME> -c "\COPY <TABLE_NAME> FROM <FILENAME>.csv CSV"
-    ```
+1. **Import your data**
 
-<Highlight type="note">
-Don't set the number of workers for `timescaledb-parallel-copy` higher than the
-number of available CPU cores. Above that, workers compete with each other for
-resources and reduce the performance improvements.
-</Highlight>
+   In the folder containing your CSV files, either:
+
+   - Use [timescaledb-parallel-copy][install-parallel-copy]:
+
+     For the best performances while avoiding resource competition, set `<NUM_WORKERS>` to twice the
+     number of CPUs in your $SERVICE_SHORT, but less than the available CPU cores.
+
+     ```bash
+       timescaledb-parallel-copy \
+       --connection $TARGET \
+       --db-name tsdb \
+       --table <TABLE_NAME> \
+       --file <FILE_NAME>.csv \
+       --workers <NUM_WORKERS> \
+       --reporting-period 30s
+     ```
+    
+     For self-hosted $TIMESCALE_DB, set `$TARGET` to `host=localhost user=postgres sslmode=disable`
+
+   - Use psql:
+
+      psql COPY is single-threaded, and may be slower for large datasets.
+
+      ```bash 
+      psql $TARGET
+      \c <DATABASE_NAME> 
+      \COPY <TABLE_NAME> FROM <FILENAME>.csv CSV"
+      ```
+
+1. **Verify the data was imported correctly into your $SERVICE_SHORT**
 
 </Procedure>
 
-[create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable
-[install]: /getting-started/latest/
+And that is it, you have imported your data from a CSV file.
+
 [parallel importer]: https://github.com/timescale/timescaledb-parallel-copy
+[install-parallel-copy]: https://github.com/timescale/timescaledb-parallel-copy?tab=readme-ov-file#go
+[hypertable-docs]: /use-timescale/:currentVersion:/hypertables/
+[data-mode]: /getting-started/:currentVersion:/run-queries-from-console/#data-mode
