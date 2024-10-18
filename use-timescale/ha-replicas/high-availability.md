@@ -28,7 +28,7 @@ HA replicas can be synchronous and asynchronous.
   
 - Asynchronous: the primary commits its next write without the confirmation of the previous write completion. The asynchronous HA replicas often have a lag, in both time and data, compared to the primary. This is preferable if you need the shortest primary ingest time.
 
-image from the doc draft
+![Sync and async replication](https://assets.timescale.com/docs/images/sync_async_replication_draft.png)
 
 HA replicas have separate unique addresses that you can use to serve read-only requests in parallel to your 
 primary data node. When your primary data node fails, Timescale Cloud automatically fails over to 
