@@ -8,6 +8,15 @@ keywords: [changelog, upgrades, updates, releases]
 
 All the latest features and updates to Timescale products.
 
+## 💡 Help with hypertables and faster notebooks
+<Label type="date">October 18, 2024</Label>
+
+### 🧙Hypertable creation wizard
+After creating a service, users can now create a hypertable directly in the Timescale Console by first creating a table, then converting it into a hypertable. This is possible through the in-console PopSQL SQL editors. All standard hypertable configuration options are supported, as is editing the table schema directly in the console to anything the user would like. 
+
+### 🍭 PopSQL Notebooks 
+The newest version of PopSQL Notebooks is now waaaay faster.  Why? We've incorporated the newly developed v3 of our query engine that currently powers the Timescale Cloud console SQL Editor.  Check out the difference in query response times.
+
 ## ✨ Production-Ready Low-Downtime Migrations, MySQL Import, Actions Tab, and Current Lock Contention Visibility in SQL Editor
 <Label type="date">October 10, 2024</Label>
 
