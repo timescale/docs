@@ -22,9 +22,7 @@ Tiered pricing plans give you:
 
 * **Enhanced performance**: with increased CPU and storage capacities, your apps run smoother and more
   efficiently, even under heavy loads.
-* **Improved scalability**: as your business grows, so do your demands. Tiered pricing plans scale with
-  you, they provide the resources and support you need at each stage of your growth. Scale up or down 
-  based on your current needs, ensuring that you only pay for what you use.
+* **Improved scalability**: as your business grows, so do your demands. Tiered pricing plans scale with you, they provide the resources and support you need at each stage of your growth. Scale up or down based on your current needs, ensuring that you only pay for what you use.
 * **Better support**: access to enhanced support options, including production support and dedicated
   account management, ensures you have the help you need when you need it.
 * **Greater flexibility**: we know that one size doesn't fit all. Tiered pricing plans give you the
@@ -34,10 +32,10 @@ Tiered pricing plans give you:
 * **Cost efficiency**: by aligning our pricing with the value delivered, we ensure that you get the most
   out of every dollar spent. Our goal is to help you achieve more with less.
 
-Using self-hosted TimescaleDB and our open-source products is still free.  
+Using $SELF_LONG and our open-source products is still free.  
 
-This page explains tiered pricing plans for Timescale Cloud, and how to easily manage your
-Timescale account.
+This page explains tiered pricing plans for $CLOUD_LONG, and how to easily manage your
+$COMPANY account.
 
 ## How plans work
 
@@ -60,26 +58,26 @@ from initial development through to mission critical enterprise applications.
    transparent, easily understood, and up to you.
 
   
-### Timescale Cloud free trial for the different tiers
+### $CLOUD_LONG free trial for the different tiers
 
 We offer new users a free, 30-day trial period of our Performance plan with no credit card required.  
 During your trial, you can contact sales@timescale.com to request information about, and access
 to, our Scale plan to determine how it fits your needs. Once you become a paying user, we can make 
 certain features of higher plans available to you for testing without upgrading your entire plan.
 
-After you have completed your 30 day trial period on the Performance plan, choose the 
+After you have completed your 30-day trial period on the Performance plan, choose the 
 [Pricing plan][plan-features] that suits your business and engineering needs.
 
 ### Upgrade or downgrade your plan at any time
 
-You can easily upgrade or downgrade or downgrade between the Performance and Scale plans 
-whenever you want using [Timescale Console][cloud-login]. If you switch your plan mid-month, 
+You can easily upgrade or downgrade between the Performance and Scale plans 
+whenever you want using [$CONSOLE][cloud-login]. If you switch your plan mid-month, 
 your prices are pro-rated to when you switch. Your services are not interrupted when you switch, 
 you can keep working without any hassle. To move to Enterprise, [get in touch with Timescale][get-in-touch].
 
 ### Monitor usage and costs
 
-You keep track of your monthly usage in [Timescale Console][cloud-billing]. Console shows your 
+You keep track of your monthly usage in [$CONSOLE][cloud-billing]. Console shows your 
 resource usage and dashboards with performance insights. This allows you to closely monitor your 
 services’ performance, and any need to scale your services or upgrade your plan.
 
