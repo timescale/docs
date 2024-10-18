@@ -24,9 +24,9 @@ HA replicas are exact, up-to-date copies of your database hosted in multiple AWS
 
 HA replicas can be synchronous and asynchronous. 
 
-- Synchronous replicas: the primary commits its next write once the replica confirms that the previous write is complete. There is no lag between the primary and the replica. They are in the same state at all times. This is preferable if you need the highest level of data integrity. However, this affects the primary ingestion time.
+- Synchronous: the primary commits its next write once the replica confirms that the previous write is complete. There is no lag between the primary and the replica. They are in the same state at all times. This is preferable if you need the highest level of data integrity. However, this affects the primary ingestion time.
   
-- Asynchronous replicas: the primary commits its next write without the confirmation of the previous write completion. The asynchronous HA replicas often have a lag, in both time and data, compared to the primary. This is preferable if you need the shortest primary ingest time.
+- Asynchronous: the primary commits its next write without the confirmation of the previous write completion. The asynchronous HA replicas often have a lag, in both time and data, compared to the primary. This is preferable if you need the shortest primary ingest time.
 
 image from the doc draft
 
@@ -52,12 +52,12 @@ The following HA configurations are available in Timescale Cloud:
 
 - **Highest availability**: two replicas in different AWS availability zones from your primary. Available replication modes are:
 
-  - **Optimized data performance** - two async replicas. Provides the highest level of availability (two AZs) and the ability to query the HA system. Best for absolutely critical apps.
+  - **High performance** - two async replicas. Provides the highest level of availability with two AZs and the ability to query the HA system. Best for absolutely critical apps.
   - **High data integrity** - one sync replica and one async replica. The sync replica is identical to the primary at all times. Best for apps that can tolerate no data loss.
 
 The following table summarizes the differences between these HA configurations:
 
-|| High availability <br/> (1 async) | Optimized data performance <br/> (2 async) | High data integrity <br/> (1 sync + 1 async) | 
+|| High availability <br/> (1 async) | High performance <br/> (2 async) | High data integrity <br/> (1 sync + 1 async) | 
 |-------|----------|------------|-----|
 |Write flow |The primary streams its WAL to the async replica, which may have a slight lag compared to the primary, providing 99.9% uptime SLA. |The primary streams its writes to both async replicas, providing 99.9+% uptime SLA.|The primary streams its writes to the sync and async replicas. The async replica is never ahead of the sync one.|
 |Additional read replica|Recommended. Reads from the HA replica may cause availability and lag issues. |Not needed. You can still read from the HA replica even if one of them is down. Configure an additional read replica only if your read use case is significantly different from your write use case.|Highly recommended. If you run heavy queries on a sync replica, it may fall behind the primary. Specifically, if it takes too long for the replica to confirm a transaction, the next transaction is canceled.|
