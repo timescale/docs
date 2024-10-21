@@ -21,7 +21,7 @@ available](/api/:currentVersion:/hypertable/create_hypertable_old/).
 
 ## Create a hypertable
 
-To create a hypertable, you need to create a standard PostgreSQL table, and then
+To create a hypertable, you create a standard PostgreSQL table and then
 convert it into a hypertable.
 
 Hypertables are designed for real-time analytics and typically partitioned by columns that hold time values. These can be of the `timestamptz`, `date`, or `integer` types. While `timestamp` is also supported, best practice is to use `timestamptz` instead. [PostgreSQL timestamp](https://wiki.postgresql.org/wiki/Don't_Do_This#Don.27t_use_timestamp_.28without_time_zone.29) explains why using `timestamp` is discouraged.
