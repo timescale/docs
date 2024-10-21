@@ -26,6 +26,8 @@ your target Timescale Cloud service, then replicates the database activity in yo
 
 You use the live-migration Docker image to move 100GB-10TB+ of data to a Timescale Cloud service seamlessly with only a few minutes downtime.
 
+<DoNotRecommendForLargeMigration />
+
 Best practice is to use live-migration when:
 - Modifying your application logic to perform dual writes is a significant effort. 
 - The insert workload does not exceed 20,000 rows per second, and inserts are batched.
@@ -37,8 +39,6 @@ Best practice is to use live-migration when:
     Live-migration does not support replicating `INSERT`/`UPDATE`/`DELETE` statements on compressed data.
   - Has large, busy tables with primary keys.
   - Does not have many `UPDATE` or `DELETE` statements.
-
-<DoNotRecommendForLargeMigration />
 
 This page shows you how to move your data from a self-hosted database to a Timescale Cloud service using
 the live-migration Docker image.  
