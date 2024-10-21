@@ -1,30 +1,34 @@
 ---
-title: Ingest data using third-party tools
-excerpt: Use third-party tools to ingest data into TimescaleDB
+title: Import and ingest data
+excerpt: Use third-party tools to ingest data into a Timescale Cloud service
 products: [cloud]
 keywords: [ingest, pipelines, Prometheus, Kafka, Telegraf, timescaledb-parallel-copy, csv]
 ---
 
-# Ingest data using third-party tools
+# Import and ingest data
 
-By default, Timescale supports standard SQL inserts. Additionally, you can use
-third-party tools to build data ingest pipelines.
+By default, you add data to your $SERVICE_LONG using [SQL inserts][writing-data]. You can also 
+import data from other tools, and build data ingest pipelines. A data ingest pipeline can
+increase your data ingest rates using batch writes, instead of inserting data one row or metric at a time. 
 
-This section covers some popular frameworks and systems used in conjunction with
-Timescale:
+- **Import data**
 
-*   Ingest data using [Prometheus][ingest-prometheus]
-*   Ingest data using [Kafka][ingest-kafka]
-*   Ingest data using [Telegraf][ingest-telegraf]
-*   Ingest data using [Timescale parallel copy][ingest-parallel]
-*   Ingest data [from a `.csv` file][ingest-csv]
+  You can Import data into your $SERVICE_LONG from:
+  * [CSV][import-csv]
+  * [Parquet][import-parquet]
+  * [MySQL][import-mysql]
 
-For more information about how to use standard SQL insert queries to write data
-into Timescale, see the [Writing Data][writing-data] section.
+- **Ingest data**
+
+  You can ingest data into your $SERVICE_LONG from:
+    * [Kafka][ingest-kafka]
+    * [Telegraf][ingest-telegraf]
+
+Any tool that can read or write to PostgreSQL also works with $CLOUD_LONG.
 
 [ingest-kafka]: /use-timescale/:currentVersion:/ingest-data/ingest-kafka/
-[ingest-parallel]: /use-timescale/:currentVersion:/ingest-data/about-timescaledb-parallel-copy/
-[ingest-prometheus]: /use-timescale/:currentVersion:/ingest-data/ingest-prometheus/
-[ingest-telegraf]: /use-timescale/:currentVersion:/integrations/data-ingest/telegraf/
+[ingest-telegraf]: /use-timescale/:currentVersion:/ingest-data/telegraf/
 [writing-data]: /use-timescale/:currentVersion:/write-data/
-[ingest-csv]: /use-timescale/:currentVersion:/ingest-data/import-csv/
+[import-csv]: /use-timescale/:currentVersion:/ingest-data/import-csv/
+[import-mysql]: /use-timescale/:currentVersion:/ingest-data/import-mysql/
+[import-parquet]: /use-timescale/:currentVersion:/ingest-data/import-parquet/
