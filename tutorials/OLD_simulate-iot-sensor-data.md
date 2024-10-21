@@ -21,10 +21,8 @@ Often, it is necessary to simulate IoT sensor data, for example, when
 testing a new system. This tutorial shows how to simulate a
 basic IoT sensor dataset on PostgreSQL, or TimescaleDB.
 
-<Highlight type="note">
 For creating a more advanced simulated IoT dataset, try the
-[Time-series Benchmarking Suite (TSBS)](https://github.com/timescale/tsbs).
-</Highlight>
+[Time-series Benchmarking Suite][ts-bs].
 
 ## Prerequisites
 
@@ -33,9 +31,10 @@ Language (SQL). The tutorial walks you through each SQL command, but it is
 helpful if you've seen SQL before.
 
 To start, [install TimescaleDB][install-timescale]. When your installation is
-complete, you can ingest or create sample data and finish the tutorial.
+complete, you can ingest or create sample data such as the data from the 
+[NYC Taxi Cab tutorial][taxi-cab], and finish the steps in this guide.
 
-## Set up your tables
+## Setting up your tables
 
 First, connect to your database via `psql`.
 
@@ -66,7 +65,7 @@ If you are using TimescaleDB, convert the `sensor_data` table into a
 SELECT create_hypertable('sensor_data', 'time');
 ```
 
-Fourth, populate the sensors table with 4 sensors:
+Next, populate the sensors table with 4 sensors:
 
 ```sql
 INSERT INTO sensors (type, location) VALUES
@@ -76,7 +75,7 @@ INSERT INTO sensors (type, location) VALUES
 ('b', 'ceiling');
 ```
 
-Fifth, verify that the sensors were created correctly:
+Finally, verify that the sensors were created correctly:
 
 ```sql
 SELECT * FROM sensors;
@@ -95,12 +94,11 @@ this:
 (4 rows)
 ```
 
-## Create the simulated IoT sensor data
+## Creating the simulated IoT sensor data
 
-<Highlight type="note">
 This section shows results of the queries as examples, but because the tutorial
-generates random data every time it is run, your results look different, but is
-structured the same way.
+generates random data every time it is run, your results will look different, but 
+will share the same structure.
 </Highlight>
 
 Generate a dataset for all of our four sensors and insert into the `sensor_data`
@@ -125,25 +123,25 @@ SELECT * FROM sensor_data ORDER BY time;
 Example output:
 
 ```
-             time              | sensor_id |    temperature     |         cpu         
--------------------------------+-----------+--------------------+---------------------
- 2020-03-31 15:56:25.843575+00 |         1 |   6.86688972637057 |   0.682070567272604
- 2020-03-31 15:56:40.244287+00 |         2 |    26.589260622859 |   0.229583469685167
- 2030-03-31 15:56:45.653115+00 |         3 |   79.9925176426768 |   0.457779890391976
- 2020-03-31 15:56:53.560205+00 |         4 |   24.3201029952615 |   0.641885648947209
- 2020-03-31 16:01:25.843575+00 |         1 |   33.3203678019345 |  0.0159163917414844
- 2020-03-31 16:01:40.244287+00 |         2 |   31.2673618085682 |   0.701185956597328
- 2020-03-31 16:01:45.653115+00 |         3 |   85.2960689924657 |   0.693413889966905
- 2020-03-31 16:01:53.560205+00 |         4 |   79.4769988860935 |   0.360561791341752
+             time              | sensor_id |     temperature     |          cpu
+-------------------------------+-----------+---------------------+-----------------------
+ 2024-03-02 21:58:52.415591+00 |         2 |   34.74860895110643 |    0.7382245703719759
+ 2024-03-02 21:58:52.415591+00 |         1 |   78.28644854140863 |    0.0538759700059126
+ 2024-03-02 21:58:52.415591+00 |         4 |   84.34109828273877 |    0.2814163809100949
+ 2024-03-02 21:58:52.415591+00 |         3 |   18.30145613996288 |   0.11061603685747601
+ 2024-03-02 22:03:52.415591+00 |         1 |    28.8350892206531 |    0.5167745613330366
+ 2024-03-02 22:03:52.415591+00 |         2 |   70.38494920417571 |   0.04132443651006601
+ 2024-03-02 22:03:52.415591+00 |         4 |   91.39978680296652 |    0.5797557914264548
+ 2024-03-02 22:03:52.415591+00 |         3 |   89.40911758654491 |    0.6911678473371399
 ...
 ```
 
-Congratulations, you've created a basic IoT sensor dataset. Now let's run some
+You've successfully created a basic IoT sensor dataset! Now let's run some
 queries.
 
-## Run basic queries (optional)
+## Running basic queries
 
-This section requires TimescaleDB.
+This section requires installation of TimescaleDB.
 
 ### Average temperature, average cpu by 30 minute windows:
 
@@ -159,19 +157,19 @@ GROUP BY period;
 SAMPLE OUTPUT:
 
 ```
-         period         |     avg_temp     |      avg_cpu      
-------------------------+------------------+-------------------
- 2020-03-31 19:00:00+00 | 49.6615830013373 | 0.477344429974134
- 2020-03-31 22:00:00+00 | 58.8521540844037 | 0.503637770501276
- 2020-03-31 16:00:00+00 | 50.4250325243144 | 0.511075591299838
- 2020-03-31 17:30:00+00 | 49.0742547437549 | 0.527267253802468
- 2020-04-01 14:30:00+00 | 49.3416377226822 | 0.438027751864865
+         period         |      avg_temp      |       avg_cpu
+------------------------+--------------------+---------------------
+ 2024-03-03 17:30:00+00 |  43.10768090240475 | 0.44125966982283243
+ 2024-03-03 09:00:00+00 |  46.47069943057713 | 0.44783394066455323
+ 2024-03-03 12:30:00+00 | 50.245161953350795 |  0.4173858962698807
+ 2024-03-03 02:30:00+00 |  41.02991149971461 |  0.5369651925149536
+ 2024-03-03 05:00:00+00 | 45.576655689044905 |  0.5800885979769893
  ...
 ```
 
 ### Average & last temperature, average cpu by 30 minute windows:
 
-But what if you don't just want the average temperature for each period,
+What if you don't just want the average temperature for each period,
 but also the last temperature? For example if you wanted to understand
 the final temperature value at the end of the interval:
 
@@ -188,13 +186,13 @@ GROUP BY period;
 Example output:
 
 ```
-         period         |     avg_temp     |    last_temp     |      avg_cpu      
-------------------------+------------------+------------------+-------------------
- 2020-03-31 19:00:00+00 | 49.6615830013373 | 84.3963081017137 | 0.477344429974134
- 2020-03-31 22:00:00+00 | 58.8521540844037 | 76.5528806950897 | 0.503637770501276
- 2020-03-31 16:00:00+00 | 50.4250325243144 | 43.5192013625056 | 0.511075591299838
- 2020-03-31 17:30:00+00 | 49.0742547437549 |  22.740753274411 | 0.527267253802468
- 2020-04-01 14:30:00+00 | 49.3416377226822 | 59.1331578791142 | 0.438027751864865
+         period         |      avg_temp      |     last_temp      |       avg_cpu
+------------------------+--------------------+--------------------+---------------------
+ 2024-03-03 17:30:00+00 |  43.10768090240475 | 37.897223743142305 | 0.44125966982283243
+ 2024-03-03 09:00:00+00 |  46.47069943057713 | 10.360343839058483 | 0.44783394066455323
+ 2024-03-03 12:30:00+00 | 50.245161953350795 | 13.395952389199483 |  0.4173858962698807
+ 2024-03-03 02:30:00+00 |  41.02991149971461 |  20.85346474997114 |  0.5369651925149536
+ 2024-03-03 05:00:00+00 | 45.576655689044905 |  17.53287790099687 |  0.5800885979769893
 ...
 ```
 
@@ -217,16 +215,16 @@ GROUP BY period, sensors.location;
 Example output:
 
 ```
- location |         period         |     avg_temp     |     last_temp     |      avg_cpu      
-----------+------------------------+------------------+-------------------+-------------------
- ceiling  | 20120-03-31 15:30:00+00 | 25.4546818090603 |  24.3201029952615 | 0.435734559316188
- floor    | 2020-03-31 15:30:00+00 | 43.4297036845237 |  79.9925176426768 |  0.56992522883229
- ceiling  | 2020-03-31 16:00:00+00 | 53.8454438598516 |  43.5192013625056 | 0.490728285357666
- floor    | 2020-03-31 16:00:00+00 | 47.0046211887772 |  23.0230117216706 |  0.53142289724201
- ceiling  | 2020-03-31 16:30:00+00 | 58.7817596504465 |  63.6621567420661 | 0.488188337767497
- floor    | 2020-03-31 16:30:00+00 |  44.611586847653 |  2.21919436007738 | 0.434762630766879
- ceiling  | 2020-03-31 17:00:00+00 | 35.7026890735142 |  42.9420990403742 | 0.550129583687522
- floor    | 2020-03-31 17:00:00+00 | 62.2794370166957 |  52.6636955793947 | 0.454323202022351
+ location |         period         |      avg_temp      |      last_temp      |       avg_cpu
+----------+------------------------+--------------------+---------------------+---------------------
+ floor    | 2024-03-03 17:00:00+00 |   57.7554057402912 |   70.92230873447865 |  0.5664165557316464
+ floor    | 2024-03-03 13:00:00+00 |  49.10969984873296 |   95.18393076186942 |  0.2998594519486328
+ ceiling  | 2024-03-03 01:30:00+00 |  43.23389752853527 |   84.23455916498523 |   0.415458435988545
+ ceiling  | 2024-03-02 23:30:00+00 |  49.04287048373988 |   29.13487894000726 |  0.5481122939027164
+ floor    | 2024-03-03 14:00:00+00 | 42.197390088314954 |   48.37367352541595 |  0.4302213965771769
+ ceiling  | 2024-03-03 09:00:00+00 |  33.96200524565035 |   50.90505195144848 |  0.5037301372624226
+ floor    | 2024-03-03 11:00:00+00 |  67.50318185485571 |   74.71978857954535 |  0.4930108855000481
+ ceiling  | 2024-03-03 10:00:00+00 |   43.6388721380759 |   18.17060920674267 | 0.44136773995668604
 ...
 ```
 
@@ -244,8 +242,10 @@ documentation:
 *   [`time_bucket`][docs-timebucket]
 *   [`last`][docs-last]
 
+[ts-bs]: https://github.com/timescale/tsbs
+[install-timescale]: /getting-started/:currentVersion:/
+[taxi-cab]: https://docs.timescale.com/tutorials/latest/nyc-taxi-cab/
 [docs-hypertable]: /use-timescale/:currentVersion:/hypertables/
 [docs-last]: /api/:currentVersion:/hyperfunctions/last
 [docs-timebucket]: /api/:currentVersion:/hyperfunctions/time_bucket
 [docs-timescaledb-intro]: /use-timescale/:currentVersion:/
-[install-timescale]: /getting-started/:currentVersion:/
