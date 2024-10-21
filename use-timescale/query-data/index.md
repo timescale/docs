@@ -14,10 +14,12 @@ use [PopSQL][popsql] to work on data with centralized SQL queries, interactive v
 *   [About querying data][about-querying-data]
 *   [Select data with `SELECT`][selecting-data]
 *   [Get faster `DISTINCT` queries with SkipScan][skipscan]
+*   [Get faster `JOIN` queries with `Materialized Common Table Expressions (CTEs)][cte]
 *   [Perform advanced analytic queries][advanced-analytics]
 
 [about-querying-data]: /use-timescale/:currentVersion:/query-data/about-query-data/
 [advanced-analytics]: /use-timescale/:currentVersion:/query-data/advanced-analytic-queries/
 [selecting-data]: /use-timescale/:currentVersion:/query-data/select/
 [skipscan]: /use-timescale/:currentVersion:/query-data/skipscan/
+[cte]: /use-timescale/:currentVersion:/query-data/cte/
 [popsql]: /getting-started/:currentVersion:/run-queries-from-console/
