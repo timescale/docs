@@ -18,7 +18,7 @@ import CloudIntro from "versionContent/_partials/_cloud-intro.mdx";
 
 Read about Timescale features in the documentation:
 
-*   Determine if you want a time-series or [Dynamic PostgreSQL][dynamic-pg] database
+*   Determine if you want a time-series or Dynamic PostgreSQL database
 *   Create your first [hypertable][hypertable-info].
 *   Run your first query using [time_bucket()][time-bucket-info].
 *   Trying more advanced time-series functions, starting with
@@ -62,4 +62,3 @@ the supported service configurations and operations, see the
 [time-bucket-info]: /use-timescale/:currentVersion:/query-data/advanced-analytic-queries#time-bucket
 [terraform-provider-docs]: https://registry.terraform.io/providers/timescale/timescale/latest/docs
 [terraform-provider]: https://registry.terraform.io/providers/timescale/timescale/latest/
-[dynamic-pg]: /use-timescale/:currentVersion:/services/dynamic-postgresql/
