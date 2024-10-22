@@ -27,7 +27,7 @@ increase your data ingest rates using batch writes, instead of inserting data on
 Any tool that can read or write to PostgreSQL also works with $CLOUD_LONG.
 
 [ingest-kafka]: /use-timescale/:currentVersion:/ingest-data/ingest-kafka/
-[ingest-telegraf]: /use-timescale/:currentVersion:/ingest-data/telegraf/
+[ingest-telegraf]: /use-timescale/:currentVersion:/ingest-data/ingest-telegraf/
 [writing-data]: /use-timescale/:currentVersion:/write-data/
 [import-csv]: /use-timescale/:currentVersion:/ingest-data/import-csv/
 [import-mysql]: /use-timescale/:currentVersion:/ingest-data/import-mysql/
