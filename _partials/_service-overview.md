@@ -24,7 +24,7 @@ manage your $SERVICE_SHORTs and interact with your data in $CONSOLE using the fo
     <td >
 You use the ops mode to:
 <ul>
-<li>Ensure data security with high availability and $READ_REPLICAs</li>
+<li>Ensure data security with high availability and read replicas</li>
 <li>Save money using compressed and tiered storage</li>
 <li>Enable PostgreSQL extensions to add extra functionality</li>
 <li>Increase security using VPCs </li>
@@ -32,7 +32,7 @@ You use the ops mode to:
 </ul>
 </td>
     <td >
-Powered by $POPSQL, you use the data mode to:
+Powered by PopSQL, you use the data mode to:
 <ul>
 <li>Write queries with autocomplete</li> 
 <li>Visualize data with charts and dashboards</li> 
