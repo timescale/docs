@@ -486,7 +486,7 @@ module.exports = [
               "A quick tour of tiered storage",
           },
           {
-            title: "Enabling the object storage tier",
+            title: "Manage tiering",
             href: "enabling-data-tiering",
             excerpt:
               "How to enable the object storage tier",
