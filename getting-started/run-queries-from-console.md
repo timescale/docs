@@ -13,24 +13,24 @@ connect to your $SERVICE_SHORT and interact with your data.
 
 In $CONSOLE you can use the following ways to run SQL queries against your database:
 
-- [Data mode][run-popsql]: a rich experience powered by $POPSQL. You can write queries with 
+- [$DATA_MODE_CAP][run-popsql]: a rich experience powered by $POPSQL. You can write queries with 
   autocomplete, save them in folders, share them, create charts/dashboards, and much more.
 
-- [$SQL_EDITOR in Ops mode][run-sqleditor]: a simple SQL editor in Ops mode that lets you run ad-hoc ephemeral 
+- [$SQL_EDITOR in the $OPS_MODE][run-sqleditor]: a simple $SQL_EDITOR in the $OPS_MODE that lets you run ad-hoc ephemeral 
   queries. This is useful for quick one-off tasks like creating an index on a small table or 
   inspecting `pg_stat_statements`.
 
-If you prefer the command line to the ops mode $SQL_EDITOR in $CONSOLE, use [psql][install-psql].
+If you prefer the command line to the $OPS_MODE $SQL_EDITOR in $CONSOLE, use [psql][install-psql].
 
-## Data mode
+## $DATA_MODE_CAP
 
-You use the data mode in $CONSOLE to write queries, visualize data, and share your results. 
+You use the $DATA_MODE in $CONSOLE to write queries, visualize data, and share your results. 
 
 ![Screenshot of data mode](https://assets.timescale.com/docs/images/data-mode-schema-chart.png)
 
 Available features are:
 
-- **Real-time collaboration**: work with your team directly in the data mode query editor with live presence and multiple 
+- **Real-time collaboration**: work with your team directly in the $DATA_MODE query editor with live presence and multiple 
    cursors.
 - **[Schema browser](https://docs.popsql.com/docs/schema)**: understand the structure of your database and see usage data on tables and columns.
 - **Autocomplete**: get suggestions as you type your queries.
@@ -39,11 +39,11 @@ Available features are:
 - **[Charts](https://docs.popsql.com/docs/creating-charts)**: visualize data from inside the UI rather than switch to Sheets or Excel.
 - **[Schedules](https://docs.popsql.com/docs/scheduled-queries)**: automatically refresh queries and dashboards to create push alerts.
 - **[Query variables](https://docs.popsql.com/docs/query-variables)**: use Liquid to parameterize your queries or use `if` statements.
-- **Cross platform**:  works from [$CONSOLE][portal-data-mode] or download the 
+- **Cross-platform**:  work from [$CONSOLE][portal-data-mode] or download the 
   [desktop](https://popsql.com/download) app for macOS, Windows, and Linux.
 - **Easy connection**: to $CLOUD_LONG, PostgreSQL, Redshift, Snowflake, BigQuery, MySQL, SQL Server, [and more](https://popsql.com/connections).
 
-### Connect to your $SERVICE_LONG in the data mode
+### Connect to your $SERVICE_LONG in the $DATA_MODE
 
 <Procedure>
 
@@ -57,11 +57,11 @@ To connect to a $SERVICE_SHORT:
 
 1. **Connect to your $SERVICE_SHORT**
 
-   1. In the [data mode][portal-data-mode] in $CONSOLE, select a $SERVICE_SHORT and enter your password, then click **Connect**.
+   In the [$DATA_MODE][portal-data-mode] in $CONSOLE, select a $SERVICE_SHORT and enter your password, then click **Connect**.
 
-      ![Select a connection](https://assets.timescale.com/docs/images/data-mode-connections.png)
+   ![Select a connection](https://assets.timescale.com/docs/images/data-mode-connections.png)
 
-      You find your password in the config file you downloaded when you created the $SERVICE_SHORT.
+   You find your password in the config file you downloaded when you created the $SERVICE_SHORT.
 
 1. **Run a test query**
 
@@ -71,14 +71,14 @@ To connect to a $SERVICE_SHORT:
 
 
 Quick recap. You:
-- Manage your $SERVICE_SHORTs in the [ops mode in $CONSOLE][portal-ops-mode]
-- Manage your data in the [data mode in $CONSOLE][portal-data-mode]
+- Manage your $SERVICE_SHORTs in the [$OPS_MODE in $CONSOLE][portal-ops-mode].
+- Manage your data in the [$DATA_MODE in $CONSOLE][portal-data-mode].
 - Store configuration and security information in your config file.
 
 </Procedure>
 
 
-Now you have used the data mode in $CONSOLE, see how to easily do the following:
+Now you have used the $DATA_MODE in $CONSOLE, see how to easily do the following:
 
 - [Write a query](https://docs.popsql.com/docs/writing-a-query)
 - [Share a query with your
@@ -89,8 +89,6 @@ Now you have used the data mode in $CONSOLE, see how to easily do the following:
   results](https://docs.popsql.com/docs/creating-dashboards)
 - [Create schedules for your
   queries](https://docs.popsql.com/docs/scheduled-queries)
-
-
 
 ### FAQ
 
@@ -103,12 +101,12 @@ If your $SERVICE_LONG runs inside a VPC, do one of the following to enable acces
   - When you configure the connection in $POPSQL, under `Advanced Options`, enable `Connect over SSH`
 - Add $POPSQL's static IPs (`23.20.131.72, 54.211.234.135`) to your allowlist
 
-#### What happens if another member of my $COMPANY project uses data mode?
+#### What happens if another member of my $COMPANY project uses the $DATA_MODE?
 
-The number of data mode seats you are allocated depends on your
+The number of $DATA_MODE seats you are allocated depends on your
 [Pricing Plan][pricing-plan-features].
 
-#### Will using the data mode affect the performance of my $SERVICE_LONG?
+#### Will using the $DATA_MODE affect the performance of my $SERVICE_LONG?
 
 There are a few factors to consider:
 
@@ -124,29 +122,29 @@ a [$READ_REPLICA][readreplica] and send analytical queries there.
 
 If you'd like to prevent write operations such as insert or update, instead 
 of using the `tsdbadmin` superuser, create a read-only user for your $SERVICE_SHORT and
-use that in the data mode.
+use that in the $DATA_MODE.
 
 
 
-## Ops mode SQL editor
+## $OPS_MODE_CAP $SQL_EDITOR
 
-SQL editor is an integrated secure UI that you use to run queries and see the results
-for an Timescale Cloud service.
+$SQL_EDITOR is an integrated secure UI that you use to run queries and see the results
+for a $SERVICE_LONG.
 
 ![Screenshot of SQL editor](https://assets.timescale.com/docs/images/sqleditor.png)
 
-To enable or disable SQL editor in your service, click `Operations` > `Service management`, then
-update the setting for SQL editor.
+To enable or disable $SQL_EDITOR in your $SERVICE_SHORT, click `Operations` > `Service management`, then
+update the setting for $SQL_EDITOR.
 
-### Run queries from the ops mode in $CONSOLE
+### Run queries from the $OPS_MODE in $CONSOLE
 
 <Procedure>
 
-To use SQL editor with Timescale:
+To use $SQL_EDITOR with $COMPANY:
 
-1.  **Open SQL editor from $CONSOLE**
+1.  **Open $SQL_EDITOR from $CONSOLE**
 
-    In the [ops mode][portal-ops-mode] in $CONSOLE, select a service, then click **SQL editor**.
+    In the [$OPS_MODE][portal-ops-mode] in $CONSOLE, select a $SERVICE_SHORT, then click **$SQL_EDITOR**.
 
     ![Check service is running](https://assets.timescale.com/docs/images/ops-view-sql-editor.png)
 
@@ -157,11 +155,11 @@ To use SQL editor with Timescale:
 </Procedure>
 
 
-## Cloud SQL editor licenses
+## $CLOUD_EDITOR licenses
 
-* **SQL editor in the ops mode**: free for anyone with a [Timescale Cloud account][create-cloud-account].
-* **Data mode**: the number of seats you are allocated depends on your [Pricing Plan][pricing-plan-features].
-* **PopSQL standalone**: there is a free plan available to everyone, as well as paid plans. See  [PopSQL Pricing](https://popsql.com/pricing) for full 
+* **$SQL_EDITOR in the $OPS_MODE**: free for anyone with a [$CLOUD_LONG account][create-cloud-account].
+* **$DATA_MODE_CAP**: the number of seats you are allocated depends on your [Pricing Plan][pricing-plan-features].
+* **$POPSQL standalone**: there is a free plan available to everyone, as well as paid plans. See [$POPSQL Pricing](https://popsql.com/pricing) for full 
   details.
 
 

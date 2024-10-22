@@ -10,7 +10,7 @@ import CloudIntro from "versionContent/_partials/_cloud-intro.mdx";
 import TimescaleIntro from "versionContent/_partials/_timescale-intro.mdx";
 import WhereNext from "versionContent/_partials/_where-to-next.mdx";
 
-# Get started with Timescale
+# Get started with $COMPANY
 
 <CloudIntro />
 

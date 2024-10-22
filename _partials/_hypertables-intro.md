@@ -1,4 +1,4 @@
-$HYPERTABLEs are PostgreSQL tables that automatically partition your data by
+$HYPERTABLE_CAPs are PostgreSQL tables that automatically partition your data by
 time. You interact with $HYPERTABLEs in the same way as regular PostgreSQL
 tables, but with extra features that makes managing your time-series data much
 easier.

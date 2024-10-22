@@ -6,15 +6,15 @@ They are used to cache the result of a complex query so that you can reuse it
 later on. Materialized views do not update regularly, although you can manually
 refresh them as required.
 
-[$CAGG_CAPs][about-caggs] are a Timescale only feature. They work in
+[$CAGG_CAPs][about-caggs] are a $COMPANY-only feature. They work in
 a similar way to a materialized view, but they are updated automatically in the
 background, as new data is added to your database. $CAGG_CAPs are
 updated continuously and incrementally, which means they are less resource
 intensive to maintain than materialized views. $CAGG_CAPs are based
-on hypertables, and you can query them in the same way as you do your other
+on $HYPERTABLEs, and you can query them in the same way as you do your other
 tables.
 
-[$RTAGGs][real-time-aggs] are a Timescale only feature. They are
+[$RTAGG_CAPs][real-time-aggs] are a $COMPANY-only feature. They are
 the same as $CAGGs, but they add the most recent raw data to the
 previously aggregated data to provide accurate and up-to-date results, without
 needing to aggregate data as it is being written.

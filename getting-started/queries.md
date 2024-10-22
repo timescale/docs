@@ -11,8 +11,7 @@ content_group: Getting started
 
 $COMPANY supports full SQL, so you don't need to learn a custom query language.
 This section contains some simple queries that you can run directly on this
-page. When you have constructed the perfect query, use the copy button to run it
-on your own database.
+page.
 
 Most of the queries in this section look for the last four days of data. This is
 to account for the fact there are no stock trades over the weekends, and to make

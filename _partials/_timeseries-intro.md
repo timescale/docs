@@ -30,7 +30,7 @@ especially important to use a specialized time-series database, like $COMPANY:
     devices for smart homes.
 *   Eventing applications: user or customer interaction data such as
     clickstreams, pageviews, logins, and signups.
-*   Business intelligence: Tracking key metrics and the overall health of the
+*   Business intelligence: tracking key metrics and the overall health of the
     business.
 *   Environmental monitoring: temperature, humidity, pressure, pH, pollen count,
     air flow, carbon monoxide, nitrogen dioxide, or particulate matter.

@@ -9,7 +9,7 @@ To set up $COMPANY:
     You receive a confirmation email in your inbox.
 1.  In the confirmation email, click the link supplied and sign in to [$CONSOLE][tsc-portal].
 
-    Answer the requirements questions, they help us optimize the $SERVICE_LONG for your use case. You can now create a $SERVICE_LONG.
+    Answer the requirements questions, they help us optimize the $SERVICE_LONG for your use case. You can now create a $SERVICE_SHORT.
 
 
 

@@ -21,11 +21,11 @@ sum, and count are all example of simple aggregates.
 
 However, aggregation calculations can get big and slow, quickly. If you want to
 find the average open and closing values of a range of stocks for each day, then
-you need something a little more sophisticated. That's where Timescale
-$CAGGs come in. $CAGG_CAPs can minimize the number of
+you need something a little more sophisticated. That's where $COMPANY 
+$CAGGs come in. A $CAGG can minimize the number of
 records that you need to look up to perform your query.
 
-## $CAGGs
+## $CAGG_CAPs
 
 <CaggsIntro />
 
@@ -40,7 +40,7 @@ information about the trading data.
 
 In this section, you use a `SELECT` statement to find the high and low values
 with `min` and `max` functions, and the open and close values with `first` and
-`last` functions. You then aggregate the data into 1 day buckets, like this:
+`last` functions. You then aggregate the data into 1-day buckets, like this:
 
 <CodeBlock canCopy={false} showLineNumbers={false} children={`
 SELECT
