@@ -492,39 +492,16 @@ module.exports = [
               "How to enable the object storage tier",
           },
           {
-            title: "Manually tier data",
-            href: "manual-tier-chunk",
-            excerpt:
-              "How to manually tier data to the object storage tier",
-          },
-          {
-            title: "Creating tiering policies",
-            href: "creating-data-tiering-policy",
-            excerpt:
-              "How to create a tiering policy",
-          },
-          {
             title: "Querying tiered data",
             href: "querying-tiered-data",
             excerpt:
               "How to query tiered data",
           },
           {
-            title: "Manually untier data",
-            href: "untier-data",
-            excerpt: "How to manualy untier data from the object storage tier",
-          },
-          {
             title: "Replicas and forks with tiered data",
             href: "tiered-data-replicas-forks",
             excerpt:
               "How tiered data works on replicas and forks",
-          },
-          {
-            title: "Disabling tiering for a hypertable",
-            href: "disabling-data-tiering",
-            excerpt:
-              "How to disable tiering for a hypertable",
           },
           {
             title: "Troubleshooting",
