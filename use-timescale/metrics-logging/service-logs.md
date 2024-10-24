@@ -11,7 +11,9 @@ cloud_ui:
 # Service logs
 
 From the `Services` page, click the service you are interested in and navigate
-to the `Logs` tab. This section contains your service's logging data.
+to the `Logs` tab. This section contains the latest 500 lines of your service's logging data. 
+
+To get more logs, create a support ticket. 
 
 <img class="main-content__illustration"
 width={1375} height={944}
