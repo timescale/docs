@@ -1,5 +1,5 @@
-Each Timescale Cloud  service is a single 100% PostgreSQL database with [usage-based storage][how-plans-work]. You
-manage your services and interact with your data in Timescale Console using the following modes:
+Each $SERVICE_LONG is a single 100% PostgreSQL database with [usage-based storage][how-plans-work]. You
+manage your $SERVICE_SHORTs and interact with your data in $CONSOLE using the following modes:
 
 <table class="tg"><thead>
   <tr>
