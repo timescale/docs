@@ -31,20 +31,7 @@ In the following example, you query data from a Timescale service within the sam
     1. Navigate to `Operations` > `Extensions` and find `postgres_fdw` in the list. 
     1. Expand the section underneath and either click `Run` to install or copy and run the code in the SQL editor. 
 
-1. Create a foreign data wrapper. Take these steps under the `tsdbadmin` role, which already has the required `USAGE` permissions assigned, or enable another user to do so:
-
-    1. (Optional) Enable another user to create FDWs:
-   
-       ```sql
-       CREATE USER grafana;
-       GRANT grafana TO tsdbadmin;
-       CREATE SCHEMA fdw AUTHORIZATION grafana;
-       CREATE SERVER db1 FOREIGN DATA WRAPPER postgres_fdw OPTIONS (host 'serviceID.projectID.tsdb.cloud.timescale.com', dbname 'tsdb', port '30702');
-       CREATE USER MAPPING FOR grafana SERVER db1 OPTIONS (user 'tsdbadmin', password 'mysupersecurepassword');
-       GRANT USAGE ON FOREIGN SERVER db1 TO grafana;
-
-       SET ROLE grafana;
-       ```
+1. Create a foreign data wrapper. Take these steps under the `tsdbadmin` role, which already has the required `USAGE` permissions assigned.
 
     1. Create a server:
 
@@ -56,7 +43,6 @@ In the following example, you query data from a Timescale service within the sam
 
        ```sql
        CREATE USER MAPPING FOR tsdbadmin SERVER myserver OPTIONS (user 'tsdbadmin', password 'mysecurepassword');
-
 
     1. Import a foreign schema (recommended) or create a foreign table:
 
