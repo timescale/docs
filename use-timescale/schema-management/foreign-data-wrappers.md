@@ -17,11 +17,13 @@ If you are using [VPC peering][vpc-peering], you can create FDWs in your Custome
 
 FDWs are particularly useful if you manage multiple different Timescale Cloud service types, and need to seamlessly access and merge regular and time-series data.
 
-<Procedure>
-
 ## Query another data source
 
-You create FDWs with the help of the `postgres_fdw` extension, which is enabled by default. To query another data source, run the following queries in the [SQL editor][sql-editor]:
+You create FDWs with the help of the `postgres_fdw` extension, which is enabled by default. 
+
+<Procedure>
+
+To query another data source, run the following queries in the [SQL editor][sql-editor]:
 
 1. Create a server:
 
