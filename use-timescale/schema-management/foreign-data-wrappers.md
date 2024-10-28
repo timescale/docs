@@ -19,9 +19,9 @@ FDWs are particularly useful if you manage multiple different Timescale Cloud se
 
 <Procedure>
 
-## Query another Timescale Cloud service 
+## Query another data source
 
-You create FDWs with the help of the `postgres_fdw` extension, which is enabled by default. To query another service, run the following queries in the [SQL editor][sql-editor]:
+You create FDWs with the help of the `postgres_fdw` extension, which is enabled by default. To query another data source, run the following queries in the [SQL editor][sql-editor]:
 
 1. Create a server:
 
