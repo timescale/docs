@@ -20,13 +20,20 @@ This feature requires PostgreSQL 14 or later
 
 <Tab title="TimescaleDB&nbsp;2.11 and later">
 
-In TimescaleDB&nbsp;2.11 and later, you can insert data into compressed chunks.
+In TimescaleDB v2.11 and later, you can insert data into compressed chunks.
 This works even if the data you are inserting has unique constraints, and those
 constraints are preserved during the insert operation. This is done by using a
 PostgreSQL function that decompresses relevant data during the insert to check
 if the new data breaks unique checks. This means that any time you insert data
 into a compressed chunk, a small amount of data is decompressed to allow a
 speculative insertion, and block any inserts which could violate constraints.
+
+For Timescale Cloud services self-hosted deployments running TimescaleDB v2.17.0 and 
+later there is improved performance of deletes on compressed hypertables when a large 
+amount of data is affected. This improvement speeds up operations that delete whole segments 
+by skipping the decompression step. It is enabled for all deletes that filter by 
+the `segment_by` column(s).
+
 
 </Tab>
 
