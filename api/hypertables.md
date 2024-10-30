@@ -36,23 +36,19 @@ see the [hypertable section][hypertable-docs].
 Get information about a hypertable.
 
 ```sql
-CREATE TABLE dist_table(time timestamptz, device int, temp float);
-SELECT create_distributed_hypertable('dist_table', 'time', 'device', replication_factor => 2);
+CREATE TABLE metrics(time timestamptz, device int, temp float);
+SELECT create_hypertable('metrics','time');
 
-SELECT * FROM timescaledb_information.hypertables
-  WHERE hypertable_name = 'dist_table';
+SELECT * from timescaledb_information.hypertables WHERE hypertable_name = 'metrics';
 
--[ RECORD 1 ]-------+-----------
+-[ RECORD 1 ]-------+--------
 hypertable_schema   | public
-hypertable_name     | dist_table
-owner               | postgres
-num_dimensions      | 2
-num_chunks          | 3
+hypertable_name     | metrics
+owner               | sven
+num_dimensions      | 1
+num_chunks          | 0
 compression_enabled | f
-is_distributed      | t
-replication_factor  | 2
-data_nodes          | {node_1, node_2}
-tablespaces         |
+tablespaces         | NULL
 ```
 
 [hypertable-docs]: /use-timescale/:currentVersion:/hypertables/
