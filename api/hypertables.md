@@ -40,6 +40,7 @@ CREATE TABLE metrics(time timestamptz, device int, temp float);
 SELECT create_hypertable('metrics','time');
 
 SELECT * from timescaledb_information.hypertables WHERE hypertable_name = 'metrics';
+
 -[ RECORD 1 ]-------+--------
 hypertable_schema   | public
 hypertable_name     | metrics
