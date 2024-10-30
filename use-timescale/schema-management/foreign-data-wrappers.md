@@ -25,19 +25,19 @@ You create FDWs with the help of the `postgres_fdw` extension, which is enabled 
 
 To query another data source, run the following queries in the [SQL editor][sql-editor]:
 
-1. Create a server:
+1. **Create a server:**
 
    ```sql
    CREATE SERVER <server-name> FOREIGN DATA WRAPPER postgres_fdw OPTIONS (host '<service-ID>.<project-id>.tsdb.cloud.timescale.com', dbname '<database-name>', port '<port-number>');
    ```
 
-1. Create user mapping:
+1. **Create user mapping:**
 
    ```sql
    CREATE USER MAPPING FOR <tsdbadmin> SERVER <server-name> OPTIONS (user '<tsdbadmin>', password '<tsdbadmin-password>');
    ```
 
-1. Import a foreign schema (recommended) or create a foreign table:
+1. **Import a foreign schema (recommended) or create a foreign table:**
 
     - Import the whole schema:
 
@@ -53,7 +53,7 @@ To query another data source, run the following queries in the [SQL editor][sql-
       IMPORT FOREIGN SCHEMA <foreign-schema-name> LIMIT TO (table1, table2) FROM SERVER <server-name> INTO <schema-name>;
       ```
 
-    - Create a foreign table: 
+    - Create a foreign table. Skip if you are importing a schema:
 
       ```sql
       CREATE FOREIGN TABLE <table-name> (
