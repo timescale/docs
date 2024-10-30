@@ -57,14 +57,10 @@ To query another data source, run the following queries in the [SQL editor][sql-
 
       ```sql
       CREATE FOREIGN TABLE <table-name> (
-      code        char(5) NOT NULL,
-      title       varchar(40) NOT NULL,
-      did         integer NOT NULL,
-      date_prod   date,
-      kind        varchar(10),
-      len         interval hour to minute
-      )
-      SERVER <server-name>;
+      <column-1-name> <data-type> <optional-constraint>,
+      ...
+      <column-n-name> <data-type> <optional-constraint>
+      ) SERVER <server-name>;
       ```
 
 </Procedure>
