@@ -28,11 +28,12 @@ if the new data breaks unique checks. This means that any time you insert data
 into a compressed chunk, a small amount of data is decompressed to allow a
 speculative insertion, and block any inserts which could violate constraints.
 
-For TimescaleDB v2.17.0 and 
-later there is improved performance of deletes on compressed hypertables when a large 
-amount of data is affected. This improvement speeds up operations that delete whole segments 
-by skipping the decompression step. It is enabled for all deletes that filter by 
-the `segment_by` column(s).
+For TimescaleDB v2.17.0 and later there is improved delete performance on compressed 
+hypertables when a large amount of data is affected. When you delete whole segments of 
+data, filter your deletes by `segment_by` column(s) instead of separate deletes. 
+This considerably increase performance by skipping the decompression step. 
+
+
 
 
 </Tab>
