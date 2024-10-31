@@ -19,7 +19,7 @@ FDWs are particularly useful if you manage multiple different Timescale Cloud se
 
 ## Query another data source
 
-You create FDWs with the help of the `postgres_fdw` extension, which is enabled by default. 
+You create FDWs with the `postgres_fdw` extension, which is enabled by default. 
 
 <Procedure>
 
@@ -28,13 +28,17 @@ To query another data source, run the following queries in the [SQL editor][sql-
 1. **Create a server:**
 
    ```sql
-   CREATE SERVER <server-name> FOREIGN DATA WRAPPER postgres_fdw OPTIONS (host '<service-ID>.<project-id>.tsdb.cloud.timescale.com', dbname '<database-name>', port '<port-number>');
+   CREATE SERVER <server-name> 
+   FOREIGN DATA WRAPPER postgres_fdw 
+   OPTIONS (host '<service-ID>.<project-id>.tsdb.cloud.timescale.com', dbname '<database-name>', port '<port-number>');
    ```
 
 1. **Create user mapping:**
 
    ```sql
-   CREATE USER MAPPING FOR <tsdbadmin> SERVER <server-name> OPTIONS (user '<tsdbadmin>', password '<tsdbadmin-password>');
+   CREATE USER MAPPING FOR <tsdbadmin> 
+   SERVER <server-name> 
+   OPTIONS (user '<tsdbadmin>', password '<tsdbadmin-password>');
    ```
 
 1. **Import a foreign schema (recommended) or create a foreign table:**
@@ -43,14 +47,19 @@ To query another data source, run the following queries in the [SQL editor][sql-
 
       ```sql
       CREATE SCHEMA <schema-name>;
-      IMPORT FOREIGN SCHEMA <foreign-schema-name> FROM SERVER <server-name> INTO <schema-name>;
+      IMPORT FOREIGN SCHEMA <foreign-schema-name> 
+      FROM SERVER <server-name> 
+      INTO <schema-name>;
       ```
       
     - Alternatively, import a limited number of tables: 
 
       ```sql
       CREATE SCHEMA <schema-name>;
-      IMPORT FOREIGN SCHEMA <foreign-schema-name> LIMIT TO (table1, table2) FROM SERVER <server-name> INTO <schema-name>;
+      IMPORT FOREIGN SCHEMA <foreign-schema-name> 
+      LIMIT TO (table1, table2) 
+      FROM SERVER <server-name> 
+      INTO <schema-name>;
       ```
 
     - Create a foreign table. Skip if you are importing a schema:
@@ -72,12 +81,15 @@ A user with the `tsdbadmin` role assigned already has the required `USAGE` permi
 CREATE USER <user-name>;
 GRANT <user-name> TO tsdbadmin;
 CREATE SCHEMA <schema-name> AUTHORIZATION <user-name>;
-CREATE SERVER <server-name> FOREIGN DATA WRAPPER postgres_fdw OPTIONS (host '<service-ID>.<project-id>.tsdb.cloud.timescale.com', dbname '<database-name>', port '<port-number>');
-CREATE USER MAPPING FOR <user-name> SERVER <server-name> OPTIONS (user '<user-name>', password '<user-password>');
+CREATE SERVER <server-name> FOREIGN DATA WRAPPER postgres_fdw 
+OPTIONS (host '<service-ID>.<project-id>.tsdb.cloud.timescale.com', dbname '<database-name>', port '<port-number>');
+CREATE USER MAPPING FOR <user-name> SERVER <server-name> 
+OPTIONS (user '<user-name>', password '<user-password>');
 GRANT USAGE ON FOREIGN SERVER <server-name> TO <user-name>;
-
 SET ROLE <user-name>;
-IMPORT FOREIGN SCHEMA <foreign-schema-name> FROM SERVER <server-name> INTO <schema-name>;
+IMPORT FOREIGN SCHEMA <foreign-schema-name> 
+FROM SERVER <server-name> 
+INTO <schema-name>;
 ```
 
 [vpc-peering]: /use-timescale/:currentVersion:/vpc/
