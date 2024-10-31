@@ -30,13 +30,8 @@ zone, so, if `window_start` and `window_end` is specified in the local time
 zone, any time zone shift relative UTC needs to be accounted for when refreshing
 to align with bucket boundaries.
 
-For services running TimescaleDB v2.17.1 and greater, to dramatically decrease the amount 
-of data written on a continuous aggregate in the presence of a small number of changes, 
-reduce the i/o cost of refreshing a continuous aggregate, and generate fewer Write-Ahead 
-Logs (WAL), set the`timescaledb.enable_merge_on_cagg_refresh` 
-[configuration parameter][modify-parameters] to `TRUE`. This enables continuous aggregate 
-refresh to use merge instead of deleting old materialized data and re-inserting.
-
+To improve performance for continuous aggregate refresh, see 
+[CREATE MATERIALIZED VIEW ][create_materialized_view].
 
 ### Required arguments
 
@@ -100,3 +95,4 @@ $$;
 
 
 [modify-parameters]: /use-timescale/:currentVersion/configuration/customize-configuration/
+[create_materialized_view]: /api/:currentVersion:/continuous-aggregates/create_materialized_view/
