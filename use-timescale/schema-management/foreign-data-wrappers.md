@@ -91,9 +91,10 @@ GRANT grafana TO tsdbadmin;
 CREATE SCHEMA fdw AUTHORIZATION grafana;
 
 CREATE SERVER db1 FOREIGN DATA WRAPPER postgres_fdw 
-    OPTIONS (host 'serviceID.projectID.tsdb.cloud.timescale.com', dbname 'tsdb', port '30702');
-    CREATE USER MAPPING FOR grafana SERVER db1 
-    OPTIONS (user 'tsdbadmin', password 'mysupersecurepassword');
+OPTIONS (host 'serviceID.projectID.tsdb.cloud.timescale.com', dbname 'tsdb', port '30702');
+
+CREATE USER MAPPING FOR grafana SERVER db1 
+OPTIONS (user 'tsdbadmin', password 'mysupersecurepassword');
 
 GRANT USAGE ON FOREIGN SERVER db1 TO grafana;
 
