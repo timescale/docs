@@ -30,7 +30,7 @@ To query another data source, run the following queries in the [SQL editor][sql-
    ```sql
    CREATE SERVER <server-name> 
    FOREIGN DATA WRAPPER postgres_fdw 
-   OPTIONS (host '<service-ID>.<project-id>.tsdb.cloud.timescale.com', dbname '<database-name>', port '<port-number>');
+   OPTIONS (host '<hostname>', dbname '<database-name>', port '<port-number>');
    ```
 
 1. **Create user mapping:**
@@ -57,7 +57,7 @@ To query another data source, run the following queries in the [SQL editor][sql-
       ```sql
       CREATE SCHEMA <schema-name>;
       IMPORT FOREIGN SCHEMA <foreign-schema-name> 
-      LIMIT TO (table1, table2) 
+      LIMIT TO (<table1>, <table2>) 
       FROM SERVER <server-name> 
       INTO <schema-name>;
       ```
@@ -82,7 +82,7 @@ CREATE USER <user-name>;
 GRANT <user-name> TO tsdbadmin;
 CREATE SCHEMA <schema-name> AUTHORIZATION <user-name>;
 CREATE SERVER <server-name> FOREIGN DATA WRAPPER postgres_fdw 
-OPTIONS (host '<service-ID>.<project-id>.tsdb.cloud.timescale.com', dbname '<database-name>', port '<port-number>');
+OPTIONS (host '<hostname>', dbname '<database-name>', port '<port-number>');
 CREATE USER MAPPING FOR <user-name> SERVER <server-name> 
 OPTIONS (user '<user-name>', password '<user-password>');
 GRANT USAGE ON FOREIGN SERVER <server-name> TO <user-name>;
