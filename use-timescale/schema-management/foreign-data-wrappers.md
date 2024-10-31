@@ -28,17 +28,17 @@ To query another data source, run the following queries in the [SQL editor][sql-
 1. **Create a server:**
 
    ```sql
-   CREATE SERVER <server-name> 
+   CREATE SERVER myserver 
    FOREIGN DATA WRAPPER postgres_fdw 
-   OPTIONS (host '<hostname>', dbname '<database-name>', port '<port-number>');
+   OPTIONS (host 'serviceID.projectID.tsdb.cloud.timescale.com', dbname 'tsdb', port '30702');
    ```
 
 1. **Create user mapping:**
 
    ```sql
-   CREATE USER MAPPING FOR <tsdbadmin> 
-   SERVER <server-name> 
-   OPTIONS (user '<tsdbadmin>', password '<tsdbadmin-password>');
+   CREATE USER MAPPING FOR tsdbadmin 
+   SERVER myserver 
+   OPTIONS (user 'tsdbadmin', password 'mysupersecurepassword');
    ```
 
 1. **Import a foreign schema (recommended) or create a foreign table:**
@@ -46,30 +46,36 @@ To query another data source, run the following queries in the [SQL editor][sql-
     - Import the whole schema:
 
       ```sql
-      CREATE SCHEMA <schema-name>;
-      IMPORT FOREIGN SCHEMA <foreign-schema-name> 
-      FROM SERVER <server-name> 
-      INTO <schema-name>;
+      CREATE SCHEMA foreign_stuff;
+      
+      IMPORT FOREIGN SCHEMA public 
+      FROM SERVER myserver 
+      INTO foreign_stuff ;
       ```
       
     - Alternatively, import a limited number of tables: 
 
       ```sql
-      CREATE SCHEMA <schema-name>;
-      IMPORT FOREIGN SCHEMA <foreign-schema-name> 
-      LIMIT TO (<table1>, <table2>) 
-      FROM SERVER <server-name> 
-      INTO <schema-name>;
+      CREATE SCHEMA foreign_stuff;
+      
+      IMPORT FOREIGN SCHEMA public 
+      LIMIT TO (table1, table2) 
+      FROM SERVER myserver 
+      INTO foreign_stuff;
       ```
 
     - Create a foreign table. Skip if you are importing a schema:
 
       ```sql
-      CREATE FOREIGN TABLE <table-name> (
-      <column-1-name> <data-type> <optional-constraint>,
-      ...
-      <column-n-name> <data-type> <optional-constraint>
-      ) SERVER <server-name>;
+      CREATE FOREIGN TABLE films (
+          code        char(5) NOT NULL,
+          title       varchar(40) NOT NULL,
+          did         integer NOT NULL,
+          date_prod   date,
+          kind        varchar(10),
+          len         interval hour to minute
+      )
+      SERVER film_server;
       ```
 
 </Procedure>
@@ -78,18 +84,24 @@ To query another data source, run the following queries in the [SQL editor][sql-
 A user with the `tsdbadmin` role assigned already has the required `USAGE` permission to create FDWs. You can enable another user, without the `tsdbadmin` role assigned, to query foreign data. To do so, explicitly grant the permission: 
 
 ```sql
-CREATE USER <user-name>;
-GRANT <user-name> TO tsdbadmin;
-CREATE SCHEMA <schema-name> AUTHORIZATION <user-name>;
-CREATE SERVER <server-name> FOREIGN DATA WRAPPER postgres_fdw 
-OPTIONS (host '<hostname>', dbname '<database-name>', port '<port-number>');
-CREATE USER MAPPING FOR <user-name> SERVER <server-name> 
-OPTIONS (user '<user-name>', password '<user-password>');
-GRANT USAGE ON FOREIGN SERVER <server-name> TO <user-name>;
-SET ROLE <user-name>;
-IMPORT FOREIGN SCHEMA <foreign-schema-name> 
-FROM SERVER <server-name> 
-INTO <schema-name>;
+CREATE USER grafana;
+       
+GRANT grafana TO tsdbadmin;
+
+CREATE SCHEMA fdw AUTHORIZATION grafana;
+
+CREATE SERVER db1 FOREIGN DATA WRAPPER postgres_fdw 
+    OPTIONS (host 'serviceID.projectID.tsdb.cloud.timescale.com', dbname 'tsdb', port '30702');
+    CREATE USER MAPPING FOR grafana SERVER db1 
+    OPTIONS (user 'tsdbadmin', password 'mysupersecurepassword');
+
+GRANT USAGE ON FOREIGN SERVER db1 TO grafana;
+
+SET ROLE grafana;
+
+IMPORT FOREIGN SCHEMA public 
+       FROM SERVER db1 
+       INTO fdw;
 ```
 
 [vpc-peering]: /use-timescale/:currentVersion:/vpc/
