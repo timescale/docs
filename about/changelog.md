@@ -16,7 +16,7 @@ Automatically create, update, and maintain embeddings as your data changes. Just
 This means no manual tracking, zero maintenance burden, and the freedom to rapidly experiment with different embedding models and chunking strategies without building new pipelines.
 Navigate to the AI tab in your service overview and follow the instructions to add your OpenAI API key and set up your first vectorizer.
 
-![Vectorizer setup](https://s3.us-east-1.amazonaws.com/assets.timescale.com/docs/images/vectorizer-setup.png)
+![Vectorizer setup](https://s3.amazonaws.com/assets.timescale.com/docs/images/vectorizer-setup.png)
 
 ### PostgreSQL-to-PostgreSQL Foreign Data Wrappers: 
 Fetch and query data from multiple PostgreSQL databases, including time-series data in hypertables, directly within Timescale using [Foreign Data Wrappers](https://docs.timescale.com/use-timescale/latest/schema-management/foreign-data-wrappers/). No more complicated ETL processes or external tools—just seamless integration right within your SQL editor. This feature is ideal for developers who manage multiple PostgreSQL and time-series instances and need quick, easy access to data across databases.
@@ -24,7 +24,7 @@ Fetch and query data from multiple PostgreSQL databases, including time-series d
 ### Chunk interval recommendations
 The Timescale console will now show recommendations for services with too many small chunks in their hypertable. Users who fit this criteria will see the recommendation on the corresponding service and on the corresponding hypertable(s), with a recommendation for the new interval. Users can then change their chunk interval within the UI to fix the change and improve their performance.
 
-![Chunk interval recommendation](https://s3.us-east-1.amazonaws.com/assets.timescale.com/docs/images/chunk-interval-recommendation.png)
+![Chunk interval recommendation](https://s3.amazonaws.com/assets.timescale.com/docs/images/chunk-interval-recommendation.png)
 
 
 ### Chunk interval recommendations
