@@ -26,10 +26,6 @@ The Timescale console will now show recommendations for services with too many s
 
 ![Chunk interval recommendation](https://s3.amazonaws.com/assets.timescale.com/docs/images/chunk-interval-recommendation.png)
 
-
-### Chunk interval recommendations
-The Timescale console will now show recommendations for services with too many small chunks in their hypertable. Users who fit this criteria will see the recommendation on the corresponding service and on the corresponding hypertable(s), with a recommendation for the new interval. Users can then change their chunk interval within the UI to fix the change and improve their performance.
-
 ## 💡 Help with hypertables and faster notebooks
 <Label type="date">October 18, 2024</Label>
 
