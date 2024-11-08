@@ -11,6 +11,13 @@
   ],
   "ignorePatterns": [
     {
+      "pattern": "^https://www.timescale.com/"
+    },
+    {
+      "pattern": "^https://github.com/timescale/"
+    },
+  "ignorePatterns": [
+    {
       "pattern": "^https://console.aws.amazon.com/rds/home#databases"
     },
     {
@@ -61,5 +68,14 @@
     {
       "pattern": "https://assets.timescale.com/images/diagrams/compression_diagram.png"
     }
+  ],
+  "httpHeaders": [
+    {
+      "urls": ["https://docs.timescale.com/"],
+      "headers": {
+        "Accept-Encoding": "gzip, deflate, br"
+      }
+    }
+  ]
   ]
 }
