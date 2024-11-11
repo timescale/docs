@@ -59,6 +59,20 @@ SELECT * FROM timescaledb_information.jobs
 
 For more information, see the API reference for [`timescaledb_information.jobs`][timescaledb_information-jobs].
 
+## Pause compression policy
+
+To disable a compression policy temporarily:
+
+```sql
+SELECT alter_job(<job_id>, scheduled => false);
+```
+
+To enable it again:
+
+``` sql
+SELECT alter_job(<job_id>, scheduled => true);
+```
+
 ## Remove compression policy
 
 To remove a compression policy, use `remove_compression_policy`. For example, to
