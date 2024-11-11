@@ -8,6 +8,19 @@ keywords: [changelog, upgrades, updates, releases]
 
 All the latest features and updates to Timescale products.
 
+## ✨ Connect to Timescale from .NET Stack and check status of recent jobs
+<Label type="date">November 07, 2024</Label>
+
+### Connect to Timescale with your .NET stack
+We've added instructions for connecting to Timescale using your .NET workflow. In Console after service creation, or in the **Actions** tab, you can now select .NET from the developer library list. The guide demonstrates how to use Npgsql to integrate Timescale with your existing software stack.
+
+![.NET instructions](https://assets.timescale.com/docs/images/connect-via-net.png)
+
+### ✅ Last 5 jobs status
+In the **Jobs** section of the **Explorer**, users can now see the status (completed/failed) of the last 5 runs of each job.
+
+![job status](https://assets.timescale.com/docs/images/explorer-job-list.png)
+
 ## 🎃 New AI, data integration, and performance enhancements
 <Label type="date">October 31, 2024</Label>
 

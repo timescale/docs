@@ -1,3 +1,5 @@
+import CleanupData from "versionContent/_partials/_migrate_live_migration_cleanup.mdx";
+
 ### ERROR: relation "xxx.yy" does not exist
 
 This may happen when a relation is removed after executing the `snapshot` command. A relation can be
@@ -34,6 +36,13 @@ To resolve this issue:
    ```
 
 1. When `migrate` has finished, manually refresh the materialized views you excluded.
+
+
+### Inactive or lagging replication slots
+
+If you encounter an “Inactive or lagging replication slots” warning on your cloud provider console after using live-migration, it might be due to lingering replication slots created by the live-migration tool on your source database.
+
+<CleanupData />
 
 
 ### Role passwords

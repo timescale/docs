@@ -11,11 +11,11 @@
    1. In [Timescale Console][tsc-portal], select `Database parameters` and search for `max_connections`.
    2. Hover the mouse over the value column, click the pencil icon, then change the value. 
 
-      By default, for each table, Live-migration consumes 10 connections to the source database and 20 
+      By default, for each table, Live-migration consumes 10 connections to the source database and 28
       connections to your target Timescale Cloud service. 
 
-      - Source: `2` + (value of `--table-jobs`). The default value is `10`
-      - Target: `4` + (`2` * (value of `--table-jobs`)) + (value of `--index-jobs`). The default value is `20`. 
+      - Source: `2` + (value of `--table-jobs`, default value is `8`) = 10
+      - Target: `4` + (`2` * (value of `--table-jobs`, default value is `8`)) + (value of `--index-jobs`, default value is `8`) = 28
       
       Set the `--table-jobs` and `--index-jobs` flags to reduce the number of connection when you  
       [run the migrate command](#migrate-your-data-then-start-downtime). 
