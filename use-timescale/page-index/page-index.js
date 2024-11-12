@@ -238,6 +238,10 @@ module.exports = [
             excerpt: "Using JSON data types in a hypertable",
           },
           {
+            title: "Foreign data wrappers",
+            href: "foreign-data-wrappers",
+          },
+          {
             title: "Troubleshoot schema management",
             href: "troubleshooting",
             type: "placeholder",

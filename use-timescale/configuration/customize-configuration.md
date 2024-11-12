@@ -14,7 +14,7 @@ Timescale allows you to customize many Timescale and PostgreSQL
 configuration options for each Service individually. Most configuration values
 for a service are initially set in accordance with best practices given the
 compute and storage settings of the service. Any time you increase or decrease
-the compute for a Service, the most essential values are set to reflect the size
+the compute for a service, the most essential values are set to reflect the size
 of the new service.
 
 <Highlight type="warning">
@@ -45,9 +45,11 @@ icon. This reveals an editable field to apply your change. Clicking anywhere
 outside of that field saves the value to be applied.
 
 <Highlight type="note">
-The values for some of the parameters vary depending on the plan. For example,
-the value for `max_connections` is exactly 25 in the smallest compute tier, but
-ranges from 25 to 500 in higher compute tiers.
+
+The values for some of the parameters vary depending on your [pricing plan][plan-features]. 
+For example, the value for `max_connections` is 25 in the Performance plan, but
+ranges from 25 to 500 in higher compute plans.
+
 </Highlight>
 
 <img class="main-content__illustration"
@@ -69,3 +71,5 @@ required. Click `Confirm` to apply the changes, and restart if necessary.
 width={1375} height={944}
 src="https://assets.timescale.com/docs/images/tsc-settings-confirm.webp"
 alt="Confirm Timescale configuration changes"/>
+
+[plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-plan
