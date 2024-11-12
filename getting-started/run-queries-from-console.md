@@ -153,7 +153,7 @@ SQL Assistant offers a range of features to improve your SQL workflow, including
   - **Error debugging**: if your query fails, SQL Assistant identifies the issue and suggests a fix.
   - **Performance tuning**: for slow queries, SQL Assistant provides optimization suggestions to improve performance immediately.
 
-- **Query organization**: To keep your query library organized, and help your team understand the
+- **Query organization**: to keep your query library organized, and help your team understand the
   purpose of each query, SQL Assistant automatically adds titles and summaries to your queries.
 
 ### Limitations to keep in mind
@@ -182,7 +182,7 @@ SQL Assistant settings are:
   database connection type such as PostgreSQL, and the schema.
 * **Sample data**: to give the LLM more context so you have better SQL suggestions, enable sample data sharing in the
   SQL assistant preferences.
-* **Telemetry**: To improve SQL Assistant, $COMPANY collects telemetry and usage data, including prompts, responses,
+* **Telemetry**: to improve SQL Assistant, $COMPANY collects telemetry and usage data, including prompts, responses,
   and query metadata.
 
 
