@@ -15,11 +15,6 @@ module.exports = [
         excerpt: "Run your queries securely from inside Timescale Console",
       },
       {
-        title: "Write more accurate SQL faster using AI",
-        href: "sql-assistant",
-        excerpt: "Write SQL faster and more accurately with SQL assistant",
-      },
-      {
         title: "Tables and hypertables",
         href: "tables-hypertables",
         excerpt: "Create tables and hypertables for your data",
