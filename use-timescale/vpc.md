@@ -11,12 +11,12 @@ cloud_ui:
 
 # Secure your $CLOUD_LONG services with VPC Peering and AWS PrivateLink
 
-You use Virtual Private Cloud ($VPC) peering to ensure that your $CLOUD_LONG services are 
+You use Virtual Private Cloud ($VPC) peering to ensure that your $SERVICE_LONG are 
 only accessible through your secured AWS infrastructure. This reduces the potential 
 attack vector surface and improves security.
 
 The data isolation architecture that ensures a highly secure connection between your apps and 
-$CLOUD_LONG:
+$CLOUD_LONG is:
 
 <img class="main-content__illustration"
 src="https://assets.timescale.com/docs/images/tsc-vpc-architecture.svg"
@@ -35,9 +35,18 @@ peering connection to your Customer VPC, you use AWS Security Groups to
 restrict the services in your Customer VPC that are visible to the Peering VPC.
 The last step is to attach individual services to the Peering VPC. 
 
-The number of VPCs you can attach to your project depends on your [pricing plan][pricing-plans]. If you 
-need more VPCs either contact contact [support@timescale.com](mailto:support@timescale.com) or change your
-pricing plan in $CONSOLE. Each $CLOUD_LONG VPC can have as many peering connections as you need.
+* You define each $CLOUD_LONG $VPC in your [$CLOUD_LONG project][project-members].
+* You can attach any number of Customer VPCs to a $CLOUD_LONG $VPC.
+* You can attach:
+  * A $SERVICE_LONG to a single $CLOUD_LONG $VPC at a time. 
+      The $SERVICE_SHORT and $VPC must be in the same AWS region.
+  * Multiple $SERVICE_LONG to the same $CLOUD_LONG $VPC.
+* You cannot attach a $SERVICE_LONG to multiple $CLOUD_LONG $VPC at the same time.
+* To support multiple AWS regions, you need multiple $CLOUD_LONG $VPC.
+
+The number of $CLOUD_LONG $VPC s you have in your project depends on your [pricing plan][pricing-plans]. 
+If you need another $CLOUD_LONG $VPC, either contact [support@timescale.com](mailto:support@timescale.com) or change your
+pricing plan in $CONSOLE. 
 
 ## Prerequisites
 
@@ -70,7 +79,7 @@ between $CLOUD_LONG and your own VPC in a logically isolated virtual network.
 1.  In [$CONSOLE > VPC][console-vpc], click `New VPC`.
 
     The number of VPCs you can attach to your project depends on your [pricing plan][pricing-plans]. If you
-    need more VPCs either contact contact [support@timescale.com](mailto:support@timescale.com) or change 
+    need more VPCs either contact [support@timescale.com](mailto:support@timescale.com) or change 
     your pricing plan in $CONSOLE. Each $CLOUD_LONG VPC can have as many peering connections as you need.
 
 1.  Choose your region and IP range, then click `Create VPC`. 
@@ -227,3 +236,4 @@ some time for DNS propagation.
 
 [create-service]: /getting-started/:currentVersion:/services/#create-a-timescale-cloud-service
 [pricing-plans]: /about/:currentVersion:/pricing-and-account-management/
+[project-members]: /use-timescale/:currentVersion:/members/
