@@ -20,18 +20,18 @@ $CLOUD_LONG is:
 
 ![$CLOUD_LONG isolation architecture](https://assets.timescale.com/docs/images/tsc-vpc-architecture.svg)
 
-Your apps run inside your AWS Customer VPC, your services always run 
+Your Customer apps run inside your AWS Customer VPC, your $CLOUD_LONG services always run 
 inside the secure $CLOUD_LONG $VPC. You control secure communication between apps in
-your VPC and your services using a dedicated Peering VPC. The AWS PrivateLink connecting
-$CLOUD_LONG $VPC to the dedicated Peering VPC gives the same level of protection as using a direct 
-AWS PrivateLink connection. It only enables communication to be initiated from your Customer VPC 
-to services running in the $CLOUD_LONG $VPC. $CLOUD_LONG cannot initiate communication with your VPC.
+your VPC and your $SERVICE_SHORTs using a dedicated Peering $VPC. The AWS PrivateLink connecting
+$CLOUD_LONG $VPC to the dedicated Peering $VPC gives the same level of protection as using a direct 
+AWS PrivateLink connection. It only enables communication to be initiated from your Customer $VPC 
+to services running in the $CLOUD_LONG $VPC. $CLOUD_LONG cannot initiate communication with your $VPC.
 
-To configure this secure connection, you first create the Peering VPC with 
+To configure this secure connection, you first create the $CLOUD_LONG Peering $VPC with 
 AWS PrivateLink in $CONSOLE. After you have accepted and configured the 
-peering connection to your Customer VPC, you use AWS Security Groups to 
-restrict the services in your Customer VPC that are visible to the Peering VPC.
-The last step is to attach individual services to the Peering VPC. 
+peering connection to your Customer $VPC, you use AWS Security Groups to 
+restrict the services in your Customer $VPC that are visible to the Peering $VPC.
+The last step is to attach individual services to the Peering $VPC. 
 
 * You define each $CLOUD_LONG $VPC on a [$CLOUD_LONG project level][project-members]. 
 * You can attach:
