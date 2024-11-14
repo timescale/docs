@@ -18,9 +18,7 @@ attack vector surface and improves security.
 The data isolation architecture that ensures a highly secure connection between your apps and 
 $CLOUD_LONG is:
 
-<img class="main-content__illustration"
-src="https://assets.timescale.com/docs/images/tsc-vpc-architecture.svg"
-alt="The AWS Security Groups dashboard"/>
+![$CLOUD_LONG isolation architecture](https://assets.timescale.com/docs/images/tsc-vpc-architecture.svg)
 
 Your apps run inside your AWS Customer VPC, your services always run 
 inside the secure $CLOUD_LONG $VPC. You control secure communication between apps in
@@ -79,9 +77,21 @@ between $CLOUD_LONG and your own VPC in a logically isolated virtual network.
 
 1.  In [$CONSOLE > VPC][console-vpc], click `New VPC`.
 
-    The number of VPCs you can attach to your project depends on your [pricing plan][pricing-plans]. If you
-    need more VPCs either contact [support@timescale.com](mailto:support@timescale.com) or change 
-    your pricing plan in $CONSOLE. Each $CLOUD_LONG VPC can have as many peering connections as you need.
+    ![$CLOUD_LONG new $VPC](https://assets.timescale.com/docs/images/console-add-vpc.png)
+
+    * You can attach:
+      * Any number of Customer $VPCs to a $CLOUD_LONG $VPC.
+      * A $SERVICE_LONG to a single $CLOUD_LONG $VPC at a time.
+
+        The $SERVICE_SHORT and $VPC must be in the same AWS region. To support multiple AWS regions, you need multiple
+        $CLOUD_LONG $VPCs.
+      * Multiple $SERVICE_LONGs to the same $CLOUD_LONG $VPC.
+      * You cannot attach a $SERVICE_LONG to multiple $CLOUD_LONG $VPCs at the same time.
+
+    The number of $CLOUD_LONG $VPCs you have in your project depends on your [pricing plan][pricing-plans].
+    If you need another $CLOUD_LONG $VPC, either contact [support@timescale.com](mailto:support@timescale.com) or change your
+    pricing plan in [$CONSOLE][console-login].
+
 
 1.  Choose your region and IP range, then click `Create VPC`. 
 
