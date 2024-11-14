@@ -29,13 +29,13 @@ This tutorial uses Python and the API
 
 Before you begin, make sure you have:
 
-*   Signed up for a [free Timescale account][cloud-install]..
+*   Signed up for a [free Timescale account][cloud-install].
 *   Downloaded the file that contains your Timescale service credentials such as
     `<HOST>`, `<PORT>`, and `<PASSWORD>`. Alternatively, you can find these
     details in the `Connection Info` section for your service.
 *   Installed Python 3
-*   Signed up for [Twelve Data][twelve-signup]. The free tier is perfect for
-    this tutorial.
+*   Signed up for [Twelve Data][twelve-signup]. The free tier is
+    perfect for this tutorial.
 *   Made a note of your Twelve Data [API key](https://twelvedata.com/account/api-keys).
 
 <Collapsible heading="Connect to the websocket server" defaultExpanded={false}>
