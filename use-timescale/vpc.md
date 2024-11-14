@@ -20,7 +20,7 @@ $CLOUD_LONG is:
 
 ![$CLOUD_LONG isolation architecture](https://assets.timescale.com/docs/images/tsc-vpc-architecture.svg)
 
-Your Customer apps run inside your AWS Customer VPC, your $CLOUD_LONG services always run 
+Your customer apps run inside your AWS Customer VPC, your $CLOUD_LONG services always run 
 inside the secure $CLOUD_LONG $VPC. You control secure communication between apps in
 your VPC and your $SERVICE_SHORTs using a dedicated Peering $VPC. The AWS PrivateLink connecting
 $CLOUD_LONG $VPC to the dedicated Peering $VPC gives the same level of protection as using a direct 
