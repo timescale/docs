@@ -11,7 +11,7 @@ cloud_ui:
 
 # Secure your $CLOUD_LONG services with VPC Peering and AWS PrivateLink
 
-You use Virtual Private Cloud ($VPC) peering to ensure that your $SERVICE_LONG are 
+You use Virtual Private Cloud ($VPC) peering to ensure that your $SERVICE_LONGs are 
 only accessible through your secured AWS infrastructure. This reduces the potential 
 attack vector surface and improves security.
 
@@ -43,7 +43,7 @@ The last step is to attach individual services to the Peering VPC.
   * Multiple $SERVICE_LONGs to the same $CLOUD_LONG $VPC.
 * You cannot attach a $SERVICE_LONG to multiple $CLOUD_LONG $VPCs at the same time.
 
-The number of $CLOUD_LONG $VPCs you have in your project depends on your [pricing plan][pricing-plans]. 
+The number of $CLOUD_LONG $VPCs you can create in your project depends on your [pricing plan][pricing-plans]. 
 If you need another $CLOUD_LONG $VPC, either contact [support@timescale.com](mailto:support@timescale.com) or change your
 pricing plan in [$CONSOLE][console-login]. 
 
@@ -88,7 +88,7 @@ between $CLOUD_LONG and your own VPC in a logically isolated virtual network.
       * Multiple $SERVICE_LONGs to the same $CLOUD_LONG $VPC.
       * You cannot attach a $SERVICE_LONG to multiple $CLOUD_LONG $VPCs at the same time.
 
-    The number of $CLOUD_LONG $VPCs you have in your project depends on your [pricing plan][pricing-plans].
+    The number of $CLOUD_LONG $VPCs you can create in your project depends on your [pricing plan][pricing-plans].
     If you need another $CLOUD_LONG $VPC, either contact [support@timescale.com](mailto:support@timescale.com) or change your
     pricing plan in [$CONSOLE][console-login].
 
