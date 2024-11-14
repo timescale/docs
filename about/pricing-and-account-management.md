@@ -13,21 +13,21 @@ import UsageBasedStorage from "versionContent/_partials/_usage-based-storage-int
 
 # Pricing plans and account management
 
-As we enhance our offerings and align them with your evolving needs, tiered
+As we enhance our offerings and align them with your evolving needs, 
 pricing plans provide more value, flexibility, and efficiency for your business.
-Whether you're a growing startup or a well-established enterprise, our new tiers
+Whether you're a growing startup or a well-established enterprise, our new plans
 are structured to support your journey towards greater success.
 
-Tiered pricing plans give you:
+Pricing plans give you:
 
 * **Enhanced performance**: with increased CPU and storage capacities, your apps run smoother and more
   efficiently, even under heavy loads.
-* **Improved scalability**: as your business grows, so do your demands. Tiered pricing plans scale with
+* **Improved scalability**: as your business grows, so do your demands. Pricing plans scale with
   you, they provide the resources and support you need at each stage of your growth. Scale up or down 
   based on your current needs, ensuring that you only pay for what you use.
 * **Better support**: access to enhanced support options, including production support and dedicated
   account management, ensures you have the help you need when you need it.
-* **Greater flexibility**: we know that one size doesn't fit all. Tiered pricing plans give you the
+* **Greater flexibility**: we know that one size doesn't fit all. Pricing plans give you the
   flexibility to choose the features and support levels that best match your business
   and engineering requirements. The ability to add features like IO Boost, and customize your plan means you
   can tailor Timescale services to fit your specific needs.
@@ -36,12 +36,12 @@ Tiered pricing plans give you:
 
 Using self-hosted TimescaleDB and our open-source products is still free.  
 
-This page explains tiered pricing plans for Timescale Cloud, and how to easily manage your
+This page explains pricing plans for Timescale Cloud, and how to easily manage your
 Timescale account.
 
 ## How plans work
 
-Tiered pricing plans are designed to give you the best value as your project moves 
+Pricing plans are designed to give you the best value as your project moves 
 from initial development through to mission critical enterprise applications. 
 
 * **Compute**: pay only for the compute resources you run. Compute is metered on an hourly 
@@ -60,7 +60,7 @@ from initial development through to mission critical enterprise applications.
    transparent, easily understood, and up to you.
 
   
-### Timescale Cloud free trial for the different tiers
+### Timescale Cloud free trial for the different plans
 
 We offer new users a free, 30-day trial period of our Performance plan with no credit card required.  
 During your trial, you can contact sales@timescale.com to request information about, and access
@@ -226,7 +226,7 @@ alt="Adding a payment method in Timescale"/>
 - **Plans**: choose the plan supplying the [features][plan-features] that suit your business and
   engineering needs.
 
-- **Add-ons**: add top-tier support and improved database performance for mission critical workloads.  
+- **Add-ons**: add `Production support` and improved database performance for mission critical workloads.  
 
 [cloud-login]: https://console.cloud.timescale.com/
 [compression]: /use-timescale/:currentVersion:/compression/

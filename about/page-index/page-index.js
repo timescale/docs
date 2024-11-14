@@ -20,7 +20,7 @@ module.exports = [
       {
         title: "Pricing plans and account management",
         href: "pricing-and-account-management",
-        excerpt: "Pricing tiers for Timescale Cloud services",
+        excerpt: "Pricing plans for Timescale Cloud services",
       },
       {
         title: "TimescaleDB editions",
