@@ -35,18 +35,19 @@ peering connection to your Customer VPC, you use AWS Security Groups to
 restrict the services in your Customer VPC that are visible to the Peering VPC.
 The last step is to attach individual services to the Peering VPC. 
 
-* You define each $CLOUD_LONG $VPC in your [$CLOUD_LONG project][project-members].
-* You can attach any number of Customer VPCs to a $CLOUD_LONG $VPC.
+* You define each $CLOUD_LONG $VPC on a [$CLOUD_LONG project level][project-members]. 
 * You can attach:
-  * A $SERVICE_LONG to a single $CLOUD_LONG $VPC at a time. 
-      The $SERVICE_SHORT and $VPC must be in the same AWS region.
-  * Multiple $SERVICE_LONG to the same $CLOUD_LONG $VPC.
-* You cannot attach a $SERVICE_LONG to multiple $CLOUD_LONG $VPC at the same time.
-* To support multiple AWS regions, you need multiple $CLOUD_LONG $VPC.
+  * Any number of Customer $VPCs to a $CLOUD_LONG $VPC.
+  * A $SERVICE_LONG to a single $CLOUD_LONG $VPC at a time.
+  
+      The $SERVICE_SHORT and $VPC must be in the same AWS region. To support multiple AWS regions, you need multiple 
+      $CLOUD_LONG $VPCs.
+  * Multiple $SERVICE_LONGs to the same $CLOUD_LONG $VPC.
+* You cannot attach a $SERVICE_LONG to multiple $CLOUD_LONG $VPCs at the same time.
 
-The number of $CLOUD_LONG $VPC s you have in your project depends on your [pricing plan][pricing-plans]. 
+The number of $CLOUD_LONG $VPCs you have in your project depends on your [pricing plan][pricing-plans]. 
 If you need another $CLOUD_LONG $VPC, either contact [support@timescale.com](mailto:support@timescale.com) or change your
-pricing plan in $CONSOLE. 
+pricing plan in [$CONSOLE][console-login]. 
 
 ## Prerequisites
 
