@@ -35,11 +35,11 @@ The last step is to attach individual services to the Peering $VPC.
 
 * You define each $CLOUD_LONG $VPC on a [$CLOUD_LONG project level][project-members]. 
 * You can attach:
-  * Any number of Customer $VPCs to a $CLOUD_LONG $VPC.
+  * Up to 50 Customer $VPCs to a $CLOUD_LONG $VPC.
   * A $SERVICE_LONG to a single $CLOUD_LONG $VPC at a time.
   
-      The $SERVICE_SHORT and $VPC must be in the same AWS region. To support multiple AWS regions, you need multiple 
-      $CLOUD_LONG $VPCs.
+      The $SERVICE_SHORT and $VPC must be in the same AWS region. However, you can peer a Customer $VPC and a
+      $CLOUD_LONG $VPC that are in different regions.
   * Multiple $SERVICE_LONGs to the same $CLOUD_LONG $VPC.
 * You cannot attach a $SERVICE_LONG to multiple $CLOUD_LONG $VPCs at the same time.
 
@@ -80,11 +80,11 @@ between $CLOUD_LONG and your own VPC in a logically isolated virtual network.
     ![$CLOUD_LONG new $VPC](https://assets.timescale.com/docs/images/console-add-vpc.png)
 
     * You can attach:
-      * Any number of Customer $VPCs to a $CLOUD_LONG $VPC.
+      * Up to 50 Customer $VPCs to a $CLOUD_LONG $VPC.
       * A $SERVICE_LONG to a single $CLOUD_LONG $VPC at a time.
 
-        The $SERVICE_SHORT and $VPC must be in the same AWS region. To support multiple AWS regions, you need multiple
-        $CLOUD_LONG $VPCs.
+      The $SERVICE_SHORT and $VPC must be in the same AWS region. However, you can peer a Customer $VPC and a
+      $CLOUD_LONG $VPC that are in different regions.
       * Multiple $SERVICE_LONGs to the same $CLOUD_LONG $VPC.
       * You cannot attach a $SERVICE_LONG to multiple $CLOUD_LONG $VPCs at the same time.
 
