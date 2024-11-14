@@ -49,7 +49,8 @@ communication with your VPC. To learn how to set up VPC Peering, see
 
 ## IP address allow lists
 
-You can allow only trusted IP addresses to access your $SERVICE_LONGs. You do this by creating IP address allow lists and attaching them to your $SERVICE_SHORTs. 
+You can allow only trusted IP addresses to access your $SERVICE_LONGs. You do this by 
+creating [IP address allow lists][ip-allowlist] and attaching them to your $SERVICE_SHORTs. 
 
 ## Operator access
 
@@ -90,3 +91,4 @@ has mandatory recurring training regarding the applicable policies.
 [ebs-security]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html
 [vpc-peering]: /use-timescale/:currentVersion:/security/vpc
 [security-at-timescale]: https://www.timescale.com/security
+[ip-allowlist]: /use-timescale/:currentVersion:/security/ip-allow-list/

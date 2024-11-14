@@ -8,19 +8,19 @@ tags: [ip allow list]
 
 # IP allow list
 
-You can restrict access to your $SERVICE_LONGs on public cloud to trusted IP addresses only. This prevents unauthorized connections without the need for a Virtual Private Cloud. Creating IP allow lists helps comply with security standards, for example, SOC 2 or HIPAA, that require IP filtering, especially in regulated industries like finance, healthcare, and government.
+You can restrict access to your $SERVICE_LONGs to trusted IP addresses only. This prevents unauthorized connections without the need for a [Virtual Private Cloud][vpc-peering]. Creating IP allow lists helps comply with security standards such as SOC 2 or HIPAA that require IP filtering. This is especially useful in regulated industries like finance, healthcare, and government.
 
 <Highlight type="important">
-You can attach a $SERVICE_SHORT to either one VPC, or one IP allow list. 
+You attach a $SERVICE_SHORT to either one $VPC, or one IP allow list. You cannot attach a $SERVICE_SHORT to a $VPC and an IP allow list at the same time.
 </Highlight>
 
 ## Create and attach an IP allow list
 
-You create an IP allow list at the project level, then attach your $SERVICE_SHORT to it.
+You create an IP allow list at the [project level][members], then attach your $SERVICE_SHORT to it.
 
 <Procedure>
 
-1. In [$CONSOLE][console], select `Security` > `IP Allow List` and click `Create IP Allow List`. 
+1. In [$CONSOLE][console], select `Security` > `IP Allow List`, then click `Create IP Allow List`. 
 
    ![Create IP allow list](https://assets.timescale.com/docs/images/create-ip-allow-list.png)
 
@@ -46,7 +46,8 @@ You create an IP allow list at the project level, then attach your $SERVICE_SHOR
 
 [console]: https://console.cloud.timescale.com/dashboard/
 [pricing-plans]: /about/:currentVersion:/pricing-and-account-management/
-
+[vpc-peering]: /use-timescale/:currentVersion:/security/vpc/
+[members]: /use-timescale/:currentVersion:/members/
 
 
 
