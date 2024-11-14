@@ -38,8 +38,8 @@ To add a user to a project:
 1.  Type the email address of the person that you want to add, and click `Add
     user`.
 
-    [Enterprise tier][pricing-plans] and SAML users receive a notification in $CONSOLE. Users in the 
-    other pricing tiers receive a confirmation email. The new user then [joins the project][join-a-project].
+    [Enterprise plan][pricing-plans] and SAML users receive a notification in $CONSOLE. Users in the 
+    other pricing plans receive a confirmation email. The new user then [joins the project][join-a-project].
 
 </Procedure>
 
@@ -60,7 +60,7 @@ instructions in the invitation email to join the project:
 
      $CLOUD_LONG opens and you are added to the project.
 
-- **[Enterprise tier][pricing-plans] and SAML user**:
+- **[Enterprise plan][pricing-plans] and SAML user**:
   1. Log in to $CONSOLE using your company's identity provider.
   2. Click `Notifications`, then accept the invitation. 
 
