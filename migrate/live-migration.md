@@ -52,6 +52,7 @@ the live-migration Docker image.
   This machine needs sufficient space to store the buffered changes that occur while your data is 
   being copied. This space is proportional to the amount of new uncompressed data being written to 
   the Timescale Cloud service during migration. A general rule of thumb is between 100GB and 500GB.
+  The CPU specifications of this EC2 instance should match those of your Timescale Cloud instance for optimal performance. For example, if your Timescale Cloud instance has an 8-CPU configuration, then your EC2 instance should also have 8 CPUs.
 
 - Before starting live-migration, read the [Frequently Asked Questions][FAQ].
 
