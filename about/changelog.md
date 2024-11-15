@@ -70,7 +70,7 @@ Highlighted Features in this Release:
 *   **Detailed Compliance Documentation**: Timescale now offers a Business Associate Agreement (BAA) and a HIPAA Security Rule Self-Assessment, in addition to SOC 2 Type II and GDPR compliance documentation, for customers needing additional verification of security practices.
 *   **Shared Responsibility Model for Compliance**: TimescaleDB's shared responsibility model clarifies roles between Timescale and customers, outlining each party's duties in data encryption, access management, auditing, and breach notification.
 
-### Expanded Logging within Timescale Console
+### Expanded logging within Timescale Console
 
 Customers can now access more than just the most recent 500 logs within the Timescale Console. We've updated the user experience, including scrollbar with infinite scrolling capabilities.
 
