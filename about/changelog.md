@@ -36,7 +36,7 @@ Starting this week, all new services created on Timescale Cloud use [TimescaleDB
 
 TimescaleDB v2.17 significantly improves the performance of [continuous aggregate refreshes](https://docs.timescale.com/use-timescale/latest/continuous-aggregates/refresh-policies/), and contains performance improvements for [analytical queries and delete operations])https://docs.timescale.com/use-timescale/latest/compression/modify-compressed-data/) over compressed hypertables.
 
-We recommend upgrading at the next available opportunity.
+Best practice is to upgrade at the next available opportunity.
 
 **Highlighted features in TimescaleDB v2.17**
 
