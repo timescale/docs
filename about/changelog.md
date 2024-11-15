@@ -42,7 +42,7 @@ Highlighted features in TimescaleDB v2.17 are:
 
 *   Significant performance improvements for continuous aggregate policies:
 
-*   Continuous aggregate refresh is now using `merge` instead of deleting old materialized data and re-inserting.
+    *   Continuous aggregate refresh now uses `merge` instead of deleting old materialized data and re-inserting.
 
 *   This update can decrease dramatically the amount of data that must be written on the continuous aggregate in the presence of a small number of changes, reduce the `i/o` cost of refreshing a continuous aggregate, and generate fewer Write-Ahead Logs (`WAL`). Overall, continuous aggregate policies will be more lightweight, use less system resources, and complete faster.
 
