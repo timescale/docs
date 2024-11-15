@@ -34,7 +34,7 @@ See our [blog post](https://www.timescale.com/blog/postgres-gui-sql-assistant/) 
 
 Starting this week, all new services created on Timescale Cloud use [TimescaleDB v2.17](https://github.com/timescale/timescaledb/releases/tag/2.17.0). Existing services are upgraded gradually during their maintenance windows.
 
-TimescaleDB v2.17 significantly improves the performance of continuous aggregate refreshes, and contains performance improvements for analytical queries and delete operations over compressed hypertables.
+TimescaleDB v2.17 significantly improves the performance of [continuous aggregate refreshes](https://docs.timescale.com/use-timescale/latest/continuous-aggregates/refresh-policies/), and contains performance improvements for [analytical queries and delete operations])https://docs.timescale.com/use-timescale/latest/compression/modify-compressed-data/) over compressed hypertables.
 
 We recommend upgrading at the next available opportunity.
 
