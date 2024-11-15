@@ -12,7 +12,7 @@ All the latest features and updates to Timescale products.
 
 <Label type="date">November 14, 2024</Label>
 
-### 🤖 New AI Companion: SQL Assistant
+### 🤖 New AI companion: SQL Assistant
 
 SQL Assistant uses AI to help you write SQL faster and more accurately.
 
