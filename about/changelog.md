@@ -24,7 +24,7 @@ SQL Assistant uses AI to help you write SQL faster and more accurately.
 
     ![](https://assets.timescale.com/docs/images/ai-error-fix.png)
 
-**Generate Titles and Descriptions**: click a button and we'll generate a title and description for your query. No more untitled queries!
+- **Generate titles and descriptions**: click a button and SQL Assistant generates a title and description for your query. No more untitled queries!
 
 ![](https://assets.timescale.com/docs/images/ai-generate-title.png)
 
