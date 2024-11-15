@@ -20,7 +20,7 @@ SQL Assistant uses AI to help you write SQL faster and more accurately.
 
 <!-- TODO: embed this YouTube video https://youtu.be/3Droej_E0cQ -->
 
-**Error Resolution**: when you run into an error, we'll propose a recommended fix that you can choose to accept.
+- **Error resolution**: when you run into an error, SQL Assistant proposes a recommended fix that you can choose to accept.
 
 ![](https://assets.timescale.com/docs/images/ai-error-fix.png)
 
