@@ -22,7 +22,7 @@ SQL Assistant uses AI to help you write SQL faster and more accurately.
 
 - **Error resolution**: when you run into an error, SQL Assistant proposes a recommended fix that you can choose to accept.
 
-![](https://assets.timescale.com/docs/images/ai-error-fix.png)
+    ![](https://assets.timescale.com/docs/images/ai-error-fix.png)
 
 **Generate Titles and Descriptions**: click a button and we'll generate a title and description for your query. No more untitled queries!
 
