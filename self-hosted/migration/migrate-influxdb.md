@@ -24,16 +24,13 @@ Before you start, make sure you have:
 
 *   A running instance of InfluxDB and a means to connect to it.
 *   An [installation of Timescale][install] and a means to connect to it.
-*   Data in your InfluxDB instance. If you need to import some sample data for a
-    test, see the instructions for [importing sample data][import-data].
+*   Data in your InfluxDB instance. 
 
 ## Procedures
 
 To import data from Outflux, follow these procedures:
 
 1.  [Install Outflux](#install-outflux)
-1.  [Import sample data](#import-sample-data-into-influxdb) to InfluxDB if you
-    don't have existing data.
 1.  [Discover, validate, and transfer
     schema](#discover-validate-and-transfer-schema) to Timescale (optional)
 1.  [Migrate data to Timescale](#migrate-data-to-timescaledb)
@@ -61,38 +58,6 @@ instructions.
 
 To get help with Outflux, you can run `./outflux --help` from the directory
 where you installed it.
-
-## Import sample data into InfluxDB
-
-If you don't have an existing InfluxDB database, or if you want to test on a
-sample instance, you can try Outflux by importing sample data. We provide an
-example file with data written in the Influx Line Protocol.
-
-<Procedure>
-
-### Importing sample data into InfluxDB
-
-1.  Download the sample data:
-    <Tag type="download">
-      [Outflux taxi data](https://timescaledata.blob.core.windows.net/datasets/outflux_taxi.txt)
-    </Tag>
-1.  Use the [Influx CLI client][influx-cmd] to load the data into InfluxDB.
-
-    ```bash
-    influx -import -path=outflux_taxi.txt -database=outflux_tutorial
-    ```
-
-    This command imports the data into a new database named `outflux_tutorial`.
-
-<Highlight type="note">
-The sample data has no timestamp, so the time of the Influx server is used at
-data insert. All data points belong to one measurement, `taxi`. The points are
-tagged with `location`, `rating`, and `vendor`. Four fields are recorded:
-`fare`, `mta_tax`, `tip`, and `tolls`. The Influx client assumes the server is
-available at `http://localhost:8086`.
-</Highlight>
-
-</Procedure>
 
 ## Discover, validate, and transfer schema
 
@@ -187,7 +152,6 @@ migrate`][outflux-migrate]. Alternatively, see the command line help:
 outflux migrate --help
 ```
 
-[import-data]: #import-sample-data-into-influxdb
 [influx-cmd]: https://docs.influxdata.com/influxdb/v1.7/tools/shell/
 [install]: /getting-started/latest/
 [outflux-migrate]: https://github.com/timescale/outflux#migrate
