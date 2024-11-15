@@ -61,7 +61,7 @@ Highlighted features in TimescaleDB v2.17 are:
 
 ### Enhanced HIPAA Compliance Support in TimescaleDB
 
-TimescaleDB introduces essential updates to facilitate HIPAA (Health Insurance Portability and Accountability Act) compliance, empowering organizations to better protect sensitive healthcare information while simplifying regulatory adherence. We recommend our customers to upgrade to the Enterprise plan to leverage these improvements in data security and auditing:
+TimescaleDB introduces essential updates to facilitate Health Insurance Portability and Accountability Act (HIPAA) compliance, empowering organizations to better protect sensitive healthcare information while simplifying regulatory adherence. Best practice is that customers upgrade to the [Enterprise plan](https://docs.timescale.com/about/latest/pricing-and-account-management/#features-included-in-each-plan) to leverage the following improvements in data security and auditing:
 
 *   **Introduced Enhanced Encryption and Access Controls**: Timescale encrypts all data at rest and in transit, while providing SAML, SSO, and MFA options for added access security.
 *   **Expanded Audit Logging for HIPAA Compliance**: With the pgAudit and pgSodium extensions, users gain comprehensive logging for key data interactions, capturing user identity, access times, types of operations, and specific data accessed. These logs can be used to identify and investigate potential security incidents.
