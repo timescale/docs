@@ -16,7 +16,7 @@ All the latest features and updates to Timescale products.
 
 SQL Assistant uses AI to help you write SQL faster and more accurately.
 
-**Real-Time Help:** chat with models like OpenAI 4o and Claude 3.5 Sonnet to get help writing SQL. Describe what you want in natural language and have AI write the SQL for you.
+- **Real-time help:** chat with models like OpenAI 4o and Claude 3.5 Sonnet to get help writing SQL. Describe what you want in natural language and have AI write the SQL for you.
 
 <!-- TODO: embed this YouTube video https://youtu.be/3Droej_E0cQ -->
 
