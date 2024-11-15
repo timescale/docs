@@ -66,7 +66,7 @@ TimescaleDB introduces essential updates to facilitate HIPAA (Health Insurance P
 
 Highlighted Features in this Release:
 
-*   **Robust Auditing Capabilities**: TimescaleDB now enables the `pgAudit` extension and soon, the `pgSodium` extension, providing essential logging capabilities to support HIPAA audits. By capturing actions such as read, write, and delete on sensitive data, these logs help users monitor and investigate access to PHI as required by HIPAA.
+*   **Robust auditing capabilities**: Timescale Cloud now enables the `pgAudit` extension and soon, the `pgSodium` extension, providing essential logging capabilities to support HIPAA audits. By capturing actions such as read, write, and delete on sensitive data, these logs help users monitor and investigate access to PHI as required by HIPAA.
 *   **Detailed Compliance Documentation**: Timescale now offers a Business Associate Agreement (BAA) and a HIPAA Security Rule Self-Assessment, in addition to SOC 2 Type II and GDPR compliance documentation, for customers needing additional verification of security practices.
 *   **Shared Responsibility Model for Compliance**: TimescaleDB's shared responsibility model clarifies roles between Timescale and customers, outlining each party's duties in data encryption, access management, auditing, and breach notification.
 
