@@ -64,7 +64,7 @@ TimescaleDB introduces essential updates to facilitate HIPAA (Health Insurance P
 *   **Expanded Audit Logging for HIPAA Compliance**: With the pgAudit and pgSodium extensions, users gain comprehensive logging for key data interactions, capturing user identity, access times, types of operations, and specific data accessed. These logs can be used to identify and investigate potential security incidents.
 *   **Established Breach Notification Protocol**: In case of a PHI data breach, Timescale notifies affected customers within 72 hours, ensuring transparency and compliance with HIPAA requirements.
 
-**Highlighted Features in this Release**
+Highlighted Features in this Release:
 
 *   **Robust Auditing Capabilities**: TimescaleDB now enables the `pgAudit` extension and soon, the `pgSodium` extension, providing essential logging capabilities to support HIPAA audits. By capturing actions such as read, write, and delete on sensitive data, these logs help users monitor and investigate access to PHI as required by HIPAA.
 *   **Detailed Compliance Documentation**: Timescale now offers a Business Associate Agreement (BAA) and a HIPAA Security Rule Self-Assessment, in addition to SOC 2 Type II and GDPR compliance documentation, for customers needing additional verification of security practices.
