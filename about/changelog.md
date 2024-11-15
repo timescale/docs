@@ -26,11 +26,11 @@ SQL Assistant uses AI to help you write SQL faster and more accurately.
 
 - **Error resolution**: when you run into an error, SQL Assistant proposes a recommended fix that you can choose to accept.
 
-    ![](https://assets.timescale.com/docs/images/ai-error-fix.png)
+    ![AI error fix](https://assets.timescale.com/docs/images/ai-error-fix.png)
 
 - **Generate titles and descriptions**: click a button and SQL Assistant generates a title and description for your query. No more untitled queries!
 
-   ![](https://assets.timescale.com/docs/images/ai-generate-title.png)
+   ![AI generated query title](https://assets.timescale.com/docs/images/ai-generate-title.png)
 
 See our [blog post](https://www.timescale.com/blog/postgres-gui-sql-assistant/) or [docs](https://docs.timescale.com/getting-started/latest/run-queries-from-console/#sql-assistant) for full details!
 
@@ -82,7 +82,7 @@ Highlighted features in this release:
 
 Customers can now access more than just the most recent 500 logs within the Timescale Console. We've updated the user experience, including scrollbar with infinite scrolling capabilities.
 
-![](https://assets.timescale.com/docs/images/console-expanded-logs.gif)
+![Expanded console logs](https://assets.timescale.com/docs/images/console-expanded-logs.gif)
 
 ## ✨ Connect to Timescale from .NET Stack and check status of recent jobs
 <Label type="date">November 07, 2024</Label>
