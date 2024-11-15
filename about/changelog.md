@@ -8,7 +8,7 @@ keywords: [changelog, upgrades, updates, releases]
 
 All the latest features and updates to Timescale products.
 
-### 🤩 SQL Assistant, TimescaleDB v2.17, HIPAA Compliance, and Better Logging
+### 🤩 SQL Assistant, TimescaleDB v2.17, HIPAA compliance, and better logging
 
 <Label type="date">November 14, 2024</Label>
 
