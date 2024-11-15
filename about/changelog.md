@@ -38,7 +38,7 @@ TimescaleDB v2.17 significantly improves the performance of [continuous aggregat
 
 Best practice is to upgrade at the next available opportunity.
 
-**Highlighted features in TimescaleDB v2.17**
+Highlighted features in TimescaleDB v2.17 are: 
 
 *   Significant performance improvements for continuous aggregate policies:
 
