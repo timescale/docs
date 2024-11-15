@@ -74,7 +74,7 @@ TimescaleDB introduces essential updates to facilitate HIPAA (Health Insurance P
 
 Customers can now access more than just the most recent 500 logs within the Timescale Console. We've updated the user experience, including scrollbar with infinite scrolling capabilities.
 
-![](https://assets.timescale.com/docs/images/expanded-logs.gif)
+![](https://assets.timescale.com/docs/images/console-expanded-logs.gif)
 
 ## ✨ Connect to Timescale from .NET Stack and check status of recent jobs
 <Label type="date">November 07, 2024</Label>
