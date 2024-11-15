@@ -8,7 +8,7 @@ keywords: [changelog, upgrades, updates, releases]
 
 All the latest features and updates to Timescale products.
 
-### 🤩 SQL Assistant, TimescaleDB v2.17, HIPAA compliance, and better logging
+## 🤩 SQL Assistant, TimescaleDB v2.17, HIPAA compliance, and better logging
 
 <Label type="date">November 14, 2024</Label>
 
@@ -26,7 +26,7 @@ SQL Assistant uses AI to help you write SQL faster and more accurately.
 
 - **Generate titles and descriptions**: click a button and SQL Assistant generates a title and description for your query. No more untitled queries!
 
-![](https://assets.timescale.com/docs/images/ai-generate-title.png)
+   ![](https://assets.timescale.com/docs/images/ai-generate-title.png)
 
 See our [blog post](https://www.timescale.com/blog/postgres-gui-sql-assistant/) or [docs](https://docs.timescale.com/getting-started/latest/run-queries-from-console/#sql-assistant) for full details!
 
@@ -34,40 +34,41 @@ See our [blog post](https://www.timescale.com/blog/postgres-gui-sql-assistant/) 
 
 Starting this week, all new services created on Timescale Cloud use [TimescaleDB v2.17](https://github.com/timescale/timescaledb/releases/tag/2.17.0). Existing services are upgraded gradually during their maintenance windows.
 
-TimescaleDB v2.17 significantly improves the performance of [continuous aggregate refreshes](https://docs.timescale.com/use-timescale/latest/continuous-aggregates/refresh-policies/), and contains performance improvements for [analytical queries and delete operations])https://docs.timescale.com/use-timescale/latest/compression/modify-compressed-data/) over compressed hypertables.
+TimescaleDB v2.17 significantly improves the performance of [continuous aggregate refreshes](https://docs.timescale.com/use-timescale/latest/continuous-aggregates/refresh-policies/), and contains performance improvements for [analytical queries and delete operations](https://docs.timescale.com/use-timescale/latest/compression/modify-compressed-data/) over compressed hypertables.
 
 Best practice is to upgrade at the next available opportunity.
 
 Highlighted features in TimescaleDB v2.17 are: 
 
-*   Significant performance improvements for continuous aggregate policies:
+* Significant performance improvements for continuous aggregate policies:
 
-    *   Continuous aggregate refresh now uses `merge` instead of deleting old materialized data and re-inserting.
+    * Continuous aggregate refresh now uses `merge` instead of deleting old materialized data and re-inserting.
 
-    *  Continuous aggregate policies are now more lightweight, use less system resources, and complete faster.  This update:
-          * Decreases dramatically the amount of data that must be written on the continuous aggregate in the presence of a small number of changes 
-          * Reduces the i/o cost of refreshing a continuous aggregate 
-          * Generates fewer Write-Ahead Logs (`WAL`)
+    * Continuous aggregate policies are now more lightweight, use less system resources, and complete faster. This update:
+  
+      * Decreases dramatically the amount of data that must be written on the continuous aggregate in the presence of a small number of changes 
+      * Reduces the i/o cost of refreshing a continuous aggregate 
+      * Generates fewer Write-Ahead Logs (`WAL`)
 
-*   Increased performance for real-time analytical queries over compressed hypertables:
+* Increased performance for real-time analytical queries over compressed hypertables:
 
-   *   We are excited to introduce additional Single Instruction, Multiple Data (SIMD) vectorization optimization to TimescaleDB. This release supports vectorized execution for queries that _group by_ using the `segment_by` column(s), and _aggregate_ using the `sum`, `count`, `avg`, `min`, and `max` basic aggregate functions.
+    * We are excited to introduce additional Single Instruction, Multiple Data (SIMD) vectorization optimization to TimescaleDB. This release supports vectorized execution for queries that _group by_ using the `segment_by` column(s), and _aggregate_ using the `sum`, `count`, `avg`, `min`, and `max` basic aggregate functions.
 
-   *   Stay tuned for more to come in follow-up releases! Support for grouping on additional columns, filtered aggregation, vectorized expressions, and `time_bucket` is coming soon.
+    * Stay tuned for more to come in follow-up releases! Support for grouping on additional columns, filtered aggregation, vectorized expressions, and `time_bucket` is coming soon.
 
-   *   Improved performance of deletes on compressed hypertables when a large amount of data is affected.
+    * Improved performance of deletes on compressed hypertables when a large amount of data is affected.
 
-    This improvement speeds up operations that delete whole segments by skipping the decompression step. It is enabled for all deletes that filter by the `segment_by` column(s).
+      This improvement speeds up operations that delete whole segments by skipping the decompression step. It is enabled for all deletes that filter by the `segment_by` column(s).
 
 ### Enhanced HIPAA compliance support in TimescaleDB
 
 TimescaleDB introduces essential updates to facilitate Health Insurance Portability and Accountability Act (HIPAA) compliance, empowering organizations to better protect sensitive healthcare information while simplifying regulatory adherence. Best practice is that customers upgrade to the [Enterprise plan](https://docs.timescale.com/about/latest/pricing-and-account-management/#features-included-in-each-plan) to leverage the following improvements in data security and auditing:
 
-*   **Introduced enhanced encryption and access controls**: Timescale Cloud encrypts all data at rest and in transit, while providing SAML, SSO, and MFA options for added access security.
-*   **Expanded audit logging for HIPAA compliance**: with the pgAudit and pgSodium extensions, you gain comprehensive logging for key data interactions. This enables you to capture the following information: user identity, access times, types of operations, and specific data accessed. You use these logs to identify and investigate potential security incidents.
+*   **Introduced enhanced encryption and access controls**: Timescale encrypts all data at rest and in transit, while providing SAML, SSO, and MFA options for added access security.
+*   **Expanded audit logging for HIPAA compliance**: with the `pgAudit` and `pgSodium` extensions, you gain comprehensive logging for key data interactions. This enables you to capture the following information: user identity, access times, types of operations, and specific data accessed. You use these logs to identify and investigate potential security incidents.
 *   **Established breach notification protocol**: in case of a PHI data breach, Timescale notifies affected customers within 72 hours, ensuring transparency and compliance with HIPAA requirements.
 
-Highlighted Features in this Release:
+Highlighted features in this release:
 
 *   **Robust auditing capabilities**: Timescale Cloud now enables the `pgAudit` extension and soon, the `pgSodium` extension, providing essential logging capabilities to support HIPAA audits. By capturing actions such as read, write, and delete on sensitive data, these logs help users monitor and investigate access to PHI as required by HIPAA.
 *   **Detailed compliance documentation**: For customers needing additional verification of security practices, Timescale now offers a Business Associate Agreement (BAA) and a HIPAA Security Rule Self-Assessment, in addition to SOC 2 Type II and GDPR compliance documentation.
