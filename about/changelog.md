@@ -30,7 +30,7 @@ SQL Assistant uses AI to help you write SQL faster and more accurately.
 
 See our [blog post](https://www.timescale.com/blog/postgres-gui-sql-assistant/) or [docs](https://docs.timescale.com/getting-started/latest/run-queries-from-console/#sql-assistant) for full details!
 
-### 🏄 TimescaleDB v2.17 - Performance improvements for analytical queries and continuous aggregate refreshes
+### 🏄 TimescaleDB v2.17 - performance improvements for analytical queries and continuous aggregate refreshes
 
 All new services created on Timescale Cloud starting this week use TimescaleDB v2.17 Existing services are upgraded gradually during their maintenance windows.
 
