@@ -232,11 +232,6 @@ module.exports = [
             excerpt:
               "Use row- and statement-level triggers in distributed hypertables",
           },
-          {
-            title: "Troubleshooting",
-            href: "troubleshooting",
-            type: "placeholder",
-          },
         ],
       },
       {
