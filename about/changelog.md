@@ -65,7 +65,7 @@ TimescaleDB introduces essential updates to facilitate Health Insurance Portabil
 
 *   **Introduced enhanced encryption and access controls**: Timescale Cloud encrypts all data at rest and in transit, while providing SAML, SSO, and MFA options for added access security.
 *   **Expanded audit logging for HIPAA compliance**: with the pgAudit and pgSodium extensions, you gain comprehensive logging for key data interactions. This enables you to capture the following information: user identity, access times, types of operations, and specific data accessed. You use these logs to identify and investigate potential security incidents.
-*   **Established Breach Notification Protocol**: In case of a PHI data breach, Timescale notifies affected customers within 72 hours, ensuring transparency and compliance with HIPAA requirements.
+*   **Established breach notification protocol**: in case of a PHI data breach, Timescale notifies affected customers within 72 hours, ensuring transparency and compliance with HIPAA requirements.
 
 Highlighted Features in this Release:
 
