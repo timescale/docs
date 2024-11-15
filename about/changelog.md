@@ -18,7 +18,11 @@ SQL Assistant uses AI to help you write SQL faster and more accurately.
 
 - **Real-time help:** chat with models like OpenAI 4o and Claude 3.5 Sonnet to get help writing SQL. Describe what you want in natural language and have AI write the SQL for you.
 
-<!-- TODO: embed this YouTube video https://youtu.be/3Droej_E0cQ -->
+  <div class="relative w-fit mx-auto">
+
+  <iframe width="1120" height="630" style="max-width:100%"  src="https://www.youtube.com/embed/3Droej_E0cQ?si=9IFB1Pk8Cl1bVKtD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  
+  </div>
 
 - **Error resolution**: when you run into an error, SQL Assistant proposes a recommended fix that you can choose to accept.
 
