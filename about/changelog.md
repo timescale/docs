@@ -55,7 +55,7 @@ Highlighted features in TimescaleDB v2.17 are:
 
    *   Stay tuned for more to come in follow-up releases! Support for grouping on additional columns, filtered aggregation, vectorized expressions, and `time_bucket` is coming soon.
 
-*   Improved performance of deletes on compressed hypertables when a large amount of data is affected.
+   *   Improved performance of deletes on compressed hypertables when a large amount of data is affected.
 
 *   This improvement speeds up operations that delete whole segments by skipping the decompression step. It is enabled for all deletes that filter by the `segment_by` column(s).
 
