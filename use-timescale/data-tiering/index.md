@@ -57,12 +57,14 @@ In this section you can:
 * Create a [Tiering Policy][creating-data-tiering-policy] to automatically schedule chunks to be tiered.
 * [Learn how to query tiered data][querying-tiered-data].
 * Manually [untier chunks][untier-data] to move data back to the high-performance local storage tier.
+* [Disable tiering on a hypertable][disabling-data-tiering] on an individual table if you no longer want to associate it with tiered storage.
 
 
 [about-data-tiering]: /use-timescale/:currentVersion:/data-tiering/about-data-tiering/
 [tour-data-tiering]: /use-timescale/:currentVersion:/data-tiering/tour-data-tiering/
 [enabling-data-tiering]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/
 [manual-tier-chunk]: /use-timescale/:currentVersion:/data-tiering/manual-tier-chunk/
+[disabling-data-tiering]: /use-timescale/:currentVersion:/data-tiering/disabling-data-tiering/
 [creating-data-tiering-policy]: /use-timescale/:currentVersion:/data-tiering/creating-data-tiering-policy/
 [querying-tiered-data]: /use-timescale/:currentVersion:/data-tiering/querying-tiered-data/
 [untier-data]: /use-timescale/:currentVersion:/data-tiering/untier-data/

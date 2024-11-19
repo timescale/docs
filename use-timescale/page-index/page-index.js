@@ -57,21 +57,9 @@ module.exports = [
         ],
       },
       {
-        title: "User management",
+        title: "Control user access to Timescale Cloud projects",
         href: "members",
         excerpt: "User management in Timescale Cloud",
-        children: [
-          {
-            title: "Members list",
-            href: "members-list",
-            excerpt: "Timescale members list",
-          },
-          {
-            title: "Project Ownership",
-            href: "project-ownership",
-            excerpt: "Timescale project ownership",
-          },
-        ],
       },
       {
         title: "Write data",
@@ -250,6 +238,10 @@ module.exports = [
             excerpt: "Using JSON data types in a hypertable",
           },
           {
+            title: "Foreign data wrappers",
+            href: "foreign-data-wrappers",
+          },
+          {
             title: "Troubleshoot schema management",
             href: "troubleshooting",
             type: "placeholder",
@@ -342,35 +334,37 @@ module.exports = [
         ],
       },
       {
-        title: "Ingest data from other sources",
+        title: "Import and ingest data",
         href: "ingest-data",
+        excerpt: "Ingest data into a Timescale Cloud service from third-party sources",
         children: [
           {
-            title: "About ingesting data from other sources",
-            href: "about-ingesting",
-            excerpt: "Ingest data into Timescale from third-party sources",
-          },
-          {
-            title: "Ingesting data with Prometheus",
-            href: "ingest-prometheus",
-            excerpt: "Ingest data into Timescale from Prometheus",
-          },
-          {
-            title: "Ingesting data with Kafka",
-            href: "ingest-kafka",
-            excerpt: "Ingest data into Timescale from Kafka",
-          },
-          {
-            title: "Ingesting data with Timescale parallel copy",
-            href: "about-timescaledb-parallel-copy",
-            excerpt:
-              "Quickly insert bulk data by parallelizing `COPY` operations",
-          },
-          {
-            title: "Ingesting data from a .csv file",
+            title: "Import data from CSV",
             href: "import-csv",
             excerpt:
-              "Import data into your Timescale instance from an external .csv file",
+              "Import data into a Timescale Cloud service from an external .csv file",
+          },
+          {
+            title: "Import data from MySQL",
+            href: "import-mysql",
+            excerpt:
+              "Import data into a Timescale Cloud service from a MySQL instance",
+          },
+          {
+            title: "Import data from Parquet",
+            href: "import-parquet",
+            excerpt:
+              "Import data into a Timescale Cloud service from a Parquet file",
+          },
+          {
+            title: "Ingest data with Kafka",
+            href: "ingest-kafka",
+            excerpt: "Import data into a Timescale Cloud service using the PostgreSQL Kafka connector",
+          },
+          {
+            title: "Ingest metrics with Telegraf",
+            href: "ingest-telegraf",
+            excerpt: "Ingest metrics into a Timescale Cloud service using the Telegraf plugin",
           },
         ],
       },
@@ -533,16 +527,17 @@ module.exports = [
               "How tiered data works on replicas and forks",
           },
           {
+            title: "Disabling tiering for a hypertable",
+            href: "disabling-data-tiering",
+            excerpt:
+              "How to disable tiering for a hypertable",
+          },
+          {
             title: "Troubleshooting",
             href: "troubleshooting",
             type: "placeholder",
           },
         ],
-      },
-      {
-        title: "VPC Peering and AWS PrivateLink",
-        href: "vpc",
-        excerpt: "Secure your Timescale Service with VPC Peering and AWS PrivateLink",
       },
       {
         title: "Hyperfunctions",
@@ -910,19 +905,6 @@ module.exports = [
                 },
               ]
           },
-          {
-            title: "Data ingestion",
-            href: "data-ingest",
-            excerpt: "Integrate your Timescale database with third-party data and ingestion solutions",
-            children:
-              [
-                {
-                  title: "Telegraf",
-                  href: "telegraf",
-                  excerpt: "Use Telegraf with Timescale",
-                },
-              ]
-          },
         ],
       },
       {
@@ -960,6 +942,17 @@ module.exports = [
             href: "strict-ssl",
             excerpt:
               "Connect to Timescale with a stricter SSL mode of verify-ca or verify-full",
+          },
+          {
+            title: "VPC peering and AWS PrivateLink",
+            href: "vpc",
+            excerpt: "Secure your Timescale Service with VPC peering and AWS PrivateLink",
+          },
+          {
+            title: "IP allow list",
+            href: "ip-allow-list",
+            excerpt:
+              "Create a list of IP addresses that can access your services",
           },
         ],
       },

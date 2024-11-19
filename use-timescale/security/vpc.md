@@ -1,6 +1,6 @@
 ---
 title: Virtual Private Cloud
-excerpt: Use a Peering VPC and AWS PrivateLink to secure your $SERVICE_LONG
+excerpt: Use a Peering VPC and AWS PrivateLink to secure your Timescale Cloud service
 products: [cloud]
 keywords: [PrivateLink, AWS, vpc, services, operations, ]
 tags: [aws]
@@ -11,33 +11,41 @@ cloud_ui:
 
 # Secure your $CLOUD_LONG services with VPC Peering and AWS PrivateLink
 
-You use Virtual Private Cloud ($VPC) peering to ensure that your $CLOUD_LONG services are 
+You use Virtual Private Cloud ($VPC) peering to ensure that your $SERVICE_LONGs are 
 only accessible through your secured AWS infrastructure. This reduces the potential 
 attack vector surface and improves security.
 
 The data isolation architecture that ensures a highly secure connection between your apps and 
-$CLOUD_LONG:
+$CLOUD_LONG is:
 
-<img class="main-content__illustration"
-src="https://assets.timescale.com/docs/images/tsc-vpc-architecture.svg"
-alt="The AWS Security Groups dashboard"/>
+![$CLOUD_LONG isolation architecture](https://assets.timescale.com/docs/images/tsc-vpc-architecture.svg)
 
-Your apps run inside your AWS Customer VPC, your services always run 
+Your customer apps run inside your AWS Customer VPC, your $CLOUD_LONG services always run 
 inside the secure $CLOUD_LONG $VPC. You control secure communication between apps in
-your VPC and your services using a dedicated Peering VPC. The AWS PrivateLink connecting
-$CLOUD_LONG $VPC to the dedicated Peering VPC gives the same level of protection as using a direct 
-AWS PrivateLink connection. It only enables communication to be initiated from your Customer VPC 
-to services running in the $CLOUD_LONG $VPC. $CLOUD_LONG cannot initiate communication with your VPC.
+your VPC and your $SERVICE_SHORTs using a dedicated Peering $VPC. The AWS PrivateLink connecting
+$CLOUD_LONG $VPC to the dedicated Peering $VPC gives the same level of protection as using a direct 
+AWS PrivateLink connection. It only enables communication to be initiated from your Customer $VPC 
+to services running in the $CLOUD_LONG $VPC. $CLOUD_LONG cannot initiate communication with your $VPC.
 
-To configure this secure connection, you first create the Peering VPC with 
+To configure this secure connection, you first create the $CLOUD_LONG Peering $VPC with 
 AWS PrivateLink in $CONSOLE. After you have accepted and configured the 
-peering connection to your Customer VPC, you use AWS Security Groups to 
-restrict the services in your Customer VPC that are visible to the Peering VPC.
-The last step is to attach individual services to the Peering VPC. 
+peering connection to your Customer $VPC, you use AWS Security Groups to 
+restrict the services in your Customer $VPC that are visible to the Peering $VPC.
+The last step is to attach individual services to the Peering $VPC. 
 
-The number of VPCs you can attach to your project depends on your [pricing plan][pricing-plans]. If you 
-need more VPCs either contact contact [support@timescale.com](mailto:support@timescale.com) or change your
-pricing plan in $CONSOLE. Each $CLOUD_LONG VPC can have as many peering connections as you need.
+* You define each $CLOUD_LONG $VPC on a [$CLOUD_LONG project level][project-members]. 
+* You can attach:
+  * Up to 50 Customer $VPCs to a $CLOUD_LONG $VPC.
+  * A $SERVICE_LONG to a single $CLOUD_LONG $VPC at a time.
+  
+      The $SERVICE_SHORT and $VPC must be in the same AWS region. However, you can peer a Customer $VPC and a
+      $CLOUD_LONG $VPC that are in different regions.
+  * Multiple $SERVICE_LONGs to the same $CLOUD_LONG $VPC.
+* You cannot attach a $SERVICE_LONG to multiple $CLOUD_LONG $VPCs at the same time.
+
+The number of $CLOUD_LONG $VPCs you can create in your project depends on your [pricing plan][pricing-plans]. 
+If you need another $CLOUD_LONG $VPC, either contact [support@timescale.com](mailto:support@timescale.com) or change your
+pricing plan in [$CONSOLE][console-login]. 
 
 ## Prerequisites
 
@@ -67,13 +75,25 @@ between $CLOUD_LONG and your own VPC in a logically isolated virtual network.
 
 <Procedure>
 
-1.  In [$CONSOLE > VPC][console-vpc], click `New VPC`.
+1.  In [$CONSOLE > Security > VPC][console-vpc], click `Create a VPC`.
 
-    The number of VPCs you can attach to your project depends on your [pricing plan][pricing-plans]. If you
-    need more VPCs either contact contact [support@timescale.com](mailto:support@timescale.com) or change 
-    your pricing plan in $CONSOLE. Each $CLOUD_LONG VPC can have as many peering connections as you need.
+    ![$CLOUD_LONG new $VPC](https://assets.timescale.com/docs/images/console-add-vpc.png)
 
-1.  Choose your region and IP range, then click `Create VPC`. 
+    * You can attach:
+      * Up to 50 Customer $VPCs to a $CLOUD_LONG $VPC.
+      * A $SERVICE_LONG to a single $CLOUD_LONG $VPC at a time.
+
+      The $SERVICE_SHORT and $VPC must be in the same AWS region. However, you can peer a Customer $VPC and a
+      $CLOUD_LONG $VPC that are in different regions.
+      * Multiple $SERVICE_LONGs to the same $CLOUD_LONG $VPC.
+      * You cannot attach a $SERVICE_LONG to multiple $CLOUD_LONG $VPCs at the same time.
+
+    The number of $CLOUD_LONG $VPCs you can create in your project depends on your [pricing plan][pricing-plans].
+    If you need another $CLOUD_LONG $VPC, either contact [support@timescale.com](mailto:support@timescale.com) or change your
+    pricing plan in [$CONSOLE][console-login].
+
+
+1.  Choose your region and IP range, name your VPC, then click `Create VPC`. 
 
     ![Create a new VPC in $CLOUD_LONG](https://assets.timescale.com/docs/images/tsc-vpc-create.png)
 
@@ -173,7 +193,7 @@ AWS VPC. It is no longer accessible using the public internet.
 
 1.  In [$CONSOLE > Services][console-services] select the $SERVICE_SHORT you want to
     connect to the VPC.
-1. Click `Operations` > `VPC`.
+1. Click `Security` > `VPC`.
 1. Select the VPC, then click `Attach VPC`.
 
 </Procedure>
@@ -201,7 +221,7 @@ to update your connection string.
 1. In [$CONSOLE > Services][console-services] select the $SERVICE_SHORT to migrate.
 
    If you don't have a $SERVICE_SHORT, [create a new one][create-service].
-1. Click `Operations` > `VPC`.
+1. Click `Security` > `VPC`.
 1. Select the VPC, then click `Attach VPC`.
 
 </Procedure>
@@ -219,11 +239,12 @@ some time for DNS propagation.
 [tsc-regions]: /use-timescale/:currentVersion:/regions/
 
 
-[aws-vpc-setup-vpc]: /use-timescale/:currentVersion:/vpc/#create-a-peering-vpc-in-timescale-console
-[aws-vpc-complete]: /use-timescale/:currentVersion:/vpc/#complete-the-vpc-connection-in-aws
-[aws-vpc-security-groups]: /use-timescale/:currentVersion:/vpc/#set-up-security-groups-in-aws
-[aws-vpc-connect-vpcs]: /use-timescale/:currentVersion:/vpc/#attach-a-timescale-service-to-the-peering-vpc
+[aws-vpc-setup-vpc]: /use-timescale/:currentVersion:/security/vpc/#create-a-peering-vpc-in-timescale-console
+[aws-vpc-complete]: /use-timescale/:currentVersion:/security/vpc/#complete-the-vpc-connection-in-aws
+[aws-vpc-security-groups]: /use-timescale/:currentVersion:/security/vpc/#set-up-security-groups-in-aws
+[aws-vpc-connect-vpcs]: /use-timescale/:currentVersion:/security/vpc/#attach-a-timescale-service-to-the-peering-vpc
 
 
 [create-service]: /getting-started/:currentVersion:/services/#create-a-timescale-cloud-service
 [pricing-plans]: /about/:currentVersion:/pricing-and-account-management/
+[project-members]: /use-timescale/:currentVersion:/members/

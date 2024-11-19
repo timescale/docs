@@ -8,6 +8,135 @@ keywords: [changelog, upgrades, updates, releases]
 
 All the latest features and updates to Timescale products.
 
+## 🤩 SQL Assistant, TimescaleDB v2.17, HIPAA compliance, and better logging
+
+<Label type="date">November 14, 2024</Label>
+
+### 🤖 New AI companion: SQL Assistant
+
+SQL Assistant uses AI to help you write SQL faster and more accurately.
+
+- **Real-time help:** chat with models like OpenAI 4o and Claude 3.5 Sonnet to get help writing SQL. Describe what you want in natural language and have AI write the SQL for you.
+
+  <div class="relative w-fit mx-auto">
+
+  <iframe width="1120" height="630" style="max-width:100%"  src="https://www.youtube.com/embed/3Droej_E0cQ?si=9IFB1Pk8Cl1bVKtD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  
+  </div>
+
+- **Error resolution**: when you run into an error, SQL Assistant proposes a recommended fix that you can choose to accept.
+
+    ![AI error fix](https://assets.timescale.com/docs/images/ai-error-fix.png)
+
+- **Generate titles and descriptions**: click a button and SQL Assistant generates a title and description for your query. No more untitled queries!
+
+   ![AI generated query title](https://assets.timescale.com/docs/images/ai-generate-title.png)
+
+See our [blog post](https://www.timescale.com/blog/postgres-gui-sql-assistant/) or [docs](https://docs.timescale.com/getting-started/latest/run-queries-from-console/#sql-assistant) for full details!
+
+### 🏄 TimescaleDB v2.17 - performance improvements for analytical queries and continuous aggregate refreshes
+
+Starting this week, all new services created on Timescale Cloud use [TimescaleDB v2.17](https://github.com/timescale/timescaledb/releases/tag/2.17.0). Existing services are upgraded gradually during their maintenance windows.
+
+TimescaleDB v2.17 significantly improves the performance of [continuous aggregate refreshes](https://docs.timescale.com/use-timescale/latest/continuous-aggregates/refresh-policies/), and contains performance improvements for [analytical queries and delete operations](https://docs.timescale.com/use-timescale/latest/compression/modify-compressed-data/) over compressed hypertables.
+
+Best practice is to upgrade at the next available opportunity.
+
+Highlighted features in TimescaleDB v2.17 are: 
+
+* Significant performance improvements for continuous aggregate policies:
+
+    * Continuous aggregate refresh now uses `merge` instead of deleting old materialized data and re-inserting.
+
+    * Continuous aggregate policies are now more lightweight, use less system resources, and complete faster. This update:
+  
+      * Decreases dramatically the amount of data that must be written on the continuous aggregate in the presence of a small number of changes 
+      * Reduces the i/o cost of refreshing a continuous aggregate 
+      * Generates fewer Write-Ahead Logs (`WAL`)
+
+* Increased performance for real-time analytical queries over compressed hypertables:
+
+    * We are excited to introduce additional Single Instruction, Multiple Data (SIMD) vectorization optimization to TimescaleDB. This release supports vectorized execution for queries that _group by_ using the `segment_by` column(s), and _aggregate_ using the `sum`, `count`, `avg`, `min`, and `max` basic aggregate functions.
+
+    * Stay tuned for more to come in follow-up releases! Support for grouping on additional columns, filtered aggregation, vectorized expressions, and `time_bucket` is coming soon.
+
+    * Improved performance of deletes on compressed hypertables when a large amount of data is affected.
+
+      This improvement speeds up operations that delete whole segments by skipping the decompression step. It is enabled for all deletes that filter by the `segment_by` column(s).
+
+### Enhanced HIPAA compliance support in TimescaleDB
+
+TimescaleDB introduces essential updates to facilitate Health Insurance Portability and Accountability Act (HIPAA) compliance, empowering organizations to better protect sensitive healthcare information while simplifying regulatory adherence. Best practice is that customers upgrade to the [Enterprise plan](https://docs.timescale.com/about/latest/pricing-and-account-management/#features-included-in-each-plan) to leverage the following improvements in data security and auditing:
+
+*   **Introduced enhanced encryption and access controls**: Timescale encrypts all data at rest and in transit, while providing SAML, SSO, and MFA options for added access security.
+*   **Expanded audit logging for HIPAA compliance**: with the `pgAudit` and `pgSodium` extensions, you gain comprehensive logging for key data interactions. This enables you to capture the following information: user identity, access times, types of operations, and specific data accessed. You use these logs to identify and investigate potential security incidents.
+*   **Established breach notification protocol**: in case of a PHI data breach, Timescale notifies affected customers within 72 hours, ensuring transparency and compliance with HIPAA requirements.
+
+Highlighted features in this release:
+
+*   **Robust auditing capabilities**: Timescale Cloud now enables the `pgAudit` extension and soon, the `pgSodium` extension, providing essential logging capabilities to support HIPAA audits. By capturing actions such as read, write, and delete on sensitive data, these logs help users monitor and investigate access to PHI as required by HIPAA.
+*   **Detailed compliance documentation**: For customers needing additional verification of security practices, Timescale now offers a Business Associate Agreement (BAA) and a HIPAA Security Rule Self-Assessment, in addition to SOC 2 Type II and GDPR compliance documentation.
+*   **Shared responsibility model for compliance**: Timescale's shared responsibility model clarifies roles between Timescale and customers, outlining each party's duties in data encryption, access management, auditing, and breach notification.
+
+### Expanded logging within Timescale Console
+
+Customers can now access more than just the most recent 500 logs within the Timescale Console. We've updated the user experience, including scrollbar with infinite scrolling capabilities.
+
+![Expanded console logs](https://assets.timescale.com/docs/images/console-expanded-logs.gif)
+
+## ✨ Connect to Timescale from .NET Stack and check status of recent jobs
+<Label type="date">November 07, 2024</Label>
+
+### Connect to Timescale with your .NET stack
+We've added instructions for connecting to Timescale using your .NET workflow. In Console after service creation, or in the **Actions** tab, you can now select .NET from the developer library list. The guide demonstrates how to use Npgsql to integrate Timescale with your existing software stack.
+
+![.NET instructions](https://assets.timescale.com/docs/images/connect-via-net.png)
+
+### ✅ Last 5 jobs status
+In the **Jobs** section of the **Explorer**, users can now see the status (completed/failed) of the last 5 runs of each job.
+
+![job status](https://assets.timescale.com/docs/images/explorer-job-list.png)
+
+## 🎃 New AI, data integration, and performance enhancements
+<Label type="date">October 31, 2024</Label>
+
+### Pgai Vectorizer: vector embeddings as database indexes (early access)
+This early access feature enables you to automatically create, update, and maintain embeddings as your data changes. Just like an index, Timescale handles all the complexity: syncing, versioning, and cleanup happen automatically.
+This means no manual tracking, zero maintenance burden, and the freedom to rapidly experiment with different embedding models and chunking strategies without building new pipelines.
+Navigate to the AI tab in your service overview and follow the instructions to add your OpenAI API key and set up your first vectorizer or read our [guide to automate embedding generation with pgai Vectorizer](https://github.com/timescale/pgai/blob/main/docs/vectorizer.md) for more details.
+
+![Vectorizer setup](https://s3.amazonaws.com/assets.timescale.com/docs/images/vectorizer-setup.png)
+
+### PostgreSQL-to-PostgreSQL foreign data wrappers: 
+Fetch and query data from multiple PostgreSQL databases, including time-series data in hypertables, directly within Timescale Cloud using [foreign data wrappers (FDW)](https://docs.timescale.com/use-timescale/latest/schema-management/foreign-data-wrappers/). No more complicated ETL processes or external tools—just seamless integration right within your SQL editor. This feature is ideal for developers who manage multiple PostgreSQL and time-series instances and need quick, easy access to data across databases.
+
+### Faster queries over tiered data 
+This release adds support for runtime chunk exclusion for queries that need to access [tiered storage](https://docs.timescale.com/use-timescale/latest/data-tiering/). Chunk exclusion now works with queries that use stable expressions in the `WHERE` clause. The most common form of this type of query is:
+
+```
+SELECT * FROM  hypertable WHERE timestamp_col > now() - '100 days'::interval
+```
+
+For more info on queries with immutable/stable/volatile filters, check our blog post on [Implementing constraint exclusion for faster query performance](https://www.timescale.com/blog/implementing-constraint-exclusion-for-faster-query-performance/).
+
+If you no longer want to use tiered storage for a particular hypertable, you can now disable tiering and drop the associated tiering metadata on the hypertable with a call to [disable_tiering function](https://docs.timescale.com/use-timescale/latest/data-tiering/disabling-data-tiering/). 
+
+### Chunk interval recommendations
+Timescale Console now shows recommendations for services with too many small chunks in their hypertables. 
+Recommendations for new intervals that improve service performance are displayed for each underperforming service and hypertable. Users can then change their chunk interval and boost performance within Timescale Console.
+
+![Chunk interval recommendation](https://s3.amazonaws.com/assets.timescale.com/docs/images/chunk-interval-recommendation.png)
+
+## 💡 Help with hypertables and faster notebooks
+<Label type="date">October 18, 2024</Label>
+
+### 🧙Hypertable creation wizard
+After creating a service, users can now create a hypertable directly in Timescale Console by first creating a table, then converting it into a hypertable. This is possible using the in-console SQL editor. All standard hypertable configuration options are supported, along with any customization of the underlying table schema. 
+![Hypertable creation wizard: image 1](https://assets.timescale.com/docs/images/hypertable-creation-wizard-1.png)
+
+### 🍭 PopSQL Notebooks 
+The newest version of Data Mode Notebooks is now waaaay faster.  Why? We've incorporated the newly developed v3 of our query engine that currently powers Timescale Console's SQL Editor.  Check out the difference in query response times.
+
 ## ✨ Production-Ready Low-Downtime Migrations, MySQL Import, Actions Tab, and Current Lock Contention Visibility in SQL Editor
 <Label type="date">October 10, 2024</Label>
 

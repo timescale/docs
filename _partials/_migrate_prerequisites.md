@@ -10,6 +10,7 @@ Before you migrate your data:
   Each Timescale Cloud service [has a single database] that supports the
   [most popular extensions][all available extensions]. Timescale Cloud services do not support [tablespaces],
   and [there is no superuser associated with a Timescale service][no-superuser-for-timescale-instance].
+  We recommend creating a Timescale Cloud instance with at least 8 CPUs for a smoother migration experience. A higher-spec instance can significantly reduce the overall migration window.
 
 - To ensure that maintenance does not run while migration is in progress, best practice is to [adjust the maintenance window][adjust-maintenance-window]. 
 

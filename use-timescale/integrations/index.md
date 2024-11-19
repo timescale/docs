@@ -12,10 +12,10 @@ tags: [integrations]
 You can integrate your Timescale database with third-party solutions to expand
 and extend what you can do with your data.
 
-|&#x1F6E0; [Query and administration][query-admin]|&#x1F5A5; [Configuration and deployment][config-deploy]|&#x1F50E; [Observability and alerting][observability-alerting]|&#x270D; [Data ingestion][data-ingest]|
-|-|-|-|-|
+|[Query and administration][query-admin]|[Configuration and deployment][config-deploy]|[Observability and alerting][observability-alerting]|
+|-|-|-|
 |[PopSQL][popsql]|
-|[psql][psql]|[Terraform][terraform]|[Grafana][grafana]|[Telegraf][telegraf]|
+|[psql][psql]|[Terraform][terraform]|[Grafana][grafana]|
 |[DBeaver][dbeaver]||[Tableau][tableau]|
 |[Azure Data Studio][ads]|
 |[pgAdmin][pgadmin]|
