@@ -18,7 +18,6 @@ import CloudIntro from "versionContent/_partials/_cloud-intro.mdx";
 
 Read about Timescale features in the documentation:
 
-*   Determine if you want a time-series, AI, or plain PostgreSQL database.
 *   Create your first [hypertable][hypertable-info].
 *   Run your first query using [time_bucket()][time-bucket-info].
 *   Trying more advanced time-series functions, starting with
