@@ -110,6 +110,17 @@ Navigate to the AI tab in your service overview and follow the instructions to a
 ### PostgreSQL-to-PostgreSQL foreign data wrappers: 
 Fetch and query data from multiple PostgreSQL databases, including time-series data in hypertables, directly within Timescale Cloud using [foreign data wrappers (FDW)](https://docs.timescale.com/use-timescale/latest/schema-management/foreign-data-wrappers/). No more complicated ETL processes or external tools—just seamless integration right within your SQL editor. This feature is ideal for developers who manage multiple PostgreSQL and time-series instances and need quick, easy access to data across databases.
 
+### Faster queries over tiered data 
+This release adds support for runtime chunk exclusion for queries that need to access [tiered storage](https://docs.timescale.com/use-timescale/latest/data-tiering/). Chunk exclusion now works with queries that use stable expressions in the `WHERE` clause. The most common form of this type of query is:
+
+```
+SELECT * FROM  hypertable WHERE timestamp_col > now() - '100 days'::interval
+```
+
+For more info on queries with immutable/stable/volatile filters, check our blog post on [Implementing constraint exclusion for faster query performance](https://www.timescale.com/blog/implementing-constraint-exclusion-for-faster-query-performance/).
+
+If you no longer want to use tiered storage for a particular hypertable, you can now disable tiering and drop the associated tiering metadata on the hypertable with a call to [disable_tiering function](https://docs.timescale.com/use-timescale/latest/data-tiering/disabling-data-tiering/). 
+
 ### Chunk interval recommendations
 Timescale Console now shows recommendations for services with too many small chunks in their hypertables. 
 Recommendations for new intervals that improve service performance are displayed for each underperforming service and hypertable. Users can then change their chunk interval and boost performance within Timescale Console.
