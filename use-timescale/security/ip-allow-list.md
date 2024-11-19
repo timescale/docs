@@ -44,6 +44,8 @@ You create an IP allow list at the [project level][members], then attach your $S
 
 </Procedure>
 
+You have created and attached an IP allow list. You can unattach or change the list attached to a service from the same tab. 
+
 [console]: https://console.cloud.timescale.com/dashboard/
 [pricing-plans]: /about/:currentVersion:/pricing-and-account-management/
 [vpc-peering]: /use-timescale/:currentVersion:/security/vpc/
