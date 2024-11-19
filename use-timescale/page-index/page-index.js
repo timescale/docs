@@ -540,11 +540,6 @@ module.exports = [
         ],
       },
       {
-        title: "VPC Peering and AWS PrivateLink",
-        href: "vpc",
-        excerpt: "Secure your Timescale Service with VPC Peering and AWS PrivateLink",
-      },
-      {
         title: "Hyperfunctions",
         href: "hyperfunctions",
         pageComponents: ["featured-cards"],
@@ -947,6 +942,17 @@ module.exports = [
             href: "strict-ssl",
             excerpt:
               "Connect to Timescale with a stricter SSL mode of verify-ca or verify-full",
+          },
+          {
+            title: "VPC peering and AWS PrivateLink",
+            href: "vpc",
+            excerpt: "Secure your Timescale Service with VPC peering and AWS PrivateLink",
+          },
+          {
+            title: "IP allow list",
+            href: "ip-allow-list",
+            excerpt:
+              "Create a list of IP addresses that can access your services",
           },
         ],
       },
