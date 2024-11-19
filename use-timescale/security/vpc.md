@@ -1,6 +1,6 @@
 ---
 title: Virtual Private Cloud
-excerpt: Use a Peering VPC and AWS PrivateLink to secure your $SERVICE_LONG
+excerpt: Use a Peering VPC and AWS PrivateLink to secure your Timescale Cloud service
 products: [cloud]
 keywords: [PrivateLink, AWS, vpc, services, operations, ]
 tags: [aws]
