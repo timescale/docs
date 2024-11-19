@@ -10,14 +10,12 @@ import Install from "versionContent/_partials/_cloud-installation.mdx";
 import Connect from "versionContent/_partials/_cloud-connect.mdx";
 import CreateAHypertable from "versionContent/_partials/_create-hypertable.mdx";
 import ServiceOverview from "versionContent/_partials/_service-overview.mdx";
+import CloudIntro from "versionContent/_partials/_cloud-intro.mdx";
 
 # Create your first $SERVICE_LONG
 
-$CLOUD_LONG offers the following PostgreSQL optimized database services:
+<CloudIntro />
 
-- **Time-series and analytics**: for storing and querying [time-series data][what-is-time-series] at scale. Get faster time-based queries with hypertables, continuous aggregates, and columnar storage. Save on storage with native compression, data retention policies, and bottomless data tiering to Amazon S3.
-- **AI and vector**: for building AI applications from start to scale. Get fast and accurate similarity search with the pgvector and pgvectorscale extensions. Create vector embeddings and perform LLM reasoning on your data with the pgai extension.
-- **PostgreSQL**: for applications requiring strong data consistency, complex relationships, and advanced querying capabilities. A trusted industry-standard RDBMS with ACID compliance, extensive SQL support, JSON handling, and extensibility through custom functions, data types, and extensions.
 
 <ServiceOverview />
 
