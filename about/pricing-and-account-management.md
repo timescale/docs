@@ -133,49 +133,50 @@ The available plans are:
 
 The features included in each [plan][pricing-plans] are:
 
-| Feature                                                       | Performance                  | Scale                                 | Enterprise                          |
-|---------------------------------------------------------------|------------------------------|---------------------------------------|-------------------------------------|
-| **Compute and storage**                                       |                              |                                       |                                     |
-| Number of services	                                           | Up to 4	                     | Unlimited	                            | Unlimited                           |
-| CPU limit per service                                         | 	Up to 8 CPU	                | Up to 32 CPU	                         | Up to 32 CPU                        | 
-| Memory limit per service                                      | 	Up to 32 GB                 | 	Up to 128 GB                     | 	Up to 128 GB                       | 
-| Storage limit per service	                                    | Up to 16 TB	                 | Up to 16 TB	                      | Up to 16 TB                         | 
-| Tiered storage on S3	                                         |                              | 	Unlimited	                           | Unlimited                           |
-| Independently scale compute and storage	                      | ✓                            | 	✓	                                   | ✓                                   |
-| **Data Services and Workloads**                               |                              |                                       |
-| Relational                                                    | ✓                            | ✓                                     | ✓                                   | 
-| Time-series                                                   | ✓                            | ✓                                     | ✓                                   |
-| Vector search                                                 | ✓                            | ✓                                     | ✓                                   |
-| AI workflows (coming soon)                                    | ✓                            | ✓                                     | ✓                                   |
-| Cloud SQL editor                               | 3 seats                      | 10 seats                              | 20 seats                            |
-| Charts                                                        | ✓                            | ✓                                     | ✓                                   |
-| Dashboards                                                    | 2                            | Unlimited                             | Unlimited                           |
-| **Storage and performance**                                   |                              |                                       |                                     |
-| IOPS (autoscales)                                             | 	3,000 - 5,000	              | 5,000 - 8,000                         | 5,000 - 8,000                       | 
-| Bandwidth (autoscales)	                                       | 125 - 250 Mbps               | 	250 - 500 Mbps                       | 	Up to 500 mbps                     | 
-| IO Boost	                                                     |                              | 	Add-on: <br/>16K IOPS, 1000 Mbps BW	 | Add-on: <br/>16K IOPS, 1000 Mbps BW | 
-| **Availability and monitoring**                               |                              |                                       |                                     |
-| High-availability replicas <br/>(Automated multi-AZ failover) | ✓                            | ✓                                     | ✓                                   |
-| Read replicas		                                               |                              | ✓                                     | ✓                                   |
-| Point-in-time recovery and forking                            | 	3 days                      | 14 days                               | 14 days                             |
-| Performance insights                                          | ✓                            | ✓                                     | ✓                                   |
-| Metrics and log exporters	                                    |                              | ✓                                     | ✓                                   |
-| **Security and compliance**                                   |                              |                                       |                                     |
-| End-to-end encryption                                         | ✓                            | ✓                                     | ✓                                   |
-| Private Networking (VPC)                                      | 1 multi-attach VPC	          | Unlimited multi-attach VPCs           | 	Unlimited multi-attach VPCs        | 
-| Multi-factor authentication                                   | ✓                            | ✓                                     | ✓                                   |
-| Federated authentication (SAML)			                            |                              |                                       | ✓                                   |
-| SOC 2 Type 2 report		                                         |                              | ✓                                     | ✓                                   |
-| Penetration testing report                                    |                              |                                       | ✓                                   |			
-| Security questionnaire and review                             |                              |                                       | ✓                                   |			
-| Pay by invoice                                                | 	Available at minimum spend	 | Available at minimum spend            |✓  |
-| [Uptime SLAs][commercial-sla]                                 | 	Standard                    | 	Standard                             | 	Enterprise                         |
-| **Support and technical services**                            |                              |                                       |                                     |
-| Community support                                             | ✓                            | ✓                                     | ✓                                   |
-| Email support                                                 | ✓                            | ✓                                     | ✓                                   |
-| Production support                                            | 	Add-on                      | 	Add-on                               | ✓                                   |
-| Named account manager                                         |                              |                                       | ✓                                   |
-|JOIN services (Jumpstart Onboarding and INtegration)|                              | Available at minimum spend            | ✓ | 
+| Feature                                                       | Performance                            | Scale                                          | Enterprise                                     |
+|---------------------------------------------------------------|----------------------------------------|------------------------------------------------|------------------------------------------------|
+| **Compute and storage**                                       |                                        |                                                |                                                |
+| Number of services	                                           | Up to 4	                               | Unlimited	                                     | Unlimited                                      |
+| CPU limit per service                                         | 	Up to 8 CPU	                          | Up to 32 CPU	                                  | Up to 32 CPU                                   | 
+| Memory limit per service                                      | 	Up to 32 GB                           | 	Up to 128 GB                                  | 	Up to 128 GB                                  | 
+| Storage limit per service	                                    | Up to 16 TB	                           | Up to 16 TB	                                   | Up to 16 TB                                    | 
+| Tiered storage on S3	                                         |                                        | 	Unlimited	                                    | Unlimited                                      |
+| Independently scale compute and storage	                      | ✓                                      | 	✓	                                            | ✓                                              |
+| **Data Services and Workloads**                               |                                        |                                                |
+| Relational                                                    | ✓                                      | ✓                                              | ✓                                              | 
+| Time-series                                                   | ✓                                      | ✓                                              | ✓                                              |
+| Vector search                                                 | ✓                                      | ✓                                              | ✓                                              |
+| AI workflows (coming soon)                                    | ✓                                      | ✓                                              | ✓                                              |
+| Cloud SQL editor                               | 3 seats                                | 10 seats                                       | 20 seats                                       |
+| Charts                                                        | ✓                                      | ✓                                              | ✓                                              |
+| Dashboards                                                    | 2                                      | Unlimited                                      | Unlimited                                      |
+| **Storage and performance**                                   |                                        |                                                |                                                |
+| IOPS (autoscales)                                             | 	3,000 - 5,000	                        | 5,000 - 8,000                                  | 5,000 - 8,000                                  | 
+| Bandwidth (autoscales)	                                       | 125 - 250 Mbps                         | 	250 - 500 Mbps                                | 	Up to 500 mbps                                | 
+| IO Boost	                                                     |                                        | 	Add-on: <br/>16K IOPS, 1000 Mbps BW	          | Add-on: <br/>16K IOPS, 1000 Mbps BW            | 
+| **Availability and monitoring**                               |                                        |                                                |                                                |
+| High-availability replicas <br/>(Automated multi-AZ failover) | ✓                                      | ✓                                              | ✓                                              |
+| Read replicas		                                               |                                        | ✓                                              | ✓                                              |
+| Point-in-time recovery and forking                            | 	3 days                                | 14 days                                        | 14 days                                        |
+| Performance insights                                          | ✓                                      | ✓                                              | ✓                                              |
+| Metrics and log exporters	                                    |                                        | ✓                                              | ✓                                              |
+| **Security and compliance**                                   |                                        |                                                |                                                |
+| End-to-end encryption                                         | ✓                                      | ✓                                              | ✓                                              |
+| Private Networking (VPC)                                      | 1 multi-attach VPC	                    | Unlimited multi-attach VPCs                    | 	Unlimited multi-attach VPCs                   | 
+| IP address allow list | 1 list with up to 10 IP addresses | Up to 10 lists with up to 10 IP addresses each | Up to 10 lists with up to 10 IP addresses each |
+| Multi-factor authentication                                   | ✓                                      | ✓                                              | ✓                                              |
+| Federated authentication (SAML)			                            |                                        |                                                | ✓                                              |
+| SOC 2 Type 2 report		                                         |                                        | ✓                                              | ✓                                              |
+| Penetration testing report                                    |                                        |                                                | ✓                                              |			
+| Security questionnaire and review                             |                                        |                                                | ✓                                              |			
+| Pay by invoice                                                | 	Available at minimum spend	           | Available at minimum spend                     | ✓                                              |
+| [Uptime SLAs][commercial-sla]                                 | 	Standard                              | 	Standard                                      | 	Enterprise                                    |
+| **Support and technical services**                            |                                        |                                                |                                                |
+| Community support                                             | ✓                                      | ✓                                              | ✓                                              |
+| Email support                                                 | ✓                                      | ✓                                              | ✓                                              |
+| Production support                                            | 	Add-on                                | 	Add-on                                        | ✓                                              |
+| Named account manager                                         |                                        |                                                | ✓                                              |
+|JOIN services (Jumpstart Onboarding and INtegration)|                                        | Available at minimum spend                     | ✓                                              | 
 
 If you want to estimate your costs ahead of the billing cycle, you can use the
 [pricing calculator](http://timescale.com/pricing/calculator).
