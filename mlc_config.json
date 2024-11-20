@@ -60,6 +60,9 @@
     },
     {
       "pattern": "https://assets.timescale.com/images/diagrams/compression_diagram.png"
+    },
+    {
+      "pattern": "https://www.cse.ust.hk/~raywong/comp5331/References/EfficientComputationOfFrequentAndTop-kElementsInDataStreams.pdf"
     }
   ]
 }
