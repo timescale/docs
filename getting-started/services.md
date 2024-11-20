@@ -10,16 +10,12 @@ import Install from "versionContent/_partials/_cloud-installation.mdx";
 import Connect from "versionContent/_partials/_cloud-connect.mdx";
 import CreateAHypertable from "versionContent/_partials/_create-hypertable.mdx";
 import ServiceOverview from "versionContent/_partials/_service-overview.mdx";
+import CloudIntro from "versionContent/_partials/_cloud-intro.mdx";
 
 # Create your first $SERVICE_LONG
 
-$CLOUD_LONG offers the following PostgreSQL optimized database services:
+<CloudIntro />
 
-- **Time-series and Analytics**: a $TIMESCALE_DB instance optimized for your 
-    [time-series and analytics][what-is-time-series] workloads.
-- **Dynamic PostgreSQL**: for all other workloads. A PostgreSQL instance with a 
-    [dynamic compute range][what-is-dynamic-postgres] aligned to your business needs.
-- **Vector and AI**: for apps that require fast search on vector embeddings and metadata, like semantic search, image search, RAG and Agents. Powered by $COMPANY Vector and available on Time-series and Dynamic PostgreSQL services. 
 
 <ServiceOverview />
 
@@ -82,7 +78,6 @@ And that is it, you are up and running. Enjoy developing with $COMPANY.
 [create-a-hypertable]: /getting-started/:currentVersion:/services/#create-a-hypertable
 [create-service]: https://console.cloud.timescale.com/dashboard/create_services
 [what-is-time-series]: https://www.timescale.com/blog/what-is-a-time-series-database/#what-is-a-time-series-database
-[what-is-dynamic-postgres]: https://www.timescale.com/dynamic-postgresql
 [hypertables]: /use-timescale/:currentVersion:/hypertables/about-hypertables/#hypertable-partitioning
 [timescaledb]: https://docs.timescale.com/#TimescaleDB
 
