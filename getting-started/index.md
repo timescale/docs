@@ -14,8 +14,6 @@ import WhereNext from "versionContent/_partials/_where-to-next.mdx";
 
 <CloudIntro />
 
-Each database instance in Timescale is called a service.
-
 This section shows you how to:
 
 1.  [Create and connect to a Timescale service][services-create]
