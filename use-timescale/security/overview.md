@@ -47,6 +47,11 @@ Timescale Cloud services running in the Timescale VPC. Timescale cannot initiate
 communication with your VPC. To learn how to set up VPC Peering, see 
 [Secure your Timescale Service with VPC Peering and AWS PrivateLink][vpc-peering].
 
+## IP address allow lists
+
+You can allow only trusted IP addresses to access your $SERVICE_LONGs. You do this by 
+creating [IP address allow lists][ip-allowlist] and attaching them to your $SERVICE_SHORTs. 
+
 ## Operator access
 
 Normally all the resources required for providing Timescale Cloud services are
@@ -84,5 +89,6 @@ has mandatory recurring training regarding the applicable policies.
 [aws-kms]: https://aws.amazon.com/kms/
 [ec2-security]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/data-protection.html
 [ebs-security]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html
-[vpc-peering]: /use-timescale/:currentVersion:/vpc
+[vpc-peering]: /use-timescale/:currentVersion:/security/vpc
 [security-at-timescale]: https://www.timescale.com/security
+[ip-allowlist]: /use-timescale/:currentVersion:/security/ip-allow-list/

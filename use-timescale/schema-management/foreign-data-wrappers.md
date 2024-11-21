@@ -105,7 +105,7 @@ IMPORT FOREIGN SCHEMA public
        INTO fdw;
 ```
 
-[vpc-peering]: /use-timescale/:currentVersion:/vpc/
+[vpc-peering]: /use-timescale/:currentVersion:/security/vpc/
 [sql-editor]: /getting-started/:currentVersion:/run-queries-from-console/#ops-mode-sql-editor/
 
 
