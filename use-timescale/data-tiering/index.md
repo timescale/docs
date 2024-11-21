@@ -18,7 +18,7 @@ Engineered for infinite low-cost scalability, tiered storage consists of the:
 
 * **Object storage tier**: store data that is rarely accessed and has lower performance requirements.
   For example, to save old data for auditing or reporting purposes over long periods of time, even forever.
-  The Object store is low-cost bottomless data storage built on Amazon S3. You use it to avoid the
+  The object store is low-cost bottomless data storage built on Amazon S3. You use it to avoid the
   higher costs and data size limitations associated with the high-performance tier. 
 
 No matter the tier your data is stored in, [query it when you need it][querying-tiered-data]. 
@@ -63,10 +63,7 @@ This section explains the following:
 [about-data-tiering]: /use-timescale/:currentVersion:/data-tiering/about-data-tiering/
 [enabling-data-tiering]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/
 [replicas-and-forks]: /use-timescale/:currentVersion:/data-tiering/tiered-data-replicas-forks/
-[manual-tier-chunk]: /use-timescale/:currentVersion:/data-tiering/manual-tier-chunk/
-[disabling-data-tiering]: /use-timescale/:currentVersion:/data-tiering/disabling-data-tiering/
 [creating-data-tiering-policy]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/#automate-tiering-with-policies
 [querying-tiered-data]: /use-timescale/:currentVersion:/data-tiering/querying-tiered-data/
-[untier-data]: /use-timescale/:currentVersion:/data-tiering/untier-data/
 [add-retention-policies]: /api/:currentVersion:/continuous-aggregates/add_policies/
 [create-service]: /getting-started/:currentVersion:/services/

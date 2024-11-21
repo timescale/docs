@@ -14,7 +14,7 @@ moves automatically, you can write a user-defined action.
 
 <Highlight type="note">
 On the Timescale cloud platform, use the [Tiered Storage](https://docs.timescale.com/use-timescale/latest/data-tiering/)
-offering which handles this by providing a [tiering policy API](https://docs.timescale.com/use-timescale/latest/data-tiering/creating-data-tiering-policy/)
+offering which handles this by providing a [tiering policy API](https://docs.timescale.com/use-timescale/latest/data-tiering/enabling-data-tiering/#add-a-tiering-policy)
 to move data to low-cost object storage backed by Amazon S3.
 
 </Highlight>
