@@ -45,6 +45,10 @@ module.exports = [
               "Using a connection pool with your Timescale services",
           },
           {
+            title: "I/O boost",
+            href: "i-o-boost",
+          },
+          {
             title: "Troubleshooting Timescale services",
             href: "troubleshooting",
             type: "placeholder",
