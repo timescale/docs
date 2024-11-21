@@ -11,7 +11,10 @@ cloud_ui:
 
 # Manage automated and manual tiering
 
-You use tiered storage to save on storage costs. Specifically, you can migrate rarely used data from Timescale's standard high-performance storage to the object storage. After you [enable tiered storage][enable-tiered-storage], you then either [create automated tiering policies][tiering-policies] or [manually tier and untier data][manual-tier].
+You use tiered storage to save on storage costs. Specifically, you can migrate rarely used data from 
+Timescale's standard high-performance storage to the object storage. After you 
+[enable tiered storage][enable-tiered-storage], you then either [create automated tiering policies][tiering-policies] 
+or [manually tier and untier data][manual-tier].
 
 You can query the data on the object storage tier, but you cannot modify it. Make sure that you are not tiering data that needs to be **actively modified**.
 
@@ -32,7 +35,9 @@ You enable tiered storage from the `Overview` tab in Console.
    When tiered storage is enabled, you see the amount of data in the tiered object storage.
 
    <Highlight type="note">
-   Data tiering is available in [Scale and Enterprise](/about/latest/pricing-and-account-management/) pricing plans only.
+   
+   Data tiering is available in [Scale and Enterprise][pricing-plans] pricing plans only.
+   
    </Highlight>
 
 </Procedure>
@@ -217,8 +222,9 @@ If you no longer want to use tiered storage for a particular hypertable, drop th
 [data-retention]: /use-timescale/:currentVersion:/data-retention/
 [console]: https://console.cloud.timescale.com/dashboard/services
 [hypertable]: /use-timescale/:currentVersion:/hypertables/
-[connect-to-service]: /getting-started/:currentVersion:/services/#connect-to-your-service
+[connect-to-service]: /getting-started/:currentVersion:/run-queries-from-console/
 [caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
 [enable-tiered-storage]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/#enable-tiered-storage
 [tiering-policies]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering#automate-tiering-with-policies
 [manual-tier]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering#manually-tier-and-untier-chunks
+[pricing-plans]: /about/:currentVersion:/pricing-and-account-management

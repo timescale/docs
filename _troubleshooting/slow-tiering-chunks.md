@@ -4,8 +4,7 @@ section: troubleshooting
 products: [cloud]
 topics: [data tiering]
 keywords: [tiered storage]
-tags: [tiered storage]
-plans: [scale, enterprise]  
+tags: [tiered storage]  
 ---
 
 
