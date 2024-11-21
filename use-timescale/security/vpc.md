@@ -1,6 +1,6 @@
 ---
 title: Virtual Private Cloud
-excerpt: Use a Peering VPC and AWS PrivateLink to secure your $SERVICE_LONG
+excerpt: Use a Peering VPC and AWS PrivateLink to secure your Timescale Cloud service
 products: [cloud]
 keywords: [PrivateLink, AWS, vpc, services, operations, ]
 tags: [aws]
@@ -75,7 +75,7 @@ between $CLOUD_LONG and your own VPC in a logically isolated virtual network.
 
 <Procedure>
 
-1.  In [$CONSOLE > VPC][console-vpc], click `New VPC`.
+1.  In [$CONSOLE > Security > VPC][console-vpc], click `Create a VPC`.
 
     ![$CLOUD_LONG new $VPC](https://assets.timescale.com/docs/images/console-add-vpc.png)
 
@@ -93,7 +93,7 @@ between $CLOUD_LONG and your own VPC in a logically isolated virtual network.
     pricing plan in [$CONSOLE][console-login].
 
 
-1.  Choose your region and IP range, then click `Create VPC`. 
+1.  Choose your region and IP range, name your VPC, then click `Create VPC`. 
 
     ![Create a new VPC in $CLOUD_LONG](https://assets.timescale.com/docs/images/tsc-vpc-create.png)
 
@@ -193,7 +193,7 @@ AWS VPC. It is no longer accessible using the public internet.
 
 1.  In [$CONSOLE > Services][console-services] select the $SERVICE_SHORT you want to
     connect to the VPC.
-1. Click `Operations` > `VPC`.
+1. Click `Security` > `VPC`.
 1. Select the VPC, then click `Attach VPC`.
 
 </Procedure>
@@ -221,7 +221,7 @@ to update your connection string.
 1. In [$CONSOLE > Services][console-services] select the $SERVICE_SHORT to migrate.
 
    If you don't have a $SERVICE_SHORT, [create a new one][create-service].
-1. Click `Operations` > `VPC`.
+1. Click `Security` > `VPC`.
 1. Select the VPC, then click `Attach VPC`.
 
 </Procedure>
@@ -239,10 +239,10 @@ some time for DNS propagation.
 [tsc-regions]: /use-timescale/:currentVersion:/regions/
 
 
-[aws-vpc-setup-vpc]: /use-timescale/:currentVersion:/vpc/#create-a-peering-vpc-in-timescale-console
-[aws-vpc-complete]: /use-timescale/:currentVersion:/vpc/#complete-the-vpc-connection-in-aws
-[aws-vpc-security-groups]: /use-timescale/:currentVersion:/vpc/#set-up-security-groups-in-aws
-[aws-vpc-connect-vpcs]: /use-timescale/:currentVersion:/vpc/#attach-a-timescale-service-to-the-peering-vpc
+[aws-vpc-setup-vpc]: /use-timescale/:currentVersion:/security/vpc/#create-a-peering-vpc-in-timescale-console
+[aws-vpc-complete]: /use-timescale/:currentVersion:/security/vpc/#complete-the-vpc-connection-in-aws
+[aws-vpc-security-groups]: /use-timescale/:currentVersion:/security/vpc/#set-up-security-groups-in-aws
+[aws-vpc-connect-vpcs]: /use-timescale/:currentVersion:/security/vpc/#attach-a-timescale-service-to-the-peering-vpc
 
 
 [create-service]: /getting-started/:currentVersion:/services/#create-a-timescale-cloud-service
