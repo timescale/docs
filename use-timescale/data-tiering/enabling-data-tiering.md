@@ -7,12 +7,11 @@ tags: [storage, data management]
 cloud_ui:
     path:
         - [services, :serviceId, overview]
-plans: [scale, enterprise]  
 ---
 
 # Manage automated and manual tiering
 
-You use tiered storage to save on storage costs. Specifically, you can migrate rarely used data from Timescale's standard high-performance storage to the object storage. After you [enable tiered storage](#enable-tiered-storage), you then either [create automated tiering policies](#automate-tiering-with-policies) or [manually tier and untier data](#manually-tier-and-untier-chunks).
+You use tiered storage to save on storage costs. Specifically, you can migrate rarely used data from Timescale's standard high-performance storage to the object storage. After you [enable tiered storage][enable tiered storage], you then either [create automated tiering policies][tiering-policies] or [manually tier and untier data][manual-tier].
 
 You can query the data on the object storage tier, but you cannot modify it. Make sure that you are not tiering data that needs to be **actively modified**.
 
@@ -220,3 +219,6 @@ If you no longer want to use tiered storage for a particular hypertable, drop th
 [hypertable]: /use-timescale/:currentVersion:/hypertables/
 [connect-to-service]: /getting-started/:currentVersion:/services/#connect-to-your-service
 [caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
+[enable tiered storage]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/#enable-tiered-storage
+[tiering-policies]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering#automate-tiering-with-policies
+[manual-tier]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering#manually-tier-and-untier-chunks

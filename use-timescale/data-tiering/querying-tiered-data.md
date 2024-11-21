@@ -4,7 +4,6 @@ excerpt: How to query tiered data
 product: [ cloud ]
 keywords: [ tiered storage, tiering ]
 tags: [ storage, data management ]
-plans: [scale, enterprise]  
 ---
 
 # Querying tiered data

@@ -4,7 +4,6 @@ excerpt: Save on storage costs by tiering older data to a low-cost bottomless ob
 products: [cloud]
 keywords: [tiered storage]
 tags: [storage, data management]
-plans: [scale, enterprise]  
 ---
 
 # Tiered storage
