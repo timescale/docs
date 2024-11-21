@@ -19,9 +19,9 @@ You enable I/O boost from the `Operations` tab in [$CONSOLE][console].
 
 <Procedure>
 
-1. In $CONSOLE, choose the $SERVICE_SHORT you want to enable I/O boost for. 
+1. **In $CONSOLE, choose the $SERVICE_SHORT you want to enable I/O boost for**. 
 
-1. Open the `Operations` tab and toggle the I/O boost switch. Then click `Apply`.
+1. **Open the `Operations` tab and toggle the I/O boost switch. Then click `Apply`**.
 
    ![Timescale I/O Boost](https://assets.timescale.com/docs/images/timescale-i-o-boost.png)
 
