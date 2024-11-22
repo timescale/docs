@@ -119,7 +119,7 @@ SELECT * FROM  hypertable WHERE timestamp_col > now() - '100 days'::interval
 
 For more info on queries with immutable/stable/volatile filters, check our blog post on [Implementing constraint exclusion for faster query performance](https://www.timescale.com/blog/implementing-constraint-exclusion-for-faster-query-performance/).
 
-If you no longer want to use tiered storage for a particular hypertable, you can now disable tiering and drop the associated tiering metadata on the hypertable with a call to [disable_tiering function](https://docs.timescale.com/use-timescale/latest/data-tiering/disabling-data-tiering/). 
+If you no longer want to use tiered storage for a particular hypertable, you can now disable tiering and drop the associated tiering metadata on the hypertable with a call to [disable_tiering function](https://docs.timescale.com/use-timescale/latest/data-tiering/enabling-data-tiering/#disable-tiering). 
 
 ### Chunk interval recommendations
 Timescale Console now shows recommendations for services with too many small chunks in their hypertables. 
