@@ -37,6 +37,11 @@ upgrade TimescaleDB:
 |TimescaleDB&nbsp;2.0|&#10060;|&#10060;|&#10060;|&#10060;|&#10060;|&#9989;|&#9989;|&#10060;|&#10060;
 |TimescaleDB&nbsp;1.7|&#10060;|&#10060;|&#10060;|&#10060;|&#10060;|&#9989;|&#9989;|&#9989;|&#9989;|
 
+PostgreSQL 17.1 [introduced a breaking change][postgres-breaking-change] that is incompatible with TimescaleDB. When you
+build from source, best practice is to build with PostgreSQL 17.2 and higher. Do not build against PostgreSQL 17.1.
+Users of  [Timescale Cloud](https://console.cloud.timescale.com/) and platform packages for Linux, Windows, MacOS,
+Docker, and Kubernetes are unaffected.
+
 You cannot upgrade TimescaleDB and PostgreSQL at the same time. You upgrade each product in
 the following steps: 
 
@@ -90,3 +95,4 @@ then restore it into the new, upgraded, database. For more information, see the 
 [backup]: /self-hosted/:currentVersion:/backup-and-restore/
 [pg-relnotes]: https://www.postgresql.org/docs/release/
 [pg_upgrade]: https://www.postgresql.org/docs/current/static/pgupgrade.html
+[postgres-breaking-change]: https://www.postgresql.org/about/news/postgresql-172-166-1510-1415-1318-and-1222-released-2965/
