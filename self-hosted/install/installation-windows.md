@@ -92,13 +92,13 @@ And that is it! You have TimescaleDB running on a database on a self-hosted inst
   *   Microsoft Windows Server&nbsp;2019
 
 
-    For release information, see the [GitHub releases page][gh-releases] and the [release notes][release-notes].
+For release information, see the [GitHub releases page][gh-releases] and the [release notes][release-notes].
     
 [config]: /self-hosted/:currentVersion:/configuration/
 [gh-releases]: https://github.com/timescale/timescaledb/releases
 [ms-download]: https://www.microsoft.com/en-us/download/details.aspx?id=48145
 [pg-download]: https://www.postgresql.org/download/windows/
-[release-notes]: /about/:currentVersion:/release-notes/
+[release-notes]: https://github.com/timescale/timescaledb/releases
 [windows-releases]: #windows-releases
 [install-from-source]: /self-hosted/:currentVersion:/install/installation-source/
 [install-timescaledb]: /self-hosted/:currentVersion:/install/installation-windows/#install-and-configure-timescaledb-on-postgresql
