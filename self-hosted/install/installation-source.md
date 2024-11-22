@@ -38,7 +38,7 @@ To install TimescaleDB from source, you need the following on your developer env
    Users of  [Timescale Cloud](https://console.cloud.timescale.com/) and platform packages for Linux, Windows, MacOS, 
    Docker, and Kubernetes are unaffected.
 
-* Build tools:
+* **Build tools**:
 
   *   [CMake version 3.11 or later][cmake-download]
   *   C language compiler for your operating system, such as `gcc` or `clang`.
