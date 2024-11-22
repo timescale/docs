@@ -1,6 +1,6 @@
 ---
-title: How to simulate a basic IoT sensor dataset
-excerpt: Test your database by simulating a dataset
+title: Simulate an IoT sensor dataset
+excerpt: Simulate an IOT dataset in your Timescale Cloud service
 products: [cloud, mst, self_hosted]
 keywords: [IoT, simulate]
 ---
@@ -9,16 +9,16 @@ import ImportPrerequisites from "versionContent/_partials/_migrate_import_prereq
 
 # Simulate an IoT sensor dataset
 
-The Internet of Things (IoT) describes a trend where computing capabilities are embedded into physical objects (IoT devices), ranging from light bulbs to oil wells. Many of those IoT devices collect sensor data about their environment and generate time-series datasets with relational metadata.
+The Internet of Things (IoT) describes a trend where computing capabilities are embedded into IoT devices. That is, physical objects, ranging from light bulbs to oil wells. Many IoT devices collect sensor data about their environment and generate time-series datasets with relational metadata.
 
-It is often necessary to simulate such datasets, for example, when
-testing a new system. This tutorial shows how to simulate a basic dataset with $CLOUD_LONG and then run simple queries on it. 
+It is often necessary to simulate IoT datasets. For example, when you are 
+testing a new system. This tutorial shows how to simulate a basic dataset in your $SERVICE_LONG, and then run simple queries on it.
 
 To simulate a more advanced dataset, see [Time-series Benchmarking Suite (TSBS)][tsbs].
 
 ## Prerequisites
 
-Before starting this procedure:
+To follow this tutorial, you need to:
 
 - [Create a target Timescale Cloud service][create-a-service].
 - [Connect to your service][connect-to-service].
@@ -27,7 +27,7 @@ Before starting this procedure:
 
 <Procedure>
 
-To simulate a dataset, run the following queries. You can do so from the data mode, the ops mode SQL editor, or using `psql`:
+To simulate a dataset, run the following queries:
 
 1. **Create the `sensors` and `sensor_data` tables**:
 
@@ -201,6 +201,8 @@ After you simulate a dataset, you can run some basic queries on it. For example:
    ...
    ```
 
+You have now successfully simulated and run queries on an IoI dataset. 
+
 [create-a-service]: /getting-started/:currentVersion:/services/#create-a-timescale-cloud-service
-[connect-to-service]: /getting-started/:currentVersion:/services/#connect-to-your-service
+[connect-to-service]: /getting-started/:currentVersion:/run-queries-from-console/
 [tsbs]: https://github.com/timescale/tsbs
