@@ -8,14 +8,22 @@ keywords: [changelog, upgrades, updates, releases]
 
 All the latest features and updates to Timescale products.
 
-## 🤩 SQL Assistant, TimescaleDB v2.17, HIPAA compliance, and better logging
-
+### 🗝️ IP Allow Lists
 <Label type="date">November 21, 2024</Label>
 
-### 🗝️ IP Allow Lists
-IP Allow Lists enable customers to restrict access to their TimescaleDB services deployed on public cloud instances by specifying an allow-list of IP addresses.  IPAL enhances security by preventing unauthorized connections without the need for a Virtual Private Cloud (VPC), making it a lightweight but effective solution for customers concerned with security and compliance. To get started, head to Service > Operations > Security to enable an IP Allow List.
-![IP Allow lists](assets.timescale.com/docs/images/IP-Allow-lists.png)
+IP Allow Lists enable you to restrict access to your Timescale Cloud services 
+by specifying a restricted list of IP addresses that have access to your services. IP Allow Lists are a
+lightweight but effective solution for customers concerned with security and compliance. They enable 
+you to prevent unauthorized connections without the need for a [Virtual Private Cloud (VPC)](https://docs.timescale.com/use-timescale/latest/security/vpc/). 
 
+To get started, in [Timescale Console](https://console.cloud.timescale.com/), select a service, then click
+**Operationa** > **Security** >  **IP Allow List**, then create an IP Allow List.
+
+![IP Allow lists](https://assets.timescale.com/docs/images/IP-Allow-lists.png)
+
+For more information, [see our docs](https://docs.timescale.com/use-timescale/latest/security/ip-allow-list/). 
+
+## 🤩 SQL Assistant, TimescaleDB v2.17, HIPAA compliance, and better logging
 <Label type="date">November 14, 2024</Label>
 
 ### 🤖 New AI companion: SQL Assistant
