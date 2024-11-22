@@ -85,7 +85,7 @@ SELECT add_dimension('conditions', by_hash('device_id', 2), if_not_exists => tru
 [distributed-hypertables]: /api/:currentVersion:/distributed-hypertables/create_distributed_hypertable/
 [regular-hypertables]: /api/:currentVersion:/hypertable/create_hypertable/
 [add-dimension-old]: /api/:currentVersion:/hypertable/add_dimension_old/
-[rn-2130]: /about/:currentVersion:/release-notes/#timescaledb-2130-on-2023-11-28
+[rn-2130]: https://github.com/timescale/timescaledb/releases/tag/2.13.0
 [hash-partition]: /api/:currentVersion:/hypertable/add_dimension/#by_hash
 [range-partition]: /api/:currentVersion:/hypertable/add_dimension/#by_range
 [dimension-info]: /api/:currentVersion:/hypertable/add_dimension/#dimension-info

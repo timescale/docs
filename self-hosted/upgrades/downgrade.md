@@ -85,5 +85,5 @@ upgrading and downgrading.
 </Procedure>
 
 [backup]: /self-hosted/:currentVersion:/backup-and-restore/
-[relnotes]: /about/:currentVersion:/release-notes/
+[relnotes]: https://github.com/timescale/timescaledb/releases
 [upgrade-pg]: /self-hosted/:currentVersion:/upgrades/upgrade-pg/
