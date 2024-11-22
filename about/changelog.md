@@ -12,13 +12,12 @@ All the latest features and updates to Timescale products.
 <Label type="date">November 21, 2024</Label>
 
 ### 🗝️ IP Allow Lists
-IP Allow Lists enable you to restrict access to your Timescale Cloud services 
-by specifying a restricted list of IP addresses that have access to your services. IP Allow Lists are a
+IP Allow Lists let you specify a list of IP addresses that have access to your Timescale Cloud services and block any others. IP Allow Lists are a
 lightweight but effective solution for customers concerned with security and compliance. They enable 
 you to prevent unauthorized connections without the need for a [Virtual Private Cloud (VPC)](https://docs.timescale.com/use-timescale/latest/security/vpc/). 
 
 To get started, in [Timescale Console](https://console.cloud.timescale.com/), select a service, then click
-**Operationa** > **Security** >  **IP Allow List**, then create an IP Allow List.
+**Operations** > **Security** >  **IP Allow List**, then create an IP Allow List.
 
 ![IP Allow lists](https://assets.timescale.com/docs/images/IP-Allow-lists.png)
 
