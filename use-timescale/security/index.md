@@ -24,6 +24,6 @@ privacy.
 [mfa]: /use-timescale/:currentVersion:/security/multi-factor-authentication/
 [saml]: /use-timescale/:currentVersion:/security/saml/
 [client-credentials]: /use-timescale/:currentVersion:/security/client-credentials/
-[read-only]: /use-timescale/:currentVersion:/security//read-only-role/
+[read-only]: /use-timescale/:currentVersion:/security/read-only-role/
 [vpc-peering]: /use-timescale/:currentVersion:/security/vpc/
 [ip-allowlist]: /use-timescale/:currentVersion:/security/ip-allow-list/
