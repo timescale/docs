@@ -33,10 +33,13 @@ To install TimescaleDB from source, you need the following on your developer env
 
    Install a [supported version of PostgreSQL][compatibility-matrix] using the [PostgreSQL installation instructions][postgres-download]. 
 
-   PostgreSQL 17.1 [introduced a breaking change][postgres-breaking-change] that is incompatible with TimescaleDB. When you
-   build from source, best practice is to build with PostgreSQL 17.2 and higher. Do not build against PostgreSQL 17.1.
-   Users of  [Timescale Cloud](https://console.cloud.timescale.com/) and platform packages for Linux, Windows, MacOS, 
-   Docker, and Kubernetes are unaffected.
+    We recommend not using TimescaleDB with PostgreSQL 17.1, 16.5, 15.9, 14.14, 13.17, 12.21.  
+    These minor versions [introduced a breaking binary interface change][postgres-breaking-change] that,
+    once identified, was reverted in subsequent minor PostgreSQL versions 17.2, 16.6, 15.10, 14.15, 13.18, and 12.22.
+    When you build from source, best practice is to build with PostgreSQL 17.2, 16.6, etc and higher.
+    Users of [Timescale Cloud](https://console.cloud.timescale.com/) and Platform packages built and
+    distributed by Timescale are unaffected.
+
 
 * **Build tools**:
 
