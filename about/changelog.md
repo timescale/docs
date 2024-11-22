@@ -8,9 +8,10 @@ keywords: [changelog, upgrades, updates, releases]
 
 All the latest features and updates to Timescale products.
 
-### 🗝️ IP Allow Lists
+## 🗝️ IP Allow Lists!
 <Label type="date">November 21, 2024</Label>
 
+### 🗝️ IP Allow Lists
 IP Allow Lists enable you to restrict access to your Timescale Cloud services 
 by specifying a restricted list of IP addresses that have access to your services. IP Allow Lists are a
 lightweight but effective solution for customers concerned with security and compliance. They enable 
