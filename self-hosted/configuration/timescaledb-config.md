@@ -6,6 +6,8 @@ keywords: [configuration, settings]
 tags: [tune]
 ---
 
+import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";
+
 # TimescaleDB configuration and tuning
 
 Just as you can tune settings in PostgreSQL, TimescaleDB provides a number of configuration
@@ -36,7 +38,15 @@ Enables or disables the vectorized optimizations in the query executor. For
 example, the `sum()` aggregation function on compressed chunks can be optimized
 in this way.
 
+### `timescaledb.enable_merge_on_cagg_refresh  (bool)`
+
+Set to `TRUE` to dramatically decrease the amount of data written on a continuous aggregate 
+in the presence of a small number of changes, reduce the i/o cost of refreshing a 
+[continuous aggregate][continuous-aggregates], and generate fewer Write-Ahead Logs (WAL)
+
 ## Distributed hypertables
+
+<MultiNodeDeprecation />
 
 ### `timescaledb.enable_2pc (bool)`
 
@@ -119,3 +129,5 @@ Records last time `timescaledb-tune` ran.
 ### `timescaledb.last_tuned_version (string)`
 
 Version of `timescaledb-tune` used to tune when it runs.
+
+[continuous-aggregates]: /use-timescale/:currentVersion:/continuous-aggregates/

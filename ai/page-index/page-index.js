@@ -31,12 +31,12 @@ module.exports = [
         title: "LlamaIndex integration",
         href: "llamaindex-integration-for-pgvector-and-timescale-vector",
         excerpt: "Integration of LlamaIndex with pgvector and pgvectorscale",
-      },*/
+      },
       {
         title: "Embed PostgreSQL data with PgVectorizer",
         href: "pgvectorizer",
         excerpt: "Create vector embeddings from PostgreSQL data with PgVectorizer",
-      },
+      },*/
     ],
   },
 ];
