@@ -77,7 +77,7 @@ Highlighted features in TimescaleDB v2.17 are:
 
       This improvement speeds up operations that delete whole segments by skipping the decompression step. It is enabled for all deletes that filter by the `segment_by` column(s).
 
-### Enhanced HIPAA compliance support in Timescale Cloud
+### HIPAA compliance
 
 Timescale Cloud's [Enterprise plan](https://docs.timescale.com/about/latest/pricing-and-account-management/#features-included-in-each-plan) is now HIPAA (Health Insurance Portability and Accountability Act) compliant. This allows organizations to securely manage and analyze sensitive healthcare data, ensuring they meet regulatory requirements while building compliant applications.
 
