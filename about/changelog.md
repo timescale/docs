@@ -77,19 +77,9 @@ Highlighted features in TimescaleDB v2.17 are:
 
       This improvement speeds up operations that delete whole segments by skipping the decompression step. It is enabled for all deletes that filter by the `segment_by` column(s).
 
-### Enhanced HIPAA compliance support in TimescaleDB
+### Enhanced HIPAA compliance support in Timescale Cloud
 
-TimescaleDB introduces essential updates to facilitate Health Insurance Portability and Accountability Act (HIPAA) compliance, empowering organizations to better protect sensitive healthcare information while simplifying regulatory adherence. Best practice is that customers upgrade to the [Enterprise plan](https://docs.timescale.com/about/latest/pricing-and-account-management/#features-included-in-each-plan) to leverage the following improvements in data security and auditing:
-
-*   **Introduced enhanced encryption and access controls**: Timescale encrypts all data at rest and in transit, while providing SAML, SSO, and MFA options for added access security.
-*   **Expanded audit logging for HIPAA compliance**: with the `pgAudit` and `pgSodium` extensions, you gain comprehensive logging for key data interactions. This enables you to capture the following information: user identity, access times, types of operations, and specific data accessed. You use these logs to identify and investigate potential security incidents.
-*   **Established breach notification protocol**: in case of a PHI data breach, Timescale notifies affected customers within 72 hours, ensuring transparency and compliance with HIPAA requirements.
-
-Highlighted features in this release:
-
-*   **Robust auditing capabilities**: Timescale Cloud now enables the `pgAudit` extension and soon, the `pgSodium` extension, providing essential logging capabilities to support HIPAA audits. By capturing actions such as read, write, and delete on sensitive data, these logs help users monitor and investigate access to PHI as required by HIPAA.
-*   **Detailed compliance documentation**: For customers needing additional verification of security practices, Timescale now offers a Business Associate Agreement (BAA) and a HIPAA Security Rule Self-Assessment, in addition to SOC 2 Type II and GDPR compliance documentation.
-*   **Shared responsibility model for compliance**: Timescale's shared responsibility model clarifies roles between Timescale and customers, outlining each party's duties in data encryption, access management, auditing, and breach notification.
+Timescale Cloud's [Enterprise plan](https://docs.timescale.com/about/latest/pricing-and-account-management/#features-included-in-each-plan) is now HIPAA (Health Insurance Portability and Accountability Act) compliant. This allows organizations to securely manage and analyze sensitive healthcare data, ensuring they meet regulatory requirements while building compliant applications.
 
 ### Expanded logging within Timescale Console
 
