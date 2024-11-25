@@ -7,7 +7,7 @@ keywords: [io, io boost, performance]
 
 # I/O boost
 
-I/O boost allows you to increase I/O and throughput of a service's EBS storage on the need-only basis. This means you can enable it for the most demanding applications, while keeping costs under control. 
+You use I/O boost to increase I/O and throughput of a service's [high-performance storage][data-tiering] on the need-only basis. This means you can enable it for the most demanding applications, while keeping costs under control.
 
 Enabling I/O boost increases I/O to 16,000 IOPS and throughput to 1,000 MBps. The boost also applies to any [high-availability][ha-replicas] or [read replicas][read-replicas] you might have running for a service, although for an additional fee. 
 
@@ -33,7 +33,7 @@ I/O boost is now enabled for this service and its replicas. You can enable or di
 [ha-replicas]: /use-timescale/:currentVersion:/ha-replicas/high-availability/
 [read-replicas]: /use-timescale/:currentVersion:/ha-replicas/read-scaling/
 [pricing-tiers]: /about/:currentVersion:/pricing-and-account-management/
-
+[data-tiering]: /use-timescale/:currentVersion:/data-tiering/
 
 
 
