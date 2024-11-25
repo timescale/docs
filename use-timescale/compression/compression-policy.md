@@ -61,7 +61,11 @@ For more information, see the API reference for [`timescaledb_information.jobs`]
 
 ## Pause compression policy
 
-To disable a compression policy temporarily:
+To disable a compression policy temporarily, find the corresponding job ID and then call `alter_job` to pause it:
+
+```sql
+SELECT * FROM timescaledb_information.jobs where proc_name = 'policy_compression' AND relname = ''
+```
 
 ```sql
 SELECT alter_job(<job_id>, scheduled => false);

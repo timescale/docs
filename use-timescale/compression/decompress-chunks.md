@@ -22,8 +22,7 @@ for actions such as bulk inserts.
 </Highlight>
 
 This section describes commands to use for decompressing chunks. You can filter
-by time to select the chunks you want to decompress. To backfill
-data, use the [backfilling script][backfilling_script].
+by time to select the chunks you want to decompress.
 
 ## Decompress chunks manually
 
@@ -72,4 +71,3 @@ SELECT tableoid::regclass FROM metrics
 
 [api-reference-decompress]: /api/:currentVersion:/compression/decompress_chunk/
 [api-reference-alter-job]: /api/:currentVersion:/actions/alter_job/
-[backfilling_script]: https://github.com/timescale/timescaledb-extras/blob/master/backfill.sql
