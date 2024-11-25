@@ -27,22 +27,29 @@ This section shows you how to:
 
 ### Prerequisites
 
-To install TimescaleDB from source, you need:
+To install TimescaleDB from source, you need the following on your developer environment:
 
-*   A [supported version of PostgreSQL][compatibility-matrix] installed on your developer environment 
+* **PostgreSQL**: 
 
-    For PostgreSQL installation instructions, see the [PostgreSQL documentation][postgres-download].
+   Install a [supported version of PostgreSQL][compatibility-matrix] using the [PostgreSQL installation instructions][postgres-download]. 
 
-* Build tools:
+    We recommend not using TimescaleDB with PostgreSQL 17.1, 16.5, 15.9, 14.14, 13.17, 12.21.  
+    These minor versions [introduced a breaking binary interface change][postgres-breaking-change] that,
+    once identified, was reverted in subsequent minor PostgreSQL versions 17.2, 16.6, 15.10, 14.15, 13.18, and 12.22.
+    When you build from source, best practice is to build with PostgreSQL 17.2, 16.6, etc and higher.
+    Users of [Timescale Cloud](https://console.cloud.timescale.com/) and Platform packages built and
+    distributed by Timescale are unaffected.
+
+
+* **Build tools**:
 
   *   [CMake version 3.11 or later][cmake-download]
   *   C language compiler for your operating system, such as `gcc` or `clang`.
 
-    <Highlight type="note">
-    If you are using a Microsoft Windows system, you can install Visual Studio 2015
-    or later instead of CMake and a C language compiler. Ensure you install the
-    Visual Studio components for CMake and Git when you run the installer.
-    </Highlight>
+      If you are using a Microsoft Windows system, you can install Visual Studio 2015
+      or later instead of CMake and a C language compiler. Ensure you install the
+      Visual Studio components for CMake and Git when you run the installer.
+    
 
 
 ## Install and configure TimescaleDB on PostgreSQL
@@ -71,3 +78,4 @@ And that is it! You have TimescaleDB running on a database on a self-hosted inst
 [postgres-download]: https://www.postgresql.org/download/
 [cmake-download]: https://cmake.org/download/
 [compatibility-matrix]: /self-hosted/:currentVersion:/upgrades/upgrade-pg/
+[postgres-breaking-change]: https://www.postgresql.org/about/news/postgresql-172-166-1510-1415-1318-and-1222-released-2965/
