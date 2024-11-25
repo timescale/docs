@@ -7,9 +7,9 @@ keywords: [io, io boost, performance]
 
 # I/O boost
 
-You use I/O boost to increase I/O and throughput of a service's [high-performance storage][data-tiering] on the need-only basis. This means you can enable it for the most demanding applications, while keeping costs under control.
+You use I/O boost to increase I/O and throughput of a service's [high-performance storage][data-tiering]. You can enable it for the most demanding applications, while keeping costs under control.
 
-Enabling I/O boost increases I/O to 16,000 IOPS and throughput to 1,000 MBps. The boost also applies to any [high-availability][ha-replicas] or [read replicas][read-replicas] you might have running for a service, although for an additional fee. 
+Enabling I/O boost increases I/O to 16,000 IOPS and throughput to 1,000 MBps. The boost also applies to any [high-availability][ha-replicas] replicas you might have running for a service, although for an additional fee.
 
 This feature is available under the Scale and Enterprise [pricing tiers][pricing-tiers]. 
 
