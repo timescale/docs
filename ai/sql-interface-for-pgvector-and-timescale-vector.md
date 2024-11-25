@@ -107,15 +107,20 @@ You can read more about it in
 [How We Made PostgreSQL as Fast as Pinecone for Vector Data](https://www.timescale.com/blog/how-we-made-postgresql-as-fast-as-pinecone-for-vector-data/).
 
 
-To create an index named `document_embedding_idx` on table `document_embedding` having a vector column named `embedding`, run:
+To create an index named `document_embedding_idx` on table `document_embedding` having a vector column named `embedding`, with cosine distance metric, run:
 ```sql
-CREATE INDEX document_embedding_idx ON document_embedding
-USING diskann (embedding);
+CREATE INDEX document_embedding_cos_idx ON document_embedding
+USING diskann (embedding vector_cosine_ops);
 ```
 
-StreamingDiskANN indexes only support cosine distance at this time, so you should use the `<=>` operator in your queries.
+Since this index uses cosine distance, you should use the `<=>` operator in your queries.  StreamingDiskANN also supports L2 distance:
+```sql
+CREATE INDEX document_embedding_l2_idx ON document_embedding
+USING diskann (embedding vector_l2_ops);
+```
+For L2 distance, use the `<->` operator in queries.
 
-This creates the index with smart defaults for all the index parameters. These should be the right value for most cases. But if you want to delve deeper, the available parameters are below.
+These examples create the index with smart defaults for all parameters not listed. These should be the right values for most cases. But if you want to delve deeper, the available parameters are below.
 
 #### StreamingDiskANN index build-time parameters
 

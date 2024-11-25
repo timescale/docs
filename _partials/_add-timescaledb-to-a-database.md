@@ -28,7 +28,7 @@
     Name     | Version |   Schema   |                                      Description                                      
     -------------+---------+------------+---------------------------------------------------------------------------------------
     plpgsql     | 1.0     | pg_catalog | PL/pgSQL procedural language
-    timescaledb | 2.15.1  | public     | Enables scalable inserts and complex queries for time-series data (Community Edition)
+    timescaledb | 2.17.2  | public     | Enables scalable inserts and complex queries for time-series data (Community Edition)
     ```
     Press q to exit the list of extensions.
 

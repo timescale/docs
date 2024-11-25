@@ -23,4 +23,4 @@ TimescaleDB. For more details about the latest release, see the
 
 [self-hosted-source]: /self-hosted/:currentVersion:/install/installation-source/
 [self-hosted-container]: /self-hosted/:currentVersion:/install/installation-docker/
-[release-notes]: /about/:currentVersion:/release-notes/
+[release-notes]: https://github.com/timescale/timescaledb/releases
