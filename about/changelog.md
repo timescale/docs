@@ -8,8 +8,21 @@ keywords: [changelog, upgrades, updates, releases]
 
 All the latest features and updates to Timescale products.
 
-## 🤩 SQL Assistant, TimescaleDB v2.17, HIPAA compliance, and better logging
+## 🗝️ IP Allow Lists!
+<Label type="date">November 21, 2024</Label>
 
+IP Allow Lists let you specify a list of IP addresses that have access to your Timescale Cloud services and block any others. IP Allow Lists are a
+lightweight but effective solution for customers concerned with security and compliance. They enable 
+you to prevent unauthorized connections without the need for a [Virtual Private Cloud (VPC)](https://docs.timescale.com/use-timescale/latest/security/vpc/). 
+
+To get started, in [Timescale Console](https://console.cloud.timescale.com/), select a service, then click
+**Operations** > **Security** >  **IP Allow List**, then create an IP Allow List.
+
+![IP Allow lists](https://assets.timescale.com/docs/images/IP-Allow-lists.png)
+
+For more information, [see our docs](https://docs.timescale.com/use-timescale/latest/security/ip-allow-list/). 
+
+## 🤩 SQL Assistant, TimescaleDB v2.17, HIPAA compliance, and better logging
 <Label type="date">November 14, 2024</Label>
 
 ### 🤖 New AI companion: SQL Assistant
@@ -64,19 +77,9 @@ Highlighted features in TimescaleDB v2.17 are:
 
       This improvement speeds up operations that delete whole segments by skipping the decompression step. It is enabled for all deletes that filter by the `segment_by` column(s).
 
-### Enhanced HIPAA compliance support in TimescaleDB
+### HIPAA compliance
 
-TimescaleDB introduces essential updates to facilitate Health Insurance Portability and Accountability Act (HIPAA) compliance, empowering organizations to better protect sensitive healthcare information while simplifying regulatory adherence. Best practice is that customers upgrade to the [Enterprise plan](https://docs.timescale.com/about/latest/pricing-and-account-management/#features-included-in-each-plan) to leverage the following improvements in data security and auditing:
-
-*   **Introduced enhanced encryption and access controls**: Timescale encrypts all data at rest and in transit, while providing SAML, SSO, and MFA options for added access security.
-*   **Expanded audit logging for HIPAA compliance**: with the `pgAudit` and `pgSodium` extensions, you gain comprehensive logging for key data interactions. This enables you to capture the following information: user identity, access times, types of operations, and specific data accessed. You use these logs to identify and investigate potential security incidents.
-*   **Established breach notification protocol**: in case of a PHI data breach, Timescale notifies affected customers within 72 hours, ensuring transparency and compliance with HIPAA requirements.
-
-Highlighted features in this release:
-
-*   **Robust auditing capabilities**: Timescale Cloud now enables the `pgAudit` extension and soon, the `pgSodium` extension, providing essential logging capabilities to support HIPAA audits. By capturing actions such as read, write, and delete on sensitive data, these logs help users monitor and investigate access to PHI as required by HIPAA.
-*   **Detailed compliance documentation**: For customers needing additional verification of security practices, Timescale now offers a Business Associate Agreement (BAA) and a HIPAA Security Rule Self-Assessment, in addition to SOC 2 Type II and GDPR compliance documentation.
-*   **Shared responsibility model for compliance**: Timescale's shared responsibility model clarifies roles between Timescale and customers, outlining each party's duties in data encryption, access management, auditing, and breach notification.
+Timescale Cloud's [Enterprise plan](https://docs.timescale.com/about/latest/pricing-and-account-management/#features-included-in-each-plan) is now HIPAA (Health Insurance Portability and Accountability Act) compliant. This allows organizations to securely manage and analyze sensitive healthcare data, ensuring they meet regulatory requirements while building compliant applications.
 
 ### Expanded logging within Timescale Console
 
@@ -119,7 +122,7 @@ SELECT * FROM  hypertable WHERE timestamp_col > now() - '100 days'::interval
 
 For more info on queries with immutable/stable/volatile filters, check our blog post on [Implementing constraint exclusion for faster query performance](https://www.timescale.com/blog/implementing-constraint-exclusion-for-faster-query-performance/).
 
-If you no longer want to use tiered storage for a particular hypertable, you can now disable tiering and drop the associated tiering metadata on the hypertable with a call to [disable_tiering function](https://docs.timescale.com/use-timescale/latest/data-tiering/disabling-data-tiering/). 
+If you no longer want to use tiered storage for a particular hypertable, you can now disable tiering and drop the associated tiering metadata on the hypertable with a call to [disable_tiering function](https://docs.timescale.com/use-timescale/latest/data-tiering/enabling-data-tiering/#disable-tiering). 
 
 ### Chunk interval recommendations
 Timescale Console now shows recommendations for services with too many small chunks in their hypertables. 
