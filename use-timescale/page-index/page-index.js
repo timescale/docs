@@ -923,11 +923,6 @@ module.exports = [
         ],
       },
       {
-        title: "Timescale cookbook",
-        href: "cookbook",
-        excerpt: "Code examples from the community that help you with loads of common conundrums.",
-      },
-      {
         title: "Timescale limitations",
         href: "limitations",
         excerpt: "Current limitations of Timescale features",

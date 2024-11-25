@@ -1,21 +1,13 @@
----
-title: Timescale cookbook
-excerpt: Code examples from the community that help you with loads of common conundrums.   
-product: [cloud, mst, self_hosted] 
----
 
-# Timescale cookbook
+## Hypertable recipes
 
-This page contains suggestions from the [TimescaleDB Community](https://timescaledb.slack.com/)
-about how to resolve common issue. Use these code examples as guidance to work with your own data. 
+This section contains recipes about hypertables.
 
-- [Remove duplicates from an existing hypertable](#remove-duplicates-from-an-existing-hypertable)
+### Remove duplicates from an existing hypertable
 
-## Remove duplicates from an existing hypertable
-
-Looking to remove duplicates from an existing hypertable? One method is to run a `PARTITION BY` query to get 
+Looking to remove duplicates from an existing hypertable? One method is to run a `PARTITION BY` query to get
 `ROW_NUMBER()` and then the `ctid` of rows where `row_number>1`. You then delete these rows.  However,
-you need to check check `tableoid` and `ctid`. This is because `ctid` is not unique and might be duplicated in 
+you need to check check `tableoid` and `ctid`. This is because `ctid` is not unique and might be duplicated in
 different chunks. The following code example took 17 hours to process a table with 40 million rows:
 
 ```sql
@@ -70,6 +62,6 @@ $$ LANGUAGE plpgsql;
 SELECT *
 FROM deduplicate_chunks('nudge_events', 'bot_id, session_id, nudge_id, time', 2540);
 ```
- 
- Shoutout to **Mathias Ose** and **Christopher Piggott** for this recipe. 
+
+Shoutout to **Mathias Ose** and **Christopher Piggott** for this recipe. 
  
