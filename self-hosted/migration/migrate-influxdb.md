@@ -14,8 +14,10 @@ migrations. It pipes exported data directly to Timescale, and manages schema
 discovery, validation, and creation.
 
 <Highlight type="important">
+
 Outflux works with earlier versions of InfluxDB. It does not work with InfluxDB
 version 2 and later.
+
 </Highlight>
 
 ## Prerequisites
@@ -30,10 +32,9 @@ Before you start, make sure you have:
 
 To import data from Outflux, follow these procedures:
 
-1.  [Install Outflux](#install-outflux)
-1.  [Discover, validate, and transfer
-    schema](#discover-validate-and-transfer-schema) to Timescale (optional)
-1.  [Migrate data to Timescale](#migrate-data-to-timescaledb)
+1.  [Install Outflux][install-outflux]
+1.  [Discover, validate, and transfer schema][discover-validate-and-transfer-schema] to Timescale (optional)
+1.  [Migrate data to Timescale][migrate-data-to-timescale]
 
 ## Install Outflux
 
@@ -49,14 +50,15 @@ and MacOS.
 1.  Extract it to a preferred location.
 
 <Highlight type="note">
-If you prefer to build Outflux from source, see the [Outflux
-README](https://github.com/timescale/outflux/blob/master/README.md) for
+
+If you prefer to build Outflux from source, see the [Outflux README][outflux-readme] for
 instructions.
+
 </Highlight>
 
 </Procedure>
 
-To get help with Outflux, you can run `./outflux --help` from the directory
+To get help with Outflux, run `./outflux --help` from the directory
 where you installed it.
 
 ## Discover, validate, and transfer schema
@@ -70,10 +72,12 @@ Outflux can:
     exists
 
 <Highlight type="note">
+
 Outflux's `migrate` command does schema transfer and data migration in one step.
-For more information, see the [migrate](#migrate-data-to-timescaledb) section.
+For more information, see the [migrate][migrate-data-to-timescale] section.
 Use this section if you want to validate and transfer your schema independently
 of data migration.
+
 </Highlight>
 
 To transfer your schema from InfluxDB to Timescale, run `outflux
@@ -89,9 +93,11 @@ To transfer all measurements from the database, leave out the measurement name
 argument.
 
 <Highlight type="note">
+
 This example uses the `postgres` user and database to connect to the Timescale
 database. For other connection options and configuration, see the [Outflux
-Github repo](https://github.com/timescale/outflux#connection).
+Github repo][outflux-gitbuh].
+
 </Highlight>
 
 ### Schema transfer options
@@ -131,8 +137,8 @@ outflux migrate <DATABASE_NAME> <INFLUX_MEASUREMENT_NAME> \
 ```
 
 The schema strategy and connection options are the same as for
-`schema-transfer`. For more information, see the
-[`schema-transfer`](#discover-validate-and-transfer-schema) section.
+`schema-transfer`. For more information, see 
+[Discover, validate, and transfer schema][discover-validate-and-transfer-schema].
 
 In addition, `outflux migrate` also takes the following flags:
 
@@ -153,7 +159,12 @@ outflux migrate --help
 ```
 
 [influx-cmd]: https://docs.influxdata.com/influxdb/v1.7/tools/shell/
-[install]: /getting-started/latest/
+[install]: /getting-started/:currentVersion:/
 [outflux-migrate]: https://github.com/timescale/outflux#migrate
 [outflux-releases]: https://github.com/timescale/outflux/releases
 [outflux]: https://github.com/timescale/outflux
+[install-outflux]: /self-hosted/:currentVersion:/migration/migrate-influxdb/#install-outflux
+[discover-validate-and-transfer-schema]: /self-hosted/:currentVersion:/migration/migrate-influxdb/#discover-validate-and-transfer-schema
+[migrate-data-to-timescale]: /self-hosted/:currentVersion:/migration/migrate-influxdb/#migrate-data-to-timescale
+[outflux-gitbuh]: https://github.com/timescale/outflux#connection
+[outflux-readme]: https://github.com/timescale/outflux/blob/master/README.md
