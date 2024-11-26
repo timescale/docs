@@ -90,10 +90,10 @@ This rare phenomenon may happen when:
   following GUCs to the recommended values on the source RDS instance.
 
    ```shell
-   psql -X -d $SOURCE -c 'alter system set tcp_keepalives_count=60'
-   psql -X -d $SOURCE -c 'alter system set tcp_keepalives_idle=10'
-   psql -X -d $SOURCE -c 'alter system set tcp_keepalives_interval=10'
-   psql -X -d $SOURCE -c 'alter system set wal_sender_timeout=30m'
+   psql -X -d $SOURCE -c "alter system set tcp_keepalives_count=60"
+   psql -X -d $SOURCE -c "alter system set tcp_keepalives_idle=10"
+   psql -X -d $SOURCE -c "alter system set tcp_keepalives_interval=10"
+   psql -X -d $SOURCE -c "alter system set wal_sender_timeout='30min'"
    ```
 
   For more information, see [https://github.com/dimitri/pgcopydb/issues/773#issuecomment-2139093365](https://github.com/dimitri/pgcopydb/issues/773#issuecomment-2139093365)

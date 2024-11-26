@@ -25,7 +25,7 @@ Updating parameters on a PostgreSQL instance will cause an outage. Choose a time
       - `tcp_keepalives_count` set to `60`:  the number of messages that can be lost before the client is considered dead.
       - `tcp_keepalives_idle` set to `10`: the amount of time with no network activity before the IS sends a TCP keepalive message to the client.
       - `tcp_keepalives_interval` set to `10`: the amount of time before a unacknowledged TCP keepalive message is restransmitted. 
-      - `wal_sender_timeout` set to `30m`: the maximum time to wait for WAL replication.
+      - `wal_sender_timeout` set to `30min`: the maximum time to wait for WAL replication.
 
 
    1. In RDS, navigate back to your [databases][databases], select the RDS instance to migrate and click `Modify`.  
