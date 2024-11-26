@@ -147,13 +147,13 @@ The features included in each [plan][pricing-plans] are:
 | Time-series                                                   | ✓                                      | ✓                                              | ✓                                              |
 | Vector search                                                 | ✓                                      | ✓                                              | ✓                                              |
 | AI workflows (coming soon)                                    | ✓                                      | ✓                                              | ✓                                              |
-| Cloud SQL editor                               | 3 seats                                | 10 seats                                       | 20 seats                                       |
+| Cloud SQL editor                                              | 3 seats                                | 10 seats                                       | 20 seats                                       |
 | Charts                                                        | ✓                                      | ✓                                              | ✓                                              |
 | Dashboards                                                    | 2                                      | Unlimited                                      | Unlimited                                      |
 | **Storage and performance**                                   |                                        |                                                |                                                |
 | IOPS (autoscales)                                             | 	3,000 - 5,000	                        | 5,000 - 8,000                                  | 5,000 - 8,000                                  | 
 | Bandwidth (autoscales)	                                       | 125 - 250 Mbps                         | 	250 - 500 Mbps                                | 	Up to 500 mbps                                | 
-| IO Boost	                                                     |                                        | 	Add-on: <br/>16K IOPS, 1000 Mbps BW	          | Add-on: <br/>16K IOPS, 1000 Mbps BW            | 
+| I/O Boost	                                                    |                                        | 	Add-on: <br/>16K IOPS, 1000 Mbps BW	          | Add-on: <br/>16K IOPS, 1000 Mbps BW            | 
 | **Availability and monitoring**                               |                                        |                                                |                                                |
 | High-availability replicas <br/>(Automated multi-AZ failover) | ✓                                      | ✓                                              | ✓                                              |
 | Read replicas		                                               |                                        | ✓                                              | ✓                                              |
@@ -163,7 +163,7 @@ The features included in each [plan][pricing-plans] are:
 | **Security and compliance**                                   |                                        |                                                |                                                |
 | End-to-end encryption                                         | ✓                                      | ✓                                              | ✓                                              |
 | Private Networking (VPC)                                      | 1 multi-attach VPC	                    | Unlimited multi-attach VPCs                    | 	Unlimited multi-attach VPCs                   | 
-| IP address allow list | 1 list with up to 10 IP addresses | Up to 10 lists with up to 10 IP addresses each | Up to 10 lists with up to 10 IP addresses each |
+| IP address allow list                                         | 1 list with up to 10 IP addresses | Up to 10 lists with up to 10 IP addresses each | Up to 10 lists with up to 10 IP addresses each |
 | Multi-factor authentication                                   | ✓                                      | ✓                                              | ✓                                              |
 | Federated authentication (SAML)			                            |                                        |                                                | ✓                                              |
 | SOC 2 Type 2 report		                                         |                                        | ✓                                              | ✓                                              |
@@ -176,7 +176,7 @@ The features included in each [plan][pricing-plans] are:
 | Email support                                                 | ✓                                      | ✓                                              | ✓                                              |
 | Production support                                            | 	Add-on                                | 	Add-on                                        | ✓                                              |
 | Named account manager                                         |                                        |                                                | ✓                                              |
-|JOIN services (Jumpstart Onboarding and INtegration)|                                        | Available at minimum spend                     | ✓                                              | 
+| JOIN services (Jumpstart Onboarding and INtegration)          |                                        | Available at minimum spend                     | ✓                                              | 
 
 If you want to estimate your costs ahead of the billing cycle, you can use the
 [pricing calculator](http://timescale.com/pricing/calculator).
