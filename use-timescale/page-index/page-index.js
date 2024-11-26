@@ -45,6 +45,10 @@ module.exports = [
               "Using a connection pool with your Timescale services",
           },
           {
+            title: "I/O boost",
+            href: "i-o-boost",
+          },
+          {
             title: "Troubleshooting Timescale services",
             href: "troubleshooting",
             type: "placeholder",
@@ -281,11 +285,6 @@ module.exports = [
             title: "Decompress chunks",
             href: "decompress-chunks",
             excerpt: "Decompress data chunks",
-          },
-          {
-            title: "Backfill historical data",
-            href: "backfill-historical-data",
-            excerpt: "Backfill historical data to compressed chunks",
           },
           {
             title: "Modify a schema",
