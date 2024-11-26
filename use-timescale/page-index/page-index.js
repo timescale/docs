@@ -287,11 +287,6 @@ module.exports = [
             excerpt: "Decompress data chunks",
           },
           {
-            title: "Backfill historical data",
-            href: "backfill-historical-data",
-            excerpt: "Backfill historical data to compressed chunks",
-          },
-          {
             title: "Modify a schema",
             href: "modify-a-schema",
             excerpt: "Change the data schema in compressed chunks",
