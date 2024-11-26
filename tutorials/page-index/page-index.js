@@ -149,6 +149,11 @@ module.exports = [
           },
         ],
       },
+      {
+        title: "Internet of things",
+        href: "simulate-iot-sensor-data",
+        excerpt: "Simulate and query an IoT sensor dataset",
+      },
     ],
   },
 ];
