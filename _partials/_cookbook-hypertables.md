@@ -7,7 +7,7 @@ This section contains recipes about hypertables.
 
 Looking to remove duplicates from an existing hypertable? One method is to run a `PARTITION BY` query to get
 `ROW_NUMBER()` and then the `ctid` of rows where `row_number>1`. You then delete these rows.  However,
-you need to check check `tableoid` and `ctid`. This is because `ctid` is not unique and might be duplicated in
+you need to check `tableoid` and `ctid`. This is because `ctid` is not unique and might be duplicated in
 different chunks. The following code example took 17 hours to process a table with 40 million rows:
 
 ```sql
