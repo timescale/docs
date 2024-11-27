@@ -99,7 +99,7 @@ In a database with 1000+ sensors and 41 million rows, an unconstrained query tak
 #### JOIN LATERAL
 
 An alternative to [SELECT DISTINCT ON][select-distinct-on] is to use a `JOIN LATERAL`. By selecting your entire 
-sensor list from the sensors table, rather than pulling the IDs out using `SELECT DISTINCT`, `JOIN LATERAL` can offer 
+sensor list from the sensors table rather than pulling the IDs out using `SELECT DISTINCT`, `JOIN LATERAL` can offer 
 some improvements in performance:
 
 ```sql
@@ -118,11 +118,9 @@ WHERE latest_data.d is not null -- only pulling out float values ("d" column) in
 ORDER BY sensor_list.id, latest_data.ts;
 ```
 
-As with the earlier queries, limiting the time range here is important, especially if you have
-a lot of data. Best practice is to use these kinds of queries for dashboards and quick status checks.
-To query over a much larger time range. For example. to find sensors that have stopped reporting, encapsulate the 
-previous example into a materialized query that refreshes infrequently, perhaps once a day.
-
+Limiting the time range is important, especially if you have a lot of data. Best practice is to use these 
+kinds of queries for dashboards and quick status checks. To query over a much larger time range, encapsulate 
+the previous example into a materialized query that refreshes infrequently, perhaps once a day.
 
 Shoutout to **Christopher Piggott** for this recipe.
 
