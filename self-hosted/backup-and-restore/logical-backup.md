@@ -7,158 +7,165 @@ tags: [recovery, logical backup, pg_dump, pg_restore]
 
 # Logical backup with `pg_dump` and `pg_restore`
 
-You can backup and restore an entire database or individual hypertables using
-the native PostgreSQL [`pg_dump`][pg_dump] and [`pg_restore`][pg_restore]
-commands. This works even for compressed hypertables, without having to
-decompress the chunks before you begin.
+You can backup and restore using native PostgreSQL [`pg_dump`][pg_dump] and [`pg_restore`][pg_restore]
+commands. This also works for compressed hypertables, you don't have to decompress the chunks 
+before you begin.
 
-Upgrades between different versions of TimescaleDB can be done in place; you
-don't need to backup and restore your data. See
-the [upgrading instructions][timescaledb-upgrade].
+If you are using `pg_dump` to backup regularly, make sure you keep
+track of the versions of PostgreSQL and TimescaleDB you are running. For more
+information, see [Versions are mismatched when dumping and restoring a database][troubleshooting-version-mismatch].
 
-<highlight type="warning">
-If you are using this `pg_dump` backup method regularly, make sure you keep
-track of which versions of PostgreSQL and TimescaleDB you are running. For more
-information, see "Versions are mismatched when dumping and restoring a database"
-in the [Troubleshooting section](https://docs.timescale.com/timescaledb/latest/how-to-guides/backup-and-restore/troubleshooting/).
-</highlight>
+This page shows you how to:
 
-## Back up your entire database
+- [Back up and restore an entire database][backup-entire-database]
+- [Back up and restore individual hypertables][backup-individual-tables]
 
-You can perform a backup using the `pg_dump` command at the command prompt. For
-example, to backup a database named `tsdb`:
+You can [upgrade between different versions of TimescaleDB in place][timescaledb-upgrade]; you
+don't need to backup and restore your data.
 
-```bash
-pg_dump -Fc -f tsdb.bak tsdb
-```
 
-To backup a database named `tsdb` hosted on a remote server:
+## Prerequisites
 
-```bash
-pg_dump -h <REMOTE_HOST> -p 55555 -U tsdbadmin -Fc -f tsdb.bak tsdb
-```
+- A source database to backup from, and a target database to restore to.
+- Install the PostgreSQL client tools on your migration machine.
 
-You might see some errors when running `pg_dump`. To learn if they can be safely
-ignored, see the [troubleshooting section][troubleshooting].
+   This includes `psql`, and `pg_dump`.
 
-<highlight type="warning">
-Do not use the `pg_dump` command to backup individual hypertables. Dumps created
-using this method lack the necessary information to correctly restore the
-hypertable from backup.
-</highlight>
+## Back up and restore an entire database
 
-## Restore your entire database from backup
+You backup and restore an entire database using `pg_dump` and `psql`. in Terminal: 
 
-When you need to restore data from a backup, you can use `psql` to create a new
-database and restore the data.
+<Procedure>
 
-<procedure>
+In Terminal:
 
-### Restoring an entire database from backup
+1. **Set your connection strings**
 
-1.  In `psql`, create a new database to restore to, and connect to it:
+   These variables hold the connection information for the source database to backup from and
+   the target database to restore to:
 
-    ```sql
-    CREATE DATABASE tsdb;
-    \c tsdb
-    CREATE EXTENSION IF NOT EXISTS timescaledb;
+   ```bash
+   export SOURCE=postgres://<user>:<password>@<source host>:<source port>/<db_name>
+   export TARGET=postgres://<user>:<password>@<source host>:<source port>
+   ```
 
-1.  Run [timescaledb_pre_restore][timescaledb_pre_restore] to put your database
-    in the right state for restoring:
+1. **Backup your database**
 
-    ```sql
-    SELECT timescaledb_pre_restore();
-    ```
+   ```bash
+   pg_dump -d "$SOURCE" \
+     -Fc -f <db_name>.bak  
+   ```
+    You may see some errors while `pg_dump` is running. See [Troubleshooting self-hosted TimescaleDB][troubleshooting]
+    to check if they can be safely ignored.
 
-1.  Restore the database:
+1. **Restore your database from the backup**
 
-    ```sql
-    \! pg_restore -Fc -d tsdb tsdb.bak
+   1. Connect to your target database:
+      ```bash
+      psql -d "$TARGET"
+      ```
 
-1.  Run [`timescaledb_post_restore`][timescaledb_post_restore] to return your
-    database to normal operations:
+   1. Create a new database and enable TimescaleDB:
 
-    ```sql
-    SELECT timescaledb_post_restore();
-    ```
+      ```sql
+      CREATE DATABASE <restoration database>;
+      \c <restoration database>
+      CREATE EXTENSION IF NOT EXISTS timescaledb;
+      ```
+   
+   1. Put your database in the right state for restoring:
 
-</procedure>
+       ```sql
+       SELECT timescaledb_pre_restore();
+       ```
 
-<highlight type="warning">
-Do not use the `pg_restore` command with -j option. This option does not
-correctly restore the Timescale catalogs.
-</highlight>
+   1. Restore the database:
 
-## Back up individual hypertables
+      ```sql
+       \! pg_restore -Fc -d <restoration database> <db_name>.bak
+       ```
+      
+   1. Return your database to normal operations: 
 
-The `pg_dump` command provides flags that allow you to specify tables or schemas
+      ```sql
+      SELECT timescaledb_post_restore();
+      ```
+      Do not use `pg_restore` with the `-j` option. This option does not correctly restore the 
+      TimescaleDB catalogs.
+
+</Procedure>
+
+
+## Back up and restore individual hypertables
+
+`pg_dump` provides flags that allow you to specify tables or schemas
 to back up. However, using these flags means that the dump lacks necessary
 information that TimescaleDB requires to understand the relationship between
 them. Even if you explicitly specify both the hypertable and all of its
 constituent chunks, the dump would still not contain all the information it
 needs to recreate the hypertable on restore.
 
-<highlight type="warning">
-Do not use the `pg_dump` command to backup individual hypertables. Dumps created
-using this method lack the necessary information to correctly restore the
-hypertable from backup.
-</highlight>
-
-You can backup individual hypertables by backing up the entire database, and
-then excluding the tables you do not want to backup. You can also use this
-method to backup individual plain tables that are not hypertables.
+To backup individual hypertables, backup the database schema, then backup only the tables 
+you need. You also use this method to backup individual plain tables.
 
 <procedure>
+In Terminal:
 
-### Backing up individual hypertables
+1. **Set your connection strings**
 
-1.  At the command prompt, back up the hypertable schema:
+   These variables hold the connection information for the source database to backup from and
+   the target database to restore to:
 
-    ```bash
-    pg_dump -s -d old_db --table conditions -N _timescaledb_internal | \
-    grep -v _timescaledb_internal > schema.sql
-    ```
+   ```bash
+   export SOURCE=postgres://<user>:<password>@<source host>:<source port>/<db_name>
+   export TARGET=postgres://<user>:<password>@<source host>:<source port>/<db_name>
+   ```
 
-1.  Backup the hypertable data to a CSV file:
+1. **Backup the database schema and individual tables**
 
-    ```bash
-    psql -d old_db \
-    -c "\COPY (SELECT * FROM conditions) TO data.csv DELIMITER ',' CSV"
-    ```
+   1. Back up the hypertable schema:
 
-</procedure>
+      ```bash
+      pg_dump -s -d $SOURCE --table conditions -N _timescaledb_internal | \
+      grep -v _timescaledb_internal > schema.sql
+      ```
 
-<procedure>
+   1.  Backup hypertable data to a CSV file:
+   
+      For each hypertable to backup:
+      ```bash
+      psql -d $SOURCE \
+      -c "\COPY (SELECT * FROM <table-name>) TO <table-name>.csv DELIMITER ',' CSV"
+      ```
 
-### Restoring individual hypertables from backup
-
-1.  At the command prompt, restore the schema:
-
-    ```bash
-    psql -d new_db < schema.sql
-    ```
-
-1.  Recreate the hypertables:
-
-    ```bash
-    psql -d new_db -c "SELECT create_hypertable('conditions', 'time')"
-    ```
-
-1.  Restore the data:
+1. **Restore the schema to the target database**
 
     ```bash
-    psql -d new_db -c "\COPY conditions FROM data.csv CSV"
+    psql -d $TARGET < schema.sql
     ```
 
-    The standard `COPY` command in PostgreSQL is single threaded. If you have a
-    lot of data, you can speed up the copy using the [parallel importer][]
-    instead.
+1. **Restore hypertables from the backup**
 
-When you create the new hypertable with the `create_hypertable` command, you
-do not need to use the same parameters as existed in the old database. This
-can provide a good opportunity for you to re-organize your hypertables if
-you need to. For example, you can change the partitioning key, the number of
-partitions, or the chunk interval sizes.
+   For each hypertable to backup:
+   1.  Recreate the hypertable:
+
+       ```bash
+       psql -d $TARGET -c "SELECT create_hypertable(<table-name>, <partition>)"
+       ```
+       When you [create the new hypertable][create_hypertable], you do not need to use the 
+       same parameters as existed in the source database. This
+       can provide a good opportunity for you to re-organize your hypertables if
+       you need to. For example, you can change the partitioning key, the number of
+       partitions, or the chunk interval sizes.
+
+   1.  Restore the data:
+
+       ```bash
+       psql -d $TARGET -c "\COPY <table-name> FROM <table-name>.csv CSV"
+       ```
+
+       The standard `COPY` command in PostgreSQL is single threaded. If you have a
+       lot of data, you can speed up the copy using the [timescaledb-parallel-copy][parallel importer].
 
 </procedure>
 
@@ -169,6 +176,7 @@ and privilege grants using `pg_dumpall`. For more
 information about how to use the `pg_dumpall` utility, see
 [PostgreSQL documentation][postgres-docs].
 
+
 [parallel importer]: https://github.com/timescale/timescaledb-parallel-copy
 [pg_dump]: https://www.postgresql.org/docs/current/static/app-pgdump.html
 [pg_restore]: https://www.postgresql.org/docs/current/static/app-pgrestore.html
@@ -176,4 +184,8 @@ information about how to use the `pg_dumpall` utility, see
 [timescaledb_post_restore]: /api/:currentVersion:/administration/#timescaledb_post_restore
 [timescaledb-upgrade]: /self-hosted/:currentVersion:/upgrades/
 [troubleshooting]: /self-hosted/:currentVersion:/troubleshooting/
+[troubleshooting-version-mismatch]: /self-hosted/:currentVersion:/troubleshooting/#versions-are-mismatched-when-dumping-and-restoring-a-database
 [postgres-docs]: https://www.postgresql.org/docs/current/app-pg-dumpall.html
+[backup-entire-database]: /self-hosted/:currentVersion:/backup-and-restore/logical-backup/#back-up-and-restore-an-entire-database
+[backup-individual-tables]: /self-hosted/:currentVersion:/backup-and-restore/logical-backup/#back-up-and-restore-individual-hypertables
+[create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
