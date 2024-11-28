@@ -7,22 +7,69 @@ keywords: [upgrades]
 
 import PlanUpgrade from "versionContent/_partials/_plan_upgrade.mdx";
 import ConsiderCloud from "versionContent/_partials/_consider-cloud.mdx";
+import SupportMatrix from "versionContent/_partials/_migrate-self-postgres-timescaledb-compatibility.mdx";
 
-# Minor TimescaleDB upgrades
+# Upgrade TimescaleDB to a minor version
 
-A minor upgrade is when you upgrade within your current major version of
-TimescaleDB. For example, when you upgrade from TimescaleDB&nbsp;2.5, to
-TimescaleDB&nbsp;2.6.
-
-For upgrading to a new major version, for example upgrading from
-TimescaleDB&nbsp;1 to TimescaleDB&nbsp;2, see the
-[major upgrades section][upgrade-major].
+A minor upgrade is when you update from TimescaleDB <major version>.x, to TimescaleDB <major version>.y. 
+A major upgrade is when you update from TimescaleDB X.<minor version> to Y.<minor version>. This page shows
+you how to perform a minor upgrade, for major upgrades, see [Upgrade TimescaleDB to a major version][upgrade-major].
 
 <ConsiderCloud />
 
 ## Plan your upgrade
 
 <PlanUpgrade />
+
+## Upgrade to a minor version
+
+1. **Check the versions of TimescaleDB and Postgres that you are currently running**
+
+   1.  Connect to your Postgres deployment:
+       ```shell
+       export SOURCE=postgres://<user>:<password>@<source host>:<source port>/<db_name>
+       psql -d $SOURCE
+        ```
+
+   1.  Retrieve the version of Postgres that you are running:
+       ```shell
+       SELECT version();
+       ```
+       Postgres returns something like:
+       ```shell
+       -----------------------------------------------------------------------------------------------------------------------------------------
+       PostgreSQL 17.2 (Ubuntu 17.2-1.pgdg22.04+1) on aarch64-unknown-linux-gnu, compiled by gcc (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0, 64-bit
+       (1 row)
+       ```
+       
+   1.  Retrieve the version of TimescaleDB that you are running:
+       ```sql
+       \dx timescaledb
+       ```
+       Postgres returns something like:
+       ```shell
+           Name     | Version |   Schema   |                             Description
+       -------------+---------+------------+---------------------------------------------------------------------
+       timescaledb | x.y.z   | public     | Enables scalable inserts and complex queries for time-series data
+       (1 row)
+       ```       
+
+1. Choose your migration path. 
+
+   Check the following support matrix and choose your upgrade path. For example, to 
+   upgrade from TimescaleDB 2.13 on PostgreSQL 13 to TimescaleDB 2.17 you need to upgrade
+   TimescaleDB to v2.16, then upgrade PostgreSQL to v14 or higher, then upgrade TimescaleDB
+   to v2.17. 
+
+
+1. Upgrade to your chosen version of TimescaleDB
+
+  1. Upgrade TimescaleDB to the desired version in your current PostgreSQL installation.
+     ```sql
+     psql -X -d $SOURCE -c "ALTER EXTENSION timescaledb UPDATE TO '<version number>';"
+     ```
+  1. If necessary, upgrade PostgreSQL to the desired version.
+  1. If necessary, upgrade TimescaleDB to the desired version
 
 ## Upgrade TimescaleDB to the next minor version
 
@@ -63,4 +110,3 @@ individually.
 </Procedure>
 
 [upgrade-major]: /self-hosted/:currentVersion:/upgrades/major-upgrade/
-
