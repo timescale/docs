@@ -163,6 +163,7 @@ The features included in each [plan][pricing-plans] are:
 | **Security and compliance**                                   |                                        |                                                |                                                |
 | End-to-end encryption                                         | ✓                                      | ✓                                              | ✓                                              |
 | Private Networking (VPC)                                      | 1 multi-attach VPC	                    | Unlimited multi-attach VPCs                    | 	Unlimited multi-attach VPCs                   | 
+| [HIPAA compliance][hipaa-compliance]                                            |                                      |                                              | ✓                                              |
 | IP address allow list                                         | 1 list with up to 10 IP addresses | Up to 10 lists with up to 10 IP addresses each | Up to 10 lists with up to 10 IP addresses each |
 | Multi-factor authentication                                   | ✓                                      | ✓                                              | ✓                                              |
 | Federated authentication (SAML)			                            |                                        |                                                | ✓                                              |
@@ -238,3 +239,4 @@ alt="Adding a payment method in Timescale"/>
 [plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-plan
 [production-support]: https://www.timescale.com/support
 [get-in-touch]: https://www.timescale.com/contact
+[hipaa-compliance]: https://www.hhs.gov/hipaa/for-professionals/index.html
