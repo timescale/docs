@@ -77,5 +77,5 @@ And that is it! You have TimescaleDB running on a database on a self-hosted inst
 [config]: /self-hosted/:currentVersion:/configuration/
 [postgres-download]: https://www.postgresql.org/download/
 [cmake-download]: https://cmake.org/download/
-[compatibility-matrix]: /self-hosted/:currentVersion:/upgrades/upgrade-pg/
+[compatibility-matrix]: /self-hosted/:currentVersion:/upgrades/upgrade-pg/#plan-your-upgrade-path
 [postgres-breaking-change]: https://www.postgresql.org/about/news/postgresql-172-166-1510-1415-1318-and-1222-released-2965/
