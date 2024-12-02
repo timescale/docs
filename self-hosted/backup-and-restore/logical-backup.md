@@ -7,9 +7,9 @@ tags: [recovery, logical backup, pg_dump, pg_restore]
 
 # Logical backup with `pg_dump` and `pg_restore`
 
-You can backup and restore using native PostgreSQL [`pg_dump`][pg_dump] and [`pg_restore`][pg_restore]
-commands. This also works for compressed hypertables, you don't have to decompress the chunks 
-before you begin.
+You backup and restore each self-hosted PostgreSQL database with TimescaleDB enabled using the native 
+PostgreSQL [`pg_dump`][pg_dump] and [`pg_restore`][pg_restore] commands. This also works for compressed hypertables, 
+you don't have to decompress the chunks before you begin.
 
 If you are using `pg_dump` to backup regularly, make sure you keep
 track of the versions of PostgreSQL and TimescaleDB you are running. For more
@@ -20,9 +20,7 @@ This page shows you how to:
 - [Back up and restore an entire database][backup-entire-database]
 - [Back up and restore individual hypertables][backup-individual-tables]
 
-You can [upgrade between different versions of TimescaleDB in place][timescaledb-upgrade]; you
-don't need to backup and restore your data.
-
+You can also [upgrade between different versions of TimescaleDB][timescaledb-upgrade]. 
 
 ## Prerequisites
 
@@ -169,11 +167,10 @@ In Terminal:
 
 </procedure>
 
-On a self hosted TimescaleDB instance with `postgres` superuser access you can
-take a complete dump of all PostgreSQL databases in a cluster including global
-objects that are common to all databases, namely database roles, tablespaces,
-and privilege grants using `pg_dumpall`. For more
-information about how to use the `pg_dumpall` utility, see
+Best practice is to backup and restore a database at a time. However, if you have superuser access to 
+PostgreSQL instance with TimescaleDB installed, you can use `pg_dumpall` to backup all PostgreSQL databases in a 
+cluster, including global objects that are common to all databases, namely database roles, tablespaces,
+and privilege grants. You restore the PostgreSQL instance using `psql`. For more information, see the
 [PostgreSQL documentation][postgres-docs].
 
 
@@ -185,7 +182,7 @@ information about how to use the `pg_dumpall` utility, see
 [timescaledb-upgrade]: /self-hosted/:currentVersion:/upgrades/
 [troubleshooting]: /self-hosted/:currentVersion:/troubleshooting/
 [troubleshooting-version-mismatch]: /self-hosted/:currentVersion:/troubleshooting/#versions-are-mismatched-when-dumping-and-restoring-a-database
-[postgres-docs]: https://www.postgresql.org/docs/current/app-pg-dumpall.html
+[postgres-docs]: https://www.postgresql.org/docs/17/backup-dump.html#BACKUP-DUMP-ALL
 [backup-entire-database]: /self-hosted/:currentVersion:/backup-and-restore/logical-backup/#back-up-and-restore-an-entire-database
 [backup-individual-tables]: /self-hosted/:currentVersion:/backup-and-restore/logical-backup/#back-up-and-restore-individual-hypertables
 [create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
