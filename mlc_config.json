@@ -63,6 +63,9 @@
     },
     {
       "pattern": "https://www.cse.ust.hk/~raywong/comp5331/References/EfficientComputationOfFrequentAndTop-kElementsInDataStreams.pdf"
+    },
+    {
+      "pattern": "^https://www.hhs.gov/hipaa/for-professionals/index.html"
     }
   ]
 }
