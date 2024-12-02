@@ -88,7 +88,7 @@ upgrading and downgrading.
     ALTER EXTENSION timescaledb UPDATE TO '2.17.0';
     ```
 
-1. **Check that you have downgraded to the correct version TimescaleDB**
+1. **Check that you have downgraded to the correct version of TimescaleDB**
 
     ```sql
     \dx timescaledb;
