@@ -8,9 +8,8 @@ For example, to upgrade from TimescaleDB 2.13 on PostgreSQL 13 to TimescaleDB 2.
 1. Upgrade TimescaleDB to 2.16
 1. Upgrade PostgreSQL to 14 or higher
 1. Upgrade TimescaleDB to 2.17.2.
-
-If you are currently running versions of TimescaleDB and PostgreSQL that are incompatible,[upgrade PostgreSQL][upgrade-pg]
-to a supported version before you upgrade TimescaleDB.
+ 
+You may need to [upgrade to the latest PostgreSQL version][upgrade-pg] before you upgrade TimescaleDB.
 
 <SupportMatrix />
 

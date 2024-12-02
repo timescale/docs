@@ -25,11 +25,7 @@ This page shows you how to perform a minor upgrade, for major upgrades, see [Upg
 
 ## Prerequisites
 
-- Install the PostgreSQL client tools on your migration machine. This includes `psql`, and `pg_dump`.
-- Read [the release notes][relnotes] for the version of TimescaleDB that you are upgrading to.
-- Backup your database. Although TimescaleDB and PostgreSQL upgrades are performed in-place, upgrading is an 
-    intrusive operation. In case of disaster, [create a database backup][backup], and ensure that the backup 
-    is readable.
+<PlanUpgrade />
 
 ## Check the TimescaleDB and PostgreSQL versions
 
@@ -39,11 +35,12 @@ This page shows you how to perform a minor upgrade, for major upgrades, see [Upg
 
 <PlanMigrationPath />
 
+
 ## Implement your upgrade path
 
 <ImplementMigrationPath />
 
-You have completed the upgrade process.
+You are running a shiny new version of TimescaleDB.
 
 [relnotes]: https://github.com/timescale/timescaledb/releases
 [upgrade-pg]: /self-hosted/:currentVersion:/upgrades/upgrade-pg/#upgrade-postgresql
