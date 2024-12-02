@@ -11,8 +11,7 @@ import PlanMigrationPath from "versionContent/_partials/_migrate_self_postgres_p
 
 # Upgrade PostgreSQL
 
-TimescaleDB is a PostgreSQL extension. When you upgrade, ensure that you are installing to compatible versions of 
-TimescaleDB and PostgreSQL. 
+TimescaleDB is a PostgreSQL extension. Ensure that you upgrade to compatible versions of TimescaleDB and PostgreSQL. 
 
 <ConsiderCloud />
 
