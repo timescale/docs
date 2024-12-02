@@ -11,7 +11,7 @@ import CheckVersions from "versionContent/_partials/_migrate_self_postgres_check
 import PlanMigrationPath from "versionContent/_partials/_migrate_self_postgres_plan_migration_path.mdx";
 import ImplementMigrationPath from "versionContent/_partials/_migrate_self_postgres_implement_migration_path.mdx";
 
-# Upgrade TimescaleDB to a minor version
+# Upgrade TimescaleDB to a new minor version
 
 A minor upgrade is when you update from TimescaleDB `<major version>.x`, to TimescaleDB `<major version>.y`. 
 A major upgrade is when you update from TimescaleDB `X.<minor version>` to `Y.<minor version>`.  

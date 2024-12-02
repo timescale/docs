@@ -20,7 +20,7 @@ the following steps:
    psql -X -d $SOURCE -c "ALTER EXTENSION timescaledb UPDATE TO '<version number>';"
    ```
 
-1. **Check that you have upgraded to the correct version TimescaleDB**
+1. **Check that you have upgraded to the correct version of TimescaleDB**
 
     ```sql
     psql -X -d $SOURCE -c "\dx timescaledb;"
