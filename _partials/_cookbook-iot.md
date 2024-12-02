@@ -128,4 +128,4 @@ Shoutout to **Christopher Piggott** for this recipe.
 [setup-a-narrow-table-format]: /tutorials/:currentVersion:/cookbook/#narrow-table-format-example
 [select-distinct-on]: /tutorials/:currentVersion:/cookbook/#select-distinct-on
 [join-lateral]: /tutorials/:currentVersion:/cookbook/#join-lateral
-[hyperfunctions]: /use/:currentVersion:/hyperfunctions/
+[hyperfunctions]: /use-timescale/:currentVersion:/hyperfunctions/
