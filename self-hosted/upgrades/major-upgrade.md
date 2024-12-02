@@ -25,7 +25,7 @@ your policy settings before upgrading.
 
 <ConsiderCloud />
 
-This page shows you how to perform a major upgrade, for minor upgrades, see
+This page shows you how to perform a major upgrade. For minor upgrades, see
 [Upgrade TimescaleDB to a minor version][upgrade-minor].
 
 ## Prerequisites
@@ -56,7 +56,7 @@ You may need to [upgrade to the latest PostgreSQL version][upgrade-pg] before yo
 
 ## Check for failed retention policies
 
-When you upgrade from TimescaleDB 1, to TimescaleDB 2, scripts
+When you upgrade from TimescaleDB 1 to TimescaleDB 2, scripts
 automatically configure updated features to work as expected with the new
 version. However, not everything works in exactly the same way as previously.
 

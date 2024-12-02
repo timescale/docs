@@ -13,7 +13,7 @@ import ImplementMigrationPath from "versionContent/_partials/_migrate_self_postg
 
 # Upgrade TimescaleDB to a new minor version
 
-A minor upgrade is when you update from TimescaleDB `<major version>.x`, to TimescaleDB `<major version>.y`. 
+A minor upgrade is when you update from TimescaleDB `<major version>.x` to TimescaleDB `<major version>.y`. 
 A major upgrade is when you update from TimescaleDB `X.<minor version>` to `Y.<minor version>`.  
 You can run different versions of TimescaleDB on different databases within the same PostgreSQL instance.
 This process uses the PostgreSQL `ALTER EXTENSION` function to upgrade TimescaleDB independently on different 

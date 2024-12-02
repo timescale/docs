@@ -43,7 +43,7 @@ to them.
 
 1. **Set your connection string**
 
-   This variables hold the connection information for the database to upgrade:
+   This variable holds the connection information for the database to upgrade:
 
    ```bash
    export SOURCE="postgres://<user>:<password>@<source host>:<source port>/<db_name>"
