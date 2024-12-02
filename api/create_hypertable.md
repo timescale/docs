@@ -27,7 +27,7 @@ You cannot run `create_hypertable()` on a table that is already partitioned usin
 as `NOT NULL`. If this is not already specified on table creation, `create_hypertable` automatically adds
 this constraint on the table when it is executed.
 
-This page describes the generalized hypertable API introduced in TimescaleDB v2.13.
+This page uses the generalized hypertable API introduced in TimescaleDB v2.13.
 The [old interface for `create_hypertable` is also available](/api/:currentVersion:/hypertable/create_hypertable_old/).
 
 ## Samples
