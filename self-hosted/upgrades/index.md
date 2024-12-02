@@ -23,7 +23,6 @@ This section shows you how to:
 * Upgrade [PostgreSQL][upgrade-pg] to a new version.
 * Downgrade self-hosted TimescaleDB to the [previous minor version][downgrade].
 
-[about-upgrades]: /self-hosted/:currentVersion:/upgrades/about-upgrades/
 [downgrade]: /self-hosted/:currentVersion:/upgrades/downgrade/
 [upgrade-docker]: /self-hosted/:currentVersion:/upgrades/upgrade-docker/
 [upgrade-major]: /self-hosted/:currentVersion:/upgrades/major-upgrade/
