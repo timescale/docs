@@ -9,15 +9,21 @@ import ConsiderCloud from "versionContent/_partials/_consider-cloud.mdx";
 
 # Upgrade TimescaleDB running in Docker
 
-If you originally installed TimescaleDB using Docker, you can upgrade from
-within the Docker container. This allows you to upgrade to the latest
-TimescaleDB version, while retaining your data.
+If you originally installed TimescaleDB using Docker, you can upgrade from within the Docker 
+container. This allows you to upgrade to the latest TimescaleDB version while retaining your data.
+
+The `timescale/timescaledb-ha*` images have the files necessary to run previous versions. Patch releases 
+only contain bugfixes so should always be safe. Non-patch releases may rarely require some extra steps.
+These steps are mentioned in the [release notes][relnotes] for the version of TimescaleDB 
+that you are upgrading to.
+
+After you upgrade the docker image, you run `ALTER EXTENSION` for all databases using TimescaleDB.
+
+<ConsiderCloud />
 
 The examples in this page use a Docker instance called `timescaledb`. If you
 have given your Docker instance a different name, replace it when you issue the
 commands.
-
-<ConsiderCloud />
 
 ## Determine the mount point type
 
@@ -148,3 +154,4 @@ If you have multiple databases, you need to update each database separately.
 </Procedure>
 
 [toolkit]: /self-hosted/:currentVersion:/tooling/install-toolkit/
+[relnotes]: https://github.com/timescale/timescaledb/releases
