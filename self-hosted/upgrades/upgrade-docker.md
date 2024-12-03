@@ -1,25 +1,29 @@
 ---
 title: Upgrades within a Docker container
-excerpt: Upgrade TimescaleDB within a Docker container
+excerpt: Upgrade self-hosted TimescaleDB running in a Docker container to a new minor version
 products: [self_hosted]
 keywords: [upgrades, Docker]
 ---
 
 import ConsiderCloud from "versionContent/_partials/_consider-cloud.mdx";
 
-# Upgrades within a Docker container
+# Upgrade TimescaleDB running in Docker
 
-If you originally installed TimescaleDB using Docker, you can upgrade from
-within the Docker container. This allows you to upgrade to the latest
-TimescaleDB version, while retaining your data.
+If you originally installed TimescaleDB using Docker, you can upgrade from within the Docker 
+container. This allows you to upgrade to the latest TimescaleDB version while retaining your data.
 
-<Highlight type="note">
-In this section, the examples use a Docker instance called `timescaledb`. If you
-have given your Docker instance a different name, replace it when you issue the
-commands.
-</Highlight>
+The `timescale/timescaledb-ha*` images have the files necessary to run previous versions. Patch releases 
+only contain bugfixes so should always be safe. Non-patch releases may rarely require some extra steps.
+These steps are mentioned in the [release notes][relnotes] for the version of TimescaleDB 
+that you are upgrading to.
+
+After you upgrade the docker image, you run `ALTER EXTENSION` for all databases using TimescaleDB.
 
 <ConsiderCloud />
+
+The examples in this page use a Docker instance called `timescaledb`. If you
+have given your Docker instance a different name, replace it when you issue the
+commands.
 
 ## Determine the mount point type
 
@@ -79,12 +83,12 @@ data.
 ### Upgrading TimescaleDB within Docker
 
 1.  Pull the latest TimescaleDB image. This command pulls the image for
-    PostgreSQL&nbsp;14. If you're using another PostgreSQL version, look for the
-    relevant tag in the
+    TimescaleDB 2.17.x running on PostgreSQL 17. If you're using another PostgreSQL version, 
+    look for the relevant tag in the
     [TimescaleDB HA Docker Hub repository](https://hub.docker.com/r/timescale/timescaledb-ha/tags).
 
     ```bash
-    docker pull timescale/timescaledb-ha:pg16
+    docker pull timescale/timescaledb-ha:pg17
     ```
 
 1.  Stop the old container, and remove it:
@@ -150,3 +154,4 @@ If you have multiple databases, you need to update each database separately.
 </Procedure>
 
 [toolkit]: /self-hosted/:currentVersion:/tooling/install-toolkit/
+[relnotes]: https://github.com/timescale/timescaledb/releases
