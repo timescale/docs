@@ -31,13 +31,11 @@ To start using $CLOUD_LONG for your data:
 
 ## Create a $SERVICE_LONG
 
-Now that you have an active $COMPANY account, you create and manage your services in $CONSOLE. When you create a service, you give a structure for your future data, which you then add manually or migrate from other services. All relevant $CLOUD_LONG features under your pricing plan are automatically available when you create a service. 
+Now that you have an active $COMPANY account, you create and manage your $SERVICE_SHORTs in $CONSOLE. When you create a service, you give a structure for your future data, which you then add manually or migrate from other services. All relevant $CLOUD_LONG features under your pricing plan are automatically available when you create a service. 
 
-<Procedure> 
+<Procedure>
 
-Now that you have an active Timescale account, you create and manage your services in Timescale Console:
-
-1. In the [service creation page][create-service], choose the PostgreSQL service or enable additional `Time-series and analytics` and `AI and Vector` capabilities. Click `Save and continue`.
+1. In the [service creation page][create-service], choose the PostgreSQL service or add `Time-series and analytics` and `AI and Vector` capabilities. Click `Save and continue`.
 
    ![Create Timescale Cloud service](https://assets.timescale.com/docs/images/create-timescale-service.png)
 
@@ -48,7 +46,7 @@ Now that you have an active Timescale account, you create and manage your servic
 1. Click `Download the config` and store the configuration information you need to connect to this service in a secure location.
 
    This file contains the passwords and configuration information you need to connect to your service using the
-   Timescale Console Cloud SQL editors, from the command line, or using third-party database administration tools.
+   $CONSOLE data mode, from the command line, or using third-party database administration tools.
 
 If you choose to go directly to the service overview, [Check your service and connect to it][connect-to-your-service] 
 shows you how to connect.
