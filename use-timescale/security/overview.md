@@ -47,6 +47,11 @@ Timescale Cloud services running in the Timescale VPC. Timescale cannot initiate
 communication with your VPC. To learn how to set up VPC Peering, see 
 [Secure your Timescale Service with VPC Peering and AWS PrivateLink][vpc-peering].
 
+## IP address allow lists
+
+You can allow only trusted IP addresses to access your $SERVICE_LONGs. You do this by 
+creating [IP address allow lists][ip-allowlist] and attaching them to your $SERVICE_SHORTs. 
+
 ## Operator access
 
 Normally all the resources required for providing Timescale Cloud services are
@@ -78,11 +83,20 @@ Timescale operators never access customer data, unless explicitly requested by
 the customer to troubleshoot a technical issue. The Timescale operations team
 has mandatory recurring training regarding the applicable policies.
 
+## HIPAA compliance
+
+Timescale Cloud's [Enterprise plan][pricing-plan-features] is now Health Insurance Portability and Accountability Act 
+(HIPAA) compliant. This allows organizations to securely manage and analyze sensitive healthcare data, ensuring they 
+meet regulatory requirements while building compliant applications.
+
+
 [timescale-privacy-policy]: https://www.timescale.com/legal/privacy
 [tsc-tos]: https://www.timescale.com/legal/timescale-cloud-terms-of-service
 [tsc-data-processor-addendum]: https://www.timescale.com/legal/timescale-cloud-data-processing-addendum
 [aws-kms]: https://aws.amazon.com/kms/
 [ec2-security]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/data-protection.html
 [ebs-security]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html
-[vpc-peering]: /use-timescale/:currentVersion:/vpc
+[vpc-peering]: /use-timescale/:currentVersion:/security/vpc
 [security-at-timescale]: https://www.timescale.com/security
+[ip-allowlist]: /use-timescale/:currentVersion:/security/ip-allow-list/
+[pricing-plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-plan

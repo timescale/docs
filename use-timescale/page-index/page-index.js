@@ -23,11 +23,6 @@ module.exports = [
             excerpt: "Timescale services overview",
           },
           {
-            title: "Dynamic PostgreSQL",
-            href: "dynamic-postgresql",
-            excerpt: "Dynamic PostgreSQL overview",
-          },
-          {
             title: "Service explorer",
             href: "service-explorer",
             excerpt: "Timescale services explorer",
@@ -48,6 +43,10 @@ module.exports = [
             href: "connection-pooling",
             excerpt:
               "Using a connection pool with your Timescale services",
+          },
+          {
+            title: "I/O boost",
+            href: "i-o-boost",
           },
           {
             title: "Troubleshooting Timescale services",
@@ -238,6 +237,10 @@ module.exports = [
             excerpt: "Using JSON data types in a hypertable",
           },
           {
+            title: "Foreign data wrappers",
+            href: "foreign-data-wrappers",
+          },
+          {
             title: "Troubleshoot schema management",
             href: "troubleshooting",
             type: "placeholder",
@@ -282,11 +285,6 @@ module.exports = [
             title: "Decompress chunks",
             href: "decompress-chunks",
             excerpt: "Decompress data chunks",
-          },
-          {
-            title: "Backfill historical data",
-            href: "backfill-historical-data",
-            excerpt: "Backfill historical data to compressed chunks",
           },
           {
             title: "Modify a schema",
@@ -482,28 +480,10 @@ module.exports = [
               "Learn how the object storage tier helps you save on storage costs",
           },
           {
-            title: "Tour of tiered storage",
-            href: "tour-data-tiering",
-            excerpt:
-              "A quick tour of tiered storage",
-          },
-          {
-            title: "Enabling the object storage tier",
+            title: "Manage tiering",
             href: "enabling-data-tiering",
             excerpt:
               "How to enable the object storage tier",
-          },
-          {
-            title: "Manually tier data",
-            href: "manual-tier-chunk",
-            excerpt:
-              "How to manually tier data to the object storage tier",
-          },
-          {
-            title: "Creating tiering policies",
-            href: "creating-data-tiering-policy",
-            excerpt:
-              "How to create a tiering policy",
           },
           {
             title: "Querying tiered data",
@@ -512,21 +492,10 @@ module.exports = [
               "How to query tiered data",
           },
           {
-            title: "Manually untier data",
-            href: "untier-data",
-            excerpt: "How to manualy untier data from the object storage tier",
-          },
-          {
             title: "Replicas and forks with tiered data",
             href: "tiered-data-replicas-forks",
             excerpt:
               "How tiered data works on replicas and forks",
-          },
-          {
-            title: "Disabling tiering for a hypertable",
-            href: "disabling-data-tiering",
-            excerpt:
-              "How to disable tiering for a hypertable",
           },
           {
             title: "Troubleshooting",
@@ -534,11 +503,6 @@ module.exports = [
             type: "placeholder",
           },
         ],
-      },
-      {
-        title: "VPC Peering and AWS PrivateLink",
-        href: "vpc",
-        excerpt: "Secure your Timescale Service with VPC Peering and AWS PrivateLink",
       },
       {
         title: "Hyperfunctions",
@@ -943,6 +907,17 @@ module.exports = [
             href: "strict-ssl",
             excerpt:
               "Connect to Timescale with a stricter SSL mode of verify-ca or verify-full",
+          },
+          {
+            title: "VPC peering and AWS PrivateLink",
+            href: "vpc",
+            excerpt: "Secure your Timescale Service with VPC peering and AWS PrivateLink",
+          },
+          {
+            title: "IP allow list",
+            href: "ip-allow-list",
+            excerpt:
+              "Create a list of IP addresses that can access your services",
           },
         ],
       },
