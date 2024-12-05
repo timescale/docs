@@ -25,7 +25,7 @@ You can also [upgrade between different versions of TimescaleDB][timescaledb-upg
 ## Prerequisites
 
 - A source database to backup from, and a target database to restore to.
-- Install the `psql`, and `pg_dump` PostgreSQL client tools on your migration machine.
+- Install the `psql` and `pg_dump` PostgreSQL client tools on your migration machine.
 
 ## Back up and restore an entire database
 
