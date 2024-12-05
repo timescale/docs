@@ -25,17 +25,15 @@ You can also [upgrade between different versions of TimescaleDB][timescaledb-upg
 ## Prerequisites
 
 - A source database to backup from, and a target database to restore to.
-- Install the PostgreSQL client tools on your migration machine.
-
-   This includes `psql`, and `pg_dump`.
+- Install the `psql`, and `pg_dump`PostgreSQL client tools on your migration machine.
 
 ## Back up and restore an entire database
 
-You backup and restore an entire database using `pg_dump` and `psql`. in Terminal: 
+You backup and restore an entire database using `pg_dump` and `psql`.  
 
 <Procedure>
 
-In Terminal:
+In terminal:
 
 1. **Set your connection strings**
 
@@ -124,8 +122,7 @@ In Terminal:
    1. Back up the hypertable schema:
 
       ```bash
-      pg_dump -s -d $SOURCE --table conditions -N _timescaledb_internal | \
-      grep -v _timescaledb_internal > schema.sql
+      pg_dump -s -d $SOURCE --table <table-name>  > schema.sql
       ```
 
    1.  Backup hypertable data to a CSV file:
