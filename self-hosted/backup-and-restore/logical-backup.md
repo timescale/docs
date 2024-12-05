@@ -80,7 +80,7 @@ In Terminal:
    1. Restore the database:
 
       ```sql
-       \! pg_restore -Fc -d <restoration database> <db_name>.bak
+       pg_restore -Fc -d <restoration database> <db_name>.bak
        ```
       
    1. Return your database to normal operations: 
