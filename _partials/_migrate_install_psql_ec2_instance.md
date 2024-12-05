@@ -60,7 +60,7 @@
    ```sh
    export SOURCE="postgres://<Master username>:<Master password>@<Endpoint>:<Port>/<DB name>"
    ```
-   The value of `Master password` was supplied when this Postgres RDS instance was created.
+   The value of `Master password` was supplied when this PostgreSQL RDS instance was created.
 
 1. Test your connection:
    ```sh

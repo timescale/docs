@@ -1,13 +1,13 @@
 ---
 title: Downgrade to a previous version of TimescaleDB
-excerpt: Roll back to an older version of TimescaleDB
+excerpt: Downgrade self-hosted TimescaleDB to the previous minor version
 products: [self_hosted]
 keywords: [upgrades]
 ---
 
 import ConsiderCloud from "versionContent/_partials/_consider-cloud.mdx";
 
-# Downgrade to a previous version of TimescaleDB
+# Downgrade TimescaleDB to a minor version
 
 If you upgrade to a new TimescaleDB version and encounter problems, you can roll
 back to a previously installed version. This works in the same way as a minor
@@ -42,28 +42,41 @@ Before you downgrade:
 ## Downgrade TimescaleDB to a previous minor version
 
 This downgrade uses the PostgreSQL `ALTER EXTENSION` function to downgrade to
-the latest version of the TimescaleDB extension. TimescaleDB supports having
+a previous version of the TimescaleDB extension. TimescaleDB supports having
 different extension versions on different databases within the same PostgreSQL
 instance. This allows you to upgrade and downgrade extensions independently on
 different databases. Run the `ALTER EXTENSION` function on each database to
 downgrade them individually.
 
 <Highlight type="important">
+
 The downgrade script is tested and supported for single-step downgrades. That
 is, downgrading from the current version, to the previous minor version.
 Downgrading might not work if you have made changes to your database between
 upgrading and downgrading.
+
 </Highlight>
 
 <Procedure>
 
-### Downgrading the TimescaleDB extension
+1. **Set your connection string**
 
-1.  Connect to psql using the `-X` flag. This prevents any `.psqlrc` commands
-   from accidentally triggering the load of a previous TimescaleDB version on
-   session startup.
-1.  At the psql prompt, downgrade the TimescaleDB extension. This must be the
-   first command you execute in the current session:
+   This variable holds the connection information for the database to upgrade:
+
+   ```bash
+   export SOURCE="postgres://<user>:<password>@<source host>:<source port>/<db_name>"
+   ```
+
+2. **Connect to your database instance**
+    ```shell
+    psql -X -d $SOURCE
+    ```
+
+   The `-X` flag prevents any `.psqlrc` commands from accidentally triggering the load of a 
+   previous TimescaleDB version on session startup.
+
+1. **Downgrade the TimescaleDB extension** 
+    This must be the first command you execute in the current session:
 
     ```sql
     ALTER EXTENSION timescaledb UPDATE TO '<PREVIOUS_VERSION>';
@@ -72,14 +85,19 @@ upgrading and downgrading.
     For example:
 
     ```sql
-    ALTER EXTENSION timescaledb UPDATE TO '2.5.1';
+    ALTER EXTENSION timescaledb UPDATE TO '2.17.0';
     ```
 
-1.  Check that you have downgraded to the correct version of the extension with
-   the `\dx` command. The output should show the downgraded version number.
+1. **Check that you have downgraded to the correct version of TimescaleDB**
 
     ```sql
-    \dx timescaledb
+    \dx timescaledb;
+    ```
+   Postgres returns something like:
+    ```shell
+    Name     | Version | Schema |                                      Description                                      
+    -------------+---------+--------+---------------------------------------------------------------------------------------
+    timescaledb | 2.17.0  | public | Enables scalable inserts and complex queries for time-series data (Community Edition)
     ```
 
 </Procedure>
