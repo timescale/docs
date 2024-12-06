@@ -69,11 +69,5 @@ SELECT enable_chunk_skipping('conditions', 'device_id');
 |`enabled`|BOOLEAN|Returns `true` when tracking is enabled, `if_not_exists` is `true`, and when a new entry is not
 added|
 
-<Highlight type="note">
-
-
-</Highlight>
-
-
 [compress_chunk]: /api/:currentVersion:/compression/compress_chunk/
 [decompress_chunk]: /api/:currentVersion:/compression/decompress_chunk/
