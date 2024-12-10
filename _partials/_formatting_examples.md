@@ -4,7 +4,7 @@ This page explains how to use the formatting available for Timescale documentati
 
 ## Procedure
 
-```text
+```xml
 <Procedure>
 
 1.  **Step 1 summary in bold**
@@ -126,15 +126,15 @@ Second tab content
 
 As a default, use [fenced Markdown code blocks](https://www.markdownguide.org/extended-syntax/#fenced-code-blocks):
 
-```sql
-CREATE TABLE conditions (
-   time        TIMESTAMPTZ       NOT NULL,
-   location    TEXT              NOT NULL,
-   device      TEXT              NOT NULL,
-   temperature DOUBLE PRECISION  NULL,
-   humidity    DOUBLE PRECISION  NULL
-);
-```
+    ```sql
+    CREATE TABLE conditions (
+       time        TIMESTAMPTZ       NOT NULL,
+       location    TEXT              NOT NULL,
+       device      TEXT              NOT NULL,
+       temperature DOUBLE PRECISION  NULL,
+       humidity    DOUBLE PRECISION  NULL
+    );
+    ```
 
 To remove line numbers and the copy button, use the `CodeBlock` component with `canCopy` and `showLineNumbers` set to `false`:
 
@@ -186,23 +186,31 @@ code
 <Tag type="download">Markdown link to download</Tag>
 ```
 
+![Download tag](https://assets.timescale.com/docs/images/tag-download.png)
+
 ```text
 <Tag type="experimental" content="Experimental" /> or <Tag type="experimental-toolkit" content="Experimental"/> 
 ```
+
+![Experimental tag](https://assets.timescale.com/docs/images/tag-experimental.png)
 
 ```text
 <Tag type="toolkit" content="Toolkit" />
 ```
 
+![Tooklit tag](https://assets.timescale.com/docs/images/tag-toolkit.png)
+
 ```text
 <Tag type="community" content="Community" />
 ```
+
+![Community tag](https://assets.timescale.com/docs/images/tag-community.png)
 
 ```text
 <Tag variant="hollow">Text to display in a tag</Tag>
 ```
 
-![Tags](https://assets.timescale.com/docs/images/tag-examples.png)
+![Hollow tag](https://assets.timescale.com/docs/images/hollow-tag.png)
 
 ## Partials
 
@@ -225,5 +233,7 @@ Full page content goes here.
 
 [reference-name]: /doc-section-name/:currentVersion:/path/to/page OR any external link
 ```
+
+
 
 
