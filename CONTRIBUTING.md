@@ -1,22 +1,32 @@
 # Contribute to Timescale documentation
 
 Timescale documentation is open for contribution from all community members. The current source is in this repository.
+
 This page explains the process and guidelines to follow when contributing to Timescale documentation.
 
 ## Contribution process
 
 You can contribute to Timescale documentation in the following ways:
 
-- [Create an issue][docs-issues] in this repository and describe the proposed change. Our doc team will take care of it. 
-- [Fork this repository][github-fork] and propose changes in the fork.
-- If you have a write access to this repository, create a branch from `latest` and raise a pull request directly. 
+- [Create an issue][docs-issues] in this repository and describe the proposed change. Our doc team will take care of it.
+- Update the docs yourself and have your change reviewed and published by our doc team. 
 
-When raising your first PR, you are prompted to sign a Contributor License Agreement (CLA). This helps to ensure that the community is free to use your contributions.
+To make the contribution yourself:
 
-The documentation site is statically generated with [Gatsby][gatsby]. Its source code is in a separate private 
-repository, which pulls in the content from this repository on each build.
+1. Get the documentation source code in one of the following ways:
 
-Once you raise a PR for any branch, GitHub will **automatically** generate a preview for your changes and attach the link in the comments. Any new commits will be visible at the same URL. If you don't see the latest changes, try an incognito browser window.
+    - No write access? [Fork this repository][github-fork].
+    - Already have a write access? [Clone this repository][github-clone].
+
+2. Create a branch from `latest`, make your changes, and raise a pull request back to `latest` in the upstream repository. 
+
+3. Sign a Contributor License Agreement (CLA). 
+
+   You have to sign the CLA only the first time you raise a PR. This helps to ensure that the community is free to use your contributions.
+   
+4. Review your changes. 
+
+   The documentation site is generated in a separate private repository using [Gatsby][gatsby]. Once you raise a PR for any branch, GitHub will **automatically** generate a preview for your changes and attach the link in the comments. Any new commits will be visible at the same URL. If you don't see the latest changes, try an incognito browser window. Automated builds are not available for PRs in forked repositories. 
 
 ## Language
 
@@ -29,7 +39,15 @@ Aim to write in a clear, concise, and actionable manner. Timescale documentation
 
 Each major doc section has a dedicated directory with `.md` files inside, representing its child pages. This includes an `index.md` file that serves as a landing page for that doc section by default, unless specifically changed in the navigation tree. To edit a page, modify the corresponding `.md` file following these recommendations: 
 
-- **Regular pages**: use your judgement and other pages for reference when deciding how to organize your contribution. Split your page into logical paragraphs, use visual aids, and link to other resources where necessary.
+- **Regular pages** should include:
+
+  - A short intro describing the main subject of the page.
+  - A visual illustrating the main concept, if relevant.
+  - Paragraphs with descriptive headers, organizing the content into logical sections. 
+  - Procedures to describe the sequence of steps to reach a certain goal. For example, create a Timescale service. 
+  - Other visual aids, if necessary.
+  - Links to other relevant resources. 
+
 - **API pages** should include:
 
   - The function name, with empty parentheses if it takes arguments. 
@@ -40,14 +58,14 @@ Each major doc section has a dedicated directory with `.md` files inside, repres
 
 - **Troubleshooting pages** are not written as whole Markdown files, but are programmatically assembled from individual files in the`_troubleshooting` folder. Each entry describes a single troubleshooting case and its solution, and contains the following front matter:
     
-    |Key| Type                                                 |Required| Description                                                                                                                                                                          |
-    |-|------------------------------------------------------|-|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    |`title`| string                                               |✅| The title of the troubleshooting entry, displayed as a heading above it                                                                                                              |
-    |`section`| The literal string `troubleshooting`                 |✅| Must be `troubleshooting`, used to identify troubleshooting entries during site build                                                                                                |
-    |`products` or `topics`| array of strings                                     |✅ (can have either or both, but must have at least one)| The products or topics related to the entry. The entry will show up on the troubleshooting pages for the listed products and topics.                                                 |
+    |Key| Type  |Required| Description | 
+    |-|-------|-|--------------------------------------------------------------------------|
+    |`title`| string                                              |✅| The title of the troubleshooting entry, displayed as a heading above it                                                                                                              |
+    |`section`| The literal string `troubleshooting`                |✅| Must be `troubleshooting`, used to identify troubleshooting entries during site build                                                                                                |
+    |`products` or `topics`| array of strings                                    |✅ (can have either or both, but must have at least one)| The products or topics related to the entry. The entry will show up on the troubleshooting pages for the listed products and topics.                                                 |
     |`errors`| object of form `{language: string, message: string}` |❌| The error, if any, related to the troubleshooting entry. Displayed as a code block right underneath the title. `language` is the programming language to use for syntax highlighting. |
-    |`keywords`| array of strings                                     |❌| These are displayed at the bottom of every troubleshooting page. Each keyword links to a collection of all pages associated with that keyword.                                       |
-    |`tags`| array of strings                                     |❌| Concepts, actions, or things associated with the troubleshooting entry. These are not displayed in the UI, but they affect the calculation of related pages.                         |
+    |`keywords`| array of strings                                    |❌| These are displayed at the bottom of every troubleshooting page. Each keyword links to a collection of all pages associated with that keyword.                                       |
+    |`tags`| array of strings                                    |❌| Concepts, actions, or things associated with the troubleshooting entry. These are not displayed in the UI, but they affect the calculation of related pages.                         |
     
     Beneath the front matter, describe the error and its solution in regular Markdown. You can also use any other components allowed within the docs site.
     
@@ -164,6 +182,7 @@ The previous documentation source is in the deprecated repository called [docs.t
 [legacy-source]: https://github.com/timescale/docs.timescale.com-content
 [docs-issues]: https://github.com/timescale/docs/issues
 [github-fork]: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo
+[github-clone]: https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository
 [gatsby]: https://www.gatsbyjs.com/
 [google-style]: https://developers.google.com/style
 [markdown-syntax]: https://www.markdownguide.org/extended-syntax/
