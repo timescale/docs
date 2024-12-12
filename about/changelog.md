@@ -8,6 +8,20 @@ keywords: [changelog, upgrades, updates, releases]
 
 All the latest features and updates to Timescale products.
 
+## In-console Import from S3 (CSV and Parquet files)
+<Label type="date">December 13, 2024</Label>
+Users can now connect their S3 buckets to import data into Timescale. We support CSV (including .zip and .gzip formats) and Parquet files, with a 10 GB size limit in this initial release. This feature is accessible in the "Import Your Data" section right after service creation and through the Actions tab.
+
+## Self-Serve I/O Boost 📈 
+<Label type="date">December 13, 2024</Label>
+I/O Boost is an add-on for customers on Scale or Enterprise tiers that maximizes the I/O capacity of EBS storage to 16,000 IOPS and 1,000 MBps throughput per service.
+To enable I/O Boost, navigate to the Operations section in the Console. A simple toggle allows users to enable the feature, with pricing clearly displayed ($0.41/hour per node).
+
+## Jobs Explorer 
+<Label type="date">December 13, 2024</Label>
+Customers can now see all of their jobs associated with their service through a new "Jobs" tab. On this page, customers can see the type of job, its status (e.g., Running, Paused, etc.), and a detailed history of the last 100 runs of the job, including success rates and runtime statistics. 
+
+
 ## 🛝 New service creation flow
 <Label type="date">December 6, 2024</Label>
 
