@@ -72,7 +72,7 @@ See a [use example][aggregation] in the docs.
 
 ## Multi-tab code blocks
 
-![Multi-tab code block](https://assets.timescale.com/docs/images/multi-tab-code-block.png)
+![Multi-tab code block](https://assets.timescale.com/docs/images/multi-tab-code.png)
 
 Syntax example: 
 
@@ -106,29 +106,39 @@ Syntax example:
 
 ## Tags
 
-![Download tag](https://assets.timescale.com/docs/images/tag-download.png)
+- Download
 
-See a [use example][time-series-data] in the docs.
+  ![Download tag](https://assets.timescale.com/docs/images/tag-download.png)
 
-![Experimental tag](https://assets.timescale.com/docs/images/tag-experimental.png)
+  See a [use example][time-series-data] in the docs.
 
-See a [use example][time-bucket] in the docs.
+- Experimental
+  
+  ![Experimental tag](https://assets.timescale.com/docs/images/tag-experimental.png)
 
-![Tooklit tag](https://assets.timescale.com/docs/images/tag-toolkit.png)
+  See a [use example][time-bucket] in the docs.
 
-See a [use example][time-weighted-average] in the docs.
+- Toolkit
+ 
+  ![Tooklit tag](https://assets.timescale.com/docs/images/tag-toolkit.png)
 
-![Community tag](https://assets.timescale.com/docs/images/tag-community.png)
+  See a [use example][time-weighted-average] in the docs.
 
-See a [use example][add-compression-policy] in the docs.
+- Community
+  
+  ![Community tag](https://assets.timescale.com/docs/images/tag-community.png)
 
-![Hollow tag](https://assets.timescale.com/docs/images/hollow-tag.png)
+  See a [use example][add-compression-policy] in the docs.
 
-Syntax example:
+- Hollow
 
-```text
-<Tag variant="hollow">Text to display in a tag</Tag>
-```
+  ![Hollow tag](https://assets.timescale.com/docs/images/hollow-tag.png)
+
+  Syntax example:
+
+  ```text
+  <Tag variant="hollow">Text to display in a tag</Tag>
+  ```
 
 ## Partials
 
