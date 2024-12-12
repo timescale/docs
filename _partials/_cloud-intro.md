@@ -13,7 +13,8 @@ use as is, or extend with capabilities specific to your business needs. The avai
    the pgai extension.
 - **[PostgreSQL][create-service]**: the trusted industry-standard RDBMS. Ideal for applications requiring strong data 
    consistency, complex relationships, and advanced querying capabilities. Get ACID compliance, extensive SQL support, 
-   JSON handling, and extensibility through custom functions, data types, and extensions.
+   JSON handling, and extensibility through custom functions, data types, and extensions. $CLOUD_LONG continuously 
+   monitors your services and prevents common PostgreSQL out-of-memory crashes. 
 
 All $SERVICE_SHORTs include all the cloud tooling you'd expect for production use: 
 [automatic backups][automatic-backups], [high availability][high-availability], [read replicas][readreplica], 
