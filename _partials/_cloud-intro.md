@@ -17,8 +17,7 @@ use as is, or extend with capabilities specific to your business needs. The avai
    monitors your services and prevents common PostgreSQL out-of-memory crashes. 
 
 All $SERVICE_LONGs include the tooling you expect for production and developer environments: [live migration][live-migration], 
-[automatic backups and PITR][automatic-backups], [high availability][high-availability], [read replicas][readreplica],  
-[data forking][operations-forking], [connection pooling][connection-pooling], [tiered storage][data-tiering], 
+[automatic backups and PITR][automatic-backups], [high availability][high-availability], [read replicas][readreplica], [data forking][operations-forking], [connection pooling][connection-pooling], [tiered storage][data-tiering], 
 [usage-based storage][how-plans-work], secure in-Console [SQL editing][in-console-editors], service [metrics][metrics] 
 and [insights][insights],&nbsp;[streamlined maintenance][maintain-upgrade],&nbsp;and much more.
 
@@ -36,3 +35,4 @@ and [insights][insights],&nbsp;[streamlined maintenance][maintain-upgrade],&nbsp
 [metrics]: /use-timescale/:currentVersion:/metrics-logging/service-metrics/
 [insights]: /use-timescale/:currentVersion:/metrics-logging/insights/
 [maintain-upgrade]: /use-timescale/:currentVersion:/upgrades/
+
