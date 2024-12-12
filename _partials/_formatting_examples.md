@@ -6,7 +6,7 @@ This page illustrates and provides examples of the formatting available for Time
 
 Use for a logical sequence of steps to achieve a goal. For example, create a hypertable.  
 
-![Procedure example](https://assets.timescale.com/docs/images/procedure-example.png)
+![Procedure example](https://assets.timescale.com/docs/images/procedure-syntax.png)
 
 See a [use example][data-tiering] in the docs.
   
@@ -138,21 +138,21 @@ Import a partial from the `_partials` directory and then reference it in the rel
 
 Links should be [reference-style Markdown links][reference-links]. See a [use example][run-queries] in the docs.
 
-[data-tiering]: use-timescale/data-tiering/enabling-data-tiering.md
-[disable-chunk-skipping]: api/disable_chunk_skipping.md
-[decompress-chunks]: use-timescale/compression/decompress-chunks.md
-[alerting]: use-timescale/alerting.md
+[data-tiering]: ../use-timescale/data-tiering/enabling-data-tiering.md
+[disable-chunk-skipping]: ../api/disable_chunk_skipping.md
+[decompress-chunks]: ../use-timescale/compression/decompress-chunks.md
+[alerting]: ../use-timescale/alerting.md
 [deprecation]: _partials/_deprecated.md
-[live-migration]: migrate/live-migration.md
+[live-migration]: ../migrate/live-migration.md
 [fenced-code-blocks]: https://www.markdownguide.org/extended-syntax/#fenced-code-blocks
-[aggregation]: getting-started/aggregation.md
-[time-series-data]: getting-started/time-series-data.md
-[time-bucket]: api/time_bucket_ng.md
-[time-weighted-average]: api/time-weighted-averages.md
-[add-compression-policy]: api/add_compression_policy.md
+[aggregation]: ../getting-started/aggregation.md
+[time-series-data]: ../getting-started/time-series-data.md
+[time-bucket]: ../api/time_bucket_ng.md
+[time-weighted-average]: ../api/time-weighted-averages.md
+[add-compression-policy]: ../api/add_compression_policy.md
 [reference-links]: https://www.markdownguide.org/basic-syntax/#reference-style-links
-[run-queries]: getting-started/run-queires-from-console.md
-[create-service]: getting-started/services.md
+[run-queries]: ../getting-started/run-queires-from-console.md
+[create-service]: ../getting-started/services.md
 
 
 

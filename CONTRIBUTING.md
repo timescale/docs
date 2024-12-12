@@ -13,12 +13,12 @@ You can contribute to Timescale documentation in the following ways:
 
 To make the contribution yourself:
 
-1. Get the documentation source code in one of the following ways:
+1. Get the documentation source:
 
     - No write access? [Fork this repository][github-fork].
     - Already have a write access? [Clone this repository][github-clone].
 
-2. Create a branch from `latest`, make your changes, and raise a pull request back to `latest` in the upstream repository. 
+2. Create a branch from `latest`, make your changes, and raise a pull request back to `latest`. 
 
 3. Sign a Contributor License Agreement (CLA). 
 
@@ -26,7 +26,7 @@ To make the contribution yourself:
    
 4. Review your changes. 
 
-   The documentation site is generated in a separate private repository using [Gatsby][gatsby]. Once you raise a PR for any branch, GitHub will **automatically** generate a preview for your changes and attach the link in the comments. Any new commits will be visible at the same URL. If you don't see the latest changes, try an incognito browser window. Automated builds are not available for PRs in forked repositories. 
+   The documentation site is generated in a separate private repository using [Gatsby][gatsby]. Once you raise a PR for any branch, GitHub will **automatically** generate a preview for your changes and attach the link in the comments. Any new commits will be visible at the same URL. If you don't see the latest changes, try an incognito browser window. Automated builds are not available for PRs from forked repositories. 
 
 ## Language
 
