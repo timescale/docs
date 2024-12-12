@@ -120,7 +120,7 @@ To change the structure, add or delete pages in a section, modify the correspond
 
 Partials allow you to reuse snippets of content in multiple places. All partials
 live in the `_partials` top-level directory. To make a new partial, create a new
-`.md` file in this directory. The filename must start with an underscore. Then import it into the target page and reference in the relevant place. See [Formatting examples](_formatting_examples.md).
+`.md` file in this directory. The filename must start with an underscore. Then import it into the target page and reference in the relevant place. See [Formatting examples][formatting].
 
 ## Formatting
 
@@ -133,7 +133,7 @@ In addition to all the [regular Markdown formatting][markdown-syntax], the follo
 - Multi-tab code blocks
 - Tags
 
-See [Formatting examples](_formatting_examples.md) for how to use them. 
+See [Formatting examples][formatting] for how to use them. 
 
 ## Variables
 
@@ -142,16 +142,14 @@ Timescale documentation uses variables for its product names, features, and UI e
 - Front matter on each page
 - HTML tables
 
-The list of variables is an ever-evolving document. Rely on the help of our doc team to apply all relevant ones when reviewing your contribution. 
+See the full list of available variables here. 
 
 ## Links
-
-Links should be reference-style links where the link address is at the bottom of the page. 
 
 - Internal page links: internal links do not need to include the domain name `https://docs.timescale.com`. Use the `:currentVersion:` variable instead of `latest` in the URL.
 - External links: input external links as is. 
 
-See [Formatting examples](_formatting_examples.md) for details. 
+See [Formatting examples][formatting] for details. 
 
 ## Visuals
 
@@ -188,3 +186,4 @@ The previous documentation source is in the deprecated repository called [docs.t
 [markdown-syntax]: https://www.markdownguide.org/extended-syntax/
 [github-docs]: https://github.com/timescale/docs
 [use-navigation]: use-timescale/page-index/page-index.js
+[formatting]: _partials/_formatting_examples.md

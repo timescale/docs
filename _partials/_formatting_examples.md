@@ -1,94 +1,48 @@
 # Formatting examples 
 
-This page explains how to use the formatting available for Timescale documentation and how it renders on the website. Note that for most elements, spacing is important. 
+This page illustrates and provides examples of the formatting available for Timescale documentation. Note that for most elements, spacing is important. 
 
 ## Procedure
 
-```xml
-<Procedure>
-
-1.  **Step 1 summary in bold**
-
-    Step 1 explanation and details.
-
-    ```
-    step 1 code
-    ```
-
-1.  **Step 2 summary in bold** 
-
-    Step 2 explanation and details.
-    
-    1. Sub-step 1.
-
-       ```
-       Sub-step 1 code
-       ```
-    
-    1. Sub-step 2. 
-    
-    1. <Optional /> Sub-step 3. 
-
-</Procedure>
-```
+Use for a logical sequence of steps to achieve a goal. For example, create a hypertable.  
 
 ![Procedure example](https://assets.timescale.com/docs/images/procedure-example.png)
 
-The `Optional` tag is used to mark steps that are not required. 
+See a [use example][data-tiering] in the docs.
   
 ## Highlight blocks
 
 Use sparingly and only if it's essential to attract the reader's attention. 
 
 - Note
-
-    ```text
-    <Highlight type="note">
-    
-    Additional relevant information worth highlighting.
-    
-    </Highlight>
-    ```
     
     ![Note highlight](https://assets.timescale.com/docs/images/highlight-note.png)
 
-- Important
+    See a [use example][disable-chunk-skipping] in the docs.
 
-    ```text
-    <Highlight type="important">
-    
-    Important things to keep in mind.
-    
-    </Highlight>
-    ```
+- Important
     
     ![Important highlight](https://assets.timescale.com/docs/images/highlight-important.png)
 
-- Warning
+    See a [use example][decompress-chunks] in the docs.
 
-    ```text
-    <Highlight type="warning">
-    
-    Caution!
-    
-    </Highlight>
-    ```
+- Warning
     
     ![Caution highlight](https://assets.timescale.com/docs/images/highlight-warning.png)
 
-- Deprecation
+    See a [use example][alerting] in the docs.
 
-    ```text
-    <Highlight type="deprecation">
-    
-    A deprecation notice.
-    
-    </Highlight>
-    ```
+- Deprecation
     
     ![Deprecated highlight](https://assets.timescale.com/docs/images/highlight-deprecation.png)
 
+    See a [use example][deprecation] in the docs.
+
 - Cloud
+    
+    ![Cloud highlight](https://assets.timescale.com/docs/images/highlight-cloud.png)
+
+    Syntax example:
 
     ```text
     <Highlight type="cloud">
@@ -97,58 +51,30 @@ Use sparingly and only if it's essential to attract the reader's attention.
     
     </Highlight>
     ```
-    
-    ![Cloud highlight](https://assets.timescale.com/docs/images/highlight-cloud.png)
 
 ## Tabs
 
-```text
-<Tabs label="Description of section, used for accessibility">
-
-<Tab title="First tab title">
-
-First tab content
-
-</Tab>
-
-<Tab title="Second tab title">
-
-Second tab content
-
-</Tab>
-
-</Tabs>
-```
-
 ![Tabs](https://assets.timescale.com/docs/images/tabs-example.png)
+
+See a [use example][live-migration] in the docs.
 
 ## Code blocks 
 
-As a default, use [fenced Markdown code blocks](https://www.markdownguide.org/extended-syntax/#fenced-code-blocks):
+As a default, use [fenced Markdown code blocks][fenced-code-blocks]:
 
-    ```sql
-    CREATE TABLE conditions (
-       time        TIMESTAMPTZ       NOT NULL,
-       location    TEXT              NOT NULL,
-       device      TEXT              NOT NULL,
-       temperature DOUBLE PRECISION  NULL,
-       humidity    DOUBLE PRECISION  NULL
-    );
-    ```
+![Regular code block](https://assets.timescale.com/docs/images/markdown-code-block.png)
 
 To remove line numbers and the copy button, use the `CodeBlock` component with `canCopy` and `showLineNumbers` set to `false`:
 
-```text
-<CodeBlock canCopy={false} showLineNumbers={false} children={`
-code 
-code 
-code
-`} />
-```
+![Custom code block](https://assets.timescale.com/docs/images/custom-code-block.png)
 
-![Custom code block](https://assets.timescale.com/docs/images/custom-code-block-example.png)
+See a [use example][aggregation] in the docs.
 
 ## Multi-tab code blocks
+
+![Multi-tab code block](https://assets.timescale.com/docs/images/multi-tab-code-block.png)
+
+Syntax example: 
 
     <Terminal>
     
@@ -160,7 +86,7 @@ code
         
     </tab>
         
-    <tab label="python-1">
+    <tab label="python">
         
     ```python
     pyhon code
@@ -168,9 +94,9 @@ code
         
     </tab>
         
-    <tab label="python-2">
+    <tab label="go">
         
-    ```python
+    ```go
     different python code
     ```
         
@@ -178,62 +104,55 @@ code
         
     </Terminal>
 
-![Multi-tab code block](https://assets.timescale.com/docs/images/multi-tab-code-block.png)
-
 ## Tags
-
-```text
-<Tag type="download">Markdown link to download</Tag>
-```
 
 ![Download tag](https://assets.timescale.com/docs/images/tag-download.png)
 
-```text
-<Tag type="experimental" content="Experimental" /> or <Tag type="experimental-toolkit" content="Experimental"/> 
-```
+See a [use example][time-series-data] in the docs.
 
 ![Experimental tag](https://assets.timescale.com/docs/images/tag-experimental.png)
 
-```text
-<Tag type="toolkit" content="Toolkit" />
-```
+See a [use example][time-bucket] in the docs.
 
 ![Tooklit tag](https://assets.timescale.com/docs/images/tag-toolkit.png)
 
-```text
-<Tag type="community" content="Community" />
-```
+See a [use example][time-weighted-average] in the docs.
 
 ![Community tag](https://assets.timescale.com/docs/images/tag-community.png)
+
+See a [use example][add-compression-policy] in the docs.
+
+![Hollow tag](https://assets.timescale.com/docs/images/hollow-tag.png)
+
+Syntax example:
 
 ```text
 <Tag variant="hollow">Text to display in a tag</Tag>
 ```
 
-![Hollow tag](https://assets.timescale.com/docs/images/hollow-tag.png)
-
 ## Partials
 
-```text
-import PartialName from 'versionContent/_partials/_partial-name.mdx';
-
-Page content preceding the partial.
-
-<PartialName />
-
-Page content following the partial.
-```
+Import a partial from the `_partials` directory and then reference it in the relevant part of the page. See a [use example][create-service] in the docs.
 
 ## Links
 
-```text
-[anchor][reference-name]
+Links should be [reference-style Markdown links][reference-links]. See a [use example][run-queries] in the docs.
 
-Full page content goes here.
-
-[reference-name]: /doc-section-name/:currentVersion:/path/to/page OR any external link
-```
-
+[data-tiering]: use-timescale/data-tiering/enabling-data-tiering.md
+[disable-chunk-skipping]: api/disable_chunk_skipping.md
+[decompress-chunks]: use-timescale/compression/decompress-chunks.md
+[alerting]: use-timescale/alerting.md
+[deprecation]: _partials/_deprecated.md
+[live-migration]: migrate/live-migration.md
+[fenced-code-blocks]: https://www.markdownguide.org/extended-syntax/#fenced-code-blocks
+[aggregation]: getting-started/aggregation.md
+[time-series-data]: getting-started/time-series-data.md
+[time-bucket]: api/time_bucket_ng.md
+[time-weighted-average]: api/time-weighted-averages.md
+[add-compression-policy]: api/add_compression_policy.md
+[reference-links]: https://www.markdownguide.org/basic-syntax/#reference-style-links
+[run-queries]: getting-started/run-queires-from-console.md
+[create-service]: getting-started/services.md
 
 
 
