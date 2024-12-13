@@ -102,6 +102,11 @@ module.exports = [
         href: "backup-and-restore",
         children: [
           {
+            title: "Logical backup",
+            href: "logical-backup",
+            excerpt: "Back up and restore a hypertable or an entire database using native PostgreSQL commands",
+          },
+          {
             title: "Docker & WAL-E",
             href: "docker-and-wale",
             excerpt: "Backing up and restoring with Docker and WAL-E",
