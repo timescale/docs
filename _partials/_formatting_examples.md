@@ -142,7 +142,7 @@ Syntax example:
 
 ## Partials
 
-Import a partial from the `_partials` directory and then reference it in the relevant part of the page. See a [use example][create-service] in the docs.
+Import a partial from the `_partials` directory and then reference it in the relevant part of the page. See a [use example][live-migration] in the docs.
 
 ## Links
 
@@ -166,7 +166,5 @@ See [more examples][run-queries] in the docs.
 [add-compression-policy]: ../api/add_compression_policy.md
 [reference-links]: https://www.markdownguide.org/basic-syntax/#reference-style-links
 [run-queries]: ../getting-started/run-queires-from-console.md
-[create-service]: ../getting-started/services.md
-
 
 
