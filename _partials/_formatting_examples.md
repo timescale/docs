@@ -146,7 +146,11 @@ Import a partial from the `_partials` directory and then reference it in the rel
 
 ## Links
 
-Links should be [reference-style Markdown links][reference-links]. See a [use example][run-queries] in the docs.
+Links should be [reference-style Markdown links][reference-links]. For example:
+
+[A link to the data tiering section in docs][data-tiering]
+
+See [more examples][run-queries] in the docs.
 
 [data-tiering]: ../use-timescale/data-tiering/enabling-data-tiering.md
 [disable-chunk-skipping]: ../api/disable_chunk_skipping.md
