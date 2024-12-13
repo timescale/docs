@@ -1,7 +1,6 @@
 import SetupConnectionStrings from "versionContent/_partials/_migrate_live_setup_connection_strings.mdx";
 import MigrationSetupDBConnectionPostgresql from "versionContent/_partials/_migrate_set_up_align_db_extensions_postgres_based.mdx";
 import TuneSourceDatabasePostgres from "versionContent/_partials/_migrate_live_tune_source_database_postgres.mdx";
-import MigrateSetupTargetEnvironment from "versionContent/_partials/_migrate_live_setup_environment_target_config.mdx";
 
 
 ## Set your connection strings
@@ -23,13 +22,6 @@ import MigrateSetupTargetEnvironment from "versionContent/_partials/_migrate_liv
 
 </Procedure>
 
-## Tune the target Timescale Cloud service
-
-<Procedure>
-
-<MigrateSetupTargetEnvironment />
-
-</Procedure>
 
 [modify-parameters]: /use-timescale/:currentVersion/configuration/customize-configuration/#modify-basic-parameters
 [mst-portal]: https://portal.managed.timescale.com/login
