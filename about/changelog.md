@@ -8,19 +8,30 @@ keywords: [changelog, upgrades, updates, releases]
 
 All the latest features and updates to Timescale products.
 
-## In-console Import from S3 (CSV and Parquet files)
+## In-Console import from S3, I/O Boost, and Jobs Explorer
 <Label type="date">December 13, 2024</Label>
-Users can now connect their S3 buckets to import data into Timescale. We support CSV (including .zip and .gzip formats) and Parquet files, with a 10 GB size limit in this initial release. This feature is accessible in the "Import Your Data" section right after service creation and through the Actions tab.
 
-## Self-Serve I/O Boost 📈 
-<Label type="date">December 13, 2024</Label>
-I/O Boost is an add-on for customers on Scale or Enterprise tiers that maximizes the I/O capacity of EBS storage to 16,000 IOPS and 1,000 MBps throughput per service.
-To enable I/O Boost, navigate to the Operations section in the Console. A simple toggle allows users to enable the feature, with pricing clearly displayed ($0.41/hour per node).
+### In-Console import from S3 (CSV and Parquet files)
 
-## Jobs Explorer 
-<Label type="date">December 13, 2024</Label>
-Customers can now see all of their jobs associated with their service through a new "Jobs" tab. On this page, customers can see the type of job, its status (e.g., Running, Paused, etc.), and a detailed history of the last 100 runs of the job, including success rates and runtime statistics. 
+Connect your S3 buckets to import data into Timescale Cloud. We support CSV (including `.zip` and `.gzip`) and Parquet files, with a 10 GB size limit in this initial release. This feature is accessible in the `Import your data` section right after service creation and through the `Actions` tab.
 
+![Import data into Timescale with S3](https://assets.timescale.com/docs/images/import-your-data-s3.png)
+
+![Import data into Timescale with S3 details](https://assets.timescale.com/docs/images/import-data-s3-details.png)
+
+### Self-Serve I/O Boost 📈 
+
+I/O Boost is an add-on for customers on Scale or Enterprise tiers that maximizes the I/O capacity of EBS storage to 16,000 IOPS and 1,000 MBps throughput per service. To enable I/O Boost, navigate to `Services` > `Operations` in Timescale Console. A simple toggle allows you to enable the feature, with pricing clearly displayed at $0.41/hour per node.
+
+![Timescale I/O Boost](https://assets.timescale.com/docs/images/timescale-i-o-boost.png)
+
+### Jobs Explorer 
+
+See all the jobs associated with your service through a new `Jobs` tab. You can see the type of job, its status (`Running`, `Paused`, and others), and a detailed history of the last 100 runs, including success rates and runtime statistics.
+
+![Timescale Console Jobs tab](https://assets.timescale.com/docs/images/timescale-console-jobs-tab.png)
+
+![Timescale Console Jobs tab expanded](https://assets.timescale.com/docs/images/timescale-console-jobs-expanded.png)
 
 ## 🛝 New service creation flow
 <Label type="date">December 6, 2024</Label>
