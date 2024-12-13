@@ -65,3 +65,34 @@ FROM deduplicate_chunks('nudge_events', 'bot_id, session_id, nudge_id, time', 25
 
 Shoutout to **Mathias Ose** and **Christopher Piggott** for this recipe. 
  
+### Get faster JOIN queries with Common Table Expressions 
+
+Imagine there is a query that joins a hypertable to another table on a shared key:
+
+```sql
+    SELECT timestamp, 
+      FROM hypertable as h
+      JOIN related_table as rt
+        ON rt.id = h.related_table_id
+     WHERE h.timestamp BETWEEN '2024-10-10 00:00:00' AND '2024-10-17 00:00:00'
+```
+
+If you run `EXPLAIN` on this query, you see that the query planner performs a `NestedJoin` between these two tables, which means querying the hypertable multiple times.  Even if the hypertable is well indexed, if it is also large, the query will be slow. How do you force a once-only lookup? Use materialized Common Table Expressions (CTEs).
+
+If you split the query into two parts using CTEs, you can `materialize` the hypertable lookup and force PostgreSQL to perform it only once. 
+
+```sql
+WITH cached_query AS materialized (
+  SELECT *
+    FROM hypertable
+   WHERE BETWEEN '2024-10-10 00:00:00' AND '2024-10-17 00:00:00'
+)
+  SELECT *
+    FROM cached_query as c
+    JOIN related_table as rt
+      ON rt.id = h.related_table_id
+```
+
+Now if you run `EXPLAIN` once again, you see that this query performs only one lookup. Depending on the size of your hypertable, this could result in a multi-hour query taking mere seconds.
+
+Shoutout to **Rowan Molony** for this recipe. 
