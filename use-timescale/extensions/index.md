@@ -11,68 +11,83 @@ tags: [extensions]
 You can use PostgreSQL extensions with Timescale. These are the currently
 supported extensions:
 
-<!-- vale Vale.Spelling = NO -->
+- [PostgreSQL built-in extensions][built-ins]
+- [Timescale extensions][timescale-extensions]
+- [Third-party extensions][third-party]
 
-| Extension                                        | Description                                                            | Enabled for service capability |
-|--------------------------------------------------|------------------------------------------------------------------------|--------------------------------|
-| [amcheck][amcheck]                               | Functions for verifying relation integrity                             | -                              | 
-| [autoinc][autoinc]                               | Functions for autoincrementing fields                                  | -                              | 
-| [bloom][bloom]                                   | Bloom access method - signature file-based index                       | -                              |
-| [bool_plperl][bool_plper]                        | Transform between bool and plperl                                      | -                              | 
-| [btree_gin][btree_gin]                           | Support for indexing common datatypes in GIN                           | -                              |
-| [btree_gist][btree_gist]                         | Support for indexing common datatypes in GiST                          | -                              |
-| [citext][citext]                                 | Data type for case-insensitive character strings                       | -                              |
-| [cube][cube]                                     | Data type for multidimensional cubes                                   | -                              |
-| [dict_int][dict_int]                             | Text search dictionary template for integers                           | -                              |
-| [dict_xsyn][dict_xsyn]                           | Text search dictionary template for extended synonym processing        | -                              |
-| [earthdistance][earthdistance]                   | Calculate great-circle distances on the surface of the Earth           | -                              |
-| [fuzzystrmatch][fuzzystrmatch]                   | Determine similarities and distance between strings                    | -                              |
-| [hstore][hstore]                                 | Data type for storing sets of (key, value) pairs                       | -                              |
-| [hstore_plperl][hstore]                          | Transform between hstore and plperl                                    | -                              |
-| [insert_username][insert_username]               | Functions for tracking who changed a table                             | -                              |
-| [intagg][intagg]                                 | Integer aggregator and enumerator (obsolete)                           | -                              |
-| [intarray][intarray]                             | Functions, operators, and index support for 1-D arrays of integers     | -                              |
-| [isn][isn]                                       | Data types for international product numbering standards               | -                              |
-| [jsonb_plperl][jsonb_plperl]                     | Transform between jsonb and plperl                                     | -                              | 
-| [lo][lo]                                         | Large object maintenance                                               | -                              |
-| [ltree][ltree]                                   | Data type for hierarchical tree-like structures                        | -                              |
-| [moddatetime][moddatetime]                       | Functions for tracking last modification time                          | -                              |
-| [old_snapshot][old_snapshot]                     | Utilities in support of `old_snapshot_threshold`                       | -                              |
-| [pg_freespacemap][pg_freespacemap]               | Examine the free space map (FSM)                                       | -                              |
-| [pg_prewarm][pg_prewarm]                         | Prewarm relation data                                                  | -                              |
-| [pg_stat_statements][pg_stat_statements]         | Track execution statistics of all SQL statements executed              | All                            |
-| [pg_trgm][pg_trgm]                               | Text similarity measurement and index searching based on trigrams      | -                              |
-| [pg_visibility][pg_visibility]                   | Examine the visibility map (VM) and page-level visibility info         | -                              |
-| [pgai][pgai]                                     | Helper functions for AI workflows                                      | All                            |
-| [pgaudit][pgaudit]                               | Detailed session and/or object audit logging                           | -                              |
-| [pgcrypto][pgcrypto]                             | Cryptographic functions                                                | -                              |
-| [pgpcre][pgpcre]                                 | Perl-compatible RegEx                                                  | -                              |
-| [pgrouting][pgrouting]                           | Geospatial routing functionality                                       | -                              |
-| [pgrowlocks][pgrowlocks]                         | Show row-level locking information                                     | -                              |
-| [pgstattuple][pgstattuple]                       | Obtain tuple-level statistics                                          | -                              |
-| [pgvector][pgvector]                             | Vector similarity search for PostgreSQL                                | AI and vector                  |
-| [pgvectorscale][pgvectorscale]                   | Advanced indexing for vector data                                      | AI and vector                  | 
-| [plperl][plperl]                                 | PL/Perl procedural language                                            | -                              |
-| [plpgsql][plpgsql]                               | SQL procedural language                                                | All                            |
-| [postgis][postgis]                               | PostGIS geometry and geography spatial types and functions             | -                              |
-| [postgis_raster][postgis_raster]                 | PostGIS raster types and functions                                     | -                              |
-| [postgis_sfcgal][postgis_sfcgal]                 | PostGIS SFCGAL functions                                               | -                              |
-| [postgis_tiger_geocoder][postgis_tiger_geocoder] | PostGIS tiger geocoder and reverse geocoder                            | -                              |
-| [postgis_topology][postgis_topology]             | PostGIS topology spatial types and functions                           | -                              |
-| [refint][refint]                                 | Functions for implementing referential integrity (obsolete)            | -                              |
-| [seg][seg]                                       | Data type for representing line segments or floating-point intervals   | -                              |
-| [sslinfo][sslinfo]                               | Information about SSL certificates                                     | -                              |
-| [tablefunc][tablefunc]                           | Functions that manipulate whole tables, including crosstab             | -                              |
-| [tcn][tcn]                                       | Trigger change notifications                                           | -                              |
-| [timescale_vector][timescale_vector]             | Advanced indexing for vector data                                      | -                              |
-| [timescaledb_toolkit][timescaledb_toolkit]       | TimescaleDB Toolkit                                                    | Time series and analytics      |
-| [tsm_system_rows][tsm_system_rows]               | `TABLESAMPLE` method which accepts the number of rows as a limit       | -                              |
-| [tsm_system_time][tsm_system_time]               | `TABLESAMPLE` method which accepts the time in milliseconds as a limit | -                              |
-| [unaccent][unaccent]                             | Text search dictionary that removes accents                            | -                              |
-| [unit][unit]                                     | SI units for PostgreSQL                                                | -                              |
-| [uuid-ossp][uuid-ossp]                           | Generate universally unique identifiers (UUIDs)                        | -                              |
+## PostgreSQL built-in extensions
 
-<!-- vale Vale.Spelling = YES -->
+| Extension   | Description      | Enabled by default   |
+|-------------|------------------|----------------------|
+| [autoinc][autoinc]                               | Functions for autoincrementing fields                                  | -              |
+| [amcheck][amcheck]                               | Functions for verifying relation integrity                             | -                                                                               | 
+| [bloom][bloom]                                   | Bloom access method - signature file-based index                       | -                                                                               |
+| [btree_gin][btree_gin]                           | Support for indexing common datatypes in GIN                           | -                                                                               |
+| [btree_gist][btree_gist]                         | Support for indexing common datatypes in GiST                          | -                                                                               |
+| [citext][citext]                                 | Data type for case-insensitive character strings                       | -                                                                               |
+| [cube][cube]                                     | Data type for multidimensional cubes                                   | -                                                                               |
+| [dict_int][dict_int]                             | Text search dictionary template for integers                           | -                                                                               |
+| [dict_xsyn][dict_xsyn]                           | Text search dictionary template for extended synonym processing        | -                                                                               |
+| [earthdistance][earthdistance]                   | Calculate great-circle distances on the surface of the Earth           | -                                                                               |
+| [fuzzystrmatch][fuzzystrmatch]                   | Determine similarities and distance between strings                    | -                                                                               |
+| [hstore][hstore]                                 | Data type for storing sets of (key, value) pairs                       | -                                                                               |
+| [intagg][intagg]                                 | Integer aggregator and enumerator (obsolete)                           | -                                                                               |
+| [intarray][intarray]                             | Functions, operators, and index support for 1-D arrays of integers     | -                                                                               |
+| [isn][isn]                                       | Data types for international product numbering standards               | -                                                                               |
+| [lo][lo]                                         | Large object maintenance                                               | -                                                                               |
+| [ltree][ltree]                                   | Data type for hierarchical tree-like structures                        | -                                                                               |
+| [pg_freespacemap][pg_freespacemap]               | Examine the free space map (FSM)                                       | -                                                                               |
+| [pgcrypto][pgcrypto]                             | Cryptographic functions                                                | -                                                                               |
+| [pg_prewarm][pg_prewarm]                         | Prewarm relation data                                                  | -                                                                               |
+| [pgrowlocks][pgrowlocks]                         | Show row-level locking information                                     | -                                                                               |
+| [pg_stat_statements][pg_stat_statements]         | Track execution statistics of all SQL statements executed              | For all services                                                                |
+| [pgstattuple][pgstattuple]                       | Obtain tuple-level statistics                                          | -                                                                               |
+| [pg_visibility][pg_visibility]                   | Examine the visibility map (VM) and page-level visibility info         | -                                                                               |
+| [refint][refint]                                 | Functions for implementing referential integrity (obsolete)            | -                                                                               |
+| [seg][seg]                                       | Data type for representing line segments or floating-point intervals   | -                                                                               |
+| [sslinfo][sslinfo]                               | Information about SSL certificates                                     | -                                                                               |
+| [tablefunc][tablefunc]                           | Functions that manipulate whole tables, including crosstab             | -                                                                               |
+| [tcn][tcn]                                       | Trigger change notifications                                           | -                                                                               |
+| [tsm_system_rows][tsm_system_rows]               | `TABLESAMPLE` method which accepts the number of rows as a limit       | -                                                                               |
+| [tsm_system_time][tsm_system_time]               | `TABLESAMPLE` method which accepts the time in milliseconds as a limit | -                                                                               |
+| [unaccent][unaccent]                             | Text search dictionary that removes accents                            | -                                                                               |
+| [uuid-ossp][uuid-ossp]                           | Generate universally unique identifiers (UUIDs)                        | -                                                                               |
+
+
+
+## Timescale extensions
+
+| Extension   | Description      | Enabled by default                                         |
+|-------------|------------------|------------------------------------------------------------|
+| [pgai][pgai]                                     | Helper functions for AI workflows                                      | For all services                                           |
+| [pgvector][pgvector]                             | Vector similarity search for PostgreSQL                                | For services with the [AI and Vector capability][services] |
+| [pgvectorscale][pgvectorscale]                   | Advanced indexing for vector data                                      | For services with the [AI and Vector capability][services] | 
+| [timescale_vector][timescale_vector]             | Advanced indexing for vector data                                      | -                                                          |
+| [timescaledb_toolkit][timescaledb_toolkit]       | TimescaleDB Toolkit                                                    | For services with the [AI and Vector capability][services] |
+
+
+## Third-party extensions
+
+| Extension   | Description      | Enabled by default   |
+|-------------|------------------|----------------------|
+| [bool_plperl][bool_plper]                        | Transform between bool and plperl                                      | -              |
+| [hstore_plperl][hstore]                          | Transform between hstore and plperl                                    | -              |
+| [insert_username][insert_username]               | Functions for tracking who changed a table                             | -              |
+| [jsonb_plperl][jsonb_plperl]                     | Transform between jsonb and plperl                                     | -              | 
+| [moddatetime][moddatetime]                       | Functions for tracking last modification time                          | -              |
+| [old_snapshot][old_snapshot]                     | Utilities in support of `old_snapshot_threshold`                       | -              |
+| [pg_trgm][pg_trgm]                               | Text similarity measurement and index searching based on trigrams      | -              |
+| [pgaudit][pgaudit]                               | Detailed session and/or object audit logging                           | -              |
+| [pgpcre][pgpcre]                                 | Perl-compatible RegEx                                                  | -              |
+| [pgrouting][pgrouting]                           | Geospatial routing functionality                                       | -              |
+| [plperl][plperl]                                 | PL/Perl procedural language                                            | -              | 
+| [plpgsql][plpgsql]                               | SQL procedural language                                                | For all services                                                                |
+| [postgis][postgis]                               | PostGIS geometry and geography spatial types and functions             | -                                                                               |
+| [postgis_raster][postgis_raster]                 | PostGIS raster types and functions                                     | -                                                                               |
+| [postgis_sfcgal][postgis_sfcgal]                 | PostGIS SFCGAL functions                                               | -                                                                               |
+| [postgis_tiger_geocoder][postgis_tiger_geocoder] | PostGIS tiger geocoder and reverse geocoder                            | -                                                                               |
+| [postgis_topology][postgis_topology]             | PostGIS topology spatial types and functions                           | -                                                                               |
+| [unit][unit]                                     | SI units for PostgreSQL                                                | -                                                                               |
 
 [amcheck]: https://www.postgresql.org/docs/current/amcheck.html
 [autoinc]: https://www.postgresql.org/docs/current/contrib-spi.html#CONTRIB-SPI-AUTOINC
@@ -116,7 +131,6 @@ supported extensions:
 [postgis_sfcgal]: https://postgis.net/docs/reference_sfcgal.html
 [postgis_tiger_geocoder]: https://postgis.net/docs/Extras.html#Tiger_Geocoder
 [postgis_topology]: https://postgis.net/workshops/postgis-intro/topology.html
-[postgres-fdw]: /use-timescale/:currentVersion:/schema-management/foreign-data-wrappers/
 [refint]: https://postgrespro.com/docs/postgresql/9.6/contrib-spi#idp144721
 [seg]: https://www.postgresql.org/docs/current/seg.html
 [pgcrypto]: /use-timescale/:currentVersion:/extensions/pgcrypto/
@@ -130,3 +144,7 @@ supported extensions:
 [unaccent]: https://www.postgresql.org/docs/current/unaccent.html
 [unit]: https://github.com/df7cb/postgresql-unit
 [uuid-ossp]: https://www.postgresql.org/docs/current/uuid-ossp.html 
+[built-ins]: #postgresql-built-in-extensions
+[timescale-extensions]: #timescale-extensions
+[third-party]: #third-party-extensions
+[services]: /getting-started/:currentVersion:/
