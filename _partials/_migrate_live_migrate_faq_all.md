@@ -110,27 +110,4 @@ One of the following can be used to avoid the OOM errors:
 
 By taking these steps, you can prevent OOM errors and ensure a smoother migration experience with TimescaleDB.
 
-### ERROR:  invalid snapshot identifier: "xxxxxx" (or) SSL SYSCALL error: EOF detected on RDS
-
-This rare phenomenon may happen when:
-
-- The snapshot becomes stale due to network connection interruption between the snapshot process and your source database.
-
-  When you see you this error you need to tune the tcp parameter tuning on your source RDS instance. Update the
-  following GUCs to the recommended values on the source RDS instance.
-
-   ```shell
-   psql -X -d $SOURCE -c "alter system set tcp_keepalives_count=60"
-   psql -X -d $SOURCE -c "alter system set tcp_keepalives_idle=10"
-   psql -X -d $SOURCE -c "alter system set tcp_keepalives_interval=10"
-   psql -X -d $SOURCE -c "alter system set wal_sender_timeout='30min'"
-   ```
-
-  For more information, see [https://github.com/dimitri/pgcopydb/issues/773#issuecomment-2139093365](https://github.com/dimitri/pgcopydb/issues/773#issuecomment-2139093365)
-
-- Either your source database or target Timescale Cloud service is under CPU/Memory/Disk/Network pressure:
-
-  Upgrade to better instances types until migration completes.
-
-
 [align-versions]: /migrate/:currentVersion:/live-migration/#align-the-version-of-timescaledb-on-the-source-and-target
