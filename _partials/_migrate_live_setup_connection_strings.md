@@ -7,3 +7,7 @@ export TARGET="postgres://tsdbadmin:<PASSWORD>@<HOST>:<PORT>/tsdb?sslmode=requir
 ```
 You find the connection information for your Timescale Cloud service in the configuration file you
 downloaded when you created the service.
+
+<Highlight type="important">
+Avoid using connection strings that route through connection poolers like PgBouncer or similar tools. The live-migration tool requires a direct connection to the database to function properly.
+</Highlight>
