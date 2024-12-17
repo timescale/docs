@@ -110,7 +110,7 @@ width={1375} height={944}
 src="https://assets.iobeam.com/images/docs/screenshots-for-grafana-tutorial/grafana_query_results_5m.png"
 alt="Visualizing time-series data in Grafana"/>
 
-## Use Grafana to visualize geospatial data stored in Timescale
+## Use Grafana to visualize geospatial data
 
 Grafana includes a WorldMap visualization so you can see geospatial data
 overlaid on a map. This can be helpful to understand how data
