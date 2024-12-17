@@ -841,32 +841,14 @@ module.exports = [
             children:
               [
                 {
-                  title: "Grafana",
-                  href: "grafana",
-                  excerpt: "Use Grafana with Timescale",
-                  children:
-                    [
-                      {
-                        title: "Installing Grafana",
-                        href: "installation",
-                        excerpt: "Installing Grafana and connecting it to your Timescale service"
-                      },
-                      {
-                        title: "Create a Grafana dashboard and panel",
-                        href: "create-dashboard-and-panel",
-                        excerpt: "Create a Grafana dashboard and panel to display your Timescale data",
-                      },
-                      {
-                        title: "Use Grafana to visualize geospatial data",
-                        href: "geospatial-dashboards",
-                        excerpt: "Use Grafana to visualize geospatial data in Timescale",
-                      },
-                    ]
-                },
-                {
                   title: "Tableau",
                   href: "tableau",
                   excerpt: "Use Tableau with Timescale",
+                },
+                {
+                  title: "Grafana",
+                  href: "grafana",
+                  excerpt: "Use Grafana with Timescale",
                 },
               ]
           },

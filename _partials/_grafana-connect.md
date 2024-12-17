@@ -3,8 +3,7 @@ import ImportPrerequisites from "versionContent/_partials/_migrate_import_prereq
 
 ## Add Timescale as a data source in Grafana
 
-Grafana is and open source analytics and monitoring solution. You use Grafana to visualize queries 
-directly from your $SERVICE_LONG.
+You use Grafana to visualize queries directly from your $SERVICE_LONG.
 
 ### Prerequisites
 
@@ -12,7 +11,7 @@ directly from your $SERVICE_LONG.
 
 *   Install self-managed Grafana, or sign up for [Grafana Cloud][install-grafana]
 
-### Add your $SERVICE_LONG as a data source in Grafana
+### Add your $SERVICE_LONG as a data source 
 
 To connect the data in your $SERVICE_LONG to Grafana:
 
