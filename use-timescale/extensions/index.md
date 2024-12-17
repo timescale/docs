@@ -17,43 +17,45 @@ supported extensions:
 
 ## PostgreSQL built-in extensions
 
-| Extension   | Description      | Enabled by default   |
-|-------------|------------------|----------------------|
-| [autoinc][autoinc]                               | Functions for autoincrementing fields                                  | -              |
-| [amcheck][amcheck]                               | Functions for verifying relation integrity                             | -                                                                               | 
-| [bloom][bloom]                                   | Bloom access method - signature file-based index                       | -                                                                               |
-| [btree_gin][btree_gin]                           | Support for indexing common datatypes in GIN                           | -                                                                               |
-| [btree_gist][btree_gist]                         | Support for indexing common datatypes in GiST                          | -                                                                               |
-| [citext][citext]                                 | Data type for case-insensitive character strings                       | -                                                                               |
-| [cube][cube]                                     | Data type for multidimensional cubes                                   | -                                                                               |
-| [dict_int][dict_int]                             | Text search dictionary template for integers                           | -                                                                               |
-| [dict_xsyn][dict_xsyn]                           | Text search dictionary template for extended synonym processing        | -                                                                               |
-| [earthdistance][earthdistance]                   | Calculate great-circle distances on the surface of the Earth           | -                                                                               |
-| [fuzzystrmatch][fuzzystrmatch]                   | Determine similarities and distance between strings                    | -                                                                               |
-| [hstore][hstore]                                 | Data type for storing sets of (key, value) pairs                       | -                                                                               |
-| [intagg][intagg]                                 | Integer aggregator and enumerator (obsolete)                           | -                                                                               |
-| [intarray][intarray]                             | Functions, operators, and index support for 1-D arrays of integers     | -                                                                               |
-| [isn][isn]                                       | Data types for international product numbering standards               | -                                                                               |
-| [lo][lo]                                         | Large object maintenance                                               | -                                                                               |
-| [ltree][ltree]                                   | Data type for hierarchical tree-like structures                        | -                                                                               |
-| [pg_freespacemap][pg_freespacemap]               | Examine the free space map (FSM)                                       | -                                                                               |
-| [pgcrypto][pgcrypto]                             | Cryptographic functions                                                | -                                                                               |
-| [pg_prewarm][pg_prewarm]                         | Prewarm relation data                                                  | -                                                                               |
-| [pgrowlocks][pgrowlocks]                         | Show row-level locking information                                     | -                                                                               |
-| [pg_stat_statements][pg_stat_statements]         | Track execution statistics of all SQL statements executed              | For all services                                                                |
-| [pgstattuple][pgstattuple]                       | Obtain tuple-level statistics                                          | -                                                                               |
-| [pg_visibility][pg_visibility]                   | Examine the visibility map (VM) and page-level visibility info         | -                                                                               |
-| [refint][refint]                                 | Functions for implementing referential integrity (obsolete)            | -                                                                               |
-| [seg][seg]                                       | Data type for representing line segments or floating-point intervals   | -                                                                               |
-| [sslinfo][sslinfo]                               | Information about SSL certificates                                     | -                                                                               |
-| [tablefunc][tablefunc]                           | Functions that manipulate whole tables, including crosstab             | -                                                                               |
-| [tcn][tcn]                                       | Trigger change notifications                                           | -                                                                               |
-| [tsm_system_rows][tsm_system_rows]               | `TABLESAMPLE` method which accepts the number of rows as a limit       | -                                                                               |
-| [tsm_system_time][tsm_system_time]               | `TABLESAMPLE` method which accepts the time in milliseconds as a limit | -                                                                               |
-| [unaccent][unaccent]                             | Text search dictionary that removes accents                            | -                                                                               |
-| [uuid-ossp][uuid-ossp]                           | Generate universally unique identifiers (UUIDs)                        | -                                                                               |
-
-
+| Extension   | Description      | Enabled by default |
+|-------------|------------------|--------------------|
+| [autoinc][autoinc]                               | Functions for autoincrementing fields                                  | -                  |
+| [amcheck][amcheck]                               | Functions for verifying relation integrity                             | -                  | 
+| [bloom][bloom]                                   | Bloom access method - signature file-based index                       | -                  |
+| [btree_gin][btree_gin]                           | Support for indexing common datatypes in GIN                           | -                  |
+| [btree_gist][btree_gist]                         | Support for indexing common datatypes in GiST                          | -                  |
+| [citext][citext]                                 | Data type for case-insensitive character strings                       | -                  |
+| [cube][cube]                                     | Data type for multidimensional cubes                                   | -                  |
+| [dict_int][dict_int]                             | Text search dictionary template for integers                           | -                  |
+| [dict_xsyn][dict_xsyn]                           | Text search dictionary template for extended synonym processing        | -                  |
+| [earthdistance][earthdistance]                   | Calculate great-circle distances on the surface of the Earth           | -                  |
+| [fuzzystrmatch][fuzzystrmatch]                   | Determine similarities and distance between strings                    | -                  |
+| [hstore][hstore]                                 | Data type for storing sets of (key, value) pairs                       | -                  |
+| [hstore_plperl][hstore]                          | Transform between hstore and plperl                                    | -                  |
+| [insert_username][insert_username]               | Functions for tracking who changed a table                             | -                  |
+| [intagg][intagg]                                 | Integer aggregator and enumerator (obsolete)                           | -                  |
+| [intarray][intarray]                             | Functions, operators, and index support for 1-D arrays of integers     | -                  |
+| [isn][isn]                                       | Data types for international product numbering standards               | -                  |
+| [lo][lo]                                         | Large object maintenance                                               | -                  |
+| [ltree][ltree]                                   | Data type for hierarchical tree-like structures                        | -                  |
+| [moddatetime][moddatetime]                       | Functions for tracking last modification time                          | -                  |
+| [pgcrypto][pgcrypto]                             | Cryptographic functions                                                | -                  |
+| [pgrowlocks][pgrowlocks]                         | Show row-level locking information                                     | -                  |
+| [pgstattuple][pgstattuple]                       | Obtain tuple-level statistics                                          | -                  |
+| [pg_freespacemap][pg_freespacemap]               | Examine the free space map (FSM)                                       | -                  |
+| [pg_prewarm][pg_prewarm]                         | Prewarm relation data                                                  | -                  |
+| [pg_stat_statements][pg_stat_statements]         | Track execution statistics of all SQL statements executed              | For all services   |
+| [pg_trgm][pg_trgm]                               | Text similarity measurement and index searching based on trigrams      | -                  |
+| [pg_visibility][pg_visibility]                   | Examine the visibility map (VM) and page-level visibility info         | -                  |
+| [refint][refint]                                 | Functions for implementing referential integrity (obsolete)            | -                  |
+| [seg][seg]                                       | Data type for representing line segments or floating-point intervals   | -                  |
+| [sslinfo][sslinfo]                               | Information about SSL certificates                                     | -                  |
+| [tablefunc][tablefunc]                           | Functions that manipulate whole tables, including crosstab             | -                  |
+| [tcn][tcn]                                       | Trigger change notifications                                           | -                  |
+| [tsm_system_rows][tsm_system_rows]               | `TABLESAMPLE` method which accepts the number of rows as a limit       | -                  |
+| [tsm_system_time][tsm_system_time]               | `TABLESAMPLE` method which accepts the time in milliseconds as a limit | -                  |
+| [unaccent][unaccent]                             | Text search dictionary that removes accents                            | -                  |
+| [uuid-ossp][uuid-ossp]                           | Generate universally unique identifiers (UUIDs)                        | -                  |
 
 ## Timescale extensions
 
@@ -71,12 +73,8 @@ supported extensions:
 | Extension   | Description      | Enabled by default   |
 |-------------|------------------|----------------------|
 | [bool_plperl][bool_plper]                        | Transform between bool and plperl                                      | -              |
-| [hstore_plperl][hstore]                          | Transform between hstore and plperl                                    | -              |
-| [insert_username][insert_username]               | Functions for tracking who changed a table                             | -              |
-| [jsonb_plperl][jsonb_plperl]                     | Transform between jsonb and plperl                                     | -              | 
-| [moddatetime][moddatetime]                       | Functions for tracking last modification time                          | -              |
+| [jsonb_plperl][jsonb_plperl]                     | Transform between jsonb and plperl                                     | -              |
 | [old_snapshot][old_snapshot]                     | Utilities in support of `old_snapshot_threshold`                       | -              |
-| [pg_trgm][pg_trgm]                               | Text similarity measurement and index searching based on trigrams      | -              |
 | [pgaudit][pgaudit]                               | Detailed session and/or object audit logging                           | -              |
 | [pgpcre][pgpcre]                                 | Perl-compatible RegEx                                                  | -              |
 | [pgrouting][pgrouting]                           | Geospatial routing functionality                                       | -              |
