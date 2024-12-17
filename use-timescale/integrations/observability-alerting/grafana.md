@@ -13,7 +13,6 @@ Grafana is an analytics and monitoring tool that you can use to visualize time-s
 
 <GrafanaConnect />
 
-
 ## Create a Grafana dashboard and panel
 
 Grafana is organized into `Dashboards` and `Panels`. A dashboard represents a
@@ -174,8 +173,6 @@ src="https://assets.iobeam.com/images/docs/screenshots-for-grafana-tutorial/graf
 alt="Visualizing time series data in PostgreSQL using the Grafana Worldmap"/>
 
 </Procedure>
-
-
 
 [nyc-taxi]: /tutorials/:currentVersion:/nyc-taxi-cab
 [grafana-website]: https://www.grafana.com
