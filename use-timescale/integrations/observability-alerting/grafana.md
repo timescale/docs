@@ -66,7 +66,7 @@ WHERE $__timeFilter(pickup_datetime)
 
 ### Reference elements in the query
 
-You can group your visualizations and order the results by time buckets. In this case, the `GROUP BY` and
+You can group your visualizations and order the results by [time buckets][time-buckets]. In this case, the `GROUP BY` and
 `ORDER BY` statements reference `time`.
 
 For example:
@@ -110,13 +110,11 @@ width={1375} height={944}
 src="https://assets.iobeam.com/images/docs/screenshots-for-grafana-tutorial/grafana_query_results_5m.png"
 alt="Visualizing time-series data in Grafana"/>
 
-## Use Grafana to visualize geospatial data
+## Visualize geospatial data
 
 Grafana includes a WorldMap visualization so you can see geospatial data
 overlaid on a map. This can be helpful to understand how data
 changes based on its location.
-
-### Build a geospatial query in Grafana
 
 This section visualizes taxi rides in Manhattan, where the distance traveled
 was greater than 5 miles. It uses the same query as the [NYC Taxi Cab][nyc-taxi]
@@ -176,4 +174,5 @@ tutorial as a starting point.
 [install-grafana]: /use-timescale/:currentVersion:/integrations/observability-alerting/grafana/installation
 [tutorial-grafana-dashboards]: /use-timescale/:currentVersion:/integrations/observability-alerting/grafana/create-dashboard-and-panel/
 [tutorial-grafana-geospatial]: /use-timescale/:currentVersion:/integrations/observability-alerting/grafana/geospatial-dashboards/
+[time-buckets]: /use-timescale/:currentVersion:/time-buckets/
 
