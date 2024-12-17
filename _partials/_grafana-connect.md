@@ -19,7 +19,7 @@ To connect the data in your $SERVICE_LONG to Grafana:
 
 1. **Log in to Grafana** 
 
-   In your browser, log in to either :
+   In your browser, log in to either:
     - Self-hosted Grafana: at `http://localhost:3000/`. The default credentials are `admin`, `admin`.
     - Grafana Cloud: use the URL and credentials you set when you created your account.
 1. **Add your $SERVICE_LONG as a data source**
