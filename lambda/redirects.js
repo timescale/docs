@@ -1,5 +1,6 @@
 module.exports = [
   {
+<<<<<<< HEAD
     from: "/api/api-timescaledb/",
     to: "https://docs.timescale.com/api/latest/",
   },
@@ -820,9 +821,5 @@ module.exports = [
   {
     from: "/use-timescale/latest/compression/backfill-historical-data/",
     to: "https://github.com/timescale/timescaledb-extras/blob/master/backfill.sql",
-  },
-  {
-    from: "/use-timescale/unexistent-path",
-    to: "https://github.com/timescale",
   },
 ];
