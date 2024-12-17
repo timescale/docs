@@ -1,6 +1,6 @@
 import MigrationSetupFirstSteps from "versionContent/_partials/_migrate_set_up_database_first_steps.mdx";
 import MigrationSetupDBConnectionPostgresql from "versionContent/_partials/_migrate_set_up_align_db_extensions_postgres_based.mdx";
-import MigrationProcedureDumpSchemaPostgres from "versionContent/_partials/_migrate_dump_roles_schema_data_postgres.mdx";
+import MigrationProcedureDumpSchemaPostgreSQL from "versionContent/_partials/_migrate_dump_roles_schema_data_postgres.mdx";
 import MigrationValidateRestartApp from "versionContent/_partials/_migrate_validate_and_restart_app.mdx";
 
 ## Prepare to migrate

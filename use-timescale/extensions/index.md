@@ -90,7 +90,7 @@ supported extensions:
 [amcheck]: https://www.postgresql.org/docs/current/amcheck.html
 [autoinc]: https://www.postgresql.org/docs/current/contrib-spi.html#CONTRIB-SPI-AUTOINC
 [bloom]: https://www.postgresql.org/docs/current/bloom.html
-[bool_plper]: https://www.postgresql.org/docs/17/plperl-funcs.html
+[bool_plper]: https://www.postgresql.org/docs/current/plperl-funcs.html
 [btree_gin]: https://www.postgresql.org/docs/current/btree-gin.html
 [btree_gist]: https://www.postgresql.org/docs/current/btree-gist.html
 [citext]: https://www.postgresql.org/docs/current/citext.html

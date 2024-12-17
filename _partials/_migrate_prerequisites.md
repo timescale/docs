@@ -19,7 +19,6 @@ Before you migrate your data:
 [all available extensions]: /migrate/:currentVersion:/troubleshooting/#extension-availability
 [tablespaces]: /migrate/:currentVersion:/troubleshooting/#tablespaces
 [no-superuser-for-timescale-instance]: /migrate/:currentVersion:/troubleshooting/#superuser-privileges
-[upgrade instructions]: /self-hosted/:currentVersion:/upgrades/about-upgrades/
 [pg_hbaconf]: https://www.timescale.com/blog/5-common-connection-errors-in-postgresql-and-how-to-solve-them/#no-pg_hbaconf-entry-for-host
 [create-ec2-instance]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html#ec2-launch-instance
 [adjust-maintenance-window]: /use-timescale/:currentVersion:/upgrades/#adjusting-your-maintenance-window
