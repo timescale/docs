@@ -131,7 +131,7 @@ supported extensions:
 [postgis-tiger-geocoder]: https://postgis.net/docs/Extras.html#Tiger_Geocoder
 [postgis-topology]: https://postgis.net/workshops/postgis-intro/topology.html
 [postgres-fdw]: /use-timescale/:currentVersion:/schema-management/foreign-data-wrappers/
-[refint]: https://postgrespro.com/docs/postgresql/9.6/contrib-spi#idp144721
+[refint]: https://www.postgresql.org/docs/current/contrib-spi.html
 [seg]: https://www.postgresql.org/docs/current/seg.html
 [pgcrypto]: /use-timescale/:currentVersion:/extensions/pgcrypto/
 [sslinfo]: https://www.postgresql.org/docs/current/sslinfo.html
