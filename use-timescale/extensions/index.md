@@ -59,33 +59,33 @@ supported extensions:
 
 ## Timescale extensions
 
-| Extension   | Description      | Enabled by default                                         |
-|-------------|------------------|------------------------------------------------------------|
-| [pgai][pgai]                                     | Helper functions for AI workflows                                      | For all services                                           |
-| [pgvector][pgvector]                             | Vector similarity search for PostgreSQL                                | For services with the [AI and Vector capability][services] |
-| [pgvectorscale][pgvectorscale]                   | Advanced indexing for vector data                                      | For services with the [AI and Vector capability][services] | 
-| [timescale_vector][timescale_vector]             | Advanced indexing for vector data                                      | -                                                          |
-| [timescaledb_toolkit][timescaledb_toolkit]       | TimescaleDB Toolkit                                                    | For services with the [AI and Vector capability][services] |
+| Extension                                  | Description                             | Enabled by default                                         |
+|--------------------------------------------|-----------------------------------------|------------------------------------------------------------|
+| [pgai][pgai]                               | Helper functions for AI workflows       | For all services                                           |
+| [pgvector][pgvector]                       | Vector similarity search for PostgreSQL | For services with the [AI and Vector capability][services] |
+| [pgvectorscale][pgvectorscale]             | Advanced indexing for vector data       | For services with the [AI and Vector capability][services] | 
+| [timescale_vector][timescale_vector]       | Advanced indexing for vector data       | -                                                          |
+| [timescaledb_toolkit][timescaledb_toolkit] | TimescaleDB Toolkit                     | For services with the [AI and Vector capability][services] |
 
 
 ## Third-party extensions
 
-| Extension   | Description      | Enabled by default   |
-|-------------|------------------|----------------------|
-| [bool_plperl][bool_plper]                        | Transform between bool and plperl                                      | -              |
-| [jsonb_plperl][jsonb_plperl]                     | Transform between jsonb and plperl                                     | -              |
-| [old_snapshot][old_snapshot]                     | Utilities in support of `old_snapshot_threshold`                       | -              |
-| [pgaudit][pgaudit]                               | Detailed session and/or object audit logging                           | -              |
-| [pgpcre][pgpcre]                                 | Perl-compatible RegEx                                                  | -              |
-| [pgrouting][pgrouting]                           | Geospatial routing functionality                                       | -              |
-| [plperl][plperl]                                 | PL/Perl procedural language                                            | -              | 
-| [plpgsql][plpgsql]                               | SQL procedural language                                                | For all services                                                                |
-| [postgis][postgis]                               | PostGIS geometry and geography spatial types and functions             | -                                                                               |
-| [postgis_raster][postgis_raster]                 | PostGIS raster types and functions                                     | -                                                                               |
-| [postgis_sfcgal][postgis_sfcgal]                 | PostGIS SFCGAL functions                                               | -                                                                               |
-| [postgis_tiger_geocoder][postgis_tiger_geocoder] | PostGIS tiger geocoder and reverse geocoder                            | -                                                                               |
-| [postgis_topology][postgis_topology]             | PostGIS topology spatial types and functions                           | -                                                                               |
-| [unit][unit]                                     | SI units for PostgreSQL                                                | -                                                                               |
+| Extension                                        | Description                                                | Enabled by default    |
+|--------------------------------------------------|------------------------------------------------------------|-----------------------|
+| [bool_plperl][bool_plper]                        | Transform between bool and plperl                          | -                     |
+| [jsonb_plperl][jsonb_plperl]                     | Transform between jsonb and plperl                         | -                     |
+| [old_snapshot][old_snapshot]                     | Utilities in support of `old_snapshot_threshold`           | -                     |
+| [pgaudit][pgaudit]                               | Detailed session and/or object audit logging               | -                     |
+| [pgpcre][pgpcre]                                 | Perl-compatible RegEx                                      | -                     |
+| [pgrouting][pgrouting]                           | Geospatial routing functionality                           | -                     |
+| [plperl][plperl]                                 | PL/Perl procedural language                                | -                     | 
+| [plpgsql][plpgsql]                               | SQL procedural language                                    | For all services      |
+| [postgis][postgis]                               | PostGIS geometry and geography spatial types and functions | -                     |
+| [postgis_raster][postgis_raster]                 | PostGIS raster types and functions                         | -                     |
+| [postgis_sfcgal][postgis_sfcgal]                 | PostGIS SFCGAL functions                                   | -                     |
+| [postgis_tiger_geocoder][postgis_tiger_geocoder] | PostGIS tiger geocoder and reverse geocoder                | -                     |
+| [postgis_topology][postgis_topology]             | PostGIS topology spatial types and functions               | -                     |
+| [unit][unit]                                     | SI units for PostgreSQL                                    | -                     |
 
 [amcheck]: https://www.postgresql.org/docs/current/amcheck.html
 [autoinc]: https://www.postgresql.org/docs/current/contrib-spi.html#CONTRIB-SPI-AUTOINC
