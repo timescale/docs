@@ -841,15 +841,15 @@ module.exports = [
             children:
               [
                 {
-                  title: "Tableau",
-                  href: "tableau",
-                  excerpt: "Use Tableau with Timescale",
-                },
-                {
                   title: "Grafana",
                   href: "grafana",
                   excerpt: "Use Grafana with Timescale",
                 },
+                {
+                  title: "Tableau",
+                  href: "tableau",
+                  excerpt: "Use Tableau with Timescale",
+                }
               ]
           },
         ],
