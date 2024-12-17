@@ -15,6 +15,16 @@ supported extensions:
 - [Timescale extensions][timescale-extensions]
 - [Third-party extensions][third-party]
 
+## Timescale extensions
+
+| Extension                                  | Description                             | Enabled by default                                                    |
+|--------------------------------------------|-----------------------------------------|-----------------------------------------------------------------------|
+| [pgai][pgai]                               | Helper functions for AI workflows       | For services with the [AI and Vector capability][services]            |
+| [pgvector][pgvector]                       | Vector similarity search for PostgreSQL | For services with the [AI and Vector capability][services]            |
+| [pgvectorscale][pgvectorscale]             | Advanced indexing for vector data       | For services with the [AI and Vector capability][services]            | 
+| [timescale_vector][timescale_vector]       | Advanced indexing for vector data       | -                                                                     |
+| [timescaledb_toolkit][timescaledb_toolkit] | TimescaleDB Toolkit                     | For services with the [Time series and analytics capability][services] |
+
 ## PostgreSQL built-in extensions
 
 | Extension   | Description      | Enabled by default |
@@ -56,17 +66,6 @@ supported extensions:
 | [tsm_system_time][tsm_system_time]               | `TABLESAMPLE` method which accepts the time in milliseconds as a limit | -                  |
 | [unaccent][unaccent]                             | Text search dictionary that removes accents                            | -                  |
 | [uuid-ossp][uuid-ossp]                           | Generate universally unique identifiers (UUIDs)                        | -                  |
-
-## Timescale extensions
-
-| Extension                                  | Description                             | Enabled by default                                         |
-|--------------------------------------------|-----------------------------------------|------------------------------------------------------------|
-| [pgai][pgai]                               | Helper functions for AI workflows       | For all services                                           |
-| [pgvector][pgvector]                       | Vector similarity search for PostgreSQL | For services with the [AI and Vector capability][services] |
-| [pgvectorscale][pgvectorscale]             | Advanced indexing for vector data       | For services with the [AI and Vector capability][services] | 
-| [timescale_vector][timescale_vector]       | Advanced indexing for vector data       | -                                                          |
-| [timescaledb_toolkit][timescaledb_toolkit] | TimescaleDB Toolkit                     | For services with the [AI and Vector capability][services] |
-
 
 ## Third-party extensions
 
