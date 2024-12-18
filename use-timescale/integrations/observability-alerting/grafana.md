@@ -11,7 +11,7 @@ import GrafanaConnect from "versionContent/_partials/_grafana-connect.mdx";
 
 You can use [Grafana](https://grafana.com/docs/) to monitor, visualize and perform analytics on data stored in your $SERVICE_LONG. 
 
-This page shows you how to connect Grafana with a $SERVICE_LONG, create a dashboard and panel, then  visualize geospatial data.
+This page shows you how to connect Grafana with a $SERVICE_LONG, create a dashboard and panel, then visualize geospatial data.
 
 <GrafanaConnect />
 
@@ -47,70 +47,72 @@ that system.
 
 </Procedure>
 
-### Use the time filter function
+## Use the time filter function
 
-Grafana time-series panels include a time filter. You can link the user interface
-construct in a Grafana panel with the query itself using the `$__timefilter()`
-function.
+Grafana time-series panels include a time filter. 
 
-This example uses the `$__timefilter()` function to set
-the `pickup_datetime` column as the filtering range for your visualizations:
+<Procedure>
 
-```sql
-SELECT
-  --1--
-  time_bucket('1 day', pickup_datetime) AS "time",
-  --2--
-  COUNT(*)
-FROM rides
-WHERE $__timeFilter(pickup_datetime)
-```
+1. **Call `$__timefilter()` to link the user interface construct in a Grafana panel with the query.** 
 
-### Reference elements in the query
+   For example, to set the `pickup_datetime` column as the filtering range for your visualizations:
 
-You can group your visualizations and order the results by [time buckets][time-buckets]. In this case, the `GROUP BY` and
-`ORDER BY` statements reference `time`.
+    ```sql
+    SELECT
+      --1--
+      time_bucket('1 day', pickup_datetime) AS "time",
+      --2--
+      COUNT(*)
+    FROM rides
+    WHERE $__timeFilter(pickup_datetime)
+    ```
 
-For example:
+1. **Group your visualizations and order the results by [time buckets][time-buckets].** 
 
-```sql
-SELECT
-  --1--
-  time_bucket('1 day', pickup_datetime) AS time,
-  --2--
-  COUNT(*)
-FROM rides
-WHERE $__timeFilter(pickup_datetime)
-GROUP BY time
-ORDER BY time
-```
+   In this case, the `GROUP BY` and `ORDER BY` statements reference `time`.
 
-When you visualize this query in Grafana, you see this:
+    For example:
+    
+    ```sql
+    SELECT
+      --1--
+      time_bucket('1 day', pickup_datetime) AS time,
+      --2--
+      COUNT(*)
+    FROM rides
+    WHERE $__timeFilter(pickup_datetime)
+    GROUP BY time
+    ORDER BY time
+    ```
 
-<img class="main-content__illustration"
-width={1375} height={944}
-src="https://assets.iobeam.com/images/docs/screenshots-for-grafana-tutorial/grafana_query_results.png" alt="Visualizing time-series data in Grafana"/>
+    When you visualize this query in Grafana, you see this:
+    
+    <img class="main-content__illustration"
+    width={1375} height={944}
+    src="https://assets.iobeam.com/images/docs/screenshots-for-grafana-tutorial/grafana_query_results.png" alt="Visualizing time-series data in Grafana"/>
+    
+    You can adjust the `time_bucket` function and compare the graphs:
+    
+    ```sql
+    SELECT
+      --1--
+      time_bucket('5m', pickup_datetime) AS time,
+      --2--
+      COUNT(*)
+    FROM rides
+    WHERE $__timeFilter(pickup_datetime)
+    GROUP BY time
+    ORDER BY time
+    ```
+    
+    When you visualize this query, it looks like this:
+    
+    <img class="main-content__illustration"
+    width={1375} height={944}
+    src="https://assets.iobeam.com/images/docs/screenshots-for-grafana-tutorial/grafana_query_results_5m.png"
+    alt="Visualizing time-series data in Grafana"/>
 
-You can adjust the `time_bucket` function and compare the graphs:
-
-```sql
-SELECT
-  --1--
-  time_bucket('5m', pickup_datetime) AS time,
-  --2--
-  COUNT(*)
-FROM rides
-WHERE $__timeFilter(pickup_datetime)
-GROUP BY time
-ORDER BY time
-```
-
-When you visualize this query, it looks like this:
-
-<img class="main-content__illustration"
-width={1375} height={944}
-src="https://assets.iobeam.com/images/docs/screenshots-for-grafana-tutorial/grafana_query_results_5m.png"
-alt="Visualizing time-series data in Grafana"/>
+</Procedure>
 
 ## Visualize geospatial data
 
