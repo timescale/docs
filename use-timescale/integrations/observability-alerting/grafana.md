@@ -7,7 +7,7 @@ keywords: [Grafana, visualizations, analytics, monitoring]
 
 import GrafanaConnect from "versionContent/_partials/_grafana-connect.mdx";
 
-# Get started with Grafana and Timescale
+# Integrate Grafana and Timescale Cloud
 
 Grafana is an analytics and monitoring tool that you can use to visualize time-series data. This page shows you how to set up Grafana with Timescale and create a dashboard and panel. It also provides an example of how to visualize geospatial data.
 
