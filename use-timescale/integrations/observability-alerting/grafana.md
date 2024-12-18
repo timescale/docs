@@ -1,5 +1,5 @@
 ---
-title: Getting started with Grafana and Timescale
+title: Integrate Grafana and Timescale Cloud
 excerpt: Use Grafana to visualize time-series data stored in Timescale
 products: [cloud]
 keywords: [Grafana, visualizations, analytics, monitoring]
