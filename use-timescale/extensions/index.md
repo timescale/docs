@@ -11,8 +11,8 @@ tags: [extensions]
 You can use PostgreSQL extensions with Timescale. These are the currently
 supported extensions:
 
-- [PostgreSQL built-in extensions][built-ins]
 - [Timescale extensions][timescale-extensions]
+- [PostgreSQL built-in extensions][built-ins]
 - [Third-party extensions][third-party]
 
 ## Timescale extensions
