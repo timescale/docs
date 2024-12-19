@@ -9,9 +9,9 @@ api:
   type: view
 ---
 
-# timescaledb_information.hypertable_compression_settings 
+# timescaledb_information.hypertable_columnstore_settings 
 
-Returns information about the compression settings for each hypertable in the columnstore.
+Retrieve information about the settings for each hypertable in the columnstore.
 
 ### Arguments
 
@@ -22,19 +22,19 @@ Returns information about the compression settings for each hypertable in the co
 |`orderby`|`TEXT`| List of columns used for ordering compressed data along with ordering and NULL ordering information|
 |`compress_interval_length`|`TEXT`|Interval used for [rolling up chunks during compression][rollup-compression]|
 
-### Sample use
+### Samples
 
-Show compression settings for all hypertables:
+Show columnstore settings for all hypertables:
 
 ```sql 
-SELECT * FROM timescaledb_information.hypertable_compression_settings'
+SELECT * FROM timescaledb_information.hypertable_columnstore_settings'
 hypertable               | measurements
 segmentby                | 
 orderby                  | "time" DESC
 compress_interval_length | 
 ```
 
-Find compression settings for a specific hypertable:
+Retrieve columnstore settings for a specific hypertable:
 
 ```sql
 SELECT * FROM timescaledb_information.hypertable_compression_settings WHERE hypertable::TEXT LIKE 'metrics';

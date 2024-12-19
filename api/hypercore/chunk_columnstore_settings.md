@@ -1,46 +1,46 @@
 ---
-api_name: timescaledb_information.chunk_compression_settings
+api_name: timescaledb_information.chunk_columnstore_settings
 excerpt: Get information about compression settings for all chunks
 topics: [information, compression, chunk]
-keywords: [compression, chunk, information]
-tags: [chunk compression, compression settings]
+keywords: [columnstore, chunk, information]
+tags: [chunk, columnstore settings]
 api:
   license: community
   type: view
 ---
 
-# timescaledb_information.chunk_compression_settings 
+# timescaledb_information.chunk_columnstore_settings 
 
-Show the compression settings for each chunk that has compression enabled.
+Retrieve information about each chunk in the columnstore.
 
-### Arguments
+### Samples
 
-|Name|Type|Description|
-|-|-|-|
-|`hypertable`|`REGCLASS`|Hypertable which has compression enabled|
-|`chunk`|`REGCLASS`|Chunk which has compression enabled|
-|`segmentby`|`TEXT`|List of columns used for segmenting the compressed data|
-|`orderby`|`TEXT`| List of columns used for ordering compressed data along with ordering and NULL ordering information|
+* Show settings for all chunks in the columnstore:
 
-### Sample use
+  ```sql 
+  SELECT * FROM timescaledb_information.chunk_columnstore_settings
+  
+  hypertable | chunk | segmentby | orderby 
+  ------------+-------+-----------+---------    
+  measurements | _timescaledb_internal._hyper_1_1_chunk| | "time" DESC
+  ```
 
-Show compression settings for all chunks:
+* Find all chunk compression settings for a specific hypertable:
 
-```sql 
-SELECT * FROM timescaledb_information.chunk_compression_settings'
-hypertable               | measurements
-chunk					 | _timescaledb_internal._hyper_1_1_chunk
-segmentby                | 
-orderby                  | "time" DESC
-```
+  ```sql
+  SELECT * FROM timescaledb_information.chunk_columnstore_settings WHERE hypertable::TEXT LIKE 'metrics';
+  
+  hypertable | chunk | segmentby | orderby 
+  ------------+-------+-----------+---------
+  metrics | _timescaledb_internal._hyper_2_3_chunk | metric_id | "time"
+  ```
 
-Find all chunk compression settings for a specific hypertable:
+## Arguments
 
-```sql
-SELECT * FROM timescaledb_information.chunk_compression_settings WHERE hypertable::TEXT LIKE 'metrics';
-hypertable               | metrics
-chunk					 | _timescaledb_internal._hyper_2_3_chunk
-segmentby                | metric_id 
-orderby                  | "time" 
-```
+| Name        | Type             | Default | Required                       | Description                                                                                                                                             |
+|-------------|------------------|--------|--------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
+|`hypertable`|`REGCLASS`|-|✖| The name of a hypertable in the columnstore                                                                                                             |
+|`chunk`|`REGCLASS`|-|✖| The name of a chunk in `hypertable`                                                                                                                     |
+|`segmentby`|`TEXT`|-|✖| A list of columns used to segment `hypertable`                                                                                                          |
+|`orderby`|`TEXT`|-|✖| A list of columns used to order data in `hypertable`.  Along with ordering and NULL ordering information. IAIN, I don't understand the second sentence. |
 

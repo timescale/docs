@@ -1,29 +1,71 @@
 ---
-api_name: add_compression_policy()
-excerpt: Add policy to schedule automatic compression of chunks
-topics: [compression, jobs]
-keywords: [compression, policies]
+api_name: add_columnstore_policy()
+excerpt: Set a policy to automatically move chunks in a hypertable to the columnstore when they reach a given age.
+topics: [columnstore, jobs]
+keywords: [columnstore, policies]
 tags: [scheduled jobs, background jobs, automation framework]
 api:
   license: community
   type: function
 ---
 
-# add_compression_policy() <Tag type="community" content="community" />
+# add_columnstore_policy() <Tag type="community" content="community" />
 
-Set a policy where the system compresses a chunk automatically in the background after 
-it reaches a given age.
+Set a policy to automatically move chunks in a hypertable to the columnstore when they reach a given age.
 
-Compression policies can only be created on hypertables or continuous aggregates
-that already have compression enabled. To set `timescaledb.compress` and other
-configuration parameters for hypertables, use the
-[`ALTER TABLE`][compression_alter-table]
-command. To enable compression on continuous aggregates, use the
-[`ALTER MATERIALIZED VIEW`][compression_continuous-aggregate]
-command. To view the policies that you set or the policies that already exist,
-see [informational views][informational-views].
+## Samples
 
-## Required arguments
+To create a columnstore policy:
+
+1. **Enable columnstore**
+
+   * [For a hypertable][compression_alter-table]
+     ```sql
+     ALTER TABLE stocks_real_time SET (timescaledb.enable_columnstore = true, timescaledb.segmentby = 'symbol');
+     ```
+   * [For a continuous aggregate][compression_continuous-aggregate]
+     ```sql
+     ALTER MATERIALIZED VIEW stock_candlestick_daily set (timescaledb.enable_columnstore = true, timescaledb.segmentby = 'symbol' );
+     ```
+
+1. **Add a policy to move chunks to the columnstore at a specific time interval**
+
+   For example:
+
+   * 60 days after the data was added to the table:
+     ``` sql
+     SELECT add_columnstore_policy('stocks_real_time', compress_after => INTERVAL '60d');
+     ```
+   * 3 months prior to the moment you run the query:
+
+     ``` sql
+     SELECT add_columnstore_policy('stocks_real_time', compress_created_before => INTERVAL '3 months');
+     ```
+   * With an integer-based time column:
+
+     ``` sql
+     SELECT add_columnstore_policy('table_with_bigint_time', BIGINT '600000');
+     ```
+   * Older than eight weeks:
+
+     ``` sql
+     SELECT add_columnstore_policy('cpu_weekly', INTERVAL '8 weeks');
+     ```
+     
+1. **View the policies that you set or the policies that already exist** 
+
+   See [informational views][informational-views].
+
+
+
+## Arguments
+
+
+| Name        | Type             | Default                                                                                                                                                                                                                                                                        | Required                                       | Description                                    |
+|-------------|------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------|------------------------------------------------|
+|`hypertable`|REGCLASS| | | Name of the hypertable or continuous aggregate |
+|`compress_after`|INTERVAL or INTEGER| | |  The age after which the policy job compresses chunks. `compress_after` is calculated relative to the current time, so chunks containing data older than `now - {compress_after}::interval` are compressed. This argument is mutually exclusive with `compress_created_before`. |
+|`compress_created_before`|INTERVAL| | |  Chunks with creation time older than this cut-off point are compressed. The cut-off point is computed as `now() - compress_created_before`. Defaults to `NULL`. Not supported for continuous aggregates yet. This argument is mutually exclusive with `compress_after`.        |
 
 |Name|Type|Description|
 |-|-|-|
@@ -53,37 +95,7 @@ on the type of the time column of the hypertable or continuous aggregate:
 <!-- vale Google.Acronyms = YES -->
 <!-- vale Vale.Spelling = YES -->
 
-## Sample usage
 
-Add a policy to compress chunks older than 60 days on the `cpu` hypertable.
-
-``` sql
-SELECT add_compression_policy('cpu', compress_after => INTERVAL '60d');
-```
-
-Add a policy to compress chunks created 3 months before on the 'cpu' hypertable.
-
-``` sql
-SELECT add_compression_policy('cpu', compress_created_before => INTERVAL '3 months');
-```
-
-Note above that when `compress_after` is used then the time data range
-present in the partitioning time column is used to select the target
-chunks. Whereas, when `compress_created_before` is used then the chunks
-which were created 3 months ago are selected.
-
-Add a compress chunks policy to a hypertable with an integer-based time column:
-
-``` sql
-SELECT add_compression_policy('table_with_bigint_time', BIGINT '600000');
-```
-
-Add a policy to compress chunks of a continuous aggregate called `cpu_weekly`, that are
-older than eight weeks:
-
-``` sql
-SELECT add_compression_policy('cpu_weekly', INTERVAL '8 weeks');
-```
 
 [compression_alter-table]: /api/:currentVersion:/compression/alter_table_compression/
 [compression_continuous-aggregate]: /api/:currentVersion:/continuous-aggregates/alter_materialized_view/

@@ -11,15 +11,15 @@ api:
 
 import DeprecationNotice from "versionContent/_partials/_deprecated.mdx";
 
-# timescaledb_information.compression_settings
+# timescaledb_information.columnstore_settings
 
-This view exists for backwards compatibility. The supported views to retrieve information about compression are:
+This view exists for backwards compatibility. Best practice is to use the following views to retrieve 
+information about columnstore_settings:
 
 - [timescaledb_information.hypertable_compression_settings][hypertable_compression_settings]
 - [timescaledb_information.chunk_compression_settings][chunk_compression_settings].
 
 <DeprecationNotice />
-
 
 
 Get information about compression-related settings for hypertables.
