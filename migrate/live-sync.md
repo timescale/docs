@@ -14,8 +14,12 @@ import SetupConnectionStrings from "versionContent/_partials/_migrate_live_setup
 
 You use the live-sync Docker image to synchronize changes in real-time from a PostgreSQL database 
 instance to a $SERVICE_LONG. You run live-sync continuously, turning PostgreSQL into a primary database 
-with a $SERVICE_LONG as a logical replica. This enables you to leverage $CLOUD’s real-time analytics capabilities
-on your replica data.
+with a $SERVICE_LONG as a logical replica. This enables you to leverage $CLOUD_LONG’s real-time analytics 
+capabilities on your replica data.
+
+<Highlight type="warning">
+This feature is in alpha and is not recommended for production use.
+</Highlight>
 
 Live-sync leverages the PostgreSQL logical replication protocol, a well-established and widely 
 understood feature in the PostgreSQL ecosystem. By relying on this protocol, live-sync ensures 
@@ -86,11 +90,7 @@ However, you can also have:
   This results in significantly slower replication. If you are expecting a large number of `UPDATE` or `DELETE` 
   operations on the table, best practice is to not use `FULL`
 
-
-To capture only INSERT and ignore UPDATES and DELETES, use the 
-**[publish config](https://www.postgresql.org/docs/current/sql-createpublication.html#SQL-CREATEPUBLICATION-PARAMS-WITH-PUBLISH)** while [creating the publication][creating the publication](#heading=h.hnloqt64xjp4).
-IAIN: CHECK
-
+To capture only INSERT and ignore UPDATES and DELETES, use a [PUBLICATION][lives-sync-specify-tables]. 
 
 ## Migrate the table schema to the $SERVICE_LONG
 
@@ -265,8 +265,18 @@ For example:
 </Procedure>
 
 
+## Limitations
+
+* Schema won’t be migrated - Use pg_dump/restore to migrate schema
+* Schema changes must be co-ordinated - First changes the schema on Timescale in a compatible way, followed by changing it on the source Postgres
+* WAL volume growth on the source Postgres instance during large table copy
+* Postgres only source (No TimescaleDB as a source yet)
+
+
 
 [create-publication]: https://www.postgresql.org/docs/current/sql-createpublication.html
 [alter-publication]: https://www.postgresql.org/docs/current/sql-alterpublication.html
 [install-docker]: https://docs.docker.com/engine/install/
 [about-hypertables]: /use-timescale/:currentVersion:/hypertables/about-hypertables/
+[lives-sync-specify-tables]: /migrate/:currentVersion:/live-sync/#specify-the-tables-to-synchronize
+
