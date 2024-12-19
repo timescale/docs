@@ -26,24 +26,24 @@ that system.
 
 1.  **Create a new dashboard**
 
-    Hover your mouse over the `+` icon in the far left of the Grafana user
-    interface to bring up a `Create` menu, then select `Dashboard`. When your new
-    dashboard is created, you'll see a `New Panel` screen, with options for
-    `Add Query` and `Choose Visualization`. In the future, if you already have a
-    dashboard with panels, you can click the `+` icon at the top of the Grafana
-    user interface to add a panel to an existing dashboard.
-1.  **Click `Choose Visualization` to add a new panel**
+    1. On the `Dashboards` page, click `New` and select `New dashboard`.
 
-    There are several options for different Grafana visualizations. This example uses the `Graph`
-    visualization.
-1.  **Configure the panel**
+    1. Click `Save dashboard`. Give your dashboard a title, a description, and a folder to store it in, then click **Save**. 
+    
+    You now have an empty dashboard. 
 
-    There are multiple ways to configure, but you can accept all the defaults to create a simple `Lines` graph.
-1.  **Navigate to the `Queries` tab and set the query database to the dataset you are using**
-1.  **Run your queries**
+1.  **Add a new panel**
 
-    You can edit the queries directly or use the built-in query editor. If you are visualizing time-series data, select
-    `Time series` in the `Format As` drop-down.
+    1. Open your dashboard and click `Add visualization`.
+    
+    1. Select from the list of pre-configured data sources or configure a new one.  
+
+    1. Run your queries. You can edit the queries directly or use the built-in query editor. If you are visualizing time-series data, select
+       `Time series` in the `Format` drop-down.
+
+    1. Configure a title, a description, and other options for your panel, then click `Save dashboard`. 
+    
+    You now have a dashboard with one panel. Add more panels to a dashboard by clicking `Add` at the top right and selecting `Vizualization` from the drop-down. 
 
 </Procedure>
 
@@ -126,11 +126,11 @@ tutorial as a starting point.
 
 <Procedure>
 
-1.  **In your Grafana dashboard, create a new panel** 
-1.  **Select `New Visualization` >`Worldmap Panel`**
-1.  **Navigate to the `Queries` tab and select your data source**
-1.  **In the `Format as` dropdown, select `Table`** 
-1.  **Click `Edit SQL` and enter the query you want to use**
+1.  **In your Grafana dashboard, click `Add` > `Vizualization`.** 
+1.  **Select `Geomap` in the visualization type drop-down.**
+1.  **In the `Queries` tab, select your data source**
+1.  **In the `Format` drop-down, select `Table`** 
+1.  **In the mode switcher toggle `Code` and enter the query you want to use**
  
     This procedure uses the following query:
 
