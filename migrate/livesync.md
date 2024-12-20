@@ -41,6 +41,7 @@ You use Livesync to:
 * Enable features such as [hypertables][about-hypertables], [columnstore][compression], and 
    [continuous aggregates][caggs] on your logical replica.  
 
+If you have an questions or feedback, talk to us in the [Timescale Community][join-livesync-on-slack].
 
 # Prerequisites
 
@@ -287,3 +288,4 @@ For example:
 [lives-sync-specify-tables]: /migrate/:currentVersion:/live-sync/#specify-the-tables-to-synchronize
 [compression]: /use-timescale/:currentVersion:/compression/about-compression
 [caggs]: /use-timescale/:currentVersion:/continuous-aggregates/about-continuous-aggregates/
+[join-livesync-on-slack]: https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88
