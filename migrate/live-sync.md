@@ -34,7 +34,7 @@ You use live-sync to:
   - Track progress. Postgres expose `COPY` progress under in `pg_stat_progress_copy`
 * Synchronize real-time changes from a Postgres instance to a $SERVICE_LONG
 * Add and remove tables on demand using the [Postgres PUBLICATION interface](https://www.postgresql.org/docs/current/sql-createpublication.html)
-* Enable features such as hypertables, columnstore, and continuous aggregates on your logical replica  
+* Enable features such as [hypertables][https://docs.timescale.com/use-timescale/latest/hypertables/], columnstore, and continuous aggregates on your logical replica  
 
 
 # Prerequisites
@@ -90,7 +90,7 @@ However, you can also have:
   This results in significantly slower replication. If you are expecting a large number of `UPDATE` or `DELETE` 
   operations on the table, best practice is to not use `FULL`
 
-To capture only INSERT and ignore UPDATES and DELETES, use a [PUBLICATION][lives-sync-specify-tables]. 
+To capture only INSERT and ignore UPDATES and DELETES, use a [publish config][https://www.postgresql.org/docs/current/sql-createpublication.html#SQL-CREATEPUBLICATION-PARAMS-WITH-PUBLISH] while [creating the publication][lives-sync-specify-tables]
 
 ## Migrate the table schema to the $SERVICE_LONG
 
@@ -225,7 +225,7 @@ instance to a $SERVICE_LONG:
 ## Specify the tables to synchronize
 
 After the live-sync docker is up and running, you [`CREATE PUBLICATION`][create-publication] on the SOURCE database to
-specify the list of tables which you intend to synchronize. Once you create a PUBLICATION is created, it is
+specify the list of tables which you intend to synchronize. Once you create a PUBLICATION, it is
 automatically picked by live-sync, which starts synching the tables expressed as part of it.
 
 For example:
