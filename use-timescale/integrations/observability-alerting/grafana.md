@@ -116,7 +116,7 @@ Grafana time-series panels include a time filter.
 
 ## Visualize geospatial data
 
-Grafana includes a WorldMap visualization so you can see geospatial data
+Grafana includes a Geomap panel so you can see geospatial data
 overlaid on a map. This can be helpful to understand how data
 changes based on its location.
 
@@ -126,33 +126,53 @@ tutorial as a starting point.
 
 <Procedure>
 
-1.  **In your Grafana dashboard, click `Add` > `Vizualization`.** 
-1.  **Select `Geomap` in the visualization type drop-down.**
-1.  **In the `Queries` tab, select your data source**
-1.  **In the `Format` drop-down, select `Table`** 
-1.  **In the mode switcher toggle `Code` and enter the query you want to use**
+1. **Add a geospatial vizualization**
+
+   1.  In your Grafana dashboard, click `Add` > `Vizualization`.
+
+   1.  Select `Geomap` in the visualization type drop-down.
+
+1. **Configure the data format**
+
+   1.  In the `Queries` tab, select your data source.
+
+   1.  In the `Format` drop-down, select `Table`.
+
+   1.  **In the mode switcher, toggle `Code` and enter the query, then click `Run`**
  
-    This procedure uses the following query:
+       For example:
 
-    ```sql
-    SELECT time_bucket('5m', rides.pickup_datetime) AS time,
-           rides.trip_distance AS value,
-           rides.pickup_latitude AS latitude,
-           rides.pickup_longitude AS longitude
-    FROM rides
-    WHERE $__timeFilter(rides.pickup_datetime) AND
-      ST_Distance(pickup_geom,
-                  ST_Transform(ST_SetSRID(ST_MakePoint(-73.9851,40.7589),4326),2163)
-      ) < 2000
-    GROUP BY time,
-             rides.trip_distance,
-             rides.pickup_latitude,
-             rides.pickup_longitude
-    ORDER BY time
-    LIMIT 500;
-    ```
+       ```sql
+       SELECT time_bucket('5m', rides.pickup_datetime) AS time,
+              rides.trip_distance AS value,
+              rides.pickup_latitude AS latitude,
+              rides.pickup_longitude AS longitude
+       FROM rides
+       WHERE ides.trip_distance > 5
+       GROUP BY time,
+                rides.trip_distance,
+                rides.pickup_latitude,
+                rides.pickup_longitude
+       ORDER BY time
+       LIMIT 500;
+       ```
 
-1.  **Configure the visualization by navigating to the `Visualization` tab** 
+1.  **Customize the GeoMap settings** 
+    
+    Configure the following in the `Panel options` section on the right:
+
+    1. Map layers > Data > Query A
+    2.	Configure the following:
+          •	Layers: add markers or Circles to display points on the map.
+          •	Base layer: choose a map tile layer (e.g., OpenStreetMap, Mapbox, or custom).
+          •	Data layer: bind the latitude and longitude (or geohash) fields from your query.
+          •	Set the metric or value to visualize (e.g., size, color).
+    3.	Style Options:
+          •	Adjust marker size, color, and opacity.
+          •	Configure tooltips to display relevant information when hovering over points.
+
+
+
     
     Make sure the `Map Data Options` are set to `table` and `current`.
 1.  **In the `Field Mappings` section, set the `Table Query Format` to `Table`**
