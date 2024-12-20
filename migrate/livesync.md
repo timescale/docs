@@ -105,7 +105,7 @@ However, you can also have:
   operations on the table, best practice is to not use `FULL`
 
 To capture only `INSERT` and ignore `UPDATE`s and `DELETE`s, use a 
-[publish config][https://www.postgresql.org/docs/current/sql-createpublication.html#SQL-CREATEPUBLICATION-PARAMS-WITH-PUBLISH) 
+[publish config](https://www.postgresql.org/docs/current/sql-createpublication.html#SQL-CREATEPUBLICATION-PARAMS-WITH-PUBLISH) 
 while [creating the publication][lives-sync-specify-tables].
 
 ## Migrate the table schema to the $SERVICE_LONG
@@ -285,7 +285,7 @@ For example:
 [alter-publication]: https://www.postgresql.org/docs/current/sql-alterpublication.html
 [install-docker]: https://docs.docker.com/engine/install/
 [about-hypertables]: /use-timescale/:currentVersion:/hypertables/about-hypertables/
-[lives-sync-specify-tables]: /migrate/:currentVersion:/live-sync/#specify-the-tables-to-synchronize
+[lives-sync-specify-tables]: /migrate/:currentVersion:/livesync/#specify-the-tables-to-synchronize
 [compression]: /use-timescale/:currentVersion:/compression/about-compression
 [caggs]: /use-timescale/:currentVersion:/continuous-aggregates/about-continuous-aggregates/
 [join-livesync-on-slack]: https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88
