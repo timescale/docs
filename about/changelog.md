@@ -8,7 +8,7 @@ keywords: [changelog, upgrades, updates, releases]
 
 All the latest features and updates to Timescale products.
 
-## Postgres 17, Feature Requests, and Postgres LiveSync
+## Postgres 17, Feature Requests, and Postgres Livesync
 <Label type="date">December 20, 2024</Label>
 
 ### Postgres 17
@@ -24,10 +24,10 @@ All feature requests are automatically published to the [Timescale Forum](https:
 
 ![Submit a feature request in Timescale Console](https://assets.timescale.com/docs/images/submit-feature-request.png)
 
-### Postgres LiveSync (Alpha release)
+### Postgres Livesync (Alpha release)
 We have built a new solution that helps you continuously replicate all or some of your Postgres tables directly into Timescale Cloud.
 
-It allows you to keep your current Postgres instance (ex: RDS) as your primary database and easily offload your real-time analytical queries to Timescale Cloud, to boost their performance.
+[Livesync](https://docs.timescale.com/migrate/latest/livesync/) allows you to keep a current Postgres instance such as RDS as your primary database, and easily offload your real-time analytical queries to Timescale Cloud to boost their performance. If you have an questions or feedback, talk to us in [#livesync in Timescale Community](https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88).
 
 This is just the beginning—you'll see more from LiveSync in 2025!
 
