@@ -1,11 +1,7 @@
-
-import ImportPrerequisites from "versionContent/_partials/_migrate_import_prerequisites.mdx";
-
 ## Prerequisites
 
-<ImportPrerequisites />
-
-*   Install [self-managed Grafana][grafana-self-managed], or sign up for [Grafana Cloud][grafana-cloud].
+* [Create a target $SERVICE_LONG][create-service]
+* Install [self-managed Grafana][grafana-self-managed], or sign up for [Grafana Cloud][grafana-cloud]
 
 ## Add your $SERVICE_LONG as a data source 
 
@@ -39,8 +35,8 @@ To connect the data in your $SERVICE_LONG to Grafana:
 
       `krifchuf3r8c5onn` is the password and `s5pq0es2cy.vfbtkqzhtm.tsdb.cloud.timescale.com:39941` is the host URL in the required format. 
 
-  1.  Click `Save & test`. 
-   
+  1.  **Click `Save & test`** 
+  
   Grafana checks that your details are set correctly.
 
 </Procedure>
@@ -48,3 +44,4 @@ To connect the data in your $SERVICE_LONG to Grafana:
 [grafana-self-managed]: https://grafana.com/get/?tab=self-managed
 [grafana-cloud]: https://grafana.com/get/
 [cloud-login]: https://console.cloud.timescale.com/
+[create-service]: getting-started/:currentVersion:/services
