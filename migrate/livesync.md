@@ -87,14 +87,14 @@ By default each table and hypertable in the source database defaults to the prim
 However, you can also have: 
 
 - **A viable unique index**: each table has a unique, non-partial, non-deferrable index that includes only columns 
-   marked as NOT NULL. If a UNIQUE index does not exists, create one to assist the migration. You can delete if after 
+   marked as `NOT NULL`. If a `UNIQUE` index does not exists, create one to assist the migration. You can delete it after 
    live sync. For each table, set `REPLICA IDENTITY` to the viable unique index:
 
    ```sql
     psql -X -d $SOURCE -c 'ALTER TABLE <table name> REPLICA IDENTITY USING INDEX <_index_name>'
    
 
-- **No primary key or viable unique index**: use brute force. For each table, set REPLICA IDENTITY to FULL:
+- **No primary key or viable unique index**: use brute force. For each table, set `REPLICA IDENTITY` to `FULL`:
 
   ```sql
   psql -X -d $SOURCE -c 'ALTER TABLE <table name> REPLICA IDENTITY FULL'
@@ -103,7 +103,9 @@ However, you can also have:
   This results in significantly slower replication. If you are expecting a large number of `UPDATE` or `DELETE` 
   operations on the table, best practice is to not use `FULL`
 
-To capture only INSERT and ignore UPDATES and DELETES, use a [publish config][https://www.postgresql.org/docs/current/sql-createpublication.html#SQL-CREATEPUBLICATION-PARAMS-WITH-PUBLISH] while [creating the publication][lives-sync-specify-tables]
+To capture only `INSERT` and ignore `UPDATE`s and `DELETE`s, use a 
+[publish config][https://www.postgresql.org/docs/current/sql-createpublication.html#SQL-CREATEPUBLICATION-PARAMS-WITH-PUBLISH) 
+while [creating the publication][lives-sync-specify-tables].
 
 ## Migrate the table schema to the $SERVICE_LONG
 
@@ -134,7 +136,7 @@ Use pg_dump to:
 
 ## Convert partitions and tables with time-series data into hypertables
 
-For efficient querying and analysis, you can convert tables which contain either time-series or
+For efficient querying and analysis, you can convert tables which contain time-series or
 events data, and tables that are already partitioned using Postgres declarative partition into
 [hypertables][about-hypertables].
 
@@ -142,7 +144,7 @@ events data, and tables that are already partitioned using Postgres declarative 
 
 1. **Convert tables to hyperatables**
 
-   Run the following on each table to convert in the target $SERVICE_LONG:
+   Run the following on each table in the target $SERVICE_LONG to convert it to a hypertable:
 
    ```shell
    psql -X -d $TARGET -c "SELECT create_hypertable('<table>', by_range('<partition column>', '<chunk interval>'::interval));"
@@ -190,7 +192,7 @@ instance to a $SERVICE_LONG:
 
 1. **Trace progress**
 
-   Once it is running as a docker daemon, you can also capture the logs:
+   Once Livesync is running as a docker daemon, you can also capture the logs:
    ```shell
    docker logs -f livesync
    ```
@@ -276,15 +278,6 @@ For example:
    ```
 
 </Procedure>
-
-
-## Limitations
-
-* Schema won’t be migrated - Use pg_dump/restore to migrate schema
-* Schema changes must be co-ordinated - First changes the schema on Timescale in a compatible way, followed by changing it on the source Postgres
-* WAL volume growth on the source Postgres instance during large table copy
-* Postgres only source (No TimescaleDB as a source yet)
-
 
 
 [create-publication]: https://www.postgresql.org/docs/current/sql-createpublication.html
