@@ -41,7 +41,7 @@ You use Livesync to:
 * Enable features such as [hypertables][about-hypertables], [columnstore][compression], and 
    [continuous aggregates][caggs] on your logical replica.  
 
-If you have an questions or feedback, talk to us in the [Timescale Community][join-livesync-on-slack].
+If you have an questions or feedback, talk to us in [#livesync in Timescale Community][join-livesync-on-slack].
 
 # Prerequisites
 
