@@ -24,26 +24,25 @@ that system.
 
 <Procedure>
 
-1.  **Create a new dashboard**
+1. **On the `Dashboards` page, click `New` and select `New dashboard`**
 
-    1. On the `Dashboards` page, click `New` and select `New dashboard`.
+1. **Click `Add visualization`**
 
-    1. Click `Save dashboard`. Give your dashboard a title, a description, and a folder to store it in, then click **Save**. 
+1. **Select the data source**
+
+   Select your $SERVICE_LONG from the list of pre-configured data sources or configure a new one.
+
+1. **Configure your panel** 
+
+   Select the visualization type. The type defines specific fields to configure in addition to standard ones, such as the panel name. 
+
+1. **Run your queries** 
+
+   You can edit the queries directly or use the built-in query editor. If you are visualizing time-series data, select `Time series` in the `Format` drop-down.
+
+1. **Click `Save dashboard`**
     
-    You now have an empty dashboard. 
-
-1.  **Add a new panel**
-
-    1. Open your dashboard and click `Add visualization`.
-    
-    1. Select from the list of pre-configured data sources or configure a new one.  
-
-    1. Run your queries. You can edit the queries directly or use the built-in query editor. If you are visualizing time-series data, select
-       `Time series` in the `Format` drop-down.
-
-    1. Configure a title, a description, and other options for your panel, then click `Save dashboard`. 
-    
-    You now have a dashboard with one panel. Add more panels to a dashboard by clicking `Add` at the top right and selecting `Vizualization` from the drop-down. 
+   You now have a dashboard with one panel. Add more panels to a dashboard by clicking `Add` at the top right and selecting `Visualization` from the drop-down. 
 
 </Procedure>
 
@@ -53,7 +52,7 @@ Grafana time-series panels include a time filter.
 
 <Procedure>
 
-1. **Call `$__timefilter()` to link the user interface construct in a Grafana panel with the query.** 
+1. **Call `$__timefilter()` to link the user interface construct in a Grafana panel with the query** 
 
    For example, to set the `pickup_datetime` column as the filtering range for your visualizations:
 
@@ -67,9 +66,9 @@ Grafana time-series panels include a time filter.
     WHERE $__timeFilter(pickup_datetime)
     ```
 
-1. **Group your visualizations and order the results by [time buckets][time-buckets].** 
+1. **Group your visualizations and order the results by [time buckets][time-buckets]** 
 
-   In this case, the `GROUP BY` and `ORDER BY` statements reference `time`.
+    In this case, the `GROUP BY` and `ORDER BY` statements reference `time`.
 
     For example:
     
@@ -86,11 +85,9 @@ Grafana time-series panels include a time filter.
     ```
 
     When you visualize this query in Grafana, you see this:
-    
-    <img class="main-content__illustration"
-    width={1375} height={944}
-    src="https://assets.iobeam.com/images/docs/screenshots-for-grafana-tutorial/grafana_query_results.png" alt="Visualizing time-series data in Grafana"/>
-    
+
+    ![Timescale and Grafana query results](https://assets.timescale.com/docs/images/grafana_query_results.png)
+
     You can adjust the `time_bucket` function and compare the graphs:
     
     ```sql
@@ -106,11 +103,8 @@ Grafana time-series panels include a time filter.
     ```
     
     When you visualize this query, it looks like this:
-    
-    <img class="main-content__illustration"
-    width={1375} height={944}
-    src="https://assets.iobeam.com/images/docs/screenshots-for-grafana-tutorial/grafana_query_results_5m.png"
-    alt="Visualizing time-series data in Grafana"/>
+
+   ![Timescale and Grafana query results in time buckets](https://assets.timescale.com/docs/images/grafana_query_results_5m.png)
 
 </Procedure>
 
@@ -126,9 +120,9 @@ tutorial as a starting point.
 
 <Procedure>
 
-1. **Add a geospatial vizualization**
+1. **Add a geospatial visualization**
 
-   1.  In your Grafana dashboard, click `Add` > `Vizualization`.
+   1.  In your Grafana dashboard, click `Add` > `Visualization`.
 
    1.  Select `Geomap` in the visualization type drop-down.
 
@@ -138,7 +132,7 @@ tutorial as a starting point.
 
    1.  In the `Format` drop-down, select `Table`.
 
-   1.  **In the mode switcher, toggle `Code` and enter the query, then click `Run`**
+   1.  In the mode switcher, toggle `Code` and enter the query, then click `Run`.
  
        For example:
 
@@ -157,21 +151,21 @@ tutorial as a starting point.
        LIMIT 500;
        ```
 
-1.  **Customize the GeoMap settings** 
+1.  **Customize the Geomap settings** 
     
-    With default settings, the vizualization uses green circles of the fixed size. Configure at least the following for a more representative view:
+    With default settings, the visualization uses green circles of the fixed size. Configure at least the following for a more representative view:
 
-    1. `Map layers` > `Styles` > `Size` > `value`.
+    -`Map layers` > `Styles` > `Size` > `value`.
 
        This changes the size of the circle depending on the value, with bigger circles representing bigger values.
-    
-    1. `Map layers` > `Styles` > `Color` > `value`.
 
-    1. `Thresholds` > Add `threshold`.
+    - `Map layers` > `Styles` > `Color` > `value`.
+
+    - `Thresholds` > Add `threshold`.
 
        Add thresholds for 7 and 10, to mark rides over 7 and 10 miles in different colors, respectively. 
     
-       You now have a vizualization that looks like this: 
+       You now have a visualization that looks like this: 
 
        ![Timescale and Grafana integration](https://assets.timescale.com/docs/images/timescale-grafana-integration.png)
        

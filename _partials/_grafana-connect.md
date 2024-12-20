@@ -5,7 +5,7 @@ import ImportPrerequisites from "versionContent/_partials/_migrate_import_prereq
 
 <ImportPrerequisites />
 
-*   Install [self-managed Grafana][grafana-self-managed], or sign up for [Grafana Cloud][grafana-cloud]
+*   Install [self-managed Grafana][grafana-self-managed], or sign up for [Grafana Cloud][grafana-cloud].
 
 ## Add your $SERVICE_LONG as a data source 
 
@@ -22,14 +22,14 @@ To connect the data in your $SERVICE_LONG to Grafana:
    1. Open `Connections` > `Data sources`, then click `Add new data source`.
    1. Select `PostgreSQL` from the list. 
    1. Configure the following fields:
-       - `Host URL`: the host and port for your $SERVICE_SHORT, in this format: `<HOST>:<PORT>`
-       - `Database name`: the name to use for the dataset
-       - `Username`: `tsdbadmin`, or another privileged user
-       - `Password`: the password for `User`
-       - `Database`: `tsdb`
-       - `TLS/SSL Mode`: select `require`
-       - `PostgreSQL options`: enable `TimescaleDB`
-       - Leave the default setting for all other fields
+       - `Host URL`: the host and port for your $SERVICE_SHORT, in this format: `<HOST>:<PORT>`.
+       - `Database name`: the name to use for the dataset.
+       - `Username`: `tsdbadmin`, or another privileged user.
+       - `Password`: the password for `User`.
+       - `Database`: `tsdb`.
+       - `TLS/SSL Mode`: select `require`.
+       - `PostgreSQL options`: enable `TimescaleDB`.
+       - Leave the default setting for all other fields.
 
       Get the values for `Host URL` and `Password` from the connection string generated when you created your $SERVICE_LONG. For example, in the following connection string:
 
