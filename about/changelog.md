@@ -27,9 +27,9 @@ All feature requests are automatically published to the [Timescale Forum](https:
 ### Postgres Livesync (Alpha release)
 We have built a new solution that helps you continuously replicate all or some of your Postgres tables directly into Timescale Cloud.
 
-[Livesync](https://docs.timescale.com/migrate/latest/livesync/) allows you to keep a current Postgres instance such as RDS as your primary database, and easily offload your real-time analytical queries to Timescale Cloud to boost their performance. If you have an questions or feedback, talk to us in [#livesync in Timescale Community](https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88).
+[Livesync](https://docs.timescale.com/migrate/latest/livesync/) allows you to keep a current Postgres instance such as RDS as your primary database, and easily offload your real-time analytical queries to Timescale Cloud to boost their performance. If you have any questions or feedback, talk to us in [#livesync in Timescale Community](https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88).
 
-This is just the beginning—you'll see more from LiveSync in 2025!
+This is just the beginning—you'll see more from Livesync in 2025!
 
 ## In-Console import from S3, I/O Boost, and Jobs Explorer
 <Label type="date">December 13, 2024</Label>
