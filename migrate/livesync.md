@@ -10,7 +10,7 @@ import MigrationPrerequisites from "versionContent/_partials/_migrate_prerequisi
 import SetupConnectionStrings from "versionContent/_partials/_migrate_live_setup_connection_strings.mdx";
 
 
-# Livesync from Postgres to Timescale Cloud
+# Livesync from PostgreSQL to Timescale Cloud
 
 You use the Livesync Docker image to synchronize all data, or specific tables, from a PostgreSQL database 
 instance to a $SERVICE_LONG in real-time. You run Livesync continuously, turning PostgreSQL into a primary database 
@@ -28,16 +28,16 @@ compatibility, familiarity, and a broader knowledge base, making it easier for y
 integrate.
 
 You use Livesync to:
-* Copy existing data from a Postgres instance to a $SERVICE_LONG:
+* Copy existing data from a PostgreSQL instance to a $SERVICE_LONG:
   - Copy data at up to 150 GB/hr. You need at least a 4 CPU/16GB source database, and a 4 CPU/16GB target $SERVICE_SHORT.
   - Copy the publication tables in parallel. However, large tables are still copied using a single connection. 
     Parallel copying is in the backlog.
   - Forget foreign key relationships. Livesync disables foreign key validation during the sync. For example, if a 
     `metrics` table refers to the `id` column on the `tags` table, you can still sync only the `metrics` table 
      without worrying about their foreign key relationships.
-  - Track progress. Postgres expose `COPY` progress under in `pg_stat_progress_copy`.
-* Synchronize real-time changes from a Postgres instance to a $SERVICE_LONG.
-* Add and remove tables on demand using the [Postgres PUBLICATION interface](https://www.postgresql.org/docs/current/sql-createpublication.html).
+  - Track progress. PostgreSQL expose `COPY` progress under in `pg_stat_progress_copy`.
+* Synchronize real-time changes from a PostgreSQL instance to a $SERVICE_LONG.
+* Add and remove tables on demand using the [PostgreSQL PUBLICATION interface](https://www.postgresql.org/docs/current/sql-createpublication.html).
 * Enable features such as [hypertables][about-hypertables], [columnstore][compression], and 
    [continuous aggregates][caggs] on your logical replica.  
 
@@ -57,9 +57,9 @@ You use Livesync to:
 
 * The Schema is not migrated by Livesync, you use pg_dump/restore to migrate schema
 * Schema changes must be co-ordinated. Make compatible changes to the schema in your $SERVICE_LONG first, then make 
-  the same changes to the source Postgres instance. 
-* There is WAL volume growth on the source Postgres instance during large table copy.
-* This works for Postgres databases only as source. Timescaledb is not yet supported.
+  the same changes to the source PostgreSQL instance. 
+* There is WAL volume growth on the source PostgreSQL instance during large table copy.
+* This works for PostgreSQL databases only as source. Timescaledb is not yet supported.
 
 ## Set your connection strings
 
@@ -69,9 +69,9 @@ The `<user>` in the `SOURCE` connection must have the replication role granted i
 
 ## Configure the source database
 
-You need to tune the Write Ahead Log (WAL) on the Postgres source database:
-* Postgres[ GUC “wal_level” as “logical”](https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-WAL-LEVEL)
-* Postgres [GUC “max_wal_senders” as 10](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-MAX-WAL-SENDERS)
+You need to tune the Write Ahead Log (WAL) on the PostgreSQL source database:
+* PostgreSQL[ GUC “wal_level” as “logical”](https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-WAL-LEVEL)
+* PostgreSQL[GUC “max_wal_senders” as 10](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-MAX-WAL-SENDERS)
 
 To do this: 
 
@@ -137,7 +137,7 @@ Use pg_dump to:
 ## Convert partitions and tables with time-series data into hypertables
 
 For efficient querying and analysis, you can convert tables which contain time-series or
-events data, and tables that are already partitioned using Postgres declarative partition into
+events data, and tables that are already partitioned using PostgreSQL declarative partition into
 [hypertables][about-hypertables].
 
 <Procedure>
@@ -157,7 +157,7 @@ events data, and tables that are already partitioned using Postgres declarative 
    psql -X -d $TARGET -c "SELECT create_hypertable('public.metrics', by_range('time', '1 day'::interval));"
    ```
 
-1. **Convert Postgres partitions to hyperatables**
+1. **Convert PostgreSQL partitions to hyperatables**
 
    Rename the partition and create a new normal table with the same name as the partitioned table, then
    convert to a hypertable:
@@ -250,7 +250,7 @@ For example:
 1. **Create a publication named `analytics` which publishes `metrics` and `tags` tables**
 
    `PUBLICATION` enables you to add all the tables in the schema or even all the tables in the database. However, it
-   requires superuser privileges on most of the managed Postgres offerings.
+   requires superuser privileges on most of the managed PostgreSQL offerings.
 
    ```sql
    CREATE PUBLICATION analytics FOR TABLE metrics, tags;
@@ -262,7 +262,7 @@ For example:
    ALTER PUBLICATION analytics ADD TABLE events;
    ```
 
-1. **Publish Postgres declarative partitioned table**
+1. **Publish PostgreSQL declarative partitioned table**
 
    To publish declaratively partitioned table changes to your $SERVICE_LONG, set the `publish_via_partition_root` 
    special `PUBLICATION` config to `true`:
