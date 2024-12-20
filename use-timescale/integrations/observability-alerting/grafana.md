@@ -148,7 +148,7 @@ tutorial as a starting point.
               rides.pickup_latitude AS latitude,
               rides.pickup_longitude AS longitude
        FROM rides
-       WHERE ides.trip_distance > 5
+       WHERE rides.trip_distance > 5
        GROUP BY time,
                 rides.trip_distance,
                 rides.pickup_latitude,
@@ -159,37 +159,22 @@ tutorial as a starting point.
 
 1.  **Customize the GeoMap settings** 
     
-    Configure the following in the `Panel options` section on the right:
+    With default settings, the vizualization uses green circles of the fixed size. Configure at least the following for a more representative view:
 
-    1. Map layers > Data > Query A
-    2.	Configure the following:
-          •	Layers: add markers or Circles to display points on the map.
-          •	Base layer: choose a map tile layer (e.g., OpenStreetMap, Mapbox, or custom).
-          •	Data layer: bind the latitude and longitude (or geohash) fields from your query.
-          •	Set the metric or value to visualize (e.g., size, color).
-    3.	Style Options:
-          •	Adjust marker size, color, and opacity.
-          •	Configure tooltips to display relevant information when hovering over points.
+    1. `Map layers` > `Styles` > `Size` > `value`.
 
-
-
+       This changes the size of the circle depending on the value, with bigger circles representing bigger values.
     
-    Make sure the `Map Data Options` are set to `table` and `current`.
-1.  **In the `Field Mappings` section, set the `Table Query Format` to `Table`**
-1.  **Map fields to variables** 
-    
-    Map the `Latitude Field` to the `latitude` variable, the `Longitude Field`
-    to the `longitude` variable, and the `Metric` field to the `value` variable.
-1.  **In the `Map Visual Options` section, set the `Min Circle Size` to `1`, and
-    the `Max Circle Size` to `5`**
-1.  **In the `Threshold Options` section, set the `Thresholds` to `2,5,10`** 
-    
-    This automatically configures a set of colors, which you can adjust later.
+    1. `Map layers` > `Styles` > `Color` > `value`.
 
-    <img class="main-content__illustration"
-    width={1375} height={944}
-    src="https://assets.iobeam.com/images/docs/screenshots-for-grafana-tutorial/grafana_worldmap_query_results.png"
-    alt="Visualizing time series data in PostgreSQL using the Grafana Worldmap"/>
+    1. `Thresholds` > Add `threshold`.
+
+       Add thresholds for 7 and 10, to mark rides over 7 and 10 miles in different colors, respectively. 
+    
+       You now have a vizualization that looks like this: 
+
+       ![Timescale and Grafana integration](https://assets.timescale.com/docs/images/timescale-grafana-integration.png)
+       
 
 </Procedure>
 
