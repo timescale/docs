@@ -12,7 +12,7 @@ import SetupConnectionStrings from "versionContent/_partials/_migrate_live_setup
 
 # Livesync from Postgres to Timescale Cloud
 
-You use the Livesync Docker image to synchronize all data in the database, or specific tables from a PostgreSQL database 
+You use the Livesync Docker image to synchronize all data, or specific tables, from a PostgreSQL database 
 instance to a $SERVICE_LONG in real-time. You run Livesync continuously, turning PostgreSQL into a primary database 
 with a $SERVICE_LONG as a logical replica. This enables you to leverage $CLOUD_LONG’s real-time analytics capabilities 
 on your replica data.
@@ -29,7 +29,7 @@ integrate.
 
 You use Livesync to:
 * Copy existing data from a Postgres instance to a $SERVICE_LONG:
-  - Copy data at up to 150 GB/hr. You need at least a 4 CPU/16GB source database, a 4 CPU/16GB target $SERVICE_SHORT.
+  - Copy data at up to 150 GB/hr. You need at least a 4 CPU/16GB source database, and a 4 CPU/16GB target $SERVICE_SHORT.
   - Copy the publication tables in parallel. However, large tables are still copied using a single connection. 
     Parallel copying is in the backlog.
   - Forget foreign key relationships. Livesync disables foreign key validation during the sync. For example, if a 
