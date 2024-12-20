@@ -8,7 +8,7 @@ keywords: [changelog, upgrades, updates, releases]
 
 All the latest features and updates to Timescale products.
 
-## Postgres 17, Feature Requests, and Postgres Livesync
+## 🎅 Postgres 17, Feature Requests, and Postgres Livesync
 <Label type="date">December 20, 2024</Label>
 
 ### Postgres 17
