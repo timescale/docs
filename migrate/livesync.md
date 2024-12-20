@@ -29,13 +29,17 @@ integrate.
 
 You use Livesync to:
 * Copy existing data from a Postgres instance to a $SERVICE_LONG:
-  - Copy data at up to 150 GB/hr. You need at least a 4 CPU/16GB source database, a 4 CPU/16GB target $SERVICE_SHORT
-  - Copy the publication tables in parallel. However, large tables are still copied using a single connection. Parallel copying is in the backlog.
-  - Forget foreign key relationships. Livesync disables foreign key validation during the sync. For example, if a **metrics **table refers to the **id** column on the **tags **table, you could still sync only the **metrics **table without worrying about their foreign key relationships.
-  - Track progress. Postgres expose `COPY` progress under in `pg_stat_progress_copy`
-* Synchronize real-time changes from a Postgres instance to a $SERVICE_LONG
-* Add and remove tables on demand using the [Postgres PUBLICATION interface](https://www.postgresql.org/docs/current/sql-createpublication.html)
-* Enable features such as [hypertables][https://docs.timescale.com/use-timescale/latest/hypertables/], columnstore, and continuous aggregates on your logical replica  
+  - Copy data at up to 150 GB/hr. You need at least a 4 CPU/16GB source database, a 4 CPU/16GB target $SERVICE_SHORT.
+  - Copy the publication tables in parallel. However, large tables are still copied using a single connection. 
+    Parallel copying is in the backlog.
+  - Forget foreign key relationships. Livesync disables foreign key validation during the sync. For example, if a 
+    `metrics` table refers to the `id` column on the `tags` table, you can still sync only the `metrics` table 
+     without worrying about their foreign key relationships.
+  - Track progress. Postgres expose `COPY` progress under in `pg_stat_progress_copy`.
+* Synchronize real-time changes from a Postgres instance to a $SERVICE_LONG.
+* Add and remove tables on demand using the [Postgres PUBLICATION interface](https://www.postgresql.org/docs/current/sql-createpublication.html).
+* Enable features such as [hypertables][about-hypertables], [columnstore][compression], and 
+   [continuous aggregates][caggs] on your logical replica.  
 
 
 # Prerequisites
@@ -288,4 +292,5 @@ For example:
 [install-docker]: https://docs.docker.com/engine/install/
 [about-hypertables]: /use-timescale/:currentVersion:/hypertables/about-hypertables/
 [lives-sync-specify-tables]: /migrate/:currentVersion:/live-sync/#specify-the-tables-to-synchronize
-
+[compression]: /use-timescale/:currentVersion:/compression/about-compression
+[caggs]: /use-timescale/:currentVersion:/continuous-aggregates/about-continuous-aggregates/
