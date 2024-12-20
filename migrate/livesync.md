@@ -1,5 +1,5 @@
 ---
-title: Live sync
+title: Livesync from Postgres to Timescale Cloud
 excerpt: Synchronize updates to a primary postgres database instance to Timescale Cloud service in real-time
 products: [cloud]
 keywords: [migration, low-downtime, backup]
@@ -10,27 +10,28 @@ import MigrationPrerequisites from "versionContent/_partials/_migrate_prerequisi
 import SetupConnectionStrings from "versionContent/_partials/_migrate_live_setup_connection_strings.mdx";
 
 
-# Live sync
+# Livesync from Postgres to Timescale Cloud
 
-You use the live-sync Docker image to synchronize changes in real-time from a PostgreSQL database 
-instance to a $SERVICE_LONG. You run live-sync continuously, turning PostgreSQL into a primary database 
-with a $SERVICE_LONG as a logical replica. This enables you to leverage $CLOUD_LONG’s real-time analytics 
-capabilities on your replica data.
+You use the Livesync Docker image to synchronize all data in the database, or specific tables from a PostgreSQL database 
+instance to a $SERVICE_LONG in real-time. You run Livesync continuously, turning PostgreSQL into a primary database 
+with a $SERVICE_LONG as a logical replica. This enables you to leverage $CLOUD_LONG’s real-time analytics capabilities 
+on your replica data.
 
 <Highlight type="warning">
-This feature is in alpha and is not recommended for production use.
+You use Livesync for for data synchronization, rather than migration. It is in alpha and is not recommended for 
+production use.
 </Highlight>
 
-Live-sync leverages the PostgreSQL logical replication protocol, a well-established and widely 
-understood feature in the PostgreSQL ecosystem. By relying on this protocol, live-sync ensures 
+Livesync leverages the PostgreSQL logical replication protocol, a well-established and widely 
+understood feature in the PostgreSQL ecosystem. By relying on this protocol, Livesync ensures 
 compatibility, familiarity, and a broader knowledge base, making it easier for you to adopt and 
 integrate.
 
-You use live-sync to:
+You use Livesync to:
 * Copy existing data from a Postgres instance to a $SERVICE_LONG:
   - Copy data at up to 150 GB/hr. You need at least a 4 CPU/16GB source database, a 4 CPU/16GB target $SERVICE_SHORT
   - Copy the publication tables in parallel. However, large tables are still copied using a single connection. Parallel copying is in the backlog.
-  - Forget foreign key relationships. live-sync disables foreign key validation during the sync. For example, if a **metrics **table refers to the **id** column on the **tags **table, you could still sync only the **metrics **table without worrying about their foreign key relationships.
+  - Forget foreign key relationships. Livesync disables foreign key validation during the sync. For example, if a **metrics **table refers to the **id** column on the **tags **table, you could still sync only the **metrics **table without worrying about their foreign key relationships.
   - Track progress. Postgres expose `COPY` progress under in `pg_stat_progress_copy`
 * Synchronize real-time changes from a Postgres instance to a $SERVICE_LONG
 * Add and remove tables on demand using the [Postgres PUBLICATION interface](https://www.postgresql.org/docs/current/sql-createpublication.html)
@@ -42,11 +43,19 @@ You use live-sync to:
 <MigrationPrerequisites />
 
 - [Install Docker][install-docker] on your sync machine.
-  You need a minimum of a 4 CPU/16GB EC2 instance to run live-sync
+  You need a minimum of a 4 CPU/16GB EC2 instance to run Livesync
 
 - Install the PostgreSQL client tools on your sync machine.
 
   This includes `psql`, `pg_dump`, and `pg_dumpall`.
+
+## Limitations
+
+* The Schema is not migrated by Livesync, you use pg_dump/restore to migrate schema
+* Schema changes must be co-ordinated. Make compatible changes to the schema in your $SERVICE_LONG first, then make 
+  the same changes to the source Postgres instance. 
+* There is WAL volume growth on the source Postgres instance during large table copy.
+* This works for Postgres databases only as source. Timescaledb is not yet supported.
 
 ## Set your connection strings
 
@@ -162,14 +171,14 @@ events data, and tables that are already partitioned using Postgres declarative 
 
 ## Syncronize data from your source database to the $SERVICE_LONG
 
-You use the live-sync docker image to synchronize changes in real-time from a PostgreSQL database
+You use the Livesync docker image to synchronize changes in real-time from a PostgreSQL database
 instance to a $SERVICE_LONG:
 
 <Procedure>
 
-1. **Start live-sync**
+1. **Start Livesync**
 
-   As you run live-sync continuously, best practice is to run it as a background process.
+   As you run Livesync continuously, best practice is to run it as a background process.
 
    ```shell
    docker run -d --rm --name livesync timescale/live-sync:v0.0.0-alpha.1-amd64 start --publication analytics --subscription livesync --source $SOURCE --target $TARGET
@@ -201,7 +210,7 @@ instance to a $SERVICE_LONG:
     
       - r: table is ready, synching live changes
 
-1. **Stop live-sync**
+1. **Stop Livesync**
 
    ```shell
    docker stop live-sync
@@ -224,9 +233,9 @@ instance to a $SERVICE_LONG:
 
 ## Specify the tables to synchronize
 
-After the live-sync docker is up and running, you [`CREATE PUBLICATION`][create-publication] on the SOURCE database to
+After the Livesync docker is up and running, you [`CREATE PUBLICATION`][create-publication] on the SOURCE database to
 specify the list of tables which you intend to synchronize. Once you create a PUBLICATION, it is
-automatically picked by live-sync, which starts synching the tables expressed as part of it.
+automatically picked by Livesync, which starts synching the tables expressed as part of it.
 
 For example:
 
