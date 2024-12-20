@@ -8,7 +8,7 @@ Before you move your data:
 - [Create a target Timescale Cloud service][created-a-database-service-in-timescale].
 
   Each Timescale Cloud service has a single database that supports the
-  [most popular extensions][all available extensions]. $SERVICE_LONGs do not support tablespaces,
+  [most popular extensions][all-available-extensions]. $SERVICE_LONGs do not support tablespaces,
   and there is no superuser associated with a $SERVICE_SHORT.
   Best practice is to create a $SERVICE_LONGs with at least 8 CPUs for a smoother experience. A higher-spec instance
   can significantly reduce the overall migration window.
