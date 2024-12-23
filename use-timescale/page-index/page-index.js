@@ -785,7 +785,7 @@ module.exports = [
                   excerpt: "Learn about using connecting to your Timescale database",
                 },
                 {
-                  title: "Install psql",
+                  title: "Connect with psql",
                   href: "psql",
                   excerpt: "Install psql to connect to Timescale",
                 },

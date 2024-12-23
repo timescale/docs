@@ -85,5 +85,5 @@ for accessing your database, and add additional authentication requirements.
 
 </Tabs>
 
-[about-psql]: /use-timescale/:currentVersion:/integrations/query-admin/about-psql/
+[about-psql]: /use-timescale/:currentVersion:/integrations/query-admin/psql/
 [tsc-portal]: https://console.cloud.timescale.com/
