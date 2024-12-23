@@ -456,7 +456,7 @@ You can access a hosted version of TimescaleDB Community Edition through
 
 <!-- vale Google.Units = NO -->
 
-[license-blog]: https://blog.timescale.com/blog/building-open-source-business-in-cloud-era-v2/
+[license-blog]: https://timescale.com/blog/building-open-source-business-in-cloud-era-v2/
 [mst]: /mst/:currentVersion:
 [timescale-cloud]: /use-timescale/:currentVersion:/services/
 [timescale-license]: https://github.com/timescale/timescaledb/blob/master/tsl/LICENSE-TIMESCALE
