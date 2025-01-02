@@ -229,7 +229,7 @@ loaded into the editor. When you have made your changes, press `Esc`, then type
 `:`＋`w`＋`q` to save the changes, and return to the command prompt. Access the
 edited query by pressing `↑`, and press `Enter` to run it.
 
-[about-connecting]: /use-timescale/:currentVersion:/integrations/query-admin/about-connecting/
+[about-connecting]: /use-timescale/:currentVersion:/integrations/about-connecting/
 [psql-cheat-sheet]: https://www.timescale.com/learn/postgres-cheat-sheet
 [psql-docs]: https://www.postgresql.org/docs/13/app-psql.html
 [ssl-mode]: /use-timescale/:currentVersion:/security/strict-ssl/
