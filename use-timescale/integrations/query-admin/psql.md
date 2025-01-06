@@ -5,13 +5,15 @@ products: [cloud, mst, self_hosted]
 keywords: [connect, psql]
 ---
 
+import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
+
 # Connect with psql
 
 You use the `psql` command line tool to interact with your $SERVICE_LONG.
 
 ## Prerequisites
 
-* [Create a target $SERVICE_LONG][create-service]
+<IntegrationPrereqs />
 
 ## Check for an existing installation
 
@@ -171,7 +173,7 @@ Connect to your database with either:
    psql "postgres://tsdbadmin@<SERVICE_URL_WITH_PORT>/tsdb?sslmode=verify-full"
    ```
 
-- Service URL with password and SSL mode enabled:
+- Service URL with password and the SSL mode enabled:
 
    ```bash
    psql "postgres://<USERNAME>:<PASSWORD>@<HOSTNAME>:<PORT>/<DATABASENAME>?sslmode=require"
@@ -228,6 +230,22 @@ the `COPY` command. For example:
 This command sends the results of the query to a new file called `output.csv` in
 the `/tmp/` directory. You can open the file using any spreadsheet program.
 
+## Run long queries
+
+To multi-line queries in `psql`, use the `EOF` delimiter. For example:
+
+```sql
+psql -d $TARGET -f -v hypertable=<hypertable> - <<'EOF'
+SELECT public.alter_job(j.id, scheduled=>true)
+FROM _timescaledb_config.bgw_job j
+JOIN _timescaledb_catalog.hypertable h ON h.id = j.hypertable_id
+WHERE j.proc_schema IN ('_timescaledb_internal', '_timescaledb_functions')
+AND j.proc_name = 'policy_compression'
+AND j.id >= 1000
+AND format('%I.%I', h.schema_name, h.table_name)::text::regclass = :'hypertable'::text::regclass;
+EOF
+```
+
 ## Edit queries in a text editor
 
 Sometimes, queries can get very long, and you might make a mistake when you try
@@ -245,6 +263,5 @@ edited query by pressing `↑`, and press `Enter` to run it.
 [homebrew]: https://docs.brew.sh/Installation
 [macports]: https://guide.macports.org/#installing.macports
 [windows-installer]: https://www.postgresql.org/download/windows/
-[create-service]: /getting-started/:currentVersion:/services/
 [connect-database]:/use-timescale/:currentVersion:/integrations/query-admin/psql/#connect-to-your-database
 

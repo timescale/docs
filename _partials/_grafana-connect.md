@@ -1,7 +1,10 @@
 ## Prerequisites
 
-* [Create a target $SERVICE_LONG][create-service]
-* Install [self-managed Grafana][grafana-self-managed], or sign up for [Grafana Cloud][grafana-cloud]
+import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
+
+<IntegrationPrereqs />
+
+* Install [self-managed Grafana][grafana-self-managed], or sign up for [Grafana Cloud][grafana-cloud].
 
 ## Add your $SERVICE_LONG as a data source 
 
