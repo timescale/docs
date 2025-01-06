@@ -25,13 +25,9 @@ the past five days, in a hypertable named `transactions`.
 
 <Collapsible heading="The dataset" defaultExpanded={false}>
 
-The dataset is updated daily and contains data from the last five days,
-typically around 1.5 million Bitcoin transactions. The data includes information
-about each transaction, including the value of the transaction in
-[satoshi][satoshi-def], the smallest denomination of Bitcoin. It also states if
-a transaction is the first transaction in a block, known as a
-[coinbase][coinbase-def] transaction, which includes the reward a coin miner
-receives for mining the coin.
+The dataset contains around 1.5 million Bitcoin transactions, the trades for five days. It includes
+information about each transaction, along with the value in [satoshi][satoshi-def]. It also states if a
+trade is a [coinbase][coinbase-def] transaction, and the reward a coin miner receives for mining the coin.
 
 <CreateHypertableBlockchain />
 
