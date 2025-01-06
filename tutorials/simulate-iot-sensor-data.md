@@ -201,7 +201,7 @@ After you simulate a dataset, you can run some basic queries on it. For example:
    ...
    ```
 
-You have now successfully simulated and run queries on an IoI dataset. 
+You have now successfully simulated and run queries on an IoT dataset.
 
 [create-a-service]: /getting-started/:currentVersion:/services/#create-a-timescale-cloud-service
 [connect-to-service]: /getting-started/:currentVersion:/run-queries-from-console/
