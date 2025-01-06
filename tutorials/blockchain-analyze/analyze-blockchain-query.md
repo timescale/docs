@@ -158,20 +158,20 @@ fees to decrease.
      tx_count as "tx volume",
      average(stats_fee_sat) as fees
     FROM one_hour_transactions
-    WHERE bucket > NOW() - INTERVAL '2 days'
+    WHERE bucket > date_add('2023-11-22 00:00:00+00', INTERVAL '-2 days')
     ORDER BY 1;
     ```
 
 1.  The data you get back looks a bit like this:
 
     ```sql
-              time          | tx volume |        fees
+            time          | tx volume |        fees
     ------------------------+-----------+--------------------
-     2023-06-13 08:00:00+00 |     20063 |  7075.682450281613
-     2023-06-13 09:00:00+00 |     16984 |   7302.61716910033
-     2023-06-13 10:00:00+00 |     15856 |  9682.086402623612
-     2023-06-13 11:00:00+00 |     24967 |  5631.992550166219
-     2023-06-13 12:00:00+00 |      8575 |  17594.24256559767
+    2023-11-20 01:00:00+00 |      2602 | 105963.45810914681
+    2023-11-20 02:00:00+00 |     33037 | 26686.814117504615
+    2023-11-20 03:00:00+00 |     42077 | 22875.286546094067
+    2023-11-20 04:00:00+00 |     46021 | 20280.843180287262
+    2023-11-20 05:00:00+00 |     20828 | 24694.472969080085
     ...
     ```
 
@@ -212,7 +212,7 @@ transaction volume, along with the BTC to US Dollar conversion rate.
      tx_count as "tx volume",
      total_fee_usd / (total_fee_sat*0.00000001) AS "btc-usd rate"
     FROM one_hour_transactions
-    WHERE bucket > NOW() - INTERVAL '2 days'
+    WHERE bucket > date_add('2023-11-22 00:00:00+00', INTERVAL '-2 days')
     ORDER BY 1;
     ```
 
@@ -268,7 +268,7 @@ transactions in a block, the higher the mining fee becomes.
      avg(tx_count) AS transactions,
      avg(block_fee_sat)*0.00000001 AS "mining fee"
     FROM one_hour_blocks
-    WHERE bucket > now() - INTERVAL '5 day'
+    WHERE bucket > date_add('2023-11-22 00:00:00+00', INTERVAL '-5 days')
     GROUP BY bucket
     ORDER BY 1;
     ```
@@ -325,7 +325,7 @@ units, in which case it's impossible for a block to include more transactions.
      avg(block_weight) as "block weight",
      avg(block_fee_sat*0.00000001) as "mining fee"
     FROM one_hour_blocks
-    WHERE bucket > now() - INTERVAL '5 day'
+    WHERE bucket > date_add('2023-11-22 00:00:00+00', INTERVAL '-5 days')
     group by bucket
     ORDER BY 1;
     ```
@@ -383,7 +383,7 @@ few percentage points of overall revenue.
     ```sql
     WITH coinbase AS (
        SELECT block_id, output_total AS coinbase_tx FROM transactions
-       WHERE is_coinbase IS TRUE and time > NOW() - INTERVAL '5 days'
+       WHERE is_coinbase IS TRUE and time > date_add('2023-11-22 00:00:00+00', INTERVAL '-5 days')
     )
     SELECT
        bucket as "time",
@@ -451,7 +451,7 @@ grow for individual blocks, and they could include even more transactions.
            bucket,
            stats_agg(block_weight, block_fee_sat) AS block_stats
        FROM one_hour_blocks
-       WHERE bucket > NOW() - INTERVAL '5 days'
+       WHERE bucket > date_add('2023-11-22 00:00:00+00', INTERVAL '-5 days')
        GROUP BY bucket
     )
     SELECT
@@ -512,7 +512,7 @@ increase the time range.
        average_y(rolling(stats_miner_revenue) OVER (ORDER BY bucket RANGE '12 hours' PRECEDING))*0.00000001 AS "revenue in BTC",
         average_x(rolling(stats_miner_revenue) OVER (ORDER BY bucket RANGE '12 hours' PRECEDING)) AS "revenue in USD"
     FROM one_hour_coinbase
-    WHERE bucket > NOW() - INTERVAL '5 days'
+    WHERE bucket > date_add('2023-11-22 00:00:00+00', INTERVAL '-5 days')
     ORDER BY 1;
     ```
 
