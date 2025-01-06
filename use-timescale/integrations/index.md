@@ -11,17 +11,16 @@ tags: [integrations]
 Integrate your $SERVICE_LONG with third-party solutions to expand
 and extend what you can do with your data.
 
-
-|           Name           | Category                     | Description |
-|:------------------------:|------------------------------|-------------|
-| [Azure Data Studio][ads] | Query and administration     |             |
-|    [DBeaver][dbeaver]    | Query and administration     |             |
-|    [pgAdmin][pgadmin]    | Query and administration     |             |
-|       [psql][psql]       | Query and administration     |             |
-|    [qStudio][qstudio]    | Query and administration     |             |
-|    [Grafana][grafana]    | Observability and alerting   |             |
-|    [Tableau][tableau]    | Observability and alerting   |             |
-|  [Terraform][terraform]  | Configuration and deployment |             |
+|           Name           | Category                     | Description                                    |
+|:------------------------:|------------------------------|------------------------------------------------|
+| [Azure Data Studio][ads] | Query and administration     | Connect to $CLOUD_LONG with Azure Data Studio. |
+|    [DBeaver][dbeaver]    | Query and administration     | Connect to $CLOUD_LONG with DBeaver.           |
+|    [pgAdmin][pgadmin]    | Query and administration     | Connect to $CLOUD_LONG with pgAdmin.           |
+|       [psql][psql]       | Query and administration     | Connect to $CLOUD_LONG with psql.              |
+|    [qStudio][qstudio]    | Query and administration     | Connect to $CLOUD_LONG with qStudio.           |
+|    [Grafana][grafana]    | Observability and alerting   | Visualize your data with Grafana.              |
+|    [Tableau][tableau]    | Observability and alerting   | Visualize your data with Tableau.              |
+|  [Terraform][terraform]  | Configuration and deployment | Manage your $SERVICE_LONGs with Terraform.     |
 
 
 [psql]: /use-timescale/:currentVersion:/query-admin/psql/
