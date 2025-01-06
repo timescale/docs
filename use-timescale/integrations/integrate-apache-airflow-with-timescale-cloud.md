@@ -17,6 +17,7 @@ This page shows you how to use a Python connector to integrate Apache Airflow wi
 To integrate Apache Airflow with $CLOUD_LONG, you must first:
 
 - [Create a Timescale Cloud service][create-a-service-in-timescale]
+
   Note the connection details, you need them for this integration.
 - [Install Apache Airflow][install-apache-airflow]
 - ANAGHA: Anything else we need? 
