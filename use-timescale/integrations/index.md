@@ -11,17 +11,31 @@ tags: [integrations]
 Integrate your $SERVICE_LONG with third-party solutions to expand
 and extend what you can do with your data.
 
-|           Name           | Category                     | Description                                    |
-|:------------------------:|------------------------------|------------------------------------------------|
-| [Azure Data Studio][ads] | Query and administration     | Connect to $CLOUD_LONG with Azure Data Studio. |
-|    [DBeaver][dbeaver]    | Query and administration     | Connect to $CLOUD_LONG with DBeaver.           |
-|    [pgAdmin][pgadmin]    | Query and administration     | Connect to $CLOUD_LONG with pgAdmin.           |
-|       [psql][psql]       | Query and administration     | Connect to $CLOUD_LONG with psql.              |
-|    [qStudio][qstudio]    | Query and administration     | Connect to $CLOUD_LONG with qStudio.           |
-|    [Grafana][grafana]    | Observability and alerting   | Visualize your data with Grafana.              |
-|    [Tableau][tableau]    | Observability and alerting   | Visualize your data with Tableau.              |
-|  [Terraform][terraform]  | Configuration and deployment | Manage your $SERVICE_LONGs with Terraform.     |
 
+## Query and administration
+
+|      Name                | Description                                                                                                                                  |
+|:------------------------:|----------------------------------------------------------------------------------------------------------------------------------------------|
+| [Azure Data Studio][ads] | An open-source, cross-platform hybrid data analytics tool designed to simplify the data landscape.                                           |
+|    [DBeaver][dbeaver]    | A free cross-platform database tool for developers, database administrators, analysts, and everyone working with data.                       |
+|    [pgAdmin][pgadmin]    | A feature-rich open-source administration and development platform for PostgreSQL.                                                           |
+|       [psql][psql]       | A terminal-based front-end to Postgres that enables you to type in queries interactively, issue them to Postgres, and see the query results. |
+|    [qStudio][qstudio]    | A modern free SQL editor that provides syntax highlighting, code-completion, excel export, charting, and much more.                          |
+
+
+## Observability and alerting
+
+|            Name             | Description                                                                     |
+|:---------------------------:|---------------------------------------------------------------------------------|
+|     [Grafana][grafana]      | An open-source analytics and monitoring solution for every database.            |
+|     [Tableau][tableau]      | A visual analytics platform transforming the way we use data to solve problems. |
+
+
+## Configuration and deployment 
+
+|            Name             | Description                                                                                                                 |
+|:---------------------------:|-----------------------------------------------------------------------------------------------------------------------------|
+| [Terraform][terraform]      | An infrastructure-as-code tool that enables you to safely and predictably provision and manage infrastructure in any cloud. |
 
 [psql]: /use-timescale/:currentVersion:/query-admin/psql/
 [qstudio]: /use-timescale/:currentVersion:/integrations/qstudio/
