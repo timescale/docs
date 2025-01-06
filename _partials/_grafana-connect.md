@@ -44,4 +44,4 @@ To connect the data in your $SERVICE_LONG to Grafana:
 [grafana-self-managed]: https://grafana.com/get/?tab=self-managed
 [grafana-cloud]: https://grafana.com/get/
 [cloud-login]: https://console.cloud.timescale.com/
-[create-service]: getting-started/:currentVersion:/services
+[create-service]: /getting-started/:currentVersion:/services/
