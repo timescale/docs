@@ -774,6 +774,11 @@ module.exports = [
         excerpt: "Integrate third-party solutions with Timescale Cloud",
         children: [
           {
+            title: "Integrate Apache Airflow with Timescale Cloud",
+            href: "integrate-apache-airflow-with-timescale-cloud",
+            excerpt: "Integrate Apache Airflow with Timescale Cloud",
+          },
+          {
             title: "Query and administration",
             href: "query-admin",
             excerpt: "Integrate your Timescale database with third-party query and administration solutions",

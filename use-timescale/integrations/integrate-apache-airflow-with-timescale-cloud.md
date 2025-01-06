@@ -10,7 +10,7 @@ keywords: [connect, inetgrate, apache, airflow]
 Apache Airflow® is a platform created by the community to programmatically author, 
 schedule and monitor workflows.
 
-To integrate Apache Airflow with $CLOUD_LONG, follow these steps:
+This page shows you how to use a Python connector to integrate Apache Airflow with $CLOUD_LONG.
 
 ## Prerequisites
 
