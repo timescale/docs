@@ -103,8 +103,7 @@ CREATE UNIQUE INDEX time_hash_idx ON public.transactions (time, hash)
 
 You created the hypertable and added proper indexes.
 Next, ingest some Bitcoin transactions. The sample data file
-contains Bitcoin transactions from the past five days. This CSV file is
-updated daily so you always download recent Bitcoin transactions.
+contains around 1.5 million Bitcoin transactions, the trades for five days.
 Insert this dataset into your TimescaleDB instance.
 
 <Procedure>

@@ -1,7 +1,6 @@
 import SetupConnectionStrings from "versionContent/_partials/_migrate_live_setup_connection_strings.mdx";
 import MigrationSetupDBConnectionTimescaleDB from "versionContent/_partials/_migrate_set_up_align_db_extensions_timescaledb.mdx";
 import TuneSourceDatabase from "versionContent/_partials/_migrate_live_tune_source_database.mdx";
-import MigrateSetupTargetEnvironment from "versionContent/_partials/_migrate_live_setup_environment_target_config.mdx";
 
 
 ## Set your connection strings
@@ -19,14 +18,6 @@ import MigrateSetupTargetEnvironment from "versionContent/_partials/_migrate_liv
 <Procedure>
 
 <TuneSourceDatabase />
-
-</Procedure>
-
-## Tune the target Timescale Cloud service
-
-<Procedure>
-
-<MigrateSetupTargetEnvironment />
 
 </Procedure>
 

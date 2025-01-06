@@ -10,9 +10,6 @@
 
         1. Complete the installation wizard.
 
-            If you see an error like `could not load library "C:/Program Files/PostgreSQL/17/lib/timescaledb-2.17.2.dll": The specified module could not be found.`, use
-            [Dependencies][dependencies] to ensure that your system can find the compatible DLLs for this release of TimescaleDB. 
-
     1. Check that you can run `pg_config`.
         If you cannot run `pg_config` from the command line, in the Windows
         Search tool, enter `system environment variables`.
@@ -20,13 +17,16 @@
 
 1.  **Install TimescaleDB**
 
-    1.  Unzip the [TimescaleDB installer][supported-platforms] to <install_dir>.
+    1.  Unzip the [TimescaleDB installer][supported-platforms] to `<install_dir>`, that is, your selected directory.
 
         Best practice is to use the latest version.
 
-    1.  In <install_dir>, right-click `setup.exe`, then choose `Run as Administrator`.
+    1. In `<install_dir>\timescaledb`, right-click `setup.exe`, then choose `Run as Administrator`.
 
     1. Complete the installation wizard.
+
+        If you see an error like `could not load library "C:/Program Files/PostgreSQL/17/lib/timescaledb-2.17.2.dll": The specified module could not be found.`, use
+        [Dependencies][dependencies] to ensure that your system can find the compatible DLLs for this release of TimescaleDB.
 
 1.  **Tune your PostgreSQL instance for TimescaleDB**
 

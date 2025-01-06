@@ -8,6 +8,67 @@ keywords: [changelog, upgrades, updates, releases]
 
 All the latest features and updates to Timescale products.
 
+## 🎅 Postgres 17, Feature Requests, and Postgres Livesync
+<Label type="date">December 20, 2024</Label>
+
+### Postgres 17
+All new Timescale Cloud services now come with Postgres 17.2, the latest version. Upgrades to Postgres 17 for services running on prior versions will be available in January.
+Postgres 17 adds new capabilities and improvements to Timescale like:
+* **System-wide Performance Improvements**. Significant performance boosts, particularly in high-concurrency workloads. Enhancements in the I/O layer, including improved Write-Ahead Log (WAL) processing, can result in up to a 2x increase in write throughput under heavy loads.
+* **Enhanced JSON Support**. The new JSON_TABLE allows developers to convert JSON data directly into relational tables, simplifying the integration of JSON and SQL. The release also adds new SQL/JSON constructors and query functions, offering powerful tools to manipulate and query JSON data within a traditional relational schema. 
+* **More Flexible MERGE Operations**. The MERGE command now includes a RETURNING clause, making it easier to track and work with modified data. You can now also update views using MERGE, unlocking new use cases for complex queries and data manipulation.
+  
+### Submit feature requests from Timescale Console
+You can now submit feature requests directly from Console and see the list of feature requests you have made. Just click on `Feature Requests` on the right sidebar.
+All feature requests are automatically published to the [Timescale Forum](https://www.timescale.com/forum/c/cloud-feature-requests/39) and are reviewed by the product team, providing more visibility and transparency on their status as well as allowing other customers to vote for them.
+
+![Submit a feature request in Timescale Console](https://assets.timescale.com/docs/images/submit-feature-request.png)
+
+### Postgres Livesync (Alpha release)
+We have built a new solution that helps you continuously replicate all or some of your Postgres tables directly into Timescale Cloud.
+
+[Livesync](https://docs.timescale.com/migrate/latest/livesync/) allows you to keep a current Postgres instance such as RDS as your primary database, and easily offload your real-time analytical queries to Timescale Cloud to boost their performance. If you have any questions or feedback, talk to us in [#livesync in Timescale Community](https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88).
+
+This is just the beginning—you'll see more from Livesync in 2025!
+
+## In-Console import from S3, I/O Boost, and Jobs Explorer
+<Label type="date">December 13, 2024</Label>
+
+### In-Console import from S3 (CSV and Parquet files)
+
+Connect your S3 buckets to import data into Timescale Cloud. We support CSV (including `.zip` and `.gzip`) and Parquet files, with a 10 GB size limit in this initial release. This feature is accessible in the `Import your data` section right after service creation and through the `Actions` tab.
+
+![Import data into Timescale with S3](https://assets.timescale.com/docs/images/import-your-data-s3.png)
+
+![Import data into Timescale with S3 details](https://assets.timescale.com/docs/images/import-data-s3-details.png)
+
+### Self-Serve I/O Boost 📈 
+
+I/O Boost is an add-on for customers on Scale or Enterprise tiers that maximizes the I/O capacity of EBS storage to 16,000 IOPS and 1,000 MBps throughput per service. To enable I/O Boost, navigate to `Services` > `Operations` in Timescale Console. A simple toggle allows you to enable the feature, with pricing clearly displayed at $0.41/hour per node.
+
+![Timescale I/O Boost](https://assets.timescale.com/docs/images/timescale-i-o-boost.png)
+
+### Jobs Explorer 
+
+See all the jobs associated with your service through a new `Jobs` tab. You can see the type of job, its status (`Running`, `Paused`, and others), and a detailed history of the last 100 runs, including success rates and runtime statistics.
+
+![Timescale Console Jobs tab](https://assets.timescale.com/docs/images/timescale-console-jobs-tab.png)
+
+![Timescale Console Jobs tab expanded](https://assets.timescale.com/docs/images/timescale-console-jobs-expanded.png)
+
+## 🛝 New service creation flow
+<Label type="date">December 6, 2024</Label>
+
+- **AI and Vector:** the UI now lets you choose an option for creating AI and Vector-ready services right from the start. You no longer need to add the pgai, pgvector, and pgvectorscale extensions manually. You can combine this with time-series capabilities as well!
+
+  ![Create Timescale Cloud service](https://assets.timescale.com/docs/images/create-timescale-service.png)
+
+- **Compute size recommendations:** new (and old) users were sometimes unsure about what compute size to use for their workload.  We now offer compute size recommendations based on how much data you plan to have in your service.
+
+  ![Service compute recommendation](https://assets.timescale.com/docs/images/timescale-service-compute-size.png)
+
+- **More information about configuration options:** we've made it clearer what each configuration option does, so that you can make more informed choices about how you want your service to be set up.
+
 ## 🗝️ IP Allow Lists!
 <Label type="date">November 21, 2024</Label>
 

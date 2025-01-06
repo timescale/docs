@@ -16,6 +16,11 @@ module.exports = [
         excerpt: "Migrate a large database with low downtime",
       },
       {
+        title: "Livesync from Postgres to Timescale Cloud",
+        href: "livesync",
+        excerpt: "Synchronize updates to a primary postgres database instance to Timescale Cloud service in real-time",
+      },
+      {
         title: "Dual-write and backfill",
         href: "dual-write-and-backfill",
         excerpt: "Migrate a large database with low downtime",
