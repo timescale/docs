@@ -7,16 +7,15 @@ keywords: [connect, psql]
 
 # Connect with psql
 
-You use `psql` command line tool to interact with your $SERVICE_LONG. Most procedures in the $COMPANY documentation assume you are using `psql`.
+You use the `psql` command line tool to interact with your $SERVICE_LONG.
 
 ## Prerequisites
 
-
+* [Create a target $SERVICE_LONG][create-service]
 
 ## Check for an existing installation
 
-On many operating systems, `psql` is installed by default. To use the functionality described in this pag, best practice is to use the latest version of psql. To check the version running on your system:
-
+On many operating systems, `psql` is installed by default. To use the functionality described in this page, best practice is to use the latest version of `psql`. To check the version running on your system:
 
 <Terminal>
     
@@ -40,6 +39,8 @@ wmic
 </tab>
     
 </Terminal>
+
+If you already have the latest version of `psql` installed, proceed to the [Connect to your database][connect-database] section. 
 
 ## Install psql
 
@@ -156,33 +157,33 @@ Install `psql` on Debian and Ubuntu with the `apt` package manager.
 
 To use `psql` to connect to your database, you need the connection details for your $SERVICE_LONG. Find those in the connection string generated during service creation. For more information, see [Connecting to Timescale][about-connecting]. 
 
-Connect to your database in one of the following ways:
+Connect to your database with either:
 
-- With parameter flags:
+- Parameter flags:
     
    ```bash
    psql -h <HOSTNAME> -p <PORT> -U <USERNAME> -W -d <DATABASENAME>
    ```
 
-- With a service URL:
+- Service URL with the [SSL mode][ssl-mode] enabled:
 
-   - If you have configured the [SSL mode][ssl-mode] connection:
+   ```bash
+   psql "postgres://tsdbadmin@<SERVICE_URL_WITH_PORT>/tsdb?sslmode=verify-full"
+   ```
 
-      ```bash
-      psql "postgres://tsdbadmin@<SERVICE_URL_WITH_PORT>/tsdb?sslmode=verify-full"
-      ```
+- Service URL with password and SSL mode enabled:
 
-   - If you haven't configured the SSL mode connection: 
+   ```bash
+   psql "postgres://<USERNAME>:<PASSWORD>@<HOSTNAME>:<PORT>/<DATABASENAME>?sslmode=require"
+   ```
+
+- Service URL without SSL:
   
-      ```bash
-      psql postgres://<USERNAME>@<HOSTNAME>:<PORT>/<DATABASENAME>?sslmode=require
-      ```
+   ```bash
+   psql postgres://<USERNAME>@<HOSTNAME>:<PORT>/<DATABASENAME>?sslmode=require
+   ```
 
-   - If you want to supply your password directly within the service URL instead of being prompted for it:
 
-      ```bash
-      psql "postgres://<USERNAME>:<PASSWORD>@<HOSTNAME>:<PORT>/<DATABASENAME>?sslmode=require"
-      ```
 
 ## Useful psql commands
 
@@ -213,7 +214,7 @@ When you start using `psql`, these are the commands you are likely to use most f
 
 For more on `psql` commands, see the [Timescale psql cheat sheet][psql-cheat-sheet] and [psql documentation][psql-docs].
 
-### Save query results to a file
+## Save query results to a file
 
 When you run queries in `psql`, the results are shown in the console by default.
 If you are running queries that have a lot of results, you might like to save
@@ -227,7 +228,7 @@ the `COPY` command. For example:
 This command sends the results of the query to a new file called `output.csv` in
 the `/tmp/` directory. You can open the file using any spreadsheet program.
 
-### Edit queries in a text editor
+## Edit queries in a text editor
 
 Sometimes, queries can get very long, and you might make a mistake when you try
 typing it the first time around. If you have made a mistake in a long query,
@@ -244,6 +245,6 @@ edited query by pressing `↑`, and press `Enter` to run it.
 [homebrew]: https://docs.brew.sh/Installation
 [macports]: https://guide.macports.org/#installing.macports
 [windows-installer]: https://www.postgresql.org/download/windows/
-
-
+[create-service]: /getting-started/:currentVersion:/services/
+[connect-database]:/use-timescale/:currentVersion:/integrations/query-admin/psql/#connect-to-your-database
 
