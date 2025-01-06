@@ -232,7 +232,7 @@ the `/tmp/` directory. You can open the file using any spreadsheet program.
 
 ## Run long queries
 
-To multi-line queries in `psql`, use the `EOF` delimiter. For example:
+To run multi-line queries in `psql`, use the `EOF` delimiter. For example:
 
 ```sql
 psql -d $TARGET -f -v hypertable=<hypertable> - <<'EOF'
