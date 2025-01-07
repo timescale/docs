@@ -18,4 +18,4 @@ jobs:
           token: ${{ secrets.ORG_AUTOMATION_TOKEN }}
           repository: timescale/web-documentation
           event-type: build-lambda
-          client-payload: '{ "branch": ${{ github.ref_name }} }'
+          client-payload: '{ "branch": "${{ github.ref_name }}" }'
