@@ -821,8 +821,4 @@ module.exports = [
     from: "/use-timescale/latest/data-tiering/disabling-data-tiering/",
     to: "https://docs.timescale.com/use-timescale/latest/data-tiering/enabling-data-tiering/",
   },
-  {
-    from: "/use-timescale/latest/compression/backfill-historical-data/",
-    to: "https://github.com/timescale/timescaledb-extras/blob/master/backfill.sql",
-  },
 ];
