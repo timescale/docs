@@ -1,4 +1,4 @@
-name: Deploy docs to prod
+name: Deploy redirects to lambda
 
 on:
   push:
@@ -9,7 +9,7 @@ permissions: {}
 
 jobs:
   trigger:
-    name: Docs prod deploy
+    name: Update changed lambda redirects
     runs-on: ubuntu-latest
     steps:
       - name: Repository Dispatch
