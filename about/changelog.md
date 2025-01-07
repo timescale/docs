@@ -8,6 +8,29 @@ keywords: [changelog, upgrades, updates, releases]
 
 All the latest features and updates to Timescale products.
 
+## 🎅 Postgres 17, Feature Requests, and Postgres Livesync
+<Label type="date">December 20, 2024</Label>
+
+### Postgres 17
+All new Timescale Cloud services now come with Postgres 17.2, the latest version. Upgrades to Postgres 17 for services running on prior versions will be available in January.
+Postgres 17 adds new capabilities and improvements to Timescale like:
+* **System-wide Performance Improvements**. Significant performance boosts, particularly in high-concurrency workloads. Enhancements in the I/O layer, including improved Write-Ahead Log (WAL) processing, can result in up to a 2x increase in write throughput under heavy loads.
+* **Enhanced JSON Support**. The new JSON_TABLE allows developers to convert JSON data directly into relational tables, simplifying the integration of JSON and SQL. The release also adds new SQL/JSON constructors and query functions, offering powerful tools to manipulate and query JSON data within a traditional relational schema. 
+* **More Flexible MERGE Operations**. The MERGE command now includes a RETURNING clause, making it easier to track and work with modified data. You can now also update views using MERGE, unlocking new use cases for complex queries and data manipulation.
+  
+### Submit feature requests from Timescale Console
+You can now submit feature requests directly from Console and see the list of feature requests you have made. Just click on `Feature Requests` on the right sidebar.
+All feature requests are automatically published to the [Timescale Forum](https://www.timescale.com/forum/c/cloud-feature-requests/39) and are reviewed by the product team, providing more visibility and transparency on their status as well as allowing other customers to vote for them.
+
+![Submit a feature request in Timescale Console](https://assets.timescale.com/docs/images/submit-feature-request.png)
+
+### Postgres Livesync (Alpha release)
+We have built a new solution that helps you continuously replicate all or some of your Postgres tables directly into Timescale Cloud.
+
+[Livesync](https://docs.timescale.com/migrate/latest/livesync/) allows you to keep a current Postgres instance such as RDS as your primary database, and easily offload your real-time analytical queries to Timescale Cloud to boost their performance. If you have any questions or feedback, talk to us in [#livesync in Timescale Community](https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88).
+
+This is just the beginning—you'll see more from Livesync in 2025!
+
 ## In-Console import from S3, I/O Boost, and Jobs Explorer
 <Label type="date">December 13, 2024</Label>
 
