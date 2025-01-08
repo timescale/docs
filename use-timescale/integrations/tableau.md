@@ -9,7 +9,7 @@ keywords: [visualizations, analytics, Tableau]
 
 [Tableau][get-tableau] is a popular analytics platform that helps you gain
 greater intelligence about your business. It is an ideal tool for visualizing
-data stored in Timescale.
+data stored in Timescale. 
 
 ## Prerequisites
 

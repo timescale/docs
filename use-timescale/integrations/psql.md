@@ -9,7 +9,7 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 
 # Connect with psql
 
-You use the `psql` command line tool to interact with your $SERVICE_LONG.
+`psql`  is a terminal-based front-end to Postgres that enables you to type in queries interactively, issue them to PostgreSQL, and see the query results. You use the `psql` command line tool to interact with your $SERVICE_LONG.
 
 ## Prerequisites
 

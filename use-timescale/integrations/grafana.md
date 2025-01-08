@@ -9,7 +9,7 @@ import GrafanaConnect from "versionContent/_partials/_grafana-connect.mdx";
 
 # Integrate Grafana and Timescale Cloud
 
-You can use [Grafana](https://grafana.com/docs/) to monitor, visualize and perform analytics on data stored in your $SERVICE_LONG. 
+[Grafana](https://grafana.com/docs/) is an open-source analytics and monitoring solution. You can use it to monitor, visualize, and perform analytics on data stored in your $SERVICE_LONG. 
 
 This page shows you how to connect Grafana with a $SERVICE_LONG, create a dashboard and panel, then visualize geospatial data.
 
