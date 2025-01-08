@@ -653,12 +653,6 @@ module.exports = [
             excerpt:
               "Export telemetry data to a third-party monitoring service",
           },
-          {
-            title: "Export to Prometheus",
-            href: "metrics-to-prometheus",
-            excerpt:
-              "Export telemetry data to Prometheus",
-          },
         ],
       },
       {
@@ -807,6 +801,11 @@ module.exports = [
             title: "Grafana",
             href: "grafana",
             excerpt: "Use Grafana with Timescale",
+          },
+          {
+            title: "Prometheus",
+            href: "prometheus",
+            excerpt: "Use Prometheus with Timescale",
           },
           {
             title: "Tableau",
