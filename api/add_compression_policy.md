@@ -23,6 +23,8 @@ command. To enable compression on continuous aggregates, use the
 command. To view the policies that you set or the policies that already exist,
 see [informational views][informational-views].
 
+**@deprecated [TimescaleDB v2.18.0](https://github.com/timescale/timescaledb/releases/tag/2.18.0)**
+
 ## Required arguments
 
 |Name|Type|Description|

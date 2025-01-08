@@ -13,6 +13,8 @@ api:
 
 Shows information about compression settings for each chunk that has compression enabled on it.
 
+**@deprecated [TimescaleDB v2.18.0](https://github.com/timescale/timescaledb/releases/tag/2.18.0)**
+
 ### Arguments
 
 |Name|Type|Description|

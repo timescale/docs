@@ -7,9 +7,99 @@ tags: [compression]
 
 # Hypercore
 
-Hypercore is the TimescaleDB hybrid row-columnar storage engine, designed specifically for
+Hypercore is the $TIMESCALE_DB hybrid row-columnar storage engine, designed specifically for
 real-time analytics and powered by time-series data. The advantage of hypercore is its ability
 to seamlessly switch between row-oriented and column-oriented storage. This flexibility enables
-Timescale Cloud to deliver the best of both worlds, solving the key challenges in real-time analytics.
+$CLOUD_LONG to deliver the best of both worlds, solving the key challenges in real-time analytics.
 
-IAIN: add a workflow code example here.
+**@since [TimescaleDB v2.18.0](https://github.com/timescale/timescaledb/releases/tag/2.18.0)**
+
+## Hypercore workflow
+
+Best practice for using Hypercore is to: 
+
+<Procedure>
+
+1. **Enable columnstore**
+
+   * [Use `ALTER TABLE` for a hypertable][alter_table_hypercore]
+     ```sql
+     ALTER TABLE stocks_real_time SET (timescaledb.enable_columnstore = true, timescaledb.segmentby = 'symbol');
+     ```
+   * [Use ALTER MATERIALIZED VIEW for a continuous aggregate][compression_continuous-aggregate]
+     ```sql
+     ALTER MATERIALIZED VIEW stock_candlestick_daily set (timescaledb.enable_columnstore = true, timescaledb.segmentby = 'symbol' );
+     ```
+
+1. **Add a policy to move chunks to the columnstore at a specific time interval**
+
+   For example, 60 days after the data was added to the table:
+   ``` sql
+   SELECT add_columnstore_policy('older_stock_prices', after => INTERVAL '60d');
+   ```
+   See [add_columnstore_policy][add_columnstore_policy].
+
+1. **View the policies that you set or the policies that already exist**
+
+   ``` sql
+   SELECT * FROM timescaledb_information.jobs
+   WHERE proc_name='policy_compression';
+   ```
+   See [timescaledb_information.jobs][informational-views].
+
+1. **Pause a columnstore policy**
+
+   ``` sql
+   SELECT * FROM timescaledb_information.jobs where proc_name = 'policy_compression' AND relname = 'stocks_real_time'
+   
+   -- Select the JOB_ID from the results
+     
+   SELECT alter_job(JOB_ID, scheduled => false);
+   ```
+   See [alter_job][alter_job].
+
+1. **Restart a columnstore policy**
+   ``` sql
+   SELECT alter_job(JOB_ID, scheduled => true);
+   ```
+   See [alter_job][alter_job].
+
+1. **Remove a columnstore policy**
+   ``` sql
+   SELECT remove_columnstore_policy('older_stock_prices');
+   ```
+   See [remove_columnstore_policy][remove_columnstore_policy]. 
+1. **Disable columnstore**
+
+   If your table has chunks in the columnstore, you have to 
+   [convert the chunks back to the rowstore][convert_to_rowstore] before you disable the columnstore.
+   ``` sql
+   ALTER TABLE stocks_real_time SET (timescaledb.enable_columnstore = false);
+   ```
+   See [alter_table_hypercore][alter_table_hypercore]. 
+
+</Procedure>     
+
+You can also [convert_to_columnstore][convert_to_columnstore] and [convert_to_rowstore][convert_to_rowstore] manually
+for more fine-grained control over your data.
+
+## Limitations
+
+Chunks in the columnstore have the following limitations:
+
+*   `ROW LEVEL SECURITY` is not supported on compressed chunks.
+*   To add unique constraints on chunks in the columnstore [convert_the chunk to rowstore][convert_to_rowstore],
+    add the constraints to your data, then  [convert the chunk back to the rowstore][convert_to_columnstore].
+*   [SkipScan][skipscan] does not currently work on compressed chunks.
+
+
+[alter_table_hypercore]: /api/:currentVersion:/hypercore/alter_table/
+[compression_continuous-aggregate]: /api/:currentVersion:/continuous-aggregates/alter_materialized_view/
+[convert_to_rowstore]: /api/:currentVersion:/hypercore/convert_to_rowstore/
+[convert_to_columnstore]: /api/:currentVersion:/hypercore/convert_to_columnstore/
+[convert_to_rowstore]: /api/:currentVersion:/hypercore/convert_to_rowstore/
+[informational-views]: /api/:currentVersion:/informational-views/jobs/
+[skipscan]: /use-timescale/:currentVersion:/query-data/skipscan/
+[add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/
+[alter_job]: /api/:currentVersion:/actions/alter_job/
+[remove_columnstore_policy]: /api/:currentVersion:/hypercore/remove_columnstore_policy/

@@ -27,6 +27,7 @@ ALTER TABLE <table_name> SET (timescaledb.compress,
    timescaledb.compress_chunk_time_interval='interval'
 );
 ```
+**@deprecated [TimescaleDB v2.18.0](https://github.com/timescale/timescaledb/releases/tag/2.18.0)**
 
 ## Required arguments
 

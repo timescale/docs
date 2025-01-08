@@ -1,90 +1,106 @@
 ---
-api_name: chunk_compression_stats()
-excerpt: Get compression-related statistics for chunks
-topics: [compression]
-keywords: [compression, statistics, chunks, information]
+api_name: chunk_columnstore_stats()
+excerpt: Get statistics about chunks in the columnstore
+topics: [columnstore]
+keywords: [columnstore, statistics, chunks, information]
 tags: [disk space, schemas, size]
 api:
   license: community
   type: function
 ---
 
-# chunk_compression_stats() <Tag type="community">Community</Tag>
+# chunk_columnstore_stats() <Tag type="community">Community</Tag>
 
-Get chunk-specific statistics related to hypertable compression.
-All sizes are in bytes.
+Get chunk-specific statistics related to hypercore.
 
-This function shows the compressed size of chunks, computed when the
-`compress_chunk` is manually executed, or when a compression policy processes
-the chunk. An insert into a compressed chunk does not update the compressed
-sizes. For more information about how to compute chunk sizes, see the
-`chunks_detailed_size` section.
+`chunk_columnstore_stats` returns the compressed size of chunks, these values are computed when you call either:
+- [add_columnstore_policy][add_columnstore_policy]: create a [job][job] that automatically moves chunks in a hypertable to the columnstore at a
+  specific time interval.
+- [convert_to_columnstore][convert_to_columnstore]: manually add a specific chunk in a hypertable to the columnstore.
 
-### Required arguments
 
-|Name|Type|Description|
-|-|-|-|
-|`hypertable`|REGCLASS|Name of the hypertable|
+Inserting into a chunk in the columnstore does not change the chunk size. For more information about how to compute 
+chunk sizes, see [chunks_detailed_size][chunks_detailed_size].
 
-### Returns
+**@since [TimescaleDB v2.18.0](https://github.com/timescale/timescaledb/releases/tag/2.18.0)**
 
-|Column|Type|Description|
-|-|-|-|
-|`chunk_schema`|TEXT|Schema name of the chunk|
-|`chunk_name`|TEXT|Name of the chunk|
-|`compression_status`|TEXT|the current compression status of the chunk|
-|`before_compression_table_bytes`|BIGINT|Size of the heap before compression (NULL if currently uncompressed)|
-|`before_compression_index_bytes`|BIGINT|Size of all the indexes before compression (NULL if currently uncompressed)|
-|`before_compression_toast_bytes`|BIGINT|Size the TOAST table before compression (NULL if currently uncompressed)|
-|`before_compression_total_bytes`|BIGINT|Size of the entire chunk table (table+indexes+toast) before compression (NULL if currently uncompressed)|
-|`after_compression_table_bytes`|BIGINT|Size of the heap after compression (NULL if currently uncompressed)|
-|`after_compression_index_bytes`|BIGINT|Size of all the indexes after compression (NULL if currently uncompressed)|
-|`after_compression_toast_bytes`|BIGINT|Size the TOAST table after compression (NULL if currently uncompressed)|
-|`after_compression_total_bytes`|BIGINT|Size of the entire chunk table (table+indexes+toast) after compression (NULL if currently uncompressed)|
-|`node_name`|TEXT|nodes on which the chunk is located, applicable only to distributed hypertables|
+## Samples
 
-### Sample usage
+- **Show the compression status of the first two chunks in the `conditions` hypertable**:
+   ```sql
+   SELECT * FROM chunk_columnstore_stats('conditions')
+     ORDER BY chunk_name LIMIT 2;
+   ```
+  Returns:
+   ```sql
+   -[ RECORD 1 ]------------------+----------------------
+   chunk_schema                   | _timescaledb_internal
+   chunk_name                     | _hyper_1_1_chunk
+   compression_status             | Uncompressed
+   before_compression_table_bytes |
+   before_compression_index_bytes |
+   before_compression_toast_bytes |
+   before_compression_total_bytes |
+   after_compression_table_bytes  |
+   after_compression_index_bytes  |
+   after_compression_toast_bytes  |
+   after_compression_total_bytes  |
+   node_name                      |
+   -[ RECORD 2 ]------------------+----------------------
+   chunk_schema                   | _timescaledb_internal
+   chunk_name                     | _hyper_1_2_chunk
+   compression_status             | Compressed
+   before_compression_table_bytes | 8192
+   before_compression_index_bytes | 32768
+   before_compression_toast_bytes | 0
+   before_compression_total_bytes | 40960
+   after_compression_table_bytes  | 8192
+   after_compression_index_bytes  | 32768
+   after_compression_toast_bytes  | 8192
+   after_compression_total_bytes  | 49152
+   node_name                      |
+   ```
 
-```sql
-SELECT * FROM chunk_compression_stats('conditions')
-  ORDER BY chunk_name LIMIT 2;
+- **Use `pg_size_pretty` to return a more human friendly format**:
 
--[ RECORD 1 ]------------------+----------------------
-chunk_schema                   | _timescaledb_internal
-chunk_name                     | _hyper_1_1_chunk
-compression_status             | Uncompressed
-before_compression_table_bytes |
-before_compression_index_bytes |
-before_compression_toast_bytes |
-before_compression_total_bytes |
-after_compression_table_bytes  |
-after_compression_index_bytes  |
-after_compression_toast_bytes  |
-after_compression_total_bytes  |
-node_name                      |
--[ RECORD 2 ]------------------+----------------------
-chunk_schema                   | _timescaledb_internal
-chunk_name                     | _hyper_1_2_chunk
-compression_status             | Compressed
-before_compression_table_bytes | 8192
-before_compression_index_bytes | 32768
-before_compression_toast_bytes | 0
-before_compression_total_bytes | 40960
-after_compression_table_bytes  | 8192
-after_compression_index_bytes  | 32768
-after_compression_toast_bytes  | 8192
-after_compression_total_bytes  | 49152
-node_name                      |
-```
+   ```sql
+   SELECT pg_size_pretty(after_compression_total_bytes) AS total
+     FROM chunk_columnstore_stats('conditions')
+     WHERE compression_status = 'Compressed';
+   ```
+  Returns:
+   ```sql   
+   -[ RECORD 1 ]--+------
+   total | 48 kB
+   ```
 
-Use `pg_size_pretty` get the output in a more human friendly format.
 
-```sql
-SELECT pg_size_pretty(after_compression_total_bytes) AS total
-  FROM chunk_compression_stats('conditions')
-  WHERE compression_status = 'Compressed';
+## Arguments
 
--[ RECORD 1 ]--+------
-total | 48 kB
+| Name | Type | Default | Required | Description |
+|--|--|--|--|--|
+|`hypertable`|`REGCLASS`|-|✖| The name of a hypertable |
 
-```
+
+## Returns
+
+|Column|Type| Description                                                                                                                                                                                                      |
+|-|-|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|`chunk_schema`|TEXT| Schema name of the chunk.                                                                                                                                                                                        |
+|`chunk_name`|TEXT| Name of the chunk.                                                                                                                                                                                               |
+|`compression_status`|TEXT| Current compression status of the chunk.                                                                                                                                                                         |
+|`before_compression_table_bytes`|BIGINT| Size of the heap before compression. Returns `NULL` if `compression_status` == `Uncompressed`.                                                                                                                   |
+|`before_compression_index_bytes`|BIGINT| Size of all the indexes before compression. Returns `NULL` if `compression_status` == `Uncompressed`.                                                                                                            |
+|`before_compression_toast_bytes`|BIGINT| Size the TOAST table before compression. Returns `NULL` if `compression_status` == `Uncompressed`.                                                                                                               |
+|`before_compression_total_bytes`|BIGINT| Size of the entire chunk table (`before_compression_table_bytes` + `before_compression_index_bytes` + `before_compression_toast_bytes`) before compression. Returns `NULL` if `compression_status` == `Uncompressed`.|
+|`after_compression_table_bytes`|BIGINT| Size of the heap after compression. Returns `NULL` if `compression_status` == `Uncompressed`.                                                                                                                    |
+|`after_compression_index_bytes`|BIGINT| Size of all the indexes after compression. Returns `NULL` if `compression_status` == `Uncompressed`.                                                                                                             |
+|`after_compression_toast_bytes`|BIGINT| Size the TOAST table after compression. Returns `NULL` if `compression_status` == `Uncompressed`.                                                                                                                |
+|`after_compression_total_bytes`|BIGINT| Size of the entire chunk table (`after_compression_table_bytes` + `after_compression_index_bytes `+ `after_compression_toast_bytes`) after compression. Returns `NULL` if `compression_status` == `Uncompressed`. |
+|`node_name`|TEXT| **DEPRECATED**: nodes the chunk is located on, applicable only to distributed hypertables.                                                                                                                       |
+
+
+[add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/
+[convert_to_columnstore]: /api/:currentVersion:/hypercore/convert_to_columnstore/
+[job]: /api/:currentVersion:/actions/add_job/
+[chunks_detailed_size]: /api/:currentVersion:/hypertable/chunks_detailed_size/

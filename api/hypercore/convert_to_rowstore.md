@@ -1,5 +1,5 @@
 ---
-api_name: decompress_chunk()
+api_name: convert_to_rowstore()
 excerpt: Decompress a compressed chunk
 topics: [compression]
 keywords: [compression, decompression, chunks, backfilling]
@@ -8,42 +8,75 @@ api:
   type: function
 ---
 
-# decompress_chunk() <Tag type="community">Community</Tag>
+# convert_to_rowstore() <Tag type="community">Community</Tag>
 
-If you need to modify or add a lot of data to a chunk that has already been
-compressed, you should decompress the chunk first. This is especially
-useful for backfilling old data.
+Move a chunk of data from the columnstore to the rowstore.
 
-<Highlight type="important">
-Before decompressing chunks, stop any compression policy on the hypertable you
-are decompressing. You can use `SELECT alter_job(JOB_ID, scheduled => false);`
-to prevent scheduled execution. When you finish backfilling or updating data,
-turn the policy back on. The database automatically recompresses your chunks in
-the next scheduled job.
-</Highlight>
+If you need to modify or add a lot of data to a chunk in the columnstore, best practice is to stop 
+any [jobs][job] moving chunks to the columnstore, convert the chunk back to the rowstore, then modify the 
+data. After the update, [convert the chunk to the columnstore][convert_to_columnstore] and restart the jobs.
+This workflow is especially useful if you need to backfill old data.
 
-### Required arguments
 
-|Name|Type|Description|
-|-|-|-|
-|`chunk_name`|`REGCLASS`|Name of the chunk to be decompressed.|
+**@since [TimescaleDB v2.18.0](https://github.com/timescale/timescaledb/releases/tag/2.18.0)**
 
-### Optional arguments
+## Samples
 
-|Name|Type|Description|
-|-|-|-|
-|`if_compressed`|`BOOLEAN`| Disabling this will make the function error out on chunks that are not compressed. Defaults to true.|
+To modify or add a lot of data to a chunk:
 
-### Sample usage
+<Procedure>
 
-Decompress a single chunk:
+1. **Stop the [jobs][alter_job] that are automatically adding chunks to the columnstore** 
+   ``` sql
+   SELECT alter_job(JOB_ID, scheduled => false);
+   ```
+   You retrieve the list of jobs from the [timescaledb_information.jobs][informational-views] view.
+   
+1. **Convert the chunks to update back to the rowstore** 
 
-``` sql
-SELECT decompress_chunk('_timescaledb_internal._hyper_2_2_chunk');
-```
+   - Convert single chunk:
 
-Decompress all compressed chunks in a hypertable named `metrics`:
+      ``` sql
+      SELECT convert_to_rowstore('_timescaledb_internal._hyper_2_2_chunk');
+      ```
 
-```sql
-SELECT decompress_chunk(c, true) FROM show_chunks('metrics') c;
-```
+   - Convert all compressed chunks in a hypertable named `metrics`:
+
+      ``` sql
+      SELECT convert_to_rowstore(c, true) FROM show_chunks('metrics') c;
+      ```
+
+1. **[Update the data][insert] in the chunk you added to the rowstore**
+
+    Best practice is to structure your INSERT statement to include appropriate 
+    partition key values, such as the timestamp. TimescaleDB adds the data to the correct chunk:
+
+   ``` sql
+   INSERT INTO metrics (time, value)
+   VALUES ('2025-01-01T00:00:00', 42);
+   ``` 
+   
+1. **Convert the updated chunks back to the columnstore**
+   ``` sql
+   SELECT convert_to_columnstore('_timescaledb_internal._hyper_1_2_chunk');
+   ```
+   
+1. **Restart the [jobs][alter_job] that are automatically adding chunks to the columnstore**
+   ``` sql
+   SELECT alter_job(JOB_ID, scheduled => true);
+   ```
+
+</Procedure>
+
+## Arguments
+
+| Name | Type | Default | Required | Description |
+|--|--|--|--|-|
+|`chunk`|`REGCLASS`|-|✖|Name of the chunk to be decompressed.|
+|`if_compressed`|`BOOLEAN`|`true`|✔| Set to `false` so this job fails with an error rather than an warning if `chunk` is not in the columnstore |
+
+[job]: /api/:currentVersion:/actions/
+[alter_job]: /api/:currentVersion:/actions/alter_job/
+[convert_to_columnstore]: /api/:currentVersion:/hypercore/convert_to_columnstore/
+[informational-views]: /api/:currentVersion:/informational-views/jobs/
+[insert]: /use-timescale/:currentVersion:/write-data/insert/

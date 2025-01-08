@@ -1,5 +1,5 @@
 ---
-api_name: remove_compression_policy()
+api_name: remove_columnstore_policy()
 excerpt: Remove a compression policy from a hypertable
 topics: [compression, jobs]
 keywords: [compression, policies, remove]
@@ -9,36 +9,38 @@ api:
   type: function
 ---
 
-# remove_compression_policy() <Tag type="community" content="community" />
+# remove_columnstore_policy() <Tag type="community" content="community" />
 
-If you need to remove the compression policy. To restart policy-based
-compression you need to add the policy again. To view the policies that
-already exist, see [informational views][informational-views].
+Remove a columnstore policy from a hypertable or continuous aggregate. 
 
-### Required arguments
+To restart automatic chunk migration to the columnstore, you need to call 
+[add_columnstore_policy][add_columnstore_policy] again. 
 
-|Name|Type|Description|
-|-|-|-|
-|`hypertable`|REGCLASS|Name of the hypertable or continuous aggregate the policy should be removed from|
+**@since [TimescaleDB v2.18.0](https://github.com/timescale/timescaledb/releases/tag/2.18.0)**
 
-### Optional arguments
+## Samples
 
-|Name|Type|Description|
-|---|---|---|
-| `if_exists` | BOOLEAN | Setting to true causes the command to fail with a notice instead of an error if a compression policy does not exist on the hypertable. Defaults to false.|
+You see the columnstore policies in the [informational views][informational-views].
 
-### Sample usage
+- **Remove the columnstore policy from the `cpu` table**:
 
-Remove the compression policy from the 'cpu' table:
+   ``` sql
+   SELECT remove_columnstore_policy('cpu');
+   ```
 
-``` sql
-SELECT remove_compression_policy('cpu');
-```
+- **Remove the columnstore policy from the `cpu_weekly` continuous aggregate**:
 
-Remove the compression policy from the 'cpu_weekly' continuous aggregate:
+   ``` sql
+   SELECT remove_columnstore_policy('cpu_weekly');
+   ```
 
-``` sql
-SELECT remove_compression_policy('cpu_weekly');
-```
+## Arguments
+
+| Name | Type | Default | Required | Description |
+|--|--|--|--|-|
+|`hypertable`|REGCLASS|-|✔| Name of the hypertable or continuous aggregate to remove the policy from|
+| `if_exists` | BOOLEAN | `false` |✖| Set to `true` so this job fails with a warning rather than an error if a columnstore policy does not exist on `hypertable` |
+
 
 [informational-views]: /api/:currentVersion:/informational-views/jobs/
+[add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/

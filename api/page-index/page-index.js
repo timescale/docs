@@ -123,24 +123,19 @@ module.exports = [
           "Seamlessly switch between row-oriented and column-oriented storage",
         children: [
           {
+            title: "ALTER TABLE",
+            href: "alter_table",
+            excerpt: "Enable the columnstore for a hypertable.",
+          },
+          {
             title: "add_columnstore_policy",
             href: "add_columnstore_policy",
             excerpt: "Compresses a chunk automatically in the background after it reaches a given age",
           },
           {
-            title: "chunk_columnstore_settings",
-            href: "chunk_columnstore_settings",
-            excerpt: "Show the compression settings for each chunk that has compression enabled",
-          },
-          {
-            title: "chunk_columnstore_stats",
-            href: "chunk_columnstore_stats",
-            excerpt: "Get chunk-specific statistics related to hypertable compression",
-          },
-          {
-            title: "columnstore_settings",
-            href: "columnstore_settings",
-            excerpt: "Get information about compression-related settings for hypertables",
+            title: "remove_columnstore_policy",
+            href: "remove_columnstore_policy",
+            excerpt: "Remove the compression policy",
           },
           {
             title: "convert_to_columnstore",
@@ -163,9 +158,14 @@ module.exports = [
             excerpt: "Get statistics related to hypertable compression",
           },
           {
-            title: "remove_columnstore_policy",
-            href: "remove_columnstore_policy",
-            excerpt: "Remove the compression policy",
+            title: "chunk_columnstore_settings",
+            href: "chunk_columnstore_settings",
+            excerpt: "Show the compression settings for each chunk that has compression enabled",
+          },
+          {
+            title: "chunk_columnstore_stats",
+            href: "chunk_columnstore_stats",
+            excerpt: "Get chunk-specific statistics related to hypertable compression",
           },
         ],
       },

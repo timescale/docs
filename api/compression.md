@@ -30,6 +30,8 @@ Compressed chunks have the following limitations:
     after constraint creation.
 *   [Timescale SkipScan][skipscan] does not currently work on compressed chunks.
 
+**@deprecated [TimescaleDB v2.18.0](https://github.com/timescale/timescaledb/releases/tag/2.18.0)**
+
 ## Restrictions
 
 In general, compressing a hypertable imposes some limitations on the types

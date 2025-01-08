@@ -20,6 +20,8 @@ the chunk. An insert into a compressed chunk does not update the compressed
 sizes. For more information about how to compute chunk sizes, see the
 `chunks_detailed_size` section.
 
+**@deprecated [TimescaleDB v2.18.0](https://github.com/timescale/timescaledb/releases/tag/2.18.0)**
+
 ### Required arguments
 
 |Name|Type|Description|

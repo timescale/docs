@@ -19,6 +19,8 @@ see the [hypertable section][hypertable-docs].
 For more information about compression, see the
 [compression sction][compression-docs].
 
+**@deprecated [TimescaleDB v2.18.0](https://github.com/timescale/timescaledb/releases/tag/2.18.0)**
+
 ### Required arguments
 
 |Name|Type|Description|

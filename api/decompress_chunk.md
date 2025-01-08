@@ -22,6 +22,8 @@ turn the policy back on. The database automatically recompresses your chunks in
 the next scheduled job.
 </Highlight>
 
+**@deprecated [TimescaleDB v2.18.0](https://github.com/timescale/timescaledb/releases/tag/2.18.0)**
+
 ### Required arguments
 
 |Name|Type|Description|

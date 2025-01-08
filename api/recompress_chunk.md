@@ -41,6 +41,8 @@ the procedure with `CALL`. Don't use a `SELECT` statement.
 chunk for the first time, use [`compress_chunk`](/api/latest/compression/compress_chunk/).
 </Highlight>
 
+**@deprecated [TimescaleDB v2.18.0](https://github.com/timescale/timescaledb/releases/tag/2.18.0)**
+
 ## Required arguments
 
 |Name|Type|Description|

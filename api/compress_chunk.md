@@ -27,6 +27,8 @@ You can get a list of chunks belonging to a hypertable using the
 [`show_chunks` function](/api/latest/hypertable/show_chunks/).
 </Highlight>
 
+**@deprecated [TimescaleDB v2.18.0](https://github.com/timescale/timescaledb/releases/tag/2.18.0)**
+
 ### Required arguments
 
 |Name|Type|Description|

@@ -15,6 +15,7 @@ If you need to remove the compression policy. To restart policy-based
 compression you need to add the policy again. To view the policies that
 already exist, see [informational views][informational-views].
 
+**@deprecated [TimescaleDB v2.18.0](https://github.com/timescale/timescaledb/releases/tag/2.18.0)**
 ### Required arguments
 
 |Name|Type|Description|
