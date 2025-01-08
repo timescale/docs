@@ -66,6 +66,9 @@
     },
     {
       "pattern": "^https://www.hhs.gov/hipaa/for-professionals/index.html"
+    },
+    {
+      "pattern": "^https://wiki.postgresql.org/wiki/List_of_drivers"
     }
   ]
 }

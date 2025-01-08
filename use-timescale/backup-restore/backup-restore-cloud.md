@@ -33,12 +33,7 @@ information, see the
 
 </Highlight>
 
-<img class="main-content__illustration"
-width={1375} height={944}
-src="https://www.timescale.com/blog/content/images/2022/08/backups-3.png"
-alt="Diagram showing recovery from backup. First, the latest full
-backup is restored. Then, the incremental backup is restored.
-Finally, WAL is replayed to cover any remaining gap."/>
+![Create Timescale Cloud service](https://assets.timescale.com/docs/images/database-backup-recovery.png)
 
 [wal]: https://www.postgresql.org/docs/current/wal-intro.html
 [support]: https://www.timescale.com/contact/
