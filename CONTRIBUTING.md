@@ -142,7 +142,7 @@ Timescale documentation uses variables for its product names, features, and UI e
 - Front matter on each page
 - HTML tables
 
-See the full list of available variables here. 
+See the [full list of available variables][variables]. 
 
 ## Links
 
@@ -187,3 +187,4 @@ The previous documentation source is in the deprecated repository called [docs.t
 [github-docs]: https://github.com/timescale/docs
 [use-navigation]: use-timescale/page-index/page-index.js
 [formatting]: _partials/_formatting_examples.md
+[variables]: https://docs.timescale.com/variables-for-contributors/
