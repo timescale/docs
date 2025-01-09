@@ -78,10 +78,6 @@ Take the following steps to export your data:
       Replace `<exporter-host>` with the hostname or IP address of the PostgreSQL Exporter.
 
    1. Restart Prometheus:
-
-      ```bash
-      systemctl restart prometheus
-      ```
       
    1. Check the Prometheus UI at `http://<prometheus-host>:9090` under **Targets** to ensure that the PostgreSQL Exporter target is active.
 
