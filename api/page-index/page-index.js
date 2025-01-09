@@ -117,6 +117,18 @@ module.exports = [
         ],
       },
       {
+        title: "Hypercore",
+        excerpt: "Seamlessly switch between fast row-oriented storage and efficient column-oriented storage",
+        href: "hypercore",
+        children: [
+          {
+            title: "add_columnstore_policy",
+            href: "add_columnstore_policy",
+            excerpt: "Automatically move chunks in a hypertable to the columnstore after a specific time interval.",
+          },
+        ],
+      },
+      {
         title: "Distributed hypertables",
         type: "directory",
         href: "distributed-hypertables",
