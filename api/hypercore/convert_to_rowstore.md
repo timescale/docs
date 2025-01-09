@@ -25,6 +25,8 @@ This workflow is especially useful if you need to backfill old data.
 
 To modify or add a lot of data to a chunk:
 
+<Procedure>
+
 1. **Stop the jobs that are automatically adding chunks to the columnstore**
    
    Retrieve the list of jobs from the [timescaledb_information.jobs][informational-views] view
@@ -70,6 +72,14 @@ To modify or add a lot of data to a chunk:
    SELECT alter_job(JOB_ID, scheduled => true);
    ```
 
+</Procedure>
+
+## Arguments
+
+| Name | Type     | Default | Required | Description|
+|--|----------|---------|----------|-|
+|`chunk`| REGCLASS | -       | ✖        | Name of the chunk to be moved to the rowstore. |
+|`if_compressed`| BOOLEAN  | `true`  | ✔        | Set to `false` so this job fails with an error rather than an warning if `chunk` is not in the columnstore |
 
 [job]: /api/:currentVersion:/actions/
 [alter_job]: /api/:currentVersion:/actions/alter_job/
