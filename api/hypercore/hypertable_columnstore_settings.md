@@ -1,9 +1,9 @@
 ---
 api_name: timescaledb_information.hypertable_columnstore_settings
-excerpt: Get information about compression settings for all hypertables
-topics: [information, compression, hypertable]
-keywords: [compression, hypertable, information]
-tags: [hypertable compression, compression settings]
+excerpt: Get information about columnstore settings for all hypertables
+topics: [information, hypercore, columnstore, hypertable]
+keywords: [columnstore, hypercore, hypertable, information]
+tags: [hypertable columnstore, columnstore settings]
 api:
   license: community
   type: view

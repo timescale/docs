@@ -1,8 +1,8 @@
 ---
 api_name: hypertable_columnstore_stats()
-excerpt: Get columnstore statistics related to compression
-topics: [columnstore]
-keywords: [columnstore, hypertables, information]
+excerpt: Get columnstore statistics related to the columnstore
+topics: [columnstore, hypercore]
+keywords: [columnstore, hypercore, hypertables, information]
 tags: [statistics, size]
 api:
   license: community

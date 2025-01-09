@@ -1,8 +1,8 @@
 ---
 api_name: add_columnstore_policy()
 excerpt: Set a policy to automatically move chunks in a hypertable to the columnstore when they reach a given age.
-topics: [columnstore, jobs]
-keywords: [columnstore, policies]
+topics: [columnstore, hypercore, jobs]
+keywords: [columnstore, hypercore, policies]
 tags: [scheduled jobs, background jobs, automation framework]
 api:
   license: community
@@ -14,9 +14,10 @@ api:
 Create a [job][job] that automatically moves chunks in a hypertable to the columnstore at a 
 specific time interval.
 
-You enable compression on a hypertable or continuous aggregate before you create a columnstore policy
-using `ALTER TABLE` for hypertables and `ALTER MATERIALIZED VIEW` for continuous aggregates.
- To view the policies that you set or the policies that already exist,
+You enable the columnstore a hypertable or continuous aggregate before you create a columnstore policy. 
+You do this by calling `ALTER TABLE` for hypertables and `ALTER MATERIALIZED VIEW` for continuous aggregates.
+
+To view the policies that you set or the policies that already exist,
 see [informational views][informational-views], to remove a policy, see [remove_columnstore_policy][remove_columnstore_policy].
 
 **@since [TimescaleDB v2.18.0](https://github.com/timescale/timescaledb/releases/tag/2.18.0)**

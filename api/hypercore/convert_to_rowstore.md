@@ -1,8 +1,8 @@
 ---
 api_name: convert_to_rowstore()
-excerpt: Decompress a compressed chunk
-topics: [compression]
-keywords: [compression, decompression, chunks, backfilling]
+excerpt: Move a chunk from the columnstore to the rowstore
+topics: [columnstore, hypercore]
+keywords: [columnstore, hypercore, rowstore, chunks, backfilling]
 api:
   license: community
   type: function
@@ -40,7 +40,7 @@ To modify or add a lot of data to a chunk:
       SELECT convert_to_rowstore('_timescaledb_internal._hyper_2_2_chunk');
       ```
 
-   - Convert all compressed chunks in a hypertable named `metrics`:
+   - Convert all chunks in a hypertable named `metrics`:
 
       ``` sql
       SELECT convert_to_rowstore(c, true) FROM show_chunks('metrics') c;
@@ -70,9 +70,9 @@ To modify or add a lot of data to a chunk:
 
 ## Arguments
 
-| Name | Type | Default | Required | Description |
-|--|--|--|--|-|
-|`chunk`|`REGCLASS`|-|✖|Name of the chunk to be decompressed.|
+| Name | Type | Default | Required | Description                                                                                                |
+|--|--|--|--|------------------------------------------------------------------------------------------------------------|
+|`chunk`|`REGCLASS`|-|✖| Name of the chunk to be moved to the rowstore.                                                             |
 |`if_compressed`|`BOOLEAN`|`true`|✔| Set to `false` so this job fails with an error rather than an warning if `chunk` is not in the columnstore |
 
 [job]: /api/:currentVersion:/actions/

@@ -1,8 +1,8 @@
 ---
 api_name: timescaledb_information.chunk_columnstore_settings
 excerpt: Get information about settings on each chunk in the columnstore
-topics: [information, columnstore, chunk]
-keywords: [columnstore, chunk, information]
+topics: [information, columnstore, hypercore, chunk]
+keywords: [columnstore, hypercore, chunk, information]
 tags: [chunk, columnstore settings]
 api:
   license: community
@@ -29,7 +29,7 @@ Retrieve information about each chunk in the columnstore.
   measurements | _timescaledb_internal._hyper_1_1_chunk| | "time" DESC
   ```
 
-* Find all chunk compression settings for a specific hypertable:
+* Find all chunk columnstore settings for a specific hypertable:
 
   ```sql
   SELECT * FROM timescaledb_information.chunk_columnstore_settings WHERE hypertable::TEXT LIKE 'metrics';

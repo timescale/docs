@@ -1,8 +1,8 @@
 ---
 api_name: chunk_columnstore_stats()
 excerpt: Get statistics about chunks in the columnstore
-topics: [columnstore]
-keywords: [columnstore, statistics, chunks, information]
+topics: [columnstore, hypercore]
+keywords: [columnstore, hypercore, statistics, chunks, information]
 tags: [disk space, schemas, size]
 api:
   license: community
@@ -13,7 +13,7 @@ api:
 
 Get chunk-specific statistics related to hypercore.
 
-`chunk_columnstore_stats` returns the compressed size of chunks, these values are computed when you call either:
+`chunk_columnstore_stats` returns the size of chunks in the columnstore, these values are computed when you call either:
 - [add_columnstore_policy][add_columnstore_policy]: create a [job][job] that automatically moves chunks in a hypertable to the columnstore at a
   specific time interval.
 - [convert_to_columnstore][convert_to_columnstore]: manually add a specific chunk in a hypertable to the columnstore.
@@ -26,7 +26,7 @@ chunk sizes, see [chunks_detailed_size][chunks_detailed_size].
 
 ## Samples
 
-- **Show the compression status of the first two chunks in the `conditions` hypertable**:
+- **Show the status of the first two chunks in the `conditions` hypertable**:
    ```sql
    SELECT * FROM chunk_columnstore_stats('conditions')
      ORDER BY chunk_name LIMIT 2;

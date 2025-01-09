@@ -1,8 +1,8 @@
 ---
 api_name: remove_columnstore_policy()
-excerpt: Remove a compression policy from a hypertable
-topics: [compression, jobs]
-keywords: [compression, policies, remove]
+excerpt: Remove a columnstore policy from a hypertable
+topics: [hypercore, columnstore, jobs]
+keywords: [hypercore, columnstore, policies, remove]
 tags: [delete, drop]
 api:
   license: community
