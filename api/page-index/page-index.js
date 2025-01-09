@@ -122,6 +122,11 @@ module.exports = [
         href: "hypercore",
         children: [
           {
+            title: "ALTER TABLE",
+            href: "alter_table",
+            excerpt: "Enable the columnstore for a hypertable.",
+          },
+          {
             title: "add_columnstore_policy",
             href: "add_columnstore_policy",
             excerpt: "Automatically move chunks in a hypertable to the columnstore after a specific time interval.",
