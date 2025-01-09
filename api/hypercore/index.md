@@ -64,37 +64,6 @@ Best practice for using Hypercore is to:
    ```
    See [timescaledb_information.jobs][informational-views].
 
-1. **Pause a columnstore policy**
-
-   ``` sql
-   SELECT * FROM timescaledb_information.jobs where proc_name = 'policy_compression' AND relname = 'stocks_real_time'
-   
-   -- Select the JOB_ID from the results
-     
-   SELECT alter_job(JOB_ID, scheduled => false);
-   ```
-   See [alter_job][alter_job].
-
-1. **Restart a columnstore policy**
-   ``` sql
-   SELECT alter_job(JOB_ID, scheduled => true);
-   ```
-   See [alter_job][alter_job].
-
-1. **Remove a columnstore policy**
-   ``` sql
-   SELECT remove_columnstore_policy('older_stock_prices');
-   ```
-   See [remove_columnstore_policy][remove_columnstore_policy]. 
-1. **Disable columnstore**
-
-   If your table has chunks in the columnstore, you have to 
-   [convert the chunks back to the rowstore][convert_to_rowstore] before you disable the columnstore.
-   ``` sql
-   ALTER TABLE stocks_real_time SET (timescaledb.enable_columnstore = false);
-   ```
-   See [alter_table_hypercore][alter_table_hypercore]. 
-
 </Procedure>     
 
 You can also [convert_to_columnstore][convert_to_columnstore] and [convert_to_rowstore][convert_to_rowstore] manually
