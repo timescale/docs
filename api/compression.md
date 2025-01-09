@@ -61,4 +61,3 @@ You can also use advanced insert statements like `ON CONFLICT` and `RETURNING`.
 [compress_chunk]: /api/:currentVersion:/compression/compress_chunk/
 [configure-compression]: /api/:currentVersion:/compression/alter_table_compression/
 [skipscan]: /use-timescale/:currentVersion:/query-data/skipscan/
-

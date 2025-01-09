@@ -56,3 +56,4 @@ Retrieve information about the settings for each hypertable in the columnstore.
 
 [rollup-compression]: /use-timescale/:currentVersion:/compression/manual-compression/#roll-up-uncompressed-chunks-when-compressing
 [compression_alter-table]: /api/:currentVersion:/hypercore/alter_table/
+
