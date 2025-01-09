@@ -11,7 +11,7 @@ api:
 ---
 import Since2180 from "versionContent/_partials/_since_2_18_0.mdx";
 
-# add_columnstore_policy() <Tag type="community" content="community" />
+# add_columnstore_policy()
 
 Create a [job][job] that automatically moves chunks in a hypertable to the columnstore after a 
 specific time interval.
