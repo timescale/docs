@@ -27,7 +27,8 @@ and extend what you can do with your data.
 
 |            Name             | Description                                                                                |
 |:---------------------------:|--------------------------------------------------------------------------------------------|
-|     [Grafana][grafana]      | An open-source analytics and monitoring solution.                       |
+|     [Grafana][grafana]      | An open-source analytics and monitoring solution.                                          |
+| [Prometheus][prometheus]    | An open-source monitoring system with a dimensional data model, flexible query language, and a modern alerting approach.|
 |     [Tableau][tableau]      | A popular analytics platform that helps you gain greater intelligence about your business. |
 
 
@@ -45,3 +46,4 @@ and extend what you can do with your data.
 [grafana]: /use-timescale/:currentVersion:/integrations/grafana/
 [tableau]: /use-timescale/:currentVersion:/integrations/tableau/
 [terraform]: /use-timescale/:currentVersion:/integrations/terraform
+[prometheus]: /use-timescale/:currentVersion:/integrations/prometheus
