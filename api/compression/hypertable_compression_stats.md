@@ -23,6 +23,8 @@ see the [hypertable section][hypertable-docs].
 For more information about compression, see the
 [compression sction][compression-docs].
 
+<Deprecated2180 />
+
 ### Required arguments
 
 |Name|Type|Description|

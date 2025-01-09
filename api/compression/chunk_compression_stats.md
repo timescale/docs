@@ -24,6 +24,8 @@ the chunk. An insert into a compressed chunk does not update the compressed
 sizes. For more information about how to compute chunk sizes, see the
 `chunks_detailed_size` section.
 
+<Deprecated2180 />
+
 ### Required arguments
 
 |Name|Type|Description|

@@ -26,6 +26,8 @@ turn the policy back on. The database automatically recompresses your chunks in
 the next scheduled job.
 </Highlight>
 
+<Deprecated2180 />
+
 ### Required arguments
 
 |Name|Type|Description|
