@@ -141,6 +141,11 @@ module.exports = [
             href: "convert_to_columnstore",
             excerpt: "Compress or recompress a specific chunk in the rowstore and add it to the columnstore",
           },
+          {
+            title: "convert_to_rowstore",
+            href: "convert_to_rowstore",
+            excerpt: "Decompress a chunk from the columnstore and add it to the rowstore",
+          },
         ],
       },
       {
