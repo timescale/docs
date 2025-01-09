@@ -7,6 +7,7 @@ products: [cloud, self_hosted]
 api:
   license: community
 ---
+import Since2180 from "versionContent/_partials/_since_2_18_0.mdx";
 
 # Hypercore
 
@@ -28,7 +29,7 @@ in each $CLOUD_LONG service:
 - **Full mutability with transactional semantics**: regardless of where data is stored,
   hypercore provides full ACID support.
 
-**@since [TimescaleDB v2.18.0](https://github.com/timescale/timescaledb/releases/tag/2.18.0)**
+<Since2180 />
 
 ## Hypercore workflow
 

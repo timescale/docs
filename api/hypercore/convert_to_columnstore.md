@@ -8,6 +8,7 @@ api:
   license: community
   type: function
 ---
+import Since2180 from "versionContent/_partials/_since_2_18_0.mdx";
 
 # convert_to_columnstore() <Tag type="community">Community</Tag>
 
@@ -19,7 +20,7 @@ Although `convert_to_columnstore` gives you more more fine grained control, best
 
 To move a chunk from the columnstore back to the rowstore, use [`convert_to_rowstore`][convert_to_rowstore].
 
-**@since [TimescaleDB v2.18.0](https://github.com/timescale/timescaledb/releases/tag/2.18.0)**
+<Since2180 />
 
 ## Samples
 

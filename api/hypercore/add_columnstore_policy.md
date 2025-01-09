@@ -9,6 +9,7 @@ api:
   license: community
   type: function
 ---
+import Since2180 from "versionContent/_partials/_since_2_18_0.mdx";
 
 # add_columnstore_policy() <Tag type="community" content="community" />
 
@@ -21,7 +22,7 @@ You do this by calling `ALTER TABLE` for hypertables and `ALTER MATERIALIZED VIE
 To view the policies that you set or the policies that already exist,
 see [informational views][informational-views], to remove a policy, see [remove_columnstore_policy][remove_columnstore_policy].
 
-**@since [TimescaleDB v2.18.0](https://github.com/timescale/timescaledb/releases/tag/2.18.0)**
+<Since2180 />
 
 ## Samples
 

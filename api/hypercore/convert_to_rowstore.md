@@ -7,6 +7,7 @@ api:
   license: community
   type: function
 ---
+import Since2180 from "versionContent/_partials/_since_2_18_0.mdx";
 
 # convert_to_rowstore() <Tag type="community">Community</Tag>
 
@@ -18,7 +19,7 @@ data. After the update, [convert the chunk to the columnstore][convert_to_column
 This workflow is especially useful if you need to backfill old data.
 
 
-**@since [TimescaleDB v2.18.0](https://github.com/timescale/timescaledb/releases/tag/2.18.0)**
+<Since2180 />
 
 ## Samples
 

@@ -9,6 +9,7 @@ api:
   type: command
 products: [cloud, self_hosted]
 ---
+import Since2180 from "versionContent/_partials/_since_2_18_0.mdx";
 
 # ALTER TABLE (Hypercore)<Tag type="community" content="community" />
 
@@ -19,7 +20,7 @@ After you have enabled the columnstore, either:
   specific time interval.
 - [convert_to_columnstore][convert_to_columnstore]: manually add a specific chunk in a hypertable to the columnstore.
 
-**@since [TimescaleDB v2.18.0](https://github.com/timescale/timescaledb/releases/tag/2.18.0)**
+<Since2180 />
 
 ## Samples
 

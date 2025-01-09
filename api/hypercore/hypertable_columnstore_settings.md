@@ -8,12 +8,13 @@ api:
   license: community
   type: view
 ---
+import Since2180 from "versionContent/_partials/_since_2_18_0.mdx";
 
 # timescaledb_information.hypertable_columnstore_settings 
 
 Retrieve information about the settings for each hypertable in the columnstore.
 
-**@since [TimescaleDB v2.18.0](https://github.com/timescale/timescaledb/releases/tag/2.18.0)**
+<Since2180 />
 
 ## Samples
 

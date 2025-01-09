@@ -8,6 +8,7 @@ api:
   license: community
   type: function
 ---
+import Since2180 from "versionContent/_partials/_since_2_18_0.mdx";
 
 # chunk_columnstore_stats() <Tag type="community">Community</Tag>
 
@@ -22,7 +23,7 @@ Get chunk-specific statistics related to hypercore.
 Inserting into a chunk in the columnstore does not change the chunk size. For more information about how to compute 
 chunk sizes, see [chunks_detailed_size][chunks_detailed_size].
 
-**@since [TimescaleDB v2.18.0](https://github.com/timescale/timescaledb/releases/tag/2.18.0)**
+<Since2180 />
 
 ## Samples
 

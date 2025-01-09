@@ -8,6 +8,7 @@ api:
   license: community
   type: function
 ---
+import Since2180 from "versionContent/_partials/_since_2_18_0.mdx";
 
 # remove_columnstore_policy() <Tag type="community" content="community" />
 
@@ -16,7 +17,7 @@ Remove a columnstore policy from a hypertable or continuous aggregate.
 To restart automatic chunk migration to the columnstore, you need to call 
 [add_columnstore_policy][add_columnstore_policy] again. 
 
-**@since [TimescaleDB v2.18.0](https://github.com/timescale/timescaledb/releases/tag/2.18.0)**
+<Since2180 />
 
 ## Samples
 

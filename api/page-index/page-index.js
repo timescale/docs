@@ -136,6 +136,11 @@ module.exports = [
             href: "remove_columnstore_policy",
             excerpt: "Remove the compression policy",
           },
+          {
+            title: "convert_to_columnstore",
+            href: "convert_to_columnstore",
+            excerpt: "Compress or recompress a specific chunk in the rowstore and add it to the columnstore",
+          },
         ],
       },
       {
