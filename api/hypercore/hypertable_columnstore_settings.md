@@ -12,7 +12,7 @@ import Since2180 from "versionContent/_partials/_since_2_18_0.mdx";
 
 # timescaledb_information.hypertable_columnstore_settings 
 
-Retrieve information about the settings for each hypertable in the columnstore.
+Retrieve information about the settings for all hypertables in the columnstore.
 
 <Since2180 />
 

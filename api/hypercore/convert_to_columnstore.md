@@ -12,7 +12,7 @@ import Since2180 from "versionContent/_partials/_since_2_18_0.mdx";
 
 # convert_to_columnstore() <Tag type="community">Community</Tag>
 
-Manually control the exact time you move a specific chunk in a hypertable to the columnstore.
+Manually convert a specific chunk in the hypertable rowstore to the columnstore.
 
 Although `convert_to_columnstore` gives you more more fine grained control, best practice is to use
 [`add_columnstore_policy`][add_columnstore_policy]. You can also add chunks to the columnstore at a specific time 

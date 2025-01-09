@@ -12,7 +12,7 @@ import Since2180 from "versionContent/_partials/_since_2_18_0.mdx";
 
 # chunk_columnstore_stats() <Tag type="community">Community</Tag>
 
-Get chunk-specific statistics related to hypercore.
+Retrieve statistics about the chunks in the columnstore
 
 `chunk_columnstore_stats` returns the size of chunks in the columnstore, these values are computed when you call either:
 - [add_columnstore_policy][add_columnstore_policy]: create a [job][job] that automatically moves chunks in a hypertable to the columnstore at a

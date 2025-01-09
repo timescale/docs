@@ -12,13 +12,13 @@ import Since2180 from "versionContent/_partials/_since_2_18_0.mdx";
 
 # timescaledb_information.chunk_columnstore_settings 
 
-Retrieve information about each chunk in the columnstore.
+Retrieve the compression settings for each chunk in the columnstore.
 
 <Since2180 />
 
 ## Samples
 
-* Show settings for all chunks in the columnstore:
+* **Show settings for all chunks in the columnstore**:
 
   ```sql 
   SELECT * FROM timescaledb_information.chunk_columnstore_settings
@@ -30,7 +30,7 @@ Retrieve information about each chunk in the columnstore.
   measurements | _timescaledb_internal._hyper_1_1_chunk| | "time" DESC
   ```
 
-* Find all chunk columnstore settings for a specific hypertable:
+* **Find all chunk columnstore settings for a specific hypertable**:
 
   ```sql
   SELECT * FROM timescaledb_information.chunk_columnstore_settings WHERE hypertable::TEXT LIKE 'metrics';

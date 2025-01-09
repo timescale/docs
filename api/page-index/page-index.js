@@ -129,22 +129,42 @@ module.exports = [
           {
             title: "add_columnstore_policy",
             href: "add_columnstore_policy",
-            excerpt: "Automatically move chunks in a hypertable to the columnstore after a specific time interval.",
+            excerpt: "Automatically convert chunks in the hypertable rowstore to the columnstore after a specific time interval",
           },
           {
             title: "remove_columnstore_policy",
             href: "remove_columnstore_policy",
-            excerpt: "Remove the compression policy",
+            excerpt: "Remove a columnstore policy from a hypertable or continuous aggregate",
           },
           {
             title: "convert_to_columnstore",
             href: "convert_to_columnstore",
-            excerpt: "Compress or recompress a specific chunk in the rowstore and add it to the columnstore",
+            excerpt: "Manually convert a specific chunk in the hypertable rowstore to the columnstore",
           },
           {
             title: "convert_to_rowstore",
             href: "convert_to_rowstore",
-            excerpt: "Decompress a chunk from the columnstore and add it to the rowstore",
+            excerpt: "Manually convert a specific chunk in the hypertable columnstore to the rowstore",
+          },
+          {
+            title: "hypertable_columnstore_settings",
+            href: "hypertable_columnstore_settings",
+            excerpt: "Retrieve information about the settings for all hypertables in the columnstore",
+          },
+          {
+            title: "hypertable_columnstore_stats",
+            href: "hypertable_columnstore_stats",
+            excerpt: "Retrieve compression statistics for the columnstore",
+          },
+          {
+            title: "chunk_columnstore_settings",
+            href: "chunk_columnstore_settings",
+            excerpt: "Retrieve the compression settings for each chunk in the columnstore",
+          },
+          {
+            title: "chunk_columnstore_stats",
+            href: "chunk_columnstore_stats",
+            excerpt: "Retrieve statistics about the chunks in the columnstore",
           },
         ],
       },

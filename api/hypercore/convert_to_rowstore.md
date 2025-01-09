@@ -12,7 +12,7 @@ import Since2180 from "versionContent/_partials/_since_2_18_0.mdx";
 
 # convert_to_rowstore() <Tag type="community">Community</Tag>
 
-Move a chunk of data from the columnstore to the rowstore.
+Manually convert a specific chunk in the hypertable columnstore to the rowstore.
 
 If you need to modify or add a lot of data to a chunk in the columnstore, best practice is to stop 
 any [jobs][job] moving chunks to the columnstore, convert the chunk back to the rowstore, then modify the 

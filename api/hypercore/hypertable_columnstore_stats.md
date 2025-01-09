@@ -12,10 +12,10 @@ import Since2180 from "versionContent/_partials/_since_2_18_0.mdx";
 
 # hypertable_columnstore_stats() <Tag type="community">Community</Tag>
 
-Get statistics related to compression in the columnstore. All sizes are in bytes.
+Retrieve compression statistics for the columnstore.
 
 For more information about using hypertables, including chunk size partitioning,
-see the [hypertable section][hypertable-docs].
+see [hypertables][hypertable-docs].
 
 <Since2180 />
 
