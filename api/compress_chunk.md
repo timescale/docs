@@ -9,6 +9,8 @@ api:
   type: function
 ---
 
+import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
+
 # compress_chunk() <Tag type="community">Community</Tag>
 
 The `compress_chunk` function is used to compress (or recompress, if necessary) 
@@ -26,6 +28,8 @@ allowing you to target a specific chunk that needs compressing.
 You can get a list of chunks belonging to a hypertable using the
 [`show_chunks` function](/api/latest/hypertable/show_chunks/).
 </Highlight>
+
+<Deprecated2180 />
 
 ### Required arguments
 

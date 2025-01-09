@@ -4,6 +4,7 @@ excerpt: Compress your hypertable
 keywords: [compression]
 tags: [hypertables]
 ---
+import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 
 # Compression <Tag type="community">Community</Tag>
 
@@ -29,6 +30,8 @@ Compressed chunks have the following limitations:
     can add them by disabling compression on the hypertable and re-enabling
     after constraint creation.
 *   [Timescale SkipScan][skipscan] does not currently work on compressed chunks.
+
+<Deprecated2180 />
 
 ## Restrictions
 

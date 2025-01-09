@@ -8,6 +8,7 @@ api:
   license: community
   type: command
 ---
+import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 
 # ALTER TABLE (Compression) <Tag type="community" content="community" />
 
@@ -27,6 +28,8 @@ ALTER TABLE <table_name> SET (timescaledb.compress,
    timescaledb.compress_chunk_time_interval='interval'
 );
 ```
+
+<Deprecated2180 />
 
 ## Required arguments
 

@@ -8,12 +8,15 @@ api:
   license: community
   type: function
 ---
+import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 
 # remove_compression_policy() <Tag type="community" content="community" />
 
 If you need to remove the compression policy. To restart policy-based
 compression you need to add the policy again. To view the policies that
 already exist, see [informational views][informational-views].
+
+<Deprecated2180 />
 
 ### Required arguments
 

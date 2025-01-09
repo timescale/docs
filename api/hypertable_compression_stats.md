@@ -8,6 +8,7 @@ api:
   license: community
   type: function
 ---
+import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 
 # hypertable_compression_stats() <Tag type="community">Community</Tag>
 
@@ -18,6 +19,8 @@ see the [hypertable section][hypertable-docs].
 
 For more information about compression, see the
 [compression sction][compression-docs].
+
+<Deprecated2180 />
 
 ### Required arguments
 

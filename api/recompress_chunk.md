@@ -9,6 +9,8 @@ api:
   type: function
 ---
 
+import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
+
 # recompress_chunk() <Tag type="community" content="Community" />
 
 Recompresses a compressed chunk that had more data inserted after compression.
@@ -40,6 +42,8 @@ the procedure with `CALL`. Don't use a `SELECT` statement.
 `recompress_chunk` only works on chunks that have previously been compressed. To compress a
 chunk for the first time, use [`compress_chunk`](/api/latest/compression/compress_chunk/).
 </Highlight>
+
+<Deprecated2180 />
 
 ## Required arguments
 

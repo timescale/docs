@@ -8,6 +8,7 @@ api:
   license: community
   type: function
 ---
+import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 
 # add_compression_policy() <Tag type="community" content="community" />
 
@@ -22,6 +23,8 @@ command. To enable compression on continuous aggregates, use the
 [`ALTER MATERIALIZED VIEW`][compression_continuous-aggregate]
 command. To view the policies that you set or the policies that already exist,
 see [informational views][informational-views].
+
+<Deprecated2180 />
 
 ## Required arguments
 

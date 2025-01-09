@@ -7,6 +7,7 @@ api:
   license: community
   type: function
 ---
+import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 
 # decompress_chunk() <Tag type="community">Community</Tag>
 
@@ -21,6 +22,8 @@ to prevent scheduled execution. When you finish backfilling or updating data,
 turn the policy back on. The database automatically recompresses your chunks in
 the next scheduled job.
 </Highlight>
+
+<Deprecated2180 />
 
 ### Required arguments
 
