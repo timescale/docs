@@ -89,3 +89,4 @@ SELECT add_compression_policy('cpu_weekly', INTERVAL '8 weeks');
 [compression_continuous-aggregate]: /api/:currentVersion:/continuous-aggregates/alter_materialized_view/
 [set_integer_now_func]: /api/:currentVersion:/hypertable/set_integer_now_func
 [informational-views]: /api/:currentVersion:/informational-views/jobs/
+
