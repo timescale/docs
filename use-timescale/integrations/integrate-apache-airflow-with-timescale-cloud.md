@@ -50,13 +50,13 @@ To integrate Apache Airflow with $CLOUD_LONG, you must first:
 1. Click the **+** button to add a new connection.
 1. Set the following fields:
 
-  *  **Connection Id**: `timescale_cloud`
-  *  **Connection Type**: `Postgres`
-  *  **Host**: Your $CLOUD_LONG service hostname
-  *  **Database**: Your $CLOUD_LONG service database name
-  *  **Login**: Your $CLOUD_LONG service username
-  *  **Password**: Your $CLOUD_LONG service password
-  *  **Port**: Your $CLOUD_LONG service port
+   *  **Connection Id**: `timescale_cloud`
+   *  **Connection Type**: `Postgres`
+   *  **Host**: Your $CLOUD_LONG service hostname
+   *  **Database**: Your $CLOUD_LONG service database name
+   *  **Login**: Your $CLOUD_LONG service username
+   *  **Password**: Your $CLOUD_LONG service password
+   *  **Port**: Your $CLOUD_LONG service port
 
   You can refer to the config downloaded earlier to get the `Host`, `Database`, `Login` (username), `Password` and `Port` details.
 
