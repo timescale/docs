@@ -131,6 +131,11 @@ module.exports = [
             href: "add_columnstore_policy",
             excerpt: "Automatically move chunks in a hypertable to the columnstore after a specific time interval.",
           },
+          {
+            title: "remove_columnstore_policy",
+            href: "remove_columnstore_policy",
+            excerpt: "Remove the compression policy",
+          },
         ],
       },
       {
