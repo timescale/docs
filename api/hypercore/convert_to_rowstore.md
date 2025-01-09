@@ -21,3 +21,60 @@ This workflow is especially useful if you need to backfill old data.
 
 <Since2180 />
 
+## Samples
+
+To modify or add a lot of data to a chunk:
+
+1. **Stop the jobs that are automatically adding chunks to the columnstore**
+   
+   Retrieve the list of jobs from the [timescaledb_information.jobs][informational-views] view
+   to find the job you need to [alter_job][alter_job].
+
+   ``` sql
+   SELECT alter_job(JOB_ID, scheduled => false);
+   ```
+
+1. **Convert the chunks to update back to the rowstore**
+
+   - Convert single chunk:
+
+      ``` sql
+      SELECT convert_to_rowstore('_timescaledb_internal._hyper_2_2_chunk');
+      ```
+
+   - Convert all chunks in a hypertable named `metrics`:
+
+      ``` sql
+      SELECT convert_to_rowstore(c, true) FROM show_chunks('metrics') c;
+      ```
+
+1. **Update the data in the chunk you added to the rowstore**
+
+   Best practice is to structure your [INSERT][insert] statement to include appropriate
+   partition key values, such as the timestamp. TimescaleDB adds the data to the correct chunk:
+
+   ``` sql
+   INSERT INTO metrics (time, value)
+   VALUES ('2025-01-01T00:00:00', 42);
+   ``` 
+
+1. **Convert the updated chunks back to the columnstore**
+
+   ``` sql
+   SELECT convert_to_columnstore('_timescaledb_internal._hyper_1_2_chunk');
+   ```
+
+1. **Restart the jobs that are automatically converting chunks to the columnstore**
+
+   ``` sql
+   SELECT alter_job(JOB_ID, scheduled => true);
+   ```
+
+
+[job]: /api/:currentVersion:/actions/
+[alter_job]: /api/:currentVersion:/actions/alter_job/
+[convert_to_columnstore]: /api/:currentVersion:/hypercore/convert_to_columnstore/
+[informational-views]: /api/:currentVersion:/informational-views/jobs/
+[insert]: /use-timescale/:currentVersion:/write-data/insert/
+
+
