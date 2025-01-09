@@ -27,6 +27,8 @@ chunk sizes, see [chunks_detailed_size][chunks_detailed_size].
 
 ## Samples
 
+To retrieve statistics about chunks:
+
 - **Show the status of the first two chunks in the `conditions` hypertable**:
    ```sql
    SELECT * FROM chunk_columnstore_stats('conditions')

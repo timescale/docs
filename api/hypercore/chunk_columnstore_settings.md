@@ -18,6 +18,10 @@ Retrieve the compression settings for each chunk in the columnstore.
 
 ## Samples
 
+To retrieve information about settings:
+
+```sql
+
 * **Show settings for all chunks in the columnstore**:
 
   ```sql 

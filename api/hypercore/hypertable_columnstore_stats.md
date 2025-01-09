@@ -21,6 +21,8 @@ see [hypertables][hypertable-docs].
 
 ## Samples
 
+To retrieve compression statistics:
+
 - **Show the compression status of the `conditions` hypertable**:
 
    ```sql

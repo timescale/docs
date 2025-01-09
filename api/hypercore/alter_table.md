@@ -24,6 +24,8 @@ After you have enabled the columnstore, either:
 
 ## Samples
 
+To enable the columnstore:
+
 - **Configure a hypertable that ingests device data to use the columnstore**: 
 
    In this example, the `metrics` hypertable is often queried about a specific device or set of devices. 

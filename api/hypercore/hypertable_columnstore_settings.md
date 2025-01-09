@@ -18,6 +18,8 @@ Retrieve information about the settings for all hypertables in the columnstore.
 
 ## Samples
 
+To retrieve information about settings:
+
 - **Show columnstore settings for all hypertables**:
 
    ```sql 

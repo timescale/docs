@@ -24,7 +24,7 @@ To move a chunk from the columnstore back to the rowstore, use [`convert_to_rows
 
 ## Samples
 
-Compress a single chunk.
+To compress a single chunk:
 
 ``` sql
 SELECT convert_to_columnstore('_timescaledb_internal._hyper_1_2_chunk');
