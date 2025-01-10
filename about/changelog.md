@@ -17,8 +17,8 @@ Timescale Cloud now supports the Mumbai region. Starting today, you can run Time
 ### PostgreSQL major version upgrades to PG 17
 Timescale Cloud services can now be upgraded directly to PostgreSQL 17 from versions 14, 15, or 16. Users running versions 12 or 13 must first upgrade to version 15 or 16, before upgrading to 17.
 
-### Timescale available on AWS Marketplace
-TimescaleDB is now on [AWS Marketplace][aws-timescaledb]. Deploy and manage TimescaleDB directly within your AWS infrastructure for seamless integration.
+### Timescale Cloud available on AWS Marketplace
+Timescale Cloud is now available in the [AWS Marketplace][aws-timescale]. This allows you to keep billing centralized on your AWS account, use your already committed AWS Enterprise Discount Program spend to pay your Timescale Cloud bill and simplify procurement and vendor management.
 
 ## 🎅 Postgres 17, feature requests, and Postgres Livesync
 <Label type="date">December 20, 2024</Label>
@@ -676,4 +676,4 @@ To learn more, see the [postgresql-unit documentation](https://github.com/df7cb/
 [pgvectorscale]: https://github.com/timescale/pgvectorscale/
 [signup]: https://console.cloud.timescale.com/signup
 [sql-editor]: /getting-started/:currentVersion:/run-queries-from-console/#sql-editor
-[aws-timescaledb]: https://aws.amazon.com/marketplace/seller-profile?id=seller-wbtecrjp3kxpm
+[aws-timescale]: https://aws.amazon.com/marketplace/seller-profile?id=seller-wbtecrjp3kxpm
