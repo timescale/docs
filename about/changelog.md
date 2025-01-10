@@ -8,19 +8,19 @@ keywords: [changelog, upgrades, updates, releases]
 
 All the latest features and updates to Timescale products.
 
-## 🇮🇳 New Region in India, PostgreSQL 17 Upgrades, and Timescale on AWS Marketplace
+## 🇮🇳 New region in India, PostgreSQL 17 upgrades, and TimescaleDB on AWS Marketplace
 <Label type="date">January 10, 2025</Label>
 
-### Welcome India! (Support for New Region: Mumbai)
-Timescale Cloud now supports the Mumbai region. Starting today, you can run Timescale services in Mumbai, bringing our database solutions closer to users in India.
+### Welcome India! (Support for a new region: Mumbai)
+Timescale Cloud now supports the Mumbai region. Starting today, you can run Timescale Cloud services in Mumbai, bringing our database solutions closer to users in India.
 
-### PostgreSQL Major Version Upgrades to PG 17
-Timescale services can now be upgraded directly to PostgreSQL 17 from versions 14, 15, or 16. Users running versions 12 or 13 must first upgrade to version 15 or 16 before upgrading to 17.
+### PostgreSQL major version upgrades to PG 17
+Timescale Cloud services can now be upgraded directly to PostgreSQL 17 from versions 14, 15, or 16. Users running versions 12 or 13 must first upgrade to version 15 or 16, before upgrading to 17.
 
-### Timescale Available on AWS Marketplace
+### TimescaleDB available on AWS Marketplace
 TimescaleDB is now on AWS Marketplace. Deploy and manage TimescaleDB directly within your AWS infrastructure for seamless integration.
 
-## 🎅 Postgres 17, Feature Requests, and Postgres Livesync
+## 🎅 Postgres 17, feature requests, and Postgres Livesync
 <Label type="date">December 20, 2024</Label>
 
 ### Postgres 17
