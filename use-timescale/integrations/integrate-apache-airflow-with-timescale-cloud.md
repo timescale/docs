@@ -2,93 +2,143 @@
 title: Integrate Apache Airflow with Timescale Cloud
 excerpt: How to install the psql client for PostgreSQL
 products: [cloud, mst, self_hosted]
-keywords: [connect, inetgrate, apache, airflow]
+keywords: [connect, integrate, apache, airflow]
 ---
 
 # Integrate Apache Airflow with $CLOUD_LONG
 
-Apache Airflow® is a platform created by the community to programmatically author, 
+Apache Airflow® is a platform created by the community to programmatically author,
 schedule and monitor workflows.
 
-This page shows you how to use a Python connector to integrate Apache Airflow with $CLOUD_LONG.
+A [DAG (Directed Acyclic Graph)][Airflow-DAG] is the core concept of Airflow, collecting [Tasks][Airflow-Task] together,
+organized with dependencies and relationships to say how they should run. You declare a DAG in a Python file
+in the `$AIRFLOW_HOME/dags` folder of your Airflow instance.
+
+This page shows you how to use a Python connector in a DAG to integrate Apache Airflow with a $SERVICE_LONG.
 
 ## Prerequisites
 
-To integrate Apache Airflow with $CLOUD_LONG, you must first:
+Before integrating:
 
-- [Create a Timescale Cloud service][create-a-service-in-timescale]
+* Create a [target $SERVICE_LONG][create-service] or [enable $TIMESCALE_DB ][enable-timescaledb] on your target database.
 
-  Note the connection details, you need them for this integration.
-- [Install Apache Airflow][install-apache-airflow]
-- ANAGHA: Anything else we need? 
+  [Find and save your connection information][connection-info] to follow this procedure.
 
-## Install Required Libraries
+* [Install Python3 and pip3](https://docs.python.org/3/using/index.html) 
+* [Install Apache Airflow][install-apache-airflow]
 
-1. Install the `psycopg2` library to enable PostgreSQL connections.
+   Ensure that your Airflow instance has network access to $CLOUD_LONG.
 
-```bash
-pip install psycopg2-binary
-```
+This example DAG uses the `company` table you create in  [Create regular PostgreSQL tables for relational data][create-a-table-in-timescale]
 
-## Create an Airflow Connection
+## Install python connectivity libraries
 
-1. In the Airflow web UI, navigate to **Admin** > **Connections**.
-2. Click the **+** button to add a new connection.
-3. Set the following fields:
-  - **Conn Id**: `timescale_db`
-  - **Conn Type**: `Postgres`
-  - **Host**: Your TimescaleDB hostname
-  - **Schema**: Your database name
-  - **Login**: Your username
-  - **Password**: Your password
-  - **Port**: `5432`
+1. **Enable PostgreSQL connections between Airflow and $CLOUD_LONG**
 
-## Create a DAG to Insert Data into TimescaleDB
+    ```bash
+    pip install psycopg2-binary
+    ```
 
-1. Create a new DAG file in your Airflow `dags` directory, for example, `timescale_dag.py`.
+1. **Enable PostgreSQL connection types in the Airflow UI**
 
-```python
-from airflow import DAG
-from airflow.operators.python_operator import PythonOperator
-from airflow.hooks.postgres_hook import PostgresHook
-from datetime import datetime
+    ```bash
+    pip install apache-airflow-providers-postgres
+    ```
 
-def insert_data_to_timescale():
-    hook = PostgresHook(postgres_conn_id='timescale_db')
-    conn = hook.get_conn()
-    cursor = conn.cursor()
-    cursor.execute("INSERT INTO your_table (your_column) VALUES (%s)", ('your_value',))
-    conn.commit()
-    cursor.close()
-    conn.close()
+## Create a connection between Airflow and your $SERVICE_LONG
 
-default_args = {
-    'owner': 'airflow',
-    'start_date': datetime(2023, 1, 1),
-    'retries': 1,
-}
+In your Airflow instance, securely connect to your $SERVICE_LONG:
 
-dag = DAG('timescale_dag', default_args=default_args, schedule_interval='@daily')
+1.  **Run Airflow**
 
-insert_task = PythonOperator(
-    task_id='insert_data',
-    python_callable=insert_data_to_timescale,
-    dag=dag,
-)
-```
+    On your development machine, run the following command:
+    ```bash
+    airflow standalone
+    ```
+    The username and password for Airflow UI are displayed in the `standalone | Login with username`
+    line in the output.
 
-## Test the Integration
+1. **Add a connection from Airflow to your $SERVICE_LONG**
 
-1. Trigger the DAG manually from the Airflow web UI.
-2. Verify that the data appears in TimescaleDB.
+   1. In your browser, navigate to `localhost:8080`, then select **Admin** > **Connections**.
+   1. Click **+** (Add a new record), then use your [connection info][connection-info] to fill in the following fields:
 
-### Notes
+      *  **Connection Id**: `timescale_connection`.
+      *  **Connection Type**: `Postgres`
+      *  **Host**: your $SERVICE_LONG `host`
+      *  **Database**: your $SERVICE_LONG `dbname`
+      *  **Login**: your $SERVICE_LONG `user`
+      *  **Password**: your $SERVICE_LONG `password`
+      *  **Port**: your $SERVICE_LONG `port`
+ 
 
-- Ensure that your Airflow instance has network access to connect to TimescaleDB.
-- Consider using VPCs, security groups, and IAM roles to secure your setup.
+## Exchange data between Airflow and your $SERVICE_LONG
+ 
+To exchange data between Airflow and your $SERVICE_LONG:
 
-By following these steps, you can successfully integrate Timescale Cloud with Apache Airflow and create a data pipeline.
+1. **Create and execute a DAG** 
+
+   To insert data in your $SERVICE_LONG from Airflow:
+   1. In `$AIRFLOW_HOME/dags/timescale_dag.py`, add the following code:
+
+       ```python
+       from airflow import DAG
+       from airflow.operators.python_operator import PythonOperator
+       from airflow.hooks.postgres_hook import PostgresHook
+       from datetime import datetime
+   
+       def insert_data_to_timescale():
+           hook = PostgresHook(postgres_conn_id='timescale_connection')
+           conn = hook.get_conn()
+           cursor = conn.cursor()
+           """
+             This could be any query. This example inserts data into the table
+             you create in:
+      
+             https://docs.timescale.com/getting-started/latest/tables-hypertables/#create-regular-postgresql-tables-for-relational-data
+            """            
+           cursor.execute("INSERT INTO company (symbol, name) VALUES (%s, %s)",
+                   ('new_company_symbol', 'New Company Name'))
+           conn.commit()
+           cursor.close()
+           conn.close()
+   
+       default_args = {
+           'owner': 'airflow',
+           'start_date': datetime(2023, 1, 1),
+           'retries': 1,
+       }
+   
+       dag = DAG('timescale_dag', default_args=default_args, schedule_interval='@daily')
+   
+       insert_task = PythonOperator(
+           task_id='insert_data',
+           python_callable=insert_data_to_timescale,
+           dag=dag,
+       )
+       ```
+      This DAG uses the `company` table created in [Create a Table in Timescale Cloud service][create-a-table-in-timescale].
+
+   1.  In your browser, refresh the [Airflow UI][Airflow_UI].
+   1.  In `Search DAGS`, type `timescale_dag` and press ENTER.  
+   1.  Press the play icon and trigger the DAG:
+       ![daily eth volume of assets](https://assets.timescale.com/docs/images/integrations-apache-airflow.png)
+1. **Verify that the data appears in $CLOUD_LONG** 
+
+   1. In [Timescale Console][console], navigate to your service and click **SQL editor**. 
+   1. Run a query to view your data. For example: `SELECT symbol, name FROM company;`. 
+   
+      You see the new rows inserted in the table.
+
+You have successfully integrated Apache Airflow with $CLOUD_LONG and created a data pipeline.
 
 
-[create-a-service-in-timescale]: /getting-started/:currentVersion:/services/
+[create-a-table-in-timescale]: /getting-started/:currentVersion:/tables-hypertables/#create-regular-postgresql-tables-for-relational-data
 [install-apache-airflow]: https://airflow.apache.org/docs/apache-airflow/stable/start.html
+[console]: https://console.cloud.timescale.com/
+[create-service]: /getting-started/:currentVersion:/services/
+[enable-timescaledb]: /self-hosted/:currentVersion:/install/
+[connection-info]: /use-timescale/:currentVersion:/integrations/query-admin/about-connecting/
+[Airflow-DAG]: https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/dags.html#dags
+[Airflow-Task]:https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/tasks.html
+[Airflow_UI]: localhost:8080
