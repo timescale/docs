@@ -9,7 +9,7 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 
 # Connect with psql
 
-You use the `psql` command line tool to interact with your $SERVICE_LONG.
+You use the `psql` command line tool to interact with your $SERVICE_LONG or a self-hosted database.
 
 ## Prerequisites
 
@@ -157,7 +157,7 @@ Install `psql` on Debian and Ubuntu with the `apt` package manager.
 
 ## Connect to your database
 
-To use `psql` to connect to your database, you need the connection details for your $SERVICE_LONG. Find those in the connection string generated during service creation. For more information, see [Connecting to Timescale][about-connecting]. 
+To use `psql` to connect to your database, you need the connection details. See [Find your connection details][connection-info] for where to find them.
 
 Connect to your database with either:
 
@@ -170,7 +170,7 @@ Connect to your database with either:
 - Service URL with the [SSL mode][ssl-mode] enabled:
 
    ```bash
-   psql "postgres://tsdbadmin@<SERVICE_URL_WITH_PORT>/tsdb?sslmode=verify-full"
+   psql "postgres://<USERNAME>@<HOSTNAME>:<PORT>/<DATABASENAME>?sslmode=verify-full"
    ```
 
 - Service URL with password and the SSL mode enabled:
@@ -184,8 +184,6 @@ Connect to your database with either:
    ```bash
    psql postgres://<USERNAME>@<HOSTNAME>:<PORT>/<DATABASENAME>?sslmode=require
    ```
-
-
 
 ## Useful psql commands
 
@@ -256,7 +254,6 @@ loaded into the editor. When you have made your changes, press `Esc`, then type
 `:`＋`w`＋`q` to save the changes, and return to the command prompt. Access the
 edited query by pressing `↑`, and press `Enter` to run it.
 
-[about-connecting]: /use-timescale/:currentVersion:/integrations/query-admin/about-connecting/
 [psql-cheat-sheet]: https://www.timescale.com/learn/postgres-cheat-sheet
 [psql-docs]: https://www.postgresql.org/docs/13/app-psql.html
 [ssl-mode]: /use-timescale/:currentVersion:/security/strict-ssl/
@@ -264,4 +261,5 @@ edited query by pressing `↑`, and press `Enter` to run it.
 [macports]: https://guide.macports.org/#installing.macports
 [windows-installer]: https://www.postgresql.org/download/windows/
 [connect-database]:/use-timescale/:currentVersion:/integrations/query-admin/psql/#connect-to-your-database
+[connection-info]: /use-timescale/:currentVersion:/integrations/query-admin/find-connection-details/
 

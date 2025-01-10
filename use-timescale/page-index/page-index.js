@@ -780,8 +780,8 @@ module.exports = [
             children:
               [
                 {
-                  title: "About connecting to Timescale",
-                  href: "about-connecting",
+                  title: "Find your connection details",
+                  href: "find-connection-details",
                   excerpt: "Learn about using connecting to your Timescale database",
                 },
                 {
