@@ -6,13 +6,13 @@ keywords: [integrations]
 tags: [integrations]
 ---
 
-# Integrate tooling with $CLOUD_LONG
+# $CLOUD_LONG Integrations
 
 You can integrate your $SERVICE_LONG with third-party solutions to expand and extend what you can do with your data.
 
-## Integrates with PostgreSQL? Integrates with your $SERVICE_SHORT
+## Integrates with PostgreSQL? Integrates with your $SERVICE_SHORT!
 
-A $SERVICE_LONG is a PostgreSQL database instance extended with additional capabilities. This means that any third-party solution that you can integrate with PostgreSQL, you can also integrate with $CLOUD_LONG. See the full list of PostgreSQL integrations here.
+A $SERVICE_LONG is a PostgreSQL database instance extended with additional capabilities. This means that any third-party solution that you can integrate with PostgreSQL, you can also integrate with $CLOUD_LONG. See the full list of PostgreSQL integrations [here][postgresql-integrations].
 
 Some of the most in-demand integrations for $CLOUD_LONG are listed below, with links to detailed integration steps. 
 
@@ -49,3 +49,4 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 [grafana]: /use-timescale/:currentVersion:/integrations/grafana/
 [tableau]: /use-timescale/:currentVersion:/integrations/tableau/
 [terraform]: /use-timescale/:currentVersion:/integrations/terraform
+[postgresql-integrations]: https://slashdot.org/software/p/PostgreSQL/integrations/
