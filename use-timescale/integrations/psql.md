@@ -256,12 +256,12 @@ loaded into the editor. When you have made your changes, press `Esc`, then type
 `:`＋`w`＋`q` to save the changes, and return to the command prompt. Access the
 edited query by pressing `↑`, and press `Enter` to run it.
 
-[about-connecting]: /use-timescale/:currentVersion:/integrations/about-connecting/
+[about-connecting]: /use-timescale/:currentVersion:/integrations/find-connection-details/
 [psql-cheat-sheet]: https://www.timescale.com/learn/postgres-cheat-sheet
 [psql-docs]: https://www.postgresql.org/docs/13/app-psql.html
 [ssl-mode]: /use-timescale/:currentVersion:/security/strict-ssl/
 [homebrew]: https://docs.brew.sh/Installation
 [macports]: https://guide.macports.org/#installing.macports
 [windows-installer]: https://www.postgresql.org/download/windows/
-[connect-database]:/use-timescale/:currentVersion:/integrations/query-admin/psql/#connect-to-your-database
+[connect-database]:/use-timescale/:currentVersion:/integrations/psql/#connect-to-your-service
 

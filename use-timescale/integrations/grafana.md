@@ -7,7 +7,7 @@ keywords: [Grafana, visualizations, analytics, monitoring]
 
 import GrafanaConnect from "versionContent/_partials/_grafana-connect.mdx";
 
-# Grafana
+# Integrate Grafana and Timescale Cloud
 
 [Grafana](https://grafana.com/docs/) enables you to query, visualize, alert on, and explore your metrics, logs, and traces wherever they’re stored.
 
