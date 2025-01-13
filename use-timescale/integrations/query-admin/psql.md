@@ -48,7 +48,7 @@ If you already have the latest version of `psql` installed, proceed to the [Conn
 
 ## Install psql
 
-If there is no existing installation, take the following steps to install `psql` depending on your platform.
+If there is no existing installation, take the following steps to install `psql`:
     
 <Tabs label="Install psql">
     
