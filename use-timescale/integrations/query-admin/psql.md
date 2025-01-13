@@ -97,7 +97,7 @@ Install using MacPorts. `libpqxx` is the official C++ client API for PostgreSQL.
 
 <Procedure>
 
-1. Install MacPorts by downloading and running the package installer.
+1. [Install MacPorts][macports] by downloading and running the package installer.
 
     For more information about MacPorts, including installation instructions, see the [MacPorts documentation][macports].
 
