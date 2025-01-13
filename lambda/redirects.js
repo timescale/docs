@@ -1,9 +1,5 @@
 module.exports = [
   {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6c3d12ee (chore: trigger action)
     from: "/api/api-timescaledb/",
     to: "https://docs.timescale.com/api/latest/",
   },
