@@ -8,7 +8,7 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 
 ## Add your $SERVICE_SHORT or database as a data source 
 
-To connect the data in your $SERVICE_SHORT or database to Grafana:
+To connect the data in your $SERVICE_SHORT to Grafana:
 
 <Procedure>
 
@@ -17,7 +17,7 @@ To connect the data in your $SERVICE_SHORT or database to Grafana:
    In your browser, log in to either:
     - Self-hosted Grafana: at `http://localhost:3000/`. The default credentials are `admin`, `admin`.
     - Grafana Cloud: use the URL and credentials you set when you created your account.
-1. **Add your $SERVICE_SHORT or database as a data source**
+1. **Add your $SERVICE_SHORT as a data source**
    1. Open `Connections` > `Data sources`, then click `Add new data source`.
    1. Select `PostgreSQL` from the list. 
    1. Configure the connection:

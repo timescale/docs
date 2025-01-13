@@ -9,7 +9,9 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 
 # Connect with psql
 
-You use the `psql` command line tool to interact with your $SERVICE_LONG or a self-hosted database.
+`psql` is a terminal-based front-end to PostgreSQL that enables you to type in queries interactively, issue them to Postgres, and see the query results. 
+
+This page shows you how to use the `psql` command line tool to interact with your $SERVICE_LONG.
 
 ## Prerequisites
 
@@ -42,7 +44,7 @@ wmic
     
 </Terminal>
 
-If you already have the latest version of `psql` installed, proceed to the [Connect to your database][connect-database] section. 
+If you already have the latest version of `psql` installed, proceed to the [Connect to your $SERVICE_SHORT][connect-database] section. 
 
 ## Install psql
 
@@ -155,31 +157,31 @@ Install `psql` on Debian and Ubuntu with the `apt` package manager.
 
 </Tabs>
 
-## Connect to your database
+## Connect to your $SERVICE_SHORT
 
-To use `psql` to connect to your database, you need the connection details. See [Find your connection details][connection-info] for where to find them.
+To use `psql` to connect to your $SERVICE_SHORT, you need the connection details. See [Find your connection details][connection-info].
 
-Connect to your database with either:
+Connect to your $SERVICE_SHORT with either:
 
-- Parameter flags:
+- The parameter flags:
     
    ```bash
    psql -h <HOSTNAME> -p <PORT> -U <USERNAME> -W -d <DATABASENAME>
    ```
 
-- Service URL with the [SSL mode][ssl-mode] enabled:
+- The $SERVICE_SHORT URL with the [SSL mode][ssl-mode] enabled:
 
    ```bash
    psql "postgres://<USERNAME>@<HOSTNAME>:<PORT>/<DATABASENAME>?sslmode=verify-full"
    ```
 
-- Service URL with password and the SSL mode enabled:
+- The $SERVICE_SHORT URL with the password and the SSL mode enabled:
 
    ```bash
    psql "postgres://<USERNAME>:<PASSWORD>@<HOSTNAME>:<PORT>/<DATABASENAME>?sslmode=require"
    ```
 
-- Service URL without SSL:
+- The $SERVICE_SHORT URL without SSL:
   
    ```bash
    psql postgres://<USERNAME>@<HOSTNAME>:<PORT>/<DATABASENAME>?sslmode=require
@@ -260,6 +262,6 @@ edited query by pressing `↑`, and press `Enter` to run it.
 [homebrew]: https://docs.brew.sh/Installation
 [macports]: https://guide.macports.org/#installing.macports
 [windows-installer]: https://www.postgresql.org/download/windows/
-[connect-database]:/use-timescale/:currentVersion:/integrations/query-admin/psql/#connect-to-your-database
+[connect-database]:/use-timescale/:currentVersion:/integrations/query-admin/psql/#connect-to-your-service
 [connection-info]: /use-timescale/:currentVersion:/integrations/query-admin/find-connection-details/
 

@@ -11,7 +11,7 @@ import GrafanaConnect from "versionContent/_partials/_grafana-connect.mdx";
 
 You can use [Grafana](https://grafana.com/docs/) to monitor, visualize, and perform analytics on the data stored in your database. 
 
-This page shows you how to connect Grafana with a $SERVICE_LONG or a self-hosted database, create a dashboard and panel, then visualize geospatial data.
+This page shows you how to integrate Grafana with a $SERVICE_LONG, create a dashboard and panel, then visualize geospatial data.
 
 <GrafanaConnect />
 
@@ -30,7 +30,7 @@ that system.
 
 1. **Select the data source**
 
-   Select your $SERVICE_SHORT or database from the list of pre-configured data sources or configure a new one.
+   Select your $SERVICE_SHORT from the list of pre-configured data sources or configure a new one.
 
 1. **Configure your panel** 
 
