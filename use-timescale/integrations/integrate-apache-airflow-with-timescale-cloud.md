@@ -20,10 +20,11 @@ This page shows you how to use a Python connector in a DAG to integrate Apache A
 
 Before integrating:
 
-* Create a [target $SERVICE_LONG][create-service] or [enable $TIMESCALE_DB ][enable-timescaledb] on your target database.
 
-  [Find and save your connection information][connection-info] to follow this procedure.
 
+
+* Create a [$SERVICE_LONG][create-service], [your connection information][connection-info] to follow this procedure.
+  This procedure also works for [self-hosted $TIMESCALE_DB ][enable-timescaledb].
 * [Install Python3 and pip3](https://docs.python.org/3/using/index.html) 
 * [Install Apache Airflow][install-apache-airflow]
 
