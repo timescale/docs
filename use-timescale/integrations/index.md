@@ -6,11 +6,11 @@ keywords: [integrations]
 tags: [integrations]
 ---
 
-# Integrate tooling with Timescale Cloud
+# Integrate tooling with $CLOUD_LONG
 
-Integrate your $SERVICE_LONG with third-party solutions to expand
-and extend what you can do with your data.
+A $SERVICE_LONG is a PostgreSQL database instance extended with additional capabilities. This means that any third-party solution that you can integrate with PostgreSQL, you can also integrate with $CLOUD_LONG. See the full list of PostgreSQL integrations here.
 
+Some of the most in-demand integrations for $CLOUD_LONG are listed below, with links to detailed integration steps. 
 
 ## Query and administration
 
