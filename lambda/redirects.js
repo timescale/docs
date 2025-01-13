@@ -821,4 +821,52 @@ module.exports = [
     from: "/use-timescale/latest/compression/backfill-historical-data/",
     to: "https://github.com/timescale/timescaledb-extras/blob/master/backfill.sql",
   },
+  {
+    from: '/use-timescale/latest/integrations/observability-alerting/grafana/installation/',
+    to: 'https://docs.timescale.com/use-timescale/latest/integrations/observability-alerting/grafana/',
+  },
+  {
+    from: '/use-timescale/latest/integrations/observability-alerting/grafana/geospatial-dashboards//',
+    to: 'https://docs.timescale.com/use-timescale/latest/integrations/grafana/',
+  },
+  {
+    from: '/use-timescale/latest/integrations/observability-alerting/grafana/create-dashboard-and-panel/',
+    to: 'https://docs.timescale.com/use-timescale/latest/integrations/grafana/',
+  },
+  {
+    from: '/use-timescale/latest/integrations/query-admin/about-psql/',
+    to: 'https://docs.timescale.com/use-timescale/latest/integrations/psql/',
+  },
+  {
+    from: '/use-timescale/latest/integrations/query-admin/about-connecting/',
+    to: 'https://docs.timescale.com/use-timescale/latest/integrations/about-connecting/',
+  },
+  {
+    from: '/use-timescale/latest/integrations/query-admin/azure-data-studio/',
+    to: 'https://docs.timescale.com/use-timescale/latest/integrations/azure-data-studio/',
+  },
+  {
+    from: '/use-timescale/latest/integrations/query-admin/dbeaver/',
+    to: 'https://docs.timescale.com/use-timescale/latest/integrations/dbeaver/',
+  },
+  {
+    from: '/use-timescale/latest/integrations/query-admin/pgadmin/',
+    to: 'https://docs.timescale.com/use-timescale/latest/integrations/pgadmin/',
+  },
+  {
+    from: '/use-timescale/latest/integrations/query-admin/qstudio/',
+    to: 'https://docs.timescale.com/use-timescale/latest/integrations/qstudio/',
+  },
+  {
+    from: '/use-timescale/latest/integrations/config-deploy/terraform/',
+    to: 'https://docs.timescale.com/use-timescale/latest/integrations/terraform/',
+  },
+  {
+    from: '/use-timescale/latest/integrations/observability-alerting/tableau/',
+    to: 'https://docs.timescale.com/use-timescale/latest/integrations/tableau/',
+  },
+  {
+    from: '/use-timescale/latest/integrations/query-admin/about-psql/',
+    to: 'https://docs.timescale.com/use-timescale/latest/integrations/psql/',
+  },
 ];
