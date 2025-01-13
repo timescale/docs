@@ -1,5 +1,4 @@
 name: Deploy redirects to lambda
-
 on:
   push:
     paths:
