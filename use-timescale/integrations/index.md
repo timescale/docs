@@ -41,7 +41,7 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 |:---------------------------:|-----------------------------------------------------------------------------------------------------------------------------|
 | [Terraform][terraform]      | An infrastructure-as-code tool that enables you to safely and predictably provision and manage infrastructure in any cloud. |
 
-[psql]: /use-timescale/:currentVersion:/psql/
+[psql]: /use-timescale/:currentVersion:/integrations/psql/
 [qstudio]: /use-timescale/:currentVersion:/integrations/qstudio/
 [dbeaver]: /use-timescale/:currentVersion:/integrations/dbeaver/
 [ads]: /use-timescale/:currentVersion:/integrations/azure-data-studio/
