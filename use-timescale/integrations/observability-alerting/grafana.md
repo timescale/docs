@@ -9,7 +9,7 @@ import GrafanaConnect from "versionContent/_partials/_grafana-connect.mdx";
 
 # Grafana
 
-You can use [Grafana](https://grafana.com/docs/) to monitor, visualize, and perform analytics on the data stored in your database. 
+[Grafana](https://grafana.com/docs/) enables you to query, visualize, alert on, and explore your metrics, logs, and traces wherever they’re stored.
 
 This page shows you how to integrate Grafana with a $SERVICE_LONG, create a dashboard and panel, then visualize geospatial data.
 
