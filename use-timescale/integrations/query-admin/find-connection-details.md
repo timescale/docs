@@ -1,5 +1,5 @@
 ---
-title: Connecting to Timescale
+title: Find your connection details
 excerpt: How to connect to a Timescale instance
 products: [cloud, mst, self_hosted]
 keywords: [connect, Managed Service for TimescaleDB, Timescale]
