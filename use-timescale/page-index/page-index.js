@@ -774,9 +774,9 @@ module.exports = [
         excerpt: "Integrate third-party solutions with Timescale Cloud",
         children: [
           {
-            title: "About connecting to Timescale",
-            href: "about-connecting",
-            excerpt: "Learn about using connecting to your Timescale database",
+            title: "Find your connection details",
+            href: "find-connection-details",
+            excerpt: "Learn about connecting to your Timescale database",
           },
           {
             title: "Azure Data Studio",
