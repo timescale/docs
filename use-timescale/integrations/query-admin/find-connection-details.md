@@ -23,9 +23,13 @@ Find the connection details based on your installation type.
 
 Retrieve the connection details for your $SERVICE_LONG:
 
-- In `<service name>-credentials.txt`: All connection details are supplied in the configuration file you download when you create a new $SERVICE_SHORT. 
+- **In `<service name>-credentials.txt`**: 
 
-- In $CONSOLE: Open the [`Services`][console-services] page and select your $SERVICE_SHORT. The connection details, except the password, are available in the `Connect to your service` widget. If necessary, click `Forgot your password?` to get a new one.
+   All connection details are supplied in the configuration file you download when you create a new $SERVICE_SHORT. 
+
+- **In $CONSOLE**:
+
+   Open the [`Services`][console-services] page and select your $SERVICE_SHORT. The connection details, except the password, are available in the `Connect to your service` widget. If necessary, click `Forgot your password?` to get a new one.
 
    ![Timescale service connection details](https://assets.timescale.com/docs/images/timescale-service-connection-details.png)
 
