@@ -21,21 +21,13 @@ Find the connection details based on your installation type.
 
 <Tab title="Timescale Cloud">
 
-The connection details for your $SERVICE_LONG are available in $CONSOLE. Get them in one of the following ways:
+Retrieve the connection details for your $SERVICE_LONG:
 
-- Save the `psql` connection string generated during $SERVICE_SHORT creation. The string follows this format:
-    
-    ```bash
-    postgres://<USERNAME>:<PASSWORD>@<HOST>:<PORT>/<DATABASENAME>?sslmode=require
-    ```
+- In `<service name>-credentials.txt`: All connection details are supplied in the configuration file you download when you create a new $SERVICE_SHORT. 
 
-    For example:
+- In $CONSOLE: Open the [`Services`][console-services] page and select your $SERVICE_SHORT. The connection details, except the password, are available in the `Connect to your service` widget. If necessary, click `Forgot your password?` to get a new one.
 
-    ```bash
-    postgres://tsdbadmin:krifchuf3r8c5onn@s5pq0es2cy.vfbtkqzhtm.tsdb.cloud.timescale.com:39941/tsdb?sslmode=require
-    ```
-
-- Open the [`Services`][console-services] page and select your $SERVICE_SHORT. The connection details, except the password, are available in the `Connect to your service` widget. Get the password by resetting it.
+   ![Timescale service connection details](https://assets.timescale.com/docs/images/timescale-service-connection-details.png)
 
 </Tab>
 

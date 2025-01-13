@@ -99,8 +99,6 @@ Install using MacPorts. `libpqxx` is the official C++ client API for PostgreSQL.
 
 1. [Install MacPorts][macports] by downloading and running the package installer.
 
-    For more information about MacPorts, including installation instructions, see the [MacPorts documentation][macports].
-
 1. Install the latest version of `libpqxx`:
 
     ```bash
@@ -169,22 +167,18 @@ Connect to your $SERVICE_SHORT with either:
    psql -h <HOSTNAME> -p <PORT> -U <USERNAME> -W -d <DATABASENAME>
    ```
 
-- The $SERVICE_SHORT URL with the [SSL mode][ssl-mode] enabled:
+- The $SERVICE_SHORT URL:
 
    ```bash
-   psql "postgres://<USERNAME>@<HOSTNAME>:<PORT>/<DATABASENAME>?sslmode=verify-full"
+   psql "postgres://<USERNAME>@<HOSTNAME>:<PORT>/<DATABASENAME>?sslmode=require"
    ```
-
-- The $SERVICE_SHORT URL with the password and the SSL mode enabled:
-
-   ```bash
-   psql "postgres://<USERNAME>:<PASSWORD>@<HOSTNAME>:<PORT>/<DATABASENAME>?sslmode=require"
-   ```
-
-- The $SERVICE_SHORT URL without SSL:
   
+   You are prompted to provide the password. 
+
+- The $SERVICE_SHORT URL with the password already included and [a stricter SSL mode][ssl-mode] enabled:
+
    ```bash
-   psql postgres://<USERNAME>@<HOSTNAME>:<PORT>/<DATABASENAME>?sslmode=require
+   psql "postgres://<USERNAME>:<PASSWORD>@<HOSTNAME>:<PORT>/<DATABASENAME>?sslmode=verify-full"
    ```
 
 ## Useful psql commands
