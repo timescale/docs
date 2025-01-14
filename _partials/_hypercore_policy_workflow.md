@@ -2,7 +2,7 @@
 
    In [$CONSOLE][services-portal] open an [SQL editor][in-console-editors]. You can also connect to your service using [psql][connect-using-psql].
 
-1. **Enable columnstore on a table**
+1. **Enable columnstore on a hypertable**
 
    Create a [job][job] that automatically moves chunks in a hypertable to the columnstore at a specific time interval. 
    By default, your table is `orderedby` the time column. For efficient queries on columnstore data, remember to
@@ -16,6 +16,7 @@
      ```sql
      ALTER MATERIALIZED VIEW stock_candlestick_daily set (timescaledb.enable_columnstore = true, timescaledb.segmentby = 'symbol' );
      ``` 
+     Before you say `huh`, a continuous aggregate is a specialized hypertable. 
 
 1. **Add a policy to move chunks to the columnstore at a specific time interval**
 
