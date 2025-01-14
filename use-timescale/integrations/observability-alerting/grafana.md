@@ -7,11 +7,11 @@ keywords: [Grafana, visualizations, analytics, monitoring]
 
 import GrafanaConnect from "versionContent/_partials/_grafana-connect.mdx";
 
-# Integrate Grafana and Timescale Cloud
+# Grafana
 
-You can use [Grafana](https://grafana.com/docs/) to monitor, visualize and perform analytics on data stored in your $SERVICE_LONG. 
+[Grafana](https://grafana.com/docs/) enables you to query, visualize, alert on, and explore your metrics, logs, and traces wherever they’re stored.
 
-This page shows you how to connect Grafana with a $SERVICE_LONG, create a dashboard and panel, then visualize geospatial data.
+This page shows you how to integrate Grafana with a $SERVICE_LONG, create a dashboard and panel, then visualize geospatial data.
 
 <GrafanaConnect />
 
@@ -30,7 +30,7 @@ that system.
 
 1. **Select the data source**
 
-   Select your $SERVICE_LONG from the list of pre-configured data sources or configure a new one.
+   Select your $SERVICE_SHORT from the list of pre-configured data sources or configure a new one.
 
 1. **Configure your panel** 
 
@@ -124,11 +124,11 @@ tutorial as a starting point.
 
    1.  In your Grafana dashboard, click `Add` > `Visualization`.
 
-   1.  Select `Geomap` in the visualization type drop-down.
+   1.  Select `Geomap` in the visualization type drop-down at the top right.
 
 1. **Configure the data format**
 
-   1.  In the `Queries` tab, select your data source.
+   1.  In the `Queries` tab below, select your data source.
 
    1.  In the `Format` drop-down, select `Table`.
 
@@ -155,7 +155,7 @@ tutorial as a starting point.
     
     With default settings, the visualization uses green circles of the fixed size. Configure at least the following for a more representative view:
 
-    -`Map layers` > `Styles` > `Size` > `value`.
+    - `Map layers` > `Styles` > `Size` > `value`.
 
        This changes the size of the circle depending on the value, with bigger circles representing bigger values.
 

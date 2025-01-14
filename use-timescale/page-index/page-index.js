@@ -780,17 +780,12 @@ module.exports = [
             children:
               [
                 {
-                  title: "About connecting to Timescale",
-                  href: "about-connecting",
+                  title: "Find your connection details",
+                  href: "find-connection-details",
                   excerpt: "Learn about using connecting to your Timescale database",
                 },
                 {
-                  title: "About psql",
-                  href: "about-psql",
-                  excerpt: "Learn about using psql to connect to Timescale",
-                },
-                {
-                  title: "Install psql",
+                  title: "Connect with psql",
                   href: "psql",
                   excerpt: "Install psql to connect to Timescale",
                 },
