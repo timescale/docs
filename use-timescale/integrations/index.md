@@ -23,16 +23,16 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 | [Azure Data Studio][ads] | An open-source, cross-platform hybrid data analytics tool designed to simplify the data landscape.                                           |
 |    [DBeaver][dbeaver]    | A free cross-platform database tool for developers, database administrators, analysts, and everyone working with data.                       |
 |    [pgAdmin][pgadmin]    | A feature-rich open-source administration and development platform for PostgreSQL.                                                           |
-|       [psql][psql]       | A terminal-based front-end to PostgreSQL that enables you to type in queries interactively, issue them to Postgres, and see the query results. |
-|    [qStudio][qstudio]    | A modern free SQL editor that provides syntax highlighting, code-completion, excel export, charting, and much more.                          |
+|       [psql][psql]       | A terminal-based frontend to PostgreSQL that enables you to type in queries interactively, issue them to Postgres, and see the query results. |
+|    [qStudio][qstudio]    | A modern free SQL editor that provides syntax highlighting, code completion, excel export, charting, and more.                           |
 
 
 ## Observability and alerting
 
-|            Name             | Description                                                                                |
-|:---------------------------:|--------------------------------------------------------------------------------------------|
-|     [Grafana][grafana]      | An open-source analytics and monitoring solution.                       |
-|     [Tableau][tableau]      | A popular analytics platform that helps you gain greater intelligence about your business. |
+|            Name             | Description                                                                                                                                                          |
+|:---------------------------:|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|     [Grafana][grafana]      | An open-source analytics and monitoring solution that enables you to query, visualize, alert on, and explore your metrics, logs. |
+|     [Tableau][tableau]      | A popular analytics platform that helps you gain greater intelligence about your business.                                                                           |
 
 
 ## Configuration and deployment 
