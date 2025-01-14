@@ -87,6 +87,7 @@ import EarlyAccess from "versionContent/_partials/_early_access.mdx";
    ``` sql
    CALL remove_columnstore_policy('older_stock_prices');
    ```
+   See [remove_columnstore_policy][remove_columnstore_policy].
 
 1. **Disable columnstore**
 
