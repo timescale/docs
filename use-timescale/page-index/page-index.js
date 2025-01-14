@@ -204,11 +204,6 @@ module.exports = [
             excerpt: "Automat",
           },
           {
-            title: "Manage hypercore manually",
-            href: "manage-hypercore-manually",
-            excerpt: "Add and remove chunks from the columnstore manually",
-          },
-          {
             title: "Update data in the columnstore",
             href: "update-data-in-the-columnstore",
             excerpt: "Add and remove data in the columnstore",
