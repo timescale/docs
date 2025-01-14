@@ -199,8 +199,8 @@ module.exports = [
           "Seamlessly switch between row-oriented and column-oriented storage",
         children: [
           {
-            title: "Automatically convert data between the rowstore and columnstore",
-            href: "automatically-move-data-between-columnstore-and-rowstore",
+            title: "Automate Hypercore with policies",
+            href: "automate-hypercore-with-policies",
             excerpt: "Compresses a chunk automatically in the background after it reaches a given age",
           },
         ],
