@@ -32,7 +32,6 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 |            Name             | Description                                                                                |
 |:---------------------------:|--------------------------------------------------------------------------------------------|
 |     [Grafana][grafana]      | An open-source analytics and monitoring solution.                                          |
-| [Prometheus][prometheus]    | An open-source monitoring system with a dimensional data model, flexible query language, and a modern alerting approach.|
 |     [Tableau][tableau]      | A popular analytics platform that helps you gain greater intelligence about your business. |
 
 

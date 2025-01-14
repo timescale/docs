@@ -6,7 +6,6 @@ keywords: [visualizations, analytics, Tableau]
 ---
 
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
-import ConnectionString from "versionContent/_partials/_connection-string.mdx";
 
 # Integrate Tableau and $CLOUD_LONG
 
@@ -30,14 +29,8 @@ To connect the data in your $SERVICE_LONG to Tableau:
 1.  **In the `New Virtual Connection` page, search for and select `PostgreSQL`**
 1.  **Configure the connection**
 
-    - `Server`: the host of your $SERVICE_LONG.
-    - `Port`: the port of your $SERVICE_SHORT.
-    - `Database`: `tsdb`.
-    - `Username`: `tsdbadmin` or another privileged user.
-    - `Password`: the password for `Username`.
+    - `Server`, `Port`, `Database`, `Username`, `Password`: configure using your [connection details][connection-info]. 
     - `Require SSL`: tick the checkbox.
-    
-   <ConnectionString />
 
 1.  Click `Sign In` to connect to your $SERVICE_SHORT.
 
