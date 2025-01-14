@@ -204,14 +204,14 @@ module.exports = [
             excerpt: "Automate",
           },
           {
-            title: "Efficient data access in Hypercore",
-            href: "efficient-data-access-in-hypercore",
-            excerpt: "Read and write data efficiently in hypercore",
-          },
-          {
             title: "Modify data in Hypercore",
             href: "modify-data-in-hypercore",
             excerpt: "Update data stored in the columnstore",
+          },
+          {
+            title: "Efficient data access in Hypercore",
+            href: "efficient-data-access-in-hypercore",
+            excerpt: "Read and write data efficiently in hypercore",
           },
         ],
       },
