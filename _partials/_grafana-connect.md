@@ -37,4 +37,4 @@ To connect the data in your $SERVICE_SHORT to Grafana:
 [grafana-cloud]: https://grafana.com/get/
 [cloud-login]: https://console.cloud.timescale.com/
 [create-service]: /getting-started/:currentVersion:/services/
-[connection-info]: /use-timescale/:currentVersion:/integrations/query-admin/find-connection-details/
+[connection-info]: /use-timescale/:currentVersion:/integrations/find-connection-details/
