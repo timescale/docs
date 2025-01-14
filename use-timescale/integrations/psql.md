@@ -9,7 +9,9 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 
 # Connect with psql
 
-`psql`  is a terminal-based front-end to Postgres that enables you to type in queries interactively, issue them to PostgreSQL, and see the query results. You use the `psql` command line tool to interact with your $SERVICE_LONG.
+`psql` is a terminal-based front-end to PostgreSQL that enables you to type in queries interactively, issue them to Postgres, and see the query results. 
+
+This page shows you how to use the `psql` command line tool to interact with your $SERVICE_LONG.
 
 ## Prerequisites
 
@@ -42,11 +44,11 @@ wmic
     
 </Terminal>
 
-If you already have the latest version of `psql` installed, proceed to the [Connect to your database][connect-database] section. 
+If you already have the latest version of `psql` installed, proceed to the [Connect to your $SERVICE_SHORT][connect-database] section. 
 
 ## Install psql
 
-If there is no existing installation, take the following steps to install `psql` depending on your platform.
+If there is no existing installation, take the following steps to install `psql`:
     
 <Tabs label="Install psql">
     
@@ -95,9 +97,7 @@ Install using MacPorts. `libpqxx` is the official C++ client API for PostgreSQL.
 
 <Procedure>
 
-1. Install MacPorts by downloading and running the package installer.
-
-    For more information about MacPorts, including installation instructions, see the [MacPorts documentation][macports].
+1. [Install MacPorts][macports] by downloading and running the package installer.
 
 1. Install the latest version of `libpqxx`:
 
@@ -155,37 +155,31 @@ Install `psql` on Debian and Ubuntu with the `apt` package manager.
 
 </Tabs>
 
-## Connect to your database
+## Connect to your $SERVICE_SHORT
 
-To use `psql` to connect to your database, you need the connection details for your $SERVICE_LONG. Find those in the connection string generated during service creation. For more information, see [Connecting to Timescale][about-connecting]. 
+To use `psql` to connect to your $SERVICE_SHORT, you need the connection details. See [Find your connection details][connection-info].
 
-Connect to your database with either:
+Connect to your $SERVICE_SHORT with either:
 
-- Parameter flags:
+- The parameter flags:
     
    ```bash
    psql -h <HOSTNAME> -p <PORT> -U <USERNAME> -W -d <DATABASENAME>
    ```
 
-- Service URL with the [SSL mode][ssl-mode] enabled:
+- The $SERVICE_SHORT URL:
 
    ```bash
-   psql "postgres://tsdbadmin@<SERVICE_URL_WITH_PORT>/tsdb?sslmode=verify-full"
+   psql "postgres://<USERNAME>@<HOSTNAME>:<PORT>/<DATABASENAME>?sslmode=require"
    ```
-
-- Service URL with password and the SSL mode enabled:
-
-   ```bash
-   psql "postgres://<USERNAME>:<PASSWORD>@<HOSTNAME>:<PORT>/<DATABASENAME>?sslmode=require"
-   ```
-
-- Service URL without SSL:
   
+   You are prompted to provide the password. 
+
+- The $SERVICE_SHORT URL with the password already included and [a stricter SSL mode][ssl-mode] enabled:
+
    ```bash
-   psql postgres://<USERNAME>@<HOSTNAME>:<PORT>/<DATABASENAME>?sslmode=require
+   psql "postgres://<USERNAME>:<PASSWORD>@<HOSTNAME>:<PORT>/<DATABASENAME>?sslmode=verify-full"
    ```
-
-
 
 ## Useful psql commands
 
@@ -256,12 +250,12 @@ loaded into the editor. When you have made your changes, press `Esc`, then type
 `:`＋`w`＋`q` to save the changes, and return to the command prompt. Access the
 edited query by pressing `↑`, and press `Enter` to run it.
 
-[about-connecting]: /use-timescale/:currentVersion:/integrations/about-connecting/
 [psql-cheat-sheet]: https://www.timescale.com/learn/postgres-cheat-sheet
 [psql-docs]: https://www.postgresql.org/docs/13/app-psql.html
 [ssl-mode]: /use-timescale/:currentVersion:/security/strict-ssl/
 [homebrew]: https://docs.brew.sh/Installation
 [macports]: https://guide.macports.org/#installing.macports
 [windows-installer]: https://www.postgresql.org/download/windows/
-[connect-database]:/use-timescale/:currentVersion:/integrations/query-admin/psql/#connect-to-your-database
+[connect-database]:/use-timescale/:currentVersion:/integrations/query-admin/psql/#connect-to-your-service
+[connection-info]: /use-timescale/:currentVersion:/integrations/query-admin/find-connection-details/
 

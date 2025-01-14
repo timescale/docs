@@ -69,6 +69,9 @@
     },
     {
       "pattern": "^https://wiki.postgresql.org/wiki/List_of_drivers"
+    },
+    {
+      "pattern": "^https://cmake.org/download/"
     }
   ]
 }
