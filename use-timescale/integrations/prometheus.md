@@ -28,12 +28,11 @@ This page shows you how to export your $SERVICE_SHORT telemetry to Prometheus.
 
 Take the following steps to export your data:
 
-
 <Procedure>
 
 1. **Connect to your $SERVICE_LONG as an admin**
 
-   You can connect in [$CONSOLE][run-queries] or using [`psql`][psql]. 
+   See the available [connection options][run-queries]. For self-hosted installations, use [`psql`][psql]. 
 
 1. **Create a user to scrape the metrics**
 
