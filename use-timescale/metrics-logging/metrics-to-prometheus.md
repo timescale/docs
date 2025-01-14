@@ -54,6 +54,14 @@ Take the following steps to export your data:
 
    For example, install using Docker:
 
+   1. Pull the Docker image:
+   
+      ```bash
+      docker pull quay.io/prometheuscommunity/postgres-exporter
+      ````
+
+   1. Run the container:
+
     ```bash
     docker run -d --name=postgresql_exporter \
     -e DATA_SOURCE_NAME="postgresql://<username>:<password>@<host>:<port>/<database>?sslmode=require" \
