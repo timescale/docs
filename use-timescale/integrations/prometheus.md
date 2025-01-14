@@ -14,7 +14,9 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 
 # Integrate Prometheus and $CLOUD_LONG
 
-Prometheus is an open-source monitoring system with a dimensional data model, flexible query language, and a modern alerting approach. You can export your $SERVICE_SHORT telemetry to Prometheus.
+[Prometheus][prometheus] is an open-source monitoring system with a dimensional data model, flexible query language, and a modern alerting approach. 
+
+This page shows you how to export your $SERVICE_SHORT telemetry to Prometheus.
 
 ## Prerequisites
 
@@ -26,13 +28,16 @@ Prometheus is an open-source monitoring system with a dimensional data model, fl
 
 Take the following steps to export your data:
 
+
 <Procedure>
 
-1. **Connect to your [$SERVICE_LONG][connect] as `tsdbadmin`**
+1. **Connect to your $SERVICE_LONG as an admin**
+
+   You can connect in [$CONSOLE][run-queries] or using [`psql`][psql]. 
 
 1. **Create a user to scrape the metrics**
 
-    1. Create a user named `monitoring` with the desired password by replacing `<password>`:
+    1. Create a user named `monitoring` with a password:
     
        ```sql
        CREATE USER monitoring WITH PASSWORD '<password>';
@@ -56,10 +61,10 @@ Take the following steps to export your data:
     -p 9187:9187 quay.io/prometheuscommunity/postgres-exporter
     ```
    
-     - `<username>`: The `monitoring` user
+     - `<username>`: `monitoring`
      - `<password>`: The `monitoring` user password
      - `<host>`: Your $SERVICE_LONG host
-     - `<port>`: Your $SERVICE_LONG port (default is 5432)
+     - `<port>`: Your $SERVICE_LONG port 
      - `<database>`: Your $SERVICE_LONG name 
    
     If not using Docker, download the binary and configure the `DATA_SOURCE_NAME` environment variable similarly. To check the installation, navigate to `http://<exporter-host>:9187/metrics`. You should see PostgreSQL metrics in the Prometheus format.
@@ -77,9 +82,11 @@ Take the following steps to export your data:
 
       Replace `<exporter-host>` with the hostname or IP address of the PostgreSQL Exporter.
 
-   1. Restart Prometheus:
+   1. Restart Prometheus.
       
-   1. Check the Prometheus UI at `http://<prometheus-host>:9090` under **Targets** to ensure that the PostgreSQL Exporter target is active.
+   1. Check the Prometheus UI at `http://<prometheus-host>:9090`.
+
+      The PostgreSQL Exporter target under **Targets** must be active.
 
 </Procedure>
 
@@ -88,6 +95,8 @@ You can further [visualize your data][grafana-prometheus] with Grafana. Use the 
 [install-exporter]: https://grafana.com/oss/prometheus/exporters/postgres-exporter/?tab=installation
 [postgresql-exporter-dashboard]: https://grafana.com/oss/prometheus/exporters/postgres-exporter/?tab=dashboards
 [install-prometheus]: https://prometheus.io/download/
-[connect]: /getting-started/:currentVersion:/run-queries-from-console/
 [grafana]: /use-timescale/:currentVersion:/integrations/grafana/
 [grafana-prometheus]: https://grafana.com/docs/grafana-cloud/send-data/metrics/metrics-prometheus/
+[prometheus]: https://prometheus.io/docs/introduction/overview/
+[run-queries]: /getting-started/:currentVersion:/run-queries-from-console/
+[psql]: /use-timescale/:currentVersion:/integrations/psql/
