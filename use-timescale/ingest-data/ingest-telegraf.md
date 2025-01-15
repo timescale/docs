@@ -157,6 +157,6 @@ see the [PostgreQL output plugin][output-plugin].
 [output-plugin]: https://github.com/influxdata/telegraf/blob/release-1.24/plugins/outputs/postgresql/README.md
 [install-telegraf]: https://docs.influxdata.com/telegraf/v1.21/introduction/installation/
 [create-service]: /getting-started/latest/
-[connect-timescaledb]: /use-timescale/:currentVersion:/integrations/query-admin/about-connecting/
-[grafana]: /use-timescale/:currentVersion:/integrations/observability-alerting/grafana/
+[connect-timescaledb]: /use-timescale/:currentVersion:/integrations/find-connection-details/
+[grafana]: /use-timescale/:currentVersion:/integrations/grafana/
 [about-hypertables]: /use-timescale/:currentVersion:/hypertables/about-hypertables/
