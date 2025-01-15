@@ -5,7 +5,7 @@ products: [cloud,]
 keywords: [hyperscore, hypertable, compression, row-columnar storage, hypercore, hyperstore]
 ---
 
-import PrereqCloud from "versionContent/_partials/_prereqs-cloud-only.mdx";
+import Prereq from "versionContent/_partials/_prereqs-cloud-only.mdx";
 import HCConversionOverview from "versionContent/_partials/_hypercore-conversion-overview.mdx";
 import HCPolicyWorkflow from "versionContent/_partials/_hypercore_policy_workflow.mdx";
 
@@ -24,11 +24,11 @@ columnstore.
 
 ## Prerequisites
 
-<PrereqCloud />
+<Prereq />
 
 This page uses the [real-time-stock-data][ingest-data] sample data in the samples.   
 
-## The Hypercore automation workflow 
+## Implement the Hypercore workflow 
 
 The compression ratio and query performance of data in the columnstore is dependent on the order and structure of your 
 data. Rows that change over a dimension should be close to each other. With time-series data, you `orderby` the time 

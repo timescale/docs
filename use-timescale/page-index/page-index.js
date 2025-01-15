@@ -201,8 +201,19 @@ module.exports = [
           {
             title: "Automate Hypercore with policies",
             href: "automate-hypercore-with-policies",
-            excerpt: "Compresses a chunk automatically in the background after it reaches a given age",
+            excerpt: "Automat",
           },
+          {
+            title: "Manage hypercore manually",
+            href: "manage-hypercore-manually",
+            excerpt: "Add and remove chunks from the columnstore manually",
+          },
+          {
+            title: "Update data in the columnstore",
+            href: "update-data-in-the-columnstore",
+            excerpt: "Add and remove data in the columnstore",
+          },
+
         ],
       },
       {
