@@ -29,7 +29,7 @@ You can get a list of chunks belonging to a hypertable using the
 [`show_chunks` function](/api/latest/hypertable/show_chunks/).
 </Highlight>
 
-<Deprecated2180 />
+<Deprecated2180 /> Replaced by <a href="https://docs.timescale.com/api/latest/hypercore/convert_to_columnstore/">convert_to_columnstore()</a>.
 
 ### Required arguments
 

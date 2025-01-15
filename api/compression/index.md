@@ -31,7 +31,7 @@ Compressed chunks have the following limitations:
     after constraint creation.
 *   [Timescale SkipScan][skipscan] does not currently work on compressed chunks.
 
-<Deprecated2180 />
+<Deprecated2180 /> Replaced by <a href="https://docs.timescale.com/api/latest/hypercore/">Hypercore</a>.
 
 ## Restrictions
 

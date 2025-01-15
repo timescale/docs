@@ -23,7 +23,7 @@ turn the policy back on. The database automatically recompresses your chunks in
 the next scheduled job.
 </Highlight>
 
-<Deprecated2180 />
+<Deprecated2180 /> Replaced by <a href="https://docs.timescale.com/api/latest/hypercore/convert_to_cconvert_to_rowstore/">convert_to_rowstore()</a>.
 
 ### Required arguments
 

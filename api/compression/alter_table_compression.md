@@ -29,7 +29,7 @@ ALTER TABLE <table_name> SET (timescaledb.compress,
 );
 ```
 
-<Deprecated2180 />
+<Deprecated2180 /> Replaced by <a href="https://docs.timescale.com/api/latest/hypercore/alter_table/">ALTER TABLE (Hypercore)</a>.
 
 ## Required arguments
 
