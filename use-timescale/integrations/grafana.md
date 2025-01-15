@@ -7,7 +7,7 @@ keywords: [Grafana, visualizations, analytics, monitoring]
 
 import GrafanaConnect from "versionContent/_partials/_grafana-connect.mdx";
 
-# Grafana
+# Integrate Grafana and Timescale Cloud
 
 [Grafana](https://grafana.com/docs/) enables you to query, visualize, alert on, and explore your metrics, logs, and traces wherever they’re stored.
 
@@ -21,6 +21,8 @@ Grafana is organized into dashboards and panels. A dashboard represents a
 view into the performance of a system, and each dashboard consists of one or
 more panels, which represent information about a specific metric related to
 that system.
+
+To create a new dashboard:
 
 <Procedure>
 
@@ -48,7 +50,7 @@ that system.
 
 ## Use the time filter function
 
-Grafana time-series panels include a time filter. 
+Grafana time-series panels include a time filter: 
 
 <Procedure>
 
@@ -165,9 +167,9 @@ tutorial as a starting point.
 
        Add thresholds for 7 and 10, to mark rides over 7 and 10 miles in different colors, respectively. 
     
-       You now have a visualization that looks like this: 
+    You now have a visualization that looks like this: 
 
-       ![Timescale and Grafana integration](https://assets.timescale.com/docs/images/timescale-grafana-integration.png)
+    ![Timescale and Grafana integration](https://assets.timescale.com/docs/images/timescale-grafana-integration.png)
        
 
 </Procedure>

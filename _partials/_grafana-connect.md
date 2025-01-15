@@ -6,7 +6,7 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 
 * Install [self-managed Grafana][grafana-self-managed] or sign up for [Grafana Cloud][grafana-cloud].
 
-## Add your $SERVICE_SHORT or database as a data source 
+## Add your $SERVICE_SHORT as a data source 
 
 To connect the data in your $SERVICE_SHORT to Grafana:
 
@@ -37,4 +37,4 @@ To connect the data in your $SERVICE_SHORT to Grafana:
 [grafana-cloud]: https://grafana.com/get/
 [cloud-login]: https://console.cloud.timescale.com/
 [create-service]: /getting-started/:currentVersion:/services/
-[connection-info]: /use-timescale/:currentVersion:/integrations/query-admin/find-connection-details/
+[connection-info]: /use-timescale/:currentVersion:/integrations/find-connection-details/

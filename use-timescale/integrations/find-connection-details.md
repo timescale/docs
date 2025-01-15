@@ -15,7 +15,7 @@ To connect to your $SERVICE_SHORT or self-hosted database, you need at least the
 - Password
 - Database name
 
-Find the connection details based on your installation type.
+Find the connection details based on your deployment type:
 
 <Tabs label="Connection details">
 
