@@ -12,6 +12,8 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 
 // Provide context for the integration steps, for example, if an additional connector is used.
 
+// See https://docs.timescale.com/use-timescale/latest/integrations/grafana/ for an example. 
+
 ## Prerequisites
 
 <IntegrationPrereqs />
