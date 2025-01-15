@@ -6,7 +6,7 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 
 * Install [self-managed Grafana][grafana-self-managed] or sign up for [Grafana Cloud][grafana-cloud].
 
-## Add your $SERVICE_SHORT or database as a data source 
+## Add your $SERVICE_SHORT as a data source 
 
 To connect the data in your $SERVICE_SHORT to Grafana:
 

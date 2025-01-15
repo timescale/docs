@@ -18,13 +18,13 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 
 ## Query and administration
 
-|      Name                | Description                                                                                                                                  |
-|:------------------------:|----------------------------------------------------------------------------------------------------------------------------------------------|
-| [Azure Data Studio][ads] | An open-source, cross-platform hybrid data analytics tool designed to simplify the data landscape.                                           |
-|    [DBeaver][dbeaver]    | A free cross-platform database tool for developers, database administrators, analysts, and everyone working with data.                       |
-|    [pgAdmin][pgadmin]    | A feature-rich open-source administration and development platform for PostgreSQL.                                                           |
-|       [psql][psql]       | A terminal-based frontend to PostgreSQL that enables you to type in queries interactively, issue them to Postgres, and see the query results. |
-|    [qStudio][qstudio]    | A modern free SQL editor that provides syntax highlighting, code completion, excel export, charting, and more.                           |
+|      Name                | Description                                                                                                                                     |
+|:------------------------:|-------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Azure Data Studio][ads] | An open-source, cross-platform hybrid data analytics tool designed to simplify the data landscape.                                              |
+|    [DBeaver][dbeaver]    | A free cross-platform database tool for developers, database administrators, analysts, and everyone working with data.                          |
+|    [pgAdmin][pgadmin]    | A feature-rich open-source administration and development platform for PostgreSQL.                                                              |
+|       [psql][psql]       | A terminal-based frontend to PostgreSQL that enables you to type in queries interactively, issue them to PostgreSQL, and see the query results. |
+|    [qStudio][qstudio]    | A modern free SQL editor that provides syntax highlighting, code completion, excel export, charting, and more.                                  |
 
 
 ## Observability and alerting
