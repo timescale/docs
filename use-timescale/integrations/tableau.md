@@ -41,3 +41,4 @@ To connect the data in your $SERVICE_LONG to Tableau:
 [tableau-cloud]: https://www.tableau.com/products/trial
 [tableau-server]: https://www.tableau.com/support/releases/server/2024.2.6#esdalt
 [cloud-login]: https://console.cloud.timescale.com/
+[connection-info]: 

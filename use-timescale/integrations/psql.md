@@ -257,5 +257,5 @@ edited query by pressing `↑`, and press `Enter` to run it.
 [macports]: https://guide.macports.org/#installing.macports
 [windows-installer]: https://www.postgresql.org/download/windows/
 [connect-database]:/use-timescale/:currentVersion:/integrations/query-admin/psql/#connect-to-your-service
-[connection-info]: /use-timescale/:currentVersion:/integrations/query-admin/find-connection-details/
+[connection-info]: /use-timescale/:currentVersion:/integrations/find-connection-details/
 
