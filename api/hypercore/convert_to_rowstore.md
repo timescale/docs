@@ -41,7 +41,7 @@ To modify or add a lot of data to a chunk:
    - Convert single chunk:
 
       ``` sql
-      SELECT convert_to_rowstore('_timescaledb_internal._hyper_2_2_chunk');
+      CALL convert_to_rowstore('_timescaledb_internal._hyper_2_2_chunk');
       ```
 
    - Convert all chunks in a hypertable named `metrics`:
@@ -63,7 +63,7 @@ To modify or add a lot of data to a chunk:
 1. **Convert the updated chunks back to the columnstore**
 
    ``` sql
-   SELECT convert_to_columnstore('_timescaledb_internal._hyper_1_2_chunk');
+   CALL convert_to_columnstore('_timescaledb_internal._hyper_1_2_chunk');
    ```
 
 1. **Restart the jobs that are automatically converting chunks to the columnstore**

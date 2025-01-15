@@ -24,10 +24,10 @@ To move a chunk from the columnstore back to the rowstore, use [`convert_to_rows
 
 ## Samples
 
-To compress a single chunk:
+To convert a single chunk to columnstore:
 
 ``` sql
-SELECT convert_to_columnstore('_timescaledb_internal._hyper_1_2_chunk');
+CALL convert_to_columnstore('_timescaledb_internal._hyper_1_2_chunk');
 ```
 
 To retrieve the chunks belonging to a hypertable, call [`show_chunks`](/api/latest/hypertable/show_chunks/).

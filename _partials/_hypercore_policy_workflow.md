@@ -22,7 +22,7 @@
 
    For example, 60 days after the data was added to the table:
    ``` sql
-   SELECT add_columnstore_policy('older_stock_prices', after => INTERVAL '60d');
+   CALL add_columnstore_policy('older_stock_prices', after => INTERVAL '60d');
    ```
    See [add_columnstore_policy][add_columnstore_policy].
 
@@ -59,7 +59,7 @@
 1. **Remove a columnstore policy**
 
    ``` sql
-   SELECT remove_columnstore_policy('older_stock_prices');
+   CALL remove_columnstore_policy('older_stock_prices');
    ```
    See [remove_columnstore_policy][remove_columnstore_policy].
 

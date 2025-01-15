@@ -26,13 +26,13 @@ You see the columnstore policies in the [informational views][informational-view
 - **Remove the columnstore policy from the `cpu` table**:
 
    ``` sql
-   SELECT remove_columnstore_policy('cpu');
+   CALL remove_columnstore_policy('cpu');
    ```
 
 - **Remove the columnstore policy from the `cpu_weekly` continuous aggregate**:
 
    ``` sql
-   SELECT remove_columnstore_policy('cpu_weekly');
+   CALL remove_columnstore_policy('cpu_weekly');
    ```
 
 ## Arguments

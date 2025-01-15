@@ -48,22 +48,22 @@ To create a columnstore job:
 
    * 60 days after the data was added to the table:
      ``` sql
-     SELECT add_columnstore_policy('stocks_real_time', after => INTERVAL '60d');
+     CALL add_columnstore_policy('stocks_real_time', after => INTERVAL '60d');
      ```
    * 3 months prior to the moment you run the query:
 
      ``` sql
-     SELECT add_columnstore_policy('stocks_real_time', created_before => INTERVAL '3 months');
+     CALL add_columnstore_policy('stocks_real_time', created_before => INTERVAL '3 months');
      ```
    * With an integer-based time column:
 
      ``` sql
-     SELECT add_columnstore_policy('table_with_bigint_time', BIGINT '600000');
+     CALL add_columnstore_policy('table_with_bigint_time', BIGINT '600000');
      ```
    * Older than eight weeks:
 
      ``` sql
-     SELECT add_columnstore_policy('cpu_weekly', INTERVAL '8 weeks');
+     CALL add_columnstore_policy('cpu_weekly', INTERVAL '8 weeks');
      ```
      
 1. **View the policies that you set or the policies that already exist** 
