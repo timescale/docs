@@ -38,6 +38,17 @@ To modify or add a lot of data to a chunk:
 
 1. **Convert the chunks to update back to the rowstore**
 
+   - Convert single chunk:
+
+      ``` sql
+      CALL convert_to_rowstore('_timescaledb_internal._hyper_2_2_chunk');
+      ```
+
+   - Convert all chunks in a hypertable named `metrics`:
+
+      ``` sql
+      SELECT convert_to_rowstore(c, true) FROM show_chunks('metrics') c;
+      ```
    ``` sql
    CALL convert_to_rowstore('_timescaledb_internal._hyper_2_2_chunk');
    ```
