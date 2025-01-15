@@ -6,4 +6,4 @@ Before integrating:
 
 [create-service]: /getting-started/:currentVersion:/services/
 [enable-timescaledb]: /self-hosted/:currentVersion:/install/
-[connection-info]: /use-timescale/:currentVersion:/integrations/query-admin/find-connection-details/
+[connection-info]: /use-timescale/:currentVersion:/integrations/find-connection-details/

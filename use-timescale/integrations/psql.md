@@ -9,7 +9,7 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 
 # Connect with psql
 
-`psql` is a terminal-based front-end to PostgreSQL that enables you to type in queries interactively, issue them to Postgres, and see the query results. 
+[`psql`][psql-docs] is a terminal-based frontend to PostgreSQL that enables you to type in queries interactively, issue them to Postgres, and see the query results. 
 
 This page shows you how to use the `psql` command line tool to interact with your $SERVICE_LONG.
 
@@ -208,7 +208,7 @@ When you start using `psql`, these are the commands you are likely to use most f
 |`\x`|Show expanded query results|
 |`\?`|List all `psql` slash commands|
 
-For more on `psql` commands, see the [Timescale psql cheat sheet][psql-cheat-sheet] and [psql documentation][psql-docs].
+For more on `psql` commands, see the [$COMPANY psql cheat sheet][psql-cheat-sheet] and [psql documentation][psql-docs].
 
 ## Save query results to a file
 
@@ -251,11 +251,11 @@ loaded into the editor. When you have made your changes, press `Esc`, then type
 edited query by pressing `↑`, and press `Enter` to run it.
 
 [psql-cheat-sheet]: https://www.timescale.com/learn/postgres-cheat-sheet
-[psql-docs]: https://www.postgresql.org/docs/13/app-psql.html
+[psql-docs]: https://www.postgresql.org/docs/current/app-psql.html
 [ssl-mode]: /use-timescale/:currentVersion:/security/strict-ssl/
 [homebrew]: https://docs.brew.sh/Installation
 [macports]: https://guide.macports.org/#installing.macports
 [windows-installer]: https://www.postgresql.org/download/windows/
-[connect-database]:/use-timescale/:currentVersion:/integrations/query-admin/psql/#connect-to-your-service
-[connection-info]: /use-timescale/:currentVersion:/integrations/query-admin/find-connection-details/
+[connect-database]:/use-timescale/:currentVersion:/integrations/psql/#connect-to-your-service
+[connection-info]: /use-timescale/:currentVersion:/integrations/find-connection-details/
 
