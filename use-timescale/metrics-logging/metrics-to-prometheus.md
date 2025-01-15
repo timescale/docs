@@ -30,7 +30,7 @@ Take the following steps to export your data:
 
 <Procedure>
 
-1. **Connect to your $SERVICE_LONG as an admin**
+1. **Connect to your $SERVICE_LONG as a privileged user**
 
    See the available [connection options][run-queries]. For self-hosted installations, use [`psql`][psql].
 
@@ -69,31 +69,32 @@ Take the following steps to export your data:
     ```
 
    - `<username>`: `monitoring`
-   - `<password>`: The `monitoring` user password
-   - `<host>`: Your $SERVICE_LONG host
-   - `<port>`: Your $SERVICE_LONG port
-   - `<database>`: Your $SERVICE_LONG name
+   - `<password>`: the `monitoring` user password
+   - `<host>`, `<port>`, and `<database>`: configure using your [connection details][connection-info].
 
    If not using Docker, download the binary and configure the `DATA_SOURCE_NAME` environment variable similarly. To check the installation, navigate to `http://<exporter-host>:9187/metrics`. You should see PostgreSQL metrics in the Prometheus format.
 
 1. **Configure Prometheus to scrape metrics**
 
-   1. Update the `prometheus.yml` file to include PostgreSQL Exporter as a scrape target:
+   1. Update the `prometheus.yml` file to include PostgreSQL Exporter as a scrape target. If `prometheus.yml` has not been created during installation, create it manually:
 
       ```yaml
+      global:
+        scrape_interval: 15s
+      
       scrape_configs:
       - job_name: 'postgresql'
         static_configs:
          - targets: ['<exporter-host>:9187'] 
       ```
 
-      Replace `<exporter-host>` with the hostname or IP address of the PostgreSQL Exporter.
+      Replace `<exporter-host>` with the hostname or IP address of the PostgreSQL Exporter. 
 
    1. Restart Prometheus.
 
    1. Check the Prometheus UI at `http://<prometheus-host>:9090`.
 
-      The PostgreSQL Exporter target under **Targets** must be active.
+      The PostgreSQL Exporter target under `Status` > `Target health` must be active.
 
 </Procedure>
 
@@ -107,3 +108,4 @@ You can further [visualize your data][grafana-prometheus] with Grafana. Use the 
 [prometheus]: https://prometheus.io/docs/introduction/overview/
 [run-queries]: /getting-started/:currentVersion:/run-queries-from-console/
 [psql]: /use-timescale/:currentVersion:/integrations/psql/
+[connection-info]: /use-timescale/:currentVersion:/integrations/find-connection-details/
