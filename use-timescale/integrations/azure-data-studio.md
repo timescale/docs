@@ -7,8 +7,7 @@ keywords: [connect]
 
 # Connect to Timescale using Azure Data Studio
 
-Azure Data Studio is a cross-platform database tool for data professionals using
-on-premises and cloud data platforms on Windows, macOS, and Linux.
+Azure Data Studio is an open-source, cross-platform hybrid data analytics tool designed to simplify the data landscape.
 
 ## Before you begin
 
