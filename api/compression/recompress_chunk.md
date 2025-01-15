@@ -43,7 +43,7 @@ the procedure with `CALL`. Don't use a `SELECT` statement.
 chunk for the first time, use [`compress_chunk`](/api/latest/compression/compress_chunk/).
 </Highlight>
 
-<Deprecated2180 />
+<Deprecated2180 /> Replaced by <a href="https://docs.timescale.com/api/latest/hypercore/convert_to_columnstore/">convert_to_columnstore()</a>.
 
 ## Required arguments
 

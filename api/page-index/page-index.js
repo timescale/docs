@@ -169,106 +169,6 @@ module.exports = [
         ],
       },
       {
-        title: "Distributed hypertables",
-        type: "directory",
-        href: "distributed-hypertables",
-        children: [
-          {
-            title: "create_distributed_hypertable",
-            href: "create_distributed_hypertable",
-          },
-          {
-            title: "add_data_node",
-            href: "add_data_node",
-          },
-          {
-            title: "attach_data_node",
-            href: "attach_data_node",
-          },
-          {
-            title: "alter_data_node",
-            href: "alter_data_node",
-          },
-          {
-            title: "detach_data_node",
-            href: "detach_data_node",
-          },
-          {
-            title: "delete_data_node",
-            href: "delete_data_node",
-          },
-          {
-            title: "distributed_exec",
-            href: "distributed_exec",
-          },
-          {
-            title: "set_number_partitions",
-            href: "set_number_partitions",
-          },
-          {
-            title: "set_replication_factor",
-            href: "set_replication_factor",
-          },
-          {
-            title: "copy_chunk",
-            href: "copy_chunk_experimental",
-          },
-          {
-            title: "move_chunk",
-            href: "move_chunk_experimental",
-          },
-          {
-            title: "cleanup_copy_chunk_operation",
-            href: "cleanup_copy_chunk_operation_experimental",
-          },
-          {
-            title: "create_distributed_restore_point",
-            href: "create_distributed_restore_point",
-          },
-        ],
-      },
-      {
-        title: "Compression",
-        type: "directory",
-        href: "compression",
-        description:
-          "We highly recommend reading the blog post and tutorial about compression before trying to set it up for the first time.",
-        children: [
-          {
-            title: "ALTER TABLE (Compression)",
-            href: "alter_table_compression",
-          },
-          {
-            title: "add_compression_policy",
-            href: "add_compression_policy",
-          },
-          {
-            title: "remove_compression_policy",
-            href: "remove_compression_policy",
-          },
-          {
-            title: "compress_chunk",
-            href: "compress_chunk",
-          },
-          {
-            title: "decompress_chunk",
-            href: "decompress_chunk",
-          },
-          {
-            title: "recompress_chunk",
-            href: "recompress_chunk",
-          },
-          {
-            title: "hypertable_compression_stats",
-            href: "hypertable_compression_stats",
-          },
-          {
-            title: "chunk_compression_stats",
-            href: "chunk_compression_stats",
-          },
-        ],
-      },
-      {
         title: "Continuous aggregates",
         type: "redirect-to-child-page",
         href: "continuous-aggregates",
@@ -658,6 +558,105 @@ module.exports = [
         href: "api-tag-overview",
         description:
           "An overview of what different tags represent in the API section of Timescale Documentation.",
+      },
+      {
+        title: "Compression (deprecated)",
+        href: "compression",
+        description:
+          "We highly recommend reading the blog post and tutorial about compression before trying to set it up for the first time.",
+        children: [
+          {
+            title: "ALTER TABLE (Compression)",
+            href: "alter_table_compression",
+          },
+          {
+            title: "add_compression_policy",
+            href: "add_compression_policy",
+          },
+          {
+            title: "remove_compression_policy",
+            href: "remove_compression_policy",
+          },
+          {
+            title: "compress_chunk",
+            href: "compress_chunk",
+          },
+          {
+            title: "decompress_chunk",
+            href: "decompress_chunk",
+          },
+          {
+            title: "recompress_chunk",
+            href: "recompress_chunk",
+          },
+          {
+            title: "hypertable_compression_stats",
+            href: "hypertable_compression_stats",
+          },
+          {
+            title: "chunk_compression_stats",
+            href: "chunk_compression_stats",
+          },
+        ],
+      },
+      {
+        title: "Distributed hypertables (deprecated)",
+        type: "directory",
+        href: "distributed-hypertables",
+        children: [
+          {
+            title: "create_distributed_hypertable",
+            href: "create_distributed_hypertable",
+          },
+          {
+            title: "add_data_node",
+            href: "add_data_node",
+          },
+          {
+            title: "attach_data_node",
+            href: "attach_data_node",
+          },
+          {
+            title: "alter_data_node",
+            href: "alter_data_node",
+          },
+          {
+            title: "detach_data_node",
+            href: "detach_data_node",
+          },
+          {
+            title: "delete_data_node",
+            href: "delete_data_node",
+          },
+          {
+            title: "distributed_exec",
+            href: "distributed_exec",
+          },
+          {
+            title: "set_number_partitions",
+            href: "set_number_partitions",
+          },
+          {
+            title: "set_replication_factor",
+            href: "set_replication_factor",
+          },
+          {
+            title: "copy_chunk",
+            href: "copy_chunk_experimental",
+          },
+          {
+            title: "move_chunk",
+            href: "move_chunk_experimental",
+          },
+          {
+            title: "cleanup_copy_chunk_operation",
+            href: "cleanup_copy_chunk_operation_experimental",
+          },
+          {
+            title: "create_distributed_restore_point",
+            href: "create_distributed_restore_point",
+          },
+        ],
       },
     ],
   },
