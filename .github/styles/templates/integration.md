@@ -6,7 +6,7 @@ keywords: [<third-party tool name>]
 
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
 
-# Integrate <third-party tool name> with $CLOUD
+# Integrate <third-party tool name> with $CLOUD_LONG
 
 // Explain what the third-party tool is and what it does in their own words, link to product docs. 
 
@@ -20,7 +20,7 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 
 ## Connect your $SERVICE_LONG
 
-Take the following steps to connect:
+To connect to $CLOUD_LONG:
 
 <Procedure>
 
@@ -40,7 +40,9 @@ Take the following steps to connect:
 
 </Procedure>
 
-## Test the integration 
+## Test the integration with $CLOUD_LONG
+
+// Add only if there is a simple way to illustrate how the two solutions work together. 
 
 Take the following steps to <whatever the tool must do in conjunction with Timescale Cloud>:
 
