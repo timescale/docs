@@ -23,7 +23,7 @@ see the [hypertable section][hypertable-docs].
 For more information about compression, see the
 [compression sction][compression-docs].
 
-<Deprecated2180 />
+<Deprecated2180 /> Replaced by <a href="https://docs.timescale.com/api/latest/hypercore/hypertable_columnstore_stats/">hypertable_columnstore_stats()</a>.
 
 ### Required arguments
 

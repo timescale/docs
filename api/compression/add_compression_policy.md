@@ -27,7 +27,7 @@ command. To enable compression on continuous aggregates, use the
 command. To view the policies that you set or the policies that already exist,
 see [informational views][informational-views].
 
-<Deprecated2180 />
+<Deprecated2180 /> Replaced by <a href="https://docs.timescale.com/api/latest/hypercore/add_columnstore_policy/">add_columnstore_policy()</a>.
 
 ## Required arguments
 
