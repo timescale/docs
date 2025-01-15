@@ -7,7 +7,7 @@ tags: [scheduled jobs, background jobs, automation framework]
 products: [cloud, self_hosted]
 api:
   license: community
-  type: function
+  type: procedure
 ---
 
 import Since2180 from "versionContent/_partials/_since_2_18_0.mdx";

@@ -5,7 +5,7 @@ topics: [columnstore, hypercore]
 keywords: [columnstore, hypercore, rowstore, chunks, backfilling]
 api:
   license: community
-  type: function
+  type: procedure
 ---
 
 import Since2180 from "versionContent/_partials/_since_2_18_0.mdx";
@@ -38,17 +38,9 @@ To modify or add a lot of data to a chunk:
 
 1. **Convert the chunks to update back to the rowstore**
 
-   - Convert single chunk:
-
-      ``` sql
-      CALL convert_to_rowstore('_timescaledb_internal._hyper_2_2_chunk');
-      ```
-
-   - Convert all chunks in a hypertable named `metrics`:
-
-      ``` sql
-      SELECT convert_to_rowstore(c, true) FROM show_chunks('metrics') c;
-      ```
+   ``` sql
+   CALL convert_to_rowstore('_timescaledb_internal._hyper_2_2_chunk');
+   ```
 
 1. **Update the data in the chunk you added to the rowstore**
 

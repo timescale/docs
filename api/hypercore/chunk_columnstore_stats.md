@@ -6,7 +6,7 @@ keywords: [columnstore, hypercore, statistics, chunks, information]
 tags: [disk space, schemas, size]
 api:
   license: community
-  type: function
+  type: procedure
 ---
 import Since2180 from "versionContent/_partials/_since_2_18_0.mdx";
 

@@ -6,7 +6,7 @@ keywords: [columnstore, rowstore, hypercore]
 tags: [chunks, hypercore]
 api:
   license: community
-  type: function
+  type: procedure
 ---
 import Since2180 from "versionContent/_partials/_since_2_18_0.mdx";
 
