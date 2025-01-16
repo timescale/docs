@@ -1,5 +1,5 @@
 ---
-title: Automate Hypercore with policies
+title: Manage data with Hypercore
 excerpt: Reduce your chunk size by more than 90% and speed up your queries by automatically converting data between the rowstore and columnstore.
 products: [cloud,]
 keywords: [hyperscore, hypertable, compression, row-columnar storage, hypercore, hyperstore]
@@ -10,8 +10,7 @@ import HCConversionOverview from "versionContent/_partials/_hypercore-conversion
 import HCPolicyWorkflow from "versionContent/_partials/_hypercore_policy_workflow.mdx";
 import UsageBasedStorage from "versionContent/_partials/_usage-based-storage-intro.mdx";
 
-
-# Automate Hypercore with policies
+# Manage data with Hypercore 
 
 Hypercore is the Timescale hybrid row-columnar storage engine. The rowstore contains row-oriented tables optimized
  for high-speed inserts and updates. The columnstore is a column-oriented storage format optimized for analytics.
