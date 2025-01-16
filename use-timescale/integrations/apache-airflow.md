@@ -5,6 +5,8 @@ products: [cloud, mst, self_hosted]
 keywords: [connect, integrate, apache, airflow]
 ---
 
+import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
+
 # Integrate Apache Airflow with $CLOUD_LONG
 
 Apache Airflow® is a platform created by the community to programmatically author, schedule and monitor workflows.
@@ -17,14 +19,9 @@ This page shows you how to use a Python connector in a DAG to integrate Apache A
 
 ## Prerequisites
 
-Before integrating:
+<IntegrationPrereqs />
 
-
-
-
-* Create a [$SERVICE_LONG][create-service], [your connection information][connection-info] to follow this procedure.
-  This procedure also works for [self-hosted $TIMESCALE_DB ][enable-timescaledb].
-* [Install Python3 and pip3](https://docs.python.org/3/using/index.html) 
+* [Install Python3 and pip3][install-python-pip] 
 * [Install Apache Airflow][install-apache-airflow]
 
    Ensure that your Airflow instance has network access to $CLOUD_LONG.
@@ -135,6 +132,7 @@ You have successfully integrated Apache Airflow with $CLOUD_LONG and created a d
 
 [create-a-table-in-timescale]: /getting-started/:currentVersion:/tables-hypertables/#create-regular-postgresql-tables-for-relational-data
 [install-apache-airflow]: https://airflow.apache.org/docs/apache-airflow/stable/start.html
+[install-python-pip]: https://docs.python.org/3/using/index.html
 [console]: https://console.cloud.timescale.com/
 [create-service]: /getting-started/:currentVersion:/services/
 [enable-timescaledb]: /self-hosted/:currentVersion:/install/
