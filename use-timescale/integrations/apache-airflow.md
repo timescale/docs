@@ -30,6 +30,9 @@ This example DAG uses the `company` table you create in  [Create regular Postgre
 
 ## Install python connectivity libraries
 
+To install the Python libraries required to connect to $CLOUD_LONG:
+<Procedure>
+
 1. **Enable PostgreSQL connections between Airflow and $CLOUD_LONG**
 
     ```bash
@@ -41,37 +44,38 @@ This example DAG uses the `company` table you create in  [Create regular Postgre
     ```bash
     pip install apache-airflow-providers-postgres
     ```
+</Procedure>
 
 ## Create a connection between Airflow and your $SERVICE_LONG
 
 In your Airflow instance, securely connect to your $SERVICE_LONG:
 
+<Procedure>
+
 1.  **Run Airflow**
 
     On your development machine, run the following command:
+
     ```bash
     airflow standalone
     ```
+
     The username and password for Airflow UI are displayed in the `standalone | Login with username`
     line in the output.
 
 1. **Add a connection from Airflow to your $SERVICE_LONG**
 
    1. In your browser, navigate to `localhost:8080`, then select `Admin` > `Connections`.
-   1. Click `+` (Add a new record), then use your [connection info][connection-info] to fill in the following fields:
+   1. Click `+` (Add a new record), then use your [connection info][connection-info] to fill in 
+      the form. The `Connection Type` is `Postgres`.
 
-      *  **Connection Id**: `timescale_connection`.
-      *  **Connection Type**: `Postgres`
-      *  **Host**: your $SERVICE_LONG `host`
-      *  **Database**: your $SERVICE_LONG `dbname`
-      *  **Login**: your $SERVICE_LONG `user`
-      *  **Password**: your $SERVICE_LONG `password`
-      *  **Port**: your $SERVICE_LONG `port`
- 
+</Procedure> 
 
 ## Exchange data between Airflow and your $SERVICE_LONG
  
 To exchange data between Airflow and your $SERVICE_LONG:
+
+<Procedure>
 
 1. **Create and execute a DAG** 
 
@@ -114,7 +118,7 @@ To exchange data between Airflow and your $SERVICE_LONG:
            dag=dag,
        )
        ```
-      This DAG uses the `company` table created in [Create a Table in Timescale Cloud service][create-a-table-in-timescale].
+      This DAG uses the `company` table created in [Create regular PostgreSQL tables for relational data][create-a-table-in-timescale].
 
    1.  In your browser, refresh the [Airflow UI][Airflow_UI].
    1.  In `Search DAGS`, type `timescale_dag` and press ENTER.  
@@ -126,6 +130,8 @@ To exchange data between Airflow and your $SERVICE_LONG:
    1. Run a query to view your data. For example: `SELECT symbol, name FROM company;`. 
    
       You see the new rows inserted in the table.
+
+</Procedure>
 
 You have successfully integrated Apache Airflow with $CLOUD_LONG and created a data pipeline.
 
