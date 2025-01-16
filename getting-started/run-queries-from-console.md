@@ -229,11 +229,11 @@ To use SQL editor with Timescale:
 [readreplica]: /use-timescale/:currentVersion:/ha-replicas/read-scaling/
 [run-popsql]: /getting-started/:currentVersion:/run-queries-from-console/#data-mode
 [run-sqleditor]: /getting-started/:currentVersion:/run-queries-from-console/#sql-editor
-[integrations]: /use-timescale/:currentVersion:/integrations/query-admin/
+[integrations]: /use-timescale/:currentVersion:/integrations/
 [timescale-console]: https://console.cloud.timescale.com/
 [portal-ops-mode]: https://console.cloud.timescale.com/dashboard/services
 [pricing-plan-features]: https://www.timescale.com/pricing#features
-[install-psql]: /use-timescale/:currentVersion:/integrations/query-admin/psql/
+[install-psql]: /use-timescale/:currentVersion:/integrations/psql/
 [create-cloud-account]: /getting-started/:currentVersion:/services/#create-a-timescale-cloud-account
 [portal-data-mode]: https://console.cloud.timescale.com/dashboard/services?popsql
 [services-portal]: https://console.cloud.timescale.com/dashboard/services
