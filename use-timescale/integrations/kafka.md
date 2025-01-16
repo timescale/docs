@@ -1,8 +1,7 @@
 ---
 title: Integrate Apache Kafka with Timescale Cloud 
-excerpt: Learn how to integrate Apache Kafka with Timescale Cloud to manage and analyze streaming data efficiently.
-products: [cloud, self_hosted]
-keywords: [Apache Kafka, integrations]
+excerpt: Learn how to integrate Apache Kafka with Timescale Cloud to manage and analyze streaming data efficiently. 
+keywords: [Apache Kafka, Timescale Cloud, integrations]
 ---
 
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
@@ -29,38 +28,34 @@ To install and configure Apache Kafka:
 
 1. **Create a directory called `/usr/local/kafka` to store everything related to Kafka**
 
-    ```bash
-    wget https://dlcdn.apache.org/kafka/3.9.0/kafka_2.13-3.9.0.tgz
-    sudo mkdir /usr/local/kafka
-    ```
-
 1. **Call `chown` to change the directory ownership to you** 
 
     For production, create a separate user to launch the binaries and scripts from, for added security.
 
-    ```bash
-    sudo chown -R $(whoami) /usr/local/kafka
-    ```
-
 1. **Extract the compressed archive into the `/usr/local/kafka` directory**
 
     ```bash
-    tar -xzf kafka_2.13-3.9.0.tgz -C /usr/local/kafka --strip-components=1
+    wget https://downloads.apache.org/kafka/3.5.1/kafka_2.13-3.5.1.tgz
+    sudo mkdir /usr/local/kafka
+    sudo chown -R $(whoami) /usr/local/kafka
+
+    tar \
+    -xzf kafka_2.13-3.5.1.tgz \
+    -C /usr/local/kafka \
+    --strip-components=1
     ```
    
 1. **Generate a random UUID and format the storage for [KRaft][kraft]**
 
-    This procedure uses the KRaft consensus algorithm that removes the need to run a separate ZooKeeper process alongside Kafka.
-
-    ```bash
-    export uuid=$(/usr/local/kafka/bin/kafka-storage.sh random-uuid)
-    ```
+   This procedure uses the KRaft consensus algorithm that removes the need to run a separate Zookeeper process alongside Kafka.
 
 1. **Start Kafka with the `kafka-server-start.sh` script**
 
-    Use the `-daemon` flag to run this process in the background. Alternatively, use `tmux` to temporarily run Kafka in a separate terminal. The second argument in the start command is the configuration file, which is the default configuration file used when running Kafka with KRaft:
+   Use the `-daemon` flag to run this process in the background. Alternatively, use `tmux` to temporarily run Kafka in a separate terminal. The second argument in the start command is the configuration file, which is the default configuration file used when running Kafka with KRaft:
 
     ```bash
+    export uuid=$(/usr/local/kafka/bin/kafka-storage.sh random-uuid)
+
     /usr/local/kafka/bin/kafka-storage.sh format \
     -t $uuid \
     -c /usr/local/kafka/config/kraft/server.properties
@@ -72,7 +67,8 @@ To install and configure Apache Kafka:
    
 1. **Create topics with the `kafka-topics.sh` script**
 
-   Create `mytopic` to publish JSON messages that will be consumed by the sink connector and inserted into your $SERVICE_LONG. Then create the `deadletter` topic to be used as a dead letter queue. A dead letter queue stores messages that your Kafka Connect workers couldn’t process, so you can see what messages are causing errors.
+   Create `mytopic` to publish JSON messages that will be consumed by the sink connector and inserted into your $SERVICE_LONG.
+   Then create the `deadletter` topic to be used as a dead letter queue. A dead letter queue stores messages that your Kafka Connect workers couldn’t process, so you can see what messages are causing errors.
 
     ```bash
     /usr/local/kafka/bin/kafka-topics.sh \
@@ -125,25 +121,19 @@ To set up Kafka Connect server, plugins, drivers, and connectors:
 1. **Download the PostgreSQL driver and move it to the plugins directory**
 
     ```bash
-    wget https://jdbc.postgresql.org/download/postgresql-42.6.0.jar
-
-    mv postgresql-42.6.0.jar /usr/local/kafka/plugins/camel-postgresql-sink-kafka-connector
+    wget https://jdbc.postgresql.org/download/postgresql-42.6.0.jarmv postgresql-42.6.0.jar 
+    /usr/local/kafka/plugins/camel-postgresql-sink-kafka-connector
     ```
    
 1. **Start the Kafka Connect process**
 
-    Use `nohup` to run Kafka Connect in the background and log the output to connect.log in the logs directory.
-
     ```bash
-    nohup /usr/local/kafka/bin/connect-distributed.sh /usr/local/kafka/config/connect-distributed.properties > /usr/local/kafka/logs/connect.log 2>&1 &
-    ```
+   /usr/local/kafka/bin/connect-distributed.sh
+   -daemon \
+   /usr/local/kafka/config/connect-distributed.properties
+   ```
 
-    Alternatively, start the process in a `tmux` window to see the output.
-
-    ```bash
-    tmux
-    /usr/local/kafka/bin/connect-distributed.sh /usr/local/kafka/config/connect-distributed.properties
-    ```
+   Alternatively, omit the `-daemon` flag and start the process in a `tmux` window to see the output.
 
 </Procedure>
 
@@ -152,12 +142,6 @@ To set up Kafka Connect server, plugins, drivers, and connectors:
 To create a sink: 
 
 <Procedure>
-
-1. **Verify Kafka Connect is running on port 8083**
-
-    ```bash
-    curl http://localhost:8083
-    ```
 
 1. **Send a POST request to the Kafka Connect REST API on port 8083** 
 
@@ -182,15 +166,7 @@ To create a sink:
        "camel.kamelet.postgresql-sink.query": "INSERT INTO accounts (name,city) VALUES (:#name,:#city)"
      }
    }' > timescale-sink.properties
-   ```
-
-   To send the POST request to Kafka Connect's REST API (on port 8083), you can use the following `curl` command:
-
-   ```bash
-   curl -X POST -H "Content-Type: application/json" \
-    --data @timescale-sink.properties \
-    http://localhost:8083/connectors
-   ```
+   ````
 
 1. **Test the connection**
 
@@ -220,7 +196,6 @@ To test this integration, send some messages onto the `mytopic` topic. You can d
     
    SELECT create_hypertable('accounts', 'created_at');
    ```
-   If you encounter an error, click on the dropdown next to "Run" and uncheck "Limit 100"
    
 1. **Install kafkacat**
 
@@ -228,12 +203,12 @@ To test this integration, send some messages onto the `mytopic` topic. You can d
    sudo apt install kafkacat
    ```
 
-1. **Pipe a JSON string containing a name and city into kafkacat(now known as kcat)**
+1. **Pipe a JSON string containing a name and city into kafkacat**
 
    ```bash
-   echo '{"name":"Mathis","city":"Salt Lake City"}' | kcat -P -b localhost:9092 -t mytopic
-   echo '{"name":"Oliver","city":"Moab"}' | kcat -P -b localhost:9092 -t mytopic
-   echo '{"name":"Lauren","city":"Park City"}' | kcat -P -b localhost:9092 -t mytopic
+   echo '{"name":"Mathis","city":"Salt Lake City"}' | kafkacat -P -b localhost:9092 -t mytopic
+   echo '{"name":"Oliver","city":"Moab"}' | kafkacat -P -b localhost:9092 -t mytopic
+   echo '{"name":"Lauren","city":"Park City"}' | kafkacat -P -b localhost:9092 -t mytopic
    ```
    
    This command uses the following flags:

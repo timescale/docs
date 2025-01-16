@@ -41,17 +41,14 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 |:---------------------------:|-----------------------------------------------------------------------------------------------------------------------------|
 | [Terraform][terraform]      | An infrastructure-as-code tool that enables you to safely and predictably provision and manage infrastructure in any cloud. |
 
+
 ## Data engineering and extract, transform, load
 
 |               Name               | Description                                              |
 |:--------------------------------:|----------------------------------------------------------|
 | [Apache Airflow][apache-airflow] | Programmatically author, schedule, and monitor workflows. |
-
-## Data ingestion and streaming
-
-|         Name          | Description                                                                                                                 |
-|:---------------------:|-----------------------------------------------------------------------------------------------------------------------------|
 | [Apache Kafka][kafka] | A distributed event streaming platform used for high-performance data pipelines, streaming analytics, and data integration. |
+
 
 [psql]: /use-timescale/:currentVersion:/integrations/psql/
 [qstudio]: /use-timescale/:currentVersion:/integrations/qstudio/
@@ -63,4 +60,4 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 [terraform]: /use-timescale/:currentVersion:/integrations/terraform
 [apache-airflow]: /use-timescale/:currentVersion:/integrations/apache-airflow
 [postgresql-integrations]: https://slashdot.org/software/p/PostgreSQL/integrations/
-[kafka]: /use-timescale/:currentVersion:/integrations/kafka/
+[kafka]: /use-timescale/:currentVersion:/integrations/apache-kafka
