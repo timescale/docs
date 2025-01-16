@@ -41,6 +41,14 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 |:---------------------------:|-----------------------------------------------------------------------------------------------------------------------------|
 | [Terraform][terraform]      | An infrastructure-as-code tool that enables you to safely and predictably provision and manage infrastructure in any cloud. |
 
+## Data ingestion and streaming
+
+|         Name          | Description                                                                                                                 |
+|:---------------------:|-----------------------------------------------------------------------------------------------------------------------------|
+| [Apache Kafka][kafka] | A distributed event streaming platform used for high-performance data pipelines, streaming analytics, and data integration. |
+
+
+
 [psql]: /use-timescale/:currentVersion:/integrations/psql/
 [qstudio]: /use-timescale/:currentVersion:/integrations/qstudio/
 [dbeaver]: /use-timescale/:currentVersion:/integrations/dbeaver/
@@ -50,3 +58,4 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 [tableau]: /use-timescale/:currentVersion:/integrations/tableau/
 [terraform]: /use-timescale/:currentVersion:/integrations/terraform
 [postgresql-integrations]: https://slashdot.org/software/p/PostgreSQL/integrations/
+[kafka]: 
