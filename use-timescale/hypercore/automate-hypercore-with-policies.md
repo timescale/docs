@@ -9,7 +9,7 @@ import Prereq from "versionContent/_partials/_prereqs-cloud-only.mdx";
 import HCConversionOverview from "versionContent/_partials/_hypercore-conversion-overview.mdx";
 import HCPolicyWorkflow from "versionContent/_partials/_hypercore_policy_workflow.mdx";
 
-# Automate Hypercore with policies
+# Manage Hypercore 
 
 Hypercore is the Timescale hybrid row-columnar storage engine. The rowstore contains row-oriented tables optimized
  for high-speed inserts and updates. The columnstore is a column-oriented storage format optimized for analytics.
@@ -28,7 +28,7 @@ columnstore.
 
 This page uses the [real-time-stock-data][ingest-data] sample data in the samples.   
 
-## Implement the Hypercore workflow 
+## Manage your data with columnstore policies 
 
 The compression ratio and query performance of data in the columnstore is dependent on the order and structure of your 
 data. Rows that change over a dimension should be close to each other. With time-series data, you `orderby` the time 
@@ -51,6 +51,9 @@ you write to and read from the columstore.
 To setup your Hypercore automation:
 
 <HCPolicyWorkflow />
+
+
+## Manually convert data between the rowstore and columnstore
 
 
 ## Reference

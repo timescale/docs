@@ -203,12 +203,10 @@ module.exports = [
             href: "automate-hypercore-with-policies",
             excerpt: "Automat",
           },
-          {
             title: "Update data in the columnstore",
             href: "update-data-in-the-columnstore",
             excerpt: "Add and remove data in the columnstore",
           },
-
         ],
       },
       {
