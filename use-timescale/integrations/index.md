@@ -47,8 +47,6 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 |:---------------------:|-----------------------------------------------------------------------------------------------------------------------------|
 | [Apache Kafka][kafka] | A distributed event streaming platform used for high-performance data pipelines, streaming analytics, and data integration. |
 
-
-
 [psql]: /use-timescale/:currentVersion:/integrations/psql/
 [qstudio]: /use-timescale/:currentVersion:/integrations/qstudio/
 [dbeaver]: /use-timescale/:currentVersion:/integrations/dbeaver/
