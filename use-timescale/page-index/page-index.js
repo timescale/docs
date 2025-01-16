@@ -780,7 +780,7 @@ module.exports = [
           },
           {
             title: "Apache Airflow",
-            href: "integrate-apache-airflow-with-timescale-cloud",
+            href: "apache-airflow",
             excerpt: "Integrate Apache Airflow with Timescale Cloud",
           },
           {

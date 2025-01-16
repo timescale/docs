@@ -7,8 +7,7 @@ keywords: [connect, integrate, apache, airflow]
 
 # Integrate Apache Airflow with $CLOUD_LONG
 
-Apache Airflow® is a platform created by the community to programmatically author,
-schedule and monitor workflows.
+Apache Airflow® is a platform created by the community to programmatically author, schedule and monitor workflows.
 
 A [DAG (Directed Acyclic Graph)][Airflow-DAG] is the core concept of Airflow, collecting [Tasks][Airflow-Task] together,
 organized with dependencies and relationships to say how they should run. You declare a DAG in a Python file
