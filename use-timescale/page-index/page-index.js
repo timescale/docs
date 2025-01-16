@@ -784,7 +784,7 @@ module.exports = [
             excerpt: "Integrate Apache Airflow with Timescale Cloud",
           },
           {
-            title: "Apache kafka",
+            title: "Apache Kafka",
             href: "apache-kafka",
             excerpt: "Integrate Apache Kafka with Timescale Cloud",
           },
