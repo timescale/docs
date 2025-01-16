@@ -31,6 +31,7 @@ This example DAG uses the `company` table you create in  [Create regular Postgre
 ## Install python connectivity libraries
 
 To install the Python libraries required to connect to $CLOUD_LONG:
+
 <Procedure>
 
 1. **Enable PostgreSQL connections between Airflow and $CLOUD_LONG**
@@ -44,6 +45,7 @@ To install the Python libraries required to connect to $CLOUD_LONG:
     ```bash
     pip install apache-airflow-providers-postgres
     ```
+   
 </Procedure>
 
 ## Create a connection between Airflow and your $SERVICE_LONG
