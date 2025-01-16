@@ -79,7 +79,6 @@ To import data from a CSV file:
      ```bash
        timescaledb-parallel-copy \
        --connection $TARGET \
-       --db-name tsdb \
        --table <TABLE_NAME> \
        --file <FILE_NAME>.csv \
        --workers <NUM_WORKERS> \
