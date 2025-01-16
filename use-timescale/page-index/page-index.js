@@ -778,12 +778,11 @@ module.exports = [
             href: "find-connection-details",
             excerpt: "Find connection information for your Timescale Service",
           },
-
           {
-            title: "Apache kafka",
+            title: "Apache Kafka",
             href: "kafka",
             excerpt: "Integrate Apache Kafka with Timescale Cloud",
-          }
+          },
           {
             title: "Azure Data Studio",
             href: "azure-data-studio",
@@ -828,7 +827,6 @@ module.exports = [
             title: "Troubleshooting Timescale integrations",
             href: "troubleshooting",
             type: "placeholder",
-            excerpt: "Resolve integration issues",
           },
         ],
       },

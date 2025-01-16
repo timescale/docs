@@ -1,7 +1,8 @@
 ---
 title: Integrate Apache Kafka with Timescale Cloud 
-excerpt: Learn how to integrate Apache Kafka with Timescale Cloud to manage and analyze streaming data efficiently. 
-keywords: [Apache Kafka, Timescale Cloud, integrations]
+excerpt: Learn how to integrate Apache Kafka with Timescale Cloud to manage and analyze streaming data efficiently.
+products: [cloud, self_hosted]
+keywords: [Apache Kafka, integrations]
 ---
 
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
@@ -47,11 +48,11 @@ To install and configure Apache Kafka:
    
 1. **Generate a random UUID and format the storage for [KRaft][kraft]**
 
-   This procedure uses the KRaft consensus algorithm that removes the need to run a separate Zookeeper process alongside Kafka.
+    This procedure uses the KRaft consensus algorithm that removes the need to run a separate Zookeeper process alongside Kafka.
 
 1. **Start Kafka with the `kafka-server-start.sh` script**
 
-   Use the `-daemon` flag to run this process in the background. Alternatively, use `tmux` to temporarily run Kafka in a separate terminal. The second argument in the start command is the configuration file, which is the default configuration file used when running Kafka with KRaft:
+    Use the `-daemon` flag to run this process in the background. Alternatively, use `tmux` to temporarily run Kafka in a separate terminal. The second argument in the start command is the configuration file, which is the default configuration file used when running Kafka with KRaft:
 
     ```bash
     export uuid=$(/usr/local/kafka/bin/kafka-storage.sh random-uuid)
@@ -67,8 +68,7 @@ To install and configure Apache Kafka:
    
 1. **Create topics with the `kafka-topics.sh` script**
 
-   Create `mytopic` to publish JSON messages that will be consumed by the sink connector and inserted into your $SERVICE_LONG.
-   Then create the `deadletter` topic to be used as a dead letter queue. A dead letter queue stores messages that your Kafka Connect workers couldn’t process, so you can see what messages are causing errors.
+    Create `mytopic` to publish JSON messages that will be consumed by the sink connector and inserted into your $SERVICE_LONG. Then create the `deadletter` topic to be used as a dead letter queue. A dead letter queue stores messages that your Kafka Connect workers couldn’t process, so you can see what messages are causing errors.
 
     ```bash
     /usr/local/kafka/bin/kafka-topics.sh \
