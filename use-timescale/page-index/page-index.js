@@ -199,7 +199,7 @@ module.exports = [
           "Seamlessly switch between row-oriented and column-oriented storage",
         children: [
           {
-            title: "Automate Hypercore with policies",
+            title: "Manage data with Hypercore",
             href: "automate-hypercore-with-policies",
             excerpt: "Automat",
           },
