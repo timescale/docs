@@ -8,13 +8,12 @@ tags: [two-factor user authentication]
 
 # Multi-factor user authentication
 
-You can use two-factor authentication to log in to your $COMPANY account.
+You can use two-factor authentication to log in to your $COMPANY account. Two-factor authentication, also known as two-step verification or 2FA, enables
+secure logins that require an authentication code in addition to your user
+password. The code is provided by an authenticator app on your mobile device. There are multiple authenticator apps available. 
 
 ![Timescale Console 2FA](https://assets.timescale.com/docs/images/timescale-console-2fa.png)
 
-Two-factor authentication, also known as two-step verification or 2FA, enables
-secure logins that require an authentication code in addition to your user
-password. The code is provided by an authenticator app on your mobile device. There are multiple authenticator apps available. 
 This page describes how to configure two-factor authentication with Google Authenticator.
 
 ## Prerequisites
