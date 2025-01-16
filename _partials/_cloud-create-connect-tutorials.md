@@ -39,4 +39,4 @@ command-line utility. If you've used PostgreSQL before, you might already have
 </Procedure>
 
 [timescale-portal]: https://console.cloud.timescale.com/
-[install-psql]: /use-timescale/:currentVersion:/integrations/query-admin/psql/
+[install-psql]: /use-timescale/:currentVersion:/integrations/psql/
