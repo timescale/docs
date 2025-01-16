@@ -9,6 +9,9 @@ tags: [two-factor user authentication]
 # Multi-factor user authentication
 
 You can use two-factor authentication to log in to your $COMPANY account.
+
+![Timescale Console 2FA](https://assets.timescale.com/docs/images/timescale-console-2fa.png)
+
 Two-factor authentication, also known as two-step verification or 2FA, enables
 secure logins that require an authentication code in addition to your user
 password. The code is provided by an authenticator app on your mobile device. There are multiple authenticator apps available. 
@@ -27,17 +30,15 @@ Take the following steps to configure two-factor authentication:
 
 <Procedure>
 
-1.  [Log in][cloud-login] to your $COMPANY account.
+1.  Log in to [$CONSOLE][cloud-login].
 1.  Click the `User name` icon in the bottom left of $CONSOLE and select `Account`.
-1.  In the `Account` page, click `Add two-factor authentication`.
+1.  In `Account`, click `Add two-factor authentication`.
 1.  On your mobile device, open Google Authenticator, tap `+`, and select
     `Scan a QR code`.
-1.  On your mobile device, scan the QR code provided by $COMPANY in the
-    `Connect to an authenticator app` dialog and click `Next`.
-1.  In the dashboard, type the verification code provided by Google
-    Authenticator, and click `Next`.
-1.  In the `Save your recovery codes` dialog, copy, download, or print the
-    recovery codes, and save them in a safe place. These are used to recover
+1.  Scan the QR code provided by $CONSOLE in `Connect to an authenticator app` and click `Next`.
+1.  In $CONSOLE, enter the verification code provided by Google Authenticator, and click `Next`.
+1.  In `Save your recovery codes`, copy, download, or print the
+    recovery codes. These are used to recover
     your account if you lose your device.
 1.  Verify that you have saved your recovery codes, by clicking `OK, I saved my
     recovery codes`.
@@ -46,7 +47,7 @@ Take the following steps to configure two-factor authentication:
 
 </Procedure>
 
-<Highlight type="warning">
+<Highlight type="info">
 If you lose access to the mobile device you use for multi-factor authentication,
 and you do not have access to your recovery codes, you cannot sign in to your
 $COMPANY account. To regain access to your account,
@@ -61,17 +62,17 @@ recovery codes, or lost access to them, you can generate another list. Generatin
 
 <Procedure>
 
-1.  [Log in][cloud-login] to your $COMPANY account.
+1.  Log in to [$CONSOLE][cloud-login].
 1.  Click the `User name` icon in the bottom left and select `Account`.
-1.  In the `Account` page, navigate to the `Two-factor authentication` section.
+1.  In `Account`, navigate to `Two-factor authentication`.
 1.  Click `Regenerate recovery codes`.
-1.  In the `Two-factor authentication` dialog, type the verification code from
+1.  In `Two-factor authentication`, enter the verification code from
     your authenticator app.
-    Alternatively, if you do not have access to the authenticator application,
-    click `Use recovery code instead` to type the recovery code.
+    Alternatively, if you do not have access to the authenticator app,
+    click `Use recovery code instead` to enter a recovery code.
 1.  Click `Next`.
-1.  In the `Save your recovery codes` dialog, copy, download, or print the
-    recovery codes, and save them in a safe place. These are used to recover
+1.  In `Save your recovery codes`, copy, download, or print the
+    recovery codes. These are used to recover
     your account if you lose your device.
 1.  Verify that you have saved your recovery codes, by clicking `OK, I saved my recovery codes`.
 
@@ -85,12 +86,11 @@ again with your new device.
 
 <Procedure>
 
-1.  [Log in][cloud-login]  to your $COMPANY account.
+1.  Log in to [$CONSOLE][cloud-login].
 1.  Click the `User name` icon in the bottom left of $CONSOLE and select `Account`.
-1.  In the `Account` page, navigate to the `Two-factor authentication` section.
+1.  In `Account`, navigate to `Two-factor authentication`.
 1.  Click `Remove two-factor authentication`.
-1.  In the `Are you sure` dialog, type the verification code from your
-    authenticator app. Alternatively click `Use recovery code instead` to type the
+1.  Enter the verification code from your authenticator app to confirm. Alternatively click `Use recovery code instead` to type the
     recovery code.
 1.  Click `Remove`.
 
