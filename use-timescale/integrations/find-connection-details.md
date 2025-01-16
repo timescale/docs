@@ -51,7 +51,5 @@ In the `Services` page of the $MST_CONSOLE_LONG, click the service you want to c
 
 </Tabs>
 
-[about-psql]: /use-timescale/:currentVersion:/integrations/query-admin/psql/
-[tsc-portal]: https://console.cloud.timescale.com/
 [console-services]: https://console.cloud.timescale.com/dashboard/services
 [postgres-config]: https://www.postgresql.org/docs/current/runtime-config-file-locations.html

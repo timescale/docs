@@ -837,6 +837,10 @@ module.exports = [
     from: '/use-timescale/latest/integrations/query-admin/about-psql/',
     to: 'https://docs.timescale.com/use-timescale/latest/integrations/psql/',
   },
+    {
+      from: '/use-timescale/latest/integrations/query-admin/psql/',
+      to: 'https://docs.timescale.com/use-timescale/latest/integrations/psql/',
+    },
   {
     from: '/use-timescale/latest/integrations/query-admin/about-connecting/',
     to: 'https://docs.timescale.com/use-timescale/latest/integrations/find-connection-details/',
