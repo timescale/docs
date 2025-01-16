@@ -28,7 +28,7 @@ columnstore.
 
 This page uses the [real-time-stock-data][ingest-data] sample data in the samples.   
 
-## The Hypercore automation workflow 
+## Manage your data with columnstore policies 
 
 The compression ratio and query performance of data in the columnstore is dependent on the order and structure of your 
 data. Rows that change over a dimension should be close to each other. With time-series data, you `orderby` the time 
