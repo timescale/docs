@@ -42,11 +42,11 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 | [Terraform][terraform]      | An infrastructure-as-code tool that enables you to safely and predictably provision and manage infrastructure in any cloud. |
 
 
-## Data Engineering and Extract, transform, load
+## Data engineering and extract, transform, load
 
 |               Name               | Description                                              |
 |:--------------------------------:|----------------------------------------------------------|
-| [Apache Airflow][apache-airflow] | Programmatically author, schedule and monitor workflows. |
+| [Apache Airflow][apache-airflow] | Programmatically author, schedule, and monitor workflows. |
 
 
 

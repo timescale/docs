@@ -9,7 +9,7 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 
 # Integrate Apache Airflow with $CLOUD_LONG
 
-Apache Airflow® is a platform created by the community to programmatically author, schedule and monitor workflows.
+Apache Airflow® is a platform created by the community to programmatically author, schedule, and monitor workflows.
 
 A [DAG (Directed Acyclic Graph)][Airflow-DAG] is the core concept of Airflow, collecting [Tasks][Airflow-Task] together,
 organized with dependencies and relationships to say how they should run. You declare a DAG in a Python file
@@ -57,8 +57,8 @@ In your Airflow instance, securely connect to your $SERVICE_LONG:
 
 1. **Add a connection from Airflow to your $SERVICE_LONG**
 
-   1. In your browser, navigate to `localhost:8080`, then select **Admin** > **Connections**.
-   1. Click **+** (Add a new record), then use your [connection info][connection-info] to fill in the following fields:
+   1. In your browser, navigate to `localhost:8080`, then select `Admin` > `Connections`.
+   1. Click `+` (Add a new record), then use your [connection info][connection-info] to fill in the following fields:
 
       *  **Connection Id**: `timescale_connection`.
       *  **Connection Type**: `Postgres`
@@ -122,7 +122,7 @@ To exchange data between Airflow and your $SERVICE_LONG:
        ![daily eth volume of assets](https://assets.timescale.com/docs/images/integrations-apache-airflow.png)
 1. **Verify that the data appears in $CLOUD_LONG** 
 
-   1. In [Timescale Console][console], navigate to your service and click **SQL editor**. 
+   1. In [Timescale Console][console], navigate to your service and click `SQL editor`. 
    1. Run a query to view your data. For example: `SELECT symbol, name FROM company;`. 
    
       You see the new rows inserted in the table.
@@ -136,7 +136,7 @@ You have successfully integrated Apache Airflow with $CLOUD_LONG and created a d
 [console]: https://console.cloud.timescale.com/
 [create-service]: /getting-started/:currentVersion:/services/
 [enable-timescaledb]: /self-hosted/:currentVersion:/install/
-[connection-info]: /use-timescale/:currentVersion:/integrations/query-admin/about-connecting/
+[connection-info]: /use-timescale/:currentVersion:/integrations/find-connection-details/
 [Airflow-DAG]: https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/dags.html#dags
 [Airflow-Task]:https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/tasks.html
 [Airflow_UI]: localhost:8080
