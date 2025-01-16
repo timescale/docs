@@ -91,7 +91,7 @@ To exchange data between Airflow and your $SERVICE_LONG:
        from datetime import datetime
    
        def insert_data_to_timescale():
-           hook = PostgresHook(postgres_conn_id='timescale_connection')
+           hook = PostgresHook(postgres_conn_id='the ID of the connenction you created')
            conn = hook.get_conn()
            cursor = conn.cursor()
            """
