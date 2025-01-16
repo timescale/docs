@@ -58,4 +58,4 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 [tableau]: /use-timescale/:currentVersion:/integrations/tableau/
 [terraform]: /use-timescale/:currentVersion:/integrations/terraform
 [postgresql-integrations]: https://slashdot.org/software/p/PostgreSQL/integrations/
-[kafka]: 
+[kafka]: /use-timescale/:currentVersion:/integrations/kafka/

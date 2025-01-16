@@ -776,52 +776,59 @@ module.exports = [
           {
             title: "Find your connection details",
             href: "find-connection-details",
-            excerpt: "Learn about connecting to your Timescale database",
+            excerpt: "Find connection information for your Timescale Service",
           },
+
+          {
+            title: "Apache kafka",
+            href: "kafka",
+            excerpt: "Integrate Apache Kafka with Timescale Cloud",
+          }
           {
             title: "Azure Data Studio",
             href: "azure-data-studio",
-            excerpt: "Install Azure Data Studio to connect to Timescale",
+            excerpt: "Integrate Azure Data Studio with Timescale Cloud",
           },
           {
             title: "DBeaver",
             href: "dbeaver",
-            excerpt: "Install DBeaver to connect to Timescale",
+            excerpt: "Integrate DBeaver with Timescale Cloud",
           },
           {
             title: "pgAdmin",
             href: "pgadmin",
-            excerpt: "Install pgAdmin to connect to Timescale",
+            excerpt: "Integrate pgAdmin with Timescale Cloud",
           },
           {
             title: "psql",
             href: "psql",
-            excerpt: "Install psql to connect to Timescale",
+            excerpt: "Install psql and connect to your service",
           },
           {
             title: "qStudio",
             href: "qstudio",
-            excerpt: "Install qstudio to connect to Timescale",
+            excerpt: "Integrate qstudio with Timescale Cloud",
           },
           {
             title: "Grafana",
             href: "grafana",
-            excerpt: "Use Grafana with Timescale",
+            excerpt: "Integrate Grafana with Timescale Cloud",
           },
           {
             title: "Tableau",
             href: "tableau",
-            excerpt: "Use Tableau with Timescale",
+            excerpt: "Integrate Tableau with Timescale Cloud",
           },
           {
             title: "Terraform",
             href: "terraform",
-            excerpt: "Manage your Timescale services via Terraform",
+            excerpt: "Integrate Terraform with Timescale Cloud",
           },
           {
             title: "Troubleshooting Timescale integrations",
             href: "troubleshooting",
             type: "placeholder",
+            excerpt: "Resolve integration issues",
           },
         ],
       },
