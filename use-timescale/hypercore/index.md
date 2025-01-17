@@ -5,6 +5,8 @@ products: [cloud,]
 keywords: [hyperscore, hypertable, compression, row-columnar storage, hypercore, hyperstore]
 ---
 
+import UsageBasedStorage from "versionContent/_partials/_usage-based-storage-intro.mdx";
+
 # Hypercore
 
 Hypercore is the Timescale hybrid row-columnar storage engine, designed specifically for
@@ -38,14 +40,6 @@ in each Timescale Cloud service:
 
 ![Hypercore workflow](https://assets.timescale.com/docs/images/hypercore-overview.png)
 
-## Prerequisites
+<UsageBasedStorage />
 
 
-## The hypercore workflow
-
-IAIN: add a section showing the things to do. 
-
-Remember to link to the API ref. 
-
-
-[compression]: /use-timescale/:currentVersion:/compression/
