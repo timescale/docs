@@ -1,7 +1,7 @@
 ---
 api_name: convert_to_columnstore()
 excerpt: Manually add a chunk to thee columnstore
-topics: [columnstore, rowstore, hypercore]
+topics: [hypercore, columnstore, rowstore]
 keywords: [columnstore, rowstore, hypercore]
 tags: [chunks, hypercore]
 api:

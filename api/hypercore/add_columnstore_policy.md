@@ -1,7 +1,7 @@
 ---
 api_name: add_columnstore_policy()
 excerpt: Set a policy to automatically move chunks in a hypertable to the columnstore when they reach a given age.
-topics: [columnstore, hypercore, jobs]
+topics: [hypercore, columnstore, jobs]
 keywords: [columnstore, hypercore, policies]
 tags: [scheduled jobs, background jobs, automation framework]
 products: [cloud, self_hosted]

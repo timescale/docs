@@ -1,7 +1,7 @@
 ---
 api_name: convert_to_rowstore()
 excerpt: Move a chunk from the columnstore to the rowstore
-topics: [columnstore, hypercore]
+topics: [hypercore, columnstore]
 keywords: [columnstore, hypercore, rowstore, chunks, backfilling]
 api:
   license: community

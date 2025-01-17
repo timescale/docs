@@ -1,7 +1,7 @@
 ---
 api_name: chunk_columnstore_stats()
 excerpt: Get statistics about chunks in the columnstore
-topics: [columnstore, hypercore]
+topics: [hypercore, columnstore]
 keywords: [columnstore, hypercore, statistics, chunks, information]
 tags: [disk space, schemas, size]
 api:
