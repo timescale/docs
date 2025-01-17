@@ -8,6 +8,8 @@ keywords: [hyperscore, hypertable, compression, row-columnar storage, hypercore,
 import PrereqCloud from "versionContent/_partials/_prereqs-cloud-only.mdx";
 import HCConversionOverview from "versionContent/_partials/_hypercore-conversion-overview.mdx";
 import HCPolicyWorkflow from "versionContent/_partials/_hypercore_policy_workflow.mdx";
+import UsageBasedStorage from "versionContent/_partials/_usage-based-storage-intro.mdx";
+
 
 # Automate Hypercore with policies
 
@@ -52,6 +54,7 @@ To setup your Hypercore automation:
 
 <HCPolicyWorkflow />
 
+<UsageBasedStorage />
 
 ## Reference
 
