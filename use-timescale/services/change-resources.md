@@ -31,10 +31,10 @@ less than a minute. However, Before making changes to your service, best practic
 is to enable [HA replication][high-availability] on the service. When you resize a service with HA enabled,
 $CLOUD_LONG:
 
-1. Resizes the replica
-1. Wait for the replica to catch up
-1. Performs a switchover to the resized replica
-1. Restarts the primary
+1. Resizes the replica.
+1. Waits for the replica to catch up.
+1. Performs a switchover to the resized replica.
+1. Restarts the primary.
 
 HA reduce downtime in the case of resizes or maintenance window restarts, from a minute or so to a couple of seconds.
 
