@@ -131,6 +131,9 @@ In this section, you'll create a hypertable to store page load data. We'll use t
     rails generate migration create_page_loads
     ```
 
+   A new migration file `<migration-datetime>_create_page_loads.rb` is created in
+   the `my_app/db/migrate` directory.
+
 1.  Update the migration file in `db/migrate` with hypertable options:
 
     ```ruby
@@ -145,15 +148,20 @@ In this section, you'll create a hypertable to store page load data. We'll use t
           drop_after: '30 days'
         }
 
-        create_table :page_loads, id: false, hypertable: hypertable_options do |t|
+        create_table :page_loads, id: false, primary_key: [:created_at, :user_agent, :path], hypertable: hypertable_options do |t|
+          t.timestamptz :created_at, null: false
           t.string :user_agent
           t.string :path
           t.float :performance
-          t.timestamps
         end
       end
     end
     ```
+
+    Note that the `id` column is not included in the table. This is because Timescale requires that any `UNIQUE` or `PRIMARY KEY` indexes on the table include all partitioning columns, which in this case is the time column. A new
+    Rails model includes a `PRIMARY KEY` index for id by default, so you need to either remove the column or make sure that the index includes time as part of a "composite key."
+
+    Check the official docs around [composite primary keys](https://guides.rubyonrails.org/active_record_composite_primary_keys.html) for more information.
 
 1.  Create a PageLoad model in `app/models/page_load.rb`:
 
