@@ -49,6 +49,12 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 | [Apache Airflow][apache-airflow] | Programmatically author, schedule, and monitor workflows. |
 
 
+## Developer guide
+
+If you're looking to integrate your $SERVICE_SHORT with $CLOUD_LONG, see the [developer guide][developer-guide].
+
+
+
 
 [psql]: /use-timescale/:currentVersion:/integrations/psql/
 [qstudio]: /use-timescale/:currentVersion:/integrations/qstudio/
@@ -60,3 +66,4 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 [terraform]: /use-timescale/:currentVersion:/integrations/terraform
 [apache-airflow]: /use-timescale/:currentVersion:/integrations/apache-airflow
 [postgresql-integrations]: https://slashdot.org/software/p/PostgreSQL/integrations/
+[developer-guide]: /use-timescale/:currentVersion:/integrations/developer-guide
