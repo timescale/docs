@@ -25,7 +25,7 @@ upgrade TimescaleDB:
 ||PostgreSQL&nbsp;17|PostgreSQL&nbsp;16|PostgreSQL&nbsp;15|PostgreSQL&nbsp;14|PostgreSQL&nbsp;13|PostgreSQL&nbsp;12|PostgreSQL&nbsp;11|PostgreSQL&nbsp;10|PostgreSQL&nbsp;9.6|
 |-|-|-|-|-|-|-|-|-|
 |TimescaleDB&nbsp;2.17 and higher|&#9989;|&#9989;|&#9989;|&#9989;|&#10060;|&#10060;|&#10060;|&#10060;|&#10060;|
-|TimescaleDB&nbsp;2.16 and higher|&#10060;|&#9989;|&#9989;|&#9989;|&#9989;|&#10060;|&#10060;|&#10060;|&#10060;|&#10060;|
+|TimescaleDB&nbsp;2.16 and higher|&#10060;|&#9989;|&#9989;|&#9989;|&#10060;|&#10060;|&#10060;|&#10060;|&#10060;|&#10060;|
 |TimescaleDB&nbsp;2.15 and higher|&#10060;|&#9989;|&#9989;|&#9989;|&#9989;|&#9989;|&#10060;|&#10060;|&#10060;|&#10060;|
 |TimescaleDB&nbsp;2.14 and higher|&#10060;|&#9989;|&#9989;|&#9989;|&#9989;|&#9989;|&#10060;|&#10060;|&#10060;|&#10060;|
 |TimescaleDB&nbsp;2.13 and higher|&#10060;|&#9989;|&#9989;|&#9989;|&#9989;|&#10060;|&#10060;|&#10060;|&#10060;|
