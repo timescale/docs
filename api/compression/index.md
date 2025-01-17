@@ -6,7 +6,7 @@ tags: [hypertables]
 ---
 import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 
-# Compression: deprecated use Hypercore <Tag type="community">Community</Tag>
+# Compression (deprecated use Hypercore) <Tag type="community">Community</Tag>
 
 Before you set up compression, you need to
 [configure the hypertable for compression][configure-compression] and then
