@@ -1,66 +1,48 @@
 ---
 title: Minor TimescaleDB upgrades
-excerpt: Upgrade within the same major version of TimescaleDB
+excerpt: Upgrade self-hosted TimescaleDB to a new minor version
 products: [self_hosted]
 keywords: [upgrades]
 ---
 
 import PlanUpgrade from "versionContent/_partials/_plan_upgrade.mdx";
 import ConsiderCloud from "versionContent/_partials/_consider-cloud.mdx";
+import CheckVersions from "versionContent/_partials/_migrate_self_postgres_check_versions.mdx";
+import PlanMigrationPath from "versionContent/_partials/_migrate_self_postgres_plan_migration_path.mdx";
+import ImplementMigrationPath from "versionContent/_partials/_migrate_self_postgres_implement_migration_path.mdx";
 
-# Minor TimescaleDB upgrades
+# Upgrade TimescaleDB to a new minor version
 
-A minor upgrade is when you upgrade within your current major version of
-TimescaleDB. For example, when you upgrade from TimescaleDB&nbsp;2.5, to
-TimescaleDB&nbsp;2.6.
-
-For upgrading to a new major version, for example upgrading from
-TimescaleDB&nbsp;1 to TimescaleDB&nbsp;2, see the
-[major upgrades section][upgrade-major].
+A minor upgrade is when you update from TimescaleDB `<major version>.x` to TimescaleDB `<major version>.y`. 
+A major upgrade is when you update from TimescaleDB `X.<minor version>` to `Y.<minor version>`.  
+You can run different versions of TimescaleDB on different databases within the same PostgreSQL instance.
+This process uses the PostgreSQL `ALTER EXTENSION` function to upgrade TimescaleDB independently on different 
+databases.
 
 <ConsiderCloud />
 
-## Plan your upgrade
+This page shows you how to perform a minor upgrade, for major upgrades, see [Upgrade TimescaleDB to a major version][upgrade-major].
+
+## Prerequisites
 
 <PlanUpgrade />
 
-## Upgrade TimescaleDB to the next minor version
+## Check the TimescaleDB and PostgreSQL versions
 
-This upgrade uses the PostgreSQL `ALTER EXTENSION` function to upgrade to the
-latest version of the TimescaleDB extension. TimescaleDB supports having
-different extension versions on different databases within the same PostgreSQL
-instance. This allows you to upgrade extensions independently on different
-databases. Run the `ALTER EXTENSION` function on each database to upgrade them
-individually.
+<CheckVersions />
 
-<Procedure>
+## Plan your upgrade path
 
-### Upgrading the TimescaleDB extension
+<PlanMigrationPath />
 
-1.  Connect to psql using the `-X` flag. This prevents any `.psqlrc` commands
-   from accidentally triggering the load of a previous TimescaleDB version on
-   session startup.
-1.  At the psql prompt, upgrade the TimescaleDB extension. This must be the first
-   command you execute in the current session:
 
-    ```sql
-    ALTER EXTENSION timescaledb UPDATE;
-    ```
+## Implement your upgrade path
 
-1.  Check that you have upgraded to the latest version of the extension with the
-   `\dx` command. The output should show the upgraded version number.
+<ImplementMigrationPath />
 
-    ```sql
-    \dx timescaledb
-    ```
+You are running a shiny new version of TimescaleDB.
 
-   <Highlight type="note">
-    To upgrade TimescaleDB in a Docker container, see the
-    [Docker container upgrades](/self-hosted/latest/upgrades/upgrade-docker) 
-    section.
-   </Highlight>
-
-</Procedure>
-
+[relnotes]: https://github.com/timescale/timescaledb/releases
+[upgrade-pg]: /self-hosted/:currentVersion:/upgrades/upgrade-pg/#upgrade-postgresql
 [upgrade-major]: /self-hosted/:currentVersion:/upgrades/major-upgrade/
-
+[backup]: /self-hosted/:currentVersion:/backup-and-restore/

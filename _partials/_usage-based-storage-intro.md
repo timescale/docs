@@ -1,4 +1,4 @@
-Timescale charges are based on how much storage you use. You don't pay for a 
+$CLOUD_LONG charges are based on the amount of storage you use. You don't pay for 
 fixed storage size, and you don't need to worry about scaling disk size as your 
 data grows; We handle it all for you. To reduce your data costs further, 
 use [compression][compression], a [data retention policy][data-retention], and

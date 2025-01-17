@@ -20,9 +20,9 @@ time series and demanding workloads that ingest and query high volumes of data.
 
 This section shows you how to:
 
-* [Install and configure TimescaleDB on PostgreSQL](#install-and-configure-timescaledb-on-postgresql) - set up
+* [Install and configure TimescaleDB on PostgreSQL][install-timescaledb]: set up
   a self-hosted PostgreSQL instance to efficiently run TimescaleDB. 
-* [Add the TimescaleDB extension to your database](#add-the-timescaledb-extension-to-your-database) - enable TimescaleDB features and
+* [Add the TimescaleDB extension to your database][add-timescledb-extension]: enable TimescaleDB features and
   performance improvements on a database.
 
 <Highlight type="warning">
@@ -32,6 +32,7 @@ following these install instructions. Best practice is to full remove any existi
 installations before you begin.
 
 To keep your current PostgreSQL installation, [Install from source][install-from-source].
+
 </Highlight>
 
 ### Prerequisites
@@ -44,7 +45,7 @@ To install TimescaleDB on your Windows device, you need:
 ## Install and configure TimescaleDB on PostgreSQL
 
 This section shows you how to install the latest version of PostgreSQL and
-TimescaleDB on a [supported platform](#supported-platforms) using the packages supplied by Timescale.
+TimescaleDB on a [supported platform][supported-platforms] using the packages supplied by Timescale.
 
 <SelfHostedWindowsBased />
 
@@ -69,6 +70,9 @@ And that is it! You have TimescaleDB running on a database on a self-hosted inst
 * The latest TimescaleDB releases for PostgreSQL 13, 14, 15, and 16 are:
 
     *   <Tag type="download">
+        [PostgreSQL 17: Timescale release](https://github.com/timescale/timescaledb/releases/latest/download/timescaledb-postgresql-17-windows-amd64.zip)
+        </Tag>
+    *   <Tag type="download">
         [PostgreSQL 16: Timescale release](https://github.com/timescale/timescaledb/releases/latest/download/timescaledb-postgresql-16-windows-amd64.zip)
         </Tag>
     *   <Tag type="download">
@@ -88,12 +92,15 @@ And that is it! You have TimescaleDB running on a database on a self-hosted inst
   *   Microsoft Windows Server&nbsp;2019
 
 
-    For release information, see the [GitHub releases page][gh-releases] and the [release notes][release-notes].
+For release information, see the [GitHub releases page][gh-releases] and the [release notes][release-notes].
     
 [config]: /self-hosted/:currentVersion:/configuration/
 [gh-releases]: https://github.com/timescale/timescaledb/releases
 [ms-download]: https://www.microsoft.com/en-us/download/details.aspx?id=48145
 [pg-download]: https://www.postgresql.org/download/windows/
-[release-notes]: /about/:currentVersion:/release-notes/
+[release-notes]: https://github.com/timescale/timescaledb/releases
 [windows-releases]: #windows-releases
 [install-from-source]: /self-hosted/:currentVersion:/install/installation-source/
+[install-timescaledb]: /self-hosted/:currentVersion:/install/installation-windows/#install-and-configure-timescaledb-on-postgresql
+[add-timescledb-extension]: /self-hosted/:currentVersion:/install/installation-windows/#add-the-timescaledb-extension-to-your-database
+[supported-platforms]: /self-hosted/:currentVersion:/install/installation-windows/#supported-platforms

@@ -102,6 +102,11 @@ module.exports = [
         href: "backup-and-restore",
         children: [
           {
+            title: "Logical backup",
+            href: "logical-backup",
+            excerpt: "Back up and restore a hypertable or an entire database using native PostgreSQL commands",
+          },
+          {
             title: "Docker & WAL-E",
             href: "docker-and-wale",
             excerpt: "Backing up and restoring with Docker and WAL-E",
@@ -270,37 +275,32 @@ module.exports = [
         href: "upgrades",
         children: [
           {
-            title: "About upgrades",
-            href: "about-upgrades",
-            excerpt: "Learn about upgrading self-hosted TimescaleDB",
-          },
-          {
-            title: "Minor upgrades",
+            title: "Upgrade TimescaleDB to a minor version",
             href: "minor-upgrade",
             excerpt:
-              "Upgrade to a new minor version of self-hosted TimescaleDB",
+              "Upgrade self-hosted TimescaleDB to a new minor version",
           },
           {
-            title: "Major upgrades",
+            title: "Upgrade TimescaleDB to a major version",
             href: "major-upgrade",
             excerpt:
-              "Upgrade to a new major version of self-hosted TimescaleDB",
+              "Upgrade self-hosted TimescaleDB to a new major version",
           },
           {
-            title: "Downgrade self-hosted TimescaleDB",
-            href: "downgrade",
-            excerpt: "Downgrade a self-hosted TimescaleDB version",
-          },
-          {
-            title: "Upgrade within Docker",
+            title: "Upgrade TimescaleDB running in Docker",
             href: "upgrade-docker",
             excerpt:
-              "Upgrade to a new minor version of self-hosted TimescaleDB within a Docker container",
+              "Upgrade self-hosted TimescaleDB running in a Docker container to a new minor version",
           },
           {
             title: "Upgrade PostgreSQL",
             href: "upgrade-pg",
-            excerpt: "Upgrade to a new version of PostgreSQL",
+            excerpt: "Upgrade PostgreSQL to a new version",
+          },
+          {
+            title: "Downgrade TimescaleDB to a minor version",
+            href: "downgrade",
+            excerpt: "Downgrade self-hosted TimescaleDB to the previous minor version",
           },
         ],
       },

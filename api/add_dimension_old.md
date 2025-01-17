@@ -177,4 +177,4 @@ SELECT add_dimension('conditions', 'location', number_partitions => 2);
 [distributed-hypertables]: /api/:currentVersion:/distributed-hypertables/create_distributed_hypertable/
 [regular-hypertables]: /api/:currentVersion:/hypertable/create_hypertable/
 [add-dimension]: /api/:currentVersion:/hypertable/add_dimension/
-[rn-2130]: /about/:currentVersion:/release-notes/#timescaledb-2130-on-2023-11-28
+[rn-2130]: https://github.com/timescale/timescaledb/releases/tag/2.13.0

@@ -10,6 +10,13 @@ api:
 
 # create_hypertable() (old interface)
 
+<Highlight type="warning">
+
+This page describes the hypertable API supported prior to TimescaleDB v2.13. Best practice is to use the new 
+[`create_hypertable`][api-create-hypertable] interface.
+
+</Highlight>
+
 Creates a TimescaleDB hypertable from a PostgreSQL table (replacing the latter),
 partitioned on time and with the option to partition on one or more other
 columns. The PostgreSQL table cannot be an already partitioned table
@@ -183,3 +190,4 @@ SELECT create_hypertable('events', 'event', time_partitioning_func => 'event_sta
 [create_distributed_hypertable]: /api/:currentVersion:/distributed-hypertables/create_distributed_hypertable
 [hash-partitions]: /use-timescale/:currentVersion:/hypertables/about-hypertables/#hypertable-partitioning
 [hypertable-docs]: /use-timescale/:currentVersion:/hypertables/
+[api-create-hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
