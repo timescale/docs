@@ -1,8 +1,8 @@
 ---
 api_name: hypertable_columnstore_stats()
 excerpt: Get columnstore statistics related to the columnstore
-topics: [columnstore, hypercore]
-keywords: [columnstore, hypercore, hypertables, information]
+topics: [hypercore, columnstore]
+keywords: [hypercore, columnstore, hypertables, information]
 tags: [statistics, size]
 api:
   license: community

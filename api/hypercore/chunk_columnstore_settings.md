@@ -1,7 +1,7 @@
 ---
 api_name: timescaledb_information.chunk_columnstore_settings
 excerpt: Get information about settings on each chunk in the columnstore
-topics: [information, columnstore, hypercore, chunk]
+topics: [hypercore, information, columnstore, chunk]
 keywords: [columnstore, hypercore, chunk, information]
 tags: [chunk, columnstore settings]
 api:
