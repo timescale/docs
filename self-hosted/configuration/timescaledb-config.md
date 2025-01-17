@@ -44,6 +44,12 @@ Set to `ON` to dramatically decrease the amount of data written on a continuous 
 in the presence of a small number of changes, reduce the i/o cost of refreshing a 
 [continuous aggregate][continuous-aggregates], and generate fewer Write-Ahead Logs (WAL). Only works for continuous aggregates that don't have compression enabled.
 
+## Hypercore features
+
+### `timescaledb.default_hypercore_use_access_method (bool)`
+
+The default value for `hypercore_use_access_method` for functions that have this parameter. This function is in `user` context, meaning that any user can set it for the session. The default value is `false`.
+
 ## Distributed hypertables
 
 <MultiNodeDeprecation />

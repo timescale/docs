@@ -65,7 +65,13 @@ To create a columnstore job:
      ``` sql
      CALL add_columnstore_policy('cpu_weekly', INTERVAL '8 weeks');
      ```
-     
+
+   * Older than eight weeks and using the Hypercore table access method:
+
+     ``` sql
+     CALL add_columnstore_policy('cpu_weekly', INTERVAL '8 weeks', hypercore_use_access_method => true);
+     ```
+
 1. **View the policies that you set or the policies that already exist** 
 
    ``` sql
@@ -92,8 +98,7 @@ Calls to `add_columnstore_policy` require either `after` or `created_before`, bu
 | `initial_start`     |TIMESTAMPTZ| The interval from the finish time of the last execution to the [next_start][next-start].| ✖| Set the time this job is first run. This is also the time that `next_start` is calculated from.|
 | `timezone`          |TEXT| UTC. However, daylight savings time(DST) changes may shift this alignment. | ✖ | Set to a valid time zone to mitigate DST shifting. If `initial_start` is set, subsequent executions of this policy are aligned on `initial_start`.|
 | `if_not_exists`     |BOOLEAN| `false` | ✖ | Set to `true` so this job fails with a warning rather than an error if a columnstore policy already exists on `hypertable` |
-
-
+| `hypercore_use_access_method`         | BOOLEAN | `NULL` | ✖ | Set to `true` to use hypercore table access metod. If set to `NULL` it will use the value from `timescaledb.default_hypercore_use_access_method`. |
 <!-- vale Google.Acronyms = YES -->
 <!-- vale Vale.Spelling = YES -->
 
