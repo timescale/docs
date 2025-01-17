@@ -10,6 +10,7 @@ import HCConversionOverview from "versionContent/_partials/_hypercore-conversion
 import HCPolicyWorkflow from "versionContent/_partials/_hypercore_policy_workflow.mdx";
 import UsageBasedStorage from "versionContent/_partials/_usage-based-storage-intro.mdx";
 
+
 # Manage data with Hypercore 
 
 Hypercore is the Timescale hybrid row-columnar storage engine. The rowstore contains row-oriented tables optimized

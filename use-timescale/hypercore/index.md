@@ -50,4 +50,4 @@ This section shows you how to:
 
 [setup-hypercore]: /use-timescale/:currentVersion:/hypercore/optimize-data-for-real-time-analytics/
 [modify-data-in-the-columnstore]: /use-timescale/:currentVersion:/hypercore/modify-data-in-the-columnstore/
-
+[compression]: /use-timescale/:currentVersion:/compression/
