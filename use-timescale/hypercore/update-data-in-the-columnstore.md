@@ -6,10 +6,9 @@ keywords: [hyperscore, hypertable, compression, row-columnar storage, hypercore,
 ---
 
 import Prereq from "versionContent/_partials/_prereqs-cloud-and-self.mdx";
+import HypercoreManualWorkflow from "versionContent/_partials/_hypercore_manual_workflow.mdx";
 
 # Modify data in the columnstore
-
-
 
 
 
@@ -23,36 +22,83 @@ This page shows you how to ... .
 
 ## Modify small amounts of data
 
-In TimescaleDB v2.11 and later, you can insert data into compressed chunks.
-This works even if the data you are inserting has unique constraints, and
-those constraints are preserved during the insert operation. This is done
-by using a PostgreSQL function that decompresses relevant data during the
-insert to check if the new data breaks unique checks. This means that any
-time you insert data into a compressed chunk, a small amount of data is
-decompressed to allow a speculative insertion, and block any inserts which
-could violate constraints.
+You can [`INSERT` `UPDATE` and `DELETE`][write] data in the columnstore, even if the data you are 
+inserting has unique constraints. When you insert data into a chunk in the columnstore, a small amount 
+of data is decompressed to allow a speculative insertion, and block any inserts which could violate 
+constraints.
 
-For TimescaleDB v2.17.0 and later there is improved delete performance on
-compressed hypertables when a large amount of data is affected. When you delete
-whole segments of data, filter your deletes by segment_by column(s) instead of
-separate deletes. This considerably increase performance by skipping the decompression step.
+When you `DELETE` whole segments of data, filter your deletes using the column you `segment_by` 
+instead of separate deletes. This considerably increase performance.
 
 ## Modify large amounts of data
 
+If you need to modify or add a lot of data to a chunk in the columnstore, best practice is to stop
+any [jobs][job] moving chunks to the columnstore, convert the chunk back to the rowstore, then modify the
+data. After the update, [convert the chunk to the columnstore][convert_to_columnstore] and restart the jobs.
+This workflow is especially useful if you need to backfill old data.
+
+<Procedure>
+
+<HypercoreManualWorkflow />
+
+</Procedure>
 
 ## Modify a table schema for data in the columnstore
 
+You can add modify the schema of a table in the columnstore. To do this, you need to:
 
-1. **Move the data to modify to the rowstore**
+1. **Stop the jobs that are automatically adding chunks to the columnstore**
+
+   Retrieve the list of jobs from the [timescaledb_information.jobs][informational-views] view
+   to find the job you need to [alter_job][alter_job].
+
+   ``` sql
+   SELECT alter_job(JOB_ID, scheduled => false);
+   ```
+
+1. **Convert a chunk to update back to the rowstore**
+
+      ``` sql
+      CALL convert_to_rowstore('_timescaledb_internal._hyper_2_2_chunk');
+      ```
 
 2. **Modify the schema**:
 
-   |Schema modification|Available| Command                                                                                         |
-   |-|-|-------------------------------------------------------------------------------------------------|
-   |Add a nullable column|✅| `ALTER TABLE <hypertable> ADD COLUMN <column_name> <datatype>;`                                 |
-   |Add a column with a default value and a `NOT NULL` constraint|✅| `ALTER TABLE <hypertable> ADD COLUMN <column_name> <datatype> NOT NULL DEFAULT <default_value>;` |
-   |Rename a column|✅| `ALTER TABLE <hypertable> RENAME <column_name> TO <new_name>;` |
-   |Drop a column|✅| `ALTER TABLE <hypertable> DROP COLUMN <column_name>;`                                                                                                |
-   |Change the data type of a column|❌| -                                                                                               |
+   Possible modifications are: 
 
-1. **Add the data back to the columstore manually**
+   - Add a nullable column:
+   
+      `ALTER TABLE <hypertable> ADD COLUMN <column_name> <datatype>;`                                 |
+   - Add a column with a default value and a `NOT NULL` constraint:
+
+      `ALTER TABLE <hypertable> ADD COLUMN <column_name> <datatype> NOT NULL DEFAULT <default_value>;` |
+   - Rename a column:
+
+     `ALTER TABLE <hypertable> RENAME <column_name> TO <new_name>;` |
+   - Drop a column:
+
+     `ALTER TABLE <hypertable> DROP COLUMN <column_name>;`                                                                                                |
+   
+   You cannot change the data type of an existing column.
+
+1. **Convert the updated chunks back to the columnstore**
+
+   ``` sql
+   CALL convert_to_columnstore('_timescaledb_internal._hyper_1_2_chunk');
+   ```
+
+1. **Restart the jobs that are automatically converting chunks to the columnstore**
+
+   ``` sql
+   SELECT alter_job(JOB_ID, scheduled => true);
+   ```
+
+
+
+[write]: /use-timescale/:currentVersion:/write-data/
+[job]: /api/:currentVersion:/actions/
+[alter_job]: /api/:currentVersion:/actions/alter_job/
+[convert_to_columnstore]: /api/:currentVersion:/hypercore/convert_to_columnstore/
+[informational-views]: /api/:currentVersion:/informational-views/jobs/
+[insert]: /use-timescale/:currentVersion:/write-data/insert/
+

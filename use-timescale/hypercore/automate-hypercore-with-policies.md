@@ -58,6 +58,43 @@ To setup your Hypercore automation:
 
 ## Manually convert data between the rowstore and columnstore
 
+Although `convert_to_columnstore` gives you more more fine grained control, best practice is to use
+[`add_columnstore_policy`][add_columnstore_policy]. You can also add chunks to the columnstore at a specific time
+[running the job associated with your columnstore policy][run-job] manually.
+
+<Procedure>
+
+1. **Stop the jobs that are automatically adding chunks to the columnstore**
+
+   Retrieve the list of jobs from the [timescaledb_information.jobs][informational-views] view
+   to find the job you need to [alter_job][alter_job].
+
+   ``` sql
+   SELECT alter_job(JOB_ID, scheduled => false);
+   ```
+
+1. **Convert a chunk to update back to the rowstore**
+
+      ``` sql
+      CALL convert_to_rowstore('_timescaledb_internal._hyper_2_2_chunk');
+      ```
+
+1. **Do what you want with your data in the rowstore**
+
+1. **Convert the updated chunks back to the columnstore**
+
+   ``` sql
+   CALL convert_to_columnstore('_timescaledb_internal._hyper_1_2_chunk');
+   ```
+
+1. **Restart the jobs that are automatically converting chunks to the columnstore**
+
+   ``` sql
+   SELECT alter_job(JOB_ID, scheduled => true);
+   ```
+
+</Procedure>
+
 
 ## Reference
 
@@ -77,3 +114,6 @@ repeated values,[XOR-based][xor] and [dictionary compression][dictionary] is use
 [xor]: /use-timescale/:currentVersion:/compression/compression-methods/#xor-based-encoding
 [dictionary]: /use-timescale/:currentVersion:/compression/compression-methods/#dictionary-compression
 [ingest-data]: /getting-started/:currentVersion:/time-series-data/#ingest-the-dataset
+[add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/
+[run-job]: /api/:currentVersion:/actions/run_job/
+[convert_to_rowstore]: /api/:currentVersion:/hypercore/convert_to_rowstore/
