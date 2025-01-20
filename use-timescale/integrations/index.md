@@ -53,7 +53,7 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 | [Apache Airflow][apache-airflow] | Programmatically author, schedule, and monitor workflows.                                              |
 | [Apache Kafka][kafka] | Stream high-performance data pipelines, analytics, and data integration. |
 | [AWS Lambda][aws-lambda]| Run code without provisioning or managing servers, scaling automatically as needed.                    |
-
+| [Decodable][decodable] | A real-time data platform that allows you to build, run, and manage data pipelines effortlessly. |
 
 ## Data ingestion and streaming
 

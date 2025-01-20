@@ -1,3 +1,4 @@
+module.exports = [
   {
     title: "Use Timescale",
     href: "use-timescale",
@@ -821,7 +822,7 @@
             title: "Decodable",
             href: "decodable",
             excerpt: "Integrate Decodable with Timescale Cloud",
-          },          
+          },
           {
             title: "Fivetran",
             href: "fivetran",
