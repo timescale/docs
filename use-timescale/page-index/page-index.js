@@ -199,13 +199,13 @@ module.exports = [
           "Seamlessly switch between row-oriented and column-oriented storage",
         children: [
           {
-            title: "Manage data with Hypercore",
-            href: "automate-hypercore-with-policies",
-            excerpt: "Automat",
+            title: "Optimize data for real-time analytics",
+            href: "optimize-data-for-real-time-analytics",
+            excerpt: "Automate",
           },
           {
-            title: "Update data in the columnstore",
-            href: "update-data-in-the-columnstore",
+            title: "Modify data in the columnstore",
+            href: "modify-data-in-the-columnstore",
             excerpt: "Add and remove data in the columnstore",
           },
         ],

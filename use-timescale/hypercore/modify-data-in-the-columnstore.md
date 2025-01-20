@@ -10,15 +10,18 @@ import HypercoreManualWorkflow from "versionContent/_partials/_hypercore_manual_
 
 # Modify data in the columnstore
 
+You [setup Hypercore][setup-hypercore] to automatically convert data between the rowstore and columnstore
+when it reaches a certain age. After you have optimized data in the columnstore, you may need to modify it. 
+For example, to make small changes, or backfill large amounts of data. You may even have to update the schema to 
+accommodate this changes to the data.
 
-
-
-This page shows you how to ... .
+This page shows you how to update small and large amounts of new data, and update the schema in columnstore.
 
 ## Prerequisites
 
 <Prereq />
 
+- [Optimize cooler data in hypercore][setup-hypercore]
 
 ## Modify small amounts of data
 
@@ -96,9 +99,10 @@ You can add modify the schema of a table in the columnstore. To do this, you nee
 
 
 [write]: /use-timescale/:currentVersion:/write-data/
+[setup-hypercore]: /use-timescale/:currentVersion:/hypercore/optimize-data-for-real-time-analytics/
 [job]: /api/:currentVersion:/actions/
 [alter_job]: /api/:currentVersion:/actions/alter_job/
 [convert_to_columnstore]: /api/:currentVersion:/hypercore/convert_to_columnstore/
 [informational-views]: /api/:currentVersion:/informational-views/jobs/
 [insert]: /use-timescale/:currentVersion:/write-data/insert/
-
+[setup-hypercore]: /use-timescale/:currentVersion:/hypercore/optimize-data-for-real-time-analytics/

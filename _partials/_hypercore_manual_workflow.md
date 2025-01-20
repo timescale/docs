@@ -38,4 +38,4 @@
 
 [alter_job]: /api/:currentVersion:/actions/alter_job/
 [informational-views]: /api/:currentVersion:/informational-views/jobs/
-
+[insert]: /use-timescale/:currentVersion:/write-data/insert/

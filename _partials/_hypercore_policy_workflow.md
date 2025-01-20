@@ -86,3 +86,4 @@
 [in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
 [services-portal]: https://console.cloud.timescale.com/dashboard/services
 [connect-using-psql]: /use-timescale/:currentVersion:/integrations/query-admin/psql#connect-to-your-service
+[insert]: /use-timescale/:currentVersion:/write-data/insert/
