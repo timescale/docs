@@ -30,12 +30,6 @@ To convert a single chunk to columnstore:
 CALL convert_to_columnstore('_timescaledb_internal._hyper_1_2_chunk');
 ```
 
-To convert a single chunk to columnstore using the Hypercore table access method:
-
-``` sql
-CALL convert_to_columnstore('_timescaledb_internal._hyper_1_2_chunk', 
-	hypercore_use_access_method => true);
-```
 
 To retrieve the chunks belonging to a hypertable, call [`show_chunks`](/api/latest/hypertable/show_chunks/).
 
