@@ -794,6 +794,11 @@ module.exports = [
             excerpt: "Install DBeaver to connect to Timescale",
           },
           {
+            title: "Fivetran",
+            href: "fivetran",
+            excerpt: "Integrate Fivetran with Timescale Cloud",
+          },
+          {
             title: "pgAdmin",
             href: "pgadmin",
             excerpt: "Install pgAdmin to connect to Timescale",

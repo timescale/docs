@@ -48,7 +48,11 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 |:--------------------------------:|----------------------------------------------------------|
 | [Apache Airflow][apache-airflow] | Programmatically author, schedule, and monitor workflows. |
 
+## Change data capture 
 
+|         Name         | Description                                                                                                                                                                 |
+|:--------------------:|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Fivetran][fivetran] | A fully managed data pipeline platform that simplifies ETL (Extract, Transform, Load) processes by automatically syncing data from multiple sources to your data warehouse. |
 
 [psql]: /use-timescale/:currentVersion:/integrations/psql/
 [qstudio]: /use-timescale/:currentVersion:/integrations/qstudio/
@@ -60,3 +64,4 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 [terraform]: /use-timescale/:currentVersion:/integrations/terraform
 [apache-airflow]: /use-timescale/:currentVersion:/integrations/apache-airflow
 [postgresql-integrations]: https://slashdot.org/software/p/PostgreSQL/integrations/
+[fivetran]: /use-timescale/:currentVersion:/integrations/fivetran
