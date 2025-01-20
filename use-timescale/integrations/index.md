@@ -49,6 +49,12 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 | [Apache Airflow][apache-airflow] | Programmatically author, schedule, and monitor workflows. |
 
 
+## Visualization & BI
+
+|         Name         | Description                                                                  |
+|:--------------------:|------------------------------------------------------------------------------|
+| [Power BI][power-bi] | A business analytics tool for visualizing and sharing data insights. |
+
 
 [psql]: /use-timescale/:currentVersion:/integrations/psql/
 [qstudio]: /use-timescale/:currentVersion:/integrations/qstudio/
@@ -60,3 +66,4 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 [terraform]: /use-timescale/:currentVersion:/integrations/terraform
 [apache-airflow]: /use-timescale/:currentVersion:/integrations/apache-airflow
 [postgresql-integrations]: https://slashdot.org/software/p/PostgreSQL/integrations/
+[power-bi]: /use-timescale/:currentVersion:/integrations/power-bi

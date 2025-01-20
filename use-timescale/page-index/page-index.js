@@ -799,6 +799,11 @@ module.exports = [
             excerpt: "Install pgAdmin to connect to Timescale",
           },
           {
+            title: "Power BI",
+            href: "power-bi",
+            excerpt: "Integrate Power BI with Timescale Cloud",
+          },
+          {
             title: "psql",
             href: "psql",
             excerpt: "Install psql to connect to Timescale",
