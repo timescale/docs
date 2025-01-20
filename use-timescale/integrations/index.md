@@ -49,6 +49,13 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 | [Apache Airflow][apache-airflow] | Programmatically author, schedule, and monitor workflows. |
 
 
+## Change data capture
+
+
+|          Name          | Description                                                                                      |
+|:----------------------:|--------------------------------------------------------------------------------------------------|
+| [Decodable][decodable] | A real-time data platform that allows you to build, run, and manage data pipelines effortlessly. |
+
 
 [psql]: /use-timescale/:currentVersion:/integrations/psql/
 [qstudio]: /use-timescale/:currentVersion:/integrations/qstudio/
@@ -60,3 +67,4 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 [terraform]: /use-timescale/:currentVersion:/integrations/terraform
 [apache-airflow]: /use-timescale/:currentVersion:/integrations/apache-airflow
 [postgresql-integrations]: https://slashdot.org/software/p/PostgreSQL/integrations/
+[decodable]: /use-timescale/:currentVersion:/integrations/decodable

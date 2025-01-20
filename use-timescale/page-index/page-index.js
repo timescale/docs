@@ -794,6 +794,11 @@ module.exports = [
             excerpt: "Install DBeaver to connect to Timescale",
           },
           {
+            title: "Decodable",
+            href: "decodable",
+            excerpt: "Integrate Decodable with Timescale Cloud",
+          },
+          {
             title: "pgAdmin",
             href: "pgadmin",
             excerpt: "Install pgAdmin to connect to Timescale",
