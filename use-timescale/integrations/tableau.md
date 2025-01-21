@@ -5,42 +5,41 @@ products: [cloud, mst, self_hosted]
 keywords: [visualizations, analytics, Tableau]
 ---
 
-# Using Tableau to visualize data in TimescaleDB
+import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
 
-[Tableau][get-tableau] is a popular analytics platform that helps you gain
-greater intelligence about your business. It is an ideal tool for visualizing
-data stored in Timescale. 
+# Integrate Tableau and $CLOUD_LONG
+
+[Tableau][tableau] is a popular analytics platform that helps you gain greater intelligence about your business. You can use it to visualize
+data stored in $CLOUD_LONG.
 
 ## Prerequisites
 
-Before you begin, make sure you have:
+<IntegrationPrereqs />
 
-*   Created a [Timescale][cloud-login] service.
-*   Signed up for [Tableau][get-tableau].
-*   Downloaded the cheatsheet when you created the service. This sheet contains
-    the connection details for the database you want to use as a data source.
+* Install [Tableau Server][tableau-server] or sign up for [Tableau Cloud][tableau-cloud].
 
-## Add Timescale as a virtual connection in Tableau
+## Add your $SERVICE_LONG as a virtual connection
+
+To connect the data in your $SERVICE_LONG to Tableau:
 
 <Procedure>
 
-### Adding Timescale as a virtual connection in Tableau
+1.  **Log in to Tableau**
+1.  **In the Tableau dashboard, click the `New` > `Virtual Connection`**
+1.  **In the `New Virtual Connection` page, search for and select `PostgreSQL`**
+1.  **Configure the connection**
 
-1.  In your web browser, open your Tableau Cloud dashboard using the username
-    and password you set when you signed up.
-1.  In the Tableau dashboard, click the `New` dropdown, and select
-    `Virtual Connection`.
-1.  In the `New Virtual Connection` page, search for PostgreSQL, and select it.
-1.  Configure the virtual connection using your connection details:
-    *   In the `Server` field, type the hostname of your database.
-    *   In the `Port` field, type the port number for your connection.
-    *   In the `Database` field, type `tsdb`.
-    *   In the `Username` field, type `tsdbadmin`, or another privileged user.
-    *   In the `Password` field, type the password.
-    *   Check the `Require SSL` checkbox.
-1.  Click `Sign in` to connect your database.
+    - `Server`, `Port`, `Database`, `Username`, `Password`: configure using your [connection details][connection-info].
+    - `Require SSL`: tick the checkbox.
+
+1.  **Click `Sign In` to connect to your $SERVICE_SHORT**
 
 </Procedure>
 
-[get-tableau]: https://www.tableau.com/products/trial
+You have successfully integrated Tableau with $CLOUD_LONG.
+
+[tableau-cloud]: https://www.tableau.com/products/trial
+[tableau-server]: https://www.tableau.com/support/releases/server/2024.2.6#esdalt
 [cloud-login]: https://console.cloud.timescale.com/
+[connection-info]: /use-timescale/:currentVersion:/integrations/find-connection-details/
+[tableau]: https://www.tableau.com/
