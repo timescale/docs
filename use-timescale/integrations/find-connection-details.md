@@ -15,7 +15,7 @@ To connect to your $SERVICE_SHORT or self-hosted database, you need at least the
 - Password
 - Database name
 
-Find the connection details based on your installation type.
+Find the connection details based on your deployment type:
 
 <Tabs label="Connection details">
 
@@ -51,7 +51,5 @@ In the `Services` page of the $MST_CONSOLE_LONG, click the service you want to c
 
 </Tabs>
 
-[about-psql]: /use-timescale/:currentVersion:/integrations/query-admin/psql/
-[tsc-portal]: https://console.cloud.timescale.com/
 [console-services]: https://console.cloud.timescale.com/dashboard/services
 [postgres-config]: https://www.postgresql.org/docs/current/runtime-config-file-locations.html

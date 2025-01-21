@@ -67,7 +67,7 @@ And that is it, you are up and running. Enjoy developing with $COMPANY.
 
 [tsc-portal]: https://console.cloud.timescale.com/
 [services-how-to]: /use-timescale/:currentVersion:/services/
-[install-psql]: /use-timescale/:currentVersion:/integrations/query-admin/psql/
+[install-psql]: /use-timescale/:currentVersion:/integrations/psql/
 [create-an-account]: /getting-started/:currentVersion:/services/#create-a-timescale-cloud-account
 [create-a-service]: /getting-started/:currentVersion:/services/#create-a-timescale-cloud-service
 [connect-to-your-service]: /getting-started/:currentVersion:/services/#connect-to-your-service

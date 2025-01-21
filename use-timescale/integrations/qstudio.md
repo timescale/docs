@@ -7,8 +7,7 @@ keywords: [connect]
 
 # Connect to Timescale using qStudio
 
-You can use [qStudio][qstudio] to run queries, browse tables, and create charts 
-for your Timescale database.
+[qStudio][qstudio] is a modern free SQL editor that provides syntax highlighting, code-completion, excel export, charting, and much more. You can use it to run queries, browse tables, and create charts for your Timescale database.
 
 For more information about `qStudio`, including download and installation
 instructions, see [timestored.com][qstudio-downloads].

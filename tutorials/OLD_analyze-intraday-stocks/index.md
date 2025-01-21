@@ -51,4 +51,4 @@ pip install pandas
 [explore]: /tutorials/:currentVersion:/
 [fetch-ingest]: /tutorials/:currentVersion:/
 [install-timescale]: /getting-started/latest/
-[psql-install]: /use-timescale/:currentVersion:/integrations/query-admin/about-psql
+[psql-install]: /use-timescale/:currentVersion:/integrations/psql/
