@@ -26,7 +26,7 @@ To connect to $CLOUD_LONG:
 <Procedure>
 
 1.  **Start `DBeaver`**
-1.  **In the `Database` menu, click `New Database Connection`**
+1.  **In the toolbar, click a plug icon to add a new database connection**
 1.  **In the `Connect to a database` window, search for `TimescaleDB`**
 1.  **Select `TimescaleDB` and click `Next` to continue**
 1.  **Configure the connection** 
