@@ -9,9 +9,9 @@ import GrafanaConnect from "versionContent/_partials/_grafana-connect.mdx";
 
 # Integrate Grafana and Timescale Cloud
 
-You can use [Grafana](https://grafana.com/docs/) to monitor, visualize and perform analytics on data stored in your $SERVICE_LONG. 
+[Grafana](https://grafana.com/docs/) enables you to query, visualize, alert on, and explore your metrics, logs, and traces wherever they’re stored.
 
-This page shows you how to connect Grafana with a $SERVICE_LONG, create a dashboard and panel, then visualize geospatial data.
+This page shows you how to integrate Grafana with a $SERVICE_LONG, create a dashboard and panel, then visualize geospatial data.
 
 <GrafanaConnect />
 
@@ -22,6 +22,8 @@ view into the performance of a system, and each dashboard consists of one or
 more panels, which represent information about a specific metric related to
 that system.
 
+To create a new dashboard:
+
 <Procedure>
 
 1. **On the `Dashboards` page, click `New` and select `New dashboard`**
@@ -30,7 +32,7 @@ that system.
 
 1. **Select the data source**
 
-   Select your $SERVICE_LONG from the list of pre-configured data sources or configure a new one.
+   Select your $SERVICE_SHORT from the list of pre-configured data sources or configure a new one.
 
 1. **Configure your panel** 
 
@@ -48,7 +50,7 @@ that system.
 
 ## Use the time filter function
 
-Grafana time-series panels include a time filter. 
+Grafana time-series panels include a time filter: 
 
 <Procedure>
 
@@ -124,11 +126,11 @@ tutorial as a starting point.
 
    1.  In your Grafana dashboard, click `Add` > `Visualization`.
 
-   1.  Select `Geomap` in the visualization type drop-down.
+   1.  Select `Geomap` in the visualization type drop-down at the top right.
 
 1. **Configure the data format**
 
-   1.  In the `Queries` tab, select your data source.
+   1.  In the `Queries` tab below, select your data source.
 
    1.  In the `Format` drop-down, select `Table`.
 
@@ -155,7 +157,7 @@ tutorial as a starting point.
     
     With default settings, the visualization uses green circles of the fixed size. Configure at least the following for a more representative view:
 
-    -`Map layers` > `Styles` > `Size` > `value`.
+    - `Map layers` > `Styles` > `Size` > `value`.
 
        This changes the size of the circle depending on the value, with bigger circles representing bigger values.
 
@@ -165,17 +167,14 @@ tutorial as a starting point.
 
        Add thresholds for 7 and 10, to mark rides over 7 and 10 miles in different colors, respectively. 
     
-       You now have a visualization that looks like this: 
+    You now have a visualization that looks like this: 
 
-       ![Timescale and Grafana integration](https://assets.timescale.com/docs/images/timescale-grafana-integration.png)
+    ![Timescale and Grafana integration](https://assets.timescale.com/docs/images/timescale-grafana-integration.png)
        
 
 </Procedure>
 
 [nyc-taxi]: /tutorials/:currentVersion:/nyc-taxi-cab
 [grafana-website]: https://www.grafana.com
-[install-grafana]: /use-timescale/:currentVersion:/integrations/observability-alerting/grafana/installation
-[tutorial-grafana-dashboards]: /use-timescale/:currentVersion:/integrations/observability-alerting/grafana/#create-a-grafana-dashboard-and-panel
-[tutorial-grafana-geospatial]: /use-timescale/:currentVersion:/integrations/observability-alerting/grafana/#visualize-geospatial-data
 [time-buckets]: /use-timescale/:currentVersion:/time-buckets/
 

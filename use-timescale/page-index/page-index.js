@@ -774,83 +774,59 @@ module.exports = [
         excerpt: "Integrate third-party solutions with Timescale Cloud",
         children: [
           {
-            title: "Query and administration",
-            href: "query-admin",
-            excerpt: "Integrate your Timescale database with third-party query and administration solutions",
-            children:
-              [
-                {
-                  title: "About connecting to Timescale",
-                  href: "about-connecting",
-                  excerpt: "Learn about using connecting to your Timescale database",
-                },
-                {
-                  title: "About psql",
-                  href: "about-psql",
-                  excerpt: "Learn about using psql to connect to Timescale",
-                },
-                {
-                  title: "Install psql",
-                  href: "psql",
-                  excerpt: "Install psql to connect to Timescale",
-                },
-                {
-                  title: "Connect using Azure Data Studio",
-                  href: "azure-data-studio",
-                  excerpt: "Install Azure Data Studio to connect to Timescale",
-                },
-                {
-                  title: "Connect using DBeaver",
-                  href: "dbeaver",
-                  excerpt: "Install DBeaver to connect to Timescale",
-                },
-                {
-                  title: "Connect using pgAdmin",
-                  href: "pgadmin",
-                  excerpt: "Install pgAdmin to connect to Timescale",
-                },
-                {
-                  title: "Connect using qStudio",
-                  href: "qstudio",
-                  excerpt: "Install qstudio to connect to Timescale",
-                },
-                {
-                  title: "Troubleshooting Timescale connections",
-                  href: "troubleshooting",
-                  type: "placeholder",
-                },
-              ]
+            title: "Find your connection details",
+            href: "find-connection-details",
+            excerpt: "Learn about connecting to your Timescale database",
           },
           {
-            title: "Configuration and deployment",
-            href: "config-deploy",
-            excerpt: "Integrate your Timescale account with third-party configuration and deployment solutions",
-            children:
-              [
-                {
-                  title: "Terraform",
-                  href: "terraform",
-                  excerpt: "Manage your Timescale services via Terraform",
-                },
-              ]
+            title: "Apache Airflow",
+            href: "apache-airflow",
+            excerpt: "Integrate Apache Airflow with Timescale Cloud",
           },
           {
-            title: "Observability and alerting",
-            href: "observability-alerting",
-            excerpt: "Integrate your Timescale database with third-party observability and alerting solutions",
-            children:
-              [
-                {
-                  title: "Grafana",
-                  href: "grafana",
-                  excerpt: "Use Grafana with Timescale",
-                },
-                {
-                  title: "Tableau",
-                  href: "tableau",
-                  excerpt: "Use Tableau with Timescale",
-                }
-              ]
+            title: "Azure Data Studio",
+            href: "azure-data-studio",
+            excerpt: "Install Azure Data Studio to connect to Timescale",
+          },
+          {
+            title: "DBeaver",
+            href: "dbeaver",
+            excerpt: "Install DBeaver to connect to Timescale",
+          },
+          {
+            title: "pgAdmin",
+            href: "pgadmin",
+            excerpt: "Install pgAdmin to connect to Timescale",
+          },
+          {
+            title: "psql",
+            href: "psql",
+            excerpt: "Install psql to connect to Timescale",
+          },
+          {
+            title: "qStudio",
+            href: "qstudio",
+            excerpt: "Install qstudio to connect to Timescale",
+          },
+          {
+            title: "Grafana",
+            href: "grafana",
+            excerpt: "Use Grafana with Timescale",
+          },
+          {
+            title: "Tableau",
+            href: "tableau",
+            excerpt: "Use Tableau with Timescale",
+          },
+          {
+            title: "Terraform",
+            href: "terraform",
+            excerpt: "Manage your Timescale services via Terraform",
+          },
+          {
+            title: "Troubleshooting Timescale integrations",
+            href: "troubleshooting",
+            type: "placeholder",
           },
         ],
       },
@@ -913,7 +889,6 @@ module.exports = [
         href: "troubleshoot-timescaledb",
         excerpt: "Troubleshooting Timescale",
       },
-
     ],
   },
 ];
