@@ -176,8 +176,5 @@ tutorial as a starting point.
 
 [nyc-taxi]: /tutorials/:currentVersion:/nyc-taxi-cab
 [grafana-website]: https://www.grafana.com
-[install-grafana]: /use-timescale/:currentVersion:/integrations/observability-alerting/grafana/installation
-[tutorial-grafana-dashboards]: /use-timescale/:currentVersion:/integrations/observability-alerting/grafana/#create-a-grafana-dashboard-and-panel
-[tutorial-grafana-geospatial]: /use-timescale/:currentVersion:/integrations/observability-alerting/grafana/#visualize-geospatial-data
 [time-buckets]: /use-timescale/:currentVersion:/time-buckets/
 

@@ -779,6 +779,11 @@ module.exports = [
             excerpt: "Learn about connecting to your Timescale database",
           },
           {
+            title: "Apache Airflow",
+            href: "apache-airflow",
+            excerpt: "Integrate Apache Airflow with Timescale Cloud",
+          },
+          {
             title: "Azure Data Studio",
             href: "azure-data-studio",
             excerpt: "Install Azure Data Studio to connect to Timescale",
