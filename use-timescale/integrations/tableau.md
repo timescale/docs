@@ -9,7 +9,7 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 
 # Integrate Tableau and $CLOUD_LONG
 
-Tableau is a popular analytics platform that helps you gain greater intelligence about your business. You can use it to visualize
+[Tableau][tableau] is a popular analytics platform that helps you gain greater intelligence about your business. You can use it to visualize
 data stored in $CLOUD_LONG. 
 
 ## Prerequisites
@@ -32,7 +32,7 @@ To connect the data in your $SERVICE_LONG to Tableau:
     - `Server`, `Port`, `Database`, `Username`, `Password`: configure using your [connection details][connection-info]. 
     - `Require SSL`: tick the checkbox.
 
-1.  Click `Sign In` to connect to your $SERVICE_SHORT.
+1.  **Click `Sign In` to connect to your $SERVICE_SHORT**
 
     Your $SERVICE_SHORT is now added as a virtual connection. 
 
@@ -41,4 +41,5 @@ To connect the data in your $SERVICE_LONG to Tableau:
 [tableau-cloud]: https://www.tableau.com/products/trial
 [tableau-server]: https://www.tableau.com/support/releases/server/2024.2.6#esdalt
 [cloud-login]: https://console.cloud.timescale.com/
-[connection-info]: 
+[connection-info]: /use-timescale/:currentVersion:/integrations/find-connection-details/
+[tableau]: https://www.tableau.com/
