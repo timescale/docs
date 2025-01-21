@@ -1,8 +1,8 @@
 ---
-title: DBeaver
-excerpt: Connect to your Timescale database with DBeaver
+title: Integrate DBeaver with Timescale Cloud
+excerpt: Connect to your Timescale Cloud service with DBeaver
 products: [cloud, mst, self_hosted]
-keywords: [connect]
+keywords: [integrate]
 ---
 
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
