@@ -72,6 +72,9 @@
     },
     {
       "pattern": "^https://cmake.org/download/"
+    },
+    {
+      "pattern": "^https://cran.r-project.org/web/packages/RPostgres/index.html"
     }
   ]
 }
