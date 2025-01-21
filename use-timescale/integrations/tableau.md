@@ -34,9 +34,9 @@ To connect the data in your $SERVICE_LONG to Tableau:
 
 1.  **Click `Sign In` to connect to your $SERVICE_SHORT**
 
-    Your $SERVICE_SHORT is now added as a virtual connection. 
-
 </Procedure>
+
+You have successfully integrated Tableau with $CLOUD_LONG.
 
 [tableau-cloud]: https://www.tableau.com/products/trial
 [tableau-server]: https://www.tableau.com/support/releases/server/2024.2.6#esdalt
