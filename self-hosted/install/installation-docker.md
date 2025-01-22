@@ -14,7 +14,7 @@ import AddTimescaleDBToDB from "versionContent/_partials/_add-timescaledb-to-a-d
 
 TimescaleDB is a [PostgreSQL extension](https://www.postgresql.org/docs/current/external-extensions.html) for
 time series and demanding workloads that ingest and query high volumes of data. You can install a TimescaleDB 
-instance on any local system, from a pre-built container. 
+instance on any local system from a pre-built Docker container. 
 
 < Skip/>
 
@@ -23,7 +23,7 @@ This section shows you how to
 
 ### Prerequisites
 
-To connect to a PostgreSQL installation on Docker, you need to install:
+To run, and connect to a PostgreSQL installation on Docker, you need to install:
 
 - [Docker][docker-install]
 - [psql][install-psql]
@@ -32,7 +32,7 @@ To connect to a PostgreSQL installation on Docker, you need to install:
 ## Install and configure TimescaleDB on PostgreSQL
 
 This section shows you how to install the latest version of PostgreSQL and
-TimescaleDB on a [supported platform](#supported-platforms) using the packages supplied by Timescale.
+TimescaleDB on a [supported platform](#supported-platforms) using containers supplied by Timescale.
 
 <SelfHostedDocker />
 
@@ -41,26 +41,11 @@ And that is it! You have TimescaleDB running on a database on a self-hosted inst
 
 ## More Docker options
 
-The [TimescaleDB HA](https://hub.docker.com/r/timescale/timescaledb-ha) Docker image 
-includes [Ubuntu][ubuntu] as its operating system and offers the most complete TimescaleDB 
-experience. It includes the [TimescaleDB Toolkit](https://github.com/timescale/timescaledb-toolkit),
-and support for PostGIS and Patroni.  The lighter-weight TimescaleDB 
-(non-HA) `timescale/timescaledb:latest-pg16` image uses [Alpine][alpine]. 
-
-<Highlight type="warning">
-If your system uses Linux Uncomplicated Firewall (UFW) for security rules, Docker could override your 
-UFW port binding settings. Docker binds the container on Unix-based systems by modifying the Linux IP tables. 
-If you are relying on UFW rules for network security, consider adding `DOCKER_OPTS="--iptables=false"`
-to `/etc/default/docker` to prevent Docker from overwriting the IP tables. For more information about this 
-vulnerability, see
-[Docker's information about the UFW flaw](https://www.techrepublic.com/article/how-to-fix-the-docker-and-ufw-security-flaw/).
-</Highlight>
-
 If you want to run the image directly from the container, you can use this
 command:
 
 ```bash
-docker run -d --name timescaledb -p 5432:5432 -e POSTGRES_PASSWORD=password timescale/timescaledb-ha:pg16
+docker run -d --name timescaledb -p 5432:5432 -e POSTGRES_PASSWORD=password timescale/timescaledb-ha:pg17
 ```
 
 The `-p` flag binds the container port to the host port. This means that
@@ -75,7 +60,7 @@ using this command:
 
 ```bash
 docker run -d --name timescaledb -p 127.0.0.1:5432:5432 \
--e POSTGRES_PASSWORD=password timescale/timescaledb-ha:pg16
+-e POSTGRES_PASSWORD=password timescale/timescaledb-ha:pg17
 ```
 
 If you don't want to install `psql` and other PostgreSQL client tools locally,
@@ -111,7 +96,7 @@ make sure you select the correct one to mount:
 ```bash
 docker run -d --name timescaledb -p 5432:5432 \
 -v /your/data/dir:/home/postgres/pgdata/data \
--e POSTGRES_PASSWORD=password timescale/timescaledb-ha:pg16
+-e POSTGRES_PASSWORD=password timescale/timescaledb-ha:pg17
 ```
 
 When you install TimescaleDB using a Docker container, the PostgreSQL settings

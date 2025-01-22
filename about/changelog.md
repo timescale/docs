@@ -8,8 +8,94 @@ keywords: [changelog, upgrades, updates, releases]
 
 All the latest features and updates to Timescale products.
 
-## 🤩 SQL Assistant, TimescaleDB v2.17, HIPAA compliance, and better logging
+## 🇮🇳 New region in India, PostgreSQL 17 upgrades, and TimescaleDB on AWS Marketplace
+<Label type="date">January 10, 2025</Label>
 
+### Welcome India! (Support for a new region: Mumbai)
+Timescale Cloud now supports the Mumbai region. Starting today, you can run Timescale Cloud services in Mumbai, bringing our database solutions closer to users in India.
+
+### PostgreSQL major version upgrades to PG 17
+Timescale Cloud services can now be upgraded directly to PostgreSQL 17 from versions 14, 15, or 16. Users running versions 12 or 13 must first upgrade to version 15 or 16, before upgrading to 17.
+
+### Timescale Cloud available on AWS Marketplace
+Timescale Cloud is now available in the [AWS Marketplace][aws-timescale]. This allows you to keep billing centralized on your AWS account, use your already committed AWS Enterprise Discount Program spend to pay your Timescale Cloud bill and simplify procurement and vendor management.
+
+## 🎅 Postgres 17, feature requests, and Postgres Livesync
+<Label type="date">December 20, 2024</Label>
+
+### Postgres 17
+All new Timescale Cloud services now come with Postgres 17.2, the latest version. Upgrades to Postgres 17 for services running on prior versions will be available in January.
+Postgres 17 adds new capabilities and improvements to Timescale like:
+* **System-wide Performance Improvements**. Significant performance boosts, particularly in high-concurrency workloads. Enhancements in the I/O layer, including improved Write-Ahead Log (WAL) processing, can result in up to a 2x increase in write throughput under heavy loads.
+* **Enhanced JSON Support**. The new JSON_TABLE allows developers to convert JSON data directly into relational tables, simplifying the integration of JSON and SQL. The release also adds new SQL/JSON constructors and query functions, offering powerful tools to manipulate and query JSON data within a traditional relational schema. 
+* **More Flexible MERGE Operations**. The MERGE command now includes a RETURNING clause, making it easier to track and work with modified data. You can now also update views using MERGE, unlocking new use cases for complex queries and data manipulation.
+  
+### Submit feature requests from Timescale Console
+You can now submit feature requests directly from Console and see the list of feature requests you have made. Just click on `Feature Requests` on the right sidebar.
+All feature requests are automatically published to the [Timescale Forum](https://www.timescale.com/forum/c/cloud-feature-requests/39) and are reviewed by the product team, providing more visibility and transparency on their status as well as allowing other customers to vote for them.
+
+![Submit a feature request in Timescale Console](https://assets.timescale.com/docs/images/submit-feature-request.png)
+
+### Postgres Livesync (Alpha release)
+We have built a new solution that helps you continuously replicate all or some of your Postgres tables directly into Timescale Cloud.
+
+[Livesync](https://docs.timescale.com/migrate/latest/livesync/) allows you to keep a current Postgres instance such as RDS as your primary database, and easily offload your real-time analytical queries to Timescale Cloud to boost their performance. If you have any questions or feedback, talk to us in [#livesync in Timescale Community](https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88).
+
+This is just the beginning—you'll see more from Livesync in 2025!
+
+## In-Console import from S3, I/O Boost, and Jobs Explorer
+<Label type="date">December 13, 2024</Label>
+
+### In-Console import from S3 (CSV and Parquet files)
+
+Connect your S3 buckets to import data into Timescale Cloud. We support CSV (including `.zip` and `.gzip`) and Parquet files, with a 10 GB size limit in this initial release. This feature is accessible in the `Import your data` section right after service creation and through the `Actions` tab.
+
+![Import data into Timescale with S3](https://assets.timescale.com/docs/images/import-your-data-s3.png)
+
+![Import data into Timescale with S3 details](https://assets.timescale.com/docs/images/import-data-s3-details.png)
+
+### Self-Serve I/O Boost 📈 
+
+I/O Boost is an add-on for customers on Scale or Enterprise tiers that maximizes the I/O capacity of EBS storage to 16,000 IOPS and 1,000 MBps throughput per service. To enable I/O Boost, navigate to `Services` > `Operations` in Timescale Console. A simple toggle allows you to enable the feature, with pricing clearly displayed at $0.41/hour per node.
+
+![Timescale I/O Boost](https://assets.timescale.com/docs/images/timescale-i-o-boost.png)
+
+### Jobs Explorer 
+
+See all the jobs associated with your service through a new `Jobs` tab. You can see the type of job, its status (`Running`, `Paused`, and others), and a detailed history of the last 100 runs, including success rates and runtime statistics.
+
+![Timescale Console Jobs tab](https://assets.timescale.com/docs/images/timescale-console-jobs-tab.png)
+
+![Timescale Console Jobs tab expanded](https://assets.timescale.com/docs/images/timescale-console-jobs-expanded.png)
+
+## 🛝 New service creation flow
+<Label type="date">December 6, 2024</Label>
+
+- **AI and Vector:** the UI now lets you choose an option for creating AI and Vector-ready services right from the start. You no longer need to add the pgai, pgvector, and pgvectorscale extensions manually. You can combine this with time-series capabilities as well!
+
+  ![Create Timescale Cloud service](https://assets.timescale.com/docs/images/create-timescale-service.png)
+
+- **Compute size recommendations:** new (and old) users were sometimes unsure about what compute size to use for their workload.  We now offer compute size recommendations based on how much data you plan to have in your service.
+
+  ![Service compute recommendation](https://assets.timescale.com/docs/images/timescale-service-compute-size.png)
+
+- **More information about configuration options:** we've made it clearer what each configuration option does, so that you can make more informed choices about how you want your service to be set up.
+
+## 🗝️ IP Allow Lists!
+<Label type="date">November 21, 2024</Label>
+
+IP Allow Lists let you specify a list of IP addresses that have access to your Timescale Cloud services and block any others. IP Allow Lists are a
+lightweight but effective solution for customers concerned with security and compliance. They enable 
+you to prevent unauthorized connections without the need for a [Virtual Private Cloud (VPC)](https://docs.timescale.com/use-timescale/latest/security/vpc/). 
+
+To get started, in [Timescale Console](https://console.cloud.timescale.com/), select a service, then click
+**Operations** > **Security** >  **IP Allow List**, then create an IP Allow List.
+
+![IP Allow lists](https://assets.timescale.com/docs/images/IP-Allow-lists.png)
+
+For more information, [see our docs](https://docs.timescale.com/use-timescale/latest/security/ip-allow-list/). 
+
+## 🤩 SQL Assistant, TimescaleDB v2.17, HIPAA compliance, and better logging
 <Label type="date">November 14, 2024</Label>
 
 ### 🤖 New AI companion: SQL Assistant
@@ -64,19 +150,9 @@ Highlighted features in TimescaleDB v2.17 are:
 
       This improvement speeds up operations that delete whole segments by skipping the decompression step. It is enabled for all deletes that filter by the `segment_by` column(s).
 
-### Enhanced HIPAA compliance support in TimescaleDB
+### HIPAA compliance
 
-TimescaleDB introduces essential updates to facilitate Health Insurance Portability and Accountability Act (HIPAA) compliance, empowering organizations to better protect sensitive healthcare information while simplifying regulatory adherence. Best practice is that customers upgrade to the [Enterprise plan](https://docs.timescale.com/about/latest/pricing-and-account-management/#features-included-in-each-plan) to leverage the following improvements in data security and auditing:
-
-*   **Introduced enhanced encryption and access controls**: Timescale encrypts all data at rest and in transit, while providing SAML, SSO, and MFA options for added access security.
-*   **Expanded audit logging for HIPAA compliance**: with the `pgAudit` and `pgSodium` extensions, you gain comprehensive logging for key data interactions. This enables you to capture the following information: user identity, access times, types of operations, and specific data accessed. You use these logs to identify and investigate potential security incidents.
-*   **Established breach notification protocol**: in case of a PHI data breach, Timescale notifies affected customers within 72 hours, ensuring transparency and compliance with HIPAA requirements.
-
-Highlighted features in this release:
-
-*   **Robust auditing capabilities**: Timescale Cloud now enables the `pgAudit` extension and soon, the `pgSodium` extension, providing essential logging capabilities to support HIPAA audits. By capturing actions such as read, write, and delete on sensitive data, these logs help users monitor and investigate access to PHI as required by HIPAA.
-*   **Detailed compliance documentation**: For customers needing additional verification of security practices, Timescale now offers a Business Associate Agreement (BAA) and a HIPAA Security Rule Self-Assessment, in addition to SOC 2 Type II and GDPR compliance documentation.
-*   **Shared responsibility model for compliance**: Timescale's shared responsibility model clarifies roles between Timescale and customers, outlining each party's duties in data encryption, access management, auditing, and breach notification.
+Timescale Cloud's [Enterprise plan](https://docs.timescale.com/about/latest/pricing-and-account-management/#features-included-in-each-plan) is now HIPAA (Health Insurance Portability and Accountability Act) compliant. This allows organizations to securely manage and analyze sensitive healthcare data, ensuring they meet regulatory requirements while building compliant applications.
 
 ### Expanded logging within Timescale Console
 
@@ -119,7 +195,7 @@ SELECT * FROM  hypertable WHERE timestamp_col > now() - '100 days'::interval
 
 For more info on queries with immutable/stable/volatile filters, check our blog post on [Implementing constraint exclusion for faster query performance](https://www.timescale.com/blog/implementing-constraint-exclusion-for-faster-query-performance/).
 
-If you no longer want to use tiered storage for a particular hypertable, you can now disable tiering and drop the associated tiering metadata on the hypertable with a call to [disable_tiering function](https://docs.timescale.com/use-timescale/latest/data-tiering/disabling-data-tiering/). 
+If you no longer want to use tiered storage for a particular hypertable, you can now disable tiering and drop the associated tiering metadata on the hypertable with a call to [disable_tiering function](https://docs.timescale.com/use-timescale/latest/data-tiering/enabling-data-tiering/#disable-tiering). 
 
 ### Chunk interval recommendations
 Timescale Console now shows recommendations for services with too many small chunks in their hypertables. 
@@ -600,3 +676,4 @@ To learn more, see the [postgresql-unit documentation](https://github.com/df7cb/
 [pgvectorscale]: https://github.com/timescale/pgvectorscale/
 [signup]: https://console.cloud.timescale.com/signup
 [sql-editor]: /getting-started/:currentVersion:/run-queries-from-console/#sql-editor
+[aws-timescale]: https://aws.amazon.com/marketplace/seller-profile?id=seller-wbtecrjp3kxpm

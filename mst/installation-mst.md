@@ -122,7 +122,7 @@ You can always [contact us][contact] if you need help working something out, or
 if you want to have a chat.
 
 [contact]: https://www.timescale.com/contact
-[install-psql]: /use-timescale/:currentVersion:/integrations/query-admin/about-psql/
+[install-psql]: /use-timescale/:currentVersion:/integrations/psql/
 [mst-docs]: /mst/:currentVersion:/
 [tutorials]: /tutorials/:currentVersion:/
 [mst-signup]: https://www.timescale.com/mst-signup

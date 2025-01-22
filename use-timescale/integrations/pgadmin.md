@@ -7,8 +7,7 @@ keywords: [connect]
 
 # Connect to Timescale using pgAdmin
 
-The `pgAdmin` tool is a database administration tool that can be run on the
-desktop, or in your browser. It is available for Chrome, Firefox, Edge, and
+The `pgAdmin` tool is a feature-rich open-source administration and development platform for PostgreSQL. It is available for Chrome, Firefox, Edge, and
 Safari browsers, or can be installed on Microsoft Windows, Apple macOS, or
 various Linux flavors.
 

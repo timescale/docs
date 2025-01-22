@@ -40,8 +40,8 @@ To create a hypertable:
 </Procedure>
 
 [services-portal]: https://console.cloud.timescale.com/dashboard/services
-[install-psql]: /use-timescale/:currentVersion:/integrations/query-admin/psql/
+[install-psql]: /use-timescale/:currentVersion:/integrations/psql/
 [popsql]: /getting-started/:currentVersion:/run-queries-from-console/#data-mode
 [run-sqleditor]: /getting-started/:currentVersion:/run-queries-from-console/#sql-editor
-[install-psql]: /use-timescale/:currentVersion:/integrations/query-admin/psql/
+[install-psql]: /use-timescale/:currentVersion:/integrations/psql/
 [hypertables]: /use-timescale/:currentVersion:/hypertables/about-hypertables/#hypertable-partitioning

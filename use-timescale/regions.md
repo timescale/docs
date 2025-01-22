@@ -1,10 +1,8 @@
 ---
 title: Timescale Cloud regions
-excerpt: The AWS regions available for Timescale Cloud services  
+excerpt: The AWS regions available for Timescale Cloud services
 product: cloud
 ---
-
-
 
 # Timescale Cloud regions
 
@@ -15,7 +13,8 @@ We tune your database for performance and handle scalability, high availability,
 Timescale Cloud services run in the following Amazon Web Services (AWS) regions:
 
 | Region           | Zone          | Location       |
-|------------------|---------------|----------------|
+| ---------------- | ------------- | -------------- |
+| `ap-south-1`     | Asia Pacific  | Mumbai         |
 | `ap-southeast-1` | Asia Pacific  | Singapore      |
 | `ap-southeast-2` | Asia Pacific  | Sydney         |
 | `ap-northeast-1` | Asia Pacific  | Tokyo          |
