@@ -77,7 +77,7 @@ between $CLOUD_LONG and your own VPC in a logically isolated virtual network.
 
 1.  In [$CONSOLE > Security > VPC][console-vpc], click `Create a VPC`.
 
-    ![$CLOUD_LONG new $VPC](https://assets.timescale.com/docs/images/console-add-vpc.png)
+    ![$CLOUD_LONG new $VPC](https://assets.timescale.com/docs/images/add-peering-vpc.png)
 
     * You can attach:
       * Up to 50 Customer $VPCs to a $CLOUD_LONG $VPC.
@@ -95,17 +95,16 @@ between $CLOUD_LONG and your own VPC in a logically isolated virtual network.
 
 1.  Choose your region and IP range, name your VPC, then click `Create VPC`. 
 
-    ![Create a new VPC in $CLOUD_LONG](https://assets.timescale.com/docs/images/tsc-vpc-create.png)
+    ![Create a new VPC in $CLOUD_LONG](https://assets.timescale.com/docs/images/configure-peering-vpc.png)
 
 1.  For as many peering connections as you need:
 
     1. In the `VPC Peering` column, click `Add`.
     2. Enter information about your existing AWS VPC, then click `Add Connection`.
 
-       ![Create a new $CLOUD_LONG $VPC](https://assets.timescale.com/docs/images/tsc-vpc-add-peering.png)
+       ![Add peering](https://assets.timescale.com/docs/images/add-peering.png)
 
-$CLOUD_LONG sends a peering request to your AWS account so you can 
-[complete the VPC connection in AWS][aws-vpc-complete].
+$CLOUD_LONG sends a peering request to your AWS account so you can [complete the VPC connection in AWS][aws-vpc-complete].
 </Procedure>
 
 
