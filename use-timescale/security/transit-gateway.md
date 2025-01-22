@@ -45,8 +45,6 @@ To create a Peering $VPC:
 
     ![Add peering](https://assets.timescale.com/docs/images/add-peering.png)
 
-    You can add up to 50 peering connections from a Peering $VPC.
-
 </Procedure>
 
 ## Accept and configure peering connection
