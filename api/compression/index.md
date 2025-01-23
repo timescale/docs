@@ -8,6 +8,10 @@ import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 
 # Compression (deprecated use Hypercore) <Tag type="community">Community</Tag>
 
+<Deprecated2180 /> Replaced by <a href="https://docs.timescale.com/api/latest/hypercore/">Hypercore</a>.
+
+Compression functionality is included in Hypercore. 
+
 Before you set up compression, you need to
 [configure the hypertable for compression][configure-compression] and then
 [set up a compression policy][add_compression_policy].
@@ -31,7 +35,6 @@ Compressed chunks have the following limitations:
     after constraint creation.
 *   [Timescale SkipScan][skipscan] does not currently work on compressed chunks.
 
-<Deprecated2180 /> Replaced by <a href="https://docs.timescale.com/api/latest/hypercore/">Hypercore</a>.
 
 ## Restrictions
 

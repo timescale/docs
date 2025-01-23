@@ -43,9 +43,12 @@ To retrieve the chunks belonging to a hypertable, call [`show_chunks`](/api/late
 
 ## Returns
 
-|Column| Type                                            | Description                                     |
-|-|-------------------------------------------------|-------------------------------------------------|
-| `convert_to_columnstore` | REGCLASS | The name of the chunk added to the columnstore. |
+Calls to `convert_to_columnstore` return one of the following:
+
+| Column                      | Type     | Description                                                   |
+|-----------------------------|----------|---------------------------------------------------------------|
+| `name` \| descriptive words | Table    | A table-like result set with zero or more rows containing ... |
+| chunk name                  | REGCLASS | The name of the chunk added to the columnstore.               |
 
 
 [add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/

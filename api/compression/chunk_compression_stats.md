@@ -12,6 +12,8 @@ import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 
 # chunk_compression_stats() <Tag type="community">Community</Tag>
 
+<Deprecated2180 /> Replaced by <a href="https://docs.timescale.com/api/latest/hypercore/chunk_columnstore_stats/">chunk_columnstore_stats()</a>.
+
 Get chunk-specific statistics related to hypertable compression.
 All sizes are in bytes.
 
@@ -20,8 +22,6 @@ This function shows the compressed size of chunks, computed when the
 the chunk. An insert into a compressed chunk does not update the compressed
 sizes. For more information about how to compute chunk sizes, see the
 `chunks_detailed_size` section.
-
-<Deprecated2180 /> Replaced by <a href="https://docs.timescale.com/api/latest/hypercore/chunk_columnstore_stats/">chunk_columnstore_stats()</a>.
 
 ### Required arguments
 

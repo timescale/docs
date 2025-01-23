@@ -12,6 +12,8 @@ import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 
 # hypertable_compression_stats() <Tag type="community">Community</Tag>
 
+<Deprecated2180 /> Replaced by <a href="https://docs.timescale.com/api/latest/hypercore/hypertable_columnstore_stats/">hypertable_columnstore_stats()</a>.
+
 Get statistics related to hypertable compression. All sizes are in bytes.
 
 For more information about using hypertables, including chunk size partitioning,
@@ -19,8 +21,6 @@ see the [hypertable section][hypertable-docs].
 
 For more information about compression, see the
 [compression sction][compression-docs].
-
-<Deprecated2180 /> Replaced by <a href="https://docs.timescale.com/api/latest/hypercore/hypertable_columnstore_stats/">hypertable_columnstore_stats()</a>.
 
 ### Required arguments
 
