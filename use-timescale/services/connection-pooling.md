@@ -197,24 +197,20 @@ update your application to adjust the port it uses to connect to your service.
 
 <Procedure>
 
-### Removing a connection pooler
+1. In [Timescale Cloud Console][tsc-portal], select the service you want to remove a connection pooler from. 
+1. Select `Operations`, then `Connection pooling`. 
+1. Select the pooler to remove, then click `Remove connection pooler`.
 
-1.  [Log in to the Timescale portal][cloud-login] and click the service
-    you want to remove a connection pooler from.
-1.  In the `Connection info` section, navigate to the `Connection pooler` tab,
-    and click `Remove connection pooler`.
-1.  Confirm that you want to remove the connection pooler.
+   Confirm that you want to remove the connection pooler. 
 
-    <Highlight type="note">
-    After you have removed a pooler, if you add it back in the future, it uses the
-    same connection string and port that was used before.
-    </Highlight>
+After you have removed a pooler, if you add it back in the future, it uses the
+same connection string and port that was used before.
 
 </Procedure>
 
-<Procedure>
-
 ### pgBouncer statistics commands
+
+<Procedure>
 
 1.  Connect to your database.
 1.  Switch to the `pgbouncer` database: `\c pgbouncer`

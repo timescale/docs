@@ -14,14 +14,15 @@ integrate a third-party service, such as [SolarWinds Loggly][loggly-site].
 
 ## Native logging
 
-To see the most recent logged events for your service, in the `Services` tab,
-find the service you want to review, and check it is marked as `Running`.
-Navigate to the `Logs` tab to see a constantly updated list of logged events.
+To see the most recent logged events for your service. 
 
-<img class="main-content__illustration"
-width={1375} height={944}
-src="https://assets.timescale.com/docs/images/mst-view-logs.webp"
-alt="Managed Service for TimescaleDB native logging"/>
+1. In [MST Portal][mst-login], in the `Services` tab, find the service you want to review, and check it is 
+   marked as `Running`.
+2. Navigate to the `Logs` tab to see a constantly updated list of logged events.
+
+    <img class="main-content__illustration"
+    src="https://assets.timescale.com/docs/images/mst/view-logs.png"
+    alt="Managed Service for TimescaleDB native logging"/>
 
 ## Dump logs to a text file with the Aiven CLI
 
@@ -89,3 +90,5 @@ Service for TimescaleDB.
 
 [loggly-site]: https://www.loggly.com/
 [aiven-cli]: /mst/:currentVersion:/aiven-client/#install-and-configure-the-aiven-client
+
+[mst-login]:https://portal.managed.timescale.com/login

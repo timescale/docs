@@ -30,6 +30,9 @@ zone, so, if `window_start` and `window_end` is specified in the local time
 zone, any time zone shift relative UTC needs to be accounted for when refreshing
 to align with bucket boundaries.
 
+To improve performance for continuous aggregate refresh, see 
+[CREATE MATERIALIZED VIEW ][create_materialized_view].
+
 ### Required arguments
 
 |Name|Type|Description|
@@ -89,3 +92,7 @@ BEGIN
 END
 $$;
 ```
+
+
+[modify-parameters]: /use-timescale/:currentVersion/configuration/customize-configuration/
+[create_materialized_view]: /api/:currentVersion:/continuous-aggregates/create_materialized_view/

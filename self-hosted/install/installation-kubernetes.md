@@ -11,7 +11,7 @@ import Skip from "versionContent/_partials/_selfhosted_cta.mdx";
 
 TimescaleDB can be run inside Kubernetes using the TimescaleDB Docker 
 container images. In the past Timescale maintained Helm charts to 
-manage the Kubernetes deployment, but we now reccomend that Kubernetes
+manage the Kubernetes deployment, but we now recommend that Kubernetes
 users rely on one of the amazing PostgreSQL Kubernetes operators to 
 simplify installation, configuration, and life-cycle.
 

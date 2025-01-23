@@ -149,6 +149,16 @@ module.exports = [
           },
         ],
       },
+      {
+        title: "Internet of things",
+        href: "simulate-iot-sensor-data",
+        excerpt: "Simulate and query an IoT sensor dataset",
+      },
+      {
+        title: "Timescale community cookbook",
+        href: "cookbook",
+        excerpt: "Code examples from the community that help you with loads of common conundrums.",
+      },
     ],
   },
 ];

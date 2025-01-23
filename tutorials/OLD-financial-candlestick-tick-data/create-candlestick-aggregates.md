@@ -273,6 +273,6 @@ refresh and query performance should work well.
 [caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
 [first]: /api/:currentVersion:/hyperfunctions/first/
 [hyperfunctions]: /api/:currentVersion:/hyperfunctions/
-[intraday-tutorial]: /tutorials/:currentVersion:/analyze-intraday-stocks/
+[intraday-tutorial]: /tutorials/:currentVersion:/
 [last]: /api/:currentVersion:/hyperfunctions/last/
 [time-bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/

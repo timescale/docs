@@ -63,7 +63,7 @@ For more information about the topics in this tutorial, check out these resource
 [create-data-api]: /tutorials/:currentVersion:/aws-lambda/create-data-api
 [cryptocurrency-market-data]: /tutorials/:currentVersion:/analyze-cryptocurrency-data
 [gh-actions]: /tutorials/:currentVersion:/aws-lambda/continuous-deployment
-[intraday-stock-data]: /tutorials/:currentVersion:/analyze-intraday-stocks/
+[intraday-stock-data]: /tutorials/:currentVersion:/
 [lambda-container-images]: https://docs.aws.amazon.com/lambda/latest/dg/images-create.html
 [lambda-getting-started]: https://docs.aws.amazon.com/lambda/latest/dg/getting-started.html
 [lambda-supported-langs]: https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html

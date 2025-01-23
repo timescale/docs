@@ -1,7 +1,7 @@
 ## Load financial data
 
 This tutorial uses real-time stock trade data, also known as tick data, from
-[Twelve Data][twelve-data].
+[Twelve Data][twelve-data]. A direct download link is provided below.
 
 ## Ingest the dataset
 

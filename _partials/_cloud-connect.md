@@ -1,46 +1,57 @@
+
 <Procedure>
 
-### Check your service and connect to it
+To connect to a service:
 
-To ensure a Timescale service is running correctly:
+1. **Check your service is running correctly**
 
-1.  In the [Services section in Timescale Console][services-portal], check that your service is marked as `Running`.
+    In [Timescale Console][services-portal], check that your service is marked as `Running`.
 
-1. Use PopSQL or psql to connect to your service:
-    - [Setup PopSQL][popsql]: Follow the instructions to easily connect to your service in the UI.
-    - [psql][install-psql]: Connect to your service with the value of `Service URL` from the config file you 
-      just saved.
+   ![Check service is running](https://assets.timescale.com/docs/images/console-services-view.png)
 
-      <CodeBlock canCopy={true} showLineNumbers={false} children={`
-      psql "postgres://tsdbadmin:<PASSWORD>@<HOST>:<PORT>/tsdb?sslmode=require"
-      `} />
+1. **Connect to your service**
 
-    You are connected to your service and are now able to issue commands. 
+    Use either:  
+    - [Data mode][popsql] in Timescale Console:  
+      1. In the [data mode][portal-data-mode] in Timescale Console, select a service and enter your password, then click **Connect**.
+      
+         You find your password in the config file you just downloaded.
+      2. Select a query to edit:
+         ![Select a query to edit](https://assets.timescale.com/docs/images/data-mode-query-window.png)
 
-1.  Create a PostgreSQL table, copy the following into [PopSQL][popsql] or psql, then run your query:
+    - [SQL editor][run-sqleditor] in Timescale Console:
+    
+       In the [ops mode][portal-ops-mode] in Timescale Console, select a service, then click **SQL editor**. 
+   
+      ![Check service is running](https://assets.timescale.com/docs/images/ops-view-sql-editor.png)
+   
+    - [psql][install-psql] on the command line:
+   
+      Connect to your service with the value of `Service URL` from the config file you 
+        just saved:
 
-    ```sql
-    CREATE TABLE stocks_real_time (
-      time TIMESTAMPTZ NOT NULL,
-      symbol TEXT NOT NULL,
-      price DOUBLE PRECISION NULL,
-      day_volume INT NULL
-    );
-    ```
+        <CodeBlock canCopy={true} showLineNumbers={false} children={`
+        psql "postgres://tsdbadmin:<PASSWORD>@<HOST>:<PORT>/tsdb?sslmode=require"
+        `} />
 
-1.  Check that the table exists.
-    - In PopSQL, you see the table in the UI. 
-    - In psql, run the `\dt` command, You see the table listing in your service. To disconnect, type `exit`.
+   You can now run queries for this service.
 
-
-Quick recap, you find configuration information about your
-services in [Services section in Timescale Console][tsc-portal], you find configuration and security information in your
-config file.
+Quick recap. You:
+- Manage your services in the [ops mode][portal-ops-mode] in Timescale Console:  add read replicas and enable 
+  high-availability, configure compression, change parameters, and so on.
+- Analyze your data in the [data mode][portal-data-mode] in Timescale Console: write queries with
+  autocomplete, save them in folders, share them, create charts/dashboards, and much more.
+- Store configuration and security information in your config file.
 
 </Procedure>
 
-[tsc-portal]: https://console.cloud.timescale.com/
+
+[portal-ops-mode]: https://console.cloud.timescale.com/dashboard/services
+[portal-data-mode]: https://console.cloud.timescale.com/dashboard/services?popsql
 [account-portal]: https://console.cloud.timescale.com/dashboard/account
 [services-portal]: https://console.cloud.timescale.com/dashboard/services
-[install-psql]: /use-timescale/:currentVersion:/integrations/query-admin/psql/
-[popsql]: /use-timescale/:currentVersion:/popsql/
+[install-psql]: /use-timescale/:currentVersion:/integrations/psql/
+[popsql]: /getting-started/:currentVersion:/run-queries-from-console/#data-mode
+[run-sqleditor]: /getting-started/:currentVersion:/run-queries-from-console/#sql-editor
+[install-psql]: /use-timescale/:currentVersion:/integrations/psql/
+[hypertables]: /use-timescale/:currentVersion:/hypertables/about-hypertables/#hypertable-partitioning

@@ -35,8 +35,7 @@ To connect to Managed Service for TimescaleDB using Aiven Client, create an auth
 
 #### Creating an authentication token in Managed Service for TimescaleDB
 
-1.  Sign in to your Managed Service for TimescaleDB portal.
-1.  Click `User Information` in the top right corner.
+1.  In [MST Portal][mst-login], click `User Information` in the top right corner.
 1.  In the `User Profile` page, navigate to the `Authentication`tab.
 1.  Click `Generate Token`.
 2.  In the `Generate access token` dialog, type a descriptive name for the token. Leave the rest of the fields blank.
@@ -460,3 +459,4 @@ avn service list
 [Fork services with Aiven client]: /mst/:currentVersion:/aiven-client/#fork-services-with-aiven-client
 [Configure Grafana authentication plugins]: /mst/:currentVersion:/aiven-client/#configure-grafana-authentication-plugins
 [Send Grafana emails]: /mst/:currentVersion:/aiven-client/#send-grafana-emails
+[mst-login]:https://portal.managed.timescale.com/login

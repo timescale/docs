@@ -27,12 +27,14 @@ and can connect to it using `psql`.
 
 ## Preparing your new database
 
-1.  Use `psql` to connect to your service. You can retrieve the service URL,
-    port, and login credentials from the service overview in the MST dashboard:
+1.  Use `psql` to connect to your service. 
 
     ```sql
     psql -h <HOSTNAME> -p <PORT> -U <USERNAME> -W -d <DATABASE_NAME>
     ```
+
+    You retrieve the service URL,
+    port, and login credentials from the service overview in the [MST dashboard][mst-login].
 
 1.  Create a new database for your data. In this example, the new database is
     called `new_db`:
@@ -157,3 +159,4 @@ See [these instructions][gh-kafkaconnector] for using the Kafka connector.
 [github-parallel-copy]: https://github.com/timescale/timescaledb-parallel-copy
 [postgres-odbc]: https://odbc.postgresql.org/
 [create-managed-service]: /mst/:currentVersion:/installation-mst/
+[mst-login]:https://portal.managed.timescale.com/login

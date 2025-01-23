@@ -46,11 +46,12 @@ This function returns void.
 
 ### Sample usage
 
+Reorder a chunk on an index:
+
 ```sql
-SELECT reorder_chunk('_timescaledb_internal._hyper_1_10_chunk', 'conditions_device_id_time_idx');
+SELECT reorder_chunk('_timescaledb_internal._hyper_1_10_chunk', '_timescaledb_internal.conditions_device_id_time_idx');
 ```
 
-runs a reorder on the `_timescaledb_internal._hyper_1_10_chunk` chunk using the `conditions_device_id_time_idx` index.
 
 [add_reorder_policy]: /api/:currentVersion:/hypertable/add_reorder_policy/
 [postgres-cluster]: https://www.postgresql.org/docs/current/sql-cluster.html

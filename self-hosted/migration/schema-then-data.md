@@ -210,7 +210,7 @@ the [compression section](https://docs.timescale.com/use-timescale/latest/compre
 [install-selfhosted]: /self-hosted/:currentVersion:/install/
 [pg_dump]: https://www.postgresql.org/docs/current/app-pgdump.html
 [pg_restore]: https://www.postgresql.org/docs/current/app-pgrestore.html
-[psql]: /use-timescale/:currentVersion:/integrations/query-admin/about-psql/
+[psql]: /use-timescale/:currentVersion:/integrations/psql/
 [timescaledb-parallel-copy]: https://github.com/timescale/timescaledb-parallel-copy
 [upgrading-postgresql]: https://kb-managed.timescale.com/en/articles/5368016-perform-a-postgresql-major-version-upgrade
 [upgrading-postgresql-self-hosted]: /self-hosted/:currentVersion:/upgrades/upgrade-pg/

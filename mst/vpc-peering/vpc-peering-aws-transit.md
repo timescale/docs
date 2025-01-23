@@ -25,7 +25,7 @@ attached - directly or indirectly - to the Transit Gateway.
 
 To set up VPC peering for your project:
 
-1.  In the MST portal, click `VPC` and select the VPC connection that you
+1.  In [MST Portal][mst-login], click `VPC` and select the VPC connection that you
     created.
 1.  In the `VPC Peering connections` page select `Transit Gateway VPC Attachment`.
 
@@ -57,3 +57,4 @@ the MST portal.
 </Procedure>
 
 [vpc-peering]: /mst/:currentVersion:/vpc-peering/vpc-peering
+[mst-login]:https://portal.managed.timescale.com/login

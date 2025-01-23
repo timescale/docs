@@ -1,6 +1,6 @@
 import ExplainPgDumpFlags from "versionContent/_partials/_migrate_explain_pg_dump_flags.mdx";
 
-```sh
+```shell
 pg_dump -d "$SOURCE" \
   --format=plain \
   --quote-all-identifiers \

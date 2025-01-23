@@ -389,5 +389,5 @@ for symbol in symbols:
 ```
 
 [pgcopy-docs]: https://pgcopy.readthedocs.io/en/latest/
-[scraping-example]: https://github.com/timescale/examples/blob/master/analyze-intraday-stocks/scrape_symbols.py
+[scraping-example]: https://github.com/timescale/examples/blob/master/
 [symbols-csv]: https://assets.timescale.com/docs/downloads/symbols.csv

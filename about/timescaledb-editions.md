@@ -158,63 +158,9 @@ You can access a hosted version of TimescaleDB Community Edition through
     <td>✅</td>
   </tr>
   <tr>
-    <td><strong>Distributed hypertables</strong></td>
+    <td colspan="3"><strong>Distributed hypertables</strong>: This feature is <a href="https://github.com/timescale/timescaledb/blob/2.14.0/docs/MultiNodeDeprecation.md">deprecated in all editions</a> after TimescaleDB v2.13.</td>
   </tr>
-  <tr>
-    <td><a href="https://docs.timescale.com/api/latest/distributed-hypertables/create_distributed_hypertable/">create_distributed_hypertable</a></td>
-    <td>❌</td>
-    <td>✅</td>
-  </tr>
-  <tr>
-    <td><a href="https://docs.timescale.com/api/latest/distributed-hypertables/add_data_node/">add_data_node</a></td>
-    <td>❌</td>
-    <td>✅</td>
-  </tr>
-  <tr>
-    <td><a href="https://docs.timescale.com/api/latest/distributed-hypertables/alter_data_node/">alter_data_node</a></td>
-    <td>❌</td>
-    <td>✅</td>
-  </tr>
-  <tr>
-    <td><a href="https://docs.timescale.com/api/latest/distributed-hypertables/attach_data_node/">attach_data_node</a></td>
-    <td>❌</td>
-    <td>✅</td>
-  </tr>
-  <tr>
-    <td><a href="https://docs.timescale.com/api/latest/distributed-hypertables/detach_data_node/">detach_data_node</a></td>
-    <td>❌</td>
-    <td>✅</td>
-  </tr>
-  <tr>
-    <td><a href="https://docs.timescale.com/api/latest/distributed-hypertables/delete_data_node/">delete_data_node</a></td>
-    <td>❌</td>
-    <td>✅</td>
-  </tr>
-  <tr>
-    <td><a href="https://docs.timescale.com/api/latest/distributed-hypertables/distributed_exec/">distributed_exec</a></td>
-    <td>❌</td>
-    <td>✅</td>
-  </tr>
-  <tr>
-    <td><a href="https://docs.timescale.com/api/latest/distributed-hypertables/set_number_partitions/">set_number_partitions</a></td>
-    <td>❌</td>
-    <td>✅</td>
-  </tr>
-  <tr>
-    <td><a href="https://docs.timescale.com/api/latest/distributed-hypertables/set_replication_factor/">set_replication_factor</a></td>
-    <td>❌</td>
-    <td>✅</td>
-  </tr>
-  <tr>
-    <td><a href="https://docs.timescale.com/api/latest/distributed-hypertables/copy_chunk_experimental/">copy_chunk</a></td>
-    <td>❌</td>
-    <td>✅</td>
-  </tr>
-  <tr>
-    <td><a href="https://docs.timescale.com/api/latest/distributed-hypertables/move_chunk_experimental/">move_chunk</a></td>
-    <td>❌</td>
-    <td>✅</td>
-  </tr>
+
   <tr>
     <td><strong>Compression</strong></td>
   </tr>

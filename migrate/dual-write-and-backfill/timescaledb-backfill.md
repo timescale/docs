@@ -2,6 +2,15 @@ import SourceTargetNote from "versionContent/_partials/_migrate_source_target_no
 
 # timescaledb-backfill
 
+Dual-write and backfill is a method to write from your application to two
+databases at once, and gives tooling and guidance to move your existing data
+from the one database to the other. It is specifically catered for, and relies
+on, your data being predominantly append-only time-series data. As such, it
+comes with some caveats and prerequisites which live migration does not
+(dual-write and backfill does not support executing `UPDATE` or `DELETE`
+statements on your data). Additionally, it requires you to make changes to the
+ingest pipeline of your application.
+
 The `timescaledb-backfill` tool is a command-line utility designed to support
 migrations from Timescale instances by copying historic data from one database
 to another ("backfilling"). `timescaledb-backfill` efficiently copies

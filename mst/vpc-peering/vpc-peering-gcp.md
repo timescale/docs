@@ -23,7 +23,7 @@ using VPC provided by GCP.
 
 To set up VPC peering for your project:
 
-1.  In the MST portal, click `VPC` and select the VPC connection that you
+1.  In [MST Portal][mst-login], click `VPC` and select the VPC connection that you
     created.
 
 1.  Type the project ID of your GCP project in `GCP Project ID`.
@@ -45,3 +45,5 @@ After the peering is successful, it is active in both the MST portal and your
 GCP console.
 
 </Procedure>
+
+[mst-login]:https://portal.managed.timescale.com/login

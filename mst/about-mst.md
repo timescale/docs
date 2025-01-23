@@ -19,18 +19,16 @@ projects, services, and databases.
 
 ## Projects
 
-When you sign up for Managed Service for TimescaleDB, an empty project is
+When you [sign up for Managed Service for TimescaleDB][mst-signup], an empty project is
 created for you automatically. Projects are the highest organization level, and
 they contain all your services and databases. You can use projects to organize
 groups of services. Each project can also have its own billing settings.
 
-To create a new project, click the project name in the navigation menu, and
-click `Create a new project`.
+To create a new project: In [MST Console][mst-login], click `Projects` > `Create project`.
 
 <img class="main-content__illustration"
-width={1375} height={944}
-src="https://assets.timescale.com/mst-empty-project.webp"
-alt="Managed Service for TimescaleDB new empty project"/>
+src="https://assets.timescale.com/docs/images/mst/create-project.png"
+alt="MST projects"/>
 
 ## Services
 
@@ -38,13 +36,13 @@ Each project contains one or more services. You can have multiple services under
 each project, and each service corresponds to a cloud service provider tier. You
 can access all your services from the `Services` tab within your projects.
 
+<img class="main-content__illustration"
+src="https://assets.timescale.com/docs/images/mst/services.png"
+alt="MST services list"/>
+
 For more information about getting your first service up and running, see the
 [Managed Service for Timescale installation section][mst-install].
 
-<img class="main-content__illustration"
-width={1375} height={944}
-src="https://assets.timescale.com/mst-services.webp"
-alt="Managed Service for TimescaleDB services list"/>
 
 <Highlight type="important">
 When you have created, and named, a new Managed Service for TimescaleDB service,
@@ -60,13 +58,12 @@ For information about billing on Managed Service for TimescaleDB, see the
 ## Databases
 
 Each service can contain one or more databases. To view existing databases, or
-to create a new database, click the name of the service in the services list,
-and navigate to the `Databases` tab.
+to create a new database, select a service in the services list,
+click `Databases`, then click `Create database`.
 
 <img class="main-content__illustration"
-width={1375} height={944}
-src="https://assets.timescale.com/mst-databases.webp"
-alt="Managed Service for TimescaleDB databases list"/>
+src="https://assets.timescale.com/docs/images/mst/create-database.png"
+alt="MST databases list"/>
 
 ## Service level agreement
 
@@ -120,8 +117,8 @@ Within each configuration plan option, there are several plan types available:
 
 <img class="main-content__illustration"
 width={1375} height={944}
-src="https://assets.timescale.com/mst-service-plans.webp"
-alt="Managed Service for TimescaleDB selecting a service configuration plan"/>
+src="https://assets.timescale.com/docs/images/mst/service-plans.png"
+alt="MST selecting a service configuration plan"/>
 
 ## High availability
 
@@ -291,3 +288,5 @@ SET statement_timeout = <milliseconds>
 [pg-keepalive]: http://www.postgresql.org/docs/9.5/static/libpq-connect.html#LIBPQ-KEEPALIVES
 [connection-pooling]: /mst/:currentVersion:/connection-pools/
 [mst-billing]: /mst/:currentVersion:/billing/
+[mst-signup]: https://www.timescale.com/mst-signup
+[mst-login]:https://portal.managed.timescale.com/login

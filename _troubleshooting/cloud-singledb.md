@@ -30,4 +30,4 @@ Each Timescale service hosts a single database named `tsdb`. You see this error 
 to create an additional database in a service. If you need another database, 
 [create a new service][create-service].
 
-[create-service]: /getting-started/:currentVersion:/services/#create-a-timescale-service
+[create-service]: /getting-started/:currentVersion:/services/#create-a-timescale-cloud-service

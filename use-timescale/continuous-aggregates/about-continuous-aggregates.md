@@ -31,84 +31,151 @@ For more information, see the documentation about
 
 ## Continuous aggregates with a `JOIN` clause
 
-In TimescaleDB 2.10.0 and later, continuous aggregates support JOINS, as long as
-they meet these conditions:
+Continuous aggregates supports the following JOIN features: 
 
-*   Joins must be between one hypertable and one standard PostgreSQL table. The
-    order of tables in the JOIN clause does not matter.
-*   Only changes to the hypertable are tracked, and are updated in the
-    continuous aggregate when it is refreshed. Changes to the standard
+| Feature | TimescaleDB < 2.10.x | TimescaleDB <= 2.15.x | TimescaleDB >= 2.16.x| 
+|-|-|-|-|
+|INNER JOIN|&#10060;|&#9989;|&#9989;|
+|LEFT JOIN|&#10060;|&#10060;|&#9989;|
+|LATERAL JOIN|&#10060;|&#10060;|&#9989;|
+|Joins between **ONE** hypertable and **ONE** standard PostgreSQL table|&#10060;|&#9989;|&#9989;|
+|Joins between **ONE** hypertable and **MANY** standard PostgreSQL tables|&#10060;|&#10060;|&#9989;|
+|Join conditions must be equality conditions, and there can only be **ONE** `JOIN` condition|&#10060;|&#9989;|&#9989;|
+|Any join conditions|&#10060;|&#10060;|&#9989;|
+
+
+JOINS in TimescaleDB must that meet the following conditions:
+
+*   Only changes to the hypertable are tracked, they are updated in the
+    continuous aggregate when it is refreshed. Changes to standard
     PostgreSQL table are not tracked.
-*   You must use an `INNER JOIN`, no other join type is supported.
-*   The `JOIN` conditions must be equality conditions, and there can only be ONE
-    `JOIN` condition. Further conditions can be added in the `WHERE` clause as
-    long as the `JOIN` condition is given in an `ON/USING` clause.
-*   You should use an `ON` or `USING` clauses to specify the `JOIN` condition
-    because, if `JOIN` conditions are specified in the `WHERE` clause, no
-    further conditions are allowed.
-*   The `USING` clause is only supported for PostgreSQL 13 and later.
+*   You can use an `INNER`, `LEFT` and `LATERAL` joins, no other join type is supported.
 *   Joins on the materialized hypertable of a continuous aggregate are not supported.
 *   Hierarchical continuous aggregates can be created on top of a continuous
     aggregate with a `JOIN` clause, but cannot themselves have a `JOIN` clauses.
 
-This section includes some examples of `JOIN` conditions that work with
-continuous aggregates. For these to work, either `table_1` or `table_2` must be
-a hypertable. It does not matter which is the hypertable and which is a standard
-PostgreSQL table.
+### JOIN examples
 
-`INNER JOIN` on a single equality condition, using the `ON` clause:
+Given the following schema:
 
 ```sql
-CREATE MATERIALIZED VIEW my_view WITH (timescaledb.continuous) AS
-SELECT ...
-FROM table_1 t1
-JOIN table_2 t2 ON t1.t2_id = t2.id
-GROUP BY ...
+CREATE TABLE locations (
+    id TEXT PRIMARY KEY,
+    name TEXT
+);
+
+CREATE TABLE devices (
+    id SERIAL PRIMARY KEY,
+    location_id TEXT,
+    name TEXT
+);
+
+CREATE TABLE conditions (
+    "time" TIMESTAMPTZ,
+    device_id INTEGER,
+    temperature FLOAT8
+);
+
+SELECT create_hypertable('conditions', by_range('time'));
 ```
 
-`INNER JOIN` on a single equality condition, using the `ON` clause, with a further
-condition added in the `WHERE` clause:
+See the following `JOIN` examples on Continuous Aggregates:
 
-```sql
-CREATE MATERIALIZED VIEW my_view WITH (timescaledb.continuous) AS
-SELECT ...
-FROM table_1 t1
-JOIN table_2 t2 ON t1.t2_id = t2.id
-WHERE t1.id IN (1, 2, 3, 4)
-GROUP BY ...
-```
+- `INNER JOIN` on a single equality condition, using the `ON` clause:
 
-`INNER JOIN` on a single equality condition specified in `WHERE` clause, this is allowed but not recommended:
+    ```sql
+    CREATE MATERIALIZED VIEW conditions_by_day WITH (timescaledb.continuous) AS
+    SELECT time_bucket('1 day', time) AS bucket, devices.name, MIN(temperature), MAX(temperature)
+    FROM conditions
+    JOIN devices ON devices.id = conditions.device_id
+    GROUP BY bucket, devices.name
+    WITH NO DATA;
+    ``` 
 
-```sql
-CREATE MATERIALIZED VIEW my_view WITH (timescaledb.continuous) AS
-SELECT ...
-FROM table_1 t1, table_2 t2
-WHERE t1.t2_id = t2.id
-GROUP BY ...
-```
+- `INNER JOIN` on a single equality condition, using the `ON` clause, with a further condition added in the `WHERE` clause:
 
-These are examples of `JOIN` conditions won't work with continuous aggregates:
-An `INNER JOIN` on multiple equality conditions is not allowed.
+    ```sql
+    CREATE MATERIALIZED VIEW conditions_by_day WITH (timescaledb.continuous) AS
+    SELECT time_bucket('1 day', time) AS bucket, devices.name, MIN(temperature), MAX(temperature)
+    FROM conditions
+    JOIN devices ON devices.id = conditions.device_id
+    WHERE devices.location_id = 'location123'
+    GROUP BY bucket, devices.name
+    WITH NO DATA;
+    ```
 
-```sql
-CREATE MATERIALIZED VIEW my_view WITH (timescaledb.continuous) AS
-SELECT ...
-FROM table_1 t1
-JOIN table_2 t2 ON t1.t2_id = t2.id AND t1.t2_id_2 = t2.id
-GROUP BY ...
-```
+- `INNER JOIN` on a single equality condition specified in `WHERE` clause:
 
-A `JOIN` with a single equality condition specified in `WHERE` clause cannot be combined with further conditions in the `WHERE` clause.
+    ```sql
+    CREATE MATERIALIZED VIEW conditions_by_day WITH (timescaledb.continuous) AS
+    SELECT time_bucket('1 day', time) AS bucket, devices.name, MIN(temperature), MAX(temperature)
+    FROM conditions, devices
+    WHERE devices.id = conditions.device_id
+    GROUP BY bucket, devices.name
+    WITH NO DATA;
+    ```
 
-```sql
-CREATE MATERIALIZED VIEW my_view WITH (timescaledb.continuous) AS
-SELECT ...
-FROM table_1 t1, table_2 t2
-WHERE t1.t2_id = t2.id
-AND t1.id IN (1, 2, 3, 4)
-GROUP BY ...
-```
+- `INNER JOIN` on multiple equality conditions:
+
+    ```sql
+    CREATE MATERIALIZED VIEW conditions_by_day WITH (timescaledb.continuous) AS
+    SELECT time_bucket('1 day', time) AS bucket, devices.name, MIN(temperature), MAX(temperature)
+    FROM conditions
+    JOIN devices ON devices.id = conditions.device_id AND devices.location_id = 'location123'
+    GROUP BY bucket, devices.name
+    WITH NO DATA;
+    ```
+   TimescaleDB v2.16.x and higher.
+
+- `INNER JOIN` with a single equality condition specified in `WHERE` clause can be combined with further conditions in the `WHERE` clause:
+
+    ```sql
+    CREATE MATERIALIZED VIEW conditions_by_day WITH (timescaledb.continuous) AS
+    SELECT time_bucket('1 day', time) AS bucket, devices.name, MIN(temperature), MAX(temperature)
+    FROM conditions, devices
+    WHERE devices.id = conditions.device_id
+    AND devices.location_id = 'location123'
+    GROUP BY bucket, devices.name
+    WITH NO DATA;
+    ```
+    TimescaleDB v2.16.x and higher.
+
+- `INNER JOIN` between an hypertable and multiple Postgres tables:
+
+    ```sql
+    CREATE MATERIALIZED VIEW conditions_by_day WITH (timescaledb.continuous) AS
+    SELECT time_bucket('1 day', time) AS bucket, devices.name AS device, locations.name AS location, MIN(temperature), MAX(temperature)
+    FROM conditions
+    JOIN devices ON devices.id = conditions.device_id
+    JOIN locations ON locations.id = devices.location_id
+    GROUP BY bucket, devices.name, locations.name
+    WITH NO DATA;
+    ```
+   TimescaleDB v2.16.x and higher.
+
+- `LEFT JOIN` between an hypertable and a Postgres table:
+
+    ```sql
+    CREATE MATERIALIZED VIEW conditions_by_day WITH (timescaledb.continuous) AS
+    SELECT time_bucket('1 day', time) AS bucket, devices.name, MIN(temperature), MAX(temperature)
+    FROM conditions
+    LEFT JOIN devices ON devices.id = conditions.device_id
+    GROUP BY bucket, devices.name
+    WITH NO DATA;
+    ```
+    TimescaleDB v2.16.x and higher.
+
+- `LATERAL JOIN` between an hypertable and a sub-query:
+
+    ```sql
+    CREATE MATERIALIZED VIEW conditions_by_day WITH (timescaledb.continuous) AS
+    SELECT time_bucket('1 day', time) AS bucket, devices.name, MIN(temperature), MAX(temperature)
+    FROM conditions, 
+    LATERAL (SELECT * FROM devices WHERE devices.id = conditions.device_id) AS devices
+    GROUP BY bucket, devices.name
+    WITH NO DATA;
+    ```
+   TimescaleDB v2.16.x and higher.
 
 ## Function support
 

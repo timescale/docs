@@ -14,7 +14,7 @@ you want to segment by.
 
 ## Enable a compression policy
 
-This procedure uses an example table, called `example`, and segments it by the
+This page uses an example table, called `example`, and segments it by the
 `device_id` column. Every chunk that is more than seven days old is then marked
 to be automatically compressed. The source data is organized like this:
 
@@ -59,13 +59,30 @@ SELECT * FROM timescaledb_information.jobs
 
 For more information, see the API reference for [`timescaledb_information.jobs`][timescaledb_information-jobs].
 
-## Remove compression policy
+## Pause compression policy
 
-To remove a compression policy, use `remove_compression_policy`. For example, to
-remove a compression policy for a hypertable named `cpu`:
+To disable a compression policy temporarily, find the corresponding job ID and then call `alter_job` to pause it:
 
 ```sql
-SELECT remove_compression_policy('cpu');
+SELECT * FROM timescaledb_information.jobs where proc_name = 'policy_compression' AND relname = 'example'
+```
+
+```sql
+SELECT alter_job(<job_id>, scheduled => false);
+```
+
+To enable it again:
+
+``` sql
+SELECT alter_job(<job_id>, scheduled => true);
+```
+
+## Remove compression policy
+
+To remove a compression policy, use `remove_compression_policy`:
+
+```sql
+SELECT remove_compression_policy('example');
 ```
 
 For more information, see the API reference for
@@ -77,7 +94,7 @@ You can disable compression entirely on individual hypertables. This command
 works only if you don't currently have any compressed chunks:
 
 ```sql
-ALTER TABLE <TABLE_NAME> SET (timescaledb.compress=false);
+ALTER TABLE <EXAMPLE> SET (timescaledb.compress=false);
 ```
 
 If your hypertable contains compressed chunks, you need to

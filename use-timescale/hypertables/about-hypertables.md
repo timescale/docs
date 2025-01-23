@@ -60,21 +60,22 @@ the number of chunks you see when inspecting it.
 ### Best practices for time partitioning
 
 Chunk size affects insert and query performance. You want a chunk small enough
-to fit into memory. This allows you to insert and query recent data without
-reading from disk. But you don't want too many small and sparsely filled chunks.
-This can affect query planning time and compression.
+to fit into memory so you can insert and query recent data without
+reading from disk. However, having too many small and sparsely filled chunks can 
+affect query planning time and compression.
 
-We recommend setting the `chunk_time_interval` so that 25% of main memory can
-store one chunk, including its indexes, from each active hypertable. You can
-estimate the required interval from your data rate. For example, if you write
-approximately 2&nbsp;GB of data per day and have 64&nbsp;GB of memory, set the
-interval to 1 week. If you write approximately 10&nbsp;GB of data per day on the
-same machine, set the time interval to 1 day.
+Best practice is to set `chunk_time_interval` so that prior to processing, one chunk of data
+takes up 25% of main memory, including the indexes from each active hypertable.
+For example, if your write approximately 2 GB of data per day to a database with 64 GB of 
+memory, set `chunk_time_interval` to 1 week. If you write approximately 10 GB of data per day 
+on the same machine, set the time interval to 1 day.
 
 <Highlight type="note">
+
 If you use expensive index types, such as some PostGIS geospatial indexes, take
 care to check the total size of the chunk and its index. You can do so using the
 [`chunks_detailed_size`](/api/latest/hypertable/chunks_detailed_size) function.
+
 </Highlight>
 
 For a detailed analysis of how to optimize your chunk sizes, see the

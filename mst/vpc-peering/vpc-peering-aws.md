@@ -23,7 +23,7 @@ using the VPC on AWS.
 
 To set up VPC peering for your project:
 
-1.  In the MST portal, click `VPC` and select the VPC connection that you
+1.  In [MST Portal][mst-login], click `VPC` and select the VPC connection that you
     created.
 
 1.  Type the account ID of your AWS account in `AWS Account ID`.
@@ -43,3 +43,5 @@ After you accept the request in AWS Console, the peering connection is active in
 the MST portal.
 
 </Procedure>
+
+[mst-login]:https://portal.managed.timescale.com/login

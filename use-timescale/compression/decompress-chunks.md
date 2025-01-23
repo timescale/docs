@@ -22,19 +22,14 @@ for actions such as bulk inserts.
 </Highlight>
 
 This section describes commands to use for decompressing chunks. You can filter
-by time to select the chunks you want to decompress. To learn how to backfill
-data, see the [backfilling section][backfill].
+by time to select the chunks you want to decompress.
 
 ## Decompress chunks manually
 
-There are several methods for selecting chunks and decompressing them.
+Before decompressing chunks, stop any compression policy on the hypertable you are decompressing. When you finish backfilling or updating data, turn the policy back on. The database automatically recompresses your
+chunks in the next scheduled job. For more information on how to stop and run compression policies with the `alter_job()` function, see the [API reference][api-reference-alter-job].
 
-<Highlight type="note">
-Before decompressing chunks, stop any compression policy
-on the hypertable you are decompressing. When you finish backfilling or updating
-data, turn the policy back on. The database automatically recompresses your
-chunks in the next scheduled job.
-</Highlight>
+There are several methods for selecting chunks and decompressing them.
 
 ### Decompress individual chunks
 
@@ -74,5 +69,5 @@ SELECT tableoid::regclass FROM metrics
  _timescaledb_internal._hyper_72_37_chunk
 ```
 
-[backfill]: /use-timescale/:currentVersion:/compression/backfill-historical-data/
 [api-reference-decompress]: /api/:currentVersion:/compression/decompress_chunk/
+[api-reference-alter-job]: /api/:currentVersion:/actions/alter_job/

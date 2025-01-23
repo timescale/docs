@@ -7,13 +7,8 @@ keywords: [compression, hypertables]
 
 # Manually compress chunks
 
-In most cases, an [automated compression policy][add_compression_policy] is sufficient to manually compress your chunks. However, if you
-want more control over compression, you can also manually compress specific
-chunks.
-
-<Highlight type="warning">
-Compression alters data on your disk, so always back up before you start.
-</Highlight>
+In most cases, an [automated compression policy][add_compression_policy] is sufficient to automatically compress your 
+chunks. However, if you want more control over compression, you can also manually compress specific chunks.
 
 Before you start, you need a list of chunks to compress. In this example, you
 use a hypertable called `example`, and compress chunks older than three days.

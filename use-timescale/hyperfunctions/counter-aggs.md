@@ -108,7 +108,7 @@ going on in each part.
     with t as (
         SELECT measure_id,
             time_bucket('15 min'::interval, ts) as bucket,
-            counter_agg(ts, val, time_bucket_range('15 min'::interval, ts))
+            counter_agg(ts, val, toolkit_experimental.time_bucket_range('15 min'::interval, ts))
         FROM example
         GROUP BY measure_id, time_bucket('15 min'::interval, ts))
     SELECT time_bucket,
