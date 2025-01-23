@@ -10,59 +10,47 @@ api:
 
 # merge_chunks()
 
-Merge two or more chunks into one. The new chunk's partition
-boundaries will be the union of all the merged chunks' partitions. The
-new chunk will retain the name of the chunk that is _first_ in the
-partition order, and it will also inherit that chunk's constraints and
-triggers.
+Merge two or more chunks into one. 
 
-It is only possible to merge chunks that have directly adjacent
-partitions. In other words, it is not possible to merge chunks that
-have another chunk or an empty range in-between them in any of the
-partitioning dimensions.
+The partition boundaries for the new chunk is the union of all partitions of the merged chunks. 
+The new chunk retains the name, constraints, and triggers of the _first_ chunk in the partition order.
 
-Currently, chunk merging has the following limitations:
+You can only merge chunks that have directly adjacent partitions. It is not possible to merge 
+chunks that have another chunk, or an empty range between them in any of the partitioning 
+dimensions.
 
-* cannot merge compressed chunks
-* cannot merge chunks using other table access methods than heap
-* cannot merge tiered with tiered data
-* cannot read or write from the chunks being merged
+In this first release, chunk merging has the following limitations. You cannot:
 
-<Highlight type="note">
-The `merge_chunks()` procedure exists since TimescaleDB 2.18.
-</Highlight>
+* Merge compressed chunks
+* Merge chunks using table access methods other than heap
+* Merge chunks with tiered data
+* Read or write from the chunks while they are being merged
 
-### Required arguments
+<Since2180 />
 
-There are two versions of `merge_chunks` that use the same name but
-take different arguments. The first one is convenient to use when only
-merging two chunks, while the other one can merge an arbitrary number
-of chunks specified as an array of chunk identifiers.
+## Samples
 
-Merge two chunks:
+- Merge two chunks:
 
-|Name|Type|Description|
-|---|---|---|
-| `chunk1` | REGCLASS | The first chunk to merge |
-| `chunk2` | REGCLASS | The second chunk to merge |
+   ```sql
+   CALL merge_chunks('_timescaledb_internal._hyper_1_1_chunk', '_timescaledb_internal._hyper_1_2_chunk');
+   ```
+
+- Merge more than two chunks:
+
+   ```sql
+   CALL merge_chunks('{_timescaledb_internal._hyper_1_1_chunk, _timescaledb_internal._hyper_1_2_chunk, _timescaledb_internal._hyper_1_3_chunk}');
+   ```
 
 
-Merge all chunks in the given array:
+## Arguments
 
-|Name|Type|Description|
-|---|---|---|
-| `chunks` | REGCLASS[] | An array of chunks to merge |
+You can merge either two chunks, or an arbitrary number of chunks specified as an array of chunk identifiers.
+When you call `merge_chunks`, you must specify either `chunk1` and `chunk2`, or `chunks`. You cannot use both 
+arguments.
 
-### Sample usage
 
-Merge two chunks:
-
-```sql
-CALL merge_chunks('_timescaledb_internal._hyper_1_1_chunk', '_timescaledb_internal._hyper_1_2_chunk');
-```
-
-Merge more than two chunks at once:
-
-```sql
-CALL merge_chunks('{_timescaledb_internal._hyper_1_1_chunk, _timescaledb_internal._hyper_1_2_chunk, _timescaledb_internal._hyper_1_3_chunk}');
-```
+| Name               | Type        | Default | Required | Description                                    |
+|--------------------|-------------|--|--|------------------------------------------------|
+| `chunk1`, `chunk2` | REGCLASS    | - | ✖ | The two chunk to merge in partition order |
+| `chunks`           | REGCLASS[]  |- | ✖ | The array of chunks to merge in partition order |
