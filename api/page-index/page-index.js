@@ -35,6 +35,10 @@ module.exports = [
             href: "reorder_chunk",
           },
           {
+            title: "merge_chunks",
+            href: "merge_chunks",
+          },
+          {
             title: "move_chunk",
             href: "move_chunk",
           },
