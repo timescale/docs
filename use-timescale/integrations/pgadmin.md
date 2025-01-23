@@ -12,6 +12,8 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 [pgAdmin][pgadmin] is a feature-rich open-source administration and development platform for PostgreSQL. It is available for Chrome, Firefox, Edge, and
 Safari browsers, or can be installed on Microsoft Windows, Apple macOS, or various Linux flavors.
 
+![Timescale Cloud pgadmin](https://assets.timescale.com/docs/images/timescale-cloud-pgadmin.png)
+
 This page explains how to integrate pgAdmin with your $SERVICE_LONG.
 
 ## Prerequisites
@@ -20,7 +22,7 @@ This page explains how to integrate pgAdmin with your $SERVICE_LONG.
 
 - [Download][download-pgadmin] and install pgAdmin. 
 
-## Connect to your $SERVICE_LONG with pgAdmin
+## Connect pgAdmin to your $SERVICE_LONG
 
 To connect to $CLOUD_LONG:
 
