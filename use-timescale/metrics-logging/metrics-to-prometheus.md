@@ -16,7 +16,7 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 
 [Prometheus][prometheus] is an open-source monitoring system with a dimensional data model, flexible query language, and a modern alerting approach.
 
-This page shows you how to export your $SERVICE_SHORT telemetry to Prometheus.
+This page shows you how to export your $SERVICE_SHORT telemetry to Prometheus using [PostgreSQL Exporter][postgresql-exporter].
 
 ## Prerequisites
 
@@ -30,9 +30,9 @@ Take the following steps to export your data:
 
 <Procedure>
 
-1. **Connect to your $SERVICE_LONG as a privileged user**
+1. **Connect to your $SERVICE_LONG**
 
-   For $CLOUD_SHORT, connect from [$CONSOLE][run-queries] . For self-hosted, use [`psql`][psql].
+   For $CLOUD_SHORT, connect from [$CONSOLE][run-queries]. For self-hosted, use [`psql`][psql].
 
 1. **Create a user to scrape the metrics**
 
@@ -50,17 +50,9 @@ Take the following steps to export your data:
 
 1. **Install PostgreSQL Exporter**
 
-   PostgreSQL Exporter collects PostgreSQL performance metrics and exposes them in a Prometheus-compatible format. [Install PostgreSQL Exporter][install-exporter] on the host that you use to connect to your $SERVICE_SHORT and collect telemetry. To reduce latency and potential data transfer costs, run PostgreSQL Exporter in the same AWS region as your $SERVICE_LONG.
-
-   For example, install using Docker:
-
-   1. Pull the Docker image:
-   
-      ```bash
-      docker pull quay.io/prometheuscommunity/postgres-exporter
-      ````
-
-   1. Run the container:
+   You [install PostgreSQL Exporter][install-exporter] on the machine that you use to connect to your $SERVICE_SHORT and collect telemetry. To reduce latency and potential data transfer costs, run PostgreSQL Exporter in the same AWS region as your $SERVICE_LONG. Use your [connection details][connection-info] to configure the data source during installation.
+      
+  * If installing with Docker:
 
     ```bash
     docker run -d --name=postgresql_exporter \
@@ -72,7 +64,9 @@ Take the following steps to export your data:
    - `<password>`: the `monitoring` user password
    - `<host>`, `<port>`, and `<database>`: configure using your [connection details][connection-info].
 
-   If not using Docker, download the binary and configure the `DATA_SOURCE_NAME` environment variable similarly. To check the installation, navigate to `http://<exporter-host>:9187/metrics`. You should see PostgreSQL metrics in the Prometheus format.
+  * If installing with a binary, configure the `DATA_SOURCE_NAME` environment variable similarly. 
+
+  To check the installation, navigate to `http://<exporter-host>:9187/metrics`. You should see PostgreSQL metrics in the Prometheus format.
 
 1. **Configure Prometheus to scrape metrics**
 
@@ -109,3 +103,4 @@ You can further [visualize your data][grafana-prometheus] with Grafana. Use the 
 [run-queries]: /getting-started/:currentVersion:/run-queries-from-console/
 [psql]: /use-timescale/:currentVersion:/integrations/psql/
 [connection-info]: /use-timescale/:currentVersion:/integrations/find-connection-details/
+[postgresql-exporter]: https://grafana.com/oss/prometheus/exporters/postgres-exporter/
