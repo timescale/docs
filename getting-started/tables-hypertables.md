@@ -13,7 +13,7 @@ import HypertableIntro from "versionContent/_partials/_hypertables-intro.mdx";
 
 <HypertableIntro />
 
-Databases in are made up of tables that contain your data. In PostgreSQL, these
+Databases are made up of tables that contain your data. In PostgreSQL, these
 tables are relational, so the data in one table relates to the data in another
 table. In Timescale, you use regular PostgreSQL relational tables, in addition
 to special time-series hypertables.
