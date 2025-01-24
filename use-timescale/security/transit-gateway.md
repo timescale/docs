@@ -13,7 +13,7 @@ cloud_ui:
 
 You use [AWS Transit Gateway][aws-transit-gateway] as a traffic controller for your network. Instead of setting up lots of direct connections to virtual private clouds, on-premise data centers, and other AWS services, you connect everything to Transit Gateway. This simplifies your network and makes it easier to manage and scale.
 
-$CLOUD_LONG allows you to then create a peering connection between your $SERVICE_SHORTs and AWS Transit Gateway. This means that, no matter how big or complex your infrastructure is, you can connect securely to your $SERVICE_LONGs. 
+You can create a peering connection between your $SERVICE_LONGs and AWS Transit Gateway in $CLOUD_LONG. This means that, no matter how big or complex your infrastructure is, you can connect securely to your $SERVICE_LONGs. 
 
 To configure this secure connection, you:
 
@@ -49,13 +49,13 @@ To create a Peering $VPC:
 
 ## Accept and configure peering connection
 
-Once your peering connection appears as `Processing`, you can accept and configure it on the Transit Gateway side: 
+Once your peering connection appears as `Processing`, you can accept and configure it in AWS: 
 
 <Procedure>
 
 1. **Accept the peering request**
 
-   In your AWS account, accept the peering request coming from the $COMPANY AWS account. The peering request can take up to 5 min to arrive. Once accepted, the peering should appear as `Connected` in $CONSOLE.
+   In your AWS account, accept the peering request coming from $CLOUD_LONG. The peering request can take up to 5 min to arrive. Once accepted, the peering should appear as `Connected` in $CONSOLE.
 
 1. **Configure networking in your AWS account**
 
@@ -69,11 +69,13 @@ Once your peering connection appears as `Processing`, you can accept and configu
 
 ## Attach a $CLOUD_LONG service to the Peering VPC
 
+To attach a $SERVICE_SHORT to the Peering VPC:
+
 <Procedure>
 
-1. In $CONSOLE > Services, select the $SERVICE_SHORT you want to connect to the Peering VPC.
-1. Click `Security` > `VPC`.
-1. Select the VPC, then click `Attach VPC`.
+1. **In [$CONSOLE][console-services], select the $SERVICE_SHORT you want to connect to the Peering VPC**
+1. **Click `Security` > `VPC`**
+1. **Select the VPC, then click `Attach VPC`**
 
    You cannot attach a $SERVICE_LONG to multiple $CLOUD_LONG $VPCs at the same time.
 
@@ -84,3 +86,4 @@ You can now securely access your $SERVICE_SHORTs from any private cloud or on-pr
 [aws-transit-gateway]: https://aws.amazon.com/transit-gateway/
 [pricing-plans]: /about/:currentVersion:/pricing-and-account-management/
 [console-login]: https://console.cloud.timescale.com/
+[console-services]: https://console.cloud.timescale.com/dashboard/services
