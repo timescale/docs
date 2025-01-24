@@ -8,6 +8,19 @@ keywords: [changelog, upgrades, updates, releases]
 
 All the latest features and updates to Timescale products.
 
+## 🤖 pgai Extension and Python Library Updates
+<Label type="date">January 24, 2025</Label>
+### AI — pgai PostgreSQL extension 0.7.0
+This release enhances vectorizer functionality by adding configurable base_url support for the OpenAI API, enabling all OpenAI compatible models and APIs to be used by pgai Vectorizer via the OpenAI integration simply by changing the base_url. This release also includes allowing public granting of vectorizers, enabling superuser creation on any table, an upgrade to ollama client 0.4.5, a new 'docker-start' command, and implements various fixes for struct handling, schema qualification, and system package management. [See all changes on Github](https://github.com/timescale/pgai/releases/tag/extension-0.7.0)
+
+### AI - pgai python library 0.5.0
+Added comprehensive SQLAlchemy and Alembic support for vector embeddings, including operations for migrations and improved model inheritance patterns. You can now seamlessly integrate vector search capabilities with SQLAlchemy models while utilizing Alembic for database migrations. This release also added key improvements to the Ollama integration and self-hosted vectorizer configuration. [See all changes on Github](https://github.com/timescale/pgai/releases/tag/pgai-v0.5.0)
+
+## AWS Transit Gateway Support
+<Label type="date">January 17, 2025</Label>
+### AWS Transit Gateway Support
+Timescale Cloud now supports AWS Transit Gateway, which allows a customer to connect to its Timescale service hosted in the Timescale cloud through an AWS Transit Gateway. This feature is available to Scale and Enterprise customers. It will be in Early Access for a short time and available in the Timescale console very soon. Customers interested in implementing this Early Access Feature should reach out to their Rep to get started.
+
 ## 🇮🇳 New region in India, PostgreSQL 17 upgrades, and TimescaleDB on AWS Marketplace
 <Label type="date">January 10, 2025</Label>
 
