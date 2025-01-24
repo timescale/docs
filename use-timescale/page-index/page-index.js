@@ -208,6 +208,11 @@ module.exports = [
             href: "modify-data-in-the-columnstore",
             excerpt: "Add and remove data in the columnstore",
           },
+          {
+            title: "Indexing data in columnstore",
+            href: "indexing-data-in-hypercore",
+            excerpt: "Indexing data in columnstore",
+          },
         ],
       },
       {
