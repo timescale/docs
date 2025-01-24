@@ -46,8 +46,9 @@ This section shows you how to:
 
 * [Optimize data for real-time analytics with Hypercore][setup-hypercore]
 * [Modify data in the columnstore][modify-data-in-the-columnstore]
-
+* [Indexing data in Hypercore][indexing-data-in-hypercore]
 
 [setup-hypercore]: /use-timescale/:currentVersion:/hypercore/optimize-data-for-real-time-analytics/
 [modify-data-in-the-columnstore]: /use-timescale/:currentVersion:/hypercore/modify-data-in-the-columnstore/
+[indexing-data-in-hypercore]: /use-timescale/:currentVersion:/hypercore/indexing-data-in-hypercore/
 [compression]: /use-timescale/:currentVersion:/compression/
