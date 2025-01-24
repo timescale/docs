@@ -50,23 +50,13 @@ Take the following steps to export your data:
 
 1. **Install PostgreSQL Exporter**
 
-   You [install PostgreSQL Exporter][install-exporter] on the machine that you use to connect to your $SERVICE_SHORT and collect telemetry. To reduce latency and potential data transfer costs, run PostgreSQL Exporter in the same AWS region as your $SERVICE_LONG. Use your [connection details][connection-info] to configure the data source during installation.
-      
-  * If installing with Docker:
+   You [install PostgreSQL Exporter][install-exporter] on the machine that you use to connect to your $SERVICE_SHORT and collect telemetry. To reduce latency and potential data transfer costs, run PostgreSQL Exporter in the same AWS region as your $SERVICE_LONG. Use your [connection details][connection-info] to configure the data source during installation:
 
-    ```bash
-    docker run -d --name=postgresql_exporter \
-    -e DATA_SOURCE_NAME="postgresql://<username>:<password>@<host>:<port>/<database>?sslmode=require" \
-    -p 9187:9187 quay.io/prometheuscommunity/postgres-exporter
-    ```
+     - `<username>`: `monitoring`
+     - `<password>`: the `monitoring` user password
+     - `<host>`, `<port>`, and `<database>`: configure using your [connection details][connection-info].
 
-   - `<username>`: `monitoring`
-   - `<password>`: the `monitoring` user password
-   - `<host>`, `<port>`, and `<database>`: configure using your [connection details][connection-info].
-
-  * If installing with a binary, configure the `DATA_SOURCE_NAME` environment variable similarly. 
-
-  To check the installation, navigate to `http://<exporter-host>:9187/metrics`. You should see PostgreSQL metrics in the Prometheus format.
+   To check the installation, navigate to `http://<exporter-host>:9187/metrics`. You should see PostgreSQL metrics in the Prometheus format.
 
 1. **Configure Prometheus to scrape metrics**
 
