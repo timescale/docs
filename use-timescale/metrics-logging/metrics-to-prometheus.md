@@ -32,7 +32,7 @@ Take the following steps to export your data:
 
 1. **Connect to your $SERVICE_LONG as a privileged user**
 
-   See the available [connection options][run-queries]. For self-hosted installations, use [`psql`][psql].
+   For $CLOUD_SHORT, connect from [$CONSOLE][run-queries] . For self-hosted, use [`psql`][psql].
 
 1. **Create a user to scrape the metrics**
 
