@@ -49,7 +49,7 @@ about how continuous aggregates use real-time aggregation, see the
 |-|-|-|
 |`if_not_exists`|BOOLEAN|Set to `true` to issue a notice instead of an error if the job already exists. Defaults to false.|
 |`timezone`|TEXT|A valid time zone. If `initial_start` is also specified, subsequent executions of the refresh policy will be aligned on its initial start. However, daylight savings time (DST) changes may shift this alignment. Set to a valid time zone if this is an issue you want to mitigate. If omitted, UTC bucketing is performed. Defaults to `NULL`.|
-| `include_tiered_data` | BOOLEAN | Set true to read tiered data even if `timescaledb.enable_tiered_reads` is false. Defaults to `TRUE`. |
+| `include_tiered_data` | BOOLEAN | Enable/disable reading tiered data. This setting helps override the current settings for the`timescaledb.enable_tiered_reads` GUC. The default is NULL i.e we use the current setting for `timescaledb.enable_tiered_reads` GUC  | |
 
 ### Returns
 
