@@ -1,16 +1,17 @@
 <Procedure>
 
-1.  In $CONSOLE, open [Integrations][console-integrations].
-1.  Click `New exporter`, click `Metrics`, then choose `Datadog`.
+1.  **In $CONSOLE, open [Integrations][console-integrations]**
+1.  **Click `New exporter`**
+1.  **Select `Metrics` for `Data type` and `Datadog` for provider**
 
-    ![Screenshot of the menu for adding a Datadog exporter](https://assets.timescale.com/docs/images/tsc-integrations-datadog.webp)
+    ![Add Datadog exporter](https://assets.timescale.com/docs/images/tsc-integrations-datadog.webp)
 
-1.  Provide your Datadog configuration:
+1.  **Choose your AWS region and provide the API key**
 
-    - The AWS region must be the same for your $CLOUD_LONG exporter and the Datadog provider.
-    - If you don't have an API key, [Create one][datadog-api-key].
+    The AWS region must be the same for your $CLOUD_LONG exporter and the Datadog provider.
 
-1.  Set `Site` to your Datadog region, then click `Create exporter`.
+1.  **Set `Site` to your Datadog region, then click `Create exporter`**
 
 </Procedure>
 
+[console-integrations]: https://console.cloud.timescale.com/dashboard/integrations

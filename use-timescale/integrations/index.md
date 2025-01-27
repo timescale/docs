@@ -29,11 +29,12 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 
 ## Observability and alerting
 
-|        Name        | Description                                                                                                                                                                                 |
-|:------------------:|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Grafana][grafana] | An open-source analytics and monitoring solution that enables you to query, visualize, alert on, and explore your metrics, logs.                                                            |
-| [Tableau][tableau] | A popular analytics platform that helps you gain greater intelligence about your business.                                                                                                  |
-| [Datadog][datadog] | A cloud-based monitoring and analytics platform that provides comprehensive visibility into applications, infrastructure, and systems through real-time monitoring, logging, and analytics. |
+|           Name           | Description                                                                                                                                                                                 |
+|:------------------------:|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|    [Grafana][grafana]    | An open-source analytics and monitoring solution that enables you to query, visualize, alert on, and explore your metrics, logs.                                                            |
+|    [Tableau][tableau]    | A popular analytics platform that helps you gain greater intelligence about your business.                                                                                                  |
+|    [Datadog][datadog]    | A cloud-based monitoring and analytics platform that provides comprehensive visibility into applications, infrastructure, and systems through real-time monitoring, logging, and analytics. |
+| [Cloudwatch][cloudwatch] | A monitoring and observability service designed to help collect, analyze, and act on data from applications, infrastructure, and services running in AWS and on-premises environments.      |
 
 
 ## Configuration and deployment 
@@ -53,6 +54,7 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 
 [psql]: /use-timescale/:currentVersion:/integrations/psql/
 [qstudio]: /use-timescale/:currentVersion:/integrations/qstudio/
+[cloudwatch]: /use-timescale/:currentVersion:/integrations/cloudwatch/
 [dbeaver]: /use-timescale/:currentVersion:/integrations/dbeaver/
 [datadog]: /use-timescale/:currentVersion:/integrations/datadog/
 [ads]: /use-timescale/:currentVersion:/integrations/azure-data-studio/

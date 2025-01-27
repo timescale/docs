@@ -1,33 +1,22 @@
-## Attach a data exporter to a Timescale Cloud Service
+## Attach a data exporter to a $SERVICE_LONG
 
-To send telemetry data to an external monitoring tool, you attach the data exporter to a
-Timescale Cloud Service. Each data exporter must be in the same AWS region as the Timescale Cloud Service you are
-attaching it to.
+To send telemetry data to an external monitoring tool, you attach a data exporter to your
+$SERVICE_LONG. You can attach only one exporter to a $SERVICE_SHORT.
 
-Each Timescale Cloud Service has one exporter only. The exporter sends telemetry data from that
-service to the monitoring provider.
+To attach an exporter: 
 
 <Procedure>
 
-1.  In [Timescale Portal > Services][services-portal], choose the service to monitor.
-1.  Click `Operations`, then `Integrations`.
-1.  Select an exporter, then click `Attach exporter`.
-
-<Highlight type="warning">
-You need to restart the Timescale Cloud Services when you attach a first `Logs` 
-data type exporter.
-</Highlight>
+1.  **In [$CONSOLE][console-services], choose the $SERVICE_SHORT**
+1.  **Click `Operations` > `Integrations`**
+1.  **Select the exporter, then click `Attach exporter`**
+1.  **If you are attaching a first `Logs` data type exporter, restart the $SERVICE_SHORT**
 
 </Procedure>
 
-## Monitor Timescale Cloud Service metrics
+## Monitor $SERVICE_LONG metrics
 
-You can now monitor your service metrics from the [metrics explorer in
-Datadog][datadog-metrics-explorer], or query them from the CloudWatch metrics
-page in AWS Console. For more information, see the [Datadog][datadog-docs] or
-[CloudWatch][cloudwatch-docs] documentation.
-
-Use the following metrics to check the service is running correctly:
+You can now monitor your $SERVICE_SHORT metrics. Use the following metrics to check the service is running correctly:
 
 *   `timescale.cloud.system.cpu.usage.millicores`
 *   `timescale.cloud.system.cpu.total.millicores`
@@ -38,14 +27,14 @@ Use the following metrics to check the service is running correctly:
 
 Additionally, use the following tags to filter your results.
 
-|Tag|Example variable|Description|
-|-|-|-|
-|`host`|`us-east-1.timescale.cloud`||
-|`project-id`|||
-|`service-id`|||
-|`region`|`us-east-1`|Timescale region|
-|`role`|`replica` or `primary`|For services with replicas|
-|`node-id`||For multi-node services|
+|Tag|Example variable| Description                |
+|-|-|----------------------------|
+|`host`|`us-east-1.timescale.cloud`|                            |
+|`project-id`||                            |
+|`service-id`||                            |
+|`region`|`us-east-1`| AWS region                 |
+|`role`|`replica` or `primary`| For $SERVICE_SHORT with replicas |
+|`node-id`|| For multi-node services    |
 
 ## Edit a data exporter
 
@@ -53,14 +42,13 @@ To update a data exporter:
 
 <Procedure>
 
-1.  In Timescale Console, open [Integrations][console-integrations].
-1.  Beside the exporter you want to edit, click the menu button. Click `Edit`.
-1.  Edit the exporter fields and save your changes.
+1.  **In $CONSOLE, open [Integrations][console-integrations]**
+1.  **Next to the exporter you want to edit, click the menu > `Edit`**
+1.  **Edit the exporter fields and save your changes**
 
 You cannot change fields such as the provider or the AWS region.
 
 </Procedure>
-
 
 ## Delete a data exporter
 
@@ -68,19 +56,20 @@ To remove a data exporter that you no longer need:
 
 <Procedure>
 
-1. Disconnect the data exporter from your Timescale Cloud Services:
+1. **Disconnect the data exporter from your $SERVICE_LONGs**
 
-   For each Timescale Cloud Services the data exporter is connected to:
-    1. In Timescale Console, open [Services][console-services], then select the Timescale Cloud Service to
-       update.
-    1.  Click `Operations`, then click `Integrations`.
-    1.  Click the trash can icon.
+    1. In [$CONSOLE][console-services], choose the $SERVICE_SHORT.
+    1. Click `Operations` > `Integrations`.
+    1. Click the trash can icon.
+    1. Repeat for every $SERVICE_SHORT attached to the exporter you want to remove. 
 
-   The data exporter is removed from this service. However, it still exists in your Timescale Cloud project.
+    The data exporter is now unattached from all $SERVICE_SHORTs. However, it still exists in your project.
 
-1.  In Timescale Console, open [Integrations][console-integrations].
-1.  Beside the exporter you want to delete, click the menu button, then click `Delete`.
-1.  Confirm that you want to delete the data exporter.
+1. **Delete the exporter on the project level** 
+
+   1. In $CONSOLE, open [Integrations][console-integrations]
+   1. Next to the exporter you want to edit, click menu > `Delete`
+   1. Confirm that you want to delete the data exporter.
 
 </Procedure>
 

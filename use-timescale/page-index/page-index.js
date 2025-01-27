@@ -789,9 +789,14 @@ module.exports = [
             excerpt: "Install Azure Data Studio to connect to Timescale",
           },
           {
+            title: "CloudWatch",
+            href: "cloudwatch",
+            excerpt: "Integrate Cloudwatch with Timescale Cloud",
+          },
+          {
             title: "Datadog",
             href: "datadog",
-            excerpt: "Integrate datadog with Timescale Cloud",
+            excerpt: "Integrate Datadog with Timescale Cloud",
           },
           {
             title: "DBeaver",
