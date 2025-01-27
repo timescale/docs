@@ -68,7 +68,7 @@ To install and configure Apache Kafka:
    
 1. **Create topics with the `kafka-topics.sh` script**
 
-    Create `mytopic` to publish JSON messages that will be consumed by the sink connector and inserted into your $SERVICE_LONG. Then create the `deadletter` topic to be used as a dead letter queue. A dead letter queue stores messages that your Kafka Connect workers couldn’t process, so you can see what messages are causing errors.
+   Create `mytopic` to publish JSON messages that will be consumed by the sink connector and inserted into your $SERVICE_LONG. Then create the `deadletter` topic to be used as a dead letter queue. A dead letter queue stores messages that your Kafka Connect workers couldn’t process, so you can see what messages are causing errors.
 
     ```bash
     /usr/local/kafka/bin/kafka-topics.sh \
@@ -121,8 +121,9 @@ To set up Kafka Connect server, plugins, drivers, and connectors:
 1. **Download the PostgreSQL driver and move it to the plugins directory**
 
     ```bash
-    wget https://jdbc.postgresql.org/download/postgresql-42.6.0.jarmv postgresql-42.6.0.jar 
-    /usr/local/kafka/plugins/camel-postgresql-sink-kafka-connector
+    wget https://jdbc.postgresql.org/download/postgresql-42.6.0.jar
+
+    mv postgresql-42.6.0.jar /usr/local/kafka/plugins/camel-postgresql-sink-kafka-connector
     ```
    
 1. **Start the Kafka Connect process**
@@ -142,6 +143,12 @@ To set up Kafka Connect server, plugins, drivers, and connectors:
 To create a sink: 
 
 <Procedure>
+
+1. **Verify Kafka Connect is running on port 8083**
+
+    ```bash
+    curl http://localhost:8083
+    ```
 
 1. **Send a POST request to the Kafka Connect REST API on port 8083** 
 
@@ -166,7 +173,15 @@ To create a sink:
        "camel.kamelet.postgresql-sink.query": "INSERT INTO accounts (name,city) VALUES (:#name,:#city)"
      }
    }' > timescale-sink.properties
-   ````
+   ```
+
+   To send the POST request to Kafka Connect's REST API (on port 8083), you can use the following `curl` command:
+
+   ```bash
+   curl -X POST -H "Content-Type: application/json" \
+    --data @timescale-sink.properties \
+    http://localhost:8083/connectors
+   ```
 
 1. **Test the connection**
 
