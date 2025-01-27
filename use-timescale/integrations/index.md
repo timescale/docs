@@ -29,10 +29,11 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 
 ## Observability and alerting
 
-|            Name             | Description                                                                                                                                                          |
-|:---------------------------:|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|     [Grafana][grafana]      | An open-source analytics and monitoring solution that enables you to query, visualize, alert on, and explore your metrics, logs. |
-|     [Tableau][tableau]      | A popular analytics platform that helps you gain greater intelligence about your business.                                                                           |
+|        Name        | Description                                                                                                                                                                                 |
+|:------------------:|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Grafana][grafana] | An open-source analytics and monitoring solution that enables you to query, visualize, alert on, and explore your metrics, logs.                                                            |
+| [Tableau][tableau] | A popular analytics platform that helps you gain greater intelligence about your business.                                                                                                  |
+| [Datadog][datadog] | A cloud-based monitoring and analytics platform that provides comprehensive visibility into applications, infrastructure, and systems through real-time monitoring, logging, and analytics. |
 
 
 ## Configuration and deployment 
@@ -53,6 +54,7 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 [psql]: /use-timescale/:currentVersion:/integrations/psql/
 [qstudio]: /use-timescale/:currentVersion:/integrations/qstudio/
 [dbeaver]: /use-timescale/:currentVersion:/integrations/dbeaver/
+[datadog]: /use-timescale/:currentVersion:/integrations/datadog/
 [ads]: /use-timescale/:currentVersion:/integrations/azure-data-studio/
 [pgadmin]: /use-timescale/:currentVersion:/integrations/pgadmin/
 [grafana]: /use-timescale/:currentVersion:/integrations/grafana/
