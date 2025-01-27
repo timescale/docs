@@ -28,6 +28,7 @@ To install and configure Apache Kafka:
 <Procedure>
 
 1. **Create a directory called `/usr/local/kafka` to store everything related to Kafka**
+
     ```bash
     wget https://dlcdn.apache.org/kafka/3.9.0/kafka_2.13-3.9.0.tgz
     sudo mkdir /usr/local/kafka
@@ -71,7 +72,7 @@ To install and configure Apache Kafka:
    
 1. **Create topics with the `kafka-topics.sh` script**
 
-    Create `mytopic` to publish JSON messages that will be consumed by the sink connector and inserted into your $SERVICE_LONG. Then create the `deadletter` topic to be used as a dead letter queue. A dead letter queue stores messages that your Kafka Connect workers couldn’t process, so you can see what messages are causing errors.
+   Create `mytopic` to publish JSON messages that will be consumed by the sink connector and inserted into your $SERVICE_LONG. Then create the `deadletter` topic to be used as a dead letter queue. A dead letter queue stores messages that your Kafka Connect workers couldn’t process, so you can see what messages are causing errors.
 
     ```bash
     /usr/local/kafka/bin/kafka-topics.sh \
