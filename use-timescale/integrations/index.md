@@ -29,10 +29,11 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 
 ## Observability and alerting
 
-|            Name             | Description                                                                                                                                                          |
-|:---------------------------:|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|            Name             | Description                                                                                                                                               |
+|:---------------------------:|----------------------------------------------------------------------------------------------------------------------------------|
 |     [Grafana][grafana]      | An open-source analytics and monitoring solution that enables you to query, visualize, alert on, and explore your metrics, logs. |
-|     [Tableau][tableau]      | A popular analytics platform that helps you gain greater intelligence about your business.                                                                           |
+|     [Tableau][tableau]      | A popular analytics platform that helps you gain greater intelligence about your business.                                       |
+|     [Prometheus][prometheus]| An open-source monitoring system with a dimensional data model, flexible query language, and a modern alerting approach.         |
 
 
 ## Configuration and deployment 
@@ -60,3 +61,4 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 [terraform]: /use-timescale/:currentVersion:/integrations/terraform
 [apache-airflow]: /use-timescale/:currentVersion:/integrations/apache-airflow
 [postgresql-integrations]: https://slashdot.org/software/p/PostgreSQL/integrations/
+[prometheus]: /use-timescale/:currentVersion:/integrations/prometheus
