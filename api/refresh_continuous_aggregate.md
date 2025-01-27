@@ -103,7 +103,7 @@ Forcing the refresh of the continuous aggregate `conditions` between `2020-01-01
 `2020-02-01` exclusive even if it is already refreshed.
 
 ```sql
-CALL refresh_continuous_aggregate('conditions', '2020-01-01', '2020-02-01', TRUE);
+CALL refresh_continuous_aggregate('conditions', '2020-01-01', '2020-02-01', force => TRUE);
 ```
 
 [modify-parameters]: /use-timescale/:currentVersion/configuration/customize-configuration/
