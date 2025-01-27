@@ -21,8 +21,7 @@ supported extensions:
 |--------------------------------------------|----------------------------------------|-----------------------------------------------------------------------|
 | [pgai][pgai]                               | Helper functions for AI workflows      | For services with the [AI and Vector capability][services]            |
 | [pgvector][pgvector]                       | Vector similarity search for PostgreSQL | For services with the [AI and Vector capability][services]            |
-| [pgvectorscale][pgvectorscale]             | Advanced indexing for vector data      | For services with the [AI and Vector capability][services]            | 
-| [timescale_vector][timescale-vector]       | PostgreSQL++ for AI applications       | -                                                                     |
+| [pgvectorscale][pgvectorscale]             | Advanced indexing for vector data      | For services with the [AI and Vector capability][services]            |
 | [timescaledb_toolkit][timescaledb-toolkit] | TimescaleDB Toolkit                    | For services with the [Time series and analytics capability][services]|
 | [timescaledb][timescaledb]                 | TimescaleDB                            | For all services                                                      |
 
