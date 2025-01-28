@@ -99,7 +99,7 @@ END
 $$;
 ```
 
-Forcing the refresh of the continuous aggregate `conditions` between `2020-01-01` and
+Force the  `conditions` continuous aggregate to refresh between `2020-01-01` and
 `2020-02-01` exclusive even if it is already refreshed.
 
 ```sql
