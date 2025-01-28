@@ -1,3 +1,5 @@
+import EarlyAccess from "versionContent/_partials/_early_access.mdx";
+
 1. **Connect to your $SERVICE_LONG**
 
    In [$CONSOLE][services-portal] open an [SQL editor][in-console-editors]. You can also connect to your service using [psql][connect-using-psql].
@@ -16,8 +18,17 @@
      ```sql
      ALTER MATERIALIZED VIEW stock_candlestick_daily set (timescaledb.enable_columnstore = true, timescaledb.segmentby = 'symbol' );
      ``` 
-     Before you say `huh`, a continuous aggregate is a specialized hypertable. 
-
+     Before you say `huh`, a continuous aggregate is a specialized hypertable.
+   
+   * <EarlyAccess /> Enable indexing over all data in the rowstore and columnstore:
+     
+     ```sql
+     alter table stocks_real_time,
+        set access method hypercore,
+        set (timescaledb.enable_columnstore = true, timescaledb.segmentby = 'symbol');
+     ```
+     This is also early access for continuous aggregates.
+   
 1. **Add a policy to move chunks to the columnstore at a specific time interval**
 
    For example, 60 days after the data was added to the table:
@@ -74,7 +85,7 @@
 
 [job]: /api/:currentVersion:/actions/add_job/
 [alter_table_hypercore]: /api/:currentVersion:/hypercore/alter_table/
-[compression_continuous-aggregate]: /api/:currentVersion:/continuous-aggregates/alter_materialized_view/
+[compression_continuous-aggregate]: /api/:currentVersion:/hypercore/alter_materialized_view/
 [convert_to_rowstore]: /api/:currentVersion:/hypercore/convert_to_rowstore/
 [convert_to_columnstore]: /api/:currentVersion:/hypercore/convert_to_columnstore/
 [convert_to_rowstore]: /api/:currentVersion:/hypercore/convert_to_rowstore/
