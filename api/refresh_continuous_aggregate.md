@@ -66,7 +66,7 @@ changes that only occurred in the secondary table used in the JOIN.
 
 |Name|Type|Description|
 |-|-|-|
-| `force` | BOOLEAN | Force refresh of every bucket in the time range even if the bucket is already refreshed. Can be very expensive if a lot of data is refreshed. Default to `FALSE`.|
+| `force` | BOOLEAN | Force refresh every bucket in the time range between `window_start` and `window_end`, even when the bucket has already been refreshed. This can be very expensive when a lot of data is refreshed. Default is `FALSE`.|
 
 ### Sample usage
 
