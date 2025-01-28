@@ -21,7 +21,7 @@ This page shows you how to update small and large amounts of new data, and updat
 
 <Prereq />
 
-- [Optimize cooler data in hypercore][setup-hypercore]
+- [Optimize data for real-time analytics with Hypercore][setup-hypercore]
 
 ## Modify small amounts of data
 

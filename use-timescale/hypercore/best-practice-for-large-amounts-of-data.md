@@ -8,7 +8,8 @@ keywords: [hypertable, compression, row-columnar storage, hypercore, hyperstore]
 import Prereq from "versionContent/_partials/_prereqs-cloud-and-self.mdx";
 import HypercoreManualWorkflow from "versionContent/_partials/_hypercore_manual_workflow.mdx";
 
-# Indexing data in Hypercore
+# SUGGESTION: Best practice for large amounts of data
+
 
 Indexes are a central component to designing efficient and performant
 databases: they allow unstructured data to be efficiently searched to

@@ -209,8 +209,8 @@ module.exports = [
             excerpt: "Add and remove data in the columnstore",
           },
           {
-            title: "Indexing data in columnstore",
-            href: "indexing-data-in-hypercore",
+            title: "Best practice for large amounts of data",
+            href: "best-practice-for-large-amounts-of-data",
             excerpt: "Indexing data in columnstore",
           },
         ],

@@ -12,11 +12,15 @@ import EarlyAccess from "versionContent/_partials/_early_access.mdx";
 
    * [Use `ALTER TABLE` for a hypertable][alter_table_hypercore]
      ```sql
-     ALTER TABLE stocks_real_time SET (timescaledb.enable_columnstore = true, timescaledb.segmentby = 'symbol');
+     ALTER TABLE stocks_real_time SET (
+        timescaledb.enable_columnstore = true, 
+        timescaledb.segmentby = 'symbol');
      ```
    * [Use ALTER MATERIALIZED VIEW for a continuous aggregate][compression_continuous-aggregate]
      ```sql
-     ALTER MATERIALIZED VIEW stock_candlestick_daily set (timescaledb.enable_columnstore = true, timescaledb.segmentby = 'symbol' );
+     ALTER MATERIALIZED VIEW stock_candlestick_daily set (
+        timescaledb.enable_columnstore = true, 
+        timescaledb.segmentby = 'symbol' );
      ``` 
      Before you say `huh`, a continuous aggregate is a specialized hypertable.
    
@@ -37,6 +41,16 @@ import EarlyAccess from "versionContent/_partials/_early_access.mdx";
    ```
    See [add_columnstore_policy][add_columnstore_policy].
 
+   * <EarlyAccess /> To enable indexing over data in the rowstore and the columnstore, tell the policy 
+     to use the Hypercore table access method.
+   
+      ``` sql
+      CALL add_columnstore_policy(
+         'older_stock_prices', 
+         after => INTERVAL '60d',  
+         hypercore_use_access_method => true);
+      ```
+
 1. **View the policies that you set or the policies that already exist**
 
    ``` sql
@@ -52,7 +66,8 @@ import EarlyAccess from "versionContent/_partials/_early_access.mdx";
   After the update, [convert the chunk to the columnstore][convert_to_columnstore] and restart the jobs. 
 
    ``` sql
-   SELECT * FROM timescaledb_information.jobs where proc_name = 'policy_compression' AND relname = 'stocks_real_time'
+   SELECT * FROM timescaledb_information.jobs where 
+      proc_name = 'policy_compression' AND relname = 'stocks_real_time'
    
    -- Select the JOB_ID from the results
      

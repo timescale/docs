@@ -49,14 +49,20 @@ continuous aggregate view:
    ALTER MATERIALIZED VIEW contagg_view RENAME COLUMN old_name TO new_name;
    ```
 
-- **Enable indexing on data in the columnstore**
+- **Enable indexing on data in the columnstore** <EarlyAccess />
 
    ```sql
    ALTER MATERIALIZED VIEW stock_candlestick_daily 
       set access method hypercore,
       set (timescaledb.enable_columnstore = true, timescaledb.segmentby = 'symbol' );
+   ``` 
+
+- **Enable indexing on a chunk you are adding to the columnstore** <EarlyAccess />
+
+   ```sql
+   ALTER MATERIALIZED VIEW  _timescaledb_internal._hyper_1_21_chunk
+      set access method hypercore;
    ```
-   <EarlyAccess /> 
 
 The only options that currently can be modified with `ALTER
 MATERIALIZED VIEW` are `materialized_only` and `compress`. The other options
