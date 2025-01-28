@@ -49,7 +49,9 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 |:--------------------------------:|----------------------------------------------------------|
 | [Apache Airflow][apache-airflow] | Programmatically author, schedule, and monitor workflows. |
 
+## Change data capture 
 
+<<<<<<< HEAD
 =======
 ## Data ingestion and streaming
 
@@ -57,6 +59,11 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 |:---------------------:|-----------------------------------------------------------------------------------------------------------------------------|
 | [Apache Kafka][kafka] | A distributed event streaming platform used for high-performance data pipelines, streaming analytics, and data integration. |
 >>>>>>> c4ccf3e9d62a8cede1e5d2fedf462d98c6e249c4
+=======
+|         Name         | Description                                                                                                                                                                 |
+|:--------------------:|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Fivetran][fivetran] | A fully managed data pipeline platform that simplifies ETL (Extract, Transform, Load) processes by automatically syncing data from multiple sources to your data warehouse. |
+>>>>>>> 8dc00fd1aaae1ff8a5666f52f5aa04c7d9d27df6
 
 [psql]: /use-timescale/:currentVersion:/integrations/psql/
 [qstudio]: /use-timescale/:currentVersion:/integrations/qstudio/
@@ -68,4 +75,8 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 [terraform]: /use-timescale/:currentVersion:/integrations/terraform
 [apache-airflow]: /use-timescale/:currentVersion:/integrations/apache-airflow
 [postgresql-integrations]: https://slashdot.org/software/p/PostgreSQL/integrations/
+<<<<<<< HEAD
 [kafka]: /use-timescale/:currentVersion:/integrations/kafka/
+=======
+[fivetran]: /use-timescale/:currentVersion:/integrations/fivetran
+>>>>>>> 8dc00fd1aaae1ff8a5666f52f5aa04c7d9d27df6
