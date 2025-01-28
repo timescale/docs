@@ -55,3 +55,11 @@
    ALTER TABLE stocks_real_time SET (timescaledb.enable_columnstore = false);
    ```
    See [alter_table_hypercore][alter_table_hypercore]. 
+
+
+[alter_table_hypercore]: /api/:currentVersion:/hypercore/alter_table/
+[alter_job]: /api/:currentVersion:/actions/alter_job/
+[add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/
+[informational-views]: /api/:currentVersion:/informational-views/jobs/
+[remove_columnstore_policy]: /api/:currentVersion:/hypercore/remove_columnstore_policy/
+[convert_to_rowstore]: /api/:currentVersion:/hypercore/convert_to_rowstore/

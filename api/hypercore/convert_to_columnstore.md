@@ -39,16 +39,15 @@ To retrieve the chunks belonging to a hypertable, call [`show_chunks`](/api/late
 |----------------------|--|---------|--|----------------------------------------------------------------------------------------------------------------|
 | `chunk`         | REGCLASS | -       |✔| Name of the chunk to add to the columnstore.                                                                   |
 | `if_not_columnstore` | BOOLEAN | `true`  |✖| Set to `false` so this job fails with an error rather than a warning if `chunk` is already in the columnstore. |
-| `recompress`         | BOOLEAN | `false` |✖| Set to `true` to add a chunk that had more data inserted after being added to the columnstore.                 |
+| `recompress`         | BOOLEAN | `false` |✖| Set to `true` to recompress a chunk that had more data inserted after it was added to the columnstore.         |
 
 ## Returns
 
-Calls to `convert_to_columnstore` return one of the following:
+Calls to `convert_to_columnstore` return:
 
-| Column                      | Type     | Description                                                   |
-|-----------------------------|----------|---------------------------------------------------------------|
-| `name` \| descriptive words | Table    | A table-like result set with zero or more rows containing ... |
-| chunk name                  | REGCLASS | The name of the chunk added to the columnstore.               |
+| Column            | Type               | Description                                                                                        |
+|-------------------|--------------------|----------------------------------------------------------------------------------------------------|
+| `chunk name` or `table` | REGCLASS or String | The name of the chunk added to the columnstore, or a table-like result set with zero or more rows. |
 
 
 [add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/
