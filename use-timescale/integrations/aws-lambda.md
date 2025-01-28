@@ -2,7 +2,7 @@
 title: Integrate AWS Lambda with $CLOUD_LONG
 excerpt: ADD
 products: [cloud, mst, self_hosted]
-keywords: [connect, integrate, aws_lambda]
+keywords: [connect, integrate, aws, lambda]
 ---
 
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
@@ -15,8 +15,6 @@ This page shows you how to integrate AWS Lambda with $SERVICE_LONG to process an
 
 ## Prerequisites
 
-Before integrating:
-
 <IntegrationPrereqs />
 
 * Setup an [AWS Account][aws-sign-up]
@@ -24,7 +22,7 @@ Before integrating:
 * [Install NodeJS version 18.x or later][install-nodejs]
 * [Install psql cli][install-postgresql](Optional)
 
-## Create a Table in $SERVICE_LONG
+## Create a table in $SERVICE_LONG
 
 Create a table in $SERVICE_LONG to store time-series data.
 
@@ -47,7 +45,9 @@ Create a table in $SERVICE_LONG to store time-series data.
 
 </Procedure>
 
-## Create an AWS Lambda Function
+## Create an AWS Lambda function
+
+Write an AWS Lambda function to process and insert time-series data into $CLOUD_LONG.
 
 <Procedure>
 
@@ -116,19 +116,11 @@ Create a table in $SERVICE_LONG to store time-series data.
 
 </Procedure>
 
-## Deploy the AWS Lambda Function
+## Deploy the AWS Lambda function to integrate with $CLOUD_LONG
 
-To store time-series data between AWS Lambda and $SERVICE_LONG:
+To store time-series data between AWS Lambda and $SERVICE_LONG.
 
 <Procedure>
-
-1. **Zip Your Code**
-
-   Compress your code into a `.zip` file:
-
-   ```bash
-   zip -r lambda-timescale.zip .
-   ```
 
 1. **Set Up Environment Variables**
 
@@ -138,6 +130,14 @@ To store time-series data between AWS Lambda and $SERVICE_LONG:
    * `TIMESCALE_USER`
    * `TIMESCALE_PASSWORD`
    * `TIMESCALE_DB`
+
+1. **Zip Your Code**
+
+   Compress your code into a `.zip` file:
+
+   ```bash
+   zip -r lambda-timescale.zip .
+   ```
 
 1. **Deploy to AWS Lambda**
 
@@ -173,7 +173,7 @@ To store time-series data between AWS Lambda and $SERVICE_LONG:
 
 </Procedure>
 
-By completing this integration, you can seamlessly ingest and store time-series data from AWS Lambda into $CLOUD_LONG. For advanced use cases, consider exploring Timescale's continuous aggregates and compression features.
+Now you can seamlessly ingest and store time-series data from AWS Lambda into $CLOUD_LONG.
 
 [AWS-Lambda]: https://docs.aws.amazon.com/lambda/latest/dg/welcome.html
 [aws-sign-up]: https://signin.aws.amazon.com/signup?request_type=register
