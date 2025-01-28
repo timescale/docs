@@ -100,7 +100,7 @@ $$;
 ```
 
 Force the  `conditions` continuous aggregate to refresh between `2020-01-01` and
-`2020-02-01` exclusive even if it is already refreshed.
+`2020-02-01` exclusive, even if the data has already been refreshed.
 
 ```sql
 CALL refresh_continuous_aggregate('conditions', '2020-01-01', '2020-02-01', force => TRUE);
