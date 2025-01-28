@@ -21,6 +21,8 @@ To configure this secure connection, you:
 1. Accept and configure the peering connection on your side.
 1. Attach individual $SERVICE_SHORTs to the Peering $VPC.
 
+Transit Gateway feature is available for Scale and Enterprise [pricing plans][pricing-plans].
+
 ## Create a Peering $VPC
 
 To create a Peering $VPC:
@@ -40,7 +42,7 @@ To create a Peering $VPC:
 1.  **Add a peering connection**
 
     1. In the `VPC Peering` column, click `Add`.
-    1. Provide your AWS account ID, VPC ID or Transit Gateway ID, optionally CIDR range, and AWS region. 
+    1. Provide your AWS account ID, VPC ID or Transit Gateway ID, CIDR ranges, and AWS region. 
     1. Click `Add connection`.
 
     ![Add peering](https://assets.timescale.com/docs/images/add-peering.png)
@@ -55,7 +57,7 @@ Once your peering connection appears as `Processing`, you can accept and configu
 
 1. **Accept the peering request**
 
-   In your AWS account, accept the peering request coming from $CLOUD_LONG. The peering request can take up to 5 min to arrive. Once accepted, the peering should appear as `Connected` in $CONSOLE.
+   In your AWS account, accept the peering request coming from $CLOUD_LONG. The request can take up to 5 min to arrive. Within 5 more minutes after accepting, the peering should appear as `Connected` in $CONSOLE.
 
 1. **Configure networking in your AWS account**
 
@@ -74,7 +76,7 @@ To attach a $SERVICE_SHORT to the Peering VPC:
 <Procedure>
 
 1. **In [$CONSOLE][console-services], select the $SERVICE_SHORT you want to connect to the Peering VPC**
-1. **Click `Security` > `VPC`**
+1. **Click `Operations` > `Security` > `VPC`**
 1. **Select the VPC, then click `Attach VPC`**
 
    You cannot attach a $SERVICE_LONG to multiple $CLOUD_LONG $VPCs at the same time.
