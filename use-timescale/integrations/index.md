@@ -1,12 +1,12 @@
 ---
-title: Timescale integrations
-excerpt: Integrate your Timescale database with third-party solutions
+title: Integrations
+excerpt: Integrate third-party products with Timescale Cloud and TimescaleDB
 products: [cloud]
 keywords: [integrations]
 tags: [integrations]
 ---
 
-# $CLOUD_LONG Integrations
+# Integrations
 
 You can integrate your $SERVICE_LONG with third-party solutions to expand and extend what you can do with your data.
 
