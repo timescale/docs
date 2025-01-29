@@ -604,7 +604,7 @@ module.exports = [
         ],
       },
       {
-        title: "Distributed hypertables (sunsetted v2.14.x)",
+        title: "Distributed hypertables (Sunsetted v2.14.x)",
         type: "directory",
         href: "distributed-hypertables",
         children: [
