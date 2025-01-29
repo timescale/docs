@@ -2,7 +2,7 @@
 title: Optimize data for real-time analytics with Hypercore
 excerpt: Reduce your chunk size by more than 90% and speed up your queries by automatically converting data between the rowstore and columnstore.
 products: [cloud,]
-keywords: [hyperscore, hypertable, compression, row-columnar storage, hypercore, hyperstore]
+keywords: [hyperscore, hypertable, compression, row-columnar storage, hypercore]
 ---
 
 import PrereqCloud from "versionContent/_partials/_prereqs-cloud-only.mdx";
@@ -11,7 +11,7 @@ import HCPolicyWorkflow from "versionContent/_partials/_hypercore_policy_workflo
 import UsageBasedStorage from "versionContent/_partials/_usage-based-storage-intro.mdx";
 import EarlyAccess from "versionContent/_partials/_early_access.mdx";
 
-# Optimize data for real-time analytics with Hypercore 
+# Prepare your data for real-time analytics in Hypercore 
 
 Hypercore is the Timescale hybrid row-columnar storage engine. The rowstore contains row-oriented tables optimized
  for high-speed inserts and updates. The columnstore is a column-oriented storage format optimized for analytics.
@@ -24,7 +24,7 @@ using a columnstore policy.
 <UsageBasedStorage />
 
 <EarlyAccess /> Indexes are a central component to designing efficient and performant databases: they allow 
-unstructured data to be searched in efficiently executed queries. TimescaleDB supplies the hypercore table access 
+unstructured data to be searched in efficiently executed queries. TimescaleDB supplies the `hypercore` table access 
 method that enables chunks in a hypertable to maintain indexes over data in the rowstore and the columnstore.
 
 This page shows you how get the best results when you set a policy to automatically move chunks in a hypertable to the 
@@ -84,4 +84,4 @@ repeated values,[XOR-based][xor] and [dictionary compression][dictionary] is use
 [alter_job]: /api/:currentVersion:/actions/alter_job/
 [informational-views]: /api/:currentVersion:/informational-views/jobs/
 [insert]: /use-timescale/:currentVersion:/write-data/insert/
-[modify-data-in-the-columnstore]: /use-timescale/:currentVersion:/hypercore/modify-data-in-the-columnstore/
+[modify-data-in-hypercore]: /use-timescale/:currentVersion:/hypercore/modify-data-in-hypercore/

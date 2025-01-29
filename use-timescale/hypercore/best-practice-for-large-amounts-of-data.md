@@ -2,7 +2,7 @@
 title: Indexing data in Hypercore
 excerpt: Use indexes on hybrid row-columnar data
 products: [cloud,]
-keywords: [hypertable, compression, row-columnar storage, hypercore, hyperstore]
+keywords: [hypertable, compression, row-columnar storage, hypercore]
 ---
 
 import Prereq from "versionContent/_partials/_prereqs-cloud-and-self.mdx";

@@ -2,7 +2,7 @@
 title: Hypercore
 excerpt: The Timescale hybrid row-columnar storage engine for real-time analytics, powered by time-series data
 products: [cloud,]
-keywords: [hyperscore, hypertable, compression, row-columnar storage, hypercore, hyperstore]
+keywords: [hyperscore, hypertable, compression, row-columnar storage, hypercore]
 ---
 
 import UsageBasedStorage from "versionContent/_partials/_usage-based-storage-intro.mdx";
@@ -10,7 +10,7 @@ import UsageBasedStorage from "versionContent/_partials/_usage-based-storage-int
 # Hypercore
 
 Hypercore is the $COMPANY hybrid row-columnar storage engine, designed specifically for
-real-time analytics and powered by time-series data. The advantage of hypercore is its ability
+real-time analytics and powered by time-series data. The advantage of Hypercore is its ability
 to seamlessly switch between row-oriented and column-oriented storage. This flexibility enables
 $CLOUD_LONG to deliver the best of both worlds, solving the key challenges in real-time analytics:
 
@@ -34,11 +34,11 @@ in each $SERVICE_LONG:
   saving significant storage space.
 
 - **Full mutability with transactional semantics**: regardless of where data is stored,
-  hypercore provides full ACID support. Like in a vanilla Postgres database, inserts and updates
+  Hypercore provides full ACID support. Like in a vanilla Postgres database, inserts and updates
   to the rowstore and columnstore are always consistent, and available to queries as soon as they are
   completed.
 
-- **Indexing row and columnar data**: the hypercore table access method enables chunks in a
+- **Indexing row and columnar data**: the `hypercore` table access method enables chunks in a
   hypertable to maintain indexes over data in the rowstore and the columnstore. <Tag variant="hollow">Early access: TimescaleDB v2.18.0</Tag>
 
 ![Hypercore workflow](https://assets.timescale.com/docs/images/hypercore-overview.png)
@@ -47,11 +47,11 @@ in each $SERVICE_LONG:
 
 This section shows you how to:
 
-* [Optimize data for real-time analytics with Hypercore][setup-hypercore]
-* [Modify data in the columnstore][modify-data-in-the-columnstore]
-* [Best practice for large amounts of data][indexing-data-in-hypercore]
+* [Prepare your data for real-time analytics in Hypercore][setup-hypercore]
+* [Efficient data access in Hypercore][indexing-data-in-hypercore]
+* [Modify data in the columnstore][modify-data-in-hypercore]
 
-[setup-hypercore]: /use-timescale/:currentVersion:/hypercore/optimize-data-for-real-time-analytics/
-[modify-data-in-the-columnstore]: /use-timescale/:currentVersion:/hypercore/modify-data-in-the-columnstore/
+[setup-hypercore]: /use-timescale/:currentVersion:/hypercore/real-time-analytics-in-hypercore/
+[modify-data-in-hypercore]: /use-timescale/:currentVersion:/hypercore/modify-data-in-hypercore/
 [indexing-data-in-hypercore]: /use-timescale/:currentVersion:/hypercore/best-practice-for-large-amounts-of-data/
 [compression]: /use-timescale/:currentVersion:/compression/
