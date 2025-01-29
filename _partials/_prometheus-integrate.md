@@ -8,45 +8,57 @@ This page shows you how to export your $SERVICE_SHORT telemetry to Prometheus us
 
 <IntegrationPrereqs />
 
-- [Download and install Prometheus][install-prometheus].
+- [Download and run Prometheus][install-prometheus].
+- [Install PostgreSQL Exporter][install-exporter]
+
+To reduce latency and potential data transfer costs, install Prometheus and PostgreSQL Exporter on a machine in the 
+same AWS region as your $SERVICE_LONG.
 
 ## Export $SERVICE_SHORT telemetry to Prometheus
 
-Take the following steps to export your data:
+To export your data, do the following:
 
 <Procedure>
 
-1. **Connect to your $SERVICE_LONG**
+1. **Create a user to access metrics data on your $SERVICE_LONG**
 
-   For $CLOUD_SHORT, connect from [$CONSOLE][run-queries]. For self-hosted, use [`psql`][psql].
+   1. Connect to your $SERVICE_LONG:
 
-1. **Create a user to scrape the metrics**
+      For $CLOUD_LONG, open an [SQL editor][run-queries] in [$CONSOLE][open-console]. For self-hosted, use [`psql`][psql].  
 
-    1. Create a user named `monitoring` with a password:
+   1. Create a user named `monitoring` with a password:
 
-       ```sql
-       CREATE USER monitoring WITH PASSWORD '<password>';
-       ```
+      ```sql
+      CREATE USER monitoring WITH PASSWORD '<password>';
+      ```
 
-    1. Grant the `pg_read_all_stats` permission to the `monitoring` user:
+   1. Grant the `pg_read_all_stats` permission to the `monitoring` user:
 
-       ```sql
-       GRANT pg_read_all_stats to monitoring;
-       ```
+      ```sql
+      GRANT pg_read_all_stats to monitoring;
+      ```
 
-1. **Install PostgreSQL Exporter**
+1. **Export metrics data using PostgreSQL Exporter**
 
-   You [install PostgreSQL Exporter][install-exporter] on the machine that you use to connect to your $SERVICE_SHORT and collect telemetry. To reduce latency and potential data transfer costs, run PostgreSQL Exporter in the same AWS region as your $SERVICE_LONG. Use your [connection details][connection-info] to configure the data source during installation:
+   1. Configure PostgreSQL Exporter to connect to your $SERVICE_LONG:
 
-    - `<username>`: `monitoring`
-    - `<password>`: the `monitoring` user password
-    - `<host>`, `<port>`, and `<database>`: configure using your [connection details][connection-info].
-
-   To check the installation, navigate to `http://<exporter-host>:9187/metrics`. You should see PostgreSQL metrics in the Prometheus format.
+      Update the `Service URL:` in your [connection details][connection-info] to connect to your $SERVICE_LONG as the 
+      `monitoring` user:
+      ```shell
+      export DATA_SOURCE_NAME='postgres://monitoring:<password>@<service>.<string>.tsdb.cloud.timescale.com:<service port>/tsdb?sslmode=require'
+      ./postgres_exporter
+      ```
+      
+   1. Check the installation:
+   
+      In your browser, navigate to `http://<exporter-host>:9187/metrics`. You see the metrics for your $SERVICE_LONG in 
+      the Prometheus format.
 
 1. **Configure Prometheus to scrape metrics**
 
-    1. Update the `prometheus.yml` file to include PostgreSQL Exporter as a scrape target. If `prometheus.yml` has not been created during installation, create it manually:
+    1. In your Prometheus installation, update `prometheus.yml` to point to your PostgreSQL Exporter instance as a scrape
+       target. In the following example, you replace `<exporter-host>` with the hostname or IP address of the PostgreSQL 
+       Exporter.
 
        ```yaml
        global:
@@ -58,7 +70,7 @@ Take the following steps to export your data:
           - targets: ['<exporter-host>:9187'] 
        ```
 
-       Replace `<exporter-host>` with the hostname or IP address of the PostgreSQL Exporter.
+       If `prometheus.yml` has not been created during installation, create it manually:
 
     1. Restart Prometheus.
 
@@ -72,7 +84,7 @@ You can further [visualize your data][grafana-prometheus] with Grafana. Use the 
 
 [install-exporter]: https://grafana.com/oss/prometheus/exporters/postgres-exporter/?tab=installation
 [postgresql-exporter-dashboard]: https://grafana.com/oss/prometheus/exporters/postgres-exporter/?tab=dashboards
-[install-prometheus]: https://prometheus.io/download/
+[install-prometheus]: https://prometheus.io/docs/prometheus/latest/installation/
 [grafana]: /use-timescale/:currentVersion:/integrations/grafana/
 [grafana-prometheus]: https://grafana.com/docs/grafana-cloud/send-data/metrics/metrics-prometheus/
 [prometheus]: https://prometheus.io/docs/introduction/overview/
@@ -80,3 +92,4 @@ You can further [visualize your data][grafana-prometheus] with Grafana. Use the 
 [psql]: /use-timescale/:currentVersion:/integrations/psql/
 [connection-info]: /use-timescale/:currentVersion:/integrations/find-connection-details/
 [postgresql-exporter]: https://grafana.com/oss/prometheus/exporters/postgres-exporter/
+[open-console]: https://console.cloud.timescale.com/dashboard/services
