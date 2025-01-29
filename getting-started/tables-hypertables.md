@@ -13,17 +13,6 @@ import HypertableIntro from "versionContent/_partials/_hypertables-intro.mdx";
 
 <HypertableIntro />
 
-Databases in are made up of tables that contain your data. In PostgreSQL, these
-tables are relational, so the data in one table relates to the data in another
-table. In Timescale, you use regular PostgreSQL relational tables, in addition
-to special time-series hypertables.
-
-Hypertables are designed specifically for time-series data, so they have a few
-special qualities that makes them different to a regular PostgreSQL table. A
-hypertable is always partitioned on time, but can also be partitioned on
-additional columns as well. The other special thing about hypertables is that
-they are broken down into smaller tables called chunks.
-
 In this section, you create a hypertable for time-series data, and regular
 PostgreSQL tables for relational data. You also create an index on your
 hypertable, which isn't required, but can help your queries run more efficiently.
