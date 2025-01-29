@@ -49,7 +49,7 @@ Explain why and how to read data efficiently.
 ## Write data efficiently
 
 
-Explain why and how to writer data efficiently.
+Explain why and how to write data efficiently.
 
 <Procedure>
 
