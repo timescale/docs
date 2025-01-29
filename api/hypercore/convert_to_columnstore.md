@@ -35,11 +35,11 @@ To retrieve the chunks belonging to a hypertable, call [`show_chunks`](/api/late
 
 ## Arguments
 
-| Name                 | Type | Default | Required | Description                                                                                                    |
-|----------------------|--|---------|--|----------------------------------------------------------------------------------------------------------------|
-| `chunk`         | REGCLASS | -       |✔| Name of the chunk to add to the columnstore.                                                                   |
-| `if_not_columnstore` | BOOLEAN | `true`  |✖| Set to `false` so this job fails with an error rather than a warning if `chunk` is already in the columnstore. |
-| `recompress`         | BOOLEAN | `false` |✖| Set to `true` to recompress a chunk that had more data inserted after it was added to the columnstore.         |
+| Name                 | Type | Default | Required | Description                                                                                                                                                                                                                                                                              |
+|----------------------|--|---------|--|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `chunk`         | REGCLASS | -       |✔| Name of the chunk to add to the columnstore.                                                                                                                                                                                                                                             |
+| `if_not_columnstore` | BOOLEAN | `true`  |✖| Set to `false` so this job fails with an error rather than a warning if `chunk` is already in the columnstore.                                                                                                                                                                           |
+| `recompress`         | BOOLEAN | `false` |✖| Set to `true` to recompress data that was partially compressed as a result of modifications to `chunk`. This is usually more efficient, but in some cases it can result is a more expensive operation. <br/>Set to `false` to completely decompress and recompress the data in `chunk`. |
 
 ## Returns
 
