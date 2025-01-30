@@ -20,13 +20,13 @@ To export your data, do the following:
 
 <Procedure>
 
-1. **Create a user to access metrics data on your $SERVICE_LONG**
+1. **Create a user to access telemetry data about your $SERVICE_LONG**
 
    1. Connect to your $SERVICE_LONG:
 
       For $CLOUD_LONG, open an [SQL editor][run-queries] in [$CONSOLE][open-console]. For self-hosted, use [`psql`][psql].  
 
-   1. Create a user named `monitoring` with a password:
+   1. Create a user named `monitoring` with a secure password:
 
       ```sql
       CREATE USER monitoring WITH PASSWORD '<password>';
@@ -38,21 +38,33 @@ To export your data, do the following:
       GRANT pg_read_all_stats to monitoring;
       ```
 
-1. **Export metrics data using PostgreSQL Exporter**
+1. **Import telemetry data about your $SERVICE_LONG to PostgreSQL Exporter**
 
-   1. Configure PostgreSQL Exporter to connect to your $SERVICE_LONG:
+   1. Connect PostgreSQL Exporter to your $SERVICE_LONG:
 
-      Update the `Service URL:` in your [connection details][connection-info] to connect to your $SERVICE_LONG as the 
-      `monitoring` user:
-      ```shell
-      export DATA_SOURCE_NAME='postgres://monitoring:<password>@<service>.<string>.tsdb.cloud.timescale.com:<service port>/tsdb?sslmode=require'
-      ./postgres_exporter
-      ```
+      Use your [connection details][connection-info] to import telemetry data about your $SERVICE_LONG. You connect as 
+      the `monitoring` user: 
+      - Local installation:
+         ```shell
+         export DATA_SOURCE_NAME="postgres://monitoring:<password>@<host>.tsdb.cloud.timescale.com:<port>/tsdb?sslmode=require"
+         ./postgres_exporter
+         ```
+      - Docker:
+        ```shell
+        docker run -d \ 
+           -e DATA_SOURCE_NAME="postgres://monitoring:<password>@<host>.tsdb.cloud.timescale.com:<port>/tsdb?sslmode=require" \ 
+           -p 9187:9187 \ 
+           prometheuscommunity/postgres-exporter
+        ```
       
-   1. Check the installation:
-   
-      In your browser, navigate to `http://<exporter-host>:9187/metrics`. You see the metrics for your $SERVICE_LONG in 
-      the Prometheus format.
+   1. Check the metrics for your $SERVICE_LONG in the Prometheus format:
+      - Browser: 
+      
+        Navigate to `http://<exporter-host>:9187/metrics`. 
+      - Command line:
+         ```shell
+         curl http://<exporter-host>:9187/metrics
+         ```        
 
 1. **Configure Prometheus to scrape metrics**
 
@@ -70,17 +82,19 @@ To export your data, do the following:
           - targets: ['<exporter-host>:9187'] 
        ```
 
-       If `prometheus.yml` has not been created during installation, create it manually.
+       If `prometheus.yml` has not been created during installation, create it manually. If you are using Docker, you can
+       find the IPAddress in `Inspect` > `Networks` for the container running PostgreSQL Exporter. 
 
     1. Restart Prometheus.
 
-    1. Check the Prometheus UI at `http://<prometheus-host>:9090`.
+    1. Check the Prometheus UI at `http://<prometheus-host>:9090/targets` and `http://<prometheus-host>:9090/tsdb-status`.
 
-       The PostgreSQL Exporter target under `Status` > `Target health` must be active.
+       You see the PostgreSQL Exporter target and the metrics scraped from it.
 
 </Procedure>
 
-You can further [visualize your data][grafana-prometheus] with Grafana. Use the [Grafana PostgreSQL dashboard][postgresql-exporter-dashboard] or [create a custom dashboard][grafana] that suits your needs.
+You can further [visualize your data][grafana-prometheus] with Grafana. Use the 
+[Grafana PostgreSQL dashboard][postgresql-exporter-dashboard] or [create a custom dashboard][grafana] that suits your needs.
 
 [install-exporter]: https://grafana.com/oss/prometheus/exporters/postgres-exporter/?tab=installation
 [postgresql-exporter-dashboard]: https://grafana.com/oss/prometheus/exporters/postgres-exporter/?tab=dashboards
