@@ -7,6 +7,22 @@ keywords: [changelog, upgrades, updates, releases]
 # Changelog
 
 All the latest features and updates to Timescale products.
+Jan 31, 2025  
+
+IP Allowlist for Enhanced Security
+PopSQL now supports IP allowlists, a highly requested security feature that ensures only approved networks can access your data.
+🔒 Why it matters: Autodesk (NASDAQ: ADSK), our largest customer, wanted to tighten their security. Their employees must use a VPN to access company services, but PopSQL was previously an exception. To solve this, we built an IP allowlist feature—allowing them to specify their VPN’s static IPs and block any unauthorized access.
+✅ What’s new?
+Restrict PopSQL access to specific, approved IPs
+Prevent unauthorized access from outside networks
+Works on both Web and Desktop versions
+This was Autodesk’s #1 feature request, and we’re excited to roll it out for all PopSQL customers—just like Timescale’s similar security offering.
+🎥 Demo: Check out this awesome Demo from the PopSQL Team
+
+User-defined Actions banner
+We have added a small banner to the Jobs page to help users learn about user-defined actions within TimescaleDB.
+
+
 
 ## 🤖 pgai Extension and Python Library Updates
 <Label type="date">January 24, 2025</Label>
