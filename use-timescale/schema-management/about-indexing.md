@@ -11,8 +11,7 @@ Because looking up data can take a long time, especially if you have a lot of
 data in your hypertable, you can use an index to speed up read operations from
 non-compressed chunks (which use their [own columnar indexes][about-compression]).
 
-You can create an index on any combination of columns. To define an index as a `UNIQUE` or `PRIMARY KEY` index, it must include
-the time column and the partitioning column, if you are using one. 
+You can create an index on any combination of columns. To define an index as a `UNIQUE` or `PRIMARY KEY` index, it must include the partitioning column (this is usually the time column). 
 
 Which column you choose to create your
 index on depends on what kind of data you have stored.
