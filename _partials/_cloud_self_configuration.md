@@ -71,8 +71,8 @@ Enable transparent decompression
 
 
 ### `timescaledb.restoring (bool)`
-Install timescale in restoring mode
-
+Stop any background workers which could have been performing tasks. This is especially useful you 
+migrate data to your [$SERVICE_LONG][pg-dump-and-restore] or [self-hosted database][migrate-entire].
 
 ### `timescaledb.max_cached_chunks_per_hypertable (int)`
 Maximum cached chunks
@@ -85,3 +85,5 @@ Maximum open chunks per insert
 The max number of tuples that can be decompressed during an INSERT, UPDATE, or DELETE.
 
 [enabling-data-tiering]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/
+[pg-dump-and-restore]: /migrate/:currentVersion:/pg-dump-and-restore/
+[migrate-entire]: /self-hosted/:currentVersion:/migration/entire-database/
