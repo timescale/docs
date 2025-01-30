@@ -1,6 +1,6 @@
 ---
 title: Integrate Apache Airflow with Timescale Cloud
-excerpt: How to install the psql client for PostgreSQL
+excerpt: Steps to integrate Apache Airflow with Timescale Cloud and create a data pipeline
 products: [cloud, mst, self_hosted]
 keywords: [connect, integrate, apache, airflow]
 ---
