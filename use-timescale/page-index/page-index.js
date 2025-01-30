@@ -769,7 +769,7 @@ module.exports = [
         ],
       },
       {
-        title: "Timescale Cloud integrations",
+        title: "Integrations",
         href: "integrations",
         excerpt: "Integrate third-party solutions with Timescale Cloud",
         children: [
@@ -846,7 +846,7 @@ module.exports = [
             excerpt: "SAML / SSO authentication for your Timescale account",
           },
           {
-            title: "Multi-factor Authentication",
+            title: "Multi-factor authentication",
             href: "multi-factor-authentication",
             excerpt: "Multi-factor authentication for your Timescale account",
           },
