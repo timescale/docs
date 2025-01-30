@@ -56,7 +56,7 @@ For benchmarking information on how SkipScan compares to regular `DISTINCT`
 queries, see the [SkipScan blog post][blog-skipscan].
 
 <Highlight type="note">
-Skip scan is based on the ratio of distinct tuples to total tuples. If the number of distinct tuples is close to the total number of tuples, skip scan is unlikely to be chosen due to its higher estimated cost.
+Skip scan cost is based on the ratio of distinct tuples to total tuples. If the number of distinct tuples is close to the total number of tuples, skip scan is unlikely to be chosen due to its higher estimated cost.
 </Highlight>
 
 ## Use SkipScan queries
