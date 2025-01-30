@@ -9,7 +9,7 @@ This page shows you how to export your $SERVICE_SHORT telemetry to Prometheus us
 <IntegrationPrereqs />
 
 - [Download and run Prometheus][install-prometheus].
-- [Install PostgreSQL Exporter][install-exporter]
+- [Install PostgreSQL Exporter][install-exporter].
 
 To reduce latency and potential data transfer costs, install Prometheus and PostgreSQL Exporter on a machine in the 
 same AWS region as your $SERVICE_LONG.
@@ -70,7 +70,7 @@ To export your data, do the following:
           - targets: ['<exporter-host>:9187'] 
        ```
 
-       If `prometheus.yml` has not been created during installation, create it manually:
+       If `prometheus.yml` has not been created during installation, create it manually.
 
     1. Restart Prometheus.
 
