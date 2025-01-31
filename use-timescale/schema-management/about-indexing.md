@@ -11,8 +11,9 @@ Because looking up data can take a long time, especially if you have a lot of
 data in your hypertable, you can use an index to speed up read operations from
 non-compressed chunks (which use their [own columnar indexes][about-compression]).
 
-You can create an index on any combination of columns, as long as you include 
-the `time` column, for time-series data. Which column you choose to create your
+You can create an index on any combination of columns. To define an index as a `UNIQUE` or `PRIMARY KEY` index, it must include the partitioning column (this is usually the time column). 
+
+Which column you choose to create your
 index on depends on what kind of data you have stored.
 When you create a hypertable, set the datatype for the `time` column as
 `timestamptz` and not `timestamp`.
@@ -97,7 +98,7 @@ different queries. Here are some examples:
 SELECT * FROM devices WHERE store_id = x
 ```
 
-This queries the portion of the list with a specific store_id. The index is
+This queries the portion of the list with a specific `store_id`. The index is
 effective for this query, but could be a bit bloated; an index on just
 `store_id` would probably be more efficient.
 
