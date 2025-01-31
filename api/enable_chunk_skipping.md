@@ -38,7 +38,7 @@ A [decompress_chunk][decompress_chunk] invocation on a compressed chunk resets i
 from the `chunk_column_stats` catalog table since now it's available for DML and the
 min/max range values can change on any further data manipulation in the chunk.
 
-By default, this feature is disabled. To enable chunk skipping, set `timescale.enable_chunk_skipping = on` in
+By default, this feature is disabled. To enable chunk skipping, set `timescaledb.enable_chunk_skipping = on` in
 `postgresql.conf`. When you upgrade from a database instance that uses compression but does not support chunk 
 skipping, you need to recompress the previously compressed chunks for chunk skipping to work.
 
