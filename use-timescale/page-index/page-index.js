@@ -780,7 +780,7 @@ module.exports = [
           },
           {
             title: "Apache Kafka",
-            href: "kafka",
+            href: "apache-kafka",
             excerpt: "Integrate Apache Kafka with Timescale Cloud",
           },
           {
