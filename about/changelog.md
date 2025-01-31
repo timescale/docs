@@ -9,20 +9,20 @@ keywords: [changelog, upgrades, updates, releases]
 All the latest features and updates to Timescale products.
 Jan 31, 2025  
 
-IP Allowlist for Enhanced Security
-PopSQL now supports IP allowlists, a highly requested security feature that ensures only approved networks can access your data.
-🔒 Why it matters: Autodesk (NASDAQ: ADSK), our largest customer, wanted to tighten their security. Their employees must use a VPN to access company services, but PopSQL was previously an exception. To solve this, we built an IP allowlist feature—allowing them to specify their VPN’s static IPs and block any unauthorized access.
-✅ What’s new?
-Restrict PopSQL access to specific, approved IPs
-Prevent unauthorized access from outside networks
-Works on both Web and Desktop versions
-This was Autodesk’s #1 feature request, and we’re excited to roll it out for all PopSQL customers—just like Timescale’s similar security offering.
-🎥 Demo: Check out this awesome Demo from the PopSQL Team
+## 🌐 IP Allowlists in Data Mode and PopSQL
+<Label type="date">January 31, 2025</Label>
 
-User-defined Actions banner
-We have added a small banner to the Jobs page to help users learn about user-defined actions within TimescaleDB.
+For enhanced network security, you can now also create IP allowlists in the $CONSOLE data mode and PopSQL. Similarly to the [ops mode IP allowlists][ops-mode-allow-list], this feature grants access to your data only to certain IP addresses. For example, you might require your employees to use a VPN and add your VPN static egress IP to the allowlist.
 
+This feature is available in:
 
+- [$CONSOLE][console] data mode, for all pricing tiers
+- [PopSQL web][popsql-web]
+- [PopSQL desktop][popsql-desktop]
+
+Enable this feature in PopSQL/$CONSOLE data mode > `Project` > `Settings` > `IP Allowlist`:
+
+![Timescale Console data mode IP allowlist](https://assets.timescale.com/docs/images/timescale-data-mode-ip-allowlist.png)
 
 ## 🤖 pgai Extension and Python Library Updates
 <Label type="date">January 24, 2025</Label>
@@ -708,3 +708,7 @@ To learn more, see the [postgresql-unit documentation](https://github.com/df7cb/
 [signup]: https://console.cloud.timescale.com/signup
 [sql-editor]: /getting-started/:currentVersion:/run-queries-from-console/#sql-editor
 [aws-timescale]: https://aws.amazon.com/marketplace/seller-profile?id=seller-wbtecrjp3kxpm
+[ops-mode-allow-list]: #-ip-allow-lists
+[popsql-web]: https://app.popsql.com/login
+[popsql-desktop]: popsql.com/download
+[console]: https://console.cloud.timescale.com/dashboard/services
