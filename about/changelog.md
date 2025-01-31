@@ -6,8 +6,7 @@ keywords: [changelog, upgrades, updates, releases]
 
 # Changelog
 
-All the latest features and updates to Timescale products.
-Jan 31, 2025  
+All the latest features and updates to Timescale products. 
 
 ## 🌐 IP Allowlists in Data Mode and PopSQL
 <Label type="date">January 31, 2025</Label>
@@ -708,7 +707,7 @@ To learn more, see the [postgresql-unit documentation](https://github.com/df7cb/
 [signup]: https://console.cloud.timescale.com/signup
 [sql-editor]: /getting-started/:currentVersion:/run-queries-from-console/#sql-editor
 [aws-timescale]: https://aws.amazon.com/marketplace/seller-profile?id=seller-wbtecrjp3kxpm
-[ops-mode-allow-list]: #-ip-allow-lists
+[ops-mode-allow-list]: /about/:currentVersion:/changelog/#-ip-allow-lists
 [popsql-web]: https://app.popsql.com/login
 [popsql-desktop]: popsql.com/download
 [console]: https://console.cloud.timescale.com/dashboard/services
