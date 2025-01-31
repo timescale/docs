@@ -26,16 +26,21 @@ To connect to $CLOUD_LONG:
 <Procedure>
 
 1.  **Start `DBeaver`**
-1.  **In the toolbar, click a plug icon to add a new database connection**
-1.  **In the `Connect to a database` window, search for `TimescaleDB`**
-1.  **Select `TimescaleDB` and click `Next` to continue**
+1.  **In the toolbar, click the plug+ icon**
+1.  **In `Connect to a database` search for `TimescaleDB`**
+1.  **Select `TimescaleDB`, then click `Next`**
 1.  **Configure the connection** 
-     1. Use your [connection details][connection-info] to configure the connection.
-     1. If you configured your $SERVICE_SHORT to connect using a [stricter SSL mode][ssl-mode], then in the `SSL` tab check `Use SSL`, set `SSL mode` to the configured mode, and in the `CA Certificate` field type the location of the SSL root CA certificate to use.
-1.  **Click `Test Connection`**
-1.  **Click `Finish` to connect to the database server**
 
-    The server is listed in the `Database Navigator` pane.
+    Use your [connection details][connection-info] to add your connection settings.
+    ![DBeaver integration](https://assets.timescale.com/docs/images/integrations-dbeaver.png)
+    
+    If you configured your $SERVICE_SHORT to connect using a [stricter SSL mode][ssl-mode], in the `SSL` tab check 
+    `Use SSL` and set `SSL mode` to the configured mode. Then, in the `CA Certificate` field type the location of the SSL 
+    root CA certificate.
+
+1.  **Click `Test Connection`**, when the connection is successful, click `Finish`.
+
+    Your connection is listed in the `Database Navigator`.
 
 </Procedure>
 
