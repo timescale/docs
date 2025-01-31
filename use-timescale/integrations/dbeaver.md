@@ -38,7 +38,7 @@ To connect to $CLOUD_LONG:
     `Use SSL` and set `SSL mode` to the configured mode. Then, in the `CA Certificate` field type the location of the SSL 
     root CA certificate.
 
-1.  **Click `Test Connection`**, when the connection is successful, click `Finish`.
+1.  **Click `Test Connection`. When the connection is successful, click `Finish`**
 
     Your connection is listed in the `Database Navigator`.
 
