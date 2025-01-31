@@ -709,5 +709,5 @@ To learn more, see the [postgresql-unit documentation](https://github.com/df7cb/
 [aws-timescale]: https://aws.amazon.com/marketplace/seller-profile?id=seller-wbtecrjp3kxpm
 [ops-mode-allow-list]: /about/:currentVersion:/changelog/#-ip-allow-lists
 [popsql-web]: https://app.popsql.com/login
-[popsql-desktop]: popsql.com/download
+[popsql-desktop]: https://popsql.com/download
 [console]: https://console.cloud.timescale.com/dashboard/services
