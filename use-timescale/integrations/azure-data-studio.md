@@ -28,17 +28,21 @@ To connect to $CLOUD_LONG:
 
 1. **Start `Azure Data Studio`**
 1. **In the `SERVERS` page, click `New Connection`**
-1. **Configure the connection** 
-   1. Select `PostgreSQL` for `Connection type`. 
-   1. Configure the server name, database, username, port, and password using your [connection details][connection-info]. 
-   1. Click `Advanced`. 
-   1. In the `Port` field, type the port number and click `OK`. 
-   1. If you have configured your $SERVICE_LONG to connect using a [stricter SSL
-    mode][ssl-mode], then set `SSL mode` to the configured mode and in the `SSL root certificate
-    filename` field, type the location of the SSL root CA certificate to use.
-1.  Click `Connect`.
+1. **Configure the connection**
+   1. Select `PostgreSQL` for `Connection type`.
+   1. Configure the server name, database, username, port, and password using your [connection details][connection-info].
+   1. Click `Advanced`.
+   
+      If you configured your $SERVICE_LONG to connect using [stricter SSL mode][ssl-mode], set `SSL mode` to the
+      configured mode, then type the location of your SSL root CA certificate in `SSL root certificate filename`.
+   
+   1. In the `Port` field, type the port number and click `OK`.
+
+1. **Click `Connect`**
 
 </Procedure>
+
+
 
 You have successfully integrated Azure Data Studio with $CLOUD_LONG.
 
@@ -47,3 +51,5 @@ You have successfully integrated Azure Data Studio with $CLOUD_LONG.
 [connection-info]: /use-timescale/:currentVersion:/integrations/find-connection-details/
 [azure-data-studio]: https://azure.microsoft.com/en-us/products/data-studio
 [ssl-mode]: /use-timescale/:currentVersion:/security/strict-ssl/
+
+
