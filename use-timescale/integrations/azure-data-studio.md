@@ -7,7 +7,7 @@ keywords: [integrate]
 
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
 
-# Integrate Azure Data Studio with $CLOUD_LONG
+# Integrate Azure Data Studio with $CLOUD_LONG 
 
 [Azure Data Studio][azure-data-studio] is an open-source, cross-platform hybrid data analytics tool designed to simplify the data landscape.
 
