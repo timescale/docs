@@ -781,47 +781,47 @@ module.exports = [
           {
             title: "Apache Airflow",
             href: "apache-airflow",
-            excerpt: "Integrate Apache Airflow with Timescale Cloud",
+            excerpt: "Integrate Apache Airflow with Timescale products",
           },
           {
             title: "Azure Data Studio",
             href: "azure-data-studio",
-            excerpt: "Install Azure Data Studio to connect to Timescale",
+            excerpt: "Integrate Azure Data Studio with Timescale products",
           },
           {
             title: "DBeaver",
             href: "dbeaver",
-            excerpt: "Install DBeaver to connect to Timescale",
+            excerpt: "Integrate DBeaver with Timescale products",
           },
           {
             title: "pgAdmin",
             href: "pgadmin",
-            excerpt: "Install pgAdmin to connect to Timescale",
+            excerpt: "Integrate pgAdmin with Timescale products",
           },
           {
             title: "psql",
             href: "psql",
-            excerpt: "Install psql to connect to Timescale",
+            excerpt: "Connect to Timescale products with psql",
           },
           {
             title: "qStudio",
             href: "qstudio",
-            excerpt: "Install qstudio to connect to Timescale",
+            excerpt: "Integrate qstudio with Timescale products",
           },
           {
             title: "Grafana",
             href: "grafana",
-            excerpt: "Use Grafana with Timescale",
+            excerpt: "Integrate Grafana with Timescale products",
           },
           {
             title: "Tableau",
             href: "tableau",
-            excerpt: "Use Tableau with Timescale",
+            excerpt: "Integrate Tableau with Timescale products",
           },
           {
             title: "Terraform",
             href: "terraform",
-            excerpt: "Manage your Timescale services via Terraform",
+            excerpt: "Manage your Timescale services with Terraform",
           },
           {
             title: "Troubleshooting Timescale integrations",
