@@ -26,18 +26,19 @@ To connect to $CLOUD_LONG:
 <Procedure>
 
 1. **Start qStudio**
-1. **Navigate to the `Server` tab, and click `Add Server`**
-1. **Configure the connection in `Server Properties`**
-    *   For `Server Type`, select `Postgres`.
-    *   For `Connect By`, select `Host`.
-    *   Configure `Host`, `Port`, `Database`, `Username`, and `Password` using your [connection details][connection-info]. 
-1.  **Click `Test` to check the connection**
+1. **Click `Server` > `Add Server`**
+1.  **Configure the connection**
+
+    Use your [connection details][connection-info] to add your Server Properties.
+    ![DBeaver integration](https://assets.timescale.com/docs/images/integrations-qstudio.png)
+
+1.  **Click `Test`**
 
     qStudio indicates whether the connection works. 
 
-1.  **Click `Add` to add the connection**
+1.  **Click `Add`**
     
-    The server is listed in the `Server Tree` pane.
+    The server is listed in the `Server Tree`.
 
 </Procedure>
 
