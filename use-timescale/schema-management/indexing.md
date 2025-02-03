@@ -8,8 +8,7 @@ keywords: [hypertables, indexes]
 # Indexing data
 
 You can use an index on your database to speed up read operations. You can
-create an index on any combination of columns, as long as you include the `time`
-column, for time-series data. Timescale supports all table objects supported
+create an index on any combination of columns. Timescale supports all table objects supported
 within PostgreSQL, including data types, indexes, and triggers.
 
 You can create an index using the `CREATE INDEX` command. For example, to create
