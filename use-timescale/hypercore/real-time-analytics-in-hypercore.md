@@ -60,6 +60,8 @@ To setup your Hypercore automation:
 
 <HCPolicyWorkflow />
 
+<UsageBasedStorage />
+
 ## Reference
 
 For integers, timestamps, and other integer-like types, data is compressed using [delta encoding][delta],
