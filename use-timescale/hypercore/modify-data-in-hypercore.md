@@ -1,16 +1,16 @@
 ---
-title: Modify data in the columnstore
+title: Modify data in Hypercore
 excerpt: Update data and the table schema in the columnstore
 products: [cloud,]
-keywords: [hyperscore, hypertable, compression, row-columnar storage, hypercore, hyperstore]
+keywords: [hyperscore, hypertable, compression, row-columnar storage, hypercore]
 ---
 
 import Prereq from "versionContent/_partials/_prereqs-cloud-and-self.mdx";
 import HypercoreManualWorkflow from "versionContent/_partials/_hypercore_manual_workflow.mdx";
 
-# Modify data in the columnstore
+# Modify your data in Hypercore
 
-You [setup Hypercore][setup-hypercore] to automatically convert data between the rowstore and columnstore
+You [setup Hypercore][setup-h[modify-data-in-hypercore.md](modify-data-in-hypercore.md)ypercore] to automatically convert data between the rowstore and columnstore
 when it reaches a certain age. After you have optimized data in the columnstore, you may need to modify it. 
 For example, to make small changes, or backfill large amounts of data. You may even have to update the schema to 
 accommodate this changes to the data.
@@ -21,7 +21,7 @@ This page shows you how to update small and large amounts of new data, and updat
 
 <Prereq />
 
-- [Optimize cooler data in hypercore][setup-hypercore]
+- [Prepare your data for real-time analytics in Hypercore][setup-hypercore]
 
 ## Modify small amounts of data
 
@@ -49,6 +49,8 @@ This workflow is especially useful if you need to backfill old data.
 ## Modify a table schema for data in the columnstore
 
 You can add modify the schema of a table in the columnstore. To do this, you need to:
+
+<Procedure>
 
 1. **Stop the jobs that are automatically adding chunks to the columnstore**
 
@@ -96,13 +98,13 @@ You can add modify the schema of a table in the columnstore. To do this, you nee
    SELECT alter_job(JOB_ID, scheduled => true);
    ```
 
-
+</Procedure>
 
 [write]: /use-timescale/:currentVersion:/write-data/
-[setup-hypercore]: /use-timescale/:currentVersion:/hypercore/optimize-data-for-real-time-analytics/
+[setup-hypercore]: /use-timescale/:currentVersion:/hypercore/real-time-analytics-in-hypercore/
 [job]: /api/:currentVersion:/actions/
 [alter_job]: /api/:currentVersion:/actions/alter_job/
 [convert_to_columnstore]: /api/:currentVersion:/hypercore/convert_to_columnstore/
 [informational-views]: /api/:currentVersion:/informational-views/jobs/
 [insert]: /use-timescale/:currentVersion:/write-data/insert/
-[setup-hypercore]: /use-timescale/:currentVersion:/hypercore/optimize-data-for-real-time-analytics/
+[setup-hypercore]: /use-timescale/:currentVersion:/hypercore/real-time-analytics-in-hypercore/

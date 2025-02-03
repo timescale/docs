@@ -1,3 +1,4 @@
+import EarlyAccess from "versionContent/_partials/_early_access.mdx";
 
 1. **Stop the jobs that are automatically adding chunks to the columnstore**
 
@@ -30,6 +31,16 @@
    CALL convert_to_columnstore('_timescaledb_internal._hyper_1_2_chunk');
    ```
 
+   * <EarlyAccess /> To enable indexing over the specific chunk you are adding to the
+   columnstore, enable the Hypercore table access method:
+
+      ``` sql
+      call convert_to_columnstore('_timescaledb_internal._hyper_1_2_chunk',
+         hypercore_use_access_method => true);
+      ```
+      You must [enable columnstore on a hypertable][setup-hypercore] before you apply `hypercore_use_access_method`
+      to a chunk. You can also do this using [ALTER TABLE][compression_alter-table].
+
 1. **Restart the jobs that are automatically converting chunks to the columnstore**
 
    ``` sql
@@ -39,3 +50,5 @@
 [alter_job]: /api/:currentVersion:/actions/alter_job/
 [informational-views]: /api/:currentVersion:/informational-views/jobs/
 [insert]: /use-timescale/:currentVersion:/write-data/insert/
+[setup-hypercore]: /use-timescale/:currentVersion:/hypercore/real-time-analytics-in-hypercore/
+[compression_alter-table]: /api/:currentVersion:/hypercore/alter_table/
