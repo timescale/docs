@@ -799,6 +799,11 @@ module.exports = [
             excerpt: "Integrate pgAdmin with Timescale products",
           },
           {
+            title: "Prometheus",
+            href: "prometheus",
+            excerpt: "Integrate Prometheus with Timescale Cloud",
+          },
+          {
             title: "psql",
             href: "psql",
             excerpt: "Connect to Timescale products with psql",
