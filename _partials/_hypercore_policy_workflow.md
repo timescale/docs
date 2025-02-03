@@ -32,7 +32,6 @@ import EarlyAccess from "versionContent/_partials/_early_access.mdx";
    ```
    See [add_columnstore_policy][add_columnstore_policy].
 
-
 1. **View the policies that you set or the policies that already exist**
 
    ``` sql
