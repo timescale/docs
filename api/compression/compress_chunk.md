@@ -9,7 +9,11 @@ api:
   type: function
 ---
 
+import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
+
 # compress_chunk() <Tag type="community">Community</Tag>
+
+<Deprecated2180 /> Replaced by <a href="https://docs.timescale.com/api/latest/hypercore/convert_to_columnstore/">convert_to_columnstore()</a>.
 
 The `compress_chunk` function is used to compress (or recompress, if necessary) 
 a specific chunk. This is most often used instead of the
@@ -26,6 +30,7 @@ allowing you to target a specific chunk that needs compressing.
 You can get a list of chunks belonging to a hypertable using the
 [`show_chunks` function](/api/latest/hypertable/show_chunks/).
 </Highlight>
+
 
 ### Required arguments
 

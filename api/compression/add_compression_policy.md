@@ -8,8 +8,11 @@ api:
   license: community
   type: function
 ---
+import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 
 # add_compression_policy() <Tag type="community" content="community" />
+
+<Deprecated2180 /> Replaced by <a href="https://docs.timescale.com/api/latest/hypercore/add_columnstore_policy/">add_columnstore_policy()</a>.
 
 Allows you to set a policy by which the system compresses a chunk
 automatically in the background after it reaches a given age.
@@ -89,3 +92,4 @@ SELECT add_compression_policy('cpu_weekly', INTERVAL '8 weeks');
 [compression_continuous-aggregate]: /api/:currentVersion:/continuous-aggregates/alter_materialized_view/
 [set_integer_now_func]: /api/:currentVersion:/hypertable/set_integer_now_func
 [informational-views]: /api/:currentVersion:/informational-views/jobs/
+
