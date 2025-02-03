@@ -31,10 +31,11 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 
 |           Name           | Description                                                                                                                                                                                 |
 |:------------------------:|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|    [Grafana][grafana]    | An open-source analytics and monitoring solution that enables you to query, visualize, alert on, and explore your metrics, logs.                                                            |
-|    [Tableau][tableau]    | A popular analytics platform that helps you gain greater intelligence about your business.                                                                                                  |
-|    [Datadog][datadog]    | A cloud-based monitoring and analytics platform that provides comprehensive visibility into applications, infrastructure, and systems through real-time monitoring, logging, and analytics. |
 | [Cloudwatch][cloudwatch] | A monitoring and observability service designed to help collect, analyze, and act on data from applications, infrastructure, and services running in AWS and on-premises environments.      |
+| [Datadog][datadog]    | A cloud-based monitoring and analytics platform that provides comprehensive visibility into applications, infrastructure, and systems through real-time monitoring, logging, and analytics. |
+| [Grafana][grafana]    | An open-source analytics and monitoring solution that enables you to query, visualize, alert on, and explore your metrics, logs.                                                            |
+| [Prometheus][prometheus]| An open-source monitoring system with a dimensional data model, flexible query language, and a modern alerting approach.         |
+| [Tableau][tableau]    | A popular analytics platform that helps you gain greater intelligence about your business.                                                                                                  |
 
 
 ## Configuration and deployment 
@@ -64,3 +65,4 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 [terraform]: /use-timescale/:currentVersion:/integrations/terraform
 [apache-airflow]: /use-timescale/:currentVersion:/integrations/apache-airflow
 [postgresql-integrations]: https://slashdot.org/software/p/PostgreSQL/integrations/
+[prometheus]: /use-timescale/:currentVersion:/integrations/prometheus

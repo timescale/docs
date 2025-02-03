@@ -11,6 +11,10 @@ import HypertablesIntro from 'versionContent/_partials/_hypertables-intro.mdx';
 
 <HypertablesIntro />
 
+<Highlight type="note">
+Inheritance is not supported for hypertables and may lead to unexpected behavior.
+</Highlight>
+
 ## Hypertable partitioning
 
 When you create and use a hypertable, it automatically partitions data by time,
