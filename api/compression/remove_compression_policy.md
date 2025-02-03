@@ -13,7 +13,6 @@ import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 
 # remove_compression_policy() <Tag type="community" content="community" />
 
-
 <Deprecated2180 /> Replaced by <a href="https://docs.timescale.com/api/latest/hypercore/remove_columnstore_policy/">remove_columnstore_policy()</a>.
 
 If you need to remove the compression policy. To restart policy-based
