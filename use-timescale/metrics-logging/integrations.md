@@ -1,8 +1,8 @@
 ---
 title: Integrate Timescale services with third-party monitoring
-excerpt: Export telemetry metrics to Datadog or AWS CloudWatch
+excerpt: Export telemetry metrics to Datadog or Amazon CloudWatch
 products: [cloud]
-keywords: [integration, metrics, Datadog, AWS CloudWatch]
+keywords: [integration, metrics, Datadog, Amazon CloudWatch]
 tags: [telemetry, monitor]
 cloud_ui:
     path:
@@ -18,7 +18,7 @@ import CloudWatchExporter from "versionContent/_partials/_cloudwatch-data-export
 # Integrate Timescale Cloud Services with third-party monitoring tools
 
 You can export telemetry data from your $SERVICE_LONGs with the time-series and analytics capability enabled to third-party
-monitoring tools such as [Datadog][datadog] or [AWS CloudWatch][cloudwatch]. Available metrics include
+monitoring tools such as [Datadog][datadog] or [Amazon CloudWatch][cloudwatch]. Available metrics include
 CPU usage, RAM usage, and storage. Third-party monitoring is available for [Scale or Enterprise][pricing-plan-features]
 pricing tiers.
 
@@ -42,7 +42,7 @@ tool. You create an exporter on the [project level][projects], in the same AWS r
 
 </Tab>
 
-<Tab title="AWS CloudWatch">
+<Tab title="Amazon CloudWatch">
 
 <CloudWatchExporter />
 

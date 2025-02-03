@@ -784,14 +784,14 @@ module.exports = [
             excerpt: "Integrate Apache Airflow with Timescale products",
           },
           {
+            title: "Amazon CloudWatch",
+            href: "cloudwatch",
+            excerpt: "Integrate Amazon Cloudwatch with Timescale Cloud",
+          },
+          {
             title: "Azure Data Studio",
             href: "azure-data-studio",
             excerpt: "Integrate Azure Data Studio with Timescale products",
-          },
-          {
-            title: "CloudWatch",
-            href: "cloudwatch",
-            excerpt: "Integrate Cloudwatch with Timescale Cloud",
           },
           {
             title: "Datadog",
