@@ -45,6 +45,7 @@ the procedure with `CALL`. Don't use a `SELECT` statement.
 chunk for the first time, use [`compress_chunk`](/api/latest/compression/compress_chunk/).
 </Highlight>
 
+
 ## Required arguments
 
 |Name|Type|Description|

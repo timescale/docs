@@ -31,6 +31,7 @@ You can get a list of chunks belonging to a hypertable using the
 [`show_chunks` function](/api/latest/hypertable/show_chunks/).
 </Highlight>
 
+
 ### Required arguments
 
 |Name|Type|Description|
