@@ -8,9 +8,12 @@ api:
   license: community
   type: command
 ---
+
 import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 
 # ALTER TABLE (Compression) <Tag type="community" content="community" />
+
+<Deprecated2180 /> Replaced by <a href="https://docs.timescale.com/api/latest/hypercore/alter_table/">ALTER TABLE (Hypercore)</a>.
 
 'ALTER TABLE' statement is used to turn on compression and set compression
 options.  
@@ -28,8 +31,6 @@ ALTER TABLE <table_name> SET (timescaledb.compress,
    timescaledb.compress_chunk_time_interval='interval'
 );
 ```
-
-<Deprecated2180 /> Replaced by <a href="https://docs.timescale.com/api/latest/hypercore/alter_table/">ALTER TABLE (Hypercore)</a>.
 
 ## Required arguments
 

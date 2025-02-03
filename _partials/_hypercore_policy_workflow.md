@@ -87,7 +87,6 @@ import EarlyAccess from "versionContent/_partials/_early_access.mdx";
    ``` sql
    CALL remove_columnstore_policy('older_stock_prices');
    ```
-   See [remove_columnstore_policy][remove_columnstore_policy].
 
 1. **Disable columnstore**
 
@@ -98,12 +97,12 @@ import EarlyAccess from "versionContent/_partials/_early_access.mdx";
    ```
    See [alter_table_hypercore][alter_table_hypercore]. 
 
+
 [job]: /api/:currentVersion:/actions/add_job/
 [alter_table_hypercore]: /api/:currentVersion:/hypercore/alter_table/
 [compression_continuous-aggregate]: /api/:currentVersion:/hypercore/alter_materialized_view/
 [convert_to_rowstore]: /api/:currentVersion:/hypercore/convert_to_rowstore/
 [convert_to_columnstore]: /api/:currentVersion:/hypercore/convert_to_columnstore/
-[convert_to_rowstore]: /api/:currentVersion:/hypercore/convert_to_rowstore/
 [informational-views]: /api/:currentVersion:/informational-views/jobs/
 [add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/
 [hypercore_workflow]: /api/:currentVersion:/hypercore/#hypercore-workflow

@@ -4,9 +4,14 @@ excerpt: Compress your hypertable
 keywords: [compression]
 tags: [hypertables]
 ---
+
 import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 
-# Compression (deprecated use Hypercore) <Tag type="community">Community</Tag>
+# Compression (Old API, use Hypercore) <Tag type="community">Community</Tag>
+
+<Deprecated2180 /> Replaced by <a href="https://docs.timescale.com/api/latest/hypercore/">Hypercore</a>.
+
+Compression functionality is included in Hypercore. 
 
 Before you set up compression, you need to
 [configure the hypertable for compression][configure-compression] and then
@@ -30,8 +35,6 @@ Compressed chunks have the following limitations:
     can add them by disabling compression on the hypertable and re-enabling
     after constraint creation.
 *   [Timescale SkipScan][skipscan] does not currently work on compressed chunks.
-
-<Deprecated2180 /> Replaced by <a href="https://docs.timescale.com/api/latest/hypercore/">Hypercore</a>.
 
 ## Restrictions
 

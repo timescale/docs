@@ -35,6 +35,10 @@ module.exports = [
             href: "reorder_chunk",
           },
           {
+            title: "merge_chunks",
+            href: "merge_chunks",
+          },
+          {
             title: "move_chunk",
             href: "move_chunk",
           },
@@ -565,7 +569,7 @@ module.exports = [
           "An overview of what different tags represent in the API section of Timescale Documentation.",
       },
       {
-        title: "Compression (deprecated, use Hypercore)",
+        title: "Compression (Old API, use Hypercore)",
         href: "compression",
         description:
           "We highly recommend reading the blog post and tutorial about compression before trying to set it up for the first time.",
@@ -605,7 +609,7 @@ module.exports = [
         ],
       },
       {
-        title: "Distributed hypertables (sunsetted v2.14.x)",
+        title: "Distributed hypertables (Sunsetted v2.14.x)",
         type: "directory",
         href: "distributed-hypertables",
         children: [

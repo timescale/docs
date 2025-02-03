@@ -7,9 +7,12 @@ api:
   license: community
   type: function
 ---
+
 import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 
 # decompress_chunk() <Tag type="community">Community</Tag>
+
+<Deprecated2180 /> Replaced by <a href="https://docs.timescale.com/api/latest/hypercore/convert_to_cconvert_to_rowstore/">convert_to_rowstore()</a>.
 
 If you need to modify or add a lot of data to a chunk that has already been
 compressed, you should decompress the chunk first. This is especially
@@ -22,8 +25,6 @@ to prevent scheduled execution. When you finish backfilling or updating data,
 turn the policy back on. The database automatically recompresses your chunks in
 the next scheduled job.
 </Highlight>
-
-<Deprecated2180 /> Replaced by <a href="https://docs.timescale.com/api/latest/hypercore/convert_to_cconvert_to_rowstore/">convert_to_rowstore()</a>.
 
 ### Required arguments
 
