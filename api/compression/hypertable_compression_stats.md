@@ -8,6 +8,7 @@ api:
   license: community
   type: function
 ---
+
 import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 
 # hypertable_compression_stats() <Tag type="community">Community</Tag>
@@ -45,7 +46,9 @@ For more information about compression, see the
 |`node_name`|TEXT|nodes on which the hypertable is located, applicable only to distributed hypertables|
 
 <Highlight type="note">
+
 Returns show `NULL` if the data is currently uncompressed.
+
 </Highlight>
 
 ### Sample usage

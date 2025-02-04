@@ -1,14 +1,38 @@
-1. **Enable columnstore**
+import EarlyAccess from "versionContent/_partials/_early_access.mdx";
+
+1. **Connect to your $SERVICE_LONG**
+
+   In [$CONSOLE][services-portal] open an [SQL editor][in-console-editors]. You can also connect to your service using [psql][connect-using-psql].
+
+1. **Enable columnstore on a hypertable**
+
+   Create a [job][job] that automatically moves chunks in a hypertable to the columnstore at a specific time interval. 
+   By default, your table is `orderedby` the time column. For efficient queries on columnstore data, remember to
+   `segmentby` the column you will use most often to filter your data:
 
    * [Use `ALTER TABLE` for a hypertable][alter_table_hypercore]
      ```sql
-     ALTER TABLE stocks_real_time SET (timescaledb.enable_columnstore = true, timescaledb.segmentby = 'symbol');
+     ALTER TABLE stocks_real_time SET (
+        timescaledb.enable_columnstore = true, 
+        timescaledb.segmentby = 'symbol');
      ```
    * [Use ALTER MATERIALIZED VIEW for a continuous aggregate][compression_continuous-aggregate]
      ```sql
-     ALTER MATERIALIZED VIEW stock_candlestick_daily set (timescaledb.enable_columnstore = true, timescaledb.segmentby = 'symbol' );
+     ALTER MATERIALIZED VIEW stock_candlestick_daily set (
+        timescaledb.enable_columnstore = true, 
+        timescaledb.segmentby = 'symbol' );
+     ``` 
+     Before you say `huh`, a continuous aggregate is a specialized hypertable.
+   
+   * <EarlyAccess /> Enable indexing over all data in the rowstore and columnstore:
+     
+     ```sql
+     alter table stocks_real_time,
+        set access method hypercore,
+        set (timescaledb.enable_columnstore = true, timescaledb.segmentby = 'symbol');
      ```
-
+     This is also early access for continuous aggregates.
+   
 1. **Add a policy to move chunks to the columnstore at a specific time interval**
 
    For example, 60 days after the data was added to the table:
@@ -16,6 +40,16 @@
    CALL add_columnstore_policy('older_stock_prices', after => INTERVAL '60d');
    ```
    See [add_columnstore_policy][add_columnstore_policy].
+
+   * <EarlyAccess /> To enable indexing over data in the rowstore and the columnstore, tell the policy 
+     to use the Hypercore table access method.
+   
+      ``` sql
+      CALL add_columnstore_policy(
+         'older_stock_prices', 
+         after => INTERVAL '60d',  
+         hypercore_use_access_method => true);
+      ```
 
 1. **View the policies that you set or the policies that already exist**
 
@@ -27,8 +61,13 @@
 
 1. **Pause a columnstore policy**
 
+   If you need to modify or add a lot of data to a chunk in the columnstore, best practice is to stop any jobs moving 
+   chunks to the columnstore, [convert the chunk back to the rowstore][convert_to_rowstore], then modify the data. 
+   After the update, [convert the chunk to the columnstore][convert_to_columnstore] and restart the jobs. 
+
    ``` sql
-   SELECT * FROM timescaledb_information.jobs where proc_name = 'policy_compression' AND relname = 'stocks_real_time'
+   SELECT * FROM timescaledb_information.jobs where 
+      proc_name = 'policy_compression' AND relname = 'stocks_real_time'
    
    -- Select the JOB_ID from the results
      
@@ -37,16 +76,19 @@
    See [alter_job][alter_job].
 
 1. **Restart a columnstore policy**
+
    ``` sql
    SELECT alter_job(JOB_ID, scheduled => true);
    ```
    See [alter_job][alter_job].
 
 1. **Remove a columnstore policy**
+
    ``` sql
    CALL remove_columnstore_policy('older_stock_prices');
    ```
    See [remove_columnstore_policy][remove_columnstore_policy].
+
 1. **Disable columnstore**
 
    If your table has chunks in the columnstore, you have to
@@ -57,9 +99,17 @@
    See [alter_table_hypercore][alter_table_hypercore]. 
 
 
+[job]: /api/:currentVersion:/actions/add_job/
 [alter_table_hypercore]: /api/:currentVersion:/hypercore/alter_table/
-[alter_job]: /api/:currentVersion:/actions/alter_job/
-[add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/
-[informational-views]: /api/:currentVersion:/informational-views/jobs/
-[remove_columnstore_policy]: /api/:currentVersion:/hypercore/remove_columnstore_policy/
+[compression_continuous-aggregate]: /api/:currentVersion:/hypercore/alter_materialized_view/
 [convert_to_rowstore]: /api/:currentVersion:/hypercore/convert_to_rowstore/
+[convert_to_columnstore]: /api/:currentVersion:/hypercore/convert_to_columnstore/
+[informational-views]: /api/:currentVersion:/informational-views/jobs/
+[add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/
+[hypercore_workflow]: /api/:currentVersion:/hypercore/#hypercore-workflow
+[alter_job]: /api/:currentVersion:/actions/alter_job/
+[remove_columnstore_policy]: /api/:currentVersion:/hypercore/remove_columnstore_policy/
+[in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
+[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[connect-using-psql]: /use-timescale/:currentVersion:/integrations/query-admin/psql#connect-to-your-service
+[insert]: /use-timescale/:currentVersion:/write-data/insert/

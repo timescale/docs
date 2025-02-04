@@ -65,7 +65,13 @@ To create a columnstore job:
      ``` sql
      CALL add_columnstore_policy('cpu_weekly', INTERVAL '8 weeks');
      ```
-     
+
+   * Older than eight weeks and using the Hypercore table access method:
+
+     ``` sql
+     CALL add_columnstore_policy('cpu_weekly', INTERVAL '8 weeks', hypercore_use_access_method => true);
+     ```
+
 1. **View the policies that you set or the policies that already exist** 
 
    ``` sql
@@ -88,18 +94,18 @@ Calls to `add_columnstore_policy` require either `after` or `created_before`, bu
 | `hypertable`             |REGCLASS| - | ✔ | Name of the hypertable or continuous aggregate to run this [job][job] on.|
 | `after`         |INTERVAL or INTEGER|- | ✖ | Add chunks containing data older than `now - {after}::interval` to the columnstore. <br/> Use an object type that matchs the time column type in `hypertable`: <ul><li><b><code>TIMESTAMP</code>, <code>TIMESTAMPTZ</code>, or <code>DATE</code></b>: use an <code>INTERVAL</code> type.</li><li><b> Integer-based timestamps </b>: set an integer type using the [integer_now_func][set_integer_now_func].</li></ul> `after` is mutually exclusive with `created_before`. |
 | `created_before` |INTERVAL| NULL | ✖ | Add chunks with a creation time of `now() - created_before` to the columnstore. <br/> `created_before` is <ul><li>Not supported for continuous aggregates.</li><li>Mutually exclusive with `after`.</li></ul> |
-| `schedule_interval`      |INTERVAL| 12 hours when [chunk_time_interval][chunk_time_interval] >= `1 day` for `hypertable`. Otherwise `chunk_time_interval` / `2`. | ✖        | Set the interval between the finish time of the last execution of this policy and the next start.|
-| `initial_start`    |TIMESTAMPTZ| The interval from the finish time of the last execution to the [next_start][next-start].| ✖| Set the time this job is first run. This is also the time that `next_start` is calculated from.|
-| `timezone`         |TEXT| UTC. However, daylight savings time(DST) changes may shift this alignment. | ✖ | Set to a valid time zone to mitigate DST shifting. If `initial_start` is set, subsequent executions of this policy are aligned on `initial_start`.|
-| `if_not_exists`    |BOOLEAN| `false` | ✖ | Set to `true` so this job fails with a warning rather than an error if a columnstore policy already exists on `hypertable` |
-
+| `schedule_interval`       |INTERVAL| 12 hours when [chunk_time_interval][chunk_time_interval] >= `1 day` for `hypertable`. Otherwise `chunk_time_interval` / `2`. | ✖        | Set the interval between the finish time of the last execution of this policy and the next start.|
+| `initial_start`     |TIMESTAMPTZ| The interval from the finish time of the last execution to the [next_start][next-start].| ✖| Set the time this job is first run. This is also the time that `next_start` is calculated from.|
+| `timezone`          |TEXT| UTC. However, daylight savings time(DST) changes may shift this alignment. | ✖ | Set to a valid time zone to mitigate DST shifting. If `initial_start` is set, subsequent executions of this policy are aligned on `initial_start`.|
+| `if_not_exists`     |BOOLEAN| `false` | ✖ | Set to `true` so this job fails with a warning rather than an error if a columnstore policy already exists on `hypertable` |
+| `hypercore_use_access_method`         | BOOLEAN | `NULL` | ✖ | Set to `true` to use hypercore table access metod. If set to `NULL` it will use the value from `timescaledb.default_hypercore_use_access_method`. |
 
 <!-- vale Google.Acronyms = YES -->
 <!-- vale Vale.Spelling = YES -->
 
 
 [compression_alter-table]: /api/:currentVersion:/hypercore/alter_table/
-[compression_continuous-aggregate]: /api/:currentVersion:/continuous-aggregates/alter_materialized_view/
+[compression_continuous-aggregate]: /api/:currentVersion:/hypercore/alter_materialized_view/
 [set_integer_now_func]: /api/:currentVersion:/hypertable/set_integer_now_func
 [informational-views]: /api/:currentVersion:/informational-views/jobs/
 [chunk_time_interval]: /api/:currentVersion:/hypertable/set_chunk_time_interval/

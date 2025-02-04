@@ -8,6 +8,7 @@ api:
   license: community
   type: command
 ---
+
 import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 
 # ALTER TABLE (Compression) <Tag type="community" content="community" />

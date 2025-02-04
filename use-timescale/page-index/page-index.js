@@ -193,6 +193,29 @@ module.exports = [
         ],
       },
       {
+        title: "Hypercore",
+        href: "hypercore",
+        excerpt:
+          "Seamlessly switch between row-oriented and column-oriented storage",
+        children: [
+          {
+            title: "Prepare your data for real-time analytics",
+            href: "real-time-analytics-in-hypercore",
+            excerpt: "Automate",
+          },
+          {
+            title: "Modify data in Hypercore",
+            href: "modify-data-in-hypercore",
+            excerpt: "Update data stored in the columnstore",
+          },
+          {
+            title: "Efficient data access in Hypercore",
+            href: "efficient-data-access-in-hypercore",
+            excerpt: "Read and write data efficiently in hypercore",
+          },
+        ],
+      },
+      {
         title: "Schema management",
         href: "schema-management",
         children: [

@@ -7,6 +7,7 @@ api:
   license: community
   type: function
 ---
+
 import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 
 # decompress_chunk() <Tag type="community">Community</Tag>
@@ -18,11 +19,13 @@ compressed, you should decompress the chunk first. This is especially
 useful for backfilling old data.
 
 <Highlight type="important">
+
 Before decompressing chunks, stop any compression policy on the hypertable you
 are decompressing. You can use `SELECT alter_job(JOB_ID, scheduled => false);`
 to prevent scheduled execution. When you finish backfilling or updating data,
 turn the policy back on. The database automatically recompresses your chunks in
 the next scheduled job.
+
 </Highlight>
 
 ### Required arguments

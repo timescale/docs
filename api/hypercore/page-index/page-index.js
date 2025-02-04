@@ -8,7 +8,7 @@ module.exports = [
       {
         title: "add_columnstore_policy",
         href: "add_columnstore_policy",
-        excerpt: Convert a chunk to columnstore automatically in the background after it reaches a given age",
+        excerpt: "Convert a chunk to columnstore automatically in the background after it reaches a given age",
       },
       {
         title: "chunk_columnstore_settings",

@@ -8,6 +8,7 @@ api:
   license: community
   type: procedure
 ---
+
 import Since2180 from "versionContent/_partials/_since_2_18_0.mdx";
 
 # convert_to_columnstore() <Tag type="community">Community</Tag>
@@ -30,16 +31,14 @@ To convert a single chunk to columnstore:
 CALL convert_to_columnstore('_timescaledb_internal._hyper_1_2_chunk');
 ```
 
-To retrieve the chunks belonging to a hypertable, call [`show_chunks`](/api/latest/hypertable/show_chunks/).
-
-
 ## Arguments
 
-| Name                 | Type | Default | Required | Description                                                                                                                                                                                                                                                                              |
-|----------------------|--|---------|--|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `chunk`         | REGCLASS | -       |✔| Name of the chunk to add to the columnstore.                                                                                                                                                                                                                                             |
-| `if_not_columnstore` | BOOLEAN | `true`  |✖| Set to `false` so this job fails with an error rather than a warning if `chunk` is already in the columnstore.                                                                                                                                                                           |
-| `recompress`         | BOOLEAN | `false` |✖| Set to `true` to recompress data that was partially compressed as a result of modifications to `chunk`. This is usually more efficient, but in some cases it can result is a more expensive operation. <br/>Set to `false` to completely decompress and recompress the data in `chunk`. |
+| Name                 | Type | Default | Required | Description                                                                                                    |
+|----------------------|--|---------|--|----------------------------------------------------------------------------------------------------------------|
+| `chunk`         | REGCLASS | -       |✔| Name of the chunk to add to the columnstore.                                                                   |
+| `if_not_columnstore` | BOOLEAN | `true`  |✖| Set to `false` so this job fails with an error rather than a warning if `chunk` is already in the columnstore. |
+| `recompress`         | BOOLEAN | `false` |✖| Set to `true` to add a chunk that had more data inserted after being added to the columnstore.                 |
+| `hypercore_use_access_method`         | BOOLEAN | `NULL` |✖| Set to `true` to use hypercore table access metod. If set to `NULL` it will use the value from `timescaledb.default_hypercore_use_access_method`. |
 
 ## Returns
 
