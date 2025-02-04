@@ -5,7 +5,7 @@ products: [cloud,]
 keywords: [hyperscore, hypertable, compression, row-columnar storage, hypercore]
 ---
 
-import PrereqCloud from "versionContent/_partials/_prereqs-cloud-and-self.mdx";
+import Prereq from "versionContent/_partials/_prereqs-cloud-and-self.mdx";
 import HypercoreManualWorkflow from "versionContent/_partials/_hypercore_manual_workflow.mdx";
 
 # Modify your data in Hypercore
@@ -19,7 +19,7 @@ This page shows you how to update small and large amounts of new data, and updat
 
 ## Prerequisites
 
-<PrereqCloud />
+<Prereq />
 
 - [Prepare your data for real-time analytics in Hypercore][setup-hypercore]
 
