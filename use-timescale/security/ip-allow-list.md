@@ -60,10 +60,10 @@ You create an IP allow list in the data mode settings.
 
 1. **Scroll down and toggle on `IP Allowlist`**
 
-1. **Add an IP address**
+1. **Add IP addresses**
 
    1. Click `Add entry`.
-   1. Enter an IP address.
+   1. Enter an IP address or a range of IP addresses.
    1. Click `Add`. 
    1. When all the IP addresses have been added, click `Apply`.  
    1. Click to confirm.
