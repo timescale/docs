@@ -10,7 +10,7 @@ import HypercoreManualWorkflow from "versionContent/_partials/_hypercore_manual_
 
 # Modify your data in Hypercore
 
-You [setup Hypercore][setup-h[modify-data-in-hypercore.md](modify-data-in-hypercore.md)ypercore] to automatically convert data between the rowstore and columnstore
+You [setup Hypercore][setup-hypercore] to automatically convert data between the rowstore and columnstore
 when it reaches a certain age. After you have optimized data in the columnstore, you may need to modify it. 
 For example, to make small changes, or backfill large amounts of data. You may even have to update the schema to 
 accommodate this changes to the data.

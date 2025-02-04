@@ -61,9 +61,9 @@ import EarlyAccess from "versionContent/_partials/_early_access.mdx";
 
 1. **Pause a columnstore policy**
 
-  If you need to modify or add a lot of data to a chunk in the columnstore, best practice is to stop any jobs moving 
-  chunks to the columnstore, [convert the chunk back to the rowstore][convert_to_rowstore], then modify the data. 
-  After the update, [convert the chunk to the columnstore][convert_to_columnstore] and restart the jobs. 
+   If you need to modify or add a lot of data to a chunk in the columnstore, best practice is to stop any jobs moving 
+   chunks to the columnstore, [convert the chunk back to the rowstore][convert_to_rowstore], then modify the data. 
+   After the update, [convert the chunk to the columnstore][convert_to_columnstore] and restart the jobs. 
 
    ``` sql
    SELECT * FROM timescaledb_information.jobs where 

@@ -1,5 +1,5 @@
 ---
-title: Automate Hypercore with policies
+title: Optimize data for real-time analytics with Hypercore
 excerpt: Reduce your chunk size by more than 90% and speed up your queries by automatically converting data between the rowstore and columnstore.
 products: [cloud,]
 keywords: [hyperscore, hypertable, compression, row-columnar storage, hypercore, hyperstore]
@@ -11,7 +11,7 @@ import HCPolicyWorkflow from "versionContent/_partials/_hypercore_policy_workflo
 import UsageBasedStorage from "versionContent/_partials/_usage-based-storage-intro.mdx";
 
 
-# Automate Hypercore with policies
+# Optimize data for real-time analytics with Hypercore
 
 Hypercore is the Timescale hybrid row-columnar storage engine. The rowstore contains row-oriented tables optimized
  for high-speed inserts and updates. The columnstore is a column-oriented storage format optimized for analytics.
@@ -20,6 +20,8 @@ $CLOUD_LONG automatically converts these chunks of data to the columnstore. You 
 using a columnstore policy.
 
 <HCConversionOverview />
+
+<UsageBasedStorage />
 
 This page shows you how get the best results when you set a policy to automatically move chunks in a hypertable to the 
 columnstore.
@@ -30,7 +32,7 @@ columnstore.
 
 This page uses the [real-time-stock-data][ingest-data] sample data in the samples.   
 
-## Manage your data with columnstore policies 
+## Optimize your data with columnstore policies 
 
 The compression ratio and query performance of data in the columnstore is dependent on the order and structure of your 
 data. Rows that change over a dimension should be close to each other. With time-series data, you `orderby` the time 
@@ -74,3 +76,9 @@ repeated values,[XOR-based][xor] and [dictionary compression][dictionary] is use
 [xor]: /use-timescale/:currentVersion:/compression/compression-methods/#xor-based-encoding
 [dictionary]: /use-timescale/:currentVersion:/compression/compression-methods/#dictionary-compression
 [ingest-data]: /getting-started/:currentVersion:/time-series-data/#ingest-the-dataset
+[run-job]: /api/:currentVersion:/actions/run_job/
+[convert_to_rowstore]: /api/:currentVersion:/hypercore/convert_to_rowstore/
+[alter_job]: /api/:currentVersion:/actions/alter_job/
+[informational-views]: /api/:currentVersion:/informational-views/jobs/
+[insert]: /use-timescale/:currentVersion:/write-data/insert/
+[modify-data-in-the-columnstore]: /use-timescale/:currentVersion:/hypercore/modify-data-in-the-columnstore/

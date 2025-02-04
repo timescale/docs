@@ -51,21 +51,21 @@ To enable the columnstore:
       ALTER TABLE metrics SET (timescaledb.compress_chunk_time_interval = '0');
       ```
 
-- **Enable secondary indexing on all data you add to the the columnstore** <EarlyAccess />
+   - **Enable secondary indexing on all data you add to the the columnstore** <EarlyAccess />
  
-   ```sql
-   alter table metrics
-      set access method hypercore,
-      set (timescaledb.compress_orderby = 'created_at',
-   	       timescaledb.compress_segmentby = 'location_id');
-   ```
+      ```sql
+      alter table metrics
+         set access method hypercore,
+         set (timescaledb.compress_orderby = 'created_at',
+                timescaledb.compress_segmentby = 'location_id');
+      ```
 
-- **Enable secondary indexing on a chunk you are adding to the columnstore** <EarlyAccess />
+   - **Enable secondary indexing on a chunk you are adding to the columnstore** <EarlyAccess />
   
-   ```sql
-   alter table _timescaledb_internal._hyper_1_21_chunk
-   set access method hypercore;
-   ```
+      ```sql
+      alter table _timescaledb_internal._hyper_1_21_chunk
+      set access method hypercore;
+      ```
 
 ## Arguments
 

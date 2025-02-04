@@ -10,8 +10,6 @@ api:
 
 import Since2180 from "versionContent/_partials/_since_2_18_0.mdx";
 
-import Since2180 from "versionContent/_partials/_since_2_18_0.mdx";
-
 # Hypercore
 
 Hypercore is the $TIMESCALE_DB hybrid row-columnar storage engine, designed specifically for
@@ -86,7 +84,6 @@ Chunks in the columnstore have the following limitations:
 [compression_continuous-aggregate]: /api/:currentVersion:/hypercore/alter_materialized_view/
 [convert_to_rowstore]: /api/:currentVersion:/hypercore/convert_to_rowstore/
 [convert_to_columnstore]: /api/:currentVersion:/hypercore/convert_to_columnstore/
-[convert_to_rowstore]: /api/:currentVersion:/hypercore/convert_to_rowstore/
 [informational-views]: /api/:currentVersion:/informational-views/jobs/
 [skipscan]: /use-timescale/:currentVersion:/query-data/skipscan/
 [add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/

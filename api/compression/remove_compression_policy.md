@@ -19,8 +19,6 @@ If you need to remove the compression policy. To restart policy-based
 compression you need to add the policy again. To view the policies that
 already exist, see [informational views][informational-views].
 
-<Deprecated2180 /> Replaced by <a href="https://docs.timescale.com/api/latest/hypercore/remove_columnstore_policy/">remove_columnstore_policy()</a>.
-
 ### Required arguments
 
 |Name|Type|Description|

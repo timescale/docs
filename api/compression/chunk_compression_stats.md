@@ -24,8 +24,6 @@ the chunk. An insert into a compressed chunk does not update the compressed
 sizes. For more information about how to compute chunk sizes, see the
 `chunks_detailed_size` section.
 
-<Deprecated2180 /> Replaced by <a href="https://docs.timescale.com/api/latest/hypercore/chunk_columnstore_stats/">chunk_columnstore_stats()</a>.
-
 ### Required arguments
 
 |Name|Type|Description|
