@@ -61,11 +61,13 @@ To connect to a service:
 
 1. **Connect to your service**
 
-   1. In the [data mode][portal-data-mode] in Timescale Console, select a service and enter your password, then click **Connect**.
+   1. In the [data mode][portal-data-mode] in $CONSOLE, select a service to connect to. 
+   1. Click the pencil icon to edit the connection. 
+   1. Click `Edit credentials` and enter your username and password, then click `Connect`.
 
       ![Select a connection](https://assets.timescale.com/docs/images/data-mode-connections.png)
 
-      You find your password in the config file you downloaded when you created the service.
+      You find your username and password in the config file you downloaded when you created the service.
 
 1. **Run a test query**
 
