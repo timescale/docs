@@ -21,7 +21,8 @@ This guide explains how to set up Kafka and Kafka Connect to stream data from a 
 
 <IntegrationPrereqs />
 
-- You need [Java8 or higher][java-installers] to run Apache Kafka.    
+- [Java8 or higher][java-installers] to run Apache Kafka   
+- [kcat][kcat] to pipe messages into kafka topics
 
 ## Install and configure Apache Kafka
 
@@ -32,10 +33,11 @@ To install and configure Apache Kafka:
 1. **Extract the Kafka binaries to a local folder**
 
     ```bash
-    curl https://downloads.apache.org/kafka/3.5.1/kafka_2.13-3.5.1.tgz | tar -xzf -
+    curl https://downloads.apache.org/kafka/3.9.0/kafka_2.13-3.9.0.tgz | tar -xzf -
+    cd kafka_2.13-3.9.0
     ```
    
-1. **Format and run Apache Kafka**
+1. **Configure and run Apache Kafka**
 
    ```bash
    KAFKA_CLUSTER_ID="$(bin/kafka-storage.sh random-uuid)"
@@ -46,26 +48,23 @@ To install and configure Apache Kafka:
    
 1. **Create some topics**
 
-   Call the `kafka-topics.sh` script to create the:
-   - `mytopic` topic. This topic publishes JSON messages that are consumed by the timescale-sink connector and inserted 
-      into your $SERVICE_LONG. 
-   - `deadletter` topic. A dead letter queue stores messages that your Kafka Connect workers could not process, so you 
-      can see the messages that cause errors.
+   In another Terminal window, call `kafka-topics.sh` and create the following topics:
+   - `mytopic`: publishes JSON messages that are consumed by the timescale-sink connector and inserted into your $SERVICE_LONG. 
+   - `deadletter`: a dead letter queue stores messages that cause errors and Kafka Connect workers cannot process. 
 
-
-    ```bash
-    /usr/local/kafka/bin/kafka-topics.sh \
+   ```bash
+   ./bin/kafka-topics.sh \
         --create \
-        --topic mytopic \
+        --topic accounts \
         --bootstrap-server localhost:9092 \
         --partitions 10
         
-    /usr/local/kafka/bin/kafka-topics.sh \
+   ./bin/kafka-topics.sh \
         --create \
         --topic deadletter \
         --bootstrap-server localhost:9092 \
         --partitions 10
-    ```
+   ```
 
 </Procedure>
 
@@ -77,30 +76,57 @@ To set up Kafka Connect server, plugins, drivers, and connectors:
 
 1. **Setup the plugins folders**
 
-   1. In terminal, navigate to the root Kafka folder.
-   1. Download and configure the PostgreSQL sink and driver with the Kafka plugins.
+   1. In Terminal, in the root folder of your Kafka deployment, download and configure the PostgreSQL sink and driver.
       ```bash
-      mkdir -p "`pwd`/plugins/camel-postgresql-sink-kafka-connector"
+      mkdir -p "plugins/camel-postgresql-sink-kafka-connector"
       curl https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-postgresql-sink-kafka-connector/3.18.2/camel-postgresql-sink-kafka-connector-3.18.2-package.tar.gz \
-      | tar -xzf - -C "`pwd`/plugins/camel-postgresql-sink-kafka-connector" --strip-components=1
-      curl https://jdbc.postgresql.org/download/postgresql-42.6.0.jar > "`pwd`/plugins/camel-postgresql-sink-kafka-connector"
-      curl https://jdbc.postgresql.org/download/postgresql-42.6.0.jar > "`pwd`/plugins/camel-postgresql-sink-kafka-connector/postgresql-42.6.0.jar"
-      echo "plugin.path=`pwd`/plugins" >> "`pwd`/config/connect-distributed.properties" 
+      | tar -xzf - -C "plugins/camel-postgresql-sink-kafka-connector" --strip-components=1
+      curl https://jdbc.postgresql.org/download/postgresql-42.6.0.jar > "plugins/camel-postgresql-sink-kafka-connector"
+      curl https://jdbc.postgresql.org/download/postgresql-42.6.0.jar > "plugins/camel-postgresql-sink-kafka-connector/postgresql-42.6.0.jar"
+      echo "plugin.path=`pwd`/plugins" >> "config/connect-distributed.properties" 
       ```
    
 1. **Start Kafka Connect**
 
     ```bash
-   `pwd`/bin/connect-distributed.sh `pwd`/config/connect-distributed.properties
+   ./bin/connect-distributed.sh config/connect-distributed.properties
    ```
 
    Use the `-daemon` flag to run this process in the background.
 
-1. **Verify Kafka Connect is running on port 8083**
+1. **In another Terminal window, verify Kafka Connect is running on port 8083**
 
     ```bash
     curl http://localhost:8083
     ```
+    You see something like:
+    ```bash
+    {"version":"3.9.0","commit":"a60e31147e6b01ee","kafka_cluster_id":"J-iy4IGXTbmiALHwPZEZ-A"}
+    ```
+
+</Procedure>
+
+## Create a table in your $SERVICE_LONG to ingest Kafka events
+
+To prepare your $SERVICE_LONG for Kafka integration:
+
+<Procedure>
+
+1. ** [Connect][connect] to your $SERVICE_LONG **
+
+1. **Create a table to ingest Kafka events**
+
+   ```sql
+   CREATE TABLE accounts (created_at TIMESTAMPTZ DEFAULT NOW(),
+    name TEXT,
+    city TEXT);
+   ```
+
+1. **Turn the table into a hypertable**
+
+   ```sql
+   SELECT create_hypertable('accounts', 'created_at');
+   ```
 
 </Procedure>
 
@@ -110,12 +136,14 @@ To create a $CLOUD_LONG sink in Apache Kafka:
 
 <Procedure>
 
+
 1.  **Create the connection configuration**
 
-    Use your [connection details][connection-info] to add your connection settings to a JSON object that you write to a file. 
-    In this example, the sink connector writes messages from `mytopic` to the `accounts` table in your $SERVICE_LONG.
+    Update the following JSON object with your [connection details][connection-info] and write it to the 
+    `timescale-sink.properties` file. In this example, the sink connector writes messages from the `accounts` topic to 
+    the `accounts` hypertable in your $SERVICE_LONG.
     ```bash
-    echo '{
+     {
      "name": "timescale-sink",
      "config": {
        "connector.class": "org.apache.camel.kafkaconnector.postgresqlsink.CamelPostgresqlsinkSinkConnector",
@@ -124,7 +152,7 @@ To create a $CLOUD_LONG sink in Apache Kafka:
        "tasks.max": 10,
        "value.converter": "org.apache.kafka.connect.storage.StringConverter",
        "key.converter": "org.apache.kafka.connect.storage.StringConverter",
-       "topics": "mytopic",
+       "topics": "accounts",
        "camel.kamelet.postgresql-sink.databaseName": "tsdb",
        "camel.kamelet.postgresql-sink.username": "tsdbadmin",
        "camel.kamelet.postgresql-sink.password": "<the password for tsdbadmin>",
@@ -132,7 +160,7 @@ To create a $CLOUD_LONG sink in Apache Kafka:
        "camel.kamelet.postgresql-sink.serverPort": "<host.port>",
        "camel.kamelet.postgresql-sink.query": "INSERT INTO accounts (name,city) VALUES (:#name,:#city)"
      }
-    }' > timescale-sink.properties
+    }
     ```
 
 1. Upload your configuration to Kafka Connect:
@@ -149,9 +177,13 @@ To create a $CLOUD_LONG sink in Apache Kafka:
 
    ```bash
    curl -X GET http://localhost:8083/connectors
+   ```
+   You see:
+
+   ```bash
    #["timescale-sink"]
    ```
-   
+
 </Procedure>
 
 ## Test the integration with $CLOUD_LONG
@@ -160,44 +192,23 @@ To test this integration, send some messages onto the `mytopic` topic. You can d
 
 <Procedure>
 
-1. **[Connect][connect] to your $SERVICE_LONG**
-
-1. **Create an `accounts` hypertable**
-
-   ```sql
-   CREATE TABLE accounts (created_at TIMESTAMPTZ DEFAULT NOW(),
-    name TEXT,
-    city TEXT);
-    
-   SELECT create_hypertable('accounts', 'created_at');
-   ```
-   
-1. **Install kafkacat**
+1. **Pipe a JSON string containing a name and city into kafka using kcat**
 
    ```bash
-   sudo apt install kafkacat
+   echo '{"name":"Mathis","city":"Salt Lake City"}' | kcat -P -b localhost:9092 -t accounts
+   echo '{"name":"Oliver","city":"Moab"}' | kcat -P -b localhost:9092 -t accounts
+   echo '{"name":"Lauren","city":"Park City"}' | kcat -P -b localhost:9092 -t accounts
    ```
-
-1. **Pipe a JSON string containing a name and city into kafkacat**
-
-   ```bash
-   echo '{"name":"Mathis","city":"Salt Lake City"}' | kafkacat -P -b localhost:9092 -t mytopic
-   echo '{"name":"Oliver","city":"Moab"}' | kafkacat -P -b localhost:9092 -t mytopic
-   echo '{"name":"Lauren","city":"Park City"}' | kafkacat -P -b localhost:9092 -t mytopic
-   ```
-   
-   This command uses the following flags:
-
-   - `-P`: tells Kafkacat that you want to produce messages
-   - `-b`: defines bootstrap brokers' location
-   - `-t`: defines topics on which to publish
 
 1. **Query your $SERVICE_LONG for all rows in the `accounts` table**
 
    You see all messages appear:
 
    ```sql
-   tsdb=> SELECT * FROM accounts;
+   SELECT * FROM accounts;
+   ```
+   You see something like
+   ```sql
    created_at                    |  name  |      city
    ------------------------------+--------+----------------
    2023-08-23 18:04:51.101906+00 | Mathis | Salt Lake City
@@ -216,3 +227,4 @@ You have successfully integrated Apache Kafka with $CLOUD_LONG.
 [kafka-connect]: https://docs.confluent.io/platform/current/connect/index.html
 [kraft]: https://developer.confluent.io/learn/kraft/
 [connect]: /getting-started/:currentVersion:/run-queries-from-console/
+[kcat]: https://github.com/edenhill/kcat
