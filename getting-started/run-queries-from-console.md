@@ -61,9 +61,9 @@ To connect to a service:
 
 1. **Connect to your service**
 
-   1. In the [data mode][portal-data-mode] in $CONSOLE, select a service to connect to. 
-   1. Click the pencil icon to edit the connection. 
-   1. Click `Edit credentials` and enter your username and password, then click `Connect`.
+   1. In the [data mode][portal-data-mode] in $CONSOLE, select a service in the connection drop-down. 
+   1. Click the pencil icon next to the service name. 
+   1. Click `Edit` next to `Username/Password` and enter the credentials for your service, then click `Connect`.
 
       ![Select a connection](https://assets.timescale.com/docs/images/data-mode-connections.png)
 
