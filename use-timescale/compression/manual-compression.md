@@ -4,8 +4,11 @@ excerpt: Learn how to manually compress a hypertable
 products: [self_hosted]
 keywords: [compression, hypertables]
 ---
+import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 
 # Manually compress chunks
+
+<Deprecated2180 /> use <a href="https://docs.timescale.com/use-timescale/latest/hypercore/modify-data-in-hypercore">Modify your data in Hypercore</a>
 
 In most cases, an [automated compression policy][add_compression_policy] is sufficient to automatically compress your 
 chunks. However, if you want more control over compression, you can also manually compress specific chunks.

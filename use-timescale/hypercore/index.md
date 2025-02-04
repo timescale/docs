@@ -39,7 +39,7 @@ in each $SERVICE_LONG:
   completed.
 
 - **Indexing row and columnar data**: the `hypercore` table access method enables chunks in a
-  hypertable to maintain indexes over data in the rowstore and the columnstore. <Tag variant="hollow">Early access: TimescaleDB v2.18.0</Tag>
+  hypertable to maintain secondary indexes over data in the rowstore and the columnstore. <Tag variant="hollow">Early access: TimescaleDB v2.18.0</Tag>
 
 ![Hypercore workflow](https://assets.timescale.com/docs/images/hypercore-overview.png)
 

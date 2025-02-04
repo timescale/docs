@@ -4,10 +4,12 @@ excerpt: How to compress hypertables
 products: [self_hosted]
 keywords: [compression, hypertables]
 ---
-
+import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 import CompressionIntro from 'versionContent/_partials/_compression-intro.mdx';
 
 # About compression
+
+<Deprecated2180 /> See <a href="https://docs.timescale.com/use-timescale/latest/hypercore/">Hypercore</a>
 
 <CompressionIntro />
 
