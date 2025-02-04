@@ -55,3 +55,4 @@ This section shows you how to:
 [modify-data-in-hypercore]: /use-timescale/:currentVersion:/hypercore/modify-data-in-hypercore/
 [indexing-data-in-hypercore]: /use-timescale/:currentVersion:/hypercore/best-practice-for-large-amounts-of-data/
 [compression]: /use-timescale/:currentVersion:/compression/
+
