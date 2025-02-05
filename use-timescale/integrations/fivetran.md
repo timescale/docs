@@ -42,7 +42,7 @@ Select PostgreSQL as the connector as $SERVICE_LONG is built on PostgreSQL:
 
 <Procedure>
 
-1. In the Fivetran dashboard, click `Connections` and then on the `Add Connection`button.
+1. In the Fivetran dashboard, click `Connections` and then on the `Add Connection` button.
 1. From `All connectors`, search and select `PostgreSQL` by clicking the `Set Up` button.
 1. Select the destination created in the previous step.
 1. Populate the same $TIMESCALE_DB `Host`, `Port`, `User`, `Password`, `Database name` as destination.
@@ -78,6 +78,8 @@ To ensure the integration is successful,
    FROM information_schema.columns 
    WHERE table_name = 'sensor_data';
    ```
+
+   This will show the columns and their types for the table, allowing you to verify that Fivetran has applied the correct changes.
 
 </Procedure>
 
