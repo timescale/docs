@@ -6,7 +6,37 @@ keywords: [changelog, upgrades, updates, releases]
 
 # Changelog
 
-All the latest features and updates to Timescale products.
+All the latest features and updates to Timescale products. 
+
+## 🌐 IP Allowlists in Data Mode and PopSQL
+<Label type="date">January 31, 2025</Label>
+
+For enhanced network security, you can now also create IP allowlists in the $CONSOLE data mode and PopSQL. Similarly to the [ops mode IP allowlists][ops-mode-allow-list], this feature grants access to your data only to certain IP addresses. For example, you might require your employees to use a VPN and add your VPN static egress IP to the allowlist.
+
+This feature is available in:
+
+- [$CONSOLE][console] data mode, for all pricing tiers
+- [PopSQL web][popsql-web]
+- [PopSQL desktop][popsql-desktop]
+
+Enable this feature in PopSQL/$CONSOLE data mode > `Project` > `Settings` > `IP Allowlist`:
+
+![Timescale Console data mode IP allowlist](https://assets.timescale.com/docs/images/timescale-data-mode-ip-allowlist.png)
+
+## 🤖 pgai Extension and Python Library Updates
+<Label type="date">January 24, 2025</Label>
+
+### AI — pgai PostgreSQL extension 0.7.0
+This release enhances the Vectorizer functionality by adding configurable `base_url` support for OpenAI API. This enables pgai Vectorizer to use all OpenAI-compatible models and APIs via the OpenAI integration simply by changing the `base_url`. This release also includes public granting of vectorizers, superuser creation on any table, an upgrade to the Ollama client to 0.4.5, a new `docker-start` command, and various fixes for struct handling, schema qualification, and system package management. [See all changes on Github](https://github.com/timescale/pgai/releases/tag/extension-0.7.0).
+
+### AI - pgai python library 0.5.0
+This release adds comprehensive SQLAlchemy and Alembic support for vector embeddings, including operations for migrations and improved model inheritance patterns. You can now seamlessly integrate vector search capabilities with SQLAlchemy models while utilizing Alembic for database migrations. This release also adds key improvements to the Ollama integration and self-hosted Vectorizer configuration. [See all changes on Github](https://github.com/timescale/pgai/releases/tag/pgai-v0.5.0).
+
+## AWS Transit Gateway Support
+<Label type="date">January 17, 2025</Label>
+
+### AWS Transit Gateway Support
+Timescale Cloud now enables you to connect to your Timescale Cloud services through AWS Transit Gateway. This feature is available to Scale and Enterprise customers. It will be in Early Access for a short time and available in the Timescale Console very soon. If you are interested in implementing this Early Access Feature, reach out to your Rep.
 
 ## 🇮🇳 New region in India, PostgreSQL 17 upgrades, and TimescaleDB on AWS Marketplace
 <Label type="date">January 10, 2025</Label>
@@ -677,3 +707,7 @@ To learn more, see the [postgresql-unit documentation](https://github.com/df7cb/
 [signup]: https://console.cloud.timescale.com/signup
 [sql-editor]: /getting-started/:currentVersion:/run-queries-from-console/#sql-editor
 [aws-timescale]: https://aws.amazon.com/marketplace/seller-profile?id=seller-wbtecrjp3kxpm
+[ops-mode-allow-list]: /about/:currentVersion:/changelog/#-ip-allow-lists
+[popsql-web]: https://app.popsql.com/login
+[popsql-desktop]: https://popsql.com/download
+[console]: https://console.cloud.timescale.com/dashboard/services
