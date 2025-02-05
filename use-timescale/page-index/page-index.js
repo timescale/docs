@@ -781,7 +781,12 @@ module.exports = [
           {
             title: "Apache Airflow",
             href: "apache-airflow",
-            excerpt: "Integrate Apache Airflow with Timescale Cloud",
+            excerpt: "Integrate Apache Airflow with Timescale products",
+          },
+          {
+            title: "Amazon CloudWatch",
+            href: "cloudwatch",
+            excerpt: "Integrate Amazon Cloudwatch with Timescale Cloud",
           },
           {
             title: "Apache Kafka",
@@ -794,6 +799,11 @@ module.exports = [
             excerpt: "Integrate Azure Data Studio with Timescale Cloud",
           },
           {
+            title: "Datadog",
+            href: "datadog",
+            excerpt: "Integrate Datadog with Timescale Cloud",
+          },
+          {
             title: "DBeaver",
             href: "dbeaver",
             excerpt: "Integrate DBeaver with Timescale Cloud",
@@ -804,9 +814,14 @@ module.exports = [
             excerpt: "Integrate pgAdmin with Timescale Cloud",
           },
           {
+            title: "Prometheus",
+            href: "prometheus",
+            excerpt: "Integrate Prometheus with Timescale Cloud",
+          },
+          {
             title: "psql",
             href: "psql",
-            excerpt: "Install psql and connect to your service",
+            excerpt: "Connect to Timescale products with psql",
           },
           {
             title: "qStudio",

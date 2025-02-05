@@ -6,7 +6,22 @@ keywords: [changelog, upgrades, updates, releases]
 
 # Changelog
 
-All the latest features and updates to Timescale products.
+All the latest features and updates to Timescale products. 
+
+## 🌐 IP Allowlists in Data Mode and PopSQL
+<Label type="date">January 31, 2025</Label>
+
+For enhanced network security, you can now also create IP allowlists in the $CONSOLE data mode and PopSQL. Similarly to the [ops mode IP allowlists][ops-mode-allow-list], this feature grants access to your data only to certain IP addresses. For example, you might require your employees to use a VPN and add your VPN static egress IP to the allowlist.
+
+This feature is available in:
+
+- [$CONSOLE][console] data mode, for all pricing tiers
+- [PopSQL web][popsql-web]
+- [PopSQL desktop][popsql-desktop]
+
+Enable this feature in PopSQL/$CONSOLE data mode > `Project` > `Settings` > `IP Allowlist`:
+
+![Timescale Console data mode IP allowlist](https://assets.timescale.com/docs/images/timescale-data-mode-ip-allowlist.png)
 
 ## 🤖 pgai Extension and Python Library Updates
 <Label type="date">January 24, 2025</Label>
@@ -692,3 +707,7 @@ To learn more, see the [postgresql-unit documentation](https://github.com/df7cb/
 [signup]: https://console.cloud.timescale.com/signup
 [sql-editor]: /getting-started/:currentVersion:/run-queries-from-console/#sql-editor
 [aws-timescale]: https://aws.amazon.com/marketplace/seller-profile?id=seller-wbtecrjp3kxpm
+[ops-mode-allow-list]: /about/:currentVersion:/changelog/#-ip-allow-lists
+[popsql-web]: https://app.popsql.com/login
+[popsql-desktop]: https://popsql.com/download
+[console]: https://console.cloud.timescale.com/dashboard/services
