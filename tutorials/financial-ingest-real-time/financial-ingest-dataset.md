@@ -1,6 +1,6 @@
 ---
 title: Ingest real-time financial websocket data - Set up the dataset
-excerpt: Set up a dataset so you can query financial tick data to analyze price changes
+excerpt: Ingest and set up a sample dataset in Timescale Cloud to run real-time analysis of financial data
 products: [cloud]
 keywords: [finance, analytics, websockets, data pipeline]
 tags: [tutorials, intermediate]

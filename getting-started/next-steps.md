@@ -1,6 +1,6 @@
 ---
 title: Next steps
-excerpt: Continue exploring Timescale
+excerpt: Explore what features are available for your real-time analytics workloads after you have created a Timescale Cloud account and launched your first service
 products: [cloud]
 keywords: [data migration, ingest, visualize, connect]
 layout_components: [next_prev_large]

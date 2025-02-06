@@ -1,6 +1,6 @@
 ---
 title: Analyze financial tick data - Set up the dataset
-excerpt: Set up a dataset so you can query financial tick data to analyze price changes
+excerpt: Ingest and set up a financial dataset in Timescale Cloud to run real-time analytical queries on it
 products: [cloud, mst, self_hosted]
 keywords: [tutorials, finance, learn]
 tags: [tutorials, beginner]
