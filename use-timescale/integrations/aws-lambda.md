@@ -130,7 +130,7 @@ Write an AWS Lambda function in a Node.js project that processes and inserts tim
 
 ## Deploy your Node project to AWS Lambda
 
-To  from AWS Lambda to your $SERVICE_LONG.
+To create an AWS Lambda function that injects data into your $SERVICE_LONG:
 
 <Procedure>
 
@@ -172,7 +172,8 @@ To  from AWS Lambda to your $SERVICE_LONG.
       ```shell
       aws lambda invoke \
          --function-name TimescaleIntegration \
-         --payload '{"sensor_id": "sensor-123", "value": 42.5}' \
+         --payload '{"body": "{\"sensor_id\": \"sensor-123\", \"value\": 42.5}"}' \
+         --cli-binary-format raw-in-base64-out \
          response.json
       ```
 
