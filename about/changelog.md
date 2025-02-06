@@ -6,9 +6,28 @@ keywords: [changelog, upgrades, updates, releases]
 
 # Changelog
 
-All the latest features and updates to Timescale products. 
+All the latest features and updates to Timescale products.
+
+## 🤖 SQL Assistant Improvements in Data Mode / PopSQL
+
+<Label type="date">February 6, 2025</Label>
+
+We made a few improvements to SQL Assistant:
+
+**Dedicated SQL Assistant Threads** 🧵
+Each query, notebook, and dashboard now gets its own conversation thread, keeping your chats organized.
+![Dedicated threads](https://assets.timescale.com/docs/images/import-your-data-s3.png)
+
+**Delete Messages** ❌
+Made a typo? Asked the wrong question? You can now delete individual messages from your thread to keep the conversation clean and relevant.
+![Delete messages in SQL Assistant threads](https://assets.timescale.com/docs/images/import-your-data-s3.png)
+
+**Support for OpenAI `o3-mini` ⚡**
+We’ve added support for OpenAI’s latest `o3-mini` model, bringing faster response times and improved reasoning for SQL queries.
+![Screenshot of o3-mini](https://assets.timescale.com/docs/images/import-your-data-s3.png)
 
 ## 🌐 IP Allowlists in Data Mode and PopSQL
+
 <Label type="date">January 31, 2025</Label>
 
 For enhanced network security, you can now also create IP allowlists in the $CONSOLE data mode and PopSQL. Similarly to the [ops mode IP allowlists][ops-mode-allow-list], this feature grants access to your data only to certain IP addresses. For example, you might require your employees to use a VPN and add your VPN static egress IP to the allowlist.
