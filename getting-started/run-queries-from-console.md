@@ -63,11 +63,12 @@ To connect to a service:
 
 1. **Connect to your service**
 
-   1. In the [data mode][portal-data-mode] in Timescale Console, select a service and enter your password, then click **Connect**.
+   1. In the [data mode][portal-data-mode] in $CONSOLE, select a service in the connection drop-down. 
+   1. Click the pencil icon next to the service name. 
 
       ![Select a connection](https://assets.timescale.com/docs/images/data-mode-connections.png)
-
-      You find your password in the config file you downloaded when you created the service.
+   
+   1. Click `Edit` next to `Username/Password` and enter [your connection details][connection-info] for this service, then click `Connect`.
 
 1. **Run a test query**
 
@@ -232,11 +233,11 @@ To use SQL editor with Timescale:
 [readreplica]: /use-timescale/:currentVersion:/ha-replicas/read-scaling/
 [run-popsql]: /getting-started/:currentVersion:/run-queries-from-console/#data-mode
 [run-sqleditor]: /getting-started/:currentVersion:/run-queries-from-console/#sql-editor
-[integrations]: /use-timescale/:currentVersion:/integrations/query-admin/
+[integrations]: /use-timescale/:currentVersion:/integrations/
 [timescale-console]: https://console.cloud.timescale.com/
 [portal-ops-mode]: https://console.cloud.timescale.com/dashboard/services
 [pricing-plan-features]: https://www.timescale.com/pricing#features
-[install-psql]: /use-timescale/:currentVersion:/integrations/query-admin/psql/
+[install-psql]: /use-timescale/:currentVersion:/integrations/psql/
 [create-cloud-account]: /getting-started/:currentVersion:/services/#create-a-timescale-cloud-account
 [portal-data-mode]: https://console.cloud.timescale.com/dashboard/services?popsql
 [services-portal]: https://console.cloud.timescale.com/dashboard/services
@@ -245,3 +246,4 @@ To use SQL editor with Timescale:
 [sql-editor-settings]: https://console.cloud.timescale.com/dashboard/settings?popsql=%2Fpreferences%2Fai
 [portal-data-mode]: https://console.cloud.timescale.com/dashboard/services?popsql
 [sql-assistant]: /getting-started/:currentVersion:/run-queries-from-console/#sql-assistant
+[connection-info]: /use-timescale/:currentVersion:/integrations/find-connection-details/

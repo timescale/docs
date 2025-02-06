@@ -769,88 +769,79 @@ module.exports = [
         ],
       },
       {
-        title: "Timescale Cloud integrations",
+        title: "Integrations",
         href: "integrations",
         excerpt: "Integrate third-party solutions with Timescale Cloud",
         children: [
           {
-            title: "Query and administration",
-            href: "query-admin",
-            excerpt: "Integrate your Timescale database with third-party query and administration solutions",
-            children:
-              [
-                {
-                  title: "About connecting to Timescale",
-                  href: "about-connecting",
-                  excerpt: "Learn about using connecting to your Timescale database",
-                },
-                {
-                  title: "About psql",
-                  href: "about-psql",
-                  excerpt: "Learn about using psql to connect to Timescale",
-                },
-                {
-                  title: "Install psql",
-                  href: "psql",
-                  excerpt: "Install psql to connect to Timescale",
-                },
-                {
-                  title: "Connect using Azure Data Studio",
-                  href: "azure-data-studio",
-                  excerpt: "Install Azure Data Studio to connect to Timescale",
-                },
-                {
-                  title: "Connect using DBeaver",
-                  href: "dbeaver",
-                  excerpt: "Install DBeaver to connect to Timescale",
-                },
-                {
-                  title: "Connect using pgAdmin",
-                  href: "pgadmin",
-                  excerpt: "Install pgAdmin to connect to Timescale",
-                },
-                {
-                  title: "Connect using qStudio",
-                  href: "qstudio",
-                  excerpt: "Install qstudio to connect to Timescale",
-                },
-                {
-                  title: "Troubleshooting Timescale connections",
-                  href: "troubleshooting",
-                  type: "placeholder",
-                },
-              ]
+            title: "Find your connection details",
+            href: "find-connection-details",
+            excerpt: "Learn about connecting to your Timescale database",
           },
           {
-            title: "Configuration and deployment",
-            href: "config-deploy",
-            excerpt: "Integrate your Timescale account with third-party configuration and deployment solutions",
-            children:
-              [
-                {
-                  title: "Terraform",
-                  href: "terraform",
-                  excerpt: "Manage your Timescale services via Terraform",
-                },
-              ]
+            title: "Apache Airflow",
+            href: "apache-airflow",
+            excerpt: "Integrate Apache Airflow with Timescale products",
           },
           {
-            title: "Observability and alerting",
-            href: "observability-alerting",
-            excerpt: "Integrate your Timescale database with third-party observability and alerting solutions",
-            children:
-              [
-                {
-                  title: "Grafana",
-                  href: "grafana",
-                  excerpt: "Use Grafana with Timescale",
-                },
-                {
-                  title: "Tableau",
-                  href: "tableau",
-                  excerpt: "Use Tableau with Timescale",
-                }
-              ]
+            title: "Amazon CloudWatch",
+            href: "cloudwatch",
+            excerpt: "Integrate Amazon Cloudwatch with Timescale Cloud",
+          },
+          {
+            title: "Azure Data Studio",
+            href: "azure-data-studio",
+            excerpt: "Integrate Azure Data Studio with Timescale products",
+          },
+          {
+            title: "Datadog",
+            href: "datadog",
+            excerpt: "Integrate Datadog with Timescale Cloud",
+          },
+          {
+            title: "DBeaver",
+            href: "dbeaver",
+            excerpt: "Integrate DBeaver with Timescale products",
+          },
+          {
+            title: "pgAdmin",
+            href: "pgadmin",
+            excerpt: "Integrate pgAdmin with Timescale products",
+          },
+          {
+            title: "Prometheus",
+            href: "prometheus",
+            excerpt: "Integrate Prometheus with Timescale Cloud",
+          },
+          {
+            title: "psql",
+            href: "psql",
+            excerpt: "Connect to Timescale products with psql",
+          },
+          {
+            title: "qStudio",
+            href: "qstudio",
+            excerpt: "Integrate qstudio with Timescale products",
+          },
+          {
+            title: "Grafana",
+            href: "grafana",
+            excerpt: "Integrate Grafana with Timescale products",
+          },
+          {
+            title: "Tableau",
+            href: "tableau",
+            excerpt: "Integrate Tableau with Timescale products",
+          },
+          {
+            title: "Terraform",
+            href: "terraform",
+            excerpt: "Manage your Timescale services with Terraform",
+          },
+          {
+            title: "Troubleshooting Timescale integrations",
+            href: "troubleshooting",
+            type: "placeholder",
           },
         ],
       },
@@ -870,7 +861,7 @@ module.exports = [
             excerpt: "SAML / SSO authentication for your Timescale account",
           },
           {
-            title: "Multi-factor Authentication",
+            title: "Multi-factor authentication",
             href: "multi-factor-authentication",
             excerpt: "Multi-factor authentication for your Timescale account",
           },
@@ -913,7 +904,6 @@ module.exports = [
         href: "troubleshoot-timescaledb",
         excerpt: "Troubleshooting Timescale",
       },
-
     ],
   },
 ];

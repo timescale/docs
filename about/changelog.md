@@ -8,7 +8,86 @@ keywords: [changelog, upgrades, updates, releases]
 
 All the latest features and updates to Timescale products.
 
-## 🎅 Postgres 17, Feature Requests, and Postgres Livesync
+## 🤖 TimescaleDB v2.18 and SQL Assistant Improvements in Data Mode and PopSQL
+
+<Label type="date">February 6, 2025</Label>
+
+### TimescaleDB v2.18 - dense indexes in the columnstore and query vectorization improvements
+Starting this week, all new services created on Timescale Cloud use [TimescaleDB v2.18](https://github.com/timescale/timescaledb/releases/tag/2.18.0). Existing services will be upgraded gradually during their maintenance window.
+
+Highlighted features in TimescaleDB v2.18.0 include:
+
+* The ability to add dense indexes (btree and hash) to the columnstore through the new hypercore table access method.
+* Significant performance improvements through vectorization (SIMD) for aggregations using a group by with one column and/or using a filter clause when querying the columnstore.
+* Hypertables support triggers for transition tables, which is one of the most upvoted community feature requests.
+* Updated methods to manage Timescale's hybrid row-columnar store (hypercore). These methods highlight columnstore usage. The columnstore includes an optimized columnar format as well as compression.
+
+### SQL Assistant Improvements
+
+We made a few improvements to SQL Assistant:
+
+**Dedicated SQL Assistant threads** 🧵
+
+Each query, notebook, and dashboard now gets its own conversation thread, keeping your chats organized.
+
+![Dedicated threads](https://assets.timescale.com/docs/images/sql-assistant-threads.gif)
+
+**Delete messages** ❌
+
+Made a typo? Asked the wrong question? You can now delete individual messages from your thread to keep the conversation clean and relevant.
+
+![Delete messages in SQL Assistant threads](https://assets.timescale.com/docs/images/sql-assistant-delete-messages.png)
+
+**Support for OpenAI `o3-mini` ⚡**
+
+We’ve added support for OpenAI’s latest `o3-mini` model, bringing faster response times and improved reasoning for SQL queries.
+
+![Screenshot of o3-mini](https://assets.timescale.com/docs/images/sql-assistant-o3-mini.png)
+
+## 🌐 IP Allowlists in Data Mode and PopSQL
+
+<Label type="date">January 31, 2025</Label>
+
+For enhanced network security, you can now also create IP allowlists in the $CONSOLE data mode and PopSQL. Similarly to the [ops mode IP allowlists][ops-mode-allow-list], this feature grants access to your data only to certain IP addresses. For example, you might require your employees to use a VPN and add your VPN static egress IP to the allowlist.
+
+This feature is available in:
+
+- [$CONSOLE][console] data mode, for all pricing tiers
+- [PopSQL web][popsql-web]
+- [PopSQL desktop][popsql-desktop]
+
+Enable this feature in PopSQL/$CONSOLE data mode > `Project` > `Settings` > `IP Allowlist`:
+
+![Timescale Console data mode IP allowlist](https://assets.timescale.com/docs/images/timescale-data-mode-ip-allowlist.png)
+
+## 🤖 pgai Extension and Python Library Updates
+<Label type="date">January 24, 2025</Label>
+
+### AI — pgai PostgreSQL extension 0.7.0
+This release enhances the Vectorizer functionality by adding configurable `base_url` support for OpenAI API. This enables pgai Vectorizer to use all OpenAI-compatible models and APIs via the OpenAI integration simply by changing the `base_url`. This release also includes public granting of vectorizers, superuser creation on any table, an upgrade to the Ollama client to 0.4.5, a new `docker-start` command, and various fixes for struct handling, schema qualification, and system package management. [See all changes on Github](https://github.com/timescale/pgai/releases/tag/extension-0.7.0).
+
+### AI - pgai python library 0.5.0
+This release adds comprehensive SQLAlchemy and Alembic support for vector embeddings, including operations for migrations and improved model inheritance patterns. You can now seamlessly integrate vector search capabilities with SQLAlchemy models while utilizing Alembic for database migrations. This release also adds key improvements to the Ollama integration and self-hosted Vectorizer configuration. [See all changes on Github](https://github.com/timescale/pgai/releases/tag/pgai-v0.5.0).
+
+## AWS Transit Gateway Support
+<Label type="date">January 17, 2025</Label>
+
+### AWS Transit Gateway Support
+Timescale Cloud now enables you to connect to your Timescale Cloud services through AWS Transit Gateway. This feature is available to Scale and Enterprise customers. It will be in Early Access for a short time and available in the Timescale Console very soon. If you are interested in implementing this Early Access Feature, reach out to your Rep.
+
+## 🇮🇳 New region in India, PostgreSQL 17 upgrades, and TimescaleDB on AWS Marketplace
+<Label type="date">January 10, 2025</Label>
+
+### Welcome India! (Support for a new region: Mumbai)
+Timescale Cloud now supports the Mumbai region. Starting today, you can run Timescale Cloud services in Mumbai, bringing our database solutions closer to users in India.
+
+### PostgreSQL major version upgrades to PG 17
+Timescale Cloud services can now be upgraded directly to PostgreSQL 17 from versions 14, 15, or 16. Users running versions 12 or 13 must first upgrade to version 15 or 16, before upgrading to 17.
+
+### Timescale Cloud available on AWS Marketplace
+Timescale Cloud is now available in the [AWS Marketplace][aws-timescale]. This allows you to keep billing centralized on your AWS account, use your already committed AWS Enterprise Discount Program spend to pay your Timescale Cloud bill and simplify procurement and vendor management.
+
+## 🎅 Postgres 17, feature requests, and Postgres Livesync
 <Label type="date">December 20, 2024</Label>
 
 ### Postgres 17
@@ -664,3 +743,8 @@ To learn more, see the [postgresql-unit documentation](https://github.com/df7cb/
 [pgvectorscale]: https://github.com/timescale/pgvectorscale/
 [signup]: https://console.cloud.timescale.com/signup
 [sql-editor]: /getting-started/:currentVersion:/run-queries-from-console/#sql-editor
+[aws-timescale]: https://aws.amazon.com/marketplace/seller-profile?id=seller-wbtecrjp3kxpm
+[ops-mode-allow-list]: /about/:currentVersion:/changelog/#-ip-allow-lists
+[popsql-web]: https://app.popsql.com/login
+[popsql-desktop]: https://popsql.com/download
+[console]: https://console.cloud.timescale.com/dashboard/services

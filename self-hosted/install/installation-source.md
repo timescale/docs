@@ -73,7 +73,7 @@ And that is it! You have TimescaleDB running on a database on a self-hosted inst
 
 <WhereTo />
 
-[install-psql]: /use-timescale/:currentVersion:/integrations/query-admin/about-psql/
+[install-psql]: /use-timescale/:currentVersion:/integrations/psql/
 [config]: /self-hosted/:currentVersion:/configuration/
 [postgres-download]: https://www.postgresql.org/download/
 [cmake-download]: https://cmake.org/download/

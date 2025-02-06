@@ -80,7 +80,7 @@ And that is it! You have TimescaleDB running on a database on a self-hosted inst
 For the latest functionality, install MacOS 14 Sanoma. The oldest supported version is macOS 10.15 Catalina
 
 [homebrew]: https://docs.brew.sh/Installation
-[install-psql]: /use-timescale/:currentVersion:/integrations/query-admin/about-psql/
+[install-psql]: /use-timescale/:currentVersion:/integrations/psql/
 [macports]: https://guide.macports.org/#installing.macports
 [install-from-source]: /self-hosted/:currentVersion:/install/installation-source/
 [install-postgresql]: https://www.postgresql.org/download/macosx/

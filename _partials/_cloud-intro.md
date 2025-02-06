@@ -7,7 +7,7 @@ use as is, or extend with capabilities specific to your business needs. The avai
    analytics and other use cases.
    Get faster time-based queries with hypertables, continuous aggregates, and columnar storage. Save on storage with 
    native compression, data retention policies, and bottomless data tiering to Amazon S3. 
-- **AI and vector]**: PostgreSQL with vector extensions. Use PostgreSQL as a vector database with 
+- **AI and vector**: PostgreSQL with vector extensions. Use PostgreSQL as a vector database with 
    purpose built extensions for building AI applications from start to scale. Get fast and accurate similarity search 
    with the pgvector and pgvectorscale extensions. Create vector embeddings and perform LLM reasoning on your data with 
    the pgai extension.

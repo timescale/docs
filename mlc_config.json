@@ -69,6 +69,15 @@
     },
     {
       "pattern": "^https://wiki.postgresql.org/wiki/List_of_drivers"
+    },
+    {
+      "pattern": "^https://cmake.org/download/"
+    },
+    {
+      "pattern": "^https://www.tableau.com/"
+    },
+    {
+      "pattern": "^https://www.tableau.com/support/releases/server/2024.2.6#esdalt"
     }
   ]
 }
