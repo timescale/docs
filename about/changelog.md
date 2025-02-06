@@ -8,23 +8,29 @@ keywords: [changelog, upgrades, updates, releases]
 
 All the latest features and updates to Timescale products.
 
-## 🤖 SQL Assistant Improvements in Data Mode / PopSQL
+## 🤖 SQL Assistant Improvements in Data Mode and PopSQL
 
 <Label type="date">February 6, 2025</Label>
 
 We made a few improvements to SQL Assistant:
 
-**Dedicated SQL Assistant Threads** 🧵
-Each query, notebook, and dashboard now gets its own conversation thread, keeping your chats organized.
-![Dedicated threads](https://assets.timescale.com/docs/images/import-your-data-s3.png)
+**Dedicated SQL Assistant threads** 🧵
 
-**Delete Messages** ❌
+Each query, notebook, and dashboard now gets its own conversation thread, keeping your chats organized.
+
+![Dedicated threads](https://assets.timescale.com/docs/images/sql-assistant-threads.gif)
+
+**Delete messages** ❌
+
 Made a typo? Asked the wrong question? You can now delete individual messages from your thread to keep the conversation clean and relevant.
-![Delete messages in SQL Assistant threads](https://assets.timescale.com/docs/images/import-your-data-s3.png)
+
+![Delete messages in SQL Assistant threads](https://assets.timescale.com/docs/images/sql-assistant-delete-messages.png)
 
 **Support for OpenAI `o3-mini` ⚡**
+
 We’ve added support for OpenAI’s latest `o3-mini` model, bringing faster response times and improved reasoning for SQL queries.
-![Screenshot of o3-mini](https://assets.timescale.com/docs/images/import-your-data-s3.png)
+
+![Screenshot of o3-mini](https://assets.timescale.com/docs/images/sql-assistant-o3-mini.png)
 
 ## 🌐 IP Allowlists in Data Mode and PopSQL
 
