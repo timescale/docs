@@ -8,9 +8,21 @@ keywords: [changelog, upgrades, updates, releases]
 
 All the latest features and updates to Timescale products.
 
-## 🤖 SQL Assistant Improvements in Data Mode and PopSQL
+## 🤖 TimescaleDB v2.18 and SQL Assistant Improvements in Data Mode and PopSQL
 
 <Label type="date">February 6, 2025</Label>
+
+### TimescaleDB v2.18 - dense indexes in the columnstore and query vectorization improvements
+Starting this week, all new services created on Timescale Cloud use [TimescaleDB v2.18](https://github.com/timescale/timescaledb/releases/tag/2.18.0). Existing services will be upgraded gradually during their maintenance window.
+
+Highlighted features in TimescaleDB v2.18.0 include:
+
+* The ability to add dense indexes (btree and hash) to the columnstore through the new hypercore table access method.
+* Significant performance improvements through vectorization (SIMD) for aggregations using a group by with one column and/or using a filter clause when querying the columnstore.
+* Hypertables support triggers for transition tables, which is one of the most upvoted community feature requests.
+* Updated methods to manage Timescale's hybrid row-columnar store (hypercore) that highlight the usage of the columnstore which includes both an optimized columnar format as well as compression.
+
+### SQL Assistant Improvements
 
 We made a few improvements to SQL Assistant:
 
