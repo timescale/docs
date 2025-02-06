@@ -20,7 +20,7 @@ Highlighted features in TimescaleDB v2.18.0 include:
 * The ability to add dense indexes (btree and hash) to the columnstore through the new hypercore table access method.
 * Significant performance improvements through vectorization (SIMD) for aggregations using a group by with one column and/or using a filter clause when querying the columnstore.
 * Hypertables support triggers for transition tables, which is one of the most upvoted community feature requests.
-* Updated methods to manage Timescale's hybrid row-columnar store (hypercore) that highlight the usage of the columnstore which includes both an optimized columnar format as well as compression.
+* Updated methods to manage Timescale's hybrid row-columnar store (hypercore). These methods highlight columnstore usage. The columnstore includes an optimized columnar format as well as compression.
 
 ### SQL Assistant Improvements
 
