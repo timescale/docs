@@ -5,7 +5,7 @@ data from your source database to your target $SERVICE_LONG.
 
 Before you migrate your data:
 
-- [Create a target $SERVICE_LONG][created-a-database-service-in-timescale].
+- Create a target [$SERVICE_LONG][created-a-database-service-in-timescale].
 
   Each $SERVICE_LONG has a single database that supports the
   [most popular extensions][all-available-extensions]. $SERVICE_LONGs do not support tablespaces,

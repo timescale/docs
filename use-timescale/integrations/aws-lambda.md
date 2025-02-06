@@ -128,15 +128,13 @@ Write an AWS Lambda function in a Node.js project that processes and inserts tim
 
 </Procedure>
 
-## Deploy the Node project to AWS Lambda
+## Deploy your Node project to AWS Lambda
 
 To  from AWS Lambda to your $SERVICE_LONG.
 
 <Procedure>
 
-1. **Zip Your Code**
-
-   Compress your code into a `.zip` file:
+1. **Compress your code into a `.zip`**
 
    ```shell
    zip -r lambda-timescale.zip .
@@ -156,7 +154,7 @@ To  from AWS Lambda to your $SERVICE_LONG.
       --zip-file fileb://lambda-timescale.zip
    ```
 
-1. **Set Up Environment Variables**
+1. **Set up environment variables**
 
    In the following example, use your [connection details][connection-info] to add your $SERVICE_LONG connection settings to your Lambda function:
    ```shell
