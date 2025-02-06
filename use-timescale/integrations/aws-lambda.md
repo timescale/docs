@@ -18,9 +18,9 @@ This page shows you how to integrate AWS Lambda with $SERVICE_LONG to process an
 
 <IntegrationPrereqs />
 
-* Setup an [AWS Account][aws-sign-up]
-* Install and configure [AWS CLI][install-aws-cli]
-* Install [NodeJS v18.x or later][install-nodejs]
+* Set up an [AWS Account][aws-sign-up].
+* Install and configure [AWS CLI][install-aws-cli].
+* Install [NodeJS v18.x or later][install-nodejs].
 
 
 ## Prepare your $SERVICE_LONG to ingest data from AWS Lambda
@@ -176,7 +176,7 @@ To  from AWS Lambda to your $SERVICE_LONG.
          response.json
       ```
 
-   1. Verify that the data is in your $SERVICE_SHORT
+   1. Verify that the data is in your $SERVICE_SHORT.
 
       Open an [SQL editor][run-queries] and check the `sensor_data` table:
 
