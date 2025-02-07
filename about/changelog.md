@@ -246,7 +246,7 @@ In the **Jobs** section of the **Explorer**, users can now see the status (compl
 ### Pgai Vectorizer: vector embeddings as database indexes (early access)
 This early access feature enables you to automatically create, update, and maintain embeddings as your data changes. Just like an index, Timescale handles all the complexity: syncing, versioning, and cleanup happen automatically.
 This means no manual tracking, zero maintenance burden, and the freedom to rapidly experiment with different embedding models and chunking strategies without building new pipelines.
-Navigate to the AI tab in your service overview and follow the instructions to add your OpenAI API key and set up your first vectorizer or read our [guide to automate embedding generation with pgai Vectorizer](https://github.com/timescale/pgai/blob/main/docs/vectorizer.md) for more details.
+Navigate to the AI tab in your service overview and follow the instructions to add your OpenAI API key and set up your first vectorizer or read our [guide to automate embedding generation with pgai Vectorizer](https://github.com/timescale/pgai/blob/main/docs/vectorizer/overview.md) for more details.
 
 ![Vectorizer setup](https://s3.amazonaws.com/assets.timescale.com/docs/images/vectorizer-setup.png)
 
@@ -643,7 +643,7 @@ select ollama_generate
 ;
 ```
 
-To learn more, see the [pgai Ollama documentation](https://github.com/timescale/pgai/blob/main/docs/ollama.md).
+To learn more, see the [pgai Ollama documentation](https://github.com/timescale/pgai/blob/main/docs/model_calling/ollama.md).
 
 ## 🧙 Compression Wizard
 
