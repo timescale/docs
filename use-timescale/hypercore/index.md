@@ -38,12 +38,12 @@ in each $SERVICE_LONG:
   to the rowstore and columnstore are always consistent, and available to queries as soon as they are
   completed.
 
-- **Indexing row and columnar data**: the `hypercore` table access method enables chunks in a
-  hypertable to maintain indexes over data in the rowstore and the columnstore. <Tag variant="hollow">Early access: TimescaleDB v2.18.0</Tag>
 
 ![Hypercore workflow](https://assets.timescale.com/docs/images/hypercore-overview.png)
 
-<UsageBasedStorage />
+In Timescale Cloud you only pay for what you use. Data moved to the columnstore is compresses, which 
+immediately translates into cost savings. 
+
 
 This section shows you how to:
 
