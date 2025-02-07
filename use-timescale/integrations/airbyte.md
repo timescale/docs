@@ -1,28 +1,25 @@
 ---
-title: Integrate Airbyte with Timescale Cloud
-excerpt: Integrate Airbyte with Timescale Cloud to enable seamless data movement between different sources and your service
-products: [cloud, mst, self_hosted]
-keywords: [Airbyte, integrate]
-
+title: Integrate Airbyte with Timescale Cloud  
+excerpt: Airbyte is an open-source data integration platform. Integrate Airbyte with Timescale Cloud to enable seamless data movement and analytics.
+products: [cloud, mst, self_hosted]  
+keywords: [Airbyte, integration]
 ---
 
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
 
 # Integrate Airbyte with $CLOUD_LONG
 
-[Airbyte][airbyte] is an open-source data integration platform that enables you to sync data from various sources to different destinations, including $CLOUD_LONG. 
+[Airbyte](https://airbyte.com/) is an open-source data integration platform that enables you to move and consolidate data from various sources to a destination of your choice. Airbyte provides pre-built connectors, simplifying ETL (Extract, Transform, Load) processes.
 
-This page explains how to integrate Airbyte with your $SERVICE_LONG and move data efficiently for further analysis and storage.
+This pages explains how to integrate Airbyte with $CLOUD_LONG to facilitate efficient data ingestion and analysis in a $SERVICE_LONG.
 
 ## Prerequisites
 
 <IntegrationPrereqs />
 
-- Install [Airbyte](https://docs.airbyte.com/deploying-airbyte) // Mention both cloud and self-hosted versions, if present. Link to installation pages.
-- Ensure you have a running Timescale Cloud instance.
-- Retrieve your Timescale Cloud connection details ([Find your connection details][connection-info]).
+- Install [Airbyte Self-Managed Community][airbyte-server] or sign up for [Airbyte Cloud][airbyte-cloud].
 
-## Connect Airbyte to Timescale Cloud
+## Connect Airbyte to $CLOUD_LONG
 
 To connect Airbyte to $CLOUD_LONG:
 
@@ -30,47 +27,24 @@ To connect Airbyte to $CLOUD_LONG:
 
 1. **Log in to Airbyte**
 
-    - Open the [Airbyte dashboard](https://cloud.airbyte.com/) or your self-hosted Airbyte instance.
-    - Log in to your Airbyte account.
+1. **Configure the $CLOUD_LONG destination**
 
-2. **Set up Timescale Cloud as a Destination**
+   1. Open the `Destinations` tab. 
+   1. Click `New Destination` and select `Postgres` as the destination connector.
+   1. Configure the destination using your [connection details][connection-info].
+   1. Click `Set up destination`.
 
-    - Navigate to the `Destinations` tab in Airbyte.
-    - Click on **+ New Destination**.
-    - Select `PostgreSQL` as the destination type (Timescale Cloud is PostgreSQL-compatible).
+      Airbyte tests the connection. 
 
-3. **Configure the Connection**
+1. **Test the connection**
 
-    - Enter the following details from your Timescale Cloud instance:
-
-        - **Host**: `<TIMESCALE_CLOUD_HOST>`
-        - **Port**: `5432`
-        - **Database Name**: `<DATABASE_NAME>`
-        - **User**: `<USERNAME>`
-        - **Password**: `<PASSWORD>`
-        - **Schema**: `public` (or your target schema)
-
-    - Click **Test Connection** to verify the settings.
-
-4. **Set Up a Data Source**
-
-    - Navigate to the `Sources` tab in Airbyte.
-    - Click on **+ New Source**.
-    - Choose the data source you want to sync (e.g., PostgreSQL, MySQL, API, CSV, etc.).
-    - Enter the connection details for your data source.
-    - Click **Test Connection**.
-
-5. **Create a Sync Job**
-
-    - Click on **Connections** > **New Connection**.
-    - Select your configured source and Timescale Cloud as the destination.
-    - Choose the replication mode (`Full Refresh`, `Incremental`, etc.).
-    - Configure transformation settings if needed.
-    - Click **Save & Run** to start data synchronization.
+   1. Click `Test Connection` to verify connectivity.
+   1. If successful, click `Save & Continue`.
 
 </Procedure>
 
-You have successfully integrated Airbyte with $CLOUD_LONG.
+You have successfully added $CLOUD_LONG as a destination in Airbyte. You can now add a source and link the source to the destination to move your data. 
 
 [connection-info]: /use-timescale/:currentVersion:/integrations/find-connection-details/
-[airbyte]: https://airbyte.com/
+[airbyte-server]:
+[airbyte-cloud]: 
