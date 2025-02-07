@@ -22,7 +22,7 @@ Highlighted features in TimescaleDB v2.18.0 include:
 * Hypertables support triggers for transition tables, which is one of the most upvoted community feature requests.
 * Updated methods to manage Timescale's hybrid row-columnar store (hypercore). These methods highlight columnstore usage. The columnstore includes an optimized columnar format as well as compression.
 
-### SQL Assistant Improvements
+### SQL Assistant improvements
 
 We made a few improvements to SQL Assistant:
 
@@ -30,19 +30,19 @@ We made a few improvements to SQL Assistant:
 
 Each query, notebook, and dashboard now gets its own conversation thread, keeping your chats organized.
 
-![Dedicated threads](https://assets.timescale.com/docs/images/sql-assistant-threads.gif)
+![Dedicated threads](https://assets.timescale.com/docs/images/timescale-cloud-sql-assistant-threads.gif)
 
 **Delete messages** ❌
 
 Made a typo? Asked the wrong question? You can now delete individual messages from your thread to keep the conversation clean and relevant.
 
-![Delete messages in SQL Assistant threads](https://assets.timescale.com/docs/images/sql-assistant-delete-messages.png)
+![Delete messages in SQL Assistant threads](https://assets.timescale.com/docs/images/timescale-cloud-sql-assistant-delete-messages.png)
 
 **Support for OpenAI `o3-mini` ⚡**
 
 We’ve added support for OpenAI’s latest `o3-mini` model, bringing faster response times and improved reasoning for SQL queries.
 
-![Screenshot of o3-mini](https://assets.timescale.com/docs/images/sql-assistant-o3-mini.png)
+![SQL Assistant o3 mini](https://assets.timescale.com/docs/images/timescale-cloud-sql-assistant-o3-mini.png)
 
 ## 🌐 IP Allowlists in Data Mode and PopSQL
 
@@ -246,7 +246,7 @@ In the **Jobs** section of the **Explorer**, users can now see the status (compl
 ### Pgai Vectorizer: vector embeddings as database indexes (early access)
 This early access feature enables you to automatically create, update, and maintain embeddings as your data changes. Just like an index, Timescale handles all the complexity: syncing, versioning, and cleanup happen automatically.
 This means no manual tracking, zero maintenance burden, and the freedom to rapidly experiment with different embedding models and chunking strategies without building new pipelines.
-Navigate to the AI tab in your service overview and follow the instructions to add your OpenAI API key and set up your first vectorizer or read our [guide to automate embedding generation with pgai Vectorizer](https://github.com/timescale/pgai/blob/main/docs/vectorizer.md) for more details.
+Navigate to the AI tab in your service overview and follow the instructions to add your OpenAI API key and set up your first vectorizer or read our [guide to automate embedding generation with pgai Vectorizer](https://github.com/timescale/pgai/blob/main/docs/vectorizer/overview.md) for more details.
 
 ![Vectorizer setup](https://s3.amazonaws.com/assets.timescale.com/docs/images/vectorizer-setup.png)
 
@@ -643,7 +643,7 @@ select ollama_generate
 ;
 ```
 
-To learn more, see the [pgai Ollama documentation](https://github.com/timescale/pgai/blob/main/docs/ollama.md).
+To learn more, see the [pgai Ollama documentation](https://github.com/timescale/pgai/blob/main/docs/model_calling/ollama.md).
 
 ## 🧙 Compression Wizard
 
