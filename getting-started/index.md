@@ -37,7 +37,5 @@ What next? See the [use case tutorials][tutorials], interact with the data in yo
 [services-connect]: /getting-started/:currentVersion:/services/#connect-to-your-service
 [test-drive]: /getting-started/:currentVersion:/test-drive-timescale-features/
 [run-queries-from-console]: /getting-started/:currentVersion:/run-queries-from-console/
-[ingest-data]: /getting-started/:currentVersion:/time-series-data/
-[queries]: /getting-started/:currentVersion:/queries/
-[caggs]: /getting-started/:currentVersion:/aggregation/
+[ingest-data]: /getting-started/:currentVersion:/test-drive-timescale-features/#optimize-time-series-data-in-hypertables
 
