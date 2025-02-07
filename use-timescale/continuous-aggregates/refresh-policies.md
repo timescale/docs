@@ -19,9 +19,10 @@ aggregate and the hypertable stay in sync, even when data is removed from the
 hypertable, or you could keep source data in the continuous aggregate even after
 it is removed from the hypertable.
 
-You can change the way your continuous aggregate is refreshed by adjusting the
-[add_continuous_aggregate_policy][api-add-continuous-aggregate-policy].
-The policy takes three arguments:
+You can change the way your continuous aggregate is refreshed by calling 
+`add_continuous_aggregate_policy`. 
+
+Among others, `add_continuous_aggregate_policy` takes the following arguments:
 
 *   `start_offset`: the start of the refresh window relative to when the policy
     runs
@@ -39,6 +40,9 @@ writes.
 
 In addition, materializing the most recent bucket might interfere with
 [real-time aggregation][future-watermark].
+
+See the [API reference][api-reference]
+for the full list of required and optional arguments and use examples.
 
 <Procedure>
 
@@ -143,8 +147,8 @@ ingest rate of the hypertable due to write amplification. If you want to include
 the latest bucket in your queries,
 use [real-time aggregation][real-time-aggregates] instead.
 
-[api-add-continuous-aggregate-policy]: /api/:currentVersion:/continuous-aggregates/add_continuous_aggregate_policy
 [cagg-drop-data]: /use-timescale/:currentVersion:/continuous-aggregates/drop-data
 [future-watermark]: /use-timescale/:currentVersion:/continuous-aggregates/troubleshooting/#continuous-aggregate-watermark-is-in-the-future
 [real-time-aggregates]: /use-timescale/:currentVersion:/continuous-aggregates/real-time-aggregates
 [sec-data-retention]: /use-timescale/:currentVersion:/data-retention
+[api-reference]: /api/:currentVersion:/continuous-aggregates/add_continuous_aggregate_policy/
