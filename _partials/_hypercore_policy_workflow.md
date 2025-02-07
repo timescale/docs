@@ -23,15 +23,7 @@ import EarlyAccess from "versionContent/_partials/_early_access.mdx";
         timescaledb.segmentby = 'symbol' );
      ``` 
      Before you say `huh`, a continuous aggregate is a specialized hypertable.
-
-     
-     ```sql
-     alter table stocks_real_time,
-        set access method hypercore,
-        set (timescaledb.enable_columnstore = true, timescaledb.segmentby = 'symbol');
-     ```
-     This is also early access for continuous aggregates.
-   
+ 
 1. **Add a policy to convert chunks to the columnstore at a specific time interval**
 
    For example, 60 days after the data was added to the table:
