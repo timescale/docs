@@ -41,7 +41,7 @@ in each $SERVICE_LONG:
 
 ![Hypercore workflow](https://assets.timescale.com/docs/images/hypercore-overview.png)
 
-In Timescale Cloud you only pay for what you use. Data moved to the columnstore is compresses, which 
+In Timescale Cloud you only pay for what you use. Data moved to the columnstore is compressed, which 
 immediately translates into cost savings. 
 
 
