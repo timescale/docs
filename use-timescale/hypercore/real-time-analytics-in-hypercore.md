@@ -21,14 +21,8 @@ using a columnstore policy.
 
 <HCConversionOverview />
 
-<UsageBasedStorage />
-
-<EarlyAccess /> Indexes are a central component to designing efficient and performant databases: they allow 
-unstructured data to be searched in efficiently executed queries. TimescaleDB supplies the `hypercore` table access 
-method that enables chunks in a hypertable to maintain secondary indexes over data in the rowstore and the columnstore.
-
-This page shows you how get the best results when you set a policy to automatically move chunks in a hypertable to the 
-columnstore.
+This page shows you how get the best results when you set a policy to automatically convert chunks in a hypertable 
+from the rowstore to the columnstore.
 
 ## Prerequisites
 

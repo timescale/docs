@@ -23,8 +23,7 @@ import EarlyAccess from "versionContent/_partials/_early_access.mdx";
         timescaledb.segmentby = 'symbol' );
      ``` 
      Before you say `huh`, a continuous aggregate is a specialized hypertable.
-   
-   * <EarlyAccess /> Enable indexing over all data in the rowstore and columnstore:
+
      
      ```sql
      alter table stocks_real_time,
@@ -33,7 +32,7 @@ import EarlyAccess from "versionContent/_partials/_early_access.mdx";
      ```
      This is also early access for continuous aggregates.
    
-1. **Add a policy to move chunks to the columnstore at a specific time interval**
+1. **Add a policy to convert chunks to the columnstore at a specific time interval**
 
    For example, 60 days after the data was added to the table:
    ``` sql
@@ -41,15 +40,6 @@ import EarlyAccess from "versionContent/_partials/_early_access.mdx";
    ```
    See [add_columnstore_policy][add_columnstore_policy].
 
-   * <EarlyAccess /> To enable indexing over data in the rowstore and the columnstore, tell the policy 
-     to use the Hypercore table access method.
-   
-      ``` sql
-      CALL add_columnstore_policy(
-         'older_stock_prices', 
-         after => INTERVAL '60d',  
-         hypercore_use_access_method => true);
-      ```
 
 1. **View the policies that you set or the policies that already exist**
 

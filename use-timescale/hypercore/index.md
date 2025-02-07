@@ -43,7 +43,9 @@ in each $SERVICE_LONG:
 
 ![Hypercore workflow](https://assets.timescale.com/docs/images/hypercore-overview.png)
 
-<UsageBasedStorage />
+In Timescale Cloud you only pay for what you use. Data moved to the columnstore is compresses, which 
+immediately translates into cost savings. 
+
 
 This section shows you how to:
 
