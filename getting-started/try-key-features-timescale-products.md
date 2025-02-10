@@ -6,6 +6,7 @@ content_group: Getting started
 ---
 
 import HASetup from 'versionContent/_partials/_high-availability-setup.mdx';
+import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
 
 # Try out key features of Timescale products
 
@@ -24,10 +25,7 @@ ingest and query data faster while keeping prices low.
 
 ## Prerequisites
 
-To run the examples in this page, you need either:
-- A [$SERVICE_LONG][create-a-service] with time-series and ai and vector capabilities enabled.
-- A [self-hosted PostgreSQL deployment][deploy-self-hosted] with the TimescaleDB, pgvector, pgvectorscale and
-  pgai extensions enabled in your database.
+<IntegrationPrereqs />
 
 ## Optimize time-series data in hypertables
 
