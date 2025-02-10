@@ -8,6 +8,7 @@ api:
   license: community
   type: function
 ---
+
 import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 
 # add_compression_policy() <Tag type="community" content="community" />
