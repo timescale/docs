@@ -8,14 +8,14 @@ tags: [change]
 
 # Foreign data wrappers
 
-You use foreign data wrappers (FDWs) to query external data sources from a Timescale Cloud service. These data sources can be one of the following:
+You use foreign data wrappers (FDWs) to query external data sources from a $SERVICE_LONG. These external data sources can be one of the following:
 
-- Other Timescale Cloud services.
-- PostgreSQL databases outside of Timescale Cloud.
+- $SERVICE_LONGs
+- PostgreSQL databases outside of $CLOUD_LONG
 
-If you are using [VPC peering][vpc-peering], you can create FDWs in your Customer VPC for a service in Timescale VPC or the same project. However, you can't create FDWs from Timescale VPC to Customer VPC.
+If you are using $VPC peering, you can create FDWs in your Customer VPC to query a $SERVICE_SHORT in your $CLOUD_LONG project. However, you can't create FDWs in your $SERVICE_LONGs to query a data source in your Customer VPC. This is because $CLOUD_LONG $VPC peering uses AWS PrivateLink for increased security. See [VPC peering documentation][vpc-peering] for additional details.
 
-FDWs are particularly useful if you manage multiple different Timescale Cloud service types, and need to seamlessly access and merge regular and time-series data.
+FDWs are particularly useful if you manage multiple $SERVICE_LONGs with different capabilities, and need to seamlessly access and merge regular and time-series data.
 
 ## Query another data source
 
