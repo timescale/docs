@@ -150,6 +150,11 @@ module.exports = [
         ],
       },
       {
+        title: "Real-time analytics with Timescale Cloud and Grafana",
+        href: "real-time-analytics-techniques",
+        excerpt: "Analyse your data in real-time",
+      },
+      {
         title: "Internet of things",
         href: "simulate-iot-sensor-data",
         excerpt: "Simulate and query an IoT sensor dataset",
