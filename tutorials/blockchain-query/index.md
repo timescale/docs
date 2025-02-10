@@ -1,6 +1,6 @@
 ---
 title: Query the Bitcoin blockchain
-excerpt: Query the Bitcoin blockchain
+excerpt: Learn to use Timescale Cloud to query and analyze transactions on a blockchain as you would any other time-series data. In this tutorial, you use Timescale Cloud to ingest, store, and analyze transactions
 products: [cloud]
 keywords: [beginner, crypto, blockchain, Bitcoin, finance, analytics]
 layout_components: [next_prev_large]

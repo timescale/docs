@@ -1,6 +1,6 @@
 ---
 title: Query time-series data tutorial
-excerpt: Learn how to query time-series data
+excerpt: Set up a sample dataset with historical taxi ride data, construct and run queries on it, then compress it for more efficient storage
 products: [cloud, mst, self_hosted]
 keywords: [tutorials, query, learn]
 tags: [tutorials, beginner]
