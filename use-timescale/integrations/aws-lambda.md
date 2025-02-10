@@ -185,9 +185,11 @@ To create an AWS Lambda function that injects data into your $SERVICE_LONG:
       SELECT * FROM sensor_data;
       ```
       You see something like:
-      ```sql
-      IAIN: add example output please
-      ```
+
+      | time | sensor_id | value  |
+      |-- |-- |--------|
+      | 2025-02-10 10:58:45.134912+00 | 	sensor-123 | 	42.5  |
+   
 
 </Procedure>
 
