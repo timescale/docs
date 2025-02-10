@@ -232,7 +232,7 @@ into the city: to their favorite bar, to gather with friends for a meal, or back
 home. This section shows you how to construct a query that returns the number of
 taxi trips taken on 1 January, 2016, in 30 minute intervals.
 
-In PotsgreSQL, it's not particularly easy to segment the data by 30 minute time
+In PostgreSQL, it's not particularly easy to segment the data by 30 minute time
 intervals. To do this, you would need to use a `TRUNC` function to calculate the
 quotient of the minute that a ride began in divided by 30, then truncate the
 result to take the floor of that quotient. When you had that result, you could

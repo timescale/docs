@@ -29,7 +29,7 @@ in the [community slack](https://slack.timescale.com/), the developers of this m
 
 If you're migrating your data from another source database type, best practice is export the data from your source database as 
 a `.csv` file, then import to your Timescale Cloud Service using [timescaledb-parallel-copy][parallel-copy]. For other ingestion methods, 
-see [Ingesting data with third-party tools][data-ingest].
+see [Ingest data from other sources][data-ingest].
 
 
 

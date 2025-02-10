@@ -1,5 +1,7 @@
 ## Create a Timescale Cloud account
 
+You create a $CLOUD_LONG account to manage your services and data in a centralized and efficient manner. From $CONSOLE you can create and delete services, run queries, manage access and billing, integrate other services, contact support, and more.
+
 <Procedure>
 
 To set up Timescale:

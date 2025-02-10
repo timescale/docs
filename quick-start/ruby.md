@@ -720,7 +720,7 @@ page by page, or all pages together, and group by path or not:
 [add-performance]: #add-performance-and-path-attributes-to-pageload
 [explore]: #explore-aggregation-functions
 [install]: /getting-started/latest/
-[psql-install]: /use-timescale/:currentVersion:/integrations/query-admin/about-psql/
+[psql-install]: /use-timescale/:currentVersion:/integrations/psql/
 [rails-guide]: https://guides.rubyonrails.org/getting_started.html
 [ab]: https://httpd.apache.org/docs/2.4/programs/ab.html
 [active-record-query]: https://guides.rubyonrails.org/active_record_querying.html

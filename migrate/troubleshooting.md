@@ -14,9 +14,6 @@ import OpenSupportRequest from "versionContent/_partials/_migrate_open_support_r
 
 Live migration tooling is currently experimental. You may run into the following shortcomings:
 
-- You may experience failure to migrate your database due to incompatibilities
-  between the source and target (e.g. tables with generated columns cannot be
-  replicated).
 - Live migration does not yet support mutable compression (`INSERT`, `UPDATE`,
   `DELETE` on compressed data).
 - By default, numeric fields containing `NaN`/`+Inf`/`-Inf` values are not
@@ -343,7 +340,7 @@ operations and mitigate before migrating.
 ## Migrate partial continuous aggregates
 
 In order to improve the performance and compatibility of continuous aggregates, 
-[TimescaleDB v2.7][release-270] replaces _partial_ continuous aggregates with 
+TimescaleDB v2.7 replaces _partial_ continuous aggregates with 
 _finalized_ continuous aggregates.
 
 To test your database for partial continuous aggregates, run the following query:
@@ -363,5 +360,4 @@ ERROR:  insufficient data left in message.
 ```
 
 [migrate]: /migrate/:currentVersion:/live-migration/
-[release-270]: /about/:currentVersion:/release-notes/past-releases/#270-2022-05-24
 

@@ -7,8 +7,8 @@ keywords: [time buckets]
 
 # Aggregate time-series data with time_bucket
 
-The `time_bucket` function helps you group your data, so you can perform
-aggregate calculations over arbitrary time intervals. It is usually used
+The `time_bucket` function helps you group in a [hypertable][create-hypertable] so you can 
+perform aggregate calculations over arbitrary time intervals. It is usually used
 in combination with `GROUP BY` for this purpose.
 
 This section shows examples of `time_bucket` use. To learn how time buckets
@@ -97,3 +97,4 @@ The function returns `2021-01-04 00:00:00`. The start time of the time bucket is
 the Monday of that week, at midnight.
 
 [time-buckets]: /use-timescale/:currentVersion:/time-buckets/
+[create-hypertable]: /use-timescale/:currentVersion:/hypertables/create/

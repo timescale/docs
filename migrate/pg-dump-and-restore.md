@@ -87,24 +87,24 @@ And that is it, you have migrated your data from a self-hosted instance running 
 
 </Tab>
 
-<Tab title="From AWS RDS">
+<Tab title="From AWS RDS/Aurora">
 
-To migrate your data from an Amazon RDS instance to a Timescale Cloud service, you extract the data to an intermediary 
-EC2 Ubuntu instance in the same AWS region as your RDS instance. You then upload your data to a Timescale Cloud service. 
+To migrate your data from an Amazon RDS/Aurora PostgreSQL instance to a Timescale Cloud service, you extract the data to an intermediary 
+EC2 Ubuntu instance in the same AWS region as your RDS/Aurora PostgreSQL instance. You then upload your data to a Timescale Cloud service. 
 To make this process as painless as possible, ensure that the intermediary machine has enough CPU and disk space to 
 rapidy extract and store your data before uploading to Timescale Cloud.  
 
-Migration from RDS moves the data only. You must manually enable Timescale Cloud features like
+Migration from RDS/Aurora PostgreSQL moves the data only. You must manually enable Timescale Cloud features like
 [hypertables][about-hypertables], [data compression][data-compression] or [data retention][data-retention] after the migration is complete. You enable Timescale Cloud
 features while your database is offline.
 
-This section shows you how to move your data from a PostgreSQL database running in an Amazon RDS instance to a 
+This section shows you how to move your data from a PostgreSQL database running in an Amazon RDS/Aurora PostgreSQL instance to a 
 Timescale Cloud service using `pg_dump` and `psql` from Terminal.
 
 
 <MigrateFromAWSRDS />
 
-And that is it, you have migrated your data from an RDS instance to a Timescale Cloud service.
+And that is it, you have migrated your data from an RDS/Aurora PostgreSQL instance to a Timescale Cloud service.
 
 </Tab>
 

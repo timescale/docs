@@ -66,4 +66,5 @@ SELECT COUNT(DISTINCT location) FROM conditions
 
 [postgres-select]: https://www.postgresql.org/docs/current/static/sql-select.html
 [time_bucket]: /use-timescale/:currentVersion:/time-buckets/
-[popsql]: /getting-started/:currentVersion:/run-queries-from-console/#popsql
+[popsql]: /getting-started/:currentVersion:/run-queries-from-console/#data-mode
+

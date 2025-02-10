@@ -1,5 +1,5 @@
 ---
-title: Upgrades
+title: Maintenance and upgrades
 excerpt: Keeping your service up-to-date
 products: [cloud]
 keywords: [updates, upgrades, maintenance]
@@ -93,19 +93,19 @@ system during the upgrade.
 
 1.  [Log in to your Timescale account][cloud-login]. Click the name of the
     service that you want to manage the maintenance window for.
-2.  In the `Operations` tab, navigate to the `Maintenance` section, and
-    click `Change maintenance window`.
-3.  In the `Maintenance` dialog, select the day of the week, the time, and the
+2.  In the `Operations` tab, navigate to the `Environment` > `Maintenance` and click `Change maintenance window`.
+3.  Select the day of the week, the time, and the
     timezone that you want the maintenance window to start. Maintenance windows
     can run for up to four hours.
-4.  Check `Apply new maintenance window to all services` if you want to use the
-    same maintenance window settings for all of your Timescale services.
-5.  Click `Apply Changes`.
-  
+
     <img class="main-content__illustration"
     width={1375} height={944}
-    src="https://assets.timescale.com/docs/images/tsc-maintenance-change.webp"
+    src="https://assets.timescale.com/docs/images/change-maintenance-window.png"
     alt="Timescale change maintenance window"/>
+
+4.  Check `Apply new maintenance window to all services` if you want to use the
+    same maintenance window settings for all of your Timescale services.
+5.  Click `Apply`.
 
 </Procedure>
 
@@ -119,7 +119,7 @@ can plan accordingly. However, in some cases, we might not be able to do so.
 
 ## Upgrade to a new PostgreSQL version
 
-Timescale currently supports PostgreSQL&nbsp;12, 13, 14, and 15. You can see
+Timescale currently supports PostgreSQL&nbsp;14, 15, 16, and 17. You can see
 your PostgreSQL and Timescale versions from the Timescale service
 overview page.
 
@@ -132,7 +132,7 @@ overview page.
 -->
 
 You can also manually upgrade to the newest supported PostgreSQL version
-(PostgreSQL&nbsp;15) from the service overview page.
+(PostgreSQL&nbsp;16) from the service overview page.
 
 Upgrading to a newer version of PostgreSQL allows you to take advantage of new
 features, enhancements, and security fixes. It also ensures that you are using a

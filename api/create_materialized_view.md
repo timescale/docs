@@ -48,8 +48,14 @@ Continuous aggregates have some limitations of what types of queries they can
 support. For more information, see the
 [continuous aggregates section][cagg-how-tos].
 
-The settings for continuous aggregates are in the
-[informational views][info-views].
+For services running TimescaleDB v2.17.1 and greater, to dramatically decrease the amount
+of data written on a continuous aggregate in the presence of a small number of changes,
+reduce the i/o cost of refreshing a continuous aggregate, and generate fewer Write-Ahead
+Logs (WAL), set the`timescaledb.enable_merge_on_cagg_refresh`
+[configuration parameter][modify-parameters] to `TRUE`. This enables continuous aggregate
+refresh to use merge instead of deleting old materialized data and re-inserting.
+
+For more settings for continuous aggregates, see [timescaledb_information.continuous_aggregates][info-views].
 
 ## Parameters
 
@@ -111,4 +117,4 @@ WITH (timescaledb.continuous) AS
 [cagg-how-tos]: /use-timescale/:currentVersion:/continuous-aggregates/
 [real-time-aggregates]: /use-timescale/:currentVersion:/continuous-aggregates/real-time-aggregates/
 [refresh-cagg]: /api/:currentVersion:/continuous-aggregates/refresh_continuous_aggregate/
-[info-views]: /api/:currentVersion:/informational-views/
+[info-views]: /api/:currentVersion:/informational-views/continuous_aggregates/

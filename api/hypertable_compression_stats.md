@@ -17,7 +17,7 @@ For more information about using hypertables, including chunk size partitioning,
 see the [hypertable section][hypertable-docs].
 
 For more information about compression, see the
-[compression sction][compression-docs].
+[compression section][compression-docs].
 
 ### Required arguments
 
@@ -30,7 +30,7 @@ For more information about compression, see the
 |Column|Type|Description|
 |-|-|-|
 |`total_chunks`|BIGINT|The number of chunks used by the hypertable|
-|`number_compressed_chunks`|INTEGER|The number of chunks used by the hypertable that are currently compressed|
+|`number_compressed_chunks`|BIGINT|The number of chunks used by the hypertable that are currently compressed|
 |`before_compression_table_bytes`|BIGINT|Size of the heap before compression|
 |`before_compression_index_bytes`|BIGINT|Size of all the indexes before compression|
 |`before_compression_toast_bytes`|BIGINT|Size the TOAST table before compression|

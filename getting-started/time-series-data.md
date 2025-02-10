@@ -37,20 +37,9 @@ dataset and copy the data to your database.
 
 <Procedure>
 
-### Ingesting the dataset
-
-1.  Download the `real_time_stock_data.zip` file. The file contains two `.csv`
-    files; one with company information, and one with real-time stock trades for
-    the past month. Download:
-    <Tag
-    type="download">[real_time_stock_data.zip](https://assets.timescale.com/docs/downloads/get-started/real_time_stock_data.zip)
-    </Tag>
-
-1.  In a new terminal window, run this command to unzip the `.csv` files:
-
-    <CodeBlock canCopy={true} showLineNumbers={false} children={`
-    unzip real_time_stock_data.zip
-    `} />
+1. Unzip <Tag type="download">[real_time_stock_data.zip](https://assets.timescale.com/docs/downloads/get-started/real_time_stock_data.zip)</Tag> to your local device. 
+   This archive one `.csv` file with company information, and one with real-time stock trades for
+    the past month. 
 
 1.  At the `psql` prompt, use the `COPY` command to transfer data into your
     Timescale instance. If the `.csv` files aren't in your current directory,
@@ -70,3 +59,4 @@ dataset and copy the data to your database.
 </Procedure>
 
 [twelve-data]: https://twelvedata.com/
+[console-services]: https://console.cloud.timescale.com/dashboard/services
