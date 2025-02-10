@@ -97,6 +97,8 @@ between $CLOUD_LONG and your own VPC in a logically isolated virtual network.
 
     ![Create a new VPC in $CLOUD_LONG](https://assets.timescale.com/docs/images/tsc-vpc-create.png)
 
+    The IP ranges of the Peering VPC and Customer VPC should not overlap. 
+
 1.  For as many peering connections as you need:
 
     1. In the `VPC Peering` column, click `Add`.
