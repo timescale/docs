@@ -1,6 +1,6 @@
 ---
 title: Tutorials
-excerpt: Learn how to use TimescaleDB in different scenarios with these step-by-step tutorials
+excerpt: Timescale Cloud can be used in various sectors, and for various purposes. Follow our tutorials to see it used for real-time data analysis in the energy, finance, IoT, and other sectors
 products: [cloud, mst, self_hosted]
 ---
 
