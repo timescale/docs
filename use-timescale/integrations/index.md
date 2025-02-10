@@ -47,9 +47,10 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 
 ## Data engineering and extract, transform, load
 
-|               Name               | Description                                              |
-|:--------------------------------:|----------------------------------------------------------|
-| [Apache Airflow][apache-airflow] | Programmatically author, schedule, and monitor workflows. |
+|               Name               | Description                                                                                                                                  |
+|:--------------------------------:|----------------------------------------------------------------------------------------------------------------------------------------------|
+| [Apache Airflow][apache-airflow] | A community platform designed to programmatically author, schedule, and monitor workflows.                                                   |
+|        [Airbyte][airbyte]        | An open-source data integration platform that enables you to move and consolidate data from various sources to a destination of your choice. |
 
 
 
@@ -66,3 +67,4 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 [apache-airflow]: /use-timescale/:currentVersion:/integrations/apache-airflow
 [postgresql-integrations]: https://slashdot.org/software/p/PostgreSQL/integrations/
 [prometheus]: /use-timescale/:currentVersion:/integrations/prometheus
+[airbyte]: /use-timescale/:currentVersion:/integrations/airbyte
