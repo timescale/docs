@@ -587,10 +587,6 @@ module.exports = [
     to: "https://docs.timescale.com/tutorials/latest/",
   },
   {
-    from: "/tutorials/latest/simulate-iot-sensor-data",
-    to: "https://docs.timescale.com/tutorials/latest/",
-  },
-  {
     from: "/tutorials/latest/telegraf-output-plugin/",
     to: "https://docs.timescale.com/tutorials/latest/",
   },
