@@ -20,7 +20,7 @@ To simulate a more advanced dataset, see [Time-series Benchmarking Suite (TSBS)]
 
 To follow this tutorial, you need to:
 
-- [Create a target Timescale Cloud service][create-a-service].
+- Create a target [Timescale Cloud service][create-a-service].
 - [Connect to your service][connect-to-service].
 
 ## Simulate a dataset

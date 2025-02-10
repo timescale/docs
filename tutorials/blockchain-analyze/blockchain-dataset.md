@@ -1,6 +1,6 @@
 ---
 title: Analyze the Bitcoin blockchain - set up dataset
-excerpt: Set up a dataset so you can analyze the Bitcoin blockchain
+excerpt: Ingest and set up a sample dataset to run analytical queries on Bitcoin blockchain transactions with Timescale Cloud
 products: [cloud]
 keywords: [intermediate, crypto, blockchain, Bitcoin, finance, analytics]
 layout_components: [next_prev_large]

@@ -761,6 +761,11 @@ module.exports = [
             excerpt: "Integrate Amazon Cloudwatch with Timescale Cloud",
           },
           {
+            title: "AWS Lambda",
+            href: "aws-lambda",
+            excerpt: "Integrate AWS Lambda with Timescale Cloud",
+          },
+          {
             title: "Azure Data Studio",
             href: "azure-data-studio",
             excerpt: "Integrate Azure Data Studio with Timescale products",

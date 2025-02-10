@@ -1,6 +1,6 @@
 ---
 title: Energy consumption data tutorial
-excerpt: Learn how to query energy consumption data
+excerpt: Timescale Cloud is the perfect choice to analyze energy-related data. In this tutorial, you construct queries to take a closer look at energy consumption in a household
 products: [cloud]
 keywords: [tutorials, energy, learn]
 tags: [tutorials, beginner]

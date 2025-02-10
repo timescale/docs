@@ -51,6 +51,7 @@ about how continuous aggregates use real-time aggregation, see the
 |`timezone`|TEXT|A valid time zone. If you specify `initial_start`, subsequent executions of the refresh policy are aligned on `initial_start`. However, daylight savings time (DST) changes may shift this alignment. If this is an issue you want to mitigate, set `timezone` to a valid time zone. Default is `NULL`, [UTC bucketing](https://docs.timescale.com/use-timescale/latest/time-buckets/about-time-buckets/) is performed.|
 | `include_tiered_data` | BOOLEAN | Enable/disable reading tiered data. This setting helps override the current settings for the`timescaledb.enable_tiered_reads` GUC. The default is NULL i.e we use the current setting for `timescaledb.enable_tiered_reads` GUC  | |
 
+
 ### Returns
 
 |Column|Type|Description|
