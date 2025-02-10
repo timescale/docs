@@ -35,7 +35,7 @@ What next? See the [use case tutorials][tutorials], interact with the data in yo
 
 [services-create]: /getting-started/:currentVersion:/services#create-your-timescale-account
 [services-connect]: /getting-started/:currentVersion:/services/#connect-to-your-service
-[test-drive]: /getting-started/:currentVersion:/test-drive-timescale-features/
+[test-drive]: /getting-started/:currentVersion:/try-key-features-timescale-products/
 [run-queries-from-console]: /getting-started/:currentVersion:/run-queries-from-console/
-[ingest-data]: /getting-started/:currentVersion:/test-drive-timescale-features/#optimize-time-series-data-in-hypertables
+[ingest-data]: /getting-started/:currentVersion:/try-key-features-timescale-products/#optimize-time-series-data-in-hypertables
 

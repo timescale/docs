@@ -1,5 +1,5 @@
 ---
-title: Try the main features in Timescale products
+title: Try out key features of Timescale products
 excerpt: Improve database performance with hypertables, time bucketing, compression and continuous aggregates.
 products: [cloud]
 content_group: Getting started
@@ -7,7 +7,7 @@ content_group: Getting started
 
 import HASetup from 'versionContent/_partials/_high-availability-setup.mdx';
 
-# Try out the main Timescale features
+# Try out key features of Timescale products
 
 $CLOUD_LONG scales PostgreSQL to ingest and query vast amounts of live data. $CLOUD_LONG 
 provides a range of features and optimizations that supercharge your queries while keeping the 
@@ -152,7 +152,7 @@ and the hypertable behind the continuous aggregate is automatically updated in t
 ![Reduced data calls with Continuous Aggregates](https://assets.timescale.com/docs/images/continuous-aggregate.png )
 
 You create continuous aggregates on uncompressed data in high-performance storage. They continue to work 
-on [compressed frequently accessed data][test-drive-enable-compression]
+on [data in the columnstore][test-drive-enable-compression]
 and [rarely accessed data in tiered storage][test-drive-tiered-storage]. You can even
 create [continuous aggregates on top of your continuous aggregates][hierarchical-caggs].
 
@@ -377,8 +377,8 @@ What next? See the [use case tutorials][tutorials], interact with the data in yo
 [migrate-live]: /migrate/:currentVersion:/live-migration/
 [data-ingest]: /use-timescale/:currentVersion:/ingest-data/
 [hypertables-section]: /use-timescale/:currentVersion:/hypertables/
-[test-drive-enable-compression]: /getting-started/:currentVersion:/test-drive-timescale-features/#reduce-storage-charges-on-older-data-using-compression
-[test-drive-tiered-storage]: /getting-started/:currentVersion:/test-drive-timescale-features/#reduce-storage-charges-on-older-data-using-compression
+[test-drive-enable-compression]: /getting-started/:currentVersion:/try-key-features-timescale-products/#prepare-your-data-for-real-time-analytics-with-hypercore
+[test-drive-tiered-storage]: /getting-started/:currentVersion:/try-key-features-timescale-products/#reduce-storage-charges-on-older-data-using-compression
 [data-tiering]: /use-timescale/:currentVersion:/data-tiering/
 [compression]: /use-timescale/:currentVersion:/compression/
 [hierarchical-caggs]: /use-timescale/:currentVersion:/continuous-aggregates/hierarchical-continuous-aggregates/

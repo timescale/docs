@@ -8,4 +8,4 @@ into [the API][use-the-api].
 [integrations]: /use-timescale/:currentVersion:/integrations/
 [use-the-api]: /api/:currentVersion:/
 [use-timescale]: /use-timescale/:currentVersion:/
-[try-timescale-features]: /getting-started/:currentVersion:/test-drive-timescale-features/
+[try-timescale-features]: /getting-started/:currentVersion:/try-key-features-timescale-products/

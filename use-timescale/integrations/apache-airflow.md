@@ -98,7 +98,7 @@ To exchange data between Airflow and your $SERVICE_LONG:
              This could be any query. This example inserts data into the table
              you create in:
       
-             https://docs.timescale.com/getting-started/latest/test-drive-timescale-features/#optimize-time-series-data-in-hypertables
+             https://docs.timescale.com/getting-started/latest/try-key-features-timescale-products/#optimize-time-series-data-in-hypertables
             """            
            cursor.execute("INSERT INTO company (symbol, name) VALUES (%s, %s)",
                    ('new_company_symbol', 'New Company Name'))
@@ -138,7 +138,7 @@ To exchange data between Airflow and your $SERVICE_LONG:
 You have successfully integrated Apache Airflow with $CLOUD_LONG and created a data pipeline.
 
 
-[create-a-table-in-timescale]: /getting-started/:currentVersion:/test-drive-timescale-features/#optimize-time-series-data-in-hypertables
+[create-a-table-in-timescale]: /getting-started/:currentVersion:/try-key-features-timescale-products/#optimize-time-series-data-in-hypertables
 [install-apache-airflow]: https://airflow.apache.org/docs/apache-airflow/stable/start.html
 [install-python-pip]: https://docs.python.org/3/using/index.html
 [console]: https://console.cloud.timescale.com/
