@@ -1,6 +1,6 @@
 ---
 title: Query time-series data tutorial - query the data
-excerpt: Query time-series data
+excerpt: Construct and run queries on a sample time-series dataset, then visualize them with Grafana
 products: [cloud, mst, self_hosted]
 keywords: [tutorials, query]
 tags: [tutorials, beginner]

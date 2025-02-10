@@ -1,6 +1,6 @@
 ---
 title: Continuous aggregation
-excerpt: Create an aggregate and query it
+excerpt: A must have for real-time analytics, continuous aggregates summarize your data and stay up-to-date as new data pours in. Create and query a continuous aggregate in Timescale Cloud
 products: [cloud]
 keywords: [continuous aggregates, create]
 layout_components: [next_prev_large]
