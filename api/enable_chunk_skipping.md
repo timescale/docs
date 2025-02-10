@@ -20,7 +20,7 @@ referenced in the `WHERE` clauses in your queries.
 TimescaleDB supports min/max range tracking for the `smallint`, `int`,
 `bigint`, `serial`, `bigserial`, `date`, `timestamp`, and `timestamptz` data types. The 
 min/max ranges are calculated when a chunk belonging to
-this hypertable is compressed using the [compress_chunk][compress_chunk] function.
+this hypertable is compressed using the [convert_to_columnstore][convert_to_columnstore] function.
 The range is stored in start (inclusive) and end (exclusive) form in the
 `chunk_column_stats` catalog table.
 
@@ -34,8 +34,8 @@ A [DROP COLUMN](https://www.postgresql.org/docs/current/sql-altertable.html#SQL-
 on a column with statistics tracking enabled on it ends up removing all relevant entries
 from the catalog table.
 
-A [decompress_chunk][decompress_chunk] invocation on a compressed chunk resets its entries
-from the `chunk_column_stats` catalog table since now it's available for DML and the
+When you call [convert_to_rowstore][convert_to_rowstore] on a compressed chunk in the columnstore, its entries
+from the `chunk_column_stats` catalog table are reset. This is because the chunk is available for DML and the
 min/max range values can change on any further data manipulation in the chunk.
 
 By default, this feature is disabled. To enable chunk skipping, set `timescaledb.enable_chunk_skipping = on` in
@@ -69,5 +69,5 @@ SELECT enable_chunk_skipping('conditions', 'device_id');
 |`enabled`|BOOLEAN|Returns `true` when tracking is enabled, `if_not_exists` is `true`, and when a new entry is not
 added|
 
-[compress_chunk]: /api/:currentVersion:/compression/compress_chunk/
-[decompress_chunk]: /api/:currentVersion:/compression/decompress_chunk/
+[convert_to_rowstore]: /api/:currentVersion:/hypercore/convert_to_rowstore/
+[convert_to_columnstore]: /api/:currentVersion:/hypercore/convert_to_columnstore/

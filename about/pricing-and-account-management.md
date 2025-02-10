@@ -233,7 +233,6 @@ alt="Adding a payment method in Timescale"/>
 - **Add-ons**: add `Production support` and improved database performance for mission critical workloads.  
 
 [cloud-login]: https://console.cloud.timescale.com/
-[compression]: /use-timescale/:currentVersion:/compression/
 [data-tiering]: /use-timescale/:currentVersion:/data-tiering/
 [cloud-billing]: https://console.cloud.timescale.com/dashboard/billing/details
 [commercial-sla]: https://www.timescale.com/legal/timescale-cloud-terms-of-service
