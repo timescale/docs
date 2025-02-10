@@ -1,6 +1,6 @@
 ---
 title: Time buckets
-excerpt: Aggregate data by time interval with time buckets
+excerpt: Data aggregation is a crucial part of real-time data analysis. Timescale time buckets enable you to aggregate data in hypertables by time interval. Learn to create and use time buckets in your Timescale Cloud service
 products: [cloud, mst, self_hosted]
 keywords: [time buckets]
 ---
