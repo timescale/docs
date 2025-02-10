@@ -1,6 +1,6 @@
 ---
 title: Query the Bitcoin blockchain - set up dataset
-excerpt: Set up a dataset so you can query the Bitcoin blockchain
+excerpt: Ingest and set up a sample blockchain dataset to practice running analytical queries on it in Timescale Cloud
 products: [cloud]
 keywords: [beginner, crypto, blockchain, Bitcoin, finance, analytics]
 layout_components: [next_prev_large]

@@ -1,6 +1,6 @@
 ---
 title: Energy time-series data tutorial - set up dataset
-excerpt: Set up a dataset so you can query time-series data
+excerpt: Ingest and set up a sample dataset with energy consumption data so that you can run queries on it in Timescale Console
 products: [cloud, mst, self_hosted]
 keywords: [tutorials, create, dataset]
 tags: [tutorials, beginner]
