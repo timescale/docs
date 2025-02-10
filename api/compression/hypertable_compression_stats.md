@@ -9,7 +9,11 @@ api:
   type: function
 ---
 
+import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
+
 # hypertable_compression_stats() <Tag type="community">Community</Tag>
+
+<Deprecated2180 /> Replaced by <a href="https://docs.timescale.com/api/latest/hypercore/hypertable_columnstore_stats/">hypertable_columnstore_stats()</a>.
 
 Get statistics related to hypertable compression. All sizes are in bytes.
 
@@ -42,7 +46,9 @@ For more information about compression, see the
 |`node_name`|TEXT|nodes on which the hypertable is located, applicable only to distributed hypertables|
 
 <Highlight type="note">
+
 Returns show `NULL` if the data is currently uncompressed.
+
 </Highlight>
 
 ### Sample usage
