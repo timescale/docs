@@ -13,7 +13,7 @@ You use foreign data wrappers (FDWs) to query external data sources from a $SERV
 - $SERVICE_LONGs
 - PostgreSQL databases outside of $CLOUD_LONG
 
-If you are using $VPC peering, you can create FDWs in your Customer VPC to query a $SERVICE_SHORT in your $COMPANY project. However, you can't create FDWs in your $SERVICE_LONGs to query a data source in your Customer VPC. This is because $CLOUD_LONG $VPC peering uses AWS PrivateLink for increased security. See [VPC peering documentation][vpc-peering] for additional details.
+If you are using $VPC peering, you can create FDWs in your Customer VPC to query a $SERVICE_SHORT in your $CLOUD_LONG project. However, you can't create FDWs in your $SERVICE_LONGs to query a data source in your Customer VPC. This is because $CLOUD_LONG $VPC peering uses AWS PrivateLink for increased security. See [VPC peering documentation][vpc-peering] for additional details.
 
 FDWs are particularly useful if you manage multiple $SERVICE_LONGs with different capabilities, and need to seamlessly access and merge regular and time-series data.
 
