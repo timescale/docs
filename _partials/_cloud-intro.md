@@ -1,8 +1,7 @@
 $CLOUD_LONG is the modern PostgreSQL data platform for all your applications. It enhances PostgreSQL to handle time series, events, 
 real-time analytics, and vector search—all in a single database alongside transactional workloads.
-You get one system that handles live data ingestion, late and out-of-order updates, and low latency queries, with the performance, reliability, and scalability your app needs.
 
-Ideal for IoT, crypto, finance, SaaS, and a myriad other domains, $CLOUD_LONG allows you to build data-heavy, mission-critical apps while retaining the familiarity and reliability of PostgreSQL.
+You get one system that handles live data ingestion, late and out-of-order updates, and low latency queries, with the performance, reliability, and scalability your app needs. Ideal for IoT, crypto, finance, SaaS, and a myriad other domains, $CLOUD_LONG allows you to build data-heavy, mission-critical apps while retaining the familiarity and reliability of PostgreSQL.
 
 A $SERVICE_LONG is a single optimized 100% PostgreSQL database instance that you 
 use as is, or extend with the capabilities specific to your business needs:
