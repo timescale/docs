@@ -18,11 +18,11 @@ contains data from that range.
 
    1. Upload data from the CSVs to your $SERVICE_SHORT:
 
-      1. In Terminal, navigate to `<local folder>` and connect to your $SERVICE_SHORT.
+      1. In Terminal, navigate to `<local folder>` and update the following string with [your connection details][connection-info] 
+         to connect to your $SERVICE_SHORT.
          ```bash
-         psql -d "postgres://<username>:<password>@<host>:<port>/<database-name>"
+         psql -d "postgres://<username>:<password>@<host>:<port>/<database-name>?sslmode=require"
          ```
-         The connection information for a $SERVICE_SHORT is available in the file you downloaded when you created it.
 
       2. Create tables for the data to import
 
@@ -112,12 +112,17 @@ contains data from that range.
 
     You query hypertables in exactly the same way as you would a relational PostgreSQL table.
     Use one of the following SQL editors to run a query and see the data you uploaded:
-   - **Data mode**:  write queries, visualize data, and share your results in [$CONSOLE][portal-data-mode] for all your $SERVICE_LONGs.
-   - **SQL editor**: write, fix, and organize SQL faster and more accurately in [$CONSOLE][portal-ops-mode] for a $SERVICE_LONG.
-   - **psql**: easily run queries on your $SERVICE_LONGs or self-hosted TimescaleDB deployment from Terminal.
+       - **Data mode**:  write queries, visualize data, and share your results in [$CONSOLE][portal-data-mode] for all your $SERVICE_LONGs.
+       - **SQL editor**: write, fix, and organize SQL faster and more accurately in [$CONSOLE][portal-ops-mode] for a $SERVICE_LONG.
+       - **psql**: easily run queries on your $SERVICE_LONGs or self-hosted TimescaleDB deployment from Terminal.
+
+    ```sql
+    SELECT * FROM rides LIMIT 5;
+    ```
 
 </Procedure>
 
 [hypertables-section]: /use-timescale/:currentVersion:/hypertables/
 [portal-ops-mode]: https://console.cloud.timescale.com/dashboard/services
 [portal-data-mode]: https://console.cloud.timescale.com/dashboard/services?popsql
+[connection-info]: /use-timescale/:currentVersion:/integrations/find-connection-details/
