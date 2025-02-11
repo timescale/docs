@@ -1,6 +1,6 @@
 ---
 title: Manually change compute resources
-excerpt: Manually adjust your service resources
+excerpt: Timescale Cloud charges for the storage you actually use, and handles disk resize for you. You can also manually resize the compute resources available to your Timescale Cloud services with minimal downtime
 products: [cloud]
 keywords: [services, operation, storage]
 tags: [disk space, resources, oom, memory]

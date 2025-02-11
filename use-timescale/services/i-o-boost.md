@@ -1,6 +1,6 @@
 ---
 title: I/O boost
-excerpt: Increase I/O and throughput to avoid performance bottlenecks and enhance scalability
+excerpt: Increase I/O and throughput to avoid performance bottlenecks and enhance scalability with I/O Boost
 products: [cloud]
 keywords: [io, io boost, performance]
 ---
