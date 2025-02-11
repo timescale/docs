@@ -6,6 +6,8 @@ layout_components: [next_prev_large]
 content_group: Getting started
 ---
 
+import WhereNext from "versionContent/_partials/_where-to-next.mdx";
+
 # Run your queries from Timescale Console
 
 As Timescale Cloud is based on PostgreSQL, you can use lots of [different tools][integrations] to 
@@ -226,6 +228,7 @@ To use SQL editor with Timescale:
   details.
 
 
+<WhereNext />
 
 [readreplica]: /use-timescale/:currentVersion:/ha-replicas/read-scaling/
 [run-popsql]: /getting-started/:currentVersion:/run-queries-from-console/#data-mode

@@ -9,7 +9,11 @@ api:
   type: function
 ---
 
+import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
+
 # recompress_chunk() <Tag type="community" content="Community" />
+
+<Deprecated2180 /> Replaced by <a href="https://docs.timescale.com/api/latest/hypercore/convert_to_columnstore/">convert_to_columnstore()</a>.
 
 Recompresses a compressed chunk that had more data inserted after compression.
 
@@ -40,6 +44,7 @@ the procedure with `CALL`. Don't use a `SELECT` statement.
 `recompress_chunk` only works on chunks that have previously been compressed. To compress a
 chunk for the first time, use [`compress_chunk`](/api/latest/compression/compress_chunk/).
 </Highlight>
+
 
 ## Required arguments
 

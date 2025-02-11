@@ -1,6 +1,6 @@
 ---
 title: Integrate Apache Airflow with Timescale Cloud
-excerpt: Steps to integrate Apache Airflow with Timescale Cloud and create a data pipeline
+excerpt: How to integrate Apache Airflow with Timescale Cloud and create a data pipeline
 products: [cloud, mst, self_hosted]
 keywords: [connect, integrate, apache, airflow]
 ---
@@ -98,7 +98,7 @@ To exchange data between Airflow and your $SERVICE_LONG:
              This could be any query. This example inserts data into the table
              you create in:
       
-             https://docs.timescale.com/getting-started/latest/tables-hypertables/#create-regular-postgresql-tables-for-relational-data
+             https://docs.timescale.com/getting-started/latest/try-key-features-timescale-products/#optimize-time-series-data-in-hypertables
             """            
            cursor.execute("INSERT INTO company (symbol, name) VALUES (%s, %s)",
                    ('new_company_symbol', 'New Company Name'))
@@ -138,7 +138,7 @@ To exchange data between Airflow and your $SERVICE_LONG:
 You have successfully integrated Apache Airflow with $CLOUD_LONG and created a data pipeline.
 
 
-[create-a-table-in-timescale]: /getting-started/:currentVersion:/tables-hypertables/#create-regular-postgresql-tables-for-relational-data
+[create-a-table-in-timescale]: /getting-started/:currentVersion:/try-key-features-timescale-products/#optimize-time-series-data-in-hypertables
 [install-apache-airflow]: https://airflow.apache.org/docs/apache-airflow/stable/start.html
 [install-python-pip]: https://docs.python.org/3/using/index.html
 [console]: https://console.cloud.timescale.com/
