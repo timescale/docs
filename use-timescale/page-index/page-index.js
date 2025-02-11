@@ -814,11 +814,6 @@ module.exports = [
             excerpt: "Integrate DBeaver with Timescale products",
           },
           {
-            title: "Foreign data wrappers",
-            href: "foreign-data-wrappers",
-            excerpt: "Query external data sources as regular tables",
-          },
-          {
             title: "Grafana",
             href: "grafana",
             excerpt: "Integrate Grafana with Timescale products",
@@ -827,6 +822,11 @@ module.exports = [
             title: "pgAdmin",
             href: "pgadmin",
             excerpt: "Integrate pgAdmin with Timescale products",
+          },
+          {
+            title: "PostgreSQL",
+            href: "postgresql",
+            excerpt: "Integrate PostgreSQL with Timescale Cloud",
           },
           {
             title: "Prometheus",

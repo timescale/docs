@@ -18,14 +18,14 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 
 ## Query and administration
 
-|             Name             | Description                                                                                                                               |
-|:----------------------------:|-------------------------------------------------------------------------------------------------------------------------------------------|
-|   [Azure Data Studio][ads]   | Query, manage, visualize, and develop databases across SQL Server, Azure SQL, and PostgreSQL.                                             |
-|      [DBeaver][dbeaver]      | Connect to, manage, query, and analyze multiple database in a single interface with SQL editing, visualization, and administration tools. |
-|      [pgAdmin][pgadmin]      | Manage, query, and administer PostgreSQL databases through a graphical interface.                                                         |
-|         [psql][psql]         | Run SQL queries, manage databases, automate tasks, and interact directly with PostgreSQL.                                                 |
-|      [qStudio][qstudio]      | Write and execute SQL queries, manage database objects, and analyze data in a user-friendly interface.                                    |
-| [Foreign data wrappers][fdw] | Access and query data from external sources as if they were regular PostgreSQL tables.                                                    |
+|           Name           | Description                                                                                                                               |
+|:------------------------:|-------------------------------------------------------------------------------------------------------------------------------------------|
+| [Azure Data Studio][ads] | Query, manage, visualize, and develop databases across SQL Server, Azure SQL, and PostgreSQL.                                             |
+|    [DBeaver][dbeaver]    | Connect to, manage, query, and analyze multiple database in a single interface with SQL editing, visualization, and administration tools. |
+|    [pgAdmin][pgadmin]    | Manage, query, and administer PostgreSQL databases through a graphical interface.                                                         |
+|       [psql][psql]       | Run SQL queries, manage databases, automate tasks, and interact directly with PostgreSQL.                                                 |
+|    [qStudio][qstudio]    | Write and execute SQL queries, manage database objects, and analyze data in a user-friendly interface.                                    |
+| [PostgreSQL][postgresql] | Access and query data from external sources as if they were regular PostgreSQL tables.  |
 
 ## Observability and alerting
 
@@ -69,4 +69,4 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 [postgresql-integrations]: https://slashdot.org/software/p/PostgreSQL/integrations/
 [prometheus]: /use-timescale/:currentVersion:/integrations/prometheus
 [amazon-sagemaker]: /use-timescale/:currentVersion:/integrations/amazon-sagemaker
-[fdw]: /use-timescale/:currentVersion:/integrations/foreign-data-wrappers
+[postgresql]: /use-timescale/:currentVersion:/integrations/postgresql
