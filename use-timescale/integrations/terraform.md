@@ -34,11 +34,15 @@ You use the [$COMPANY Terraform provider][terraform-provider] to manage $SERVICE
 
 1. **Generate client credentials for programmatic use**
 
-   In [$CONSOLE][console], open `Project settings` and click `Create credentials`.
+   1. In [$CONSOLE][console], click `Timescale project` and save your `Project ID`, then click `Project settings`.
+   
+   1. Click `Create credentials`, then save `Public key` and `Secret key`.
 
 1. **Configure $COMPANY Terraform provider**
 
-   Create a `main.tf` configuration file with the following content. Change `x.y.z` to the latest version of the provider. 
+   1. Create a `main.tf` configuration file with the following content. Change `x.y.z` to the [latest version][terraform-provider] of the provider.
+   
+   1. Update `project_id`, `access_key`, and `secret_key` to the values for your $CLOUD_LONG project.
 
    ```hcl
    terraform {
@@ -79,7 +83,8 @@ You can now manage your $SERVICE_SHORTs with Terraform. See more about [availabl
 
 <Tab title="Self-hosted TimescaleDB">
 
-You use the Terraform PostgreSQL provider to manage your self-hosted database with TimescaleDB. Add the provider to your Terraform configuration. Use your [connection details][connection-info] to fill in authentication fields: 
+You use the `cyrilgdn/postgresql` PostgreSQL provider to connect your self-hosted TimescaleDB instance.
+Update the following configuration with your [connection details][connection-info], then add it to your `main.tf` Terraform configuration:
 
 ```hcl
    terraform {
