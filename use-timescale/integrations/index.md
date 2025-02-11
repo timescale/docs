@@ -47,10 +47,11 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 
 ## Data engineering and extract, transform, load
 
-|               Name               | Description                                                                         |
-|:--------------------------------:|-------------------------------------------------------------------------------------|
-| [Apache Airflow][apache-airflow] | Programmatically author, schedule, and monitor workflows.                           |
-|[AWS Lambda][aws-lambda]| Run code without provisioning or managing servers, scaling automatically as needed. |
+|               Name               | Description                                                                   |
+|:--------------------------------:|-------------------------------------------------------------------------------|
+| [Amazon SageMaker][amazon-sagemaker]| Build, train, and deploy ML models into a production-ready hosted environment |
+| [Apache Airflow][apache-airflow] | Programmatically author, schedule, and monitor workflows.                     |
+| [AWS Lambda][aws-lambda]| Run code without provisioning or managing servers, scaling automatically as needed. |
 
 
 [psql]: /use-timescale/:currentVersion:/integrations/psql/
@@ -67,3 +68,4 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 [aws-lambda]: /use-timescale/:currentVersion:/integrations/aws-lambda
 [postgresql-integrations]: https://slashdot.org/software/p/PostgreSQL/integrations/
 [prometheus]: /use-timescale/:currentVersion:/integrations/prometheus
+[amazon-sagemaker]: /use-timescale/:currentVersion:/integrations/amazon-sagemaker
