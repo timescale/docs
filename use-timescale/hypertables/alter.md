@@ -1,6 +1,6 @@
 ---
 title: Alter a hypertable
-excerpt: How to alter a hypertable
+excerpt: Alter a Timescale Cloud hypertable to better suit your needs by using the PostgreSQL ALTER TABLE command. See examples for adding a column and renaming a hypertable
 products: [cloud, mst, self_hosted]
 keywords: [hypertables, schemas, alter]
 tags: [change]

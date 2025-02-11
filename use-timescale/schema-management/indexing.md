@@ -1,6 +1,6 @@
 ---
 title: Indexing data
-excerpt: How to create indexes on hypertables
+excerpt: Adding an index can significantly speed up queries on your service. Learn what database indexes are created by default in Timescale Cloud and what best practices are for creating them manually
 products: [cloud, mst, self_hosted]
 keywords: [hypertables, indexes]
 ---
