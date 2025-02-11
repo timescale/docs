@@ -1,6 +1,6 @@
 ---
 title: About tablespaces
-excerpt: A tablespace is a logical storage unit that enables database objects to be stored in specific physical locations on a disk. Learn how tablespaces work for chunks of Timescale Cloud hypertables
+excerpt: A tablespace is a logical storage unit that enables database objects to be stored in specific physical locations on a disk. Learn how tablespaces work for Timescale Cloud hypertable chunks
 products: [cloud, mst, self_hosted]
 keywords: [schemas, tablepsaces]
 ---
