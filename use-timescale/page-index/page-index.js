@@ -779,6 +779,11 @@ module.exports = [
             excerpt: "Learn about connecting to your Timescale database",
           },
           {
+            title: "Amazon SageMaker",
+            href: "amazon-sagemaker",
+            excerpt: "Integrate Amazon SageMaker with Timescale Cloud",
+          },
+          {
             title: "Apache Airflow",
             href: "apache-airflow",
             excerpt: "Integrate Apache Airflow with Timescale products",
@@ -787,6 +792,11 @@ module.exports = [
             title: "Amazon CloudWatch",
             href: "cloudwatch",
             excerpt: "Integrate Amazon Cloudwatch with Timescale Cloud",
+          },
+          {
+            title: "AWS Lambda",
+            href: "aws-lambda",
+            excerpt: "Integrate AWS Lambda with Timescale Cloud",
           },
           {
             title: "Azure Data Studio",

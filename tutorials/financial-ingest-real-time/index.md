@@ -1,6 +1,6 @@
 ---
 title: Ingest real-time financial websocket data
-excerpt: Set up a data pipeline to get data from different financial APIs
+excerpt: Ingest time-series data into Timescale Cloud using a websocket connection
 products: [cloud]
 keywords: [finance, analytics, websockets, data pipeline]
 tags: [tutorials, intermediate]
