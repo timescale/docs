@@ -188,7 +188,7 @@ instance to a $SERVICE_LONG:
    As you run Livesync continuously, best practice is to run it as a background process.
 
    ```shell
-   docker run -d --rm --name livesync timescale/live-sync:v0.0.0-alpha.1-amd64 start --publication analytics --subscription livesync --source $SOURCE --target $TARGET
+   docker run -d --rm --name livesync timescale/live-sync:v0.0.0-alpha.7 run --publication analytics --subscription livesync --source $SOURCE --target $TARGET
    ```
 
 1. **Trace progress**

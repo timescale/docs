@@ -11,6 +11,10 @@ import HypertablesIntro from 'versionContent/_partials/_hypertables-intro.mdx';
 
 <HypertablesIntro />
 
+<Highlight type="note">
+Inheritance is not supported for hypertables and may lead to unexpected behavior.
+</Highlight>
+
 ## Hypertable partitioning
 
 Each hypertable is partitioned into child tables called chunks. Each chunk is assigned
