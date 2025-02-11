@@ -1,6 +1,6 @@
 ---
 title: Delete data
-excerpt: How to delete data from Timescale
+excerpt: Delete data with DELETE or by dropping chunks from a hypertable in your Timescale Cloud service using SQL
 products: [cloud, mst, self_hosted]
 keywords: [delete, hypertables]
 ---
