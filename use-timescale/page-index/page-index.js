@@ -779,6 +779,11 @@ module.exports = [
             excerpt: "Learn about connecting to your Timescale database",
           },
           {
+            title: "Amazon CloudWatch",
+            href: "cloudwatch",
+            excerpt: "Integrate Amazon Cloudwatch with Timescale Cloud",
+          },
+          {
             title: "Amazon SageMaker",
             href: "amazon-sagemaker",
             excerpt: "Integrate Amazon SageMaker with Timescale Cloud",
@@ -787,11 +792,6 @@ module.exports = [
             title: "Apache Airflow",
             href: "apache-airflow",
             excerpt: "Integrate Apache Airflow with Timescale products",
-          },
-          {
-            title: "Amazon CloudWatch",
-            href: "cloudwatch",
-            excerpt: "Integrate Amazon Cloudwatch with Timescale Cloud",
           },
           {
             title: "AWS Lambda",
@@ -814,6 +814,16 @@ module.exports = [
             excerpt: "Integrate DBeaver with Timescale products",
           },
           {
+            title: "Foreign data wrappers",
+            href: "foreign-data-wrappers",
+            excerpt: "Query external data sources as regular tables",
+          },
+          {
+            title: "Grafana",
+            href: "grafana",
+            excerpt: "Integrate Grafana with Timescale products",
+          },
+          {
             title: "pgAdmin",
             href: "pgadmin",
             excerpt: "Integrate pgAdmin with Timescale products",
@@ -832,11 +842,6 @@ module.exports = [
             title: "qStudio",
             href: "qstudio",
             excerpt: "Integrate qstudio with Timescale products",
-          },
-          {
-            title: "Grafana",
-            href: "grafana",
-            excerpt: "Integrate Grafana with Timescale products",
           },
           {
             title: "Tableau",
