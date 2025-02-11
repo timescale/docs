@@ -79,6 +79,23 @@ To ensure the integration is successful,
    WHERE table_name = 'sensor_data';
    ```
 
+   The output should look like:
+
+   ```bash
+   | column_name                                                     | data_type                   |
+   |-----------------------------------------------------------------|-----------------------------|
+   | time-deprecated-deprecated-2fe0fdfb-ff09-4590-bd56-78af754a5e20 | timestamp with time zone    |
+   | time_deprecated_deprecated_d241528e_4559_4692_89c0_6fac37def7ac | timestamp without time zone |
+   | device_id                                                       | integer                     |
+   | temperature                                                     | double precision            |
+   | humidity                                                        | double precision            |
+   | _fivetran_deleted                                               | boolean                     |  
+   | time                                                            | timestamp with time zone    |
+   | _fivetran_synced                                                | timestamp with time zone    |
+   | time_deprecated_5202d441_44b9_4127_b581_0f8ddcb5feb1            | timestamp with time zone    |
+   | time_deprecated_deprecated_1eb1f8ce_7f19_48f8_ad52_c588867e99e5 | timestamp with time zone    |
+   ```
+
    This will show the columns and their types for the table, allowing you to verify that Fivetran has applied the correct changes.
 
 </Procedure>
