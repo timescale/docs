@@ -123,7 +123,7 @@ You create PostgreSQL FDWs with the `postgres_fdw` extension. See [documenation]
 
 1. **Connect to your database**
 
-   See [how to connect][connect].
+   Use [`psql`][psql] to connect to your database. 
 
 1. **Create a server**
 
@@ -193,3 +193,4 @@ You create PostgreSQL FDWs with the `postgres_fdw` extension. See [documenation]
 [connect]: /getting-started/:currentVersion:/run-queries-from-console/
 [connection-info]: /use-timescale/:currentVersion:/integrations/find-connection-details/
 [enable-fdw-docs]: https://www.postgresql.org/docs/current/postgres-fdw.html
+[psql]: /use-timescale/:currentVersion:/integrations/psql/
