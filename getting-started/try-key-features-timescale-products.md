@@ -64,7 +64,7 @@ relational and time-series data from external files.
 
        <Tab title="Timescale Console">
        
-          The $CONSOLE data upload creates the tables for you from the data you are uploading:   
+          The $CONSOLE data upload creates the tables for you from the data you are uploading:
           1. In [$CONSOLE][portal-ops-mode], select the service to add data to, then click **Actions** > **Upload CSV**.
           1. Drag `<local folder>/tutorial_sample_tick.csv` to `Upload .CSV` and change `New table name`, to `stocks_real_time`.
           1. Enable `hypertable partition` for the `time` column and click `Upload CSV`. 
@@ -182,14 +182,14 @@ $CONSOLE. You can also do this using psql.
     CREATE MATERIALIZED VIEW stock_candlestick_daily
     WITH (timescaledb.continuous) AS
     SELECT
-    time_bucket('1 day', "time") AS bucket,
+    time_bucket('1 day', "time") AS day,
     symbol,
     max(price) AS high,
     first(price, time) AS open,
     last(price, time) AS close,
     min(price) AS low
     FROM stocks_real_time srt
-    GROUP BY bucket, symbol;
+    GROUP BY day, symbol;
     ```
 
     This continuous aggregate creates the [candlestick chart][charts] data you use to visualize
@@ -269,7 +269,7 @@ The columns of this row hold an array-like structure that stores all the data. B
 space, you can reduce your chunk size by more than 90%, and can also speed up your queries. This saves on storage costs, 
 and keeps your queries operating at lightning speed.
 
-Best practice is to compress data that is no longer needed for highest performance queries, but is still access regularly. For example, last week's stock 
+Best practice is to compress data that is no longer needed for highest performance queries, but is still accessed regularly. For example, last week's stock 
 market data.
 
 <Procedure>
@@ -288,7 +288,7 @@ market data.
 
    For example, 60 days after the data was added to the table:
    ``` sql
-   CALL add_columnstore_policy('older_stock_prices', after => INTERVAL '60d');
+   CALL add_columnstore_policy('stocks_real_time', after => INTERVAL '60d');
    ```
    See [add_columnstore_policy][add_columnstore_policy].
  
