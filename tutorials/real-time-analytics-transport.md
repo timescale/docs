@@ -8,23 +8,18 @@ keywords: [IoT, simulate]
 
 import GrafanaConnect from "versionContent/_partials/_grafana-connect.mdx";
 import ImportData from "versionContent/_partials/_import-data-nyc-taxis.mdx";
+import GeolocationAnalytics from "versionContent/_partials/_use-case-transport-geolocation.mdx";
 
-# Real-time analytics with Timescale Cloud and Grafana
+# Analytics on transport and geospatial data
 
-A popular data visualization tool, [Grafana][grafana-docs] enables you to create customizable dashboards 
-and effectively monitor your systems and applications.
+Real-time analytics refers to the process of collecting, analyzing, and interpreting data instantly as it 
+is generated. This approach enables you to make data-driven decisions in real time, track and monitor 
+activity, and make decisions based on real-time insights on data stored in a $SERVICE_LONG. 
 
-![Grafana real-time analytics](https://assets.timescale.com/docs/images/use-case-rta-grafana-timescale-final-dashboard.png)
+![Real-time analytics geolocation](https://assets.timescale.com/docs/images/use-case-rta-grafana-heatmap.png)
 
-Grafana is organized into:
-- Dashboards: a view into the performance of a system. Each dashboard consists of one or more panels.
-- Panels: represent information about a specific metric related to that system.
-
-Grafana enables you to query, visualize, alert on, and explore your metrics, logs, and traces wherever they’re 
-stored.
-
-This page shows you how to integrate Grafana with a $SERVICE_LONG, create a dashboard and panel, then visualize taxi 
-data.
+This page shows you how to integrate Grafana with a $SERVICE_LONG and make insights based on visualization of 
+your data. 
 
 ## Prerequisites
 
@@ -40,12 +35,12 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 
 <GrafanaConnect />
 
-## Create an analytics dashboard
+## Monitor performance over time
 
 A Grafana dashboard represents a view into the performance of a system, and each dashboard consists of one or
 more panels, which represent information about a specific metric related to that system.
 
-To create a new dashboard:
+To visually monitor the volume of taxi rides over time:
 
 <Procedure>
 
@@ -85,6 +80,16 @@ To create a new dashboard:
 
 </Procedure>
 
+## Optimize revenue potential 
+
+Having all this data is great but how to you use it? Monitoring data is useful to check what 
+has happened, but how can you analyse this information to your advantage? This section explains 
+how to create a visualization that shows how to can maximize potential revenue.
+
+<GeolocationAnalytics />
+
+You have integrated Grafana with a $SERVICE_LONG and made insights based on visualization of
+your data.
 
 [grafana-docs]: https://grafana.com/docs/
 [grafana-self-managed]: https://grafana.com/get/?tab=self-managed

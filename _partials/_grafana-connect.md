@@ -1,6 +1,6 @@
-## Add your $SERVICE_SHORT to Grafana as a data source 
+## Connect Grafana to $CLOUD_LONG 
 
-To connect the data in your $SERVICE_SHORT to Grafana:
+To enable Grafana to read the data in your $SERVICE_SHORT:
 
 <Procedure>
 
@@ -13,15 +13,16 @@ To connect the data in your $SERVICE_SHORT to Grafana:
    1. Open `Connections` > `Data sources`, then click `Add new data source`.
    1. Select `PostgreSQL` from the list. 
    1. Configure the connection:
-       - `Host URL`, `Username`, `Password`, and `Database`: configure using your [connection details][connection-info]. 
-       - `Database name`: provide the name for your dataset.
-       - `TLS/SSL Mode`: select `require`.
-       - `PostgreSQL options`: enable `TimescaleDB`.
-       - Leave the default setting for all other fields.
+      - `Host URL`, `Database name`, `Username`, and `Password` 
+      
+          Configure using your [connection details][connection-info]. `Host URL` is in the format `<host>:<port>`.
+      - `TLS/SSL Mode`: select `require`.
+      - `PostgreSQL options`: enable `TimescaleDB`.
+      - Leave the default setting for all other fields.
 
-  1.  **Click `Save & test`** 
+   1. Click `Save & test`. 
   
-  Grafana checks that your details are set correctly.
+     Grafana checks that your details are set correctly.
 
 </Procedure>
 
