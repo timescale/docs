@@ -1,6 +1,6 @@
 ---
 title: About continuous aggregates
-excerpt: Learn how continuous aggregates can speed up your Timescale queries
+excerpt: A Timescale continuous aggregate combines your data into useful summaries and is refreshed in the background when new data is added. Learn how continuous aggregates work and how to use them
 products: [cloud, mst, self_hosted]
 keywords: [continuous aggregates]
 ---
