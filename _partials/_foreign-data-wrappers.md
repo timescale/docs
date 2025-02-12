@@ -1,19 +1,33 @@
-You use foreign data wrappers (FDWs) to query external data sources from a $SERVICE_LONG. These external data sources can be one of the following:
+import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
 
-- $SERVICE_LONGs
+You use PostgreSQL foreign data wrappers (FDWs) to query external data sources from a $SERVICE_LONG. These external data sources can be one of the following:
+
+- Other $SERVICE_LONGs
 - PostgreSQL databases outside of $CLOUD_LONG
 
 If you are using $VPC peering, you can create FDWs in your Customer VPC to query a $SERVICE_SHORT in your $CLOUD_LONG project. However, you can't create FDWs in your $SERVICE_LONGs to query a data source in your Customer VPC. This is because $CLOUD_LONG $VPC peering uses AWS PrivateLink for increased security. See [VPC peering documentation][vpc-peering] for additional details.
 
-FDWs are particularly useful if you manage multiple $SERVICE_LONGs with different capabilities, and need to seamlessly access and merge regular and time-series data.
+PostgreSQL FDWs are particularly useful if you manage multiple $SERVICE_LONGs with different capabilities, and need to seamlessly access and merge regular and time-series data.
+
+## Prerequisites
+
+<IntegrationPrereqs />
 
 ## Query another data source
 
-You create FDWs with the `postgres_fdw` extension, which is enabled by default.
+To query another data source: 
+
+<Tabs label="Query another data source">
+
+<Tab title="$CLOUD_LONG">
+
+You create PostgreSQL FDWs with the `postgres_fdw` extension, which is enabled by default in $CLOUD_LONG.
 
 <Procedure>
 
 To query another data source, run the following queries in the [SQL editor][sql-editor]:
+
+1. **[Connect][conect] to your service**
 
 1. **Create a server:**
 
@@ -95,5 +109,14 @@ IMPORT FOREIGN SCHEMA public
        INTO fdw;
 ```
 
+</Tab>
+
+<Tab title="$SELF_LONG">
+
+</Tab>
+
+</Tabs>
+
 [vpc-peering]: /use-timescale/:currentVersion:/security/vpc/
 [sql-editor]: /getting-started/:currentVersion:/run-queries-from-console/#ops-mode-sql-editor/
+[connect]: /getting-started/:currentVersion:/run-queries-from-console/

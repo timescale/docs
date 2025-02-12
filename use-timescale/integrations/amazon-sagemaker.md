@@ -19,7 +19,7 @@ This page shows you how to integrate Amazon Sagemaker with a $SERVICE_LONG.
 
 <IntegrationPrereqs />
 
-* Setup an [AWS Account][aws-sign-up]
+* Set up an [AWS Account][aws-sign-up]
 
 ## Prepare your $SERVICE_LONG to ingest data from SageMaker
 
