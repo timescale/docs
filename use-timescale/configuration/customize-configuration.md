@@ -1,6 +1,6 @@
 ---
 title: Configure database parameters
-excerpt: Customize the configuration of your Timescale database
+excerpt: Customize standard PostgreSQL configuration and specific Timescale Cloud options for each service individually
 products: [cloud]
 keywords: [configure, services, settings]
 cloud_ui:
