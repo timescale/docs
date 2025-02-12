@@ -10,7 +10,7 @@ content_group: Analyze financial tick data
 
 import CandlestickIntro from "versionContent/_partials/_candlestick_intro.mdx";
 
-# Analyze financial tick data with TimescaleDB
+# Analyze financial tick data
 
 To analyze financial data, you can chart the open, high, low, close, and volume
 (OHLCV) information for a financial asset. Using this data, you can create

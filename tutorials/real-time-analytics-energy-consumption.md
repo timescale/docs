@@ -1,0 +1,130 @@
+---
+title: Real-time analytics with Timescale Cloud and Grafana
+excerpt: Simulate an IOT dataset in your Timescale Cloud service
+products: [cloud, mst, self_hosted]
+keywords: [IoT, simulate]
+---
+
+
+import GrafanaConnect from "versionContent/_partials/_grafana-connect.mdx";
+import ImportData from "versionContent/_partials/_import-data-iot.mdx";
+import CreateCaggsOnIOTData from "versionContent/_partials/_use-case-iot-create-cagg.mdx";
+
+# Analytics on energy consumption
+
+Energy providers understand that customers tend to lose patience when there is not enough power for them
+complete day-to-day activities. Task one is keeping the lights on. If you are transitioning to renewable energy,
+it helps to know when you need to produce energy so you can choose a suitable energy source.  
+
+[Grafana][grafana-docs] is a popular data visualization tool that enables you to create customizable dashboards 
+and effectively monitor your systems and applications.
+
+![Grafana real-time analytics](https://assets.timescale.com/docs/images/use-case-rta-grafana-timescale-energy-cagg.png)
+
+This page shows you how to integrate Grafana with a $SERVICE_LONG and make insights based on visualization of
+your data.
+
+## Prerequisites
+
+import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
+
+<IntegrationPrereqs />
+
+* Install and run [self-managed Grafana][grafana-self-managed], or sign up for [Grafana Cloud][grafana-cloud].
+
+## Optimize time-series data in hypertables
+
+<ImportData />
+
+## Write fast analytical queries
+
+Aggregation is a way of combing data to get insights from it. Average, sum, and count are all example of simple 
+aggregates. However, with large amounts of data aggregation slows things down, quickly. Continuous aggregates 
+are a kind of hypertable that is refreshed automatically in the background as new data is added, or old data is 
+modified. Changes to your dataset are tracked, and the hypertable behind the continuous aggregate is automatically 
+updated in the background.
+
+By default, querying continuous aggregates provides you with real-time data. Pre-aggregated data from the materialized
+view is combined with recent data that hasn't been aggregated yet. This gives you up-to-date results on every query.
+
+You create continuous aggregates on uncompressed data in high-performance storage. They continue to work
+on [data in the columnstore][test-drive-enable-compression]
+and [rarely accessed data in tiered storage][test-drive-tiered-storage]. You can even
+create [continuous aggregates on top of your continuous aggregates][hierarchical-caggs].
+
+<Procedure>
+
+<CreateCaggsOnIOTData />
+
+</Procedure>
+
+<GrafanaConnect />
+
+## Visualize energy consumption
+
+A Grafana dashboard represents a view into the performance of a system, and each dashboard consists of one or
+more panels, which represent information about a specific metric related to that system.
+
+To visually monitor the volume of energy consumption over time:
+
+<Procedure>
+
+1. **Create the dashboard**
+
+   1. On the `Dashboards` page, click `New` and select `New dashboard`.
+
+   1. Click `Add visualization`, then select the data source that connects to your $SERVICE_LONG and the `Bar chart` 
+      visualization.
+   
+      ![Grafana create dashboard](https://assets.timescale.com/docs/images/use-case-rta-grafana-timescale-configure-dashboard.png)
+   1. In the `Queries` section, select `Code`, then run the following query based on your continuous aggregate:
+      
+       ```sql
+       WITH per_hour AS (
+       SELECT
+       time,
+       value
+       FROM kwh_hour_by_hour
+       WHERE "time" at time zone 'Europe/Berlin' > date_trunc('month', time) - interval '1 year'
+       ORDER BY 1
+       ), hourly AS (
+        SELECT
+             extract(HOUR FROM time) * interval '1 hour' as hour,
+             value
+        FROM per_hour
+       )
+       SELECT
+           hour,
+           approx_percentile(0.50, percentile_agg(value)) as median,
+           max(value) as maximum
+       FROM hourly
+       GROUP BY 1
+       ORDER BY 1;
+       ```
+
+      This query averages the results for households in a specific time zone by hour and orders them by time.
+      Because you use a continuous aggregate, this data is always correct in real-time.
+   
+      ![Grafana real-time analytics](https://assets.timescale.com/docs/images/use-case-rta-grafana-timescale-energy-cagg.png)
+
+      You see that energy consumption is highest in the evening and at breakfast time. You also know that the wind
+      drops off in the evening. This data proves that you need to supply a supplementary power source for peak times, 
+      or plan to store energy during the day for peak times.
+
+1. **Click `Save dashboard`**
+
+
+</Procedure>
+
+You have integrated Grafana with a Timescale Cloud service and made insights based on visualization of your data.
+
+[grafana-docs]: https://grafana.com/docs/
+[grafana-self-managed]: https://grafana.com/get/?tab=self-managed
+[grafana-cloud]: https://grafana.com/get/
+[use-time-buckets]: /use-timescale/:currentVersion:/time-buckets/use-time-buckets/
+
+[test-drive-enable-compression]: /getting-started/:currentVersion:/try-key-features-timescale-products/#prepare-your-data-for-real-time-analytics-with-hypercore
+[test-drive-tiered-storage]: /getting-started/:currentVersion:/try-key-features-timescale-products/#reduce-storage-charges-on-older-data-using-compression
+[data-tiering]: /use-timescale/:currentVersion:/data-tiering/
+[compression]: /use-timescale/:currentVersion:/compression/
+[hierarchical-caggs]: /use-timescale/:currentVersion:/continuous-aggregates/hierarchical-continuous-aggregates/

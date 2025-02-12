@@ -5,7 +5,27 @@ module.exports = [
     excerpt: "Learn about common scenarios and use cases for Timescale",
     children: [
       {
-        title: "Cryptocurrency - part 1",
+        title: "Analytics on transport and geospatial data",
+        href: "real-time-analytics-transport",
+        excerpt: "Analyse your data in real-time",
+      },
+      {
+        title: "Analytics on energy consumption",
+        href: "real-time-analytics-energy-consumption",
+        excerpt: "Analyse your data in real-time",
+      },
+      {
+        title: "Simulate an IoT sensor dataset",
+        href: "simulate-iot-sensor-data",
+        excerpt: "Simulate and query an IoT sensor dataset",
+      },
+      {
+        title: "Timescale community cookbook",
+        href: "cookbook",
+        excerpt: "Code examples from the community that help you with loads of common conundrums.",
+      },
+      {
+        title: "Query the Bitcoin blockchain",
         href: "blockchain-query",
         excerpt: "Query the Bitcoin blockchain",
         children: [
@@ -29,7 +49,7 @@ module.exports = [
         ],
       },
       {
-        title: "Cryptocurrency - part 2",
+        title: "Analyze the Bitcoin blockchain",
         href: "blockchain-analyze",
         excerpt: "Analyze the Bitcoin blockchain with Timescale hyperfunctions",
         children: [
@@ -47,7 +67,7 @@ module.exports = [
         ],
       },
       {
-        title: "Energy - part 1",
+        title: "Analyze energy consumption data",
         href: "energy-data",
         excerpt: "Learn how to analyze energy consumption data",
         children: [
@@ -70,7 +90,7 @@ module.exports = [
         ]
       },
       {
-        title: "Finance - part 1",
+        title: "Analyze financial tick data ",
         href: "financial-tick-data",
         excerpt: "Use Timescale to store financial tick data",
         children: [
@@ -93,7 +113,7 @@ module.exports = [
         ],
       },
       {
-        title: "Finance - part 2",
+        title: "Ingest real-time financial data",
         href: "financial-ingest-real-time",
         excerpt: "Ingest real-time financial data with websocket",
         children: [
@@ -110,7 +130,7 @@ module.exports = [
         ],
       },
       {
-        title: "Transport - part 1",
+        title: "Analyze NYC taxi cab data",
         href: "nyc-taxi-cab",
         excerpt: "An introduction to time-series using NYC taxi data",
         children: [
@@ -133,7 +153,7 @@ module.exports = [
         ],
       },
       {
-        title: "Transport - part 2",
+        title: "Plot geospatial NYC taxi cab data",
         href: "nyc-taxi-geospatial",
         excerpt: "Learn how to plot geospatial time-series data with NYC taxi cabs",
         children: [
@@ -148,26 +168,6 @@ module.exports = [
             excerpt: "Plot geospatial NYC taxi data",
           },
         ],
-      },
-      {
-        title: "Analytics on transport and geospatial data",
-        href: "real-time-analytics-transport",
-        excerpt: "Analyse your data in real-time",
-      },
-      {
-        title: "Real-time analytics for IoT",
-        href: "real-time-analytics-techniques",
-        excerpt: "Analyse your data in real-time",
-      },
-      {
-        title: "Internet of things",
-        href: "simulate-iot-sensor-data",
-        excerpt: "Simulate and query an IoT sensor dataset",
-      },
-      {
-        title: "Timescale community cookbook",
-        href: "cookbook",
-        excerpt: "Code examples from the community that help you with loads of common conundrums.",
       },
     ],
   },

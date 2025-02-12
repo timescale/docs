@@ -18,7 +18,7 @@ activity, and make decisions based on real-time insights on data stored in a $SE
 
 ![Real-time analytics geolocation](https://assets.timescale.com/docs/images/use-case-rta-grafana-heatmap.png)
 
-This page shows you how to integrate Grafana with a $SERVICE_LONG and make insights based on visualization of 
+This page shows you how to integrate [Grafana][grafana-docs] with a $SERVICE_LONG and make insights based on visualization of 
 your data. 
 
 ## Prerequisites
