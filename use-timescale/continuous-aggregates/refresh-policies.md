@@ -1,6 +1,6 @@
 ---
 title: Refresh continuous aggregates
-excerpt: Refresh a continuous aggregate to keep it up to date
+excerpt: Continuous aggregates summarize your data to speed up analytical queries. Set up automatic refresh policies or refresh your aggregates manually to make sure you have the latest aggregation at hand
 products: [cloud, mst, self_hosted]
 keywords: [continuous aggregates, refresh, policies]
 ---
