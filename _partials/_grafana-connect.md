@@ -1,6 +1,6 @@
 ## Connect Grafana to $CLOUD_LONG 
 
-To enable Grafana to read the data in your $SERVICE_SHORT:
+To visualize the results of your queries, enable Grafana to read the data in your $SERVICE_SHORT:
 
 <Procedure>
 

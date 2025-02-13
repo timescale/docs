@@ -1,4 +1,4 @@
-## Create a hypertable
+## Optimize time-series data in hypertables
 
 Time-series data represents how a system, process, or behavior changes over time. [Hypertables][hypertables-section]
 are PostgreSQL tables that help you improve insert and query performance by automatically partition your data by

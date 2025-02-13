@@ -30,13 +30,13 @@ module.exports = [
         excerpt: "Query the Bitcoin blockchain",
         children: [
           {
-            title: "Set up",
+            title: "Ingest data into a service",
             href: "blockchain-dataset",
             excerpt:
               "Set up a dataset so you can query the Bitcoin blockchain",
           },
           {
-            title: "Query data",
+            title: "Query the data",
             href: "beginner-blockchain-query",
             excerpt: "Query the Bitcoin blockchain dataset",
           },
@@ -54,13 +54,13 @@ module.exports = [
         excerpt: "Analyze the Bitcoin blockchain with Timescale hyperfunctions",
         children: [
           {
-            title: "Set up",
+            title: "Ingest data into a service",
             href: "blockchain-dataset",
             excerpt:
               "Set up a dataset so you can analyze the Bitcoin blockchain",
           },
           {
-            title: "Query data",
+            title: "Analyse the data",
             href: "analyze-blockchain-query",
             excerpt: "Analyze the Bitcoin blockchain dataset with Timescale hyperfunctions",
           },
@@ -72,12 +72,12 @@ module.exports = [
         excerpt: "Learn how to analyze energy consumption data",
         children: [
           {
-            title: "Set up",
+            title: "Ingest data into a service",
             href: "dataset-energy",
             excerpt: "Set up a dataset so you can analyze energy consumption data",
           },
           {
-            title: "Query data",
+            title: "Query the data",
             href: "query-energy",
             excerpt: "Queries energy consumption data",
           },
@@ -95,12 +95,12 @@ module.exports = [
         excerpt: "Use Timescale to store financial tick data",
         children: [
           {
-            title: "Set up",
+            title: "Ingest data into a service",
             href: "financial-tick-dataset",
             excerpt: "Set up a dataset so you can query financial tick data",
           },
           {
-            title: "Query data",
+            title: "Query the data",
             href: "financial-tick-query",
             excerpt: "Query and visualize financial tick data",
           },
@@ -118,12 +118,12 @@ module.exports = [
         excerpt: "Ingest real-time financial data with websocket",
         children: [
           {
-            title: "Set up",
+            title: "Ingest data into a service",
             href: "financial-ingest-dataset",
             excerpt: "Set up a dataset so you can query the real-time data",
           },
           {
-            title: "Query data",
+            title: "Query the data",
             href: "financial-ingest-query",
             excerpt: "Query and visualize real-time data",
           },
@@ -135,12 +135,12 @@ module.exports = [
         excerpt: "An introduction to time-series using NYC taxi data",
         children: [
           {
-            title: "Set up",
+            title: "Ingest data into a service",
             href: "dataset-nyc",
             excerpt: "Set up a dataset so you can query NYC data",
           },
           {
-            title: "Query data",
+            title: "Query the data",
             href: "query-nyc",
             excerpt: "Query NYC data",
           },
@@ -158,12 +158,12 @@ module.exports = [
         excerpt: "Learn how to plot geospatial time-series data with NYC taxi cabs",
         children: [
           {
-            title: "Set up",
+            title: "Ingest data into a service",
             href: "dataset-nyc",
             excerpt: "Set up a dataset so you can plot geospatial NYC taxi data",
           },
           {
-            title: "Query data",
+            title: "Query the data",
             href: "plot-nyc",
             excerpt: "Plot geospatial NYC taxi data",
           },

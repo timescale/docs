@@ -1,10 +1,9 @@
 ---
-title: Real-time analytics with Timescale Cloud and Grafana
-excerpt: Simulate an IOT dataset in your Timescale Cloud service
+title: Analytics on transport and geospatial data
+excerpt: Simulate and analyze a transport dataset in your Timescale Cloud service
 products: [cloud, mst, self_hosted]
 keywords: [IoT, simulate]
 ---
-
 
 import GrafanaConnect from "versionContent/_partials/_grafana-connect.mdx";
 import ImportData from "versionContent/_partials/_import-data-nyc-taxis.mdx";

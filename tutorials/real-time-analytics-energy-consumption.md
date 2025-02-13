@@ -9,6 +9,7 @@ keywords: [IoT, simulate]
 import GrafanaConnect from "versionContent/_partials/_grafana-connect.mdx";
 import ImportData from "versionContent/_partials/_import-data-iot.mdx";
 import CreateCaggsOnIOTData from "versionContent/_partials/_use-case-iot-create-cagg.mdx";
+import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
 
 # Analytics on energy consumption
 
@@ -25,8 +26,6 @@ This page shows you how to integrate Grafana with a $SERVICE_LONG and make insig
 your data.
 
 ## Prerequisites
-
-import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
 
 <IntegrationPrereqs />
 

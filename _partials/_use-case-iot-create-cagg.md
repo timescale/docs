@@ -44,19 +44,44 @@
            schedule_interval => INTERVAL '1 hour');
        ```
 
-1.  **Confirm that the continuous aggregates exist in your $SERVICE_SHORT**
+1.  **Analyze your data**
 
+    Now you have made continuous aggregates, it could be a good idea to use them to perform analytics on your data. 
+    For example, to see how average energy consumption changes during weekdays over the last year, run the following query: 
     ```sql
-    SELECT view_name, format('%I.%I', materialization_hypertable_schema,materialization_hypertable_name) AS materialization_hypertable
-    FROM timescaledb_information.continuous_aggregates;
+      WITH per_day AS (
+       SELECT
+         time,
+         value
+       FROM kwh_day_by_day
+       WHERE "time" at time zone 'Europe/Berlin' > date_trunc('month', time) - interval '1 year'
+       ORDER BY 1
+      ), daily AS (
+          SELECT
+             to_char(time, 'Dy') as day,
+             value
+          FROM per_day
+      ), percentile AS (
+          SELECT
+              day,
+              approx_percentile(0.50, percentile_agg(value)) as value
+          FROM daily
+          GROUP BY 1
+          ORDER BY 1
+      )
+      SELECT
+          d.day,
+          d.ordinal,
+          pd.value
+      FROM unnest(array['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']) WITH ORDINALITY AS d(day, ordinal)
+      LEFT JOIN percentile pd ON lower(pd.day) = lower(d.day);   
     ```
 
-    You should see:
+    You see something like:
 
-    ```sql
-     view_name     |            materialization_hypertable
-    ------------------+--------------------------------------------------
-     kwh_day_by_day   | _timescaledb_internal._materialized_hypertable_2
-     kwh_hour_by_hour | _timescaledb_internal._materialized_hypertable_3
-
-    ```
+      | day | ordinal | value |
+      | --- | ------- | ----- |
+      | Mon | 2 | 23.08078714975423 |
+      | Sun | 1 | 19.511430831944395 |
+      | Tue | 3 | 25.003118897837307 |
+      | Wed | 4 | 8.09300571759772 |

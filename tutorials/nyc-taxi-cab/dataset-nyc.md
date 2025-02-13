@@ -14,7 +14,7 @@ import PreloadedData from "versionContent/_partials/_preloaded-data.mdx";
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
 
 
-# Set up the database
+# Ingest data into a $SERVICE_LONG
 
 This tutorial uses a dataset that contains historical data from the New York City Taxi and Limousine 
 Commission [NYC TLC][nyc-tlc], in a hypertable named `rides`. It also includes a separate
