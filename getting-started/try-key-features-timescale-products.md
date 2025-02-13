@@ -18,7 +18,7 @@ costs down. For example:
 
 The following figure shows the main features and tiered data in $CLOUD_LONG:
 
-![Main features and tiered data](https://assets.timescale.com/docs/images/timescale-cloud-service-architecture.png )
+![Main features and tiered data](https://assets.timescale.com/docs/images/timescalecloud-service-architecture.png )
 
 This page gives shows you how to rapidly implement the features in $CLOUD_LONG that enable you to 
 ingest and query data faster while keeping prices low. 
@@ -264,6 +264,8 @@ powered by time-series data. The advantage of Hypercore is its ability to seamle
 column-oriented storage. This flexibility enables Timescale Cloud to deliver the best of both worlds, solving the key 
 challenges in real-time analytics.
 
+![Move from rowstore and columstore in hypercore](https://assets.timescale.com/docs/images/hypercore-architecture.png )
+
 When you convert chunks from the rowstore to the columnstore, multiple records are grouped into a single row.
 The columns of this row hold an array-like structure that stores all the data. Because a single row takes up less disk 
 space, you can reduce your chunk size by more than 90%, and can also speed up your queries. This saves on storage costs, 
@@ -349,6 +351,8 @@ of your database hosted in multiple AWS availability zones (AZ) within the same 
 HA replicas automatically take over operations if the original primary data node becomes unavailable. 
 The primary node streams its write-ahead log (WAL) to the replicas to minimize the chances of 
 data loss during failover.
+
+![Move from rowstore and columstore in hypercore](https://assets.timescale.com/docs/images/high-availability-read-replica.png )
 
 High availability is available in the [scale and enterprise][pricing-plans] pricing plans for $CLOUD_LONG. 
 
