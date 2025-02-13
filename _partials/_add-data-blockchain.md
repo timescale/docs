@@ -1,15 +1,13 @@
 ## Load financial data
 
-This tutorial uses Bitcoin transactions from the past five days.
-
-## Ingest the dataset
+The dataset contains around 1.5 million Bitcoin transactions, the trades for five days. It includes
+information about each transaction, along with the value in [satoshi][satoshi-def]. It also states if a
+trade is a [coinbase][coinbase-def] transaction, and the reward a coin miner receives for mining the coin.
 
 To ingest data into the tables that you created, you need to download the
 dataset and copy the data to your database.
 
 <Procedure>
-
-### Ingesting the dataset
 
 1.  Download the `bitcoin_sample.zip` file. The file contains a `.csv`
     file that contains Bitcoin transactions for the past five days. Download:
@@ -37,3 +35,6 @@ dataset and copy the data to your database.
     resources.
 
 </Procedure>
+
+[satoshi-def]: https://www.pcmag.com/encyclopedia/term/satoshi
+[coinbase-def]: https://www.pcmag.com/encyclopedia/term/coinbase-transaction
