@@ -12,8 +12,8 @@ import GeolocationAnalytics from "versionContent/_partials/_use-case-transport-g
 # Analytics on transport and geospatial data
 
 Real-time analytics refers to the process of collecting, analyzing, and interpreting data instantly as it 
-is generated. This approach enables you to make data-driven decisions in real time, track and monitor 
-activity, and make decisions based on real-time insights on data stored in a $SERVICE_LONG. 
+is generated. This approach enables you track and monitor activity, and make decisions based on real-time 
+insights on data stored in a $SERVICE_LONG. 
 
 ![Real-time analytics geolocation](https://assets.timescale.com/docs/images/use-case-rta-grafana-heatmap.png)
 
