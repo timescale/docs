@@ -27,7 +27,7 @@ ingest and query data faster while keeping prices low.
 
 <IntegrationPrereqs />
 
-## Optimize time-series data in hypertables
+## Improve insert and query performance
 
 Time-series data represents how a system, process, or behavior changes over time. Hypertables are PostgreSQL tables 
 that help you improve insert and query performance by automatically partition your data by time. Each hypertable 
@@ -139,7 +139,7 @@ relational and time-series data from external files.
 
 </Procedure>
 
-## Write fast analytical queries on frequently access data using time buckets and continuous aggregates
+## Write fast and efficient analytical queries
 
 Aggregation is a way of combing data to get insights from it. Average, sum, and count are all 
 example of simple aggregates. However, with large amounts of data aggregation slows things down, quickly.
@@ -257,7 +257,7 @@ To see the change in terms of query time and data returned between a regular que
 a continuous aggregate, run the query part of the continuous aggregate
 ( `SELECT ...GROUP BY day, symbol;` ) and compare the results.
 
-## Prepare your data for real-time analytics with hypercore
+## Optimize cooling data for analytics
 
 Hypercore is the Timescale hybrid row-columnar storage engine, designed specifically for real-time analytics and 
 powered by time-series data. The advantage of Hypercore is its ability to seamlessly switch between row-oriented and 
@@ -295,7 +295,7 @@ market data.
 </Procedure>
 
 
-## Reduce storage charges for rarely accessed data using tiered storage
+## Reduce storage charges 
 
 In the previous sections, you used continuous aggregates to make fast analytical queries, and 
 compression to reduce storage costs on frequently accessed data. To reduce storage costs even more, 
@@ -341,7 +341,7 @@ To setup data tiering:
 
 </Procedure>
 
-## Reduce the risk of downtime and data loss with high availability
+## Reduce the risk of downtime and data loss
 
 By default, all $SERVICE_LONGs have rapid recovery enabled. However, if your app has very low tolerance 
 for downtime, $CLOUD_LONG offers High Availability (HA) replicas. HA replicas are exact, up-to-date copies 
