@@ -1,6 +1,6 @@
 ---
 title: Advanced parameters
-excerpt: Configure advanced parameters for your Timescale service
+excerpt: Configure advanced parameters for your Timescale Cloud service in Timescale Console
 products: [cloud]
 keywords: [services, settings]
 tags: [configuration, schemas]

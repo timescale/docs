@@ -1,6 +1,6 @@
 ---
 title: Foreign data wrappers
-excerpt: Query PostgreSQL databases within or outside Timescale
+excerpt: Query other Timescale Cloud services or external PostgreSQL databases by using foreign data wrappers
 products: [cloud, mst, self_hosted]
 keywords: [hypertables, schemas, alter]
 tags: [change]

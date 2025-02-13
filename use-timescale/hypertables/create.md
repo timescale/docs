@@ -1,6 +1,6 @@
 ---
 title: Create hypertables
-excerpt: Create a hypertable to store time-series data
+excerpt: Hypertables are PostgreSQL tables designed with real-time analytics in mind. Create your first hypertable in Timescale Cloud
 products: [cloud, mst, self_hosted]
 keywords: [hypertables, create]
 ---

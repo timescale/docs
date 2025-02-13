@@ -1,6 +1,6 @@
 ---
 title: About compression methods
-excerpt: Understand the different compression methods
+excerpt: Understand the different compression methods, which includes delta encoding, delta-of-delta, simple-8b, run-length encoding, XOR-based, and dictionary compression
 products: [cloud, mst, self_hosted]
 keywords: [compression]
 ---
