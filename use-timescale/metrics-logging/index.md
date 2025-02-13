@@ -1,6 +1,6 @@
 ---
 title: Metrics and logging
-excerpt: Gather metrics and logs within Timescale
+excerpt: Timescale Cloud enables you to monitor your services using the built-in metrics or by integrating third-party services. See what options are available in Timescale Console
 products: [cloud]
 keywords: [metrics, logs, admin]
 tags: [payment]
