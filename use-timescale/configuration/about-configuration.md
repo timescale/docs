@@ -1,6 +1,6 @@
 ---
 title: About configuration in Timescale
-excerpt: About Timescale configuration
+excerpt: Timescale Cloud configures your service automatically based on your compute and storage settings. However, you can also configure a wide range af advanced parameters in Timescale Console
 products: [cloud]
 keywords: [configuration, memory, workers, settings]
 ---
