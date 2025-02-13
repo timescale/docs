@@ -7,9 +7,11 @@ layout_components: [next_prev_large]
 content_group: Analyze the Bitcoin blockchain
 ---
 
+import FinancialIndustry from "versionContent/_partials/_financial-industry-data-analysis.mdx";
+
 # Analyze the Bitcoin blockchain
 
-The financial industry is extremely data-heavy and relies on real-time and historical data for decision-making, risk assessment, fraud detection, and market analysis. Timescale simplifies management of these large volumes of data, while also providing you with meaningful analytical insights and optimizing storage costs.
+<FinancialIndustry />
 
 In this tutorial, you use Timescale to ingest, store, and analyze transactions
 on the Bitcoin blockchain.
