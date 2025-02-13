@@ -1,6 +1,6 @@
 ---
 title: About the object storage tier
-excerpt: LLearn how Timescale Cloud helps you save on storage costs with its tiered storage architecture that includes a high-performance storage tier and a low-cost object storage tier built on Amazon s3
+excerpt: Learn how Timescale Cloud helps you save on storage costs. The Timescale Cloud tiered storage architecture includes a high-performance storage tier and a low-cost object storage tier built on Amazon s3
 product: [cloud]
 keywords: [tiered storage]
 tags: [storage, data management]
