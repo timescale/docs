@@ -1,6 +1,6 @@
 ---
 title: Time and continuous aggregates
-excerpt: How to work with timezones and continuous aggregates
+excerpt: Learn to work with timezones and continuous aggregates in Timescale Cloud
 products: [cloud, mst, self_hosted]
 keywords: [continuous aggregates]
 ---

@@ -1,6 +1,6 @@
 ---
 title: Service management
-excerpt: Manage your service from the Operations dashboard
+excerpt: Manage your Timescale Cloud service from the Operations dashboard in Timescale Console. Fork the service, reset your password, pause or delete a service, and more
 products: [cloud]
 keywords: [services, operations, forks]
 tags: [manage, admin, passwords, pause, stop, terminate]

@@ -27,7 +27,7 @@ the SQL procedural language [PL/pgSQL][plpgsql].
 The basic syntax of a function suitable for a user-defined action is:
 
 ```sql
-CREATE FUNCTION <function_name> (arguments)
+CREATE FUNCTION <function_name> (required arguments)
 RETURNS <return_datatype> AS $<variable_name>$
    DECLARE
       <declaration>;
@@ -37,10 +37,10 @@ RETURNS <return_datatype> AS $<variable_name>$
    END; LANGUAGE <language>;
 ```
 
-This is an example of a function returns the total row count of a table
+This is an example of a function that returns the total row count of a table
 within a database.
 
-Use this code to create the function:
+Use this code to create the function. Note that `job_id` and `config` are required arguments. 
 
 ```sql
 CREATE FUNCTION totalRecords (job_id INT DEFAULT NULL, config JSONB DEFAULT NULL)
