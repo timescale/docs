@@ -14,7 +14,7 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 # Analytics on energy consumption
 
 Energy providers understand that customers tend to lose patience when there is not enough power for them
-complete day-to-day activities. Task one is keeping the lights on. If you are transitioning to renewable energy,
+to complete day-to-day activities. Task one is keeping the lights on. If you are transitioning to renewable energy,
 it helps to know when you need to produce energy so you can choose a suitable energy source.  
 
 [Grafana][grafana-docs] is a popular data visualization tool that enables you to create customizable dashboards 
@@ -37,7 +37,7 @@ your data.
 
 ## Write fast analytical queries
 
-Aggregation is a way of combing data to get insights from it. Average, sum, and count are all example of simple 
+Aggregation is a way of combing data to get insights from it. Average, sum, and count are all examples of simple 
 aggregates. However, with large amounts of data aggregation slows things down, quickly. Continuous aggregates 
 are a kind of hypertable that is refreshed automatically in the background as new data is added, or old data is 
 modified. Changes to your dataset are tracked, and the hypertable behind the continuous aggregate is automatically 

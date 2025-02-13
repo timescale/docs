@@ -49,11 +49,11 @@ To visually monitor the volume of taxi rides over time:
 
    1. Click `Add visualization`.
    1. Select the data source that connects to your $SERVICE_LONG.
-       The Time series visualization is chosen by default.
+       The `Time series` visualization is chosen by default.
       ![Grafana create dashboard](https://assets.timescale.com/docs/images/use-case-rta-grafana-timescale-configure-dashboard.png)
-   1. In the `Queries` section, select `Code`, then select the Time series `Format`. 
+   1. In the `Queries` section, select `Code`, then select `Time series` in `Format`. 
    1. Select the data range for your visualization:
-      The data set is from 2016. Click the date range above the Panel and set:
+      the data set is from 2016. Click the date range above the panel and set:
       - From: ```2016-01-01 01:00:00```
       - To: ```2016-01-30 01:00:00```
 
@@ -81,9 +81,9 @@ To visually monitor the volume of taxi rides over time:
 
 ## Optimize revenue potential 
 
-Having all this data is great but how to you use it? Monitoring data is useful to check what 
+Having all this data is great but how do you use it? Monitoring data is useful to check what 
 has happened, but how can you analyse this information to your advantage? This section explains 
-how to create a visualization that shows how to can maximize potential revenue.
+how to create a visualization that shows how you can maximize potential revenue.
 
 <GeolocationAnalytics />
 
