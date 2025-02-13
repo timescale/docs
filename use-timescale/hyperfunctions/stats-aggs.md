@@ -1,6 +1,6 @@
 ---
 title: Statistical aggregation
-excerpt: ATimescale Cloud provides common statistical aggregates in a proprietary form, to make it easier to work with them. See how they work and how to use them in your service
+excerpt: Timescale Cloud provides common statistical aggregates in a proprietary form, to make it easier to work with them. See how they work and how to use them in your service
 products: [cloud, mst, self_hosted]
 keywords: [hyperfunctions, Toolkit, statistics]
 ---
