@@ -1,6 +1,6 @@
 ---
 title: About Timescale hyperfunctions
-excerpt: Learn about Timescale hyperfunctions that help with data analysis
+excerpt: Timescale Cloud hyperfunctions enable you to run complex real-time analysis on your time-series and other data. Learn what hyperfunctions are and how to use them in your service
 products: [cloud, mst, self_hosted]
 keywords: [hyperfunctions, Toolkit, analytics]
 ---

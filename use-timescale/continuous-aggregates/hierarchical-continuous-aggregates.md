@@ -1,6 +1,6 @@
 ---
 title: Continuous aggregates on continuous aggregates
-excerpt: Create continuous aggregates on top of continuous aggregates to summarize data at different granularities
+excerpt: Running advanced real-time analytic workloads? Create continuous aggregates on top of continuous aggregates to summarize data at different levels of granularity
 keywords: [continuous aggregates, hierarchical, create]
 ---
 
