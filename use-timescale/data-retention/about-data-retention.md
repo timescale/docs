@@ -1,6 +1,6 @@
 ---
 title: About data retention
-excerpt: Learn how data retention works in Timescale
+excerpt: With Timescale Cloud, you can discard old data as it reaches a certain age - manually or by setting up policies. Coupled with usage-based storage, data retention dramatically cuts your storage costs
 products: [cloud, mst, self_hosted]
 keywords: [data retention]
 ---

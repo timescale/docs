@@ -1,6 +1,6 @@
 ---
 title: Gapfilling and interpolation
-excerpt: Fill gaps in time-series data
+excerpt: Timescale Cloud enables you to create additional rows of data to close any gaps. Learn how gapfilling and interpolation make sure your real-time analytics workloads run smoothly even on missing data
 products: [cloud, mst, self_hosted]
 keywords: [hyperfunctions, Toolkit, gapfilling, interpolate]
 ---
