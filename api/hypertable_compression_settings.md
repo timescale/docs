@@ -11,27 +11,27 @@ api:
 
 # timescaledb_information.hypertable_compression_settings 
 
-Shows information about compression settings for each hypertable that has compression enabled on it.
+Shows information about compression settings for each hypertable chunk that has compression enabled on it.
 
 ### Arguments
 
 |Name|Type|Description|
 |-|-|-|
 |`hypertable`|`REGCLASS`|Hypertable which has compression enabled|
+|`chunk`|`REGCLASS`|Hypertable chunk which has compression enabled|
 |`segmentby`|`TEXT`|List of columns used for segmenting the compressed data|
 |`orderby`|`TEXT`| List of columns used for ordering compressed data along with ordering and NULL ordering information|
-|`compress_interval_length`|`TEXT`|Interval used for [rolling up chunks during compression][rollup-compression]|
 
 ### Sample use
 
 Show compression settings for all hypertables:
 
 ```sql 
-SELECT * FROM timescaledb_information.hypertable_compression_settings'
+SELECT * FROM timescaledb_information.hypertable_compression_settings;
 hypertable               | measurements
+chunk                    | _timescaledb_internal._hyper_2_97_chunk
 segmentby                | 
-orderby                  | "time" DESC
-compress_interval_length | 
+orderby                  | time DESC
 ```
 
 Find compression settings for a specific hypertable:
@@ -39,9 +39,7 @@ Find compression settings for a specific hypertable:
 ```sql
 SELECT * FROM timescaledb_information.hypertable_compression_settings WHERE hypertable::TEXT LIKE 'metrics';
 hypertable               | metrics
-segmentby                | metric_id 
-orderby                  | "time" 
-compress_interval_length | 
+chunk                    | _timescaledb_internal._hyper_1_12_chunk
+segmentby                | metric_id
+orderby                  | time DESC
 ```
-
-[rollup-compression]: /use-timescale/:currentVersion:/compression/manual-compression/#roll-up-uncompressed-chunks-when-compressing
