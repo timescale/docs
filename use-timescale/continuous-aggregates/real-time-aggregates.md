@@ -1,6 +1,6 @@
 ---
 title: Real-time aggregates
-excerpt: RReal-time aggregates combine pre-aggregated data with the most recent raw data for up-to-date results. Learn how to use real-time aggregates for your analytical workloads
+excerpt: Real-time aggregates combine pre-aggregated data with the most recent raw data for up-to-date results. Learn how to use real-time aggregates for your analytical workloads
 products: [cloud, mst, self_hosted]
 keywords: [continuous aggregates, real-time aggregates]
 ---
