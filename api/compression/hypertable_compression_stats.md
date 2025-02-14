@@ -9,7 +9,11 @@ api:
   type: function
 ---
 
+import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
+
 # hypertable_compression_stats() <Tag type="community">Community</Tag>
+
+<Deprecated2180 /> Replaced by <a href="https://docs.timescale.com/api/latest/hypercore/hypertable_columnstore_stats/">hypertable_columnstore_stats()</a>.
 
 Get statistics related to hypertable compression. All sizes are in bytes.
 
@@ -17,7 +21,7 @@ For more information about using hypertables, including chunk size partitioning,
 see the [hypertable section][hypertable-docs].
 
 For more information about compression, see the
-[compression sction][compression-docs].
+[compression section][compression-docs].
 
 ### Required arguments
 
@@ -30,7 +34,7 @@ For more information about compression, see the
 |Column|Type|Description|
 |-|-|-|
 |`total_chunks`|BIGINT|The number of chunks used by the hypertable|
-|`number_compressed_chunks`|INTEGER|The number of chunks used by the hypertable that are currently compressed|
+|`number_compressed_chunks`|BIGINT|The number of chunks used by the hypertable that are currently compressed|
 |`before_compression_table_bytes`|BIGINT|Size of the heap before compression|
 |`before_compression_index_bytes`|BIGINT|Size of all the indexes before compression|
 |`before_compression_toast_bytes`|BIGINT|Size the TOAST table before compression|
@@ -42,7 +46,9 @@ For more information about compression, see the
 |`node_name`|TEXT|nodes on which the hypertable is located, applicable only to distributed hypertables|
 
 <Highlight type="note">
+
 Returns show `NULL` if the data is currently uncompressed.
+
 </Highlight>
 
 ### Sample usage
