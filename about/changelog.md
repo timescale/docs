@@ -18,7 +18,7 @@ This new release includes a number of bug fixes and small improvements including
 
 * Faster columnar scans when using the hypercore table access method
 * Ensure all constraints are always applied when deleting data on the columnstore
-* Pusdown all filters on scans for UPDATE/DELETE operations on the columnstore
+* Pushdown all filters on scans for UPDATE/DELETE operations on the columnstore
   
 ###  AWS Transit Gateway support is now generally available!
 
