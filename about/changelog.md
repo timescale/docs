@@ -8,7 +8,7 @@ keywords: [changelog, upgrades, updates, releases]
 
 All the latest features and updates to Timescale products.
 
-## 💘 TimescaleDB v2.18.1 and AWS Transit Gateway support Generally Available
+## 💘 TimescaleDB v2.18.1 and AWS Transit Gateway Support Generally Available
 <Label type="date">February 14, 2025</Label>
 
 ### TimescaleDB v2.18.1 
