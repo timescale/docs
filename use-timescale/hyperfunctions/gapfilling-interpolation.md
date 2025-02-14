@@ -1,6 +1,6 @@
 ---
 title: Gapfilling and interpolation
-excerpt: Last observation carried forward (LOCF) takes the last known value and uses it as a replacement for the missing data, to make sure your queries run smoothly. Learn more about LOCF in Timescale Cloud
+excerpt: To make sure your queries run smoothly, last observation carried forward (LOCF) takes the last known value and uses it as a replacement for missing data. Learn more about LOCF in Timescale Cloud
 products: [cloud, mst, self_hosted]
 keywords: [hyperfunctions, Toolkit, gapfilling, interpolate]
 ---
