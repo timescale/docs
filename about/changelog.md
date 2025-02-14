@@ -8,6 +8,24 @@ keywords: [changelog, upgrades, updates, releases]
 
 All the latest features and updates to Timescale products.
 
+## 💘 TimescaleDB v2.18.1 and AWS Transit Gateway support Generally Available
+
+<Label type="date">February 13, 2025</Label>
+
+### TimescaleDB v2.18.1 ###
+New services created in Timescale Cloud now use [TimescaleDB v2.18.1](https://github.com/timescale/timescaledb/releases/tag/2.18.1). Existing services will be automatically upgraded in their next maintenance window starting next week.
+
+This new release includes a number of bug fixes and small improvements including:
+* Faster columnar scans when using the hypercore table access method.
+* Ensure all constraints are always applied when deleting data on the columnstore
+* Pusdown all filters on scans for UPDATE/DELETE operations on the columnstore
+  
+###  AWS Transit Gateway Support is Now Generally Available!
+
+Timescale Cloud now fully supports AWS Transit Gateway, making it even easier to securely connect your database to multiple VPCs across different environments—including AWS, on-prem, and other cloud providers.
+
+With this update, you can establish a peering connection between your Timescale Cloud services and an AWS Transit Gateway in your AWS account. This keeps your Timescale Cloud services safely behind a VPC while allowing seamless access across complex network setups.
+
 ## 🤖 TimescaleDB v2.18 and SQL Assistant Improvements in Data Mode and PopSQL
 
 <Label type="date">February 6, 2025</Label>
@@ -72,7 +90,7 @@ This release adds comprehensive SQLAlchemy and Alembic support for vector embedd
 ## AWS Transit Gateway Support
 <Label type="date">January 17, 2025</Label>
 
-### AWS Transit Gateway Support
+### AWS Transit Gateway Support (Early Access)
 Timescale Cloud now enables you to connect to your Timescale Cloud services through AWS Transit Gateway. This feature is available to Scale and Enterprise customers. It will be in Early Access for a short time and available in the Timescale Console very soon. If you are interested in implementing this Early Access Feature, reach out to your Rep.
 
 ## 🇮🇳 New region in India, PostgreSQL 17 upgrades, and TimescaleDB on AWS Marketplace
