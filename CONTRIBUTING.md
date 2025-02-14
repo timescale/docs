@@ -30,10 +30,10 @@ To make the contribution yourself:
 
 ## Language
 
-Aim to write in a clear, concise, and actionable manner. Timescale documentation uses the [Google Developer Documentation Style Guide][google-style] with the following exceptions:
+Write in a clear, concise, and actionable manner. Timescale documentation uses the [Google Developer Documentation Style Guide][google-style] with the following exceptions:
 
 - Do not capitalize the first word after a colon.
-- Use code font (back ticks) for UI elements instead of bold.
+- Use code font (back ticks) for UI elements instead of semi-bold.
 
 ## Edit individual pages
 
@@ -53,8 +53,8 @@ Each major doc section has a dedicated directory with `.md` files inside, repres
   - The function name, with empty parentheses if it takes arguments. 
   - A brief, specific description of the function, including any possible warnings. 
   - One or two samples of the function being used to demonstrate argument syntax.
-  - An argument table with Name, Type, Default, Required, Description columns.
-  - A return table with Column, Type, and Description columns.
+  - An argument table with `Name`, `Type`, `Default`, `Required`, `Description` columns.
+  - A return table with `Column`, `Type`, and `Description` columns.
 
 - **Troubleshooting pages** are not written as whole Markdown files, but are programmatically assembled from individual files in the`_troubleshooting` folder. Each entry describes a single troubleshooting case and its solution, and contains the following front matter:
     
@@ -140,7 +140,7 @@ See [Formatting examples][formatting] for how to use them.
 Timescale documentation uses variables for its product names, features, and UI elements in Timescale Console with the following syntax: `$VARIABLE_NAME`. Variables do not work inside the following: 
 
 - Front matter on each page
-- HTML tables
+- HTML tables and tabs 
 
 See the [full list of available variables][variables]. 
 
