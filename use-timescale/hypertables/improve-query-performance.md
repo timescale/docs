@@ -1,6 +1,6 @@
 ---
 title: Improve query performance
-excerpt: How and why to use chunk skipping to optimize hypertable performance
+excerpt: How and why to use chunk skipping to optimize hypertable performance and make sure your analytical queries are as fast as they can be
 products: [cloud, mst, self_hosted]
 keywords: [hypertables, indexes, chunks]
 ---

@@ -1,6 +1,6 @@
 ---
 title: Manage tiering
-excerpt: How to enable and use object storage tiering
+excerpt: Enable tiered storage for your data in Timescale Console. With automated data tiering policies, you get a set it and forget it tool to cut storage costs
 products: [cloud]
 keywords: [tiered storage]
 tags: [storage, data management]

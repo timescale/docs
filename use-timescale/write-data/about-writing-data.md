@@ -1,6 +1,6 @@
 ---
 title: About writing data
-excerpt: How to write data to Timescale
+excerpt: Writing data to Timescale Cloud services works the same way as writing data to regular PostgreSQL tables. Learn the basics of  inserting, updating, upserting, and deleting data in your services using SQL
 products: [cloud, mst, self_hosted]
 keywords: [ingest]
 tags: [write]

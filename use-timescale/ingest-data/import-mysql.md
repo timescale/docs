@@ -1,6 +1,6 @@
 ---
 title: Import data from MySQL
-excerpt: Import data into a Timescale Cloud service from a MySQL database
+excerpt: Ingest data into your Timescale Cloud service from a MySQL database
 products: [cloud]
 keywords: [data migration]
 tags: [import, mysql]

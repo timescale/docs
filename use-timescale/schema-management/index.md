@@ -1,6 +1,6 @@
 ---
 title: Schema management
-excerpt: A database schema defines how the tables and indexes in your database are organized
+excerpt: A database schema design can significantly improve performance by optimizing data retrieval, storage, and indexing. Learn all about creating and managing schemas in Timescale Cloud
 products: [cloud, mst, self_hosted]
 keywords: [schemas]
 ---

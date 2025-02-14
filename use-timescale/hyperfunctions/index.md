@@ -1,6 +1,6 @@
 ---
 title: Hyperfunctions
-excerpt: Hyperfunctions help you perform critical time-series queries quickly
+excerpt:  The ultimate tool for running real-time analytics workloads, Timescale Cloud hyperfunctions make sure you get what you need with near-zero latency and zero complexity
 products: [cloud, mst, self_hosted]
 keywords: [hyperfunctions, Toolkit, analytics]
 ---

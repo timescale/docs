@@ -1,6 +1,6 @@
 ---
 title: Plot geospatial time-series data tutorial
-excerpt: Learn how to plot geospatial time-series data
+excerpt: Follow this tutorial to run queries on a sample dataset with taxi rides in Manhattan, then visualize them using Grafana
 products: [cloud]
 keywords: [tutorials, GIS, geospatial, learn]
 tags: [tutorials, intermediate]

@@ -1,7 +1,7 @@
 ## Optimize time-series data in hypertables
 
 Time-series data represents how a system, process, or behavior changes over time. [Hypertables][hypertables-section]
-are PostgreSQL tables that help you improve insert and query performance by automatically partition your data by
+are PostgreSQL tables that help you improve insert and query performance by automatically partitioning your data by
 time. Each hypertable is made up of child tables called chunks. Each chunk is assigned a range of time, and only
 contains data from that range. 
 

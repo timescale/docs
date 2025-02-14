@@ -24,8 +24,11 @@ in each $CLOUD_LONG service:
   high-speed inserts and updates. 
 
 - **Efficient analytics with columnstore**: you create [columnstore_policies][hypercore_workflow] 
-  that automatically move your data to the columnstore as it _cools_. In columstore conversion, hypertable 
-  chunks are compressed and organized for efficient, large-scale queries more suitable for analytics. 
+  that automatically move your data to the columnstore as it _cools_. 
+
+- **Faster queries on compressed data in columnstore**: in columnstore conversion, hypertable
+  chunks are compressed by more than 90%, and organized for efficient, large-scale queries more suitable 
+  for analytics. This saves on storage costs, and keeps your queries operating at lightning speed.
 
 - **Full mutability with transactional semantics**: regardless of where data is stored,
   hypercore provides full ACID support.

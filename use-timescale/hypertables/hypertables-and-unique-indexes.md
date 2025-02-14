@@ -1,6 +1,6 @@
 ---
 title: Create unique indexes on a hypertable
-excerpt: How to create a unique index on a hypertable, and some limitations on unique indexes
+excerpt: Having a unique index on your hypertable simplifies lookup, speeds up aggregation, and makes JOINs more efficient. Learn to create a unique index in Timescale Cloud and what the related limitations are
 products: [cloud, mst, self_hosted]
 keywords: [hypertables, unique indexes, primary keys]
 ---

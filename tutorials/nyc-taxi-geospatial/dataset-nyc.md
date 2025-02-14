@@ -1,6 +1,6 @@
 ---
 title: Plot geospatial time-series data tutorial - set up dataset
-excerpt: Set up a dataset so you can query geospatial time-series data
+excerpt: Ingest and set up a sample dataset so you can query geospatial time-series data
 products: [cloud]
 keywords: [tutorials, GIS, geospatial, learn]
 tags: [tutorials, intermediate]
