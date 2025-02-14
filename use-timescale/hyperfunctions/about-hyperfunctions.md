@@ -11,7 +11,7 @@ import ExperimentalUpgrade from "versionContent/_partials/_experimental-schema-u
 
 # About Timescale hyperfunctions
 
-Timescale hyperfunctions are a specialized set of functions that power data analysis on time series and events. 
+Timescale hyperfunctions are a specialized set of functions that power real-time analytics on time series and events. 
 IoT devices, IT systems, marketing analytics, user behavior, financial metrics, cryptocurrency - these are only a few examples of domains where 
 hyperfunctions can make a huge difference. Hyperfunctions provide you with meaningful, actionable insights in real time.  
 
