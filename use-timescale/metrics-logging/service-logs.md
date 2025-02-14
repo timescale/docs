@@ -1,6 +1,6 @@
 ---
 title: Service logs
-excerpt: Timescale Cloud enables you to view and download 500 most recent entries in your service logs. Learn where to find them in Timescale Console
+excerpt: Timescale Cloud enables you to view and download the 500 most recent entries in your service logs. Learn where to find them in Timescale Console
 products: [cloud]
 keywords: [logs, services]
 cloud_ui:
