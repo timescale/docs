@@ -1,6 +1,6 @@
 ---
 title: Counter aggregation
-excerpt: When collecting data from counters, interruptions usually result in the counter reset to zero. Timescale Cloud counter aggregation functions help collect data in spite of interruptions or resets
+excerpt: When collecting data from counters, interruptions usually cause the counter to reset to zero. Timescale Cloud counter aggregation functions help collect data in spite of interruptions or resets
 products: [cloud, mst, self_hosted]
 keywords: [hyperfunctions, Toolkit, gauges, counters]
 ---
