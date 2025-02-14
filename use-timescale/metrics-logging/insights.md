@@ -1,6 +1,6 @@
 ---
 title: Insights
-excerpt: Get query-level performance insights, such as slow queries, memory and data access patterns, and execution metrics
+excerpt: Get query-level performance insights, such as slow queries, memory and data access patterns, and execution metrics in Timescale Cloud
 products: [cloud]
 keywords: [metrics, monitoring, services, query, performance, insights]
 tags: [dashboard, cpu, memory, storage, query, performance]

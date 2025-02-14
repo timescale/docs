@@ -902,6 +902,11 @@ module.exports = [
             excerpt: "Secure your Timescale Service with VPC peering and AWS PrivateLink",
           },
           {
+            title: "AWS Transit Gateway",
+            href: "transit-gateway",
+            excerpt: "Peer your Timescale Cloud service with AWS Transit Gateway",
+          },
+          {
             title: "IP allow list",
             href: "ip-allow-list",
             excerpt:

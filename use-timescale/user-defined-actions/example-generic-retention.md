@@ -1,6 +1,6 @@
 ---
 title: Use a user-defined action to create a generic retention policy
-excerpt: Create a generic data retention policy that applies to all hypertables
+excerpt: In Timescale Cloud, you can add a data retention policy to a hypertable, to store data more efficiently. Take it one step further by creating a generic data retention policy for your entire service
 products: [cloud, mst, self_hosted]
 keywords: [actions, data retention]
 ---

@@ -1,6 +1,6 @@
 ---
 title: Point-in-time recovery
-excerpt: Learn how to restore your service to a previous point in time
+excerpt: Going through a destructive event and need to recover your data? Restore your Timescale Cloud service to a previous state with point-in-time recovery
 products: [cloud]
 keywords: [restore, recovery, pitr]
 tags: [recovery, restore, pitr]
