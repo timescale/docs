@@ -37,7 +37,7 @@ Retrieve the connection details for your $SERVICE_LONG:
 
 <Tab title="Self-hosted TimescaleDB">
 
-Find the connection details in the [PostgreSQL configuration file][postgres-config] or by asking your database administrator.
+Find the connection details in the [PostgreSQL configuration file][postgres-config] or by asking your database administrator. The `postgres` superuser, created during PostgreSQL installation, has all the permissions required to run procedures in this documentation. However, it is recommended to create other users and assign permissions on the need-only basis. 
 
 </Tab>
 
