@@ -9,7 +9,7 @@ import UsageBasedStorage from "versionContent/_partials/_usage-based-storage-int
 
 # About data retention
 
-In modern applications, data grows exponentially and often becomes less useful in day-to-day operations as it gets older. 
+In modern applications, data grows exponentially. As data gets older, it often becomes less useful in day-to-day operations. 
 However, you still need it for analysis. Timescale elegantly solves this problem with
 [automated data retention policies][retention-policy]. 
 
