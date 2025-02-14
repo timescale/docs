@@ -1,6 +1,6 @@
 ---
 title: PostgreSQL extensions
-excerpt: Timescale Cloud comes with a number of Timescale and PostgreSQL extensions enabled by default. See what other extensions you can enable for your service
+excerpt: Timescale Cloud comes with a number of Timescale and PostgreSQL extensions enabled by default. See all the extensions you can enable for your service
 products: [cloud]
 keywords: [services, settings, extensions]
 tags: [extensions]
