@@ -70,7 +70,7 @@ SELECT live_ranges(rollup(heartbeat_agg)) FROM weekly_heartbeat WHERE unit = 17;
  ("2012-03-25 03:00:51+00","2012-04-11 00:01:00+00")
 ```
 
-You can construct more elaborate queries, such as looking for the 5 units with the
+You can construct more elaborate queries. For example, to return the 5 units with the
 lowest uptime during the third deployment:
 
 ```sql

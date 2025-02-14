@@ -7,7 +7,7 @@ keywords: [time buckets]
 
 # About time buckets
 
-Time bucketing is essential for real-time analytics. The [`time_bucket`][time_bucket] function allows you to aggregate data in a [hypertable][create-hypertable] into buckets of time. For example, 5 minutes, 1 hour, or 3 days. 
+Time bucketing is essential for real-time analytics. The [`time_bucket`][time_bucket] function enables you to aggregate data in a [hypertable][create-hypertable] into buckets of time. For example, 5 minutes, 1 hour, or 3 days. 
 It's similar to PostgreSQL's [`date_bin`][date_bin] function, but it gives you more
 flexibility in the bucket size and start time.
 
