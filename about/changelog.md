@@ -9,18 +9,18 @@ keywords: [changelog, upgrades, updates, releases]
 All the latest features and updates to Timescale products.
 
 ## 💘 TimescaleDB v2.18.1 and AWS Transit Gateway support Generally Available
-
 <Label type="date">February 14, 2025</Label>
 
-### TimescaleDB v2.18.1 ###
+### TimescaleDB v2.18.1 
 New services created in Timescale Cloud now use [TimescaleDB v2.18.1](https://github.com/timescale/timescaledb/releases/tag/2.18.1). Existing services will be automatically upgraded in their next maintenance window starting next week.
 
 This new release includes a number of bug fixes and small improvements including:
-* Faster columnar scans when using the hypercore table access method.
+
+* Faster columnar scans when using the hypercore table access method
 * Ensure all constraints are always applied when deleting data on the columnstore
 * Pusdown all filters on scans for UPDATE/DELETE operations on the columnstore
   
-###  AWS Transit Gateway Support is Now Generally Available!
+###  AWS Transit Gateway support is now generally available!
 
 Timescale Cloud now fully supports [AWS Transit Gateway](https://docs.timescale.com/use-timescale/latest/security/transit-gateway/), making it even easier to securely connect your database to multiple VPCs across different environments—including AWS, on-prem, and other cloud providers.
 
