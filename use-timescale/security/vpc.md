@@ -1,6 +1,6 @@
 ---
 title: Virtual Private Cloud
-excerpt: Use a Peering VPC and AWS PrivateLink to secure your Timescale Cloud service
+excerpt: Virtual Private Cloud peering ensures that your Timescale Cloud services are only accessible through your secured AWS infrastructure. Set up VPC peering in Timescale Console
 products: [cloud]
 keywords: [PrivateLink, AWS, vpc, services, operations, ]
 tags: [aws]

@@ -1,6 +1,6 @@
 ---
 title: Security
-excerpt: Learn how your Timescale instance is secured
+excerpt: A high level of security is a major requirement to any database. Learn how Timescale Cloud protects your services with MFA, SAML, SSL modes, read-only access, VPC peering, and IP allow lists
 products: [cloud]
 keywords: [security]
 ---
