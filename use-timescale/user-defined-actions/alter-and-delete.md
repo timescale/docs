@@ -1,6 +1,6 @@
 ---
 title: Alter and delete user-defined actions
-excerpt: When a user-defined action has run its course, you can update, reschedule, or delete it. See how to do it in Timescale Cloud
+excerpt: When a user-defined action has run its course, you can update, reschedule, or delete it. See how to manage user-defined actions in Timescale Cloud
 products: [cloud, mst, self_hosted]
 keywords: [actions]
 tags: [user-defined actions, scheduled jobs, background jobs, automation framework]
