@@ -10,8 +10,7 @@ keywords: [hyperfunctions, Toolkit, analytics]
 Timescale hyperfunctions are designed to efficiently process, aggregate, and analyze significant volumes of data while maintaining high performance. 
 They let you run sophisticated analytical queries and get meaningful data in real time.
 
-$CLOUD_LONG includes all hyperfunctions by default, while self-hosted $TIMESCALE_DB includes a subset of them. For
-additional hyperfunctions, install the [Timescale Toolkit][install-toolkit] PostgreSQL extension.
+$CLOUD_LONG includes all hyperfunctions by default, while self-hosted $TIMESCALE_DB includes a subset of them. To include all hyperfunctions with $TIMESCALE_DB, install the [Timescale Toolkit][install-toolkit] PostgreSQL extension on your self-hosted PostgreSQL deployment.
 
 For more information, read the [hyperfunctions blog post][hyperfunctions-blog].
 

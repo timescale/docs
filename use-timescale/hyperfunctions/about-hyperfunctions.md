@@ -22,7 +22,7 @@ additional hyperfunctions, install the [Timescale Toolkit][install-toolkit] Post
 
 Here is a list of all the hyperfunctions provided by Timescale. Hyperfunctions
 with a tick in the `Toolkit` column require an installation of Timescale Toolkit for self-hosted deployment. Hyperfunctions
-with a tick in the `Experimental` are still under development.
+with a tick in the `Experimental` column are still under development.
 
 <Experimental />
 

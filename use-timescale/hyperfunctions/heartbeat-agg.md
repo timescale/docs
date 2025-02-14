@@ -8,10 +8,10 @@ keywords: [hyperfunctions, Toolkit, heartbeat, liveness]
 
 Given a series of timestamped health checks, it can be tricky to determine the
 overall health of a system over a given interval. PostgresQL provides window
-functions which can be used to get a sense of where unhealthy gaps are, but can
+functions which you use to get a sense of where unhealthy gaps are, but can
 be somewhat awkward to use efficiently. 
 
-This is one of the many cases where Timescale provides an efficient, simple solution for 
+This is one of the many cases where hyperfunctions provide an efficient, simple solution for 
 a frequently occurring problem. Heartbeat aggregation helps analyze event-based time-series data with intermittent or irregular signals.
 
 This example uses the [SustData public dataset][sustdata]. This dataset tracks
