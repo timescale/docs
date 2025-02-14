@@ -1,6 +1,6 @@
 ---
 title: Create and register user-defined actions
-excerpt: Add a user-defined action to your database
+excerpt: Creating a user-defined action in your Timescale Cloud service is a two-step process. First, define a function or procedure, then register it with add_job. See usage examples
 products: [cloud, mst, self_hosted]
 keywords: [actions]
 tags: [user-defined actions, scheduled jobs, background jobs, automation framework]
