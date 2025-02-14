@@ -13,7 +13,7 @@ In modern applications, data grows exponentially. As data gets older, it often b
 However, you still need it for analysis. Timescale elegantly solves this problem with
 [automated data retention policies][retention-policy]. 
 
-Once a policy is set up, it deletes raw old data for you on a schedule. 
+Data retention policies delete raw old data for you on a schedule that you define. 
 By [combining retention policies with continuous aggregates][retention-with-caggs], you can downsample your data and keep useful summaries of it instead. This lets you analyze historical data - while also saving on storage. 
 
 <UsageBasedStorage />
