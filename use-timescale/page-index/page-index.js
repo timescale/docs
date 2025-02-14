@@ -779,6 +779,11 @@ module.exports = [
             excerpt: "Learn about connecting to your Timescale database",
           },
           {
+            title: "Amazon CloudWatch",
+            href: "cloudwatch",
+            excerpt: "Integrate Amazon Cloudwatch with Timescale Cloud",
+          },
+          {
             title: "Amazon SageMaker",
             href: "amazon-sagemaker",
             excerpt: "Integrate Amazon SageMaker with Timescale Cloud",
@@ -787,11 +792,6 @@ module.exports = [
             title: "Apache Airflow",
             href: "apache-airflow",
             excerpt: "Integrate Apache Airflow with Timescale products",
-          },
-          {
-            title: "Amazon CloudWatch",
-            href: "cloudwatch",
-            excerpt: "Integrate Amazon Cloudwatch with Timescale Cloud",
           },
           {
             title: "AWS Lambda",
@@ -814,9 +814,19 @@ module.exports = [
             excerpt: "Integrate DBeaver with Timescale products",
           },
           {
+            title: "Grafana",
+            href: "grafana",
+            excerpt: "Integrate Grafana with Timescale products",
+          },
+          {
             title: "pgAdmin",
             href: "pgadmin",
             excerpt: "Integrate pgAdmin with Timescale products",
+          },
+          {
+            title: "PostgreSQL",
+            href: "postgresql",
+            excerpt: "Integrate PostgreSQL with Timescale Cloud",
           },
           {
             title: "Prometheus",
@@ -832,11 +842,6 @@ module.exports = [
             title: "qStudio",
             href: "qstudio",
             excerpt: "Integrate qstudio with Timescale products",
-          },
-          {
-            title: "Grafana",
-            href: "grafana",
-            excerpt: "Integrate Grafana with Timescale products",
           },
           {
             title: "Tableau",
@@ -895,6 +900,11 @@ module.exports = [
             title: "VPC peering and AWS PrivateLink",
             href: "vpc",
             excerpt: "Secure your Timescale Service with VPC peering and AWS PrivateLink",
+          },
+          {
+            title: "AWS Transit Gateway",
+            href: "transit-gateway",
+            excerpt: "Peer your Timescale Cloud service with AWS Transit Gateway",
           },
           {
             title: "IP allow list",
