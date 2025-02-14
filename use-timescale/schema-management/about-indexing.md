@@ -1,6 +1,6 @@
 ---
 title: Indexing data
-excerpt: How indexes work
+excerpt: A database index is a data structure that improves the speed of data retrieval operations. Learn how indexing works and how it improves the performance of your analytical queries
 products: [cloud, mst, self_hosted]
 keywords: [schemas, indexes]
 ---

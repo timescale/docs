@@ -1,6 +1,6 @@
 ---
 title: Create a continuous aggregate
-excerpt: How to create a continuous aggregate
+excerpt: Create a continuous aggregate in your Timescale Cloud service and make sure you always have the latest aggregated data for your analytical queries
 products: [cloud, mst, self_hosted]
 keywords: [continuous aggregates, create]
 ---

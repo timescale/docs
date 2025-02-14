@@ -136,8 +136,8 @@ machine learning models. You can also untegrate visualization tools like [Grafan
 [install-python]: https://www.python.org/downloads/
 [install-postgresql]: https://www.postgresql.org/download/
 [console]: https://console.cloud.timescale.com/
-[grafana-integration]: use-timescale/:currentVersion:/integrations/grafana/
-[tableau-integration]: use-timescale/:currentVersion:/integrations/tableau/
+[grafana-integration]: /use-timescale/:currentVersion:/integrations/grafana/
+[tableau-integration]: /use-timescale/:currentVersion:/integrations/tableau/
 [run-queries]: /getting-started/:currentVersion:/run-queries-from-console/
 [open-console]: https://console.cloud.timescale.com/dashboard/services
 [psql]: /use-timescale/:currentVersion:/integrations/psql/
