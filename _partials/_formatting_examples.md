@@ -110,7 +110,7 @@ Syntax example:
 
   ![Download tag](https://assets.timescale.com/docs/images/tag-download.png)
 
-  See a [use example][time-series-data] in the docs.
+  See a [use example][installation-windows] in the docs.
 
 - Experimental
   
@@ -128,7 +128,7 @@ Syntax example:
   
   ![Community tag](https://assets.timescale.com/docs/images/tag-community.png)
 
-  See a [use example][add-compression-policy] in the docs.
+  See a [use example][remove-reorder-policy] in the docs.
 
 - Hollow
 
@@ -150,21 +150,18 @@ Links should be [reference-style Markdown links][reference-links]. For example:
 
 [A link to the data tiering section in docs][data-tiering]
 
-See [more examples][run-queries] in the docs.
-
 [data-tiering]: ../use-timescale/data-tiering/enabling-data-tiering.md
 [disable-chunk-skipping]: ../api/disable_chunk_skipping.md
 [decompress-chunks]: ../use-timescale/compression/decompress-chunks.md
 [alerting]: ../use-timescale/alerting.md
-[deprecation]: _partials/_deprecated.md
+[deprecation]: ../_partials/_deprecated.md
 [live-migration]: ../migrate/live-migration.md
 [fenced-code-blocks]: https://www.markdownguide.org/extended-syntax/#fenced-code-blocks
 [aggregation]: ../getting-started/aggregation.md
-[time-series-data]: ../getting-started/time-series-data.md
+[installation-windows]: ../self-hosted/install/installation-windows.md
 [time-bucket]: ../api/time_bucket_ng.md
 [time-weighted-average]: ../api/time-weighted-averages.md
-[add-compression-policy]: ../api/add_compression_policy.md
+[remove-reorder-policy]: ../api/remove_reorder_policy.md
 [reference-links]: https://www.markdownguide.org/basic-syntax/#reference-style-links
-[run-queries]: ../getting-started/run-queires-from-console.md
 
 
