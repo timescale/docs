@@ -10,7 +10,7 @@ All the latest features and updates to Timescale products.
 
 ## 💘 TimescaleDB v2.18.1 and AWS Transit Gateway support Generally Available
 
-<Label type="date">February 13, 2025</Label>
+<Label type="date">February 14, 2025</Label>
 
 ### TimescaleDB v2.18.1 ###
 New services created in Timescale Cloud now use [TimescaleDB v2.18.1](https://github.com/timescale/timescaledb/releases/tag/2.18.1). Existing services will be automatically upgraded in their next maintenance window starting next week.
@@ -22,7 +22,7 @@ This new release includes a number of bug fixes and small improvements including
   
 ###  AWS Transit Gateway Support is Now Generally Available!
 
-Timescale Cloud now fully supports AWS Transit Gateway, making it even easier to securely connect your database to multiple VPCs across different environments—including AWS, on-prem, and other cloud providers.
+Timescale Cloud now fully supports [AWS Transit Gateway](https://docs.timescale.com/use-timescale/latest/security/transit-gateway/), making it even easier to securely connect your database to multiple VPCs across different environments—including AWS, on-prem, and other cloud providers.
 
 With this update, you can establish a peering connection between your Timescale Cloud services and an AWS Transit Gateway in your AWS account. This keeps your Timescale Cloud services safely behind a VPC while allowing seamless access across complex network setups.
 
