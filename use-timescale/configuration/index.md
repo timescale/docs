@@ -1,6 +1,6 @@
 ---
 title: Configuration
-excerpt: Learn about configuring your Timescale instance
+excerpt: Timescale Cloud includes additional configurable settings on top of standard PostgreSQL configuration. Learn what you can configure and how
 products: [cloud]
 keywords: [configuration, settings]
 ---

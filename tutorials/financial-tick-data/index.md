@@ -1,6 +1,6 @@
 ---
 title: Analyze financial tick data with TimescaleDB
-excerpt: Learn how to store financial tick data and create candlestick views to analyze price changes
+excerpt: Use Timescale Cloud to store financial tick data and create candlestick views to perform real-time analysis of price changes
 products: [cloud, mst, self_hosted]
 keywords: [tutorials, finance, learn]
 tags: [tutorials, beginner]

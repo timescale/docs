@@ -1,6 +1,6 @@
 ---
 title: About Timescale Cloud services
-excerpt: Learn more about Timescale Cloud services
+excerpt: A Timescale Cloud service is a 100% PostgreSQL database instance that you use as is, or extend with capabilities specific to your business needs. Learn more about services and available features
 products: [cloud]
 keywords: [services]
 cloud_ui:

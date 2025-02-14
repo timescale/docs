@@ -1,6 +1,6 @@
 ---
 title: Manual compression
-excerpt: Learn how to manually compress a hypertable
+excerpt: Timescale Cloud provides automated and manual data compression. Learn to manually compress specific chunks of a hypertable for a more granular control
 products: [self_hosted]
 keywords: [compression, hypertables]
 ---

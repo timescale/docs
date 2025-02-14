@@ -1,6 +1,6 @@
 ---
 title: Use a user-defined action to implement automatic tablespace management
-excerpt: Automatically move hypertable chunks between tablespaces
+excerpt: Save on storage costs for old data. Timescale Cloud enables you to automatically move hypertable chunks between tablespaces with move_chunk.
 products: [cloud, mst, self_hosted]
 keywords: [actions, tablespaces]
 ---
