@@ -1,6 +1,6 @@
 ---
 title: Continuous aggregates
-excerpt: Continuous aggregates make queries run faster on very large datasets
+excerpt: Lightning fast queries are a must for efficient real-time analytics. Timescale Cloud continuous aggregates make sure you always have the latest aggregated data at your fingertips
 products: [cloud, mst, self_hosted]
 keywords: [continuous aggregates]
 ---

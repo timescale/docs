@@ -1,6 +1,6 @@
 ---
 title: User management
-excerpt: User management in Timescale Cloud
+excerpt: Manage your projects in Timescale Console. Add and delete users, join and leave projects, transfer project ownership, and configure authentication
 products: [cloud]
 keywords: [members, projects, admin, roles]
 tags: [users]

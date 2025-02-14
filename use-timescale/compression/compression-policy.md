@@ -1,6 +1,6 @@
 ---
 title: Create a compression policy
-excerpt: Create a compression policy on a hypertable
+excerpt: Timescale Cloud can compress your data automatically, based on the conditions you set. Learn to create, view, pause, and remove data compression policies for a hypertable
 products: [cloud, mst, self_hosted]
 keywords: [compression, hypertables, policy]
 ---

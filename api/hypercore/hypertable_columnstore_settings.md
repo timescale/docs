@@ -23,7 +23,7 @@ To retrieve information about settings:
 - **Show columnstore settings for all hypertables**:
 
    ```sql 
-   SELECT * FROM timescaledb_information.hypertable_columnstore_settings'
+   SELECT * FROM timescaledb_information.hypertable_columnstore_settings;
    ```
   Returns:
    ```sql  

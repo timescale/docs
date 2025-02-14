@@ -1,6 +1,6 @@
 ---
 title: Table management
-excerpt: How to manage tables in Timescale
+excerpt: A database schema defines how the tables and indexes in your Timescale Cloud service are organized. Learn more about schemas and why they are important for efficient real-time analytics
 products: [cloud, mst, self_hosted]
 keywords: [schemas, hypertables, indexes]
 ---
