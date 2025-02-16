@@ -17,7 +17,7 @@ rollups as needed, or pre-calculate them in [continuous aggregates][caggs].
 
 This section explains how time bucketing works. For examples of the
 `time_bucket` function, see the section on
-[Aggregate time-series data with time_bucket][use-time-buckets].
+[Aggregate time-series data with `time_bucket`][use-time-buckets].
 
 ## How time bucketing works
 
