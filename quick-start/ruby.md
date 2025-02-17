@@ -1,6 +1,6 @@
 ---
 title: "Quick Start: Ruby and Timescale"
-excerpt: Get started with Timescale for a Ruby application
+excerpt: Get started with Timescale Cloud or TimescaleDB using Ruby
 keywords: [Ruby]
 ---
 
