@@ -1,6 +1,6 @@
 ---
 title: Migrate with timescaledb-backfill
-excerpt: Use timescaledb-backfill tool to migrate your database to Timescale Cloud by copying historic data into your service
+excerpt: Use the timescaledb-backfill tool to migrate your database to Timescale Cloud by copying historic data into your service
 products: [cloud]
 keywords: [migration, low-downtime]
 tags: [migration, logical backup]

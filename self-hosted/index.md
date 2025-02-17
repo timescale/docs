@@ -1,6 +1,6 @@
 ---
 title: Self-hosted TimescaleDB
-excerpt: TimescaleDB is an extension for PostgreSQL that enables time-series workloads, increasing ingest, query, storage and analytics performance. Learn more about how to install and use it
+excerpt: TimescaleDB is an extension for PostgreSQL that powers real-time analytics on time-series and event data, while also increasing ingest, query, and storage performance. Learn more about how to install and use it
 products: [self_hosted]
 tags: [self-hosted, about]
 ---
