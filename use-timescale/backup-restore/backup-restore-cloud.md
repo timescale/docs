@@ -1,6 +1,6 @@
 ---
 title: Backup and restore
-excerpt: Understand how backups and restores work in Timescale
+excerpt: See how and when Timescale Cloud backs up your data, making sure you always have something to fall back on in case of disaster recovery
 products: [cloud]
 keywords: [backups, restore]
 tags: [recovery, failures]

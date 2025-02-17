@@ -1,6 +1,6 @@
 ---
 title: Integrate Amazon Sagemaker with Timescale Cloud
-excerpt: Integrate Amazon SageMaker with Timescale Cloud to store and analyze ML model data.
+excerpt: Amazon SageMaker is a fully managed machine learning service. Integrate Amazon SageMaker with Timescale Cloud to store and analyze ML model data
 products: [cloud, mst, self_hosted]
 keywords: [connect, integrate, amazon, aws, sagemaker]
 ---
@@ -19,7 +19,7 @@ This page shows you how to integrate Amazon Sagemaker with a $SERVICE_LONG.
 
 <IntegrationPrereqs />
 
-* Setup an [AWS Account][aws-sign-up]
+* Set up an [AWS Account][aws-sign-up]
 
 ## Prepare your $SERVICE_LONG to ingest data from SageMaker
 
@@ -136,8 +136,8 @@ machine learning models. You can also untegrate visualization tools like [Grafan
 [install-python]: https://www.python.org/downloads/
 [install-postgresql]: https://www.postgresql.org/download/
 [console]: https://console.cloud.timescale.com/
-[grafana-integration]: use-timescale/:currentVersion:/integrations/grafana/
-[tableau-integration]: use-timescale/:currentVersion:/integrations/tableau/
+[grafana-integration]: /use-timescale/:currentVersion:/integrations/grafana/
+[tableau-integration]: /use-timescale/:currentVersion:/integrations/tableau/
 [run-queries]: /getting-started/:currentVersion:/run-queries-from-console/
 [open-console]: https://console.cloud.timescale.com/dashboard/services
 [psql]: /use-timescale/:currentVersion:/integrations/psql/

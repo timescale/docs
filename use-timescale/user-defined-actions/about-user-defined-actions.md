@@ -1,6 +1,6 @@
 ---
 title: About user-defined actions
-excerpt: Write custom functions and procedures, and schedule them to run periodically
+excerpt: User-defined actions are custom PostgreSQL functions and procedures that you set up to run on a schedule. This provides a set-it-and-forget-it approach to maintaining your service and data
 products: [cloud, mst, self_hosted]
 keywords: [actions]
 tags: [user-defined actions, background jobs, scheduled jobs, automation framework]
