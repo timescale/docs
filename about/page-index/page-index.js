@@ -8,19 +8,19 @@ module.exports = [
       "Additional information about Timescale, including how to contribute, and release notes",
     children: [
       {
-        title: "Changelog",
-        href: "changelog",
-        excerpt: "A summary of the latest changes to all Timescale products.",
-      },
-      {
-        title: "Release notes",
-        href: "release-notes",
-        excerpt: "Release information for TimescaleDB v2.0.0 - v2.15.1",
+        title: "Timescale architecture for real-time analytics",
+        href: "timescale-architecture",
+        excerpt: "The architecture of Timescale, and the design choices that optimize PostgreSQL for real-time analytics",
       },
       {
         title: "Pricing plans and account management",
         href: "pricing-and-account-management",
         excerpt: "Pricing plans for Timescale Cloud services",
+      },
+      {
+        title: "Changelog",
+        href: "changelog",
+        excerpt: "A summary of the latest changes to all Timescale products.",
       },
       {
         title: "TimescaleDB editions",
@@ -31,7 +31,12 @@ module.exports = [
         title: "Contribute to Timescale",
         href: "contribute-to-timescale",
         excerpt: "Contribute to the Timescale codebase",
-      }
+      },
+      {
+        title: "Release notes",
+        href: "release-notes",
+        excerpt: "Release information for TimescaleDB v2.0.0 - v2.15.1",
+      },
     ],
   },
 ];
