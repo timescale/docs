@@ -769,7 +769,7 @@ module.exports = [
         ],
       },
       {
-        title: "Timescale Cloud integrations",
+        title: "Integrations",
         href: "integrations",
         excerpt: "Integrate third-party solutions with Timescale Cloud",
         children: [
@@ -784,14 +784,34 @@ module.exports = [
             excerpt: "Integrate Apache Kafka with Timescale Cloud",
           },
           {
+            title: "Amazon CloudWatch",
+            href: "cloudwatch",
+            excerpt: "Integrate Amazon Cloudwatch with Timescale Cloud",
+          },
+          {
+            title: "Amazon SageMaker",
+            href: "amazon-sagemaker",
+            excerpt: "Integrate Amazon SageMaker with Timescale Cloud",
+          },
+          {
             title: "Apache Airflow",
             href: "apache-airflow",
-            excerpt: "Integrate Apache Airflow with Timescale Cloud",
+            excerpt: "Integrate Apache Airflow with Timescale products",
+          },
+          {
+            title: "AWS Lambda",
+            href: "aws-lambda",
+            excerpt: "Integrate AWS Lambda with Timescale Cloud",
           },
           {
             title: "Azure Data Studio",
             href: "azure-data-studio",
             excerpt: "Integrate Azure Data Studio with Timescale Cloud",
+          },
+          {
+            title: "Datadog",
+            href: "datadog",
+            excerpt: "Integrate Datadog with Timescale Cloud",
           },
           {
             title: "DBeaver",
@@ -804,24 +824,34 @@ module.exports = [
             excerpt: "Integrate Fivetran with Timescale Cloud",
           },
           {
+            title: "Grafana",
+            href: "grafana",
+            excerpt: "Integrate Grafana with Timescale products",
+          },
+          {
             title: "pgAdmin",
             href: "pgadmin",
             excerpt: "Integrate pgAdmin with Timescale Cloud",
           },
           {
+            title: "PostgreSQL",
+            href: "postgresql",
+            excerpt: "Integrate PostgreSQL with Timescale Cloud",
+          },
+          {
+            title: "Prometheus",
+            href: "prometheus",
+            excerpt: "Integrate Prometheus with Timescale Cloud",
+          },
+          {
             title: "psql",
             href: "psql",
-            excerpt: "Install psql and connect to your service",
+            excerpt: "Connect to Timescale products with psql",
           },
           {
             title: "qStudio",
             href: "qstudio",
             excerpt: "Integrate qstudio with Timescale Cloud",
-          },
-          {
-            title: "Grafana",
-            href: "grafana",
-            excerpt: "Integrate Grafana with Timescale Cloud",
           },
           {
             title: "Tableau",
@@ -880,6 +910,11 @@ module.exports = [
             title: "VPC peering and AWS PrivateLink",
             href: "vpc",
             excerpt: "Secure your Timescale Service with VPC peering and AWS PrivateLink",
+          },
+          {
+            title: "AWS Transit Gateway",
+            href: "transit-gateway",
+            excerpt: "Peer your Timescale Cloud service with AWS Transit Gateway",
           },
           {
             title: "IP allow list",
