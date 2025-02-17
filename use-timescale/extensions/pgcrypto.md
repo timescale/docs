@@ -1,6 +1,6 @@
 ---
 title: pgcrypto PostgreSQL extension
-excerpt: Use the pgcrypto extension with your Timescale service
+excerpt: pgcrypto is a PostgreSQL extension that secures sensitive data within the database. See how to use pgcrypto to encrypt inserted data in a Timescale Cloud service
 products: [cloud]
 keywords: [services, settings, extensions, pgcrypto]
 tags: [extensions, pgcrypto]

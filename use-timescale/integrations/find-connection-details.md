@@ -1,6 +1,6 @@
 ---
 title: Find your connection details
-excerpt: How to connect to a Timescale instance
+excerpt: You connect to Timescale Cloud or self-hosted TimescaleDB using your connection details. Learn where to find them
 products: [cloud, mst, self_hosted]
 keywords: [connect, Managed Service for TimescaleDB, Timescale]
 ---

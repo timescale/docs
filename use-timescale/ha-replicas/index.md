@@ -1,6 +1,6 @@
 ---
 title: High availability and read replication
-excerpt: Reduce the risk of service downtime and power read-intensive apps. 
+excerpt: Timescale Cloud enables you to reduce the risk of service downtime and power read-intensive apps with database replication. Learn about the available replication types
 products: [cloud]
 keywords: [high availability, replicas]
 tags: [failover, replication, ha]
