@@ -1,6 +1,6 @@
 ---
 title: Integrate Azure Data Studio with Timescale Cloud
-excerpt: Connect to your Timescale Cloud service with Microsoft Azure Data Studio
+excerpt: Azure Data Studio is an open-source, cross-platform hybrid data analytics tool designed to simplify the data landscape. Integrate Azure Data Studio with Timescale Cloud
 products: [cloud, mst, self_hosted]
 keywords: [integrate]
 ---
