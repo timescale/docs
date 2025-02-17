@@ -1,6 +1,6 @@
 ---
 title: Manually drop chunks
-excerpt: Manually drop chunks from your hypertable based on time value
+excerpt: If data retention policies don't meet your ad hoc needs, you can manually drop chunks from your hypertables based on time value. Learn how to do it in Timescale Cloud
 products: [cloud, mst, self_hosted]
 keywords: [data retention]
 tags: [drop, delete]

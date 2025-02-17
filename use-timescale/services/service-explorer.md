@@ -1,6 +1,6 @@
 ---
 title: Service explorer
-excerpt: Get insight into the performance and structure of your database
+excerpt: Timescale Service Explorer provides a rich administrative dashboard for understanding the state of your services. Get insight into the performance and structure of your service
 products: [cloud]
 keywords: [services, hypertables, schemas, indexes, policies]
 cloud_ui:
