@@ -38,7 +38,7 @@ When you call [convert_to_rowstore][convert_to_rowstore] on a compressed chunk i
 from the `chunk_column_stats` catalog table are reset. This is because the chunk is available for DML and the
 min/max range values can change on any further data manipulation in the chunk.
 
-By default, this feature is disabled. To enable chunk skipping, set `timescaledb.enable_chunk_skipping = on` in
+By default, this feature is disabled. To enable chunk skipping, set `timescale.enable_chunk_skipping = on` in
 `postgresql.conf`. When you upgrade from a database instance that uses compression but does not support chunk 
 skipping, you need to recompress the previously compressed chunks for chunk skipping to work.
 
