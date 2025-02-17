@@ -40,42 +40,72 @@ You use the [$COMPANY Terraform provider][terraform-provider] to manage $SERVICE
 
 1. **Configure $COMPANY Terraform provider**
 
-   1. Create a `main.tf` configuration file with the following content. Change `x.y.z` to the [latest version][terraform-provider] of the provider.
+   1. Create a `main.tf` configuration file with at least the following content. Change `x.y.z` to the [latest version][terraform-provider] of the provider.
+
+       ```hcl
+       terraform {
+         required_providers {
+           timescale = {
+             source  = "timescale/timescale"
+             version = "x.y.z"
+           }
+         }
+       }
+
+       # Authenticate using client credentials generated in Timescale Console.
+       # When required, these credentials will change to a short-lived JWT to do the calls.
+       provider "timescale" {
+        project_id = var.ts_project_id
+        access_key = var.ts_access_key
+        secret_key = var.ts_secret_key
+       }
+
+       variable "ts_project_id" {
+        type = string
+       }
+
+       variable "ts_access_key" {
+        type = string
+       }
+
+       variable "ts_secret_key" {
+        type = string
+       }
+       ```
    
-   1. Update `project_id`, `access_key`, and `secret_key` to the values for your $CLOUD_LONG project.
+   1. Create a `terraform.tfvars` file in the same directory as your `main.tf` to pass in the variable values:
+
+       ```hcl
+       export TF_VAR_ts_project_id="<your-timescale-project-id>"
+       export TF_VAR_ts_access_key="<your-timescale-access-key>"
+       export TF_VAR_ts_secret_key="<your-timescale-secret-key>"
+       ```
+      
+1. **Add your resources**
+
+   Add your $SERVICE_LONGs or $VPC connections to the `main.tf` configuration file. For example:
 
    ```hcl
-   terraform {
-     required_providers {
-       timescale = {
-         source  = "timescale/timescale"
-         version = "x.y.z"
-       }
+   resource "timescale_service" "test" {
+     name              = "test-service"   
+     milli_cpu         = 500
+     memory_gb         = 2
+     region_code       = "us-east-1"
+     enable_ha_replica = false
+   
+     timeouts = {
+       create = "30m"
      }
    }
-
-   # Authenticate using client credentials generated in Timescale Console.
-   # When required, these credentials will change to a short-lived JWT to do the calls.
-   provider "timescale" {
-    project_id = var.ts_project_id
-    access_key = var.ts_access_key
-    secret_key = var.ts_secret_key
-   }
-
-   variable "ts_project_id" {
-    type = string
-   }
-
-   variable "ts_access_key" {
-    type = string
-   }
-
-   variable "ts_secret_key" {
-    type = string
+   
+   resource "timescale_vpc" "vpc" {
+     cidr         = "10.10.0.0/16"  
+     name         = "test-vpc"
+     region_code  = "us-east-1"
    }
    ```
    
-You can now manage your $SERVICE_SHORTs with Terraform. See more about [available resources][terraform-resources] and [data sources][terraform-data-sources].
+You can now manage your resources with Terraform. See more about [available resources][terraform-resources] and [data sources][terraform-data-sources].
 
 </Procedure>
 
@@ -83,8 +113,9 @@ You can now manage your $SERVICE_SHORTs with Terraform. See more about [availabl
 
 <Tab title="Self-hosted TimescaleDB">
 
-You use the `cyrilgdn/postgresql` PostgreSQL provider to connect your self-hosted TimescaleDB instance.
-Update the following configuration with your [connection details][connection-info], then add it to your `main.tf` Terraform configuration:
+You use the [`cyrilgdn/postgresql`][pg-provider] PostgreSQL provider to connect to your self-hosted $TIMESCALE_DB instance. 
+
+Create a `main.tf` configuration file with the following content, using your [connection details][connection-info]:
 
 ```hcl
    terraform {
@@ -98,7 +129,7 @@ Update the following configuration with your [connection details][connection-inf
 
    provider "postgresql" {
     host            = "your-timescaledb-host"
-    port            = 5432
+    port            = "your-timescaledb-port"
     database        = "your-database-name"
     username        = "your-username"
     password        = "your-password"
@@ -119,3 +150,4 @@ You can now manage your database with Terraform.
 [connection-info]: /use-timescale/:currentVersion:/integrations/find-connection-details/
 [terraform-resources]: https://registry.terraform.io/providers/timescale/timescale/latest/docs/resources/peering_connection
 [terraform-data-sources]: https://registry.terraform.io/providers/timescale/timescale/latest/docs/data-sources/products
+[pg-provider]: https://registry.terraform.io/providers/cyrilgdn/postgresql/latest
