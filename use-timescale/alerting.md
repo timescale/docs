@@ -33,7 +33,9 @@ it is designed to take advantage of the database's time-series capabilities.
 From there, proceed to your dashboard and set up alert rules as described above.
 
 <Highlight type="warning">
+
 Alerting is only available in Grafana v4.0 and later.
+
 </Highlight>
 
 ## Other alerting tools
