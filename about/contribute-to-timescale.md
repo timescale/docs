@@ -8,7 +8,7 @@ tags: [github]
 
 # Contribute to $COMPANY
 
-$TIMESCALE_DB, pgai, pgvectorscale, TimescaleDB Toolkit, and the $COMPANY documentation are all open source. They are available in GitHub for you use, review and update. This page shows you where you can add to $COMPANY products.
+$TIMESCALE_DB, pgai, pgvectorscale, TimescaleDB Toolkit, and the $COMPANY documentation are all open source. They are available in GitHub for you use, review, and update. This page shows you where you can add to $COMPANY products.
 
 ## Contribute to the code for $COMPANY products
 
