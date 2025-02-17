@@ -1,6 +1,6 @@
 ---
 title: About data retention with continuous aggregates
-excerpt: How data retention works with continuous aggregates for downsampling
+excerpt: Combine continuous aggregates with data retention to save on raw data storage while keeping summarized data for historical analysis
 products: [cloud, mst, self_hosted]
 keywords: [continuous aggregates, data retention]
 ---

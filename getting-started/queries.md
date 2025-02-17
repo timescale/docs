@@ -1,6 +1,6 @@
 ---
 title: Queries
-excerpt: Query your time-series data
+excerpt: Timescale Cloud supports full SQL, so you don't need to learn a custom query language. Construct and run simple SQL queries on your Timescale Cloud service
 products: [cloud]
 keywords: [queries]
 layout_components: [next_prev_large]
