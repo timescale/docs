@@ -233,23 +233,23 @@ module.exports = [
   },
   {
     from: "/getting-started/exploring-cloud",
-    to: "https://docs.timescale.com/mst/latest/about-mst/",
+    to: "https://docs.timescale.com/getting-started/latest/try-key-features-timescale-products/",
   },
   {
     from: "/getting-started/installation/timescale-cloud/installation-timescale-cloud",
-    to: "https://docs.timescale.com/install/latest/installation-mst/",
+    to: "https://docs.timescale.com/getting-started/latest/try-key-features-timescale-products/",
   },
   {
     from: "/getting-started/latest/add-data/",
-    to: "https://docs.timescale.com/getting-started/latest/time-series-data/",
+    to: "https://docs.timescale.com/getting-started/latest/try-key-features-timescale-products/#optimize-time-series-data-in-hypertables",
   },
   {
-    from: "/getting-started/latest/compress-data/",
-    to: "https://docs.timescale.com/use-timescale/latest/compression/",
+    from: "/getting-started/latest/aggregation/",
+    to: "https://docs.timescale.com/getting-started/latest/try-key-features-timescale-products/#write-fast-analytical-queries-on-frequently-access-data-using-time-buckets-and-continuous-aggregates",
   },
   {
     from: "/getting-started/latest/create-cagg/",
-    to: "https://docs.timescale.com/getting-started/latest/aggregation/",
+    to: "https://docs.timescale.com/getting-started/latest/try-key-features-timescale-products/#write-fast-analytical-queries-on-frequently-access-data-using-time-buckets-and-continuous-aggregates",
   },
   {
     from: "/getting-started/latest/data-retention",
@@ -264,8 +264,16 @@ module.exports = [
     to: "https://docs.timescale.com/self-hosted/latest/install/installation-macos/",
   },
   {
-    from: "/getting-started/latest/query-data/",
-    to: "https://docs.timescale.com/getting-started/latest/queries/",
+    from: "/getting-started/latest/queries/",
+    to: "https://docs.timescale.com/getting-started/latest/try-key-features-timescale-products/#optimize-time-series-data-in-hypertables",
+  },
+  {
+    from: "/getting-started/latest/tables-hypertables/",
+    to: "https://docs.timescale.com/getting-started/latest/try-key-features-timescale-products/#optimize-time-series-data-in-hypertables",
+  },
+  {
+    from: "/getting-started/latest/time-series-data/",
+    to: "https://docs.timescale.com/getting-started/latest/try-key-features-timescale-products/#optimize-time-series-data-in-hypertables",
   },
   {
     from: "/install/latest",

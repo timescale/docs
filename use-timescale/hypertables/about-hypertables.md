@@ -17,10 +17,7 @@ Inheritance is not supported for hypertables and may lead to unexpected behavior
 
 ## Hypertable partitioning
 
-When you create and use a hypertable, it automatically partitions data by time,
-and optionally by space.
-
-Each hypertable is made up of child tables called chunks. Each chunk is assigned
+Each hypertable is partitioned into child tables called chunks. Each chunk is assigned
 a range of time, and only contains data from that range. If the hypertable is
 also partitioned by space, each chunk is also assigned a subset of the space
 values.
@@ -36,7 +33,7 @@ it makes sense.
 ### Time partitioning
 
 Each chunk of a hypertable only holds data from a specific time range. When you
-insert data from a time range that doesn't yet have a chunk, Timescale
+insert data from a time range that doesn't yet have a chunk, $CLOUD_LONG
 automatically creates a chunk to store it.
 
 By default, each chunk covers 7 days. You can change this to better suit your
@@ -50,7 +47,7 @@ alt="A normal table compared to a hypertable. The normal table holds data for 3 
 />
 
 <Highlight type="note">
-Timescale divides time into potential chunk ranges, based on the
+$CLOUD_LONG divides time into potential chunk ranges, based on the
 `chunk_time_interval`. If data exists for a potential chunk range, that chunk is
 created.
 
@@ -70,7 +67,7 @@ affect query planning time and compression.
 
 Best practice is to set `chunk_time_interval` so that prior to processing, one chunk of data
 takes up 25% of main memory, including the indexes from each active hypertable.
-For example, if your write approximately 2 GB of data per day to a database with 64 GB of 
+For example, if you write approximately 2 GB of data per day to a database with 64 GB of 
 memory, set `chunk_time_interval` to 1 week. If you write approximately 10 GB of data per day 
 on the same machine, set the time interval to 1 day.
 
