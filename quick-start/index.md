@@ -1,6 +1,6 @@
 ---
 title: Code quick starts
-excerpt: Get started with Timescale Cloud or TimescaleDB in the preferred programming language.  Learn to connect to a database, create and manage hypertables, and ingest and query data
+excerpt: Get started with Timescale Cloud or TimescaleDB in your preferred programming language.  Learn to connect to a database, create and manage hypertables, and ingest and query data
 ---
 
 # Start coding with Timescale 
