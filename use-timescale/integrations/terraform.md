@@ -1,6 +1,6 @@
 ---
 title: Terraform
-excerpt: Manage your Timescale services with Terraform
+excerpt: Terraform is an Infrastructure as code tool used to define, provision, and manage cloud infrastructure. Integrate Terraform with Timescale Cloud
 products: [cloud]
 keywords: [Terraform, configuration, deployment]
 tags: [terraform, manage]

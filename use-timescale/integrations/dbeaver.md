@@ -1,6 +1,6 @@
 ---
 title: Integrate DBeaver with Timescale Cloud
-excerpt: Connect to your Timescale Cloud service with DBeaver
+excerpt: DBeaver is a free cross-platform database tool for developers, database administrators, analysts, and everyone working with data. Integrate DBeaver with Timescale Cloud
 products: [cloud, mst, self_hosted]
 keywords: [integrate]
 ---
