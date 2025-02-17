@@ -779,11 +779,6 @@ module.exports = [
             excerpt: "Find connection information for your Timescale Service",
           },
           {
-            title: "Apache Kafka",
-            href: "kafka",
-            excerpt: "Integrate Apache Kafka with Timescale Cloud",
-          },
-          {
             title: "Amazon CloudWatch",
             href: "cloudwatch",
             excerpt: "Integrate Amazon Cloudwatch with Timescale Cloud",
