@@ -150,96 +150,6 @@ module.exports = [
         excerpt: "Manage storage by moving data between tablespaces",
       },
       {
-        title: "Multi-node",
-        href: "multinode-timescaledb",
-        children: [
-          {
-            title: "About multi-node",
-            href: "about-multinode",
-            excerpt: "Learn about multi-node environments",
-          },
-          {
-            title: "Multi-node setup on self-hosted TimescaleDB",
-            href: "multinode-setup",
-            excerpt: "Set up multi-node on self-hosted TimescaleDB",
-          },
-          {
-            title: "Multi-node authentication",
-            href: "multinode-auth",
-            excerpt: "Set up multi-node authentication",
-          },
-          {
-            title: "Configure multi-node",
-            href: "multinode-config",
-            excerpt: "Configure a multi-node environment",
-          },
-          {
-            title: "Multi-node administration",
-            href: "multinode-administration",
-            excerpt: "Administer a multi-node cluster",
-          },
-          {
-            title: "Grow and shrink a multi-node cluster",
-            href: "multinode-grow-shrink",
-            excerpt: "Grow and shrink a multi-node cluster",
-          },
-          {
-            title: "High availability multi-node",
-            href: "multinode-ha",
-            excerpt: "Highly available multi-node environments",
-          },
-          {
-            title: "Multi-node maintenance",
-            href: "multinode-maintenance",
-            excerpt: "Maintain a multi-node environment",
-          },
-        ],
-      },
-      {
-        title: "Distributed hypertables",
-        href: "distributed-hypertables",
-        excerpt: "Distributed hypertables for multi-node Timescale",
-        children: [
-          {
-            title: "About distributed hypertables",
-            href: "about-distributed-hypertables",
-            excerpt: "Learn about distributed hypertables",
-          },
-          {
-            title: "Create distributed hypertables",
-            href: "create-distributed-hypertables",
-            excerpt: "Create a distributed hypertable",
-          },
-          {
-            title: "Insert data",
-            href: "insert",
-            excerpt: "Insert data into a distributed hypertable",
-          },
-          {
-            title: "Query data",
-            href: "query",
-            excerpt: "Query data in distributed hypertables",
-          },
-          {
-            title: "Alter and drop distributed hypertables",
-            href: "alter-drop-distributed-hypertables",
-            excerpt: "Alter schema for and drop distributed hypertables",
-          },
-          {
-            title: "Create foreign keys on distributed hypertables",
-            href: "foreign-keys",
-            excerpt:
-              "Create foreign keys from distributed hypertables to other tables",
-          },
-          {
-            title: "Use triggers in distributed hypertables",
-            href: "triggers",
-            excerpt:
-              "Use row- and statement-level triggers in distributed hypertables",
-          },
-        ],
-      },
-      {
         title: "Replication and High Availability",
         href: "replication-and-ha",
         children: [
@@ -320,6 +230,96 @@ module.exports = [
         title: "Troubleshooting self-hosted TimescaleDB",
         href: "troubleshooting",
         type: "placeholder",
+      },
+      {
+        title: "Multi-node (Sunsetted v2.14.x)",
+        href: "multinode-timescaledb",
+        children: [
+          {
+            title: "About multi-node",
+            href: "about-multinode",
+            excerpt: "Learn about multi-node environments",
+          },
+          {
+            title: "Multi-node setup on self-hosted TimescaleDB",
+            href: "multinode-setup",
+            excerpt: "Set up multi-node on self-hosted TimescaleDB",
+          },
+          {
+            title: "Multi-node authentication",
+            href: "multinode-auth",
+            excerpt: "Set up multi-node authentication",
+          },
+          {
+            title: "Configure multi-node",
+            href: "multinode-config",
+            excerpt: "Configure a multi-node environment",
+          },
+          {
+            title: "Multi-node administration",
+            href: "multinode-administration",
+            excerpt: "Administer a multi-node cluster",
+          },
+          {
+            title: "Grow and shrink a multi-node cluster",
+            href: "multinode-grow-shrink",
+            excerpt: "Grow and shrink a multi-node cluster",
+          },
+          {
+            title: "High availability multi-node",
+            href: "multinode-ha",
+            excerpt: "Highly available multi-node environments",
+          },
+          {
+            title: "Multi-node maintenance",
+            href: "multinode-maintenance",
+            excerpt: "Maintain a multi-node environment",
+          },
+        ],
+      },
+      {
+        title: "Distributed hypertables (Sunsetted v2.14.x)",
+        href: "distributed-hypertables",
+        excerpt: "Distributed hypertables for multi-node Timescale",
+        children: [
+          {
+            title: "About distributed hypertables",
+            href: "about-distributed-hypertables",
+            excerpt: "Learn about distributed hypertables",
+          },
+          {
+            title: "Create distributed hypertables",
+            href: "create-distributed-hypertables",
+            excerpt: "Create a distributed hypertable",
+          },
+          {
+            title: "Insert data",
+            href: "insert",
+            excerpt: "Insert data into a distributed hypertable",
+          },
+          {
+            title: "Query data",
+            href: "query",
+            excerpt: "Query data in distributed hypertables",
+          },
+          {
+            title: "Alter and drop distributed hypertables",
+            href: "alter-drop-distributed-hypertables",
+            excerpt: "Alter schema for and drop distributed hypertables",
+          },
+          {
+            title: "Create foreign keys on distributed hypertables",
+            href: "foreign-keys",
+            excerpt:
+              "Create foreign keys from distributed hypertables to other tables",
+          },
+          {
+            title: "Use triggers in distributed hypertables",
+            href: "triggers",
+            excerpt:
+              "Use row- and statement-level triggers in distributed hypertables",
+          },
+        ],
       },
     ],
   },
