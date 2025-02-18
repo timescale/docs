@@ -1,6 +1,6 @@
 ---
 title: Query data in distributed hypertables
-excerpt: How to query data in distributed hypertables
+excerpt: Query data in distributed hypertables in your self-hosted TimescaleDB installation
 products: [self_hosted]
 keywords: [distributed hypertables, multi-node, queries]
 ---

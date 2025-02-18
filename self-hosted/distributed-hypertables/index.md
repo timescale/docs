@@ -1,6 +1,6 @@
 ---
 title: Distributed hypertables
-excerpt: Distributed hypertables help you horizontally scale your data storage in multi-node clusters
+excerpt: Distributed hypertables help you horizontally scale your data storage in multi-node clusters. Learn what they are and how to manage them
 products: [self_hosted]
 keywords: [distributed hypertables, multi-node]
 ---

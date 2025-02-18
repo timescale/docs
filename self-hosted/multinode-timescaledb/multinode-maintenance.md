@@ -1,6 +1,6 @@
 ---
 title: Multi-node maintenance tasks
-excerpt: How to maintain your multi-node instance
+excerpt: Maintain your self-hosted multi-node TimescaleDB instance
 products: [self_hosted]
 keywords: [multi-node, maintenance]
 tags: [manage]

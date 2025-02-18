@@ -1,6 +1,6 @@
 ---
 title: Multi-node configuration
-excerpt: Configure a multi-node TimescaleDB instance
+excerpt: Configure the main settings in your multi-node TimescaleDB instance
 products: [self_hosted]
 keywords: [configuration, settings, multi-node]
 ---

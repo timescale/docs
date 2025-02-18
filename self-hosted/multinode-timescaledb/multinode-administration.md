@@ -1,6 +1,6 @@
 ---
 title: Multi-node administration
-excerpt: Manage your multi-node TimescaleDB cluster
+excerpt: Administer your multi-node TimescaleDB cluster directly from the access node
 products: [self_hosted]
 keywords: [multi-node, admin]
 tags: [manage]
