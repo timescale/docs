@@ -37,6 +37,7 @@ To be able to inject data into your $SERVICE_LONG, set it as a destination in Fi
 
    Fivetran validates the connection settings and sets up any security configurations.
 1. Click `View Destination`. 
+
    The `Destination Connection Details` page opens.
 
 </Procedure>
@@ -53,10 +54,13 @@ $SERVICE_LONG. This section shows you how to inject the logs for your Fivetran c
 1. In [Fivetran Dashboard > Connections][fivetran-dashboard-connectors], click `Add connector`.
 1. Search for the `Fivetran Platform` connector, then click `Setup`.
 1. Leave the default schema name, then click `Save & Test`.
+
    You see `All connection tests passed!`
 1. Click `Continue`, enable `Add Quickstart Data Model` and click `Continue`.
+
    Your Fivetran connection is connected to your $SERVICE_LONG destination. 
 1. Click `Start Initial Sync`.
+
    Fivetran creates the log schema in your $SERVICE_SHORT and syncs the data to your $SERVICE_SHORT.
 
 </Procedure>
