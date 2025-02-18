@@ -84,8 +84,10 @@ To install and configure Apache Kafka:
       Timescale Cloud
       How Cool
      ```
-
+   
 </Procedure>
+
+Keep these terminals open, you use them to test the integration later.
 
 ## Install the sink connector to communicate with $CLOUD_LONG
 
@@ -114,8 +116,9 @@ To set up Kafka Connect server, plugins, drivers, and connectors:
 
    Use the `-daemon` flag to run this process in the background.
 
-1. **In another Terminal window, verify Kafka Connect is running on port 8083**
+1. **Verify Kafka Connect is running**
 
+    In yet another another Terminal window, run the following command:  
     ```bash
     curl http://localhost:8083
     ```
