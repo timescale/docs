@@ -814,6 +814,11 @@ module.exports = [
             excerpt: "Integrate DBeaver with Timescale products",
           },
           {
+            title: "Debezium",
+            href: "debezium",
+            excerpt: "Integrate Debezium with Timescale products",
+          },
+          {
             title: "Grafana",
             href: "grafana",
             excerpt: "Integrate Grafana with Timescale products",
@@ -826,7 +831,7 @@ module.exports = [
           {
             title: "PostgreSQL",
             href: "postgresql",
-            excerpt: "Integrate PostgreSQL with Timescale Cloud",
+            excerpt: "Integrate PostgreSQL with Timescale products",
           },
           {
             title: "Prometheus",

@@ -53,6 +53,12 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 | [Apache Airflow][apache-airflow] | Programmatically author, schedule, and monitor workflows.                           |
 | [AWS Lambda][aws-lambda]| Run code without provisioning or managing servers, scaling automatically as needed. |
 
+## Change data capture 
+
+|         Name         | Description                                                                     |
+|:--------------------:|---------------------------------------------------------------------------------|
+| [Debezium][debezium] | Capture changes in your database and stream them to other systems in real time. |
+
 
 [psql]: /use-timescale/:currentVersion:/integrations/psql/
 [qstudio]: /use-timescale/:currentVersion:/integrations/qstudio/
@@ -70,3 +76,4 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 [prometheus]: /use-timescale/:currentVersion:/integrations/prometheus
 [amazon-sagemaker]: /use-timescale/:currentVersion:/integrations/amazon-sagemaker
 [postgresql]: /use-timescale/:currentVersion:/integrations/postgresql
+[debezium]: /use-timescale/:currentVersion:/integrations/debezium

@@ -1,6 +1,6 @@
 Before integrating:
 
-* Create a target [$SERVICE_LONG][create-service]
+* Create a target [$SERVICE_LONG][create-service].
 
    You need [your connection details][connection-info] to follow the steps in this page. This procedure also 
    works for [self-hosted $TIMESCALE_DB][enable-timescaledb].
