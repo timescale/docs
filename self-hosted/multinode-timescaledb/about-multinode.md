@@ -1,6 +1,6 @@
 ---
 title: About multi-node
-excerpt: TimescaleDB multi-node allows you to run and manage a cluster of databases, which can give you faster data ingest, and more responsive and efficient queries for large workloads
+excerpt: Multi-node TimescaleDB enables you to run and manage a cluster of databases, which can result in faster data ingest, and more responsive and efficient queries for large workloads. Learn all about multi-node TimescaleDB
 products: [self_hosted]
 keywords: [multi-node]
 ---

@@ -1,6 +1,6 @@
 ---
 title: About distributed hypertables
-excerpt: Learn how distributed hypertables work in a self-hosted multi-node TimescaleDB instance
+excerpt: Distributed hypertables are hypertables that span multiple nodes. Learn how distributed hypertables work in a self-hosted multi-node TimescaleDB instance
 products: [self_hosted]
 keywords: [distributed hypertables, multi-node]
 ---
