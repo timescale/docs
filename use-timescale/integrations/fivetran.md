@@ -21,7 +21,7 @@ This page shows you how to inject data from data sources managed by Fivetran int
 
 <IntegrationPrereqs />
 
-* [Sign up for Fivetran][sign-up-fivetran]
+* Sign up for [Fivetran][sign-up-fivetran]
 
 ## Set your $SERVICE_LONG as a destination in Fivetran
 
@@ -34,6 +34,7 @@ To be able to inject data into your $SERVICE_LONG, set it as a destination in Fi
 1. In [Fivetran Dashboard > Destinations][fivetran-dashboard-destinations], click `Add destination`.
 1. Search for the `PostgreSQL` connector and click `Select`. Add the destination name and click `Add`.
 1. In the `PostgreSQL` setup, add your [$SERVICE_LONG connection details][connection-info], then click `Save & Test`.
+
    Fivetran validates the connection settings and sets up any security configurations.
 1. Click `View Destination`. 
    The `Destination Connection Details` page opens.
@@ -60,7 +61,7 @@ $SERVICE_LONG. This section shows you how to inject the logs for your Fivetran c
 
 </Procedure>
 
-## View the data in your $SERVICE_LONG 
+## View Fivetran data in your $SERVICE_LONG 
 
 To see data injected by Fivetran into your $SERVICE_LONG:
 
