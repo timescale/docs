@@ -1,6 +1,6 @@
 ---
 title: Gapfilling and interpolation
-excerpt: Timescale Cloud enables you to create additional rows of data to close any gaps. Learn how gapfilling and interpolation make sure your real-time analytics workloads run smoothly even on missing data
+excerpt: To make sure your queries run smoothly, last observation carried forward (LOCF) takes the last known value and uses it as a replacement for missing data. Learn more about LOCF in Timescale Cloud
 products: [cloud, mst, self_hosted]
 keywords: [hyperfunctions, Toolkit, gapfilling, interpolate]
 ---

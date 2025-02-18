@@ -1,6 +1,6 @@
 ---
 title: Connect to a Timescale Cloud service with psql 
-excerpt: Install the psql client for PostgreSQL and connect to your service 
+excerpt: psql enables you to type in queries interactively, issue them to Postgres, and see the query results. Connect to your Timescale Cloud service using psql
 products: [cloud, mst, self_hosted]
 keywords: [connect, psql]
 ---

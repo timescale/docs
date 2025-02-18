@@ -1,6 +1,6 @@
 ---
 title: Time-weighted average
-excerpt: Calculate a time-weighted average
+excerpt: A time-weighted average in Timescale Cloud is an aggregate that weights each value using LOCF or interpolation. Construct and run a sample time-weighted average query in your service
 products: [cloud, mst, self_hosted]
 keywords: [hyperfunctions, Toolkit, time-weighted]
 ---

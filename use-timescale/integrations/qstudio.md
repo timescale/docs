@@ -1,6 +1,6 @@
 ---
 title: Integrate qStudio with Timescale Cloud
-excerpt: Connect to your Timescale Cloud service or self-hosted TimescaleDB with qStudio
+excerpt: qStudio is a modern free SQL editor that provides syntax highlighting, code-completion, excel export, charting, and much more. Integrate qStudio with Timescale Cloud
 products: [cloud, mst, self_hosted]
 keywords: [integrate]
 ---

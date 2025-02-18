@@ -1,6 +1,6 @@
 ---
 title: "Quick Start: Java and TimescaleDB"
-excerpt: Get started with TimescaleDB for a Java application
+excerpt: Get started with Timescale Cloud or TimescaleDB using Java
 keywords: [Java]
 ---
 
