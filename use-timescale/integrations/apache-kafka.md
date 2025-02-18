@@ -21,8 +21,7 @@ This guide explains how to set up Kafka and Kafka Connect to stream data from a 
 
 <IntegrationPrereqs />
 
-- [Java8 or higher][java-installers] to run Apache Kafka   
-- [kcat][kcat] to pipe messages into kafka topics
+- [Java8 or higher][java-installers] to run Apache Kafka
 
 ## Install and configure Apache Kafka
 
@@ -94,22 +93,23 @@ To set up Kafka Connect server, plugins, drivers, and connectors:
 
 <Procedure>
 
-1. **Setup the plugins folders**
+1. **Install the PostgreSQL connector**
 
-   1. In Terminal, in the root folder of your Kafka deployment, download and configure the PostgreSQL sink and driver.
-      ```bash
-      mkdir -p "plugins/camel-postgresql-sink-kafka-connector"
-      curl https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-postgresql-sink-kafka-connector/3.21.0/camel-postgresql-sink-kafka-connector-3.21.0-package.tar.gz \
-      | tar -xzf - -C "plugins/camel-postgresql-sink-kafka-connector" --strip-components=1
-      curl https://jdbc.postgresql.org/download/postgresql-42.6.0.jar > "plugins/camel-postgresql-sink-kafka-connector/postgresql-42.6.0.jar"
-      echo "plugin.path=`pwd`/plugins/camel-postgresql-sink-kafka-connector" >> "config/connect-distributed.properties"
-      echo "plugin.path=`pwd`/plugins/camel-postgresql-sink-kafka-connector" >> "config/connect-standalone.properties" 
-      ```
+   In Terminal, in the root folder of your Kafka deployment, download and configure the PostgreSQL sink and driver.
+   ```bash
+   mkdir -p "plugins/camel-postgresql-sink-kafka-connector"
+   curl https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-postgresql-sink-kafka-connector/3.21.0/camel-postgresql-sink-kafka-connector-3.21.0-package.tar.gz \
+   | tar -xzf - -C "plugins/camel-postgresql-sink-kafka-connector" --strip-components=1
+   curl  -H "Accept: application/zip" https://jdbc.postgresql.org/download/postgresql-42.7.5.jar -o  "plugins/camel-postgresql-sink-kafka-connector/postgresql-42.7.5.jar"
+   echo "plugin.path=`pwd`/plugins/camel-postgresql-sink-kafka-connector" >> "config/connect-distributed.properties"
+   echo "plugin.path=`pwd`/plugins/camel-postgresql-sink-kafka-connector" >> "config/connect-standalone.properties" 
+   ```
    
 1. **Start Kafka Connect**
 
     ```bash
-   ./bin/connect-distributed.sh config/connect-distributed.properties
+   export CLASSPATH=`pwd`/plugins/camel-postgresql-sink-kafka-connector/*
+   ./bin/connect-standalone.sh config/connect-standalone.properties
    ```
 
    Use the `-daemon` flag to run this process in the background.
@@ -158,45 +158,8 @@ To create a $CLOUD_LONG sink in Apache Kafka:
 
 
 1.  **Create the connection configuration**
-
-    - Distributed
-    
-       1. Update the following JSON object with your [connection details][connection-info] and write it to the 
-          `config/timescale-sink.properties` file. 
-   
-          In this example, the sink connector writes messages from the `accounts` topic to 
-          the `accounts` hypertable in your $SERVICE_LONG.
-          ```bash
-           {
-           "name": "timescale-sink",
-           "config": {
-             "connector.class": "org.apache.camel.kafkaconnector.postgresqlsink.CamelPostgresqlsinkSinkConnector",
-             "errors.tolerance": "all",
-             "errors.deadletterqueue.topic.name": "deadletter",
-             "tasks.max": 10,
-             "value.converter": "org.apache.kafka.connect.storage.StringConverter",
-             "key.converter": "org.apache.kafka.connect.storage.StringConverter",
-             "topics": "accounts",
-             "camel.kamelet.postgresql-sink.databaseName": "tsdb",
-             "camel.kamelet.postgresql-sink.username": "tsdbadmin",
-             "camel.kamelet.postgresql-sink.password": "<password>",
-             "camel.kamelet.postgresqlsink.serverName": "<host>",
-             "camel.kamelet.postgresql-sink.serverPort": "<port>",
-             "camel.kamelet.postgresql-sink.query": "INSERT INTO accounts (name,city) VALUES (:#name,:#city)"
-           }
-          }
-          ```
-       1. Upload your configuration to Kafka Connect:
-
-         ```bash
-         curl -X POST -H "Content-Type: application/json" \
-          --data @timescale-sink.properties \
-          http://localhost:8083/connectors
-         ```
-
-    - Standalone: 
-       1. Update the following properties with your [connection details][connection-info] and write it to the
-          `config/timescale-standalone-sink.properties` file.
+ 
+       1. Write the following configuration to `config/timescale-standalone-sink.properties`, then update the `<properties>` with your [connection details][connection-info].
 
           ```properties
           name=timescale-standalone-sink
@@ -207,18 +170,18 @@ To create a $CLOUD_LONG sink in Apache Kafka:
           value.converter=org.apache.kafka.connect.storage.StringConverter
           key.converter=org.apache.kafka.connect.storage.StringConverter
           topics=accounts
-          camel.kamelet.postgresql-sink.databaseName=tsdb
-          camel.kamelet.postgresql-sink.username=tsdbadmin
+          camel.kamelet.postgresql-sink.databaseName=<dbname>
+          camel.kamelet.postgresql-sink.username=<user>
           camel.kamelet.postgresql-sink.password=<password>
           camel.kamelet.postgresql-sink.serverName=<host>
           camel.kamelet.postgresql-sink.serverPort=<port>
           camel.kamelet.postgresql-sink.query=INSERT INTO accounts (name,city) VALUES (:#name,:#city)
           ```
-       1. Start the standalone kafka instanceL
+       1. Start the standalone kafka instance:
           ```bash
-          $KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.properties $KAFKA_HOME/config/timescale-sink.properties
+          export CLASSPATH=`pwd`/plugins/camel-postgresql-sink-kafka-connector/*
+          ./bin/connect-standalone.sh config/connect-standalone.properties config/timescale-standalone-sink.properties
           ```
-          You need to stop the distributed instance before starting the standalone instance.
 
 1. **Test the connection**
 
@@ -241,13 +204,15 @@ To test this integration, send some messages onto the `accounts` topic. You can 
 
 <Procedure>
 
-1. **Pipe a JSON string containing a name and city into kafka using kcat**
+1. **In the terminal running `kafka-console-producer.sh` enter the following json strings**
 
    ```bash
-   echo '{"name":"Mathis","city":"Salt Lake City"}' | kcat -P -b localhost:9092 -t accounts
-   echo '{"name":"Oliver","city":"Moab"}' | kcat -P -b localhost:9092 -t accounts
-   echo '{"name":"Lauren","city":"Park City"}' | kcat -P -b localhost:9092 -t accounts
+   {"name":"Lola","city":"Copacabana"} 
+   {"name":"Holly","city":"Miami"}
+   {"name":"Jolene","city":"Tennessee"}
+   {"name":"Barbara Ann ","city":"California"} 
    ```
+   Look in your terminal running `kafka-console-consumer` to see the messages being processed.
 
 1. **Query your $SERVICE_LONG for all rows in the `accounts` table**
 
@@ -256,14 +221,14 @@ To test this integration, send some messages onto the `accounts` topic. You can 
    ```sql
    SELECT * FROM accounts;
    ```
-   You see something like
-   ```sql
-   created_at                    |  name  |      city
-   ------------------------------+--------+----------------
-   2023-08-23 18:04:51.101906+00 | Mathis | Salt Lake City
-   2023-08-23 18:04:54.856341+00 | Oliver | Moab
-   2023-08-23 18:04:58.217255+00 | Lauren | Park City
-   ```
+   You see something like:
+
+   | created_at                    |  name  |      city |
+   | -- | --| -- |
+   |2025-02-18 13:55:05.147261+00 | Lola | Copacabana |
+   |2025-02-18 13:55:05.216673+00 | Holly | Miami |
+   |2025-02-18 13:55:05.283549+00 | Jolene | Tennessee |
+   |2025-02-18 13:55:05.35226+00 | Barbara Ann | California |
 
 </Procedure>
 
