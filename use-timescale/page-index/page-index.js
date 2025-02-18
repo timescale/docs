@@ -794,14 +794,14 @@ module.exports = [
             excerpt: "Integrate Apache Airflow with Timescale products",
           },
           {
-            title: "AWS Lambda",
-            href: "aws-lambda",
-            excerpt: "Integrate AWS Lambda with Timescale Cloud",
-          },
-          {
             title: "Apache Kafka",
             href: "apache-kafka",
             excerpt: "Integrate Apache Kafka with Timescale Cloud",
+          },
+          {
+            title: "AWS Lambda",
+            href: "aws-lambda",
+            excerpt: "Integrate AWS Lambda with Timescale Cloud",
           },
           {
             title: "Azure Data Studio",
