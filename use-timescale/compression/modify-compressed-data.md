@@ -1,6 +1,6 @@
 ---
 title: Inserting or modifying data in compressed chunks
-excerpt: What happens when you try to modify data in a compressed hypertable
+excerpt: In Timescale Cloud, compressed data can still be modified. Learn to insert data into compressed chunks and modify data in compressed rows
 products: [cloud, mst, self_hosted]
 keywords: [compression, backfilling, hypertables]
 ---

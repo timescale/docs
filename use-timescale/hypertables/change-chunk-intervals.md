@@ -1,6 +1,6 @@
 ---
 title: Change hypertable chunk intervals
-excerpt: Adjust your hypertable chunk interval to improve query performance
+excerpt: Boost your analytical query performance by adjusting the hypertable chunk interval in Timescale Cloud
 products: [cloud, mst, self_hosted]
 keywords: [hypertables, chunks]
 tags: [performance]

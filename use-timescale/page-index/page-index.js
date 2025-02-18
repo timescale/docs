@@ -779,14 +779,24 @@ module.exports = [
             excerpt: "Find connection information for your Timescale Cloud service",
           },
           {
+            title: "Amazon CloudWatch",
+            href: "cloudwatch",
+            excerpt: "Integrate Amazon Cloudwatch with Timescale Cloud",
+          },
+          {
+            title: "Amazon SageMaker",
+            href: "amazon-sagemaker",
+            excerpt: "Integrate Amazon SageMaker with Timescale Cloud",
+          },
+          {
             title: "Apache Airflow",
             href: "apache-airflow",
             excerpt: "Integrate Apache Airflow with Timescale products",
           },
           {
-            title: "Amazon CloudWatch",
-            href: "cloudwatch",
-            excerpt: "Integrate Amazon Cloudwatch with Timescale Cloud",
+            title: "AWS Lambda",
+            href: "aws-lambda",
+            excerpt: "Integrate AWS Lambda with Timescale Cloud",
           },
           {
             title: "Apache Kafka",
@@ -809,9 +819,19 @@ module.exports = [
             excerpt: "Integrate DBeaver with Timescale Cloud",
           },
           {
+            title: "Grafana",
+            href: "grafana",
+            excerpt: "Integrate Grafana with Timescale products",
+          },
+          {
             title: "pgAdmin",
             href: "pgadmin",
             excerpt: "Integrate pgAdmin with Timescale Cloud",
+          },
+          {
+            title: "PostgreSQL",
+            href: "postgresql",
+            excerpt: "Integrate PostgreSQL with Timescale Cloud",
           },
           {
             title: "Prometheus",
@@ -827,11 +847,6 @@ module.exports = [
             title: "qStudio",
             href: "qstudio",
             excerpt: "Integrate qstudio with Timescale Cloud",
-          },
-          {
-            title: "Grafana",
-            href: "grafana",
-            excerpt: "Integrate Grafana with Timescale Cloud",
           },
           {
             title: "Tableau",
@@ -891,6 +906,11 @@ module.exports = [
             title: "VPC peering and AWS PrivateLink",
             href: "vpc",
             excerpt: "Secure your Timescale Service with VPC peering and AWS PrivateLink",
+          },
+          {
+            title: "AWS Transit Gateway",
+            href: "transit-gateway",
+            excerpt: "Peer your Timescale Cloud service with AWS Transit Gateway",
           },
           {
             title: "IP allow list",

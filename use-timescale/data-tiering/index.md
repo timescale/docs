@@ -1,6 +1,6 @@
 ---
 title: Tiered Storage
-excerpt: Save on storage costs by tiering older data to a low-cost bottomless object storage tier
+excerpt: Save on storage costs by tiering older data to a low-cost bottomless object storage tier. Timescale Cloud tiered storage makes sure you cut costs while having data available for analytical queries
 products: [cloud]
 keywords: [tiered storage]
 tags: [storage, data management]

@@ -1,6 +1,6 @@
 ---
 title: Plot geospatial time-series data tutorial - query the data
-excerpt: Query geospatial time-series data
+excerpt: Set up a sample dataset for PostGIS and construct queries to analyze the sample time-series data
 products: [cloud]
 keywords: [tutorials, GIS, geospatial, learn]
 tags: [tutorials, intermediate]
