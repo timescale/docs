@@ -1,6 +1,6 @@
 ---
 title: Integrate Fivetran with Timescale Cloud
-excerpt: Integrate Fivetran with Timescale Cloud service for seamless data synchronization.
+excerpt: Fivetran is a fully managed data pipeline platform that simplifies extract, transform, and load processes. Integrate Fivetran with Timescale Cloud for seamless data synchronization
 products: [cloud]
 keywords: [Fivetran, PostgreSQL, connection, integrate]
 
@@ -33,17 +33,17 @@ To be able to inject data into your $SERVICE_LONG, set it as a destination in Fi
 
 1. In [Fivetran Dashboard > Destinations][fivetran-dashboard-destinations], click `Add destination`.
 1. Search for the `PostgreSQL` connector and click `Select`. Add the destination name and click `Add`.
-2. In the `PostgreSQL` setup, add your [$SERVICE_LONG connection details][connection-info], then click `Save & Test`.
+1. In the `PostgreSQL` setup, add your [$SERVICE_LONG connection details][connection-info], then click `Save & Test`.
    Fivetran validates the connection settings and sets up any security configurations.
 1. Click `View Destination`. 
    The `Destination Connection Details` page opens.
 
 </Procedure>
 
-## Set up a fivetran connection as your data source
+## Set up a Fivetran connection as your data source
 
 In a real world scenario, you can select any of the over 600 connectors available in Fivetran to sync data with your 
-$SERVICE_LONG. This section shows you how to inject the logs for your fivetran connections into your $SERVICE_LONG.
+$SERVICE_LONG. This section shows you how to inject the logs for your Fivetran connections into your $SERVICE_LONG.
 
 ![Fivetran data source](https://assets.timescale.com/docs/images/integrations-fivetran-data-source.png)
 
@@ -56,7 +56,7 @@ $SERVICE_LONG. This section shows you how to inject the logs for your fivetran c
 1. Click `Continue`, enable `Add Quickstart Data Model` and click `Continue`.
    Your Fivetran connection is connected to your $SERVICE_LONG destination. 
 1. Click `Start Initial Sync`.
-   Fivetran creates the log schema in your $SERVICE and syncs the data to your $SERVICE.
+   Fivetran creates the log schema in your $SERVICE_SHORT and syncs the data to your $SERVICE_SHORT.
 
 </Procedure>
 
@@ -66,7 +66,7 @@ To see data injected by Fivetran into your $SERVICE_LONG:
 
 <Procedure>
 
-1. In [data mode][portal-data-mode] in $CONSOLE, select $SERVICE, then run the following query:
+1. In [data mode][portal-data-mode] in $CONSOLE, select your $SERVICE_SHORT, then run the following query:
    ```sql
    SELECT *
    FROM fivetran_log.account

@@ -57,7 +57,7 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 
 |         Name         | Description                                                                                                                                                                 |
 |:--------------------:|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Fivetran][fivetran] | A fully managed data pipeline platform that simplifies ETL (Extract, Transform, Load) processes by automatically syncing data from multiple sources to your data warehouse. |
+| [Fivetran][fivetran] | Sync data from multiple sources to your data warehouse. |
 
 
 [psql]: /use-timescale/:currentVersion:/integrations/psql/

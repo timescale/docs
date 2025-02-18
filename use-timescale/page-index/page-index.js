@@ -776,7 +776,7 @@ module.exports = [
           {
             title: "Find your connection details",
             href: "find-connection-details",
-            excerpt: "Find connection information for your Timescale Service",
+            excerpt: "Find connection information for your Timescale service",
           },
           {
             title: "Amazon CloudWatch",
