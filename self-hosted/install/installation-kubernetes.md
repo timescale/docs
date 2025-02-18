@@ -1,6 +1,6 @@
 ---
 title: Install TimescaleDB on Kubernetes
-excerpt: Install self-hosted TimescaleDB on Kubernetes
+excerpt: Run TimescaleDB inside Kubernetes using the TimescaleDB Docker container image
 products: [self_hosted]
 keywords: [installation, self-hosted, Kubernetes]
 ---
