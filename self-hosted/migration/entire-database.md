@@ -1,6 +1,6 @@
 ---
 title: Migrate the entire database at once
-excerpt: Migrate an entire Timescale database to self-hosted TimescaleDB in one go
+excerpt: Migrate a small database to self-hosted TimescaleDB in one go with `pg_dump` and `pg_restore`
 products: [self_hosted]
 keywords: [data migration]
 tags: [ingest]
