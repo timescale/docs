@@ -1,6 +1,6 @@
 ---
 title: Connection pools
-excerpt: Pool client connections to keep server resource us low
+excerpt: Pool client connections to your TimescaleDB database to keep server resource use low
 products: [mst]
 keywords: [connect]
 tags: [connection pools, pgbouncer]
