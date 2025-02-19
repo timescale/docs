@@ -1,6 +1,6 @@
 ---
 title: Analyze financial tick data - set up compression
-excerpt: Compress the dataset so you can store the financial tick data more efficiently
+excerpt: Compress a sample dataset with Timescale Cloud to store the financial data more efficiently
 products: [cloud, mst, self_hosted]
 keywords: [tutorials, finance, learn]
 tags: [tutorials, beginner]

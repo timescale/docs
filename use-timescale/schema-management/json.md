@@ -1,6 +1,6 @@
 ---
 title: JSONB support for semi-structured data
-excerpt: Store semi-structured data, such as user-defined fields, as JSONB
+excerpt: In Timescale Cloud, you can use JSON or JSONB to store semi-structured data, such as user-defined fields. Learn how to index the JSONB structure and individual fields
 products: [cloud, mst, self_hosted]
 keywords: [schemas, JSONB]
 ---

@@ -1,6 +1,6 @@
 ---
 title: Approximate percentiles
-excerpt: How to use an approximation algorithm to calculate percentiles
+excerpt: Timescale Cloud relies on approximation algorithms to calculate percentiles on large datasets in a more efficient manner. Learn to construct and run an approximate percentage query
 products: [cloud, mst, self_hosted]
 keywords: [hyperfunctions, Toolkit, percentiles]
 tags: [tdigest, uddsketch]

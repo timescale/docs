@@ -1,6 +1,6 @@
 ---
 title: Time-series data
-excerpt: Add time-series data to your Timescale service
+excerpt: Find out what time-series data is, how it is generated, and how you can run real-time analytics on it with Timescale Cloud
 products: [cloud]
 keywords: [ingest]
 tags: [add, data, time-series]
