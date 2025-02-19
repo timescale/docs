@@ -49,9 +49,9 @@ Test that the data imported from $CLOUD_LONG is available in Power BI and can be
 <Procedure>
 
    1. Create a simple report in Power BI.
-   2. Drag fields from the imported table onto the `Report View` canvas.
-   3. Apply filters or use visualization options such as `Bar Chart`, `Pie Chart`, or `Line Chart`.
-   4. Verify real-time data: If using `DirectQuery`, update data in your $SERVICE_LONG, click `Refresh` in Power BI, and see the changes in your report.
+   1. Drag fields from the imported table onto the `Report View` canvas.
+   1. Apply filters or use visualization options such as `Bar Chart`, `Pie Chart`, or `Line Chart`.
+   1. Verify real-time data: If using `DirectQuery`, update data in your $SERVICE_LONG, click `Refresh` in Power BI, and see the changes in your report.
 
 </Procedure>
 
