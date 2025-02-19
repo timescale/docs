@@ -1,6 +1,6 @@
 ---
 title: Billing on Managed Service for TimescaleDB
-excerpt: Billing and account management for Managed Service for TimescaleDB
+excerpt: Billing and account management in Managed Service for TimescaleDB
 products: [mst]
 keywords: [billing, invoicing, accounts]
 ---
