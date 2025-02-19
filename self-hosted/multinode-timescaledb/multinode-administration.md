@@ -1,6 +1,6 @@
 ---
 title: Multi-node administration
-excerpt: Administer your multi-node TimescaleDB cluster directly from the access node
+excerpt: Sunsetted v2.14.x. Administer your multi-node TimescaleDB cluster directly from the access node
 products: [self_hosted]
 keywords: [multi-node, admin]
 tags: [manage]
