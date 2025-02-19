@@ -17,7 +17,7 @@ This guide explains how to connect a Kubernetes cluster to $CLOUD_LONG, configur
 
 <IntegrationPrereqs />
 
-- Install [self-managed Kubernetes][kubernetes-install] or sign up for a [managed service][kubernetes-managed]. 
+- Install [self-managed Kubernetes][kubernetes-install] or sign up for a [managed service][kubernetes-managed].
 - Install [kubectl][kubectl] for command-line interaction with your cluster.
 
 ## Connect your Kubernetes cluster to your $SERVICE_LONG
@@ -33,24 +33,24 @@ To connect your Kubernetes cluster to $CLOUD_LONG:
 1. **Create a namespace for your $CLOUD_LONG components**
 
    - Run the following command to check if a namespace for your database components exists:
-    
+
        ```shell
        kubectl get namespaces
        ```
-    
+
    - If not, create one:
-    
+
        ```shell
        kubectl create namespace timescale
        ```
-    
+
    - Optionally set this namespace as the default for your session:
-    
+
        ```shell
        kubectl config set-context --current --namespace=timescale
        ```
-    
-    For details, see the [Kubernetes namespace documentation][kubernetes-namespace].
+
+   For details, see the [Kubernetes namespace documentation][kubernetes-namespace].
 
 1. **Create a Kubernetes secret for database credentials**
 
@@ -75,9 +75,9 @@ To connect your Kubernetes cluster to $CLOUD_LONG:
       nc -zv <your-host> <your-port>
       ```
 
-      If the connection fails, check the firewall rules.
+     If the connection fails, check the firewall rules.
 
-1. **Deploy Kubernetes deployment for $CLOUD_LONG access**
+1. **Create a Kubernetes deployment for $CLOUD_LONG access**
 
    1. Create a deployment (`deployment.yaml`) that connects to $CLOUD_LONG:
 
@@ -118,13 +118,15 @@ To connect your Kubernetes cluster to $CLOUD_LONG:
    kubectl run test-pod --image=postgres --restart=Never --env-from=secretRef:name=timescale-secret --command -- psql -h $PGHOST -U $PGUSER -d $PGDATABASE
    ```
 
-    If the connection is successful, you should see the PostgreSQL interactive terminal.
+   If the connection is successful, you should see the PostgreSQL interactive terminal.
 
 </Procedure>
 
 </Tab>
 
 <Tab title="Self-hosted TimescaleDB">
+
+To connect your Kubernetes cluster to self-hosted $TIMESCALE_DB:
 
 <Procedure>
 
@@ -152,7 +154,7 @@ To connect your Kubernetes cluster to $CLOUD_LONG:
 
 1. **Set up persistent storage**
 
-Skip this step if you are using managed Kubernetes. For self-hosted Kubernetes, manually set up a persistent volume and claim:
+   Skip this step if you are using managed Kubernetes. For self-hosted Kubernetes, manually set up a persistent volume and claim:
 
    1. Create a `pvc.yaml` file:
 
@@ -174,54 +176,54 @@ Skip this step if you are using managed Kubernetes. For self-hosted Kubernetes, 
       ```shell
       kubectl apply -f pvc.yaml
       ```
-      
+
 1. **Deploy $TIMESCALE_DB as a StatefulSet**
 
    1. Create a `timescale-statefulset.yaml` file using your [connection details][connection-info]:
 
-   ```yaml
-   apiVersion: apps/v1
-   kind: StatefulSet
-   metadata:
-     name: timescaledb
-   spec:
-     serviceName: timescaledb
-     replicas: 1
-     selector:
-       matchLabels:
-         app: timescaledb
-     template:
-       metadata:
-         labels:
-           app: timescaledb
-       spec:
-         containers:
-           - name: timescaledb
-             image: 'timescale/timescaledb:latest-pg15'
-             env:
-               - name: POSTGRES_USER
-                 value: myuser
-               - name: POSTGRES_PASSWORD
-                 value: mypassword
-               - name: POSTGRES_DB
-                 value: mydatabase
-             ports:
-               - containerPort: 5432
-             volumeMounts:
-               - mountPath: /var/lib/postgresql/data
-                 name: timescale-storage
-         volumes:
-           - name: timescale-storage
-             persistentVolumeClaim:
-               claimName: timescale-pvc
-   ```
-   
-   1. Apply the StatefulSet: 
+      ```yaml
+      apiVersion: apps/v1
+      kind: StatefulSet
+      metadata:
+        name: timescaledb
+      spec:
+        serviceName: timescaledb
+        replicas: 1
+        selector:
+          matchLabels:
+            app: timescaledb
+        template:
+          metadata:
+            labels:
+              app: timescaledb
+          spec:
+            containers:
+              - name: timescaledb
+                image: 'timescale/timescaledb:latest-pg15'
+                env:
+                  - name: POSTGRES_USER
+                    value: myuser
+                  - name: POSTGRES_PASSWORD
+                    value: mypassword
+                  - name: POSTGRES_DB
+                    value: mydatabase
+                ports:
+                  - containerPort: 5432
+                volumeMounts:
+                  - mountPath: /var/lib/postgresql/data
+                    name: timescale-storage
+            volumes:
+              - name: timescale-storage
+                persistentVolumeClaim:
+                  claimName: timescale-pvc
+      ```
 
-   ```shell
-   kubectl apply -f timescale-statefulset.yaml
-   ```
-   
+   1. Apply the StatefulSet:
+
+      ```shell
+      kubectl apply -f timescale-statefulset.yaml
+      ```
+
 1. **Expose $TIMESCALE_DB within Kubernetes**
 
    To allow applications to connect, expose $TIMESCALE_DB using a ClusterIP Service:
@@ -240,10 +242,10 @@ Skip this step if you are using managed Kubernetes. For self-hosted Kubernetes, 
            targetPort: 5432
       type: ClusterIP   
    ```
-   
+
 1. **Store database credentials**
 
-    Run the following using your [connection details][connection-info]:
+   Run the following using your [connection details][connection-info]:
 
     ```shell
     kubectl create secret generic timescale-secret \
@@ -280,15 +282,13 @@ Skip this step if you are using managed Kubernetes. For self-hosted Kubernetes, 
                   name: timescale-secret
     EOF
     ```
-   
-1. **Test the database connection**
 
+1. **Test the database connection**
     ```shell
     kubectl run test-pod --image=postgres --restart=Never \
     --env-from=secretRef:name=timescale-secret \
     --command -- psql -h $PGHOST -U $PGUSER -d $PGDATABASE
     ```
-
 If the connection is successful, you should see the PostgreSQL interactive terminal.
 
 </Procedure>
