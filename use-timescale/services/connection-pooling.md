@@ -1,6 +1,6 @@
 ---
 title: Connection pooling
-excerpt: Use a connection pool for your Timescale services
+excerpt: Connection pooling is reusing existing connections instead of creating a new one each time a client requests access to the database. Create connection poolers in Timescale Console to boost your database performance
 products: [cloud]
 keywords: [connection pooling, pooler, connections, services]
 cloud_ui:

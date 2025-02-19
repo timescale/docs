@@ -1,6 +1,6 @@
 ---
 title: Drop a hypertable
-excerpt: Delete a hypertable from your database
+excerpt: Delete a hypertable from your Timescale Cloud service using a standard PostgreSQL DROP TABLE command
 products: [cloud, mst, self_hosted]
 keywords: [hypertables, delete]
 tags: [delete]

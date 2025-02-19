@@ -1,6 +1,6 @@
 ---
 title: Compress continuous aggregates
-excerpt: How to compress a continuous aggregate
+excerpt: Compressing a continuous aggregate can save you storage space while making sure the data is still available for your analytical workloads. Learn to compress continuous aggregates in Timescale Cloud
 products: [cloud, mst, self_hosted]
 keywords: [continuous aggregates, compression]
 ---

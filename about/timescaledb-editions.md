@@ -6,6 +6,9 @@ keywords: [Apache, community, license]
 tags: [learn, contribute]
 ---
 
+import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
+import Since2180 from "versionContent/_partials/_since_2_18_0.mdx";
+
 # TimescaleDB Apache 2 and TimescaleDB Community Edition
 
 There are two versions of TimescaleDB available:
@@ -162,40 +165,55 @@ You can access a hosted version of TimescaleDB Community Edition through
   </tr>
 
   <tr>
-    <td><strong>Compression</strong></td>
+    <td><strong>Hypercore</strong>  <Since2180 /></td>
   </tr>
   <tr>
-    <td><a href="https://docs.timescale.com/api/latest/compression/alter_table_compression/">ALTER TABLE (Compression)</a></td>
+    <td><a href="https://docs.timescale.com/api/latest/hypercore/alter_materialized_view/">ALTER MATERIALIZED VIEW (Hypercore)</a></td>
     <td>❌</td>
     <td>✅</td>
   </tr>
   <tr>
-    <td><a href="https://docs.timescale.com/api/latest/compression/add_compression_policy/#sample-usage">add_compression_policy</a></td>
+    <td><a href="https://docs.timescale.com/api/latest/hypercore/alter_table/">ALTER TABLE (Hypercore)</a></td>
     <td>❌</td>
     <td>✅</td>
   </tr>
   <tr>
-    <td><a href="https://docs.timescale.com/api/latest/compression/remove_compression_policy/">remove_compression_policy</a></td>
+    <td><a href="https://docs.timescale.com/api/latest/hypercore/add_columnstore_policy/">add_columnstore_policy</a></td>
     <td>❌</td>
     <td>✅</td>
   </tr>
   <tr>
-    <td><a href="https://docs.timescale.com/api/latest/compression/compress_chunk/">compress_chunk</a></td>
+    <td><a href="https://docs.timescale.com/api/latest/hypercore/remove_columnstore_policy/">remove_columnstore_policy</a></td>
     <td>❌</td>
     <td>✅</td>
   </tr>
   <tr>
-    <td><a href="https://docs.timescale.com/api/latest/compression/decompress_chunk/">decompress_chunk</a></td>
+    <td><a href="https://docs.timescale.com/api/latest/hypercore/convert_to_columnstore/">convert_to_columnstore</a></td>
     <td>❌</td>
     <td>✅</td>
   </tr>
   <tr>
-    <td><a href="https://docs.timescale.com/api/latest/compression/hypertable_compression_stats/">hypertable_compression_stats</a></td>
+    <td><a href="https://docs.timescale.com/api/latest/hypercore/convert_to_rowstore/">convert_to_rowstore</a></td>
     <td>❌</td>
     <td>✅</td>
   </tr>
   <tr>
-    <td><a href="https://docs.timescale.com/api/latest/compression/chunk_compression_stats/">chunk_compression_stats</a></td>
+    <td><a href="https://docs.timescale.com/api/latest/hypercore/hypertable_columnstore_settings/">hypertable_columnstore_settings</a></td>
+    <td>❌</td>
+    <td>✅</td>
+  </tr>
+  <tr>
+    <td><a href="https://docs.timescale.com/api/latest/hypercore/hypertable_columnstore_stats/">hypertable_columnstore_stats</a></td>
+    <td>❌</td>
+    <td>✅</td>
+  </tr>
+  <tr>
+    <td><a href="https://docs.timescale.com/api/latest/hypercore/chunk_columnstore_settings/">chunk_columnstore_settings</a></td>
+    <td>❌</td>
+    <td>✅</td>
+  </tr>
+  <tr>
+    <td><a href="https://docs.timescale.com/api/latest/hypercore/chunk_columnstore_stats/">chunk_columnstore_stats</a></td>
     <td>❌</td>
     <td>✅</td>
   </tr>
@@ -450,6 +468,44 @@ You can access a hosted version of TimescaleDB Community Edition through
   <tr>
     <td><a href="https://docs.timescale.com/api/latest/administration/#dump-timescaledb-meta-data">dump_meta_data</a></td>
     <td>✅</td>
+    <td>✅</td>
+  </tr>
+  <tr>
+    <td><strong>Compression</strong>  <Deprecated2180 /> replaced by Hypercore</td>
+  </tr>
+  <tr>
+    <td><a href="https://docs.timescale.com/api/latest/compression/alter_table_compression/">ALTER TABLE (Compression)</a></td>
+    <td>❌</td>
+    <td>✅</td>
+  </tr>
+  <tr>
+    <td><a href="https://docs.timescale.com/api/latest/compression/add_compression_policy/#sample-usage">add_compression_policy</a></td>
+    <td>❌</td>
+    <td>✅</td>
+  </tr>
+  <tr>
+    <td><a href="https://docs.timescale.com/api/latest/compression/remove_compression_policy/">remove_compression_policy</a></td>
+    <td>❌</td>
+    <td>✅</td>
+  </tr>
+  <tr>
+    <td><a href="https://docs.timescale.com/api/latest/compression/compress_chunk/">compress_chunk</a></td>
+    <td>❌</td>
+    <td>✅</td>
+  </tr>
+  <tr>
+    <td><a href="https://docs.timescale.com/api/latest/compression/decompress_chunk/">decompress_chunk</a></td>
+    <td>❌</td>
+    <td>✅</td>
+  </tr>
+  <tr>
+    <td><a href="https://docs.timescale.com/api/latest/compression/hypertable_compression_stats/">hypertable_compression_stats</a></td>
+    <td>❌</td>
+    <td>✅</td>
+  </tr>
+  <tr>
+    <td><a href="https://docs.timescale.com/api/latest/compression/chunk_compression_stats/">chunk_compression_stats</a></td>
+    <td>❌</td>
     <td>✅</td>
   </tr>
 </table>

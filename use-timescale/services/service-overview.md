@@ -1,6 +1,6 @@
 ---
 title: About services
-excerpt: See information on your service's connection parameters, configuration, and resource usage
+excerpt: Manage your Timescale Cloud services in Timescale Console. Run daily admin operations, control access, set up security, compress data, run analytical queries, and more
 products: [cloud]
 keywords: [connect, services]
 tags: [storage, resources, disk space]

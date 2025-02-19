@@ -1,11 +1,16 @@
 ---
 title: About compression methods
-excerpt: Understand the different compression methods
+excerpt: Understand the different compression methods, which includes delta encoding, delta-of-delta, simple-8b, run-length encoding, XOR-based, and dictionary compression
 products: [cloud, mst, self_hosted]
 keywords: [compression]
 ---
 
+import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
+
 # About compression methods
+
+<Deprecated2180 /> see <a href="https://docs.timescale.com/use-timescale/latest/hypercore/">Hypercore</a>
+
 
 TimescaleDB uses different compression algorithms, depending on the data type
 that is being compressed.
@@ -50,8 +55,8 @@ this:
 |time|cpu|mem_free_bytes|temperature|humidity|
 |-|-|-|-|-|
 |2023-04-01 10:00:00|82|1,073,741,824|80|25|
-|2023-04-01 10:05:00|98|858,993,459|81|25|
-|2023-04-01 10:05:00|98|858,904,583|81|25|
+|2023-04-01 10:00:05|98|858,993,459|81|25|
+|2023-04-01 10:00:10|98|858,904,583|81|25|
 
 With delta encoding, you only need to store how much each value changed from the
 previous data point, resulting in smaller values to store. So after the first
@@ -59,7 +64,7 @@ row, you can represent subsequent rows with less information, like this:
 
 |time|cpu|mem_free_bytes|temperature|humidity|
 |-|-|-|-|-|
-|2020-04-01 10:00:00|82|1,073,741,824|80|25|
+|2023-04-01 10:00:00|82|1,073,741,824|80|25|
 |5 seconds|16|-214,748,365|1|0|
 |5 seconds|0|-88,876|0|0|
 
@@ -86,7 +91,7 @@ Applied to the example dataset from earlier, delta-of-delta encoding results in 
 |-|-|-|-|-|
 |2020-04-01 10:00:00|82|1,073,741,824|80|25|
 |5 seconds|16|-214,748,365|1|0|
-|0|0|-88,876|0|0|
+|0 seconds|0|-88,876|0|0|
 
 In this example, delta-of-delta further compresses 5 seconds in the time column
 down to 0 for every entry in the time column after the second row, because the

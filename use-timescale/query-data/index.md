@@ -1,6 +1,6 @@
 ---
 title: Query data
-excerpt: Query data in Timescale
+excerpt: Query data in Timescale Cloud with SELECT, get faster queries with SkipScan, and run advanced analytis - all while getting extra benefits from Timescale Cloud architecture and query planning
 products: [cloud, mst, self_hosted]
 keywords: [queries]
 ---
