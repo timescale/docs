@@ -1,7 +1,7 @@
 ---
 title: Get started with Managed Service for TimescaleDB
 nav-title: Managed Service for TimescaleDB
-excerpt: Start a TimescaleDB instance on Managed Service for TimescaleDB
+excerpt: Create and connect to a service in Managed Service for TimescaleDB
 products: [mst]
 section: install
 order: 2

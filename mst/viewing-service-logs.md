@@ -1,6 +1,6 @@
 ---
 title: Viewing service logs
-excerpt: View logs for your Managed Service for TimescaleDB service
+excerpt: View logs for your services in Managed Service for TimescaleDB by using MST Console or the command-line tool
 products: [mst]
 keywords: [logging, services]
 ---
