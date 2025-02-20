@@ -34,19 +34,19 @@ To connect your Kubernetes cluster to $CLOUD_LONG:
 
    - Run the following command to check if a namespace for your database components exists:
     
-       ```sh
+       ```shell
        kubectl get namespaces
        ```
     
    - If not, create one:
     
-       ```sh
+       ```shell
        kubectl create namespace timescale
        ```
     
    - Optionally set this namespace as the default for your session:
     
-       ```sh
+       ```shell
        kubectl config set-context --current --namespace=timescale
        ```
     
@@ -56,7 +56,7 @@ To connect your Kubernetes cluster to $CLOUD_LONG:
 
    Use your [connection details][connection-info] to create a Kubernetes secret for storing the $SERVICE_SHORT credentials:
 
-   ```sh
+   ```shell
    kubectl create secret generic timescale-secret \
      --from-literal=PGHOST=<your-host> \
      --from-literal=PGPORT=<your-port> \
@@ -71,7 +71,7 @@ To connect your Kubernetes cluster to $CLOUD_LONG:
 
    - Self-hosted Kubernetes: if your cluster is behind a firewall or running on-premise, you may need to allow egress traffic to $CLOUD_LONG. Test connectivity using your [connection details][connection-info]:
 
-      ```sh
+      ```shell
       nc -zv <your-host> <your-port>
       ```
 
@@ -106,7 +106,7 @@ To connect your Kubernetes cluster to $CLOUD_LONG:
 
    1. Apply the deployment:
 
-      ```sh
+      ```shell
       kubectl apply -f deployment.yaml
       ```
 
@@ -114,7 +114,7 @@ To connect your Kubernetes cluster to $CLOUD_LONG:
 
    Run a pod to verify database connectivity using your [connection details][connection-info]:
 
-   ```sh
+   ```shell
    kubectl run test-pod --image=postgres --restart=Never --env-from=secretRef:name=timescale-secret --command -- psql -h $PGHOST -U $PGUSER -d $PGDATABASE
    ```
 
@@ -132,19 +132,19 @@ To connect your Kubernetes cluster to $CLOUD_LONG:
 
    - Run the following command to check if a namespace for your database components exists:
 
-       ```sh
+       ```shell
        kubectl get namespaces
        ```
 
    - If not, create one:
 
-       ```sh
+       ```shell
        kubectl create namespace timescale
        ```
 
    - Optionally set this namespace as the default for your session:
 
-       ```sh
+       ```shell
        kubectl config set-context --current --namespace=timescale
        ```
 
@@ -171,7 +171,7 @@ Skip this step if you are using managed Kubernetes. For self-hosted Kubernetes, 
 
    1. Apply the PVC:
 
-      ```sh
+      ```shell
       kubectl apply -f pvc.yaml
       ```
       
@@ -218,7 +218,7 @@ Skip this step if you are using managed Kubernetes. For self-hosted Kubernetes, 
    
    1. Apply the StatefulSet: 
 
-   ```sh
+   ```shell
    kubectl apply -f timescale-statefulset.yaml
    ```
    
@@ -240,6 +240,56 @@ Skip this step if you are using managed Kubernetes. For self-hosted Kubernetes, 
            targetPort: 5432
       type: ClusterIP   
    ```
+   
+1. **Store database credentials**
+
+    Run the following using your [connection details][connection-info]:
+
+    ```shell
+    kubectl create secret generic timescale-secret \
+    --from-literal=PGHOST=timescaledb \
+    --from-literal=PGPORT=5432 \
+    --from-literal=PGDATABASE=<database-name> \
+    --from-literal=PGUSER=<username> \
+    --from-literal=PGPASSWORD=<password>
+    ```
+
+1. **Deploy an application that connects to $TIMESCALE_DB**
+
+    ```shell
+    kubectl apply -f - <<EOF
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: timescale-app
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          app: timescale-app
+      template:
+        metadata:
+          labels:
+            app: timescale-app
+        spec:
+          containers:
+          - name: timescale-container
+            image: postgres:latest
+            envFrom:
+              - secretRef:
+                  name: timescale-secret
+    EOF
+    ```
+   
+1. **Test the database connection**
+
+    ```shell
+    kubectl run test-pod --image=postgres --restart=Never \
+    --env-from=secretRef:name=timescale-secret \
+    --command -- psql -h $PGHOST -U $PGUSER -d $PGDATABASE
+    ```
+
+If the connection is successful, you should see the PostgreSQL interactive terminal.
 
 </Procedure>
 
