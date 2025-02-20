@@ -1,6 +1,6 @@
 ---
 title: Failover
-excerpt: Learn how maintenance is automatically handled on Managed Service for TimescaleDB
+excerpt: Learn how failover to a read-only replica ensures business continuity for your services running in Managed Service for TimescaleDB
 products: [mst]
 keywords: [maintenance, updates, upgrades, failover, high availability, replica]
 tags: [failover window]
