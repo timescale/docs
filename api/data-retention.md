@@ -1,6 +1,6 @@
 ---
 title: Data retention
-excerpt: Delete old data to save disk save
+excerpt: Timescale Cloud API reference for data retention. Includes SQL functions for adding and removing data compression policies that run on the schedule that you define
 keywords: [data retention, delete]
 tags: [drop]
 ---
