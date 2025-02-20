@@ -1,6 +1,6 @@
 ---
 title: Hypertables and chunks
-excerpt: Timescale Cloud API reference for dealing with hypertables and chunks. Includes all SQL functions and views related to managing hypertables, chunks, dimension, tablespaces, and indexing
+excerpt: Timescale Cloud API reference for dealing with hypertables and chunks. Includes all SQL functions and views related to managing hypertables, chunks, dimensions, tablespaces, and indexing
 keywords: [hypertables, chunks]
 ---
 

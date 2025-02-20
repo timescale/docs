@@ -1,6 +1,6 @@
 ---
 title: Information views
-excerpt: The full list of informational views available in Timescale Cloud that provide detailed information about the state of your data, hypertables, chunks, and any jobs or policies you have in place
+excerpt: The full list of informational views available in Timescale Cloud. Informational views provide detailed information about the state of your data, hypertables, chunks, and any jobs or policies you have in place
 keywords: [information]
 tags: [statistics, background jobs, scheduled jobs, hypertables, continuous aggregates, user-defined actions, compression]
 ---
