@@ -1,6 +1,6 @@
 ---
 title: Physical backups
-excerpt: How to take physical backups of your TimescaleDB instance
+excerpt: Make physical backups of your entire TimescaleDB instance with `pg_basebackup` or external backup and restore managers
 products: [self_hosted]
 keywords: [backups]
 tags: [restore, recovery, physical backup]

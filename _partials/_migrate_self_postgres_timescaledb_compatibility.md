@@ -1,8 +1,9 @@
 
 | Version number            |PostgreSQL 17|PostgreSQL 16|PostgreSQL 15|PostgreSQL 14|PostgreSQL 13|PostgreSQL 12|PostgreSQL 11|PostgreSQL 10|
 |---------------------------|-|-|-|-|-|-|-|-|
+| TimescaleDB<br/> 2.18.x   |✅|✅|✅|✅|❌|❌|❌|❌|❌|
 | TimescaleDB<br/> 2.17.x   |✅|✅|✅|✅|❌|❌|❌|❌|❌|
-| TimescaleDB<br/> 2.16.x   |❌|✅|✅|✅|✅|❌|❌|❌|❌|❌|
+| TimescaleDB<br/> 2.16.x   |❌|✅|✅|✅|❌|❌|❌|❌|❌|❌|
 | TimescaleDB<br/> 2.15.x   |❌|✅|✅|✅|✅|❌|❌|❌|❌|❌|
 | TimescaleDB<br/> 2.14.x   |❌|✅|✅|✅|✅|❌|❌|❌|❌|❌|
 | TimescaleDB<br/> 2.13.x   |❌|✅|✅|✅|✅|❌|❌|❌|❌|

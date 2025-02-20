@@ -21,7 +21,7 @@ means that you can get on with working your data instead of maintaining your
 database.
 
 Because continuous aggregates are based on hypertables, you can query them in
-exactly the same way as your other tables, and enable [compression][compression]
+exactly the same way as your other tables, and enable [Hypercore][hypercore]
 or [tiered storage][data-tiering] on your continuous aggregates. You can even
 create
 [continuous aggregates on top of your continuous aggregates][hierarchical-caggs].
@@ -31,5 +31,5 @@ Pre-aggregated data from the materialized view is combined with recent data that
 hasn't been aggregated yet. This gives you up-to-date results on every query.
 
 [data-tiering]: /use-timescale/:currentVersion:/data-tiering/
-[compression]: /use-timescale/:currentVersion:/compression/
+[hypercore]: /use-timescale/:currentVersion:/hypercore/
 [hierarchical-caggs]: /use-timescale/:currentVersion:/continuous-aggregates/hierarchical-continuous-aggregates/

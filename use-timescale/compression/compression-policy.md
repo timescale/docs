@@ -1,13 +1,16 @@
 ---
 title: Create a compression policy
-excerpt: Create a compression policy on a hypertable
+excerpt: Timescale Cloud can compress your data automatically, based on the conditions you set. Learn to create, view, pause, and remove data compression policies for a hypertable
 products: [cloud, mst, self_hosted]
 keywords: [compression, hypertables, policy]
 ---
-
+import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 import CompressionIntro from 'versionContent/_partials/_compression-intro.mdx';
 
 # Compression policy
+
+<Deprecated2180 /> see <a href="https://docs.timescale.com/use-timescale/latest/hypercore/real-time-analytics-in-hypercore/">Prepare your data for real-time analytics in Hypercore</a>
+
 
 You can enable compression on individual hypertables, by declaring which column
 you want to segment by.

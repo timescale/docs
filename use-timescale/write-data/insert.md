@@ -1,6 +1,6 @@
 ---
 title: Insert data
-excerpt: Insert data into a hypertable
+excerpt: Insert single and multiple rows and return data in your Timescale Cloud service with SQL
 products: [cloud, mst, self_hosted]
 keywords: [ingest]
 tags: [insert, write, hypertables]

@@ -1,6 +1,6 @@
 ---
 title: Heartbeat aggregation
-excerpt: Measure system liveness using discrete points
+excerpt: Heartbeat aggregation helps analyze intermittent or irregular time-series data, especially with multiple sources or event-driven updates. Learn how to use heartbeat aggregation in Timescale Cloud
 keywords: [hyperfunctions, Toolkit, heartbeat, liveness]
 ---
 

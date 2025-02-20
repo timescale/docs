@@ -271,57 +271,6 @@ module.exports = [
         ],
       },
       {
-        title: "Compression",
-        href: "compression",
-        children: [
-          {
-            title: "About compression",
-            href: "about-compression",
-            excerpt: "Learn about how compression works",
-          },
-          {
-            title: "Compression design",
-            href: "compression-design",
-            excerpt: "The design of TimescaleDB compression",
-          },
-          {
-            title: "About compression methods",
-            href: "compression-methods",
-            excerpt: "Learn about the different compression methods",
-          },
-          {
-            title: "Enable a compression policy",
-            href: "compression-policy",
-            excerpt: "Create a compression policy on a hypertable",
-          },
-          {
-            title: "Manual compression",
-            href: "manual-compression",
-            excerpt: "Compress data chunks",
-          },
-          {
-            title: "Modify compressed data",
-            href: "modify-compressed-data",
-            excerpt: "Insert and modify data in compressed chunks",
-          },
-          {
-            title: "Decompress chunks",
-            href: "decompress-chunks",
-            excerpt: "Decompress data chunks",
-          },
-          {
-            title: "Modify a schema",
-            href: "modify-a-schema",
-            excerpt: "Change the data schema in compressed chunks",
-          },
-          {
-            title: "Troubleshooting",
-            href: "troubleshooting",
-            type: "placeholder",
-          },
-        ],
-      },
-      {
         title: "Configuration",
         href: "configuration",
         excerpt: "Configure your Timescale Cloud service",
@@ -802,14 +751,19 @@ module.exports = [
             excerpt: "Learn about connecting to your Timescale database",
           },
           {
-            title: "Apache Airflow",
-            href: "apache-airflow",
-            excerpt: "Integrate Apache Airflow with Timescale products",
-          },
-          {
             title: "Amazon CloudWatch",
             href: "cloudwatch",
             excerpt: "Integrate Amazon Cloudwatch with Timescale Cloud",
+          },
+          {
+            title: "Amazon SageMaker",
+            href: "amazon-sagemaker",
+            excerpt: "Integrate Amazon SageMaker with Timescale Cloud",
+          },
+          {
+            title: "Apache Airflow",
+            href: "apache-airflow",
+            excerpt: "Integrate Apache Airflow with Timescale products",
           },
           {
             title: "AWS Lambda",
@@ -832,9 +786,19 @@ module.exports = [
             excerpt: "Integrate DBeaver with Timescale products",
           },
           {
+            title: "Grafana",
+            href: "grafana",
+            excerpt: "Integrate Grafana with Timescale products",
+          },
+          {
             title: "pgAdmin",
             href: "pgadmin",
             excerpt: "Integrate pgAdmin with Timescale products",
+          },
+          {
+            title: "PostgreSQL",
+            href: "postgresql",
+            excerpt: "Integrate PostgreSQL with Timescale Cloud",
           },
           {
             title: "Prometheus",
@@ -850,11 +814,6 @@ module.exports = [
             title: "qStudio",
             href: "qstudio",
             excerpt: "Integrate qstudio with Timescale products",
-          },
-          {
-            title: "Grafana",
-            href: "grafana",
-            excerpt: "Integrate Grafana with Timescale products",
           },
           {
             title: "Tableau",
@@ -915,6 +874,11 @@ module.exports = [
             excerpt: "Secure your Timescale Service with VPC peering and AWS PrivateLink",
           },
           {
+            title: "AWS Transit Gateway",
+            href: "transit-gateway",
+            excerpt: "Peer your Timescale Cloud service with AWS Transit Gateway",
+          },
+          {
             title: "IP allow list",
             href: "ip-allow-list",
             excerpt:
@@ -931,6 +895,57 @@ module.exports = [
         title: "Troubleshoot Timescale",
         href: "troubleshoot-timescaledb",
         excerpt: "Troubleshooting Timescale",
+      },
+      {
+        title: "Compression (Old API, replaced by Hypercore)",
+        href: "compression",
+        children: [
+          {
+            title: "About compression",
+            href: "about-compression",
+            excerpt: "Learn about how compression works",
+          },
+          {
+            title: "Compression design",
+            href: "compression-design",
+            excerpt: "The design of TimescaleDB compression",
+          },
+          {
+            title: "About compression methods",
+            href: "compression-methods",
+            excerpt: "Learn about the different compression methods",
+          },
+          {
+            title: "Enable a compression policy",
+            href: "compression-policy",
+            excerpt: "Create a compression policy on a hypertable",
+          },
+          {
+            title: "Manual compression",
+            href: "manual-compression",
+            excerpt: "Compress data chunks",
+          },
+          {
+            title: "Modify compressed data",
+            href: "modify-compressed-data",
+            excerpt: "Insert and modify data in compressed chunks",
+          },
+          {
+            title: "Decompress chunks",
+            href: "decompress-chunks",
+            excerpt: "Decompress data chunks",
+          },
+          {
+            title: "Modify a schema",
+            href: "modify-a-schema",
+            excerpt: "Change the data schema in compressed chunks",
+          },
+          {
+            title: "Troubleshooting",
+            href: "troubleshooting",
+            type: "placeholder",
+          },
+        ],
       },
     ],
   },

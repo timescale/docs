@@ -1,6 +1,6 @@
 ---
 title: Approximate count distincts
-excerpt: Estimate the number of distinct values in a large dataset
+excerpt: Finding cardinality of a large dataset can take a lot of time. Approximate count distincts provide you with an estimate to reduce memory consumption and improve compute time
 products: [cloud, mst, self_hosted]
 keywords: [hyperfunctions, Toolkit, approximate count distincts]
 ---

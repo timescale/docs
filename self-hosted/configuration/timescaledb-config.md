@@ -1,6 +1,6 @@
 ---
 title: TimescaleDB configuration and tuning
-excerpt: How to change configuration settings for TimescaleDB
+excerpt: Configure the TimescaleDB settings related to policies, query planning and execution, distributed hypertables, and administration
 products: [self_hosted]
 keywords: [configuration, settings]
 tags: [tune]

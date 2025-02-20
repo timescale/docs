@@ -1,6 +1,6 @@
 ---
 title: Set up multi-node on self-hosted TimescaleDB
-excerpt: How to set up a self-hosted multi-node instance
+excerpt: Sunsetted v2.14.x. Learn how to set up a self-hosted multi-node TimescaleDB instance
 products: [self_hosted]
 keywords: [multi-node, self-hosted]
 ---

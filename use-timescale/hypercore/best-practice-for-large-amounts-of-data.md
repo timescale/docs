@@ -10,6 +10,7 @@ import HypercoreManualWorkflow from "versionContent/_partials/_hypercore_manual_
 
 # SUGGESTION: Best practice for large amounts of data
 
+IAIN: Hi Mats, I left this in here so you do no lose your work. 
 
 Indexes are a central component to designing efficient and performant
 databases: they allow unstructured data to be efficiently searched to
@@ -155,7 +156,7 @@ following steps:
         hypercore_use_access_method => true);
    ```
 
-## Changing a single chunk to use Hypercore TAM
+## Changing a single chunk to replaced by Hypercore TAM
 
 If you have an existing hypertable, and want to just change a single
 chunk to use the `hypercore` table access method, you can change the

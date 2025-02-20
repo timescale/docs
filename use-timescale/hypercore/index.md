@@ -28,10 +28,13 @@ in each $SERVICE_LONG:
   rapid streams of incoming data. Mutability—upserts, updates, and deletes happen seamlessly.
 
 - **Efficient analytics with columnstore**: as the data _cools_ and becomes more suited for
-  analytics, it is automatically migrated to the columnstore. Your data is compressed into small
-  batches and organized for efficient, large-scale queries. This columnar format enables for
+  analytics, it is automatically migrated to the columnstore. This columnar format enables
   fast scanning and aggregation, optimizing performance for analytical workloads while also
   saving significant storage space.
+
+- **Faster queries on compressed data in columnstore**: in columnstore conversion, hypertable
+  chunks are compressed by more than 90%, and organized for efficient, large-scale queries. This 
+  saves on storage costs, and keeps your queries operating at lightning speed.
 
 - **Full mutability with transactional semantics**: regardless of where data is stored,
   Hypercore provides full ACID support. Like in a vanilla Postgres database, inserts and updates

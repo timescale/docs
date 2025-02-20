@@ -1,6 +1,6 @@
 ---
 title: Import and ingest data
-excerpt: Use third-party tools to ingest data into a Timescale Cloud service
+excerpt: Any tool that can read or write to PostgreSQL works with Timescale Cloud. Learn to ingest data into your Timescale Cloud service from CSV, Parquet, MySQL, Kafka, and Telegraf.
 products: [cloud]
 keywords: [ingest, pipelines, Prometheus, Kafka, Telegraf, timescaledb-parallel-copy, csv]
 ---
