@@ -1,6 +1,6 @@
 ---
 title: Simulate an IoT sensor dataset
-excerpt: Simulate an IOT dataset in your Timescale Cloud service
+excerpt: It is often necessary to simulate IoT datasets, for example, when testing a new system. Simulate an IOT dataset in your Timescale Cloud service
 products: [cloud, mst, self_hosted]
 keywords: [IoT, simulate]
 ---
@@ -20,7 +20,7 @@ To simulate a more advanced dataset, see [Time-series Benchmarking Suite (TSBS)]
 
 To follow this tutorial, you need to:
 
-- [Create a target Timescale Cloud service][create-a-service].
+- Create a target [Timescale Cloud service][create-a-service].
 - [Connect to your service][connect-to-service].
 
 ## Simulate a dataset

@@ -1,6 +1,6 @@
 ---
 title: Decompression
-excerpt: How to decompress a compressed chunk
+excerpt: While Timescale Cloud supports modifying compressed data, for bulk operations you need to decompress it first. Learn to decompress data manually
 products: [cloud, mst, self_hosted]
 keywords: [compression, hypertables, backfilling]
 tags: [decompression]

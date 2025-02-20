@@ -54,6 +54,8 @@ from initial development through to mission critical enterprise applications.
    high-performance storage for more-accessed data, and [tiered storage][data-tiering] 
    for low-cost, bottomless storage. We can help you compress your data up to 10x or more 
    so you pay even less.
+   For easy upgrades, each service stores the TimescaleDB binaries. This contributes up to 900 
+   megabytes to overall storage, which amounts to less than $.80/month in additional storage costs.
 
 * **It’s that simple**: you don't pay for backups or networking costs, such as data ingest 
    or egress.  There are no per-query fees, nor additional costs to read or write data. It's all completely 
@@ -163,6 +165,7 @@ The features included in each [plan][pricing-plans] are:
 | **Security and compliance**                                   |                                        |                                                |                                                |
 | End-to-end encryption                                         | ✓                                      | ✓                                              | ✓                                              |
 | Private Networking (VPC)                                      | 1 multi-attach VPC	                    | Unlimited multi-attach VPCs                    | 	Unlimited multi-attach VPCs                   | 
+|AWS Transit Gateway | | ✓ | ✓ |
 | [HIPAA compliance][hipaa-compliance]                                            |                                      |                                              | ✓                                              |
 | IP address allow list                                         | 1 list with up to 10 IP addresses | Up to 10 lists with up to 10 IP addresses each | Up to 10 lists with up to 10 IP addresses each |
 | Multi-factor authentication                                   | ✓                                      | ✓                                              | ✓                                              |

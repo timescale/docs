@@ -1,6 +1,6 @@
 ---
 title: Aggregate time-series data with time bucket
-excerpt: Group your data to perform aggregate calculations over arbitrary time intervals
+excerpt: A time bucket function in Timescale Cloud helps you group data so you can perform aggregate calculations over required time intervals. Learn when and how to use time buckets
 products: [cloud, mst, self_hosted]
 keywords: [time buckets]
 ---
