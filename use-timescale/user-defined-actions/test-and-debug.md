@@ -1,6 +1,6 @@
 ---
 title: Test and debug a user-defined action
-excerpt: Troubleshoot problems when writing a user-defined action
+excerpt: Having issues while setting up user-defined actions in Timescale Cloud? Find solutions to the most common ones
 products: [cloud, mst, self_hosted]
 keywords: [actions, debug]
 ---

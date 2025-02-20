@@ -1,6 +1,6 @@
 ---
 title: Integrate Grafana and Timescale Cloud
-excerpt: Use Grafana to visualize time-series data stored in a Timescale Cloud service
+excerpt: Grafana enables you to query, visualize, alert on, and explore your metrics, logs, and traces wherever they’re stored. Integrate Grafana with Timescale Cloud
 products: [cloud]
 keywords: [Grafana, visualizations, analytics, monitoring]
 ---

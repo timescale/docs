@@ -165,6 +165,7 @@ The features included in each [plan][pricing-plans] are:
 | **Security and compliance**                                   |                                        |                                                |                                                |
 | End-to-end encryption                                         | ✓                                      | ✓                                              | ✓                                              |
 | Private Networking (VPC)                                      | 1 multi-attach VPC	                    | Unlimited multi-attach VPCs                    | 	Unlimited multi-attach VPCs                   | 
+|AWS Transit Gateway | | ✓ | ✓ |
 | [HIPAA compliance][hipaa-compliance]                                            |                                      |                                              | ✓                                              |
 | IP address allow list                                         | 1 list with up to 10 IP addresses | Up to 10 lists with up to 10 IP addresses each | Up to 10 lists with up to 10 IP addresses each |
 | Multi-factor authentication                                   | ✓                                      | ✓                                              | ✓                                              |
@@ -233,7 +234,6 @@ alt="Adding a payment method in Timescale"/>
 - **Add-ons**: add `Production support` and improved database performance for mission critical workloads.  
 
 [cloud-login]: https://console.cloud.timescale.com/
-[compression]: /use-timescale/:currentVersion:/compression/
 [data-tiering]: /use-timescale/:currentVersion:/data-tiering/
 [cloud-billing]: https://console.cloud.timescale.com/dashboard/billing/details
 [commercial-sla]: https://www.timescale.com/legal/timescale-cloud-terms-of-service

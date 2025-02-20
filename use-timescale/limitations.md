@@ -1,6 +1,6 @@
 ---
 title: Limitations
-excerpt: Current limitations of Timescale features
+excerpt: Timescale Cloud features come with a few limitations that we are constantly working to remove. See the current and regularly updated list of limitations
 keywords: [hypertables, distributed hypertables]
 ---
 

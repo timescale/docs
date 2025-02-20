@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting TimescaleDB
-excerpt: Troubleshoot common problems that occur when using TimescaleDB
+excerpt: Troubleshoot common problems that occur when using Timescale Cloud and TimescaleDB
 products: [self_hosted]
 keywords: [troubleshooting]
 ---

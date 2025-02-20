@@ -380,7 +380,7 @@ module.exports = [
   },
   {
     from: "/timescaledb/latest/contribute-to-docs",
-    to: "https://docs.timescale.com/about/latest/contribute-to-docs/",
+    to: "https://docs.timescale.com/about/latest/contribute-to-timescale/",
   },
   {
     from: "/timescaledb/latest/contribute-to-timescaledb",

@@ -31,8 +31,6 @@ What next? See the [use case tutorials][tutorials], interact with the data in yo
 [integrations]: /use-timescale/:currentVersion:/integrations/
 [use-the-api]: /api/:currentVersion:/
 [use-timescale]: /use-timescale/:currentVersion:/
-
-
 [services-create]: /getting-started/:currentVersion:/services#create-your-timescale-account
 [services-connect]: /getting-started/:currentVersion:/services/#connect-to-your-service
 [test-drive]: /getting-started/:currentVersion:/try-key-features-timescale-products/

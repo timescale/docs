@@ -30,6 +30,6 @@ the background which prevents the alter extension from being the first command.
 
 To correct the problem, execute the ALTER EXTENSION command like this:
 
-``sql
+```sql
 psql -X -c 'ALTER EXTENSION timescaledb UPDATE;'
 ```

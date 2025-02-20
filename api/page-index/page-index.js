@@ -569,7 +569,7 @@ module.exports = [
           "An overview of what different tags represent in the API section of Timescale Documentation.",
       },
       {
-        title: "Compression (Old API, use Hypercore)",
+        title: "Compression (Old API, replaced by Hypercore)",
         href: "compression",
         description:
           "We highly recommend reading the blog post and tutorial about compression before trying to set it up for the first time.",
