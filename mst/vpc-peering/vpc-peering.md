@@ -1,6 +1,6 @@
 ---
 title: Configure VPC peering 
-excerpt: Configure a VPC peering for your services running in the Managed Service for TimescaleDB Console
+excerpt: Configure VPC peering for your services running in the Managed Service for TimescaleDB Console
 products: [mst]
 keywords: [vpc, peer]
 ---
