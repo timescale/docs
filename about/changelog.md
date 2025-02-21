@@ -27,7 +27,7 @@ We've also improved the model picker by adding descriptions for each model:
 
 ### Updated and reorganized docs for pgai
 
-We have improved the GitHub docs for pgai. Now relevant sections have been grouped into their own folders and we've created a comprehensive summary doc.  Check it out [here][https://www.github.com/timescale/pgai].
+We have improved the GitHub docs for pgai. Now relevant sections have been grouped into their own folders and we've created a comprehensive summary doc.  Check it out [here](https://www.github.com/timescale/pgai).
 
 ## 💘 TimescaleDB v2.18.1 and AWS Transit Gateway Support Generally Available
 <Label type="date">February 14, 2025</Label>
