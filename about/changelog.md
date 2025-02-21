@@ -8,6 +8,22 @@ keywords: [changelog, upgrades, updates, releases]
 
 All the latest features and updates to Timescale products.
 
+## 🤖 SQL Assistant improvemnents and pgai docs reorganization
+
+### New Models and improved UX for SQL Assistant
+<Label type="date">February 21, 2025</Label>
+
+We have added fireworks.ai and Groq as service providers, and along with that have added several new LLM options for SQL Assistant:
+- OpenAI o1
+- DeepSeek R1
+- Llama 3.3 70B
+- Llama 3.1 405B
+- DeepSeek R1 Distill - Llama 3.3
+We've also improved the model chooser, with added descriptions of each model
+
+### Updated and reorganized docs for pgai
+We have improved the GitHub docs for pgai.  Now relevant sections have been grouped into their own folders and we've created a comprehensive summary doc.  Check it out here.
+
 ## 💘 TimescaleDB v2.18.1 and AWS Transit Gateway Support Generally Available
 <Label type="date">February 14, 2025</Label>
 
