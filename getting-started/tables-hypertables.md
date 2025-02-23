@@ -1,6 +1,6 @@
 ---
 title: Tables and hypertables
-excerpt: Create tables and hypertables in your Timescale account
+excerpt: Hypertables are PostgreSQL tables designed to boost the performance of your real-time analytical queries. Create a table and then convert it into a hypertable in Timescale Console
 products: [cloud]
 keywords: [hypertables, create]
 layout_components: [next_prev_large]
@@ -13,7 +13,7 @@ import HypertableIntro from "versionContent/_partials/_hypertables-intro.mdx";
 
 <HypertableIntro />
 
-Databases in are made up of tables that contain your data. In PostgreSQL, these
+Databases are made up of tables that contain your data. In PostgreSQL, these
 tables are relational, so the data in one table relates to the data in another
 table. In Timescale, you use regular PostgreSQL relational tables, in addition
 to special time-series hypertables.

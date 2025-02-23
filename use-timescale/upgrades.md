@@ -1,6 +1,6 @@
 ---
 title: Maintenance and upgrades
-excerpt: Keeping your service up-to-date
+excerpt: Keep your Timescale Cloud service up to date. Learn about minor and major migrations, maintenance windows, and updating your version of PostgreSQL
 products: [cloud]
 keywords: [updates, upgrades, maintenance]
 cloud_ui:

@@ -1,6 +1,6 @@
 ---
 title: Create a data retention policy
-excerpt: Create a data retention policy to automatically drop historical data
+excerpt: Create a data retention policy to automatically drop historical data from your hypertables when it reaches a certain age. Timescale Cloud enables you to save on storage while speeding up your queries
 products: [cloud, mst, self_hosted]
 keywords: [data retention, policies]
 tags: [drop, delete]

@@ -779,49 +779,79 @@ module.exports = [
             excerpt: "Learn about connecting to your Timescale database",
           },
           {
+            title: "Amazon CloudWatch",
+            href: "cloudwatch",
+            excerpt: "Integrate Amazon Cloudwatch with Timescale Cloud",
+          },
+          {
+            title: "Amazon SageMaker",
+            href: "amazon-sagemaker",
+            excerpt: "Integrate Amazon SageMaker with Timescale Cloud",
+          },
+          {
             title: "Apache Airflow",
             href: "apache-airflow",
-            excerpt: "Integrate Apache Airflow with Timescale Cloud",
+            excerpt: "Integrate Apache Airflow with Timescale products",
+          },
+          {
+            title: "AWS Lambda",
+            href: "aws-lambda",
+            excerpt: "Integrate AWS Lambda with Timescale Cloud",
           },
           {
             title: "Azure Data Studio",
             href: "azure-data-studio",
-            excerpt: "Install Azure Data Studio to connect to Timescale",
+            excerpt: "Integrate Azure Data Studio with Timescale products",
+          },
+          {
+            title: "Datadog",
+            href: "datadog",
+            excerpt: "Integrate Datadog with Timescale Cloud",
           },
           {
             title: "DBeaver",
             href: "dbeaver",
-            excerpt: "Install DBeaver to connect to Timescale",
-          },
-          {
-            title: "pgAdmin",
-            href: "pgadmin",
-            excerpt: "Install pgAdmin to connect to Timescale",
-          },
-          {
-            title: "psql",
-            href: "psql",
-            excerpt: "Install psql to connect to Timescale",
-          },
-          {
-            title: "qStudio",
-            href: "qstudio",
-            excerpt: "Install qstudio to connect to Timescale",
+            excerpt: "Integrate DBeaver with Timescale products",
           },
           {
             title: "Grafana",
             href: "grafana",
-            excerpt: "Use Grafana with Timescale",
+            excerpt: "Integrate Grafana with Timescale products",
+          },
+          {
+            title: "pgAdmin",
+            href: "pgadmin",
+            excerpt: "Integrate pgAdmin with Timescale products",
+          },
+          {
+            title: "PostgreSQL",
+            href: "postgresql",
+            excerpt: "Integrate PostgreSQL with Timescale Cloud",
+          },
+          {
+            title: "Prometheus",
+            href: "prometheus",
+            excerpt: "Integrate Prometheus with Timescale Cloud",
+          },
+          {
+            title: "psql",
+            href: "psql",
+            excerpt: "Connect to Timescale products with psql",
+          },
+          {
+            title: "qStudio",
+            href: "qstudio",
+            excerpt: "Integrate qstudio with Timescale products",
           },
           {
             title: "Tableau",
             href: "tableau",
-            excerpt: "Use Tableau with Timescale",
+            excerpt: "Integrate Tableau with Timescale products",
           },
           {
             title: "Terraform",
             href: "terraform",
-            excerpt: "Manage your Timescale services via Terraform",
+            excerpt: "Manage your Timescale services with Terraform",
           },
           {
             title: "Troubleshooting Timescale integrations",
@@ -870,6 +900,11 @@ module.exports = [
             title: "VPC peering and AWS PrivateLink",
             href: "vpc",
             excerpt: "Secure your Timescale Service with VPC peering and AWS PrivateLink",
+          },
+          {
+            title: "AWS Transit Gateway",
+            href: "transit-gateway",
+            excerpt: "Peer your Timescale Cloud service with AWS Transit Gateway",
           },
           {
             title: "IP allow list",

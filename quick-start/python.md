@@ -1,6 +1,6 @@
 ---
 title: "Quick Start: Python and TimescaleDB"
-excerpt: Get started with TimescaleDB for a Python application
+excerpt: Get started with Timescale Cloud or TimescaleDB using Python
 keywords: [Python]
 ---
 

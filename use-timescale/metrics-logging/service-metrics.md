@@ -1,6 +1,6 @@
 ---
 title: Service metrics
-excerpt: View metrics for your Timescale service, such as CPU, memory, and storage usage
+excerpt: View metrics for your Timescale Cloud service, such as CPU, memory, and storage usage, in Timescale Console
 products: [cloud]
 keywords: [metrics, monitoring, services]
 tags: [dashboard, cpu, memory, storage, disk space]

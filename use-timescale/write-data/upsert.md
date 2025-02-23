@@ -1,6 +1,6 @@
 ---
 title: Upsert data
-excerpt: Upsert data to insert a new row or update an existing row
+excerpt: Insert a new row or update an existing row in a hypertable in your Timescale Cloud service using UPSERT
 products: [cloud, mst, self_hosted]
 keywords: [upsert, hypertables]
 ---
