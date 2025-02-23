@@ -1,6 +1,6 @@
 ---
 title: Managed Service for TimescaleDB
-excerpt: A fully managed TimescaleDB service
+excerpt: Managed Service for TimescaleDB is TimescaleDB hosted on Azure and GCP, offered in partnership with Aiven. Learn all about creating an account and running services in it
 products: [mst]
 ---
 
