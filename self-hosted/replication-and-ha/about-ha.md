@@ -1,6 +1,6 @@
 ---
 title: High availability
-excerpt: Strategies for increasing redundancy and resilience of your database
+excerpt: Increase the redundancy and resilience of your TimescaleDB database with backup and replication
 products: [self_hosted]
 keywords: [high availability, backups, replicas, failover]
 tags: [redundancy]
