@@ -10,8 +10,8 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 # Integrate Apache Kafka with $CLOUD_LONG
 
 [Apache Kafka][apache-kafka] is a distributed event streaming platform used for high-performance data pipelines, 
-streaming analytics, and data integration. [Apache Kafka Connect][kafka-connect] is a tool for scalably and reliably 
-streaming data between Apache Kafka® and other data systems. Kafka Connect an ecosystem of pre-written and maintained 
+streaming analytics, and data integration. [Apache Kafka Connect][kafka-connect] is a tool to scalably and reliably 
+stream data between Apache Kafka® and other data systems. Kafka Connect is an ecosystem of pre-written and maintained 
 Kafka Producers (source connectors) and Kafka Consumers (sink connectors) for data products and platforms like 
 databases and message brokers.
 
@@ -49,7 +49,7 @@ To install and configure Apache Kafka:
 
    In another Terminal window, call `kafka-topics.sh` and create the following topics:
    - `accounts`: publishes JSON messages that are consumed by the timescale-sink connector and inserted into your $SERVICE_LONG. 
-   - `deadletter`: a dead letter queue stores messages that cause errors and Kafka Connect workers cannot process. 
+   - `deadletter`: stores messages that cause errors and that Kafka Connect workers cannot process. 
 
    ```bash
    ./bin/kafka-topics.sh \
