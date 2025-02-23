@@ -5,139 +5,119 @@ keywords: [Ruby]
 ---
 
 import QuickstartIntro from "versionContent/_partials/_quickstart-intro.mdx";
+import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
 
 # Ruby quick start
 
 <QuickstartIntro />
 
-This quick start guide shows you how to:
-
-*   [Connect to a Timescale service][connect]
-*   [Create a hypertable][create-a-hypertable]
-*   [Insert data][insert]
-*   [Execute queries][query]
-*   [Create continuous aggregates][create-aggregates]
-*   [Add compression and retention policies][add-policies]
-
 ## Prerequisites
 
-Before you start, make sure you have:
+<IntegrationPrereqs />
 
-*   Created a Timescale service. For more information, see the
-    [start up documentation][install]. Make a note of the `Service URL`,
-    `Password`, and `Port` in the Timescale service that you created.
-*   Installed [Rails][rails-guide].
-*   Installed [psql to connect][psql-install] to the Timescale service.
+*   Install [Rails][rails-guide].
+*   Install [psql to connect][psql-install] to your $SERVICE_SHORT. IAIN, Dont think we need this, using 
+    the one in ruby throught the doc.
 
-## Connect to a Timescale service
+## Connect a Rails app to your $SERVICE_SHORT 
 
-In this section, you create a connection to your Timescale service through the Ruby
-on Rails application.
+Every $SERVICE_LONG is a 100% PostgreSQL database hosted in $CLOUD_LONG with
+$COMPANY extensions such as $TIMESCALE_DB. You connect to your $SERVICE_LONG
+from a standard Rails app configured for PostgreSQL. 
 
 <Procedure>
 
-<Collapsible heading="Connect to Timescale" headingLevel={3}>
+1.  **Create a new Rails app configured for PostgreSQL**
 
-1.  Create a new Rails application configured to use PostgreSQL as the database.
-    Your Timescale service works as a PostgreSQL extension.
+    Rails creates and bundles your app, then installs the standard PostgreSQL Gems.
 
     ```bash
     rails new my_app -d=postgresql
+    cd my_app
     ```
 
-    Rails creates and bundles your application, and installs all
-    required Gems in the process.
+1. **Install the TimescaleDB gem**
 
-1.  Add the timescaledb gem to your Gemfile:
+   1.  Open `Gemfile`, add the following line, then save your changes:
 
-    ```ruby
-    gem 'timescaledb'
-    ```
+       ```ruby
+       gem 'timescaledb'
+       ```
 
-1.  Run bundle install:
+   1. Run bundle install:
+   
+      ```bash
+      bundle install
+      ```
 
-    ```bash
-    bundle install
-    ```
+1. **Connect your app to your $SERVICE_LONG**
 
-1.  Update `database.yml` located in the `my_app/config` directory with your Timescale service credentials:
+   1.  In `<my_app_home>/config/database.yml` update the configuration to read securely connect to your $SERVICE_LONG
+       by adding `url: <%= ENV['DATABASE_URL'] %>` to the default configuration:
 
-    ```yaml
-    default: &default
-      adapter: postgresql
-      encoding: unicode
-      pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-      url: <%= ENV['DATABASE_URL'] %>
+       ```yaml
+       default: &default
+         adapter: postgresql
+         encoding: unicode
+         pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+         url: <%= ENV['DATABASE_URL'] %>
+       ```
 
-    development:
-      <<: *default
-      database: my_app_development
+   1.  Set the environment variable for `DATABASE_URL` to the value of `Service URL` from
+       your [connection details][connection-info]
+       ```bash
+       export DATABASE_URL="value of Service URL"
+       ```
 
-    test:
-      <<: *default
-      database: my_app_test
+   1.  Create the database and run migrations:
 
-    production:
-      <<: *default
-      database: my_app_production
-    ```
+       IAIN: this gives an error for a service, do we have to do it, or is this for self-hosted only?
+       ```bash
+       rails db:create db:migrate
+       ```
 
-1.  Set the environment variable for `DATABASE_URL` to `<SERVICE_URL>` of
-    the service:
+   1.  Verify the connection from your app to your $SERVICE_LONG:
 
-    ```bash
-    export DATABASE_URL="<SERVICE_URL>"
-    ```
+       ```bash
+       echo "\dx" | rails dbconsole
+       ```
 
-1.  Create the database and run migrations:
+       The result shows the list of extensions in your $SERVICE_LONG
 
-    ```bash
-    rails db:create db:migrate
-    ```
-
-1.  Verify that TimescaleDB is installed by connecting to your service:
-
-    ```bash
-    echo "\dx" | rails dbconsole
-    ```
-
-    The result should show the TimescaleDB extension:
-
-    ```bash
-                                                       List of installed extensions
-    Name         | Version |   Schema   |                                      Description
-    ---------------------+---------+------------+---------------------------------------------------------------------------------------
-    pg_stat_statements  | 1.10    | public     | track planning and execution statistics of all SQL statements executed
-    plpgsql             | 1.0     | pg_catalog | PL/pgSQL procedural language
-    timescaledb         | 2.9.3   | public     | Enables scalable inserts and complex queries for time-series data
-    timescaledb_toolkit | 1.13.1  | public     | Library of analytical hyperfunctions, time-series pipelining, and other SQL  utilities
-    ```
-
-</Collapsible>
+      |  Name  | Version | Schema | Description  |                                       
+      | --  | -- | -- | -- |
+      | pg_buffercache      | 1.5     | public     | examine the shared buffer cache| 
+      | pg_stat_statements  | 1.11    | public     | track planning and execution statistics of all SQL statements executed| 
+      | plpgsql             | 1.0     | pg_catalog | PL/pgSQL procedural language| 
+      | postgres_fdw        | 1.1     | public     | foreign-data wrapper for remote PostgreSQL servers| 
+      | timescaledb         | 2.18.1  | public     | Enables scalable inserts and complex queries for time-series data (Community Edition)| 
+      | timescaledb_toolkit | 1.19.0  | public     | Library of analytical hyperfunctions, time-series pipelining, and other SQL utilities| 
 
 </Procedure>
 
-## Create a hypertable
+## Optimize time-series data in hypertables
 
-In this section, you'll create a hypertable to store page load data. We'll use the timescaledb gem's helpers to create and manage the hypertable.
+Hypertables are PostgreSQL tables designed to simplify and accelerate data analysis. Anything 
+you can do with regular PostgreSQL tables, you can do with hypertables - but much faster and more conveniently.
+
+In this section, you use the helpers in the timescaledb gem to create and manage a [hypertable][about-hypertables].
 
 <Procedure>
 
-<Collapsible heading="Create a hypertable" headingLevel={3}>
-
-1.  Generate a migration to create the page loads table:
+1.  **Generate a migration to create the page loads table**
 
     ```bash
     rails generate migration create_page_loads
     ```
 
-   A new migration file `<migration-datetime>_create_page_loads.rb` is created in
-   the `my_app/db/migrate` directory.
+   This creates the `<my_app_home>/db/migrate/<migration-datetime>_create_page_loads.rb` migration file.
 
-1.  Update the migration file in `db/migrate` with hypertable options:
+1. **Add hypertable options** 
+   Replace the contents of `<my_app_home>/db/migrate/<migration-datetime>_create_page_loads.rb` 
+   with the following:
 
     ```ruby
-    class CreatePageLoads < ActiveRecord::Migration[7.0]
+    class CreatePageLoads < ActiveRecord::Migration[8.0]
       def change
         hypertable_options = {
           time_column: 'created_at',
@@ -158,12 +138,15 @@ In this section, you'll create a hypertable to store page load data. We'll use t
     end
     ```
 
-    Note that the `id` column is not included in the table. This is because Timescale requires that any `UNIQUE` or `PRIMARY KEY` indexes on the table include all partitioning columns, which in this case is the time column. A new
-    Rails model includes a `PRIMARY KEY` index for id by default, so you need to either remove the column or make sure that the index includes time as part of a "composite key."
+    The `id` column is not included in the table. This is because $TIMESCALE_DB requires that any `UNIQUE` or `PRIMARY KEY` 
+    indexes on the table include all partitioning columns. In this case, this is the time column. A new
+    Rails model includes a `PRIMARY KEY` index for id by default: either remove the column or make sure that the index 
+    includes time as part of a "composite key."
 
-    Check the official docs around [composite primary keys](https://guides.rubyonrails.org/active_record_composite_primary_keys.html) for more information.
+   For more information, check the Roby docs around [composite primary keys][rails-compostite-primary-keys].
 
-1.  Create a PageLoad model in `app/models/page_load.rb`:
+1.  **Create a `PageLoad` model**
+    Create a new file called `<my_app_home>/app/models/page_load.rb` and add the following code:
 
     ```ruby
     class PageLoad < ApplicationRecord
@@ -210,25 +193,23 @@ In this section, you'll create a hypertable to store page load data. We'll use t
     end
     ```
 
-1.  Run the migration:
+1.  **Run the migration**
 
     ```bash
     rails db:migrate
     ```
 
-</Collapsible>
-
 </Procedure>
 
-## Insert data
+## Insert data your $SERVICE_SHORT
 
-Now that we have our hypertable set up, let's insert some data. The timescaledb gem provides efficient ways to insert data into hypertables.
+The timescaledb gem provides efficient ways to insert data into hypertables. This section 
+shows you how to ingest test data into your hypertable.
 
 <Procedure>
 
-<Collapsible heading="Insert data into Timescale" headingLevel={3}>
-
-1.  Create a controller to handle page loads in `app/controllers/application_controller.rb`:
+1.  **Create a controller to handle page loads**
+    Create a new file called `<my_app_home>/app/controllers/application_controller.rb` and add the following code:
 
     ```ruby
     class ApplicationController < ActionController::Base
@@ -250,7 +231,9 @@ Now that we have our hypertable set up, let's insert some data. The timescaledb 
     end
     ```
 
-1.  For testing purposes, you can also generate sample data:
+1.  **Generate some test data**
+
+    Iain: I don't know which file to add this in.
 
     ```ruby
     def generate_sample_page_loads(total: 1000)
@@ -278,19 +261,31 @@ Now that we have our hypertable set up, let's insert some data. The timescaledb 
     PageLoad.insert_all(generate_sample_page_loads, returning: false)
     ```
 
-</Collapsible>
+1. **Inject test data into your $SERVICE_LONG**
+
+    ```bash
+   IAIN: How do I run this
+   ```
+
+1.  Validate the test data in your $SERVICE_LONG:
+
+   IAIN: At a guess, something like this. 
+   ```bash
+    echo "SELECT * FROM page_loads" | rails dbconsole
+   ```
 
 </Procedure>
 
-## Execute queries
+## Reference
+
+This section lists the most common tasks you might perform with the timescaledb gem.
+
+### Query scopes
 
 The timescaledb gem provides several convenient scopes for querying your time-series data.
 
-<Procedure>
 
-<Collapsible heading="Execute queries" headingLevel={3}>
-
-1.  Use built-in time-based scopes:
+- Built-in time-based scopes:
 
     ```ruby
     PageLoad.last_hour.count
@@ -299,7 +294,7 @@ The timescaledb gem provides several convenient scopes for querying your time-se
     PageLoad.this_month.count
     ```
 
-1.  Use browser-specific scopes:
+- Browser-specific scopes:
 
     ```ruby
     # Count requests by browser
@@ -312,7 +307,9 @@ The timescaledb gem provides several convenient scopes for querying your time-se
     PageLoad.fast_requests.last_hour.count
     ```
 
-1.  Query continuous aggregates:
+- Query continuous aggregates:
+
+  This query fetches the average and standard deviation from the performance stats for the `/products` path over the last day.
 
     ```ruby
     # Access aggregated performance stats through generated classes
@@ -326,28 +323,22 @@ The timescaledb gem provides several convenient scopes for querying your time-se
     puts "Standard Deviation: #{stats.stddev}"
     ```
 
-    This query fetches the average and standard deviation from the performance stats for the `/products` path over the last day.
+### Timescaledb features
 
-</Collapsible>
+The timescaledb gem provides utility methods to access hypertable and chunk information. Every model that uses 
+the `acts_as_hypertable` method has access to these methods. 
 
-</Procedure>
 
-## Timescaledb features directly in your model
+#### Access hypertable and chunk information
 
-The timescaledb gem provides utility methods to access hypertable and chunk information. Every model that uses the `acts_as_hypertable` method has access to these methods. 
-
-<Procedure>
-
-<Collapsible heading="Access hypertable and chunk information" headingLevel={3}>
-
-1.  View chunk or hypertable information:
+- View chunk or hypertable information:
 
     ```ruby
     PageLoad.chunks.count
     PageLoad.hypertable.detailed_size
     ```
 
-1.  Compress/Decompress chunks:
+- Compress/Decompress chunks:
 
     ```ruby
     PageLoad.chunks.uncompressed.first.compress!  # Compress the first uncompressed chunk
@@ -356,13 +347,12 @@ The timescaledb gem provides utility methods to access hypertable and chunk info
 
     ```
 
-</Collapsible>
+#### Access hypertable stats
 
-<Collapsible heading="Access hypertable stats" headingLevel={3}>
+You collect hypertable stats using methods that provide insights into your hypertable's structure, size, and compression 
+status:
 
-Hypertable stats can be collected through various methods that provide insights into your hypertable's structure, size, and compression status:
-
-1. Get basic hypertable information:
+- Get basic hypertable information:
 
     ```ruby
     hypertable = PageLoad.hypertable
@@ -370,7 +360,7 @@ Hypertable stats can be collected through various methods that provide insights 
     hypertable.schema_name      # The schema where the hypertable is located
     ```
 
-1. Get detailed size information:
+- Get detailed size information:
 
     ```ruby
     hypertable.detailed_size # Get detailed size information for the hypertable
@@ -381,39 +371,38 @@ Hypertable stats can be collected through various methods that provide insights 
     hypertable.continuous_aggregates.map(&:view_name) # Get continuous aggregate view names
     ```
 
-</Collapsible>
+#### Continuous aggregates 
 
-<Collapsible heading="Access continuous aggregates" headingLevel={3}>
+The `continuous_aggregates` method generates a class for each continuous aggregate.
 
-The `continuous_aggregates` method will generate a class for each continuous aggregate. To get all the continuous aggregate classes, you can use the `descendants` method.
+- Get all the continuous aggregate classes:
 
-```ruby
-PageLoad.descendants # Get all continuous aggregate classes
-```
+   ```ruby
+   PageLoad.descendants # Get all continuous aggregate classes
+   ```
 
-To manually refresh a continuous aggregate, you can use the `refresh_aggregates` method.
+- Manually refresh a continuous aggregate:
 
-```ruby
-PageLoad.refresh_aggregates
-```
+   ```ruby
+   PageLoad.refresh_aggregates
+   ```
 
-To create or drop a continuous aggregate, you can use the `create_continuous_aggregate` and `drop_continuous_aggregate` methods.
+- Create or drop a continuous aggregate:
 
-```ruby
-# migration scope
-PageLoad.create_continuous_aggregates
-PageLoad.drop_continuous_aggregates
-```
+  Create or drop all the continuous aggregates in the proper order to build them hierarchically. See more about how it
+  works in this [blog post][ruby-blog-post].
 
-It will create or drop all the continuous aggregates in the proper order to build them hierarchically.
+   ```ruby
+   PageLoad.create_continuous_aggregates
+   PageLoad.drop_continuous_aggregates
+   ```
 
-See more about it works in this [blog post announcement](https://www.timescale.com/blog/building-a-better-ruby-orm-for-time-series-and-analytics).
+   
 
-</Collapsible>
 
-</Procedure>
+## Next steps
 
-Next steps:
+Now you have integrated the ruby gem into your app, have a look at:
 
 * [Learn more about the timescaledb gem](https://github.com/timescale/timescaledb-ruby)
 * [Check out official docs](https://timescale.github.io/timescaledb-ruby/)
@@ -430,4 +419,8 @@ Next steps:
 [manage-chunks]: #manage-chunks-and-compression
 [install]: /getting-started/latest/
 [psql-install]: /use-timescale/:currentVersion:/integrations/psql/
-[rails-guide]: https://guides.rubyonrails.org/getting_started.html
+[rails-guide]: https://guides.rubyonrails.org/install_ruby_on_rails.html#installing-rails
+[connection-info]: /use-timescale/:currentVersion:/integrations/find-connection-details/
+[about-hypertables]: /use-timescale/:currentVersion:/hypertables/about-hypertables/
+[rails-compostite-primary-keys]: https://guides.rubyonrails.org/active_record_composite_primary_keys.html
+[ruby-blog-post]: https://www.timescale.com/blog/building-a-better-ruby-orm-for-time-series-and-analytics
