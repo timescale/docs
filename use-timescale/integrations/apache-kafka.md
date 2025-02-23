@@ -1,6 +1,6 @@
 ---
 title: Integrate Apache Kafka with Timescale Cloud 
-excerpt: Learn how to integrate Apache Kafka with Timescale Cloud to manage and analyze streaming data efficiently.
+excerpt: Apache Kafka is a distributed event streaming platform used for high-performance data pipelines. Learn how to integrate Apache Kafka with Timescale Cloud to manage and analyze streaming data
 products: [cloud, self_hosted]
 keywords: [Apache Kafka, integrations]
 ---
@@ -35,6 +35,7 @@ To install and configure Apache Kafka:
     curl https://dlcdn.apache.org/kafka/3.9.0/kafka_2.13-3.9.0.tgz | tar -xzf - 
     cd kafka_2.13-3.9.0
     ```
+   From now on, the folder where you extracted the Kafka binaries is called `<KAFKA_HOME>`.
    
 1. **Configure and run Apache Kafka**
 
@@ -47,7 +48,7 @@ To install and configure Apache Kafka:
    
 1. **Create Kafka topics**
 
-   In another Terminal window, call `kafka-topics.sh` and create the following topics:
+   In another Terminal window, navigate to <KAFKA_HOME>, then call `kafka-topics.sh` and create the following topics:
    - `accounts`: publishes JSON messages that are consumed by the timescale-sink connector and inserted into your $SERVICE_LONG. 
    - `deadletter`: stores messages that cause errors and that Kafka Connect workers cannot process. 
 
@@ -66,7 +67,7 @@ To install and configure Apache Kafka:
    ```
    
 1. **Test that your topics are working correctly**
-   1. In a new Terminal window, run kafka-console-producer to send messages to the `accounts` topic:
+   1. Run `kafka-console-producer` to send messages to the `accounts` topic:
       ```bash
       bin/kafka-console-producer.sh --topic accounts --bootstrap-server localhost:9092
       ```
@@ -75,7 +76,7 @@ To install and configure Apache Kafka:
       >Timescale Cloud
       >How Cool
       ```
-   2. In another terminal window, consume the events you just sent:
+   2. In another Terminal window, navigate to <KAFKA_HOME>, then run `kafka-console-consumer` to consume the events you just sent:
       ```bash
       bin/kafka-console-consumer.sh --topic accounts --from-beginning --bootstrap-server localhost:9092
       ```
@@ -97,7 +98,7 @@ To set up Kafka Connect server, plugins, drivers, and connectors:
 
 1. **Install the PostgreSQL connector**
 
-   In Terminal, in the root folder of your Kafka deployment, download and configure the PostgreSQL sink and driver.
+   In another Terminal window, navigate to <KAFKA_HOME>, then download and configure the PostgreSQL sink and driver.
    ```bash
    mkdir -p "plugins/camel-postgresql-sink-kafka-connector"
    curl https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-postgresql-sink-kafka-connector/3.21.0/camel-postgresql-sink-kafka-connector-3.21.0-package.tar.gz \
@@ -161,8 +162,10 @@ To create a $CLOUD_LONG sink in Apache Kafka:
 
 
 1.  **Create the connection configuration**
- 
-       1. Write the following configuration to `config/timescale-standalone-sink.properties`, then update the `<properties>` with your [connection details][connection-info].
+
+       1. In the terminal running Kafka Connect, stop the process by pressing `Ctrl+C`.
+
+       1. Write the following configuration to `<KAFKA_HOME>/config/timescale-standalone-sink.properties`, then update the `<properties>` with your [connection details][connection-info].
 
           ```properties
           name=timescale-standalone-sink
@@ -180,7 +183,7 @@ To create a $CLOUD_LONG sink in Apache Kafka:
           camel.kamelet.postgresql-sink.serverPort=<port>
           camel.kamelet.postgresql-sink.query=INSERT INTO accounts (name,city) VALUES (:#name,:#city)
           ```
-       1. Start the standalone kafka instance:
+       1. Restart Kafka Connect with the new configuration:
           ```bash
           export CLASSPATH=`pwd`/plugins/camel-postgresql-sink-kafka-connector/*
           ./bin/connect-standalone.sh config/connect-standalone.properties config/timescale-standalone-sink.properties
