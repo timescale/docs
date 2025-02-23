@@ -1,6 +1,6 @@
 ---
 title: Manage storage using tablespaces
-excerpt: Save on data storage by moving chunks between tablespaces
+excerpt: Save on data storage by moving older chunks to cheaper, slower storage, while still using faster, more expensive storage for frequently accessed data
 products: [self_hosted]
 keywords: [storage, tablespaces]
 tags: [move, manage, chunks]
