@@ -1,6 +1,6 @@
 ---
 title: Changelog
-excerpt: A summary of the latest changes to all Timescale products.
+excerpt: Get a weekly summary of the latest changes to Timescale products with links to detailed documentation
 keywords: [changelog, upgrades, updates, releases]
 ---
 
