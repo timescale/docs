@@ -1,6 +1,6 @@
 ---
 title: Compare TimescaleDB editions
-excerpt: Learn the differences between TimescaleDB Community and TimescaleDB Apache 2 editions
+excerpt: See the difference between the TimescaleDB Community and TimescaleDB Apache 2 editions
 products: [cloud, mst, self_hosted]
 keywords: [Apache, community, license]
 tags: [learn, contribute]

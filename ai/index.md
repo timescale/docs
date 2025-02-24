@@ -1,6 +1,6 @@
 ---
 title: Power your AI apps with PostgreSQL
-excerpt: Timescale pgai is a solution for building search, RAG, and AI agents with PostgreSQL. Learn more about pgai and its application
+excerpt: Timescale pgai is a solution for building search, RAG, and AI agents with PostgreSQL. Learn more about pgai and how to use it
 products: [cloud]
 keywords: [ai, vector, pgvector, pgvectorscale, pgai]
 tags: [ai, vector]
