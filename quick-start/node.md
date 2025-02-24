@@ -18,6 +18,11 @@ This quick start guide walks you through:
 *   [Inserting data][insert]
 *   [Executing a query][query]
 
+
+<Highlight type="note">
+	Announcing early acccess of our new TimescaleTS integration for Node.js. Continue below to use Sequelize with TimescaleDB. For more information on TimescaleTS, see the [TimescaleTS documentation](timescalets). 
+</Highlight>
+
 ## Prerequisites
 
 Before you start, make sure you have:
@@ -398,3 +403,4 @@ Now, when you reload the page, you should see all of the rows currently in the
 [insert]: #insert-rows-of-data
 [query]: #execute-a-query
 [install]: /getting-started/latest/
+[timescalets]: https://github.com/timescale/timescaledb-ts
