@@ -199,7 +199,7 @@ To create a $CLOUD_LONG sink in Apache Kafka:
    You see:
 
    ```bash
-   #["timescale-sink"]
+   #["timescale-standalone-sink"]
    ```
 
 </Procedure>
