@@ -1,6 +1,6 @@
 ---
 title: Timescale release notes
-excerpt: New features and fixes are released regularly in all Timescale products
+excerpt: Get an overview of the new features, improvements, and fixes released in every version of Timescale Cloud and TimescaleDB
 keywords: [TimescaleDB, Timescale Cloud, TimescaleDB Toolkit, pgai, pgvectorscale, pgspot, live-migration, upgrades, updates, releases]
 ---
 
