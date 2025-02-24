@@ -222,8 +222,6 @@ To test this integration, send some messages onto the `accounts` topic. You can 
 
 1. **Query your $SERVICE_LONG for all rows in the `accounts` table**
 
-   You see all messages appear:
-
    ```sql
    SELECT * FROM accounts;
    ```
