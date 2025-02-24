@@ -804,6 +804,11 @@ module.exports = [
             excerpt: "Integrate Azure Data Studio with Timescale products",
           },
           {
+            title: "Cloudflare Hyperdrive",
+            href: "cloudflare",
+            excerpt: "Integrate Cloudflare Hyperdrive with Timescale products",
+          },
+          {
             title: "Datadog",
             href: "datadog",
             excerpt: "Integrate Datadog with Timescale Cloud",
