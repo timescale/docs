@@ -20,7 +20,7 @@ This quick start guide walks you through:
 
 
 <Highlight type="note">
-	Announcing early acccess of our new TimescaleTS integration for Node.js. Continue below to use Sequelize with TimescaleDB. For more information on TimescaleTS, see the [TimescaleTS documentation](timescalets). 
+	Announcing early access to our new TimescaleTS integration for Node.js. Continue below to use Sequelize with TimescaleDB. For more information on TimescaleTS, see the [TimescaleTS documentation](timescalets). 
 </Highlight>
 
 ## Prerequisites
