@@ -47,39 +47,39 @@ To connect to $CLOUD_LONG:
 
 1. **Create a Worker project**
 
-    1. Run the following command to create a Worker project:
+    Run the following command to create a Worker project:
 
-       <Terminal>
+    <Terminal>
 
-       <tab label='npm'>
+    <tab label='npm'>
     
-       ```shell
-       npm create cloudflare@latest -- timescale-api
-       ```
+    ```shell
+    npm create cloudflare@latest -- timescale-api
+    ```
     
-       </tab>
+    </tab>
+   
+    <tab label="pnpm">
     
-       <tab label="pnpm">
+    ```shell
+    pnpm create cloudflare@latest timescale-api
+    ```
     
-       ```shell
-       pnpm create cloudflare@latest timescale-api
-       ```
+    </tab>
     
-       </tab>
+    <tab label="yarn">
     
-       <tab label="yarn">
+    ```shell
+    yarn create cloudflare timescale-api
+    ```
     
-       ```shell
-       yarn create cloudflare timescale-api
-       ```
+    </tab>
     
-       </tab>
-    
-       </Terminal>
+    </Terminal>
 
-   Specify the following options for setup:
+    Specify the following options for setup:
 
-    - `What would you like to start with?`:`Hello World`.
+    - `What would you like to start with?`:`Hello World example`.
     - `Which template would you like to use?`: `Hello World Worker`.
     - `Which language do you want to use?`: `TypeScript`.
     - `Do you want to use git for version control?`: `Yes`.
@@ -93,7 +93,9 @@ To connect to $CLOUD_LONG:
        npx wrangler hyperdrive create <HYPERDRIVE-NAME> --connection-string="SERVICEURL"
        ```
 
-       Hyperdrive attempts to connect to your $SERVICE_SHORT with the provided credentials. In case of an error, refer to the [Hyperdrive's troubleshooting documentation][hyperdrive-troubleshoot]. This command outputs your Hyperdrive ID. You can now bind your Hyperdrive configuration to your Worker in your [Wrangler configuration file][wrangler-configuration] by replacing the content with the following:
+       Hyperdrive attempts to connect to your $SERVICE_SHORT with the provided credentials. In case of an error, refer to the [Hyperdrive's troubleshooting documentation][hyperdrive-troubleshoot]. This command outputs your Hyperdrive ID. 
+   
+    1. Bind your Hyperdrive configuration to your Worker in your [Wrangler configuration file][wrangler-configuration] by replacing the content with the following:
 
        <Terminal>
 
@@ -221,13 +223,13 @@ To connect to $CLOUD_LONG:
     npx wrangler deploy
     ```
 
-    The output shows the exact URI of your application that in the following format:` timescale-api.<YOUR_SUBDOMAIN>.workers.dev`.
+    The output shows the exact URI of your running application in the following format:` timescale-api.<YOUR_SUBDOMAIN>.workers.dev`.
 
 1. **Interact with your $SERVICE_LONG**
 
     You can now interact with the IoT readings in your $SERVICE_SHORT using your Cloudflare Worker. For example:
 
-    - Insert new rows into the `readings` hypertable you have created earlier. To do this, send a `POST` request to your Worker’s URL with the `/readings` path, along with a JSON payload containing the new product data. For example:
+    - Insert new rows into the `readings` hypertable you have created earlier. To do this, send a `POST` request to your Worker’s URL with the `/readings` path, along with a JSON payload containing the new product data. Replace `<YOUR_SUBDOMAIN>` with the deploy command output from the previous step. For example:
 
        ```curl
        curl --request POST --data @- 'https://timescale-api.<YOUR_SUBDOMAIN>.workers.dev/readings' <<EOF
@@ -243,7 +245,7 @@ To connect to $CLOUD_LONG:
        EOF
        ```
 
-       Replace `<YOUR_SUBDOMAIN>` with the deploy command output from the previous step. This command omits the `ts` (the timestamp) and `metadata` (the JSON blob) so they will be set to `now()` and `NULL`, respectively.
+       This command omits the `ts` (the timestamp) and `metadata` (the JSON blob) so they will be set to `now()` and `NULL`, respectively.
 
     - Query the `readings` hypertable by sending a `GET` request to your Worker’s URL with the `/readings` path. Set the `limit` parameter to control the amount of returned records:
 

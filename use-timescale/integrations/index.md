@@ -40,9 +40,10 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 
 ## Configuration and deployment 
 
-|            Name             | Description                                                              |
-|:---------------------------:|--------------------------------------------------------------------------|
-| [Terraform][terraform]      | Safely and predictably provision and manage infrastructure in any cloud. |
+|                Name                 | Description                                                                                    |
+|:-----------------------------------:|------------------------------------------------------------------------------------------------|
+|       [Terraform][terraform]        | Safely and predictably provision and manage infrastructure in any cloud.                       |
+| [Cloudflare Hyperdrive][cloudflare] | Distribute data storage and accelerate access across to your data from multiple cloud regions. |
 
 
 ## Data engineering and extract, transform, load
@@ -70,3 +71,4 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 [prometheus]: /use-timescale/:currentVersion:/integrations/prometheus
 [amazon-sagemaker]: /use-timescale/:currentVersion:/integrations/amazon-sagemaker
 [postgresql]: /use-timescale/:currentVersion:/integrations/postgresql
+[cloudflare]: /use-timescale/:currentVersion:/integrations/cloudflare
