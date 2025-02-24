@@ -16,8 +16,6 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 <IntegrationPrereqs />
 
 *   Install [Rails][rails-guide].
-*   Install [psql to connect][psql-install] to your $SERVICE_SHORT. IAIN, Dont think we need this, using 
-    the one in ruby throught the doc.
 
 ## Connect a Rails app to your $SERVICE_SHORT 
 
@@ -69,11 +67,17 @@ from a standard Rails app configured for PostgreSQL.
        export DATABASE_URL="value of Service URL"
        ```
 
-   1.  Create the database and run migrations:
+   1.  For self-host users, you may create the database database for the project
+       before you start:
 
-       IAIN: this gives an error for a service, do we have to do it, or is this for self-hosted only?
        ```bash
-       rails db:create db:migrate
+       rails db:create
+       ```
+
+   1.  Run migrations:
+
+       ```bash
+       rails db:migrate
        ```
 
    1.  Verify the connection from your app to your $SERVICE_LONG:
@@ -233,7 +237,8 @@ shows you how to ingest test data into your hypertable.
 
 1.  **Generate some test data**
 
-    Iain: I don't know which file to add this in.
+    Use `bin/console` to join a Rails console session and run the following code
+    to define some random page load access data:
 
     ```ruby
     def generate_sample_page_loads(total: 1000)
@@ -256,22 +261,20 @@ shows you how to ingest test data into your hypertable.
         }
       end
     end
-
-    # Insert the data in batches
-    PageLoad.insert_all(generate_sample_page_loads, returning: false)
     ```
 
-1. **Inject test data into your $SERVICE_LONG**
+1. **Insert generated data into your $SERVICE_LONG**
 
     ```bash
-   IAIN: How do I run this
+    # Insert the data in batches
+    PageLoad.insert_all(generate_sample_page_loads, returning: false)
    ```
 
 1.  Validate the test data in your $SERVICE_LONG:
 
-   IAIN: At a guess, something like this. 
    ```bash
-    echo "SELECT * FROM page_loads" | rails dbconsole
+   PageLoad.count
+   PageLoad.first
    ```
 
 </Procedure>
