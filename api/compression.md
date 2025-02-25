@@ -1,6 +1,6 @@
 ---
 title: Compression
-excerpt: Compress your hypertable
+excerpt: Timescale Cloud API reference for compressing your data. Includes SQL functions for compressing and decompressing chunks, managing compression policies, and getting compression stats
 keywords: [compression]
 tags: [hypertables]
 ---
