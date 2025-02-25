@@ -69,61 +69,74 @@ Now, with the variables in place, we'll configure the the foreign data wrapper (
       );
       ```
 
-   1. Turn the table to a hypertable, enable columnstore for cooling data and organize by `name`.
+   1. Turn the table to a hypertable, enable the [columnstore[hypercore] on cooling data so it is configured for 
+      analytics and filter by `name`.
 
       ```sql
       SELECT create_hypertable('signs', by_range('time')); 
-      ALTER TABLE signs SET (timescaledb.compress, timescaledb.compress_segmentby = 'name'); 
+      ALTER TABLE signs SET (
+        timescaledb.enable_columnstore = true, 
+        timescaledb.segmentby = 'name'); 
       ```
 
-1. Setup continuous aggregates.
+1. **Setup continuous aggregates**
 
-   On the Timescale database, we create a continuous aggregate that is pointing to the supabase database.
+   Continuous aggregates are designed to make queries on very large datasets run
+   faster. Continuous aggregates in $CLOUD_LONG use PostgreSQL [materialized views][postgres-materialized-views] to 
+   continuously, and incrementally refresh a query in the background, so that when you run the query,
+   only the data that has changed needs to be computed, not the entire dataset.
+
+   1. Create a continuous aggregate pointing to the supabase database.
    
-   ```sql
-   CREATE MATERIALIZED VIEW IF NOT EXISTS signs_per_minute
-   WITH (timescaledb.continuous)
-   AS
-   SELECT time_bucket('1 minute', time) as ts,
-    name, 
-    count(*) as total 
-   FROM signs 
-   GROUP BY 1, 2 
-   WITH NO DATA;
-   ```
+      ```sql
+      CREATE MATERIALIZED VIEW IF NOT EXISTS signs_per_minute
+      WITH (timescaledb.continuous)
+      AS
+      SELECT time_bucket('1 minute', time) as ts,
+       name, 
+       count(*) as total 
+      FROM signs 
+      GROUP BY 1, 2 
+      WITH NO DATA;
+      ```
 
-1. Setup a delay stats comparing the origin_time to the time.
+   1. Setup a delay stats comparing `origin_time` to `time`.
 
-   ```sql
-   CREATE MATERIALIZED VIEW IF NOT EXISTS _signs_per_minute_delay
-   WITH (timescaledb.continuous)
-   AS
-   SELECT time_bucket('1 minute', time) as ts, 
-   stats_agg(extract(epoch from origin_time - time)::float8) as delay_agg, 
-   candlestick_agg(time, extract(epoch from origin_time - time)::float8, 1) as delay_candlestick 
-   FROM signs GROUP BY 1 
-   WITH NO DATA;
-   ```
+      ```sql
+      CREATE MATERIALIZED VIEW IF NOT EXISTS _signs_per_minute_delay
+      WITH (timescaledb.continuous)
+      AS
+      SELECT time_bucket('1 minute', time) as ts, 
+        stats_agg(extract(epoch from origin_time - time)::float8) as delay_agg, 
+        candlestick_agg(time, extract(epoch from origin_time - time)::float8, 1) as delay_candlestick 
+      FROM signs GROUP BY 1 
+      WITH NO DATA;
+      ```
 
-1. Setup a view to access the data from Supabase.
+   1. Setup a view to access the data from Supabase.
 
-   IAIN: HMMM, should this be here?
-   ```sql
-   CREATE VIEW signs_per_minute_delay
-   AS
-     SELECT ts, 
-     average(delay_agg) as avg_delay, 
-     stddev(delay_agg) as stddev_delay, 
-     open(delay_candlestick) as open, 
-     high(delay_candlestick) as high, 
-     low(delay_candlestick) as low, 
-     close(delay_candlestick) as close 
-   FROM _signs_per_minute_delay
-   ```
+      IAIN: HMMM, should this be here?
+      ```sql
+      CREATE VIEW signs_per_minute_delay
+      AS
+        SELECT ts, 
+        average(delay_agg) as avg_delay, 
+        stddev(delay_agg) as stddev_delay, 
+        open(delay_candlestick) as open, 
+        high(delay_candlestick) as high, 
+        low(delay_candlestick) as low, 
+        close(delay_candlestick) as close 
+      FROM _signs_per_minute_delay
+      ```
 
-1. In the Timescale database, add refresh policies to the continuous aggregates.
+1. Add refresh policies to the continuous aggregates:
 
    IaiN: should this be here or later
+
+   You use `start_offset` and `end_offset` to define the time range that the continuous aggregate will cover. Assuming
+   that the data is being inserted without any delay, set the `start_offset` to `5 minutes` and the `end_offset` to
+   `1 minute`. This means that the continuous aggregate is refreshed every minute, and the refresh covers the last 5
+   minutes.
    ```sql
    SELECT add_continuous_aggregate_policy('signs_per_minute',
     start_offset => INTERVAL '5 minutes',
@@ -134,10 +147,10 @@ Now, with the variables in place, we'll configure the the foreign data wrapper (
     end_offset => INTERVAL '1 minute', 
     schedule_interval => INTERVAL '1 minute');
    ```
-   
-   The `start_offset` and `end_offset` are used to define the time range that the continuous aggregate will cover. Believing that the data is being inserted without any delay, we set the `start_offset` to `5 minutes` and the `end_offset` to `1 minute`. This means that the continuous aggregate will be refreshed every minute, covering the last 5 minutes.
-   
-   Note that the `schedule_interval` is set to `INTERVAL '1 minute'`, so the continuous aggregate will be refreshed every minute. It will run only on the Timescale database. The data is being accessed from Supabase, and the continuous aggregate is being refreshed every minute in the other side.
+ 
+   `schedule_interval` is set to `INTERVAL '1 minute'` so the continuous aggregate refreshes on your $SERVICE_LONG 
+   every minute. The data is accessed from Supabase, and the continuous aggregate is being refreshed every minute in 
+   the other side.
 
 ## Setup Supabase to work with your $SERVICE_LONG 
 
@@ -233,3 +246,5 @@ Note that the `now()` is the origin_time and the `time` is the current timestamp
 
 [hypertables-section]: /use-timescale/:currentVersion:/hypertables/
 [connect]: /getting-started/:currentVersion:/run-queries-from-console/
+[hypercore]: /use-timescale/:currentVersion:/hypercore/
+[postgres-materialized-views]: https://www.postgresql.org/docs/current/rules-materializedviews.html
