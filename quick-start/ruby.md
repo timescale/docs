@@ -42,7 +42,7 @@ from a standard Rails app configured for PostgreSQL.
        gem 'timescaledb'
        ```
 
-   1. Run bundle install:
+   1. In Terminal, run the following command:
    
       ```bash
       bundle install
@@ -67,12 +67,13 @@ from a standard Rails app configured for PostgreSQL.
        export DATABASE_URL="value of Service URL"
        ```
 
-   1.  For self-host users, you may create the database database for the project
-       before you start:
+   1. Create the database:
+      - **$CLOUD_LONG**: nothing to do. The database is part of your $SERVICE_LONG.  
+      - **self-hosted TimescaleDB**, create the database for the project:
 
-       ```bash
-       rails db:create
-       ```
+          ```bash
+          rails db:create
+          ```
 
    1.  Run migrations:
 
@@ -117,6 +118,7 @@ In this section, you use the helpers in the timescaledb gem to create and manage
    This creates the `<my_app_home>/db/migrate/<migration-datetime>_create_page_loads.rb` migration file.
 
 1. **Add hypertable options** 
+
    Replace the contents of `<my_app_home>/db/migrate/<migration-datetime>_create_page_loads.rb` 
    with the following:
 
@@ -150,6 +152,7 @@ In this section, you use the helpers in the timescaledb gem to create and manage
    For more information, check the Roby docs around [composite primary keys][rails-compostite-primary-keys].
 
 1.  **Create a `PageLoad` model**
+
     Create a new file called `<my_app_home>/app/models/page_load.rb` and add the following code:
 
     ```ruby
@@ -213,6 +216,7 @@ shows you how to ingest test data into your hypertable.
 <Procedure>
 
 1.  **Create a controller to handle page loads**
+
     Create a new file called `<my_app_home>/app/controllers/application_controller.rb` and add the following code:
 
     ```ruby
@@ -263,14 +267,14 @@ shows you how to ingest test data into your hypertable.
     end
     ```
 
-1. **Insert generated data into your $SERVICE_LONG**
+1. **Insert the generated data into your $SERVICE_LONG**
 
     ```bash
     # Insert the data in batches
     PageLoad.insert_all(generate_sample_page_loads, returning: false)
    ```
 
-1.  Validate the test data in your $SERVICE_LONG:
+1.  **Validate the test data in your $SERVICE_LONG**
 
    ```bash
    PageLoad.count
