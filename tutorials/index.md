@@ -18,14 +18,9 @@ graphing your results.
 - **Cryptocurrency**
   - [Query the Bitcoin blockchain][beginner-crypto]: do your own research on the Bitcoin blockchain
   - [Analyze the Bitcoin blockchain][intermediate-crypto]: discover the relationship between transactions, blocks, fees, and miner revenue
-- **Energy**
-  - [Analyze energy consumption data][beginner-energy]: optimize your energy consumption for a rooftop solar PV system
 - **Finance**
   - [Analyze financial tick data][beginner-finance]: chart the trading highs and lows for your favorite stock
-  - [Ingest real-time financial websocket data][advanced-finance]: use a websocket connection to visualize the trading highs and lows for your favorite stock
-- **Transport**
-  - [Analyze NYC taxi cab data][beginner-fleet]: find out about taxi rides taken in and around NYC
-  - [Plot geospatial NYC taxi cab data][intermediate-fleet]: map the longest taxi rides in NYC
+  - [Ingest real-time financial data using WebSocket][advanced-finance]: use a websocket connection to visualize the trading highs and lows for your favorite stock
 - **IoT**
   - [Simulate an IoT sensor dataset][iot]: simulate an IoT sensor dataset
 - **Cookbooks**

@@ -67,29 +67,6 @@ module.exports = [
         ],
       },
       {
-        title: "Analyze energy consumption data",
-        href: "energy-data",
-        excerpt: "Learn how to analyze energy consumption data",
-        children: [
-          {
-            title: "Ingest data into a service",
-            href: "dataset-energy",
-            excerpt: "Set up a dataset so you can analyze energy consumption data",
-          },
-          {
-            title: "Query the data",
-            href: "query-energy",
-            excerpt: "Queries energy consumption data",
-          },
-          {
-            title: "Bonus: set up compression",
-            href: "compress-energy",
-            excerpt:
-              "Compress the dataset so you can store the data more efficiently",
-          },
-        ]
-      },
-      {
         title: "Analyze financial tick data ",
         href: "financial-tick-data",
         excerpt: "Use Timescale to store financial tick data",
@@ -126,46 +103,6 @@ module.exports = [
             title: "Query the data",
             href: "financial-ingest-query",
             excerpt: "Query and visualize real-time data",
-          },
-        ],
-      },
-      {
-        title: "Analyze NYC taxi cab data",
-        href: "nyc-taxi-cab",
-        excerpt: "An introduction to time-series using NYC taxi data",
-        children: [
-          {
-            title: "Ingest data into a service",
-            href: "dataset-nyc",
-            excerpt: "Set up a dataset so you can query NYC data",
-          },
-          {
-            title: "Query the data",
-            href: "query-nyc",
-            excerpt: "Query NYC data",
-          },
-          {
-            title: "Bonus: set up compression",
-            href: "compress-nyc",
-            excerpt:
-              "Compress the dataset so you can store the data more efficiently",
-          },
-        ],
-      },
-      {
-        title: "Plot geospatial NYC taxi cab data",
-        href: "nyc-taxi-geospatial",
-        excerpt: "Learn how to plot geospatial time-series data with NYC taxi cabs",
-        children: [
-          {
-            title: "Ingest data into a service",
-            href: "dataset-nyc",
-            excerpt: "Set up a dataset so you can plot geospatial NYC taxi data",
-          },
-          {
-            title: "Query the data",
-            href: "plot-nyc",
-            excerpt: "Plot geospatial NYC taxi data",
           },
         ],
       },

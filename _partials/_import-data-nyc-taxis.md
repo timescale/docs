@@ -114,9 +114,47 @@ contains data from that range.
        - **SQL editor**: write, fix, and organize SQL faster and more accurately in [$CONSOLE][portal-ops-mode] for a $SERVICE_LONG.
        - **psql**: easily run queries on your $SERVICE_LONGs or self-hosted TimescaleDB deployment from Terminal.
 
-    ```sql
-    SELECT * FROM rides LIMIT 5;
-    ```
+    For example:
+    - Display the number of rides for each fare type:
+       ```sql
+       SELECT rate_code, COUNT(vendor_id) AS num_trips
+       FROM rides
+       WHERE pickup_datetime < '2016-01-08'
+       GROUP BY rate_code
+       ORDER BY rate_code;
+       ```
+       This simple query runs in 3 seconds. You see something like:
+
+       | rate_code | num_trips	|
+       |-----------------|-----------|
+       |1 |   2266401|
+       |2 |     54832|
+       |3 |      4126|
+       |4 |       967|
+       |5 |      7193|
+       |6 |        17|
+       |99 |        42|
+
+    - To select all rides taken in the first week of January 2016, and return the total number of trips taken for each rate code:  
+       ```sql
+       SELECT rates.description, COUNT(vendor_id) AS num_trips
+       FROM rides
+       JOIN rates ON rides.rate_code = rates.rate_code
+       WHERE pickup_datetime < '2016-01-08'
+       GROUP BY rates.description
+       ORDER BY LOWER(rates.description);
+       ```
+       On this large amount of data, this analytical query on data in the rowstore takes about 59 seconds. You see something like:
+    
+       | description	| num_trips	|
+       |-----------------|-----------|    
+       | group ride | 	17 |
+       | JFK	 | 54832 |
+       | Nassau or Westchester | 	967 |
+       | negotiated fare | 	7193 |
+       | Newark | 	4126 |
+       | standard rate | 	2266401 |
+
 
 </Procedure>
 

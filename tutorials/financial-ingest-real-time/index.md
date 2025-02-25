@@ -1,5 +1,5 @@
 ---
-title: Ingest real-time financial websocket data
+title: Ingest real-time financial data using WebSocket
 excerpt: Ingest time-series data into Timescale Cloud using a websocket connection
 products: [cloud]
 keywords: [finance, analytics, websockets, data pipeline]
@@ -11,7 +11,7 @@ content_group: Ingest real-time financial websocket data
 import CandlestickIntro from "versionContent/_partials/_candlestick_intro.mdx";
 import FinancialIndustry from "versionContent/_partials/_financial-industry-data-analysis.mdx";
 
-# Ingest real-time financial websocket data
+# Ingest real-time financial data using WebSocket
 
 <FinancialIndustry />
 

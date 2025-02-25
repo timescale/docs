@@ -58,9 +58,22 @@ contains data from that range.
        - **psql**: easily run queries on your $SERVICE_LONGs or self-hosted TimescaleDB deployment from Terminal.
 
     ```sql
-    SELECT * FROM metrics LIMIT 5;
+    SELECT time_bucket('1 day', created, 'Europe/Berlin') AS "time",
+    round((last(value, created) - first(value, created)) * 100.) / 100. AS value
+    FROM metrics                                   
+    WHERE type_id = 5
+    GROUP BY 1;
     ```
+    
+    On this amount of data, this query on data in the rowstore takes about 3.6 seconds. You see something like:
 
+    | Time	                        | value |
+    |------------------------------|-------|
+    | 2023-05-29 22:00:00+00 | 23.1  |
+    | 2023-05-28 22:00:00+00 | 19.5  |
+    | 2023-05-30 22:00:00+00 | 25    |
+    | 2023-05-31 22:00:00+00 | 8.1   |
+       
 </Procedure>
 
 [hypertables-section]: /use-timescale/:currentVersion:/hypertables/
