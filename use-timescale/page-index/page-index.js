@@ -849,6 +849,11 @@ module.exports = [
             excerpt: "Integrate qstudio with Timescale Cloud",
           },
           {
+            title: "Striim",
+            href: "striim",
+            excerpt: "Integrate Striim with Timescale products",
+          },
+          {
             title: "Tableau",
             href: "tableau",
             excerpt: "Integrate Tableau with Timescale Cloud",
