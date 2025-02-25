@@ -1,4 +1,4 @@
-In order to follow the steps on this page:
+To follow the steps on this page:
 
 * Create a target [$SERVICE_LONG][create-service] with time-series and analytics enabled.
 

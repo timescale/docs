@@ -748,7 +748,7 @@ module.exports = [
           {
             title: "Find your connection details",
             href: "find-connection-details",
-            excerpt: "Learn about connecting to your Timescale database",
+            excerpt: "Find connection information for your Timescale Cloud service",
           },
           {
             title: "Amazon CloudWatch",
@@ -766,6 +766,11 @@ module.exports = [
             excerpt: "Integrate Apache Airflow with Timescale products",
           },
           {
+            title: "Apache Kafka",
+            href: "apache-kafka",
+            excerpt: "Integrate Apache Kafka with Timescale Cloud",
+          },
+          {
             title: "AWS Lambda",
             href: "aws-lambda",
             excerpt: "Integrate AWS Lambda with Timescale Cloud",
@@ -773,7 +778,7 @@ module.exports = [
           {
             title: "Azure Data Studio",
             href: "azure-data-studio",
-            excerpt: "Integrate Azure Data Studio with Timescale products",
+            excerpt: "Integrate Azure Data Studio with Timescale Cloud",
           },
           {
             title: "Datadog",
@@ -783,7 +788,12 @@ module.exports = [
           {
             title: "DBeaver",
             href: "dbeaver",
-            excerpt: "Integrate DBeaver with Timescale products",
+            excerpt: "Integrate DBeaver with Timescale Cloud",
+          },
+          {
+            title: "Fivetran",
+            href: "fivetran",
+            excerpt: "Integrate Fivetran with Timescale Cloud",
           },
           {
             title: "Grafana",
@@ -793,7 +803,7 @@ module.exports = [
           {
             title: "pgAdmin",
             href: "pgadmin",
-            excerpt: "Integrate pgAdmin with Timescale products",
+            excerpt: "Integrate pgAdmin with Timescale Cloud",
           },
           {
             title: "PostgreSQL",
@@ -813,22 +823,23 @@ module.exports = [
           {
             title: "qStudio",
             href: "qstudio",
-            excerpt: "Integrate qstudio with Timescale products",
+            excerpt: "Integrate qstudio with Timescale Cloud",
           },
           {
             title: "Tableau",
             href: "tableau",
-            excerpt: "Integrate Tableau with Timescale products",
+            excerpt: "Integrate Tableau with Timescale Cloud",
           },
           {
             title: "Terraform",
             href: "terraform",
-            excerpt: "Manage your Timescale services with Terraform",
+            excerpt: "Integrate Terraform with Timescale Cloud",
           },
           {
             title: "Troubleshooting Timescale integrations",
             href: "troubleshooting",
             type: "placeholder",
+            excerpt: "Resolve integration issues",
           },
         ],
       },
