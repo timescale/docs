@@ -55,6 +55,12 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 | [AWS Lambda][aws-lambda]| Run code without provisioning or managing servers, scaling automatically as needed.                    |
 
 
+## Data ingestion and streaming
+
+|         Name         | Description                                                                                                                                                                 |
+|:--------------------:|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Fivetran][fivetran] | Sync data from multiple sources to your data warehouse. |
+
 
 [psql]: /use-timescale/:currentVersion:/integrations/psql/
 [qstudio]: /use-timescale/:currentVersion:/integrations/qstudio/
@@ -69,8 +75,9 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 [apache-airflow]: /use-timescale/:currentVersion:/integrations/apache-airflow
 [aws-lambda]: /use-timescale/:currentVersion:/integrations/aws-lambda
 [postgresql-integrations]: https://slashdot.org/software/p/PostgreSQL/integrations/
-[kafka]: /use-timescale/:currentVersion:/integrations/apache-kafka
+[fivetran]: /use-timescale/:currentVersion:/integrations/fivetran
 [prometheus]: /use-timescale/:currentVersion:/integrations/prometheus
-[amazon-sagemaker]: /use-timescale/:currentVersion:/integrations/
+[amazon-sagemaker]: /use-timescale/:currentVersion:/integrations/amazon-sagemaker
 [postgresql]: /use-timescale/:currentVersion:/integrations/postgresql
+[kafka]: /use-timescale/:currentVersion:/integrations/apache-kafka
 
