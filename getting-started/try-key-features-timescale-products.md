@@ -264,7 +264,7 @@ powered by time-series data. The advantage of Hypercore is its ability to seamle
 column-oriented storage. This flexibility enables Timescale Cloud to deliver the best of both worlds, solving the key 
 challenges in real-time analytics.
 
-![Move from rowstore and columstore in hypercore](https://assets.timescale.com/docs/images/hypercore-architecture.png )
+![Move from rowstore and columstore in hypercore](https://assets.timescale.com/docs/images/hypercore.png )
 
 When you convert chunks from the rowstore to the columnstore, multiple records are grouped into a single row.
 The columns of this row hold an array-like structure that stores all the data. Because a single row takes up less disk 
@@ -305,6 +305,8 @@ you create tiering policies to move rarely accessed data to the object store. Th
 low-cost bottomless data storage built on Amazon S3. However, no matter the tier, you can 
 [query your data when you need][querying-tiered-data]. $CLOUD_LONG seamlessly accesses the correct storage 
 tier and generates the response.
+
+![Tiered storage](https://assets.timescale.com/docs/images/tiered-storage.png )
 
 Data tiering is available in the [scale and enterprise][pricing-plans] pricing plans for $CLOUD_LONG. 
 
