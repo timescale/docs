@@ -20,4 +20,3 @@
 [about-hypertables]: /use-timescale/:currentVersion:/hypertables/about-hypertables/
 [data-compression]: /use-timescale/:currentVersion:/compression/about-compression/
 [data-retention]: /use-timescale/:currentVersion:/data-retention/about-data-retention/
-
