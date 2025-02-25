@@ -1,6 +1,6 @@
 ---
 title: Install TimescaleDB on Linux
-excerpt: Install self-hosted TimescaleDB on Linux
+excerpt: Install self-hosted TimescaleDB on Debian, Red Hat, or ArchLinux
 products: [self_hosted]
 keywords: [installation, self-hosted, Debian, Ubuntu, RHEL, Fedora]
 ---

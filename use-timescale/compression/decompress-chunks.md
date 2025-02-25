@@ -6,7 +6,11 @@ keywords: [compression, hypertables, backfilling]
 tags: [decompression]
 ---
 
+import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
+
 # Decompression
+
+<Deprecated2180 /> see <a href="https://docs.timescale.com/use-timescale/latest/hypercore/modify-data-in-hypercore">Modify your data in Hypercore</a>
 
 Timescale automatically supports `INSERT`s into compressed chunks. But if you
 need to insert a lot of data, for example as part of a bulk backfilling

@@ -1,6 +1,6 @@
 ---
 title: Livesync from Postgres to Timescale Cloud
-excerpt: Synchronize updates to a primary postgres database instance to Timescale Cloud service in real-time
+excerpt: Synchronize updates to your primary PostgreSQL database with the corresponding Timescale Cloud service in real time
 products: [cloud]
 keywords: [migration, low-downtime, backup]
 tags: [recovery, logical backup, replication]

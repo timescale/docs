@@ -1,6 +1,6 @@
 ---
 title: Hyperfunctions
-excerpt: Use hyperfunctions to simplify data analysis
+excerpt: The full list of hyperfunctions available in Timescale Cloud, with required arguments, returns, and complete use examples
 keywords: [hyperfunctions, Toolkit]
 ---
 

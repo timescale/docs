@@ -100,6 +100,7 @@ Calls to `add_columnstore_policy` require either `after` or `created_before`, bu
 | `if_not_exists`     |BOOLEAN| `false` | ✖ | Set to `true` so this job fails with a warning rather than an error if a columnstore policy already exists on `hypertable` |
 | `hypercore_use_access_method`         | BOOLEAN | `NULL` | ✖ | Set to `true` to use hypercore table access metod. If set to `NULL` it will use the value from `timescaledb.default_hypercore_use_access_method`. |
 
+
 <!-- vale Google.Acronyms = YES -->
 <!-- vale Vale.Spelling = YES -->
 

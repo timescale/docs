@@ -1,13 +1,13 @@
 ---
 title: Compression
-excerpt: Compress your hypertable
+excerpt: Timescale Cloud API reference for compressing your data. Includes SQL functions for compressing and decompressing chunks, managing compression policies, and getting compression stats
 keywords: [compression]
 tags: [hypertables]
 ---
 
 import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 
-# Compression (Old API, use Hypercore) <Tag type="community">Community</Tag>
+# Compression (Old API, replaced by Hypercore) <Tag type="community">Community</Tag>
 
 <Deprecated2180 /> Replaced by <a href="https://docs.timescale.com/api/latest/hypercore/">Hypercore</a>.
 
