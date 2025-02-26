@@ -48,11 +48,19 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 
 ## Data engineering and extract, transform, load
 
-|               Name               | Description                                                                         |
-|:--------------------------------:|-------------------------------------------------------------------------------------|
-| [Amazon SageMaker][amazon-sagemaker]| Build, train, and deploy ML models into a production-ready hosted environment.      |
-| [Apache Airflow][apache-airflow] | Programmatically author, schedule, and monitor workflows.                           |
-| [AWS Lambda][aws-lambda]| Run code without provisioning or managing servers, scaling automatically as needed. |
+|               Name               | Description                                                                                            |
+|:--------------------------------:|--------------------------------------------------------------------------------------------------------|
+| [Amazon SageMaker][amazon-sagemaker]| Build, train, and deploy ML models into a production-ready hosted environment.                         |
+| [Apache Airflow][apache-airflow] | Programmatically author, schedule, and monitor workflows.                                              |
+| [Apache Kafka][kafka] | Stream high-performance data pipelines, analytics, and data integration. |
+| [AWS Lambda][aws-lambda]| Run code without provisioning or managing servers, scaling automatically as needed.                    |
+
+
+## Data ingestion and streaming
+
+|         Name         | Description                                                                                                                                                                 |
+|:--------------------:|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Fivetran][fivetran] | Sync data from multiple sources to your data warehouse. |
 
 ## Change data capture 
 
@@ -74,11 +82,8 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 [apache-airflow]: /use-timescale/:currentVersion:/integrations/apache-airflow
 [aws-lambda]: /use-timescale/:currentVersion:/integrations/aws-lambda
 [postgresql-integrations]: https://slashdot.org/software/p/PostgreSQL/integrations/
+[fivetran]: /use-timescale/:currentVersion:/integrations/fivetran
 [prometheus]: /use-timescale/:currentVersion:/integrations/prometheus
 [amazon-sagemaker]: /use-timescale/:currentVersion:/integrations/amazon-sagemaker
 [postgresql]: /use-timescale/:currentVersion:/integrations/postgresql
-<<<<<<< HEAD
-[debezium]: /use-timescale/:currentVersion:/integrations/debezium
-=======
-[kubernetes]: /use-timescale/:currentVersion:/integrations/postgresql
->>>>>>> ce300f66d7f71e0b644a49a3abd7096067ebfc6b
+[kafka]: /use-timescale/:currentVersion:/integrations/apache-kafka

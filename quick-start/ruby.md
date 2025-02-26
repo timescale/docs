@@ -5,725 +5,430 @@ keywords: [Ruby]
 ---
 
 import QuickstartIntro from "versionContent/_partials/_quickstart-intro.mdx";
+import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
 
 # Ruby quick start
 
 <QuickstartIntro />
 
-This quick start guide shows you how to:
-
-*   [Connect to a Timescale service][connect]
-*   [Create a relational table][create-table]
-*   [Create a hypertable][create-a-hypertable]
-*   [Insert data][insert]
-*   [Execute a query][query]
-*   [Create scopes to reuse][create-scopes]
-*   [Add performance and path attributes to PageLoad][add-performance]
-*   [Explore aggregation functions][explore]
-
 ## Prerequisites
 
-Before you start, make sure you have:
+<IntegrationPrereqs />
 
-*   Created a Timescale service. For more information, see the
-    [start up documentation][install]. Make a note of the `Service URL`,
-    `Password`, and `Port` in the Timescale service that you created.
-*   Installed [Rails][rails-guide].
-*   Installed [psql to connect][psql-install] to the Timescale service.
+*   Install [Rails][rails-guide].
 
-## Connect to a Timescale service
+## Connect a Rails app to your $SERVICE_SHORT 
 
-In this section, you create a connection to your Timescale service through the Ruby
-on Rails application.
+Every $SERVICE_LONG is a 100% PostgreSQL database hosted in $CLOUD_LONG with
+$COMPANY extensions such as $TIMESCALE_DB. You connect to your $SERVICE_LONG
+from a standard Rails app configured for PostgreSQL. 
 
 <Procedure>
 
-<Collapsible heading="Connect to Timescale" headingLevel={3}>
+1.  **Create a new Rails app configured for PostgreSQL**
 
-1.  Create a new Rails application configured to use PostgreSQL as the database.
-    Your Timescale service works as a PostgreSQL extension.
+    Rails creates and bundles your app, then installs the standard PostgreSQL Gems.
 
     ```bash
     rails new my_app -d=postgresql
+    cd my_app
     ```
 
-    Rails creates and bundles your application, and installs all
-    required Gems in the process.
+1. **Install the TimescaleDB gem**
 
-1.  Update `port` in the `database.yml` located in the `my_app/config`
-    directory with `<PORT>` of the Timescale service.
+   1.  Open `Gemfile`, add the following line, then save your changes:
 
-1.  Set the environment variable for `DATABASE_URL` to `<SERVICE_URL>` of
-    the service. For example in a `ZSH` shell edit the `~/.zshrc` file with:
+       ```ruby
+       gem 'timescaledb'
+       ```
 
-    ```bash
-    export DATABASE_URL="<SERVICE_URL>"
-    ```
+   1. In Terminal, run the following command:
+   
+      ```bash
+      bundle install
+      ```
 
-1.  Save the `~/.zshrc` file and load the environment variables using:
+1. **Connect your app to your $SERVICE_LONG**
 
-    ```bash
-    source ~/.zshrc
-    ```
+   1.  In `<my_app_home>/config/database.yml` update the configuration to read securely connect to your $SERVICE_LONG
+       by adding `url: <%= ENV['DATABASE_URL'] %>` to the default configuration:
 
-1.  Add Timescale to your Rails migration:
+       ```yaml
+       default: &default
+         adapter: postgresql
+         encoding: unicode
+         pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+         url: <%= ENV['DATABASE_URL'] %>
+       ```
 
-    ```ruby
-    rails generate migration add_timescale
-    ```
+   1.  Set the environment variable for `DATABASE_URL` to the value of `Service URL` from
+       your [connection details][connection-info]
+       ```bash
+       export DATABASE_URL="value of Service URL"
+       ```
 
-    A new migration file `<migration-datetime>_add_timescale.rb` is created in
-    the `my_app/db/migrate` directory.
+   1. Create the database:
+      - **$CLOUD_LONG**: nothing to do. The database is part of your $SERVICE_LONG.  
+      - **self-hosted TimescaleDB**, create the database for the project:
 
-1.  Connect to your service using Rails:
+          ```bash
+          rails db:create
+          ```
 
-    ```bash
-    echo "\dx" | rails dbconsole
-    ```
+   1.  Run migrations:
 
-    Enter the `tsdbadmin` password for the Timescale service in the password prompt.
+       ```bash
+       rails db:migrate
+       ```
 
-    The result looks like:
+   1.  Verify the connection from your app to your $SERVICE_LONG:
 
-    ```bash
-                                                       List of installed extensions
-    Name         | Version |   Schema   |                                      Description
-    ---------------------+---------+------------+---------------------------------------------------------------------------------------
-    pg_stat_statements  | 1.10    | public     | track planning and execution statistics of all SQL statements executed
-    plpgsql             | 1.0     | pg_catalog | PL/pgSQL procedural language
-    timescaledb         | 2.9.3   | public     | Enables scalable inserts and complex queries for time-series data
-    timescaledb_toolkit | 1.13.1  | public     | Library of analytical hyperfunctions, time-series pipelining, and other SQL  utilities
-    (4 rows)
-    ```
+       ```bash
+       echo "\dx" | rails dbconsole
+       ```
 
-    <Highlight type="important">
-    To ensure that your tests run successfully, in the
-    `config/environments/test.rb` file, add
-    `config.active_record.verify_foreign_keys_for_fixtures = false`.
-    Otherwise you get an error because Timescale uses internal foreign keys.
-    </Highlight>
+       The result shows the list of extensions in your $SERVICE_LONG
 
-</Collapsible>
+      |  Name  | Version | Schema | Description  |                                       
+      | --  | -- | -- | -- |
+      | pg_buffercache      | 1.5     | public     | examine the shared buffer cache| 
+      | pg_stat_statements  | 1.11    | public     | track planning and execution statistics of all SQL statements executed| 
+      | plpgsql             | 1.0     | pg_catalog | PL/pgSQL procedural language| 
+      | postgres_fdw        | 1.1     | public     | foreign-data wrapper for remote PostgreSQL servers| 
+      | timescaledb         | 2.18.1  | public     | Enables scalable inserts and complex queries for time-series data (Community Edition)| 
+      | timescaledb_toolkit | 1.19.0  | public     | Library of analytical hyperfunctions, time-series pipelining, and other SQL utilities| 
 
 </Procedure>
 
-## Create a relational table
+## Optimize time-series data in hypertables
 
-In this section, you create a table to store the user agent or browser and time
-when a visitor loads a page. You could easily extend this simple example to
-store a host of additional web analytics of interest to you.
+Hypertables are PostgreSQL tables designed to simplify and accelerate data analysis. Anything 
+you can do with regular PostgreSQL tables, you can do with hypertables - but much faster and more conveniently.
 
-<Procedure>
-
-<Collapsible heading="Create a relational table" headingLevel={3}>
-
-1.  Generate a Rails scaffold to represent the user agent information in a table:
-
-    ```ruby
-    rails generate scaffold PageLoads user_agent:string
-    ```
-
-   A new migration file `<migration-datetime>_create_page_loads.rb` is created in
-   the `my_app/db/migrate` directory.
-   Timescale requires that any `UNIQUE` or `PRIMARY KEY` indexes on the table
-   include all partitioning columns, which in this case is the time column. A new
-   Rails model includes a `PRIMARY KEY` index for id by default, so you need to
-   either remove the column or make sure that the index includes time as part of
-   a "composite key."
-
-  Composite keys aren't supported natively by Rails, but if you need to keep
-  your `id` column around for some reason you can add support for them with
-  the [`composite_primary_keys` gem](https://github.com/composite-primary-keys/composite_primary_keys).
-
-1.  Change the migration code in the `<migration-datetime>_create_page_loads.rb`
-    file located at the `my_app/db/migrate` directory to:
-
-    ```ruby
-        class CreatePageLoads < ActiveRecord::Migration[7.0]
-         def change
-         create_table :page_loads, id: false do |t|
-           t.string :user_agent
-
-           t.timestamps
-         end
-       end
-     end
-    ```
-
-    Rails generates all the helper files and a database migration.
-1.  Create the table in the database:
-
-    ```ruby
-    rails db:migrate
-    ```
-
-1.  Confirm that the table exists using and the model is properly mapped using:
-
-    ```ruby
-    rails runner 'p PageLoad.count'
-    0
-    ```
-
-1.  View the structure of the `page_loads` table in the `rails dbconsole` output:
-
-    ```ruby
-    echo "\d page_loads" | rails dbconsole
-    ```
-
-    The result is similar to:
-
-    ```ruby
-                                 Table "public.page_loads"
-        Column   |              Type              | Collation | Nullable | Default
-     ------------+--------------------------------+-----------+----------+---------
-      user_agent | character varying              |           |          |
-      created_at | timestamp(6) without time zone |           | not null |
-      updated_at | timestamp(6) without time zone |           | not null |
-    ```
-
-</Collapsible>
-
-</Procedure>
-
-## Create a hypertable
-
-When you have created the relational table, you can create a hypertable.
-Creating tables and indexes, altering tables, inserting data, selecting data,
-and most other tasks are executed on the hypertable.
+In this section, you use the helpers in the timescaledb gem to create and manage a [hypertable][about-hypertables].
 
 <Procedure>
 
-<Collapsible heading="Create a hypertable" headingLevel={3}>
+1.  **Generate a migration to create the page loads table**
 
-1.  Create a migration to modify the `page_loads` database and create a hypertable:
-
-    ```ruby
-    rails generate migration add_hypertable
+    ```bash
+    rails generate migration create_page_loads
     ```
 
-    A new migration file `<migration-datetime>_add_hypertable.rb` is created in
-    the `my_app/db/migrate` directory.
+   This creates the `<my_app_home>/db/migrate/<migration-datetime>_create_page_loads.rb` migration file.
 
-1.  Change the migration code in the `<migration-datetime>_add_hypertable.rb`
-    file located at the `my_app/db/migrate` directory to:
+1. **Add hypertable options** 
+
+   Replace the contents of `<my_app_home>/db/migrate/<migration-datetime>_create_page_loads.rb` 
+   with the following:
 
     ```ruby
-    class AddHypertable < ActiveRecord::Migration[7.0]
+    class CreatePageLoads < ActiveRecord::Migration[8.0]
       def change
-       execute "SELECT create_hypertable('page_loads', by_range('created_at'));"
-      end
-    end
-    ```
-
-	<Highlight type="note">
-	The `by_range` and `by_hash` dimension builder is an addition to TimescaleDB 2.13.
-	</Highlight>
-
-1.  Generate the hypertable:
-
-    ```ruby
-    rails db:migrate
-    ```
-
-1.  View the hypertable:
-
-    ```ruby
-    echo "\d page_loads" | rails dbconsole
-    ```
-
-    The result is similar to:
-
-    ```ruby
-                                 Table "public.page_loads"
-        Column   |              Type              | Collation | Nullable | Default
-     ------------+--------------------------------+-----------+----------+---------
-      user_agent | character varying              |           |          |
-      created_at | timestamp(6) without time zone |           | not null |
-      updated_at | timestamp(6) without time zone |           | not null |
-    Indexes:
-      "page_loads_created_at_idx" btree (created_at DESC)
-    Triggers:
-      ts_insert_blocker BEFORE INSERT ON page_loads FOR EACH ROW EXECUTE FUNCTION _timescaledb_functions.insert_blocker()
-    ```
-
-</Collapsible>
-
-</Procedure>
-
-## Insert data
-
-You can insert data into your hypertables in several different ways. Create a
-new view and controller so that you can insert a value into the database, store
-the user agent and time in the database, retrieve the user agent of the browser
-for site visitor. You can then create a `PageLoad` object, store the user agent
-information and time, and save the object to the Timescale service.
-
-<Procedure>
-
-<Collapsible heading="Insert data into Timescale" headingLevel={3}>
-
-1.  Create a new view and controller so that you can insert a value into the database:
-
-    ```ruby
-    rails generate controller static_pages home
-    ```
-
-    This generates the view and controller files for a page called
-    `/static_pages/home` for the website.  The `static_pages_controller.rb` file
-    is located at `/my_app/app/controllers` directory.
-
-1.  Add this line to the `static_pages_controller.rb` file to retrieve the user
-    agent of browser for the site visitor.
-
-    ```ruby
-    class StaticPagesController < ApplicationController
-      def home
-        @agent = request.user_agent
-      end
-    end
-    ```
-
-1.  Print the `@agent` variable that you created to the `home.html.erb` file, located
-    at `/my_app/app/views/static_pages/`:
-
-    ```html
-    <h1>StaticPages#home</h1>
-    <p>Find me in app/views/static_pages/home.html.erb</p>
-    <p>Request: <&= @agent &></p>
-    ```
-
-1.  Start the Rails server:
-
-    ```bash
-    rails s
-    ```
-
-    Go to `http://localhost:3000/static_pages/home`. You should see a printout
-    of the user agent for the browser.
-
-1.  Update the `static_pages_controller.rb` controller file to create a
-    `PageLoad` object, store the user agent information and time, and save the
-    object to the Timescale `tsdb` database:
-
-    ```ruby
-    class StaticPagesController < ApplicationController
-       def home
-          PageLoad.create(user_agent: request.user_agent)
-       end
-    end
-    ```
-
-    When you go to the browser and refresh the page several times. In the Rails
-    console window commit messages appears:
-
-    ```ruby
-    Started GET "/static_pages/home" for ::1 at 2023-02-22 07:02:16 +0530
-    Processing by StaticPagesController#home as HTML
-    TRANSACTION (268.7ms)  BEGIN
-    ↳ app/controllers/static_pages_controller.rb:3:in 'home'
-    PageLoad Create (207.8ms)  INSERT INTO "page_loads" ("user_agent", "created_at", "updated_at") VALUES ($1, $2, $3)  [["user_agent", "Mozilla/5.0    (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"], ["created_at", "2023-02-22 01:32:16.465709"], ["updated_at", "2023-02-22 01:32:16.465709"]]
-    ↳ app/controllers/static_pages_controller.rb:3:in 'home'
-    TRANSACTION (206.5ms)  COMMIT
-    ↳ app/controllers/static_pages_controller.rb:3:in 'home'
-    Rendering layout layouts/application.html.erb
-    Rendering static_pages/home.html.erb within layouts/application
-    Rendered static_pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
-    Rendered layout layouts/application.html.erb (Duration: 9.4ms | Allocations: 2389)
-    Completed 200 OK in 917ms (Views: 10.4ms | ActiveRecord: 682.9ms | Allocations: 4542)
-    ```
-
-1.  Connect to the `tsdb` database using psql:
-
-    ```bash
-    psql -x <SERVICE_URL>
-    ```
-
-1.  View the entries in the Timescale `tsdb` database:
-
-    ```sql
-    SELECT * FROM page_loads ORDER BY created_at DESC;
-    ```
-
-    The result is similar to:
-
-    ```bash
-    -[ RECORD 1 ]---------------------------------------------------------------------------------------------------------------------
-    user_agent | Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/202.0.0.0 Safari/537.36
-    created_at | 2023-02-22 01:32:53.935198
-    updated_at | 2023-02-22 01:32:53.935198
-    -[ RECORD 2 ]---------------------------------------------------------------------------------------------------------------------
-    user_agent | Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/202.0.0.0 Safari/537.36
-    created_at | 2023-02-22 01:32:45.146997
-    updated_at | 2023-02-22 01:32:45.146997
-    ```
-
-</Collapsible>
-
-</Procedure>
-
-## Execute a query
-
-This section covers how to execute queries against your database.
-You can retrieve the data that you inserted and view it.
-
-<Procedure>
-
-<Collapsible heading="Execute a query" headingLevel={3}>
-
-1.  In the `static_pages_controller.rb` file modify the `home` method
-    to [use Active Record to query][active-record-query] on all items in
-    the `page_load` database and store them in an array:
-
-    ```ruby
-    class StaticPagesController < ApplicationController
-      def home
-        PageLoad.create(:user_agent => request.user_agent)
-      end
-    end
-    ```
-
-1.  Modify the `home.html.erb` view to iterate over the array and display
-    each item:
-
-     ```ruby
-    <h1>Static Pages requests: <%= PageLoad.count &amp;></h1>
-    ```
-
-   Now, each time you refresh the page, you can see that a record is being inserted
-   into the `tsdb` Timescale database, and the counter is incremented on the page.
-
-1.  You need to have a lot of page loads to research and explore
-    the [time_bucket] function. You can use [Apache Bench][ab] aka `ab` to
-    request 50,000 times parallelizing 10 times.
-
-    ```bash
-    ab -n 50000 -c 10 http://localhost:3000/static_pages/home
-    ```
-
-   [Apache Bench][ab] creates thousands of records in the hypertable. You can
-   count how many "empty requests" Rails supports.
-
-1.  After the `ab` command begins running, you can start a rails console
-    and try some queries using the [time_bucket] function.
-
-    ```bash
-    rails console
-    ```
-
-1.  View the number of requests per minute:
-
-    ```ruby
-    PageLoad
-      .select("time_bucket('1 minute', created_at) as time, count(1) as total")
-      .group('time').order('time')
-      .map {|result| [result.time, result.total]}
-    ```
-
-    The result is similar to:
-
-    ```ruby
-    PageLoad Load (357.7ms)  SELECT time_bucket('1 minute', created_at) as time, count(1) as total FROM "page_loads" GROUP BY time ORDER BY time
-     =>
-     [2023-02-22 01:32:00 UTC, 6],
-     [2023-02-22 05:57:00 UTC, 3],
-     [2023-02-22 05:59:00 UTC, 75],
-    ```
-
-</Collapsible>
-
-</Procedure>
-
-## Create scopes to reuse
-
-Scopes are very useful for decomposing complex SQL statements into Ruby objects.
-It also allows to introduce parameters and reuse queries as you need. create some
-useful scopes that can help to summarize and easily access the `time_bucket`
-function:
-
-<Procedure>
-
-<Collapsible heading="Execute queries using scopes" headingLevel={3}>
-
-1.  In the `page_load.rb` file located at `my_app/app/models` directory, add
-    these scopes:
-
-    ```ruby
-    class PageLoad < ApplicationRecord
-      scope :last_month, -> { where('created_at > ?', 1.month.ago) }
-      scope :last_week, -> { where('created_at > ?', 1.week.ago) }
-      scope :last_hour, -> { where('created_at > ?', 1.hour.ago) }
-      scope :yesterday, -> { where('DATE(created_at) = ?', 1.day.ago.to_date) }
-      scope :today, -> { where('DATE(created_at) = ?', Date.today) }
-    end
-    ```
-
-1.  In a new Ruby console you can run these commands to get the views for
-    various requests:
-
-    ```ruby
-    PageLoad.last_week.count     # Total of requests from last week
-    PageLoad.last_hour.first     # First request from last hour
-    PageLoad.last_hour.all       # All requests from last hour
-    PageLoad.last_hour.limit(10) # 10 requests from last hour
-    ```
-
-    You can also combine the scopes with other ActiveRecord methods, for example:
-
-     ```ruby
-     # Count chrome users from last hour
-     PageLoad.last_hour.where("user_agent like '%Chrome%'").count
-     ```
-
-1.  Add a new scope that counts per minute dimension, in the `page_load.rb` file:
-
-   ```ruby
-   class PageLoad < ApplicationRecord
-
-      scope :counts_per, -> (time_dimension) {
-       select("time_bucket('#{time_dimension}', created_at) as time, count(1) as total")
-       .group(:time).order(:time)
-        .map {|result| [result.time, result.total]}
-       }
-    end
-    ```
-
-1.  In the Ruby console explore other time frames:
-
-     ```ruby
-     PageLoad.counts_per('1 hour')
-     ```
-
-     The result is similar to:
-
-     ```ruby
-     PageLoad Load (299.7ms)  SELECT time_bucket('1 hour', created_at) as time, count(1) as total FROM "page_loads" GROUP BY "time" ORDER BY "time" ASC
-     =>
-     [2023-02-22 01:00:00 UTC, 6],
-     [2023-02-22 05:00:00 UTC, 78],
-     [2023-02-22 06:00:00 UTC, 13063],
-     [2023-02-22 07:00:00 UTC, 4114],
-    ```
-
-</Collapsible>
-
-</Procedure>
-
-## Add performance and path attributes to PageLoad
-
-To get deeper in requests, move the example to watch all server requests and
-store the endpoint path and the time necessary to return the response.
-
-<Procedure>
-
-<Collapsible heading="Add performace and path attributes" headingLevel={3}>
-
-1.  Add columns to the database using rails migrations:
-
-    ```bash
-    rails g migration add_performance_to_page_load path:string performance:float
-    ```
-
-    The Rails generator understands the naming convention of the
-    migration and the extra parameters to create a new migration file
-    `<migration-datetime>_add_performance_to_page_load.rb` in
-    the `my_app/db/migrate` directory
-
-1.  To add the two columns in the database, run `rails db:migrate`.
-
-    The result is similar to:
-
-    ```ruby
-    == 20230226173116 AddPerformanceToPageLoad: migrating =========================
-    -- add_column(:page_loads, :path, :string)
-    -> 0.6050s
-    -- add_column(:page_loads, :performance, :float)
-    -> 0.3076s
-    == 20230226173116 AddPerformanceToPageLoad: migrated (0.9129s) ================
-    ```
-
-1.  To hook the application controller with some [around_action] hook, in the
-    `application_controller.rb` file located in `my_app/app/controllers`
-    directory add these:
-
-     ```ruby
-     class ApplicationController < ActionController::Base
-        around_action do |controller, action|
-          performance = Benchmark.measure(&action.method(:call))
-
-         PageLoad.create(path: request.path,
-           performance: performance.real,
-           user_agent: request.user_agent)
+        hypertable_options = {
+          time_column: 'created_at',
+          chunk_time_interval: '1 day',
+          compress_segmentby: 'path',
+          compress_orderby: 'created_at',
+          compress_after: '7 days',
+          drop_after: '30 days'
+        }
+
+        create_table :page_loads, id: false, primary_key: [:created_at, :user_agent, :path], hypertable: hypertable_options do |t|
+          t.timestamptz :created_at, null: false
+          t.string :user_agent
+          t.string :path
+          t.float :performance
         end
+      end
     end
     ```
 
-    This creates a record for PageLoad record for any request happening in the
-    system.
+    The `id` column is not included in the table. This is because $TIMESCALE_DB requires that any `UNIQUE` or `PRIMARY KEY` 
+    indexes on the table include all partitioning columns. In this case, this is the time column. A new
+    Rails model includes a `PRIMARY KEY` index for id by default: either remove the column or make sure that the index 
+    includes time as part of a "composite key."
 
-1.  To view the latest record, in the Rails console, run :`PageLoad.order(:created_at).last`
+   For more information, check the Roby docs around [composite primary keys][rails-compostite-primary-keys].
 
-    The result is similar to:
+1.  **Create a `PageLoad` model**
 
-    ```ruby
-    PageLoad Load (318.2ms)  SELECT "page_loads".* FROM "page_loads" ORDER BY "page_loads"."created_at" DESC LIMIT $1  [["LIMIT", 1]]
-    =>
-    #<PageLoad:0x000000010950a410
-    user_agent:
-    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
-    created_at: Sun, 26 Feb 2023 15:49:35.186955000 UTC +00:00,
-    updated_at: Sun, 26 Feb 2023 15:49:35.186955000 UTC +00:00,
-    path: "/static_pages/home",
-    performance: 1.094204000197351>
-    ```
-
-    This example uses only the **real** performance from [benchmark] but you can
-    collect additional metrics to see more details about your system.
-
-</Collapsible>
-
-</Procedure>
-
-## Explore aggregation functions
-
-Now that you know what pages exist, you can explore the results. You can go
-page by page, or all pages together, and group by path or not:
-
-<Procedure>
-
-<Collapsible heading="Explore aggregation functions" headingLevel={3}>
-
-1.  In the `page_load.rb` file located at `my_app/app/models` directory, add
-    these scopes, for average response time, `min` and `max` requests, and
-    collect unique paths from page loads:
+    Create a new file called `<my_app_home>/app/models/page_load.rb` and add the following code:
 
     ```ruby
     class PageLoad < ApplicationRecord
-      scope :per_minute, -> { time_bucket('1 minute') }
-      scope :per_hour, -> { time_bucket('1 hour') }
-      scope :per_day, -> { time_bucket('1 day') }
-      scope :per_week, -> { time_bucket('1 week') }
-      scope :per_month, -> { time_bucket('1 month') }
-      scope :average_response_time_per_minute, -> { time_bucket('1 minute', value: 'avg(performance)') }
-      scope :average_response_time_per_hour, -> { time_bucket('1 hour', value: 'avg(performance)') }
-      scope :worst_response_time_last_minute, -> { time_bucket('1 minute', value: 'max(performance)') }
-      scope :worst_response_time_last_hour, -> { time_bucket('1 hour', value: 'max(performance)') }
-      scope :best_response_time_last_hour, -> { time_bucket('1 hour', value: 'min(performance)') }
-      scope :paths, -> { distinct.pluck(:path) }
-      scope :time_bucket, -> (time_dimension, value: 'count(1)') {
-        select(<<~SQL)
-          time_bucket('#{time_dimension}', created_at) as time, path,
-          #{value} as value
-        SQL
-         .group('time, path').order('path, time')
+      extend Timescaledb::ActsAsHypertable
+      include Timescaledb::ContinuousAggregatesHelper
+
+      acts_as_hypertable time_column: "created_at",
+        segment_by: "path",
+        value_column: "performance"
+
+      # Basic scopes for filtering by browser
+      scope :chrome_users, -> { where("user_agent LIKE ?", "%Chrome%") }
+      scope :firefox_users, -> { where("user_agent LIKE ?", "%Firefox%") }
+      scope :safari_users, -> { where("user_agent LIKE ?", "%Safari%") }
+
+      # Performance analysis scopes
+      scope :performance_stats, -> { 
+        select("stats_agg(#{value_column}) as stats_agg")
+      }
+
+      scope :slow_requests, -> { where("performance > ?", 1.0) }
+      scope :fast_requests, -> { where("performance < ?", 0.1) }
+
+      # Set up continuous aggregates for different timeframes
+      continuous_aggregates scopes: [:performance_stats],
+        timeframes: [:minute, :hour, :day],
+        refresh_policy: {
+          minute: {
+            start_offset: '3 minute',
+            end_offset: '1 minute',
+            schedule_interval: '1 minute'
+          },
+          hour: {
+            start_offset: '3 hours',
+            end_offset: '1 hour',
+            schedule_interval: '1 minute'
+          },
+          day: {
+            start_offset: '3 day',
+            end_offset: '1 day',
+            schedule_interval: '1 minute'
+          }
         }
     end
     ```
 
-1.  In the Rails console,to collect unique paths from page loads:
+1.  **Run the migration**
 
-    ```ruby
-     PageLoad.paths # => ["/page_loads/new", "/static_pages/home"]
+    ```bash
+    rails db:migrate
     ```
-
-    The result is similar to:
-
-    ```ruby
-    PageLoad Pluck (276.1ms)  SELECT DISTINCT "page_loads"."path" FROM "page_loads"
-    => [nil, "/static_pages/home"]
-    ```
-
-1.  In the Ruby console, to get the actual metrics generated for the response
-    time filtering by methods that contains `response_time` use:
-
-    ```ruby
-    PageLoad.methods.grep /response_time/
-    ```
-
-    The result is similar to:
-
-    ```ruby
-    PageLoad.methods.grep /response_time/
-    # => [:average_response_time_per_hour,
-    #  :average_response_time_per_minute,
-    #   :worst_response_time_last_hour,
-    #   :worst_response_time_last_minute,
-    #   :best_response_time_last_hour]
-    ```
-
-1.  To build a summary based on every single page, and to recursively navigate to
-    all of the pages and build a summary for each page, add the following to
-    `page_load.rb` in the `my_app/app/models/` folder:
-
-    ```ruby
-    def self.resume_for(path)
-       filter = where(path: path)
-       get = -> (scope_name) { filter.send(scope_name).first&.value}
-       metrics.each_with_object({}) do |metric, resume|
-           resume[metric] = get[metric]
-       end
-    end
-
-    def self.metrics
-       methods.grep /response_time/
-    end
-
-    def self.statistics
-       paths.each_with_object({}) do |path, resume|
-         resume[path] = resume_for(path)
-       end
-    end
-    ```
-
-1.  In the Rails console, to view the summary based on every single page, run
-    `PageLoad.resume_for("/page_loads/new")`.
-
-    The result is similar to:
-
-   ```ruby
-   => {:average_response_time_per_minute=>0.10862650000490248,
-   :average_response_time_per_hour=>0.060067999991588295,
-   :worst_response_time_last_minute=>0.20734900003299117,
-   :worst_response_time_last_hour=>0.20734900003299117,
-   :best_response_time_last_hour=>0.009765000082552433},
-   ```
-
-1.  In the Rails console,to recursively navigate into all of the pages and build
-    a summary for each page:
-
-    The result is similar to:
-
-    ```ruby
-    "/page_loads/new"=>
-    {:average_response_time_per_minute=>0.10862650000490248,
-    :average_response_time_per_hour=>0.060067999991588295,
-    :worst_response_time_last_minute=>0.20734900003299117,
-    :worst_response_time_last_hour=>0.20734900003299117,
-    :best_response_time_last_hour=>0.009765000082552433},
-    "/static_pages/home"=>
-    {:average_response_time_per_minute=>1.214221078382038,
-    :average_response_time_per_hour=>4.556298695798993,
-    :worst_response_time_last_minute=>2.2735520000569522,
-    :worst_response_time_last_hour=>1867.2145019997843,
-    :best_response_time_last_hour=>1.032415000256151}}
-    ```
-
-</Collapsible>
 
 </Procedure>
 
+## Insert data your $SERVICE_SHORT
+
+The timescaledb gem provides efficient ways to insert data into hypertables. This section 
+shows you how to ingest test data into your hypertable.
+
+<Procedure>
+
+1.  **Create a controller to handle page loads**
+
+    Create a new file called `<my_app_home>/app/controllers/application_controller.rb` and add the following code:
+
+    ```ruby
+    class ApplicationController < ActionController::Base
+      around_action :track_page_load
+
+      private
+
+      def track_page_load
+        start_time = Time.current
+        yield
+        end_time = Time.current
+        
+        PageLoad.create(
+          path: request.path,
+          user_agent: request.user_agent,
+          performance: (end_time - start_time)
+        )
+      end
+    end
+    ```
+
+1.  **Generate some test data**
+
+    Use `bin/console` to join a Rails console session and run the following code
+    to define some random page load access data:
+
+    ```ruby
+    def generate_sample_page_loads(total: 1000)
+      time = 1.month.ago
+      paths = %w[/ /about /contact /products /blog]
+      browsers = [
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36",
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:89.0) Gecko/20100101 Firefox/89.0",
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15"
+      ]
+
+      total.times.map do
+        time = time + rand(60).seconds
+        {
+          path: paths.sample,
+          user_agent: browsers.sample,
+          performance: rand(0.1..2.0),
+          created_at: time,
+          updated_at: time
+        }
+      end
+    end
+    ```
+
+1. **Insert the generated data into your $SERVICE_LONG**
+
+    ```bash
+    # Insert the data in batches
+    PageLoad.insert_all(generate_sample_page_loads, returning: false)
+   ```
+
+1.  **Validate the test data in your $SERVICE_LONG**
+
+   ```bash
+   PageLoad.count
+   PageLoad.first
+   ```
+
+</Procedure>
+
+## Reference
+
+This section lists the most common tasks you might perform with the timescaledb gem.
+
+### Query scopes
+
+The timescaledb gem provides several convenient scopes for querying your time-series data.
+
+
+- Built-in time-based scopes:
+
+    ```ruby
+    PageLoad.last_hour.count
+    PageLoad.today.count
+    PageLoad.this_week.count
+    PageLoad.this_month.count
+    ```
+
+- Browser-specific scopes:
+
+    ```ruby
+    # Count requests by browser
+    PageLoad.chrome_users.last_hour.count
+    PageLoad.firefox_users.last_hour.count
+    PageLoad.safari_users.last_hour.count
+
+    # Performance analysis
+    PageLoad.slow_requests.last_hour.count
+    PageLoad.fast_requests.last_hour.count
+    ```
+
+- Query continuous aggregates:
+
+  This query fetches the average and standard deviation from the performance stats for the `/products` path over the last day.
+
+    ```ruby
+    # Access aggregated performance stats through generated classes
+    PageLoad::PerformanceStatsPerMinute.last_hour
+    PageLoad::PerformanceStatsPerHour.last_day
+    PageLoad::PerformanceStatsPerDay.last_month
+
+    # Get statistics for a specific path
+    stats = PageLoad::PerformanceStatsPerHour.last_day.where(path: '/products').select("average(stats_agg) as average, stddev(stats_agg) as stddev").first
+    puts "Average: #{stats.average}"
+    puts "Standard Deviation: #{stats.stddev}"
+    ```
+
+### Timescaledb features
+
+The timescaledb gem provides utility methods to access hypertable and chunk information. Every model that uses 
+the `acts_as_hypertable` method has access to these methods. 
+
+
+#### Access hypertable and chunk information
+
+- View chunk or hypertable information:
+
+    ```ruby
+    PageLoad.chunks.count
+    PageLoad.hypertable.detailed_size
+    ```
+
+- Compress/Decompress chunks:
+
+    ```ruby
+    PageLoad.chunks.uncompressed.first.compress!  # Compress the first uncompressed chunk
+    PageLoad.chunks.compressed.first.decompress!  # Decompress the oldest chunk
+    PageLoad.hypertable.compression_stats # View compression stats
+
+    ```
+
+#### Access hypertable stats
+
+You collect hypertable stats using methods that provide insights into your hypertable's structure, size, and compression 
+status:
+
+- Get basic hypertable information:
+
+    ```ruby
+    hypertable = PageLoad.hypertable
+    hypertable.hypertable_name  # The name of your hypertable
+    hypertable.schema_name      # The schema where the hypertable is located
+    ```
+
+- Get detailed size information:
+
+    ```ruby
+    hypertable.detailed_size # Get detailed size information for the hypertable
+    hypertable.compression_stats # Get compression statistics
+    hypertable.chunks_detailed_size # Get chunk information
+    hypertable.approximate_row_count # Get approximate row count
+    hypertable.dimensions.map(&:column_name) # Get dimension information
+    hypertable.continuous_aggregates.map(&:view_name) # Get continuous aggregate view names
+    ```
+
+#### Continuous aggregates 
+
+The `continuous_aggregates` method generates a class for each continuous aggregate.
+
+- Get all the continuous aggregate classes:
+
+   ```ruby
+   PageLoad.descendants # Get all continuous aggregate classes
+   ```
+
+- Manually refresh a continuous aggregate:
+
+   ```ruby
+   PageLoad.refresh_aggregates
+   ```
+
+- Create or drop a continuous aggregate:
+
+  Create or drop all the continuous aggregates in the proper order to build them hierarchically. See more about how it
+  works in this [blog post][ruby-blog-post].
+
+   ```ruby
+   PageLoad.create_continuous_aggregates
+   PageLoad.drop_continuous_aggregates
+   ```
+
+   
+
+
+## Next steps
+
+Now that you have integrated the ruby gem into your app:
+
+* Learn more about the [timescaledb gem](https://github.com/timescale/timescaledb-ruby).
+* Check out the [official docs](https://timescale.github.io/timescaledb-ruby/).
+* Follow the [LTTB][LTTB], [Open AI long-term storage][open-ai-tutorial], and [candlesticks][candlesticks] tutorials.
+
 [connect]: #connect-to-timescaledb
-[create-table]: #create-a-relational-table
 [create-a-hypertable]: #create-a-hypertable
-[insert]: #insert-rows-of-data
-[query]: #execute-a-query
-[create-scopes]: #create-scopes-to-reuse
-[add-performance]: #add-performance-and-path-attributes-to-pageload
-[explore]: #explore-aggregation-functions
+[insert]: #insert-data
+[query]: #execute-queries
+[create-aggregates]: #execute-queries
+[add-policies]: #manage-chunks-and-compression
+[manage-chunks]: #manage-chunks-and-compression
 [install]: /getting-started/latest/
 [psql-install]: /use-timescale/:currentVersion:/integrations/psql/
-[rails-guide]: https://guides.rubyonrails.org/getting_started.html
-[ab]: https://httpd.apache.org/docs/2.4/programs/ab.html
-[active-record-query]: https://guides.rubyonrails.org/active_record_querying.html
-[around_action]: https://guides.rubyonrails.org/action_controller_overview.html#after-filters-and-around-filters
-[benchmark]: https://github.com/ruby/benchmark
-[time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
+[rails-guide]: https://guides.rubyonrails.org/install_ruby_on_rails.html#installing-rails
+[connection-info]: /use-timescale/:currentVersion:/integrations/find-connection-details/
+[about-hypertables]: /use-timescale/:currentVersion:/hypertables/about-hypertables/
+[rails-compostite-primary-keys]: https://guides.rubyonrails.org/active_record_composite_primary_keys.html
+[ruby-blog-post]: https://www.timescale.com/blog/building-a-better-ruby-orm-for-time-series-and-analytics
+[LTTB]: https://timescale.github.io/timescaledb-ruby/toolkit_lttb_tutorial/
+[open-ai-tutorial]: https://timescale.github.io/timescaledb-ruby/chat_gpt_tutorial/
+[candlesticks]: https://timescale.github.io/timescaledb-ruby/toolkit_candlestick/
