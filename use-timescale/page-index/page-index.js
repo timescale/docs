@@ -824,6 +824,11 @@ module.exports = [
             excerpt: "Integrate Grafana with Timescale products",
           },
           {
+            title: "Kubernetes",
+            href: "kubernetes",
+            excerpt: "Integrate Kubernetes with Timescale products",
+          },
+          {
             title: "pgAdmin",
             href: "pgadmin",
             excerpt: "Integrate pgAdmin with Timescale products",
