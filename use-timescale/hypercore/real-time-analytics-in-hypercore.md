@@ -1,5 +1,5 @@
 ---
-title: Optimize data for real-time analytics with Hypercore
+title: Optimize your data for real-time analytics
 excerpt: Reduce your chunk size by more than 90% and speed up your queries by automatically converting data between the rowstore and columnstore.
 products: [cloud,]
 keywords: [hyperscore, hypertable, compression, row-columnar storage, hypercore]
@@ -11,7 +11,7 @@ import HCPolicyWorkflow from "versionContent/_partials/_hypercore_policy_workflo
 import UsageBasedStorage from "versionContent/_partials/_usage-based-storage-intro.mdx";
 import EarlyAccess from "versionContent/_partials/_early_access.mdx";
 
-# Prepare your data for real-time analytics in Hypercore 
+# Optimize your data for real-time analytics 
 
 Hypercore is the Timescale hybrid row-columnar storage engine used by Hypertables. Hypertables partition your data in chunks. Chunks stored in the rowstore use a row-oriented data format optimized for high-speed inserts and updates. Chunks stored in the columnstore use a columnar data format optimized for analytics.
 You ingest `hot` data into the rowstore. As data cools and becomes more suited for analytics, 

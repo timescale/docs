@@ -1,4 +1,3 @@
-import EarlyAccess from "versionContent/_partials/_early_access.mdx";
 
 1. **Connect to your $SERVICE_LONG**
 
@@ -26,19 +25,39 @@ import EarlyAccess from "versionContent/_partials/_early_access.mdx";
  
 1. **Add a policy to convert chunks to the columnstore at a specific time interval**
 
-   For example, 60 days after the data was added to the table:
+   For example, move data that is greater than 8 days old to the columnstor:
    ``` sql
-   CALL add_columnstore_policy('older_stock_prices', after => INTERVAL '60d');
+   CALL add_columnstore_policy('stocks_real_time', after => INTERVAL '8d');
    ```
    See [add_columnstore_policy][add_columnstore_policy].
+   
+1. **Check the columstore policy**
 
-1. **View the policies that you set or the policies that already exist**
+   1. View your data space saving:
+   
+      When you convert data to the columnstore, as well as being optimized for analytics, it is compresses by more than 
+      90%. This saves on storage costs and keeps your queries operating at lightning speed. To see the amount of space 
+      saved:
 
-   ``` sql
-   SELECT * FROM timescaledb_information.jobs
-   WHERE proc_name='policy_compression';
-   ```
-   See [timescaledb_information.jobs][informational-views].
+      ``` sql
+      SELECT 
+        pg_size_pretty(before_compression_total_bytes) as before,
+        pg_size_pretty(after_compression_total_bytes) as after
+      FROM hypertable_compression_stats('stocks_real_time');
+      ```
+      You see something like:
+   
+      | before	 | after  |
+      |---------|--------|
+      | 194 MB  | 	24 MB |
+      
+   1. View the policies that you set or the policies that already exist:
+
+      ``` sql
+      SELECT * FROM timescaledb_information.jobs
+      WHERE proc_name='policy_compression';
+      ```
+      See [timescaledb_information.jobs][informational-views].
 
 1. **Pause a columnstore policy**
 
