@@ -50,9 +50,8 @@ immediately translates into cost savings.
 
 This section shows you how to:
 
-* [Prepare your data for real-time analytics in Hypercore][setup-hypercore]
+* [Optimize your data for real-time analytics][setup-hypercore]
 * [Modify data in the columnstore][modify-data-in-hypercore]
-* [Efficient data access in Hypercore][indexing-data-in-hypercore]
 
 [setup-hypercore]: /use-timescale/:currentVersion:/hypercore/real-time-analytics-in-hypercore/
 [modify-data-in-hypercore]: /use-timescale/:currentVersion:/hypercore/modify-data-in-hypercore/
