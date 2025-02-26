@@ -1,6 +1,6 @@
 ---
 title: Integrate Amazon Sagemaker with Timescale Cloud
-excerpt: Integrate Amazon SageMaker with Timescale Cloud to store and analyze ML model data.
+excerpt: Amazon SageMaker is a fully managed machine learning service. Integrate Amazon SageMaker with Timescale Cloud to store and analyze ML model data
 products: [cloud, mst, self_hosted]
 keywords: [connect, integrate, amazon, aws, sagemaker]
 ---

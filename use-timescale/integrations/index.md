@@ -1,6 +1,6 @@
 ---
 title: Integrations
-excerpt: Integrate third-party products with Timescale Cloud and TimescaleDB
+excerpt: Built on PostgreSQL, Timescale Cloud can integrate with the same array of third-party solutions. See integration procedures for the most popular and requested third-party services
 products: [cloud]
 keywords: [integrations]
 tags: [integrations]
@@ -40,9 +40,10 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 
 ## Configuration and deployment 
 
-|            Name             | Description                                                              |
-|:---------------------------:|--------------------------------------------------------------------------|
-| [Terraform][terraform]      | Safely and predictably provision and manage infrastructure in any cloud. |
+|           Name           | Description                                                              |
+|:------------------------:|--------------------------------------------------------------------------|
+|  [Terraform][terraform]  | Safely and predictably provision and manage infrastructure in any cloud. |
+| [Kubernetes][kubernetes] | Deploy, scale, and manage containerized applications automatically. |
 
 
 ## Data engineering and extract, transform, load
@@ -76,4 +77,8 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 [prometheus]: /use-timescale/:currentVersion:/integrations/prometheus
 [amazon-sagemaker]: /use-timescale/:currentVersion:/integrations/amazon-sagemaker
 [postgresql]: /use-timescale/:currentVersion:/integrations/postgresql
+<<<<<<< HEAD
 [debezium]: /use-timescale/:currentVersion:/integrations/debezium
+=======
+[kubernetes]: /use-timescale/:currentVersion:/integrations/postgresql
+>>>>>>> ce300f66d7f71e0b644a49a3abd7096067ebfc6b
