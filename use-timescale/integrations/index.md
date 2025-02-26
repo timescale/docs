@@ -61,11 +61,11 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 |:--------------------:|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Fivetran][fivetran] | Sync data from multiple sources to your data warehouse. |
 
-## Visualization & BI
+## Business intelligence and data visualization
 
-|         Name         | Description                                                                  |
-|:--------------------:|------------------------------------------------------------------------------|
-| [Power BI][power-bi] | A business analytics tool for visualizing and sharing data insights. |
+|         Name         | Description                                                           |
+|:--------------------:|-----------------------------------------------------------------------|
+| [Power BI][power-bi] | Visualize data, build interactive dashboards, and share insights. |
 
 
 [psql]: /use-timescale/:currentVersion:/integrations/psql/
