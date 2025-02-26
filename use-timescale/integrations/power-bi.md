@@ -5,6 +5,8 @@ products: [cloud, mst, self_hosted]
 keywords: [Power BI, visualizations, analysis, real-time]
 ---
 
+import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
+
 # Integrate Power BI with $CLOUD_LONG
 
 [Power BI][power-bi] is a collection of software services, apps, and connectors that work together to turn your 
@@ -16,6 +18,8 @@ This page explains how to integrate Power BI with your $SERVICE_LONG, enabling y
 
 Note: The Timescale data source for Power BI is currently available only for the desktop application, 
 which is supported exclusively on Windows.
+
+<IntegrationPrereqs />
 
 - Install [TimescaleDB on Windows][timescale-on-windows]
 - Download [Power BI desktop][power-bi-install] application
