@@ -9,53 +9,48 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 
 # Integrate Power BI with $CLOUD_LONG
 
-[Power BI][power-bi] is a collection of software services, apps, and connectors that work together to turn your 
-unrelated sources of data into coherent, visually immersive, and interactive insights.
+[Power BI][power-bi] is a business analytics tool for visualizing data, creating interactive reports, and sharing insights across an organization.
 
-This page explains how to integrate Power BI with your $SERVICE_LONG, enabling you to build interactive dashboards and reports.
+This page explains how to integrate Power BI with $CLOUD_LONG using PostgreSQL ODBC Driver, so that you can build interactive reports based on the data in your $SERVICE_LONG. 
 
 ## Prerequisites
 
-Note: The Timescale data source for Power BI is currently available only for the desktop application, 
-which is supported exclusively on Windows.
-
 <IntegrationPrereqs />
 
-- Install [TimescaleDB on Windows][timescale-on-windows]
-- Download [Power BI desktop][power-bi-install] application
-- Install [PostgreSQL ODBC Driver][postgresql-odbc-driver]
+- Download [Power BI Desktop][power-bi-install].
+- Install [PostgreSQL ODBC Driver][postgresql-odbc-driver].
 
-## Ingest data from your $SERVICE_LONG into Power BI
+## Add a data source to PostgreSQL ODBC Driver
 
-To import data into Power BI from $CLOUD_LONG for data visualization:
+Add a $CLOUD_LONG data source to the ODBC driver:
 
 <Procedure>
 
-1. **Add the $COMPANY data source to the ODBC driver**
-   1. In Windows search, search for `ODBC Data Sources` and launch it.
-   1. Under `User DSN`, click on `Add`.
-   1. Choose `PostgreSQL Unicode` and `Finish`. Use your [connection details][connection-info] to configure the DSN.
-   1. Click on `Test` to ensure the connection works, then `Save`.
-
-1. **Establish the connection and import data into Power BI**
-   1. Launch Power BI desktop app and on `Home`, click on `Get data from other sources`.
-   1. Search for and select `ODBC`, then click `Connect`.
-   1. In the `Data source name (DSN)`, select the Timescale data source created by you in the previous step, and click on `OK`.
-   1. Enter your Timescale database `User Name` and `Password` and click on `Connect`.
-   1. After connecting, a Navigator window displays the available schemas and tables. Select the desired tables and click `Load` to import the data into Power BI.
+1. **Launch ODBC Data Sources**
+1. **Under `User DSN`, click `Add`**
+1. **Choose `PostgreSQL Unicode` and click `Finish`**
+1. **Use your [connection details][connection-info] to configure the data source**
+1. **Click `Test` to ensure the connection works**
+1. **If the connection is successful, click `Save`**
 
 </Procedure>
 
-## Test the integration with $CLOUD_LONG
+## Connect your $SERVICE_LONG with Power BI
 
-Test that the data imported from $CLOUD_LONG is available in Power BI and can be used to create reports and visualizations:
+Establish a connection and import data into Power BI:
 
 <Procedure>
 
-   1. Create a simple report in Power BI.
-   1. Drag fields from the imported table onto the `Report View` canvas.
-   1. Apply filters or use visualization options such as `Bar Chart`, `Pie Chart`, or `Line Chart`.
-   1. Verify real-time data: If using `DirectQuery`, update data in your $SERVICE_LONG, click `Refresh` in Power BI, and see the changes in your report.
+1. **Open Power BI and click `Get data from other sources`**
+1. **Search for and select `ODBC`, then click `Connect`**
+1. **In the `Data source name (DSN)`, select the $CLOUD_LONG data source and click `OK`**
+1. **Use your [connection details][connection-info] to enter your `User Name` and `Password`, then click `Connect`**
+
+    After connecting, `Navigator` displays the available tables and schemas. 
+
+1. **Select the tables and click `Load` to import your data into Power BI**
+
+    The `Data` pane on the right is showing your imported tables. You can now select or drag fields from the tables onto the canvas to vizualize data and build reports. 
 
 </Procedure>
 
