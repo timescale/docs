@@ -411,9 +411,9 @@ The `continuous_aggregates` method generates a class for each continuous aggrega
 
 Now that you have integrated the ruby gem into your app:
 
-* Learn more about the [timescaledb gem](https://github.com/timescale/timescaledb-ruby)
-* Check out the [official docs](https://timescale.github.io/timescaledb-ruby/)
-* Follow the [LTTB][LTTB], [Open AI long-term storage][open-ai-tutorial], and [candlesticks][candlesticks] tutorials
+* Learn more about the [timescaledb gem](https://github.com/timescale/timescaledb-ruby).
+* Check out the [official docs](https://timescale.github.io/timescaledb-ruby/).
+* Follow the [LTTB][LTTB], [Open AI long-term storage][open-ai-tutorial], and [candlesticks][candlesticks] tutorials.
 
 [connect]: #connect-to-timescaledb
 [create-a-hypertable]: #create-a-hypertable
