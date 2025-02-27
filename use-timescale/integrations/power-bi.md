@@ -11,46 +11,58 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 
 [Power BI][power-bi] is a business analytics tool for visualizing data, creating interactive reports, and sharing insights across an organization.
 
-This page explains how to integrate Power BI with $CLOUD_LONG using PostgreSQL ODBC Driver, so that you can build interactive reports based on the data in your $SERVICE_LONG. 
+This page explains how to integrate Power BI with $CLOUD_LONG using the PostgreSQL ODBC driver, so that you can build interactive reports based on the data in your $SERVICE_LONG. 
 
 ## Prerequisites
 
 <IntegrationPrereqs />
 
-- Download [Power BI Desktop][power-bi-install].
-- Install [PostgreSQL ODBC Driver][postgresql-odbc-driver].
+- Download [Power BI Desktop][power-bi-install] on your Microsoft Windows machine.
+- Install the [PostgreSQL ODBC driver][postgresql-odbc-driver].
 
-## Add a data source to PostgreSQL ODBC Driver
+## Add your $SERVICE_LONG as an ODBC data source
 
-Add a $CLOUD_LONG data source to the ODBC driver:
+You use the PostgreSQL ODBC Driver to connect Power BI to $CLOUD_LONG.
 
 <Procedure>
 
-1. **Launch ODBC Data Sources**
-1. **Under `User DSN`, click `Add`**
-1. **Choose `PostgreSQL Unicode` and click `Finish`**
-1. **Use your [connection details][connection-info] to configure the data source**
-1. **Click `Test` to ensure the connection works**
-1. **If the connection is successful, click `Save`**
+1. **Open the ODBC data sources**
+
+   1. On your Windows machine, click `Start`, then click `Control Panel`
+
+   1. In `Control Panel`, double-click `Administrative Tools`, then double-click Data Sources (ODBC).
+
+1. **Connect to your $SERVICE_LONG**
+
+   1. Under `User DSN`, click `Add`.
+   1. Choose `PostgreSQL Unicode` and click `Finish`.
+   1. Use your [connection details][connection-info] to configure the data source.
+   1. Click `Test` to ensure the connection works, then click `Save`.
 
 </Procedure>
 
-## Connect your $SERVICE_LONG with Power BI
+## Import the data from your your $SERVICE_LONG into Power BI  
 
-Establish a connection and import data into Power BI:
+Establish a connection and import data from your $SERVICE_LONG into Power BI:
 
 <Procedure>
 
-1. **Open Power BI and click `Get data from other sources`**
-1. **Search for and select `ODBC`, then click `Connect`**
-1. **In the `Data source name (DSN)`, select the $CLOUD_LONG data source and click `OK`**
-1. **Use your [connection details][connection-info] to enter your `User Name` and `Password`, then click `Connect`**
+1. **Connect Power BI to your $SERVICE_LONG**
 
-    After connecting, `Navigator` displays the available tables and schemas. 
+   1. Open Power BI, then click `Get data from other sources`.
+   1. Search for and select `ODBC`, then click `Connect`.
+   1. In `Data source name (DSN)`, select the $CLOUD_LONG data source and click `OK`.
+   1. Use your [connection details][connection-info] to enter your `User Name` and `Password`, then click `Connect`
 
-1. **Select the tables and click `Load` to import your data into Power BI**
+   After connecting, `Navigator` displays the available tables and schemas. 
 
-    The `Data` pane on the right is showing your imported tables. You can now select or drag fields from the tables onto the canvas to vizualize data and build reports. 
+1. **Import your data into Power BI**
+
+   1. Select the tables to import and click `Load`.  
+
+      The `Data` pane shows your imported tables.
+   
+   1. To visualize your data and build reports, drag fields from the tables onto the canvas. 
 
 </Procedure>
 
