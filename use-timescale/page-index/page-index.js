@@ -811,6 +811,11 @@ module.exports = [
             excerpt: "Integrate Prometheus with Timescale Cloud",
           },
           {
+            title: "Power BI",
+            href: "power-bi",
+            excerpt: "Integrate Power BI with Timescale Cloud",
+          },
+          {
             title: "psql",
             href: "psql",
             excerpt: "Connect to Timescale products with psql",
