@@ -28,8 +28,10 @@ For more information, see the instructions for
 
 ## Use real-time aggregation with hierarchical continuous aggregates
 
-By default, all continuous aggregates use real-time aggregation. That means they
-always return up-to-date data in response to queries. They accomplish this by
+In TimescaleDB v2.13 and later, real-time aggregates are *DISABLED* by default. 
+In TimescaleDB v1.7 to v2.12, real-time aggregates are *ENABLED* by default. 
+
+Real-time aggregates always return up-to-date data in response to queries. They accomplish this by
 joining the materialized data in the continuous aggregate with unmaterialized
 raw data from the source table or view.
 
