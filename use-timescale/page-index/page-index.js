@@ -819,6 +819,11 @@ module.exports = [
             excerpt: "Integrate DBeaver with Timescale Cloud",
           },
           {
+            title: "Fivetran",
+            href: "fivetran",
+            excerpt: "Integrate Fivetran with Timescale Cloud",
+          },
+          {
             title: "Grafana",
             href: "grafana",
             excerpt: "Integrate Grafana with Timescale products",
@@ -837,6 +842,11 @@ module.exports = [
             title: "Prometheus",
             href: "prometheus",
             excerpt: "Integrate Prometheus with Timescale Cloud",
+          },
+          {
+            title: "Power BI",
+            href: "power-bi",
+            excerpt: "Integrate Power BI with Timescale Cloud",
           },
           {
             title: "psql",
