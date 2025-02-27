@@ -22,13 +22,13 @@ This page explains how to integrate Power BI with $CLOUD_LONG using the PostgreS
 
 ## Add your $SERVICE_LONG as an ODBC data source
 
-You use the PostgreSQL ODBC Driver to connect Power BI to $CLOUD_LONG.
+You use the PostgreSQL ODBC driver to connect Power BI to $CLOUD_LONG.
 
 <Procedure>
 
 1. **Open the ODBC data sources**
 
-   1. On your Windows machine, click `Start`, then click `Control Panel`
+   1. On your Windows machine, click `Start`, then click `Control Panel`.
 
    1. In `Control Panel`, double-click `Administrative Tools`, then double-click Data Sources (ODBC).
 
@@ -52,7 +52,7 @@ Establish a connection and import data from your $SERVICE_LONG into Power BI:
    1. Open Power BI, then click `Get data from other sources`.
    1. Search for and select `ODBC`, then click `Connect`.
    1. In `Data source name (DSN)`, select the $CLOUD_LONG data source and click `OK`.
-   1. Use your [connection details][connection-info] to enter your `User Name` and `Password`, then click `Connect`
+   1. Use your [connection details][connection-info] to enter your `User Name` and `Password`, then click `Connect`.
 
    After connecting, `Navigator` displays the available tables and schemas. 
 
