@@ -10,48 +10,16 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 # Integrating Supabase with Timescale
 
 [Supabase][supabase] is an open source Firebase alternative. This page shows how to run real-time analytical queries 
-against a $SERVICE_LONG through Supabase using a foreign data wrapper (fdw) to bring aggregated data from your  $SERVICE_LONG.
+against a $SERVICE_LONG through Supabase using a foreign data wrapper (fdw) to bring aggregated data from your 
+$SERVICE_LONG.
 
 ## Prerequisites
 
 <IntegrationPrereqs />
 
 - Create a [supabase project][supabase-new-project]
-- psql? 
-- GlBGR95j7kD24Qco SUPABASE password
 
-
-## Setup variables to connect to supabase and $CLOUD_LONG
-
-Create environment variables:
-
-```bash
-export SUPABASE_USER=...
-export SUPABASE_HOST=...
-export SUPABASE_PORT=...
-export SUPABASE_DB=postgres
-export SUPABASE_PASS=...
-export SUPABASE_URL=postgresql://${SUPABASE_USER}:${SUPABASE_PASS}@${SUPABASE_HOST}:${SUPABASE_PORT}/${SUPABASE_DB}
-```
-
-
-3. Setup the TimescaleDB instance
-
-Create the variables:
-
-```bash
-export TIMESCALE_USER=tsdbadmin
-export TIMESCALE_HOST=...
-export TIMESCALE_PORT=...
-export TIMESCALE_DB=tsdb
-export TIMESCALE_PASS=...
-export TIMESCALE_URL=postgresql://${TIMESCALE_USER}:${TIMESCALE_PASS}@${TIMESCALE_HOST}:${TIMESCALE_PORT}/${TIMESCALE_DB}?sslmode=require
-```
-
-Now, with the variables in place, we'll configure the the foreign data wrapper (fdw) on Supabase.
-
-
-## Setup your $SERVICE_LONG to work with Supabase
+## Setup your $SERVICE_LONG
 
 1. **Optimize time-series data in hypertables**
 
@@ -69,15 +37,23 @@ Now, with the variables in place, we'll configure the the foreign data wrapper (
       );
       ```
 
-   1. Turn the table to a hypertable, enable the [columnstore[hypercore] on cooling data so it is configured for 
-      analytics and filter by `name`.
+   1. Turn the table to a hypertable:
 
       ```sql
-      SELECT create_hypertable('signs', by_range('time')); 
-      ALTER TABLE signs SET (
-        timescaledb.enable_columnstore = true, 
-        timescaledb.segmentby = 'name'); 
+      SELECT create_hypertable('signs', by_range('time'));
       ```
+1. **Optimize cooling data for analytics**
+
+   Hypercore is the Timescale hybrid row-columnar storage engine, designed specifically for real-time analytics 
+   and powered by time-series data. The advantage of Hypercore is its ability to seamlessly switch between row-oriented 
+   and column-oriented storage. This flexibility enables $CLOUD_LONG to deliver the best of both worlds, solving the
+   key challenges in real-time analytics.
+
+   ```sql
+   ALTER TABLE signs SET (
+     timescaledb.enable_columnstore = true, 
+     timescaledb.segmentby = 'name'); 
+   ```
 
 1. **Setup continuous aggregates**
 
@@ -113,9 +89,8 @@ Now, with the variables in place, we'll configure the the foreign data wrapper (
       WITH NO DATA;
       ```
 
-   1. Setup a view to access the data from Supabase.
+   1. Setup a view to recieve the data from Supabase.
 
-      IAIN: HMMM, should this be here?
       ```sql
       CREATE VIEW signs_per_minute_delay
       AS
@@ -129,82 +104,95 @@ Now, with the variables in place, we'll configure the the foreign data wrapper (
       FROM _signs_per_minute_delay
       ```
 
-1. Add refresh policies to the continuous aggregates:
-
-   IaiN: should this be here or later
+1. **Add refresh policies to the continuous aggregates**
 
    You use `start_offset` and `end_offset` to define the time range that the continuous aggregate will cover. Assuming
    that the data is being inserted without any delay, set the `start_offset` to `5 minutes` and the `end_offset` to
    `1 minute`. This means that the continuous aggregate is refreshed every minute, and the refresh covers the last 5
-   minutes.
+   minutes. 
+   You set `schedule_interval` to `INTERVAL '1 minute'` so the continuous aggregate refreshes on your $SERVICE_LONG
+   every minute. The data is accessed from Supabase, and the continuous aggregate is refreshed every minute in
+   the other side.
+
    ```sql
    SELECT add_continuous_aggregate_policy('signs_per_minute',
     start_offset => INTERVAL '5 minutes',
     end_offset => INTERVAL '1 minute', 
     schedule_interval => INTERVAL '1 minute');
+   ```
+   Do the same thing for data inserted with a delay:
+   ```sql
    SELECT add_continuous_aggregate_policy('_signs_per_minute_delay',
     start_offset => INTERVAL '5 minutes', 
     end_offset => INTERVAL '1 minute', 
     schedule_interval => INTERVAL '1 minute');
    ```
- 
-   `schedule_interval` is set to `INTERVAL '1 minute'` so the continuous aggregate refreshes on your $SERVICE_LONG 
-   every minute. The data is accessed from Supabase, and the continuous aggregate is being refreshed every minute in 
-   the other side.
 
-## Setup Supabase to work with your $SERVICE_LONG 
 
-1. Create the foreign server in supabase.
+## Setup Supabase to inject data into your $SERVICE_LONG 
 
-   On the supabase database, we create a foreign server that points to the timescale database.
+1. **Create a server**
+
+   1. Connect to your Supabase project using Supabase dashboard or psql.
+   1. Enable the `postgres_fdw` extension.
+   
+      ```sql
+      CREATE EXTENSION postgres_fdw;
+      ```
+   1. Create a foreign server that points to your $SERVICE_LONG.
+
+      Update the following command with your [connection details][connection-info], the run it 
+      in the supabase database:
+
+      ```sql
+      CREATE SERVER timescale
+      FOREIGN DATA WRAPPER postgres_fdw
+      OPTIONS (
+          host '<value of host>',
+          port '<value of port>',
+          dbname '<value of dbname>',
+          sslmode 'require',
+          extensions 'timescaledb'
+      );
+      ```
+
+1. **Create the user mapping for the foreign server**
+
+   Update the following command with your [connection details][connection-info], the run it
+   in the supabase database:
+
+   ```sql
+   CREATE USER MAPPING FOR CURRENT_USER 
+   SERVER timescale 
+   OPTIONS (
+      user '<value of user>', 
+      password '<value of password>'
+   ); 
+   ```
+   
+1. **Create a foreign table that points to the table in your $SERVICE_LONG.**
+
+   This query introduced the following columns:
+   - `time`: with a default value of `now()`. This is because the `time` column is used by $CLOUD_LONG to compress data.
+   - `origin_time`: store the original timestamp of the data.
+   Using both columns, you understand the delay between supabase (`origin_time`) and the time the data is
+   inserted into your $SERVICE_LONG (`time`).
    
    ```sql
-   CREATE SERVER timescale
-   FOREIGN DATA WRAPPER postgres_fdw
-   OPTIONS (
-       host '$TIMESCALE_HOST',
-       port '$TIMESCALE_PORT',
-       dbname '$TIMESCALE_DB',
-       sslmode 'require',
-       extensions 'timescaledb'
+   CREATE FOREIGN TABLE signs (
+   TIME timestamptz NOT NULL DEFAULT now()
+   ,origin_time timestamptz NOT NULL
+   ,NAME TEXT
+   ) SERVER timescale OPTIONS (
+   schema_name 'public'
+   ,table_name 'signs'
    );
    ```
 
-1. Use the command line to bind the environment variables to the script.
+1. **Create a foreign table in Supabase**
 
-   ```bash
-   psql $SUPABASE_URL -c "CREATE SERVER timescale FOREIGN DATA WRAPPER postgres_fdw OPTIONS (host '$TIMESCALE_HOST', port '$TIMESCALE_PORT', dbname '$TIMESCALE_DB', sslmode 'require', extensions 'timescaledb')"
-   ```
-
-1. Create the user mapping for the foreign server.
-
-   On the supabase database, we create a user mapping that maps the current user to the timescale database.
-
-   ```sql
-   CREATE USER MAPPING FOR CURRENT_USER SERVER timescale OPTIONS (user '$TIMESCALE_USER', password '$TIMESCALE_PASS'); ```
-   
-   Note that the [run_full_example.sh](./run_full_example.sh) script uses the environment variables to set the server host and also the user and password. You can also set the user and password directly in the script.
-   
-   ```bash
-   psql -c "CREATE USER MAPPING FOR CURRENT_USER SERVER timescale OPTIONS (user '$TIMESCALE_USER', password '$TIMESCALE_PASS')" $SUPABASE_URL
-   ```
-
-1. Create a table to test the foreign data wrapper.
-
-   On the supabase database, we create a foreign table that points to the timescale database.
-   
-   ```sql
-   CREATE FOREIGN TABLE signs (time timestamptz NOT NULL DEFAULT now(), origin_time timestamptz NOT NULL, name TEXT) SERVER timescale OPTIONS (schema_name 'public' , table_name 'signs');
-   ```
-   
-   Note that we introduced the `time` column with a default value of `now()`. This is because the `time` column is being used by Timescale to compress the data. We also added the `origin_time` column to the table to store the original timestamp of the data.
-   With both columns, we can also understand the delay between supabase (the origin_time) and the time the data is being inserted into the timescale database (the time column).
-
-1. Create a foreign table in Supabase.
-
-   1. On the supabase database, we create a foreign table that points to each view in the timescale database. It should be representing the top level view of the data.
-   
-      For the `signs_per_minute`:
+   1. Create a foreign table that matches the  `signs_per_minute` view in your $SERVICE_LONG. It represents a top level 
+      view of the data.
    
       ```sql
       CREATE FOREIGN TABLE signs_per_minute (
@@ -214,7 +202,7 @@ Now, with the variables in place, we'll configure the the foreign data wrapper (
       ) SERVER timescale OPTIONS (schema_name 'public', table_name 'signs_per_minute');
       ```
 
-   1. In the case of the `signs_per_minute_delay` view, we are creating a foreign table that points to the view.
+   1. Create a foreign table that matches the  `signs_per_minute_delay` view in your $SERVICE_LONG.
    
    ```sql
    CREATE FOREIGN TABLE signs_per_minute_delay (
@@ -228,17 +216,20 @@ Now, with the variables in place, we'll configure the the foreign data wrapper (
    ) SERVER timescale OPTIONS (schema_name 'public', table_name 'signs_per_minute_delay');
    ```
 
+## Inject data into your $SERVICE_LONG from supabase using the foreign table
 
+To test the connection between Supabase and your $SERVICE_LONG: 
 
-## Interaction between Supabase and Timescale
+1. Insert data into the foreign table in Supabase:
 
-Now, we can insert data on the foreign table to see the magical backfill to the hypertable.
+   ```bash
+   INSERT INTO signs (origin_time, name) VALUES (now(), 'test')
+   ```
 
-```bash
-psql $SUPABASE_URL -c "INSERT INTO signs (origin_time, name) VALUES (now(), 'test')"
-```
+1. Check the data in the service
 
-Note that the `now()` is the origin_time and the `time` is the current timestamp in the default of timescaledb server. It will allow us to measure the delay between the origin_time and the time.
+   IAIN: add something here:
+
 
 
 [supabase]: https://supabase.com/
@@ -248,3 +239,4 @@ Note that the `now()` is the origin_time and the `time` is the current timestamp
 [connect]: /getting-started/:currentVersion:/run-queries-from-console/
 [hypercore]: /use-timescale/:currentVersion:/hypercore/
 [postgres-materialized-views]: https://www.postgresql.org/docs/current/rules-materializedviews.html
+[connection-info]: /use-timescale/:currentVersion:/integrations/find-connection-details/
