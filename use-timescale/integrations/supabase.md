@@ -1,16 +1,16 @@
 ---
 title: Integrate supabase with Timescale Cloud
-excerpt: Supabase is an open source Firebase alternative. Integrate Supabase with Timescale Cloud
+excerpt: supabase is an open source Firebase alternative. Integrate supabase with Timescale Cloud
 products: [cloud, mst, self_hosted]
 keywords: [integrate]
 ---
 
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
 
-# Integrating Supabase with Timescale
+# Integrate supabase with Timescale Cloud
 
-[Supabase][supabase] is an open source Firebase alternative. This page shows how to run real-time analytical queries 
-against a $SERVICE_LONG through Supabase using a foreign data wrapper (fdw) to bring aggregated data from your 
+[supabase][supabase] is an open source Firebase alternative. This page shows how to run real-time analytical queries 
+against a $SERVICE_LONG through supabase using a foreign data wrapper (fdw) to bring aggregated data from your 
 $SERVICE_LONG.
 
 ## Prerequisites
@@ -21,13 +21,17 @@ $SERVICE_LONG.
 
 ## Setup your $SERVICE_LONG
 
+To setup a $SERVICE_LONG optimized for analytics to receive data from supabase:
+
+<Procedure>
+
 1. **Optimize time-series data in hypertables**
 
    Time-series data represents how a system, process, or behavior changes over time. [Hypertables][hypertables-section]
    are PostgreSQL tables that help you improve insert and query performance by automatically partitioning your data by
    time.
 
-   1. [Connect to your $SERVICE_LONG][connect] and create a table that will point to a Supabase database:
+   1. [Connect to your $SERVICE_LONG][connect] and create a table that will point to a supabase database:
    
       ```sql
       CREATE TABLE signs (
@@ -89,7 +93,7 @@ $SERVICE_LONG.
       WITH NO DATA;
       ```
 
-   1. Setup a view to recieve the data from Supabase.
+   1. Setup a view to recieve the data from supabase.
 
       ```sql
       CREATE VIEW signs_per_minute_delay
@@ -111,7 +115,7 @@ $SERVICE_LONG.
    `1 minute`. This means that the continuous aggregate is refreshed every minute, and the refresh covers the last 5
    minutes. 
    You set `schedule_interval` to `INTERVAL '1 minute'` so the continuous aggregate refreshes on your $SERVICE_LONG
-   every minute. The data is accessed from Supabase, and the continuous aggregate is refreshed every minute in
+   every minute. The data is accessed from supabase, and the continuous aggregate is refreshed every minute in
    the other side.
 
    ```sql
@@ -128,12 +132,18 @@ $SERVICE_LONG.
     schedule_interval => INTERVAL '1 minute');
    ```
 
+</Procedure>
 
-## Setup Supabase to inject data into your $SERVICE_LONG 
 
-1. **Create a server**
+## Setup a supabase database 
 
-   1. Connect to your Supabase project using Supabase dashboard or psql.
+To setup a supabase database that injects data into your $SERVICE_LONG:
+
+<Procedure>
+
+1. **Connect a foreign server in supabase to your $SERVICE_LONG**
+
+   1. Connect to your supabase project using supabase dashboard or psql.
    1. Enable the `postgres_fdw` extension.
    
       ```sql
@@ -141,7 +151,7 @@ $SERVICE_LONG.
       ```
    1. Create a foreign server that points to your $SERVICE_LONG.
 
-      Update the following command with your [connection details][connection-info], the run it 
+      Update the following command with your [connection details][connection-info], then run it 
       in the supabase database:
 
       ```sql
@@ -170,26 +180,28 @@ $SERVICE_LONG.
    ); 
    ```
    
-1. **Create a foreign table that points to the table in your $SERVICE_LONG.**
+1. **Create a foreign table that points to a table in your $SERVICE_LONG.**
 
    This query introduced the following columns:
-   - `time`: with a default value of `now()`. This is because the `time` column is used by $CLOUD_LONG to compress data.
+   - `time`: with a default value of `now()`. This is because the `time` column is used by $CLOUD_LONG to optimize data
+      in the columnstore.
    - `origin_time`: store the original timestamp of the data.
+   
    Using both columns, you understand the delay between supabase (`origin_time`) and the time the data is
    inserted into your $SERVICE_LONG (`time`).
    
    ```sql
    CREATE FOREIGN TABLE signs (
-   TIME timestamptz NOT NULL DEFAULT now()
-   ,origin_time timestamptz NOT NULL
-   ,NAME TEXT
-   ) SERVER timescale OPTIONS (
-   schema_name 'public'
-   ,table_name 'signs'
+     TIME timestamptz NOT NULL DEFAULT now(),
+     origin_time timestamptz NOT NULL,
+     NAME TEXT) 
+   SERVER timescale OPTIONS (
+     schema_name 'public',
+     table_name 'signs'
    );
    ```
 
-1. **Create a foreign table in Supabase**
+1. **Create a foreign table in supabase**
 
    1. Create a foreign table that matches the  `signs_per_minute` view in your $SERVICE_LONG. It represents a top level 
       view of the data.
@@ -199,38 +211,56 @@ $SERVICE_LONG.
        ts timestamptz, 
        name text, 
        total int
-      ) SERVER timescale OPTIONS (schema_name 'public', table_name 'signs_per_minute');
+      ) 
+      SERVER timescale OPTIONS (schema_name 'public', table_name 'signs_per_minute');
       ```
 
    1. Create a foreign table that matches the  `signs_per_minute_delay` view in your $SERVICE_LONG.
    
+      ```sql
+      CREATE FOREIGN TABLE signs_per_minute_delay (
+         ts timestamptz, 
+         avg_delay float8, 
+         stddev_delay float8, 
+         open float8, 
+         high float8, 
+         low float8, 
+         close float8
+      ) SERVER timescale OPTIONS (schema_name 'public', table_name 'signs_per_minute_delay');
+      ```
+
+</Procedure>
+
+## Test the integration 
+
+To inject data into your $SERVICE_LONG from a supabase database using a foreign table: 
+
+<Procedure>
+
+1. **Insert data into your supabase database**
+
+   Connect to supabase and run the following query:
+
    ```sql
-   CREATE FOREIGN TABLE signs_per_minute_delay (
-       ts timestamptz, 
-       avg_delay float8, 
-       stddev_delay float8, 
-       open float8, 
-       high float8, 
-       low float8, 
-       close float8
-   ) SERVER timescale OPTIONS (schema_name 'public', table_name 'signs_per_minute_delay');
-   ```
-
-## Inject data into your $SERVICE_LONG from supabase using the foreign table
-
-To test the connection between Supabase and your $SERVICE_LONG: 
-
-1. Insert data into the foreign table in Supabase:
-
-   ```bash
    INSERT INTO signs (origin_time, name) VALUES (now(), 'test')
    ```
 
-1. Check the data in the service
+1. **Check the data in your $SERVICE_LONG**
 
-   IAIN: add something here:
+   [Connect to your $SERVICE_LONG][connect] and run the following query:
 
+   ```sql
+   SELECT * from signs;
+   ```
+   You see something like:
 
+   | origin_time | time | name |
+   |-------------|------|------|
+   | 2025-02-27 16:30:04.682391+00 | 2025-02-27 16:30:04.682391+00 | test |
+
+</Procedure>
+
+You have successfully integrated supabase with your $SERVICE_LONG.  
 
 [supabase]: https://supabase.com/
 [supabase-new-project]: https://supabase.com/dashboard/new

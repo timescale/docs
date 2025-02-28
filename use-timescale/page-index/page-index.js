@@ -859,9 +859,9 @@ module.exports = [
             excerpt: "Integrate qstudio with Timescale Cloud",
           },
           {
-            title: "Supabase",
+            title: "supabase",
             href: "supabase",
-            excerpt: "Integrate qstudio with Timescale products",
+            excerpt: "Integrate supabase with Timescale products",
           },
           {
             title: "Tableau",
