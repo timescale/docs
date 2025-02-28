@@ -40,9 +40,10 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 
 ## Configuration and deployment 
 
-|            Name             | Description                                                              |
-|:---------------------------:|--------------------------------------------------------------------------|
-| [Terraform][terraform]      | Safely and predictably provision and manage infrastructure in any cloud. |
+|          Name          | Description                                                                                                           |
+|:----------------------:|-----------------------------------------------------------------------------------------------------------------------|
+| [Terraform][terraform] | Safely and predictably provision and manage infrastructure in any cloud.                                              |
+|    [Pulumi][pulumi]    | Define, deploy, and manage cloud infrastructure as code across multi-cloud, Kubernetes, and on-premises environments. |
 
 
 ## Data engineering and extract, transform, load
