@@ -8,30 +8,35 @@ keywords: [changelog, upgrades, updates, releases]
 
 All the latest features and updates to Timescale products.
 
-## 🛣️ Configuration options for secure connections and more
-<Label type="date">February 27, 2025</Label>
+## 🛣️ Configuration Options for Secure Connections and More
+<Label type="date">February 28, 2025</Label>
 
 ### Edit VPC and AWS Transit Gateway CIDRs
-You can now modify the CIDRs blocks for your VPC or Transit Gateway directly from the Timescale Console, giving you greater control over network access and security. This update makes it easier to adjust your private networking setup without needing to recreate your VPC or contact support.
+
+You can now modify the CIDRs blocks for your VPC or Transit Gateway directly from Timescale Console, giving you greater control over network access and security. This update makes it easier to adjust your private networking setup without needing to recreate your VPC or contact support.
 
 ![VPC connection wizard](https://assets.timescale.com/docs/images/2025-02-27changelog_VPC_transit_gateway.png)
 
 ### Improved log filtering
-We’ve enhanced the Service Logs screen with two new label filters—Warning and Log—to help you quickly find the logs you need. These additions complement the existing Fatal, Error, and Detail filters, making it easier to pinpoint specific events and troubleshoot issues efficiently.
+
+We’ve enhanced the `Logs` screen with the new `Warning` and `Log` filters to help you quickly find the logs you need. These additions complement the existing `Fatal`, `Error`, and `Detail` filters, making it easier to pinpoint specific events and troubleshoot issues efficiently.
 
 ![Logs with filters](https://assets.timescale.com/docs/images/2025-02-27changelog_log_filtering.png)
 
 ### TimescaleDB v2.18.2 on Timescale Cloud
+
 New services created in Timescale Cloud now use [TimescaleDB v2.18.2](https://github.com/timescale/timescaledb/releases/tag/2.18.2). Existing services are in the process of being automatically upgraded to this version.
 
-This new release includes a number of bug fixes including:
-- Fix ExplainHook breaking call chain
-- Respect other extensions' ExecutorStart hooks
-- Block dropping internal compressed chunks with drop_chunk()
+This new release fixes a number of bugs including:
+
+- Fix `ExplainHook` breaking the call chain.
+- Respect `ExecutorStart` hooks of other extensions. 
+- Block dropping internal compressed chunks with `drop_chunk()`.
 
 ### SQL Assistant improvements
-- Support for Claude 3.7 Sonnet and "extended thinking" including reasoning tokens
-- Added ability to abort Assistant requests while the response is streaming
+
+- Support for Claude 3.7 Sonnet and extended thinking including reasoning tokens.
+- Ability to abort SQL Assistant requests while the response is streaming.
 
 ## 🤖 SQL Assistant Improvements and Pgai Docs Reorganization
 <Label type="date">February 21, 2025</Label>
