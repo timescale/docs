@@ -1,6 +1,6 @@
 ---
 title: User-defined actions
-excerpt: User-defined actions help you automate periodic tasks that aren't covered by Timescale policies
+excerpt: Increase efficiency and reduce overhead by automating routine tasks. User-defined actions help you set up custom jobs on top of Timescale Cloud policies. Learn how to create them in your service
 products: [cloud, mst, self_hosted]
 keywords: [actions]
 tags: [user-defined actions, scheduled jobs, background jobs, automation framework]

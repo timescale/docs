@@ -1,6 +1,6 @@
 ---
 title: Backup and restore
-excerpt: Understand how backups, restores, and PITR work in Timescale
+excerpt: Timescale Cloud handles database backup and recovery for your services automatically, using the pgBackRest tool. Need more control? Set up point-in-time-recovery in Timescale Console
 products: [cloud]
 keywords: [backup, restore, pitr, point-in-time recovery]
 tags: [backup, restore, recovery, pitr]

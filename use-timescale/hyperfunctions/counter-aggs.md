@@ -1,6 +1,6 @@
 ---
 title: Counter aggregates
-excerpt: How to aggregate counter data for data analysis
+excerpt: Timescale Cloud has aggregate and accessor functions that handle calculations for counters while ignoring any interruptions or resets. Learn to run a counter aggregate query in your service
 products: [cloud, mst, self_hosted]
 keywords: [hyperfunctions, Toolkit, counters]
 ---

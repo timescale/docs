@@ -1,6 +1,6 @@
 ---
 title: Altering and updating table schemas
-excerpt: Modify the schema of an existing hypertable
+excerpt: In Timescale Cloud, you can modify the schema of an existing hypertable with the ALTER TABLE command. See examples for adding a table and checking the schema before applying it
 products: [cloud, mst, self_hosted]
 keywords: [hypertables, schemas, alter]
 tags: [change]

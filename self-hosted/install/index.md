@@ -1,6 +1,6 @@
 ---
 title: Install self-hosted TimescaleDB
-excerpt: Install TimescaleDB on your own hardware
+excerpt: Deploy TimescaleDB on your own hardware. Deploy on Docker, Kubernetes, Linux, MacOS, Windows, or build from source
 products: [self_hosted]
 keywords: [installation]
 ---

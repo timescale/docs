@@ -1,6 +1,6 @@
 ---
 title: Minor TimescaleDB upgrades
-excerpt: Upgrade self-hosted TimescaleDB to a new minor version
+excerpt: Upgrade your self-hosted TimescaleDB to a new minor version
 products: [self_hosted]
 keywords: [upgrades]
 ---

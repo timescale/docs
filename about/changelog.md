@@ -1,12 +1,81 @@
 ---
 title: Changelog
-excerpt: A summary of the latest changes to all Timescale products.
+excerpt: Get a weekly summary of the latest changes to Timescale products with links to detailed documentation
 keywords: [changelog, upgrades, updates, releases]
 ---
 
 # Changelog
 
 All the latest features and updates to Timescale products.
+
+## 🛣️ Configuration Options for Secure Connections and More
+<Label type="date">February 28, 2025</Label>
+
+### Edit VPC and AWS Transit Gateway CIDRs
+
+You can now modify the CIDRs blocks for your VPC or Transit Gateway directly from Timescale Console, giving you greater control over network access and security. This update makes it easier to adjust your private networking setup without needing to recreate your VPC or contact support.
+
+![VPC connection wizard](https://assets.timescale.com/docs/images/2025-02-27changelog_VPC_transit_gateway.png)
+
+### Improved log filtering
+
+We’ve enhanced the `Logs` screen with the new `Warning` and `Log` filters to help you quickly find the logs you need. These additions complement the existing `Fatal`, `Error`, and `Detail` filters, making it easier to pinpoint specific events and troubleshoot issues efficiently.
+
+![Logs with filters](https://assets.timescale.com/docs/images/2025-02-27changelog_log_filtering.png)
+
+### TimescaleDB v2.18.2 on Timescale Cloud
+
+New services created in Timescale Cloud now use [TimescaleDB v2.18.2](https://github.com/timescale/timescaledb/releases/tag/2.18.2). Existing services are in the process of being automatically upgraded to this version.
+
+This new release fixes a number of bugs including:
+
+- Fix `ExplainHook` breaking the call chain.
+- Respect `ExecutorStart` hooks of other extensions. 
+- Block dropping internal compressed chunks with `drop_chunk()`.
+
+### SQL Assistant improvements
+
+- Support for Claude 3.7 Sonnet and extended thinking including reasoning tokens.
+- Ability to abort SQL Assistant requests while the response is streaming.
+
+## 🤖 SQL Assistant Improvements and Pgai Docs Reorganization
+<Label type="date">February 21, 2025</Label>
+
+### New models and improved UX for SQL Assistant
+
+We have added fireworks.ai and Groq as service providers, and several new LLM options for SQL Assistant:
+
+- OpenAI o1
+- DeepSeek R1
+- Llama 3.3 70B
+- Llama 3.1 405B
+- DeepSeek R1 Distill - Llama 3.3
+
+We've also improved the model picker by adding descriptions for each model:
+
+![Timescale Cloud SQL Assistant AI model picker](https://assets.timescale.com/docs/images/sql-assistant-ai-models.png)
+
+### Updated and reorganized docs for pgai
+
+We have improved the GitHub docs for pgai. Now relevant sections have been grouped into their own folders and we've created a comprehensive summary doc.  Check it out [here](https://github.com/timescale/pgai/tree/main/docs).
+
+## 💘 TimescaleDB v2.18.1 and AWS Transit Gateway Support Generally Available
+<Label type="date">February 14, 2025</Label>
+
+### TimescaleDB v2.18.1 
+New services created in Timescale Cloud now use [TimescaleDB v2.18.1](https://github.com/timescale/timescaledb/releases/tag/2.18.1). Existing services will be automatically upgraded in their next maintenance window starting next week.
+
+This new release includes a number of bug fixes and small improvements including:
+
+* Faster columnar scans when using the hypercore table access method
+* Ensure all constraints are always applied when deleting data on the columnstore
+* Pushdown all filters on scans for UPDATE/DELETE operations on the columnstore
+  
+###  AWS Transit Gateway support is now generally available!
+
+Timescale Cloud now fully supports [AWS Transit Gateway](https://docs.timescale.com/use-timescale/latest/security/transit-gateway/), making it even easier to securely connect your database to multiple VPCs across different environments—including AWS, on-prem, and other cloud providers.
+
+With this update, you can establish a peering connection between your Timescale Cloud services and an AWS Transit Gateway in your AWS account. This keeps your Timescale Cloud services safely behind a VPC while allowing seamless access across complex network setups.
 
 ## 🤖 TimescaleDB v2.18 and SQL Assistant Improvements in Data Mode and PopSQL
 
@@ -72,7 +141,7 @@ This release adds comprehensive SQLAlchemy and Alembic support for vector embedd
 ## AWS Transit Gateway Support
 <Label type="date">January 17, 2025</Label>
 
-### AWS Transit Gateway Support
+### AWS Transit Gateway Support (Early Access)
 Timescale Cloud now enables you to connect to your Timescale Cloud services through AWS Transit Gateway. This feature is available to Scale and Enterprise customers. It will be in Early Access for a short time and available in the Timescale Console very soon. If you are interested in implementing this Early Access Feature, reach out to your Rep.
 
 ## 🇮🇳 New region in India, PostgreSQL 17 upgrades, and TimescaleDB on AWS Marketplace

@@ -1,6 +1,6 @@
 ---
 title: Security
-excerpt: Learn how your Timescale instance is secured
+excerpt: A high level of security is a major requirement to any database. Learn how Timescale Cloud protects your services with MFA, SAML, SSL modes, read-only access, VPC peering, and IP allow lists
 products: [cloud]
 keywords: [security]
 ---
@@ -16,6 +16,7 @@ privacy.
 *   Grant [read-only access][read-only] to your $SERVICE_LONGs
 *   Learn how to [connect with a stricter SSL mode][ssl]
 *   Secure your Timescale Cloud services with [VPC peering][vpc-peering]
+*   Peer your $SERVICE_LONGs with [AWS Transit Gateway][transit-gateway]
 *   Restrict access with an [IP address allow list][ip-allowlist]
 
 
@@ -27,3 +28,4 @@ privacy.
 [read-only]: /use-timescale/:currentVersion:/security/read-only-role/
 [vpc-peering]: /use-timescale/:currentVersion:/security/vpc/
 [ip-allowlist]: /use-timescale/:currentVersion:/security/ip-allow-list/
+[transit-gateway]: /use-timescale/:currentVersion:/security/transit-gateway/

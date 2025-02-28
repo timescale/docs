@@ -1,6 +1,6 @@
 ---
 title: Ingest real-time financial websocket data - Query the data
-excerpt: Create candlestick views and query financial tick data to analyze price changes
+excerpt: Create candlestick views and query financial tick data to analyze price changes with Timescale Cloud
 products: [cloud]
 keywords: [finance, analytics, websockets, data pipeline]
 tags: [tutorials, intermediate]

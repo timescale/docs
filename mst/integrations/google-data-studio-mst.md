@@ -1,6 +1,6 @@
 ---
 title: Integrate Managed Service for TimescaleDB and Google Data Studio
-excerpt: Integrate Google Data Studio for Managed Service for TimescaleDB.
+excerpt: Integrate Google Data Studio with Managed Service for TimescaleDB
 products: [mst]
 keyword: [integration]
 ---

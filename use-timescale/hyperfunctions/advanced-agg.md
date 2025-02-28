@@ -1,6 +1,6 @@
 ---
 title: Percentile approximation advanced aggregation methods
-excerpt: Use approximation algorithms to quickly estimate percentiles
+excerpt: Timescale Cloud uses uddsketch and tdigest to approximate percentiles on large datasets. Learn the difference between the two, to make the right choice for your analytical queries
 products: [cloud, mst, self_hosted]
 keywords: [hyperfunctions, Toolkit, percentiles, uddsketch, tdigest]
 ---

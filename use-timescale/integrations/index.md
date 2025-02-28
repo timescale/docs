@@ -1,6 +1,6 @@
 ---
 title: Integrations
-excerpt: Integrate third-party products with Timescale Cloud and TimescaleDB
+excerpt: Built on PostgreSQL, Timescale Cloud can integrate with the same array of third-party solutions. See integration procedures for the most popular and requested third-party services
 products: [cloud]
 keywords: [integrations]
 tags: [integrations]
@@ -18,31 +18,31 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 
 ## Query and administration
 
-|      Name                | Description                                                                                                                                     |
-|:------------------------:|-------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Azure Data Studio][ads] | An open-source, cross-platform hybrid data analytics tool designed to simplify the data landscape.                                              |
-|    [DBeaver][dbeaver]    | A free cross-platform database tool for developers, database administrators, analysts, and everyone working with data.                          |
-|    [pgAdmin][pgadmin]    | A feature-rich open-source administration and development platform for PostgreSQL.                                                              |
-|       [psql][psql]       | A terminal-based frontend to PostgreSQL that enables you to type in queries interactively, issue them to PostgreSQL, and see the query results. |
-|    [qStudio][qstudio]    | A modern free SQL editor that provides syntax highlighting, code completion, excel export, charting, and more.                                  |
-
+|           Name           | Description                                                                                                                               |
+|:------------------------:|-------------------------------------------------------------------------------------------------------------------------------------------|
+| [Azure Data Studio][ads] | Query, manage, visualize, and develop databases across SQL Server, Azure SQL, and PostgreSQL.                                             |
+|    [DBeaver][dbeaver]    | Connect to, manage, query, and analyze multiple database in a single interface with SQL editing, visualization, and administration tools. |
+|    [pgAdmin][pgadmin]    | Manage, query, and administer PostgreSQL databases through a graphical interface.                                                         |
+|       [psql][psql]       | Run SQL queries, manage databases, automate tasks, and interact directly with PostgreSQL.                                                 |
+|    [qStudio][qstudio]    | Write and execute SQL queries, manage database objects, and analyze data in a user-friendly interface.                                    |
+| [PostgreSQL][postgresql] | Access and query data from external sources as if they were regular PostgreSQL tables.  |
 
 ## Observability and alerting
 
-|              Name               | Description                                                                                                                                                                                 |
-|:-------------------------------:|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Amazon Cloudwatch][cloudwatch] | A monitoring and observability service designed to help collect, analyze, and act on data from applications, infrastructure, and services running in AWS and on-premises environments.      |
-|       [Datadog][datadog]        | A cloud-based monitoring and analytics platform that provides comprehensive visibility into applications, infrastructure, and systems through real-time monitoring, logging, and analytics. |
-|       [Grafana][grafana]        | An open-source analytics and monitoring solution that enables you to query, visualize, alert on, and explore your metrics, logs.                                                            |
-|    [Prometheus][prometheus]     | An open-source monitoring system with a dimensional data model, flexible query language, and a modern alerting approach.         |
-|       [Tableau][tableau]        | A popular analytics platform that helps you gain greater intelligence about your business.                                                                                                  |
+|              Name               | Description                                                                                                                        |
+|:-------------------------------:|------------------------------------------------------------------------------------------------------------------------------------|
+| [Amazon Cloudwatch][cloudwatch] | Collect, analyze, and act on data from applications, infrastructure, and services running in AWS and on-premises environments.     |
+|       [Datadog][datadog]        | Gain comprehensive visibility into applications, infrastructure, and systems through real-time monitoring, logging, and analytics. |
+|       [Grafana][grafana]        | Query, visualize, alert on, and explore your metrics and logs.                                                                     |
+|    [Prometheus][prometheus]     | Track the performance and health of systems, applications, and infrastructure.                                                     |
+|       [Tableau][tableau]        | Connect to data sources, analyze data, and create interactive visualizations and dashboards.                                       |
 
 
 ## Configuration and deployment 
 
-|            Name             | Description                                                                                                                 |
-|:---------------------------:|-----------------------------------------------------------------------------------------------------------------------------|
-| [Terraform][terraform]      | An infrastructure-as-code tool that enables you to safely and predictably provision and manage infrastructure in any cloud. |
+|            Name             | Description                                                              |
+|:---------------------------:|--------------------------------------------------------------------------|
+| [Terraform][terraform]      | Safely and predictably provision and manage infrastructure in any cloud. |
 
 
 ## Data engineering and extract, transform, load
@@ -51,7 +51,26 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 |:--------------------------------:|----------------------------------------------------------------------------------------------------------------------------------------------|
 | [Apache Airflow][apache-airflow] | A community platform designed to programmatically author, schedule, and monitor workflows.                                                   |
 |        [Airbyte][airbyte]        | An open-source data integration platform that enables you to move and consolidate data from various sources to a destination of your choice. |
+=======
+|               Name               | Description                                                                                            |
+|:--------------------------------:|--------------------------------------------------------------------------------------------------------|
+| [Amazon SageMaker][amazon-sagemaker]| Build, train, and deploy ML models into a production-ready hosted environment.                         |
+| [Apache Airflow][apache-airflow] | Programmatically author, schedule, and monitor workflows.                                              |
+| [Apache Kafka][kafka] | Stream high-performance data pipelines, analytics, and data integration. |
+| [AWS Lambda][aws-lambda]| Run code without provisioning or managing servers, scaling automatically as needed.                    |
 
+
+## Data ingestion and streaming
+
+|         Name         | Description                                                                                                                                                                 |
+|:--------------------:|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Fivetran][fivetran] | Sync data from multiple sources to your data warehouse. |
+
+## Business intelligence and data visualization
+
+|         Name         | Description                                                           |
+|:--------------------:|-----------------------------------------------------------------------|
+| [Power BI][power-bi] | Visualize data, build interactive dashboards, and share insights. |
 
 
 [psql]: /use-timescale/:currentVersion:/integrations/psql/
@@ -65,6 +84,12 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 [tableau]: /use-timescale/:currentVersion:/integrations/tableau/
 [terraform]: /use-timescale/:currentVersion:/integrations/terraform
 [apache-airflow]: /use-timescale/:currentVersion:/integrations/apache-airflow
+[aws-lambda]: /use-timescale/:currentVersion:/integrations/aws-lambda
 [postgresql-integrations]: https://slashdot.org/software/p/PostgreSQL/integrations/
+[power-bi]: /use-timescale/:currentVersion:/integrations/power-bi
+[fivetran]: /use-timescale/:currentVersion:/integrations/fivetran
 [prometheus]: /use-timescale/:currentVersion:/integrations/prometheus
 [airbyte]: /use-timescale/:currentVersion:/integrations/airbyte
+[amazon-sagemaker]: /use-timescale/:currentVersion:/integrations/amazon-sagemaker
+[postgresql]: /use-timescale/:currentVersion:/integrations/postgresql
+[kafka]: /use-timescale/:currentVersion:/integrations/apache-kafka
