@@ -11,7 +11,7 @@ cloud_ui:
 
 # Securely connect to $CLOUD_LONG from any cloud or on-premise environment
 
-[AWS Transit Gateway][aws-transit-gateway] enables you to securely connect your $CLOUD_LONG to AWS, GCP, Azure, or any other cloud or on-premise environment.
+[AWS Transit Gateway][aws-transit-gateway] enables you to securely connect to your $CLOUD_LONG from AWS, GCP, Azure, or any other cloud or on-premise environment.
 
 You use AWS Transit Gateway as a traffic controller for your network. Instead of setting up multiple direct connections to different clouds, on-premise data centers, and other AWS services, you connect everything to Transit Gateway. This simplifies your network and makes it easier to manage and scale.
 
