@@ -854,6 +854,11 @@ module.exports = [
             excerpt: "Connect to Timescale products with psql",
           },
           {
+            title: "Pulumi",
+            href: "pulumi",
+            excerpt: "Integrate Pulumi with Timescale Cloud",
+          },
+          {
             title: "qStudio",
             href: "qstudio",
             excerpt: "Integrate qstudio with Timescale Cloud",

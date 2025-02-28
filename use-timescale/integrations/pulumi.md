@@ -10,7 +10,7 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 
 # Integrate Pulumi with $CLOUD_LONG
 
-Pulumi is an open-source infrastructure as code platform that enables you to define, deploy, and manage your infrastructure and applications across multi-cloud, Kubernetes, and on-premises environments.
+Pulumi is an open-source infrastructure as code platform that enables you to define, deploy, and manage your infrastructure and applications across multi-cloud and on-premises environments.
 
 This page explains how to configure Pulumi to manage your $SERVICE_LONG or a self-hosted database.
 
@@ -26,94 +26,86 @@ You use the [$COMPANY Terraform provider][terraform-provider] with Pulumi to man
 
 <Procedure>
 
-1. 
-
-1. **Install $COMPANY Terraform provider**
- 
-    ```bash
-    pulumi package add terraform-provider timescale/timescale
-    ```
-
 1. **Generate client credentials for programmatic use**
 
     1. In [$CONSOLE][console], click `Timescale project` and save your `Project ID`, then click `Project settings`.
 
     1. Click `Create credentials`, then save `Public key` and `Secret key`.
 
-1. **Configure $COMPANY Terraform provider**
+1. **Create a root Pulumi directory**
 
-    1. Create a `main.tf` configuration file with at least the following content. Change `x.y.z` to the [latest version][terraform-provider] of the provider.
+    For example:
 
-        ```hcl
-        terraform {
-          required_providers {
-            timescale = {
-              source  = "timescale/timescale"
-              version = "x.y.z"
-            }
-          }
-        }
- 
-        # Authenticate using client credentials generated in Timescale Console.
-        # When required, these credentials will change to a short-lived JWT to do the calls.
-        provider "timescale" {
-         project_id = var.ts_project_id
-         access_key = var.ts_access_key
-         secret_key = var.ts_secret_key
-        }
- 
-        variable "ts_project_id" {
-         type = string
-        }
- 
-        variable "ts_access_key" {
-         type = string
-        }
- 
-        variable "ts_secret_key" {
-         type = string
-        }
-        ```
+    ```shell 
+    mkdir pulumi-timescale
+    cd pulumi-timescale
+    ```
 
-    1. Create a `terraform.tfvars` file in the same directory as your `main.tf` to pass in the variable values:
+1. **Configure Pulumi**
 
-        ```hcl
-        export TF_VAR_ts_project_id="<your-timescale-project-id>"
-        export TF_VAR_ts_access_key="<your-timescale-access-key>"
-        export TF_VAR_ts_secret_key="<your-timescale-secret-key>"
-        ```
+    In the root Pulumi directory, create a `Pulumi.yaml` file and use the programmatic credentials you have created earlier to add the following minimal configuration: 
+
+    ```yaml
+    name: timescale-yaml-project
+    runtime: yaml
+    description: A Pulumi project to manage Timescale Cloud resources using YAML
+    config:
+      timescale:accessKey:
+        value: "<YOUR_ACCESS_KEY>"
+      timescale:secretKey:
+        value: "<YOUR_SECRET_KEY>"
+      timescale:projectId:
+        value: "<YOUR_PROJECT_ID>"
+      aws:region:
+        value: "us-east-1"
+    ```
+
+1. **Install $COMPANY Terraform provider**
+ 
+    ```bash
+    pulumi package add terraform-provider timescale/timescale
+    ```
+   
+1. **Configure your stack**
+
+    Create a `Pulumi.dev.yaml` file and use the programmatic credentials you have created earlier to add the following minimal configuration:
+
+    ```yaml
+    config:
+      timescale:accessKey: "<YOUR_ACCESS_KEY>"
+      timescale:secretKey: "<YOUR_SECRET_KEY>"
+      timescale:projectId: "<YOUR_PROJECT_ID>"
+      aws:region: "us-east-1"
+    ```
 
 1. **Add your resources**
 
-   Add your $SERVICE_LONGs or $VPC connections to the `main.tf` configuration file. For example:
+   Create a `program.yaml` file to define your resources. For example, to create a service: 
 
-   ```hcl
-   resource "timescale_service" "test" {
-     name              = "test-service"   
-     milli_cpu         = 500
-     memory_gb         = 2
-     region_code       = "us-east-1"
-     enable_ha_replica = false
+   ```yaml
+   resources:
+     timescaleService:
+       type: timescale:Service
+       properties:
+         name: "example-service"
+         projectId: "<YOUR_PROJECT_ID>"
+         password: "secure-password"
+         regionCode: "us-east-1" 
+         milliCpu: 1000 
+         memoryGb: 4
+   ```
    
-     timeouts = {
-       create = "30m"
-     }
-   }
-   
-   resource "timescale_vpc" "vpc" {
-     cidr         = "10.10.0.0/16"  
-     name         = "test-vpc"
-     region_code  = "us-east-1"
-   }
+1. **Run Pulumi**
+
+   ```
+   pulumi up
    ```
 
 You can now manage your resources with Pulumi. See more about [available resources][terraform-resources] and [data sources][terraform-data-sources].
 
 </Procedure>
 
-
 [pulumi-install]: https://www.pulumi.com/docs/iac/download-install/
-[terraform]: https://www.terraform.io/
 [console]: https://console.cloud.timescale.com/dashboard/services
 [terraform-provider]: https://registry.terraform.io/providers/timescale/timescale/latest/docs
 [connection-info]: /use-timescale/:currentVersion:/integrations/find-connection-details/
