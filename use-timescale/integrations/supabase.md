@@ -59,7 +59,7 @@ To setup a $SERVICE_LONG optimized for analytics to receive data from supabase:
      timescaledb.segmentby = 'name'); 
    ```
 
-1. **Setup continuous aggregates**
+1. **Create optimized analytical queries**
 
    Continuous aggregates are designed to make queries on very large datasets run
    faster. Continuous aggregates in $CLOUD_LONG use PostgreSQL [materialized views][postgres-materialized-views] to 
@@ -108,7 +108,7 @@ To setup a $SERVICE_LONG optimized for analytics to receive data from supabase:
       FROM _signs_per_minute_delay
       ```
 
-1. **Add refresh policies to the continuous aggregates**
+1. **Add refresh policies for your analytical queries**
 
    You use `start_offset` and `end_offset` to define the time range that the continuous aggregate will cover. Assuming
    that the data is being inserted without any delay, set the `start_offset` to `5 minutes` and the `end_offset` to
