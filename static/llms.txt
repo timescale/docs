@@ -51,4 +51,14 @@ with hypertables, just with much better performance and improved user experience
 
 ## Security
 
+- [Timescale security standards](https://www.timescale.com/security): security norms and practices that Timescale is compliant with.
+- [Timescale security overview](https://docs.timescale.com/use-timescale/latest/security/overview/): additional things in Timescale that ensure operational security and lock-down Timescale Cloud services.
+- [SAML authentication](https://docs.timescale.com/use-timescale/latest/security/saml/): with SAML enabled Timescale Cloud users log into their Timescale account using their existing SSO.
+- [Multi-factor user authentication](https://docs.timescale.com/use-timescale/latest/security/multi-factor-authentication/): secure logins that require an authentication code in addition to your user password.
+- [Connect with a stricter SSL mode](https://docs.timescale.com/use-timescale/latest/security/strict-ssl/): connect to Timescale Cloud using SSL certificates, stricter SSL mode, verify-ca and verify-full.
+- [Securely connect to Timescale Cloud from any cloud or on-premise environment](https://docs.timescale.com/use-timescale/latest/security/transit-gateway/): AWS Transit Gateway enables you to securely connect to your Timescale Cloud from AWS, GCP, Azure, or any other cloud or on-premise environment.
+- [Secure your Timescale Cloud services with VPC Peering and AWS PrivateLink](https://docs.timescale.com/use-timescale/latest/security/vpc/): use Virtual Private Cloud (VPC) peering to ensure that your Timescale Cloud services are only accessible through your secured AWS infrastructure.
+- [IP allow list](https://docs.timescale.com/use-timescale/latest/security/ip-allow-list/): restrict access to your Timescale Cloud services to trusted IP addresses only.
+
+
 ## API reference
