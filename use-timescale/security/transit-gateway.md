@@ -9,11 +9,13 @@ cloud_ui:
         - [services, :serviceId, operations, vpc]
 ---
 
-# Peer your $SERVICE_LONGs with AWS Transit Gateway
+# Securely connect to $CLOUD_LONG from any cloud or on-premise environment
 
-You use [AWS Transit Gateway][aws-transit-gateway] as a traffic controller for your network. Instead of setting up lots of direct connections to virtual private clouds, on-premise data centers, and other AWS services, you connect everything to Transit Gateway. This simplifies your network and makes it easier to manage and scale.
+[AWS Transit Gateway][aws-transit-gateway] enables you to securely connect to your $CLOUD_LONG from AWS, GCP, Azure, or any other cloud or on-premise environment.
 
-You can create a peering connection between your $SERVICE_LONGs and AWS Transit Gateway in $CLOUD_LONG. This means that, no matter how big or complex your infrastructure is, you can connect securely to your $SERVICE_LONGs. 
+You use AWS Transit Gateway as a traffic controller for your network. Instead of setting up multiple direct connections to different clouds, on-premise data centers, and other AWS services, you connect everything to Transit Gateway. This simplifies your network and makes it easier to manage and scale.
+
+You can then create a peering connection between your $SERVICE_LONGs and AWS Transit Gateway in $CLOUD_LONG. This means that, no matter how big or complex your infrastructure is, you can connect securely to your $SERVICE_LONGs. 
 
 To configure this secure connection, you:
 
