@@ -1,12 +1,148 @@
 ---
 title: Changelog
-excerpt: A summary of the latest changes to all Timescale products.
+excerpt: Get a weekly summary of the latest changes to Timescale products with links to detailed documentation
 keywords: [changelog, upgrades, updates, releases]
 ---
 
 # Changelog
 
 All the latest features and updates to Timescale products.
+
+## 🛣️ Configuration Options for Secure Connections and More
+<Label type="date">February 28, 2025</Label>
+
+### Edit VPC and AWS Transit Gateway CIDRs
+
+You can now modify the CIDRs blocks for your VPC or Transit Gateway directly from Timescale Console, giving you greater control over network access and security. This update makes it easier to adjust your private networking setup without needing to recreate your VPC or contact support.
+
+![VPC connection wizard](https://assets.timescale.com/docs/images/2025-02-27changelog_VPC_transit_gateway.png)
+
+### Improved log filtering
+
+We’ve enhanced the `Logs` screen with the new `Warning` and `Log` filters to help you quickly find the logs you need. These additions complement the existing `Fatal`, `Error`, and `Detail` filters, making it easier to pinpoint specific events and troubleshoot issues efficiently.
+
+![Logs with filters](https://assets.timescale.com/docs/images/2025-02-27changelog_log_filtering.png)
+
+### TimescaleDB v2.18.2 on Timescale Cloud
+
+New services created in Timescale Cloud now use [TimescaleDB v2.18.2](https://github.com/timescale/timescaledb/releases/tag/2.18.2). Existing services are in the process of being automatically upgraded to this version.
+
+This new release fixes a number of bugs including:
+
+- Fix `ExplainHook` breaking the call chain.
+- Respect `ExecutorStart` hooks of other extensions. 
+- Block dropping internal compressed chunks with `drop_chunk()`.
+
+### SQL Assistant improvements
+
+- Support for Claude 3.7 Sonnet and extended thinking including reasoning tokens.
+- Ability to abort SQL Assistant requests while the response is streaming.
+
+## 🤖 SQL Assistant Improvements and Pgai Docs Reorganization
+<Label type="date">February 21, 2025</Label>
+
+### New models and improved UX for SQL Assistant
+
+We have added fireworks.ai and Groq as service providers, and several new LLM options for SQL Assistant:
+
+- OpenAI o1
+- DeepSeek R1
+- Llama 3.3 70B
+- Llama 3.1 405B
+- DeepSeek R1 Distill - Llama 3.3
+
+We've also improved the model picker by adding descriptions for each model:
+
+![Timescale Cloud SQL Assistant AI model picker](https://assets.timescale.com/docs/images/sql-assistant-ai-models.png)
+
+### Updated and reorganized docs for pgai
+
+We have improved the GitHub docs for pgai. Now relevant sections have been grouped into their own folders and we've created a comprehensive summary doc.  Check it out [here](https://github.com/timescale/pgai/tree/main/docs).
+
+## 💘 TimescaleDB v2.18.1 and AWS Transit Gateway Support Generally Available
+<Label type="date">February 14, 2025</Label>
+
+### TimescaleDB v2.18.1 
+New services created in Timescale Cloud now use [TimescaleDB v2.18.1](https://github.com/timescale/timescaledb/releases/tag/2.18.1). Existing services will be automatically upgraded in their next maintenance window starting next week.
+
+This new release includes a number of bug fixes and small improvements including:
+
+* Faster columnar scans when using the hypercore table access method
+* Ensure all constraints are always applied when deleting data on the columnstore
+* Pushdown all filters on scans for UPDATE/DELETE operations on the columnstore
+  
+###  AWS Transit Gateway support is now generally available!
+
+Timescale Cloud now fully supports [AWS Transit Gateway](https://docs.timescale.com/use-timescale/latest/security/transit-gateway/), making it even easier to securely connect your database to multiple VPCs across different environments—including AWS, on-prem, and other cloud providers.
+
+With this update, you can establish a peering connection between your Timescale Cloud services and an AWS Transit Gateway in your AWS account. This keeps your Timescale Cloud services safely behind a VPC while allowing seamless access across complex network setups.
+
+## 🤖 TimescaleDB v2.18 and SQL Assistant Improvements in Data Mode and PopSQL
+
+<Label type="date">February 6, 2025</Label>
+
+### TimescaleDB v2.18 - dense indexes in the columnstore and query vectorization improvements
+Starting this week, all new services created on Timescale Cloud use [TimescaleDB v2.18](https://github.com/timescale/timescaledb/releases/tag/2.18.0). Existing services will be upgraded gradually during their maintenance window.
+
+Highlighted features in TimescaleDB v2.18.0 include:
+
+* The ability to add dense indexes (btree and hash) to the columnstore through the new hypercore table access method.
+* Significant performance improvements through vectorization (SIMD) for aggregations using a group by with one column and/or using a filter clause when querying the columnstore.
+* Hypertables support triggers for transition tables, which is one of the most upvoted community feature requests.
+* Updated methods to manage Timescale's hybrid row-columnar store (hypercore). These methods highlight columnstore usage. The columnstore includes an optimized columnar format as well as compression.
+
+### SQL Assistant improvements
+
+We made a few improvements to SQL Assistant:
+
+**Dedicated SQL Assistant threads** 🧵
+
+Each query, notebook, and dashboard now gets its own conversation thread, keeping your chats organized.
+
+![Dedicated threads](https://assets.timescale.com/docs/images/timescale-cloud-sql-assistant-threads.gif)
+
+**Delete messages** ❌
+
+Made a typo? Asked the wrong question? You can now delete individual messages from your thread to keep the conversation clean and relevant.
+
+![Delete messages in SQL Assistant threads](https://assets.timescale.com/docs/images/timescale-cloud-sql-assistant-delete-messages.png)
+
+**Support for OpenAI `o3-mini` ⚡**
+
+We’ve added support for OpenAI’s latest `o3-mini` model, bringing faster response times and improved reasoning for SQL queries.
+
+![SQL Assistant o3 mini](https://assets.timescale.com/docs/images/timescale-cloud-sql-assistant-o3-mini.png)
+
+## 🌐 IP Allowlists in Data Mode and PopSQL
+
+<Label type="date">January 31, 2025</Label>
+
+For enhanced network security, you can now also create IP allowlists in the $CONSOLE data mode and PopSQL. Similarly to the [ops mode IP allowlists][ops-mode-allow-list], this feature grants access to your data only to certain IP addresses. For example, you might require your employees to use a VPN and add your VPN static egress IP to the allowlist.
+
+This feature is available in:
+
+- [$CONSOLE][console] data mode, for all pricing tiers
+- [PopSQL web][popsql-web]
+- [PopSQL desktop][popsql-desktop]
+
+Enable this feature in PopSQL/$CONSOLE data mode > `Project` > `Settings` > `IP Allowlist`:
+
+![Timescale Console data mode IP allowlist](https://assets.timescale.com/docs/images/timescale-data-mode-ip-allowlist.png)
+
+## 🤖 pgai Extension and Python Library Updates
+<Label type="date">January 24, 2025</Label>
+
+### AI — pgai PostgreSQL extension 0.7.0
+This release enhances the Vectorizer functionality by adding configurable `base_url` support for OpenAI API. This enables pgai Vectorizer to use all OpenAI-compatible models and APIs via the OpenAI integration simply by changing the `base_url`. This release also includes public granting of vectorizers, superuser creation on any table, an upgrade to the Ollama client to 0.4.5, a new `docker-start` command, and various fixes for struct handling, schema qualification, and system package management. [See all changes on Github](https://github.com/timescale/pgai/releases/tag/extension-0.7.0).
+
+### AI - pgai python library 0.5.0
+This release adds comprehensive SQLAlchemy and Alembic support for vector embeddings, including operations for migrations and improved model inheritance patterns. You can now seamlessly integrate vector search capabilities with SQLAlchemy models while utilizing Alembic for database migrations. This release also adds key improvements to the Ollama integration and self-hosted Vectorizer configuration. [See all changes on Github](https://github.com/timescale/pgai/releases/tag/pgai-v0.5.0).
+
+## AWS Transit Gateway Support
+<Label type="date">January 17, 2025</Label>
+
+### AWS Transit Gateway Support (Early Access)
+Timescale Cloud now enables you to connect to your Timescale Cloud services through AWS Transit Gateway. This feature is available to Scale and Enterprise customers. It will be in Early Access for a short time and available in the Timescale Console very soon. If you are interested in implementing this Early Access Feature, reach out to your Rep.
 
 ## 🇮🇳 New region in India, PostgreSQL 17 upgrades, and TimescaleDB on AWS Marketplace
 <Label type="date">January 10, 2025</Label>
@@ -179,7 +315,7 @@ In the **Jobs** section of the **Explorer**, users can now see the status (compl
 ### Pgai Vectorizer: vector embeddings as database indexes (early access)
 This early access feature enables you to automatically create, update, and maintain embeddings as your data changes. Just like an index, Timescale handles all the complexity: syncing, versioning, and cleanup happen automatically.
 This means no manual tracking, zero maintenance burden, and the freedom to rapidly experiment with different embedding models and chunking strategies without building new pipelines.
-Navigate to the AI tab in your service overview and follow the instructions to add your OpenAI API key and set up your first vectorizer or read our [guide to automate embedding generation with pgai Vectorizer](https://github.com/timescale/pgai/blob/main/docs/vectorizer.md) for more details.
+Navigate to the AI tab in your service overview and follow the instructions to add your OpenAI API key and set up your first vectorizer or read our [guide to automate embedding generation with pgai Vectorizer](https://github.com/timescale/pgai/blob/main/docs/vectorizer/overview.md) for more details.
 
 ![Vectorizer setup](https://s3.amazonaws.com/assets.timescale.com/docs/images/vectorizer-setup.png)
 
@@ -576,7 +712,7 @@ select ollama_generate
 ;
 ```
 
-To learn more, see the [pgai Ollama documentation](https://github.com/timescale/pgai/blob/main/docs/ollama.md).
+To learn more, see the [pgai Ollama documentation](https://github.com/timescale/pgai/blob/main/docs/model_calling/ollama.md).
 
 ## 🧙 Compression Wizard
 
@@ -677,3 +813,7 @@ To learn more, see the [postgresql-unit documentation](https://github.com/df7cb/
 [signup]: https://console.cloud.timescale.com/signup
 [sql-editor]: /getting-started/:currentVersion:/run-queries-from-console/#sql-editor
 [aws-timescale]: https://aws.amazon.com/marketplace/seller-profile?id=seller-wbtecrjp3kxpm
+[ops-mode-allow-list]: /about/:currentVersion:/changelog/#-ip-allow-lists
+[popsql-web]: https://app.popsql.com/login
+[popsql-desktop]: https://popsql.com/download
+[console]: https://console.cloud.timescale.com/dashboard/services

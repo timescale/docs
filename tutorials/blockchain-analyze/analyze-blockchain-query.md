@@ -1,6 +1,6 @@
 ---
 title: Analyze the Bitcoin blockchain - query the data
-excerpt: Analyze the Bitcoin blockchain with Timescale hyperfunctions
+excerpt: Use Timescale Cloud hyperfunctions to construct advanced analytical queries and run them on blockchain transaction data
 products: [cloud]
 keywords: [intermediate, crypto, blockchain, Bitcoin, finance, analytics]
 layout_components: [next_prev_large]

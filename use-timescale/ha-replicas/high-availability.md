@@ -1,6 +1,6 @@
 ---
 title: Manage high availability
-excerpt: Set up HA replicas on Timescale for high availability
+excerpt: Timescale Cloud ensures high availability of your service by creating replicas that take over in case of the primary node downtime. Create and set up high availability replicas in Timescale Console
 products: [cloud]
 keywords: [high availability, replicas]
 tags: [failover, availability zones, replication, wal]

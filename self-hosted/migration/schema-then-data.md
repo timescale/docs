@@ -1,6 +1,6 @@
 ---
 title: Migrate schema and data separately
-excerpt: Migrate your Timescale data and schema to self-hosted TimescaleDB
+excerpt: Migrate your data and schema to self-hosted TimescaleDB. This method copies each table or chunk separately, which means you can restart midway if one copy operation fails
 products: [self_hosted]
 keywords: [data migration]
 tags: [ingest]

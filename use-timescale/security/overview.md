@@ -1,6 +1,6 @@
 ---
 title: About security in Timescale Cloud
-excerpt: Get an overview of security on Timescale
+excerpt: Learn how Timescale Cloud protects your data with secure development practices, as well as configurable features that restrict access to your services
 products: [cloud]
 keywords: [security]
 tags: [encryption, VPC, privacy]

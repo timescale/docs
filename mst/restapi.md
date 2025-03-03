@@ -1,6 +1,6 @@
 ---
 title: Using REST API in Managed Service for TimescaleDB
-excerpt: Use REST API in Managed Service for TimescaleDB for integration and automation
+excerpt: Use REST API for integration and automation in Managed Service for TimescaleDB
 products: [mst]
 keywords: [REST API, API, integration]
 ---

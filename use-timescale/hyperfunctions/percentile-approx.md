@@ -1,6 +1,6 @@
 ---
 title: Percentile approximation
-excerpt: Approximate percentiles in large datasets
+excerpt: Calculating percentiles on a large dataset requires a lot of resources. Timescale Cloud solves this problem by providing an approximation without requiring all the data. Learn how percentile approximation works for your data
 products: [cloud, mst, self_hosted]
 keywords: [hyperfunctions, Toolkit, percentiles]
 ---

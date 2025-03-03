@@ -1,6 +1,6 @@
 ---
 title: Install TimescaleDB on Linux
-excerpt: Install self-hosted TimescaleDB on Linux
+excerpt: Install self-hosted TimescaleDB on Debian, Red Hat, or ArchLinux
 products: [self_hosted]
 keywords: [installation, self-hosted, Debian, Ubuntu, RHEL, Fedora]
 ---
@@ -89,5 +89,6 @@ TimescaleDB is supported on the following platforms:
 |Debian 10 Buster|Ubuntu 20.04 LTS Focal Fossa|Red Hat Enterprise Linux 7|Fedora 33|Rocky Linux 8|
 |Debian 11 Bullseye|Ubuntu 22.04 LTS Jammy Jellyfish|Red Hat Enterprise Linux 8|Fedora 34|Rocky Linux 9|
 |Debian 12 Bookworm|Ubuntu 23.04 Lunar Lobster|Red Hat Enterprise Linux 9|Fedora 35| |
+||Ubuntu 24.04 LTS Noble Numbat||| |
 
 [install-from-source]: /self-hosted/:currentVersion:/install/installation-source/
