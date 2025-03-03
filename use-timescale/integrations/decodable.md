@@ -18,33 +18,33 @@ This page explains how to integrate Decodable with your $SERVICE_LONG to enable 
 <IntegrationPrereqs />
 
 - [Sign up for Decodable][sign-up-decodable].
+   This page uses the pipeline you create following the [Decodable Quickstart Guide][decodable-quickstart].
 
 ## Connect Decodable to your $SERVICE_LONG
 
-To connect Decodable to $CLOUD_LONG:
+To stream data gathered in Decodable to a $SERVICE_LONG:
 
 <Procedure>
 
-1. **Log in to Decodable**
+1. **Create the schema to pipe a Decodable data stream into**
+   1. 
 
-1. **Create a connection**
+2. **Create a Decodable sink to your $SERVICE_LONG**
 
-    1. Navigate to the `Connections` tab in the Decodable UI and click `Create Connection`.
-    1. Select `PostgreSQL` as the connection type.
-    1. Configure other fields using your [connection details][connection-info].
+   1. Log in to Decodable 
+   1. Navigate to the `Connections` tab in the Decodable UI and click `Create Connection`.
+   1. Select `PostgreSQL` as the connection type.
+   1. Configure other fields using your [connection details][connection-info].
 
 1. **Test the connection**
 
-    - Click `Test Connection` in the Decodable UI.
-    - Ensure the connection status changes to `Connected`.
-    - Click `Save` to save the connection.
+   1. Click `Test Connection` in the Decodable UI.
+   1. Ensure the connection status changes to `Connected`.
+   1. Click `Save` to save the connection.
 
-</Procedure>
-
-
-You have successfully integrated Decodable with $CLOUD_LONG. 
-
+</Procedure> 
 
 [decodable]: https://www.decodable.co/
 [sign-up-decodable]: https://auth.decodable.co/u/signup/
+[decodable-quickstart]: https://docs.decodable.co/get-started/quickstart.html
 [connection-info]: /use-timescale/:currentVersion:/integrations/find-connection-details/
