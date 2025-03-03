@@ -61,6 +61,12 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 |:--------------------:|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Fivetran][fivetran] | Sync data from multiple sources to your data warehouse. |
 
+## Business intelligence and data visualization
+
+|         Name         | Description                                                           |
+|:--------------------:|-----------------------------------------------------------------------|
+| [Power BI][power-bi] | Visualize data, build interactive dashboards, and share insights. |
+
 
 [psql]: /use-timescale/:currentVersion:/integrations/psql/
 [qstudio]: /use-timescale/:currentVersion:/integrations/qstudio/
@@ -75,6 +81,7 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 [apache-airflow]: /use-timescale/:currentVersion:/integrations/apache-airflow
 [aws-lambda]: /use-timescale/:currentVersion:/integrations/aws-lambda
 [postgresql-integrations]: https://slashdot.org/software/p/PostgreSQL/integrations/
+[power-bi]: /use-timescale/:currentVersion:/integrations/power-bi
 [fivetran]: /use-timescale/:currentVersion:/integrations/fivetran
 [prometheus]: /use-timescale/:currentVersion:/integrations/prometheus
 [amazon-sagemaker]: /use-timescale/:currentVersion:/integrations/amazon-sagemaker
