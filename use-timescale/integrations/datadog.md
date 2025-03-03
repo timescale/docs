@@ -1,6 +1,6 @@
 ---
 title: Integrate Datadog with Timescale Cloud
-excerpt: Export telemetry data from your Timescale Cloud service with time-series and analytics capability to Datadog
+excerpt: Datadog is a cloud-based monitoring and analytics platform. Export telemetry data from your Timescale Cloud service with time-series and analytics capability to Datadog
 products: [cloud, mst, self_hosted]
 keywords: [integrate]
 ---

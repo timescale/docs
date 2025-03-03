@@ -1,6 +1,6 @@
 ---
 title: SQL inteface for pgvector and pgvectorscale
-excerpt: A detailed description of how to work with pgvector and pgvectorscale using SQL.
+excerpt: Use the SQL interface to work with pgvector and pgvectorscale, including installing the extensions, creating a table, querying the vector embeddings, and more
 products: [cloud]
 keywords: [ai, vector, pgvector, timescale vector, sql, pgvectorscale]
 tags: [ai, vector, sql]

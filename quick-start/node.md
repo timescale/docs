@@ -1,6 +1,6 @@
 ---
 title: "Quick Start: Node.js and TimescaleDB"
-excerpt: Get started with TimescaleDB for a Node.js application
+excerpt: Get started with Timescale Cloud or TimescaleDB using Node.js
 keywords: [Node, node.js]
 ---
 
