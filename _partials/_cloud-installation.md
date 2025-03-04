@@ -4,7 +4,7 @@ You create a $CLOUD_LONG account to manage your $SERVICE_SHORTs and data in a ce
 
 <Tabs label="Create a Timescale Cloud account">
 
-<Tab title="Standalone">
+<Tab title="Timescale Cloud">
 
 You create a standalone account to manage $CLOUD_LONG as a separate unit in your infrastructure, which includes separate billing and invoicing. 
 
