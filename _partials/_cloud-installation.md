@@ -50,7 +50,7 @@ To create an account:
 
 1. **Sign up for a 30-day free trial**
 
-   If you want to link your existing $CLOUD_LONG account to AWS, log in with your existing credentials.  
+   If you want to link an existing $CLOUD_LONG account to AWS, log in with your existing credentials.  
 
 1. **In `Confirm AWS Marketplace connection`, click `Connect` **
 
