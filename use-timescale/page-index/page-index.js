@@ -786,6 +786,11 @@ module.exports = [
             excerpt: "Integrate DBeaver with Timescale Cloud",
           },
           {
+            title: "Decodable",
+            href: "decodable",
+            excerpt: "Integrate Decodable with Timescale Cloud",
+          },
+          {
             title: "Fivetran",
             href: "fivetran",
             excerpt: "Integrate Fivetran with Timescale Cloud",
