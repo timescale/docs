@@ -819,6 +819,11 @@ module.exports = [
             excerpt: "Integrate DBeaver with Timescale Cloud",
           },
           {
+            title: "Decodable",
+            href: "decodable",
+            excerpt: "Integrate Decodable with Timescale Cloud",
+          },
+          {
             title: "Fivetran",
             href: "fivetran",
             excerpt: "Integrate Fivetran with Timescale Cloud",
@@ -857,6 +862,11 @@ module.exports = [
             title: "qStudio",
             href: "qstudio",
             excerpt: "Integrate qstudio with Timescale Cloud",
+          },
+          {
+            title: "Supabase",
+            href: "supabase",
+            excerpt: "Integrate Supabase with Timescale products",
           },
           {
             title: "Tableau",
@@ -913,14 +923,14 @@ module.exports = [
               "Connect to Timescale with a stricter SSL mode of verify-ca or verify-full",
           },
           {
+            title: "Connect securely from any cloud",
+            href: "transit-gateway",
+            excerpt: "Peer your Timescale Cloud service with AWS Transit Gateway",
+          },
+          {
             title: "VPC peering and AWS PrivateLink",
             href: "vpc",
             excerpt: "Secure your Timescale Service with VPC peering and AWS PrivateLink",
-          },
-          {
-            title: "AWS Transit Gateway",
-            href: "transit-gateway",
-            excerpt: "Peer your Timescale Cloud service with AWS Transit Gateway",
           },
           {
             title: "IP allow list",
