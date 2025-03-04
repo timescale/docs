@@ -66,8 +66,7 @@ SELECT enable_chunk_skipping('conditions', 'device_id');
 |Column|Type|Description|
 |-|-|-|
 |`column_stats_id`|INTEGER|ID of the entry in the TimescaleDB internal catalog|
-|`enabled`|BOOLEAN|Returns `true` when tracking is enabled, `if_not_exists` is `true`, and when a new entry is not
-added|
+|`enabled`|BOOLEAN|Returns `true` when tracking is enabled, `if_not_exists` is `true`, and when a new entry is not added|
 
 [compress_chunk]: /api/:currentVersion:/compression/compress_chunk/
 [decompress_chunk]: /api/:currentVersion:/compression/decompress_chunk/
