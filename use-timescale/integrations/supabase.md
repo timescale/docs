@@ -1,27 +1,27 @@
 ---
-title: Integrate supabase with Timescale Cloud
-excerpt: supabase is an open source Firebase alternative. Integrate supabase with Timescale Cloud
+title: Integrate Supabase with Timescale Cloud
+excerpt: Supabase is an open source Firebase alternative. Integrate Supabase with Timescale Cloud
 products: [cloud, mst, self_hosted]
 keywords: [integrate]
 ---
 
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
 
-# Integrate supabase with Timescale Cloud
+# Integrate Supabase with Timescale Cloud
 
-[supabase][supabase] is an open source Firebase alternative. This page shows how to run real-time analytical queries 
-against a $SERVICE_LONG through supabase using a foreign data wrapper (fdw) to bring aggregated data from your 
+[Supabase][supabase] is an open source Firebase alternative. This page shows how to run real-time analytical queries 
+against a $SERVICE_LONG through Supabase using a foreign data wrapper (fdw) to bring aggregated data from your 
 $SERVICE_LONG.
 
 ## Prerequisites
 
 <IntegrationPrereqs />
 
-- Create a [supabase project][supabase-new-project]
+- Create a [Supabase project][supabase-new-project]
 
 ## Setup your $SERVICE_LONG
 
-To setup a $SERVICE_LONG optimized for analytics to receive data from supabase:
+To setup a $SERVICE_LONG optimized for analytics to receive data from Supabase:
 
 <Procedure>
 
@@ -31,7 +31,7 @@ To setup a $SERVICE_LONG optimized for analytics to receive data from supabase:
    are PostgreSQL tables that help you improve insert and query performance by automatically partitioning your data by
    time.
 
-   1. [Connect to your $SERVICE_LONG][connect] and create a table that will point to a supabase database:
+   1. [Connect to your $SERVICE_LONG][connect] and create a table that will point to a Supabase database:
    
       ```sql
       CREATE TABLE signs (
@@ -66,7 +66,7 @@ To setup a $SERVICE_LONG optimized for analytics to receive data from supabase:
    continuously, and incrementally refresh a query in the background, so that when you run the query,
    only the data that has changed needs to be computed, not the entire dataset.
 
-   1. Create a continuous aggregate pointing to the supabase database.
+   1. Create a continuous aggregate pointing to the Supabase database.
    
       ```sql
       CREATE MATERIALIZED VIEW IF NOT EXISTS signs_per_minute
@@ -93,7 +93,7 @@ To setup a $SERVICE_LONG optimized for analytics to receive data from supabase:
       WITH NO DATA;
       ```
 
-   1. Setup a view to recieve the data from supabase.
+   1. Setup a view to recieve the data from Supabase.
 
       ```sql
       CREATE VIEW signs_per_minute_delay
@@ -115,7 +115,7 @@ To setup a $SERVICE_LONG optimized for analytics to receive data from supabase:
    `1 minute`. This means that the continuous aggregate is refreshed every minute, and the refresh covers the last 5
    minutes. 
    You set `schedule_interval` to `INTERVAL '1 minute'` so the continuous aggregate refreshes on your $SERVICE_LONG
-   every minute. The data is accessed from supabase, and the continuous aggregate is refreshed every minute in
+   every minute. The data is accessed from Supabase, and the continuous aggregate is refreshed every minute in
    the other side.
 
    ```sql
@@ -135,15 +135,15 @@ To setup a $SERVICE_LONG optimized for analytics to receive data from supabase:
 </Procedure>
 
 
-## Setup a supabase database 
+## Setup a Supabase database 
 
-To setup a supabase database that injects data into your $SERVICE_LONG:
+To setup a Supabase database that injects data into your $SERVICE_LONG:
 
 <Procedure>
 
-1. **Connect a foreign server in supabase to your $SERVICE_LONG**
+1. **Connect a foreign server in Supabase to your $SERVICE_LONG**
 
-   1. Connect to your supabase project using supabase dashboard or psql.
+   1. Connect to your Supabase project using Supabase dashboard or psql.
    1. Enable the `postgres_fdw` extension.
    
       ```sql
@@ -152,7 +152,7 @@ To setup a supabase database that injects data into your $SERVICE_LONG:
    1. Create a foreign server that points to your $SERVICE_LONG.
 
       Update the following command with your [connection details][connection-info], then run it 
-      in the supabase database:
+      in the Supabase database:
 
       ```sql
       CREATE SERVER timescale
@@ -169,7 +169,7 @@ To setup a supabase database that injects data into your $SERVICE_LONG:
 1. **Create the user mapping for the foreign server**
 
    Update the following command with your [connection details][connection-info], the run it
-   in the supabase database:
+   in the Supabase database:
 
    ```sql
    CREATE USER MAPPING FOR CURRENT_USER 
@@ -187,7 +187,7 @@ To setup a supabase database that injects data into your $SERVICE_LONG:
       in the columnstore.
    - `origin_time`: store the original timestamp of the data.
    
-   Using both columns, you understand the delay between supabase (`origin_time`) and the time the data is
+   Using both columns, you understand the delay between Supabase (`origin_time`) and the time the data is
    inserted into your $SERVICE_LONG (`time`).
    
    ```sql
@@ -201,7 +201,7 @@ To setup a supabase database that injects data into your $SERVICE_LONG:
    );
    ```
 
-1. **Create a foreign table in supabase**
+1. **Create a foreign table in Supabase**
 
    1. Create a foreign table that matches the  `signs_per_minute` view in your $SERVICE_LONG. It represents a top level 
       view of the data.
@@ -233,13 +233,13 @@ To setup a supabase database that injects data into your $SERVICE_LONG:
 
 ## Test the integration 
 
-To inject data into your $SERVICE_LONG from a supabase database using a foreign table: 
+To inject data into your $SERVICE_LONG from a Supabase database using a foreign table: 
 
 <Procedure>
 
-1. **Insert data into your supabase database**
+1. **Insert data into your Supabase database**
 
-   Connect to supabase and run the following query:
+   Connect to Supabase and run the following query:
 
    ```sql
    INSERT INTO signs (origin_time, name) VALUES (now(), 'test')
@@ -260,7 +260,7 @@ To inject data into your $SERVICE_LONG from a supabase database using a foreign 
 
 </Procedure>
 
-You have successfully integrated supabase with your $SERVICE_LONG.  
+You have successfully integrated Supabase with your $SERVICE_LONG.  
 
 [supabase]: https://supabase.com/
 [supabase-new-project]: https://supabase.com/dashboard/new
