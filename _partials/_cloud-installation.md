@@ -40,7 +40,7 @@ To create an account:
 
    You see two pricing options, [pay-as-you-go][aws-paygo] and [annual commit][aws-annual-commit]. 
 
-1. **Select the right pricing option and click `View purchase options`**
+1. **Select the pricing option that suits you and click `View purchase options`**
 
 1. **Review and configure the purchase details, then click `Subscribe`**
 
