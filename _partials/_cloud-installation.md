@@ -1,6 +1,6 @@
 ## Create a $CLOUD_LONG account
 
-You create a $CLOUD_LONG account to manage your $SERVICE_SHORT and data in a centralized and efficient manner in $CONSOLE. From $CONSOLE_SHORT, you can create and delete $SERVICE_SHORTs, run queries, manage access and billing, integrate other services, contact support, and more.
+You create a $CLOUD_LONG account to manage your $SERVICE_SHORTs and data in a centralized and efficient manner in $CONSOLE. From there, you can create and delete $SERVICE_SHORTs, run queries, manage access and billing, integrate other services, contact support, and more.
 
 <Tabs label="Create a Timescale Cloud account">
 
@@ -12,11 +12,9 @@ To create an account:
 
 <Procedure>
 
-1. **Click `Try for free` on [timescale.com][timescale-website]**
-
 1. **Sign up for a 30-day free trial** 
 
-    You receive a confirmation email in your inbox.
+   Open [Sign up for Timescale][timescale-signup] and add your details, then click `Start your free trial`. You receive a confirmation email in your inbox.
 
 1. **In the confirmation email, click the link supplied and sign in to [$CONSOLE][tsc-portal]**
 
@@ -50,9 +48,9 @@ To create an account:
 
 1. **Sign up for a 30-day free trial**
 
-   If you want to link an existing $CLOUD_LONG account to AWS, log in with your existing credentials.  
+   Add your details, then click `Start your free trial`. If you want to link an existing $CLOUD_LONG account to AWS, log in with your existing credentials.  
 
-1. **In `Confirm AWS Marketplace connection`, click `Connect` **
+1. **In `Confirm AWS Marketplace connection`, click `Connect`**
 
     Your $CLOUD_LONG and AWS accounts are now connected.
 
@@ -71,3 +69,4 @@ To create an account:
 [aws-marketplace]: https://aws.amazon.com/marketplace
 [aws-paygo]: https://aws.amazon.com/marketplace/pp/prodview-iestawpo5ihca?applicationId=AWSMPContessa&ref_=beagle&sr=0-1
 [aws-annual-commit]: https://aws.amazon.com/marketplace/pp/prodview-ezxwlmjyr6x4u?applicationId=AWSMPContessa&ref_=beagle&sr=0-2
+[timescale-signup]: https://console.cloud.timescale.com/signup
