@@ -52,7 +52,7 @@ To create an account:
 
    If you want to link your existing $CLOUD_LONG account to AWS, log in with your existing credentials.  
 
-1. **Click `Connect` in `Confirm AWS Marketplace connection`**
+1. **In `Confirm AWS Marketplace connection`, click `Connect` **
 
     Your $CLOUD_LONG and AWS accounts are now connected.
 
