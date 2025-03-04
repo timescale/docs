@@ -47,13 +47,13 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 
 ## Data engineering and extract, transform, load
 
-|               Name               | Description                                                                                            |
-|:--------------------------------:|--------------------------------------------------------------------------------------------------------|
-| [Amazon SageMaker][amazon-sagemaker]| Build, train, and deploy ML models into a production-ready hosted environment.                         |
-| [Apache Airflow][apache-airflow] | Programmatically author, schedule, and monitor workflows.                                              |
-| [Apache Kafka][kafka] | Stream high-performance data pipelines, analytics, and data integration. |
-| [AWS Lambda][aws-lambda]| Run code without provisioning or managing servers, scaling automatically as needed.                    |
-
+|               Name               | Description                                                                         |
+|:--------------------------------:|-------------------------------------------------------------------------------------|
+| [Amazon SageMaker][amazon-sagemaker]| Build, train, and deploy ML models into a production-ready hosted environment.      |
+| [Apache Airflow][apache-airflow] | Programmatically author, schedule, and monitor workflows.                           |
+| [Apache Kafka][kafka] | Stream high-performance data pipelines, analytics, and data integration.            |
+| [AWS Lambda][aws-lambda]| Run code without provisioning or managing servers, scaling automatically as needed. |
+| [Decodable][decodable] | Build, run, and manage data pipelines effortlessly.                                 |
 
 ## Data ingestion and streaming
 
@@ -81,6 +81,7 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 [apache-airflow]: /use-timescale/:currentVersion:/integrations/apache-airflow
 [aws-lambda]: /use-timescale/:currentVersion:/integrations/aws-lambda
 [postgresql-integrations]: https://slashdot.org/software/p/PostgreSQL/integrations/
+[decodable]: /use-timescale/:currentVersion:/integrations/decodable
 [power-bi]: /use-timescale/:currentVersion:/integrations/power-bi
 [fivetran]: /use-timescale/:currentVersion:/integrations/fivetran
 [prometheus]: /use-timescale/:currentVersion:/integrations/prometheus
