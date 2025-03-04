@@ -47,13 +47,13 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 
 ## Data engineering and extract, transform, load
 
-|               Name               | Description                                                                                            |
-|:--------------------------------:|--------------------------------------------------------------------------------------------------------|
-| [Amazon SageMaker][amazon-sagemaker]| Build, train, and deploy ML models into a production-ready hosted environment.                         |
-| [Apache Airflow][apache-airflow] | Programmatically author, schedule, and monitor workflows.                                              |
-| [Apache Kafka][kafka] | Stream high-performance data pipelines, analytics, and data integration. |
-| [AWS Lambda][aws-lambda]| Run code without provisioning or managing servers, scaling automatically as needed.                    |
-| [Decodable][decodable] | A real-time data platform that allows you to build, run, and manage data pipelines effortlessly. |
+|               Name               | Description                                                                         |
+|:--------------------------------:|-------------------------------------------------------------------------------------|
+| [Amazon SageMaker][amazon-sagemaker]| Build, train, and deploy ML models into a production-ready hosted environment.      |
+| [Apache Airflow][apache-airflow] | Programmatically author, schedule, and monitor workflows.                           |
+| [Apache Kafka][kafka] | Stream high-performance data pipelines, analytics, and data integration.            |
+| [AWS Lambda][aws-lambda]| Run code without provisioning or managing servers, scaling automatically as needed. |
+| [Decodable][decodable] | Build, run, and manage data pipelines effortlessly.                                 |
 
 ## Data ingestion and streaming
 
@@ -66,13 +66,6 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 |         Name         | Description                                                           |
 |:--------------------:|-----------------------------------------------------------------------|
 | [Power BI][power-bi] | Visualize data, build interactive dashboards, and share insights. |
-
-## Change data capture
-
-
-|          Name          | Description                                                                                      |
-|:----------------------:|--------------------------------------------------------------------------------------------------|
-| [Decodable][decodable] | A real-time data platform that allows you to build, run, and manage data pipelines effortlessly. |
 
 
 [psql]: /use-timescale/:currentVersion:/integrations/psql/
