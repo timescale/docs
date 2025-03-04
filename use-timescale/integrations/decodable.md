@@ -1,6 +1,6 @@
 ---
 title: Integrate Decodable with Timescale Cloud 
-excerpt: Seamlessly integrate Decodable with Timescale Cloud to unlock real-time data processing capabilities.
+excerpt: Decodable enables you to build, run, and manage data pipelines effortlessly. Seamlessly integrate Decodable with Timescale Cloud to unlock real-time data processing capabilities
 products: [cloud, mst, self_hosted]
 keywords: [Decodable, Timescale Cloud]
 ---
@@ -19,7 +19,7 @@ This page explains how to integrate Decodable with your $SERVICE_LONG to enable 
 
 <IntegrationPrereqs />
 
-- [Sign up for Decodable][sign-up-decodable].
+- Sign up for [Decodable][sign-up-decodable].
 
    This page uses the pipeline you create using the [Decodable Quickstart Guide][decodable-quickstart].
 
@@ -31,7 +31,7 @@ To stream data gathered in Decodable to a $SERVICE_LONG:
 
 1. **Create the sync to pipe a Decodable data stream into your $SERVICE_LONG** 
 
-   1. Log in to your [Decodable account][decodable-app]: 
+   1. Log in to your [Decodable account][decodable-app].
    1. Click `Connections`, then click `New Connection`.
    1. Select a `PostgreSQL sink` connection type, then click `Connect`.
    1. Using your [connection details][connection-info], fill in the connection information.
