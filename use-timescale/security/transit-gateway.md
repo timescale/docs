@@ -28,7 +28,7 @@ To configure this secure connection, you:
 
 Transit Gateway feature is available for Scale and Enterprise [pricing plans][pricing-plans].
 
-While AWS Transit Gateway enables you to connect from almost any environment, this page provides examples for the most common use cases. 
+AWS Transit Gateway enables you to connect from almost any environment, this page provides examples for the most common use cases. 
 
 <Tabs label="Connect from any cloud">
 
