@@ -819,6 +819,11 @@ module.exports = [
             excerpt: "Integrate DBeaver with Timescale Cloud",
           },
           {
+            title: "Decodable",
+            href: "decodable",
+            excerpt: "Integrate Decodable with Timescale Cloud",
+          },
+          {
             title: "Fivetran",
             href: "fivetran",
             excerpt: "Integrate Fivetran with Timescale Cloud",
@@ -857,6 +862,11 @@ module.exports = [
             title: "qStudio",
             href: "qstudio",
             excerpt: "Integrate qstudio with Timescale Cloud",
+          },
+          {
+            title: "Supabase",
+            href: "supabase",
+            excerpt: "Integrate Supabase with Timescale products",
           },
           {
             title: "Tableau",
