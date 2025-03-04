@@ -76,7 +76,7 @@ AWS Transit Gateway enables you to connect from almost any environment, this pag
 
 1. **Connect your infrastructure to AWS Transit Gateway**
 
-    Establish connectivity between your on-premise infrastructure and AWS. See the [official documentation][aws-onprem].
+    Establish connectivity between your on-premise infrastructure and AWS. See the [Centralize network connectivity using AWS Transit Gateway][aws-onprem].
 
 <TransitGateway />
 
