@@ -62,7 +62,7 @@ AWS Transit Gateway enables you to connect from almost any environment, this pag
 
 1. **Connect your infrastructure to AWS Transit Gateway**
 
-    Establish connectivity between Google Cloud Platform and AWS. See the [official documentation][gcp-aws]. 
+    Establish connectivity between Google Cloud Platform and AWS. See [Connect HA VPN to AWS peer gateways][gcp-aws]. 
 
 <TransitGateway />
 
