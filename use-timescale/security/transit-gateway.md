@@ -13,26 +13,26 @@ import TransitGateway from "versionContent/_partials/_transit-gateway.mdx";
 
 # Securely connect to $CLOUD_LONG from any cloud or on-premise environment
 
-[AWS Transit Gateway][aws-transit-gateway] enables you to securely connect to your $CLOUD_LONG from AWS, GCP, Azure, or any other cloud or on-premise environment.
+[AWS Transit Gateway][aws-transit-gateway] enables you to securely connect to your $CLOUD_LONG from AWS, Google Cloud, Microsoft Azure, or any other cloud or on-premise environment.
 
-You use AWS Transit Gateway as a traffic controller for your network. Instead of setting up multiple direct connections to different clouds, on-premise data centers, and other AWS services, you connect everything to Transit Gateway. This simplifies your network and makes it easier to manage and scale.
+You use AWS Transit Gateway as a traffic controller for your network. Instead of setting up multiple direct connections to different clouds, on-premise data centers, and other AWS services, you connect everything to AWS Transit Gateway. This simplifies your network and makes it easier to manage and scale.
 
 You can then create a peering connection between your $SERVICE_LONGs and AWS Transit Gateway in $CLOUD_LONG. This means that, no matter how big or complex your infrastructure is, you can connect securely to your $SERVICE_LONGs. 
 
 To configure this secure connection, you:
 
 1. Connect your infrastructure to AWS Transit Gateway.
-1. Create a $CLOUD_LONG Peering $VPC with a peering connection to your AWS Transit Gateway.
+1. Create a $CLOUD_LONG Peering $VPC with a peering connection to AWS Transit Gateway.
 1. Accept and configure the peering connection on your side.
 1. Attach individual $SERVICE_SHORTs to the Peering $VPC.
 
-Transit Gateway feature is available for Scale and Enterprise [pricing plans][pricing-plans].
+The AWS Transit Gateway feature is available for Scale and Enterprise [pricing plans][pricing-plans].
 
-AWS Transit Gateway enables you to connect from almost any environment, this page provides examples for the most common use cases. 
+AWS Transit Gateway enable you to connect from almost any environment, this page provides examples for the most common use cases. 
 
 <Tabs label="Connect from any cloud">
 
-<Tab title="AWS">
+<Tab title="Amazon Web Services">
 
 <Procedure>
 
@@ -56,13 +56,13 @@ AWS Transit Gateway enables you to connect from almost any environment, this pag
 
 </Tab>
 
-<Tab title="Google Cloud Platform">
+<Tab title="Google Cloud">
 
 <Procedure>
 
 1. **Connect your infrastructure to AWS Transit Gateway**
 
-    Establish connectivity between Google Cloud Platform and AWS. See [Connect HA VPN to AWS peer gateways][gcp-aws]. 
+    Establish connectivity between Google Cloud and AWS. See [Connect HA VPN to AWS peer gateways][gcp-aws]. 
 
 <TransitGateway />
 
