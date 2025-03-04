@@ -48,7 +48,7 @@ AWS Transit Gateway enables you to connect from almost any environment, this pag
 
 1. **Connect your infrastructure to AWS Transit Gateway**
 
-    Establish connectivity between Azure and AWS. See [AWS architectural documentation][azure-aws] for details. 
+    Establish connectivity between Azure and AWS. See the [AWS architectural documentation][azure-aws] for details. 
 
 <TransitGateway />
 
