@@ -14,7 +14,7 @@ To create an account:
 
 1. **Click `Try for free` on [timescale.com][timescale-website]**
 
-1. **Sign up for a 30-day free trial**
+1. **Sign up for a 30-day free trial** 
 
     You receive a confirmation email in your inbox.
 
