@@ -814,11 +814,6 @@ module.exports = [
             excerpt: "Integrate Azure Data Studio with Timescale Cloud",
           },
           {
-            title: "Azure",
-            href: "microsoft-azure",
-            excerpt: "Integrate Microsoft Azure with Timescale Cloud",
-          },
-          {
             title: "Corporate data center",
             href: "corporate-data-center",
             excerpt: "Integrate your corporate data center with Timescale Cloud",
@@ -852,6 +847,11 @@ module.exports = [
             title: "Grafana",
             href: "grafana",
             excerpt: "Integrate Grafana with Timescale products",
+          },
+          {
+            title: "Microsoft Azure",
+            href: "microsoft-azure",
+            excerpt: "Integrate Microsoft Azure with Timescale Cloud",
           },
           {
             title: "pgAdmin",
