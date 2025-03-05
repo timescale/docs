@@ -48,10 +48,10 @@ relational and time-series data from external files.
 
 1.  **Import some time-series data into your hypertable**
 
-    1. Unzip <Tag type="download">[real_time_stock_data.zip](https://assets.timescale.com/docs/downloads/get-started/real_time_stock_data.zip)</Tag> to a `<local folder>`.
+    1. Unzip <Tag type="download">[crypto_sample.zip](https://assets.timescale.com/docs/downloads/candlestick/crypto_sample.zip)</Tag> to a `<local folder>`.
 
-       This test dataset contains second-by-second stock-trade data for the top 100 most-traded symbols
-       and a regular table of company symbols and company names.  
+       This test dataset contains second-by-second trade data for the most-traded crypto-assets
+       and a regular table of asset symbols and company names.  
 
        To import up to 100GB of data directly from your current PostgreSQL based database, 
        [migrate with downtime][migrate-with-downtime] using native PostgreSQL tooling. To seamlessly import 100GB-10TB+ 
@@ -66,12 +66,15 @@ relational and time-series data from external files.
        
           The $CONSOLE data upload creates the tables for you from the data you are uploading:
           1. In [$CONSOLE][portal-ops-mode], select the service to add data to, then click **Actions** > **Upload CSV**.
-          1. Drag `<local folder>/tutorial_sample_tick.csv` to `Upload .CSV` and change `New table name`, to `stocks_real_time`.
-          1. Enable `hypertable partition` for the `time` column and click `Upload CSV`. 
+          1. Drag `<local folder>/tutorial_sample_tick.csv` to `Upload .CSV` and change `New table name`, to `assets_real_time`.
+          1. Enable `hypertable partition` for the `time` column and click `Upload CSV`.
+       
               The upload wizard creates a hypertable containing the data from the CSV file.
-          1. When the data is uploaded, close `Upload .CSV`. 
+          1. When the data is uploaded, close `Upload .CSV`.
+       
               If you want to  have a quick look at your data, press `Run` .
-          1. Repeat the process with `<local folder>/tutorial_sample_company.csv` and rename to `company`. 
+          1. Repeat the process with `<local folder>/tutorial_sample_assets.csv` and rename to `assets`.
+       
               There is no time-series data in this table, so you don't see the  `hypertable partition` option.
 
        </Tab>
@@ -90,16 +93,16 @@ relational and time-series data from external files.
              1. In your sql client, create a normal PostgreSQL table:
       
                 ```sql
-                CREATE TABLE stocks_real_time (
+                CREATE TABLE assets_real_time (
                   time TIMESTAMPTZ NOT NULL,
                   symbol TEXT NOT NULL,
                   price DOUBLE PRECISION NULL,
                   day_volume INT NULL
                 );
                 ```
-             1.  Convert `stocks_real_time` to a hypertable:
+             1.  Convert `assets_real_time` to a hypertable:
                 ```sql
-                SELECT create_hypertable('stocks_real_time', by_range('time'));
+                SELECT create_hypertable('assets_real_time', by_range('time'));
                 ```
                 To more fully understand how hypertables work, and how to optimize them for performance by
                 tuning chunk intervals and enabling chunk skipping, see [the hypertables documentation][hypertables-section].
@@ -108,7 +111,7 @@ relational and time-series data from external files.
       
              In your sql client, create a normal PostgreSQL table:
              ```sql
-             CREATE TABLE company (
+             CREATE TABLE assets (
               symbol TEXT NOT NULL,
               name TEXT NOT NULL
              );
@@ -116,8 +119,8 @@ relational and time-series data from external files.
 
        3. Upload the dataset to your $SERVICE_SHORT
           ```sql
-          \COPY stocks_real_time from './tutorial_sample_tick.csv' DELIMITER ',' CSV HEADER;
-          \COPY company from './tutorial_sample_company.csv' DELIMITER ',' CSV HEADER;
+          \COPY assets_real_time from './tutorial_sample_tick.csv' DELIMITER ',' CSV HEADER;
+          \COPY assets from './tutorial_sample_company.csv' DELIMITER ',' CSV HEADER;
           ```
         
        </Tab>
@@ -135,7 +138,7 @@ relational and time-series data from external files.
     - **SQL editor**: write, fix, and organize SQL faster and more accurately in [$CONSOLE][portal-ops-mode] for a $SERVICE_LONG.
     - **psql**: easily run queries on your $SERVICE_LONGs or self-hosted TimescaleDB deployment from Terminal.
 
-    <TryItOutCodeBlock queryId="getting-started-srt-orderby" />
+    <TryItOutCodeBlock queryId="getting-started-crypto-srt-orderby" />
 
 </Procedure>
 
