@@ -179,19 +179,19 @@ $CONSOLE. You can also do this using psql.
     PostgreSQL `MATERIALIZED VIEW` in a hypertable. `timescaledb.continuous` ensures that this data
     is always up to date.
     In your SQL editor, use the following code to create a continuous aggregate on the real time data in
-    the `stocks_real_time` table:
+    the `assets_real_time` table:
 
     ```sql
-    CREATE MATERIALIZED VIEW stock_candlestick_daily
+    CREATE MATERIALIZED VIEW assets_candlestick_daily
     WITH (timescaledb.continuous) AS
     SELECT
-    time_bucket('1 day', "time") AS day,
-    symbol,
-    max(price) AS high,
-    first(price, time) AS open,
-    last(price, time) AS close,
-    min(price) AS low
-    FROM stocks_real_time srt
+      time_bucket('1 day', "time") AS day,
+      symbol,
+      max(price) AS high,
+      first(price, time) AS open,
+      last(price, time) AS close,
+      min(price) AS low
+    FROM assets_real_time srt
     GROUP BY day, symbol;
     ```
 
@@ -201,7 +201,7 @@ $CONSOLE. You can also do this using psql.
 1. **Create a policy to refresh the view every hour**
 
    ```sql
-   SELECT add_continuous_aggregate_policy('stock_candlestick_daily',
+   SELECT add_continuous_aggregate_policy('assets_candlestick_daily',
    start_offset => INTERVAL '3 weeks',
    end_offset => INTERVAL '24 hours',
    schedule_interval => INTERVAL '3 hours');
@@ -209,7 +209,7 @@ $CONSOLE. You can also do this using psql.
 
 1.  **Have a quick look at your data**
 
-    You query continuous aggregates exactly the same way as your other tables. To query the `stock_candlestick_daily`
+    You query continuous aggregates exactly the same way as your other tables. To query the `assets_candlestick_daily`
     continuous aggregate for all stocks:
 
     <TryItOutCodeBlock queryId="getting-started-cagg" />
@@ -224,28 +224,28 @@ $CONSOLE. You can also do this using psql.
 <Procedure>
 
 1. **In [$CONSOLE][portal-ops-mode], select the service you uploaded data to**.
-1. **Click `Operations` > `Continuous aggregates`, select `stocks_real_time`, then click `Create continuous aggregate`**.
-   ![Continuous aggregate wizard](https://assets.timescale.com/docs/images/continuou-aggregate-wizard.png )
-1. **Create a view called `stock_candlestick_daily` on the `time` column with an interval of `1 day`, then click `Next step`**.
+1. **Click `Operations` > `Continuous aggregates`, select `assets_real_time`, then click `Create continuous aggregate`**.
+   ![Continuous aggregate wizard](https://assets.timescale.com/docs/images/continuous-aggregate-wizard.png )
+1. **Create a view called `assets_candlestick_daily` on the `time` column with an interval of `1 day`, then click `Next step`**.
 1. **Update the view SQL with the following functions, then click `Run`**
    ```sql
-   CREATE MATERIALIZED VIEW stock_candlestick_daily
-     WITH (timescaledb.continuous) AS
-     SELECT
+   CREATE MATERIALIZED VIEW assets_candlestick_daily
+   WITH (timescaledb.continuous) AS
+   SELECT 
      time_bucket('1 day', "time") AS bucket,
      symbol,
      max(price) AS high,
      first(price, time) AS open,
      last(price, time) AS close,
      min(price) AS low
-     FROM "public"."stocks_real_time" srt
-     GROUP BY bucket, symbol;
+   FROM "public"."assets_real_time" srt
+   GROUP BY bucket, symbol;
     ```
 1. **When the view is created, click `Next step`**
 1. **Define a refresh policy with the following values, then click `Next step`**
-   - `Set the start offset`: `3 weeks`
-   - `Set the end offset`: `24 hours`
-   - `Set the schedule interval`: `3 hours`
+   - `How far back do you want to materialize?`: `3 weeks`
+   - `What recent data to exclude?`: `24 hours`
+   - `How often do you want the job to run?`: `3 hours`
 1. **Click `Create continuous aggregate`, then click `Run`**
 
 $CLOUD_LONG creates the continuous aggregate and displays the aggregate ID in $CONSOLE. Click `DONE` to close the wizard.
@@ -284,7 +284,7 @@ market data.
    Create a [job][job] that automatically moves chunks in a hypertable to the columnstore at a specific time interval.
 
    ```sql
-   ALTER TABLE stocks_real_time SET (
+   ALTER TABLE assets_real_time SET (
       timescaledb.enable_columnstore = true, 
       timescaledb.segmentby = 'symbol');
    ```
@@ -293,10 +293,28 @@ market data.
 
    For example, 60 days after the data was added to the table:
    ``` sql
-   CALL add_columnstore_policy('stocks_real_time', after => INTERVAL '60d');
+   CALL add_columnstore_policy('assets_real_time', after => INTERVAL '60d');
    ```
    See [add_columnstore_policy][add_columnstore_policy].
  
+1. **View your data space saving**
+
+   When you convert data to the columnstore, as well as being optimized for analytics, it is compresses by more than 
+   90%. This saves on storage costs and keeps your queries operating at lightning speed. To see the amount of space 
+   saved:
+   ``` sql
+   SELECT
+     pg_size_pretty(before_compression_total_bytes) as before,
+     pg_size_pretty(after_compression_total_bytes) as after
+   FROM hypertable_compression_stats('assets_real_time');
+   ```
+   You see something like:
+
+   | Before | After   |
+   |--------|---------|
+   | 32 MB  | 3808 KB |
+
+
 </Procedure>
 
 
@@ -333,7 +351,7 @@ To setup data tiering:
 
     In $CONSOLE, click `SQL Editor`, then enable data tiering on a hypertable with the following query:
      ```sql
-     SELECT add_tiering_policy('stock_candlestick_daily', INTERVAL '3 weeks');   
+     SELECT add_tiering_policy('assets_candlestick_daily', INTERVAL '3 weeks');   
      ```
 
 1. **Qeury tiered data**
@@ -341,9 +359,18 @@ To setup data tiering:
     You enable reads from tiered data for each query, for a session or for all future 
     sessions. To run a single query on tiered data:
 
-    ```sql
-    set timescaledb.enable_tiered_reads = true; SELECT * FROM stocks_real_time srt LIMIT 10; set timescaledb.enable_tiered_reads = false;
-    ```
+    1. Enable reads on tiered data:
+      ```sql
+      set timescaledb.enable_tiered_reads = true
+      ```
+    1. Query the data:
+      ```sql 
+      SELECT * FROM assets_real_time srt LIMIT 10
+      ```
+    1. Disable reads on tiered data:
+      ```sql  
+      set timescaledb.enable_tiered_reads = false;
+      ```
     For more information, see [Querying tiered data][querying-tiered-data].    
 
 </Procedure>
