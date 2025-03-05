@@ -8,13 +8,7 @@ tags: [integrations]
 
 # Integrations
 
-You can integrate your $SERVICE_LONG with third-party solutions to expand and extend what you can do with your data.
-
-## Integrates with PostgreSQL? Integrates with your $SERVICE_SHORT!
-
-A $SERVICE_LONG is a PostgreSQL database instance extended by $COMPANY with custom capabilities. This means that any third-party solution that you can integrate with PostgreSQL, you can also integrate with $CLOUD_LONG. See the full list of PostgreSQL integrations [here][postgresql-integrations].
-
-Some of the most in-demand integrations for $CLOUD_LONG are listed below, with links to detailed integration steps. 
+You can integrate your $SERVICE_LONG with third-party solutions to expand and extend what you can do with your data. This page points to custom integrations with $CLOUD_LONG, followed by integrations with $TIMESCALE_DB and PostgreSQL.
 
 ## Query and administration
 
@@ -68,6 +62,15 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 |:--------------------:|-----------------------------------------------------------------------|
 | [Power BI][power-bi] | Visualize data, build interactive dashboards, and share insights. |
 
+## Language-specific integrations
+
+|        Name        | Description                                       |
+|:------------------:|---------------------------------------------------|
+| [Node.js][node-js] | Integrate $CLOUD_LONG with a Node.js application. |
+|  [Python][python]  | Integrate $CLOUD_LONG with a Python application.  |
+|    [Ruby][ruby]    | Integrate $CLOUD_LONG with a Ruby application.    |
+|  [Golang][golang]  | Integrate $CLOUD_LONG with a Golang application.  |
+|    [Java][java]    | Integrate $CLOUD_LONG with a Java application.    |
 
 ## Secure connectivity to $CLOUD_LONG
 
@@ -77,6 +80,88 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 |     [Google Cloud][google-cloud]     | Connect your Google Cloud infrastructure to $CLOUD_LONG.                    |
 |       [Microsoft Azure][azure]       | Connect your Microsoft Azure infrastructure to $CLOUD_LONG.                 |
 | [Corporate data center][data-center] | Connect your on-premise data center to $CLOUD_LONG.                         |
+
+
+## Integrates with PostgreSQL? Integrates with your $SERVICE_SHORT!
+
+A $SERVICE_LONG is a PostgreSQL database instance extended by $COMPANY with custom capabilities. This means that any third-party solution that you can integrate with PostgreSQL, you can also integrate with $CLOUD_LONG. See the full list of PostgreSQL integrations [here][postgresql-integrations].
+
+Some of the most in-demand PostgreSQL integrations are listed here:
+
+|                               Name                                | Description |
+|:-----------------------------------------------------------------:|-------------|
+|                        [Airbyte][airbyte]                         | Sync data between various sources and destinations. |
+|                    [Apache Beam][apache-beam]                     | Build and execute batch and streaming data pipelines across multiple processing engines. |
+|              [Apache SkyWalking][apache-skywalking]               | Monitor, trace, and diagnose distributed applications for improved observability. |
+|                   [Apache Spark][apache-spark]                    | Process large-scale data workloads quickly using distributed computing. |
+|                       [Appsmith][appsmith]                        | Create internal business applications with a low-code platform. |
+|                        [Auth.js][auth-js]                         | Implement authentication and authorization for web applications. |
+|                          [Auth0][auth0]                           | Securely manage user authentication and access controls for applications. |
+|                [Azure Functions][azure-functions]                 | Run event-driven serverless code in the cloud without managing infrastructure. |
+|                  [Azure Monitor][azure-monitor]                   | Collect and analyze telemetry data from cloud and on-premises environments. |
+|               [BigQuery Wrapper][bigquery-wrapper]                | Interact with Google BigQuery through simplified programmatic access. |
+|                     [ClickHouse][clickhouse]                      | Run high-performance real-time analytics on large datasets. |
+|      [ClickHouse Monitoring Dashboard][clickhouse-dashboard]      | Visualize and monitor ClickHouse database performance in real-time. |
+|                      [Confluent][confluent]                       | Manage and scale Apache Kafka-based event streaming applications. |
+|                        [Cube.js][cube-js]                         | Build and optimize data APIs for analytics applications. |
+|                            [dbt][dbt]                             | Transform and model data in your warehouse using SQL-based workflows. |
+|                       [Debezium][debezium]                        | Capture and stream real-time changes from databases. |
+|                       [Deepnote][deepnote]                        | Collaborate on data science projects with a cloud-based notebook platform. |
+|                      [DeltaLake][deltalake]                       | Enhance data lakes with ACID transactions and schema enforcement. |
+|                    [Deno Deploy][deno-deploy]                     | Deploy and run JavaScript and TypeScript applications at the edge. |
+|                         [Django][django]                          | Develop scalable and secure web applications using a Python framework. |
+|                  [Elasticsearch][elasticsearch]                   | Search, analyze, and visualize structured and unstructured data efficiently. |
+|                    [ElectricSQL][electricsql]                     | Enable real-time synchronization between databases and frontend applications. |
+|                           [EMQX][emqx]                            | Deploy an enterprise-grade MQTT broker for IoT messaging. |
+|                        [Estuary][estuary]                         | Stream and synchronize data in real-time between different systems. |
+|               [Firebase Wrapper][firebase-wrapper]                | Simplify interactions with Firebase services through an abstraction layer. |
+|                          [Flink][flink]                           | Process real-time data streams with fault-tolerant distributed computing. |
+|                         [Flyway][flyway]                          | Manage and automate database migrations using version control. |
+|                   [Forest Admin][forest-admin]                    | Create admin panels and dashboards for business applications. |
+|                         [Hasura][hasura]                          | Instantly generate GraphQL APIs from databases with access control. |
+|                    [IBM Instana][ibm-instana]                     | Monitor application performance and detect issues in real-time. |
+|                         [Jaeger][jaeger]                          | Trace and diagnose distributed transactions for observability. |
+|                      [LangChain][langchain]                       | Build applications that integrate with language models like GPT. |
+|                      [Liquibase][liquibase]                       | Track, version, and automate database schema changes. |
+|                         [Looker][looker]                          | Explore, analyze, and share business insights with a BI platform. |
+|                    [Materialize][materialize]                     | Process and query real-time data with incremental materialized views. |
+|                       [Metabase][metabase]                        | Create dashboards and visualize business data without SQL expertise. |
+|                          [MinIO][minio]                           | Store and retrieve unstructured data with an S3-compatible object storage. |
+|                 [Mode Analytics][mode-analytics]                  | Analyze data, create reports, and share insights with teams. |
+|                        [MongoDB][mongodb]                         | Store and query document-based data with a flexible NoSQL database. |
+|                          [MySQL][mysql]                           | Manage structured relational data with an open-source SQL database. |
+|                            [n8n][n8n]                             | Automate workflows and integrate services with a no-code platform. |
+|                           [Neon][neon]                            | Run a cloud-native, serverless PostgreSQL database with automatic scaling. |
+|                      [New Relic][new-relic]                       | Monitor applications, infrastructure, and logs for performance insights. |
+|                  [OpenTelemetry][opentelemetry]                   | Collect and analyze telemetry data for observability across systems. |
+|                         [Prisma][prisma]                          | Simplify database access with an open-source ORM for Node.js. |
+|                         [Pulumi][pulumi]                          | Define and manage cloud infrastructure using code in multiple languages. |
+|                           [Okta][okta]                            | Secure authentication and user identity management for applications. |
+|                 [Qlik Replicate][qlik-replicate]                  | Move and synchronize data across multiple database platforms. |
+|                           [Qryn][qryn]                            | Store and query logs, metrics, and traces with a high-performance analytics engine. |
+|                         [Redash][redash]                          | Query, visualize, and share data from multiple sources. |
+|                          [Redis][redis]                           | Cache, store, and process data in-memory with low latency. |
+|                       [Redpanda][redpanda]                        | Stream and process real-time data as a Kafka-compatible platform. |
+|                         [Render][render]                          | Deploy and scale web applications, databases, and services easily. |
+|                         [Retool][retool]                          | Build custom internal tools quickly using a drag-and-drop interface. |
+|                        [RSyslog][rsyslog]                         | Collect, filter, and forward system logs for centralized logging. |
+|                           [Rust][rust]                            | Build high-performance, memory-safe applications with a modern programming language. |
+|                      [SchemaSpy][schemaspy]                       | Generate database schema documentation and visualization. |
+|                         [SigNoz][signoz]                          | Monitor application performance with an open-source observability tool. |
+|                      [Snowflake][snowflake]                       | Store, process, and analyze large-scale data in a cloud data warehouse. |
+|                     [SQLalchemy][sqlalchemy]                      | Manage database operations using a Python SQL toolkit and ORM. |
+|                      [Sqquelize][sqquelize]                       | Interact with SQL databases in Node.js using an ORM. |
+|                        [StepZen][stepzen]                         | Build and deploy GraphQL APIs with data from multiple sources. |
+|                         [Stitch][stitch]                          | Extract, load, and transform data from various sources to data warehouses. |
+|                      [Streamlit][streamlit]                       | Create interactive data applications and dashboards using Python. |
+|                         [Striim][striim]                          | Ingest, process, and analyze real-time data streams. |
+|                       [Superset][superset]                        | Create and explore data visualizations and dashboards. |
+|                        [Tooljet][tooljet]                         | Develop internal tools and business applications with a low-code builder. |
+|                        [TypeORM][typeorm]                         | Work with databases in TypeScript and JavaScript using an ORM. |
+|                         [Zapier][zapier]                          | Automate workflows by connecting different applications and services. 
+
+
+
 
 
 [psql]: /use-timescale/:currentVersion:/integrations/psql/
@@ -103,3 +188,77 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 [google-cloud]: /use-timescale/:currentVersion:/integrations/google-cloud
 [azure]: /use-timescale/:currentVersion:/integrations/microsoft-azure
 [data-center]: /use-timescale/:currentVersion:/integrations/corporate-data-center
+[airbyte]: https://docs.airbyte.com/integrations/sources/postgres
+[apache-beam]: https://beam.apache.org/releases/javadoc/current/org/apache/beam/sdk/io/jdbc/JdbcIO.html
+[apache-skywalking]: https://skywalking.apache.org/docs/main/next/en/setup/backend/backend-postgresql-monitoring/
+[apache-spark]: https://spark.apache.org/docs/3.5.4/sql-data-sources-jdbc.html
+[appsmith]: https://docs.appsmith.com/connect-data/reference/querying-postgres
+[auth-js]: https://authjs.dev/getting-started/adapters/pg?framework=next-js
+[auth0]: https://auth0.com/blog/configuring-postgresql-as-auth0-custom-database/
+[azure-functions]: https://github.com/Azure/azure-functions-postgresql-extension
+[azure-monitor]: https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-monitoring
+[bigquery-wrapper]: https://cloud.google.com/dataflow/docs/guides/templates/provided/postgresql-to-bigquery
+[clickhouse]: https://clickhouse.com/docs/integrations/postgresql
+[clickhouse-dashboard]: https://clickhouse.com/docs/integrations/postgresql
+[confluent]: https://docs.confluent.io/cloud/current/connectors/cc-postgresql-sink.html
+[cube-js]: https://cube.dev/integrations/Timescale-API
+[dbt]: https://dbt-timescaledb.debruyn.dev/
+[debezium]: https://debezium.io/documentation/reference/stable/transformations/timescaledb.html
+[deepnote]: https://deepnote.com/docs/postgresql
+[deltalake]: https://github.com/delta-io/delta/blob/master/connectors/sql-delta-import/readme.md
+[deno-deploy]: https://docs.deno.com/deploy/manual/postgres/
+[django]: https://docs.djangoproject.com/en/5.1/ref/databases/#postgresql-notes
+[elasticsearch]: https://www.elastic.co/guide/en/elasticsearch/reference/current/es-connectors-postgresql.html
+[electricsql]: https://electric-sql.com/docs/intro
+[emqx]: https://docs.emqx.com/en/emqx/latest/data-integration/data-bridge-timescale.html
+[estuary]: https://docs.estuary.dev/reference/Connectors/materialization-connectors/timescaledb/
+[firebase-wrapper]: https://firebase.google.com/products/data-connect
+[flink]: https://nightlies.apache.org/flink/flink-cdc-docs-release-3.1/docs/connectors/flink-sources/postgres-cdc/
+[flyway]: https://documentation.red-gate.com/flyway/reference/database-driver-reference/timescaledb
+[forest-admin]: https://www.forestadmin.com/integrations/postgresql
+[hasura]: https://hasura.io/docs/2.0/databases/postgres/timescale-cloud/
+[ibm-instana]: https://www.ibm.com/docs/en/instana-observability/current?topic=technologies-monitoring-postgresql
+[jaeger]: https://www.jaegertracing.io/docs/2.0/storage/
+[langchain]: https://api.python.langchain.com/en/latest/postgres/index.html#
+[liquibase]: https://docs.liquibase.com/start/tutorials/postgresql/postgresql.html
+[looker]: https://cloud.google.com/looker/docs/db-config-postgresql
+[materialize]: https://materialize.com/docs/ingest-data/postgres/
+[metabase]: https://www.metabase.com/data_sources/postgresql
+[minio]: https://min.io/docs/minio/linux/administration/monitoring/publish-events-to-postgresql.html
+[mode-analytics]: https://mode.com/integrations/postgresql
+[mongodb]: https://www.postgresql.org/about/news/mongodb-mysql-hadoop-hdfs-foreign-data-wrappers-updated-to-support-postgresql-16-2678/
+[mysql]: https://github.com/EnterpriseDB/mysql_fdw
+[n8n]: https://n8n.io/integrations/redis/and/timescaledb/
+[neon]: https://neon.tech/docs/extensions/timescaledb
+[new-relic]: https://docs.newrelic.com/docs/infrastructure/host-integrations/host-integrations-list/postgresql/postgresql-integration/
+[opentelemetry]: https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/receiver/postgresqlreceiver
+[prisma]:
+[pulumi]:
+[okta]:
+[qlik-replicate]:
+[qryn]:
+[redash]:
+[redis]:
+[redpanda]:
+[render]:
+[retool]:
+[rsyslog]:
+[rust]:
+[schemaspy]:
+[signoz]:
+[snowflake]:
+[sqlalchemy]:
+[sqquelize]:
+[stepzen]: 
+[stitch]: 
+[streamlit]: 
+[striim]: 
+[superset]: 
+[tooljet]: 
+[typeorm]: 
+[zapier]:  
+[node-js]: 
+[python]: 
+[ruby]: 
+[golang]: 
+[java]: 
