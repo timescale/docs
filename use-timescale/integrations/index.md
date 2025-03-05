@@ -45,6 +45,7 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 | [Terraform][terraform]      | Safely and predictably provision and manage infrastructure in any cloud. |
 
 
+
 ## Data engineering and extract, transform, load
 
 |               Name               | Description                                                                         |
@@ -68,6 +69,16 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 | [Power BI][power-bi] | Visualize data, build interactive dashboards, and share insights. |
 
 
+## Secure connectivity to $CLOUD_LONG
+
+|                 Name                 | Description                                                                 |
+|:------------------------------------:|-----------------------------------------------------------------------------|
+|      [Amazon Web Services][aws]      | Connect your other services and applications running in AWS to $CLOUD_LONG. |
+|     [Google Cloud][google-cloud]     | Connect your Google Cloud infrastructure to $CLOUD_LONG.                    |
+|       [Microsoft Azure][azure]       | Connect your Microsoft Azure infrastructure to $CLOUD_LONG.                 |
+| [Corporate data center][data-center] | Connect your on-premise data center to $CLOUD_LONG.                         |
+
+
 [psql]: /use-timescale/:currentVersion:/integrations/psql/
 [qstudio]: /use-timescale/:currentVersion:/integrations/qstudio/
 [cloudwatch]: /use-timescale/:currentVersion:/integrations/cloudwatch/
@@ -89,3 +100,7 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 [amazon-sagemaker]: /use-timescale/:currentVersion:/integrations/amazon-sagemaker
 [postgresql]: /use-timescale/:currentVersion:/integrations/postgresql
 [kafka]: /use-timescale/:currentVersion:/integrations/apache-kafka
+[aws]: /use-timescale/:currentVersion:/integrations/aws
+[google-cloud]: /use-timescale/:currentVersion:/integrations/google-cloud
+[azure]: /use-timescale/:currentVersion:/integrations/microsoft-azure
+[data-center]: /use-timescale/:currentVersion:/integrations/corporate-data-center
