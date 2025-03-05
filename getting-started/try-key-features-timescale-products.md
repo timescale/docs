@@ -48,10 +48,10 @@ relational and time-series data from external files.
 
 1.  **Import some time-series data into your hypertable**
 
-    1. Unzip <Tag type="download">[real_time_stock_data.zip](https://assets.timescale.com/docs/downloads/get-started/real_time_stock_data.zip)</Tag> to a `<local folder>`.
+    1. Unzip <Tag type="download">[crypto_sample.zip](https://assets.timescale.com/docs/downloads/candlestick/crypto_sample.zip)</Tag> to a `<local folder>`.
 
-       This test dataset contains second-by-second stock-trade data for the top 100 most-traded symbols
-       and a regular table of company symbols and company names.  
+       This test dataset contains second-by-second trade data for the most-traded crypto-assets
+       and a regular table of asset symbols and company names.  
 
        To import up to 100GB of data directly from your current PostgreSQL based database, 
        [migrate with downtime][migrate-with-downtime] using native PostgreSQL tooling. To seamlessly import 100GB-10TB+ 
@@ -66,12 +66,15 @@ relational and time-series data from external files.
        
           The $CONSOLE data upload creates the tables for you from the data you are uploading:
           1. In [$CONSOLE][portal-ops-mode], select the service to add data to, then click **Actions** > **Upload CSV**.
-          1. Drag `<local folder>/tutorial_sample_tick.csv` to `Upload .CSV` and change `New table name`, to `stocks_real_time`.
-          1. Enable `hypertable partition` for the `time` column and click `Upload CSV`. 
+          1. Drag `<local folder>/tutorial_sample_tick.csv` to `Upload .CSV` and change `New table name`, to `assets_real_time`.
+          1. Enable `hypertable partition` for the `time` column and click `Upload CSV`.
+       
               The upload wizard creates a hypertable containing the data from the CSV file.
-          1. When the data is uploaded, close `Upload .CSV`. 
+          1. When the data is uploaded, close `Upload .CSV`.
+       
               If you want to  have a quick look at your data, press `Run` .
-          1. Repeat the process with `<local folder>/tutorial_sample_company.csv` and rename to `company`. 
+          1. Repeat the process with `<local folder>/tutorial_sample_assets.csv` and rename to `assets`.
+       
               There is no time-series data in this table, so you don't see the  `hypertable partition` option.
 
        </Tab>
@@ -90,16 +93,16 @@ relational and time-series data from external files.
              1. In your sql client, create a normal PostgreSQL table:
       
                 ```sql
-                CREATE TABLE stocks_real_time (
+                CREATE TABLE assets_real_time (
                   time TIMESTAMPTZ NOT NULL,
                   symbol TEXT NOT NULL,
                   price DOUBLE PRECISION NULL,
                   day_volume INT NULL
                 );
                 ```
-             1.  Convert `stocks_real_time` to a hypertable:
+             1.  Convert `assets_real_time` to a hypertable:
                 ```sql
-                SELECT create_hypertable('stocks_real_time', by_range('time'));
+                SELECT create_hypertable('assets_real_time', by_range('time'));
                 ```
                 To more fully understand how hypertables work, and how to optimize them for performance by
                 tuning chunk intervals and enabling chunk skipping, see [the hypertables documentation][hypertables-section].
@@ -108,7 +111,7 @@ relational and time-series data from external files.
       
              In your sql client, create a normal PostgreSQL table:
              ```sql
-             CREATE TABLE company (
+             CREATE TABLE assets (
               symbol TEXT NOT NULL,
               name TEXT NOT NULL
              );
@@ -116,8 +119,8 @@ relational and time-series data from external files.
 
        3. Upload the dataset to your $SERVICE_SHORT
           ```sql
-          \COPY stocks_real_time from './tutorial_sample_tick.csv' DELIMITER ',' CSV HEADER;
-          \COPY company from './tutorial_sample_company.csv' DELIMITER ',' CSV HEADER;
+          \COPY assets_real_time from './tutorial_sample_tick.csv' DELIMITER ',' CSV HEADER;
+          \COPY assets from './tutorial_sample_company.csv' DELIMITER ',' CSV HEADER;
           ```
         
        </Tab>
@@ -135,7 +138,7 @@ relational and time-series data from external files.
     - **SQL editor**: write, fix, and organize SQL faster and more accurately in [$CONSOLE][portal-ops-mode] for a $SERVICE_LONG.
     - **psql**: easily run queries on your $SERVICE_LONGs or self-hosted TimescaleDB deployment from Terminal.
 
-    <TryItOutCodeBlock queryId="getting-started-srt-orderby" />
+    <TryItOutCodeBlock queryId="getting-started-crypto-srt-orderby" />
 
 </Procedure>
 
@@ -176,19 +179,19 @@ $CONSOLE. You can also do this using psql.
     PostgreSQL `MATERIALIZED VIEW` in a hypertable. `timescaledb.continuous` ensures that this data
     is always up to date.
     In your SQL editor, use the following code to create a continuous aggregate on the real time data in
-    the `stocks_real_time` table:
+    the `assets_real_time` table:
 
     ```sql
-    CREATE MATERIALIZED VIEW stock_candlestick_daily
+    CREATE MATERIALIZED VIEW assets_candlestick_daily
     WITH (timescaledb.continuous) AS
     SELECT
-    time_bucket('1 day', "time") AS day,
-    symbol,
-    max(price) AS high,
-    first(price, time) AS open,
-    last(price, time) AS close,
-    min(price) AS low
-    FROM stocks_real_time srt
+      time_bucket('1 day', "time") AS day,
+      symbol,
+      max(price) AS high,
+      first(price, time) AS open,
+      last(price, time) AS close,
+      min(price) AS low
+    FROM assets_real_time srt
     GROUP BY day, symbol;
     ```
 
@@ -198,7 +201,7 @@ $CONSOLE. You can also do this using psql.
 1. **Create a policy to refresh the view every hour**
 
    ```sql
-   SELECT add_continuous_aggregate_policy('stock_candlestick_daily',
+   SELECT add_continuous_aggregate_policy('assets_candlestick_daily',
    start_offset => INTERVAL '3 weeks',
    end_offset => INTERVAL '24 hours',
    schedule_interval => INTERVAL '3 hours');
@@ -206,7 +209,7 @@ $CONSOLE. You can also do this using psql.
 
 1.  **Have a quick look at your data**
 
-    You query continuous aggregates exactly the same way as your other tables. To query the `stock_candlestick_daily`
+    You query continuous aggregates exactly the same way as your other tables. To query the `assets_candlestick_daily`
     continuous aggregate for all stocks:
 
     <TryItOutCodeBlock queryId="getting-started-cagg" />
@@ -221,28 +224,28 @@ $CONSOLE. You can also do this using psql.
 <Procedure>
 
 1. **In [$CONSOLE][portal-ops-mode], select the service you uploaded data to**.
-1. **Click `Operations` > `Continuous aggregates`, select `stocks_real_time`, then click `Create continuous aggregate`**.
-   ![Continuous aggregate wizard](https://assets.timescale.com/docs/images/continuou-aggregate-wizard.png )
-1. **Create a view called `stock_candlestick_daily` on the `time` column with an interval of `1 day`, then click `Next step`**.
+1. **Click `Operations` > `Continuous aggregates`, select `assets_real_time`, then click `Create continuous aggregate`**.
+   ![Continuous aggregate wizard](https://assets.timescale.com/docs/images/continuous-aggregate-wizard.png )
+1. **Create a view called `assets_candlestick_daily` on the `time` column with an interval of `1 day`, then click `Next step`**.
 1. **Update the view SQL with the following functions, then click `Run`**
    ```sql
-   CREATE MATERIALIZED VIEW stock_candlestick_daily
-     WITH (timescaledb.continuous) AS
-     SELECT
+   CREATE MATERIALIZED VIEW assets_candlestick_daily
+   WITH (timescaledb.continuous) AS
+   SELECT 
      time_bucket('1 day', "time") AS bucket,
      symbol,
      max(price) AS high,
      first(price, time) AS open,
      last(price, time) AS close,
      min(price) AS low
-     FROM "public"."stocks_real_time" srt
-     GROUP BY bucket, symbol;
+   FROM "public"."assets_real_time" srt
+   GROUP BY bucket, symbol;
     ```
 1. **When the view is created, click `Next step`**
 1. **Define a refresh policy with the following values, then click `Next step`**
-   - `Set the start offset`: `3 weeks`
-   - `Set the end offset`: `24 hours`
-   - `Set the schedule interval`: `3 hours`
+   - `How far back do you want to materialize?`: `3 weeks`
+   - `What recent data to exclude?`: `24 hours`
+   - `How often do you want the job to run?`: `3 hours`
 1. **Click `Create continuous aggregate`, then click `Run`**
 
 $CLOUD_LONG creates the continuous aggregate and displays the aggregate ID in $CONSOLE. Click `DONE` to close the wizard.
@@ -281,7 +284,7 @@ market data.
    Create a [job][job] that automatically moves chunks in a hypertable to the columnstore at a specific time interval.
 
    ```sql
-   ALTER TABLE stocks_real_time SET (
+   ALTER TABLE assets_real_time SET (
       timescaledb.enable_columnstore = true, 
       timescaledb.segmentby = 'symbol');
    ```
@@ -290,10 +293,28 @@ market data.
 
    For example, 60 days after the data was added to the table:
    ``` sql
-   CALL add_columnstore_policy('stocks_real_time', after => INTERVAL '60d');
+   CALL add_columnstore_policy('assets_real_time', after => INTERVAL '60d');
    ```
    See [add_columnstore_policy][add_columnstore_policy].
  
+1. **View your data space saving**
+
+   When you convert data to the columnstore, as well as being optimized for analytics, it is compresses by more than 
+   90%. This saves on storage costs and keeps your queries operating at lightning speed. To see the amount of space 
+   saved:
+   ``` sql
+   SELECT
+     pg_size_pretty(before_compression_total_bytes) as before,
+     pg_size_pretty(after_compression_total_bytes) as after
+   FROM hypertable_compression_stats('assets_real_time');
+   ```
+   You see something like:
+
+   | Before | After   |
+   |--------|---------|
+   | 32 MB  | 3808 KB |
+
+
 </Procedure>
 
 
@@ -330,7 +351,7 @@ To setup data tiering:
 
     In $CONSOLE, click `SQL Editor`, then enable data tiering on a hypertable with the following query:
      ```sql
-     SELECT add_tiering_policy('stock_candlestick_daily', INTERVAL '3 weeks');   
+     SELECT add_tiering_policy('assets_candlestick_daily', INTERVAL '3 weeks');   
      ```
 
 1. **Qeury tiered data**
@@ -338,9 +359,18 @@ To setup data tiering:
     You enable reads from tiered data for each query, for a session or for all future 
     sessions. To run a single query on tiered data:
 
-    ```sql
-    set timescaledb.enable_tiered_reads = true; SELECT * FROM stocks_real_time srt LIMIT 10; set timescaledb.enable_tiered_reads = false;
-    ```
+    1. Enable reads on tiered data:
+      ```sql
+      set timescaledb.enable_tiered_reads = true
+      ```
+    1. Query the data:
+      ```sql 
+      SELECT * FROM assets_real_time srt LIMIT 10
+      ```
+    1. Disable reads on tiered data:
+      ```sql  
+      set timescaledb.enable_tiered_reads = false;
+      ```
     For more information, see [Querying tiered data][querying-tiered-data].    
 
 </Procedure>
