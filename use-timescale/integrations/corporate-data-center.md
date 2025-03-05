@@ -10,7 +10,7 @@ import TransitGateway from "versionContent/_partials/_transit-gateway.mdx";
 
 # Integrate your data center with $CLOUD_LONG
 
-Many companies choose to maintain an on-premise infrastructure for compliance, cost control, and performance reasons. This page explains how to integrate your corporate on-premise infrastructure with $CLOUD_LONG using [AWS Transit Gateway][aws-transit-gateway].
+This page explains how to integrate your corporate on-premise infrastructure with $CLOUD_LONG using [AWS Transit Gateway][aws-transit-gateway].
 
 ## Prerequisites
 
