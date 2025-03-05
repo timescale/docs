@@ -84,81 +84,78 @@ You can integrate your $SERVICE_LONG with third-party solutions to expand and ex
 
 ## Integrates with PostgreSQL? Integrates with your $SERVICE_SHORT!
 
-A $SERVICE_LONG is a PostgreSQL database instance extended by $COMPANY with custom capabilities. This means that any third-party solution that you can integrate with PostgreSQL, you can also integrate with $CLOUD_LONG. See the full list of PostgreSQL integrations [here][postgresql-integrations].
+A $SERVICE_LONG is a PostgreSQL database instance extended by $COMPANY with custom capabilities. This means that any third-party solution that you can integrate with PostgreSQL, you can also integrate with $CLOUD_LONG. See the full list of PostgreSQL integrations [here][postgresql-integrations]. Some of the most in-demand PostgreSQL integrations are listed below.
 
-Some of the most in-demand PostgreSQL integrations are listed here:
-
-|                               Name                                | Description |
-|:-----------------------------------------------------------------:|-------------|
-|                        [Airbyte][airbyte]                         | Sync data between various sources and destinations. |
-|                    [Apache Beam][apache-beam]                     | Build and execute batch and streaming data pipelines across multiple processing engines. |
-|              [Apache SkyWalking][apache-skywalking]               | Monitor, trace, and diagnose distributed applications for improved observability. |
-|                   [Apache Spark][apache-spark]                    | Process large-scale data workloads quickly using distributed computing. |
-|                       [Appsmith][appsmith]                        | Create internal business applications with a low-code platform. |
-|                        [Auth.js][auth-js]                         | Implement authentication and authorization for web applications. |
-|                          [Auth0][auth0]                           | Securely manage user authentication and access controls for applications. |
-|                [Azure Functions][azure-functions]                 | Run event-driven serverless code in the cloud without managing infrastructure. |
-|                  [Azure Monitor][azure-monitor]                   | Collect and analyze telemetry data from cloud and on-premises environments. |
-|               [BigQuery Wrapper][bigquery-wrapper]                | Interact with Google BigQuery through simplified programmatic access. |
-|                     [ClickHouse][clickhouse]                      | Run high-performance real-time analytics on large datasets. |
-|      [ClickHouse Monitoring Dashboard][clickhouse-dashboard]      | Visualize and monitor ClickHouse database performance in real-time. |
-|                      [Confluent][confluent]                       | Manage and scale Apache Kafka-based event streaming applications. |
-|                        [Cube.js][cube-js]                         | Build and optimize data APIs for analytics applications. |
-|                            [dbt][dbt]                             | Transform and model data in your warehouse using SQL-based workflows. |
-|                       [Debezium][debezium]                        | Capture and stream real-time changes from databases. |
-|                       [Deepnote][deepnote]                        | Collaborate on data science projects with a cloud-based notebook platform. |
-|                      [DeltaLake][deltalake]                       | Enhance data lakes with ACID transactions and schema enforcement. |
-|                    [Deno Deploy][deno-deploy]                     | Deploy and run JavaScript and TypeScript applications at the edge. |
-|                         [Django][django]                          | Develop scalable and secure web applications using a Python framework. |
-|                  [Elasticsearch][elasticsearch]                   | Search, analyze, and visualize structured and unstructured data efficiently. |
-|                    [ElectricSQL][electricsql]                     | Enable real-time synchronization between databases and frontend applications. |
-|                           [EMQX][emqx]                            | Deploy an enterprise-grade MQTT broker for IoT messaging. |
-|                        [Estuary][estuary]                         | Stream and synchronize data in real-time between different systems. |
-|               [Firebase Wrapper][firebase-wrapper]                | Simplify interactions with Firebase services through an abstraction layer. |
-|                          [Flink][flink]                           | Process real-time data streams with fault-tolerant distributed computing. |
-|                         [Flyway][flyway]                          | Manage and automate database migrations using version control. |
-|                   [Forest Admin][forest-admin]                    | Create admin panels and dashboards for business applications. |
-|                         [Hasura][hasura]                          | Instantly generate GraphQL APIs from databases with access control. |
-|                    [IBM Instana][ibm-instana]                     | Monitor application performance and detect issues in real-time. |
-|                         [Jaeger][jaeger]                          | Trace and diagnose distributed transactions for observability. |
-|                      [LangChain][langchain]                       | Build applications that integrate with language models like GPT. |
-|                      [Liquibase][liquibase]                       | Track, version, and automate database schema changes. |
-|                         [Looker][looker]                          | Explore, analyze, and share business insights with a BI platform. |
-|                    [Materialize][materialize]                     | Process and query real-time data with incremental materialized views. |
-|                       [Metabase][metabase]                        | Create dashboards and visualize business data without SQL expertise. |
-|                          [MinIO][minio]                           | Store and retrieve unstructured data with an S3-compatible object storage. |
-|                 [Mode Analytics][mode-analytics]                  | Analyze data, create reports, and share insights with teams. |
-|                        [MongoDB][mongodb]                         | Store and query document-based data with a flexible NoSQL database. |
-|                          [MySQL][mysql]                           | Manage structured relational data with an open-source SQL database. |
-|                            [n8n][n8n]                             | Automate workflows and integrate services with a no-code platform. |
-|                           [Neon][neon]                            | Run a cloud-native, serverless PostgreSQL database with automatic scaling. |
-|                      [New Relic][new-relic]                       | Monitor applications, infrastructure, and logs for performance insights. |
-|                  [OpenTelemetry][opentelemetry]                   | Collect and analyze telemetry data for observability across systems. |
-|                         [Prisma][prisma]                          | Simplify database access with an open-source ORM for Node.js. |
-|                         [Pulumi][pulumi]                          | Define and manage cloud infrastructure using code in multiple languages. |
-|                           [Okta][okta]                            | Secure authentication and user identity management for applications. |
-|                 [Qlik Replicate][qlik-replicate]                  | Move and synchronize data across multiple database platforms. |
-|                           [Qryn][qryn]                            | Store and query logs, metrics, and traces with a high-performance analytics engine. |
-|                         [Redash][redash]                          | Query, visualize, and share data from multiple sources. |
-|                          [Redis][redis]                           | Cache, store, and process data in-memory with low latency. |
-|                       [Redpanda][redpanda]                        | Stream and process real-time data as a Kafka-compatible platform. |
-|                         [Render][render]                          | Deploy and scale web applications, databases, and services easily. |
-|                         [Retool][retool]                          | Build custom internal tools quickly using a drag-and-drop interface. |
-|                        [RSyslog][rsyslog]                         | Collect, filter, and forward system logs for centralized logging. |
-|                           [Rust][rust]                            | Build high-performance, memory-safe applications with a modern programming language. |
-|                      [SchemaSpy][schemaspy]                       | Generate database schema documentation and visualization. |
-|                         [SigNoz][signoz]                          | Monitor application performance with an open-source observability tool. |
-|                      [Snowflake][snowflake]                       | Store, process, and analyze large-scale data in a cloud data warehouse. |
-|                     [SQLalchemy][sqlalchemy]                      | Manage database operations using a Python SQL toolkit and ORM. |
-|                      [Sqquelize][sqquelize]                       | Interact with SQL databases in Node.js using an ORM. |
-|                        [StepZen][stepzen]                         | Build and deploy GraphQL APIs with data from multiple sources. |
-|                         [Stitch][stitch]                          | Extract, load, and transform data from various sources to data warehouses. |
-|                      [Streamlit][streamlit]                       | Create interactive data applications and dashboards using Python. |
-|                         [Striim][striim]                          | Ingest, process, and analyze real-time data streams. |
-|                       [Superset][superset]                        | Create and explore data visualizations and dashboards. |
-|                        [Tooljet][tooljet]                         | Develop internal tools and business applications with a low-code builder. |
-|                        [TypeORM][typeorm]                         | Work with databases in TypeScript and JavaScript using an ORM. |
-|                         [Zapier][zapier]                          | Automate workflows by connecting different applications and services. 
+|                               Name                                | Description                                                                                                                                               |
+|:-----------------------------------------------------------------:|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
+|                        [Airbyte][airbyte]                         | Sync data between various sources and destinations.                                                                                                       |
+|                    [Apache Beam][apache-beam]                     | Build and execute batch and streaming data pipelines across multiple processing engines.                                                                  |
+|              [Apache SkyWalking][apache-skywalking]               | Monitor, trace, and diagnose distributed applications for improved observability. You can also [set up PostgreSQL as storage][apache-skywalking-storage]. |
+|                   [Apache Spark][apache-spark]                    | Process large-scale data workloads quickly using distributed computing.                                                                                   |
+|                       [Appsmith][appsmith]                        | Create internal business applications with a low-code platform.                                                                                           |
+|                        [Auth.js][auth-js]                         | Implement authentication and authorization for web applications.                                                                                          |
+|                          [Auth0][auth0]                           | Securely manage user authentication and access controls for applications.                                                                                 |
+|                [Azure Functions][azure-functions]                 | Run event-driven serverless code in the cloud without managing infrastructure.                                                                            |
+|                  [Azure Monitor][azure-monitor]                   | Collect and analyze telemetry data from cloud and on-premises environments.                                                                               |
+|               [BigQuery Wrapper][bigquery-wrapper]                | Interact with Google BigQuery through simplified programmatic access.                                                                                     |
+|                     [ClickHouse][clickhouse]                      | Run high-performance real-time analytics on large datasets.                                                                                               |
+|      [ClickHouse Monitoring Dashboard][clickhouse-dashboard]      | Visualize and monitor ClickHouse database performance in real-time.                                                                                       |
+|                      [Confluent][confluent]                       | Manage and scale Apache Kafka-based event streaming applications. You can also [set up PostgreSQL as a source][confluent-source].                         |
+|                        [Cube.js][cube-js]                         | Build and optimize data APIs for analytics applications.                                                                                                  |
+|                            [dbt][dbt]                             | Transform and model data in your warehouse using SQL-based workflows.                                                                                     |
+|                       [Debezium][debezium]                        | Capture and stream real-time changes from databases.                                                                                                      |
+|                       [Deepnote][deepnote]                        | Collaborate on data science projects with a cloud-based notebook platform.                                                                                |
+|                      [DeltaLake][deltalake]                       | Enhance data lakes with ACID transactions and schema enforcement.                                                                                         |
+|                    [Deno Deploy][deno-deploy]                     | Deploy and run JavaScript and TypeScript applications at the edge.                                                                                        |
+|                         [Django][django]                          | Develop scalable and secure web applications using a Python framework.                                                                                    |
+|                  [Elasticsearch][elasticsearch]                   | Search, analyze, and visualize structured and unstructured data efficiently.                                                                              |
+|                    [ElectricSQL][electricsql]                     | Enable real-time synchronization between databases and frontend applications.                                                                             |
+|                           [EMQX][emqx]                            | Deploy an enterprise-grade MQTT broker for IoT messaging.                                                                                                 |
+|                        [Estuary][estuary]                         | Stream and synchronize data in real time between different systems.                                                                                       |
+|               [Firebase Wrapper][firebase-wrapper]                | Simplify interactions with Firebase services through an abstraction layer.                                                                                |
+|                          [Flink][flink]                           | Process real-time data streams with fault-tolerant distributed computing.                                                                                 |
+|                         [Flyway][flyway]                          | Manage and automate database migrations using version control.                                                                                            |
+|                   [Forest Admin][forest-admin]                    | Create admin panels and dashboards for business applications.                                                                                             |
+|                         [Hasura][hasura]                          | Instantly generate GraphQL APIs from databases with access control.                                                                                       |
+|                    [IBM Instana][ibm-instana]                     | Monitor application performance and detect issues in real-time.                                                                                           |
+|                         [Jaeger][jaeger]                          | Trace and diagnose distributed transactions for observability.                                                                                            |
+|                      [LangChain][langchain]                       | Build applications that integrate with language models like GPT.                                                                                          |
+|                      [Liquibase][liquibase]                       | Track, version, and automate database schema changes.                                                                                                     |
+|                         [Looker][looker]                          | Explore, analyze, and share business insights with a BI platform.                                                                                         |
+|                    [Materialize][materialize]                     | Process and query real-time data with incremental materialized views.                                                                                     |
+|                       [Metabase][metabase]                        | Create dashboards and visualize business data without SQL expertise.                                                                                      |
+|                          [MinIO][minio]                           | Store and retrieve unstructured data with an S3-compatible object storage.                                                                                |
+|                 [Mode Analytics][mode-analytics]                  | Analyze data, create reports, and share insights with teams.                                                                                              |
+|                        [MongoDB][mongodb]                         | Store and query document-based data with a flexible NoSQL database.                                                                                       |
+|                          [MySQL][mysql]                           | Manage structured relational data with an open-source SQL database.                                                                                       |
+|                            [n8n][n8n]                             | Automate workflows and integrate services with a no-code platform.                                                                                        |
+|                           [Neon][neon]                            | Run a cloud-native, serverless PostgreSQL database with automatic scaling.                                                                                |
+|                      [New Relic][new-relic]                       | Monitor applications, infrastructure, and logs for performance insights.                                                                                  |
+|                  [OpenTelemetry][opentelemetry]                   | Collect and analyze telemetry data for observability across systems.                                                                                      |
+|                         [Prisma][prisma]                          | Simplify database access with an open-source ORM for Node.js.                                                                                             |
+|                         [Pulumi][pulumi]                          | Define and manage cloud infrastructure using code in multiple languages.                                                                                  |
+|                           [Okta][okta]                            | Secure authentication and user identity management for applications.                                                                                      |
+|                 [Qlik Replicate][qlik-replicate]                  | Move and synchronize data across multiple database platforms. You an also [set up PostgreSQL as a source][qlik-source].                                   |
+|                         [Redash][redash]                          | Query, visualize, and share data from multiple sources.                                                                                                   |
+|                          [Redis][redis]                           | Cache, store, and process data in-memory with low latency.                                                                                                |
+|                       [Redpanda][redpanda]                        | Stream and process real-time data as a Kafka-compatible platform.                                                                                         |
+|                         [Render][render]                          | Deploy and scale web applications, databases, and services easily.                                                                                        |
+|                         [Retool][retool]                          | Build custom internal tools quickly using a drag-and-drop interface.                                                                                      |
+|                        [RSyslog][rsyslog]                         | Collect, filter, and forward system logs for centralized logging.                                                                                         |
+|                           [Rust][rust]                            | Build high-performance, memory-safe applications with a modern programming language.                                                                      |
+|                      [SchemaSpy][schemaspy]                       | Generate database schema documentation and visualization.                                                                                                 |
+|                         [SigNoz][signoz]                          | Monitor application performance with an open-source observability tool.                                                                                   |
+|                      [Snowflake][snowflake]                       | Store, process, and analyze large-scale data in a cloud data warehouse.                                                                                   |
+|                     [SQLalchemy][sqlalchemy]                      | Manage database operations using a Python SQL toolkit and ORM.                                                                                            |
+|                      [Sqquelize][sqquelize]                       | Interact with SQL databases in Node.js using an ORM.                                                                                                      |
+|                        [StepZen][stepzen]                         | Build and deploy GraphQL APIs with data from multiple sources.                                                                                            |
+|                         [Stitch][stitch]                          | Extract, load, and transform data from various sources to data warehouses.                                                                                |
+|                      [Streamlit][streamlit]                       | Create interactive data applications and dashboards using Python.                                                                                         |
+|                         [Striim][striim]                          | Ingest, process, and analyze real-time data streams.                                                                                                      |
+|                       [Superset][superset]                        | Create and explore data visualizations and dashboards.                                                                                                    |
+|                        [Tooljet][tooljet]                         | Develop internal tools and business applications with a low-code builder.                                                                                 |
+|                        [TypeORM][typeorm]                         | Work with databases in TypeScript and JavaScript using an ORM.                                                                                            |
+|                         [Zapier][zapier]                          | Automate workflows by connecting different applications and services.                                                                                     
 
 
 
@@ -191,6 +188,7 @@ Some of the most in-demand PostgreSQL integrations are listed here:
 [airbyte]: https://docs.airbyte.com/integrations/sources/postgres
 [apache-beam]: https://beam.apache.org/releases/javadoc/current/org/apache/beam/sdk/io/jdbc/JdbcIO.html
 [apache-skywalking]: https://skywalking.apache.org/docs/main/next/en/setup/backend/backend-postgresql-monitoring/
+[apache-skywalking-storage]: https://skywalking.apache.org/docs/main/next/en/setup/backend/storages/postgresql/
 [apache-spark]: https://spark.apache.org/docs/3.5.4/sql-data-sources-jdbc.html
 [appsmith]: https://docs.appsmith.com/connect-data/reference/querying-postgres
 [auth-js]: https://authjs.dev/getting-started/adapters/pg?framework=next-js
@@ -201,6 +199,7 @@ Some of the most in-demand PostgreSQL integrations are listed here:
 [clickhouse]: https://clickhouse.com/docs/integrations/postgresql
 [clickhouse-dashboard]: https://clickhouse.com/docs/integrations/postgresql
 [confluent]: https://docs.confluent.io/cloud/current/connectors/cc-postgresql-sink.html
+[confluent-source]: https://docs.confluent.io/cloud/current/connectors/cc-postgresql-source.html
 [cube-js]: https://cube.dev/integrations/Timescale-API
 [dbt]: https://dbt-timescaledb.debruyn.dev/
 [debezium]: https://debezium.io/documentation/reference/stable/transformations/timescaledb.html
@@ -232,33 +231,33 @@ Some of the most in-demand PostgreSQL integrations are listed here:
 [neon]: https://neon.tech/docs/extensions/timescaledb
 [new-relic]: https://docs.newrelic.com/docs/infrastructure/host-integrations/host-integrations-list/postgresql/postgresql-integration/
 [opentelemetry]: https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/receiver/postgresqlreceiver
-[prisma]:
-[pulumi]:
-[okta]:
-[qlik-replicate]:
-[qryn]:
-[redash]:
-[redis]:
-[redpanda]:
-[render]:
-[retool]:
-[rsyslog]:
-[rust]:
-[schemaspy]:
-[signoz]:
-[snowflake]:
-[sqlalchemy]:
-[sqquelize]:
-[stepzen]: 
-[stitch]: 
-[streamlit]: 
-[striim]: 
-[superset]: 
-[tooljet]: 
-[typeorm]: 
-[zapier]:  
-[node-js]: 
-[python]: 
-[ruby]: 
-[golang]: 
-[java]: 
+[prisma]: https://www.prisma.io/docs/orm/overview/databases/postgresql
+[pulumi]: https://www.pulumi.com/registry/packages/timescale/
+[okta]: https://help.okta.com/oag/en-us/content/topics/access-gateway/integrate-app-datastores.htm
+[qlik-replicate]: https://help.qlik.com/en-US/replicate/November2024/Content/Replicate/Main/PostgreSQL/postgresql.htm#ar_postgresds_802412600_1325150
+[qlik-source]: https://help.qlik.com/en-US/replicate/November2024/Content/Replicate/Main/PostgreSQL/postgresql_source.htm
+[redash]: https://redash.io/data-sources/postgresql/
+[redis]: https://redis.io/docs/latest/integrate/redis-data-integration/data-pipelines/prepare-dbs/postgresql/
+[redpanda]: https://www.redpanda.com/blog/build-data-stream-detect-anomalies-timescale-kafka-connect
+[render]: https://render.com/docs/postgresql
+[retool]: https://retool.com/integrations/postgresql
+[rsyslog]: https://www.rsyslog.com/doc/configuration/modules/ompgsql.html
+[rust]: https://github.com/sfackler/rust-postgres
+[schemaspy]: https://wiki.postgresql.org/wiki/SchemaSpy
+[signoz]: https://signoz.io/docs/integrations/postgresql/
+[snowflake]: https://other-docs.snowflake.com/en/connectors/postgres6/about
+[sqlalchemy]: https://docs.sqlalchemy.org/en/20/dialects/postgresql.html
+[sqquelize]: https://sequelize.org/docs/v7/databases/postgres/
+[stepzen]: https://stepzen.com/docs/quick-start/with-database-postgresql
+[stitch]: https://stitch-docs.netlify.app/docs/integrations/databases/postgresql
+[streamlit]: https://docs.streamlit.io/develop/tutorials/databases/postgresql
+[striim]: https://www.striim.com/connectors/postgresql/
+[superset]: https://superset.apache.org/docs/configuration/databases#timescaledb
+[tooljet]: https://docs.tooljet.ai/docs/data-sources/postgresql/
+[typeorm]: https://typeorm.biunav.com/en/connection-options.html#postgres-cockroachdb-connection-options
+[zapier]: https://zapier.com/apps/postgresql/integrations
+[node-js]: /quick-start/:currentVersion:/node/
+[python]: /quick-start/:currentVersion:/python/
+[ruby]: /quick-start/:currentVersion:/ruby/
+[golang]: /quick-start/:currentVersion:/golang/
+[java]: /quick-start/:currentVersion:/java/
