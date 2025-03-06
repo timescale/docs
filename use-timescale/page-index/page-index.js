@@ -756,6 +756,11 @@ module.exports = [
             excerpt: "Integrate Amazon SageMaker with Timescale Cloud",
           },
           {
+            title: "Amazon Web Services",
+            href: "aws",
+            excerpt: "Integrate AWS with Timescale Cloud",
+          },
+          {
             title: "Apache Airflow",
             href: "apache-airflow",
             excerpt: "Integrate Apache Airflow with Timescale products",
@@ -774,6 +779,11 @@ module.exports = [
             title: "Azure Data Studio",
             href: "azure-data-studio",
             excerpt: "Integrate Azure Data Studio with Timescale Cloud",
+          },
+          {
+            title: "Corporate data center",
+            href: "corporate-data-center",
+            excerpt: "Integrate your corporate data center with Timescale Cloud",
           },
           {
             title: "Datadog",
@@ -796,9 +806,19 @@ module.exports = [
             excerpt: "Integrate Fivetran with Timescale Cloud",
           },
           {
+            title: "Google Cloud",
+            href: "google-cloud",
+            excerpt: "Integrate Google Cloud with Timescale Cloud",
+          },
+          {
             title: "Grafana",
             href: "grafana",
             excerpt: "Integrate Grafana with Timescale products",
+          },
+          {
+            title: "Microsoft Azure",
+            href: "microsoft-azure",
+            excerpt: "Integrate Microsoft Azure with Timescale Cloud",
           },
           {
             title: "pgAdmin",
