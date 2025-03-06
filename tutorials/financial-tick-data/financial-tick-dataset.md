@@ -9,28 +9,27 @@ content_group: Analyze financial tick data
 ---
 
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
-import CreateHypertable from "versionContent/_partials/_create-hypertable-twelvedata-stocks.mdx";
-import AddData from "versionContent/_partials/_add-data-twelvedata-stocks.mdx";
+import CreateHypertableCrypto from "versionContent/_partials/_create-hypertable-twelvedata-crypto.mdx";
+import AddDataCrypto from "versionContent/_partials/_add-data-twelvedata-crypto.mdx";
+import GrafanaConnect from "versionContent/_partials/_grafana-connect.mdx";
 
 # Ingest data into a $SERVICE_LONG
 
-This tutorial uses a dataset that contains second-by-second stock-trade data for
-the top 100 most-traded symbols, in a hypertable named `stocks_real_time`. It
-also includes a separate table of company symbols and company names, in a
-regular PostgreSQL table named `company`.
+This tutorial uses a dataset that contains second-by-second trade data for
+the most-traded crypto-assets. You optimize this time-series data in a a hypertable called `assets_real_time`. 
+You also create a separate table of asset symbols in a regular PostgreSQL table named `assets`.
 
 The dataset is updated on a nightly basis and contains data from the last four
-weeks, typically around 8 million rows of data. Stock trades are recorded in
-real-time Monday through Friday, typically during normal trading hours of the
-New York Stock Exchange (9:30&nbsp;AM - 4:00&nbsp;PM EST).
+weeks, typically around 8 million rows of data. Trades are recorded in
+real-time from 180+ cryptocurrency exchanges.
 
 ## Prerequisites
 
 <IntegrationPrereqs />
 
-<CreateHypertable />
+<CreateHypertableCrypto />
 
-<AddData />
+<AddDataCrypto />
 
 <GrafanaConnect />
 
