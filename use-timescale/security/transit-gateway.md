@@ -12,7 +12,7 @@ cloud_ui:
 import TransitGatewayAWS from "versionContent/_partials/_transit-gateway-aws.mdx";
 import TransitGatewayOthers from "versionContent/_partials/_transit-gateway-others.mdx";
 
-# Securely connect to $CLOUD_LONG from any cloud or on-premise environment
+# Securely connect to $CLOUD_LONG using AWS Transit Gateway
 
 [AWS Transit Gateway][aws-transit-gateway] enables you to securely connect to your $CLOUD_LONG from AWS, Google Cloud, Microsoft Azure, or any other cloud or on-premise environment.
 
