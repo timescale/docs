@@ -8,6 +8,27 @@ keywords: [changelog, upgrades, updates, releases]
 
 All the latest features and updates to Timescale products.
 
+## Agent mode for PopSQL and more
+<Label type="date">February March 7, 2025</Label>
+
+### 🤖 Agent Mode for PopSQL 
+Introducing Agent Mode, a new feature to PopSQL’s SQL Assistant. SQL Assistant lets you query your database using natural language, however if you ran into any errors, you would have to approve the assistant to implement its suggestions. 
+
+By turning on Agent Mode, the Agent will automatically adjust and execute your query without any human intervention. It will run, diagnose, and fix any errors it runs into until you get your desired results.
+
+In the gif below, you can see the Agent runs into an error, identifies the resolution, executes the fixed query, displays results, and even changes the title of the query.
+[Agent Mode demo gif]
+To use Agent Mode, first ensure you have SQL Assistant enabled, then click on the model selector dropdown, and click the “Agent Mode” checkbox.
+
+### Improved AWS Marketplace Integration for a Smoother Experience
+We've enhanced the AWS Marketplace workflow to make your experience even better! Now, everything is fully automated, ensuring a seamless process from setup to billing. If you're using the AWS Marketplace integration, you'll notice a smoother transition and clearer billing visibility—your Timescale subscription will be reflected directly in AWS Marketplace!
+
+### Recommendations
+Sometimes it can be hard to know if you are getting the best use out of your service. To help with this, Timescale now provides recommendations to users based on their service's context, assisting users with onboarding or notifying them if there is a configuration concern with their database, such as consistently failing jobs. 
+To start, recommendations are focused primarily on onboarding or service health, though we will regularly add new ones. You can see if you have any existing recommendations for your service by going to the Actions tab in the Console.
+
+![Recommendations]()
+
 ## 🛣️ Configuration Options for Secure Connections and More
 <Label type="date">February 28, 2025</Label>
 
