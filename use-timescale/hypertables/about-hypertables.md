@@ -1,6 +1,6 @@
 ---
 title: About hypertables
-excerpt: Learn how hypertables work for time-series data
+excerpt: Learn how hypertables work and why they are the ultimate tool to run real-time analytical queries on time-series and event data
 products: [cloud, mst, self_hosted]
 keywords: [hypertables, partitions]
 ---
@@ -10,6 +10,10 @@ import HypertablesIntro from 'versionContent/_partials/_hypertables-intro.mdx';
 # About hypertables
 
 <HypertablesIntro />
+
+<Highlight type="note">
+Inheritance is not supported for hypertables and may lead to unexpected behavior.
+</Highlight>
 
 ## Hypertable partitioning
 

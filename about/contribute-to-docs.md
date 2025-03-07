@@ -1,6 +1,6 @@
 ---
 title: Contribute to Timescale documentation
-excerpt: Advice and style guide for contributing to Timescale documentation
+excerpt: Contribute to Timescale documentation following our key guidelines
 products: [cloud, mst, self_hosted]
 keywords: [contribute]
 tags: [docs, style guide]

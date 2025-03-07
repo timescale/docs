@@ -41,9 +41,9 @@ You can get a list of chunks belonging to a hypertable using the
 
 ### Returns
 
-|Column|Description|
-|---|---|
-| `compress_chunk` | (REGCLASS) Name of the chunk that was compressed|
+|Column|Type|Description|
+|---|---|---|
+| `compress_chunk` | REGCLASS | Name of the chunk that was compressed|
 
 ### Sample usage
 

@@ -1,6 +1,6 @@
 ---
 title: Compression
-excerpt: Learn how compression works in Timescale
+excerpt: With data compression, you can achieve a significant improvement in the performance of your analytical queries. Learn how to enable and benefit from data compression in Timescale Cloud
 products: [cloud, mst, self_hosted]
 keywords: [compression, hypertables]
 ---

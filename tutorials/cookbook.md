@@ -1,6 +1,6 @@
 ---
 title: Timescale cookbook
-excerpt: Code examples from the community that help you with loads of common conundrums.   
+excerpt: Browse code examples from the Timescale Cloud community that resolve common issues and provide solutions for non-standard tasks
 product: [cloud, mst, self_hosted] 
 ---
 

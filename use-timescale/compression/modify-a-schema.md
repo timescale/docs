@@ -1,6 +1,6 @@
 ---
 title: Schema modifications
-excerpt: Modify the schema of compressed hypertables
+excerpt: Timescale Cloud enables you to modify the schema of compressed hypertables. This includes adding a nullable column, renaming and dropping a column, and adding a column with a default value
 products: [cloud, mst, self_hosted]
 keywords: [compression, schemas, hypertables]
 ---

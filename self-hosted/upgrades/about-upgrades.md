@@ -1,6 +1,6 @@
 ---
 title: About upgrades
-excerpt: About major and minor upgrades, and best practices for upgrading
+excerpt: Learn about major and minor upgrades of your self-hosted TimescaleDB installation, and best practices for upgrading
 products: [self_hosted]
 keywords: [upgrades]
 ---

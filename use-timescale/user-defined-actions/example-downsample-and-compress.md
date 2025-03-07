@@ -1,6 +1,6 @@
 ---
 title: Use a user-defined action to downsample and compress chunks
-excerpt: Customize downsampling and compression with a user-defined action
+excerpt: Downsample and compress your hypertable chunks by combining a continuous aggregate refresh policy with compression. Not quite what you need? Create a custom user-defined action
 products: [cloud, mst, self_hosted]
 keywords: [actions, compression, downsample]
 ---

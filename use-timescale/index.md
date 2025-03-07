@@ -1,6 +1,6 @@
 ---
 title: Use Timescale
-excerpt: Learn how to work with Timescale
+excerpt: Create hypertables and continuous aggregates, compress your data, manage your projects, and use other features available in Timescale Cloud
 ---
 
 # Use Timescale
