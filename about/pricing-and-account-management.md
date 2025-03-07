@@ -235,7 +235,7 @@ alt="Adding a payment method in Timescale"/>
 
 - **Add-ons**: add `Production support` and improved database performance for mission-critical workloads.  
 
-## AWS pricing
+## AWS Marketplace pricing
 
 When you get $CLOUD_LONG at AWS Marketplace, the following pricing options are available:
 
