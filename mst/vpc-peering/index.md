@@ -1,6 +1,6 @@
 ---
 title: VPC peering
-excerpt: Secure your Managed Service for TimescaleDB instance with VPC peering
+excerpt: Virtual Private Cloud peering is a method of connecting separate cloud private networks to each other. Secure your Managed Service for TimescaleDB instance with VPC peering
 products: [mst]
 keywords: [vpc, peer]
 ---

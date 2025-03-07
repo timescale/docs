@@ -62,6 +62,12 @@ not take place when buckets are materialized with no data changes or with
 changes that only occurred in the secondary table used in the JOIN.
 </Highlight>
 
+### Optional arguments
+
+|Name|Type|Description|
+|-|-|-|
+| `force` | BOOLEAN | Force refresh every bucket in the time range between `window_start` and `window_end`, even when the bucket has already been refreshed. This can be very expensive when a lot of data is refreshed. Default is `FALSE`.|
+
 ### Sample usage
 
 Refresh the continuous aggregate `conditions` between `2020-01-01` and
@@ -93,6 +99,12 @@ END
 $$;
 ```
 
+Force the  `conditions` continuous aggregate to refresh between `2020-01-01` and
+`2020-02-01` exclusive, even if the data has already been refreshed.
+
+```sql
+CALL refresh_continuous_aggregate('conditions', '2020-01-01', '2020-02-01', force => TRUE);
+```
 
 [modify-parameters]: /use-timescale/:currentVersion/configuration/customize-configuration/
 [create_materialized_view]: /api/:currentVersion:/continuous-aggregates/create_materialized_view/

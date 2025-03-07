@@ -1,6 +1,6 @@
 ---
 title: Ingest data
-excerpt: Ingest data into Managed Service for TimescaleDB
+excerpt: Ingest data into your services running in Managed Service for TimescaleDB
 products: [mst]
 keywords: [ingest, data migration]
 tags: [JDB, ODBC, client driver, Kafka, csv]

@@ -1,6 +1,6 @@
 ---
 title: About querying data
-excerpt: How to query data in Timescale
+excerpt: Querying data in Timescale Cloud works just like querying data in PostgreSQL, which means you can reuse your existing queries from another PostgreSQL database
 products: [cloud, mst, self_hosted]
 keywords: [queries]
 ---

@@ -1,6 +1,6 @@
 ---
 title: Create an index on a continuous aggregate
-excerpt: How to create and drop indexes on a continuous aggregate
+excerpt: Adding an index to your continuous aggregate can make your analytical queries lightning fast. Learn when and how to create and drop indexes from continuous aggregates in Timescale Cloud
 products: [cloud, mst, self_hosted]
 keywords: [continuous aggregates, indexes]
 ---

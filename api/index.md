@@ -1,6 +1,6 @@
 ---
 title: TimescaleDB API reference
-excerpt: Look up details about the use and behavior of TimescaleDB APIs
+excerpt: See the full list of SQL functions and views that Timescale Cloud provides to help you interact with and manage your data
 keywords: [reference]
 ---
 

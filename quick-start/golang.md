@@ -1,6 +1,6 @@
 ---
 title: "Quick Start: Go and TimescaleDB"
-excerpt: Get started with TimescaleDB for a Go application
+excerpt: Get started with Timescale Cloud or TimescaleDB using Go
 keywords: [Golang, Go]
 ---
 
