@@ -34,7 +34,9 @@ Pricing plans give you:
 * **Cost efficiency**: by aligning our pricing with the value delivered, we ensure that you get the most
   out of every dollar spent. Our goal is to help you achieve more with less.
 
-Using self-hosted TimescaleDB and our open-source products is still free.  
+Using self-hosted TimescaleDB and our open-source products is still free. 
+
+If you create a $COMPANY account from AWS Marketplace, the pricing options are pay-as-you-go and annual commit. See [AWS pricing][aws-pricing] for details. 
 
 This page explains pricing plans for Timescale Cloud, and how to easily manage your
 Timescale account.
@@ -231,7 +233,14 @@ alt="Adding a payment method in Timescale"/>
 - **Plans**: choose the plan supplying the [features][plan-features] that suit your business and
   engineering needs.
 
-- **Add-ons**: add `Production support` and improved database performance for mission critical workloads.  
+- **Add-ons**: add `Production support` and improved database performance for mission-critical workloads.  
+
+## AWS Marketplace pricing
+
+When you get $CLOUD_LONG at AWS Marketplace, the following pricing options are available:
+
+- **Pay-as-you-go**: your consumption is calculated at the end of the month and included in your AWS invoice. No upfront costs, standard $CLOUD_LONG rates apply. 
+- **Annual commit**: your consumption is calculated at the end of the month ensuring predictable pricing and seamless billing through your AWS account. We confirm the contract terms with you before finalizing the commitment.
 
 [cloud-login]: https://console.cloud.timescale.com/
 [compression]: /use-timescale/:currentVersion:/compression/
@@ -243,3 +252,4 @@ alt="Adding a payment method in Timescale"/>
 [production-support]: https://www.timescale.com/support
 [get-in-touch]: https://www.timescale.com/contact
 [hipaa-compliance]: https://www.hhs.gov/hipaa/for-professionals/index.html
+[aws-pricing]: #aws-pricing
