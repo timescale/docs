@@ -11,9 +11,9 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 
 [Striim][striim] is a real-time data integration platform that enables you to ingest, process, and deliver streaming data across various systems with minimal latency. It connects data sources with targets and transforms the data on the fly.
 
-[Eclipse Mosquitto][mosquitto] is an open-source MQTT broker widely used for lightweight messaging in IoT and mobile applications. 
+[Eclipse Mosquitto][mosquitto] is an open-source MQTT broker widely used for lightweight messaging in IoT and mobile applications.
 
-This page explains how to stream real-time IoT data from Eclipse Mosquitto to Timescale Cloud using Striim. 
+This page explains how to stream real-time IoT data from Eclipse Mosquitto to Timescale Cloud using Striim.
 
 ## Prerequisites
 
@@ -35,28 +35,29 @@ To prepare sample IoT data to stream to $CLOUD_LONG:
    ```bash
    mosquitto -v
    ```
+
+1. **Verify the data**
+
+   Subscribe to the `sensor/data` MQTT topic:
+
+   ```bash
+   mosquitto_sub -t sensor/data
+   ```
+
 1. **Publish sample data**
 
-   Run the following command to publish data to the `sensor/data` MQTT topic:
+   In a new terminal, run the following command to publish data to the `sensor/data` topic:
 
    ```bash
    mosquitto_pub -t sensor/data -m '{"temperature": 22.5, "humidity": 60}'
    ```
 
-1. **Verify the data** 
-
-   Subscribe to the topic to verify the data:
-
-   ```bash
-   mosquitto_sub -t sensor/data
-   ```
-   
-   You should see this:
+   You should see the following data in the first terminal:
 
    ```json
    {"temperature": 22.5, "humidity": 60}
    ```
-   
+
 </Procedure>
 
 ## Prepare your $SERVICE_LONG to ingest data
@@ -97,38 +98,28 @@ Configure Eclipse Mosquitto as the source and $CLOUD_LONG as the target, then co
 
 1. **Create a data flow**
 
-   1. Navigate to `Applications` > `Create Application` > `Data Flow`.
-   1. Name your application, for example, `MosquittoToTimescale`.
+   1. Navigate to `Apps` > `Create An App` > `Start from Scratch`.
+   2. Name your application, for example, `MosquittoToTimescale`.
 
 1. **Configure the source**
 
     1. Drag the `MQTT Source` component into the data flow.
-    1. Enter the connection details for your Eclipse Mosquitto broker: `host`, `port`, and `sensor/data` for `topic`.
-    1. Click `Test Connection`.
+    2. Enter the connection details for your Eclipse Mosquitto broker, and `sensor/data` for `topic`.
+    3. Create a New Output Stream and name it `mqtt_sensor_stream`.
 
 1. **Configure the target**
 
-    1. Drag the `PostgreSQL Writer` component into the data flow.
-    1. Enter the [connection details][connection-info] for your $SERVICE_SHORT.
-    1. Choose `sensor_data` as the table name.
-    1. Use the dropdowns in the `Field Mapping` section to map source fields to the destination columns.
+    1. Drag the `PostgreSQL` component into the data flow.
+    2. Choose Input Stream as `mqtt_sensor_stream`.
+    3. Enter the [connection details][connection-info] for your $SERVICE_SHORT.
+    4. Choose `sensor_data` as the table name.
 
-1. **Add a continuous query**
+1. **Deploy and start the application**
 
-   1. Drag the `Continuous Query` component between `MQTT Source` and `PostgreSQL Writer`.
-   1. Open the continuous query configuration panel and write an SQL query to transform and map the data:
+    1. Deploy the app by clicking on the dropdown at the top of the data flow window and selecting `Deploy App`.
+    2. After the app is deployed successfully, from the same drop down, click on `Start App`.
 
-      ```sql
-      SELECT 
-      jsonextractstring(payload, '$.time') AS time,
-      jsonextractfloat(payload, '$.temperature') AS temperature,
-      jsonextractfloat(payload, '$.humidity') AS humidity
-      FROM mqtt_source_stream;
-      ```
-
-1. **Connect the source and the target**
-
-   Draw a line from `MQTT Source` to `PostgreSQL Writer`.
+NOTE: Please take a look, after this setup and deploying the app, there are a few errors.
 
 1. **Test the data flow**
 
@@ -138,7 +129,7 @@ Configure Eclipse Mosquitto as the source and $CLOUD_LONG as the target, then co
        mosquitto_pub -t sensor/data -m '{"temperature": 24.3, "humidity": 55}'
        ```
     
-    1. Verify the data is streamed to your $SERVICE_LONG:
+    2. Verify the data is streamed to your $SERVICE_LONG:
    
        ```sql
        SELECT * FROM sensor_data;
