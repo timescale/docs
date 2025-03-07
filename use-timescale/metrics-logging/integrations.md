@@ -50,6 +50,10 @@ tool. You create an exporter on the [project level][projects], in the same AWS r
 
 </Tabs>
 
+## Manage a data exporter
+
+This section shows you how to attach, monitor, edit, and delete a data exporter.
+
 <ManageDataExporter />
 
 [attach-exporter]: /use-timescale/:currentVersion:/metrics-logging/integrations/#attach-a-data-exporter-to-a-timescale-cloud-service
