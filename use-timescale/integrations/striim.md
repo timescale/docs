@@ -52,12 +52,20 @@ To prepare sample IoT data to stream to $CLOUD_LONG:
    mosquitto_pub -t sensor/data -m '{"temperature": 22.5, "humidity": 60}'
    ```
 
-   You should see the following data in the first terminal:
+1. **Verify the data** 
+
+   Subscribe to the topic to verify the data:
+
+   ```bash
+   mosquitto_sub -t sensor/data
+   ```
+   
+   You should see this:
 
    ```json
    {"temperature": 22.5, "humidity": 60}
    ```
-
+   
 </Procedure>
 
 ## Prepare your $SERVICE_LONG to ingest data
