@@ -45,15 +45,38 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 | [Terraform][terraform]      | Safely and predictably provision and manage infrastructure in any cloud. |
 
 
+
 ## Data engineering and extract, transform, load
 
-|               Name               | Description                                                                                            |
-|:--------------------------------:|--------------------------------------------------------------------------------------------------------|
-| [Amazon SageMaker][amazon-sagemaker]| Build, train, and deploy ML models into a production-ready hosted environment.                         |
-| [Apache Airflow][apache-airflow] | Programmatically author, schedule, and monitor workflows.                                              |
-| [Apache Kafka][kafka] | Stream high-performance data pipelines, analytics, and data integration. |
-| [AWS Lambda][aws-lambda]| Run code without provisioning or managing servers, scaling automatically as needed.                    |
+|               Name               | Description                                                                         |
+|:--------------------------------:|-------------------------------------------------------------------------------------|
+| [Amazon SageMaker][amazon-sagemaker]| Build, train, and deploy ML models into a production-ready hosted environment.      |
+| [Apache Airflow][apache-airflow] | Programmatically author, schedule, and monitor workflows.                           |
+| [Apache Kafka][kafka] | Stream high-performance data pipelines, analytics, and data integration.            |
+| [AWS Lambda][aws-lambda]| Run code without provisioning or managing servers, scaling automatically as needed. |
+| [Decodable][decodable] | Build, run, and manage data pipelines effortlessly.                                 |
 
+## Data ingestion and streaming
+
+|         Name         | Description                                                                                                                                                                 |
+|:--------------------:|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Fivetran][fivetran] | Sync data from multiple sources to your data warehouse. |
+
+## Business intelligence and data visualization
+
+|         Name         | Description                                                           |
+|:--------------------:|-----------------------------------------------------------------------|
+| [Power BI][power-bi] | Visualize data, build interactive dashboards, and share insights. |
+
+
+## Secure connectivity to $CLOUD_LONG
+
+|                 Name                 | Description                                                                 |
+|:------------------------------------:|-----------------------------------------------------------------------------|
+|      [Amazon Web Services][aws]      | Connect your other services and applications running in AWS to $CLOUD_LONG. |
+|     [Google Cloud][google-cloud]     | Connect your Google Cloud infrastructure to $CLOUD_LONG.                    |
+|       [Microsoft Azure][azure]       | Connect your Microsoft Azure infrastructure to $CLOUD_LONG.                 |
+| [Corporate data center][data-center] | Connect your on-premise data center to $CLOUD_LONG.                         |
 
 
 [psql]: /use-timescale/:currentVersion:/integrations/psql/
@@ -69,8 +92,14 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 [apache-airflow]: /use-timescale/:currentVersion:/integrations/apache-airflow
 [aws-lambda]: /use-timescale/:currentVersion:/integrations/aws-lambda
 [postgresql-integrations]: https://slashdot.org/software/p/PostgreSQL/integrations/
-[kafka]: /use-timescale/:currentVersion:/integrations/apache-kafka
+[decodable]: /use-timescale/:currentVersion:/integrations/decodable
+[power-bi]: /use-timescale/:currentVersion:/integrations/power-bi
+[fivetran]: /use-timescale/:currentVersion:/integrations/fivetran
 [prometheus]: /use-timescale/:currentVersion:/integrations/prometheus
-[amazon-sagemaker]: /use-timescale/:currentVersion:/integrations/
+[amazon-sagemaker]: /use-timescale/:currentVersion:/integrations/amazon-sagemaker
 [postgresql]: /use-timescale/:currentVersion:/integrations/postgresql
-
+[kafka]: /use-timescale/:currentVersion:/integrations/apache-kafka
+[aws]: /use-timescale/:currentVersion:/integrations/aws
+[google-cloud]: /use-timescale/:currentVersion:/integrations/google-cloud
+[azure]: /use-timescale/:currentVersion:/integrations/microsoft-azure
+[data-center]: /use-timescale/:currentVersion:/integrations/corporate-data-center
