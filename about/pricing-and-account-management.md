@@ -240,7 +240,7 @@ alt="Adding a payment method in Timescale"/>
 When you get $CLOUD_LONG at AWS Marketplace, the following pricing options are available:
 
 - **Pay-as-you-go**: your consumption is calculated at the end of the month and included in your AWS invoice. No upfront costs, standard $CLOUD_LONG rates apply. 
-- **Annual commit**: your consumption is calculated at the end of the month and deducted from the annual contract amount paid upfront. Consumption that exceeds the contract amount is billed according to the pay-as-you-go scheme. 
+- **Annual commit**: your consumption is calculated at the end of the month ensuring predictable pricing and seamless billing through your AWS account. We confirm the contract terms with you before finalizing the commitment.
 
 [cloud-login]: https://console.cloud.timescale.com/
 [compression]: /use-timescale/:currentVersion:/compression/
