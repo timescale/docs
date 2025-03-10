@@ -8,6 +8,33 @@ keywords: [changelog, upgrades, updates, releases]
 
 All the latest features and updates to Timescale products.
 
+## Agent Mode for PopSQL and more
+<Label type="date">March 7, 2025</Label>
+
+### 🤖 Agent Mode for PopSQL 
+
+Introducing Agent Mode, a new feature in $CONSOLE SQL Assistant. SQL Assistant lets you query your database using natural language. However, if you ran into errors, you have to approve the implementation of the Assistant's suggestions. 
+
+With Agent Mode on, SQL Assistant automatically adjusts and executes your query without intervention. It runs, diagnoses, and fixes any errors that it runs into until you get your desired results.
+
+Below you can see SQL Assistant run into an error, identify the resolution, execute the fixed query, display results, and even change the title of the query:
+
+![Timescale SQL Assistant Agent Mode](https://assets.timescale.com/docs/images/timescale-sql-assistant-agent-mode.gif)
+
+To use Agent Mode, make sure you have SQL Assistant enabled, then click on the model selector dropdown, and tick the `Agent Mode` checkbox.
+
+### Improved AWS Marketplace integration for a smoother experience
+
+We've enhanced the AWS Marketplace workflow to make your experience even better! Now, everything is fully automated, ensuring a seamless process from setup to billing. If you're using the AWS Marketplace integration, you'll notice a smoother transition and clearer billing visibility—your $CLOUD_LONG subscription will be reflected directly in AWS Marketplace!
+
+### $CONSOLE recommendations
+
+Sometimes it can be hard to know if you are getting the best use out of your service. To help with this, $CLOUD_LONG now provides recommendations based on your service's context, assisting with onboarding or notifying if there is a configuration concern with your service, such as consistently failing jobs. 
+
+To start, recommendations are focused primarily on onboarding or service health, though we will regularly add new ones. You can see if you have any existing recommendations for your service by going to the `Actions` tab in $CONSOLE.
+
+![Timescale Console recommendations](https://assets.timescale.com/docs/images/timescale-console-recommendations.png)
+
 ## 🛣️ Configuration Options for Secure Connections and More
 <Label type="date">February 28, 2025</Label>
 
