@@ -10,7 +10,7 @@ content_group: Ingest real-time financial websocket data
 
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
 import CreateHypertable from "versionContent/_partials/_create-hypertable-twelvedata-stocks.mdx";
-import CreateHypertableStocks from "versionContent/_partials/_create-hypertable-twelvedata-stocks.mdx";
+import CreateHypertableCrypo from "versionContent/_partials/_create-hypertable-twelvedata-crypto.mdx";
 import GrafanaConnect from "versionContent/_partials/_grafana-connect.mdx";
 
 # Ingest data into a $SERVICE_LONG
@@ -160,7 +160,7 @@ two arguments to create a websocket object and establish connection.
 </Procedure>
 
 
-<CreateHypertableStocks />
+<CreateHypertableCrypo />
 
 When you ingest data into a transactional database like Timescale, it is more
 efficient to insert data in batches rather than inserting data row-by-row. Using

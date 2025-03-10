@@ -10,10 +10,6 @@ api:
 
 import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 
-import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
-
-import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
-
 # decompress_chunk() <Tag type="community">Community</Tag>
 
 <Deprecated2180 /> Replaced by <a href="https://docs.timescale.com/api/latest/hypercore/convert_to_cconvert_to_rowstore/">convert_to_rowstore()</a>.
