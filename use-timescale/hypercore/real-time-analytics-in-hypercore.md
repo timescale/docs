@@ -72,7 +72,7 @@ repeated values,[XOR-based][xor] and [dictionary compression][dictionary] is use
 [run-length]: /use-timescale/:currentVersion:/compression/compression-methods/#run-length-encoding
 [xor]: /use-timescale/:currentVersion:/compression/compression-methods/#xor-based-encoding
 [dictionary]: /use-timescale/:currentVersion:/compression/compression-methods/#dictionary-compression
-[ingest-data]: /getting-started/:currentVersion:/time-series-data/#ingest-the-dataset
+[ingest-data]: /getting-started/:currentVersion:/try-key-features-timescale-products/#optimize-time-series-data-in-hypertables
 [add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/
 [run-job]: /api/:currentVersion:/actions/run_job/
 [convert_to_rowstore]: /api/:currentVersion:/hypercore/convert_to_rowstore/
