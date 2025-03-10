@@ -7,6 +7,7 @@ keywords: [hypertables, indexes, chunks]
 
 # Improve query performance
 
+One of the key purposes of hypertables is to make your analytical queries run with the lowest latency possible - and they have been designed accordingly. 
 When you execute a query on a hypertable, you do not parse the whole table; you only access the chunks necessary
 to satisfy the query. This works well when the `WHERE` clause of a query uses the column by which a hypertable is 
 partitioned. For example, in a hypertable where every day of the year is a separate chunk, a query for September 1 

@@ -9,15 +9,12 @@ import UsageBasedStorage from "versionContent/_partials/_usage-based-storage-int
 
 # About data retention
 
-In time-series applications, data often becomes less useful as it gets older. If
-you don't need your historical data, you can delete it once it reaches a certain
-age. Timescale lets you set up
-[automatic data retention policies][retention-policy] to discard old data. You
-can also fine-tune data retention by [manually dropping chunks][manual-drop].
+In modern applications, data grows exponentially. As data gets older, it often becomes less useful in day-to-day operations. 
+However, you still need it for analysis. Timescale elegantly solves this problem with
+[automated data retention policies][retention-policy]. 
 
-Often, you want to keep summaries of your historical data, but you don't need
-the raw data. You can downsample your older data by
-[combining data retention with continuous aggregates][retention-with-caggs].
+Data retention policies delete raw old data for you on a schedule that you define. 
+By [combining retention policies with continuous aggregates][retention-with-caggs], you can downsample your data and keep useful summaries of it instead. This lets you analyze historical data - while also saving on storage. 
 
 <UsageBasedStorage />
 

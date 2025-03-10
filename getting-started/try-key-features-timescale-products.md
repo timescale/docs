@@ -1,5 +1,5 @@
 ---
-title: Try the main Timescale features
+title: Try out key features of Timescale products
 excerpt: Improve database performance with hypertables, time bucketing, compression and continuous aggregates.
 products: [cloud]
 content_group: Getting started
@@ -8,7 +8,7 @@ content_group: Getting started
 import HASetup from 'versionContent/_partials/_high-availability-setup.mdx';
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
 
-# Try the main Timescale features
+# Try out key features of Timescale products
 
 $CLOUD_LONG scales PostgreSQL to ingest and query vast amounts of live data. $CLOUD_LONG 
 provides a range of features and optimizations that supercharge your queries while keeping the 
@@ -16,8 +16,7 @@ costs down. For example:
 * The hypercore row-columnar engine makes queries up to 350x faster, ingests 44% faster, and reduces storage by 90%.
 * Tiered storage seamlessly moves your data from high performance storage for frequently access data to low cost bottomless storage for rarely accessed data. 
 
-The following figure shows how $CLOUD_LONG optimizes your data for optimized real-time analytics and reduced
-costs:
+The following figure shows the main features and tiered data in $CLOUD_LONG:
 
 ![Main features and tiered data](https://assets.timescale.com/docs/images/timescalecloud-service-architecture.png )
 
@@ -28,7 +27,7 @@ ingest and query data faster while keeping prices low.
 
 <IntegrationPrereqs />
 
-## Improve insert and query performance
+## Optimize time-series data in hypertables
 
 Time-series data represents how a system, process, or behavior changes over time. Hypertables are PostgreSQL tables 
 that help you improve insert and query performance by automatically partition your data by time. Each hypertable 

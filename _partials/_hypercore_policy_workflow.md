@@ -1,4 +1,6 @@
 
+<Procedure>
+
 1. **Connect to your $SERVICE_LONG**
 
    In [$CONSOLE][services-portal] open an [SQL editor][in-console-editors]. You can also connect to your service using [psql][connect-using-psql].
@@ -98,6 +100,7 @@
    ```
    See [alter_table_hypercore][alter_table_hypercore]. 
 
+</Procedure>
 
 [job]: /api/:currentVersion:/actions/add_job/
 [alter_table_hypercore]: /api/:currentVersion:/hypercore/alter_table/

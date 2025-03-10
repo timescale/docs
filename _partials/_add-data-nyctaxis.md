@@ -5,8 +5,6 @@ When you have your database set up, you can load the taxi trip data into the
 
 <Procedure>
 
-### Loading trip data
-
 <Highlight type="important">
 This is a large dataset, so it might take a long time, depending on your network
 connection.
