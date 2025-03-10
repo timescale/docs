@@ -50,6 +50,8 @@ about how continuous aggregates use real-time aggregation, see the
 |`if_not_exists`|BOOLEAN|Set to `true` to issue a notice instead of an error if the job already exists. Defaults to false.|
 |`timezone`|TEXT|A valid time zone. If you specify `initial_start`, subsequent executions of the refresh policy are aligned on `initial_start`. However, daylight savings time (DST) changes may shift this alignment. If this is an issue you want to mitigate, set `timezone` to a valid time zone. Default is `NULL`, [UTC bucketing](https://docs.timescale.com/use-timescale/latest/time-buckets/about-time-buckets/) is performed.|
 | `include_tiered_data` | BOOLEAN | Enable/disable reading tiered data. This setting helps override the current settings for the`timescaledb.enable_tiered_reads` GUC. The default is NULL i.e we use the current setting for `timescaledb.enable_tiered_reads` GUC  | |
+| `buckets_per_batch` | INTEGER | Number of buckets to be refreshed by a "batch". To summarize this value is multiplied by the CAgg bucket width to determine the size of the batch range. Default value is `0` (zero) that means it will keep the current behavior of single batch execution. Values less than `0` (zero) are not allowed. | |
+| `max_batches_per_execution` | INTEGER | Maximum number of batches to be executed by a policy execution. This option is used to limit the number of batches processed by a single policy execution, so if some batches remain next time the policy run they will be processed. Default value is `10` (ten) that means that each job execution will process the maximum of ten batches. To make it unlimited then the value should be `0` (zero). Values less than `0` (zero) are not allowed. | |
 
 
 ### Returns
