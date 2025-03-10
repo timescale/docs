@@ -18,6 +18,8 @@ or [manually tier and untier data][manual-tier].
 
 You can query the data on the object storage tier, but you cannot modify it. Make sure that you are not tiering data that needs to be **actively modified**.
 
+$COMPANY charges for data tiering based on the uncompressed amount of data to be tiered, even if you compress it first.
+
 ## Enable tiered storage
 
 You enable tiered storage from the `Overview` tab in Console.
