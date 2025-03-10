@@ -16,7 +16,8 @@ costs down. For example:
 * The hypercore row-columnar engine makes queries up to 350x faster, ingests 44% faster, and reduces storage by 90%.
 * Tiered storage seamlessly moves your data from high performance storage for frequently access data to low cost bottomless storage for rarely accessed data. 
 
-The following figure shows the main features and tiered data in $CLOUD_LONG:
+The following figure shows how $CLOUD_LONG optimizes your data for optimized real-time analytics and reduced
+costs:
 
 ![Main features and tiered data](https://assets.timescale.com/docs/images/timescalecloud-service-architecture.png )
 
