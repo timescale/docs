@@ -11,6 +11,7 @@ import Connect from "versionContent/_partials/_cloud-connect.mdx";
 import CreateAHypertable from "versionContent/_partials/_create-hypertable.mdx";
 import ServiceOverview from "versionContent/_partials/_service-overview.mdx";
 import CloudIntro from "versionContent/_partials/_cloud-intro.mdx";
+import WhereNext from "versionContent/_partials/_where-to-next.mdx";
 
 # Create your first $SERVICE_LONG
 
@@ -59,11 +60,10 @@ A $SERVICE_LONG comes with access control to its data. To be able to run queries
 
 <Connect />
 
-## Create a hypertable
+And that is it, you are up and running. Enjoy developing with $COMPANY.
 
-<CreateAHypertable />
+<WhereNext />
 
-And that is it, you are up and running. Enjoy developing with $CLOUD_LONG.
 
 [tsc-portal]: https://console.cloud.timescale.com/
 [services-how-to]: /use-timescale/:currentVersion:/services/
