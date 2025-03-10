@@ -109,7 +109,9 @@ bandwidth of your service to meet those needs.
 We make it easy for you to store unlimited amounts of data using Tiered Storage; a high-performance
 storage tier and a low-cost bottomless storage tier. You can keep up to 16 TB compressed
 (typically 80-100 TBs uncompressed) in the high-performance storage tier, and configure less-frequently
-accessed data to be moved to our low-cost storage tier built on S3. Note that $COMPANY charges for data tiering based on the uncompressed amount of data to be tiered, even if you compress it first.
+accessed data to be moved to our low-cost storage tier built on S3. 
+
+Because of the proprietary format used to store data in Amazon S3, $COMPANY charges for tiered data based on its uncompressed size, even if you compress it first.
 
 Timescale Cloud is very efficient and generally needs less compute than other databases to deliver
 the same performance. The best way to size your needs is to signup for a free trial and to test

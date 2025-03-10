@@ -18,7 +18,7 @@ or [manually tier and untier data][manual-tier].
 
 You can query the data on the object storage tier, but you cannot modify it. Make sure that you are not tiering data that needs to be **actively modified**.
 
-$COMPANY charges for data tiering based on the uncompressed amount of data to be tiered, even if you compress it first.
+Because of the proprietary format used to store data in Amazon S3, $COMPANY charges for tiered data based on its uncompressed size, even if you compress it first.
 
 ## Enable tiered storage
 
