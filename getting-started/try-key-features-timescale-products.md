@@ -66,14 +66,14 @@ relational and time-series data from external files.
        
           The $CONSOLE data upload creates the tables for you from the data you are uploading:
           1. In [$CONSOLE][portal-ops-mode], select the service to add data to, then click **Actions** > **Upload CSV**.
-          1. Drag `<local folder>/tutorial_sample_tick.csv` to `Upload .CSV` and change `New table name`, to `assets_real_time`.
+          1. Drag `<local folder>/tutorial_sample_tick.csv` to `Upload .CSV` and change `New table name`, to `crypto_ticks`.
           1. Enable `hypertable partition` for the `time` column and click `Upload CSV`.
        
               The upload wizard creates a hypertable containing the data from the CSV file.
           1. When the data is uploaded, close `Upload .CSV`.
        
               If you want to  have a quick look at your data, press `Run` .
-          1. Repeat the process with `<local folder>/tutorial_sample_assets.csv` and rename to `assets`.
+          1. Repeat the process with `<local folder>/tutorial_sample_assets.csv` and rename to `crypto_assets`.
        
               There is no time-series data in this table, so you don't see the  `hypertable partition` option.
 
@@ -93,16 +93,16 @@ relational and time-series data from external files.
              1. In your sql client, create a normal PostgreSQL table:
       
                 ```sql
-                CREATE TABLE assets_real_time (
+                CREATE TABLE crypto_ticks (
                   time TIMESTAMPTZ NOT NULL,
                   symbol TEXT NOT NULL,
                   price DOUBLE PRECISION NULL,
                   day_volume INT NULL
                 );
                 ```
-             1.  Convert `assets_real_time` to a hypertable:
+             1.  Convert `crypto_ticks` to a hypertable:
                 ```sql
-                SELECT create_hypertable('assets_real_time', by_range('time'));
+                SELECT create_hypertable('crypto_ticks', by_range('time'));
                 ```
                 To more fully understand how hypertables work, and how to optimize them for performance by
                 tuning chunk intervals and enabling chunk skipping, see [the hypertables documentation][hypertables-section].
@@ -111,7 +111,7 @@ relational and time-series data from external files.
       
              In your sql client, create a normal PostgreSQL table:
              ```sql
-             CREATE TABLE assets (
+             CREATE TABLE crypto_assets (
               symbol TEXT NOT NULL,
               name TEXT NOT NULL
              );
@@ -119,8 +119,8 @@ relational and time-series data from external files.
 
        3. Upload the dataset to your $SERVICE_SHORT
           ```sql
-          \COPY assets_real_time from './tutorial_sample_tick.csv' DELIMITER ',' CSV HEADER;
-          \COPY assets from './tutorial_sample_company.csv' DELIMITER ',' CSV HEADER;
+          \COPY crypto_ticks from './tutorial_sample_tick.csv' DELIMITER ',' CSV HEADER;
+          \COPY crypto_assets from './tutorial_sample_company.csv' DELIMITER ',' CSV HEADER;
           ```
         
        </Tab>
@@ -179,7 +179,7 @@ $CONSOLE. You can also do this using psql.
     PostgreSQL `MATERIALIZED VIEW` in a hypertable. `timescaledb.continuous` ensures that this data
     is always up to date.
     In your SQL editor, use the following code to create a continuous aggregate on the real time data in
-    the `assets_real_time` table:
+    the `crypto_ticks` table:
 
     ```sql
     CREATE MATERIALIZED VIEW assets_candlestick_daily
@@ -191,7 +191,7 @@ $CONSOLE. You can also do this using psql.
       first(price, time) AS open,
       last(price, time) AS close,
       min(price) AS low
-    FROM assets_real_time srt
+    FROM crypto_ticks srt
     GROUP BY day, symbol;
     ```
 
@@ -224,7 +224,7 @@ $CONSOLE. You can also do this using psql.
 <Procedure>
 
 1. **In [$CONSOLE][portal-ops-mode], select the service you uploaded data to**.
-1. **Click `Operations` > `Continuous aggregates`, select `assets_real_time`, then click `Create continuous aggregate`**.
+1. **Click `Operations` > `Continuous aggregates`, select `crypto_ticks`, then click `Create continuous aggregate`**.
    ![Continuous aggregate wizard](https://assets.timescale.com/docs/images/continuous-aggregate-wizard.png )
 1. **Create a view called `assets_candlestick_daily` on the `time` column with an interval of `1 day`, then click `Next step`**.
 1. **Update the view SQL with the following functions, then click `Run`**
@@ -238,7 +238,7 @@ $CONSOLE. You can also do this using psql.
      first(price, time) AS open,
      last(price, time) AS close,
      min(price) AS low
-   FROM "public"."assets_real_time" srt
+   FROM "public"."crypto_ticks" srt
    GROUP BY bucket, symbol;
     ```
 1. **When the view is created, click `Next step`**
@@ -284,7 +284,7 @@ market data.
    Create a [job][job] that automatically moves chunks in a hypertable to the columnstore at a specific time interval.
 
    ```sql
-   ALTER TABLE assets_real_time SET (
+   ALTER TABLE crypto_ticks SET (
       timescaledb.enable_columnstore = true, 
       timescaledb.segmentby = 'symbol');
    ```
@@ -293,7 +293,7 @@ market data.
 
    For example, 60 days after the data was added to the table:
    ``` sql
-   CALL add_columnstore_policy('assets_real_time', after => INTERVAL '60d');
+   CALL add_columnstore_policy('crypto_ticks', after => INTERVAL '60d');
    ```
    See [add_columnstore_policy][add_columnstore_policy].
  
@@ -306,7 +306,7 @@ market data.
    SELECT
      pg_size_pretty(before_compression_total_bytes) as before,
      pg_size_pretty(after_compression_total_bytes) as after
-   FROM hypertable_compression_stats('assets_real_time');
+   FROM hypertable_compression_stats('crypto_ticks');
    ```
    You see something like:
 
@@ -365,7 +365,7 @@ To setup data tiering:
       ```
     1. Query the data:
       ```sql 
-      SELECT * FROM assets_real_time srt LIMIT 10
+      SELECT * FROM crypto_ticks srt LIMIT 10
       ```
     1. Disable reads on tiered data:
       ```sql  

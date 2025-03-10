@@ -1,4 +1,4 @@
-SELECT * FROM assets_real_time srt
+SELECT * FROM crypto_ticks srt
 WHERE symbol='ETH/USD'
 ORDER BY time DESC
 LIMIT 10;
