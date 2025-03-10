@@ -9,6 +9,8 @@ cloud_ui:
         - [services, :serviceId, overview]
 ---
 
+import TieredStorageBilling from "versionContent/_partials/_tiered-storage-billing.mdx";
+
 # Manage automated and manual tiering
 
 You use tiered storage to save on storage costs. Specifically, you can migrate rarely used data from 
@@ -18,7 +20,7 @@ or [manually tier and untier data][manual-tier].
 
 You can query the data on the object storage tier, but you cannot modify it. Make sure that you are not tiering data that needs to be **actively modified**.
 
-Because of the proprietary format used to store data in Amazon S3, $COMPANY charges for tiered data based on its uncompressed size, even if you compress it first.
+<TieredStorageBilling />
 
 ## Enable tiered storage
 

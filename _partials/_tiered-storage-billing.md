@@ -1,0 +1,1 @@
+Because of the proprietary format used to store data in Amazon S3, $COMPANY charges for tiered data based on its uncompressed size, even if you compress it first.
