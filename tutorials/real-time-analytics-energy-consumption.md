@@ -17,6 +17,11 @@ Energy providers understand that customers tend to lose patience when there is n
 to complete day-to-day activities. Task one is keeping the lights on. If you are transitioning to renewable energy,
 it helps to know when you need to produce energy so you can choose a suitable energy source.  
 
+Real-time analytics refers to the process of collecting, analyzing, and interpreting data instantly as it is generated. 
+This approach enables you track and monitor activity, make the decisions based on real-time insights on data stored in 
+a $SERVICE_LONG and keep those lights on.
+
+
 [Grafana][grafana-docs] is a popular data visualization tool that enables you to create customizable dashboards 
 and effectively monitor your systems and applications.
 

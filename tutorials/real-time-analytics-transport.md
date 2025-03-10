@@ -5,6 +5,7 @@ products: [cloud, mst, self_hosted]
 keywords: [IoT, simulate]
 ---
 
+import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
 import GrafanaConnect from "versionContent/_partials/_grafana-connect.mdx";
 import ImportData from "versionContent/_partials/_import-data-nyc-taxis.mdx";
 import GeolocationAnalytics from "versionContent/_partials/_use-case-transport-geolocation.mdx";
@@ -21,8 +22,6 @@ This page shows you how to integrate [Grafana][grafana-docs] with a $SERVICE_LON
 of data optimized for size and speed in the columnstore.
 
 ## Prerequisites
-
-import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
 
 <IntegrationPrereqs />
 
