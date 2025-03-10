@@ -13,7 +13,7 @@ cloud_ui:
 
 Timescale's tiered storage architecture includes a standard high-performance storage tier and a low-cost object storage tier built on Amazon S3. You can use the standard tier for data that requires quick access, and the object tier for rarely used historical data. Chunks from a single hypertable, including compressed chunks, can stretch across these two storage tiers. A compressed chunk uses a different storage representation after tiering.
 
-In the high-performance storage, chunks are stored in the block format. In the object storage, they are stored in a compressed, columnar S3 format. For better interoperability across various platforms, this format is different from that of the internals of the database. It allows for more efficient columnar scans across longer time periods, and $CLOUD uses other metadata and query optimizations to reduce the amount of data that needs to be fetched from the object storage tier to satisfy a query.
+In the high-performance storage, chunks are stored in the block format. In the object storage, they are stored in a compressed, columnar S3 format. This format is different from that of the internals of your $SERVICE_LONG. It allows for more efficient columnar scans across longer time periods, and $CLOUD uses other metadata and query optimizations to reduce the amount of data that needs to be fetched from the object storage tier to satisfy a query.
 
 Because of the proprietary format used to store data in Amazon S3, $COMPANY charges for tiered data based on its uncompressed size, even if you compress it first.
 
