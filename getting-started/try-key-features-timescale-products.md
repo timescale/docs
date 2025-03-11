@@ -1,5 +1,5 @@
 ---
-title: Try the main Timescale features
+title: Try the key Timescale features
 excerpt: Improve database performance with hypertables, time bucketing, compression and continuous aggregates.
 products: [cloud]
 content_group: Getting started
@@ -8,7 +8,7 @@ content_group: Getting started
 import HASetup from 'versionContent/_partials/_high-availability-setup.mdx';
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
 
-# Try the main Timescale features
+# Try the key Timescale features
 
 $CLOUD_LONG scales PostgreSQL to ingest and query vast amounts of live data. $CLOUD_LONG 
 provides a range of features and optimizations that supercharge your queries while keeping the 

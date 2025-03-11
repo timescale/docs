@@ -10,7 +10,7 @@ module.exports = [
         excerpt: "Create a Timescale service and connect to it",
       },
       {
-        title: "Try the main Timescale features",
+        title: "Try the key Timescale features",
         href: "try-key-features-timescale-products",
         excerpt: "Improve database performance with Hypertables, time bucketing, continuous aggregates, compression, data tiering, and high availability",
       },
