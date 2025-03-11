@@ -9,8 +9,6 @@ cloud_ui:
         - [services, :serviceId, overview]
 ---
 
-import TieredStorageBilling from "versionContent/_partials/_tiered-storage-billing.mdx";
-
 # About the object storage tier
 
 $COMPANY's tiered storage architecture includes a standard high-performance storage tier and a low-cost object storage tier built on Amazon S3. You can use the standard tier for data that requires quick access, and the object tier for rarely used historical data. Chunks from a single hypertable, including compressed chunks, can stretch across these two storage tiers. 
