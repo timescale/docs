@@ -16,7 +16,8 @@ costs down. For example:
 * The hypercore row-columnar engine makes queries up to 350x faster, ingests 44% faster, and reduces storage by 90%.
 * Tiered storage seamlessly moves your data from high performance storage for frequently access data to low cost bottomless storage for rarely accessed data. 
 
-The following figure shows the main features and tiered data in $CLOUD_LONG:
+The following figure shows how $CLOUD_LONG optimizes your data for superfast real-time analytics and reduced
+costs:
 
 ![Main features and tiered data](https://assets.timescale.com/docs/images/timescalecloud-service-architecture.png )
 
@@ -210,7 +211,7 @@ $CONSOLE. You can also do this using psql.
 1.  **Have a quick look at your data**
 
     You query continuous aggregates exactly the same way as your other tables. To query the `assets_candlestick_daily`
-    continuous aggregate for all stocks:
+    continuous aggregate for all assets:
 
     <TryItOutCodeBlock queryId="getting-started-cagg" />
 
@@ -260,7 +261,8 @@ To see the change in terms of query time and data returned between a regular que
 a continuous aggregate, run the query part of the continuous aggregate
 ( `SELECT ...GROUP BY day, symbol;` ) and compare the results.
 
-## Optimize cooling data for analytics
+
+## Enhance query performance for analytics
 
 Hypercore is the Timescale hybrid row-columnar storage engine, designed specifically for real-time analytics and 
 powered by time-series data. The advantage of Hypercore is its ability to seamlessly switch between row-oriented and 
@@ -274,8 +276,8 @@ The columns of this row hold an array-like structure that stores all the data. B
 space, you can reduce your chunk size by more than 90%, and can also speed up your queries. This saves on storage costs, 
 and keeps your queries operating at lightning speed.
 
-Best practice is to compress data that is no longer needed for highest performance queries, but is still accessed regularly. For example, last week's stock 
-market data.
+Best practice is to compress data that is no longer needed for highest performance queries, but is still accessed 
+regularly. For example, last week's market data.
 
 <Procedure>
 
@@ -384,7 +386,7 @@ HA replicas automatically take over operations if the original primary data node
 The primary node streams its write-ahead log (WAL) to the replicas to minimize the chances of 
 data loss during failover.
 
-![Move from rowstore and columstore in hypercore](https://assets.timescale.com/docs/images/high-availability-read-replica.png )
+![Move from rowstore and columstore in hypercore](https://assets.timescale.com/docs/images/ha-read-replica.png )
 
 High availability is available in the [scale and enterprise][pricing-plans] pricing plans for $CLOUD_LONG. 
 
