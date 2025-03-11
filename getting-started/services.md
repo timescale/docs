@@ -24,9 +24,6 @@ To start using $CLOUD_LONG for your data:
 1. [Create a $COMPANY account][create-an-account]: register in $CONSOLE to get a centralized point to administer and interact with your data.
 1. [Create a $SERVICE_LONG][create-a-service]: that is, a PostgreSQL database instance, powered by [$TIMESCALE_DB][timescaledb], built for production, and extended with cloud features like transparent data tiering to object storage.
 1. [Connect to your $SERVICE_LONG][connect-to-your-service]: to run queries, add and migrate your data from other sources.
-1. [Create a hypertable][create-a-hypertable]: create a standard PostgreSQL table in your service, then convert it into a [hypertable][hypertables].
-
-   Anything you can do with regular PostgreSQL tables, you can do with hypertables, just with much better performance and improved user experience for real-time analytics workloads.
 
 <Install />
 
