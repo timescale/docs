@@ -213,7 +213,7 @@ $CONSOLE. You can also do this using psql.
     You query continuous aggregates exactly the same way as your other tables. To query the `assets_candlestick_daily`
     continuous aggregate for all assets:
 
-    <TryItOutCodeBlock queryId="getting-started-cagg" />
+    <TryItOutCodeBlock queryId="getting-started-crypto-cagg" />
 
 
 </Procedure>

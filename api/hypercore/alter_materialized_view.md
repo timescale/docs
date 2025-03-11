@@ -40,7 +40,9 @@ continuous aggregate view:
 - Enable hypercore for a continuous aggregate:
 
    ```sql
-   ALTER MATERIALIZED VIEW stock_candlestick_daily set (timescaledb.enable_columnstore = true, timescaledb.segmentby = 'symbol' );
+    ALTER MATERIALIZED VIEW assets_candlestick_daily set (
+     timescaledb.enable_columnstore = true, 
+     timescaledb.segmentby = 'symbol' );
    ```
 
 - Rename a column for a continuous aggregate:
@@ -52,7 +54,7 @@ continuous aggregate view:
 - **Enable indexing on data in the columnstore** <EarlyAccess />
 
    ```sql
-   ALTER MATERIALIZED VIEW stock_candlestick_daily 
+   ALTER MATERIALIZED VIEW assets_candlestick_daily 
       set access method hypercore,
       set (timescaledb.enable_columnstore = true, timescaledb.segmentby = 'symbol' );
    ``` 

@@ -27,7 +27,7 @@ from the rowstore to the columnstore.
 
 <PrereqCloud />
 
-This page uses the [real-time-stock-data][ingest-data] sample data in the samples.   
+The code samples in this page use the <Tag type="download">[crypto_sample.zip](https://assets.timescale.com/docs/downloads/candlestick/crypto_sample.zip)</Tag> data from [Try the key Timescale features][ingest-data].   
 
 ## Optimize your data with columnstore policies 
 
