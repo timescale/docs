@@ -14,7 +14,7 @@ $CLOUD_LONG scales PostgreSQL to ingest and query vast amounts of live data. $CL
 provides a range of features and optimizations that supercharge your queries while keeping the 
 costs down. For example: 
 * The hypercore row-columnar engine makes queries up to 350x faster, ingests 44% faster, and reduces storage by 90%.
-* Tiered storage seamlessly moves your data from high performance storage for frequently access data to low cost bottomless storage for rarely accessed data. 
+* Tiered storage seamlessly moves your data from high performance storage for frequently accessed data to low cost bottomless storage for rarely accessed data. 
 
 The following figure shows how $CLOUD_LONG optimizes your data for superfast real-time analytics and reduced
 costs:
@@ -356,7 +356,7 @@ To setup data tiering:
      SELECT add_tiering_policy('assets_candlestick_daily', INTERVAL '3 weeks');   
      ```
 
-1. **Qeury tiered data**
+1. **Query tiered data**
 
     You enable reads from tiered data for each query, for a session or for all future 
     sessions. To run a single query on tiered data:

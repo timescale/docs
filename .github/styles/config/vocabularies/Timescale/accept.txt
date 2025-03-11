@@ -48,6 +48,7 @@ Hasura
 HipChat
 [Hh]ostname
 href
+[Hh]ypercore
 [Hh]yperloglog
 [Hh]yperfunctions?
 [Hh]ypertables?
