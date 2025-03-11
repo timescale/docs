@@ -22,11 +22,15 @@ This page explains how to integrate your corporate on-premise infrastructure wit
 
 To connect to $CLOUD_LONG:
 
+<Procedure>
+
 1. **Connect your infrastructure to AWS Transit Gateway**
 
    Establish connectivity between your on-premise infrastructure and AWS. See the [Centralize network connectivity using AWS Transit Gateway][aws-onprem].
 
 <TransitGateway />
+
+</Procedure>
 
 You have successfully integrated your Microsoft Azure infrastructure with $CLOUD_LONG.
 

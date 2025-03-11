@@ -24,7 +24,11 @@ This page explains how to integrate your AWS infrastructure with $CLOUD_LONG usi
 
 To connect to $CLOUD_LONG:
 
+<Procedure>
+
 <TransitGateway />
+
+</Procedure>
 
 You have successfully integrated your AWS infrastructure with $CLOUD_LONG. 
 

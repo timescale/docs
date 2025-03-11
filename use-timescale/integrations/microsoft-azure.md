@@ -24,11 +24,15 @@ This page explains how to integrate your Microsoft Azure infrastructure with $CL
 
 To connect to $CLOUD_LONG:
 
+<Procedure>
+
 1. **Connect your infrastructure to AWS Transit Gateway**
 
    Establish connectivity between Azure and AWS. See the [AWS architectural documentation][azure-aws] for details.
 
 <TransitGateway />
+
+</Procedure>
 
 You have successfully integrated your Microsoft Azure infrastructure with $CLOUD_LONG.
 

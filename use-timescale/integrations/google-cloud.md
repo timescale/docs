@@ -24,11 +24,15 @@ This page explains how to integrate your Google Cloud infrastructure with $CLOUD
 
 To connect to $CLOUD_LONG:
 
+<Procedure>
+
 1. **Connect your infrastructure to AWS Transit Gateway**
 
     Establish connectivity between Google Cloud and AWS. See [Connect HA VPN to AWS peer gateways][gcp-aws].
 
 <TransitGateway />
+
+</Procedure>
 
 You have successfully integrated your Google Cloud infrastructure with $CLOUD_LONG.
 

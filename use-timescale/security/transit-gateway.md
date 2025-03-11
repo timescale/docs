@@ -34,11 +34,17 @@ AWS Transit Gateway enable you to connect from almost any environment, this page
 
 <Tab title="Amazon Web Services">
 
+<Procedure>
+
 <TransitGateway />
+
+</Procedure>
 
 </Tab>
 
 <Tab title="Microsoft Azure">
+
+<Procedure>
 
 1. **Connect your infrastructure to AWS Transit Gateway**
 
@@ -46,9 +52,13 @@ AWS Transit Gateway enable you to connect from almost any environment, this page
 
 <TransitGateway />
 
+</Procedure>
+
 </Tab>
 
 <Tab title="Google Cloud">
+
+<Procedure>
 
 1. **Connect your infrastructure to AWS Transit Gateway**
 
@@ -56,15 +66,21 @@ AWS Transit Gateway enable you to connect from almost any environment, this page
 
 <TransitGateway />
 
+</Procedure>
+
 </Tab>
 
 <Tab title="On-premise">
+
+<Procedure>
 
 1. **Connect your infrastructure to AWS Transit Gateway**
 
     Establish connectivity between your on-premise infrastructure and AWS. See the [Centralize network connectivity using AWS Transit Gateway][aws-onprem].
 
 <TransitGateway />
+
+</Procedure>
 
 </Tab>
 
