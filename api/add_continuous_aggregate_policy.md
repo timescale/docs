@@ -53,6 +53,10 @@ about how continuous aggregates use real-time aggregation, see the
 | `buckets_per_batch` | INTEGER | Number of buckets to be refreshed by a "batch". To summarize this value is multiplied by the CAgg bucket width to determine the size of the batch range. Default value is `0` (zero) that means it will keep the current behavior of single batch execution. Values less than `0` (zero) are not allowed. | |
 | `max_batches_per_execution` | INTEGER | Maximum number of batches to be executed by a policy execution. This option is used to limit the number of batches processed by a single policy execution, so if some batches remain next time the policy run they will be processed. Default value is `10` (ten) that means that each job execution will process the maximum of ten batches. To make it unlimited then the value should be `0` (zero). Values less than `0` (zero) are not allowed. | |
 
+<Highlight type="important">
+Setting `buckets_per_batch` greater than zero means that the refresh window will be splitted in batches of the size calculated by `bucket width * buckets per batch`. So if a given Continuous Aggregate have a bucket width `1 day` than with `buckets_per_batch=10` means that the batches will have the size of `10 days` to process the refresh.
+Executing the policy incrementally (in batches) make the data visible for the users before the job execution finishes, because each `batch` is an individual transaction. The batches are processed from the most recent data to the oldest one.
+</Highlight>
 
 ### Returns
 
