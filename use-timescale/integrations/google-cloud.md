@@ -6,7 +6,7 @@ keywords: [Google Cloud, integrations]
 ---
 
 import IntegrationPrereqsCloud from "versionContent/_partials/_integration-prereqs-cloud-only.mdx";
-import TransitGatewayOthers from "versionContent/_partials/_transit-gateway-others.mdx";
+import TransitGateway from "versionContent/_partials/_transit-gateway.mdx";
 
 # Integrate Google Cloud with $CLOUD_LONG
 
@@ -28,7 +28,7 @@ To connect to $CLOUD_LONG:
 
     Establish connectivity between Google Cloud and AWS. See [Connect HA VPN to AWS peer gateways][gcp-aws].
 
-<TransitGatewayOthers />
+<TransitGateway />
 
 You have successfully integrated your Google Cloud infrastructure with $CLOUD_LONG.
 

@@ -6,7 +6,7 @@ keywords: [on-premise, integrations]
 ---
 
 import IntegrationPrereqsCloud from "versionContent/_partials/_integration-prereqs-cloud-only.mdx";
-import TransitGatewayOthers from "versionContent/_partials/_transit-gateway-others.mdx";
+import TransitGateway from "versionContent/_partials/_transit-gateway.mdx";
 
 # Integrate your data center with $CLOUD_LONG
 
@@ -26,7 +26,7 @@ To connect to $CLOUD_LONG:
 
    Establish connectivity between your on-premise infrastructure and AWS. See the [Centralize network connectivity using AWS Transit Gateway][aws-onprem].
 
-<TransitGatewayOthers />
+<TransitGateway />
 
 You have successfully integrated your Microsoft Azure infrastructure with $CLOUD_LONG.
 
