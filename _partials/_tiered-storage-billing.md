@@ -1,1 +1,1 @@
-Because of the proprietary format used to store data in Amazon S3, $COMPANY charges for tiered data based on its uncompressed size, even if you compress it first.
+$COMPANY charges only for the storage that your data occupies in S3, regardless of whether it was compressed in $CLOUD_LONG before tiering. There are no additional expenses, such as data transfer or compute. 
