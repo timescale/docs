@@ -15,7 +15,7 @@ $COMPANY's tiered storage architecture includes a standard high-performance stor
 
 In the high-performance storage, your data is stored in the block format. In the object storage, it is stored in [Apache Parquet][parquet]. The original size of the data in your $SERVICE_SHORT, compressed or uncompressed, does not correspond directly to its size in S3. A compressed hypertable may even take more space in S3 than it does in $CLOUD_LONG.
 
-The columnar storage format allows for more efficient scans across longer time periods, and $CLOUD_LONG uses other metadata and query optimizations to reduce the amount of data that needs to be fetched from the object storage tier to satisfy a query.
+Apache Parquet allows for more efficient scans across longer time periods, and $CLOUD_LONG uses other metadata and query optimizations to reduce the amount of data that needs to be fetched from the object storage tier to satisfy a query.
 
 Regardless of where your data is stored, you can still query it with standard SQL. A single SQL query transparently pulls data from the appropriate chunks using the chunk exclusion algorithms. You can `JOIN` against tiered data, build views, and even define continuous aggregates on it. In fact, because the implementation of continuous aggregates also uses hypertables, they can be tiered to low-cost storage as well. 
 
