@@ -50,7 +50,7 @@ to the columnstore:
 
 1. **Connect to your $SERVICE_LONG**
 
-   In [$CONSOLE][services-portal] open an [SQL editor][in-console-editors]. The in-console editors display the query speed.
+   In [$CONSOLE][services-portal] open an [SQL editor][in-console-editors]. The in-Console editors display the query speed.
    You can also connect to your service using [psql][connect-using-psql].
 
 1. **Enable columnstore on a hypertable**
@@ -77,7 +77,7 @@ to the columnstore:
 
 1. **View your data space saving**
   
-   When you convert data to the columnstore, as well as being optimized for analytics, it is compresses by more than 90%. 
+   When you convert data to the columnstore, as well as being optimized for analytics, it is compressed by more than 90%. 
    This saves on storage costs and keeps your queries operating at lightning speed. To see the amount of space saved:
    ```sql
    SELECT 
@@ -106,7 +106,7 @@ to the columnstore:
 
 </Procedure>
 
-Just to hit this one home, by converting cooling data to the columnstore, you have increase the speed of your analytical 
+Just to hit this one home, by converting cooling data to the columnstore, you have increased the speed of your analytical 
 queries by a factor of 10, and reduced storage by up to 90%.
    
 

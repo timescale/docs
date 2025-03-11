@@ -18,7 +18,7 @@ to complete day-to-day activities. Task one is keeping the lights on. If you are
 it helps to know when you need to produce energy so you can choose a suitable energy source.  
 
 Real-time analytics refers to the process of collecting, analyzing, and interpreting data instantly as it is generated. 
-This approach enables you track and monitor activity, make the decisions based on real-time insights on data stored in 
+This approach enables you to track and monitor activity, make the decisions based on real-time insights on data stored in 
 a $SERVICE_LONG and keep those lights on.
 
 
@@ -42,7 +42,7 @@ data optimized for size and speed in the columnstore.
 
 ## Write fast analytical queries
 
-Aggregation is a way of combing data to get insights from it. Average, sum, and count are all examples of simple 
+Aggregation is a way of combining data to get insights from it. Average, sum, and count are all examples of simple 
 aggregates. However, with large amounts of data aggregation slows things down, quickly. Continuous aggregates 
 are a kind of hypertable that is refreshed automatically in the background as new data is added, or old data is 
 modified. Changes to your dataset are tracked, and the hypertable behind the continuous aggregate is automatically 
@@ -81,7 +81,7 @@ to the columnstore:
 
 1. **Connect to your $SERVICE_LONG**
 
-   In [$CONSOLE][services-portal] open an [SQL editor][in-console-editors]. The in-console editors display the query speed.
+   In [$CONSOLE][services-portal] open an [SQL editor][in-console-editors]. The in-Console editors display the query speed.
    You can also connect to your service using [psql][connect-using-psql].
 
 1. **Enable columnstore on a hypertable**
@@ -108,7 +108,7 @@ to the columnstore:
 
 1. **View your data space saving**
 
-   When you convert data to the columnstore, as well as being optimized for analytics, it is compresses by more than 90%.
+   When you convert data to the columnstore, as well as being optimized for analytics, it is compressed by more than 90%.
    This saves on storage costs and keeps your queries operating at lightning speed. To see the amount of space saved:
    ```sql
    SELECT 
@@ -136,7 +136,7 @@ to the columnstore:
 
 </Procedure>
 
-Just to hit this one home, by converting cooling data to the columnstore, you have increase the speed of your analytical
+Just to hit this one home, by converting cooling data to the columnstore, you have increased the speed of your analytical
 queries by a factor of 10, and reduced storage by up to 90%.
 
 <GrafanaConnect />
@@ -184,7 +184,7 @@ To visually monitor the volume of energy consumption over time:
        ```
 
       This query averages the results for households in a specific time zone by hour and orders them by time.
-      Because you use a continuous aggregate, this data is always correct in real-time.
+      Because you use a continuous aggregate, this data is always correct in real time.
    
       ![Grafana real-time analytics](https://assets.timescale.com/docs/images/use-case-rta-grafana-timescale-energy-cagg.png)
 
@@ -204,8 +204,8 @@ You have integrated Grafana with a Timescale Cloud service and made insights bas
 [grafana-cloud]: https://grafana.com/get/
 [use-time-buckets]: /use-timescale/:currentVersion:/time-buckets/use-time-buckets/
 
-[test-drive-enable-compression]: /getting-started/:currentVersion:/try-key-features-timescale-products/#prepare-your-data-for-real-time-analytics-with-hypercore
-[test-drive-tiered-storage]: /getting-started/:currentVersion:/try-key-features-timescale-products/#reduce-storage-charges-on-older-data-using-compression
+[test-drive-enable-compression]: /getting-started/:currentVersion:/try-key-features-timescale-products/#enhance-query-performance-for-analytics
+[test-drive-tiered-storage]: /getting-started/:currentVersion:/try-key-features-timescale-products/#slash-storage-charges
 [data-tiering]: /use-timescale/:currentVersion:/data-tiering/
 [compression]: /use-timescale/:currentVersion:/compression/
 [hierarchical-caggs]: /use-timescale/:currentVersion:/continuous-aggregates/hierarchical-continuous-aggregates/
