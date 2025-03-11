@@ -8,6 +8,7 @@ keywords: [changelog, upgrades, updates, releases]
 
 All the latest features and updates to Timescale products.
 
+
 ## Agent Mode for PopSQL and more
 <Label type="date">March 7, 2025</Label>
 
