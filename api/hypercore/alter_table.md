@@ -34,7 +34,10 @@ To enable the columnstore:
    Segment the hypertable by `device_id` to improve query performance. 
 
    ```sql
-    ALTER TABLE metrics SET (timescaledb.enable_columnstore, timescaledb.orderby = 'time DESC', timescaledb.segmentby = 'device_id');
+    ALTER TABLE metrics SET(
+      timescaledb.enable_columnstore, 
+      timescaledb.orderby = 'time DESC', 
+      timescaledb.segmentby = 'device_id');
    ```
 
 - **Specify the chunk interval without changing other columnstore settings**:
