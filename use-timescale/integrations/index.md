@@ -95,8 +95,7 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 [postgresql-integrations]: https://slashdot.org/software/p/PostgreSQL/integrations/
 [decodable]: /use-timescale/:currentVersion:/integrations/decodable
 [power-bi]: /use-timescale/:currentVersion:/integrations/power-bi
-[fivetran]: /use-timescale/:currentVersion:/integrations/
-
+[fivetran]: /use-timescale/:currentVersion:/integrations/fivetran
 [prometheus]: /use-timescale/:currentVersion:/integrations/prometheus
 [amazon-sagemaker]: /use-timescale/:currentVersion:/integrations/amazon-sagemaker
 [postgresql]: /use-timescale/:currentVersion:/integrations/postgresql

@@ -10,10 +10,10 @@ import HypercoreManualWorkflow from "versionContent/_partials/_hypercore_manual_
 
 # Modify your data in Hypercore
 
-You [setup Hypercore][setup-hypercore] to automatically convert data between the rowstore and columnstore
+You [set up Hypercore][setup-hypercore] to automatically convert data between the rowstore and columnstore
 when it reaches a certain age. After you have optimized data in the columnstore, you may need to modify it. 
 For example, to make small changes, or backfill large amounts of data. You may even have to update the schema to 
-accommodate this changes to the data.
+accommodate these changes to the data.
 
 This page shows you how to update small and large amounts of new data, and update the schema in columnstore.
 
@@ -21,7 +21,7 @@ This page shows you how to update small and large amounts of new data, and updat
 
 <PrereqCloud />
 
-- [Prepare your data for real-time analytics in Hypercore][setup-hypercore]
+- [Optimize your data for real-time analytics][setup-hypercore]
 
 ## Modify small amounts of data
 
@@ -31,7 +31,7 @@ of data is decompressed to allow a speculative insertion, and block any inserts 
 constraints.
 
 When you `DELETE` whole segments of data, filter your deletes using the column you `segment_by` 
-instead of separate deletes. This considerably increase performance.
+instead of separate deletes. This considerably increases performance.
 
 ## Modify large amounts of data
 
@@ -48,7 +48,7 @@ This workflow is especially useful if you need to backfill old data.
 
 ## Modify a table schema for data in the columnstore
 
-You can add modify the schema of a table in the columnstore. To do this, you need to:
+You can modify the schema of a table in the columnstore. To do this, you need to:
 
 <Procedure>
 
@@ -73,16 +73,16 @@ You can add modify the schema of a table in the columnstore. To do this, you nee
 
    - Add a nullable column:
    
-      `ALTER TABLE <hypertable> ADD COLUMN <column_name> <datatype>;`                                 |
+      `ALTER TABLE <hypertable> ADD COLUMN <column_name> <datatype>;`                                 
    - Add a column with a default value and a `NOT NULL` constraint:
 
-      `ALTER TABLE <hypertable> ADD COLUMN <column_name> <datatype> NOT NULL DEFAULT <default_value>;` |
+      `ALTER TABLE <hypertable> ADD COLUMN <column_name> <datatype> NOT NULL DEFAULT <default_value>;` 
    - Rename a column:
 
-     `ALTER TABLE <hypertable> RENAME <column_name> TO <new_name>;` |
+     `ALTER TABLE <hypertable> RENAME <column_name> TO <new_name>;` 
    - Drop a column:
 
-     `ALTER TABLE <hypertable> DROP COLUMN <column_name>;`                                                                                                |
+     `ALTER TABLE <hypertable> DROP COLUMN <column_name>;`                                                                                                
    
    You cannot change the data type of an existing column.
 

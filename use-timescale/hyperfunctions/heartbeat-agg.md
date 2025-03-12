@@ -7,8 +7,8 @@ keywords: [hyperfunctions, Toolkit, heartbeat, liveness]
 # Heartbeat aggregation
 
 Given a series of timestamped health checks, it can be tricky to determine the
-overall health of a system over a given interval. PostgresQL provides window
-functions which you use to get a sense of where unhealthy gaps are, but can
+overall health of a system over a given interval. PostgreSQL provides window
+functions that you use to get a sense of where unhealthy gaps are, but they can
 be somewhat awkward to use efficiently. 
 
 This is one of the many cases where hyperfunctions provide an efficient, simple solution for 

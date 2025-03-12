@@ -1,6 +1,6 @@
 ---
 title: Integrate Apache Airflow with Timescale Cloud
-excerpt: How to integrate Apache Airflow with Timescale Cloud and create a data pipeline
+excerpt: Apache Airflow is a platform to programmatically author, schedule, and monitor workflows. Integrate Apache Airflow with Timescale Cloud and create a data pipeline
 products: [cloud, mst, self_hosted]
 keywords: [connect, integrate, apache, airflow]
 ---
@@ -26,7 +26,7 @@ This page shows you how to use a Python connector in a DAG to integrate Apache A
 
    Ensure that your Airflow instance has network access to $CLOUD_LONG.
 
-This example DAG uses the `company` table you create in  [Create regular PostgreSQL tables for relational data][create-a-table-in-timescale]
+This example DAG uses the `company` table you create in [Optimize time-series data in hypertables][create-a-table-in-timescale]
 
 ## Install python connectivity libraries
 
