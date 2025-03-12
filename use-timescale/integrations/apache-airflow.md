@@ -100,8 +100,8 @@ To exchange data between Airflow and your $SERVICE_LONG:
       
              https://docs.timescale.com/getting-started/latest/try-key-features-timescale-products/#optimize-time-series-data-in-hypertables
             """            
-           cursor.execute("INSERT INTO company (symbol, name) VALUES (%s, %s)",
-                   ('new_company_symbol', 'New Company Name'))
+           cursor.execute("INSERT INTO crypto_assets (symbol, name) VALUES (%s, %s)",
+            ('NEW/Asset','New Asset Name'))
            conn.commit()
            cursor.close()
            conn.close()
