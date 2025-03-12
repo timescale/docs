@@ -27,9 +27,9 @@
  
 1. **Add a policy to convert chunks to the columnstore at a specific time interval**
 
-   For example, move data that is greater than 8 days old to the columnstore:
+   For example, move yesterday's crypto trading data to the columnstore:
    ``` sql
-   CALL add_columnstore_policy('crypto_ticks', after => INTERVAL '8d');
+   CALL add_columnstore_policy('crypto_ticks', after => INTERVAL '1d');
    ```
    See [add_columnstore_policy][add_columnstore_policy].
    
