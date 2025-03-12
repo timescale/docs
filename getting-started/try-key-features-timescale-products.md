@@ -86,7 +86,7 @@ relational and time-series data from external files.
           ```bash
           psql -d "postgres://<username>:<password>@<host>:<port>/<database-name>"
           ```
-          The connection information for a $SERVICE_SHORT is available in the file you downloaded when you created it.
+          You use your [connection details][connection-info] to fill in this PostgreSQL connection string.
       
        2. Create tables for the data to import
       
@@ -95,10 +95,10 @@ relational and time-series data from external files.
       
                 ```sql
                 CREATE TABLE crypto_ticks (
-                  time TIMESTAMPTZ NOT NULL,
-                  symbol TEXT NOT NULL,
-                  price DOUBLE PRECISION NULL,
-                  day_volume INT NULL
+                  "time" TIMESTAMPTZ,
+                  symbol TEXT,
+                  price DOUBLE PRECISION,
+                  day_volume NUMERIC
                 );
                 ```
              1.  Convert `crypto_ticks` to a hypertable:
@@ -121,7 +121,7 @@ relational and time-series data from external files.
        3. Upload the dataset to your $SERVICE_SHORT
           ```sql
           \COPY crypto_ticks from './tutorial_sample_tick.csv' DELIMITER ',' CSV HEADER;
-          \COPY crypto_assets from './tutorial_sample_company.csv' DELIMITER ',' CSV HEADER;
+          \COPY crypto_assets from './tutorial_sample_assets.csv' DELIMITER ',' CSV HEADER;
           ```
         
        </Tab>
@@ -247,7 +247,7 @@ $CONSOLE. You can also do this using psql.
    - `How far back do you want to materialize?`: `3 weeks`
    - `What recent data to exclude?`: `24 hours`
    - `How often do you want the job to run?`: `3 hours`
-1. **Click `Create continuous aggregate`, then click `Run`**
+1. **Click `Next step`, then click `Run`**
 
 $CLOUD_LONG creates the continuous aggregate and displays the aggregate ID in $CONSOLE. Click `DONE` to close the wizard.
 
@@ -293,9 +293,9 @@ regularly. For example, last week's market data.
 
 1. **Add a policy to convert chunks to the columnstore at a specific time interval**
 
-   For example, 60 days after the data was added to the table:
+   For example, yesterday's data:
    ``` sql
-   CALL add_columnstore_policy('crypto_ticks', after => INTERVAL '60d');
+   CALL add_columnstore_policy('crypto_ticks', after => INTERVAL '1d');
    ```
    See [add_columnstore_policy][add_columnstore_policy].
  
@@ -403,7 +403,7 @@ What next? See the [use case tutorials][tutorials], interact with the data in yo
 [integrations]: /use-timescale/:currentVersion:/integrations/
 [use-the-api]: /api/:currentVersion:/
 [use-timescale]: /use-timescale/:currentVersion:/
-
+[connection-info]: /use-timescale/:currentVersion:/integrations/find-connection-details/
 [create-a-service]: /getting-started/:currentVersion:/services/
 [deploy-self-hosted]: /self-hosted/:currentVersion:/install/
 [connect-to-your-service]: /getting-started/:currentVersion:/run-queries-from-console/
