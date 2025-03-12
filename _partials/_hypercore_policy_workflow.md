@@ -27,7 +27,7 @@
  
 1. **Add a policy to convert chunks to the columnstore at a specific time interval**
 
-   For example, move data that is greater than 8 days old to the columnstor:
+   For example, move data that is greater than 8 days old to the columnstore:
    ``` sql
    CALL add_columnstore_policy('crypto_ticks', after => INTERVAL '8d');
    ```
@@ -37,7 +37,7 @@
 
    1. View your data space saving:
    
-      When you convert data to the columnstore, as well as being optimized for analytics, it is compresses by more than 
+      When you convert data to the columnstore, as well as being optimized for analytics, it is compressed by more than 
       90%. This saves on storage costs and keeps your queries operating at lightning speed. To see the amount of space 
       saved:
 

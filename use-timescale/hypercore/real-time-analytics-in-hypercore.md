@@ -13,14 +13,14 @@ import EarlyAccess from "versionContent/_partials/_early_access.mdx";
 
 # Optimize your data for real-time analytics 
 
-Hypercore is the Timescale hybrid row-columnar storage engine used by Hypertables. Hypertables partition your data in chunks. Chunks stored in the rowstore use a row-oriented data format optimized for high-speed inserts and updates. Chunks stored in the columnstore use a columnar data format optimized for analytics.
-You ingest `hot` data into the rowstore. As data cools and becomes more suited for analytics, 
+Hypercore is the Timescale hybrid row-columnar storage engine used by hypertables. Hypertables partition your data in chunks. Chunks stored in the rowstore use a row-oriented data format optimized for high-speed inserts and updates. Chunks stored in the columnstore use a columnar data format optimized for analytics.
+You ingest _hot_ data into the rowstore. As data _cools_ and becomes more suited for analytics, 
 $CLOUD_LONG automatically converts these chunks of data to the columnstore. You define the moment when data is converted 
 using a columnstore policy.
 
 <HCConversionOverview />
 
-This page shows you how get the best results when you set a policy to automatically convert chunks in a hypertable 
+This page shows you how to get the best results when you set a policy to automatically convert chunks in a hypertable 
 from the rowstore to the columnstore.
 
 ## Prerequisites
@@ -49,7 +49,7 @@ When $CLOUD_LONG converts a chunk to the columnstore, TimescaleDB automatically 
 data. $TIMESCALE_DB creates and uses custom indexes to incorporate the `segmentby` and `orderby` parameters when 
 you write to and read from the columstore.
 
-To setup your Hypercore automation:
+To set up your Hypercore automation:
 
 <HCPolicyWorkflow />
 

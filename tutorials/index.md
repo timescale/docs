@@ -13,18 +13,18 @@ database has hidden in it, and even give you options for visualizing and
 graphing your results.
 
 - **Real-time analytics** 
-  - [Analytics on energy consumption][rta-energy]: make data-driven decisions using energy consumption data
-  - [Analytics on transport and geospatial data][rta-transport]: optimize profits using geospatial transport data
+  - [Analytics on energy consumption][rta-energy]: make data-driven decisions using energy consumption data.
+  - [Analytics on transport and geospatial data][rta-transport]: optimize profits using geospatial transport data.
 - **Cryptocurrency**
-  - [Query the Bitcoin blockchain][beginner-crypto]: do your own research on the Bitcoin blockchain
-  - [Analyze the Bitcoin blockchain][intermediate-crypto]: discover the relationship between transactions, blocks, fees, and miner revenue
+  - [Query the Bitcoin blockchain][beginner-crypto]: do your own research on the Bitcoin blockchain.
+  - [Analyze the Bitcoin blockchain][intermediate-crypto]: discover the relationship between transactions, blocks, fees, and miner revenue.
 - **Finance**
-  - [Analyze financial tick data][beginner-finance]: chart the trading highs and lows for your favorite stock
-  - [Ingest real-time financial data using WebSocket][advanced-finance]: use a websocket connection to visualize the trading highs and lows for your favorite stock
+  - [Analyze financial tick data][beginner-finance]: chart the trading highs and lows for your favorite stock.
+  - [Ingest real-time financial data using WebSocket][advanced-finance]: use a websocket connection to visualize the trading highs and lows for your favorite stock.
 - **IoT**
-  - [Simulate an IoT sensor dataset][iot]: simulate an IoT sensor dataset
+  - [Simulate an IoT sensor dataset][iot]: simulate an IoT sensor dataset and run simple queries on it.
 - **Cookbooks**
-  - [Timescale community cookbook][cookbooks]: suggestions from the TimescaleDB Community about how to resolve common issues.
+  - [Timescale community cookbook][cookbooks]: get suggestions from the TimescaleDB Community about how to resolve common issues.
 
 
 [rta-energy]: /tutorials/:currentVersion:/real-time-analytics-energy-consumption
