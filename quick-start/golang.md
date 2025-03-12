@@ -932,7 +932,7 @@ your Go application, be sure to check out these advanced TimescaleDB tutorials:
 [create-table]: #create-a-relational-table
 [create-a-hypertable]: /quick-start/:currentVersion:/golang/#generate-a-hypertable
 [insert]: /quick-start/:currentVersion:/golang/#insert-rows-of-data
-[query]: #execute-a-query
+[query]: /quick-start/:currentVersion:/golang/#execute-a-query
 [create-hypertable-docs]: /use-timescale/:currentVersion:/hypertables/create/
 [insert]: /quick-start/:currentVersion:/golang/#insert-a-row-into-your-timescale-database
 [query]: /quick-start/:currentVersion:/golang/#execute-a-query-on-your-timescale-database
