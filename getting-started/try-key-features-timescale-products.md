@@ -268,7 +268,7 @@ a continuous aggregate, run the query part of the continuous aggregate
 
 ## Enhance query performance for analytics
 
-Hypercore is the Timescale hybrid row-columnar storage engine, designed specifically for real-time analytics and 
+Hypercore is the $TIMESCALE_DB hybrid row-columnar storage engine, designed specifically for real-time analytics and 
 powered by time-series data. The advantage of Hypercore is its ability to seamlessly switch between row-oriented and 
 column-oriented storage. This flexibility enables Timescale Cloud to deliver the best of both worlds, solving the key 
 challenges in real-time analytics.
