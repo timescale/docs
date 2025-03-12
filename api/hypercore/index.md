@@ -58,9 +58,9 @@ Best practice for using Hypercore is to:
 
 1. **Add a policy to move chunks to the columnstore at a specific time interval**
 
-   For example, 60 days after the data was added to the table:
+   For example, 7 days after the data was added to the table:
    ``` sql
-   CALL add_columnstore_policy('crypto_ticks', after => INTERVAL '60d');
+   CALL add_columnstore_policy('crypto_ticks', after => INTERVAL '7d');
    ```
    See [add_columnstore_policy][add_columnstore_policy].
 

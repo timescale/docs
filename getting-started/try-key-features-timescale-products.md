@@ -294,6 +294,8 @@ regularly. For example, last week's market data.
       timescaledb.enable_columnstore = true, 
       timescaledb.segmentby = 'symbol');
    ```
+   You [segmentby][alter-table-arguments] to speed up queries.   
+
 
 1. **Add a policy to convert chunks to the columnstore at a specific time interval**
 
@@ -431,4 +433,5 @@ What next? See the [use case tutorials][tutorials], interact with the data in yo
 [high-availability]: /use-timescale/:currentVersion:/ha-replicas/high-availability/
 [sign-up]: https://console.cloud.timescale.com/signup
 [job]: /api/:currentVersion:/actions/add_job/
+[alter-table-arguments]: /api/:currentVersion:/hypercore/alter_table/#arguments
 [add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/
