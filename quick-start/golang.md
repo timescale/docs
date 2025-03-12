@@ -929,7 +929,7 @@ your Go application, be sure to check out these advanced TimescaleDB tutorials:
 [pgx-driver-github]: https://github.com/jackc/pgx
 [install]: /getting-started/latest/
 [connect]: #connect-to-timescaledb
-[create-table]: #create-a-relational-table
+[create-table]: /quick-start/:currentVersion:/golang/#create-a-relational-table
 [create-a-hypertable]: /quick-start/:currentVersion:/golang/#generate-a-hypertable
 [insert]: /quick-start/:currentVersion:/golang/#insert-rows-of-data
 [query]: /quick-start/:currentVersion:/golang/#execute-a-query
