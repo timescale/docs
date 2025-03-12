@@ -50,9 +50,9 @@ To create a columnstore job:
 
    For example:
 
-   * 60 days after the data was added to the table:
+   * 6 days after the data was added to the table:
      ``` sql
-     CALL add_columnstore_policy('crypto_ticks', after => INTERVAL '60d');
+     CALL add_columnstore_policy('crypto_ticks', after => INTERVAL '6d');
      ```
    * 3 months prior to the moment you run the query:
 

@@ -100,9 +100,9 @@ to the columnstore:
 
 1. **Add a policy to convert chunks to the columnstore at a specific time interval**
 
-   For example, 60 days after the data was added to the table:
+   For example, 7 days after the data was added to the table:
    ``` sql
-   CALL add_columnstore_policy('metrics', INTERVAL '8 days');
+   CALL add_columnstore_policy('metrics', INTERVAL '7 days');
    ```
    See [add_columnstore_policy][add_columnstore_policy].
 
