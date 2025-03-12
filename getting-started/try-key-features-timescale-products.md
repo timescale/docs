@@ -88,7 +88,7 @@ relational and time-series data from external files.
           ```
           You use your [connection details][connection-info] to fill in this PostgreSQL connection string.
       
-       2. Create tables for the data to import
+       2. Create tables for the data to import:
       
           - For the time-series data:
              1. In your sql client, create a normal PostgreSQL table:
@@ -118,9 +118,13 @@ relational and time-series data from external files.
              );
             ```
 
-       3. Upload the dataset to your $SERVICE_SHORT
+       3. Upload the dataset to your $SERVICE_SHORT:
+       
           ```sql
           \COPY crypto_ticks from './tutorial_sample_tick.csv' DELIMITER ',' CSV HEADER;
+          ```
+
+          ```sql
           \COPY crypto_assets from './tutorial_sample_assets.csv' DELIMITER ',' CSV HEADER;
           ```
         
@@ -225,7 +229,7 @@ $CONSOLE. You can also do this using psql.
 <Procedure>
 
 1. **In [$CONSOLE][portal-ops-mode], select the service you uploaded data to**.
-1. **Click `Operations` > `Continuous aggregates`, select `crypto_ticks`, then click `Create continuous aggregate`**.
+1. **Click `Operations` > `Continuous aggregates`, select `crypto_ticks`, then click `Create a Continuous Aggregate`**.
    ![Continuous aggregate wizard](https://assets.timescale.com/docs/images/continuous-aggregate-wizard.png )
 1. **Create a view called `assets_candlestick_daily` on the `time` column with an interval of `1 day`, then click `Next step`**.
 1. **Update the view SQL with the following functions, then click `Run`**
@@ -243,7 +247,7 @@ $CONSOLE. You can also do this using psql.
    GROUP BY bucket, symbol;
     ```
 1. **When the view is created, click `Next step`**
-1. **Define a refresh policy with the following values, then click `Next step`**
+1. **Define a refresh policy with the following values:**
    - `How far back do you want to materialize?`: `3 weeks`
    - `What recent data to exclude?`: `24 hours`
    - `How often do you want the job to run?`: `3 hours`
