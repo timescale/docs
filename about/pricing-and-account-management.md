@@ -251,4 +251,4 @@ When you get $CLOUD_LONG at AWS Marketplace, the following pricing options are a
 [production-support]: https://www.timescale.com/support
 [get-in-touch]: https://www.timescale.com/contact
 [hipaa-compliance]: https://www.hhs.gov/hipaa/for-professionals/index.html
-[aws-pricing]: #aws-pricing
+[aws-pricing]: /about/:currentVersion:/pricing-and-account-management/#aws-marketplace-pricing
