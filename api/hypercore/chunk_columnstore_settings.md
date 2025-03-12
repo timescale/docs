@@ -20,9 +20,7 @@ Retrieve the compression settings for each chunk in the columnstore.
 
 To retrieve information about settings:
 
-```sql
-
-* **Show settings for all chunks in the columnstore**:
+- **Show settings for all chunks in the columnstore**:
 
   ```sql 
   SELECT * FROM timescaledb_information.chunk_columnstore_settings
@@ -37,7 +35,9 @@ To retrieve information about settings:
 * **Find all chunk columnstore settings for a specific hypertable**:
 
   ```sql
-  SELECT * FROM timescaledb_information.chunk_columnstore_settings WHERE hypertable::TEXT LIKE 'metrics';
+  SELECT * 
+  FROM timescaledb_information.chunk_columnstore_settings 
+  WHERE hypertable::TEXT LIKE 'metrics';
   ```
   Returns:
   ```sql    

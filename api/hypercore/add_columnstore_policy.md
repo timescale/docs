@@ -35,11 +35,15 @@ To create a columnstore job:
 
    * [Use `ALTER TABLE` for a hypertable][compression_alter-table]
      ```sql
-     ALTER TABLE stocks_real_time SET (timescaledb.enable_columnstore = true, timescaledb.segmentby = 'symbol');
+     ALTER TABLE crypto_ticks SET (
+        timescaledb.enable_columnstore = true, 
+        timescaledb.segmentby = 'symbol');
      ```
    * [Use ALTER MATERIALIZED VIEW for a continuous aggregate][compression_continuous-aggregate]
      ```sql
-     ALTER MATERIALIZED VIEW stock_candlestick_daily set (timescaledb.enable_columnstore = true, timescaledb.segmentby = 'symbol' );
+     ALTER MATERIALIZED VIEW assets_candlestick_daily set (
+        timescaledb.enable_columnstore = true, 
+        timescaledb.segmentby = 'symbol' );
      ```
 
 1. **Add a policy to move chunks to the columnstore at a specific time interval**
@@ -48,12 +52,12 @@ To create a columnstore job:
 
    * 60 days after the data was added to the table:
      ``` sql
-     CALL add_columnstore_policy('stocks_real_time', after => INTERVAL '60d');
+     CALL add_columnstore_policy('crypto_ticks', after => INTERVAL '60d');
      ```
    * 3 months prior to the moment you run the query:
 
      ``` sql
-     CALL add_columnstore_policy('stocks_real_time', created_before => INTERVAL '3 months');
+     CALL add_columnstore_policy('crypto_ticks', created_before => INTERVAL '3 months');
      ```
    * With an integer-based time column:
 
@@ -69,7 +73,10 @@ To create a columnstore job:
    * Older than eight weeks and using the Hypercore table access method:
 
      ``` sql
-     CALL add_columnstore_policy('cpu_weekly', INTERVAL '8 weeks', hypercore_use_access_method => true);
+     CALL add_columnstore_policy(
+       'cpu_weekly', 
+       INTERVAL '8 weeks', 
+       hypercore_use_access_method => true);
      ```
 
 1. **View the policies that you set or the policies that already exist** 

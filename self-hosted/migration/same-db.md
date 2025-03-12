@@ -81,4 +81,4 @@ Migrate your data into Timescale from within the same database.
 </Procedure>
 
 [create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
-[install]: /getting-started/latest/
+[install]: /self-hosted/:currentVersion:/install/

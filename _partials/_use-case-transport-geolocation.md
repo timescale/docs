@@ -1,5 +1,5 @@
 
-### Setup your data for geospatial queries
+### Set up your data for geospatial queries
 
 To add geospatial analysis to your ride count visualization, you need geospatial data to work out which trips 
 originated where. As $TIMESCALE_DB is compatible with all PostgreSQL extensions, use [PostGIS][postgis] to slice 
@@ -20,7 +20,7 @@ data by time and location.
     ALTER TABLE rides ADD COLUMN dropoff_geom geometry(POINT,2163);
     ```
 
-1.  Convert the latitude and longitude points into geometry coordinates that work with PostGIS. 
+1.  Convert the latitude and longitude points into geometry coordinates that work with PostGIS: 
 
     ```sql
     UPDATE rides SET pickup_geom = ST_Transform(ST_SetSRID(ST_MakePoint(pickup_longitude,pickup_latitude),4326),2163),

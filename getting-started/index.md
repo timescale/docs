@@ -18,7 +18,7 @@ This section shows you how to:
 
 1.  [Create and connect to a $SERVICE_LONG][services-create]: choose the capabilities that match your business and 
     engineering needs on $COMPANY's cloud-based PostgreSQL platform. 
-1.  [Run queries from $CONSOLE][run-queries-from-console]: securely interact your data in the $CONSOLE UI. 
+1.  [Run queries from $CONSOLE][run-queries-from-console]: securely interact with your data in the $CONSOLE UI. 
 1.  [Try the main features in Timescale products][test-drive]: rapidly implement the features in $CLOUD_LONG that
     enable you to ingest and query data faster while keeping prices low.
 

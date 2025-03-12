@@ -13,16 +13,16 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 $CLOUD_LONG scales PostgreSQL to ingest and query vast amounts of live data. $CLOUD_LONG 
 provides a range of features and optimizations that supercharge your queries while keeping the 
 costs down. For example: 
-* The hypercore row-columnar engine makes queries up to 350x faster, ingests 44% faster, and reduces storage by 90%.
-* Tiered storage seamlessly moves your data from high performance storage for frequently access data to low cost bottomless storage for rarely accessed data. 
+* The Hypercore row-columnar engine makes queries up to 350x faster, ingests 44% faster, and reduces storage by 90%.
+* Tiered storage seamlessly moves your data from high performance storage for frequently accessed data to low cost bottomless storage for rarely accessed data. 
 
 The following figure shows how $CLOUD_LONG optimizes your data for superfast real-time analytics and reduced
 costs:
 
 ![Main features and tiered data](https://assets.timescale.com/docs/images/timescalecloud-service-architecture.png )
 
-This page gives shows you how to rapidly implement the features in $CLOUD_LONG that enable you to 
-ingest and query data faster while keeping prices low. 
+This page shows you how to rapidly implement the features in $CLOUD_LONG that enable you to 
+ingest and query data faster while keeping the costs low. 
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ ingest and query data faster while keeping prices low.
 ## Optimize time-series data in hypertables
 
 Time-series data represents how a system, process, or behavior changes over time. Hypertables are PostgreSQL tables 
-that help you improve insert and query performance by automatically partition your data by time. Each hypertable 
+that help you improve insert and query performance by automatically partitioning your data by time. Each hypertable 
 is made up of child tables called chunks. Each chunk is assigned a range of time, and only
 contains data from that range. You can also tune hypertables to increase performance
 even more. 
@@ -54,7 +54,7 @@ relational and time-series data from external files.
        This test dataset contains second-by-second trade data for the most-traded crypto-assets
        and a regular table of asset symbols and company names.  
 
-       To import up to 100GB of data directly from your current PostgreSQL based database, 
+       To import up to 100GB of data directly from your current PostgreSQL-based database, 
        [migrate with downtime][migrate-with-downtime] using native PostgreSQL tooling. To seamlessly import 100GB-10TB+ 
        of data, use the [live migration][migrate-live] tooling supplied by $COMPANY. To add data from non-PostgreSQL
        data sources, see [Import and ingest data][data-ingest].
@@ -66,8 +66,8 @@ relational and time-series data from external files.
        <Tab title="Timescale Console">
        
           The $CONSOLE data upload creates the tables for you from the data you are uploading:
-          1. In [$CONSOLE][portal-ops-mode], select the service to add data to, then click **Actions** > **Upload CSV**.
-          1. Drag `<local folder>/tutorial_sample_tick.csv` to `Upload .CSV` and change `New table name`, to `crypto_ticks`.
+          1. In [$CONSOLE][portal-ops-mode], select the service to add data to, then click `Actions` > `Upload CSV`.
+          1. Drag `<local folder>/tutorial_sample_tick.csv` to `Upload .CSV` and change `New table name` to `crypto_ticks`.
           1. Enable `hypertable partition` for the `time` column and click `Upload CSV`.
        
               The upload wizard creates a hypertable containing the data from the CSV file.
@@ -146,7 +146,7 @@ relational and time-series data from external files.
 ## Write fast and efficient analytical queries
 
 Aggregation is a way of combing data to get insights from it. Average, sum, and count are all 
-example of simple aggregates. However, with large amounts of data aggregation slows things down, quickly.
+examples of simple aggregates. However, with large amounts of data, aggregation slows things down, quickly.
 Continuous aggregates are a kind of hypertable that is refreshed automatically in 
 the background as new data is added, or old data is modified. Changes to your dataset are tracked, 
 and the hypertable behind the continuous aggregate is automatically updated in the background.
@@ -159,11 +159,11 @@ and [rarely accessed data in tiered storage][test-drive-tiered-storage]. You can
 create [continuous aggregates on top of your continuous aggregates][hierarchical-caggs].
 
 You use time buckets to create a continuous aggregate. Time buckets aggregate data in hypertables by time 
-interval. For example, a 5-minute, 1-hour, or 3-day bucket. The data grouped in a time bucket use a single 
+interval. For example, a 5-minute, 1-hour, or 3-day bucket. The data grouped in a time bucket uses a single 
 timestamp. Continuous aggregates minimize the number of records that you need to look up to perform your 
 query.
 
-This section show you how to run fast analytical queries using time buckets and continuous aggregates in
+This section shows you how to run fast analytical queries using time buckets and continuous aggregates in
 $CONSOLE. You can also do this using psql. 
 
 <Tabs label="Upload data to ">
@@ -172,14 +172,14 @@ $CONSOLE. You can also do this using psql.
 
 <Procedure>
 
-1. **In [$CONSOLE][portal-ops-mode], select the service you uploaded data to, then click `SQL Editor`**.
+1. **In [$CONSOLE][portal-ops-mode], select the service you uploaded data to, then click `SQL Editor`**
 
 1.  **Create a continuous aggregate**
 
     For a continuous aggregate, data grouped using a time bucket is stored in a
     PostgreSQL `MATERIALIZED VIEW` in a hypertable. `timescaledb.continuous` ensures that this data
     is always up to date.
-    In your SQL editor, use the following code to create a continuous aggregate on the real time data in
+    In your SQL editor, use the following code to create a continuous aggregate on the real-time data in
     the `crypto_ticks` table:
 
     ```sql
@@ -213,7 +213,7 @@ $CONSOLE. You can also do this using psql.
     You query continuous aggregates exactly the same way as your other tables. To query the `assets_candlestick_daily`
     continuous aggregate for all assets:
 
-    <TryItOutCodeBlock queryId="getting-started-cagg" />
+    <TryItOutCodeBlock queryId="getting-started-crypto-cagg" />
 
 
 </Procedure>
@@ -281,7 +281,7 @@ regularly. For example, last week's market data.
 
 <Procedure>
 
-1. **Enable hypercore on a hypertable**
+1. **Enable Hypercore on a hypertable**
 
    Create a [job][job] that automatically moves chunks in a hypertable to the columnstore at a specific time interval.
 
@@ -301,7 +301,7 @@ regularly. For example, last week's market data.
  
 1. **View your data space saving**
 
-   When you convert data to the columnstore, as well as being optimized for analytics, it is compresses by more than 
+   When you convert data to the columnstore, as well as being optimized for analytics, it is compressed by more than 
    90%. This saves on storage costs and keeps your queries operating at lightning speed. To see the amount of space 
    saved:
    ``` sql
@@ -333,7 +333,7 @@ tier and generates the response.
 
 Data tiering is available in the [scale and enterprise][pricing-plans] pricing plans for $CLOUD_LONG. 
 
-To setup data tiering: 
+To set up data tiering: 
 
 <Procedure>
 
@@ -356,7 +356,7 @@ To setup data tiering:
      SELECT add_tiering_policy('assets_candlestick_daily', INTERVAL '3 weeks');   
      ```
 
-1. **Qeury tiered data**
+1. **Query tiered data**
 
     You enable reads from tiered data for each query, for a session or for all future 
     sessions. To run a single query on tiered data:
@@ -413,8 +413,8 @@ What next? See the [use case tutorials][tutorials], interact with the data in yo
 [migrate-live]: /migrate/:currentVersion:/live-migration/
 [data-ingest]: /use-timescale/:currentVersion:/ingest-data/
 [hypertables-section]: /use-timescale/:currentVersion:/hypertables/
-[test-drive-enable-compression]: /getting-started/:currentVersion:/try-key-features-timescale-products/#prepare-your-data-for-real-time-analytics-with-hypercore
-[test-drive-tiered-storage]: /getting-started/:currentVersion:/try-key-features-timescale-products/#reduce-storage-charges-on-older-data-using-compression
+[test-drive-enable-compression]: /getting-started/:currentVersion:/try-key-features-timescale-products/#enhance-query-performance-for-analytics
+[test-drive-tiered-storage]: /getting-started/:currentVersion:/try-key-features-timescale-products/#slash-storage-charges
 [data-tiering]: /use-timescale/:currentVersion:/data-tiering/
 [compression]: /use-timescale/:currentVersion:/compression/
 [hierarchical-caggs]: /use-timescale/:currentVersion:/continuous-aggregates/hierarchical-continuous-aggregates/
