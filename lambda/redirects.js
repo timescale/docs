@@ -913,4 +913,20 @@ module.exports = [
     from: '/use-timescale/latest/integrations/observability-alerting/tableau/',
     to: 'https://docs.timescale.com/use-timescale/latest/integrations/tableau/',
   },
+  {
+    from: '/getting-started/latest/tables-hypertables/',
+    to: 'https://docs.timescale.com/use-timescale/latest/hypertables/about-hypertables/',
+  },
+  {
+    from: '/getting-started/latest/time-series-data/',
+    to: 'https://www.timescale.com/blog/time-series-database-an-explainer#what-is-a-time-series-database',
+  },
+  {
+    from: '/getting-started/latest/queries/',
+    to: 'https://docs.timescale.com/getting-started/latest/try-key-features-timescale-products/',
+  },
+  {
+    from: '/getting-started/latest/aggregation/',
+    to: 'https://docs.timescale.com/getting-started/latest/try-key-features-timescale-products/',
+  },
 ];
