@@ -568,19 +568,19 @@ module.exports = [
   },
   {
     from: "/tutorials/latest/energy-data/",
-    to: "https://docs.timescale.com/tutorials/real-time-analytics-energy-consumption/",
+    to: "https://docs.timescale.com/tutorials/latest/real-time-analytics-energy-consumption/",
   },
   {
     from: "/tutorials/latest/energy-data/dataset-energy/",
-    to: "https://docs.timescale.com/tutorials/real-time-analytics-energy-consumption/",
+    to: "https://docs.timescale.com/tutorials/latest/real-time-analytics-energy-consumption/",
   },
   {
     from: "/tutorials/latest/energy-data/query-energy/",
-    to: "https://docs.timescale.com/tutorials/real-time-analytics-energy-consumption/",
+    to: "https://docs.timescale.com/tutorials/latest/real-time-analytics-energy-consumption/",
   },
   {
     from: "/tutorials/latest/energy-data/compress-energy/",
-    to: "https://docs.timescale.com/tutorials/real-time-analytics-energy-consumption/",
+    to: "https://docs.timescale.com/tutorials/latest/real-time-analytics-energy-consumption/",
   },
   {
     from: "/tutorials/latest/financial-candlestick-tick-data/create-candlestick-aggregates/",
@@ -604,27 +604,27 @@ module.exports = [
   },
   {
     from: "/tutorials/latest/nyc-taxi-cab/",
-    to: "https://docs.timescale.com/tutorials/real-time-analytics-transport/",
+    to: "https://docs.timescale.com/tutorials/latest/real-time-analytics-transport/",
   },
   {
     from: "/tutorials/latest/nyc-taxi-cab/dataset-nyc/",
-    to: "https://docs.timescale.com/tutorials/real-time-analytics-transport/",
+    to: "https://docs.timescale.com/tutorials/latest/real-time-analytics-transport/",
   },
   {
     from: "/tutorials/latest/nyc-taxi-cab/query-nyc/",
-    to: "https://docs.timescale.com/tutorials/real-time-analytics-transport/",
+    to: "https://docs.timescale.com/tutorials/latest/real-time-analytics-transport/",
   },
   {
     from: "/tutorials/latest/nyc-taxi-cab/compress-nyc/",
-    to: "https://docs.timescale.com/tutorials/real-time-analytics-transport/",
+    to: "https://docs.timescale.com/tutorials/latest/real-time-analytics-transport/",
   },
   {
     from: "/tutorials/latest/nyc-taxi-geospatial/dataset-nyc/",
-    to: "https://docs.timescale.com/tutorials/real-time-analytics-transport/",
+    to: "https://docs.timescale.com/tutorials/latest/real-time-analytics-transport/",
   },
   {
     from: "/tutorials/latest/nyc-taxi-geospatial/plot-nyc",
-    to: "https://docs.timescale.com/tutorials/real-time-analytics-transport/",
+    to: "https://docs.timescale.com/tutorials/latest/real-time-analytics-transport/",
   },
   {
     from: "/tutorials/latest/prometheus-adapter/",
