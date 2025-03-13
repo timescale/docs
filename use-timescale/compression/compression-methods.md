@@ -9,7 +9,7 @@ import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 
 # About compression methods
 
-<Deprecated2180 /> see <a href="https://docs.timescale.com/use-timescale/latest/hypercore/">Hypercore</a>
+<Deprecated2180 /> Replaced by <a href="https://docs.timescale.com/use-timescale/latest/hypercore/">Hypercore</a>.
 
 
 TimescaleDB uses different compression algorithms, depending on the data type
