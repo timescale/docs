@@ -7,6 +7,8 @@ tags: [data nodes, cluster, procedure, roles, permissions]
 api:
   license: community
   type: procedure
+seo:
+  robots: noindex
 ---
 
 import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";

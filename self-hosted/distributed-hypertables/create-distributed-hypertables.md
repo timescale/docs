@@ -3,6 +3,8 @@ title: Create distributed hypertables
 excerpt: Sunsetted v2.14.x. Create a distributed hypertable in a self-hosted multi-node TimescaleDB instance
 products: [self_hosted]
 keywords: [distributed hypertables, multi-node, create]
+seo:
+  robots: noindex
 ---
 
 import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";

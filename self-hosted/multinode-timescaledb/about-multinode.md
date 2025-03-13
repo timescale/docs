@@ -3,6 +3,8 @@ title: About multi-node
 excerpt: Sunsetted in v2.14.x. Multi-node TimescaleDB enables you to run and manage a cluster of databases, which can result in faster data ingest, and more responsive and efficient queries for large workloads
 products: [self_hosted]
 keywords: [multi-node]
+seo:
+  robots: noindex
 ---
 
 import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";

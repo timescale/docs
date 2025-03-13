@@ -3,6 +3,8 @@ title: Query data in distributed hypertables
 excerpt: Sunsetted v2.14.x. Query data in distributed hypertables in your self-hosted TimescaleDB installation
 products: [self_hosted]
 keywords: [distributed hypertables, multi-node, queries]
+seo:
+  robots: noindex
 ---
 
 import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";

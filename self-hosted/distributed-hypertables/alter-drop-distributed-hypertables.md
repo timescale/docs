@@ -4,6 +4,8 @@ excerpt: Sunsetted v2.14.x. Alter and drop distributed hypertables in your self-
 products: [self_hosted]
 keywords: [distributed hypertables, alter, delete]
 tags: [change, delete]
+seo:
+  robots: noindex
 ---
 
 import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";
