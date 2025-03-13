@@ -2,6 +2,8 @@
 title: Distributed hypertables ( Sunsetted v2.14.x )
 excerpt: Sunsetted v2.14.x. Timescale Cloud API reference for dealing with distributed hypertables
 keywords: [distributed hypertables]
+seo:
+  robots: noindex
 ---
 
 import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";

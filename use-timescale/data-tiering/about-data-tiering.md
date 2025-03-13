@@ -11,11 +11,15 @@ cloud_ui:
 
 # About the object storage tier
 
-Timescale's tiered storage architecture includes a standard high-performance storage tier and a low-cost object storage tier built on Amazon S3. You can use the standard tier for data that requires quick access, and the object tier for rarely used historical data. Chunks from a single hypertable, including compressed chunks, can stretch across these two storage tiers. A compressed chunk uses a different storage representation after tiering.
+$COMPANY's tiered storage architecture includes a standard high-performance storage tier and a low-cost object storage tier built on Amazon S3. You can use the standard tier for data that requires quick access, and the object tier for rarely used historical data. Chunks from a single hypertable, including compressed chunks, can stretch across these two storage tiers. 
 
-In the high-performance storage, chunks are stored in the block format. In the object storage, they are stored in a compressed, columnar format. For better interoperability across various platforms, this format is different from that of the internals of the database. It allows for more efficient columnar scans across longer time periods, and Timescale Cloud uses other metadata and query optimizations to reduce the amount of data that needs to be fetched from the object storage tier to satisfy a query.
+In the high-performance storage, your data is stored in the block format. In the object storage, it is stored in [Apache Parquet][parquet]. The original size of the data in your $SERVICE_SHORT, compressed or uncompressed, does not correspond directly to its size in S3. A compressed hypertable may even take more space in S3 than it does in $CLOUD_LONG.
+
+Apache Parquet allows for more efficient scans across longer time periods, and $CLOUD_LONG uses other metadata and query optimizations to reduce the amount of data that needs to be fetched from the object storage tier to satisfy a query.
 
 Regardless of where your data is stored, you can still query it with standard SQL. A single SQL query transparently pulls data from the appropriate chunks using the chunk exclusion algorithms. You can `JOIN` against tiered data, build views, and even define continuous aggregates on it. In fact, because the implementation of continuous aggregates also uses hypertables, they can be tiered to low-cost storage as well. 
+
+$COMPANY charges only for the storage that your data occupies in S3, regardless of whether it was compressed in $CLOUD_LONG before tiering. There are no additional expenses, such as data transfer or compute. 
 
 ## Benefits of the object storage tier
 
@@ -119,3 +123,4 @@ for `device_uuid`, `sensor_id`, and `observed_at` as the query needs only these 
 
 [blog-data-tiering]: https://www.timescale.com/blog/expanding-the-boundaries-of-postgresql-announcing-a-bottomless-consumption-based-object-storage-layer-built-on-amazon-s3/
 [querying-tiered-data]: /use-timescale/:currentVersion:/data-tiering/querying-tiered-data/
+[parquet]: https://parquet.apache.org/
