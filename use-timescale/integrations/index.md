@@ -94,11 +94,11 @@ Some of the most in-demand integrations are listed below.
 
 |        Name        | Description                                       |
 |:------------------:|---------------------------------------------------|
+|  [Golang][golang]  | Integrate $CLOUD_LONG with a Golang application.  |
+|    [Java][java]    | Integrate $CLOUD_LONG with a Java application.    |
 | [Node.js][node-js] | Integrate $CLOUD_LONG with a Node.js application. |
 |  [Python][python]  | Integrate $CLOUD_LONG with a Python application.  |
 |    [Ruby][ruby]    | Integrate $CLOUD_LONG with a Ruby application.    |
-|  [Golang][golang]  | Integrate $CLOUD_LONG with a Golang application.  |
-|    [Java][java]    | Integrate $CLOUD_LONG with a Java application.    |
 
 ## Logging and system administration
 
@@ -120,10 +120,10 @@ Some of the most in-demand integrations are listed below.
 |               [IBM Instana][ibm-instana]               | Monitor application performance and detect issues in real-time.                                                                                           |
 |                    [Jaeger][jaeger]                    | Trace and diagnose distributed transactions for observability.                                                                                            |
 |                 [New Relic][new-relic]                 | Monitor applications, infrastructure, and logs for performance insights.                                                                                  |
-|                [Prometheus][prometheus]                | Track the performance and health of systems, applications, and infrastructure.                                                                            |
-|                   [Tableau][tableau]                   | Connect to data sources, analyze data, and create interactive visualizations and dashboards.                                                              |
 |          [OpenTelemetry Beta][opentelemetry]           | Collect and analyze telemetry data for observability across systems.                                                                                      |
+|                [Prometheus][prometheus]                | Track the performance and health of systems, applications, and infrastructure.                                                                            |
 |                             [SigNoz][signoz]           | Monitor application performance with an open-source observability tool.                                                                                   |
+|                   [Tableau][tableau]                   | Connect to data sources, analyze data, and create interactive visualizations and dashboards.                                                              |
 
 ## Query and administration
 
@@ -141,11 +141,11 @@ Some of the most in-demand integrations are listed below.
 |                     [MySQL][mysql]                      | Manage structured relational data with an open-source SQL database.                                                                       |
 |                      [Neon][neon]                       | Run a cloud-native, serverless PostgreSQL database with automatic scaling.                                                                |
 |                   [pgAdmin][pgadmin]                    | Manage, query, and administer PostgreSQL databases through a graphical interface.                                                         |
+|                [PostgreSQL][postgresql]                 | Access and query data from external sources as if they were regular PostgreSQL tables.                                                    |
 |                    [Prisma][prisma]                     | Simplify database access with an open-source ORM for Node.js.                                                                             |
 |                      [psql][psql]                       | Run SQL queries, manage databases, automate tasks, and interact directly with PostgreSQL.                                                 |
 |            [Qlik Replicate][qlik-replicate]             | Move and synchronize data across multiple database platforms. You an also [set up PostgreSQL as a source][qlik-source].                   |
 |                   [qStudio][qstudio]                    | Write and execute SQL queries, manage database objects, and analyze data in a user-friendly interface.                                    |
-|                [PostgreSQL][postgresql]                 | Access and query data from external sources as if they were regular PostgreSQL tables.                                                    |
 |                    [Redash][redash]                     | Query, visualize, and share data from multiple sources.                                                                                   |
 |                     [Redis][redis]                      | Cache, store, and process data in-memory with low latency.                                                                                |
 |                [SQLalchemy][sqlalchemy]                 | Manage database operations using a Python SQL toolkit and ORM.                                                                            |
@@ -158,9 +158,9 @@ Some of the most in-demand integrations are listed below.
 |                 Name                 | Description                                                                 |
 |:------------------------------------:|-----------------------------------------------------------------------------|
 |      [Amazon Web Services][aws]      | Connect your other services and applications running in AWS to $CLOUD_LONG. |
+| [Corporate data center][data-center] | Connect your on-premise data center to $CLOUD_LONG.
 |     [Google Cloud][google-cloud]     | Connect your Google Cloud infrastructure to $CLOUD_LONG.                    |
 |       [Microsoft Azure][azure]       | Connect your Microsoft Azure infrastructure to $CLOUD_LONG.                 |
-| [Corporate data center][data-center] | Connect your on-premise data center to $CLOUD_LONG.    
 
 ## Workflow automation and no-code tools
 
@@ -172,31 +172,10 @@ Some of the most in-demand integrations are listed below.
 |  [Tooljet][tooljet]  | Develop internal tools and business applications with a low-code builder. |
 |   [Zapier][zapier]   | Automate workflows by connecting different applications and services.     |
 
-[psql]: /use-timescale/:currentVersion:/integrations/psql/
-[qstudio]: /use-timescale/:currentVersion:/integrations/qstudio/
-[cloudwatch]: /use-timescale/:currentVersion:/integrations/cloudwatch/
-[dbeaver]: /use-timescale/:currentVersion:/integrations/dbeaver/
-[datadog]: /use-timescale/:currentVersion:/integrations/datadog/
 [ads]: /use-timescale/:currentVersion:/integrations/azure-data-studio/
-[pgadmin]: /use-timescale/:currentVersion:/integrations/pgadmin/
-[grafana]: /use-timescale/:currentVersion:/integrations/grafana/
-[tableau]: /use-timescale/:currentVersion:/integrations/tableau/
-[terraform]: /use-timescale/:currentVersion:/integrations/terraform
-[apache-airflow]: /use-timescale/:currentVersion:/integrations/apache-airflow
-[aws-lambda]: /use-timescale/:currentVersion:/integrations/aws-lambda
-[postgresql-integrations]: https://slashdot.org/software/p/PostgreSQL/integrations/
-[decodable]: /use-timescale/:currentVersion:/integrations/decodable
-[power-bi]: /use-timescale/:currentVersion:/integrations/power-bi
-[fivetran]: /use-timescale/:currentVersion:/integrations/fivetran
-[prometheus]: /use-timescale/:currentVersion:/integrations/prometheus
-[amazon-sagemaker]: /use-timescale/:currentVersion:/integrations/amazon-sagemaker
-[postgresql]: /use-timescale/:currentVersion:/integrations/postgresql
-[kafka]: /use-timescale/:currentVersion:/integrations/apache-kafka
-[aws]: /use-timescale/:currentVersion:/integrations/aws
-[google-cloud]: /use-timescale/:currentVersion:/integrations/google-cloud
-[azure]: /use-timescale/:currentVersion:/integrations/microsoft-azure
-[data-center]: /use-timescale/:currentVersion:/integrations/corporate-data-center
 [airbyte]: https://docs.airbyte.com/integrations/sources/postgres
+[amazon-sagemaker]: /use-timescale/:currentVersion:/integrations/amazon-sagemaker
+[apache-airflow]: /use-timescale/:currentVersion:/integrations/apache-airflow
 [apache-beam]: https://beam.apache.org/releases/javadoc/current/org/apache/beam/sdk/io/jdbc/JdbcIO.html
 [apache-skywalking]: https://skywalking.apache.org/docs/main/next/en/setup/backend/backend-postgresql-monitoring/
 [apache-skywalking-storage]: https://skywalking.apache.org/docs/main/next/en/setup/backend/storages/postgresql/
@@ -204,16 +183,24 @@ Some of the most in-demand integrations are listed below.
 [appsmith]: https://docs.appsmith.com/connect-data/reference/querying-postgres
 [auth-js]: https://authjs.dev/getting-started/adapters/pg?framework=next-js
 [auth0]: https://auth0.com/blog/configuring-postgresql-as-auth0-custom-database/
+[aws]: /use-timescale/:currentVersion:/integrations/aws
+[aws-lambda]: /use-timescale/:currentVersion:/integrations/aws-lambda
+[azure]: /use-timescale/:currentVersion:/integrations/microsoft-azure
 [azure-functions]: https://github.com/Azure/azure-functions-postgresql-extension
 [azure-monitor]: https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-monitoring
 [bigquery-wrapper]: https://cloud.google.com/dataflow/docs/guides/templates/provided/postgresql-to-bigquery
 [clickhouse]: https://clickhouse.com/docs/integrations/postgresql
 [clickhouse-dashboard]: https://clickhouse.com/docs/integrations/postgresql
+[cloudwatch]: /use-timescale/:currentVersion:/integrations/cloudwatch/
 [confluent]: https://docs.confluent.io/cloud/current/connectors/cc-postgresql-sink.html
 [confluent-source]: https://docs.confluent.io/cloud/current/connectors/cc-postgresql-source.html
 [cube-js]: https://cube.dev/integrations/Timescale-API
+[data-center]: /use-timescale/:currentVersion:/integrations/corporate-data-center
+[datadog]: /use-timescale/:currentVersion:/integrations/datadog/
 [dbt]: https://dbt-timescaledb.debruyn.dev/
+[dbeaver]: /use-timescale/:currentVersion:/integrations/dbeaver/
 [debezium]: https://debezium.io/documentation/reference/stable/transformations/timescaledb.html
+[decodable]: /use-timescale/:currentVersion:/integrations/decodable
 [deepnote]: https://deepnote.com/docs/postgresql
 [deltalake]: https://github.com/delta-io/delta/blob/master/connectors/sql-delta-import/readme.md
 [deno-deploy]: https://docs.deno.com/deploy/manual/postgres/
@@ -223,12 +210,18 @@ Some of the most in-demand integrations are listed below.
 [emqx]: https://docs.emqx.com/en/emqx/latest/data-integration/data-bridge-timescale.html
 [estuary]: https://docs.estuary.dev/reference/Connectors/materialization-connectors/timescaledb/
 [firebase-wrapper]: https://firebase.google.com/products/data-connect
+[fivetran]: /use-timescale/:currentVersion:/integrations/fivetran
 [flink]: https://nightlies.apache.org/flink/flink-cdc-docs-release-3.1/docs/connectors/flink-sources/postgres-cdc/
 [flyway]: https://documentation.red-gate.com/flyway/reference/database-driver-reference/timescaledb
 [forest-admin]: https://www.forestadmin.com/integrations/postgresql
+[golang]: /quick-start/:currentVersion:/golang/
+[google-cloud]: /use-timescale/:currentVersion:/integrations/google-cloud
+[grafana]: /use-timescale/:currentVersion:/integrations/grafana/
 [hasura]: https://hasura.io/docs/2.0/databases/postgres/timescale-cloud/
 [ibm-instana]: https://www.ibm.com/docs/en/instana-observability/current?topic=technologies-monitoring-postgresql
 [jaeger]: https://www.jaegertracing.io/docs/2.0/storage/
+[java]: /quick-start/:currentVersion:/java/
+[kafka]: /use-timescale/:currentVersion:/integrations/apache-kafka
 [langchain]: https://api.python.langchain.com/en/latest/postgres/index.html#
 [liquibase]: https://docs.liquibase.com/start/tutorials/postgresql/postgresql.html
 [looker]: https://cloud.google.com/looker/docs/db-config-postgresql
@@ -241,18 +234,28 @@ Some of the most in-demand integrations are listed below.
 [n8n]: https://n8n.io/integrations/redis/and/timescaledb/
 [neon]: https://neon.tech/docs/extensions/timescaledb
 [new-relic]: https://docs.newrelic.com/docs/infrastructure/host-integrations/host-integrations-list/postgresql/postgresql-integration/
-[opentelemetry]: https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/receiver/postgresqlreceiver
-[prisma]: https://www.prisma.io/docs/orm/overview/databases/postgresql
-[pulumi]: https://www.pulumi.com/registry/packages/timescale/
+[node-js]: /quick-start/:currentVersion:/node/
 [okta]: https://help.okta.com/oag/en-us/content/topics/access-gateway/integrate-app-datastores.htm
+[opentelemetry]: https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/receiver/postgresqlreceiver
+[pgadmin]: /use-timescale/:currentVersion:/integrations/pgadmin/
+[postgresql]: /use-timescale/:currentVersion:/integrations/postgresql
+[postgresql-integrations]: https://slashdot.org/software/p/PostgreSQL/integrations/
+[power-bi]: /use-timescale/:currentVersion:/integrations/power-bi
+[prisma]: https://www.prisma.io/docs/orm/overview/databases/postgresql
+[prometheus]: /use-timescale/:currentVersion:/integrations/prometheus
+[psql]: /use-timescale/:currentVersion:/integrations/psql/
+[pulumi]: https://www.pulumi.com/registry/packages/timescale/
+[python]: /quick-start/:currentVersion:/python/
 [qlik-replicate]: https://help.qlik.com/en-US/replicate/November2024/Content/Replicate/Main/PostgreSQL/postgresql.htm#ar_postgresds_802412600_1325150
 [qlik-source]: https://help.qlik.com/en-US/replicate/November2024/Content/Replicate/Main/PostgreSQL/postgresql_source.htm
+[qstudio]: /use-timescale/:currentVersion:/integrations/qstudio/
 [redash]: https://redash.io/data-sources/postgresql/
 [redis]: https://redis.io/docs/latest/integrate/redis-data-integration/data-pipelines/prepare-dbs/postgresql/
 [redpanda]: https://www.redpanda.com/blog/build-data-stream-detect-anomalies-timescale-kafka-connect
 [render]: https://render.com/docs/postgresql
 [retool]: https://retool.com/integrations/postgresql
 [rsyslog]: https://www.rsyslog.com/doc/configuration/modules/ompgsql.html
+[ruby]: /quick-start/:currentVersion:/ruby/
 [rust]: https://github.com/sfackler/rust-postgres
 [schemaspy]: https://wiki.postgresql.org/wiki/SchemaSpy
 [signoz]: https://signoz.io/docs/integrations/postgresql/
@@ -264,11 +267,8 @@ Some of the most in-demand integrations are listed below.
 [streamlit]: https://docs.streamlit.io/develop/tutorials/databases/postgresql
 [striim]: https://www.striim.com/connectors/postgresql/
 [superset]: https://superset.apache.org/docs/configuration/databases#timescaledb
+[tableau]: /use-timescale/:currentVersion:/integrations/tableau/
+[terraform]: /use-timescale/:currentVersion:/integrations/terraform
 [tooljet]: https://docs.tooljet.ai/docs/data-sources/postgresql/
 [typeorm]: https://typeorm.biunav.com/en/connection-options.html#postgres-cockroachdb-connection-options
 [zapier]: https://zapier.com/apps/postgresql/integrations
-[node-js]: /quick-start/:currentVersion:/node/
-[python]: /quick-start/:currentVersion:/python/
-[ruby]: /quick-start/:currentVersion:/ruby/
-[golang]: /quick-start/:currentVersion:/golang/
-[java]: /quick-start/:currentVersion:/java/
