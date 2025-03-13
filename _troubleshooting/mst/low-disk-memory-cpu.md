@@ -34,11 +34,11 @@ for. In the `Overview` tab, locate the `Service Plan` section, and click
 `Upgrade` to enable the additional resources.
 
 If you run out of resources regularly, you might need to consider using your
-resources more efficiently. Consider enabling [compression][howto-compression],
+resources more efficiently. Consider enabling [Hypercore][setup-hypercore],
 using [continuous aggregates][howto-caggs], or
 [configuring data retention][howto-dataretention] to reduce the amount of
 resources your database uses.
 
-[howto-compression]: /use-timescale/:currentVersion:/compression
+[setup-hypercore]: /use-timescale/:currentVersion:/hypercore/real-time-analytics-in-hypercore/
 [howto-caggs]: /use-timescale/:currentVersion:/continuous-aggregates
 [howto-dataretention]: /use-timescale/:currentVersion:/data-retention

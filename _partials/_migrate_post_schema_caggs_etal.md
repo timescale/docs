@@ -131,8 +131,7 @@ separately. Recreate them on your Timescale database.
 
 1.  Recreate each policy. For more information about recreating policies, see
     the sections on [continuous-aggregate refresh policies][cagg-policy],
-    [retention policies][retention-policy], [compression
-    policies][compression-policy], and [reorder policies][reorder-policy].
+    [retention policies][retention-policy], [Hypercore policies][setup-hypercore], and [reorder policies][reorder-policy].
 
 </Procedure>
 
@@ -160,7 +159,7 @@ accessed. Skipping them does not affect statistics on your data.
 
 [analyze]: https://www.postgresql.org/docs/10/sql-analyze.html
 [cagg-policy]: /use-timescale/:currentVersion:/continuous-aggregates/refresh-policies/
-[compression-policy]: /use-timescale/:currentVersion:/compression/
+[setup-hypercore]: /use-timescale/:currentVersion:/hypercore/real-time-analytics-in-hypercore/
 [retention-policy]: /use-timescale/:currentVersion:/data-retention/create-a-retention-policy/
 [reorder-policy]: /api/:currentVersion:/hypertable/add_reorder_policy/
 [timescaledb-parallel-copy]: https://github.com/timescale/timescaledb-parallel-copy

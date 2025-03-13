@@ -9,6 +9,8 @@ cloud_ui:
         - [services, :serviceId, operations, replication]
 ---
 
+import HASetup from 'versionContent/_partials/_high-availability-setup.mdx';
+
 
 # Manage high availability
 
@@ -71,25 +73,11 @@ The `High` and `Highest` HA strategies are available with the [Scale and the Ent
 
 To enable HA for a Timescale Cloud Service:  
 
-<Procedure>
-
-1.  In [Timescale Console][cloud-login], select the service to enable replication for.
-1.  Click `Operations`, then select `High availability`.
-1.  Choose your replication strategy, then click `Change configuration`.
-    <img
-    class="main-content__illustration"
-    src="https://assets.timescale.com/docs/images/tsc-replication-add.png"
-    alt="Creating a database replica in Timescale"
-    />
-    
-1. In `Change high availability configuration`, click `Change config`. 
+<HASetup />
 
 To change your HA replica strategy, click `Change configuration`, choose a strategy and click `Change configuration`.
 To download the connection information for the HA replica, either click the link next to the replica
 `Active configuration`, or find the information in the `Overview` tab for this service.
-
-</Procedure>
-
 
 ## Test failover for your HA replicas
 
