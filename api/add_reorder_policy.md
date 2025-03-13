@@ -18,12 +18,14 @@ still being inserted into. For more information about reordering chunks, see the
 [reorder_chunk][reorder_chunk] section.
 
 <Highlight type="note">
+
 When a chunk has been reordered by the background worker it is not reordered
 again. If you insert significant amounts of data in to older chunks that have
 already been reordered, you might need to manually re-run the
-[reorder_chunk](/api/latest/hypertable/reorder_chunk)
+[reorder_chunk][reorder_chunk]
 function on older chunks. Alternatively, you can drop and re-create the policy,
 which can work better if you have changed a lot of older chunks.
+
 </Highlight>
 
 ## Required arguments

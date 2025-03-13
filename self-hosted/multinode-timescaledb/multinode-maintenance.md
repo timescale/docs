@@ -4,6 +4,8 @@ excerpt: Sunsetted v2.14.x. Run maintenance on your self-hosted multi-node Times
 products: [self_hosted]
 keywords: [multi-node, maintenance]
 tags: [manage]
+seo:
+  robots: noindex
 ---
 
 import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";

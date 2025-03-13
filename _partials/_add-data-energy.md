@@ -5,8 +5,6 @@ into the `metrics` hypertable.
 
 <Procedure>
 
-### Loading energy consumption  data
-
 <Highlight type="important">
 This is a large dataset, so it might take a long time, depending on your network
 connection.

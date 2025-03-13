@@ -4,6 +4,8 @@ excerpt: Sunsetted v2.14.x. Add foreign keys to the nodes of a distributed hyper
 products: [self_hosted]
 keywords: [distributed hypertable, foreign keys]
 tags: [constraints]
+seo:
+  robots: noindex
 ---
 
 import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";
