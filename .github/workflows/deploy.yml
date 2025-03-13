@@ -27,7 +27,7 @@ jobs:
           token: ${{ secrets.ORG_AUTOMATION_TOKEN }}
           repository: timescale/web-documentation
           event-type: build-docs-content
-          client-payload: '{"branch": "${{ env.HYPHENATED_BRANCH_NAME }}", "pr_number": "${{ env.PR_NUMBER }}"}'
+          client-payload: '{"branch": "${{ steps.timescale.outputs.DEV_FOLDER }}", "pr_number": "${{ env.PR_NUMBER }}"}'
 
       - name: Write comment
         uses: marocchino/sticky-pull-request-comment@efaaab3fd41a9c3de579aba759d2552635e590fd

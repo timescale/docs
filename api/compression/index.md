@@ -5,7 +5,13 @@ keywords: [compression]
 tags: [hypertables]
 ---
 
-# Compression <Tag type="community">Community</Tag>
+import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
+
+# Compression (Old API, replaced by Hypercore) <Tag type="community">Community</Tag>
+
+<Deprecated2180 /> Replaced by <a href="https://docs.timescale.com/api/latest/hypercore/">Hypercore</a>.
+
+Compression functionality is included in Hypercore. 
 
 Before you set up compression, you need to
 [configure the hypertable for compression][configure-compression] and then
@@ -59,3 +65,4 @@ You can also use advanced insert statements like `ON CONFLICT` and `RETURNING`.
 [compress_chunk]: /api/:currentVersion:/compression/compress_chunk/
 [configure-compression]: /api/:currentVersion:/compression/alter_table_compression/
 [skipscan]: /use-timescale/:currentVersion:/query-data/skipscan/
+[hypercore]: /api/:currentVersion:/hypercore/

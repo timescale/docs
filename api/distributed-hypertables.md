@@ -1,5 +1,5 @@
 ---
-title: Distributed hypertables
+title: Distributed hypertables ( Sunsetted v2.14.x )
 excerpt: Sunsetted v2.14.x. Timescale Cloud API reference for dealing with distributed hypertables
 keywords: [distributed hypertables]
 ---
@@ -8,7 +8,7 @@ import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecati
 
 <MultiNodeDeprecation />
 
-# Distributed Hypertables <Tag type="community">Community</Tag>
+# Distributed hypertables ( Sunsetted v2.14.x) <Tag type="community">Community</Tag>
 
 Distributed hypertables are an extension of regular hypertables, available when
 using a [multi-node installation][getting-started-multi-node] of TimescaleDB.

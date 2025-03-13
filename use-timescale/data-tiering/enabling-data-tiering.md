@@ -34,13 +34,13 @@ You enable tiered storage from the `Overview` tab in Console.
 
    When tiered storage is enabled, you see the amount of data in the tiered object storage.
 
-   <Highlight type="note">
-   
-   Data tiering is available in [Scale and Enterprise][pricing-plans] pricing plans only.
-   
-   </Highlight>
-
 </Procedure>
+
+<Highlight type="note">
+
+Data tiering is available in [Scale and Enterprise][pricing-plans] pricing plans only.
+
+</Highlight>
 
 ## Automate tiering with policies
 
