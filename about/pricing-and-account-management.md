@@ -9,7 +9,7 @@ cloud_ui:
         - [billing]
 ---
 
-import UsageBasedStorage from "versionContent/_partials/_usage-based-storage-intro.mdx";
+import TieredStorageBilling from "versionContent/_partials/_tiered-storage-billing.mdx";
 
 # Pricing plans and account management
 
@@ -110,6 +110,8 @@ We make it easy for you to store unlimited amounts of data using Tiered Storage;
 storage tier and a low-cost bottomless storage tier. You can keep up to 16 TB compressed
 (typically 80-100 TBs uncompressed) in the high-performance storage tier, and configure less-frequently
 accessed data to be moved to our low-cost storage tier built on S3.
+
+<TieredStorageBilling />
 
 Timescale Cloud is very efficient and generally needs less compute than other databases to deliver
 the same performance. The best way to size your needs is to signup for a free trial and to test
