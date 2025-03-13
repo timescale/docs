@@ -16,7 +16,7 @@ notes about our downloadable products, see:
 * [pgspot](https://github.com/timescale/pgspot/releases) - spot vulnerabilities in PostgreSQL extension scripts.
 * [live-migration](https://hub.docker.com/r/timescale/live-migration/tags) - a Docker image to migrate data to a Timescale Cloud service.
 
-
+This documentation is based on TimescaleDB v2.18.0 and compatible products. 
 
 <Highlight type="note">
 

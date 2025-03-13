@@ -6,17 +6,17 @@ You create a $CLOUD_LONG account to manage your $SERVICE_SHORTs and data in a ce
 
 <Tab title="Timescale Cloud">
 
-You create a standalone account to manage $CLOUD_LONG as a separate unit in your infrastructure, which includes separate billing and invoicing. 
-
-To create an account:
+You create a standalone account to manage $CLOUD_LONG as a separate unit in your infrastructure, which includes separate billing and invoicing.
 
 <Procedure>
 
+To set up $CLOUD_LONG:
+  
 1. **Sign up for a 30-day free trial** 
 
    Open [Sign up for Timescale][timescale-signup] and add your details, then click `Start your free trial`. You receive a confirmation email in your inbox.
 
-1. **In the confirmation email, click the link supplied and sign in to [$CONSOLE][tsc-portal]**
+1.  **In the confirmation email, click the link supplied and sign in to [$CONSOLE][tsc-portal]**
 
 1. **Answer the requirements questions**
 
@@ -28,11 +28,11 @@ To create an account:
 
 <Tab title="AWS Marketplace">
 
-You create an account through AWS Marketplace to have $CLOUD_LONG as a part of your AWS infrastructure. In this case, $CLOUD_LONG is a line item in your AWS invoice. 
-
-To create an account:
+You create an account through AWS Marketplace to have $CLOUD_LONG as a part of your AWS infrastructure. In this case, $CLOUD_LONG is a line item in your AWS invoice.
 
 <Procedure>
+
+To set up $CLOUD_LONG via AWS:
 
 1. **Open [AWS Marketplace][aws-marketplace] and search for `Timescale Cloud`** 
 

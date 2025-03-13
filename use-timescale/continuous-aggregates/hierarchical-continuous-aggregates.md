@@ -6,9 +6,9 @@ keywords: [continuous aggregates, hierarchical, create]
 
 # Hierarchical continuous aggregates
 
-You can create continuous aggregates on top of other continuous aggregates. This
-allows you to summarize data at different levels of granularity. For example,
-you might have an hourly continuous aggregate that summarizes minute-by-minute
+The more data you have, the more likely you are to run a more sophisticated analysis on it. When a simple one-level aggregation is not enough, $CLOUD_LONG lets you create continuous aggregates on top of other continuous aggregates. This way, you summarize data at different levels of granularity, while still saving resources with precomputing. 
+
+For example, you might have an hourly continuous aggregate that summarizes minute-by-minute
 data. To get a daily summary, you can create a new continuous aggregate on top
 of your hourly aggregate. This is more efficient than creating the daily
 aggregate on top of the original hypertable, because you can reuse the

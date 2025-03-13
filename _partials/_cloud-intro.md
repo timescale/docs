@@ -1,12 +1,14 @@
-$CLOUD_LONG is a cloud-based PostgreSQL platform for resource-intensive workloads. We help you build faster, 
-scale further, and stay under budget. A $SERVICE_LONG is a single optimized 100% PostgreSQL database instance that you 
-use as is, or extend with capabilities specific to your business needs. The available capabilities are:
+$CLOUD_LONG is the modern PostgreSQL data platform for all your applications. It enhances PostgreSQL to handle time series, events, 
+real-time analytics, and vector search—all in a single database alongside transactional workloads.
+
+You get one system that handles live data ingestion, late and out-of-order updates, and low latency queries, with the performance, reliability, and scalability your app needs. Ideal for IoT, crypto, finance, SaaS, and a myriad other domains, $CLOUD_LONG allows you to build data-heavy, mission-critical apps while retaining the familiarity and reliability of PostgreSQL.
+
+A $SERVICE_LONG is a single optimized 100% PostgreSQL database instance that you 
+use as is, or extend with the capabilities specific to your business needs:
 
 - **Time-series and analytics**: PostgreSQL with TimescaleDB. The PostgreSQL you know and love, 
    supercharged with functionality for storing and querying [time-series data][what-is-time-series] at scale for 
-   analytics and other use cases.
-   Get faster time-based queries with hypertables, continuous aggregates, and columnar storage. Save on storage with 
-   native compression, data retention policies, and bottomless data tiering to Amazon S3. 
+   real-time analytics and other use cases. Get faster time-based queries with hypertables, continuous aggregates, and columnar storage. Save on storage with native compression, data retention policies, and bottomless data tiering to Amazon S3. 
 - **AI and vector**: PostgreSQL with vector extensions. Use PostgreSQL as a vector database with 
    purpose built extensions for building AI applications from start to scale. Get fast and accurate similarity search 
    with the pgvector and pgvectorscale extensions. Create vector embeddings and perform LLM reasoning on your data with 
@@ -14,7 +16,7 @@ use as is, or extend with capabilities specific to your business needs. The avai
 - **PostgreSQL**: the trusted industry-standard RDBMS. Ideal for applications requiring strong data 
    consistency, complex relationships, and advanced querying capabilities. Get ACID compliance, extensive SQL support, 
    JSON handling, and extensibility through custom functions, data types, and extensions. $CLOUD_LONG continuously 
-   monitors your services and prevents common PostgreSQL out-of-memory crashes. 
+   monitors your $SERVICE_SHORTs and prevents common PostgreSQL out-of-memory crashes. 
 
 All $SERVICE_LONGs include the tooling you expect for production and developer environments: [live migration][live-migration], 
 [automatic backups and PITR][automatic-backups], [high availability][high-availability], [read replicas][readreplica], [data forking][operations-forking], [connection pooling][connection-pooling], [tiered storage][data-tiering], 

@@ -193,6 +193,24 @@ module.exports = [
         ],
       },
       {
+        title: "Hypercore",
+        href: "hypercore",
+        excerpt:
+          "Seamlessly switch between row-oriented and column-oriented storage",
+        children: [
+          {
+            title: "Optimize your data for real-time analytics",
+            href: "real-time-analytics-in-hypercore",
+            excerpt: "Automate",
+          },
+          {
+            title: "Modify data in Hypercore",
+            href: "modify-data-in-hypercore",
+            excerpt: "Update data stored in the columnstore",
+          },
+        ],
+      },
+      {
         title: "Schema management",
         href: "schema-management",
         children: [
@@ -242,57 +260,6 @@ module.exports = [
           },
           {
             title: "Troubleshoot schema management",
-            href: "troubleshooting",
-            type: "placeholder",
-          },
-        ],
-      },
-      {
-        title: "Compression",
-        href: "compression",
-        children: [
-          {
-            title: "About compression",
-            href: "about-compression",
-            excerpt: "Learn about how compression works",
-          },
-          {
-            title: "Compression design",
-            href: "compression-design",
-            excerpt: "The design of TimescaleDB compression",
-          },
-          {
-            title: "About compression methods",
-            href: "compression-methods",
-            excerpt: "Learn about the different compression methods",
-          },
-          {
-            title: "Enable a compression policy",
-            href: "compression-policy",
-            excerpt: "Create a compression policy on a hypertable",
-          },
-          {
-            title: "Manual compression",
-            href: "manual-compression",
-            excerpt: "Compress data chunks",
-          },
-          {
-            title: "Modify compressed data",
-            href: "modify-compressed-data",
-            excerpt: "Insert and modify data in compressed chunks",
-          },
-          {
-            title: "Decompress chunks",
-            href: "decompress-chunks",
-            excerpt: "Decompress data chunks",
-          },
-          {
-            title: "Modify a schema",
-            href: "modify-a-schema",
-            excerpt: "Change the data schema in compressed chunks",
-          },
-          {
-            title: "Troubleshooting",
             href: "troubleshooting",
             type: "placeholder",
           },
@@ -974,6 +941,57 @@ module.exports = [
         title: "Troubleshoot Timescale",
         href: "troubleshoot-timescaledb",
         excerpt: "Troubleshooting Timescale",
+      },
+      {
+        title: "Compression (Old API, replaced by Hypercore)",
+        href: "compression",
+        children: [
+          {
+            title: "About compression",
+            href: "about-compression",
+            excerpt: "Learn about how compression works",
+          },
+          {
+            title: "Compression design",
+            href: "compression-design",
+            excerpt: "The design of TimescaleDB compression",
+          },
+          {
+            title: "About compression methods",
+            href: "compression-methods",
+            excerpt: "Learn about the different compression methods",
+          },
+          {
+            title: "Enable a compression policy",
+            href: "compression-policy",
+            excerpt: "Create a compression policy on a hypertable",
+          },
+          {
+            title: "Manual compression",
+            href: "manual-compression",
+            excerpt: "Compress data chunks",
+          },
+          {
+            title: "Modify compressed data",
+            href: "modify-compressed-data",
+            excerpt: "Insert and modify data in compressed chunks",
+          },
+          {
+            title: "Decompress chunks",
+            href: "decompress-chunks",
+            excerpt: "Decompress data chunks",
+          },
+          {
+            title: "Modify a schema",
+            href: "modify-a-schema",
+            excerpt: "Change the data schema in compressed chunks",
+          },
+          {
+            title: "Troubleshooting",
+            href: "troubleshooting",
+            type: "placeholder",
+          },
+        ],
       },
     ],
   },
