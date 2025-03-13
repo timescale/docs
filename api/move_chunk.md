@@ -6,6 +6,8 @@ keywords: [chunks, hypertables, tablespaces, move]
 api:
   license: community
   type: function
+seo:
+  robots: noindex
 ---
 
 # move_chunk() <Tag type="community">Community</Tag>
