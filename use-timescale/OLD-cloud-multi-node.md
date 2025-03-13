@@ -6,7 +6,7 @@ keywords: [multi-node, scaling]
 tags: [cluster, distributed hypertables]
 ---
 
-import EarlyAccess from "versionContent/_partials/_early_access.mdx";
+import EarlyAccess from "versionContent/_partials/_early_access_2_18_0.mdx";
 
 # Multi-node
 
