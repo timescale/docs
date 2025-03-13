@@ -7,6 +7,8 @@ keywords: [alert, integration, Grafana, Datadog, Nagios, Zabbix]
 
 # Alerting
 
+Early issue detecting and prevention, ensuring high availability, and performance optimization are only a few of the reasons why alerting plays a major role for modern applications, databases, and services.
+
 There are a variety of different alerting solutions you can use in conjunction
 with Timescale that are part of the PostgreSQL ecosystem. Regardless of
 whether you are creating custom alerts embedded in your applications, or using
@@ -15,7 +17,7 @@ are a wide selection of tools available.
 
 ## Grafana
 
-Grafana is a great way to visualize and explore time-series data and has a
+Grafana is a great way to visualize your analytical queries, and it has a
 first-class integration with Timescale. Beyond data visualization, Grafana
 also provides alerting functionality to keep you notified of anomalies.
 
@@ -33,7 +35,9 @@ it is designed to take advantage of the database's time-series capabilities.
 From there, proceed to your dashboard and set up alert rules as described above.
 
 <Highlight type="warning">
+
 Alerting is only available in Grafana v4.0 and later.
+
 </Highlight>
 
 ## Other alerting tools

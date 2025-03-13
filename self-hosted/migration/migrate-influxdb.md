@@ -43,8 +43,6 @@ and MacOS.
 
 <Procedure>
 
-### Installing Outflux
-
 1.  Go to the [releases section][outflux-releases] of the Outflux repository.
 1.  Download the latest compressed tarball for your platform.
 1.  Extract it to a preferred location.

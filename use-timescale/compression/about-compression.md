@@ -4,10 +4,12 @@ excerpt: When you compress data in a hypertable, multiple records are grouped in
 products: [self_hosted]
 keywords: [compression, hypertables]
 ---
-
+import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 import CompressionIntro from 'versionContent/_partials/_compression-intro.mdx';
 
 # About compression
+
+<Deprecated2180 /> Replaced by <a href="https://docs.timescale.com/use-timescale/latest/hypercore/">Hypercore</a>.
 
 <CompressionIntro />
 

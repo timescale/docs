@@ -8,9 +8,13 @@ layout_components: [next_prev_large]
 content_group: Analyze financial tick data
 ---
 
+import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
 import CandlestickIntro from "versionContent/_partials/_candlestick_intro.mdx";
+import FinancialIndustry from "versionContent/_partials/_financial-industry-data-analysis.mdx";
 
-# Analyze financial tick data with TimescaleDB
+# Analyze financial tick data
+
+<FinancialIndustry />
 
 To analyze financial data, you can chart the open, high, low, close, and volume
 (OHLCV) information for a financial asset. Using this data, you can create
@@ -24,25 +28,7 @@ aggregated data, and visualize the data in Grafana.
 
 ## Prerequisites
 
-Before you begin, make sure you have:
-
-*   Signed up for a [free Timescale account][cloud-install].
-
-## Steps in this tutorial
-
-This tutorial covers:
-
-1.  [Setting up your dataset][financial-tick-dataset]: Load data from
-    [Twelve Data][twelve-data] into your TimescaleDB database.
-1.  [Querying your dataset][financial-tick-query]: Create candlestick views, query
-    the aggregated data, and visualize the data in Grafana.
-1.  [Bonus: Store data efficiently][financial-tick-compress]: Learn how to store and query
-your financial tick data more efficiently using compression feature of Timescale.
-
-    This tutorial shows you how to ingest real-time time-series data into a Timescale
-    database. To create candlestick views, query the
-    aggregated data, and visualize the data in Grafana, see the
-    [ingest real-time websocket data section][advanced-websocket].
+<IntegrationPrereqs />
 
 ## About OHLCV data and candlestick charts
 
@@ -57,6 +43,23 @@ these stories from some Timescale community members:
 *   [How Trading Strategy built a data stack for crypto quant trading][trading-strategy]
 *   [How Messari uses data to open the cryptoeconomy to everyone][messari]
 *   [How I power a (successful) crypto trading bot with TimescaleDB][bot]
+
+## Steps in this tutorial
+
+This tutorial shows you how to ingest real-time time-series data into a Timescale
+database:
+
+1.  [Setting up your dataset][financial-tick-dataset]: Load data from
+    [Twelve Data][twelve-data] into your TimescaleDB database.
+1.  [Querying your dataset][financial-tick-query]: Create candlestick views, query
+    the aggregated data, and visualize the data in Grafana.
+1.  [Bonus: Store data efficiently][financial-tick-compress]: Learn how to store and query
+your financial tick data more efficiently using compression feature of Timescale.
+
+
+To create candlestick views, query the aggregated data, and visualize the data in Grafana, see the
+[ingest real-time websocket data section][advanced-websocket].
+
 
 [advanced-websocket]: /tutorials/:currentVersion:/financial-ingest-real-time/
 [cloud-install]: /getting-started/:currentVersion:/#create-your-timescale-account

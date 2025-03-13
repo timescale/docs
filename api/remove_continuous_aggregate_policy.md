@@ -21,8 +21,9 @@ remove_continuous_aggregate_policy(
 ```
 
 <Highlight type="note">
-To view the existing continuous aggregate policies, see the [policies
-informational view](/api/latest/informational-views/policies/).
+
+To view the existing continuous aggregate policies, see the [policies informational view](/api/:currentVersion:/informational-views/policies/).
+
 </Highlight>
 
 ## Required arguments

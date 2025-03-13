@@ -3,14 +3,10 @@
 This tutorial uses real-time stock trade data, also known as tick data, from
 [Twelve Data][twelve-data]. A direct download link is provided below.
 
-## Ingest the dataset
-
 To ingest data into the tables that you created, you need to download the
 dataset and copy the data to your database.
 
 <Procedure>
-
-#### Ingesting the dataset
 
 1.  Download the `real_time_stock_data.zip` file. The file contains two `.csv`
     files; one with company information, and one with real-time stock trades for

@@ -7,6 +7,7 @@ tags: [tune]
 ---
 
 import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";
+import ConfigCloudSelf from "versionContent/_partials/_cloud_self_configuration.mdx";
 
 # TimescaleDB configuration and tuning
 
@@ -14,14 +15,6 @@ Just as you can tune settings in PostgreSQL, TimescaleDB provides a number of co
 settings that may be useful to your specific installation and performance needs. These can
 also be set within the `postgresql.conf` file or as command-line parameters
 when starting PostgreSQL.
-
-## Policies
-
-### `timescaledb.max_background_workers (int)`
-
-Max background worker processes allocated to TimescaleDB. Set to at least 1 +
-the number of databases loaded with a TimescaleDB extension in a PostgreSQL
-instance. Default value is 16.
 
 ## Query Planning and Execution
 
@@ -31,7 +24,6 @@ planning. The first part of the aggregation is executed on a per-chunk basis.
 Then, these partial results are combined and finalized. Splitting aggregations
 decreases the size of the created hash tables and increases data locality, which
 speeds up queries.
- 
 
 ### `timescaledb.vectorized_aggregation (bool)`
 Enables or disables the vectorized optimizations in the query executor. For
@@ -43,6 +35,22 @@ in this way.
 Set to `ON` to dramatically decrease the amount of data written on a continuous aggregate 
 in the presence of a small number of changes, reduce the i/o cost of refreshing a 
 [continuous aggregate][continuous-aggregates], and generate fewer Write-Ahead Logs (WAL). Only works for continuous aggregates that don't have compression enabled.
+
+## Policies
+
+### `timescaledb.max_background_workers (int)`
+
+Max background worker processes allocated to TimescaleDB. Set to at least 1 +
+the number of databases loaded with a TimescaleDB extension in a PostgreSQL
+instance. Default value is 16.
+
+<ConfigCloudSelf />
+
+## Hypercore features
+
+### `timescaledb.default_hypercore_use_access_method (bool)`
+
+The default value for `hypercore_use_access_method` for functions that have this parameter. This function is in `user` context, meaning that any user can set it for the session. The default value is `false`.
 
 ## Distributed hypertables
 

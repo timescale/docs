@@ -243,7 +243,6 @@ When you get $CLOUD_LONG at AWS Marketplace, the following pricing options are a
 - **Annual commit**: your consumption is calculated at the end of the month ensuring predictable pricing and seamless billing through your AWS account. We confirm the contract terms with you before finalizing the commitment.
 
 [cloud-login]: https://console.cloud.timescale.com/
-[compression]: /use-timescale/:currentVersion:/compression/
 [data-tiering]: /use-timescale/:currentVersion:/data-tiering/
 [cloud-billing]: https://console.cloud.timescale.com/dashboard/billing/details
 [commercial-sla]: https://www.timescale.com/legal/timescale-cloud-terms-of-service
@@ -252,4 +251,4 @@ When you get $CLOUD_LONG at AWS Marketplace, the following pricing options are a
 [production-support]: https://www.timescale.com/support
 [get-in-touch]: https://www.timescale.com/contact
 [hipaa-compliance]: https://www.hhs.gov/hipaa/for-professionals/index.html
-[aws-pricing]: #aws-pricing
+[aws-pricing]: /about/:currentVersion:/pricing-and-account-management/#aws-marketplace-pricing

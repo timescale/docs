@@ -49,7 +49,7 @@ memory.
     order-by column using the `ALTER TABLE` command:
 
     ```sql
-    ALTER TABLE stocks_real_time 
+    ALTER TABLE crypto_ticks 
     SET (
         timescaledb.compress, 
         timescaledb.compress_segmentby='symbol', 
@@ -64,7 +64,7 @@ memory.
     `compress_chunk` in this manner:
 
     ```sql
-    SELECT compress_chunk(c) from show_chunks('stocks_real_time') c;
+    SELECT compress_chunk(c) from show_chunks('crypto_ticks') c;
     ```
     You can also [automate compression][automatic-compression] by
     adding a [compression policy][add_compression_policy] which will
@@ -76,7 +76,7 @@ memory.
     SELECT 
         pg_size_pretty(before_compression_total_bytes) as before,
         pg_size_pretty(after_compression_total_bytes) as after
-     FROM hypertable_compression_stats('stocks_real_time');
+     FROM hypertable_compression_stats('crypto_ticks');
     ```
 	This shows a significant improvement in data usage:
 
@@ -97,7 +97,7 @@ allows you to compress data that is older than a particular age, for
 example, to compress all chunks that are older than 8 days:
 
 ```sql
-SELECT add_compression_policy('stocks_real_time', INTERVAL '8 days');
+SELECT add_compression_policy('crypto_ticks', INTERVAL '8 days');
 ```
 
 Compression policies run on a regular schedule, by default once every
@@ -141,7 +141,7 @@ timing query times in psql by running:
 
 To decompress the whole dataset, run:
 ```sql
-    SELECT decompress_chunk(c) from show_chunks('stocks_real_time') c;
+    SELECT decompress_chunk(c) from show_chunks('crypto_ticks') c;
 ```
 
 On an example setup, speedup performance observed was significant,

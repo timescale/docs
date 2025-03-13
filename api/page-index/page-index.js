@@ -35,6 +35,10 @@ module.exports = [
             href: "reorder_chunk",
           },
           {
+            title: "merge_chunks",
+            href: "merge_chunks",
+          },
+          {
             title: "move_chunk",
             href: "move_chunk",
           },
@@ -117,102 +121,59 @@ module.exports = [
         ],
       },
       {
-        title: "Distributed hypertables",
-        type: "directory",
-        href: "distributed-hypertables",
+        title: "Hypercore",
+        excerpt: "Seamlessly switch between fast row-oriented storage and efficient column-oriented storage",
+        href: "hypercore",
         children: [
           {
-            title: "create_distributed_hypertable",
-            href: "create_distributed_hypertable",
+            title: "ALTER MATERIALIZED VIEW",
+            href: "alter_materialized_view",
+            excerpt: "Enable the columnstore for a materialized view.",
           },
           {
-            title: "add_data_node",
-            href: "add_data_node",
+            title: "ALTER TABLE",
+            href: "alter_table",
+            excerpt: "Enable the columnstore for a hypertable.",
           },
           {
-            title: "attach_data_node",
-            href: "attach_data_node",
+            title: "add_columnstore_policy",
+            href: "add_columnstore_policy",
+            excerpt: "Automatically convert chunks in the hypertable rowstore to the columnstore after a specific time interval",
           },
           {
-            title: "alter_data_node",
-            href: "alter_data_node",
+            title: "remove_columnstore_policy",
+            href: "remove_columnstore_policy",
+            excerpt: "Remove a columnstore policy from a hypertable or continuous aggregate",
           },
           {
-            title: "detach_data_node",
-            href: "detach_data_node",
+            title: "convert_to_columnstore",
+            href: "convert_to_columnstore",
+            excerpt: "Manually convert a specific chunk in the hypertable rowstore to the columnstore",
           },
           {
-            title: "delete_data_node",
-            href: "delete_data_node",
+            title: "convert_to_rowstore",
+            href: "convert_to_rowstore",
+            excerpt: "Manually convert a specific chunk in the hypertable columnstore to the rowstore",
           },
           {
-            title: "distributed_exec",
-            href: "distributed_exec",
+            title: "hypertable_columnstore_settings",
+            href: "hypertable_columnstore_settings",
+            excerpt: "Retrieve information about the settings for all hypertables in the columnstore",
           },
           {
-            title: "set_number_partitions",
-            href: "set_number_partitions",
+            title: "hypertable_columnstore_stats",
+            href: "hypertable_columnstore_stats",
+            excerpt: "Retrieve compression statistics for the columnstore",
           },
           {
-            title: "set_replication_factor",
-            href: "set_replication_factor",
+            title: "chunk_columnstore_settings",
+            href: "chunk_columnstore_settings",
+            excerpt: "Retrieve the compression settings for each chunk in the columnstore",
           },
           {
-            title: "copy_chunk",
-            href: "copy_chunk_experimental",
-          },
-          {
-            title: "move_chunk",
-            href: "move_chunk_experimental",
-          },
-          {
-            title: "cleanup_copy_chunk_operation",
-            href: "cleanup_copy_chunk_operation_experimental",
-          },
-          {
-            title: "create_distributed_restore_point",
-            href: "create_distributed_restore_point",
-          },
-        ],
-      },
-      {
-        title: "Compression",
-        type: "directory",
-        href: "compression",
-        description:
-          "We highly recommend reading the blog post and tutorial about compression before trying to set it up for the first time.",
-        children: [
-          {
-            title: "ALTER TABLE (Compression)",
-            href: "alter_table_compression",
-          },
-          {
-            title: "add_compression_policy",
-            href: "add_compression_policy",
-          },
-          {
-            title: "remove_compression_policy",
-            href: "remove_compression_policy",
-          },
-          {
-            title: "compress_chunk",
-            href: "compress_chunk",
-          },
-          {
-            title: "decompress_chunk",
-            href: "decompress_chunk",
-          },
-          {
-            title: "recompress_chunk",
-            href: "recompress_chunk",
-          },
-          {
-            title: "hypertable_compression_stats",
-            href: "hypertable_compression_stats",
-          },
-          {
-            title: "chunk_compression_stats",
-            href: "chunk_compression_stats",
+            title: "chunk_columnstore_stats",
+            href: "chunk_columnstore_stats",
+            excerpt: "Retrieve statistics about the chunks in the columnstore",
           },
         ],
       },
@@ -606,6 +567,105 @@ module.exports = [
         href: "api-tag-overview",
         description:
           "An overview of what different tags represent in the API section of Timescale Documentation.",
+      },
+      {
+        title: "Compression (Old API, replaced by Hypercore)",
+        href: "compression",
+        description:
+          "We highly recommend reading the blog post and tutorial about compression before trying to set it up for the first time.",
+        children: [
+          {
+            title: "ALTER TABLE (Compression)",
+            href: "alter_table_compression",
+          },
+          {
+            title: "add_compression_policy",
+            href: "add_compression_policy",
+          },
+          {
+            title: "remove_compression_policy",
+            href: "remove_compression_policy",
+          },
+          {
+            title: "compress_chunk",
+            href: "compress_chunk",
+          },
+          {
+            title: "decompress_chunk",
+            href: "decompress_chunk",
+          },
+          {
+            title: "recompress_chunk",
+            href: "recompress_chunk",
+          },
+          {
+            title: "hypertable_compression_stats",
+            href: "hypertable_compression_stats",
+          },
+          {
+            title: "chunk_compression_stats",
+            href: "chunk_compression_stats",
+          },
+        ],
+      },
+      {
+        title: "Distributed hypertables (Sunsetted v2.14.x)",
+        type: "directory",
+        href: "distributed-hypertables",
+        children: [
+          {
+            title: "create_distributed_hypertable",
+            href: "create_distributed_hypertable",
+          },
+          {
+            title: "add_data_node",
+            href: "add_data_node",
+          },
+          {
+            title: "attach_data_node",
+            href: "attach_data_node",
+          },
+          {
+            title: "alter_data_node",
+            href: "alter_data_node",
+          },
+          {
+            title: "detach_data_node",
+            href: "detach_data_node",
+          },
+          {
+            title: "delete_data_node",
+            href: "delete_data_node",
+          },
+          {
+            title: "distributed_exec",
+            href: "distributed_exec",
+          },
+          {
+            title: "set_number_partitions",
+            href: "set_number_partitions",
+          },
+          {
+            title: "set_replication_factor",
+            href: "set_replication_factor",
+          },
+          {
+            title: "copy_chunk",
+            href: "copy_chunk_experimental",
+          },
+          {
+            title: "move_chunk",
+            href: "move_chunk_experimental",
+          },
+          {
+            title: "cleanup_copy_chunk_operation",
+            href: "cleanup_copy_chunk_operation_experimental",
+          },
+          {
+            title: "create_distributed_restore_point",
+            href: "create_distributed_restore_point",
+          },
+        ],
       },
     ],
   },
