@@ -1,15 +1,12 @@
-Hypertables are PostgreSQL tables that automatically partition your data by
-time. You interact with hypertables in the same way as regular PostgreSQL
-tables, but with extra features that makes managing your time-series data much
-easier.
+$CLOUD_LONG supercharges your real-time analytics by letting you run complex queries continuously, with near-zero latency. Under the hood, this is achieved by using hypertables - PostgreSQL tables that automatically partition your time-series data by time and optionally by space. When you run a query, $CLOUD_LONG identifies the correct partition and runs the query on it, instead of going through the entire table. 
 
-In Timescale, hypertables exist alongside regular PostgreSQL tables. Use
-hypertables to store time-series data. This gives you improved insert and query
-performance, and access to useful time-series features. Use regular PostgreSQL
-tables for other relational data.
+Hypertables offer a range of other features, such as [skipping partitions][chunk-skipping] or running [hyperfunctions][hyperfunctions], that boost the performance of your analytical queries even more.
 
-With hypertables, Timescale makes it easy to improve insert and query
-performance by partitioning time-series data on its time parameter. Behind the
-scenes, the database performs the work of setting up and maintaining the
-hypertable's partitions. Meanwhile, you insert and query your data as if it all
-lives in a single, regular PostgreSQL table.
+To top it all, there is no added complexity - you interact with hypertables in the same way as you would with regular PostgreSQL tables. All the optimization magic happens behind the scenes.
+
+[chunk-skipping]: /use-timescale/:currentVersion:/hypertables/improve-query-performance/
+[hyperfunctions]: /use-timescale/:currentVersion:/hyperfunctions/
+
+
+
+

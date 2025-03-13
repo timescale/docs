@@ -4,8 +4,11 @@ excerpt: In Timescale Cloud, compressed data can still be modified. Learn to ins
 products: [cloud, mst, self_hosted]
 keywords: [compression, backfilling, hypertables]
 ---
+import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 
 # Insert and modify compressed data
+
+<Deprecated2180 /> Replaced by <a href="https://docs.timescale.com/use-timescale/latest/hypercore/modify-data-in-hypercore">Modify your data in Hypercore</a>.
 
 In TimescaleDB&nbsp;2.11 and later, you can insert data into compressed chunks,
 and modify data in compressed rows.

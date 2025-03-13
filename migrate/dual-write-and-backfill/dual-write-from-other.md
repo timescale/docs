@@ -79,7 +79,7 @@ continuous aggregate over the whole time range to ensure that there are no
 holes in the aggregated data.
 </Highlight>
 
-[tables and hypertables]: /getting-started/:currentVersion:/tables-hypertables/
+[tables and hypertables]: /getting-started/:currentVersion:/try-key-features-timescale-products/#optimize-time-series-data-in-hypertables
 
 <StepFour />
 
