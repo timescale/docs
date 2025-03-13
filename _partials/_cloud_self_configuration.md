@@ -8,14 +8,6 @@ Max background worker processes allocated to TimescaleDB. Set to at least 1 +
 the number of databases loaded with the TimescaleDB extension in a PostgreSQL
 instance. Default value is 16.
 
-### `timescaledb.enable_tiered_reads (bool)`
-
-Enable [tiered reads][enabling-data-tiering] to query your data normally when it's distributed across different storage tiers.
-Your hypertable is spread across the tiers, so queries and `JOIN`s work and fetch the same data as usual.
-
-By default, tiered data is not accessed by queries. Querying tiered data may slow down query performance
-as the data is not stored locally on Timescale's high-performance storage tier.
-
 ## Hypercore features
 
 ### `timescaledb.default_hypercore_use_access_method (bool)`
