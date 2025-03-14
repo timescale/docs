@@ -1,10 +1,9 @@
-<Procedure>
-
 1. **Tune the Write Ahead Log (WAL) on the PostgreSQL source database**
 
    ```sql
-   psql $SOURCE -c "SET wal_level=’logical’;"
-   psql $SOURCE -c "SET max_wal_sender=10;"
+   psql $SOURCE -c "ALTER SYSTEM SET wal_level=’logical’;"
+   psql $SOURCE -c "ALTER SYSTEM SET max_wal_sender=10;"
+   psql $SOURCE -c "ALTER SYSTEM SET wal_sender_timeout=0;"
    ```
    * [ GUC “wal_level” as “logical”](https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-WAL-LEVEL)
    * [GUC “max_wal_senders” as 10](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-MAX-WAL-SENDERS)
@@ -38,8 +37,6 @@
 
 
 1. **Restart your source database**
-
-</Procedure>
 
 
 [lives-sync-specify-tables]: /migrate/:currentVersion:/livesync/#specify-the-tables-to-synchronize

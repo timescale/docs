@@ -9,10 +9,6 @@ import EarlyAccess from "versionContent/_partials/_early_access_2_18_0.mdx";
 
 - Install the [PostgreSQL client tools][install-psql] on your sync machine.
 
-  This includes `psql`, `pg_dump`, and `pg_dumpall`.
-
-<EarlyAccess />
-
 ## Limitations
 
 <LivesyncLimitations />
@@ -32,9 +28,28 @@ requires a direct connection to the database to function properly.
 </Highlight>
 
 
-## Configure the source database
+## Tune your source database
+
+<Tabs label="Live migration">
+
+<Tab title="From PostgreSQL">
+<Procedure>
 
 <LivesyncConfigureSourceDatabase />
+
+</Procedure>
+
+</Tab>
+<Tab title="From AWS RDS/Aurora">
+
+<Procedure>
+
+<TuneSourceDatabaseAWSRDS />
+
+</Procedure>
+
+</Tab>
+</Tabs>
 
 ## Synchronize data to your $SERVICE_LONG
 

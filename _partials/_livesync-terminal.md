@@ -2,6 +2,7 @@ import MigrationPrerequisites from "versionContent/_partials/_migrate_prerequisi
 import SetupConnectionStrings from "versionContent/_partials/_migrate_live_setup_connection_strings.mdx";
 import LivesyncLimitations from "versionContent/_partials/_livesync-limitations.mdx";
 import LivesyncConfigureSourceDatabase from "versionContent/_partials/_livesync-configure-source-database.mdx";
+import TuneSourceDatabaseAWSRDS from "versionContent/_partials/_migrate_live_tune_source_database_awsrds.mdx";
 
 ## Prerequisites
 
@@ -19,6 +20,8 @@ import LivesyncConfigureSourceDatabase from "versionContent/_partials/_livesync-
 
 <LivesyncLimitations />
 
+- The Schema is not migrated by Livesync, you use pg_dump/restore to migrate schema
+
 ## Set your connection strings
 
 The `<user>` in the `SOURCE` connection must have the replication role granted in order to create a replication slot.
@@ -26,10 +29,28 @@ The `<user>` in the `SOURCE` connection must have the replication role granted i
 <SetupConnectionStrings />
 
 
-## Configure the source database
+## Tune your source database
+
+<Tabs label="Live migration">
+
+<Tab title="From PostgreSQL">
+<Procedure>
 
 <LivesyncConfigureSourceDatabase />
 
+</Procedure>
+
+</Tab>
+<Tab title="From AWS RDS/Aurora">
+
+<Procedure>
+
+<TuneSourceDatabaseAWSRDS />
+
+</Procedure>
+
+</Tab>
+</Tabs>
 
 ## Migrate the table schema to the $SERVICE_LONG
 
