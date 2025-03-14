@@ -1,7 +1,7 @@
 import PrereqCloud from "versionContent/_partials/_prereqs-cloud-only.mdx";
 import LivesyncLimitations from "versionContent/_partials/_livesync-limitations.mdx";
 import LivesyncConfigureSourceDatabase from "versionContent/_partials/_livesync-configure-source-database.mdx";
-import EarlyAccess from "versionContent/_partials/_early_access_2_18_0.mdx";
+import TuneSourceDatabaseAWSRDS from "versionContent/_partials/_migrate_live_tune_source_database_awsrds.mdx";
 
 ## Prerequisites
 
