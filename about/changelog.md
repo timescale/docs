@@ -8,7 +8,7 @@ keywords: [changelog, upgrades, updates, releases]
 
 All the latest features and updates to Timescale products.
 
-## 📈16K dimensions on pgvectorscale plus new pgai Vectorizer support
+## 📈 16K dimensions on pgvectorscale plus new pgai Vectorizer support
 <Label type="date">March 14, 2025</Label>
 
 ### pgvectorscale 0.6 — store up to 16K dimension embeddings
