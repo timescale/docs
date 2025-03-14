@@ -132,7 +132,7 @@ tsdb=> \dp _timescaledb_internal._compressed_hypertable_2
 This means that the `relacl` column of `pg_class` needs to be updated
 and the offending user removed, but it is not possible to drop a user
 by numerical value. Instead, you can use the internal function
-`repair_relation_acls` in `_timescaledb_function` schema:
+`repair_relation_acls` in the `_timescaledb_function` schema:
 
 ```sql
 tsdb=> CALL _timescaledb_functions.repair_relation_acls();

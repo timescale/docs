@@ -1,6 +1,6 @@
 ---
 api_name: enable_chunk_skipping()
-excerpt: Enable range tracking for columns of chunks from a hypertable  
+excerpt: Enable range tracking for columns of chunks from a hypertable
 topics: [hypertables]
 keywords: [hypertables, chunks, range-tracking, skipping]
 tags: [columns, ranges, min-max, chunks]
@@ -18,7 +18,7 @@ partitioning column. In other words, enable tracking on secondary columns which 
 referenced in the `WHERE` clauses in your queries.
 
 TimescaleDB supports min/max range tracking for the `smallint`, `int`,
-`bigint`, `serial`, `bigserial`, `date`, `timestamp`, and `timestamptz` data types. The 
+`bigint`, `serial`, `bigserial`, `date`, `timestamp`, and `timestamptz` data types. The
 min/max ranges are calculated when a chunk belonging to
 this hypertable is compressed using the [compress_chunk][compress_chunk] function.
 The range is stored in start (inclusive) and end (exclusive) form in the
@@ -39,7 +39,7 @@ from the `chunk_column_stats` catalog table since now it's available for DML and
 min/max range values can change on any further data manipulation in the chunk.
 
 By default, this feature is disabled. To enable chunk skipping, set `timescaledb.enable_chunk_skipping = on` in
-`postgresql.conf`. When you upgrade from a database instance that uses compression but does not support chunk 
+`postgresql.conf`. When you upgrade from a database instance that uses compression but does not support chunk
 skipping, you need to recompress the previously compressed chunks for chunk skipping to work.
 
 ## Samples
@@ -66,8 +66,7 @@ SELECT enable_chunk_skipping('conditions', 'device_id');
 |Column|Type|Description|
 |-|-|-|
 |`column_stats_id`|INTEGER|ID of the entry in the TimescaleDB internal catalog|
-|`enabled`|BOOLEAN|Returns `true` when tracking is enabled, `if_not_exists` is `true`, and when a new entry is not
-added|
+|`enabled`|BOOLEAN|Returns `true` when tracking is enabled, `if_not_exists` is `true`, and when a new entry is not added|
 
 [compress_chunk]: /api/:currentVersion:/compression/compress_chunk/
 [decompress_chunk]: /api/:currentVersion:/compression/decompress_chunk/

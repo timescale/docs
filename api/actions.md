@@ -1,6 +1,6 @@
 ---
 title: User-defined actions
-excerpt: Define your own functions and procedures to run on a schedule
+excerpt: Timescale Cloud API reference for user-defined actions. Includes SQL functions for adding, altering, deleting, and running a user-defined action
 keywords: [actions, jobs]
 tags: [user-defined actions, background jobs, scheduled jobs, automation framework]
 ---

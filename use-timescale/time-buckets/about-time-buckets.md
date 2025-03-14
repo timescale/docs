@@ -7,19 +7,17 @@ keywords: [time buckets]
 
 # About time buckets
 
-The [`time_bucket`][time_bucket] function allows you to aggregate data in a 
-[hypertable][create-hypertable] into buckets of time. For example: 5 minutes, 1 hour, or 3 days. 
+Time bucketing is essential for real-time analytics. The [`time_bucket`][time_bucket] function enables you to aggregate data in a [hypertable][create-hypertable] into buckets of time. For example, 5 minutes, 1 hour, or 3 days. 
 It's similar to PostgreSQL's [`date_bin`][date_bin] function, but it gives you more
-flexibility in bucket size and start time.
+flexibility in the bucket size and start time.
 
-Time bucketing is essential to working with time-series data. You can use it to
-roll up data for analysis or downsampling. For example, you can calculate
+You can use it to roll up data for analysis or downsampling. For example, you can calculate
 5-minute averages for a sensor reading over the last day. You can perform these
 rollups as needed, or pre-calculate them in [continuous aggregates][caggs].
 
 This section explains how time bucketing works. For examples of the
 `time_bucket` function, see the section on
-[using time buckets][use-time-buckets].
+[Aggregate time-series data with `time_bucket`][use-time-buckets].
 
 ## How time bucketing works
 

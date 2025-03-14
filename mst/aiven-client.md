@@ -1,6 +1,6 @@
 ---
 title: Aiven Client for Managed Service for TimescaleDB
-excerpt: A Command Line tool for Managed Service for TimescaleDB.
+excerpt: Manage your services in the Managed Service for TimescaleDB with a command-line tool
 products: [mst]
 ---
 

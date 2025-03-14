@@ -1,6 +1,6 @@
 ---
 title: Migrating from self-hosted Timescale to Managed Service for TimescaleDB
-excerpt: Migrating an existing Timescale database to Managed Service for TimescaleDB
+excerpt: Migrate a Timescale Cloud service to Managed Service for TimescaleDB
 products: [mst, self_hosted]
 keywords: [data migration, database]
 tags: [ingest, backup, restore]

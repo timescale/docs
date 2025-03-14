@@ -1,62 +1,40 @@
 ---
 title: Contribute to Timescale
-excerpt: Learn more about how to contribute to Timescale
+excerpt: We welcome all contributions! Learn to contribute to the TimescaleDB code base and documentation
 products: [cloud, mst, self_hosted]
 keywords: [contribute]
 tags: [github]
 ---
 
-# Contributing to Timescale
+# Contribute to $COMPANY
 
-There are multiple ways to help make TimescaleDB better. All of the documentation
-and source for the PostgreSQL extension are available to use and review on
-GitHub.
+$TIMESCALE_DB, pgai, pgvectorscale, TimescaleDB Toolkit, and the $COMPANY documentation are all open source. They are available in GitHub for you use, review, and update. This page shows you where you can add to $COMPANY products.
 
-## Contributing to Timescale documentation
+## Contribute to the code for $COMPANY products
 
-Timescale documentation is hosted in a [GitHub repository][github-docs]
-and is open for contribution from all community members. If you
-find errors or would like to add content to the docs, this tutorial
-walks you through the process.
+$COMPANY appreciates any help the community can provide to make its products better! You can:
 
-### Making minor changes
+* Open an issue with a bug report, build issue, feature request or suggestion.
+* Fork a corresponding repository and submit a pull request.
 
-If you want to make only minor changes to docs, you can make corrections
-and submit pull requests on the GitHub website. Go to the file you want to
-correct and click the 'pencil' icon to edit. Once done, GitHub gives you
-an option to submit a pull request at the bottom of the page.
+Head over to the $COMPANY source repositories to learn, review, and help improve our products!
 
-### Making larger contributions to docs
+* [TimescaleDB][timescaledb]: a PostgreSQL extension for high-performance real-time analytics on time-series and event data.
+* [pgai][pgai]: a suite of tools to develop RAG, semantic search, and other AI applications more easily with PostgreSQL.
+* [pgvectorscale][pgvectorscale]: a complement to pgvector for higher performance embedding search and cost-efficient storage for AI applications.
+* [TimescaleDB Toolkit][toolkit]: all things analytics when using $TIMESCALE_DB, with a particular focus on developer ergonomics and performance.
 
-In order to modify documentation, you should have a working knowledge
-of [git][install-git] and [Markdown][markdown-tutorial]. You
-also need to create a GitHub account.
+## Contribute to $COMPANY documentation
 
-Be sure to read the [Timescale docs contribution styleguide][timescale-docs-style].
-You'll see information about how we refer to aspects of Timescale,
-how we format our docs, and special Markdown tags available to
-you as you author your contribution.
+$COMPANY documentation is hosted in the [docs GitHub repository][github-docs]
+and open for contribution from all community members.
 
-Before we accept any contributions, Timescale contributors need to
-sign the Contributor License Agreement (CLA). By signing a CLA, we
-can ensure that the community is free and confident in its
-ability to use your contributions. You are prompted to sign the
-CLA during the pull request process.
+See the [contribution guide][contribution-guide] for details.
 
-## Contributing to TimescaleDB code
-
-Timescale appreciates any help the community can provide to make TimescaleDB better!
-
-There are multiple ways you can help:
-
-*   Open an issue with a bug report, build issue, feature request, suggestion, etc.
-*   Fork this repository and submit a pull request
-
-[Head over to our GitHub repository][github-timescaledb] for TimescaleDB to learn
-more about how you can help and to review our coding style guide!
-
+[contribution-guide]: https://github.com/timescale/docs/blob/latest/CONTRIBUTING.md
 [github-docs]: https://github.com/timescale/docs
-[github-timescaledb]: https://github.com/timescale/timescaledb/blob/master/CONTRIBUTING.md
-[install-git]: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
-[markdown-tutorial]: https://www.markdownguide.org/basic-syntax/
-[timescale-docs-style]: https://github.com/timescale/docs/blob/master/README.md
+[timescaledb]: https://github.com/timescale/timescaledb/blob/main/CONTRIBUTING.md
+[pgai]: https://github.com/timescale/pgai/blob/main/CONTRIBUTING.md
+[pgvectorscale]: https://github.com/timescale/pgvectorscale/blob/main/CONTRIBUTING.md
+[toolkit]: https://github.com/timescale/timescaledb-toolkit
+

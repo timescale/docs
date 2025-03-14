@@ -7,6 +7,8 @@ tags: [distributed hypertables, cluster, data nodes]
 api:
   license: community
   type: function
+seo:
+  robots: noindex
 ---
 
 import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";

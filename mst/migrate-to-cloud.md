@@ -1,6 +1,6 @@
 ---
 title: Migrate your Managed Service for TimescaleDB data to Timescale
-excerpt: Migrate to Timescale from Managed Service for TimescaleDB
+excerpt: Migrate a service in Managed Service for TimescaleDB to Timescale Cloud
 products: [mst, cloud]
 keywords: [data migration]
 ---

@@ -1,29 +1,29 @@
 ## Load financial data
 
 This tutorial uses real-time cryptocurrency data, also known as tick data, from
-[Twelve Data][twelve-data]. A direct download link is provided below.
-
-### Ingest the dataset
-
-To ingest data into the tables that you created, you need to download the
-dataset and copy the data to your database.
+[Twelve Data][twelve-data]. To ingest data into the tables that you created, you need to 
+download the dataset, then upload the data to your $SERVICE_LONG.
 
 <Procedure>
 
-#### Ingesting the dataset
 
-1.  Download the `crypto_sample.zip` file. The file contains two `.csv`
-    files; one with company information, and one with real-time stock trades for
-    the past month. Download:
-    <Tag
-    type="download">[crypto_sample.zip](https://assets.timescale.com/docs/downloads/candlestick/crypto_sample.zip)
-    </Tag>
+1. Unzip <Tag type="download">[crypto_sample.zip](https://assets.timescale.com/docs/downloads/candlestick/crypto_sample.zip)</Tag> to a `<local folder>`.
 
-1.  In a new terminal window, run this command to unzip the `.csv` files:
+   This test dataset contains second-by-second trade data for the most-traded crypto-assets
+   and a regular table of asset symbols and company names.  
 
-    ```bash
-    unzip crypto_sample.zip
-    ```
+   To import up to 100GB of data directly from your current PostgreSQL based database, 
+   [migrate with downtime][migrate-with-downtime] using native PostgreSQL tooling. To seamlessly import 100GB-10TB+ 
+   of data, use the [live migration][migrate-live] tooling supplied by $COMPANY. To add data from non-PostgreSQL
+   data sources, see [Import and ingest data][data-ingest].
+
+
+
+1. In Terminal, navigate to `<local folder>` and connect to your $SERVICE_SHORT.
+   ```bash
+   psql -d "postgres://<username>:<password>@<host>:<port>/<database-name>"
+   ```
+   The connection information for a $SERVICE_SHORT is available in the file you downloaded when you created it.
 
 1.  At the `psql` prompt, use the `COPY` command to transfer data into your
     Timescale instance. If the `.csv` files aren't in your current directory,
@@ -44,3 +44,6 @@ dataset and copy the data to your database.
 </Procedure>
 
 [twelve-data]: https://twelvedata.com/
+[migrate-with-downtime]: /migrate/:currentVersion:/pg-dump-and-restore/
+[migrate-live]: /migrate/:currentVersion:/live-migration/
+[data-ingest]: /use-timescale/:currentVersion:/ingest-data/

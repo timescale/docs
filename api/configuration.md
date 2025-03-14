@@ -1,6 +1,6 @@
 ---
 title: Configuration
-excerpt: Configure your TimescaleDB instance and PostgreSQL server 
+excerpt: Use the default PostgreSQL server configuration settings for your Timescale Cloud service, or customize them as needed
 keywords: [configure]
 ---
 

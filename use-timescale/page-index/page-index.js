@@ -193,6 +193,24 @@ module.exports = [
         ],
       },
       {
+        title: "Hypercore",
+        href: "hypercore",
+        excerpt:
+          "Seamlessly switch between row-oriented and column-oriented storage",
+        children: [
+          {
+            title: "Optimize your data for real-time analytics",
+            href: "real-time-analytics-in-hypercore",
+            excerpt: "Automate",
+          },
+          {
+            title: "Modify data in Hypercore",
+            href: "modify-data-in-hypercore",
+            excerpt: "Update data stored in the columnstore",
+          },
+        ],
+      },
+      {
         title: "Schema management",
         href: "schema-management",
         children: [
@@ -242,57 +260,6 @@ module.exports = [
           },
           {
             title: "Troubleshoot schema management",
-            href: "troubleshooting",
-            type: "placeholder",
-          },
-        ],
-      },
-      {
-        title: "Compression",
-        href: "compression",
-        children: [
-          {
-            title: "About compression",
-            href: "about-compression",
-            excerpt: "Learn about how compression works",
-          },
-          {
-            title: "Compression design",
-            href: "compression-design",
-            excerpt: "The design of TimescaleDB compression",
-          },
-          {
-            title: "About compression methods",
-            href: "compression-methods",
-            excerpt: "Learn about the different compression methods",
-          },
-          {
-            title: "Enable a compression policy",
-            href: "compression-policy",
-            excerpt: "Create a compression policy on a hypertable",
-          },
-          {
-            title: "Manual compression",
-            href: "manual-compression",
-            excerpt: "Compress data chunks",
-          },
-          {
-            title: "Modify compressed data",
-            href: "modify-compressed-data",
-            excerpt: "Insert and modify data in compressed chunks",
-          },
-          {
-            title: "Decompress chunks",
-            href: "decompress-chunks",
-            excerpt: "Decompress data chunks",
-          },
-          {
-            title: "Modify a schema",
-            href: "modify-a-schema",
-            excerpt: "Change the data schema in compressed chunks",
-          },
-          {
-            title: "Troubleshooting",
             href: "troubleshooting",
             type: "placeholder",
           },
@@ -776,7 +743,7 @@ module.exports = [
           {
             title: "Find your connection details",
             href: "find-connection-details",
-            excerpt: "Learn about connecting to your Timescale database",
+            excerpt: "Find connection information for your Timescale Cloud service",
           },
           {
             title: "Amazon CloudWatch",
@@ -789,9 +756,19 @@ module.exports = [
             excerpt: "Integrate Amazon SageMaker with Timescale Cloud",
           },
           {
+            title: "Amazon Web Services",
+            href: "aws",
+            excerpt: "Integrate AWS with Timescale Cloud",
+          },
+          {
             title: "Apache Airflow",
             href: "apache-airflow",
             excerpt: "Integrate Apache Airflow with Timescale products",
+          },
+          {
+            title: "Apache Kafka",
+            href: "apache-kafka",
+            excerpt: "Integrate Apache Kafka with Timescale Cloud",
           },
           {
             title: "AWS Lambda",
@@ -801,7 +778,12 @@ module.exports = [
           {
             title: "Azure Data Studio",
             href: "azure-data-studio",
-            excerpt: "Integrate Azure Data Studio with Timescale products",
+            excerpt: "Integrate Azure Data Studio with Timescale Cloud",
+          },
+          {
+            title: "Corporate data center",
+            href: "corporate-data-center",
+            excerpt: "Integrate your corporate data center with Timescale Cloud",
           },
           {
             title: "Datadog",
@@ -811,7 +793,22 @@ module.exports = [
           {
             title: "DBeaver",
             href: "dbeaver",
-            excerpt: "Integrate DBeaver with Timescale products",
+            excerpt: "Integrate DBeaver with Timescale Cloud",
+          },
+          {
+            title: "Decodable",
+            href: "decodable",
+            excerpt: "Integrate Decodable with Timescale Cloud",
+          },
+          {
+            title: "Fivetran",
+            href: "fivetran",
+            excerpt: "Integrate Fivetran with Timescale Cloud",
+          },
+          {
+            title: "Google Cloud",
+            href: "google-cloud",
+            excerpt: "Integrate Google Cloud with Timescale Cloud",
           },
           {
             title: "Grafana",
@@ -819,9 +816,14 @@ module.exports = [
             excerpt: "Integrate Grafana with Timescale products",
           },
           {
+            title: "Microsoft Azure",
+            href: "microsoft-azure",
+            excerpt: "Integrate Microsoft Azure with Timescale Cloud",
+          },
+          {
             title: "pgAdmin",
             href: "pgadmin",
-            excerpt: "Integrate pgAdmin with Timescale products",
+            excerpt: "Integrate pgAdmin with Timescale Cloud",
           },
           {
             title: "PostgreSQL",
@@ -834,6 +836,11 @@ module.exports = [
             excerpt: "Integrate Prometheus with Timescale Cloud",
           },
           {
+            title: "Power BI",
+            href: "power-bi",
+            excerpt: "Integrate Power BI with Timescale Cloud",
+          },
+          {
             title: "psql",
             href: "psql",
             excerpt: "Connect to Timescale products with psql",
@@ -841,22 +848,28 @@ module.exports = [
           {
             title: "qStudio",
             href: "qstudio",
-            excerpt: "Integrate qstudio with Timescale products",
+            excerpt: "Integrate qstudio with Timescale Cloud",
+          },
+          {
+            title: "Supabase",
+            href: "supabase",
+            excerpt: "Integrate Supabase with Timescale products",
           },
           {
             title: "Tableau",
             href: "tableau",
-            excerpt: "Integrate Tableau with Timescale products",
+            excerpt: "Integrate Tableau with Timescale Cloud",
           },
           {
             title: "Terraform",
             href: "terraform",
-            excerpt: "Manage your Timescale services with Terraform",
+            excerpt: "Integrate Terraform with Timescale Cloud",
           },
           {
             title: "Troubleshooting Timescale integrations",
             href: "troubleshooting",
             type: "placeholder",
+            excerpt: "Resolve integration issues",
           },
         ],
       },
@@ -897,14 +910,14 @@ module.exports = [
               "Connect to Timescale with a stricter SSL mode of verify-ca or verify-full",
           },
           {
+            title: "Connect securely from any cloud",
+            href: "transit-gateway",
+            excerpt: "Peer your Timescale Cloud service with AWS Transit Gateway",
+          },
+          {
             title: "VPC peering and AWS PrivateLink",
             href: "vpc",
             excerpt: "Secure your Timescale Service with VPC peering and AWS PrivateLink",
-          },
-          {
-            title: "AWS Transit Gateway",
-            href: "transit-gateway",
-            excerpt: "Peer your Timescale Cloud service with AWS Transit Gateway",
           },
           {
             title: "IP allow list",
@@ -923,6 +936,57 @@ module.exports = [
         title: "Troubleshoot Timescale",
         href: "troubleshoot-timescaledb",
         excerpt: "Troubleshooting Timescale",
+      },
+      {
+        title: "Compression (Old API, replaced by Hypercore)",
+        href: "compression",
+        children: [
+          {
+            title: "About compression",
+            href: "about-compression",
+            excerpt: "Learn about how compression works",
+          },
+          {
+            title: "Compression design",
+            href: "compression-design",
+            excerpt: "The design of TimescaleDB compression",
+          },
+          {
+            title: "About compression methods",
+            href: "compression-methods",
+            excerpt: "Learn about the different compression methods",
+          },
+          {
+            title: "Enable a compression policy",
+            href: "compression-policy",
+            excerpt: "Create a compression policy on a hypertable",
+          },
+          {
+            title: "Manual compression",
+            href: "manual-compression",
+            excerpt: "Compress data chunks",
+          },
+          {
+            title: "Modify compressed data",
+            href: "modify-compressed-data",
+            excerpt: "Insert and modify data in compressed chunks",
+          },
+          {
+            title: "Decompress chunks",
+            href: "decompress-chunks",
+            excerpt: "Decompress data chunks",
+          },
+          {
+            title: "Modify a schema",
+            href: "modify-a-schema",
+            excerpt: "Change the data schema in compressed chunks",
+          },
+          {
+            title: "Troubleshooting",
+            href: "troubleshooting",
+            type: "placeholder",
+          },
+        ],
       },
     ],
   },
