@@ -71,7 +71,7 @@ For more information about replicas, see the
 
 ## Non-critical maintenance updates
 
-Non-critical upgrades are made available before the upgrade is performed
+Non-critical upgrades are available before the upgrade is performed
 automatically. During this time you can run `ALTER EXTENSION timescaledb
 UPDATE` in your in your database or `Pause` and `Resume` your service. The
 upgrade is triggered automatically in the next available maintenance window for
