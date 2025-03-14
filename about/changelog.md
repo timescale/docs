@@ -13,7 +13,7 @@ All the latest features and updates to Timescale products.
 
 ### pgvectorscale 0.6 — store up to 16K dimension embeddings
 
-pgvectorscale 0.6.0 now supports storing vectors with up to 16,000 dimensions, removing the previous limitation of 2,000 from pgvector. This lets you use larger embedding models like OpenAI's text-embedding-3-large (3072 dim) with PostgreSQL as your vector database. This release also includes key performance and capability enhancements, including NEON support for SIMD distance calculations on aarch64 processors, improved inner product distance metric implementation, and improved index statistics. 
+pgvectorscale 0.6.0 now supports storing vectors with up to 16,000 dimensions, removing the previous limitation of 2,000 from pgvector. This lets you use larger embedding models like OpenAI's text-embedding-3-large (3072 dim) with PostgreSQL as your vector database. This release also includes key performance and capability enhancements, including NEON support for SIMD distance calculations on aarch64 processors, improved inner product distance metric implementation, and improved index statistics. See the release details [here](https://github.com/timescale/pgvectorscale/releases/tag/0.6.0). 
 
 ### pgai Vectorizer supports models from AWS Bedrock, Azure AI, Google Vertex via LiteLLM
 
