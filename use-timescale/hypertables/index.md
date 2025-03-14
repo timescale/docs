@@ -7,10 +7,8 @@ keywords: [hypertables]
 
 # Hypertables
 
-Hypertables are PostgreSQL tables with special features that make it easy to
-handle time-series data. Anything you can do with regular PostgreSQL tables, you
-can do with hypertables. In addition, you get the benefits of improved
-performance and user experience for time-series data.
+Hypertables are PostgreSQL tables designed to simplify and accelerate data analysis. Anything you can do with regular PostgreSQL tables, you
+can do with hypertables - but much faster and more conveniently. In this section, you: 
 
 *   [Learn about hypertables][about-hypertables]
 *   [Create a hypertable][create-hypertables]

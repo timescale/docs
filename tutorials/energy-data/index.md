@@ -10,15 +10,13 @@ content_group: Analyze energy consumption data
 
 # Analyze energy consumption data
 
-When you are planning to switch to a rooftop solar system it isn't easy, even
+When you are planning to switch to a rooftop solar system, it isn't easy, even
 with a specialist at hand. You need details of your power consumption, typical
-usage hours, or distribution over a year. Collecting consumption data at the
-granularity of a few seconds is key to finding all the answers for more
-precision. This tutorial uses energy consumption data from a typical household
-for over a year. Because nearly all of this data is time-series data, proper
-analysis requires a purpose-built time-series database, like Timescale.
+usage hours, distribution over a year, and other information. Collecting consumption data at the
+granularity of a few seconds and then getting insights on it is key - and this is what Timescale is best at. 
 
-In this tutorial you can construct queries that look at how many watts were
+This tutorial uses energy consumption data from a typical household
+for over a year. You construct queries that look at how many watts were
 consumed, and when. Additionally, you can visualize the energy consumption data
 in Grafana.
 
