@@ -78,8 +78,8 @@ This triggers the upgrade in the next available maintenance window.
 You can configure the maintenance window so that these upgrades are started at
 a particular time, on a set day of the week. 
 
-If there are no pending upgrades
-available during a regular maintenance window, no changes are performed.
+If there are no pending upgrades available during a regular maintenance window,
+no changes are performed.
 
 When you are considering your maintenance window schedule, you might prefer to
 choose a day and time that usually has very low activity, such as during the
