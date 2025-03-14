@@ -54,7 +54,7 @@ requires a direct connection to the database to function properly.
 
    In `livesync for PostgreSQL`:
    1. Set the `Livesync Name`.
-   2. Set  `PostgreSQL Connection String` to the value of `$SOURCE` and press `Continue`.
+   2. Set the` PostgreSQL Connection String` to point to the source database you want to sync to Timescale.
 
 1. **Select the tables to syncronize**
 
