@@ -76,7 +76,7 @@ automatically by $CLOUD_LONG. To upgrade $TIMESCALE_DB manually, run `ALTER EXTE
 UPDATE` in your in your $SERVICE_LONG, or `Pause` and `Resume` your service.
 This triggers the upgrade in the next available maintenance window.
 your service if you haven't taken any action to do the upgrade yourself. You
-can configure the maintenance window so that these upgrades are started only at
+You can configure the maintenance window so that these upgrades are started at
 a particular time, on a set day of the week. If there are no pending upgrades
 available during a regular maintenance window, no changes are performed.
 
