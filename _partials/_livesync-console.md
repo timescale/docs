@@ -53,8 +53,7 @@ requires a direct connection to the database to function properly.
 
 ## Synchronize data to your $SERVICE_LONG
 
-
-![Livesync wizard](https://assets.timescale.com/docs/images/livesync-wizard.png)
+To sync data from your PostgreSQL database to your $SERVICE_LONG using $CONSOLE:
 
 <Procedure>
 
@@ -66,6 +65,8 @@ requires a direct connection to the database to function properly.
    1. In `Import Data`, click `livesync for PostgreSQL`.
 
 1. **Connect the source database and target $SERVICE_SHORT**
+
+   ![Livesync wizard](https://assets.timescale.com/docs/images/livesync-wizard.png)
 
    In `livesync for PostgreSQL`:
    1. Set the `Livesync Name`.
