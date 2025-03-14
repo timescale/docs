@@ -74,9 +74,9 @@ For more information about replicas, see the
 Non-critical upgrades are available before the upgrade is performed
 automatically by $CLOUD_LONG. To upgrade $TIMESCALE_DB manually, run `ALTER
 EXTENSION timescaledb UPDATE` in your $SERVICE_LONG, or `Pause` and `Resume`.
-If no action is taken by the user, the upgrade is triggered in the next available maintenance window. You can
-configure the maintenance window so that these upgrades are started at a
-particular time, on a set day of the week. 
+If no action is taken by the user, the upgrade is triggered in the next
+available maintenance window. You can configure the maintenance window so that
+these upgrades are started at a particular time, on a set day of the week. 
 
 If there are no pending upgrades available during a regular maintenance window,
 no changes are performed.
