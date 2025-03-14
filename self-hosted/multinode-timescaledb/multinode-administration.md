@@ -4,6 +4,8 @@ excerpt: Sunsetted v2.14.x. Administer your multi-node TimescaleDB cluster direc
 products: [self_hosted]
 keywords: [multi-node, admin]
 tags: [manage]
+seo:
+  robots: noindex
 ---
 
 import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";

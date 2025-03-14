@@ -1,0 +1,1 @@
+$COMPANY charges only for the storage that your data occupies in S3, regardless of whether it was compressed in $CLOUD_LONG before tiering. There are no additional expenses, such as data transfer or compute. 
