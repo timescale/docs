@@ -157,7 +157,7 @@ Links should be [reference-style Markdown links][reference-links]. For example:
 [deprecation]: ../_partials/_deprecated.md
 [live-migration]: ../migrate/live-migration.md
 [fenced-code-blocks]: https://www.markdownguide.org/extended-syntax/#fenced-code-blocks
-[aggregation]: ../getting-started/test-drive-timescale-features.md
+[aggregation]: ../getting-started/try-key-features-timescale-products.md
 [installation-windows]: ../self-hosted/install/installation-windows.md
 [time-bucket]: ../api/time_bucket_ng.md
 [time-weighted-average]: ../api/time-weighted-averages.md
