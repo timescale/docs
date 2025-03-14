@@ -77,7 +77,9 @@ UPDATE` in your in your $SERVICE_LONG, or `Pause` and `Resume` your service.
 This triggers the upgrade in the next available maintenance window.
 your service if you haven't taken any action to do the upgrade yourself. You
 You can configure the maintenance window so that these upgrades are started at
-a particular time, on a set day of the week. If there are no pending upgrades
+a particular time, on a set day of the week. 
+
+If there are no pending upgrades
 available during a regular maintenance window, no changes are performed.
 
 When you are considering your maintenance window schedule, you might prefer to
