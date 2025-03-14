@@ -196,23 +196,23 @@ Where you need the partial to display, insert it as a self-closing tag:
 To maintain consistency, please follow these general rules.
 
 *   Maintain text editor width for paragraphs at 80 characters. We ask you to do
-this to assist in reviewing documentation changes. When text is very wide, it
-is difficult to visually see where text has changed within a paragraph and keeping
-a narrow width on text assists in making PRs easier to review. **Most editors such
-as Visual Studio Code have settings to do this visually.**
+    this to assist in reviewing documentation changes. When text is very wide, it
+    is difficult to visually see where text has changed within a paragraph and keeping
+    a narrow width on text assists in making PRs easier to review. **Most editors such
+    as Visual Studio Code have settings to do this visually.**
 *   Most links should be reference-style links where the link address is at the
-bottom of the page. The two exceptions are:
+    bottom of the page. The two exceptions are:
     *   Links within highlight blocks (Note, Important, or Warning). These must be inline links for now
     *   Links to anchors on the same page as the link itself.
 *   All functions, commands and standalone function arguments (ex. `SELECT`,
-`time_bucket`) should be set as inline code within backticks ("\`command\`").
+    `time_bucket`) should be set as inline code within backticks ("\`command\`").
 *   Functions should not be written with parentheses unless the function is
-being written with arguments within the parentheses.
+    being written with arguments within the parentheses.
 *   "PostgreSQL" is the way to write the elephant database name, rather than
-"Postgres." "TimescaleDB" refers to the database, "Timescale" refers to the
-company.
+    "Postgres." "TimescaleDB" refers to the database, "Timescale" refers to the
+    company.
 *   Use backticks when referring to the object of a user interface action.
-For example: Click `Get started` to proceed with the tutorial.
+    For example: Click `Get started` to proceed with the tutorial.
 
 ### Callout and highlight blocks
 
@@ -264,7 +264,7 @@ Used to indicate an optional step within a procedure. Syntax: `<Optional />`
 Multi-code blocks are code blocks with a language or OS selector. For syntax,
 see [the multi-code-block example](./_multi-code-block.md).
 
-### Tabs 
+### Tabs
 
 Tabs can be used to display content that differs based on a user selection. The
 syntax is:
@@ -329,3 +329,7 @@ There is a specific format for the API section which consists of:
     *   One or two literal examples of the function being used to demonstrate argument syntax.
 
 See the API file to get an idea.
+
+
+
+

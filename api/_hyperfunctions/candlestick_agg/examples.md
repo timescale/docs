@@ -17,7 +17,7 @@ SELECT
     low(candlestick_agg("time", price, volume)),
     close(candlestick_agg("time", price, volume)),
     volume(candlestick_agg("time", price, volume))
-FROM stocks_real_time
+FROM crypto_ticks
 WHERE "time" > now() - '1 day'::interval
 GROUP BY ts, symbol
 ;
@@ -28,7 +28,7 @@ WITH cs AS (
     SELECT time_bucket('1 hour'::interval, "time") AS hourly_bucket,
       symbol,
       candlestick_agg("time", price, volume) AS candlestick
-    FROM stocks_real_time
+    FROM crypto_ticks
     WHERE "time" > now() - '1 day'::interval
     GROUP BY hourly_bucket, symbol
 )
@@ -53,7 +53,7 @@ WITH (timescaledb.continuous) AS
 SELECT time_bucket('1 minute'::interval, "time") AS ts,
   symbol,
   candlestick_agg("time", price, volume) AS candlestick
-FROM stocks_real_time
+FROM crypto_ticks
 GROUP BY ts, symbol
 ;
 ```

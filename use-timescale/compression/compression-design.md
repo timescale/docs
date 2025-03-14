@@ -5,7 +5,12 @@ products: [cloud, mst, self_hosted]
 keywords: [compression, schema, tables]
 ---
 
+import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
+
 # Designing for compression
+
+<Deprecated2180 /> Replaced by <a href="https://docs.timescale.com/use-timescale/latest/hypercore/">Hypercore</a>.
+
 
 Time-series data can be unique, in that it needs to handle both shallow and wide
 queries, such as "What's happened across the deployment in the last 10 minutes,"

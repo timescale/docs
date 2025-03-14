@@ -31,12 +31,7 @@ module.exports = [
         title: "Contribute to Timescale",
         href: "contribute-to-timescale",
         excerpt: "Contribute to the Timescale codebase",
-      },
-      {
-        title: "Contribute to Timescale documentation",
-        href: "contribute-to-docs",
-        excerpt: "Contribute to Timescale documentation",
-      },
+      }
     ],
   },
 ];

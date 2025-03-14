@@ -9,6 +9,8 @@ cloud_ui:
         - [services, :serviceId, overview]
 ---
 
+import TieredStorageBilling from "versionContent/_partials/_tiered-storage-billing.mdx";
+
 # Manage automated and manual tiering
 
 You use tiered storage to save on storage costs. Specifically, you can migrate rarely used data from 
@@ -17,6 +19,8 @@ Timescale's standard high-performance storage to the object storage. After you
 or [manually tier and untier data][manual-tier].
 
 You can query the data on the object storage tier, but you cannot modify it. Make sure that you are not tiering data that needs to be **actively modified**.
+
+<TieredStorageBilling />
 
 ## Enable tiered storage
 
@@ -34,13 +38,13 @@ You enable tiered storage from the `Overview` tab in Console.
 
    When tiered storage is enabled, you see the amount of data in the tiered object storage.
 
-   <Highlight type="note">
-   
-   Data tiering is available in [Scale and Enterprise][pricing-plans] pricing plans only.
-   
-   </Highlight>
-
 </Procedure>
+
+<Highlight type="note">
+
+Data tiering is available in [Scale and Enterprise][pricing-plans] pricing plans only.
+
+</Highlight>
 
 ## Automate tiering with policies
 
