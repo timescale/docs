@@ -72,13 +72,13 @@ For more information about replicas, see the
 ## Non-critical maintenance updates
 
 Non-critical upgrades are made available before the upgrade is performed
-automatically. During this time you can click `Apply upgrades` to start the
-upgrade at any time. However, after the time expires, usually around a week,
-the upgrade is triggered automatically in the next available maintenance window
-for your service. You can configure the maintenance window so that these
-upgrades are started only at a particular time, on a set day of the week. If
-there are no pending upgrades available during a regular maintenance window, no
-changes are performed.
+automatically. During this time you can run `ALTER EXTENSION timescaledb
+UPDATE` in your in your database or `Pause` and `Resume` your service. The
+upgrade is triggered automatically in the next available maintenance window for
+your service if you haven't taken any action to do the upgrade yourself. You
+can configure the maintenance window so that these upgrades are started only at
+a particular time, on a set day of the week. If there are no pending upgrades
+available during a regular maintenance window, no changes are performed.
 
 When you are considering your maintenance window schedule, you might prefer to
 choose a day and time that usually has very low activity, such as during the
