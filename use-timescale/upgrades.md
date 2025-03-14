@@ -72,7 +72,7 @@ For more information about replicas, see the
 ## Non-critical maintenance updates
 
 Non-critical upgrades are available before the upgrade is performed
-automatically. During this time you can run `ALTER EXTENSION timescaledb
+automatically by $CLOUD_LONG. To upgrade $TIMESCALE_DB manually, run `ALTER EXTENSION timescaledb
 UPDATE` in your in your database or `Pause` and `Resume` your service. The
 upgrade is triggered automatically in the next available maintenance window for
 your service if you haven't taken any action to do the upgrade yourself. You
