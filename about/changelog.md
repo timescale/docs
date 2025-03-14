@@ -8,21 +8,21 @@ keywords: [changelog, upgrades, updates, releases]
 
 All the latest features and updates to Timescale products.
 
-## 16K Dimensions on pgvectorscale plus new pgai vectorizer support
+## 📈16K dimensions on pgvectorscale plus new pgai Vectorizer support
 <Label type="date">March 14, 2025</Label>
 
-### pgvectorscale 0.6 — Store up to 16K dimension embeddings
+### pgvectorscale 0.6 — store up to 16K dimension embeddings
 
-pgvectorscale 0.6.0 now supports storing vectors with up to 16,000 dimensions, removing the previous limitation of 2,000 from pgvector. This enables developers to use larger embedding models like OpenAI's text-embedding-3-large (3072 dim) with PostgreSQL as their vector database. This release also includes  key performance and capability enhancements, including NEON support for SIMD distance calculations on aarch64 processors, improved inner product distance metric implementation, and improved index statistics . See release details here.
+pgvectorscale 0.6.0 now supports storing vectors with up to 16,000 dimensions, removing the previous limitation of 2,000 from pgvector. This lets you use larger embedding models like OpenAI's text-embedding-3-large (3072 dim) with PostgreSQL as your vector database. This release also includes key performance and capability enhancements, including NEON support for SIMD distance calculations on aarch64 processors, improved inner product distance metric implementation, and improved index statistics. 
 
 ### pgai Vectorizer supports models from AWS Bedrock, Azure AI, Google Vertex via LiteLLM
 
-Developers can now access embedding models from popular cloud model hubs like AWS Bedrock, Azure AI Foundry, Google Vertex, as well as HuggingFace and Cohere as part of the LiteLLM integration with pgai Vectorizer. To use these models with pgai Vectorizer on Timescale Cloud, select "Other" when adding the API key in the credentials section of the console. 
+Access embedding models from popular cloud model hubs like AWS Bedrock, Azure AI Foundry, Google Vertex, as well as HuggingFace and Cohere as part of the LiteLLM integration with pgai Vectorizer. To use these models with pgai Vectorizer on Timescale Cloud, select `Other` when adding the API key in the credentials section of Timescale Console. 
 
-## Agent Mode for PopSQL and more
+## 🤖 Agent Mode for PopSQL and more
 <Label type="date">March 7, 2025</Label>
 
-### 🤖 Agent Mode for PopSQL 
+### Agent Mode for PopSQL 
 
 Introducing Agent Mode, a new feature in $CONSOLE SQL Assistant. SQL Assistant lets you query your database using natural language. However, if you ran into errors, you have to approve the implementation of the Assistant's suggestions. 
 
