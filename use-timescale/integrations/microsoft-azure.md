@@ -6,7 +6,7 @@ keywords: [Azure, integrations]
 ---
 
 import IntegrationPrereqsCloud from "versionContent/_partials/_integration-prereqs-cloud-only.mdx";
-import TransitGatewayOthers from "versionContent/_partials/_transit-gateway-others.mdx";
+import TransitGateway from "versionContent/_partials/_transit-gateway.mdx";
 
 # Integrate Microsoft Azure with $CLOUD_LONG
 
@@ -24,11 +24,15 @@ This page explains how to integrate your Microsoft Azure infrastructure with $CL
 
 To connect to $CLOUD_LONG:
 
+<Procedure>
+
 1. **Connect your infrastructure to AWS Transit Gateway**
 
    Establish connectivity between Azure and AWS. See the [AWS architectural documentation][azure-aws] for details.
 
-<TransitGatewayOthers />
+<TransitGateway />
+
+</Procedure>
 
 You have successfully integrated your Microsoft Azure infrastructure with $CLOUD_LONG.
 
