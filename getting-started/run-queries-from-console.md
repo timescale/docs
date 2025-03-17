@@ -8,7 +8,7 @@ content_group: Getting started
 
 import WhereNext from "versionContent/_partials/_where-to-next.mdx";
 
-# Run your queries from $CONSOLE
+# Run your queries from $CONSOLE 
 
 As $CLOUD_LONG is based on $PG, you can use lots of [different tools][integrations] to 
 connect to your $SERVICE_SHORT and interact with your data. 
