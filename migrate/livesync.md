@@ -20,6 +20,8 @@ $SERVICE_LONG in real-time. You run Livesync continuously, turning PostgreSQL in
 $SERVICE_LONG as a logical replica. This enables you to leverage $CLOUD_LONG’s real-time analytics capabilities on 
 your replica data.
 
+![livesync view status](https://assets.timescale.com/docs/images/livesync-view-status.png)
+
 Livesync leverages the a well-established PostgreSQL logical replication protocol. By relying on this protocol, 
 Livesync ensures compatibility, familiarity, and a broader knowledge base. Making it easier for you to adopt Livesync 
 and integrate your data.
