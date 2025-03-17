@@ -9,8 +9,7 @@ cloud_ui:
         - [services, :serviceId, operations, vpc]
 ---
 
-import TransitGatewayAWS from "versionContent/_partials/_transit-gateway-aws.mdx";
-import TransitGatewayOthers from "versionContent/_partials/_transit-gateway-others.mdx";
+import TransitGateway from "versionContent/_partials/_transit-gateway.mdx";
 
 # Securely connect to $CLOUD_LONG using AWS Transit Gateway
 
@@ -35,37 +34,53 @@ AWS Transit Gateway enable you to connect from almost any environment, this page
 
 <Tab title="Amazon Web Services">
 
-<TransitGatewayAWS />
+<Procedure>
+
+<TransitGateway />
+
+</Procedure>
 
 </Tab>
 
 <Tab title="Microsoft Azure">
 
+<Procedure>
+
 1. **Connect your infrastructure to AWS Transit Gateway**
 
     Establish connectivity between Azure and AWS. See the [AWS architectural documentation][azure-aws] for details. 
 
-<TransitGatewayOthers />
+<TransitGateway />
+
+</Procedure>
 
 </Tab>
 
 <Tab title="Google Cloud">
 
+<Procedure>
+
 1. **Connect your infrastructure to AWS Transit Gateway**
 
     Establish connectivity between Google Cloud and AWS. See [Connect HA VPN to AWS peer gateways][gcp-aws]. 
 
-<TransitGatewayOthers />
+<TransitGateway />
+
+</Procedure>
 
 </Tab>
 
 <Tab title="On-premise">
 
+<Procedure>
+
 1. **Connect your infrastructure to AWS Transit Gateway**
 
     Establish connectivity between your on-premise infrastructure and AWS. See the [Centralize network connectivity using AWS Transit Gateway][aws-onprem].
 
-<TransitGatewayOthers />
+<TransitGateway />
+
+</Procedure>
 
 </Tab>
 

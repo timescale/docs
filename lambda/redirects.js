@@ -233,23 +233,23 @@ module.exports = [
   },
   {
     from: "/getting-started/exploring-cloud",
-    to: "https://docs.timescale.com/mst/latest/about-mst/",
+    to: "https://docs.timescale.com/getting-started/latest/try-key-features-timescale-products/",
   },
   {
     from: "/getting-started/installation/timescale-cloud/installation-timescale-cloud",
-    to: "https://docs.timescale.com/install/latest/installation-mst/",
+    to: "https://docs.timescale.com/getting-started/latest/try-key-features-timescale-products/",
   },
   {
     from: "/getting-started/latest/add-data/",
-    to: "https://docs.timescale.com/getting-started/latest/time-series-data/",
+    to: "https://docs.timescale.com/getting-started/latest/try-key-features-timescale-products/#optimize-time-series-data-in-hypertables",
   },
   {
-    from: "/getting-started/latest/compress-data/",
-    to: "https://docs.timescale.com/use-timescale/latest/compression/",
+    from: "/getting-started/latest/aggregation/",
+    to: "https://docs.timescale.com/getting-started/latest/try-key-features-timescale-products/#write-fast-analytical-queries-on-frequently-access-data-using-time-buckets-and-continuous-aggregates",
   },
   {
     from: "/getting-started/latest/create-cagg/",
-    to: "https://docs.timescale.com/getting-started/latest/aggregation/",
+    to: "https://docs.timescale.com/getting-started/latest/try-key-features-timescale-products/#write-fast-analytical-queries-on-frequently-access-data-using-time-buckets-and-continuous-aggregates",
   },
   {
     from: "/getting-started/latest/data-retention",
@@ -264,8 +264,16 @@ module.exports = [
     to: "https://docs.timescale.com/self-hosted/latest/install/installation-macos/",
   },
   {
-    from: "/getting-started/latest/query-data/",
-    to: "https://docs.timescale.com/getting-started/latest/queries/",
+    from: "/getting-started/latest/queries/",
+    to: "https://docs.timescale.com/getting-started/latest/try-key-features-timescale-products/#optimize-time-series-data-in-hypertables",
+  },
+  {
+    from: "/getting-started/latest/tables-hypertables/",
+    to: "https://docs.timescale.com/getting-started/latest/try-key-features-timescale-products/#optimize-time-series-data-in-hypertables",
+  },
+  {
+    from: "/getting-started/latest/time-series-data/",
+    to: "https://docs.timescale.com/getting-started/latest/try-key-features-timescale-products/#optimize-time-series-data-in-hypertables",
   },
   {
     from: "/install/latest",
@@ -372,7 +380,7 @@ module.exports = [
   },
   {
     from: "/timescaledb/latest/contribute-to-docs",
-    to: "https://docs.timescale.com/about/latest/contribute-to-docs/",
+    to: "https://docs.timescale.com/about/latest/contribute-to-timescale/",
   },
   {
     from: "/timescaledb/latest/contribute-to-timescaledb",
@@ -559,6 +567,22 @@ module.exports = [
     to: "https://docs.timescale.com/tutorials/latest/",
   },
   {
+    from: "/tutorials/latest/energy-data/",
+    to: "https://docs.timescale.com/tutorials/latest/real-time-analytics-energy-consumption/",
+  },
+  {
+    from: "/tutorials/latest/energy-data/dataset-energy/",
+    to: "https://docs.timescale.com/tutorials/latest/real-time-analytics-energy-consumption/",
+  },
+  {
+    from: "/tutorials/latest/energy-data/query-energy/",
+    to: "https://docs.timescale.com/tutorials/latest/real-time-analytics-energy-consumption/",
+  },
+  {
+    from: "/tutorials/latest/energy-data/compress-energy/",
+    to: "https://docs.timescale.com/tutorials/latest/real-time-analytics-energy-consumption/",
+  },
+  {
     from: "/tutorials/latest/financial-candlestick-tick-data/create-candlestick-aggregates/",
     to: "https://docs.timescale.com/tutorials/latest/financial-tick-data/financial-tick-query/",
   },
@@ -577,6 +601,30 @@ module.exports = [
   {
     from: "/tutorials/latest/nfl-analytics/",
     to: "https://docs.timescale.com/tutorials/latest/",
+  },
+  {
+    from: "/tutorials/latest/nyc-taxi-cab/",
+    to: "https://docs.timescale.com/tutorials/latest/real-time-analytics-transport/",
+  },
+  {
+    from: "/tutorials/latest/nyc-taxi-cab/dataset-nyc/",
+    to: "https://docs.timescale.com/tutorials/latest/real-time-analytics-transport/",
+  },
+  {
+    from: "/tutorials/latest/nyc-taxi-cab/query-nyc/",
+    to: "https://docs.timescale.com/tutorials/latest/real-time-analytics-transport/",
+  },
+  {
+    from: "/tutorials/latest/nyc-taxi-cab/compress-nyc/",
+    to: "https://docs.timescale.com/tutorials/latest/real-time-analytics-transport/",
+  },
+  {
+    from: "/tutorials/latest/nyc-taxi-geospatial/dataset-nyc/",
+    to: "https://docs.timescale.com/tutorials/latest/real-time-analytics-transport/",
+  },
+  {
+    from: "/tutorials/latest/nyc-taxi-geospatial/plot-nyc",
+    to: "https://docs.timescale.com/tutorials/latest/real-time-analytics-transport/",
   },
   {
     from: "/tutorials/latest/prometheus-adapter/",

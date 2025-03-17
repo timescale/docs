@@ -1,17 +1,16 @@
-## Create a hypertable
+## Optimize time-series data in hypertables
 
-Hypertables are the core of Timescale. Hypertables enable Timescale to work
-efficiently with time-series data. Because Timescale is PostgreSQL, all the
-standard PostgreSQL tables, indexes, stored procedures and other objects can be
-created alongside your Timescale hypertables. This makes creating and working
-with Timescale tables similar to standard PostgreSQL.
+Time-series data represents how a system, process, or behavior changes over time. [Hypertables][hypertables-section]
+are PostgreSQL tables that help you improve insert and query performance by automatically partitioning your data by
+time. Each hypertable is made up of child tables called chunks. Each chunk is assigned a range of time, and only
+contains data from that range. 
+
+Hypertables exist alongside regular PostgreSQL tables. You use regular PostgreSQL tables for relational data, and 
+interact with hypertables and regular PostgreSQL tables in the same way.
 
 <Procedure>
 
-### Creating a hypertable
-
-1.  Create a standard PostgreSQL table to store the taxi trip data
-    using `CREATE TABLE`:
+1. **Create a standard PostgreSQL table to store the taxi trip data**
 
     ```sql
     CREATE TABLE "rides"(
@@ -36,7 +35,8 @@ with Timescale tables similar to standard PostgreSQL.
     );
     ```
 
-1.  Convert the standard table into a hypertable partitioned on the `time`
+1.  **Convert the standard table into a hypertable** 
+    Partitioned on the `time`
     column using the `create_hypertable()` function provided by Timescale. You
     must provide the name of the table and the column in that table that holds
     the timestamp data to use for partitioning:
@@ -68,8 +68,6 @@ create standard PostgreSQL tables just as you would normally. For this dataset,
 there are two other tables of data, called `payment_types` and `rates`.
 
 <Procedure>
-
-### Creating standard PostgreSQL tables
 
 1.  Add a table to store the payment types data:
 
@@ -117,3 +115,6 @@ the `psql` command line. You should see this:
  public | rides         | table | tsdbadmin
 (3 rows)
 ```
+
+
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
