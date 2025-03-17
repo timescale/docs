@@ -8,43 +8,43 @@ content_group: Getting started
 
 import WhereNext from "versionContent/_partials/_where-to-next.mdx";
 
-# Run your queries from $CONSOLE 
+# Run your queries from $CONSOLE
 
-As $CLOUD_LONG is based on $PG, you can use lots of [different tools][integrations] to 
-connect to your $SERVICE_SHORT and interact with your data. 
+As $CLOUD_LONG is based on $PG, you can use lots of [different tools][integrations] to
+connect to your $SERVICE_SHORT and interact with your data.
 
 In $CONSOLE you can use the following ways to run SQL queries against your $SERVICE_SHORT:
 
-- [$DATA_MODE_CAP][run-popsql]: a rich experience powered by $POPSQL. You can write queries with 
+- [$DATA_MODE_CAP][run-popsql]: a rich experience powered by $POPSQL. You can write queries with
   autocomplete, save them in folders, share them, create charts/dashboards, and much more.
 
 - [$SQL_ASSISTANT_SHORT in the $DATA_MODE][sql-assistant]: write, fix, and organize SQL faster and more accurately.
 
-- [$SQL_EDITOR in the $OPS_MODE][run-sqleditor]: a simple $SQL_EDITOR in the $OPS_MODE that lets you run ad-hoc ephemeral 
-  queries. This is useful for quick one-off tasks like creating an index on a small table or 
+- [$SQL_EDITOR in the $OPS_MODE][run-sqleditor]: a simple $SQL_EDITOR in the $OPS_MODE that lets you run ad-hoc ephemeral
+  queries. This is useful for quick one-off tasks like creating an index on a small table or
   inspecting `pg_stat_statements`.
 
 If you prefer the command line to the $OPS_MODE $SQL_EDITOR in $CONSOLE, use [psql][install-psql].
 
 ## $DATA_MODE_CAP
 
-You use the $DATA_MODE in $CONSOLE to write queries, visualize data, and share your results. 
+You use the $DATA_MODE in $CONSOLE to write queries, visualize data, and share your results.
 
 ![$CONSOLE $DATA_MODE](https://assets.timescale.com/docs/images/data-mode-schema-chart.png)
 
 Available features are:
 
-- **Real-time collaboration**: work with your team directly in the $DATA_MODE query editor with live presence and multiple 
+- **Real-time collaboration**: work with your team directly in the $DATA_MODE query editor with live presence and multiple
    cursors.
 - **[Schema browser](https://docs.popsql.com/docs/schema)**: understand the structure of your $SERVICE_SHORT and see usage data on tables and columns.
 - **[$SQL_ASSISTANT_SHORT][sql-assistant]**: write, fix, and organize SQL faster and more accurately using AI.
 - **Autocomplete**: get suggestions as you type your queries.
-- **[Version history](https://docs.popsql.com/docs/version-history)**: access previous versions of a query from the built-in revision history, or connect to a 
+- **[Version history](https://docs.popsql.com/docs/version-history)**: access previous versions of a query from the built-in revision history, or connect to a
   git repo.
 - **[Charts](https://docs.popsql.com/docs/creating-charts)**: visualize data from inside the UI rather than switch to Sheets or Excel.
 - **[Schedules](https://docs.popsql.com/docs/scheduled-queries)**: automatically refresh queries and dashboards to create push alerts.
 - **[Query variables](https://docs.popsql.com/docs/query-variables)**: use Liquid to parameterize your queries or use `if` statements.
-- **Cross-platform**:  works from [$CONSOLE][portal-data-mode] or download the 
+- **Cross-platform**:  works from [$CONSOLE][portal-data-mode] or download the
   [desktop](https://popsql.com/download) app for macOS, Windows, and Linux.
 - **Easy connection**: to $CLOUD_LONG, $PG, Redshift, Snowflake, BigQuery, MySQL, SQL Server, [and more](https://popsql.com/connections).
 
@@ -62,21 +62,21 @@ To connect to a $SERVICE_SHORT:
 
 1. **Connect to your $SERVICE_SHORT**
 
-   1. In the [$DATA_MODE][portal-data-mode] in $CONSOLE, select a $SERVICE_SHORT in the connection drop-down. 
-   1. Click the pencil icon next to the $SERVICE_SHORT name. 
+   1. In the [$DATA_MODE][portal-data-mode] in $CONSOLE, select a $SERVICE_SHORT in the connection drop-down.
+   1. Click the pencil icon next to the $SERVICE_SHORT name.
 
       ![Select a connection](https://assets.timescale.com/docs/images/data-mode-connections.png)
-   
+
    1. Click `Edit` next to `Username/Password` and enter [your connection details][connection-info] for this $SERVICE_SHORT, then click `Connect`.
 
 1. **Run a test query**
 
-   Type `SELECT CURRENT_DATE;` in `Scratchpad` and press `Run`: 
+   Type `SELECT CURRENT_DATE;` in `Scratchpad` and press `Run`:
 
    ![Run a simple query](https://assets.timescale.com/docs/images/data-mode-scratchpad.png)
 
 Quick recap. You:
-- Manage your $SERVICE_SHORTS in the [$OPS_MODE in $CONSOLE][portal-ops-mode]
+- Manage your $SERVICE_SHORTs in the [$OPS_MODE in $CONSOLE][portal-ops-mode]
 - Manage your data in the [$DATA_MODE in $CONSOLE][portal-data-mode]
 - Store configuration and security information in your config file.
 
@@ -218,7 +218,7 @@ To use $SQL_EDITOR:
 * **Data mode**: the number of seats you are allocated depends on your [$PRICING_PLAN][pricing-plan-features].
   [$SQL_ASSISTANT_SHORT][sql-assistant] is currently free for all users. In the future, limits or paid options may be
   introduced as we work to build the best experience.
-* **$POPSQL standalone**: there is a free plan available to everyone, as well as paid plans. See  [$POPSQL Pricing][popsql-pricing] for full 
+* **$POPSQL standalone**: there is a free plan available to everyone, as well as paid plans. See  [$POPSQL Pricing][popsql-pricing] for full
   details.
 
 
