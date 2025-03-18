@@ -33,8 +33,7 @@ in each $SERVICE_LONG:
   saving significant storage space.
 
 - **Faster queries on compressed data in columnstore**: in columnstore conversion, hypertable
-  chunks are compressed by more than 90%, and organized for efficient, large-scale queries. This 
-  saves on storage costs, and keeps your queries operating at lightning speed.
+  chunks are compressed by more than 90%, and organized for efficient, large-scale queries. Combined with [chunk skipping][chunk-skipping], this helps you save on storage costs and keeps your queries operating at lightning speed.
 
 - **Full mutability with transactional semantics**: regardless of where data is stored,
   Hypercore provides full ACID support. Like in a vanilla Postgres database, inserts and updates
@@ -57,4 +56,4 @@ This section shows you how to:
 [modify-data-in-hypercore]: /use-timescale/:currentVersion:/hypercore/modify-data-in-hypercore/
 [indexing-data-in-hypercore]: /use-timescale/:currentVersion:/hypercore/best-practice-for-large-amounts-of-data/
 [compression]: /use-timescale/:currentVersion:/compression/
-
+[chunk-skipping]: /use-timescale/:currentVersion:/hypertables/improve-query-performance/
