@@ -28,7 +28,7 @@ To connect to $CLOUD_LONG:
 
 1. **Connect to your $SERVICE_LONG using your [connection details][connection-info]**
 
-    Use an [SQL editor][run-queries] in $CONSOLE. For self-hosted $TIMESCALE_DB, use [psql][psql]. 
+    Use an [SQL editor][run-queries] in $CONSOLE. For self-hosted $TIMESCALE_DB, use [psql][psql].
 
 1. **In your $SERVICE_SHORT, create a hypertable**
 
@@ -85,12 +85,18 @@ To connect to $CLOUD_LONG:
     - `Do you want to use git for version control?`: `Yes`.
     - `Do you want to deploy your application?`: `No`.
 
+    You should see the following:
+    
+    ```bash
+     SUCCESS  Application created successfully!
+     ```
+
 1. **Create a Hyperdrive Configuration**
 
     1. Run the `create` command with the `--connection-string` argument to pass the name of your Hyperdrive and your $SERVICE_SHORT URL from your [connection details][connection-info]:
 
        ```shell
-       npx wrangler hyperdrive create <HYPERDRIVE-NAME> --connection-string="SERVICEURL"
+       npx wrangler hyperdrive create hyperdrive --connection-string="SERVICEURL"
        ```
 
        Hyperdrive attempts to connect to your $SERVICE_SHORT with the provided credentials. In case of an error, refer to the [Hyperdrive's troubleshooting documentation][hyperdrive-troubleshoot]. This command outputs your Hyperdrive ID. 
@@ -103,19 +109,19 @@ To connect to $CLOUD_LONG:
 
        ```json
        {
-         "name": "hyperdrive-example",
-         "main": "src/index.ts",
-         "compatibility_date": "2024-08-21",
-         "compatibility_flags": [
-           "nodejs_compat"
-         ],
-         "hyperdrive": [
-           {
-             "binding": "HYPERDRIVE",
-             "id": "<ID OF THE CREATED HYPERDRIVE CONFIGURATION>"
-           }
-         ]
-       }
+        "name": "timescale-api",
+        "main": "src/index.ts",
+        "compatibility_date": "2024-09-23",
+        "compatibility_flags": [
+          "nodejs_compat"
+        ],
+        "hyperdrive": [
+          {
+            "binding": "HYPERDRIVE",
+            "id": "YOUR_HYPERDRIVE_ID"
+          }
+        ]
+      }
        ```
 
        </tab>
@@ -123,15 +129,14 @@ To connect to $CLOUD_LONG:
        <tab label="wrangler.toml">
 
        ```toml
-       name = "hyperdrive-example"
+       name = "timescale-api"
        main = "src/index.ts"
-       compatibility_date = "2024-08-21"
-       compatibility_flags = ["nodejs_compat"]
-    
-       # Pasted from the output of `wrangler hyperdrive create <NAME_OF_HYPERDRIVE_CONFIG> --connection-string=[...]` above.
+       compatibility_date = "2024-09-23"
+       compatibility_flags = [ "nodejs_compat"]
+
        [[hyperdrive]]
        binding = "HYPERDRIVE"
-       id = "<ID OF THE CREATED HYPERDRIVE CONFIGURATION>"
+       id = "YOUR_HYPERDRIVE_ID"
        ```
 
        </tab>
