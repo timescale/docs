@@ -689,44 +689,44 @@ module.exports = [
         ]
       },
       {
-        title: "User-defined actions",
-        href: "user-defined-actions",
+        title: "Jobs",
+        href: "jobs",
         children: [
           {
-            title: "About user-defined actions",
-            href: "about-user-defined-actions",
-            excerpt: "Learn about user-defined actions",
+            title: "About jobs",
+            href: "about-jobs",
+            excerpt: "Learn about jobs",
           },
           {
-            title: "Create and register a user-defined action",
+            title: "Create and register a job",
             href: "create-and-register",
-            excerpt: "Create a user-defined action",
+            excerpt: "Create and register a job",
           },
           {
-            title: "Test and debug a user-defined action",
+            title: "Test and debug a job",
             href: "test-and-debug",
-            excerpt: "Test and debug user-defined actions",
+            excerpt: "Test and debug a job",
           },
           {
-            title: "Alter and delete a user-defined action",
+            title: "Alter and delete a job",
             href: "alter-and-delete",
-            excerpt: "Edit and delete user-defined actions",
+            excerpt: "Edit and delete jobs",
           },
           {
-            title: "Use an action for generic retention",
+            title: "Use a job for generic retention",
             href: "example-generic-retention",
-            excerpt: "Example user-defined action for a retention policy",
+            excerpt: "A job example for a retention policy",
           },
           {
-            title: "Use an action for tablespace management",
+            title: "Use a job for tablespace management",
             href: "example-tiered-storage",
             excerpt:
-              "Example user-defined action for automatically moving chunks between tablespaces",
+              "A job example for automatically moving chunks between tablespaces",
           },
           {
-            title: "Use an action for downsampling and compression",
+            title: "Use a job for downsampling and compression",
             href: "example-downsample-and-compress",
-            excerpt: "Example user-defined action for downsample and compress",
+            excerpt: "A job example for downsampling and compressing data",
           },
           {
             title: "Troubleshooting",

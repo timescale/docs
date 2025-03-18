@@ -1,14 +1,14 @@
 ---
-title: About user-defined actions
-excerpt: User-defined actions are custom PostgreSQL functions and procedures that you set up to run on a schedule. This provides a set-it-and-forget-it approach to maintaining your service and data
+title: About jobs in Timescale Cloud
+excerpt: Jobs are custom PostgreSQL functions and procedures that you set up to run on a schedule. This provides a set-it-and-forget-it approach to maintaining your service and data
 products: [cloud, mst, self_hosted]
 keywords: [actions]
-tags: [user-defined actions, background jobs, scheduled jobs, automation framework]
+tags: [jobs, background jobs, scheduled jobs, automation framework]
 ---
 
-# About user-defined actions
+# About $JOBs
 
-You can create user-defined actions that periodically run custom functions or
+You can create $JOBs that periodically run custom functions or
 procedures on your database.
 
 ## PostgreSQL functions
@@ -21,10 +21,10 @@ additional code.
 Your function needs to be wrapped in a `CREATE` statement. You can also use
 `CREATE OR REPLACE`, although this is not recommended. This statement also
 allows you to define the language of your commands in this statement.
-User-defined actions can be written in any language of your choice. This guide uses
+$JOB_CAPs can be written in any language of your choice. This guide uses
 the SQL procedural language [PL/pgSQL][plpgsql].
 
-The basic syntax of a function suitable for a user-defined action is:
+The basic syntax of a function suitable for a $JOB is:
 
 ```sql
 CREATE FUNCTION <function_name> (required arguments)
@@ -71,9 +71,9 @@ The result looks like this:
 (1 row)
 ```
 
-## The job scheduler
+## The $JOB scheduler
 
-When you have created your function, you need to register it with the job
+When you have created your function, you need to register it with the $JOB
 scheduler to make the function run regularly. You can do with the `add_job` function.
 This example adds the `totalRecords` function, and tells it to run every hour:
 
@@ -84,7 +84,7 @@ SELECT add_job('totalRecords', '1h', config => '{"hypertable":"metr"}');
 For the `config` value, if you don't need any special configuration parameters,
 you can use `NULL`.
 
-You can see a list of all your currently registered jobs by querying the job
+You can see a list of all your currently registered $JOBs by querying the $JOB
 scheduler, like this:
 
 ```sql
@@ -101,9 +101,9 @@ The result looks like this:
 (2 rows)
 ```
 
-## Native job-scheduling policies
+## Native $JOB-scheduling policies
 
-TimescaleDB natively includes some job-scheduling policies, such as:
+TimescaleDB natively includes some $JOB-scheduling policies, such as:
 
 *   [Continuous aggregate policies][caggs] to automatically refresh continuous
     aggregates
@@ -112,7 +112,7 @@ TimescaleDB natively includes some job-scheduling policies, such as:
 *   [Reordering policies][reordering] to reorder data within chunks
 
 If these don't cover your use case, or if you want to expand upon the native
-policy features, you can write a user-defined action.
+policy features, you can write a custom $JOB.
 
 [caggs]: /use-timescale/:currentVersion:/continuous-aggregates/refresh-policies/
 [compressing]: /use-timescale/:currentVersion:/compression/

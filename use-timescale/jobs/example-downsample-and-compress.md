@@ -1,25 +1,23 @@
 ---
-title: Use a user-defined action to downsample and compress chunks
-excerpt: Downsample and compress your hypertable chunks by combining a continuous aggregate refresh policy with compression. Not quite what you need? Create a custom user-defined action
+title: Use a job to downsample and compress chunks
+excerpt: Downsample and compress your hypertable chunks by combining a continuous aggregate refresh policy with compression. Not quite what you need? Create a custom job
 products: [cloud, mst, self_hosted]
-keywords: [actions, compression, downsample]
+keywords: [jobs, compression, downsample]
 ---
 
-# Use a user-defined action to downsample and compress chunks
+# Use a $JOB to downsample and compress chunks
 
 Timescale lets you downsample and compress chunks by combining a
 [continuous aggregate refresh policy][cagg-refresh] with a
 [compression policy][compression].
 
 If you want to implement features not supported by those policies, you can write
-a user-defined action to downsample and compress chunks instead. The following
+a $JOB to downsample and compress chunks instead. The following
 example downsamples raw data to an average over hourly data. This is an
 illustrative example, which can be done more simply with a continuous aggregate
 policy. But you can make the query arbitrarily complex.
 
 <Procedure>
-
-## Using a user-defined action to downsample and compress chunks
 
 1.  Create a procedure that first queries the chunks of a hypertable to
     determine if they are older than the `lag` parameter. The hypertable in this
@@ -80,7 +78,7 @@ policy. But you can make the query arbitrarily complex.
     $$;
     ```
 
-1.  Register the job to run daily. In the `config`, set `lag` to 12 months
+1.  Register the $JOB to run daily. In the `config`, set `lag` to 12 months
     to drop chunks containing data older than 12 months.
 
     ```sql

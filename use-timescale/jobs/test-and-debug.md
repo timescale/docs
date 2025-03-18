@@ -1,13 +1,13 @@
 ---
-title: Test and debug a user-defined action
-excerpt: Having issues while setting up user-defined actions in Timescale Cloud? Find solutions to the most common ones
+title: Test and debug a job
+excerpt: Having issues while setting up jobs in Timescale Cloud? Find solutions to the most common ones
 products: [cloud, mst, self_hosted]
 keywords: [actions, debug]
 ---
 
-# Test and debug a user-defined action
+# Test and debug a $JOB
 
-To debug an action, you can increase the log level and run the job manually in
+To debug a $JOB, you can increase the log level and run the $JOB manually in
 the foreground.
 
 Use the [`run_job`][api-run_job] procedure, which takes a `job_id` argument.
@@ -16,22 +16,22 @@ executed with [`CALL`][postgres-call] instead of `SELECT`.
 
 <Procedure>
 
-## Testing and debugging a job
-
 1.  Change the minimum log level shown to the client. Set it to `DEBUG1`.
 
     ```sql
     SET client_min_messages TO DEBUG1;
     ```
 
-1.  Run the job. Replace `1000` with your actual `job_id`.
+1.  Run the $JOB. Replace `1000` with your `job_id`.
 
     ```sql
     CALL run_job(1000);
     ```
 
 <Highlight type="note">
+
 To find the `job_id` for your job, query the `timescaledb_information.jobs`
+
 table.
 
 ```sql
