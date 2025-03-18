@@ -13,7 +13,7 @@ Real-time analytics applications require more than fast inserts and analytical q
 when retrieving individual records, enforcing constraints, or performing upserts, something that OLAP/columnar databases
 lack.
 
-$TIMESCALE_DB supports and accelerates real-time analytics using [Hypercore][hypercore] without missing out on important 
+$TIMESCALE_DB supports and accelerates real-time analytics using [Hypercore][hypercore] without missing out on important  
 PostgreSQL features, including support for standard PostgreSQL indexes. Hypercore is a hybrid storage engine 
 because it supports deep analytics while staying true to PostgreSQL. Full support for B-tree and hash indexes
 on columnstore data enables you to perform point lookups 1,185x faster, enforce unique constraints, and execute
@@ -48,7 +48,6 @@ The performance advantage from these indexing methods comes from optimized data 
 searching. This results in fewer disk page reads, which in turn reduces I/O spikes when locating specific data points 
 or enforcing uniqueness. 
 
-
 ## How B-tree and hash indexes work 
 
 PostgreSQL offers [multiple index types][postgres-index-types], For example, the default B-tree, hash, GIN, and BRIN. 
@@ -60,7 +59,7 @@ interface for table storage.
 By default, $TIMESCALE_DB stores data in the rowstore in standard PostgreSQL row-oriented tables, using the default heap 
 TAM. To make the heap TAM work with the columnstore, $TIMESCALE_DB integrates PostgreSQL [TOAST][storage-toast] to store 
 columnar data as compressed arrays. However, querying columnized data returns compressed, opaque data. To support 
-normal queries, $TIMESCALE_DB adds the `DecompressChunk` scan node to the Postgres query plan in order to decompress data 
+normal queries, $TIMESCALE_DB adds the `DecompressChunk` scan node to the PostgreSQL query plan in order to decompress data 
 on-the-fly. However, the heap TAM only indexes the compressed values, not the original data.
 
 Hypercore TAM handles decompression behind the scenes. This enables PostgreSQL to use standard interfaces for 
