@@ -492,7 +492,7 @@ module.exports = [
   },
   {
     from: "/timescaledb/latest/overview/core-concepts/user-defined-actions",
-    to: "https://docs.timescale.com/use-timescale/latest/user-defined-actions/",
+    to: "https://docs.timescale.com/use-timescale/latest/jobs/",
   },
   {
     from: "/timescaledb/latest/overview/deployment-options",
@@ -544,7 +544,7 @@ module.exports = [
   },
   {
     from: "/timescaledb/latest/using-timescaledb/actions",
-    to: "https://docs.timescale.com/use-timescale/latest/user-defined-actions/",
+    to: "https://docs.timescale.com/use-timescale/latest/jobs/",
   },
   {
     from: "/timescaledb/latest/using-timescaledb/telemetry",

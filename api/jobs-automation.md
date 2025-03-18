@@ -1,8 +1,8 @@
 ---
-title: User-defined actions
-excerpt: Timescale Cloud API reference for user-defined actions. Includes SQL functions for adding, altering, deleting, and running a user-defined action
-keywords: [actions, jobs]
-tags: [user-defined actions, background jobs, scheduled jobs, automation framework]
+title: Jobs
+excerpt: Timescale Cloud API reference for jobs. Includes SQL functions for adding, altering, deleting, and running a job
+keywords: [jobs]
+tags: [background jobs, scheduled jobs, automation framework]
 ---
 
 # $JOB_CAPs <Tag type="community">Community</Tag>

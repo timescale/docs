@@ -10,11 +10,11 @@ api:
 
 ## timescaledb_information.job_errors
 
-Shows information about runtime errors encountered by jobs run by the automation framework.
-This includes jobs set up for user-defined actions and jobs run by policies
+Shows information about runtime errors encountered by $JOBs run by the automation framework.
+This includes custom $JOBs and $JOBs run by policies
 created to manage data retention, continuous aggregates, compression, and
 other automation policies. For more information about automation policies,
-see the [policies][actions] section.
+see the [policies][jobs] section.
 
 ### Available columns
 
@@ -84,4 +84,4 @@ For example, the owner can change the retention interval like this:
 SELECT alter_job(id,config:=jsonb_set(config,'{drop_after}', '"2 weeks"')) FROM _timescaledb_config.bgw_job WHERE id = 2;
 ```
 
-[actions]: /api/:currentVersion:/actions/
+[jobs]: /api/:currentVersion:/jobs/
