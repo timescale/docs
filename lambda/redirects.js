@@ -913,4 +913,40 @@ module.exports = [
     from: '/use-timescale/latest/integrations/observability-alerting/tableau/',
     to: 'https://docs.timescale.com/use-timescale/latest/integrations/tableau/',
   },
+  {
+    from: '/use-timescale/latest/user-defined-actions/troubleshooting/',
+    to: 'https://docs.timescale.com/use-timescale/latest/jobs/troubleshooting/',
+  },
+  {
+    from: '/use-timescale/latest/user-defined-actions/',
+    to: 'https://docs.timescale.com/use-timescale/latest/jobs/',
+  },
+  {
+    from: '/use-timescale/latest/user-defined-actions/about-user-defined-actions/',
+    to: 'https://docs.timescale.com/use-timescale/latest/jobs/about-jobs/',
+  },
+  {
+    from: '/use-timescale/latest/user-defined-actions/create-and-register/',
+    to: 'https://docs.timescale.com/use-timescale/latest/jobs/create-and-register/',
+  },
+  {
+    from: '/use-timescale/latest/user-defined-actions/test-and-debug/',
+    to: 'https://docs.timescale.com/use-timescale/latest/jobs/test-and-debug/',
+  },
+  {
+    from: '/use-timescale/latest/user-defined-actions/alter-and-delete/',
+    to: 'https://docs.timescale.com/use-timescale/latest/jobs/alter-and-delete/',
+  },
+  {
+    from: '/use-timescale/latest/user-defined-actions/example-generic-retention/',
+    to: 'https://docs.timescale.com/use-timescale/latest/jobs/example-generic-retention/',
+  },
+  {
+    from: '/use-timescale/latest/user-defined-actions/example-tiered-storage/',
+    to: 'https://docs.timescale.com/use-timescale/latest/jobs/example-tiered-storage/',
+  },
+  {
+    from: '/use-timescale/latest/user-defined-actions/example-downsample-and-compress/',
+    to: 'https://docs.timescale.com/use-timescale/latest/jobs/example-downsample-and-compress/',
+  },
 ];
