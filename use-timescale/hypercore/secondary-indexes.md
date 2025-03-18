@@ -1,6 +1,6 @@
 ---
 title: Improve query and upsert performance using secondary indexes
-excerpt: Using secondary indexes on data in the columnstore make lookup queries 700x and upserts 30x faster
+excerpt: Using secondary indexes on data in the columnstore make lookup queries 1,185x and upserts 224x faster
 products: [cloud, mst, self_hosted]
 keywords: [hypertable, compression, row-columnar storage, hypercore]
 ---
@@ -17,7 +17,7 @@ $TIMESCALE_DB supports and accelerates real-time analytics using [Hypercore][hyp
 PostgreSQL features, including support for standard PostgreSQL indexes. Hypercore is a hybrid storage engine 
 because it supports deep analytics while staying true to PostgreSQL. Full support for B-tree and hash indexes
 on columnstore data enables you to perform point lookups 1,185x faster, enforce unique constraints, and execute
-upserts 30x faster—all while maintaining columnstore compression and analytics performance.
+upserts 224x faster—all while maintaining columnstore compression and analytics performance.
 
 <EarlyAccess />
 
