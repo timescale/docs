@@ -3,7 +3,7 @@ api_name: delete_job()
 excerpt: Delete a job from the automatic scheduler
 topics: [jobs]
 keywords: [jobs, delete]
-tags: [background jobs, scheduled jobs, user-defined actions, automation framework]
+tags: [background jobs, scheduled jobs, automation framework]
 api:
   license: community
   type: function
@@ -11,20 +11,20 @@ api:
 
 # delete_job() <Tag type="community">Community</Tag>
 
-Delete a job registered with the automation framework.
-This works for user-defined actions as well as policies.
+Delete a $JOB registered with the automation framework.
+This works for $JOBs as well as policies.
 
-If the job is currently running, the process is terminated.
+If the $JOB is currently running, the process is terminated.
 
 ### Required arguments
 
 |Name|Type|Description|
 |---|---|---|
-|`job_id`| INTEGER |  TimescaleDB background job id |
+|`job_id`| INTEGER |  TimescaleDB background $JOB id |
 
 ### Sample usage
 
-Delete the job with the job id 1000:
+Delete the $JOB with the $JOB id 1000:
 
 ```sql
 SELECT delete_job(1000);

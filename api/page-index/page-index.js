@@ -256,9 +256,9 @@ module.exports = [
         ],
       },
       {
-        title: "Actions and automation",
+        title: "Jobs and automation",
         type: "directory",
-        href: "actions",
+        href: "jobs-automation",
         children: [
           {
             title: "add_job",
