@@ -4,7 +4,7 @@ excerpt: Grafana enables you to query, visualize, alert on, and explore your met
 products: [cloud]
 keywords: [Grafana, visualizations, analytics, monitoring]
 ---
-
+import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
 import GrafanaConnect from "versionContent/_partials/_grafana-connect.mdx";
 
 # Integrate Grafana and Timescale Cloud
@@ -12,6 +12,12 @@ import GrafanaConnect from "versionContent/_partials/_grafana-connect.mdx";
 [Grafana](https://grafana.com/docs/) enables you to query, visualize, alert on, and explore your metrics, logs, and traces wherever they’re stored.
 
 This page shows you how to integrate Grafana with a $SERVICE_LONG, create a dashboard and panel, then visualize geospatial data.
+
+## Prerequisites
+
+<IntegrationPrereqs />
+
+* Install [self-managed Grafana][grafana-self-managed] or sign up for [Grafana Cloud][grafana-cloud].
 
 <GrafanaConnect />
 
@@ -177,4 +183,5 @@ tutorial as a starting point.
 [nyc-taxi]: /tutorials/:currentVersion:/nyc-taxi-cab
 [grafana-website]: https://www.grafana.com
 [time-buckets]: /use-timescale/:currentVersion:/time-buckets/
-
+[grafana-self-managed]: https://grafana.com/get/?tab=self-managed
+[grafana-cloud]: https://grafana.com/get/

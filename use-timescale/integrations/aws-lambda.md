@@ -7,7 +7,7 @@ keywords: [connect, integrate, aws, lambda]
 
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
 
-# Integrate AWS Lambda with $CLOUD_LONG
+# Integrate AWS Lambda with Timescale Cloud
 
 [AWS Lambda][AWS-Lambda] is a serverless computing service provided by Amazon Web Services (AWS) that allows you to run 
 code without provisioning or managing servers, scaling automatically as needed.

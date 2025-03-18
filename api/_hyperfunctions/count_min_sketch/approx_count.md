@@ -41,7 +41,7 @@ api_details:
         code: |
           WITH t AS (
             SELECT toolkit_experimental.count_min_sketch(symbol, 0.01, 0.01) AS symbol_sketch
-            FROM stocks_real_time
+            FROM crypto_ticks
           )
           SELECT toolkit_experimental.approx_count('AAPL', symbol_sketch)
           FROM t;

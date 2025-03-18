@@ -9,12 +9,12 @@ up to connect to your TimescaleDB database.
 ### Graphing OHLCV data
 
 1.  Ensure you have Grafana installed, and you are using the TimescaleDB
-    database that contains the Twelve Data stocks dataset set up as a
+    database that contains the Twelve Data dataset set up as a
     data source.
 1.  In Grafana, from the `Dashboards` menu, click `New Dashboard`. In the
     `New Dashboard` page, click `Add a new panel`.
 1.  In the `Visualizations` menu in the top right corner, select `Candlestick`
-    from the list. Ensure you have set the Twelve Data stocks dataset as
+    from the list. Ensure you have set the Twelve Data dataset as
     your data source.
 1.  Click `Edit SQL` and paste in the query you used to get the OHLCV values.
 1.  In the `Format as` section, select `Table`.

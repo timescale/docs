@@ -2,6 +2,7 @@
 Aiven
 Alertmanager
 API
+api
 Anthropic
 async
 [Aa]utoscal(?:e|ing)
@@ -16,6 +17,7 @@ https?
 BSD
 [Cc]allouts?
 COPY
+[Cc]opy
 [Cc]lickstreams?
 Cloudformation
 Cloudwatch
