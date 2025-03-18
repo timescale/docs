@@ -6,7 +6,7 @@ keywords: [AWS, integrations]
 ---
 
 import IntegrationPrereqsCloud from "versionContent/_partials/_integration-prereqs-cloud-only.mdx";
-import TransitGatewayAWS from "versionContent/_partials/_transit-gateway-aws.mdx";
+import TransitGateway from "versionContent/_partials/_transit-gateway.mdx";
 
 # Integrate Amazon Web Services with $CLOUD_LONG
 
@@ -24,7 +24,11 @@ This page explains how to integrate your AWS infrastructure with $CLOUD_LONG usi
 
 To connect to $CLOUD_LONG:
 
-<TransitGatewayAWS />
+<Procedure>
+
+<TransitGateway />
+
+</Procedure>
 
 You have successfully integrated your AWS infrastructure with $CLOUD_LONG. 
 
