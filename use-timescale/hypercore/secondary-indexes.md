@@ -16,7 +16,7 @@ lack.
 $TIMESCALE_DB supports and accelerates real-time analytics using [Hypercore][hypercore] without missing out on important 
 PostgreSQL features, including support for standard PostgreSQL indexes. Hypercore is a hybrid storage engine 
 because it supports deep analytics while staying true to PostgreSQL. Full support for B-tree and hash indexes
-on columnstore data enables you to perform point lookups 700x faster, enforce unique constraints, and execute
+on columnstore data enables you to perform point lookups 1,185x faster, enforce unique constraints, and execute
 upserts 30x faster—all while maintaining columnstore compression and analytics performance.
 
 <EarlyAccess />
@@ -55,7 +55,7 @@ PostgreSQL offers [multiple index types][postgres-index-types], For example, the
 all implemented as Index Access Methods (IAMs). PostgreSQL supplies the [table access method (TAM)][postgres-tam-methods] 
 interface for table storage. 
 
-![TAM architecture](https://assets.timescale.com/docs/images/tam-architecture.png)
+![TAM architecture](https://assets.timescale.com/docs/images/tam_architecture.png)
 
 By default, $TIMESCALE_DB stores data in the rowstore in standard PostgreSQL row-oriented tables, using the default heap 
 TAM. To make the heap TAM work with the columnstore, $TIMESCALE_DB integrates PostgreSQL [TOAST][storage-toast] to store 
@@ -71,11 +71,10 @@ analytical query performance optimizations, including vectorized filtering and a
 Hypercore TAM supports B-tree and hash indexes, making point lookups, upserts, and unique constraint 
 enforcement more efficient on the columnstore. Our benchmarks demonstrate substantial performance improvements:
 
-* 706x faster point lookup queries to retrieve a single record
-* 30x faster upserts
-* 26x faster inserts when checking unique constraints
-* 3x faster range queries
-
+* 1,185x faster point lookup queries to retrieve a single record
+* 224.3x faster inserts when checking unique constraints
+* 2.6x faster upserts
+* 4.5x faster range queries
 
 ## Enable secondary indexing
 
@@ -178,8 +177,8 @@ only the relevant data segment.
 CREATE INDEX readings_metric_uuid_hash_idx ON readings USING hash (metric_uuid);
 ```
 
-With a hash index and hypercore TAM enabled, the same SELECT query performs 1,185x faster, running in 10.9 ms against 
-12,915 ms.
+With a hash index and hypercore TAM enabled, the same SELECT query performs 1,185x faster; hash comes in at 10.9 ms vs. 
+12,915 ms and B-tree at 12.57.
 
 
 ## Backfill and updates to historical data
@@ -207,9 +206,9 @@ Possible strategies for backfilling historic data include:
    An insert statement ensuring no duplicates looks like:
    
    ```sql
-   INSERT INTO readings VALUES (...) ON CONFLICT DO NOTHING;
+   INSERT INTO readings VALUES (...) ON CONFLICT (device_id, created_at) DO NOTHING;
    ```
-   Our benchmarks showed this makes inserts 30x faster, reducing the execution time from 8 seconds to 260 ms.
+   Our benchmarks showed this makes inserts 224.3x faster, reducing the execution time from 289,139 ms to 1,289 ms.
 
 - **Insert missing data or update existing data**:
 
@@ -226,7 +225,7 @@ Possible strategies for backfilling historic data include:
    INSERT INTO readings VALUES (...) ON CONFLICT DO UPDATE SET temperature = EXCLUDED.temperature;
    ```
   
-   $COMPANY benchmarks showed this makes upserts 26x faster, reducing the execution time from 6 seconds to 260 ms.
+   $COMPANY benchmarks showed this makes upserts 2.6x faster, reducing the execution time from 24,805 ms to 9,520 ms.
 
 
 ## Fast anomaly detection
@@ -280,8 +279,8 @@ condition. For example, to create a partial B-tree index for temperature reading
 CREATE INDEX ON readings (temperature) where temperature > 52.5;
 ```   
 
-Compared with using a sparse min/max index in columnstore, $COMPANY benchmarks show that the B-tree index query is 
-2.2x faster.
+Compared with using a sparse min/max index in columnstore, $COMPANY benchmarks show that the B-tree index query is
+4.5x faster.
 
 
 
