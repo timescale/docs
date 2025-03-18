@@ -19,7 +19,7 @@ performance.
 To improve query performance, TimescaleDB enables you to skip chunks on non-partitioning columns in hypertables. 
 
 <Highlight type="important">
-Chunk skipping can only be enabled for **compressed** hypertables.
+Chunk skipping can only be enabled for **compressed** hypertables and applies to the chunks created **after** it as enabled.
 </Highlight>
 
 ## How chunk skipping works
