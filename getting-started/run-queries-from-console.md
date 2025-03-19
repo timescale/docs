@@ -26,7 +26,7 @@ In $CONSOLE you can use the following ways to run SQL queries against your $SERV
 
 If you prefer the command line to the $OPS_MODE $SQL_EDITOR in $CONSOLE, use [psql][install-psql].
 
-## $DATA_MODE_CAP
+## $DATA_MODE_CAP 
 
 You use the $DATA_MODE in $CONSOLE to write queries, visualize data, and share your results.
 
