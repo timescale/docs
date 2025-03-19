@@ -1,6 +1,6 @@
 ---
-title: Manage tiering
-excerpt: Enable tiered storage for your data in Timescale Console. With automated data tiering policies, you get a set it and forget it tool to cut storage costs
+title: Manage storage and tiering
+excerpt: Configure high-performance and low-cost object storage tiers in Timescale Console. With automated data tiering policies, you get a set it and forget it tool to cut storage costs
 products: [cloud]
 keywords: [tiered storage]
 tags: [storage, data management]
@@ -11,7 +11,7 @@ cloud_ui:
 
 import TieredStorageBilling from "versionContent/_partials/_tiered-storage-billing.mdx";
 
-# Manage automated and manual tiering
+# Manage storage and tiering
 
 You use tiered storage to save on storage costs. Specifically, you can migrate rarely used data from 
 Timescale's standard high-performance storage to the object storage. After you 
