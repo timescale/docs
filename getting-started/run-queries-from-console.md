@@ -160,7 +160,7 @@ For best results with $SQL_ASSISTANT_SHORT:
 * **Schema awareness**: $SQL_ASSISTANT_SHORT references schema data but may need extra context
   in complex environments. Specify tables, columns, or joins as needed.
 * **Business logic**: $SQL_ASSISTANT_SHORT does not inherently know specific business terms
-  such as _active user_. Define these terms clearly to improve results.
+  such as active user. Define these terms clearly to improve results.
 
 
 ### Security, privacy, and data usage
