@@ -7,23 +7,23 @@ To connect to a $SERVICE_SHORT:
 
     In [$CONSOLE][services-portal], check that your $SERVICE_SHORT is marked as `Running`.
 
-   ![Check service is running](https://assets.timescale.com/docs/images/console-services-view.png)
+   ![Check $SERVICE_SHORT is running](https://assets.timescale.com/docs/images/console-services-view.png)
 
 1. **Connect to your $SERVICE_SHORT**
 
     Use either:  
-    - [Data mode][popsql] in $CONSOLE:  
-      1. In the [data mode][portal-data-mode] in $CONSOLE, select a $SERVICE_SHORT and enter your password, then click **Connect**.
+    - [$DATA_MODE_CAP][popsql] in $CONSOLE:  
+      1. In the [$DATA_MODE][portal-data-mode] in $CONSOLE, select a $SERVICE_SHORT and enter your password, then click `Connect`.
       
          You find your password in the config file you just downloaded.
       2. Select a query to edit:
          ![Select a query to edit](https://assets.timescale.com/docs/images/data-mode-query-window.png)
 
-    - [SQL editor][run-sqleditor] in $CONSOLE:
+    - [$SQL_EDITOR][run-sqleditor] in $CONSOLE:
     
-       In the [ops mode][portal-ops-mode] in $CONSOLE, select a $SERVICE_SHORT, then click **SQL editor**. 
+       In the [$OPS_MODE][portal-ops-mode] in $CONSOLE, select a $SERVICE_SHORT, then click `SQL editor`. 
    
-      ![Check service is running](https://assets.timescale.com/docs/images/ops-view-sql-editor.png)
+      ![Check $SERVICE_SHORT is running](https://assets.timescale.com/docs/images/ops-view-sql-editor.png)
    
     - [psql][install-psql] on the command line:
    
@@ -37,9 +37,9 @@ To connect to a $SERVICE_SHORT:
    You can now run queries for this $SERVICE_SHORT.
 
 Quick recap. You:
-- Manage your $SERVICE_SHORTs in the [ops mode][portal-ops-mode] in $CONSOLE: add read replicas and enable 
-  high-availability, configure compression, change parameters, and so on.
-- Analyze your data in the [data mode][portal-data-mode] in $CONSOLE: write queries with
+- Manage your $SERVICE_SHORTs in the [$OPS_MODE][portal-ops-mode] in $CONSOLE: add $READ_REPLICAs and enable 
+  high availability, configure compression, change parameters, and so on.
+- Analyze your data in the [$DATA_MODE][portal-data-mode] in $CONSOLE: write queries with
   autocomplete, save them in folders, share them, create charts/dashboards, and much more.
 - Store configuration and security information in your config file.
 
