@@ -19,10 +19,9 @@ You can only merge chunks that have directly adjacent partitions. It is not poss
 chunks that have another chunk, or an empty range between them in any of the partitioning 
 dimensions.
 
-In this first release, chunk merging has the following limitations. You cannot:
+Chunk merging has the following limitations. You cannot:
 
-* Merge compressed chunks
-* Merge chunks using table access methods other than heap
+* Merge chunks using an unsupported table access method
 * Merge chunks with tiered data
 * Read or write from the chunks while they are being merged
 
