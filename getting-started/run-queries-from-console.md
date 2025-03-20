@@ -126,9 +126,9 @@ If you'd like to prevent write operations such as insert or update, instead
 of using the `tsdbadmin` user, create a read-only user for your $SERVICE_SHORT and
 use that in the $DATA_MODE.
 
-## SQL Assistant
+## SQL assistant
 
-SQL Assistant in [$CONSOLE][portal-data-mode] helps you write, fix, and organize SQL faster and more accurately.
+SQL assistant in [$CONSOLE][portal-data-mode] helps you write, fix, and organize SQL faster and more accurately.
 
 <div class="relative w-fit mx-auto">
 
