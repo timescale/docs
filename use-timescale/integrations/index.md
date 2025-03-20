@@ -96,3 +96,4 @@ Some of the most in-demand integrations for $CLOUD_LONG are listed below, with l
 [amazon-sagemaker]: /use-timescale/:currentVersion:/integrations/amazon-sagemaker
 [postgresql]: /use-timescale/:currentVersion:/integrations/postgresql
 [kafka]: /use-timescale/:currentVersion:/integrations/apache-kafka
+[kubernetes]: /use-timescale/:currentVersion:/integrations/kubernetes
