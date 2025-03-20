@@ -1,22 +1,22 @@
-$CLOUD_LONG is the modern $PG data platform for all your applications. It enhances $PG to handle time series, events, 
+$CLOUD_LONG is the modern PostgreSQL data platform for all your applications. It enhances PostgreSQL to handle time series, events, 
 real-time analytics, and vector search—all in a single database alongside transactional workloads.
 
-You get one system that handles live data ingestion, late and out-of-order updates, and low latency queries, with the performance, reliability, and scalability your app needs. Ideal for IoT, crypto, finance, SaaS, and a myriad other domains, $CLOUD_LONG allows you to build data-heavy, mission-critical apps while retaining the familiarity and reliability of $PG.
+You get one system that handles live data ingestion, late and out-of-order updates, and low latency queries, with the performance, reliability, and scalability your app needs. Ideal for IoT, crypto, finance, SaaS, and a myriad other domains, $CLOUD_LONG allows you to build data-heavy, mission-critical apps while retaining the familiarity and reliability of PostgreSQL.
 
-A $SERVICE_LONG is a single optimized 100% $PG database instance that you 
+A $SERVICE_LONG is a single optimized 100% PostgreSQL database instance that you 
 use as is, or extend with the capabilities specific to your business needs:
 
-- **Time-series and analytics**: $PG with $TIMESCALE_DB. The $PG you know and love, 
+- **Time-series and analytics**: PostgreSQL with $TIMESCALE_DB. The PostgreSQL you know and love, 
    supercharged with functionality for storing and querying [time-series data][what-is-time-series] at scale for 
    real-time analytics and other use cases. Get faster time-based queries with $HYPERTABLEs, $CAGGs, and columnar storage. Save on storage with native compression, data retention policies, and bottomless data tiering to Amazon S3. 
-- **AI and vector**: $PG with vector extensions. Use $PG as a vector database with 
+- **AI and vector**: PostgreSQL with vector extensions. Use PostgreSQL as a vector database with 
    purpose built extensions for building AI applications from start to scale. Get fast and accurate similarity search 
-   with the pgvector and $PGVECTORSCALE extensions. Create vector embeddings and perform LLM reasoning on your data with 
+   with the pgvector and pgvectorscale extensions. Create vector embeddings and perform LLM reasoning on your data with 
    the $PGAI_SHORT extension.
 - **PostgreSQL**: the trusted industry-standard RDBMS. Ideal for applications requiring strong data 
    consistency, complex relationships, and advanced querying capabilities. Get ACID compliance, extensive SQL support, 
    JSON handling, and extensibility through custom functions, data types, and extensions. $CLOUD_LONG continuously 
-   monitors your $SERVICE_SHORTs and prevents common $PG out-of-memory crashes. 
+   monitors your $SERVICE_SHORTs and prevents common PostgreSQL out-of-memory crashes. 
 
 All $SERVICE_LONGs include the tooling you expect for production and developer environments: [live migration][live-migration], 
 [automatic backups and PITR][automatic-backups], [high availability][high-availability], [$READ_REPLICAs][readreplica], [data forking][operations-forking], [connection pooling][connection-pooling], [tiered storage][data-tiering], 

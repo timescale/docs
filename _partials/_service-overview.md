@@ -3,7 +3,7 @@ You manage your $SERVICE_LONGs and interact with your data in $CONSOLE using the
 | **$OPS_MODE_CAP** | **$DATA_MODE_CAP**  |
 |-------------------|---------------------|
 | ![$CONSOLE $OPS_MODE][ops-mode] | ![$CONSOLE $DATA_MODE][data-mode] |
-| **You use the $OPS_MODE to:**  <ul> <li>Ensure data security with high availability and $READ_REPLICAs</li> <li>Save money using compressed and tiered storage</li> <li>Enable $PG extensions to add extra functionality</li> <li>Increase security using $VPCs</li> <li>Perform day-to-day administration</li> </ul> | **Powered by $POPSQL, you use the $DATA_MODE to:**  <ul> <li>Write queries with autocomplete</li> <li>Visualize data with charts and dashboards</li> <li>Schedule queries and dashboards for alerts or recurring reports</li> <li>Share queries and dashboards</li> </ul> |
+| **You use the $OPS_MODE to:**  <ul> <li>Ensure data security with high availability and $READ_REPLICAs</li> <li>Save money using compressed and tiered storage</li> <li>Enable PostgreSQL extensions to add extra functionality</li> <li>Increase security using $VPCs</li> <li>Perform day-to-day administration</li> </ul> | **Powered by $POPSQL, you use the $DATA_MODE to:**  <ul> <li>Write queries with autocomplete</li> <li>Visualize data with charts and dashboards</li> <li>Schedule queries and dashboards for alerts or recurring reports</li> <li>Share queries and dashboards</li> </ul> |
 
 [ops-mode]: https://assets.timescale.com/docs/images/ops-mode-overview.png
 [data-mode]: https://assets.timescale.com/docs/images/data-mode-overview.png
