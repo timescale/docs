@@ -61,8 +61,7 @@ To sync data from your PostgreSQL database to your $SERVICE_LONG using $CONSOLE:
 
    In [$CONSOLE][portal-ops-mode], select the service to sync live data to. 
 1. **Start livesync**
-   1. Click `Actions` > `See more`. 
-   1. In `Import Data`, click `livesync for PostgreSQL`.
+   1. Click `Actions` > `livesync for PostgreSQL`.
 
 1. **Connect the source database and target $SERVICE_SHORT**
 
