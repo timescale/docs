@@ -8,10 +8,9 @@ tags: [recovery, logical backup, replication]
 
 import MigrationPrerequisites from "versionContent/_partials/_migrate_prerequisites.mdx";
 import SetupConnectionStrings from "versionContent/_partials/_migrate_live_setup_connection_strings.mdx";
-
 import LivesyncConsole from "versionContent/_partials/_livesync-console.mdx"
 import LivesyncTerminal from "versionContent/_partials/_livesync-terminal.mdx"
-
+import EarlyAccessNoRelease from "versionContent/_partials/_early_access.mdx";
 
 # Livesync from PostgreSQL to Timescale Cloud
 
@@ -26,7 +25,7 @@ Livesync leverages the a well-established PostgreSQL logical replication protoco
 Livesync ensures compatibility, familiarity, and a broader knowledge base. Making it easier for you to adopt Livesync 
 and integrate your data.
 
-Livesync can:
+You use Livesync for data synchronization, rather than migration. Livesync can:
 * Copy existing data from a PostgreSQL instance to a $SERVICE_LONG:
   - Copy data at up to 150 GB/hr.
   
@@ -45,15 +44,7 @@ Livesync can:
 * Enable features such as [hypertables][about-hypertables], [columnstore][compression], and 
    [continuous aggregates][caggs] on your logical replica.  
 
-<Highlight type="information">
-
-You use Livesync for data synchronization, rather than migration. It is in alpha and is not recommended for
-production use.
-
-</Highlight>
-
-If you have an questions or feedback, talk to us in [#livesync in Timescale Community][join-livesync-on-slack].
-
+<EarlyAccessNoRelease />: Livesync is not supported for production use. If you have an questions or feedback, talk to us in <a href="https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88">#livesync in Timescale Community</a>. 
 
 <Tabs label="Livesync">
 
