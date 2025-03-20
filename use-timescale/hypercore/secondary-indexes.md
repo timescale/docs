@@ -75,6 +75,24 @@ enforcement more efficient on the columnstore. Our benchmarks demonstrate substa
 * 2.6x faster upserts
 * 4.5x faster range queries
 
+## When to use B-tree and hash indexes
+
+Adding B-tree and hash indexes to compressed data enables dramatically faster lookups and inserts, but it comes with 
+a trade-off: increased storage usage due to additional indexing structures.
+
+B-tree and hash indexes are particularly helpful when:
+
+- You need fast lookups on non-`SEGMENTBY` keys. For example, querying specific records by UUID
+- Query latency on compressed data is a bottleneck for your application
+- You perform frequent updates to historical data and need efficient uniqueness enforcement.
+
+However, consider the storage tradeoff when:
+
+- Your queries already benefit from columnstore min/max indexes or `SEGMENTBY` optimizations
+- Your workloads prioritize compression efficiency over lookup speed
+- You primarily run aggregations and range scans, where indexes may not provide meaningful speedups
+
+
 ## Enable secondary indexing
 
 To speed up your queries using secondary indexes you enable hypercore TAM on your hypertable in the columnstore:
