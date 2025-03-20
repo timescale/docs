@@ -1,40 +1,53 @@
 
 <Procedure>
 
-To connect to a $SERVICE_SHORT:
-
 1. **Check your $SERVICE_SHORT is running correctly**
 
-    In [$CONSOLE][services-portal], check that your $SERVICE_SHORT is marked as `Running`.
+   In [$CONSOLE][services-portal], check that your $SERVICE_SHORT is marked as `Running`.
 
    ![Check $SERVICE_SHORT is running](https://assets.timescale.com/docs/images/console-services-view.png)
 
 1. **Connect to your $SERVICE_SHORT**
 
-    Use either:  
-    - [$DATA_MODE_CAP][popsql] in $CONSOLE:  
-      1. In the [$DATA_MODE][portal-data-mode] in $CONSOLE, select a $SERVICE_SHORT and enter your password, then click `Connect`.
-      
-         You find your password in the config file you just downloaded.
-      2. Select a query to edit:
-         ![Select a query to edit](https://assets.timescale.com/docs/images/data-mode-query-window.png)
+   Connect using SQL editor in $CONSOLE or with psql in the command line:
 
-    - [$SQL_EDITOR][run-sqleditor] in $CONSOLE:
-    
-       In the [$OPS_MODE][portal-ops-mode] in $CONSOLE, select a $SERVICE_SHORT, then click `SQL editor`. 
+   <Tabs label="Connect to your Timescale Cloud service">
    
-      ![Check $SERVICE_SHORT is running](https://assets.timescale.com/docs/images/ops-view-sql-editor.png)
-   
-    - [psql][install-psql] on the command line:
-   
-      Connect to your $SERVICE_SHORT with the value of `Service URL` from the config file you 
-        just saved:
+   <Tab title="SQL editor in Console">
 
-        <CodeBlock canCopy={true} showLineNumbers={false} children={`
-        psql "postgres://tsdbadmin:<PASSWORD>@<HOST>:<PORT>/tsdb?sslmode=require"
-        `} />
+   <Procedure>
 
-   You can now run queries for this $SERVICE_SHORT.
+   1. In $CONSOLE, select your $SERVICE_SHORT.
+   
+   1. Click `SQL editor`. 
+
+      ![SQL editor](https://assets.timescale.com/docs/images/ops-view-sql-editor.png)
+
+   </Procedure>
+
+   </Tab>
+   
+   <Tab title="psql on the command line">
+
+   <Procedure>
+
+   1. Install [psql][psql].
+
+   1. Run the following command in the terminal using the service URL from the config file you have saved during service creation:
+
+      ```
+      psql "<your-service-url>"
+      ```
+
+   </Procedure>
+
+   </Tab>
+   
+   </Tabs>
+
+</Procedure>
+
+ You can also use the powerful [data mode][popsql] to connect and run queries on your service. 
 
 Quick recap. You:
 - Manage your $SERVICE_SHORTs in the [$OPS_MODE][portal-ops-mode] in $CONSOLE: add $READ_REPLICAs and enable 
@@ -42,9 +55,6 @@ Quick recap. You:
 - Analyze your data in the [$DATA_MODE][portal-data-mode] in $CONSOLE: write queries with
   autocomplete, save them in folders, share them, create charts/dashboards, and much more.
 - Store configuration and security information in your config file.
-
-</Procedure>
-
 
 [portal-ops-mode]: https://console.cloud.timescale.com/dashboard/services
 [portal-data-mode]: https://console.cloud.timescale.com/dashboard/services?popsql
@@ -55,3 +65,4 @@ Quick recap. You:
 [run-sqleditor]: /getting-started/:currentVersion:/run-queries-from-console/#sql-editor
 [install-psql]: /use-timescale/:currentVersion:/integrations/psql/
 [hypertables]: /use-timescale/:currentVersion:/hypertables/about-hypertables/#hypertable-partitioning
+[psql]: /use-timescale/:currentVersion:/integrations/psql/
