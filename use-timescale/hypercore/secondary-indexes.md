@@ -70,10 +70,10 @@ analytical query performance optimizations, including vectorized filtering and a
 Hypercore TAM supports B-tree and hash indexes, making point lookups, upserts, and unique constraint 
 enforcement more efficient on the columnstore. Our benchmarks demonstrate substantial performance improvements:
 
-* 1,185x faster point lookup queries to retrieve a single record
-* 224.3x faster inserts when checking unique constraints
-* 2.6x faster upserts
-* 4.5x faster range queries
+* 1,185x faster point lookup queries to retrieve a single record.
+* 224.3x faster inserts when checking unique constraints.
+* 2.6x faster upserts.
+* 4.5x faster range queries.
 
 ## When to use B-tree and hash indexes
 
@@ -82,15 +82,15 @@ a trade-off: increased storage usage due to additional indexing structures.
 
 B-tree and hash indexes are particularly helpful when:
 
-- You need fast lookups on non-`SEGMENTBY` keys. For example, querying specific records by UUID
-- Query latency on compressed data is a bottleneck for your application
+- You need fast lookups on non-`SEGMENTBY` keys. For example, querying specific records by UUID.
+- Query latency on compressed data is a bottleneck for your application.
 - You perform frequent updates to historical data and need efficient uniqueness enforcement.
 
 However, consider the storage trade-off when:
 
-- Your queries already benefit from columnstore min/max indexes or `SEGMENTBY` optimizations
-- Your workloads prioritize compression efficiency over lookup speed
-- You primarily run aggregations and range scans, where indexes may not provide meaningful speedups
+- Your queries already benefit from columnstore min/max indexes or `SEGMENTBY` optimizations.
+- Your workloads prioritize compression efficiency over lookup speed.
+- You primarily run aggregations and range scans, where indexes may not provide meaningful speedups.
 
 
 ## Enable secondary indexing
