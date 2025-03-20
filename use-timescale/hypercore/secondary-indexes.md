@@ -86,7 +86,7 @@ B-tree and hash indexes are particularly helpful when:
 - Query latency on compressed data is a bottleneck for your application
 - You perform frequent updates to historical data and need efficient uniqueness enforcement.
 
-However, consider the storage tradeoff when:
+However, consider the storage trade-off when:
 
 - Your queries already benefit from columnstore min/max indexes or `SEGMENTBY` optimizations
 - Your workloads prioritize compression efficiency over lookup speed
