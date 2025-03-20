@@ -13,14 +13,38 @@ import TieredStorageBilling from "versionContent/_partials/_tiered-storage-billi
 
 # Manage storage and tiering
 
-You use tiered storage to save on storage costs. Specifically, you can migrate rarely used data from 
-Timescale's standard high-performance storage to the object storage. After you 
+You use high-performance storage for frequently accessed data. You can [change the high-performance storage type in $CONSOLE][change-storage-type] to make sure the available storage and IOPS limits meet your needs. 
+
+You use low-cost object storage to cut costs by migrating rarely used data from the high-performance storage. After you 
 [enable tiered storage][enable-tiered-storage], you then either [create automated tiering policies][tiering-policies] 
 or [manually tier and untier data][manual-tier].
 
 You can query the data on the object storage tier, but you cannot modify it. Make sure that you are not tiering data that needs to be **actively modified**.
 
 <TieredStorageBilling />
+
+## Change high-performance storage type
+
+By default, $CLOUD_LONG stores your $SERVICE_SHORT data in the standard high-performance storage. This gives you up to 16TB of storage and 16,000 IOPS. You can increase the limits to 64TB and 64,000 IOPS, respectively, by changing the storage type to enhanced. 
+
+To get enhanced storage:
+
+<Procedure>
+
+1. **In [$CONSOLE][console], select your $SERVICE_SHORT, then click `Operations` > `Compute and storage`**
+1. **Select the type in the `Storage type` dropdown**
+
+    Enhanced storage type is only available under the $ENTERPRISE $PRICING_PLAN.
+
+1. **Select the IOPS value in the `I/O boost` dropdown**
+   
+    Select between 16,000, 24,000, 32,0000, and 64,000 IOPS. The value that you can apply depends on the number of CPUs in your $SERVICE_SHORT. $CONSOLE notifies you if your selected IOPS requires increasing the number of CPUs. Io increase IOPS to 64,000, click `Contact us` and we will be in touch to confirm the details. 
+
+1. **Click `Apply`**
+
+</Procedure>
+
+Change the enhanced storage type to standard in the same way. 
 
 ## Enable tiered storage
 
@@ -232,3 +256,4 @@ If you no longer want to use tiered storage for a particular hypertable, drop th
 [tiering-policies]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering#automate-tiering-with-policies
 [manual-tier]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering#manually-tier-and-untier-chunks
 [pricing-plans]: /about/:currentVersion:/pricing-and-account-management
+[change-storage-type]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/#change-high-performance-storage-type

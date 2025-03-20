@@ -15,18 +15,18 @@ $COMPANY's tiered storage architecture includes a high-performance storage tier 
 
 ## High-performance storage 
 
-High-performance storage is where your data is stored by default, until you [enable tiered storage] and start [moving data to the low-cost tier]. In the high-performance storage, your data is stored in the block format and optimized for frequent querying. The [$HYPERCORE row-columnar storage engine] available in this tier is designed specifically for real-time analytics and can compress your data by up to 90%. Coupled with other optimizations, $CLOUD_LONG high-performance storage makes sure your data is always accessible and your queries run at lighting speed. 
+High-performance storage is where your data is stored by default, until you [enable tiered storage][manage-tiering] and start [moving data to the low-cost tier][move-data]. In the high-performance storage, your data is stored in the block format and optimized for frequent querying. The [$HYPERCORE row-columnar storage engine][hypercore] available in this tier is designed specifically for real-time analytics and can compress your data by up to 90%. Coupled with other optimizations, $CLOUD_LONG high-performance storage makes sure your data is always accessible and your queries run at lightning speed. 
 
 High-performance storage comes in two types - standard and enhanced. 
 
-- **Standard** (default): provides up to 16TB of storage and 16,000 IOPS. Based on [AWS EBS gp3].
-- **Enhanced**: provides up to 64TB of storage and 32,000 IOPS. Based on [EBS io2].
+- **Standard** (default): provides up to 16TB of storage and 16,000 IOPS. Based on [AWS EBS gp3][aws-gp3].
+- **Enhanced**: provides up to 64TB of storage and 64,000 IOPS. Based on [EBS io2][ebs-io2].
 
 See how they differ: 
 
 
 
-You [enable enhanced storage] as needed in $CONSOLE. 
+You [enable enhanced storage][enable-enhanced] as needed in $CONSOLE. 
 
 ## Low-cost storage
 
@@ -36,7 +36,7 @@ Apache Parquet allows for more efficient scans across longer time periods, and $
 
 - **Chunk skipping**: exclude the chunks that fall outside the query time window.
 - **Row group skipping**: identify the row groups within the Parquet object that satisfy the query.
-- **Column pruning**: fetch only columns that are requested by the query.
+- **Column skipping**: fetch only columns that are requested by the query.
 
 The following query is against a tiered dataset and illustrates the optimizations:
 
@@ -123,3 +123,9 @@ The low-cost storage tier comes with the following limitations:
 [blog-data-tiering]: https://www.timescale.com/blog/expanding-the-boundaries-of-postgresql-announcing-a-bottomless-consumption-based-object-storage-layer-built-on-amazon-s3/
 [querying-tiered-data]: /use-timescale/:currentVersion:/data-tiering/querying-tiered-data/
 [parquet]: https://parquet.apache.org/
+[manage-tiering]: /use-timescale/:currentVersion:/data-tiering/enable-data-tiering/#enable-tiered-storage
+[move-data]: /use-timescale/:currentVersion:/data-tiering/enable-data-tiering/#automate-tiering-with-policy
+[hypercore]: /use-timescale/:currentVersion:/hypercore
+[aws-gp3]: https://docs.aws.amazon.com/ebs/latest/userguide/general-purpose.html
+[ebs-io2]: https://docs.aws.amazon.com/ebs/latest/userguide/provisioned-iops.html#io2-block-express
+[enable-enhanced]: /use-timescale/:currentVersion:/data-tiering/enable-data-tiering/#change-high-performance-storage-type
