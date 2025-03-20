@@ -10,10 +10,10 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 
 # Try the key $COMPANY features
 
-$CLOUD_LONG scales $PG to ingest and query vast amounts of live data. $CLOUD_LONG 
+$CLOUD_LONG scales PostgreSQL to ingest and query vast amounts of live data. $CLOUD_LONG 
 provides a range of features and optimizations that supercharge your queries while keeping the 
 costs down. For example: 
-* The $HYPERCORE row-columnar engine makes queries up to 350x faster, ingests 44% faster, and reduces storage by 90%.
+* The hypercore row-columnar engine makes queries up to 350x faster, ingests 44% faster, and reduces storage by 90%.
 * Tiered storage seamlessly moves your data from high performance storage for frequently accessed data to low cost bottomless storage for rarely accessed data. 
 
 The following figure shows how $CLOUD_LONG optimizes your data for superfast real-time analytics and reduced
@@ -30,7 +30,7 @@ ingest and query data faster while keeping the costs low.
 
 ## Optimize time-series data in $HYPERTABLEs
 
-Time-series data represents how a system, process, or behavior changes over time. $HYPERTABLE_CAPs are $PG tables 
+Time-series data represents how a system, process, or behavior changes over time. $HYPERTABLE_CAPs are PostgreSQL tables 
 that help you improve insert and query performance by automatically partitioning your data by time. Each $HYPERTABLE 
 is made up of child tables called $CHUNKs. Each $CHUNK is assigned a range of time, and only
 contains data from that range. When you run a query, $CLOUD_LONG identifies the correct $CHUNK and runs the query on it, instead of going through the entire table. You can also tune $HYPERTABLEs to increase performance
@@ -38,9 +38,9 @@ even more.
 
 ![Main features and tiered data](https://assets.timescale.com/docs/images/hypertable-structure.png )
 
-$HYPERTABLE_CAPs exist alongside regular $PG tables.
-You use regular $PG tables for relational data, and interact with $HYPERTABLEs
-and regular $PG tables in the same way. 
+$HYPERTABLE_CAPs exist alongside regular PostgreSQL tables.
+You use regular PostgreSQL tables for relational data, and interact with $HYPERTABLEs
+and regular PostgreSQL tables in the same way. 
 
 This section shows you how to create regular tables and $HYPERTABLEs, and import
 relational and time-series data from external files.
@@ -54,10 +54,9 @@ relational and time-series data from external files.
        This test dataset contains second-by-second trade data for the most-traded crypto-assets
        and a regular table of asset symbols and company names.  
 
-       To import up to 100GB of data directly from your current $PG-based database, 
-       [migrate with downtime][migrate-with-downtime] using native $PG tooling. To seamlessly import 100GB-10TB+ 
-       of data, use the [live migration][migrate-live] tooling supplied by $COMPANY. To add data from non-$PG
-       data sources, see [Import and ingest data][data-ingest].
+       To import up to 100GB of data directly from your current PostgreSQL-based database, 
+       [migrate with downtime][migrate-with-downtime] using native PostgreSQL tooling. To seamlessly import 100GB-10TB+ 
+       of data, use the [live migration][migrate-live] tooling supplied by $COMPANY. To add data from non-PostgreSQL data sources, see [Import and ingest data][data-ingest].
 
     1. Upload data from the CSVs to your $SERVICE_SHORT:
     
@@ -86,13 +85,13 @@ relational and time-series data from external files.
           ```bash
           psql -d "postgres://<username>:<password>@<host>:<port>/<database-name>"
           ```
-          You use your [connection details][connection-info] to fill in this $PG connection string.
+          You use your [connection details][connection-info] to fill in this PostgreSQL connection string.
       
        2. Create tables for the data to import:
       
           - For the time-series data:
           
-             1. In your sql client, create a normal $PG table:
+             1. In your sql client, create a normal PostgreSQL table:
       
                 ```sql
                 CREATE TABLE crypto_ticks (
@@ -111,7 +110,7 @@ relational and time-series data from external files.
 
           - For the relational data:
       
-             In your sql client, create a normal $PG table:
+             In your sql client, create a normal PostgreSQL table:
              ```sql
              CREATE TABLE crypto_assets (
               symbol TEXT NOT NULL,
@@ -138,11 +137,11 @@ relational and time-series data from external files.
 
 1.  **Have a quick look at your data**  
 
-    You query $HYPERTABLEs in exactly the same way as you would a relational $PG table.
+    You query $HYPERTABLEs in exactly the same way as you would a relational PostgreSQL table.
     Use one of the following SQL editors to run a query and see the data you uploaded:
     - **Data mode**:  write queries, visualize data, and share your results in [$CONSOLE][portal-data-mode] for all your $SERVICE_LONGs.
     - **SQL editor**: write, fix, and organize SQL faster and more accurately in [$CONSOLE][portal-ops-mode] for a $SERVICE_LONG.
-    - **psql**: easily run queries on your $SERVICE_LONGs or $SELF_LONG_LC deployment from Terminal.
+    - **psql**: easily run queries on your $SERVICE_LONGs or self-hosted TimescaleDB deployment from Terminal.
 
     <TryItOutCodeBlock queryId="getting-started-crypto-srt-orderby" />
 
@@ -159,7 +158,7 @@ and the $HYPERTABLE behind the $CAGG is automatically updated in the background.
 ![Reduced data calls with $CAGGs](https://assets.timescale.com/docs/images/continuous-aggregate.png )
 
 You create $CAGGs on uncompressed data in high-performance storage. They continue to work 
-on [data in the $COLUMNSTORE][test-drive-enable-compression]
+on [data in the columnstore][test-drive-enable-compression]
 and [rarely accessed data in tiered storage][test-drive-tiered-storage]. You can even
 create [$CAGGs on top of your $CAGGs][hierarchical-caggs].
 
@@ -182,7 +181,7 @@ $CONSOLE. You can also do this using psql.
 1.  **Create a $CAGG**
 
     For a $CAGG, data grouped using a $TIME_BUCKET is stored in a
-    $PG `MATERIALIZED VIEW` in a $HYPERTABLE. `timescaledb.continuous` ensures that this data
+    PostgreSQL `MATERIALIZED VIEW` in a $HYPERTABLE. `timescaledb.continuous` ensures that this data
     is always up to date.
     In your SQL editor, use the following code to create a $CAGG on the real-time data in
     the `crypto_ticks` table:
@@ -269,14 +268,14 @@ a $CAGG, run the query part of the $CAGG
 
 ## Enhance query performance for analytics
 
-$HYPERCORE_CAP is the $CLOUD_LONG hybrid row-columnar storage engine, designed specifically for real-time analytics and 
-powered by time-series data. The advantage of $HYPERCORE is its ability to seamlessly switch between row-oriented and 
+Hypercore is the $CLOUD_LONG hybrid row-columnar storage engine, designed specifically for real-time analytics and 
+powered by time-series data. The advantage of hypercore is its ability to seamlessly switch between row-oriented and 
 column-oriented storage. This flexibility enables $CLOUD_LONG to deliver the best of both worlds, solving the key 
 challenges in real-time analytics.
 
-![Move from rowstore to columstore in $HYPERCORE](https://assets.timescale.com/docs/images/hypercore.png )
+![Move from rowstore to columstore in hypercore](https://assets.timescale.com/docs/images/hypercore.png )
 
-When you convert $CHUNKs from the $ROWSTORE to the $COLUMNSTORE, multiple records are grouped into a single row.
+When you convert $CHUNKs from the rowstore to the columnstore, multiple records are grouped into a single row.
 The columns of this row hold an array-like structure that stores all the data. Because a single row takes up less disk 
 space, you can reduce your $CHUNK size by more than 90%, and can also speed up your queries. This helps you save on storage costs, 
 and keeps your queries operating at lightning speed.
@@ -286,9 +285,9 @@ regularly. For example, last week's market data.
 
 <Procedure>
 
-1. **Enable $HYPERCORE on a $HYPERTABLE**
+1. **Enable hypercore on a $HYPERTABLE**
 
-   Create a [job][job] that automatically moves $CHUNKs in a $HYPERTABLE to the $COLUMNSTORE at a specific time interval.
+   Create a [job][job] that automatically moves $CHUNKs in a $HYPERTABLE to the columnstore at a specific time interval.
 
    ```sql
    ALTER TABLE crypto_ticks SET (
@@ -298,7 +297,7 @@ regularly. For example, last week's market data.
    You [segmentby][alter-table-arguments] to speed up queries.   
 
 
-1. **Add a policy to convert $CHUNKs to the $COLUMNSTORE at a specific time interval**
+1. **Add a policy to convert $CHUNKs to the columnstore at a specific time interval**
 
    For example, yesterday's data:
    ``` sql
@@ -308,7 +307,7 @@ regularly. For example, last week's market data.
  
 1. **View your data space saving**
 
-   When you convert data to the $COLUMNSTORE, as well as being optimized for analytics, it is compressed by more than 
+   When you convert data to the columnstore, as well as being optimized for analytics, it is compressed by more than 
    90%. This helps you save on storage costs and keeps your queries operating at lightning speed. To see the amount of space 
    saved:
    ``` sql
@@ -330,7 +329,7 @@ regularly. For example, last week's market data.
 ## Slash storage charges 
 
 In the previous sections, you used $CAGGs to make fast analytical queries, and 
-$HYPERCORE to reduce storage costs on frequently accessed data. To reduce storage costs even more, 
+hypercore to reduce storage costs on frequently accessed data. To reduce storage costs even more, 
 you create tiering policies to move rarely accessed data to the object store. The object store is 
 low-cost bottomless data storage built on Amazon S3. However, no matter the tier, you can 
 [query your data when you need][querying-tiered-data]. $CLOUD_LONG seamlessly accesses the correct storage 
@@ -338,7 +337,7 @@ tier and generates the response.
 
 ![Tiered storage](https://assets.timescale.com/docs/images/tiered-storage.png )
 
-Data tiering is available in the [$SCALE and $ENTERPRISE][pricing-plans] $PRICING_PLANs for $CLOUD_LONG. 
+Data tiering is available in the [$SCALE and $ENTERPRISE][pricing-plans] pricing plans for $CLOUD_LONG. 
 
 To set up data tiering: 
 
@@ -395,7 +394,7 @@ data loss during failover.
 
 ![$SERVICE_LONG replicas](https://assets.timescale.com/docs/images/ha-read-replica.png )
 
-High availability is available in the [$SCALE and $ENTERPRISE][pricing-plans] $PRICING_PLANs for $CLOUD_LONG. 
+High availability is available in the [$SCALE and $ENTERPRISE][pricing-plans] pricing plans for $CLOUD_LONG. 
 
 <HASetup />
 
