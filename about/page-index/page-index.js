@@ -1,6 +1,6 @@
 module.exports = [
   {
-    title: "About Timescale",
+    title: "About Timescale products",
     href: "about",
     filePath: "index.md",
     pageComponents: ["featured-cards"],
@@ -10,7 +10,7 @@ module.exports = [
       {
         title: "Timescale architecture for real-time analytics",
         href: "whitepaper",
-        excerpt: "A whitepaper detailing the architectural choices and optimizations that power Timescale’"
+        excerpt: "A whitepaper detailing the architectural choices and optimizations that power Timescale"
       },
       {
         title: "Changelog",
