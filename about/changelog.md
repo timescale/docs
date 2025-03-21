@@ -8,15 +8,18 @@ keywords: [changelog, upgrades, updates, releases]
 
 All the latest features and updates to Timescale products.
 
-## 🤩 In-console Livesync for PostgreSQL
+## 🤩 In-Console Livesync for PostgreSQL
 <Label type="date">March 21, 2025</Label>
-Users can now setup an first active data ingestion pipeline, which we call Livesync. The initial Livesync, built natively in the cloud, is Livesync for Postgres. This tool allows our customers to replicate their source database tables into Timescale Hypertables indefinitely. Yes, you heard that right—customers can keep Livesync running for as long as they need, ensuring their existing source Postgres tables stay in sync with Timescale. 
-<img width="1032" alt="Vin1" src="https://github.com/user-attachments/assets/018dcc02-7a51-4d80-a2a4-8130be2b3429" />
-<img width="1400" alt="Vin2" src="https://github.com/user-attachments/assets/0208adfc-1c8f-49da-8bcc-f40e9c8200b8" />
-<img width="1400" alt="Vin3" src="https://github.com/user-attachments/assets/ca468ffe-750d-42ac-82fc-de3d24d020bd" />
-<img width="871" alt="Vin4" src="https://github.com/user-attachments/assets/3842fa68-9169-44cc-96c8-69cbe8db5882" />
 
+You can now set up an active data ingestion pipeline with Livesync for PostgreSQL in Timescale Console. This tool enables you to replicate your source database tables into Timescale's hypertables indefinitely. Yes, you heard that right—keep Livesync running for as long as you need, ensuring that your existing source PostgreSQL tables stay in sync with Timescale Cloud. Read more about setting up and using [Livesync for PostgreSQL](https://docs.timescale.com/migrate/latest/livesync/). 
 
+![Livesync in Timescale Console](https://assets.timescale.com/docs/images/timescale-cloud-livesync-tile.png)
+
+![Set up Timescale Livesync](https://assets.timescale.com/docs/images/set-up-timescale-cloud-livesync.png)
+
+![Select tables for Livesync](https://assets.timescale.com/docs/images/select-tables-for-timescale-cloud-livesync.png)
+
+![Timescale Livesync running](https://assets.timescale.com/docs/images/livesync-view-status.png)
 
 ## 💾 16K dimensions on pgvectorscale plus new pgai Vectorizer support
 <Label type="date">March 14, 2025</Label>
