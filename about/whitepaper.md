@@ -139,6 +139,8 @@ Each compressed batch does the following:
 * Uses a column-major format within the batch, enabling efficient scans by co-locating values of the same column and allowing the selection of individual columns without reading the entire batch
 * Applies advanced compression techniques at the column level, including run-length encoding, delta encoding, and Gorilla compression, to significantly reduce storage footprint (by up to 95%) and improve I/O performance.
 
+While the chunk interval of rowstore and columnstore batches usually remains the same, Timescale can also combine columnstore batches so they use a different chunk interval.
+
 This architecture provides the benefits of columnar storage—optimized scans, reduced disk I/O, and improved analytical performance—while seamlessly integrating with PostgreSQL’s row-based execution model.
 
 
