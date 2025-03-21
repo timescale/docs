@@ -7,7 +7,7 @@ keywords: [jobs, compression, downsample]
 
 # Use a $JOB to downsample and compress $CHUNKs
 
-$CLOUD_LONG lets you downsample and compress $CHUNKs by combining a
+Timescale lets you downsample and compress $CHUNKs by combining a
 [$CAGG refresh policy][cagg-refresh] with a
 [compression policy][compression].
 

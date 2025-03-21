@@ -8,7 +8,7 @@ tags: [scheduled jobs, background jobs, automation framework]
 
 # $JOB_CAPs
 
-$CLOUD_LONG natively includes some $JOB-scheduling policies, such as:
+Timescale natively includes some $JOB-scheduling policies, such as:
 
 *   [$CAGG_CAP policies][caggs] to automatically refresh $CAGGs
 *   [Compression policies][compressing] to compress historical data

@@ -70,7 +70,7 @@ $JOB_CAPs in Timescale are custom functions or procedures that run on a schedule
         SELECT add_job('totalRecords', '1h', config => '{"hypertable":"metr"}');
         ```
     
-        The call returns a `job_id` and stores it along with `config` in the $CLOUD_LONG catalog.
+        The call returns a `job_id` and stores it along with `config` in the Timescale catalog.
     
         The $JOB runs on the schedule you set. You can also run it manually with [`run_job`][api-run_job] passing `job_id`. When the $JOB runs, `job_id` and `config` are passed as arguments.
 
