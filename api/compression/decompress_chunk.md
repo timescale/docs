@@ -10,13 +10,9 @@ api:
 
 import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 
-import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
-
-import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
-
 # decompress_chunk() <Tag type="community">Community</Tag>
 
-<Deprecated2180 /> Replaced by <a href="https://docs.timescale.com/api/latest/hypercore/convert_to_cconvert_to_rowstore/">convert_to_rowstore()</a>.
+<Deprecated2180 /> Replaced by <a href="https://docs.timescale.com/api/latest/hypercore/convert_to_rowstore/">convert_to_rowstore()</a>.
 
 If you need to modify or add a lot of data to a chunk that has already been
 compressed, you should decompress the chunk first. This is especially
@@ -35,14 +31,20 @@ the next scheduled job.
 ### Required arguments
 
 |Name|Type|Description|
-|-|-|-|
+|---|---|---|
 |`chunk_name`|`REGCLASS`|Name of the chunk to be decompressed.|
 
 ### Optional arguments
 
 |Name|Type|Description|
-|-|-|-|
-|`if_compressed`|`BOOLEAN`| Disabling this will make the function error out on chunks that are not compressed. Defaults to true.|
+|---|---|---|
+|`if_compressed`|`BOOLEAN`|Disabling this will make the function error out on chunks that are not compressed. Defaults to true.|
+
+### Returns
+
+|Column|Type|Description|
+|---|---|---|
+|`decompress_chunk`|`REGCLASS`|Name of the chunk that was decompressed.|
 
 ### Sample usage
 

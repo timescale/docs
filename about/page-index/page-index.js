@@ -1,6 +1,6 @@
 module.exports = [
   {
-    title: "Timescale product overview",
+    title: "About Timescale",
     href: "about",
     filePath: "index.md",
     pageComponents: ["featured-cards"],

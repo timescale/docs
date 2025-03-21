@@ -82,16 +82,12 @@ between $CLOUD_LONG and your own VPC in a logically isolated virtual network.
     * You can attach:
       * Up to 50 Customer $VPCs to a $CLOUD_LONG $VPC.
       * A $SERVICE_LONG to a single $CLOUD_LONG $VPC at a time.
-
-      The $SERVICE_SHORT and $VPC must be in the same AWS region. However, you can peer a Customer $VPC and a
-      $CLOUD_LONG $VPC that are in different regions.
+        The $SERVICE_SHORT and $VPC must be in the same AWS region. However, you can peer a Customer $VPC and a $CLOUD_LONG $VPC that are in different regions.
       * Multiple $SERVICE_LONGs to the same $CLOUD_LONG $VPC.
-      * You cannot attach a $SERVICE_LONG to multiple $CLOUD_LONG $VPCs at the same time.
+    * You cannot attach a $SERVICE_LONG to multiple $CLOUD_LONG $VPCs at the same time.
 
-    The number of $CLOUD_LONG $VPCs you can create in your project depends on your [pricing plan][pricing-plans].
-    If you need another $CLOUD_LONG $VPC, either contact [support@timescale.com](mailto:support@timescale.com) or change your
-    pricing plan in [$CONSOLE][console-login].
-
+     The number of $CLOUD_LONG $VPCs you can create in your project depends on your [pricing plan][pricing-plans].
+     If you need another $CLOUD_LONG $VPC, either contact [support@timescale.com](mailto:support@timescale.com) or change your pricing plan in [$CONSOLE][console-login].
 
 1.  Choose your region and IP range, name your VPC, then click `Create VPC`. 
 

@@ -5,16 +5,8 @@ import EarlyAccess from "versionContent/_partials/_early_access.mdx";
 ### `timescaledb.max_background_workers (int)`
 
 Max background worker processes allocated to TimescaleDB. Set to at least 1 +
-the number of databases loaded with a TimescaleDB extension in a PostgreSQL
+the number of databases loaded with the TimescaleDB extension in a PostgreSQL
 instance. Default value is 16.
-
-### `timescaledb.enable_tiered_reads (bool)`
-
-Enable [tiered reads][enabling-data-tiering] to that you query your data normally when it's distributed across different storage tiers.
-Your hypertable is spread across the tiers, so queries and `JOIN`s work and fetch the same data as usual.
-
-By default, tiered data is not accessed by queries. Querying tiered data may slow down query performance
-as the data is not stored locally on Timescale's high-performance storage tier.
 
 ## Hypercore features
 
@@ -59,7 +51,7 @@ Enable runtime chunk exclusion
 
 ### `timescaledb.enable_tiered_reads (bool)`
 
-Enable [tiered reads][enabling-data-tiering] to that you query your data normally when it's distributed across different storage tiers.
+Enable [tiered reads][enabling-data-tiering] to query your data normally when it's distributed across different storage tiers.
 Your hypertable is spread across the tiers, so queries and `JOIN`s work and fetch the same data as usual.
 
 By default, tiered data is not accessed by queries. Querying tiered data may slow down query performance
@@ -71,7 +63,7 @@ Enable transparent decompression
 
 
 ### `timescaledb.restoring (bool)`
-Stop any background workers which could have been performing tasks. This is especially useful you 
+Stop any background workers which could have been performing tasks. This is especially useful if you 
 migrate data to your [$SERVICE_LONG][pg-dump-and-restore] or [self-hosted database][migrate-entire].
 
 ### `timescaledb.max_cached_chunks_per_hypertable (int)`

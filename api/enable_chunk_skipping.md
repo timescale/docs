@@ -11,7 +11,8 @@ api:
 
 # enable_chunk_skipping()
 
-Enable range statistics for a specific column in a **compressed** hypertable. This tracks a range of values for that column per chunk. Used for chunk pruning during query optimization.
+Enable range statistics for a specific column in a **compressed** hypertable. This tracks a range of values for that column per chunk. 
+Used for chunk skipping during query optimization and applies only to the chunks created after chunk skipping is enabled. 
 
 Best practice is to enable range tracking on columns that are correlated to the
 partitioning column. In other words, enable tracking on secondary columns which are
@@ -27,7 +28,7 @@ The range is stored in start (inclusive) and end (exclusive) form in the
 This way you store the min/max values for such columns in this catalog
 table at the per-chunk level. These min/max range values do
 not participate in partitioning of the data. These ranges are
-used for chunk pruning when the `WHERE` clause of an SQL query specifies
+used for chunk skipping when the `WHERE` clause of an SQL query specifies
 ranges on the column.
 
 A [DROP COLUMN](https://www.postgresql.org/docs/current/sql-altertable.html#SQL-ALTERTABLE-DESC-DROP-COLUMN)
@@ -66,8 +67,7 @@ SELECT enable_chunk_skipping('conditions', 'device_id');
 |Column|Type|Description|
 |-|-|-|
 |`column_stats_id`|INTEGER|ID of the entry in the TimescaleDB internal catalog|
-|`enabled`|BOOLEAN|Returns `true` when tracking is enabled, `if_not_exists` is `true`, and when a new entry is not
-added|
+|`enabled`|BOOLEAN|Returns `true` when tracking is enabled, `if_not_exists` is `true`, and when a new entry is not added|
 
 [compress_chunk]: /api/:currentVersion:/compression/compress_chunk/
 [decompress_chunk]: /api/:currentVersion:/compression/decompress_chunk/

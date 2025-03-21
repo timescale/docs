@@ -9,7 +9,7 @@ import CompressionIntro from 'versionContent/_partials/_compression-intro.mdx';
 
 # About compression
 
-<Deprecated2180 /> see <a href="https://docs.timescale.com/use-timescale/latest/hypercore/">Hypercore</a>
+<Deprecated2180 /> Replaced by <a href="https://docs.timescale.com/use-timescale/latest/hypercore/">Hypercore</a>.
 
 <CompressionIntro />
 

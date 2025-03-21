@@ -11,10 +11,6 @@ api:
 
 import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 
-import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
-
-import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
-
 # add_compression_policy() <Tag type="community" content="community" />
 
 <Deprecated2180 /> Replaced by <a href="https://docs.timescale.com/api/latest/hypercore/add_columnstore_policy/">add_columnstore_policy()</a>.

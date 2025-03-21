@@ -409,13 +409,11 @@ The `continuous_aggregates` method generates a class for each continuous aggrega
 
 ## Next steps
 
-Now you have integrated the ruby gem into your app, have a look at:
+Now that you have integrated the ruby gem into your app:
 
-* [Learn more about the timescaledb gem](https://github.com/timescale/timescaledb-ruby)
-* [Check out official docs](https://timescale.github.io/timescaledb-ruby/)
-* [Try the LTTB tutorial](https://timescale.github.io/timescaledb-ruby/toolkit_lttb_tutorial/)
-* [Check out the toolkit tutorial](https://timescale.github.io/timescaledb-ruby/toolkit_tutorial/)
-* [Check out the Rails tutorial](https://timescale.github.io/timescaledb-ruby/rails_tutorial/)
+* Learn more about the [timescaledb gem](https://github.com/timescale/timescaledb-ruby).
+* Check out the [official docs](https://timescale.github.io/timescaledb-ruby/).
+* Follow the [LTTB][LTTB], [Open AI long-term storage][open-ai-tutorial], and [candlesticks][candlesticks] tutorials.
 
 [connect]: #connect-to-timescaledb
 [create-a-hypertable]: #create-a-hypertable
@@ -431,3 +429,6 @@ Now you have integrated the ruby gem into your app, have a look at:
 [about-hypertables]: /use-timescale/:currentVersion:/hypertables/about-hypertables/
 [rails-compostite-primary-keys]: https://guides.rubyonrails.org/active_record_composite_primary_keys.html
 [ruby-blog-post]: https://www.timescale.com/blog/building-a-better-ruby-orm-for-time-series-and-analytics
+[LTTB]: https://timescale.github.io/timescaledb-ruby/toolkit_lttb_tutorial/
+[open-ai-tutorial]: https://timescale.github.io/timescaledb-ruby/chat_gpt_tutorial/
+[candlesticks]: https://timescale.github.io/timescaledb-ruby/toolkit_candlestick/

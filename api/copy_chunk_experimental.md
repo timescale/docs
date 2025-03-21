@@ -8,6 +8,8 @@ api:
   license: community
   type: function
   experimental: true
+seo:
+  robots: noindex
 ---
 import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";
 

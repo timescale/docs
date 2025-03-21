@@ -9,7 +9,7 @@ import UsageBasedStorage from "versionContent/_partials/_usage-based-storage-int
 
 # Hypercore
 
-Hypercore is the $COMPANY hybrid row-columnar storage engine, designed specifically for
+Hypercore is the $TIMESCALE_DB hybrid row-columnar storage engine, designed specifically for
 real-time analytics and powered by time-series data. The advantage of Hypercore is its ability
 to seamlessly switch between row-oriented and column-oriented storage. This flexibility enables
 $CLOUD_LONG to deliver the best of both worlds, solving the key challenges in real-time analytics:
@@ -33,8 +33,7 @@ in each $SERVICE_LONG:
   saving significant storage space.
 
 - **Faster queries on compressed data in columnstore**: in columnstore conversion, hypertable
-  chunks are compressed by more than 90%, and organized for efficient, large-scale queries. This 
-  saves on storage costs, and keeps your queries operating at lightning speed.
+  chunks are compressed by more than 90%, and organized for efficient, large-scale queries. Combined with [chunk skipping][chunk-skipping], this helps you save on storage costs and keeps your queries operating at lightning speed.
 
 - **Full mutability with transactional semantics**: regardless of where data is stored,
   Hypercore provides full ACID support. Like in a vanilla Postgres database, inserts and updates
@@ -50,12 +49,11 @@ immediately translates into cost savings.
 
 This section shows you how to:
 
-* [Prepare your data for real-time analytics in Hypercore][setup-hypercore]
+* [Optimize your data for real-time analytics][setup-hypercore]
 * [Modify data in the columnstore][modify-data-in-hypercore]
-* [Efficient data access in Hypercore][indexing-data-in-hypercore]
 
 [setup-hypercore]: /use-timescale/:currentVersion:/hypercore/real-time-analytics-in-hypercore/
 [modify-data-in-hypercore]: /use-timescale/:currentVersion:/hypercore/modify-data-in-hypercore/
 [indexing-data-in-hypercore]: /use-timescale/:currentVersion:/hypercore/best-practice-for-large-amounts-of-data/
 [compression]: /use-timescale/:currentVersion:/compression/
-
+[chunk-skipping]: /use-timescale/:currentVersion:/hypertables/improve-query-performance/

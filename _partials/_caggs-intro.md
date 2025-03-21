@@ -1,12 +1,12 @@
-Time-series data usually grows very quickly. And that means that aggregating the
-data into useful summaries can become very slow. Continuous aggregates makes
-aggregating data lightning fast.
+In modern applications, data usually grows very quickly. This means that aggregating 
+it into useful summaries can become very slow. $CLOUD_LONG continuous aggregates make
+aggregating data lightning fast, accurate, and easy. 
 
 If you are collecting data very frequently, you might want to aggregate your
-data into minutes or hours instead. For example, if you have a table of
-temperature readings taken every second, you can find the average temperature
+data into minutes or hours instead. For example, if an IoT device takes 
+temperature readings every second, you might want to find the average temperature
 for each hour. Every time you run this query, the database needs to scan the
-entire table and recalculate the average every time.
+entire table and recalculate the average.
 
 Continuous aggregates are a kind of hypertable that is refreshed automatically
 in the background as new data is added, or old data is modified. Changes to your
@@ -21,10 +21,10 @@ means that you can get on with working your data instead of maintaining your
 database.
 
 Because continuous aggregates are based on hypertables, you can query them in
-exactly the same way as your other tables, and enable [Hypercore][hypercore]
-or [tiered storage][data-tiering] on your continuous aggregates. You can even
+exactly the same way as your other tables, and enable [compression][compression]
+or [tiered storage][data-tiering] on them. You can even
 create
-[continuous aggregates on top of your continuous aggregates][hierarchical-caggs].
+[continuous aggregates on top of your continuous aggregates][hierarchical-caggs] - for an even more fine-tuned aggregation. 
 
 By default, querying continuous aggregates provides you with real-time data.
 Pre-aggregated data from the materialized view is combined with recent data that

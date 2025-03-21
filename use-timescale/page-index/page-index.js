@@ -199,7 +199,7 @@ module.exports = [
           "Seamlessly switch between row-oriented and column-oriented storage",
         children: [
           {
-            title: "Prepare your data for real-time analytics",
+            title: "Optimize your data for real-time analytics",
             href: "real-time-analytics-in-hypercore",
             excerpt: "Automate",
           },
@@ -209,9 +209,9 @@ module.exports = [
             excerpt: "Update data stored in the columnstore",
           },
           {
-            title: "Efficient data access in Hypercore",
-            href: "efficient-data-access-in-hypercore",
-            excerpt: "Read and write data efficiently in hypercore",
+            title: "Improve query and upsert performance",
+            href: "secondary-indexes",
+            excerpt: "Automate",
           },
         ],
       },
@@ -761,6 +761,11 @@ module.exports = [
             excerpt: "Integrate Amazon SageMaker with Timescale Cloud",
           },
           {
+            title: "Amazon Web Services",
+            href: "aws",
+            excerpt: "Integrate AWS with Timescale Cloud",
+          },
+          {
             title: "Apache Airflow",
             href: "apache-airflow",
             excerpt: "Integrate Apache Airflow with Timescale products",
@@ -781,6 +786,11 @@ module.exports = [
             excerpt: "Integrate Azure Data Studio with Timescale Cloud",
           },
           {
+            title: "Corporate data center",
+            href: "corporate-data-center",
+            excerpt: "Integrate your corporate data center with Timescale Cloud",
+          },
+          {
             title: "Datadog",
             href: "datadog",
             excerpt: "Integrate Datadog with Timescale Cloud",
@@ -791,14 +801,29 @@ module.exports = [
             excerpt: "Integrate DBeaver with Timescale Cloud",
           },
           {
+            title: "Decodable",
+            href: "decodable",
+            excerpt: "Integrate Decodable with Timescale Cloud",
+          },
+          {
             title: "Fivetran",
             href: "fivetran",
             excerpt: "Integrate Fivetran with Timescale Cloud",
           },
           {
+            title: "Google Cloud",
+            href: "google-cloud",
+            excerpt: "Integrate Google Cloud with Timescale Cloud",
+          },
+          {
             title: "Grafana",
             href: "grafana",
             excerpt: "Integrate Grafana with Timescale products",
+          },
+          {
+            title: "Microsoft Azure",
+            href: "microsoft-azure",
+            excerpt: "Integrate Microsoft Azure with Timescale Cloud",
           },
           {
             title: "pgAdmin",
@@ -816,6 +841,11 @@ module.exports = [
             excerpt: "Integrate Prometheus with Timescale Cloud",
           },
           {
+            title: "Power BI",
+            href: "power-bi",
+            excerpt: "Integrate Power BI with Timescale Cloud",
+          },
+          {
             title: "psql",
             href: "psql",
             excerpt: "Connect to Timescale products with psql",
@@ -824,6 +854,11 @@ module.exports = [
             title: "qStudio",
             href: "qstudio",
             excerpt: "Integrate qstudio with Timescale Cloud",
+          },
+          {
+            title: "Supabase",
+            href: "supabase",
+            excerpt: "Integrate Supabase with Timescale products",
           },
           {
             title: "Tableau",
@@ -880,14 +915,14 @@ module.exports = [
               "Connect to Timescale with a stricter SSL mode of verify-ca or verify-full",
           },
           {
+            title: "Connect securely from any cloud",
+            href: "transit-gateway",
+            excerpt: "Peer your Timescale Cloud service with AWS Transit Gateway",
+          },
+          {
             title: "VPC peering and AWS PrivateLink",
             href: "vpc",
             excerpt: "Secure your Timescale Service with VPC peering and AWS PrivateLink",
-          },
-          {
-            title: "AWS Transit Gateway",
-            href: "transit-gateway",
-            excerpt: "Peer your Timescale Cloud service with AWS Transit Gateway",
           },
           {
             title: "IP allow list",

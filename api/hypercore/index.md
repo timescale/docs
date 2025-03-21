@@ -45,18 +45,22 @@ Best practice for using Hypercore is to:
 
    * [Use `ALTER TABLE` for a hypertable][alter_table_hypercore]
      ```sql
-     ALTER TABLE stocks_real_time SET (timescaledb.enable_columnstore = true, timescaledb.segmentby = 'symbol');
+     ALTER TABLE crypto_ticks SET (
+        timescaledb.enable_columnstore = true, 
+        timescaledb.segmentby = 'symbol');
      ```
    * [Use ALTER MATERIALIZED VIEW for a continuous aggregate][compression_continuous-aggregate]
      ```sql
-     ALTER MATERIALIZED VIEW stock_candlestick_daily set (timescaledb.enable_columnstore = true, timescaledb.segmentby = 'symbol' );
+     ALTER MATERIALIZED VIEW assets_candlestick_daily set (
+        timescaledb.enable_columnstore = true, 
+        timescaledb.segmentby = 'symbol' );
      ```
 
 1. **Add a policy to move chunks to the columnstore at a specific time interval**
 
-   For example, 60 days after the data was added to the table:
+   For example, 7 days after the data was added to the table:
    ``` sql
-   CALL add_columnstore_policy('older_stock_prices', after => INTERVAL '60d');
+   CALL add_columnstore_policy('crypto_ticks', after => INTERVAL '7d');
    ```
    See [add_columnstore_policy][add_columnstore_policy].
 

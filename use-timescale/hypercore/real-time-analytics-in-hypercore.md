@@ -1,5 +1,5 @@
 ---
-title: Optimize data for real-time analytics with Hypercore
+title: Optimize your data for real-time analytics
 excerpt: Reduce your chunk size by more than 90% and speed up your queries by automatically converting data between the rowstore and columnstore.
 products: [cloud,]
 keywords: [hyperscore, hypertable, compression, row-columnar storage, hypercore]
@@ -11,23 +11,24 @@ import HCPolicyWorkflow from "versionContent/_partials/_hypercore_policy_workflo
 import UsageBasedStorage from "versionContent/_partials/_usage-based-storage-intro.mdx";
 import EarlyAccess from "versionContent/_partials/_early_access.mdx";
 
-# Prepare your data for real-time analytics in Hypercore 
+# Optimize your data for real-time analytics 
 
-Hypercore is the Timescale hybrid row-columnar storage engine used by Hypertables. Hypertables partition your data in chunks. Chunks stored in the rowstore use a row-oriented data format optimized for high-speed inserts and updates. Chunks stored in the columnstore use a columnar data format optimized for analytics.
-You ingest `hot` data into the rowstore. As data cools and becomes more suited for analytics, 
+Hypercore is the TimescaleDB hybrid row-columnar storage engine used by hypertables. 
+Hypertables partition your data in chunks. Chunks stored in the rowstore use a row-oriented data format optimized for high-speed inserts and updates. Chunks stored in the columnstore use a columnar data format optimized for analytics.
+You ingest _hot_ data into the rowstore. As data _cools_ and becomes more suited for analytics, 
 $CLOUD_LONG automatically converts these chunks of data to the columnstore. You define the moment when data is converted 
 using a columnstore policy.
 
 <HCConversionOverview />
 
-This page shows you how get the best results when you set a policy to automatically convert chunks in a hypertable 
+This page shows you how to get the best results when you set a policy to automatically convert chunks in a hypertable 
 from the rowstore to the columnstore.
 
 ## Prerequisites
 
 <PrereqCloud />
 
-This page uses the [real-time-stock-data][ingest-data] sample data in the samples.   
+The code samples in this page use the <Tag type="download">[crypto_sample.zip](https://assets.timescale.com/docs/downloads/candlestick/crypto_sample.zip)</Tag> data from [Try the key Timescale features][ingest-data].   
 
 ## Optimize your data with columnstore policies 
 
@@ -49,7 +50,7 @@ When $CLOUD_LONG converts a chunk to the columnstore, TimescaleDB automatically 
 data. $TIMESCALE_DB creates and uses custom indexes to incorporate the `segmentby` and `orderby` parameters when 
 you write to and read from the columstore.
 
-To setup your Hypercore automation:
+To set up your Hypercore automation:
 
 <HCPolicyWorkflow />
 
@@ -72,7 +73,7 @@ repeated values,[XOR-based][xor] and [dictionary compression][dictionary] is use
 [run-length]: /use-timescale/:currentVersion:/compression/compression-methods/#run-length-encoding
 [xor]: /use-timescale/:currentVersion:/compression/compression-methods/#xor-based-encoding
 [dictionary]: /use-timescale/:currentVersion:/compression/compression-methods/#dictionary-compression
-[ingest-data]: /getting-started/:currentVersion:/time-series-data/#ingest-the-dataset
+[ingest-data]: /getting-started/:currentVersion:/try-key-features-timescale-products/#optimize-time-series-data-in-hypertables
 [add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/
 [run-job]: /api/:currentVersion:/actions/run_job/
 [convert_to_rowstore]: /api/:currentVersion:/hypercore/convert_to_rowstore/

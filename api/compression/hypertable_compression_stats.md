@@ -11,10 +11,6 @@ api:
 
 import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 
-import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
-
-import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
-
 # hypertable_compression_stats() <Tag type="community">Community</Tag>
 
 <Deprecated2180 /> Replaced by <a href="https://docs.timescale.com/api/latest/hypercore/hypertable_columnstore_stats/">hypertable_columnstore_stats()</a>.
