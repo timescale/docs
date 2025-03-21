@@ -1,5 +1,5 @@
 ---
-title: About Timescale
+title: About Timescale products
 excerpt: Learn about Timescale Cloud and TimescaleDB, including pricing, release notes, feature overview, and contribution guidelines
 ---
 
