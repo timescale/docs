@@ -14,7 +14,12 @@ Timescale combines TimescaleDB, an open-source PostgreSQL extension, and Timesca
 
 This document outlines the architectural choices and optimizations that power Timescale’s performance and scalability while preserving PostgreSQL’s reliability and transactional guarantees.
 
-Want to read this whitepaper from the comfort of your own computer? Download <Tag type="download">[Timescale architecture for real-time analytics (PDF)](https://assets.timescale.com/docs/downloads/Timescale_Architecture_for_Real-time_Analytics.pdf)</Tag>.
+Want to read this whitepaper from the comfort of your own computer?
+
+<center>
+   <Tag type="download">[Timescale architecture for real-time analytics (PDF)](https://assets.timescale.com/docs/downloads/Timescale_Architecture_for_Real-time_Analytics.pdf)</Tag>
+</center>
+
 
 ## Introduction
 
