@@ -84,7 +84,8 @@ At query time, hypertables efficiently exclude irrelevant chunks from the execut
 />
 </center>
 
-Hypertables are the foundation for all of TimescaleDB’s real-time analytics capabilities. They enable seamless data ingestion, high-throughput writes, optimized query execution, and chunk-based lifecycle management—including automated data retention and tiering.
+Hypertables are the foundation for all of TimescaleDB’s real-time analytics capabilities. They enable seamless data ingestion, high-throughput writes, optimized query execution, and chunk-based lifecycle management—including automated data retention (drop a chunk) and data tiering (move a chunk to object storage).
+
 
 
 ### Row-Columnar Storage
@@ -118,7 +119,7 @@ TimescaleDB’s columnar storage layout optimizes analytical query performance b
 
 #### Columnar batches
 
-TimescaleDB uses columnar compression within row-based storage to optimize analytical query performance while maintaining full PostgreSQL compatibility. This approach ensures efficient storage, high compression ratios, and rapid query execution.
+TimescaleDB uses columnar collocation and columnar compression within row-based storage to optimize analytical query performance while maintaining full PostgreSQL compatibility. This approach ensures efficient storage, high compression ratios, and rapid query execution.
 
 
 <center>
@@ -130,13 +131,13 @@ TimescaleDB uses columnar compression within row-based storage to optimize analy
 />
 </center>
 
+A rowstore chunk is converted to a columnstore chunk by successfully grouping together sets of rows (typically up to 1000) into a single batch, then converting the batch into columnar form. 
+
 Each compressed batch does the following:
-
-
 
 * Encapsulates columnar data in compressed arrays of up to 1,000 values per column, stored as a single entry in the underlying compressed table
 * Uses a column-major format within the batch, enabling efficient scans by co-locating values of the same column and allowing the selection of individual columns without reading the entire batch
-* Applies advanced compression techniques at the column level, including run-length encoding, delta encoding, and Gorilla compression, to significantly reduce storage footprint (by up to 95 %) and improve I/O performance.
+* Applies advanced compression techniques at the column level, including run-length encoding, delta encoding, and Gorilla compression, to significantly reduce storage footprint (by up to 95%) and improve I/O performance.
 
 This architecture provides the benefits of columnar storage—optimized scans, reduced disk I/O, and improved analytical performance—while seamlessly integrating with PostgreSQL’s row-based execution model.
 
@@ -191,7 +192,7 @@ Queries transparently access both the rowstore and columnstore chunks, meaning a
 
 When modifying or deleting existing data, hypercore avoids the inefficiencies of both asynchronous updates and in-place modifications. Instead of modifying compressed storage directly, affected batches are decompressed and staged in the interim rowstore chunk, where changes are applied immediately.
 
-These modified batches remain in row storage until they are recompressed and reintegrated into the columnstore—ensuring updates are immediately visible, but without the expensive overhead of decompressing and rewriting entire chunks. This approach avoids:
+These modified batches remain in row storage until they are recompressed and reintegrated into the columnstore (which happens automatically via a background process). This approach ensures updates are immediately visible, but without the expensive overhead of decompressing and rewriting entire chunks. This approach avoids:
 
 
 
@@ -273,7 +274,7 @@ Within each chunk, compressed columnar batches are organized using `SEGMENTBY` k
 
 #### Maximize locality
 
-Organizing data for efficient access ensures queries are read in the most optimal order, reducing unnecessary random reads and reducing scans of unneeded data:
+Organizing data for efficient access ensures queries are read in the most optimal order, reducing unnecessary random reads and reducing scans of unneeded data.
 
 
 <center>
@@ -320,7 +321,7 @@ The Timescale implementation of SIMD vectorization currently allows:
 
 Aggregating large datasets in real time can be expensive, requiring repeated scans and calculations that strain CPU and I/O. While some databases attempt to brute-force these queries at runtime, compute and I/O are always finite resources—leading to high latency, unpredictable performance, and growing infrastructure costs as data volume increases.
 
-Continuous aggregates, Timescale’s implementation of incrementally updated materialized views, solve this by shifting computation from every query run to a single, asynchronous step after data is ingested. Only the time buckets that receive new or modified data are updated, and queries read precomputed results instead of scanning raw data—dramatically improving performance and efficiency.
+**Continuous aggregates**, Timescale’s implementation of incrementally updated materialized views, solve this by shifting computation from every query run to a single, asynchronous step after data is ingested. Only the time buckets that receive new or modified data are updated, and queries read precomputed results instead of scanning raw data—dramatically improving performance and efficiency.
 
 
 <center>
@@ -334,7 +335,9 @@ Continuous aggregates, Timescale’s implementation of incrementally updated mat
 
 When you know the types of queries you'll need ahead of time, continuous aggregates allow you to pre-aggregate data along meaningful time intervals—such as per-minute, hourly, or daily summaries—delivering instant results without on-the-fly computation.
 
-Finalized buckets can be converted to columnar storage for compression, and raw data can be dropped, reducing storage footprint and processing cost. Continuous aggregates also support hierarchical rollups (e.g., hourly to daily to monthly) and real-time mode, which merges precomputed results with the latest ingested data to ensure accurate, up-to-date analytics.
+Continuous aggregates also avoid the time-consuming and error-prone process of maintaining manual rollups, while continuing to offer data mutability to support efficient updates, corrections, and backfills.  Whenever new data is inserted or modified in chunks which have been materialized, Timescale stores invalidation records reflecting that these results are stale and need to be recomputed.  Then, an asynchronous process re-computes regions that include invalidated data, and updates the materialized results.  Timescale tracks the lineage and dependencies between continuous aggregates and their underlying data, to ensure the continuous aggregates are regularly kept up-to-date. This happens in a resource-efficient manner, and where multiple invalidations can be coalesced into a single refresh (as opposed to refreshing any dependencies at write time, such as via a trigger-based approach).
+
+Continuous aggregates themselves are stored in hypertables, and they can be converted to columnar storage for compression, and raw data can be dropped, reducing storage footprint and processing cost. Continuous aggregates also support hierarchical rollups (e.g., hourly to daily to monthly) and real-time mode, which merges precomputed results with the latest ingested data to ensure accurate, up-to-date analytics.
 
 This architecture enables scalable, low-latency analytics while keeping resource usage predictable—ideal for dashboards, monitoring systems, and any workload with known query patterns.
 
