@@ -2,13 +2,13 @@
 title: Use a job to implement automatic tablespace management
 excerpt: Save on storage costs for old data. Timescale Cloud enables you to automatically move hypertable chunks between tablespaces with move_chunk
 products: [cloud, mst, self_hosted]
-keywords: [actions, tablespaces]
+keywords: [jobs, tablespaces]
 ---
 
 # Use a $JOB to implement automatic tablespace management
 
 Moving older data to a different tablespace can help you save on
-storage costs. Timescale supports automatic tablespace management by providing
+storage costs. $CLOUD_LONG supports automatic tablespace management by providing
 the `move_chunk` function to move chunks between tablespaces. To schedule the
 moves automatically, you can write a custom $JOB.
 
@@ -19,11 +19,11 @@ offering which handles this by providing a [tiering policy API](https://docs.tim
 
 </Highlight>
 
-To implement automatic chunk moving with a $JOB:
+To implement automatic $CHUNK moving with a $JOB:
 
 <Procedure>
 
-1.  Create a procedure that moves chunks to a different tablespace if they
+1.  Create a procedure that moves $CHUNKs to a different tablespace if they
     contain data older than the `lag` parameter.
 
     ```sql
@@ -74,8 +74,8 @@ To implement automatic chunk moving with a $JOB:
     ```
 
 1.  Register the $JOB to run daily. In the config, set `hypertable` to `metrics`
-    to implement automatic chunk moves on the `metrics` hypertable. Set `lag` to
-    12 months to move chunks containing data older than 12 months. Set
+    to implement automatic $CHUNK moves on the `metrics` $HYPERTABLE. Set `lag` to
+    12 months to move $CHUNKs containing data older than 12 months. Set
     `tablespace` to the destination tablespace.
 
     ```sql

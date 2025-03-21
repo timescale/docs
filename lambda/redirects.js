@@ -923,19 +923,19 @@ module.exports = [
   },
   {
     from: '/use-timescale/latest/user-defined-actions/about-user-defined-actions/',
-    to: 'https://docs.timescale.com/use-timescale/latest/jobs/about-jobs/',
+    to: 'https://docs.timescale.com/use-timescale/latest/jobs/create-and-manage-jobs/',
   },
   {
     from: '/use-timescale/latest/user-defined-actions/create-and-register/',
-    to: 'https://docs.timescale.com/use-timescale/latest/jobs/create-and-register/',
+    to: 'https://docs.timescale.com/use-timescale/latest/jobs/create-and-manage-jobs/',
   },
   {
     from: '/use-timescale/latest/user-defined-actions/test-and-debug/',
-    to: 'https://docs.timescale.com/use-timescale/latest/jobs/test-and-debug/',
+    to: 'https://docs.timescale.com/use-timescale/latest/jobs/create-and-manage-jobs/',
   },
   {
     from: '/use-timescale/latest/user-defined-actions/alter-and-delete/',
-    to: 'https://docs.timescale.com/use-timescale/latest/jobs/alter-and-delete/',
+    to: 'https://docs.timescale.com/use-timescale/latest/jobs/create-and-manage-jobs/',
   },
   {
     from: '/use-timescale/latest/user-defined-actions/example-generic-retention/',
@@ -948,5 +948,25 @@ module.exports = [
   {
     from: '/use-timescale/latest/user-defined-actions/example-downsample-and-compress/',
     to: 'https://docs.timescale.com/use-timescale/latest/jobs/example-downsample-and-compress/',
+  },
+  {
+    from: '/api/latest/actions/add_job/',
+    to: 'https://docs.timescale.com/api/latest/jobs-automation/add_job/',
+  },
+  {
+    from: '/api/latest/actions/alter_job/',
+    to: 'https://docs.timescale.com/api/latest/jobs-automation/alter_job/',
+  },
+  {
+    from: '/api/latest/actions/delete_job/',
+    to: 'https://docs.timescale.com/api/latest/jobs-automation/delete_job/',
+  },
+  {
+    from: '/api/latest/actions/run_job/',
+    to: 'https://docs.timescale.com/api/latest/jobs-automation/run_job/',
+  },
+  {
+    from: '/api/latest/actions/',
+    to: 'https://docs.timescale.com/api/latest/jobs-automation/',
   },
 ];

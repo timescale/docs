@@ -698,24 +698,9 @@ module.exports = [
         href: "jobs",
         children: [
           {
-            title: "About jobs",
-            href: "about-jobs",
-            excerpt: "Learn about jobs",
-          },
-          {
-            title: "Create and register a job",
-            href: "create-and-register",
-            excerpt: "Create and register a job",
-          },
-          {
-            title: "Test and debug a job",
-            href: "test-and-debug",
-            excerpt: "Test and debug a job",
-          },
-          {
-            title: "Alter and delete a job",
-            href: "alter-and-delete",
-            excerpt: "Edit and delete jobs",
+            title: "Create and manage jobs",
+            href: "create-and-manage-jobs",
+            excerpt: "Create, test, alter, and delete jobs",
           },
           {
             title: "Use a job for generic retention",
