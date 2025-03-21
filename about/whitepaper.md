@@ -1,6 +1,6 @@
 ---
-title: TIMESCALE ARCHITECTURE FOR REAL-TIME ANALYTICS
-excerpt: This is it
+title: Timescale architecture for real-time analytics
+excerpt: A whitepaper detailing the architectural choices and optimizations for real-time analytics that power Timescale
 products: [cloud, mst, self_hosted]
 keywords: [real-time analytics, timescale cloud, timescaledb, time-series, whitepaper]
 ---
@@ -60,7 +60,7 @@ Timescale achieves this through the following optimizations:
 With Timescale, developers can build low-latency, high-concurrency applications that seamlessly handle streaming data, historical queries, and real-time analytics while leveraging the familiarity and power of PostgreSQL.
 
 
-## Data Model
+## Data model
 
 Today's applications demand a database that can handle real-time analytics and transactional queries without sacrificing speed, flexibility, or SQL compatibility (including joins between tables). Timescale achieves this with **hypertables**, which provide an automatic partitioning engine, and **hypercore**, a hybrid row-columnar storage engine designed to deliver high-performance queries and efficient compression (up to 95 %) within PostgreSQL.
 
