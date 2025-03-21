@@ -8,7 +8,7 @@ module.exports = [
       "Additional information about Timescale, including how to contribute, and release notes",
     children: [
       {
-        title: "Timescale Architecture for Real-time Analytics",
+        title: "Timescale architecture for real-time analytics",
         href: "whitepaper",
         excerpt: "A whitepaper detailing the architectural choices and optimizations that power Timescale’"
       },
