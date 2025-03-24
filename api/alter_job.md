@@ -104,7 +104,7 @@ where jitter (± 13%) is added to avoid the "thundering herds" effect.
 To ensure that the `next_start` time is not put off indefinitely or produce timestamps so large they end up out of range, it is capped at 5*`schedule_interval`.
 Also, more than 20 consecutive failures are not considered, so if the number of consecutive failures is higher, then it multiplies by 20.
 
-Additionally, in the case of $JOB with fixed schedules, the system ensures that if the next start calculated as specified, surpasses the next scheduled execution, then the $JOB is executed again at the next scheduled slot and not after that. This ensures that the $JOB does not miss scheduled executions.
+Additionally, for $JOBs with fixed schedules, the system ensures that if the next start ( calculated as specified), surpasses the next scheduled execution, the $JOB is executed again at the next scheduled slot and not after that. This ensures that the $JOB does not miss scheduled executions.
 
 Finally, there is a distinction between runtime failures that do not cause the $JOB to crash and $JOB crashes.
 In the event of a $JOB crash, the next start calculation still follows the above formula,
