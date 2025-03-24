@@ -13,7 +13,7 @@ Tiered storage is a [hierarchical storage management architecture][hierarchical-
 
 Engineered for infinite low-cost scalability, tiered storage consists of the following:
 
-* **High-performance storage tier**: stores the most recent and frequently queried data. This tier comes in two types, standard and enhanced, and provides you with up to 64TB of storage and 32,000 IOPS. 
+* **High-performance storage tier**: stores the most recent and frequently queried data. This tier comes in two types, standard and enhanced, and provides you with up to 64TB of storage and 64,000 IOPS. 
 
 * **Object storage tier**: stores data that is rarely accessed and has lower performance requirements.
   For example, old data for auditing or reporting purposes over long periods of time, even forever.
@@ -36,7 +36,7 @@ we do the work for you.
 
 <Highlight type="info">
 
-Tiered storage is only available for the $SERVICE_SHORTs with the [Time series and analytics](https://www.timescale.com/products)
+Tiered storage is only available for the $SERVICE_SHORTs with the [Time series and analytics][create-service]
 capability. 
 
 Tiered storage **DOES NOT** work on $SELF_LONG_LC or $MST_LONG.  

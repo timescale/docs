@@ -22,9 +22,7 @@ High-performance storage comes in two types - standard and enhanced.
 - **Standard** (default): provides up to 16TB of storage and 16,000 IOPS. Based on [AWS EBS gp3][aws-gp3].
 - **Enhanced**: provides up to 64TB of storage and 64,000 IOPS. Based on [EBS io2][ebs-io2].
 
-See how they differ: 
-
-
+[See the differences][aws-storage-types] in the underlying AWS storage.
 
 You [enable enhanced storage][enable-enhanced] as needed in $CONSOLE. 
 
@@ -72,7 +70,7 @@ ime zone))
 `EXPLAIN` illustrates which chunks are being pulled in from the object storage tier:
 
 1. Fetch data from chunks 42, 43, and 44 from the object storage tier.
-1. Prune row groups and limit the fetch to a subset of the offsets in the
+1. Skip row groups and limit the fetch to a subset of the offsets in the
    Parquet object that potentially match the query filter. Only fetch the data
    for `device_uuid`, `sensor_id`, and `observed_at` as the query needs only these 3 columns.
 
@@ -82,7 +80,7 @@ The object storage tier is more than an archiving solution. It is also:
 - **Scalable:** scale past the restrictions of even the enhanced high-performance storage tier.
 - **Online:** your data is always there and can be [queried when needed][querying-tiered-data].
 
-By default, tiered data is not included when querying from a Timescale service. However, you can access tiered data by [enabling tiered reads][querying-tiered-data] for a query, a session, or even for all sessions. After you enable tiered reads, when you run regular SQL queries, a behind-the-scenes process transparently pulls data from wherever it's located: the standard high-performance storage tier, the object storage tier, or both.  You can `JOIN` against tiered data, build views, and even define continuous aggregates on it. In fact, because the implementation of continuous aggregates also uses hypertables, they can be tiered to low-cost storage as well.
+By default, tiered data is not included when querying from a $CLOUD_LONG. However, you can access tiered data by [enabling tiered reads][querying-tiered-data] for a query, a session, or even for all sessions. After you enable tiered reads, when you run regular SQL queries, a behind-the-scenes process transparently pulls data from wherever it's located: the standard high-performance storage tier, the object storage tier, or both.  You can `JOIN` against tiered data, build views, and even define continuous aggregates on it. In fact, because the implementation of continuous aggregates also uses hypertables, they can be tiered to low-cost storage as well.
 
 $COMPANY charges only for the storage that your data occupies in S3, regardless of whether it was compressed in $CLOUD_LONG before tiering. There are no additional expenses, such as data transfer or compute.
 
@@ -123,9 +121,10 @@ The low-cost storage tier comes with the following limitations:
 [blog-data-tiering]: https://www.timescale.com/blog/expanding-the-boundaries-of-postgresql-announcing-a-bottomless-consumption-based-object-storage-layer-built-on-amazon-s3/
 [querying-tiered-data]: /use-timescale/:currentVersion:/data-tiering/querying-tiered-data/
 [parquet]: https://parquet.apache.org/
-[manage-tiering]: /use-timescale/:currentVersion:/data-tiering/enable-data-tiering/#enable-tiered-storage
-[move-data]: /use-timescale/:currentVersion:/data-tiering/enable-data-tiering/#automate-tiering-with-policy
+[manage-tiering]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/#enable-tiered-storage
+[move-data]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/#automate-tiering-with-policies
 [hypercore]: /use-timescale/:currentVersion:/hypercore
 [aws-gp3]: https://docs.aws.amazon.com/ebs/latest/userguide/general-purpose.html
 [ebs-io2]: https://docs.aws.amazon.com/ebs/latest/userguide/provisioned-iops.html#io2-block-express
-[enable-enhanced]: /use-timescale/:currentVersion:/data-tiering/enable-data-tiering/#change-high-performance-storage-type
+[enable-enhanced]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/#change-high-performance-storage-type
+[aws-storage-types]: https://aws.amazon.com/blogs/storage/how-to-choose-the-best-amazon-ebs-volume-type-for-your-self-managed-database-deployment/
