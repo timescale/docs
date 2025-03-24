@@ -7,7 +7,7 @@ content_group: Getting started
 ---
 
 import Install from "versionContent/_partials/_cloud-installation.mdx";
-import Connect from "versionContent/_partials/_cloud-connect.mdx";
+import Connect from "versionContent/_partials/_cloud-connects.mdx";
 import ServiceOverview from "versionContent/_partials/_service-overview.mdx";
 import CloudIntro from "versionContent/_partials/_cloud-intro.mdx";
 import WhereNext from "versionContent/_partials/_where-to-next.mdx";
