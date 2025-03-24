@@ -56,7 +56,7 @@ To run queries and perform other operations, connect to your $SERVICE_SHORT:
 
 <Connect />
 
-And that is it, you are up and running. Enjoy developing with $COMPANY.
+And that is it, you are up and running. Enjoy developing with $COMPANY...
 
 <WhereNext />
 
