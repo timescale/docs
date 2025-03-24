@@ -72,7 +72,7 @@ To create a $JOB, create a [function][postgres-createfunction] or [procedure][po
 
 1. **Register your $JOB with [`add_job`][api-add_job]** 
 
-    Pass in the name of your $JOB, the schedule you want it to run on, and the content of your config. For the `config` value, if you don't need any special configuration parameters, pass `NULL`. For example, to run the `totalRecords` function every hour:
+    Pass the name of your $JOB, the schedule you want it to run on, and the content of your config. For the `config` value, if you don't need any special configuration parameters, set to `NULL`. For example, to run the `totalRecords` function every hour:
 
     ```sql
     SELECT add_job('totalRecords', '1h', config => '{"hypertable":"metr"}');
