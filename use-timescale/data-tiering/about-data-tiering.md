@@ -127,4 +127,4 @@ The low-cost storage tier comes with the following limitations:
 [aws-gp3]: https://docs.aws.amazon.com/ebs/latest/userguide/general-purpose.html
 [ebs-io2]: https://docs.aws.amazon.com/ebs/latest/userguide/provisioned-iops.html#io2-block-express
 [enable-enhanced]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/#change-high-performance-storage-type
-[aws-storage-types]: https://aws.amazon.com/blogs/storage/how-to-choose-the-best-amazon-ebs-volume-type-for-your-self-managed-database-deployment/
+[aws-storage-types]: https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html#vol-type-ssd
