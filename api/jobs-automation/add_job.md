@@ -13,14 +13,14 @@ api:
 
 Register a $JOB for scheduling by the automation framework. For more information about scheduling, including example $JOBs, see the [jobs documentation section][using-jobs].
 
-### Required arguments
+## Required arguments
 
 |Name|Type| Description                                                   |
 |-|-|---------------------------------------------------------------|
 |`proc`|REGPROC| Name of the function or procedure to register as a $JOB.      |
 |`schedule_interval`|INTERVAL| Interval between executions of this $JOB. Defaults to 24 hours |
 
-### Optional arguments
+## Optional arguments
 
 |Name|Type| Description                                                                                                                                                                                                                                                                                                                  |
 |-|-|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -31,13 +31,13 @@ Register a $JOB for scheduling by the automation framework. For more information
 |`fixed_schedule`|BOOLEAN| Set to `FALSE` if you want the next start of a $JOB to be determined as its last finish time plus the schedule interval. Set to `TRUE` if you want the next start of a $JOB to begin `schedule_interval` after the last start. Defaults to `TRUE`                                                                            |
 |`timezone`|TEXT| A valid time zone. If fixed_schedule is `TRUE`, subsequent executions of the $JOB are aligned on its initial start. However, daylight savings time (DST) changes may shift this alignment. Set to a valid time zone if you want to mitigate this issue. Defaults to `NULL`.                                                  |
 
-### Returns
+## Returns
 
 |Column|Type|Description|
 |-|-|-|
 |`job_id`|INTEGER|TimescaleDB background job ID|
 
-### Sample use
+## Sample use
 
 Register the `user_defined_action` procedure to run every hour:
 

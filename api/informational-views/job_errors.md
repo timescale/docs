@@ -8,7 +8,7 @@ api:
   type: view
 ---
 
-## timescaledb_information.job_errors
+# timescaledb_information.job_errors
 
 Shows information about runtime errors encountered by $JOBs run by the automation framework.
 This includes custom $JOBs and $JOBs run by policies

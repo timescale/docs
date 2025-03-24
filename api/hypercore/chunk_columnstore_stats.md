@@ -105,5 +105,5 @@ To retrieve statistics about chunks:
 
 [add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/
 [convert_to_columnstore]: /api/:currentVersion:/hypercore/convert_to_columnstore/
-[job]: /api/:currentVersion:/actions/add_job/
+[job]: /api/:currentVersion:/jobs-automation/add_job/
 [chunks_detailed_size]: /api/:currentVersion:/hypertable/chunks_detailed_size/

@@ -22,13 +22,13 @@ scheduled $JOBs, as well as in `timescaledb_information.job_stats`. The
 `job_stats` view also gives information about when each $JOB was last run and
 other useful statistics for deciding what the new schedule should be.
 
-### Required arguments
+## Required arguments
 
 |Name|Type|Description|
 |-|-|-|
 |`job_id`|`INTEGER`|The ID of the policy $JOB being modified|
 
-### Optional arguments
+## Optional arguments
 
 |Name|Type| Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 |-|-|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -54,7 +54,7 @@ Note that altering the `next_start` value is only effective for the next
 execution of the $JOB in case of fixed schedules. On the next execution, it will
 automatically return to the schedule.
 
-### Returns
+## Returns
 
 |Column|Type| Description                                                                                                   |
 |-|-|---------------------------------------------------------------------------------------------------------------|
@@ -68,7 +68,7 @@ automatically return to the schedule.
 |`next_start`|`TIMESTAMPTZ`| The next time to run the $JOB                                                                                  |
 |`check_config`|`TEXT`| The function used to validate updated $JOB configurations                                                      |
 
-### Sample usage
+## Sample usage
 
 Reschedules $JOB ID `1000` so that it runs every two days:
 
@@ -90,7 +90,7 @@ Reschedules continuous aggregate $JOB ID `1000` so that it next runs at 9:00:00 
 SELECT alter_job(1000, next_start => '2020-03-15 09:00:00.0+00');
 ```
 
-### Calculation of next start on failure
+## Calculation of next start on failure
 
 When a $JOB run results in a runtime failure, the next start of the $JOB is calculated taking into account both its `retry_period` and `schedule_interval`.
 The `next_start` time is calculated using the following formula:

@@ -95,5 +95,5 @@ Chunks in the columnstore have the following limitations:
 [skipscan]: /use-timescale/:currentVersion:/query-data/skipscan/
 [add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/
 [hypercore_workflow]: /api/:currentVersion:/hypercore/#hypercore-workflow
-[alter_job]: /api/:currentVersion:/actions/alter_job/
+[alter_job]: /api/:currentVersion:/jobs-automation/alter_job/
 [remove_columnstore_policy]: /api/:currentVersion:/hypercore/remove_columnstore_policy/

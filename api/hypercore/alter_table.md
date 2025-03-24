@@ -101,6 +101,6 @@ ALTER TABLE <table_name> SET (timescaledb.enable_columnstore,
 [add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/
 [convert_to_columnstore]: /api/:currentVersion:/hypercore/convert_to_columnstore/
 [convert_to_rowstore]: /api/:currentVersion:/hypercore/convert_to_rowstore/
-[job]: /api/:currentVersion:/actions/add_job/
+[job]: /api/:currentVersion:/jobs-automation/add_job/
 [default_table_access_method]: https://www.postgresql.org/docs/17/runtime-config-client.html#GUC-DEFAULT-TABLE-ACCESS-METHOD
 [create-hypertable]: /api/:currentVersion:/hypertable/create_hypertable

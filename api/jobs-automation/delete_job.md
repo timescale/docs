@@ -16,13 +16,13 @@ This works for $JOBs as well as policies.
 
 If the $JOB is currently running, the process is terminated.
 
-### Required arguments
+## Required arguments
 
 |Name|Type|Description|
 |---|---|---|
 |`job_id`| INTEGER |  TimescaleDB background $JOB id |
 
-### Sample usage
+## Sample usage
 
 Delete the $JOB with the $JOB id 1000:
 

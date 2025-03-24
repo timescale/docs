@@ -8,7 +8,7 @@ api:
   type: view
 ---
 
-## timescaledb_information.job_history
+# timescaledb_information.job_history
 
 Shows information about the $JOBs run by the automation framework.
 This includes custom $JOBs and $JOBs run by policies

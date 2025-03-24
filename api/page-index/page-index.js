@@ -242,7 +242,6 @@ module.exports = [
       },
       {
         title: "Data retention",
-        type: "directory",
         href: "data-retention",
         children: [
           {
@@ -257,7 +256,6 @@ module.exports = [
       },
       {
         title: "Jobs and automation",
-        type: "directory",
         href: "jobs-automation",
         children: [
           {
@@ -494,7 +492,6 @@ module.exports = [
       },
       {
         title: "Informational views",
-        type: "directory",
         href: "informational-views",
         children: [
           {
