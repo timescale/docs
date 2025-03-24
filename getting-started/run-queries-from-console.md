@@ -106,7 +106,7 @@ If your $SERVICE_LONG runs inside a $VPC, do one of the following to enable acce
 
 #### What happens if another member of my $COMPANY project uses the $DATA_MODE?
 
-The number of $DATA_MODE seats you are allocated depends on your [pricing plan][pricing-plan-features].
+The number of $DATA_MODE seats you are allocated depends on your [$PRICING_PLAN][pricing-plan-features].
 
 #### Will using the $DATA_MODE affect the performance of my $SERVICE_LONG?
 
@@ -213,7 +213,7 @@ To use $SQL_EDITOR:
 ## Cloud $SQL_EDITOR licenses
 
 * **$SQL_EDITOR in the $OPS_MODE**: free for anyone with a [$CLOUD_LONG account][create-cloud-account].
-* **Data mode**: the number of seats you are allocated depends on your [pricing plan][pricing-plan-features].
+* **Data mode**: the number of seats you are allocated depends on your [$PRICING_PLAN][pricing-plan-features].
   [$SQL_ASSISTANT_SHORT][sql-assistant] is currently free for all users. In the future, limits or paid options may be
   introduced as we work to build the best experience.
 * **$POPSQL standalone**: there is a free plan available to everyone, as well as paid plans. See  [$POPSQL Pricing][popsql-pricing] for full

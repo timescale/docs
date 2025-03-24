@@ -337,7 +337,7 @@ tier and generates the response.
 
 ![Tiered storage](https://assets.timescale.com/docs/images/tiered-storage.png )
 
-Data tiering is available in the [$SCALE and $ENTERPRISE][pricing-plans] pricing plans for $CLOUD_LONG. 
+Data tiering is available in the [$SCALE and $ENTERPRISE][pricing-plans] $PRICING_PLANs for $CLOUD_LONG. 
 
 To set up data tiering: 
 
@@ -394,7 +394,7 @@ data loss during failover.
 
 ![$SERVICE_LONG replicas](https://assets.timescale.com/docs/images/ha-read-replica.png )
 
-High availability is available in the [$SCALE and $ENTERPRISE][pricing-plans] pricing plans for $CLOUD_LONG. 
+High availability is available in the [$SCALE and $ENTERPRISE][pricing-plans] $PRICING_PLANs for $CLOUD_LONG. 
 
 <HASetup />
 
