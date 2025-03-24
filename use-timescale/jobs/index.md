@@ -3,7 +3,7 @@ title: Jobs in Timescale Cloud
 excerpt: Increase efficiency and reduce overhead by automating routine tasks. Set up custom jobs on top of Timescale Cloud policies. Learn how to create them in your service
 products: [cloud, mst, self_hosted]
 keywords: [jobs]
-tags: [scheduled jobs, background jobs, automation framework]
+tags: [jobs, scheduled jobs, background jobs, automation framework]
 ---
 
 # $JOB_CAPs
