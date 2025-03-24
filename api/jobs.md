@@ -11,7 +11,7 @@ api:
 
 # timescaledb_information.jobs
 
-Shows information about all jobs registered with the automation framework.
+Shows information about all $JOBs registered with the automation framework.
 
 ### Arguments
 
