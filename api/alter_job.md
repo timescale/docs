@@ -107,7 +107,7 @@ Also, more than 20 consecutive failures are not considered, so if the number of 
 Additionally, for $JOBs with fixed schedules, the system ensures that if the next start ( calculated as specified), surpasses the next scheduled execution, the $JOB is executed again at the next scheduled slot and not after that. This ensures that the $JOB does not miss scheduled executions.
 
 Finally, there is a distinction between runtime failures that do not cause the $JOB to crash and $JOB crashes.
-In the event of a $JOB crash, the next start calculation still follows the above formula,
+In the event of a $JOB crash, the next start calculation follows the same formula,
 but it is always at least 5 minutes after the $JOB's last finish, to give an operator enough time to disable it before another crash.
 
 </Highlight>
