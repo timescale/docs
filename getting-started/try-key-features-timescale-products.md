@@ -303,7 +303,7 @@ regularly. For example, last week's market data.
    ``` sql
    CALL add_columnstore_policy('crypto_ticks', after => INTERVAL '1d');
    ```
-   See [add_$COLUMNSTORE_policy][add_columnstore_policy].
+   See [add_columnstore_policy][add_columnstore_policy].
  
 1. **View your data space saving**
 
