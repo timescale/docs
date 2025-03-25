@@ -19,9 +19,35 @@
 
 This repository contains the current source for Timescale documentation available at https://docs.timescale.com/. 
 
-We welcome contributions! For how and where to contribute, see the [Contributing guide](CONTRIBUTING.md). 
+We welcome contributions! You can contribute to Timescale documentation in the following ways:
+
+- [Create an issue][docs-issues] in this repository and describe the proposed change. Our doc team will take care of it.
+- Update the docs yourself and have your change reviewed and published by our doc team.
+
+To make the contribution yourself:
+
+1. Get the documentation source:
+
+    - No write access? [Fork this repository][github-fork].
+    - Already have a write access? [Clone this repository][github-clone].
+
+2. Create a branch from `latest`, make your changes, and raise a pull request back to `latest`.
+
+3. Sign a Contributor License Agreement (CLA).
+
+   You have to sign the CLA only the first time you raise a PR. This helps to ensure that the community is free to use your contributions.
+
+4. Review your changes.
+
+   The documentation site is generated in a separate private repository using [Gatsby][gatsby]. Once you raise a PR for any branch, GitHub will **automatically** generate a preview for your changes and attach the link in the comments. Any new commits will be visible at the same URL. If you don't see the latest changes, try an incognito browser window. Automated builds are not available for PRs from forked repositories.
+
+See the [Contributing guide](CONTRIBUTING.md) for style and language guidance. 
 
 ## Learn about Timescale
 
 Timescale is PostgreSQL made powerful. To learn more about the company and its products, visit [timescale.com](https://www.timescale.com).
 
+[docs-issues]: https://github.com/timescale/docs/issues
+[github-fork]: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo
+[github-clone]: https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository
+[gatsby]: https://www.gatsbyjs.com/
