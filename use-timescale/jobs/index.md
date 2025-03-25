@@ -21,7 +21,7 @@ your $SERVICE_LONG. They help you automate periodic tasks that aren't covered by
 In this section you:
 
 *   [Create and manage $JOBs][create-jobs] 
-*   Get over the following $JOB examples:
+*   See $JOBs in action with the following examples:
     *   Set up a [generic data retention][generic-retention] policy that applies across all $HYPERTABLEs
     *   Implement [automatic moving of $CHUNKs between tablespaces][manage-storage]
     *   Automatically [downsample and compress][downsample-compress] older $CHUNKs
