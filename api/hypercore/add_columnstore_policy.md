@@ -118,5 +118,5 @@ Calls to `add_columnstore_policy` require either `after` or `created_before`, bu
 [informational-views]: /api/:currentVersion:/informational-views/jobs/
 [chunk_time_interval]: /api/:currentVersion:/hypertable/set_chunk_time_interval/
 [next-start]: /api/:currentVersion:/informational-views/jobs/#arguments
-[job]: /api/:currentVersion:/actions/add_job/
+[job]: /api/:currentVersion:/jobs-automation/add_job/
 [remove_columnstore_policy]: /api/:currentVersion:/hypercore/remove_columnstore_policy/
