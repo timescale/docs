@@ -47,7 +47,7 @@ Returns true if successful.
 
 Remove all policies from a continuous aggregate named
 `example_continuous_aggregate`. This includes refresh policies, compression
-policies, and data retention policies. It doesn't include user-defined jobs:
+policies, and data retention policies. It doesn't include custom $JOBs:
 
 ```sql
 SELECT timescaledb_experimental.remove_all_policies('example_continuous_aggregate');

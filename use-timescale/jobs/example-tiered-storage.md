@@ -1,29 +1,28 @@
 ---
-title: Use a user-defined action to implement automatic tablespace management
-excerpt: Save on storage costs for old data. Timescale Cloud enables you to automatically move hypertable chunks between tablespaces with move_chunk.
+title: Use a job to implement automatic tablespace management
+excerpt: Save on storage costs for old data. Timescale Cloud enables you to automatically move hypertable chunks between tablespaces with move_chunk
 products: [cloud, mst, self_hosted]
-keywords: [actions, tablespaces]
+keywords: [jobs, tablespaces]
 ---
 
-# Use a user-defined action to implement automatic tablespace management
+# Use a $JOB to implement automatic tablespace management
 
-[Moving older data to a different tablespace][moving-data] can help you save on
+Moving older data to a different tablespace can help you save on
 storage costs. Timescale supports automatic tablespace management by providing
 the `move_chunk` function to move chunks between tablespaces. To schedule the
-moves automatically, you can write a user-defined action.
+moves automatically, you can write a custom $JOB.
 
 <Highlight type="note">
-On the Timescale cloud platform, use the [Tiered Storage](https://docs.timescale.com/use-timescale/latest/data-tiering/)
-offering which handles this by providing a [tiering policy API](https://docs.timescale.com/use-timescale/latest/data-tiering/enabling-data-tiering/#add-a-tiering-policy)
-to move data to low-cost object storage backed by Amazon S3.
+
+On $CLOUD_LONG, use [tiered storage](https://docs.timescale.com/use-timescale/latest/data-tiering/) which handles this by providing a [tiering policy API](https://docs.timescale.com/use-timescale/latest/data-tiering/enabling-data-tiering/#add-a-tiering-policy) to move data to low-cost object storage backed by Amazon S3.
 
 </Highlight>
 
+To implement automatic $CHUNK moving with a $JOB:
+
 <Procedure>
 
-## Using a user-defined action to implement automatic chunk moving
-
-1.  Create a procedure that moves chunks to a different tablespace if they
+1.  Create a procedure that moves $CHUNKs to a different tablespace if they
     contain data older than the `lag` parameter.
 
     ```sql
@@ -73,9 +72,9 @@ to move data to low-cost object storage backed by Amazon S3.
     $$;
     ```
 
-1.  Register the job to run daily. In the config, set `hypertable` to `metrics`
-    to implement automatic chunk moves on the `metrics` hypertable. Set `lag` to
-    12 months to move chunks containing data older than 12 months. Set
+1.  Register the $JOB to run daily. In the config, set `hypertable` to `metrics`
+    to implement automatic $CHUNK moves on the `metrics` $HYPERTABLE. Set `lag` to
+    12 months to move $CHUNKs containing data older than 12 months. Set
     `tablespace` to the destination tablespace.
 
     ```sql
@@ -88,5 +87,3 @@ to move data to low-cost object storage backed by Amazon S3.
 
 </Procedure>
 
-
-[moving-data]: /use-timescale/:currentVersion:/user-defined-actions/example-tiered-storage/

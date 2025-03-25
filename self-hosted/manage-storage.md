@@ -139,8 +139,8 @@ Alternatively, you can set up a third tablespace called `history_indexes`,
 and move the data to `history` and the indexes to `history_indexes`.
 
 In Timescale&nbsp;2.0 and later, you can use `move_chunk` with the job scheduler
-framework. For more information, see the [user-defined actions section][actions].
+framework. For more information, see the [$JOBs section][jobs].
 
-[actions]: /use-timescale/:currentVersion:/user-defined-actions/
+[jobs]: /use-timescale/:currentVersion:/jobs/
 [api-move-chunk]: /api/:currentVersion:/hypertable/move_chunk
 [api-reorder-chunk]: /api/:currentVersion:/hypertable/reorder_chunk

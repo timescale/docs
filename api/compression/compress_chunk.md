@@ -59,4 +59,4 @@ SELECT compress_chunk('_timescaledb_internal._hyper_1_2_chunk');
 ```
 
 [add_compression_policy]: /api/:currentVersion:/compression/add_compression_policy/
-[run-job]: /api/:currentVersion:/actions/run_job/
+[run-job]: /api/:currentVersion:/jobs-automation/run_job/
