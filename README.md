@@ -21,7 +21,7 @@ This repository contains the current source for Timescale documentation availabl
 
 We welcome contributions! You can contribute to Timescale documentation in the following ways:
 
-- [Create an issue][docs-issues] in this repository and describe the proposed change. Our doc team will take care of it.
+- [Create an issue][docs-issues] in this repository and describe the proposed change. Our doc team takes care of it.
 - Update the docs yourself and have your change reviewed and published by our doc team.
 
 To make the contribution yourself:
@@ -39,7 +39,7 @@ To make the contribution yourself:
 
 4. Review your changes.
 
-   The documentation site is generated in a separate private repository using [Gatsby][gatsby]. Once you raise a PR for any branch, GitHub will **automatically** generate a preview for your changes and attach the link in the comments. Any new commits will be visible at the same URL. If you don't see the latest changes, try an incognito browser window. Automated builds are not available for PRs from forked repositories.
+   The documentation site is generated in a separate private repository using [Gatsby][gatsby]. Once you raise a PR for any branch, GitHub **automatically** generates a preview for your changes and attach the link in the comments. Any new commits are visible at the same URL. If you don't see the latest changes, try an incognito browser window. Automated builds are not available for PRs from forked repositories.
 
 See the [Contributing guide](CONTRIBUTING.md) for style and language guidance. 
 

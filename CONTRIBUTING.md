@@ -34,14 +34,14 @@ Each major doc section has a dedicated directory with `.md` files inside, repres
 
 - **Troubleshooting pages** are not written as whole Markdown files, but are programmatically assembled from individual files in the`_troubleshooting` folder. Each entry describes a single troubleshooting case and its solution, and contains the following front matter:
     
-    |Key| Type  |Required| Description | 
-    |-|-------|-|--------------------------------------------------------------------------|
-    |`title`| string                                              |✅| The title of the troubleshooting entry, displayed as a heading above it                                                                                                              |
-    |`section`| The literal string `troubleshooting`                |✅| Must be `troubleshooting`, used to identify troubleshooting entries during site build                                                                                                |
-    |`products` or `topics`| array of strings                                    |✅ (can have either or both, but must have at least one)| The products or topics related to the entry. The entry will show up on the troubleshooting pages for the listed products and topics.                                                 |
+    |Key| Type  |Required| Description                                                                                                                                                                           | 
+    |-|-------|-|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    |`title`| string                                              |✅| The title of the troubleshooting entry, displayed as a heading above it                                                                                                               |
+    |`section`| The literal string `troubleshooting`                |✅| Must be `troubleshooting`, used to identify troubleshooting entries during site build                                                                                                 |
+    |`products` or `topics`| array of strings                                    |✅ (can have either or both, but must have at least one)| The products or topics related to the entry. The entry shows up on the troubleshooting pages for the listed products and topics.                                                      |
     |`errors`| object of form `{language: string, message: string}` |❌| The error, if any, related to the troubleshooting entry. Displayed as a code block right underneath the title. `language` is the programming language to use for syntax highlighting. |
-    |`keywords`| array of strings                                    |❌| These are displayed at the bottom of every troubleshooting page. Each keyword links to a collection of all pages associated with that keyword.                                       |
-    |`tags`| array of strings                                    |❌| Concepts, actions, or things associated with the troubleshooting entry. These are not displayed in the UI, but they affect the calculation of related pages.                         |
+    |`keywords`| array of strings                                    |❌| These are displayed at the bottom of every troubleshooting page. Each keyword links to a collection of all pages associated with that keyword.                                        |
+    |`tags`| array of strings                                    |❌| Concepts, actions, or things associated with the troubleshooting entry. These are not displayed in the UI, but they affect the calculation of related pages.                          |
     
     Beneath the front matter, describe the error and its solution in regular Markdown. You can also use any other components allowed within the docs site.
     
@@ -131,7 +131,7 @@ See [Formatting examples][formatting] for details.
 
 When adding screenshots to the docs, aim for a full-screen view to provide better context. Reduce the size of your browser so there is as little wasted space as possible.
 
-Attach the image to your issue or PR, and the doc team will upload and insert it for you.
+Attach the image to your issue or PR, and the doc team uploads and inserts it for you.
 
 ## SEO optimization 
 
