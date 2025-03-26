@@ -23,6 +23,14 @@
 
       ![SQL editor](https://assets.timescale.com/docs/images/ops-view-sql-editor.png)
 
+   1. Run a test query:
+
+      ```sql
+      SELECT CURRENT_DATE;
+      ```
+
+      If this query gives you the current date, then you have successfully connected to your $SERVICE_SHORT.
+   
    </Procedure>
 
    </Tab>
@@ -39,10 +47,18 @@
       psql "<your-service-url>"
       ```
 
+   1. Run a test query:
+
+      ```sql
+      SELECT CURRENT_DATE;
+      ```
+
+      If this query gives you the current date, then you have successfully connected to your $SERVICE_SHORT.
+
    </Procedure>
 
    </Tab>
-   
+
    </Tabs>
 
 </Procedure>
