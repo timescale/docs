@@ -24,7 +24,7 @@ We welcome contributions! You can contribute to Timescale documentation in the f
 - [Create an issue][docs-issues] in this repository and describe the proposed change. Our doc team takes care of it.
 - Update the docs yourself and have your change reviewed and published by our doc team.
 
-## Contribute to docs
+## Contribute to the Timescale docs
 
 To make the contribution yourself:
 
