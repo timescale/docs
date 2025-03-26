@@ -28,9 +28,9 @@ You enable $IO_BOOST from $CONSOLE.
 
 1. Open `Operations` > `Compute and storage`, then choose the right value from the `I/O Boost` dropdown. IOPS over 16,000 are only available when the storage type is set to `Enhanced`. 
 
-1. Click `Apply`.
+   ![I/O boost in Timescale Cloud](https://assets.timescale.com/docs/images/io-boost-timescale-cloud.png)
 
-   ![Timescale I/O Boost](https://assets.timescale.com/docs/images/timescale-i-o-boost.png)
+1. Click `Apply`.
 
 </Procedure>
 
