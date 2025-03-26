@@ -53,7 +53,7 @@
       SELECT CURRENT_DATE;
       ```
 
-      If this query gives you the current date, then you have successfully connected to your $SERVICE_SHORT.
+      This query returns the current date. You have successfully connected to your $SERVICE_SHORT.
 
    </Procedure>
 
