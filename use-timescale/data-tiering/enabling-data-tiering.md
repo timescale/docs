@@ -36,19 +36,23 @@ To get enhanced storage:
 
     Enhanced storage type is only available under the $ENTERPRISE $PRICING_PLAN.
 
+    ![Enhanced storage in Timescale Cloud](https://assets.timescale.com/docs/images/enhanced-storage-timescale-cloud.png)
+
 1. **Select the IOPS value in the `I/O boost` dropdown**
    
     Select between 16,000, 24,000, 32,0000, and 64,000 IOPS. The value that you can apply depends on the number of CPUs in your $SERVICE_SHORT. $CONSOLE notifies you if your selected IOPS requires increasing the number of CPUs. To increase IOPS to 64,000, click `Contact us` and we will be in touch to confirm the details. 
+
+   ![I/O boost in Timescale Cloud](https://assets.timescale.com/docs/images/io-boost-timescale-cloud.png)
 
 1. **Click `Apply`**
 
 </Procedure>
 
-Change the enhanced storage type to standard in the same way. 
+Change the enhanced storage type to standard in the same way. You can make changes to the storage type and $IO_BOOST settings once every 6 hours.  
 
 ## Enable tiered storage
 
-You enable tiered storage from the `Overview` tab in Console.
+You enable tiered storage from the `Overview` tab in $CONSOLE.
 
 <Procedure>
 

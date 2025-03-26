@@ -36,8 +36,8 @@ we do the work for you.
 
 <Highlight type="info">
 
-Tiered storage is only available for the $SERVICE_SHORTs with the [Time series and analytics][create-service]
-capability. 
+Tiered storage is only available for the $SERVICE_SHORTs with the [time series and analytics][create-service]
+capability enabled. 
 
 Tiered storage **DOES NOT** work on $SELF_LONG_LC or $MST_LONG.  
 

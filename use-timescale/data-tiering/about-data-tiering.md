@@ -9,6 +9,8 @@ cloud_ui:
         - [services, :serviceId, overview]
 ---
 
+import TieredStorageBilling from "versionContent/_partials/_tiered-storage-billing.mdx";
+
 # About storage tiers
 
 $COMPANY's tiered storage architecture includes a high-performance storage tier and a low-cost object storage tier. You use the high-performance tier for data that requires quick access, and the object tier for rarely used historical data. Tiering policies move older data asynchronously and periodically from high-performance to low-cost storage, sparing you the need to do it manually. Chunks from a single hypertable, including compressed chunks, can stretch across these two storage tiers. 
@@ -17,14 +19,12 @@ $COMPANY's tiered storage architecture includes a high-performance storage tier 
 
 High-performance storage is where your data is stored by default, until you [enable tiered storage][manage-tiering] and start [moving data to the low-cost tier][move-data]. In the high-performance storage, your data is stored in the block format and optimized for frequent querying. The [$HYPERCORE row-columnar storage engine][hypercore] available in this tier is designed specifically for real-time analytics and can compress your data by up to 90%. Coupled with other optimizations, $CLOUD_LONG high-performance storage makes sure your data is always accessible and your queries run at lightning speed. 
 
-High-performance storage comes in two types - standard and enhanced. 
+$CLOUD_LONG high-performance storage comes in two types—standard and enhanced. 
 
 - **Standard** (default): provides up to 16TB of storage and 16,000 IOPS. Based on [AWS EBS gp3][aws-gp3].
 - **Enhanced**: provides up to 64TB of storage and 64,000 IOPS. Based on [EBS io2][ebs-io2].
 
-[See the differences][aws-storage-types] in the underlying AWS storage.
-
-You [enable enhanced storage][enable-enhanced] as needed in $CONSOLE. 
+[See the differences][aws-storage-types] in the underlying AWS storage. You [enable enhanced storage][enable-enhanced] as needed in $CONSOLE. 
 
 ## Low-cost storage
 
@@ -82,7 +82,7 @@ The object storage tier is more than an archiving solution. It is also:
 
 By default, tiered data is not included when querying from a $CLOUD_LONG. However, you can access tiered data by [enabling tiered reads][querying-tiered-data] for a query, a session, or even for all sessions. After you enable tiered reads, when you run regular SQL queries, a behind-the-scenes process transparently pulls data from wherever it's located: the standard high-performance storage tier, the object storage tier, or both.  You can `JOIN` against tiered data, build views, and even define continuous aggregates on it. In fact, because the implementation of continuous aggregates also uses hypertables, they can be tiered to low-cost storage as well.
 
-$COMPANY charges only for the storage that your data occupies in S3, regardless of whether it was compressed in $CLOUD_LONG before tiering. There are no additional expenses, such as data transfer or compute.
+<TieredStorageBilling />
 
 The low-cost storage tier comes with the following limitations:
 
