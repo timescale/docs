@@ -264,7 +264,7 @@ You can access a hosted version of TimescaleDB Community Edition through
     <td>✅</td>
   </tr>
   <tr>
-    <td><strong>Actions and automation</strong></td>
+    <td><strong>Jobs and automation</strong></td>
   </tr>
   <tr>
     <td><a href="https://docs.timescale.com/api/latest/actions/add_job/">add_job</a></td>
