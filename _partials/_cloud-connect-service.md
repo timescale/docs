@@ -63,7 +63,7 @@
 
 </Procedure>
 
- You can also use the powerful [data mode][popsql] to connect and run queries on your service. 
+And that is it, you are up and running. Enjoy developing with $COMPANY. You can also use the powerful [data mode][popsql] to connect and run queries on your service. 
 
 Quick recap. You:
 - Manage your $SERVICE_SHORTs in the [$OPS_MODE][portal-ops-mode] in $CONSOLE: add $READ_REPLICAs and enable 
