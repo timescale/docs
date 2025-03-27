@@ -29,9 +29,11 @@
       SELECT CURRENT_DATE;
       ```
 
-      If this query gives you the current date, then you have successfully connected to your $SERVICE_SHORT.
+      This query gives you the current date, you have successfully connected to your $SERVICE_SHORT.
    
    </Procedure>
+
+   And that is it, you are up and running. Enjoy developing with $COMPANY.
 
    </Tab>
    
@@ -53,17 +55,20 @@
       SELECT CURRENT_DATE;
       ```
 
-      This query returns the current date. You have successfully connected to your $SERVICE_SHORT.
+   This query returns the current date. You have successfully connected to your $SERVICE_SHORT.
 
    </Procedure>
+
+   And that is it, you are up and running. Enjoy developing with $COMPANY.
 
    </Tab>
 
    </Tabs>
 
 </Procedure>
+ 
 
-And that is it, you are up and running. Enjoy developing with $COMPANY. You can also use the powerful [data mode][popsql] to connect and run queries on your service. 
+You can also use the powerful [data mode][popsql] to connect and run queries on your service. 
 
 Quick recap. You:
 - Manage your $SERVICE_SHORTs in the [$OPS_MODE][portal-ops-mode] in $CONSOLE: add $READ_REPLICAs and enable 
