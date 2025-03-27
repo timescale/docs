@@ -3,6 +3,8 @@ title: Distributed hypertables
 excerpt: Sunsetted v2.14.x. Distributed hypertables help you horizontally scale your data storage in multi-node clusters
 products: [self_hosted]
 keywords: [distributed hypertables, multi-node]
+seo:
+  robots: noindex
 ---
 
 import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";

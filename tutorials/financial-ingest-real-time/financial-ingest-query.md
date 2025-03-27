@@ -38,7 +38,7 @@ the last two hours' worth of data.
             MIN(price) AS low,
             LAST(price, time) AS "close",
             LAST(day_volume, time) AS day_volume
-        FROM stocks_real_time
+        FROM crypto_ticks
         GROUP BY bucket, symbol;
     ```
 

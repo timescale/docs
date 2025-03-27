@@ -1,46 +1,9 @@
 You manage your $SERVICE_LONGs and interact with your data in $CONSOLE using the following modes:
 
-<table class="tg"><thead>
-  <tr>
-    <th align="center">Ops mode</th>
-    <th align="center">Data mode</th>
-  </tr></thead>
-<tbody>
-  <tr>
-    <td >
-    <img class="main-content__illustration"
-    src="https://assets.timescale.com/docs/images/ops-mode-overview.png"
-    alt="Timescale Console ops mode"/>
-</td>
-    <td >
-    <img class="main-content__illustration"
-    src="https://assets.timescale.com/docs/images/data-mode-overview.png"
-    alt="Timescale Console data mode"/>
-</td>
+| **$OPS_MODE_CAP** | **$DATA_MODE_CAP**  |
+|-------------------|---------------------|
+| ![$CONSOLE $OPS_MODE][ops-mode] | ![$CONSOLE $DATA_MODE][data-mode] |
+| **You use the $OPS_MODE to:**  <ul> <li>Ensure data security with high availability and $READ_REPLICAs</li> <li>Save money using compressed and tiered storage</li> <li>Enable PostgreSQL extensions to add extra functionality</li> <li>Increase security using $VPCs</li> <li>Perform day-to-day administration</li> </ul> | **Powered by $POPSQL, you use the $DATA_MODE to:**  <ul> <li>Write queries with autocomplete</li> <li>Visualize data with charts and dashboards</li> <li>Schedule queries and dashboards for alerts or recurring reports</li> <li>Share queries and dashboards</li> </ul> |
 
-  </tr>
-  <tr>
-    <td >
-You use the ops mode to:
-<ul>
-<li>Ensure data security with high availability and read replicas</li>
-<li>Save money using compressed and tiered storage</li>
-<li>Enable PostgreSQL extensions to add extra functionality</li>
-<li>Increase security using VPCs </li>
-<li>Perform day-to-day administration</li> 
-</ul>
-</td>
-    <td >
-Powered by PopSQL, you use the data mode to:
-<ul>
-<li>Write queries with autocomplete</li> 
-<li>Visualize data with charts and dashboards</li> 
-<li>Schedule queries and dashboards for alerts or recurring reports</li> 
-<li>Share queries and dashboards</li>
-</ul>
-</td>
-  </tr>
-</tbody>
-</table>
-
-[how-plans-work]: /about/:currentVersion:/pricing-and-account-management/#how-plans-work
+[ops-mode]: https://assets.timescale.com/docs/images/ops-mode-overview.png
+[data-mode]: https://assets.timescale.com/docs/images/data-mode-overview.png
