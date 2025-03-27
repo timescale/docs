@@ -423,9 +423,9 @@ Now that you have integrated the ruby gem into your app:
 [add-policies]: #manage-chunks-and-compression
 [manage-chunks]: #manage-chunks-and-compression
 [install]: /getting-started/latest/
-[psql-install]: /use-timescale/:currentVersion:/integrations/psql/
+[psql-install]: /integrations/:currentVersion:/psql/
 [rails-guide]: https://guides.rubyonrails.org/install_ruby_on_rails.html#installing-rails
-[connection-info]: /use-timescale/:currentVersion:/integrations/find-connection-details/
+[connection-info]: /integrations/:currentVersion:/find-connection-details/
 [about-hypertables]: /use-timescale/:currentVersion:/hypertables/about-hypertables/
 [rails-compostite-primary-keys]: https://guides.rubyonrails.org/active_record_composite_primary_keys.html
 [ruby-blog-post]: https://www.timescale.com/blog/building-a-better-ruby-orm-for-time-series-and-analytics

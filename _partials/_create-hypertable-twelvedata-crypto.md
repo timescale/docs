@@ -61,4 +61,4 @@ PostgreSQL table named `crypto_assets`.
 
 [in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
 [services-portal]: https://console.cloud.timescale.com/dashboard/services
-[connect-using-psql]: /use-timescale/:currentVersion:/integrations/psql
+[connect-using-psql]: /integrations/:currentVersion:/psql

@@ -63,4 +63,4 @@ information, and plotting the results in Grafana.
 [cloud-install]: /getting-started/:currentVersion:/#create-your-timescale-account
 [beginner-fleet]: /tutorials/:currentVersion:/nyc-taxi-cab/
 [plot-nyc]: /tutorials/:currentVersion:/nyc-taxi-geospatial/plot-nyc/
-[grafana-setup]: /use-timescale/:currentVersion:/integrations/grafana/
+[grafana-setup]: /integrations/:currentVersion:/grafana/
