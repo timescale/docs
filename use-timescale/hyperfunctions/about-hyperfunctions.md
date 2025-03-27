@@ -11,25 +11,18 @@ import ExperimentalUpgrade from "versionContent/_partials/_experimental-schema-u
 
 # About Timescale hyperfunctions
 
-Timescale hyperfunctions are a specialized set of functions that allow you to
-analyze time-series data. You can use hyperfunctions to analyze anything you
-have stored as time-series data, including IoT devices, IT systems, marketing
-analytics, user behavior, financial metrics, and cryptocurrency.
+Timescale hyperfunctions are a specialized set of functions that power real-time analytics on time series and events. 
+IoT devices, IT systems, marketing analytics, user behavior, financial metrics, cryptocurrency - these are only a few examples of domains where 
+hyperfunctions can make a huge difference. Hyperfunctions provide you with meaningful, actionable insights in real time.  
 
-Hyperfunctions allow you to perform critical time-series queries quickly,
-analyze time-series data, and extract meaningful information. They aim to
-identify, build, and combine all of the functionality SQL needs to perform
-time-series analysis into a single extension.
+$CLOUD_LONG includes all hyperfunctions by default, while self-hosted $TIMESCALE_DB includes a subset of them. For
+additional hyperfunctions, install the [Timescale Toolkit][install-toolkit] PostgreSQL extension.
 
-Some hyperfunctions are included in the default TimescaleDB product. For
-additional hyperfunctions, you need to install the
-[Timescale Toolkit][install-toolkit] PostgreSQL extension.
-
-## Hyperfunctions available with TimescaleDB and Timescale Toolkit
+## Available hyperfunctions
 
 Here is a list of all the hyperfunctions provided by Timescale. Hyperfunctions
-marked 'Toolkit' require an installation of Timescale Toolkit. Hyperfunctions
-marked 'experimental' are still under development.
+with a tick in the `Toolkit` column require an installation of Timescale Toolkit for self-hosted deployments. Hyperfunctions
+with a tick in the `Experimental` column are still under development.
 
 <Experimental />
 

@@ -26,7 +26,7 @@ This page shows you how to use a Python connector in a DAG to integrate Apache A
 
    Ensure that your Airflow instance has network access to $CLOUD_LONG.
 
-This example DAG uses the `company` table you create in  [Create regular PostgreSQL tables for relational data][create-a-table-in-timescale]
+This example DAG uses the `company` table you create in [Optimize time-series data in hypertables][create-a-table-in-timescale]
 
 ## Install python connectivity libraries
 
@@ -98,10 +98,10 @@ To exchange data between Airflow and your $SERVICE_LONG:
              This could be any query. This example inserts data into the table
              you create in:
       
-             https://docs.timescale.com/getting-started/latest/tables-hypertables/#create-regular-postgresql-tables-for-relational-data
+             https://docs.timescale.com/getting-started/latest/try-key-features-timescale-products/#optimize-time-series-data-in-hypertables
             """            
-           cursor.execute("INSERT INTO company (symbol, name) VALUES (%s, %s)",
-                   ('new_company_symbol', 'New Company Name'))
+           cursor.execute("INSERT INTO crypto_assets (symbol, name) VALUES (%s, %s)",
+            ('NEW/Asset','New Asset Name'))
            conn.commit()
            cursor.close()
            conn.close()
@@ -138,7 +138,7 @@ To exchange data between Airflow and your $SERVICE_LONG:
 You have successfully integrated Apache Airflow with $CLOUD_LONG and created a data pipeline.
 
 
-[create-a-table-in-timescale]: /getting-started/:currentVersion:/tables-hypertables/#create-regular-postgresql-tables-for-relational-data
+[create-a-table-in-timescale]: /getting-started/:currentVersion:/try-key-features-timescale-products/#optimize-time-series-data-in-hypertables
 [install-apache-airflow]: https://airflow.apache.org/docs/apache-airflow/stable/start.html
 [install-python-pip]: https://docs.python.org/3/using/index.html
 [console]: https://console.cloud.timescale.com/

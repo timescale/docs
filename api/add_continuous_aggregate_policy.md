@@ -40,7 +40,7 @@ While setting `end_offset` to `NULL` is possible, it is not recommended. By
 default, querying a continuous aggregate returns data between `end_offset` and
 the current time. There is no need to set `end_offset` to `NULL`. To learn more
 about how continuous aggregates use real-time aggregation, see the
-[real-time aggregation section](/use-timescale/latest/continuous-aggregates/real-time-aggregates/).
+[real-time aggregation section](/use-timescale/:currentVersion:/continuous-aggregates/real-time-aggregates/).
 </Highlight>
 
 ### Optional arguments
@@ -50,7 +50,14 @@ about how continuous aggregates use real-time aggregation, see the
 |`if_not_exists`|BOOLEAN|Set to `true` to issue a notice instead of an error if the job already exists. Defaults to false.|
 |`timezone`|TEXT|A valid time zone. If you specify `initial_start`, subsequent executions of the refresh policy are aligned on `initial_start`. However, daylight savings time (DST) changes may shift this alignment. If this is an issue you want to mitigate, set `timezone` to a valid time zone. Default is `NULL`, [UTC bucketing](https://docs.timescale.com/use-timescale/latest/time-buckets/about-time-buckets/) is performed.|
 | `include_tiered_data` | BOOLEAN | Enable/disable reading tiered data. This setting helps override the current settings for the`timescaledb.enable_tiered_reads` GUC. The default is NULL i.e we use the current setting for `timescaledb.enable_tiered_reads` GUC  | |
+| `buckets_per_batch` | INTEGER | Number of buckets to be refreshed by a _batch_. This value is multiplied by the CAgg bucket width to determine the size of the batch range. Default value is `0`, single batch execution. Values of less than `0` are not allowed. | |
+| `max_batches_per_execution` | INTEGER | Limit the maximum number of batches to run when a policy executes. If some batches remain, they are processed the next time the policy runs. Default value is `10`, each job processes a maximum of 10 batches. Set to `0` for the number of batches to be unlimited. Values of less than `0` are not allowed. | |
 
+<Highlight type="important">
+
+Setting `buckets_per_batch` greater than zero means that the refresh window is split in batches of `bucket width` * `buckets per batch`. For example, a given Continuous Aggregate with `bucket width` of `1 day` and `buckets_per_batch` of 10 has a batch size of `10 days` to process the refresh.
+Because each `batch` is an individual transaction, executing a policy in batches make the data visible for the users before the entire job is executed. Batches are processed from the most recent data to the oldest.
+</Highlight>
 
 ### Returns
 

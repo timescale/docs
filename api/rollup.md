@@ -67,7 +67,7 @@ WITH ohlc AS (
     SELECT time_bucket('1 minute'::interval, ts) AS minute_bucket,
       symbol,
       toolkit_experimental.ohlc(ts, price)
-    FROM stocks_real_time
+    FROM crypto_ticks
     GROUP BY minute_bucket, symbol
 )
 SELECT time_bucket('1 day'::interval , bucket) AS daily_bucket

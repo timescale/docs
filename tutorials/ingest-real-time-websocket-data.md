@@ -1,5 +1,5 @@
 ---
-title: Ingest real-time financial websocket data
+title: Ingest real-time financial data using WebSocket
 excerpt: Set up a data pipeline to get data from different financial APIs
 products: [cloud, mst, self_hosted]
 keywords: [finance, analytics, websockets, data pipeline]
@@ -8,7 +8,7 @@ keywords: [finance, analytics, websockets, data pipeline]
 import CreateHypertableStocks from "versionContent/_partials/_create-hypertable-twelvedata-stocks.mdx";
 import GraphOhlcv from "versionContent/_partials/_graphing-ohlcv-data.mdx";
 
-# Ingest real-time financial websocket data
+# Ingest real-time financial data using WebSocket
 
 This tutorial shows you how to ingest real-time time-series data into
 TimescaleDB using a websocket connection. The tutorial sets up a data pipeline

@@ -4,6 +4,8 @@ excerpt: Sunsetted v2.14.x. Configure authentication between access nodes and da
 products: [self_hosted]
 keywords: [multi-node, authenticate]
 tags: [admin]
+seo:
+  robots: noindex
 ---
 
 import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";

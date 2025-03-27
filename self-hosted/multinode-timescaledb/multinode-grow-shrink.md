@@ -4,6 +4,8 @@ excerpt: Sunsetted v2.14.x. Add and remove data nodes from your self-hosted mult
 products: [self_hosted]
 keywords: [multi-node, data nodes]
 tags: [add, remove]
+seo:
+  robots: noindex
 ---
 
 import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";
