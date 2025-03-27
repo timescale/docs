@@ -26,7 +26,7 @@ What next? See the [use case tutorials][tutorials], interact with the data in yo
 
 [tutorials]: /tutorials/:currentVersion:/
 [connect-with-code]: /quick-start/:currentVersion:/
-[integrations]: /use-timescale/:currentVersion:/integrations/
+[integrations]: /integrations/:currentVersion:/
 [use-the-api]: /api/:currentVersion:/
 [use-timescale]: /use-timescale/:currentVersion:/
 [services-create]: /getting-started/:currentVersion:/services#create-your-timescale-account
