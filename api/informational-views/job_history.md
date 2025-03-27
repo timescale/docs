@@ -8,13 +8,13 @@ api:
   type: view
 ---
 
-## timescaledb_information.job_history
+# timescaledb_information.job_history
 
-Shows information about the jobs run by the automation framework.
-This includes jobs set up for user-defined actions, and jobs run by policies
+Shows information about the $JOBs run by the automation framework.
+This includes custom $JOBs and $JOBs run by policies
 created to manage data retention, continuous aggregates, compression, and
 other automation policies. For more information about automation policies,
-see [User-Defined Actions][actions].
+see [$JOBs][jobs].
 
 ### Available columns
 
@@ -89,4 +89,4 @@ For example, the owner can change the retention interval like this:
 SELECT alter_job(id,config:=jsonb_set(config,'{drop_after}', '"2 weeks"')) FROM _timescaledb_config.bgw_job WHERE id = 3;
 ```
 
-[actions]: /api/:currentVersion:/actions/
+[jobs]: /api/:currentVersion:/jobs-automation/
