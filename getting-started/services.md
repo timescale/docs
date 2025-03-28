@@ -7,7 +7,7 @@ content_group: Getting started
 ---
 
 import Install from "versionContent/_partials/_cloud-installation.mdx";
-import Connect from "versionContent/_partials/_cloud-connect.mdx";
+import Connect from "versionContent/_partials/_cloud-connect-service.mdx";
 import ServiceOverview from "versionContent/_partials/_service-overview.mdx";
 import CloudIntro from "versionContent/_partials/_cloud-intro.mdx";
 import WhereNext from "versionContent/_partials/_where-to-next.mdx";
@@ -28,7 +28,7 @@ To start using $CLOUD_LONG for your data:
 
 ## Create a $SERVICE_LONG
 
-Now that you have an active $CLOUD_LONG account, you create and manage your $SERVICE_SHORTs in $CONSOLE. When you create a $SERVICE_SHORT, you give a structure for your future data, which you then add manually or migrate from other services. All relevant $CLOUD_LONG features under your $PRICING_PLAN are automatically available when you create a $SERVICE_SHORT. 
+Now that you have an active $CLOUD_LONG account, you create and manage your $SERVICE_SHORTs in $CONSOLE. When you create a $SERVICE_SHORT, you effectively create a blank $PG database with additional $CLOUD_LONG features available under your $PRICING_PLAN. You then add or migrate your data into this database. 
 
 <Procedure>
 
@@ -36,7 +36,7 @@ Now that you have an active $CLOUD_LONG account, you create and manage your $SER
 
    ![Create a $SERVICE_LONG](https://assets.timescale.com/docs/images/create-timescale-service.png)
 
-1. Follow the next steps in `Create a service` to configure the compute size, environment, availability, region, and $SERVICE_SHORT name. Then click `Create service`.
+1. Follow the next steps in `Create a service` to configure the region, compute size, environment, availability, connectivity, and $SERVICE_SHORT name. Then click `Create service`.
 
    Your $SERVICE_SHORT is constructed and ready to use in a few seconds. 
 
@@ -52,11 +52,9 @@ shows you how to connect.
 
 ## Connect to your $SERVICE_SHORT
 
-A $SERVICE_LONG comes with access control to its data. To be able to run queries and perform other operations, connect to the $SERVICE_SHORT with credentials generated during its creation.
+To run queries and perform other operations, connect to your $SERVICE_SHORT:
 
 <Connect />
-
-And that is it, you are up and running. Enjoy developing with $COMPANY.
 
 <WhereNext />
 
