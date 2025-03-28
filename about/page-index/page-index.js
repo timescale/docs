@@ -2,6 +2,7 @@ module.exports = [
   {
     title: "About Timescale products",
     href: "about",
+    defaultOpen: true,
     filePath: "index.md",
     pageComponents: ["featured-cards"],
     excerpt:
@@ -10,7 +11,8 @@ module.exports = [
       {
         title: "Timescale architecture for real-time analytics",
         href: "whitepaper",
-        excerpt: "A whitepaper detailing the architectural choices and optimizations for real-time analytics that power Timescale"
+        excerpt:
+          "A whitepaper detailing the architectural choices and optimizations for real-time analytics that power Timescale",
       },
       {
         title: "Changelog",
@@ -36,7 +38,7 @@ module.exports = [
         title: "Contribute to Timescale",
         href: "contribute-to-timescale",
         excerpt: "Contribute to the Timescale codebase",
-      }
+      },
     ],
   },
 ];
