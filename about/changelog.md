@@ -19,7 +19,7 @@ similarity search with label filtering. This is a common need for large scale RA
 that rely on vector searches with metadata filters to return relevant results. Filtered indexes add 
 even more capabilities for filtered search at scale, complementing the streaming filtering already 
 present in pgvectorscale. The implementation is inspired by Microsoft's Filtered DiskANN research.  
-For more information, see the [pgvectorscale release notes][log-28032025-pgvectorscale-rn] a 
+For more information, see the [pgvectorscale release notes][log-28032025-pgvectorscale-rn] and a 
 [usage example][log-28032025-pgvectorscale-example].
 
 ### Job errors and individual job pages
@@ -27,8 +27,8 @@ For more information, see the [pgvectorscale release notes][log-28032025-pgvecto
 Each Job now has an individual page in $CONSOLE that displays additional details about job errors. You use 
 this information to debug failing jobs. 
 
-In [$CONSOLE][console], select the $SERVICE_SHORT to check, click the **Jobs** tab, then click the **Job ID** to 
-investigate. You see the jobs information page.
+To see the job information page, in [$CONSOLE][console], select the $SERVICE_SHORT to check, click the **Jobs** tab, 
+then click the **Job ID** to investigate.
 
 IAIN: The next image shows the navigation in console better:
 
