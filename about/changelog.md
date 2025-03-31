@@ -8,6 +8,37 @@ keywords: [changelog, upgrades, updates, releases]
 
 All the latest features and updates to Timescale products.
 
+## 📒Faster vector search and improved job information
+<Label type="date">March 28, 2025</Label>
+
+### pgvectorscale 0.7.0: faster filtered vector search with filtered indexes
+
+This pgvectorscale release adds label-based filtered vector search to the StremingDiskANN index.
+Label-based filtering enables you to return more precise and efficient results by combining vector 
+similarity search with label filtering. This is a common need for large scale RAG and Agentic applications 
+that rely on vector searches with metadata filters to return relevant results. Filtered indexes add 
+even more capabilities for filtered search at scale, complementing the streaming filtering already 
+present in pgvectorscale. The implementation is inspired by Microsoft's Filtered DiskANN research.  
+For more information, see the [pgvectorscale release notes][log-28032025-pgvectorscale-rn] a 
+[usage example][log-28032025-pgvectorscale-example].
+
+### Job errors and individual job pages
+
+Each Job now has an individual page in $CONSOLE that displays additional details about job errors. You use 
+this information to debug failing jobs. 
+
+In [$CONSOLE][console], select the $SERVICE_SHORT to check, click the **Jobs** tab, then click the **Job ID** to 
+investigate. You see the jobs information page.
+
+IAIN: The next image shows the navigation in console better:
+
+![Log success in Timescale Console](https://assets.timescale.com/docs/images/changelog-job-success-page.png)
+
+IAIN: The next image shows error message. Best would be to have this with the 
+same layout as the one above. 
+
+![Log errors in Timescale Console](https://assets.timescale.com/docs/images/changelog-job-error-page.png)
+
 ## 🤩 In-Console Livesync for PostgreSQL
 <Label type="date">March 21, 2025</Label>
 
@@ -868,3 +899,5 @@ To learn more, see the [postgresql-unit documentation](https://github.com/df7cb/
 [popsql-web]: https://app.popsql.com/login
 [popsql-desktop]: https://popsql.com/download
 [console]: https://console.cloud.timescale.com/dashboard/services
+[log-28032025-pgvectorscale-rn]: https://github.com/timescale/pgvectorscale/releases/tag/0.7.0
+[log-28032025-pgvectorscale-example]: https://github.com/timescale/pgvectorscale?tab=readme-ov-file#label-based-filtering-with-diskann
