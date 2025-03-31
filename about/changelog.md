@@ -24,7 +24,7 @@ For more information, see the [pgvectorscale release notes][log-28032025-pgvecto
 
 ### Job errors and individual job pages
 
-Each Job now has an individual page in $CONSOLE that displays additional details about job errors. You use 
+Each Job now has an individual page in $CONSOLE, and displays additional details about job errors. You use 
 this information to debug failing jobs. 
 
 To see the job information page, in [$CONSOLE][console], select the $SERVICE_SHORT to check, click the **Jobs** tab, 
