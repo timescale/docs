@@ -16,21 +16,6 @@ A $SERVICE_LONG is a PostgreSQL database instance extended by $COMPANY with cust
 
 Some of the most in-demand integrations are listed below.
 
-## Iain playing with icons
-
-|                                                                                                                  |                                                                Name                                                                 | Description                                                               |
-|------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------:|---------------------------------------------------------------------------|
-| <img width="40px" src="https://assets.timescale.com/docs/images/integrations-icons/auth.js.png" alt="Auth.js" /> | [Auth.js][auth-js] | Implement authentication and authorization for web applications.          |
-| <img width="40px" src="https://assets.timescale.com/docs/images/integrations-icons/Looker.svg" alt="Looker" />   |  [Looker][looker] | Explore, analyze, and share business insights with a BI platform.       |
-|                                                                                                                  | [Okta][okta]                                                                                                      | Secure authentication and user identity management for applications.      |
-
-Or 
-
-|                                                                Name                                                                 | Description                      |
-|:-----------------------------------------------------------------------------------------------------------------------------------:|----------------------------------|
-| <img width="40px" src="https://assets.timescale.com/docs/images/integrations-icons/auth.js.png" alt="Auth.js" />  [Auth.js][auth-js] | Image should be next to the text |
-
-
 ## Authentication and security
 
 
