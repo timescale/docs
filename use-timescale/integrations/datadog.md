@@ -64,7 +64,11 @@ metrics about your $SERVICE_LONGs.
 
    ```sql
    create user datadog with password '<password>';
+   ```
+   ```sql
    grant pg_monitor to datadog;
+   ```
+   ```sql
    grant SELECT ON pg_stat_database to datadog;
    ```
 
