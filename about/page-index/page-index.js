@@ -2,6 +2,7 @@ module.exports = [
   {
     title: "About Timescale products",
     href: "about",
+    defaultOpen: true,
     filePath: "index.md",
     pageComponents: ["featured-cards"],
     excerpt:

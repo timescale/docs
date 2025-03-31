@@ -2,6 +2,7 @@ module.exports = [
   {
     title: "Get started",
     href: "getting-started",
+    defaultOpen: true,
     excerpt: "Get started with Timescale",
     children: [
       {

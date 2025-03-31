@@ -2,6 +2,7 @@ module.exports = [
   {
     title: "Use Timescale",
     href: "use-timescale",
+    defaultOpen: true,
     filePath: "index.md",
     pageComponents: ["content-list"],
     excerpt:

@@ -3,7 +3,6 @@ module.exports = [
     title: "Integrations",
     href: "integrations",
     filePath: "index.md",
-    pageComponents: ["content-list"],
     excerpt:
       "Integrate third-party solutions with Timescale Cloud",
     children: [
