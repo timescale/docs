@@ -21,8 +21,10 @@ is a critical security vulnerability that affects you, maintenance might need to
 occur outside of the scheduled maintenance window.
 
 <Highlight type="important">
+
 After a maintenance update, the DNS name remains the same, but the IP address
 it points to often changes.
+
 </Highlight>
 
 In most cases, the updates that occur during your maintenance windows do not
@@ -130,7 +132,7 @@ features, enhancements, and security fixes. It also ensures that you are using a
 version of PostgreSQL that's compatible with the newest version of Timescale,
 allowing you to take advantage of everything Timescale has to offer. 
 
-The following table shows you the compatible versions of $PS and $TIMESCALE_DB. 
+The following table shows you the compatible versions of $PG and $TIMESCALE_DB. 
 
 <SupportMatrix />
 
@@ -141,9 +143,11 @@ For more information about feature changes between versions, see the
 
 
 <Highlight type="warning">
+
 Your Timescale service is unavailable until the upgrade is complete. This
 can take up to 20 minutes. It is recommended to test on a fork first for a 
 better estimate.
+
 </Highlight>
 
 ### Recommended practices for upgrading

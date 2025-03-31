@@ -16,7 +16,7 @@ TimescaleDB is a PostgreSQL extension. Ensure that you upgrade to compatible ver
 
 <ConsiderCloud />
 
-<SupportMatrix />
+## Prerequisites
 
 <PlanUpgrade />
 
