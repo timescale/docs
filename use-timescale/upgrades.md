@@ -8,6 +8,8 @@ cloud_ui:
         - [services, :serviceId, operations, maintenance]
 ---
 
+import SupportMatrix from "versionContent/_partials/_migrate_self_postgres_timescaledb_compatibility.mdx";
+
 # Maintenance and upgrades
 
 On Timescale, minor software updates are handled automatically, and
@@ -19,8 +21,10 @@ is a critical security vulnerability that affects you, maintenance might need to
 occur outside of the scheduled maintenance window.
 
 <Highlight type="important">
+
 After a maintenance update, the DNS name remains the same, but the IP address
 it points to often changes.
+
 </Highlight>
 
 In most cases, the updates that occur during your maintenance windows do not
@@ -120,33 +124,30 @@ can plan accordingly. However, in some cases, we might not be able to do so.
 
 ## Upgrade to a new PostgreSQL version
 
-Timescale currently supports PostgreSQL&nbsp;14, 15, 16, and 17. You can see
-your PostgreSQL and Timescale versions from the Timescale service
+You can also manually upgrade to the newest supported PostgreSQL version from the service 
 overview page.
-
-<!-- TODO: Add screenshot
-<img class="main-content__illustration"
-    src="FIXME"
-    alt="The Timescale dashboard, showing the PostgreSQL and Timescale
-    versions"
-/>
--->
-
-You can also manually upgrade to the newest supported PostgreSQL version
-(PostgreSQL&nbsp;17) from the service overview page.
 
 Upgrading to a newer version of PostgreSQL allows you to take advantage of new
 features, enhancements, and security fixes. It also ensures that you are using a
 version of PostgreSQL that's compatible with the newest version of Timescale,
-allowing you to take advantage of everything Timescale has to offer. For more
-information about feature changes between versions, see the
+allowing you to take advantage of everything Timescale has to offer. 
+
+The following table shows you the compatible versions of $PG and $TIMESCALE_DB. 
+
+<SupportMatrix />
+
+For more information about feature changes between versions, see the
 [PostgreSQL release notes][postgres-relnotes] and
 [Timescale release notes][timescale-relnotes].
 
+
+
 <Highlight type="warning">
+
 Your Timescale service is unavailable until the upgrade is complete. This
 can take up to 20 minutes. It is recommended to test on a fork first for a 
 better estimate.
+
 </Highlight>
 
 ### Recommended practices for upgrading
@@ -165,13 +166,14 @@ For a smooth upgrade experience, make sure you:
     this fork to only pay for storage until you are comfortable deleting it.
 
 <Highlight type="important">
+
 Timescale services with replicas cannot be upgraded. To upgrade a service
 with a replica,  you must first delete the replica and then upgrade the service.
 </Highlight>
 
 <Procedure>
 
-### Upgrading to a new PostgreSQL version
+### Upgrade to a new PostgreSQL version
 
 1.  In the Timescale console, navigate to `Services` and click the service
     you want to upgrade.
@@ -186,6 +188,7 @@ with a replica,  you must first delete the replica and then upgrade the service.
 </Procedure>
 
 <Highlight type="cloud" header="Sign up for Timescale" button="Try for free">
+
 </Highlight>
 
 [cloud-login]: https://cloud.timescale.com
