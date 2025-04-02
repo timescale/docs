@@ -160,14 +160,14 @@ To connect your Kubernetes cluster to self-hosted $TIMESCALE_DB running in the c
    apiVersion: v1
    kind: PersistentVolumeClaim
    metadata:
-     name: my-pvc
+     name: timescale-pvc
    spec:
      accessModes:
        - ReadWriteOnce
      resources:
        requests:
          storage: 10Gi
-   EOF      
+   EOF
    ```
 
 1. **Deploy $TIMESCALE_DB as a StatefulSet**
@@ -175,63 +175,65 @@ To connect your Kubernetes cluster to self-hosted $TIMESCALE_DB running in the c
    By default, the [Timescale Docker image][timescale-docker-image] you are installing on Kubernetes uses the 
    default $PG database, user and password. To deploy $TIMESCALE_DB on Kubernetes, run the following command:
 
-   ```yaml
-   kubectl apply -f - <<EOF
-   apiVersion: apps/v1
-   kind: StatefulSet
-   metadata:
-     name: timescaledb
-   spec:
-     serviceName: timescaledb
-     replicas: 1
-     selector:
-       matchLabels:
-         app: timescaledb
-     template:
-       metadata:
-         labels:
-           app: timescaledb
-       spec:
-         containers:
-           - name: timescaledb
-             image: 'timescale/timescaledb:latest-pg17'
-             env:
-               - name: POSTGRES_USER
-                 value: postgres
-               - name: POSTGRES_PASSWORD
-                 value: postgres
-               - name: POSTGRES_DB
-                 value: postgres
-             ports:
-               - containerPort: 5432
-             volumeMounts:
-               - mountPath: /var/lib/postgresql/data
-                 name: timescale-storage
-         volumes:
-           - name: timescale-storage
-             persistentVolumeClaim:
-               claimName: timescale-pvc
-     EOF     
-     ```
+    ```yaml
+    kubectl apply -f - <<EOF
+    apiVersion: apps/v1
+    kind: StatefulSet
+    metadata:
+      name: timescaledb
+    spec:
+      serviceName: timescaledb
+      replicas: 1
+      selector:
+        matchLabels:
+          app: timescaledb
+      template:
+        metadata:
+          labels:
+            app: timescaledb
+        spec:
+          containers:
+            - name: timescaledb
+              image: 'timescale/timescaledb:latest-pg17'
+              env:
+                - name: POSTGRES_USER
+                  value: postgres
+                - name: POSTGRES_PASSWORD
+                  value: postgres
+                - name: POSTGRES_DB
+                  value: postgres
+                - name: PGDATA
+                  value: /var/lib/postgresql/data/pgdata
+              ports:
+                - containerPort: 5432
+              volumeMounts:
+                - mountPath: /var/lib/postgresql/data
+                  name: timescale-storage
+          volumes:
+            - name: timescale-storage
+              persistentVolumeClaim:
+                claimName: timescale-pvc
+    EOF
+    ```
 
 1. **Allow applications to connect by exposing $TIMESCALE_DB within Kubernetes**
 
-   ```yaml
-   kubectl apply -f - <<EOF
-   apiVersion: v1
-   kind: Service
-   metadata:
-       name: timescaledb
-   spec:
-       selector:
-         app: timescaledb
-       ports:
-         - protocol: TCP
-           port: 5432
-           targetPort: 5432
-       type: ClusterIP
-   EOF   
-   ```
+  ```yaml
+  kubectl apply -f - <<EOF
+  apiVersion: v1
+  kind: Service
+  metadata:
+    name: timescaledb
+  spec:
+    selector:
+      app: timescaledb
+    ports:
+      - protocol: TCP
+        port: 5432
+        targetPort: 5432
+    type: ClusterIP
+  EOF
+  ```
 
 1. **Create a Kubernetes secret to store the database credentials**
 
