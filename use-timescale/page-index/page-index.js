@@ -2,11 +2,150 @@ module.exports = [
   {
     title: "Use Timescale",
     href: "use-timescale",
+    defaultOpen: true,
     filePath: "index.md",
     pageComponents: ["content-list"],
     excerpt:
       "How to connect to Timescale, administer, and configure the database.",
     children: [
+      {
+        title: "Hypertables",
+        href: "hypertables",
+        children: [
+          {
+            title: "About hypertables",
+            href: "about-hypertables",
+            excerpt: "Learn about hypertables in Timescale",
+          },
+          {
+            title: "Create hypertables",
+            href: "create",
+            excerpt: "Create hypertables",
+          },
+          {
+            title: "Change hypertable chunk intervals",
+            href: "change-chunk-intervals",
+            excerpt: "Change and view chunk time intervals for a hypertable",
+          },
+          {
+            title: "Alter hypertables",
+            href: "alter",
+            excerpt: "Alter hypertables",
+          },
+          {
+            title: "Create unique indexes on hypertables",
+            href: "hypertables-and-unique-indexes",
+            excerpt: "Create hypertables with unique indexes",
+          },
+          {
+            title: "Improve query performance",
+            href: "improve-query-performance",
+            excerpt: "Skip chunks",
+          },
+          {
+            title: "Drop hypertables",
+            href: "drop",
+            excerpt: "Drop hypertables",
+          },
+          {
+            title: "Troubleshoot hypertables",
+            href: "troubleshooting",
+            type: "placeholder",
+            excerpt: "Troubleshooting and error fixes for hypertables",
+          },
+        ],
+      },
+      {
+        title: "Hypercore",
+        href: "hypercore",
+        excerpt:
+          "Seamlessly switch between row-oriented and column-oriented storage",
+        children: [
+          {
+            title: "Optimize your data for real-time analytics",
+            href: "real-time-analytics-in-hypercore",
+            excerpt: "Automate",
+          },
+          {
+            title: "Modify data in Hypercore",
+            href: "modify-data-in-hypercore",
+            excerpt: "Update data stored in the columnstore",
+          },
+          {
+            title: "Improve query and upsert performance",
+            href: "secondary-indexes",
+            excerpt: "Automate",
+          },
+        ],
+      },
+      {
+        title: "Continuous aggregates",
+        href: "continuous-aggregates",
+        children: [
+          {
+            title: "About continuous aggregates",
+            href: "about-continuous-aggregates",
+            excerpt: "About continuous aggregates",
+          },
+          {
+            title: "Create a continuous aggregate",
+            href: "create-a-continuous-aggregate",
+            excerpt: "Create continuous aggregates",
+          },
+          {
+            title: "Hierarchical continuous aggregates",
+            href: "hierarchical-continuous-aggregates",
+          },
+          {
+            title: "Refresh policies for continuous aggregates",
+            href: "refresh-policies",
+            excerpt: "Manage refresh policies for continuous aggregates",
+          },
+          {
+            title: "Create an index on a continuous aggregate",
+            href: "create-index",
+            excerpt:
+              "Manage automatic index creation and manually create additional indexes",
+          },
+          {
+            title: "Time in continuous aggregates",
+            href: "time",
+            excerpt: "Manage time in continuous aggregates",
+          },
+          {
+            title: "Drop data from continuous aggregates",
+            href: "drop-data",
+            excerpt: "Drop data from continuous aggregates",
+          },
+          {
+            title: "Manage materialized hypertables",
+            href: "materialized-hypertables",
+            excerpt: "Manage materialized hypertables in continuous aggregates",
+          },
+          {
+            title: "Real time aggregates",
+            href: "real-time-aggregates",
+            excerpt: "Manage real time aggregates in continuous aggregates",
+          },
+          {
+            title: "Compress continuous aggregates",
+            href: "compression-on-continuous-aggregates",
+            excerpt: "Compress continuous aggregates",
+          },
+          {
+            title: "Migrate a continuous aggregate to the new form",
+            href: "migrate",
+            excerpt:
+              "Migrate old continuous aggregates to the new form introduced in Timescale 2.7",
+          },
+          {
+            title: "Troubleshoot continuous aggregates",
+            href: "troubleshooting",
+            type: "placeholder",
+            excerpt: "Troubleshoot continuous aggregates",
+          },
+        ],
+      },
       {
         title: "Timescale Cloud regions",
         href: "regions",
@@ -30,8 +169,7 @@ module.exports = [
           {
             title: "Service management",
             href: "service-management",
-            excerpt:
-              "Timescale services operations, Service management tab",
+            excerpt: "Timescale services operations, Service management tab",
           },
           {
             title: "Manually change resources",
@@ -41,8 +179,7 @@ module.exports = [
           {
             title: "Connection pooling",
             href: "connection-pooling",
-            excerpt:
-              "Using a connection pool with your Timescale services",
+            excerpt: "Using a connection pool with your Timescale services",
           },
           {
             title: "I/O boost",
@@ -146,76 +283,6 @@ module.exports = [
         ],
       },
       {
-        title: "Hypertables",
-        href: "hypertables",
-        children: [
-          {
-            title: "About hypertables",
-            href: "about-hypertables",
-            excerpt: "Learn about hypertables in Timescale",
-          },
-          {
-            title: "Create hypertables",
-            href: "create",
-            excerpt: "Create hypertables",
-          },
-          {
-            title: "Change hypertable chunk intervals",
-            href: "change-chunk-intervals",
-            excerpt: "Change and view chunk time intervals for a hypertable",
-          },
-          {
-            title: "Alter hypertables",
-            href: "alter",
-            excerpt: "Alter hypertables",
-          },
-          {
-            title: "Create unique indexes on hypertables",
-            href: "hypertables-and-unique-indexes",
-            excerpt: "Create hypertables with unique indexes",
-          },
-          {
-            title: "Improve query performance",
-            href: "improve-query-performance",
-            excerpt: "Skip chunks",
-          },
-          {
-            title: "Drop hypertables",
-            href: "drop",
-            excerpt: "Drop hypertables",
-          },
-          {
-            title: "Troubleshoot hypertables",
-            href: "troubleshooting",
-            type: "placeholder",
-            excerpt: "Troubleshooting and error fixes for hypertables",
-          },
-        ],
-      },
-      {
-        title: "Hypercore",
-        href: "hypercore",
-        excerpt:
-          "Seamlessly switch between row-oriented and column-oriented storage",
-        children: [
-          {
-            title: "Optimize your data for real-time analytics",
-            href: "real-time-analytics-in-hypercore",
-            excerpt: "Automate",
-          },
-          {
-            title: "Modify data in Hypercore",
-            href: "modify-data-in-hypercore",
-            excerpt: "Update data stored in the columnstore",
-          },
-          {
-            title: "Improve query and upsert performance",
-            href: "secondary-indexes",
-            excerpt: "Automate",
-          },
-        ],
-      },
-      {
         title: "Schema management",
         href: "schema-management",
         children: [
@@ -302,7 +369,8 @@ module.exports = [
       {
         title: "Import and ingest data",
         href: "ingest-data",
-        excerpt: "Ingest data into a Timescale Cloud service from third-party sources",
+        excerpt:
+          "Ingest data into a Timescale Cloud service from third-party sources",
         children: [
           {
             title: "Import data from CSV",
@@ -325,80 +393,14 @@ module.exports = [
           {
             title: "Ingest data with Kafka",
             href: "ingest-kafka",
-            excerpt: "Import data into a Timescale Cloud service using the PostgreSQL Kafka connector",
+            excerpt:
+              "Import data into a Timescale Cloud service using the PostgreSQL Kafka connector",
           },
           {
             title: "Ingest metrics with Telegraf",
             href: "ingest-telegraf",
-            excerpt: "Ingest metrics into a Timescale Cloud service using the Telegraf plugin",
-          },
-        ],
-      },
-      {
-        title: "Continuous aggregates",
-        href: "continuous-aggregates",
-        children: [
-          {
-            title: "About continuous aggregates",
-            href: "about-continuous-aggregates",
-            excerpt: "About continuous aggregates",
-          },
-          {
-            title: "Create a continuous aggregate",
-            href: "create-a-continuous-aggregate",
-            excerpt: "Create continuous aggregates",
-          },
-          {
-            title: "Hierarchical continuous aggregates",
-            href: "hierarchical-continuous-aggregates",
-          },
-          {
-            title: "Refresh policies for continuous aggregates",
-            href: "refresh-policies",
-            excerpt: "Manage refresh policies for continuous aggregates",
-          },
-          {
-            title: "Create an index on a continuous aggregate",
-            href: "create-index",
             excerpt:
-              "Manage automatic index creation and manually create additional indexes",
-          },
-          {
-            title: "Time in continuous aggregates",
-            href: "time",
-            excerpt: "Manage time in continuous aggregates",
-          },
-          {
-            title: "Drop data from continuous aggregates",
-            href: "drop-data",
-            excerpt: "Drop data from continuous aggregates",
-          },
-          {
-            title: "Manage materialized hypertables",
-            href: "materialized-hypertables",
-            excerpt: "Manage materialized hypertables in continuous aggregates",
-          },
-          {
-            title: "Real time aggregates",
-            href: "real-time-aggregates",
-            excerpt: "Manage real time aggregates in continuous aggregates",
-          },
-          {
-            title: "Compress continuous aggregates",
-            href: "compression-on-continuous-aggregates",
-            excerpt: "Compress continuous aggregates",
-          },
-          {
-            title: "Migrate a continuous aggregate to the new form",
-            href: "migrate",
-            excerpt:
-              "Migrate old continuous aggregates to the new form introduced in Timescale 2.7",
-          },
-          {
-            title: "Troubleshoot continuous aggregates",
-            href: "troubleshooting",
-            type: "placeholder",
-            excerpt: "Troubleshoot continuous aggregates",
+              "Ingest metrics into a Timescale Cloud service using the Telegraf plugin",
           },
         ],
       },
@@ -443,7 +445,8 @@ module.exports = [
       {
         title: "Tiered storage",
         href: "data-tiering",
-        excerpt: "Save on storage costs by tiering older data to a low-cost bottomless object storage tier",
+        excerpt:
+          "Save on storage costs by tiering older data to a low-cost bottomless object storage tier",
         children: [
           {
             title: "About the object storage tier",
@@ -454,20 +457,17 @@ module.exports = [
           {
             title: "Manage tiering",
             href: "enabling-data-tiering",
-            excerpt:
-              "How to enable the object storage tier",
+            excerpt: "How to enable the object storage tier",
           },
           {
             title: "Querying tiered data",
             href: "querying-tiered-data",
-            excerpt:
-              "How to query tiered data",
+            excerpt: "How to query tiered data",
           },
           {
             title: "Replicas and forks with tiered data",
             href: "tiered-data-replicas-forks",
-            excerpt:
-              "How tiered data works on replicas and forks",
+            excerpt: "How tiered data works on replicas and forks",
           },
           {
             title: "Troubleshooting",
@@ -628,8 +628,7 @@ module.exports = [
           {
             title: "Export to Prometheus",
             href: "metrics-to-prometheus",
-            excerpt:
-              "Export telemetry data to Prometheus",
+            excerpt: "Export telemetry data to Prometheus",
           },
         ],
       },
@@ -675,7 +674,7 @@ module.exports = [
             href: "postgis",
             excerpt: "Using the postgis PostgreSQL extension",
           },
-        ]
+        ],
       },
       {
         title: "Backup, restore, and PITR",
@@ -689,9 +688,9 @@ module.exports = [
           {
             title: "Point-in-time recovery",
             href: "point-in-time-recovery",
-            excerpt: "PITR on Timescale services"
-          }
-        ]
+            excerpt: "PITR on Timescale services",
+          },
+        ],
       },
       {
         title: "Jobs",
@@ -733,7 +732,8 @@ module.exports = [
           {
             title: "Find your connection details",
             href: "find-connection-details",
-            excerpt: "Find connection information for your Timescale Cloud service",
+            excerpt:
+              "Find connection information for your Timescale Cloud service",
           },
           {
             title: "Amazon CloudWatch",
@@ -778,7 +778,8 @@ module.exports = [
           {
             title: "Corporate data center",
             href: "corporate-data-center",
-            excerpt: "Integrate your corporate data center with Timescale Cloud",
+            excerpt:
+              "Integrate your corporate data center with Timescale Cloud",
           },
           {
             title: "Datadog",
@@ -891,7 +892,8 @@ module.exports = [
           {
             title: "Client credentials",
             href: "client-credentials",
-            excerpt: "Client credentials to programmatically access your Timescale account",
+            excerpt:
+              "Client credentials to programmatically access your Timescale account",
           },
           {
             title: "Read only role",
@@ -907,12 +909,14 @@ module.exports = [
           {
             title: "Connect securely from any cloud",
             href: "transit-gateway",
-            excerpt: "Peer your Timescale Cloud service with AWS Transit Gateway",
+            excerpt:
+              "Peer your Timescale Cloud service with AWS Transit Gateway",
           },
           {
             title: "VPC peering and AWS PrivateLink",
             href: "vpc",
-            excerpt: "Secure your Timescale Service with VPC peering and AWS PrivateLink",
+            excerpt:
+              "Secure your Timescale Service with VPC peering and AWS PrivateLink",
           },
           {
             title: "IP allow list",
