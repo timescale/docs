@@ -29,12 +29,13 @@ To create a $JOB, create a [function][postgres-createfunction] or [procedure][po
     ```sql
     CREATE FUNCTION <function_name> (required arguments)
     RETURNS <return_datatype> AS $<variable_name>$
-        DECLARE
-            <declaration>;
-        BEGIN
-            <function_body>;
-            RETURN { <variable_name> | value }
-        END; LANGUAGE <language>;
+	DECLARE
+		<declaration>;
+	BEGIN
+		<function_body>;
+		RETURN { <variable_name> | value }
+	END;
+	$<variable_name>$ LANGUAGE <language>;
     ```
 
     For example, to create a function that returns the total row count of a table within a $SERVICE_SHORT:
