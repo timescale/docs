@@ -20,9 +20,7 @@ This section shows you how to:
 1.  [Run queries from $CONSOLE][run-queries-from-console]: securely interact with your data in the $CONSOLE UI. 
 1.  [Try the main features in $COMPANY products][test-drive]: rapidly implement the features in $CLOUD_LONG that enable you to ingest and query data faster while keeping the costs low.
 
-What next? See the [use case tutorials][tutorials], interact with the data in your $SERVICE_LONG using 
-[your favorite programming language][connect-with-code], integrate your $SERVICE_LONG with a range of 
-[third-party tools][integrations], plain old [Use Timescale][use-timescale], or dive into [the API][use-the-api].
+<WhereNext />
 
 [tutorials]: /tutorials/:currentVersion:/
 [connect-with-code]: /quick-start/:currentVersion:/

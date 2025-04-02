@@ -13,7 +13,8 @@ module.exports = [
       {
         title: "Try the key Timescale features",
         href: "try-key-features-timescale-products",
-        excerpt: "Improve database performance with Hypertables, time bucketing, continuous aggregates, compression, data tiering, and high availability",
+        excerpt:
+          "Improve database performance with Hypertables, time bucketing, continuous aggregates, compression, data tiering, and high availability",
       },
       {
         title: "Run your queries from Timescale Console",
