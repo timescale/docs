@@ -30,6 +30,7 @@ By default, querying continuous aggregates provides you with real-time data.
 Pre-aggregated data from the materialized view is combined with recent data that
 hasn't been aggregated yet. This gives you up-to-date results on every query.
 
+[compression]: /use-timescale/:currentVersion:/compression/about-compression
 [data-tiering]: /use-timescale/:currentVersion:/data-tiering/
 [hypercore]: /use-timescale/:currentVersion:/hypercore/
 [hierarchical-caggs]: /use-timescale/:currentVersion:/continuous-aggregates/hierarchical-continuous-aggregates/
