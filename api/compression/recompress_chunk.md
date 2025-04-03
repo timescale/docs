@@ -96,4 +96,4 @@ END
 $$;
 ```
 
-[run-job]: /api/:currentVersion:/actions/run_job/
+[run-job]: /api/:currentVersion:/jobs-automation/run_job/

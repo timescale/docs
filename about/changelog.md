@@ -8,6 +8,19 @@ keywords: [changelog, upgrades, updates, releases]
 
 All the latest features and updates to Timescale products.
 
+## 🤩 In-Console Livesync for PostgreSQL
+<Label type="date">March 21, 2025</Label>
+
+You can now set up an active data ingestion pipeline with Livesync for PostgreSQL in Timescale Console. This tool enables you to replicate your source database tables into Timescale's hypertables indefinitely. Yes, you heard that right—keep Livesync running for as long as you need, ensuring that your existing source PostgreSQL tables stay in sync with Timescale Cloud. Read more about setting up and using [Livesync for PostgreSQL](https://docs.timescale.com/migrate/latest/livesync/). 
+
+![Livesync in Timescale Console](https://assets.timescale.com/docs/images/timescale-cloud-livesync-tile.png)
+
+![Set up Timescale Livesync](https://assets.timescale.com/docs/images/set-up-timescale-cloud-livesync.png)
+
+![Select tables for Livesync](https://assets.timescale.com/docs/images/select-tables-for-timescale-cloud-livesync.png)
+
+![Timescale Livesync running](https://assets.timescale.com/docs/images/livesync-view-status.png)
+
 ## 💾 16K dimensions on pgvectorscale plus new pgai Vectorizer support
 <Label type="date">March 14, 2025</Label>
 
