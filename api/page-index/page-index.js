@@ -242,6 +242,7 @@ module.exports = [
       },
       {
         title: "Data retention",
+        type: "directory",
         href: "data-retention",
         children: [
           {

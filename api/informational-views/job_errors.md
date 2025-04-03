@@ -84,4 +84,4 @@ For example, the owner can change the retention interval like this:
 SELECT alter_job(id,config:=jsonb_set(config,'{drop_after}', '"2 weeks"')) FROM _timescaledb_config.bgw_job WHERE id = 2;
 ```
 
-[jobs]: /api/:currentVersion:/jobs/
+[jobs]: /api/:currentVersion:/jobs-automation/

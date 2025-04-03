@@ -18,7 +18,7 @@ In $CONSOLE you can use the following ways to run SQL queries against your $SERV
 - [$DATA_MODE_CAP][run-popsql]: a rich experience powered by $POPSQL. You can write queries with
   autocomplete, save them in folders, share them, create charts/dashboards, and much more.
 
-- [SQL assistant in the $DATA_MODE][sql-assistant]: write, fix, and organize SQL faster and more accurately.
+- [$SQL_ASSISTANT_SHORT in the $DATA_MODE][sql-assistant]: write, fix, and organize SQL faster and more accurately.
 
 - [$SQL_EDITOR in the $OPS_MODE][run-sqleditor]: a simple $SQL_EDITOR in the $OPS_MODE that lets you run ad-hoc ephemeral
   queries. This is useful for quick one-off tasks like creating an index on a small table or
@@ -37,7 +37,7 @@ Available features are:
 - **Real-time collaboration**: work with your team directly in the $DATA_MODE query editor with live presence and multiple
    cursors.
 - **[Schema browser](https://docs.popsql.com/docs/schema)**: understand the structure of your $SERVICE_SHORT and see usage data on tables and columns.
-- **[SQL assistant][sql-assistant]**: write, fix, and organize SQL faster and more accurately using AI.
+- **[$SQL_ASSISTANT_SHORT][sql-assistant]**: write, fix, and organize SQL faster and more accurately using AI.
 - **Autocomplete**: get suggestions as you type your queries.
 - **[Version history](https://docs.popsql.com/docs/version-history)**: access previous versions of a query from the built-in revision history, or connect to a
   git repo.
@@ -46,7 +46,7 @@ Available features are:
 - **[Query variables](https://docs.popsql.com/docs/query-variables)**: use Liquid to parameterize your queries or use `if` statements.
 - **Cross-platform**:  works from [$CONSOLE][portal-data-mode] or download the
   [desktop](https://popsql.com/download) app for macOS, Windows, and Linux.
-- **Easy connection**: to $CLOUD_LONG, PostgreSQL, Redshift, Snowflake, BigQuery, MySQL, SQL Server, [and more](https://popsql.com/connections).
+- **Easy connection**: to $CLOUD_LONG, $PG, Redshift, Snowflake, BigQuery, MySQL, SQL Server, [and more](https://popsql.com/connections).
 
 ### Connect to your $SERVICE_LONG in the $DATA_MODE
 
@@ -106,7 +106,7 @@ If your $SERVICE_LONG runs inside a $VPC, do one of the following to enable acce
 
 #### What happens if another member of my $COMPANY project uses the $DATA_MODE?
 
-The number of $DATA_MODE seats you are allocated depends on your [pricing plan][pricing-plan-features].
+The number of $DATA_MODE seats you are allocated depends on your [$PRICING_PLAN][pricing-plan-features].
 
 #### Will using the $DATA_MODE affect the performance of my $SERVICE_LONG?
 
@@ -126,9 +126,9 @@ If you'd like to prevent write operations such as insert or update, instead
 of using the `tsdbadmin` user, create a read-only user for your $SERVICE_SHORT and
 use that in the $DATA_MODE.
 
-## SQL assistant
+## $SQL_ASSISTANT_SHORT
 
-SQL assistant in [$CONSOLE][portal-data-mode] helps you write, fix, and organize SQL faster and more accurately.
+$SQL_ASSISTANT_SHORT in [$CONSOLE][portal-data-mode] helps you write, fix, and organize SQL faster and more accurately.
 
 <div class="relative w-fit mx-auto">
 
@@ -138,47 +138,47 @@ SQL assistant in [$CONSOLE][portal-data-mode] helps you write, fix, and organize
 
 ### Key capabilities
 
-SQL assistant offers a range of features to improve your SQL workflow, including:
+$SQL_ASSISTANT_SHORT offers a range of features to improve your SQL workflow, including:
 
-- **Real-time help**: SQL assistant provides in-context help for writing and understanding SQL. Use it to:
+- **Real-time help**: $SQL_ASSISTANT_SHORT provides in-context help for writing and understanding SQL. Use it to:
 
-  - **Understand functions**: need to know how functions like `LAG()` or `ROW_NUMBER()` work? SQL assistant explains it with examples.
-  - **Interpret complex queries**: SQL assistant breaks down dense queries, giving you a clear view of each part.
+  - **Understand functions**: need to know how functions like `LAG()` or `ROW_NUMBER()` work? $SQL_ASSISTANT_SHORT explains it with examples.
+  - **Interpret complex queries**: $SQL_ASSISTANT_SHORT breaks down dense queries, giving you a clear view of each part.
 
-- **Error resolution**: SQL assistant diagnoses errors as they happen, you can resolve issues without leaving your editor. Features include:
+- **Error resolution**: $SQL_ASSISTANT_SHORT diagnoses errors as they happen, you can resolve issues without leaving your editor. Features include:
 
-  - **Error debugging**: if your query fails, SQL assistant identifies the issue and suggests a fix.
-  - **Performance tuning**: for slow queries, SQL assistant provides optimization suggestions to improve performance immediately.
+  - **Error debugging**: if your query fails, $SQL_ASSISTANT_SHORT identifies the issue and suggests a fix.
+  - **Performance tuning**: for slow queries, $SQL_ASSISTANT_SHORT provides optimization suggestions to improve performance immediately.
 
 - **Query organization**: to keep your query library organized, and help your team understand the
-  purpose of each query, SQL assistant automatically adds titles and summaries to your queries.
+  purpose of each query, $SQL_ASSISTANT_SHORT automatically adds titles and summaries to your queries.
 
 ### Limitations to keep in mind
 
-For best results with SQL assistant:
+For best results with $SQL_ASSISTANT_SHORT:
 
-* **Schema awareness**: SQL assistant references schema data but may need extra context
+* **Schema awareness**: $SQL_ASSISTANT_SHORT references schema data but may need extra context
   in complex environments. Specify tables, columns, or joins as needed.
-* **Business logic**: SQL assistant does not inherently know specific business terms
+* **Business logic**: $SQL_ASSISTANT_SHORT does not inherently know specific business terms
   such as active user. Define these terms clearly to improve results.
 
 
 ### Security, privacy, and data usage
 
 Security and privacy is prioritized in $CONSOLE. In [$DATA_MODE][portal-data-mode], project members
-manage SQL assistant settings under [`User name` > `Settings` > `SQL Assistant`][sql-editor-settings].
+manage $SQL_ASSISTANT_SHORT settings under [`User name` > `Settings` > `SQL Assistant`][sql-editor-settings].
 
 ![SQL assistant settings](https://assets.timescale.com/docs/images/sql-editor-preferences.png)
 
-SQL assistant settings are:
+$SQL_ASSISTANT_SHORT settings are:
 * **Opt-in features**: all AI features are off by default. Only [members][project-members] of your $CLOUD_LONG project
   can enable them.
-* **Data protection**: your queries and data remain private and are not used for AI training. 
-  SQL assistant operates with strict security protocols.
+* **Data protection**: your queries and data remain private and are not used for AI training.
+  $SQL_ASSISTANT_SHORT operates with strict security protocols.
 * **Data usage**: to provide AI support, $COMPANY may share the query title, description and body, also the
-  database connection type such as PostgreSQL, and the schema.
-* **Sample data**: to give the LLM more context so you have better SQL suggestions, enable sample data sharing in the SQL assistant preferences.
-* **Telemetry**: to improve SQL assistant, $COMPANY collects telemetry and usage data, including prompts, responses, and query metadata.
+  database connection type such as $PG, and the schema.
+* **Sample data**: to give the LLM more context so you have better SQL suggestions, enable sample data sharing in the $SQL_ASSISTANT_SHORT preferences.
+* **Telemetry**: to improve $SQL_ASSISTANT_SHORT, $COMPANY collects telemetry and usage data, including prompts, responses, and query metadata.
 
 
 ## $OPS_MODE_CAP $SQL_EDITOR
@@ -213,8 +213,8 @@ To use $SQL_EDITOR:
 ## Cloud $SQL_EDITOR licenses
 
 * **$SQL_EDITOR in the $OPS_MODE**: free for anyone with a [$CLOUD_LONG account][create-cloud-account].
-* **Data mode**: the number of seats you are allocated depends on your [pricing plan][pricing-plan-features].
-  [SQL assistant][sql-assistant] is currently free for all users. In the future, limits or paid options may be
+* **Data mode**: the number of seats you are allocated depends on your [$PRICING_PLAN][pricing-plan-features].
+  [$SQL_ASSISTANT_SHORT][sql-assistant] is currently free for all users. In the future, limits or paid options may be
   introduced as we work to build the best experience.
 * **$POPSQL standalone**: there is a free plan available to everyone, as well as paid plans. See  [$POPSQL Pricing][popsql-pricing] for full
   details.

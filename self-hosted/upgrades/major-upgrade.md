@@ -127,11 +127,12 @@ notice is shown.
 
 <ImplementMigrationPath />
 
-
 <Highlight type="note">
+
 To upgrade TimescaleDB in a Docker container, see the 
 [Docker container upgrades](/self-hosted/latest/upgrades/upgrade-docker) 
 section.
+
 </Highlight>
 
 ## Verify the updated policy settings and jobs
