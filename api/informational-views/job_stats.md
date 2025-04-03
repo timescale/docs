@@ -79,4 +79,4 @@ total_failures         | 0
 
 ```
 
-[actions]: /api/:currentVersion:/actions/
+[actions]: /api/:currentVersion:/jobs-automation/

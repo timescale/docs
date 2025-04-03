@@ -1,23 +1,21 @@
 ---
-title: Use a user-defined action to create a generic retention policy
+title: Use a job to create a generic retention policy
 excerpt: In Timescale Cloud, you can add a data retention policy to a hypertable, to store data more efficiently. Take it one step further by creating a generic data retention policy for your entire service
 products: [cloud, mst, self_hosted]
-keywords: [actions, data retention]
+keywords: [jobs, data retention]
 ---
 
-# Use a user-defined action to create a generic retention policy
+# Use a $JOB to create a generic retention policy
 
 Timescale natively supports adding a
-[data retention policy][data-retention-policy] to a hypertable. If you want to
-add a generic data retention policy to _all_ hypertables, you can write a
-user-defined action.
+[data retention policy][data-retention-policy] to a $HYPERTABLE. If you want to
+add a generic data retention policy to all $HYPERTABLEs, you can create a custom
+$JOB.
 
 <Procedure>
 
-## Using a user-defined action to create a generic retention policy
-
-1.  Create a procedure that drops chunks from any hypertable if they are older
-    than the `drop_after` parameter. To get all hypertables, the
+1.  Create a procedure that drops $CHUNKs from any $HYPERTABLE if they are older
+    than the `drop_after` parameter. To get all $HYPERTABLEs, the
     `timescaledb_information.hypertables` table is queried.
 
     ```sql
@@ -42,17 +40,19 @@ user-defined action.
     $$;
     ```
 
-1.  Register the job to run daily. In the `config`, set `drop_after` to 12 months
-    to drop chunks containing data older than 12 months.
+1.  Register the $JOB to run daily. In the `config`, set `drop_after` to 12 months
+    to drop $CHUNKs containing data older than 12 months.
 
     ```sql
     SELECT add_job('generic_retention','1d', config => '{"drop_after":"12 month"}');
     ```
 
 <Highlight type="note">
+
 You can further refine this policy by adding filters to your procedure. For
-example, add a `WHERE` clause to the `PERFORM` query to only drop chunks from
-particular hypertables.
+example, add a `WHERE` clause to the `PERFORM` query to only drop $CHUNKs from
+particular $HYPERTABLEs.
+
 </Highlight>
 
 </Procedure>
