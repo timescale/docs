@@ -2,7 +2,7 @@
 title: Tuple decompression limit exceeded by operation
 section: troubleshooting
 products: [cloud, mst, self_hosted]
-topics: [hypertables, compression]
+topics: [hypertables, compression, hypercore]
 errors:
   - language: text
     message: |-

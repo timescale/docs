@@ -213,6 +213,11 @@ module.exports = [
             href: "secondary-indexes",
             excerpt: "Automate",
           },
+          {
+            title: "Troubleshooting",
+            href: "troubleshooting",
+            type: "placeholder",
+          },
         ],
       },
       {
