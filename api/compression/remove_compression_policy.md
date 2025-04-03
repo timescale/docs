@@ -20,19 +20,19 @@ If you need to remove the compression policy. To restart policy-based
 compression you need to add the policy again. To view the policies that
 already exist, see [informational views][informational-views].
 
-### Required arguments
+## Required arguments
 
 |Name|Type|Description|
 |-|-|-|
 |`hypertable`|REGCLASS|Name of the hypertable or continuous aggregate the policy should be removed from|
 
-### Optional arguments
+## Optional arguments
 
 |Name|Type|Description|
 |---|---|---|
 | `if_exists` | BOOLEAN | Setting to true causes the command to fail with a notice instead of an error if a compression policy does not exist on the hypertable. Defaults to false.|
 
-### Sample usage
+## Sample usage
 
 Remove the compression policy from the 'cpu' table:
 

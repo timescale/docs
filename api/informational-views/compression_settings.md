@@ -31,7 +31,7 @@ affects compresion rates, query performance, and what is compressed or
 decompressed by mutable compression.
 
 
-### Available columns
+## Available columns
 
 |Name|Type|Description|
 |---|---|---|
@@ -43,7 +43,7 @@ decompressed by mutable compression.
 | `orderby_asc` | BOOLEAN | True if this is used for order by ASC, False for order by DESC |
 | `orderby_nullsfirst` | BOOLEAN | True if nulls are ordered first for this column, False if nulls are ordered last|
 
-### Sample usage
+## Sample usage
 
 ```sql
 CREATE TABLE hypertab (a_col integer, b_col integer, c_col integer, d_col integer, e_col integer);
