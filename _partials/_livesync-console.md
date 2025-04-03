@@ -10,6 +10,7 @@ import TuneSourceDatabaseAWSRDS from "versionContent/_partials/_migrate_live_tun
 - Install the [PostgreSQL client tools][install-psql] on your sync machine.
 
 - Ensure that the source $PG instance and the target $SERVICE_LONG have the same extensions installed.
+
     LiveSync does not create extensions on the target. If the table uses column types from an extension,
     first create the extension on the target $SERVICE_LONG before syncing the table.
 

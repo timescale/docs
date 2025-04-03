@@ -8,8 +8,14 @@ import TuneSourceDatabaseAWSRDS from "versionContent/_partials/_migrate_live_tun
 
 <MigrationPrerequisites />
 
+- Ensure that the source $PG instance and the target $SERVICE_LONG have the same extensions installed.
+
+  LiveSync does not create extensions on the target. If the table uses column types from an extension,
+  first create the extension on the target $SERVICE_LONG before syncing the table.
+
 - [Install Docker][install-docker] on your sync machine.
-  You need a minimum of a 4 CPU/16GB EC2 instance to run Livesync
+
+  You need a minimum of a 4 CPU/16GB EC2 instance to run Livesync.
 
 - Install the [PostgreSQL client tools][install-psql] on your sync machine.
 
