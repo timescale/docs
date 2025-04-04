@@ -11,13 +11,13 @@ All the latest features and updates to Timescale products.
 ## 📒Faster vector search and improved job information
 <Label type="date">March 28, 2025</Label>
 
-### pgvectorscale 0.7.0: faster filtered vector search with filtered indexes
+### pgvectorscale 0.7.0: faster filtered filtered vector search with filtered indexes
 
 This pgvectorscale release adds label-based filtered vector search to the StremingDiskANN index.
-Label-based filtering enables you to return more precise and efficient results by combining vector 
-similarity search with label filtering. This is a common need for large scale RAG and Agentic applications 
+This enables you to return more precise and efficient results by combining vector 
+similarity search with label filtering while still uitilizing the ANN index. This is a common need for large scale RAG and Agentic applications 
 that rely on vector searches with metadata filters to return relevant results. Filtered indexes add 
-even more capabilities for filtered search at scale, complementing the streaming filtering already 
+even more capabilities for filtered search at scale, complementing the high accuracy streaming filtering already 
 present in pgvectorscale. The implementation is inspired by Microsoft's Filtered DiskANN research.  
 For more information, see the [pgvectorscale release notes][log-28032025-pgvectorscale-rn] and a 
 [usage example][log-28032025-pgvectorscale-example].
