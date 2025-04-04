@@ -9,13 +9,13 @@ keywords: [changelog, upgrades, updates, releases]
 All the latest features and updates to Timescale products.
 
 ## 📒Faster vector search and improved job information
-<Label type="date">March 28, 2025</Label>
+<Label type="date">April 4, 2025</Label>
 
 ### pgvectorscale 0.7.0: faster filtered filtered vector search with filtered indexes
 
 This pgvectorscale release adds label-based filtered vector search to the StremingDiskANN index.
 This enables you to return more precise and efficient results by combining vector 
-similarity search with label filtering while still uitilizing the ANN index. This is a common need for large scale RAG and Agentic applications 
+similarity search with label filtering while still uitilizing the ANN index. This is a common need for large-scale RAG and Agentic applications 
 that rely on vector searches with metadata filters to return relevant results. Filtered indexes add 
 even more capabilities for filtered search at scale, complementing the high accuracy streaming filtering already 
 present in pgvectorscale. The implementation is inspired by Microsoft's Filtered DiskANN research.  
@@ -24,20 +24,18 @@ For more information, see the [pgvectorscale release notes][log-28032025-pgvecto
 
 ### Job errors and individual job pages
 
-Each Job now has an individual page in $CONSOLE, and displays additional details about job errors. You use 
+Each job now has an individual page in $CONSOLE, and displays additional details about job errors. You use 
 this information to debug failing jobs. 
 
-To see the job information page, in [$CONSOLE][console], select the $SERVICE_SHORT to check, click the **Jobs** tab, 
-then click the **Job ID** to investigate.
+To see the job information page, in [$CONSOLE][console], select the $SERVICE_SHORT to check, then click `Jobs` > job ID to investigate.
 
-IAIN: The next image shows the navigation in console better:
+- Successful jobs: 
 
-![Log success in Timescale Console](https://assets.timescale.com/docs/images/changelog-job-success-page.png)
+  ![Log success in Timescale Console](https://assets.timescale.com/docs/images/changelog-job-success-page.png)
 
-IAIN: The next image shows error message. Best would be to have this with the 
-same layout as the one above. 
+- Unsuccessful jobs with errors:
 
-![Log errors in Timescale Console](https://assets.timescale.com/docs/images/changelog-job-error-page.png)
+  ![Log errors in Timescale Console](https://assets.timescale.com/docs/images/changelog-job-error-page.png)
 
 ## 🤩 In-Console Livesync for PostgreSQL
 <Label type="date">March 21, 2025</Label>
