@@ -48,6 +48,8 @@ Some of the most in-demand integrations are listed below.
 |          [Pulumi][pulumi]          | Define and manage cloud infrastructure using code in multiple languages.       |
 |          [Render][render]          | Deploy and scale web applications, databases, and services easily.             |
 |    [Terraform][terraform]          | Safely and predictably provision and manage infrastructure in any cloud.       |
+| [Kubernetes][kubernetes] | Deploy, scale, and manage containerized applications automatically. |
+
 
 ## Data engineering and extract, transform, load
 
@@ -172,6 +174,7 @@ Some of the most in-demand integrations are listed below.
 |  [Tooljet][tooljet]  | Develop internal tools and business applications with a low-code builder. |
 |   [Zapier][zapier]   | Automate workflows by connecting different applications and services.     |
 
+
 [ads]: /use-timescale/:currentVersion:/integrations/azure-data-studio/
 [airbyte]: https://docs.airbyte.com/integrations/sources/postgres
 [amazon-sagemaker]: /use-timescale/:currentVersion:/integrations/amazon-sagemaker
@@ -243,6 +246,7 @@ Some of the most in-demand integrations are listed below.
 [power-bi]: /use-timescale/:currentVersion:/integrations/power-bi
 [prisma]: https://www.prisma.io/docs/orm/overview/databases/postgresql
 [prometheus]: /use-timescale/:currentVersion:/integrations/prometheus
+[kubernetes]: /use-timescale/:currentVersion:/integrations/kubernetes
 [psql]: /use-timescale/:currentVersion:/integrations/psql/
 [pulumi]: https://www.pulumi.com/registry/packages/timescale/
 [python]: /quick-start/:currentVersion:/python/
@@ -272,3 +276,4 @@ Some of the most in-demand integrations are listed below.
 [tooljet]: https://docs.tooljet.ai/docs/data-sources/postgresql/
 [typeorm]: https://typeorm.biunav.com/en/connection-options.html#postgres-cockroachdb-connection-options
 [zapier]: https://zapier.com/apps/postgresql/integrations
+
