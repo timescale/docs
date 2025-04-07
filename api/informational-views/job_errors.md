@@ -16,7 +16,7 @@ created to manage data retention, continuous aggregates, compression, and
 other automation policies. For more information about automation policies,
 see the [policies][jobs] section.
 
-### Available columns
+## Available columns
 
 |Name|Type|Description|
 |-|-|-|
@@ -29,7 +29,7 @@ see the [policies][jobs] section.
 |`sqlerrcode`|TEXT|The error code associated with this error, if any. See the [official PostgreSQL documentation](https://www.postgresql.org/docs/current/errcodes-appendix.html) for a full list of error codes|
 |`err_message`|TEXT|The detailed error message|
 
-### Sample usage
+## Sample usage
 
 See information about recent job failures:
 
@@ -45,7 +45,7 @@ SELECT job_id, proc_schema, proc_name, pid, sqlerrcode, err_message from timesca
 
 ```
 
-### Error retention policy
+## Error retention policy
 
 The informational view `timescaledb_information.job_errors` is defined on top
 of the table `_timescaledb_internal.job_errors` in the internal schema. To
