@@ -16,7 +16,7 @@ created to manage data retention, continuous aggregates, compression, and
 other automation policies. For more information about automation policies,
 see [$JOBs][jobs].
 
-### Available columns
+## Available columns
 
 |Name|Type|Description|
 |-|-|-|
@@ -32,7 +32,7 @@ see [$JOBs][jobs].
 |`sqlerrcode`|TEXT|The error code associated with this error, if any. See the [official PostgreSQL documentation](https://www.postgresql.org/docs/current/errcodes-appendix.html) for a full list of error codes|
 |`err_message`|TEXT|The detailed error message|
 
-### Sample usage
+## Sample usage
 
 To retrieve information about recent jobs:
 
@@ -50,7 +50,7 @@ ORDER BY id, job_id;
 (5 rows)
 ```
 
-### Error retention policy
+## Error retention policy
 
 The `timescaledb_information.job_history` informational view is defined on top
 of the `_timescaledb_internal.bgw_job_stat_history` table in the internal schema. To

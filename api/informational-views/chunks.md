@@ -21,7 +21,7 @@ If the chunk's primary dimension is of a time datatype, `range_start` and
 `range_end` are set. Otherwise, if the primary dimension type is integer based,
 `range_start_integer` and `range_end_integer` are set.
 
-### Available columns
+## Available columns
 
 |Name|Type|Description|
 |---|---|---|
@@ -40,7 +40,7 @@ If the chunk's primary dimension is of a time datatype, `range_start` and
 | `data_nodes` | ARRAY | Nodes on which the chunk is replicated. This is applicable only to chunks for distributed hypertables |
 | `chunk_creation_time` | TIMESTAMP WITH TIME ZONE | The time when this chunk was created for data addition |
 
-### Sample usage
+## Sample usage
 
 Get information about the chunks of a hypertable.
 

@@ -9,7 +9,7 @@ tags: [materialized views]
 # Materialized hypertables
 
 Continuous aggregates take raw data from the original hypertable, aggregate it,
-and store the intermediate state in a materialization hypertable. You can modify
+and store the aggregated data in a materialization hypertable. You can modify
 this materialized hypertable in the same way as any other hypertable.
 
 ## Discover the name of a materialized hypertable

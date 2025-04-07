@@ -16,7 +16,7 @@ Get metadata information about hypertables.
 For more information about using hypertables, including chunk size partitioning,
 see the [hypertable section][hypertable-docs].
 
-### Available columns
+## Available columns
 
 |Name|Type|Description|
 |-|-|-|
@@ -31,7 +31,7 @@ see the [hypertable section][hypertable-docs].
 |`data_nodes`|TEXT|Nodes on which hypertable is distributed|
 |`tablespaces`|TEXT|Tablespaces attached to the hypertable |
 
-### Sample usage
+## Sample usage
 
 Get information about a hypertable.
 

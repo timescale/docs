@@ -31,26 +31,26 @@ You can get a list of chunks belonging to a hypertable using the
 [`show_chunks` function](/api/latest/hypertable/show_chunks/).
 </Highlight>
 
-### Required arguments
+## Required arguments
 
 |Name|Type|Description|
 |---|---|---|
 | `chunk_name` | REGCLASS | Name of the chunk to be compressed|
 
-### Optional arguments
+## Optional arguments
 
 |Name|Type|Description|
 |---|---|---|
 | `if_not_compressed` | BOOLEAN | Disabling this will make the function error out on chunks that are already compressed. Defaults to true.|
 | `hypercore_use_access_method`         | BOOLEAN | `NULL` |✖| Set to `true` to use hypercore table access metod. If set to `NULL` it will use the value from `timescaledb.default_hypercore_use_access_method`. |
 
-### Returns
+## Returns
 
 |Column|Type|Description|
 |---|---|---|
 | `compress_chunk` | REGCLASS | Name of the chunk that was compressed|
 
-### Sample usage
+## Sample usage
 
 Compress a single chunk.
 
