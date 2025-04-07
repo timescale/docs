@@ -47,7 +47,7 @@ Tiered storage **DOES NOT** work on $SELF_LONG_LC or $MST_LONG.
 
 In this section, you:
 * [Learn more about storage tiers][about-data-tiering]: understand how the tiers are built and how they differ. 
-* [Manage storage and tiering][enabling-data-tiering]: configure the high-performance storage, the object storage, and the tiering. 
+* [Manage storage and tiering][enabling-data-tiering]: configure high-performance storage, object storage, and data tiering. 
 * [Query tiered data][querying-tiered-data]: query the data in the object storage. 
 * [Learn about replicas and forks with tiered data][replicas-and-forks]: understand how tiered storage works
   with forks and replicas of your $SERVICE_SHORT.
