@@ -19,7 +19,7 @@ $COMPANY's tiered storage architecture includes a high-performance storage tier 
 
 High-performance storage is where your data is stored by default, until you [enable tiered storage][manage-tiering] and start [moving data to the low-cost tier][move-data]. In the high-performance storage, your data is stored in the block format and optimized for frequent querying. The [$HYPERCORE row-columnar storage engine][hypercore] available in this tier is designed specifically for real-time analytics and can compress your data by up to 90%. Coupled with other optimizations, $CLOUD_LONG high-performance storage makes sure your data is always accessible and your queries run at lightning speed. 
 
-$CLOUD_LONG high-performance storage comes in two types—standard and enhanced. 
+$CLOUD_LONG high-performance storage comes in the following types: 
 
 - **Standard** (default): provides up to 16TB of storage and 16,000 IOPS. Based on [AWS EBS gp3][aws-gp3].
 - **Enhanced**: provides up to 64TB of storage and 64,000 IOPS. Based on [EBS io2][ebs-io2].
