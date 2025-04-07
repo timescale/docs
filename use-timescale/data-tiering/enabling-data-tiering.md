@@ -48,7 +48,7 @@ To get enhanced storage:
 
 </Procedure>
 
-Change the enhanced storage type to standard in the same way. You can make changes to the storage type and $IO_BOOST settings once every 6 hours.  
+You change from enhanced storage to standard in the same way. You can make changes to the storage type and $IO_BOOST settings once every 6 hours.  
 
 ## Enable tiered storage
 
