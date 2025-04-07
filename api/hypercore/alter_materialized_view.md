@@ -10,7 +10,7 @@ api:
 ---
 
 import Since2180 from "versionContent/_partials/_since_2_18_0.mdx";
-import EarlyAccess from "versionContent/_partials/_early_access.mdx";
+import EarlyAccess from "versionContent/_partials/_early_access_2_18_0.mdx";
 
 # ALTER MATERIALIZED VIEW (Hypercore) <Tag type="community">Community</Tag>
 

@@ -212,30 +212,22 @@ Continuous aggregates consist of:
 ### Materialization hypertable
 
 Continuous aggregates take raw data from the original hypertable, aggregate it,
-and store the intermediate state in a materialization hypertable. When you query
-the continuous aggregate view, the state is returned to you as needed.
+and store the aggregated data in a materialization hypertable. When you query
+the continuous aggregate view, the aggregated data is returned to you as needed.
 
 Using the same temperature example, the materialization table looks like this:
 
-|day|location|chunk|avg temperature partial|
+|day|location|chunk|avg temperature|
 |-|-|-|-|
-|2021/01/01|New York|1|{3, 219}|
-|2021/01/01|Stockholm|1|{4, 280}|
+|2021/01/01|New York|1|73|
+|2021/01/01|Stockholm|1|70|
 |2021/01/02|New York|2||
-|2021/01/02|Stockholm|2|{5, 345}|
+|2021/01/02|Stockholm|2|69|
 
 The materialization table is stored as a Timescale hypertable, to take
 advantage of the scaling and query optimizations that hypertables offer.
 Materialization tables contain a column for each group-by clause in the query,
-a `chunk` column identifying which chunk in the raw data this entry came from,
-and a `partial aggregate` column for each aggregate in the query.
-
-The partial column is used internally to calculate the output. In this example,
-because the query looks for an average, the partial column contains the number
-of rows seen, and the sum of all their values. The most important thing to know
-about partials is that they can be combined to create new partials spanning all
-of the old partials' rows. This is important if you combine groups that span
-multiple chunks.
+and an `aggregate` column for each aggregate in the query.
 
 For more information, see [materialization hypertables][cagg-mat-hypertables].
 
@@ -247,13 +239,6 @@ materialize, and updates the invalidation threshold. The second transaction
 unblocks other transactions, and materializes the aggregates. The first
 transaction is very quick, and most of the work happens during the second
 transaction, to ensure that the work does not interfere with other operations.
-
-When you query the continuous aggregate view, the materialization engine
-combines the aggregate partials into a single partial for each time range, and
-calculates the value that is returned. For example, to compute an average, each
-partial sum is added up to a total sum, and each partial count is added up to a
-total count, then the average is computed as the total sum divided by the total
-count.
 
 ### Invalidation engine
 

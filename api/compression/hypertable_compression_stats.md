@@ -23,13 +23,13 @@ see the [hypertable section][hypertable-docs].
 For more information about compression, see the
 [compression section][compression-docs].
 
-### Required arguments
+## Required arguments
 
 |Name|Type|Description|
 |-|-|-|
 |`hypertable`|REGCLASS|Hypertable to show statistics for|
 
-### Returns
+## Returns
 
 |Column|Type|Description|
 |-|-|-|
@@ -51,7 +51,7 @@ Returns show `NULL` if the data is currently uncompressed.
 
 </Highlight>
 
-### Sample usage
+## Sample usage
 
 ```sql
 SELECT * FROM hypertable_compression_stats('conditions');

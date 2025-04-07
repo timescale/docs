@@ -13,7 +13,7 @@ api:
 
 Shows information about all $JOBs registered with the automation framework.
 
-### Arguments
+## Arguments
 
 |Name|Type| Description                                                                                                       |
 |-|-|-------------------------------------------------------------------------------------------------------------------|
@@ -36,7 +36,7 @@ Shows information about all $JOBs registered with the automation framework.
 |`check_schema`|`TEXT`| Schema name of the optional configuration validation function, set when the $JOB is created or updated             |
 |`check_name`|`TEXT`| Name of the optional configuration validation function, set when the $JOB is created or updated                    |
 
-### Sample use
+## Sample use
 
 Shows a $JOB associated with the refresh policy for continuous aggregates:
 
