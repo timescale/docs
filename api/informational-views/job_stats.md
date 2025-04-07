@@ -19,7 +19,7 @@ The statistics include information useful for administering jobs and determining
 whether they ought be rescheduled, such as: when and whether the background job
 used to implement the policy succeeded and when it is scheduled to run next.
 
-### Available columns
+## Available columns
 
 <!-- vale Google.Acronyms = NO -->
 |Name|Type|Description|
@@ -38,7 +38,7 @@ used to implement the policy succeeded and when it is scheduled to run next.
 |`total_failures` | BIGINT | The total number of times this job failed |
 <!-- vale Google.Acronyms = YES -->
 
-### Sample usage
+## Sample usage
 
 Get job success/failure information for a specific hypertable.
 

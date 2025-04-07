@@ -24,13 +24,13 @@ the chunk. An insert into a compressed chunk does not update the compressed
 sizes. For more information about how to compute chunk sizes, see the
 `chunks_detailed_size` section.
 
-### Required arguments
+## Required arguments
 
 |Name|Type|Description|
 |-|-|-|
 |`hypertable`|REGCLASS|Name of the hypertable|
 
-### Returns
+## Returns
 
 |Column|Type|Description|
 |-|-|-|
@@ -47,7 +47,7 @@ sizes. For more information about how to compute chunk sizes, see the
 |`after_compression_total_bytes`|BIGINT|Size of the entire chunk table (table+indexes+toast) after compression (NULL if currently uncompressed)|
 |`node_name`|TEXT|nodes on which the chunk is located, applicable only to distributed hypertables|
 
-### Sample usage
+## Sample usage
 
 ```sql
 SELECT * FROM chunk_compression_stats('conditions')

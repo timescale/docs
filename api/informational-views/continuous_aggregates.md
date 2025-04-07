@@ -13,7 +13,7 @@ api:
 
 Get metadata and settings information for continuous aggregates.
 
-### Available columns
+## Available columns
 
 |Name|Type|Description|
 |---|---|---|
@@ -29,7 +29,7 @@ Get metadata and settings information for continuous aggregates.
 |`view_definition` | TEXT | `SELECT` query for continuous aggregate view|
 |`finalized`| BOOLEAN | Whether the continuous aggregate stores data in finalized or partial form. Since TimescaleDB 2.7, the default is finalized. |
 
-### Sample usage
+## Sample usage
 
 ```sql
 SELECT * FROM timescaledb_information.continuous_aggregates;
