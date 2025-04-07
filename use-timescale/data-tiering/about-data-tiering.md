@@ -80,7 +80,7 @@ The object storage tier is more than an archiving solution. It is also:
 - **Scalable:** scale past the restrictions of even the enhanced high-performance storage tier.
 - **Online:** your data is always there and can be [queried when needed][querying-tiered-data].
 
-By default, tiered data is not included when querying from a $CLOUD_LONG. However, you can access tiered data by [enabling tiered reads][querying-tiered-data] for a query, a session, or even for all sessions. After you enable tiered reads, when you run regular SQL queries, a behind-the-scenes process transparently pulls data from wherever it's located: the standard high-performance storage tier, the object storage tier, or both.  You can `JOIN` against tiered data, build views, and even define continuous aggregates on it. In fact, because the implementation of continuous aggregates also uses hypertables, they can be tiered to low-cost storage as well.
+By default, tiered data is not included when you query from a $SERVICE_LONG. To access tiered data, you [enable tiered reads][querying-tiered-data] for a query, a session, or even for all sessions. After you enable tiered reads, when you run regular SQL queries, a behind-the-scenes process transparently pulls data from wherever it's located: the standard high-performance storage tier, the object storage tier, or both.  You can `JOIN` against tiered data, build views, and even define continuous aggregates on it. In fact, because the implementation of continuous aggregates also uses hypertables, they can be tiered to low-cost storage as well.
 
 <TieredStorageBilling />
 
