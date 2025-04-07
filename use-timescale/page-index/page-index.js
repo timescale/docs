@@ -797,6 +797,11 @@ module.exports = [
             excerpt: "Integrate Decodable with Timescale Cloud",
           },
           {
+            title: "Debezium",
+            href: "debezium",
+            excerpt: "Integrate Debezium with Timescale products",
+          },            
+          {
             title: "Fivetran",
             href: "fivetran",
             excerpt: "Integrate Fivetran with Timescale Cloud",
@@ -812,6 +817,11 @@ module.exports = [
             excerpt: "Integrate Grafana with Timescale products",
           },
           {
+            title: "Kubernetes",
+            href: "kubernetes",
+            excerpt: "Integrate Kubernetes with Timescale products",
+          },
+          {
             title: "Microsoft Azure",
             href: "microsoft-azure",
             excerpt: "Integrate Microsoft Azure with Timescale Cloud",
@@ -824,7 +834,7 @@ module.exports = [
           {
             title: "PostgreSQL",
             href: "postgresql",
-            excerpt: "Integrate PostgreSQL with Timescale Cloud",
+            excerpt: "Integrate PostgreSQL with Timescale products",
           },
           {
             title: "Prometheus",
