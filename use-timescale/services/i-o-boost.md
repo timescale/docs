@@ -5,29 +5,36 @@ products: [cloud]
 keywords: [io, io boost, performance]
 ---
 
-# I/O boost
+# $IO_BOOST
 
-You use I/O boost to increase I/O and throughput of a service's [high-performance storage][data-tiering]. You can enable it for the most demanding applications, while keeping costs under control.
+You use $IO_BOOST to increase I/O and throughput of a service's [high-performance storage][data-tiering]. You can enable it for the most demanding applications, while keeping costs under control.
 
-Enabling I/O boost increases I/O to 16,000 IOPS and throughput to 1,000 MBps. The boost also applies to any [high-availability][ha-replicas] replicas you might have running for a service, although for an additional fee.
+Enabling $IO_BOOST increases I/O in the following way:
 
-This feature is available under the Scale and Enterprise [pricing tiers][pricing-tiers]. 
+- to 16,000 IOPS and 1,000 MBps throughput for standard high-performance storage.
+- to up to 64,000 IOPS for enhanced high-performance storage.
 
-## Enable I/O boost
+The boost also applies to any [high-availability][ha-replicas] replicas you might have running for a service, although for an additional fee.
 
-You enable I/O boost from the `Operations` tab in [$CONSOLE][console].
+This feature is available under the $SCALE and $ENTERPRISE [$PRICING_PLANs][pricing-tiers]. 
+
+## Enable $IO_BOOST
+
+You enable $IO_BOOST from $CONSOLE.
 
 <Procedure>
 
-1. **In $CONSOLE, choose the $SERVICE_SHORT you want to enable I/O boost for**. 
+1. In [$CONSOLE][console], choose the $SERVICE_SHORT you want to enable $IO_BOOST for.
 
-1. **Open the `Operations` tab and toggle the I/O boost switch. Then click `Apply`**.
+1. Open `Operations` > `Compute and storage`, then choose the right value from the `I/O Boost` dropdown. IOPS over 16,000 are only available when the storage type is set to `Enhanced`. 
 
-   ![Timescale I/O Boost](https://assets.timescale.com/docs/images/timescale-i-o-boost.png)
+   ![I/O boost in Timescale Cloud](https://assets.timescale.com/docs/images/io-boost-timescale-cloud.png)
+
+1. Click `Apply`.
 
 </Procedure>
 
-I/O boost is now enabled for this service and its replicas. You can enable or disable it once every 24 hours. 
+IOPS is now changed for this service and its replicas. You can make changes once every 6 hours.
 
 [console]: https://console.cloud.timescale.com/dashboard/services
 [ha-replicas]: /use-timescale/:currentVersion:/ha-replicas/high-availability/
