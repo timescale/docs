@@ -31,7 +31,7 @@ Updating parameters on a PostgreSQL instance will cause an outage. Choose a time
       Changing parameters will cause an outage. Wait for the database instance to reboot before continuing. 
    1. Verify that the settings are live in your database.
 
-1. **Enable live-migration to replicate `DELETE` and`UPDATE` operations**
+1. **Enable replication `DELETE` and`UPDATE` operations**
 
    <EnableReplication />
    

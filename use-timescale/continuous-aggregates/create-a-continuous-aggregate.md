@@ -75,14 +75,6 @@ the hypertable. The time bucket allows you to define a time interval, instead of
 having to use specific timestamps. For example, you can define a time bucket as
 five minutes, or one day.
 
-When the continuous aggregate is materialized, the materialization table stores
-partials, which are then used to calculate the result of the query. This means a
-certain amount of processing capacity is required for any query, and the amount
-required becomes greater as the interval gets smaller. Because of this, if you
-have very small intervals, it can be more efficient to run the aggregate query
-on the raw data in the hypertable. You should test both methods to determine
-what is best for your dataset and desired bucket interval.
-
 You can't use [time_bucket_gapfill][api-time-bucket-gapfill] directly in a
 continuous aggregate. This is because you need access to previous data to
 determine the gapfill content, which isn't yet available when you create the

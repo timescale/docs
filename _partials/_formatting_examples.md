@@ -271,7 +271,7 @@ For example:
 [A link to the data tiering section in docs][data-tiering]
 
 [data-tiering]: ../use-timescale/data-tiering/enabling-data-tiering.md
-[disable-chunk-skipping]: ../api/disable_chunk_skipping.md
+[disable-chunk-skipping]: ../api/hypertable/disable_chunk_skipping.md
 [decompress-chunks]: ../use-timescale/compression/decompress-chunks.md
 [alerting]: ../use-timescale/alerting.md
 [deprecation]: ../_partials/_deprecated.md
@@ -281,7 +281,7 @@ For example:
 [installation-windows]: ../self-hosted/install/installation-windows.md
 [time-bucket]: ../api/time_bucket_ng.md
 [time-weighted-average]: ../api/time-weighted-averages.md
-[remove-reorder-policy]: ../api/remove_reorder_policy.md
+[remove-reorder-policy]: ../api/hypertable/remove_reorder_policy.md
 [reference-links]: https://www.markdownguide.org/basic-syntax/#reference-style-links
 
 

@@ -28,25 +28,25 @@ the next scheduled job.
 
 </Highlight>
 
-### Required arguments
+## Required arguments
 
 |Name|Type|Description|
 |---|---|---|
 |`chunk_name`|`REGCLASS`|Name of the chunk to be decompressed.|
 
-### Optional arguments
+## Optional arguments
 
 |Name|Type|Description|
 |---|---|---|
 |`if_compressed`|`BOOLEAN`|Disabling this will make the function error out on chunks that are not compressed. Defaults to true.|
 
-### Returns
+## Returns
 
 |Column|Type|Description|
 |---|---|---|
 |`decompress_chunk`|`REGCLASS`|Name of the chunk that was decompressed.|
 
-### Sample usage
+## Sample usage
 
 Decompress a single chunk:
 

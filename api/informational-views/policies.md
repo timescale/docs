@@ -27,7 +27,7 @@ applying to regular hypertables or regular materialized views are not displayed.
 
 <Experimental />
 
-### Available columns
+## Available columns
 
 |Column|Type|Description|
 |-|-|-|
@@ -40,7 +40,7 @@ applying to regular hypertables or regular materialized views are not displayed.
 |`hypertable_schema`|Schema of the hypertable that contains the actual data for the continuous aggregate view|
 |`hypertable_name`|Name of the hypertable that contains the actual data for the continuous aggregate view|
 
-### Sample usage
+## Sample usage
 
 Select from the `timescaledb_experimental.policies` table to view it:
 
