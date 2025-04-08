@@ -30,4 +30,4 @@ To visualize the results of your queries, enable Grafana to read the data in you
 [grafana-cloud]: https://grafana.com/get/
 [cloud-login]: https://console.cloud.timescale.com/
 [create-service]: /getting-started/:currentVersion:/services/
-[connection-info]: /use-timescale/:currentVersion:/integrations/find-connection-details/
+[connection-info]: /integrations/:currentVersion:/find-connection-details/

@@ -99,5 +99,5 @@ To sync data from your PostgreSQL database to your $SERVICE_LONG using $CONSOLE:
 And that is it, you are using Livesync to synchronize all the data, or specific tables, from a PostgreSQL database 
 instance to your $SERVICE_LONG in real-time.
 
-[install-psql]: /use-timescale/:currentVersion:/integrations/psql/
+[install-psql]: /integrations/:currentVersion:/psql/
 [portal-ops-mode]: https://console.cloud.timescale.com/dashboard/services

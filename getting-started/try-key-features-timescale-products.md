@@ -406,10 +406,10 @@ What next? See the [use case tutorials][tutorials], interact with the data in yo
 
 [tutorials]: /tutorials/:currentVersion:/
 [connect-with-code]: /getting-started/:currentVersion:/start-coding-with-timescale/
-[integrations]: /use-timescale/:currentVersion:/integrations/
+[integrations]: /integrations/:currentVersion:/
 [use-the-api]: /api/:currentVersion:/
 [use-timescale]: /use-timescale/:currentVersion:/
-[connection-info]: /use-timescale/:currentVersion:/integrations/find-connection-details/
+[connection-info]: /integrations/:currentVersion:/find-connection-details/
 [create-a-service]: /getting-started/:currentVersion:/services/
 [deploy-self-hosted]: /self-hosted/:currentVersion:/install/
 [connect-to-your-service]: /getting-started/:currentVersion:/run-queries-from-console/

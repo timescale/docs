@@ -262,6 +262,6 @@ edited query by pressing `↑`, and press `Enter` to run it.
 [homebrew]: https://docs.brew.sh/Installation
 [macports]: https://guide.macports.org/#installing.macports
 [windows-installer]: https://www.postgresql.org/download/windows/
-[connect-database]:/use-timescale/:currentVersion:/integrations/psql/#connect-to-your-service
-[connection-info]: /use-timescale/:currentVersion:/integrations/find-connection-details/
+[connect-database]:/integrations/:currentVersion:/psql/#connect-to-your-service
+[connection-info]: /integrations/:currentVersion:/find-connection-details/
 

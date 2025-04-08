@@ -85,7 +85,7 @@ To see data injected by Fivetran into your $SERVICE_LONG:
 
 You have successfully integrated Fivetran with $CLOUD_LONG.
 
-[connection-info]: /use-timescale/:currentVersion:/integrations/find-connection-details/
+[connection-info]: /integrations/:currentVersion:/find-connection-details/
 [fivetran]: https://www.fivetran.com/docs
 [sign-up-fivetran]: https://www.fivetran.com/
 [fivetran-dashboard-destinations]: https://fivetran.com/dashboard/destinations

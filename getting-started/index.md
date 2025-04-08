@@ -27,7 +27,7 @@ This section shows you how to:
 
 [tutorials]: /tutorials/:currentVersion:/
 [connect-with-code]: /getting-started/:currentVersion:/start-coding-with-timescale/
-[integrations]: /use-timescale/:currentVersion:/integrations/
+[integrations]: /integrations/:currentVersion:/
 [use-the-api]: /api/:currentVersion:/
 [use-timescale]: /use-timescale/:currentVersion:/
 [services-create]: /getting-started/:currentVersion:/services#create-your-timescale-account
