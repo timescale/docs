@@ -11,7 +11,6 @@ module.exports = [
     children: [
       {
         title: "Hypertables & chunks",
-        type: "directory",
         href: "hypertable",
         children: [
           {
@@ -179,7 +178,6 @@ module.exports = [
       },
       {
         title: "Continuous aggregates",
-        type: "redirect-to-child-page",
         href: "continuous-aggregates",
         children: [
           {
@@ -242,7 +240,6 @@ module.exports = [
       },
       {
         title: "Data retention",
-        type: "directory",
         href: "data-retention",
         children: [
           {
@@ -608,7 +605,6 @@ module.exports = [
       },
       {
         title: "Distributed hypertables (Sunsetted v2.14.x)",
-        type: "directory",
         href: "distributed-hypertables",
         children: [
           {
