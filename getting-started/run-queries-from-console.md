@@ -225,11 +225,11 @@ To use $SQL_EDITOR:
 [readreplica]: /use-timescale/:currentVersion:/ha-replicas/read-scaling/
 [run-popsql]: /getting-started/:currentVersion:/run-queries-from-console/#data-mode
 [run-sqleditor]: /getting-started/:currentVersion:/run-queries-from-console/#sql-editor
-[integrations]: /use-timescale/:currentVersion:/integrations/
+[integrations]: /integrations/:currentVersion:/
 [timescale-console]: https://console.cloud.timescale.com/
 [portal-ops-mode]: https://console.cloud.timescale.com/dashboard/services
 [pricing-plan-features]: https://www.timescale.com/pricing#features
-[install-psql]: /use-timescale/:currentVersion:/integrations/psql/
+[install-psql]: /integrations/:currentVersion:/psql/
 [create-cloud-account]: /getting-started/:currentVersion:/services/#create-a-timescale-cloud-account
 [portal-data-mode]: https://console.cloud.timescale.com/dashboard/services?popsql
 [services-portal]: https://console.cloud.timescale.com/dashboard/services
@@ -238,5 +238,5 @@ To use $SQL_EDITOR:
 [sql-editor-settings]: https://console.cloud.timescale.com/dashboard/settings?popsql=%2Fpreferences%2Fai
 [portal-data-mode]: https://console.cloud.timescale.com/dashboard/services?popsql
 [sql-assistant]: /getting-started/:currentVersion:/run-queries-from-console/#sql-assistant
-[connection-info]: /use-timescale/:currentVersion:/integrations/find-connection-details/
+[connection-info]: /integrations/:currentVersion:/find-connection-details/
 [popsql-pricing]: https://popsql.com/pricing

@@ -29,7 +29,7 @@ module.exports = [
       {
         title: "Apache Airflow",
         href: "apache-airflow",
-        excerpt: "Integrate Apache Airflow with Timescale products",
+        excerpt: "Integrate Apache Airflow with Timescale Cloud",
       },
       {
         title: "Apache Kafka",
@@ -79,7 +79,12 @@ module.exports = [
       {
         title: "Grafana",
         href: "grafana",
-        excerpt: "Integrate Grafana with Timescale products",
+        excerpt: "Integrate Grafana with Timescale Cloud",
+      },
+      {
+        title: "Kubernetes",
+        href: "kubernetes",
+        excerpt: "Integrate Kubernetes with Timescale Cloud",
       },
       {
         title: "Microsoft Azure",
@@ -119,7 +124,7 @@ module.exports = [
       {
         title: "Supabase",
         href: "supabase",
-        excerpt: "Integrate Supabase with Timescale products",
+        excerpt: "Integrate Supabase with Timescale Cloud",
       },
       {
         title: "Tableau",

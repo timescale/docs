@@ -50,4 +50,4 @@ You have successfully integrated qStudio with $CLOUD_LONG.
 
 [qstudio]: https://www.timestored.com/qstudio
 [qstudio-downloads]: https://www.timestored.com/qstudio/download
-[connection-info]: /use-timescale/:currentVersion:/integrations/find-connection-details/
+[connection-info]: /integrations/:currentVersion:/find-connection-details/
