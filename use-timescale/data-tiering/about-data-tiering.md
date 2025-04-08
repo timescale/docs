@@ -17,7 +17,7 @@ $COMPANY's tiered storage architecture includes a high-performance storage tier 
 
 ## High-performance storage 
 
-High-performance storage is where your data is stored by default, until you [enable tiered storage][manage-tiering] and start [moving data to the low-cost tier][move-data]. In the high-performance storage, your data is stored in the block format and optimized for frequent querying. The [$HYPERCORE row-columnar storage engine][hypercore] available in this tier is designed specifically for real-time analytics and can compress your data by up to 90%. Coupled with other optimizations, $CLOUD_LONG high-performance storage makes sure your data is always accessible and your queries run at lightning speed. 
+High-performance storage is where your data is stored by default, until you [enable tiered storage][manage-tiering] and [move older data to the low-cost tier][move-data]. In the high-performance storage, your data is stored in the block format and optimized for frequent querying. The [$HYPERCORE row-columnar storage engine][hypercore] available in this tier is designed specifically for real-time analytics. It enables you to compress the data in the high-performance storage by up to 90%, while improving performance. Coupled with other optimizations, $CLOUD_LONG high-performance storage makes sure your data is always accessible and your queries run at lightning speed. 
 
 $CLOUD_LONG high-performance storage comes in the following types: 
 
@@ -28,7 +28,7 @@ $CLOUD_LONG high-performance storage comes in the following types:
 
 ## Low-cost storage
 
-Once you enable tiered storage, you can start moving rarely used data to the object tier. The object tier is based on AWS S3 and stores your data in the [Apache Parquet][parquet] format. Within a Parquet file, a set of rows is grouped together to form a row group. Within a row group, values for a single column across multiple rows are stored together. The original size of the data in your $SERVICE_SHORT, compressed or uncompressed, does not correspond directly to its size in S3. A compressed hypertable may even take more space in S3 than it does in $CLOUD_LONG.
+Once you [enable tiered storage][manage-tiering], you can start moving rarely used data to the object tier. The object tier is based on AWS S3 and stores your data in the [Apache Parquet][parquet] format. Within a Parquet file, a set of rows is grouped together to form a row group. Within a row group, values for a single column across multiple rows are stored together. The original size of the data in your $SERVICE_SHORT, compressed or uncompressed, does not correspond directly to its size in S3. A compressed hypertable may even take more space in S3 than it does in $CLOUD_LONG.
 
 Apache Parquet allows for more efficient scans across longer time periods, and $CLOUD_LONG uses other metadata and query optimizations to reduce the amount of data that needs to be fetched to satisfy a query, such as: 
 

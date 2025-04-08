@@ -34,7 +34,7 @@ To get enhanced storage:
 1. **In [$CONSOLE][console], select your $SERVICE_SHORT, then click `Operations` > `Compute and storage`**
 1. **Select the type in the `Storage type` dropdown**
 
-    Enhanced storage type is only available under the $ENTERPRISE $PRICING_PLAN.
+    The enhanced storage type is only available under the [$ENTERPRISE $PRICING_PLAN][pricing-plans].
 
     ![Enhanced storage in Timescale Cloud](https://assets.timescale.com/docs/images/enhanced-storage-timescale-cloud.png)
 
@@ -64,7 +64,7 @@ You enable tiered storage from the `Overview` tab in $CONSOLE.
 
    ![Enable tiered storage](https://assets.timescale.com/docs/images/console-enable-tiered-storage.png)
 
-   When tiered storage is enabled, you see the amount of data in the tiered object storage.
+   Once enabled, you can proceed to [tier data manually][manual-tier] or [set up tiering policies][tiering-policies]. When tiered storage is enabled, you see the amount of data in the tiered object storage.
 
 </Procedure>
 
