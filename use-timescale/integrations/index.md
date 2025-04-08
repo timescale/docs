@@ -20,21 +20,21 @@ Some of the most in-demand integrations are listed below.
 
 |                Name                | Description                                                               |
 |:----------------------------------:|---------------------------------------------------------------------------|
-|         <img cleanImage src='https://assets.timescale.com/docs/icons/auth-logo.png' alt='auth-logo'  />[Auth.js][auth-js]         | Implement authentication and authorization for web applications.          |
-|       <img cleanImage src='https://assets.timescale.com/docs/icons/auth0-logo.png' alt='auth0-logo'  />[Auth0][auth0]               | Securely manage user authentication and access controls for applications. |
-|            <img cleanImage src='https://assets.timescale.com/docs/icons/okta-logo.png' alt='okta-logo'  />[Okta][okta]            | Secure authentication and user identity management for applications.      |
+|         <img isIcon src='https://assets.timescale.com/docs/icons/auth-logo.png' alt='auth-logo'  />[Auth.js][auth-js]         | Implement authentication and authorization for web applications.          |
+|       <img isIcon src='https://assets.timescale.com/docs/icons/auth0-logo.png' alt='auth0-logo'  />[Auth0][auth0]               | Securely manage user authentication and access controls for applications. |
+|            <img isIcon src='https://assets.timescale.com/docs/icons/okta-logo.png' alt='okta-logo'  />[Okta][okta]            | Secure authentication and user identity management for applications.      |
 
 ## Business intelligence and data visualization
 
 |            Name            | Description                                                             |
 |:--------------------------:|-------------------------------------------------------------------------|
-|     <img cleanImage src='https://assets.timescale.com/docs/icons/cube-js-logo.png' alt='cubejs-logo'  />[Cube.js][cube-js]     | Build and optimize data APIs for analytics applications.                |
-|      <img cleanImage src='https://assets.timescale.com/docs/icons/looker-logo.png' alt='looker-logo'  />[Looker][looker]      | Explore, analyze, and share business insights with a BI platform.       |
-| <img cleanImage src='https://assets.timescale.com/docs/icons/materialize-logo.png' alt='materialize-logo'  />[Materialize][materialize] | Process and query real-time data with incremental materialized views.   |
-|    <img cleanImage src='https://assets.timescale.com/docs/icons/metabase-logo.png' alt='metabase-logo'  />[Metabase][metabase]    | Create dashboards and visualize business data without SQL expertise.    |
-|   <img cleanImage src='https://assets.timescale.com/docs/icons/power-bi-logo.png' alt='power-bi-logo'  />[Power BI][power-bi]     | Visualize data, build interactive dashboards, and share insights.       |
-|   <img cleanImage src='https://assets.timescale.com/docs/icons/snowflake-logo.png' alt='snowflake-logo'  />[Snowflake][snowflake]   | Store, process, and analyze large-scale data in a cloud data warehouse. |
-|    <img cleanImage src='https://assets.timescale.com/docs/icons/superset-logo.png' alt='superset-logo'  />[Superset][superset]    | Create and explore data visualizations and dashboards.                  |
+|     <img isIcon src='https://assets.timescale.com/docs/icons/cube-js-logo.png' alt='cubejs-logo'  />[Cube.js][cube-js]     | Build and optimize data APIs for analytics applications.                |
+|      <img isIcon src='https://assets.timescale.com/docs/icons/looker-logo.png' alt='looker-logo'  />[Looker][looker]      | Explore, analyze, and share business insights with a BI platform.       |
+| <img isIcon src='https://assets.timescale.com/docs/icons/materialize-logo.png' alt='materialize-logo'  />[Materialize][materialize] | Process and query real-time data with incremental materialized views.   |
+|    <img isIcon src='https://assets.timescale.com/docs/icons/metabase-logo.png' alt='metabase-logo'  />[Metabase][metabase]    | Create dashboards and visualize business data without SQL expertise.    |
+|   <img isIcon src='https://assets.timescale.com/docs/icons/power-bi-logo.png' alt='power-bi-logo'  />[Power BI][power-bi]     | Visualize data, build interactive dashboards, and share insights.       |
+|   <img isIcon src='https://assets.timescale.com/docs/icons/snowflake-logo.png' alt='snowflake-logo'  />[Snowflake][snowflake]   | Store, process, and analyze large-scale data in a cloud data warehouse. |
+|    <img isIcon src='https://assets.timescale.com/docs/icons/superset-logo.png' alt='superset-logo'  />[Superset][superset]    | Create and explore data visualizations and dashboards.                  |
 
 ## Configuration and deployment
 
