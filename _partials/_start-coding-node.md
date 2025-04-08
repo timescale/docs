@@ -1,29 +1,9 @@
----
-title: "Quick Start: Node.js and TimescaleDB"
-excerpt: Get started with Timescale Cloud or TimescaleDB using Node.js
-keywords: [Node, node.js]
----
-
-import Intro from "versionContent/_partials/_quickstart-intro.mdx";
-
-# Node.js quick start
-
-<Intro />
-
-This quick start guide walks you through:
-
-*   [Connecting to TimescaleDB][connect]
-*   [Creating a relational table][create-table]
-*   [Creating a hypertable][create-a-hypertable]
-*   [Inserting data][insert]
-*   [Executing a query][query]
+import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
 
 ## Prerequisites
 
-Before you start, make sure you have:
+<IntegrationPrereqs />
 
-*   Installed TimescaleDB. For more information, see the
-    [installation documentation][install].
 *   Installed [Node.js][node-install].
 *   Installed the Node.js package manager [npm][npm-install].
 
@@ -33,8 +13,6 @@ In this section, you create a connection to TimescaleDB with a common Node.js
 ORM (object relational mapper) called [Sequelize][sequelize-info].
 
 <procedure>
-
-<Collapsible heading="Connecting to TimescaleDB" headingLevel={3}>
 
 1.  At the command prompt, initialize a new Node.js app:
 
@@ -157,8 +135,6 @@ ORM (object relational mapper) called [Sequelize][sequelize-info].
     Connection has been established successfully.
     ```
 
-</Collapsible>
-
 </procedure>
 
 ## Create a relational table
@@ -166,8 +142,6 @@ ORM (object relational mapper) called [Sequelize][sequelize-info].
 In this section, you create a relational table called `page_loads`.
 
 <procedure>
-
-<Collapsible heading="Creating a relational table" headingLevel={3}>
 
 1.  Use the Sequelize command line tool to create a table and model called `page_loads`:
 
@@ -237,8 +211,6 @@ In this section, you create a relational table called `page_loads`.
 
 1.  Instantiate a `PageLoads` object and save it to the database.
 
-</Collapsible>
-
 </procedure>
 
 ## Create a hypertable
@@ -248,8 +220,6 @@ Creating tables and indexes, altering tables, inserting data, selecting data,
 and most other tasks are executed on the hypertable.
 
 <procedure>
-
-<Collapsible heading="Creating a hypertable" headingLevel={3}>
 
 1.  Create a migration to modify the `page_loads` relational table, and change
     it to a hypertable by first running the following command:
@@ -304,8 +274,6 @@ and most other tasks are executed on the hypertable.
     == 20200601202912-add_hypertable: migrated (0.426s)
     ```
 
-</Collapsible>
-
 </procedure>
 
 ## Insert rows of data
@@ -313,10 +281,6 @@ and most other tasks are executed on the hypertable.
 This section covers how to insert data into your hypertables.
 
 <procedure>
-
-<Collapsible heading="Inserting rows into TimescaleDB" headingLevel={3}>
-
-## Insert rows into TimescaleDB
 
 1.  In the `index.js` file, modify the `/` route to get the `user-agent` from
     the request object (`req`) and the current timestamp. Then, call the
@@ -342,9 +306,7 @@ This section covers how to insert data into your hypertables.
         }
     })
     ```
-
-</Collapsible>
-
+    
 </procedure>
 
 ## Execute a query
@@ -354,8 +316,6 @@ example, every time the page is reloaded, all information currently in the table
 is displayed.
 
 <procedure>
-
-<Collapsible heading="Executing a query" headingLevel={3}>
 
 1.  Modify the `/` route in the `index.js` file to call the Sequelize `findAll`
     function and retrieve all data from the `page_loads` table using the
@@ -384,8 +344,6 @@ is displayed.
 
 Now, when you reload the page, you should see all of the rows currently in the
 `page_loads` table.
-
-</Collapsible>
 
 </procedure>
 

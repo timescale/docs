@@ -1,44 +1,22 @@
----
-title: "Quick Start: Java and TimescaleDB"
-excerpt: Get started with Timescale Cloud or TimescaleDB using Java
-keywords: [Java]
----
-
-import Intro from "versionContent/_partials/_quickstart-intro.mdx";
-
-# Java quick start
-
-<Intro />
-
-This quick start guide walks you through:
-
-*   [Connecting to TimescaleDB][connect]
-*   [Creating a relational table][create-table]
-*   [Creating a hypertable][create-a-hypertable]
-*   [Inserting data][insert]
-*   [Executing a query][query]
+import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
 
 ## Prerequisites
 
-Before you start, make sure you have:
+<IntegrationPrereqs />
 
-*   Installed TimescaleDB. For more information, see the
-    [installation documentation][install].
 *   Installed the [Java Development Kit (JDK)][jdk].
 *   Installed the [PostgreSQL JDBC driver][pg-jdbc-driver].
 
-All code in this quick start is for Java&nbsp;16 and later. If you are working
+All code in this quick start is for Java 16 and later. If you are working
 with older JDK versions, use legacy coding techniques.
 
-## Connect to TimescaleDB
+## Connect to your $SERVICE_SHORT
 
-In this section, you create a connection to TimescaleDB using an application in
+In this section, you create a connection to your $SERVICE_SHORT using an application in
 a single file. You can use any of your favorite build tools, including `gradle`
 or `maven`.
 
 <procedure>
-
-<Collapsible heading="Connecting to TimescaleDB" headingLevel={3}>
 
 1.  Create a directory containing a text file called `Main.java`, with this content:
 
@@ -91,9 +69,9 @@ or `maven`.
     java -cp *.jar Main.java
     ```
 
-If the command is successful, a string similar to
-`org.postgresql.Driver@7f77e91b` is printed to your console. This means that you
-are ready to connect to TimescaleDB from Java.
+   If the command is successful, a string similar to
+   `org.postgresql.Driver@7f77e91b` is printed to your console. This means that you
+   are ready to connect to TimescaleDB from Java.
 
 1.  Locate your TimescaleDB credentials and use them to compose a connection
    string for JDBC.
@@ -145,8 +123,6 @@ are ready to connect to TimescaleDB from Java.
     If the command is successful, a string similar to
     `{ApplicationName=PostgreSQL JDBC Driver}` is printed to your console.
 
-</Collapsible>
-
 </procedure>
 
 ## Create a relational table
@@ -158,8 +134,6 @@ measurements contain the time, sensor_id, temperature reading, and CPU
 percentage of the sensors.
 
 <procedure>
-
-<Collapsible heading="Creating a relational table" headingLevel={3}>
 
 1.  Compose a string which contains the SQL statement to create a relational
     table. This example creates a table called `sensors`, with columns `id`,
@@ -210,9 +184,7 @@ percentage of the sensors.
         }
     }
     ```
-
-</Collapsible>
-
+    
 </procedure>
 
 ## Create a hypertable
@@ -222,8 +194,6 @@ Creating tables and indexes, altering tables, inserting data, selecting data,
 and most other tasks are executed on the hypertable.
 
 <procedure>
-
-<Collapsible heading="Creating a hypertable" headingLevel={3}>
 
 1.  Create a `CREATE TABLE` SQL statement for
     your hypertable. Notice how the hypertable has the compulsory time column:
@@ -297,8 +267,6 @@ and most other tasks are executed on the hypertable.
     }
     ```
 
-</Collapsible>
-
 </procedure>
 
 ## Insert data
@@ -307,8 +275,6 @@ You can insert data into your hypertables in several different ways. In this
 section, you can insert single rows, or insert by batches of rows.
 
 <procedure>
-
-<Collapsible heading="Inserting single rows into TimescaleDB" headingLevel={3}>
 
 1.  Open a connection to the database, use prepared statements to formulate the
     `INSERT` SQL statement, then execute the statement:
@@ -329,8 +295,6 @@ section, you can insert single rows, or insert by batches of rows.
     }
     ```
 
-</Collapsible>
-
 </procedure>
 
 If you want to insert a batch of rows by using a batching mechanism. In this
@@ -338,11 +302,6 @@ example, you generate some sample time-series data to insert into the
 `sensor_data` hypertable:
 
 <procedure>
-
-<Collapsible
-heading="Inserting batches of rows into TimescaleDB"
-headingLevel={3}
-defaultExpanded={false}>
 
 1.  Insert batches of rows:
 
@@ -367,8 +326,6 @@ defaultExpanded={false}>
     }
     ```
 
-</Collapsible>
-
 </procedure>
 
 ## Execute a query
@@ -376,8 +333,6 @@ defaultExpanded={false}>
 This section covers how to execute queries against your database.
 
 <procedure>
-
-<Collapsible heading="Executing a simple query" headingLevel={3}>
 
 ## Execute queries on TimescaleDB
 
@@ -428,8 +383,6 @@ This section covers how to execute queries against your database.
     ...
     ```
 
-</Collapsible>
-
 </procedure>
 
 ## Next steps
@@ -446,7 +399,7 @@ advanced TimescaleDB tutorials:
 
 This section contains complete code samples.
 
-<Collapsible heading="Complete code sample" headingLevel={3} defaultExpanded={false}>
+### Complete code sample
 
 ```java
 package com.timescale.java;
@@ -534,9 +487,7 @@ public class Main {
 }
 ```
 
-</Collapsible>
-
-<Collapsible heading="Executing more complex queries" headingLevel={3} defaultExpanded={false}>
+### Execute more complex queries
 
 ```java
 package com.timescale.java;
@@ -644,8 +595,6 @@ public class Main {
     }
 }
 ```
-
-</Collapsible>
 
 [jdk]: https://openjdk.java.net
 [pg-jdbc-driver-artifact]: https://jdbc.postgresql.org/download/
