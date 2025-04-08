@@ -303,7 +303,7 @@ To connect your Kubernetes cluster to self-hosted $TIMESCALE_DB running in the c
 
 You have successfully integrated Kubernetes with $CLOUD_LONG.
 
-[connection-info]: /use-timescale/:currentVersion:/integrations/find-connection-details/
+[connection-info]: /integrations/:currentVersion:/find-connection-details/
 [kubernetes]: https://kubernetes.io/
 [kubectl]: https://kubernetes.io/docs/tasks/tools/
 [kubernetes-namespace]: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/

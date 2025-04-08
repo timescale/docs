@@ -7,4 +7,4 @@ To follow the steps on this page:
  
 
 [create-service]: /getting-started/:currentVersion:/services/
-[connection-info]: /use-timescale/:currentVersion:/integrations/find-connection-details/
+[connection-info]: /integrations/:currentVersion:/find-connection-details/
