@@ -239,4 +239,4 @@ For example:
 [compression]: /use-timescale/:currentVersion:/compression/about-compression
 [caggs]: /use-timescale/:currentVersion:/continuous-aggregates/about-continuous-aggregates/
 [join-livesync-on-slack]: https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88
-[install-psql]: /use-timescale/:currentVersion:/integrations/psql/
+[install-psql]: /integrations/:currentVersion:/psql/

@@ -238,7 +238,7 @@ To test this integration, send some messages onto the `accounts` topic. You can 
 
 You have successfully integrated Apache Kafka with $CLOUD_LONG.
 
-[connection-info]: /use-timescale/:currentVersion:/integrations/find-connection-details/
+[connection-info]: /integrations/:currentVersion:/find-connection-details/
 [apache-kafka]: https://kafka.apache.org/documentation/
 [install-kafka]: https://kafka.apache.org/quickstart
 [java-installers]: https://www.oracle.com/java/technologies/downloads/

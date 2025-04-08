@@ -48,8 +48,8 @@ You have successfully integrated Azure Data Studio with $CLOUD_LONG.
 
 [ms-azure-data-studio]: https://docs.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio?view=sql-server-ver16#install-azure-data-studio
 [postgresql-azure-data-studio]: https://docs.microsoft.com/en-us/sql/azure-data-studio/extensions/postgres-extension?view=sql-server-ver16
-[connection-info]: /use-timescale/:currentVersion:/integrations/find-connection-details/
+[connection-info]: /integrations/:currentVersion:/find-connection-details/
 [azure-data-studio]: https://azure.microsoft.com/en-us/products/data-studio
 [ssl-mode]: /use-timescale/:currentVersion:/security/strict-ssl/
-[connection-info]: /use-timescale/:currentVersion:/integrations/find-connection-details/
+[connection-info]: /integrations/:currentVersion:/find-connection-details/
 

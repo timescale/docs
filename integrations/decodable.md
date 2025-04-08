@@ -68,8 +68,8 @@ You have successfully integrated Decodable with $CLOUD_LONG.
 [decodable-app]:https://app.decodable.co/-/accounts
 [sign-up-decodable]: https://auth.decodable.co/u/signup/
 [decodable-quickstart]: https://docs.decodable.co/get-started/quickstart.html
-[connection-info]: /use-timescale/:currentVersion:/integrations/find-connection-details/
+[connection-info]: /integrations/:currentVersion:/find-connection-details/
 [run-queries]: /getting-started/:currentVersion:/run-queries-from-console/
 [open-console]: https://console.cloud.timescale.com/dashboard/services
-[psql]: /use-timescale/:currentVersion:/integrations/psql/
+[psql]: /integrations/:currentVersion:/psql/
 [about-hypertables]: /use-timescale/:currentVersion:/hypertables/about-hypertables/
