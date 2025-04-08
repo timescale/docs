@@ -13,7 +13,7 @@ api:
 
 Shows information about compression settings for each hypertable chunk that has compression enabled on it.
 
-### Arguments
+## Arguments
 
 |Name|Type|Description|
 |-|-|-|
@@ -22,7 +22,7 @@ Shows information about compression settings for each hypertable chunk that has 
 |`segmentby`|`TEXT`|List of columns used for segmenting the compressed data|
 |`orderby`|`TEXT`| List of columns used for ordering compressed data along with ordering and NULL ordering information|
 
-### Sample use
+## Sample use
 
 Show compression settings for all hypertables:
 
