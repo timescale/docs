@@ -269,4 +269,4 @@ You have successfully integrated Supabase with your $SERVICE_LONG.
 [connect]: /getting-started/:currentVersion:/run-queries-from-console/
 [hypercore]: /use-timescale/:currentVersion:/hypercore/
 [postgres-materialized-views]: https://www.postgresql.org/docs/current/rules-materializedviews.html
-[connection-info]: /use-timescale/:currentVersion:/integrations/find-connection-details/
+[connection-info]: /integrations/:currentVersion:/find-connection-details/

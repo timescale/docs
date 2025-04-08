@@ -616,7 +616,7 @@ Customers can now adjust their chunk interval for their hypertables and continuo
 ### CloudWatch permissions via role assumption
 We've released permission granting via role assumption to CloudWatch. Role assumption is both more secure and more convenient for customers who no longer need to rotate credentials and update their exporter config.
 
-For more details take a look at [our documentation](https://docs.timescale.com/use-timescale/latest/metrics-logging/integrations/).
+For more details take a look at [our documentation][integrations].
 
 <img src="https://s3.amazonaws.com/assets.timescale.com/docs/images/cloudwatch-role-assumption.png" width="600px" alt="CloudWatch authentication via role assumption" />
 
@@ -897,5 +897,6 @@ To learn more, see the [postgresql-unit documentation](https://github.com/df7cb/
 [popsql-web]: https://app.popsql.com/login
 [popsql-desktop]: https://popsql.com/download
 [console]: https://console.cloud.timescale.com/dashboard/services
+[integrations]: /integrations/:currentVersion:/
 [log-28032025-pgvectorscale-rn]: https://github.com/timescale/pgvectorscale/releases/tag/0.7.0
 [log-28032025-pgvectorscale-example]: https://github.com/timescale/pgvectorscale?tab=readme-ov-file#label-based-filtering-with-diskann
