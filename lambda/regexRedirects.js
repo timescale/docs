@@ -8,15 +8,12 @@ module.exports = [
     to: "https://docs.timescale.com/getting-started/latest/"
   },
   {
-    from: /^\/v[0-1]\.[0-9]\/use-timescale\/latest\/integrations(\/.*)?$/,
-    to: "https://docs.timescale.com/integrations/latest$1"
+    from: /^\/use-timescale\/latest\/integrations(\/.*)?$/,
+    to: (match) =>
+      `https://docs.timescale.com/integrations/latest${match[1] || ""}`
   },
   {
     from: /^\/v[0-1]\.[0-9]\/tutorials/,
     to: "https://docs.timescale.com/tutorials/latest/"
-  },
-  {
-    from: /use-timescale\/latest\/integrations/,
-    to: "https://docs.timescale.com/integrations/latest/"
   }
 ];
