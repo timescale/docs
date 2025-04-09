@@ -39,29 +39,32 @@
      while [creating the publication][lives-sync-specify-tables].
 
 
-1. **Create the livesync user and assign permissions**
+1. **Create a user for livesync and assign permissions**
 
-   1. Create the livesync user:
+   1. Create `<livesync username>`:
 
       ```sql
-      psql $SOURCE -c "CREATE USER timescale_livesync PASSWORD 'livesync1234'"
+      psql $SOURCE -c "CREATE USER <livesync username> PASSWORD '<password>'"
       ```
    1. Assign the user permissions on the source database:
 
       ```sql
       psql $SOURCE <<EOF
-      GRANT USAGE ON SCHEMA "public" TO timescale_livesync;
-      GRANT SELECT ON ALL TABLES IN SCHEMA "public" TO timescale_livesync;
-      ALTER DEFAULT PRIVILEGES IN SCHEMA "public" GRANT SELECT ON TABLES TO timescale_livesync;
-      GRANT rds_replication TO timescale_livesync;
-      GRANT CREATE ON DATABASE postgres to timescale_livesync;
+      GRANT USAGE ON SCHEMA "public" TO <livesync username>;
+      GRANT SELECT ON ALL TABLES IN SCHEMA "public" TO <livesync username>;
+      ALTER DEFAULT PRIVILEGES IN SCHEMA "public" GRANT SELECT ON TABLES TO <livesync username>;
+      GRANT CREATE ON DATABASE <database name> to <livesync username>;
       EOF
       ```
+      
+      If you are sycing from AWS RDS and Aurora to $CLOUD_LONG, run the following command:
+      ```sql
+      psql $SOURCE -d "GRANT rds_replication TO <livesync username>;"
 
-   1. On each table you want to sync, make `livesync` the owner:
+   1. On each table you want to sync, make `<livesync username>` the owner:
 
       ```sql
-      psql $SOURCE -c 'ALTER TABLE <table name> OWNER TO timescale_livesync;'
+      psql $SOURCE -c 'ALTER TABLE <table name> OWNER TO <livesync username>;'
       ```
 
 1. **Restart your source database**
