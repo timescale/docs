@@ -10,25 +10,21 @@ import CloudIntro from "versionContent/_partials/_cloud-intro.mdx";
 import TimescaleIntro from "versionContent/_partials/_timescale-intro.mdx";
 import WhereNext from "versionContent/_partials/_where-to-next.mdx";
 
-# Get started with Timescale
+# Get started with $CLOUD_LONG
 
 <CloudIntro />
 
 This section shows you how to:
 
-1.  [Create and connect to a $SERVICE_LONG][services-create]: choose the capabilities that match your business and 
-    engineering needs on $COMPANY's cloud-based PostgreSQL platform. 
+1.  [Create and connect to a $SERVICE_LONG][services-create]: choose the capabilities that match your business and engineering needs on $COMPANY's cloud-based $PG platform. 
 1.  [Run queries from $CONSOLE][run-queries-from-console]: securely interact with your data in the $CONSOLE UI. 
-1.  [Try the main features in Timescale products][test-drive]: rapidly implement the features in $CLOUD_LONG that
-    enable you to ingest and query data faster while keeping prices low.
+1.  [Try the main features in $COMPANY products][test-drive]: rapidly implement the features in $CLOUD_LONG that enable you to ingest and query data faster while keeping the costs low.
 
-What next? See the [use case tutorials][tutorials], interact with the data in your $SERVICE_LONG using 
-[your favorite programming language][connect-with-code], integrate your $SERVICE_LONG with a range of 
-[third-party tools][integrations], plain old [Use Timescale][use-timescale], or dive into [the API][use-the-api].
+<WhereNext />
 
 [tutorials]: /tutorials/:currentVersion:/
 [connect-with-code]: /quick-start/:currentVersion:/
-[integrations]: /use-timescale/:currentVersion:/integrations/
+[integrations]: /integrations/:currentVersion:/
 [use-the-api]: /api/:currentVersion:/
 [use-timescale]: /use-timescale/:currentVersion:/
 [services-create]: /getting-started/:currentVersion:/services#create-your-timescale-account

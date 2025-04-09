@@ -79,7 +79,7 @@ tables called chunks. Each chunk is assigned a range of time, and only contains 
 [hypertables-section]: /use-timescale/:currentVersion:/hypertables/
 [portal-ops-mode]: https://console.cloud.timescale.com/dashboard/services
 [portal-data-mode]: https://console.cloud.timescale.com/dashboard/services?popsql
-[connection-info]: /use-timescale/:currentVersion:/integrations/find-connection-details/
+[connection-info]: /integrations/:currentVersion:/find-connection-details/
 [migrate-with-downtime]: /migrate/:currentVersion:/pg-dump-and-restore/
 [migrate-live]: /migrate/:currentVersion:/live-migration/
 [data-ingest]: /use-timescale/:currentVersion:/ingest-data/

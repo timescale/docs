@@ -145,7 +145,7 @@ module.exports = [
   },
   {
     from: "/cloud/latest/integrations",
-    to: "https://docs.timescale.com/use-timescale/latest/metrics-logging/integrations/",
+    to: "https://docs.timescale.com/integrations/latest/",
   },
   {
     from: "/cloud/latest/metrics",
@@ -492,7 +492,7 @@ module.exports = [
   },
   {
     from: "/timescaledb/latest/overview/core-concepts/user-defined-actions",
-    to: "https://docs.timescale.com/use-timescale/latest/user-defined-actions/",
+    to: "https://docs.timescale.com/use-timescale/latest/jobs/",
   },
   {
     from: "/timescaledb/latest/overview/deployment-options",
@@ -544,7 +544,7 @@ module.exports = [
   },
   {
     from: "/timescaledb/latest/using-timescaledb/actions",
-    to: "https://docs.timescale.com/use-timescale/latest/user-defined-actions/",
+    to: "https://docs.timescale.com/use-timescale/latest/jobs/",
   },
   {
     from: "/timescaledb/latest/using-timescaledb/telemetry",
@@ -588,7 +588,7 @@ module.exports = [
   },
   {
     from: "/tutorials/latest/grafana/",
-    to: "https://docs.timescale.com/use-timescale/latest/integrations/grafana/",
+    to: "https://docs.timescale.com/integrations/latest/grafana/",
   },
   {
     from: "/tutorials/latest/howto-monitor-django-prometheus",
@@ -649,27 +649,27 @@ module.exports = [
   { from: "/tutorials", to: "https://docs.timescale.com/tutorials/latest/" },
   {
     from: "/use-timescale/latest/connecting/",
-    to: "https://docs.timescale.com/use-timescale/latest/integrations/",
+    to: "https://docs.timescale.com/integrations/latest/",
   },
   {
     from: "/use-timescale/latest/connecting/about-connecting",
-    to: "https://docs.timescale.com/use-timescale/latest/integrations/find-connection-details/",
+    to: "https://docs.timescale.com/integrations/latest/find-connection-details/",
   },
   {
     from: "/use-timescale/latest/connecting/about-psql/",
-    to: "https://docs.timescale.com/use-timescale/latest/integrations/psql/",
+    to: "https://docs.timescale.com/integrations/latest/psql/",
   },
   {
     from: "/use-timescale/latest/connecting/dbeaver/",
-    to: "https://docs.timescale.com/use-timescale/latest/integrations/dbeaver/",
+    to: "https://docs.timescale.com/integrations/latest/dbeaver/",
   },
   {
     from: "/use-timescale/latest/connecting/pgadmin/",
-    to: "https://docs.timescale.com/use-timescale/latest/integrations/pgadmin/",
+    to: "https://docs.timescale.com/integrations/latest/pgadmin/",
   },
   {
     from: "/use-timescale/latest/connecting/psql/",
-    to: "https://docs.timescale.com/use-timescale/latest/integrations/psql/",
+    to: "https://docs.timescale.com/integrations/latest/psql/",
   },
   {
     from: "/use-timescale/latest/data-tiering/move-data/",
@@ -765,7 +765,7 @@ module.exports = [
   },
   {
     from: "/using-timescaledb/visualizing-data",
-    to: "https://docs.timescale.com/use-timescale/latest/integrations/grafana/",
+    to: "https://docs.timescale.com/integrations/latest/grafana/",
   },
   {
     from: "/use-timescale/latest/account-management/",
@@ -803,7 +803,7 @@ module.exports = [
   },
   {
     from: "/timescaledb/latest/tutorials/grafana/visualizations/pie-chart/",
-    to: "https://docs.timescale.com/use-timescale/latest/integrations/grafana/",
+    to: "https://docs.timescale.com/integrations/latest/grafana/",
   },
   {
     from: "/promscale/latest/about-promscale/#promscale-schema-for-metric-data",
@@ -811,7 +811,7 @@ module.exports = [
   },
   {
     from: "/promscale/latest/visualize-data/grafana",
-    to: "https://docs.timescale.com/use-timescale/latest/integrations/grafana/",
+    to: "https://docs.timescale.com/integrations/latest/grafana/",
   },
   {
     from: "/install/latest/self-hosted/installation-redhat/#where-to-next",
@@ -827,7 +827,7 @@ module.exports = [
   },
   {
     from: "/timescaledb/latest/tutorials/grafana/grafana-variables/",
-    to: "https://docs.timescale.com/use-timescale/latest/integrations/grafana/",
+    to: "https://docs.timescale.com/integrations/latest/grafana/",
   },
   {
     from: "/clustering/using-timescaledb/update-db",
@@ -867,50 +867,106 @@ module.exports = [
   },
   {
     from: '/use-timescale/latest/integrations/observability-alerting/grafana/installation/',
-    to: 'https://docs.timescale.com/use-timescale/latest/integrations/grafana/',
+    to: 'https://docs.timescale.com/integrations/latest/grafana/',
   },
   {
     from: '/use-timescale/latest/integrations/observability-alerting/grafana/geospatial-dashboards/',
-    to: 'https://docs.timescale.com/use-timescale/latest/integrations/grafana/',
+    to: 'https://docs.timescale.com/integrations/latest/grafana/',
   },
   {
     from: '/use-timescale/latest/integrations/observability-alerting/grafana/create-dashboard-and-panel/',
-    to: 'https://docs.timescale.com/use-timescale/latest/integrations/grafana/',
+    to: 'https://docs.timescale.com/integrations/latest/grafana/',
   },
   {
     from: '/use-timescale/latest/integrations/query-admin/about-psql/',
-    to: 'https://docs.timescale.com/use-timescale/latest/integrations/psql/',
+    to: 'https://docs.timescale.com/integrations/latest/psql/',
   },
     {
       from: '/use-timescale/latest/integrations/query-admin/psql/',
-      to: 'https://docs.timescale.com/use-timescale/latest/integrations/psql/',
+      to: 'https://docs.timescale.com/integrations/latest/psql/',
     },
   {
     from: '/use-timescale/latest/integrations/query-admin/about-connecting/',
-    to: 'https://docs.timescale.com/use-timescale/latest/integrations/find-connection-details/',
+    to: 'https://docs.timescale.com/integrations/latest/find-connection-details/',
   },
   {
     from: '/use-timescale/latest/integrations/query-admin/azure-data-studio/',
-    to: 'https://docs.timescale.com/use-timescale/latest/integrations/azure-data-studio/',
+    to: 'https://docs.timescale.com/integrations/latest/azure-data-studio/',
   },
   {
     from: '/use-timescale/latest/integrations/query-admin/dbeaver/',
-    to: 'https://docs.timescale.com/use-timescale/latest/integrations/dbeaver/',
+    to: 'https://docs.timescale.com/integrations/latest/dbeaver/',
   },
   {
     from: '/use-timescale/latest/integrations/query-admin/pgadmin/',
-    to: 'https://docs.timescale.com/use-timescale/latest/integrations/pgadmin/',
+    to: 'https://docs.timescale.com/integrations/latest/pgadmin/',
   },
   {
     from: '/use-timescale/latest/integrations/query-admin/qstudio/',
-    to: 'https://docs.timescale.com/use-timescale/latest/integrations/qstudio/',
+    to: 'https://docs.timescale.com/integrations/latest/qstudio/',
   },
   {
     from: '/use-timescale/latest/integrations/config-deploy/terraform/',
-    to: 'https://docs.timescale.com/use-timescale/latest/integrations/terraform/',
+    to: 'https://docs.timescale.com/integrations/latest/terraform/',
   },
   {
     from: '/use-timescale/latest/integrations/observability-alerting/tableau/',
-    to: 'https://docs.timescale.com/use-timescale/latest/integrations/tableau/',
+    to: 'https://docs.timescale.com/integrations/latest/tableau/',
+  },
+  {
+    from: '/use-timescale/latest/user-defined-actions/troubleshooting/',
+    to: 'https://docs.timescale.com/use-timescale/latest/jobs/troubleshooting/',
+  },
+  {
+    from: '/use-timescale/latest/user-defined-actions/',
+    to: 'https://docs.timescale.com/use-timescale/latest/jobs/',
+  },
+  {
+    from: '/use-timescale/latest/user-defined-actions/about-user-defined-actions/',
+    to: 'https://docs.timescale.com/use-timescale/latest/jobs/create-and-manage-jobs/',
+  },
+  {
+    from: '/use-timescale/latest/user-defined-actions/create-and-register/',
+    to: 'https://docs.timescale.com/use-timescale/latest/jobs/create-and-manage-jobs/',
+  },
+  {
+    from: '/use-timescale/latest/user-defined-actions/test-and-debug/',
+    to: 'https://docs.timescale.com/use-timescale/latest/jobs/create-and-manage-jobs/',
+  },
+  {
+    from: '/use-timescale/latest/user-defined-actions/alter-and-delete/',
+    to: 'https://docs.timescale.com/use-timescale/latest/jobs/create-and-manage-jobs/',
+  },
+  {
+    from: '/use-timescale/latest/user-defined-actions/example-generic-retention/',
+    to: 'https://docs.timescale.com/use-timescale/latest/jobs/example-generic-retention/',
+  },
+  {
+    from: '/use-timescale/latest/user-defined-actions/example-tiered-storage/',
+    to: 'https://docs.timescale.com/use-timescale/latest/jobs/example-tiered-storage/',
+  },
+  {
+    from: '/use-timescale/latest/user-defined-actions/example-downsample-and-compress/',
+    to: 'https://docs.timescale.com/use-timescale/latest/jobs/example-downsample-and-compress/',
+  },
+  {
+    from: '/api/latest/actions/add_job/',
+    to: 'https://docs.timescale.com/api/latest/jobs-automation/add_job/',
+  },
+  {
+    from: '/api/latest/actions/alter_job/',
+    to: 'https://docs.timescale.com/api/latest/jobs-automation/alter_job/',
+  },
+  {
+    from: '/api/latest/actions/delete_job/',
+    to: 'https://docs.timescale.com/api/latest/jobs-automation/delete_job/',
+  },
+  {
+    from: '/api/latest/actions/run_job/',
+    to: 'https://docs.timescale.com/api/latest/jobs-automation/run_job/',
+  },
+  {
+    from: '/api/latest/actions/',
+    to: 'https://docs.timescale.com/api/latest/jobs-automation/',
   },
 ];

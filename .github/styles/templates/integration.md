@@ -12,7 +12,7 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 
 // Provide context for the integration steps, for example, if an additional connector is used.
 
-// See https://docs.timescale.com/use-timescale/latest/integrations/grafana/ for an example. 
+// See https://docs.timescale.com/integrations/latest/grafana/ for an example. 
 
 ## Prerequisites
 
@@ -56,7 +56,7 @@ Take the following steps to <whatever the tool must do in conjunction with Times
 
 You have successfully integrated <third-party tool> with $CLOUD_LONG.
 
-[connection-info]: /use-timescale/:currentVersion:/integrations/find-connection-details/
+[connection-info]: /integrations/:currentVersion:/find-connection-details/
 
 
 

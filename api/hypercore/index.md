@@ -83,7 +83,7 @@ Chunks in the columnstore have the following limitations:
 
 *   `ROW LEVEL SECURITY` is not supported on chunks in the columnstore.
 *   To add unique constraints on chunks in the columnstore [convert_the chunk to rowstore][convert_to_rowstore],
-    add the constraints to your data, then  [convert the chunk back to the rowstore][convert_to_columnstore].
+    add the constraints to your data, then  [convert the chunk back to the columnstore][convert_to_columnstore].
 *   [SkipScan][skipscan] does not currently work on chunks in the columnstore.
 
 
@@ -95,5 +95,5 @@ Chunks in the columnstore have the following limitations:
 [skipscan]: /use-timescale/:currentVersion:/query-data/skipscan/
 [add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/
 [hypercore_workflow]: /api/:currentVersion:/hypercore/#hypercore-workflow
-[alter_job]: /api/:currentVersion:/actions/alter_job/
+[alter_job]: /api/:currentVersion:/jobs-automation/alter_job/
 [remove_columnstore_policy]: /api/:currentVersion:/hypercore/remove_columnstore_policy/

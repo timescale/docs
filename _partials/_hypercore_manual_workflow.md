@@ -1,4 +1,4 @@
-import EarlyAccess from "versionContent/_partials/_early_access.mdx";
+import EarlyAccess from "versionContent/_partials/_early_access_2_18_0.mdx";
 
 1. **Stop the jobs that are automatically adding chunks to the columnstore**
 
