@@ -1,18 +1,22 @@
 module.exports = [
   {
     from: /^\/v[0-1]\.[0-9]\/api/,
-    to: 'https://docs.timescale.com/api/latest/',
+    to: "https://docs.timescale.com/api/latest/"
   },
   {
     from: /^\/v[0-1]\.[0-9]\/getting-started/,
-    to: 'https://docs.timescale.com/getting-started/latest/',
+    to: "https://docs.timescale.com/getting-started/latest/"
   },
   {
-    from: /^\/v[0-1]\.[0-9]\/use-timescale\/latest\/integrations/,
-    to: 'https://docs.timescale.com/integrations/latest/',
+    from: /^\/v[0-1]\.[0-9]\/use-timescale\/latest\/integrations(\/.*)?$/,
+    to: "https://docs.timescale.com/integrations/latest$1"
   },
   {
     from: /^\/v[0-1]\.[0-9]\/tutorials/,
-    to: 'https://docs.timescale.com/tutorials/latest/',
+    to: "https://docs.timescale.com/tutorials/latest/"
   },
+  {
+    from: /use-timescale\/latest\/integrations/,
+    to: "https://docs.timescale.com/integrations/latest/"
+  }
 ];
