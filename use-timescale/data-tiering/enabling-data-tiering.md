@@ -1,6 +1,6 @@
 ---
-title: Manage tiering
-excerpt: Enable tiered storage for your data in Timescale Console. With automated data tiering policies, you get a set it and forget it tool to cut storage costs
+title: Manage storage and tiering
+excerpt: Configure high-performance and low-cost object storage tiers in Timescale Console. With automated data tiering policies, you get a set it and forget it tool to cut storage costs
 products: [cloud]
 keywords: [tiered storage]
 tags: [storage, data management]
@@ -11,10 +11,11 @@ cloud_ui:
 
 import TieredStorageBilling from "versionContent/_partials/_tiered-storage-billing.mdx";
 
-# Manage automated and manual tiering
+# Manage storage and tiering
 
-You use tiered storage to save on storage costs. Specifically, you can migrate rarely used data from 
-Timescale's standard high-performance storage to the object storage. After you 
+You use high-performance storage for frequently accessed data. You can [change the high-performance storage type][change-storage-type] in $CONSOLE to make sure the available storage and IOPS meet your needs. 
+
+You use low-cost object storage to cut costs by migrating rarely used data from the high-performance storage. After you 
 [enable tiered storage][enable-tiered-storage], you then either [create automated tiering policies][tiering-policies] 
 or [manually tier and untier data][manual-tier].
 
@@ -22,21 +23,48 @@ You can query the data on the object storage tier, but you cannot modify it. Mak
 
 <TieredStorageBilling />
 
-## Enable tiered storage
+## Change high-performance storage type
 
-You enable tiered storage from the `Overview` tab in Console.
+By default, $CLOUD_LONG stores your $SERVICE_SHORT data in the standard high-performance storage. This gives you up to 16TB of storage and 16,000 IOPS. You can increase the limits to 64TB and 64,000 IOPS, respectively, by changing the storage type to enhanced. 
+
+To get enhanced storage:
 
 <Procedure>
 
-1. **In [Timescale Console][console], select the service to modify**.
+1. **In [$CONSOLE][console], select your $SERVICE_SHORT, then click `Operations` > `Compute and storage`**
+1. **Select the type in the `Storage type` dropdown**
+
+    The enhanced storage type is only available under the [$ENTERPRISE $PRICING_PLAN][pricing-plans].
+
+    ![Enhanced storage in Timescale Cloud](https://assets.timescale.com/docs/images/enhanced-storage-timescale-cloud.png)
+
+1. **Select the IOPS value in the `I/O boost` dropdown**
+   
+    Select between 16,000, 24,000, 32,0000, and 64,000 IOPS. The value that you can apply depends on the number of CPUs in your $SERVICE_SHORT. $CONSOLE notifies you if your selected IOPS requires increasing the number of CPUs. To increase IOPS to 64,000, click `Contact us` and we will be in touch to confirm the details. 
+
+   ![I/O boost in Timescale Cloud](https://assets.timescale.com/docs/images/io-boost-timescale-cloud.png)
+
+1. **Click `Apply`**
+
+</Procedure>
+
+You change from enhanced storage to standard in the same way. You can make changes to the storage type and $IO_BOOST settings once every 6 hours.  
+
+## Enable tiered storage
+
+You enable tiered storage from the `Overview` tab in $CONSOLE.
+
+<Procedure>
+
+1. **In [Timescale Console][console], select the service to modify**
 
     You see the `Overview` section.
 
-1. **Scroll down, then click `Enable tiered storage`**.
+1. **Scroll down, then click `Enable tiered storage`**
 
    ![Enable tiered storage](https://assets.timescale.com/docs/images/console-enable-tiered-storage.png)
 
-   When tiered storage is enabled, you see the amount of data in the tiered object storage.
+   Once enabled, you can proceed to [tier data manually][manual-tier] or [set up tiering policies][tiering-policies]. When tiered storage is enabled, you see the amount of data in the tiered object storage.
 
 </Procedure>
 
@@ -232,3 +260,4 @@ If you no longer want to use tiered storage for a particular hypertable, drop th
 [tiering-policies]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering#automate-tiering-with-policies
 [manual-tier]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering#manually-tier-and-untier-chunks
 [pricing-plans]: /about/:currentVersion:/pricing-and-account-management
+[change-storage-type]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/#change-high-performance-storage-type

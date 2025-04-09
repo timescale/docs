@@ -446,22 +446,22 @@ module.exports = [
         excerpt: "Save on storage costs by tiering older data to a low-cost bottomless object storage tier",
         children: [
           {
-            title: "About the object storage tier",
+            title: "About storage tiers",
             href: "about-data-tiering",
             excerpt:
-              "Learn how the object storage tier helps you save on storage costs",
+              "Understand the difference between storage tiers in Timescale Cloud",
           },
           {
-            title: "Manage tiering",
+            title: "Manage storage and tiering",
             href: "enabling-data-tiering",
             excerpt:
-              "How to enable the object storage tier",
+              "Enable and configure storage tiers",
           },
           {
             title: "Querying tiered data",
             href: "querying-tiered-data",
             excerpt:
-              "How to query tiered data",
+              "Query data in the object storage",
           },
           {
             title: "Replicas and forks with tiered data",
