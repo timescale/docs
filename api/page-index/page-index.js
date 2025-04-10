@@ -7,11 +7,10 @@ module.exports = [
     excerpt:
       "The API Reference is your go-to resource for all functions, VIEWs and special feature interfaces available with the TimescaleDB extension",
     description:
-      "User-defined actions allow you to run functions and procedures implemented in a language of your choice on a schedule within TimescaleDB. This allows...",
+      "Jobs allow you to run functions and procedures implemented in a language of your choice on a schedule within TimescaleDB. This allows...",
     children: [
       {
         title: "Hypertables & chunks",
-        type: "directory",
         href: "hypertable",
         children: [
           {
@@ -179,7 +178,6 @@ module.exports = [
       },
       {
         title: "Continuous aggregates",
-        type: "redirect-to-child-page",
         href: "continuous-aggregates",
         children: [
           {
@@ -242,7 +240,6 @@ module.exports = [
       },
       {
         title: "Data retention",
-        type: "directory",
         href: "data-retention",
         children: [
           {
@@ -256,9 +253,8 @@ module.exports = [
         ],
       },
       {
-        title: "Actions and automation",
-        type: "directory",
-        href: "actions",
+        title: "Jobs and automation",
+        href: "jobs-automation",
         children: [
           {
             title: "add_job",
@@ -494,7 +490,6 @@ module.exports = [
       },
       {
         title: "Informational views",
-        type: "directory",
         href: "informational-views",
         children: [
           {
@@ -610,7 +605,6 @@ module.exports = [
       },
       {
         title: "Distributed hypertables (Sunsetted v2.14.x)",
-        type: "directory",
         href: "distributed-hypertables",
         children: [
           {

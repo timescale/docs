@@ -30,9 +30,7 @@ completed their part of the distributed transaction can complete it later when
 they become available. This transaction log requires regular cleanup to remove
 transactions that have completed, and complete those that haven't.
 We highly recommended that you configure the access node to run a maintenance
-job that regularly cleans up any unfinished distributed transactions.
-
-The custom maintenance job can be run as a user-defined action. For example:
+job that regularly cleans up any unfinished distributed transactions. For example:
 
 <Tabs title="Custom Maintenance Job">
 <Tab title="TimescaleDB >= 2.12">

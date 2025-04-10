@@ -8,11 +8,63 @@ keywords: [changelog, upgrades, updates, releases]
 
 All the latest features and updates to Timescale products.
 
+## 📒Faster vector search and improved job information
+<Label type="date">April 4, 2025</Label>
 
-## Agent Mode for PopSQL and more
+### pgvectorscale 0.7.0: faster filtered filtered vector search with filtered indexes
+
+This pgvectorscale release adds label-based filtered vector search to the StremingDiskANN index.
+This enables you to return more precise and efficient results by combining vector 
+similarity search with label filtering while still uitilizing the ANN index. This is a common need for large-scale RAG and Agentic applications 
+that rely on vector searches with metadata filters to return relevant results. Filtered indexes add 
+even more capabilities for filtered search at scale, complementing the high accuracy streaming filtering already 
+present in pgvectorscale. The implementation is inspired by Microsoft's Filtered DiskANN research.  
+For more information, see the [pgvectorscale release notes][log-28032025-pgvectorscale-rn] and a 
+[usage example][log-28032025-pgvectorscale-example].
+
+### Job errors and individual job pages
+
+Each job now has an individual page in $CONSOLE, and displays additional details about job errors. You use 
+this information to debug failing jobs. 
+
+To see the job information page, in [$CONSOLE][console], select the $SERVICE_SHORT to check, then click `Jobs` > job ID to investigate.
+
+- Successful jobs: 
+
+  ![Log success in Timescale Console](https://assets.timescale.com/docs/images/changelog-job-success-page.png)
+
+- Unsuccessful jobs with errors:
+
+  ![Log errors in Timescale Console](https://assets.timescale.com/docs/images/changelog-job-error-page.png)
+
+## 🤩 In-Console Livesync for PostgreSQL
+<Label type="date">March 21, 2025</Label>
+
+You can now set up an active data ingestion pipeline with Livesync for PostgreSQL in Timescale Console. This tool enables you to replicate your source database tables into Timescale's hypertables indefinitely. Yes, you heard that right—keep Livesync running for as long as you need, ensuring that your existing source PostgreSQL tables stay in sync with Timescale Cloud. Read more about setting up and using [Livesync for PostgreSQL](https://docs.timescale.com/migrate/latest/livesync/). 
+
+![Livesync in Timescale Console](https://assets.timescale.com/docs/images/timescale-cloud-livesync-tile.png)
+
+![Set up Timescale Livesync](https://assets.timescale.com/docs/images/set-up-timescale-cloud-livesync.png)
+
+![Select tables for Livesync](https://assets.timescale.com/docs/images/select-tables-for-timescale-cloud-livesync.png)
+
+![Timescale Livesync running](https://assets.timescale.com/docs/images/livesync-view-status.png)
+
+## 💾 16K dimensions on pgvectorscale plus new pgai Vectorizer support
+<Label type="date">March 14, 2025</Label>
+
+### pgvectorscale 0.6 — store up to 16K dimension embeddings
+
+pgvectorscale 0.6.0 now supports storing vectors with up to 16,000 dimensions, removing the previous limitation of 2,000 from pgvector. This lets you use larger embedding models like OpenAI's text-embedding-3-large (3072 dim) with PostgreSQL as your vector database. This release also includes key performance and capability enhancements, including NEON support for SIMD distance calculations on aarch64 processors, improved inner product distance metric implementation, and improved index statistics. See the release details [here](https://github.com/timescale/pgvectorscale/releases/tag/0.6.0). 
+
+### pgai Vectorizer supports models from AWS Bedrock, Azure AI, Google Vertex via LiteLLM
+
+Access embedding models from popular cloud model hubs like AWS Bedrock, Azure AI Foundry, Google Vertex, as well as HuggingFace and Cohere as part of the LiteLLM integration with pgai Vectorizer. To use these models with pgai Vectorizer on Timescale Cloud, select `Other` when adding the API key in the credentials section of Timescale Console. 
+
+## 🤖 Agent Mode for PopSQL and more
 <Label type="date">March 7, 2025</Label>
 
-### 🤖 Agent Mode for PopSQL 
+### Agent Mode for PopSQL 
 
 Introducing Agent Mode, a new feature in $CONSOLE SQL Assistant. SQL Assistant lets you query your database using natural language. However, if you ran into errors, you have to approve the implementation of the Assistant's suggestions. 
 
@@ -564,7 +616,7 @@ Customers can now adjust their chunk interval for their hypertables and continuo
 ### CloudWatch permissions via role assumption
 We've released permission granting via role assumption to CloudWatch. Role assumption is both more secure and more convenient for customers who no longer need to rotate credentials and update their exporter config.
 
-For more details take a look at [our documentation](https://docs.timescale.com/use-timescale/latest/metrics-logging/integrations/).
+For more details take a look at [our documentation][integrations].
 
 <img src="https://s3.amazonaws.com/assets.timescale.com/docs/images/cloudwatch-role-assumption.png" width="600px" alt="CloudWatch authentication via role assumption" />
 
@@ -845,3 +897,6 @@ To learn more, see the [postgresql-unit documentation](https://github.com/df7cb/
 [popsql-web]: https://app.popsql.com/login
 [popsql-desktop]: https://popsql.com/download
 [console]: https://console.cloud.timescale.com/dashboard/services
+[integrations]: /integrations/:currentVersion:/
+[log-28032025-pgvectorscale-rn]: https://github.com/timescale/pgvectorscale/releases/tag/0.7.0
+[log-28032025-pgvectorscale-example]: https://github.com/timescale/pgvectorscale?tab=readme-ov-file#label-based-filtering-with-diskann

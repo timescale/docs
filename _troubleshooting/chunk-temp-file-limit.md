@@ -2,7 +2,7 @@
 title: Temporary file size limit exceeded when compressing chunks
 section: troubleshooting
 products: [cloud, mst, self_hosted]
-topics: [hypertables, distributed hypertables, compression]
+topics: [hypertables, distributed hypertables, compression, hypercore]
 errors:
   - language: text
     message: |-

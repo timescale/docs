@@ -50,5 +50,5 @@ Calls to `convert_to_columnstore` return:
 
 
 [add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/
-[run-job]: /api/:currentVersion:/actions/run_job/
+[run-job]: /api/:currentVersion:/jobs-automation/run_job/
 [convert_to_rowstore]: /api/:currentVersion:/hypercore/convert_to_rowstore/
