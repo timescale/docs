@@ -46,6 +46,9 @@
       ```sql
       psql $SOURCE -c "CREATE USER <livesync username> PASSWORD '<password>'"
       ```
+      
+      You can use an existing user. However, you must ensure that the user has the following permissions.
+   
    1. Assign the user permissions on the source database:
 
       ```sql
