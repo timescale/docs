@@ -49,5 +49,5 @@ You have successfully integrated Tableau with $CLOUD_LONG.
 [tableau-server]: https://www.tableau.com/support/releases/server/2024.2.6#esdalt
 [tableau-login]: http://online.tableau.com/
 [cloud-login]: https://console.cloud.timescale.com/
-[connection-info]: /use-timescale/:currentVersion:/integrations/find-connection-details/
+[connection-info]: /integrations/:currentVersion:/find-connection-details/
 [tableau]: https://www.tableau.com/

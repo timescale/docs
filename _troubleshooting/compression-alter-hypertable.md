@@ -2,7 +2,7 @@
 title: Cannot add column to a compressed hypertable
 section: troubleshooting
 products: [cloud, mst, self_hosted]
-topics: [hypertables, compression]
+topics: [hypertables, compression, hypercore]
 errors:
   - language: text
     message: |-

@@ -47,4 +47,4 @@ this tutorial is to
 </Highlight>
 
 [install-timescale]: /getting-started/latest/
-[psql-install]: /use-timescale/:currentVersion:/integrations/psql/
+[psql-install]: /integrations/:currentVersion:/psql/
