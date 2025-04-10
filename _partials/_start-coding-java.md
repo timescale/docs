@@ -4,8 +4,8 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 
 <IntegrationPrereqs />
 
-*   Installed the [Java Development Kit (JDK)][jdk].
-*   Installed the [PostgreSQL JDBC driver][pg-jdbc-driver].
+*   Install the [Java Development Kit (JDK)][jdk].
+*   Install the [PostgreSQL JDBC driver][pg-jdbc-driver].
 
 All code in this quick start is for Java 16 and later. If you are working
 with older JDK versions, use legacy coding techniques.

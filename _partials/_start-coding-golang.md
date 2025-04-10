@@ -5,8 +5,8 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 
 <IntegrationPrereqs />
 
-- Installed [Go][golang-install].
-- Installed the [PGX driver for Go][pgx-driver-github].
+- Install [Go][golang-install].
+- Install the [PGX driver for Go][pgx-driver-github].
 
 ## Connect to your $SERVICE_SHORT 
 

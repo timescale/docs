@@ -4,9 +4,10 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 
 <IntegrationPrereqs />
 
-*   Installed the `psycopg2` library. For more information, see the
-    [psycopg2 documentation][psycopg2-docs].
-*   [](#)<Optional />A [Python virtual environment][virtual-env].
+*   Install the `psycopg2` library. 
+
+   For more information, see the [psycopg2 documentation][psycopg2-docs].
+*   Create a [Python virtual environment][virtual-env]. [](#)<Optional />
 
 ## Connect to TimescaleDB
 

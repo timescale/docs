@@ -4,8 +4,8 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 
 <IntegrationPrereqs />
 
-*   Installed [Node.js][node-install].
-*   Installed the Node.js package manager [npm][npm-install].
+*   Install [Node.js][node-install].
+*   Install the Node.js package manager [npm][npm-install].
 
 ## Connect to TimescaleDB
 
