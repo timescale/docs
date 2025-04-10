@@ -216,13 +216,13 @@ Some of the most in-demand integrations are listed below.
 [flink]: https://nightlies.apache.org/flink/flink-cdc-docs-release-3.1/docs/connectors/flink-sources/postgres-cdc/
 [flyway]: https://documentation.red-gate.com/flyway/reference/database-driver-reference/timescaledb
 [forest-admin]: https://www.forestadmin.com/integrations/postgresql
-[golang]: /getting-started/:currentVersion:/start-coding-with-timescale/
+[golang]: /getting-started/:currentVersion:/coding-quickstart/
 [google-cloud]: /integrations/:currentVersion:/google-cloud
 [grafana]: /integrations/:currentVersion:/grafana/
 [hasura]: https://hasura.io/docs/2.0/databases/postgres/timescale-cloud/
 [ibm-instana]: https://www.ibm.com/docs/en/instana-observability/current?topic=technologies-monitoring-postgresql
 [jaeger]: https://www.jaegertracing.io/docs/2.0/storage/
-[java]: /getting-started/:currentVersion:/start-coding-with-timescale/
+[java]: /getting-started/:currentVersion:/coding-quickstart/
 [kafka]: /integrations/:currentVersion:/apache-kafka
 [langchain]: https://api.python.langchain.com/en/latest/postgres/index.html#
 [liquibase]: https://docs.liquibase.com/start/tutorials/postgresql/postgresql.html
@@ -236,7 +236,7 @@ Some of the most in-demand integrations are listed below.
 [n8n]: https://n8n.io/integrations/redis/and/timescaledb/
 [neon]: https://neon.tech/docs/extensions/timescaledb
 [new-relic]: https://docs.newrelic.com/docs/infrastructure/host-integrations/host-integrations-list/postgresql/postgresql-integration/
-[node-js]: /getting-started/:currentVersion:/start-coding-with-timescale/
+[node-js]: /getting-started/:currentVersion:/coding-quickstart/
 [okta]: https://help.okta.com/oag/en-us/content/topics/access-gateway/integrate-app-datastores.htm
 [opentelemetry]: https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/receiver/postgresqlreceiver
 [pgadmin]: /integrations/:currentVersion:/pgadmin/
@@ -248,7 +248,7 @@ Some of the most in-demand integrations are listed below.
 [kubernetes]: /integrations/:currentVersion:/kubernetes
 [psql]: /integrations/:currentVersion:/psql/
 [pulumi]: https://www.pulumi.com/registry/packages/timescale/
-[python]: /getting-started/:currentVersion:/start-coding-with-timescale/
+[python]: /getting-started/:currentVersion:/coding-quickstart/
 [qlik-replicate]: https://help.qlik.com/en-US/replicate/November2024/Content/Replicate/Main/PostgreSQL/postgresql.htm#ar_postgresds_802412600_1325150
 [qlik-source]: https://help.qlik.com/en-US/replicate/November2024/Content/Replicate/Main/PostgreSQL/postgresql_source.htm
 [qstudio]: /integrations/:currentVersion:/qstudio/
@@ -258,7 +258,7 @@ Some of the most in-demand integrations are listed below.
 [render]: https://render.com/docs/postgresql
 [retool]: https://retool.com/integrations/postgresql
 [rsyslog]: https://www.rsyslog.com/doc/configuration/modules/ompgsql.html
-[ruby]: /getting-started/:currentVersion:/start-coding-with-timescale/
+[ruby]: /getting-started/:currentVersion:/coding-quickstart/
 [rust]: https://github.com/sfackler/rust-postgres
 [schemaspy]: https://wiki.postgresql.org/wiki/SchemaSpy
 [signoz]: https://signoz.io/docs/integrations/postgresql/

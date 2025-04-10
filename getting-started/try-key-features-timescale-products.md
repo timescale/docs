@@ -405,7 +405,7 @@ What next? See the [use case tutorials][tutorials], interact with the data in yo
 [third-party tools][integrations], plain old [Use Timescale][use-timescale], or dive into [the API][use-the-api].
 
 [tutorials]: /tutorials/:currentVersion:/
-[connect-with-code]: /getting-started/:currentVersion:/start-coding-with-timescale/
+[connect-with-code]: /getting-started/:currentVersion:/coding-quickstart/
 [integrations]: /integrations/:currentVersion:/
 [use-the-api]: /api/:currentVersion:/
 [use-timescale]: /use-timescale/:currentVersion:/

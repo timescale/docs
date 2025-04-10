@@ -17,8 +17,8 @@ module.exports = [
           "Improve database performance with Hypertables, time bucketing, continuous aggregates, compression, data tiering, and high availability",
       },
       {
-        title: "Start coding with Timescale",
-        href: "start-coding-with-timescale",
+        title: "Coding quickstart",
+        href: "coding-quickstart",
         excerpt:
           "Integrate Timescale Cloud with your app using your preferred programming language",
       },
