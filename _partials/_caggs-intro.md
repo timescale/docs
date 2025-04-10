@@ -21,10 +21,8 @@ means that you can get on with working your data instead of maintaining your
 database.
 
 Because continuous aggregates are based on hypertables, you can query them in
-exactly the same way as your other tables, and enable [compression][compression]
-or [tiered storage][data-tiering] on them. You can even
-create
-[continuous aggregates on top of your continuous aggregates][hierarchical-caggs] - for an even more fine-tuned aggregation. 
+exactly the same way as your other tables. This includes continuous aggregates in the rowstore, compressed into the [columnstore][compression], 
+or [tiered to object storage][data-tiering]. You can even create [continuous aggregates on top of your continuous aggregates][hierarchical-caggs] - for an even more fine-tuned aggregation. 
 
 By default, querying continuous aggregates provides you with real-time data.
 Pre-aggregated data from the materialized view is combined with recent data that

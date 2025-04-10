@@ -11,12 +11,12 @@
 1. Enable any Timescale Cloud features you want to use.
 
    Migration from PostgreSQL moves the data only. Now manually enable Timescale Cloud features like
-   [hypertables][about-hypertables], [data compression][data-compression] or [data retention][data-retention]
+   [hypertables][about-hypertables], [hypercore][data-compression] or [data retention][data-retention]
    while your database is offline.
 
 1. Reconfigure your app to use the target database, then restart it.
 
 
 [about-hypertables]: /use-timescale/:currentVersion:/hypertables/about-hypertables/
-[data-compression]: /use-timescale/:currentVersion:/compression/about-compression/
+[data-compression]: /use-timescale/:currentVersion:/hypercore/
 [data-retention]: /use-timescale/:currentVersion:/data-retention/about-data-retention/

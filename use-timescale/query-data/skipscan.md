@@ -32,7 +32,7 @@ entire index to find all unique values. As a table grows, this operation keeps
 getting slower.
 
 <Highlight type="note">
-Timescale SkipScan does not currently work on compressed chunks.
+Timescale SkipScan does not currently work on chunks compressed into the columnstore.
 </Highlight>
 
 SkipScan allows queries to incrementally jump from one ordered value to the next

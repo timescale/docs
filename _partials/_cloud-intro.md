@@ -8,7 +8,7 @@ use as is, or extend with the capabilities specific to your business needs:
 
 - **Time-series and analytics**: $PG with $TIMESCALE_DB. The $PG you know and love, 
    supercharged with functionality for storing and querying [time-series data][what-is-time-series] at scale for 
-   real-time analytics and other use cases. Get faster time-based queries with $HYPERTABLEs, $CAGGs, and columnar storage. Save on storage with native compression, data retention policies, and bottomless data tiering to Amazon S3. 
+   real-time analytics and other use cases. Get faster time-based queries with $HYPERTABLEs, $CAGGs, and columnar storage. Save money by compressing data into a columnstore, moving cold data to low-cost bottomless storage in Amazon S3, and deleting old data with automated policies. 
 - **AI and vector**: $PG with vector extensions. Use $PG as a vector database with 
    purpose built extensions for building AI applications from start to scale. Get fast and accurate similarity search 
    with the pgvector and pgvectorscale extensions. Create vector embeddings and perform LLM reasoning on your data with 

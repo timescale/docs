@@ -28,8 +28,8 @@ You use downtime migration to move less than 100GB of data from self-hosted data
 service.
 
 Downtime migration uses the native PostgreSQL [`pg_dump`][pg_dump] and [`pg_restore`][pg_restore] commands. 
-If you are migrating from self-hosted TimescaleDB, this method works for compressed hypertables without having 
-to decompress data before you begin. 
+If you are migrating from self-hosted TimescaleDB, this method works for hypertables compressed into the columnstore without having 
+to convert the data back to the rowstore before you begin. 
 
 <DoNotRecommendForLargeMigration />
 
@@ -76,7 +76,7 @@ This section shows you how to move your data from self-hosted PostgreSQL to a Ti
 using `pg_dump` and `psql` from Terminal.
 
 Migration from PostgreSQL moves the data only. You must manually enable Timescale Cloud features like
-[hypertables][about-hypertables], [data compression][data-compression] or [data retention][data-retention] after the migration is complete. You enable Timescale Cloud 
+[hypertables][about-hypertables], [hypercore][data-compression] or [data retention][data-retention] after the migration is complete. You enable Timescale Cloud 
 features while your database is offline.
 
 
@@ -137,7 +137,7 @@ And that is it, you have migrated your data from a Managed Service for Timescale
 [timescaledb_pre_restore]: /api/:currentVersion:/administration/#timescaledb_post_restore
 [timescaledb_post_restore]: /api/:currentVersion:/administration/#timescaledb_post_restore
 [about-hypertables]: /use-timescale/:currentVersion:/hypertables/about-hypertables/
-[data-compression]: /use-timescale/:currentVersion:/compression/about-compression/
+[data-compression]: /use-timescale/:currentVersion:/hypercore/
 [data-retention]: /use-timescale/:currentVersion:/data-retention/about-data-retention/
 [live migration]: /migrate/:currentVersion:/live-migration
 [space-partitioning]: /use-timescale/:currentVersion:/hypertables/about-hypertables#space-partitioning
