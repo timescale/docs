@@ -23,15 +23,28 @@
 
    ```bash
    sed -i -E \
-   -e '/CREATE ROLE "postgres";/d' \
-   -e '/ALTER ROLE "postgres"/d' \
-   -e '/CREATE ROLE "tsdbadmin";/d' \
-   -e '/ALTER ROLE "tsdbadmin"/d' \
-   -e '/GRANT "pg_read_all_stats" TO "tsdbadmin"/d' \
-   -e 's/(NO)*SUPERUSER//g' \
-   -e 's/(NO)*REPLICATION//g' \
-   -e 's/(NO)*BYPASSRLS//g' \
-   -e 's/GRANTED BY "[^"]*"//g' \
+  -e '/DROP ROLE IF EXISTS "postgres";/d' \
+  -e '/DROP ROLE IF EXISTS "tsdbadmin";/d' \
+  -e '/CREATE ROLE "postgres";/d' \
+  -e '/ALTER ROLE "postgres"/d' \
+  -e '/CREATE ROLE "rds/d' \
+  -e '/ALTER ROLE "rds/d' \
+  -e '/TO "rds/d' \
+  -e '/GRANT "rds/d' \
+  -e 's/(NO)*SUPERUSER//g' \
+  -e 's/(NO)*REPLICATION//g' \
+  -e 's/(NO)*BYPASSRLS//g' \
+  -e 's/GRANTED BY "[^"]*"//g' \
+  -e '/CREATE ROLE "tsdbadmin";/d' \
+  -e '/ALTER ROLE "tsdbadmin"/d' \
+  -e 's/WITH ADMIN OPTION,/WITH /g' \
+  -e 's/WITH ADMIN OPTION//g' \
+  -e 's/GRANTED BY ".*"//g' \
+  -e '/GRANT "pg_.*" TO/d' \
+  -e '/CREATE ROLE "_aiven";/d' \
+  -e '/ALTER ROLE "_aiven"/d' \
+  -e '/GRANT SET ON PARAMETER "pgaudit.log_max_string_length" TO "_tsdbadmin_auditing"/d' \
+  -e '/GRANT SET ON PARAMETER "pgaudit.log_nested_statements" TO "_tsdbadmin_auditing"/d' \
    roles.sql
    ```
 
