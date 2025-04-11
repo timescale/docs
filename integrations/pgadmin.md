@@ -42,5 +42,5 @@ You have successfully integrated pgAdmin with $CLOUD_LONG.
 
 [pgadmin]: https://www.pgadmin.org/
 [download-pgadmin]: https://www.pgadmin.org/download/
-[connection-info]: /use-timescale/:currentVersion:/integrations/find-connection-details/
+[connection-info]: /integrations/:currentVersion:/find-connection-details/
 [ssl-mode]: /use-timescale/:currentVersion:/security/strict-ssl/

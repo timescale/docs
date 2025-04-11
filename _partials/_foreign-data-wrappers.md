@@ -191,6 +191,6 @@ You create PostgreSQL FDWs with the `postgres_fdw` extension. See [documenation]
 [vpc-peering]: /use-timescale/:currentVersion:/security/vpc/
 [sql-editor]: /getting-started/:currentVersion:/run-queries-from-console/#ops-mode-sql-editor/
 [connect]: /getting-started/:currentVersion:/run-queries-from-console/
-[connection-info]: /use-timescale/:currentVersion:/integrations/find-connection-details/
+[connection-info]: /integrations/:currentVersion:/find-connection-details/
 [enable-fdw-docs]: https://www.postgresql.org/docs/current/postgres-fdw.html
-[psql]: /use-timescale/:currentVersion:/integrations/psql/
+[psql]: /integrations/:currentVersion:/psql/

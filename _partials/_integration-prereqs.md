@@ -8,4 +8,4 @@ To follow the steps on this page:
 
 [create-service]: /getting-started/:currentVersion:/services/
 [enable-timescaledb]: /self-hosted/:currentVersion:/install/
-[connection-info]: /use-timescale/:currentVersion:/integrations/find-connection-details/
+[connection-info]: /integrations/:currentVersion:/find-connection-details/
