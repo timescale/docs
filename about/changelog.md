@@ -8,11 +8,10 @@ keywords: [changelog, upgrades, updates, releases]
 
 All the latest features and updates to Timescale products.
 
-## 🪵 TimescaleDB v2.19, new Service Overview page, and log improvements
-
+## 🪵 TimescaleDB v2.19, new service overview page, and log improvements
 <Label type="date">April 11, 2025</Label>
 
-### TimescaleDB v2.19 - Query performance and concurrency improvements
+### TimescaleDB v2.19—query performance and concurrency improvements
 
 Starting this week, all new services created on Timescale Cloud use [TimescaleDB v2.19](https://github.com/timescale/timescaledb/releases/tag/2.19.0). Existing services will be upgraded gradually during their maintenance window.
 
@@ -22,19 +21,21 @@ Highlighted features in TimescaleDB v2.19 include:
 - Improved system performance during continuous aggregate refreshes by breaking them into smaller batches. This reduces systems pressure and minimizes the risk of spilling to disk.
 - Faster and more up-to-date results for queries against continuous aggregates by materializing the most recent data first, as opposed to old data first in prior versions.
 - Faster analytical queries with SIMD vectorization of aggregations over text columns and `GROUP BY` over multiple columns.
-- Enable optimizing the chunk size for better query performance in the columnstore by merging them with `merge_chunk`.
+- Enable chunk size optimization for better query performance in the columnstore by merging them with `merge_chunk`.
 
-### New Service Overview page
+### New service overview page
 
-The service overview page has been totally overhauled to simplify the page and make it easier to use. Customers can see the new page by navigating to any of their services where they will find an architecture diagram of their service and general information pertaining to their service. You may also have recommendations at the top of the overview for how to optimize your service. If you would like to leave the product team feedback, click `Help & Support` in the left navigation and click `Send feedback to the product team`.
+The service overview page in Timescale Console has been overhauled to make it simpler and easier to use. Navigate to the `Overview` tab for any of your services and you will find an architecture diagram and general information pertaining to it. You may also see recommendations at the top, for how to optimize your service. 
 
-![New Service Overview page](https://assets.timescale.com/docs/images/new-service-overview-page.png)
+![New Service Overview page](https://assets.timescale.com/docs/images/new-timescale-service-overview.png)
 
-### Find Logs Faster
+To leave the product team your feedback, open `Help & Support` on the left and select `Send feedback to the product team`.
 
-Finding logs just got easier. We've added a date, time, and timezone picker, so you can jump straight to the exact moment you're interested in – no more endless scrolling.
+### Find logs faster
 
-![Find logs faster](https://assets.timescale.com/docs/images/find-logs-faster.png)
+Finding logs just got easier! We've added a date, time, and timezone picker, so you can jump straight to the exact moment you're interested in—no more endless scrolling.
+
+![Find logs faster](https://assets.timescale.com/docs/images/find-logs-faster-timescale-console.png)
 
 ## 📒Faster vector search and improved job information
 <Label type="date">April 4, 2025</Label>
