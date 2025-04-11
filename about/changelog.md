@@ -8,6 +8,35 @@ keywords: [changelog, upgrades, updates, releases]
 
 All the latest features and updates to Timescale products.
 
+## 🪵 TimescaleDB v2.19, new service overview page, and log improvements
+<Label type="date">April 11, 2025</Label>
+
+### TimescaleDB v2.19—query performance and concurrency improvements
+
+Starting this week, all new services created on Timescale Cloud use [TimescaleDB v2.19](https://github.com/timescale/timescaledb/releases/tag/2.19.0). Existing services will be upgraded gradually during their maintenance window.
+
+Highlighted features in TimescaleDB v2.19 include:
+
+- Improved concurrency of `INSERT`, `UPDATE`, and `DELETE` operations on the columnstore by no longer blocking DML statements during the recompression of a chunk.
+- Improved system performance during continuous aggregate refreshes by breaking them into smaller batches. This reduces systems pressure and minimizes the risk of spilling to disk.
+- Faster and more up-to-date results for queries against continuous aggregates by materializing the most recent data first, as opposed to old data first in prior versions.
+- Faster analytical queries with SIMD vectorization of aggregations over text columns and `GROUP BY` over multiple columns.
+- Enable chunk size optimization for better query performance in the columnstore by merging them with `merge_chunk`.
+
+### New service overview page
+
+The service overview page in Timescale Console has been overhauled to make it simpler and easier to use. Navigate to the `Overview` tab for any of your services and you will find an architecture diagram and general information pertaining to it. You may also see recommendations at the top, for how to optimize your service. 
+
+![New Service Overview page](https://assets.timescale.com/docs/images/new-timescale-service-overview.png)
+
+To leave the product team your feedback, open `Help & Support` on the left and select `Send feedback to the product team`.
+
+### Find logs faster
+
+Finding logs just got easier! We've added a date, time, and timezone picker, so you can jump straight to the exact moment you're interested in—no more endless scrolling.
+
+![Find logs faster](https://assets.timescale.com/docs/images/find-logs-faster-timescale-console.png)
+
 ## 📒Faster vector search and improved job information
 <Label type="date">April 4, 2025</Label>
 
