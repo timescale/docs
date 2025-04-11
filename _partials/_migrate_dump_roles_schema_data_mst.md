@@ -31,6 +31,7 @@
   -e '/ALTER ROLE "rds/d' \
   -e '/TO "rds/d' \
   -e '/GRANT "rds/d' \
+  -e '/GRANT "pg_read_all_stats" TO "tsdbadmin"/d' \
   -e 's/(NO)*SUPERUSER//g' \
   -e 's/(NO)*REPLICATION//g' \
   -e 's/(NO)*BYPASSRLS//g' \
