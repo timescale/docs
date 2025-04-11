@@ -31,7 +31,7 @@ Among others, `add_continuous_aggregate_policy` takes the following arguments:
     24 hours.
 
 If you set the `start_offset` or `end_offset` to `NULL`, the range is open-ended
-and extends to the beginning or end of time. If you set `end_offset` within the current time bucket, and [real-time aggregation][future-watermark] is disabled, the current time bucket is excluded. This is to improve performance: for time-series data that mostly contains writes that occur in the time stamp order, the time buckets that see lots of writes quickly have out-of-date aggregates. You get better performance by excluding the time buckets that are getting a lot of writes.
+and extends to the beginning or end of time. If you set `end_offset` within the current time bucket, and [real-time aggregation][future-watermark] is disabled, the current time bucket is excluded. This is because the current bucket is incomplete and can't be refreshed. Excluding the current bucket also improves performance: for time-series data that mostly contains writes that occur in the time stamp order, the time buckets that see lots of writes quickly have out-of-date aggregates. You get better performance by excluding the time buckets that are getting a lot of writes. 
 
 See the [API reference][api-reference]
 for the full list of required and optional arguments and use examples.
