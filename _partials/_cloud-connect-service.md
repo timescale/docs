@@ -81,9 +81,9 @@ Quick recap. You:
 [portal-data-mode]: https://console.cloud.timescale.com/dashboard/services?popsql
 [account-portal]: https://console.cloud.timescale.com/dashboard/account
 [services-portal]: https://console.cloud.timescale.com/dashboard/services
-[install-psql]: /use-timescale/:currentVersion:/integrations/psql/
+[install-psql]: /integrations/:currentVersion:/psql/
 [popsql]: /getting-started/:currentVersion:/run-queries-from-console/#data-mode
 [run-sqleditor]: /getting-started/:currentVersion:/run-queries-from-console/#sql-editor
-[install-psql]: /use-timescale/:currentVersion:/integrations/psql/
+[install-psql]: /integrations/:currentVersion:/psql/
 [hypertables]: /use-timescale/:currentVersion:/hypertables/about-hypertables/#hypertable-partitioning
-[psql]: /use-timescale/:currentVersion:/integrations/psql/
+[psql]: /integrations/:currentVersion:/psql/

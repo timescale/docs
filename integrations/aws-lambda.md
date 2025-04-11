@@ -203,8 +203,8 @@ You can now seamlessly ingest time-series data from AWS Lambda into $CLOUD_LONG.
 [install-postgresql]: https://www.postgresql.org/download/
 [console]: https://console.cloud.timescale.com/
 [run-queries]: /getting-started/:currentVersion:/run-queries-from-console/
-[psql]: /use-timescale/:currentVersion:/integrations/psql/
+[psql]: /integrations/:currentVersion:/psql/
 [about-hypertables]: /use-timescale/:currentVersion:/hypertables/about-hypertables/
 [aws-iam-role]: https://docs.aws.amazon.com/IAM/latest/UserGuide/access-keys-admin-managed.html#admin-list-access-key
 [open-console]: https://console.cloud.timescale.com/dashboard/services
-[connection-info]: /use-timescale/:currentVersion:/integrations/find-connection-details/
+[connection-info]: /integrations/:currentVersion:/find-connection-details/

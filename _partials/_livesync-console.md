@@ -74,8 +74,10 @@ To sync data from your PostgreSQL database to your $SERVICE_LONG using $CONSOLE:
 
    In `livesync for PostgreSQL`:
    1. Set the `Livesync Name`.
-   2. Set the` PostgreSQL Connection String` to point to the source database you want to sync to Timescale.
-   3. Press `Continue`.
+   1. Set the` PostgreSQL Connection String` to point to the source database you want to sync to Timescale.
+   
+      This is the connection string for [`<livesync username>`][livesync-tune-source-db]. 
+   1. Press `Continue`.
       $CONSOLE connects to the source database and retrieves the schema information.
 
 1. **Optimize the data to syncronize in hypertables**
@@ -99,5 +101,7 @@ To sync data from your PostgreSQL database to your $SERVICE_LONG using $CONSOLE:
 And that is it, you are using Livesync to synchronize all the data, or specific tables, from a PostgreSQL database 
 instance to your $SERVICE_LONG in real-time.
 
-[install-psql]: /use-timescale/:currentVersion:/integrations/psql/
+[install-psql]: /integrations/:currentVersion:/psql/
 [portal-ops-mode]: https://console.cloud.timescale.com/dashboard/services
+[livesync-tune-source-db]: /migrate/:currentVersion:/livesync/#tune-your-source-database
+

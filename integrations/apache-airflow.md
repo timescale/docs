@@ -144,7 +144,7 @@ You have successfully integrated Apache Airflow with $CLOUD_LONG and created a d
 [console]: https://console.cloud.timescale.com/
 [create-service]: /getting-started/:currentVersion:/services/
 [enable-timescaledb]: /self-hosted/:currentVersion:/install/
-[connection-info]: /use-timescale/:currentVersion:/integrations/find-connection-details/
+[connection-info]: /integrations/:currentVersion:/find-connection-details/
 [Airflow-DAG]: https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/dags.html#dags
 [Airflow-Task]:https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/tasks.html
 [Airflow_UI]: localhost:8080

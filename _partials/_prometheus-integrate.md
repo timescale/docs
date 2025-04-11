@@ -99,11 +99,11 @@ You can further [visualize your data][grafana-prometheus] with Grafana. Use the
 [install-exporter]: https://grafana.com/oss/prometheus/exporters/postgres-exporter/?tab=installation
 [postgresql-exporter-dashboard]: https://grafana.com/oss/prometheus/exporters/postgres-exporter/?tab=dashboards
 [install-prometheus]: https://prometheus.io/docs/prometheus/latest/installation/
-[grafana]: /use-timescale/:currentVersion:/integrations/grafana/
+[grafana]: /integrations/:currentVersion:/grafana/
 [grafana-prometheus]: https://grafana.com/docs/grafana-cloud/send-data/metrics/metrics-prometheus/
 [prometheus]: https://prometheus.io/docs/introduction/overview/
 [run-queries]: /getting-started/:currentVersion:/run-queries-from-console/
-[psql]: /use-timescale/:currentVersion:/integrations/psql/
-[connection-info]: /use-timescale/:currentVersion:/integrations/find-connection-details/
+[psql]: /integrations/:currentVersion:/psql/
+[connection-info]: /integrations/:currentVersion:/find-connection-details/
 [postgresql-exporter]: https://grafana.com/oss/prometheus/exporters/postgres-exporter/
 [open-console]: https://console.cloud.timescale.com/dashboard/services
