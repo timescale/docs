@@ -1,8 +1,7 @@
 ---
 title: Run your queries from Timescale Console
 excerpt: Choose the right tool to manage your data. Timescale Cloud offers the data mode, the SQL editor, and the SQL Assistant to better address your needs
-keywords: [popsql, sql editor, chart, dashboard]
-layout_components: [next_prev_large]
+products: [cloud, mst, self_hosted]
 content_group: Getting started
 ---
 

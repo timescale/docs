@@ -5,7 +5,7 @@ into [the API][use-the-api].
 
 [tutorials]: /tutorials/:currentVersion:/
 [integrations]: /integrations/:currentVersion:/
-[connect-with-code]: /getting-started/:currentVersion:/coding-quickstart/
+[connect-with-code]: /getting-started/:currentVersion:/start-coding-with-timescale/
 [use-the-api]: /api/:currentVersion:/
 [use-timescale]: /use-timescale/:currentVersion:/
 [try-timescale-features]: /getting-started/:currentVersion:/try-key-features-timescale-products/

@@ -1,8 +1,7 @@
 ---
 title: Get started with Timescale
 excerpt: Supercharge your real-time analytics on time-series data with Timescale Cloud. Create a free account, launch your first service, and use some of the advanced features
-products: [cloud]
-layout_components: [next_prev_large]
+products: [cloud, mst, self_hosted]
 content_group: Getting started
 ---
 
@@ -26,7 +25,7 @@ This section shows you how to:
 <WhereNext />
 
 [tutorials]: /tutorials/:currentVersion:/
-[connect-with-code]: /getting-started/:currentVersion:/coding-quickstart/
+[connect-with-code]: /getting-started/:currentVersion:/start-coding-with-timescale/
 [integrations]: /integrations/:currentVersion:/
 [use-the-api]: /api/:currentVersion:/
 [use-timescale]: /use-timescale/:currentVersion:/
@@ -34,6 +33,6 @@ This section shows you how to:
 [services-connect]: /getting-started/:currentVersion:/services/#connect-to-your-service
 [test-drive]: /getting-started/:currentVersion:/try-key-features-timescale-products/
 [run-queries-from-console]: /getting-started/:currentVersion:/run-queries-from-console/
-[start-coding]: /getting-started/:currentVersion:/coding-quickstart/
+[start-coding]: /getting-started/:currentVersion:/start-coding-with-timescale/
 [ingest-data]: /getting-started/:currentVersion:/try-key-features-timescale-products/#optimize-time-series-data-in-hypertables
 

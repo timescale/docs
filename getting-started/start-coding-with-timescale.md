@@ -1,7 +1,9 @@
 ---
-title: Coding quickstart
+title: Start coding with Timescale
 excerpt: Integrate Timescale Cloud with your app using your preferred programming language. Connect to a service, 
   create and manage hypertables, then and ingest and query data
+products: [cloud, mst, self_hosted]
+content_group: Getting started
 ---
 
 import StartCodingRuby from "versionContent/_partials/_start-coding-ruby.mdx";
@@ -10,7 +12,7 @@ import StartCodingNode from "versionContent/_partials/_start-coding-node.mdx";
 import StartCodingGoLang from "versionContent/_partials/_start-coding-golang.mdx";
 import StartCodingJava from "versionContent/_partials/_start-coding-java.mdx";
 
-# Coding quickstart
+# Start coding with Timescale
 
 Easily integrate your app with $CLOUD_LONG. Use your favorite programming language to connect to your
 $SERVICE_LONG, create and manage hypertables, then ingest and query data.
