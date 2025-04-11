@@ -1,7 +1,7 @@
 import PrereqCloud from "versionContent/_partials/_prereqs-cloud-only.mdx";
 import LivesyncLimitations from "versionContent/_partials/_livesync-limitations.mdx";
 import LivesyncConfigureSourceDatabase from "versionContent/_partials/_livesync-configure-source-database.mdx";
-import TuneSourceDatabaseAWSRDS from "versionContent/_partials/_migrate_live_tune_source_database_awsrds.mdx";
+import TuneSourceDatabaseAWSRDS from "versionContent/_partials/_livesync-configure-source-database-awsrds.mdx";
 
 ## Prerequisites
 
@@ -37,19 +37,20 @@ requires a direct connection to the database to function properly.
 
 <Tabs label="Live migration">
 
-<Tab title="From PostgreSQL">
-<Procedure>
-
-<LivesyncConfigureSourceDatabase />
-
-</Procedure>
-
-</Tab>
 <Tab title="From AWS RDS/Aurora">
 
 <Procedure>
 
 <TuneSourceDatabaseAWSRDS />
+
+</Procedure>
+
+</Tab>
+
+<Tab title="From PostgreSQL">
+<Procedure>
+
+<LivesyncConfigureSourceDatabase />
 
 </Procedure>
 
