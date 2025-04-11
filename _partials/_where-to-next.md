@@ -4,8 +4,8 @@ your $SERVICE_LONG with a range of [third-party tools][integrations], plain old 
 into [the API][use-the-api].
 
 [tutorials]: /tutorials/:currentVersion:/
-[connect-with-code]: /quick-start/:currentVersion:/
 [integrations]: /integrations/:currentVersion:/
+[connect-with-code]: /getting-started/:currentVersion:/start-coding-with-timescale/
 [use-the-api]: /api/:currentVersion:/
 [use-timescale]: /use-timescale/:currentVersion:/
 [try-timescale-features]: /getting-started/:currentVersion:/try-key-features-timescale-products/
