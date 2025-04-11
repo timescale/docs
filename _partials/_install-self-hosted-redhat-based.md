@@ -72,6 +72,8 @@
 
 1.  **Install TimescaleDB**
 
+    To avoid errors, **do not** install $TDB_APACHE and $TDB_COMMUNITY at the same time.
+
     ```bash
     sudo yum install timescaledb-2-postgresql-17 postgresql17
     ```
@@ -87,7 +89,7 @@
 
     <!-- markdownlint-enable TS007 -->
     
- 1.  Initialize the PostgreSQL instance:
+ 1.  **Initialize the PostgreSQL instance**
 
     ```bash
     sudo /usr/pgsql-17/bin/postgresql-17-setup initdb
