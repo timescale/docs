@@ -13,17 +13,18 @@ import TieredStorageBilling from "versionContent/_partials/_tiered-storage-billi
 
 # Manage storage and tiering
 
-You use high-performance storage for frequently accessed data. You can [change the high-performance storage type][change-storage-type] in $CONSOLE to make sure the available storage and IOPS meet your needs. 
+$COMPANY's tiered storage architecture includes a high-performance storage tier and a low-cost object storage tier:
 
-You use low-cost object storage to cut costs by migrating rarely used data from the high-performance storage. After you 
-[enable tiered storage][enable-tiered-storage], you then either [create automated tiering policies][tiering-policies] 
-or [manually tier and untier data][manual-tier].
+- You use [high-performance storage][high-performance-storage] for frequently accessed data. You change the high-performance storage type in $CONSOLE to make sure the available storage and IOPS meet your needs. 
+
+- You use [low-cost object storage][low-cost-storage] to cut costs by migrating rarely used data from the high-performance storage. After you 
+enable tiered storage, you then either [create automated tiering policies][tiering-policies] or [manually tier and untier data][manual-tier].
 
 You can query the data on the object storage tier, but you cannot modify it. Make sure that you are not tiering data that needs to be **actively modified**.
 
 <TieredStorageBilling />
 
-## Change high-performance storage type
+## High-performance storage tier
 
 By default, $CLOUD_LONG stores your $SERVICE_SHORT data in the standard high-performance storage. This gives you up to 16TB of storage and 16,000 IOPS. You can increase the limits to 64TB and 64,000 IOPS, respectively, by changing the storage type to enhanced. 
 
@@ -50,7 +51,11 @@ To get enhanced storage:
 
 You change from enhanced storage to standard in the same way. You can make changes to the storage type and $IO_BOOST settings once every 6 hours.  
 
-## Enable tiered storage
+## Low-cost object storage tier
+
+You enable the low-cost object storage tier in $CONSOLE and then tier the data with policies or manually. 
+
+### Enable tiered storage 
 
 You enable tiered storage from the `Overview` tab in $CONSOLE.
 
@@ -74,7 +79,7 @@ Data tiering is available in [Scale and Enterprise][pricing-plans] pricing plans
 
 </Highlight>
 
-## Automate tiering with policies
+### Automate tiering with policies
 
 A tiering policy automatically moves any chunks that only contain data
 older than the `move_after` threshold to the object storage tier. This works similarly to a
@@ -84,7 +89,7 @@ A tiering policy schedules a job that runs periodically to asynchronously migrat
 
 You can add tiering policies to [hypertables][hypertable], including [continuous aggregates][caggs]. To manage tiering policies, [connect to your service][connect-to-service] and run the queries below in the data mode, the SQL editor, or using `psql`.
 
-### Add a tiering policy
+#### Add a tiering policy
 
 To add a tiering policy, call `add_tiering_policy`:
 
@@ -100,7 +105,7 @@ SELECT add_tiering_policy('example', INTERVAL '3 days');
 
 By default, a tiering policy runs hourly on your database. To change this interval, call `alter_job`.
 
-### Remove a tiering policy
+#### Remove a tiering policy
 
 To remove an existing tiering policy, call `remove_tiering_policy`:
 
@@ -116,11 +121,11 @@ SELECT remove_tiering_policy('example');
 
 If you remove a tiering policy, the remaining scheduled chunks are not tiered. However, chunks in tiered storage are not untiered. You [untier chunks manually][manual-tier] to local storage.
 
-## Manually tier and untier chunks
+### Manually tier and untier chunks
 
 If tiering policies do not meet your current needs, you can tier and untier chunks manually. To do so, [connect to your service][connect-to-service] and run the queries below in the data mode, the SQL editor, or using `psql`.
 
-### Tier chunks
+#### Tier chunks
 
 Tiering a chunk is an asynchronous process that schedules the chunk to be tiered. In the following example, you tier chunks older than three days in the `example` hypertable. You then list the tiered chunks.
 
@@ -163,7 +168,7 @@ To see which chunks are scheduled for tiering either by policy or by a manual ca
 SELECT * FROM timescaledb_osm.chunks_queued_for_tiering ;
 ```
 
-### Untier chunks
+#### Untier chunks
 
 To update data in a tiered chunk, move it back to the standard high-performance storage tier in $CLOUD_LONG. Untiering chunks is a synchronous process. Chunks are renamed when the data is untiered.
 
@@ -219,7 +224,7 @@ To untier a chunk, call the `untier_chunk` stored procedure.
 
 </Procedure>
 
-## Disable tiering 
+### Disable tiering 
 
 If you no longer want to use tiered storage for a particular hypertable, drop the associated metadata by calling `disable_tiering`.
 
@@ -260,4 +265,5 @@ If you no longer want to use tiered storage for a particular hypertable, drop th
 [tiering-policies]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering#automate-tiering-with-policies
 [manual-tier]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering#manually-tier-and-untier-chunks
 [pricing-plans]: /about/:currentVersion:/pricing-and-account-management
-[change-storage-type]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/#change-high-performance-storage-type
+[high-performance-storage]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/#high-performance-storage-tier
+[low-cost-storage]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/#low-cost-object-storage-tier
