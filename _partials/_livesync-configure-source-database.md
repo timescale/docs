@@ -3,7 +3,7 @@
    ```sql
    psql $SOURCE <<EOF
    ALTER SYSTEM SET wal_level='logical';
-   ALTER SYSTEM SET max_wal_sender=10;
+   ALTER SYSTEM SET max_wal_senders=10;
    ALTER SYSTEM SET wal_sender_timeout=0;
    EOF
    ```
