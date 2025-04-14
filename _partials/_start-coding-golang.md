@@ -1,40 +1,20 @@
----
-title: "Quick Start: Go and TimescaleDB"
-excerpt: Get started with Timescale Cloud or TimescaleDB using Go
-keywords: [Golang, Go]
----
 
-import Intro from "versionContent/_partials/_quickstart-intro.mdx";
-
-# Go quick start
-
-<Intro />
-
-This quick start guide walks you through:
-
-*   [Connecting to TimescaleDB][connect]
-*   [Creating a relational table][create-table]
-*   [Creating a hypertable][create-a-hypertable]
-*   [Inserting data][insert]
-*   [Executing a query][query]
+import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
 
 ## Prerequisites
 
-Before you start, make sure you have:
+<IntegrationPrereqs />
 
-*   Installed [TimescaleDB][install].
-*   Installed [Go][golang-install].
-*   Installed the [PGX driver for Go][pgx-driver-github].
+- Install [Go][golang-install].
+- Install the [PGX driver for Go][pgx-driver-github].
 
-## Connect to TimescaleDB
+## Connect to your $SERVICE_SHORT 
 
-In this section, you create a connection to TimescaleDB using the PGX driver.
+In this section, you create a connection to $CLOUD_LONG using the PGX driver.
 PGX is a toolkit designed to help Go developers work directly with PostgreSQL.
 You can use it to help your Go application interact directly with TimescaleDB.
 
 <Procedure>
-
-<Collapsible heading="Connecting to TimescaleDB with a connection string" headingLevel={3}>
 
 1.  Locate your TimescaleDB credentials and use them to compose a connection
     string for PGX.
@@ -107,9 +87,7 @@ You can use it to help your Go application interact directly with TimescaleDB.
     ```go
     os.Getenv("DATABASE_CONNECTION_STRING")
     ```
-
-</Collapsible>
-
+    
 </Procedure>
 
 Alternatively, you can connect to TimescaleDB using a connection pool.
@@ -117,8 +95,6 @@ Connection pooling is useful to conserve computing resources, and can also
 result in faster database queries:
 
 <Procedure>
-
-<Collapsible heading="Connecting to TimescaleDB with a connection pool" headingLevel={3} defaultExpanded={false}>
 
 1.  To create a connection pool that can be used for concurrent connections to
    your database, use the `pgxpool.New()` function instead of
@@ -159,8 +135,6 @@ result in faster database queries:
     }
     ```
 
-</Collapsible>
-
 </Procedure>
 
 ## Create a relational table
@@ -172,8 +146,6 @@ measurements contain the time, sensor_id, temperature reading, and CPU
 percentage of the sensors.
 
 <Procedure>
-
-<Collapsible heading="Creating a relational table" headingLevel={3}>
 
 1.  Compose a string that contains the SQL statement to create a relational
     table. This example creates a table called `sensors`, with columns for ID,
@@ -223,8 +195,6 @@ percentage of the sensors.
     }
     ```
 
-</Collapsible>
-
 </Procedure>
 
 ## Generate a hypertable
@@ -234,8 +204,6 @@ Creating tables and indexes, altering tables, inserting data, selecting data,
 and most other tasks are executed on the hypertable.
 
 <Procedure>
-
-<Collapsible heading="Generating a hypertable" headingLevel={3}>
 
 1.  Create a variable for the `CREATE TABLE SQL` statement for your hypertable.
     Notice how the hypertable has the compulsory time column:
@@ -313,8 +281,6 @@ and most other tasks are executed on the hypertable.
     }
     ```
 
-</Collapsible>
-
 </Procedure>
 
 ## Insert rows of data
@@ -328,8 +294,6 @@ inserts multiple rows of data. The third example uses batch inserts to speed up
 the process.
 
 <Procedure>
-
-<Collapsible heading="Inserting a single row of data" headingLevel={3}>
 
 1.  Open a connection pool to the database, then use the prepared statements to
     formulate an `INSERT` SQL statement, and execute it:
@@ -381,16 +345,12 @@ the process.
     }
     ```
 
-</Collapsible>
-
 </Procedure>
 
 Instead of inserting a single row of data at a time, you can use this procedure
 to insert multiple rows of data, instead:
 
 <Procedure>
-
-<Collapsible heading="Inserting multiple rows of data" headingLevel={3} defaultExpanded={false}>
 
 1.  This example uses PostgreSQL to generate some sample time-series to insert
     into the `sensor_data` hypertable. Define the SQL statement to generate the
@@ -603,8 +563,6 @@ to insert multiple rows of data, instead:
     }
     ```
 
-</Collapsible>
-
 </Procedure>
 
 Inserting multiple rows of data using this method executes as many `insert`
@@ -615,8 +573,6 @@ Here's a sample pattern for how to do so, using the sample data you generated in
 the previous procedure. It uses the pgx `Batch` object:
 
 <Procedure>
-
-<Collapsible heading="Inserting rows of data in batches" headingLevel={3} defaultExpanded={false}>
 
 1.  This example batch inserts data into the database:
 
@@ -742,8 +698,6 @@ the previous procedure. It uses the pgx `Batch` object:
     }
     ```
 
-</Collapsible>
-
 </Procedure>
 
 ## Execute a query
@@ -751,8 +705,6 @@ the previous procedure. It uses the pgx `Batch` object:
 This section covers how to execute queries against your database.
 
 <Procedure>
-
-<Collapsible heading="Executing a query" headingLevel={3}>
 
 1.  Define the SQL query you'd like to run on the database. This example uses a
     SQL query that combines time-series and relational data. It returns the
@@ -904,9 +856,7 @@ This section covers how to execute queries against your database.
         }
     }
     ```
-
-</Collapsible>
-
+    
 </Procedure>
 
 ## Next steps
@@ -928,12 +878,12 @@ your Go application, be sure to check out these advanced TimescaleDB tutorials:
 [pgx-docs]: https://pkg.go.dev/github.com/jackc/pgx
 [pgx-driver-github]: https://github.com/jackc/pgx
 [install]: /getting-started/:currentVersion:/
-[connect]: /quick-start/:currentVersion:/golang/#connect-to-timescaledb
-[create-table]: /quick-start/:currentVersion:/golang/#create-a-relational-table
-[create-a-hypertable]: /quick-start/:currentVersion:/golang/#generate-a-hypertable
-[insert]: /quick-start/:currentVersion:/golang/#insert-rows-of-data
-[query]: /quick-start/:currentVersion:/golang/#execute-a-query
+[connect]: /getting-started/:currentVersion:/start-coding-with-timescale/#connect-to-timescaledb
+[create-table]: /getting-started/:currentVersion:/start-coding-with-timescale/#create-a-relational-table
+[create-a-hypertable]: /getting-started/:currentVersion:/start-coding-with-timescale/#generate-a-hypertable
+[insert]: /getting-started/:currentVersion:/start-coding-with-timescale/#insert-rows-of-data
+[query]: /getting-started/:currentVersion:/start-coding-with-timescale/#execute-a-query
 [create-hypertable-docs]: /use-timescale/:currentVersion:/hypertables/create/
-[insert]: /quick-start/:currentVersion:/golang/#insert-a-row-into-your-timescale-database
-[query]: /quick-start/:currentVersion:/golang/#execute-a-query-on-your-timescale-database
-[create-hypertable]: /quick-start/:currentVersion:/python/#generate-a-hypertable
+[insert]: /getting-started/:currentVersion:/start-coding-with-timescale/#insert-a-row-into-your-timescale-database
+[query]: /getting-started/:currentVersion:/start-coding-with-timescale/#execute-a-query-on-your-timescale-database
+[create-hypertable]: /getting-started/:currentVersion:/start-coding-with-timescale/#generate-a-hypertable

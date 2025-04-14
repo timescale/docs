@@ -3,7 +3,7 @@
    ```sql
    psql $SOURCE <<EOF
    ALTER SYSTEM SET wal_level='logical';
-   ALTER SYSTEM SET max_wal_sender=10;
+   ALTER SYSTEM SET max_wal_senders=10;
    ALTER SYSTEM SET wal_sender_timeout=0;
    EOF
    ```
@@ -68,6 +68,31 @@
 
       ```sql
       psql $SOURCE -c 'ALTER TABLE <table name> OWNER TO <livesync username>;'
+      ```
+
+1. **Create the livesync user and assign permissions**
+
+   1. Create the livesync user:
+
+      ```sql
+      psql $SOURCE -c "CREATE USER timescale_livesync PASSWORD 'livesync1234'"
+      ```
+   1. Assign the user permissions on the source database:
+
+      ```sql
+      psql $SOURCE <<EOF
+      GRANT USAGE ON SCHEMA "public" TO timescale_livesync;
+      GRANT SELECT ON ALL TABLES IN SCHEMA "public" TO timescale_livesync;
+      ALTER DEFAULT PRIVILEGES IN SCHEMA "public" GRANT SELECT ON TABLES TO timescale_livesync;
+      GRANT rds_replication TO timescale_livesync;
+      GRANT CREATE ON DATABASE postgres to timescale_livesync;
+      EOF
+      ```
+
+   1. On each table you want to sync, make `livesync` the owner:
+
+      ```sql
+      psql $SOURCE -c 'ALTER TABLE <table name> OWNER TO timescale_livesync;'
       ```
 
 1. **Restart your source database**
