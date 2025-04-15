@@ -11,7 +11,7 @@ cloud_ui:
 ---
 
 import DataDogExporter from "versionContent/_partials/_datadog-data-exporter.mdx";
-import ManageDataExporter from "versionContent/_partials/_manage-data-exporter.mdx";
+import ManageDataExporter from "versionContent/_partials/_manage-a-data-exporter.mdx";
 import IntegrationPrereqsCloud from "versionContent/_partials/_integration-prereqs-cloud-only.mdx";
 import CloudWatchExporter from "versionContent/_partials/_cloudwatch-data-exporter.mdx";
 
