@@ -33,7 +33,7 @@ Among others, `add_continuous_aggregate_policy` takes the following arguments:
 If you set the `start_offset` or `end_offset` to `NULL`, the range is open-ended
 and extends to the beginning or end of time. 
 
-If you set `end_offset` within the current time bucket, this bucket is excluded. This is done for two reasons:
+If you set `end_offset` within the current time bucket, this bucket is excluded. This is done for the following reasons:
 
 - The current bucket is incomplete and can't be refreshed. 
 - The current bucket gets lots of writes in the time-stamp order and its aggregate becomes outdated very quickly. Excluding it improves performance. 
