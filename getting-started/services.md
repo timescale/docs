@@ -1,8 +1,7 @@
 ---
 title: Create your first Timescale service
 excerpt: Timescale Cloud offers a range of capabilities to accommodate your real-time analytics and AI and vector workloads. Learn more about each of them and create your first service in Timescale Console
-products: [cloud]
-layout_components: [next_prev_large]
+products: [cloud, mst, self_hosted]
 content_group: Getting started
 ---
 
@@ -61,7 +60,7 @@ To run queries and perform other operations, connect to your $SERVICE_SHORT:
 
 [tsc-portal]: https://console.cloud.timescale.com/
 [services-how-to]: /use-timescale/:currentVersion:/services/
-[install-psql]: /use-timescale/:currentVersion:/integrations/psql/
+[install-psql]: /integrations/:currentVersion:/psql/
 [create-an-account]: /getting-started/:currentVersion:/services/#create-a-timescale-cloud-account
 [create-a-service]: /getting-started/:currentVersion:/services/#create-a-timescale-cloud-service
 [connect-to-your-service]: /getting-started/:currentVersion:/services/#connect-to-your-service

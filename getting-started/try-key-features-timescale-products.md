@@ -1,7 +1,7 @@
 ---
 title: Try the key Timescale features
 excerpt: Improve database performance with hypertables, time bucketing, compression and continuous aggregates.
-products: [cloud]
+products: [cloud, mst, self_hosted]
 content_group: Getting started
 ---
 
@@ -405,11 +405,11 @@ What next? See the [use case tutorials][tutorials], interact with the data in yo
 [third-party tools][integrations], plain old [Use Timescale][use-timescale], or dive into [the API][use-the-api].
 
 [tutorials]: /tutorials/:currentVersion:/
-[connect-with-code]: /quick-start/:currentVersion:/
-[integrations]: /use-timescale/:currentVersion:/integrations/
+[connect-with-code]: /getting-started/:currentVersion:/start-coding-with-timescale/
+[integrations]: /integrations/:currentVersion:/
 [use-the-api]: /api/:currentVersion:/
 [use-timescale]: /use-timescale/:currentVersion:/
-[connection-info]: /use-timescale/:currentVersion:/integrations/find-connection-details/
+[connection-info]: /integrations/:currentVersion:/find-connection-details/
 [create-a-service]: /getting-started/:currentVersion:/services/
 [deploy-self-hosted]: /self-hosted/:currentVersion:/install/
 [connect-to-your-service]: /getting-started/:currentVersion:/run-queries-from-console/

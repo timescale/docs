@@ -138,7 +138,7 @@ instance to a $SERVICE_LONG:
    As you run Livesync continuously, best practice is to run it as a background process.
 
    ```shell
-   docker run -d --rm --name livesync timescale/live-sync:v0.0.0-alpha.7 run --publication analytics --subscription livesync --source $SOURCE --target $TARGET
+   docker run -d --rm --name livesync timescale/live-sync:v0.1.11 run --publication analytics --subscription livesync --source $SOURCE --target $TARGET
    ```
 
 1. **Trace progress**
@@ -239,4 +239,4 @@ For example:
 [compression]: /use-timescale/:currentVersion:/compression/about-compression
 [caggs]: /use-timescale/:currentVersion:/continuous-aggregates/about-continuous-aggregates/
 [join-livesync-on-slack]: https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88
-[install-psql]: /use-timescale/:currentVersion:/integrations/psql/
+[install-psql]: /integrations/:currentVersion:/psql/

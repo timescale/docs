@@ -2,7 +2,7 @@
 title: Reindex hypertables to fix large indexes
 section: troubleshooting
 products: [cloud, mst, self_hosted]
-topics: [hypertables, distributed hypertables, schema management, data retention, compression]
+topics: [hypertables, distributed hypertables, schema management, data retention, compression, hypercore]
 errors:
   - language: bash
     message: |-

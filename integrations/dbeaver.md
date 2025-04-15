@@ -48,5 +48,5 @@ You have successfully integrated DBeaver with $CLOUD_LONG.
 
 [dbeaver]: https://dbeaver.io/
 [dbeaver-downloads]: https://dbeaver.io/download/
-[connection-info]: /use-timescale/:currentVersion:/integrations/find-connection-details/
+[connection-info]: /integrations/:currentVersion:/find-connection-details/
 [ssl-mode]: /use-timescale/:currentVersion:/security/strict-ssl/

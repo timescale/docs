@@ -147,7 +147,7 @@ You can now manage your database with Terraform.
 [terraform]: https://www.terraform.io/
 [console]: https://console.cloud.timescale.com/dashboard/services
 [terraform-provider]: https://registry.terraform.io/providers/timescale/timescale/latest/docs
-[connection-info]: /use-timescale/:currentVersion:/integrations/find-connection-details/
+[connection-info]: /integrations/:currentVersion:/find-connection-details/
 [terraform-resources]: https://registry.terraform.io/providers/timescale/timescale/latest/docs/resources/peering_connection
 [terraform-data-sources]: https://registry.terraform.io/providers/timescale/timescale/latest/docs/data-sources/products
 [pg-provider]: https://registry.terraform.io/providers/cyrilgdn/postgresql/latest

@@ -59,4 +59,4 @@ to graph the output in Grafana.
 [blockchain-query]: /tutorials/:currentVersion:/blockchain-query/beginner-blockchain-query/
 [blockchain-def]: https://www.pcmag.com/encyclopedia/term/blockchain
 [transactions-def]: https://www.pcmag.com/encyclopedia/term/bitcoin-transaction
-[grafana-setup]: /use-timescale/:currentVersion:/integrations/grafana/
+[grafana-setup]: /integrations/:currentVersion:/grafana/
