@@ -7,11 +7,11 @@ keywords: [integrate]
 
 import IntegrationPrereqsCloud from "versionContent/_partials/_integration-prereqs-cloud-only.mdx";
 import DataDogExporter from "versionContent/_partials/_datadog-data-exporter.mdx";
-import ManageDataExporter from "versionContent/_partials/_manage-data-exporter.mdx";
+import ManageDataExporter from "versionContent/_partials/_manage-a-data-exporter.mdx";
 
 # Integrate Datadog with $CLOUD_LONG
 
-[Datadog][datadog] is a cloud-based monitoring and analytics platform that provides comprehensive visibility into 
+[Datadog][datadog] is a cloud-based monitoring and analytics platform that provides comprehensive visibility into
 applications, infrastructure, and systems through real-time monitoring, logging, and analytics.
 
 This page explains how to:
@@ -67,11 +67,11 @@ metrics about your $SERVICE_LONGs.
    ```sql
    create user datadog with password '<password>';
    ```
-   
+
    ```sql
    grant pg_monitor to datadog;
    ```
-   
+
    ```sql
    grant SELECT ON pg_stat_database to datadog;
    ```
@@ -82,7 +82,7 @@ metrics about your $SERVICE_LONGs.
 
    ```bash
     psql "postgres://datadog:<datadog password>@<host>:<port>/tsdb?sslmode=require" -c \
-    "select * from pg_stat_database LIMIT(1);" \ 
+    "select * from pg_stat_database LIMIT(1);" \
     && echo -e "\e[0;32mPostgres connection - OK\e[0m" || echo -e "\e[0;31mCannot connect to Postgres\e[0m"
    ```
    You see the output from the `pg_stat_database` table, which means you have given the correct rights to `datadog`.
@@ -101,7 +101,7 @@ metrics about your $SERVICE_LONGs.
 
       ```yaml
       init_config:
-      
+
       instances:
       - host: <host>
         port: <port>
