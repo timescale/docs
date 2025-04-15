@@ -6,9 +6,7 @@ command-line utility. If you've used PostgreSQL before, you might already have
 
 <Procedure>
 
-### Create a Timescale service and connect to the service
-
-1.  In the [Timescale portal][timescale-portal], click `Create service`.
+1.  In the [$CONSOLE][timescale-portal], click `Create service`.
 1.  Click `Download the cheatsheet` to download an SQL file that contains the
     login details for your new service. You can also copy the details directly
     from this page. When you have copied your password,
@@ -39,4 +37,4 @@ command-line utility. If you've used PostgreSQL before, you might already have
 </Procedure>
 
 [timescale-portal]: https://console.cloud.timescale.com/
-[install-psql]: /use-timescale/:currentVersion:/integrations/psql/
+[install-psql]: /integrations/:currentVersion:/psql/

@@ -1,6 +1,6 @@
 ---
 title: Multi-factor user authentication
-excerpt: Manage Multi-factor user authentication for your Timescale account
+excerpt: Multi-factor authentication enhances security by requiring users to verify their identity using multiple authentication factors. Enable MFA for your Timescale Cloud account
 products: [cloud]
 keywords: [mfa, accounts, admin]
 tags: [two-factor user authentication]

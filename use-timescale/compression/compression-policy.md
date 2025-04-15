@@ -4,10 +4,13 @@ excerpt: Timescale Cloud can compress your data automatically, based on the cond
 products: [cloud, mst, self_hosted]
 keywords: [compression, hypertables, policy]
 ---
-
+import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 import CompressionIntro from 'versionContent/_partials/_compression-intro.mdx';
 
 # Compression policy
+
+<Deprecated2180 /> Replaced by <a href="https://docs.timescale.com/use-timescale/latest/hypercore/real-time-analytics-in-hypercore/">Optimize your data for real-time analytics</a>.
+
 
 You can enable compression on individual hypertables, by declaring which column
 you want to segment by.

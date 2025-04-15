@@ -1,6 +1,6 @@
 ---
 title: Configure replication
-excerpt: Set up asynchronous streaming replication on one or more database replicas
+excerpt: Set up asynchronous streaming replication on one or more database replicas in your self-hosted TimescaleDB installation
 products: [self_hosted]
 keywords: [replicas]
 ---

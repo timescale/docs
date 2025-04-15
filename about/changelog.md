@@ -1,12 +1,172 @@
 ---
 title: Changelog
-excerpt: A summary of the latest changes to all Timescale products.
+excerpt: Get a weekly summary of the latest changes to Timescale products with links to detailed documentation
 keywords: [changelog, upgrades, updates, releases]
 ---
 
 # Changelog
 
 All the latest features and updates to Timescale products.
+
+## 🪵 TimescaleDB v2.19, new service overview page, and log improvements
+<Label type="date">April 11, 2025</Label>
+
+### TimescaleDB v2.19—query performance and concurrency improvements
+
+Starting this week, all new services created on Timescale Cloud use [TimescaleDB v2.19](https://github.com/timescale/timescaledb/releases/tag/2.19.0). Existing services will be upgraded gradually during their maintenance window.
+
+Highlighted features in TimescaleDB v2.19 include:
+
+- Improved concurrency of `INSERT`, `UPDATE`, and `DELETE` operations on the columnstore by no longer blocking DML statements during the recompression of a chunk.
+- Improved system performance during continuous aggregate refreshes by breaking them into smaller batches. This reduces systems pressure and minimizes the risk of spilling to disk.
+- Faster and more up-to-date results for queries against continuous aggregates by materializing the most recent data first, as opposed to old data first in prior versions.
+- Faster analytical queries with SIMD vectorization of aggregations over text columns and `GROUP BY` over multiple columns.
+- Enable chunk size optimization for better query performance in the columnstore by merging them with `merge_chunk`.
+
+### New service overview page
+
+The service overview page in Timescale Console has been overhauled to make it simpler and easier to use. Navigate to the `Overview` tab for any of your services and you will find an architecture diagram and general information pertaining to it. You may also see recommendations at the top, for how to optimize your service. 
+
+![New Service Overview page](https://assets.timescale.com/docs/images/new-timescale-service-overview.png)
+
+To leave the product team your feedback, open `Help & Support` on the left and select `Send feedback to the product team`.
+
+### Find logs faster
+
+Finding logs just got easier! We've added a date, time, and timezone picker, so you can jump straight to the exact moment you're interested in—no more endless scrolling.
+
+![Find logs faster](https://assets.timescale.com/docs/images/find-logs-faster-timescale-console.png)
+
+## 📒Faster vector search and improved job information
+<Label type="date">April 4, 2025</Label>
+
+### pgvectorscale 0.7.0: faster filtered filtered vector search with filtered indexes
+
+This pgvectorscale release adds label-based filtered vector search to the StremingDiskANN index.
+This enables you to return more precise and efficient results by combining vector 
+similarity search with label filtering while still uitilizing the ANN index. This is a common need for large-scale RAG and Agentic applications 
+that rely on vector searches with metadata filters to return relevant results. Filtered indexes add 
+even more capabilities for filtered search at scale, complementing the high accuracy streaming filtering already 
+present in pgvectorscale. The implementation is inspired by Microsoft's Filtered DiskANN research.  
+For more information, see the [pgvectorscale release notes][log-28032025-pgvectorscale-rn] and a 
+[usage example][log-28032025-pgvectorscale-example].
+
+### Job errors and individual job pages
+
+Each job now has an individual page in $CONSOLE, and displays additional details about job errors. You use 
+this information to debug failing jobs. 
+
+To see the job information page, in [$CONSOLE][console], select the $SERVICE_SHORT to check, then click `Jobs` > job ID to investigate.
+
+- Successful jobs: 
+
+  ![Log success in Timescale Console](https://assets.timescale.com/docs/images/changelog-job-success-page.png)
+
+- Unsuccessful jobs with errors:
+
+  ![Log errors in Timescale Console](https://assets.timescale.com/docs/images/changelog-job-error-page.png)
+
+## 🤩 In-Console Livesync for PostgreSQL
+<Label type="date">March 21, 2025</Label>
+
+You can now set up an active data ingestion pipeline with Livesync for PostgreSQL in Timescale Console. This tool enables you to replicate your source database tables into Timescale's hypertables indefinitely. Yes, you heard that right—keep Livesync running for as long as you need, ensuring that your existing source PostgreSQL tables stay in sync with Timescale Cloud. Read more about setting up and using [Livesync for PostgreSQL](https://docs.timescale.com/migrate/latest/livesync/). 
+
+![Livesync in Timescale Console](https://assets.timescale.com/docs/images/timescale-cloud-livesync-tile.png)
+
+![Set up Timescale Livesync](https://assets.timescale.com/docs/images/set-up-timescale-cloud-livesync.png)
+
+![Select tables for Livesync](https://assets.timescale.com/docs/images/select-tables-for-timescale-cloud-livesync.png)
+
+![Timescale Livesync running](https://assets.timescale.com/docs/images/livesync-view-status.png)
+
+## 💾 16K dimensions on pgvectorscale plus new pgai Vectorizer support
+<Label type="date">March 14, 2025</Label>
+
+### pgvectorscale 0.6 — store up to 16K dimension embeddings
+
+pgvectorscale 0.6.0 now supports storing vectors with up to 16,000 dimensions, removing the previous limitation of 2,000 from pgvector. This lets you use larger embedding models like OpenAI's text-embedding-3-large (3072 dim) with PostgreSQL as your vector database. This release also includes key performance and capability enhancements, including NEON support for SIMD distance calculations on aarch64 processors, improved inner product distance metric implementation, and improved index statistics. See the release details [here](https://github.com/timescale/pgvectorscale/releases/tag/0.6.0). 
+
+### pgai Vectorizer supports models from AWS Bedrock, Azure AI, Google Vertex via LiteLLM
+
+Access embedding models from popular cloud model hubs like AWS Bedrock, Azure AI Foundry, Google Vertex, as well as HuggingFace and Cohere as part of the LiteLLM integration with pgai Vectorizer. To use these models with pgai Vectorizer on Timescale Cloud, select `Other` when adding the API key in the credentials section of Timescale Console. 
+
+## 🤖 Agent Mode for PopSQL and more
+<Label type="date">March 7, 2025</Label>
+
+### Agent Mode for PopSQL 
+
+Introducing Agent Mode, a new feature in $CONSOLE SQL Assistant. SQL Assistant lets you query your database using natural language. However, if you ran into errors, you have to approve the implementation of the Assistant's suggestions. 
+
+With Agent Mode on, SQL Assistant automatically adjusts and executes your query without intervention. It runs, diagnoses, and fixes any errors that it runs into until you get your desired results.
+
+Below you can see SQL Assistant run into an error, identify the resolution, execute the fixed query, display results, and even change the title of the query:
+
+![Timescale SQL Assistant Agent Mode](https://assets.timescale.com/docs/images/timescale-sql-assistant-agent-mode.gif)
+
+To use Agent Mode, make sure you have SQL Assistant enabled, then click on the model selector dropdown, and tick the `Agent Mode` checkbox.
+
+### Improved AWS Marketplace integration for a smoother experience
+
+We've enhanced the AWS Marketplace workflow to make your experience even better! Now, everything is fully automated, ensuring a seamless process from setup to billing. If you're using the AWS Marketplace integration, you'll notice a smoother transition and clearer billing visibility—your $CLOUD_LONG subscription will be reflected directly in AWS Marketplace!
+
+### $CONSOLE recommendations
+
+Sometimes it can be hard to know if you are getting the best use out of your service. To help with this, $CLOUD_LONG now provides recommendations based on your service's context, assisting with onboarding or notifying if there is a configuration concern with your service, such as consistently failing jobs. 
+
+To start, recommendations are focused primarily on onboarding or service health, though we will regularly add new ones. You can see if you have any existing recommendations for your service by going to the `Actions` tab in $CONSOLE.
+
+![Timescale Console recommendations](https://assets.timescale.com/docs/images/timescale-console-recommendations.png)
+
+## 🛣️ Configuration Options for Secure Connections and More
+<Label type="date">February 28, 2025</Label>
+
+### Edit VPC and AWS Transit Gateway CIDRs
+
+You can now modify the CIDRs blocks for your VPC or Transit Gateway directly from Timescale Console, giving you greater control over network access and security. This update makes it easier to adjust your private networking setup without needing to recreate your VPC or contact support.
+
+![VPC connection wizard](https://assets.timescale.com/docs/images/2025-02-27changelog_VPC_transit_gateway.png)
+
+### Improved log filtering
+
+We’ve enhanced the `Logs` screen with the new `Warning` and `Log` filters to help you quickly find the logs you need. These additions complement the existing `Fatal`, `Error`, and `Detail` filters, making it easier to pinpoint specific events and troubleshoot issues efficiently.
+
+![Logs with filters](https://assets.timescale.com/docs/images/2025-02-27changelog_log_filtering.png)
+
+### TimescaleDB v2.18.2 on Timescale Cloud
+
+New services created in Timescale Cloud now use [TimescaleDB v2.18.2](https://github.com/timescale/timescaledb/releases/tag/2.18.2). Existing services are in the process of being automatically upgraded to this version.
+
+This new release fixes a number of bugs including:
+
+- Fix `ExplainHook` breaking the call chain.
+- Respect `ExecutorStart` hooks of other extensions. 
+- Block dropping internal compressed chunks with `drop_chunk()`.
+
+### SQL Assistant improvements
+
+- Support for Claude 3.7 Sonnet and extended thinking including reasoning tokens.
+- Ability to abort SQL Assistant requests while the response is streaming.
+
+## 🤖 SQL Assistant Improvements and Pgai Docs Reorganization
+<Label type="date">February 21, 2025</Label>
+
+### New models and improved UX for SQL Assistant
+
+We have added fireworks.ai and Groq as service providers, and several new LLM options for SQL Assistant:
+
+- OpenAI o1
+- DeepSeek R1
+- Llama 3.3 70B
+- Llama 3.1 405B
+- DeepSeek R1 Distill - Llama 3.3
+
+We've also improved the model picker by adding descriptions for each model:
+
+![Timescale Cloud SQL Assistant AI model picker](https://assets.timescale.com/docs/images/sql-assistant-ai-models.png)
+
+### Updated and reorganized docs for pgai
+
+We have improved the GitHub docs for pgai. Now relevant sections have been grouped into their own folders and we've created a comprehensive summary doc.  Check it out [here](https://github.com/timescale/pgai/tree/main/docs).
 
 ## 💘 TimescaleDB v2.18.1 and AWS Transit Gateway Support Generally Available
 <Label type="date">February 14, 2025</Label>
@@ -485,7 +645,7 @@ Customers can now adjust their chunk interval for their hypertables and continuo
 ### CloudWatch permissions via role assumption
 We've released permission granting via role assumption to CloudWatch. Role assumption is both more secure and more convenient for customers who no longer need to rotate credentials and update their exporter config.
 
-For more details take a look at [our documentation](https://docs.timescale.com/use-timescale/latest/metrics-logging/integrations/).
+For more details take a look at [our documentation][integrations].
 
 <img src="https://s3.amazonaws.com/assets.timescale.com/docs/images/cloudwatch-role-assumption.png" width="600px" alt="CloudWatch authentication via role assumption" />
 
@@ -766,3 +926,6 @@ To learn more, see the [postgresql-unit documentation](https://github.com/df7cb/
 [popsql-web]: https://app.popsql.com/login
 [popsql-desktop]: https://popsql.com/download
 [console]: https://console.cloud.timescale.com/dashboard/services
+[integrations]: /integrations/:currentVersion:/
+[log-28032025-pgvectorscale-rn]: https://github.com/timescale/pgvectorscale/releases/tag/0.7.0
+[log-28032025-pgvectorscale-example]: https://github.com/timescale/pgvectorscale?tab=readme-ov-file#label-based-filtering-with-diskann

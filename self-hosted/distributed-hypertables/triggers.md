@@ -1,8 +1,10 @@
 ---
 title: Use triggers on distributed hypertables
-excerpt: How to set up triggers on a distributed hypertable
+excerpt: Sunsetted v2.14.x. Set up triggers on a distributed hypertable in your self-hosted TimescaleDB installation
 products: [self_hosted]
 keywords: [distributed hypertables, triggers, multi-node]
+seo:
+  robots: noindex
 ---
 
 import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";

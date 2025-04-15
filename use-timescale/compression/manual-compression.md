@@ -4,8 +4,11 @@ excerpt: Timescale Cloud provides automated and manual data compression. Learn t
 products: [self_hosted]
 keywords: [compression, hypertables]
 ---
+import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 
 # Manually compress chunks
+
+<Deprecated2180 /> Replaced by <a href="https://docs.timescale.com/use-timescale/latest/hypercore/modify-data-in-hypercore">Modify your data in Hypercore</a>.
 
 In most cases, an [automated compression policy][add_compression_policy] is sufficient to automatically compress your 
 chunks. However, if you want more control over compression, you can also manually compress specific chunks.
@@ -26,12 +29,11 @@ use a hypertable called `example`, and compress chunks older than three days.
 
 1.  This returns a list of chunks. Take note of the chunks' names:
 
-    ```sql
     ||show_chunks|
     |---|---|
     |1|_timescaledb_internal_hyper_1_2_chunk|
     |2|_timescaledb_internal_hyper_1_3_chunk|
-    ```
+
 
 </Procedure>
 
@@ -58,12 +60,11 @@ manually compress each one.
     The results show the chunks for the given hypertable, their compression
     status, and some other statistics:
 
-    ```sql
     |chunk_schema|chunk_name|compression_status|before_compression_table_bytes|before_compression_index_bytes|before_compression_toast_bytes|before_compression_total_bytes|after_compression_table_bytes|after_compression_index_bytes|after_compression_toast_bytes|after_compression_total_bytes|node_name|
     |---|---|---|---|---|---|---|---|---|---|---|---|
     |_timescaledb_internal|_hyper_1_1_chunk|Compressed|8192 bytes|16 kB|8192 bytes|32 kB|8192 bytes|16 kB|8192 bytes|32 kB||
     |_timescaledb_internal|_hyper_1_20_chunk|Uncompressed||||||||||
-    ```
+
 
 1.  Repeat for all chunks you want to compress.
 

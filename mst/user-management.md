@@ -1,6 +1,6 @@
 ---
 title: User management
-excerpt: Add and manage users for your Managed Service for TimescaleDB project
+excerpt: Add and manage users in your Managed Service for TimescaleDB project
 products: [mst]
 keywords: [users, admin]
 tags: [manage]

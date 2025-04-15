@@ -1,6 +1,6 @@
 ---
 title: Migrate from PostgreSQL using dual-write and backfill
-excerpt: Migrate from a PostgreSQL database using the low-downtime dual-write and backfill method
+excerpt: Migrate from a PostgreSQL database to Timescale Cloud using the low-downtime dual-write and backfill method
 products: [cloud]
 keywords: [migration, low-downtime]
 tags: [migration, logical backup]
@@ -130,7 +130,7 @@ features, such as:
 - [compression] to reduce the size of your hypertables
 - [continuous aggregates] to write blisteringly fast aggregate queries on your data
 
-[time-series data]: /getting-started/:currentVersion:/time-series-data/
+[time-series data]: /getting-started/:currentVersion:/try-key-features-timescale-products/#optimize-time-series-data-in-hypertables
 [create_table API reference]: /api/:currentVersion:/hypertable/create_hypertable/
 [hypertable documentation]: /use-timescale/:currentVersion:/hypertables/
 [retention policies]: /use-timescale/:currentVersion:/data-retention/

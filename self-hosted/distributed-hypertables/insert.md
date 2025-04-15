@@ -1,9 +1,11 @@
 ---
 title: Insert data
-excerpt: How to insert data into distributed hypertables
+excerpt: Sunsetted v2.14.x. Insert data into distributed hypertables in your self-hosted TimescaleDB installation
 products: [self_hosted]
 keywords: [write, distributed hypertables]
 tags: [ingest, insert]
+seo:
+  robots: noindex
 ---
 
 import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";

@@ -1,6 +1,6 @@
 ---
 title: Low-downtime migrations with dual-write and backfill
-excerpt: Migrate a hypertable or entire database with low downtime
+excerpt: Migrate a hypertable or your entire database to Timescale Cloud with low downtime using dual-write and backfill
 products: [cloud, self_hosted]
 keywords: [backups, restore]
 tags: [recovery, logical backup, pg_dump, pg_restore]

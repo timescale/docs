@@ -31,18 +31,16 @@ Among others, `add_continuous_aggregate_policy` takes the following arguments:
     24 hours.
 
 If you set the `start_offset` or `end_offset` to `NULL`, the range is open-ended
-and extends to the beginning or end of time. However, it's recommended to set
-the `end_offset` so that at least the most recent time bucket is excluded. For
-time-series data that mostly contains writes that occur in time stamp order, the
-time buckets that see lots of writes quickly have out-of-date aggregates. You
-get better performance by excluding the time buckets that are getting a lot of
-writes.
+and extends to the beginning or end of time. 
 
-In addition, materializing the most recent bucket might interfere with
-[real-time aggregation][future-watermark].
+If you set `end_offset` within the current time bucket, this bucket is excluded. This is done for the following reasons:
 
-See the [API reference][api-reference]
-for the full list of required and optional arguments and use examples.
+- The current bucket is incomplete and can't be refreshed. 
+- The current bucket gets lots of writes in the time-stamp order and its aggregate becomes outdated very quickly. Excluding it improves performance. 
+
+To include the current time bucket, enable [real-time aggregation][future-watermark]. In Timescale&nbsp;2.13 and later, it is disabled by default.
+
+See the [API reference][api-reference] for the full list of required and optional arguments and use examples.
 
 <Procedure>
 

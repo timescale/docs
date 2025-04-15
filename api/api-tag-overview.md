@@ -1,6 +1,6 @@
 ---
 title: API reference tag overview
-excerpt: Understand the tags used in the Timescale documentation API references
+excerpt: The Timescale Cloud API reference includes tags to categorize the available SQL functions and views. See what tags are used and what they mean
 tags: [licenses, toolkit, experimental]
 ---
 

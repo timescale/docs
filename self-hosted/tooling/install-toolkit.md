@@ -1,6 +1,6 @@
 ---
 title: Install and update TimescaleDB Toolkit
-excerpt: How to install TimescaleDB Toolkit to access more hyperfunctions and function pipelines
+excerpt: Install the TimescaleDB Toolkit extension to access more hyperfunctions and function pipelines
 products: [mst, self_hosted]
 keywords: [Toolkit, installation, hyperfunctions, function pipelines]
 ---
@@ -248,8 +248,8 @@ developer documentation][toolkit-gh-docs].
 
 [brew-install]: https://brew.sh
 [cloud]: /use-timescale/:currentVersion:/services/
-[debian-install]: /self-hosted/latest/install/installation-linux/
-[docker-install]: /self-hosted/latest/install/installation-docker/
+[debian-install]: /self-hosted/:currentVersion:/install/installation-linux/
+[docker-install]: /self-hosted/:currentVersion:/install/installation-docker/
 [mst]: /mst/:currentVersion:/
-[red-hat-install]: /self-hosted/latest/install/installation-linux/
+[red-hat-install]: /self-hosted/:currentVersion:/install/installation-linux/
 [toolkit-gh-docs]: https://github.com/timescale/timescaledb-toolkit#-installing-from-source

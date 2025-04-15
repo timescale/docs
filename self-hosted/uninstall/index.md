@@ -1,6 +1,6 @@
 ---
 title: Uninstall TimescaleDB
-excerpt: Uninstall TimescaleDB on macOS
+excerpt: Uninstall TimescaleDB without uninstalling PostgreSQL
 products: [self_hosted]
 keywords: [Uninstall]
 ---

@@ -1,6 +1,6 @@
 ---
 title: Migrate from non-PostgreSQL using dual-write and backfill
-excerpt: Migrate from a non-PostgreSQL database using the low-downtime dual-write and backfill method
+excerpt: Migrate from a non-PostgreSQL database to Timescale Cloud using the low-downtime dual-write and backfill method
 products: [cloud]
 keywords: [migration, low-downtime]
 tags: [migration, logical backup]
@@ -79,7 +79,7 @@ continuous aggregate over the whole time range to ensure that there are no
 holes in the aggregated data.
 </Highlight>
 
-[tables and hypertables]: /getting-started/:currentVersion:/tables-hypertables/
+[tables and hypertables]: /getting-started/:currentVersion:/try-key-features-timescale-products/#optimize-time-series-data-in-hypertables
 
 <StepFour />
 

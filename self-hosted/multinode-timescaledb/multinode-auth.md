@@ -1,9 +1,11 @@
 ---
 title: Multi-node authentication
-excerpt: Configure authentication between access nodes and data nodes
+excerpt: Sunsetted v2.14.x. Configure authentication between access nodes and data nodes in a multi-node TimescaleDB installation
 products: [self_hosted]
 keywords: [multi-node, authenticate]
 tags: [admin]
+seo:
+  robots: noindex
 ---
 
 import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";

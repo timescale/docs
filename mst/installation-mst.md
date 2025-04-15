@@ -1,7 +1,7 @@
 ---
 title: Get started with Managed Service for TimescaleDB
 nav-title: Managed Service for TimescaleDB
-excerpt: Start a TimescaleDB instance on Managed Service for TimescaleDB
+excerpt: Create and connect to a service in Managed Service for TimescaleDB
 products: [mst]
 section: install
 order: 2
@@ -122,7 +122,7 @@ You can always [contact us][contact] if you need help working something out, or
 if you want to have a chat.
 
 [contact]: https://www.timescale.com/contact
-[install-psql]: /use-timescale/:currentVersion:/integrations/psql/
+[install-psql]: /integrations/:currentVersion:/psql/
 [mst-docs]: /mst/:currentVersion:/
 [tutorials]: /tutorials/:currentVersion:/
 [mst-signup]: https://www.timescale.com/mst-signup

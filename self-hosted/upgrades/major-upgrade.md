@@ -1,6 +1,6 @@
 ---
 title: Major TimescaleDB upgrades
-excerpt: Upgrade self-hosted TimescaleDB to a new major version
+excerpt: Upgrade your self-hosted TimescaleDB installation to a new major version
 products: [self_hosted]
 keywords: [upgrades]
 ---
@@ -127,11 +127,12 @@ notice is shown.
 
 <ImplementMigrationPath />
 
-
 <Highlight type="note">
+
 To upgrade TimescaleDB in a Docker container, see the 
 [Docker container upgrades](/self-hosted/latest/upgrades/upgrade-docker) 
 section.
+
 </Highlight>
 
 ## Verify the updated policy settings and jobs

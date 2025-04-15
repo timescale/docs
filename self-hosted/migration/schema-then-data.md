@@ -1,6 +1,6 @@
 ---
 title: Migrate schema and data separately
-excerpt: Migrate your Timescale data and schema to self-hosted TimescaleDB
+excerpt: Migrate your data and schema to self-hosted TimescaleDB. This method copies each table or chunk separately, which means you can restart midway if one copy operation fails
 products: [self_hosted]
 keywords: [data migration]
 tags: [ingest]
@@ -210,7 +210,7 @@ the [compression section](https://docs.timescale.com/use-timescale/latest/compre
 [install-selfhosted]: /self-hosted/:currentVersion:/install/
 [pg_dump]: https://www.postgresql.org/docs/current/app-pgdump.html
 [pg_restore]: https://www.postgresql.org/docs/current/app-pgrestore.html
-[psql]: /use-timescale/:currentVersion:/integrations/psql/
+[psql]: /integrations/:currentVersion:/psql/
 [timescaledb-parallel-copy]: https://github.com/timescale/timescaledb-parallel-copy
 [upgrading-postgresql]: https://kb-managed.timescale.com/en/articles/5368016-perform-a-postgresql-major-version-upgrade
 [upgrading-postgresql-self-hosted]: /self-hosted/:currentVersion:/upgrades/upgrade-pg/

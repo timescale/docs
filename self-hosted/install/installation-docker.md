@@ -1,6 +1,6 @@
 ---
 title: Install TimescaleDB on Docker
-excerpt: Install self-hosted TimescaleDB from a pre-built Docker container
+excerpt: Install self-hosted TimescaleDB on any local system from a pre-built Docker container
 products: [self_hosted]
 keywords: [installation, self-hosted, Docker]
 ---

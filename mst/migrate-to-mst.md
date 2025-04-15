@@ -1,6 +1,6 @@
 ---
 title: Migrating from self-hosted Timescale to Managed Service for TimescaleDB
-excerpt: Migrating an existing Timescale database to Managed Service for TimescaleDB
+excerpt: Migrate a Timescale Cloud service to Managed Service for TimescaleDB
 products: [mst, self_hosted]
 keywords: [data migration, database]
 tags: [ingest, backup, restore]
@@ -129,7 +129,7 @@ them. The migration still occurs successfully.
 [install-mst]: /mst/:currentVersion:/installation-mst/#create-your-first-service
 [pg_dump]: https://www.postgresql.org/docs/current/app-pgdump.html
 [pg_restore]: https://www.postgresql.org/docs/current/app-pgrestore.html
-[psql]: /use-timescale/:currentVersion:/integrations/psql/
+[psql]: /integrations/:currentVersion:/psql/
 [upgrading-postgresql]: https://kb-managed.timescale.com/en/articles/5368016-perform-a-postgresql-major-version-upgrade
 [upgrading-postgresql-self-hosted]: /self-hosted/:currentVersion:/upgrades/upgrade-pg/
 [upgrading-timescaledb]: /self-hosted/:currentVersion:/upgrades/major-upgrade/

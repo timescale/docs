@@ -1,6 +1,6 @@
 ---
 title: Migrate with downtime
-excerpt: Migrate a hypertable or entire database with native PostgreSQL commands
+excerpt: Migrate a hypertable or an entire database to Timescale Cloud with native PostgreSQL commands. Use `pg_dump` and `pg_restore` to move less than 100GB of data
 products: [cloud, self_hosted]
 keywords: [backups, restore]
 tags: [recovery, logical backup, pg_dump, pg_restore]

@@ -1,6 +1,6 @@
 ---
 title: Upgrade TimescaleDB
-excerpt: Upgrade your self-hosted TimescaleDB installation in-place
+excerpt: Upgrade your self-hosted TimescaleDB installation to a minor or major version in-place, or revert to the previous minor
 products: [self_hosted]
 keywords: [upgrades]
 ---

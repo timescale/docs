@@ -1,6 +1,6 @@
 ---
 title: IP allow list
-excerpt: Create a list of IP addresses that can access your services and query the data in them
+excerpt: You can grant selective access to your service administration and data. See how to create IP whitelists for the different modes available in Timescale Console
 product: cloud
 keywords: [ip allow list, security]
 tags: [ip allow list]

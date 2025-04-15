@@ -1,6 +1,6 @@
 ---
 title: Downgrade to a previous version of TimescaleDB
-excerpt: Downgrade self-hosted TimescaleDB to the previous minor version
+excerpt: Downgrade your self-hosted TimescaleDB installation to the previous minor version
 products: [self_hosted]
 keywords: [upgrades]
 ---

@@ -9,7 +9,7 @@ cloud_ui:
         - [services, :serviceId, metrics]
 ---
 
-import EarlyAccess from "versionContent/_partials/_early_access.mdx";
+import EarlyAccess from "versionContent/_partials/_early_access_2_18_0.mdx";
 
 # Service metrics
 
@@ -136,4 +136,4 @@ performance bottlenecks with `pg_stat_statements`][blog-pg_stat_statements].
 [metrics-dashboard]: /use-timescale/:currentVersion:/metrics-logging/service-metrics/
 [pg-stat]: /use-timescale/:currentVersion:/metrics-logging/service-metrics/#query-level-statistics-with-pg_stat_statements
 [blog-pg_stat_statements]: <https://www.timescale.com/blog/identify-postgresql-performance-bottlenecks-with-pg_stat_statements/>
-[psql]: /use-timescale/:currentVersion:/integrations/psql/
+[psql]: /integrations/:currentVersion:/psql/

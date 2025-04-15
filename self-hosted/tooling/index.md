@@ -1,6 +1,6 @@
 ---
 title: Additional tooling
-excerpt: Get the most from TimescaleDB with open source tools that help you perform common tasks
+excerpt: Get the most out of TimescaleDB with open-source tools that help you perform common tasks
 products: [self_hosted]
 ---
 

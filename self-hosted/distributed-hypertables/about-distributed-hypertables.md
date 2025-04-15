@@ -1,8 +1,10 @@
 ---
 title: About distributed hypertables
-excerpt: Learn how distributed hypertables work in multi-node Timescale
+excerpt: Sunsetted v2.14.x. Distributed hypertables are hypertables that span multiple nodes 
 products: [self_hosted]
 keywords: [distributed hypertables, multi-node]
+seo:
+  robots: noindex
 ---
 
 import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";
@@ -203,7 +205,7 @@ for several reasons:
     it isn't guaranteed to have a consistent result across each node. An example
     non-immutable function is [`random()`][random-func], which depends on the
     current seed.
-*   The query includes a user-defined function. The access node assumes the
+*   The query includes a $JOB function. The access node assumes the
     function doesn't exist on the data nodes, and doesn't push it down.
 
 Timescale uses several optimizations to avoid these limitations, and push down

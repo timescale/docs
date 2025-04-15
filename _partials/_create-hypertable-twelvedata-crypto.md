@@ -1,18 +1,22 @@
 
-## Create a hypertable
+## Optimize time-series data in a hypertable
 
-Hypertables are the core of Timescale. Hypertables enable Timescale to work
-efficiently with time-series data. Because Timescale is PostgreSQL, all the
-standard PostgreSQL tables, indexes, stored procedures, and other objects can be
-created alongside your Timescale hypertables. This makes creating and working
-with Timescale tables similar to standard PostgreSQL.
+Hypertables are the core of $TIMESCALE_DB, they enable $CLOUD_LONG to work
+efficiently with time-series data. Hypertables are PostgreSQL tables that automatically 
+partition your time-series data by time. When you run a query, $CLOUD_LONG identifies the 
+correct partition and runs the query on it, instead of going through the entire table.
+
+Because $TIMESCALE_DB is 100% PostgreSQL, you can create standard PostgreSQL tables, indexes, stored 
+procedures, and other objects alongside your Timescale hypertables. This makes creating and working
+with hypertables similar to standard PostgreSQL.
 
 <Procedure>
 
-### Creating a hypertable
+1. Connect to your $SERVICE_LONG.
 
-1.  Create a standard PostgreSQL table to store the real-time cryptocurrency data
-    using `CREATE TABLE`:
+   In [$CONSOLE][services-portal] open an [SQL editor][in-console-editors]. You can also connect to your service using [psql][connect-using-psql].
+
+1.  Create a standard PostgreSQL table to store the real-time cryptocurrency data:
 
     ```sql
     CREATE TABLE crypto_ticks (
@@ -32,23 +36,16 @@ with Timescale tables similar to standard PostgreSQL.
     SELECT create_hypertable('crypto_ticks', by_range('time'));
     ```
 
-	<Highlight type="note">
-	The `by_range` dimension builder is an addition to TimescaleDB 2.13.
-	</Highlight>
-
 </Procedure>
 
-## Create standard PostgreSQL tables for relational data
+## Create a standard PostgreSQL table for relational data
 
-When you have other relational data that enhances your time-series data, you can
-create standard PostgreSQL tables just as you would normally. For this dataset,
-there is one other table of data called `crypto_assets`.
+When you have relational data that enhances your time-series data, store that data in
+standard PostgreSQL relational tables. 
 
 <Procedure>
 
-### Creating standard PostgreSQL tables
-
-1.  Add a table to store the company name and symbol for the stock trade data:
+1.  Add a table to store the asset symbol and name in a relational table:
 
     ```sql
     CREATE TABLE crypto_assets (
@@ -57,7 +54,11 @@ there is one other table of data called `crypto_assets`.
     );
     ```
 
-1.  You now have two tables within your Timescale database. One hypertable
-    named `crypto_ticks`, and one normal PostgreSQL table named `crypto_assets`.
-
 </Procedure>
+
+You now have two tables within your $SERVICE_LONG. A hypertable named `crypto_ticks`, and a normal 
+PostgreSQL table named `crypto_assets`.
+
+[in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
+[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[connect-using-psql]: /integrations/:currentVersion:/psql

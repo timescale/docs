@@ -1,6 +1,6 @@
 ---
 title: TimescaleDB tuning tool
-excerpt: Use the timescaledb-tune tool to automatically configure your TimescaleDB instance
+excerpt: Use timescaledb-tun to automatically configure your TimescaleDB instance. Timescaledb-tune handles setting the most common parameters to appropriate values based on your system
 products: [self_hosted]
 keywords: [configuration, settings, timescaledb-tune]
 tags: [tune]

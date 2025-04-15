@@ -1,6 +1,6 @@
 ---
 title: About configuration in TimescaleDB
-excerpt: About the TimescaleDB configurations
+excerpt: Configure your TimescaleDB instance including settings related to memory, workers, disk writes, and transactional locks
 products: [self_hosted]
 keywords: [configuration, memory, workers, settings]
 ---

@@ -828,5 +828,5 @@ querying by time and location.
 [migrate]: /use-timescale/:currentVersion:/migration/
 [parallel-copy]: https://github.com/timescale/timescaledb-parallel-copy
 [postgis]: http://postgis.net/documentation
-[setup-psql]: /use-timescale/:currentVersion:/integrations/psql/
+[setup-psql]: /integrations/:currentVersion:/psql/
 [time-series-forecasting]: /tutorials/:currentVersion:/time-series-forecast/

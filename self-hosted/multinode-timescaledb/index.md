@@ -1,8 +1,10 @@
 ---
 title: Multi-node
-excerpt: Multi-node TimescaleDB allows you to horizontally scale your database
+excerpt: Learn about using multi-node TimescaleDB to scale your database horizontally, including setup, authentication, configuration, and managing your cluster 
 products: [self_hosted]
 keywords: [multi-node, scaling]
+seo:
+  robots: noindex
 ---
 
 import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";

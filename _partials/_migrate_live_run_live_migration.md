@@ -33,7 +33,6 @@
    2024-03-25T12:40:40.884 WARNING: The following tables in the Source DB have neither a primary key nor a REPLICA IDENTITY (FULL/INDEX)
    2024-03-25T12:40:40.884 WARNING: UPDATE and DELETE statements on these tables will not be replicated to the Target DB
    2024-03-25T12:40:40.884 WARNING:        - public.metrics
-   Press 'c' and ENTER to continue
    ```
 
    If you have warnings, stop live-migration, make the suggested changes and start again.
@@ -51,7 +50,12 @@
        -v ~/live-migration:/opt/timescale/ts_cdc \
        timescale/live-migration:latest migrate
    ```
- 
+
+   <Highlight type="important">
+   If the source PostgreSQL version is 17 or later, you need to pass additional
+   flag `-e PGVERSION=17` to the `migrate` command.
+   </Highlight>
+
    After migrating the schema, live-migration prompts you to create hypertables for tables that 
    contain time-series data in your Timescale Cloud service. Run `create_hypertable()` to convert these
    table. For more information, see the [Hypertable docs][Hypertable docs].   

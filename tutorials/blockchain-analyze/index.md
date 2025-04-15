@@ -7,16 +7,19 @@ layout_components: [next_prev_large]
 content_group: Analyze the Bitcoin blockchain
 ---
 
+import FinancialIndustry from "versionContent/_partials/_financial-industry-data-analysis.mdx";
+
 # Analyze the Bitcoin blockchain
 
-[Blockchains][blockchain-def] are, at their essence, a distributed database. The
-[transactions][transactions-def] in a blockchain are an example of time-series
-data. You can use Timescale to query transactions on a blockchain, in exactly the
-same way as you might query time-series transactions in any other database.
+<FinancialIndustry />
 
-In this tutorial, you use Timescale hyperfunctions to analyze transactions
-on the Bitcoin blockchain. You can use these instructions to query any type of data on a
-blockchain, including other cryptocurrencies, smart contracts, or health data.
+In this tutorial, you use Timescale to ingest, store, and analyze transactions
+on the Bitcoin blockchain.
+
+[Blockchains][blockchain-def] are, at their essence, a distributed database. The
+[transactions][transactions-def] in a blockchain are an example of time-series data. You can use
+Timescale to query transactions on a blockchain, in exactly the same way as you
+might query time-series transactions in any other database.
 
 ## Prerequisites
 
@@ -56,4 +59,4 @@ to graph the output in Grafana.
 [blockchain-query]: /tutorials/:currentVersion:/blockchain-query/beginner-blockchain-query/
 [blockchain-def]: https://www.pcmag.com/encyclopedia/term/blockchain
 [transactions-def]: https://www.pcmag.com/encyclopedia/term/bitcoin-transaction
-[grafana-setup]: /use-timescale/:currentVersion:/integrations/grafana/
+[grafana-setup]: /integrations/:currentVersion:/grafana/

@@ -1,18 +1,20 @@
 
-| Version number            |PostgreSQL 17|PostgreSQL 16|PostgreSQL 15|PostgreSQL 14|PostgreSQL 13|PostgreSQL 12|PostgreSQL 11|PostgreSQL 10|
-|---------------------------|-|-|-|-|-|-|-|-|
-| TimescaleDB<br/> 2.17.x   |✅|✅|✅|✅|❌|❌|❌|❌|❌|
-| TimescaleDB<br/> 2.16.x   |❌|✅|✅|✅|✅|❌|❌|❌|❌|❌|
-| TimescaleDB<br/> 2.15.x   |❌|✅|✅|✅|✅|❌|❌|❌|❌|❌|
-| TimescaleDB<br/> 2.14.x   |❌|✅|✅|✅|✅|❌|❌|❌|❌|❌|
-| TimescaleDB<br/> 2.13.x   |❌|✅|✅|✅|✅|❌|❌|❌|❌|
-| TimescaleDB<br/> 2.12.x   |❌|❌|✅|✅|✅|❌|❌|❌|❌|
-| TimescaleDB<br/> 2.10.x   |❌|❌|✅|✅|✅|✅|❌|❌|❌|
-| TimescaleDB<br/> 2.5 - 2.9 |❌|❌|❌|✅|✅|✅|❌|❌|❌|
-| TimescaleDB<br/> 2.4      |❌|❌|❌|❌|✅|✅|❌|❌|❌|
-| TimescaleDB<br/> 2.1 - 2.3 |❌|❌|❌|❌|✅|✅|✅|❌|❌|
-| TimescaleDB<br/> 2.0      |❌|❌|❌|❌|❌|✅|✅|❌|❌
-| TimescaleDB<br/> 1.7      |❌|❌|❌|❌|❌|✅|✅|✅|✅|
+| Version number                   |PostgreSQL 17|PostgreSQL 16|PostgreSQL 15|PostgreSQL 14|PostgreSQL 13|PostgreSQL 12|PostgreSQL 11|PostgreSQL 10|
+|----------------------------------|-|-|-|-|-|-|-|-|
+| TimescaleDB<br/> 2.19 and higher |✅|✅|✅|✅|❌|❌|❌|❌|❌|
+| TimescaleDB<br/> 2.18.x          |✅|✅|✅|✅|❌|❌|❌|❌|❌|
+| TimescaleDB<br/> 2.17.x          |✅|✅|✅|✅|❌|❌|❌|❌|❌|
+| TimescaleDB<br/> 2.16.x          |❌|✅|✅|✅|❌|❌|❌|❌|❌|❌|
+| TimescaleDB<br/> 2.15.x          |❌|✅|✅|✅|✅|❌|❌|❌|❌|❌|
+| TimescaleDB<br/> 2.14.x          |❌|✅|✅|✅|✅|❌|❌|❌|❌|❌|
+| TimescaleDB<br/> 2.13.x          |❌|✅|✅|✅|✅|❌|❌|❌|❌|
+| TimescaleDB<br/> 2.12.x          |❌|❌|✅|✅|✅|❌|❌|❌|❌|
+| TimescaleDB<br/> 2.10.x          |❌|❌|✅|✅|✅|✅|❌|❌|❌|
+| TimescaleDB<br/> 2.5 - 2.9       |❌|❌|❌|✅|✅|✅|❌|❌|❌|
+| TimescaleDB<br/> 2.4             |❌|❌|❌|❌|✅|✅|❌|❌|❌|
+| TimescaleDB<br/> 2.1 - 2.3       |❌|❌|❌|❌|✅|✅|✅|❌|❌|
+| TimescaleDB<br/> 2.0             |❌|❌|❌|❌|❌|✅|✅|❌|❌
+| TimescaleDB<br/> 1.7             |❌|❌|❌|❌|❌|✅|✅|✅|✅|
 
 We recommend not using TimescaleDB with PostgreSQL 17.1, 16.5, 15.9, 14.14, 13.17, 12.21.  
 These minor versions [introduced a breaking binary interface change][postgres-breaking-change] that,

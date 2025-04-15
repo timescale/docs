@@ -1,6 +1,6 @@
 ---
 title: Backup and restore
-excerpt: Learn how to back up and restore your TimescaleDB instance
+excerpt: Back up and restore your TimescaleDB instance - use logical backup with `pg_dump` and `pg_restore` or physical backup with `pg_basebackup`
 products: [self_hosted]
 keywords: [backups, restore]
 tags: [recovery]

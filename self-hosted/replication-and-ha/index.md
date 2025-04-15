@@ -1,6 +1,6 @@
 ---
 title: High availability
-excerpt: Learn about high availability
+excerpt: Learn about high availability in your self-hosted TimescaleDB installation
 products: [self_hosted]
 keywords: [high availability]
 ---

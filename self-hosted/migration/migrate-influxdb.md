@@ -1,6 +1,6 @@
 ---
 title: Migrate data to Timescale from InfluxDB
-excerpt: Migrate data into Timescale using the Outflux tool
+excerpt: Migrate data into your self-hosted TimescaleDB installation using the Outflux tool
 products: [self_hosted]
 keywords: [data migration, InfluxDB]
 tags: [import, Outflux]
@@ -42,8 +42,6 @@ Install Outflux from the GitHub repository. There are builds for Linux, Windows,
 and MacOS.
 
 <Procedure>
-
-### Installing Outflux
 
 1.  Go to the [releases section][outflux-releases] of the Outflux repository.
 1.  Download the latest compressed tarball for your platform.

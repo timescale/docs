@@ -1,11 +1,12 @@
 ---
 title: Upgrade PostgreSQL
-excerpt: Upgrade PostgreSQL to a new version
+excerpt: Upgrade PostgreSQL to a new version compatible with your self-hosted TimescaleDB installation
 products: [self_hosted]
 keywords: [upgrades, PostgreSQL, versions, compatibility]
 ---
 
 import PlanUpgrade from "versionContent/_partials/_plan_upgrade.mdx";
+import SupportMatrix from "versionContent/_partials/_migrate_self_postgres_timescaledb_compatibility.mdx";
 import ConsiderCloud from "versionContent/_partials/_consider-cloud.mdx";
 import PlanMigrationPath from "versionContent/_partials/_migrate_self_postgres_plan_migration_path.mdx";
 
@@ -15,21 +16,7 @@ TimescaleDB is a PostgreSQL extension. Ensure that you upgrade to compatible ver
 
 <ConsiderCloud />
 
-
-||PostgreSQL&nbsp;17|PostgreSQL&nbsp;16|PostgreSQL&nbsp;15|PostgreSQL&nbsp;14|PostgreSQL&nbsp;13|PostgreSQL&nbsp;12|PostgreSQL&nbsp;11|PostgreSQL&nbsp;10|PostgreSQL&nbsp;9.6|
-|-|-|-|-|-|-|-|-|-|
-|TimescaleDB&nbsp;2.17 and higher|&#9989;|&#9989;|&#9989;|&#9989;|&#10060;|&#10060;|&#10060;|&#10060;|&#10060;|
-|TimescaleDB&nbsp;2.16 and higher|&#10060;|&#9989;|&#9989;|&#9989;|&#10060;|&#10060;|&#10060;|&#10060;|&#10060;|&#10060;|
-|TimescaleDB&nbsp;2.15 and higher|&#10060;|&#9989;|&#9989;|&#9989;|&#9989;|&#10060;|&#10060;|&#10060;|&#10060;|&#10060;|
-|TimescaleDB&nbsp;2.14 and higher|&#10060;|&#9989;|&#9989;|&#9989;|&#9989;|&#10060;|&#10060;|&#10060;|&#10060;|&#10060;|
-|TimescaleDB&nbsp;2.13 and higher|&#10060;|&#9989;|&#9989;|&#9989;|&#9989;|&#10060;|&#10060;|&#10060;|&#10060;|
-|TimescaleDB&nbsp;2.12 and higher|&#10060;|&#10060;|&#9989;|&#9989;|&#9989;|&#10060;|&#10060;|&#10060;|&#10060;|
-|TimescaleDB&nbsp;2.10 and higher|&#10060;|&#10060;|&#9989;|&#9989;|&#9989;|&#9989;|&#10060;|&#10060;|&#10060;|
-|TimescaleDB&nbsp;2.5 to 2.9|&#10060;|&#10060;|&#10060;|&#9989;|&#9989;|&#9989;|&#10060;|&#10060;|&#10060;|
-|TimescaleDB&nbsp;2.4|&#10060;|&#10060;|&#10060;|&#10060;|&#9989;|&#9989;|&#10060;|&#10060;|&#10060;|
-|TimescaleDB&nbsp;2.1 to 2.3|&#10060;|&#10060;|&#10060;|&#10060;|&#9989;|&#9989;|&#9989;|&#10060;|&#10060;|
-|TimescaleDB&nbsp;2.0|&#10060;|&#10060;|&#10060;|&#10060;|&#10060;|&#9989;|&#9989;|&#10060;|&#10060;
-|TimescaleDB&nbsp;1.7|&#10060;|&#10060;|&#10060;|&#10060;|&#10060;|&#9989;|&#9989;|&#9989;|&#9989;|
+## Prerequisites
 
 <PlanUpgrade />
 
