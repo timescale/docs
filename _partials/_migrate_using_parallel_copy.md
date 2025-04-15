@@ -17,8 +17,9 @@
     --connection "host=<HOST> \
     user=tsdbadmin password=<PASSWORD> \
     port=<PORT> \
-    sslmode=require" \
-    --db-name tsdb \
+    dbname=tsdb \
+    sslmode=require
+    " \
     --table <TABLE_NAME> \
     --file <FILE_NAME>.csv \
     --workers <NUM_WORKERS> \
