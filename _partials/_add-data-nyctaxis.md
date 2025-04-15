@@ -58,5 +58,3 @@ tolls_amount          | 0
 improvement_surcharge | 0.3
 total_amount          | 10.3
 ```
-
-[parallel-copy]: https://github.com/timescale/timescaledb-parallel-copy

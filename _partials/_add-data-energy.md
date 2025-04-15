@@ -46,5 +46,3 @@ connection.
    ```
 
 </Procedure>
-
-[parallel-copy]: https://github.com/timescale/timescaledb-parallel-copy
