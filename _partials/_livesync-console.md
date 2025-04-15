@@ -16,6 +16,10 @@ import TuneSourceDatabaseAWSRDS from "versionContent/_partials/_livesync-configu
 
 ## Limitations
 
+- Indexes(including Primary Key and Unique constraints) are not migrated by $SERVICE_LONG.
+
+We recommend that you create only necessary indexes on the target $SERVICE_LONG depending on your query patterns.
+
 <LivesyncLimitations />
 
 ## Set your connection string
