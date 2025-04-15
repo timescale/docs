@@ -39,19 +39,20 @@ The `<user>` in the `SOURCE` connection must have the replication role granted i
 
 <Tabs label="Live migration">
 
-<Tab title="From PostgreSQL">
-<Procedure>
-
-<LivesyncConfigureSourceDatabase />
-
-</Procedure>
-
-</Tab>
 <Tab title="From AWS RDS/Aurora">
 
 <Procedure>
 
 <TuneSourceDatabaseAWSRDS />
+
+</Procedure>
+
+</Tab>
+
+<Tab title="From PostgreSQL">
+<Procedure>
+
+<LivesyncConfigureSourceDatabase />
 
 </Procedure>
 
