@@ -43,19 +43,19 @@ Datadog using a $CLOUD_LONG data exporter. The available metrics include CPU usa
 ### Create a data exporter
 
 A $CLOUD_LONG data exporter sends telemetry data from a $SERVICE_LONG to a third-party monitoring
-tool. You create an exporter on the [project level][projects], in the same AWS region as your $SERVICE_SHORT: 
+tool. You create an exporter on the [project level][projects], in the same AWS region as your $SERVICE_SHORT:
 
 <DataDogExporter />
 
 ### Manage a data exporter
 
-This section shows you how to attach, monitor, edit, and delete a data exporter. 
+This section shows you how to attach, monitor, edit, and delete a data exporter.
 
 <ManageDataExporter />
 
 ## Configure Datadog Agent to collect metrics for your $SERVICE_LONGs
 
-Datadog Agent includes a [$PG integration][datadog-postgres] that you use to collect detailed $PG database 
+Datadog Agent includes a [$PG integration][datadog-postgres] that you use to collect detailed $PG database
 metrics about your $SERVICE_LONGs.
 
 1. **Connect to your $SERVICE_LONG**
@@ -85,16 +85,16 @@ metrics about your $SERVICE_LONGs.
    ```
    You see the output from the `pg_stat_database` table, which means you have given the correct rights to `datadog`.
 
-1. **Connect Datadog to your $SERVICE_LONG** 
+1. **Connect Datadog to your $SERVICE_LONG**
 
-   1. Open the datadog agent $PG configuration file, usually located at: 
+   1. Open the datadog agent $PG configuration file, usually located at:
       - **Linux**: `/etc/datadog-agent/conf.d/postgres.d/conf.yaml`
       - **MacOS**: `/opt/datadog-agent/etc/conf.d/postgres.d/conf.yaml`
       - **Windows**: `C:\ProgramData\Datadog\conf.d\postgres.d\conf.yaml`
-   
+
    1. Integrate Datadog Agent with your $SERVICE_LONG
 
-      Use your [connection details][connection-info] to update the following and add it to the datadog agent $PG 
+      Use your [connection details][connection-info] to update the following and add it to the datadog agent $PG
       configuration file:
 
       ```yaml
@@ -111,9 +111,10 @@ metrics about your $SERVICE_LONGs.
 
 1. **Add $CLOUD_LONG metrics**
 
-   Tags to make it easier for build Datadog dashboards that combine metrics from the $CLOUD_LONG data exporter and 
-   Datadog Agent. Use your [connection details][connection-info] to update the following and add it to 
+   Tags to make it easier for build Datadog dashboards that combine metrics from the $CLOUD_LONG data exporter and
+   Datadog Agent. Use your [connection details][connection-info] to update the following and add it to
    `<datadog_home>/datadog.yaml`:
+
    ```yaml
    tags:
      - project-id:<project-id>
@@ -125,10 +126,8 @@ metrics about your $SERVICE_LONGs.
 
    See how to [Start, stop, and restart Datadog Agent][datadog-agent-restart].
 
-
 Metrics for your $SERVICE_LONG are now visible in Datadog. Check the Datadog $PG integration documentation for a
 comprehensive list of [metrics][datadog-postgres-metrics] collected.
-
 
 [datadog]: https://www.datadoghq.com/
 [datadog-agent-install]: https://docs.datadoghq.com/getting_started/agent/#installation
