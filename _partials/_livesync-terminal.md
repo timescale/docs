@@ -39,19 +39,20 @@ The `<user>` in the `SOURCE` connection must have the replication role granted i
 
 <Tabs label="Live migration">
 
-<Tab title="From PostgreSQL">
-<Procedure>
-
-<LivesyncConfigureSourceDatabase />
-
-</Procedure>
-
-</Tab>
 <Tab title="From AWS RDS/Aurora">
 
 <Procedure>
 
 <TuneSourceDatabaseAWSRDS />
+
+</Procedure>
+
+</Tab>
+
+<Tab title="From PostgreSQL">
+<Procedure>
+
+<LivesyncConfigureSourceDatabase />
 
 </Procedure>
 
@@ -138,7 +139,7 @@ instance to a $SERVICE_LONG:
    As you run Livesync continuously, best practice is to run it as a background process.
 
    ```shell
-   docker run -d --rm --name livesync timescale/live-sync:v0.0.0-alpha.7 run --publication analytics --subscription livesync --source $SOURCE --target $TARGET
+   docker run -d --rm --name livesync timescale/live-sync:v0.1.11 run --publication analytics --subscription livesync --source $SOURCE --target $TARGET
    ```
 
 1. **Trace progress**
