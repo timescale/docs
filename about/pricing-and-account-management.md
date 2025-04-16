@@ -138,8 +138,7 @@ The features included in each [$PRICING_PLAN][pricing-plans] are:
 | Number of $SERVICE_SHORTs	                                    | Up to 4	                          | Unlimited	                                     | Unlimited                                      |
 | CPU limit per $SERVICE_SHORT                                  | 	Up to 8 CPU	                     | Up to 32 CPU	                                  | Up to 32 CPU                                   | 
 | Memory limit per $SERVICE_SHORT                               | 	Up to 32 GB                      | 	Up to 128 GB                                  | 	Up to 128 GB                                  | 
-| Storage limit per $SERVICE_SHORT	                             | Up to 16 TB	                      | Up to 16 TB	                                   | Up to 16 TB                                    |
-| Enhanced high-performance storage                             |                                   |                                                | Up to 64 TB                                    |
+| Storage limit per $SERVICE_SHORT	                             | Up to 16 TB	                      | Up to 16 TB	                                   | Up to 64 TB                                    |
 | Bottomless storage on S3	                                     |                                   | 	Unlimited	                                    | Unlimited                                      |
 | Independently scale compute and storage	                      | ✓                                 | 	✓	                                            | ✓                                              |
 | **Data Services and Workloads**                               |                                   |                                                |

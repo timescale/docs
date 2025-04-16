@@ -15,7 +15,7 @@ import TieredStorageBilling from "versionContent/_partials/_tiered-storage-billi
 
 $COMPANY's tiered storage architecture includes a high-performance storage tier and a low-cost object storage tier:
 
-- You use [high-performance storage][high-performance-storage] for frequently accessed data. You change the high-performance storage type in $CONSOLE to make sure the available storage and IOPS meet your needs. 
+- You use [high-performance storage][high-performance-storage] to store and query frequently accessed data. 
 
 - You use [low-cost object storage][low-cost-storage] to cut costs by migrating rarely used data from the high-performance storage. After you 
 enable tiered storage, you then either [create automated tiering policies][tiering-policies] or [manually tier and untier data][manual-tier].
@@ -26,16 +26,36 @@ You can query the data on the object storage tier, but you cannot modify it. Mak
 
 ## High-performance storage tier
 
-By default, $CLOUD_LONG stores your $SERVICE_SHORT data in the standard high-performance storage. This gives you up to 16TB of storage and 16,000 IOPS. You can increase the limits to 64TB and 64,000 IOPS, respectively, by changing the storage type to enhanced. 
+By default, $CLOUD_LONG stores your $SERVICE_SHORT data in the standard high-performance storage. This storage tier comes in the standard and enhanced types. 
 
-To get enhanced storage:
+### Standard high-performance storage
+
+This storage type gives you up to 16TB of storage and 16,000 IOPS. You change the IOPS value to better suit your needs in $CONSOLE: 
 
 <Procedure>
 
 1. **In [$CONSOLE][console], select your $SERVICE_SHORT, then click `Operations` > `Compute and storage`**
-1. **Select the type in the `Storage type` dropdown**
 
-    The enhanced storage type is only available under the [$ENTERPRISE $PRICING_PLAN][pricing-plans].
+   By default, the type of high-performance storage is set to `Standard` and IOPS is set to `5,000 - 8,000 (Autoscale)`.
+
+1. **Select the IOPS value in the `I/O boost` dropdown**
+
+   Select between `5,000 - 8,000 (Autoscale)` and `16,000 IOPS`.
+
+   ![Default standard storage in Timescale Cloud](https://assets.timescale.com/docs/images/standard-storage-timescale-cloud.png)
+
+1. **Click `Apply`**
+
+</Procedure>
+
+### Enhanced high-performance storage
+
+This storage type gives you up to 64TB and 64,000 IOPS, and is available under the [$ENTERPRISE $PRICING_PLAN][pricing-plans]. To get enhanced storage:
+
+<Procedure>
+
+1. **In [$CONSOLE][console], select your $SERVICE_SHORT, then click `Operations` > `Compute and storage`**
+1. **Select `Enhanced` in the `Storage type` dropdown**
 
     ![Enhanced storage in Timescale Cloud](https://assets.timescale.com/docs/images/enhanced-storage-timescale-cloud.png)
 
