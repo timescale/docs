@@ -215,8 +215,8 @@ Migration takes a few minutes to complete and requires a change to DNS settings 
 $SERVICE_SHORT. The $SERVICE_SHORT is not accessible during this time. If you receive a DNS error, allow
 some time for DNS propagation.
 
-[aws-dashboard]: https://console.aws.amazon.com/vpc/home#PeeringConnections:
-[aws-security-groups]: https://console.aws.amazon.com/vpcconsole/home#securityGroups:
+[aws-dashboard]: https://console.aws.amazon.com/vpc/home#PeeringConnections
+[aws-security-groups]: https://console.aws.amazon.com/vpcconsole/home#securityGroups
 [console-login]: https://console.cloud.timescale.com/
 [console-vpc]: https://console.cloud.timescale.com/dashboard/vpc
 [console-services]: https://console.cloud.timescale.com/dashboard/services
