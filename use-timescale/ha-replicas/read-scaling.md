@@ -17,7 +17,7 @@ This page shows you how to create and manage $READ_REPLICAs.
 
 ## What is read replication?
 
-A $READ_REPLICAs is a read-only copy of the primary data instance in your $CLOUD_LONG. Queries on $READ_REPLICAs have minimal impact on the performance of the primary data instance. This enables you to interact with 
+A $READ_REPLICA is a read-only copy of the primary data instance in your $SERVICE_LONG. Queries on $READ_REPLICAs have minimal impact on the performance of the primary data instance. This enables you to interact with 
 up-to-date production data for analysis or to scale out reads beyond the limits of your primary data instance. $READ_REPLICA_CAPs can be short-lived and deleted when a session of data analysis is complete, or long-running to power a
 business intelligence (BI) tool. 
 
