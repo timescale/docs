@@ -26,11 +26,10 @@ or [tiered storage][data-tiering] on them. You can even
 create
 [continuous aggregates on top of your continuous aggregates][hierarchical-caggs] - for an even more fine-tuned aggregation. 
 
-By default, querying continuous aggregates provides you with real-time data.
-Pre-aggregated data from the materialized view is combined with recent data that
-hasn't been aggregated yet. This gives you up-to-date results on every query.
+[Real-time aggregation][real-time-aggregation] enables you to combine pre-aggregated data from the materialized view with the most recent raw data. This gives you up-to-date results on every query.
 
 [compression]: /use-timescale/:currentVersion:/compression/about-compression
 [data-tiering]: /use-timescale/:currentVersion:/data-tiering/
 [hypercore]: /use-timescale/:currentVersion:/hypercore/
 [hierarchical-caggs]: /use-timescale/:currentVersion:/continuous-aggregates/hierarchical-continuous-aggregates/
+[real-time-aggregation]: /use-timescale/:currentVersion:/continuous-aggregates/real-time-aggregates/
