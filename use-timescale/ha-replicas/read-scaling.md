@@ -34,7 +34,7 @@ To follow this procedure:
 - Create a target $SERVICE_LONG.
 - Create a [read-only user][read-only-role] on the primary data instance. 
   
-   This user is propagated to the $READ_REPLICA when you create it.
+   This user is propagated to the $READ_REPLICAs when you create them.
 
 ## Create a $READ_REPLICA
 
