@@ -23,7 +23,7 @@ business intelligence (BI) tool.
 
 You use $READ_REPLICAs for **read** scaling. To limit data loss for your $SERVICE_LONGs, use [$HA_REPLICAs][ha].
 
-You create a $READ_REPLICA as a set of one or more nodes that share the same endpoint in $CONSOLE. You query each set as a single replica, and $CLOUD_LONG balances the load between the nodes within the set for you. 
+A $READ_REPLICA is the set of one or more nodes that share the same endpoint in $CONSOLE. You query each set as a single replica. $CLOUD_LONG balances the load between the nodes in the set for you. 
 
 You can create as many $READ_REPLICAs as you need. For security and resource isolation, each $READ_REPLICA has unique connection details. To restrict access without isolation, create a [read-only role][read-only-role] for each $SERVICE_LONG. Users with read-only permissions cannot access the primary data instance directly.
 
