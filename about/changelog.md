@@ -28,7 +28,7 @@ This release adds a number of bug fixes including:
 
 ### New OpenAI, Llama, and Gemini models in SQL Assistant
 
-The data mode's SQL Assistant now includes support for the latest models from OpenAI and LLama: GPT-4.1 (including mini and nano) and Llama 4 (Scout and Maverick). Additionally, we've added support for Gemini models, in particular Gemini 2.0 Nano and 2.5 Pro (experimental and preview). With the new additions, SQL Assistant supports more than 20 language models so you can select the one best suited to your needs.
+The data mode's SQL Assistant now includes support for the latest models from OpenAI and Llama: GPT-4.1 (including mini and nano) and Llama 4 (Scout and Maverick). Additionally, we've added support for Gemini models, in particular Gemini 2.0 Nano and 2.5 Pro (experimental and preview). With the new additions, SQL Assistant supports more than 20 language models so you can select the one best suited to your needs.
 
 ![SQL Assistant - New Models](https:///assets.timescale.com/docs/images/sql-assistant-new-models.png)
 
@@ -66,7 +66,7 @@ Finding logs just got easier! We've added a date, time, and timezone picker, so 
 
 ### pgvectorscale 0.7.0: faster filtered filtered vector search with filtered indexes
 
-This pgvectorscale release adds label-based filtered vector search to the StremingDiskANN index.
+This pgvectorscale release adds label-based filtered vector search to the StreamingDiskANN index.
 This enables you to return more precise and efficient results by combining vector 
 similarity search with label filtering while still uitilizing the ANN index. This is a common need for large-scale RAG and Agentic applications 
 that rely on vector searches with metadata filters to return relevant results. Filtered indexes add 
