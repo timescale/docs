@@ -152,7 +152,7 @@ The features included in each [$PRICING_PLAN][pricing-plans] are:
 | **Storage and performance**                                   |                                   |                                                |                                                |
 | IOPS                                                          | 	3,000 - 5,000	                   | 5,000 - 8,000                                  | 5,000 - 8,000                                  | 
 | Bandwidth (autoscales)	                                       | 125 - 250 Mbps                    | 	250 - 500 Mbps                                | 	Up to 500 mbps                                | 
-| I/O boost	                                                    |                                   | 	Add-on: <br/>16K IOPS, 1000 Mbps BW	          | Add-on: <br/>Up to 64K IOPS, 1000 Mbps BW      | 
+| I/O boost	                                                    |                                   | 	Add-on: <br/>Up to 16K IOPS, 1000 Mbps BW	    | Add-on: <br/>Up to 64K IOPS, 1000 Mbps BW      | 
 | **Availability and monitoring**                               |                                   |                                                |                                                |
 | High-availability replicas <br/>(Automated multi-AZ failover) | ✓                                 | ✓                                              | ✓                                              |
 | $READ_REPLICA_CAPs		                                          |                                   | ✓                                              | ✓                                              |
