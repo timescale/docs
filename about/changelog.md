@@ -8,24 +8,29 @@ keywords: [changelog, upgrades, updates, releases]
 
 All the latest features and updates to Timescale products.
 
-## ☑️ Embeddings spot checks, TimescaleDB v2.19.3 and new models in SQL Assistant
+## ☑️ Embeddings spot checks, TimescaleDB v2.19.3, and new models in SQL Assistant
 <Label type="date">April 18, 2025</Label>
 
 ### Embeddings spot checks
-In Timescale Cloud AI developers can now quickly check the quality of the embeddings from their vectorizers' outputs.  You can construct a similarity search query with additional filters on source metadata using a simple UI.  You can run the query right away, or copy it to the SQL Editor or Data Mode and further customize it to your needs.  Located in the "AI" tab in the service menu.
 
-![Embedding Quality Inspection](https://s3.us-east-1.amazonaws.com/assets.timescale.com/docs/images/ai-spot-checks.png)
+In Timescale Cloud, you can now quickly check the quality of the embeddings from the vectorizers' outputs. Construct a similarity search query with additional filters on source metadata using a simple UI. Run the query right away, or copy it to the SQL editor or data mode and further customize it to your needs. Run the check in Timescale Console > `Services` > `AI`:
+
+![Embedding Quality Inspection](https://assets.timescale.com/docs/images/ai-spot-checks.png)
 
 ### TimescaleDB v2.19.3
+
 New services created in Timescale Cloud now use TimescaleDB v2.19.3. Existing services are in the process of being automatically upgraded to this version.
-This new release includes a number of bug fixes including:
-- Fix segfault when running a query against columnstore chunks that group by multiple columns including a UUID segment by columns.
-- Fix hypercore table access method segfault on DELETE operations using a segmentby column
 
-### New OpenAI, Llama and Gemini models in SQL Assistant
-Data Mode's SQL Assistant now includes support for the latest models from OpenAI and LLama: GPT-4.1 (including mini and nano) and Llama 4 (Scout and Maverick). Additionally we've added support for Gemini models, in particular Gemini 2.0 Nano and 2.5 Pro (experimental and preview). With the new additions, SQL Assistant supports more than 20 language models so you can select the one best suited to your needs.
+This release adds a number of bug fixes including:
 
-![SQL Assistant - New Models](https://s3.us-east-1.amazonaws.com/assets.timescale.com/docs/images/sql-assistant-new-models.png)
+- Fix segfault when running a query against columnstore chunks that group by multiple columns, including UUID segmentby columns.
+- Fix hypercore table access method segfault on DELETE operations using a segmentby column.
+
+### New OpenAI, Llama, and Gemini models in SQL Assistant
+
+The data mode's SQL Assistant now includes support for the latest models from OpenAI and LLama: GPT-4.1 (including mini and nano) and Llama 4 (Scout and Maverick). Additionally, we've added support for Gemini models, in particular Gemini 2.0 Nano and 2.5 Pro (experimental and preview). With the new additions, SQL Assistant supports more than 20 language models so you can select the one best suited to your needs.
+
+![SQL Assistant - New Models](https:///assets.timescale.com/docs/images/sql-assistant-new-models.png)
 
 ## 🪵 TimescaleDB v2.19, new service overview page, and log improvements
 <Label type="date">April 11, 2025</Label>
