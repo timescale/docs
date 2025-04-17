@@ -43,7 +43,7 @@
    Create a user with the `LOGIN` and `REPLICATION` permissions:
 
     ```sql
-    CREATE ROLE <debezium-user> WITH LOGIN CREATE REPLICATION PASSWORD <debezium-password>;
+    CREATE ROLE debezium WITH LOGIN REPLICATION PASSWORD <debeziumpassword>;
     ```
 
 1. **Enable a replication spot for Debezium**
@@ -56,7 +56,7 @@
        city TEXT);
       ```
 
-   1. **Turn the table into a hypertable**
+   1. Turn the table into a hypertable
 
       ```sql
       SELECT create_hypertable('accounts', 'created_at');
@@ -64,17 +64,18 @@
 
       Debezium also works with [$CAGGs][caggs].
 
+   1. Make the 
+   
+      ```sql
+      ALTER TABLE accounts OWNER TO debezium;
+      ```
+
    1. Create a publication and enable a replication slot 
   
       ```sql
-      CREATE PUBLICATION debezium_pub FOR TABLE ACCOUNTS WITH (publish = 'insert, update');
+      CREATE PUBLICATION dbz_publication FOR TABLE public.accounts WITH (publish = 'insert, update');
       ```
-      ```sql
-      IAIN, don't think we need this'
-      SELECT * FROM pg_create_logical_replication_slot('debezium_slot', 'accounts');
-      ```
-      The replication slot must match the kafka topics you are streaming to.
-
+      
 [caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
 [run-queries]: /getting-started/:currentVersion:/run-queries-from-console/
 [open-console]: https://console.cloud.timescale.com/dashboard/services

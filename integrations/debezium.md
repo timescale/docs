@@ -14,18 +14,21 @@ import IntegrationDebeziumSelfHostedConfig from "versionContent/_partials/_integ
 [Debezium][debezium] is an open-source distributed platform for change data capture (CDC). 
 It enables you to capture changes in $CLOUD_LONG and stream them to other systems in real time.
 
-<Highlight type="info">
+Debezium can capture events about:
 
-If you enable hypercore, the Debezium $TIMESCALE_DB connector does not apply any special processing to data in the 
-columnstore. Compressed chunks are forwarded unchanged to the next downstream job in the pipeline for further processing 
-as needed. Typically, messages with compressed chunks are dropped, and are not processed by subsequent jobs in the pipeline.
+- [Hypertables][hypertables]: captured events are rerouted from their chunk-specific topics to a single logical topic 
+   named according to the following pattern: `<topic.prefix>.<hypertable-schema-name>.<hypertable-name>`
+- [Continuous aggregates][caggs]: captured events are rerouted from their chunk-specific topics to a single logical topic
+  named according to the following pattern: `<topic.prefix>.<aggregate-schema-name>.<aggregate-name>`
+- [Hypercore][hypercore]: If you enable hypercore, the Debezium $TIMESCALE_DB connector does not apply any special 
+  processing to data in the columnstore. Compressed chunks are forwarded unchanged to the next downstream job in the 
+  pipeline for further processing as needed. Typically, messages with compressed chunks are dropped, and are not 
+  processed by subsequent jobs in the pipeline.
 
-This limitation only affects changes to chunks in the columnstore. Changes to data in the rowstore work correctly.
+   This limitation only affects changes to chunks in the columnstore. Changes to data in the rowstore work correctly. 
 
-</Highlight>
 
-This page explains how to capture changes in your $SERVICE_LONG and stream them using Debezium
-on Apache Kafka.
+This page explains how to capture changes in your database and stream them using Debezium on Apache Kafka.
 
 ## Prerequisites
 
@@ -110,6 +113,7 @@ Set up Kafka Connect server, plugins, drivers, and connectors:
     transforms.timescaledb.database.user=<debezium-user>
     transforms.timescaledb.database.password=<debezium-password>
     transforms.timescaledb.database.dbname=<dbname>
+    publication.autocreate.mode=filtered
     ```
 
    - The values for the `*.hostname`, `*.port`, `*.user`, `*.password`, and `*.dbname` properties must match. You
@@ -161,6 +165,9 @@ Set up Kafka Connect server, plugins, drivers, and connectors:
 
 You have successfully integrated Debezium.
 
+[hypertables]: /use-timescale/:currentVersion:/hypertables/
+[hypercore]: /use-timescale/:currentVersion:/hypercore/
+[caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
 [debezium]: https://debezium.io/
 [java-installers]: https://www.oracle.com/java/technologies/downloads/
@@ -171,3 +178,4 @@ You have successfully integrated Debezium.
 [connect]: /getting-started/:currentVersion:/run-queries-from-console/
 [kafka-install-configure]: /integrations/:currentVersion:/debezium#install-and-configure-apache-kafka
 [debezium-configure-database]: /integrations/:currentVersion:/debezium##configure-your-database-to-work-with-debezium
+[psql-connect]: /integrations/:currentVersion:/psql/#connect-to-your-service
