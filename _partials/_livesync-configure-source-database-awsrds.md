@@ -41,6 +41,22 @@ Updating parameters on a PostgreSQL instance will cause an outage. Choose a time
 
       You can use an existing user. However, you must ensure that the user has the following permissions.
 
+   1. Grant permissions to create a replication slot:
+
+      ```sql
+      psql $SOURCE -c "GRANT rds_replication TO <livesync username>"
+      ```
+
+      This is required to create a replication slot.
+
+   1. Grant permissions to create a publication:
+
+      ```sql
+      psql $SOURCE -c "GRANT CREATE ON DATABASE <database name> TO <livesync username>"
+      ```
+
+      This is required to create a publication.
+
    1. Assign the user permissions on the source database:
 
       ```sql
@@ -48,15 +64,15 @@ Updating parameters on a PostgreSQL instance will cause an outage. Choose a time
       GRANT USAGE ON SCHEMA "public" TO <livesync username>;
       GRANT SELECT ON ALL TABLES IN SCHEMA "public" TO <livesync username>;
       ALTER DEFAULT PRIVILEGES IN SCHEMA "public" GRANT SELECT ON TABLES TO <livesync username>;
-      GRANT CREATE ON DATABASE <database name> to <livesync username>;
-      GRANT rds_replication TO <livesync username>;
       EOF
       ```
 
-      If the tables you are syncing are not in the `public` schema, grant the user permissions on the schema you are syncing.:
+      If the tables you are syncing are not in the `public` schema, grant the user permissions for each schema you are syncing.:
       ```sql
       psql $SOURCE <<EOF
+      GRANT USAGE ON SCHEMA <schema> TO <livesync username>;
       GRANT SELECT ON ALL TABLES IN SCHEMA <schema> TO <livesync username>;
+      ALTER DEFAULT PRIVILEGES IN SCHEMA <schema> GRANT SELECT ON TABLES TO <livesync username>;
       EOF
       ```
 

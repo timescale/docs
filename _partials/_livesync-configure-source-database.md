@@ -25,6 +25,22 @@ import EnableReplication from "versionContent/_partials/_migrate_live_setup_enab
 
       You can use an existing user. However, you must ensure that the user has the following permissions.
 
+   1. Grant permissions to create a replication slot:
+
+      ```sql
+      psql $SOURCE -c "ALTER ROLE <livesync username> REPLICATION"
+      ```
+
+      This is required to create a replication slot.
+
+   1. Grant permissions to create a publication:
+
+      ```sql
+      psql $SOURCE -c "GRANT CREATE ON DATABASE <database name> TO <livesync username>"
+      ```
+
+      This is required to create a publication.
+
    1. Assign the user permissions on the source database:
 
       ```sql
@@ -32,15 +48,15 @@ import EnableReplication from "versionContent/_partials/_migrate_live_setup_enab
       GRANT USAGE ON SCHEMA "public" TO <livesync username>;
       GRANT SELECT ON ALL TABLES IN SCHEMA "public" TO <livesync username>;
       ALTER DEFAULT PRIVILEGES IN SCHEMA "public" GRANT SELECT ON TABLES TO <livesync username>;
-      GRANT CREATE ON DATABASE <database name> to <livesync username>;
-      GRANT replication TO <livesync username>;
       EOF
       ```
 
-      If the tables you are syncing are not in the `public` schema, grant the user permissions on the schema you are syncing.:
+      If the tables you are syncing are not in the `public` schema, grant the user permissions for each schema you are syncing.:
       ```sql
       psql $SOURCE <<EOF
+      GRANT USAGE ON SCHEMA <schema> TO <livesync username>;
       GRANT SELECT ON ALL TABLES IN SCHEMA <schema> TO <livesync username>;
+      ALTER DEFAULT PRIVILEGES IN SCHEMA <schema> GRANT SELECT ON TABLES TO <livesync username>;
       EOF
       ```
 
@@ -50,6 +66,7 @@ import EnableReplication from "versionContent/_partials/_migrate_live_setup_enab
       psql $SOURCE -c 'ALTER TABLE <table name> OWNER TO <livesync username>;'
       ```
       You can skip this step if the replicating user is already the owner of the tables.
+
 
 1. **Enable replication `DELETE` and`UPDATE` operations**
 
