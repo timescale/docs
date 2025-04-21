@@ -30,7 +30,7 @@ By default, $CLOUD_LONG stores your $SERVICE_SHORT data in the standard high-per
 
 ### Standard high-performance storage
 
-This storage type gives you up to 16TB of storage and 16,000 IOPS. You change the IOPS value to better suit your needs in $CONSOLE: 
+This storage type gives you up to 16 TB of storage and 16,000 IOPS. You change the IOPS value to better suit your needs in $CONSOLE: 
 
 <Procedure>
 
@@ -50,7 +50,7 @@ This storage type gives you up to 16TB of storage and 16,000 IOPS. You change th
 
 ### Enhanced high-performance storage
 
-This storage type gives you up to 64TB and 64,000 IOPS, and is available under the [$ENTERPRISE $PRICING_PLAN][pricing-plans]. To get enhanced storage:
+This storage type gives you up to 64 TB and 64,000 IOPS, and is available under the [$ENTERPRISE $PRICING_PLAN][pricing-plans]. To get enhanced storage:
 
 <Procedure>
 
@@ -69,7 +69,7 @@ This storage type gives you up to 64TB and 64,000 IOPS, and is available under t
 
 </Procedure>
 
-You change from enhanced storage to standard in the same way. You can make changes to the storage type and $IO_BOOST settings once every 6 hours.  
+You change from enhanced storage to standard in the same way. If you are using over 16 TB of enhanced storage, changing back to standard is not available until you shrink your data to be under 16 TB. You can make changes to the storage type and $IO_BOOST settings once every 6 hours, without any downtime.
 
 ## Low-cost object storage tier
 

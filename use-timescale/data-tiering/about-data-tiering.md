@@ -21,8 +21,8 @@ High-performance storage is where your data is stored by default, until you [ena
 
 $CLOUD_LONG high-performance storage comes in the following types: 
 
-- **Standard** (default): based on [AWS EBS gp3][aws-gp3] and designed for general workloads. Provides up to 16TB of storage and 16,000 IOPS.
-- **Enhanced**: based on [EBS io2][ebs-io2] and designed for high-scale, high-throughput workloads. Provides up to 64TB of storage and 64,000 IOPS.
+- **Standard** (default): based on [AWS EBS gp3][aws-gp3] and designed for general workloads. Provides up to 16 TB of storage and 16,000 IOPS.
+- **Enhanced**: based on [EBS io2][ebs-io2] and designed for high-scale, high-throughput workloads. Provides up to 64 TB of storage and 64,000 IOPS.
 
 [See the differences][aws-storage-types] in the underlying AWS storage. You [enable enhanced storage][enable-enhanced] as needed in $CONSOLE. 
 

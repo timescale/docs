@@ -11,29 +11,29 @@ cloud_ui:
 
 import TieredStorageBilling from "versionContent/_partials/_tiered-storage-billing.mdx";
 
-# $PRICING_PLAN_CAPSs and account management
+# $PRICING_PLAN_CAPs and account management
 
 As we enhance our offerings and align them with your evolving needs,
 $PRICING_PLANs provide more value, flexibility, and efficiency for your business.
 Whether you're a growing startup or a well-established enterprise, our plans
 are structured to support your journey towards greater success.
 
-$PRICING_PLAN_CAPSs give you:
+$PRICING_PLAN_CAPs give you:
 
 * **Enhanced performance**: with increased CPU and storage capacities, your apps run smoother and more
   efficiently, even under heavy loads.
-* **Improved scalability**: as your business grows, so do your demands. $PRICING_PLAN_CAPSs scale with
+* **Improved scalability**: as your business grows, so do your demands. $PRICING_PLAN_CAPs scale with
   you, they provide the resources and support you need at each stage of your growth. Scale up or down 
   based on your current needs, ensuring that you only pay for what you use.
 * **Better support**: access to enhanced support options, including production support and dedicated
   account management, ensures you have the help you need when you need it.
-* **Greater flexibility**: we know that one size doesn't fit all. $PRICING_PLAN_CAPSs give you the
+* **Greater flexibility**: we know that one size doesn't fit all. $PRICING_PLAN_CAPs give you the
   flexibility to choose the features and support levels that best match your business
   and engineering requirements. The ability to add features like $IO_BOOST, and customize your $PRICING_PLAN means you can tailor $SERVICE_LONGs to fit your specific needs.
 * **Cost efficiency**: by aligning our pricing with the value delivered, we ensure that you get the most
   out of every dollar spent. Our goal is to help you achieve more with less.
 
-Using $SELF_LONG_LC and our open-source products is still free. 
+Using $SELF_LONG and our open-source products is still free. 
 
 If you create a $COMPANY account from AWS Marketplace, the pricing options are pay-as-you-go and annual commit. See [AWS pricing][aws-pricing] for details. 
 
@@ -42,7 +42,7 @@ $COMPANY account.
 
 ## How $PRICING_PLANs work
 
-$PRICING_PLAN_CAPSs are designed to give you the best value as your project moves 
+$PRICING_PLAN_CAPs are designed to give you the best value as your project moves 
 from initial development through to mission-critical enterprise applications. 
 
 * **Compute**: pay only for the compute resources you run. Compute is metered on an hourly 
@@ -141,7 +141,7 @@ The features included in each [$PRICING_PLAN][pricing-plans] are:
 | Storage limit per $SERVICE_SHORT	                             | Up to 16 TB	                      | Up to 16 TB	                                   | Up to 64 TB                                    |
 | Bottomless storage on S3	                                     |                                   | 	Unlimited	                                    | Unlimited                                      |
 | Independently scale compute and storage	                      | ✓                                 | 	✓	                                            | ✓                                              |
-| **Data Services and Workloads**                               |                                   |                                                |
+| **Data services and workloads**                               |                                   |                                                |
 | Relational                                                    | ✓                                 | ✓                                              | ✓                                              | 
 | Time-series                                                   | ✓                                 | ✓                                              | ✓                                              |
 | Vector search                                                 | ✓                                 | ✓                                              | ✓                                              |
@@ -152,10 +152,10 @@ The features included in each [$PRICING_PLAN][pricing-plans] are:
 | **Storage and performance**                                   |                                   |                                                |                                                |
 | IOPS                                                          | 	3,000 - 5,000	                   | 5,000 - 8,000                                  | 5,000 - 8,000                                  | 
 | Bandwidth (autoscales)	                                       | 125 - 250 Mbps                    | 	250 - 500 Mbps                                | 	Up to 500 mbps                                | 
-| I/O boost	                                                    |                                   | 	Add-on: <br/>Up to 16K IOPS, 1000 Mbps BW	    | Add-on: <br/>Up to 64K IOPS, 1000 Mbps BW      | 
+| I/O boost	                                                    |                                   | 	Add-on: <br/>Up to 16K IOPS, 4000 Mbps BW	    | Add-on: <br/>Up to 64K IOPS, 4000 Mbps BW      | 
 | **Availability and monitoring**                               |                                   |                                                |                                                |
 | High-availability replicas <br/>(Automated multi-AZ failover) | ✓                                 | ✓                                              | ✓                                              |
-| $READ_REPLICA_CAPs		                                          |                                   | ✓                                              | ✓                                              |
+| Read replicas		                                               |                                   | ✓                                              | ✓                                              |
 | Point-in-time recovery and forking                            | 	3 days                           | 14 days                                        | 14 days                                        |
 | Performance insights                                          | ✓                                 | ✓                                              | ✓                                              |
 | Metrics and log exporters	                                    |                                   | ✓                                              | ✓                                              |
@@ -223,7 +223,7 @@ alt="Adding a payment method in Timescale"/>
   confirmations and alerts are sent to the email address you signed up with.
   Add another address to send details to other departments in your organization. 
 
-- **$PRICING_PLAN_CAPS**: choose the $PRICING_PLAN supplying the [features][plan-features] that suit your business and
+- **$PRICING_PLAN_CAP**: choose the $PRICING_PLAN supplying the [features][plan-features] that suit your business and
   engineering needs.
 
 - **Add-ons**: add `Production support` and improved database performance for mission-critical workloads.  
