@@ -18,7 +18,7 @@ This page shows you how to create and manage $READ_REPLICAs.
 ## What is read replication?
 
 A $READ_REPLICA is a read-only copy of the primary data instance in your $SERVICE_LONG. Queries on $READ_REPLICAs have minimal impact on the performance of the primary data instance. This enables you to interact with 
-up-to-date production data for analysis or to scale out reads beyond the limits of your primary data instance. $READ_REPLICA_CAPs can be short-lived and deleted when a session of data analysis is complete, or long-running to power a
+up-to-date production data for analysis or to scale out reads beyond the limits of your primary data instance. Read replicas can be short-lived and deleted when a session of data analysis is complete, or long-running to power a
 business intelligence (BI) tool. 
 
 You use $READ_REPLICAs for **read** scaling. To limit data loss for your $SERVICE_LONGs, use [$HA_REPLICAs][ha].
@@ -91,7 +91,7 @@ Alternatively, select the $READ_REPLICA in `Services`, then click `Operations` >
 
 ## Manage data lag for your $READ_REPLICAs
 
-$READ_REPLICA_CAPs use asynchronous replication. This can cause a slight lag in data to the primary data instance. The lag
+Read replicas use asynchronous replication. This can cause a slight lag in data to the primary data instance. The lag
 is measured in bytes, against the current state of the primary instance. To check the status and lag for your $READ_REPLICA:
 
 <Procedure>
