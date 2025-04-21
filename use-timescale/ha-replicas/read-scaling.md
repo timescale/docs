@@ -25,7 +25,7 @@ You use $READ_REPLICAs for **read** scaling. To limit data loss for your $SERVIC
 
 A $READ_REPLICA is the set of one or more nodes that share the same endpoint in $CONSOLE. You query each set as a single replica. $CLOUD_LONG balances the load between the nodes in the set for you. 
 
-You can create as many $READ_REPLICAs as you need. For security and resource isolation, each $READ_REPLICA has unique connection details. To restrict access without isolation, create a [read-only role][read-only-role] for each $SERVICE_LONG. Users with read-only permissions cannot access the primary data instance directly.
+You can create as many $READ_REPLICAs as you need. For security and resource isolation, each $READ_REPLICA has unique connection details. 
 
 ## Prerequisites
 
@@ -33,8 +33,8 @@ To follow this procedure:
 
 - Create a target $SERVICE_LONG.
 - Create a [read-only user][read-only-role] on the primary data instance. 
-  
-   This user is propagated to the $READ_REPLICAs when you create them.
+
+  Users with read-only permissions cannot access the primary data instance directly. This user is propagated to the $READ_REPLICAs when you create them.
 
 ## Create a $READ_REPLICA
 
@@ -114,5 +114,4 @@ is measured in bytes, against the current state of the primary instance. To chec
 
 [cloud-login]: https://console.cloud.timescale.com
 [ha]: /use-timescale/:currentVersion:/ha-replicas/high-availability/
-[read-only-role]: /use-timescale/:currentVersion:/security/read-only-role/#create-a-read-only-user
 [timescale-console-services]: https://console.cloud.timescale.com/dashboard/services
