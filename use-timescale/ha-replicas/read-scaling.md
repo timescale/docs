@@ -114,4 +114,5 @@ is measured in bytes, against the current state of the primary instance. To chec
 
 [cloud-login]: https://console.cloud.timescale.com
 [ha]: /use-timescale/:currentVersion:/ha-replicas/high-availability/
+[read-only-role]: /use-timescale/:currentVersion:/security/read-only-role/#create-a-read-only-user
 [timescale-console-services]: https://console.cloud.timescale.com/dashboard/services
