@@ -34,7 +34,7 @@ To follow this procedure:
 - Create a target $SERVICE_LONG.
 - Create a [read-only user][read-only-role] on the primary data instance. 
 
-  Users with read-only permissions cannot access the primary data instance directly. This user is propagated to the $READ_REPLICAs when you create them.
+  A user with the read-only permissions cannot access the primary data instance directly. This user is propagated to the $READ_REPLICAs when you create them.
 
 ## Create a $READ_REPLICA
 
