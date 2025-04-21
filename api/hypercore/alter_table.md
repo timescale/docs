@@ -15,20 +15,20 @@ import EarlyAccess from "versionContent/_partials/_early_access_2_18_0.mdx";
 
 # ALTER TABLE (Hypercore)<Tag type="community" content="community" />
 
-Enable the columnstore for a hypertable.  
+Enable the $COLUMNSTORE for a hypertable.  
 
-After you have enabled the columnstore, either: 
-- [add_columnstore_policy][add_columnstore_policy]: create a [job][job] that automatically moves chunks in a hypertable to the columnstore at a
+After you have enabled the $COLUMNSTORE, either: 
+- [add_columnstore_policy][add_columnstore_policy]: create a [job][job] that automatically moves chunks in a hypertable to the $COLUMNSTORE at a
   specific time interval.
-- [convert_to_columnstore][convert_to_columnstore]: manually add a specific chunk in a hypertable to the columnstore.
+- [convert_to_columnstore][convert_to_columnstore]: manually add a specific chunk in a hypertable to the $COLUMNSTORE.
 
 <Since2180 />
 
 ## Samples
 
-To enable the columnstore:
+To enable the $COLUMNSTORE:
 
-- **Configure a hypertable that ingests device data to use the columnstore**: 
+- **Configure a hypertable that ingests device data to use the $COLUMNSTORE**: 
 
    In this example, the `metrics` hypertable is often queried about a specific device or set of devices. 
    Segment the hypertable by `device_id` to improve query performance. 
@@ -40,9 +40,9 @@ To enable the columnstore:
       timescaledb.segmentby = 'device_id');
    ```
 
-- **Specify the chunk interval without changing other columnstore settings**:
+- **Specify the chunk interval without changing other $COLUMNSTORE settings**:
 
-   - Set the time interval when chunks are added to the columnstore:
+   - Set the time interval when chunks are added to the $COLUMNSTORE:
   
       ```sql
       ALTER TABLE metrics SET (timescaledb.compress_chunk_time_interval = '24 hours');
@@ -54,7 +54,7 @@ To enable the columnstore:
       ALTER TABLE metrics SET (timescaledb.compress_chunk_time_interval = '0');
       ```
 
-- **Enable secondary indexing on all data you add to the columnstore** <EarlyAccess />
+- **Enable secondary indexing on all data you add to the $COLUMNSTORE** <EarlyAccess />
  
    ```sql
    alter table metrics
@@ -63,7 +63,7 @@ To enable the columnstore:
    	       timescaledb.compress_segmentby = 'location_id');
    ```
 
-- **Enable secondary indexing on a chunk you are adding to the columnstore** <EarlyAccess />
+- **Enable secondary indexing on a chunk you are adding to the $COLUMNSTORE** <EarlyAccess />
   
    ```sql
    alter table _timescaledb_internal._hyper_1_21_chunk
@@ -85,17 +85,17 @@ ALTER TABLE <table_name> SET (timescaledb.enable_columnstore,
 );
 ```
 
-| Name | Type | Default                                              | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-|--|--|------------------------------------------------------|--|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|`table_name`|TEXT| -                                                    | ✖ | The hypertable to enable columstore for.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-|`timescaledb.enable_columnstore`|BOOLEAN| `true`                                               | ✖ | Enable columnstore.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-|`timescaledb.orderby`|TEXT| Descending order on the time column in `table_name`. | ✖| The order in which items are used in the columnstore. Specified in the same way as an `ORDER BY` clause in a `SELECT` query.                                                                                                                                                                                                                                                                                                                                                                                                    |
-|`timescaledb.segmentby`|TEXT| No segementation by column.                          | ✖| Set the list of columns used to segment data in the columnstore for `table`. An identifier representing the source of the data such as `device_id` or `tags_id` is usually a good candidate.                                                                                                                                                                                                                                                                                                                                    |
-|`column_name`|TEXT| -                                                    | ✖ | The name of the column to `orderby` or `segmentby`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-|`timescaledb.compress_chunk_time_interval`|TEXT| -                                                    | ✖ | EXPERIMENTAL: reduce the total number of chunks in the columnstore for `table`. If you set `compress_chunk_time_interval`, chunks added to the columnstore are merged with the previous adjacent chunk within `chunk_time_interval` whenever possible. These chunks are irreversibly merged. If you call [convert_to_rowstore][convert_to_rowstore], merged chunks are not split up. You can call `compress_chunk_time_interval` independently of other compression settings; `timescaledb.enable_columnstore` is not required. |
-|`interval`|TEXT| -                                                    | ✖ | Set to a multiple of the [chunk_time_interval][chunk_time_interval] for `table`.                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-|`timescaledb.enable_segmentwise_recompression`|TEXT| ON                                                   | ✖| Set to `OFF` to disable segmentwise recompression on chunks in the columnstore. This can be beneficial for some user workloads where segmentwise recompression is slow, and full recompression is more performant.                                                                                                                                                                                                                                                                                                              |
-|`SET ACCESS METHOD`|TEXT| DEFAULT ([heap][default_table_access_method])| ✖| To enable indexing on the columstore, set to `hypercore` after you [create a hypertable][create-hypertable].    <EarlyAccess /> |
+| Name | Type | Default                                              | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+|--|--|------------------------------------------------------|--|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|`table_name`|TEXT| -                                                    | ✖ | The hypertable to enable columstore for.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+|`timescaledb.enable_columnstore`|BOOLEAN| `true`                                               | ✖ | Enable $COLUMNSTORE.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+|`timescaledb.orderby`|TEXT| Descending order on the time column in `table_name`. | ✖| The order in which items are used in the $COLUMNSTORE. Specified in the same way as an `ORDER BY` clause in a `SELECT` query.                                                                                                                                                                                                                                                                                                                                                                                                     |
+|`timescaledb.segmentby`|TEXT| No segementation by column.                          | ✖| Set the list of columns used to segment data in the $COLUMNSTORE for `table`. An identifier representing the source of the data such as `device_id` or `tags_id` is usually a good candidate.                                                                                                                                                                                                                                                                                                                                     |
+|`column_name`|TEXT| -                                                    | ✖ | The name of the column to `orderby` or `segmentby`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+|`timescaledb.compress_chunk_time_interval`|TEXT| -                                                    | ✖ | EXPERIMENTAL: reduce the total number of chunks in the $COLUMNSTORE for `table`. If you set `compress_chunk_time_interval`, chunks added to the $COLUMNSTORE are merged with the previous adjacent chunk within `chunk_time_interval` whenever possible. These chunks are irreversibly merged. If you call [convert_to_rowstore][convert_to_rowstore], merged chunks are not split up. You can call `compress_chunk_time_interval` independently of other compression settings; `timescaledb.enable_columnstore` is not required. |
+|`interval`|TEXT| -                                                    | ✖ | Set to a multiple of the [chunk_time_interval][chunk_time_interval] for `table`.                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+|`timescaledb.enable_segmentwise_recompression`|TEXT| ON                                                   | ✖| Set to `OFF` to disable segmentwise recompression on chunks in the $COLUMNSTORE. This can be beneficial for some user workloads where segmentwise recompression is slow, and full recompression is more performant.                                                                                                                                                                                                                                                                                                               |
+|`SET ACCESS METHOD`|TEXT| DEFAULT ([heap][default_table_access_method])| ✖| To enable indexing on the $COLUMNSTORE, set to `hypercore` after you [create a hypertable][create-hypertable].    <EarlyAccess />                                                                                                                                                                                                                                                                                                                                                                                                 |
 
 [chunk_time_interval]: /api/:currentVersion:/hypertable/set_chunk_time_interval/
 [add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/
