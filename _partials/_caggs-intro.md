@@ -1,3 +1,5 @@
+import RealTimeAgg from 'versionContent/_partials/_real-time-aggregates.mdx';
+
 In modern applications, data usually grows very quickly. This means that aggregating 
 it into useful summaries can become very slow. $CLOUD_LONG continuous aggregates make
 aggregating data lightning fast, accurate, and easy. 
@@ -24,9 +26,9 @@ Because continuous aggregates are based on hypertables, you can query them in
 exactly the same way as your other tables, and enable [compression][compression]
 or [tiered storage][data-tiering] on them. You can even
 create
-[continuous aggregates on top of your continuous aggregates][hierarchical-caggs] - for an even more fine-tuned aggregation. 
+[continuous aggregates on top of your continuous aggregates][hierarchical-caggs]—for an even more fine-tuned aggregation. 
 
-[Real-time aggregation][real-time-aggregation] enables you to combine pre-aggregated data from the materialized view with the most recent raw data. This gives you up-to-date results on every query.
+[Real-time aggregation][real-time-aggregation] enables you to combine pre-aggregated data from the materialized view with the most recent raw data. This gives you up-to-date results on every query. <RealTimeAgg />
 
 [compression]: /use-timescale/:currentVersion:/compression/about-compression
 [data-tiering]: /use-timescale/:currentVersion:/data-tiering/
