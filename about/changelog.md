@@ -845,7 +845,7 @@ select ollama_generate
 ;
 ```
 
-To learn more, see the [pgai Ollama documentation](https://github.com/timescale/pgai/blob/main/docs/model_calling/ollama.md).
+To learn more, see the [pgai Ollama documentation](https://github.com/timescale/pgai/blob/main/docs/vectorizer/quick-start.md).
 
 ## 🧙 Compression Wizard
 
