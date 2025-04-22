@@ -31,15 +31,11 @@ import EnableReplication from "versionContent/_partials/_migrate_live_setup_enab
       psql $SOURCE -c "ALTER ROLE <livesync username> REPLICATION"
       ```
 
-      This is required to create a replication slot.
-
    1. Grant permissions to create a publication:
 
       ```sql
       psql $SOURCE -c "GRANT CREATE ON DATABASE <database name> TO <livesync username>"
       ```
-
-      This is required to create a publication.
 
    1. Assign the user permissions on the source database:
 

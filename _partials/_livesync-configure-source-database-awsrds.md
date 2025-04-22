@@ -47,15 +47,11 @@ Updating parameters on a PostgreSQL instance will cause an outage. Choose a time
       psql $SOURCE -c "GRANT rds_replication TO <livesync username>"
       ```
 
-      This is required to create a replication slot.
-
    1. Grant permissions to create a publication:
 
       ```sql
       psql $SOURCE -c "GRANT CREATE ON DATABASE <database name> TO <livesync username>"
       ```
-
-      This is required to create a publication.
 
    1. Assign the user permissions on the source database:
 
