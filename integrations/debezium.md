@@ -112,7 +112,8 @@ Set up Kafka Connect server, plugins, drivers, and connectors:
     transforms.timescaledb.database.user=<debezium-user>
     transforms.timescaledb.database.password=<debezium-password>
     transforms.timescaledb.database.dbname=<dbname>
-    publication.autocreate.mode=filtered
+    publication.autocreate.mode=all_tables
+    schema.include.list=public,_timescaledb_internal
     ```
 
    - The values for the `*.hostname`, `*.port`, `*.user`, `*.password`, and `*.dbname` properties must match. You

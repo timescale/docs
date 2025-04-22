@@ -33,7 +33,6 @@
    1. Restart $PG.
 
 
-
 1. **Connect to your $SELF_LONG instance**
 
    Use [`psql`][psql-connect]. 
@@ -64,16 +63,10 @@
 
       Debezium also works with [$CAGGs][caggs].
 
-   1. Make the 
-   
-      ```sql
-      ALTER TABLE accounts OWNER TO debezium;
-      ```
-
    1. Create a publication and enable a replication slot 
   
       ```sql
-      CREATE PUBLICATION dbz_publication FOR TABLE public.accounts WITH (publish = 'insert, update');
+      CREATE PUBLICATION dbz_publication FOR ALL TABLES WITH (publish = 'insert, update');
       ```
       
 [caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
