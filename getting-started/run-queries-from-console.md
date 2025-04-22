@@ -127,7 +127,7 @@ use that in the $DATA_MODE.
 
 ## $SQL_ASSISTANT_SHORT
 
-$SQL_ASSISTANT_SHORT in [$CONSOLE][portal-data-mode] helps you write, fix, and organize SQL faster and more accurately.
+$SQL_ASSISTANT_SHORT in [$CONSOLE][portal-data-mode] uses the power of AI to help you write, fix, and organize SQL faster and more accurately.
 
 <div class="relative w-fit mx-auto">
 
@@ -151,6 +151,35 @@ $SQL_ASSISTANT_SHORT offers a range of features to improve your SQL workflow, in
 
 - **Query organization**: to keep your query library organized, and help your team understand the
   purpose of each query, $SQL_ASSISTANT_SHORT automatically adds titles and summaries to your queries.
+
+- **Agent mode**: to get results with minimal involvement from you, $SQL_ASSISTANT_SHORT autopilots through complex tasks and troubleshoots its own problems. No need to go step by step, analyze errors, and try out solutions. Simply turn on the agent mode in the LLM picker and watch $SQL_ASSISTANT_SHORT do all the work for you. 
+
+### Supported LLMs
+
+$SQL_ASSISTANT_SHORT supports a large number of LLMs, including:
+
+- GPT-4o mini
+- GPT-4o
+- GPT-4.1 nano
+- GPT-4.1 mini
+- GPT-4.1
+- o4-mini (low)
+- o4-mini
+- o4-mini (high)
+- o3 (low)
+- o3
+- o3 (high)
+- Claude 3.5 Haiku
+- Claud 3.7 Sonnet
+- Claud 3.7 Sonnet (extended thinking)
+- Llama 3.3 70B Versatile
+- Llama 3.3 70B Instruct
+- Llama 3.1 405B Instruct
+- Llama 4 Scout
+- Llama 4 Maverick
+- DeepSeek R1 Distill - Llama 3.3. 70B
+- DeepSeek R1
+- Gemini 2.0 Flash
 
 ### Limitations to keep in mind
 
