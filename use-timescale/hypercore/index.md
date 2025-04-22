@@ -36,14 +36,14 @@ in each $SERVICE_LONG:
   chunks are compressed by more than 90%, and organized for efficient, large-scale queries. Combined with [chunk skipping][chunk-skipping], this helps you save on storage costs and keeps your queries operating at lightning speed.
 
 - **Full mutability with transactional semantics**: regardless of where data is stored,
-  Hypercore provides full ACID support. Like in a vanilla Postgres database, inserts and updates
+  $HYPERCORE provides full ACID support. Like in a vanilla PostgreSQL database, inserts and updates
   to the $ROWSTORE and $COLUMNSTORE are always consistent, and available to queries as soon as they are
   completed.
 
 
 ![Hypercore workflow](https://assets.timescale.com/docs/images/hypercore-overview.png)
 
-In Timescale Cloud you only pay for what you use. Data moved to the $COLUMNSTORE is compressed, which 
+In $CLOUD_LONG you only pay for what you use. Data converted to the $COLUMNSTORE is compressed, which 
 immediately translates into cost savings. 
 
 

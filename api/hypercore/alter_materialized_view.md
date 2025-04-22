@@ -1,5 +1,5 @@
 ---
-api_name: ALTER MATERIALIZED VIEW (Hypercore)
+api_name: ALTER MATERIALIZED VIEW (hypercore)
 excerpt: Change an existing continuous aggregate
 topics: [hypercore, continuous aggregates, columnstore,]
 keywords: [hypercore, continuous aggregates, columnstore, ]
@@ -12,7 +12,7 @@ api:
 import Since2180 from "versionContent/_partials/_since_2_18_0.mdx";
 import EarlyAccess from "versionContent/_partials/_early_access_2_18_0.mdx";
 
-# ALTER MATERIALIZED VIEW (Hypercore) <Tag type="community">Community</Tag>
+# ALTER MATERIALIZED VIEW ($HYPERCORE) <Tag type="community">Community</Tag>
 
 `ALTER MATERIALIZED VIEW` statement can be used to modify some of the `WITH`
 clause [options][create_materialized_view] for the continuous aggregate view.

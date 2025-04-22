@@ -70,7 +70,7 @@ To create a $COLUMNSTORE job:
      CALL add_columnstore_policy('cpu_weekly', INTERVAL '8 weeks');
      ```
 
-   * Older than eight weeks and using the Hypercore table access method:
+   * Older than eight weeks and using the $HYPERCORE table access method:
 
      ``` sql
      CALL add_columnstore_policy(

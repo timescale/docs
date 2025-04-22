@@ -13,7 +13,7 @@ products: [cloud, self_hosted]
 import Since2180 from "versionContent/_partials/_since_2_18_0.mdx";
 import EarlyAccess from "versionContent/_partials/_early_access_2_18_0.mdx";
 
-# ALTER TABLE (Hypercore)<Tag type="community" content="community" />
+# ALTER TABLE ($HYPERCORE)<Tag type="community" content="community" />
 
 Enable the $COLUMNSTORE for a hypertable.  
 
