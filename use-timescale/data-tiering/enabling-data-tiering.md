@@ -59,6 +59,12 @@ This storage type gives you up to 64 TB and 64,000 IOPS, and is available under 
 
     ![Enhanced storage in Timescale Cloud](https://assets.timescale.com/docs/images/enhanced-storage-timescale-cloud.png)
 
+    <Highlight type="note">
+   
+    The enhanced storage is available in all [$CLOUD_LONG regions][cloud-regions] except `sa-east-1`. 
+
+    </Highlight>
+
 1. **Select the IOPS value in the `I/O boost` dropdown**
    
     Select between 8,000, 16,000, 24,000, 32,0000, and 64,000 IOPS. The value that you can apply depends on the number of CPUs in your $SERVICE_SHORT. $CONSOLE notifies you if your selected IOPS requires increasing the number of CPUs. To increase IOPS to 64,000, click `Contact us` and we will be in touch to confirm the details. 
@@ -287,3 +293,4 @@ If you no longer want to use tiered storage for a particular hypertable, drop th
 [pricing-plans]: /about/:currentVersion:/pricing-and-account-management
 [high-performance-storage]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/#high-performance-storage-tier
 [low-cost-storage]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/#low-cost-object-storage-tier
+[cloud-regions]: /use-timescale/:currentVersion:/regions/
