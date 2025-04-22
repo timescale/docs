@@ -1,7 +1,7 @@
 import PrereqCloud from "versionContent/_partials/_prereqs-cloud-only.mdx";
 import LivesyncLimitations from "versionContent/_partials/_livesync-limitations.mdx";
 import LivesyncConfigureSourceDatabase from "versionContent/_partials/_livesync-configure-source-database.mdx";
-import TuneSourceDatabaseAWSRDS from "versionContent/_partials/_migrate_live_tune_source_database_awsrds.mdx";
+import TuneSourceDatabaseAWSRDS from "versionContent/_partials/_livesync-configure-source-database-awsrds.mdx";
 
 ## Prerequisites
 
@@ -15,6 +15,10 @@ import TuneSourceDatabaseAWSRDS from "versionContent/_partials/_migrate_live_tun
     first create the extension on the target $SERVICE_LONG before syncing the table.
 
 ## Limitations
+
+- Indexes(including Primary Key and Unique constraints) are not migrated by $SERVICE_LONG.
+
+We recommend that you create only necessary indexes on the target $SERVICE_LONG depending on your query patterns.
 
 <LivesyncLimitations />
 
@@ -37,19 +41,20 @@ requires a direct connection to the database to function properly.
 
 <Tabs label="Live migration">
 
-<Tab title="From PostgreSQL">
-<Procedure>
-
-<LivesyncConfigureSourceDatabase />
-
-</Procedure>
-
-</Tab>
 <Tab title="From AWS RDS/Aurora">
 
 <Procedure>
 
 <TuneSourceDatabaseAWSRDS />
+
+</Procedure>
+
+</Tab>
+
+<Tab title="From PostgreSQL">
+<Procedure>
+
+<LivesyncConfigureSourceDatabase />
 
 </Procedure>
 
@@ -74,8 +79,10 @@ To sync data from your PostgreSQL database to your $SERVICE_LONG using $CONSOLE:
 
    In `livesync for PostgreSQL`:
    1. Set the `Livesync Name`.
-   2. Set the` PostgreSQL Connection String` to point to the source database you want to sync to Timescale.
-   3. Press `Continue`.
+   1. Set the` PostgreSQL Connection String` to point to the source database you want to sync to Timescale.
+   
+      This is the connection string for [`<livesync username>`][livesync-tune-source-db]. 
+   1. Press `Continue`.
       $CONSOLE connects to the source database and retrieves the schema information.
 
 1. **Optimize the data to syncronize in hypertables**
@@ -101,3 +108,5 @@ instance to your $SERVICE_LONG in real-time.
 
 [install-psql]: /integrations/:currentVersion:/psql/
 [portal-ops-mode]: https://console.cloud.timescale.com/dashboard/services
+[livesync-tune-source-db]: /migrate/:currentVersion:/livesync/#tune-your-source-database
+

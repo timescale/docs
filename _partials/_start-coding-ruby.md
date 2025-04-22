@@ -7,10 +7,6 @@ keywords: [Ruby]
 import QuickstartIntro from "versionContent/_partials/_quickstart-intro.mdx";
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
 
-# Ruby quick start
-
-<QuickstartIntro />
-
 ## Prerequisites
 
 <IntegrationPrereqs />
