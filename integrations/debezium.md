@@ -105,7 +105,6 @@ Set up Kafka Connect server, plugins, drivers, and connectors:
     database.dbname=<dbname>
     topic.prefix=accounts
     plugin.name=pgoutput
-    schema.include.list=_timescaledb_internal
     transforms=timescaledb
     transforms.timescaledb.type=io.debezium.connector.postgresql.transforms.timescaledb.TimescaleDb
     transforms.timescaledb.database.hostname=<host>
