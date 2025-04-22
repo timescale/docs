@@ -78,6 +78,9 @@
     },
     {
       "pattern": "^https://www.tableau.com/support/releases/server/2024.2.6#esdalt"
+    },
+    {
+      "pattern": "^https://azure.microsoft.com/en-us/products/data-studio"
     }
   ]
 }
