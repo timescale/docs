@@ -1,7 +1,7 @@
 import PrereqCloud from "versionContent/_partials/_prereqs-cloud-only.mdx";
 import LivesyncLimitations from "versionContent/_partials/_livesync-limitations.mdx";
 import LivesyncConfigureSourceDatabase from "versionContent/_partials/_livesync-configure-source-database.mdx";
-import TuneSourceDatabaseAWSRDS from "versionContent/_partials/_migrate_live_tune_source_database_awsrds.mdx";
+import TuneSourceDatabaseAWSRDS from "versionContent/_partials/_livesync-configure-source-database-awsrds.mdx";
 
 ## Prerequisites
 
@@ -15,6 +15,14 @@ import TuneSourceDatabaseAWSRDS from "versionContent/_partials/_migrate_live_tun
     first create the extension on the target $SERVICE_LONG before syncing the table.
 
 ## Limitations
+
+* Indexes(including Primary Key and Unique constraints) are not migrated by $SERVICE_LONG.
+
+  We recommend that you create only necessary indexes on the target $SERVICE_LONG depending on your query patterns.
+
+* Tables with user defined types are not migrated by $SERVICE_LONG.
+
+  You need to create the user defined types on the target $SERVICE_LONG before syncing the table.
 
 <LivesyncLimitations />
 
@@ -37,19 +45,20 @@ requires a direct connection to the database to function properly.
 
 <Tabs label="Live migration">
 
-<Tab title="From PostgreSQL">
-<Procedure>
-
-<LivesyncConfigureSourceDatabase />
-
-</Procedure>
-
-</Tab>
 <Tab title="From AWS RDS/Aurora">
 
 <Procedure>
 
 <TuneSourceDatabaseAWSRDS />
+
+</Procedure>
+
+</Tab>
+
+<Tab title="From PostgreSQL">
+<Procedure>
+
+<LivesyncConfigureSourceDatabase />
 
 </Procedure>
 

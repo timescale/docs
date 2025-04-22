@@ -8,12 +8,65 @@ keywords: [changelog, upgrades, updates, releases]
 
 All the latest features and updates to Timescale products.
 
+## ☑️ Embeddings spot checks, TimescaleDB v2.19.3, and new models in SQL Assistant
+<Label type="date">April 18, 2025</Label>
+
+### Embeddings spot checks
+
+In Timescale Cloud, you can now quickly check the quality of the embeddings from the vectorizers' outputs. Construct a similarity search query with additional filters on source metadata using a simple UI. Run the query right away, or copy it to the SQL editor or data mode and further customize it to your needs. Run the check in Timescale Console > `Services` > `AI`:
+
+![Embedding Quality Inspection](https://assets.timescale.com/docs/images/ai-spot-checks.png)
+
+### TimescaleDB v2.19.3
+
+New services created in Timescale Cloud now use TimescaleDB v2.19.3. Existing services are in the process of being automatically upgraded to this version.
+
+This release adds a number of bug fixes including:
+
+- Fix segfault when running a query against columnstore chunks that group by multiple columns, including UUID segmentby columns.
+- Fix hypercore table access method segfault on DELETE operations using a segmentby column.
+
+### New OpenAI, Llama, and Gemini models in SQL Assistant
+
+The data mode's SQL Assistant now includes support for the latest models from OpenAI and Llama: GPT-4.1 (including mini and nano) and Llama 4 (Scout and Maverick). Additionally, we've added support for Gemini models, in particular Gemini 2.0 Nano and 2.5 Pro (experimental and preview). With the new additions, SQL Assistant supports more than 20 language models so you can select the one best suited to your needs.
+
+![SQL Assistant - New Models](https:///assets.timescale.com/docs/images/sql-assistant-new-models.png)
+
+## 🪵 TimescaleDB v2.19, new service overview page, and log improvements
+<Label type="date">April 11, 2025</Label>
+
+### TimescaleDB v2.19—query performance and concurrency improvements
+
+Starting this week, all new services created on Timescale Cloud use [TimescaleDB v2.19](https://github.com/timescale/timescaledb/releases/tag/2.19.0). Existing services will be upgraded gradually during their maintenance window.
+
+Highlighted features in TimescaleDB v2.19 include:
+
+- Improved concurrency of `INSERT`, `UPDATE`, and `DELETE` operations on the columnstore by no longer blocking DML statements during the recompression of a chunk.
+- Improved system performance during continuous aggregate refreshes by breaking them into smaller batches. This reduces systems pressure and minimizes the risk of spilling to disk.
+- Faster and more up-to-date results for queries against continuous aggregates by materializing the most recent data first, as opposed to old data first in prior versions.
+- Faster analytical queries with SIMD vectorization of aggregations over text columns and `GROUP BY` over multiple columns.
+- Enable chunk size optimization for better query performance in the columnstore by merging them with `merge_chunk`.
+
+### New service overview page
+
+The service overview page in Timescale Console has been overhauled to make it simpler and easier to use. Navigate to the `Overview` tab for any of your services and you will find an architecture diagram and general information pertaining to it. You may also see recommendations at the top, for how to optimize your service. 
+
+![New Service Overview page](https://assets.timescale.com/docs/images/new-timescale-service-overview.png)
+
+To leave the product team your feedback, open `Help & Support` on the left and select `Send feedback to the product team`.
+
+### Find logs faster
+
+Finding logs just got easier! We've added a date, time, and timezone picker, so you can jump straight to the exact moment you're interested in—no more endless scrolling.
+
+![Find logs faster](https://assets.timescale.com/docs/images/find-logs-faster-timescale-console.png)
+
 ## 📒Faster vector search and improved job information
 <Label type="date">April 4, 2025</Label>
 
 ### pgvectorscale 0.7.0: faster filtered filtered vector search with filtered indexes
 
-This pgvectorscale release adds label-based filtered vector search to the StremingDiskANN index.
+This pgvectorscale release adds label-based filtered vector search to the StreamingDiskANN index.
 This enables you to return more precise and efficient results by combining vector 
 similarity search with label filtering while still uitilizing the ANN index. This is a common need for large-scale RAG and Agentic applications 
 that rely on vector searches with metadata filters to return relevant results. Filtered indexes add 
@@ -792,7 +845,7 @@ select ollama_generate
 ;
 ```
 
-To learn more, see the [pgai Ollama documentation](https://github.com/timescale/pgai/blob/main/docs/model_calling/ollama.md).
+To learn more, see the [pgai Ollama documentation](https://github.com/timescale/pgai/blob/main/docs/vectorizer/quick-start.md).
 
 ## 🧙 Compression Wizard
 
