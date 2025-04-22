@@ -141,25 +141,41 @@ Set up Kafka Connect server, plugins, drivers, and connectors:
     {"version":"3.9.0","commit":"a60e31147e6b01ee","kafka_cluster_id":"J-iy4IGXTbmiALHwPZEZ-A"}
     ```
 
-1. **Test the connection**
+   1. **Test the connection**
 
-   1. Connect to your $SELF_LONG instance.
+      1. Connect to your $SELF_LONG instance.
 
-      Use [`psql`][psql-connect].
-   1. Insert data into the table you created:
+         Use [`psql`][psql-connect].
+      1. Insert data into the table you created:
 
-      ```sql
-      INSERT INTO accounts (name,city) VALUES ('Lola','Copacabana');
-      ```
+         ```sql
+         INSERT INTO accounts (name,city) VALUES ('Lola','Copacabana');
+         ```
 
-   2. In another Terminal window, navigate to <KAFKA_HOME>, then run `kafka-console-consumer` to consume the events you just sent:
-      ```bash
-      bin/kafka-console-consumer.sh --topic accounts --from-beginning --bootstrap-server localhost:9092
-      ```
-      You see
-      ```bash
-      Have to get this working 
-     ```
+      2. In another Terminal window, navigate to <KAFKA_HOME>, then run `kafka-console-consumer` to consume the events you just sent:
+         ```bash
+         bin/kafka-console-consumer.sh --topic accounts --from-beginning --bootstrap-server localhost:9092
+         ```
+         You see something like:
+         ```bash
+         {
+         "topic": "timescaledb.public.accounts",
+         "value": "{\"schema\":{\"type\":\"struct\",\"fields\":[{\"type\":\"struct\",\"fields\":[{\"type\":\"string\",\"optional\":false,\"name\":\"io.debezium.time.ZonedTimestamp\",\"version\":1,\"default\":\"1970-01-01T00:00:00.000000Z\",\"field\":\"created_at\"},{\"type\":\"string\",\"optional\":true,\"field\":\"name\"},{\"type\":\"string\",\"optional\":true,\"field\":\"city\"}],\"optional\":true,\"name\":\"accounts._timescaledb_internal._hyper_1_1_chunk.Value\",\"field\":\"before\"},{\"type\":\"struct\",\"fields\":[{\"type\":\"string\",\"optional\":false,\"name\":\"io.debezium.time.ZonedTimestamp\",\"version\":1,\"default\":\"1970-01-01T00:00:00.000000Z\",\"field\":\"created_at\"},{\"type\":\"string\",\"optional\":true,\"field\":\"name\"},{\"type\":\"string\",\"optional\":true,\"field\":\"city\"}],\"optional\":true,\"name\":\"accounts._timescaledb_internal._hyper_1_1_chunk.Value\",\"field\":\"after\"},{\"type\":\"struct\",\"fields\":[{\"type\":\"string\",\"optional\":false,\"field\":\"version\"},{\"type\":\"string\",\"optional\":false,\"field\":\"connector\"},{\"type\":\"string\",\"optional\":false,\"field\":\"name\"},{\"type\":\"int64\",\"optional\":false,\"field\":\"ts_ms\"},{\"type\":\"string\",\"optional\":true,\"name\":\"io.debezium.data.Enum\",\"version\":1,\"parameters\":{\"allowed\":\"true,first,first_in_data_collection,last_in_data_collection,last,false,incremental\"},\"default\":\"false\",\"field\":\"snapshot\"},{\"type\":\"string\",\"optional\":false,\"field\":\"db\"},{\"type\":\"string\",\"optional\":true,\"field\":\"sequence\"},{\"type\":\"int64\",\"optional\":true,\"field\":\"ts_us\"},{\"type\":\"int64\",\"optional\":true,\"field\":\"ts_ns\"},{\"type\":\"string\",\"optional\":false,\"field\":\"schema\"},{\"type\":\"string\",\"optional\":false,\"field\":\"table\"},{\"type\":\"int64\",\"optional\":true,\"field\":\"txId\"},{\"type\":\"int64\",\"optional\":true,\"field\":\"lsn\"},{\"type\":\"int64\",\"optional\":true,\"field\":\"xmin\"}],\"optional\":false,\"name\":\"io.debezium.connector.postgresql.Source\",\"version\":1,\"field\":\"source\"},{\"type\":\"struct\",\"fields\":[{\"type\":\"string\",\"optional\":false,\"field\":\"id\"},{\"type\":\"int64\",\"optional\":false,\"field\":\"total_order\"},{\"type\":\"int64\",\"optional\":false,\"field\":\"data_collection_order\"}],\"optional\":true,\"name\":\"event.block\",\"version\":1,\"field\":\"transaction\"},{\"type\":\"string\",\"optional\":false,\"field\":\"op\"},{\"type\":\"int64\",\"optional\":true,\"field\":\"ts_ms\"},{\"type\":\"int64\",\"optional\":true,\"field\":\"ts_us\"},{\"type\":\"int64\",\"optional\":true,\"field\":\"ts_ns\"}],\"optional\":false,\"name\":\"accounts._timescaledb_internal._hyper_1_1_chunk.Envelope\",\"version\":2},\"payload\":{\"before\":null,\"after\":{\"created_at\":\"2025-04-22T15:25:29.681517Z\",\"name\":\"sdfg\",\"city\":\"asdf\"},\"source\":{\"version\":\"3.1.0.Final\",\"connector\":\"postgresql\",\"name\":\"accounts\",\"ts_ms\":1745335529692,\"snapshot\":\"false\",\"db\":\"postgres\",\"sequence\":\"[null,\\\"29187960\\\"]\",\"ts_us\":1745335529692108,\"ts_ns\":1745335529692108000,\"schema\":\"public\",\"table\":\"accounts\",\"txId\":769,\"lsn\":29187960,\"xmin\":null},\"transaction\":null,\"op\":\"c\",\"ts_ms\":1745335530172,\"ts_us\":1745335530172473,\"ts_ns\":1745335530172473672}}",
+         "headers": [
+         {
+         "key": "__debezium_timescaledb_chunk_table",
+         "value": "_hyper_1_1_chunk"
+         },
+         {
+         "key": "__debezium_timescaledb_chunk_schema",
+         "value": "_timescaledb_internal"
+         }
+         ],
+         "timestamp": 1745335530762,
+         "partition": 0,
+         "offset": 0
+         }
+         ```
 
 </Procedure>
 
