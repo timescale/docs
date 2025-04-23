@@ -5,12 +5,15 @@ products: [cloud, mst, self_hosted]
 keywords: [hypertables]
 ---
 
+import HypertablesIntro from 'versionContent/_partials/_hypertables-intro.mdx';
+
 # Hypertables
 
-Hypertables are PostgreSQL tables designed to simplify and accelerate data analysis. Anything you can do with regular PostgreSQL tables, you
-can do with hypertables - but much faster and more conveniently. In this section, you: 
+<HypertablesIntro />
 
-*   [Learn about hypertables][about-hypertables]
+In this section you:
+
+*   [Learn more about hypertables][about-hypertables]
 *   [Create a hypertable][create-hypertables]
 *   [Change hypertable chunk intervals][change-chunk-intervals]
 *   [Alter a hypertable][alter-hypertables]
