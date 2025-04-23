@@ -8,7 +8,9 @@ tags: [ingest, migrate, RDS]
 
 import OpenSupportRequest from "versionContent/_partials/_migrate_open_support_request.mdx"
 
-# Migrate your data to Timescale Cloud
+# Migrate and sync data to Timescale Cloud
+
+
 
 You have chosen to migrate your data to Timescale Cloud, thank you. Depending on the amount of data 
 you need to migrate, and the amount of downtime you can afford, we offer the following ways to migrate 
@@ -30,6 +32,8 @@ in the [community slack](https://slack.timescale.com/), the developers of this m
 If you're migrating your data from another source database type, best practice is export the data from your source database as 
 a `.csv` file, then import to your Timescale Cloud Service using [timescaledb-parallel-copy][parallel-copy]. For other ingestion methods, 
 see [Ingest data from other sources][data-ingest].
+
+
 
 
 

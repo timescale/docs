@@ -6,238 +6,142 @@ keywords: [migration, low-downtime, backup]
 tags: [recovery, logical backup, replication]
 ---
 
+import PrereqCloud from "versionContent/_partials/_prereqs-cloud-only.mdx";
+import EarlyAccessNoRelease from "versionContent/_partials/_early_access.mdx";
+
 # Livesync from S3 to Timescale Cloud
 
-S3 Livesync continuously imports data from an Amazon S3 bucket into your database. It monitors your S3 bucket for new files matching a specified pattern and automatically imports them into your designated database table.
+You use $LIVESYNC to synchronize all the data, or specific tables, from an S3 bucket to your
+$SERVICE_LONG in real-time. You run $LIVESYNC continuously, turning S3 into a primary database with your
+$SERVICE_LONG as a logical replica. This enables you to leverage $CLOUD_LONG’s real-time analytics capabilities on
+your replica data.
 
-## Key Concepts
+![$LIVESYNC_CAP view status](https://assets.timescale.com/docs/images/livesync-s3-view-status.png)
 
-- **Livesync**: A continuous import process that watches an S3 bucket for new files and imports them automatically. The sync runs on a configurable schedule and tracks processed files.
-- **S3 bucket**: A storage container in Amazon S3 that holds the files to be imported.
-- **IAM role**: An AWS Identity and Access Management role that provides secure access to S3 buckets. The role must have permissions to read objects from the specified bucket.
-- **Pattern**: A glob pattern that filters which files to import (e.g., "logs/*.csv"). Patterns must be under 1024 characters and can include wildcards.
-- **Frequency**: How often the system checks for new files, specified using cron expressions (e.g., "*/15 * * * *" for every 15 minutes). This sets the sync's execution schedule.
+You use $LIVESYNC for data synchronization, rather than migration. Livesync can:
 
-## Setting Up S3 Livesync
+* Sync data from an S3 bucket instance to a $SERVICE_LONG:
+   - $LIVESYNC uses Glob patterns to identify the objects to sync.
+   - $LIVESYNC uses the objects returned for subsequent queries. This efficient approach means files are synced in
+    [lexicographical order][lex-order].
+   - $LIVESYNC watches an S3 bucket for new files and imports them automatically. $LIVESYNC runs on a configurable 
+     schedule and tracks processed files.
+   - To prevent system overload, $LIVESYNC track up to 100 files for each sync iteration. Additional checks only fill 
+      empty queue slots.
+   - For large backlogs, $LIVESYNC checks every minute until caught up. 
 
-### Prerequisites
+* Sync data from multiple file formats:
 
-1. A standard Amazon S3 bucket containing your data files (Directory buckets not supported)
-2. Appropriate credentials to access the S3 bucket
+  * CSV: checked for compression, then processing using [timescaledb-parallel-copy][parallel-copy]
 
-### Configuration Options
+  * Parquet: converted to CSV, then processed using [timescaledb-parallel-copy][parallel-copy]
 
-#### Connect to your S3 bucket
+* Enable features such as [hypertables][about-hypertables], [columnstore][compression], and
+  [continuous aggregates][caggs] on your logical replica.
 
-Provide your bucket name from the AWS console.
+$LIVESYNC for S3 continuously imports data from an Amazon S3 bucket into your database. It monitors your S3 bucket for new
+files matching a specified pattern and automatically imports them into your designated database table.
 
-Two authentication types are supported:
+<EarlyAccessNoRelease />: livesync is not supported for production use. If you have an questions or feedback, talk to us in <a href="https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88">#livesync in Timescale Community</a>.
 
-1. **Public**: For publicly accessible buckets
-2. **Role-based (RoleARN)**: Using AWS IAM roles for authentication, requires:
-   - `arn`: The AWS IAM role ARN to assume
+## Prerequisites
 
-We recommend role-based access for better security. Follow the setup instructions carefully.
+<PrereqCloud />
 
-### Authentication
+- Access to a standard Amazon S3 bucket containing your data files.
+  Directory buckets are not supported.
+- Access credentials for the S3 bucket. 
+  - The user needs the following permissions: `s3:GetObject`, `s3:ListBucket`.
+  - The following credentials are supported: 
+    - [IAM Role][credentials-iam].
+    - [Public anonymous user][credentials-public].
 
-For security, our workers use a role in our AWS account to assume a role in your AWS account. You can then configure your role to access only necessary S3 data.
-
-To prevent the confused [deputy problem][deputy-problem], we set ExternalId to your `projectId/ServiceId`. Set these correctly to avoid security risks.
-
-Here's a CLI setup reference (using `timescale-s3-role-$BucketName` as an example role name):
-
-Create role and trust policy:
-
-```sh
-aws iam create-role \
-    --role-name timescale-s3-role-$BucketName \
-    --assume-role-policy-document '{
-        "Version": "2012-10-17",
-        "Statement": [
-            {
-                "Effect": "Allow",
-                "Principal": {
-                    "AWS": "arn:aws:iam::142548018081:role/timescale-s3-connections"
-            },
-            "Action": "sts:AssumeRole",
-            "Condition": {
-                "StringLike": {
-                    "sts:ExternalId": "$ProjectId/$ServiceId" <- Replace this with real values
-                }
-            }
-        }
-    ]
-}'
-```
-
-Attach access policy:
-
-> Note: This policy grants full bucket access. Narrow permissions as needed.
-
-```sh
-aws iam put-role-policy \
---role-name timescale-s3-role-$BucketName \
---policy-name S3AccessPolicy \
---policy-document '{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Action": [
-                "s3:GetObject"
-                "s3:ListBucket"
-            ],
-            "Effect": "Allow",
-            "Resource": [
-                "arn:aws:s3:::$BucketName",
-                "arn:aws:s3:::$BucketName/*"
-            ]
-        }
-    ]
-}
-```
-
-#### Define files to sync
-
-First, specify your file format. We support:
+## Limitations
 
 - **CSV**
-  - Maximum file size: 1GB (need more? Contact us!)
-  - Maximum row size: 2MB
-  - Supported compressed formats:
-    - `.gz`
-    - `.zip`
-  - Advanced settings:
-    - **Delimiter**: Character separating fields (default is ",")
-    - **Skip Header**: Option to skip the first row if your file has headers
+   - Maximum file size: 1GB 
+      To sync larger files, contact sales@timescale.com
+   - Maximum row size: 2MB
+   - Supported compressed formats:
+      - `.gz`
+      - `.zip`
+   - Advanced settings:
+      - **Delimiter**: the default character is `,`, you can choose a different delimiter
+      - **Skip Header**: skip the first row if your file has headers
 - **Parquet**
-  - Maximum file size: 1GB
-  - Maximum row group uncompressed size: 200MB
-  - Maximum row size: 2MB
+   - Maximum file size: 1GB
+   - Maximum row group uncompressed size: 200MB
+   - Maximum row size: 2MB
 
-Next, match files in your bucket using glob patterns.
+## Synchronize data to your $SERVICE_LONG
 
-For files like:
+To sync data from your S3 bucket to your $SERVICE_LONG using $CONSOLE:
 
-```txt
-logs/2024-03-15-14-30-00.csv
-logs/2024-03-15-15-00-00.csv
-logs/2024-03-15-15-30-00.csv
-logs/2024-03-15-16-00-00.csv
-```
+<Procedure>
 
-Use the pattern `logs/*`
+1. **Connect to your $SERVICE_LONG**
 
-> TIP: `logs/` works too—any pattern ending with / automatically gets a * added.
+   In [$CONSOLE][portal-ops-mode], select the service to sync live data to.
+1. **Start livesync**
+   1. Click `Actions` > `livesync for S3`.
+   2. Click `New Livesync for S3`
 
-Use the magnifier icon to preview matching files.
+1. **Connect the source s3 bucket to the target $SERVICE_SHORT**
 
-For files in subdirectories:
+   ![Livesync connect to bucket](https://assets.timescale.com/docs/images/livesync-s3-wizard.png)
 
-```txt
-logs/2024-03/...
-logs/2024-04/...
-logs/2024-05/...
-logs/2024-06/...
-```
+   1. In `Livesync for S3`, set the `Bucket name` and `Authentication method`, then press `Continue`.
+      $CONSOLE connects to the source bucket.
+   1. In `Define files to sync`, choose the `File type` and set the `Glob pattern`.
+   
+      Use the following patterns:
+      - `<folder name>/*`: match all files in a folder. Also, any pattern ending with `/` is treated as  `/*`.
+      - `<folder name>/**`: match all recursively.
+      - `<folder name>/**/*.csv`: match a specific file type
+      
+      $LIVESYNC uses prefix filters where possible, place patterns carefully at the end of your glob expression.
+      AWS S3 doesn't support complex filtering. If your expression filters too many files, the list operation may timeout.
+      
+   1. Click the search icon, you see files to sync. Click `Continue`
 
-Use `logs/**` to match all recursively.
+1. **Optimize the data to synchronize in hypertables**
 
-For specific file types (like CSVs) alongside metadata files, add the extension: `logs/**/*.csv`
+   $CONSOLE checks the file schema and, if possible suggests the column to use as the time dimension in a 
+   [hypertable][about-hypertables].
+     
+   ![Livesync choose table](https://assets.timescale.com/docs/images/livesync-s3-create-tables.png)
+   
+   1. Choose the `Data type` for each column, then click `Continue`.
+   1. Choose the interval. This can be a minute, an hour or use a [cron expression][cron-expression].  
+   1. Repeat this step for each table you want to sync.
+   1. Press `Start Livesync`.
 
-Supported glob patterns:
+      $CONSOLE starts $LIVESYNC between the source database and the target $SERVICE_SHORT and displays the progress.
 
-- / separates path segments
-- * matches zero or more characters in a segment
-- ? matches one character in a segment
-- ** matches any number of path segments (including none)
-- {} groups conditions (e.g., {**/*.html,**/*.txt} matches all HTML and text files)
-- [] declares a character range (e.g., example.[0-9] matches example.0, example.1, etc.)
-- [!...] negates a character range (e.g., example.[!0-9] matches example.a, example.b, but not example.0)
+1. **Monitor syncronization**
+   1. To view the progress of the livesync, click the name of the $LIVESYNC process:
+      You see the status of the file being synced. Only one file runs at a time.
+      ![livesync view status](https://assets.timescale.com/docs/images/livesync-s3-view-status.png)
+   1. To pause and restart livesync, click the buttons on the right of the $LIVESYNC process and select an action:
+      During pauses, you can edit the configuration before resuming.
+      ![livesync start stop](https://assets.timescale.com/docs/images/livesync-s3-start-stop.png)
 
-> Warning: AWS S3 doesn't support complex filtering, so filtering happens in software. If your expression filters too many files, the list operation may timeout. This feature works best for filtering occasional files rather than matching a narrow set.
-> We use prefix filters where possible, so place patterns carefully at the end of your glob expression.
+</Procedure>
 
-#### Configure destination table
+And that is it, you are using $LIVESYNC to synchronize all the data, or specific files, from an s3 bucket to your 
+$SERVICE_LONG in real-time.
 
-Choose an existing table or create a new one.
 
-**Creating a new table:** We'll use the first matched file to suggest a table structure. Review our suggested data types to ensure they match your data. If your data has a timestamp column, you can create a hypertable by enabling the hypertable partition toggle.
-
-**Using an existing table**: After selecting schema and table, arrange the insertion order to match your CSV file's column order (This builds the COPY command for data insertion).
-
-### Configure frequency
-
-Set how often we check for new files (minimum: 1 minute).
-
-To minimize S3 API calls, set this close to your data addition frequency.
-
-Example: For data added every 30 minutes, use `0,30 * * * *`
-
-> Note: Cron accuracy depends on system load. We aim for 30-second precision in worst cases. Monitor timing through file import logs.
-
-Cron expression format:
-
-```txt
-┌───────────── minute (0 - 59)
-│ ┌───────────── hour (0 - 23)
-│ │ ┌───────────── day of the month (1 - 31)
-│ │ │ ┌───────────── month (1 - 12)
-│ │ │ │ ┌───────────── day of the week (0 - 6) (Sunday to Saturday)
-│ │ │ │ │
-* * * * *
-```
-
-Common cron tags supported:
-
-- @yearly
-- @annually
-- @monthly
-- @daily
-- @weekly
-- @hourly
-- @5minutes
-- @10minutes
-- @15minutes
-- @30minutes
-- @always
-
-## Operation
-
-Monitor import progress in the console.
-
-File import logs show states: `Paused`, `In Queue`, `Running`, `Completed`, or `Failed`.
-
-- Only one file runs at a time
-- Click failed rows to see error details
-
-You can pause live sync anytime. Queued imports pause while running imports complete.
-
-During pauses, you can edit the configuration before resuming.
-
-## How it works
-
-### Polling
-
-We use ListObjectsV2 with a prefix from your pattern. For `logs/**/*csv`, we list objects with prefix `logs/`, then filter using glob matching.
-
-We track up to 100 files per iteration, using the last found object for subsequent queries. This enables lexicographical file processing.
-
-> Note: This efficient approach requires files to be added in lexicographical order.
-
-Files appear in File Import logs as `In Queue`.
-
-To prevent system overload, we limit the queue to 100 files. Additional checks only fill empty queue slots.
-
-For large backlogs, we check every minute until caught up. Otherwise, we follow your cron schedule. Use `Pull now` to check manually.
-
-### Data ingestion
-
-**CSV**: First checked for compression using https://mimesniff.spec.whatwg.org/, looking for `text/plain; charset=utf-8`, `applicatin/zip`, or `application/x-gzip`. Other types return errors.
-
-Processing uses [timescaledb-parallel-copy][parallel-copy]
-
-**Parquet**: Converted to CSV, then processed with [timescaledb-parallel-copy][parallel-copy]
-
+[about-hypertables]: /use-timescale/:currentVersion:/hypertables/about-hypertables/
+[lives-sync-specify-tables]: /migrate/:currentVersion:/livesync-for-postgresql/#specify-the-tables-to-synchronize
+[compression]: /use-timescale/:currentVersion:/compression/about-compression
+[caggs]: /use-timescale/:currentVersion:/continuous-aggregates/about-continuous-aggregates/
+[join-livesync-on-slack]: https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88
 [parallel-copy]: https://github.com/timescale/timescaledb-parallel-copy
 [deputy-problem]: https://docs.aws.amazon.com/IAM/latest/UserGuide/confused-deputy.html
+[lex-order]:https://en.wikipedia.org/wiki/Lexicographic_order
+[credentials-iam]: https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html#example-bucket-policies-public-access
+[credentials-public]: https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html#example-bucket-policies-anonymous-user
+[portal-ops-mode]: https://console.cloud.timescale.com/dashboard/services
+[hypertable-docs]: /use-timescale/:currentVersion:/hypertables/
+[cron-expression]: https://en.wikipedia.org/wiki/Cron#Cron_expression
