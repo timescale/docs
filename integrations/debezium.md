@@ -42,24 +42,13 @@ This page explains how to capture changes in your database and stream them using
 
 <Tab title="Self-hosted TimescaleDB">
 
-To setup $SELF_LONG_LC to communicate with Debezium:
+To setup $SELF_LONG to communicate with Debezium:
 
 <Procedure>
 
 <IntegrationDebeziumSelfHostedConfig />
 
 </Procedure>
-
-</Tab>
-
-<Tab title="Timescale Cloud">
-
-Debezium requires logical replication to be enabled. Currently, this is not enabled by default on $SERVICE_LONGs.
-We are working on enabling this feature as you read. As soon as it is live, these docs will be updated.
-
-</Tab>
-
-</Tabs>
 
 ## Install and configure Apache Kafka
 
@@ -180,6 +169,19 @@ Set up Kafka Connect server, plugins, drivers, and connectors:
 </Procedure>
 
 You have successfully integrated Debezium.
+
+
+</Tab>
+
+<Tab title="Timescale Cloud">
+
+Debezium requires logical replication to be enabled. Currently, this is not enabled by default on $SERVICE_LONGs.
+We are working on enabling this feature as you read. As soon as it is live, these docs will be updated.
+
+</Tab>
+
+</Tabs>
+
 
 [hypertables]: /use-timescale/:currentVersion:/hypertables/
 [hypercore]: /use-timescale/:currentVersion:/hypercore/
