@@ -75,17 +75,18 @@ supported extensions:
 
 ## Third-party extensions
 
-| Extension                                        | Description                                                | Enabled by default    |
-|--------------------------------------------------|------------------------------------------------------------|-----------------------|
-| [pgaudit][pgaudit]                               | Detailed session and/or object audit logging               | -                     |
-| [pgpcre][pgpcre]                                 | Perl-compatible RegEx                                      | -                     |
-| [pgrouting][pgrouting]                           | Geospatial routing functionality                           | -                     |
-| [postgis][postgis]                               | PostGIS geometry and geography spatial types and functions | -                     |
-| [postgis_raster][postgis-raster]                 | PostGIS raster types and functions                         | -                     |
-| [postgis_sfcgal][postgis-sfcgal]                 | PostGIS SFCGAL functions                                   | -                     |
-| [postgis_tiger_geocoder][postgis-tiger-geocoder] | PostGIS tiger geocoder and reverse geocoder                | -                     |
-| [postgis_topology][postgis-topology]             | PostGIS topology spatial types and functions               | -                     |
-| [unit][unit]                                     | SI units for PostgreSQL                                    | -                     |
+| Extension                                        | Description                                                | Enabled by default |
+|--------------------------------------------------|------------------------------------------------------------|--------------------|
+| [h3][h3]                                         | H3 bindings for PostgreSQL                                 | -                  |
+| [pgaudit][pgaudit]                               | Detailed session and/or object audit logging               | -                  |
+| [pgpcre][pgpcre]                                 | Perl-compatible RegEx                                      | -                  |
+| [pgrouting][pgrouting]                           | Geospatial routing functionality                           | -                  |
+| [postgis][postgis]                               | PostGIS geometry and geography spatial types and functions | -                  |
+| [postgis_raster][postgis-raster]                 | PostGIS raster types and functions                         | -                  |
+| [postgis_sfcgal][postgis-sfcgal]                 | PostGIS SFCGAL functions                                   | -                  |
+| [postgis_tiger_geocoder][postgis-tiger-geocoder] | PostGIS tiger geocoder and reverse geocoder                | -                  |
+| [postgis_topology][postgis-topology]             | PostGIS topology spatial types and functions               | -                  |
+| [unit][unit]                                     | SI units for PostgreSQL                                    | -                  |
 
 [amcheck]: https://www.postgresql.org/docs/current/amcheck.html
 [autoinc]: https://www.postgresql.org/docs/current/contrib-spi.html#CONTRIB-SPI-AUTOINC
@@ -100,6 +101,7 @@ supported extensions:
 [earthdistance]: https://www.postgresql.org/docs/current/earthdistance.html
 [fuzzystrmatch]: https://www.postgresql.org/docs/current/fuzzystrmatch.html
 [hstore]: https://www.postgresql.org/docs/current/hstore.html
+[h3]: https://pgxn.org/dist/h3/
 [insert-username]: https://www.postgresql.org/docs/current/contrib-spi.html#CONTRIB-SPI-INSERT-USERNAME
 [intagg]: https://www.postgresql.org/docs/current/intagg.html
 [intarray]: https://www.postgresql.org/docs/current/intarray.html
