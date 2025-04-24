@@ -10,11 +10,12 @@ import OpenSupportRequest from "versionContent/_partials/_migrate_open_support_r
 
 # Migrate and sync data to Timescale Cloud
 
+You have chosen to migrate or sync your data to $CLOUD_LONG, thank you. 
 
+## Migrate your data 
 
-You have chosen to migrate your data to Timescale Cloud, thank you. Depending on the amount of data 
-you need to migrate, and the amount of downtime you can afford, we offer the following ways to migrate 
-your data: 
+Depending on the amount of data you need to migrate, and the amount of downtime you can afford. $COMPANY offers 
+the following ways to migrate your data:
 
 | Migration strategy                         | Use when                                                                                                                    | Downtime requirements |
 |--------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|-----------------------|
@@ -33,7 +34,16 @@ If you're migrating your data from another source database type, best practice i
 a `.csv` file, then import to your Timescale Cloud Service using [timescaledb-parallel-copy][parallel-copy]. For other ingestion methods, 
 see [Ingest data from other sources][data-ingest].
 
+## Livesync your data
 
+You use $LIVESYNC to synchronize all or some of your data to your $SERVICE_LONG in real-time. You run $LIVESYNC 
+continuously, using your data as a primary database and your $SERVICE_LONG as a logical replica. This enables you 
+to leverage $CLOUD_LONG’s real-time analytics capabilities on your replica data.
+
+| $LIVESYNC options                      |  Downtime requirements |
+|----------------------------------------|-----------------------|
+| [$LIVESYNC for $PG][livesync-postgres] | None                  |
+| [$LIVESYNC for S3][livesync-s3]  | None                  |
 
 
 
@@ -41,6 +51,8 @@ see [Ingest data from other sources][data-ingest].
 [dual-write]: /migrate/:currentVersion:/dual-write-and-backfill/
 [pg-dump-restore]: /migrate/:currentVersion:/pg-dump-and-restore/
 [parallel-copy]: /use-timescale/:currentVersion:/ingest-data/import-csv/
+[livesync-postgres]: /migrate/:currentVersion:/livesync-for-postgresql/
+[livesync-s3]: /migrate/:currentVersion:/livesync-for-s3/
 [troubleshooting]: /migrate/:currentVersion:/troubleshooting/
 [live-migration]: /migrate/:currentVersion:/live-migration/
 [pgcopydb]: https://github.com/dimitri/pgcopydb

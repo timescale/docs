@@ -11,7 +11,7 @@ import EarlyAccessNoRelease from "versionContent/_partials/_early_access.mdx";
 
 # Livesync from S3 to Timescale Cloud
 
-You use $LIVESYNC to synchronize all the data, or specific tables, from an S3 bucket to your
+You use $LIVESYNC to synchronize tabular data, from an S3 bucket to your
 $SERVICE_LONG in real-time. You run $LIVESYNC continuously, turning S3 into a primary database with your
 $SERVICE_LONG as a logical replica. This enables you to leverage $CLOUD_LONG’s real-time analytics capabilities on
 your replica data.
@@ -26,13 +26,11 @@ You use $LIVESYNC for data synchronization, rather than migration. Livesync can:
     [lexicographical order][lex-order].
    - $LIVESYNC watches an S3 bucket for new files and imports them automatically. $LIVESYNC runs on a configurable 
      schedule and tracks processed files.
-   - To prevent system overload, $LIVESYNC track up to 100 files for each sync iteration. Additional checks only fill 
-      empty queue slots.
    - For large backlogs, $LIVESYNC checks every minute until caught up. 
 
 * Sync data from multiple file formats:
 
-  * CSV: checked for compression, then processing using [timescaledb-parallel-copy][parallel-copy]
+  * CSV: checked for compression in `.gz` and `.zip` format, then processing using [timescaledb-parallel-copy][parallel-copy]
 
   * Parquet: converted to CSV, then processed using [timescaledb-parallel-copy][parallel-copy]
 
@@ -58,9 +56,9 @@ files matching a specified pattern and automatically imports them into your desi
 
 ## Limitations
 
-- **CSV**
+- **CSV**:
    - Maximum file size: 1GB 
-      To sync larger files, contact sales@timescale.com
+      To increase these limits, contact sales@timescale.com
    - Maximum row size: 2MB
    - Supported compressed formats:
       - `.gz`
@@ -68,10 +66,13 @@ files matching a specified pattern and automatically imports them into your desi
    - Advanced settings:
       - **Delimiter**: the default character is `,`, you can choose a different delimiter
       - **Skip Header**: skip the first row if your file has headers
-- **Parquet**
+- **Parquet**:
    - Maximum file size: 1GB
    - Maximum row group uncompressed size: 200MB
    - Maximum row size: 2MB
+- **Sync iteration**:
+   To prevent system overload, $LIVESYNC track up to 100 files for each sync iteration. Additional checks only fill
+   empty queue slots. 
 
 ## Synchronize data to your $SERVICE_LONG
 
