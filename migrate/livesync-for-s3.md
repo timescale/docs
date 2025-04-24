@@ -12,7 +12,7 @@ import EarlyAccessNoRelease from "versionContent/_partials/_early_access.mdx";
 # Livesync from S3 to Timescale Cloud
 
 You use $LIVESYNC to synchronize tabular data, from an S3 bucket to your
-$SERVICE_LONG in real-time. You run $LIVESYNC continuously, turning S3 into a primary database with your
+$SERVICE_LONG in real time. You run $LIVESYNC continuously, turning S3 into a primary database with your
 $SERVICE_LONG as a logical replica. This enables you to leverage $CLOUD_LONG’s real-time analytics capabilities on
 your replica data.
 
@@ -40,7 +40,7 @@ You use $LIVESYNC for data synchronization, rather than migration. Livesync can:
 $LIVESYNC for S3 continuously imports data from an Amazon S3 bucket into your database. It monitors your S3 bucket for new
 files matching a specified pattern and automatically imports them into your designated database table.
 
-<EarlyAccessNoRelease />: livesync is not supported for production use. If you have an questions or feedback, talk to us in <a href="https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88">#livesync in Timescale Community</a>.
+<EarlyAccessNoRelease />: livesync is not supported for production use. If you have any questions or feedback, talk to us in <a href="https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88">#livesync in Timescale Community</a>.
 
 ## Prerequisites
 
@@ -90,11 +90,11 @@ To sync data from your S3 bucket to your $SERVICE_LONG using $CONSOLE:
    1. Click `Actions` > `livesync for S3`.
    2. Click `New Livesync for S3`
 
-1. **Connect the source s3 bucket to the target $SERVICE_SHORT**
+1. **Connect the source S3 bucket to the target $SERVICE_SHORT**
 
    ![Livesync connect to bucket](https://assets.timescale.com/docs/images/livesync-s3-wizard.png)
 
-   1. In `Livesync for S3`, set the `Bucket name` and `Authentication method`, then press `Continue`.
+   1. In `Livesync for S3`, set the `Bucket name` and `Authentication method`, then click `Continue`.
    
       For instruction on creating the IAM role you need to connect your S3 bucket, click `Learn how`:
       ![Livesync connect to bucket](https://assets.timescale.com/docs/images/livesync-s3-create-credentials.png) 
@@ -104,16 +104,16 @@ To sync data from your S3 bucket to your $SERVICE_LONG using $CONSOLE:
       Use the following patterns:
       - `<folder name>/*`: match all files in a folder. Also, any pattern ending with `/` is treated as  `/*`.
       - `<folder name>/**`: match all recursively.
-      - `<folder name>/**/*.csv`: match a specific file type
+      - `<folder name>/**/*.csv`: match a specific file type.
       
       $LIVESYNC uses prefix filters where possible, place patterns carefully at the end of your glob expression.
       AWS S3 doesn't support complex filtering. If your expression filters too many files, the list operation may timeout.
       
-   1. Click the search icon, you see files to sync. Click `Continue`
+   1. Click the search icon, you see files to sync. Click `Continue`.
 
 1. **Optimize the data to synchronize in hypertables**
 
-   $CONSOLE checks the file schema and, if possible suggests the column to use as the time dimension in a 
+   $CONSOLE checks the file schema and, if possible, suggests the column to use as the time dimension in a 
    [hypertable][about-hypertables].
      
    ![Livesync choose table](https://assets.timescale.com/docs/images/livesync-s3-create-tables.png)
@@ -135,8 +135,8 @@ To sync data from your S3 bucket to your $SERVICE_LONG using $CONSOLE:
 
 </Procedure>
 
-And that is it, you are using $LIVESYNC to synchronize all the data, or specific files, from an s3 bucket to your 
-$SERVICE_LONG in real-time.
+And that is it, you are using $LIVESYNC to synchronize all the data, or specific files, from an S3 bucket to your 
+$SERVICE_LONG in real time.
 
 
 [about-hypertables]: /use-timescale/:currentVersion:/hypertables/about-hypertables/
