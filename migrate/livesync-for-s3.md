@@ -83,7 +83,7 @@ files matching a specified pattern and automatically imports them into your desi
    - Maximum row group uncompressed size: 200MB
    - Maximum row size: 2MB
 - **Sync iteration**:
-   To prevent system overload, $LIVESYNC track up to 100 files for each sync iteration. Additional checks only fill
+   To prevent system overload, $LIVESYNC tracks up to 100 files for each sync iteration. Additional checks only fill
    empty queue slots. 
 
 ## Synchronize data to your $SERVICE_LONG
