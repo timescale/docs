@@ -38,7 +38,7 @@ You use $LIVESYNC for data synchronization, rather than migration. Livesync can:
      $LIVESYNC_CAP disables foreign key validation during the sync. For example, if a `metrics` table refers to 
     the `id` column on the `tags` table, you can still sync only the `metrics` table without worrying about their 
     foreign key relationships.
-  - Track progress. PostgreSQL expose `COPY` progress under in `pg_stat_progress_copy`.
+  - Track progress. PostgreSQL exposes `COPY` progress under `pg_stat_progress_copy`.
   
 * Synchronize real-time changes from a PostgreSQL instance to a $SERVICE_LONG.
 * Add and remove tables on demand using the [PostgreSQL PUBLICATION interface](https://www.postgresql.org/docs/current/sql-createpublication.html).
