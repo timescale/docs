@@ -236,7 +236,7 @@ For example:
 [alter-publication]: https://www.postgresql.org/docs/current/sql-alterpublication.html
 [install-docker]: https://docs.docker.com/engine/install/
 [about-hypertables]: /use-timescale/:currentVersion:/hypertables/about-hypertables/
-[lives-sync-specify-tables]: /migrate/:currentVersion:/livesync/#specify-the-tables-to-synchronize
+[lives-sync-specify-tables]: /migrate/:currentVersion:/livesync-for-postgresql/#specify-the-tables-to-synchronize
 [compression]: /use-timescale/:currentVersion:/compression/about-compression
 [caggs]: /use-timescale/:currentVersion:/continuous-aggregates/about-continuous-aggregates/
 [join-livesync-on-slack]: https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88

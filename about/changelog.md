@@ -93,7 +93,7 @@ To see the job information page, in [$CONSOLE][console], select the $SERVICE_SHO
 ## 🤩 In-Console Livesync for PostgreSQL
 <Label type="date">March 21, 2025</Label>
 
-You can now set up an active data ingestion pipeline with Livesync for PostgreSQL in Timescale Console. This tool enables you to replicate your source database tables into Timescale's hypertables indefinitely. Yes, you heard that right—keep Livesync running for as long as you need, ensuring that your existing source PostgreSQL tables stay in sync with Timescale Cloud. Read more about setting up and using [Livesync for PostgreSQL](https://docs.timescale.com/migrate/latest/livesync/). 
+You can now set up an active data ingestion pipeline with Livesync for PostgreSQL in Timescale Console. This tool enables you to replicate your source database tables into Timescale's hypertables indefinitely. Yes, you heard that right—keep Livesync running for as long as you need, ensuring that your existing source PostgreSQL tables stay in sync with Timescale Cloud. Read more about setting up and using [Livesync for PostgreSQL](https://docs.timescale.com/migrate/latest/livesync-for-postgresql/). 
 
 ![Livesync in Timescale Console](https://assets.timescale.com/docs/images/timescale-cloud-livesync-tile.png)
 
@@ -308,7 +308,7 @@ All feature requests are automatically published to the [Timescale Forum](https:
 ### Postgres Livesync (Alpha release)
 We have built a new solution that helps you continuously replicate all or some of your Postgres tables directly into Timescale Cloud.
 
-[Livesync](https://docs.timescale.com/migrate/latest/livesync/) allows you to keep a current Postgres instance such as RDS as your primary database, and easily offload your real-time analytical queries to Timescale Cloud to boost their performance. If you have any questions or feedback, talk to us in [#livesync in Timescale Community](https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88).
+[Livesync](https://docs.timescale.com/migrate/latest/livesync-for-postgresql/) allows you to keep a current Postgres instance such as RDS as your primary database, and easily offload your real-time analytical queries to Timescale Cloud to boost their performance. If you have any questions or feedback, talk to us in [#livesync in Timescale Community](https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88).
 
 This is just the beginning—you'll see more from Livesync in 2025!
 
