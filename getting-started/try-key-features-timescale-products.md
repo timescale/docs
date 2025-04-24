@@ -185,7 +185,7 @@ $CONSOLE. You can also do this using psql.
     For a $CAGG, data grouped using a $TIME_BUCKET is stored in a
     $PG `MATERIALIZED VIEW` in a $HYPERTABLE. `timescaledb.continuous` ensures that this data
     is always up to date.
-    In the data mode editor, use the following code to create a $CAGG on the real-time data in
+    In data mode, use the following code to create a $CAGG on the real-time data in
     the `crypto_ticks` table:
 
     ```sql
