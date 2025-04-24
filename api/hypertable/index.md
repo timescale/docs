@@ -4,7 +4,7 @@ excerpt: Timescale Cloud API reference for dealing with hypertables and chunks. 
 keywords: [hypertables, chunks]
 ---
 
-import HypertableIntro from "versionContent/_partials/_hypertables-intro.mdx";
+import HypertableIntro from "versionContent/_partials/_hypertable-intro.mdx";
 
 # Hypertables and chunks
 

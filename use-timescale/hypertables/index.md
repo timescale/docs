@@ -5,7 +5,7 @@ products: [cloud, mst, self_hosted]
 keywords: [hypertables]
 ---
 
-import HypertablesIntro from 'versionContent/_partials/_hypertables-intro.mdx';
+import HypertablesIntro from 'versionContent/_partials/_hypertable-intro.mdx';
 
 # Hypertables
 
