@@ -41,7 +41,7 @@ You use $LIVESYNC for data synchronization, rather than migration. Livesync can:
   - Track progress. PostgreSQL exposes `COPY` progress under `pg_stat_progress_copy`.
   
 * Synchronize real-time changes from a PostgreSQL instance to a $SERVICE_LONG.
-* Add and remove tables on demand using the [PostgreSQL PUBLICATION interface](https://www.postgresql.org/docs/current/sql-createpublication.html).
+* Add and remove tables on demand using the [PostgreSQL PUBLICATION interface][postgres-publication-interface].
 * Enable features such as [hypertables][about-hypertables], [columnstore][compression], and 
    [continuous aggregates][caggs] on your logical replica.  
 
@@ -70,3 +70,4 @@ You use $LIVESYNC for data synchronization, rather than migration. Livesync can:
 [compression]: /use-timescale/:currentVersion:/compression/about-compression
 [caggs]: /use-timescale/:currentVersion:/continuous-aggregates/about-continuous-aggregates/
 [join-livesync-on-slack]: https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88
+[postgres-publication-interface]: https://www.postgresql.org/docs/current/sql-createpublication.html
