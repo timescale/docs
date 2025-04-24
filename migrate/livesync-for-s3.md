@@ -48,10 +48,12 @@ files matching a specified pattern and automatically imports them into your desi
 
 - Access to a standard Amazon S3 bucket containing your data files.
   Directory buckets are not supported.
-- Access credentials for the S3 bucket. 
-  - The user needs the following permissions: `s3:GetObject`, `s3:ListBucket`.
+- Access credentials for the S3 bucket.  
   - The following credentials are supported: 
     - [IAM Role][credentials-iam].
+      This role needs the following: permissions:
+      - Permissions: `s3:GetObject`, `s3:ListBucket`.
+        
     - [Public anonymous user][credentials-public].
 
 ## Limitations
@@ -92,6 +94,9 @@ To sync data from your S3 bucket to your $SERVICE_LONG using $CONSOLE:
    ![Livesync connect to bucket](https://assets.timescale.com/docs/images/livesync-s3-wizard.png)
 
    1. In `Livesync for S3`, set the `Bucket name` and `Authentication method`, then press `Continue`.
+   
+      For instruction on creating the IAM role you need to connect your S3 bucket, click `Learn how`:
+      ![Livesync connect to bucket](https://assets.timescale.com/docs/images/livesync-s3-create-credentials.png) 
       $CONSOLE connects to the source bucket.
    1. In `Define files to sync`, choose the `File type` and set the `Glob pattern`.
    
@@ -141,7 +146,7 @@ $SERVICE_LONG in real-time.
 [parallel-copy]: https://github.com/timescale/timescaledb-parallel-copy
 [deputy-problem]: https://docs.aws.amazon.com/IAM/latest/UserGuide/confused-deputy.html
 [lex-order]:https://en.wikipedia.org/wiki/Lexicographic_order
-[credentials-iam]: https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html#example-bucket-policies-public-access
+[credentials-iam]: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html#roles-creatingrole-user-console
 [credentials-public]: https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html#example-bucket-policies-anonymous-user
 [portal-ops-mode]: https://console.cloud.timescale.com/dashboard/services
 [hypertable-docs]: /use-timescale/:currentVersion:/hypertables/
