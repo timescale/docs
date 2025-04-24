@@ -343,7 +343,11 @@ module.exports = [
   {
     from: "/latest/tutorials/tutorial-setup-timescale-prometheus/",
     to: "https://docs.timescale.com/tutorials/latest/",
-
+  },
+  {
+    from: "/migrate/latest/livesync",
+    to: "https://docs.timescale.com/migrate/latest/livesync-for-postgresql/",
+  },
   {
     from: "/migrate/latest/livesync",
     to: "https://docs.timescale.com/migrate/latest/livesync-for-postgresql/",
