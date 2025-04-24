@@ -51,10 +51,20 @@ files matching a specified pattern and automatically imports them into your desi
 - Access credentials for the S3 bucket.  
   - The following credentials are supported: 
     - [IAM Role][credentials-iam].
-      Your role needs the following: 
-      - Authorize the $LIVESYNC role: `arn:aws:iam::142548018081:role/timescale-s3-connections`
-      - Permissions: `s3:GetObject`, `s3:ListBucket`
-        
+    
+      - Configure the trust policy. Set the: 
+      
+        - `Principal`: `arn:aws:iam::142548018081:role/timescale-s3-connections`
+        - `ExternalID`: the ID $CLOUD_LONG project and $SERVICE you are syncing your data with: 
+           `<projectId>/<serviceId>`
+            For example: `/`
+
+            This is to avoid the [confused deputy problem][confused-deputy-problem]
+      - Give the following access permissions:
+
+        - `s3:GetObject`
+        - `s3:ListBucket`
+       
     - [Public anonymous user][credentials-public].
 
 ## Limitations
@@ -67,8 +77,8 @@ files matching a specified pattern and automatically imports them into your desi
       - `.gz`
       - `.zip`
    - Advanced settings:
-      - **Delimiter**: the default character is `,`, you can choose a different delimiter
-      - **Skip Header**: skip the first row if your file has headers
+      - Delimiter: the default character is `,`, you can choose a different delimiter
+      - Skip Header: skip the first row if your file has headers
 - **Parquet**:
    - Maximum file size: 1GB
    - Maximum row group uncompressed size: 200MB
@@ -152,3 +162,4 @@ $SERVICE_LONG in real time.
 [portal-ops-mode]: https://console.cloud.timescale.com/dashboard/services
 [hypertable-docs]: /use-timescale/:currentVersion:/hypertables/
 [cron-expression]: https://en.wikipedia.org/wiki/Cron#Cron_expression
+https://docs.aws.amazon.com/IAM/latest/UserGuide/confused-deputy.html
