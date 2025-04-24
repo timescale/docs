@@ -51,8 +51,9 @@ files matching a specified pattern and automatically imports them into your desi
 - Access credentials for the S3 bucket.  
   - The following credentials are supported: 
     - [IAM Role][credentials-iam].
-      This role needs the following: permissions:
-      - Permissions: `s3:GetObject`, `s3:ListBucket`.
+      Your role needs the following: 
+      - Authorize the $LIVESYNC role: `arn:aws:iam::142548018081:role/timescale-s3-connections`
+      - Permissions: `s3:GetObject`, `s3:ListBucket`
         
     - [Public anonymous user][credentials-public].
 
