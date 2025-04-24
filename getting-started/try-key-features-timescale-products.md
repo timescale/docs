@@ -178,7 +178,7 @@ $CONSOLE. You can also do this using psql.
 
 1.  **Connect to your $SERVICE_SHORT**
 
-    In [$CONSOLE][portal-data-mode], select your $SERVICE_SHORT in the connection drop-down in the top right
+    In [$CONSOLE][portal-data-mode], select your $SERVICE_SHORT in the connection drop-down in the top right.
 
 1.  **Create a $CAGG**
 
