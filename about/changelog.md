@@ -8,6 +8,24 @@ keywords: [changelog, upgrades, updates, releases]
 
 All the latest features and updates to Timescale products.
 
+## 🔁 Livesync for S3 and Passwordless Connections for Data Mode
+<Label type="date">April 25, 2025</Label>
+
+### Livesync for S3 (beta)
+Livesync for S3 is our second Livesync offering in the Timescale Cloud Console, following Livesync for PostgreSQL. This feature helps users connect their S3 buckets to Timescale and simplifies data importing. It handles both existing data and new data that arrives in real-time, automatically syncing everything into Timescale. Users can use Timescale alongside S3, where S3 stores data in raw form as the source for multiple destinations.
+
+With this feature, users can connect Timescale with S3 in minutes, rather than spending days setting up and maintaining an ingestion layer.
+
+### UX improvements to Livesync for PostgreSQL
+
+In Livesync for PostgreSQL, getting started requires setting the source database WAL_LEVEL to "logical" and granting specific permissions for starting publication at the source. To simplify this setup process, we have added a detailed two-step checklist with comprehensive instructions explaining what's required and how to execute it on the user's end.
+
+### Passwordless Data Mode Connections
+
+We’ve made connecting to your database from Timescale’s data mode even easier! All new services created in Timescale Cloud are now automatically accessible from data mode without requiring you to enter your database credentials. Just open data mode, select your database, and start querying.
+We will be expanding this functionality to existing services in the coming weeks (including services using VPC peering), so stay tuned.
+
+
 ## ☑️ Embeddings spot checks, TimescaleDB v2.19.3, and new models in SQL Assistant
 <Label type="date">April 18, 2025</Label>
 
