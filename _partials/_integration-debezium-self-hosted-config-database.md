@@ -42,7 +42,7 @@
    Create a user with the `LOGIN` and `REPLICATION` permissions:
 
     ```sql
-    CREATE ROLE debezium WITH LOGIN REPLICATION PASSWORD <debeziumpassword>;
+    CREATE ROLE debezium WITH LOGIN REPLICATION PASSWORD '<debeziumpassword>';
     ```
 
 1. **Enable a replication spot for Debezium**
