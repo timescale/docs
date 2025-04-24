@@ -54,16 +54,15 @@ files matching a specified pattern and automatically imports them into your desi
     
       - Configure the trust policy. Set the: 
       
-        - `Principal`: `arn:aws:iam::142548018081:role/timescale-s3-connections`
-        - `ExternalID`: the ID $CLOUD_LONG project and $SERVICE you are syncing your data with: 
-           `<projectId>/<serviceId>`
-            For example: `/`
-
-            This is to avoid the [confused deputy problem][confused-deputy-problem]
+        - `Principal`: `arn:aws:iam::142548018081:role/timescale-s3-connections`.
+        - `ExternalID`: set to the [$CLOUD_LONG project and $SERVICE_LONG ID][connection-project-service-id] of the 
+           $SERVICE_SHORT you are syncing to in the format `<projectId>/<serviceId>`.
+        
+           This is to avoid the [confused deputy problem][confused-deputy-problem].
       - Give the following access permissions:
 
-        - `s3:GetObject`
-        - `s3:ListBucket`
+        - `s3:GetObject`.
+        - `s3:ListBucket`.
        
     - [Public anonymous user][credentials-public].
 
@@ -162,4 +161,5 @@ $SERVICE_LONG in real time.
 [portal-ops-mode]: https://console.cloud.timescale.com/dashboard/services
 [hypertable-docs]: /use-timescale/:currentVersion:/hypertables/
 [cron-expression]: https://en.wikipedia.org/wiki/Cron#Cron_expression
-https://docs.aws.amazon.com/IAM/latest/UserGuide/confused-deputy.html
+[confused-deputy-problem]: https://docs.aws.amazon.com/IAM/latest/UserGuide/confused-deputy.html
+[connection-project-service-id]: /integrations/:currentVersion:/find-connection-details/#find-your-project-and-service-id
