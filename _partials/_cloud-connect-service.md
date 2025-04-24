@@ -9,7 +9,7 @@
 
 1. **Connect to your $SERVICE_SHORT**
 
-   Connect using the data mode, SQL editor in $CONSOLE, or psql in the command line:
+   Connect using data mode or SQL editor in $CONSOLE, or psql in the command line:
 
    <Tabs label="Connect to your Timescale Cloud service">
 
