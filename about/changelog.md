@@ -8,22 +8,44 @@ keywords: [changelog, upgrades, updates, releases]
 
 All the latest features and updates to Timescale products.
 
-## 🔁 Livesync for S3 and Passwordless Connections for Data Mode
+## 🔁 Livesync for S3 and passwordless connections for data mode
 <Label type="date">April 25, 2025</Label>
 
 ### Livesync for S3 (beta)
-Livesync for S3 is our second Livesync offering in the Timescale Cloud Console, following Livesync for PostgreSQL. This feature helps users connect their S3 buckets to Timescale and simplifies data importing. It handles both existing data and new data that arrives in real-time, automatically syncing everything into Timescale. Users can use Timescale alongside S3, where S3 stores data in raw form as the source for multiple destinations.
 
-With this feature, users can connect Timescale with S3 in minutes, rather than spending days setting up and maintaining an ingestion layer.
+[Livesync for S3](https://docs.timescale.com/migrate/latest/livesync-for-s3/) is our second livesync offering in 
+Timescale Console, following livesync for PostgreSQL. This feature helps users sync data in their S3 buckets to a
+Timescale Cloud service, and simplifies data importing. Livesync handles both existing and new data in real-time, 
+automatically syncing everything into a Timescale Cloud service. Users can integrate Timescale Cloud alongside S3, where 
+S3 stores data in raw form as the source for multiple destinations.
 
-### UX improvements to Livesync for PostgreSQL
+![Timescale Console new livesync](https://assets.timescale.com/docs/images/livesync-s3-start-new-livesync.png)
 
-In Livesync for PostgreSQL, getting started requires setting the source database WAL_LEVEL to "logical" and granting specific permissions for starting publication at the source. To simplify this setup process, we have added a detailed two-step checklist with comprehensive instructions explaining what's required and how to execute it on the user's end.
+With livesync, users can connect Timescale Cloud with S3 in minutes, rather than spending days setting up and maintaining
+an ingestion layer.
 
-### Passwordless Data Mode Connections
+![Timescale Console livesync view status](https://assets.timescale.com/docs/images/livesync-s3-view-status.png)
 
-We’ve made connecting to your database from Timescale’s data mode even easier! All new services created in Timescale Cloud are now automatically accessible from data mode without requiring you to enter your database credentials. Just open data mode, select your database, and start querying.
-We will be expanding this functionality to existing services in the coming weeks (including services using VPC peering), so stay tuned.
+### UX improvements to livesync for PostgreSQL
+
+In [livesync for PostgreSQL](https://docs.timescale.com/migrate/latest/livesync-for-postgresql/), getting started 
+requires setting the `WAL_LEVEL` to `logical`, and granting specific permissions to start a publication 
+on the source database. To simplify this setup process, we have added a detailed two-step checklist with comprehensive 
+configuration instructions to Timescale Console.
+
+![Timescale Console livesync PostgreSQL instructions](https://assets.timescale.com/docs/images/livesync-postgres-console-config-instuctions.png)
+
+### Passwordless data mode connections
+
+We’ve made connecting to your Timescale Cloud services from [data mode](https://docs.timescale.com/getting-started/latest/run-queries-from-console/#connect-to-your-timescale-cloud-service-in-the-data-mode) 
+in Timescale Console even easier! All new services created in Timescale Cloud are now automatically accessible from 
+data mode without requiring you to enter your service credentials. Just open data mode, select your service, and 
+start querying.
+
+![Timescale Console passwordless data mode](https://assets.timescale.com/docs/images/data-mode-connections.png)
+
+We will be expanding this functionality to existing services in the coming weeks (including services using VPC peering), 
+so stay tuned.
 
 
 ## ☑️ Embeddings spot checks, TimescaleDB v2.19.3, and new models in SQL Assistant
