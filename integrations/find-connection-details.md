@@ -21,6 +21,8 @@ Find the connection details based on your deployment type:
 
 <Tab title="Timescale Cloud">
 
+## Connect to your service
+
 Retrieve the connection details for your $SERVICE_LONG:
 
 - **In `<service name>-credentials.txt`**: 
@@ -32,6 +34,24 @@ Retrieve the connection details for your $SERVICE_LONG:
    Open the [`Services`][console-services] page and select your $SERVICE_SHORT. The connection details, except the password, are available in the `Connect to your service` widget. If necessary, click `Forgot your password?` to get a new one.
 
    ![Timescale service connection details](https://assets.timescale.com/docs/images/timescale-service-connection-details.png)
+
+## Find your project and service ID
+
+To retrieve the connection details for your $CLOUD_LONG project and $SERVICE_LONG:
+
+<Procedure>
+
+1. **Retreive your project ID**:
+
+   In [$CONSOLE][console-services], click `Timescale Project`, then click `Copy` next to the project ID.
+   ![Retrive the project id in console](https://assets.timescale.com/docs/images/console-project-id.png)
+
+1. **Retrieve your service ID**:
+
+   Click the dots next to the service, then click `Copy` next to the service ID.
+   ![Retrive the service id in console](https://assets.timescale.com/docs/images/console-service-id.png)
+
+</Procedure>
 
 </Tab>
 
