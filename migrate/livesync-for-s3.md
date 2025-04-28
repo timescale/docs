@@ -21,7 +21,7 @@ You can use $LIVESYNC to synchronize your existing and new data. Here's what $LI
     - Use glob patterns to identify the objects to sync.
     - Livesync uses the objects returned for subsequent queries. This efficient approach means files are synced in [lexicographical order][lex-order].
     - Livesync watches an S3 bucket for new files and imports them automatically. It runs on a configurable schedule and tracks processed files.
-    - For large backlogs, Livesync checks every minute until caught up. 
+    - For large backlogs, $LIVESYNC checks every minute until caught up. 
 
 * Sync data from multiple file formats:
     - CSV: Files are checked for compression in `.gz` and `.zip` format, then processed using [timescaledb-parallel-copy][parallel-copy]
