@@ -69,19 +69,11 @@
 
 1.  **Tune your PostgreSQL instance for TimescaleDB**
 
-     1. Install `timescaledb-tools`:
+     ```bash
+     sudo timescaledb-tune
+     ```   
 
-        ```bash
-        sudo apt install  timescaledb-tools
-        ```
-        
-     1. Run `timescaledb-tune`:
-
-        ```bash
-        sudo timescaledb-tune
-        ```   
-
-     For more information, see [configuration][config].
+    By default, this script is included with the `timescaledb-tools` package when you install TimescaleDB. If you have an issue, run `sudo apt install timescaledb-tools`. For more information, see [configuration][config].
 
 1.  **Restart PostgreSQL**
 
@@ -89,7 +81,7 @@
     sudo systemctl restart postgresql
     ```
     
-1.  **Login to PostgreSQL as `postgres`**
+1.  **Log in to PostgreSQL as `postgres`**
 
     ```bash
     sudo -u postgres psql
