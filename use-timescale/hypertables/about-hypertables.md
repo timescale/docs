@@ -9,6 +9,12 @@ keywords: [hypertables, partitions]
 
 Hypertables are PostgreSQL tables designed to simplify and speed up data analysis. Anything you can do with regular PostgreSQL tables, you can do with hypertables—but much faster and more conveniently. This page explains hypertable partitioning, indexing, and analysis with the PostgreSQL `ANALYZE` command. 
 
+<Highlight type="note">
+
+Inheritance is not supported for hypertables and may lead to unexpected behavior.
+
+</Highlight>
+
 ## Hypertable partitioning
 
 Each hypertable is partitioned into child tables called chunks. Each chunk is assigned
