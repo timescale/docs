@@ -12,6 +12,11 @@ module.exports = [
         excerpt: "Find connection information for your Timescale Cloud service",
       },
       {
+        title: "Airbyte",
+        href: "airbyte",
+        excerpt: "Integrate Airbyte with Timescale Cloud",
+      },
+      {
         title: "Amazon CloudWatch",
         href: "cloudwatch",
         excerpt: "Integrate Amazon Cloudwatch with Timescale Cloud",
