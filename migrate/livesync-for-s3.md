@@ -11,7 +11,7 @@ import EarlyAccessNoRelease from "versionContent/_partials/_early_access.mdx";
 
 # Livesync from S3 to Timescale Cloud
 
-You use $LIVESYNC to synchronize CSV and Parquet files from an S3 bucket to your Timescale Cloud service in real time. $LIVESYNC runs continuously, enabling you to leverage Timescale Cloud as your analytics database with data constantly synced from S3. This lets you take full advantage of Timescale Cloud's real-time analytics capabilities without having to develop or manage custom ETL solutions between S3 and Timescale.
+You use $LIVESYNC to synchronize CSV and Parquet files from an S3 bucket to your $SERVICE_LONG in real time. $LIVESYNC runs continuously, enabling you to leverage $CLOUD_LONG as your analytics database with data constantly synced from S3. This lets you take full advantage of $CLOUD_LONG's real-time analytics capabilities without having to develop or manage custom ETL solutions between S3 and $CLOUD_LONG.
 
 ![$LIVESYNC_CAP view status](https://assets.timescale.com/docs/images/livesync-s3-view-status.png)
 
