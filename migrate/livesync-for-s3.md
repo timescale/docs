@@ -11,34 +11,29 @@ import EarlyAccessNoRelease from "versionContent/_partials/_early_access.mdx";
 
 # Livesync from S3 to Timescale Cloud
 
-You use $LIVESYNC to synchronize tabular data, from an S3 bucket to your
-$SERVICE_LONG in real time. You run $LIVESYNC continuously, turning S3 into a primary database with your
-$SERVICE_LONG as a logical replica. This enables you to leverage $CLOUD_LONG’s real-time analytics capabilities on
-your replica data.
+You use $LIVESYNC to synchronize CSV and Parquet files from an S3 bucket to your $SERVICE_LONG in real time. Livesync runs continuously, enabling you to leverage $CLOUD_LONG as your analytics database with data constantly synced from S3. This lets you take full advantage of $CLOUD_LONG's real-time analytics capabilities without having to develop or manage custom ETL solutions between S3 and $CLOUD_LONG.
 
 ![$LIVESYNC_CAP view status](https://assets.timescale.com/docs/images/livesync-s3-view-status.png)
 
-You use $LIVESYNC for data synchronization, rather than migration. Livesync can:
+You can use $LIVESYNC to synchronize your existing and new data. Here's what $LIVESYNC can do:
 
 * Sync data from an S3 bucket instance to a $SERVICE_LONG:
-   - $LIVESYNC uses Glob patterns to identify the objects to sync.
-   - $LIVESYNC uses the objects returned for subsequent queries. This efficient approach means files are synced in
-    [lexicographical order][lex-order].
-   - $LIVESYNC watches an S3 bucket for new files and imports them automatically. $LIVESYNC runs on a configurable 
-     schedule and tracks processed files.
-   - For large backlogs, $LIVESYNC checks every minute until caught up. 
+    - Use glob patterns to identify the objects to sync.
+    - Livesync uses the objects returned for subsequent queries. This efficient approach means files are synced in [lexicographical order][lex-order].
+    - Livesync watches an S3 bucket for new files and imports them automatically. It runs on a configurable schedule and tracks processed files.
+    - For large backlogs, $LIVESYNC checks every minute until caught up. 
 
 * Sync data from multiple file formats:
+    - CSV: files are checked for compression in `.gz` and `.zip` format, then processed using [timescaledb-parallel-copy][parallel-copy]
+    - Parquet: files are converted to CSV, then processed using [timescaledb-parallel-copy][parallel-copy]
 
-  * CSV: checked for compression in `.gz` and `.zip` format, then processing using [timescaledb-parallel-copy][parallel-copy]
+* Livesync offers an option to enable an [hypertable][about-hypertables] during the file-to-table schema mapping setup. You can enable [columnstore][compression] and [continuous aggregates][caggs] through the SQL editor once $LIVESYNC has started.
 
-  * Parquet: converted to CSV, then processed using [timescaledb-parallel-copy][parallel-copy]
+* Livesync offers a default 1-minute polling interval. This means that $CLOUD_LONG checks the S3 source every minute for new data. You can customize this interval by setting up a cron expression.
 
-* Enable features such as [hypertables][about-hypertables], [columnstore][compression], and
-  [continuous aggregates][caggs] on your logical replica.
+Livesync for S3 continuously imports data from an Amazon S3 bucket into your database. It monitors your S3 bucket for new files matching a specified pattern and automatically imports them into your designated database table.
 
-$LIVESYNC for S3 continuously imports data from an Amazon S3 bucket into your database. It monitors your S3 bucket for new
-files matching a specified pattern and automatically imports them into your designated database table.
+**Note**: Livesync for S3 currently only syncs existing and new files—it does not support updating or deleting records based on updates and deletes from S3 to tables in a $SERVICE_LONG.
 
 <EarlyAccessNoRelease />: livesync is not supported for production use. If you have any questions or feedback, talk to us in <a href="https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88">#livesync in Timescale Community</a>.
 
