@@ -15,8 +15,8 @@ import Experimental from "versionContent/_partials/_experimental.mdx";
 <!-- markdownlint-disable-next-line line-length -->
 # alter_policies() <Tag type="community" content="Community" /><Tag type="experimental" content="Experimental" />
 
-Alter refresh, compression, or data retention policies on a continuous
-aggregate. The altered compression and retention policies apply to the
+Alter refresh, columnstore, or data retention policies on a continuous
+aggregate. The altered columnstore and retention policies apply to the
 continuous aggregate, _not_ to the original hypertable.
 
 ```sql
@@ -40,13 +40,13 @@ timescaledb_experimental.alter_policies(
 
 ## Optional arguments
 
-|Name|Type|Description|
-|-|-|-|
-|`if_not_exists`|`BOOL`|When true, prints a warning instead of erroring if the policy doesn't exist. Defaults to false.|
-|`refresh_start_offset`|`INTERVAL` or `INTEGER`|The start of the continuous aggregate refresh window, expressed as an offset from the policy run time.|
-|`refresh_end_offset`|`INTERVAL` or `INTEGER`|The end of the continuous aggregate refresh window, expressed as an offset from the policy run time. Must be greater than `refresh_start_offset`.|
-|`compress_after`|`INTERVAL` or `INTEGER`|Continuous aggregate chunks are compressed if they exclusively contain data older than this interval.|
-|`drop_after`|`INTERVAL` or `INTEGER`|Continuous aggregate chunks are dropped if they exclusively contain data older than this interval.|
+|Name|Type| Description                                                                                                                                       |
+|-|-|---------------------------------------------------------------------------------------------------------------------------------------------------|
+|`if_not_exists`|`BOOL`| When true, prints a warning instead of erroring if the policy doesn't exist. Defaults to false.                                                   |
+|`refresh_start_offset`|`INTERVAL` or `INTEGER`| The start of the continuous aggregate refresh window, expressed as an offset from the policy run time.                                            |
+|`refresh_end_offset`|`INTERVAL` or `INTEGER`| The end of the continuous aggregate refresh window, expressed as an offset from the policy run time. Must be greater than `refresh_start_offset`. |
+|`compress_after`|`INTERVAL` or `INTEGER`| Continuous aggregate chunks are compressed into the columnstore if they exclusively contain data older than this interval.                        |
+|`drop_after`|`INTERVAL` or `INTEGER`| Continuous aggregate chunks are dropped if they exclusively contain data older than this interval.                                                |
 
 For arguments that could be either an `INTERVAL` or an `INTEGER`, use an
 `INTERVAL` if your time bucket is based on timestamps. Use an `INTEGER` if your
@@ -59,7 +59,7 @@ Returns true if successful.
 ## Sample usage
 
 Given a continuous aggregate named `example_continuous_aggregate` with an
-existing compression policy, alter the compression policy to compress data older
+existing columnstore policy, alter the columnstore policy to compress data older
 than 16 days:
 
 ```sql
