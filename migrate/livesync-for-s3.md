@@ -17,7 +17,7 @@ You use $LIVESYNC to synchronize CSV and Parquet files from an S3 bucket to your
 
 You can use $LIVESYNC to synchronize your existing and new data. Here's what $LIVESYNC can do:
 
-* Sync data from an S3 bucket instance to a Timescale Cloud service:
+* Sync data from an S3 bucket instance to a $SERVICE_LONG:
     - Livesync uses Glob patterns to identify the objects to sync.
     - Livesync uses the objects returned for subsequent queries. This efficient approach means files are synced in [lexicographical order][lex-order].
     - Livesync watches an S3 bucket for new files and imports them automatically. It runs on a configurable schedule and tracks processed files.
