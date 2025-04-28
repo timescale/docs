@@ -129,7 +129,7 @@ Some of the most in-demand integrations are listed below.
 
 ## Query and administration
 
-|                      Name                               | Description                                                                                                                               |
+|                          Name                           | Description                                                                                                                               |
 |:-------------------------------------------------------:|-------------------------------------------------------------------------------------------------------------------------------------------|
 |                [Azure Data Studio][ads]                 | Query, manage, visualize, and develop databases across SQL Server, Azure SQL, and PostgreSQL.                                             |
 |          [BigQuery Wrapper][bigquery-wrapper]           | Interact with Google BigQuery through simplified programmatic access.                                                                     |
@@ -151,7 +151,7 @@ Some of the most in-demand integrations are listed below.
 |                    [Redash][redash]                     | Query, visualize, and share data from multiple sources.                                                                                   |
 |                     [Redis][redis]                      | Cache, store, and process data in-memory with low latency.                                                                                |
 |                [SQLalchemy][sqlalchemy]                 | Manage database operations using a Python SQL toolkit and ORM.                                                                            |
-|                 [Sqquelize][sqquelize]                  | Interact with SQL databases in Node.js using an ORM.                                                                                      |
+|                 [Sequelize][sequelize]                  | Interact with SQL databases in Node.js using an ORM.                                                                                      |
 |                   [StepZen][stepzen]                    | Build and deploy GraphQL APIs with data from multiple sources.                                                                            |
 |                   [TypeORM][typeorm]                    | Work with databases in TypeScript and JavaScript using an ORM.                                                                            |
 
@@ -264,7 +264,7 @@ Some of the most in-demand integrations are listed below.
 [signoz]: https://signoz.io/docs/integrations/postgresql/
 [snowflake]: https://other-docs.snowflake.com/en/connectors/postgres6/about
 [sqlalchemy]: https://docs.sqlalchemy.org/en/20/dialects/postgresql.html
-[sqquelize]: https://sequelize.org/docs/v7/databases/postgres/
+[sequelize]: https://sequelize.org/docs/v7/databases/postgres/
 [stepzen]: https://stepzen.com/docs/quick-start/with-database-postgresql
 [stitch]: https://stitch-docs.netlify.app/docs/integrations/databases/postgresql
 [streamlit]: https://docs.streamlit.io/develop/tutorials/databases/postgresql
