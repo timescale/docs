@@ -5,15 +5,15 @@ products: [cloud, mst, self_hosted]
 keywords: [hypertables]
 ---
 
-import HypertablesIntro from 'versionContent/_partials/_hypertable-intro.mdx';
+import HypertableIntro from 'versionContent/_partials/_hypertable-intro.mdx';
 
 # Hypertables
 
-<HypertablesIntro />
+<HypertableIntro />
 
 In this section you:
 
-*   [Learn more about hypertables][about-hypertables]
+*   [Learn about hypertables][about-hypertables]
 *   [Create a hypertable][create-hypertables]
 *   [Change hypertable chunk intervals][change-chunk-intervals]
 *   [Alter a hypertable][alter-hypertables]
