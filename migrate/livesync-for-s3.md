@@ -11,7 +11,7 @@ import EarlyAccessNoRelease from "versionContent/_partials/_early_access.mdx";
 
 # Livesync from S3 to Timescale Cloud
 
-You use $LIVESYNC to synchronize CSV and Parquet files from an S3 bucket to your $SERVICE_LONG in real time. $LIVESYNC runs continuously, enabling you to leverage $CLOUD_LONG as your analytics database with data constantly synced from S3. This lets you take full advantage of $CLOUD_LONG's real-time analytics capabilities without having to develop or manage custom ETL solutions between S3 and $CLOUD_LONG.
+You use $LIVESYNC to synchronize CSV and Parquet files from an S3 bucket to your $SERVICE_LONG in real time. Livesync runs continuously, enabling you to leverage $CLOUD_LONG as your analytics database with data constantly synced from S3. This lets you take full advantage of $CLOUD_LONG's real-time analytics capabilities without having to develop or manage custom ETL solutions between S3 and $CLOUD_LONG.
 
 ![$LIVESYNC_CAP view status](https://assets.timescale.com/docs/images/livesync-s3-view-status.png)
 
@@ -24,10 +24,10 @@ You can use $LIVESYNC to synchronize your existing and new data. Here's what $LI
     - For large backlogs, $LIVESYNC checks every minute until caught up. 
 
 * Sync data from multiple file formats:
-    - CSV: Files are checked for compression in `.gz` and `.zip` format, then processed using [timescaledb-parallel-copy][parallel-copy]
-    - Parquet: Files are converted to CSV, then processed using [timescaledb-parallel-copy][parallel-copy]
+    - CSV: files are checked for compression in `.gz` and `.zip` format, then processed using [timescaledb-parallel-copy][parallel-copy]
+    - Parquet: files are converted to CSV, then processed using [timescaledb-parallel-copy][parallel-copy]
 
-* Livesync offer an option to enable an [hypertable][about-hypertables] during the file-to-table schema mapping setup. You can enable [columnstore][compression] and [continuous aggregates][caggs] through the SQL editor once $LIVESYNC has started.
+* Livesync offers an option to enable an [hypertable][about-hypertables] during the file-to-table schema mapping setup. You can enable [columnstore][compression] and [continuous aggregates][caggs] through the SQL editor once $LIVESYNC has started.
 
 * Livesync offers a default 1-minute polling interval. This means that $CLOUD_LONG checks the S3 source every minute for new data. You can customize this interval by setting up a cron expression.
 
