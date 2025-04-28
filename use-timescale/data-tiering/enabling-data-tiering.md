@@ -61,7 +61,7 @@ This storage type gives you up to 64 TB and 32,000 IOPS, and is available under 
 
     <Highlight type="note">
    
-    The enhanced storage is currently only available in `us-east-1`. 
+    The enhanced storage is currently only available in `us-east-1` with plans to extend to other regions. 
 
     </Highlight>
 
