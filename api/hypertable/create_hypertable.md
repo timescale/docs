@@ -87,8 +87,6 @@ column type using a range partitioning function.
       LANGUAGE SQL
       IMMUTABLE AS
       'SELECT $1.reported';
-    
-    SELECT create_hypertable('measurements', by_range('report', partition_func => 'report_reported'));
     ```
 
 1. Create the hypertable using the immutable function:
