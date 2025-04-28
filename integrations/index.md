@@ -130,7 +130,7 @@ Some of the most in-demand integrations are listed below.
 
 ## Query and administration
 
-|                      Name                               | Description                                                                                                                               |
+|                          Name                           | Description                                                                                                                               |
 |:-------------------------------------------------------:|-------------------------------------------------------------------------------------------------------------------------------------------|
 |                <img isIcon src='https://assets.timescale.com/docs/icons/azure-data-studio-logo.png' alt='azure-data-studio-logo' />[Azure Data Studio][ads]                 | Query, manage, visualize, and develop databases across SQL Server, Azure SQL, and PostgreSQL.                                             |
 |          <img isIcon src='https://assets.timescale.com/docs/icons/bigquery-logo.png' alt='bigquery-logo' />[BigQuery Wrapper][bigquery-wrapper]           | Interact with Google BigQuery through simplified programmatic access.                                                                     |
@@ -152,7 +152,7 @@ Some of the most in-demand integrations are listed below.
 |                    <img isIcon src='https://assets.timescale.com/docs/icons/redash-logo.png' alt='redash-logo' />[Redash][redash]                     | Query, visualize, and share data from multiple sources.                                                                                   |
 |                     <img isIcon src='https://assets.timescale.com/docs/icons/redis-logo.png' alt='redis-logo' />[Redis][redis]                      | Cache, store, and process data in-memory with low latency.                                                                                |
 |                <img isIcon src='https://assets.timescale.com/docs/icons/sql-alchemy-logo.png' alt='sqlalchemy-logo' />[SQLalchemy][sqlalchemy]                 | Manage database operations using a Python SQL toolkit and ORM.                                                                            |
-|                 <img isIcon src='https://assets.timescale.com/docs/icons/sequelize-logo.png' alt='sequelize-logo' />[Sqquelize][sqquelize]                  | Interact with SQL databases in Node.js using an ORM.                                                                                      |
+|                 <img isIcon src='https://assets.timescale.com/docs/icons/sequelize-logo.png' alt='sequelize-logo' />[Sequelize][sequelize]                  | Interact with SQL databases in Node.js using an ORM.                                                                                      |
 |                   <img isIcon src='https://assets.timescale.com/docs/icons/stepzen-logo.png' alt='stepzen-logo' />[StepZen][stepzen]                    | Build and deploy GraphQL APIs with data from multiple sources.                                                                            |
 |                   <img isIcon src='https://assets.timescale.com/docs/icons/typeorm-logo.png' alt='typeorm-logo' />[TypeORM][typeorm]                    | Work with databases in TypeScript and JavaScript using an ORM.                                                                            |
 
@@ -265,7 +265,7 @@ Some of the most in-demand integrations are listed below.
 [signoz]: https://signoz.io/docs/integrations/postgresql/
 [snowflake]: https://other-docs.snowflake.com/en/connectors/postgres6/about
 [sqlalchemy]: https://docs.sqlalchemy.org/en/20/dialects/postgresql.html
-[sqquelize]: https://sequelize.org/docs/v7/databases/postgres/
+[sequelize]: https://sequelize.org/docs/v7/databases/postgres/
 [stepzen]: https://stepzen.com/docs/quick-start/with-database-postgresql
 [stitch]: https://stitch-docs.netlify.app/docs/integrations/databases/postgresql
 [streamlit]: https://docs.streamlit.io/develop/tutorials/databases/postgresql
