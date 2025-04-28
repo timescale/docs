@@ -27,7 +27,7 @@ You can use $LIVESYNC to synchronize your existing and new data. Here's what $LI
     - CSV: Files are checked for compression in `.gz` and `.zip` format, then processed using [timescaledb-parallel-copy][parallel-copy]
     - Parquet: Files are converted to CSV, then processed using [timescaledb-parallel-copy][parallel-copy]
 
-* Livesync offer an option to enable an [hypertable][about-hypertables] during the file-to-table schema mapping setup. You can enable [columnstore][compression] and [continuous aggregates][caggs] through the SQL editor once Livesync has started.
+* Livesync offer an option to enable an [hypertable][about-hypertables] during the file-to-table schema mapping setup. You can enable [columnstore][compression] and [continuous aggregates][caggs] through the SQL editor once $LIVESYNC has started.
 
 * Livesync offers a default 1-minute polling interval, meaning Timescale checks the S3 source every minute for new data. You can customize this interval by setting up a cron expression.
 
