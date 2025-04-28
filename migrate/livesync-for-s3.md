@@ -33,7 +33,7 @@ You can use $LIVESYNC to synchronize your existing and new data. Here's what $LI
 
 Livesync for S3 continuously imports data from an Amazon S3 bucket into your database. It monitors your S3 bucket for new files matching a specified pattern and automatically imports them into your designated database table.
 
-**Note**: Livesync for S3 currently only syncs existing and new files—it does not support updating or deleting records based on updates and deletes from S3 to Timescale tables.
+**Note**: Livesync for S3 currently only syncs existing and new files—it does not support updating or deleting records based on updates and deletes from S3 to tables in a $SERVICE_LONG.
 
 <EarlyAccessNoRelease />: livesync is not supported for production use. If you have any questions or feedback, talk to us in <a href="https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88">#livesync in Timescale Community</a>.
 
