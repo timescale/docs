@@ -50,7 +50,7 @@ This storage type gives you up to 16 TB of storage and 16,000 IOPS. You change t
 
 ### Enhanced high-performance storage
 
-This storage type gives you up to 64 TB and 64,000 IOPS, and is available under the [$ENTERPRISE $PRICING_PLAN][pricing-plans]. To get enhanced storage:
+This storage type gives you up to 64 TB and 32,000 IOPS, and is available under the [$ENTERPRISE $PRICING_PLAN][pricing-plans]. To get enhanced storage:
 
 <Procedure>
 
@@ -67,7 +67,7 @@ This storage type gives you up to 64 TB and 64,000 IOPS, and is available under 
 
 1. **Select the IOPS value in the `I/O boost` dropdown**
    
-    Select between 8,000, 16,000, 24,000, 32,0000, and 64,000 IOPS. The value that you can apply depends on the number of CPUs in your $SERVICE_SHORT. $CONSOLE notifies you if your selected IOPS requires increasing the number of CPUs. To increase IOPS to 64,000, click `Contact us` and we will be in touch to confirm the details. 
+    Select between 8,000, 16,000, 24,000, and 32,0000 IOPS. The value that you can apply depends on the number of CPUs in your $SERVICE_SHORT. $CONSOLE notifies you if your selected IOPS requires increasing the number of CPUs. To increase IOPS to 64,000, click `Contact us` and we will be in touch to confirm the details. 
 
    ![I/O boost in Timescale Cloud](https://assets.timescale.com/docs/images/io-boost-timescale-cloud.png)
 

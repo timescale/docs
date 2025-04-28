@@ -99,7 +99,7 @@ day; we are often faster. If you need 24x7 responsiveness, talk to us about
 ### Don’t worry about storage or sizing
 
 Unlike Amazon RDS or self-managed infrastructure where you pre-provision your disk and pay for
-its allocation, $COMPANY charges by the actual storage used. As your data volume grows, you can upgrade to as much as 64TB and 64,000 IOPS. 
+its allocation, $COMPANY charges by the actual storage used. As your data volume grows, you can upgrade to as much as 64TB and 32,000 IOPS. 
 
 We make it easy for you to store unlimited amounts of data using tiered storage; a high-performance
 storage tier and a low-cost bottomless storage tier. You can keep up to 64TB compressed (typically 80-100TB uncompressed) in the high-performance storage tier, and move less-frequently accessed data to our low-cost storage tier built on S3.
@@ -152,7 +152,7 @@ The features included in each [$PRICING_PLAN][pricing-plans] are:
 | **Storage and performance**                                   |                                   |                                                |                                                |
 | IOPS                                                          | 	3,000 - 5,000	                   | 5,000 - 8,000                                  | 5,000 - 8,000                                  | 
 | Bandwidth (autoscales)	                                       | 125 - 250 Mbps                    | 	250 - 500 Mbps                                | 	Up to 500 mbps                                | 
-| I/O boost	                                                    |                                   | 	Add-on: <br/>Up to 16K IOPS, 4000 Mbps BW	    | Add-on: <br/>Up to 64K IOPS, 4000 Mbps BW      | 
+| I/O boost	                                                    |                                   | 	Add-on: <br/>Up to 16K IOPS, 4000 Mbps BW	    | Add-on: <br/>Up to 32K IOPS, 4000 Mbps BW      | 
 | **Availability and monitoring**                               |                                   |                                                |                                                |
 | High-availability replicas <br/>(Automated multi-AZ failover) | ✓                                 | ✓                                              | ✓                                              |
 | Read replicas		                                               |                                   | ✓                                              | ✓                                              |
