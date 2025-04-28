@@ -30,7 +30,7 @@ This section shows you how to:
 <Highlight type="warning">
 
 If you have previously installed PostgreSQL without a package manager, you may encounter errors 
-following these install instructions. Best practice is to full remove any existing PostgreSQL 
+following these install instructions. Best practice is to fully remove any existing PostgreSQL 
 installations before you begin. 
 
 To keep your current PostgreSQL installation, [Install from source][install-from-source].
