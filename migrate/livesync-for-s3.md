@@ -18,26 +18,26 @@ your replica data.
 
 ![$LIVESYNC_CAP view status](https://assets.timescale.com/docs/images/livesync-s3-view-status.png)
 
-You use $LIVESYNC for data synchronization, rather than migration. Livesync can:
+You use $LIVESYNC for data synchronization, rather than migration:
 
 * Sync data from an S3 bucket instance to a $SERVICE_LONG:
-   - $LIVESYNC uses Glob patterns to identify the objects to sync.
-   - $LIVESYNC uses the objects returned for subsequent queries. This efficient approach means files are synced in
+   - $LIVESYNC_CAP uses Glob patterns to identify the objects to sync.
+   - $LIVESYNC_CAP uses the objects returned for subsequent queries. This efficient approach means files are synced in
     [lexicographical order][lex-order].
-   - $LIVESYNC watches an S3 bucket for new files and imports them automatically. $LIVESYNC runs on a configurable 
+   - $LIVESYNC_CAP watches an S3 bucket for new files and imports them automatically. $LIVESYNC_CAP runs on a configurable 
      schedule and tracks processed files.
    - For large backlogs, $LIVESYNC checks every minute until caught up. 
 
 * Sync data from multiple file formats:
 
-  * CSV: checked for compression in `.gz` and `.zip` format, then processing using [timescaledb-parallel-copy][parallel-copy]
+  * CSV: checked for compression in `.gz` and `.zip` format, then processing using [timescaledb-parallel-copy][parallel-copy].
 
-  * Parquet: converted to CSV, then processed using [timescaledb-parallel-copy][parallel-copy]
+  * Parquet: converted to CSV, then processed using [timescaledb-parallel-copy][parallel-copy].
 
 * Enable features such as [hypertables][about-hypertables], [columnstore][compression], and
   [continuous aggregates][caggs] on your logical replica.
 
-$LIVESYNC for S3 continuously imports data from an Amazon S3 bucket into your database. It monitors your S3 bucket for new
+$LIVESYNC_CAP for S3 continuously imports data from an Amazon S3 bucket into your database. It monitors your S3 bucket for new
 files matching a specified pattern and automatically imports them into your designated database table.
 
 <EarlyAccessNoRelease />: livesync is not supported for production use. If you have any questions or feedback, talk to us in <a href="https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88">#livesync in Timescale Community</a>.
@@ -70,19 +70,21 @@ files matching a specified pattern and automatically imports them into your desi
 
 - **CSV**:
    - Maximum file size: 1GB 
-      To increase these limits, contact sales@timescale.com
+  
+      To increase this limit, contact sales@timescale.com
    - Maximum row size: 2MB
    - Supported compressed formats:
       - `.gz`
       - `.zip`
    - Advanced settings:
       - Delimiter: the default character is `,`, you can choose a different delimiter
-      - Skip Header: skip the first row if your file has headers
+      - Skip header: skip the first row if your file has headers
 - **Parquet**:
    - Maximum file size: 1GB
    - Maximum row group uncompressed size: 200MB
    - Maximum row size: 2MB
 - **Sync iteration**:
+
    To prevent system overload, $LIVESYNC tracks up to 100 files for each sync iteration. Additional checks only fill
    empty queue slots. 
 
@@ -96,8 +98,8 @@ To sync data from your S3 bucket to your $SERVICE_LONG using $CONSOLE:
 
    In [$CONSOLE][portal-ops-mode], select the service to sync live data to.
 1. **Start livesync**
-   1. Click `Actions` > `livesync for S3`.
-   2. Click `New Livesync for S3`
+   1. Click `Actions` > `Livesync for S3`.
+   2. Click `New Livesync for S3`.
 
 1. **Connect the source S3 bucket to the target $SERVICE_SHORT**
 
@@ -115,7 +117,7 @@ To sync data from your S3 bucket to your $SERVICE_LONG using $CONSOLE:
       - `<folder name>/**`: match all recursively.
       - `<folder name>/**/*.csv`: match a specific file type.
       
-      $LIVESYNC uses prefix filters where possible, place patterns carefully at the end of your glob expression.
+      $LIVESYNC_CAP uses prefix filters where possible, place patterns carefully at the end of your glob expression.
       AWS S3 doesn't support complex filtering. If your expression filters too many files, the list operation may timeout.
       
    1. Click the search icon, you see files to sync. Click `Continue`.
@@ -128,17 +130,19 @@ To sync data from your S3 bucket to your $SERVICE_LONG using $CONSOLE:
    ![Livesync choose table](https://assets.timescale.com/docs/images/livesync-s3-create-tables.png)
    
    1. Choose the `Data type` for each column, then click `Continue`.
-   1. Choose the interval. This can be a minute, an hour or use a [cron expression][cron-expression].  
+   1. Choose the interval. This can be a minute, an hour, or use a [cron expression][cron-expression].  
    1. Repeat this step for each table you want to sync.
-   1. Press `Start Livesync`.
+   1. Click `Start Livesync`.
 
       $CONSOLE starts $LIVESYNC between the source database and the target $SERVICE_SHORT and displays the progress.
 
 1. **Monitor syncronization**
-   1. To view the progress of the livesync, click the name of the $LIVESYNC process:
+   1. To view the progress of the $LIVESYNC, click the name of the $LIVESYNC process.
+   
       You see the status of the file being synced. Only one file runs at a time.
       ![livesync view status](https://assets.timescale.com/docs/images/livesync-s3-view-status.png)
-   1. To pause and restart livesync, click the buttons on the right of the $LIVESYNC process and select an action:
+   1. To pause and restart $LIVESYNC, click the buttons on the right of the $LIVESYNC process and select an action.
+   
       During pauses, you can edit the configuration before resuming.
       ![livesync start stop](https://assets.timescale.com/docs/images/livesync-s3-start-stop.png)
 
