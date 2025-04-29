@@ -10,12 +10,12 @@ import TuneSourceDatabaseAWSRDS from "versionContent/_partials/_migrate_live_tun
 
 - Ensure that the source $PG instance and the target $SERVICE_LONG have the same extensions installed.
 
-  LiveSync does not create extensions on the target. If the table uses column types from an extension,
+  $LIVESYNC_CAP does not create extensions on the target. If the table uses column types from an extension,
   first create the extension on the target $SERVICE_LONG before syncing the table.
 
 - [Install Docker][install-docker] on your sync machine.
 
-  You need a minimum of a 4 CPU/16GB EC2 instance to run Livesync.
+  You need a minimum of a 4 CPU/16GB EC2 instance to run $LIVESYNC.
 
 - Install the [PostgreSQL client tools][install-psql] on your sync machine.
 
@@ -26,7 +26,7 @@ import TuneSourceDatabaseAWSRDS from "versionContent/_partials/_migrate_live_tun
 
 <LivesyncLimitations />
 
-- The Schema is not migrated by Livesync, you use pg_dump/restore to migrate schema
+- The schema is not migrated by $LIVESYNC, you use `pg_dump`/`pg_restore` to migrate it.
 
 ## Set your connection strings
 
@@ -61,7 +61,7 @@ The `<user>` in the `SOURCE` connection must have the replication role granted i
 
 ## Migrate the table schema to the $SERVICE_LONG
 
-Use pg_dump to:
+Use `pg_dump` to:
 
 <Procedure>
 
@@ -129,14 +129,14 @@ events data, and tables that are already partitioned using PostgreSQL declarativ
 
 ## Synchronize data to your $SERVICE_LONG
 
-You use the Livesync docker image to synchronize changes in real-time from a PostgreSQL database
+You use the $LIVESYNC docker image to synchronize changes in real-time from a PostgreSQL database
 instance to a $SERVICE_LONG:
 
 <Procedure>
 
-1. **Start Livesync**
+1. **Start $LIVESYNC**
 
-   As you run Livesync continuously, best practice is to run it as a background process.
+   As you run $LIVESYNC continuously, best practice is to run it as a background process.
 
    ```shell
    docker run -d --rm --name livesync timescale/live-sync:v0.1.11 run --publication analytics --subscription livesync --source $SOURCE --target $TARGET
@@ -144,7 +144,7 @@ instance to a $SERVICE_LONG:
 
 1. **Trace progress**
 
-   Once Livesync is running as a docker daemon, you can also capture the logs:
+   Once $LIVESYNC is running as a docker daemon, you can also capture the logs:
    ```shell
    docker logs -f livesync
    ```
@@ -168,7 +168,7 @@ instance to a $SERVICE_LONG:
 
    - r: table is ready, synching live changes
 
-1. **Stop Livesync**
+1. **Stop $LIVESYNC**
 
    ```shell
    docker stop live-sync
@@ -191,9 +191,9 @@ instance to a $SERVICE_LONG:
 
 ## Specify the tables to synchronize
 
-After the Livesync docker is up and running, you [`CREATE PUBLICATION`][create-publication] on the SOURCE database to
+After the $LIVESYNC docker is up and running, you [`CREATE PUBLICATION`][create-publication] on the SOURCE database to
 specify the list of tables which you intend to synchronize. Once you create a PUBLICATION, it is
-automatically picked by Livesync, which starts synching the tables expressed as part of it.
+automatically picked by $LIVESYNC, which starts syncing the tables expressed as part of it.
 
 For example:
 
@@ -223,7 +223,7 @@ For example:
    ALTER PUBLICATION analytics SET(publish_via_partition_root=true);
    ```
 
-1. **Stop synching a table in the `PUBLICATION` with a call to `DROP TABLE`**
+1. **Stop syncing a table in the `PUBLICATION` with a call to `DROP TABLE`**
 
    ```sql
    ALTER PUBLICATION analytics DROP TABLE tags;

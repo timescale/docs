@@ -4,7 +4,7 @@
   the same changes to the source PostgreSQL instance.
 * Ensure that the source $PG instance and the target $SERVICE_LONG have the same extensions installed.
 
-  LiveSync does not create extensions on the target. If the table uses column types from an extension, 
+  $LIVESYNC_CAP does not create extensions on the target. If the table uses column types from an extension, 
   first create the extension on the target $SERVICE_LONG before syncing the table.
 * There is WAL volume growth on the source PostgreSQL instance during large table copy.
 * This works for PostgreSQL databases only as source. TimescaleDB is not yet supported.
