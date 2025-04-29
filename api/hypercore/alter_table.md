@@ -1,5 +1,5 @@
 ---
-api_name: ALTER TABLE (Hypercore)
+api_name: ALTER TABLE (hypercore)
 excerpt: Enable the columnstore for a hypertable.
 topics: [hypercore, columnstore]
 keywords: [columnstore, hypercore]

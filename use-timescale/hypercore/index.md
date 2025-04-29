@@ -28,7 +28,7 @@ in each $SERVICE_LONG:
   rapid streams of incoming data. Mutability—upserts, updates, and deletes happen seamlessly.
 
 - **Efficient analytics with $COLUMNSTORE**: as the data _cools_ and becomes more suited for
-  analytics, it is automatically migrated to the columnstore. This columnar format enables
+  analytics, it is automatically converted to the columnstore. This columnar format enables
   fast scanning and aggregation, optimizing performance for analytical workloads while also
   saving significant storage space.
 
@@ -51,9 +51,9 @@ This section shows you how to:
 
 * [Optimize your data for real-time analytics][setup-hypercore]
 * [Modify data in the $COLUMNSTORE][modify-data-in-hypercore]
+* [Improve query and upsert performance using secondary indexes][secondary-indexes]
 
 [setup-hypercore]: /use-timescale/:currentVersion:/hypercore/real-time-analytics-in-hypercore/
 [modify-data-in-hypercore]: /use-timescale/:currentVersion:/hypercore/modify-data-in-hypercore/
-[indexing-data-in-hypercore]: /use-timescale/:currentVersion:/hypercore/best-practice-for-large-amounts-of-data/
-[compression]: /use-timescale/:currentVersion:/compression/
+[secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/
 [chunk-skipping]: /use-timescale/:currentVersion:/hypertables/improve-query-performance/
