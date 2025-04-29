@@ -7,7 +7,7 @@ Updating parameters on a PostgreSQL instance will cause an outage. Choose a time
    1. In [https://console.aws.amazon.com/rds/home#databases:][databases],
       select the RDS instance to migrate.
 
-   1. Click `Configuration`, scroll down and note the `DB instance parameter group`, then click `Parameter Groups`
+   1. Click `Configuration`, scroll down and note the `DB instance parameter group`, then click `Parameter groups`
    
       <img class="main-content__illustration"
       src="https://assets.timescale.com/docs/images/migrate/awsrds-parameter-groups.png"
@@ -23,10 +23,10 @@ Updating parameters on a PostgreSQL instance will cause an outage. Choose a time
       - `old_snapshot_threshold` set to `-1`: prevent PostgreSQL from treating the data in a snapshot as outdated.
       - `rds.logical_replication` set to `1`: record the information needed for logical decoding.
 
-   1. In RDS, navigate back to your [databases][databases], select the RDS instance to migrate and click `Modify`.  
+   1. In RDS, navigate back to your [databases][databases], select the RDS instance to migrate, and click `Modify`.  
 
-   1. Scroll down to `Database options` select your new parameter group and click `Continue`. 
-   1. Either `Apply immediately` or choose a maintence window, then click `Modify DB instance`.
+   1. Scroll down to `Database options`, select your new parameter group, and click `Continue`. 
+   1. Either `Apply immediately` or choose a maintenance window, then click `Modify DB instance`.
 
       Changing parameters will cause an outage. Wait for the database instance to reboot before continuing. 
    1. Verify that the settings are live in your database.

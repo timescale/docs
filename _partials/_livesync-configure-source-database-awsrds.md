@@ -31,7 +31,7 @@ Updating parameters on a PostgreSQL instance will cause an outage. Choose a time
       Changing parameters will cause an outage. Wait for the database instance to reboot before continuing. 
    1. Verify that the settings are live in your database.
 
-1. **Create a user for livesync and assign permissions**
+1. **Create a user for $LIVESYNC and assign permissions**
 
    1. Create `<livesync username>`:
 
@@ -63,7 +63,7 @@ Updating parameters on a PostgreSQL instance will cause an outage. Choose a time
       EOF
       ```
 
-      If the tables you are syncing are not in the `public` schema, grant the user permissions for each schema you are syncing.:
+      If the tables you are syncing are not in the `public` schema, grant the user permissions for each schema you are syncing:
       ```sql
       psql $SOURCE <<EOF
       GRANT USAGE ON SCHEMA <schema> TO <livesync username>;
