@@ -10,7 +10,7 @@ Before you move your data:
   Each Timescale Cloud service has a single database that supports the
   [most popular extensions][all-available-extensions]. $SERVICE_LONGs do not support tablespaces,
   and there is no superuser associated with a $SERVICE_SHORT.
-  Best practice is to create a $SERVICE_LONGs with at least 8 CPUs for a smoother experience. A higher-spec instance
+  Best practice is to create a $SERVICE_LONG with at least 8 CPUs for a smoother experience. A higher-spec instance
   can significantly reduce the overall migration window.
 
 - To ensure that maintenance does not run while migration is in progress, best practice is to [adjust the maintenance window][adjust-maintenance-window]. 

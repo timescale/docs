@@ -4,6 +4,8 @@ excerpt: Running advanced real-time analytic workloads? Create continuous aggreg
 keywords: [continuous aggregates, hierarchical, create]
 ---
 
+import RealTimeAgg from 'versionContent/_partials/_real-time-aggregates.mdx';
+
 # Hierarchical continuous aggregates
 
 The more data you have, the more likely you are to run a more sophisticated analysis on it. When a simple one-level aggregation is not enough, $CLOUD_LONG lets you create continuous aggregates on top of other continuous aggregates. This way, you summarize data at different levels of granularity, while still saving resources with precomputing. 
@@ -28,8 +30,7 @@ For more information, see the instructions for
 
 ## Use real-time aggregation with hierarchical continuous aggregates
 
-In TimescaleDB v2.13 and later, real-time aggregates are *DISABLED* by default. 
-In TimescaleDB v1.7 to v2.12, real-time aggregates are *ENABLED* by default. 
+<RealTimeAgg />
 
 Real-time aggregates always return up-to-date data in response to queries. They accomplish this by
 joining the materialized data in the continuous aggregate with unmaterialized
