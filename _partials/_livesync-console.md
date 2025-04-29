@@ -81,7 +81,7 @@ To sync data from your PostgreSQL database to your $SERVICE_LONG using $CONSOLE:
 
    ![Livesync wizard](https://assets.timescale.com/docs/images/livesync-wizard.png)
 
-   In `Livesync for Postgre`:
+   In `Livesync for Postgres`:
    1. Set the `Livesync Name`.
    1. Set the `PostgreSQL Connection String` to point to the source database you want to sync to Timescale.
    
