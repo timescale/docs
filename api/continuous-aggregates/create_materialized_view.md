@@ -52,7 +52,7 @@ For services running TimescaleDB v2.17.1 and greater, to dramatically decrease t
 of data written on a continuous aggregate in the presence of a small number of changes,
 reduce the i/o cost of refreshing a continuous aggregate, and generate fewer Write-Ahead
 Logs (WAL), set the`timescaledb.enable_merge_on_cagg_refresh`
-[configuration parameter][modify-parameters] to `TRUE`. This enables continuous aggregate
+configuration parameter to `TRUE`. This enables continuous aggregate
 refresh to use merge instead of deleting old materialized data and re-inserting.
 
 For more settings for continuous aggregates, see [timescaledb_information.continuous_aggregates][info-views].

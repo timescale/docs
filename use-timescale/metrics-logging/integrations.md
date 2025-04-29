@@ -11,7 +11,7 @@ cloud_ui:
 ---
 
 import DataDogExporter from "versionContent/_partials/_datadog-data-exporter.mdx";
-import ManageDataExporter from "versionContent/_partials/_manage-data-exporter.mdx";
+import ManageDataExporter from "versionContent/_partials/_manage-a-data-exporter.mdx";
 import IntegrationPrereqsCloud from "versionContent/_partials/_integration-prereqs-cloud-only.mdx";
 import CloudWatchExporter from "versionContent/_partials/_cloudwatch-data-exporter.mdx";
 
@@ -49,6 +49,10 @@ tool. You create an exporter on the [project level][projects], in the same AWS r
 </Tab>
 
 </Tabs>
+
+## Manage a data exporter
+
+This section shows you how to attach, monitor, edit, and delete a data exporter.
 
 <ManageDataExporter />
 
