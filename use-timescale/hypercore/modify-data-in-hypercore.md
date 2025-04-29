@@ -15,19 +15,19 @@ when it reaches a certain age. After you have optimized data in the $COLUMNSTORE
 For example, to make small changes, or backfill large amounts of data. You may even have to update the schema to 
 accommodate these changes to the data.
 
-This page shows you how to update small and large amounts of new data, and update the schema in $COLUMNSTORE.
+This page shows you how to update small and large amounts of new data, and update the schema in the $COLUMNSTORE.
 
 ## Prerequisites
 
 <PrereqCloud />
 
-- [Optimize your data for real-time analytics][setup-hypercore]
+- [Optimize your data][setup-hypercore] for real-time analytics.
 
 ## Modify small amounts of data
 
-You can [`INSERT` `UPDATE` and `DELETE`][write] data in the $COLUMNSTORE, even if the data you are 
-inserting has unique constraints. When you insert data into a chunk in the $COLUMNSTORE, a small amount 
-of data is decompressed to allow a speculative insertion, and block any inserts which could violate 
+You can [`INSERT`, `UPDATE`, and `DELETE`][write] data in the $COLUMNSTORE, even if the data you are 
+inserting has unique constraints. When you insert data into a $CHUNK in the $COLUMNSTORE, a small amount 
+of data is decompressed to allow a speculative insertion, and block any inserts that could violate the 
 constraints.
 
 When you `DELETE` whole segments of data, filter your deletes using the column you `segment_by` 
@@ -35,9 +35,9 @@ instead of separate deletes. This considerably increases performance.
 
 ## Modify large amounts of data
 
-If you need to modify or add a lot of data to a chunk in the $COLUMNSTORE, best practice is to stop
-any [jobs][job] moving chunks to the $COLUMNSTORE, convert the chunk back to the $ROWSTORE, then modify the
-data. After the update, [convert the chunk to the $COLUMNSTORE][convert_to_columnstore] and restart the jobs.
+If you need to modify or add a lot of data to a $CHUNK in the $COLUMNSTORE, best practice is to stop
+any [$JOBs][job] moving $CHUNKs to the $COLUMNSTORE, convert the $CHUNK back to the $ROWSTORE, then modify the
+data. After the update, [convert the $CHUNK to the $COLUMNSTORE][convert_to_columnstore] and restart the jobs.
 This workflow is especially useful if you need to backfill old data.
 
 <Procedure>
@@ -52,16 +52,16 @@ You can modify the schema of a table in the $COLUMNSTORE. To do this, you need t
 
 <Procedure>
 
-1. **Stop the jobs that are automatically adding chunks to the $COLUMNSTORE**
+1. **Stop the $JOBs that are automatically adding $CHUNKs to the $COLUMNSTORE**
 
-   Retrieve the list of jobs from the [timescaledb_information.jobs][informational-views] view
-   to find the job you need to [alter_job][alter_job].
+   Retrieve the list of $JOBs from the [timescaledb_information.jobs][informational-views] view
+   to find the $JOB you need to [alter_job][alter_job].
 
    ``` sql
    SELECT alter_job(JOB_ID, scheduled => false);
    ```
 
-1. **Convert a chunk to update back to the $ROWSTORE**
+1. **Convert a $CHUNK to update back to the $ROWSTORE**
 
       ``` sql
       CALL convert_to_rowstore('_timescaledb_internal._hyper_2_2_chunk');
@@ -82,17 +82,17 @@ You can modify the schema of a table in the $COLUMNSTORE. To do this, you need t
      `ALTER TABLE <hypertable> RENAME <column_name> TO <new_name>;` 
    - Drop a column:
 
-     `ALTER TABLE <hypertable> DROP COLUMN <column_name>;`                                                                                                
+     `ALTER TABLE <hypertable> DROP COLUMN <column_name>;`
    
    You cannot change the data type of an existing column.
 
-1. **Convert the updated chunks back to the $COLUMNSTORE**
+1. **Convert the updated $CHUNKs back to the $COLUMNSTORE**
 
    ``` sql
    CALL convert_to_columnstore('_timescaledb_internal._hyper_1_2_chunk');
    ```
 
-1. **Restart the jobs that are automatically converting chunks to the $COLUMNSTORE**
+1. **Restart the $JOBs that are automatically converting $CHUNKs to the $COLUMNSTORE**
 
    ``` sql
    SELECT alter_job(JOB_ID, scheduled => true);

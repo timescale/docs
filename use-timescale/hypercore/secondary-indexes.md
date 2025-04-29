@@ -50,7 +50,7 @@ or enforcing uniqueness.
 
 ## How B-tree and hash indexes work 
 
-PostgreSQL offers [multiple index types][postgres-index-types], For example, the default B-tree, hash, GIN, and BRIN. 
+PostgreSQL offers [multiple index types][postgres-index-types]. For example, the default B-tree, hash, GIN, and BRIN, 
 all implemented as Index Access Methods (IAMs). PostgreSQL supplies the [table access method (TAM)][postgres-tam-methods] 
 interface for table storage. 
 
@@ -92,10 +92,9 @@ However, consider the storage trade-off when:
 - Your workloads prioritize compression efficiency over lookup speed.
 - You primarily run aggregations and range scans, where indexes may not provide meaningful speedups.
 
-
 ## Enable secondary indexing
 
-To speed up your queries using secondary indexes you enable $HYPERCORE TAM on your hypertable in the $COLUMNSTORE:
+To speed up your queries using secondary indexes, you enable $HYPERCORE TAM on your $HYPERTABLE in the $COLUMNSTORE:
 
 <Procedure>
 
@@ -112,7 +111,7 @@ To speed up your queries using secondary indexes you enable $HYPERCORE TAM on yo
    );
    ```
 
-1. **Convert the table to a [hypertable][convert-to-hypertable]**
+1. **Convert the table to a [$HYPERTABLE][convert-to-hypertable]**
 
    ```sql
    select create_hypertable (
@@ -121,7 +120,7 @@ To speed up your queries using secondary indexes you enable $HYPERCORE TAM on yo
    );
    ```
    
-1. **Enable $HYPERCORE TAM for the hypertable**
+1. **Enable $HYPERCORE TAM for the $HYPERTABLE**
    ```sql
    alter table readings
    set access method hypercore
@@ -130,13 +129,13 @@ To speed up your queries using secondary indexes you enable $HYPERCORE TAM on yo
       timescaledb.segmentby = 'location_id'
    );
    ```
-   This enables the $COLUMNSTORE on the table. $HYPERCORE_CAP TAM is applied to chunks created after you set the access 
-   method. Existing chunks continue to use the default `heap`. 
+   This enables the $COLUMNSTORE on the table. $HYPERCORE_CAP TAM is applied to $CHUNKs created after you set the access 
+   method. Existing $CHUNKs continue to use the default `heap`. 
 
    To return to the `heap` TAM, call `set access method heap`. You can also change the table access method for an 
-   existing chunk with a call like `ALTER TABLE _timescaledb_internal._hyper_1_1_chunk SET ACCESS METHOD hypercore;`
+   existing $CHUNK with a call like `ALTER TABLE _timescaledb_internal._hyper_1_1_chunk SET ACCESS METHOD hypercore;`
 
-1. **Move chunks from $ROWSTORE to $COLUMNSTORE as they age**
+1. **Move $CHUNKs from $ROWSTORE to $COLUMNSTORE as they age**
 
    ```sql
    CALL add_columnstore_policy(
@@ -147,15 +146,15 @@ To speed up your queries using secondary indexes you enable $HYPERCORE TAM on yo
 
 </Procedure>
 
-$HYPERCORE_CAP TAM is now active on all new chunks created in the hypertable. 
+$HYPERCORE_CAP TAM is now active on all new $CHUNKs created in the $HYPERTABLE. 
 
 ## Create b-tree and hash indexes
 
-Once you have enabled $HYPERCORE TAM in your hypertable, the indexes are rebuilt when the table chunks are converted from 
+Once you have enabled $HYPERCORE TAM in your $HYPERTABLE, the indexes are rebuilt when the table $CHUNKs are converted from 
 the $ROWSTORE to the $COLUMNSTORE. When you query data, these indexes are used by the PostgreSQL query planner over the
 $ROWSTORE and $COLUMNSTORE.
 
-You add hash and B-tree indexes to a hypertable the same way as a regular PostgreSQL table:
+You add hash and B-tree indexes to a $HYPERTABLE the same way as a regular PostgreSQL table:
 
 - **Hash index**
    ```sql
@@ -167,8 +166,8 @@ You add hash and B-tree indexes to a hypertable the same way as a regular Postgr
    ON readings (metric_uuid, uploaded_at);
   ```
   
-If you have existing chunks that have not been updated to use the $HYPERCORE TAM, to use B-tree and hash indexes, you
-change the table access method for an existing chunk with a call like `ALTER TABLE _timescaledb_internal._hyper_1_1_chunk SET ACCESS METHOD hypercore;`
+If you have existing $CHUNKs that have not been updated to use the $HYPERCORE TAM, to use B-tree and hash indexes, you
+change the table access method for an existing $CHUNK with a call like `ALTER TABLE _timescaledb_internal._hyper_1_1_chunk SET ACCESS METHOD hypercore;`
 
 ## Point lookups
 
@@ -207,7 +206,7 @@ records, you have to check if the data already exists in the database before sto
 To prevent duplicate entries, you enforce uniqueness using a primary key. Primary constraints are enforced through 
 unique indexes, making conflict checks fast. Without an index, verifying uniqueness involves scanning and decompressing 
 potentially large amounts of data. This significantly slows inserts and consuming excessive [IOPS][iops]. A `UNIQUE` 
-constraint on a hypertable must also include the hypertable partition key. 
+constraint on a $HYPERTABLE must also include the $HYPERTABLE partition key. 
 
 The following `UNIQUE` uses a B-tree index.
 

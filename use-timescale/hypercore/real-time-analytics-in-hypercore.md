@@ -13,15 +13,15 @@ import EarlyAccess from "versionContent/_partials/_early_access_2_18_0.mdx";
 
 # Optimize your data for real-time analytics 
 
-$HYPERCORE_CAP is the TimescaleDB hybrid row-columnar storage engine used by hypertables. 
-Hypertables partition your data in chunks. Chunks stored in the $ROWSTORE use a row-oriented data format optimized for high-speed inserts and updates. Chunks stored in the $COLUMNSTORE use a columnar data format optimized for analytics.
-You ingest _hot_ data into the $ROWSTORE. As data _cools_ and becomes more suited for analytics, 
-$CLOUD_LONG automatically converts these chunks of data to the $COLUMNSTORE. You define the moment when data is converted 
+$HYPERCORE_CAP is the TimescaleDB hybrid row-columnar storage engine used by $HYPERTABLEs.
+$HYPERTABLE_CAPs partition your data in $CHUNKs. $CHUNK_CAPs stored in the $ROWSTORE use a row-oriented data format optimized for high-speed inserts and updates. $CHUNK_CAPs stored in the $COLUMNSTORE use a columnar data format optimized for analytics.
+You ingest **hot** data into the $ROWSTORE. As data **cools** and becomes more suited for analytics, 
+$CLOUD_LONG automatically converts these $CHUNKs of data to the $COLUMNSTORE. You define the moment when data is converted 
 using a $COLUMNSTORE policy.
 
 <HCConversionOverview />
 
-This page shows you how to get the best results when you set a policy to automatically convert chunks in a hypertable 
+This page shows you how to get the best results when you set a policy to automatically convert $CHUNKs in a $HYPERTABLE 
 from the $ROWSTORE to the $COLUMNSTORE.
 
 ## Prerequisites
@@ -46,7 +46,7 @@ efficient, you segment your data based on the way you want to access it. For exa
 single device, you `segmentby` the `Device ID` column. This enables you to run much faster analytical queries on 
 data in the $COLUMNSTORE.
 
-When $CLOUD_LONG converts a chunk to the $COLUMNSTORE, TimescaleDB automatically creates a different schema for your 
+When $CLOUD_LONG converts a $CHUNK to the $COLUMNSTORE, TimescaleDB automatically creates a different schema for your 
 data. $TIMESCALE_DB creates and uses custom indexes to incorporate the `segmentby` and `orderby` parameters when 
 you write to and read from the $COLUMNSTORE.
 
@@ -60,7 +60,7 @@ To set up your $HYPERCORE automation:
 
 For integers, timestamps, and other integer-like types, data is compressed using [delta encoding][delta],
 [delta-of-delta][delta-delta], [simple-8b][simple-8b], and [run-length encoding][run-length]. For columns with few
-repeated values,[XOR-based][xor] and [dictionary compression][dictionary] is used. For all other types,
+repeated values, [XOR-based][xor] and [dictionary compression][dictionary] is used. For all other types,
 [dictionary compression][dictionary] is used.
 
 
