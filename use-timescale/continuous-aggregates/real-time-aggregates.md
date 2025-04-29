@@ -29,7 +29,7 @@ You can enable and disable real-time aggregation by setting the
 
 <Procedure>
 
-1.  Enable real-time aggregation for an existing table:
+1.  Enable real-time aggregation for an existing continuous aggregate:
 
     ```sql
     ALTER MATERIALIZED VIEW table_name set (timescaledb.materialized_only = false);
