@@ -1,6 +1,6 @@
 <Procedure>
 
-### Create a Timescale service
+## Create a Timescale service
 
 <ol>
   <li>

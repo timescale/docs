@@ -1,14 +1,14 @@
 import EarlyAccess from "versionContent/_partials/_early_access_2_18_0.mdx";
 
-## Policies
+### Policies
 
-### `timescaledb.max_background_workers (int)`
+## `timescaledb.max_background_workers (int)`
 
 Max background worker processes allocated to TimescaleDB. Set to at least 1 +
 the number of databases loaded with the TimescaleDB extension in a PostgreSQL
 instance. Default value is 16.
 
-## Hypercore features
+### Hypercore features
 
 ### `timescaledb.default_hypercore_use_access_method (bool)`
 
@@ -63,7 +63,7 @@ Enable transparent decompression
 
 
 ### `timescaledb.restoring (bool)`
-Stop any background workers which could have been performing tasks. This is especially useful if you 
+Stop any background workers which could have been performing tasks. This is especially useful if you
 migrate data to your [$SERVICE_LONG][pg-dump-and-restore] or [self-hosted database][migrate-entire].
 
 ### `timescaledb.max_cached_chunks_per_hypertable (int)`
