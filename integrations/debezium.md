@@ -73,10 +73,10 @@ Set up Kafka Connect server, plugins, drivers, and connectors:
    In another Terminal window, navigate to <KAFKA_HOME>, then download and configure the PostgreSQL sink and driver.
    ```bash
    mkdir -p "plugins/debezium-connector-postgres"
-   curl https://repo1.maven.org/maven2/io/debezium/debezium-connector-postgres/3.1.0.Final/debezium-connector-postgres-3.1.0.Final-plugin.tar.gz \
+   curl https://repo1.maven.org/maven2/io/debezium/debezium-connector-postgres/3.1.1.Final/debezium-connector-postgres-3.1.1.Final-plugin.tar.gz \
    | tar -xzf - -C "plugins/debezium-connector-postgres" --strip-components=1
-   echo "plugin.path=`pwd`/plugins/debezium-connector-postgres" >> "config/connect-distributed.properties"
-   echo "plugin.path=`pwd`/plugins/debezium-connector-postgres" >> "config/connect-standalone.properties" 
+   echo "plugin.path=`pwd`/libs,`pwd`/plugins/debezium-connector-postgres" >> "config/connect-distributed.properties"
+   echo "plugin.path=`pwd`/libs,`pwd`/plugins/debezium-connector-postgres" >> "config/connect-standalone.properties" 
    ```
 
 1. **Configure Debezium to poll your database**
@@ -112,7 +112,7 @@ Set up Kafka Connect server, plugins, drivers, and connectors:
 1. **Start Kafka Connect**
 
     ```bash
-   export CLASSPATH=`pwd`/plugins/debezium-connector-postgres/*
+   export CLASSPATH=`pwd`/plugins/debezium-connector-postgres/*:`pwd`/libs/*
    ./bin/connect-standalone.sh config/connect-standalone.properties config/timescale-debezium-sink.properties
    ```
 
