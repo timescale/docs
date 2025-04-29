@@ -128,7 +128,7 @@ module.exports = [
             excerpt: "Manage materialized hypertables in continuous aggregates",
           },
           {
-            title: "Real time aggregates",
+            title: "Real-time aggregates",
             href: "real-time-aggregates",
             excerpt: "Manage real time aggregates in continuous aggregates",
           },
