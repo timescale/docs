@@ -25,7 +25,7 @@ $LIVESYNC_CAP leverages the well-established PostgreSQL logical replication prot
 $LIVESYNC ensures compatibility, familiarity, and a broader knowledge base. Making it easier for you to adopt $LIVESYNC
 and integrate your data.
 
-You use $LIVESYNC for data synchronization, rather than migration. 
+You use $LIVESYNC for data synchronization, rather than migration:
 * Copy existing data from a PostgreSQL instance to a $SERVICE_LONG:
   - Copy data at up to 150 GB/hr.
   

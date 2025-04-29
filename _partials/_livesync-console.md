@@ -18,9 +18,9 @@ import TuneSourceDatabaseAWSRDS from "versionContent/_partials/_livesync-configu
 
 * Indexes (including Primary Key and Unique constraints) are not migrated by $SERVICE_LONG.
 
-  We recommend that you create only necessary indexes on the target $SERVICE_LONG depending on your query patterns.
+  We recommend that you create only the necessary indexes on the target $SERVICE_LONG depending on your query patterns.
 
-* Tables with user defined types are not migrated by $SERVICE_LONG.
+* Tables with user-defined types are not migrated by $SERVICE_LONG.
 
   You need to create the user defined types on the target $SERVICE_LONG before syncing the table.
 
@@ -81,9 +81,9 @@ To sync data from your PostgreSQL database to your $SERVICE_LONG using $CONSOLE:
 
    ![Livesync wizard](https://assets.timescale.com/docs/images/livesync-wizard.png)
 
-   In `Livesync for PostgreSQL`:
+   In `Livesync for Postgre`:
    1. Set the `Livesync Name`.
-   1. Set the` PostgreSQL Connection String` to point to the source database you want to sync to Timescale.
+   1. Set the `PostgreSQL Connection String` to point to the source database you want to sync to Timescale.
    
       This is the connection string for [`<livesync username>`][livesync-tune-source-db]. 
    1. Click `Continue`.
@@ -92,7 +92,8 @@ To sync data from your PostgreSQL database to your $SERVICE_LONG using $CONSOLE:
 1. **Optimize the data to synchronize in hypertables**
 
    ![livesync start](https://assets.timescale.com/docs/images/livesync-start.png)
-   1. Select the table to sync, and press `+`.
+   1. Select the table to sync and click `+`.
+   
       $CONSOLE checks the table schema and, if possible, suggests the column to use as the time dimension in a hypertable. 
    1. Repeat this step for each table you want to sync.
    1. Click `Start Livesync`.

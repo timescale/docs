@@ -24,16 +24,16 @@ You can use $LIVESYNC to synchronize your existing and new data. Here's what $LI
     - For large backlogs, $LIVESYNC checks every minute until caught up. 
 
 * Sync data from multiple file formats:
-    - CSV: files are checked for compression in `.gz` and `.zip` format, then processed using [timescaledb-parallel-copy][parallel-copy]
-    - Parquet: files are converted to CSV, then processed using [timescaledb-parallel-copy][parallel-copy]
+    - CSV: files are checked for compression in `.gz` and `.zip` format, then processed using [timescaledb-parallel-copy][parallel-copy].
+    - Parquet: files are converted to CSV, then processed using [timescaledb-parallel-copy][parallel-copy].
 
-* $LIVESYNC_CAP offers an option to enable an [hypertable][about-hypertables] during the file-to-table schema mapping setup. You can enable [columnstore][compression] and [continuous aggregates][caggs] through the SQL editor once $LIVESYNC has started.
+* $LIVESYNC_CAP offers an option to enable a [hypertable][about-hypertables] during the file-to-table schema mapping setup. You can enable [columnstore][compression] and [continuous aggregates][caggs] through the SQL editor once $LIVESYNC has started.
 
 * $LIVESYNC_CAP offers a default 1-minute polling interval. This means that $CLOUD_LONG checks the S3 source every minute for new data. You can customize this interval by setting up a cron expression.
 
 $LIVESYNC_CAP for S3 continuously imports data from an Amazon S3 bucket into your database. It monitors your S3 bucket for new files matching a specified pattern and automatically imports them into your designated database table.
 
-**Note**: $LIVESYNC_CAP for S3 currently only syncs existing and new files—it does not support updating or deleting records based on updates and deletes from S3 to tables in a $SERVICE_LONG.
+**Note**: $LIVESYNC for S3 currently only syncs existing and new files—it does not support updating or deleting records based on updates and deletes from S3 to tables in a $SERVICE_LONG.
 
 <EarlyAccessNoRelease />: livesync is not supported for production use. If you have any questions or feedback, talk to us in <a href="https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88">#livesync in Timescale Community</a>.
 
@@ -41,9 +41,10 @@ $LIVESYNC_CAP for S3 continuously imports data from an Amazon S3 bucket into you
 
 <PrereqCloud />
 
-- Access to a standard Amazon S3 bucket containing your data files.
+- Ensure access to a standard Amazon S3 bucket containing your data files.
+  
   Directory buckets are not supported.
-- Access credentials for the S3 bucket.  
+- Configure access credentials for the S3 bucket.  
   - The following credentials are supported: 
     - [IAM Role][credentials-iam].
     
@@ -64,10 +65,10 @@ $LIVESYNC_CAP for S3 continuously imports data from an Amazon S3 bucket into you
 ## Limitations
 
 - **CSV**:
-   - Maximum file size: 1GB 
+   - Maximum file size: 1 GB 
   
       To increase this limit, contact sales@timescale.com
-   - Maximum row size: 2MB
+   - Maximum row size: 2 MB
    - Supported compressed formats:
       - `.gz`
       - `.zip`
@@ -75,9 +76,9 @@ $LIVESYNC_CAP for S3 continuously imports data from an Amazon S3 bucket into you
       - Delimiter: the default character is `,`, you can choose a different delimiter
       - Skip header: skip the first row if your file has headers
 - **Parquet**:
-   - Maximum file size: 1GB
-   - Maximum row group uncompressed size: 200MB
-   - Maximum row size: 2MB
+   - Maximum file size: 1 GB
+   - Maximum row group uncompressed size: 200 MB
+   - Maximum row size: 2 MB
 - **Sync iteration**:
 
    To prevent system overload, $LIVESYNC tracks up to 100 files for each sync iteration. Additional checks only fill
@@ -92,9 +93,9 @@ To sync data from your S3 bucket to your $SERVICE_LONG using $CONSOLE:
 1. **Connect to your $SERVICE_LONG**
 
    In [$CONSOLE][portal-ops-mode], select the service to sync live data to.
-1. **Start livesync**
+1. **Start $LIVESYNC**
    1. Click `Actions` > `Livesync for S3`.
-   2. Click `New Livesync for S3`.
+   2. Click `New livesync for S3`.
 
 1. **Connect the source S3 bucket to the target $SERVICE_SHORT**
 

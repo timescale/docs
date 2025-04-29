@@ -26,7 +26,7 @@ import TuneSourceDatabaseAWSRDS from "versionContent/_partials/_migrate_live_tun
 
 <LivesyncLimitations />
 
-- The Schema is not migrated by $LIVESYNC, you use pg_dump/restore to migrate schema
+- The schema is not migrated by $LIVESYNC, you use `pg_dump`/`pg_restore` to migrate it.
 
 ## Set your connection strings
 
@@ -61,7 +61,7 @@ The `<user>` in the `SOURCE` connection must have the replication role granted i
 
 ## Migrate the table schema to the $SERVICE_LONG
 
-Use pg_dump to:
+Use `pg_dump` to:
 
 <Procedure>
 
