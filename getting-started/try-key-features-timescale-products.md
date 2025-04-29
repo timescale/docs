@@ -106,7 +106,7 @@ relational and time-series data from external files.
                 SELECT create_hypertable('crypto_ticks', by_range('time'));
                 ```
                 To more fully understand how $HYPERTABLEs work, and how to optimize them for performance by
-                tuning $CHUNK intervals and enabling $CHUNK_SKIPPING, see [the $HYPERTABLEs documentation][hypertables-section].
+                tuning $CHUNK intervals and enabling chunk skipping, see [the $HYPERTABLEs documentation][hypertables-section].
 
           - For the relational data:
       
@@ -133,7 +133,7 @@ relational and time-series data from external files.
        </Tabs>
    
     To more fully understand how $HYPERTABLEs work, and how to optimize them for performance by
-    tuning $CHUNK intervals and enabling $CHUNK_SKIPPING, see [the $HYPERTABLEs documentation][hypertables-section].
+    tuning $CHUNK intervals and enabling chunk skipping, see [the $HYPERTABLEs documentation][hypertables-section].
 
 1.  **Have a quick look at your data**  
 
@@ -172,18 +172,20 @@ $CONSOLE. You can also do this using psql.
 
 <Tabs label="Upload data to ">
 
-<Tab title="SQL Editor">
+<Tab title="Data mode">
 
 <Procedure>
 
-1. **In [$CONSOLE][portal-ops-mode], select the $SERVICE_SHORT you uploaded data to, then click `SQL Editor`**
+1.  **Connect to your $SERVICE_SHORT**
+
+    In [$CONSOLE][portal-data-mode], select your $SERVICE_SHORT in the connection drop-down in the top right.
 
 1.  **Create a $CAGG**
 
     For a $CAGG, data grouped using a $TIME_BUCKET is stored in a
     $PG `MATERIALIZED VIEW` in a $HYPERTABLE. `timescaledb.continuous` ensures that this data
     is always up to date.
-    In your SQL editor, use the following code to create a $CAGG on the real-time data in
+    In data mode, use the following code to create a $CAGG on the real-time data in
     the `crypto_ticks` table:
 
     ```sql
@@ -228,10 +230,10 @@ $CONSOLE. You can also do this using psql.
 
 <Procedure>
 
-1. **In [$CONSOLE][portal-ops-mode], select the $SERVICE_SHORT you uploaded data to**.
-1. **Click `Operations` > `Continuous aggregates`, select `crypto_ticks`, then click `Create a Continuous Aggregate`**.
+1. **In [$CONSOLE][portal-ops-mode], select the $SERVICE_SHORT you uploaded data to**
+1. **Click `Operations` > `Continuous aggregates`, select `crypto_ticks`, then click `Create a Continuous Aggregate`**
    ![$CAGG wizard](https://assets.timescale.com/docs/images/continuous-aggregate-wizard.png )
-1. **Create a view called `assets_candlestick_daily` on the `time` column with an interval of `1 day`, then click `Next step`**.
+1. **Create a view called `assets_candlestick_daily` on the `time` column with an interval of `1 day`, then click `Next step`**
 1. **Update the view SQL with the following functions, then click `Run`**
    ```sql
    CREATE MATERIALIZED VIEW assets_candlestick_daily
@@ -357,7 +359,7 @@ To set up data tiering:
 
 1. **Set the time interval when data is tiered**
 
-    In $CONSOLE, click `SQL Editor`, then enable data tiering on a $HYPERTABLE with the following query:
+    In $CONSOLE, click `Data` to switch to the data mode, then enable data tiering on a $HYPERTABLE with the following query:
      ```sql
      SELECT add_tiering_policy('assets_candlestick_daily', INTERVAL '3 weeks');   
      ```
@@ -386,9 +388,9 @@ To set up data tiering:
 ## Reduce the risk of downtime and data loss
 
 By default, all $SERVICE_LONGs have rapid recovery enabled. However, if your app has very low tolerance 
-for downtime, $CLOUD_LONG offers $HA_REPLICAs. $HA_REPLICA_SHORTs are exact, up-to-date copies 
+for downtime, $CLOUD_LONG offers $HA_REPLICAs. HA replicas are exact, up-to-date copies 
 of your database hosted in multiple AWS availability zones (AZ) within the same region as your primary node.
-$HA_REPLICA_SHORTa automatically take over operations if the original primary data node becomes unavailable. 
+HA replicas automatically take over operations if the original primary data node becomes unavailable. 
 The primary node streams its write-ahead log (WAL) to the replicas to minimize the chances of 
 data loss during failover.
 

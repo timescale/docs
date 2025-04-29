@@ -1,4 +1,4 @@
-## Attach a data exporter to a $SERVICE_LONG
+### Attach a data exporter to a $SERVICE_LONG
 
 To send telemetry data to an external monitoring tool, you attach a data exporter to your
 $SERVICE_LONG. You can attach only one exporter to a $SERVICE_SHORT.
@@ -14,7 +14,7 @@ To attach an exporter:
 
 </Procedure>
 
-## Monitor $SERVICE_LONG metrics
+### Monitor $SERVICE_LONG metrics
 
 You can now monitor your $SERVICE_SHORT metrics. Use the following metrics to check the service is running correctly:
 
@@ -36,7 +36,7 @@ Additionally, use the following tags to filter your results.
 |`role`|`replica` or `primary`| For $SERVICE_SHORT with replicas |
 |`node-id`|| For multi-node services    |
 
-## Edit a data exporter
+### Edit a data exporter
 
 To update a data exporter:
 
@@ -50,7 +50,7 @@ You cannot change fields such as the provider or the AWS region.
 
 </Procedure>
 
-## Delete a data exporter
+### Delete a data exporter
 
 To remove a data exporter that you no longer need:
 
@@ -73,7 +73,7 @@ To remove a data exporter that you no longer need:
 
 </Procedure>
 
-## Reference
+### Reference
 
 When you create the IAM OIDC provider, the URL must match the region you create the exporter in.
 It must be one of the following:

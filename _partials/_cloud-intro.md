@@ -12,7 +12,7 @@ use as is, or extend with the capabilities specific to your business needs:
 - **AI and vector**: $PG with vector extensions. Use $PG as a vector database with 
    purpose built extensions for building AI applications from start to scale. Get fast and accurate similarity search 
    with the pgvector and pgvectorscale extensions. Create vector embeddings and perform LLM reasoning on your data with 
-   the $PGAI_SHORT extension.
+   the pgai extension.
 - **PostgreSQL**: the trusted industry-standard RDBMS. Ideal for applications requiring strong data 
    consistency, complex relationships, and advanced querying capabilities. Get ACID compliance, extensive SQL support, 
    JSON handling, and extensibility through custom functions, data types, and extensions. $CLOUD_LONG continuously 
