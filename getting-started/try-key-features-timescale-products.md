@@ -36,7 +36,7 @@ is made up of child tables called $CHUNKs. Each $CHUNK is assigned a range of ti
 contains data from that range. When you run a query, $CLOUD_LONG identifies the correct $CHUNK and runs the query on it, instead of going through the entire table. You can also tune $HYPERTABLEs to increase performance
 even more. 
 
-![Main features and tiered data](https://assets.timescale.com/docs/images/hypertable-structure.png)
+![Hypertable structure](https://assets.timescale.com/docs/images/hypertable-structure.png)
 
 $HYPERTABLE_CAPs exist alongside regular $PG tables.
 You use regular $PG tables for relational data, and interact with $HYPERTABLEs
