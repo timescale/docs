@@ -16,12 +16,12 @@ in each $SERVICE_LONG:
   high-speed inserts and updates. This process ensures that real-time applications easily handle
   rapid streams of incoming data. Mutability—upserts, updates, and deletes happen seamlessly.
 
-- **Efficient analytics with $COLUMNSTORE**: as the data _cools_ and becomes more suited for
+- **Efficient analytics with $COLUMNSTORE**: as the data **cools** and becomes more suited for
   analytics, it is automatically converted to the columnstore. This columnar format enables
   fast scanning and aggregation, optimizing performance for analytical workloads while also
   saving significant storage space.
 
-- **Faster queries on compressed data in $COLUMNSTORE**: in $COLUMNSTORE conversion, hypertable
+- **Faster queries on compressed data in $COLUMNSTORE**: in the $COLUMNSTORE conversion, hypertable
   chunks are compressed by more than 90%, and organized for efficient, large-scale queries. Combined with [chunk skipping][chunk-skipping], this helps you save on storage costs and keeps your queries operating at lightning speed.
 
 - **Full mutability with transactional semantics**: regardless of where data is stored,
