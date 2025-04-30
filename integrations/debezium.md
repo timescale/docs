@@ -50,7 +50,7 @@ To setup $SELF_LONG to communicate with Debezium:
 
 </Procedure>
 
-## Configure Debezium to listen to your database
+## Configure Debezium to work with your database
 
 Set up Kafka Connect server, plugins, drivers, and connectors:
 
@@ -59,9 +59,6 @@ Set up Kafka Connect server, plugins, drivers, and connectors:
 <IntegrationDebeziumDocker />
 
 </Procedure>
-
-You have successfully integrated Debezium.
-
 
 </Tab>
 
@@ -74,7 +71,7 @@ We are working on enabling this feature as you read. As soon as it is live, thes
 
 </Tabs>
 
-And that is it,  you have configured debezium to interact with $
+And that is it,  you have configured Debezium to interact with $COMPANY products. 
 
 [hypertables]: /use-timescale/:currentVersion:/hypertables/
 [hypercore]: /use-timescale/:currentVersion:/hypercore/
