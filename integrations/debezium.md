@@ -5,7 +5,7 @@ products: [cloud, mst, self_hosted]
 keywords: [Debezium, integrate]
 ---
 
-import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
+import IntegrationPrereqsSelfOnly from "versionContent/_partials/_integration-prereqs-self-only.mdx";
 import IntegrationDebeziumDocker from "versionContent/_partials/_integration-debezium-docker.mdx";
 import IntegrationDebeziumSelfHostedConfig from "versionContent/_partials/_integration-debezium-self-hosted-config-database.mdx";
 
@@ -32,9 +32,9 @@ This page explains how to capture changes in your database and stream them using
 
 ## Prerequisites
 
-<IntegrationPrereqs />
+<IntegrationPrereqsSelfOnly />
 
-- [Java8 or higher][java-installers] to run Apache Kafka.
+- [Install Docker][install-docker] on your development machine.
 
 ## Configure your database to work with Debezium
 
@@ -87,3 +87,4 @@ And that is it,  you have configured Debezium to interact with $COMPANY products
 [kafka-install-configure]: /integrations/:currentVersion:/debezium#install-and-configure-apache-kafka
 [debezium-configure-database]: /integrations/:currentVersion:/debezium##configure-your-database-to-work-with-debezium
 [psql-connect]: /integrations/:currentVersion:/psql/#connect-to-your-service
+[install-docker]: https://docs.docker.com/engine/install/
