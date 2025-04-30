@@ -42,7 +42,7 @@ This page explains how to capture changes in your database and stream them using
 
 <Tab title="Self-hosted TimescaleDB">
 
-To setup $SELF_LONG to communicate with Debezium:
+To set up $SELF_LONG to communicate with Debezium:
 
 <Procedure>
 
