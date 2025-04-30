@@ -19,7 +19,7 @@ import HypercoreIntro from "versionContent/_partials/_hypercore-intro.mdx";
 
 ## $HYPERCORE_CAP workflow
 
-Best practice for using $HYPERCORE_CAP is to: 
+Best practice for using $HYPERCORE is to: 
 
 <Procedure>
 
