@@ -13,11 +13,11 @@ Real-time analytics applications require more than fast inserts and analytical q
 when retrieving individual records, enforcing constraints, or performing upserts, something that OLAP/columnar databases
 lack.
 
-$TIMESCALE_DB supports and accelerates real-time analytics using [Hypercore][hypercore] without missing out on important  
-PostgreSQL features, including support for standard PostgreSQL indexes. Hypercore is a hybrid storage engine 
+$TIMESCALE_DB supports and accelerates real-time analytics using [$HYPERCORE][hypercore] without missing out on important  
+PostgreSQL features, including support for standard PostgreSQL indexes. $HYPERCORE_CAP is a hybrid storage engine 
 because it supports deep analytics while staying true to PostgreSQL. Full support for B-tree and hash indexes
-on columnstore data enables you to perform point lookups 1,185x faster, enforce unique constraints, and execute
-upserts 224x faster—all while maintaining columnstore compression and analytics performance.
+on $COLUMNSTORE data enables you to perform point lookups 1,185x faster, enforce unique constraints, and execute
+upserts 224x faster—all while maintaining $COLUMNSTORE compression and analytics performance.
 
 <EarlyAccess />
 
@@ -50,25 +50,25 @@ or enforcing uniqueness.
 
 ## How B-tree and hash indexes work 
 
-PostgreSQL offers [multiple index types][postgres-index-types], For example, the default B-tree, hash, GIN, and BRIN. 
+PostgreSQL offers [multiple index types][postgres-index-types]. For example, the default B-tree, hash, GIN, and BRIN, 
 all implemented as Index Access Methods (IAMs). PostgreSQL supplies the [table access method (TAM)][postgres-tam-methods] 
 interface for table storage. 
 
 ![TAM architecture](https://assets.timescale.com/docs/images/tam_architecture.png)
 
-By default, $TIMESCALE_DB stores data in the rowstore in standard PostgreSQL row-oriented tables, using the default heap 
-TAM. To make the heap TAM work with the columnstore, $TIMESCALE_DB integrates PostgreSQL [TOAST][storage-toast] to store 
+By default, $TIMESCALE_DB stores data in the $ROWSTORE in standard PostgreSQL row-oriented tables, using the default heap 
+TAM. To make the heap TAM work with the $COLUMNSTORE, $TIMESCALE_DB integrates PostgreSQL [TOAST][storage-toast] to store 
 columnar data as compressed arrays. However, querying columnized data returns compressed, opaque data. To support 
 normal queries, $TIMESCALE_DB adds the `DecompressChunk` scan node to the PostgreSQL query plan in order to decompress data 
 on-the-fly. However, the heap TAM only indexes the compressed values, not the original data.
 
-Hypercore TAM handles decompression behind the scenes. This enables PostgreSQL to use standard interfaces for 
+$HYPERCORE_CAP TAM handles decompression behind the scenes. This enables PostgreSQL to use standard interfaces for 
 indexing, to collect statistics, enforce constraints and lock tuples by reference. This also allows PostgreSQL’s built-in
-scan nodes, such as sequential and index scans, to operate on the columnstore. Custom scan nodes are used for 
+scan nodes, such as sequential and index scans, to operate on the $COLUMNSTORE. Custom scan nodes are used for 
 analytical query performance optimizations, including vectorized filtering and aggregation.
 
-Hypercore TAM supports B-tree and hash indexes, making point lookups, upserts, and unique constraint 
-enforcement more efficient on the columnstore. Our benchmarks demonstrate substantial performance improvements:
+$HYPERCORE_CAP TAM supports B-tree and hash indexes, making point lookups, upserts, and unique constraint 
+enforcement more efficient on the $COLUMNSTORE. Our benchmarks demonstrate substantial performance improvements:
 
 * 1,185x faster point lookup queries to retrieve a single record.
 * 224.3x faster inserts when checking unique constraints.
@@ -88,14 +88,13 @@ B-tree and hash indexes are particularly helpful when:
 
 However, consider the storage trade-off when:
 
-- Your queries already benefit from columnstore min/max indexes or `SEGMENTBY` optimizations.
+- Your queries already benefit from $COLUMNSTORE min/max indexes or `SEGMENTBY` optimizations.
 - Your workloads prioritize compression efficiency over lookup speed.
 - You primarily run aggregations and range scans, where indexes may not provide meaningful speedups.
 
-
 ## Enable secondary indexing
 
-To speed up your queries using secondary indexes you enable hypercore TAM on your hypertable in the columnstore:
+To speed up your queries using secondary indexes, you enable $HYPERCORE TAM on your $HYPERTABLE in the $COLUMNSTORE:
 
 <Procedure>
 
@@ -112,7 +111,7 @@ To speed up your queries using secondary indexes you enable hypercore TAM on you
    );
    ```
 
-1. **Convert the table to a [hypertable][convert-to-hypertable]**
+1. **Convert the table to a [$HYPERTABLE][convert-to-hypertable]**
 
    ```sql
    select create_hypertable (
@@ -121,7 +120,7 @@ To speed up your queries using secondary indexes you enable hypercore TAM on you
    );
    ```
    
-1. **Enable hypercore TAM for the hypertable**
+1. **Enable $HYPERCORE TAM for the $HYPERTABLE**
    ```sql
    alter table readings
    set access method hypercore
@@ -130,13 +129,13 @@ To speed up your queries using secondary indexes you enable hypercore TAM on you
       timescaledb.segmentby = 'location_id'
    );
    ```
-   This enables the columnstore on the table. Hypercore TAM is applied to chunks created after you set the access 
-   method. Existing chunks continue to use the default `heap`. 
+   This enables the $COLUMNSTORE on the table. $HYPERCORE_CAP TAM is applied to $CHUNKs created after you set the access 
+   method. Existing $CHUNKs continue to use the default `heap`. 
 
    To return to the `heap` TAM, call `set access method heap`. You can also change the table access method for an 
-   existing chunk with a call like `ALTER TABLE _timescaledb_internal._hyper_1_1_chunk SET ACCESS METHOD hypercore;`
+   existing $CHUNK with a call like `ALTER TABLE _timescaledb_internal._hyper_1_1_chunk SET ACCESS METHOD hypercore;`
 
-1. **Move chunks from rowstore to columnstore as they age**
+1. **Move $CHUNKs from $ROWSTORE to $COLUMNSTORE as they age**
 
    ```sql
    CALL add_columnstore_policy(
@@ -147,15 +146,15 @@ To speed up your queries using secondary indexes you enable hypercore TAM on you
 
 </Procedure>
 
-Hypercore TAM is now active on all new chunks created in the hypertable. 
+$HYPERCORE_CAP TAM is now active on all new $CHUNKs created in the $HYPERTABLE. 
 
 ## Create b-tree and hash indexes
 
-Once you have enabled hypercore TAM in your hypertable, the indexes are rebuilt when the table chunks are converted from 
-the rowstore to the columnstore. When you query data, these indexes are used by the PostgreSQL query planner over the 
-rowstore and columnstore.
+Once you have enabled $HYPERCORE TAM in your $HYPERTABLE, the indexes are rebuilt when the table $CHUNKs are converted from 
+the $ROWSTORE to the $COLUMNSTORE. When you query data, these indexes are used by the PostgreSQL query planner over the
+$ROWSTORE and $COLUMNSTORE.
 
-You add hash and B-tree indexes to a hypertable the same way as a regular PostgreSQL table:
+You add hash and B-tree indexes to a $HYPERTABLE the same way as a regular PostgreSQL table:
 
 - **Hash index**
    ```sql
@@ -167,8 +166,8 @@ You add hash and B-tree indexes to a hypertable the same way as a regular Postgr
    ON readings (metric_uuid, uploaded_at);
   ```
   
-If you have existing chunks that have not been updated to use the hypercore TAM, to use B-tree and hash indexes, you
-change the table access method for an existing chunk with a call like `ALTER TABLE _timescaledb_internal._hyper_1_1_chunk SET ACCESS METHOD hypercore;`
+If you have existing $CHUNKs that have not been updated to use the $HYPERCORE TAM, to use B-tree and hash indexes, you
+change the table access method for an existing $CHUNK with a call like `ALTER TABLE _timescaledb_internal._hyper_1_1_chunk SET ACCESS METHOD hypercore;`
 
 ## Point lookups
 
@@ -194,7 +193,7 @@ only the relevant data segment.
 CREATE INDEX readings_metric_uuid_hash_idx ON readings USING hash (metric_uuid);
 ```
 
-With a hash index and hypercore TAM enabled, the same SELECT query performs 1,185x faster; hash comes in at 10.9 ms vs. 
+With a hash index and $HYPERCORE TAM enabled, the same SELECT query performs 1,185x faster; hash comes in at 10.9 ms vs. 
 12,915 ms and B-tree at 12.57.
 
 
@@ -207,7 +206,7 @@ records, you have to check if the data already exists in the database before sto
 To prevent duplicate entries, you enforce uniqueness using a primary key. Primary constraints are enforced through 
 unique indexes, making conflict checks fast. Without an index, verifying uniqueness involves scanning and decompressing 
 potentially large amounts of data. This significantly slows inserts and consuming excessive [IOPS][iops]. A `UNIQUE` 
-constraint on a hypertable must also include the hypertable partition key. 
+constraint on a $HYPERTABLE must also include the $HYPERTABLE partition key. 
 
 The following `UNIQUE` uses a B-tree index.
 
@@ -233,7 +232,7 @@ Possible strategies for backfilling historic data include:
    if a conflict occurs. This enables you to re-ingest new versions of rows instead of performing separate update 
    statements. Without an index, the system needs to scan and decompress data, considerably slowing ingestion speed. 
    With a primary key index, conflicting rows are directly located within the compressed data segment in 
-   the columnstore. 
+   the $COLUMNSTORE. 
    
    The following query attempts to insert a new record. If a record for the same `metric_uuid` and `created_at` values 
    already exists, it updates `temperature` with the corresponding value from the new record.
@@ -296,7 +295,7 @@ condition. For example, to create a partial B-tree index for temperature reading
 CREATE INDEX ON readings (temperature) where temperature > 52.5;
 ```   
 
-Compared with using a sparse min/max index in columnstore, $COMPANY benchmarks show that the B-tree index query is
+Compared with using a sparse min/max index in $COLUMNSTORE, $COMPANY benchmarks show that the B-tree index query is
 4.5x faster.
 
 
