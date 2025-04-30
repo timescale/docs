@@ -13,7 +13,7 @@
    ```bash
    docker run -it --rm --name kafka -p 9092:9092 --link zookeeper:zookeeper quay.io/debezium/kafka:3.0
    ```
-   Check the output log to see that kafka is running.
+   Check the output log to see that Kafka is running.
 
 
 1. **Run Kafka Connect in Docker**
@@ -30,7 +30,7 @@
    --link timescaledb:timescaledb \
    quay.io/debezium/connect:3.0
    ``` 
-   Check the output log to see that kafka connect is running.
+   Check the output log to see that Kafka Connect is running.
 
 
 1. **Register the Debezium PostgreSQL source connector**
@@ -86,7 +86,7 @@
 
 1. **Verify `timescaledb-connector` is running**
 
-   1. Open the Terminal window running Kafka connect. When the connector is active, you see something like the following: 
+   1. Open the Terminal window running Kafka Connect. When the connector is active, you see something like the following: 
 
       ```bash
       2025-04-30 10:40:15,168 INFO   Postgres|accounts|streaming  REPLICA IDENTITY for '_timescaledb_internal._hyper_1_1_chunk' is 'DEFAULT'; UPDATE and DELETE events will contain previous values only for PK columns   [io.debezium.connector.postgresql.PostgresSchema]

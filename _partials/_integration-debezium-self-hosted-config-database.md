@@ -10,7 +10,7 @@
       - MacOS: `/opt/homebrew/var/postgresql@<version>/`
       - Windows: `C:\Program Files\PostgreSQL\<version>\data\`
 
-   1. Enable logical replication
+   1. Enable logical replication.
 
       Modify the following settings in `postgresql.conf`:
 
@@ -20,7 +20,7 @@
       max_wal_senders = 10
       ```
 
-   1. Open `pg_hba.conf` and enable host replication:
+   1. Open `pg_hba.conf` and enable host replication.
 
       To allow replication connections, add the following:
 
@@ -47,7 +47,7 @@
 
 1. **Enable a replication spot for Debezium**
 
-   1. Create a table for Debezium to listen to
+   1. Create a table for Debezium to listen to:
 
       ```sql
       CREATE TABLE accounts (created_at TIMESTAMPTZ DEFAULT NOW(),
@@ -55,7 +55,7 @@
        city TEXT);
       ```
 
-   1. Turn the table into a hypertable
+   1. Turn the table into a hypertable:
 
       ```sql
       SELECT create_hypertable('accounts', 'created_at');
@@ -63,7 +63,7 @@
 
       Debezium also works with [$CAGGs][caggs].
 
-   1. Create a publication and enable a replication slot 
+   1. Create a publication and enable a replication slot:
   
       ```sql
       CREATE PUBLICATION dbz_publication FOR ALL TABLES WITH (publish = 'insert, update');
