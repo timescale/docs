@@ -202,7 +202,7 @@ Some of the most in-demand integrations are listed below.
 [datadog]: /integrations/:currentVersion:/datadog/
 [dbt]: https://dbt-timescaledb.debruyn.dev/
 [dbeaver]: /integrations/:currentVersion:/dbeaver/
-[debezium]: https://debezium.io/documentation/reference/stable/transformations/timescaledb.html
+[debezium]: /integrations/:currentVersion:/debezium/
 [decodable]: /integrations/:currentVersion:/decodable
 [deepnote]: https://deepnote.com/docs/postgresql
 [deltalake]: https://github.com/delta-io/delta/blob/master/connectors/sql-delta-import/readme.md

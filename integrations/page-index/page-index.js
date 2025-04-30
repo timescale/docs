@@ -62,6 +62,11 @@ module.exports = [
         excerpt: "Integrate DBeaver with Timescale Cloud",
       },
       {
+        title: "Debezium",
+        href: "debezium",
+        excerpt: "Integrate Debezium with Timescale Cloud",
+      },
+      {
         title: "Decodable",
         href: "decodable",
         excerpt: "Integrate Decodable with Timescale Cloud",
