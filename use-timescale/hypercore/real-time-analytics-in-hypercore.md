@@ -42,9 +42,12 @@ dimension. For example, `Timestamp`:
 
 This ensures that records are compressed and accessed in the same order. However, you would always have to 
 access the data using the time dimension, then filter all the rows using other criteria. To make your queries more 
-efficient, you segment your data based on the way you want to access it. For example, to rapidly access data about a 
+efficient, you segment your data based on the following:
+
+- The way you want to access it. For example, to rapidly access data about a 
 single device, you `segmentby` the `Device ID` column. This enables you to run much faster analytical queries on 
-data in the $COLUMNSTORE.
+data in the $COLUMNSTORE. 
+- The compression rate you want to achieve. The [lower the cardinality][cardinality-blog] of the `segmentby` column, the better compression results you get.
 
 When $CLOUD_LONG converts a $CHUNK to the $COLUMNSTORE, TimescaleDB automatically creates a different schema for your 
 data. $TIMESCALE_DB creates and uses custom indexes to incorporate the `segmentby` and `orderby` parameters when 
@@ -81,3 +84,4 @@ repeated values, [XOR-based][xor] and [dictionary compression][dictionary] is us
 [informational-views]: /api/:currentVersion:/informational-views/jobs/
 [insert]: /use-timescale/:currentVersion:/write-data/insert/
 [modify-data-in-hypercore]: /use-timescale/:currentVersion:/hypercore/modify-data-in-hypercore/
+[cardinality-blog]: https://www.timescale.com/blog/what-is-high-cardinality
