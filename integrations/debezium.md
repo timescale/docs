@@ -1,150 +1,90 @@
 ---
 title: Integrate Debezium with Timescale Cloud
-excerpt: Integrate Debezium with Timescale Cloud to enable change data capture for your PostgreSQL workloads
+excerpt: Integrate Debezium with Timescale Cloud to enable change data capture in your Timescale Cloud service and streaming to Redis Streams
 products: [cloud, mst, self_hosted]
 keywords: [Debezium, integrate]
 ---
 
-import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
+import IntegrationPrereqsSelfOnly from "versionContent/_partials/_integration-prereqs-self-only.mdx";
+import IntegrationDebeziumDocker from "versionContent/_partials/_integration-debezium-docker.mdx";
+import IntegrationDebeziumSelfHostedConfig from "versionContent/_partials/_integration-debezium-self-hosted-config-database.mdx";
 
 # Integrate Debezium with $CLOUD_LONG
 
 [Debezium][debezium] is an open-source distributed platform for change data capture (CDC). 
-It enables you to capture changes Win your $SERVICE_LONG and stream them to other systems in real time.
+It enables you to capture changes in a $SELF_LONG instance and stream them to other systems in real time.
 
-This pages explains how to integrate Debezium with $CLOUD_LONG and Kafka 
+Debezium can capture events about:
+
+- [Hypertables][hypertables]: captured events are rerouted from their chunk-specific topics to a single logical topic 
+   named according to the following pattern: `<topic.prefix>.<hypertable-schema-name>.<hypertable-name>`
+- [Continuous aggregates][caggs]: captured events are rerouted from their chunk-specific topics to a single logical topic
+  named according to the following pattern: `<topic.prefix>.<aggregate-schema-name>.<aggregate-name>`
+- [Hypercore][hypercore]: If you enable hypercore, the Debezium $TIMESCALE_DB connector does not apply any special 
+  processing to data in the columnstore. Compressed chunks are forwarded unchanged to the next downstream job in the 
+  pipeline for further processing as needed. Typically, messages with compressed chunks are dropped, and are not 
+  processed by subsequent jobs in the pipeline.
+
+   This limitation only affects changes to chunks in the columnstore. Changes to data in the rowstore work correctly. 
+
+
+This page explains how to capture changes in your database and stream them using Debezium on Apache Kafka.
 
 ## Prerequisites
 
-<IntegrationPrereqs />
+<IntegrationPrereqsSelfOnly />
 
-- Install [Debezium][debezium-install]
+- [Install Docker][install-docker] on your development machine.
 
-## Connect your $SERVICE_LONG
+## Configure your database to work with Debezium
 
 <Tabs label="Integrate with Debezium">
 
-<Tab title="$CLOUD_LONG">
+<Tab title="Self-hosted TimescaleDB">
 
-To connect to $CLOUD_LONG:
+To setup $SELF_LONG to communicate with Debezium:
 
 <Procedure>
 
-1. **Enable logical replication for your $SERVICE_LONG**
+<IntegrationDebeziumSelfHostedConfig />
 
-     1. Connect to your $SERVICE_SHORT using your [connection details][connection-info].
+</Procedure>
 
-     1. Run the following command to enable logical replication:
+## Configure Debezium to work with your database
 
-        ```sql
-        ALTER SYSTEM SET wal_level = 'logical';
-        ALTER SYSTEM SET max_replication_slots = 10;
-        ALTER SYSTEM SET max_wal_senders = 10;
-        ```
-   
-     1. Restart your $SERVICE_SHORT.
+Set up Kafka Connect server, plugins, drivers, and connectors:
 
-1. **Create a replication slot**
+<Procedure>
 
-      ```sql
-      SELECT * FROM pg_create_logical_replication_slot('debezium_slot', 'pgoutput');
-      ```
-
-1. **Configure Debezium**
-
-     Modify the Debezium connector configuration to point to $CLOUD_LONG using your [connection details][connection-info]:
-
-      ```json
-      {
-        "name": "timescale-connector",
-        "config": {
-          "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
-          "database.hostname": "<TIMESCALE_CLOUD_HOST>",
-          "database.port": "5432",
-          "database.user": "<USERNAME>",
-          "database.password": "<PASSWORD>",
-          "database.dbname": "<DATABASE_NAME>",
-          "database.server.name": "timescale-server",
-        }
-      }
-      ```
-
-1. **Test the connection**
-
-    Start the Debezium connector and ensure it connects to your $SERVICE_LONG successfully.
+<IntegrationDebeziumDocker />
 
 </Procedure>
 
 </Tab>
 
-<Tab title="$SELF_LONG">
+<Tab title="Timescale Cloud">
 
-To connect to your $SELF_LONG database:
-
-<Procedure>
-
-1. **Enable logical replication in $TIMESCALE_DB**
-
-   1. Modify the following settings in `postgresql.conf`. It is usually located in `/var/lib/postgresql/data/postgresql.conf` or `/etc/postgresql/*/main/postgresql.conf`:
-
-      ```
-      wal_level = logical
-      max_replication_slots = 10
-      max_wal_senders = 10
-      ```
-
-   1. Restart PostgreSQL.
-
-1. **Create a replication slot**
-
-   1. Connect to your database using your [connection details][connection-info].
-   1. Run the following command: 
-
-      ```sql
-      SELECT * FROM pg_create_logical_replication_slot('debezium_slot', 'pgoutput');
-      ```
-      
-   1. Grant replication privileges to the user Debezium will use:
-
-      ```sql
-      ALTER ROLE <username> WITH REPLICATION;
-      ```
-
-1. **Configure Debezium**
-
-   Create a Debezium connector configuration file `debezium-postgres.json`:
-
-      ```json
-      {
-        "name": "timescale-connector",
-        "config": {
-          "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
-          "database.hostname": "<TIMESCALEDB_HOST>",
-          "database.port": "5432",
-          "database.user": "<USERNAME>",
-          "database.password": "<PASSWORD>",
-          "database.dbname": "<DATABASE_NAME>",
-          "database.server.name": "timescale-server",
-          "plugin.name": "pgoutput",
-          "slot.name": "debezium_slot",
-          "publication.name": "debezium_publication"
-        }
-      }
-      ```
-
-1. **Test the connection**
-
-   Start the Debezium connector and ensure it connects to your database successfully.
-
-</Procedure>
+Debezium requires logical replication to be enabled. Currently, this is not enabled by default on $SERVICE_LONGs.
+We are working on enabling this feature as you read. As soon as it is live, these docs will be updated.
 
 </Tab>
 
 </Tabs>
 
-You have successfully integrated Debezium with $CLOUD_LONG.
+And that is it,  you have configured Debezium to interact with $COMPANY products. 
 
-[connection-info]: /use-timescale/:currentVersion:/integrations/find-connection-details/
+[hypertables]: /use-timescale/:currentVersion:/hypertables/
+[hypercore]: /use-timescale/:currentVersion:/hypercore/
+[caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
+[connection-info]: /integrations/:currentVersion:/find-connection-details/
 [debezium]: https://debezium.io/
-[debezium-install]: https://debezium.io/documentation/reference/stable/install.html
+[java-installers]: https://www.oracle.com/java/technologies/downloads/
+[debezium-install]: https://debezium.io/documentation/reference/stable/operations/debezium-server.html#_installation
 [console]: https://console.cloud.timescale.com/dashboard/services
+[redis-local]: https://redis.io/docs/getting-started/
+[redis-cloud]: https://redis.com/try-free/
+[connect]: /getting-started/:currentVersion:/run-queries-from-console/
+[kafka-install-configure]: /integrations/:currentVersion:/debezium#install-and-configure-apache-kafka
+[debezium-configure-database]: /integrations/:currentVersion:/debezium##configure-your-database-to-work-with-debezium
+[psql-connect]: /integrations/:currentVersion:/psql/#connect-to-your-service
+[install-docker]: https://docs.docker.com/engine/install/
