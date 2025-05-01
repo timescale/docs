@@ -1,45 +1,57 @@
 ---
-title: Compress continuous aggregates
+title: Convert continuous aggregates to the columnstore
 excerpt: Compressing a continuous aggregate can save you storage space while making sure the data is still available for your analytical workloads. Learn to compress continuous aggregates in Timescale Cloud
 products: [cloud, mst, self_hosted]
 keywords: [continuous aggregates, compression]
 ---
 
-import Since2180 from "versionContent/_partials/_since_2_18_0.mdx";
+import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 
-# Convert continuous aggregates to the columnstore
+# Compress continuous aggregates
 
-To save on storage costs, you use $HYPERCORE to downsample historical data stored in $CAGGs. When you 
-[enable columnstore][compression_continuous-aggregate] on a `MATERIALIZED VIEW`, your data is compressed when it 
-is converted to the columnstore. This is done at the intervals you set in your [columnstore policy][add_columnstore_policy].
+Continuous aggregates are often used to downsample historical data. If the data is only used for analytical queries 
+and never modified, you can compress the aggregate to save on storage.
 
-$COLUMNSTORE_CAP works in the same way on [$HYPERTABLEs and $CAGGs][hypercore]. When you enable
-$COLUMNSTORE with no other options, your data is [segmentby][alter_materialized_view_arguments] the group by columns in the
-$CAGG, and [orderby][alter_materialized_view_arguments] the time column. Real-time aggregation is disabled.
+<Deprecated2180 /> Replaced by <a href="https://docs.timescale.com/use-timescale/latest/continuous-aggregates/compression-on-continuous-aggregates/">Convert continuous aggregates to the columnstore</a>.
 
-<Since2180 /> For the old API, see <a href="https://docs.timescale.com/use-timescale/latest/compression/compression-on-continuous-aggregates/">Compress continuous aggregates</a>.
+<Highlight type="warning">
+Before version
+[2.11.0](/about/latest/release-notes/#timescaledb-2110-on-2023-05-22), you can't
+refresh the compressed regions of a continuous aggregate. To avoid conflicts
+between compression and refresh, make sure you set `compress_after` to a larger
+interval than the `start_offset` of your [refresh
+policy](/api/latest/continuous-aggregates/add_continuous_aggregate_policy).
+</Highlight>
 
-## Enable $COLUMNSTORE on $CAGGs
+Compression on continuous aggregates works similarly to [compression on
+hypertables][compression]. When compression is enabled and no other options are
+provided, the `segment_by` value will be automatically set to the group by
+columns of the continuous aggregate and the `time_bucket` column will be used as
+the `order_by` column in the compression configuration.
 
-To enable or disable compression on a $CAGG, set `timescaledb.enable_columnstore` when you alter the view.
+## Enable compression on continuous aggregates
+
+You can enable and disable compression on continuous aggregates by setting the
+`compress` parameter when you alter the view.
 
 <Procedure>
 
-1.  For an existing $CAGG, enable $COLUMNSTORE:
+### Enabling and disabling compression on continuous aggregates
+
+1.  For an existing continuous aggregate, at the `psql` prompt, enable
+    compression:
 
     ```sql
-    ALTER MATERIALIZED VIEW cagg_name set (timescaledb.enable_columnstore = true,);
+    ALTER MATERIALIZED VIEW cagg_name set (timescaledb.compress = true);
     ```
 
-1.  Disable $COLUMNSTORE:
+1.  Disable compression:
 
     ```sql
-    ALTER MATERIALIZED VIEW cagg_name set (timescaledb.enable_columnstore = false);
+    ALTER MATERIALIZED VIEW cagg_name set (timescaledb.compress = false);
     ```
 
 </Procedure>
-
-
 
 Disabling compression on a continuous aggregate fails if there are compressed
 chunks associated with the continuous aggregate. In this case, you need to
@@ -73,12 +85,6 @@ continuous aggregate policy:
 SELECT add_compression_policy('cagg_name', compress_after=>'45 days'::interval);
 ```
 
-
-[hypercore]: /use-timescale/:currentVersion:/hypercore/
-[compression_continuous-aggregate]: /api/:currentVersion:/hypercore/alter_materialized_view/
-[add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/
-[timescaledb-211]: https://github.com/timescale/timescaledb/releases/tag/2.11.0
 [compression]: /use-timescale/:currentVersion:/compression/
 [decompress-chunks]:  /use-timescale/:currentVersion:/compression/decompress-chunks
 [refresh-policy]: /use-timescale/:currentVersion:/continuous-aggregates/refresh-policies
-[alter_materialized_view_arguments]: /api/:currentVersion:/hypercore/alter_materialized_view/#arguments
