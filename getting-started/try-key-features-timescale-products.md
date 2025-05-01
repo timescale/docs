@@ -1,7 +1,7 @@
 ---
 title: Try the key Timescale features
 excerpt: Improve database performance with hypertables, time bucketing, compression and continuous aggregates.
-products: [cloud, mst, self_hosted]
+products: [cloud, self_hosted, mst]
 content_group: Getting started
 ---
 

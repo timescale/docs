@@ -2,6 +2,7 @@
 title: Changelog
 excerpt: Get a weekly summary of the latest changes to Timescale products with links to detailed documentation
 keywords: [changelog, upgrades, updates, releases]
+products: [cloud]
 ---
 
 # Changelog

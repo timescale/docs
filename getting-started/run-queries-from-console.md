@@ -1,7 +1,7 @@
 ---
 title: Run your queries from Timescale Console
 excerpt: Choose the right tool to manage your data. Timescale Cloud offers the data mode, the SQL editor, and the SQL Assistant to better address your needs
-products: [cloud, mst, self_hosted]
+products: [cloud]
 content_group: Getting started
 ---
 

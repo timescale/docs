@@ -1,7 +1,7 @@
 ---
 title: Install and update TimescaleDB Toolkit
 excerpt: Install the TimescaleDB Toolkit extension to access more hyperfunctions and function pipelines
-products: [mst, self_hosted]
+products: [self_hosted]
 keywords: [Toolkit, installation, hyperfunctions, function pipelines]
 ---
 
