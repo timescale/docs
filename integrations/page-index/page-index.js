@@ -144,7 +144,6 @@ module.exports = [
       {
         title: "Troubleshooting Timescale integrations",
         href: "troubleshooting",
-        type: "placeholder",
         excerpt: "Resolve integration issues",
       },
     ],
