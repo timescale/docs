@@ -133,7 +133,7 @@ module.exports = [
             excerpt: "Manage real time aggregates in continuous aggregates",
           },
           {
-            title: "Compress continuous aggregates",
+            title: "Convert continuous aggregates to the columnstore",
             href: "compression-on-continuous-aggregates",
             excerpt: "Compress continuous aggregates",
           },
@@ -824,6 +824,11 @@ module.exports = [
             title: "Manual compression",
             href: "manual-compression",
             excerpt: "Compress data chunks",
+          },
+          {
+            title: "Compress continuous aggregates",
+            href: "compression-on-continuous-aggregates",
+            excerpt: "Compress continuous aggregates",
           },
           {
             title: "Modify compressed data",
