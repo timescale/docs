@@ -67,7 +67,7 @@ To compress the data in the `transactions` table, do the following:
     SELECT 
         pg_size_pretty(before_compression_total_bytes) as before,
         pg_size_pretty(after_compression_total_bytes) as after
-     FROM hypertable_compression_stats('transactions');
+     FROM hypertable_columnstore_stats('transactions');
     ```
 
 	This shows a significant improvement in data usage:

@@ -316,7 +316,7 @@ regularly. For example, last week's market data.
    SELECT
      pg_size_pretty(before_compression_total_bytes) as before,
      pg_size_pretty(after_compression_total_bytes) as after
-   FROM hypertable_compression_stats('crypto_ticks');
+   FROM hypertable_columnstore_stats('crypto_ticks');
    ```
    You see something like:
 
