@@ -114,7 +114,7 @@ to the columnstore:
    SELECT 
         pg_size_pretty(before_compression_total_bytes) as before,
         pg_size_pretty(after_compression_total_bytes) as after
-   FROM hypertable_compression_stats('metrics');
+   FROM hypertable_columnstore_stats('metrics');
    ```
    You see something like:
 
