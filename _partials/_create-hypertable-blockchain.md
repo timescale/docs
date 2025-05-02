@@ -1,7 +1,7 @@
 import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
 import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intro.mdx";
 
-## Optimize time-series data in hypertables
+## Optimize time-series data using hypertables
 
 <HypertableIntro />
 
