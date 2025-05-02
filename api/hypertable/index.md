@@ -13,5 +13,23 @@ import HypertableIntro from "versionContent/_partials/_hypertable-intro.mdx";
 For more information about using hypertables, including chunk size partitioning,
 see the [hypertable section][hypertable-docs].
 
+## The $HYPERTABLE workflow
+
+Best practice for using $HYPERTABLE is to:
+
+<Procedure>
+
+1. **Create a $HYPERTABLE**
+   ```sql
+   IAIN: code example 
+   ```
+2. **Do something else**
+   ```sql
+   IAIN: code example 
+   ```
+
+
+</Procedure> 
+
 [create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
 [hypertable-docs]: /use-timescale/:currentVersion:/hypertables/
