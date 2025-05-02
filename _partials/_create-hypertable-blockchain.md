@@ -9,6 +9,11 @@ with Timescale tables similar to standard PostgreSQL.
 
 <Procedure>
 
+1. Connect to your $SERVICE_LONG
+
+   In [$CONSOLE][services-portal] open an [SQL editor][in-console-editors]. The in-Console editors display the query speed.
+   You can also connect to your service using [psql][connect-using-psql].
+
 1.  Create a standard PostgreSQL table to store the Bitcoin blockchain data
     using `CREATE TABLE`:
 
@@ -70,3 +75,7 @@ your queries perform better.
 </Highlight>
 
 </Procedure>
+
+[in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
+[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[connect-using-psql]: /integrations/:currentVersion:/psql#connect-to-your-service

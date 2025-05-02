@@ -21,12 +21,6 @@ on the Bitcoin blockchain.
 Timescale to query transactions on a blockchain, in exactly the same way as you
 might query time-series transactions in any other database.
 
-## Prerequisites
-
-Before you begin, make sure you have:
-
-*   Signed up for a [free Timescale account][cloud-install].
-
 ## Steps in this tutorial
 
 This tutorial covers:
