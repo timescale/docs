@@ -99,7 +99,7 @@ psql -X -d "$TARGET" \
   -f dump.sql
 ```
 
-### 3e. Convert the plain tables to hypertables, optionally enabling compression
+### 3e. Convert the plain tables to hypertables, optionally compress data in the columnstore
 
 For each table which should be converted to a hypertable in the target
 database, execute:
@@ -127,7 +127,7 @@ You may also wish to consider taking advantage of some of Timescale's killer
 features, such as:
 - [retention policies] to automatically drop unneeded data
 - [tiered storage] to automatically move data to Timescale's low-cost bottomless object storage tier
-- [compression] to reduce the size of your hypertables
+- [hypercore] reduce the size of your hypertables by compressing data in the columnstore
 - [continuous aggregates] to write blisteringly fast aggregate queries on your data
 
 [time-series data]: /getting-started/:currentVersion:/try-key-features-timescale-products/#optimize-time-series-data-in-hypertables
@@ -135,7 +135,7 @@ features, such as:
 [hypertable documentation]: /use-timescale/:currentVersion:/hypertables/
 [retention policies]: /use-timescale/:currentVersion:/data-retention/
 [tiered storage]: /use-timescale/:currentVersion:/data-tiering/
-[compression]: /use-timescale/:currentVersion:/compression/about-compression/
+[hypercore]: /use-timescale/:currentVersion:/hypercore/
 [continuous aggregates]: /use-timescale/:currentVersion:/continuous-aggregates
 
 <StepFour />
