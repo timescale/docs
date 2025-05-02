@@ -1,5 +1,5 @@
 ---
-title: Query the Bitcoin blockchain - set up compression
+title: Compress your data using hypercore
 excerpt: Compress a sample dataset with Timescale Cloud so you can store the Bitcoin blockchain more efficiently
 products: [cloud]
 keywords: [beginner, crypto, blockchain, Bitcoin, finance, analytics]
@@ -7,47 +7,46 @@ layout_components: [next_prev_large]
 content_group: Query the Bitcoin blockchain
 ---
 
-# Set up compression and compress the dataset
+# Compress your data using $HYPERCORE 
 
-You have now seen how to create a hypertable for your Bitcoin dataset
-and query it for blockchain data. When ingesting a dataset like this
-is seldom necessary to update old data and over time the amount of
-data in the tables grows. Over time you end up with a lot of data and
-since this is mostly immutable you can compress it to save space and
+You have seen how to create a $HYPERTABLE for your Bitcoin dataset
+and query it for blockchain data. When ingesting a dataset like this, it
+is seldom necessary to update old data. Over time you end up with a lot of data,
+since this data is mostly immutable you can compress it to save space and
 avoid incurring additional cost.
 
 It is possible to use disk-oriented compression like the support
-offered by ZFS and Btrfs but since TimescaleDB is build for handling
-event-oriented data (such as time-series) it comes with support for
-compressing data in hypertables.
+offered by ZFS and Btrfs but since $TIMESCALE_DB is build for handling
+event-oriented data such as time-series, it comes with support to
+compress data in $HYPERTABLEs using [$HYPERCORE][hypercore].
 
-TimescaleDB compression allows you to store the data in a vastly more
+[$HYPERCORE_CAP][hypercore] enables you to store the data in a vastly more
 efficient format allowing up to 20x compression ratio compared to a
-normal PostgreSQL table, but this is of course highly dependent on the
+normal $PG table, but this is of course highly dependent on the
 data and configuration.
 
-TimescaleDB compression is implemented natively in PostgreSQL and does
+[$HYPERCORE_CAP][hypercore] is implemented natively in $PG and does
 not require special storage formats. Instead it relies on features of
-PostgreSQL to transform the data into columnar format before
+$PG to transform the data into columnar format before
 compression. The use of a columnar format allows better compression
 ratio since similar data is stored adjacently. For more details on how
-the compression format looks, you can look at the [compression
-design][compression-design] section.
+the compression format looks, see [$HYPERCORE][hypercore].
 
 A beneficial side-effect of compressing data is that certain queries
 are significantly faster since less data has to be read into
 memory.
 
+## Optimize your data in the $COLUMNSTORE
+
+To compress the data in the `transactions` table, do the following:
+
 <Procedure>
 
-## Compression setup
+1. Connect to your $SERVICE_LONG
 
-In the previous section you learned how to different queries on data
-in the `transactions` table, so if you want to compress the data that
-table, you follow these step:
+   In [$CONSOLE][services-portal] open an [SQL editor][in-console-editors]. The in-Console editors display the query speed.
+   You can also connect to your service using [psql][connect-using-psql].
 
-1.  Connect to the Timescale database that contains the Bitcoin
-    dataset using, for example `psql`.
 1.  Enable compression on the table and pick suitable segment-by and
     order-by column using the `ALTER TABLE` command:
 
@@ -65,7 +64,7 @@ table, you follow these step:
     more about how to pick the correct columns, see
     [here][segment-by-columns].
 
-1.  You can manually compress all the chunks of the hypertable using
+1.  You can manually compress all the chunks of the $HYPERTABLE using
     `compress_chunk` in this manner:
 
     ```sql
@@ -165,3 +164,7 @@ Try it yourself and see what you get!
 [automatic-compression]: /tutorials/:currentVersion:/blockchain-query/blockchain-compress/#add-a-compression-policy
 [compression-design]: /use-timescale/:currentVersion:/compression/compression-design/
 [add_compression_policy]: /api/:currentVersion:/compression/add_compression_policy/
+[hypercore]: /use-timescale/:currentVersion:/hypercore/
+[in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
+[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[connect-using-psql]: /integrations/:currentVersion:/psql#connect-to-your-service

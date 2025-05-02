@@ -7,7 +7,13 @@ import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intr
 
 <Procedure>
 
-1. To create a $HYPERTABLE to store the Bitcoin blockchain data, call [CREATE TABLE][hypertable-create-table]:
+1. Connect to your $SERVICE_LONG
+
+   In [$CONSOLE][services-portal] open an [SQL editor][in-console-editors]. The in-Console editors display the query speed.
+   You can also connect to your service using [psql][connect-using-psql].
+
+1.  Create a standard PostgreSQL table to store the Bitcoin blockchain data
+    using [CREATE TABLE][hypertable-create-table]:
 
     ```sql
     CREATE TABLE transactions (
@@ -60,3 +66,6 @@ import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intr
 
 [hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
 [indexing]: /use-timescale/:currentVersion:/schema-management/indexing/
+[in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
+[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[connect-using-psql]: /integrations/:currentVersion:/psql#connect-to-your-service
