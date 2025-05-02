@@ -1,7 +1,7 @@
 ---
 title: Integrate Kubernetes with Timescale Cloud
 excerpt: Learn how to integrate Kubernetes with Timescale Cloud to enable seamless deployment and scaling of your PostgreSQL workloads
-products: [cloud, mst, self_hosted]
+products: [cloud, self_hosted]
 keywords: [Kubernetes, Timescale Cloud, PostgreSQL, container orchestration]
 ---
 

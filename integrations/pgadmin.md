@@ -1,7 +1,7 @@
 ---
 title: Integrate pgAdmin with Timescale Cloud
 excerpt: pgAdmin is a feature-rich open-source administration and development platform for PostgreSQL. Integrate pgadmin with Timescale Cloud
-products: [cloud, mst, self_hosted]
+products: [cloud, self_hosted]
 keywords: [integrate]
 ---
 
