@@ -7,6 +7,7 @@ tags: [reorder]
 api:
   license: community
   type: function
+products: [cloud, mst, self_hosted]
 ---
 
 # add_reorder_policy() <Tag type="community">Community</Tag>

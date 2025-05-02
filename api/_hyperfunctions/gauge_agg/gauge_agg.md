@@ -65,5 +65,6 @@ api_details:
           FROM foo
           WHERE id = 'bar'
           GROUP BY time_bucket('1 day'::interval, ts)
+products: [cloud, mst, self_hosted]
 ---
 

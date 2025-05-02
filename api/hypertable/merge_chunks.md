@@ -6,6 +6,7 @@ keywords: [hypertables, chunk, merge]
 api:
   license: community
   type: procedure
+products: [cloud, mst, self_hosted]
 ---
 
 # merge_chunks()

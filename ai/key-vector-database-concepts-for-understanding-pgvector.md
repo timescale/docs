@@ -1,7 +1,7 @@
 ---
 title: Key vector database concepts for understanding pgvector
 excerpt: Learn the most important vector database concepts for understanding AI in PostgreSQL - pgvector, pgvectorscale, and pgai
-products: [cloud]
+products: [cloud, mst, self_hosted]
 keywords: [ai, vector, pgvector, pgvectorscale, pgai]
 tags: [ai, vector]
 ---

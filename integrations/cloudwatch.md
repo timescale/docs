@@ -2,6 +2,7 @@
 title: Integrate Amazon CloudWatch with Timescale Cloud
 excerpt: Amazon CloudWatch is a monitoring and observability service. Export telemetry data from your Timescale Cloud service with time-series and analytics capability to Amazon CloudWatch
 products: [cloud]
+price_plans: [scale, enterprise]
 keywords: [integrate]
 ---
 

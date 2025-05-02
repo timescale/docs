@@ -1,7 +1,7 @@
 ---
 title: FAQ and troubleshooting
 excerpt: Troubleshooting known issues in database migrations
-products: [cloud, self_hosted]
+products: [cloud, self_hosted, mst]
 keywords: [backups, restore]
 tags: [recovery, logical backup, pg_dump, pg_restore]
 ---

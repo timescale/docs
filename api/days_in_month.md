@@ -12,6 +12,7 @@ api:
     stable: 1.16.0
 hyperfunction:
   type: one-step operation
+products: [cloud, mst, self_hosted]
 ---
 
 # days_in_month() <Tag type="toolkit" content="Toolkit" />

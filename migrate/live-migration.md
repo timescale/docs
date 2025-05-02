@@ -1,7 +1,7 @@
 ---
 title: Live migration
 excerpt: Migrate your entire database to Timescale Cloud with low downtime
-products: [cloud]
+products: [cloud, mst, self_hosted]
 keywords: [migration, low-downtime, backup]
 tags: [recovery, logical backup, replication]
 ---

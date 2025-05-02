@@ -2,6 +2,7 @@
 title: Downsample
 excerpt: Downsample data to a smaller, representative subset
 keywords: [downsample, hyperfunctions, Toolkit]
+products: [cloud, mst, self_hosted]
 ---
 
 # Downsample

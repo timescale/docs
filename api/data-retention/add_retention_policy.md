@@ -7,6 +7,7 @@ tags: [hypertables, drop]
 api:
   license: community
   type: function
+products: [cloud, self_hosted, mst]
 ---
 
 # add_retention_policy() <Tag type="community">Community</Tag>

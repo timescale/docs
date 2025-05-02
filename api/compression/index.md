@@ -3,6 +3,7 @@ title: Compression
 excerpt: Timescale Cloud API reference for compressing your data. Includes SQL functions for compressing and decompressing chunks, managing compression policies, and getting compression stats
 keywords: [compression]
 tags: [hypertables]
+products: [cloud, mst, self_hosted]
 ---
 
 import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";

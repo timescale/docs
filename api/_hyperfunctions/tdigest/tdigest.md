@@ -51,5 +51,6 @@ api_details:
         `tdigest` using the `data` column. Use 100 buckets for the approximation.
       command:
         code: SELECT tdigest(100, data) FROM samples;
+products: [cloud, mst, self_hosted]
 ---
 

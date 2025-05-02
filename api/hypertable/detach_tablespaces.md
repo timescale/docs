@@ -6,6 +6,7 @@ keywords: [tablespaces, hypertables, detach]
 api:
   license: apache
   type: function
+products: [cloud, mst, self_hosted]
 ---
 
 # detach_tablespaces()
