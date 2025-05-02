@@ -1,5 +1,5 @@
 ---
-title: Analyze financial tick data - set up compression
+title: Compress your data using hypercore
 excerpt: Compress a sample dataset with Timescale Cloud to store the financial data more efficiently
 products: [cloud, mst, self_hosted]
 keywords: [tutorials, finance, learn]
@@ -8,69 +8,61 @@ layout_components: [next_prev_large]
 content_group: Analyze financial tick data
 ---
 
-# Set up compression and compress the dataset
+import TutorialsHypercoreIntro from "versionContent/_partials/_tutorials-hypercore-intro.mdx"
 
-You have now seen how to create a hypertable for your financial tick
-data and query it. When ingesting a dataset like this
-is seldom necessary to update old data and over time the amount of
-data in the tables grows. Over time you end up with a lot of data and
-since this is mostly immutable you can compress it to save space and
-avoid incurring additional cost.
+# Compress your data using $HYPERCORE
 
-It is possible to use disk-oriented compression like the support
-offered by ZFS and Btrfs but since TimescaleDB is build for handling
-event-oriented data (such as time-series) it comes with support for
-compressing data in hypertables.
+<TutorialsHypercoreIntro />
 
-TimescaleDB compression allows you to store the data in a vastly more
-efficient format allowing up to 20x compression ratio compared to a
-normal PostgreSQL table, but this is of course highly dependent on the
-data and configuration.
+## Optimize your data in the $COLUMNSTORE
 
-TimescaleDB compression is implemented natively in PostgreSQL and does
-not require special storage formats. Instead it relies on features of
-PostgreSQL to transform the data into columnar format before
-compression. The use of a columnar format allows better compression
-ratio since similar data is stored adjacently. For more details on how
-the compression format looks, you can look at the [compression
-design][compression-design] section.
-
-A beneficial side-effect of compressing data is that certain queries
-are significantly faster since less data has to be read into
-memory.
+To compress the data in the `crypto_ticks` table, do the following:
 
 <Procedure>
 
-## Compression setup
+1. Connect to your $SERVICE_LONG
 
-1.  Connect to the Timescale database that contains the financial tick
-    dataset using, for example `psql`.
-1.  Enable compression on the table and pick suitable segment-by and
+   In [$CONSOLE][services-portal] open an [SQL editor][in-console-editors]. The in-Console editors display the query speed.
+   You can also connect to your service using [psql][connect-using-psql].
+
+1.  Enable the $COLUMNSTORE on the table and pick suitable segment-by and
     order-by column using the `ALTER TABLE` command:
 
     ```sql
     ALTER TABLE crypto_ticks 
     SET (
-        timescaledb.compress, 
-        timescaledb.compress_segmentby='symbol', 
-        timescaledb.compress_orderby='time DESC'
+        timescaledb.enable_columnstore , 
+        timescaledb.segmentby='symbol', 
+        timescaledb.orderby='time DESC'
     );
-    ``` 
-    Depending on the choice if segment-by and order-by column you can
+    ```
+
+    Depending on the choice of `segmentby` and `orderby` column, you can
     get very different performance and compression ratio. To learn
     more about how to pick the correct columns, see
-    [here][segment-by-columns].
-1.  You can manually compress all the chunks of the hypertable using
-    `compress_chunk` in this manner:
+    [$HYPERCORE][hypercore].
 
-    ```sql
-    SELECT compress_chunk(c) from show_chunks('crypto_ticks') c;
-    ```
-    You can also [automate compression][automatic-compression] by
-    adding a [compression policy][add_compression_policy] which will
-    be covered below.
-1.  Now that you have compressed the table you can compare the size of
-    the dataset before and after compression:
+1. Convert data to the $COLUMNSTORE:
+
+   You can do this either automatically or manually:
+   - [Automatically convert chunks][add_columnstore_policy] in the $HYPERTABLE to the $COLUMNSTORE at a specific time interval:
+
+       ```sql 
+      CALL add_columnstore_policy('crypto_ticks', after => INTERVAL '1d');
+       ```
+
+   - [Manually convert all chunks][convert_to_columnstore] in the $HYPERTABLE to the $COLUMNSTORE:
+
+       ```sql
+       CALL convert_to_columnstore(c) from show_chunks('crypto_ticks') c;
+       ```
+     To manually move the data back to the $ROWSTORE:
+       ```sql
+       CALL convert_to_rowstore(c) from show_chunks('crypto_ticks') c;
+       ```
+
+1.  Now that you have converted the chunks in your $HYPERTABLE to the $COLUMNSTORE, compare the
+    size of the dataset before and after compression:
 
     ```sql
     SELECT 
@@ -78,7 +70,8 @@ memory.
         pg_size_pretty(after_compression_total_bytes) as after
      FROM hypertable_compression_stats('crypto_ticks');
     ```
-	This shows a significant improvement in data usage:
+
+    This shows a significant improvement in data usage:
 
     ```sql
     before | after 
@@ -89,68 +82,44 @@ memory.
 
 </Procedure>
 
-## Add a compression policy
 
-To avoid running the compression step each time you have some data to
-compress you can set up a compression policy. The compression policy
-allows you to compress data that is older than a particular age, for
-example, to compress all chunks that are older than 8 days:
+## Take advantage of query speedups
 
-```sql
-SELECT add_compression_policy('crypto_ticks', INTERVAL '8 days');
-```
+Previously, data in the $COLUMNSTORE was `segmentby` by the `block_id` column value.
+This means fetching data by filtering or grouping on that column is
+more efficient. Ordering is set to time descending. This means that when you run queries
+which try to order data in the same way, you see performance benefits.
 
-Compression policies run on a regular schedule, by default once every
-day, which means that you might have up to 9 days of uncompressed data
-with the setting above.
+<Procedure>
 
-You can find more information on compression policies in the
-[add_compression_policy][add_compression_policy] section.
+1. Connect to your $SERVICE_LONG
 
+   In [$CONSOLE][services-portal] open an [SQL editor][in-console-editors]. The in-Console editors display the query speed.
 
-## Taking advantage of query speedups
+1. Run the following query:
 
+   ```sql
+   SELECT
+       time_bucket('1 day', time) AS bucket,
+       symbol,
+       FIRST(price, time) AS "open",
+       MAX(price) AS high,
+       MIN(price) AS low,
+       LAST(price, time) AS "close",
+       LAST(day_volume, time) AS day_volume
+   FROM crypto_ticks
+   GROUP BY bucket, symbol;
+   ```
 
-Previously, compression was set up to be segmented by `symbol` column value.
-This means fetching data by filtering or grouping on that column will be 
-more efficient. Ordering is also set to time descending so if you run queries
-which try to order data with that ordering, you should see performance benefits. 
+   Performance speedup is of two orders of magnitude, around 15 ms when compressed in the $COLUMNSTORE and
+   1 second when decompressed in the $ROWSTORE.
 
-For instance, if you run the query example from previous section:
-```sql
-SELECT
-    time_bucket('1 day', time) AS bucket,
-    symbol,
-    FIRST(price, time) AS "open",
-    MAX(price) AS high,
-    MIN(price) AS low,
-    LAST(price, time) AS "close",
-    LAST(day_volume, time) AS day_volume
-FROM crypto_ticks
-GROUP BY bucket, symbol;
-```
-
-You should see a decent performance difference when the dataset is compressed and
-when is decompressed. Try it yourself by running the previous query, decompressing
-the dataset and running it again while timing the execution time. You can enable
-timing query times in psql by running:
-
-```sql
-    \timing
-```
-
-To decompress the whole dataset, run:
-```sql
-    SELECT decompress_chunk(c) from show_chunks('crypto_ticks') c;
-```
-
-On an example setup, speedup performance observed was significant,
-3.9 sec when compressed vs 5 sec when decompressed.
-
-Try it yourself and see what you get!
+</Procedure>
 
 
-[segment-by-columns]: /use-timescale/:currentVersion:/compression/about-compression/#segment-by-columns
-[automatic-compression]: /tutorials/:currentVersion:/financial-tick-data/financial-tick-compress/#add-a-compression-policy
-[compression-design]: /use-timescale/:currentVersion:/compression/compression-design/
-[add_compression_policy]: /api/:currentVersion:/compression/add_compression_policy/
+[hypercore]: /use-timescale/:currentVersion:/hypercore/
+[in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
+[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[connect-using-psql]: /integrations/:currentVersion:/psql#connect-to-your-service
+[add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/
+[convert_to_columnstore]: /api/:currentVersion:/hypercore/convert_to_columnstore/
