@@ -42,9 +42,15 @@ If the migration halts due to a failure, such as a misconfiguration of the sourc
 
 This flag ensures that the existing target objects created by the previous migration are dropped, allowing the migration to proceed without trouble.
 
-Here’s an example command to restart the migration:
+Note: This flag also requires you to manually recreate the TimescaleDB extension on the target.
+
+Here’s an example command sequence to restart the migration:
 
 ```shell
+psql $TARGET -c "DROP EXTENSION timescaledb CASCADE"
+
+psql $TARGET -c 'CREATE EXTENSION timescaledb VERSION "<desired version>"'
+
 docker run --rm -it --name live-migration-migrate \
     -e PGCOPYDB_SOURCE_PGURI=$SOURCE \
     -e PGCOPYDB_TARGET_PGURI=$TARGET \
@@ -54,6 +60,7 @@ docker run --rm -it --name live-migration-migrate \
 ```
 
 This approach provides a clean slate for the migration process while reusing the existing target instance.
+
 ### Inactive or lagging replication slots
 
 If you encounter an “Inactive or lagging replication slots” warning on your cloud provider console after using live-migration, it might be due to lingering replication slots created by the live-migration tool on your source database.
