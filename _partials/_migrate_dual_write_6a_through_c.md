@@ -33,11 +33,10 @@ The BETWEEN operator is inclusive of both the start and end ranges, so it is
 not recommended to use it.
 </Highlight>
 
-### 6c. Turn off compression policies in the target for the hypertable
-
-Compression policies must be turned off for the target hypertable while data is
-being backfilled. This prevents the compression policy from compressing chunks
-which are only half full.
+### 6c. Disable policies that compress data in the target hypertable
+ 
+While data is being backfilled, you must turn off $COLUMNSTORE or compression policies.
+This prevents the policy from compressing chunks which are only half full.
 
 In the following command, replace `<hypertable>` with the fully qualified table
 name of the target hypertable, for example `public.metrics`:
