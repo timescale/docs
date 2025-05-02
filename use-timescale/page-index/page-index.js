@@ -67,14 +67,14 @@ module.exports = [
             excerpt: "Automate",
           },
           {
-            title: "Modify data in hypercore",
-            href: "modify-data-in-hypercore",
-            excerpt: "Update data stored in the columnstore",
-          },
-          {
             title: "Improve query and upsert performance",
             href: "secondary-indexes",
             excerpt: "Automate",
+          },
+          {
+            title: "Modify data in hypercore (old API)",
+            href: "modify-data-in-hypercore",
+            excerpt: "Update data stored in the columnstore",
           },
           {
             title: "Troubleshooting",
