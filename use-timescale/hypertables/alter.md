@@ -28,12 +28,6 @@ default value, then adding a column is relatively fast. If you set the default
 to a non-null value, it takes longer, because it needs to fill in this value for
 all existing rows of all existing chunks.
 
-<Highlight type="important">
-You cannot add a column with constraints or defaults to a hypertable that has
-compression enabled. To add the column, you need to decompress the data in the
-hypertable, add the column, and then compress the data.
-</Highlight>
-
 ## Rename a hypertable
 
 You can change the name of a hypertable using the `ALTER TABLE` command. In this

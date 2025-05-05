@@ -11,7 +11,7 @@ tags: [jobs, scheduled jobs, background jobs, automation framework]
 Timescale natively includes some $JOB-scheduling policies, such as:
 
 *   [$CAGG_CAP policies][caggs] to automatically refresh $CAGGs
-*   [Compression policies][compressing] to compress historical data
+*   [Hypercore compression policies][compressing] to convert $CHUNKs to the $COLUMNSTORE
 *   [Retention policies][retention] to drop historical data
 *   [Reordering policies][reordering] to reorder data within $CHUNKs
 
@@ -24,13 +24,13 @@ In this section you:
 *   See the following examples:
     *   Set up a [generic data retention][generic-retention] policy that applies across all $HYPERTABLEs
     *   Implement [automatic moving of $CHUNKs between tablespaces][manage-storage]
-    *   Automatically [downsample and compress][downsample-compress] older $CHUNKs
+    *   Automatically [downsample and compress][downsample-compress] older $CHUNKs into the columnstore
 
 [create-jobs]: /use-timescale/:currentVersion:/jobs/create-and-manage-jobs/
 [downsample-compress]: /use-timescale/:currentVersion:/jobs/example-downsample-and-compress
 [generic-retention]: /use-timescale/:currentVersion:/jobs/example-generic-retention
 [manage-storage]: /use-timescale/:currentVersion:/jobs/example-tiered-storage/
 [caggs]: /use-timescale/:currentVersion:/continuous-aggregates/refresh-policies/
-[compressing]: /use-timescale/:currentVersion:/compression/
+[compressing]: /use-timescale/:currentVersion:/hypercore/
 [reordering]: /api/:currentVersion:/hypertable/add_reorder_policy/
 [retention]: /use-timescale/:currentVersion:/data-retention/create-a-retention-policy/
