@@ -72,7 +72,7 @@ You can also use the powerful [data mode][popsql] to connect and run queries on 
 
 Quick recap. You:
 - Manage your $SERVICE_SHORTs in the [$OPS_MODE][portal-ops-mode] in $CONSOLE: add $READ_REPLICAs and enable 
-  high availability, compress data into a columnstore, change parameters, and so on.
+  high availability, compress data into the $COLUMNSTORE, change parameters, and so on.
 - Analyze your data in the [$DATA_MODE][portal-data-mode] in $CONSOLE: write queries with
   autocomplete, save them in folders, share them, create charts/dashboards, and much more.
 - Store configuration and security information in your config file.

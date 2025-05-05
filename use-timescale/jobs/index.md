@@ -11,7 +11,7 @@ tags: [jobs, scheduled jobs, background jobs, automation framework]
 Timescale natively includes some $JOB-scheduling policies, such as:
 
 *   [$CAGG_CAP policies][caggs] to automatically refresh $CAGGs
-*   [Hypercore compression policies][compressing] to convert $CHUNKs to the columnstore
+*   [Hypercore compression policies][compressing] to convert $CHUNKs to the $COLUMNSTORE
 *   [Retention policies][retention] to drop historical data
 *   [Reordering policies][reordering] to reorder data within $CHUNKs
 
@@ -31,6 +31,6 @@ In this section you:
 [generic-retention]: /use-timescale/:currentVersion:/jobs/example-generic-retention
 [manage-storage]: /use-timescale/:currentVersion:/jobs/example-tiered-storage/
 [caggs]: /use-timescale/:currentVersion:/continuous-aggregates/refresh-policies/
-[compressing]: /use-timescale/:currentVersion:/compression/
+[compressing]: /use-timescale/:currentVersion:/hypercore/
 [reordering]: /api/:currentVersion:/hypertable/add_reorder_policy/
 [retention]: /use-timescale/:currentVersion:/data-retention/create-a-retention-policy/
