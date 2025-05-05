@@ -28,7 +28,7 @@ jobs:
           repo: timescale/web-documentation
           inputs: '{"branch": "${{ steps.timescale.outputs.DEV_FOLDER }}", "pr_number": "${{ env.PR_NUMBER }}"}'
           token: ${{ secrets.ORG_AUTOMATION_TOKEN }}
-          ref: "81bd1f438ef68a78828e9de11ec9611a572fd6e4"
+          ref: chore/deploy-by-workflow-dispatch
       # - name: Repository Dispatch
       #   uses: peter-evans/repository-dispatch@26b39ed245ab8f31526069329e112ab2fb224588
       #   with:
