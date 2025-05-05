@@ -1,5 +1,5 @@
 ---
-api_name: ALTER MATERIALIZED VIEW (Hypercore)
+api_name: ALTER MATERIALIZED VIEW (hypercore)
 excerpt: Change an existing continuous aggregate
 topics: [hypercore, continuous aggregates, columnstore,]
 keywords: [hypercore, continuous aggregates, columnstore, ]
@@ -12,7 +12,7 @@ api:
 import Since2180 from "versionContent/_partials/_since_2_18_0.mdx";
 import EarlyAccess from "versionContent/_partials/_early_access_2_18_0.mdx";
 
-# ALTER MATERIALIZED VIEW (Hypercore) <Tag type="community">Community</Tag>
+# ALTER MATERIALIZED VIEW ($HYPERCORE) <Tag type="community">Community</Tag>
 
 `ALTER MATERIALIZED VIEW` statement can be used to modify some of the `WITH`
 clause [options][create_materialized_view] for the continuous aggregate view.
@@ -41,7 +41,7 @@ continuous aggregate view:
 
    ```sql
     ALTER MATERIALIZED VIEW assets_candlestick_daily set (
-     timescaledb.enable_columnstore = true, 
+     timescaledb.enable_columnstore = true,
      timescaledb.segmentby = 'symbol' );
    ```
 
@@ -49,21 +49,6 @@ continuous aggregate view:
 
    ```sql
    ALTER MATERIALIZED VIEW contagg_view RENAME COLUMN old_name TO new_name;
-   ```
-
-- **Enable indexing on data in the columnstore** <EarlyAccess />
-
-   ```sql
-   ALTER MATERIALIZED VIEW assets_candlestick_daily 
-      set access method hypercore,
-      set (timescaledb.enable_columnstore = true, timescaledb.segmentby = 'symbol' );
-   ``` 
-
-- **Enable indexing on a chunk you are adding to the columnstore** <EarlyAccess />
-
-   ```sql
-   ALTER MATERIALIZED VIEW  _timescaledb_internal._hyper_1_21_chunk
-      set access method hypercore;
    ```
 
 The only options that currently can be modified with `ALTER
@@ -83,7 +68,6 @@ ALTER MATERIALIZED VIEW <view_name> SET (timescaledb.enable_columnstore,
    timescaledb.orderby = '<column_name> [ASC | DESC] [ NULLS { FIRST | LAST } ] [, ...]',
    timescaledb.segmentby = '<column_name> [, ...]',
    timescaledb.compress_chunk_time_interval='interval',
-   SET ACCESS METHOD { new_access_method | DEFAULT }
 );
 ```
 
@@ -96,7 +80,6 @@ ALTER MATERIALIZED VIEW <view_name> SET (timescaledb.enable_columnstore,
 | `timescaledb.segmentby`                        |TEXT| No segementation by column.                          | ✖| Set the list of columns used to segment data in the columnstore for `table`. An identifier representing the source of the data such as `device_id` or `tags_id` is usually a good candidate.                                                                                                                                                                                                                                                                                                                                    |
 | `column_name`                                  |TEXT| -                                                    | ✖ | The name of the column to `orderby` or `segmentby`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | `timescaledb.compress_chunk_time_interval`     |TEXT| -                                                    | ✖ | EXPERIMENTAL: reduce the total number of chunks in the columnstore for `table`. If you set `compress_chunk_time_interval`, chunks added to the columnstore are merged with the previous adjacent chunk within `chunk_time_interval` whenever possible. These chunks are irreversibly merged. If you call [convert_to_rowstore][convert_to_rowstore], merged chunks are not split up. You can call `compress_chunk_time_interval` independently of other compression settings; `timescaledb.enable_columnstore` is not required. |
-|`SET ACCESS METHOD`|TEXT| DEFAULT ([heap][default_table_access_method])| ✖| To enable indexing on the columstore, set to `hypercore` after you [create a continuous aggregate][create-cagg].    <EarlyAccess />                                                                                                                                                                                                                                                                                                                                                                                       |
 
 [create_materialized_view]: /api/:currentVersion:/continuous-aggregates/create_materialized_view/#parameters
 [postgres-alterview]: https://www.postgresql.org/docs/current/sql-alterview.html

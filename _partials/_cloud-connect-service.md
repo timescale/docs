@@ -9,9 +9,33 @@
 
 1. **Connect to your $SERVICE_SHORT**
 
-   Connect using SQL editor in $CONSOLE or with psql in the command line:
+   Connect using data mode or SQL editor in $CONSOLE, or psql in the command line:
 
    <Tabs label="Connect to your Timescale Cloud service">
+
+   <Tab title="Data mode in Console">
+
+   <Procedure>
+
+   1. In $CONSOLE, toggle `Data`. 
+
+   1. Select your $SERVICE_SHORT in the connection drop-down in the top right. 
+
+      ![Select a connection](https://assets.timescale.com/docs/images/data-mode-connection-dropdown.png)
+
+   1. Run a test query:
+
+      ```sql
+      SELECT CURRENT_DATE;
+      ```
+
+      This query gives you the current date, you have successfully connected to your $SERVICE_SHORT.
+
+   </Procedure>
+
+   And that is it, you are up and running. Enjoy developing with $COMPANY.
+
+   </Tab>
    
    <Tab title="SQL editor in Console">
 
@@ -55,7 +79,7 @@
       SELECT CURRENT_DATE;
       ```
 
-   This query returns the current date. You have successfully connected to your $SERVICE_SHORT.
+      This query returns the current date. You have successfully connected to your $SERVICE_SHORT.
 
    </Procedure>
 
@@ -66,9 +90,6 @@
    </Tabs>
 
 </Procedure>
- 
-
-You can also use the powerful [data mode][popsql] to connect and run queries on your service. 
 
 Quick recap. You:
 - Manage your $SERVICE_SHORTs in the [$OPS_MODE][portal-ops-mode] in $CONSOLE: add $READ_REPLICAs and enable 

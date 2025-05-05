@@ -20,7 +20,7 @@ import CaggsTypes from "versionContent/_partials/_caggs-types.mdx";
 ## Continuous aggregates on continuous aggregates
 
 You can create a continuous aggregate on top of another continuous aggregate.
-This allows you to summarize data at different granularities. For example, you
+This allows you to summarize data at different granularity. For example, you
 might have a raw hypertable that contains second-by-second data. Create a
 continuous aggregate on the hypertable to calculate hourly data. To calculate
 daily data, create a continuous aggregate on top of your hourly continuous
@@ -31,7 +31,7 @@ For more information, see the documentation about
 
 ## Continuous aggregates with a `JOIN` clause
 
-Continuous aggregates supports the following JOIN features: 
+Continuous aggregates support the following JOIN features: 
 
 | Feature | TimescaleDB < 2.10.x | TimescaleDB <= 2.15.x | TimescaleDB >= 2.16.x| 
 |-|-|-|-|
@@ -44,12 +44,12 @@ Continuous aggregates supports the following JOIN features:
 |Any join conditions|&#10060;|&#10060;|&#9989;|
 
 
-JOINS in TimescaleDB must that meet the following conditions:
+JOINS in TimescaleDB must meet the following conditions:
 
-*   Only changes to the hypertable are tracked, they are updated in the
+*   Only the changes to the hypertable are tracked, and they are updated in the
     continuous aggregate when it is refreshed. Changes to standard
     PostgreSQL table are not tracked.
-*   You can use an `INNER`, `LEFT` and `LATERAL` joins, no other join type is supported.
+*   You can use an `INNER`, `LEFT`, and `LATERAL` joins; no other join type is supported.
 *   Joins on the materialized hypertable of a continuous aggregate are not supported.
 *   Hierarchical continuous aggregates can be created on top of a continuous
     aggregate with a `JOIN` clause, but cannot themselves have a `JOIN` clauses.
@@ -79,7 +79,7 @@ CREATE TABLE conditions (
 SELECT create_hypertable('conditions', by_range('time'));
 ```
 
-See the following `JOIN` examples on Continuous Aggregates:
+See the following `JOIN` examples on continuous aggregates:
 
 - `INNER JOIN` on a single equality condition, using the `ON` clause:
 
@@ -186,7 +186,7 @@ and `AVG`, and non-parallelizable aggregates, such as `RANK`.
 In TimescaleDB&nbsp;2.10.0 and later, the `FROM` clause supports `JOINS`, with
 some restrictions. For more information, see the [`JOIN` support section][caggs-joins].
 
-In older versions of Timescale, continuous aggregates only support
+In older versions of TimescaleDB, continuous aggregates only support
 [aggregate functions that can be parallelized by PostgreSQL][postgres-parallel-agg].
 You can work around this by aggregating the other parts of your query in the
 continuous aggregate, then
