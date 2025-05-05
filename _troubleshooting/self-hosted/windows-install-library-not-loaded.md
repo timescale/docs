@@ -15,5 +15,5 @@ If you see a message saying that $PG cannot load the $TIMESCALE_DB library `time
 session to your self-hosted instance and create the `timescaledb` extension as the first command:  
 
 ```bash
-psql -X -d "postgres://<user>:<password>@<source host>:<source port>/<db_name>" -c "CREATE EXTENSION IF NOT EXISTS timescaledb;"
+psql -X -d "postgres://<user>:<password>@<source_host>:<source_port>/<db_name>" -c "CREATE EXTENSION IF NOT EXISTS timescaledb;"
 ```
