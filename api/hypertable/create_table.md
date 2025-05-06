@@ -13,59 +13,88 @@ import DimensionInfo from "versionContent/_partials/_dimension_info.mdx";
 
 # CREATE TABLE
 
-Create a standard $PG relational table or a [$HYPERTABLE][hypertable-docs] that is partitioned on a single dimension. 
+Create a [$HYPERTABLE][hypertable-docs] that is partitioned on a single dimension, or a standard $PG relational table. 
 
-A $HYPERTABLE is a specialized $PG table that automatically partitions your data by time. A dimension defines the 
-way your data is partitioned. All actions work on tables and $HYPERTABLEs. For example, `ALTER TABLE`, and `SELECT`.
+A $HYPERTABLE is a specialized $PG table that automatically partitions your data by time. All actions that work on a 
+$PG table, work on $HYPERTABLEs. For example, [ALTER TABLE][alter_table_hypercore], and [SELECT][sql-select].
+
+By default, you partition a $HYPERTABLE on the time dimension. To add secondary dimensions to a $HYPERTABLE, call    
+[add_dimension][add-dimension]. To improve performance and reduce costs on cooling data, enable [$COLUMNSTORE][setup-hypercore] 
+on your $HYPERTABLE.
+
+To convert an existing relational table into a $HYPERTABLE, call [create_hypertable][create_hypertable].
 
 `CREATE TABLE` extends the standard $PG [CREATE TABLE][pg-create-table]. This page explains the features and 
-arguments specific to $TIMESCALE_DB. To convert an existing relational table into a hypertable, call 
-[create_hypertable][create_hypertable].
-
-By default, creates default indexes on time/partitioning columns.
-
-clever stuff for hypertables, use /add_dimension/, partition table by_range or by_hash 
-clever stuff for hypercore, use /alter_table/
+arguments specific to $TIMESCALE_DB. 
 
 <Since2200 />
 
 ## Samples
 
-Yay,  more samples
+- Create a hypertable partitioned on the time dimension:
+
+   ```sql
+   CREATE TABLE my_hypertable IF NOT EXISTS  (
+      time        TIMESTAMPTZ       NOT NULL,
+      location    TEXT              NOT NULL,
+      device      TEXT              NOT NULL,
+      temperature DOUBLE PRECISION  NULL,
+      humidity    DOUBLE PRECISION  NULL
+   ) WITH (
+      tsdb.hypertable,
+      tsdb.time_column='time'
+   );
+   ```
+
+- Create a hypertable partitioned on the time with fewer chunks based on time interval:
+
+   ```sql
+   CREATE TABLE IF NOT EXISTS hypertable_control_chunk_interval(
+    time int4 NOT NULL, 
+    device text, 
+    value float
+   ) WITH (
+    tsdb.hypertable,
+    tsdb.time_column='time',
+    tsdb.chunk_time_interval=3453
+   );
+   ```
+
+- Create a $PG relational table
+   ```sql
+   CREATE TABLE IF NOT EXISTS relational_table(
+    device text, 
+    value float
+   );
+   ```
+
 
 ## Arguments
 
 The syntax is:
 
 ``` sql
-CREATE TABLE <table_name> SET (
-   Standard 
+CREATE TABLE <table_name> (
+   -- Standard PostgreSQL syntax for CREATE TABLE  
 ) 
 WITH (
-   timescaledb.hypertable = true | false
-   timescaledb.time_column = '<column_name> [, ...]',
-   timescaledb.enable_columnstore = true | false
+   tsdb.hypertable = true | false
+   tsdb.time_column = '<column_name> [, ...]',
+   tsdb.chunk_time_interval = '<interval>'
 )
 
 ```
 
+| Name                              | Type             | Default | Required | Description                                                                                                                                                                                                                                    |
+|-----------------------------------|------------------|---------|-|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `tsdb.hypertable`  |BOOLEAN| `true` | ✖ | Create a new [hypertable][hypertable-docs] for time-series data rather than a standard $PG relational table.                                                                                                                                   |
+| `tsdb.time_column`  |TEXT| `true` | ✖ | Set the time column to automatically partition your time-series data by.                                                                                                                                                                       |
+|`timescaledb.chunk_time_interval`|TEXT| - | ✖ | Early Access: reduce the total number of chunks for `<table_name>`. If you set `chunk_time_interval`, chunks are merged with the previous adjacent chunk within `chunk_time_interval` whenever possible. These chunks are irreversibly merged. |
 
-| Name                              | Type             | Default | Required | Description                                                                                                                                       |
-|-----------------------------------|------------------|---------|-|---------------------------------------------------------------------------------------------------------------------------------------------------|
-| `timescaledb.hypertable`  |BOOLEAN| `true` | ✖ | Make this new table a [hypertable][hypertable-docs].                                                                                              |
-| `timescaledb.time_column`  |TEXT| `true` | ✖ | Set the time column to automatically partition your time-series data by.                                                                          |
-| `timescaledb.enable_columnstore`  |BOOLEAN| `true` | ✖ | Enable columnstore.                                                                                                                               |
-
-
-<DimensionInfo />
 
 ## Returns
 
-|Column|Type| Description                                                                                                 |
-|-|-|-------------------------------------------------------------------------------------------------------------|
-|`hypertable_id`|INTEGER| The ID of the hypertable you created.                                                                   |
-|`created`|BOOLEAN| `TRUE` when the hypertable is created. `FALSE` when `if_not_exists` is `true` and no hypertable was created. |
-
+$TIMESCALE_DB returns a simple message indicating success or failure. 
 
 
 [pg-create-table]: https://www.postgresql.org/docs/current/sql-createtable.html
@@ -85,3 +114,7 @@ WITH (
 [sample-composite-columns]: /api/:currentVersion:/hypertable/create_table/#time-partition-a-hypertable-using-composite-columns-and-immutable-functions
 [sample-iso-formatting]: /api/:currentVersion:/hypertable/create_table/#time-partition-a-hypertable-using-iso-formatting
 [create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
+[alter_table_hypercore]: /api/:currentVersion:/hypercore/alter_table/
+[sql-select]:https://www.postgresql.org/docs/current/sql-select.html
+[add-dimension]: /api/:currentVersion:/hypertable/add_dimension/
+[setup-hypercore]: /use-timescale/:currentVersion:/hypercore/real-time-analytics-in-hypercore/
