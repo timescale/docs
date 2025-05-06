@@ -1,7 +1,7 @@
 ---
 title: Ingest data using Telegraf
 excerpt: Ingest data into a Timescale Cloud service using using the Telegraf plugin
-products: [cloud, mst, self_hosted]
+products: [cloud, self-hosted]
 keywords: [ingest, Telegraf]
 tags: [insert]
 ---

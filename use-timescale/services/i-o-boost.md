@@ -2,6 +2,7 @@
 title: I/O boost
 excerpt: Increase I/O and throughput to avoid performance bottlenecks and enhance scalability with I/O Boost
 products: [cloud]
+price_plans: [scale, enterprise]
 keywords: [io, io boost, performance]
 ---
 

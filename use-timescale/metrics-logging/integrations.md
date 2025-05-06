@@ -2,6 +2,7 @@
 title: Integrate Timescale services with third-party monitoring
 excerpt: Timescale Cloud integrates with all the same tools as PostgreSQL. Learn how to integrate with Datadog and Amazon Cloudwatch and export telemetry for your service
 products: [cloud]
+price_plans: [scale, enterprise]
 keywords: [integration, metrics, Datadog, Amazon CloudWatch]
 tags: [telemetry, monitor]
 cloud_ui:

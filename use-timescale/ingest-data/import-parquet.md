@@ -1,7 +1,7 @@
 ---
 title: Import data from Parquet
 excerpt: Ingest data into your Timescale Cloud service from an external Apache Parquet file
-products: [cloud]
+products: [cloud, self-hosted]
 keywords: [data migration]
 tags: [import, parquet]
 ---

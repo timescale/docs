@@ -1,7 +1,7 @@
 ---
 title: Point-in-time recovery
 excerpt: Going through a destructive event and need to recover your data? Restore your Timescale Cloud service to a previous state with point-in-time recovery
-products: [cloud]
+products: [cloud, mst, self_hosted]
 keywords: [restore, recovery, pitr]
 tags: [recovery, restore, pitr]
 ---
