@@ -13,7 +13,7 @@ import DimensionInfo from "versionContent/_partials/_dimension_info.mdx";
 
 # create_hypertable()
 
-<Deprecated2200 /> Replaced by <a href="https://docs.timescale.com/api/latest/hypertables/create_table/">create_table</a>.
+<Deprecated2200 /> Replaced by <a href="https://docs.timescale.com/api/latest/hypertables/create_table/">CREATE TABLE</a>.
 
 Replace a standard PostgreSQL relational table with a [hypertable][hypertable-docs]
 that is partitioned on a single dimension. 
@@ -43,8 +43,9 @@ The examples in this section show you how to:
 
 ### Time partition a hypertable by time range
 
-The following examples show different ways to convert the `conditions` relational table to a
-hypertable:
+### Time partition a hypertable by time range
+
+The following examples show different ways to create a hypertable:
 
 - Convert with range partitioning on the `time` column:
 

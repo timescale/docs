@@ -14,7 +14,7 @@ module.exports = [
         href: "hypertable",
         children: [
           {
-            title: "create_table",
+            title: "CREATE TABLE",
             href: "create_table",
           },
           {
