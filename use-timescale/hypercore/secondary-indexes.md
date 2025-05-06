@@ -94,7 +94,7 @@ However, consider the storage trade-off when:
 
 ## Enable secondary indexing
 
-To speed up your queries using secondary indexes, you enable $HYPERCORE TAM on your $HYPERTABLE in the $COLUMNSTORE:
+To speed up your queries using secondary indexes, you enable $HYPERCORE TAM on your $COLUMNSTORE policy:
 
 <Procedure>
 
@@ -120,37 +120,23 @@ To speed up your queries using secondary indexes, you enable $HYPERCORE TAM on y
    );
    ```
    
-1. **Enable $HYPERCORE TAM for the $HYPERTABLE**
-   ```sql
-   alter table readings
-   set access method hypercore
-   set (
-      timescaledb.orderby = 'created_at',
-      timescaledb.segmentby = 'location_id'
-   );
-   ```
-   This enables the $COLUMNSTORE on the table. $HYPERCORE_CAP TAM is applied to $CHUNKs created after you set the access 
-   method. Existing $CHUNKs continue to use the default `heap`. 
-
-   To return to the `heap` TAM, call `set access method heap`. You can also change the table access method for an 
-   existing $CHUNK with a call like `ALTER TABLE _timescaledb_internal._hyper_1_1_chunk SET ACCESS METHOD hypercore;`
-
 1. **Move $CHUNKs from $ROWSTORE to $COLUMNSTORE as they age**
 
    ```sql
    CALL add_columnstore_policy(
       readings,
-      interval '1 day'
+      interval '1 day',
+      hypercore_use_access_method => true
    );
    ```
 
 </Procedure>
 
-$HYPERCORE_CAP TAM is now active on all new $CHUNKs created in the $HYPERTABLE. 
+$HYPERCORE_CAP TAM is now active on all $COLUMNSTORE $CHUNKs in the $HYPERTABLE. 
 
 ## Create b-tree and hash indexes
 
-Once you have enabled $HYPERCORE TAM in your $HYPERTABLE, the indexes are rebuilt when the table $CHUNKs are converted from 
+Once you have enabled $HYPERCORE TAM in your policy, the indexes are rebuilt when the table $CHUNKs are converted from 
 the $ROWSTORE to the $COLUMNSTORE. When you query data, these indexes are used by the PostgreSQL query planner over the
 $ROWSTORE and $COLUMNSTORE.
 
