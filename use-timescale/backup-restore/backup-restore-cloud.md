@@ -1,7 +1,7 @@
 ---
 title: Backup and restore
 excerpt: See how and when Timescale Cloud backs up your data, making sure you always have something to fall back on in case of disaster recovery
-products: [cloud, mst, self_hosted]
+products: [cloud]
 keywords: [backups, restore]
 tags: [recovery, failures]
 ---

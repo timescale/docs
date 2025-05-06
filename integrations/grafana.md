@@ -1,7 +1,7 @@
 ---
 title: Integrate Grafana and Timescale Cloud
 excerpt: Grafana enables you to query, visualize, alert on, and explore your metrics, logs, and traces wherever they’re stored. Integrate Grafana with Timescale Cloud
-products: [cloud, self-hosted]
+products: [cloud, self_hosted]
 keywords: [Grafana, visualizations, analytics, monitoring]
 ---
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";

@@ -1,7 +1,7 @@
 ---
 title: Integrate Terraform with Timescale Cloud
 excerpt: Manage your Timescale Cloud services with a Terraform provider
-products: [cloud, self-hosted]
+products: [cloud, self_hosted]
 keywords: [Terraform, configuration, deployment]
 tags: [integrate]
 ---

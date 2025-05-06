@@ -1,7 +1,7 @@
 ---
 title: Read-only role
 excerpt: Timescale Cloud includes different levels of access to your services for enhanced security. Learn how to grant read-only access to your data in Timescale Console
-product: [cloud, mst, self_hosted]
+products: [cloud]
 keywords: [client credentials, accounts, users, members, read-only, security]
 tags: [authentication, credentials, members, security]
 ---

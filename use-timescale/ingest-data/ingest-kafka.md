@@ -1,7 +1,7 @@
 ---
 title: Ingest data using Kafka
 excerpt: Ingest data into your Timescale Cloud service using the PostgreSQL Kafka connector
-products: [cloud, self-hosted]
+products: [cloud, self_hosted]
 keywords: [ingest, Kafka]
 tags: [insert]
 ---

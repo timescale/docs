@@ -3,10 +3,10 @@ api_name: detach_tablespaces()
 excerpt: Detach all tablespaces from a hypertable
 topics: [hypertables]
 keywords: [tablespaces, hypertables, detach]
+products: [cloud, mst, self_hosted]
 api:
   license: apache
   type: function
-products: [cloud, mst, self_hosted]
 ---
 
 # detach_tablespaces()

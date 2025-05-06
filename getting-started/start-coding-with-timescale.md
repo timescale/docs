@@ -2,7 +2,7 @@
 title: Start coding with Timescale
 excerpt: Integrate Timescale Cloud with your app using your preferred programming language. Connect to a service, 
   create and manage hypertables, then and ingest and query data
-products: [cloud, self_hosted]
+products: [cloud, self_hosted, mst]
 content_group: Getting started
 ---
 
