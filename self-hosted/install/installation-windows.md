@@ -39,7 +39,9 @@ To keep your current PostgreSQL installation, [Install from source][install-from
 
 To install TimescaleDB on your Windows device, you need:
 
-* OpenSSL v3.x
+* OpenSSL v3.x 
+
+  For TimescaleDB v2.14.1 only, you need to install OpenSSL v1.1.1.
 * [Visual C++ Redistributable for Visual Studio 2015][ms-download]
 
 ## Install and configure TimescaleDB on PostgreSQL
@@ -67,7 +69,7 @@ And that is it! You have TimescaleDB running on a database on a self-hosted inst
 
 ## Supported platforms
 
-* The latest TimescaleDB releases for PostgreSQL 13, 14, 15, and 16 are:
+* The latest TimescaleDB releases for PostgreSQL are:
 
     *   <Tag type="download">
         [PostgreSQL 17: Timescale release](https://github.com/timescale/timescaledb/releases/latest/download/timescaledb-postgresql-17-windows-amd64.zip)
@@ -81,19 +83,17 @@ And that is it! You have TimescaleDB running on a database on a self-hosted inst
     *   <Tag type="download">
         [PostgreSQL 14: Timescale release](https://github.com/timescale/timescaledb/releases/latest/download/timescaledb-postgresql-14-windows-amd64.zip)
         </Tag>
-    *   <Tag type="download">
-        [PostgreSQL 13: Timescale release](https://github.com/timescale/timescaledb/releases/latest/download/timescaledb-postgresql-13-windows-amd64.zip)
-        </Tag>
 
 * TimescaleDB is supported on the following platforms:
 
-  *   Microsoft Windows&nbsp;10
-  *   Microsoft Windows&nbsp;11
-  *   Microsoft Windows Server&nbsp;2019
-
+  *   Microsoft Windows 10
+  *   Microsoft Windows 11
+  *   Microsoft Windows Server 2019
+  *   Microsoft Windows Server 2022
 
 For release information, see the [GitHub releases page][gh-releases] and the [release notes][release-notes].
-    
+
+
 [config]: /self-hosted/:currentVersion:/configuration/
 [gh-releases]: https://github.com/timescale/timescaledb/releases
 [ms-download]: https://www.microsoft.com/en-us/download/details.aspx?id=48145
