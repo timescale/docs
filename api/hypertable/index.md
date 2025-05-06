@@ -21,13 +21,31 @@ Best practice for using $HYPERTABLE is to:
 
 1. **Create a $HYPERTABLE**
    ```sql
-   IAIN: code example 
+   CREATE TABLE conditions (
+      time        TIMESTAMPTZ       NOT NULL,
+      location    TEXT              NOT NULL,
+      device      TEXT              NOT NULL,
+      temperature DOUBLE PRECISION  NULL,
+      humidity    DOUBLE PRECISION  NULL
+   ) WITH (
+      tsdb.hypertable,
+      tsdb.time_column='time'
+   );
    ```
-2. **Do something else**
+   
+1. **Enable $COLUMNSTORE**
    ```sql
-   IAIN: code example 
+   ALTER TABLE conditions SET (
+     timescaledb.enable_columnstore = true,
+     timescaledb.segmentby = 'device'
+   ); 
    ```
 
+1. **Set the $COLUMNSTORE policy**
+
+   ```sql
+   CALL add_columnstore_policy('conditions', after => INTERVAL '1d');
+   ```
 
 </Procedure> 
 
