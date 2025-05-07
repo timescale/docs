@@ -8,7 +8,7 @@ api:
   type: function
 ---
 
-import Since2200 from "versionContent/_partials/_since_2_18_0.mdx";
+import Since2200 from "versionContent/_partials/_since_2_20_0.mdx";
 import DimensionInfo from "versionContent/_partials/_dimension_info.mdx";
 
 # CREATE TABLE

@@ -8,7 +8,7 @@ api:
   type: function
 ---
 
-import Deprecated2200 from "versionContent/_partials/_deprecated_2_18_0.mdx";
+import Deprecated2200 from "versionContent/_partials/_deprecated_2_20_0.mdx";
 import DimensionInfo from "versionContent/_partials/_dimension_info.mdx";
 
 # create_hypertable()

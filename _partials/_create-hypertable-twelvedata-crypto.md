@@ -1,14 +1,9 @@
+import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intro.mdx";
+import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
 
 ## Optimize time-series data in a hypertable
 
-Hypertables are the core of $TIMESCALE_DB, they enable $CLOUD_LONG to work
-efficiently with time-series data. Hypertables are PostgreSQL tables that automatically 
-partition your time-series data by time. When you run a query, $CLOUD_LONG identifies the 
-correct partition and runs the query on it, instead of going through the entire table.
-
-Because $TIMESCALE_DB is 100% PostgreSQL, you can create standard PostgreSQL tables, indexes, stored 
-procedures, and other objects alongside your Timescale hypertables. This makes creating and working
-with hypertables similar to standard PostgreSQL.
+<HypertableIntro />
 
 <Procedure>
 
@@ -16,7 +11,7 @@ with hypertables similar to standard PostgreSQL.
 
    In [$CONSOLE][services-portal] open an [SQL editor][in-console-editors]. You can also connect to your service using [psql][connect-using-psql].
 
-1.  Create a standard PostgreSQL table to store the real-time cryptocurrency data:
+1. To create a $HYPERTABLE to store the real-time cryptocurrency data, call [CREATE TABLE][hypertable-create-table]:
 
     ```sql
     CREATE TABLE crypto_ticks (
@@ -24,18 +19,13 @@ with hypertables similar to standard PostgreSQL.
         symbol TEXT,
         price DOUBLE PRECISION,
         day_volume NUMERIC
+    ) WITH (
+       tsdb.hypertable,
+       tsdb.time_column='time'
     );
     ```
-
-1.  Convert the standard table into a hypertable partitioned on the `time`
-    column using the `create_hypertable()` function provided by Timescale. You
-    must provide the name of the table and the column in that table that holds
-    the timestamp data to use for partitioning:
-
-    ```sql
-    SELECT create_hypertable('crypto_ticks', by_range('time'));
-    ```
-
+   <OldCreateHypertable />
+   
 </Procedure>
 
 ## Create a standard PostgreSQL table for relational data
@@ -62,3 +52,4 @@ PostgreSQL table named `crypto_assets`.
 [in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
 [services-portal]: https://console.cloud.timescale.com/dashboard/services
 [connect-using-psql]: /integrations/:currentVersion:/psql
+[hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/

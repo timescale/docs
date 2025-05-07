@@ -1,16 +1,13 @@
 import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
+import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intro.mdx";
 
 ## Optimize time-series data in hypertables
 
-Hypertables are the core of Timescale. Hypertables enable Timescale to work
-efficiently with time-series data. Because Timescale is PostgreSQL, all the
-standard PostgreSQL tables, indexes, stored procedures and other objects can be
-created alongside your Timescale hypertables. This makes creating and working
-with Timescale tables similar to standard PostgreSQL.
+<HypertableIntro />
 
 <Procedure>
 
-1.  Create a $HYPERTABLE to store the Bitcoin blockchain data using `CREATE TABLE`:
+1. To create a $HYPERTABLE to store the Bitcoin blockchain data, call [CREATE TABLE][hypertable-create-table]:
 
     ```sql
     CREATE TABLE transactions (
@@ -42,6 +39,11 @@ with Timescale tables similar to standard PostgreSQL.
 
 1.  Create an index on the `block_id` column to make block-level queries faster:
 
+   When you create a $HYPERTABLE, it is partitioned on the time column. $TIMESCALE_DB
+   automatically creates an index on the time column. However, you'll often filter
+   your time-series data on other columns as well. You use [indexes][indexing] to improve
+   query performance.
+
     ```sql
     CREATE INDEX block_idx ON public.transactions (block_id);
     ```
@@ -53,12 +55,8 @@ with Timescale tables similar to standard PostgreSQL.
     CREATE UNIQUE INDEX time_hash_idx ON public.transactions (time, hash);
     ```
 
-<Highlight type="note">
-When you create a hypertable, it is automatically partitioned on the time column
-you provide as the second parameter to `create_hypertable()`. Also, Timescale
-automatically creates an index on the time column. However, you'll often filter
-your time-series data on other columns as well. Using indexes appropriately helps
-your queries perform better.
-</Highlight>
 
 </Procedure>
+
+[hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
+[indexing]: /use-timescale/:currentVersion:/schema-management/indexing/

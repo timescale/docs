@@ -1,11 +1,11 @@
-Time-series data represents how a system, process, or behavior changes over time. [Hypertables][hypertables-section] 
-are PostgreSQL tables that help you improve insert and query performance by automatically partitioning your data by 
-time, speeding up queries for real-time analytics and other challenging workloads. Each hypertable is made up of child 
-tables called chunks. Each chunk is assigned a range of time, and only contains data from that range. 
+import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
+import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intro.mdx";
+
+<HypertableIntro />
 
 <Procedure>
 
-1.  **Import time-series data into a hypertable**
+1.  **Import time-series data into a $HYPERTABLE**
 
     1. Unzip <Tag type="download">[metrics.csv.gz](https://assets.timescale.com/docs/downloads/metrics.csv.gz)</Tag> to a `<local folder>`.
        
@@ -23,7 +23,7 @@ tables called chunks. Each chunk is assigned a range of time, and only contains 
        psql -d "postgres://<username>:<password>@<host>:<port>/<database-name>?sslmode=require"
        ```
 
-    1. Create tables to import time-series data:
+    1. To create a $HYPERTABLE to store the time-series data, call [CREATE TABLE][hypertable-create-table]:
 
           1. In your sql client, create a normal PostgreSQL table:
 
@@ -32,26 +32,24 @@ tables called chunks. Each chunk is assigned a range of time, and only contains 
                created timestamp with time zone default now() not null,
                type_id integer                                not null,
                value   double precision                       not null
+             ) WITH (
+               tsdb.hypertable,
+               tsdb.time_column='created'
              );
              ```
+             <OldCreateHypertable />
 
-         1.  Convert `metrics` to a hypertable and partitioned on time:
-             ```sql
-             SELECT create_hypertable('metrics', by_range('created'));   
-             ```
-             To more fully understand how hypertables work, and how to optimize them for performance by
-             tuning chunk intervals and enabling chunk skipping, see [the hypertables documentation][hypertables-section].
+             To more fully understand how $HYPERTABLEs work, and how to optimize them for performance by
+             tuning chunk intervals and enabling chunk skipping, see [$HYPERTABLE][hypertables-section].
 
       1. Upload the dataset to your $SERVICE_SHORT
          ```sql
          \COPY metrics FROM metrics.csv CSV;
          ```
-      To more fully understand how hypertables work, and how to optimize them for performance by
-      tuning chunk intervals and enabling chunk skipping, see [the hypertables documentation][hypertables-section].
 
 1.  **Have a quick look at your data**
 
-    You query hypertables in exactly the same way as you would a relational PostgreSQL table.
+    You query $HYPERTABLEs in exactly the same way as you would a relational PostgreSQL table.
     Use one of the following SQL editors to run a query and see the data you uploaded:
        - **Data mode**:  write queries, visualize data, and share your results in [$CONSOLE][portal-data-mode] for all your $SERVICE_LONGs.
        - **SQL editor**: write, fix, and organize SQL faster and more accurately in [$CONSOLE][portal-ops-mode] for a $SERVICE_LONG.
@@ -83,4 +81,4 @@ tables called chunks. Each chunk is assigned a range of time, and only contains 
 [migrate-with-downtime]: /migrate/:currentVersion:/pg-dump-and-restore/
 [migrate-live]: /migrate/:currentVersion:/live-migration/
 [data-ingest]: /use-timescale/:currentVersion:/ingest-data/
-
+[hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
