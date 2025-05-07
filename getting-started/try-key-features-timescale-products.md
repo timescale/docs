@@ -7,6 +7,7 @@ content_group: Getting started
 
 import HASetup from 'versionContent/_partials/_high-availability-setup.mdx';
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
+import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
 
 # Try the key $COMPANY features
 
@@ -91,7 +92,7 @@ relational and time-series data from external files.
       
           - For the time-series data:
           
-             1. In your sql client, create a normal $PG table:
+             1. In your sql client, create a $HYPERTABLE table:
       
                 ```sql
                 CREATE TABLE crypto_ticks (
@@ -99,14 +100,16 @@ relational and time-series data from external files.
                   symbol TEXT,
                   price DOUBLE PRECISION,
                   day_volume NUMERIC
+                ) WITH (
+                   tsdb.hypertable,
+                   tsdb.time_column='time'
                 );
                 ```
-             1.  Convert `crypto_ticks` to a $HYPERTABLE:
-                ```sql
-                SELECT create_hypertable('crypto_ticks', by_range('time'));
-                ```
+                
+                <OldCreateHypertable />
+
                 To more fully understand how $HYPERTABLEs work, and how to optimize them for performance by
-                tuning $CHUNK intervals and enabling chunk skipping, see [the $HYPERTABLEs documentation][hypertables-section].
+                tuning $CHUNK intervals and enabling chunk skipping, see [$HYPERTABLEs][hypertables-section].
 
           - For the relational data:
       
