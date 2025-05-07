@@ -35,13 +35,22 @@ The [old interface for `create_hypertable` is also available](/api/:currentVersi
 
 ## Samples
 
-The examples in this section show you how to:
+Before you call `create_hypertable` you create a standard PostgreSQL relational table. For example: 
+
+```sql
+CREATE TABLE conditions (
+   time        TIMESTAMPTZ         NOT NULL,
+   location    text                NOT NULL,
+   temperature DOUBLE PRECISION    NULL
+);
+```
+
+The following examples show you how to create a hypertable from an existing table or a function:
 
 - [Time partition a hypertable by time range][sample-time-range]
 - [Time partition a hypertable using composite columns and immutable functions][sample-composite-columns]
 - [Time partition a hypertable using ISO formatting][sample-iso-formatting]
 
-### Time partition a hypertable by time range
 
 ### Time partition a hypertable by time range
 
