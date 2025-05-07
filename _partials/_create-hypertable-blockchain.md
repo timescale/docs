@@ -1,3 +1,4 @@
+import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
 
 ## Optimize time-series data in hypertables
 
@@ -9,8 +10,7 @@ with Timescale tables similar to standard PostgreSQL.
 
 <Procedure>
 
-1.  Create a standard PostgreSQL table to store the Bitcoin blockchain data
-    using `CREATE TABLE`:
+1.  Create a $HYPERTABLE to store the Bitcoin blockchain data using `CREATE TABLE`:
 
     ```sql
     CREATE TABLE transactions (
@@ -25,21 +25,13 @@ with Timescale tables similar to standard PostgreSQL.
        fee BIGINT,
        fee_usd DOUBLE PRECISION,
        details JSONB
+    ) WITH (
+       tsdb.hypertable,
+       tsdb.time_column='time'
     );
     ```
-
-1.  Convert the standard table into a hypertable partitioned on the `time`
-    column using the `create_hypertable()` function provided by Timescale. You
-    must provide the name of the table and the column in that table that holds
-    the timestamp data to use for partitioning:
-
-    ```sql
-    SELECT create_hypertable('transactions', by_range('time'));
-    ```
-
-	<Highlight type="note">
-	The `by_range` dimension builder is an addition to TimescaleDB 2.13.
-	</Highlight>
+                
+    <OldCreateHypertable />
 
 1.  Create an index on the `hash` column to make queries for individual
     transactions faster:

@@ -92,7 +92,7 @@ relational and time-series data from external files.
       
           - For the time-series data:
           
-             1. In your sql client, create a $HYPERTABLE table:
+             1. In your sql client, create a $HYPERTABLE:
       
                 ```sql
                 CREATE TABLE crypto_ticks (
