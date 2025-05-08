@@ -37,7 +37,7 @@ hypertable `time` column:
 |INT|INT|The same time unit as the `time` column|
 |BIGINT|BIGINT|The same time unit as the `time` column|
 
-For more information, see the [`create_hypertable` section][create-hypertable].
+For more information, see [hypertable partitioning][hypertable-partitioning].
 
 ## Optional arguments
 
@@ -64,4 +64,4 @@ UNIX epoch, set `chunk_time_interval` to 24 hours:
 SELECT set_chunk_time_interval('conditions', 86400000);
 ```
 
-[create-hypertable]: /api/:currentVersion:/hypertable/create_hypertable
+[hypertable-partitioning]: /use-timescale/:currentVersion:/hypertables/about-hypertables/#hypertable-partitioning
