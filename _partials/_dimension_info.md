@@ -153,11 +153,11 @@ CREATE TABLE conditions (
    humidity    DOUBLE PRECISION  NULL
 ) WITH (
    tsdb.hypertable,
-   tsdb.time_column='time'
+   tsdb.time_column='time',
+   tsdb.chunk_time_interval='1 day') 
 );
 
 SELECT add_dimension('conditions', by_hash('location', 2));
-SELECT add_dimension('conditions', by_range('time_received', INTERVAL '1 day'));
 ```
 
 ##### Arguments

@@ -142,7 +142,7 @@ machine learning models. You can also untegrate visualization tools like [Grafan
 [run-queries]: /getting-started/:currentVersion:/run-queries-from-console/
 [open-console]: https://console.cloud.timescale.com/dashboard/services
 [psql]: /integrations/:currentVersion:/psql/
-[about-hypertables]: /use-timescale/:currentVersion:/hypertables/about-hypertables/
+[about-hypertables]: /use-timescale/:currentVersion:/hypertables/
 [aws-notebooks-git-repos]:https://console.aws.amazon.com/sagemaker/home#/notebooks-and-git-repos
 [secure-vpc-aws]: /use-timescale/:currentVersion:/vpc/
 [connection-info]: /integrations/:currentVersion:/find-connection-details/

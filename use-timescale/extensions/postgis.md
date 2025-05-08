@@ -6,6 +6,8 @@ keywords: [services, settings, extensions, postgis]
 tags: [extensions, postgis]
 ---
 
+import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
+
 # The `postgis` extension
 
 The `postgis` PostgreSQL extension provides storing, indexing and querying
@@ -50,31 +52,26 @@ particular location.
     (6 rows)
     ```
 
-1.  Create a table named `covid_location`, where, `location` is a `GEOGRAPHY`
+1.  Create a hypertable named `covid_location`, where, `location` is a `GEOGRAPHY`
     type column that stores GPS coordinates using the 4326/WGS84 coordinate
     system, and `time` records the time the GPS coordinate was logged for a
-    specific `state_id`:
+    specific `state_id`. This hypertable is partitioned on the `time` column:
 
     ```sql
     CREATE TABLE covid_location (
-    time TIMESTAMPTZ NOT NULL,
-    state_id INT NOT NULL,
-    location GEOGRAPHY(POINT, 4326),
-    cases INT NOT NULL,
-    deaths INT NOT NULL 
+      time TIMESTAMPTZ NOT NULL,
+      state_id INT NOT NULL,
+      location GEOGRAPHY(POINT, 4326),
+      cases INT NOT NULL,
+      deaths INT NOT NULL 
+    ) WITH (
+      tsdb.hypertable,
+      tsdb.time_column='time',
     );
     ```
+    <OldCreateHypertable />
 
-1.  Convert the standard table into a hypertable partitioned on the `time` column
-    using the `create_hypertable()` function provided by Timescale. You must
-    provide the name of the table and the column in that table that holds the
-    timestamp data to use for partitioning:
-
-    ```sql
-    SELECT create_hypertable('covid_location', by_range('time'));
-    ```
-
-1.  Create an index on the `state_id` column, to support efficient queries:
+1. To support efficient queries, create an index on the `state_id` column, :
 
     ```sql
     CREATE INDEX ON covid_location (state_id, time DESC);

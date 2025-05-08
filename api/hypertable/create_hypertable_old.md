@@ -188,6 +188,6 @@ SELECT create_hypertable('events', 'event', time_partitioning_func => 'event_sta
 ```
 
 [create_distributed_hypertable]: /api/:currentVersion:/distributed-hypertables/create_distributed_hypertable
-[hash-partitions]: /use-timescale/:currentVersion:/hypertables/about-hypertables/#hypertable-partitioning
+[hash-partitions]: /use-timescale/:currentVersion:/hypertables/#hypertable-partitioning
 [hypertable-docs]: /use-timescale/:currentVersion:/hypertables/
 [api-create-hypertable]: /api/:currentVersion:/hypertable/create_hypertable/

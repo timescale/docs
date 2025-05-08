@@ -5,8 +5,8 @@ products: [cloud, mst, self_hosted]
 keywords: [IoT, simulate]
 ---
 
-import ImportPrerequisites from "versionContent/_partials/_migrate_import_prerequisites.mdx";
 import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
+import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
 
 # Simulate an IoT sensor dataset
 
@@ -19,9 +19,8 @@ To simulate a more advanced dataset, see [Time-series Benchmarking Suite (TSBS)]
 
 ## Prerequisites
 
-To follow this tutorial, you need to:
+<IntegrationPrereqs />
 
-- Create a target [Timescale Cloud service][create-a-service].
 - [Connect to your service][connect-to-service].
 
 ## Simulate a dataset
@@ -54,6 +53,7 @@ To simulate a dataset, run the following queries:
       tsdb.time_column='time'
     );
     ```
+    <OldCreateHypertable />
    
 1. **Populate the `sensors` table**:
 

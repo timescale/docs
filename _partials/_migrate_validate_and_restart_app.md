@@ -17,6 +17,6 @@
 1. Reconfigure your app to use the target database, then restart it.
 
 
-[about-hypertables]: /use-timescale/:currentVersion:/hypertables/about-hypertables/
+[about-hypertables]: /use-timescale/:currentVersion:/hypertables/
 [data-compression]: /use-timescale/:currentVersion:/hypercore/
 [data-retention]: /use-timescale/:currentVersion:/data-retention/about-data-retention/

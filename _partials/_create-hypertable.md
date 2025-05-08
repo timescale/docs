@@ -38,6 +38,6 @@ To create a hypertable:
 [install-psql]: /integrations/:currentVersion:/psql/
 [popsql]: /getting-started/:currentVersion:/run-queries-from-console/#data-mode
 [run-sqleditor]: /getting-started/:currentVersion:/run-queries-from-console/#sql-editor
-[hypertables]: /use-timescale/:currentVersion:/hypertables/about-hypertables/#hypertable-partitioning
+[hypertables]: /use-timescale/:currentVersion:/hypertables/#hypertable-partitioning
 
 [hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/

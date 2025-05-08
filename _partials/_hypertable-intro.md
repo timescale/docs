@@ -22,7 +22,7 @@ Inheritance is not supported for hypertables and may lead to unexpected behavior
 
 [chunk-skipping]: /use-timescale/:currentVersion:/hypertables/improve-query-performance/
 [hyperfunctions]: /use-timescale/:currentVersion:/hyperfunctions/
-[chunk-size]: /use-timescale/:currentVersion:/hypertables/change-chunk-intervals/
+[chunk-size]: /use-timescale/:currentVersion:/hypertables/improve-query-performance/#optimize-hypertable-chunk-intervals/
 [hypertable-indexes]: /use-timescale/:currentVersion:/hypertables/hypertables-and-unique-indexes/
 
 

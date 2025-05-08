@@ -10,7 +10,7 @@ import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypert
 
 # Migrate data to TimescaleDB from the same PostgreSQL instance
 
-You can migrate data into a $TIMESCALE_DB hypertable from a regular PostgreSQL
+You can migrate data into a $TIMESCALE_DB $HYPERTABLE from a regular PostgreSQL
 table. This method assumes that you have $TIMESCALE_DB set up in the same database
 instance as your existing table.
 
@@ -31,8 +31,9 @@ Migrate your data into $TIMESCALE_DB from within the same database.
 
 ## Migrating data
 
-1.  Create a new table based on your existing table. You can create your indexes
-    at the same time, so you don't have to recreate them manually. Or you can
+1.  Call [CREATE TABLE][hypertable-create-table] to make a new table based on your existing table.
+
+    You can create your indexes at the same time, so you don't have to recreate them manually. Or you can
     create the table without indexes, which makes data migration faster.
 
     <Terminal>
@@ -66,18 +67,6 @@ Migrate your data into $TIMESCALE_DB from within the same database.
 
     <OldCreateHypertable />
 
-1.  Convert the new table to a hypertable using the
-    [`create_hypertable`][create_hypertable] function. Replace `ts` with the
-    name of the column that holds time values in your table.
-
-    ```sql
-    SELECT create_hypertable('new_table', by_range('ts'));
-    ```
-
-    <Highlight type="note">
-    The `by_range` dimension builder is an addition to TimescaleDB 2.13.
-    </Highlight>
-
 1.  Insert data from the old table to the new table.
 
     ```sql
@@ -91,3 +80,4 @@ Migrate your data into $TIMESCALE_DB from within the same database.
 
 [create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
 [install]: /self-hosted/:currentVersion:/install/
+[hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/

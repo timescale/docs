@@ -13,39 +13,19 @@ module.exports = [
         href: "hypertables",
         children: [
           {
-            title: "About hypertables",
-            href: "about-hypertables",
-            excerpt: "Learn about hypertables in Timescale",
-          },
-          {
-            title: "Create hypertables",
-            href: "create",
+            title: "Optimize time-series data in hypertables",
+            href: "hypertable-crud",
             excerpt: "Create hypertables",
           },
           {
-            title: "Change hypertable chunk intervals",
-            href: "change-chunk-intervals",
-            excerpt: "Change and view chunk time intervals for a hypertable",
+            title: "Improve hypertable and query performance",
+            href: "improve-query-performance",
+            excerpt: "Tune hypertables to increase performance",
           },
           {
-            title: "Alter hypertables",
-            href: "alter",
-            excerpt: "Alter hypertables",
-          },
-          {
-            title: "Create unique indexes on hypertables",
+            title: "Enforce constraints with unique indexes",
             href: "hypertables-and-unique-indexes",
             excerpt: "Create hypertables with unique indexes",
-          },
-          {
-            title: "Improve query performance",
-            href: "improve-query-performance",
-            excerpt: "Skip chunks",
-          },
-          {
-            title: "Drop hypertables",
-            href: "drop",
-            excerpt: "Drop hypertables",
           },
           {
             title: "Troubleshoot hypertables",
@@ -568,15 +548,7 @@ module.exports = [
           {
             title: "Counter aggregation",
             href: "counter-aggregation",
-            type: "directory",
             excerpt: "Calculate statistics from gauges and counters",
-            children: [
-              {
-                title: "Counter aggregates",
-                href: "counter-aggs",
-                excerpt: "Learn about the counter aggregate hyperfunction",
-              },
-            ],
           },
           {
             title: "Time-weighted averages",

@@ -1,0 +1,102 @@
+---
+title: Optimize time-series data in hypertables
+excerpt: Hypertables are PostgreSQL tables designed with real-time analytics in mind. Create your first hypertable in Timescale Cloud
+products: [cloud, mst, self_hosted]
+keywords: [hypertables, create]
+---
+
+import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
+import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
+
+# Optimize time-series data in hypertables
+
+Hypertables are designed for real-time analytics, they are $PG tables that automatically partition your data by
+time. Typically, you partition hypertables on columns that hold time values.
+[Best practice is to use `timestamptz`][timestamps-best-practice] column type. However, you can also partition on `date`, `integer`
+and `timestamp` types.
+
+## Prerequisites
+
+<IntegrationPrereqs />
+
+
+## Create a hypertable
+
+To create your first hypertable using [CREATE TABLE][hypertable-create-table]:
+
+```sql
+CREATE TABLE conditions (
+   time        TIMESTAMPTZ       NOT NULL,
+   location    TEXT              NOT NULL,
+   device      TEXT              NOT NULL,
+   temperature DOUBLE PRECISION  NULL,
+   humidity    DOUBLE PRECISION  NULL
+) WITH (
+   tsdb.hypertable,
+   tsdb.time_column='time', 
+);
+```
+<OldCreateHypertable />
+
+To convert a existing table with data in it, call `create_hypertable` on that table with
+[`migrate_data` to `true`][api-create-hypertable-arguments]. However, if you have a lot of data, this may take a long time. For more information about migrating data, see
+[Migrate your data to Timescale Cloud][data-migration].
+
+## Alter a hypertable
+
+You can alter a hypertable, for example to add a column, by using the PostgreSQL
+[`ALTER TABLE`][postgres-altertable] command. This works for both regular and
+distributed hypertables.
+
+### Add a column to a hypertable
+
+To add a column to a hypertable using the `ALTER TABLE` command. In this
+example, the hypertable is named `conditions` and the new column is named
+`humidity`:
+
+```sql
+ALTER TABLE conditions
+  ADD COLUMN humidity DOUBLE PRECISION NULL;
+```
+
+If the column you are adding has the default value set to `NULL`, or has no
+default value, then adding a column is relatively fast. If you set the default
+to a non-null value, it takes longer, because it needs to fill in this value for
+all existing rows of all existing chunks.
+
+### Rename a hypertable
+
+You can change the name of a hypertable using the `ALTER TABLE` command. In this
+example, the hypertable is called `conditions`, and is being changed to the new
+name, `weather`:
+
+```sql
+ALTER TABLE conditions
+  RENAME TO weather;
+```
+
+## Drop a hypertable
+
+Drop a hypertable using a standard PostgreSQL [`DROP TABLE`][postgres-droptable]
+command:
+
+```sql
+DROP TABLE <TABLE_NAME>;
+```
+
+All data chunks belonging to the hypertable are deleted.
+
+[postgres-droptable]: https://www.postgresql.org/docs/current/sql-droptable.html
+
+
+
+[postgres-altertable]: https://www.postgresql.org/docs/current/sql-altertable.html
+[hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
+
+[install]: /getting-started/:currentVersion:/
+[postgres-createtable]: https://www.postgresql.org/docs/current/sql-createtable.html
+[postgresql-timestamp]: https://wiki.postgresql.org/wiki/Don't_Do_This#Don.27t_use_timestamp_.28without_time_zone.29
+[data-migration]: /migrate/:currentVersion:/
+[api-create-hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
+[api-create-hypertable-arguments]: /api/:currentVersion:/hypertable/create_hypertable/#arguments
+[timestamps-best-practice]: https://wiki.postgresql.org/wiki/Don't_Do_This#Don.27t_use_timestamp_.28without_time_zone.29

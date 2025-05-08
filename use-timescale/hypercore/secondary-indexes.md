@@ -308,5 +308,5 @@ Compared with using a sparse min/max index in $COLUMNSTORE, $COMPANY benchmarks 
 [storage-toast]: https://www.postgresql.org/docs/current/storage-toast.html
 [postgres-index-types]: https://www.timescale.com/learn/database-indexes-in-postgres
 [postgres-tam-methods]: https://www.postgresql.org/docs/current/tableam.html
-[convert-to-hypertable]: /use-timescale/:currentVersion:/hypertables/create/
+[convert-to-hypertable]: /use-timescale/:currentVersion:/hypertables/hypertable-crud/#create-a-hypertable
 [iops]: https://en.wikipedia.org/wiki/IOPS

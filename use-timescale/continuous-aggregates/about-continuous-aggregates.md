@@ -60,23 +60,24 @@ Given the following schema:
 
 ```sql
 CREATE TABLE locations (
-    id TEXT PRIMARY KEY,
-    name TEXT
+  id TEXT PRIMARY KEY,
+  name TEXT
 );
 
 CREATE TABLE devices (
-    id SERIAL PRIMARY KEY,
-    location_id TEXT,
-    name TEXT
+  id SERIAL PRIMARY KEY,
+  location_id TEXT,
+  name TEXT
 );
 
 CREATE TABLE conditions (
-    "time" TIMESTAMPTZ,
-    device_id INTEGER,
-    temperature FLOAT8
+  "time" TIMESTAMPTZ,
+  device_id INTEGER,
+  temperature FLOAT8
+) WITH (
+  tsdb.hypertable,
+  tsdb.time_column='time'
 );
-
-SELECT create_hypertable('conditions', by_range('time'));
 ```
 
 See the following `JOIN` examples on continuous aggregates:

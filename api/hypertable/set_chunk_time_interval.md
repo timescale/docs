@@ -64,4 +64,4 @@ UNIX epoch, set `chunk_time_interval` to 24 hours:
 SELECT set_chunk_time_interval('conditions', 86400000);
 ```
 
-[hypertable-partitioning]: /use-timescale/:currentVersion:/hypertables/about-hypertables/#hypertable-partitioning
+[hypertable-partitioning]: /use-timescale/:currentVersion:/hypertables/#hypertable-partitioning

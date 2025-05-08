@@ -106,5 +106,5 @@ Quick recap. You:
 [popsql]: /getting-started/:currentVersion:/run-queries-from-console/#data-mode
 [run-sqleditor]: /getting-started/:currentVersion:/run-queries-from-console/#sql-editor
 [install-psql]: /integrations/:currentVersion:/psql/
-[hypertables]: /use-timescale/:currentVersion:/hypertables/about-hypertables/#hypertable-partitioning
+[hypertables]: /use-timescale/:currentVersion:/hypertables/#hypertable-partitioning
 [psql]: /integrations/:currentVersion:/psql/
