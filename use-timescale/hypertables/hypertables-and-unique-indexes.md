@@ -5,6 +5,8 @@ products: [cloud, mst, self_hosted]
 keywords: [hypertables, unique indexes, primary keys]
 ---
 
+import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
+
 # Enforce constraints with unique indexes
 
 You use unique indexes on a $HYPERTABLE to enforce [constraints][constraints]. If you have a primary key, 
@@ -33,16 +35,17 @@ it must contain all the partitioning columns of the $HYPERTABLE. To create a uni
 
    For example:
       ```sql
-    CREATE TABLE hypertable_example(
-      time TIMESTAMPTZ,
-      user_id BIGINT,
-      device_id BIGINT,
-      value FLOAT
-    ) WITH (
-      tsdb.hypertable,
-      tsdb.time_column='time'
-    );
-    ```
+      CREATE TABLE hypertable_example(
+        time TIMESTAMPTZ,
+        user_id BIGINT,
+        device_id BIGINT,
+        value FLOAT
+      ) WITH (
+        tsdb.hypertable,
+        tsdb.time_column='time'
+      );
+      ```
+   <OldCreateHypertable />
 
 1. **Create a unique index on the $HYPERTABLE**
 

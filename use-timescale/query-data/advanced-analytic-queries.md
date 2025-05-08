@@ -5,6 +5,8 @@ products: [cloud, mst, self_hosted]
 keywords: [queries, hyperfunctions, analytics]
 ---
 
+import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
+
 # Perform advanced analytic queries
 
 You can use Timescale for a variety of analytical queries. Some of these
@@ -351,10 +353,13 @@ CREATE TABLE location (
   vehicle_id INTEGER REFERENCES vehicles (vehicle_id),
   latitude FLOAT,
   longitude FLOAT
+) WITH (
+  tsdb.hypertable,
+  tsdb.time_column='time'
 );
-
-SELECT create_hypertable('location', by_range('time'));
 ```
+
+<OldCreateHypertable />
 
 You can use the first table, which gives a distinct set of vehicles, to
 perform a `LATERAL JOIN` against the location table:
