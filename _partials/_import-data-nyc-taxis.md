@@ -47,10 +47,10 @@ import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intr
                tolls_amount NUMERIC,
                improvement_surcharge NUMERIC,
                total_amount NUMERIC
-               CREATE_DEFAULT_INDEXES false;
              ) WITH (
                tsdb.hypertable,
-               tsdb.time_column='pickup_datetime'
+               tsdb.time_column='pickup_datetime',
+               tsdb.create_default_indexes=false
              );
              ```
              <OldCreateHypertable />

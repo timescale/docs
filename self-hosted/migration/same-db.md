@@ -6,15 +6,17 @@ keywords: [data migration, PostgreSQL]
 tags: [import]
 ---
 
-# Migrate data to Timescale from the same PostgreSQL instance
+import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
 
-You can migrate data into a Timescale hypertable from a regular PostgreSQL
-table. This method assumes that you have Timescale set up in the same database
+# Migrate data to TimescaleDB from the same PostgreSQL instance
+
+You can migrate data into a $TIMESCALE_DB hypertable from a regular PostgreSQL
+table. This method assumes that you have $TIMESCALE_DB set up in the same database
 instance as your existing table.
 
 ## Prerequisites
 
-Before beginning, make sure you have [installed and set up][install] Timescale.
+Before beginning, make sure you have [installed and set up][install] $TIMESCALE_DB.
 
 You also need a table with existing data. In this example, the source table is
 named `old_table`. Replace the table name with your actual table name. The
@@ -23,7 +25,7 @@ a more descriptive name.
 
 ## Migrate data
 
-Migrate your data into Timescale from within the same database.
+Migrate your data into $TIMESCALE_DB from within the same database.
 
 <Procedure>
 
@@ -37,9 +39,12 @@ Migrate your data into Timescale from within the same database.
 
     <tab label="With indexes">
 
-    ```bash
+    ```sql
     CREATE TABLE new_table (
         LIKE old_table INCLUDING DEFAULTS INCLUDING CONSTRAINTS INCLUDING INDEXES
+    ) WITH (
+        tsdb.hypertable,
+        tsdb.time_column='<the name of the time column>'
     );
     ```
 
@@ -47,15 +52,19 @@ Migrate your data into Timescale from within the same database.
 
     <tab label="Without indexes">
 
-    ```bash
+    ```sql
     CREATE TABLE new_table (
         LIKE old_table INCLUDING DEFAULTS INCLUDING CONSTRAINTS EXCLUDING INDEXES
+    ) WITH (
+        tsdb.hypertable,
+        tsdb.time_column='<the name of the time column>'
     );
     ```
-
     </tab>
 
     </Terminal>
+
+    <OldCreateHypertable />
 
 1.  Convert the new table to a hypertable using the
     [`create_hypertable`][create_hypertable] function. Replace `ts` with the

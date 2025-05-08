@@ -34,11 +34,11 @@ same way. You use regular $PG tables for relational data,
         tip_amount NUMERIC,
         tolls_amount NUMERIC,
         improvement_surcharge NUMERIC,
-        total_amount NUMERIC,
-        CREATE_DEFAULT_INDEXES false;
+        total_amount NUMERIC
     ) WITH (
        tsdb.hypertable,
-       tsdb.time_column='pickup_datetime'
+       tsdb.time_column='pickup_datetime',
+       tsdb.create_default_indexes=false
     );
     ```
     <OldCreateHypertable />
