@@ -15,8 +15,8 @@ To save on storage costs, you use $HYPERCORE to downsample historical data store
 are compressed as they are converted from the $ROWSTORE to the $COLUMNSTORE.
 
 $COLUMNSTORE_CAP works in the same way on [$HYPERTABLEs and $CAGGs][hypercore]. When you enable
-$COLUMNSTORE with no other options, your data is [segmentby][alter_materialized_view_arguments] the group by columns 
-in the $CAGG, and [orderby][alter_materialized_view_arguments] the time column. [Real-time aggregation][real-time-aggregates]
+$COLUMNSTORE with no other options, your data is [segmented by][alter_materialized_view_arguments] the `groupby` columns 
+in the $CAGG, and [ordered by][alter_materialized_view_arguments] the time column. [Real-time aggregation][real-time-aggregates]
 is disabled by default.
 
 <Since2200 /> For the old API, see <a href="https://docs.timescale.com/use-timescale/latest/compression/compression-on-continuous-aggregates/">Compress continuous aggregates</a>.
@@ -29,12 +29,12 @@ For an [existing $CAGG][create-cagg]:
 
 1. **Enable $COLUMNSTORE on a $CAGG**
 
-   To enable or disable compression on a $CAGG, set `timescaledb.enable_columnstore` when you alter the view.
+   To enable the $COLUMNSTORE compression on a $CAGG, set `timescaledb.enable_columnstore = true` when you alter the view:
 
    ```sql
    ALTER MATERIALIZED VIEW <cagg_name> set (timescaledb.enable_columnstore = true,);
    ```
-   To Disable $COLUMNSTORE, set  `timescaledb.enable_columnstore = false`.
+   To disable the $COLUMNSTORE compression, set  `timescaledb.enable_columnstore = false`:
 
    IAIN: there was a note here saying this does not work on CAGGS with compressed chunks
 
@@ -42,7 +42,7 @@ For an [existing $CAGG][create-cagg]:
 
 1. **Set $COLUMNSTORE policies on the $CAGG**
 
-   Before you setup a $COLUMNSTORE policy on a $CAGG, you first set the [refresh policy][refresh-policy]. To 
+   Before you set up a $COLUMNSTORE policy on a $CAGG, you first set the [refresh policy][refresh-policy]. To 
    prevent refresh policies from failing, you set the $COLUMNSTORE policy interval so that actively 
    refreshed regions are not compressed. For example: 
 

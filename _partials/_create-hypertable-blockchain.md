@@ -1,7 +1,7 @@
 
 ## Optimize time-series data using hypertables
 
-$HYPERTABLE_CAP are the core of $TIMESCALE_DB. $HYPERTABLE_CAP enable $TIMESCALE_DB to work
+$HYPERTABLE_CAPs are the core of $TIMESCALE_DB. $HYPERTABLE_CAPs enable $TIMESCALE_DB to work
 efficiently with time-series data. Because $TIMESCALE_DB is a $PG extension, all the
 standard $PG tables, indexes, stored procedures and other objects can be
 created alongside your $TIMESCALE_DB $HYPERTABLE. This makes creating and working

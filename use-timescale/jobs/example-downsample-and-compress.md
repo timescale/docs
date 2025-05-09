@@ -19,7 +19,7 @@ arbitrarily complex.
 
 1.  **Create a procedure to downsample chunks and convert them to columnstore**
 
-    This procedure that first queries the $CHUNKs of a $HYPERTABLE to
+    This procedure first queries the $CHUNKs of a $HYPERTABLE to
     determine if they are older than the `lag` parameter. The $HYPERTABLE in this
     example is named `metrics`. If the $CHUNK is not already compressed,
     downsample it by taking the average of the raw data. Then compress by converting to
