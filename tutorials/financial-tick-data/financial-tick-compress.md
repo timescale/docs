@@ -25,8 +25,8 @@ To compress the data in the `crypto_ticks` table, do the following:
    In [$CONSOLE][services-portal] open an [SQL editor][in-console-editors]. The in-Console editors display the query speed.
    You can also connect to your service using [psql][connect-using-psql].
 
-1.  Enable the $COLUMNSTORE on the table and pick suitable segment-by and
-    order-by column using the `ALTER TABLE` command:
+1.  Enable the $COLUMNSTORE on the table and pick suitable columns to segment by and
+    order by using `ALTER TABLE`:
 
     ```sql
     ALTER TABLE crypto_ticks 
