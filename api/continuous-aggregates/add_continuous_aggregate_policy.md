@@ -36,11 +36,10 @@ depending on the type of the time column of the hypertable:
     `INTEGER` type.
 
 <Highlight type="important">
-While setting `end_offset` to `NULL` is possible, it is not recommended. By
-default, querying a continuous aggregate returns data between `end_offset` and
-the current time. There is no need to set `end_offset` to `NULL`. To learn more
-about how continuous aggregates use real-time aggregation, see the
-[real-time aggregation section](/use-timescale/:currentVersion:/continuous-aggregates/real-time-aggregates/).
+
+While setting `end_offset` to `NULL` is possible, it is not recommended. To include the data between `end_offset` and
+the current time in queries, enable [real-time aggregation](/use-timescale/:currentVersion:/continuous-aggregates/real-time-aggregates/).
+
 </Highlight>
 
 ## Optional arguments

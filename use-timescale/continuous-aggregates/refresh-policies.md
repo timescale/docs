@@ -16,7 +16,7 @@ you can also refresh it manually.
 Continuous aggregates require a policy for automatic refreshing. You can adjust
 this to suit different use cases. For example, you can have the continuous
 aggregate and the hypertable stay in sync, even when data is removed from the
-hypertable, or you could keep source data in the continuous aggregate even after
+hypertable. Alternatively, you could keep source data in the continuous aggregate even after
 it is removed from the hypertable.
 
 You can change the way your continuous aggregate is refreshed by calling 
@@ -30,15 +30,15 @@ Among others, `add_continuous_aggregate_policy` takes the following arguments:
 *   `schedule_interval`: the refresh interval in minutes or hours. Defaults to
     24 hours.
 
-If you set the `start_offset` or `end_offset` to `NULL`, the range is open-ended
-and extends to the beginning or end of time. 
+Note the following:
 
-If you set `end_offset` within the current time bucket, this bucket is excluded. This is done for the following reasons:
+- If you set the `start_offset` or `end_offset` to `NULL`, the range is open-ended and extends to the beginning or end of time. 
+- If you set `end_offset` within the current time bucket, this bucket is excluded from materialization. This is done for the following reasons:
 
-- The current bucket is incomplete and can't be refreshed. 
-- The current bucket gets lots of writes in the time-stamp order and its aggregate becomes outdated very quickly. Excluding it improves performance. 
+  - The current bucket is incomplete and can't be refreshed. 
+  - The current bucket gets a lot of writes in the time-stamp order, and its aggregate becomes outdated very quickly. Excluding it improves performance. 
 
-To include the current time bucket, enable [real-time aggregation][future-watermark]. In Timescale&nbsp;2.13 and later, it is disabled by default.
+  To include the latest raw data in queries, enable [real-time aggregation][future-watermark]. 
 
 See the [API reference][api-reference] for the full list of required and optional arguments and use examples.
 
@@ -117,10 +117,10 @@ The `refresh` command takes three arguments:
 *   The timestamp of the beginning of the refresh window
 *   The timestamp of the end of the refresh window
 
-Only buckets that are wholly within the range specified are refreshed. For
+Only buckets that are wholly within the specified range are refreshed. For
 example, if you specify `2021-05-01', '2021-06-01` the only buckets that are
 refreshed are those up to but not including 2021-06-01. It is possible to
-specify NULL in a manual refresh to get an open-ended range, but we do not
+specify `NULL` in a manual refresh to get an open-ended range, but we do not
 recommend using it, because you could inadvertently materialize a large amount
 of data, slow down your performance, and have unintended consequences on other
 policies like data retention.
@@ -137,13 +137,7 @@ policies like data retention.
 
 </Procedure>
 
-Avoid refreshing time intervals that are likely to have a lot of writes. In
-general, this means you should never refresh the most recent time bucket.
-Because the of constant change in the underlying data, they are unlikely to
-produce accurate aggregates. Additionally, refreshing this data slows down the
-ingest rate of the hypertable due to write amplification. If you want to include
-the latest bucket in your queries,
-use [real-time aggregation][real-time-aggregates] instead.
+Follow the logic used by automated refresh policies and avoid refreshing time buckets that are likely to have a lot of writes. This means that you should generally not refresh the latest incomplete time bucket. To include the latest raw data in your queries, use [real-time aggregation][real-time-aggregates] instead.
 
 [cagg-drop-data]: /use-timescale/:currentVersion:/continuous-aggregates/drop-data
 [future-watermark]: /use-timescale/:currentVersion:/continuous-aggregates/troubleshooting/#continuous-aggregate-watermark-is-in-the-future

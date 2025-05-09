@@ -25,6 +25,7 @@ In this section you see how to:
 *   Implement [automatic moving of $CHUNKs between tablespaces][manage-storage]
 *   Automatically [downsample and compress][downsample-compress] older $CHUNKs
 
+
 [create-jobs]: /use-timescale/:currentVersion:/jobs/create-and-manage-jobs/
 [downsample-compress]: /use-timescale/:currentVersion:/jobs/example-downsample-and-compress
 [generic-retention]: /use-timescale/:currentVersion:/jobs/example-generic-retention

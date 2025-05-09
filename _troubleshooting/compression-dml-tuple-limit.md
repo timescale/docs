@@ -25,7 +25,7 @@ tags: [hypertables, compression, insert, update, delete]
 * Copy this comment at the top of every troubleshooting page
 -->
 
-When inserting, updating, or deleting tuples from compressed chunks it might be necessary to decompress tuples. This happens either when you are updating existing tuples or have constraints that need to be verified during insert time. If you happen to trigger a lot of decompression with a single command, you may end up running out of storage space. For this reason, a limit has been put in place on the number of tuples you can decompress for a single command.
+When inserting, updating, or deleting tuples from chunks in the columnstore, it might be necessary to convert tuples to the rowstore. This happens either when you are updating existing tuples or have constraints that need to be verified during insert time. If you happen to trigger a lot of rowstore conversion with a single command, you may end up running out of storage space. For this reason, a limit has been put in place on the number of tuples you can decompress into the rowstore for a single command.
 
 The limit can be increased or turned off (set to 0) like so:
 

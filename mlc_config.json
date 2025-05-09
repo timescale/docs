@@ -81,6 +81,9 @@
     },
     {
       "pattern": "^https://azure.microsoft.com/en-us/products/data-studio"
+    },
+    {
+      "pattern": "^https://azure.microsoft.com/en-gb/"
     }
   ]
 }

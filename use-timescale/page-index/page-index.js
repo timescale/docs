@@ -67,7 +67,7 @@ module.exports = [
             excerpt: "Automate",
           },
           {
-            title: "Modify data in Hypercore",
+            title: "Modify data in hypercore",
             href: "modify-data-in-hypercore",
             excerpt: "Update data stored in the columnstore",
           },
@@ -128,7 +128,7 @@ module.exports = [
             excerpt: "Manage materialized hypertables in continuous aggregates",
           },
           {
-            title: "Real time aggregates",
+            title: "Real-time aggregates",
             href: "real-time-aggregates",
             excerpt: "Manage real time aggregates in continuous aggregates",
           },
