@@ -15,7 +15,7 @@ All the latest features and updates to Timescale products.
 
 pgai vectorizer now supports automatic document vectorization. This makes it dramatically easier to build RAG and semantic search applications on top of unstructured data stored in Amazon S3. With just a SQL command, developers can create, update, and synchronize vector embeddings from a wide range of document formats—including PDFs, DOCX, XLSX, HTML, and more—without building or maintaining complex ETL pipelines.
 
-Instead of juggling multiple systems and syncing metadata,  Vectorizer handles the entire process: downloading documents from S3, parsing them, chunking text, and generating vector embeddings stored right in Postgres via pgvector. As documents change, embeddings stay up-to-date automatically—keeping your Postgres database the single source of truth for both structured and semantic data.
+Instead of juggling multiple systems and syncing metadata, vectorizer handles the entire process: downloading documents from S3, parsing them, chunking text, and generating vector embeddings stored right in PostgreSQL using pgvector. As documents change, embeddings stay up-to-date automatically—keeping your PostgreSQL database the single source of truth for both structured and semantic data.
 
 ![image](https://github.com/user-attachments/assets/e0145c4b-bc29-4077-8991-fd63d09547cb)
 
