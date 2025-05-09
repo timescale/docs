@@ -8,6 +8,19 @@ keywords: [changelog, upgrades, updates, releases]
 
 All the latest features and updates to Timescale products.
 
+## 🤖 Automatic document embeddings from S3 and Sample dataset for AI testing
+<Label type="date">May 09, 2025</Label>
+
+### Automatic document embeddings from S3
+
+Timescale’s  Vectorizer now supports automatic document vectorization, making it dramatically easier to build RAG and semantic search applications on top of unstructured data stored in Amazon S3. With just a SQL command, developers can create, update, and synchronize vector embeddings from a wide range of document formats—including PDFs, DOCX, XLSX, HTML, and more—without building or maintaining complex ETL pipelines.
+
+Instead of juggling multiple systems and syncing metadata,  Vectorizer handles the entire process: downloading documents from S3, parsing them, chunking text, and generating vector embeddings stored right in Postgres via pgvector. As documents change, embeddings stay up-to-date automatically—keeping your Postgres database the single source of truth for both structured and semantic data.
+
+### Sample dataset for AI testing
+
+We enable users in the console to import a dataset directly from Hugging Face, based on GitHub docs on pgai. This dataset is ideal for testing vectorizers and can be found in the Import Data page under the Service > Actions tab.
+
 ## 🔁 Livesync for S3 and passwordless connections for data mode
 <Label type="date">April 25, 2025</Label>
 
