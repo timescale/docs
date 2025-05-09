@@ -102,7 +102,7 @@ relational and time-series data from external files.
                   day_volume NUMERIC
                 ) WITH (
                    tsdb.hypertable,
-                   tsdb.time_column='time'
+                   tsdb.partition_column='time'
                 );
                 ```
                 

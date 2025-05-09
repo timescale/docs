@@ -40,8 +40,8 @@ The following example shows how this works:
      temperature INT NOT NULL
    WITH (
       tsdb.hypertable,
-      tsdb.time_column='day',
-      tsdb.chunk_time_interval='1 day'
+      tsdb.partition_column='day',
+      tsdb.chunk_interval='1 day'
    );
    ```
    <OldCreateHypertable />

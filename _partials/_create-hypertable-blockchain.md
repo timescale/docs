@@ -24,7 +24,7 @@ import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intr
        details JSONB
     ) WITH (
        tsdb.hypertable,
-       tsdb.time_column='time'
+       tsdb.partition_column='time'
     );
     ```
                 

@@ -50,7 +50,7 @@ To simulate a dataset, run the following queries:
       FOREIGN KEY (sensor_id) REFERENCES sensors (id)
     ) WITH (
       tsdb.hypertable,
-      tsdb.time_column='time'
+      tsdb.partition_column='time'
     );
     ```
     <OldCreateHypertable />

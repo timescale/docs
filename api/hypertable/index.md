@@ -29,7 +29,7 @@ Best practice for using $HYPERTABLE is to:
       humidity    DOUBLE PRECISION  NULL
    ) WITH (
       tsdb.hypertable,
-      tsdb.time_column='time'
+      tsdb.partition_column='time'
    );
    ```
    

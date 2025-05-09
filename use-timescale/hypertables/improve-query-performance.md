@@ -30,11 +30,11 @@ Adjusting your hypertable chunk interval can improve performance in your databas
    The default chunk interval is 7 days. You can set a custom interval when create a hypertable.
    Best practice is that prior to processing, one chunk of data takes up 25% of main memory, including the indexes
    from each active hypertable. For example, if you write approximately 2 GB of data per day to a database with 64
-   GB of memory, set chunk_time_interval to 1 week. If you write approximately 10 GB of data per day on the same
+   GB of memory, set `chunk_interval` to 1 week. If you write approximately 10 GB of data per day on the same
    machine, set the time interval to 1 day. For more information, see [best practices for time partitioning][best-practices].
 
    In the following example you create a table called `conditions` that stores time values in the
-   `time` column and has chunks that store data for a `chunk_time_interval` of one day:
+   `time` column and has chunks that store data for a `chunk_interval` of one day:
 
    ```sql
    CREATE TABLE conditions (
@@ -45,8 +45,8 @@ Adjusting your hypertable chunk interval can improve performance in your databas
       humidity    DOUBLE PRECISION  NULL
    ) WITH (
       tsdb.hypertable,
-      tsdb.time_column='time',
-      tsdb.chunk_time_interval='1 day'
+      tsdb.partition_column='time',
+      tsdb.chunk_interval='1 day'
    );
    ```
 
@@ -83,7 +83,7 @@ Adjusting your hypertable chunk interval can improve performance in your databas
 
    The updated chunk interval only applies to new chunks. This means setting an overly long
    interval might take a long time to correct. For example, if you set
-   `chunk_time_interval` to 1 year and start inserting data, you can no longer
+   `chunk_interval` to 1 year and start inserting data, you can no longer
    shorten the chunk for that year. If you need to correct this situation, create a
    new hypertable and migrate your data.
 
@@ -171,3 +171,5 @@ PostgreSQL planner to create the best query plan. For more information about the
 [chunk-skipping]: /use-timescale/:currentVersion:/hypertables/improve-query-performance/#enable-chunk-skipping
 [chunk-intervals]: /use-timescale/:currentVersion:/hypertables/improve-query-performance/#optimize-hypertable-chunk-intervals
 [analyze-hypertables]: /use-timescale/:currentVersion:/hypertables/improve-query-performance/#analyze-your-hypertables
+[chunks_detailed_size]: /api/:currentVersion:/hypertable/chunks_detailed_size
+[pg-analyze]: https://www.postgresql.org/docs/current/sql-analyze.html

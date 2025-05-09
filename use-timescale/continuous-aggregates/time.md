@@ -77,8 +77,8 @@ provide the chunk time interval. In this case, each chunk is 10 minutes.
       PRIMARY KEY (time)
     ) WITH (
       tsdb.hypertable,
-      tsdb.time_column='time',
-      tsdb.chunk_time_interval='10'
+      tsdb.partition_column='time',
+      tsdb.chunk_interval='10'
     );
     ```
 

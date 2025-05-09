@@ -48,7 +48,7 @@ arguments specific to $TIMESCALE_DB.
       humidity    DOUBLE PRECISION  NULL
    ) WITH (
       tsdb.hypertable,
-      tsdb.time_column='time'
+      tsdb.partition_column='time'
    );
    ```
 
@@ -61,8 +61,8 @@ arguments specific to $TIMESCALE_DB.
     value float
    ) WITH (
     tsdb.hypertable,
-    tsdb.time_column='time',
-    tsdb.chunk_time_interval=3453
+    tsdb.partition_column='time',
+    tsdb.chunk_interval=3453
    );
    ```
 
@@ -85,8 +85,8 @@ CREATE TABLE <table_name> (
 ) 
 WITH (
    tsdb.hypertable = true | false
-   tsdb.time_column = '<column_name> [, ...]',
-   tsdb.chunk_time_interval = '<interval>'
+   tsdb.partition_column = '<column_name> [, ...]',
+   tsdb.chunk_interval = '<interval>'
    tsdb.create_default_indexes =  true | false
    tsdb.associated_schema = '<schema_name> [, ...]',
    tsdb.associated_table_prefix = '<prefix> [, ...]'
@@ -96,9 +96,9 @@ WITH (
 | Name                           | Type             | Default  | Required                                                    | Description                                                                                                                                                                                                                               |
 |--------------------------------|------------------|----------|-------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `tsdb.hypertable`              |BOOLEAN| `true`   | ✖                                                           | Create a new [hypertable][hypertable-docs] for time-series data rather than a standard $PG relational table.                                                                                                                              |
-| `tsdb.time_column`             |TEXT| `true`   | ✖                                                           | Set the time column to automatically partition your time-series data by.                                                                                                                                                                  |
-| `tsdb.chunk_time_interval`     |TEXT| `7 days` | ✖                                                           | Change this to better suit your needs. For example, if you set `chunk_time_interval` to 1 day, each chunk stores data from the same day. Data from different days is stored in different chunks.                                          |
-| `tsdb.create_default_indexes`  | BOOLEAN | `true`   | ✖                                                           | Set to `false` to not automatically create indexes. <br/> The default indexes are: <ul><li>On all hypertables, a descending index on `time_column`</li><li>On hypertables with space partitions, an index on the space parameter and `time_column`</li></ul> |
+| `tsdb.partition_column`             |TEXT| `true`   | ✖                                                           | Set the time column to automatically partition your time-series data by.                                                                                                                                                                  |
+| `tsdb.chunk_interval`     |TEXT| `7 days` | ✖                                                           | Change this to better suit your needs. For example, if you set `chunk_interval` to 1 day, each chunk stores data from the same day. Data from different days is stored in different chunks.                                          |
+| `tsdb.create_default_indexes`  | BOOLEAN | `true`   | ✖                                                           | Set to `false` to not automatically create indexes. <br/> The default indexes are: <ul><li>On all hypertables, a descending index on `partition_column`</li><li>On hypertables with space partitions, an index on the space parameter and `partition_column`</li></ul> |
 | `tsdb.associated_schema`       |REGCLASS| `_timescaledb_internal` |  ✖  | Set the schema name for internal hypertable tables.                                                                                                                                                                                       |
 | `tsdb.associated_table_prefix` |TEXT|`_hyper`| ✖  | Set the prefix for the names of internal hypertable chunks.                                                                                                                                                                               |
 
@@ -119,7 +119,7 @@ $TIMESCALE_DB returns a simple message indicating success or failure.
 [inheritance]: https://www.postgresql.org/docs/current/ddl-partitioning.html#DDL-PARTITIONING-USING-INHERITANCE
 [migrate-data]: /api/:currentVersion:/hypertable/create_table/#arguments
 [dimension-info]: /api/:currentVersion:/hypertable/create_table/#dimension-info
-[chunk_time_interval]: /api/:currentVersion:/hypertable/set_chunk_time_interval/
+[chunk_interval]: /api/:currentVersion:/hypertable/set_chunk_time_interval/
 [about-constraints]: /use-timescale/:currentVersion:/schema-management/about-constraints
 [share-row-exclusive]: https://www.postgresql.org/docs/current/sql-lock.html
 [by-range]: /api/:currentVersion:/hypertable/create_table/#by_range

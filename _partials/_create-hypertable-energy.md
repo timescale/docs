@@ -16,7 +16,7 @@ import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intr
         value   double precision                       not null
     ) WITH (
        tsdb.hypertable,
-       tsdb.time_column='time'
+       tsdb.partition_column='time'
     );
     ```
 

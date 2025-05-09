@@ -38,7 +38,7 @@ insert data from a time range that doesn't yet have a chunk, $TIMESCALE_DB
 automatically creates a chunk to store it.
 
 By default, each chunk covers 7 days. You can change this to better suit your
-needs. For example, if you set `chunk_time_interval` to 1 day, each chunk stores
+needs. For example, if you set `chunk_interval` to 1 day, each chunk stores
 data from the same day. Data from different days is stored in different chunks.
 
 The following figure shows the difference in structure between a relational table and a hypertable:
@@ -46,7 +46,7 @@ The following figure shows the difference in structure between a relational tabl
 ![Compare a relational table to a hypertable](https://assets.timescale.com/docs/images/getting-started/hypertables-chunks.webp)
 
 $TIMESCALE_DB divides time into potential chunk ranges, based on the
-`chunk_time_interval`. If data exists for a potential chunk range, that chunk is
+`chunk_interval`. If data exists for a potential chunk range, that chunk is
 created.
 
 In practice, this means that the start time of your earliest chunk does not
@@ -63,10 +63,10 @@ to fit into memory so you can insert and query recent data without
 reading from disk. However, having too many small and sparsely filled chunks can
 affect query planning time and compression.
 
-Best practice is to set `chunk_time_interval` so that prior to processing, one chunk of data
+Best practice is to set `chunk_interval` so that prior to processing, one chunk of data
 takes up 25% of main memory, including the indexes from each active $HYPERTABLE.
 For example, if you write approximately 2 GB of data per day to a database with 64 GB of
-memory, set `chunk_time_interval` to 1 week. If you write approximately 10 GB of data per day
+memory, set `chunk_interval` to 1 week. If you write approximately 10 GB of data per day
 on the same machine, set the time interval to 1 day.
 
 For a detailed analysis of how to optimize your chunk sizes, see the

@@ -47,7 +47,7 @@ Create a by-range dimension builder. You can partition `by_range` on it's own.
       humidity    DOUBLE PRECISION  NULL
    ) WITH (
       tsdb.hypertable,
-      tsdb.time_column='time'
+      tsdb.partition_column='time'
    );
    ```
    
@@ -153,8 +153,8 @@ CREATE TABLE conditions (
    humidity    DOUBLE PRECISION  NULL
 ) WITH (
    tsdb.hypertable,
-   tsdb.time_column='time',
-   tsdb.chunk_time_interval='1 day') 
+   tsdb.partition_column='time',
+   tsdb.chunk_interval='1 day') 
 );
 
 SELECT add_dimension('conditions', by_hash('location', 2));

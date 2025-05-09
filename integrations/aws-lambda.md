@@ -47,7 +47,7 @@ Create a table in $SERVICE_LONG to store time-series data.
      value DOUBLE PRECISION NOT NULL
    ) WITH (
      tsdb.hypertable,
-     tsdb.time_column='time'
+     tsdb.partition_column='time'
    );
    ```
    <OldCreateHypertable />   

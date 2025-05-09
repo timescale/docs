@@ -37,7 +37,7 @@ same way. You use regular $PG tables for relational data,
         total_amount NUMERIC
     ) WITH (
        tsdb.hypertable,
-       tsdb.time_column='pickup_datetime',
+       tsdb.partition_column='pickup_datetime',
        tsdb.create_default_indexes=false
     );
     ```

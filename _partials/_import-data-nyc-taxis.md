@@ -49,7 +49,7 @@ import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intr
                total_amount NUMERIC
              ) WITH (
                tsdb.hypertable,
-               tsdb.time_column='pickup_datetime',
+               tsdb.partition_column='pickup_datetime',
                tsdb.create_default_indexes=false
              );
              ```

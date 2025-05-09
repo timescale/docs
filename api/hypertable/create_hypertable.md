@@ -62,7 +62,7 @@ The following examples show different ways to create a hypertable:
   SELECT create_hypertable('conditions', by_range('time'));
   ```
 
-- Convert with a [chunk_time_interval][chunk_time_interval] of 24 hours:
+- Convert with a [set_chunk_time_interval][set_chunk_time_interval] of 24 hours:
   Either:
   ```sql
   SELECT create_hypertable('conditions', by_range('time', 86400000000));
@@ -151,7 +151,7 @@ SELECT create_hypertable('events', by_range('event', partition_func => 'event_st
 [inheritance]: https://www.postgresql.org/docs/current/ddl-partitioning.html#DDL-PARTITIONING-USING-INHERITANCE
 [migrate-data]: /api/:currentVersion:/hypertable/create_hypertable/#arguments
 [dimension-info]: /api/:currentVersion:/hypertable/create_hypertable/#dimension-info
-[chunk_time_interval]: /api/:currentVersion:/hypertable/set_chunk_time_interval/
+[set_chunk_time_interval]: /api/:currentVersion:/hypertable/set_chunk_time_interval/
 [about-constraints]: /use-timescale/:currentVersion:/schema-management/about-constraints
 [share-row-exclusive]: https://www.postgresql.org/docs/current/sql-lock.html
 [by-range]: /api/:currentVersion:/hypertable/create_hypertable/#by_range

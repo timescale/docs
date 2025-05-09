@@ -76,7 +76,7 @@ CREATE TABLE conditions (
   temperature FLOAT8
 ) WITH (
   tsdb.hypertable,
-  tsdb.time_column='time'
+  tsdb.partition_column='time'
 );
 ```
 

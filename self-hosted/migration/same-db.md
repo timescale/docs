@@ -45,7 +45,7 @@ Migrate your data into $TIMESCALE_DB from within the same database.
         LIKE old_table INCLUDING DEFAULTS INCLUDING CONSTRAINTS INCLUDING INDEXES
     ) WITH (
         tsdb.hypertable,
-        tsdb.time_column='<the name of the time column>'
+        tsdb.partition_column='<the name of the time column>'
     );
     ```
 
@@ -58,7 +58,7 @@ Migrate your data into $TIMESCALE_DB from within the same database.
         LIKE old_table INCLUDING DEFAULTS INCLUDING CONSTRAINTS EXCLUDING INDEXES
     ) WITH (
         tsdb.hypertable,
-        tsdb.time_column='<the name of the time column>'
+        tsdb.partition_column='<the name of the time column>'
     );
     ```
     </tab>

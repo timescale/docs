@@ -31,7 +31,7 @@ CREATE TABLE conditions (
     PRIMARY KEY(time, device_id)
 ) WITH (
     tsdb.hypertable,
-    tsdb.time_column='time'
+    tsdb.partition_column='time'
 );
 ```
 

@@ -42,7 +42,7 @@ it must contain all the partitioning columns of the $HYPERTABLE. To create a uni
         value FLOAT
       ) WITH (
         tsdb.hypertable,
-        tsdb.time_column='time'
+        tsdb.partition_column='time'
       );
       ```
    <OldCreateHypertable />

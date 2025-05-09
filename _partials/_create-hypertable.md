@@ -23,7 +23,7 @@ To create a hypertable:
       day_volume INT NULL
     ) WITH (
        tsdb.hypertable,
-       tsdb.time_column='time'
+       tsdb.partition_column='time'
     );
     ```
    <OldCreateHypertable />
