@@ -127,7 +127,7 @@ You may also wish to consider taking advantage of some of Timescale's killer
 features, such as:
 - [retention policies] to automatically drop unneeded data
 - [tiered storage] to automatically move data to Timescale's low-cost bottomless object storage tier
-- [hypercore] reduce the size of your hypertables by compressing data in the columnstore
+- [hypercore] to reduce the size of your hypertables by compressing data in the columnstore
 - [continuous aggregates] to write blisteringly fast aggregate queries on your data
 
 [time-series data]: /getting-started/:currentVersion:/try-key-features-timescale-products/#optimize-time-series-data-in-hypertables

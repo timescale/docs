@@ -85,7 +85,7 @@ To compress the data in the `crypto_ticks` table, do the following:
 
 ## Take advantage of query speedups
 
-Previously, data in the $COLUMNSTORE was `segmentby` by the `block_id` column value.
+Previously, data in the $COLUMNSTORE was segmented by by the `block_id` column value.
 This means fetching data by filtering or grouping on that column is
 more efficient. Ordering is set to time descending. This means that when you run queries
 which try to order data in the same way, you see performance benefits.
