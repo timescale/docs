@@ -17,9 +17,13 @@ Timescale’s  Vectorizer now supports automatic document vectorization, making 
 
 Instead of juggling multiple systems and syncing metadata,  Vectorizer handles the entire process: downloading documents from S3, parsing them, chunking text, and generating vector embeddings stored right in Postgres via pgvector. As documents change, embeddings stay up-to-date automatically—keeping your Postgres database the single source of truth for both structured and semantic data.
 
+![image](https://github.com/user-attachments/assets/e0145c4b-bc29-4077-8991-fd63d09547cb)
+
 ### Sample dataset for AI testing
 
 We enable users in the console to import a dataset directly from Hugging Face, based on GitHub docs on pgai. This dataset is ideal for testing vectorizers and can be found in the Import Data page under the Service > Actions tab.
+
+![image](https://github.com/user-attachments/assets/7f12a091-3d71-41a6-8ebf-3ce4b88da869)
 
 ## 🔁 Livesync for S3 and passwordless connections for data mode
 <Label type="date">April 25, 2025</Label>
