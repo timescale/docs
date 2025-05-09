@@ -11,8 +11,8 @@ on the data and configuration.
 [$HYPERCORE_CAP][hypercore] is implemented natively in $PG and does not require special storage
 formats. When you convert your data from the $ROWSTORE to the $COLUMNSTORE, $TIMESCALE_DB uses
 $PG features to transform the data into columnar format. The use of a columnar format allows a better
-compression ratio since similar data is stored adjacently. For more details on how
-the compression format looks, see [$HYPERCORE][hypercore].
+compression ratio since similar data is stored adjacently. For more details on the columnar format, 
+see [$HYPERCORE][hypercore].
 
 A beneficial side effect of compressing data is that certain queries are significantly faster, since
 less data has to be read into memory.
