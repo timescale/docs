@@ -23,7 +23,7 @@ Instead of juggling multiple systems and syncing metadata, vectorizer handles th
 
 We enable users in the console to import a dataset directly from Hugging Face, based on GitHub docs on pgai. This dataset is ideal for testing vectorizers and can be found in the Import Data page under the Service > Actions tab.
 
-![image](https://github.com/user-attachments/assets/7f12a091-3d71-41a6-8ebf-3ce4b88da869)
+![image](https://assets.timescale.com/docs/images/console-import-huggingface-data.png)
 
 ## 🔁 Livesync for S3 and passwordless connections for data mode
 <Label type="date">April 25, 2025</Label>
