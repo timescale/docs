@@ -8,7 +8,7 @@ keywords: [changelog, upgrades, updates, releases]
 
 All the latest features and updates to Timescale products.
 
-## 🤖 Automatic document embeddings from S3 and Sample dataset for AI testing
+## 🤖 Automatic document embeddings from S3 and a sample dataset for AI testing
 <Label type="date">May 09, 2025</Label>
 
 ### Automatic document embeddings from S3
