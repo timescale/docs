@@ -72,11 +72,6 @@ module.exports = [
             excerpt: "Automate",
           },
           {
-            title: "Modify data in hypercore (old API)",
-            href: "modify-data-in-hypercore",
-            excerpt: "Update data stored in the columnstore",
-          },
-          {
             title: "Troubleshooting",
             href: "troubleshooting",
             type: "placeholder",
