@@ -21,7 +21,7 @@ Instead of juggling multiple systems and syncing metadata, vectorizer handles th
 
 ### Sample dataset for AI testing
 
-We enable users in the console to import a dataset directly from Hugging Face, based on GitHub docs on pgai. This dataset is ideal for testing vectorizers and can be found in the Import Data page under the Service > Actions tab.
+You can now import a dataset directly from Hugging Face using Timescale Console. This dataset is ideal for testing vectorizers, you find it in the Import Data page under the Service > Actions tab.
 
 ![image](https://assets.timescale.com/docs/images/console-import-huggingface-data.png)
 
