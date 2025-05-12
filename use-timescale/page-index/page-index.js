@@ -113,7 +113,7 @@ module.exports = [
               "Manage automatic index creation and manually create additional indexes",
           },
           {
-            title: "Time in continuous aggregates",
+            title: "Time and continuous aggregates",
             href: "time",
             excerpt: "Manage time in continuous aggregates",
           },
