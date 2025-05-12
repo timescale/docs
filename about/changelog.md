@@ -8,6 +8,63 @@ keywords: [changelog, upgrades, updates, releases]
 
 All the latest features and updates to Timescale products.
 
+## 🤖 Automatic document embeddings from S3 and a sample dataset for AI testing
+<Label type="date">May 09, 2025</Label>
+
+### Automatic document embeddings from S3
+
+pgai vectorizer now supports automatic document vectorization. This makes it dramatically easier to build RAG and semantic search applications on top of unstructured data stored in Amazon S3. With just a SQL command, developers can create, update, and synchronize vector embeddings from a wide range of document formats—including PDFs, DOCX, XLSX, HTML, and more—without building or maintaining complex ETL pipelines.
+
+Instead of juggling multiple systems and syncing metadata, vectorizer handles the entire process: downloading documents from S3, parsing them, chunking text, and generating vector embeddings stored right in PostgreSQL using pgvector. As documents change, embeddings stay up-to-date automatically—keeping your PostgreSQL database the single source of truth for both structured and semantic data.
+
+![create a vectorizer](https://assets.timescale.com/docs/images/console-create-a-vectorizer.png )
+
+### Sample dataset for AI testing
+
+You can now import a dataset directly from Hugging Face using Timescale Console. This dataset is ideal for testing vectorizers, you find it in the Import Data page under the Service > Actions tab.
+
+![image](https://assets.timescale.com/docs/images/console-import-huggingface-data.png)
+
+## 🔁 Livesync for S3 and passwordless connections for data mode
+<Label type="date">April 25, 2025</Label>
+
+### Livesync for S3 (beta)
+
+[Livesync for S3](https://docs.timescale.com/migrate/latest/livesync-for-s3/) is our second livesync offering in 
+Timescale Console, following livesync for PostgreSQL. This feature helps users sync data in their S3 buckets to a
+Timescale Cloud service, and simplifies data importing. Livesync handles both existing and new data in real time, 
+automatically syncing everything into a Timescale Cloud service. Users can integrate Timescale Cloud alongside S3, where 
+S3 stores data in raw form as the source for multiple destinations.
+
+![Timescale Console new livesync](https://assets.timescale.com/docs/images/livesync-s3-start-new-livesync.png)
+
+With livesync, users can connect Timescale Cloud with S3 in minutes, rather than spending days setting up and maintaining
+an ingestion layer.
+
+![Timescale Console livesync view status](https://assets.timescale.com/docs/images/livesync-s3-view-status.png)
+
+### UX improvements to livesync for PostgreSQL
+
+In [livesync for PostgreSQL](https://docs.timescale.com/migrate/latest/livesync-for-postgresql/), getting started 
+requires setting the `WAL_LEVEL` to `logical`, and granting specific permissions to start a publication 
+on the source database. To simplify this setup process, we have added a detailed two-step checklist with comprehensive 
+configuration instructions to Timescale Console.
+
+![Timescale Console livesync PostgreSQL instructions](https://assets.timescale.com/docs/images/livesync-postgres-console-config-instuctions.png)
+
+### Passwordless data mode connections
+
+We’ve made connecting to your Timescale Cloud services from [data mode](https://docs.timescale.com/getting-started/latest/run-queries-from-console/#connect-to-your-timescale-cloud-service-in-the-data-mode) 
+in Timescale Console even easier! All new services created in Timescale Cloud are now automatically accessible from 
+data mode without requiring you to enter your service credentials. Just open data mode, select your service, and 
+start querying.
+
+![Timescale Console passwordless data mode](https://assets.timescale.com/docs/images/data-mode-connections.png)
+
+We will be expanding this functionality to existing services in the coming weeks (including services using VPC peering), 
+so stay tuned.
+
+
 ## ☑️ Embeddings spot checks, TimescaleDB v2.19.3, and new models in SQL Assistant
 <Label type="date">April 18, 2025</Label>
 
@@ -93,7 +150,7 @@ To see the job information page, in [$CONSOLE][console], select the $SERVICE_SHO
 ## 🤩 In-Console Livesync for PostgreSQL
 <Label type="date">March 21, 2025</Label>
 
-You can now set up an active data ingestion pipeline with Livesync for PostgreSQL in Timescale Console. This tool enables you to replicate your source database tables into Timescale's hypertables indefinitely. Yes, you heard that right—keep Livesync running for as long as you need, ensuring that your existing source PostgreSQL tables stay in sync with Timescale Cloud. Read more about setting up and using [Livesync for PostgreSQL](https://docs.timescale.com/migrate/latest/livesync-for-postgresql/). 
+You can now set up an active data ingestion pipeline with livesync for PostgreSQL in Timescale Console. This tool enables you to replicate your source database tables into Timescale's hypertables indefinitely. Yes, you heard that right—keep livesync running for as long as you need, ensuring that your existing source PostgreSQL tables stay in sync with Timescale Cloud. Read more about setting up and using [Livesync for PostgreSQL](https://docs.timescale.com/migrate/latest/livesync-for-postgresql/). 
 
 ![Livesync in Timescale Console](https://assets.timescale.com/docs/images/timescale-cloud-livesync-tile.png)
 
@@ -310,7 +367,7 @@ We have built a new solution that helps you continuously replicate all or some o
 
 [Livesync](https://docs.timescale.com/migrate/latest/livesync-for-postgresql/) allows you to keep a current Postgres instance such as RDS as your primary database, and easily offload your real-time analytical queries to Timescale Cloud to boost their performance. If you have any questions or feedback, talk to us in [#livesync in Timescale Community](https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88).
 
-This is just the beginning—you'll see more from Livesync in 2025!
+This is just the beginning—you'll see more from livesync in 2025!
 
 ## In-Console import from S3, I/O Boost, and Jobs Explorer
 <Label type="date">December 13, 2024</Label>
