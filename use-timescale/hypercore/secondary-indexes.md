@@ -223,7 +223,7 @@ However, consider the storage trade-off when:
 
 ### Enable secondary indexing
 
-To speed up your queries using secondary indexes, you enable $HYPERCORE TAM on your $HYPERTABLE in the $COLUMNSTORE:
+To speed up your queries using secondary indexes, you enable $HYPERCORE TAM on your $COLUMNSTORE policy:
 
 <Procedure>
 
@@ -244,6 +244,7 @@ To speed up your queries using secondary indexes, you enable $HYPERCORE TAM on y
    ```
 
 1. **Enable $HYPERCORE TAM for the $HYPERTABLE**
+  
    ```sql
    alter table readings
    set access method hypercore
@@ -263,17 +264,18 @@ To speed up your queries using secondary indexes, you enable $HYPERCORE TAM on y
    ```sql
    CALL add_columnstore_policy(
       readings,
-      interval '1 day'
+      interval '1 day',
+      hypercore_use_access_method => true
    );
    ```
 
 </Procedure>
 
-$HYPERCORE_CAP TAM is now active on all new $CHUNKs created in the $HYPERTABLE. 
+$HYPERCORE_CAP TAM is now active on all $COLUMNSTORE $CHUNKs in the $HYPERTABLE. 
 
 ### Create b-tree and hash indexes
 
-Once you have enabled $HYPERCORE TAM in your $HYPERTABLE, the indexes are rebuilt when the table $CHUNKs are converted from 
+Once you have enabled $HYPERCORE TAM in your policy, the indexes are rebuilt when the table $CHUNKs are converted from 
 the $ROWSTORE to the $COLUMNSTORE. When you query data, these indexes are used by the PostgreSQL query planner over the
 $ROWSTORE and $COLUMNSTORE.
 

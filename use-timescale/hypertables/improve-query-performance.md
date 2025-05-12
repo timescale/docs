@@ -19,7 +19,7 @@ performance.
 To improve query performance, TimescaleDB enables you to skip chunks on non-partitioning columns in hypertables. 
 
 <Highlight type="important">
-Chunk skipping can only be enabled for **compressed** hypertables and applies to the chunks created **after** it as enabled.
+Chunk skipping only applies to the chunks converted to the columnstore **after** the skipping was enabled.
 </Highlight>
 
 ## How chunk skipping works
@@ -31,7 +31,7 @@ specifies ranges on the column.
 
 ![Chunk skipping](https://assets.timescale.com/docs/images/hypertable-with-chunk-skipping.png)
 
-You can enable chunk skipping on compressed hypertables for `smallint`, `int`, `bigint`, `serial`, `bigserial`, `date`,
+You can enable chunk skipping on hypertables compressed into the columnstore for `smallint`, `int`, `bigint`, `serial`, `bigserial`, `date`,
 `timestamp`, or `timestamptz` type columns. 
 
 ## When to enable chunk skipping

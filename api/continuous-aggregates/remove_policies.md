@@ -14,8 +14,8 @@ import Experimental from "versionContent/_partials/_experimental.mdx";
 <!-- markdownlint-disable-next-line line-length -->
 # remove_policies() <Tag type="community" content="Community" /><Tag type="experimental" content="Experimental" />
 
-Remove refresh, compression, and data retention policies from a continuous
-aggregate. The removed compression and retention policies apply to the
+Remove refresh, columnstore, and data retention policies from a continuous
+aggregate. The removed columnstore and retention policies apply to the
 continuous aggregate, _not_ to the original hypertable.
 
 ```sql
@@ -54,7 +54,7 @@ Given a continuous aggregate named `example_continuous_aggregate` with a refresh
 policy and a data retention policy, remove both policies.
 
 Throw an error if either policy doesn't exist. If the continuous aggregate has a
-compression policy, leave it unchanged:
+columnstore policy, leave it unchanged:
 
 ```sql
 SELECT timescaledb_experimental.remove_policies(

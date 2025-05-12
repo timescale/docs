@@ -22,11 +22,8 @@ views, because the whole view is not created from scratch on each refresh. This
 means that you can get on with working your data instead of maintaining your
 database.
 
-Because continuous aggregates are based on hypertables, you can query them in
-exactly the same way as your other tables, and enable [compression][compression]
-or [tiered storage][data-tiering] on them. You can even
-create
-[continuous aggregates on top of your continuous aggregates][hierarchical-caggs]—for an even more fine-tuned aggregation. 
+Because continuous aggregates are based on hypertables, you can query them in exactly the same way as your other tables. This includes continuous aggregates in the rowstore, compressed into the [columnstore][compression], 
+or [tiered to object storage][data-tiering]. You can even create [continuous aggregates on top of your continuous aggregates][hierarchical-caggs] - for an even more fine-tuned aggregation. 
 
 [Real-time aggregation][real-time-aggregation] enables you to combine pre-aggregated data from the materialized view with the most recent raw data. This gives you up-to-date results on every query. <RealTimeAgg />
 

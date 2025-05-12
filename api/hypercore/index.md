@@ -63,10 +63,8 @@ for more fine-grained control over your data.
 
 Chunks in the $COLUMNSTORE have the following limitations:
 
-*   `ROW LEVEL SECURITY` is not supported on chunks in the $COLUMNSTORE.
-*   To add unique constraints on chunks in the $COLUMNSTORE [convert_the chunk to rowstore][convert_to_rowstore],
-    add the constraints to your data, then [convert the chunk back to the $COLUMNSTORE][convert_to_columnstore].
-*   [SkipScan][skipscan] does not currently work on chunks in the $COLUMNSTORE.
+*   `ROW LEVEL SECURITY` is not supported on chunks in the columnstore.
+*   [SkipScan][skipscan] does not currently work on chunks in the columnstore.
 
 
 [alter_table_hypercore]: /api/:currentVersion:/hypercore/alter_table/

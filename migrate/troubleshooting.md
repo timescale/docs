@@ -14,8 +14,8 @@ import OpenSupportRequest from "versionContent/_partials/_migrate_open_support_r
 
 Live migration tooling is currently experimental. You may run into the following shortcomings:
 
-- Live migration does not yet support mutable compression (`INSERT`, `UPDATE`,
-  `DELETE` on compressed data).
+- Live migration does not yet support mutable columnstore compression (`INSERT`, `UPDATE`,
+  `DELETE` on data in the columnstore).
 - By default, numeric fields containing `NaN`/`+Inf`/`-Inf` values are not
   correctly replicated, and will be converted to `NULL`. A workaround is
   available, but is not enabled by default.
@@ -150,14 +150,14 @@ A number of timescale-internal processes require taking `ACCESS EXCLUSIVE`
 locks to ensure consistency of the data. The following is a non-exhaustive list
 of potentially affected operations:
 
-- compress/decompress/recompress chunk
+- converting a chunk into the columnstore/rowstore and back 
 - continuous aggregate refresh (before 2.12)
 - create hypertable with foreign keys, truncate hypertable
-- enable compression on hypertable
+- enable hypercore on a hypertable
 - drop chunks
 
 The most likely impact of the above is that background jobs for retention
-policies, compression policies, and continuous aggregate refresh policies are
+policies, columnstore compression policies, and continuous aggregate refresh policies are
 blocked for the duration of the `pg_dump` command. This may have unintended
 consequences for your database performance.
 
@@ -173,7 +173,7 @@ In principle, any query which takes an `ACCESS EXCLUSIVE` lock on a table
 causes such a deadlock. As mentioned above, some common operations which take
 an `ACCESS EXCLUSIVE` lock are:
 - retention policies
-- compression policies
+- columnstore compression policies
 - continuous aggregate refresh policies
 
 If you would like to use concurrency nonetheless, turn off all background jobs
@@ -235,7 +235,7 @@ pg_restore -d "$TARGET" \
 ## Ownership of background jobs
 
 The `_timescaledb_config.bgw_jobs` table is used to manage background jobs.
-This includes custom $JOBs, compression policies, retention
+This includes custom $JOBs, columnstore compression policies, retention
 policies, and continuous aggregate refresh policies. On Timescale, this table
 has a trigger which ensures that no database user can create or modify jobs
 owned by another database user. This trigger can provide an obstacle for migrations.
