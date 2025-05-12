@@ -1,11 +1,11 @@
 ---
-title: Indexing data
+title: About indexes
 excerpt: A database index is a data structure that improves the speed of data retrieval operations. Learn how indexing works and how it improves the performance of your analytical queries
 products: [cloud, mst, self_hosted]
 keywords: [schemas, indexes]
 ---
 
-# Indexing data
+# About indexes
 
 Because looking up data can take a long time, especially if you have a lot of
 data in your hypertable, you can use an index to speed up read operations from

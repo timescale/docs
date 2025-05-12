@@ -129,7 +129,8 @@ If your chunk does not contain enough data to create big enough batches, your co
 This needs to be taken into account when you define your $COLUMNSTORE settings.
 
 
-## B-tree and hash indexes
+
+## B-tree and hash indexes: **early access**
 
 $TIMESCALE_DB supports and accelerates real-time analytics using [$HYPERCORE][hypercore] without missing out on important  
 PostgreSQL features, including support for standard PostgreSQL indexes. $HYPERCORE_CAP is a hybrid storage engine 
@@ -137,7 +138,17 @@ because it supports deep analytics while staying true to PostgreSQL. Full suppor
 on $COLUMNSTORE data enables you to perform point lookups 1,185x faster, enforce unique constraints, and execute
 upserts 224x faster—all while maintaining $COLUMNSTORE compression and analytics performance.
 
+<Highlight type="Info">
+
 <EarlyAccess />
+
+This feature is experimental, it is not ready for production use. 
+
+To improve query performance using indexes for a production 
+environment, see [About indexes][about-index] and [Indexing data][create-index].
+
+</Highlight>
+
 
 ### Choose the best indexing method
 
@@ -226,18 +237,12 @@ To speed up your queries using secondary indexes, you enable $HYPERCORE TAM on y
       device_id integer references devices (device_id),
       temperature float,
       humidity float
+   ) WITH (
+      tsdb.hypertable,
+      tsdb.partition_column='uploaded_at'
    );
    ```
 
-1. **Convert the table to a [$HYPERTABLE][convert-to-hypertable]**
-
-   ```sql
-   select create_hypertable (
-     'readings',
-     by_range('uploaded_at')
-   );
-   ```
-   
 1. **Enable $HYPERCORE TAM for the $HYPERTABLE**
    ```sql
    alter table readings
@@ -425,7 +430,8 @@ Compared with using a sparse min/max index in $COLUMNSTORE, $COMPANY benchmarks 
 [storage-toast]: https://www.postgresql.org/docs/current/storage-toast.html
 [postgres-index-types]: https://www.timescale.com/learn/database-indexes-in-postgres
 [postgres-tam-methods]: https://www.postgresql.org/docs/current/tableam.html
-[convert-to-hypertable]: /use-timescale/:currentVersion:/hypertables/create/
 [iops]: https://en.wikipedia.org/wiki/IOPS
 [segmenting-and-ordering]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/#segmenting-and-ordering-data
-[b-tree-and-hash-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/#b-tree-and-hash-indexes
+[b-tree-and-hash-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/#b-tree-and-hash-indexes-early-access
+[about-index]: /use-timescale/:currentVersion:/schema-management/about-indexing/
+[create-index]: https://docs.timescale.com/api/latest/hypertable/create_index/
