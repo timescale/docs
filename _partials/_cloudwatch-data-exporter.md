@@ -22,16 +22,13 @@
 
     <Procedure>
 
-    $SERVICE_LONGs run in AWS. Best practice is to use [IAM Roles for Service Accounts (IRSA)][irsa] to
-    manage access between your $SERVICE_SHORTs and your AWS resources.
-
-    Create the IRSA role following this [AWS blog post][cross-account-iam-roles].
+    Create an IAM role following this [AWS blog post][cross-account-iam-roles].
 
     When you create the IAM OIDC provider:
     - Set the URL to the [region where the exporter is being created][reference].
     - Add the role as a trusted entity.
 
-    The following example shows a correctly configured IRSA role:
+    The following example shows a correctly configured role:
 
     - Permission Policy:
     
@@ -130,4 +127,3 @@
 [list-iam-users]: https://console.aws.amazon.com/iam/home#/users
 [create-an-iam-user]: https://console.aws.amazon.com/iam/home#/users/create
 [aws-access-keys]: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html#id_users_create_console
-[irsa]: https://aws.amazon.com/blogs/opensource/introducing-fine-grained-iam-roles-service-accounts/
