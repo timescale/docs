@@ -36,14 +36,14 @@ see [Ingest data from other sources][data-ingest].
 
 ## Livesync your data
 
-You use $LIVESYNC to synchronize all or some of your data to your $SERVICE_LONG in real-time. You run $LIVESYNC 
+You use $LIVESYNC to synchronize all or some of your data to your $SERVICE_LONG in real time. You run $LIVESYNC 
 continuously, using your data as a primary database and your $SERVICE_LONG as a logical replica. This enables you 
 to leverage $CLOUD_LONG’s real-time analytics capabilities on your replica data.
 
-| $LIVESYNC options                      |  Downtime requirements |
-|----------------------------------------|-----------------------|
-| [$LIVESYNC for $PG][livesync-postgres] | None                  |
-| [$LIVESYNC for S3][livesync-s3]  | None                  |
+| $LIVESYNC_CAP options                      |  Downtime requirements |
+|--------------------------------------------|-----------------------|
+| [$LIVESYNC_CAP for $PG][livesync-postgres] | None                  |
+| [$LIVESYNC_CAP for S3][livesync-s3]        | None                  |
 
 
 
