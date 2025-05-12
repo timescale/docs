@@ -19,9 +19,9 @@ For manual reordering of individual chunks, see [reorder_chunk][reorder_chunk].
 
 <Highlight type="note">
 
-When a chunk's heap has been reordered by the policy, it is not reordered
+When a chunk's rows have been reordered by a policy, they are not reordered
 by subsequent runs of the same policy. If you write significant amounts of data into older chunks that have
-already been reordered, run [reorder_chunk][reorder_chunk] on them. If you have changed a lot of older chunks, drop and recreate the policy.
+already been reordered, re-run [reorder_chunk][reorder_chunk] on them. If you have changed a lot of older chunks, it is better to drop and recreate the policy.
 
 </Highlight>
 
