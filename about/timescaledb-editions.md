@@ -267,22 +267,22 @@ You can access a hosted version of TimescaleDB Community Edition through
     <td><strong>Jobs and automation</strong></td>
   </tr>
   <tr>
-    <td><a href="https://docs.timescale.com/api/latest/actions/add_job/">add_job</a></td>
+    <td><a href="https://docs.timescale.com/api/latest/jobs-automation/add_job/">add_job</a></td>
     <td>❌</td>
     <td>✅</td>
   </tr>
   <tr>
-    <td><a href="https://docs.timescale.com/api/latest/actions/alter_job/">alter_job</a></td>
+    <td><a href="https://docs.timescale.com/api/latest/jobs-automation/alter_job/">alter_job</a></td>
     <td>❌</td>
     <td>✅</td>
   </tr>
   <tr>
-    <td><a href="https://docs.timescale.com/api/latest/actions/delete_job/">delete_job</a></td>
+    <td><a href="https://docs.timescale.com/api/latest/jobs-automation/delete_job/">delete_job</a></td>
     <td>❌</td>
     <td>✅</td>
   </tr>
   <tr>
-    <td><a href="https://docs.timescale.com/api/latest/actions/run_job/">run_job</a></td>
+    <td><a href="https://docs.timescale.com/api/latest/jobs-automation/run_job/">run_job</a></td>
     <td>❌</td>
     <td>✅</td>
   </tr>
