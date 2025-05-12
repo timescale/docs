@@ -11,7 +11,7 @@ api:
 
 # add_reorder_policy() <Tag type="community">Community</Tag>
 
-Create a policy to reorder the rows of a hypertable's chunks on a specified index. The policy reorders the rows for all chunks except the two most recent ones, because these are still getting writes. By default, the policy runs every 24 hours. To change the schedule, call [alter_job][alter_job] and adjust `schedule_interval`.
+Create a policy to reorder the rows of a hypertable's chunks on a specific index. The policy reorders the rows for all chunks except the two most recent ones, because these are still getting writes. By default, the policy runs every 24 hours. To change the schedule, call [alter_job][alter_job] and adjust `schedule_interval`.
 
 You can have only one reorder policy on each hypertable.
 
