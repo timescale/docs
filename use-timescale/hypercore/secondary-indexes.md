@@ -43,20 +43,20 @@ By combining segmentation and ordering, $TIMESCALE_DB ensures that columnar quer
 resource-efficient, enabling high-performance real-time analytics.
 
 
-### Improve performance on data in the $COLUMNSTORE by segmenting and ordering data 
+### Improve performance in the $COLUMNSTORE by segmenting and ordering data 
 
 Ordering data in the $COLUMNSTORE has a large impact on the compression ratio and performance of your queries. 
 Rows that change over a dimension should be close to each other. As $HYPERTABLEs contain time-series data, 
 they are partitioned by time. This makes the time column a perfect candidate for ordering your data since the 
 measurements evolve as time goes on.
 
-If you were to use `orderby` as your only columnstore setting, you get a good enough compression ratio to save a lot of 
-storage and your queries are faster. However, if you only use `orderby` you always have to access your data using the 
+If you use `orderby` as your only columnstore setting, you get a good enough compression ratio to save a lot of 
+storage and your queries are faster. However, if you only use `orderby`, you always have to access your data using the 
 time dimension, then filter the rows returned on other criteria.  
 
 Accessing the data effectively depends on your use case and your queries. You segment data in the $COLUMNSTORE 
 to match the way you want to access it. That is, in a way that makes it easier for your queries to fetch the right data 
-at the right time. By segmenting to access specific columns, you queries are optimized and yield even better performance.
+at the right time. When you segment your data to access specific columns, your queries are optimized and yield even better performance.
 
 For example, to access information about a single device with a specific `device_id`, you segment on the `device_id` column. 
 This enables you to run analytical queries on compressed data in the $COLUMNSTORE much faster.
