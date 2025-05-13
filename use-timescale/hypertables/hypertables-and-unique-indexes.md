@@ -79,7 +79,7 @@ it must contain all the partitioning columns of the $HYPERTABLE. To create a uni
 
 </Procedure>
 
-## Create a hypertable from a existing table with unique indexes
+## Create a hypertable from an existing table with unique indexes
 
 If you create a unique index on a table before turning it into a hypertable, the
 same restrictions apply in reverse. You can only partition the table by columns

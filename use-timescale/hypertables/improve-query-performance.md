@@ -27,7 +27,7 @@ Adjusting your hypertable chunk interval can improve performance in your databas
 
 1. **Choose an optimum chunk interval**
 
-   The default chunk interval is 7 days. You can set a custom interval when create a hypertable.
+   The default chunk interval is 7 days. You can set a custom interval when you create a hypertable.
    Best practice is that prior to processing, one chunk of data takes up 25% of main memory, including the indexes
    from each active hypertable. For example, if you write approximately 2 GB of data per day to a database with 64
    GB of memory, set `chunk_interval` to 1 week. If you write approximately 10 GB of data per day on the same
@@ -124,7 +124,7 @@ Chunk skipping only works on chunks converted to the columnstore **after** you `
 
 ### How chunk skipping works
 
-When you enable chunk skipping on a column in a hypertable. TimescaleDB tracks the minimum and maximum values for that 
+You enable chunk skipping on a column in a hypertable. TimescaleDB tracks the minimum and maximum values for that 
 column in each chunk. These ranges are stored in the start (inclusive) and end (exclusive) format in the `chunk_column_stats` 
 catalog table. TimescaleDB uses these ranges for dynamic chunk exclusion when the `WHERE` clause of an SQL query 
 specifies ranges on the column. 

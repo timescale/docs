@@ -26,7 +26,7 @@ to a hypertable.
 Some indexes are created by default when you perform certain actions on your
 database.
 
-When you create a hypertable with the a call to [`CREATE TABLE`][hypertable-create-table], a time index
+When you create a hypertable with a call to [`CREATE TABLE`][hypertable-create-table], a time index
 is created on your data. If you want to manually create a time index, you can use this command:
 
 ```sql

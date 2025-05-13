@@ -109,7 +109,7 @@ relational and time-series data from external files.
                 <OldCreateHypertable />
 
                 To more fully understand how $HYPERTABLEs work, and how to optimize them for performance by
-                tuning $CHUNK intervals and enabling chunk skipping, see [$HYPERTABLEs][hypertables-section].
+                tuning $CHUNK intervals and enabling chunk skipping, see [$HYPERTABLE_CAPs][hypertables-section].
 
           - For the relational data:
       

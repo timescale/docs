@@ -35,7 +35,7 @@ The [old interface for `create_hypertable` is also available](/api/:currentVersi
 
 ## Samples
 
-Before you call `create_hypertable` you create a standard PostgreSQL relational table. For example: 
+Before you call `create_hypertable`, you create a standard PostgreSQL relational table. For example: 
 
 ```sql
 CREATE TABLE conditions (

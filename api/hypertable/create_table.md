@@ -17,7 +17,7 @@ Create a [$HYPERTABLE][hypertable-docs] partitioned on a single dimension with [
 a standard $PG relational table. 
 
 A $HYPERTABLE is a specialized $PG table that automatically partitions your data by time. All actions that work on a 
-$PG table, work on $HYPERTABLEs. For example, [ALTER TABLE][alter_table_hypercore], and [SELECT][sql-select].
+$PG table, work on $HYPERTABLEs. For example, [ALTER TABLE][alter_table_hypercore] and [SELECT][sql-select].
 
 As the data cools and becomes more suited for analytics, it is automatically converted to the $COLUMNSTORE. This 
 columnar format enables fast scanning and aggregation, optimizing performance for analytical workloads while also 

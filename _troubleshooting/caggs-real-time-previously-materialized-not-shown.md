@@ -126,7 +126,7 @@ The following example shows how this works:
       SELECT * FROM conditions_summary ORDER BY bucket;
       ```
       The updated data is not yet visible when you query the continuous aggregate. This
-      is because these changes have not been materialized.( Similarly, any
+      is because these changes have not been materialized. (Similarly, any
       INSERTs or DELETEs would also not be visible).
 
       |city  |   bucket   | min | max|

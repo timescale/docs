@@ -3,13 +3,13 @@ import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypert
 
 ## Optimize time-series data in hypertables
 
-Time-series data represents how a system, process, or behavior changes over time. [$HYPERTABLE_CAP][hypertables-section]
+Time-series data represents how a system, process, or behavior changes over time. [$HYPERTABLE_CAPs][hypertables-section]
 are $PG tables that help you improve insert and query performance by automatically partitioning your data by
 time. Each $HYPERTABLE is made up of child tables called chunks. Each chunk is assigned a range of time, and only
 contains data from that range. 
 
-$HYPERTABLE_CAPs exist alongside regular $PG tables, you interact with $HYPERTABLEs and regular $PG tables in the 
-same way. You use regular $PG tables for relational data, 
+$HYPERTABLE_CAPs exist alongside regular $PG tables. You interact with $HYPERTABLEs and regular $PG tables in the 
+same way. You use regular $PG tables for relational data.
 
 <Procedure>
 

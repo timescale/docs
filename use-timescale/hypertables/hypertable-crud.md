@@ -38,7 +38,7 @@ CREATE TABLE conditions (
 ```
 <OldCreateHypertable />
 
-To convert a existing table with data in it, call `create_hypertable` on that table with
+To convert an existing table with data in it, call `create_hypertable` on that table with
 [`migrate_data` to `true`][api-create-hypertable-arguments]. However, if you have a lot of data, this may take a long time. For more information about migrating data, see
 [Migrate your data to Timescale Cloud][data-migration].
 
@@ -50,7 +50,7 @@ distributed hypertables.
 
 ### Add a column to a hypertable
 
-To add a column to a hypertable using the `ALTER TABLE` command. In this
+You add a column to a hypertable using the `ALTER TABLE` command. In this
 example, the hypertable is named `conditions` and the new column is named
 `humidity`:
 

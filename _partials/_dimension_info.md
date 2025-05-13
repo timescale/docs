@@ -58,7 +58,7 @@ Create a by-range dimension builder. You can partition `by_range` on it's own.
 - Extract time from a non-time column using `create_hypertable`
 
    If you have a table with a non-time column containing the time, such as
-   a JSON column, add a partition function to extract the time.
+   a JSON column, add a partition function to extract the time:
    
    ```sql
    CREATE TABLE my_table (

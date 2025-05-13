@@ -31,7 +31,7 @@ Consider the table `metrics` with the following attributes:
  cpu| double precision|||
  disk_io| double precision|||
 
-All hypertables have a primary dimension which is used to partition the table into chunks. The primary dimension is given when [the hypertable is created][hypertable-create-table]. In the example below, you can see a classic time-series use case with a `time` column as the primary dimension. In addition, there are two columns `cpu` and `disk_io` containing the values  that are captured over time and a column `device_id` for the device that captured the values.
+All hypertables have a primary dimension which is used to partition the table into chunks. The primary dimension is given when [the hypertable is created][hypertable-create-table]. In the example below, you can see a classic time-series use case with a `time` column as the primary dimension. In addition, there are two columns `cpu` and `disk_io` containing the values  that are captured over time, and a column `device_id` for the device that captured the values.
 Columns can be used in a few different ways:
 - You can use values in a column as a lookup key, in the example above `device_id` is a typical example of such a column.
 - You can use a column for partitioning a table. This is typically a time column like `time` in the example above, but it is possible to partition the table using other types as well.

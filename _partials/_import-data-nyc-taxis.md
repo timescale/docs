@@ -56,7 +56,7 @@ import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intr
              <OldCreateHypertable />
 
              To more fully understand how $HYPERTABLEs work, and how to optimize them for performance by
-             tuning chunk intervals and enabling chunk skipping, see [$HYPERTABLE][hypertables-section].
+             tuning chunk intervals and enabling chunk skipping, see [$HYPERTABLE_CAPs][hypertables-section].
 
          1.  Add another dimension to partition your $HYPERTABLE more efficiently:
              ```sql
