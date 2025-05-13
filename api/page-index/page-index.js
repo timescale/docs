@@ -38,6 +38,10 @@ module.exports = [
             href: "reorder_chunk",
           },
           {
+            title: "split_chunk",
+            href: "split_chunk",
+          },
+          {
             title: "merge_chunks",
             href: "merge_chunks",
           },
