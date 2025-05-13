@@ -1,7 +1,7 @@
 <Highlight type="cloud" header="Development and production environments" button="Try for free">
 
-The following instructions are for development and testing installations. For a production environment, you also 
-need to implement:
+The following instructions are for development and testing installations. For a production environment, we strongly recommend 
+that you implement the following, many of which you can achieve using PostgreSQL tooling.
 
 - Incremental backup and database snapshots, with efficient point-in-time recovery.
 - High availability replication, ideally with nodes across multiple availability zones.
@@ -12,7 +12,8 @@ need to implement:
 - Forking workflows for major version upgrades and other feature testing.
 - Monitoring and observability.
 
-Deploy a $SERVICE_LONG. We tune your database for performance and handle scalability, high availability, backups and management so you can relax.
+Deploying for production?  With a $SERVICE_LONG we tune your database for performance and handle scalability, high 
+availability, backups and management so you can relax.
 
 </Highlight>
 

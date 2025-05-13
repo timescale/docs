@@ -13,13 +13,13 @@ import TestingEnv from "versionContent/_partials/_selfhosted_production_alert.md
 $TIMESCALE_DB is an extension for $PG that enables time-series workloads,
 increasing ingest, query, storage and analytics performance.
 
-<TestingEnv />
-
 You can install self-hosted TimescaleDB for free from
 [source][self-hosted-source], or a [pre-built container][self-hosted-container].
 This guide provides instructions for installing the latest version of
 TimescaleDB. For more details about the latest release, see the
 [release notes][release-notes] section.
+
+<TestingEnv />
 
 <Installation />
 

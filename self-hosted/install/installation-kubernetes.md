@@ -15,8 +15,6 @@ manage the Kubernetes deployment, but we now recommend that Kubernetes
 users rely on one of the amazing PostgreSQL Kubernetes operators to 
 simplify installation, configuration, and life-cycle.
 
-<TestingEnv />
-
 The operators which our community members have told us work well are:
 
 - [StackGres][stackgres] (includes TimescaleDB images)
@@ -24,6 +22,7 @@ The operators which our community members have told us work well are:
 - [PGO][pgo]
 - [CloudNativePG][cnpg]
 
+<TestingEnv />
 
 [stackgres]: https://github.com/ongres/stackgres
 [patroni]: https://github.com/zalando/postgres-operator

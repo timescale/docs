@@ -16,10 +16,10 @@ TimescaleDB is a [PostgreSQL extension](https://www.postgresql.org/docs/current/
 time series and demanding workloads that ingest and query high volumes of data. You can install a TimescaleDB 
 instance on any local system from a pre-built Docker container. 
 
-< TestingEnv/>
-
 This section shows you how to 
 [Install and configure TimescaleDB on PostgreSQL](#install-and-configure-timescaledb-on-postgresql).
+
+< TestingEnv/>
 
 ### Prerequisites
 
