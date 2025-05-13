@@ -7,11 +7,11 @@ import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypert
 
 <Procedure>
 
-1. Connect to your $SERVICE_LONG.
+1. **Connect to your $SERVICE_LONG**
 
    In [$CONSOLE][services-portal] open an [SQL editor][in-console-editors]. You can also connect to your service using [psql][connect-using-psql].
 
-1. To create a $HYPERTABLE to store the real-time cryptocurrency data, call [CREATE TABLE][hypertable-create-table]:
+1. **Create a $HYPERTABLE to store the real-time cryptocurrency data**
 
     ```sql
     CREATE TABLE crypto_ticks (
@@ -35,7 +35,7 @@ standard PostgreSQL relational tables.
 
 <Procedure>
 
-1.  Add a table to store the asset symbol and name in a relational table:
+1.  **Add a table to store the asset symbol and name in a relational table**
 
     ```sql
     CREATE TABLE crypto_assets (

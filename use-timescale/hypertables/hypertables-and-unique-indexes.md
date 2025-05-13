@@ -13,9 +13,11 @@ You use unique indexes on a $HYPERTABLE to enforce [constraints][constraints]. I
 you have a unique index. In PostgreSQL, a primary key is a unique index with a `NOT NULL` constraint.
 
 You do not need to have a unique index on your $HYPERTABLEs. When you create a unique index,
-it must contain all the partitioning columns of the $HYPERTABLE. To create a unique index on a $HYPERTABLE:
+it must contain all the partitioning columns of the $HYPERTABLE. 
 
 ## Create a hypertable and add unique indexes
+
+To create a unique index on a $HYPERTABLE:
 
 <Procedure>
 

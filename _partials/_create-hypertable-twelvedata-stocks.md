@@ -7,11 +7,11 @@ import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypert
 
 <Procedure>
 
-1. Connect to your $SERVICE_LONG.
+1. **Connect to your $SERVICE_LONG**
 
    In [$CONSOLE][services-portal] open an [SQL editor][in-console-editors]. You can also connect to your service using [psql][connect-using-psql].
 
-1. To create a $HYPERTABLE to store the real-time stock data, call [CREATE TABLE][hypertable-create-table]:
+1. **Create a $HYPERTABLE to store the real-time stock data**
 
     ```sql
     CREATE TABLE stocks_real_time (
@@ -26,8 +26,9 @@ import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypert
     ```
    <OldCreateHypertable />
 
-1.  Create an index to support efficient queries on the `symbol` and `time`
-    columns:
+1.  **Create an index to support efficient queries** 
+
+    Index on the `symbol` and `time` columns:
 
     ```sql
     CREATE INDEX ix_symbol_time ON stocks_real_time (symbol, time DESC);
@@ -43,9 +44,7 @@ there is one other table of data called `company`.
 
 <Procedure>
 
-### Creating standard PostgreSQL tables
-
-1.  Add a table to store the company name and symbol for the stock trade data:
+1.  **Add a table to store the company data**
 
     ```sql
     CREATE TABLE company (
@@ -54,9 +53,9 @@ there is one other table of data called `company`.
     );
     ```
 
-1.  You now have two tables within your Timescale database. One hypertable
-    named `stocks_real_time`, and one normal PostgreSQL table named `company`.
-
 </Procedure>
+
+You now have two tables in your Timescale database. One hypertable
+named `stocks_real_time`, and one normal PostgreSQL table named `company`.
 
 [hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/

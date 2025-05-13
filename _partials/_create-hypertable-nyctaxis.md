@@ -13,7 +13,8 @@ same way. You use regular $PG tables for relational data.
 
 <Procedure>
 
-1. **To create a $HYPERTABLE to store the taxi trip data, call [CREATE TABLE][hypertable-create-table]**
+1. **Create a $HYPERTABLE to store the taxi trip data**
+
 
     ```sql
     CREATE TABLE "rides"(
@@ -49,9 +50,9 @@ same way. You use regular $PG tables for relational data.
     SELECT add_dimension('rides', by_hash('payment_type', 2));
     ```
 
-1.  Create an index to support efficient queries by vendor, rate code, and
-    passenger count:
+1.  **Create an index to support efficient queries** 
 
+    Index by vendor, rate code, and passenger count:
     ```sql
     CREATE INDEX ON rides (vendor_id, pickup_datetime DESC);
     CREATE INDEX ON rides (rate_code, pickup_datetime DESC);
@@ -68,7 +69,7 @@ there are two other tables of data, called `payment_types` and `rates`.
 
 <Procedure>
 
-1.  Add a table to store the payment types data:
+1.  **Add a relational table to store the payment types data**
 
     ```sql
     CREATE TABLE IF NOT EXISTS "payment_types"(
@@ -84,7 +85,7 @@ there are two other tables of data, called `payment_types` and `rates`.
     (6, 'voided trip');
     ```
 
-1.  Add a table to store the rates data:
+1. **Add a relational table to store the rates data**
 
     ```sql
     CREATE TABLE IF NOT EXISTS "rates"(
