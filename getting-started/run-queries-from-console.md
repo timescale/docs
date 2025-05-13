@@ -117,7 +117,7 @@ use that in the $DATA_MODE.
 
 ## $SQL_ASSISTANT_SHORT
 
-$SQL_ASSISTANT_SHORT in [$CONSOLE][portal-data-mode] uses the power of AI to help you write, fix, and organize SQL faster and more accurately.
+$SQL_ASSISTANT_SHORT in [$CONSOLE][portal-data-mode] is a chat-like interface that uses the power of AI to help you write, fix, and organize SQL faster and more accurately. Use it to change existing queries, write new ones from scratch, debug error messages, optimize for query performance, add comments, improve readability—and really, answer any questions you can think of. 
 
 <div class="relative w-fit mx-auto">
 
@@ -142,7 +142,7 @@ $SQL_ASSISTANT_SHORT offers a range of features to improve your SQL workflow, in
 - **Query organization**: to keep your query library organized, and help your team understand the
   purpose of each query, $SQL_ASSISTANT_SHORT automatically adds titles and summaries to your queries.
 
-- **Agent mode**: to get results with minimal involvement from you, $SQL_ASSISTANT_SHORT autopilots through complex tasks and troubleshoots its own problems. No need to go step by step, analyze errors, and try out solutions. Simply turn on the agent mode in the LLM picker and watch $SQL_ASSISTANT_SHORT do all the work for you. 
+- **Agent mode**: to get results with minimal involvement from you, $SQL_ASSISTANT_SHORT autopilots through complex tasks and troubleshoots its own problems. No need to go step by step, analyze errors, and try out solutions. Simply turn on the agent mode in the LLM picker and watch $SQL_ASSISTANT_SHORT do all the work for you. Recommended for use when your database connection is configured with read-only credentials.
 
 ### Supported LLMs
 
@@ -170,6 +170,8 @@ $SQL_ASSISTANT_SHORT supports a large number of LLMs, including:
 - DeepSeek R1 Distill - Llama 3.3. 70B
 - DeepSeek R1
 - Gemini 2.0 Flash
+
+Choose the LLM based on the particular task at hand. For simpler tasks, try the smaller and faster models like Gemini Flash, Haiku, or o4-mini. For more complex tasks, try the larger reasoning models like Claude Sonnet, Gemini Pro, or o3. We provide a description of each model to help you decide.
 
 ### Limitations to keep in mind
 
