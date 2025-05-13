@@ -32,6 +32,3 @@ Split a chunk at a specific time:
 CALL split_chunk('chunk_1', split_at => '2025-03-01 00:00');
 ```
 
-
-[add_reorder_policy]: /api/:currentVersion:/hypertable/add_reorder_policy/
-[postgres-cluster]: https://www.postgresql.org/docs/current/sql-cluster.html
