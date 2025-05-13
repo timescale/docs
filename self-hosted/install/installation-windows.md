@@ -7,7 +7,7 @@ keywords: [installation, self-hosted, Windows]
 
 import Windows from "versionContent/_partials/_psql-installation-windows.mdx";
 import WhereTo from "versionContent/_partials/_where-to-next.mdx";
-import Skip from "versionContent/_partials/_selfhosted_cta.mdx";
+import TestingEnv from "versionContent/_partials/_selfhosted_production_alert.mdx" ;
 import SelfHostedWindowsBased from "versionContent/_partials/_install-self-hosted-windows-based.mdx";
 import AddTimescaleDBToDB from "versionContent/_partials/_add-timescaledb-to-a-database.mdx";
 
@@ -16,7 +16,7 @@ import AddTimescaleDBToDB from "versionContent/_partials/_add-timescaledb-to-a-d
 TimescaleDB is a [PostgreSQL extension](https://www.postgresql.org/docs/current/external-extensions.html) for
 time series and demanding workloads that ingest and query high volumes of data.
 
-< Skip />
+< TestingEnv />
 
 This section shows you how to:
 

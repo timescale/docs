@@ -6,7 +6,7 @@ keywords: [installation, self-hosted, Debian, Ubuntu, RHEL, Fedora]
 ---
 
 import WhereTo from "versionContent/_partials/_where-to-next.mdx";
-import Skip from "versionContent/_partials/_selfhosted_cta.mdx";
+import TestingEnv from "versionContent/_partials/_selfhosted_production_alert.mdx" ;
 import SelfHostedDebianBased from "versionContent/_partials/_install-self-hosted-debian-based.mdx";
 import SelfHostedRedhatBased from "versionContent/_partials/_install-self-hosted-redhat-based.mdx";
 import SelfHostedArchLinuxBased from "versionContent/_partials/_install-self-hosted-archlinux-based.mdx";
@@ -18,7 +18,7 @@ import AddTimescaleDBToDB from "versionContent/_partials/_add-timescaledb-to-a-d
 TimescaleDB is a [PostgreSQL extension](https://www.postgresql.org/docs/current/external-extensions.html) for 
 time series and demanding workloads that ingest and query high volumes of data.
 
-< Skip/>
+< TestingEnv/>
 
 This section shows you how to:
 

@@ -5,7 +5,7 @@ products: [self_hosted]
 keywords: [installation, self-hosted, Kubernetes]
 ---
 
-import Skip from "versionContent/_partials/_selfhosted_cta.mdx";
+import TestingEnv from "versionContent/_partials/_selfhosted_production_alert.mdx" ;
 
 # Install TimescaleDB on Kubernetes
 
@@ -15,7 +15,7 @@ manage the Kubernetes deployment, but we now recommend that Kubernetes
 users rely on one of the amazing PostgreSQL Kubernetes operators to 
 simplify installation, configuration, and life-cycle.
 
-<Skip />
+<TestingEnv />
 
 The operators which our community members have told us work well are:
 
