@@ -80,9 +80,6 @@ And that is it! You have TimescaleDB running on a database on a self-hosted inst
     *   <Tag type="download">
         [PostgreSQL 15: Timescale release](https://github.com/timescale/timescaledb/releases/latest/download/timescaledb-postgresql-15-windows-amd64.zip)
         </Tag>
-    *   <Tag type="download">
-        [PostgreSQL 14: Timescale release](https://github.com/timescale/timescaledb/releases/latest/download/timescaledb-postgresql-14-windows-amd64.zip)
-        </Tag>
 
 * TimescaleDB is supported on the following platforms:
 
