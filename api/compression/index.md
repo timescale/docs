@@ -34,7 +34,6 @@ Compressed chunks have the following limitations:
 *   Creation of unique constraints on compressed chunks is not supported. You
     can add them by disabling compression on the hypertable and re-enabling
     after constraint creation.
-*   [Timescale SkipScan][skipscan] does not currently work on compressed chunks.
 
 ## Restrictions
 

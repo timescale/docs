@@ -64,8 +64,6 @@ for more fine-grained control over your data.
 Chunks in the $COLUMNSTORE have the following limitations:
 
 *   `ROW LEVEL SECURITY` is not supported on chunks in the columnstore.
-*   [SkipScan][skipscan] does not currently work on chunks in the columnstore.
-
 
 [alter_table_hypercore]: /api/:currentVersion:/hypercore/alter_table/
 [compression_continuous-aggregate]: /api/:currentVersion:/hypercore/alter_materialized_view/
