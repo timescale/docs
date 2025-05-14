@@ -12,7 +12,7 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 import CreateHypertableEnergy from "versionContent/_partials/_create-hypertable-energy.mdx";
 import AddDataEnergy from "versionContent/_partials/_add-data-energy.mdx";
 import GrafanaConnect from "versionContent/_partials/_grafana-connect.mdx";
-import CreateCaggs from "versionContent/_partials/_caggs-intro.mdx";
+import CreateCaggs from "versionContent/_partials/_cagg-intro.mdx";
 import CreateCaggsOnIOTData from "versionContent/_partials/_use-case-iot-create-cagg.mdx";
 
 # Ingest data into a $SERVICE_LONG
@@ -39,4 +39,3 @@ hypertable named `metrics`.
 </Procedure>
 
 <GrafanaConnect />
-

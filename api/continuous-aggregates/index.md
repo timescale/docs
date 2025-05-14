@@ -4,7 +4,7 @@ excerpt: Timescale Cloud API reference for calculating continuous aggregates on 
 keywords: [hypertables, chunks]
 ---
 
-import CaggsIntro from "versionContent/_partials/_caggs-intro.mdx";
+import CaggsIntro from "versionContent/_partials/_cagg-intro.mdx";
 
 # Continuous aggregates
 
