@@ -8,6 +8,8 @@ You create a $CLOUD_LONG account to manage your $SERVICE_SHORTs and data in a ce
 
 You create a standalone account to manage $CLOUD_LONG as a separate unit in your infrastructure, which includes separate billing and invoicing.
 
+And some content is being added inside...
+
 <Procedure>
 
 To set up $CLOUD_LONG:
