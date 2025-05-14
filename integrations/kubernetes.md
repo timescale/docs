@@ -5,7 +5,6 @@ products: [cloud, mst, self_hosted]
 keywords: [Kubernetes, Timescale Cloud, PostgreSQL, container orchestration]
 ---
 
-import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
 import KubernetesPrereqs from "versionContent/_partials/_kubernetes-prereqs.mdx";
 import KubernetesInstallSelf from "versionContent/_partials/_kubernetes-install-self-hosted.mdx";
 
@@ -17,7 +16,8 @@ This guide explains how to connect a Kubernetes cluster to $CLOUD_LONG, configur
 
 ## Prerequisites
 
-<IntegrationPrereqs />
+To follow the steps on this page:
+
 <KubernetesPrereqs />
 
 ## Integrate Timescale in a Kubernetes cluster 

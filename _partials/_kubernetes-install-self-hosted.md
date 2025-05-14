@@ -1,3 +1,5 @@
+Running $TIMESCALE_DB on Kubernetes is similar to running $PG. This procedure outlines the steps for a non-distributed system. 
+
 To connect your Kubernetes cluster to self-hosted $TIMESCALE_DB running in the cluster:
 
 <Procedure>

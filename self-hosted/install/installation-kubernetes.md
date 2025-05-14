@@ -6,20 +6,19 @@ keywords: [installation, self-hosted, Kubernetes]
 ---
 
 import Skip from "versionContent/_partials/_selfhosted_cta.mdx";
-import IntegrationPrereqsSelf from "versionContent/_partials/_integration-prereqs-self-only.mdx";
 import KubernetesPrereqs from "versionContent/_partials/_kubernetes-prereqs.mdx";
 import KubernetesInstallSelf from "versionContent/_partials/_kubernetes-install-self-hosted.mdx";
 
 # Install TimescaleDB on Kubernetes
 
-TimescaleDB can be run inside Kubernetes using the TimescaleDB Docker 
-container images. 
+TimescaleDB can be run inside Kubernetes using the TimescaleDB Docker container images. 
 
 <Skip />
 
 ## Prerequisites
 
-<IntegrationPrereqsSelf />
+To follow the steps on this page:
+
 <KubernetesPrereqs />
 
 ## Integrate Timescale in a Kubernetes cluster
