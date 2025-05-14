@@ -5,15 +5,16 @@ products: [self_hosted]
 keywords: [installation, self-hosted, Kubernetes]
 ---
 
-import Skip from "versionContent/_partials/_selfhosted_cta.mdx";
+import TestingEnv from "versionContent/_partials/_selfhosted_production_alert.mdx" ;
 import KubernetesPrereqs from "versionContent/_partials/_kubernetes-prereqs.mdx";
 import KubernetesInstallSelf from "versionContent/_partials/_kubernetes-install-self-hosted.mdx";
 
+
 # Install TimescaleDB on Kubernetes
 
-TimescaleDB can be run inside Kubernetes using the TimescaleDB Docker container images. 
+You can run TimescaleDB inside Kubernetes using the TimescaleDB Docker container images. 
 
-<Skip />
+<TestingEnv />
 
 ## Prerequisites
 
@@ -27,9 +28,8 @@ To follow the steps on this page:
 
 ## Install with PostgreSQL Kubernetes operators
 
-You can also use PostgreSQL Kubernetes operators to simplify installation, configuration, and life cycle.
-
-The operators which our community members have told us work well are:
+You can also use PostgreSQL Kubernetes operators to simplify installation, configuration, and life cycle. The operators which our community members have 
+told us work well are:
 
 - [StackGres][stackgres] (includes TimescaleDB images)
 - [Postgres Operator (Patroni)][patroni] 
