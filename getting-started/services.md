@@ -28,6 +28,8 @@ Content test
 
 <Install />
 
+<Install />
+
 ## Create a $SERVICE_LONG
 
 Now that you have an active $CLOUD_LONG account, you create and manage your $SERVICE_SHORTs in $CONSOLE. When you create a $SERVICE_SHORT, you effectively create a blank $PG database with additional $CLOUD_LONG features available under your $PRICING_PLAN. You then add or migrate your data into this database.
