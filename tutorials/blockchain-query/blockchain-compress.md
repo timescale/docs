@@ -24,23 +24,6 @@ To compress the data in the `transactions` table, do the following:
    In [$CONSOLE][services-portal] open an [SQL editor][in-console-editors]. The in-Console editors display the query speed.
    You can also connect to your service using [psql][connect-using-psql].
 
-1.  Enable the $COLUMNSTORE on the table and pick suitable segment-by and
-    order-by column using the `ALTER TABLE` command:
-
-    ```sql
-    ALTER TABLE transactions 
-    SET (
-        timescaledb.enable_columnstore , 
-        timescaledb.segmentby='block_id', 
-        timescaledb.orderby='time DESC'
-    );
-    ``` 
-
-    Depending on the choice of `segmentby` and `orderby` column, you can
-    get very different performance and compression ratio. To learn
-    more about how to pick the correct columns, see
-    [$HYPERCORE][hypercore].
-
 1. Convert data to the $COLUMNSTORE:
 
    You can do this either automatically or manually:   
@@ -54,10 +37,6 @@ To compress the data in the `transactions` table, do the following:
 
        ```sql
        CALL convert_to_columnstore(c) from show_chunks('transactions') c;
-       ```
-       To manually move the data back to the $ROWSTORE:
-       ```sql
-       CALL convert_to_rowstore(c) from show_chunks('transactions') c;
        ```
 
 1.  Now that you have converted the chunks in your $HYPERTABLE to the $COLUMNSTORE, compare the 

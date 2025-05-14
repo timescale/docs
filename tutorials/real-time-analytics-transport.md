@@ -27,17 +27,11 @@ of data optimized for size and speed in the columnstore.
 
 * Install and run [self-managed Grafana][grafana-self-managed], or sign up for [Grafana Cloud][grafana-cloud].
 
-## Optimize time-series data in hypertables
+## Optimize time-series data in hypertables and hypercore
 
 <ImportData />
 
 ## Optimize your data for real-time analytics
-
-[Hypercore][hypercore] is the $COMPANY hybrid row-columnar storage engine used by hypertables. Hypertables partition your data in
-chunks. Chunks stored in the rowstore use a row-oriented data format optimized for high-speed inserts and updates.
-Chunks stored in the columnstore use a columnar data format optimized for analytics. You ingest `hot` data into the
-rowstore. As data cools and becomes more suited for analytics, $CLOUD_LONG automatically converts these chunks of data
-to the columnstore. You define the moment when data is converted using a columnstore policy.
 
 When $CLOUD_LONG converts a chunk to the columnstore, TimescaleDB automatically creates a different schema for your
 data. $TIMESCALE_DB creates and uses custom indexes to incorporate the `segmentby` and `orderby` parameters when
@@ -52,20 +46,6 @@ to the columnstore:
 
    In [$CONSOLE][services-portal] open an [SQL editor][in-console-editors]. The in-Console editors display the query speed.
    You can also connect to your service using [psql][connect-using-psql].
-
-1. **Enable columnstore on a hypertable**
-
-   Create a [job][job] that automatically moves chunks in a hypertable to the columnstore at a specific time interval.
-   By default, your table is `orderedby` the time column. For efficient queries on columnstore data, remember to
-   `segmentby` the column you will use most often to filter your data:
-
-   ```sql
-   ALTER TABLE rides SET (
-     timescaledb.enable_columnstore = true,
-     timescaledb.segmentby = 'vendor_id',
-     timescaledb.orderby = 'pickup_datetime DESC'
-   );
-   ```
 
 1. **Add a policy to convert chunks to the columnstore at a specific time interval**
 

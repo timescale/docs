@@ -22,7 +22,9 @@ and `timestamp` types.
 
 ## Create a hypertable
 
-To create your first hypertable using [CREATE TABLE][hypertable-create-table]:
+Create a [$HYPERTABLE][hypertables-section] with [$HYPERCORE][hypercore] enabled for your time-series data
+using [CREATE TABLE][hypertable-create-table]. For [efficient queries][secondary-indexes] on data in the columnstore,
+remember to `segmentby` the column you will use most often to filter your data:
 
 ```sql
 CREATE TABLE conditions (
@@ -33,8 +35,11 @@ CREATE TABLE conditions (
    humidity    DOUBLE PRECISION  NULL
 ) WITH (
    tsdb.hypertable,
-   tsdb.partition_column='time', 
+   tsdb.partition_column='time',
+   tsdb.segmentby = 'device',
+   tsdb.orderby = 'time DESC'
 );
+
 ```
 <OldCreateHypertable />
 
@@ -100,3 +105,7 @@ All data chunks belonging to the hypertable are deleted.
 [api-create-hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
 [api-create-hypertable-arguments]: /api/:currentVersion:/hypertable/create_hypertable/#arguments
 [timestamps-best-practice]: https://wiki.postgresql.org/wiki/Don't_Do_This#Don.27t_use_timestamp_.28without_time_zone.29
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
+[hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
+[hypercore]: /use-timescale/:currentVersion:/hypercore/
+[secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/

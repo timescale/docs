@@ -17,7 +17,8 @@ Create a [$HYPERTABLE][hypertable-docs] partitioned on a single dimension with [
 a standard $PG relational table. 
 
 A $HYPERTABLE is a specialized $PG table that automatically partitions your data by time. All actions that work on a 
-$PG table, work on $HYPERTABLEs. For example, [ALTER TABLE][alter_table_hypercore] and [SELECT][sql-select].
+$PG table, work on $HYPERTABLEs. For example, [ALTER TABLE][alter_table_hypercore] and [SELECT][sql-select]. However, a 
+$HYPERTABLE can contain foreign keys to normal SQL table columns, but the reverse is not allowed.
 
 As the data cools and becomes more suited for analytics, it is automatically converted to the $COLUMNSTORE. This 
 columnar format enables fast scanning and aggregation, optimizing performance for analytical workloads while also 
@@ -25,8 +26,12 @@ saving significant storage space. In the $COLUMNSTORE conversion, hypertable chu
 organized for efficient, large-scale queries. This columnar format enables fast scanning and aggregation, optimizing 
 performance for analytical workloads.
 
-By default, you partition a $HYPERTABLE on the time dimension. To add secondary dimensions to a $HYPERTABLE, 
-call [add_dimension][add-dimension]. 
+By default:
+
+* [$HYPERCORE_CAP][hypercore] is enabled. $HYPERCORE_CAP is the $TIMESCALE_DB hybrid row-columnar storage engine, designed 
+  specifically for real-time analytics and powered by time-series data. Data is compressed and moved to columnar storage
+  IAIN
+* A $HYPERTABLE is partitioned on the time dimension. To add secondary dimensions to a $HYPERTABLE, call [add_dimension][add-dimension]. 
 
 To convert an existing relational table into a $HYPERTABLE, call [create_hypertable][create_hypertable].
 
@@ -90,20 +95,21 @@ WITH (
    tsdb.create_default_indexes =  true | false
    tsdb.associated_schema = '<schema_name> [, ...]',
    tsdb.associated_table_prefix = '<prefix> [, ...]'
+   tsdb.orderby = '<column_name> [ASC | DESC] [ NULLS { FIRST | LAST } ] [, ...]',
+   tsdb.segmentby = '<column_name> [, ...]',
 )
 ```
 
 | Name                           | Type             | Default  | Required                                                    | Description                                                                                                                                                                                                                               |
 |--------------------------------|------------------|----------|-------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `tsdb.hypertable`              |BOOLEAN| `true`   | ✖                                                           | Create a new [hypertable][hypertable-docs] for time-series data rather than a standard $PG relational table.                                                                                                                              |
-| `tsdb.partition_column`             |TEXT| `true`   | ✖                                                           | Set the time column to automatically partition your time-series data by.                                                                                                                                                                  |
-| `tsdb.chunk_interval`     |TEXT| `7 days` | ✖                                                           | Change this to better suit your needs. For example, if you set `chunk_interval` to 1 day, each chunk stores data from the same day. Data from different days is stored in different chunks.                                          |
+| `tsdb.partition_column`        |TEXT| `true`   | ✖                                                           | Set the time column to automatically partition your time-series data by.                                                                                                                                                                  |
+| `tsdb.chunk_interval`          |TEXT| `7 days` | ✖                                                           | Change this to better suit your needs. For example, if you set `chunk_interval` to 1 day, each chunk stores data from the same day. Data from different days is stored in different chunks.                                          |
 | `tsdb.create_default_indexes`  | BOOLEAN | `true`   | ✖                                                           | Set to `false` to not automatically create indexes. <br/> The default indexes are: <ul><li>On all hypertables, a descending index on `partition_column`</li><li>On hypertables with space partitions, an index on the space parameter and `partition_column`</li></ul> |
 | `tsdb.associated_schema`       |REGCLASS| `_timescaledb_internal` |  ✖  | Set the schema name for internal hypertable tables.                                                                                                                                                                                       |
 | `tsdb.associated_table_prefix` |TEXT|`_hyper`| ✖  | Set the prefix for the names of internal hypertable chunks.                                                                                                                                                                               |
-
-
-
+| `tsdb.orderby`                 |TEXT| Descending order on the time column in `table_name`. | ✖| The order in which items are used in the $COLUMNSTORE. Specified in the same way as an `ORDER BY` clause in a `SELECT` query. |
+| `tsdb.segmentby`               |TEXT| No segementation by column.  | ✖| Set the list of columns used to segment data in the $COLUMNSTORE for `table`. An identifier representing the source of the data such as `device_id` or `tags_id` is usually a good candidate. |
 
 
 ## Returns
@@ -134,3 +140,4 @@ $TIMESCALE_DB returns a simple message indicating success or failure.
 [hypercore]: /use-timescale/:currentVersion:/hypercore/
 [columnstore-default-arguments]: /api/:currentVersion:/hypercore/alter_table/#arguments
 [setup-hypercore]: /use-timescale/:currentVersion:/hypercore/real-time-analytics-in-hypercore/
+[hypercore]: /use-timescale/:currentVersion:/hypercore/

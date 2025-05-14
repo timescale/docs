@@ -35,7 +35,9 @@ To create a unique index on a $HYPERTABLE:
 
 1. **Create a $HYPERTABLE**
 
-   For example:
+   Create a [$HYPERTABLE][hypertables-section] with [$HYPERCORE][hypercore] enabled for your time-series data
+   using [CREATE TABLE][hypertable-create-table]. For [efficient queries][secondary-indexes] on data in the columnstore,
+   remember to `segmentby` the column you will use most often to filter your data. For example:
       ```sql
       CREATE TABLE hypertable_example(
         time TIMESTAMPTZ,
@@ -45,6 +47,8 @@ To create a unique index on a $HYPERTABLE:
       ) WITH (
         tsdb.hypertable,
         tsdb.partition_column='time'
+        tsdb.segmentby = 'device_id',
+        tsdb.orderby = 'time DESC'
       );
       ```
    <OldCreateHypertable />
@@ -133,3 +137,7 @@ in your unique index.
 
 
 [constraints]: https://www.postgresql.org/docs/current/ddl-constraints.html
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
+[hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
+[hypercore]: /use-timescale/:currentVersion:/hypercore/
+[secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/

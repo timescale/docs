@@ -23,9 +23,12 @@ import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intr
        psql -d "postgres://<username>:<password>@<host>:<port>/<database-name>?sslmode=require"
        ```
 
-    1. Create a $HYPERTABLE to import time-series data:
+    1. Create a [$HYPERTABLE][hypertables-section] with [$HYPERCORE][hypercore] enabled for your time-series data:
 
-          1. In your sql client, create a normal PostgreSQL table:
+          1. In your sql client, run the following command:
+
+             For [efficient queries][secondary-indexes] on data in the columnstore, remember to `segmentby` the column you 
+             will use most often to filter your data:
 
              ```sql
              CREATE TABLE "rides"(
@@ -50,14 +53,13 @@ import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intr
              ) WITH (
                tsdb.hypertable,
                tsdb.partition_column='pickup_datetime',
-               tsdb.create_default_indexes=false
+               tsdb.create_default_indexes=false,
+               tsdb.segmentby = 'vendor_id',
+               tsdb.orderby = 'pickup_datetime DESC'
              );
              ```
              <OldCreateHypertable />
-
-             To more fully understand how $HYPERTABLEs work, and how to optimize them for performance by
-             tuning chunk intervals and enabling chunk skipping, see [$HYPERTABLE_CAPs][hypertables-section].
-
+   
          1.  Add another dimension to partition your $HYPERTABLE more efficiently:
              ```sql
              SELECT add_dimension('rides', by_hash('payment_type', 2));
@@ -169,3 +171,5 @@ import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intr
 [migrate-live]: /migrate/:currentVersion:/live-migration/
 [data-ingest]: /use-timescale/:currentVersion:/ingest-data/
 [hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
+[hypercore]: /use-timescale/:currentVersion:/hypercore/
+[secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/

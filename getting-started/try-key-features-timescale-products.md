@@ -8,6 +8,7 @@ content_group: Getting started
 import HASetup from 'versionContent/_partials/_high-availability-setup.mdx';
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
 import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
+import HypercoreIntroShort from "versionContent/_partials/_hypercore-intro-short.mdx";
 
 # Try the key $COMPANY features
 
@@ -29,7 +30,7 @@ ingest and query data faster while keeping the costs low.
 
 <IntegrationPrereqs />
 
-## Optimize time-series data in $HYPERTABLEs
+## Optimize time-series data in $HYPERTABLEs with $HYPERCORE 
 
 Time-series data represents how a system, process, or behavior changes over time. $HYPERTABLE_CAPs are $PG tables 
 that help you improve insert and query performance by automatically partitioning your data by time. Each $HYPERTABLE 
@@ -38,6 +39,8 @@ contains data from that range. When you run a query, $CLOUD_LONG identifies the 
 even more. 
 
 ![Hypertable structure](https://assets.timescale.com/docs/images/hypertable-structure.png)
+
+<HypercoreIntroShort />
 
 $HYPERTABLE_CAPs exist alongside regular $PG tables.
 You use regular $PG tables for relational data, and interact with $HYPERTABLEs
@@ -93,6 +96,10 @@ relational and time-series data from external files.
           - For the time-series data:
           
              1. In your sql client, create a $HYPERTABLE:
+            
+                Create a [$HYPERTABLE][hypertables-section] with [$HYPERCORE][hypercore] enabled for your time-series data
+                using [CREATE TABLE][hypertable-create-table]. For [efficient queries][secondary-indexes] on data in the columnstore,
+                remember to `segmentby` the column you will use most often to filter your data:
       
                 ```sql
                 CREATE TABLE crypto_ticks (
@@ -103,6 +110,7 @@ relational and time-series data from external files.
                 ) WITH (
                    tsdb.hypertable,
                    tsdb.partition_column='time'
+                   tsdb.segmentby = 'symbol'
                 );
                 ```
                 
@@ -280,27 +288,16 @@ challenges in real-time analytics.
 
 ![Move from rowstore to columstore in hypercore](https://assets.timescale.com/docs/images/hypercore.png )
 
-When you convert $CHUNKs from the $ROWSTORE to the $COLUMNSTORE, multiple records are grouped into a single row.
+When $TIMESCALE_DB convert $CHUNKs from the $ROWSTORE to the $COLUMNSTORE, multiple records are grouped into a single row.
 The columns of this row hold an array-like structure that stores all the data. Because a single row takes up less disk 
 space, you can reduce your $CHUNK size by more than 90%, and can also speed up your queries. This helps you save on storage costs, 
 and keeps your queries operating at lightning speed.
 
-Best practice is to compress data that is no longer needed for highest performance queries, but is still accessed 
-regularly. For example, last week's market data.
+$HYPERCORE is enabled by default when you call [CREATE TABLE][hypertable-create-table]. Best practice is to compress 
+data that is no longer needed for highest performance queries, but is still accessed regularly in the $COLUMNSTORE. 
+For example, yesterday's market data.
 
 <Procedure>
-
-1. **Enable $HYPERCORE on a $HYPERTABLE**
-
-   Create a [job][job] that automatically moves $CHUNKs in a $HYPERTABLE to the $COLUMNSTORE at a specific time interval.
-
-   ```sql
-   ALTER TABLE crypto_ticks SET (
-      timescaledb.enable_columnstore = true, 
-      timescaledb.segmentby = 'symbol');
-   ```
-   You [segmentby][alter-table-arguments] to speed up queries.   
-
 
 1. **Add a policy to convert $CHUNKs to the $COLUMNSTORE at a specific time interval**
 
@@ -440,3 +437,7 @@ What next? See the [use case tutorials][tutorials], interact with the data in yo
 [job]: /api/:currentVersion:/actions/add_job/
 [alter-table-arguments]: /api/:currentVersion:/hypercore/alter_table/#arguments
 [add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
+[hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
+[hypercore]: /use-timescale/:currentVersion:/hypercore/
+[secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/

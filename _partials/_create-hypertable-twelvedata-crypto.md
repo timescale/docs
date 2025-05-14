@@ -13,6 +13,10 @@ import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypert
 
 1. **Create a $HYPERTABLE to store the real-time cryptocurrency data**
 
+   Create a [$HYPERTABLE][hypertables-section] with [$HYPERCORE][hypercore] enabled for your time-series data using 
+   [CREATE TABLE][hypertable-create-table]. For [efficient queries][secondary-indexes] on data in the columnstore, remember to `segmentby` the column you
+   will use most often to filter your data:
+
     ```sql
     CREATE TABLE crypto_ticks (
         "time" TIMESTAMPTZ,
@@ -21,7 +25,9 @@ import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypert
         day_volume NUMERIC
     ) WITH (
        tsdb.hypertable,
-       tsdb.partition_column='time'
+       tsdb.partition_column='time',
+       tsdb.segmentby='symbol', 
+       tsdb.orderby='time DESC'
     );
     ```
    <OldCreateHypertable />
@@ -53,3 +59,6 @@ PostgreSQL table named `crypto_assets`.
 [services-portal]: https://console.cloud.timescale.com/dashboard/services
 [connect-using-psql]: /integrations/:currentVersion:/psql
 [hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
+[hypercore]: /use-timescale/:currentVersion:/hypercore/
+[secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/

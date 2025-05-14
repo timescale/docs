@@ -12,8 +12,9 @@ import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intr
    In [$CONSOLE][services-portal] open an [SQL editor][in-console-editors]. The in-Console editors display the query speed.
    You can also connect to your service using [psql][connect-using-psql].
 
-1.  Create a standard PostgreSQL table to store the Bitcoin blockchain data
-    using [CREATE TABLE][hypertable-create-table]:
+1. Create a [$HYPERTABLE][hypertables-section] with [$HYPERCORE][hypercore] enabled for your time-series data 
+   using [CREATE TABLE][hypertable-create-table]. For [efficient queries][secondary-indexes] on data in the columnstore, 
+   remember to `segmentby` the column you will use most often to filter your data:
 
     ```sql
     CREATE TABLE transactions (
@@ -30,7 +31,9 @@ import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intr
        details JSONB
     ) WITH (
        tsdb.hypertable,
-       tsdb.partition_column='time'
+       tsdb.partition_column='time',
+       tsdb.segmentby='block_id', 
+       tsdb.orderby='time DESC'
     );
     ```
                 
@@ -71,3 +74,7 @@ import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intr
 [connect-using-psql]: /integrations/:currentVersion:/psql#connect-to-your-service
 [hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
 [indexing]: /use-timescale/:currentVersion:/schema-management/indexing/
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
+[hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
+[hypercore]: /use-timescale/:currentVersion:/hypercore/
+[secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/

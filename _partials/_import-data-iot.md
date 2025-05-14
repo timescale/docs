@@ -23,9 +23,12 @@ import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intr
        psql -d "postgres://<username>:<password>@<host>:<port>/<database-name>?sslmode=require"
        ```
 
-    1. To create a $HYPERTABLE to store the time-series data, call [CREATE TABLE][hypertable-create-table]:
+    1. Create a [$HYPERTABLE][hypertables-section] with [$HYPERCORE][hypercore] enabled for your time-series data:
 
-          1. In your sql client, create a normal PostgreSQL table:
+       1. In your sql client, run the following command:
+
+          For [efficient queries][secondary-indexes] on data in the columnstore, remember to `segmentby` the column you
+          will use most often to filter your data:
 
              ```sql
              CREATE TABLE "metrics"(
@@ -35,13 +38,12 @@ import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intr
              ) WITH (
                tsdb.hypertable,
                tsdb.partition_column='created'
+               tsdb.segmentby = 'type_id',
+               tsdb.orderby = 'created DESC'
              );
              ```
              <OldCreateHypertable />
-
-             To more fully understand how $HYPERTABLEs work, and how to optimize them for performance by
-             tuning chunk intervals and enabling chunk skipping, see [$HYPERTABLE_CAPs][hypertables-section].
-
+   
       1. Upload the dataset to your $SERVICE_SHORT
          ```sql
          \COPY metrics FROM metrics.csv CSV;
@@ -74,11 +76,13 @@ import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intr
        
 </Procedure>
 
-[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
 [portal-ops-mode]: https://console.cloud.timescale.com/dashboard/services
 [portal-data-mode]: https://console.cloud.timescale.com/dashboard/services?popsql
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
 [migrate-with-downtime]: /migrate/:currentVersion:/pg-dump-and-restore/
 [migrate-live]: /migrate/:currentVersion:/live-migration/
 [data-ingest]: /use-timescale/:currentVersion:/ingest-data/
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
 [hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
+[hypercore]: /use-timescale/:currentVersion:/hypercore/
+[secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/
