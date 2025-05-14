@@ -67,7 +67,7 @@ module.exports = [
             excerpt: "Automate",
           },
           {
-            title: "Modify data in Hypercore",
+            title: "Modify data in hypercore",
             href: "modify-data-in-hypercore",
             excerpt: "Update data stored in the columnstore",
           },
@@ -113,7 +113,7 @@ module.exports = [
               "Manage automatic index creation and manually create additional indexes",
           },
           {
-            title: "Time in continuous aggregates",
+            title: "Time and continuous aggregates",
             href: "time",
             excerpt: "Manage time in continuous aggregates",
           },

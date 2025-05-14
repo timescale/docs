@@ -56,7 +56,7 @@ You use $LIVESYNC for data synchronization, rather than migration:
 <LivesyncConsole />
 
 </Tab>
-<Tab title="Terminal">
+<Tab title="Self-hosted livesync">
 
 <LivesyncTerminal />
 
