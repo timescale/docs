@@ -22,11 +22,19 @@
 
     <Procedure>
 
-    Create an IAM role following this [AWS blog post][cross-account-iam-roles].
+    Create an IAM OIDC provider in your AWS account. If the IAM console is used, it should look like:
 
-    When you create the IAM OIDC provider:
-    - Set the URL to the [region where the exporter is being created][reference].
-    - Add the role as a trusted entity.
+    ![oidc provider creation](image-3.png)
+
+    <Highlight type="important">
+
+    When you create the IAM OIDC provider, set the URL to the [region where the exporter is being created][reference].
+
+    </Highlight>
+
+    Create the role as a web identity:
+
+    ![web identity role creation](image.png)
 
     The following example shows a correctly configured role:
 
@@ -122,7 +130,6 @@
 [console-cloudwatch-configuration]: https://console.aws.amazon.com/cloudwatch/home#logsV2:log-groups
 [console-cloudwatch-create-group]: https://console.aws.amazon.com/cloudwatch/home#logsV2:log-groups/create-log-group
 [cloudwatch-log-naming]: https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html
-[cross-account-iam-roles]: https://aws.amazon.com/blogs/containers/cross-account-iam-roles-for-kubernetes-service-accounts/
 [reference]: #reference
 [list-iam-users]: https://console.aws.amazon.com/iam/home#/users
 [create-an-iam-user]: https://console.aws.amazon.com/iam/home#/users/create
