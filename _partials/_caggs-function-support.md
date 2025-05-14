@@ -1,4 +1,7 @@
 
+Add textual content here a u a a b c d e f
+
+
 The following table summarizes the aggregate functions supported in continuous aggregates:
 
 |Function, clause, or feature|TimescaleDB 2.6 and earlier|TimescaleDB 2.7, 2.8, and 2.9|TimescaleDB 2.10 and later|
