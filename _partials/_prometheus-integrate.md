@@ -81,24 +81,24 @@ To export metrics from a $SERVICE_LONG, you create a dedicated Prometheus export
    
       See [Prometheus documentation][scrape-targets] for details on configuring scrape targets. 
 
-You can now monitor your $SERVICE_SHORT metrics. Use the following metrics to check the service is running correctly:
+      You can now monitor your $SERVICE_SHORT metrics. Use the following metrics to check the service is running correctly:
 
-*   `timescale.cloud.system.cpu.usage.millicores`
-*   `timescale.cloud.system.cpu.total.millicores`
-*   `timescale.cloud.system.memory.usage.bytes`
-*   `timescale.cloud.system.memory.total.bytes`
-*   `timescale.cloud.system.disk.usage.bytes`
-*   `timescale.cloud.system.disk.total.bytes`
+      *   `timescale.cloud.system.cpu.usage.millicores`
+      *   `timescale.cloud.system.cpu.total.millicores`
+      *   `timescale.cloud.system.memory.usage.bytes`
+      *   `timescale.cloud.system.memory.total.bytes`
+      *   `timescale.cloud.system.disk.usage.bytes`
+      *   `timescale.cloud.system.disk.total.bytes`
 
-Additionally, use the following tags to filter your results.
+      Additionally, use the following tags to filter your results.
 
-|Tag|Example variable| Description                |
-|-|-|----------------------------|
-|`host`|`us-east-1.timescale.cloud`|                            |
-|`project-id`||                            |
-|`service-id`||                            |
-|`region`|`us-east-1`| AWS region                 |
-|`role`|`replica` or `primary`| For $SERVICE_SHORT with replicas |
+      |Tag|Example variable| Description                |
+      |-|-|----------------------------|
+      |`host`|`us-east-1.timescale.cloud`|                            |
+      |`project-id`||                            |
+      |`service-id`||                            |
+      |`region`|`us-east-1`| AWS region                 |
+      |`role`|`replica` or `primary`| For $SERVICE_SHORT with replicas |
    
 </Procedure>
 
