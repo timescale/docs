@@ -119,7 +119,7 @@ CREATE TABLE metrics (
       Time: 42,139 ms
       ```
 
-   As you see, using `orderby` and `segmentby` not only reduces the amount of space take by your data, but also 
+   As you see, using `orderby` and `segmentby` not only reduces the amount of space taken by your data, but also 
    vastly improves query speed.  
 
 </Procedure>
