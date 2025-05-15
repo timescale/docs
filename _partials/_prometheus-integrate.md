@@ -28,7 +28,7 @@ To export your data, do the following:
 
 <Procedure>
 
-To export metrics from a $SERVICE_LONG, you create a dedicated Prometheus exporter in $CONSOLE, attach it to your $SERVICE_SHORT, then configure Prometheus to scrape metrics using the exposed URL. The Prometheus exporter exposes metrics related to the $SERVICE_LONG like CPU, memory, and storage. To scrape other metrics, use PostgreSQL Exporter as described for $SELF_LONG. 
+To export metrics from a $SERVICE_LONG, you create a dedicated Prometheus exporter in $CONSOLE, attach it to your $SERVICE_SHORT, then configure Prometheus to scrape metrics using the exposed URL. The Prometheus exporter exposes the metrics related to the $SERVICE_LONG like CPU, memory, and storage. To scrape other metrics, use PostgreSQL Exporter as described for $SELF_LONG. 
 
 1. **Create a Prometheus exporter**
 
@@ -42,7 +42,7 @@ To export metrics from a $SERVICE_LONG, you create a dedicated Prometheus export
    
    1. Name your exporter. 
 
-   1. Change the auto-generated Prometheus credentials, if needed. See [Securing Prometheus API and UI endpoints using basic auth][prometheus-authentication] on how to further configure your Prometheus installation with these credentials. 
+   1. Change the auto-generated Prometheus credentials, if needed. See [official documentation][prometheus-authentication] on basic authentication in Prometheus. 
 
       ![Prometheus exporter credentials](https://assets.timescale.com/docs/images/prometheus-authentication.png)
 
@@ -66,9 +66,43 @@ To export metrics from a $SERVICE_LONG, you create a dedicated Prometheus export
 
    1. Copy the exporter URL. 
 
-   1. In your Prometheus installation, update `prometheus.yml` to point to the exporter URL as a scrape target.
+   1. In your Prometheus installation, update `prometheus.yml` to point to the exporter URL as a scrape target:
 
+      ```yml
+      scrape_configs:
+       - job_name: "timescaledb-exporter"
+         scheme: https
+         static_configs:
+           - targets: ["my-exporter-url"]
+         basic_auth:
+           username: "user"
+           password: "pass"
+      ```
+   
+      See [Prometheus documentation][scrape-targets] for details on configuring scrape targets. 
+
+You can now monitor your $SERVICE_SHORT metrics. Use the following metrics to check the service is running correctly:
+
+*   `timescale.cloud.system.cpu.usage.millicores`
+*   `timescale.cloud.system.cpu.total.millicores`
+*   `timescale.cloud.system.memory.usage.bytes`
+*   `timescale.cloud.system.memory.total.bytes`
+*   `timescale.cloud.system.disk.usage.bytes`
+*   `timescale.cloud.system.disk.total.bytes`
+
+Additionally, use the following tags to filter your results.
+
+|Tag|Example variable| Description                |
+|-|-|----------------------------|
+|`host`|`us-east-1.timescale.cloud`|                            |
+|`project-id`||                            |
+|`service-id`||                            |
+|`region`|`us-east-1`| AWS region                 |
+|`role`|`replica` or `primary`| For $SERVICE_SHORT with replicas |
+   
 </Procedure>
+
+
 
 </Tab>
 
@@ -174,3 +208,4 @@ You can further [visualize your data][grafana-prometheus] with Grafana. Use the
 [create-service]: /getting-started/:currentVersion:/services/
 [enable-timescaledb]: /self-hosted/:currentVersion:/install/
 [prometheus-authentication]: https://prometheus.io/docs/guides/basic-auth/
+[scrape-targets]: https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config

@@ -59,7 +59,7 @@ To remove a data exporter that you no longer need:
 1. **Disconnect the data exporter from your $SERVICE_LONGs**
 
     1. In [$CONSOLE][console-services], choose the $SERVICE_SHORT.
-    1. Click `Operations` > `Integrations`.
+    1. Click `Operations` > `Exporters`.
     1. Click the trash can icon.
     1. Repeat for every $SERVICE_SHORT attached to the exporter you want to remove. 
 
@@ -67,7 +67,7 @@ To remove a data exporter that you no longer need:
 
 1. **Delete the exporter on the project level** 
 
-   1. In $CONSOLE, open [Integrations][console-integrations]
+   1. In $CONSOLE, open [Exporters][console-integrations]
    1. Next to the exporter you want to edit, click menu > `Delete`
    1. Confirm that you want to delete the data exporter.
 
