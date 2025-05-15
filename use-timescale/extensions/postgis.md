@@ -66,7 +66,7 @@ particular location.
       deaths INT NOT NULL 
     ) WITH (
       tsdb.hypertable,
-      tsdb.partition_column='time',
+      tsdb.partition_column='time'
     );
     ```
     <OldCreateHypertable />

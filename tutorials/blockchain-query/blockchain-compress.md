@@ -38,26 +38,7 @@ To compress the data in the `transactions` table, do the following:
        ```sql
        CALL convert_to_columnstore(c) from show_chunks('transactions') c;
        ```
-
-1.  Now that you have converted the chunks in your $HYPERTABLE to the $COLUMNSTORE, compare the 
-    size of the dataset before and after compression:
-
-    ```sql
-    SELECT 
-        pg_size_pretty(before_compression_total_bytes) as before,
-        pg_size_pretty(after_compression_total_bytes) as after
-     FROM hypertable_columnstore_stats('transactions');
-    ```
-
-	This shows a significant improvement in data usage:
-
-    ```sql
-     before  | after  
-    ---------+--------
-    1307 MB | 237 MB   
-    (1 row)
-    ```
-
+     
 </Procedure>
 
 

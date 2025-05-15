@@ -30,7 +30,7 @@ By default:
 
 * [$HYPERCORE_CAP][hypercore] is enabled. $HYPERCORE_CAP is the $TIMESCALE_DB hybrid row-columnar storage engine, designed 
   specifically for real-time analytics and powered by time-series data. Data is compressed and moved to columnar storage
-  IAIN
+
 * A $HYPERTABLE is partitioned on the time dimension. To add secondary dimensions to a $HYPERTABLE, call [add_dimension][add-dimension]. 
 
 To convert an existing relational table into a $HYPERTABLE, call [create_hypertable][create_hypertable].

@@ -18,7 +18,7 @@ import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intr
 
     ```sql
     CREATE TABLE transactions (
-       time TIMESTAMPTZ,
+       time TIMESTAMPTZ NOT NULL,
        block_id INT,
        hash TEXT,
        size INT,

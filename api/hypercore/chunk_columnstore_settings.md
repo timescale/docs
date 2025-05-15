@@ -53,5 +53,5 @@ To retrieve information about settings:
 |`hypertable`|`REGCLASS`|-|✖| The name of a hypertable in the $COLUMNSTORE |
 |`chunk`|`REGCLASS`|-|✖| The name of a chunk in `hypertable`                                                                                                                     |
 |`segmentby`|`TEXT`|-|✖| A list of columns used to segment `hypertable`                                                                                                          |
-|`orderby`|`TEXT`|-|✖| A list of columns used to order data in `hypertable`.  Along with ordering and NULL ordering information. IAIN, I don't understand the second sentence. |
+|`orderby`|`TEXT`|-|✖| A list of columns used to order data in `hypertable`.  Along with ordering and NULL ordering information. |
 

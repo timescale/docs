@@ -55,34 +55,8 @@ to the columnstore:
    ```
    See [add_columnstore_policy][add_columnstore_policy].
 
-1. **View your data space saving**
-  
-   When you convert data to the columnstore, as well as being optimized for analytics, it is compressed by more than 90%. 
-   This saves on storage costs and keeps your queries operating at lightning speed. To see the amount of space saved:
-   ```sql
-   SELECT 
-        pg_size_pretty(before_compression_total_bytes) as before,
-        pg_size_pretty(after_compression_total_bytes) as after
-   FROM hypertable_columnstore_stats('rides');
-   ```
-   You see something like:
-
-   | before  | after  |  
-   |--|--|
-   |2818 MB | 673 MB |
-
-1. **Faster analytical queries on data in the columnstore**
-
-   Now run the analytical query again:
-   ```sql
-   SELECT rates.description, COUNT(vendor_id) AS num_trips
-   FROM rides
-   JOIN rates ON rides.rate_code = rates.rate_code
-   WHERE pickup_datetime < '2016-01-08'
-   GROUP BY rates.description
-   ORDER BY LOWER(rates.description);
-   ```
-   On this large amount of data, this analytical query on data in the columnstore takes about 6 seconds.
+   The data you imported for this tutorial is from 2016, it was already added to the $COLUMNSTORE by default. However, 
+   you get the idea. To see the space savings in action, follow [Try the key Timescale features][try-timescale-features].
 
 </Procedure>
 
@@ -167,3 +141,4 @@ your data.
 [connect-using-psql]: /integrations/:currentVersion:/psql#connect-to-your-service
 [insert]: /use-timescale/:currentVersion:/write-data/insert/
 [hypercore]: /use-timescale/:currentVersion:/hypercore/
+[try-timescale-features]: /getting-started/:currentVersion:/try-key-features-timescale-products/

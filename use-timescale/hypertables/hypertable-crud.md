@@ -61,7 +61,7 @@ example, the hypertable is named `conditions` and the new column is named
 
 ```sql
 ALTER TABLE conditions
-  ADD COLUMN humidity DOUBLE PRECISION NULL;
+  ADD COLUMN sunshine DOUBLE PRECISION NULL;
 ```
 
 If the column you are adding has the default value set to `NULL`, or has no
@@ -86,7 +86,7 @@ Drop a hypertable using a standard PostgreSQL [`DROP TABLE`][postgres-droptable]
 command:
 
 ```sql
-DROP TABLE <TABLE_NAME>;
+DROP TABLE weather;
 ```
 
 All data chunks belonging to the hypertable are deleted.

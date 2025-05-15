@@ -23,12 +23,13 @@ import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intr
        psql -d "postgres://<username>:<password>@<host>:<port>/<database-name>?sslmode=require"
        ```
 
-    1. Create a [$HYPERTABLE][hypertables-section] with [$HYPERCORE][hypercore] enabled for your time-series data:
+    1. Create an optimized $HYPERTABLE for your time-series data:
 
-       1. In your sql client, run the following command:
+       1. Create a [$HYPERTABLE][hypertables-section] with [$HYPERCORE][hypercore] enabled by default for your
+          time-series data using [CREATE TABLE][hypertable-create-table]. For [efficient queries][secondary-indexes]
+          on data in the columnstore, remember to `segmentby` the column you will use most often to filter your data.
 
-          For [efficient queries][secondary-indexes] on data in the columnstore, remember to `segmentby` the column you
-          will use most often to filter your data:
+          In your sql client, run the following command:
 
              ```sql
              CREATE TABLE "metrics"(
@@ -37,7 +38,7 @@ import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intr
                value   double precision                       not null
              ) WITH (
                tsdb.hypertable,
-               tsdb.partition_column='created'
+               tsdb.partition_column='created',
                tsdb.segmentby = 'type_id',
                tsdb.orderby = 'created DESC'
              );
@@ -86,3 +87,6 @@ import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intr
 [hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
 [hypercore]: /use-timescale/:currentVersion:/hypercore/
 [secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
+[hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
+[hypercore]: /use-timescale/:currentVersion:/hypercore/

@@ -46,7 +46,7 @@ To create a unique index on a $HYPERTABLE:
         value FLOAT
       ) WITH (
         tsdb.hypertable,
-        tsdb.partition_column='time'
+        tsdb.partition_column='time',
         tsdb.segmentby = 'device_id',
         tsdb.orderby = 'time DESC'
       );
@@ -96,7 +96,7 @@ in your unique index.
 1. **Create a relational table**
 
     ```sql
-    CREATE TABLE hypertable_example(
+    CREATE TABLE another_hypertable_example(
       time TIMESTAMPTZ,
       user_id BIGINT,
       device_id BIGINT,
@@ -110,7 +110,7 @@ in your unique index.
 
     ```sql
     CREATE UNIQUE INDEX idx_deviceid_time
-      ON hypertable_example(device_id, time);
+      ON another_hypertable_example(device_id, time);
     ```
 
 1. **Turn the table into a partitioned hypertable**
@@ -118,14 +118,14 @@ in your unique index.
    - On `time` alone:
 
        ```sql
-       SELECT * from create_hypertable('hypertable_example', by_range('time'));
+       SELECT * from create_hypertable('another_hypertable_example', by_range('time'));
        ```
 
    - On `time` and `device_id`:
 
        ```sql
-       SELECT * FROM create_hypertable('hypertable_example', by_range('time'));
-       SELECT * FROM add_dimension('hypertable_example', by_hash('device_id', 4));
+       SELECT * FROM create_hypertable('another_hypertable_example', by_range('time'));
+       SELECT * FROM add_dimension('another_hypertable_example', by_hash('device_id', 4));
        ```
 
    You get an error if you try to turn the relational table into a hypertable partitioned by `time` and `user_id`.

@@ -86,22 +86,6 @@ to the columnstore:
    ```
    See [add_columnstore_policy][add_columnstore_policy].
 
-1. **View your data space saving**
-
-   When you convert data to the columnstore, as well as being optimized for analytics, it is compressed by more than 90%.
-   This saves on storage costs and keeps your queries operating at lightning speed. To see the amount of space saved:
-   ```sql
-   SELECT 
-        pg_size_pretty(before_compression_total_bytes) as before,
-        pg_size_pretty(after_compression_total_bytes) as after
-   FROM hypertable_columnstore_stats('metrics');
-   ```
-   You see something like:
-
-   | before | after |  
-   |--------|-------|
-   | 181 MB | 16 MB |
-
 1. **Faster analytical queries on data in the columnstore**
 
    Now run the analytical query again:
@@ -112,7 +96,7 @@ to the columnstore:
     WHERE type_id = 5
     GROUP BY 1;
    ```
-   On this amount of data, this analytical query on data in the columnstore takes about 0.8 seconds.
+   On this amount of data, this analytical query on data in the columnstore takes about 250ms.
 
 </Procedure>
 

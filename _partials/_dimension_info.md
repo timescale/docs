@@ -154,7 +154,7 @@ CREATE TABLE conditions (
 ) WITH (
    tsdb.hypertable,
    tsdb.partition_column='time',
-   tsdb.chunk_interval='1 day') 
+   tsdb.chunk_interval='1 day'
 );
 
 SELECT add_dimension('conditions', by_hash('location', 2));

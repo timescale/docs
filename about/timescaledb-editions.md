@@ -91,6 +91,11 @@ You can access a hosted version of TimescaleDB Community Edition through
     <td>✅</td>
   </tr>
   <tr>
+    <td><a href="https://docs.timescale.com/api/latest/hypertable/split_chunk/">split_chunk</a></td>
+    <td>✅</td>
+    <td>✅</td>
+  </tr>
+  <tr>
     <td><a href="https://docs.timescale.com/api/latest/hypertable/reorder_chunk/">reorder_chunk</a></td>
     <td>❌</td>
     <td>✅</td>
