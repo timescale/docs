@@ -193,7 +193,7 @@ $SQL_ASSISTANT_SHORT settings are:
 
 * **Opt-in features**: all AI features are off by default. Only [members][project-members] of your $CLOUD_LONG project
   can enable them.
-* **Data protection**: your data remains private as $SQL_ASSISTANT_SHORT operates with strict security protocols. To provide AI support, $COMPANY may share your currently open SQL document, some basic metadata about your database, and portions of your database schema. By default, $COMPANY **does not include** any data from query results, but you can opt in to include this context as well.
+* **Data protection**: your data remains private as $SQL_ASSISTANT_SHORT operates with strict security protocols. To provide AI support, $COMPANY may share your currently open SQL document, some basic metadata about your database, and portions of your database schema. By default, $COMPANY **does not include** any data from query results, but you can opt in to include this context to improve the results.
 * **Sample data**: to give the LLM more context so you have better SQL suggestions, enable sample data sharing in the $SQL_ASSISTANT_SHORT preferences.
 * **Telemetry**: to improve $SQL_ASSISTANT_SHORT, $COMPANY collects telemetry and usage data, including prompts, responses, and query metadata.
 
