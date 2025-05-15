@@ -12,7 +12,7 @@ This page shows you how to export your $SERVICE_SHORT telemetry to Prometheus:
 To follow the steps on this page:
 
 - [Download and run Prometheus][install-prometheus].
-- For $CLOUD_LONG, create a target [$SERVICE_LONG][create-service].
+- For $CLOUD_LONG, create a target [$SERVICE_LONG][create-service] with the time-series and analytics capability enabled.
 - For $SELF_LONG:
   - Create a target [self-hosted $TIMESCALE_DB][enable-timescaledb] instance. You need your [connection details][connection-info].
   - [Install PostgreSQL Exporter][install-exporter].
@@ -28,7 +28,7 @@ To export your data, do the following:
 
 <Procedure>
 
-To export metrics from a $SERVICE_LONG, you create a dedicated Prometheus exporter in $CONSOLE, attach it to your $SERVICE_SHORT, then configure Prometheus to scrape metrics using the exposed URL. The Prometheus exporter exposes the metrics related to the $SERVICE_LONG like CPU, memory, and storage. To scrape other metrics, use PostgreSQL Exporter as described for $SELF_LONG. 
+To export metrics from a $SERVICE_LONG, you create a dedicated Prometheus exporter in $CONSOLE, attach it to your $SERVICE_SHORT, then configure Prometheus to scrape metrics using the exposed URL. The Prometheus exporter exposes the metrics related to the $SERVICE_LONG like CPU, memory, and storage. To scrape other metrics, use PostgreSQL Exporter as described for $SELF_LONG. The Prometheus exporter is available for [Scale and Enterprise][pricing-plan-features] pricing plans.
 
 1. **Create a Prometheus exporter**
 
@@ -209,3 +209,4 @@ You can further [visualize your data][grafana-prometheus] with Grafana. Use the
 [enable-timescaledb]: /self-hosted/:currentVersion:/install/
 [prometheus-authentication]: https://prometheus.io/docs/guides/basic-auth/
 [scrape-targets]: https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config
+[pricing-plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-plan
