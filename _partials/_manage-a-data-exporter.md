@@ -8,7 +8,7 @@ To attach an exporter:
 <Procedure>
 
 1.  **In [$CONSOLE][console-services], choose the $SERVICE_SHORT**
-1.  **Click `Operations` > `Integrations`**
+1.  **Click `Operations` > `Exporters`**
 1.  **Select the exporter, then click `Attach exporter`**
 1.  **If you are attaching a first `Logs` data type exporter, restart the $SERVICE_SHORT**
 
