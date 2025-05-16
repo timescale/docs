@@ -85,6 +85,9 @@
     },
     {
       "pattern": "^https://azure.microsoft.com/en-gb/"
+    },
+    {
+      "pattern": "^https://typeorm.biunav.com/en/connection-options.html#postgres-cockroachdb-connection-options"
     }
   ]
 }

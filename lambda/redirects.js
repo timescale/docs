@@ -977,4 +977,8 @@ module.exports = [
     from: '/api/latest/actions/',
     to: 'https://docs.timescale.com/api/latest/jobs-automation/',
   },
+  {
+    from: '/use-timescale/latest/metrics-logging/integrations/',
+    to: 'https://docs.timescale.com/use-timescale/latest/metrics-logging/',
+  },
 ];
