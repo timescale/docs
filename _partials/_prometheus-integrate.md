@@ -79,7 +79,7 @@ To export metrics from a $SERVICE_LONG, you create a dedicated Prometheus export
            password: "pass"
       ```
    
-      See [Prometheus documentation][scrape-targets] for details on configuring scrape targets. 
+      See the [Prometheus documentation][scrape-targets] for details on configuring scrape targets. 
 
       You can now monitor your $SERVICE_SHORT metrics. Use the following metrics to check the service is running correctly:
 
