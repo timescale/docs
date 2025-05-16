@@ -54,7 +54,7 @@ To export metrics from a $SERVICE_LONG, you create a dedicated Prometheus export
 
       ![Attach a Prometheus exporter to a Timescale Cloud service](https://assets.timescale.com/docs/images/attach-prometheus-exporter-timescale-cloud.png)
 
-   The exporter is now attached to your $SERVICE_SHORT. You can unattach it by clicking the trash bin icon in the exporter list. 
+   The exporter is now attached to your $SERVICE_SHORT. To unattach it, click the trash icon in the exporter list. 
 
       ![Unattach a Prometheus exporter from a Timescale Cloud service](https://assets.timescale.com/docs/images/unattach-prometheus-exporter-timescale-service.png)
 
