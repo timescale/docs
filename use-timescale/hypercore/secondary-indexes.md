@@ -1,5 +1,5 @@
 ---
-title: Improve query and upsert performance using secondary indexes
+title: Improve query and upsert performance
 excerpt: Using secondary indexes on data in the columnstore make lookup queries 1,185x and upserts 224x faster
 products: [cloud, mst, self_hosted]
 keywords: [hypertable, compression, row-columnar storage, hypercore]
@@ -7,11 +7,130 @@ keywords: [hypertable, compression, row-columnar storage, hypercore]
 
 import EarlyAccess from "versionContent/_partials/_early_access.mdx";
 
-# Improve query and upsert performance using secondary indexes
+# Improve query and upsert performance
 
 Real-time analytics applications require more than fast inserts and analytical queries. They also need high performance
 when retrieving individual records, enforcing constraints, or performing upserts, something that OLAP/columnar databases
 lack.
+
+* [Segmenting and ordering data][segmenting-and-ordering] - improve performance by controlling the way data is physically stored. 
+* [B-tree and hash indexes][b-tree-and-hash-indexes] - **experimental**: use secondary indexes to improve point query performance.   
+
+## Segmenting and ordering data
+
+To optimize query performance, $TIMESCALE_DB enables you to explicitly control the way your data is physically organized 
+in the $COLUMNSTORE. By structuring data effectively, queries can minimize disk reads and execute more efficiently, using
+vectorized execution for parallel batch processing where possible.
+
+<center>
+<img
+  class="main-content__illustration"
+  width="80%"
+  src="https://assets.timescale.com/docs/images/columnstore-segmentby.png"
+  alt=""
+/>
+</center>
+
+* **Group related data together to improve scan efficiency**: organizing rows into logical segments ensures that queries 
+   filtering by a specific value only scan relevant data sections. For example, in the above, querying for a specific ID 
+   is particularly fast. 
+* **Sort data within segments to accelerate range queries**: defining a consistent order reduces the need for post-query 
+  sorting, making time-based queries and range scans more efficient. 
+* **Reduce disk reads and maximize vectorized execution**: a well-structured storage layout enables efficient batch 
+  processing (Single Instruction, Multiple Data, or SIMD vectorization) and parallel execution, optimizing query performance.
+
+By combining segmentation and ordering, $TIMESCALE_DB ensures that columnar queries are not only fast but also 
+resource-efficient, enabling high-performance real-time analytics.
+
+
+### Improve performance in the $COLUMNSTORE by segmenting and ordering data 
+
+Ordering data in the $COLUMNSTORE has a large impact on the compression ratio and performance of your queries. 
+Rows that change over a dimension should be close to each other. As $HYPERTABLEs contain time-series data, 
+they are partitioned by time. This makes the time column a perfect candidate for ordering your data since the 
+measurements evolve as time goes on.
+
+If you use `orderby` as your only columnstore setting, you get a good enough compression ratio to save a lot of 
+storage and your queries are faster. However, if you only use `orderby`, you always have to access your data using the 
+time dimension, then filter the rows returned on other criteria.  
+
+Accessing the data effectively depends on your use case and your queries. You segment data in the $COLUMNSTORE 
+to match the way you want to access it. That is, in a way that makes it easier for your queries to fetch the right data 
+at the right time. When you segment your data to access specific columns, your queries are optimized and yield even better performance.
+
+For example, to access information about a single device with a specific `device_id`, you segment on the `device_id` column. 
+This enables you to run analytical queries on compressed data in the $COLUMNSTORE much faster.
+
+For example for the following $HYPERTABLE:
+
+```sql
+CREATE TABLE metrics (
+  time TIMESTAMPTZ,
+  user_id INT,
+  device_id INT,
+  data JSONB
+) WITH (
+  tsdb.hypertable,
+  tsdb.partition_column='time'
+);
+```
+
+<Procedure>
+
+1. **Execute a query on a regular $HYPERTABLE**
+   1. Query your data
+      ```sql
+      SELECT device_id, AVG(cpu) AS avg_cpu, AVG(disk_io) AS avg_disk_io 
+      FROM metrics
+      WHERE device_id = 5
+      GROUP BY device_id;
+      ```
+      Gives the following result:
+      ```sql
+      device_id |      avg_cpu       |     avg_disk_io     
+      -----------+--------------------+---------------------
+      5 | 0.4972598866221261 | 0.49820356730280524
+      (1 row)
+      Time: 177,399 ms
+      ```
+
+1. **Execute a query on the same data segmented and ordered in the $COLUMNSTORE**
+
+   1. Control the way your data is ordered in the $COLUMNSTORE:
+  
+      ```sql
+      ALTER TABLE metrics SET (
+        timescaledb.enable_columnstore = true,
+        timescaledb.orderby = 'time',
+        timescaledb.segmentby = 'device_id'
+      );
+      ```
+
+   1. Query your data
+      ```sql
+       select avg(cpu) from metrics where time >= '2024-03-01 00:00:00+01' and time < '2024-03-02 00:00:00+01';
+       ```
+      Gives the following result:
+      ```sql
+      device_id |      avg_cpu      |     avg_disk_io     
+      -----------+-------------------+---------------------
+      5 | 0.497259886622126 | 0.49820356730280535
+      (1 row)
+      Time: 42,139 ms
+      ```
+
+   As you see, using `orderby` and `segmentby` not only reduces the amount of space taken by your data, but also 
+   vastly improves query speed.  
+
+</Procedure>
+
+The number of rows that are compressed together in a single batch (like the ones we see above) is 1000.
+If your chunk does not contain enough data to create big enough batches, your compression ratio will be reduced.
+This needs to be taken into account when you define your $COLUMNSTORE settings.
+
+
+
+## B-tree and hash indexes: **experimental support**
 
 $TIMESCALE_DB supports and accelerates real-time analytics using [$HYPERCORE][hypercore] without missing out on important  
 PostgreSQL features, including support for standard PostgreSQL indexes. $HYPERCORE_CAP is a hybrid storage engine 
@@ -19,9 +138,19 @@ because it supports deep analytics while staying true to PostgreSQL. Full suppor
 on $COLUMNSTORE data enables you to perform point lookups 1,185x faster, enforce unique constraints, and execute
 upserts 224x faster—all while maintaining $COLUMNSTORE compression and analytics performance.
 
+<Highlight type="Info">
+
 <EarlyAccess />
 
-## Choose the best indexing method
+This feature is experimental, it is not ready for production use. 
+
+To improve query performance using indexes for a production 
+environment, see [About indexes][about-index] and [Indexing data][create-index].
+
+</Highlight>
+
+
+### Choose the best indexing method
 
 [Indexes are a fundamental part of database performance optimization][blog-perf-tuning], they enable queries to 
 quickly locate and retrieve data without scanning entire tables. B-tree and hash indexes are among PostgreSQL’s 
@@ -48,7 +177,7 @@ The performance advantage from these indexing methods comes from optimized data 
 searching. This results in fewer disk page reads, which in turn reduces I/O spikes when locating specific data points 
 or enforcing uniqueness. 
 
-## How B-tree and hash indexes work 
+### How B-tree and hash indexes work 
 
 PostgreSQL offers [multiple index types][postgres-index-types]. For example, the default B-tree, hash, GIN, and BRIN, 
 all implemented as Index Access Methods (IAMs). PostgreSQL supplies the [table access method (TAM)][postgres-tam-methods] 
@@ -75,7 +204,7 @@ enforcement more efficient on the $COLUMNSTORE. Our benchmarks demonstrate subst
 * 2.6x faster upserts.
 * 4.5x faster range queries.
 
-## When to use B-tree and hash indexes
+### When to use B-tree and hash indexes
 
 Adding B-tree and hash indexes to compressed data enables dramatically faster lookups and inserts, but it comes with 
 a trade-off: increased storage usage due to additional indexing structures.
@@ -92,7 +221,7 @@ However, consider the storage trade-off when:
 - Your workloads prioritize compression efficiency over lookup speed.
 - You primarily run aggregations and range scans, where indexes may not provide meaningful speedups.
 
-## Enable secondary indexing
+### Enable secondary indexing
 
 To speed up your queries using secondary indexes, you enable $HYPERCORE TAM on your $COLUMNSTORE policy:
 
@@ -108,18 +237,28 @@ To speed up your queries using secondary indexes, you enable $HYPERCORE TAM on y
       device_id integer references devices (device_id),
       temperature float,
       humidity float
+   ) WITH (
+      tsdb.hypertable,
+      tsdb.partition_column='uploaded_at'
    );
    ```
 
-1. **Convert the table to a [$HYPERTABLE][convert-to-hypertable]**
-
+1. **Enable $HYPERCORE TAM for the $HYPERTABLE**
+  
    ```sql
-   select create_hypertable (
-     'readings',
-     by_range('uploaded_at')
+   alter table readings
+   set access method hypercore
+   set (
+      timescaledb.orderby = 'created_at',
+      timescaledb.segmentby = 'location_id'
    );
    ```
-   
+   This enables the $COLUMNSTORE on the table. $HYPERCORE_CAP TAM is applied to $CHUNKs created after you set the access 
+   method. Existing $CHUNKs continue to use the default `heap`. 
+
+   To return to the `heap` TAM, call `set access method heap`. You can also change the table access method for an 
+   existing $CHUNK with a call like `ALTER TABLE _timescaledb_internal._hyper_1_1_chunk SET ACCESS METHOD hypercore;`
+
 1. **Move $CHUNKs from $ROWSTORE to $COLUMNSTORE as they age**
 
    ```sql
@@ -134,7 +273,7 @@ To speed up your queries using secondary indexes, you enable $HYPERCORE TAM on y
 
 $HYPERCORE_CAP TAM is now active on all $COLUMNSTORE $CHUNKs in the $HYPERTABLE. 
 
-## Create b-tree and hash indexes
+### Create b-tree and hash indexes
 
 Once you have enabled $HYPERCORE TAM in your policy, the indexes are rebuilt when the table $CHUNKs are converted from 
 the $ROWSTORE to the $COLUMNSTORE. When you query data, these indexes are used by the PostgreSQL query planner over the
@@ -155,7 +294,7 @@ You add hash and B-tree indexes to a $HYPERTABLE the same way as a regular Postg
 If you have existing $CHUNKs that have not been updated to use the $HYPERCORE TAM, to use B-tree and hash indexes, you
 change the table access method for an existing $CHUNK with a call like `ALTER TABLE _timescaledb_internal._hyper_1_1_chunk SET ACCESS METHOD hypercore;`
 
-## Point lookups
+### Point lookups
 
 Indexes are particularly useful for highly selective queries, such as retrieving a unique event by its identifier.
 For example:
@@ -183,7 +322,7 @@ With a hash index and $HYPERCORE TAM enabled, the same SELECT query performs 1,1
 12,915 ms and B-tree at 12.57.
 
 
-## Backfill and updates to historical data
+### Backfill and updates to historical data
 
 A common use case in real-time applications is backfilling or updating old data. For example, a sensor fails 
 during a batch upload or gets temporarily disconnected, it resends the data later. To avoid possible duplicate
@@ -230,7 +369,7 @@ Possible strategies for backfilling historic data include:
    $COMPANY benchmarks showed this makes upserts 2.6x faster, reducing the execution time from 24,805 ms to 9,520 ms.
 
 
-## Fast anomaly detection
+### Fast anomaly detection
 
 To regularly report the number of times a device has exceeded a critical temperature, you 
 count the number of times the temperature was exceeded, and group by device ID.
@@ -288,7 +427,6 @@ Compared with using a sparse min/max index in $COLUMNSTORE, $COMPANY benchmarks 
 
 [hypercore]: /use-timescale/:currentVersion:/hypercore/
 [blog-perf-tuning]: https://www.timescale.com/learn/postgresql-performance-tuning-optimizing-database-indexes
-[create-hypertable]: /use-timescale/:currentVersion:/compression/
 [b-tree-overview]: https://www.timescale.com/learn/postgresql-performance-tuning-optimizing-database-indexes#:~:text=a%20quick%20summary%3A-,B%2DTree%20indexes%20(default%20index%20type%20in%20PostgreSQL),-CREATE%20INDEX%20index_product_id
 [hash-overview]: https://www.timescale.com/learn/postgresql-performance-tuning-optimizing-database-indexes#:~:text=in%20ascending%20order.-,Hash%20indexes,-CREATE%20INDEX%20index_product_id
 [storage-toast]: https://www.postgresql.org/docs/current/storage-toast.html
@@ -296,3 +434,7 @@ Compared with using a sparse min/max index in $COLUMNSTORE, $COMPANY benchmarks 
 [postgres-tam-methods]: https://www.postgresql.org/docs/current/tableam.html
 [convert-to-hypertable]: /use-timescale/:currentVersion:/hypertables/hypertable-crud/#create-a-hypertable
 [iops]: https://en.wikipedia.org/wiki/IOPS
+[segmenting-and-ordering]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/#segmenting-and-ordering-data
+[b-tree-and-hash-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/#b-tree-and-hash-indexes-early-access
+[about-index]: /use-timescale/:currentVersion:/schema-management/about-indexing/
+[create-index]: https://docs.timescale.com/api/latest/hypertable/create_index/

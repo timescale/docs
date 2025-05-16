@@ -129,8 +129,6 @@ your data.
 [job]: /api/:currentVersion:/actions/add_job/
 [alter_table_hypercore]: /api/:currentVersion:/hypercore/alter_table/
 [compression_continuous-aggregate]: /api/:currentVersion:/hypercore/alter_materialized_view/
-[convert_to_rowstore]: /api/:currentVersion:/hypercore/convert_to_rowstore/
-[convert_to_columnstore]: /api/:currentVersion:/hypercore/convert_to_columnstore/
 [informational-views]: /api/:currentVersion:/informational-views/jobs/
 [add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/
 [hypercore_workflow]: /api/:currentVersion:/hypercore/#hypercore-workflow

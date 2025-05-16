@@ -33,4 +33,3 @@ In this section you see how to:
 [setup-hypercore]: /use-timescale/:currentVersion:/hypercore/real-time-analytics-in-hypercore/
 [reordering]: /api/:currentVersion:/hypertable/add_reorder_policy/
 [retention]: /use-timescale/:currentVersion:/data-retention/create-a-retention-policy/
-

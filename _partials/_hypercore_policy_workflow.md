@@ -39,12 +39,14 @@ import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypert
  
 1. **Add a policy to convert $CHUNKs to the $COLUMNSTORE at a specific time interval**
 
-   Create a [$JOB][job] that automatically converts $CHUNKs in a $HYPERTABLE to the $COLUMNSTORE at a specific time interval. For example, convert yesterday's crypto trading data to the $COLUMNSTORE:
+   Create a [columnstore_policy][add_columnstore_policy] that automatically converts $CHUNKs in a $HYPERTABLE to the $COLUMNSTORE at a specific time interval. For example, convert yesterday's crypto trading data to the $COLUMNSTORE:
    ``` sql
    CALL add_columnstore_policy('crypto_ticks', after => INTERVAL '1d');
    ```
-   See [add_columnstore_policy][add_columnstore_policy].
-   
+
+   $TIMESCALE_DB is optimized for fast updates on compressed data in the $COLUMNSTORE. To modify data in the 
+   $COLUMNSTORE, use standard SQL.
+
 1. **Check the $COLUMNSTORE policy**
 
    1. View your data space saving:

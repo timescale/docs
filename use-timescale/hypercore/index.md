@@ -18,7 +18,6 @@ immediately translates into cost savings.
 This section shows you how to:
 
 * [Optimize your data for real-time analytics][setup-hypercore]
-* [Modify data in the $COLUMNSTORE][modify-data-in-hypercore]
 * [Improve query and upsert performance using secondary indexes][secondary-indexes]
 
 [setup-hypercore]: /use-timescale/:currentVersion:/hypercore/real-time-analytics-in-hypercore/

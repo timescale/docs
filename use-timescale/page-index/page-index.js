@@ -47,11 +47,6 @@ module.exports = [
             excerpt: "Automate",
           },
           {
-            title: "Modify data in hypercore",
-            href: "modify-data-in-hypercore",
-            excerpt: "Update data stored in the columnstore",
-          },
-          {
             title: "Improve query and upsert performance",
             href: "secondary-indexes",
             excerpt: "Automate",
@@ -282,6 +277,11 @@ module.exports = [
             excerpt: "About schema indexes",
           },
           {
+            title: "Indexing data",
+            href: "indexing",
+            excerpt: "Create an index on a hypertable",
+          },
+          {
             title: "About tablespaces",
             href: "about-tablespaces",
             excerpt: "About schema tablespaces",
@@ -295,11 +295,6 @@ module.exports = [
             title: "Alter hypertables",
             href: "alter",
             excerpt: "Change the schema of a hypertable",
-          },
-          {
-            title: "Index",
-            href: "indexing",
-            excerpt: "Create an index on a hypertable",
           },
           {
             title: "Triggers",
