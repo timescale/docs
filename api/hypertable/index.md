@@ -15,7 +15,7 @@ see the [hypertable section][hypertable-docs].
 
 ## The $HYPERTABLE workflow
 
-Best practice for using $HYPERTABLE is to:
+Best practice for using a $HYPERTABLE is to:
 
 <Procedure>
 

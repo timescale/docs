@@ -1,11 +1,11 @@
 Over time you end up with a lot of data. Since this data is mostly immutable, you can compress it
 to save space and avoid incurring additional cost.
 
-$TIMESCALE_DB is built for handling event-oriented data such as time-series, it comes with support
-to compress the data in $HYPERTABLEs using [$HYPERCORE][hypercore].
+$TIMESCALE_DB is built for handling event-oriented data such as time-series and fast analytical queries, it comes with support
+of [$HYPERCORE][hypercore] featuring the columnstore.
 
 [$HYPERCORE_CAP][hypercore] enables you to store the data in a vastly more efficient format allowing
-up to 20x compression ratio compared to a normal $PG table. However, this is highly dependent
+up to 90x compression ratio compared to a normal $PG table. However, this is highly dependent
 on the data and configuration.
 
 [$HYPERCORE_CAP][hypercore] is implemented natively in $PG and does not require special storage

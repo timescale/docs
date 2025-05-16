@@ -29,7 +29,7 @@ performance for analytical workloads.
 By default:
 
 * [$HYPERCORE_CAP][hypercore] is enabled. $HYPERCORE_CAP is the $TIMESCALE_DB hybrid row-columnar storage engine, designed 
-  specifically for real-time analytics and powered by time-series data. Data is compressed and moved to columnar storage
+  specifically for real-time analytics and powered by time-series data. Data is compressed and moved to columnar storage.
 
 * A $HYPERTABLE is partitioned on the time dimension. To add secondary dimensions to a $HYPERTABLE, call [add_dimension][add-dimension]. 
 
@@ -109,7 +109,7 @@ WITH (
 | `tsdb.associated_schema`       |REGCLASS| `_timescaledb_internal` |  ✖  | Set the schema name for internal hypertable tables.                                                                                                                                                                                       |
 | `tsdb.associated_table_prefix` |TEXT|`_hyper`| ✖  | Set the prefix for the names of internal hypertable chunks.                                                                                                                                                                               |
 | `tsdb.orderby`                 |TEXT| Descending order on the time column in `table_name`. | ✖| The order in which items are used in the $COLUMNSTORE. Specified in the same way as an `ORDER BY` clause in a `SELECT` query. |
-| `tsdb.segmentby`               |TEXT| No segementation by column.  | ✖| Set the list of columns used to segment data in the $COLUMNSTORE for `table`. An identifier representing the source of the data such as `device_id` or `tags_id` is usually a good candidate. |
+| `tsdb.segmentby`               |TEXT| No segmentation by column.  | ✖| Set the list of columns used to segment data in the $COLUMNSTORE for `table`. An identifier representing the source of the data such as `device_id` or `tags_id` is usually a good candidate. |
 
 
 ## Returns

@@ -22,7 +22,7 @@ module.exports = [
             href: "create_hypertable",
           },
           {
-            title: "create_hypertable (Even older API)",
+            title: "create_hypertable (even older API)",
             href: "create_hypertable_old",
           },
           {

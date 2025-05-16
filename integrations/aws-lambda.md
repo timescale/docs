@@ -37,7 +37,7 @@ Create a table in $SERVICE_LONG to store time-series data.
 1. **Create a hypertable to store sensor data**
 
    [Hypertables][about-hypertables] are PostgreSQL tables that automatically partition your data by time. You interact
-   with hypertables in the same way as regular PostgreSQL tables, but with extra features that makes managing your
+   with hypertables in the same way as regular PostgreSQL tables, but with extra features that make managing your
    time-series data much easier.
 
    ```sql

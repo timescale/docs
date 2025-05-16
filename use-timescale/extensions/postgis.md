@@ -71,7 +71,7 @@ particular location.
     ```
     <OldCreateHypertable />
 
-1. To support efficient queries, create an index on the `state_id` column, :
+1. To support efficient queries, create an index on the `state_id` column:
 
     ```sql
     CREATE INDEX ON covid_location (state_id, time DESC);
