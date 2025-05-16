@@ -40,12 +40,12 @@ using the VPC on Azure.
 1.  Create application object in your AD tenant, using the Azure CLI:
 
     ```bash
-    az ad app create --display-name "<NAME>" --available-to-other-tenants --key-type Password
+    az ad app create --display-name "<NAME>" --sign-in-audience AzureADMultipleOrgs --key-type Password
     ```
 
     This creates an entity to your AD that can be used to log into multiple AD
-    tenants (--available-to-other-tenants ), but only the home tenant or the
-    tenant the app was created in has the credentials to authenticate the app.
+    tenants (`--sign-in-audience AzureADMultipleOrgs`), but only the home tenant (the
+    tenant the app was created in) has the credentials to authenticate the app.
     Save the `appId`  field from the output - this is referred to as
     `$user_app_id`.
 
