@@ -42,7 +42,7 @@ To update a data exporter:
 
 <Procedure>
 
-1.  **In $CONSOLE, open [Integrations][console-integrations]**
+1.  **In $CONSOLE, open [Exporters][console-integrations]**
 1.  **Next to the exporter you want to edit, click the menu > `Edit`**
 1.  **Edit the exporter fields and save your changes**
 
@@ -92,14 +92,12 @@ It must be one of the following:
 | `us-east-2`      | United States | Ohio           | `irsa-oidc-discovery-prod-us-east-2.s3.us-east-2.amazonaws.com`
 | `us-west-2`      | United States | Oregon         | `irsa-oidc-discovery-prod-us-west-2.s3.us-west-2.amazonaws.com`
 
-[attach-exporter]: /use-timescale/:currentVersion:/metrics-logging/integrations/#attach-a-data-exporter-to-a-timescale-cloud-service
 [aws-access-keys]: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html#id_users_create_console
 [irsa]: https://aws.amazon.com/blogs/opensource/introducing-fine-grained-iam-roles-service-accounts/
 [cross-account-iam-roles]: https://aws.amazon.com/blogs/containers/cross-account-iam-roles-for-kubernetes-service-accounts/
 [cloudwatch]: https://aws.amazon.com/cloudwatch/
 [cloudwatch-docs]: https://docs.aws.amazon.com/cloudwatch/index.html
 [cloudwatch-log-naming]: https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html
-[create-exporter]: /use-timescale/:currentVersion:/metrics-logging/integrations/#create-a-data-exporter
 [datadog]: https://www.datadoghq.com
 [datadog-api-key]: https://docs.datadoghq.com/account_management/api-app-keys/#add-an-api-key-or-client-token
 [datadog-docs]: https://docs.datadoghq.com/
@@ -108,7 +106,6 @@ It must be one of the following:
 [console-services]: https://console.cloud.timescale.com/dashboard/services
 [list-iam-users]: https://console.aws.amazon.com/iam/home#/users
 [create-an-iam-user]: https://console.aws.amazon.com/iam/home#/users/create
-[reference]: /use-timescale/:currentVersion:/metrics-logging/integrations/#reference
 [console-cloudwatch-configuration]: https://console.aws.amazon.com/cloudwatch/home#logsV2:log-groups
 [console-cloudwatch-create-group]: https://console.aws.amazon.com/cloudwatch/home#logsV2:log-groups/create-log-group
 [services-portal]: https://console.cloud.timescale.com/dashboard/services
