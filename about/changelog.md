@@ -26,7 +26,7 @@ Available on Scale and Enterprise plans. [Learn more here](https://docs.timescal
 ![Prometheus export user interface](https://assets.timescale.com/docs/images/prom_exporter_ui.png)
 
 ### 📥 Import text files into PostgreSQL tables
-Our import options in the Timescale Cloud console have expanded to include local text files.  You can add the content of multiple text files (one file per row) into a PostgreSQL table for use with Vectorizers while creating embeddings for evaluation and development. The new option is located in Service > Actions > Import Data.
+Our import options in Timescale Console have expanded to include local text files.  You can add the content of multiple text files (one file per row) into a PostgreSQL table for use with Vectorizers while creating embeddings for evaluation and development. This new option is located in Service > Actions > Import Data.
 
 ## 🤖 Automatic document embeddings from S3 and a sample dataset for AI testing
 <Label type="date">May 09, 2025</Label>
