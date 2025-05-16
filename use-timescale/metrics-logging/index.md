@@ -18,7 +18,9 @@ can also integrate with third-party logging services.
 *   View [service metrics][metrics] in the dashboard.
 *   View [service logs][logs] in the dashboard.
 *   View [query level Insights][insights] in the dashboard.
-*   Export metrics to [Datadog][datadog], [Amazon Cloudwatch][cloudwatch], or [Prometheus][prometheus].
+*   Export metrics to [Datadog][datadog].
+*   Export metrics to [Amazon Cloudwatch][cloudwatch].
+*   Export metrics to [Prometheus][prometheus].
 
 [metrics]: /use-timescale/:currentVersion:/metrics-logging/service-metrics/
 [insights]: /use-timescale/:currentVersion:/metrics-logging/insights/
