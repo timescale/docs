@@ -166,14 +166,14 @@ Tiering a chunk is an asynchronous process that schedules the chunk to be tiered
    This returns a list of chunks. Take a note of the chunk names:
 
    ```sql
-   |1|_timescaledb_internal_hyper_1_2_chunk|
-   |2|_timescaledb_internal_hyper_1_3_chunk|
+   _timescaledb_internal._hyper_1_1_chunk
+   _timescaledb_internal._hyper_1_2_chunk
    ```
 
 1. **Call `tier_chunk` to manually tier each chunk:**
 
    ```sql
-   SELECT tier_chunk( '_timescaledb_internal_hyper_1_2_chunk');
+   SELECT tier_chunk('_timescaledb_internal._hyper_1_1_chunk');
    ```
 
 1. **Repeat for all chunks you want to tier.**

@@ -981,4 +981,8 @@ module.exports = [
     from: '/use-timescale/latest/services/i-o-boost/',
     to: 'https://docs.timescale.com/use-timescale/latest/data-tiering/enabling-data-tiering/',
   },
+  {
+    from: '/use-timescale/latest/metrics-logging/integrations/',
+    to: 'https://docs.timescale.com/use-timescale/latest/metrics-logging/',
+  },
 ];
