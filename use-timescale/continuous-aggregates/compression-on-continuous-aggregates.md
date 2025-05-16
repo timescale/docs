@@ -36,10 +36,6 @@ For an [existing $CAGG][create-cagg]:
    ```
    To disable the $COLUMNSTORE compression, set  `timescaledb.enable_columnstore = false`:
 
-   IAIN: there was a note here saying this does not work on CAGGS with compressed chunks
-
-   IAIN: I assume that this is not longer the case from 2.20 on.
-
 1. **Set $COLUMNSTORE policies on the $CAGG**
 
    Before you set up a $COLUMNSTORE policy on a $CAGG, you first set the [refresh policy][refresh-policy]. To 

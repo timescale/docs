@@ -32,23 +32,3 @@ psql $TARGET -c "DELETE FROM <hypertable> WHERE time >= <start> AND time < <end>
 The BETWEEN operator is inclusive of both the start and end ranges, so it is
 not recommended to use it.
 </Highlight>
-
-### 6c. Disable policies that compress data in the target hypertable
- 
-While data is being backfilled, you must turn off $COLUMNSTORE or compression policies.
-This prevents the policy from compressing chunks which are only half full.
-
-In the following command, replace `<hypertable>` with the fully qualified table
-name of the target hypertable, for example `public.metrics`:
-
-```bash
-psql -d $TARGET -f -v hypertable=<hypertable> - <<'EOF'
-SELECT public.alter_job(j.id, scheduled=>false)
-FROM _timescaledb_config.bgw_job j
-JOIN _timescaledb_catalog.hypertable h ON h.id = j.hypertable_id
-WHERE j.proc_schema IN ('_timescaledb_internal', '_timescaledb_functions')
-  AND j.proc_name = 'policy_compression'
-  AND j.id >= 1000
-  AND format('%I.%I', h.schema_name, h.table_name)::text::regclass = :'hypertable'::text::regclass;
-EOF
-```
