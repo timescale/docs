@@ -8,14 +8,10 @@ api:
   type: procedure
 ---
 
-import Deprecated2200 from "versionContent/_partials/_deprecated_2_20_0.mdx";
 import Since2180 from "versionContent/_partials/_since_2_18_0.mdx";
 import HypercoreManualWorkflow from "versionContent/_partials/_hypercore_manual_workflow.mdx";
 
 # convert_to_rowstore() <Tag type="community">Community</Tag>
-
-<Deprecated2200 /> TimescaleDB is optimized for fast updates on compressed data in the columnstore. To modify data in the 
-   columnstore, use standard SQL.
 
 Manually convert a specific chunk in the hypertable $COLUMNSTORE to the $ROWSTORE.
 
