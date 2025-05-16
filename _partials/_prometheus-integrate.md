@@ -62,7 +62,7 @@ To export metrics from a $SERVICE_LONG, you create a dedicated Prometheus export
 
 1. **Configure the Prometheus scrape target**
 
-   1. Select your service > `Operations` > `Exporters` and click the information icon next to the exporter. You see the exporter details. 
+   1. Select your service, then click `Operations` > `Exporters` and click the information icon next to the exporter. You see the exporter details. 
 
       ![Prometheus exporter details in Timescale Cloud](https://assets.timescale.com/docs/images/prometheus-exporter-details.png)
 
