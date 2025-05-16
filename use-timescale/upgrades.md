@@ -177,8 +177,8 @@ with a replica,  you must first delete the replica and then upgrade the service.
 
 1.  In the Timescale console, navigate to `Services` and click the service
     you want to upgrade.
-1.  Navigate to the `Operations` tab, and go to the `Maintenance` section.
-1.  If a new PostgreSQL version is available, click the `Upgrade` button, and
+1.  Navigate to `Operations` > `Service Upgrades`.
+1.  If a new PostgreSQL version is available, click `Upgrade service` and
     confirm that you are ready to start the upgrade. Your Timescale
     service is unavailable for use until the upgrade is complete.
 1.  When the upgrade is finished, your service automatically resumes normal
