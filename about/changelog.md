@@ -8,6 +8,26 @@ keywords: [changelog, upgrades, updates, releases]
 
 All the latest features and updates to Timescale products.
 
+## ↔️ New export and import options
+<Label type="date">May 15, 2025</Label>
+
+### 🔥 Ship TimescaleDB metrics to Prometheus
+
+We’re excited to release the Prometheus Exporter for Timescale Cloud, making it easy to ship TimescaleDB metrics to your Prometheus instance.
+With the Prometheus Exporter, you can:
+
+- Export TimescaleDB metrics like CPU, memory, and storage
+- Visualize usage trends with your own Grafana dashboards
+- Set alerts for high CPU load, low memory, or storage nearing capacity
+
+To get started, create a Prometheus Exporter in the Timescale Console, attach it to your service, and configure Prometheus to scrape from the exposed URL. Metrics are secured with basic auth.
+Available on Scale and Enterprise plans. [Learn more here](https://docs.timescale.com/use-timescale/latest/metrics-logging/metrics-to-prometheus/).
+
+![Prometheus export user interface](https://assets.timescale.com/docs/images/prom_exporter_ui.png)
+
+### 📥 Import text files into PostgreSQL tables
+Our import options in Timescale Console have expanded to include local text files.  You can add the content of multiple text files (one file per row) into a PostgreSQL table for use with Vectorizers while creating embeddings for evaluation and development. This new option is located in Service > Actions > Import Data.
+
 ## 🤖 Automatic document embeddings from S3 and a sample dataset for AI testing
 <Label type="date">May 09, 2025</Label>
 
@@ -23,7 +43,7 @@ Instead of juggling multiple systems and syncing metadata, vectorizer handles th
 
 You can now import a dataset directly from Hugging Face using Timescale Console. This dataset is ideal for testing vectorizers, you find it in the Import Data page under the Service > Actions tab.
 
-![image](https://assets.timescale.com/docs/images/console-import-huggingface-data.png)
+![hugging face sample data](https://assets.timescale.com/docs/images/console-import-huggingface-data.png)
 
 ## 🔁 Livesync for S3 and passwordless connections for data mode
 <Label type="date">April 25, 2025</Label>
