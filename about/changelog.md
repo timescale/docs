@@ -11,7 +11,7 @@ All the latest features and updates to Timescale products.
 ## ↔️ New export and import options
 <Label type="date">May 15, 2025</Label>
 
-### 🔥 Ship TimescaleDB Metrics to Prometheus
+### 🔥 Ship TimescaleDB metrics to Prometheus
 
 We’re excited to release the Prometheus Exporter for Timescale Cloud, making it easy to ship TimescaleDB metrics to your Prometheus instance.
 With the Prometheus Exporter, you can:
