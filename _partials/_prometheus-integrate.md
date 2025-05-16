@@ -12,7 +12,9 @@ This page shows you how to export your $SERVICE_SHORT telemetry to Prometheus:
 To follow the steps on this page:
 
 - [Download and run Prometheus][install-prometheus].
-- For $CLOUD_LONG, create a target [$SERVICE_LONG][create-service] with the time-series and analytics capability enabled.
+- For $CLOUD_LONG:
+
+      Create a target [$SERVICE_LONG][create-service] with the time-series and analytics capability enabled.
 - For $SELF_LONG:
   - Create a target [self-hosted $TIMESCALE_DB][enable-timescaledb] instance. You need your [connection details][connection-info].
   - [Install PostgreSQL Exporter][install-exporter].
