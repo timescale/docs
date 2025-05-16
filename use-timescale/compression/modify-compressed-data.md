@@ -8,7 +8,6 @@ import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 
 # Insert and modify compressed data
 
-<Deprecated2180 /> With hypercore, you use standard SQL to modify data optimized in the columnstore. 
 
 In TimescaleDB&nbsp;2.11 and later, you can insert data into compressed chunks,
 and modify data in compressed rows.

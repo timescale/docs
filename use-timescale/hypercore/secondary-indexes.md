@@ -14,7 +14,7 @@ when retrieving individual records, enforcing constraints, or performing upserts
 lack.
 
 * [Segmenting and ordering data][segmenting-and-ordering] - improve performance by controlling the way data is physically stored. 
-* [B-tree and hash indexes][b-tree-and-hash-indexes] - **early access**: use secondary indexes to improve performance.   
+* [B-tree and hash indexes][b-tree-and-hash-indexes] - **experimental**: use secondary indexes to improve point query performance.   
 
 ## Segmenting and ordering data
 
@@ -130,7 +130,7 @@ This needs to be taken into account when you define your $COLUMNSTORE settings.
 
 
 
-## B-tree and hash indexes: **early access**
+## B-tree and hash indexes: **experimental support**
 
 $TIMESCALE_DB supports and accelerates real-time analytics using [$HYPERCORE][hypercore] without missing out on important  
 PostgreSQL features, including support for standard PostgreSQL indexes. $HYPERCORE_CAP is a hybrid storage engine 

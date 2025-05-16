@@ -9,7 +9,6 @@ import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 
 # Schema modifications
 
-<Deprecated2180 /> With hypercore, you use standard SQL to modify data optimized in the columnstore.
 
 You can modify the schema of compressed hypertables in recent versions of
 Timescale.
