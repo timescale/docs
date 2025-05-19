@@ -5,7 +5,7 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 This page shows you how to export your $SERVICE_SHORT telemetry to Prometheus:
 
 - For $CLOUD_LONG, using a dedicated Prometheus exporter in $CONSOLE. 
-- For $SELF_LONG, using [PostgreSQL Exporter][postgresql-exporter]. PostgreSQL Exporter exposes user-defined 
+- For $SELF_LONG, using [PostgreSQL Exporter][postgresql-exporter]. 
 
 ## Prerequisites
 
@@ -46,7 +46,7 @@ To export metrics from a $SERVICE_LONG, you create a dedicated Prometheus export
 
    1. Change the auto-generated Prometheus credentials, if needed. See [official documentation][prometheus-authentication] on basic authentication in Prometheus. 
 
-      ![Prometheus exporter credentials](https://assets.timescale.com/docs/images/prometheus-authentication.png)
+      ![Prometheus exporter credentials](https://assets.timescale.com/docs/images/prometheus-basic-authentication.png)
 
 1. **Attach the exporter to a $SERVICE_SHORT**
 
@@ -64,7 +64,7 @@ To export metrics from a $SERVICE_LONG, you create a dedicated Prometheus export
 
    1. Select your service, then click `Operations` > `Exporters` and click the information icon next to the exporter. You see the exporter details. 
 
-      ![Prometheus exporter details in Timescale Cloud](https://assets.timescale.com/docs/images/prometheus-exporter-details.png)
+      ![Prometheus exporter details in Timescale Cloud](https://assets.timescale.com/docs/images/prometheus-exporter-details-timescale-cloud.png)
 
    1. Copy the exporter URL. 
 

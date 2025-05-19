@@ -3,16 +3,15 @@ In Terminal:
 
 1.  **Run the TimescaleDB Docker image**
 
+    The [TimescaleDB HA](https://hub.docker.com/r/timescale/timescaledb-ha) Docker image offers the most complete TimescaleDB experience. It uses [Ubuntu][ubuntu], includes [TimescaleDB Toolkit](https://github.com/timescale/timescaledb-toolkit), and support for PostGIS and Patroni. The latest release based on PostgreSQL 17 is `timescale/timescaledb-ha:pg17`:
+
     ```bash
     docker pull timescale/timescaledb-ha:pg17
     ```
 
-    The [TimescaleDB HA](https://hub.docker.com/r/timescale/timescaledb-ha) Docker image offers the most complete
-    TimescaleDB experience. It uses [Ubuntu][ubuntu], includes
-    [TimescaleDB Toolkit](https://github.com/timescale/timescaledb-toolkit), and support for PostGIS and Patroni.
-    The lighter-weight `timescale/timescaledb:2.18.1-pg17` non-ha image uses [Alpine][alpine].
+    The lighter-weight [TimescaleDB](https://hub.docker.com/r/timescale/timescaledb) non-ha Docker image uses [Alpine][alpine]. The latest release based on PostgreSQL 17 is `timescale/timescaledb:latest-pg17`.
 
-    TimescaleDB is pre-created in the default PostgreSQL database in both the -ha and non-ha docker images.
+    TimescaleDB is pre-created in the default PostgreSQL database in both the -ha and non-ha Docker images.
     By default, TimescaleDB is added to any new database you create in these images.
 
 1. **Run the container**
