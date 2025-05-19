@@ -1,31 +1,28 @@
 ---
-title: Manage read replication
-excerpt: For read-intensive apps, Timescale Cloud enables you to create read-only replicas that take over read queries and offload your primary node. Learn to crete read-only replicas in Timescale Console
+title: Read scaling
+excerpt: For read-intensive apps, Timescale Cloud enables you to create read-only replica sets that take over read queries and offload your primary node. Create read-only replica sets with automated load balancing in Timescale Console
 product: cloud
 keywords: [replicas, scaling]
 tags: [replicas, scaling, ha]
 ---
 
-# Manage read replication
+# Read scaling
 
-You use $READ_REPLICAs to power your read-intensive apps and business intelligence tooling. Using $READ_REPLICAs to serve 
-reads for your app removes the load from the primary data instance, and enables your $SERVICE_SHORT to improve ingest performance. 
+You use $READ_REPLICA sets in $CLOUD_LONG for horizontal read scaling, to power your read-intensive apps and business intelligence tooling. Using the replica sets to serve reads for your app unloads the primary data instance and enables your $SERVICE_SHORT to improve ingest performance. 
 This is particularly useful when read traffic is very spiky and risks impacting ingest performance, or where reads have 
 a lower priority to writes. 
 
-This page shows you how to create and manage $READ_REPLICAs.
+This page shows you how to create and manage $READ_REPLICA sets in $CONSOLE.
 
 ## What is read replication?
 
-A $READ_REPLICA is a read-only copy of the primary data instance in your $SERVICE_LONG. Queries on $READ_REPLICAs have minimal impact on the performance of the primary data instance. This enables you to interact with 
-up-to-date production data for analysis or to scale out reads beyond the limits of your primary data instance. Read replicas can be short-lived and deleted when a session of data analysis is complete, or long-running to power a
-business intelligence (BI) tool. 
+A $READ_REPLICA is a read-only copy of your primary data instance. Queries on $READ_REPLICA have minimal impact on the performance of the primary instance. This enables you to interact with up-to-date production data for analysis, or to scale out reads beyond the limits of your primary instance. $READ_REPLICA_CAPs can be short-lived and deleted when a session of data analysis is complete, or long-running to power a business intelligence tool. 
 
-You use $READ_REPLICAs for **read** scaling. To limit data loss for your $SERVICE_LONGs, use [$HA_REPLICAs][ha].
+A $READ_REPLICA set in $CLOUD_LONG is a group of one or more $READ_REPLICA nodes that share the same endpoint. You query each set as a single replica. $CLOUD_LONG balances the load between the nodes in the set for you.
 
-A $READ_REPLICA is the set of one or more nodes that share the same endpoint in $CONSOLE. You query each set as a single replica. $CLOUD_LONG balances the load between the nodes in the set for you. 
+You can create as many $READ_REPLICA sets as you need. For security and resource isolation, each $READ_REPLICA set has unique connection details.
 
-You can create as many $READ_REPLICAs as you need. For security and resource isolation, each $READ_REPLICA has unique connection details. 
+You use $READ_REPLICA sets for horizontal **read** scaling. To limit data loss for your $SERVICE_LONGs, use [$HA_REPLICAs][ha].
 
 ## Prerequisites
 
@@ -34,41 +31,41 @@ To follow this procedure:
 - Create a target $SERVICE_LONG.
 - Create a [read-only user][read-only-role] on the primary data instance. 
 
-  A user with the read-only permissions cannot access the primary data instance directly. This user is propagated to the $READ_REPLICAs when you create them.
+  A user with the read-only permissions cannot access the primary data instance directly. This user is propagated to the $READ_REPLICA set when you create them.
 
-## Create a $READ_REPLICA
+## Create a $READ_REPLICA set
 
-To create a secure $READ_REPLICA for your read-intensive apps: 
+To create a secure $READ_REPLICA set for your read-intensive apps: 
 
 <Procedure>
 
 1. **In [$CONSOLE][timescale-console-services], select your target $SERVICE_SHORT**
 
-1. **Click `Operations` > `Read replicas` > `Add a read replica`**
+1. **Click `Operations` > `Read replica set` > `Add a read replica`**
 
-1. **Configure your replica** 
+1. **Configure your replica set** 
 
-    Configure the number of nodes, compute size, connection pooling, and the name for your replica, then click `Create read replica`.
+    Configure the number of nodes, compute size, connection pooling, VPC, and the name for your replica, then click `Create read replica set`.
 
    ![Create a read replica in Timescale Console](https://assets.timescale.com/docs/images/create-read-replica-timescale-console.png)
 
 1. **Save the connection information**
 
-    The connection information for each read replica is unique. If you add or remove nodes from an existing replica, the connection information of that set changes. 
+    The connection information for each $READ_REPLICA set is unique. If you add or remove nodes from an existing set, the connection information of that set changes. 
 
 </Procedure>
 
-## Edit a $READ_REPLICA
+## Edit a $READ_REPLICA set
 
-You can change the number of nodes in an existing $READ_REPLICA to better handle your reads:
+You can change the number of nodes in an existing $READ_REPLICA set to better handle your reads:
 
 <Procedure>
 
 1. **In [$CONSOLE][timescale-console-services], select your target $SERVICE_SHORT**
 
-1. **Click `Operations` > `Read replicas`**
+1. **Click `Operations` > `Read replica set`**
 
-   You see a list of all $READ_REPLICAs configured for this $SERVICE_SHORT.
+   You see a list of all $READ_REPLICA sets configured for this $SERVICE_SHORT.
 
    ![Read replicas in Timescale Console](https://assets.timescale.com/docs/images/read-replicas-timescale-console.png)
 
