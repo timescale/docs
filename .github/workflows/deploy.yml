@@ -28,7 +28,7 @@ jobs:
           repo: timescale/web-documentation
           inputs: '{"branch": "${{ steps.timescale.outputs.DEV_FOLDER }}", "pr_number": "${{ env.PR_NUMBER }}"}'
           token: ${{ secrets.ORG_AUTOMATION_TOKEN }}
-          ref: chore/pre-gatsby-bump
+          ref: 13c5fe43e658a1978686c0b9b455c01cab9d914f
 
       - name: Write comment
         uses: marocchino/sticky-pull-request-comment@efaaab3fd41a9c3de579aba759d2552635e590fd
