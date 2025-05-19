@@ -23,7 +23,7 @@ With the Prometheus Exporter, you can:
 To get started, create a Prometheus Exporter in the Timescale Console, attach it to your service, and configure Prometheus to scrape from the exposed URL. Metrics are secured with basic auth.
 Available on Scale and Enterprise plans. [Learn more here](https://docs.timescale.com/use-timescale/latest/metrics-logging/metrics-to-prometheus/).
 
-![Prometheus export user interface](https://assets.timescale.com/docs/images/prom_exporter_ui.png)
+![Prometheus export user interface](https://assets.timescale.com/docs/images/timescale-create-prometheus-exporter.png)
 
 ### 📥 Import text files into PostgreSQL tables
 Our import options in Timescale Console have expanded to include local text files.  You can add the content of multiple text files (one file per row) into a PostgreSQL table for use with Vectorizers while creating embeddings for evaluation and development. This new option is located in Service > Actions > Import Data.
