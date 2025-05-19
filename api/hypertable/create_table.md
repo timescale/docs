@@ -18,7 +18,7 @@ create a standard $PG relational table.
 
 A $HYPERTABLE is a specialized $PG table that automatically partitions your data by time. All actions that work on a 
 $PG table, work on $HYPERTABLEs. For example, [ALTER TABLE][alter_table_hypercore] and [SELECT][sql-select]. 
-However, a $HYPERTABLE can contain foreign keys only to other $HYPERTABLEs.
+A $HYPERTABLE cannot contain foreign keys to another $HYPERTABLEs, all other combinations are allowed.
 
 As the data cools and becomes more suited for analytics, [add a columnstore policy][add_columnstore_policy] so your data 
 is automatically converted to the $COLUMNSTORE after a specific time interval. This columnar format enables fast 
