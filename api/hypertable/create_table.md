@@ -17,8 +17,9 @@ Create a [$HYPERTABLE][hypertable-docs] partitioned on a single dimension with [
 create a standard $PG relational table. 
 
 A $HYPERTABLE is a specialized $PG table that automatically partitions your data by time. All actions that work on a 
-$PG table, work on $HYPERTABLEs. For example, [ALTER TABLE][alter_table_hypercore] and [SELECT][sql-select]. 
-A $HYPERTABLE cannot contain foreign keys to another $HYPERTABLEs, all other combinations are allowed.
+$PG table, work on $HYPERTABLEs. For example, [ALTER TABLE][alter_table_hypercore] and [SELECT][sql-select].
+
+$HYPERTABLE to $HYPERTABLE foreign keys are not allowed, all other combinations are permitted.
 
 As the data cools and becomes more suited for analytics, [add a columnstore policy][add_columnstore_policy] so your data 
 is automatically converted to the $COLUMNSTORE after a specific time interval. This columnar format enables fast 
@@ -95,11 +96,11 @@ CREATE TABLE <table_name> (
 ) 
 WITH (
    tsdb.hypertable = true | false
-   tsdb.partition_column = '<column_name> [, ...]',
+   tsdb.partition_column = '<column_name> ',
    tsdb.chunk_interval = '<interval>'
    tsdb.create_default_indexes =  true | false
-   tsdb.associated_schema = '<schema_name> [, ...]',
-   tsdb.associated_table_prefix = '<prefix> [, ...]'
+   tsdb.associated_schema = '<schema_name>',
+   tsdb.associated_table_prefix = '<prefix>'
    tsdb.orderby = '<column_name> [ASC | DESC] [ NULLS { FIRST | LAST } ] [, ...]',
    tsdb.segmentby = '<column_name> [, ...]',
 )
