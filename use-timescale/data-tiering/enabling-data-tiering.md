@@ -75,7 +75,7 @@ This storage type gives you up to 64 TB and 32,000 IOPS, and is available under 
 
 </Procedure>
 
-You change from enhanced storage to standard in the same way. If you are using over 16 TB of enhanced storage, changing back to standard is not available until you shrink your data to be under 16 TB. You can make changes to the storage type and $IO_BOOST settings once every 6 hours, without any downtime.
+You change from enhanced storage to standard in the same way. If you are using over 16 TB of enhanced storage, changing back to standard is not available until you shrink your data to be under 16 TB. You can make changes to the storage type and $IO_BOOST settings without any downtime. Wait at least 6 hours to attempt another change. 
 
 ## Low-cost object storage tier
 
