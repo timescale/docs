@@ -6,7 +6,7 @@ keywords: [installation, self-hosted, macOS]
 ---
 
 import WhereTo from "versionContent/_partials/_where-to-next.mdx";
-import Skip from "versionContent/_partials/_selfhosted_cta.mdx";
+import TestingEnv from "versionContent/_partials/_selfhosted_production_alert.mdx" ;
 import SelfHostedHomebrew from "versionContent/_partials/_install-self-hosted-homebrew-based.mdx";
 import SelfHostedMacports from "versionContent/_partials/_install-self-hosted-macports-based.mdx";
 import AddTimescaleDBToDB from "versionContent/_partials/_add-timescaledb-to-a-database.mdx";
@@ -17,14 +17,14 @@ TimescaleDB is a [PostgreSQL extension](https://www.postgresql.org/docs/current/
 time series and demanding workloads that ingest and query high volumes of data. You can host TimescaleDB on 
 macOS device.
 
-< Skip /> 
-
 This section shows you how to:
 
 * [Install and configure TimescaleDB on PostgreSQL](#install-and-configure-timescaledb-on-postgresql) - set up
   a self-hosted PostgreSQL instance to efficiently run TimescaleDB.
 * [Add the TimescaleDB extension to your database](#add-the-timescaledb-extension-to-your-database) - enable TimescaleDB features and
   performance improvements on a database.
+
+< TestingEnv />
 
 ### Prerequisites
 
