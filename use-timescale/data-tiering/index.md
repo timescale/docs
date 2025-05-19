@@ -13,7 +13,7 @@ Tiered storage is a [hierarchical storage management architecture][hierarchical-
 
 Engineered for infinite low-cost scalability, tiered storage consists of the following:
 
-* **High-performance storage tier**: stores the most recent and frequently queried data. This tier comes in two types, standard and enhanced, and provides you with up to 64TB of storage and 32,000 IOPS. 
+* **High-performance storage tier**: stores the most recent and frequently queried data. This tier comes in two types, standard and enhanced, and provides you with up to 64 TB of storage and 32,000 IOPS. 
 
 * **Object storage tier**: stores data that is rarely accessed and has lower performance requirements.
   For example, old data for auditing or reporting purposes over long periods of time, even forever.
