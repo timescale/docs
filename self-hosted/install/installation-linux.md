@@ -6,7 +6,7 @@ keywords: [installation, self-hosted, Debian, Ubuntu, RHEL, Fedora]
 ---
 
 import WhereTo from "versionContent/_partials/_where-to-next.mdx";
-import Skip from "versionContent/_partials/_selfhosted_cta.mdx";
+import TestingEnv from "versionContent/_partials/_selfhosted_production_alert.mdx" ;
 import SelfHostedDebianBased from "versionContent/_partials/_install-self-hosted-debian-based.mdx";
 import SelfHostedRedhatBased from "versionContent/_partials/_install-self-hosted-redhat-based.mdx";
 import SelfHostedArchLinuxBased from "versionContent/_partials/_install-self-hosted-archlinux-based.mdx";
@@ -18,8 +18,6 @@ import AddTimescaleDBToDB from "versionContent/_partials/_add-timescaledb-to-a-d
 TimescaleDB is a [PostgreSQL extension](https://www.postgresql.org/docs/current/external-extensions.html) for 
 time series and demanding workloads that ingest and query high volumes of data.
 
-< Skip/>
-
 This section shows you how to:
 
 * [Install and configure TimescaleDB on PostgreSQL](#install-and-configure-timescaledb-on-postgresql) - set up
@@ -27,19 +25,22 @@ This section shows you how to:
 * [Add the TimescaleDB extension to your database](#add-the-timescaledb-extension-to-your-database) - enable TimescaleDB features and 
   performance improvements on a database. 
 
-<Highlight type="warning">
 
-If you have previously installed PostgreSQL without a package manager, you may encounter errors 
-following these install instructions. Best practice is to fully remove any existing PostgreSQL 
-installations before you begin. 
-
-To keep your current PostgreSQL installation, [Install from source][install-from-source].
-</Highlight>
+< TestingEnv/>
 
 ## Install and configure TimescaleDB on PostgreSQL 
 
 This section shows you how to install the latest version of PostgreSQL and 
 TimescaleDB on a [supported platform](#supported-platforms) using the packages supplied by Timescale. 
+
+<Highlight type="warning">
+
+If you have previously installed PostgreSQL without a package manager, you may encounter errors
+following these install instructions. Best practice is to fully remove any existing PostgreSQL
+installations before you begin.
+
+To keep your current PostgreSQL installation, [Install from source][install-from-source].
+</Highlight>
 
 <Tabs label="Install TimescaleDB">
 

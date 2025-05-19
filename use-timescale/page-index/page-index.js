@@ -113,7 +113,7 @@ module.exports = [
               "Manage automatic index creation and manually create additional indexes",
           },
           {
-            title: "Time in continuous aggregates",
+            title: "Time and continuous aggregates",
             href: "time",
             excerpt: "Manage time in continuous aggregates",
           },
@@ -625,10 +625,14 @@ module.exports = [
             excerpt: "Query-level performance insights",
           },
           {
-            title: "Third-party monitoring for Timescale Cloud Services",
-            href: "integrations",
-            excerpt:
-              "Export telemetry data to a third-party monitoring service",
+            title: "Export to Amazon Cloudwatch",
+            href: "aws-cloudwatch",
+            excerpt: "Export telemetry data to Amazon Cloudwatch",
+          },
+          {
+            title: "Export to Datadog",
+            href: "datadog",
+            excerpt: "Export telemetry data to Datadog",
           },
           {
             title: "Export to Prometheus",
