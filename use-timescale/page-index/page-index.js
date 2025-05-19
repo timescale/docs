@@ -454,7 +454,7 @@ module.exports = [
           "Save on storage costs by tiering older data to a low-cost bottomless object storage tier",
         children: [
           {
-            title: "About the object storage tier",
+            title: "About storage tiers",
             href: "about-data-tiering",
             excerpt:
               "Learn how the object storage tier helps you save on storage costs",
