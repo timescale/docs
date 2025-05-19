@@ -40,28 +40,6 @@ data optimized for size and speed in the columnstore.
 
 <ImportDataEnergy />
 
-## Write fast analytical queries
-
-Aggregation is a way of combining data to get insights from it. Average, sum, and count are all examples of simple 
-aggregates. However, with large amounts of data aggregation slows things down, quickly. Continuous aggregates 
-are a kind of hypertable that is refreshed automatically in the background as new data is added, or old data is 
-modified. Changes to your dataset are tracked, and the hypertable behind the continuous aggregate is automatically 
-updated in the background.
-
-By default, querying continuous aggregates provides you with real-time data. Pre-aggregated data from the materialized
-view is combined with recent data that hasn't been aggregated yet. This gives you up-to-date results on every query.
-
-You create continuous aggregates on uncompressed data in high-performance storage. They continue to work
-on [data in the columnstore][test-drive-enable-compression]
-and [rarely accessed data in tiered storage][test-drive-tiered-storage]. You can even
-create [continuous aggregates on top of your continuous aggregates][hierarchical-caggs].
-
-<Procedure>
-
-<CreateCaggsOnIOTData />
-
-</Procedure>
-
 ## Optimize your data for real-time analytics
 
 When $CLOUD_LONG converts a chunk to the columnstore, TimescaleDB automatically creates a different schema for your
@@ -102,6 +80,28 @@ to the columnstore:
 
 Just to hit this one home, by converting cooling data to the columnstore, you have increased the speed of your analytical
 queries by a factor of 10, and reduced storage by up to 90%.
+
+## Write fast analytical queries
+
+Aggregation is a way of combining data to get insights from it. Average, sum, and count are all examples of simple 
+aggregates. However, with large amounts of data aggregation slows things down, quickly. Continuous aggregates 
+are a kind of hypertable that is refreshed automatically in the background as new data is added, or old data is 
+modified. Changes to your dataset are tracked, and the hypertable behind the continuous aggregate is automatically 
+updated in the background.
+
+By default, querying continuous aggregates provides you with real-time data. Pre-aggregated data from the materialized
+view is combined with recent data that hasn't been aggregated yet. This gives you up-to-date results on every query.
+
+You create continuous aggregates on uncompressed data in high-performance storage. They continue to work
+on [data in the columnstore][test-drive-enable-compression]
+and [rarely accessed data in tiered storage][test-drive-tiered-storage]. You can even
+create [continuous aggregates on top of your continuous aggregates][hierarchical-caggs].
+
+<Procedure>
+
+<CreateCaggsOnIOTData />
+
+</Procedure>
 
 <GrafanaConnect />
 

@@ -22,10 +22,10 @@ and `timestamp` types.
 
 ## Create a hypertable
 
-Create a [$HYPERTABLE][hypertables-section] with [$HYPERCORE][hypercore] enabled for your time-series data
-using [CREATE TABLE][hypertable-create-table]. For [efficient queries][secondary-indexes] on data in the columnstore,
-remember to `segmentby` the column you will use most often to filter your data:
-
+Create a [$HYPERTABLE][hypertables-section] for your time-series data using [CREATE TABLE][hypertable-create-table]. 
+For [efficient queries][secondary-indexes] on data in the columnstore, remember to `segmentby` the column you will use 
+most often to filter your data:
+ 
 ```sql
 CREATE TABLE conditions (
    time        TIMESTAMPTZ       NOT NULL,
@@ -46,6 +46,23 @@ CREATE TABLE conditions (
 To convert an existing table with data in it, call `create_hypertable` on that table with
 [`migrate_data` to `true`][api-create-hypertable-arguments]. However, if you have a lot of data, this may take a long time. For more information about migrating data, see
 [Migrate your data to Timescale Cloud][data-migration].
+
+## Optimize cooling data in the $COLUMNSTORE
+
+As the data cools and becomes more suited for analytics, [add a columnstore policy][add_columnstore_policy] so your data
+is automatically converted to the $COLUMNSTORE after a specific time interval. This columnar format enables fast
+scanning and aggregation, optimizing performance for analytical workloads while also saving significant storage space.
+In the $COLUMNSTORE conversion, $HYPERTABLE chunks are compressed by more than 90%, and organized for efficient,
+large-scale queries. This columnar format enables fast scanning and aggregation, optimizing performance for analytical
+workloads.
+
+To optimize your data, add a $COLUMNSTORE policy:
+
+```sql
+CALL add_columnstore_policy('conditions', after => INTERVAL '1d');
+```
+
+You can also manually [convert chunks][convert_to_columnstore] in a $HYPERTABLE to the $COLUMNSTORE.
 
 ## Alter a hypertable
 
@@ -109,3 +126,4 @@ All data chunks belonging to the hypertable are deleted.
 [hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
 [hypercore]: /use-timescale/:currentVersion:/hypercore/
 [secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/
+[convert_to_columnstore]: /api/:currentVersion:/hypercore/convert_to_columnstore/

@@ -27,7 +27,7 @@ of data optimized for size and speed in the columnstore.
 
 * Install and run [self-managed Grafana][grafana-self-managed], or sign up for [Grafana Cloud][grafana-cloud].
 
-## Optimize time-series data in hypertables and hypercore
+## Optimize time-series data in hypertables
 
 <ImportData />
 

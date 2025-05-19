@@ -35,9 +35,9 @@ To create a unique index on a $HYPERTABLE:
 
 1. **Create a $HYPERTABLE**
 
-   Create a [$HYPERTABLE][hypertables-section] with [$HYPERCORE][hypercore] enabled for your time-series data
-   using [CREATE TABLE][hypertable-create-table]. For [efficient queries][secondary-indexes] on data in the columnstore,
-   remember to `segmentby` the column you will use most often to filter your data. For example:
+   Create a [$HYPERTABLE][hypertables-section] for your time-series data using [CREATE TABLE][hypertable-create-table].
+   For [efficient queries][secondary-indexes] on data in the columnstore, remember to `segmentby` the column you will
+   use most often to filter your data. For example:
       ```sql
       CREATE TABLE hypertable_example(
         time TIMESTAMPTZ,

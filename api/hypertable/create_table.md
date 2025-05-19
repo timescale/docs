@@ -14,23 +14,21 @@ import DimensionInfo from "versionContent/_partials/_dimension_info.mdx";
 # CREATE TABLE
 
 Create a [$HYPERTABLE][hypertable-docs] partitioned on a single dimension with [$COLUMNSTORE][hypercore] enabled, or 
-a standard $PG relational table. 
+create a standard $PG relational table. 
 
 A $HYPERTABLE is a specialized $PG table that automatically partitions your data by time. All actions that work on a 
-$PG table, work on $HYPERTABLEs. For example, [ALTER TABLE][alter_table_hypercore] and [SELECT][sql-select]. However, a $HYPERTABLE can contain foreign keys only to other $HYPERTABLEs.
+$PG table, work on $HYPERTABLEs. For example, [ALTER TABLE][alter_table_hypercore] and [SELECT][sql-select]. 
+However, a $HYPERTABLE can contain foreign keys only to other $HYPERTABLEs.
 
-As the data cools and becomes more suited for analytics, it is automatically converted to the $COLUMNSTORE. This 
-columnar format enables fast scanning and aggregation, optimizing performance for analytical workloads while also 
-saving significant storage space. In the $COLUMNSTORE conversion, hypertable chunks are compressed by more than 90%, and 
-organized for efficient, large-scale queries. This columnar format enables fast scanning and aggregation, optimizing 
-performance for analytical workloads.
+As the data cools and becomes more suited for analytics, [add a columnstore policy][add_columnstore_policy] so your data 
+is automatically converted to the $COLUMNSTORE after a specific time interval. This columnar format enables fast 
+scanning and aggregation, optimizing performance for analytical workloads while also saving significant storage space. 
+In the $COLUMNSTORE conversion, $HYPERTABLE chunks are compressed by more than 90%, and organized for efficient, 
+large-scale queries. This columnar format enables fast scanning and aggregation, optimizing performance for analytical 
+workloads. You can also manually [convert chunks][convert_to_columnstore] in a $HYPERTABLE to the $COLUMNSTORE.
 
-By default:
-
-* [$HYPERCORE_CAP][hypercore] is enabled. $HYPERCORE_CAP is the $TIMESCALE_DB hybrid row-columnar storage engine, designed 
-  specifically for real-time analytics and powered by time-series data. Data is compressed and moved to columnar storage.
-
-* A $HYPERTABLE is partitioned on the time dimension. To add secondary dimensions to a $HYPERTABLE, call [add_dimension][add-dimension]. 
+By default, a $HYPERTABLE is partitioned on the time dimension. To add secondary dimensions to a $HYPERTABLE, 
+call [add_dimension][add-dimension]. 
 
 To convert an existing relational table into a $HYPERTABLE, call [create_hypertable][create_hypertable].
 
@@ -41,20 +39,28 @@ arguments specific to $TIMESCALE_DB.
 
 ## Samples
 
-- Create a hypertable partitioned on the time dimension with $COLUMNSTORE enabled:
+- Create a hypertable partitioned on the time dimension and enable $COLUMNSTORE:
 
-   ```sql
-   CREATE TABLE my_hypertable IF NOT EXISTS  (
-      time        TIMESTAMPTZ       NOT NULL,
-      location    TEXT              NOT NULL,
-      device      TEXT              NOT NULL,
-      temperature DOUBLE PRECISION  NULL,
-      humidity    DOUBLE PRECISION  NULL
-   ) WITH (
-      tsdb.hypertable,
-      tsdb.partition_column='time'
-   );
-   ```
+   1. Create the hypertable:
+
+     ```sql
+     CREATE TABLE crypto_ticks (
+        "time" TIMESTAMPTZ,
+        symbol TEXT,
+        price DOUBLE PRECISION,
+        day_volume NUMERIC
+     ) WITH (
+       tsdb.hypertable,
+       tsdb.partition_column='time',
+       tsdb.segmentby='symbol', 
+       tsdb.orderby='time DESC'
+     );
+     ```
+  
+   1. Enable $HYPERCORE by adding a columnstore policy:
+      ```sql
+      CALL add_columnstore_policy('crypto_ticks', after => INTERVAL '1d');
+      ```
 
 - Create a hypertable partitioned on the time with fewer chunks based on time interval:
 
@@ -140,3 +146,6 @@ $TIMESCALE_DB returns a simple message indicating success or failure.
 [columnstore-default-arguments]: /api/:currentVersion:/hypercore/alter_table/#arguments
 [setup-hypercore]: /use-timescale/:currentVersion:/hypercore/real-time-analytics-in-hypercore/
 [hypercore]: /use-timescale/:currentVersion:/hypercore/
+[add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/
+[convert_to_columnstore]: /api/:currentVersion:/hypercore/convert_to_columnstore/
+[bloom-filters]: https://en.wikipedia.org/wiki/Bloom_filter

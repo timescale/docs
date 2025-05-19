@@ -12,9 +12,9 @@ import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intr
    In [$CONSOLE][services-portal] open an [SQL editor][in-console-editors]. The in-Console editors display the query speed.
    You can also connect to your service using [psql][connect-using-psql].
 
-1. Create a [$HYPERTABLE][hypertables-section] with [$HYPERCORE][hypercore] enabled for your time-series data 
-   using [CREATE TABLE][hypertable-create-table]. For [efficient queries][secondary-indexes] on data in the columnstore, 
-   remember to `segmentby` the column you will use most often to filter your data:
+1. Create a [$HYPERTABLE][hypertables-section] for your time-series data using [CREATE TABLE][hypertable-create-table]. 
+   For [efficient queries][secondary-indexes] on data in the columnstore, remember to `segmentby` the column you will 
+   use most often to filter your data:
 
     ```sql
     CREATE TABLE transactions (

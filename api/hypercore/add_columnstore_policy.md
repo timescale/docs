@@ -34,9 +34,9 @@ To create a $COLUMNSTORE job:
 
 1. **Enable $COLUMNSTORE**
 
-   Create a [$HYPERTABLE][hypertables-section] with [$HYPERCORE][hypercore] enabled for your time-series data. By
-   default, your table is `orderedby` the time column. For [efficient queries][secondary-indexes] on $COLUMNSTORE
-   data, remember to `segmentby` the column you will use most often to filter your data:
+   Create a [$HYPERTABLE][hypertables-section] for your time-series data using [CREATE TABLE][hypertable-create-table].
+   For [efficient queries][secondary-indexes] on data in the columnstore, remember to `segmentby` the column you will
+   use most often to filter your data. For example:
 
    * [Use `CREATE TABLE` for a $HYPERTABLE][hypertable-create-table]
 
