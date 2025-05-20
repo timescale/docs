@@ -1,6 +1,6 @@
 <Procedure>
 
-1.  **In $CONSOLE, open [Integrations][console-integrations]**
+1.  **In $CONSOLE, open [Exporters][console-integrations]**
 1.  **Click `New exporter`**
 1.  **Select the data type and specify `AWS CloudWatch` for provider**
 
