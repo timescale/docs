@@ -26,23 +26,24 @@ You can query the data on the object storage tier, but you cannot modify it. Mak
 
 ## High-performance storage tier
 
-By default, $CLOUD_LONG stores your $SERVICE_SHORT data in the standard high-performance storage. This storage tier comes in the standard and enhanced types. 
+By default, $CLOUD_LONG stores your $SERVICE_SHORT data in the standard high-performance storage. This storage tier comes in the standard and enhanced types. Enhanced storage is available under the [Enterprise $PRICING_PLAN][pricing-plans] only.
 
 ### Standard high-performance storage
 
-This storage type gives you up to 16 TB of storage and 16,000 IOPS. You change the IOPS value to better suit your needs in $CONSOLE: 
+This storage type gives you up to 16 TB of storage and is available under [all $PRICING_PLANs][pricing-plans]. You change the IOPS value to better suit your needs in $CONSOLE: 
 
 <Procedure>
 
 1. **In [$CONSOLE][console], select your $SERVICE_SHORT, then click `Operations` > `Compute and storage`**
 
-   By default, the type of high-performance storage is set to `Standard` and IOPS is set to `5,000 - 8,000 (Autoscale)`.
+   By default, the type of high-performance storage is set to `Standard`.
 
 1. **Select the IOPS value in the `I/O boost` dropdown**
 
-   Select between `5,000 - 8,000 (Autoscale)` and `16,000 IOPS`.
+   - Under the [$PERFORMANCE $PRICING_PLAN][pricing-plans], IOPS is set to 3,000 - 5,000 autoscale and cannot be changed.
+   - Under the [$SCALE and $ENTERPRISE $PRICING_PLANs][pricing-plans], IOPS is set to 5,000 - 8,000 autoscale and can be upgraded to 16,000 IOPS.
 
-   ![Default standard storage in Timescale Cloud](https://assets.timescale.com/docs/images/standard-storage-timescale-cloud.png)
+   ![Default standard storage in Timescale Cloud](https://assets.timescale.com/docs/images/high-performance-storage-timescale-cloud.png)
 
 1. **Click `Apply`**
 
@@ -57,19 +58,13 @@ This storage type gives you up to 64 TB and 32,000 IOPS, and is available under 
 1. **In [$CONSOLE][console], select your $SERVICE_SHORT, then click `Operations` > `Compute and storage`**
 1. **Select `Enhanced` in the `Storage type` dropdown**
 
-    ![Enhanced storage in Timescale Cloud](https://assets.timescale.com/docs/images/enhanced-storage-timescale-cloud.png)
-
-    <Highlight type="note">
-   
-    The enhanced storage is currently only available in `us-east-1` with plans to extend to other regions. 
-
-    </Highlight>
+    ![Enhanced storage in Timescale Cloud](https://assets.timescale.com/docs/images/enable-enhanced-storage-timescale-cloud.png)
 
 1. **Select the IOPS value in the `I/O boost` dropdown**
    
     Select between 8,000, 16,000, 24,000, and 32,0000 IOPS. The value that you can apply depends on the number of CPUs in your $SERVICE_SHORT. $CONSOLE notifies you if your selected IOPS requires increasing the number of CPUs. To increase IOPS to 64,000, click `Contact us` and we will be in touch to confirm the details. 
 
-   ![I/O boost in Timescale Cloud](https://assets.timescale.com/docs/images/io-boost-timescale-cloud.png)
+   ![I/O boost in Timescale Cloud](https://assets.timescale.com/docs/images/set-io-boost-timescale-cloud.png)
 
 1. **Click `Apply`**
 
