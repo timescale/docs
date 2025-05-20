@@ -15,7 +15,6 @@ import HypercoreIntro from "versionContent/_partials/_hypercore-intro.mdx";
 In $CLOUD_LONG you only pay for what you use. Data converted to the $COLUMNSTORE is compressed, which 
 immediately translates into cost savings. 
 
-
 This section shows you how to:
 
 * [Optimize your data for real-time analytics][setup-hypercore]

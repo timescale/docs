@@ -11,6 +11,7 @@ api:
 ---
 
 import Since2180 from "versionContent/_partials/_since_2_18_0.mdx";
+import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
 
 # add_columnstore_policy()
 
@@ -18,7 +19,12 @@ Create a [job][job] that automatically moves chunks in a hypertable to the $COLU
 specific time interval.
 
 You enable the $COLUMNSTORE a hypertable or continuous aggregate before you create a $COLUMNSTORE policy. 
-You do this by calling `ALTER TABLE` for hypertables and `ALTER MATERIALIZED VIEW` for continuous aggregates.
+You do this by calling `CREATE TABLE` for hypertables and `ALTER MATERIALIZED VIEW` for continuous aggregates. When
+$COLUMNSTORE is enabled, [bloom filters][bloom-filters] are enabled by default, and every new chunk has a bloom index. 
+If you moved chunks to $COLUMNSTORE using $TIMESCALE_DB v2.19.3 or below, to enable bloom filters on that data you have 
+to convert those chunks to the $ROWSTORE, then convert them back to the $COLUMNSTORE. 
+
+Bloom indexes are not retrofitted, meaning that the existing chunks need to be fully recompressed to have the bloom indexes present. Please check out the PR description for more in-depth explanations of how bloom filters in TimescaleDB work.
 
 To view the policies that you set or the policies that already exist,
 see [informational views][informational-views], to remove a policy, see [remove_columnstore_policy][remove_columnstore_policy].
@@ -33,13 +39,28 @@ To create a $COLUMNSTORE job:
 
 1. **Enable $COLUMNSTORE**
 
-   * [Use `ALTER TABLE` for a hypertable][compression_alter-table]
+   Create a [$HYPERTABLE][hypertables-section] for your time-series data using [CREATE TABLE][hypertable-create-table].
+   For [efficient queries][secondary-indexes] on data in the columnstore, remember to `segmentby` the column you will
+   use most often to filter your data. For example:
+
+   * [Use `CREATE TABLE` for a $HYPERTABLE][hypertable-create-table]
+
      ```sql
-     ALTER TABLE crypto_ticks SET (
-        timescaledb.enable_columnstore = true, 
-        timescaledb.segmentby = 'symbol');
+     CREATE TABLE crypto_ticks (
+        "time" TIMESTAMPTZ,
+        symbol TEXT,
+        price DOUBLE PRECISION,
+        day_volume NUMERIC
+     ) WITH (
+       tsdb.hypertable,
+       tsdb.partition_column='time',
+       tsdb.segmentby='symbol', 
+       tsdb.orderby='time DESC'
+     );
      ```
-   * [Use ALTER MATERIALIZED VIEW for a continuous aggregate][compression_continuous-aggregate]
+     <OldCreateHypertable />
+
+   * [Use `ALTER MATERIALIZED VIEW` for a continuous aggregate][compression_continuous-aggregate]
      ```sql
      ALTER MATERIALIZED VIEW assets_candlestick_daily set (
         timescaledb.enable_columnstore = true, 
@@ -120,3 +141,8 @@ Calls to `add_columnstore_policy` require either `after` or `created_before`, bu
 [next-start]: /api/:currentVersion:/informational-views/jobs/#arguments
 [job]: /api/:currentVersion:/jobs-automation/add_job/
 [remove_columnstore_policy]: /api/:currentVersion:/hypercore/remove_columnstore_policy/
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
+[hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
+[hypercore]: /use-timescale/:currentVersion:/hypercore/
+[secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/
+[bloom-filters]: https://en.wikipedia.org/wiki/Bloom_filter

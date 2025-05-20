@@ -45,6 +45,7 @@ You can enable and disable real-time aggregation by setting the
 
 ## Real-time aggregates and refreshing historical data
 
+
 <CaggsRealTimeHistoricalDataRefreshes />
 
 For more information, see the [troubleshooting section][troubleshooting].

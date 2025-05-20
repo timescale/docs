@@ -14,6 +14,7 @@ tags: [continuous aggregates, real-time aggregates, materialized views]
 ---
 
 import CaggsRealTimeHistoricalDataRefreshes from 'versionContent/_partials/_caggs-real-time-historical-data-refreshes.mdx';
+import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
 
 <!---
 * Use this format for writing troubleshooting sections:
@@ -26,102 +27,129 @@ import CaggsRealTimeHistoricalDataRefreshes from 'versionContent/_partials/_cagg
 
 <CaggsRealTimeHistoricalDataRefreshes />
 
-The following example shows how this works.
+The following example shows how this works:
 
-Create and fill the hypertable:
+<Procedure>
 
-```sql
-CREATE TABLE conditions(
-  day DATE NOT NULL,
-  city text NOT NULL,
-  temperature INT NOT NULL);
+1. Create the $HYPERTABLE:
 
-SELECT create_hypertable(
-  'conditions', by_range('day', INTERVAL '1 day')
-);
+   ```sql
+   CREATE TABLE conditions(
+     day DATE NOT NULL,
+     city text NOT NULL,
+     temperature INT NOT NULL
+   WITH (
+      tsdb.hypertable,
+      tsdb.partition_column='day',
+      tsdb.chunk_interval='1 day'
+   );
+   ```
+   <OldCreateHypertable />
 
-INSERT INTO conditions (day, city, temperature) VALUES
-  ('2021-06-14', 'Moscow', 26),
-  ('2021-06-15', 'Moscow', 22),
-  ('2021-06-16', 'Moscow', 24),
-  ('2021-06-17', 'Moscow', 24),
-  ('2021-06-18', 'Moscow', 27),
-  ('2021-06-19', 'Moscow', 28),
-  ('2021-06-20', 'Moscow', 30),
-  ('2021-06-21', 'Moscow', 31),
-  ('2021-06-22', 'Moscow', 34),
-  ('2021-06-23', 'Moscow', 34),
-  ('2021-06-24', 'Moscow', 34),
-  ('2021-06-25', 'Moscow', 32),
-  ('2021-06-26', 'Moscow', 32),
-  ('2021-06-27', 'Moscow', 31);
-```
+1. Add data to your $HYPERTABLE:
 
-Create a continuous aggregate but do not materialize any data. Note that real
- time aggregation is enabled by default:
+   ```sql
+   INSERT INTO conditions (day, city, temperature) VALUES
+     ('2021-06-14', 'Moscow', 26),
+     ('2021-06-15', 'Moscow', 22),
+     ('2021-06-16', 'Moscow', 24),
+     ('2021-06-17', 'Moscow', 24),
+     ('2021-06-18', 'Moscow', 27),
+     ('2021-06-19', 'Moscow', 28),
+     ('2021-06-20', 'Moscow', 30),
+     ('2021-06-21', 'Moscow', 31),
+     ('2021-06-22', 'Moscow', 34),
+     ('2021-06-23', 'Moscow', 34),
+     ('2021-06-24', 'Moscow', 34),
+     ('2021-06-25', 'Moscow', 32),
+     ('2021-06-26', 'Moscow', 32),
+     ('2021-06-27', 'Moscow', 31);
+   ```
 
-```sql
-CREATE MATERIALIZED VIEW conditions_summary
-WITH (timescaledb.continuous) AS
-SELECT city,
-   time_bucket('7 days', day) AS bucket,
-   MIN(temperature),
-   MAX(temperature)
-FROM conditions
-GROUP BY city, bucket
-WITH NO DATA;
+1. Create a $CAGG but do not materialize any data: 
 
-The select query returns data as real time aggregates are enabled. The query on
-the continuous aggregate fetches data directly from the hypertable:
-SELECT * FROM conditions_summary ORDER BY bucket;
-  city  |   bucket   | min | max
---------+------------+-----+-----
- Moscow | 2021-06-14 |  22 |  30
- Moscow | 2021-06-21 |  31 |  34
- ```
+   1. Create the $CAGG:
+      ```sql
+      CREATE MATERIALIZED VIEW conditions_summary
+      WITH (timescaledb.continuous) AS
+      SELECT city,
+         time_bucket('7 days', day) AS bucket,
+         MIN(temperature),
+         MAX(temperature)
+      FROM conditions
+      GROUP BY city, bucket
+      WITH NO DATA;
+      ```
 
-Materialize data into the continuous aggregate:
+   1. Check your data: 
+      ```sql
+       SELECT * FROM conditions_summary ORDER BY bucket;
+      ```
+      The query on the $CAGG fetches data directly from the $HYPERTABLE:
 
-```sql
-CALL refresh_continuous_aggregate('conditions_summary', '2021-06-14', '2021-06-21');
+      |  city  |   bucket   | min | max|
+      |--------|------------|-----|-----|
+      |Moscow | 2021-06-14 |  22 |  30 |
+      | Moscow | 2021-06-21 |  31 |  34|
 
-The select query returns the same data, as expected, but this time the data is
-fetched from the underlying materialized table
-SELECT * FROM conditions_summary ORDER BY bucket;
-  city  |   bucket   | min | max
---------+------------+-----+-----
- Moscow | 2021-06-14 |  22 |  30
- Moscow | 2021-06-21 |  31 |  34
-```
+1. Materialize data into the $CAGG:
 
-Update the data in the previously materialized bucket:
+   1. Add a refresh policy:
+      ```sql
+      CALL refresh_continuous_aggregate('conditions_summary', '2021-06-14', '2021-06-21');
+      ```
 
-```sql
-UPDATE conditions
-SET temperature = 35
-WHERE day = '2021-06-14' and city = 'Moscow';
-```
+   1. Check your data:
+      ```sql
+      SELECT * FROM conditions_summary ORDER BY bucket;
+      ```
+      The select query returns the same data, as expected, but this time the data is
+      fetched from the underlying materialized table
 
-The updated data is not yet visible when you query the continuous aggregate. This
-is because these changes have not been materialized.( Similarly, any
-INSERTs or DELETEs would also not be visible).
+      |  city  |   bucket   | min | max|
+      |--------|------------|-----|-----|
+      |Moscow | 2021-06-14 |  22 |  30|
+      | Moscow | 2021-06-21 |  31 |  34|
 
-```sql
-SELECT * FROM conditions_summary ORDER BY bucket;
-  city  |   bucket   | min | max
---------+------------+-----+-----
- Moscow | 2021-06-14 |  22 |  30
- Moscow | 2021-06-21 |  31 |  34
-```
 
-Refresh the data again to update the previously materialized region:
+1. Update the data in the previously materialized bucket:
 
-```sql
-CALL refresh_continuous_aggregate('conditions_summary', '2021-06-14', '2021-06-21');
+   1. Update the data in your $HYPERTABLE:
+      ```sql
+      UPDATE conditions
+      SET temperature = 35
+      WHERE day = '2021-06-14' and city = 'Moscow';
+      ```
 
-SELECT * FROM conditions_summary ORDER BY bucket;
-  city  |   bucket   | min | max
---------+------------+-----+-----
- Moscow | 2021-06-14 |  22 |  35
- Moscow | 2021-06-21 |  31 |  34
-```
+   1. Check your data:
+      ```sql
+      SELECT * FROM conditions_summary ORDER BY bucket;
+      ```
+      The updated data is not yet visible when you query the continuous aggregate. This
+      is because these changes have not been materialized. (Similarly, any
+      INSERTs or DELETEs would also not be visible).
+
+      |city  |   bucket   | min | max|
+      |--------|------------|-----|-----|
+      |Moscow | 2021-06-14 |  22 |  30|
+      |Moscow | 2021-06-21 |  31 |  34|
+
+
+1. Refresh the data again to update the previously materialized region:
+
+   1. Refresh the data:
+      ```sql
+      CALL refresh_continuous_aggregate('conditions_summary', '2021-06-14', '2021-06-21');
+      ```
+
+1. Check your data:
+      ```sql
+      SELECT * FROM conditions_summary ORDER BY bucket;
+      ```
+      You see something like:
+
+      |city  |   bucket   | min | max
+      |--------|------------|-----|-----|
+      | Moscow | 2021-06-14 |  22 |  35|
+      |Moscow | 2021-06-21 |  31 |  34|
+

@@ -23,7 +23,7 @@ The `timescaledb-backfill` tool is a command-line utility designed to support
 migrations from Timescale instances by copying historic data from one database
 to another ("backfilling"). `timescaledb-backfill` efficiently copies
 hypertable and continuous aggregates chunks directly, without the need for
-intermediate storage or decompressing compressed chunks. It operates
+intermediate storage, or converting chunks from the $COLUMNSTORE to the $ROWSTORE. It operates
 transactionally, ensuring data integrity throughout the migration process. It
 is designed to be used in the [dual-write and backfill][dual-write-backfill]
 migration procedure.

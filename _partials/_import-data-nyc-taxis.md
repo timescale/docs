@@ -1,11 +1,11 @@
-Time-series data represents how a system, process, or behavior changes over time. [Hypertables][hypertables-section] 
-are PostgreSQL tables that help you improve insert and query performance by automatically partitioning your data by 
-time, speeding up queries for real-time analytics and other challenging workloads. Each hypertable is made up of child 
-tables called chunks. Each chunk is assigned a range of time, and only contains data from that range. 
+import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
+import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intro.mdx";
+
+<HypertableIntro />
 
 <Procedure>
 
-1.  **Import time-series data into a hypertable**
+1.  **Import time-series data into a $HYPERTABLE**
 
     1. Unzip <Tag type="download">[nyc_data.tar.gz](https://assets.timescale.com/docs/downloads/nyc_data.tar.gz)</Tag> to a `<local folder>`.
        
@@ -23,9 +23,13 @@ tables called chunks. Each chunk is assigned a range of time, and only contains 
        psql -d "postgres://<username>:<password>@<host>:<port>/<database-name>?sslmode=require"
        ```
 
-    1. Create tables to import time-series data:
+    1. Create an optimized $HYPERTABLE for your time-series data:
 
-          1. In your sql client, create a normal PostgreSQL table:
+          1. Create a [$HYPERTABLE][hypertables-section] with [$HYPERCORE][hypercore] enabled by default for your
+             time-series data using [CREATE TABLE][hypertable-create-table]. For [efficient queries][secondary-indexes]
+             on data in the columnstore, remember to `segmentby` the column you will use most often to filter your data.
+
+             In your sql client, run the following command:
 
              ```sql
              CREATE TABLE "rides"(
@@ -47,16 +51,20 @@ tables called chunks. Each chunk is assigned a range of time, and only contains 
                tolls_amount NUMERIC,
                improvement_surcharge NUMERIC,
                total_amount NUMERIC
+             ) WITH (
+               tsdb.hypertable,
+               tsdb.partition_column='pickup_datetime',
+               tsdb.create_default_indexes=false,
+               tsdb.segmentby = 'vendor_id',
+               tsdb.orderby = 'pickup_datetime DESC'
              );
              ```
-
-         1.  Convert `rides` to a hypertable and partitioned on time:
+             <OldCreateHypertable />
+   
+         1.  Add another dimension to partition your $HYPERTABLE more efficiently:
              ```sql
-             SELECT create_hypertable('rides', by_range('pickup_datetime'), create_default_indexes=>FALSE);
              SELECT add_dimension('rides', by_hash('payment_type', 2));
              ```
-             To more fully understand how hypertables work, and how to optimize them for performance by
-             tuning chunk intervals and enabling chunk skipping, see [the hypertables documentation][hypertables-section].
 
          1.  Create an index to support efficient queries by vendor, rate code, and passenger count:
              ```sql
@@ -65,7 +73,7 @@ tables called chunks. Each chunk is assigned a range of time, and only contains 
              CREATE INDEX ON rides (passenger_count, pickup_datetime DESC);
              ```           
 
-    1. Create tables for relational data:
+    1. Create $PG tables for relational data:
 
          1.  Add a table to store the payment types data:
                
@@ -103,12 +111,10 @@ tables called chunks. Each chunk is assigned a range of time, and only contains 
          ```sql
          \COPY rides FROM nyc_data_rides.csv CSV;
          ```
-      To more fully understand how hypertables work, and how to optimize them for performance by
-      tuning chunk intervals and enabling chunk skipping, see [the hypertables documentation][hypertables-section].
 
 1.  **Have a quick look at your data**
 
-    You query hypertables in exactly the same way as you would a relational PostgreSQL table.
+    You query $HYPERTABLEs in exactly the same way as you would a relational PostgreSQL table.
     Use one of the following SQL editors to run a query and see the data you uploaded:
        - **Data mode**:  write queries, visualize data, and share your results in [$CONSOLE][portal-data-mode] for all your $SERVICE_LONGs.
        - **SQL editor**: write, fix, and organize SQL faster and more accurately in [$CONSOLE][portal-ops-mode] for a $SERVICE_LONG.
@@ -165,4 +171,9 @@ tables called chunks. Each chunk is assigned a range of time, and only contains 
 [migrate-with-downtime]: /migrate/:currentVersion:/pg-dump-and-restore/
 [migrate-live]: /migrate/:currentVersion:/live-migration/
 [data-ingest]: /use-timescale/:currentVersion:/ingest-data/
-
+[hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
+[hypercore]: /use-timescale/:currentVersion:/hypercore/
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
+[hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
+[hypercore]: /use-timescale/:currentVersion:/hypercore/
+[secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/

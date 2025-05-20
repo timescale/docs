@@ -6,6 +6,7 @@ keywords: [integrate]
 ---
 
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
+import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
 
 # Integrate Supabase with Timescale Cloud
 
@@ -38,14 +39,13 @@ To setup a $SERVICE_LONG optimized for analytics to receive data from Supabase:
           time timestamptz NOT NULL DEFAULT now(), 
           origin_time timestamptz NOT NULL, 
           name TEXT
+      ) WITH (
+        tsdb.hypertable,
+        tsdb.partition_column='time'
       );
       ```
+     <OldCreateHypertable />   
 
-   1. Turn the table to a hypertable:
-
-      ```sql
-      SELECT create_hypertable('signs', by_range('time'));
-      ```
 1. **Optimize cooling data for analytics**
 
    Hypercore is the $TIMESCALE_DB hybrid row-columnar storage engine, designed specifically for real-time analytics 

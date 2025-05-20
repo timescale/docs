@@ -6,6 +6,7 @@ keywords: [connect, integrate, aws, lambda]
 ---
 
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
+import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
 
 # Integrate AWS Lambda with Timescale Cloud
 
@@ -33,25 +34,23 @@ Create a table in $SERVICE_LONG to store time-series data.
 
       For $CLOUD_LONG, open an [SQL editor][run-queries] in [$CONSOLE][open-console]. For self-hosted, use [`psql`][psql].
 
-1. **Create a table to store sensor data**
+1. **Create a hypertable to store sensor data**
+
+   [Hypertables][about-hypertables] are PostgreSQL tables that automatically partition your data by time. You interact
+   with hypertables in the same way as regular PostgreSQL tables, but with extra features that make managing your
+   time-series data much easier.
 
    ```sql
    CREATE TABLE sensor_data (
      time TIMESTAMPTZ NOT NULL,
      sensor_id TEXT NOT NULL,
      value DOUBLE PRECISION NOT NULL
+   ) WITH (
+     tsdb.hypertable,
+     tsdb.partition_column='time'
    );
    ```
-
-1. **For better performance and easier real-time analytics, convert the table to a hypertable**
-
-   [Hypertables][about-hypertables] are PostgreSQL tables that automatically partition your data by time. You interact 
-   with hypertables in the same way as regular PostgreSQL tables, but with extra features that makes managing your 
-   time-series data much easier.
-
-   ```sql
-   SELECT create_hypertable('sensor_data', 'time');
-   ```
+   <OldCreateHypertable />   
 
 </Procedure>
 
@@ -204,7 +203,7 @@ You can now seamlessly ingest time-series data from AWS Lambda into $CLOUD_LONG.
 [console]: https://console.cloud.timescale.com/
 [run-queries]: /getting-started/:currentVersion:/run-queries-from-console/
 [psql]: /integrations/:currentVersion:/psql/
-[about-hypertables]: /use-timescale/:currentVersion:/hypertables/about-hypertables/
+[about-hypertables]: /use-timescale/:currentVersion:/hypertables/
 [aws-iam-role]: https://docs.aws.amazon.com/IAM/latest/UserGuide/access-keys-admin-managed.html#admin-list-access-key
 [open-console]: https://console.cloud.timescale.com/dashboard/services
 [connection-info]: /integrations/:currentVersion:/find-connection-details/

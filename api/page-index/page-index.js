@@ -10,15 +10,19 @@ module.exports = [
       "Jobs allow you to run functions and procedures implemented in a language of your choice on a schedule within TimescaleDB. This allows...",
     children: [
       {
-        title: "Hypertables & chunks",
+        title: "Hypertables and chunks",
         href: "hypertable",
         children: [
           {
-            title: "create_hypertable",
+            title: "CREATE TABLE",
+            href: "create_table",
+          },
+          {
+            title: "create_hypertable (old API)",
             href: "create_hypertable",
           },
           {
-            title: "create_hypertable (old interface)",
+            title: "create_hypertable (even older API)",
             href: "create_hypertable_old",
           },
           {
