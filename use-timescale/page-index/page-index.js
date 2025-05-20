@@ -162,10 +162,6 @@ module.exports = [
             excerpt: "Using a connection pool with your Timescale services",
           },
           {
-            title: "I/O boost",
-            href: "i-o-boost",
-          },
-          {
             title: "Troubleshooting Timescale services",
             href: "troubleshooting",
             type: "placeholder",
@@ -429,7 +425,7 @@ module.exports = [
           "Save on storage costs by tiering older data to a low-cost bottomless object storage tier",
         children: [
           {
-            title: "About the object storage tier",
+            title: "About storage tiers",
             href: "about-data-tiering",
             excerpt:
               "Learn how the object storage tier helps you save on storage costs",
