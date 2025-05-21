@@ -6,6 +6,7 @@ keywords: [chunks, hypertables, split]
 api:
   license: community
   type: function
+products: [cloud, mst, self_hosted]
 ---
 
 # split_chunk() <Tag type="community">Community</Tag>
