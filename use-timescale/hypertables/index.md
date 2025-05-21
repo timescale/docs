@@ -74,7 +74,7 @@ For a detailed analysis of how to optimize your chunk sizes, see the
 to view and set your chunk time intervals, see how to 
 [Optimize $HYPERTABLE chunk intervals][change-chunk-intervals].
 
-## $HYPERTABLE indexes
+## $HYPERTABLE_CAP indexes
 
 By default, indexes are automatically created when you create a $HYPERTABLE.
 
