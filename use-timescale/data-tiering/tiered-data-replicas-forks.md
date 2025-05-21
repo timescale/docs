@@ -2,6 +2,7 @@
 title: Replicas and forks with tiered data
 excerpt: While having replicas of your Timescale Cloud service usually entails additional storage costs, tiering data to object storage means your replicas come for free. Learn how this works under the hood
 products: [cloud]
+price_plans: [scale, enterprise]
 keywords: [tiered storage]
 tags: [storage, data management]
 ---

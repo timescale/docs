@@ -2,6 +2,7 @@
 title: SAML (Security Assertion Markup Language)
 excerpt: SAML is a standard for exchanging authentication and authorization data. Timescale Cloud offers SAML authentication as part of its security suite.
 products: [cloud]
+price_plans: [scale, enterprise]
 keywords: [saml, sso, enterprise, accounts, admin]
 tags: [saml, sso]
 ---

@@ -2,6 +2,7 @@
 title: Querying Tiered Data
 excerpt: Tiering data to low-cost object storage does not mean that it can't be queried. Learn how Timescale Cloud lets you optimize storage while still being able to run analytical queries on the rarely used data
 products: [cloud]
+price_plans: [scale, enterprise]
 keywords: [ tiered storage, tiering ]
 tags: [ storage, data management ]
 ---

@@ -2,6 +2,7 @@
 title: Export metrics to Prometheus
 excerpt: Prometheus is an open-source monitoring system. Learn to integrate Prometheus with Timescale Cloud and export telemetry metrics of your service
 products: [cloud, self_hosted]
+price_plans: [scale, enterprise]
 keywords: [integration, metrics, Prometheus, alerting]
 tags: [telemetry, monitor]
 cloud_ui:
