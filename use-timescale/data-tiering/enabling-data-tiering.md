@@ -60,6 +60,12 @@ This storage type gives you up to 64 TB and 32,000 IOPS, and is available under 
 
     ![Enhanced storage in Timescale Cloud](https://assets.timescale.com/docs/images/enable-enhanced-storage-timescale-cloud.png)
 
+    <Highlight type="note">
+
+    The enhanced storage is currently not available in `sa-east-1`.
+
+    </Highlight>
+
 1. **Select the IOPS value in the `I/O boost` dropdown**
    
     Select between 8,000, 16,000, 24,000, and 32,0000 IOPS. The value that you can apply depends on the number of CPUs in your $SERVICE_SHORT. $CONSOLE notifies you if your selected IOPS requires increasing the number of CPUs. To increase IOPS to 64,000, click `Contact us` and we will be in touch to confirm the details. 
