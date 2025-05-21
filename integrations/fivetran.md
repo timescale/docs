@@ -1,7 +1,7 @@
 ---
 title: Integrate Fivetran with Timescale Cloud
 excerpt: Fivetran is a fully managed data pipeline platform that simplifies extract, transform, and load processes. Integrate Fivetran with Timescale Cloud for seamless data synchronization
-products: [cloud, self-hosted]
+products: [cloud, self_hosted]
 keywords: [Fivetran, PostgreSQL, connection, integrate]
 
 ---
