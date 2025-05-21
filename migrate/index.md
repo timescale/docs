@@ -1,7 +1,7 @@
 ---
 title: Migrate your data to Timescale Cloud
 excerpt: Migrate your existing database to Timescale Cloud - with downtime, live, or using dual-write and backfill
-products: [cloud, self_hosted]
+products: [cloud]
 keywords: [data migration, postgresql, RDS]
 tags: [ingest, migrate, RDS]
 ---
