@@ -1,7 +1,6 @@
 ---
 title: Insert data
 excerpt: Sunsetted v2.14.x. Insert data into distributed hypertables in your self-hosted TimescaleDB installation
-products: [self_hosted]
 keywords: [write, distributed hypertables]
 tags: [ingest, insert]
 seo:
