@@ -2,7 +2,7 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 
 [Prometheus][prometheus] is an open-source monitoring system with a dimensional data model, flexible query language, and a modern alerting approach.
 
-This page shows you how to export your $SERVICE_SHORT telemetry to Prometheus:
+This page shows you how to export your $SERVICE_SHORT metrics to Prometheus:
 
 - For $CLOUD_LONG, using a dedicated Prometheus exporter in $CONSOLE or [PostgreSQL Exporter][postgresql-exporter].
 - For $SELF_LONG, using [PostgreSQL Exporter][postgresql-exporter].
@@ -11,18 +11,18 @@ This page shows you how to export your $SERVICE_SHORT telemetry to Prometheus:
 
 To follow the steps on this page:
 
-- [Download and run Prometheus][install-prometheus].
 - For $CLOUD_LONG:
   
-  - Create a target [$SERVICE_LONG][create-service] with the time-series and analytics capability enabled.
-  - To use PostgreSQL Exporter: [install PostgreSQL Exporter][install-exporter] on a machine in the same AWS region as your $SERVICE_LONG.
+  - Create a target [$SERVICE_LONG][create-service] with the time-series and analytics capability enabled. You need your [connection details][connection-info].
+  - To use PostgreSQL Exporter: [install PostgreSQL Exporter][install-exporter] in the same AWS region as your $SERVICE_SHORT.
 - For $SELF_LONG:
 
   - Create a target [self-hosted $TIMESCALE_DB][enable-timescaledb] instance. You need your [connection details][connection-info].
-  - [Install PostgreSQL Exporter][install-exporter].
-  To reduce latency and potential data transfer costs, install Prometheus and PostgreSQL Exporter on a machine in the same AWS region as your database.
+  - [Install PostgreSQL Exporter][install-exporter] in the same AWS region as your database.
 
-## Export $SERVICE_SHORT telemetry to Prometheus
+- [Download and run Prometheus][install-prometheus] in the same AWS region as your $SERVICE_LONG or database.
+
+## Export metrics to Prometheus
 
 To export your data, do the following:
 
@@ -30,15 +30,19 @@ To export your data, do the following:
 
 <Tab title="Timescale Cloud">
 
-You can export different metrics from your $SERVICE_LONG using the $CONSOLE Prometheus exporter and PostgreSQL Exporter.
+You can export different metrics from your $SERVICE_LONG using the $CONSOLE Prometheus exporter and PostgreSQL Exporter. 
+
+The Prometheus exporter exposes the metrics related to the $SERVICE_LONG like CPU, memory, and storage. PostgreSQL Exporter exposes metrics that you define, excluding the system metrics available with the $CONSOLE exporter.
+
+The Prometheus exporter is available for [Scale and Enterprise][pricing-plan-features] pricing plans.
 
 <Tabs>
 
-<Tab title="Timescale Console exporter">
+<Tab title="Using Timescale Console exporter">
 
 <Procedure>
 
-To export metrics from a $SERVICE_LONG using $CONSOLE exporter, you create the exporter in $CONSOLE, attach it to your $SERVICE_SHORT, then configure Prometheus to scrape metrics using the exposed URL. The Prometheus exporter exposes the metrics related to the $SERVICE_LONG like CPU, memory, and storage. The Prometheus exporter is available for [Scale and Enterprise][pricing-plan-features] pricing plans.
+You create a Prometheus exporter in $CONSOLE, attach it to your $SERVICE_SHORT, then configure Prometheus to scrape metrics using the exposed URL. 
 
 1. **Create a Prometheus exporter**
 
@@ -114,9 +118,9 @@ To export metrics from a $SERVICE_LONG using $CONSOLE exporter, you create the e
 
 </Tab>
 
-<Tab title="PostgreSQL Exporter">
+<Tab title="Using PostgreSQL Exporter">
 
-You import your $SERVICE_LONG metrics into PostgreSQL Exporter, then configure Prometheus to scrape metrics from it. PostgreSQL Exporter exposes metrics that you define, excluding the system metrics available with the $CONSOLE exporter. 
+You import your $SERVICE_LONG metrics into PostgreSQL Exporter, then configure Prometheus to scrape metrics from it. 
 
 <Procedure>
 
@@ -205,9 +209,9 @@ To export metrics from $SELF_LONG, you import telemetry data about your database
 
 <Tab title="Self-hosted TimescaleDB">
 
-<Procedure>
+To export metrics from $SELF_LONG, you import telemetry data about your database to PostgreSQL Exporter, then configure Prometheus to scrape metrics from it.
 
-To export metrics from $SELF_LONG, you import telemetry data about your database to PostgreSQL Exporter, then configure Prometheus to scrape metrics from it. PostgreSQL Exporter exposes metrics that you define, excluding the system metrics.
+<Procedure>
 
 1. **Create a user to access telemetry data about your database**
 
