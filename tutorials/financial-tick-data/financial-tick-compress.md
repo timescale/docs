@@ -1,7 +1,7 @@
 ---
 title: Compress your data using hypercore
 excerpt: Compress a sample dataset with Timescale Cloud to store the financial data more efficiently
-products: [cloud, mst, self_hosted]
+products: [cloud, self_hosted, mst]
 keywords: [tutorials, finance, learn]
 tags: [tutorials, beginner]
 layout_components: [next_prev_large]

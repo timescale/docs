@@ -11,11 +11,12 @@ api:
   deprecated: true
 hyperfunction:
   type: bucket
+products: [cloud, mst, self_hosted]
 ---
 
 import DeprecationNotice from "versionContent/_partials/_deprecated.mdx";
 
-## timescaledb_experimental.time_bucket_ng() <Tag type="experimental">Experimental</Tag>
+# timescaledb_experimental.time_bucket_ng() <Tag type="experimental">Experimental</Tag>
 
 The `time_bucket_ng()` function is an experimental version of the
 [`time_bucket()`][time_bucket] function. It introduced some new capabilities,

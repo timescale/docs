@@ -1,7 +1,7 @@
 ---
 title: Create your first Timescale service
 excerpt: Timescale Cloud offers a range of capabilities to accommodate your real-time analytics and AI and vector workloads. Learn more about each of them and create your first service in Timescale Console
-products: [cloud, mst, self_hosted]
+products: [cloud]
 content_group: Getting started
 ---
 

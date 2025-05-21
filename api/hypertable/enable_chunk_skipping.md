@@ -7,6 +7,7 @@ tags: [columns, ranges, min-max, chunks]
 api:
   license: apache
   type: function
+products: [cloud, mst, self_hosted]
 ---
 
 import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";

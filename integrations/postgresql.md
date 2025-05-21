@@ -1,7 +1,7 @@
 ---
 title: Integrate with PostgreSQL
 excerpt: Query any other PostgreSQL database or another Timescale Cloud service from your service by using PostgreSQL foreign data wrappers
-products: [cloud]
+products: [cloud, self_hosted]
 keywords: [integrate, foreign data wrappers, fdw]
 tags: [change]
 ---

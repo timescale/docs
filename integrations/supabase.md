@@ -1,7 +1,7 @@
 ---
 title: Integrate Supabase with Timescale Cloud
 excerpt: Supabase is an open source Firebase alternative. Integrate Supabase with Timescale Cloud
-products: [cloud, mst, self_hosted]
+products: [cloud, self_hosted]
 keywords: [integrate]
 ---
 
@@ -20,9 +20,9 @@ $SERVICE_LONG.
 
 - Create a [Supabase project][supabase-new-project]
 
-## Setup your $SERVICE_LONG
+## Set up your $SERVICE_LONG
 
-To setup a $SERVICE_LONG optimized for analytics to receive data from Supabase:
+To set up a $SERVICE_LONG optimized for analytics to receive data from Supabase:
 
 <Procedure>
 
@@ -135,9 +135,9 @@ To setup a $SERVICE_LONG optimized for analytics to receive data from Supabase:
 </Procedure>
 
 
-## Setup a Supabase database 
+## Set up a Supabase database 
 
-To setup a Supabase database that injects data into your $SERVICE_LONG:
+To set up a Supabase database that injects data into your $SERVICE_LONG:
 
 <Procedure>
 
@@ -264,7 +264,6 @@ You have successfully integrated Supabase with your $SERVICE_LONG.
 
 [supabase]: https://supabase.com/
 [supabase-new-project]: https://supabase.com/dashboard/new
-
 [hypertables-section]: /use-timescale/:currentVersion:/hypertables/
 [connect]: /getting-started/:currentVersion:/run-queries-from-console/
 [hypercore]: /use-timescale/:currentVersion:/hypercore/

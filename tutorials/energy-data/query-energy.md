@@ -1,7 +1,7 @@
 ---
 title: Energy consumption data tutorial - query the data
 excerpt: Construct and run queries on a sample dataset to find out energy consumption by hour, day, and month
-products: [cloud, mst, self_hosted]
+products: [cloud, self_hosted, mst]
 keywords: [tutorials, query]
 tags: [tutorials, beginner]
 layout_components: [next_prev_large]

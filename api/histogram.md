@@ -10,6 +10,7 @@ api:
     stable: 0.5.0
 hyperfunction:
   type: one-step aggregate
+products: [cloud, mst, self_hosted]
 ---
 
 # histogram()

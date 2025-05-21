@@ -6,6 +6,7 @@ keywords: [hypertables, create]
 api:
   license: apache
   type: function
+products: [cloud, mst, self_hosted]
 ---
 
 # create_hypertable() (old interface)

@@ -1,7 +1,7 @@
 ---
 title: Compress your data using hypercore
 excerpt: Compress a sample dataset with Timescale Cloud so you can store the Bitcoin blockchain more efficiently
-products: [cloud]
+products: [cloud, self_hosted, mst]
 keywords: [beginner, crypto, blockchain, Bitcoin, finance, analytics]
 layout_components: [next_prev_large]
 content_group: Query the Bitcoin blockchain

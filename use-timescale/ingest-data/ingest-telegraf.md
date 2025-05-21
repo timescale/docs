@@ -1,7 +1,7 @@
 ---
 title: Ingest data using Telegraf
 excerpt: Ingest data into a Timescale Cloud service using using the Telegraf plugin
-products: [cloud, mst, self_hosted]
+products: [cloud, self_hosted]
 keywords: [ingest, Telegraf]
 tags: [insert]
 ---
@@ -35,7 +35,7 @@ $SERVICE_LONG.
 
 To create a Telegraf configuration that exports data to a hypertable in your $SERVICE_SHORT:
 
-1. **Setup your $SERVICE_SHORT connection string**
+1. **Set up your $SERVICE_SHORT connection string**
 
     <SetupConnectionString />
 

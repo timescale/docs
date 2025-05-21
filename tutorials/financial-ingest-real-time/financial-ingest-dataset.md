@@ -1,7 +1,7 @@
 ---
 title: Ingest real-time financial websocket data - Set up the dataset
 excerpt: Ingest and set up a sample dataset in Timescale Cloud to run real-time analysis of financial data
-products: [cloud]
+products: [cloud, self_hosted, mst]
 keywords: [finance, analytics, websockets, data pipeline]
 tags: [tutorials, intermediate]
 layout_components: [next_prev_large]

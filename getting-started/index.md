@@ -1,7 +1,7 @@
 ---
 title: Get started with Timescale
 excerpt: Supercharge your real-time analytics on time-series data with Timescale Cloud. Create a free account, launch your first service, and use some of the advanced features
-products: [cloud, mst, self_hosted]
+products: [cloud]
 content_group: Getting started
 ---
 

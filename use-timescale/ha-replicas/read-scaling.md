@@ -1,7 +1,8 @@
 ---
 title: Manage read replication
 excerpt: For read-intensive apps, Timescale Cloud enables you to create read-only replicas that take over read queries and offload your primary node. Learn to crete read-only replicas in Timescale Console
-product: cloud
+products: [cloud]
+price_plans: [scale, enterprise]
 keywords: [replicas, scaling]
 tags: [replicas, scaling, ha]
 ---

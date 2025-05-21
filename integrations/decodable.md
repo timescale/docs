@@ -1,7 +1,7 @@
 ---
 title: Integrate Decodable with Timescale Cloud 
 excerpt: Decodable enables you to build, run, and manage data pipelines effortlessly. Seamlessly integrate Decodable with Timescale Cloud to unlock real-time data processing capabilities
-products: [cloud, mst, self_hosted]
+products: [cloud, self_hosted]
 keywords: [Decodable, Timescale Cloud]
 ---
 

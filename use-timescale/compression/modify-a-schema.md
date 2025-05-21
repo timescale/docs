@@ -5,10 +5,7 @@ products: [cloud, mst, self_hosted]
 keywords: [compression, schemas, hypertables]
 ---
 
-import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
-
 # Schema modifications
-
 
 You can modify the schema of compressed hypertables in recent versions of
 Timescale.

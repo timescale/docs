@@ -7,6 +7,7 @@ tags: [background jobs, scheduled jobs, automation framework, scheduled views, s
 api:
   license: community
   type: view
+products: [cloud, mst, self_hosted]
 ---
 
 # timescaledb_information.job_stats

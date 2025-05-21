@@ -7,6 +7,7 @@ tags: [scheduled jobs, automation framework, background jobs, alter, change]
 api:
   license: community
   type: function
+products: [cloud, mst, self_hosted]
 ---
 
 import EarlyAccess from "versionContent/_partials/_early_access.mdx";

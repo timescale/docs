@@ -1,10 +1,9 @@
 ---
 title: Manual compression
 excerpt: Timescale Cloud provides automated and manual data compression. Learn to manually compress specific chunks of a hypertable for a more granular control
-products: [self_hosted]
+products: [cloud, mst, self_hosted]
 keywords: [compression, hypertables]
 ---
-import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 
 # Manually compress chunks
 

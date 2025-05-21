@@ -46,5 +46,6 @@ api_details:
           statistical aggregates API to perform final calculations. Or, pass the
           aggregate to rollup functions to combine multiple statistical aggregates
           into larger aggregates.
+products: [cloud, mst, self_hosted]
 ---
 

@@ -6,6 +6,7 @@ keywords: [hypertables, create]
 api:
   license: apache
   type: function
+products: [cloud, mst, self_hosted]
 ---
 
 import Deprecated2200 from "versionContent/_partials/_deprecated_2_20_0.mdx";

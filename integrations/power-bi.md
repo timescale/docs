@@ -1,7 +1,7 @@
 ---
 title: Integrate Power BI with Timescale Cloud
 excerpt: Integrate Timescale Cloud with Power BI for advanced data visualization.
-products: [cloud, mst, self_hosted]
+products: [cloud, self_hosted]
 keywords: [Power BI, visualizations, analysis, real-time]
 ---
 

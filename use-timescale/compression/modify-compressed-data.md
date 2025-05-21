@@ -4,10 +4,9 @@ excerpt: In Timescale Cloud, compressed data can still be modified. Learn to ins
 products: [cloud, mst, self_hosted]
 keywords: [compression, backfilling, hypertables]
 ---
-import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
+
 
 # Insert and modify compressed data
-
 
 In TimescaleDB&nbsp;2.11 and later, you can insert data into compressed chunks,
 and modify data in compressed rows.

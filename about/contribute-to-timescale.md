@@ -1,7 +1,7 @@
 ---
 title: Contribute to Timescale
 excerpt: We welcome all contributions! Learn to contribute to the TimescaleDB code base and documentation
-products: [cloud, mst, self_hosted]
+products: [self_hosted]
 keywords: [contribute]
 tags: [github]
 ---

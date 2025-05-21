@@ -1,7 +1,7 @@
 ---
 title: Improve query and upsert performance
 excerpt: Using secondary indexes on data in the columnstore make lookup queries 1,185x and upserts 224x faster
-products: [cloud, mst, self_hosted]
+products: [cloud, self_hosted]
 keywords: [hypertable, compression, row-columnar storage, hypercore]
 ---
 

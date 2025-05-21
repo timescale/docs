@@ -1,7 +1,6 @@
 ---
 title: Integrations for Managed Service for TimescaleDB
 excerpt: Integrate Managed Service for TimescaleDB with other services
-product: mst
 products: [mst]
 ---
 
