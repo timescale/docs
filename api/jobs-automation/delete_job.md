@@ -7,6 +7,7 @@ tags: [background jobs, scheduled jobs, automation framework]
 api:
   license: community
   type: function
+products: [cloud, mst, self_hosted]
 ---
 
 # delete_job() <Tag type="community">Community</Tag>

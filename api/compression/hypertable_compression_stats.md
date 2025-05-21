@@ -7,6 +7,7 @@ tags: [statistics, size]
 api:
   license: community
   type: function
+products: [cloud, mst, self_hosted]
 ---
 
 import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";

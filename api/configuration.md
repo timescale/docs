@@ -2,6 +2,7 @@
 title: Configuration
 excerpt: Use the default PostgreSQL server configuration settings for your Timescale Cloud service, or customize them as needed
 keywords: [configure]
+products: [self_hosted]
 ---
 
 # Configuration

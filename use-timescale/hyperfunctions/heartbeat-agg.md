@@ -2,6 +2,7 @@
 title: Heartbeat aggregation
 excerpt: Heartbeat aggregation helps analyze intermittent or irregular time-series data, especially with multiple sources or event-driven updates. Learn how to use heartbeat aggregation in Timescale Cloud
 keywords: [hyperfunctions, Toolkit, heartbeat, liveness]
+products: [cloud, mst, self_hosted]
 ---
 
 # Heartbeat aggregation

@@ -61,4 +61,5 @@ api_details:
             '10 days',
             '5 min')
           FROM system_health;
+products: [cloud, mst, self_hosted]
 ---

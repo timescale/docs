@@ -48,5 +48,6 @@ api_details:
       command:
         code: |
           SELECT toolkit_experimental.freq_agg(0.05, ZIP) FROM HomeSales;
+products: [cloud, mst, self_hosted]
 ---
 

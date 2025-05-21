@@ -1,7 +1,7 @@
 ---
 title: Analyze financial tick data - Query the data
 excerpt: Create candlestick views and query financial tick data to perform real-time analysis of price changes in Timescale Cloud
-products: [cloud, mst, self_hosted]
+products: [cloud, self_hosted, mst]
 keywords: [tutorials, finance, learn]
 tags: [tutorials, beginner]
 layout_components: [next_prev_large]

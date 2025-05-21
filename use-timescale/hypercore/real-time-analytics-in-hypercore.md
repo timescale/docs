@@ -1,7 +1,7 @@
 ---
 title: Optimize your data for real-time analytics
 excerpt: Reduce your chunk size by more than 90% and speed up your queries by automatically converting data between the rowstore and columnstore.
-products: [cloud,]
+products: [cloud, self_hosted]
 keywords: [hyperscore, hypertable, compression, row-columnar storage, hypercore]
 ---
 

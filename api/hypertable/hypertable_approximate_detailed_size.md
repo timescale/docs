@@ -7,6 +7,7 @@ tags: [statistics, size, disk space]
 api:
   license: apache
   type: function
+products: [cloud, mst, self_hosted]
 ---
 
 # hypertable_approximate_detailed_size()

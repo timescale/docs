@@ -6,6 +6,7 @@ keywords: [continuous aggregates, refresh]
 api:
   license: community
   type: function
+products: [cloud, self_hosted, mst]
 ---
 
 # refresh_continuous_aggregate() <Tag type="community">Community</Tag>

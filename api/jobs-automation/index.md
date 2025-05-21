@@ -3,6 +3,7 @@ title: Jobs
 excerpt: Timescale Cloud API reference for jobs. Includes SQL functions for adding, altering, deleting, and running a job
 keywords: [jobs]
 tags: [background jobs, scheduled jobs, automation framework]
+products: [cloud, mst, self_hosted]
 ---
 
 # $JOB_CAPs <Tag type="community">Community</Tag>

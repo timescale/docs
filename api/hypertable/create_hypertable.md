@@ -6,6 +6,7 @@ keywords: [hypertables, create]
 api:
   license: apache
   type: function
+products: [cloud, mst, self_hosted]
 ---
 
 import DimensionInfo from "versionContent/_partials/_dimension_info.mdx";
