@@ -16,14 +16,6 @@ tags: [continuous aggregates, real-time aggregates, materialized views]
 import CaggsRealTimeHistoricalDataRefreshes from 'versionContent/_partials/_caggs-real-time-historical-data-refreshes.mdx';
 import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
 
-<!---
-* Use this format for writing troubleshooting sections:
- - Cause: What causes the problem?
- - Consequence: What does the user see when they hit this problem?
- - Fix/Workaround: What can the user do to fix or work around the problem? Provide a "Resolving" Procedure if required.
- - Result: When the user applies the fix, what is the result when the same action is applied?
-* Copy this comment at the top of every troubleshooting page
--->
 
 <CaggsRealTimeHistoricalDataRefreshes />
 
@@ -44,6 +36,7 @@ The following example shows how this works:
       tsdb.chunk_interval='1 day'
    );
    ```
+   
    <OldCreateHypertable />
 
 1. Add data to your $HYPERTABLE:
@@ -153,3 +146,4 @@ The following example shows how this works:
       | Moscow | 2021-06-14 |  22 |  35|
       |Moscow | 2021-06-21 |  31 |  34|
 
+</Procedure>
