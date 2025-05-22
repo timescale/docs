@@ -12,18 +12,18 @@ All the latest features and updates to Timescale products.
 ## ➕ More storage types and IOPS
 <Label type="date">May 22, 2025</Label>
 
-### 🚀 Enhanced Storage: Scale to 64 TB and 32,000 IOPS
+### 🚀 Enhanced storage: scale to 64 TB and 32,000 IOPS
 
-We're excited to introduce Enhanced Storage, a new storage type in Timescale Cloud that significantly boosts both capacity and performance—designed for customers with mission critical workloads.
+We're excited to introduce enhanced storage, a new storage type in Timescale Cloud that significantly boosts both capacity and performance. Designed for customers with mission-critical workloads.
 
-With Enhanced Storage, Timescale Cloud now supports:
-- Up to 64 TB of storage per database service (4x increase from the previous limit)
+With enhanced storage, Timescale Cloud now supports:
+- Up to 64 TB of storage per Timescale Cloud service (4x increase from the previous limit)
 - Up to 32,000 IOPS, enabling high-throughput ingest and low-latency queries
 
-Powered by AWS io2 volumes, Enhanced Storage gives your workloads the headroom they need—whether you're building financial data pipelines, IoT platforms, or processing billions of rows of telemetry. No more worrying about storage ceilings or IOPS bottlenecks.
-You can enable Enhanced Storage in the Timescale Console under Operations → Compute & Storage. Enhanced Storage is currently available on the Enterprise plan only. [Learn more here](https://docs.timescale.com/use-timescale/latest/data-tiering/enabling-data-tiering/).
+Powered by AWS io2 volumes, enhanced storage gives your workloads the headroom they need—whether you're building financial data pipelines, developing IoT platforms, or processing billions of rows of telemetry. No more worrying about storage ceilings or IOPS bottlenecks.
+Enable enhanced storage in Timescale Console under `Operations` → `Compute & Storage`. Enhanced storage is currently available on the Enterprise pricing plan only. [Learn more here](https://docs.timescale.com/use-timescale/latest/data-tiering/enabling-data-tiering/).
 
-![Storage options]()
+![I/O boost in Timescale Cloud](https://assets.timescale.com/docs/images/io-boost-timescale-cloud.png)
 
 ## ↔️ New export and import options
 <Label type="date">May 15, 2025</Label>
