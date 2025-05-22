@@ -1,7 +1,6 @@
 ---
 title: About distributed hypertables
 excerpt: Sunsetted v2.14.x. Distributed hypertables are hypertables that span multiple nodes 
-products: [self_hosted]
 keywords: [distributed hypertables, multi-node]
 seo:
   robots: noindex
