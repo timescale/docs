@@ -8,6 +8,7 @@ api:
   type: function
 seo:
   robots: noindex
+products: [cloud, mst, self_hosted]
 ---
 
 # move_chunk() <Tag type="community">Community</Tag>

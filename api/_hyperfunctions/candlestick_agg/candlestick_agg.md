@@ -56,5 +56,6 @@ api_details:
           An object storing `(timestamp, value)` pairs for each of the opening,
           high, low, and closing prices, in addition to information used to
           calculate the total volume and Volume Weighted Average Price.
+products: [cloud, mst, self_hosted]
 ---
 

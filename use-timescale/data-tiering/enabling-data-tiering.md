@@ -1,7 +1,8 @@
 ---
-title: Manage tiering
-excerpt: Enable tiered storage for your data in Timescale Console. With automated data tiering policies, you get a set it and forget it tool to cut storage costs
+title: Manage storage and tiering
+excerpt: Configure high-performance and low-cost object storage tiers in Timescale Console. With automated data tiering policies, you get a set it and forget it tool to cut storage costs
 products: [cloud]
+price_plans: [scale, enterprise]
 keywords: [tiered storage]
 tags: [storage, data management]
 cloud_ui:
@@ -11,32 +12,91 @@ cloud_ui:
 
 import TieredStorageBilling from "versionContent/_partials/_tiered-storage-billing.mdx";
 
-# Manage automated and manual tiering
+# Manage storage and tiering
 
-You use tiered storage to save on storage costs. Specifically, you can migrate rarely used data from 
-Timescale's standard high-performance storage to the object storage. After you 
-[enable tiered storage][enable-tiered-storage], you then either [create automated tiering policies][tiering-policies] 
-or [manually tier and untier data][manual-tier].
+$COMPANY's tiered storage architecture includes a high-performance storage tier and a low-cost object storage tier:
+
+- You use [high-performance storage][high-performance-storage] to store and query frequently accessed data. 
+
+- You use [low-cost object storage][low-cost-storage] to cut costs by migrating rarely used data from the high-performance storage. After you 
+enable tiered storage, you then either [create automated tiering policies][tiering-policies] or [manually tier and untier data][manual-tier].
 
 You can query the data on the object storage tier, but you cannot modify it. Make sure that you are not tiering data that needs to be **actively modified**.
 
 <TieredStorageBilling />
 
-## Enable tiered storage
+## High-performance storage tier
 
-You enable tiered storage from the `Overview` tab in Console.
+By default, $CLOUD_LONG stores your $SERVICE_SHORT data in the standard high-performance storage. This storage tier comes in the standard and enhanced types. 
+
+### Standard high-performance storage
+
+This storage type gives you up to 16 TB of storage and 16,000 IOPS. You change the IOPS value to better suit your needs in $CONSOLE: 
 
 <Procedure>
 
-1. **In [Timescale Console][console], select the service to modify**.
+1. **In [$CONSOLE][console], select your $SERVICE_SHORT, then click `Operations` > `Compute and storage`**
+
+   By default, the type of high-performance storage is set to `Standard` and IOPS is set to `5,000 - 8,000 (Autoscale)`.
+
+1. **Select the IOPS value in the `I/O boost` dropdown**
+
+   Select between `5,000 - 8,000 (Autoscale)` and `16,000 IOPS`.
+
+   ![Default standard storage in Timescale Cloud](https://assets.timescale.com/docs/images/standard-storage-timescale-cloud.png)
+
+1. **Click `Apply`**
+
+</Procedure>
+
+### Enhanced high-performance storage
+
+This storage type gives you up to 64 TB and 32,000 IOPS, and is available under the [$ENTERPRISE $PRICING_PLAN][pricing-plans]. To get enhanced storage:
+
+<Procedure>
+
+1. **In [$CONSOLE][console], select your $SERVICE_SHORT, then click `Operations` > `Compute and storage`**
+1. **Select `Enhanced` in the `Storage type` dropdown**
+
+    ![Enhanced storage in Timescale Cloud](https://assets.timescale.com/docs/images/enhanced-storage-timescale-cloud.png)
+
+    <Highlight type="note">
+   
+    The enhanced storage is currently only available in `us-east-1` with plans to extend to other regions. 
+
+    </Highlight>
+
+1. **Select the IOPS value in the `I/O boost` dropdown**
+   
+    Select between 8,000, 16,000, 24,000, and 32,0000 IOPS. The value that you can apply depends on the number of CPUs in your $SERVICE_SHORT. $CONSOLE notifies you if your selected IOPS requires increasing the number of CPUs. To increase IOPS to 64,000, click `Contact us` and we will be in touch to confirm the details. 
+
+   ![I/O boost in Timescale Cloud](https://assets.timescale.com/docs/images/io-boost-timescale-cloud.png)
+
+1. **Click `Apply`**
+
+</Procedure>
+
+You change from enhanced storage to standard in the same way. If you are using over 16 TB of enhanced storage, changing back to standard is not available until you shrink your data to be under 16 TB. You can make changes to the storage type and $IO_BOOST settings without any downtime. Wait at least 6 hours to attempt another change. 
+
+## Low-cost object storage tier
+
+You enable the low-cost object storage tier in $CONSOLE and then tier the data with policies or manually. 
+
+### Enable tiered storage 
+
+You enable tiered storage from the `Overview` tab in $CONSOLE.
+
+<Procedure>
+
+1. **In [Timescale Console][console], select the service to modify**
 
     You see the `Overview` section.
 
-1. **Scroll down, then click `Enable tiered storage`**.
+1. **Scroll down, then click `Enable tiered storage`**
 
    ![Enable tiered storage](https://assets.timescale.com/docs/images/console-enable-tiered-storage.png)
 
-   When tiered storage is enabled, you see the amount of data in the tiered object storage.
+   Once enabled, you can proceed to [tier data manually][manual-tier] or [set up tiering policies][tiering-policies]. When tiered storage is enabled, you see the amount of data in the tiered object storage.
 
 </Procedure>
 
@@ -46,7 +106,7 @@ Data tiering is available in [Scale and Enterprise][pricing-plans] pricing plans
 
 </Highlight>
 
-## Automate tiering with policies
+### Automate tiering with policies
 
 A tiering policy automatically moves any chunks that only contain data
 older than the `move_after` threshold to the object storage tier. This works similarly to a
@@ -56,7 +116,7 @@ A tiering policy schedules a job that runs periodically to asynchronously migrat
 
 You can add tiering policies to [hypertables][hypertable], including [continuous aggregates][caggs]. To manage tiering policies, [connect to your service][connect-to-service] and run the queries below in the data mode, the SQL editor, or using `psql`.
 
-### Add a tiering policy
+#### Add a tiering policy
 
 To add a tiering policy, call `add_tiering_policy`:
 
@@ -72,7 +132,7 @@ SELECT add_tiering_policy('example', INTERVAL '3 days');
 
 By default, a tiering policy runs hourly on your database. To change this interval, call `alter_job`.
 
-### Remove a tiering policy
+#### Remove a tiering policy
 
 To remove an existing tiering policy, call `remove_tiering_policy`:
 
@@ -88,11 +148,11 @@ SELECT remove_tiering_policy('example');
 
 If you remove a tiering policy, the remaining scheduled chunks are not tiered. However, chunks in tiered storage are not untiered. You [untier chunks manually][manual-tier] to local storage.
 
-## Manually tier and untier chunks
+### Manually tier and untier chunks
 
 If tiering policies do not meet your current needs, you can tier and untier chunks manually. To do so, [connect to your service][connect-to-service] and run the queries below in the data mode, the SQL editor, or using `psql`.
 
-### Tier chunks
+#### Tier chunks
 
 Tiering a chunk is an asynchronous process that schedules the chunk to be tiered. In the following example, you tier chunks older than three days in the `example` hypertable. You then list the tiered chunks.
 
@@ -107,14 +167,14 @@ Tiering a chunk is an asynchronous process that schedules the chunk to be tiered
    This returns a list of chunks. Take a note of the chunk names:
 
    ```sql
-   |1|_timescaledb_internal_hyper_1_2_chunk|
-   |2|_timescaledb_internal_hyper_1_3_chunk|
+   _timescaledb_internal._hyper_1_1_chunk
+   _timescaledb_internal._hyper_1_2_chunk
    ```
 
 1. **Call `tier_chunk` to manually tier each chunk:**
 
    ```sql
-   SELECT tier_chunk( '_timescaledb_internal_hyper_1_2_chunk');
+   SELECT tier_chunk('_timescaledb_internal._hyper_1_1_chunk');
    ```
 
 1. **Repeat for all chunks you want to tier.**
@@ -135,7 +195,7 @@ To see which chunks are scheduled for tiering either by policy or by a manual ca
 SELECT * FROM timescaledb_osm.chunks_queued_for_tiering ;
 ```
 
-### Untier chunks
+#### Untier chunks
 
 To update data in a tiered chunk, move it back to the standard high-performance storage tier in $CLOUD_LONG. Untiering chunks is a synchronous process. Chunks are renamed when the data is untiered.
 
@@ -191,7 +251,7 @@ To untier a chunk, call the `untier_chunk` stored procedure.
 
 </Procedure>
 
-## Disable tiering 
+### Disable tiering 
 
 If you no longer want to use tiered storage for a particular hypertable, drop the associated metadata by calling `disable_tiering`.
 
@@ -232,3 +292,6 @@ If you no longer want to use tiered storage for a particular hypertable, drop th
 [tiering-policies]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering#automate-tiering-with-policies
 [manual-tier]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering#manually-tier-and-untier-chunks
 [pricing-plans]: /about/:currentVersion:/pricing-and-account-management
+[high-performance-storage]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/#high-performance-storage-tier
+[low-cost-storage]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/#low-cost-object-storage-tier
+[cloud-regions]: /use-timescale/:currentVersion:/regions/

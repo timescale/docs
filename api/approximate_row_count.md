@@ -11,6 +11,7 @@ api:
     stable: 0.10.0
 hyperfunction:
   type: one-step aggregate
+products: [cloud, mst, self_hosted]
 ---
 
 # approximate_row_count()

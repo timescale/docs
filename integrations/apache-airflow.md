@@ -1,7 +1,7 @@
 ---
 title: Integrate Apache Airflow with Timescale Cloud
 excerpt: Apache Airflow is a platform to programmatically author, schedule, and monitor workflows. Integrate Apache Airflow with Timescale Cloud and create a data pipeline
-products: [cloud, mst, self_hosted]
+products: [cloud, self_hosted]
 keywords: [connect, integrate, apache, airflow]
 ---
 

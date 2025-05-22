@@ -39,5 +39,6 @@ api_details:
         type: MinN
         description: >
           The compiled aggregate.  Note that the exact type is `MinInts`, `MinFloats`, or `MinTimes` depending on the input type
+products: [cloud, mst, self_hosted]
 ---
 

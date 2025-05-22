@@ -1,7 +1,6 @@
 ---
 title: Multi-node maintenance tasks
 excerpt: Sunsetted v2.14.x. Run maintenance on your self-hosted multi-node TimescaleDB instance
-products: [self_hosted]
 keywords: [multi-node, maintenance]
 tags: [manage]
 seo:
