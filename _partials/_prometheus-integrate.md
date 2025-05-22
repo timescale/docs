@@ -128,7 +128,7 @@ You import your $SERVICE_LONG metrics into PostgreSQL Exporter, then configure P
 
 1. **Create a user to access your $SERVICE_LONG metrics**
 
-    1. Connect to your $SERVICE_SHORT in [`psql`][psql] using your [connection details][connection-info].
+    1. Connect to your $SERVICE_SHORT using your [connection details][connection-info].
 
     1. Create a user named `monitoring` with a secure password:
 
@@ -150,17 +150,17 @@ You import your $SERVICE_LONG metrics into PostgreSQL Exporter, then configure P
        the `monitoring` user:
 
         - Local installation:
-           ```shell
-           export DATA_SOURCE_NAME="postgres://<user>:<password>@<host>:<port>/<database>?sslmode=<sslmode>"
-           ./postgres_exporter
-           ```
-        - Docker:
-           ```shell
-           docker run -d \ 
-              -e DATA_SOURCE_NAME="postgres://<user>:<password>@<host>:<port>/<database>?sslmode=<sslmode>" \
-              -p 9187:9187 \ 
-              prometheuscommunity/postgres-exporter
-           ```
+         ```shell
+         export DATA_SOURCE_NAME="postgres://monitoring:<password>@<host>.tsdb.cloud.timescale.com:<port>/tsdb?sslmode=require"
+         ./postgres_exporter
+         ```
+       - Docker:
+         ```shell
+         docker run -d \ 
+            -e DATA_SOURCE_NAME="postgres://monitoring:<password>@<host>.tsdb.cloud.timescale.com:<port>/tsdb?sslmode=require" \ 
+            -p 9187:9187 \ 
+            prometheuscommunity/postgres-exporter
+         ```
 
     1. Configure the following labels for your $SERVICE_SHORT in PostgreSQL Exporter:
 
