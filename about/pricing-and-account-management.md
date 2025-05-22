@@ -68,7 +68,9 @@ During your trial, you can contact sales@timescale.com to request information ab
 to, our $SCALE plan to determine how it fits your needs. During your trial, $SERVICE_SHORTs that receive no queries for 7 days are paused without any data loss, but you can resume them in $CONSOLE.
 
 After you have completed your 30-day trial period on the $PERFORMANCE plan, choose the 
-[$PRICING_PLAN][plan-features] that suits your business and engineering needs. Once you become a paying user, we can make
+[$PRICING_PLAN][plan-features] that suits your business and engineering needs. 
+
+After you become a paying user, we can enable some features in the higher $PRICING_PLANs so you can test them before upgrading.
 certain features of higher $PRICING_PLANs available to you for testing without upgrading.
 
 ### Upgrade or downgrade your $PRICING_PLAN at any time
