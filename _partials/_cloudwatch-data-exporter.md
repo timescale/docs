@@ -21,79 +21,82 @@
     <Tab title="IAM role">
 
     <Procedure>
-
-    Create an IAM OIDC provider in your AWS account. If the IAM console is used, it should look like:
-
-    ![oidc provider creation](image-3.png)
-
-    <Highlight type="important">
-
-    When you create the IAM OIDC provider, set the URL to the [region where the exporter is being created][reference].
-
-    </Highlight>
-
-    Create the role as a web identity:
-
-    ![web identity role creation](image.png)
-
-    The following example shows a correctly configured role:
-
-    - Permission Policy:
     
-      ```json
-      {
-        "Version": "2012-10-17",
-        "Statement": [
-           {
-               "Effect": "Allow",
-               "Action": [
-                   "logs:PutLogEvents",
-                   "logs:CreateLogGroup",
-                   "logs:CreateLogStream",
-                   "logs:DescribeLogStreams",
-                   "logs:DescribeLogGroups",
-                   "logs:PutRetentionPolicy",
-                   "xray:PutTraceSegments",
-                   "xray:PutTelemetryRecords",
-                   "xray:GetSamplingRules",
-                   "xray:GetSamplingTargets",
-                   "xray:GetSamplingStatisticSummaries",
-                   "ssm:GetParameters"
-               ],
-               "Resource": "*"
-           }
-       ]
-      }      
-      ```
-    - Role with a Trust Policy:
+    1. In AWS, navigate to [IAM > Identity providers][create-an-iam-id-provider], then click `Add provider`.
+
+    1. Update the new identity provider with your details:
+
+       Set `Provider URL` to the [region where you are creating your exporter][reference].
+
+       ![oidc provider creation](https://assets.timescale.com/docs/images/aws-create-iam-oicd-provider.png)
+
+    1. Click `Add provider`.
+
+    1. In AWS, navigate to [IAM > Roles][add-id-provider-as-wi-role], then click `Create role`. 
+
+    1. Add your identity provider as a Web identity role and click `Next`.
+
+        ![web identity role creation](https://assets.timescale.com/docs/images/aws-create-role-web-identity.png)
+
+    1. Set the following permission and trust policies:
+
+       - Permission policy:
     
-      ```json
-      {
-        "Version": "2012-10-17",
-        "Statement": [
-            {
-                "Effect": "Allow",
-                "Principal": {
-                    "Federated": "arn:aws:iam::12345678910:oidc-provider/irsa-oidc-discovery-prod.s3.us-east-1.amazonaws.com"
-                },
-                "Action": "sts:AssumeRoleWithWebIdentity",
-                "Condition": {
-                    "StringEquals": {
-                        "irsa-oidc-discovery-prod.s3.us-east-1.amazonaws.com:aud": "sts.amazonaws.com"
-                    }
-                }
-            },
-            {
-                "Sid": "Statement1",
-                "Effect": "Allow",
-                "Principal": {
-                    "AWS": "arn:aws:iam::12345678910:role/my-exporter-role"
-                },
-                "Action": "sts:AssumeRole"
-            }
-        ]
-      }        
-      ```      
+         ```json
+         {
+           "Version": "2012-10-17",
+           "Statement": [
+              {
+                  "Effect": "Allow",
+                  "Action": [
+                      "logs:PutLogEvents",
+                      "logs:CreateLogGroup",
+                      "logs:CreateLogStream",
+                      "logs:DescribeLogStreams",
+                      "logs:DescribeLogGroups",
+                      "logs:PutRetentionPolicy",
+                      "xray:PutTraceSegments",
+                      "xray:PutTelemetryRecords",
+                      "xray:GetSamplingRules",
+                      "xray:GetSamplingTargets",
+                      "xray:GetSamplingStatisticSummaries",
+                      "ssm:GetParameters"
+                  ],
+                  "Resource": "*"
+              }
+          ]
+         }      
+         ```
+       - Role with a Trust Policy:
+    
+         ```json
+         {
+           "Version": "2012-10-17",
+           "Statement": [
+               {
+                   "Effect": "Allow",
+                   "Principal": {
+                       "Federated": "arn:aws:iam::12345678910:oidc-provider/irsa-oidc-discovery-prod.s3.us-east-1.amazonaws.com"
+                   },
+                   "Action": "sts:AssumeRoleWithWebIdentity",
+                   "Condition": {
+                       "StringEquals": {
+                           "irsa-oidc-discovery-prod.s3.us-east-1.amazonaws.com:aud": "sts.amazonaws.com"
+                       }
+                   }
+               },
+               {
+                   "Sid": "Statement1",
+                   "Effect": "Allow",
+                   "Principal": {
+                       "AWS": "arn:aws:iam::12345678910:role/my-exporter-role"
+                   },
+                   "Action": "sts:AssumeRole"
+               }
+           ]
+         }        
+         ```      
+      1. Click `Add role`. 
 
     </Procedure>
 
@@ -133,4 +136,6 @@
 [reference]: #reference
 [list-iam-users]: https://console.aws.amazon.com/iam/home#/users
 [create-an-iam-user]: https://console.aws.amazon.com/iam/home#/users/create
+[create-an-iam-id-provider]: https://console.aws.amazon.com/iam/home#/identity_providers
+[add-id-provider-as-wi-role]: https://console.aws.amazon.com/iam/home#/roles
 [aws-access-keys]: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html#id_users_create_console
