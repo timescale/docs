@@ -7,7 +7,9 @@ This page shows you how to export your $SERVICE_SHORT metrics to Prometheus:
 - For $CLOUD_LONG, using a dedicated Prometheus exporter in $CONSOLE or [PostgreSQL Exporter][postgresql-exporter].
 - For $SELF_LONG, using [PostgreSQL Exporter][postgresql-exporter].
 
-## Prerequisites
+## Prerequisites 
+
+<Availability products={['cloud']} price_plans={['enterprise']} />
 
 To follow the steps on this page:
 
@@ -120,13 +122,11 @@ You create a Prometheus exporter in $CONSOLE, attach it to your $SERVICE_SHORT, 
 
 <Tab title="Using PostgreSQL Exporter">
 
-You import your $SERVICE_LONG metrics into PostgreSQL Exporter, then configure Prometheus to scrape metrics from it. 
-
 <Procedure>
 
-To export metrics from $SELF_LONG, you import telemetry data about your database to PostgreSQL Exporter, then configure Prometheus to scrape metrics from it. PostgreSQL Exporter exposes metrics that you define, excluding the system metrics.
+You import your $SERVICE_LONG metrics into PostgreSQL Exporter, then configure Prometheus to scrape metrics from it.
 
-1. **Create a user to access telemetry data about your $SERVICE_LONG**
+1. **Create a user to access your $SERVICE_LONG metrics**
 
     1. Connect to your $SERVICE_SHORT in [`psql`][psql] using your [connection details][connection-info].
 
@@ -161,6 +161,12 @@ To export metrics from $SELF_LONG, you import telemetry data about your database
               -p 9187:9187 \ 
               prometheuscommunity/postgres-exporter
            ```
+
+    1. Configure the following labels for your $SERVICE_SHORT in PostgreSQL Exporter:
+
+       - `project_id`
+       - `service_id`
+       - `region`
 
     1. Check the metrics for your $SERVICE_SHORT in the Prometheus format:
 
@@ -209,11 +215,11 @@ To export metrics from $SELF_LONG, you import telemetry data about your database
 
 <Tab title="Self-hosted TimescaleDB">
 
-To export metrics from $SELF_LONG, you import telemetry data about your database to PostgreSQL Exporter, then configure Prometheus to scrape metrics from it.
-
 <Procedure>
 
-1. **Create a user to access telemetry data about your database**
+You export metrics from $SELF_LONG to PostgreSQL Exporter, then configure Prometheus to scrape metrics from it.
+
+1. **Create a user to access your database metrics**
 
     1. Connect to your database in [`psql`][psql] using your [connection details][connection-info].
 
@@ -229,11 +235,11 @@ To export metrics from $SELF_LONG, you import telemetry data about your database
        GRANT pg_read_all_stats to monitoring;
        ```
 
-1. **Import telemetry data about your database to PostgreSQL Exporter**
+1. **Import your database metrics to PostgreSQL Exporter**
 
     1. Connect PostgreSQL Exporter to your database:
 
-       Use your [connection details][connection-info] to import telemetry data about your database. You connect as
+       Use your [connection details][connection-info] to import your database metrics. You connect as
        the `monitoring` user:
    
         - Local installation:
@@ -249,7 +255,7 @@ To export metrics from $SELF_LONG, you import telemetry data about your database
               prometheuscommunity/postgres-exporter
            ```
 
-    1. Check the metrics for your database in the Prometheus format:
+    1. Check your database metrics in the Prometheus format:
    
         - Browser:
 
