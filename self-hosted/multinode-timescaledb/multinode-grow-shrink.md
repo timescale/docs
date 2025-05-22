@@ -1,7 +1,6 @@
 ---
 title: Grow and shrink multi-node
 excerpt: Sunsetted v2.14.x. Add and remove data nodes from your self-hosted multi-node TimescaleDB cluster
-products: [self_hosted]
 keywords: [multi-node, data nodes]
 tags: [add, remove]
 seo:

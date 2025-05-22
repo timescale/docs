@@ -1,7 +1,6 @@
 ---
 title: High availability with multi-node
 excerpt: Sunsetted v2.14.x. Configure your self-hosted multi-node TimescaleDB for high availability
-products: [self_hosted]
 keywords: [multi-node, high availability]
 seo:
   robots: noindex
