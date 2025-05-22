@@ -7,6 +7,7 @@ tags: [chunks, attach]
 api:
   license: apache
   type: function
+products: [cloud, mst, self_hosted]
 ---
 
 # attach_tablespace()

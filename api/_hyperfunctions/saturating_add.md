@@ -33,5 +33,6 @@ api_details:
       - column: saturating_add
         type: INT
         description: The result of `x + y`, saturating at the numeric bounds instead of overflowing. The numeric bounds are the upper and lower bounds of the 32-bit signed integers.
+products: [cloud, mst, self_hosted]
 ---
 

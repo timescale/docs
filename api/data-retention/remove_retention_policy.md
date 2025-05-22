@@ -7,6 +7,7 @@ tags: [delete, drop]
 api:
   license: community
   type: function
+products: [cloud, self_hosted, mst]
 ---
 
 # remove_retention_policy() <Tag type="community">Community</Tag>

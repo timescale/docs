@@ -11,6 +11,7 @@ api:
     stable: 0.0.10-beta
 hyperfunction:
   type: bucket
+products: [cloud, mst, self_hosted]
 ---
 
 # time_bucket()

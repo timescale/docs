@@ -7,6 +7,7 @@ tags: [dimensions, partitions]
 api:
   license: community
   type: view
+products: [cloud, mst, self_hosted]
 ---
 
 # timescaledb_information.dimensions

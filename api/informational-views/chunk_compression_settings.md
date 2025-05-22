@@ -7,6 +7,7 @@ tags: [chunk compression, compression settings]
 api:
   license: community
   type: view
+products: [cloud, mst, self_hosted]
 ---
 
 # timescaledb_information.chunk_compression_settings 

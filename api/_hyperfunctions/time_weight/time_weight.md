@@ -78,5 +78,6 @@ api_details:
               time_weight('Linear', ts, val) AS tw
           FROM foo
           GROUP BY time_bucket('1 day'::interval, ts)
+products: [cloud, mst, self_hosted]
 ---
 

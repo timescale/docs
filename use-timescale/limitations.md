@@ -2,6 +2,7 @@
 title: Limitations
 excerpt: Timescale Cloud features come with a few limitations that we are constantly working to remove. See the current and regularly updated list of limitations
 keywords: [hypertables, distributed hypertables]
+products: [cloud, mst, self_hosted]
 ---
 
 # Limitations

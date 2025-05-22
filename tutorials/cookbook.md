@@ -1,11 +1,13 @@
 ---
 title: Timescale cookbook
 excerpt: Browse code examples from the Timescale Cloud community that resolve common issues and provide solutions for non-standard tasks
-product: [cloud, mst, self_hosted] 
+products: [cloud, self_hosted, mst]
 ---
 
+import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
 import Hypertables from "versionContent/_partials/_cookbook-hypertables.mdx";
 import IOT from "versionContent/_partials/_cookbook-iot.mdx";
+
 
 
 # Timescale community cookbook
@@ -16,12 +18,7 @@ common issues. Use these code examples as guidance to work with your own data.
 
 ## Prerequisites
 
-To follow the examples in this page, you need a:
-
-- [Target Timescale Cloud service][create-a-service]
-- [Connection to your service][connect-to-service]
-
- 
+<IntegrationPrereqs />
 
 <Hypertables />
 

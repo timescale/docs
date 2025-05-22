@@ -7,6 +7,7 @@ tags: [scheduled jobs, refresh]
 api:
   license: community
   type: function
+products: [cloud, self_hosted, mst]
 ---
 
 # add_continuous_aggregate_policy() <Tag type="community">Community</Tag>
