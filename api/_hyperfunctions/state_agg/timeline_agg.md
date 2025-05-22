@@ -44,5 +44,6 @@ api_details:
       command:
         code: |
           SELECT state_agg(time, status) FROM devices;
+products: [cloud, mst, self_hosted]
 ---
 

@@ -7,6 +7,7 @@ tags: [materialized view, hypertables]
 api:
   license: community
   type: command
+products: [cloud, self_hosted, mst]
 ---
 
 # CREATE MATERIALIZED VIEW (Continuous Aggregate) <Tag type="community">Community</Tag>

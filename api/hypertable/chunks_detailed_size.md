@@ -7,6 +7,7 @@ tags: [disk space, schemas]
 api:
   license: community
   type: function
+products: [cloud, mst, self_hosted]
 ---
 
 # chunks_detailed_size()

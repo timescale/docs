@@ -1,7 +1,7 @@
 ---
 title: Modify data in hypercore
 excerpt: Update data and the table schema in the columnstore
-products: [cloud,]
+products: [cloud, self_hosted]
 keywords: [hyperscore, hypertable, compression, row-columnar storage, hypercore]
 ---
 

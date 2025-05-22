@@ -1,7 +1,7 @@
 ---
 title: Analyze the Bitcoin blockchain
 excerpt: Use Timescale Cloud hyperfunctions to analyze transactions on the Bitcoin blockchain. This tutorial illustrates how to analyze the fees, the impact on BTC-USD, the average miner revenue, and more
-products: [cloud]
+products: [cloud, self_hosted, mst]
 keywords: [intermediate, crypto, blockchain, Bitcoin, finance, analytics]
 layout_components: [next_prev_large]
 content_group: Analyze the Bitcoin blockchain

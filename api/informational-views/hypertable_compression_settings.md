@@ -7,6 +7,7 @@ tags: [hypertable compression, compression settings]
 api:
   license: community
   type: view
+products: [cloud, mst, self_hosted]
 ---
 
 # timescaledb_information.hypertable_compression_settings 

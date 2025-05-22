@@ -8,6 +8,7 @@ api:
   license: community
   type: function
   experimental: true
+products: [cloud, self_hosted, mst]
 ---
 
 import Experimental from "versionContent/_partials/_experimental.mdx";

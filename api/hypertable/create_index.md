@@ -6,6 +6,7 @@ keywords: [hypertables, indexes, chunks, create]
 api:
   license: apache
   type: command
+products: [cloud, mst, self_hosted]
 ---
 
 # CREATE INDEX (Transaction Per Chunk)

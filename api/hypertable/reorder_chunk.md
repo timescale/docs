@@ -6,6 +6,7 @@ keywords: [chunks, hypertables, reorder]
 api:
   license: community
   type: function
+products: [cloud, mst, self_hosted]
 ---
 
 # reorder_chunk() <Tag type="community">Community</Tag>

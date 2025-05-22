@@ -1,7 +1,7 @@
 ---
 title: Integrate Debezium with Timescale Cloud
 excerpt: Integrate Debezium with Timescale Cloud to enable change data capture in your Timescale Cloud service and streaming to Redis Streams
-products: [cloud, mst, self_hosted]
+products: [self_hosted]
 keywords: [Debezium, integrate]
 ---
 

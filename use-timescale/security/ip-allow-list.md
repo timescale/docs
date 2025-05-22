@@ -1,7 +1,7 @@
 ---
 title: IP allow list
 excerpt: You can grant selective access to your service administration and data. See how to create IP whitelists for the different modes available in Timescale Console
-product: cloud
+products: [cloud]
 keywords: [ip allow list, security]
 tags: [ip allow list]
 ---

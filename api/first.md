@@ -10,6 +10,7 @@ api:
     stable: 0.0.11-beta
 hyperfunction:
   type: one-step aggregate
+products: [cloud, mst, self_hosted]
 ---
 
 # first()

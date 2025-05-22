@@ -2,6 +2,7 @@
 title: Continuous aggregates on continuous aggregates
 excerpt: Running advanced real-time analytic workloads? Create continuous aggregates on top of continuous aggregates to summarize data at different levels of granularity
 keywords: [continuous aggregates, hierarchical, create]
+products: [cloud, self_hosted, mst]
 ---
 
 import RealTimeAgg from 'versionContent/_partials/_real-time-aggregates.mdx';

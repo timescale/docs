@@ -44,5 +44,6 @@ api_details:
       - column: count_min_sketch
         type: CountMinSketch
         description: An object storing a table of counters
+products: [cloud, mst, self_hosted]
 ---
 
