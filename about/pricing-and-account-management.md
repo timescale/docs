@@ -65,7 +65,7 @@ from initial development through to mission-critical enterprise applications.
 
 We offer new users a free, 30-day trial period of our $PERFORMANCE plan with no credit card required.  
 During your trial, you can contact sales@timescale.com to request information about, and access
-to, our $SCALE plan to determine how it fits your needs. During your trial, $SERVICE_SHORTs that receive no queries for 7 days are paused without any data loss, but you can resume them in $CONSOLE.
+to, our $SCALE plan to determine how it fits your needs. During your trial, $SERVICE_SHORTs that receive no queries for 7 days are paused without any data loss. You easily resume them in $CONSOLE.
 
 After you have completed your 30-day trial period on the $PERFORMANCE plan, choose the 
 [$PRICING_PLAN][plan-features] that suits your business and engineering needs. 
