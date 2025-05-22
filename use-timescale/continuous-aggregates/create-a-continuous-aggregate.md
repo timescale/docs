@@ -5,6 +5,8 @@ products: [cloud, mst, self_hosted]
 keywords: [continuous aggregates, create]
 ---
 
+import Since2200 from "versionContent/_partials/_since_2_20_0.mdx";
+
 # Create continuous aggregates
 
 Creating a continuous aggregate is a two-step process. You need to create the
@@ -200,57 +202,92 @@ enabled.
 
 </Procedure>
 
-## Use continuous aggregates with window functions
+## Use continuous aggregates with window and mutable functions: experimental
 
-Continuous aggregates don't currently support window functions. You can work
-around this by:
+<Since2200 />
 
-1.  Creating a continuous aggregate for the other parts of your query, then
-1.  Using the window function on your continuous aggregate at query time
+Window functions and mutable functions have experimental supported in the $CAGG query definition.
 
-For example, say you have a hypertable named `example` with a `time` column and
-a `value` column. You bucket your data by `time` and calculate the delta between
-time buckets using the `lag` window function:
+Mutable functions are enabled by default. if you use them in a materialized query a warning is returned. However,
+window functions are disabled, to enable them, call `timescaledb.enable_cagg_window_functions`.
 
-```sql
-WITH t AS (
-  SELECT
-    time_bucket('10 minutes', time) as bucket,
-    first(value, time) as value
-  FROM example GROUP BY bucket
-)
-SELECT
-  bucket,
-  value - lag(value, 1) OVER (ORDER BY bucket) delta
-  FROM t;
-```
+<Highlight type="info">
 
-You can't create a continuous aggregate using this query, because it contains
-the `lag` function. But you can create a continuous aggregate by excluding the
-`lag` function:
+Support is experimental, there is a risk of data inconsistency. For example, in backfill scenarios, buckets could be missed.
 
-```sql
-CREATE MATERIALIZED VIEW example_aggregate
-  WITH (timescaledb.continuous) AS
-    SELECT
-      time_bucket('10 minutes', time) AS bucket,
-      first(value, time) AS value
-    FROM example GROUP BY bucket;
-```
+</Highlight>
 
-Then, at query time, calculate the delta by using `lag` on your continuous
-aggregate:
+### Create a $CAGG with a window function
 
-```sql
-SELECT
-  bucket,
-  value - lag(value, 1) OVER (ORDER BY bucket) AS delta
-FROM example_aggregate;
-```
+To use a window function in a $CAGG: 
 
-This speeds up your query by calculating the aggregation ahead of time. The
-delta still needs to be calculated at query time.
+1. Create a simple table with to store a value at a specific time:
 
+    ```sql
+    CREATE TABLE example (
+      time       TIMESTAMPZ        NOT NULL,
+      value      TEXT              NOT NULL,
+    );
+    ```
+
+1. Enable window functions, bucket your data by `time` and calculate the delta between time buckets using the `lag` 
+   window function:
+
+   ```sql
+   CREATE MATERIALIZED VIEW example_aggregate
+   WITH (
+    timescaledb.continuous,
+    timescaledb.enable_cagg_window_functions = true
+   ) AS
+   SELECT
+     bucket,
+     value,
+     value - lag(value, 1) OVER (ORDER BY bucket) AS delta
+   FROM (
+   SELECT
+     time_bucket('10 minutes', time) AS bucket,
+     first(value, time) AS value
+     FROM example
+     GROUP BY bucket
+   ) AS t;
+   ```
+
+### Window function workaround for older versions of $TIMESCALE_DB 
+
+For $TIMESCALE_DB v2.19.3 and below, $CAGGs do not support window functions. To work around this:
+
+1. Create a simple table with to store a value at a specific time:
+
+    ```sql
+    CREATE TABLE example (
+      time       TIMESTAMPZ        NOT NULL,
+      value      TEXT              NOT NULL,
+    );
+    ```
+      
+1. Create a continuous aggregate that does not use a window function:
+
+   ```sql
+   CREATE MATERIALIZED VIEW example_aggregate
+     WITH (timescaledb.continuous) AS
+       SELECT
+         time_bucket('10 minutes', time) AS bucket,
+         first(value, time) AS value
+       FROM example GROUP BY bucket;
+   ```
+
+1.  Use the `lag`  window function on your continuous aggregate at query time:
+
+    This speeds up your query by calculating the aggregation ahead of time. The
+    delta is calculated at query time.
+
+      ```sql
+      SELECT
+        bucket,
+        value - lag(value, 1) OVER (ORDER BY bucket) AS delta
+      FROM example_aggregate;
+      ```
+    
 [api-time-bucket-gapfill]: /api/:currentVersion:/hyperfunctions/gapfilling/time_bucket_gapfill/
 [api-time-bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
 [cagg-function-support]: /use-timescale/:currentVersion:/continuous-aggregates/about-continuous-aggregates/#function-support
