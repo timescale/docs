@@ -7,6 +7,7 @@ tags: [migrate]
 api:
   license: community
   type: procedure
+products: [cloud, self_hosted, mst]
 ---
 
 # cagg_migrate() <Tag type="community" content="Community" />

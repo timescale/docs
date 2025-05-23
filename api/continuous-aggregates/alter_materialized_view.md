@@ -7,6 +7,7 @@ tags: [materialized views, hypertables, alter, change]
 api:
   license: community
   type: command
+products: [cloud, self_hosted, mst]
 ---
 
 # ALTER MATERIALIZED VIEW (Continuous Aggregate) <Tag type="community">Community</Tag>

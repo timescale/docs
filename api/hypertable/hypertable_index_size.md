@@ -7,6 +7,7 @@ tags: [disk space, size]
 api:
   license: apache
   type: function
+products: [cloud, mst, self_hosted]
 ---
 
 # hypertable_index_size()

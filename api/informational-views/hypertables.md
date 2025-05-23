@@ -7,6 +7,7 @@ tags: [schemas, tablespaces, data nodes, dimensions]
 api:
   license: apache
   type: view
+products: [cloud, mst, self_hosted]
 ---
 
 # timescaledb_information.hypertables

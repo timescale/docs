@@ -1,6 +1,7 @@
 ---
 title: Timescale release notes
 excerpt: Get an overview of the new features, improvements, and fixes released in every version of Timescale Cloud and TimescaleDB
+products: [cloud, self_hosted]
 keywords: [TimescaleDB, Timescale Cloud, TimescaleDB Toolkit, pgai, pgvectorscale, pgspot, live-migration, upgrades, updates, releases]
 ---
 

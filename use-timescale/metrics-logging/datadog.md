@@ -2,6 +2,7 @@
 title: Export metrics to Datadog
 excerpt: Datadog is a cloud-based monitoring, observability, and security platform. Create an exporter in Timescale Cloud and export telemetry metrics of your service
 products: [cloud]
+price_plans: [scale, enterprise]
 keywords: [integration, metrics, datadog, alerting]
 tags: [telemetry, monitor]
 ---

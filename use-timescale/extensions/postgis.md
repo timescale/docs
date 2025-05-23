@@ -1,7 +1,7 @@
 ---
 title: postgis PostgreSQL extension
 excerpt: PostGIS enables you to store, query, and manipulate geographic and spatial data directly within PostgreSQL. Learn to use PostGIS to analyze geospatial data within a Timescale Cloud service
-products: [cloud]
+products: [cloud, mst, self_hosted]
 keywords: [services, settings, extensions, postgis]
 tags: [extensions, postgis]
 ---
