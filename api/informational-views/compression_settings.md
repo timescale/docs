@@ -7,6 +7,7 @@ tags: [informational, settings, hypertables, schemas, indexes]
 api:
   license: community
   type: view
+products: [cloud, mst, self_hosted]
 ---
 
 import DeprecationNotice from "versionContent/_partials/_deprecated.mdx";

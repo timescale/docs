@@ -11,11 +11,6 @@ cloud_ui:
 # Service logs
 
 From the `Services` page, click the service you are interested in and navigate
-to the `Logs` tab. This section contains the latest 500 lines of your service's logging data. 
+to the `Logs` tab. This section contains your service's logging data. Filter logs by type, date, and time. 
 
-To get more logs, create a support ticket. 
-
-<img class="main-content__illustration"
-width={1375} height={944}
-src="https://assets.timescale.com/docs/images/tsc-services-logs.webp"
-alt="Timescale Services Logs"/>
+![Find logs faster](https://assets.timescale.com/docs/images/timescale-console-service-logs.png)

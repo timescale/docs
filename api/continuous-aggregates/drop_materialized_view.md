@@ -7,6 +7,7 @@ tags: [materialized views, drop]
 api:
   license: community
   type: command
+products: [cloud, self_hosted, mst]
 ---
 
 # DROP MATERIALIZED VIEW (Continuous Aggregate) <Tag type="community">Community</Tag>

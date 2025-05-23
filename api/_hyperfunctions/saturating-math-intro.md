@@ -1,6 +1,7 @@
 ---
 section: hyperfunction
 subsection: saturating math
+products: [cloud, mst, self_hosted]
 ---
 
 The saturating math hyperfunctions help you perform saturating math on integers.

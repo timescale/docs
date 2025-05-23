@@ -7,6 +7,7 @@ tags: [integer time values]
 api:
   license: apache
   type: function
+products: [cloud, mst, self_hosted]
 ---
 
 # set_integer_now_func()

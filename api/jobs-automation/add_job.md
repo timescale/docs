@@ -7,6 +7,7 @@ tags: [scheduled jobs, background jobs, automation framework]
 api:
   license: community
   type: function
+products: [cloud, mst, self_hosted]
 ---
 
 # add_job() <Tag type="community">Community</Tag>

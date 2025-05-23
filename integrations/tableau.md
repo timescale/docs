@@ -1,7 +1,7 @@
 ---
 title: Using Tableau to visualize data in TimescaleDB
 excerpt: Tableau is a popular analytics platform that helps you gain greater intelligence about your business. Integrate Tableau with Timescale Cloud
-products: [cloud, mst, self_hosted]
+products: [cloud, self_hosted]
 keywords: [visualizations, analytics, Tableau]
 ---
 

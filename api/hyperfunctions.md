@@ -2,6 +2,7 @@
 title: Hyperfunctions
 excerpt: The full list of hyperfunctions available in Timescale Cloud, with required arguments, returns, and complete use examples
 keywords: [hyperfunctions, Toolkit]
+products: [cloud, mst, self_hosted]
 ---
 
 # Hyperfunctions

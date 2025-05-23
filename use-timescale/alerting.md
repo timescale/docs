@@ -1,7 +1,7 @@
 ---
 title: Alerting
 excerpt: Setting up database alerting can help monitor performance, data integrity, resource usage, and more. Timescale Cloud integrates with a variety of alerting tools within the PostgreSQL ecosystem
-products: [cloud, mst, self_hosted]
+products: [cloud, self_hosted]
 keywords: [alert, integration, Grafana, Datadog, Nagios, Zabbix]
 ---
 

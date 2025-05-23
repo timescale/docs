@@ -2,6 +2,7 @@
 title: Logical backup with pg_dump and pg_restore
 excerpt: Back up and restore a hypertable or an entire database using native PostgreSQL commands
 keywords: [backups, restore]
+products: [self_hosted]
 tags: [recovery, logical backup, pg_dump, pg_restore]
 ---
 

@@ -7,6 +7,7 @@ tags: [disk space, size]
 api:
   license: apache
   type: function
+products: [cloud, mst, self_hosted]
 ---
 
 import HypertableSize from "versionContent/_partials/_hypertable-size-api.mdx";

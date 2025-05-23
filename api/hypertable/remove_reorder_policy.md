@@ -7,6 +7,7 @@ tags: [delete, drop]
 api:
   license: community
   type: function
+products: [cloud, mst, self_hosted]
 ---
 
 # remove_reorder_policy() <Tag type="community">Community</Tag>

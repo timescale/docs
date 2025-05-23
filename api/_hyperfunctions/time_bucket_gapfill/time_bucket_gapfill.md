@@ -65,5 +65,6 @@ api_details:
         type: TIMESTAMPTZ
         description: >
           The start time of the time bucket.
+products: [cloud, mst, self_hosted]
 ---
 
