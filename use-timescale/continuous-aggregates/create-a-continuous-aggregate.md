@@ -202,14 +202,23 @@ enabled.
 
 </Procedure>
 
-## Use continuous aggregates with window and mutable functions: experimental
+## Use continuous aggregates with mutable functions: experimental
 
 <Since2200 />
 
-Window functions and mutable functions have experimental supported in the $CAGG query definition.
+Mutable functions have experimental supported in the $CAGG query definition. Mutable functions are enabled 
+by default. However, if you use them in a materialized query a warning is returned.
 
-Mutable functions are enabled by default. if you use them in a materialized query a warning is returned. However,
-window functions are disabled, to enable them, call `timescaledb.enable_cagg_window_functions`.
+When using non-immutable functions you have to ensure these functions produce consistent results across 
+continuous aggregate refresh runs. For example, if a function depends on the current time zone you have 
+to ensure all your $CAGG refreshes run with a consistent setting for this.
+
+## Use $CAGGs with window functions: experimental
+
+<Since2200 />
+
+Window functions have experimental supported in the $CAGG query definition. Window functions are disabled 
+ by default. To enable them, set `timescaledb.enable_cagg_window_functions` to `true`.
 
 <Highlight type="info">
 
@@ -217,7 +226,7 @@ Support is experimental, there is a risk of data inconsistency. For example, in 
 
 </Highlight>
 
-### Create a $CAGG with a window function
+### Create a window function 
 
 To use a window function in a $CAGG: 
 
@@ -230,27 +239,32 @@ To use a window function in a $CAGG:
     );
     ```
 
-1. Enable window functions, bucket your data by `time` and calculate the delta between time buckets using the `lag` 
-   window function:
+1. Enable window functions.
+
+   As window functions are experimental, in order to create continuous aggregates with window functions. 
+   you have to `enable_cagg_window_functions`. 
 
    ```sql
+    SET timescaledb.enable_cagg_window_functions TO TRUE;
+    ```
+
+1. Bucket your data by `time` and calculate the delta between time buckets using the `lag` window function:
+
+    Window functions must stay within the time bucket. Any query that tries to look beyond the current 
+    time bucket will produce incorrect results around the refresh boundaries. 
+   ```sql
    CREATE MATERIALIZED VIEW example_aggregate
-   WITH (
-    timescaledb.continuous,
-    timescaledb.enable_cagg_window_functions = true
-   ) AS
-   SELECT
-     bucket,
-     value,
-     value - lag(value, 1) OVER (ORDER BY bucket) AS delta
-   FROM (
-   SELECT
-     time_bucket('10 minutes', time) AS bucket,
-     first(value, time) AS value
-     FROM example
-     GROUP BY bucket
-   ) AS t;
+     WITH (timescaledb.continuous) AS
+       SELECT
+         time_bucket('1d', time),
+         customer_id,
+         sum(amount) AS amount,
+         sum(amount) - LAG(sum(amount),1,NULL) OVER (PARTITION BY time_bucket('1d', time) ORDER BY sum(amount) DESC) AS amount_diff,
+         ROW_NUMBER() OVER (PARTITION BY time_bucket('1d', time) ORDER BY sum(amount) DESC)
+       FROM sales GROUP BY 1,2;
    ```
+   Window functions that partition by time_bucket should be safe even with LAG()/LEAD()
+
 
 ### Window function workaround for older versions of $TIMESCALE_DB 
 
