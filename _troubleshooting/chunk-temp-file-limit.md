@@ -1,5 +1,5 @@
 ---
-title: Temporary file size limit exceeded when compressing chunks
+title: Temporary file size limit exceeded when converting chunks to the columnstore
 section: troubleshooting
 products: [cloud, mst, self_hosted]
 topics: [hypertables, distributed hypertables, compression, hypercore]
@@ -23,7 +23,7 @@ tags: [compression, hypertables, chunks]
 * Copy this comment at the top of every troubleshooting page
 -->
 
-When you try to compress a chunk, especially if the chunk is very large, you
+When you try to convert a chunk to the columnstore, especially if the chunk is very large, you
 could get this error. Compression operations write files to a new compressed
 chunk table, which is written in temporary memory. The maximum amount of
 temporary memory available is determined by the `temp_file_limit` parameter. You

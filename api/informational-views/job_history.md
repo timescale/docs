@@ -13,7 +13,7 @@ products: [cloud, mst, self_hosted]
 
 Shows information about the $JOBs run by the automation framework.
 This includes custom $JOBs and $JOBs run by policies
-created to manage data retention, continuous aggregates, compression, and
+created to manage data retention, continuous aggregates, columnstore, and
 other automation policies. For more information about automation policies,
 see [$JOBs][jobs].
 

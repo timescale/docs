@@ -5,14 +5,14 @@ products: [cloud, mst, self_hosted]
 keywords: [hypertables, partitions]
 ---
 
-import HypertablesIntro from 'versionContent/_partials/_hypertables-intro.mdx';
-
 # About hypertables
 
-<HypertablesIntro />
+Hypertables are PostgreSQL tables designed to simplify and speed up data analysis. Anything you can do with regular PostgreSQL tables, you can do with hypertables—but much faster and more conveniently. This page explains hypertable partitioning, indexing, and analysis with the PostgreSQL `ANALYZE` command. 
 
 <Highlight type="note">
+
 Inheritance is not supported for hypertables and may lead to unexpected behavior.
+
 </Highlight>
 
 ## Hypertable partitioning
@@ -37,7 +37,7 @@ insert data from a time range that doesn't yet have a chunk, $CLOUD_LONG
 automatically creates a chunk to store it.
 
 By default, each chunk covers 7 days. You can change this to better suit your
-needs. For example, if you set `chunk_time_interval` to 1 day, each chunk stores
+needs. For example, if you set `chunk_interval` to 1 day, each chunk stores
 data from the same day. Data from different days is stored in different chunks.
 
 <img class="main-content__illustration"
@@ -48,7 +48,7 @@ alt="A normal table compared to a hypertable. The normal table holds data for 3 
 
 <Highlight type="note">
 $CLOUD_LONG divides time into potential chunk ranges, based on the
-`chunk_time_interval`. If data exists for a potential chunk range, that chunk is
+`chunk_interval`. If data exists for a potential chunk range, that chunk is
 created.
 
 In practice, this means that the start time of your earliest chunk doesn't
@@ -65,10 +65,10 @@ to fit into memory so you can insert and query recent data without
 reading from disk. However, having too many small and sparsely filled chunks can 
 affect query planning time and compression.
 
-Best practice is to set `chunk_time_interval` so that prior to processing, one chunk of data
+Best practice is to set `chunk_interval` so that prior to processing, one chunk of data
 takes up 25% of main memory, including the indexes from each active hypertable.
 For example, if you write approximately 2 GB of data per day to a database with 64 GB of 
-memory, set `chunk_time_interval` to 1 week. If you write approximately 10 GB of data per day 
+memory, set `chunk_interval` to 1 week. If you write approximately 10 GB of data per day 
 on the same machine, set the time interval to 1 day.
 
 <Highlight type="note">
@@ -117,8 +117,8 @@ PostgreSQL planner to create the best query plan. For more information about the
 [about-distributed-hypertables]: /self-hosted/:currentVersion:/distributed-hypertables/about-distributed-hypertables/
 [best-practices-space]: #best-practices-for-space-partitioning
 [blog-chunk-time]: https://www.timescale.com/blog/timescale-cloud-tips-testing-your-chunk-size/
-[change-chunk-intervals]: /use-timescale/:currentVersion:/hypertables/change-chunk-intervals/
-[create-hypertables]: /use-timescale/:currentVersion:/hypertables/create/
+[change-chunk-intervals]: /use-timescale/:currentVersion:/hypertables/improve-query-performance/#optimize-hypertable-chunk-intervals/
+[create-hypertables]: /use-timescale/:currentVersion:/hypertables/hypertable-crud/#create-a-hypertable
 [hypertable-concepts]: /use-timescale/:currentVersion:/hypertables/
 [hypertables-and-unique-indexes]: /use-timescale/:currentVersion:/hypertables/hypertables-and-unique-indexes/
 [pg-analyze]: https://www.postgresql.org/docs/current/sql-analyze.html

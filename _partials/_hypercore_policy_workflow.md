@@ -1,3 +1,4 @@
+import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
 
 <Procedure>
 
@@ -7,16 +8,28 @@
 
 1. **Enable $COLUMNSTORE on a $HYPERTABLE**
 
-   By default, your table is `orderedby` the time column. For efficient queries on $COLUMNSTORE data, remember to
-   `segmentby` the column you will use most often to filter your data:
+   Create a [$HYPERTABLE][hypertables-section] for your time-series data using [CREATE TABLE][hypertable-create-table].
+   For [efficient queries][secondary-indexes] on data in the columnstore, remember to `segmentby` the column you will
+   use most often to filter your data. For example:
 
-   * [Use `ALTER TABLE` for a $HYPERTABLE][alter_table_hypercore]
+   * [Use `CREATE TABLE` for a $HYPERTABLE][hypertable-create-table]
+
      ```sql
-     ALTER TABLE crypto_ticks SET (
-        timescaledb.enable_columnstore = true, 
-        timescaledb.segmentby = 'symbol');
+     CREATE TABLE crypto_ticks (
+        "time" TIMESTAMPTZ,
+        symbol TEXT,
+        price DOUBLE PRECISION,
+        day_volume NUMERIC
+     ) WITH (
+       tsdb.hypertable,
+       tsdb.partition_column='time',
+       tsdb.segmentby='symbol', 
+       tsdb.orderby='time DESC'
+     );
      ```
-   * [Use ALTER MATERIALIZED VIEW for a $CAGG][compression_continuous-aggregate]
+     <OldCreateHypertable />
+   
+   * [Use `ALTER MATERIALIZED VIEW` for a $CAGG][compression_continuous-aggregate]
      ```sql
      ALTER MATERIALIZED VIEW assets_candlestick_daily set (
         timescaledb.enable_columnstore = true, 
@@ -26,12 +39,14 @@
  
 1. **Add a policy to convert $CHUNKs to the $COLUMNSTORE at a specific time interval**
 
-   Create a [$JOB][job] that automatically converts $CHUNKs in a $HYPERTABLE to the $COLUMNSTORE at a specific time interval. For example, convert yesterday's crypto trading data to the $COLUMNSTORE:
+   Create a [columnstore_policy][add_columnstore_policy] that automatically converts $CHUNKs in a $HYPERTABLE to the $COLUMNSTORE at a specific time interval. For example, convert yesterday's crypto trading data to the $COLUMNSTORE:
    ``` sql
    CALL add_columnstore_policy('crypto_ticks', after => INTERVAL '1d');
    ```
-   See [add_columnstore_policy][add_columnstore_policy].
-   
+
+   $TIMESCALE_DB is optimized for fast updates on compressed data in the $COLUMNSTORE. To modify data in the 
+   $COLUMNSTORE, use standard SQL.
+
 1. **Check the $COLUMNSTORE policy**
 
    1. View your data space saving:
@@ -44,7 +59,7 @@
       SELECT 
         pg_size_pretty(before_compression_total_bytes) as before,
         pg_size_pretty(after_compression_total_bytes) as after
-      FROM hypertable_compression_stats('crypto_ticks');
+      FROM hypertable_columnstore_stats('crypto_ticks');
       ```
       You see something like:
    
@@ -115,3 +130,7 @@
 [services-portal]: https://console.cloud.timescale.com/dashboard/services
 [connect-using-psql]: /integrations/:currentVersion:/psql/#connect-to-your-service
 [insert]: /use-timescale/:currentVersion:/write-data/insert/
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
+[hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
+[hypercore]: /use-timescale/:currentVersion:/hypercore/
+[secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/

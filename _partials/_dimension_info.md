@@ -1,8 +1,8 @@
+import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
 
 ### Dimension info
 
-To create a `_timescaledb_internal.dimension_info` instance, you call  
-`by_range` and `by_hash` when you [create a hypertable][create_hypertable], or [add a dimension][add_dimension] 
+To create a `_timescaledb_internal.dimension_info` instance, you call [add_dimension][add_dimension] 
 to an existing hypertable. 
 
 #### Samples
@@ -11,7 +11,7 @@ Hypertables must always have a primary range dimension, followed by an arbitrary
 dimensions that can be either range or hash, Typically this is just one hash. For example:
 
 ```sql
-SELECT create_hypertable('conditions', by_range('time'));
+SELECT add_dimension('conditions', by_range('time'));
 SELECT add_dimension('conditions', by_hash('location', 2));
 ```
 
@@ -34,29 +34,44 @@ Create a by-range dimension builder. You can partition `by_range` on it's own.
 
 ##### Samples
 
-The simplest usage is to partition on a time column:
+- Partition on time using `CREATE TABLE`
 
-```sql
-SELECT create_hypertable('my_table', by_range('time'));
-```
+   The simplest usage is to partition on a time column:
+   
+   ```sql
+   CREATE TABLE conditions (
+      time        TIMESTAMPTZ       NOT NULL,
+      location    TEXT              NOT NULL,
+      device      TEXT              NOT NULL,
+      temperature DOUBLE PRECISION  NULL,
+      humidity    DOUBLE PRECISION  NULL
+   ) WITH (
+      tsdb.hypertable,
+      tsdb.partition_column='time'
+   );
+   ```
+   
+   <OldCreateHypertable />
 
-This is the default partition, you do not need to add it explicitly.
+   This is the default partition, you do not need to add it explicitly.
 
-If you have a table with a non-time column containing the time, such as
-a JSON column, add a partition function to extract the time.
+- Extract time from a non-time column using `create_hypertable`
 
-```sql
-CREATE TABLE my_table (
-   metric_id serial not null,
-   data jsonb,
-);
-
-CREATE FUNCTION get_time(jsonb) RETURNS timestamptz AS $$
-  SELECT ($1->>'time')::timestamptz
-$$ LANGUAGE sql IMMUTABLE;
-
-SELECT create_hypertable('my_table', by_range('data', '1 day', 'get_time'));
-```
+   If you have a table with a non-time column containing the time, such as
+   a JSON column, add a partition function to extract the time:
+   
+   ```sql
+   CREATE TABLE my_table (
+      metric_id serial not null,
+      data jsonb,
+   );
+   
+   CREATE FUNCTION get_time(jsonb) RETURNS timestamptz AS $$
+     SELECT ($1->>'time')::timestamptz
+   $$ LANGUAGE sql IMMUTABLE;
+   
+   SELECT create_hypertable('my_table', by_range('data', '1 day', 'get_time'));
+   ```
 
 ##### Arguments
 
@@ -130,9 +145,19 @@ queries.
 ##### Samples
 
 ```sql
-SELECT create_hypertable('conditions', by_range('time'));
+CREATE TABLE conditions (
+   "time"      TIMESTAMPTZ       NOT NULL,
+   location    TEXT              NOT NULL,
+   device      TEXT              NOT NULL,
+   temperature DOUBLE PRECISION  NULL,
+   humidity    DOUBLE PRECISION  NULL
+) WITH (
+   tsdb.hypertable,
+   tsdb.partition_column='time',
+   tsdb.chunk_interval='1 day'
+);
+
 SELECT add_dimension('conditions', by_hash('location', 2));
-SELECT add_dimension('conditions', by_range('time_received', INTERVAL '1 day'));
 ```
 
 ##### Arguments
@@ -153,5 +178,6 @@ dimension information used by this function.
 [create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
 [add_dimension]: /api/:currentVersion:/hypertable/add_dimension/
 [by-range]: /api/:currentVersion:/hypertable/create_hypertable/#by_range
+[by-hash]: /api/:currentVersion:/hypertable/create_hypertable/#by_hash
 [by-hash]: /api/:currentVersion:/hypertable/create_hypertable/#by_hash
 

@@ -1,3 +1,4 @@
+
 | $TIMESCALE_DB version |PostgreSQL 17|PostgreSQL 16|PostgreSQL 15|PostgreSQL 14|PostgreSQL 13|PostgreSQL 12|PostgreSQL 11|PostgreSQL 10|
 |-----------------------|-|-|-|-|-|-|-|-|
 | 2.20.x                |✅|✅|✅|❌|❌|❌|❌|❌|❌|
