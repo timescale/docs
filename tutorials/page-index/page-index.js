@@ -41,7 +41,7 @@ module.exports = [
             excerpt: "Query the Bitcoin blockchain dataset",
           },
           {
-            title: "Bonus: set up compression",
+            title: "Compress your data using hypercore",
             href: "blockchain-compress",
             excerpt:
               "Compress the dataset so you can store the Bitcoin blockchain more efficiently",
@@ -82,7 +82,7 @@ module.exports = [
             excerpt: "Query and visualize financial tick data",
           },
           {
-            title: "Bonus: set up compression",
+            title: "Compress your data using hypercore",
             href: "financial-tick-compress",
             excerpt:
               "Compress the dataset so you can store the data more efficiently",
