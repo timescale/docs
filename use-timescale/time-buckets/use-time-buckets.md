@@ -97,4 +97,4 @@ The function returns `2021-01-04 00:00:00`. The start time of the time bucket is
 the Monday of that week, at midnight.
 
 [time-buckets]: /use-timescale/:currentVersion:/time-buckets/
-[create-hypertable]: /use-timescale/:currentVersion:/hypertables/create/
+[create-hypertable]: /use-timescale/:currentVersion:/hypertables/hypertable-crud/#create-a-hypertable

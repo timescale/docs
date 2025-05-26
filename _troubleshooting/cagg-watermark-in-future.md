@@ -49,7 +49,7 @@ window.
     ```sql
     CREATE MATERIALIZED VIEW <continuous_aggregate_name>
         WITH (timescaledb.continuous)
-        AS SELECT time_bucket('<interval>', <time_column>),
+        AS SELECT time_bucket('<interval>', <partition_column>),
         <other_columns_to_select>,
         ...
         FROM <hypertable>

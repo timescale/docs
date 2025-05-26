@@ -130,7 +130,7 @@ the migration is complete.
 
 The simplest way to backfill from TimescaleDB, is to use the
 [timescaledb-backfill][timescaledb-backfill] backfill tool. It efficiently
-copies compressed and uncompressed hypertables, and data stored in continuous
+copies hypertables with the $COLUMNSTORE or compression enabled, and data stored in continuous
 aggregates from one database to another.
 
 `timescaledb-backfill` performs best when executed from a machine located close

@@ -31,10 +31,6 @@ the exact order and columns for these kinds of queries, PostgreSQL scans the
 entire index to find all unique values. As a table grows, this operation keeps
 getting slower.
 
-<Highlight type="note">
-Timescale SkipScan does not currently work on compressed chunks.
-</Highlight>
-
 SkipScan allows queries to incrementally jump from one ordered value to the next
 without reading all of the rows in between. Without support for this feature,
 the database engine has to scan the entire ordered index and then de-duplicate
