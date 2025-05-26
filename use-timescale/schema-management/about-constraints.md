@@ -5,6 +5,8 @@ products: [cloud, mst, self_hosted]
 keywords: [schemas, constraints]
 ---
 
+import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
+
 # About constraints
 
 Constraints are rules that apply to your database columns. This prevents you
@@ -27,22 +29,22 @@ CREATE TABLE conditions (
     device_id  INTEGER CHECK (device_id > 0),
     location   INTEGER REFERENCES locations (id),
     PRIMARY KEY(time, device_id)
+) WITH (
+    tsdb.hypertable,
+    tsdb.partition_column='time'
 );
-
-SELECT create_hypertable('conditions', by_range('time'));
 ```
 
-<Highlight type="note">
-The `by_range` dimension builder is an addition to TimescaleDB 2.13.
-</Highlight>
+<OldCreateHypertable />
 
 This example also references values in another `locations` table using a foreign
 key constraint.
 
 <Highlight type="note">
+
 Time columns used for partitioning must not allow `NULL` values. A
-`NOT NULL` constraint is added by default to these columns if it doesn't already
-exist.
+`NOT NULL` constraint is added by default to these columns if it doesn't already exist.
+
 </Highlight>
 
 For more information on how to manage constraints, see the

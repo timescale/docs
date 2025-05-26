@@ -5,6 +5,8 @@ products: [cloud, mst, self_hosted]
 keywords: [continuous aggregates]
 ---
 
+import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
+
 # Time and continuous aggregates
 
 Functions that depend on a local timezone setting inside a continuous aggregate
@@ -21,8 +23,6 @@ The most common method of working with timezones is to declare an explicit
 timezone in the view query.
 
 <Procedure>
-
-### Declaring an explicit timezone
 
 1.  At the `psql`prompt, create the view and declare the timezone:
 
@@ -67,9 +67,7 @@ provide the chunk time interval. In this case, each chunk is 10 minutes.
 
 <Procedure>
 
-### Creating a table with a custom integer-based time column
-
-1.  At the `psql` prompt, create a table and define the integer-based time column:
+1.  At the `psql` prompt, create a hypertable and define the integer-based time column and chunk time interval:
 
     ```sql
     CREATE TABLE devices(
@@ -77,14 +75,14 @@ provide the chunk time interval. In this case, each chunk is 10 minutes.
       cpu_usage INTEGER,  -- Total CPU usage
       disk_usage INTEGER, -- Total disk usage
       PRIMARY KEY (time)
+    ) WITH (
+      tsdb.hypertable,
+      tsdb.partition_column='time',
+      tsdb.chunk_interval='10'
     );
     ```
 
-1.  Define the chunk time interval:
-
-    ```sql
-    SELECT create_hypertable('devices', by_range('time', 10));
-    ```
+    <OldCreateHypertable />
 
 </Procedure>
 
@@ -99,8 +97,6 @@ column in the table. When you have set up the time-handling, you can create the
 continuous aggregate.
 
 <Procedure>
-
-### Creating a continuous aggregate with integer-based time
 
 1.  At the `psql` prompt, set up a function to convert the time to the Unix epoch:
 

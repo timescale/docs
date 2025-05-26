@@ -185,7 +185,7 @@ be set so that actively refreshed time intervals are not compressed.
 [Read more about compressing continuous aggregates.][caggs-compress]
 
 [caggs-compress]: /use-timescale/:currentVersion:/continuous-aggregates/compression-on-continuous-aggregates/
-[chunks]: /use-timescale/:currentVersion:/hypertables/about-hypertables/
+[chunks]: /use-timescale/:currentVersion:/hypertables/
 [compression]: /use-timescale/:currentVersion:/compression/
 [interval]: /api/:currentVersion:/hypertable/set_chunk_time_interval/
 [release-blog]: https://www.timescale.com/blog/increase-your-storage-savings-with-timescaledb-2-6-introducing-compression-for-continuous-aggregates/

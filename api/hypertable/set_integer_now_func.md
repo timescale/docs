@@ -61,4 +61,4 @@ Set the integer `now` function for a hypertable with a time column in [unix time
     SELECT set_integer_now_func('hypertable_name', 'unix_now_stable');
     ```
 
-[chunks]: /use-timescale/:currentVersion:/hypertables/about-hypertables/#hypertable-partitioning
+[chunks]: /use-timescale/:currentVersion:/hypertables/#hypertable-partitioning

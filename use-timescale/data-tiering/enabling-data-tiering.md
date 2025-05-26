@@ -88,13 +88,13 @@ You enable tiered storage from the `Overview` tab in $CONSOLE.
 
 <Procedure>
 
-1. **In [Timescale Console][console], select the service to modify**
+1. **In [$CONSOLE][portal-ops-mode], select the $SERVICE_SHORT to modify**
 
-    You see the `Overview` section.
+1. **In the `Overview` section, click `Explorer`**
 
-1. **Scroll down, then click `Enable tiered storage`**
+   ![Enable tiered storage](https://assets.timescale.com/docs/images/console-explorer-enable-tiered-storage.png)
 
-   ![Enable tiered storage](https://assets.timescale.com/docs/images/console-enable-tiered-storage.png)
+1. **In `Explorer`, click `Storage configuration` > `Tiering storage`, then click `Enable tiered storage`**
 
    Once enabled, you can proceed to [tier data manually][manual-tier] or [set up tiering policies][tiering-policies]. When tiered storage is enabled, you see the amount of data in the tiered object storage.
 
