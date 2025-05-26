@@ -65,19 +65,18 @@ from initial development through to mission-critical enterprise applications.
 
 We offer new users a free, 30-day trial period of our $PERFORMANCE plan with no credit card required.  
 During your trial, you can contact sales@timescale.com to request information about, and access
-to, our $SCALE plan to determine how it fits your needs. During your trial, $SERVICE_SHORTs that receive no queries for 7 days are paused without any data loss. You easily resume them in $CONSOLE.
+to, our $SCALE plan to determine how it fits your needs. During your trial, if a $SERVICE_SHORT doesn’t receive any queries for 7 days, it is paused to conserve resources. Your data remains intact during the trial, and you can easily resume your $SERVICE_SHORT in $CONSOLE. After your trial ends, we may remove your data unless you’ve added a payment method.
 
 After you have completed your 30-day trial period on the $PERFORMANCE plan, choose the 
 [$PRICING_PLAN][plan-features] that suits your business and engineering needs. 
 
-After you become a paying user, we can enable some features in the higher $PRICING_PLANs so you can test them before upgrading.
-certain features of higher $PRICING_PLANs available to you for testing without upgrading.
+After you become a paying user, we can enable some features in the higher $PRICING_PLANs so you can test them before upgrading. 
 
 ### Upgrade or downgrade your $PRICING_PLAN at any time
 
 You can easily upgrade or downgrade between the $PERFORMANCE and $SCALE plans 
 whenever you want using [$CONSOLE][cloud-login]. If you switch your $PRICING_PLAN mid-month, 
-your prices are prorated to when you switch. Your $SERVICE_SHORT are not interrupted when you switch, 
+your prices are prorated to when you switch. Your $SERVICE_SHORTs are not interrupted when you switch, so 
 you can keep working without any hassle. To move to $ENTERPRISE, [get in touch with $COMPANY][get-in-touch].
 
 ### Monitor usage and costs
