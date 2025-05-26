@@ -146,7 +146,7 @@ queries.
 
 ```sql
 CREATE TABLE conditions (
-   time        TIMESTAMPTZ       NOT NULL,
+   "time"      TIMESTAMPTZ       NOT NULL,
    location    TEXT              NOT NULL,
    device      TEXT              NOT NULL,
    temperature DOUBLE PRECISION  NULL,

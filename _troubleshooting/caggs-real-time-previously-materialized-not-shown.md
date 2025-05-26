@@ -82,8 +82,8 @@ The following example shows how this works:
 
       |  city  |   bucket   | min | max|
       |--------|------------|-----|-----|
-      |Moscow | 2021-06-14 |  22 |  30 |
-      | Moscow | 2021-06-21 |  31 |  34|
+      | Moscow | 2021-06-14 |  22 |  30 |
+      | Moscow | 2021-06-21 |  31 |  34 |
 
 1. Materialize data into the $CAGG:
 
@@ -101,8 +101,8 @@ The following example shows how this works:
 
       |  city  |   bucket   | min | max|
       |--------|------------|-----|-----|
-      |Moscow | 2021-06-14 |  22 |  30|
-      | Moscow | 2021-06-21 |  31 |  34|
+      | Moscow | 2021-06-14 |  22 |  30 |
+      | Moscow | 2021-06-21 |  31 |  34 |
 
 
 1. Update the data in the previously materialized bucket:
@@ -122,10 +122,10 @@ The following example shows how this works:
       is because these changes have not been materialized. (Similarly, any
       INSERTs or DELETEs would also not be visible).
 
-      |city  |   bucket   | min | max|
+      | city   |   bucket   | min | max |
       |--------|------------|-----|-----|
-      |Moscow | 2021-06-14 |  22 |  30|
-      |Moscow | 2021-06-21 |  31 |  34|
+      | Moscow | 2021-06-14 |  22 |  30 |
+      | Moscow | 2021-06-21 |  31 |  34 |
 
 
 1. Refresh the data again to update the previously materialized region:
@@ -141,9 +141,9 @@ The following example shows how this works:
       ```
       You see something like:
 
-      |city  |   bucket   | min | max
+      | city   |   bucket   | min | max |
       |--------|------------|-----|-----|
-      | Moscow | 2021-06-14 |  22 |  35|
-      |Moscow | 2021-06-21 |  31 |  34|
+      | Moscow | 2021-06-14 |  22 |  35 |
+      | Moscow | 2021-06-21 |  31 |  34 |
 
 </Procedure>

@@ -55,8 +55,8 @@ import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intr
                tsdb.hypertable,
                tsdb.partition_column='pickup_datetime',
                tsdb.create_default_indexes=false,
-               tsdb.segmentby = 'vendor_id',
-               tsdb.orderby = 'pickup_datetime DESC'
+               tsdb.segmentby='vendor_id',
+               tsdb.orderby='pickup_datetime DESC'
              );
              ```
              <OldCreateHypertable />
