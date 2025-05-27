@@ -7,6 +7,7 @@ keywords: [Apache Kafka, integrations]
 
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
 import IntegrationApacheKafka from "versionContent/_partials/_integration-apache-kafka-install.mdx";
+import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
 
 # Integrate Apache Kafka with $CLOUD_LONG
 
@@ -82,21 +83,21 @@ To prepare your $SERVICE_LONG for Kafka integration:
 
 <Procedure>
 
-1. ** [Connect][connect] to your $SERVICE_LONG **
+1. **[Connect][connect] to your $SERVICE_LONG**
 
-1. **Create a table to ingest Kafka events**
+1. **Create a hypertable to ingest Kafka events**
 
    ```sql
-   CREATE TABLE accounts (created_at TIMESTAMPTZ DEFAULT NOW(),
+   CREATE TABLE accounts (
+    created_at TIMESTAMPTZ DEFAULT NOW(),
     name TEXT,
-    city TEXT);
+    city TEXT
+   ) WITH (
+     tsdb.hypertable,
+     tsdb.partition_column='created_at'
+   );
    ```
-
-1. **Turn the table into a hypertable**
-
-   ```sql
-   SELECT create_hypertable('accounts', 'created_at');
-   ```
+   <OldCreateHypertable />   
 
 </Procedure>
 

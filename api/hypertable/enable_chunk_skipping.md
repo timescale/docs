@@ -10,6 +10,8 @@ api:
 products: [cloud, mst, self_hosted]
 ---
 
+import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
+
 # enable_chunk_skipping()
 
 Enable range statistics for a specific column in a **compressed** hypertable. This tracks a range of values for that column per chunk. 
@@ -46,13 +48,25 @@ skipping, you need to recompress the previously compressed chunks for chunk skip
 
 ## Samples
 
-In this sample, you convert the `conditions` table to a hypertable with
-partitioning on the `time` column. You then specify and enable additional columns to track ranges for.
+In this sample, you create the `conditions` hypertable with partitioning on the `time` column. You then specify and 
+enable additional columns to track ranges for.
 
 ```sql
-SELECT create_hypertable('conditions', 'time');
+CREATE TABLE conditions (
+   time        TIMESTAMPTZ       NOT NULL,
+   location    TEXT              NOT NULL,
+   device      TEXT              NOT NULL,
+   temperature DOUBLE PRECISION  NULL,
+   humidity    DOUBLE PRECISION  NULL
+) WITH (
+   tsdb.hypertable,
+   tsdb.partition_column='time'
+);
+
 SELECT enable_chunk_skipping('conditions', 'device_id');
 ```
+
+<OldCreateHypertable />
 
 ## Arguments
 

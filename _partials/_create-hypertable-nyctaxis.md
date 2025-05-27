@@ -1,16 +1,20 @@
+import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
+
+
 ## Optimize time-series data in hypertables
 
-Time-series data represents how a system, process, or behavior changes over time. [Hypertables][hypertables-section]
-are PostgreSQL tables that help you improve insert and query performance by automatically partitioning your data by
-time. Each hypertable is made up of child tables called chunks. Each chunk is assigned a range of time, and only
+Time-series data represents how a system, process, or behavior changes over time. [$HYPERTABLE_CAPs][hypertables-section]
+are $PG tables that help you improve insert and query performance by automatically partitioning your data by
+time. Each $HYPERTABLE is made up of child tables called chunks. Each chunk is assigned a range of time, and only
 contains data from that range. 
 
-Hypertables exist alongside regular PostgreSQL tables. You use regular PostgreSQL tables for relational data, and 
-interact with hypertables and regular PostgreSQL tables in the same way.
+$HYPERTABLE_CAPs exist alongside regular $PG tables. You interact with $HYPERTABLEs and regular $PG tables in the 
+same way. You use regular $PG tables for relational data.
 
 <Procedure>
 
-1. **Create a standard PostgreSQL table to store the taxi trip data**
+1. **Create a $HYPERTABLE to store the taxi trip data**
+
 
     ```sql
     CREATE TABLE "rides"(
@@ -32,27 +36,23 @@ interact with hypertables and regular PostgreSQL tables in the same way.
         tolls_amount NUMERIC,
         improvement_surcharge NUMERIC,
         total_amount NUMERIC
+    ) WITH (
+       tsdb.hypertable,
+       tsdb.partition_column='pickup_datetime',
+       tsdb.create_default_indexes=false
     );
     ```
+    <OldCreateHypertable />
 
-1.  **Convert the standard table into a hypertable** 
-    Partitioned on the `time`
-    column using the `create_hypertable()` function provided by Timescale. You
-    must provide the name of the table and the column in that table that holds
-    the timestamp data to use for partitioning:
+1.  **Add another dimension to partition your $HYPERTABLE more efficiently**
 
     ```sql
-    SELECT create_hypertable('rides', by_range('pickup_datetime'), create_default_indexes=>FALSE);
     SELECT add_dimension('rides', by_hash('payment_type', 2));
     ```
 
-	<Highlight type="note">
-	The `by_range` and `by_hash` dimension builder is an addition to TimescaleDB 2.13.
-	</Highlight>
+1.  **Create an index to support efficient queries** 
 
-1.  Create an index to support efficient queries by vendor, rate code, and
-    passenger count:
-
+    Index by vendor, rate code, and passenger count:
     ```sql
     CREATE INDEX ON rides (vendor_id, pickup_datetime DESC);
     CREATE INDEX ON rides (rate_code, pickup_datetime DESC);
@@ -61,15 +61,15 @@ interact with hypertables and regular PostgreSQL tables in the same way.
 
 </Procedure>
 
-## Create standard PostgreSQL tables for relational data
+## Create standard $PG tables for relational data
 
 When you have other relational data that enhances your time-series data, you can
-create standard PostgreSQL tables just as you would normally. For this dataset,
+create standard $PG tables just as you would normally. For this dataset,
 there are two other tables of data, called `payment_types` and `rates`.
 
 <Procedure>
 
-1.  Add a table to store the payment types data:
+1.  **Add a relational table to store the payment types data**
 
     ```sql
     CREATE TABLE IF NOT EXISTS "payment_types"(
@@ -85,7 +85,7 @@ there are two other tables of data, called `payment_types` and `rates`.
     (6, 'voided trip');
     ```
 
-1.  Add a table to store the rates data:
+1. **Add a relational table to store the rates data**
 
     ```sql
     CREATE TABLE IF NOT EXISTS "rates"(
