@@ -36,7 +36,7 @@ Note the following:
 - If you set `end_offset` within the current time bucket, this bucket is excluded from materialization. This is done for the following reasons:
 
   - The current bucket is incomplete and can't be refreshed. 
-  - The current bucket gets a lot of writes in the time-stamp order, and its aggregate becomes outdated very quickly. Excluding it improves performance. 
+  - The current bucket gets a lot of writes in the timestamp order, and its aggregate becomes outdated very quickly. Excluding it improves performance. 
 
   To include the latest raw data in queries, enable [real-time aggregation][future-watermark]. 
 
@@ -59,10 +59,10 @@ See the [API reference][api-reference] for the full list of required and optiona
 </Procedure>
 
 The policy in this example ensures that all the data in the continuous aggregate
-is up to date with the hypertable except for anything written in the last hour.
-It also does not refresh the last time bucket of the continuous aggregate.
+is up to date with the hypertable, except for anything written within the last hour. This means that the actual `INSERT` or `UPDATE` of the data falls within the last hour, regardless of its timestamp. The policy also does not refresh the last time bucket of the continuous aggregate.
+
 Because it has an open-ended `start_offset` parameter, any data that is removed
-from the table, for example with a DELETE or with `drop_chunks`, is also removed
+from the table, for example with a `DELETE` or with `drop_chunks`, is also removed
 from the continuous aggregate view. This means that the continuous aggregate
 always reflects the data in the underlying hypertable.
 
