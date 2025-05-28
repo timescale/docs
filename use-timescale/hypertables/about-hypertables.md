@@ -7,7 +7,7 @@ keywords: [hypertables, partitions]
 
 # About hypertables
 
-Hypertables are PostgreSQL tables designed to simplify and speed up data analysis. Anything you can do with regular PostgreSQL tables, you can do with hypertables—but much faster and more conveniently. This page explains hypertable partitioning, indexing, and analysis with the PostgreSQL `ANALYZE` command. 
+Hypertables are PostgreSQL tables designed to simplify and speed up data analysis. Anything you can do with regular PostgreSQL tables, you can do with hypertables—but much faster and more conveniently. This page explains hypertable partitioning, indexing, and analysis with the PostgreSQL `ANALYZE` command.  
 
 <Highlight type="note">
 

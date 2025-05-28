@@ -77,10 +77,6 @@ import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypert
 
 1. **Pause a $COLUMNSTORE policy**
 
-   If you need to modify or add a lot of data to a $CHUNK in the $COLUMNSTORE, best practice is to stop any jobs moving
-   $CHUNKs to the $COLUMNSTORE, [convert the $CHUNK back to the $ROWSTORE][convert_to_rowstore], then modify the data. 
-   After the update, [convert the $CHUNK to the $COLUMNSTORE][convert_to_columnstore] and restart the jobs. 
-
    ``` sql
    SELECT * FROM timescaledb_information.jobs where 
       proc_name = 'policy_compression' AND relname = 'crypto_ticks'
