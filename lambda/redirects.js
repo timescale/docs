@@ -1005,4 +1005,8 @@ module.exports = [
     from: '/use-timescale/latest/metrics-logging/integrations/',
     to: 'https://docs.timescale.com/use-timescale/latest/metrics-logging/',
   },
+  {
+    from: '/quick-start/latest/',
+    to: 'https://docs.timescale.com/tutorials/latest/',
+  },
 ];
