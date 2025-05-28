@@ -93,7 +93,7 @@
 
 Quick recap. You:
 - Manage your $SERVICE_SHORTs in the [$OPS_MODE][portal-ops-mode] in $CONSOLE: add $READ_REPLICAs and enable 
-  high availability, configure compression, change parameters, and so on.
+  high availability, compress data into the $COLUMNSTORE, change parameters, and so on.
 - Analyze your data in the [$DATA_MODE][portal-data-mode] in $CONSOLE: write queries with
   autocomplete, save them in folders, share them, create charts/dashboards, and much more.
 - Store configuration and security information in your config file.
@@ -106,5 +106,5 @@ Quick recap. You:
 [popsql]: /getting-started/:currentVersion:/run-queries-from-console/#data-mode
 [run-sqleditor]: /getting-started/:currentVersion:/run-queries-from-console/#sql-editor
 [install-psql]: /integrations/:currentVersion:/psql/
-[hypertables]: /use-timescale/:currentVersion:/hypertables/about-hypertables/#hypertable-partitioning
+[hypertables]: /use-timescale/:currentVersion:/hypertables/#hypertable-partitioning
 [psql]: /integrations/:currentVersion:/psql/

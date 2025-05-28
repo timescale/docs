@@ -159,4 +159,4 @@ see the [PostgreQL output plugin][output-plugin].
 [create-service]: /getting-started/latest/
 [connect-timescaledb]: /integrations/:currentVersion:/find-connection-details/
 [grafana]: /integrations/:currentVersion:/grafana/
-[about-hypertables]: /use-timescale/:currentVersion:/hypertables/about-hypertables/
+[about-hypertables]: /use-timescale/:currentVersion:/hypertables/

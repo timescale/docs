@@ -1,4 +1,4 @@
-### 6e. Turn on compression policies in the target
+### 6e. Enable policies that compress data in the target hypertable
 
 In the following command, replace `<hypertable>` with the fully qualified table
 name of the target hypertable, for example `public.metrics`:

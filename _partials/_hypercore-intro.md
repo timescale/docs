@@ -24,6 +24,9 @@ in each $SERVICE_LONG:
 - **Faster queries on compressed data in $COLUMNSTORE**: in the $COLUMNSTORE conversion, hypertable
   chunks are compressed by more than 90%, and organized for efficient, large-scale queries. Combined with [chunk skipping][chunk-skipping], this helps you save on storage costs and keeps your queries operating at lightning speed.
 
+- **Fast modification of compressed data in $COLUMNSTORE**: just use SQL to add or modify data in the $COLUMNSTORE.
+   $TIMESCALE_DB is optimized for super fast INSERT and UPSERT performance.  
+
 - **Full mutability with transactional semantics**: regardless of where data is stored,
   $HYPERCORE provides full ACID support. Like in a vanilla PostgreSQL database, inserts and updates
   to the $ROWSTORE and $COLUMNSTORE are always consistent, and available to queries as soon as they are

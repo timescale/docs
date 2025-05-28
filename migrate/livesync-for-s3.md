@@ -148,7 +148,7 @@ And that is it, you are using $LIVESYNC to synchronize all the data, or specific
 $SERVICE_LONG in real time.
 
 
-[about-hypertables]: /use-timescale/:currentVersion:/hypertables/about-hypertables/
+[about-hypertables]: /use-timescale/:currentVersion:/hypertables/
 [lives-sync-specify-tables]: /migrate/:currentVersion:/livesync-for-postgresql/#specify-the-tables-to-synchronize
 [compression]: /use-timescale/:currentVersion:/compression/about-compression
 [caggs]: /use-timescale/:currentVersion:/continuous-aggregates/about-continuous-aggregates/

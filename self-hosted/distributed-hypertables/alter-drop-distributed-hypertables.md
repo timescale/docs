@@ -24,6 +24,6 @@ are automatically applied across all data nodes. For more information, see the
 section on
 [multi-node administration][multinode-admin].
 
-[alter]: /use-timescale/:currentVersion:/hypertables/alter/
-[drop]: /use-timescale/:currentVersion:/hypertables/drop/
+[alter]: /use-timescale/:currentVersion:/hypertables/hypertable-crud/#alter-a-hypertable
+[drop]: /use-timescale/:currentVersion:/hypertables/hypertable-crud/#drop-a-hypertable
 [multinode-admin]: /self-hosted/latest/multinode-timescaledb/multinode-administration/
