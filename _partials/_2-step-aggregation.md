@@ -23,3 +23,4 @@ aggregates][blog-two-step-aggregates].
 
 [blog-two-step-aggregates]: https://www.timescale.com/blog/how-postgresql-aggregation-works-and-how-it-inspired-our-hyperfunctions-design-2/
 [caggs]: /use-timescale/:currentVersion:/continuous-aggregates/about-continuous-aggregates/
+

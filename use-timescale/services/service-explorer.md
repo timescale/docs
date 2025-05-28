@@ -30,10 +30,7 @@ the `Explorer` tab.
 In the `General information` section of the Explorer, you can see a high-level
 summary of your Timescale database, including all your hypertables and
 relational tables. It summarizes your overall compression ratios, and other
-policy and continuous aggregate data. And, if you aren't already using key
-features like Timescale's native compression, continuous aggregates, or other
-automation policies and actions, it provides pointers to tutorials and
-documentation to help you get started.
+policy and continuous aggregate data. And, if you aren't already using key features like continuous aggregates, columnstore compression, or other automation policies and actions, it provides pointers to tutorials and documentation to help you get started.
 
 <img class="main-content__illustration"
 width={1375} height={944}
@@ -47,11 +44,10 @@ your tables, including information about table schemas, table indexes, and
 foreign keys. For your hypertables, it shows details about chunks, continuous
 aggregates, and policies such as data retention policies and data reordering.
 You can also inspect individual hypertables, including their sizes, dimension
-ranges, and compression status.
+ranges, and columnstore compression status.
 
-You can also set a compression policy from this section. For more information,
-see the
-[compression section][set-compression].
+From this section, you can also set an automated policy to compress chunks into the columnstore. For more information,
+see the [hypercore documentation][hypercore].
 
 <img
 class="main-content__illustration"
@@ -80,5 +76,5 @@ For more information about continuous aggregates, see the
 [continuous aggregates section][caggs].
 
 [caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
-[set-compression]: /use-timescale/:currentVersion:/compression/
+[hypercore]: /use-timescale/:currentVersion:/hypercore/
 [hypertables]: /use-timescale/:currentVersion:/hypertables/

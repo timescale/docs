@@ -5,6 +5,8 @@ products: [cloud, self_hosted, mst]
 keywords: [IoT, simulate]
 ---
 
+
+import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
 
 # Simulate an IoT sensor dataset
@@ -26,7 +28,7 @@ To simulate a more advanced dataset, see [Time-series Benchmarking Suite (TSBS)]
 
 To simulate a dataset, run the following queries:
 
-1. **Create the `sensors` and `sensor_data` tables**:
+1. **Create the `sensors` table**:
 
     ```sql
     CREATE TABLE sensors(
@@ -35,6 +37,8 @@ To simulate a dataset, run the following queries:
       location VARCHAR(50)
     );
     ```
+
+1. **Create the `sensor_data` hypertable**
     
     ```sql
     CREATE TABLE sensor_data (
@@ -43,15 +47,13 @@ To simulate a dataset, run the following queries:
       temperature DOUBLE PRECISION,
       cpu DOUBLE PRECISION,
       FOREIGN KEY (sensor_id) REFERENCES sensors (id)
+    ) WITH (
+      tsdb.hypertable,
+      tsdb.partition_column='time'
     );
     ```
-
-1. **Convert `sensor_data` into a hypertable**:
-
-    ```sql
-    SELECT create_hypertable('sensor_data', 'time');
-    ```
-
+    <OldCreateHypertable />
+   
 1. **Populate the `sensors` table**:
 
     ```sql

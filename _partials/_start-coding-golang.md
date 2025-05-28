@@ -883,7 +883,7 @@ your Go application, be sure to check out these advanced TimescaleDB tutorials:
 [create-a-hypertable]: /getting-started/:currentVersion:/start-coding-with-timescale/#generate-a-hypertable
 [insert]: /getting-started/:currentVersion:/start-coding-with-timescale/#insert-rows-of-data
 [query]: /getting-started/:currentVersion:/start-coding-with-timescale/#execute-a-query
-[create-hypertable-docs]: /use-timescale/:currentVersion:/hypertables/create/
+[create-hypertable-docs]: /use-timescale/:currentVersion:/hypertables/hypertable-crud/#create-a-hypertable
 [insert]: /getting-started/:currentVersion:/start-coding-with-timescale/#insert-a-row-into-your-timescale-database
 [query]: /getting-started/:currentVersion:/start-coding-with-timescale/#execute-a-query-on-your-timescale-database
 [create-hypertable]: /getting-started/:currentVersion:/start-coding-with-timescale/#generate-a-hypertable
