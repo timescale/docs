@@ -79,17 +79,7 @@ relational and time-series data from external files.
           1. Repeat the process with `<local folder>/tutorial_sample_assets.csv` and rename to `crypto_assets`.
        
               There is no time-series data in this table, so you don't see the  `hypertable partition` option.
-
-          1. Click `SQL editor`, then run the following SQL to enable columnstore on the `crypto_ticks` table:
-
-             ```sql
-             ALTER TABLE crypto_ticks SET(
-               timescaledb.enable_columnstore,
-               timescaledb.orderby = 'time DESC',
-               timescaledb.segmentby = 'symbol'
-             );
-             ```
-             
+ 
        </Tab>
         
        <Tab title="psql">
