@@ -1,4 +1,4 @@
-import MigrationPrerequisites from "versionContent/partials/_migrate_prerequisites.mdx";
+import MigrationPrerequisites from "versionContent/partials/_migrate_test_prerequisites.mdx";
 import SetupConnectionStrings from "versionContent/partials/_migrate_live_setup_connection_strings.mdx";
 import LivesyncLimitations from "versionContent/partials/_livesync-limitations.mdx";
 import LivesyncConfigureSourceDatabase from "versionContent/partials/_livesync-configure-source-database.mdx";

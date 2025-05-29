@@ -7,7 +7,7 @@ tags: [recovery, logical backup, pg_dump, pg_restore]
 ---
 
 import DoNotRecommendForLargeMigration from "versionContent/partials/_migrate_pg_dump_do_not_recommend_for_large_migration.mdx";
-import MigrationPrerequisites from "versionContent/partials/_migrate_prerequisites.mdx";
+import MigrationPrerequisites from "versionContent/partials/_migrate_test_prerequisites.mdx";
 import MigrateFromTimescaleDB from "versionContent/partials/_migrate_dump_timescaledb.mdx";
 import MigrateFromPostgres from "versionContent/partials/_migrate_dump_postgresql.mdx";
 import MigrateFromMST from "versionContent/partials/_migrate_dump_mst.mdx";

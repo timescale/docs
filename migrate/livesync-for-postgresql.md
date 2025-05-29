@@ -6,7 +6,7 @@ keywords: [migration, low-downtime, backup]
 tags: [recovery, logical backup, replication]
 ---
 
-import MigrationPrerequisites from "versionContent/partials/_migrate_prerequisites.mdx";
+import MigrationPrerequisites from "versionContent/partials/_migrate_test_prerequisites.mdx";
 import SetupConnectionStrings from "versionContent/partials/_migrate_live_setup_connection_strings.mdx";
 import LivesyncConsole from "versionContent/partials/_livesync-console.mdx"
 import LivesyncTerminal from "versionContent/partials/_livesync-terminal.mdx"

@@ -5,7 +5,7 @@ products: [cloud]
 keywords: [migration, low-downtime, backup]
 tags: [recovery, logical backup, replication]
 ---
-import MigrationPrerequisites from "versionContent/partials/_migrate_prerequisites.mdx";
+import MigrationPrerequisites from "versionContent/partials/_migrate_test_prerequisites.mdx";
 import SourceTargetNote from "versionContent/partials/_migrate_source_target_note.mdx";
 import OpenSupportRequest from "versionContent/partials/_migrate_open_support_request.mdx"
 import DoNotRecommendForLargeMigration from "versionContent/partials/_migrate_pg_dump_do_not_recommend_for_large_migration.mdx";
