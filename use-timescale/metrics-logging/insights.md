@@ -59,10 +59,7 @@ query. Check out the Last update value at the top of the queries list table to i
 
 Each query entry in the Queries table is clickable, leading you to the detailed query drill-down page. Graphs show five-minute granularity data points for every graph, providing you with insights into your query's behavior over time. These graphs not only help you identify spikes and unexpected behaviors but also offer information to optimize your query.
 
-<img class="main-content__illustration"
-    width={1375} height={944}
-    src="https://assets.timescale.com/docs/images/drill_down_view.png"
-    alt="Timescale Insights drill down page showing illustrations for all available graphs"/>
+![Queries drill-down view](https://assets.timescale.com/docs/images/query-drill-down-view-timescale-console.png)
 
 ### Execution time
 

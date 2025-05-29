@@ -44,7 +44,7 @@ This storage type gives you up to 16 TB of storage and is available under [all $
    - Under the [$PERFORMANCE $PRICING_PLAN][pricing-plans], IOPS is set to 3,000 - 5,000 autoscale and cannot be changed.
    - Under the [$SCALE and $ENTERPRISE $PRICING_PLANs][pricing-plans], IOPS is set to 5,000 - 8,000 autoscale and can be upgraded to 16,000 IOPS.
 
-   ![Default standard storage in Timescale Cloud](https://assets.timescale.com/docs/images/high-performance-storage-timescale-cloud.png)
+   ![Default standard storage in Timescale Cloud](https://assets.timescale.com/docs/images/high-performance-storage-timescale.png)
 
 1. **Click `Apply`**
 
@@ -59,7 +59,7 @@ This storage type gives you up to 64 TB and 32,000 IOPS, and is available under 
 1. **In [$CONSOLE][console], select your $SERVICE_SHORT, then click `Operations` > `Compute and storage`**
 1. **Select `Enhanced` in the `Storage type` dropdown**
 
-    ![Enhanced storage in Timescale Cloud](https://assets.timescale.com/docs/images/enable-enhanced-storage-timescale-cloud.png)
+    ![Enhanced storage in Timescale Cloud](https://assets.timescale.com/docs/images/enable-enhanced-storage-timescale.png)
 
     <Highlight type="note">
 
@@ -71,7 +71,7 @@ This storage type gives you up to 64 TB and 32,000 IOPS, and is available under 
    
     Select between 8,000, 16,000, 24,000, and 32,0000 IOPS. The value that you can apply depends on the number of CPUs in your $SERVICE_SHORT. $CONSOLE notifies you if your selected IOPS requires increasing the number of CPUs. To increase IOPS to 64,000, click `Contact us` and we will be in touch to confirm the details. 
 
-   ![I/O boost in Timescale Cloud](https://assets.timescale.com/docs/images/set-io-boost-timescale-cloud.png)
+   ![I/O boost in Timescale Cloud](https://assets.timescale.com/docs/images/set-io-boost-timescale.png)
 
 1. **Click `Apply`**
 
@@ -91,11 +91,9 @@ You enable tiered storage from the `Overview` tab in $CONSOLE.
 
 1. **In [$CONSOLE][portal-ops-mode], select the $SERVICE_SHORT to modify**
 
-1. **In the `Overview` section, click `Explorer`**
-
-   ![Enable tiered storage](https://assets.timescale.com/docs/images/console-explorer-enable-tiered-storage.png)
-
 1. **In `Explorer`, click `Storage configuration` > `Tiering storage`, then click `Enable tiered storage`**
+
+   ![Enable tiered storage](https://assets.timescale.com/docs/images/enable-tiered-storage-timescale-console.png)
 
    Once enabled, you can proceed to [tier data manually][manual-tier] or [set up tiering policies][tiering-policies]. When tiered storage is enabled, you see the amount of data in the tiered object storage.
 

@@ -169,23 +169,14 @@ the Timescale portal.
 
 ### Adding a connection pooler
 
-1.  [Log in to the Timescale portal][cloud-login] and click the service
+1.  [Log in to $CONSOLE][cloud-login] and click the service
     you want to add a connection pooler to.
-1.  In the `Connection info` section, navigate to the `Connection pooler` tab,
-    and click `Add connection pooler`.
+1.  In `Operations`, click `Connection pooling` > `Add pooler`.
 1.  When the pooler has been added, your pooler connection details are displayed
-    in the `Connection pooler` tab. Use this information to connect to your
-    pooler.
-1.  By default, you are shown the connection string for the session pool. You
-    can change this to see the details for a transaction pool instead, by
-    selecting it from the drop-down menu. For more information about the
+    in the `Connection pooling` tab. Use this information to connect to your transaction or session
+    pooler. For more information about the
     different pool types, see the [pool types][about-connection-pooling-types]
     section.
-
-    <img class="main-content__illustration"
-    src="https://assets.timescale.com/docs/images/connection_pooler.webp"
-    width={1375} height={944}
-    alt="Timescale Service Connection Info section, the Connection Pooler tab, showing information for a transaction pool" />
 
 </Procedure>
 
@@ -197,9 +188,9 @@ update your application to adjust the port it uses to connect to your service.
 
 <Procedure>
 
-1. In [Timescale Cloud Console][tsc-portal], select the service you want to remove a connection pooler from. 
+1. In [Timescale Console][cloud-login], select the service you want to remove a connection pooler from. 
 1. Select `Operations`, then `Connection pooling`. 
-1. Select the pooler to remove, then click `Remove connection pooler`.
+1. Click `Remove connection pooler`.
 
    Confirm that you want to remove the connection pooler. 
 
