@@ -390,8 +390,6 @@ HA replicas automatically take over operations if the original primary data node
 The primary node streams its write-ahead log (WAL) to the replicas to minimize the chances of 
 data loss during failover.
 
-![$SERVICE_LONG replicas](https://assets.timescale.com/docs/images/ha-replicas.png )
-
 High availability is available in the [$SCALE and $ENTERPRISE][pricing-plans] $PRICING_PLANs for $CLOUD_LONG. 
 
 <HASetup />
