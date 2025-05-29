@@ -290,8 +290,8 @@ $CONSOLE. You can also do this using psql.
 <Procedure>
 
 1. **In [$CONSOLE][portal-ops-mode], select the $SERVICE_SHORT you uploaded data to**
-1. **Click `Operations` > `Continuous aggregates`, select `crypto_ticks`, then click `Create a Continuous Aggregate`**
-   ![$CAGG wizard](https://assets.timescale.com/docs/images/continuous-aggregate-wizard.png )
+1. **Click `Explorer` > `Continuous Aggregates` > `Create a Continuous Aggregate`** next to the `crypto_ticks` hypertable. 
+   ![$CAGG wizard](https://assets.timescale.com/docs/images/continuous-aggregate-wizard-console.png )
 1. **Create a view called `assets_candlestick_daily` on the `time` column with an interval of `1 day`, then click `Next step`**
 1. **Update the view SQL with the following functions, then click `Run`**
    ```sql
@@ -346,12 +346,10 @@ To set up data tiering:
 1. **Enable data tiering**
 
    1. In [$CONSOLE][portal-ops-mode], select the $SERVICE_SHORT to modify.
-
-   1. In the `Overview` section, click `Explorer`.
-
-      ![Enable tiered storage](https://assets.timescale.com/docs/images/console-explorer-enable-tiered-storage.png)
    
    1. In `Explorer`, click `Storage configuration` > `Tiering storage`, then click `Enable tiered storage`.
+
+   ![Enable tiered storage](https://assets.timescale.com/docs/images/enable-tiered-storage-timescale-console.png)
 
       When tiered storage is enabled, you see the amount of data in the tiered object storage.
 
@@ -392,7 +390,7 @@ HA replicas automatically take over operations if the original primary data node
 The primary node streams its write-ahead log (WAL) to the replicas to minimize the chances of 
 data loss during failover.
 
-![$SERVICE_LONG replicas](https://assets.timescale.com/docs/images/ha-read-replica.png )
+![$SERVICE_LONG replicas](https://assets.timescale.com/docs/images/ha-replicas.png )
 
 High availability is available in the [$SCALE and $ENTERPRISE][pricing-plans] $PRICING_PLANs for $CLOUD_LONG. 
 

@@ -45,7 +45,7 @@
    
    1. Click `SQL editor`. 
 
-      ![SQL editor](https://assets.timescale.com/docs/images/ops-view-sql-editor.png)
+      ![SQL editor](https://assets.timescale.com/docs/images/sqleditor-ui.png)
 
    1. Run a test query:
 
