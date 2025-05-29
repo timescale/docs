@@ -6,11 +6,6 @@ module.exports = [
     excerpt: "Get started with Timescale",
     children: [
       {
-        title: "Create your first Timescale service",
-        href: "services",
-        excerpt: "Create a Timescale service and connect to it",
-      },
-      {
         title: "Try the key Timescale features",
         href: "try-key-features-timescale-products",
         excerpt:
@@ -21,6 +16,11 @@ module.exports = [
         href: "start-coding-with-timescale",
         excerpt:
           "Integrate Timescale Cloud with your app using your preferred programming language",
+      },
+      {
+        title: "Create a Timescale service",
+        href: "services",
+        excerpt: "Create a Timescale service and connect to it",
       },
       {
         title: "Run your queries from Timescale Console",

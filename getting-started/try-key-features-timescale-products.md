@@ -50,31 +50,34 @@ relational and time-series data from external files.
 
 <Procedure>
 
-1.  **Import some time-series data into your $HYPERTABLE**
+1.  **Import some time-series data into $HYPERTABLEs**
 
     1. Unzip <Tag type="download">[crypto_sample.zip](https://assets.timescale.com/docs/downloads/candlestick/crypto_sample.zip)</Tag> to a `<local folder>`.
 
-       This test dataset contains second-by-second trade data for the most-traded crypto-assets
-       and a regular table of asset symbols and company names.  
+       This test dataset contains second-by-second trade time-series data for the most-traded crypto-assets
+       that you optimize in a [hypertable][hypertables-section], and a list of asset symbols and company names that is best suited for
+       a regular relational table.  
 
        To import up to 100GB of data directly from your current $PG-based database, 
        [migrate with downtime][migrate-with-downtime] using native $PG tooling. To seamlessly import 100GB-10TB+ 
        of data, use the [live migration][migrate-live] tooling supplied by $COMPANY. To add data from non-$PG data sources, see [Import and ingest data][data-ingest].
 
-    1. Upload data from the CSVs to your $SERVICE_SHORT:
-    
-       <Tabs label="Upload data to ">
+    1. Upload data from the CSVs into a $HYPERTABLE:
+
+       To more fully understand how $HYPERTABLEs work, and how to optimize them for performance by
+       tuning $CHUNK intervals and enabling chunk skipping, see [the $HYPERTABLEs documentation][hypertables-section].  
+       <Tabs label="Upload data">
 
        <Tab title="Timescale Console">
        
-          The $CONSOLE data upload creates the tables for you from the data you are uploading:
+          The $CONSOLE data upload creates $HYPERTABLEs and relational tables from the data you are uploading:
           1. In [$CONSOLE][portal-ops-mode], select the $SERVICE_SHORT to add data to, then click `Actions` > `Upload CSV`.
           1. Drag `<local folder>/tutorial_sample_tick.csv` to `Upload .CSV` and change `New table name` to `crypto_ticks`.
           1. Enable `hypertable partition` for the `time` column and click `Upload CSV`.
        
               The upload wizard creates a $HYPERTABLE containing the data from the CSV file.
           1. When the data is uploaded, close `Upload .CSV`.
-       
+                      
               If you want to  have a quick look at your data, press `Run` .
           1. Repeat the process with `<local folder>/tutorial_sample_assets.csv` and rename to `crypto_assets`.
        
@@ -142,9 +145,6 @@ relational and time-series data from external files.
         
        </Tabs>
    
-    To more fully understand how $HYPERTABLEs work, and how to optimize them for performance by
-    tuning $CHUNK intervals and enabling chunk skipping, see [the $HYPERTABLEs documentation][hypertables-section].
-
 1.  **Have a quick look at your data**  
 
     You query $HYPERTABLEs in exactly the same way as you would a relational $PG table.
