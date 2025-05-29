@@ -10,14 +10,11 @@ import HCConversionOverview from "versionContent/_partials/_hypercore-conversion
 import HCPolicyWorkflow from "versionContent/_partials/_hypercore_policy_workflow.mdx";
 import UsageBasedStorage from "versionContent/_partials/_usage-based-storage-intro.mdx";
 import EarlyAccess from "versionContent/_partials/_early_access_2_18_0.mdx";
+import HypercoreIntroShort from "versionContent/_partials/_hypercore-intro-short.mdx";
 
 # Optimize your data for real-time analytics 
 
-$HYPERCORE_CAP is the TimescaleDB hybrid row-columnar storage engine used by $HYPERTABLEs.
-$HYPERTABLE_CAPs partition your data in $CHUNKs. $CHUNK_CAPs stored in the $ROWSTORE use a row-oriented data format optimized for high-speed inserts and updates. $CHUNK_CAPs stored in the $COLUMNSTORE use a columnar data format optimized for analytics.
-You ingest **hot** data into the $ROWSTORE. As data **cools** and becomes more suited for analytics, 
-$CLOUD_LONG automatically converts these $CHUNKs of data to the $COLUMNSTORE. You define the moment when data is converted 
-using a $COLUMNSTORE policy.
+<HypercoreIntroShort />
 
 <HCConversionOverview />
 
