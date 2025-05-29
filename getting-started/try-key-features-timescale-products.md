@@ -64,8 +64,10 @@ relational and time-series data from external files.
 
     1. Upload data into a $HYPERTABLE:
 
-       To more fully understand how $HYPERTABLEs work, and how to optimize them for performance by
-       tuning $CHUNK intervals and enabling chunk skipping, see [the $HYPERTABLEs documentation][hypertables-section].  
+       To more fully understand how to create a $HYPERTABLE, how $HYPERTABLEs work, and how to optimize them for 
+       performance by tuning $CHUNK intervals and enabling chunk skipping, see 
+       [the $HYPERTABLEs documentation][hypertables-section]. 
+    
        <Tabs label="Upload data">
 
        <Tab title="Timescale Console">
