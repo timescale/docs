@@ -189,19 +189,9 @@ For example, yesterday's market data.
 
    When you convert data to the $COLUMNSTORE, as well as being optimized for analytics, it is compressed by more than
    90%. This helps you save on storage costs and keeps your queries operating at lightning speed. To see the amount of space
-   saved:
-   ``` sql
-   SELECT
-     pg_size_pretty(before_compression_total_bytes) as before,
-     pg_size_pretty(after_compression_total_bytes) as after
-   FROM hypertable_columnstore_stats('crypto_ticks');
-   ```
-   You see something like:
+   saved, click `Explorer` > `public` > `crypto_ticks`. 
 
-   | Before | After   |
-      |--------|---------|
-   | 32 MB  | 3808 KB |
-
+   ![Columnstore data savings](https://assets.timescale.com/docs/images/console-columstore-data-savings.png )
 
 </Procedure>
 
