@@ -1,5 +1,5 @@
 
-Best practices is to use an [Ubuntu EC2 instance][create-ec2-instance] hosted in the same region as your
+Best practicess is to use an [Ubuntu EC2 instance][create-ec2-instance] hosted in the same region as your
 Timescale Cloud service to move data. That is, the machine you run the commands on to move your 
 data from your source database to your target Timescale Cloud service. 
 
