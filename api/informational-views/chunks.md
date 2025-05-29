@@ -7,6 +7,7 @@ tags: [schemas, tablespaces, data nodes, time ranges]
 api:
   license: apache
   type: view
+products: [cloud, mst, self_hosted]
 ---
 
 # timescaledb_information.chunks

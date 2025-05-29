@@ -26,19 +26,16 @@ to a hypertable.
 Some indexes are created by default when you perform certain actions on your
 database.
 
-When you create a hypertable with the
-[`create_hypertable`][create_hypertable] command, a time index
-is created on your data. If you want to manually create a time index, you can
-use this command:
+When you create a hypertable with a call to [`CREATE TABLE`][hypertable-create-table], a time index
+is created on your data. If you want to manually create a time index, you can use this command:
 
 ```sql
 CREATE INDEX ON conditions (time DESC);
 ```
 
-When you create a hypertable with the `create_hypertable` command, and you
-specify an optional hash partition in addition to time, such as a `location`
-column, an additional index is created on the optional column and time. For
-example:
+After you create a hypertable, you can specify an optional hash partition in addition to time. For example,
+`add_dimension('conditions', by_hash('location', 4))`. An additional index is created on the optional column 
+and time. For example:
 
 ```sql
 CREATE INDEX ON conditions (location, time DESC);
@@ -48,17 +45,24 @@ For more information about the order to use when declaring indexes, see the
 [about indexing][about-index] section.
 
 If you do not want to create these default indexes, you can set
-`create_default_indexes` to `false` when you run the `create_hypertable` command.
-For example:
+`create_default_indexes` to `false` when you create a hypertable. For example:
 
 ```sql
-SELECT create_hypertable('conditions', by_range('time'))
-  CREATE_DEFAULT_INDEXES false;
+CREATE TABLE conditions (
+  time        TIMESTAMPTZ       NOT NULL,
+  location    TEXT              NOT NULL,
+  device      TEXT              NOT NULL,
+  temperature DOUBLE PRECISION  NULL,
+  humidity    DOUBLE PRECISION  NULL
+) WITH (
+  tsdb.hypertable,
+  tsdb.partition_column='time',
+  tsdb.create_default_indexes=false
+);
 ```
 
-<Highlight type="note">
-The `by_range` dimension builder is an addition to TimescaleDB 2.13.
-</Highlight>
+<OldCreateHypertable />
+
 
 ## Best practices for indexing
 
@@ -86,11 +90,14 @@ can perform other actions on the table while the index is being created, rather
 than having to wait until index creation is complete.
 
 <Highlight type="note">
+
 You can also use the
 [PostgreSQL `WITH` clause](https://www.postgresql.org/docs/current/queries-with.html)
 to perform indexing transactions on an individual chunk.
+
 </Highlight>
 
 [create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
 [about-index]: /use-timescale/:currentVersion:/schema-management/about-indexing/
 [create-index]: https://docs.timescale.com/api/latest/hypertable/create_index/
+[hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/

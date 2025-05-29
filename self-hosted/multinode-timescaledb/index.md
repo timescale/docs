@@ -1,7 +1,6 @@
 ---
 title: Multi-node
 excerpt: Learn about using multi-node TimescaleDB to scale your database horizontally, including setup, authentication, configuration, and managing your cluster 
-products: [self_hosted]
 keywords: [multi-node, scaling]
 seo:
   robots: noindex

@@ -1,7 +1,7 @@
 ---
 title: Energy consumption data tutorial - set up compression
 excerpt: Compress the sample dataset with Timescale Cloud to store the energy consumption data more efficiently
-products: [cloud, mst, self_hosted]
+products: [cloud, self_hosted, mst]
 keywords: [tutorials, query]
 tags: [tutorials, beginner]
 layout_components: [next_prev_large]

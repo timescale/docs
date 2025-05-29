@@ -1,7 +1,7 @@
 ---
 title: Compare TimescaleDB editions
 excerpt: See the difference between the TimescaleDB Community and TimescaleDB Apache 2 editions
-products: [cloud, mst, self_hosted]
+products: [cloud, self_hosted]
 keywords: [Apache, community, license]
 tags: [learn, contribute]
 ---
@@ -71,6 +71,11 @@ You can access a hosted version of TimescaleDB Community Edition through
     <td><strong>Hypertables and chunks</strong></td>
   </tr>
   <tr>
+    <td><a href="https://docs.timescale.com/api/latest/hypertable/create_table/">CREATE TABLE</a></td>
+    <td>✅</td>
+    <td>✅</td>
+  </tr>
+  <tr>
     <td><a href="https://docs.timescale.com/api/latest/hypertable/create_hypertable/">create_hypertable</a></td>
     <td>✅</td>
     <td>✅</td>
@@ -82,6 +87,11 @@ You can access a hosted version of TimescaleDB Community Edition through
   </tr>
   <tr>
     <td><a href="https://docs.timescale.com/api/latest/hypertable/drop_chunks/">drop_chunks</a></td>
+    <td>✅</td>
+    <td>✅</td>
+  </tr>
+  <tr>
+    <td><a href="https://docs.timescale.com/api/latest/hypertable/split_chunk/">split_chunk</a></td>
     <td>✅</td>
     <td>✅</td>
   </tr>

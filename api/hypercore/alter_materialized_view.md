@@ -7,6 +7,7 @@ tags: [materialized views, hypertables, alter, change]
 api:
   license: community
   type: command
+products: [cloud, self_hosted]
 ---
 
 import Since2180 from "versionContent/_partials/_since_2_18_0.mdx";
@@ -85,3 +86,4 @@ ALTER MATERIALIZED VIEW <view_name> SET (timescaledb.enable_columnstore,
 [postgres-alterview]: https://www.postgresql.org/docs/current/sql-alterview.html
 [create-cagg]: /use-timescale/:currentVersion:/continuous-aggregates/create-a-continuous-aggregate/
 [default_table_access_method]: https://www.postgresql.org/docs/17/runtime-config-client.html#GUC-DEFAULT-TABLE-ACCESS-METHOD
+[convert_to_rowstore]: /api/:currentVersion:/hypercore/convert_to_rowstore/

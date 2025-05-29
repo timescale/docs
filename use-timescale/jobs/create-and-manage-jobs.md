@@ -27,56 +27,53 @@ To create a $JOB, create a [function][postgres-createfunction] or [procedure][po
     Wrap it in a `CREATE` statement:
 
     ```sql
-    CREATE FUNCTION <function_name> (required arguments)
-    RETURNS <return_datatype> AS $<variable_name>$
+    CREATE FUNCTION <function_name> (job_id INT DEFAULT NULL, config JSONB DEFAULT NULL)
+    RETURNS VOID
 	DECLARE
 		<declaration>;
 	BEGIN
 		<function_body>;
-		RETURN { <variable_name> | value }
 	END;
 	$<variable_name>$ LANGUAGE <language>;
     ```
 
-    For example, to create a function that returns the total row count of a table within a $SERVICE_SHORT:
+    For example, to create a function that reindexes a table within a $SERVICE_SHORT:
 
     ```sql
-    CREATE FUNCTION totalRecords (job_id INT DEFAULT NULL, config JSONB DEFAULT NULL)
-    RETURNS integer AS $total$
-    declare
-     total integer;
+    CREATE FUNCTION reindex_mytable(job_id INT DEFAULT NULL, config JSONB DEFAULT NULL)
+    RETURNS VOID
+    AS $$
     BEGIN
-       SELECT count(*) into total FROM fill_measurements;
-       RETURN total;
+       REINDEX TABLE mytable;
     END;
-    $total$ LANGUAGE plpgsql;
+    $$ LANGUAGE plpgsql;
     ```
     
-    `job_id` and `config` are required arguments. This returns `CREATE FUNCTION` to indicate that the function has successfully been created. 
+    `job_id` and `config` are required arguments in the function signature. This returns `CREATE FUNCTION` to indicate that the function has successfully been created.
 
 1. **Call the function to validate** 
 
     For example: 
 
     ```sql
-    select totalRecords();
+    select reindex_mytable();
     ```
-        
+
     The result looks like this:
-        
+
     ```sql
-     totalrecords
-    --------------
-         48600500
+     reindex_mytable
+    -----------------
+     
     (1 row)
     ```
 
 1. **Register your $JOB with [`add_job`][api-add_job]** 
 
-    Pass the name of your $JOB, the schedule you want it to run on, and the content of your config. For the `config` value, if you don't need any special configuration parameters, set to `NULL`. For example, to run the `totalRecords` function every hour:
+    Pass the name of your $JOB, the schedule you want it to run on, and the content of your config. For the `config` value, if you don't need any special configuration parameters, set to `NULL`. For example, to run the `reindex_mytable` function every hour:
 
     ```sql
-    SELECT add_job('totalRecords', '1h', config => '{"hypertable":"metr"}');
+    SELECT add_job('reindex_mytable', '1h', config => NULL);
     ```
     
     The call returns a `job_id` and stores it along with `config` in the Timescale catalog.
@@ -97,7 +94,7 @@ To create a $JOB, create a [function][postgres-createfunction] or [procedure][po
     job_id |      application_name      | schedule_interval | max_runtime | max_retries | retry_period |      proc_schema      |    proc_name     |   owner   | scheduled |         config         |          next_start           | hypertable_schema | hypertable_name
     --------+----------------------------+-------------------+-------------+-------------+--------------+-----------------------+------------------+-----------+-----------+------------------------+-------------------------------+-------------------+-----------------
     1 | Telemetry Reporter [1]     | 24:00:00          | 00:01:40    |          -1 | 01:00:00     | _timescaledb_internal | policy_telemetry | postgres  | t         |                        | 2022-08-18 06:26:39.524065+00 |                   |
-    1000 | User-Defined Action [1000] | 01:00:00          | 00:00:00    |          -1 | 00:05:00     | public                | totalrecords     | tsdbadmin | t         | {"hypertable": "metr"} | 2022-08-17 07:17:24.831698+00 |                   |
+    1000 | User-Defined Action [1000] | 01:00:00          | 00:00:00    |          -1 | 00:05:00     | public                | reindex_mytable  | tsdbadmin | t         |                        | 2022-08-17 07:17:24.831698+00 |                   |
     (2 rows)
     ```
 

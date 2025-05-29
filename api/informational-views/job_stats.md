@@ -7,13 +7,14 @@ tags: [background jobs, scheduled jobs, automation framework, scheduled views, s
 api:
   license: community
   type: view
+products: [cloud, mst, self_hosted]
 ---
 
 # timescaledb_information.job_stats
 
 Shows information and statistics about jobs run by the automation framework.
 This includes jobs set up for user defined actions and jobs run by policies
-created to manage data retention, continuous aggregates, compression, and
+created to manage data retention, continuous aggregates, columnstore, and
 other automation policies.  (See [policies][actions]).
 The statistics include information useful for administering jobs and determining
 whether they ought be rescheduled, such as: when and whether the background job

@@ -1,14 +1,18 @@
 ---
 title: Modify data in hypercore
 excerpt: Update data and the table schema in the columnstore
-products: [cloud,]
+products: [cloud, self_hosted]
 keywords: [hyperscore, hypertable, compression, row-columnar storage, hypercore]
 ---
 
+import Deprecated2200 from "versionContent/_partials/_deprecated_2_20_0.mdx";
 import PrereqCloud from "versionContent/_partials/_prereqs-cloud-and-self.mdx";
 import HypercoreManualWorkflow from "versionContent/_partials/_hypercore_manual_workflow.mdx";
 
-# Modify your data in $HYPERCORE
+# Modify your data in $HYPERCORE (old API)
+
+<Deprecated2200 /> TimescaleDB is optimized for fast updates on compressed data in the columnstore. To modify data in the 
+   columnstore, use standard SQL.
 
 You [set up $HYPERCORE][setup-hypercore] to automatically convert data between the $ROWSTORE and $COLUMNSTORE
 when it reaches a certain age. After you have optimized data in the $COLUMNSTORE, you may need to modify it. 

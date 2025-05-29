@@ -5,25 +5,105 @@ products: [cloud, mst, self_hosted]
 keywords: [hypertables]
 ---
 
+import HypertableIntro from 'versionContent/_partials/_hypertable-intro.mdx';
+
 # Hypertables
 
-Hypertables are PostgreSQL tables designed to simplify and accelerate data analysis. Anything you can do with regular PostgreSQL tables, you
-can do with hypertables - but much faster and more conveniently. In this section, you: 
+<HypertableIntro />
 
-*   [Learn about hypertables][about-hypertables]
-*   [Create a hypertable][create-hypertables]
-*   [Change hypertable chunk intervals][change-chunk-intervals]
-*   [Alter a hypertable][alter-hypertables]
-*   [Create unique indexes on hypertables][create-unique-indexes]
-*   [Drop a hypertable][drop-hypertables]
-*   [Improve query performance][improve-query-performance]
-*   [Troubleshoot hypertable issues][troubleshooting]
+![Hypertable structure](https://assets.timescale.com/docs/images/hypertable-structure.png)
 
-[about-hypertables]: /use-timescale/:currentVersion:/hypertables/about-hypertables/
-[alter-hypertables]: /use-timescale/:currentVersion:/hypertables/alter/
-[change-chunk-intervals]: /use-timescale/:currentVersion:/hypertables/change-chunk-intervals/
-[create-hypertables]: /use-timescale/:currentVersion:/hypertables/create/
-[create-unique-indexes]: /use-timescale/:currentVersion:/hypertables/hypertables-and-unique-indexes/
-[improve-query-performance]: /use-timescale/:currentVersion:/hypertables/improve-query-performance/
-[drop-hypertables]: /use-timescale/:currentVersion:/hypertables/drop/
-[troubleshooting]: /use-timescale/:currentVersion:/hypertables/troubleshooting/
+
+## Hypertable partitioning
+
+Each $HYPERTABLE is partitioned into child $HYPERTABLEs called chunks. Each chunk is assigned
+a range of time, and only contains data from that range. If the $HYPERTABLE is
+also partitioned by space, each chunk is also assigned a subset of the space
+values.
+
+When $TIMESCALE_DB creates a chunk, the creation time is stored in the catalog metadata. This chunk creation 
+time is not the same as the partition ranges for the data contained in the chunk. Certain
+functionality can use this chunk creation time metadata in cases where it makes sense.
+
+<Highlight type="note">
+
+Inheritance is not supported for $HYPERTABLEs and may lead to unexpected behavior.
+
+</Highlight>
+
+### Time partitioning
+
+Each $HYPERTABLE chunk holds data for a specific time range only. When you
+insert data from a time range that doesn't yet have a chunk, $TIMESCALE_DB
+automatically creates a chunk to store it.
+
+By default, each chunk covers 7 days. You can change this to better suit your
+needs. For example, if you set `chunk_interval` to 1 day, each chunk stores
+data from the same day. Data from different days is stored in different chunks.
+
+The following figure shows the difference in structure between a relational table and a hypertable:
+
+![Compare a relational table to a hypertable](https://assets.timescale.com/docs/images/getting-started/hypertables-chunks.webp)
+
+$TIMESCALE_DB divides time into potential chunk ranges, based on the
+`chunk_interval`. If data exists for a potential chunk range, that chunk is
+created.
+
+In practice, this means that the start time of your earliest chunk does not
+necessarily equal the earliest timestamp in your $HYPERTABLE. Instead, there
+might be a time gap between the start time and the earliest timestamp. This
+doesn't affect your usual interactions with your $HYPERTABLE, but might affect
+the number of chunks you see when inspecting it.
+
+
+### Best practices for time partitioning
+
+Chunk size affects insert and query performance. You want a chunk small enough
+to fit into memory so you can insert and query recent data without
+reading from disk. However, having too many small and sparsely filled chunks can
+affect query planning time and compression.
+
+Best practice is to set `chunk_interval` so that prior to processing, one chunk of data
+takes up 25% of main memory, including the indexes from each active $HYPERTABLE.
+For example, if you write approximately 2 GB of data per day to a database with 64 GB of
+memory, set `chunk_interval` to 1 week. If you write approximately 10 GB of data per day
+on the same machine, set the time interval to 1 day.
+
+For a detailed analysis of how to optimize your chunk sizes, see the
+[blog post on chunk time intervals][blog-chunk-time]. To learn how
+to view and set your chunk time intervals, see how to 
+[Optimize $HYPERTABLE chunk intervals][change-chunk-intervals].
+
+## $HYPERTABLE_CAP indexes
+
+By default, indexes are automatically created when you create a $HYPERTABLE.
+
+The default indexes are:
+
+*   On all $HYPERTABLEs, an index on time, descending
+*   On $HYPERTABLEs with space partitions, an index on the space parameter and
+    time
+
+$HYPERTABLEs have some restrictions on unique constraints and indexes. If you
+want a unique index on a $HYPERTABLE, it must include all the partitioning
+columns for the table. To learn more, see 
+[Enforce constraints with unique indexes on $HYPERTABLEs][hypertables-and-unique-indexes].
+
+You can prevent index creation by setting the `create_default_indexes` option to `false`.
+
+This section shows you how to:
+
+* [Optimize time-series data in hypertables][create-hypertables]
+* [Improve hypertable and query performance][change-chunk-intervals]
+* [Enforce constraints with unique indexes][hypertables-and-unique-indexes]
+
+[about-distributed-hypertables]: /self-hosted/:currentVersion:/distributed-hypertables/about-distributed-hypertables/
+[best-practices-space]: #best-practices-for-space-partitioning
+[blog-chunk-time]: https://www.timescale.com/blog/timescale-cloud-tips-testing-your-chunk-size/
+[change-chunk-intervals]: /use-timescale/:currentVersion:/hypertables/improve-query-performance/#optimize-hypertable-chunk-intervals/
+[create-hypertables]: /use-timescale/:currentVersion:/hypertables/hypertable-crud/#create-a-hypertable
+[hypertable-concepts]: /use-timescale/:currentVersion:/hypertables/
+[hypertables-and-unique-indexes]: /use-timescale/:currentVersion:/hypertables/hypertables-and-unique-indexes/
+[pg-analyze]: https://www.postgresql.org/docs/current/sql-analyze.html
+[chunks_detailed_size]: /api/:currentVersion:/hypertable/chunks_detailed_size
+

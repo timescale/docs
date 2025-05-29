@@ -1,7 +1,7 @@
 ---
 title: Create your first Timescale service
 excerpt: Timescale Cloud offers a range of capabilities to accommodate your real-time analytics and AI and vector workloads. Learn more about each of them and create your first service in Timescale Console
-products: [cloud, mst, self_hosted]
+products: [cloud]
 content_group: Getting started
 ---
 
@@ -68,6 +68,6 @@ To run queries and perform other operations, connect to your $SERVICE_SHORT:
 [create-service]: https://console.cloud.timescale.com/dashboard/create_services
 [what-is-time-series]: https://www.timescale.com/blog/what-is-a-time-series-database/#what-is-a-time-series-database
 [what-is-dynamic-postgres]: https://www.timescale.com/dynamic-postgresql
-[hypertables]: /use-timescale/:currentVersion:/hypertables/about-hypertables/#hypertable-partitioning
+[hypertables]: /use-timescale/:currentVersion:/hypertables/#hypertable-partitioning
 [timescaledb]: https://docs.timescale.com/#TimescaleDB
 

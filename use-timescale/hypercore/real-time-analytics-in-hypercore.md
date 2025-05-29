@@ -1,7 +1,7 @@
 ---
 title: Optimize your data for real-time analytics
 excerpt: Reduce your chunk size by more than 90% and speed up your queries by automatically converting data between the rowstore and columnstore.
-products: [cloud,]
+products: [cloud, self_hosted]
 keywords: [hyperscore, hypertable, compression, row-columnar storage, hypercore]
 ---
 
@@ -79,7 +79,6 @@ repeated values, [XOR-based][xor] and [dictionary compression][dictionary] is us
 [ingest-data]: /getting-started/:currentVersion:/try-key-features-timescale-products/#optimize-time-series-data-in-hypertables
 [add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/
 [run-job]: /api/:currentVersion:/actions/run_job/
-[convert_to_rowstore]: /api/:currentVersion:/hypercore/convert_to_rowstore/
 [alter_job]: /api/:currentVersion:/actions/alter_job/
 [informational-views]: /api/:currentVersion:/informational-views/jobs/
 [insert]: /use-timescale/:currentVersion:/write-data/insert/

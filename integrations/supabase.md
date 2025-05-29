@@ -1,11 +1,12 @@
 ---
 title: Integrate Supabase with Timescale Cloud
 excerpt: Supabase is an open source Firebase alternative. Integrate Supabase with Timescale Cloud
-products: [cloud, mst, self_hosted]
+products: [cloud, self_hosted]
 keywords: [integrate]
 ---
 
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
+import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
 
 # Integrate Supabase with Timescale Cloud
 
@@ -19,9 +20,9 @@ $SERVICE_LONG.
 
 - Create a [Supabase project][supabase-new-project]
 
-## Setup your $SERVICE_LONG
+## Set up your $SERVICE_LONG
 
-To setup a $SERVICE_LONG optimized for analytics to receive data from Supabase:
+To set up a $SERVICE_LONG optimized for analytics to receive data from Supabase:
 
 <Procedure>
 
@@ -38,14 +39,13 @@ To setup a $SERVICE_LONG optimized for analytics to receive data from Supabase:
           time timestamptz NOT NULL DEFAULT now(), 
           origin_time timestamptz NOT NULL, 
           name TEXT
+      ) WITH (
+        tsdb.hypertable,
+        tsdb.partition_column='time'
       );
       ```
+     <OldCreateHypertable />   
 
-   1. Turn the table to a hypertable:
-
-      ```sql
-      SELECT create_hypertable('signs', by_range('time'));
-      ```
 1. **Optimize cooling data for analytics**
 
    Hypercore is the $TIMESCALE_DB hybrid row-columnar storage engine, designed specifically for real-time analytics 
@@ -135,9 +135,9 @@ To setup a $SERVICE_LONG optimized for analytics to receive data from Supabase:
 </Procedure>
 
 
-## Setup a Supabase database 
+## Set up a Supabase database 
 
-To setup a Supabase database that injects data into your $SERVICE_LONG:
+To set up a Supabase database that injects data into your $SERVICE_LONG:
 
 <Procedure>
 
@@ -264,7 +264,6 @@ You have successfully integrated Supabase with your $SERVICE_LONG.
 
 [supabase]: https://supabase.com/
 [supabase-new-project]: https://supabase.com/dashboard/new
-
 [hypertables-section]: /use-timescale/:currentVersion:/hypertables/
 [connect]: /getting-started/:currentVersion:/run-queries-from-console/
 [hypercore]: /use-timescale/:currentVersion:/hypercore/

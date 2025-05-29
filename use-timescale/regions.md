@@ -1,7 +1,7 @@
 ---
 title: Timescale Cloud regions
 excerpt: The AWS regions available for Timescale Cloud services
-product: cloud
+products: [cloud]
 ---
 
 # Timescale Cloud regions

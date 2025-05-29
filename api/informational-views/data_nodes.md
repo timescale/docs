@@ -7,6 +7,7 @@ tags: [data nodes, cluster]
 api:
   license: community
   type: view
+products: [cloud, mst, self_hosted]
 ---
 
 import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";

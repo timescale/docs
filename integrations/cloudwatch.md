@@ -1,7 +1,8 @@
 ---
 title: Integrate Amazon CloudWatch with Timescale Cloud
 excerpt: Amazon CloudWatch is a monitoring and observability service. Export telemetry data from your Timescale Cloud service with time-series and analytics capability to Amazon CloudWatch
-products: [cloud, mst, self_hosted]
+products: [cloud]
+price_plans: [scale, enterprise]
 keywords: [integrate]
 ---
 
@@ -36,3 +37,4 @@ tool. You create an exporter on the [project level][projects], in the same AWS r
 [pricing-plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-plan
 [cloudwatch]: https://aws.amazon.com/cloudwatch/
 [cloudwatch-signup]: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/GettingSetup.html
+

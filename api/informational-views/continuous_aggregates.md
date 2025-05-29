@@ -7,6 +7,7 @@ tags: [information, schemas, metadata, definition]
 api:
   license: community
   type: view
+products: [cloud, mst, self_hosted]
 ---
 
 # timescaledb_information.continuous_aggregates

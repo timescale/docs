@@ -3,6 +3,7 @@ title: Compression
 excerpt: Timescale Cloud API reference for compressing your data. Includes SQL functions for compressing and decompressing chunks, managing compression policies, and getting compression stats
 keywords: [compression]
 tags: [hypertables]
+products: [cloud, mst, self_hosted]
 ---
 
 import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
@@ -34,7 +35,6 @@ Compressed chunks have the following limitations:
 *   Creation of unique constraints on compressed chunks is not supported. You
     can add them by disabling compression on the hypertable and re-enabling
     after constraint creation.
-*   [Timescale SkipScan][skipscan] does not currently work on compressed chunks.
 
 ## Restrictions
 

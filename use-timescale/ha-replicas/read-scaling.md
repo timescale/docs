@@ -2,6 +2,7 @@
 title: Read scaling
 excerpt: For read-intensive apps, Timescale Cloud enables you to create read-only replica sets that take over read queries and offload your primary node. Create read-only replica sets with automated load balancing in Timescale Console
 product: cloud
+price_plans: [scale, enterprise]
 keywords: [replicas, scaling]
 tags: [replicas, scaling, ha]
 ---

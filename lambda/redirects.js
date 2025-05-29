@@ -276,6 +276,26 @@ module.exports = [
     to: "https://docs.timescale.com/getting-started/latest/try-key-features-timescale-products/#optimize-time-series-data-in-hypertables",
   },
   {
+    from: "/use-timescale/latest/hypertables/about/",
+    to: "https://docs.timescale.com/use-timescale/latest/hypertables/",
+  },
+  {
+    from: "/use-timescale/latest/hypertables/alter/",
+    to: "https://docs.timescale.com/use-timescale/latest/hypertables/hypertable-crud/#alter-a-hypertable",
+  },
+  {
+    from: "/use-timescale/latest/hypertables/change-chunk-intervals/",
+    to: "https://docs.timescale.com/use-timescale/latest/hypertables/improve-query-performance/#optimize-hypertable-chunk-intervals",
+  },
+  {
+    from: "/use-timescale/latest/hypertables/create/",
+    to: "https://docs.timescale.com/use-timescale/latest/hypertables/hypertable-crud/#create-a-hypertable",
+  },
+  {
+    from: "/use-timescale/latest/hypertables/drop/",
+    to: "https://docs.timescale.com/use-timescale/latest/hypertables/hypertable-crud/#drop-a-hypertable",
+  },
+  {
     from: "/install/latest",
     to: "https://docs.timescale.com/self-hosted/latest/install/",
   },
@@ -978,7 +998,15 @@ module.exports = [
     to: 'https://docs.timescale.com/api/latest/jobs-automation/',
   },
   {
+    from: '/use-timescale/latest/services/i-o-boost/',
+    to: 'https://docs.timescale.com/use-timescale/latest/data-tiering/enabling-data-tiering/',
+  },
+  {
     from: '/use-timescale/latest/metrics-logging/integrations/',
     to: 'https://docs.timescale.com/use-timescale/latest/metrics-logging/',
+  },
+  {
+    from: '/quick-start/latest/',
+    to: 'https://docs.timescale.com/tutorials/latest/',
   },
 ];

@@ -13,39 +13,19 @@ module.exports = [
         href: "hypertables",
         children: [
           {
-            title: "About hypertables",
-            href: "about-hypertables",
-            excerpt: "Learn about hypertables in Timescale",
-          },
-          {
-            title: "Create hypertables",
-            href: "create",
+            title: "Optimize time-series data in hypertables",
+            href: "hypertable-crud",
             excerpt: "Create hypertables",
           },
           {
-            title: "Change hypertable chunk intervals",
-            href: "change-chunk-intervals",
-            excerpt: "Change and view chunk time intervals for a hypertable",
+            title: "Improve hypertable and query performance",
+            href: "improve-query-performance",
+            excerpt: "Tune hypertables to increase performance",
           },
           {
-            title: "Alter hypertables",
-            href: "alter",
-            excerpt: "Alter hypertables",
-          },
-          {
-            title: "Create unique indexes on hypertables",
+            title: "Enforce constraints with unique indexes",
             href: "hypertables-and-unique-indexes",
             excerpt: "Create hypertables with unique indexes",
-          },
-          {
-            title: "Improve query performance",
-            href: "improve-query-performance",
-            excerpt: "Skip chunks",
-          },
-          {
-            title: "Drop hypertables",
-            href: "drop",
-            excerpt: "Drop hypertables",
           },
           {
             title: "Troubleshoot hypertables",
@@ -65,11 +45,6 @@ module.exports = [
             title: "Optimize your data for real-time analytics",
             href: "real-time-analytics-in-hypercore",
             excerpt: "Automate",
-          },
-          {
-            title: "Modify data in hypercore",
-            href: "modify-data-in-hypercore",
-            excerpt: "Update data stored in the columnstore",
           },
           {
             title: "Improve query and upsert performance",
@@ -133,7 +108,7 @@ module.exports = [
             excerpt: "Manage real time aggregates in continuous aggregates",
           },
           {
-            title: "Compress continuous aggregates",
+            title: "Convert continuous aggregates to the columnstore",
             href: "compression-on-continuous-aggregates",
             excerpt: "Compress continuous aggregates",
           },
@@ -185,10 +160,6 @@ module.exports = [
             title: "Connection pooling",
             href: "connection-pooling",
             excerpt: "Using a connection pool with your Timescale services",
-          },
-          {
-            title: "I/O boost",
-            href: "i-o-boost",
           },
           {
             title: "Troubleshooting Timescale services",
@@ -302,6 +273,11 @@ module.exports = [
             excerpt: "About schema indexes",
           },
           {
+            title: "Indexing data",
+            href: "indexing",
+            excerpt: "Create an index on a hypertable",
+          },
+          {
             title: "About tablespaces",
             href: "about-tablespaces",
             excerpt: "About schema tablespaces",
@@ -315,11 +291,6 @@ module.exports = [
             title: "Alter hypertables",
             href: "alter",
             excerpt: "Change the schema of a hypertable",
-          },
-          {
-            title: "Index",
-            href: "indexing",
-            excerpt: "Create an index on a hypertable",
           },
           {
             title: "Triggers",
@@ -454,7 +425,7 @@ module.exports = [
           "Save on storage costs by tiering older data to a low-cost bottomless object storage tier",
         children: [
           {
-            title: "About the object storage tier",
+            title: "About storage tiers",
             href: "about-data-tiering",
             excerpt:
               "Learn how the object storage tier helps you save on storage costs",
@@ -568,15 +539,7 @@ module.exports = [
           {
             title: "Counter aggregation",
             href: "counter-aggregation",
-            type: "directory",
             excerpt: "Calculate statistics from gauges and counters",
-            children: [
-              {
-                title: "Counter aggregates",
-                href: "counter-aggs",
-                excerpt: "Learn about the counter aggregate hyperfunction",
-              },
-            ],
           },
           {
             title: "Time-weighted averages",
@@ -828,6 +791,11 @@ module.exports = [
             title: "Manual compression",
             href: "manual-compression",
             excerpt: "Compress data chunks",
+          },
+          {
+            title: "Compress continuous aggregates",
+            href: "compression-on-continuous-aggregates",
+            excerpt: "Compress continuous aggregates",
           },
           {
             title: "Modify compressed data",

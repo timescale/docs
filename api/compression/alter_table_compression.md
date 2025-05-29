@@ -7,6 +7,7 @@ tags: [settings, hypertables, alter, change]
 api:
   license: community
   type: command
+products: [cloud, mst, self_hosted]
 ---
 
 import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
@@ -40,12 +41,11 @@ ALTER TABLE <table_name> SET (timescaledb.compress,
 
 ## Optional arguments
 
-|Name|Type| Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-|-|-|--|
-|`timescaledb.compress_orderby`|TEXT| Order used by compression, specified in the same way as the ORDER BY clause in a SELECT query. The default is the descending order of the hypertable's time column.                                                                                                                                                                                                                                                                                                                                              |
-|`timescaledb.compress_segmentby`|TEXT| Column list on which to key the compressed segments. An identifier representing the source of the data such as `device_id` or `tags_id` is usually a good candidate. The default is no `segment by` columns.                                                                                                                                                                                                                                                                                                     |
+|Name|Type| Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+|-|-|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|`timescaledb.compress_orderby`|TEXT| Order used by compression, specified in the same way as the ORDER BY clause in a SELECT query. The default is the descending order of the hypertable's time column.                                                                                                                                                                                                                                                                                                                                             |
+|`timescaledb.compress_segmentby`|TEXT| Column list on which to key the compressed segments. An identifier representing the source of the data such as `device_id` or `tags_id` is usually a good candidate. The default is no `segment by` columns.                                                                                                                                                                                                                                                                                                    |
 |`timescaledb.compress_chunk_time_interval`|TEXT| EXPERIMENTAL: Set compressed chunk time interval used to roll chunks into. This parameter compresses every chunk, and then irreversibly merges it into a previous adjacent chunk if possible, to reduce the total number of chunks in the hypertable. Note that chunks will not be split up during decompression. It should be set to a multiple of the current chunk interval. This option can be changed independently of other compression settings and does not require the `timescaledb.compress` argument. |
-
 
 ## Parameters
 
@@ -80,3 +80,5 @@ ALTER TABLE metrics SET (timescaledb.compress_chunk_time_interval = '0');
 
 [add_compression_policy]: /api/:currentVersion:/compression/add_compression_policy/
 [compress_chunk]: /api/:currentVersion:/compression/compress_chunk/
+[bloom-filters]: https://en.wikipedia.org/wiki/Bloom_filter
+

@@ -20,7 +20,7 @@ In this section you:
 *   [Drop data][cagg-drop] from your continuous aggregates.
 *   [Manage materialized hypertables][cagg-mat-hypertables].
 *   [Use real-time aggregates][cagg-realtime].
-*   [Use compression with continuous aggregates][cagg-compression].
+*   [Convert continuous aggregates to the columnstore][cagg-compression].
 *   [Migrate your continuous aggregates][cagg-migrate] from old to new format.
     Continuous aggregates created in Timescale&nbsp;2.7 and later are in the new
     format, unless explicitly created in the old format.

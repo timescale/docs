@@ -31,5 +31,5 @@ body:
       value: |
         We welcome documentation contributions!
 
-        * For information about how to suggest a change, see the [contributing guide](https://github.com/timescale/docs/blob/latest/CONTRIBUTING.md) in our GitHub repository.
-        * For information on style and word usage, see the [style guide](https://docs.timescale.com/about/latest/contribute-to-docs).
+        * For information about how to suggest a change, see the [README](https://github.com/timescale/docs/blob/latest/README.md).
+        * For information on documentation style and structure, see the [contributing guide](https://https://github.com/timescale/docs/blob/latest/CONTRIBUTING.md).

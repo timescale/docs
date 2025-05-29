@@ -1,12 +1,14 @@
 ---
 title: Try the key Timescale features
 excerpt: Improve database performance with hypertables, time bucketing, compression and continuous aggregates.
-products: [cloud, mst, self_hosted]
+products: [cloud, self_hosted, mst]
 content_group: Getting started
 ---
 
 import HASetup from 'versionContent/_partials/_high-availability-setup.mdx';
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
+import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
+import HypercoreIntroShort from "versionContent/_partials/_hypercore-intro-short.mdx";
 
 # Try the key $COMPANY features
 
@@ -28,7 +30,7 @@ ingest and query data faster while keeping the costs low.
 
 <IntegrationPrereqs />
 
-## Optimize time-series data in $HYPERTABLEs
+## Optimize time-series data in $HYPERTABLEs with $HYPERCORE 
 
 Time-series data represents how a system, process, or behavior changes over time. $HYPERTABLE_CAPs are $PG tables 
 that help you improve insert and query performance by automatically partitioning your data by time. Each $HYPERTABLE 
@@ -36,7 +38,9 @@ is made up of child tables called $CHUNKs. Each $CHUNK is assigned a range of ti
 contains data from that range. When you run a query, $CLOUD_LONG identifies the correct $CHUNK and runs the query on it, instead of going through the entire table. You can also tune $HYPERTABLEs to increase performance
 even more. 
 
-![Main features and tiered data](https://assets.timescale.com/docs/images/hypertable-structure.png)
+![Hypertable structure](https://assets.timescale.com/docs/images/hypertable-structure.png)
+
+<HypercoreIntroShort />
 
 $HYPERTABLE_CAPs exist alongside regular $PG tables.
 You use regular $PG tables for relational data, and interact with $HYPERTABLEs
@@ -91,7 +95,11 @@ relational and time-series data from external files.
       
           - For the time-series data:
           
-             1. In your sql client, create a normal $PG table:
+             1. In your sql client, create a $HYPERTABLE:
+
+                Create a [$HYPERTABLE][hypertables-section] for your time-series data using [CREATE TABLE][hypertable-create-table].
+                For [efficient queries][secondary-indexes], remember to `segmentby` the column you will
+                use most often to filter your data. For example:
       
                 ```sql
                 CREATE TABLE crypto_ticks (
@@ -99,14 +107,17 @@ relational and time-series data from external files.
                   symbol TEXT,
                   price DOUBLE PRECISION,
                   day_volume NUMERIC
+                ) WITH (
+                   tsdb.hypertable,
+                   tsdb.partition_column='time',
+                   tsdb.segmentby = 'symbol'
                 );
                 ```
-             1.  Convert `crypto_ticks` to a $HYPERTABLE:
-                ```sql
-                SELECT create_hypertable('crypto_ticks', by_range('time'));
-                ```
+                
+                <OldCreateHypertable />
+
                 To more fully understand how $HYPERTABLEs work, and how to optimize them for performance by
-                tuning $CHUNK intervals and enabling chunk skipping, see [the $HYPERTABLEs documentation][hypertables-section].
+                tuning $CHUNK intervals and enabling chunk skipping, see [$HYPERTABLE_CAPs][hypertables-section].
 
           - For the relational data:
       
@@ -144,6 +155,54 @@ relational and time-series data from external files.
     - **psql**: easily run queries on your $SERVICE_LONGs or self-hosted TimescaleDB deployment from Terminal.
 
     <TryItOutCodeBlock queryId="getting-started-crypto-srt-orderby" />
+
+</Procedure>
+
+## Enhance query performance for analytics
+
+$HYPERCORE_CAP is the $CLOUD_LONG hybrid row-columnar storage engine, designed specifically for real-time analytics and
+powered by time-series data. The advantage of $HYPERCORE is its ability to seamlessly switch between row-oriented and
+column-oriented storage. This flexibility enables $CLOUD_LONG to deliver the best of both worlds, solving the key
+challenges in real-time analytics.
+
+![Move from rowstore to columstore in hypercore](https://assets.timescale.com/docs/images/hypercore.png )
+
+When $TIMESCALE_DB converts $CHUNKs from the $ROWSTORE to the $COLUMNSTORE, multiple records are grouped into a single row.
+The columns of this row hold an array-like structure that stores all the data. Because a single row takes up less disk
+space, you can reduce your $CHUNK size by more than 90%, and can also speed up your queries. This helps you save on storage costs,
+and keeps your queries operating at lightning speed.
+
+$HYPERCORE is enabled by default when you call [CREATE TABLE][hypertable-create-table]. Best practice is to compress
+data that is no longer needed for highest performance queries, but is still accessed regularly in the $COLUMNSTORE.
+For example, yesterday's market data.
+
+<Procedure>
+
+1. **Add a policy to convert $CHUNKs to the $COLUMNSTORE at a specific time interval**
+
+   For example, yesterday's data:
+   ``` sql
+   CALL add_columnstore_policy('crypto_ticks', after => INTERVAL '1d');
+   ```
+   See [add_columnstore_policy][add_columnstore_policy].
+
+1. **View your data space saving**
+
+   When you convert data to the $COLUMNSTORE, as well as being optimized for analytics, it is compressed by more than
+   90%. This helps you save on storage costs and keeps your queries operating at lightning speed. To see the amount of space
+   saved:
+   ``` sql
+   SELECT
+     pg_size_pretty(before_compression_total_bytes) as before,
+     pg_size_pretty(after_compression_total_bytes) as after
+   FROM hypertable_columnstore_stats('crypto_ticks');
+   ```
+   You see something like:
+
+   | Before | After   |
+      |--------|---------|
+   | 32 MB  | 3808 KB |
+
 
 </Procedure>
 
@@ -267,67 +326,6 @@ To see the change in terms of query time and data returned between a regular que
 a $CAGG, run the query part of the $CAGG
 ( `SELECT ...GROUP BY day, symbol;` ) and compare the results.
 
-
-## Enhance query performance for analytics
-
-$HYPERCORE_CAP is the $CLOUD_LONG hybrid row-columnar storage engine, designed specifically for real-time analytics and 
-powered by time-series data. The advantage of $HYPERCORE is its ability to seamlessly switch between row-oriented and 
-column-oriented storage. This flexibility enables $CLOUD_LONG to deliver the best of both worlds, solving the key 
-challenges in real-time analytics.
-
-![Move from rowstore to columstore in hypercore](https://assets.timescale.com/docs/images/hypercore.png )
-
-When you convert $CHUNKs from the $ROWSTORE to the $COLUMNSTORE, multiple records are grouped into a single row.
-The columns of this row hold an array-like structure that stores all the data. Because a single row takes up less disk 
-space, you can reduce your $CHUNK size by more than 90%, and can also speed up your queries. This helps you save on storage costs, 
-and keeps your queries operating at lightning speed.
-
-Best practice is to compress data that is no longer needed for highest performance queries, but is still accessed 
-regularly. For example, last week's market data.
-
-<Procedure>
-
-1. **Enable $HYPERCORE on a $HYPERTABLE**
-
-   Create a [job][job] that automatically moves $CHUNKs in a $HYPERTABLE to the $COLUMNSTORE at a specific time interval.
-
-   ```sql
-   ALTER TABLE crypto_ticks SET (
-      timescaledb.enable_columnstore = true, 
-      timescaledb.segmentby = 'symbol');
-   ```
-   You [segmentby][alter-table-arguments] to speed up queries.   
-
-
-1. **Add a policy to convert $CHUNKs to the $COLUMNSTORE at a specific time interval**
-
-   For example, yesterday's data:
-   ``` sql
-   CALL add_columnstore_policy('crypto_ticks', after => INTERVAL '1d');
-   ```
-   See [add_columnstore_policy][add_columnstore_policy].
- 
-1. **View your data space saving**
-
-   When you convert data to the $COLUMNSTORE, as well as being optimized for analytics, it is compressed by more than 
-   90%. This helps you save on storage costs and keeps your queries operating at lightning speed. To see the amount of space 
-   saved:
-   ``` sql
-   SELECT
-     pg_size_pretty(before_compression_total_bytes) as before,
-     pg_size_pretty(after_compression_total_bytes) as after
-   FROM hypertable_compression_stats('crypto_ticks');
-   ```
-   You see something like:
-
-   | Before | After   |
-   |--------|---------|
-   | 32 MB  | 3808 KB |
-
-
-</Procedure>
-
-
 ## Slash storage charges 
 
 In the previous sections, you used $CAGGs to make fast analytical queries, and
@@ -349,11 +347,11 @@ To set up data tiering:
 
    1. In [$CONSOLE][portal-ops-mode], select the $SERVICE_SHORT to modify.
 
-       You see the `Overview` section.
+   1. In the `Overview` section, click `Explorer`.
 
-   1. Scroll down, then click `Enable tiered storage`.
-
-      ![Enable tiered storage](https://assets.timescale.com/docs/images/console-enable-tiered-storage.png)
+      ![Enable tiered storage](https://assets.timescale.com/docs/images/console-explorer-enable-tiered-storage.png)
+   
+   1. In `Explorer`, click `Storage configuration` > `Tiering storage`, then click `Enable tiered storage`.
 
       When tiered storage is enabled, you see the amount of data in the tiered object storage.
 
@@ -437,3 +435,7 @@ What next? See the [use case tutorials][tutorials], interact with the data in yo
 [job]: /api/:currentVersion:/actions/add_job/
 [alter-table-arguments]: /api/:currentVersion:/hypercore/alter_table/#arguments
 [add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
+[hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
+[hypercore]: /use-timescale/:currentVersion:/hypercore/
+[secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/

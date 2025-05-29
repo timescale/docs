@@ -7,6 +7,7 @@ api:
   license: community
   type: function
   experimental: true
+products: [cloud, self_hosted, mst]
 ---
 
 import Experimental from "versionContent/_partials/_experimental.mdx";
@@ -14,7 +15,7 @@ import Experimental from "versionContent/_partials/_experimental.mdx";
 <!-- markdownlint-disable-next-line line-length -->
 # remove_all_policies() <Tag type="community" content="Community" /><Tag type="experimental" content="Experimental" />
 
-Remove all policies from a continuous aggregate. The removed compression and
+Remove all policies from a continuous aggregate. The removed columnstore and
 retention policies apply to the continuous aggregate, _not_ to the original
 hypertable.
 
@@ -46,7 +47,7 @@ Returns true if successful.
 ## Sample usage
 
 Remove all policies from a continuous aggregate named
-`example_continuous_aggregate`. This includes refresh policies, compression
+`example_continuous_aggregate`. This includes refresh policies, columnstore
 policies, and data retention policies. It doesn't include custom $JOBs:
 
 ```sql

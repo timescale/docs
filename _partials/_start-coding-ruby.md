@@ -422,7 +422,7 @@ Now that you have integrated the ruby gem into your app:
 [psql-install]: /integrations/:currentVersion:/psql/
 [rails-guide]: https://guides.rubyonrails.org/install_ruby_on_rails.html#installing-rails
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
-[about-hypertables]: /use-timescale/:currentVersion:/hypertables/about-hypertables/
+[about-hypertables]: /use-timescale/:currentVersion:/hypertables/
 [rails-compostite-primary-keys]: https://guides.rubyonrails.org/active_record_composite_primary_keys.html
 [ruby-blog-post]: https://www.timescale.com/blog/building-a-better-ruby-orm-for-time-series-and-analytics
 [LTTB]: https://timescale.github.io/timescaledb-ruby/toolkit_lttb_tutorial/

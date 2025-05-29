@@ -1,7 +1,7 @@
 ---
 title: Client credentials
 excerpt: Timescale Cloud lets you use client credentials to programmatically access resources instead of using username and password. Set up client credentials in Timescale Console
-product: cloud
+products: [cloud]
 keywords: [client credentials, accounts, prgrammatic access]
 tags: [authentication tokens]
 ---

@@ -8,6 +8,7 @@ api:
   license: community
 ---
 
+import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
 import Since2180 from "versionContent/_partials/_since_2_18_0.mdx";
 import HypercoreIntro from "versionContent/_partials/_hypercore-intro.mdx";
 
@@ -25,13 +26,28 @@ Best practice for using $HYPERCORE is to:
 
 1. **Enable $COLUMNSTORE**
 
-   * [Use `ALTER TABLE` for a hypertable][alter_table_hypercore]
+   Create a [$HYPERTABLE][hypertables-section] for your time-series data using [CREATE TABLE][hypertable-create-table].
+   For [efficient queries][secondary-indexes] on data in the columnstore, remember to `segmentby` the column you will
+   use most often to filter your data. For example:
+
+   * [Use `CREATE TABLE` for a $HYPERTABLE][hypertable-create-table]
+
      ```sql
-     ALTER TABLE crypto_ticks SET (
-        timescaledb.enable_columnstore = true, 
-        timescaledb.segmentby = 'symbol');
+     CREATE TABLE crypto_ticks (
+        "time" TIMESTAMPTZ,
+        symbol TEXT,
+        price DOUBLE PRECISION,
+        day_volume NUMERIC
+     ) WITH (
+       tsdb.hypertable,
+       tsdb.partition_column='time',
+       tsdb.segmentby='symbol', 
+       tsdb.orderby='time DESC'
+     );
      ```
-   * [Use ALTER MATERIALIZED VIEW for a continuous aggregate][compression_continuous-aggregate]
+     <OldCreateHypertable />
+
+   * [Use `ALTER MATERIALIZED VIEW` for a continuous aggregate][compression_continuous-aggregate]
      ```sql
      ALTER MATERIALIZED VIEW assets_candlestick_daily set (
         timescaledb.enable_columnstore = true, 
@@ -63,11 +79,7 @@ for more fine-grained control over your data.
 
 Chunks in the $COLUMNSTORE have the following limitations:
 
-*   `ROW LEVEL SECURITY` is not supported on chunks in the $COLUMNSTORE.
-*   To add unique constraints on chunks in the $COLUMNSTORE [convert_the chunk to rowstore][convert_to_rowstore],
-    add the constraints to your data, then [convert the chunk back to the $COLUMNSTORE][convert_to_columnstore].
-*   [SkipScan][skipscan] does not currently work on chunks in the $COLUMNSTORE.
-
+*   `ROW LEVEL SECURITY` is not supported on chunks in the columnstore.
 
 [alter_table_hypercore]: /api/:currentVersion:/hypercore/alter_table/
 [compression_continuous-aggregate]: /api/:currentVersion:/hypercore/alter_materialized_view/
@@ -79,3 +91,7 @@ Chunks in the $COLUMNSTORE have the following limitations:
 [hypercore_workflow]: /api/:currentVersion:/hypercore/#hypercore-workflow
 [alter_job]: /api/:currentVersion:/jobs-automation/alter_job/
 [remove_columnstore_policy]: /api/:currentVersion:/hypercore/remove_columnstore_policy/
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
+[hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
+[hypercore]: /use-timescale/:currentVersion:/hypercore/
+[secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/

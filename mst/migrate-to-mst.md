@@ -54,10 +54,10 @@ Ensure that you have:
 
 <Highlight type="note">
 
-To speed up migration, compress your data. You can compress any chunks where
+To speed up migration, compress your data into the columnstore. You can compress any chunks where
 data is not currently inserted, updated, or deleted. When you finish the
-migration, you can decompress chunks as needed for normal operation. For more
-information about compression and decompression, see [Compression][compression].
+migration, you can decompress chunks back to the rowstore as needed for normal operation. For more
+information about the rowstore and columnstore compression, see [hypercore][compression].
 
 </Highlight>
 
@@ -125,7 +125,7 @@ them. The migration still occurs successfully.
  ```
 
 [analyze]: https://www.postgresql.org/docs/10/sql-analyze.html
-[compression]: /use-timescale/:currentVersion:/compression/
+[compression]: /use-timescale/:currentVersion:/hypercore/
 [install-mst]: /mst/:currentVersion:/installation-mst/#create-your-first-service
 [pg_dump]: https://www.postgresql.org/docs/current/app-pgdump.html
 [pg_restore]: https://www.postgresql.org/docs/current/app-pgrestore.html

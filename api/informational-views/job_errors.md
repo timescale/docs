@@ -6,13 +6,14 @@ tags: [background jobs, scheduled jobs, automation framework, scheduled views]
 api:
   license: community
   type: view
+products: [cloud, mst, self_hosted]
 ---
 
 # timescaledb_information.job_errors
 
 Shows information about runtime errors encountered by $JOBs run by the automation framework.
 This includes custom $JOBs and $JOBs run by policies
-created to manage data retention, continuous aggregates, compression, and
+created to manage data retention, continuous aggregates, columnstore, and
 other automation policies. For more information about automation policies,
 see the [policies][jobs] section.
 

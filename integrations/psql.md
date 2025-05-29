@@ -1,7 +1,7 @@
 ---
 title: Connect to a Timescale Cloud service with psql 
 excerpt: psql enables you to type in queries interactively, issue them to Postgres, and see the query results. Connect to your Timescale Cloud service using psql
-products: [cloud, mst, self_hosted]
+products: [cloud, self_hosted]
 keywords: [connect, psql]
 ---
 
@@ -240,7 +240,7 @@ SELECT public.alter_job(j.id, scheduled=>true)
 FROM _timescaledb_config.bgw_job j
 JOIN _timescaledb_catalog.hypertable h ON h.id = j.hypertable_id
 WHERE j.proc_schema IN ('_timescaledb_internal', '_timescaledb_functions')
-AND j.proc_name = 'policy_compression'
+AND j.proc_name = 'policy_columnstore'
 AND j.id >= 1000
 AND format('%I.%I', h.schema_name, h.table_name)::text::regclass = :'hypertable'::text::regclass;
 EOF

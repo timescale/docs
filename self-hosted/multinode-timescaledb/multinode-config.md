@@ -1,7 +1,6 @@
 ---
 title: Multi-node configuration
 excerpt: Sunsetted v2.14.x. Configure the main settings in your multi-node TimescaleDB instance
-products: [self_hosted]
 keywords: [configuration, settings, multi-node]
 seo:
   robots: noindex

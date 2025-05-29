@@ -63,5 +63,6 @@ api_details:
         to other `hyperloglog` functions.
       command:
         code: CREATE VIEW hll AS SELECT hyperloglog(32768, data) FROM samples;
+products: [cloud, mst, self_hosted]
 ---
 

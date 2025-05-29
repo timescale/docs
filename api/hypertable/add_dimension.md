@@ -7,6 +7,7 @@ tags: [dimensions, chunks]
 api:
   license: apache
   type: function
+products: [cloud, mst, self_hosted]
 ---
 
 import DimensionInfo from "versionContent/_partials/_dimension_info.mdx";
@@ -81,7 +82,7 @@ SELECT add_dimension('conditions', by_hash('device_id', 2), if_not_exists => tru
 
 
 [create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
-[distributed-hypertable-partitioning-best-practices]: /use-timescale/:currentVersion:/hypertables/about-hypertables/#space-partitioning
+[distributed-hypertable-partitioning-best-practices]: /use-timescale/:currentVersion:/hypertables/
 [distributed-hypertables]: /api/:currentVersion:/distributed-hypertables/create_distributed_hypertable/
 [regular-hypertables]: /api/:currentVersion:/hypertable/create_hypertable/
 [add-dimension-old]: /api/:currentVersion:/hypertable/add_dimension_old/

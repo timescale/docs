@@ -2,6 +2,7 @@
 title: Integrate Amazon Web Services with Timescale Cloud 
 excerpt: AWS enables you to build, run, and manage applications across cloud, hybrid, and edge environments with AI, analytics, security, and scalable infrastructure. Integrate AWS with Timescale Cloud using AWS Transit Gateway
 products: [cloud]
+price_plans: [scale, enterprise]
 keywords: [AWS, integrations]
 ---
 

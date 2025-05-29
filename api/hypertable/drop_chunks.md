@@ -7,6 +7,7 @@ tags: [drop]
 api:
   license: apache
   type: function
+products: [cloud, mst, self_hosted]
 ---
 
 # drop_chunks()
