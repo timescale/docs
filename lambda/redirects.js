@@ -1007,6 +1007,6 @@ module.exports = [
   },
   {
     from: '/quick-start/latest/',
-    to: 'https://docs.timescale.com/tutorials/latest/',
+    to: 'https://docs.timescale.com/getting-started/latest/start-coding-with-timescale/',
   },
 ];
