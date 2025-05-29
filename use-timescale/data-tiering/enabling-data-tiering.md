@@ -93,7 +93,7 @@ You enable tiered storage from the `Overview` tab in $CONSOLE.
 
 <Procedure>
 
-1. **In [$CONSOLE][portal-ops-mode], select the $SERVICE_SHORT to modify**
+1. **In [$CONSOLE][console], select the $SERVICE_SHORT to modify**
 
 1. **In the `Overview` section, click `Explorer`**
 
