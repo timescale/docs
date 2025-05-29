@@ -15,7 +15,7 @@ hyperfunction:
   type: aggregate
 ---
 
-import Experimental from 'versionContent/_partials/_experimental.mdx';
+import Experimental from 'versionContent/partials/_experimental.mdx';
 
 # gauge_agg() <Tag type="toolkit" content="Toolkit" /><Tag type="experimental" content="Experimental" />
 

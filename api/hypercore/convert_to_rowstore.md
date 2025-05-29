@@ -9,8 +9,8 @@ api:
 products: [cloud, self_hosted]
 ---
 
-import Since2180 from "versionContent/_partials/_since_2_18_0.mdx";
-import HypercoreManualWorkflow from "versionContent/_partials/_hypercore_manual_workflow.mdx";
+import Since2180 from "versionContent/partials/_since_2_18_0.mdx";
+import HypercoreManualWorkflow from "versionContent/partials/_hypercore_manual_workflow.mdx";
 
 # convert_to_rowstore() <Tag type="community">Community</Tag>
 

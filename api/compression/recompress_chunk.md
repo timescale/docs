@@ -10,7 +10,7 @@ api:
 products: [cloud, mst, self_hosted]
 ---
 
-import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
+import Deprecated2180 from "versionContent/partials/_deprecated_2_18_0.mdx";
 
 # recompress_chunk() <Tag type="community" content="Community" />
 

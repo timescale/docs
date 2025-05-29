@@ -5,7 +5,7 @@ products: [self_hosted]
 keywords: [replicas]
 ---
 
-import ConsiderCloud from "versionContent/_partials/_consider-cloud.mdx";
+import ConsiderCloud from "versionContent/partials/_consider-cloud.mdx";
 
 # Configure replication
 

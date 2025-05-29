@@ -8,9 +8,9 @@ api:
   license: community
 ---
 
-import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
-import Since2180 from "versionContent/_partials/_since_2_18_0.mdx";
-import HypercoreIntro from "versionContent/_partials/_hypercore-intro.mdx";
+import OldCreateHypertable from "versionContent/partials/_old-api-create-hypertable.mdx";
+import Since2180 from "versionContent/partials/_since_2_18_0.mdx";
+import HypercoreIntro from "versionContent/partials/_hypercore-intro.mdx";
 
 # $HYPERCORE_CAP
 

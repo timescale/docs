@@ -5,7 +5,7 @@ products: [cloud, self_hosted]
 keywords: [visualizations, analytics, Tableau]
 ---
 
-import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
+import IntegrationPrereqs from "versionContent/partials/_integration-prereqs.mdx";
 
 # Integrate Tableau and $CLOUD_LONG
 

@@ -8,8 +8,8 @@ layout_components: [next_prev_large]
 content_group: Ingest real-time financial websocket data
 ---
 
-import CandlestickIntro from "versionContent/_partials/_candlestick_intro.mdx";
-import FinancialIndustry from "versionContent/_partials/_financial-industry-data-analysis.mdx";
+import CandlestickIntro from "versionContent/partials/_candlestick_intro.mdx";
+import FinancialIndustry from "versionContent/partials/_financial-industry-data-analysis.mdx";
 
 # Ingest real-time financial data using WebSocket
 

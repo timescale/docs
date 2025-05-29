@@ -6,8 +6,8 @@ keywords: [backups, restore]
 tags: [recovery, logical backup, pg_dump, pg_restore]
 ---
 
-import SourceTargetNote from "versionContent/_partials/_migrate_source_target_note.mdx";
-import GettingHelp from "versionContent/_partials/_migrate_dual_write_backfill_getting_help.mdx";
+import SourceTargetNote from "versionContent/partials/_migrate_source_target_note.mdx";
+import GettingHelp from "versionContent/partials/_migrate_dual_write_backfill_getting_help.mdx";
 
 # Dual-write and backfill
 

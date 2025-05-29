@@ -6,7 +6,7 @@ keywords: [data migration, PostgreSQL]
 tags: [import]
 ---
 
-import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
+import OldCreateHypertable from "versionContent/partials/_old-api-create-hypertable.mdx";
 
 # Migrate data to TimescaleDB from the same PostgreSQL instance
 

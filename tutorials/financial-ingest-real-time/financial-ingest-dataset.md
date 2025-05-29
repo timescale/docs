@@ -8,10 +8,10 @@ layout_components: [next_prev_large]
 content_group: Ingest real-time financial websocket data
 ---
 
-import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
-import CreateHypertable from "versionContent/_partials/_create-hypertable-twelvedata-stocks.mdx";
-import CreateHypertableCrypo from "versionContent/_partials/_create-hypertable-twelvedata-crypto.mdx";
-import GrafanaConnect from "versionContent/_partials/_grafana-connect.mdx";
+import IntegrationPrereqs from "versionContent/partials/_integration-prereqs.mdx";
+import CreateHypertable from "versionContent/partials/_create-hypertable-twelvedata-stocks.mdx";
+import CreateHypertableCrypo from "versionContent/partials/_create-hypertable-twelvedata-crypto.mdx";
+import GrafanaConnect from "versionContent/partials/_grafana-connect.mdx";
 
 # Ingest data into a $SERVICE_LONG
 

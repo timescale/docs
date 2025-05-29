@@ -10,7 +10,7 @@ api:
 products: [cloud, mst, self_hosted]
 ---
 
-import DeprecationNotice from "versionContent/_partials/_deprecated.mdx";
+import DeprecationNotice from "versionContent/partials/_deprecated.mdx";
 
 # timescaledb_information.compression_settings
 

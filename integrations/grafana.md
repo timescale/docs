@@ -4,8 +4,8 @@ excerpt: Grafana enables you to query, visualize, alert on, and explore your met
 products: [cloud, self_hosted]
 keywords: [Grafana, visualizations, analytics, monitoring]
 ---
-import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
-import GrafanaConnect from "versionContent/_partials/_grafana-connect.mdx";
+import IntegrationPrereqs from "versionContent/partials/_integration-prereqs.mdx";
+import GrafanaConnect from "versionContent/partials/_grafana-connect.mdx";
 
 # Integrate Grafana and Timescale Cloud
 

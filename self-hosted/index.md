@@ -5,8 +5,8 @@ products: [self_hosted]
 tags: [self-hosted, about]
 ---
 
-import CTA from "versionContent/_partials/_selfhosted_cta.mdx";
-import TimescaleDB from "versionContent/_partials/_timescaledb.mdx";
+import CTA from "versionContent/partials/_selfhosted_cta.mdx";
+import TimescaleDB from "versionContent/partials/_timescaledb.mdx";
 
 # Self-hosted TimescaleDB
 

@@ -4,8 +4,8 @@ excerpt: Timescale Cloud can compress your data automatically, based on the cond
 products: [cloud, mst, self_hosted]
 keywords: [compression, hypertables, policy]
 ---
-import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
-import CompressionIntro from 'versionContent/_partials/_compression-intro.mdx';
+import Deprecated2180 from "versionContent/partials/_deprecated_2_18_0.mdx";
+import CompressionIntro from 'versionContent/partials/_compression-intro.mdx';
 
 # Compression policy
 

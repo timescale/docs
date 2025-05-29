@@ -8,11 +8,11 @@ layout_components: [next_prev_large]
 content_group: Plot geospatial NYC taxi cab data
 ---
 
-import CreateAndConnect from "versionContent/_partials/_cloud-create-connect-tutorials.mdx";
-import CreateHypertableNyc from "versionContent/_partials/_create-hypertable-nyctaxis.mdx";
-import AddDataNyc from "versionContent/_partials/_add-data-nyctaxis.mdx";
-import GrafanaConnect from "versionContent/_partials/_grafana-connect.mdx";
-import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
+import CreateAndConnect from "versionContent/partials/_cloud-create-connect-tutorials.mdx";
+import CreateHypertableNyc from "versionContent/partials/_create-hypertable-nyctaxis.mdx";
+import AddDataNyc from "versionContent/partials/_add-data-nyctaxis.mdx";
+import GrafanaConnect from "versionContent/partials/_grafana-connect.mdx";
+import IntegrationPrereqs from "versionContent/partials/_integration-prereqs.mdx";
 
 # Ingest data into a $SERVICE_LONG
 

@@ -4,8 +4,8 @@ excerpt: With data compression, you can achieve a significant improvement in the
 products: [cloud, mst, self_hosted]
 keywords: [compression, hypertables]
 ---
-import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
-import UsageBasedStorage from "versionContent/_partials/_usage-based-storage-intro.mdx";
+import Deprecated2180 from "versionContent/partials/_deprecated_2_18_0.mdx";
+import UsageBasedStorage from "versionContent/partials/_usage-based-storage-intro.mdx";
 
 # Compression  (Replaced by [Hypercore][hypercore])
 

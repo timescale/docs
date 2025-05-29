@@ -5,12 +5,12 @@ products: [self_hosted]
 keywords: [installation, self-hosted, Debian, Ubuntu, RHEL, Fedora]
 ---
 
-import WhereTo from "versionContent/_partials/_where-to-next.mdx";
-import TestingEnv from "versionContent/_partials/_selfhosted_production_alert.mdx" ;
-import SelfHostedDebianBased from "versionContent/_partials/_install-self-hosted-debian-based.mdx";
-import SelfHostedRedhatBased from "versionContent/_partials/_install-self-hosted-redhat-based.mdx";
-import SelfHostedArchLinuxBased from "versionContent/_partials/_install-self-hosted-archlinux-based.mdx";
-import AddTimescaleDBToDB from "versionContent/_partials/_add-timescaledb-to-a-database.mdx";
+import WhereTo from "versionContent/partials/_where-to-next.mdx";
+import TestingEnv from "versionContent/partials/_selfhosted_production_alert.mdx" ;
+import SelfHostedDebianBased from "versionContent/partials/_install-self-hosted-debian-based.mdx";
+import SelfHostedRedhatBased from "versionContent/partials/_install-self-hosted-redhat-based.mdx";
+import SelfHostedArchLinuxBased from "versionContent/partials/_install-self-hosted-archlinux-based.mdx";
+import AddTimescaleDBToDB from "versionContent/partials/_add-timescaledb-to-a-database.mdx";
 
 
 # Install TimescaleDB on Linux

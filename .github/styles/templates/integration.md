@@ -4,7 +4,7 @@ excerpt: SEO friendly explanation of why the user will do it
 keywords: [<third-party tool name>]
 ---
 
-import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
+import IntegrationPrereqs from "versionContent/partials/_integration-prereqs.mdx";
 
 # Integrate <third-party tool name> with $CLOUD_LONG
 

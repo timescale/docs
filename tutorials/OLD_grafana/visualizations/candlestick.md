@@ -8,7 +8,7 @@ seo:
   metaImage: https://s3.amazonaws.com/assets.timescale.com/docs/images/meta-images/meta-image-grafana-candlestick.png
 ---
 
-import GrafanaVizPrereqs from 'versionContent/_partials/_grafana-viz-prereqs.mdx';
+import GrafanaVizPrereqs from 'versionContent/partials/_grafana-viz-prereqs.mdx';
 
 # Build a candlestick chart in Grafana
 

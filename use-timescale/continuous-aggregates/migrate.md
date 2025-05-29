@@ -5,7 +5,7 @@ products: [cloud, mst, self_hosted]
 keywords: [continuous aggregates]
 ---
 
-import CaggMigratePermissions from 'versionContent/_partials/_caggs-migrate-permissions.mdx';
+import CaggMigratePermissions from 'versionContent/partials/_caggs-migrate-permissions.mdx';
 
 # Migrate a continuous aggregate to the new form
 

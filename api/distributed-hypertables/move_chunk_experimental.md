@@ -9,11 +9,11 @@ api:
   type: function
   experimental: true
 ---
-import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";
+import MultiNodeDeprecation from "versionContent/partials/_multi-node-deprecation.mdx";
 
 <MultiNodeDeprecation />
 
-import Experimental from 'versionContent/_partials/_experimental.mdx';
+import Experimental from 'versionContent/partials/_experimental.mdx';
 
 # move_chunk() <Tag type="community">Community</Tag> <Tag type="experimental">Experimental</Tag>
 

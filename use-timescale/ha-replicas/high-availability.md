@@ -9,7 +9,7 @@ cloud_ui:
         - [services, :serviceId, operations, replication]
 ---
 
-import HASetup from 'versionContent/_partials/_high-availability-setup.mdx';
+import HASetup from 'versionContent/partials/_high-availability-setup.mdx';
 
 
 # Manage high availability

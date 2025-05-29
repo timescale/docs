@@ -6,7 +6,7 @@ keywords: [hypertables, schemas, alter]
 tags: [change]
 ---
 
-import FDW from "versionContent/_partials/_foreign-data-wrappers.mdx";
+import FDW from "versionContent/partials/_foreign-data-wrappers.mdx";
 
 # Foreign data wrappers
 

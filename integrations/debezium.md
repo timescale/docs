@@ -5,9 +5,9 @@ products: [self_hosted]
 keywords: [Debezium, integrate]
 ---
 
-import IntegrationPrereqsSelfOnly from "versionContent/_partials/_integration-prereqs-self-only.mdx";
-import IntegrationDebeziumDocker from "versionContent/_partials/_integration-debezium-docker.mdx";
-import IntegrationDebeziumSelfHostedConfig from "versionContent/_partials/_integration-debezium-self-hosted-config-database.mdx";
+import IntegrationPrereqsSelfOnly from "versionContent/partials/_integration-prereqs-self-only.mdx";
+import IntegrationDebeziumDocker from "versionContent/partials/_integration-debezium-docker.mdx";
+import IntegrationDebeziumSelfHostedConfig from "versionContent/partials/_integration-debezium-self-hosted-config-database.mdx";
 
 # Integrate Debezium with $CLOUD_LONG
 

@@ -9,7 +9,7 @@ cloud_ui:
         - [services, :serviceId, operations, database_parameters]
 ---
 
-import ConfigCloudSelf from "versionContent/_partials/_cloud_self_configuration.mdx";
+import ConfigCloudSelf from "versionContent/partials/_cloud_self_configuration.mdx";
 
 # Advanced parameters
 

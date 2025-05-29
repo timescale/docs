@@ -5,7 +5,7 @@ products: [cloud, self_hosted]
 keywords: [connect, integrate, apache, airflow]
 ---
 
-import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
+import IntegrationPrereqs from "versionContent/partials/_integration-prereqs.mdx";
 
 # Integrate Apache Airflow with $CLOUD_LONG
 

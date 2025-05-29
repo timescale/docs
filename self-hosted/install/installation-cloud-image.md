@@ -6,8 +6,8 @@ keywords: [installation, self-hosted]
 tags: [cloud image]
 ---
 
-import WhereTo from "versionContent/_partials/_where-to-next.mdx";
-import Skip from "versionContent/_partials/_selfhosted_cta.mdx";
+import WhereTo from "versionContent/partials/_where-to-next.mdx";
+import Skip from "versionContent/partials/_selfhosted_cta.mdx";
 
 # Install TimescaleDB from a pre-built cloud image
 

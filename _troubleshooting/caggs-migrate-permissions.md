@@ -9,7 +9,7 @@ keywords: [continuous aggregates]
 tags: [continuous aggregates, migrate]
 ---
 
-import CaggMigratePermissions from 'versionContent/_partials/_caggs-migrate-permissions.mdx';
+import CaggMigratePermissions from 'versionContent/partials/_caggs-migrate-permissions.mdx';
 
 <!---
 * Use this format for writing troubleshooting sections:

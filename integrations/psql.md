@@ -5,7 +5,7 @@ products: [cloud, self_hosted]
 keywords: [connect, psql]
 ---
 
-import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
+import IntegrationPrereqs from "versionContent/partials/_integration-prereqs.mdx";
 
 # Connect with psql
 

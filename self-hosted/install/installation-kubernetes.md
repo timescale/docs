@@ -5,9 +5,9 @@ products: [self_hosted]
 keywords: [installation, self-hosted, Kubernetes]
 ---
 
-import TestingEnv from "versionContent/_partials/_selfhosted_production_alert.mdx" ;
-import KubernetesPrereqs from "versionContent/_partials/_kubernetes-prereqs.mdx";
-import KubernetesInstallSelf from "versionContent/_partials/_kubernetes-install-self-hosted.mdx";
+import TestingEnv from "versionContent/partials/_selfhosted_production_alert.mdx" ;
+import KubernetesPrereqs from "versionContent/partials/_kubernetes-prereqs.mdx";
+import KubernetesInstallSelf from "versionContent/partials/_kubernetes-install-self-hosted.mdx";
 
 
 # Install TimescaleDB on Kubernetes

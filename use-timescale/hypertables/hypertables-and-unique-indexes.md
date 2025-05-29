@@ -5,7 +5,7 @@ products: [cloud, mst, self_hosted]
 keywords: [hypertables, unique indexes, primary keys]
 ---
 
-import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
+import OldCreateHypertable from "versionContent/partials/_old-api-create-hypertable.mdx";
 
 # Enforce constraints with unique indexes
 

@@ -6,8 +6,8 @@ keywords: [backups, Docker]
 tags: [restore, recovery, physical backup]
 ---
 
-import Deprecation from "versionContent/_partials/_deprecated.mdx";
-import ConsiderCloud from "versionContent/_partials/_consider-cloud.mdx";
+import Deprecation from "versionContent/partials/_deprecated.mdx";
+import ConsiderCloud from "versionContent/partials/_consider-cloud.mdx";
 
 # Ongoing physical backups with Docker & WAL-E
 

@@ -6,7 +6,7 @@ keywords: [data migration, postgresql, RDS]
 tags: [ingest, migrate, RDS]
 ---
 
-import OpenSupportRequest from "versionContent/_partials/_migrate_open_support_request.mdx"
+import OpenSupportRequest from "versionContent/partials/_migrate_open_support_request.mdx"
 
 # Migrate and sync data to Timescale Cloud
 

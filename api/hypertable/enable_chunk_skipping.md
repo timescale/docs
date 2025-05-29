@@ -10,7 +10,7 @@ api:
 products: [cloud, mst, self_hosted]
 ---
 
-import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
+import OldCreateHypertable from "versionContent/partials/_old-api-create-hypertable.mdx";
 
 # enable_chunk_skipping()
 

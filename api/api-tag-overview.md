@@ -5,7 +5,7 @@ tags: [licenses, toolkit, experimental]
 products: [cloud, mst, self_hosted]
 ---
 
-import ExperimentalUpgrade from "versionContent/_partials/_experimental-schema-upgrade.mdx";
+import ExperimentalUpgrade from "versionContent/partials/_experimental-schema-upgrade.mdx";
 
 # API Reference tag overview
 

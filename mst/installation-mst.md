@@ -8,8 +8,8 @@ order: 2
 keywords: [installation]
 ---
 
-import MSTIntro from "versionContent/_partials/_mst-intro.mdx";
-import CloudMSTComparison from "versionContent/_partials/_cloud-mst-comparison.mdx";
+import MSTIntro from "versionContent/partials/_mst-intro.mdx";
+import CloudMSTComparison from "versionContent/partials/_cloud-mst-comparison.mdx";
 
 # Get started with Managed Service for TimescaleDB
 

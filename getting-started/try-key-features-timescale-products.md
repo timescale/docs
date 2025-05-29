@@ -5,10 +5,10 @@ products: [cloud, self_hosted, mst]
 content_group: Getting started
 ---
 
-import HASetup from 'versionContent/_partials/_high-availability-setup.mdx';
-import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
-import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
-import HypercoreIntroShort from "versionContent/_partials/_hypercore-intro-short.mdx";
+import HASetup from 'versionContent/partials/_high-availability-setup.mdx';
+import IntegrationPrereqs from "versionContent/partials/_integration-prereqs.mdx";
+import OldCreateHypertable from "versionContent/partials/_old-api-create-hypertable.mdx";
+import HypercoreIntroShort from "versionContent/partials/_hypercore-intro-short.mdx";
 
 # Try the key $COMPANY features
 

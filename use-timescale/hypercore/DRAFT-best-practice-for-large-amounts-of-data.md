@@ -5,8 +5,8 @@ products: [cloud,]
 keywords: [hypertable, compression, row-columnar storage, hypercore]
 ---
 
-import Prereq from "versionContent/_partials/_prereqs-cloud-and-self.mdx";
-import HypercoreManualWorkflow from "versionContent/_partials/_hypercore_manual_workflow.mdx";
+import Prereq from "versionContent/partials/_prereqs-cloud-and-self.mdx";
+import HypercoreManualWorkflow from "versionContent/partials/_hypercore_manual_workflow.mdx";
 
 # SUGGESTION: Best practice for large amounts of data
 

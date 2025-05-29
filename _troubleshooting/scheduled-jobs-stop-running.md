@@ -17,7 +17,7 @@ keywords: [jobs, policies, actions]
 tags: [jobs, scheduled jobs, background jobs, background workers, automation framework, policies, actions]
 ---
 
-import CloudMSTRestartWorkers from 'versionContent/_partials/_cloud-mst-restart-workers.mdx';
+import CloudMSTRestartWorkers from 'versionContent/partials/_cloud-mst-restart-workers.mdx';
 
 <!---
 * Use this format for writing troubleshooting sections:

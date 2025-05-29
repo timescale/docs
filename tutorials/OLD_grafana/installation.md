@@ -5,7 +5,7 @@ products: [cloud, mst, self_hosted]
 keywords: [Grafana, visualization, analytics]
 ---
 
-import GrafanaConnect from "versionContent/_partials/_grafana-connect.mdx";
+import GrafanaConnect from "versionContent/partials/_grafana-connect.mdx";
 
 # Set up TimescaleDB and Grafana
 

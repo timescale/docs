@@ -6,7 +6,7 @@ keywords: [jobs]
 tags: [scheduled jobs, background jobs, automation framework]
 ---
 
-import Prerequisites from "versionContent/_partials/_prereqs-cloud-and-self.mdx";
+import Prerequisites from "versionContent/partials/_prereqs-cloud-and-self.mdx";
 
 # Create and manage $JOBs
 

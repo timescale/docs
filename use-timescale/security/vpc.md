@@ -9,7 +9,7 @@ cloud_ui:
         - [services, :serviceId, operations, vpc]
 ---
 
-import VpcLimitations from "versionContent/_partials/_vpc-limitations.mdx";
+import VpcLimitations from "versionContent/partials/_vpc-limitations.mdx";
 
 # Secure your $CLOUD_LONG services with $VPC Peering and AWS PrivateLink
 

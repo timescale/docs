@@ -7,7 +7,7 @@ seo:
   robots: noindex
 ---
 
-import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";
+import MultiNodeDeprecation from "versionContent/partials/_multi-node-deprecation.mdx";
 
 <MultiNodeDeprecation />
 

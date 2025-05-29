@@ -5,7 +5,7 @@ products: [self_hosted]
 keywords: [high availability]
 ---
 
-import ConsiderCloud from "versionContent/_partials/_consider-cloud.mdx";
+import ConsiderCloud from "versionContent/partials/_consider-cloud.mdx";
 
 # Replication and high availability
 

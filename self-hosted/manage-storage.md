@@ -6,7 +6,7 @@ keywords: [storage, tablespaces]
 tags: [move, manage, chunks]
 ---
 
-import ConsiderCloud from "versionContent/_partials/_consider-cloud.mdx";
+import ConsiderCloud from "versionContent/partials/_consider-cloud.mdx";
 
 # Manage storage using tablespaces
 

@@ -5,7 +5,7 @@ products: [cloud, mst, self_hosted]
 keywords: [troubleshooting]
 ---
 
-import CloudMSTRestartWorkers from 'versionContent/_partials/_cloud-mst-restart-workers.mdx';
+import CloudMSTRestartWorkers from 'versionContent/partials/_cloud-mst-restart-workers.mdx';
 
 # Troubleshooting
 

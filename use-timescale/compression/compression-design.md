@@ -5,7 +5,7 @@ products: [cloud, mst, self_hosted]
 keywords: [compression, schema, tables]
 ---
 
-import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
+import Deprecated2180 from "versionContent/partials/_deprecated_2_18_0.mdx";
 
 # Designing for compression
 

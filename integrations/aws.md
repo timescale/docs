@@ -6,8 +6,8 @@ price_plans: [scale, enterprise]
 keywords: [AWS, integrations]
 ---
 
-import IntegrationPrereqsCloud from "versionContent/_partials/_integration-prereqs-cloud-only.mdx";
-import TransitGateway from "versionContent/_partials/_transit-gateway.mdx";
+import IntegrationPrereqsCloud from "versionContent/partials/_integration-prereqs-cloud-only.mdx";
+import TransitGateway from "versionContent/partials/_transit-gateway.mdx";
 
 # Integrate Amazon Web Services with $CLOUD_LONG
 

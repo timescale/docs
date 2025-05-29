@@ -6,7 +6,7 @@ keywords: [Grafana, visualization, analytics]
 tags: [bar chart]
 ---
 
-import GrafanaVizPrereqs from 'versionContent/_partials/_grafana-viz-prereqs.mdx';
+import GrafanaVizPrereqs from 'versionContent/partials/_grafana-viz-prereqs.mdx';
 
 # Build a bar chart in Grafana
 

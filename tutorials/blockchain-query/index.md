@@ -7,7 +7,7 @@ layout_components: [next_prev_large]
 content_group: Query the Bitcoin blockchain
 ---
 
-import FinancialIndustry from "versionContent/_partials/_financial-industry-data-analysis.mdx";
+import FinancialIndustry from "versionContent/partials/_financial-industry-data-analysis.mdx";
 
 # Query the Bitcoin blockchain
 

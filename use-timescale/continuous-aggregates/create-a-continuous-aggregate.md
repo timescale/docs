@@ -5,7 +5,7 @@ products: [cloud, mst, self_hosted]
 keywords: [continuous aggregates, create]
 ---
 
-import Since2200 from "versionContent/_partials/_since_2_20_0.mdx";
+import Since2200 from "versionContent/partials/_since_2_20_0.mdx";
 
 # Create continuous aggregates
 

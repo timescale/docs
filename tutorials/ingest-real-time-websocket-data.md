@@ -5,8 +5,8 @@ products: [cloud, mst, self_hosted]
 keywords: [finance, analytics, websockets, data pipeline]
 ---
 
-import CreateHypertableStocks from "versionContent/_partials/_create-hypertable-twelvedata-stocks.mdx";
-import GraphOhlcv from "versionContent/_partials/_graphing-ohlcv-data.mdx";
+import CreateHypertableStocks from "versionContent/partials/_create-hypertable-twelvedata-stocks.mdx";
+import GraphOhlcv from "versionContent/partials/_graphing-ohlcv-data.mdx";
 
 # Ingest real-time financial data using WebSocket
 

@@ -5,8 +5,8 @@ products: [cloud, mst, self_hosted]
 keywords: [continuous aggregates, real-time aggregates]
 ---
 
-import CaggsRealTimeHistoricalDataRefreshes from 'versionContent/_partials/_caggs-real-time-historical-data-refreshes.mdx';
-import RealTimeAgg from 'versionContent/_partials/_real-time-aggregates.mdx';
+import CaggsRealTimeHistoricalDataRefreshes from 'versionContent/partials/_caggs-real-time-historical-data-refreshes.mdx';
+import RealTimeAgg from 'versionContent/partials/_real-time-aggregates.mdx';
 
 # Real-time aggregates
 

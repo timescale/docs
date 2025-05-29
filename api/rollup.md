@@ -19,7 +19,7 @@ hyperfunction:
 
 # rollup <Tag type="toolkit" content="Toolkit" /><Tag type="experimental-toolkit" content="Experimental" />
 
-import Experimental from 'versionContent/_partials/_experimental.mdx';
+import Experimental from 'versionContent/partials/_experimental.mdx';
 
 Combines multiple `OpenHighLowClose` aggregates. Using `rollup`, you can
 reaggregate a continuous aggregate into larger [time buckets][time_bucket].

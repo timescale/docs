@@ -11,7 +11,7 @@ api:
 products: [cloud, mst, self_hosted]
 ---
 
-import Experimental from "versionContent/_partials/_experimental.mdx";
+import Experimental from "versionContent/partials/_experimental.mdx";
 
 <!-- vale Google.Headings = NO -->
 <!-- markdownlint-disable-next-line line-length -->

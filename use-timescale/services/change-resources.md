@@ -9,7 +9,7 @@ cloud_ui:
         - [services, :serviceId, operations, resources]
 ---
 
-import UsageBasedStorage from "versionContent/_partials/_usage-based-storage-intro.mdx";
+import UsageBasedStorage from "versionContent/partials/_usage-based-storage-intro.mdx";
 
 # Manually change compute resources
 

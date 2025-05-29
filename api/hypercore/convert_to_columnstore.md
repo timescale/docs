@@ -10,7 +10,7 @@ api:
 products: [cloud, self_hosted]
 ---
 
-import Since2180 from "versionContent/_partials/_since_2_18_0.mdx";
+import Since2180 from "versionContent/partials/_since_2_18_0.mdx";
 
 # convert_to_columnstore() <Tag type="community">Community</Tag>
 

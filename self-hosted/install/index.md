@@ -5,8 +5,8 @@ products: [self_hosted]
 keywords: [installation]
 ---
 
-import TimescaleDB from "versionContent/_partials/_timescaledb.mdx";
-import TestingEnv from "versionContent/_partials/_selfhosted_production_alert.mdx" ;
+import TimescaleDB from "versionContent/partials/_timescaledb.mdx";
+import TestingEnv from "versionContent/partials/_selfhosted_production_alert.mdx" ;
 
 # Install TimescaleDB
 

@@ -8,10 +8,10 @@ layout_components: [next_prev_large]
 content_group: Analyze financial tick data
 ---
 
-import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
-import CreateHypertableCrypto from "versionContent/_partials/_create-hypertable-twelvedata-crypto.mdx";
-import AddDataCrypto from "versionContent/_partials/_add-data-twelvedata-crypto.mdx";
-import GrafanaConnect from "versionContent/_partials/_grafana-connect.mdx";
+import IntegrationPrereqs from "versionContent/partials/_integration-prereqs.mdx";
+import CreateHypertableCrypto from "versionContent/partials/_create-hypertable-twelvedata-crypto.mdx";
+import AddDataCrypto from "versionContent/partials/_add-data-twelvedata-crypto.mdx";
+import GrafanaConnect from "versionContent/partials/_grafana-connect.mdx";
 
 # Ingest data into a $SERVICE_LONG
 

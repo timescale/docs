@@ -5,11 +5,11 @@ products: [self_hosted]
 keywords: [installation, self-hosted, macOS]
 ---
 
-import WhereTo from "versionContent/_partials/_where-to-next.mdx";
-import TestingEnv from "versionContent/_partials/_selfhosted_production_alert.mdx" ;
-import SelfHostedHomebrew from "versionContent/_partials/_install-self-hosted-homebrew-based.mdx";
-import SelfHostedMacports from "versionContent/_partials/_install-self-hosted-macports-based.mdx";
-import AddTimescaleDBToDB from "versionContent/_partials/_add-timescaledb-to-a-database.mdx";
+import WhereTo from "versionContent/partials/_where-to-next.mdx";
+import TestingEnv from "versionContent/partials/_selfhosted_production_alert.mdx" ;
+import SelfHostedHomebrew from "versionContent/partials/_install-self-hosted-homebrew-based.mdx";
+import SelfHostedMacports from "versionContent/partials/_install-self-hosted-macports-based.mdx";
+import AddTimescaleDBToDB from "versionContent/partials/_add-timescaledb-to-a-database.mdx";
 
 # Install self-hosted TimescaleDB on macOS
 

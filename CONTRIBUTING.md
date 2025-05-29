@@ -95,7 +95,7 @@ To change the structure, add or delete pages in a section, modify the correspond
 ## Reuse text in multiple pages
 
 Partials allow you to reuse snippets of content in multiple places. All partials
-live in the `_partials` top-level directory. To make a new partial, create a new
+live in the `partials` top-level directory. To make a new partial, create a new
 `.md` file in this directory. The filename must start with an underscore. Then import it into the target page as an `.mdx` file and reference in the relevant place. See [Formatting examples][formatting].
 
 ## Formatting
@@ -159,6 +159,6 @@ The previous documentation source is in the deprecated repository called [docs.t
 [markdown-syntax]: https://www.markdownguide.org/extended-syntax/
 [github-docs]: https://github.com/timescale/docs
 [use-navigation]: use-timescale/page-index/page-index.js
-[formatting]: _partials/_formatting_examples.md
+[formatting]: partials/_formatting_examples.md
 [variables]: https://docs.timescale.com/variables-for-contributors/
 [readme]: README.md

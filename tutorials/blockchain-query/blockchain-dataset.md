@@ -7,7 +7,7 @@ layout_components: [next_prev_large]
 content_group: Query the Bitcoin blockchain
 ---
 
-import IngestData from "versionContent/_partials/_use-case-setup-blockchain-dataset.mdx";
+import IngestData from "versionContent/partials/_use-case-setup-blockchain-dataset.mdx";
 
 
 <IngestData />

@@ -7,8 +7,8 @@ layout_components: [next_prev_large]
 content_group: Analyze the Bitcoin blockchain
 ---
 
-import IngestData from "versionContent/_partials/_use-case-setup-blockchain-dataset.mdx";
-import GrafanaConnect from "versionContent/_partials/_grafana-connect.mdx";
+import IngestData from "versionContent/partials/_use-case-setup-blockchain-dataset.mdx";
+import GrafanaConnect from "versionContent/partials/_grafana-connect.mdx";
 
 <IngestData />
 

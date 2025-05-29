@@ -5,7 +5,7 @@ products: [cloud, mst, self_hosted]
 keywords: [hypertables, indexes, chunks]
 ---
 
-import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
+import OldCreateHypertable from "versionContent/partials/_old-api-create-hypertable.mdx";
 
 # Improve hypertable and query performance
 

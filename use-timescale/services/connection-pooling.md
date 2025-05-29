@@ -8,7 +8,7 @@ cloud_ui:
         - [services, :serviceId]
 ---
 
-import Beta from "versionContent/_partials/_beta.mdx";
+import Beta from "versionContent/partials/_beta.mdx";
 
 # Connection pooling
 

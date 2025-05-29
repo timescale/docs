@@ -10,7 +10,7 @@ api:
 products: [cloud, mst, self_hosted]
 ---
 
-import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";
+import MultiNodeDeprecation from "versionContent/partials/_multi-node-deprecation.mdx";
 
 # timescaledb_information.data_nodes
 

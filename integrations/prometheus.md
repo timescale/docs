@@ -6,7 +6,7 @@ price_plans: [scale, enterprise]
 keywords: [integrate]
 ---
 
-import PrometheusIntegrate from "versionContent/_partials/_prometheus-integrate.mdx";
+import PrometheusIntegrate from "versionContent/partials/_prometheus-integrate.mdx";
 
 # Integrate Prometheus with $CLOUD_LONG
 

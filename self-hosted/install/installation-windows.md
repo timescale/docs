@@ -5,11 +5,11 @@ products: [self_hosted]
 keywords: [installation, self-hosted, Windows]
 ---
 
-import Windows from "versionContent/_partials/_psql-installation-windows.mdx";
-import WhereTo from "versionContent/_partials/_where-to-next.mdx";
-import TestingEnv from "versionContent/_partials/_selfhosted_production_alert.mdx" ;
-import SelfHostedWindowsBased from "versionContent/_partials/_install-self-hosted-windows-based.mdx";
-import AddTimescaleDBToDB from "versionContent/_partials/_add-timescaledb-to-a-database.mdx";
+import Windows from "versionContent/partials/_psql-installation-windows.mdx";
+import WhereTo from "versionContent/partials/_where-to-next.mdx";
+import TestingEnv from "versionContent/partials/_selfhosted_production_alert.mdx" ;
+import SelfHostedWindowsBased from "versionContent/partials/_install-self-hosted-windows-based.mdx";
+import AddTimescaleDBToDB from "versionContent/partials/_add-timescaledb-to-a-database.mdx";
 
 # Install TimescaleDB on Windows
 

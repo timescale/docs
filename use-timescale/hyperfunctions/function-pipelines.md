@@ -5,7 +5,7 @@ products: [cloud, mst, self_hosted]
 keywords: [Toolkit, function pipelines]
 ---
 
-import Experimental from 'versionContent/_partials/_experimental.mdx';
+import Experimental from 'versionContent/partials/_experimental.mdx';
 
 # Function pipelines <Tag type="toolkit">Toolkit</Tag><Tag type="experimental-toolkit">Experimental</Tag>
 

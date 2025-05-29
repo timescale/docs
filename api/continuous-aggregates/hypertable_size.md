@@ -10,7 +10,7 @@ api:
 products: [cloud, self_hosted, mst]
 ---
 
-import HypertableSize from "versionContent/_partials/_hypertable-size-api.mdx";
+import HypertableSize from "versionContent/partials/_hypertable-size-api.mdx";
 
 <HypertableSize />
 

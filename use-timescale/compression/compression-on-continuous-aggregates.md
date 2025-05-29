@@ -5,7 +5,7 @@ products: [cloud, mst, self_hosted]
 keywords: [continuous aggregates, compression]
 ---
 
-import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
+import Deprecated2180 from "versionContent/partials/_deprecated_2_18_0.mdx";
 
 # Compress continuous aggregates
 

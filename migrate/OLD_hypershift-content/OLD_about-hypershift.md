@@ -6,7 +6,7 @@ keywords: [data migration, Hypershift]
 tags: [ingest, Hypershift, postgresql]
 ---
 
-import HypershiftIntro from "versionContent/_partials/_hypershift-intro.mdx";
+import HypershiftIntro from "versionContent/partials/_hypershift-intro.mdx";
 
 # About Hypershift
 

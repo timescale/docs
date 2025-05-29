@@ -6,10 +6,10 @@ keywords: [IoT, simulate]
 ---
 
 
-import GrafanaConnect from "versionContent/_partials/_grafana-connect.mdx";
-import ImportDataEnergy from "versionContent/_partials/_import-data-iot.mdx";
-import CreateCaggsOnIOTData from "versionContent/_partials/_use-case-iot-create-cagg.mdx";
-import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
+import GrafanaConnect from "versionContent/partials/_grafana-connect.mdx";
+import ImportDataEnergy from "versionContent/partials/_import-data-iot.mdx";
+import CreateCaggsOnIOTData from "versionContent/partials/_use-case-iot-create-cagg.mdx";
+import IntegrationPrereqs from "versionContent/partials/_integration-prereqs.mdx";
 
 # Analytics on energy consumption
 

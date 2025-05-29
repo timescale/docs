@@ -8,7 +8,7 @@ layout_components: [next_prev_large]
 content_group: Analyze financial tick data
 ---
 
-import TutorialsHypercoreIntro from "versionContent/_partials/_tutorials-hypercore-intro.mdx"
+import TutorialsHypercoreIntro from "versionContent/partials/_tutorials-hypercore-intro.mdx"
 
 # Compress your data using $HYPERCORE
 

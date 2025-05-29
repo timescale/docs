@@ -5,7 +5,7 @@ products: [cloud, self_hosted]
 keywords: [Decodable, Timescale Cloud]
 ---
 
-import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
+import IntegrationPrereqs from "versionContent/partials/_integration-prereqs.mdx";
 
 # Integrate Decodable with $CLOUD_LONG
 

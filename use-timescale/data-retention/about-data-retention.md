@@ -5,7 +5,7 @@ products: [cloud, mst, self_hosted]
 keywords: [data retention]
 ---
 
-import UsageBasedStorage from "versionContent/_partials/_usage-based-storage-intro.mdx";
+import UsageBasedStorage from "versionContent/partials/_usage-based-storage-intro.mdx";
 
 # About data retention
 

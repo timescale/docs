@@ -5,9 +5,9 @@ products: [self_hosted]
 keywords: [upgrades]
 ---
 
-import PlanUpgrade from "versionContent/_partials/_plan_upgrade.mdx";
-import ExperimentalUpgrade from "versionContent/_partials/_experimental-schema-upgrade.mdx";
-import ConsiderCloud from "versionContent/_partials/_consider-cloud.mdx";
+import PlanUpgrade from "versionContent/partials/_plan_upgrade.mdx";
+import ExperimentalUpgrade from "versionContent/partials/_experimental-schema-upgrade.mdx";
+import ConsiderCloud from "versionContent/partials/_consider-cloud.mdx";
 
 # About upgrades
 

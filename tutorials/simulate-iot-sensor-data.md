@@ -6,8 +6,8 @@ keywords: [IoT, simulate]
 ---
 
 
-import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
-import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
+import OldCreateHypertable from "versionContent/partials/_old-api-create-hypertable.mdx";
+import IntegrationPrereqs from "versionContent/partials/_integration-prereqs.mdx";
 
 # Simulate an IoT sensor dataset
 

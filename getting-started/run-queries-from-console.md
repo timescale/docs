@@ -5,7 +5,7 @@ products: [cloud]
 content_group: Getting started
 ---
 
-import WhereNext from "versionContent/_partials/_where-to-next.mdx";
+import WhereNext from "versionContent/partials/_where-to-next.mdx";
 
 # Run your queries from $CONSOLE
 

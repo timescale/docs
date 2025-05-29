@@ -9,7 +9,7 @@ api:
   type: procedure
 products: [cloud, self_hosted]
 ---
-import Since2180 from "versionContent/_partials/_since_2_18_0.mdx";
+import Since2180 from "versionContent/partials/_since_2_18_0.mdx";
 
 # remove_columnstore_policy() <Tag type="community" content="community" />
 

@@ -5,10 +5,10 @@ products: [self_hosted]
 keywords: [upgrades, PostgreSQL, versions, compatibility]
 ---
 
-import PlanUpgrade from "versionContent/_partials/_plan_upgrade.mdx";
-import SupportMatrix from "versionContent/_partials/_migrate_self_postgres_timescaledb_compatibility.mdx";
-import ConsiderCloud from "versionContent/_partials/_consider-cloud.mdx";
-import PlanMigrationPath from "versionContent/_partials/_migrate_self_postgres_plan_migration_path.mdx";
+import PlanUpgrade from "versionContent/partials/_plan_upgrade.mdx";
+import SupportMatrix from "versionContent/partials/_migrate_self_postgres_timescaledb_compatibility.mdx";
+import ConsiderCloud from "versionContent/partials/_consider-cloud.mdx";
+import PlanMigrationPath from "versionContent/partials/_migrate_self_postgres_plan_migration_path.mdx";
 
 # Upgrade PostgreSQL
 

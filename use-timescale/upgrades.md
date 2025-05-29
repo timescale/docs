@@ -8,7 +8,7 @@ cloud_ui:
         - [services, :serviceId, operations, maintenance]
 ---
 
-import SupportMatrix from "versionContent/_partials/_migrate_self_postgres_timescaledb_compatibility.mdx";
+import SupportMatrix from "versionContent/partials/_migrate_self_postgres_timescaledb_compatibility.mdx";
 
 # Maintenance and upgrades
 

@@ -6,9 +6,9 @@ price_plans: [scale, enterprise]
 keywords: [integrate]
 ---
 
-import IntegrationPrereqsCloud from "versionContent/_partials/_integration-prereqs-cloud-only.mdx";
-import CloudWatchExporter from "versionContent/_partials/_cloudwatch-data-exporter.mdx";
-import ManageDataExporter from "versionContent/_partials/_manage-a-data-exporter.mdx";
+import IntegrationPrereqsCloud from "versionContent/partials/_integration-prereqs-cloud-only.mdx";
+import CloudWatchExporter from "versionContent/partials/_cloudwatch-data-exporter.mdx";
+import ManageDataExporter from "versionContent/partials/_manage-a-data-exporter.mdx";
 
 # Integrate Amazon CloudWatch with $CLOUD_LONG
 

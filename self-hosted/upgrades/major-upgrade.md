@@ -5,11 +5,11 @@ products: [self_hosted]
 keywords: [upgrades]
 ---
 
-import PlanUpgrade from "versionContent/_partials/_plan_upgrade.mdx";
-import ConsiderCloud from "versionContent/_partials/_consider-cloud.mdx";
-import CheckVersions from "versionContent/_partials/_migrate_self_postgres_check_versions.mdx";
-import SupportMatrix from "versionContent/_partials/_migrate_self_postgres_timescaledb_compatibility.mdx";
-import ImplementMigrationPath from "versionContent/_partials/_migrate_self_postgres_implement_migration_path.mdx";
+import PlanUpgrade from "versionContent/partials/_plan_upgrade.mdx";
+import ConsiderCloud from "versionContent/partials/_consider-cloud.mdx";
+import CheckVersions from "versionContent/partials/_migrate_self_postgres_check_versions.mdx";
+import SupportMatrix from "versionContent/partials/_migrate_self_postgres_timescaledb_compatibility.mdx";
+import ImplementMigrationPath from "versionContent/partials/_migrate_self_postgres_implement_migration_path.mdx";
 
 # Upgrade TimescaleDB to a major version
 

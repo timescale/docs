@@ -4,8 +4,8 @@ excerpt: When you compress data in a hypertable, multiple records are grouped in
 products: [cloud, mst, self_hosted]
 keywords: [compression, hypertables]
 ---
-import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
-import CompressionIntro from 'versionContent/_partials/_compression-intro.mdx';
+import Deprecated2180 from "versionContent/partials/_deprecated_2_18_0.mdx";
+import CompressionIntro from 'versionContent/partials/_compression-intro.mdx';
 
 # About compression
 

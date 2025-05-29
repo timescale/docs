@@ -6,7 +6,7 @@ keywords: [migration, low-downtime]
 tags: [migration, logical backup]
 ---
 
-import SourceTargetNote from "versionContent/_partials/_migrate_source_target_note.mdx";
+import SourceTargetNote from "versionContent/partials/_migrate_source_target_note.mdx";
 
 # timescaledb-backfill
 

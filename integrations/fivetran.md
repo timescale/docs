@@ -6,7 +6,7 @@ keywords: [Fivetran, PostgreSQL, connection, integrate]
 
 ---
 
-import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
+import IntegrationPrereqs from "versionContent/partials/_integration-prereqs.mdx";
 
 # Integrate Fivetran with $CLOUD_LONG
 

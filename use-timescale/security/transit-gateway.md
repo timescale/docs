@@ -10,7 +10,7 @@ cloud_ui:
         - [services, :serviceId, operations, vpc]
 ---
 
-import TransitGateway from "versionContent/_partials/_transit-gateway.mdx";
+import TransitGateway from "versionContent/partials/_transit-gateway.mdx";
 
 # Securely connect to $CLOUD_LONG using AWS Transit Gateway
 

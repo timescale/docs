@@ -10,7 +10,7 @@ api:
 products: [cloud, mst, self_hosted]
 ---
 
-import EarlyAccess from "versionContent/_partials/_early_access.mdx";
+import EarlyAccess from "versionContent/partials/_early_access.mdx";
 
 # alter_job() <Tag type="community">Community</Tag>
 

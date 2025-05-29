@@ -6,8 +6,8 @@ keywords: [migration, low-downtime, backup]
 tags: [recovery, logical backup, replication]
 ---
 
-import PrereqCloud from "versionContent/_partials/_prereqs-cloud-only.mdx";
-import EarlyAccessNoRelease from "versionContent/_partials/_early_access.mdx";
+import PrereqCloud from "versionContent/partials/_prereqs-cloud-only.mdx";
+import EarlyAccessNoRelease from "versionContent/partials/_early_access.mdx";
 
 # $LIVESYNC_CAP from S3 to Timescale Cloud
 

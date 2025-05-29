@@ -6,8 +6,8 @@ keywords: [ingest, Telegraf]
 tags: [insert]
 ---
 
-import ImportPrerequisites from "versionContent/_partials/_migrate_import_prerequisites.mdx";
-import SetupConnectionString from "versionContent/_partials/_migrate_import_setup_connection_strings_parquet.mdx";
+import ImportPrerequisites from "versionContent/partials/_migrate_import_prerequisites.mdx";
+import SetupConnectionString from "versionContent/partials/_migrate_import_setup_connection_strings_parquet.mdx";
 
 # Ingest data using Telegraf
 

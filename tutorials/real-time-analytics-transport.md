@@ -5,10 +5,10 @@ products: [cloud, mst, self_hosted]
 keywords: [IoT, simulate]
 ---
 
-import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
-import GrafanaConnect from "versionContent/_partials/_grafana-connect.mdx";
-import ImportData from "versionContent/_partials/_import-data-nyc-taxis.mdx";
-import GeolocationAnalytics from "versionContent/_partials/_use-case-transport-geolocation.mdx";
+import IntegrationPrereqs from "versionContent/partials/_integration-prereqs.mdx";
+import GrafanaConnect from "versionContent/partials/_grafana-connect.mdx";
+import ImportData from "versionContent/partials/_import-data-nyc-taxis.mdx";
+import GeolocationAnalytics from "versionContent/partials/_use-case-transport-geolocation.mdx";
 
 # Analytics on transport and geospatial data
 

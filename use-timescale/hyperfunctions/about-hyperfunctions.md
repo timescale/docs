@@ -5,9 +5,9 @@ products: [cloud, mst, self_hosted]
 keywords: [hyperfunctions, Toolkit, analytics]
 ---
 
-import Experimental from 'versionContent/_partials/_experimental.mdx';
+import Experimental from 'versionContent/partials/_experimental.mdx';
 
-import ExperimentalUpgrade from "versionContent/_partials/_experimental-schema-upgrade.mdx";
+import ExperimentalUpgrade from "versionContent/partials/_experimental-schema-upgrade.mdx";
 
 # About Timescale hyperfunctions
 

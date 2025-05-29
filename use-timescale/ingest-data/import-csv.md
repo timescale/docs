@@ -6,8 +6,8 @@ keywords: [data migration]
 tags: [import, csv]
 ---
 
-import ImportPrerequisites from "versionContent/_partials/_migrate_import_prerequisites.mdx";
-import SetupConnectionString from "versionContent/_partials/_migrate_import_setup_connection_strings_parquet.mdx";
+import ImportPrerequisites from "versionContent/partials/_migrate_import_prerequisites.mdx";
+import SetupConnectionString from "versionContent/partials/_migrate_import_setup_connection_strings_parquet.mdx";
 
 # Import data from CSV
 

@@ -5,19 +5,19 @@ products: [cloud]
 keywords: [migration, low-downtime, backup]
 tags: [recovery, logical backup, replication]
 ---
-import MigrationPrerequisites from "versionContent/_partials/_migrate_prerequisites.mdx";
-import SourceTargetNote from "versionContent/_partials/_migrate_source_target_note.mdx";
-import OpenSupportRequest from "versionContent/_partials/_migrate_open_support_request.mdx"
-import DoNotRecommendForLargeMigration from "versionContent/_partials/_migrate_pg_dump_do_not_recommend_for_large_migration.mdx";
-import MigrateSetupEnvironment from "versionContent/_partials/_migrate_live_setup_environment.mdx";
-import MigrateSetupEnvironmentPostgres from "versionContent/_partials/_migrate_live_setup_environment_postgres.mdx";
-import MigrateSetupEnvironmentMST from "versionContent/_partials/_migrate_live_setup_environment_mst.mdx";
-import MigrateSetupEnvironmentAWSRDS from "versionContent/_partials/_migrate_live_setup_environment_awsrds.mdx";
-import MigrateDataToCloud from "versionContent/_partials/_migrate_live_migrate_data.mdx";
-import MigrateDataToCloudTimescaleDB from "versionContent/_partials/_migrate_live_migrate_data_timescaledb.mdx";
-import ValidateDataInCloud from "versionContent/_partials/_migrate_live_validate_data.mdx";
-import MigrateAWSRDSConnectIntermediary from "versionContent/_partials/_migrate_awsrds_connect_intermediary.mdx";
-import Troubleshooting from "versionContent/_partials/_migrate_live_migrate_faq_all.mdx";
+import MigrationPrerequisites from "versionContent/partials/_migrate_prerequisites.mdx";
+import SourceTargetNote from "versionContent/partials/_migrate_source_target_note.mdx";
+import OpenSupportRequest from "versionContent/partials/_migrate_open_support_request.mdx"
+import DoNotRecommendForLargeMigration from "versionContent/partials/_migrate_pg_dump_do_not_recommend_for_large_migration.mdx";
+import MigrateSetupEnvironment from "versionContent/partials/_migrate_live_setup_environment.mdx";
+import MigrateSetupEnvironmentPostgres from "versionContent/partials/_migrate_live_setup_environment_postgres.mdx";
+import MigrateSetupEnvironmentMST from "versionContent/partials/_migrate_live_setup_environment_mst.mdx";
+import MigrateSetupEnvironmentAWSRDS from "versionContent/partials/_migrate_live_setup_environment_awsrds.mdx";
+import MigrateDataToCloud from "versionContent/partials/_migrate_live_migrate_data.mdx";
+import MigrateDataToCloudTimescaleDB from "versionContent/partials/_migrate_live_migrate_data_timescaledb.mdx";
+import ValidateDataInCloud from "versionContent/partials/_migrate_live_validate_data.mdx";
+import MigrateAWSRDSConnectIntermediary from "versionContent/partials/_migrate_awsrds_connect_intermediary.mdx";
+import Troubleshooting from "versionContent/partials/_migrate_live_migrate_faq_all.mdx";
 
 # Live migration
 

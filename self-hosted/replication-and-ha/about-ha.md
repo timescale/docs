@@ -6,7 +6,7 @@ keywords: [high availability, backups, replicas, failover]
 tags: [redundancy]
 ---
 
-import ConsiderCloud from "versionContent/_partials/_consider-cloud.mdx";
+import ConsiderCloud from "versionContent/partials/_consider-cloud.mdx";
 
 # About high availability
 

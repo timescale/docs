@@ -5,11 +5,11 @@ products: [cloud]
 content_group: Getting started
 ---
 
-import Install from "versionContent/_partials/_cloud-installation.mdx";
-import Connect from "versionContent/_partials/_cloud-connect-service.mdx";
-import ServiceOverview from "versionContent/_partials/_service-overview.mdx";
-import CloudIntro from "versionContent/_partials/_cloud-intro.mdx";
-import WhereNext from "versionContent/_partials/_where-to-next.mdx";
+import Install from "versionContent/partials/_cloud-installation.mdx";
+import Connect from "versionContent/partials/_cloud-connect-service.mdx";
+import ServiceOverview from "versionContent/partials/_service-overview.mdx";
+import CloudIntro from "versionContent/partials/_cloud-intro.mdx";
+import WhereNext from "versionContent/partials/_where-to-next.mdx";
 
 # Create your first $SERVICE_LONG
 

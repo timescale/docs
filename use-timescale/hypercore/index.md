@@ -5,8 +5,8 @@ products: [cloud, self_hosted]
 keywords: [hypercore, hypertable, compression, row-columnar storage]
 ---
 
-import UsageBasedStorage from "versionContent/_partials/_usage-based-storage-intro.mdx";
-import HypercoreIntro from "versionContent/_partials/_hypercore-intro.mdx";
+import UsageBasedStorage from "versionContent/partials/_usage-based-storage-intro.mdx";
+import HypercoreIntro from "versionContent/partials/_hypercore-intro.mdx";
 
 # $HYPERCORE_CAP
 

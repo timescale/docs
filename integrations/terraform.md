@@ -6,7 +6,7 @@ keywords: [Terraform, configuration, deployment]
 tags: [integrate]
 ---
 
-import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
+import IntegrationPrereqs from "versionContent/partials/_integration-prereqs.mdx";
 
 # Integrate Terraform with $CLOUD_LONG
 

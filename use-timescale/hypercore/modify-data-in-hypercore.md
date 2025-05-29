@@ -5,9 +5,9 @@ products: [cloud, self_hosted]
 keywords: [hyperscore, hypertable, compression, row-columnar storage, hypercore]
 ---
 
-import Deprecated2200 from "versionContent/_partials/_deprecated_2_20_0.mdx";
-import PrereqCloud from "versionContent/_partials/_prereqs-cloud-and-self.mdx";
-import HypercoreManualWorkflow from "versionContent/_partials/_hypercore_manual_workflow.mdx";
+import Deprecated2200 from "versionContent/partials/_deprecated_2_20_0.mdx";
+import PrereqCloud from "versionContent/partials/_prereqs-cloud-and-self.mdx";
+import HypercoreManualWorkflow from "versionContent/partials/_hypercore_manual_workflow.mdx";
 
 # Modify your data in $HYPERCORE (old API)
 

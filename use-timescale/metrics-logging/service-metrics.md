@@ -9,7 +9,7 @@ cloud_ui:
         - [services, :serviceId, metrics]
 ---
 
-import EarlyAccess from "versionContent/_partials/_early_access_2_18_0.mdx";
+import EarlyAccess from "versionContent/partials/_early_access_2_18_0.mdx";
 
 # Service metrics
 

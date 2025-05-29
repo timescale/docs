@@ -8,7 +8,7 @@ cloud_ui:
     path:
         - [services, :serviceId, overview]
 ---
-import ServiceOverview from "versionContent/_partials/_service-overview.mdx";
+import ServiceOverview from "versionContent/partials/_service-overview.mdx";
 
 # About services
 

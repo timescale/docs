@@ -6,8 +6,8 @@ keywords: [Apache, community, license]
 tags: [learn, contribute]
 ---
 
-import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
-import Since2180 from "versionContent/_partials/_since_2_18_0.mdx";
+import Deprecated2180 from "versionContent/partials/_deprecated_2_18_0.mdx";
+import Since2180 from "versionContent/partials/_since_2_18_0.mdx";
 
 # TimescaleDB Apache 2 and TimescaleDB Community Edition
 

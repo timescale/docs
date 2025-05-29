@@ -5,12 +5,12 @@ products: [cloud, self_hosted]
 keywords: [hyperscore, hypertable, compression, row-columnar storage, hypercore]
 ---
 
-import PrereqCloud from "versionContent/_partials/_prereqs-cloud-only.mdx";
-import HCConversionOverview from "versionContent/_partials/_hypercore-conversion-overview.mdx";
-import HCPolicyWorkflow from "versionContent/_partials/_hypercore_policy_workflow.mdx";
-import UsageBasedStorage from "versionContent/_partials/_usage-based-storage-intro.mdx";
-import EarlyAccess from "versionContent/_partials/_early_access_2_18_0.mdx";
-import HypercoreIntroShort from "versionContent/_partials/_hypercore-intro-short.mdx";
+import PrereqCloud from "versionContent/partials/_prereqs-cloud-only.mdx";
+import HCConversionOverview from "versionContent/partials/_hypercore-conversion-overview.mdx";
+import HCPolicyWorkflow from "versionContent/partials/_hypercore_policy_workflow.mdx";
+import UsageBasedStorage from "versionContent/partials/_usage-based-storage-intro.mdx";
+import EarlyAccess from "versionContent/partials/_early_access_2_18_0.mdx";
+import HypercoreIntroShort from "versionContent/partials/_hypercore-intro-short.mdx";
 
 # Optimize your data for real-time analytics 
 

@@ -6,7 +6,7 @@ keywords: [integrate, foreign data wrappers, fdw]
 tags: [change]
 ---
 
-import FDW from "versionContent/_partials/_foreign-data-wrappers.mdx";
+import FDW from "versionContent/partials/_foreign-data-wrappers.mdx";
 
 # Integrate PostgreSQL with $CLOUD_LONG
 

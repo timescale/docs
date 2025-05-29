@@ -6,11 +6,11 @@ keywords: [migration, low-downtime, backup]
 tags: [recovery, logical backup, replication]
 ---
 
-import MigrationPrerequisites from "versionContent/_partials/_migrate_prerequisites.mdx";
-import SetupConnectionStrings from "versionContent/_partials/_migrate_live_setup_connection_strings.mdx";
-import LivesyncConsole from "versionContent/_partials/_livesync-console.mdx"
-import LivesyncTerminal from "versionContent/_partials/_livesync-terminal.mdx"
-import EarlyAccessNoRelease from "versionContent/_partials/_early_access.mdx";
+import MigrationPrerequisites from "versionContent/partials/_migrate_prerequisites.mdx";
+import SetupConnectionStrings from "versionContent/partials/_migrate_live_setup_connection_strings.mdx";
+import LivesyncConsole from "versionContent/partials/_livesync-console.mdx"
+import LivesyncTerminal from "versionContent/partials/_livesync-terminal.mdx"
+import EarlyAccessNoRelease from "versionContent/partials/_early_access.mdx";
 
 # Livesync from PostgreSQL to Timescale Cloud
 

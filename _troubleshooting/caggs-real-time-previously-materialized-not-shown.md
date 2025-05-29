@@ -13,8 +13,8 @@ keywords: [continuous aggregates, real-time aggregates]
 tags: [continuous aggregates, real-time aggregates, materialized views]
 ---
 
-import CaggsRealTimeHistoricalDataRefreshes from 'versionContent/_partials/_caggs-real-time-historical-data-refreshes.mdx';
-import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
+import CaggsRealTimeHistoricalDataRefreshes from 'versionContent/partials/_caggs-real-time-historical-data-refreshes.mdx';
+import OldCreateHypertable from "versionContent/partials/_old-api-create-hypertable.mdx";
 
 
 <CaggsRealTimeHistoricalDataRefreshes />

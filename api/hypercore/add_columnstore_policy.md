@@ -10,8 +10,8 @@ api:
   type: procedure
 ---
 
-import Since2180 from "versionContent/_partials/_since_2_18_0.mdx";
-import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
+import Since2180 from "versionContent/partials/_since_2_18_0.mdx";
+import OldCreateHypertable from "versionContent/partials/_old-api-create-hypertable.mdx";
 
 # add_columnstore_policy()
 

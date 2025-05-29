@@ -5,9 +5,9 @@ products: [cloud, self_hosted]
 keywords: [Apache Kafka, integrations]
 ---
 
-import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
-import IntegrationApacheKafka from "versionContent/_partials/_integration-apache-kafka-install.mdx";
-import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
+import IntegrationPrereqs from "versionContent/partials/_integration-prereqs.mdx";
+import IntegrationApacheKafka from "versionContent/partials/_integration-apache-kafka-install.mdx";
+import OldCreateHypertable from "versionContent/partials/_old-api-create-hypertable.mdx";
 
 # Integrate Apache Kafka with $CLOUD_LONG
 

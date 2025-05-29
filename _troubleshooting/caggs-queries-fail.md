@@ -9,7 +9,7 @@ keywords: [continuous aggregates]
 tags: [continuous aggregates, query]
 ---
 
-import CaggsFunctionSupport from 'versionContent/_partials/_caggs-function-support.mdx';
+import CaggsFunctionSupport from 'versionContent/partials/_caggs-function-support.mdx';
 
 Continuous aggregates do not work on all queries. For example, TimescaleDB does not support window functions on 
 continuous aggregates. If you use an unsupported function, you see the following error:

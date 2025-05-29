@@ -8,7 +8,7 @@ cloud_ui:
         - [services]
 ---
 
-import CloudIntro from "versionContent/_partials/_cloud-intro.mdx";
+import CloudIntro from "versionContent/partials/_cloud-intro.mdx";
 
 # About Timescale Cloud services
 

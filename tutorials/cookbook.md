@@ -4,9 +4,9 @@ excerpt: Browse code examples from the Timescale Cloud community that resolve co
 products: [cloud, self_hosted, mst]
 ---
 
-import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
-import Hypertables from "versionContent/_partials/_cookbook-hypertables.mdx";
-import IOT from "versionContent/_partials/_cookbook-iot.mdx";
+import IntegrationPrereqs from "versionContent/partials/_integration-prereqs.mdx";
+import Hypertables from "versionContent/partials/_cookbook-hypertables.mdx";
+import IOT from "versionContent/partials/_cookbook-iot.mdx";
 
 
 

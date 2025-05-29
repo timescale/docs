@@ -8,7 +8,7 @@ layout_components: [next_prev_large]
 content_group: Analyze NYC taxi cab data
 ---
 
-import PreloadedData from "versionContent/_partials/_preloaded-data.mdx";
+import PreloadedData from "versionContent/partials/_preloaded-data.mdx";
 
 # Analyze NYC taxi cab data
 

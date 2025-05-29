@@ -25,5 +25,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           vale --version
-          vale --glob='["_partials/**/*", "_troubleshooting/**/*", "about/**/*", "api/**/*", "getting-started/**/*", "mst/**/*", "navigation/**/*", "quick-start/**/*", "self-hosted/**/*", "tutorials/**/*", "use-timescale/**/*", "ai/**/*"]'
+          vale --glob='["partials/**/*", "_troubleshooting/**/*", "about/**/*", "api/**/*", "getting-started/**/*", "mst/**/*", "navigation/**/*", "quick-start/**/*", "self-hosted/**/*", "tutorials/**/*", "use-timescale/**/*", "ai/**/*"]'
 

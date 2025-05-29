@@ -4,7 +4,7 @@ excerpt: When collecting data from counters, interruptions usually cause the cou
 products: [cloud, mst, self_hosted]
 keywords: [hyperfunctions, Toolkit, gauges, counters]
 ---
-import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
+import OldCreateHypertable from "versionContent/partials/_old-api-create-hypertable.mdx";
 
 # Counter aggregation
 

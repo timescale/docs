@@ -10,7 +10,7 @@ cloud_ui:
         - [services, :serviceId, overview]
 ---
 
-import TieredStorageBilling from "versionContent/_partials/_tiered-storage-billing.mdx";
+import TieredStorageBilling from "versionContent/partials/_tiered-storage-billing.mdx";
 
 # Manage storage and tiering
 

@@ -7,9 +7,9 @@ keywords: [integration, metrics, datadog, alerting]
 tags: [telemetry, monitor]
 ---
 
-import DataDogExporter from "versionContent/_partials/_datadog-data-exporter.mdx";
-import PrereqsCloud from "versionContent/_partials/_prereqs-cloud-no-connection.mdx";
-import ManageDataExporter from "versionContent/_partials/_manage-a-data-exporter.mdx";
+import DataDogExporter from "versionContent/partials/_datadog-data-exporter.mdx";
+import PrereqsCloud from "versionContent/partials/_prereqs-cloud-no-connection.mdx";
+import ManageDataExporter from "versionContent/partials/_manage-a-data-exporter.mdx";
 
 # Export telemetry data to Datadog
 

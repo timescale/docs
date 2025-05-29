@@ -6,9 +6,9 @@ keywords: [data migration]
 tags: [ingest]
 ---
 
-import UsingParallelCopy from "versionContent/_partials/_migrate_using_parallel_copy.mdx";
-import UsingPostgresCopy from "versionContent/_partials/_migrate_using_postgres_copy.mdx";
-import PostSchemaEtal from "versionContent/_partials/_migrate_post_schema_caggs_etal.mdx";
+import UsingParallelCopy from "versionContent/partials/_migrate_using_parallel_copy.mdx";
+import UsingPostgresCopy from "versionContent/partials/_migrate_using_postgres_copy.mdx";
+import PostSchemaEtal from "versionContent/partials/_migrate_post_schema_caggs_etal.mdx";
 
 # Migrate schema and data separately
 

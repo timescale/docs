@@ -9,7 +9,7 @@ cloud_ui:
         - [billing]
 ---
 
-import TieredStorageBilling from "versionContent/_partials/_tiered-storage-billing.mdx";
+import TieredStorageBilling from "versionContent/partials/_tiered-storage-billing.mdx";
 
 # $PRICING_PLAN_CAPs and account management
 

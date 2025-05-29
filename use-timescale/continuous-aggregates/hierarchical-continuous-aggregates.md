@@ -5,7 +5,7 @@ keywords: [continuous aggregates, hierarchical, create]
 products: [cloud, self_hosted, mst]
 ---
 
-import RealTimeAgg from 'versionContent/_partials/_real-time-aggregates.mdx';
+import RealTimeAgg from 'versionContent/partials/_real-time-aggregates.mdx';
 
 # Hierarchical continuous aggregates
 

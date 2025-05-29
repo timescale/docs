@@ -4,8 +4,8 @@ excerpt: Timescale Cloud API reference for dealing with hypertables and chunks. 
 keywords: [hypertables, chunks]
 products: [cloud, mst, self_hosted]
 ---
-import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
-import HypertableIntro from "versionContent/_partials/_hypertable-intro.mdx";
+import OldCreateHypertable from "versionContent/partials/_old-api-create-hypertable.mdx";
+import HypertableIntro from "versionContent/partials/_hypertable-intro.mdx";
 
 # Hypertables and chunks
 

@@ -11,7 +11,7 @@ cloud_ui:
         - [services, :serviceId, operations, integrations]
 ---
 
-import PrometheusIntegrate from "versionContent/_partials/_prometheus-integrate.mdx";
+import PrometheusIntegrate from "versionContent/partials/_prometheus-integrate.mdx";
 
 # Export metrics to Prometheus
 

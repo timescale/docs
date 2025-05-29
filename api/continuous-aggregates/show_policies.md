@@ -10,7 +10,7 @@ api:
 products: [cloud, self_hosted, mst]
 ---
 
-import Experimental from "versionContent/_partials/_experimental.mdx";
+import Experimental from "versionContent/partials/_experimental.mdx";
 
 <!-- markdownlint-disable-next-line line-length -->
 # show_policies() <Tag type="community" content="Community" /><Tag type="experimental" content="Experimental" />

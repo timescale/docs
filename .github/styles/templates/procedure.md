@@ -5,8 +5,8 @@ keywords: [noun, verb, ]
 tags: [noun, noun]
 ---
 <!-- Add any imports here -->
-import Skip from "versionContent/_partials/_selfhosted_cta.mdx";
-import SelfHostedDebianBased from "versionContent/_partials/_install-self-hosted-debian-based.mdx";
+import Skip from "versionContent/partials/_selfhosted_cta.mdx";
+import SelfHostedDebianBased from "versionContent/partials/_install-self-hosted-debian-based.mdx";
 
 # Verb \<what the user will do>
 

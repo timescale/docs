@@ -5,7 +5,7 @@ products: [cloud, self_hosted]
 keywords: [Power BI, visualizations, analysis, real-time]
 ---
 
-import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
+import IntegrationPrereqs from "versionContent/partials/_integration-prereqs.mdx";
 
 # Integrate Power BI with $CLOUD_LONG
 

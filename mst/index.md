@@ -4,8 +4,8 @@ excerpt: Managed Service for TimescaleDB is TimescaleDB hosted on Azure and GCP,
 products: [mst]
 ---
 
-import MSTIntro from "versionContent/_partials/_mst-intro.mdx";
-import CloudMSTComparison from "versionContent/_partials/_cloud-mst-comparison.mdx";
+import MSTIntro from "versionContent/partials/_mst-intro.mdx";
+import CloudMSTComparison from "versionContent/partials/_cloud-mst-comparison.mdx";
 
 # Managed Service for TimescaleDB
 

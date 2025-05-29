@@ -6,11 +6,11 @@ products: [cloud, self_hosted, mst]
 content_group: Getting started
 ---
 
-import StartCodingRuby from "versionContent/_partials/_start-coding-ruby.mdx";
-import StartCodingPython from "versionContent/_partials/_start-coding-python.mdx";
-import StartCodingNode from "versionContent/_partials/_start-coding-node.mdx";
-import StartCodingGoLang from "versionContent/_partials/_start-coding-golang.mdx";
-import StartCodingJava from "versionContent/_partials/_start-coding-java.mdx";
+import StartCodingRuby from "versionContent/partials/_start-coding-ruby.mdx";
+import StartCodingPython from "versionContent/partials/_start-coding-python.mdx";
+import StartCodingNode from "versionContent/partials/_start-coding-node.mdx";
+import StartCodingGoLang from "versionContent/partials/_start-coding-golang.mdx";
+import StartCodingJava from "versionContent/partials/_start-coding-java.mdx";
 
 # Start coding with Timescale
 

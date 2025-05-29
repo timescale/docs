@@ -8,7 +8,7 @@ layout_components: [next_prev_large]
 content_group: Analyze financial tick data
 ---
 
-import GraphOhlcv from "versionContent/_partials/_graphing-ohlcv-data.mdx";
+import GraphOhlcv from "versionContent/partials/_graphing-ohlcv-data.mdx";
 
 # Query the data
 

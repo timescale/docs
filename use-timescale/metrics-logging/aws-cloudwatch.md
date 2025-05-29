@@ -7,9 +7,9 @@ keywords: [integration, metrics, Cloudwatch, alerting]
 tags: [telemetry, monitor]
 ---
 
-import ManageDataExporter from "versionContent/_partials/_manage-a-data-exporter.mdx";
-import PrereqsCloud from "versionContent/_partials/_prereqs-cloud-no-connection.mdx";
-import CloudWatchExporter from "versionContent/_partials/_cloudwatch-data-exporter.mdx";
+import ManageDataExporter from "versionContent/partials/_manage-a-data-exporter.mdx";
+import PrereqsCloud from "versionContent/partials/_prereqs-cloud-no-connection.mdx";
+import CloudWatchExporter from "versionContent/partials/_cloudwatch-data-exporter.mdx";
 
 # Export telemetry data to AWS Cloudwatch
 

@@ -5,7 +5,7 @@ products: [cloud, self_hosted]
 keywords: [hypertable, compression, row-columnar storage, hypercore]
 ---
 
-import EarlyAccess from "versionContent/_partials/_early_access.mdx";
+import EarlyAccess from "versionContent/partials/_early_access.mdx";
 
 # Improve query and upsert performance
 

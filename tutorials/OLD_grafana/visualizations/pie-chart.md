@@ -6,7 +6,7 @@ keywords: [Grafana, visualization, analytics]
 tags: [pie chart]
 ---
 
-import GrafanaVizPrereqs from 'versionContent/_partials/_grafana-viz-prereqs.mdx';
+import GrafanaVizPrereqs from 'versionContent/partials/_grafana-viz-prereqs.mdx';
 
 # Build a pie chart in Grafana
 

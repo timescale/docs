@@ -5,9 +5,9 @@ products: [cloud]
 content_group: Getting started
 ---
 
-import CloudIntro from "versionContent/_partials/_cloud-intro.mdx";
-import TimescaleIntro from "versionContent/_partials/_timescale-intro.mdx";
-import WhereNext from "versionContent/_partials/_where-to-next.mdx";
+import CloudIntro from "versionContent/partials/_cloud-intro.mdx";
+import TimescaleIntro from "versionContent/partials/_timescale-intro.mdx";
+import WhereNext from "versionContent/partials/_where-to-next.mdx";
 
 # Get started with $CLOUD_LONG
 

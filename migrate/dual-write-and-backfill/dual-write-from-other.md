@@ -6,16 +6,16 @@ keywords: [migration, low-downtime]
 tags: [migration, logical backup]
 ---
 
-import GettingHelp from "versionContent/_partials/_migrate_dual_write_backfill_getting_help.mdx";
-import SourceTargetNote from "versionContent/_partials/_migrate_source_target_note.mdx";
-import StepOne from "versionContent/_partials/_migrate_dual_write_step1.mdx";
-import StepTwo from "versionContent/_partials/_migrate_dual_write_step2.mdx";
-import StepFour from "versionContent/_partials/_migrate_dual_write_step4.mdx";
-import StepFive from "versionContent/_partials/_migrate_dual_write_step5.mdx";
-import ValidateProductionLoad from "versionContent/_partials/_migrate_dual_write_validate_production_load.mdx";
-import SwitchProductionWorkload from "versionContent/_partials/_migrate_dual_write_switch_production_workload.mdx";
-import Step6eTurnOnCompressionPolicies from "versionContent/_partials/_migrate_dual_write_6e_turn_on_compression_policies.mdx";
-import Step6aThroughc from "versionContent/_partials/_migrate_dual_write_6a_through_c.mdx";
+import GettingHelp from "versionContent/partials/_migrate_dual_write_backfill_getting_help.mdx";
+import SourceTargetNote from "versionContent/partials/_migrate_source_target_note.mdx";
+import StepOne from "versionContent/partials/_migrate_dual_write_step1.mdx";
+import StepTwo from "versionContent/partials/_migrate_dual_write_step2.mdx";
+import StepFour from "versionContent/partials/_migrate_dual_write_step4.mdx";
+import StepFive from "versionContent/partials/_migrate_dual_write_step5.mdx";
+import ValidateProductionLoad from "versionContent/partials/_migrate_dual_write_validate_production_load.mdx";
+import SwitchProductionWorkload from "versionContent/partials/_migrate_dual_write_switch_production_workload.mdx";
+import Step6eTurnOnCompressionPolicies from "versionContent/partials/_migrate_dual_write_6e_turn_on_compression_policies.mdx";
+import Step6aThroughc from "versionContent/partials/_migrate_dual_write_6a_through_c.mdx";
 
 # Dual-write and backfill from non-PostgreSQL database
 

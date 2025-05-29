@@ -9,7 +9,7 @@ api:
   type: view
 products: [cloud, self_hosted]
 ---
-import Since2180 from "versionContent/_partials/_since_2_18_0.mdx";
+import Since2180 from "versionContent/partials/_since_2_18_0.mdx";
 
 # timescaledb_information.chunk_columnstore_settings 
 

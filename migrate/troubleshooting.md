@@ -6,7 +6,7 @@ keywords: [backups, restore]
 tags: [recovery, logical backup, pg_dump, pg_restore]
 ---
 
-import OpenSupportRequest from "versionContent/_partials/_migrate_open_support_request.mdx"
+import OpenSupportRequest from "versionContent/partials/_migrate_open_support_request.mdx"
 
 # FAQ and troubleshooting
 

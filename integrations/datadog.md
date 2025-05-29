@@ -6,9 +6,9 @@ price_plans: [scale, enterprise]
 keywords: [integrate]
 ---
 
-import IntegrationPrereqsCloud from "versionContent/_partials/_integration-prereqs-cloud-only.mdx";
-import DataDogExporter from "versionContent/_partials/_datadog-data-exporter.mdx";
-import ManageDataExporter from "versionContent/_partials/_manage-a-data-exporter.mdx";
+import IntegrationPrereqsCloud from "versionContent/partials/_integration-prereqs-cloud-only.mdx";
+import DataDogExporter from "versionContent/partials/_datadog-data-exporter.mdx";
+import ManageDataExporter from "versionContent/partials/_manage-a-data-exporter.mdx";
 
 # Integrate Datadog with $CLOUD_LONG
 

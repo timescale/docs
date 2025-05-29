@@ -5,8 +5,8 @@ products: [cloud, self_hosted]
 keywords: [Kubernetes, Timescale Cloud, PostgreSQL, container orchestration]
 ---
 
-import KubernetesPrereqs from "versionContent/_partials/_kubernetes-prereqs.mdx";
-import KubernetesInstallSelf from "versionContent/_partials/_kubernetes-install-self-hosted.mdx";
+import KubernetesPrereqs from "versionContent/partials/_kubernetes-prereqs.mdx";
+import KubernetesInstallSelf from "versionContent/partials/_kubernetes-install-self-hosted.mdx";
 
 # Integrate Kubernetes with $CLOUD_LONG
 

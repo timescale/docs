@@ -6,8 +6,8 @@ keywords: [configuration, settings]
 tags: [tune]
 ---
 
-import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";
-import ConfigCloudSelf from "versionContent/_partials/_cloud_self_configuration.mdx";
+import MultiNodeDeprecation from "versionContent/partials/_multi-node-deprecation.mdx";
+import ConfigCloudSelf from "versionContent/partials/_cloud_self_configuration.mdx";
 
 # TimescaleDB configuration and tuning
 
