@@ -30,6 +30,7 @@ The following example shows how this works:
      day DATE NOT NULL,
      city text NOT NULL,
      temperature INT NOT NULL
+   )
    WITH (
       tsdb.hypertable,
       tsdb.partition_column='day',

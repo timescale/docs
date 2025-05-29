@@ -165,7 +165,7 @@ PostgreSQL planner to create the best query plan. For more information about the
 `ANALYZE` command, see the [PostgreSQL documentation][pg-analyze].
 
 [api-reference]: /api/:currentVersion:/hypertable/enable_chunk_skipping/
-[best-practices]: /use-timescale/:currentVersion:/hypertables/about-hypertables#best-practices-for-time-partitioning
+[best-practices]: /use-timescale/:currentVersion:/hypertables/#best-practices-for-time-partitioning
 [chunk-skipping]: /use-timescale/:currentVersion:/hypertables/improve-query-performance/#enable-chunk-skipping
 [chunk-intervals]: /use-timescale/:currentVersion:/hypertables/improve-query-performance/#optimize-hypertable-chunk-intervals
 [analyze-hypertables]: /use-timescale/:currentVersion:/hypertables/improve-query-performance/#analyze-your-hypertables
