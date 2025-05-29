@@ -83,11 +83,7 @@ relational and time-series data from external files.
           1. Click `SQL editor`, then run the following SQL to enable columnstore on the `crypto_ticks` table:
 
              ```sql
-             ALTER TABLE crypto_ticks SET(
-               timescaledb.enable_columnstore,
-               timescaledb.orderby = 'time DESC',
-               timescaledb.segmentby = 'symbol'
-             );
+             SELECT create_hypertable('crypto_ticks', by_range('time'));
              ```
              
        </Tab>
