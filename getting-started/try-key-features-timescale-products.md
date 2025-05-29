@@ -62,7 +62,7 @@ relational and time-series data from external files.
        [migrate with downtime][migrate-with-downtime] using native $PG tooling. To seamlessly import 100GB-10TB+ 
        of data, use the [live migration][migrate-live] tooling supplied by $COMPANY. To add data from non-$PG data sources, see [Import and ingest data][data-ingest].
 
-    1. Upload data from the CSVs into a $HYPERTABLE:
+    1. Upload data into a $HYPERTABLE:
 
        To more fully understand how $HYPERTABLEs work, and how to optimize them for performance by
        tuning $CHUNK intervals and enabling chunk skipping, see [the $HYPERTABLEs documentation][hypertables-section].  
