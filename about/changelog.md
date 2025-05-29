@@ -8,9 +8,89 @@ products: [cloud, self_hosted]
 # Changelog
 
 All the latest features and updates to Timescale products.
+<Label type="date">May 28, 2025</Label>
+### Database
+
+#### 2.20.0 Release
+- Released for on-premise users.
+- Rolled out to:
+  - All **newly created services** on Timescale Cloud.
+  - **Owl** and **Schemata** environments in production.
+- **Fleet-wide rollout** scheduled to begin next week.
+
+#### Feature Development Progress (FY26-Q2)
+- ✅ `Attach & Detach Chunks` feature implemented.
+- ✅ Reduced storage **bloat after recompression**.
+- ✅ Support for **splitting compressed chunks** to improve performance.
+
+#### Upcoming
+- Blog posts in development:
+  - Full 2.20.0 release overview.
+  - Deep dives on internals such as `SkipScan`.
+
+---
+
+### Cloud Infrastructure
+
+- Continued progress on **TigerLake** bug resolution.
+- 🚀 New **CloudFormation template** introduced for dramatically simplified setup (10x easier).
+
+---
+
+### PopSQL
+
+#### AI SQL Assistant
+- ➕ Added support for **Claude 4 Sonnet** and **Opus** models.
+- 🧠 Improved handling of LLM outputs (e.g., content filters).
+- 🔧 Relaxed `schemaSearch` API to reduce LLM-related errors.
+
+#### UX & Platform
+- 🔔 Added **in-app overdue payment alert banner**.
+- 💰 Collected **>$100K** in past-due payments.
+- 🔐 Enabled **passwordless TSDB connections** via VPC.
+- 🛠️ Fixed **hostname validation** for passwordless connections.
+
+---
+
+### Business Experience
+
+#### RBAC
+- Viewer role under testing; internal rollout planned next week.
+- Docs and rollout plan in development for private beta users.
+
+#### Point-in-Time Recovery (PITR)
+- Scale & Enterprise customers can now self-recover up to **14 days**.
+  - Previously required a support ticket for >3 days.
+
+#### Enhanced Storage
+- Bug fixes rolled out.
+- Now enabled in all regions **except São Paulo**.
+
+---
+
+### AI Features
+
+#### Vectorscale
+- Investigating customer issue: **low recall rates**.
+- Working on:
+  - **LRU cache** for memory optimization.
+  - **Parallel index building**.
+  - Benchmarking vs. `pgvector`.
+
+#### Vectorizer
+- Improved batching logic in progress.
+- Developing **custom code API**.
+
+#### Text-to-SQL
+- Preparing for release:
+  - Pending documentation.
+  - Fixing **timeout issue**.
+  - Adding **Mistral** to evaluation suite.
+
+
+<Label type="date">May 22, 2025</Label>
 
 ## ➕ More storage types and IOPS
-<Label type="date">May 22, 2025</Label>
 
 ### 🚀 Enhanced storage: scale to 64 TB and 32,000 IOPS
 
