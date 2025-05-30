@@ -353,4 +353,4 @@ verbose: <boolean> # Default = false
 
 </Collapsible>
 
-[chunk-time]: /use-timescale/:currentVersion:/hypertables/about-hypertables#best-practices-for-time-partitioning
+[chunk-time]: /use-timescale/:currentVersion:/hypertables/#best-practices-for-time-partitioning

@@ -18,10 +18,9 @@ costs down. For example:
 * The $HYPERCORE row-columnar engine makes queries up to 350x faster, ingests 44% faster, and reduces storage by 90%.
 * Tiered storage seamlessly moves your data from high performance storage for frequently accessed data to low cost bottomless storage for rarely accessed data. 
 
-The following figure shows how $CLOUD_LONG optimizes your data for superfast real-time analytics and reduced
-costs:
+The following figure shows how $CLOUD_LONG optimizes your data for superfast real-time analytics:
 
-![Main features and tiered data](https://assets.timescale.com/docs/images/timescalecloud-service-architecture.png )
+![Main features and tiered data](https://assets.timescale.com/docs/images/mutation.png )
 
 This page shows you how to rapidly implement the features in $CLOUD_LONG that enable you to 
 ingest and query data faster while keeping the costs low. 
@@ -81,6 +80,16 @@ relational and time-series data from external files.
        
               There is no time-series data in this table, so you don't see the  `hypertable partition` option.
 
+          1. Click `SQL editor`, then run the following SQL to enable columnstore on the `crypto_ticks` table:
+
+             ```sql
+             ALTER TABLE crypto_ticks SET(
+               timescaledb.enable_columnstore,
+               timescaledb.orderby = 'time DESC',
+               timescaledb.segmentby = 'symbol'
+             );
+             ```
+             
        </Tab>
         
        <Tab title="psql">
