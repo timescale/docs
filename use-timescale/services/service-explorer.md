@@ -32,15 +32,11 @@ summary of your Timescale database, including all your hypertables and
 relational tables. It summarizes your overall compression ratios, and other
 policy and continuous aggregate data. And, if you aren't already using key features like continuous aggregates, columnstore compression, or other automation policies and actions, it provides pointers to tutorials and documentation to help you get started.
 
-<img class="main-content__illustration"
-width={1375} height={944}
-src="https://assets.timescale.com/docs/images/tsc-explorer.webp"
-alt="Timescale Explorer, General Information section"/>
+![Service explorer](https://assets.timescale.com/docs/images/timescale-console-service-explorer.png)
 
 ## Tables
 
-In the `Tables` section of the Explorer, you can see a detailed look into all
-your tables, including information about table schemas, table indexes, and
+You can have a detailed look into all your tables, including information about table schemas, table indexes, and
 foreign keys. For your hypertables, it shows details about chunks, continuous
 aggregates, and policies such as data retention policies and data reordering.
 You can also inspect individual hypertables, including their sizes, dimension
@@ -49,12 +45,8 @@ ranges, and columnstore compression status.
 From this section, you can also set an automated policy to compress chunks into the columnstore. For more information,
 see the [hypercore documentation][hypercore].
 
-<img
-class="main-content__illustration"
-width={1375} height={944}
-src="https://assets.timescale.com/docs/images/tsc-explorer-tables.webp"
-alt="Timescale Explorer, Tables section"
-/>
+![Service explorer tables](https://assets.timescale.com/docs/images/timescale-console-service-explorer-tables.png)
+
 
 For more information about hypertables, see the
 [hypertables section][hypertables].
@@ -65,12 +57,7 @@ In the `Continuous aggregate` section, you can see all your continuous
 aggregates, including top-level information such as their size, whether they are
 configured for real-time aggregation, and their refresh periods.
 
-<img
-class="main-content__illustration"
-width={1375} height={944}
-src="https://assets.timescale.com/docs/images/tsc-explorer-caggs.webp"
-alt="Timescale Explorer, Continuous aggregates section"
-/>
+![Service explorer caggs](https://assets.timescale.com/docs/images/timescale-console-service-explorer-caggs.png)
 
 For more information about continuous aggregates, see the
 [continuous aggregates section][caggs].
