@@ -36,7 +36,7 @@ You can view metrics for your services for any of these time ranges:
 
 To change the view, select the time range from the drop-down menu.
 
-![Service metrics](https://assets.timescale.com/docs/images/service-metrics.png)
+![Service metrics](https://assets.timescale.com/docs/images/service-metrics-timescale.png)
 
 Additionally, you can turn automatic metric refreshes on and off. When automatic
 metric refresh is on, the dashboard updates every thirty seconds.
