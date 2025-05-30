@@ -2,7 +2,7 @@
 title: Manage storage and tiering
 excerpt: Configure high-performance and low-cost object storage tiers in Timescale Console. With automated data tiering policies, you get a set it and forget it tool to cut storage costs
 products: [cloud]
-price_plans: [scale, enterprise]
+price_plans: [performance, scale, enterprise]
 keywords: [tiered storage]
 tags: [storage, data management]
 cloud_ui:
@@ -52,6 +52,8 @@ This storage type gives you up to 16 TB of storage and is available under [all $
 
 ### Enhanced high-performance storage
 
+<Availability products={['cloud']} price_plans={['enterprise']} />
+
 This storage type gives you up to 64 TB and 32,000 IOPS, and is available under the [$ENTERPRISE $PRICING_PLAN][pricing-plans]. To get enhanced storage:
 
 <Procedure>
@@ -81,15 +83,17 @@ You change from enhanced storage to standard in the same way. If you are using o
 
 ## Low-cost object storage tier
 
+<Availability products={['cloud']} price_plans={['enterprise', 'scale']} />
+
 You enable the low-cost object storage tier in $CONSOLE and then tier the data with policies or manually. 
 
-### Enable tiered storage 
+### Enable tiered storage
 
 You enable tiered storage from the `Overview` tab in $CONSOLE.
 
 <Procedure>
 
-1. **In [$CONSOLE][portal-ops-mode], select the $SERVICE_SHORT to modify**
+1. **In [$CONSOLE][console], select the $SERVICE_SHORT to modify**
 
 1. **In `Explorer`, click `Storage configuration` > `Tiering storage`, then click `Enable tiered storage`**
 

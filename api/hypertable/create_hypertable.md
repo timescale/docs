@@ -14,7 +14,7 @@ import DimensionInfo from "versionContent/_partials/_dimension_info.mdx";
 
 # create_hypertable()
 
-<Deprecated2200 /> Replaced by <a href="https://docs.timescale.com/api/latest/hypertables/create_table/">CREATE TABLE</a>.
+<Deprecated2200 /> Replaced by <a href="https://docs.timescale.com/api/latest/hypertable/create_table/">CREATE TABLE</a>.
 
 Replace a standard PostgreSQL relational table with a [hypertable][hypertable-docs]
 that is partitioned on a single dimension. 
