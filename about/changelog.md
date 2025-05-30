@@ -9,6 +9,57 @@ products: [cloud, self_hosted]
 
 All the latest features and updates to Timescale products.
 
+## 🕵🏻️ Enhanced service monitoring, TimescaleDB v2.20, and livesync for PostgreSQL
+<Label type="date">May 30, 2025</Label>
+
+### Updated top-level navigation - Monitoring tab
+
+In Timescale Console, we have consolidated multiple top-level service information tabs into the single Monitoring tab. 
+This tab houses information previously displayed in the Recommendations, Jobs, Connections, Metrics, Logs, 
+and `Insights` tabs.
+
+![Insights](https://assets.timescale.com/docs/images/insights_overview_timescale.png)
+
+### Monitor active connections
+
+In the `Connections` section under `Monitoring`, you can now see information like the query being run, the application
+name, and duration for all current connections to a service.
+
+![Connections](https://assets.timescale.com/docs/images/console-monitoring-connections.png)
+
+The information in `Connections` enables you to debug misconfigured applications, or 
+cancel problematic queries to free up other connections to your database.
+
+### TimescaleDB v2.20 - query performance and faster data updates
+
+All new services created on Timescale Cloud are created using 
+[TimescaleDB v2.20](https://github.com/timescale/timescaledb/releases/tag/2.20.0). Existing services will be 
+automatically upgraded during their maintenance window.
+
+Highlighted features in TimescaleDB v2.20 include:
+* Efficiently handle data updates and upserts (including backfills, that are now up to 10x faster).
+* Up to 6x faster point queries on high-cardinality columns using new bloom filters.
+* Up to 2500x faster DISTINCT operations with SkipScan, perfect for quickly getting a unique list or the latest reading 
+  from any device, event, or transaction.
+* 8x more efficient Boolean column storage with vectorized processing, resulting in 30-45% faster queries.
+* Enhanced developer flexibility with continuous aggregates now supporting window and mutable functions, plus 
+  customizable refresh orders.
+
+This release deprecates support for Postgres 14.
+
+### Enhancements to livesync for PostgreSQL
+
+You now can: 
+* Edit a running livesync to add and drop tables from an existing configuration:
+  - For existing tables, Timescale Console stops the livesync while keeping the target table intact.
+  - Newly added tables sync their existing data and transition into the Change Data Capture (CDC) state.
+* Create multiple livesync instances for PostgreSQL per service. This is an upgrade from our initial launch which 
+  limited users to one LiveSync per service.
+
+  This enables you to sync data from multiple PostgreSQL source databases into a single Timescale Cloud service.
+* No more hassle looking up schema and table names for livesync configuration from the source. Starting today, all 
+  schema and table names are available in a dropdown menu for seamless source table selection.
+
 ## ➕ More storage types and IOPS
 <Label type="date">May 22, 2025</Label>
 
