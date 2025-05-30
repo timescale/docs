@@ -108,6 +108,9 @@ system during the upgrade.
     src="https://assets.timescale.com/docs/images/change-maintenance-window.png"
     alt="Timescale change maintenance window"/>
 
+    ![Maintenance and upgrades](https://assets.timescale.com/docs/images/timescale-maintenance-upgrades.png)
+
+
 4.  Check `Apply new maintenance window to all services` if you want to use the
     same maintenance window settings for all of your Timescale services.
 5.  Click `Apply`.
