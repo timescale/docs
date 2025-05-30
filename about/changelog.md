@@ -8,89 +8,60 @@ products: [cloud, self_hosted]
 # Changelog
 
 All the latest features and updates to Timescale products.
+
+## 🕵🏻️Enhanced service monitoring, TimescaleDB v2.20, and Livesync for PostgreSQL
 <Label type="date">May 28, 2025</Label>
-### Database
 
-#### 2.20.0 Release
-- Released for on-premise users.
-- Rolled out to:
-  - All **newly created services** on Timescale Cloud.
-  - **Owl** and **Schemata** environments in production.
-- **Fleet-wide rollout** scheduled to begin next week.
+### Updated top-level navigation - Monitoring tab 🔎
 
-#### Feature Development Progress (FY26-Q2)
-- ✅ `Attach & Detach Chunks` feature implemented.
-- ✅ Reduced storage **bloat after recompression**.
-- ✅ Support for **splitting compressed chunks** to improve performance.
+In Timescale Console, we have consolidated multiple top-level service information tabs into the single Monitoring tab. 
+This tab houses information previously dispayed in the Recommendations, Jobs, Connections, Metrics, Logs, 
+and Insights tabs.
 
-#### Upcoming
-- Blog posts in development:
-  - Full 2.20.0 release overview.
-  - Deep dives on internals such as `SkipScan`.
+![Insights](https://assets.timescale.com/docs/images/insights_overview_timescale.png)
 
----
+### Monitor active connections
 
-### Cloud Infrastructure
+In the `Connections` section under `Monitoring`, users can now see information like the query being run, the application
+name, and duration for all current connections to a service.
 
-- Continued progress on **TigerLake** bug resolution.
-- 🚀 New **CloudFormation template** introduced for dramatically simplified setup (10x easier).
+![Connections](https://assets.timescale.com/docs/images/console-monitoring-connections.png)
 
----
+The information in `Connections` enables users to debug misconfigured applications, or 
+cancel problematic queries to free up other connections to their database.
 
-### PopSQL
+### TimescaleDB v2.20 - query performance and faster data updates
 
-#### AI SQL Assistant
-- ➕ Added support for **Claude 4 Sonnet** and **Opus** models.
-- 🧠 Improved handling of LLM outputs (e.g., content filters).
-- 🔧 Relaxed `schemaSearch` API to reduce LLM-related errors.
+All new services created on Timescale Cloud are created using 
+[TimescaleDB v2.20](https://github.com/timescale/timescaledb/releases/tag/2.20.0). Existing services will be 
+automatically upgraded during their maintenance window.
 
-#### UX & Platform
-- 🔔 Added **in-app overdue payment alert banner**.
-- 💰 Collected **>$100K** in past-due payments.
-- 🔐 Enabled **passwordless TSDB connections** via VPC.
-- 🛠️ Fixed **hostname validation** for passwordless connections.
+Highlighted features in TimescaleDB v2.20 include:
+* Efficiently handle data updates and upserts (including backfills, that are now up to 10x faster).
+* Up to 6x faster point queries on high-cardinality columns using new bloom filters.
+* Up to 2500x faster DISTINCT operations with SkipScan, perfect for quickly getting a unique list or the latest reading 
+  from any device, event, or transaction.
+* 8x more efficient Boolean column storage with vectorized processing, resulting in 30-45% faster queries.
+* Enhanced developer flexibility with continuous aggregates now supporting window and mutable functions, plus 
+  customizable refresh orders.
 
----
+This release deprecates support for Postgres 14.
 
-### Business Experience
+### Enhancements to Livesync for PostgreSQL
 
-#### RBAC
-- Viewer role under testing; internal rollout planned next week.
-- Docs and rollout plan in development for private beta users.
+Users can now: 
+* Edit a running Livesync to add and drop tables from an existing configuration:
+  - For existing tables, Timescale Console stops the Livesync while keeping the target table intact.
+  - Newly added tables sync their existing data and transition into the Change Data Capture (CDC) state.
+* Create multiple Livesync instances for PostgreSQL per service. This is an upgrade from our initial launch which 
+  limited users to one LiveSync per service.
 
-#### Point-in-Time Recovery (PITR)
-- Scale & Enterprise customers can now self-recover up to **14 days**.
-  - Previously required a support ticket for >3 days.
-
-#### Enhanced Storage
-- Bug fixes rolled out.
-- Now enabled in all regions **except São Paulo**.
-
----
-
-### AI Features
-
-#### Vectorscale
-- Investigating customer issue: **low recall rates**.
-- Working on:
-  - **LRU cache** for memory optimization.
-  - **Parallel index building**.
-  - Benchmarking vs. `pgvector`.
-
-#### Vectorizer
-- Improved batching logic in progress.
-- Developing **custom code API**.
-
-#### Text-to-SQL
-- Preparing for release:
-  - Pending documentation.
-  - Fixing **timeout issue**.
-  - Adding **Mistral** to evaluation suite.
-
-
-<Label type="date">May 22, 2025</Label>
+  This enables you to sync data from multiple PostgreSQL source databases into a single Timescale Cloud service.
+* No more hassle looking up schema and table names for Livesync configuration from the source. Starting today, all 
+  schema and table names are available in a dropdown menu for seamless source table selection.
 
 ## ➕ More storage types and IOPS
+<Label type="date">May 22, 2025</Label>
 
 ### 🚀 Enhanced storage: scale to 64 TB and 32,000 IOPS
 
