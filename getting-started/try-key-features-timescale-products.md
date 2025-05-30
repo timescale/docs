@@ -85,8 +85,8 @@ relational and time-series data from external files.
               If you want to  have a quick look at your data, press `Run` .
           1. Repeat the process with `<local folder>/tutorial_sample_assets.csv` and rename to `crypto_assets`.
        
-              There is no time-series data in this table, so you don't see the  `hypertable partition` option.
- 
+              There is no time-series data in this table, so you don't see the  `hypertable partition` option. 
+
        </Tab>
         
        <Tab title="psql">
@@ -121,10 +121,7 @@ relational and time-series data from external files.
                 ```
                 
                 <OldCreateHypertable />
-
-                To more fully understand how $HYPERTABLEs work, and how to optimize them for performance by
-                tuning $CHUNK intervals and enabling chunk skipping, see [$HYPERTABLE_CAPs][hypertables-section].
-
+   
           - For the relational data:
       
              In your sql client, create a normal $PG table:
@@ -187,7 +184,9 @@ For example, yesterday's market data.
    ``` sql
    CALL add_columnstore_policy('crypto_ticks', after => INTERVAL '1d');
    ```
-   See [add_columnstore_policy][add_columnstore_policy].
+   If you have not configured a `segmentby` column, $TIMESCALE_DB chooses one for you based on the data in your 
+   $HYPERTABLE. For more information on how to tune your $HYPERTABLEs for the best performance, see 
+   [efficient queries][secondary-indexes].
 
 1. **View your data space saving**
 
