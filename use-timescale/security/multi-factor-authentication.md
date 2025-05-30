@@ -29,7 +29,7 @@ Take the following steps to configure two-factor authentication:
 
 <Procedure>
 
-1.  Log in to [$CONSOLE][cloud-login].
+1.  Log in to [$CONSOLE][cloud-login] with your username and password. 2FA is not available if you log in with Google SSO. 
 1.  Click the `User name` icon in the bottom left of $CONSOLE and select `Account`.
 1.  In `Account`, click `Add two-factor authentication`.
 1.  On your mobile device, open Google Authenticator, tap `+`, and select
@@ -61,7 +61,7 @@ recovery codes, or lost access to them, you can generate another list. Generatin
 
 <Procedure>
 
-1.  Log in to [$CONSOLE][cloud-login].
+1.  Log in to [$CONSOLE][cloud-login] with your username and password.
 1.  Click the `User name` icon in the bottom left and select `Account`.
 1.  In `Account`, navigate to `Two-factor authentication`.
 1.  Click `Regenerate recovery codes`.
@@ -85,7 +85,7 @@ again with your new device.
 
 <Procedure>
 
-1.  Log in to [$CONSOLE][cloud-login].
+1.  Log in to [$CONSOLE][cloud-login] with your username and password.
 1.  Click the `User name` icon in the bottom left of $CONSOLE and select `Account`.
 1.  In `Account`, navigate to `Two-factor authentication`.
 1.  Click `Remove two-factor authentication`.
