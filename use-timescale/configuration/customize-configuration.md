@@ -31,10 +31,7 @@ modify. This displays the `service details`, with these tabs across the top:
 Overview, Explorer, Operations, Metrics, and Logs. Select `Operations`, then
 `Database parameters`.
 
-<img class="main-content__illustration"
-width={1375} height={944}
-src="https://assets.timescale.com/docs/images/tsc-settings.webp"
-alt="View Timescale service settings"/>
+![Database configuration parameters](https://assets.timescale.com/docs/images/database-configuration-parameters.png)
 
 ### Modify basic parameters
 

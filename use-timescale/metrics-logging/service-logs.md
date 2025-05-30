@@ -11,6 +11,6 @@ cloud_ui:
 # Service logs
 
 From the `Services` page, click the service you are interested in and navigate
-to the `Logs` tab. This section contains your service's logging data. Filter logs by type, date, and time. 
+to `Monitoring` > `Logs` tab. This section contains your service's logging data. Filter logs by type, date, and time. 
 
-![Find logs faster](https://assets.timescale.com/docs/images/timescale-console-service-logs.png)
+![Find logs faster](https://assets.timescale.com/docs/images/timescale-service-logs.png)

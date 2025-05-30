@@ -13,7 +13,7 @@ import EarlyAccessNoRelease from "versionContent/_partials/_early_access.mdx";
 
 You use $LIVESYNC to synchronize CSV and Parquet files from an S3 bucket to your $SERVICE_LONG in real time. Livesync runs continuously, enabling you to leverage $CLOUD_LONG as your analytics database with data constantly synced from S3. This lets you take full advantage of $CLOUD_LONG's real-time analytics capabilities without having to develop or manage custom ETL solutions between S3 and $CLOUD_LONG.
 
-![$LIVESYNC_CAP view status](https://assets.timescale.com/docs/images/livesync-s3-view-status.png)
+![$LIVESYNC_CAP view status](https://assets.timescale.com/docs/images/livesync-for-s3-view-status.png)
 
 You can use $LIVESYNC to synchronize your existing and new data. Here's what $LIVESYNC can do:
 
@@ -99,7 +99,7 @@ To sync data from your S3 bucket to your $SERVICE_LONG using $CONSOLE:
 
 1. **Connect the source S3 bucket to the target $SERVICE_SHORT**
 
-   ![Livesync connect to bucket](https://assets.timescale.com/docs/images/livesync-s3-wizard.png)
+   ![Livesync connect to bucket](https://assets.timescale.com/docs/images/livesync-s3-wizard-timescale.png)
 
    1. In `Livesync for S3`, set the `Bucket name` and `Authentication method`, then click `Continue`.
    
@@ -136,11 +136,11 @@ To sync data from your S3 bucket to your $SERVICE_LONG using $CONSOLE:
    1. To view the progress of the $LIVESYNC, click the name of the $LIVESYNC process.
    
       You see the status of the file being synced. Only one file runs at a time.
-      ![livesync view status](https://assets.timescale.com/docs/images/livesync-s3-view-status.png)
+      ![livesync view status](https://assets.timescale.com/docs/images/livesync-for-s3-view-status.png)
    1. To pause and restart $LIVESYNC, click the buttons on the right of the $LIVESYNC process and select an action.
    
       During pauses, you can edit the configuration before resuming.
-      ![livesync start stop](https://assets.timescale.com/docs/images/livesync-s3-start-stop.png)
+      ![livesync start stop](https://assets.timescale.com/docs/images/livesync-for-s3-start-stop.png)
 
 </Procedure>
 

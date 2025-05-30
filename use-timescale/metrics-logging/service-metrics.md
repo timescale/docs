@@ -14,7 +14,7 @@ import EarlyAccess from "versionContent/_partials/_early_access_2_18_0.mdx";
 # Service metrics
 
 You can view your service metrics from the Timescale
-[metrics dashboard][metrics-dashboard]. This dashboard gives you service-level
+metrics dashboard. This dashboard gives you service-level
 information, such as CPU, memory, and storage usage.
 
 You can view your query-level statistics by using the pre-installed
@@ -23,9 +23,9 @@ You can view your query-level statistics by using the pre-installed
 ## Metrics dashboard
 
 Timescale provides a metrics dashboard for managing your services. You can
-see the Metrics dashboard in your Timescale account by navigating to the
-`Services` section, clicking the service you want to explore, and selecting the
-`Metrics` tab.
+see the `Metrics` dashboard in your Timescale account by navigating to the
+`Services` section, clicking the service you want to explore, and then selecting `Monitoring` >
+`Metrics`.
 
 You can view metrics for your services for any of these time ranges:
 
@@ -36,10 +36,7 @@ You can view metrics for your services for any of these time ranges:
 
 To change the view, select the time range from the drop-down menu.
 
-<img class="main-content__illustration"
-width={1375} height={944}
-src="https://assets.timescale.com/docs/images/tsc-metrics_lastmonth.webp"
-alt="Timescale Metrics dashboard"/>
+![Service metrics](https://assets.timescale.com/docs/images/service-metrics-timescale.png)
 
 Additionally, you can turn automatic metric refreshes on and off. When automatic
 metric refresh is on, the dashboard updates every thirty seconds.
@@ -60,11 +57,6 @@ Timescale continuously monitors the health and resource consumption of all
 database services. You can check your health data by navigating to the `metrics`
 tab in your service dashboard. These metrics are also monitored by the Timescale
 operations team.
-
-<img class="main-content__illustration"
-width={1375} height={944}
-src="https://assets.timescale.com/docs/images/tsc-disk-metrics.webp"
-alt="Timescale metrics dashboard"/>
 
 ## Query-level statistics with pg_stat_statements
 

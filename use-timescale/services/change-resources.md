@@ -24,7 +24,7 @@ You can change the CPU and memory allocation for your $SERVICE_LONG at any time 
 minimal downtime, usually less than a minute. The new resources become available as soon as 
 the service restarts. You can change the CPU and memory allocation up or down, as frequently as required. 
 
-![Change resources](https://assets.timescale.com/docs/images/console-update-resources.png)
+![Change resources](https://assets.timescale.com/docs/images/console-update-resources-manually.png)
 
 There is momentary downtime while the new compute settings are applied. In most cases, this is 
 less than a minute. However, Before making changes to your service, best practice
