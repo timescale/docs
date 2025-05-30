@@ -13,12 +13,9 @@ cloud_ui:
 
 Insights allows you to gain a comprehensive understanding of how your queries perform over time. It empowers you to optimize your queries and make the most efficient use of your instance resources.
 
-On the `Insights` tab, you can access insights on queries and instance resources for the previous 24 hours.
+On the `Monitoring` > `Insights` tab, you can access insights on queries and instance resources for the previous 24 hours.
 
-<img class="main-content__illustration"
-    width={1375} height={944}
-    src="https://assets.timescale.com/docs/images/insights_overview.png"
-    alt="Timescale Insights page"/>
+![Insights](https://assets.timescale.com/docs/images/insights_overview_timescale.png)
 
 At the top of the page, you'll find a set of filters, including query types, query text matching, minimum execution time, and a time frame selector, enabling you to find the queries you would like to analyze. Moreover, within the Queries table list view, you can customize the order of the result set by selecting a specific metric. For instance, when seeking out slow queries, you can sort by P95 Time, which brings the slowest queries to the forefront. The result set is limited to 50 queries, so if you're dealing with many unique queries, these filters are useful in helping you pinpoint the information you need.
 

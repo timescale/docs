@@ -172,7 +172,8 @@ the Timescale portal.
 1.  [Log in to $CONSOLE][cloud-login] and click the service
     you want to add a connection pooler to.
 1.  In `Operations`, click `Connection pooling` > `Add pooler`.
-1.  When the pooler has been added, your pooler connection details are displayed
+
+    Your pooler connection details are displayed
     in the `Connection pooling` tab. Use this information to connect to your transaction or session
     pooler. For more information about the
     different pool types, see the [pool types][about-connection-pooling-types]

@@ -103,11 +103,6 @@ system during the upgrade.
     timezone that you want the maintenance window to start. Maintenance windows
     can run for up to four hours.
 
-    <img class="main-content__illustration"
-    width={1375} height={944}
-    src="https://assets.timescale.com/docs/images/change-maintenance-window.png"
-    alt="Timescale change maintenance window"/>
-
     ![Maintenance and upgrades](https://assets.timescale.com/docs/images/timescale-maintenance-upgrades.png)
 
 
