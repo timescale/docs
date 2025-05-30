@@ -50,46 +50,43 @@ relational and time-series data from external files.
 
 <Procedure>
 
-1.  **Import some time-series data into your $HYPERTABLE**
+1.  **Import some time-series data into $HYPERTABLEs**
 
     1. Unzip <Tag type="download">[crypto_sample.zip](https://assets.timescale.com/docs/downloads/candlestick/crypto_sample.zip)</Tag> to a `<local folder>`.
 
-       This test dataset contains second-by-second trade data for the most-traded crypto-assets
-       and a regular table of asset symbols and company names.  
+       This test dataset contains: 
+         - Second-by-second data for the most-traded crypto-assets. This time-series data is best suited for
+           optimization in a [hypertable][hypertables-section].
+         - A list of asset symbols and company names. This is best suited for a regular relational table.  
 
        To import up to 100GB of data directly from your current $PG-based database, 
        [migrate with downtime][migrate-with-downtime] using native $PG tooling. To seamlessly import 100GB-10TB+ 
-       of data, use the [live migration][migrate-live] tooling supplied by $COMPANY. To add data from non-$PG data sources, see [Import and ingest data][data-ingest].
+       of data, use the [live migration][migrate-live] tooling supplied by $COMPANY. To add data from non-$PG data 
+       sources, see [Import and ingest data][data-ingest].
 
-    1. Upload data from the CSVs to your $SERVICE_SHORT:
+    1. Upload data into a $HYPERTABLE:
+
+       To more fully understand how to create a $HYPERTABLE, how $HYPERTABLEs work, and how to optimize them for 
+       performance by tuning $CHUNK intervals and enabling chunk skipping, see 
+       [the $HYPERTABLEs documentation][hypertables-section]. 
     
-       <Tabs label="Upload data to ">
+       <Tabs label="Upload data">
 
        <Tab title="Timescale Console">
        
-          The $CONSOLE data upload creates the tables for you from the data you are uploading:
+          The $CONSOLE data upload creates $HYPERTABLEs and relational tables from the data you are uploading:
           1. In [$CONSOLE][portal-ops-mode], select the $SERVICE_SHORT to add data to, then click `Actions` > `Upload CSV`.
           1. Drag `<local folder>/tutorial_sample_tick.csv` to `Upload .CSV` and change `New table name` to `crypto_ticks`.
           1. Enable `hypertable partition` for the `time` column and click `Upload CSV`.
        
               The upload wizard creates a $HYPERTABLE containing the data from the CSV file.
           1. When the data is uploaded, close `Upload .CSV`.
-       
+                      
               If you want to  have a quick look at your data, press `Run` .
           1. Repeat the process with `<local folder>/tutorial_sample_assets.csv` and rename to `crypto_assets`.
        
-              There is no time-series data in this table, so you don't see the  `hypertable partition` option.
+              There is no time-series data in this table, so you don't see the  `hypertable partition` option. 
 
-          1. Click `SQL editor`, then run the following SQL to enable columnstore on the `crypto_ticks` table:
-
-             ```sql
-             ALTER TABLE crypto_ticks SET(
-               timescaledb.enable_columnstore,
-               timescaledb.orderby = 'time DESC',
-               timescaledb.segmentby = 'symbol'
-             );
-             ```
-             
        </Tab>
         
        <Tab title="psql">
@@ -124,10 +121,7 @@ relational and time-series data from external files.
                 ```
                 
                 <OldCreateHypertable />
-
-                To more fully understand how $HYPERTABLEs work, and how to optimize them for performance by
-                tuning $CHUNK intervals and enabling chunk skipping, see [$HYPERTABLE_CAPs][hypertables-section].
-
+   
           - For the relational data:
       
              In your sql client, create a normal $PG table:
@@ -152,9 +146,6 @@ relational and time-series data from external files.
         
        </Tabs>
    
-    To more fully understand how $HYPERTABLEs work, and how to optimize them for performance by
-    tuning $CHUNK intervals and enabling chunk skipping, see [the $HYPERTABLEs documentation][hypertables-section].
-
 1.  **Have a quick look at your data**  
 
     You query $HYPERTABLEs in exactly the same way as you would a relational $PG table.
@@ -193,25 +184,17 @@ For example, yesterday's market data.
    ``` sql
    CALL add_columnstore_policy('crypto_ticks', after => INTERVAL '1d');
    ```
-   See [add_columnstore_policy][add_columnstore_policy].
+   If you have not configured a `segmentby` column, $TIMESCALE_DB chooses one for you based on the data in your 
+   $HYPERTABLE. For more information on how to tune your $HYPERTABLEs for the best performance, see 
+   [efficient queries][secondary-indexes].
 
 1. **View your data space saving**
 
    When you convert data to the $COLUMNSTORE, as well as being optimized for analytics, it is compressed by more than
    90%. This helps you save on storage costs and keeps your queries operating at lightning speed. To see the amount of space
-   saved:
-   ``` sql
-   SELECT
-     pg_size_pretty(before_compression_total_bytes) as before,
-     pg_size_pretty(after_compression_total_bytes) as after
-   FROM hypertable_columnstore_stats('crypto_ticks');
-   ```
-   You see something like:
+   saved, click `Explorer` > `public` > `crypto_ticks`. 
 
-   | Before | After   |
-      |--------|---------|
-   | 32 MB  | 3808 KB |
-
+   ![Columnstore data savings](https://assets.timescale.com/docs/images/console-columstore-data-savings.png )
 
 </Procedure>
 
