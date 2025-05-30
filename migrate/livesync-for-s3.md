@@ -77,7 +77,6 @@ $LIVESYNC_CAP for S3 continuously imports data from an Amazon S3 bucket into you
       - Skip header: skip the first row if your file has headers
 - **Parquet**:
    - Maximum file size: 1 GB
-   - Maximum row group uncompressed size: 200 MB
    - Maximum row size: 2 MB
 - **Sync iteration**:
 
