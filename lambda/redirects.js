@@ -435,6 +435,10 @@ module.exports = [
     to: "https://docs.timescale.com/self-hosted/latest/troubleshooting",
   },
   {
+    from: "/timescaledb/latest/how-to-guides/configuration/about-configuration/#workers",
+      to: "https://docs.timescale.com/use-timescale/latest/configuration/advanced-parameters/#timescaledbmax_background_workers-int",
+  },
+  {
     from: "/timescaledb/latest/how-to-guides/configuration/docker-config",
     to: "https://docs.timescale.com/self-hosted/latest/configuration/docker-config/",
   },
@@ -459,6 +463,10 @@ module.exports = [
     to: "https://docs.timescale.com/self-hosted/latest/multinode-timescaledb/",
   },
   {
+    from: "timescaledb/latest/how-to-guides/hyperfunctions/",
+    to: "https://docs.timescale.com/use-timescale/latest/hyperfunctions/",
+  },
+  {
     from: "/timescaledb/latest/how-to-guides/replication-and-ha",
     to: "https://docs.timescale.com/self-hosted/latest/replication-and-ha/",
   },
@@ -481,6 +489,14 @@ module.exports = [
   {
     from: "/timescaledb/latest/how-to-guides/uninstall",
     to: "https://docs.timescale.com/self-hosted/latest/uninstall",
+  },
+  {
+    from: "/timescaledb/latest/how-to-guides/user-defined-actions/about-user-defined-actions/",
+    to: "https://docs.timescale.com/use-timescale/latest/jobs/",
+  },
+  {
+    from: "/timescaledb/latest/how-to-guides/user-defined-actions/example-backfill/",
+    to: "https://github.com/timescale/timescaledb-extras/blob/master/backfill.sql",
   },
   {
     from: "/timescaledb/latest/introduction",
@@ -1007,6 +1023,6 @@ module.exports = [
   },
   {
     from: '/quick-start/latest/',
-    to: 'https://docs.timescale.com/tutorials/latest/',
+    to: 'https://docs.timescale.com/getting-started/latest/start-coding-with-timescale/',
   },
 ];
