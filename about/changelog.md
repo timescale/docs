@@ -9,26 +9,26 @@ products: [cloud, self_hosted]
 
 All the latest features and updates to Timescale products.
 
-## 🕵🏻️Enhanced service monitoring, TimescaleDB v2.20, and Livesync for PostgreSQL
+## 🕵🏻️Enhanced service monitoring, TimescaleDB v2.20, and livesync for PostgreSQL
 <Label type="date">May 28, 2025</Label>
 
 ### Updated top-level navigation - Monitoring tab 🔎
 
 In Timescale Console, we have consolidated multiple top-level service information tabs into the single Monitoring tab. 
-This tab houses information previously dispayed in the Recommendations, Jobs, Connections, Metrics, Logs, 
+This tab houses information previously displayed in the Recommendations, Jobs, Connections, Metrics, Logs, 
 and Insights tabs.
 
 ![Insights](https://assets.timescale.com/docs/images/insights_overview_timescale.png)
 
 ### Monitor active connections
 
-In the `Connections` section under `Monitoring`, users can now see information like the query being run, the application
+In the `Connections` section under `Monitoring`, you can now see information like the query being run, the application
 name, and duration for all current connections to a service.
 
 ![Connections](https://assets.timescale.com/docs/images/console-monitoring-connections.png)
 
-The information in `Connections` enables users to debug misconfigured applications, or 
-cancel problematic queries to free up other connections to their database.
+The information in `Connections` enables you to debug misconfigured applications, or 
+cancel problematic queries to free up other connections to your database.
 
 ### TimescaleDB v2.20 - query performance and faster data updates
 
@@ -47,17 +47,17 @@ Highlighted features in TimescaleDB v2.20 include:
 
 This release deprecates support for Postgres 14.
 
-### Enhancements to Livesync for PostgreSQL
+### Enhancements to livesync for PostgreSQL
 
-Users can now: 
-* Edit a running Livesync to add and drop tables from an existing configuration:
-  - For existing tables, Timescale Console stops the Livesync while keeping the target table intact.
+You now can: 
+* Edit a running livesync to add and drop tables from an existing configuration:
+  - For existing tables, Timescale Console stops the livesync while keeping the target table intact.
   - Newly added tables sync their existing data and transition into the Change Data Capture (CDC) state.
-* Create multiple Livesync instances for PostgreSQL per service. This is an upgrade from our initial launch which 
+* Create multiple livesync instances for PostgreSQL per service. This is an upgrade from our initial launch which 
   limited users to one LiveSync per service.
 
   This enables you to sync data from multiple PostgreSQL source databases into a single Timescale Cloud service.
-* No more hassle looking up schema and table names for Livesync configuration from the source. Starting today, all 
+* No more hassle looking up schema and table names for livesync configuration from the source. Starting today, all 
   schema and table names are available in a dropdown menu for seamless source table selection.
 
 ## ➕ More storage types and IOPS
