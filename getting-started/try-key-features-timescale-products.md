@@ -54,13 +54,15 @@ relational and time-series data from external files.
 
     1. Unzip <Tag type="download">[crypto_sample.zip](https://assets.timescale.com/docs/downloads/candlestick/crypto_sample.zip)</Tag> to a `<local folder>`.
 
-       This test dataset contains second-by-second trade time-series data for the most-traded crypto-assets
-       that you optimize in a [hypertable][hypertables-section], and a list of asset symbols and company names that is best suited for
-       a regular relational table.  
+       This test dataset contains: 
+         - Second-by-second data for the most-traded crypto-assets. This time-series data is best suited for
+           optimization in a [hypertable][hypertables-section].
+         - A list of asset symbols and company names. This is best suited for a regular relational table.  
 
        To import up to 100GB of data directly from your current $PG-based database, 
        [migrate with downtime][migrate-with-downtime] using native $PG tooling. To seamlessly import 100GB-10TB+ 
-       of data, use the [live migration][migrate-live] tooling supplied by $COMPANY. To add data from non-$PG data sources, see [Import and ingest data][data-ingest].
+       of data, use the [live migration][migrate-live] tooling supplied by $COMPANY. To add data from non-$PG data 
+       sources, see [Import and ingest data][data-ingest].
 
     1. Upload data into a $HYPERTABLE:
 
