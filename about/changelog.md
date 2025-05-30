@@ -10,13 +10,13 @@ products: [cloud, self_hosted]
 All the latest features and updates to Timescale products.
 
 ## 🕵🏻️Enhanced service monitoring, TimescaleDB v2.20, and livesync for PostgreSQL
-<Label type="date">May 28, 2025</Label>
+<Label type="date">May 30, 2025</Label>
 
 ### Updated top-level navigation - Monitoring tab 🔎
 
 In Timescale Console, we have consolidated multiple top-level service information tabs into the single Monitoring tab. 
 This tab houses information previously displayed in the Recommendations, Jobs, Connections, Metrics, Logs, 
-and Insights tabs.
+and `Insights` tabs.
 
 ![Insights](https://assets.timescale.com/docs/images/insights_overview_timescale.png)
 
