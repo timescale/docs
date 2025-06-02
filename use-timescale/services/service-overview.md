@@ -18,7 +18,7 @@ When you log into your [Timescale account][cloud-login], you see the
 Project overview. Click a service to view run-time data and connection information. 
 Click `Operations` to configure your service. 
 
-![Select a query to edit](https://assets.timescale.com/docs/images/ops-mode-overview.png)
+![Select a query to edit](https://assets.timescale.com/docs/images/ops-mode-overview-timescale-console.png)
 
 Each service hosts a single database managed for you by Timescale in the cloud. 
 If you need more than one database, [create a new service][create-service].
