@@ -52,9 +52,17 @@ To create a secure $READ_REPLICA set for your read-intensive apps:
 
 1. **Save the connection information**
 
-    The connection information for each $READ_REPLICA set is unique. If you add or remove nodes from an existing set, the connection information of that set changes. 
+   The username and password of a read replica set are the same as the primary $SERVICE_SHORT. They cannot be changed independently. 
 
-    The username and password of a read replica set are the same as the primary $SERVICE_SHORT. They cannot be changed independently.  
+   The connection information for each $READ_REPLICA set is unique. If you add or remove nodes from an existing set, the connection information of that set changes. To find the connection information for an existing $READ_REPLICA set: 
+
+     1. Select the primary $SERVICE_SHORT in $CONSOLE.
+    
+     1. Click `Operations` > `Read scaling`.
+
+     1. Click the 🔗 icon next to the replica set in the list. 
+
+    
 
 </Procedure>
 
@@ -66,7 +74,7 @@ You can edit an existing $READ_REPLICA set to better handle your reads. This inc
 
 To change the compute and storage configuration of your $READ_REPLICA set: 
 
-1. **In [$CONSOLE][timescale-console-services], expand and click the $READ_REPLICA set under your target $SERVICE_SHORT**
+1. **In [$CONSOLE][timescale-console-services], expand and click the $READ_REPLICA set under your primary $SERVICE_SHORT**
 
    ![Read replicas in Timescale Console](https://assets.timescale.com/docs/images/read-replica-sets-timescale-console.png)
 
@@ -76,7 +84,7 @@ To change the compute and storage configuration of your $READ_REPLICA set:
 
 1. **Change the replica configuration and click `Apply`**
 
-   If you add or remove nodes from an existing $READ_REPLICA set, reconnect to the set using the updated connection information.
+   If you add or remove nodes from an existing $READ_REPLICA set, reconnect to the set using the updated connection details. Find the connection details 
 
 </Procedure>
 
@@ -87,7 +95,7 @@ is measured in bytes, against the current state of the primary instance. To chec
 
 <Procedure>
 
-1. **In [$CONSOLE][timescale-console-services], select a $SERVICE_SHORT**
+1. **In [$CONSOLE][timescale-console-services], select your primary $SERVICE_SHORT**
    
 1. **Click `Operations` > `Read scaling`**
 
