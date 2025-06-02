@@ -56,7 +56,7 @@ To create a secure $READ_REPLICA set for your read-intensive apps:
 
    The username and password of a read replica set are the same as the primary $SERVICE_SHORT. They cannot be changed independently. 
 
-   The connection information for each $READ_REPLICA set is unique. If you add or remove nodes from an existing set, the connection information of that set changes. To find the connection information for an existing $READ_REPLICA set: 
+   The connection information for each $READ_REPLICA set is unique. You can add or remove nodes from an existing set and the connection information of that set will remain the same. To find the connection information for an existing $READ_REPLICA set: 
 
      1. Select the primary $SERVICE_SHORT in $CONSOLE.
     
