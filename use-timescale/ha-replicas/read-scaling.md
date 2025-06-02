@@ -19,7 +19,7 @@ This page shows you how to create and manage $READ_REPLICA sets in $CONSOLE.
 
 A $READ_REPLICA is a read-only copy of your primary data instance. Queries on $READ_REPLICA have minimal impact on the performance of the primary instance. This enables you to interact with up-to-date production data for analysis, or to scale out reads beyond the limits of your primary instance. $READ_REPLICA_CAPs can be short-lived and deleted when a session of data analysis is complete, or long-running to power a business intelligence tool. 
 
-A $READ_REPLICA set in $CLOUD_LONG is a group of one or more $READ_REPLICA nodes that share the same endpoint. You query each set as a single replica. $CLOUD_LONG balances the load between the nodes in the set for you.
+A $READ_REPLICA set in $CLOUD_LONG is a group of one or more $READ_REPLICA nodes that are accessed through the same endpoint. You query each set as a single replica. $CLOUD_LONG balances the load between the nodes in the set for you.
 
 You can create as many $READ_REPLICA sets as you need. For security and resource isolation, each $READ_REPLICA set has unique connection details.
 
