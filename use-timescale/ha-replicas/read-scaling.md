@@ -11,7 +11,7 @@ tags: [replicas, scaling, ha]
 
 You use $READ_REPLICA sets in $CLOUD_LONG for horizontal read scaling, to power your read-intensive apps and business intelligence tooling. Additionally, using the replica sets to serve reads for your app unloads the primary data instance and enables your $SERVICE_SHORT to improve ingest performance. 
 This is particularly useful when read traffic is very spiky and risks impacting ingest performance, or where reads have 
-a lower priority to writes. 
+a lower priority to writes.
 
 This page shows you how to create and manage $READ_REPLICA sets in $CONSOLE.
 
@@ -20,6 +20,8 @@ This page shows you how to create and manage $READ_REPLICA sets in $CONSOLE.
 A $READ_REPLICA is a read-only copy of your primary database instance. Queries on $READ_REPLICAs have minimal impact on the performance of the primary instance. This enables you to interact with up-to-date production data for analysis, or to scale out reads beyond the limits of your primary instance. $READ_REPLICA_CAPs can be short-lived and deleted when a session of data analysis is complete, or long-running to power an application or a business intelligence tool. 
 
 A $READ_REPLICA set in $CLOUD_LONG is a group of one or more $READ_REPLICA nodes that are accessed through the same endpoint. You query each set as a single replica. $CLOUD_LONG balances the load between the nodes in the set for you.
+
+![Read scaling in Timescale](https://assets.timescale.com/docs/images/read-scaling-timescale.png)
 
 You can create as many $READ_REPLICA sets as you need. For security and resource isolation, each $READ_REPLICA set has unique connection details.
 
