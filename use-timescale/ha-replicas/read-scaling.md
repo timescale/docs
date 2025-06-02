@@ -9,7 +9,7 @@ tags: [replicas, scaling, ha]
 
 # Read scaling
 
-You use $READ_REPLICA sets in $CLOUD_LONG for horizontal read scaling, to power your read-intensive apps and business intelligence tooling. Using the replica sets to serve reads for your app unloads the primary data instance and enables your $SERVICE_SHORT to improve ingest performance. 
+You use $READ_REPLICA sets in $CLOUD_LONG for horizontal read scaling, to power your read-intensive apps and business intelligence tooling. Additionally, using the replica sets to serve reads for your app unloads the primary data instance and enables your $SERVICE_SHORT to improve ingest performance. 
 This is particularly useful when read traffic is very spiky and risks impacting ingest performance, or where reads have 
 a lower priority to writes. 
 
