@@ -19,7 +19,7 @@ $SERVICE_LONG in real time. You run $LIVESYNC continuously, turning PostgreSQL i
 $SERVICE_LONG as a logical replica. This enables you to leverage $CLOUD_LONG’s real-time analytics capabilities on 
 your replica data.
 
-![livesync view status](https://assets.timescale.com/docs/images/livesync-view-status.png)
+![livesync view status](https://assets.timescale.com/docs/images/pg-livesync-view-status.png)
 
 $LIVESYNC_CAP leverages the well-established PostgreSQL logical replication protocol. By relying on this protocol,
 $LIVESYNC ensures compatibility, familiarity, and a broader knowledge base. Making it easier for you to adopt $LIVESYNC
