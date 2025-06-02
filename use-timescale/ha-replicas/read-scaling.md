@@ -86,7 +86,6 @@ To change the compute and storage configuration of your $READ_REPLICA set:
 
 1. **Change the replica configuration and click `Apply`**
 
-   If you add or remove nodes from an existing $READ_REPLICA set, reconnect to the set using the updated connection details. Find the connection details 
 
 </Procedure>
 
