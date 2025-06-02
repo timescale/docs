@@ -1,7 +1,7 @@
 ---
 title: Read scaling
-excerpt: For read-intensive apps, Timescale Cloud enables you to create read-only replica sets that take over read queries and offload your primary node. Create read-only replica sets with automated load balancing in Timescale Console
-product: cloud
+excerpt: For read-intensive apps, Timescale Cloud enables you to create read-only replica sets that take over read queries. Create read-only replica sets with automated load balancing in Timescale Console
+products: [cloud]
 price_plans: [scale, enterprise]
 keywords: [replicas, scaling]
 tags: [replicas, scaling, ha]
@@ -17,7 +17,7 @@ This page shows you how to create and manage $READ_REPLICA sets in $CONSOLE.
 
 ## What is read replication?
 
-A $READ_REPLICA is a read-only copy of your primary data instance. Queries on $READ_REPLICA have minimal impact on the performance of the primary instance. This enables you to interact with up-to-date production data for analysis, or to scale out reads beyond the limits of your primary instance. $READ_REPLICA_CAPs can be short-lived and deleted when a session of data analysis is complete, or long-running to power a business intelligence tool. 
+A $READ_REPLICA is a read-only copy of your primary database instance. Queries on $READ_REPLICAs have minimal impact on the performance of the primary instance. This enables you to interact with up-to-date production data for analysis, or to scale out reads beyond the limits of your primary instance. $READ_REPLICA_CAPs can be short-lived and deleted when a session of data analysis is complete, or long-running to power an application or a business intelligence tool. 
 
 A $READ_REPLICA set in $CLOUD_LONG is a group of one or more $READ_REPLICA nodes that are accessed through the same endpoint. You query each set as a single replica. $CLOUD_LONG balances the load between the nodes in the set for you.
 
@@ -32,7 +32,7 @@ To follow this procedure:
 - Create a target $SERVICE_LONG.
 - Create a [read-only user][read-only-role] on the primary data instance. 
 
-  A user with the read-only permissions cannot access the primary data instance directly. This user is propagated to the $READ_REPLICA set when you create them.
+  A user with read-only permissions cannot make changes in the primary database. This user is propagated to the $READ_REPLICA set when you create it.
 
 ## Create a $READ_REPLICA set
 
@@ -42,73 +42,86 @@ To create a secure $READ_REPLICA set for your read-intensive apps:
 
 1. **In [$CONSOLE][timescale-console-services], select your target $SERVICE_SHORT**
 
-1. **Click `Operations` > `Read replica set` > `Add a read replica`**
+1. **Click `Operations` > `Read scaling` > `Add a read replica set`**
 
 1. **Configure your replica set** 
 
-    Configure the number of nodes, compute size, connection pooling, VPC, and the name for your replica, then click `Create read replica set`.
+    Configure the number of nodes, compute size, connection pooling, and the name for your replica, then click `Create read replica set`.
 
-   ![Create a read replica in Timescale Console](https://assets.timescale.com/docs/images/create-read-replica-timescale-console.png)
+   ![Create a read replica set in Timescale Console](https://assets.timescale.com/docs/images/create-read-replica-set-timescale-console.png)
 
 1. **Save the connection information**
 
     The connection information for each $READ_REPLICA set is unique. If you add or remove nodes from an existing set, the connection information of that set changes. 
 
+    The username and password of a read replica set are the same as the primary $SERVICE_SHORT. They cannot be changed independently.  
+
 </Procedure>
 
 ## Edit a $READ_REPLICA set
 
-You can change the number of nodes in an existing $READ_REPLICA set to better handle your reads:
+You can edit an existing $READ_REPLICA set to better handle your reads. This includes changing the number of nodes, compute size, storage, and IOPS, as well as configuring $VPC and other features. 
 
 <Procedure>
 
-1. **In [$CONSOLE][timescale-console-services], select your target $SERVICE_SHORT**
+To change the compute and storage configuration of your $READ_REPLICA set: 
 
-1. **Click `Operations` > `Read replica set`**
+1. **In [$CONSOLE][timescale-console-services], expand and click the $READ_REPLICA set under your target $SERVICE_SHORT**
 
-   You see a list of all $READ_REPLICA sets configured for this $SERVICE_SHORT.
+   ![Read replicas in Timescale Console](https://assets.timescale.com/docs/images/read-replica-sets-timescale-console.png)
 
-   ![Read replicas in Timescale Console](https://assets.timescale.com/docs/images/read-replicas-timescale-console.png)
+1. **Click `Operations` > `Compute and storage`**
 
-1. **Click `⋮` > `Edit read replica` next to a replica** 
+   ![Read replica compute and storage in Timescale Console](https://assets.timescale.com/docs/images/read-replica-set-configs.png)
 
-1. **Change the number of nodes**
+1. **Change the replica configuration and click `Apply`**
 
-   - To add nodes, select the number of nodes in the drop-down, then click `Add node`. 
-   - To remove nodes, open `Delete nodes`, select the number of nodes to delete, then click `Delete node`. 
-
-   ![Add nodes to replicas in Timescale Console](https://assets.timescale.com/docs/images/add-nodes-read-replica-timescale-console.png)   
-
-1. **Reconnect to the replica** 
-
-    When you add or remove nodes from an existing $READ_REPLICA, the connection information of that set changes, so you need to connect to it again. Find the updated connection information by clicking 🔗 next to the updated replica in the list. 
+   If you add or remove nodes from an existing $READ_REPLICA set, reconnect to the set using the updated connection information.
 
 </Procedure>
 
-Alternatively, select the $READ_REPLICA in `Services`, then click `Operations` > `Nodes` > `Add a node`.
+## Manage data lag for your $READ_REPLICA sets
 
-## Manage data lag for your $READ_REPLICAs
-
-Read replicas use asynchronous replication. This can cause a slight lag in data to the primary data instance. The lag
-is measured in bytes, against the current state of the primary instance. To check the status and lag for your $READ_REPLICA:
+$READ_REPLICA_CAP sets use asynchronous replication. This can cause a slight lag in data to the primary database instance. The lag
+is measured in bytes, against the current state of the primary instance. To check the status and lag for your $READ_REPLICA set:
 
 <Procedure>
 
 1. **In [$CONSOLE][timescale-console-services], select a $SERVICE_SHORT**
    
-1. **Click `Operations` and scroll down**
+1. **Click `Operations` > `Read scaling`**
 
-   You see a `Read replicas` widget with the list of configured replicas for this $SERVICE_SHORT, and their status and lag. 
+   You see a list of configured $READ_REPLICA sets for this $SERVICE_SHORT, including their status and lag:
+
+   ![Read replica sets](https://assets.timescale.com/docs/images/configured-replica-sets.png)
 
 1. **Configure the allowable lag**
 
-    1. In `Services`, select the $READ_REPLICA.  
+    1. Select the replica set in the list. 
     1. Click `Operations` > `Database parameters`. 
     1. Adjust `max_standby_streaming_delay` and `max_standby_archive_delay`.
 
        This is not recommended for cases where changes must be immediately represented, for example, for user credentials.
 
 </Procedure> 
+
+
+## Delete a $READ_REPLICA set
+
+To delete a replica set:
+
+<Procedure>
+
+1. **In [$CONSOLE][timescale-console-services], select your primary $SERVICE_SHORT**
+
+1. **Click `Operations` > `Read scaling`**
+
+1. **Click the trash icon next to a replica set**
+
+   Confirm the deletion when prompted.
+
+</Procedure> 
+
 
 [cloud-login]: https://console.cloud.timescale.com
 [ha]: /use-timescale/:currentVersion:/ha-replicas/high-availability/
