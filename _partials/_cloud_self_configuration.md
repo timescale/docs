@@ -1,4 +1,5 @@
-import EarlyAccess from "versionContent/_partials/_early_access_2_18_0.mdx";
+
+import Deprecated2210 from "versionContent/_partials/_deprecated_2_21_0.mdx";
 
 ## Policies
 
@@ -14,7 +15,7 @@ instance. Default value is 16.
 
 The default value for `hypercore_use_access_method` for functions that have this parameter. This function is in `user` context, meaning that any user can set it for the session. The default value is `false`.
 
-<EarlyAccess />
+<Deprecated2210 /> This feature is sunsetted in TimescaleDB v2.22.0.
 
 ## $SERVICE_LONG tuning
 
