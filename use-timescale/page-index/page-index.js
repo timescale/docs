@@ -615,7 +615,7 @@ module.exports = [
             excerpt: "Set up HA replicas on Timescale for high availability",
           },
           {
-            title: "Manage read replication",
+            title: "Read scaling",
             href: "read-scaling",
             excerpt: "Understand how read scaling works in Timescale",
           },
