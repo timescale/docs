@@ -122,10 +122,10 @@ information, see the [Docker documentation on logs][docker-logs].
 
 [alpine]: https://alpinelinux.org/
 [config]: /self-hosted/:currentVersion:/configuration/
-[docker-install]: https://docs.docker.com/get-docker/
+[docker-install]: https://docs.docker.com/get-started/get-docker/
 [docker-postgres]: https://hub.docker.com/_/postgres
 [dockerhub]: https://hub.docker.com/r/timescale/timescaledb/tags?page=1&ordering=last_updated
 [install-psql]: https://www.timescale.com/blog/how-to-install-psql-on-mac-ubuntu-debian-windows/
 [ubuntu]: https://ubuntu.com
-[docker-logs]: https://docs.docker.com/config/containers/logging/
+[docker-logs]: https://docs.docker.com/engine/logging/
 [install-from-source]: /self-hosted/:currentVersion:/install/installation-source/

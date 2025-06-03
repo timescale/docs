@@ -75,8 +75,8 @@ repeated values, [XOR-based][xor] and [dictionary compression][dictionary] is us
 [dictionary]: /use-timescale/:currentVersion:/compression/compression-methods/#dictionary-compression
 [ingest-data]: /getting-started/:currentVersion:/try-key-features-timescale-products/#optimize-time-series-data-in-hypertables
 [add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/
-[run-job]: /api/:currentVersion:/actions/run_job/
-[alter_job]: /api/:currentVersion:/actions/alter_job/
+[run-job]: /api/:currentVersion:/jobs-automation/run_job/
+[alter_job]: /api/:currentVersion:/jobs-automation/alter_job/
 [informational-views]: /api/:currentVersion:/informational-views/jobs/
 [insert]: /use-timescale/:currentVersion:/write-data/insert/
 [modify-data-in-hypercore]: /use-timescale/:currentVersion:/hypercore/modify-data-in-hypercore/

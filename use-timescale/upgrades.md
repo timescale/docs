@@ -191,7 +191,7 @@ with a replica,  you must first delete the replica and then upgrade the service.
 
 </Highlight>
 
-[cloud-login]: https://cloud.timescale.com
+[cloud-login]: https://www.timescale.com/cloud
 [operations-forking]: /use-timescale/:currentVersion:/services/service-management/#fork-a-service
 [postgres-relnotes]: https://www.postgresql.org/docs/release/
 [replicas-docs]: /use-timescale/:currentVersion:/ha-replicas/high-availability/

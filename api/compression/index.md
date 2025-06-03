@@ -21,7 +21,7 @@ Before you set up compression, you need to
 <Highlight type="note">
 Before you set up compression for the first time, read
 the compression
-[blog post](https://blog.timescale.com/blog/building-columnar-compression-in-a-row-oriented-database/)
+[blog post](https://www.timescale.com/blog/building-columnar-compression-in-a-row-oriented-database)
 and
 [documentation](https://docs.timescale.com/use-timescale/latest/compression/).
 </Highlight>

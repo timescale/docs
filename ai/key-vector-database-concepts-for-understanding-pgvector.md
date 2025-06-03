@@ -98,7 +98,7 @@ There are 3 different indexing algorithms available as part of pgai on Timescale
 | ivfflat | Fastest     | Slowest     | Yes                           |
 
 
-See the [performance benchmarks](https://www.timescale.com/blog/how-we-made-postgresql-the-best-vector-database/) for details on how the each index performs on a dataset of 1 million OpenAI embeddings.
+See the [performance benchmarks](https://www.timescale.com/blog/how-we-made-postgresql-the-best-vector-database) for details on how the each index performs on a dataset of 1 million OpenAI embeddings.
 
 ## Recommended index types
 

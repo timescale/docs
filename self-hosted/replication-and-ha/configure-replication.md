@@ -55,7 +55,7 @@ uses to stream from the primary database.
     ```
 
 <Highlight type="important">
-The [scram-sha-256](https://www.postgresql.org/docs/current/static/sasl-authentication.html#SASL-SCRAM-SHA-256) encryption level is the most secure
+The [scram-sha-256](https://www.postgresql.org/docs/current/sasl-authentication.html#SASL-SCRAM-SHA-256) encryption level is the most secure
 password-based authentication available in PostgreSQL. It is only available in PostgreSQL 10 and later.
 </Highlight>
 
@@ -427,10 +427,10 @@ check out [Patroni][patroni-github].
 [docker-postgres-scripts]: https://hub.docker.com/_/postgres/
 [failover-docs]: https://www.postgresql.org/docs/current/static/warm-standby-failover.html
 [patroni-github]: https://github.com/zalando/patroni
-[pg-hba-docs]: https://www.postgresql.org/docs/current/static/auth-pg-hba-conf.html
+[pg-hba-docs]: https://www.postgresql.org/docs/current/auth-pg-hba-conf.html
 [pgctl-docs]: https://www.postgresql.org/docs/current/static/app-pg-ctl.html
 [pgpass-file]: https://www.postgresql.org/docs/current/libpq-pgpass.html
-[postgres-archive-docs]: https://www.postgresql.org/docs/current/static/continuous-archiving.html
+[postgres-archive-docs]: https://www.postgresql.org/docs/current/continuous-archiving.html
 [postgres-pg-stat-replication-docs]: https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-REPLICATION-VIEW
 [postgres-recovery-docs]: https://www.postgresql.org/docs/current/runtime-config-wal.html#RUNTIME-CONFIG-WAL-ARCHIVE-RECOVERY
 [postgres-rslots-docs]: https://www.postgresql.org/docs/current/static/warm-standby.html#STREAMING-REPLICATION-SLOTS

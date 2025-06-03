@@ -48,6 +48,6 @@ To connect to $CLOUD_LONG:
 
 You have successfully integrated qStudio with $CLOUD_LONG.
 
-[qstudio]: https://www.timestored.com/qstudio
+[qstudio]: https://www.timestored.com/qstudio/
 [qstudio-downloads]: https://www.timestored.com/qstudio/download
 [connection-info]: /integrations/:currentVersion:/find-connection-details/

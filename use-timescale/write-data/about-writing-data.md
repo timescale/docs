@@ -15,7 +15,7 @@ Timescale supports writing data in the same way as PostgreSQL, using `INSERT`,
 $CLOUD_LONG is optimized for running real-time analytics workloads on time-series data. For this reason, hypertables are optimized for
 inserts to the most recent time intervals. Inserting data with recent time
 values gives
-[excellent performance](https://www.timescale.com/blog/timescaledb-vs-6a696248104e/).
+[excellent performance](https://www.timescale.com/blog/postgresql-timescaledb-1000x-faster-queries-90-data-compression-and-much-more).
 However, if you need to make frequent updates to older time intervals, you
 might see lower write throughput.
 </Highlight>
