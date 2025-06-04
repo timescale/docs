@@ -276,6 +276,10 @@ module.exports = [
     to: "https://docs.timescale.com/getting-started/latest/try-key-features-timescale-products/#optimize-time-series-data-in-hypertables",
   },
   {
+    from: "/integrations/latest/query-admin/psql/",
+    to: "https://docs.timescale.com/integrations/latest/psql/",
+  },
+  {
     from: "/use-timescale/latest/hypertables/about-hypertables/",
     to: "https://docs.timescale.com/use-timescale/latest/hypertables/",
   },
