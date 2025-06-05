@@ -86,7 +86,7 @@ $TIMESCALE_DB manually:
 
    Either:
    - Click `SQL Editor`, then run `ALTEREXTENSION timescaledb UPDATE`. 
-   - Click the kebab menu, then `Pause` and `Resume` the service.
+   - Click `⋮`, then `Pause` and `Resume` the service.
 
 </Procedure>
 
@@ -178,8 +178,8 @@ To upgrade your $SERVICE_SHORT to a newer version of $PG:
 
 ## Automatic PostgreSQL upgrades for a $SERVICE_SHORT
 
-If you do not manually upgrade your $SERVICE_SHORTs within the customer self-service upgrade window, $CLOUD_LONG 
-performs an automatic upgrade. Automatic upgrades can result in downtime, best practice is to 
+If you do not manually upgrade your $SERVICE_SHORTs within the [customer self-service upgrade window][deprecation-window], 
+$CLOUD_LONG performs an automatic upgrade. Automatic upgrades can result in downtime, best practice is to 
 [manually upgrade your $SERVICE_SHORTs][manual-upgrade] during a low-traffic period for your application.
 
 During an automatic upgrade:
@@ -218,6 +218,7 @@ To change your maintenance window:
 [replicas-docs]: /use-timescale/:currentVersion:/ha-replicas/high-availability/
 [status-page]: https://status.timescale.com/
 [timescale-relnotes]: https://github.com/timescale/timescaledb/releases
+[deprecation-window]: /use-timescale/:currentVersion:/upgrades/#deprecations
 [minimize-downtime]: /use-timescale/:currentVersion:/upgrades/#minimize-downtime-with-replicas
 [minor-manual-upgrade]: /use-timescale/:currentVersion:/upgrades/#manually-upgrade-timescaledb-for-non-critical-updates
 [manual-upgrade]: /use-timescale/:currentVersion:/upgrades/#manually-upgrade-postgresql-for-a-service
