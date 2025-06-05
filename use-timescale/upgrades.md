@@ -185,7 +185,7 @@ performs an automatic upgrade. Automatic upgrades can result in downtime, best p
 During an automatic upgrade:
 1. Any configured [$HA_REPLICAs][hareplica] or [$READ_REPLICAs][readreplica] are temporarily removed.
 1. The primary $SERVICE_SHORT is upgraded.
-1. $HA_REPLICAs and $READ_REPLICAs are added back to the $SERVICE_SHORT.
+1. $HA_REPLICA_CAPs and $READ_REPLICAs are added back to the $SERVICE_SHORT.
 
 
 ## Define your maintenance window
