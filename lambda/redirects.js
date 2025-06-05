@@ -169,7 +169,7 @@ module.exports = [
   },
   {
     from: "/cloud/latest/service-logs",
-    to: "https://docs.timescale.com/use-timescale/latest/metrics-logging/service-logs/",
+    to: "https://docs.timescale.com/use-timescale/latest/metrics-logging/monitoring/#logs/",
   },
   {
     from: "/cloud/latest/service-metrics",
@@ -1029,4 +1029,16 @@ module.exports = [
     from: '/quick-start/latest/',
     to: 'https://docs.timescale.com/getting-started/latest/start-coding-with-timescale/',
   },
+  {
+    from: '/use-timescale/latest/metrics-logging/service-metrics/',
+    to: 'https://docs.timescale.com/use-timescale/latest/metrics-logging/monitoring/#metrics',
+  },
+  {
+    from: '/use-timescale/latest/metrics-logging/service-logs/',
+    to: 'https://docs.timescale.com/use-timescale/latest/metrics-logging/monitoring/#logs',
+  },
+  {
+    from: '/use-timescale/latest/metrics-logging/insights/',
+    to: 'https://docs.timescale.com/use-timescale/latest/metrics-logging/monitoring/#insights',
+  }
 ];
