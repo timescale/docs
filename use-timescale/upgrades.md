@@ -15,7 +15,7 @@ import SupportMatrix from "versionContent/_partials/_migrate_self_postgres_times
 $SERVICE_LONGs are managed cloud services offered by $COMPANY. To provide a stable and reliable environment for your 
 applications, each $SERVICE_SHORT is based on a specific version of the $PG database and the $TIMESCALE_DB extension.
 To ensure that you benefit from the latest features, performance and security improvements, it is important that your
-$SERVICE_LONG is kept up to date with the latest versions $TIMESCALE_DB and $PG.
+$SERVICE_LONG is kept up to date with the latest versions of $TIMESCALE_DB and $PG.
 
 $CLOUD_LONG has the following upgrade policies:
 * **Minor software upgrades**: handled automatically, you do not need to do anything. 
@@ -23,10 +23,10 @@ $CLOUD_LONG has the following upgrade policies:
   Upgrades are performed on your $SERVICE_LONG during a maintenance window that you 
   [define to suit your workload][define-maintenence-window]. You can also 
   [manually upgrade $TIMESCALE_DB][minor-manual-upgrade].
-* **Critical security upgrades**: are installed outside normal maintenance windows when necessary, and sometimes require 
+* **Critical security upgrades**: installed outside normal maintenance windows when necessary, and sometimes require 
   a short outage. 
 
-  Downtime is usually between 30 seconds and 5 minutes. $COMPANY endeavor to notify you by email 
+  Downtime is usually between 30 seconds and 5 minutes. $COMPANY aims to notify you by email 
   if downtime is required, so that you can plan accordingly. However, in some cases this is not possible.
 * **Major upgrades**: such as a new version of $PG are performed [manually by you][manual-upgrade], or [automatically 
   by $CLOUD_LONG][automatic-upgrade]. 
