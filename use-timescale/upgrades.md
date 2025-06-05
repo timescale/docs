@@ -12,8 +12,8 @@ import SupportMatrix from "versionContent/_partials/_migrate_self_postgres_times
 
 # Maintenance and upgrades
 
-$SERVICE_LONGs are managed cloud services offered by $COMPANY. To provide a stable and reliable environment for your 
-applications, each $SERVICE_SHORT is based on a specific version of the $PG database and the $TIMESCALE_DB extension.
+$CLOUD_LONG offers managed database $SERVICE_SHORTs that provide a stable and reliable environment for your 
+applications. Each $SERVICE_SHORT is based on a specific version of the $PG database and the $TIMESCALE_DB extension.
 To ensure that you benefit from the latest features, performance and security improvements, it is important that your
 $SERVICE_LONG is kept up to date with the latest versions of $TIMESCALE_DB and $PG.
 
@@ -39,8 +39,8 @@ After a maintenance upgrade, the DNS name remains the same. However, the IP addr
 
 ## Minor software upgrades
 
-If you do not [manually upgrade $TIMESCALE_DB][minor-manual-upgrade] for non-critical upgrades, upgrades are 
-performed automatically by $CLOUD_LONG in the next available maintenance window. 
+If you do not [manually upgrade $TIMESCALE_DB][minor-manual-upgrade] for non-critical upgrades,
+$CLOUD_LONG performs upgrades automatically in the next available maintenance window. 
 
 Most upgrades that occur during your maintenance windows do not require any downtime. This means that there is no 
 $SERVICE_SHORT outage during the upgrade. However, all connections and transactions in progress during the upgrade are 
@@ -62,7 +62,7 @@ read-only queries keep working throughout.
 
 During a maintenance event, services with replicas perform maintenance on each node independently. When maintenance is 
 complete on the primary node, it is restarted: 
-- If the restart takes more than a minute, the replica node is promoted to primary, given that the replica has no 
+- If the restart takes more than a minute, a replica node is promoted to primary, given that the replica has no 
   replication lag. Maintenance now proceeds on the newly promoted replica, following the same
   sequence. If the newly promoted replica takes more than a minute to restart, the former
   primary is promoted back. In total, the process may result in up to two minutes of write
