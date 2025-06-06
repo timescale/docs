@@ -174,11 +174,6 @@ module.exports = [
         ],
       },
       {
-        title: "Control user access to Tiger Cloud projects",
-        href: "members",
-        excerpt: "User management in Tiger Cloud",
-      },
-      {
         title: "Write data",
         href: "write-data",
         children: [
@@ -702,6 +697,16 @@ module.exports = [
             excerpt: "Get an overview of Tiger Cloud security",
           },
           {
+            title: "Role-based access to Tiger Cloud projects",
+            href: "members",
+            excerpt: "User role management in Tiger Cloud",
+          },
+          {
+            title: "Role-based access to your data",
+            href: "read-only-role",
+            excerpt: "Restrict access to your data",
+          },
+          {
             title: "SAML authentication",
             href: "saml",
             excerpt: "SAML / SSO authentication for your Tiger Cloud account",
@@ -716,11 +721,6 @@ module.exports = [
             href: "client-credentials",
             excerpt:
               "Client credentials to programmatically access your Tiger Cloud account",
-          },
-          {
-            title: "Read only role",
-            href: "read-only-role",
-            excerpt: "Create a read-only role to access your database",
           },
           {
             title: "Connect with a stricter SSL mode",

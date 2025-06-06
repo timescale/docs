@@ -17,6 +17,10 @@ $COMPANY products do not have any identified weaknesses.
 This page lists the additional things we do to ensure operational security and to lock down $SERVICE_LONGs. 
 To see our security features at a glance, see [$COMPANY Security][security-at-timescale].
 
+## Role-based access 
+
+$CLOUD_LONG provides role-based access to your $SERVICE_SHORT administration and data. In $CONSOLE_LONG, users with the `Owner`, `Admin`, and `Viewer` roles have different permissions to create and modify $SERVICE_SHORTs. On the database level, you can create other roles on top of the automatically created `tsdbadmin` role to restrict access to your data. 
+
 ## Data encryption
 
 Your data on $CLOUD_LONG is encrypted both in transit and at rest. Both active

@@ -258,7 +258,7 @@ To use $SQL_EDITOR:
 [portal-data-mode]: https://console.cloud.timescale.com/dashboard/services?popsql
 [portal-ops-mode]: https://console.cloud.timescale.com/dashboard/services
 [pricing-plan-features]: https://www.timescale.com/pricing#features
-[project-members]: /use-timescale/:currentVersion:/members/
+[project-members]: /use-timescale/:currentVersion:/security/members/
 [query-variables]: https://docs.popsql.com/docs/query-variables
 [read-replica]: /use-timescale/:currentVersion:/ha-replicas/read-scaling/
 [run-popsql]: /getting-started/:currentVersion:/run-queries-from-console/#data-mode
