@@ -1,6 +1,6 @@
 ---
-title: Create your first Timescale service
-excerpt: Timescale Cloud offers a range of capabilities to accommodate your real-time analytics and AI and vector workloads. Learn more about each of them and create your first service in Timescale Console
+title: Create your first Tiger Cloud service
+excerpt: Tiger Cloud offers a range of capabilities to accommodate your real-time analytics and AI and vector workloads. Learn more about each of them and create your first service in Tiger Cloud console
 products: [cloud]
 content_group: Getting started
 ---
