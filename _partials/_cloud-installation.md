@@ -1,8 +1,8 @@
-## Create a $CLOUD_LONG account
+## Create a $ACCOUNT_LONG
 
-You create a $CLOUD_LONG account to manage your $SERVICE_SHORTs and data in a centralized and efficient manner in $CONSOLE. From there, you can create and delete $SERVICE_SHORTs, run queries, manage access and billing, integrate other services, contact support, and more.
+You create a $ACCOUNT_LONG to manage your $SERVICE_SHORTs and data in a centralized and efficient manner in $CONSOLE. From there, you can create and delete $SERVICE_SHORTs, run queries, manage access and billing, integrate other services, contact support, and more.
 
-<Tabs label="Create a Tiger Cloud account">
+<Tabs label="Create a $ACCOUNT_LONG">
 
 <Tab title="Tiger Cloud">
 
@@ -28,7 +28,8 @@ To set up $CLOUD_LONG:
 
 <Tab title="AWS Marketplace">
 
-You create an account through AWS Marketplace to have $CLOUD_LONG as a part of your AWS infrastructure. In this case, $CLOUD_LONG is a line item in your AWS invoice.
+To have $CLOUD_LONG as a part of your AWS infrastructure, you create a $ACCOUNT_LONG through AWS Marketplace. In this 
+case, $CLOUD_LONG is a line item in your AWS invoice.
 
 <Procedure>
 
@@ -48,7 +49,7 @@ To set up $CLOUD_LONG via AWS:
 
 1. **Sign up for a 30-day free trial**
 
-   Add your details, then click `Start your free trial`. If you want to link an existing $CLOUD_LONG account to AWS, log in with your existing credentials.  
+   Add your details, then click `Start your free trial`. If you want to link an existing $ACCOUNT_LONG to AWS, log in with your existing credentials.  
 
 1. **In `Confirm AWS Marketplace connection`, click `Connect`**
 

@@ -1,6 +1,6 @@
 ---
 title: Billing and account management
-excerpt: Manage billing and account information for your Timescale account
+excerpt: Manage billing and account information for your TigerData account
 products: [cloud]
 keywords: [billing, accounts, admin]
 tags: [payment, billing, costs]
@@ -35,10 +35,9 @@ $PRICING_PLAN_CAPs give you:
 
 Using $SELF_LONG and our open-source products is still free. 
 
-If you create a $COMPANY account from AWS Marketplace, the pricing options are pay-as-you-go and annual commit. See [AWS pricing][aws-pricing] for details. 
+If you create a $ACCOUNT_LONG from AWS Marketplace, the pricing options are pay-as-you-go and annual commit. See [AWS pricing][aws-pricing] for details. 
 
-This page explains pricing plans for $CLOUD_LONG, and how to easily manage your
-$COMPANY account.
+This page explains pricing plans for $CLOUD_LONG, and how to easily manage your $ACCOUNT_LONG.
 
 ## How $PRICING_PLANs work
 
@@ -64,7 +63,7 @@ from initial development through to mission-critical enterprise applications.
 ### $CLOUD_LONG free trial for the different $PRICING_PLANs
 
 We offer new users a free, 30-day trial period of our $PERFORMANCE plan with no credit card required.  
-During your trial, you can contact sales@timescale.com to request information about, and access
+During your trial, you can contact $CONTACT_SALES to request information about, and access
 to, our $SCALE plan to determine how it fits your needs. During your trial, if a $SERVICE_SHORT doesn’t receive any queries for 7 days, it is paused to conserve resources. Your data remains intact during the trial, and you can easily resume your $SERVICE_SHORT in $CONSOLE. After your trial ends, we may remove your data unless you’ve added a payment method.
 
 After you have completed your 30-day trial period on the $PERFORMANCE plan, choose the 
@@ -77,7 +76,7 @@ After you become a paying user, we can enable some features in the higher $PRICI
 You can easily upgrade or downgrade between the $PERFORMANCE and $SCALE plans 
 whenever you want using [$CONSOLE][cloud-login]. If you switch your $PRICING_PLAN mid-month, 
 your prices are prorated to when you switch. Your $SERVICE_SHORTs are not interrupted when you switch, so 
-you can keep working without any hassle. To move to $ENTERPRISE, [get in touch with $COMPANY][get-in-touch].
+you can keep working without any hassle. To move to $ENTERPRISE, [get in touch with $COMPANY]($CONTACT_COMPANY).
 
 ### Monitor usage and costs
 
@@ -217,7 +216,7 @@ alt="Adding a payment method in Timescale"/>
 
 - **Details**: an overview of your $PRICING_PLAN, usage, and payment details. You can add up 
   to three credit cards to your `Wallet`. If you prefer to pay by invoice, 
-  [contact $COMPANY](https://www.timescale.com/contact/) and ask to change to corporate billing.
+  [contact $COMPANY]($CONTACT_COMPANY) and ask to change to corporate billing.
 
 - **History**: the list of your downloadable $COMPANY invoices.
 - **Emails**: the addresses $COMPANY uses to communicate with you. Payment 
@@ -243,6 +242,6 @@ When you get $CLOUD_LONG at AWS Marketplace, the following pricing options are a
 [pricing-plans]: https://www.timescale.com/pricing
 [plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-plan
 [production-support]: https://www.timescale.com/support
-[get-in-touch]: https://www.timescale.com/contact
 [hipaa-compliance]: https://www.hhs.gov/hipaa/for-professionals/index.html
 [aws-pricing]: /about/:currentVersion:/pricing-and-account-management/#aws-marketplace-pricing
+

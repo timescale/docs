@@ -1,6 +1,6 @@
 ---
-title: Run your queries from TigerCloud console
-excerpt: Choose the right tool to manage your data. Timescale Cloud offers the data mode, the SQL editor, and the SQL Assistant to better address your needs
+title: Run your queries from Tiger Cloud console
+excerpt: Choose the right tool to manage your data. Tiger Cloud offers the data mode, the SQL editor, and the SQL Assistant to better address your needs
 products: [cloud]
 content_group: Getting started
 ---
@@ -227,7 +227,7 @@ To use $SQL_EDITOR:
 
 ## Cloud $SQL_EDITOR licenses
 
-* **$SQL_EDITOR in the $OPS_MODE**: free for anyone with a [$CLOUD_LONG account][create-cloud-account].
+* **$SQL_EDITOR in the $OPS_MODE**: free for anyone with a [$ACCOUNT_LONG][create-cloud-account].
 * **Data mode**: the number of seats you are allocated depends on your [$PRICING_PLAN][pricing-plan-features].
 
   [$SQL_ASSISTANT_SHORT][sql-assistant] is currently free for all users. In the future, limits or paid options may be

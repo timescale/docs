@@ -1,5 +1,5 @@
 ---
-title: Try the key Timescale features
+title: Try the key features in TigerData products
 excerpt: Improve database performance with hypertables, time bucketing, compression and continuous aggregates.
 products: [cloud, self_hosted, mst]
 content_group: Getting started
@@ -157,7 +157,7 @@ relational and time-series data from external files.
     Use one of the following SQL editors to run a query and see the data you uploaded:
     - **Data mode**:  write queries, visualize data, and share your results in [$CONSOLE][portal-data-mode] for all your $SERVICE_LONGs.
     - **SQL editor**: write, fix, and organize SQL faster and more accurately in [$CONSOLE][portal-ops-mode] for a $SERVICE_LONG.
-    - **psql**: easily run queries on your $SERVICE_LONGs or self-hosted TimescaleDB deployment from Terminal.
+    - **psql**: easily run queries on your $SERVICE_LONGs or self-hosted $TIMESCALE_DB deployment from Terminal.
 
     <TryItOutCodeBlock queryId="getting-started-crypto-srt-orderby" />
 
