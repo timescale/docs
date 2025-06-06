@@ -170,6 +170,10 @@ $SQL_ASSISTANT_SHORT supports a large number of LLMs, including:
 - DeepSeek R1 Distill - Llama 3.3. 70B
 - DeepSeek R1
 - Gemini 2.0 Flash
+- Sonnet 4
+- Sonnet 4 (extended thinking)
+- Opus 4
+- Opus 4 (extended thinking)
 
 Choose the LLM based on the particular task at hand. For simpler tasks, try the smaller and faster models like Gemini Flash, Haiku, or o4-mini. For more complex tasks, try the larger reasoning models like Claude Sonnet, Gemini Pro, or o3. We provide a description of each model to help you decide.
 
