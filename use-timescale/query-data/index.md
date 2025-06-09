@@ -1,15 +1,15 @@
 ---
 title: Query data
-excerpt: Query data in Timescale Cloud with SELECT, get faster queries with SkipScan, and run advanced analytis - all while getting extra benefits from Timescale Cloud architecture and query planning
+excerpt: Query data with SELECT, get faster queries with SkipScan, and run advanced analytics - all while getting extra benefits from TimescaleDB architecture and query planning
 products: [cloud, mst, self_hosted]
 keywords: [queries]
 ---
 
 # Query data
 
-Timescale hypertables _are_ PostgreSQL tables. That means you can query them
-with standard SQL commands. In addition to the extra benefits you get from Timescale architecture and query planning,
-use [PopSQL][popsql] to work on data with centralized SQL queries, interactive visuals and real-time collaboration
+Hypertables in $TIMESCALE_DB _are_ PostgreSQL tables. That means you can query them
+with standard SQL commands. In addition to the extra benefits you get from the $TIMESCALE_DB architecture and query planning,
+use [PopSQL][popsql] to work on data with centralized SQL queries, interactive visuals and real-time collaboration.
 
 *   [About querying data][about-querying-data]
 *   [Select data with `SELECT`][selecting-data]

@@ -17,7 +17,7 @@ of your hourly aggregate. This is more efficient than creating the daily
 aggregate on top of the original hypertable, because you can reuse the
 calculations from the hourly aggregate.
 
-This feature is available in Timescale&nbsp;2.9 and later.
+This feature is available in $TIMESCALE_DB v2.9 and later.
 
 ## Create a continuous aggregate on top of another continuous aggregate
 

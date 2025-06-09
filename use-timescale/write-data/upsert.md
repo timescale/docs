@@ -1,6 +1,6 @@
 ---
 title: Upsert data
-excerpt: Insert a new row or update an existing row in a hypertable in your Timescale Cloud service using UPSERT
+excerpt: Insert a new row or update an existing row in a hypertable using UPSERT
 products: [cloud, mst, self_hosted]
 keywords: [upsert, hypertables]
 ---
@@ -18,8 +18,10 @@ one that has identical values for the columns covered by the index or
 constraint.
 
 <Highlight type="note">
+
 In PostgreSQL, a primary key is a unique index with a `NOT NULL` constraint.
 If you have a primary key, you automatically have a unique index.
+
 </Highlight>
 
 ## Create a table with a unique constraint
@@ -54,11 +56,13 @@ values to another row, within the columns covered by the constraint, you get an
 error.
 
 <Highlight type="note">
+
 Unique constraints must include all partitioning columns. That means unique
 constraints on a hypertable must include the time column. If you added other
 partitioning columns to your hypertable, the constraint must include those as
 well. For more information, see the section on
 [hypertables and unique indexes](/use-timescale/latest/hypertables/hypertables-and-unique-indexes/).
+
 </Highlight>
 
 ## Insert or update data to a table with a unique constraint

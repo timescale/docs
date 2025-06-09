@@ -1,6 +1,6 @@
 ---
 title: Optimize time-series data in hypertables
-excerpt: Hypertables are PostgreSQL tables designed for real-time analytics. See how to create, alter and drop a hypertable. 
+excerpt: Hypertables are PostgreSQL tables designed for real-time analytics. See how to create, alter, and drop a hypertable. 
 products: [cloud, mst, self_hosted]
 keywords: [hypertables, create]
 ---
@@ -44,8 +44,7 @@ CREATE TABLE conditions (
 <OldCreateHypertable />
 
 To convert an existing table with data in it, call `create_hypertable` on that table with
-[`migrate_data` to `true`][api-create-hypertable-arguments]. However, if you have a lot of data, this may take a long time. For more information about migrating data, see
-[Migrate your data to $CLOUD_LONG][data-migration].
+[`migrate_data` to `true`][api-create-hypertable-arguments]. However, if you have a lot of data, this may take a long time. 
 
 ## Optimize cooling data in the $COLUMNSTORE
 

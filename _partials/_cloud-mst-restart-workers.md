@@ -1,4 +1,4 @@
-On Timescale and Managed Service for TimescaleDB, restart background
+On $CLOUD_LONG and $MST_LONG, restart background
 workers by doing one of the following:
 
 *   Run `SELECT timescaledb_pre_restore()`, followed by `SELECT

@@ -1,4 +1,4 @@
-[$HYPERCORE_CAP][hypercore] is the $COMPANY hybrid row-columnar storage engine used by $HYPERTABLEs. Traditional 
+[$HYPERCORE_CAP][hypercore] is a hybrid row-columnar storage engine used by $HYPERTABLEs in $TIMESCALE_DB. Traditional 
 databases force a trade-off between fast inserts (row-based storage) and efficient analytics 
 (columnar storage). $HYPERCORE_CAP eliminates this trade-off, allowing real-time analytics without sacrificing 
 transactional capabilities.

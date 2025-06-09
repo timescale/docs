@@ -1,6 +1,6 @@
 ---
 title: Service management
-excerpt: Manage your Timescale Cloud service from the Operations dashboard in Timescale Console. Fork the service, reset your password, pause or delete a service, and more
+excerpt: Manage your Tiger Cloud service from the Operations dashboard in Tiger Cloud console. Fork the service, reset your password, pause or delete a service, and more
 products: [cloud]
 keywords: [services, operations, forks]
 tags: [manage, admin, passwords, pause, stop, terminate]
@@ -12,7 +12,7 @@ cloud_ui:
 
 # Service management
 
-In the `Service management` section of the Operations dashboard, you can fork
+In the `Service management` section of the `Operations` dashboard, you can fork
 your service, reset the password, pause, or delete the service.
 
 ## Fork a service
@@ -27,24 +27,28 @@ The fork is created by restoring from backup and applying the write-ahead log.
 The data is fetched from Amazon S3, so forking doesn't tax the running instance.
 
 <Highlight type="important">
+
 You can fork services that have a status of `Running` or `Paused`. You cannot
 fork services while they have a status of `In progress`. Wait for the service to
 complete the transition before you start forking.
+
 </Highlight>
 
 <Highlight type="warning">
+
 Forks only have data up to the point when the original service was forked. Any
 data written to the original service after the time of forking does not appear
 in the fork. If you want the fork to assume operations from the original
 service, pause your main service before forking to avoid any
 data discrepancy between services.
+
 </Highlight>
 
 <Procedure>
 
 ### Forking a service
 
-1.  In the Timescale console, from the `Services` list, ensure the service
+1.  In $CONSOLE_LONG, from the `Services` list, ensure the service
     you want to form has a status of `Running` or `Paused`, then click the name
     of the service you want to fork.
 1.  Navigate to the `Operations` tab.
@@ -71,17 +75,14 @@ alt="Fork a Timescale service"
 ### Reset service password
 
 You can reset your service password from the `Operations` dashboard. This is the
-password you use to connect to your database, not the password to your Timescale
-Cloud account. To reset your Timescale password, navigate to the `Account`
-page.
+password you use to connect to your database, not the password to your $ACCOUNT_LONG. To reset your $CONSOLE_SHORT password, navigate to the `Account` page.
 
-When you reset your service password, you are prompted for your Timescale
-Cloud password. When you have authenticated, you can create a new service password,
-ask Timescale to auto-generate a password, or switch your authentication
+When you reset your service password, you are prompted for your $ACCOUNT_SHORT password. When you have authenticated, you can create a new service password,
+ask $CONSOLE_SHORT to auto-generate a password, or switch your authentication
 type between SCRAM and MD5.
 
 SCRAM (salted challenge response authentication mechanism) and MD5 (message
-digest algorithm 5) are cryptographic authentication mechanisms. Timescale
+digest algorithm 5) are cryptographic authentication mechanisms. $CONSOLE_SHORT
 uses SCRAM by default. It is more secure and strongly recommended. The MD5
 option is provided for compatibility with older clients.
 

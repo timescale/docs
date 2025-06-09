@@ -1,6 +1,6 @@
 ---
 title: SELECT data
-excerpt: Query data from a hypertable in Timescale Cloud using the standard SELECT command
+excerpt: Query data from a hypertable in TimescaleDB using the standard SELECT command
 products: [cloud, mst, self_hosted]
 keywords: [queries]
 ---

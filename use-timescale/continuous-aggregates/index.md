@@ -7,7 +7,7 @@ keywords: [continuous aggregates]
 
 # Continuous aggregates
 
-From real-time dashboards to performance monitoring and historical trend analysis, data aggregation is a must-have for any sort of analytical application. To address this need, $TIMESCALE_DB continuous aggregates precompute and store aggregate data for you. Using PostgreSQL [materialized views][postgres-materialized-views], continuous aggregates incrementally refresh the aggregation query in the background, so that when you do run it, only the data that has changed needs to be computed, not the entire dataset. This means you always have the latest aggregate data at your fingertips—and spend as little resources on it, as possible. 
+From real-time dashboards to performance monitoring and historical trend analysis, data aggregation is a must-have for any sort of analytical application. To address this need, $TIMESCALE_DB uses continuous aggregates to precompute and store aggregate data for you. Using PostgreSQL [materialized views][postgres-materialized-views], $TIMESCALE_DB incrementally refreshes the aggregation query in the background. When you do run the query, only the data that has changed needs to be computed, not the entire dataset. This means you always have the latest aggregate data at your fingertips—and spend as little resources on it, as possible. 
 
 In this section you:
 

@@ -1,6 +1,6 @@
 ---
 title: Write data
-excerpt: Learn to write data in your Timescale Cloud service with SQL
+excerpt: Learn to write data in your TimescaleDB database with SQL
 products: [cloud, mst, self_hosted]
 keywords: [ingest]
 tags: [write]
@@ -8,18 +8,18 @@ tags: [write]
 
 # Write data
 
-Writing data to TimescaleDB works the same way as writing data to regular
+Writing data in $TIMESCALE_DB works the same way as writing data to regular
 PostgreSQL. You can add and modify data in both regular tables and hypertables
 using `INSERT`, `UPDATE`, and `DELETE` statements.
 
-*   [Learn about writing data in TimescaleDB][about-writing-data]
+*   [Learn about writing data in $TIMESCALE_DB][about-writing-data]
 *   [Insert data][insert] into hypertables
 *   [Update data][update] in hypertables
 *   [Upsert data][upsert] into hypertables
 *   [Delete data][delete] from hypertables
 
 For more information about using third-party tools to write data
-into TimescaleDB, see the [Ingest Data from other sources][ingest-data] section.
+into $TIMESCALE_DB, see the [Ingest data from other sources][ingest-data] section.
 
 [about-writing-data]: /use-timescale/:currentVersion:/write-data/about-writing-data/
 [delete]: /use-timescale/:currentVersion:/write-data/delete/
