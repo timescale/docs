@@ -11,7 +11,7 @@ import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypert
 
 Hypertables are PostgreSQL tables that help you improve insert and query performance by automatically partitioning 
 your data by time. Each hypertable is made up of child tables called chunks. Each chunk is assigned a range of time, 
-and only contains data from that range. When you run a query, Timescale Cloud identifies the correct chunk and runs 
+and only contains data from that range. When you run a query, $TIMESCALE_DB identifies the correct chunk and runs 
 the query on it, instead of going through the entire table. This page shows you how to tune hypertables to increase 
 performance even more.
 

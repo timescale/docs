@@ -162,7 +162,7 @@ relational and time-series data from external files.
 
 $HYPERCORE_CAP is the $CLOUD_LONG hybrid row-columnar storage engine, designed specifically for real-time analytics and
 powered by time-series data. The advantage of $HYPERCORE is its ability to seamlessly switch between row-oriented and
-column-oriented storage. This flexibility enables $CLOUD_LONG to deliver the best of both worlds, solving the key
+column-oriented storage. This flexibility enables $TIMESCALE_DB to deliver the best of both worlds, solving the key
 challenges in real-time analytics.
 
 ![Move from rowstore to columstore in hypercore](https://assets.timescale.com/docs/images/hypercore.png )

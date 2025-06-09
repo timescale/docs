@@ -1,13 +1,13 @@
 ---
 title: Continuous aggregates
-excerpt: Lightning fast queries are a must for efficient real-time analytics. Timescale Cloud continuous aggregates make sure you always have the latest aggregated data at your fingertips
+excerpt: Lightning fast queries are a must for efficient real-time analytics. Continuous aggregates make sure you always have the latest aggregated data at your fingertips
 products: [cloud, mst, self_hosted]
 keywords: [continuous aggregates]
 ---
 
 # Continuous aggregates
 
-From real-time dashboards to performance monitoring and historical trend analysis, data aggregation is a must-have for any sort of analytical application. To address this need, $CLOUD_LONG continuous aggregates precompute and store aggregate data for you. Using PostgreSQL [materialized views][postgres-materialized-views], continuous aggregates incrementally refresh the aggregation query in the background, so that when you do run it, only the data that has changed needs to be computed, not the entire dataset. This means you always have the latest aggregate data at your fingertips - and spend as little resources on it, as possible. 
+From real-time dashboards to performance monitoring and historical trend analysis, data aggregation is a must-have for any sort of analytical application. To address this need, $TIMESCALE_DB continuous aggregates precompute and store aggregate data for you. Using PostgreSQL [materialized views][postgres-materialized-views], continuous aggregates incrementally refresh the aggregation query in the background, so that when you do run it, only the data that has changed needs to be computed, not the entire dataset. This means you always have the latest aggregate data at your fingertips—and spend as little resources on it, as possible. 
 
 In this section you:
 
@@ -22,7 +22,7 @@ In this section you:
 *   [Use real-time aggregates][cagg-realtime].
 *   [Convert continuous aggregates to the columnstore][cagg-compression].
 *   [Migrate your continuous aggregates][cagg-migrate] from old to new format.
-    Continuous aggregates created in Timescale&nbsp;2.7 and later are in the new
+    Continuous aggregates created in $TIMESCALE_DB v2.7 and later are in the new
     format, unless explicitly created in the old format.
 *   [Troubleshoot][cagg-tshoot] continuous aggregates.
 

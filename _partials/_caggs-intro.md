@@ -1,7 +1,7 @@
 import RealTimeAgg from 'versionContent/_partials/_real-time-aggregates.mdx';
 
 In modern applications, data usually grows very quickly. This means that aggregating 
-it into useful summaries can become very slow. $CLOUD_LONG continuous aggregates make
+it into useful summaries can become very slow. $TIMESCALE_DB continuous aggregates make
 aggregating data lightning fast, accurate, and easy. 
 
 If you are collecting data very frequently, you might want to aggregate your

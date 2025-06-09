@@ -1,8 +1,6 @@
 import HypercoreIntroShort from "versionContent/_partials/_hypercore-intro-short.mdx";
 
-Time-series data represents the way a system, process, or behavior changes over time. $HYPERTABLE_CAPs enable 
-$TIMESCALE_DB to work efficiently with time-series data. $HYPERTABLE_CAPs are $PG tables that automatically partition 
-your time-series data by time. Each $HYPERTABLE is made up of child tables called chunks. Each chunk is assigned a range 
+$HYPERTABLE_CAPs are $COMPANY $PG tables that automatically partition your time-series data by time. Time-series data represents the way a system, process, or behavior changes over time. $HYPERTABLE_CAPs enable $TIMESCALE_DB to work efficiently with time-series data.  Each $HYPERTABLE is made up of child tables called chunks. Each chunk is assigned a range 
 of time, and only contains data from that range. When you run a query, $TIMESCALE_DB identifies the correct chunk and 
 runs the query on it, instead of going through the entire table. 
 

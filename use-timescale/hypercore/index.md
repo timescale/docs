@@ -1,6 +1,6 @@
 ---
 title: Hypercore
-excerpt: The Timescale hybrid row-columnar storage engine for real-time analytics, powered by time-series data
+excerpt: The TigerData hybrid row-columnar storage engine for real-time analytics, powered by time-series data
 products: [cloud, self_hosted]
 keywords: [hypercore, hypertable, compression, row-columnar storage]
 ---
@@ -12,8 +12,7 @@ import HypercoreIntro from "versionContent/_partials/_hypercore-intro.mdx";
 
 <HypercoreIntro />
 
-In $CLOUD_LONG you only pay for what you use. Data converted to the $COLUMNSTORE is compressed, which 
-immediately translates into cost savings. 
+Moreover, on $CLOUD_LONG you benefit from usage-based storage, meaning that you only pay for what you use. Data converted to the $COLUMNSTORE is compressed, which immediately translates into cost savings. 
 
 This section shows you how to:
 

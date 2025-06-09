@@ -33,7 +33,7 @@ of data optimized for size and speed in the columnstore.
 
 ## Optimize your data for real-time analytics
 
-When $CLOUD_LONG converts a chunk to the columnstore, TimescaleDB automatically creates a different schema for your
+When $TIMESCALE_DB converts a chunk to the columnstore, it automatically creates a different schema for your
 data. $TIMESCALE_DB creates and uses custom indexes to incorporate the `segmentby` and `orderby` parameters when
 you write to and read from the columstore.
 

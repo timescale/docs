@@ -1,16 +1,18 @@
 ---
-title: Timescale Cloud regions
-excerpt: The AWS regions available for Timescale Cloud services
+title: Tiger Cloud regions
+excerpt: The AWS regions available for Tiger Cloud services
 products: [cloud]
 ---
 
-# Timescale Cloud regions
+# $CLOUD_LONG regions
 
-<Highlight type="cloud" header="Want your databases to run in the Timescale cloud?" button="Try for free">
-We tune your database for performance and handle scalability, high availability, backups and management so you can relax.
+<Highlight type="cloud" header="Want your databases to run in the Tiger Cloud?" button="Try for free">
+
+We tune your database for performance and handle scalability, high availability, backups, and management, so you can relax.
+
 </Highlight>
 
-Timescale Cloud services run in the following Amazon Web Services (AWS) regions:
+$SERVICE_LONGs run in the following Amazon Web Services (AWS) regions:
 
 | Region           | Zone          | Location       |
 | ---------------- | ------------- | -------------- |
@@ -29,7 +31,7 @@ Timescale Cloud services run in the following Amazon Web Services (AWS) regions:
 
 <Highlight type="cloud"  header="Need to deploy on Azure or Google Cloud Platform?">
 
-Use [Managed Service for TimescaleDB (MST)][aiven-client-mst] to run TimescaleDB on Azure and GCP.
+Use [Managed Service for TimescaleDB (MST)][aiven-client-mst] to run $TIMESCALE_DB on Azure and GCP.
 
 </Highlight>
 

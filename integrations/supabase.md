@@ -48,9 +48,9 @@ To set up a $SERVICE_LONG optimized for analytics to receive data from Supabase:
 
 1. **Optimize cooling data for analytics**
 
-   Hypercore is the $TIMESCALE_DB hybrid row-columnar storage engine, designed specifically for real-time analytics 
-   and powered by time-series data. The advantage of Hypercore is its ability to seamlessly switch between row-oriented 
-   and column-oriented storage. This flexibility enables $CLOUD_LONG to deliver the best of both worlds, solving the
+   Hypercore is the $COMPANY hybrid row-columnar storage engine, designed specifically for real-time analytics 
+   and powered by time-series data. The advantage of hypercore is its ability to seamlessly switch between row-oriented 
+   and column-oriented storage. This flexibility enables $TIMESCALE_DB to deliver the best of both worlds, solving the
    key challenges in real-time analytics.
 
    ```sql

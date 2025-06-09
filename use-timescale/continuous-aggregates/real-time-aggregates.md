@@ -10,7 +10,7 @@ import RealTimeAgg from 'versionContent/_partials/_real-time-aggregates.mdx';
 
 # Real-time aggregates
 
-Rapidly growing data means you need more control over what to aggregate and how to aggregate it. With this in mind, $CLOUD_LONG equips you with tools for more fine-tuned data analysis. 
+Rapidly growing data means you need more control over what to aggregate and how to aggregate it. With this in mind, $COMPANY equips you with tools for more fine-tuned data analysis. 
 
 By default, continuous aggregates do not include the most recent data chunk from the
 underlying hypertable. Real-time aggregates, however, use the aggregated data **and** add the

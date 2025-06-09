@@ -116,7 +116,7 @@ module.exports = [
             title: "Migrate a continuous aggregate to the new form",
             href: "migrate",
             excerpt:
-              "Migrate old continuous aggregates to the new form introduced in Timescale 2.7",
+              "Migrate old continuous aggregates to the new form introduced in TimescaleDB 2.7",
           },
           {
             title: "Troubleshoot continuous aggregates",
@@ -127,29 +127,29 @@ module.exports = [
         ],
       },
       {
-        title: "Timescale Cloud regions",
+        title: "Tiger Cloud regions",
         href: "regions",
-        excerpt: "Timescale AWS regions",
+        excerpt: "Tiger Cloud AWS regions",
       },
       {
-        title: "Timescale Cloud services",
+        title: "Tiger Cloud services",
         href: "services",
-        excerpt: "About Timescale Cloud services",
+        excerpt: "About Tiger Cloud services",
         children: [
           {
             title: "Services overview",
             href: "service-overview",
-            excerpt: "Timescale services overview",
+            excerpt: "Tiger Cloud services overview",
           },
           {
             title: "Service explorer",
             href: "service-explorer",
-            excerpt: "Timescale services explorer",
+            excerpt: "Tiger Cloud services explorer",
           },
           {
             title: "Service management",
             href: "service-management",
-            excerpt: "Timescale services operations, Service management tab",
+            excerpt: "Tiger Cloud service management tab",
           },
           {
             title: "Manually change resources",
@@ -159,10 +159,10 @@ module.exports = [
           {
             title: "Connection pooling",
             href: "connection-pooling",
-            excerpt: "Using a connection pool with your Timescale services",
+            excerpt: "Using a connection pool with your Tiger Cloud services",
           },
           {
-            title: "Troubleshooting Timescale services",
+            title: "Troubleshooting Tiger Cloud services",
             href: "troubleshooting",
             type: "placeholder",
           },

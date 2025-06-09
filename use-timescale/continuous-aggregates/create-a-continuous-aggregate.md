@@ -1,6 +1,6 @@
 ---
 title: Create a continuous aggregate
-excerpt: Create a continuous aggregate in your Timescale Cloud service and make sure you always have the latest aggregated data for your analytical queries
+excerpt: Learn to create a continuous aggregate and make sure you always have the latest aggregated data for your analytical queries
 products: [cloud, mst, self_hosted]
 keywords: [continuous aggregates, create]
 ---
@@ -140,7 +140,7 @@ queries to run efficiently.
 
 ## Create a continuous aggregate with a JOIN
 
-In Timescale&nbsp;2.10 and later, with PostgreSQL&nbsp;12 or later, you can
+In $TIMESCALE_DB V2.10 and later, with PostgreSQL&nbsp;12 or later, you can
 create a continuous aggregate with a query that also includes a `JOIN`. For
 example:
 
