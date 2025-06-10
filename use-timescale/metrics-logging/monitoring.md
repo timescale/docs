@@ -100,7 +100,7 @@ Insights include `Metrics`, `Current lock contention`, and `Queries`.
 | `Total time`      | The total time of query execution.                                                              |
 | `Median time`     | The median (P50) time of query execution.                                                       |
 | `P95 time`        | The ninety-fifth percentile, or the maximum time of query execution.                            |
-| `Hypertables`     | Whether the query ran on a $HYPERTABLE.                                                         |
+| `Hypertables`     | If the query ran on a $HYPERTABLE.                                                         |
 | `Columnar tables` | Whether the query drew results from a chunk in the $COLUMNSTORE.                                |
 | `User name`       | The user name of the logged-in user running the query.                                          |
 
