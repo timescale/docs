@@ -9,7 +9,7 @@ tags: [telemetry, monitor]
 
 # Monitor your $SERVICE_LONGs
 
-$CONSOLE offers you a quick, convenient look into how your $SERVICE_SHORTs are performing and how to make them run smoother. This includes:
+$CONSOLE offers you a quick, convenient way to see how your $SERVICE_SHORTs are performing, and see how to make them run more efficiently. This includes:
 
 - **Recommendations**: tips to ensure your $SERVICE_SHORT is set up to achieve the best performance. 
 - **Jobs**: a list of all the jobs scheduled for your $SERVICE_SHORT and their status. 
