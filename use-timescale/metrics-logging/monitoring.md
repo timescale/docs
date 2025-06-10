@@ -11,7 +11,7 @@ tags: [telemetry, monitor]
 
 $CONSOLE offers you a quick, convenient look into how your $SERVICE_SHORTs are performing and how to make them run smoother. This includes:
 
-- **Recommendations**: tips to ensure your $SERVICE_SHORT is set up right and ready to achieve the best performance. 
+- **Recommendations**: tips to ensure your $SERVICE_SHORT is set up to achieve the best performance. 
 - **Jobs**: a list of all the jobs scheduled for your $SERVICE_SHORT and their status. 
 - **Connections**: all current connections to your $SERVICE_SHORT with the ability to terminate them. 
 - **Metrics**: CPU, memory, and storage usage over time. 
