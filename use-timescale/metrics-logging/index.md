@@ -12,7 +12,7 @@ cloud_ui:
 
 # Metrics and logging
 
-Find metrics and logs for your $SERVICE_SHORTs in $CONSOLE or integrate with third-party monitoring services:
+Find metrics and logs for your $SERVICE_SHORTs in $CONSOLE, or integrate with third-party monitoring services:
 
 *   [Monitor][monitor] your $SERVICE_SHORTs in $CONSOLE.
 *   Export metrics to [Datadog][datadog].
