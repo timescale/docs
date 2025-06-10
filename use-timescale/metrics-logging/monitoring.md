@@ -13,7 +13,7 @@ $CONSOLE offers you a quick, convenient look into how your $SERVICE_SHORTs are p
 
 - **Recommendations**: tips to ensure your $SERVICE_SHORT is set up to achieve the best performance. 
 - **Jobs**: a list of all the jobs scheduled for your $SERVICE_SHORT and their status. 
-- **Connections**: all current connections to your $SERVICE_SHORT with the ability to terminate them. 
+- **Connections**: a list of all current connections to your $SERVICE_SHORT. You can terminate any process in the list. 
 - **Metrics**: CPU, memory, and storage usage over time. 
 - **Logs**: your $SERVICE_SHORT logs with filtering and timeframe selection. 
 - **Insights**: an in-depth look into your query performance. 
