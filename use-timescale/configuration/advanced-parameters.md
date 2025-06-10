@@ -1,6 +1,6 @@
 ---
 title: Advanced parameters
-excerpt: Configure advanced parameters for your Timescale Cloud service in Timescale Console
+excerpt: Configure advanced parameters for your Tiger Cloud service in Tiger Cloud console
 products: [cloud]
 keywords: [services, settings]
 tags: [configuration, schemas]

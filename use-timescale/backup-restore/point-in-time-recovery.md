@@ -1,6 +1,6 @@
 ---
 title: Point-in-time recovery
-excerpt: Going through a destructive event and need to recover your data? Restore your Timescale Cloud service to a previous state with point-in-time recovery
+excerpt: Going through a destructive event and need to recover your data? Restore your Tiger Cloud service to a previous state with point-in-time recovery
 products: [cloud]
 keywords: [restore, recovery, pitr]
 tags: [recovery, restore, pitr]
@@ -30,13 +30,13 @@ can pause the original to only pay storage costs.
 
 ### Initiating a point-in-time recovery (PITR)
 
-1.  In the Timescale console, from the `Services` list, ensure the service
+1.  In the $CONSOLE_LONG, from the `Services` list, ensure the service
     you want to PITR has a status of `Running` or `Paused`.
 1.  Navigate to the `Operations` tab.
 1.  In the `Service management` section, click `Create recovery fork`. In the 
 	creation page, select the time you would like to recover to, ensuring the 
 	correct time zone (UTC offset).
-1.  [](#)<Optional />You can also add an HA replica, change the compute, and 
+1.  [](#)<Optional />You can also add an HA replica, change the compute resources, and 
 	add a connection pooler as part of this process. It is recommended to match 
 	the same configuration you had at the point you want to recover to.
 1.  Confirm by clicking `Create recovery fork`. A fork of the service is 

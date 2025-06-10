@@ -1,6 +1,6 @@
 ---
 title: Import data from Parquet
-excerpt: Ingest data into your Timescale Cloud service from an external Apache Parquet file
+excerpt: Ingest data into your Tiger Cloud service from an external Apache Parquet file
 products: [cloud, self_hosted]
 keywords: [data migration]
 tags: [import, parquet]

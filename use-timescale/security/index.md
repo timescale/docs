@@ -1,17 +1,17 @@
 ---
 title: Security
-excerpt: A high level of security is a major requirement to any database. Learn how Timescale Cloud protects your services with MFA, SAML, SSL modes, read-only access, VPC peering, and IP allow lists
+excerpt: A high level of security is a major requirement to any database. Learn how Tiger Cloud protects your services with MFA, SAML, SSL modes, read-only access, VPC peering, and IP allow lists
 products: [cloud]
 keywords: [security]
 ---
 
 # Security
 
-Learn how your Timescale instance is secured to protect your data and
+Learn how your $SERVICE_LONG is secured to protect your data and
 privacy.
 
-*   Learn about [security in Timescale Cloud][overview]
-*   Set up [multi-factor][mfa] and [SAML][saml] authentication
+*   Learn about [security in $CLOUD_LONG][overview]
+*   Set up [multifactor][mfa] and [SAML][saml] authentication
 *   Generate multiple [client credentials][client-credentials] instead of using your username and password
 *   Grant [read-only access][read-only] to your $SERVICE_LONGs
 *   Connect with a [stricter SSL mode][ssl]

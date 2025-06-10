@@ -1,6 +1,6 @@
 ---
 title: Maintenance and upgrades
-excerpt: Keep your Timescale Cloud service up to date. Learn about minor and major migrations, maintenance windows, and updating your version of PostgreSQL
+excerpt: Keep your Tiger Cloud service up to date. Learn about minor and major migrations, maintenance windows, and updating your version of PostgreSQL
 products: [cloud]
 keywords: [updates, upgrades, maintenance]
 cloud_ui:
@@ -12,10 +12,10 @@ import SupportMatrix from "versionContent/_partials/_migrate_self_postgres_times
 
 # Maintenance and upgrades
 
-On Timescale, minor software updates are handled automatically, and
+On $CLOUD_LONG, minor software updates are handled automatically, and
 you do not need to perform any actions.
 
-Most updates performed on your Timescale services are applied during a
+Most updates performed on your $SERVICE_LONGs are applied during a
 maintenance window that you can define to suit your workload. However, if there
 is a critical security vulnerability that affects you, maintenance might need to
 occur outside of the scheduled maintenance window.
@@ -41,13 +41,14 @@ we might not be able to do so. It is important that you schedule your
 maintenance window to minimize the disruption that a short downtime might have
 on your workloads.
 
-To track the status of maintenance events, see the Timescale
-[status page][status-page].
+To track the status of maintenance events, see the $CLOUD_LONG [status page][status-page].
 
 <Highlight type="note">
+
 To apply changes manually instead of waiting for the maintenance window,
 `Pause` then `Resume` your service. Maintenance changes are automatically
 applied when your service is resumed.
+
 </Highlight>
 
 ## Replicas and maintenance
@@ -96,7 +97,7 @@ system during the upgrade.
 
 ### Adjusting your maintenance window
 
-1.  [Log in to your Timescale account][cloud-login]. Click the name of the
+1.  [Log in to your $CLOUD_LONG account][cloud-login]. Click the name of the
     service that you want to manage the maintenance window for.
 2.  In the `Operations` tab, navigate to the `Environment` > `Maintenance` and click `Change maintenance window`.
 3.  Select the day of the week, the time, and the
@@ -107,7 +108,7 @@ system during the upgrade.
 
 
 4.  Check `Apply new maintenance window to all services` if you want to use the
-    same maintenance window settings for all of your Timescale services.
+    same maintenance window settings for all of your $CLOUD_LONG services.
 5.  Click `Apply`.
 
 </Procedure>
@@ -127,8 +128,8 @@ overview page.
 
 Upgrading to a newer version of PostgreSQL allows you to take advantage of new
 features, enhancements, and security fixes. It also ensures that you are using a
-version of PostgreSQL that's compatible with the newest version of Timescale,
-allowing you to take advantage of everything Timescale has to offer. 
+version of PostgreSQL that's compatible with the newest version of $TIMESCALE_DB,
+allowing you to take advantage of everything $TIMESCALE_DB has to offer. 
 
 The following table shows you the compatible versions of $PG and $TIMESCALE_DB. 
 
@@ -136,13 +137,13 @@ The following table shows you the compatible versions of $PG and $TIMESCALE_DB.
 
 For more information about feature changes between versions, see the
 [PostgreSQL release notes][postgres-relnotes] and
-[Timescale release notes][timescale-relnotes].
+[$TIMESCALE_DB release notes][timescale-relnotes].
 
 
 
 <Highlight type="warning">
 
-Your Timescale service is unavailable until the upgrade is complete. This
+Your $SERVICE_LONG is unavailable until the upgrade is complete. This
 can take up to 20 minutes. It is recommended to test on a fork first for a 
 better estimate.
 
@@ -160,24 +161,24 @@ For a smooth upgrade experience, make sure you:
     see the section on [forking][operations-forking].
 *   Keep a copy of your database with your old version and data, if you're
     worried about losing it. You can fork your database without upgrading the
-    fork to keep a duplicate Timescale service. You can immediately pause
+    fork to keep a duplicate $SERVICE_SHORT. You can immediately pause
     this fork to only pay for storage until you are comfortable deleting it.
 
 <Highlight type="important">
 
-Timescale services with replicas cannot be upgraded. To upgrade a service
-with a replica,  you must first delete the replica and then upgrade the service.
+$SERVICE_LONGs with replicas cannot be upgraded. To upgrade a service
+with a replica, you must first delete the replica and then upgrade the service.
 </Highlight>
 
 <Procedure>
 
 ### Upgrade to a new PostgreSQL version
 
-1.  In the Timescale console, navigate to `Services` and click the service
+1.  In $CONSOLE, navigate to `Services` and click the service
     you want to upgrade.
 1.  Navigate to `Operations` > `Service Upgrades`.
 1.  If a new PostgreSQL version is available, click `Upgrade service` and
-    confirm that you are ready to start the upgrade. Your Timescale
+    confirm that you are ready to start the upgrade. Your 
     service is unavailable for use until the upgrade is complete.
 1.  When the upgrade is finished, your service automatically resumes normal
     operations. If the upgrade is unsuccessful, the service returns to the state
@@ -185,7 +186,7 @@ with a replica,  you must first delete the replica and then upgrade the service.
 
 </Procedure>
 
-<Highlight type="cloud" header="Sign up for Timescale" button="Try for free">
+<Highlight type="cloud" header="Sign up for Tiger Cloud" button="Try for free">
 
 </Highlight>
 

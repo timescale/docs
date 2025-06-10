@@ -1,6 +1,6 @@
 ---
 title: Read scaling
-excerpt: For read-intensive apps, Timescale Cloud enables you to create read-only replica sets that take over read queries. Create read-only replica sets with automated load balancing in Timescale Console
+excerpt: For read-intensive apps, Tiger Cloud enables you to create read-only replica sets that take over read queries. Create read-only replica sets with automated load balancing in Tiger Cloud Console
 products: [cloud]
 price_plans: [scale, enterprise]
 keywords: [replicas, scaling]

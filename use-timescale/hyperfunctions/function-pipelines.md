@@ -1,6 +1,6 @@
 ---
 title: Function pipelines
-excerpt: Timescale Cloud function pipelines improve the experience of writing data analysis queries in PostgreSQL and SQL. Learn how to use function pipelines for real-time analytics and other queries
+excerpt: TimescaleDB function pipelines improve the experience of writing data analysis queries in PostgreSQL and SQL. Learn how to use function pipelines for real-time analytics and other queries
 products: [cloud, mst, self_hosted]
 keywords: [Toolkit, function pipelines]
 ---

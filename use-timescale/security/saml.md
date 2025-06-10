@@ -1,6 +1,6 @@
 ---
 title: SAML (Security Assertion Markup Language)
-excerpt: SAML is a standard for exchanging authentication and authorization data. Timescale Cloud offers SAML authentication as part of its security suite.
+excerpt: SAML is a standard for exchanging authentication and authorization data. Tiger Cloud offers SAML authentication as part of its security suite
 products: [cloud]
 price_plans: [enterprise]
 keywords: [saml, sso, enterprise, accounts, admin]
@@ -9,10 +9,12 @@ tags: [saml, sso]
 
 # SAML authentication
 
-Timescale offers SAML authentication as part of its [Enterprise Tier][enterprise-tier] offering. SAML (Security Assertion Markup Language) is an open standard for exchanging authentication and authorization data between parties. With SAML enabled Timescale customers will be able to log into their Timescale account using their existing SSO service provider credentials. 
+$CLOUD_LONG offers SAML authentication as part of its [Enterprise][enterprise-tier] offering. SAML (Security Assertion Markup Language) is an open standard for exchanging authentication and authorization data between parties. With SAML enabled $CLOUD_LONG customers will be able to log into their $CLOUD_LONG account using their existing SSO service provider credentials. 
 
 <Highlight type="note">
-Timescale supports most SAML providers that can handle IDP-initiated login
+
+$CLOUD_LONG supports most SAML providers that can handle IDP-initiated login
+
 </Highlight>
 
 ### SAML offers many benefits for the Enterprise including:

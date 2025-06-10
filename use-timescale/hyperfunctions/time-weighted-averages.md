@@ -1,6 +1,6 @@
 ---
 title: Time-weighted averages and integrals
-excerpt: Time-weighted averages and integrals are useful for time-series data that is not evenly sampled. Learn how to use time-weighted averages in your real-time analytics workloads in Timescale Cloud.
+excerpt: Time-weighted averages and integrals are useful for time-series data that is not evenly sampled. Learn how to use time-weighted averages in your real-time analytics workloads in TimescaleDB
 products: [cloud, mst, self_hosted]
 keywords: [hyperfunctions, Toolkit, time-weighted]
 ---

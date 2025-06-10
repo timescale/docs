@@ -1,6 +1,6 @@
 ---
 title: Multi-factor user authentication
-excerpt: Multi-factor authentication enhances security by requiring users to verify their identity using multiple authentication factors. Enable MFA for your Timescale Cloud account
+excerpt: Multi-factor authentication enhances security by requiring users to verify their identity using multiple authentication factors. Enable MFA for your Tiger Cloud account
 products: [cloud]
 keywords: [mfa, accounts, admin]
 tags: [two-factor user authentication]
@@ -8,7 +8,7 @@ tags: [two-factor user authentication]
 
 # Multi-factor user authentication
 
-You can use two-factor authentication to log in to your $COMPANY account. Two-factor authentication, also known as two-step verification or 2FA, enables
+You can use two-factor authentication to log in to your $CLOUD_LONG account. Two-factor authentication, also known as two-step verification or 2FA, enables
 secure logins that require an authentication code in addition to your user
 password. The code is provided by an authenticator app on your mobile device. There are multiple authenticator apps available. 
 

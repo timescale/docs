@@ -1,6 +1,6 @@
 ---
 title: Backup and restore
-excerpt: See how and when Timescale Cloud backs up your data, making sure you always have something to fall back on in case of disaster recovery
+excerpt: See how and when Tiger Cloud backs up your data, making sure you always have something to fall back on in case of disaster recovery
 products: [cloud]
 keywords: [backups, restore]
 tags: [recovery, failures]
@@ -8,11 +8,11 @@ tags: [recovery, failures]
 
 # Backup and restore
 
-Timescale automatically handles backup and restore for all
+$CLOUD_LONG automatically handles backup and restore for all
 services using the `pgBackRest` tool. You don't need to perform
-backups for your Timescale service manually.
+backups for your services manually.
 
-Timescale automatically creates one full backup every week, and
+$CLOUD_LONG automatically creates one full backup every week, and
 incremental backups every day. Additionally, all WAL ([Write-Ahead Log][wal])
 files are retained back to the oldest full backup. This means that you always
 have a full backup available for the current and previous week, and your service

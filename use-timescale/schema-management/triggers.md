@@ -1,13 +1,13 @@
 ---
 title: Triggers
-excerpt: PostgreSQL triggers are special functions that automatically execute upon a specific event. In Timescale Cloud, you can easily create, alter, and drop triggers on a hypertable
+excerpt: PostgreSQL triggers are special functions that automatically execute upon a specific event. In TimescaleDB, you can easily create, alter, and drop triggers on a hypertable
 products: [cloud, mst, self_hosted]
 keywords: [hypertables, triggers]
 ---
 
 # Triggers
 
-Timescale supports the full range of PostgreSQL triggers. Creating, altering,
+$TIMESCALE_DB supports the full range of PostgreSQL triggers. Creating, altering,
 or dropping triggers on a hypertable propagates the changes to all of the
 underlying chunks.
 

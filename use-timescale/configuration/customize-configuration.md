@@ -1,6 +1,6 @@
 ---
 title: Configure database parameters
-excerpt: Customize standard PostgreSQL configuration and specific Timescale Cloud options for each service individually
+excerpt: Customize standard PostgreSQL configuration and specific Tiger Cloud options for each service individually
 products: [cloud]
 keywords: [configure, services, settings]
 cloud_ui:
@@ -10,7 +10,7 @@ cloud_ui:
 
 # Configure database parameters
 
-Timescale allows you to customize many Timescale and PostgreSQL
+Tiger Cloud allows you to customize many Tiger Cloud-specific and PostgreSQL
 configuration options for each Service individually. Most configuration values
 for a service are initially set in accordance with best practices given the
 compute and storage settings of the service. Any time you increase or decrease
@@ -18,17 +18,19 @@ the compute for a service, the most essential values are set to reflect the size
 of the new service.
 
 <Highlight type="warning">
-You can modify most parameters without restarting the Timescale service.
+
+You can modify most parameters without restarting the service.
 However, some changes do require a restart, resulting in some brief downtime
 that is usually about 30&nbsp;seconds. An example of a change that needs a
 restart is modifying the compute resources of a running service.
+
 </Highlight>
 
 ## View service operation details
 
 To modify configuration parameters, first select the Service that you want to
 modify. This displays the `service details`, with these tabs across the top:
-Overview, Explorer, Operations, Metrics, and Logs. Select `Operations`, then
+Overview, Actions, Explorer, Monitoring, SQL Editor, Operations, and AI. Select `Operations`, then
 `Database parameters`.
 
 ![Database configuration parameters](https://assets.timescale.com/docs/images/database-configuration-parameters.png)
@@ -36,7 +38,7 @@ Overview, Explorer, Operations, Metrics, and Logs. Select `Operations`, then
 ### Modify basic parameters
 
 Under the `Common parameters` tab, you can modify a limited set of the
-parameters that are most often modified in a Timescale or PostgreSQL instance.
+parameters that are most often modified in a $CLOUD_LONG or PostgreSQL instance.
 To modify a configured value, hover over the value and click the revealed pencil
 icon. This reveals an editable field to apply your change. Clicking anywhere
 outside of that field saves the value to be applied.
@@ -67,6 +69,6 @@ required. Click `Confirm` to apply the changes, and restart if necessary.
 <img class="main-content__illustration"
 width={1375} height={944}
 src="https://assets.timescale.com/docs/images/tsc-settings-confirm.webp"
-alt="Confirm Timescale configuration changes"/>
+alt="Confirm Tiger Cloud configuration changes"/>
 
 [plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-plan

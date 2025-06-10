@@ -1,6 +1,6 @@
 ---
 title: Manage storage and tiering
-excerpt: Configure high-performance and low-cost object storage tiers in Timescale Console. With automated data tiering policies, you get a set it and forget it tool to cut storage costs
+excerpt: Configure high-performance and low-cost object storage tiers in Tiger Cloud Console. With automated data tiering policies, you get a set it and forget it tool to cut storage costs
 products: [cloud]
 price_plans: [performance, scale, enterprise]
 keywords: [tiered storage]
@@ -14,7 +14,7 @@ import TieredStorageBilling from "versionContent/_partials/_tiered-storage-billi
 
 # Manage storage and tiering
 
-$COMPANY's tiered storage architecture includes a high-performance storage tier and a low-cost object storage tier:
+The tiered storage architecture in $CLOUD_LONG includes a high-performance storage tier and a low-cost object storage tier:
 
 - You use [high-performance storage][high-performance-storage] to store and query frequently accessed data. 
 

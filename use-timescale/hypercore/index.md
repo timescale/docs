@@ -1,6 +1,6 @@
 ---
 title: Hypercore
-excerpt: Explore hypercore by TigerCloud - the hybrid row-columnar storage engine that is perfect for real-time analytics on time-series data
+excerpt: Explore hypercore by Tiger Cloud - the hybrid row-columnar storage engine that is perfect for real-time analytics powered by time-series data
 products: [cloud, self_hosted]
 keywords: [hypercore, hypertable, compression, row-columnar storage]
 ---

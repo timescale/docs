@@ -1,13 +1,13 @@
 ---
 title: Use a job to create a generic retention policy
-excerpt: In Timescale Cloud, you can add a data retention policy to a hypertable, to store data more efficiently. Take it one step further by creating a generic data retention policy for your entire service
+excerpt: In TimescaleDB, you can add a data retention policy to a hypertable, to store data more efficiently. Take it one step further by creating a generic data retention policy for your entire database
 products: [cloud, mst, self_hosted]
 keywords: [jobs, data retention]
 ---
 
 # Use a $JOB to create a generic retention policy
 
-Timescale natively supports adding a
+$TIMESCALE_DB natively supports adding a
 [data retention policy][data-retention-policy] to a $HYPERTABLE. If you want to
 add a generic data retention policy to all $HYPERTABLEs, you can create a custom
 $JOB.

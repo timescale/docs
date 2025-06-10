@@ -11,8 +11,7 @@ import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 
 <Deprecated2180 /> Replaced by <a href="https://docs.timescale.com/use-timescale/latest/hypercore/">hypercore</a>.
 
-
-TimescaleDB uses different compression algorithms, depending on the data type
+$TIMESCALE_DB uses different compression algorithms, depending on the data type
 that is being compressed.
 
 For integers, timestamps, and other integer-like types, a combination of
@@ -20,7 +19,7 @@ compression methods are used: [delta encoding][delta],
 [delta-of-delta][delta-delta], [simple-8b][simple-8b], and
 [run-length encoding][run-length].
 
-For columns that do not have a high amount of repeated values,
+For columns that do not have a high number of repeated values,
 [XOR-based][xor] compression is used, with some
 [dictionary compression][dictionary].
 
@@ -28,7 +27,7 @@ For all other types, [dictionary compression][dictionary] is used.
 
 ## Integer compression
 
-For integers, timestamps, and other integer-like types TimescaleDB uses a
+For integers, timestamps, and other integer-like types $TIMESCALE_DB uses a
 combination of delta encoding, delta-of-delta, simple 8-b, and run-length
 encoding.
 
@@ -198,13 +197,13 @@ requires (11, 12, 12, 12, 12, 12, 12, 1, 12, 12, 12, 12).
 
 Run-length encoding is also used as a building block for many more advanced
 algorithms, such as Simple-8b RLE, which is an algorithm that combines
-run-length and Simple-8b techniques. TimescaleDB implements a variant of
+run-length and Simple-8b techniques. $TIMESCALE_DB implements a variant of
 Simple-8b RLE. This variant uses different sizes to standard Simple-8b, in order
 to handle 64-bit values, and RLE.
 
 ## Floating point compression
 
-For columns that do not have a high amount of repeated values, TimescaleDB uses
+For columns that do not have a high amount of repeated values, $TIMESCALE_DB uses
 XOR-based compression.
 
 The standard XOR-based compression method has been extended so that data can be
@@ -233,7 +232,7 @@ data points are represented using their XOR'd values.
 
 ## Data-agnostic compression
 
-For values that are not integers or floating point, TimescaleDB uses dictionary
+For values that are not integers or floating point, $TIMESCALE_DB uses dictionary
 compression.
 
 ### Dictionary compression
@@ -278,12 +277,12 @@ You can then store just the indices in your column, like this:
 For a dataset with a lot of repetition, this can offer significant compression.
 In the example, each city name is on average 11 bytes in length, while the
 indices are never going to be more than 4 bytes long, reducing space usage
-nearly 3 times. In TimescaleDB, the list of indices is compressed even further
+nearly 3 times. In $TIMESCALE_DB, the list of indices is compressed even further
 with the Simple-8b+RLE method, making the storage cost even smaller.
 
 Dictionary compression doesn't always result in savings. If your dataset doesn't
 have a lot of repeated values, then the dictionary is the same size as the
-original data. TimescaleDB automatically detects this case, and falls back to
+original data. $TIMESCALE_DB automatically detects this case, and falls back to
 not using a dictionary in that scenario.
 
 [decompress-chunks]: /use-timescale/:currentVersion:/compression/decompress-chunks

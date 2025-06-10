@@ -1,6 +1,6 @@
 ---
 title: Querying Tiered Data
-excerpt: Tiering data to low-cost object storage does not mean that it can't be queried. Learn how Timescale Cloud lets you optimize storage while still being able to run analytical queries on the rarely used data
+excerpt: Tiering data to low-cost object storage does not mean that it can't be queried. Learn how Tiger Cloud lets you optimize storage while still being able to run analytical queries on the rarely used data
 products: [cloud]
 price_plans: [scale, enterprise]
 keywords: [ tiered storage, tiering ]
@@ -22,7 +22,7 @@ With tiered reads enabled, you can query your data normally even when it's distr
 Your hypertable is spread across the tiers, so queries and `JOIN`s work and fetch the same data as usual.
 
 By default, tiered data is not accessed by queries. Querying tiered data may slow down query performance 
-as the data is not stored locally on Timescale's high-performance storage tier. See [Performance considerations](#performance-considerations).
+as the data is not stored locally on the high-performance storage tier. See [Performance considerations](#performance-considerations).
 
 ## Enable querying tiered data for a single query
 
@@ -160,7 +160,7 @@ time zone)
 
 Queries over tiered data are expected to be slower than over local data. However, in a limited number of scenarios tiered reads can impact query planning time over local data as well. In order to prevent any unexpected performance degradation for application queries, we keep the GUC `timescaledb.enable_tiered_reads` set to `false`.
 
-* Queries without time boundaries specified are expected to perform slower when querying tiered data, both during query planning and during query execution. Timescale's chunk exclusion algorithms cannot be applied for this case.
+* Queries without time boundaries specified are expected to perform slower when querying tiered data, both during query planning and during query execution. $CLOUD_LONG chunk exclusion algorithms cannot be applied for this case.
 
   ```sql
   SELECT * FROM device_readings WHERE id = 10;
