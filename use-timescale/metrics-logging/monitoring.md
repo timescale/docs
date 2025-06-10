@@ -120,7 +120,7 @@ Click a query in the list to see the drill-down view. This view not only helps y
 
 This view includes the following graphs:
 
-- `Execution time`: the median and P95 query execution times over the selected period. This is useful for understanding the consistency and efficiency of your query's execution over time.
+- `Execution time`: the median and P95 query execution times over the selected period. This is useful to understand the consistency and efficiency of your query's execution over time.
 - `Rows`: the impact of your query on rows over time. If it's a `SELECT` statement, it shows the number of rows retrieved, while for an `INSERT/UPDATE` statement, it reflects the rows inserted.
 - `Plans and executions`: the number of query plans and executions over time. You can use this to optimize query performance, helping you assess if you can benefit from prepared statements to reduce planning overhead.
 - `Shared buffers hit and miss`: shared buffers play a critical role in PostgreSQL's performance by caching data in memory. A shared buffer hit occurs when the required data block is found in the shared buffer memory, while a miss indicates that PostgreSQL couldn't locate the block in memory. A miss doesn't necessarily mean a disk read, because PostgreSQL may retrieve the data from the operating system's disk pages cache. If you observe a high number of shared buffer misses, your current shared buffers setting might be insufficient. Increasing the shared buffer size can improve cache hit rates and query speed.
