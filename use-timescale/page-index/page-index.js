@@ -759,6 +759,11 @@ module.exports = [
         excerpt: "Current limitations of Timescale features",
       },
       {
+        title: "TigerLake",
+        href: "tigerlake",
+        excerpt: "Unifies the Timescale Cloud operational architecture with the data lake (S3 + Iceberg) architectures",
+      },
+      {
         title: "Troubleshoot Timescale",
         href: "troubleshoot-timescaledb",
         excerpt: "Troubleshooting Timescale",
