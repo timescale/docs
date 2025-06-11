@@ -5,21 +5,19 @@ products: [cloud, mst, self_hosted]
 keywords: [compression]
 ---
 
-# Compression methods in the columnstore
+# Compression methods in hypercore
 
-TimescaleDB uses different compression algorithms, depending on the data type that is compressed when 
-it is converted to the columnstore.
+Depending on the data type that is compressed when your data is converted from the rowstore to the
+columnstore, TimescaleDB uses the following compression algorithms:
 
-For integers, timestamps, and other integer-like types, a combination of the following 
-compression methods are used: [delta encoding][delta],
-[delta-of-delta][delta-delta], [simple-8b][simple-8b], and
-[run-length encoding][run-length].
+- **Integers, timestamps, and other integer-like types**: a combination of the following compression
+  methods is used: [delta encoding][delta], [delta-of-delta][delta-delta], [simple-8b][simple-8b], and
+  [run-length encoding][run-length].
+- **Columns that do not have a high amount of repeated values**: [XOR-based][xor] compression with
+  some [dictionary compression][dictionary].
+- **All other types**: [dictionary compression][dictionary].
 
-For columns that do not have a high amount of repeated values,
-[XOR-based][xor] compression is used, with some
-[dictionary compression][dictionary].
-
-For all other types, [dictionary compression][dictionary] is used.
+This page gives an in-depth explanation of the compression methods used in hypercore. 
 
 ## Integer compression
 
