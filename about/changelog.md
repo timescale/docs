@@ -102,7 +102,7 @@ PostgreSQL 14.
  
 The timeline for the PostgreSQL 13 and 14 deprecation is as follows:
 
-- **Deprecation notice period begins**: starting in early June 2025, customers will receive email communication.
+- **Deprecation notice period begins**: starting in early June 2025, you will receive email communication.
 - **Customer self-service upgrade window**: June 2025 through September 14, 2025. We strongly encourage you to
   [manually upgrade PostgreSQL](https://docs.timescale.com/use-timescale/latest/upgrades/#manually-upgrade-postgresql-for-a-service)
   during this period.
