@@ -94,7 +94,7 @@ $TIMESCALE_DB manually:
 
 To ensure you benefit from the latest features, optimal performance, enhanced security, and full compatibility 
 with $TIMESCALE_DB, $CLOUD_LONG supports a defined set of $PG major versions. To reduce the maintenance burden and 
-continue providing a high-quality managed experience, as $PG and $TIMESCALE_DB evolve,$COMPANY periodically deprecates 
+continue providing a high-quality managed experience, as $PG and $TIMESCALE_DB evolve, $COMPANY periodically deprecates 
 older $PG versions.
 
 $COMPANY provides advance notification to allow you ample time to plan and perform your upgrade. The timeline 
@@ -117,14 +117,14 @@ For a smooth upgrade experience, make sure you:
 *  **Run a test upgrade**: [fork your $SERVICE_SHORT][operations-forking], then try out the upgrade on the fork before 
    running it on your production system. This gives you a good idea of what happens during the upgrade, and how long it 
    might take. 
-*  **Keep a copy of your $SERVICE_SHORT**: if you're worried about losing tour data, 
+*  **Keep a copy of your $SERVICE_SHORT**: if you're worried about losing your data, 
    [fork your $SERVICE_SHORT][operations-forking] without upgrading, and keep this duplicate of your $SERVICE_SHORT. 
    To reduce cost, you can immediately pause this fork and only pay for storage until you are comfortable deleting it 
    after the upgrade is complete.
 
 <Highlight type="important">
 
-Timescale services with replicas cannot be upgraded. To upgrade a service
+$SERVICE_LONGs with replicas cannot be upgraded. To upgrade a service
 with a replica, you must first delete the replica and then upgrade the service.
 
 </Highlight>
@@ -140,7 +140,7 @@ For more information about feature changes between versions, see the
 <Highlight type="warning">
 
 Your $SERVICE_LONG is unavailable until the upgrade is complete. This can take up to 20 minutes. Best practice is to 
-test on a fork first so you can estimate how long the upgrade will take. 
+test on a fork first, so you can estimate how long the upgrade will take. 
 
 </Highlight>
 
