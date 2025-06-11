@@ -45,7 +45,7 @@ and then configure Timescale as the data source in Grafana.
 To configure TimescaleDB service on Timescale with your Grafana
 installation, log in to Grafana and proceed to step 5 in this procedure.
 
-1.  Sign in to your Managed Service for Timescale account, and click the name of
+1.  Sign in to your Managed Service for $ACCOUNT_LONG, and click the name of
     your new Grafana service.
 1.  On the service details page, take a note of the `User` and `Password` field for
     your service.

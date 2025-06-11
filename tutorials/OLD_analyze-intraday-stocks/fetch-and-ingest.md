@@ -12,7 +12,7 @@ In this step:
 
 *   create a configuration file (optional)
 *   fetch stock data
-*   ingest the data into TimescaleDB
+*   ingest the data into $TIMESCALE_DB
 
 ## Create a configuration file
 

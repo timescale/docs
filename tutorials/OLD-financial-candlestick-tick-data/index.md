@@ -17,7 +17,7 @@ some financial assets.
 
 This tutorial shows you how to efficiently store raw financial tick
 data, create different candlestick views, and query aggregated data in
-TimescaleDB using the OHLCV format. It also shows you how to download sample
+$TIMESCALE_DB using the OHLCV format. It also shows you how to download sample
 data containing real-world crypto tick transactions for cryptocurrencies like
 BTC, ETH, and other popular assets.
 
@@ -25,7 +25,7 @@ BTC, ETH, and other popular assets.
 
 Before you begin, make sure you have:
 
-*   A TimescaleDB instance running locally or on the cloud. For more
+*   A $TIMESCALE_DB instance running locally or on the cloud. For more
     information, see [the Getting Started guide](/getting-started/latest/)
 *   [`psql`][psql], DBeaver, or any other PostgreSQL client
 
@@ -51,14 +51,14 @@ as OHLCV (open-high-low-close-volume):
 These data points correspond to the bucket of time covered by the candlestick.
 For example, a 1-minute candlestick would need the open and close prices for that minute.
 
-Many Timescale community members use
-TimescaleDB to store and analyze candlestick data. Here are some examples:
+Many $COMPANY community members use
+$TIMESCALE_DB to store and analyze candlestick data. Here are some examples:
 
 *   [How Trading Strategy built a data stack for crypto quant trading][trading-strategy]
 *   [How Messari uses data to open the cryptoeconomy to everyone][messari]
-*   [How I power a (successful) crypto trading bot with TimescaleDB][bot]
+*   [How I power a (successful) crypto trading bot with $TIMESCALE_DB][bot]
 
-Follow this tutorial and see how to set up your TimescaleDB database to consume real-time tick or aggregated financial data and generate candlestick views efficiently.
+Follow this tutorial and see how to set up your $TIMESCALE_DB database to consume real-time tick or aggregated financial data and generate candlestick views efficiently.
 
 *   [Design schema and ingest tick data][design]
 *   [Create candlestick (open-high-low-close-volume) aggregates][create]

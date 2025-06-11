@@ -7,7 +7,7 @@ keywords: [continuous aggregates, hyperfunctions, analytics]
 
 # Analyze data using TimescaleDB continuous aggregates and hyperfunctions
 
-This tutorial is a step-by-step guide on how to use TimescaleDB for analyzing time-series data. We show you how to utilize TimescaleDB's continuous aggregates and hyperfunctions for faster and more efficient queries.
+This tutorial is a step-by-step guide on how to use $TIMESCALE_DB for analyzing time-series data. We show you how to utilize $TIMESCALE_DB's continuous aggregates and hyperfunctions for faster and more efficient queries.
 We also take advantage of a unique capability of TimescaleDB: the ability to
 join time-series data with relational data.
 
@@ -43,7 +43,7 @@ This tutorial has a few sections to help you on your journey:
 *   Python 3
 *   TimescaleDB (see [installation options][install-timescale])
 *   [Psql][psql-install] or any other PostgreSQL client (for example, DBeaver)
-*   The [Timescale toolkit][toolkit]
+*   The [$TOOLKIT_LONG][toolkit]
 
 ## Download the dataset
 

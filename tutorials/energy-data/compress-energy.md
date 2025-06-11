@@ -1,6 +1,6 @@
 ---
 title: Energy consumption data tutorial - set up compression
-excerpt: Compress the sample dataset with Timescale Cloud to store the energy consumption data more efficiently
+excerpt: Compress the sample dataset with Tiger Cloud to store the energy consumption data more efficiently
 products: [cloud, self_hosted, mst]
 keywords: [tutorials, query]
 tags: [tutorials, beginner]
@@ -43,7 +43,7 @@ memory.
 
 ## Compression setup
 
-1.  Connect to the Timescale database that contains the energy
+1.  Connect to the $SERVICE_LONG that contains the energy
     dataset using, for example `psql`.
 1.  Enable compression on the table and pick suitable segment-by and
     order-by column using the `ALTER TABLE` command:

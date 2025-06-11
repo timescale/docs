@@ -414,7 +414,7 @@ bucket             |slug         |mean_price          |median_price         |
 
 Since calculating the mean and median are computationally expensive for large
 datasets, we use the [`percentile_agg` hyperfunction][percentile-agg], a SQL
-function that is part of the Timescale Toolkit extension. It accurately
+function that is part of the $TOOLKIT_LONG extension. It accurately
 approximates both statistics, as shown in the definition of `mean_price` and
 `median_price` in the continuous aggregate we created earlier in the tutorial:
 

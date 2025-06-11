@@ -22,7 +22,7 @@ This tutorial shows you how to:
 
 *   Design a schema for NFT transactions
 *   Ingest time-series NFT data and additional relevant relational data
-*   Query the dataset using PostgreSQL and TimescaleDB to unlock insights from the data
+*   Query the dataset using PostgreSQL and $TIMESCALE_DB to unlock insights from the data
 
 ## NFT Starter Kit
 
@@ -32,10 +32,10 @@ to build your own, more complex projects.
 The NFT Starter Kit contains:
 
 *   Data ingestion script, which collects historical data from OpenSea and ingests
-it into TimescaleDB
+it into $TIMESCALE_DB
 *   Sample dataset, to get started quickly, if you don't want to wait too much time ingesting data
 *   Schema for storing NFT sales, assets, collections, and accounts
-*   Local TimescaleDB database, pre-loaded with sample NFT data
+*   Local $TIMESCALE_DB database, pre-loaded with sample NFT data
 *   Pre-built dashboards and charts in [Apache Superset][superset] and [Grafana][grafana]
 for visualizing your data analysis
 *   Queries to use as a starting point for your own analysis
@@ -63,7 +63,7 @@ You can see all NFTs in the Time Travel Tigers collection live on [OpenSea][eon-
 ## Prerequisites
 
 *   OpenSea API key ([request one from here][opensea-key])
-*   TimescaleDB ([installation options][install-ts])
+*   $TIMESCALE_DB ([installation options][install-ts])
 *   Psql or any other PostgreSQL client (for example DBeaver, or PgAdmin)
 
 [eon-collection]: https://opensea.io/collection/time-travel-tigers-by-timescale

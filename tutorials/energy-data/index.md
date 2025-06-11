@@ -1,6 +1,6 @@
 ---
 title: Energy consumption data tutorial
-excerpt: Timescale Cloud is the perfect choice to analyze energy-related data. In this tutorial, you construct queries to take a closer look at energy consumption in a household
+excerpt: Tiger Cloud is the perfect choice to analyze energy-related data. In this tutorial, you construct queries to take a closer look at energy consumption in a household
 products: [cloud, self_hosted, mst]
 keywords: [tutorials, energy, learn]
 tags: [tutorials, beginner]
@@ -24,7 +24,7 @@ in Grafana.
 
 Before you begin, make sure you have:
 
-*   Signed up for a [free Timescale account][cloud-install].
+*   Signed up for a [free $ACCOUNT_LONG][cloud-install].
 *   [](#)<Optional /> [Signed up for a Grafana account][grafana-setup] to graph queries.
 
 ## Steps in this tutorial
@@ -46,7 +46,7 @@ queries for time-series data. The analysis you do in this tutorial is
 similar to the kind of analysis households might use to do things like plan
 their solar installation, or optimize their energy use over time.
 
-It starts by teaching you how to set up and connect to a Timescale database,
+It starts by teaching you how to set up and connect to a $SERVICE_LONG,
 create tables, and load data into the tables using `psql`.
 
 You then learn how to conduct analysis and monitoring on your dataset. It also walks

@@ -1,6 +1,6 @@
 ---
-title: Real-time analytics with Timescale Cloud and Grafana
-excerpt: Simulate an IOT dataset in your Timescale Cloud service
+title: Real-time analytics with Tiger Cloud and Grafana
+excerpt: Simulate an IOT dataset in your Tiger Cloud service
 products: [cloud, mst, self_hosted]
 keywords: [IoT, simulate]
 ---
@@ -42,7 +42,7 @@ data optimized for size and speed in the columnstore.
 
 ## Optimize your data for real-time analytics
 
-When $CLOUD_LONG converts a chunk to the columnstore, TimescaleDB automatically creates a different schema for your
+When $CLOUD_LONG converts a chunk to the columnstore, $TIMESCALE_DB automatically creates a different schema for your
 data. $TIMESCALE_DB creates and uses custom indexes to incorporate the `segmentby` and `orderby` parameters when
 you write to and read from the columstore.
 
@@ -161,7 +161,7 @@ To visually monitor the volume of energy consumption over time:
 
 </Procedure>
 
-You have integrated Grafana with a Timescale Cloud service and made insights based on visualization of your data.
+You have integrated Grafana with a $CLOUD_LONG service and made insights based on visualization of your data.
 
 [grafana-docs]: https://grafana.com/docs/
 [grafana-self-managed]: https://grafana.com/get/?tab=self-managed

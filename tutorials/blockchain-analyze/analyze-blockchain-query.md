@@ -1,6 +1,6 @@
 ---
 title: Analyze the Bitcoin blockchain - query the data
-excerpt: Use Timescale Cloud hyperfunctions to construct advanced analytical queries and run them on blockchain transaction data
+excerpt: Use Tiger Cloud hyperfunctions to construct advanced analytical queries and run them on blockchain transaction data
 products: [cloud, self_hosted, mst]
 keywords: [intermediate, crypto, blockchain, Bitcoin, finance, analytics]
 layout_components: [next_prev_large]
@@ -36,7 +36,7 @@ time buckets.
 
 ### Continuous aggregate: transactions
 
-1.  Connect to the Timescale database that contains the Bitcoin dataset.
+1.  Connect to the $SERVICE_LONG that contains the Bitcoin dataset.
 1.  At the psql prompt, create a continuous aggregate called
     `one_hour_transactions`. This view holds aggregated data about each hour of
     transactions:
@@ -148,7 +148,7 @@ fees to decrease.
 
 ### Finding a connection between the number of transactions and the transaction fees
 
-1.  Connect to the Timescale database that contains the Bitcoin dataset.
+1.  Connect to the $SERVICE_LONG that contains the Bitcoin dataset.
 1.  At the psql prompt, use this query to average transaction volume and the
     fees from the `one_hour_transactions` continuous aggregate:
 
@@ -202,7 +202,7 @@ transaction volume, along with the BTC to US Dollar conversion rate.
 
 ### Finding the transaction volume and the BTC-USD rate
 
-1.  Connect to the Timescale database that contains the Bitcoin dataset.
+1.  Connect to the $SERVICE_LONG that contains the Bitcoin dataset.
 1.  At the psql prompt, use this query to return the trading volume and the BTC
     to US Dollar exchange rate:
 
@@ -258,7 +258,7 @@ transactions in a block, the higher the mining fee becomes.
 
 ## Finding if more transactions in a block mean the block is more expensive to mine
 
-1.  Connect to the Timescale database that contains the Bitcoin dataset.
+1.  Connect to the $SERVICE_LONG that contains the Bitcoin dataset.
 1.  At the psql prompt, use this query to return the number of transactions in a
     block, compared to the mining fee:
 
@@ -315,7 +315,7 @@ units, in which case it's impossible for a block to include more transactions.
 
 ### Finding if higher block weight means the block is more expensive to mine
 
-1.  Connect to the Timescale database that contains the Bitcoin dataset.
+1.  Connect to the $SERVICE_LONG that contains the Bitcoin dataset.
 1.  At the psql prompt, use this query to return the block weight, compared to
     the mining fee:
 
@@ -376,7 +376,7 @@ few percentage points of overall revenue.
 
 ### Finding what percentage of the average miner's revenue comes from fees compared to block rewards
 
-1.  Connect to the Timescale database that contains the Bitcoin dataset.
+1.  Connect to the $SERVICE_LONG that contains the Bitcoin dataset.
 1.  At the psql prompt, use this query to return coinbase transactions, along
     with the block fees and rewards:
 
@@ -441,7 +441,7 @@ grow for individual blocks, and they could include even more transactions.
 
 ### Finding how block weight affects miner fees
 
-1.  Connect to the Timescale database that contains the Bitcoin dataset.
+1.  Connect to the $SERVICE_LONG that contains the Bitcoin dataset.
 1.  At the psql prompt, use this query to return block weight, along with the
     block fees and rewards:
 
@@ -502,7 +502,7 @@ increase the time range.
 
 ### Finding the average miner revenue per block
 
-1.  Connect to the Timescale database that contains the Bitcoin dataset.
+1.  Connect to the $SERVICE_LONG that contains the Bitcoin dataset.
 1.  At the psql prompt, use this query to return the average miner revenue per
     block, with a 12-hour moving average:
 

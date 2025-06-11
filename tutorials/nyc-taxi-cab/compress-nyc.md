@@ -1,6 +1,6 @@
 ---
 title: Query time-series data tutorial - set up compression
-excerpt: Compress the dataset so you can store the NYC taxi trip data more efficiently with Timescale Cloud
+excerpt: Compress the dataset so you can store the NYC taxi trip data more efficiently with Tiger Cloud
 products: [cloud, mst, self_hosted]
 keywords: [tutorials, query]
 tags: [tutorials, beginner]
@@ -43,7 +43,7 @@ memory.
 
 ## Compression setup
 
-1.  Connect to the Timescale database that contains the
+1.  Connect to the $SERVICE_LONG that contains the
     dataset using, for example `psql`.
 1.  Enable compression on the table and pick suitable segment-by and
     order-by column using the `ALTER TABLE` command:

@@ -35,7 +35,7 @@ with PostGIS.
 
 ### Setting up your dataset for PostGIS
 
-1.  Connect to the Timescale database that contains the NYC taxi dataset.
+1.  Connect to the $SERVICE_LONG that contains the NYC taxi dataset.
 1.  At the psql prompt, add the PostGIS extension:
 
     ```sql
@@ -77,7 +77,7 @@ in 30-minute buckets.
 Times Square is located at (40.7589,-73.9851).
 </Highlight>
 
-1.  Connect to the Timescale database that contains the NYC taxi dataset.
+1.  Connect to the $SERVICE_LONG that contains the NYC taxi dataset.
 1.  At the psql prompt, use this query to select all rides taken in the first
     day of January 2016 that picked up within 400m of Times Square, and return a
     count of rides for each 30 minute interval:
@@ -122,7 +122,7 @@ Grafana can plot the data properly.
 
 ### Finding rides that traveled more than 5 miles in Manhattan
 
-1.  Connect to the Timescale database that contains the NYC taxi dataset.
+1.  Connect to the $SERVICE_LONG that contains the NYC taxi dataset.
 1.  At the psql prompt, use this query to find rides longer than 5 miles in
     Manhattan:
 

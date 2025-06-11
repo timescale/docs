@@ -168,7 +168,7 @@ automatically configures your TimescaleDB instance with the appropriate
 
 In the command below, be sure to substitute the items in the curly braces with
 information from your TimescaleDB instance, as you did earlier. Also take
-note that this command includes the Timescale database that is automatically created
+note that this command includes the $SERVICE_LONG that is automatically created
 for you. If you are running the database locally, replace the database name as needed.
 
 ```bash

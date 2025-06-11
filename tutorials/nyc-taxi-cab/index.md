@@ -23,7 +23,7 @@ database, like Timescale.
 
 Before you begin, make sure you have:
 
-*   Signed up for a [free Timescale account][cloud-install].
+*   Signed up for a [free $ACCOUNT_LONG][cloud-install].
 
 ## Steps in this tutorial
 
@@ -43,7 +43,7 @@ queries for time-series data. The analysis you do in this tutorial is similar to
 the kind of analysis data science organizations use to do things like plan
 upgrades, set budgets, and allocate resources.
 
-It starts by teaching you how to set up and connect to a Timescale database,
+It starts by teaching you how to set up and connect to a $SERVICE_LONG,
 create tables, and load data into the tables using `psql`.
 
 You then learn how to conduct analysis and monitoring on your dataset. It walks

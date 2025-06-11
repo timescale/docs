@@ -14,7 +14,7 @@ to set up Grafana.
 
 ## Create a new service for Grafana
 
-You need to sign in to your Managed Service for Timescale account to create a
+You need to sign in to your Managed Service for $ACCOUNT_LONG to create a
 new service to run Grafana.
 
 <Procedure>

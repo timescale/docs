@@ -1,6 +1,6 @@
 ---
 title: Analyze the Bitcoin blockchain
-excerpt: Use Timescale Cloud hyperfunctions to analyze transactions on the Bitcoin blockchain. This tutorial illustrates how to analyze the fees, the impact on BTC-USD, the average miner revenue, and more
+excerpt: Use Tiger Cloud hyperfunctions to analyze transactions on the Bitcoin blockchain. This tutorial illustrates how to analyze the fees, the impact on BTC-USD, the average miner revenue, and more
 products: [cloud, self_hosted, mst]
 keywords: [intermediate, crypto, blockchain, Bitcoin, finance, analytics]
 layout_components: [next_prev_large]
@@ -25,7 +25,7 @@ might query time-series transactions in any other database.
 
 Before you begin, make sure you have:
 
-*   Signed up for a [free Timescale account][cloud-install].
+*   Signed up for a [free $ACCOUNT_LONG][cloud-install].
 *   [](#)<Optional />Signed up for a [Grafana account][grafana-setup] to graph your queries.
 
 ## Steps in this tutorial
@@ -43,7 +43,7 @@ the aggregations. The queries in this tutorial help you
 determine if a cryptocurrency has a high transaction fee, shows any correlation
 between transaction volumes and fees, or if it's expensive to mine.
 
-It starts by setting up and connecting to a Timescale database, create tables,
+It starts by setting up and connecting to a $SERVICE_LONG, create tables,
 and load data into the tables using `psql`. If you have already completed the
 [beginner blockchain tutorial][blockchain-query], then you already have the
 dataset loaded, and you can skip straight to the queries.

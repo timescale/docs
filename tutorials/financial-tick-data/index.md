@@ -1,6 +1,6 @@
 ---
 title: Analyze financial tick data with TimescaleDB
-excerpt: Use Timescale Cloud to store financial tick data and create candlestick views to perform real-time analysis of price changes
+excerpt: Use Tiger Cloud to store financial tick data and create candlestick views to perform real-time analysis of price changes
 products: [cloud, self_hosted, mst]
 keywords: [tutorials, finance, learn]
 tags: [tutorials, beginner]
@@ -32,13 +32,13 @@ aggregated data, and visualize the data in Grafana.
 
 ![candlestick](https://assets.timescale.com/docs/images/tutorials/intraday-stock-analysis/timescale_cloud_candlestick.png)
 
-TimescaleDB is well suited to storing and analyzing financial candlestick data,
+$TIMESCALE_DB is well suited to storing and analyzing financial candlestick data,
 and many Timescale community members use it for exactly this purpose. Check out
 these stories from some Timescale community members:
 
 *   [How Trading Strategy built a data stack for crypto quant trading][trading-strategy]
 *   [How Messari uses data to open the cryptoeconomy to everyone][messari]
-*   [How I power a (successful) crypto trading bot with TimescaleDB][bot]
+*   [How I power a (successful) crypto trading bot with $TIMESCALE_DB][bot]
 
 ## Steps in this tutorial
 
@@ -46,7 +46,7 @@ This tutorial shows you how to ingest real-time time-series data into a Timescal
 database:
 
 1.  [Ingest data into a $SERVICE_SHORT][financial-tick-dataset]: load data from
-    [Twelve Data][twelve-data] into your TimescaleDB database.
+    [Twelve Data][twelve-data] into your $TIMESCALE_DB database.
 1.  [Query your dataset][financial-tick-query]: create candlestick views, query
     the aggregated data, and visualize the data in Grafana.
 1.  [Compress your data using hypercore][financial-tick-compress]: learn how to store and query

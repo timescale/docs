@@ -29,7 +29,7 @@ This tutorial uses Python and the API
 
 Before you begin, make sure you have:
 
-*   Signed up for a [free Timescale account][cloud-install].
+*   Signed up for a [free $ACCOUNT_LONG][cloud-install].
 *   Downloaded the file that contains your Timescale service credentials such as
     `<HOST>`, `<PORT>`, and `<PASSWORD>`. Alternatively, you can find these
     details in the `Connection Info` section for your service.
@@ -195,7 +195,7 @@ normal trading hours of the New York Stock Exchange (9:30&nbsp;AM to
 When you ingest data into a transactional database like Timescale, it is more
 efficient to insert data in batches rather than inserting data row-by-row. Using
 one transaction to insert multiple rows can significantly increase the overall
-ingest capacity and speed of your Timescale database.
+ingest capacity and speed of your $SERVICE_LONG.
 
 ## Batching in memory
 
@@ -348,7 +348,7 @@ the last two hours' worth of data.
 
 ### Creating a continuous aggregate
 
-1.  Connect to the Timescale database `tsdb` that contains the Twelve Data
+1.  Connect to the $SERVICE_LONG `tsdb` that contains the Twelve Data
     stocks dataset.
 
 1.  At the psql prompt, create the continuous aggregate to aggregate data every
@@ -392,7 +392,7 @@ OHLCV values.
 
 ### Querying the continuous aggregate
 
-1.  Connect to the Timescale database that contains the Twelve Data
+1.  Connect to the $SERVICE_LONG that contains the Twelve Data
     stocks dataset.
 
 1.  At the psql prompt, use this query to select all `AAPL` OHLCV data for the
