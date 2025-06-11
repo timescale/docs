@@ -573,19 +573,9 @@ module.exports = [
         excerpt: "Timescale metrics and logging",
         children: [
           {
-            title: "Service metrics",
-            href: "service-metrics",
-            excerpt: "Timescale services metrics",
-          },
-          {
-            title: "Service logs",
-            href: "service-logs",
-            excerpt: "Timescale services logs",
-          },
-          {
-            title: "Insights",
-            href: "insights",
-            excerpt: "Query-level performance insights",
+            title: "Monitor Cloud services",
+            href: "monitoring",
+            excerpt: "Timescale service monitoring",
           },
           {
             title: "Export to Amazon Cloudwatch",
