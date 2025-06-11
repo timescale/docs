@@ -7,7 +7,7 @@
     },
     {
       "pattern": "^/",
-      "replacement": "https://docs.timescale.com/"
+      "replacement": "https://docs.tigerdata.com/"
     }
   ],
   "ignorePatterns": [

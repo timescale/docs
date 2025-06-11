@@ -36,5 +36,5 @@ CPU-hours used by a user over a given time period.
 *   For more information about time-weighted average API calls, see the
     [hyperfunction API documentation][hyperfunctions-api-timeweight].
 
-[blog-timeweight]: https://blog.timescale.com/blog/what-time-weighted-averages-are-and-why-you-should-care/
+[blog-timeweight]: https://www.tigerdata.com/blog/what-time-weighted-averages-are-and-why-you-should-care
 [hyperfunctions-api-timeweight]: /api/:currentVersion:/hyperfunctions/time-weighted-calculations/time_weight/

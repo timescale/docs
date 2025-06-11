@@ -8,23 +8,23 @@
 
 <div align=center>
 
-<h3>Timescale Cloud is the modern PostgreSQL data platform for all your applications. It enhances PostgreSQL to handle time series, events, real-time analytics, and vector search—all in a single database alongside transactional workloads.
+<h3>Tiger Cloud is the modern PostgreSQL data platform for all your applications. It enhances PostgreSQL to handle time series, events, real-time analytics, and vector search—all in a single database alongside transactional workloads.
 </h3>
 
-[![Docs](https://img.shields.io/badge/Read_the_Timescale_docs-black?style=for-the-badge&logo=readthedocs&logoColor=white)](https://docs.timescale.com/)
+[![Docs](https://img.shields.io/badge/Read_the_Timescale_docs-black?style=for-the-badge&logo=readthedocs&logoColor=white)](https://docs.tigerdata.com/)
 [![SLACK](https://img.shields.io/badge/Ask_the_Timescale_community-black?style=for-the-badge&logo=slack&logoColor=white)](https://timescaledb.slack.com/archives/C4GT3N90X)
-[![Try Timescale Cloud for free](https://img.shields.io/badge/Try_Timescale_for_free-black?style=for-the-badge&logo=timescale&logoColor=white)](https://console.cloud.timescale.com/signup)
+[![Try Tiger Cloud for free](https://img.shields.io/badge/Try_Timescale_for_free-black?style=for-the-badge&logo=timescale&logoColor=white)](https://console.cloud.timescale.com/signup)
 
 </div>
 
-This repository contains the current source for Timescale documentation available at https://docs.timescale.com/. 
+This repository contains the current source for TigerData documentation available at https://docs.tigerdata.com/. 
 
-We welcome contributions! You can contribute to Timescale documentation in the following ways:
+We welcome contributions! You can contribute to TigerData documentation in the following ways:
 
 - [Create an issue][docs-issues] in this repository and describe the proposed change. Our doc team takes care of it.
 - Update the docs yourself and have your change reviewed and published by our doc team.
 
-## Contribute to the Timescale docs
+## Contribute to the TigerData docs
 
 To make the contribution yourself:
 
@@ -41,13 +41,13 @@ To make the contribution yourself:
 
 4. Review your changes.
 
-   The documentation site is generated in a separate private repository using [Gatsby][gatsby]. Once you raise a PR for any branch, GitHub **automatically** generates a preview for your changes and attach the link in the comments. Any new commits are visible at the same URL. If you don't see the latest changes, try an incognito browser window. Automated builds are not available for PRs from forked repositories.
+   The documentation site is generated in a separate private repository using [Gatsby][gatsby]. Once you raise a PR for any branch, GitHub **automatically** generates a preview for your changes and attaches the link in the comments. Any new commits are visible at the same URL. If you don't see the latest changes, try an incognito browser window. Automated builds are not available for PRs from forked repositories.
 
 See the [Contributing guide](CONTRIBUTING.md) for style and language guidance. 
 
-## Learn about Timescale
+## Learn about TigerData
 
-Timescale is PostgreSQL made powerful. To learn more about the company and its products, visit [timescale.com](https://www.timescale.com).
+TigerData is PostgreSQL made powerful. To learn more about the company and its products, visit [tigerdata.com](https://www.tigerdata.com).
 
 [docs-issues]: https://github.com/timescale/docs/issues
 [github-fork]: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo

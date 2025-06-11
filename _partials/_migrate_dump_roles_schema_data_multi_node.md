@@ -39,4 +39,4 @@
 [dumping-with-concurrency]: /migrate/:currentVersion:/troubleshooting/#dumping-with-concurrency
 [restoring-with-concurrency]: /migrate/:currentVersion:/troubleshooting/#restoring-with-concurrency
 [long-running-pgdump]: /migrate/:currentVersion:/troubleshooting/#dumping-and-locks
-[Upgrade TimescaleDB]: https://docs.timescale.com/self-hosted/latest/upgrades/
+[Upgrade TimescaleDB]: https://docs.tigerdata.com/self-hosted/latest/upgrades/

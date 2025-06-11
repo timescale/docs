@@ -30,9 +30,6 @@ schema and go into production use.
 
 <ExperimentalUpgrade />
 
-For more information about the experimental
-schema, [read the Timescale blog post][experimental-blog].
-
 ## Toolkit <Tag type="toolkit">Toolkit</Tag>
 
 This tag indicates that the function is included in the TimescaleDB Toolkit extension.
@@ -56,4 +53,3 @@ information, [see the TimescaleDB Toolkit docs][toolkit-docs].
 [tsl-comparison]: /about/:currentVersion:/timescaledb-editions/
 [toolkit-install]: /self-hosted/:currentVersion:/tooling/install-toolkit/
 [toolkit-docs]: https://github.com/timescale/timescaledb-toolkit/tree/main/docs#a-note-on-tags-
-[experimental-blog]: https://blog.timescale.com/blog/move-fast-but-dont-break-things-introducing-the-experimental-schema-with-new-experimental-features-in-timescaledb-2-4/

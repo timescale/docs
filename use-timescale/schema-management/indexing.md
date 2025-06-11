@@ -99,5 +99,5 @@ to perform indexing transactions on an individual chunk.
 
 [create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
 [about-index]: /use-timescale/:currentVersion:/schema-management/about-indexing/
-[create-index]: https://docs.timescale.com/api/latest/hypertable/create_index/
+[create-index]: https://docs.tigerdata.com/api/latest/hypertable/create_index/
 [hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/

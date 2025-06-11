@@ -10,7 +10,7 @@ import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 
 # Decompression
 
-<Deprecated2180 /> This function has been replaced by [`convert_to_rowstore`](https://docs.timescale.com/api/latest/hypercore/convert_to_rowstore/).
+<Deprecated2180 /> This function has been replaced by [`convert_to_rowstore`](https://docs.tigerdata.com/api/latest/hypercore/convert_to_rowstore/).
 
 Timescale automatically supports `INSERT`s into compressed chunks. But if you
 need to insert a lot of data, for example as part of a bulk backfilling

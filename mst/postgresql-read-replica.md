@@ -15,7 +15,7 @@ see the documentation on [creating a read replica using the CLI][read-replica-cl
 
 <Highlight type="note">
 If you are running a Managed Service for TimescaleDB
-[Pro plan](https://docs.timescale.com/mst/latest/about-mst/#service-configuration-plans),
+[Pro plan](https://docs.tigerdata.com/mst/latest/about-mst/#service-configuration-plans),
 you have standby nodes available in a high availability setup. The standby nodes
 support read-only queries to reduce the effect of slow queries on the primary
 node.

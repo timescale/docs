@@ -9,7 +9,7 @@ import UsageBasedStorage from "versionContent/_partials/_usage-based-storage-int
 
 # Compression  (Replaced by [Hypercore][hypercore])
 
-<Deprecated2180 /> Replaced by <a href="https://docs.timescale.com/use-timescale/latest/hypercore/">hypercore</a>.
+<Deprecated2180 /> Replaced by <a href="https://docs.tigerdata.com/use-timescale/latest/hypercore/">hypercore</a>.
 
 Time-series data can be compressed to reduce the amount of storage required, and
 increase the speed of some queries. This is a cornerstone feature of

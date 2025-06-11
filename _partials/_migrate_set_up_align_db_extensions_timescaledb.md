@@ -15,7 +15,7 @@
        psql $SOURCE -c "ALTER EXTENSION timescaledb UPDATE TO '<version here>';"
        ```
 
-       For more information and guidance, see [Upgrade TimescaleDB](https://docs.timescale.com/self-hosted/latest/upgrades/).
+       For more information and guidance, see [Upgrade TimescaleDB](https://docs.tigerdata.com/self-hosted/latest/upgrades/).
 
 1. Ensure that the Timescale Cloud service is running the PostgreSQL extensions used in your source database.
 
