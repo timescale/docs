@@ -12,4 +12,4 @@ settings. However, in some cases, these settings are not appropriate, especially
 if you have larger servers that use more hardware resources such as CPU, memory,
 and storage.
 
-This section contains information about tuning your $CLOUD_LONG service.
+This section contains information about tuning your $SERVICE_LONG.

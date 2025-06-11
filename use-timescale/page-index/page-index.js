@@ -127,29 +127,29 @@ module.exports = [
         ],
       },
       {
-        title: "Timescale Cloud regions",
+        title: "Tiger Cloud regions",
         href: "regions",
-        excerpt: "Timescale AWS regions",
+        excerpt: "Tiger Cloud AWS regions",
       },
       {
-        title: "Timescale Cloud services",
+        title: "Tiger Cloud services",
         href: "services",
-        excerpt: "About Timescale Cloud services",
+        excerpt: "About Tiger Cloud services",
         children: [
           {
             title: "Services overview",
             href: "service-overview",
-            excerpt: "Timescale services overview",
+            excerpt: "Tiger Cloud services overview",
           },
           {
             title: "Service explorer",
             href: "service-explorer",
-            excerpt: "Timescale services explorer",
+            excerpt: "Tiger Cloud services explorer",
           },
           {
             title: "Service management",
             href: "service-management",
-            excerpt: "Timescale services operations, Service management tab",
+            excerpt: "Tiger Cloud services operations and management tab",
           },
           {
             title: "Manually change resources",
@@ -159,19 +159,19 @@ module.exports = [
           {
             title: "Connection pooling",
             href: "connection-pooling",
-            excerpt: "Using a connection pool with your Timescale services",
+            excerpt: "Using a connection pool with your Tiger Cloud services",
           },
           {
-            title: "Troubleshooting Timescale services",
+            title: "Troubleshooting Tiger Cloud services",
             href: "troubleshooting",
             type: "placeholder",
           },
         ],
       },
       {
-        title: "Control user access to Timescale Cloud projects",
+        title: "Control user access to Tiger Cloud projects",
         href: "members",
-        excerpt: "User management in Timescale Cloud",
+        excerpt: "User management in Tiger Cloud",
       },
       {
         title: "Write data",

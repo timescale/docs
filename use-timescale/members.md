@@ -15,7 +15,7 @@ When you sign up for a [30-day free trial][sign-up], $CLOUD_LONG creates a proje
 you are assigned the `Owner` role for the project. As the project owner, you have rights to
 add and delete other users, and edit project settings. Users that you add to the project are 
 assigned the `Member` role. Members have rights to collaborate with you on your project, and help 
-create and administer the services running in the project. 
+create and administer the $SERVICE_SHORTs running in the project. 
 
 ![Project users in $CONSOLE](https://assets.timescale.com/docs/images/console-users-overview.png)
 
@@ -90,7 +90,7 @@ To change the project you are currently working in:
    ![Change project in $CONSOLE](https://assets.timescale.com/docs/images/console-change-project.png)
 2. Select the project you want to use.
 
-You can now manage the users and services in this project.
+You can now manage the users and $SERVICE_SHORTs in this project.
 
 </Procedure>
 

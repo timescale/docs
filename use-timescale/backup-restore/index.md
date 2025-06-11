@@ -12,8 +12,8 @@ cloud_ui:
 # Backup, restore, and PITR
 
 $CLOUD_LONG automatically handles backup and restore for all
-services using the `pgBackRest` tool. You don't need to perform
-backups for your service manually. 
+$SERVICE_LONGs using the `pgBackRest` tool. You don't need to perform
+backups for your $SERVICE_SHORT manually. 
 
 $CLOUD_LONG also offers self-initiated point-in-time recovery (PITR) in $CONSOLE_SHORT.
 

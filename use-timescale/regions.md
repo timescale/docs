@@ -6,7 +6,7 @@ products: [cloud]
 
 # $CLOUD_LONG regions
 
-<Highlight type="cloud" header="Want your databases to run in the Tiger Cloud?" button="Try for free">
+<Highlight type="cloud" header="Want your databases to run in $CLOUD_LONG?" button="Try for free">
 
 We tune your database for performance and handle scalability, high availability, backups, and management, so you can relax.
 
@@ -31,7 +31,7 @@ $SERVICE_LONGs run in the following Amazon Web Services (AWS) regions:
 
 <Highlight type="cloud"  header="Need to deploy on Azure or Google Cloud Platform?">
 
-Use [Managed Service for TimescaleDB (MST)][aiven-client-mst] to run $TIMESCALE_DB on Azure and GCP.
+Use [$MST_LONG][aiven-client-mst] to run $TIMESCALE_DB on Azure and GCP.
 
 </Highlight>
 

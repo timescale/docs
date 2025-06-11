@@ -13,9 +13,9 @@ privacy.
 *   Learn about [security in $CLOUD_LONG][overview]
 *   Set up [multifactor][mfa] and [SAML][saml] authentication
 *   Generate multiple [client credentials][client-credentials] instead of using your username and password
-*   Grant [read-only access][read-only] to your $SERVICE_LONGs
+*   Grant [read-only access][read-only] to your data
 *   Connect with a [stricter SSL mode][ssl]
-*   Secure your $SERVICE_LONGs with [VPC peering][vpc-peering]
+*   Secure your $SERVICE_SHORTs with [VPC peering][vpc-peering]
 *   Connect to your $SERVICE_SHORTs from any cloud with [AWS Transit Gateway][transit-gateway]
 *   Restrict access with an [IP address allow list][ip-allowlist]
 

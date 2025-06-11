@@ -29,7 +29,7 @@ $SERVICE_LONG.
 - [Install Telegraf][install-telegraf]
 
 
-## Link Telegraf to your service
+## Link Telegraf to your $SERVICE_SHORT
 
 <Procedure>
 

@@ -28,7 +28,7 @@ it points to often changes.
 </Highlight>
 
 In most cases, the updates that occur during your maintenance windows do not
-require any downtime. This means that there is no outage of your services during
+require any downtime. This means that there is no outage of your $SERVICE_SHORT during
 the upgrade. However, all connections and transactions in progress during the
 upgrade are reset. Usually, the database connection is automatically restored
 after the reset.
@@ -46,19 +46,19 @@ To track the status of maintenance events, see the $CLOUD_LONG [status page][sta
 <Highlight type="note">
 
 To apply changes manually instead of waiting for the maintenance window,
-`Pause` then `Resume` your service. Maintenance changes are automatically
-applied when your service is resumed.
+`Pause` then `Resume` your $SERVICE_SHORT. Maintenance changes are automatically
+applied when your $SERVICE_SHORT is resumed.
 
 </Highlight>
 
 ## Replicas and maintenance
 
-Services with replicas require minimal write downtime during maintenance,
+$SERVICE_SHORT_CAPs with replicas require minimal write downtime during maintenance,
 while read-only queries keep working through the maintenance. The maintenance
 requires up to two failovers, performed automatically, taking less than a few
 seconds each.
 
-During a maintenance event, services with replicas perform maintenance on each
+During a maintenance event, $SERVICE_SHORTs with replicas perform maintenance on each
 node independently. When maintenance goes on with the primary node, the primary
 node needs to be restarted. If the restart takes more than a minute, the replica
 node is promoted to the primary, given that the replica has no replication lag.
@@ -78,7 +78,7 @@ For more information about replicas, see the
 
 Non-critical upgrades are available before the upgrade is performed
 automatically by $CLOUD_LONG. To upgrade $TIMESCALE_DB manually, run `ALTER
-EXTENSION timescaledb UPDATE` in your $SERVICE_LONG, or `Pause` and `Resume`.
+EXTENSION timescaledb UPDATE` in your $SERVICE_SHORT, or `Pause` and `Resume`.
 If no action is taken by the user, the upgrade is triggered in the next
 available maintenance window. You can configure the maintenance window so that
 these upgrades are started at a particular time, on a set day of the week. 
@@ -89,7 +89,7 @@ no changes are performed.
 When you are considering your maintenance window schedule, you might prefer to
 choose a day and time that usually has very low activity, such as during the
 early hours of the morning, or over the weekend. This can help minimize the
-impact of a short service interruption. Alternatively, you might prefer to have
+impact of a short $SERVICE_SHORT interruption. Alternatively, you might prefer to have
 your maintenance window occur during office hours, so that you can monitor your
 system during the upgrade.
 
@@ -98,7 +98,7 @@ system during the upgrade.
 ### Adjusting your maintenance window
 
 1.  [Log in to your $CLOUD_LONG account][cloud-login]. Click the name of the
-    service that you want to manage the maintenance window for.
+    $SERVICE_SHORT that you want to manage the maintenance window for.
 2.  In the `Operations` tab, navigate to the `Environment` > `Maintenance` and click `Change maintenance window`.
 3.  Select the day of the week, the time, and the
     timezone that you want the maintenance window to start. Maintenance windows
@@ -108,7 +108,7 @@ system during the upgrade.
 
 
 4.  Check `Apply new maintenance window to all services` if you want to use the
-    same maintenance window settings for all of your $CLOUD_LONG services.
+    same maintenance window settings for all of your $CLOUD_LONG $SERVICE_SHORTs.
 5.  Click `Apply`.
 
 </Procedure>
@@ -123,7 +123,7 @@ can plan accordingly. However, in some cases, we might not be able to do so.
 
 ## Upgrade to a new PostgreSQL version
 
-You can also manually upgrade to the newest supported PostgreSQL version from the service 
+You can also manually upgrade to the newest supported PostgreSQL version from the $SERVICE_SHORT 
 overview page.
 
 Upgrading to a newer version of PostgreSQL allows you to take advantage of new
@@ -143,7 +143,7 @@ For more information about feature changes between versions, see the
 
 <Highlight type="warning">
 
-Your $SERVICE_LONG is unavailable until the upgrade is complete. This
+Your $SERVICE_SHORT is unavailable until the upgrade is complete. This
 can take up to 20 minutes. It is recommended to test on a fork first for a 
 better estimate.
 
@@ -166,22 +166,22 @@ For a smooth upgrade experience, make sure you:
 
 <Highlight type="important">
 
-$SERVICE_LONGs with replicas cannot be upgraded. To upgrade a service
-with a replica, you must first delete the replica and then upgrade the service.
+$SERVICE_SHORTs with replicas cannot be upgraded. To upgrade a $SERVICE_SHORT
+with a replica, you must first delete the replica and then upgrade the $SERVICE_SHORT.
 </Highlight>
 
 <Procedure>
 
 ### Upgrade to a new PostgreSQL version
 
-1.  In $CONSOLE, navigate to `Services` and click the service
+1.  In $CONSOLE, navigate to `Services` and click the $SERVICE_SHORT
     you want to upgrade.
 1.  Navigate to `Operations` > `Service Upgrades`.
 1.  If a new PostgreSQL version is available, click `Upgrade service` and
-    confirm that you are ready to start the upgrade. Your 
-    service is unavailable for use until the upgrade is complete.
-1.  When the upgrade is finished, your service automatically resumes normal
-    operations. If the upgrade is unsuccessful, the service returns to the state
+    confirm that you are ready to start the upgrade. Your
+    $SERVICE_SHORT is unavailable for use until the upgrade is complete.
+1.  When the upgrade is finished, your $SERVICE_SHORT automatically resumes normal
+    operations. If the upgrade is unsuccessful, the $SERVICE_SHORT returns to the state
     it was in before you started the upgrade.
 
 </Procedure>

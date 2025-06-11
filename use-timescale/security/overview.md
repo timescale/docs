@@ -39,7 +39,7 @@ connections. There is no option to use unencrypted plaintext connections.
 ## Networking with Virtual Private Cloud (VPC) peering
 
 When using VPC peering, **no public Internet-based access** is provided to the
-services. Service addresses are published in public DNS, but they can only be
+$SERVICE_SHORT. $SERVICE_SHORT_CAP addresses are published in public DNS, but they can only be
 connected to from the customer's peered VPC using private network addresses.
 
 VPC peering only enables communication to be initiated from your Customer VPC to
@@ -59,7 +59,7 @@ automatically created, maintained and terminated by the $CLOUD_LONG
 infrastructure. No manual operator intervention is required.
 
 However, the $COMPANY operations team has the capability to securely
-log in to the service Virtual Machines for troubleshooting purposes. These
+log in to the $SERVICE_SHORT virtual machines for troubleshooting purposes. These
 accesses are audit logged.
 
 No customer access to the virtual machine level is provided.

@@ -153,7 +153,7 @@ If you remove a tiering policy, the remaining scheduled chunks are not tiered. H
 
 ### Manually tier and untier chunks
 
-If tiering policies do not meet your current needs, you can tier and untier chunks manually. To do so, [connect to your service][connect-to-service] and run the queries below in the data mode, the SQL editor, or using `psql`.
+If tiering policies do not meet your current needs, you can tier and untier chunks manually. To do so, [connect to your $SERVICE_SHORT][connect-to-service] and run the queries below in the data mode, the SQL editor, or using `psql`.
 
 #### Tier chunks
 

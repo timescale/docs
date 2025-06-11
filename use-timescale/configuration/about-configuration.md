@@ -8,16 +8,16 @@ keywords: [configuration, memory, workers, settings]
 # About configuration in $CLOUD_LONG
 
 By default, $CLOUD_LONG uses the default PostgreSQL server configuration settings.
-Most configuration values for a service are initially set in accordance with
-best practices given the compute and storage settings of the service. Any time
-you increase or decrease the compute for a Service, the most essential values
-are set to reflect the size of the new service.
+Most configuration values for a $SERVICE_LONG are initially set in accordance with
+best practices given the compute and storage settings of the $SERVICE_SHORT. Any time
+you increase or decrease the compute for a $SERVICE_SHORT, the most essential values
+are set to reflect the size of the new $SERVICE_SHORT.
 
 There are times, however, when your specific workload could require tuning some
 of the many available $CLOUD_LONG-specific and PostgreSQL parameters. By providing the
 ability to tune various runtime settings, $CLOUD_LONG provides the balance
 and flexibility you need when running your workloads in a hosted environment.
-You can use [Service settings][settings] and [Service operations][operations] to
+You can use [$SERVICE_SHORT settings][settings] and [$SERVICE_SHORT operations][operations] to
 customize $CLOUD_LONG configurations.
 
 [settings]: /use-timescale/:currentVersion:/configuration/advanced-parameters/

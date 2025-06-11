@@ -8,7 +8,7 @@ cloud_ui:
         - [services, :serviceId, explorer]
 ---
 
-# $SERVICE_SHORT explorer
+# $SERVICE_LONG explorer
 
 $SERVICE_SHORT explorer in $CONSOLE provides a rich administrative dashboard for
 understanding the state of your database instance. The explorer gives you

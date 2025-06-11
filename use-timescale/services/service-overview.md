@@ -10,7 +10,7 @@ cloud_ui:
 ---
 import ServiceOverview from "versionContent/_partials/_service-overview.mdx";
 
-# About $SERVICE_SHORTs
+# About $SERVICE_LONGs
 
 <ServiceOverview />
 

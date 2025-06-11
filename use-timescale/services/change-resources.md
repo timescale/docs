@@ -1,6 +1,6 @@
 ---
 title: Manually change compute resources
-excerpt: Timescale Cloud charges for the storage you actually use, and handles disk resize for you. You can also manually resize the compute resources available to your Timescale Cloud services with minimal downtime
+excerpt: Tiger Cloud charges for the storage you actually use, and handles disk resize for you. You can also manually resize the compute resources available to your Tiger Cloud services with minimal downtime
 products: [cloud]
 keywords: [services, operation, storage]
 tags: [disk space, resources, oom, memory]
@@ -22,13 +22,13 @@ $SERVICE_LONGs at any time, with a short downtime.
 
 You can change the CPU and memory allocation for your $SERVICE_SHORT at any time with
 minimal downtime, usually less than a minute. The new resources become available as soon as 
-the service restarts. You can change the CPU and memory allocation up or down, as frequently as required. 
+the $SERVICE_SHORT restarts. You can change the CPU and memory allocation up or down, as frequently as required. 
 
 ![Change resources](https://assets.timescale.com/docs/images/console-update-resources-manually.png)
 
 There is momentary downtime while the new compute settings are applied. In most cases, this is 
-less than a minute. However, before making changes to your service, best practice
-is to enable [HA replication][high-availability] on the service. When you resize a service with HA enabled,
+less than a minute. However, before making changes to your $SERVICE_SHORT, best practice
+is to enable [HA replication][high-availability] on the $SERVICE_SHORT. When you resize a $SERVICE_SHORT with HA enabled,
 $CLOUD_LONG:
 
 1. Resizes the replica.

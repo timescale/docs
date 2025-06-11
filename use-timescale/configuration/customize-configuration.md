@@ -10,28 +10,27 @@ cloud_ui:
 
 # Configure database parameters
 
-Tiger Cloud allows you to customize many Tiger Cloud-specific and PostgreSQL
-configuration options for each Service individually. Most configuration values
-for a service are initially set in accordance with best practices given the
-compute and storage settings of the service. Any time you increase or decrease
-the compute for a service, the most essential values are set to reflect the size
-of the new service.
+$CLOUD_LONG allows you to customize many $CLOUD_LONG-specific and PostgreSQL
+configuration options for each $SERVICE_SHORT individually. Most configuration values
+for a $SERVICE_SHORT are initially set in accordance with best practices given the
+compute and storage settings of the $SERVICE_SHORT. Any time you increase or decrease
+the compute for a $SERVICE_SHORT, the most essential values are set to reflect the size
+of the new $SERVICE_SHORT.
 
 <Highlight type="warning">
 
-You can modify most parameters without restarting the service.
+You can modify most parameters without restarting the $SERVICE_SHORT.
 However, some changes do require a restart, resulting in some brief downtime
 that is usually about 30&nbsp;seconds. An example of a change that needs a
-restart is modifying the compute resources of a running service.
+restart is modifying the compute resources of a running $SERVICE_SHORT.
 
 </Highlight>
 
-## View service operation details
+## View $SERVICE_SHORT operation details
 
-To modify configuration parameters, first select the Service that you want to
-modify. This displays the `service details`, with these tabs across the top:
-Overview, Actions, Explorer, Monitoring, SQL Editor, Operations, and AI. Select `Operations`, then
-`Database parameters`.
+To modify configuration parameters, first select the $SERVICE_SHORT that you want to
+modify. This displays the $SERVICE_SHORT details, with these tabs across the top:
+`Overview`, `Actions`, `Explorer`, `Monitoring`, `SQL Editor`, `Operations`, and `AI`. Select `Operations`, then `Database parameters`.
 
 ![Database configuration parameters](https://assets.timescale.com/docs/images/database-configuration-parameters.png)
 
@@ -60,7 +59,7 @@ alt="Change Timescale configuration parameters"/>
 
 When you have modified the configuration parameters that you would like to
 change, click `Apply changes`. For some changes, such as
-`timescaledb.max_background_workers`, the service needs to be restarted. In this
+`timescaledb.max_background_workers`, the $SERVICE_SHORT needs to be restarted. In this
 case, the button reads `Apply changes and restart`.
 
 A confirmation dialog is displayed which indicates whether a restart is

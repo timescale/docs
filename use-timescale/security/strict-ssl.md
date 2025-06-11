@@ -26,7 +26,7 @@ signed by a well-known and trusted Certificate Authority.
 
 Because requesting a certificate from a Certificate Authority takes some time,
 $SERVICE_LONGs are initialized with a self-signed certificate. This
-lets you start up a service immediately. After your service is started, a
+lets you start up a $SERVICE_SHORT immediately. After your $SERVICE_SHORT is started, a
 signed certificate is requested behind the scenes. The new certificate is
 usually received within 30 minutes. Your certificate is then replaced
 with almost no interruption. Connections are reset, and most clients reconnect

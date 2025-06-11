@@ -38,7 +38,7 @@ or [contact us][contact-timescale] directly.
 
 ## Advanced configuration
 
-$CLOUD_LONG is a versatile hosting service that provides a growing list of
+$CLOUD_LONG is a versatile PostgreSQL database platform that provides a growing list of
 advanced features for your time-series, events, and AI workloads.
 
 For more information about customizing your database configuration, see 

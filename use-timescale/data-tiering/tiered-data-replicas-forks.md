@@ -11,7 +11,7 @@ tags: [storage, data management]
 
 There is one more thing that makes Tiered Storage even more amazing: when you keep data in the low-cost object storage tier,
 you pay for this data only once, regardless of whether you have a [high-availability replica][ha-replica]
-or [read replicas][read-replica] running in your service. We call this the savings multiplication effect of Tiered Storage.
+or [read replicas][read-replica] running in your $SERVICE_SHORT. We call this the savings multiplication effect of Tiered Storage.
 
 The same applies to [forks][operations-forking], which you can use, for example, for running tests or creating dev environments.
 When creating one (or more) forks, you won't be billed for data shared with the primary in the low-cost storage.
