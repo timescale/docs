@@ -9,6 +9,52 @@ products: [cloud, self_hosted]
 
 All the latest features and updates to Timescale products.
 
+## 🧘 Read replica sets, faster tables, new anthropic models, and VPC support in data mode
+<Label type="date">June 6, 2025</Label>
+
+### Horizontal read scaling with read replica sets
+
+[Read replica sets](https://docs.timescale.com/use-timescale/latest/ha-replicas/read-scaling/) are an improved version of read replicas. They let you scale reads horizontally by creating up to 10 replica nodes behind a single read endpoint. Just point your read queries to the endpoint and configure the number of replicas you need without changing your application logic. You can increase or decrease the number of replicas in the set dynamically, with no impact on the endpoint.
+
+Read replica sets are used to:
+
+- Scale reads for read-heavy workloads and dashboards.
+- Isolate internal analytics and reporting from customer-facing applications.
+- Provide high availability and fault tolerance for read traffic.
+
+All existing read replicas have been automatically upgraded to a replica set with one node—no action required. Billing remains the same.
+
+Read replica sets are available for all Scale and Enterprise customers.
+
+![Create a read replica set in Timescale Console](https://assets.timescale.com/docs/images/create-read-replica-set-timescale-console.png)
+
+### Faster, smarter results tables in data mode
+
+We've completely rebuilt how query results are displayed in the data mode to give you a faster, more powerful way to work with your data. The new results table can handle millions of rows with smooth scrolling and instant responses when you sort, filter, or format your data. You'll find it today in notebooks and presentation pages, with more areas coming soon.
+
+What's new:
+
+- **Your settings stick around**: when you customize how your table looks—applying filters, sorting columns, or formatting data—those settings are automatically saved. Switch to another tab and come back, and everything stays exactly how you left it.
+- **Better ways to find what you need**: filter your results by any column value, with search terms highlighted so you can quickly spot what you're looking for. The search box is now available everywhere you work with data.
+- **Export exactly what you want**: download your entire table or just select the specific rows and columns you need. Both CSV and Excel formats are supported.
+- **See patterns in your data**: highlight cells based on their values to quickly spot trends, outliers, or important thresholds in your results.
+- **Smoother navigation**: click any row number to see the full details in an expanded view. Columns automatically resize to show your data clearly, and web links in your results are now clickable.
+
+As a result, working with large datasets is now faster and more intuitive. Whether you're exploring millions of rows or sharing results with your team, the new table keeps up with how you actually work with data.
+
+### Latest anthropic models added to SQL assistant
+
+Data mode's [SQL assistant](https://docs.timescale.com/getting-started/latest/run-queries-from-console/#sql-assistant) now supports Anthropic's latest models:
+
+- Sonnet 4
+- Sonnet 4 (extended thinking)
+- Opus 4
+- Opus 4 (extended thinking)
+
+### VPC support for passwordless data mode connections
+
+We previously made it much easier to connect newly created services to Timescale’s [data mode](https://docs.timescale.com/getting-started/latest/run-queries-from-console/#data-mode). We have now expanded this functionality to services using a VPC.
+
 ## 🕵🏻️ Enhanced service monitoring, TimescaleDB v2.20, and livesync for PostgreSQL
 <Label type="date">May 30, 2025</Label>
 

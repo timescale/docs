@@ -35,6 +35,6 @@ and [insights][insights],&nbsp;[streamlined maintenance][maintain-upgrade],&nbsp
 [how-plans-work]: /about/:currentVersion:/pricing-and-account-management/#how-plans-work
 [in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
 [metrics]: /use-timescale/:currentVersion:/metrics-logging/service-metrics/
-[insights]: /use-timescale/:currentVersion:/metrics-logging/insights/
+[insights]: /use-timescale/:currentVersion:/monitoring/#insights/
 [maintain-upgrade]: /use-timescale/:currentVersion:/upgrades/
 
