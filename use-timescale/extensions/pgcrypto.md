@@ -1,6 +1,6 @@
 ---
 title: pgcrypto PostgreSQL extension
-excerpt: pgcrypto is a PostgreSQL extension that secures sensitive data within the database. See how to use pgcrypto to encrypt inserted data in a Timescale Cloud service
+excerpt: pgcrypto is a PostgreSQL extension that secures sensitive data within the database. See how to use pgcrypto to encrypt the data in your service
 products: [cloud, mst, self_hosted]
 keywords: [services, settings, extensions, pgcrypto]
 tags: [extensions, pgcrypto]
@@ -22,7 +22,7 @@ For more information about these functions and the options available, see the
 ## Use the `pgcrypto` extension to encrypt inserted data
 
 The `pgcrypto` extension allows you to encrypt, decrypt, hash,
-and create digital signatures within your database. Timescale understands how
+and create digital signatures within your database. $COMPANY understands how
 precious your data is and safeguards sensitive information.
 
 <Procedure>

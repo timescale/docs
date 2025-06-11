@@ -1,6 +1,6 @@
 ---
 title: Monitor your Timescale Cloud services
-excerpt: View logs, metrics, and performance insights for your Timescale Cloud services in Timescale Console. Get actionable tips to improve your service performance
+excerpt: View logs, metrics, and performance insights for your services in Tiger Cloud. Get actionable tips to improve your service performance
 products: [cloud]
 price_plans: [performance, scale, enterprise]
 keywords: [monitoring]
@@ -128,7 +128,7 @@ This view includes the following graphs:
 
 ## Query-level statistics with `pg_stat_statements`
 
-<Availability products={['cloud', 'self_hosted']} />
+<Availability products={['cloud', 'self_hosted', 'mst']} />
 
 You can also get query-level statistics for your $SERVICE_SHORTs with the `pg_stat_statements` extension. This includes the time spent planning and executing each query; the number of blocks hit, read, and written; and more. `pg_stat_statements` comes pre-installed with $CLOUD_LONG.
 

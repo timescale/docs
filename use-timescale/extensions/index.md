@@ -1,21 +1,21 @@
 ---
 title: PostgreSQL extensions
-excerpt: Timescale Cloud comes with a number of Timescale and PostgreSQL extensions enabled by default. See all the extensions you can enable for your service
-products: [cloud, mst, self_hosted]
+excerpt: Tiger Cloud comes with a number of TigerData and PostgreSQL extensions enabled by default. See all the extensions you can enable for your service
+products: [cloud]
 keywords: [services, settings, extensions]
 tags: [extensions]
 ---
 
 # PostgreSQL extensions
 
-You can use PostgreSQL extensions with Timescale. These are the currently
+You can use PostgreSQL extensions with $CLOUD_LONG. These are the currently
 supported extensions:
 
-- [Timescale extensions][timescale-extensions]
+- [$COMPANY extensions][timescale-extensions]
 - [PostgreSQL built-in extensions][built-ins]
 - [Third-party extensions][third-party]
 
-## Timescale extensions
+## $COMPANY extensions
 
 | Extension                                  | Description                            | Enabled by default                                                    |
 |--------------------------------------------|----------------------------------------|-----------------------------------------------------------------------|

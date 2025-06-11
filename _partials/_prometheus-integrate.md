@@ -26,7 +26,7 @@ To export your data, do the following:
 
 <Tabs label="Export metrics to Prometheus">
 
-<Tab title="Timescale Cloud">
+<Tab title="Tiger Cloud">
 
 <Procedure>
 
