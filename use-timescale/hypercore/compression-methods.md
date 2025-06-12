@@ -10,7 +10,7 @@ keywords: [compression]
 Depending on the data type that is compressed when your data is converted from the rowstore to the
 columnstore, TimescaleDB uses the following compression algorithms:
 
-- **Integers, timestamps, and other integer-like types**: a combination of the following compression
+- **Integers, timestamps, boolean and other integer-like types**: a combination of the following compression
   methods is used: [delta encoding][delta], [delta-of-delta][delta-delta], [simple-8b][simple-8b], and
   [run-length encoding][run-length].
 - **Columns that do not have a high amount of repeated values**: [XOR-based][xor] compression with
