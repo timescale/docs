@@ -21,7 +21,7 @@ tags: [install, configuration]
 -->
 
 If your PostgreSQL logs have this error preventing it from starting up,
-you should double check that the TimescaleDB files have been installed
+you should double check that the $TIMESCALE_DB files have been installed
 to the correct location. Our installation methods use `pg_config` to
 get PostgreSQL's location. However if you have multiple versions of
 PostgreSQL installed on the same machine, the location `pg_config`
@@ -51,5 +51,5 @@ path of `pg_config` listed first, that is, by prepending the full path:
 export PATH = /usr/local/Cellar/postgresql/11.0/bin:$PATH
 ```
 
-Then, reinstall TimescaleDB and it should find the correct installation
+Then, reinstall $TIMESCALE_DB and it should find the correct installation
 path.
