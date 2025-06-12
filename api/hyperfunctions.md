@@ -1,6 +1,6 @@
 ---
 title: Hyperfunctions
-excerpt: The full list of hyperfunctions available in Timescale Cloud, with required arguments, returns, and complete use examples
+excerpt: The full list of hyperfunctions available in TimescaleDB, with required arguments, returns, and complete use examples
 keywords: [hyperfunctions, Toolkit]
 products: [cloud, mst, self_hosted]
 ---
@@ -14,7 +14,7 @@ analytics, user behavior, financial metrics, and cryptocurrency.
 
 Some hyperfunctions are included by default in Timescale. For
 additional hyperfunctions, you need to install the
-[Timescale Toolkit][install-toolkit] PostgreSQL extension.
+[$TOOLKIT_LONG][install-toolkit] PostgreSQL extension.
 
 For more information, see the [hyperfunctions
 documentation][hyperfunctions-howto].

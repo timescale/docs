@@ -1,6 +1,6 @@
 ---
 title: TimescaleDB API reference
-excerpt: See the full list of SQL functions and views that Timescale Cloud provides to help you interact with and manage your data
+excerpt: See the full list of SQL functions and views that TimescaleDB provides to help you interact with and manage your data
 keywords: [reference]
 products: [cloud, mst, self_hosted]
 ---

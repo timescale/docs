@@ -68,9 +68,9 @@ CALL recompress_chunk('_timescaledb_internal._hyper_1_2_chunk');
 
 ## Troubleshooting
 
-In TimescaleDB 2.6.0 and above, `recompress_chunk` is implemented as a procedure.
+In $TIMESCALE_DB 2.6.0 and above, `recompress_chunk` is implemented as a procedure.
 Previously, it was implemented as a function. If you are upgrading to
-TimescaleDB 2.6.0 or above, the`recompress_chunk`
+$TIMESCALE_DB 2.6.0 or above, the`recompress_chunk`
 function could cause an error. For example, trying to run `SELECT
 recompress_chunk(i.show_chunks, true) FROM...` gives the following error:
 

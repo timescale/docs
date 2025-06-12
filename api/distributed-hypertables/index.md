@@ -1,6 +1,6 @@
 ---
 title: Distributed hypertables ( Sunsetted v2.14.x )
-excerpt: Sunsetted v2.14.x. Timescale Cloud API reference for dealing with distributed hypertables
+excerpt: Sunsetted v2.14.x. Tiger CloudAPI reference for dealing with distributed hypertables
 keywords: [distributed hypertables]
 seo:
   robots: noindex

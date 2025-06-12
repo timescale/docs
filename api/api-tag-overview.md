@@ -1,6 +1,6 @@
 ---
 title: API reference tag overview
-excerpt: The Timescale Cloud API reference includes tags to categorize the available SQL functions and views. See what tags are used and what they mean
+excerpt: The Tiger CloudAPI reference includes tags to categorize the available SQL functions and views. See what tags are used and what they mean
 tags: [licenses, toolkit, experimental]
 products: [cloud, mst, self_hosted]
 ---

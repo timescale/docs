@@ -1,6 +1,6 @@
 ---
 title: Jobs
-excerpt: Timescale Cloud API reference for jobs. Includes SQL functions for adding, altering, deleting, and running a job
+excerpt: TimescaleDB API reference for jobs. Includes SQL functions for adding, altering, deleting, and running a job
 keywords: [jobs]
 tags: [background jobs, scheduled jobs, automation framework]
 products: [cloud, mst, self_hosted]

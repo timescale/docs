@@ -22,9 +22,9 @@ The column you select as the dimension can use either:
 - [Interval partitions][range-partition]: for example, for a second range partition.
 - [hash partitions][hash-partition]: to enable parallelization across multiple disks.
 
-<Highlight type="cloud" header="These instructions are for self-hosted TimescaleDB deployments" button="Try Timescale Cloud">
+<Highlight type="cloud" header="These instructions are for self-hosted TimescaleDB deployments" button="Try Tiger Cloud">
 
-Best practice is to not use additional dimensions. However, Timescale Cloud transparently provides seamless storage
+Best practice is to not use additional dimensions. However, $CLOUD_LONG transparently provides seamless storage
 scaling, both in terms of storage capacity and available storage IOPS/bandwidth.
 
 </Highlight>
