@@ -7,11 +7,11 @@ keywords: [finance, analytics, AWS Lambda, psycopg2, pandas, GitHub Actions, pip
 
 # TimescaleDB with AWS Lambda
 
-This section contains tutorials for working with AWS Lambda and TimescaleDB.
+This section contains tutorials for working with AWS Lambda and $TIMESCALE_DB.
 
-*   Create a data API for TimescaleDB using AWS Lambda and
+*   Create a data API for $TIMESCALE_DB using AWS Lambda and
     API Gateway.
-*   Pull data from third-party API and ingest into TimescaleDB
+*   Pull data from third-party API and ingest into $TIMESCALE_DB
     using AWS Lambda and Docker. This is great if you have a lot of dependencies.
 *   Continuously deploy your Lambda function with GitHub Actions
     using Github Actions.
@@ -39,7 +39,7 @@ For more information about installing the AWS CLI, see
 If you are completing this tutorial in Timescale, make sure you have
 created a VPC on both AWS, and on your database in Timescale. For more
 information about setting up a VPC, see the
-[Timescale VPC section](/use-timescale/latest/vpc/).
+[VPC section](/use-timescale/latest/vpc/).
 </Highlight>
 
 ## Programming language

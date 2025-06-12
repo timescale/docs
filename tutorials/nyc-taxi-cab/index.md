@@ -32,7 +32,7 @@ This tutorial covers:
 1.  [Setting up your dataset][dataset-nyc]: Set up and connect to a Timescale
     service, and load data into your database using `psql`.
 1.  [Querying your dataset][query-nyc]: Analyze a dataset containing NYC taxi
-    trip data using Timescale and PostgreSQL.
+    trip data using $CLOUD_LONG and PostgreSQL.
 1.  [Bonus: Store data efficiently][compress-nyc]: Learn how to store and query your
 NYC taxi trip data more efficiently using compression feature of Timescale.
 

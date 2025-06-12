@@ -1,5 +1,7 @@
-<Highlight type="cloud" header="Try for free on Timescale" button="Try for free">
-Timescale is a fully managed service with automatic backup and restore, high
+<Highlight type="cloud" header="Try for free on Tiger Cloud" button="Try for free">
+
+Tiger Cloud is a fully managed service with automatic backup and restore, high
 availability with replication, seamless scaling and resizing, and much more. You
-can try Timescale free for thirty days.
+can try Tiger Cloud free for thirty days.
+
 </Highlight>

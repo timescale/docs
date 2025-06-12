@@ -8,7 +8,7 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 - Install [Go][golang-install].
 - Install the [PGX driver for Go][pgx-driver-github].
 
-## Connect to your $SERVICE_SHORT 
+## Connect to your Tiger Cloud service 
 
 In this section, you create a connection to $CLOUD_LONG using the PGX driver.
 PGX is a toolkit designed to help Go developers work directly with PostgreSQL.
@@ -16,7 +16,7 @@ You can use it to help your Go application interact directly with TimescaleDB.
 
 <Procedure>
 
-1.  Locate your TimescaleDB credentials and use them to compose a connection
+1.  Locate your $TIMESCALE_DB credentials and use them to compose a connection
     string for PGX.
 
     You'll need:
@@ -90,7 +90,7 @@ You can use it to help your Go application interact directly with TimescaleDB.
     
 </Procedure>
 
-Alternatively, you can connect to TimescaleDB using a connection pool.
+Alternatively, you can connect to $TIMESCALE_DB using a connection pool.
 Connection pooling is useful to conserve computing resources, and can also
 result in faster database queries:
 
@@ -126,7 +126,7 @@ result in faster database queries:
 
         //run a simple query to check our connection
         var greeting string
-        err = dbpool.QueryRow(ctx, "select 'Hello, Timescale (but concurrently)'").Scan(&greeting)
+        err = dbpool.QueryRow(ctx, "select 'Hello, TigerData (but concurrently)'").Scan(&greeting)
         if err != nil {
             fmt.Fprintf(os.Stderr, "QueryRow failed: %v\n", err)
             os.Exit(1)
@@ -228,7 +228,7 @@ and most other tasks are executed on the hypertable.
     ```
 
 	<Highlight type="note">
-	The `by_range` dimension builder is an addition to TimescaleDB 2.13.
+	The `by_range` dimension builder is an addition to $TIMESCALE_DB 2.13.
 	</Highlight>
 
 1.  Execute the `CREATE TABLE` statement and `SELECT` statement which converts
@@ -453,7 +453,7 @@ to insert multiple rows of data, instead:
         r = results[i]
         _, err := dbpool.Exec(ctx, queryInsertTimeseriesData, r.Time, r.SensorId, r.Temperature, r.CPU)
         if err != nil {
-            fmt.Fprintf(os.Stderr, "Unable to insert sample into Timescale %v\n", err)
+            fmt.Fprintf(os.Stderr, "Unable to insert sample into TimescaleDB %v\n", err)
             os.Exit(1)
         }
         defer rows.Close()
@@ -554,7 +554,7 @@ to insert multiple rows of data, instead:
             r = results[i]
             _, err := dbpool.Exec(ctx, queryInsertTimeseriesData, r.Time, r.SensorId, r.Temperature, r.CPU)
             if err != nil {
-                fmt.Fprintf(os.Stderr, "Unable to insert sample into Timescale %v\n", err)
+                fmt.Fprintf(os.Stderr, "Unable to insert sample into TimescaleDB %v\n", err)
                 os.Exit(1)
             }
             defer rows.Close()
@@ -861,14 +861,14 @@ This section covers how to execute queries against your database.
 
 ## Next steps
 
-Now that you're able to connect, read, and write to a TimescaleDB instance from
-your Go application, be sure to check out these advanced TimescaleDB tutorials:
+Now that you're able to connect, read, and write to a $TIMESCALE_DB instance from
+your Go application, be sure to check out these advanced $TIMESCALE_DB tutorials:
 
 *   Refer to the [pgx documentation][pgx-docs] for more information about pgx.
-*   Get up and running with TimescaleDB with the [Getting Started][getting-started]
+*   Get up and running with $TIMESCALE_DB with the [Getting Started][getting-started]
     tutorial.
 *   Want fast inserts on CSV data? Check out
-    [TimescaleDB parallel copy][parallel-copy-tool], a tool for fast inserts,
+    [$TIMESCALE_DB parallel copy][parallel-copy-tool], a tool for fast inserts,
     written in Go.
 
 [getting-started]: /getting-started/:currentVersion:/

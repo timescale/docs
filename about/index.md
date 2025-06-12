@@ -4,4 +4,4 @@ excerpt: Learn about Tiger Cloud and TimescaleDB, including pricing, release not
 products: [cloud, self_hosted, mst]
 ---
 
-# About $COMPANY products
+# About TigerData products

@@ -7,7 +7,7 @@ content_group: Getting started
 
 import WhereNext from "versionContent/_partials/_where-to-next.mdx";
 
-# Run your queries from $CONSOLE
+# Run your queries from console
 
 As $CLOUD_LONG is based on $PG, you can use lots of [different tools][integrations] to
 connect to your $SERVICE_SHORT and interact with your data.
@@ -24,7 +24,7 @@ In $CONSOLE you can use the following ways to run SQL queries against your $SERV
 
 If you prefer the command line to the $OPS_MODE $SQL_EDITOR in $CONSOLE, use [psql][install-psql].
 
-## $DATA_MODE_CAP 
+## 	Data mode 
 
 You use the $DATA_MODE in $CONSOLE to write queries, visualize data, and share your results.
 
@@ -44,7 +44,7 @@ Available features are:
 - **Cross-platform support**: work from [$CONSOLE][portal-data-mode] or download the [desktop app][popsql-desktop] for macOS, Windows, and Linux.
 - **Easy connection**: connect to $CLOUD_LONG, $PG, Redshift, Snowflake, BigQuery, MySQL, SQL Server, [and more][popsql-connections].
 
-### Connect to your $SERVICE_LONG in the $DATA_MODE
+### Connect to your Tiger Cloud service in the data mode
 
 <Procedure>
 
@@ -83,9 +83,9 @@ Now you have used the $DATA_MODE in $CONSOLE, see how to easily do the following
 - [Create a dashboard of multiple query results][create-dashboard]
 - [Create schedules for your queries][create-schedule]
 
-### $DATA_MODE_CAP FAQ
+### Data mode FAQ
 
-#### What if my $SERVICE_SHORT is within a $VPC?
+#### What if my service is within a vpc?
 
 If your $SERVICE_LONG runs inside a $VPC, do one of the following to enable access for the $POPSQL desktop app:
 

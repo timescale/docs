@@ -14,11 +14,11 @@
    ```
 
    MST does not allow you to export passwords with roles. You assign passwords to these roles
-   when you have uploaded them to your Timescale Cloud service.
+   when you have uploaded them to your $SERVICE_LONG.
 
 1. **Remove roles with superuser access**
 
-   Timescale Cloud services do not support roles with superuser access. Run the following script
+   $SERVICE_LONGs do not support roles with superuser access. Run the following script
    to remove statements, permissions and clauses that require superuser permissions from `roles.sql`:
 
    ```bash

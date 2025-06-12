@@ -1,6 +1,6 @@
 <Procedure>
 
-### Restoring data into Timescale with timescaledb-parallel-copy
+### Restoring data into a Tiger Cloud service with timescaledb-parallel-copy
 
 1.  At the command prompt, install `timescaledb-parallel-copy`:
 
@@ -9,7 +9,7 @@
     ```
 
 1.  Use `timescaledb-parallel-copy` to import data into 
-    your Timescale database. Set `<NUM_WORKERS>` to twice the number of CPUs in your
+    your $SERVICE_LONG. Set `<NUM_WORKERS>` to twice the number of CPUs in your
     database. For example, if you have 4 CPUs, `<NUM_WORKERS>` should be `8`.
 
     ```bash

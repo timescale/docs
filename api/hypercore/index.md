@@ -12,13 +12,13 @@ import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypert
 import Since2180 from "versionContent/_partials/_since_2_18_0.mdx";
 import HypercoreIntro from "versionContent/_partials/_hypercore-intro.mdx";
 
-# $HYPERCORE_CAP
+# Hypercore
 
 <HypercoreIntro />
 
 <Since2180 />
 
-## $HYPERCORE_CAP workflow
+## Hypercore workflow
 
 Best practice for using $HYPERCORE is to: 
 

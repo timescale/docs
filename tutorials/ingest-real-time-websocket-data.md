@@ -30,7 +30,7 @@ This tutorial uses Python and the API
 Before you begin, make sure you have:
 
 *   Signed up for a [free $ACCOUNT_LONG][cloud-install].
-*   Downloaded the file that contains your Timescale service credentials such as
+*   Downloaded the file that contains your $SERVICE_LONG credentials such as
     `<HOST>`, `<PORT>`, and `<PASSWORD>`. Alternatively, you can find these
     details in the `Connection Info` section for your service.
 *   Installed Python 3
@@ -179,12 +179,12 @@ two arguments to create a websocket object and establish connection.
 
 <Collapsible heading="The real-time dataset" headingLevel={2} defaultExpanded={false}>
     
-To ingest the data into your Timescale service, you need to implement the
+To ingest the data into your $SERVICE_LONG, you need to implement the
 `on_event` function.
     
 After the websocket connection is set up, you can use the `on_event` function
 to ingest data into the database. This is a data pipeline that ingests real-time 
-financial data into your Timescale service.
+financial data into your $SERVICE_LONG.
 
 Stock trades are ingested in real-time Monday through Friday, typically during
 normal trading hours of the New York Stock Exchange (9:30&nbsp;AM to 
@@ -225,7 +225,7 @@ This function needs to:
 
 1.  Update the Python script that prints out the current batch size, so you can
     follow when data gets ingested from memory into your database. Use
-    the `<HOST>`, `<PASSWORD>`, and `<PORT>` details for the Timescale service
+    the `<HOST>`, `<PASSWORD>`, and `<PORT>` details for the $SERVICE_LONG
     where you want to ingest the data and your API key from Twelve Data:
 
     ```python

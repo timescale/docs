@@ -17,16 +17,16 @@ import MigrationValidateRestartApp from "versionContent/_partials/_migrate_valid
 
 </Procedure>
 
-## Migrate the roles from TimescaleDB to your Timescale Cloud service
+## Migrate the roles from TimescaleDB to your Tiger Cloud service
 
-Roles manage database access permissions. To migrate your role-based security hierarchy to your Timescale Cloud service:
+Roles manage database access permissions. To migrate your role-based security hierarchy to your $SERVICE_LONG:
 <Procedure>
 
 <MigrationProcedureDumpSchemaMST />
 
 </Procedure>
 
-## Upload your data to the target Timescale Cloud service
+## Upload your data to the target Tiger Cloud service
 
 This command uses the [timescaledb_pre_restore] and [timescaledb_post_restore] functions to put your database in the
 correct state.
@@ -52,7 +52,8 @@ correct state.
 
 </Procedure>
 
-## Validate your Timescale Cloud service and restart your app
+## Validate your Tiger Cloud service and restart your app
+
 <Procedure>
 
 <MigrationValidateRestartApp />

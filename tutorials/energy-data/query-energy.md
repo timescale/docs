@@ -12,7 +12,7 @@ content_group: Analyze energy consumption data
 
 When you have your dataset loaded, you can start constructing some queries to
 discover what your data tells you.
-This tutorial uses [Timescale hyperfunctions][about-hyperfunctions] to construct
+This tutorial uses [$TIMESCALE_DB hyperfunctions][about-hyperfunctions] to construct
 queries that are not possible in standard PostgreSQL.
 
 In this section, you learn how to construct queries, to answer these questions:

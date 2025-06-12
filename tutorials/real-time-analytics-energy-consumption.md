@@ -54,7 +54,7 @@ to the columnstore:
 1. **Connect to your $SERVICE_LONG**
 
    In [$CONSOLE][services-portal] open an [SQL editor][in-console-editors]. The in-Console editors display the query speed.
-   You can also connect to your service using [psql][connect-using-psql].
+   You can also connect to your $SERVICE_SHORT using [psql][connect-using-psql].
 
 1. **Add a policy to convert chunks to the columnstore at a specific time interval**
 
@@ -161,7 +161,7 @@ To visually monitor the volume of energy consumption over time:
 
 </Procedure>
 
-You have integrated Grafana with a $CLOUD_LONG service and made insights based on visualization of your data.
+You have integrated Grafana with a $SERVICE_LONG and made insights based on visualization of your data.
 
 [grafana-docs]: https://grafana.com/docs/
 [grafana-self-managed]: https://grafana.com/get/?tab=self-managed

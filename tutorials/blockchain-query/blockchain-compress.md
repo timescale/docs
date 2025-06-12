@@ -22,7 +22,7 @@ To compress the data in the `transactions` table, do the following:
 1. Connect to your $SERVICE_LONG
 
    In [$CONSOLE][services-portal] open an [SQL editor][in-console-editors]. The in-Console editors display the query speed.
-   You can also connect to your service using [psql][connect-using-psql].
+   You can also connect to your $SERVICE_SHORT using [psql][connect-using-psql].
 
 1. Convert data to the $COLUMNSTORE:
 

@@ -13,12 +13,12 @@ import FinancialIndustry from "versionContent/_partials/_financial-industry-data
 
 <FinancialIndustry />
 
-In this tutorial, you use Timescale to ingest, store, and analyze transactions
+In this tutorial, you use $CLOUD_LONG to ingest, store, and analyze transactions
 on the Bitcoin blockchain. 
 
 [Blockchains][blockchain-def] are, at their essence, a distributed database. The
 [transactions][transactions-def] in a blockchain are an example of time-series data. You can use
-Timescale to query transactions on a blockchain, in exactly the same way as you
+$TIMESCALE_DB to query transactions on a blockchain, in exactly the same way as you
 might query time-series transactions in any other database.
 
 ## Steps in this tutorial
@@ -32,7 +32,7 @@ This tutorial covers:
     for real-time analytics.
 
 When you've completed this tutorial, you can use the same dataset to  [Analyze the Bitcoin data][analyze-blockchain], 
-using Timescale hyperfunctions.
+using $TIMESCALE_DB hyperfunctions.
 
 [cloud-install]: /getting-started/:currentVersion:/#create-your-timescale-account
 [blockchain-dataset]: /tutorials/:currentVersion:/blockchain-query/blockchain-dataset/

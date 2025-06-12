@@ -9,14 +9,14 @@ tags: [learn, contribute]
 import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 import Since2180 from "versionContent/_partials/_since_2_18_0.mdx";
 
-# $TIMESCALE_DB editions
+# TimescaleDB editions
 
 The following versions of $TIMESCALE_DB are available:
 
 *   $TDB_APACHE
 *   $TDB_COMMUNITY
 
-## $TDB_APACHE
+## TimescaleDB Apache 2 Edition
 
 $TDB_APACHE is available under the [Apache 2.0 license][apache-license]. This is a classic open source license,
 meaning that it is completely unrestricted - anyone can take this code and offer it as a service.
@@ -30,7 +30,7 @@ main contributor.
 You can modify the $TDB_APACHE source code and run it for
 production use.
 
-## $TDB_COMMUNITY
+## 	TimescaleDB Community Edition
 
 $TDB_COMMUNITY is the advanced, best, and most feature complete 
 version of $TIMESCALE_DB, available under the terms of the

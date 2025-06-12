@@ -33,8 +33,8 @@ aggregated data, and visualize the data in Grafana.
 ![candlestick](https://assets.timescale.com/docs/images/tutorials/intraday-stock-analysis/timescale_cloud_candlestick.png)
 
 $TIMESCALE_DB is well suited to storing and analyzing financial candlestick data,
-and many Timescale community members use it for exactly this purpose. Check out
-these stories from some Timescale community members:
+and many $COMPANYcommunity members use it for exactly this purpose. Check out
+these stories from some $COMPANYcommunity members:
 
 *   [How Trading Strategy built a data stack for crypto quant trading][trading-strategy]
 *   [How Messari uses data to open the cryptoeconomy to everyone][messari]

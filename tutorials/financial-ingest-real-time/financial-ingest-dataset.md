@@ -177,12 +177,12 @@ universal, but you can experiment with different batch sizes
 Using batching is a fairly common pattern when ingesting data into $TIMESCALE_DB
 from Kafka, Kinesis, or websocket connections.
 
-To ingest the data into your Timescale service, you need to implement the
+To ingest the data into your $SERVICE_LONG, you need to implement the
 `on_event` function.
 
 After the websocket connection is set up, you can use the `on_event` function
 to ingest data into the database. This is a data pipeline that ingests real-time
-financial data into your Timescale service.
+financial data into your $SERVICE_LONG.
 
 You can implement a batching solution in Python with Psycopg2.
 You can implement the ingestion logic within the `on_event` function that
@@ -202,7 +202,7 @@ This function needs to:
 
 1.  Update the Python script that prints out the current batch size, so you can
     follow when data gets ingested from memory into your database. Use
-    the `<HOST>`, `<PASSWORD>`, and `<PORT>` details for the Timescale service
+    the `<HOST>`, `<PASSWORD>`, and `<PORT>` details for the $SERVICE_LONG
     where you want to ingest the data and your API key from Twelve Data:
 
     ```python

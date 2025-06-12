@@ -18,16 +18,16 @@ since this is mostly immutable you can compress it to save space and
 avoid incurring additional cost.
 
 It is possible to use disk-oriented compression like the support
-offered by ZFS and Btrfs but since TimescaleDB is build for handling
+offered by ZFS and Btrfs but since $TIMESCALE_DB is build for handling
 event-oriented data (such as time-series) it comes with support for
 compressing data in hypertables.
 
-TimescaleDB compression allows you to store the data in a vastly more
+$TIMESCALE_DB compression allows you to store the data in a vastly more
 efficient format allowing up to 20x compression ratio compared to a
 normal PostgreSQL table, but this is of course highly dependent on the
 data and configuration.
 
-TimescaleDB compression is implemented natively in PostgreSQL and does
+$TIMESCALE_DB compression is implemented natively in PostgreSQL and does
 not require special storage formats. Instead it relies on features of
 PostgreSQL to transform the data into columnar format before
 compression. The use of a columnar format allows better compression

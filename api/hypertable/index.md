@@ -14,7 +14,7 @@ import HypertableIntro from "versionContent/_partials/_hypertable-intro.mdx";
 For more information about using hypertables, including chunk size partitioning,
 see the [hypertable section][hypertable-docs].
 
-## The $HYPERTABLE workflow
+## The hypertable workflow
 
 Best practice for using a $HYPERTABLE is to:
 

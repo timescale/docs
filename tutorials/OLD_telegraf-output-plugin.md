@@ -11,7 +11,7 @@ keywords: [metrics, monitor, Telegraf]
 This section describes a feature that is deprecated on TimescaleDB. We strongly
 recommend that you do not use this feature in a production environment. For some
 suggestions of workarounds, see this
-[Timescale Forum post](https://www.timescale.com/forum/t/telegraf-plugin/118).
+[$COMPANYForum post](https://www.timescale.com/forum/t/telegraf-plugin/118).
 </Highlight>
 
 Telegraf collects metrics from a wide array of inputs and writes them to a wide
@@ -22,7 +22,7 @@ external dependencies, or package management tools required.
 
 Telegraf is an open source tool. It contains over 200 plugins for gathering and
 writing different types of data written by people who work with that data.
-Timescale have built downloadable binaries of Telegraf with the plugin included.
+$COMPANY have built downloadable binaries of Telegraf with the plugin included.
 This tutorial runs through a couple of examples on how to use the PostgreSQL and
 TimescaleDB output plugin for Telegraf.
 
@@ -34,7 +34,7 @@ Before you start, you need [TimescaleDB installed][getting-started] and a means 
 
 Telegraf is written in Go, and the current build process of the tool is
 configured to produce one standalone binary. Because of this all the code for
-the different plugins must be part of that binary. Timescale have an unofficial
+the different plugins must be part of that binary. $COMPANY have an unofficial
 build of Telegraf version 1.13.0 with the plugin added, that you can download
 from:
 
@@ -46,13 +46,13 @@ from:
 
 -->
 
-Timescale also provide you with builds for:
+$COMPANY also provide you with builds for:
 
 *   Windows i386
 *   Linux (i386, armhf, armel, arm64, static_amd64, s390x, mipsel)
 *   FreeBSD (amd64, i386)
 
-You can get in contact using the Timescale [community Slack][public-slack]
+You can get in contact using the $COMPANY [community Slack][public-slack]
 
 Once you download the binary and extract it to a suitable location (or install
 the packages) you can test out the build. You might need to make the file

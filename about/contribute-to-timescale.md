@@ -6,11 +6,11 @@ keywords: [contribute]
 tags: [github]
 ---
 
-# Contribute to $COMPANY
+# Contribute to TigerData
 
 $TIMESCALE_DB, $PGAI_SHORT, $PGVECTORSCALE, $TOOLKIT_LONG, and the $COMPANY documentation are all open source. They are available in GitHub for you to use, review, and update. This page shows you where you can add to $COMPANY products.
 
-## Contribute to the code for $COMPANY products
+## Contribute to the code for TigerData products
 
 $COMPANY appreciates any help the community can provide to make its products better! You can:
 
@@ -24,7 +24,7 @@ Head over to the $COMPANY source repositories to learn, review, and help improve
 * [$PGVECTORSCALE][pgvectorscale]: a complement to pgvector for higher performance embedding search and cost-efficient storage for AI applications.
 * [$TOOLKIT_LONG][toolkit]: all things analytics when using $TIMESCALE_DB, with a particular focus on developer ergonomics and performance.
 
-## Contribute to $COMPANY documentation
+## Contribute to TigerData documentation
 
 $COMPANY documentation is hosted in the [docs GitHub repository][github-docs]
 and open for contribution from all community members.

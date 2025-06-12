@@ -18,14 +18,14 @@ import MigrationSetupDBConnectionPostgresql from "versionContent/_partials/_migr
 
 1. **Set your connection strings**
 
-   These variables hold the connection information for the RDS instance and target Timescale Cloud service:
+   These variables hold the connection information for the RDS instance and target $SERVICE_LONG:
 
    ```bash
    export SOURCE="postgres://<Master username>:<Master password>@<Endpoint>:<Port>/<DB name>"
    export TARGET=postgres://tsdbadmin:<PASSWORD>@<HOST>:<PORT>/tsdb?sslmode=require
    ```
    You find the connection information for `SOURCE` in your RDS configuration. For `TARGET` in the configuration file you
-   downloaded when you created the Timescale Cloud service.
+   downloaded when you created the $SERVICE_LONG.
 
 </Procedure>
 
@@ -36,10 +36,9 @@ import MigrationSetupDBConnectionPostgresql from "versionContent/_partials/_migr
 
 </Procedure>
 
-## Migrate roles from RDS to your Timescale Cloud service
+## Migrate roles from RDS to your Tiger Cloud service
 
-Roles manage database access permissions. To migrate your role-based security hierarchy to your Timescale Cloud 
-service:
+Roles manage database access permissions. To migrate your role-based security hierarchy to your $SERVICE_LONG:
 
 <Procedure>
 
@@ -57,11 +56,11 @@ service:
    ```
 
    AWS RDS does not allow you to export passwords with roles. You assign passwords to these roles
-   when you have uploaded them to your Timescale Cloud service. 
+   when you have uploaded them to your $SERVICE_LONG. 
 
 1. **Remove roles with superuser access**
 
-   Timescale Cloud services do not support roles with superuser access. Run the following script
+   $SERVICE_LONGs do not support roles with superuser access. Run the following script
    to remove statements, permissions and clauses that require superuser permissions from `roles.sql`:
 
    ```bash
@@ -78,7 +77,7 @@ service:
    -e 's/GRANTED BY "[^"]*"//g' \
    roles.sql
    ```
-1. **Upload the roles to your Timescale Cloud service**
+1. **Upload the roles to your $SERVICE_LONG**
 
    ```bash
    psql -X -d "$TARGET" \
@@ -98,7 +97,7 @@ service:
 
 </Procedure> 
 
-## Migrate data from your RDS instance to your Timescale Cloud service
+## Migrate data from your RDS instance to your Tiger Cloud service
 
 <Procedure>
 
@@ -119,7 +118,7 @@ service:
    To dramatically reduce the time taken to dump the RDS instance, using multiple connections. For more information,
    see [dumping with concurrency][dumping-with-concurrency] and [restoring with concurrency][restoring-with-concurrency].
 
-1. **Upload your data to your Timescale Cloud service**
+1. **Upload your data to your $SERVICE_LONG**
 
    ```bash
    psql -d $TARGET -v ON_ERROR_STOP=1 --echo-errors \

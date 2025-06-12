@@ -290,7 +290,7 @@ ORDER BY pyg.gameid ASC, yards DESC;
 
 We'll use this continuous aggregate in most of the queries in the
 next section. Feel free to play with other variations of this materialized data
-as you try to answer even more questions with TimescaleDB.
+as you try to answer even more questions with $TIMESCALE_DB.
 
 [cagg]: /use-timescale/:currentVersion:/continuous-aggregates/
 [extra-download]: https://assets.timescale.com/docs/downloads/nfl_2018.zip

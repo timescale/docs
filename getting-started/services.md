@@ -11,7 +11,7 @@ import ServiceOverview from "versionContent/_partials/_service-overview.mdx";
 import CloudIntro from "versionContent/_partials/_cloud-intro.mdx";
 import WhereNext from "versionContent/_partials/_where-to-next.mdx";
 
-# Create a $SERVICE_LONG
+# Create a Tiger Cloud service
 
 <CloudIntro />
 

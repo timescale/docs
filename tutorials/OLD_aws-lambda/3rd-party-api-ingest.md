@@ -8,7 +8,7 @@ keywords: [finance, analytics, AWS Lambda, psycopg2, pandas, GitHub Actions, pip
 # Pull and ingest data from a third-party API
 
 This tutorial builds a data pipeline that pulls data from a third-party finance
-API and loads it into TimescaleDB.
+API and loads it into $TIMESCALE_DB.
 
 This tutorial requires multiple libraries. This can make your deployment package
 size  larger than the 250&nbsp;MB limit of Lambda. You can use a Docker
@@ -28,7 +28,7 @@ The libraries used in this tutorial:
 Extract, transform, and load (ETL) functions are used to pull data from one
 database and ingest the data into another. In this tutorial, the ETL function
 pulls data from a finance API called Alpha Vantage, and inserts the data into
-TimescaleDB. The connection is made using the values from environment variables.
+$TIMESCALE_DB. The connection is made using the values from environment variables.
 
 This is the ETL function used in this tutorial:
 

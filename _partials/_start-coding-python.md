@@ -11,7 +11,7 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 
 ## Connect to TimescaleDB
 
-In this section, you create a connection to TimescaleDB using the `psycopg2`
+In this section, you create a connection to $TIMESCALE_DB using the `psycopg2`
 library. This library is one of the most popular PostgreSQL libraries for
 Python. It allows you to execute raw SQL queries efficiently and safely, and
 prevents common attacks such as SQL injection.
@@ -24,7 +24,7 @@ prevents common attacks such as SQL injection.
     import psycopg2
     ```
 
-1.  Locate your TimescaleDB credentials and use them to compose a connection
+1.  Locate your $TIMESCALE_DB credentials and use them to compose a connection
    string for `psycopg2`.
 
     You'll need:
@@ -42,7 +42,7 @@ prevents common attacks such as SQL injection.
     CONNECTION = "postgres://username:password@host:port/dbname"
     ```
 
-    If you're using a hosted version of TimescaleDB, or generally require an SSL
+    If you're using a hosted version of $TIMESCALE_DB, or generally require an SSL
     connection, use this version instead:
 
     ```python
@@ -159,7 +159,7 @@ and most other tasks are executed on the hypertable.
     ```
 
 	<Highlight type="note">
-	The `by_range` dimension builder is an addition to TimescaleDB 2.13.
+	The `by_range` dimension builder is an addition to $TIMESCALE_DB 2.13.
 	</Highlight>
 
 3.  Open a cursor with the connection, execute the statements from the previous
@@ -274,7 +274,7 @@ from pgcopy import CopyManager
     conn.commit()
     ```
 
-1.  [](#)<Optional/>The full sample code to insert data into TimescaleDB using
+1.  [](#)<Optional/>The full sample code to insert data into $TIMESCALE_DB using
     `pgcopy`, using the example of sensor data from four sensors:
 
     ```python

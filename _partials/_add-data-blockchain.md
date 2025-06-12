@@ -26,7 +26,7 @@ dataset and copy the data to your database.
    connect to your $SERVICE_SHORT using [psql][connect-using-psql].
 
 1.  At the `psql` prompt, use the `COPY` command to transfer data into your
-    Timescale instance. If the `.csv` files aren't in your current directory,
+    $COMPANY instance. If the `.csv` files aren't in your current directory,
     specify the file paths in these commands:
 
     ```sql

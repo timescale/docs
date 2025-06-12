@@ -7,14 +7,16 @@ pg_dumpall -d "$SOURCE" \
 ```
 
 <Highlight type="important">
+
 AWS RDS does not permit dumping of roles with passwords, which
-is why the above command is executed with the `--no-role-passwords`. However,
-when the migration of roles to your Timescale instance is complete, you
+is why the above command is executed with the `--no-role-passwords`. However,
+when the migration of roles to your Tiger Cloud service is complete, you
 need to manually assign passwords to the necessary roles using the following
-command: `ALTER ROLE name WITH PASSWORD 'password';`
+command:`ALTER ROLE name WITH PASSWORD 'password';`
+
 </Highlight>
 
-Timescale services do not support roles with superuser access. If your SQL
+Tiger Cloud services do not support roles with superuser access. If your SQL
 dump includes roles that have such permissions, you'll need to modify the file
 to be compliant with the security model.
 
@@ -58,11 +60,11 @@ A brief explanation of this script is:
 
 - `CREATE ROLE "rds`, `ALTER ROLE “rds`, `TO "rds`, `GRANT "rds`: Any creation
   or alteration of rds prefixed roles are removed because of their lack of any use
-  in a Timescale instance. Similarly, any grants to or from "rds" prefixed roles
+  in a $SERVICE_LONG. Similarly, any grants to or from "rds" prefixed roles
   are ignored as well.
 
 - `GRANTED BY role_specification`: The GRANTED BY clause can also have permissions that
   require superuser access and should therefore be removed. Note: Per the
-  TimescaleDB documentation, the GRANTOR in the GRANTED BY clause must be the
+  $TIMESCALE_DB documentation, the GRANTOR in the GRANTED BY clause must be the
   current user, and this clause mainly serves the purpose of SQL compatibility.
   Therefore, it's safe to remove it.

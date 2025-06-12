@@ -11,7 +11,7 @@ content_group: Analyze the Bitcoin blockchain
 
 When you have your dataset loaded, you can create some continuous aggregates,
 and start constructing queries to discover what your data tells you. This
-tutorial uses [Timescale hyperfunctions][about-hyperfunctions] to construct
+tutorial uses [$TIMESCALE_DB hyperfunctions][about-hyperfunctions] to construct
 queries that are not possible in standard PostgreSQL.
 
 In this section, you learn how to write queries that answer these questions:

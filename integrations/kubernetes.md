@@ -10,9 +10,9 @@ import KubernetesInstallSelf from "versionContent/_partials/_kubernetes-install-
 
 # Integrate Kubernetes with $CLOUD_LONG
 
-[Kubernetes][kubernetes] is an open-source container orchestration system that automates the deployment, scaling, and management of containerized applications. You can deploy $CLOUD_LONG within your Kubernetes clusters.
+[Kubernetes][kubernetes] is an open-source container orchestration system that automates the deployment, scaling, and management of containerized applications. You can connect Kubernetes to $CLOUD LONG, and deploy $TIMESCALE_DB within your Kubernetes clusters.
 
-This guide explains how to connect a Kubernetes cluster to $CLOUD_LONG, configure persistent storage, and manage deployments effectively.
+This guide explains how to connect a Kubernetes cluster to $CLOUD_LONG, configure persistent storage, and deploy $TIMESCALE_DB in your kubernetes cluster. 
 
 ## Prerequisites
 

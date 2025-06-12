@@ -147,7 +147,7 @@ CREATE TABLE "eth_prices"(
    currency_code   VARCHAR (10)
 );
 
---Timescale specific statements to create hypertables for better performance
+--TimescaleDB specific statements to create hypertables for better performance
 SELECT create_hypertable('btc_prices', 'time');
 SELECT create_hypertable('eth_prices', 'time');
 SELECT create_hypertable('crypto_prices', 'time');

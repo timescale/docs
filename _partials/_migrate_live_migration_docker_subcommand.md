@@ -8,7 +8,7 @@ docker run --rm -it --name live-migration \
     -v ~/live-migration:/opt/timescale/ts_cdc \
     timescale/live-migration:latest --help
 
-Live migration moves your PostgreSQL/TimescaleDB to Timescale Cloud with minimal downtime.
+Live migration moves your PostgreSQL/$TIMESCALE_DB to your $SERVICE_LONG with minimal downtime.
 
 options:
   -h, --help            Show this help message and exit

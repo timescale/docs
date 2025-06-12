@@ -236,7 +236,7 @@ ORDER BY 1
 #### Step 1: Configure PagerDuty for Grafana alerts
 
 To connect PagerDuty to Grafana, you'll need an [integration key][pagerduty-integration-key]
-for the service that you're monitoring. Note this is different from what PagerDuty
+for the $SERVICE_SHORT that you're monitoring. Note this is different from what PagerDuty
 refers to as the PagerDuty API key.
 
 Once again, go to your main dashboard and select the 'Bell' icon and select

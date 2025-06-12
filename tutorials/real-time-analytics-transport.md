@@ -45,7 +45,7 @@ to the columnstore:
 1. **Connect to your $SERVICE_LONG**
 
    In [$CONSOLE][services-portal] open an [SQL editor][in-console-editors]. The in-Console editors display the query speed.
-   You can also connect to your service using [psql][connect-using-psql].
+   You can also connect to your $SERVICE_SHORTusing [psql][connect-using-psql].
 
 1. **Add a policy to convert chunks to the columnstore at a specific time interval**
 

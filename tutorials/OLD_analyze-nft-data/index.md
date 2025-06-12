@@ -26,7 +26,7 @@ This tutorial shows you how to:
 
 ## NFT Starter Kit
 
-This tutorial is part of the [Timescale NFT Starter Kit][starter-kit], designed
+This tutorial is part of the [$COMPANYNFT Starter Kit][starter-kit], designed
 to get you up and running with analyzing NFT data, and give you the inspiration
 to build your own, more complex projects.
 The NFT Starter Kit contains:
@@ -47,7 +47,7 @@ along with this tutorial.
 
 Because we love NFTs as much as you do, we created [Time Travel Tigers][eon-collection],
 a limited edition set of 20
-NFT about our Timescale mascot, Eon! The first 20 people to complete this tutorial
+NFT about our $COMPANYmascot, Eon! The first 20 people to complete this tutorial
 can earn a limited edition NFT from
 the collection, for free!
 

@@ -10,11 +10,11 @@ keywords: [Grafana, visualizations, analytics]
 [Grafana][grafana-website] is an open source analytics and monitoring tool that
 you can use visualize time-series data. Use these tutorials to:
 
-*   Set up TimescaleDB and Grafana.
-*   Create a Grafana dashboard and panel to visualize data in TimescaleDB.
+*   Set up $TIMESCALE_DB and Grafana.
+*   Create a Grafana dashboard and panel to visualize data in $TIMESCALE_DB.
 *   Visualize Geospatial data in Grafana.
 *   Use Grafana variables to filter and customize your visualizations.
-*   Visualize missing data in Grafana using TimescaleDB features.
+*   Visualize missing data in Grafana using $TIMESCALE_DB features.
 *   Set up Grafana alerts for Slack, PagerDuty, and other tools.
 
 ## Before you begin

@@ -1,4 +1,4 @@
-- `--no-tablespaces` is required because Timescale does not support
+- `--no-tablespaces` is required because $CLOUD_LONG does not support
   tablespaces other than the default. This is a known limitation.
 
 - `--no-owner` is required because Timescale's `tsdbadmin` user is not a

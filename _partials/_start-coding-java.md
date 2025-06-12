@@ -10,7 +10,7 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 All code in this quick start is for Java 16 and later. If you are working
 with older JDK versions, use legacy coding techniques.
 
-## Connect to your $SERVICE_SHORT
+## Connect to your Tiger Cloud service
 
 In this section, you create a connection to your $SERVICE_SHORT using an application in
 a single file. You can use any of your favorite build tools, including `gradle`
@@ -71,9 +71,9 @@ or `maven`.
 
    If the command is successful, a string similar to
    `org.postgresql.Driver@7f77e91b` is printed to your console. This means that you
-   are ready to connect to TimescaleDB from Java.
+   are ready to connect to $TIMESCALE_DB from Java.
 
-1.  Locate your TimescaleDB credentials and use them to compose a connection
+1.  Locate your $TIMESCALE_DB credentials and use them to compose a connection
    string for JDBC.
 
     You'll need:
@@ -213,7 +213,7 @@ and most other tasks are executed on the hypertable.
     ```
 
 	<Highlight type="note">
-	The `by_range` and `by_hash` dimension builder is an addition to TimescaleDB 2.13.
+	The `by_range` and `by_hash` dimension builder is an addition to $TIMESCALE_DB 2.13.
 	</Highlight>
 
 1.  Execute the two statements you created, and commit your changes to the
@@ -387,10 +387,10 @@ This section covers how to execute queries against your database.
 
 ## Next steps
 
-Now that you're able to connect, read, and write to a TimescaleDB instance from
+Now that you're able to connect, read, and write to a $TIMESCALE_DB instance from
 your Java application, and generate the scaffolding necessary to build a new
-application from an existing TimescaleDB instance, be sure to check out these
-advanced TimescaleDB tutorials:
+application from an existing $TIMESCALE_DB instance, be sure to check out these
+advanced $TIMESCALE_DB tutorials:
 
 *   [Continuous Aggregates][continuous-aggregates]
 *   [Migrate Your own Data][migrate]

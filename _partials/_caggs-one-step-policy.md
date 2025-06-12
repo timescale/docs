@@ -5,7 +5,7 @@ import Experimental from "versionContent/_partials/_experimental.mdx";
   continuous aggregate
 </h2>
 
-In TimescaleDB 2.8 and above, policy management on continuous aggregates is
+In $TIMESCALE_DB 2.8 and above, policy management on continuous aggregates is
 simplified. You can add, change, or remove the refresh, compression, and data
 retention policies on a continuous aggregate using a one-step API. For more
 information, see the APIs for [adding policies][add-policies], [altering

@@ -7,13 +7,13 @@ keywords: [finance, analytics, AWS Lambda, psycopg2, pandas, GitHub Actions, pip
 
 # Create a data API for TimescaleDB
 
-This tutorial covers creating an API to fetch data from your TimescaleDB
+This tutorial covers creating an API to fetch data from your $TIMESCALE_DB
 instance. It uses an API gateway to trigger a Lambda function, that then fetches
-the requested data from TimescaleDB and returns it in JSON format.
+the requested data from $TIMESCALE_DB and returns it in JSON format.
 
 ## Connect to TimescaleDB from Lambda
 
-To connect to the TimescaleDB instance, you need to use a database connector
+To connect to the $TIMESCALE_DB instance, you need to use a database connector
 library. This tutorial uses [`psycopg2`][psycopg2].
 
 The `psycopg2` database connector is not part of the standard Python library,

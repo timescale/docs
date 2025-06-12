@@ -1,4 +1,4 @@
-### Attach a data exporter to a $SERVICE_LONG
+### Attach a data exporter to a Tiger Cloud service
 
 To send telemetry data to an external monitoring tool, you attach a data exporter to your
 $SERVICE_LONG. You can attach only one exporter to a $SERVICE_SHORT.
@@ -14,7 +14,7 @@ To attach an exporter:
 
 </Procedure>
 
-### Monitor $SERVICE_LONG metrics
+### Monitor Tiger Cloud service metrics
 
 You can now monitor your $SERVICE_SHORT metrics. Use the following metrics to check the service is running correctly:
 

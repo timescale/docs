@@ -6,7 +6,7 @@ tags: [background jobs, scheduled jobs, automation framework]
 products: [cloud, mst, self_hosted]
 ---
 
-# $JOB_CAPs <Tag type="community">Community</Tag>
+# Jobs <Tag type="community">Community</Tag>
 
 $JOB_CAPs allow you to run functions and procedures implemented in a
 language of your choice on a schedule within Timescale. This allows

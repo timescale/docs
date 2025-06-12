@@ -1,6 +1,6 @@
 ---
 title: Connect TimescaleDB and Grafana
-excerpt: Connect Timescale to Grafana to visualize your data
+excerpt: Connect TimescaleDB to Grafana to visualize your data
 products: [cloud, mst]
 keywords: [Grafana, visualizations, analytics]
 ---
@@ -16,22 +16,21 @@ To connect Grafana with Timescale, start by installing Grafana. For more
 information about installing Grafana, see the
 [Grafana documentation][grafana-install].
 
-Alternatively, to connect your Grafana service on Managed Service for
-TimescaleDB with your Timescale service, create a Grafana service on Managed
-Service for TimescaleDB. You can try it for free for 30 days.
+Alternatively, to connect your Grafana service with your $SERVICE_SHORT, create a Grafana service on $MST_LONG.
+You can try it for free for 30 days.
 
-This section shows you how to connect Timescale as a data source in [Grafana][grafana-homepage].
+This section shows you how to connect $CLOUD_LONG as a data source in [Grafana][grafana-homepage].
 
-## Configure Timescale as a data source
+## Configure Tiger Cloud as a data source
 
-To configure Timescale as a data source you need to create a service,
-and then configure Timescale as the data source in Grafana.
+To configure $CLOUD_LONGas a data source you need to create a service,
+and then configure $CLOUD_LONGas the data source in Grafana.
 
 <Procedure>
 
-### Creating a Timescale service
+### Create a Tiger Cloud service
 
-1.  Sign in to the [Timescale portal][tsc-portal].
+1.  Sign in to the [$CONSOLE][tsc-portal].
 1.  Click `Create service`.
 1.  Click `Download the cheatsheet`. This `.sql` file contains the credentials
     that you require to configure TimescaleDB as a data source on Grafana.
@@ -42,15 +41,14 @@ and then configure Timescale as the data source in Grafana.
 
 ### Configuring TimescaleDB as data source
 
-To configure TimescaleDB service on Timescale with your Grafana
-installation, log in to Grafana and proceed to step 5 in this procedure.
+To configure $SERVICE_LONG with your Grafana installation, log in to Grafana and proceed to step 5 in this procedure.
 
-1.  Sign in to your Managed Service for $ACCOUNT_LONG, and click the name of
+1.  Sign in to your $MST_LONG, and click the name of
     your new Grafana service.
 1.  On the service details page, take a note of the `User` and `Password` field for
     your service.
 1.  Click the link in the `Service URI` field to open Grafana.
-1.  Log in to Grafana with your service credentials.
+1.  Log in to Grafana with your $SERVICE_SHORT credentials.
 1.  Navigate to `Configuration` → `Data sources`. The data sources page lists
     previously configured data sources for the Grafana instance.
 1.  Click `Add data source` to see a list of all supported data sources.
