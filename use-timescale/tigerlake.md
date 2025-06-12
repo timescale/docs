@@ -138,6 +138,9 @@ The write throughput is ranging at approximately 40.000 records / second, for la
 
 The partition interval of for an Iceberg table is by default the same as the one from a hypertable.
 
+Only tables or hypertables with primary keys are supported, this includes composite primary keys as well. 
+A primary key is necessary for Iceberg to perform update or delete statements.
+
 ## Stop streaming to Iceberg
 
 If you want to stop a stream from Timescale to Iceberg, run the following statement:
