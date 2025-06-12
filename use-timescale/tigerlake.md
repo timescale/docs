@@ -17,9 +17,9 @@ relational tables and hypertables in Timescale Cloud.
 
 To connect Timescale with AWS S3 Tables, the ARN of a table bucket and a ARN of role with permission to write to the table bucket, are required.
 Three options are available to curate these ARNs:
-* Using the AWS CouldFormation Console
-* Through the AWS CLI with a CloudFormation template
-* Step by step guide to create bucket and role
+* [Using the AWS CouldFormation Console](#setup-baselake-using-aws-management-console)
+* [Through the AWS CLI with a CloudFormation template](#setup-baselake-using-the-aws-cloudformation-cli)
+* [Step by step guide to create bucket and role](#step-by-step-guide)
 
 ### Setup BaseLake using AWS Management Console
 
@@ -27,26 +27,26 @@ Three options are available to curate these ARNs:
 2. In the navigation bar on the top of the page:
    1. Choose the name of the currently displayed AWS Region
    2. Set it to the Region in which you want to create your table bucket. **This must match the region your Timescale service** is running in. If the regions do not match AWS charges you for cross-region data transfer.
-3. Click `Create stack`. If prompted choose `With new resources`. This is the standard option.
-4. Under `Specify Template`, copy the following URL into the Amazon S3 URL box and Click `Next`.
+3. Click **Create stack**. If prompted choose **With new resources**. This is the standard option.
+4. Under **Specify Template**, copy the following URL into the Amazon S3 URL box and Click **Next**.
    ```
    https://tigerlake.s3.us-east-1.amazonaws.com/tigerlake-connect-cloudformation.yaml
    ```
 5. Enter the following details, then click `Next`:
-   * **Stack Name**: the name for this CloudFormation stack
-   * **BucketName**: The name of the S3 table bucket which will be created
-   * **ProjectID and ServiceID**: Your Timescale Cloud service details (see these instructions)
+   * `Stack Name`: the name for this CloudFormation stack
+   * `BucketName`: The name of the S3 table bucket which will be created
+   * `ProjectID` and `ServiceID`: Your Timescale Cloud service details, see [these instructions](get-project-id)
 6. Check `I acknowledge that AWS CloudFormation might create IAM resources`, then click `Next`.
 7. On the review page, click `Submit` and wait for the deployment to complete. 
 8. Click `Outputs`, then copy all four outputs. 
 9. Provide the outputs to Timescale. Timescale uses them to provision your BaseLake services.
 
-### Setup BaseLake using the aws cloudformation CLI
+### Setup BaseLake using the AWS CloudFormation CLI
 
 Replace the following values in the command, then run it from the terminal:
-* **Stack Name**: the name for this CloudFormation stack
-* **BucketName**: The name of the S3 table bucket which will be created
-* **ProjectID and ServiceID**: Your Timescale Cloud service details (see these instructions)
+* `Stack Name`: the name for this CloudFormation stack
+* `BucketName`: The name of the S3 table bucket which will be created
+* `ProjectID` and `ServiceID`: Your Timescale Cloud service details, see [these instructions](get-project-id)
 
 ```shell
 aws cloudformation create-stack \
@@ -68,7 +68,7 @@ aws cloudformation create-stack \
 4. In the left navigation pane, choose Table buckets
 5. Click Create table bucket then enter a name for your bucket, and create it. Note down the bucket’s Amazon Resource Name (ARN) that is displayed.
 
-### Create ARN role
+#### Create ARN role
 1. Open [IAM Dashboard](iam-dashboard), to create a new Role.
 2. In the left navigation pane click Roles, then click Create role and select Custom trust policy
 3. Replace the entire **Custom trust policy** code block with the following, substituting `{PROJECT_ID}` and `{SERVICE_ID}` with the appropriate values for the Timescale Cloud project and the service you intend to use with TigerLake. To locate your Project ID and Service ID, [follow these steps](get-project-id).
@@ -126,15 +126,26 @@ aws cloudformation create-stack \
 9. Provide Timescale with the ARN of this role, the ARN of the S3 table bucket, and your Timescale Cloud Project and Service IDs.
 10. We’ll spin up the services with the configurations and let you know when it’s completed.
 
-## Start streaming
+## Start streaming to Iceberg
 
-To stream a table from a Timescale Cloud service to Iceberg, run the following statement:
-
+To stream a Postgres table or hypertable from a Timescale Cloud service to Iceberg, run the following statement:
 ```sql
 SELECT create_iceberg_sync('<TABLE_NAME>'::regclass);
 ```
 
 When a stream is started, the full table is synchronized to Iceberg, this means that all prior records are imported first.
+The write throughput is ranging at approximately 40.000 records / second, for larger tables a full import can take some time.
+
+The partition interval of for an Iceberg table is by default the same as the one from a hypertable.
+
+## Stop streaming to Iceberg
+
+If you want to stop a stream from Timescale to Iceberg, run the following statement:
+```sql
+SELECT drop_iceberg_sync('<TABLE_NAME>'::regclass);
+```
+
+Please be aware that a stream can not be resumed after being stopped. 
 
 ## Query your data
 
@@ -143,14 +154,10 @@ To execute queries against Iceberg, best practice is to use the following produc
 * [duckdb][duckdb]: support for S3 Tables is in preview. 
 * [Apache Spark][apache-spark]
 
-## Gotchas and known issues
+## Limitations
 - Only Postgres 17 is supported.
 - Only the S3 Tables REST Iceberg catalog is supported.
-- It is not possible to stop a stream from a Timescale Cloud service to Iceberg at the moment. Support for this feature is coming soon.
-- When streaming a hypertable to Iceberg, the Iceberg table is partitioned with a hardcoded one-day partition interval. 
-- Only tables with primary keys are supported.
-- After setting up Iceberg sync, you cannot drop or rename columns or modifying a column’s data type. Support for these features is coming soon.
-- Certain optimizations must be disabled in hypertables that have the columnstore enabled in order to retrieve correlating WAL events.
+- Certain columnstore optimizations must be disabled in hypertables in order to collect correlating WAL events.
 
 [cmc]: https://console.aws.amazon.com/cloudformation/
 [aws-athena]: https://aws.amazon.com/athena/
