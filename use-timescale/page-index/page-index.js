@@ -52,6 +52,11 @@ module.exports = [
             excerpt: "Automate",
           },
           {
+            title: "Compression methods in hypercore",
+            href: "compression-methods",
+            excerpt: "Learn about the different compression methods",
+          },
+          {
             title: "Troubleshooting",
             href: "troubleshooting",
             type: "placeholder",
@@ -766,11 +771,6 @@ module.exports = [
             title: "Compression design",
             href: "compression-design",
             excerpt: "The design of TimescaleDB compression",
-          },
-          {
-            title: "About compression methods",
-            href: "compression-methods",
-            excerpt: "Learn about the different compression methods",
           },
           {
             title: "Enable a compression policy",
