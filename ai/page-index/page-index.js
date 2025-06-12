@@ -1,11 +1,11 @@
 module.exports = [
   {
-    title: "AI  and Vector: pgai on Timescale",
+    title: "AI  and Vector: pgai on TigerData",
     href: "ai",
     filePath: "index.md",
     pageComponents: ["featured-cards"],
     excerpt:
-      "Information about pgai on Timescale and how to use it.",
+      "Information about pgai on TigerData and how to use it.",
     children: [
       {
         title: "Key vector database concepts",

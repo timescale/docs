@@ -88,7 +88,9 @@ Finding the K nearest neighbors is not a new problem in PostgreSQL, but existing
 There are no known exact algorithms for efficiently searching in such high-dimensional spaces. Nevertheless, there are excellent approximate algorithms that fall into the category of approximate nearest neighbor algorithms.
 
 <!-- vale Google.Colons = NO -->
-There are 3 different indexing algorithms available as part of pgai on Timescale: StreamingDiskANN, HNSW, and ivfflat. The table below illustrates the high-level differences between these algorithms:
+
+There are 3 different indexing algorithms available as part of pgai on $CLOUD_LONG: StreamingDiskANN, HNSW, and ivfflat. The table below illustrates the high-level differences between these algorithms:
+
 <!-- vale Google.Colons = YES -->
 
 | Algorithm       | Build Speed | Query Speed | Need to rebuild after updates |

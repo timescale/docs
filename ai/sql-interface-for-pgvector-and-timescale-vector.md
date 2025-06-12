@@ -10,7 +10,7 @@ tags: [ai, vector, sql]
 
 ## Installing the pgvector and pgvectorscale extensions
 
-If not already installed, install the `vector` and `vectorscale` extensions on your Timescale database.
+If not already installed, install the `vector` and `vectorscale` extensions on your TigerData database.
 
 ```sql
 CREATE EXTENSION IF NOT EXISTS vector;
@@ -81,7 +81,7 @@ The key part is that the `ORDER BY` contains a distance measure against a consta
 Note that if performing a query without an index, you always get an exact result, but the query is slow (it has to read all of the data you store for every query). With an index, your queries are an order-of-magnitude faster, but the results are approximate (because there are no known indexing techniques that are exact see [here for more][vector-search-indexing]).
 
 <!-- vale Google.Colons = NO -->
-Nevertheless, there are excellent approximate algorithms. There are 3 different indexing algorithms available on the Timescale platform: StreamingDiskANN, HNSW, and ivfflat. Below is the trade-offs between these algorithms:
+Nevertheless, there are excellent approximate algorithms. There are 3 different indexing algorithms available on $TIMESCALE_DB: StreamingDiskANN, HNSW, and ivfflat. Below is the trade-offs between these algorithms:
 <!-- vale Google.Colons = Yes -->
 
 | Algorithm       | Build Speed | Query Speed | Need to rebuild after updates |
