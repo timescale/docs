@@ -53,7 +53,7 @@ ranges from 25 to 500 in higher compute plans.
 <img class="main-content__illustration"
 width={1375} height={944}
 src="https://assets.timescale.com/docs/images/tsc-settings-change.webp"
-alt="Change Timescale configuration parameters"/>
+alt="Change Tiger Cloud configuration parameters"/>
 
 ### Apply configuration changes
 

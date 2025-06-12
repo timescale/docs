@@ -53,7 +53,7 @@ reading with a value that is greater than or equal to 1000.
 
 </Procedure>
 
-Timescale supports the full range of triggers, including `BEFORE INSERT`,
+$TIMESCALE_DB supports the full range of triggers, including `BEFORE INSERT`,
 `AFTER INSERT`, `BEFORE UPDATE`, `AFTER UPDATE`, `BEFORE DELETE`, and
 `AFTER DELETE`. For more information, see the
 [PostgreSQL docs][postgres-createtrigger].

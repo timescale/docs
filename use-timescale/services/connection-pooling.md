@@ -1,6 +1,6 @@
 ---
 title: Connection pooling
-excerpt: Connection pooling is reusing existing connections instead of creating a new one each time a client requests access to the database. Create connection poolers in Timescale Console to boost your database performance
+excerpt: Connection pooling is reusing existing connections instead of creating a new one each time a client requests access to the database. Create connection poolers in Tiger Cloud Console to boost your database performance
 products: [cloud]
 keywords: [connection pooling, pooler, connections, services]
 cloud_ui:
@@ -111,7 +111,7 @@ transaction pool type.
 By default, the pooler supports both modes simultaneously. However, the
 connection string you use to connect your application is different, depending on
 whether you want a session or transaction pool type. When you create a
-connection pool in the Timescale console, you are given the correct connection
+connection pool in the $CONSOLE_LONG, you are given the correct connection
 string for the mode you choose.
 
 For example, a connection string to connect directly to your $SERVICE_SHORT looks a

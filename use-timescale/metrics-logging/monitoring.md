@@ -1,5 +1,5 @@
 ---
-title: Monitor your Timescale Cloud services
+title: Monitor your Tiger Cloud services
 excerpt: View logs, metrics, and performance insights for your services in Tiger Cloud. Get actionable tips to improve your service performance
 products: [cloud]
 price_plans: [performance, scale, enterprise]
@@ -20,7 +20,7 @@ $CONSOLE offers you a quick, convenient way to see how your $SERVICE_SHORTs are 
 
 ## Recommendations
 
-$CLOUD_LONG offers specific tips on configuring your $SERVICE_SHORT. This includes a wide range of actions—from finishing account setup to tuning your $SERVICE_SHORT for the best performance. For example, $CLOUD_LONG may recommend a more suitable $CHUNK interval or draw your attention to consistently failing $JOBs. 
+$CLOUD_LONG offers specific tips on configuring your $SERVICE_SHORT. This includes a wide range of actions—from finishing $ACCOUNT_SHORT setup to tuning your $SERVICE_SHORT for the best performance. For example, $CLOUD_LONG may recommend a more suitable $CHUNK interval or draw your attention to consistently failing $JOBs. 
 
 To view recommendations, select your $SERVICE_SHORT in $CONSOLE, then click `Monitoring` > `Recommendations`:
 

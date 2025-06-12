@@ -1,6 +1,6 @@
 ---
 title: pgvector PostgreSQL extension
-excerpt: pgvector is an open-source extension for PostgreSQL that enables efficient vector similarity search and can be used with Timescale CLoud. Learn to use pgvector to create a chatbot
+excerpt: pgvector is an open-source extension for PostgreSQL that enables efficient vector similarity search and can be used with Tiger CLoud. Learn to use pgvector to create a chatbot
 products: [cloud, mst, self_hosted]
 keywords: [services, settings, extensions, pgvector]
 tags: [extensions, pgvector]

@@ -27,9 +27,9 @@ token programmatically, see the
 
 ### Creating client credentials
 
-1.  [Log in to your $CLOUD_LONG account][cloud-login].
+1.  [Log in to your $ACCOUNT_LONG][cloud-login].
 1.  Navigate to the `Project Settings` page to create client credentials for
-    your project.
+    your $PROJECT_SHORT.
 1.  In the `Project Settings` page, click `Create credentials`.
 1.  In the `New client credentials` dialog, you can view the `Public key` and the
     `Secret Key`.
@@ -37,7 +37,7 @@ token programmatically, see the
     view the `Secret Key` again in the console.
 1.  Click `Done`.
     You can use these keys in your client applications to access $CLOUD_LONG
-    resources inside the respective project.
+    resources inside the respective $PROJECT_SHORT.
     $CLOUD_LONG generates a default `Name` for the client credentials.
 1.  Click the ⋮ menu and select `Rename credentials`.
 1.  In the  `Edit credential name` dialog, type the new name and click `Accept`.
@@ -48,9 +48,9 @@ token programmatically, see the
 
 <Procedure>
 
-1.  [Log in to your $CLOUD_LONG account][cloud-login].
+1.  [Log in to your $ACCOUNT_LONG][cloud-login].
 1.  Navigate to the `Project Settings` page to view client credentials for
-    your project.
+    your $PROJECT_SHORT.
 1.  In the `Project Settings` page, click the ⋮ menu of the client credential,
     and select `Delete`.
 1.  In the `Are you sure` dialog, type the name of the client credential, and
