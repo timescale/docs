@@ -1,19 +1,19 @@
 ---
-title: TigerLake
-excerpt: Unifies the Timescale Cloud operational architecture with the data lake (S3 + Iceberg) architectures. This enables real-time application building alongside efficient data pipeline management within a single system.
+title: BaseLake
+excerpt: Unifies the Timescale Cloud operational architecture with datalake architectures. This enables real-time application building alongside efficient data pipeline management within a single system.
 products: [cloud]
-keywords: [data lake]
+keywords: [data lake, lakehouse, s3, iceberg]
 ---
 
-# TigerLake
+# BaseLake
 
-TigerLake Unifies the Timescale Cloud operational architecture with the data lake (S3 + Iceberg) architectures. This enables real-time application building alongside efficient data pipeline management within a single system.
+BaseLake Unifies the Timescale Cloud operational architecture with the data lake (S3 + Iceberg) architectures. This enables real-time application building alongside efficient data pipeline management within a single system.
 
 This experimental release is a native integration enabling continuous replication
 between AWS S3 Tables (managed Iceberg and catalog) running in your AWS account and
 relational tables and hypertables in Timescale Cloud. 
 
-You interact directly with TigerLake using Timescale Console. The pricing associated
+You interact directly with BaseLake using Timescale Console. The pricing associated
 with the integration will be introduced at a later date. This document explains how to
 get started for the early access partners. There are no costs associated with the Timescale Cloud service, we set everything up and then invite you to the project.
 
@@ -26,7 +26,7 @@ using either:
 - AWS cloudformation CLI
 
 
-### Setup TigerLake using AWS Management Console
+### Setup BaseLake using AWS Management Console
 
 1. Sign in to the AWS Management Console and open  [CloudFormation console][cmc].
 1. In the navigation bar on the top of the page:
@@ -52,10 +52,10 @@ using either:
 1. On the review page, click `Submit` and wait for the deployment to complete. 
 1. Click `Outputs`, then copy all four outputs. 
 1. Provide the outputs to Timescale.  
-   Timescale uses them to provision your TigerLake services.
+   Timescale uses them to provision your BaseLake services.
 
 
-### Setup TigerLake using the aws cloudformation CLI
+### Setup BaseLake using the aws cloudformation CLI
 
 Replace the following values in the command, then run it from the terminal:
 - **Stack Name**: the name for this CloudFormation stack
