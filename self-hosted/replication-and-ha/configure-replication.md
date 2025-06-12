@@ -20,7 +20,7 @@ a [PostgreSQL entry point script][docker-postgres-scripts] to run the
 configuration. For more advanced examples, see the
 [Timescale Helm Charts repository][timescale-streamrep-helm].
 
-To configure replication on self-hosted TimescaleDB, you need to perform these
+To configure replication on $SELF_LONG, you need to perform these
 procedures:
 
 1.  [Configure the primary database][configure-primary-db]
