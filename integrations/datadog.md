@@ -1,6 +1,6 @@
 ---
-title: Integrate Datadog with Timescale Cloud
-excerpt: Datadog is a cloud-based monitoring and analytics platform. Export telemetry data from your Timescale Cloud service with time-series and analytics capability to Datadog
+title: Integrate Datadog with Tiger Cloud
+excerpt: Datadog is a cloud-based monitoring and analytics platform. Export telemetry data from your Tiger Cloud service with time-series and analytics capability to Datadog
 products: [cloud]
 price_plans: [scale, enterprise]
 keywords: [integrate]
@@ -36,7 +36,7 @@ This page explains how to:
 
 - Install [Datadog Agent][datadog-agent-install].
 
-## Monitor Timescale Cloud service metrics with Datadog
+## Monitor Tiger Cloud service metrics with Datadog
 
 Export telemetry data from your $SERVICE_LONGs with the time-series and analytics capability enabled to
 Datadog using a $CLOUD_LONG data exporter. The available metrics include CPU usage, RAM usage, and storage.
@@ -61,7 +61,7 @@ metrics about your $SERVICE_LONGs.
 
 1. **Connect to your $SERVICE_LONG**
 
-   For $CLOUD_LONG, open an [SQL editor][run-queries] in [$CONSOLE][open-console]. For self-hosted, use [`psql`][psql].
+   For $CLOUD_LONG, open an [SQL editor][run-queries] in [$CONSOLE][open-console]. For $SELF_LONG, use [`psql`][psql].
 
 1. **Add the `datadog` user to your $SERVICE_LONG**
 

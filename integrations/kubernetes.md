@@ -1,8 +1,8 @@
 ---
-title: Integrate Kubernetes with Timescale Cloud
-excerpt: Learn how to integrate Kubernetes with Timescale Cloud to enable seamless deployment and scaling of your PostgreSQL workloads
+title: Integrate Kubernetes with Tiger Cloud
+excerpt: Learn how to integrate Kubernetes with Tiger Cloud to enable seamless deployment and scaling of your PostgreSQL workloads
 products: [cloud, self_hosted]
-keywords: [Kubernetes, Timescale Cloud, PostgreSQL, container orchestration]
+keywords: [Kubernetes, Tiger Cloud, PostgreSQL, container orchestration]
 ---
 
 import KubernetesPrereqs from "versionContent/_partials/_kubernetes-prereqs.mdx";
@@ -10,7 +10,7 @@ import KubernetesInstallSelf from "versionContent/_partials/_kubernetes-install-
 
 # Integrate Kubernetes with $CLOUD_LONG
 
-[Kubernetes][kubernetes] is an open-source container orchestration system that automates the deployment, scaling, and management of containerized applications. You can connect Kubernetes to $CLOUD LONG, and deploy $TIMESCALE_DB within your Kubernetes clusters.
+[Kubernetes][kubernetes] is an open-source container orchestration system that automates the deployment, scaling, and management of containerized applications. You can connect Kubernetes to $CLOUD_LONG, and deploy $TIMESCALE_DB within your Kubernetes clusters.
 
 This guide explains how to connect a Kubernetes cluster to $CLOUD_LONG, configure persistent storage, and deploy $TIMESCALE_DB in your kubernetes cluster. 
 
@@ -24,7 +24,7 @@ To follow the steps on this page:
 
 <Tabs>
 
-<Tab title="Timescale Cloud">
+<Tab title="Tiger Cloud">
 
 To connect your Kubernetes cluster to your $SERVICE_LONG:
 

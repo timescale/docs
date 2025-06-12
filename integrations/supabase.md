@@ -1,6 +1,6 @@
 ---
-title: Integrate Supabase with Timescale Cloud
-excerpt: Supabase is an open source Firebase alternative. Integrate Supabase with Timescale Cloud
+title: Integrate Supabase with Tiger Cloud
+excerpt: Supabase is an open source Firebase alternative. Integrate Supabase with Tiger Cloud
 products: [cloud, self_hosted]
 keywords: [integrate]
 ---
@@ -8,7 +8,7 @@ keywords: [integrate]
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
 import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
 
-# Integrate Supabase with Timescale Cloud
+# Integrate Supabase with Tiger Cloud
 
 [Supabase][supabase] is an open source Firebase alternative. This page shows how to run real-time analytical queries 
 against a $SERVICE_LONG through Supabase using a foreign data wrapper (fdw) to bring aggregated data from your 

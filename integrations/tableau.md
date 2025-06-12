@@ -1,13 +1,13 @@
 ---
-title: Using Tableau to visualize data in TimescaleDB
-excerpt: Tableau is a popular analytics platform that helps you gain greater intelligence about your business. Integrate Tableau with Timescale Cloud
+title: Integrate Tableau and Tiger Cloud
+excerpt: Tableau is a popular analytics platform that helps you gain greater intelligence about your business. Integrate Tableau with Tiger Cloud
 products: [cloud, self_hosted]
 keywords: [visualizations, analytics, Tableau]
 ---
 
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
 
-# Integrate Tableau and $CLOUD_LONG
+# Integrate Tableau and Tiger Cloud
 
 [Tableau][tableau] is a popular analytics platform that helps you gain greater intelligence about your business. You can use it to visualize
 data stored in $CLOUD_LONG.
