@@ -72,7 +72,7 @@ def unwrap(gucs: list, guc_type: str) -> dict:
         value = it[4]
 
         # TODO: clean up /* Value= */ from strings
-        #
+        # 
 
         # Exclude GUCs (if specified)
         if name not in EXCLUDE:
