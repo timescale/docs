@@ -46,11 +46,11 @@ For more information about customizing your database configuration, see
 
 <Highlight type="note">
 
-The [$CLOUD_LONG Terraform provider](https://registry.terraform.io/providers/timescale/timescale/latest/)
+The [$TIMESCALE_DB Terraform provider](https://registry.terraform.io/providers/timescale/timescale/latest/)
 provides configuration management resources for $CLOUD_LONG. You can use it to
 create, rename, resize, delete, and import $SERVICE_SHORTs. For more information about
 the supported $SERVICE_SHORT configurations and operations, see the
-[$CLOUD_LONG Terraform provider documentation](https://registry.terraform.io/providers/timescale/timescale/latest/docs).
+[Terraform provider documentation](https://registry.terraform.io/providers/timescale/timescale/latest/docs).
 
 </Highlight>
 

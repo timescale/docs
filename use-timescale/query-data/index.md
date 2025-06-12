@@ -7,9 +7,8 @@ keywords: [queries]
 
 # Query data
 
-Hypertables in $TIMESCALE_DB _are_ PostgreSQL tables. That means you can query them
-with standard SQL commands. In addition to the extra benefits you get from the $TIMESCALE_DB architecture and query planning,
-use [PopSQL][popsql] to work on data with centralized SQL queries, interactive visuals and real-time collaboration.
+Hypertables in $TIMESCALE_DB are PostgreSQL tables. That means you can query them
+with standard SQL commands. 
 
 *   [About querying data][about-querying-data]
 *   [Select data with `SELECT`][selecting-data]

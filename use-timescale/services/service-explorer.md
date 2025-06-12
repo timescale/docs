@@ -10,7 +10,7 @@ cloud_ui:
 
 # $SERVICE_LONG explorer
 
-$SERVICE_SHORT explorer in $CONSOLE provides a rich administrative dashboard for
+$SERVICE_SHORT_CAP explorer in $CONSOLE provides a rich administrative dashboard for
 understanding the state of your database instance. The explorer gives you
 insight into the performance of your database, giving you greater confidence and
 control over your data.

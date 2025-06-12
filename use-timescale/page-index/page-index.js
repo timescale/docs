@@ -749,7 +749,7 @@ module.exports = [
         excerpt: "Current limitations of TigerData product features",
       },
       {
-        title: "Troubleshoot TigerData products",
+        title: "Troubleshoot common issues",
         href: "troubleshoot-timescaledb",
         excerpt: "Troubleshooting TigerData products",
       },

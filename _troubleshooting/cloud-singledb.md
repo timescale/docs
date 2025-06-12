@@ -1,7 +1,7 @@
 ---
 title: Cannot create another database
 section: troubleshooting
-products: [cloud, mst, self_hosted]
+products: [cloud]
 topics: [services]
 errors:
   - language: text

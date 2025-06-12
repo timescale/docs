@@ -23,7 +23,7 @@ Click `Operations` to configure your $SERVICE_SHORT.
 Each $SERVICE_SHORT hosts a single database managed for you by $CLOUD_LONG. 
 If you need more than one database, [create a new $SERVICE_SHORT][create-service].
 
-## $SERVICE_SHORT users
+## $SERVICE_SHORT_CAP users
 
 By default, when you create a new $SERVICE_SHORT, a new `tsdbadmin` user is created.
 This is the user that you use to connect to your new $SERVICE_SHORT.

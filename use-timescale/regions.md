@@ -6,12 +6,6 @@ products: [cloud]
 
 # $CLOUD_LONG regions
 
-<Highlight type="cloud" header="Want your databases to run in $CLOUD_LONG?" button="Try for free">
-
-We tune your database for performance and handle scalability, high availability, backups, and management, so you can relax.
-
-</Highlight>
-
 $SERVICE_LONGs run in the following Amazon Web Services (AWS) regions:
 
 | Region           | Zone          | Location       |

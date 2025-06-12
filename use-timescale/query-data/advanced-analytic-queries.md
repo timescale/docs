@@ -7,10 +7,10 @@ keywords: [queries, hyperfunctions, analytics]
 
 import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
 
-# Perform advanced analytic queries
+# Perform advanced analytical queries
 
 You can use $TIMESCALE_DB for a variety of analytical queries. Some of these
-queries are native PostgreSQL, and some are additional functions provided by $COMPANY. This section contains the most common and useful analytic queries.
+queries are native PostgreSQL, and some are additional functions provided by $TIMESCALE_DB and $TOOLKIT_LONG. This section contains the most common and useful analytic queries.
 
 ## Calculate the median and percentile
 

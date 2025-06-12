@@ -13,7 +13,7 @@ increase your data ingest rates using batch writes, instead of inserting data on
 
 - **Import data**
 
-  You can Import data into your $SERVICE_LONG from:
+  You can import data into your $SERVICE_LONG from:
   * [CSV][import-csv]
   * [Parquet][import-parquet]
   * [MySQL][import-mysql]
