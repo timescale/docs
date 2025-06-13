@@ -1,6 +1,6 @@
 ---
 title: Create a read-only replica using Aiven client
-excerpt: Create a read-only replica of the service using Aiven Command Line tool for managed Service for TimescaleDB.
+excerpt: Create a read-only replica of the service using Aiven Command Line tool for Managed Service for TimescaleDB
 products: [mst]
 ---
 
@@ -16,7 +16,7 @@ even different cloud providers.
 
 Before you begin, make sure you have:
 
-*   Created a service in your Managed Service for TimescaleDB account.
+*   Created a $MST_SERVICE_SHORT in your $MST_LONG.
 *   Installed [Aiven Client][aiven-client-install].
 
 <Procedure>
@@ -24,16 +24,16 @@ Before you begin, make sure you have:
 ## Creating a read-only replica of your service
 
 1.  In the Aiven client, connect to your
-    [Managed Service for TimescaleDB service][aiven-client-install].
+    [$MST_SERVICE_LONG][aiven-client-install].
 
-1.  Switch to the project that contains the TimescaleDB service you want to
+1.  Switch to the project that contains the $MST_SERVICE_SHORT you want to
     create a read-only replica for:
 
     ```bash
     avn project switch <PROJECT>
     ```
 
-1.  List the services in the project, and make a note of the service that you
+1.  List the MST_SERVICE_SHORTs in the project, and make a note of the $MST_SERVICE_SHORT that you
     want to create a read-only replica for. It is listed under the`SERVICE_NAME`
     column in the output:
 
@@ -41,7 +41,7 @@ Before you begin, make sure you have:
     avn service list
     ```
 
-1.  Get the details of the service that you want to fork:
+1.  Get the details of the $MST_SERVICE_SHORT that you want to fork:
 
     ```bash
     avn service get <SERVICE_NAME>
@@ -61,12 +61,12 @@ Before you begin, make sure you have:
 
 ## Example
 
-To create a fork named `replica-fork` for a service named `timescaledb` with
+To create a fork named `replica-fork` for a $MST_SERVICE_SHORT named `timescaledb` with
 these parameters:
 
-*   PROJECT_ID: `fork-project`
-*   CLOUD_NAME: `timescale-aws-us-east-1`
-*   PLAN_TYPE: `timescale-basic-100-compute-optimized`
+*   `PROJECT_ID`: `fork-project`
+*   `CLOUD_NAME`: `timescale-aws-us-east-1`
+*   `PLAN_TYPE`: `timescale-basic-100-compute-optimized`
 
 ```bash
 avn service create replica-fork --project fork-project\

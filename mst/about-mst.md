@@ -8,40 +8,40 @@ keywords: [services]
 import MSTIntro from "versionContent/_partials/_mst-intro.mdx";
 import CloudMSTComparison from "versionContent/_partials/_cloud-mst-comparison.mdx";
 
-# About Managed Service for TimescaleDB
+# About $MST_LONG
 
 <MSTIntro />
 
 <CloudMSTComparison />
 
-Your Managed Service for TimescaleDB account has three main components:
-projects, services, and databases.
+Your $MST_LONG account has three main components:
+projects, $MST_SERVICE_SHORTs, and databases.
 
 ## Projects
 
-When you [sign up for Managed Service for TimescaleDB][mst-signup], an empty project is
+When you [sign up for $MST_LONG][mst-signup], an empty project is
 created for you automatically. Projects are the highest organization level, and
 they contain all your services and databases. You can use projects to organize
-groups of services. Each project can also have its own billing settings.
+groups of $MST_SERVICE_SHORTs. Each project can also have its own billing settings.
 
-To create a new project: In [MST Console][mst-login], click `Projects` > `Create project`.
+To create a new project: In [$MST_CONSOLE_SHORT][mst-login], click `Projects` > `Create project`.
 
 <img class="main-content__illustration"
 src="https://assets.timescale.com/docs/images/mst/create-project.png"
 alt="MST projects"/>
 
-## Services
+## $MST_SERVICE_LONGs
 
-Each project contains one or more services. You can have multiple services under
-each project, and each service corresponds to a cloud service provider tier. You
-can access all your services from the `Services` tab within your projects.
+Each project contains one or more $MST_SERVICE_SHORTs. You can have multiple $MST_SERVICE_SHORTs under
+each project, and each $MST_SERVICE_SHORT corresponds to a cloud service provider tier. You
+can access all your $MST_SERVICE_SHORTs from the `Services` tab within your projects.
 
 <img class="main-content__illustration"
 src="https://assets.timescale.com/docs/images/mst/services.png"
 alt="MST services list"/>
 
-For more information about getting your first service up and running, see the
-[Managed Service for Timescale installation section][mst-install].
+For more information about getting your first $MST_SERVICE_SHORT up and running, see the
+[$MST_LONG installation section][mst-install].
 
 
 <Highlight type="important">

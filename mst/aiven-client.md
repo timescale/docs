@@ -4,38 +4,38 @@ excerpt: Manage your services in the Managed Service for TimescaleDB with a comm
 products: [mst]
 ---
 
-# Aiven Client for Managed Service for TimescaleDB
+# Aiven Client for $MST_LONG
 
-You can use Aiven Client to manage your services on Managed Service for TimescaleDB.
+You can use Aiven Client to manage your $MST_SERVICE_SHORTs in $MST_LONG.
 
 You can use the Aiven Client tool to:
 
-*   Connect to Managed Service for TimescaleDB
-*   Create a service
+*   Connect to $MST_LONG
+*   Create a $MST_SERVICE_SHORT
 *   Create a fork
 *   Add authentication plugins to your attached Grafana service
 
 Instructions: 
 
 - [Install and configure the Aiven client]
-- [Fork services with Aiven client]
+- [Fork $MST_SERVICE_SHORTs with Aiven client]
 - [Configure Grafana authentication plugins]
 - [Send Grafana emails]
 - [Create a read-only replica with the Aiven client]
 
 ## Install and configure the Aiven client
 
-Aiven Client is a command line tool for fully managed services. To use Aiven Client, you first need to create an authentication token. Then, you configure the client to connect to your Managed Service for TimescaleDB using the command line.
+Aiven Client is a command line tool for fully managed services. To use Aiven Client, you first need to create an authentication token. Then, you configure the client to connect to your $MST_LONG using the command line.
 
-### Create an authentication token in Managed Service for TimescaleDB
+### Create an authentication token in $MST_LONG
 
-To connect to Managed Service for TimescaleDB using Aiven Client, create an authentication token.
+To connect to $MST_LONG using Aiven Client, create an authentication token.
 
 <Procedure>
 
-#### Creating an authentication token in Managed Service for TimescaleDB
+#### Creating an authentication token in $MST_LONG
 
-1.  In [MST Portal][mst-login], click `User Information` in the top right corner.
+1.  In [$MST CONSOLE_SHORT][mst-login], click `User Information` in the top right corner.
 1.  In the `User Profile` page, navigate to the `Authentication`tab.
 1.  Click `Generate Token`.
 2.  In the `Generate access token` dialog, type a descriptive name for the token. Leave the rest of the fields blank.
@@ -53,13 +53,13 @@ pip install aiven-client
 
 For more information about installing the Aiven Client, see the [Aiven][aiven-github] documentation.
 
-### Configure Aiven Client to connect to Managed Service for TimescaleDB
+### Configure Aiven Client to connect to $MST_LONG
 
-To access Managed Service for TimescaleDB with the Aiven Client, you need an authentication token. Aiven Client uses this to access your services on Managed Service for TimescaleDB.
+To access $MST_LONG with the Aiven Client, you need an authentication token. Aiven Client uses this to access your $MST_SERVICE_SHORTs on $MST_LONG.
 
 <Procedure>
 
-#### Configuring Aiven Client to connect to Managed Service for TimescaleDB
+#### Configuring Aiven Client to connect to $MST_LONG
 
 1.  Change to the install directory that contains the configuration files:
 
@@ -67,8 +67,8 @@ To access Managed Service for TimescaleDB with the Aiven Client, you need an aut
     cd ~/.config/aiven/
     ```
 
-1.  Open the `aiven-credentials.json` using any editor and update these lines with your Managed Service for TimescaleDB `User email`, and the
-    `authentication token` that you generated :
+1.  Open the `aiven-credentials.json` using any editor and update these lines with your $MST_LONG `User email`, and the
+    `authentication token` that you generated:
 
     ```bash
     {
@@ -79,7 +79,7 @@ To access Managed Service for TimescaleDB with the Aiven Client, you need an aut
 
 1.  Save the `aiven-credentials.json` file.
 
-1.  To verify that you can access your services on Managed Service for TimescaleDB, type:
+1.  To verify that you can access your services on $MST_LONG, type:
 
     ```bash
     avn project list
@@ -97,10 +97,10 @@ To access Managed Service for TimescaleDB with the Aiven Client, you need an aut
 
 </Procedure>
 
-## Fork services with Aiven client
+## Fork $MST_SERVICE_SHORTs with Aiven client
 
-When you a fork a service, you create an exact copy of the service, including
-the underlying database. You can use a fork of your service to:
+When you a fork a $MST_SERVICE_SHORT, you create an exact copy of the $MST_SERVICE_SHORT, including
+the underlying database. You can use a fork of your $MST_SERVICE_SHORT to:
 
 *   Create a development copy of your production environment.
 *   Set up a snapshot to analyze an issue or test an upgrade.
@@ -108,28 +108,27 @@ the underlying database. You can use a fork of your service to:
     a different plan.
 
 For more information about projects, plans, and other details about
-services,see [Services][about-mst].
+services, see [About $MST_LONG][about-mst].
 
 <Procedure>
 
-### Creating a fork of your service
+### Creating a fork of your $MST_SERVICE_SHORT
 
-1.  In the Aiven client, connect to your
-    [Managed Service for TimescaleDB service][Install and configure the Aiven client].
+1.  In the Aiven client, connect to your [$MST_SERVICE_LONG][Install and configure the Aiven client].
 
-2.  Switch to the project that contains the service you want to fork:
+2.  Switch to the project that contains the $MST_SERVICE_SHORT you want to fork:
 
     ```bash
      avn project switch <PROJECT>
     ```
 
-3.  List the services in the project, and make a note of the service that you want to fork, listed under `SERVICE_NAME` column in the output.
+3.  List the $MST_SERVICE_SHORTs in the project, and make a note of the $MST_SERVICE_SHORT that you want to fork, listed under `SERVICE_NAME` column in the output.
 
     ```bash
      avn service list
     ```
 
-4.  Get the details of the service that you want to fork:
+4.  Get the details of the $MST_SERVICE_SHORT that you want to fork:
 
     ```bash
     avn service get <SERVICE_NAME>
@@ -147,7 +146,7 @@ services,see [Services][about-mst].
 
 ### Example
 
-To create a fork named `grafana-fork` for a service named `grafana` with these parameters:
+To create a fork named `grafana-fork` for a $MST_SERVICE_SHORT named `grafana` with these parameters:
 
 *   PROJECT_ID: `project-fork`
 *   CLOUD_NAME: `timescale-aws-us-east-1`
@@ -167,11 +166,11 @@ You can switch to `project-fork` and view the newly created `grafana-fork` using
 
 Grafana supports multiple authentication plugins, in addition to built-in username and password authentication.
 
-On Managed Service for TimescaleDB, Grafana supports Google, GitHub, and GitLab authentication. You can configure authentication integration using the Aiven command-line client.
+On $MST_LONG, Grafana supports Google, GitHub, and GitLab authentication. You can configure authentication integration using the Aiven command-line client.
 
 ### Integrating the Google authentication plugin
 
-To integrate Google authentication with Grafana service on Managed Service for TimescaleDB, you need to create your
+To integrate Google authentication with Grafana service on $MST_LONG, you need to create your
 [Google OAuth keys][google-oauth-keys]. Copy your client ID and client secret to a secure location.
 
 <Procedure>
@@ -179,7 +178,7 @@ To integrate Google authentication with Grafana service on Managed Service for T
 #### How to integrate the Google authentication plugin
 
 1.  In the Aiven Client, connect to your
-    [Managed Service for TimescaleDB service][Install and configure the Aiven client].
+    [$MST_SERVICE_LONG][Install and configure the Aiven client].
 
 2.  Switch to the project that contains the Grafana service you want to integrate:
 
@@ -200,7 +199,7 @@ To integrate Google authentication with Grafana service on Managed Service for T
     avn service get <SERVICE_NAME>
     ```
 
-5.  Integrate the plugin with your service using the `<CLIENT_ID>` and `<CLIENT_SECRET>` from your Google developer console:
+5.  Integrate the plugin with your services using the `<CLIENT_ID>` and `<CLIENT_SECRET>` from your Google developer console:
 
     ```bash
     avn service update -c auth_google.allowed_domains=<G-SUITE_DOMAIN>\
@@ -213,21 +212,22 @@ To integrate Google authentication with Grafana service on Managed Service for T
 7.  Navigate to `Configuration` → `Plugins` and verify that the Google OAuth application is listed as a plugin.
 
 <Highlight type="note">
+
 When you allow sign-ups using the `-c auth_google.allow_sign_up=true` option, by default each new user is created with `viewer` permissions and added to their own newly created organizations. To specify different permissions, use `-c user_auto_assign_org_role=ROLE_NAME`. To add all new users to the main organization, use the  `-c user_auto_assign_org=true` option.
+
 </Highlight>
 
 </Procedure>
 
 ### Integrating the GitHub authentication plugin
 
-To integrate GitHub authentication with Grafana service on Managed Service
-for TimescaleDB, you need to create your [GitHub OAuth application][github-oauth-keys]. Store your client ID and client secret in a secure location.
+To integrate GitHub authentication with Grafana service on $MST_LONG, you need to create your [GitHub OAuth application][github-oauth-keys]. Store your client ID and client secret in a secure location.
 
 <Procedure>
 
 #### How to integrate the GitHub authentication plugin
 
-1.  In the Aiven Client, connect to your [Managed Service for TimescaleDB service][Install and configure the Aiven client].
+1.  In the Aiven Client, connect to your [$MST_SERVICE_LONG][Install and configure the Aiven client].
 
 2.  Switch to the project that contains the Grafana service you want to integrate:
 
@@ -263,15 +263,17 @@ for TimescaleDB, you need to create your [GitHub OAuth application][github-oauth
     GitHub OAuth application for the Grafana instance.
 
 <Highlight type="note">
+
 When you allow sign-ups using the `-c auth_github.allow_sign_up=true` option, by default each new user is created with `viewer`permission and added to their own newly created organizations. To specify different permissions, use `-c user_auto_assign_org_role=ROLE_NAME`. To add all new users to the main organization, use the `-c user_auto_assign_org=true` option.
+
 </Highlight>
 
 </Procedure>
 
 ### Integrating the GitLab authentication plugin
 
-To integrate the GitLab authentication with Grafana service on Managed Service for TimescaleDB, you need to create your [GitLab OAuth
-application][gitlab-oauth-keys]. Copy  your client ID, client secret, and GitLab groups name to a secure location.
+To integrate the GitLab authentication with Grafana service on $MST_LONG, you need to create your [GitLab OAuth
+application][gitlab-oauth-keys]. Copy your client ID, client secret, and GitLab groups name to a secure location.
 
 If you use your own instance of GitLab instead of gitlab.com, then you need to set the following:
 
@@ -283,7 +285,7 @@ If you use your own instance of GitLab instead of gitlab.com, then you need to s
 
 #### How to integrate the GitLab authentication plugin
 
-1.  In the Aiven Client, connect to your [Managed Service for TimescaleDB service][Install and configure the Aiven client].
+1.  In the Aiven Client, connect to your [MST_SERVICE_LONG][Install and configure the Aiven client].
 
 2.  Switch to the project that contains the Grafana service you want to integrate:
 
@@ -317,15 +319,16 @@ If you use your own instance of GitLab instead of gitlab.com, then you need to s
 7.  Navigate to `Configuration` → `Plugins`. The Plugins page lists GitLab OAuth application for the Grafana instance.
 
 <Highlight type="note">
+
 When you allow sign-ups using the `-c auth_gitlab.allow_sign_up=true` option, by default each new user is created with `viewer`permission and added to their own newly created organizations. To specify different permissions, use `-c user_auto_assign_org_role=ROLE_NAME`. To add all new users to the main organization, use the `-c user_auto_assign_org=true` option.
+
 </Highlight>
 
 </Procedure>
 
 ## Send Grafana emails
 
-Use the Aiven client to configure the Simple Mail Transfer Protocol (SMTP) server settings and send emails from Managed Service for
-TimescaleDB for Grafana. This includes invite emails, reset password emails, and alert messages.
+Use the Aiven client to configure the Simple Mail Transfer Protocol (SMTP) server settings and send emails from $MST_LONG for Grafana. This includes invite emails, reset password emails, and alert messages.
 
 ### Prerequisites
 
@@ -339,7 +342,7 @@ Before you begin, make sure you have:
 
 ### Configuring the SMTP server for Grafana service
 
-1.  In the Aiven client, connect to your [Managed Service for TimescaleDB service][Install and configure the Aiven client].
+1.  In the Aiven client, connect to your [$MST_SERVICE_LONG][Install and configure the Aiven client].
 
 2.  Switch to the project that contains the Grafana service you want to integrate:
 
@@ -377,7 +380,7 @@ Before you begin, make sure you have:
        avn service types -v
     ```
 
-You can now send emails for your Grafana service on MST.
+You can now send emails for your Grafana service on $MST_SHORT.
 
 </Procedure>
 
@@ -388,23 +391,23 @@ good way to optimize query response times across different geographical location
 
 <Procedure>
 
-### Creating a read-only replica of your service
+### Creating a read-only replica of your $MST_SERVICE_SHORT
 
-1.  In the Aiven client, connect to your [Managed Service for TimescaleDB service][Install and configure the Aiven client].
+1.  In the Aiven client, connect to your [$MST_SERVICE_LONG][Install and configure the Aiven client].
 
-2.  Switch to the project that contains the TimescaleDB service you want to create a read-only replica for:
+2.  Switch to the project that contains the $MST_SERVICE_LONG you want to create a read-only replica for:
 
     ```bash
     avn project switch <PROJECT>
     ```
 
-3.  List the services in the project. Note the service for which you will create a read-only replica. You can find it listed under the `SERVICE_NAME` column in the output:
+3.  List the $MST_SERVICE_SHORTs in the project. Note the service for which you will create a read-only replica. You can find it listed under the `SERVICE_NAME` column in the output:
 
     ```bash
     avn service list
     ```
 
-4.  Get the details of the service that you want to fork:
+4.  Get the details of the $MST_SERVICE_SHORT that you want to fork:
 
     ```bash
     avn service get <SERVICE_NAME>
@@ -424,7 +427,7 @@ good way to optimize query response times across different geographical location
 
 ### Example
 
-To create a fork named `replica-fork` for a service named `timescaledb` with
+To create a fork named `replica-fork` for a $MST_SERVICE_SHORT named `timescaledb` with
 these parameters:
 
 *   PROJECT_ID: `fork-project`

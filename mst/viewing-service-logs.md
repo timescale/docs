@@ -7,12 +7,10 @@ keywords: [logging, services]
 
 # Viewing service logs
 
-Occasionally there is a need to inspect logs from Managed Service for
-TimescaleDB. For example, to debug query performance or inspecting errors caused
+Occasionally there is a need to inspect logs from $MST_LONG. For example, to debug query performance or inspecting errors caused
 by a specific workload.
 
-There are different built-in ways to inspect service logs at Managed Service for
-TimescaleDB:
+There are different built-in ways to inspect service logs at $MST_LONG:
 
 *   When you select a specific service, navigate to the `Logs` tab to see recent
     events. Logs can be browsed back in time.
