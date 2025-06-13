@@ -54,4 +54,4 @@ Time columns used for partitioning must not allow `NULL` values. A
 For more information on how to manage constraints, see the
 [PostgreSQL docs][postgres-createconstraint].
 
-[postgres-createconstraint]: https://www.postgresql.org/docs/current/static/ddl-constraints.html
+[postgres-createconstraint]: https://www.postgresql.org/docs/current/ddl-constraints.html

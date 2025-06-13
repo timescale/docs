@@ -130,6 +130,6 @@ them. The migration still occurs successfully.
 [pg_dump]: https://www.postgresql.org/docs/current/app-pgdump.html
 [pg_restore]: https://www.postgresql.org/docs/current/app-pgrestore.html
 [psql]: /integrations/:currentVersion:/psql/
-[upgrading-postgresql]: https://kb-managed.timescale.com/en/articles/5368016-perform-a-postgresql-major-version-upgrade
+[upgrading-postgresql]: https://docs.timescale.com/mst/latest/
 [upgrading-postgresql-self-hosted]: /self-hosted/:currentVersion:/upgrades/upgrade-pg/
 [upgrading-timescaledb]: /self-hosted/:currentVersion:/upgrades/major-upgrade/

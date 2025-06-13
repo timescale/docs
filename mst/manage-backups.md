@@ -82,5 +82,5 @@ You can put all backup files to single tar file and upload to Amazon S3. For exa
 export BACKUP_NAME=backup-date -I.tartar -cf $BACKUP_NAME backup/s3cmd put $BACKUP_NAME s3://pg-backups/$BACKUP_NAME
 ```
 
-[aiven-encrypt]: https://developer.aiven.io/docs/platform/concepts/cloud-security#data-encryption
+[aiven-encrypt]: https://aiven.io/docs/platform/concepts/cloud-security#data-encryption
 [pghoard]: https://github.com/aiven/pghoard

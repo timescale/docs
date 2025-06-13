@@ -122,7 +122,7 @@ To exchange data between Airflow and your $SERVICE_LONG:
        ```
       This DAG uses the `company` table created in [Create regular PostgreSQL tables for relational data][create-a-table-in-timescale].
 
-   1.  In your browser, refresh the [Airflow UI][Airflow_UI].
+   1.  In your browser, refresh the Airflow UI.
    1.  In `Search DAGS`, type `timescale_dag` and press ENTER.  
    1.  Press the play icon and trigger the DAG:
        ![daily eth volume of assets](https://assets.timescale.com/docs/images/integrations-apache-airflow.png)

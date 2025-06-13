@@ -26,7 +26,7 @@ the following ways to migrate your data:
 All strategies work to migrate from PostgreSQL, TimescaleDB, AWS RDS, and Managed Service for Timescale. Migration 
 assistance is included with Timescale support. If you encounter any difficulties while migrating your data,
 consult the [troubleshooting] page, open a support request, or take your issue to the `#migration` channel
-in the [community slack](https://slack.timescale.com/), the developers of this migration method are there to help.
+in the [community slack](https://timescaledb.slack.com/signup#/domain-signup), the developers of this migration method are there to help.
 
 <OpenSupportRequest />
 

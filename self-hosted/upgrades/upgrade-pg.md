@@ -82,6 +82,6 @@ information, see the [backup and restore section][backup].
 
 [backup]: /self-hosted/:currentVersion:/backup-and-restore/
 [pg-relnotes]: https://www.postgresql.org/docs/release/
-[pg_upgrade]: https://www.postgresql.org/docs/current/static/pgupgrade.html
+[pg_upgrade]: https://www.postgresql.org/docs/current/pgupgrade.html
 [postgres-breaking-change]: https://www.postgresql.org/about/news/postgresql-172-166-1510-1415-1318-and-1222-released-2965/
 [upgrade-pg]: /self-hosted/:currentVersion:/upgrades/upgrade-pg/#upgrade-postgresql

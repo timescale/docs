@@ -197,7 +197,7 @@ You can now seamlessly ingest time-series data from AWS Lambda into $CLOUD_LONG.
 [AWS-Lambda]: https://docs.aws.amazon.com/lambda/latest/dg/welcome.html
 [lambda-functions]: https://console.aws.amazon.com/lambda/home#/functions
 [aws-sign-up]: https://signin.aws.amazon.com/signup?request_type=register
-[install-aws-cli]: https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html
+[install-aws-cli]: https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
 [install-nodejs]: https://nodejs.org/en/download
 [install-postgresql]: https://www.postgresql.org/download/
 [console]: https://console.cloud.timescale.com/

@@ -181,7 +181,7 @@ The features included in each [$PRICING_PLAN][pricing-plans] are:
 | JOIN services (Jumpstart Onboarding and INtegration)          |                                   | Available at minimum spend                     | ✓                                              | 
 
 If you want to estimate your costs ahead of the billing cycle, you can use the
-[pricing calculator](http://timescale.com/pricing/calculator).
+[pricing calculator](https://www.timescale.com/pricing/calculator).
 However, the pricing calculator does not include volume discounts. For a personalized quote, [get in touch with $COMPANY][get-in-touch].
 
 
@@ -217,7 +217,7 @@ alt="Adding a payment method in Timescale"/>
 
 - **Details**: an overview of your $PRICING_PLAN, usage, and payment details. You can add up 
   to three credit cards to your `Wallet`. If you prefer to pay by invoice, 
-  [contact $COMPANY](https://www.timescale.com/contact/) and ask to change to corporate billing.
+  [contact $COMPANY](https://www.timescale.com/contact) and ask to change to corporate billing.
 
 - **History**: the list of your downloadable $COMPANY invoices.
 - **Emails**: the addresses $COMPANY uses to communicate with you. Payment 

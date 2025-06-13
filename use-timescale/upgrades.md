@@ -212,6 +212,8 @@ To change your maintenance window:
 </Procedure>
 
 
+
+[cloud-login]: https://www.timescale.com/cloud
 [cloud-login]: https://console.cloud.timescale.com/dashboard/services
 [operations-forking]: /use-timescale/:currentVersion:/services/service-management/#fork-a-service
 [postgres-relnotes]: https://www.postgresql.org/docs/release/
