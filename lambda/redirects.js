@@ -169,7 +169,7 @@ module.exports = [
   },
   {
     from: "/cloud/latest/service-logs",
-    to: "https://docs.timescale.com/use-timescale/latest/metrics-logging/service-logs/",
+    to: "https://docs.timescale.com/use-timescale/latest/metrics-logging/monitoring/#logs/",
   },
   {
     from: "/cloud/latest/service-metrics",
@@ -274,6 +274,14 @@ module.exports = [
   {
     from: "/getting-started/latest/time-series-data/",
     to: "https://docs.timescale.com/getting-started/latest/try-key-features-timescale-products/#optimize-time-series-data-in-hypertables",
+  },
+  {
+    from: "/integrations/latest/query-admin/psql/",
+    to: "https://docs.timescale.com/integrations/latest/psql/",
+  },
+  {
+    from: "/use-timescale/latest/hypertables/about-hypertables/",
+    to: "https://docs.timescale.com/use-timescale/latest/hypertables/",
   },
   {
     from: "/use-timescale/latest/hypertables/about/",
@@ -830,6 +838,10 @@ module.exports = [
     to: "https://docs.timescale.com/self-hosted/latest/install/installation-linux/",
   },
   {
+    from: "/install/latest/self-hosted/installation-docker/",
+    to: "https://docs.timescale.com/self-hosted/latest/install/installation-docker/",
+  },
+  {
     from: "/latest/getting-started/setup",
     to: "https://docs.timescale.com/self-hosted/latest/install/",
   },
@@ -908,6 +920,10 @@ module.exports = [
   {
     from: "/use-timescale/latest/compression/backfill-historical-data/",
     to: "https://github.com/timescale/timescaledb-extras/blob/master/backfill.sql",
+  },
+  {
+    from: "/use-timescale/latest/compression/compression-methods",
+    to: 'https://docs.timescale.com/use-timescale/latest/hypercore/compression-methods/',
   },
   {
     from: '/use-timescale/latest/integrations/observability-alerting/grafana/installation/',
@@ -1025,4 +1041,16 @@ module.exports = [
     from: '/quick-start/latest/',
     to: 'https://docs.timescale.com/getting-started/latest/start-coding-with-timescale/',
   },
+  {
+    from: '/use-timescale/latest/metrics-logging/service-metrics/',
+    to: 'https://docs.timescale.com/use-timescale/latest/metrics-logging/monitoring/#metrics',
+  },
+  {
+    from: '/use-timescale/latest/metrics-logging/service-logs/',
+    to: 'https://docs.timescale.com/use-timescale/latest/metrics-logging/monitoring/#logs',
+  },
+  {
+    from: '/use-timescale/latest/metrics-logging/insights/',
+    to: 'https://docs.timescale.com/use-timescale/latest/metrics-logging/monitoring/#insights',
+  }
 ];

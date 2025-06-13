@@ -170,6 +170,10 @@ $SQL_ASSISTANT_SHORT supports a large number of LLMs, including:
 - DeepSeek R1 Distill - Llama 3.3. 70B
 - DeepSeek R1
 - Gemini 2.0 Flash
+- Sonnet 4
+- Sonnet 4 (extended thinking)
+- Opus 4
+- Opus 4 (extended thinking)
 
 Choose the LLM based on the particular task at hand. For simpler tasks, try the smaller and faster models like Gemini Flash, Haiku, or o4-mini. For more complex tasks, try the larger reasoning models like Claude Sonnet, Gemini Pro, or o3. We provide a description of each model to help you decide.
 
@@ -202,7 +206,7 @@ $SQL_ASSISTANT_SHORT settings are:
 $SQL_EDITOR is an integrated secure UI that you use to run queries and see the results
 for a $SERVICE_LONG.
 
-![$CONSOLE $SQL_EDITOR](https://assets.timescale.com/docs/images/sqleditor.png)
+![$CONSOLE $SQL_EDITOR](https://assets.timescale.com/docs/images/sqleditor-ui.png)
 
 To enable or disable $SQL_EDITOR in your $SERVICE_SHORT, click `Operations` > `Service management`, then
 update the setting for $SQL_EDITOR.
@@ -217,13 +221,13 @@ To use $SQL_EDITOR:
 
     In the [$OPS_MODE][portal-ops-mode] in $CONSOLE, select a $SERVICE_SHORT, then click `SQL editor`.
 
-    ![Check $SERVICE_SHORT is running](https://assets.timescale.com/docs/images/ops-view-sql-editor.png)
+    ![Check $SERVICE_SHORT is running](https://assets.timescale.com/docs/images/ops-mode-sql-editor.png)
 
 1. **Run a test query**
 
     Type `SELECT CURRENT_DATE;` in the UI and click `Run`. The results appear in the lower window:
 
-    ![Run a simple query](https://assets.timescale.com/docs/images/run-query-in-sql-editor.png)
+    ![Run a simple query](https://assets.timescale.com/docs/images/run-query-in-ops-mode-sql-editor.png)
 
 </Procedure>
 

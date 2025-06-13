@@ -5,6 +5,7 @@ products: [cloud, self_hosted]
 keywords: [hypertable, compression, row-columnar storage, hypercore]
 ---
 
+import Deprecated2210 from "versionContent/_partials/_deprecated_2_21_0.mdx";
 import EarlyAccess from "versionContent/_partials/_early_access.mdx";
 
 # Improve query and upsert performance
@@ -13,8 +14,9 @@ Real-time analytics applications require more than fast inserts and analytical q
 when retrieving individual records, enforcing constraints, or performing upserts, something that OLAP/columnar databases
 lack.
 
-* [Segmenting and ordering data][segmenting-and-ordering] - improve performance by controlling the way data is physically stored. 
-* [B-tree and hash indexes][b-tree-and-hash-indexes] - **experimental**: use secondary indexes to improve point query performance.   
+* [Segmenting and ordering data][segmenting-and-ordering] - improve performance by controlling the way data is physically stored.  
+
+To improve query performance using indexes for a production environment, see [About indexes][about-index] and [Indexing data][create-index].
 
 ## Segmenting and ordering data
 
@@ -132,23 +134,13 @@ This needs to be taken into account when you define your $COLUMNSTORE settings.
 
 ## B-tree and hash indexes: **experimental support**
 
+<Deprecated2210 /> This feature is sunsetted in TimescaleDB v2.22.0.
+
 $TIMESCALE_DB supports and accelerates real-time analytics using [$HYPERCORE][hypercore] without missing out on important  
 PostgreSQL features, including support for standard PostgreSQL indexes. $HYPERCORE_CAP is a hybrid storage engine 
 because it supports deep analytics while staying true to PostgreSQL. Full support for B-tree and hash indexes
 on $COLUMNSTORE data enables you to perform point lookups 1,185x faster, enforce unique constraints, and execute
 upserts 224x faster—all while maintaining $COLUMNSTORE compression and analytics performance.
-
-<Highlight type="Info">
-
-<EarlyAccess />
-
-This feature is experimental, it is not ready for production use. 
-
-To improve query performance using indexes for a production 
-environment, see [About indexes][about-index] and [Indexing data][create-index].
-
-</Highlight>
-
 
 ### Choose the best indexing method
 

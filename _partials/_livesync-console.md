@@ -79,19 +79,17 @@ To sync data from your PostgreSQL database to your $SERVICE_LONG using $CONSOLE:
 
 1. **Connect the source database and target $SERVICE_SHORT**
 
-   ![Livesync wizard](https://assets.timescale.com/docs/images/livesync-wizard.png)
+   ![Livesync wizard](https://assets.timescale.com/docs/images/pg-livesync-wizard.png)
 
    In `Livesync for Postgres`:
    1. Set the `Livesync Name`.
-   1. Set the `PostgreSQL Connection String` to point to the source database you want to sync to Timescale.
-   
-      This is the connection string for [`<livesync username>`][livesync-tune-source-db]. 
+   1. Connect to your database with the credentials or PostgreSQL connection string. This is the connection string for [`<livesync username>`][livesync-tune-source-db]. 
    1. Click `Continue`.
       $CONSOLE connects to the source database and retrieves the schema information.
 
 1. **Optimize the data to synchronize in hypertables**
 
-   ![livesync start](https://assets.timescale.com/docs/images/livesync-start.png)
+   ![livesync start](https://assets.timescale.com/docs/images/pg-livesync-start.png)
    1. Select the table to sync and click `+`.
    
       $CONSOLE checks the table schema and, if possible, suggests the column to use as the time dimension in a hypertable. 
@@ -102,9 +100,9 @@ To sync data from your PostgreSQL database to your $SERVICE_LONG using $CONSOLE:
 
 1. **Monitor syncronization**
    1. To view the progress of the $LIVESYNC, click the name of the $LIVESYNC process:
-      ![livesync view status](https://assets.timescale.com/docs/images/livesync-view-status.png)
+      ![livesync view status](https://assets.timescale.com/docs/images/pg-livesync-view-status.png)
    1. To pause and restart $LIVESYNC, click the buttons on the right of the $LIVESYNC process and select an action:
-      ![livesync start stop](https://assets.timescale.com/docs/images/livesync-start-stop.png)
+      ![livesync start stop](https://assets.timescale.com/docs/images/pg-livesync-start-stop.png)
 
 </Procedure>
 
