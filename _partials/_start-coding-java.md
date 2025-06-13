@@ -93,9 +93,11 @@ or `maven`.
     For more information about creating connection strings, see the [JDBC documentation][pg-jdbc-driver-conn-docs].
 
     <Highlight type="warning">
+    
     This method of composing a connection string is for test or development
     purposes only. For production, use environment variables for sensitive
     details like your password, hostname, and port number.
+    
     </Highlight>
 
     ```java
@@ -213,7 +215,9 @@ and most other tasks are executed on the hypertable.
     ```
 
 	<Highlight type="note">
+    
 	The `by_range` and `by_hash` dimension builder is an addition to $TIMESCALE_DB 2.13.
+ 
 	</Highlight>
 
 1.  Execute the two statements you created, and commit your changes to the
@@ -334,7 +338,7 @@ This section covers how to execute queries against your database.
 
 <procedure>
 
-## Execute queries on TimescaleDB
+## Execute queries on $TIMESCALE_DB
 
 1.  Define the SQL query you'd like to run on the database. This example
     combines time-series and relational data. It returns the average values for

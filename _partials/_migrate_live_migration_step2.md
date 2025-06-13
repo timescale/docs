@@ -9,6 +9,7 @@ are a number of issues which can arise when using a connection pooler, and no
 advantage. Very small instances may not have enough connections configured by
 default, in which case you should modify the value of `max_connections`, in
 your instance, as shown on [Configure database parameters](/use-timescale/:currentVersion/configuration/customize-configuration/#configure-database-parameters).
+
 </Highlight>
 
 It's important to ensure that the `old_snapshot_threshold` value is set to the

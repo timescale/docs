@@ -111,8 +111,10 @@ docker run --rm -it --name live-migration-migrate \
     timescale/live-migration:latest migrate
 ```
 <Highlight type="note">
+
 If the migrate command stops for any reason during execution, you can resume
 the migration from where it left off by adding a `--resume` flag. This is only
 possible if the `snapshot` command is intact and if a volume mount, such
 as `~/live-migration`, is utilized.
+
 </Highlight>

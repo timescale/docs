@@ -7,7 +7,7 @@ keywords: [Grafana, visualizations, analytics, monitoring]
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
 import GrafanaConnect from "versionContent/_partials/_grafana-connect.mdx";
 
-# Integrate Grafana and Tiger Cloud
+# Integrate Grafana and $CLOUD_LONG
 
 [Grafana](https://grafana.com/docs/) enables you to query, visualize, alert on, and explore your metrics, logs, and traces wherever they’re stored.
 

@@ -7,7 +7,7 @@ keywords: [visualizations, analytics, Tableau]
 
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
 
-# Integrate Tableau and Tiger Cloud
+# Integrate Tableau and $CLOUD_LONG
 
 [Tableau][tableau] is a popular analytics platform that helps you gain greater intelligence about your business. You can use it to visualize
 data stored in $CLOUD_LONG.

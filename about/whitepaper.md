@@ -4,7 +4,7 @@ excerpt: A whitepaper detailing the architectural choices and optimizations for 
 products: [cloud, mst, self_hosted]
 keywords: [real-time analytics, tiger cloud, timescaledb, time-series, whitepaper]
 ---
-# TigerData architecture for real-time analytics
+# $COMPANY architecture for real-time analytics
 
 $COMPANY has created a powerful application database for real-time analytics on time-series data. It integrates seamlessly 
 with the $PG ecosystem and enhances it with automatic time-based partitioning, hybrid row-columnar storage, and vectorized execution—enabling high-ingest performance, sub-second queries, and full SQL support at scale.
@@ -51,7 +51,7 @@ To achieve this, real-time analytics systems must meet several key requirements:
 * **Query flexibility** provides full SQL support, allowing for complex queries with joins, filters, aggregations, and analytical functions.
 
 
-### Tiger Cloud: real-time analytics from PostgreSQL
+### $CLOUD_LONG: real-time analytics from PostgreSQL
 
 $CLOUD_LONG is a high-performance database that brings real-time analytics to applications. It combines fast queries,
 high ingest performance, and full SQL support—all while ensuring scalability and reliability. $CLOUD_LONG extends $PG with the $TIMESCALE_DB extension. It enables sub-second queries on vast amounts of incoming data while providing optimizations designed for continuously updating datasets.

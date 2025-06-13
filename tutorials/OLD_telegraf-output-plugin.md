@@ -5,7 +5,7 @@ products: [cloud, mst, self_hosted]
 keywords: [metrics, monitor, Telegraf]
 ---
 
-# Collecting metrics with the PostgreSQL and TimescaleDB output plugin for Telegraf
+# Collecting metrics with the $PS and $TIMESCALE_DB output plugin for Telegraf
 
 <Highlight type="deprecation">
 This section describes a feature that is deprecated on TimescaleDB. We strongly
@@ -109,7 +109,7 @@ A line is outputted for each core of the CPU and the total. Values are presented
 When writing to STDOUT you can distinguish between *tags*, which are indexed fields (`cpu`, `host`) and value *fields* (like `usage_quest` or `usage_user`) by a blank space (in this example the space after `host=local`).
 The distinction exists because different configuration options are available for the different fields.
 
-### Configuring the PostgreSQL output plugin
+### Configuring the $PS output plugin
 
 The `telegraf.conf` file you generated has a section (around line 80) headed with
 

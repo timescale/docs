@@ -205,7 +205,7 @@ timestamp value and the price data (candlestick):
 Remove the `test_stock_download()` so it doesn't get invoked unnecessarily
 when you run the script in the future.
 
-## Ingest data into TimescaleDB
+## Ingest data into $TIMESCALE_DB
 
 When you have the `fetch_stock_data` function working, and you can fetch the candlestick from the API, you can insert it into the database.
 

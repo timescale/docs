@@ -8,7 +8,7 @@ tags: [self-hosted, about]
 import CTA from "versionContent/_partials/_selfhosted_cta.mdx";
 import TimescaleDB from "versionContent/_partials/_timescaledb.mdx";
 
-# Self-hosted TimescaleDB
+# Self-hosted $TIMESCALE_DB
 
 <TimescaleDB /> 
 <CTA /> 

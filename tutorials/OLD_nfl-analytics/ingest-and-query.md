@@ -259,7 +259,7 @@ often takes 25-30 seconds to run.
 
 Most of the data we were interested in are based on this aggregation of the
 `tracking` data. We wanted to know how far a player traveled on each play
-or throughout each game. Rather than asking TimescaleDB to query and aggregate
+or throughout each game. Rather than asking $TIMESCALE_DB to query and aggregate
 that raw data every time, we created a [continuous aggregate][cagg] out of this base query
 to significantly improve the speed of queries and analysis.
 

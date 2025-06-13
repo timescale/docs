@@ -7,7 +7,7 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 *   Install [Node.js][node-install].
 *   Install the Node.js package manager [npm][npm-install].
 
-## Connect to TimescaleDB
+## Connect to $TIMESCALE_DB
 
 In this section, you create a connection to $TIMESCALE_DB  with a common Node.js
 ORM (object relational mapper) called [Sequelize][sequelize-info].
@@ -254,7 +254,9 @@ and most other tasks are executed on the hypertable.
     ```
 
 	<Highlight type="note">
+    
 	The `by_range` dimension builder is an addition to $TIMESCALE_DB  2.13.
+
 	</Highlight>
 
 1.  At the command prompt, run the migration command:

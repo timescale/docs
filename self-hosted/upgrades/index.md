@@ -7,7 +7,7 @@ keywords: [upgrades]
 
 import ConsiderCloud from "versionContent/_partials/_consider-cloud.mdx";
 
-# Upgrade TimescaleDB
+# Upgrade $TIMESCALE_DB
 
 A major upgrade is when you update from TimescaleDB `X.<minor version>` to `Y.<minor version>`.
 A minor upgrade is when you update from TimescaleDB `<major version>.x`, to TimescaleDB `<major version>.y`.

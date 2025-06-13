@@ -9,7 +9,9 @@ You find the connection information for your $SERVICE_LONG in the configuration 
 downloaded when you created the service.
 
 <Highlight type="important">
+
 Avoid using connection strings that route through connection poolers like PgBouncer or similar tools. This tool requires a direct connection to the database to function properly.
+
 </Highlight>
 
 

@@ -15,11 +15,13 @@ this feature is experimental.
 <Experimental />
 
 <Highlight type="note">
+
   When you change policies with this API, the changes apply to the continuous
   aggregate, not to the original hypertable. For example, if you use this API to
   set a retention policy of 20 days, chunks older than 20 days are dropped from
   the continuous aggregate. The retention policy of the original hypertable
   remains unchanged.
+
 </Highlight>
 
 [add-policies]: /api/:currentVersion:/continuous-aggregates/add_policies/

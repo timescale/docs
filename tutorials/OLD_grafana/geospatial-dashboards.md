@@ -5,7 +5,7 @@ products: [cloud, mst, self_hosted]
 keywords: [Grafana, visualizations, analytics, geospatial data]
 ---
 
-# Use Grafana to visualize geospatial data stored in TimescaleDB
+# Use Grafana to visualize geospatial data stored in $TIMESCALE_DB
 
 Grafana includes a WorldMap visualization that help you see geospatial data overlaid
 atop a map of the world. This can be helpful to understand how data changes based on

@@ -44,7 +44,7 @@ Available features are:
 - **Cross-platform support**: work from [$CONSOLE][portal-data-mode] or download the [desktop app][popsql-desktop] for macOS, Windows, and Linux.
 - **Easy connection**: connect to $CLOUD_LONG, $PG, Redshift, Snowflake, BigQuery, MySQL, SQL Server, [and more][popsql-connections].
 
-### Connect to your Tiger Cloud service in the data mode
+### Connect to your $SERVICE_LONG in the data mode
 
 <Procedure>
 

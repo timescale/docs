@@ -61,7 +61,9 @@ The available distance types and their operators are:
 | Negative inner product | `<#>`           |
 
 <Highlight type="note">
+
 If you are using an index, you need to make sure that the distance function used in index creation is the same one used during query (see below). This is important because if you create your index with one distance function but query with another, your index cannot be used to speed up the query.
+
 </Highlight>
 
 

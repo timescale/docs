@@ -159,7 +159,7 @@ For more information, see the [compression][compression] section.
 
 ## Automatically compress candlestick data
 
-Beginning with [TimescaleDB 2.6][release-blog], you can also set up a
+Beginning with [$TIMESCALE_DB 2.6][release-blog], you can also set up a
 compression policy on your continuous aggregates. This is a useful feature
 if you store a lot of historical candlestick data that consumes significant
 disk space, but you still want to retain it for longer periods.

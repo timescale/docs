@@ -7,7 +7,7 @@ tags: [candlestick]
 
 <!-- markdown-link-check-disable -->
 
-# Store financial tick data in TimescaleDB using the OHLCV (candlestick) format
+# Store financial tick data in $TIMESCALE_DB using the OHLCV (candlestick) format
 
 [Candlestick charts][charts] are the standard way to analyze the price changes of
 financial assets. They can be used to examine trends in stock prices, cryptocurrency prices,

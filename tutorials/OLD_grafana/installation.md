@@ -7,7 +7,7 @@ keywords: [Grafana, visualization, analytics]
 
 import GrafanaConnect from "versionContent/_partials/_grafana-connect.mdx";
 
-# Set up TimescaleDB and Grafana
+# Set up $TIMESCALE_DB and Grafana
 
 This tutorial uses $MST_LONG to set up your database, and
 to set up Grafana.

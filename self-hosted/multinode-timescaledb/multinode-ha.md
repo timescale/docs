@@ -56,11 +56,13 @@ lost chunk replicas can be re-replicated from other data nodes to
 reach the number of desired chunk replicas.
 
 <Highlight type="warning">
+
 Native replication in $TIMESCALE_DB is under development and
 currently lacks functionality for a complete high-availability
 solution. Some functionality described in this section is still
 experimental. For production environments, we recommend setting up
 standbys for each node in a multi-node cluster.
+
 </Highlight>
 
 ### Automation

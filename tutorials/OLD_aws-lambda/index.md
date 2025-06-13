@@ -5,7 +5,7 @@ products: [cloud, mst, self_hosted]
 keywords: [finance, analytics, AWS Lambda, psycopg2, pandas, GitHub Actions, pipeline]
 ---
 
-# TimescaleDB with AWS Lambda
+# $TIMESCALE_DB with AWS Lambda
 
 This section contains tutorials for working with AWS Lambda and $TIMESCALE_DB.
 

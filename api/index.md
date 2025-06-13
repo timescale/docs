@@ -5,7 +5,7 @@ keywords: [reference]
 products: [cloud, mst, self_hosted]
 ---
 
-# TimescaleDB API reference
+# $TIMESCALE_DB API reference
 
 TimescaleDB provides many SQL functions and views to help you interact with and
 manage your data. See a full list below or search by keyword to find reference

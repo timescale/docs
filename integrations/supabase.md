@@ -8,7 +8,7 @@ keywords: [integrate]
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
 import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
 
-# Integrate Supabase with Tiger Cloud
+# Integrate Supabase with $CLOUD_LONG
 
 [Supabase][supabase] is an open source Firebase alternative. This page shows how to run real-time analytical queries 
 against a $SERVICE_LONG through Supabase using a foreign data wrapper (fdw) to bring aggregated data from your 

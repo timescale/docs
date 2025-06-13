@@ -5,7 +5,7 @@ products: [cloud, mst, self_hosted]
 keywords: [Grafana, visualizations, analytics]
 ---
 
-# Getting Started with Grafana and TimescaleDB
+# Getting Started with Grafana and $TIMESCALE_DB
 
 [Grafana][grafana-website] is an open source analytics and monitoring tool that
 you can use visualize time-series data. Use these tutorials to:

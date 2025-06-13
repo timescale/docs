@@ -18,7 +18,7 @@ since this is mostly immutable you can compress it to save space and
 avoid incurring additional cost.
 
 It is possible to use disk-oriented compression like the support
-offered by ZFS and Btrfs but since TimescaleDB is build for handling
+offered by ZFS and Btrfs but since $TIMESCALE_DB is build for handling
 event-oriented data (such as time-series) it comes with support for
 compressing data in hypertables.
 

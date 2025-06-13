@@ -36,7 +36,7 @@ This page explains how to:
 
 - Install [Datadog Agent][datadog-agent-install].
 
-## Monitor Tiger Cloud service metrics with Datadog
+## Monitor $SERVICE_LONG metrics with Datadog
 
 Export telemetry data from your $SERVICE_LONGs with the time-series and analytics capability enabled to
 Datadog using a $CLOUD_LONG data exporter. The available metrics include CPU usage, RAM usage, and storage.

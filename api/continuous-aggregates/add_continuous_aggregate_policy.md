@@ -57,6 +57,7 @@ the current time in queries, enable [real-time aggregation](/use-timescale/:curr
 
 Setting `buckets_per_batch` greater than zero means that the refresh window is split in batches of `bucket width` * `buckets per batch`. For example, a given Continuous Aggregate with `bucket width` of `1 day` and `buckets_per_batch` of 10 has a batch size of `10 days` to process the refresh.
 Because each `batch` is an individual transaction, executing a policy in batches make the data visible for the users before the entire job is executed. Batches are processed from the most recent data to the oldest.
+
 </Highlight>
 
 ## Returns

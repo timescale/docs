@@ -56,9 +56,11 @@ prevents common attacks such as SQL injection.
     ```
 
     <Highlight type="warning">
+    
     This method of composing a connection string is for test or development
     purposes only. For production, use environment variables for sensitive
     details like your password, hostname, and port number.
+
     </Highlight>
 
 1.  Use the `psycopg2` [connect function][psycopg2-connect] to create a new
@@ -159,7 +161,9 @@ and most other tasks are executed on the hypertable.
     ```
 
 	<Highlight type="note">
+    
 	The `by_range` dimension builder is an addition to $TIMESCALE_DB 2.13.
+
 	</Highlight>
 
 3.  Open a cursor with the connection, execute the statements from the previous

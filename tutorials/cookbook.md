@@ -10,9 +10,9 @@ import IOT from "versionContent/_partials/_cookbook-iot.mdx";
 
 
 
-# TigerData community cookbook
+# $COMPANY community cookbook
 
-This page contains suggestions from the [$TIMESCALE_DB Community](https://timescaledb.slack.com/) about how to resolve 
+This page contains suggestions from the [$COMPANY Community](https://timescaledb.slack.com/) about how to resolve 
 common issues. Use these code examples as guidance to work with your own data. 
 
 

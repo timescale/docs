@@ -5,7 +5,7 @@ products: [cloud, mst]
 keywords: [Grafana, visualizations, analytics]
 ---
 
-# Connect TimescaleDB and Grafana
+# Connect $TIMESCALE_DB and Grafana
 
 Grafana ships with built-in Prometheus, PostgreSQL, Jaeger, and other data
 source plugins that allow you to query and visualize data from a compatible
@@ -33,13 +33,13 @@ and then configure $CLOUD_LONGas the data source in Grafana.
 1.  Sign in to the [$CONSOLE][tsc-portal].
 1.  Click `Create service`.
 1.  Click `Download the cheatsheet`. This `.sql` file contains the credentials
-    that you require to configure TimescaleDB as a data source on Grafana.
+    that you require to configure $TIMESCALE_DB as a data source on Grafana.
 
 </Procedure>
 
 <Procedure>
 
-### Configuring TimescaleDB as data source
+### Configuring $TIMESCALE_DB as data source
 
 To configure $SERVICE_LONG with your Grafana installation, log in to Grafana and proceed to step 5 in this procedure.
 
@@ -54,10 +54,10 @@ To configure $SERVICE_LONG with your Grafana installation, log in to Grafana and
 1.  Click `Add data source` to see a list of all supported data sources.
 1.  Type `PostgreSQL` in the search field and click `Select`.
 1.  Configure the data source:
-    *   In the `Name` field, type name that you would like for dataset on TimescaleDB.
+    *   In the `Name` field, type name that you would like for dataset on $TIMESCALE_DB.
     *   In the `PostgreSQL Connection` section, type the  `Database`, `User`,
         and `Password` fields using the `.sql` file that you downloaded when
-        creating the TimescaleDB service.
+        creating the $TIMESCALE_DB service.
     *   In the `Host` type `<HOST>:<PORT>` from the `.sql` file that you downloaded.
     *   Set `TLS/SSL Mode` as `require`.
     *   In `PostgreSQL details` enable `TimescaleDB`
@@ -66,7 +66,7 @@ To configure $SERVICE_LONG with your Grafana installation, log in to Grafana and
 
 </Procedure>
 
-When you have configured TimescaleDB as a data source in Grafana, you can create
+When you have configured $TIMESCALE_DB as a data source in Grafana, you can create
 panels that are populated with data using SQL.
 
 [grafana-homepage]: https://grafana.com/

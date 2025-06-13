@@ -51,7 +51,9 @@ The query above returns the 10 rows with the smallest distance between the query
 The query shown above uses something called cosine distance (using the <=> operator) as a measure of how similar two embeddings are. But, there are multiple ways to quantify how far apart two vectors are from each other.
 
 <Highlight type="note">
+
 In practice, the choice of distance measure doesn't matters much and it is recommended to just stick with cosine distance for most applications.
+
 </Highlight>
 
 #### Description of cosine distance, negative inner product, and Euclidean distance
@@ -80,7 +82,9 @@ Using cosine distance, especially on unit vectors, is recommended. These recomme
 In PostgreSQL and other relational databases, indexing is a way to speed up queries. For vector data, indexes speed up the similarity search query shown above where you find the most similar embedding to some given query embedding. This problem is often referred to as finding the [K nearest neighbors](https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm).
 
 <Highlight type="note">
+
 The term "index" in the context of vector databases has multiple meanings. It can refer to both the storage mechanism for your data and the tool that enhances query efficiency. These docs use the latter meaning.
+
 </Highlight>
 
 Finding the K nearest neighbors is not a new problem in PostgreSQL, but existing techniques only work with low-dimensional data. These approaches cease to be effective when dealing with data larger than approximately 10 dimensions due to the "curse of dimensionality." Given that embeddings often consist of more than a thousand dimensions(OpenAI's are 1,536) new techniques had to be developed.
