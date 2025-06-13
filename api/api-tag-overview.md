@@ -30,6 +30,9 @@ schema and go into production use.
 
 <ExperimentalUpgrade />
 
+For more information about the experimental
+schema, [read the Timescale blog post][experimental-blog].
+
 ## Toolkit <Tag type="toolkit">Toolkit</Tag>
 
 This tag indicates that the function is included in the TimescaleDB Toolkit extension.

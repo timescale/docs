@@ -208,7 +208,7 @@ Some of the most in-demand integrations are listed below.
 [deltalake]: https://github.com/delta-io/delta/blob/master/connectors/sql-delta-import/readme.md
 [deno-deploy]: https://docs.deno.com/deploy/manual/postgres/
 [django]: https://docs.djangoproject.com/en/5.1/ref/databases/#postgresql-notes
-[elasticsearch]: https://www.elastic.co/guide/en/elasticsearch/reference/current/es-connectors-postgresql.html
+[elasticsearch]: https://www.elastic.co/docs/reference/search-connectors/es-connectors-postgresql
 [electricsql]: https://electric-sql.com/docs/intro
 [emqx]: https://docs.emqx.com/en/emqx/latest/data-integration/data-bridge-timescale.html
 [estuary]: https://docs.estuary.dev/reference/Connectors/materialization-connectors/timescaledb/
@@ -231,11 +231,11 @@ Some of the most in-demand integrations are listed below.
 [materialize]: https://materialize.com/docs/ingest-data/postgres/
 [metabase]: https://www.metabase.com/data_sources/postgresql
 [minio]: https://min.io/docs/minio/linux/administration/monitoring/publish-events-to-postgresql.html
-[mode-analytics]: https://mode.com/integrations/postgresql
+[mode-analytics]: https://mode.com/integrations/postgresql/
 [mongodb]: https://www.postgresql.org/about/news/mongodb-mysql-hadoop-hdfs-foreign-data-wrappers-updated-to-support-postgresql-16-2678/
 [mysql]: https://github.com/EnterpriseDB/mysql_fdw
 [n8n]: https://n8n.io/integrations/redis/and/timescaledb/
-[neon]: https://neon.tech/docs/extensions/timescaledb
+[neon]: https://neon.com/docs/extensions/timescaledb
 [new-relic]: https://docs.newrelic.com/docs/infrastructure/host-integrations/host-integrations-list/postgresql/postgresql-integration/
 [node-js]: /getting-started/:currentVersion:/start-coding-with-timescale/
 [okta]: https://help.okta.com/oag/en-us/content/topics/access-gateway/integrate-app-datastores.htm

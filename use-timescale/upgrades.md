@@ -12,123 +12,122 @@ import SupportMatrix from "versionContent/_partials/_migrate_self_postgres_times
 
 # Maintenance and upgrades
 
-On Timescale, minor software updates are handled automatically, and
-you do not need to perform any actions.
+$CLOUD_LONG offers managed database $SERVICE_SHORTs that provide a stable and reliable environment for your 
+applications. Each $SERVICE_SHORT is based on a specific version of the $PG database and the $TIMESCALE_DB extension.
+To ensure that you benefit from the latest features, performance and security improvements, it is important that your
+$SERVICE_LONG is kept up to date with the latest versions of $TIMESCALE_DB and $PG.
 
-Most updates performed on your Timescale services are applied during a
-maintenance window that you can define to suit your workload. However, if there
-is a critical security vulnerability that affects you, maintenance might need to
-occur outside of the scheduled maintenance window.
+$CLOUD_LONG has the following upgrade policies:
+* **Minor software upgrades**: handled automatically, you do not need to do anything. 
+
+  Upgrades are performed on your $SERVICE_LONG during a maintenance window that you 
+  [define to suit your workload][define-maintenence-window]. You can also 
+  [manually upgrade $TIMESCALE_DB][minor-manual-upgrade].
+* **Critical security upgrades**: installed outside normal maintenance windows when necessary, and sometimes require 
+  a short outage. 
+
+  Downtime is usually between 30 seconds and 5 minutes. $COMPANY aims to notify you by email 
+  if downtime is required, so that you can plan accordingly. However, in some cases this is not possible.
+* **Major upgrades**: such as a new version of $PG are performed [manually by you][manual-upgrade], or [automatically 
+  by $CLOUD_LONG][automatic-upgrade]. 
 
 <Highlight type="important">
 
-After a maintenance update, the DNS name remains the same, but the IP address
-it points to often changes.
+After a maintenance upgrade, the DNS name remains the same. However, the IP address often changes.
 
 </Highlight>
 
-In most cases, the updates that occur during your maintenance windows do not
-require any downtime. This means that there is no outage of your services during
-the upgrade. However, all connections and transactions in progress during the
-upgrade are reset. Usually, the database connection is automatically restored
-after the reset.
+## Minor software upgrades
 
-Sometimes, updates that occur during your maintenance window require some
-downtime. In this case, the downtime is usually between 30&nbsp;seconds and
-5&nbsp;minutes. We endeavor to notify you on email ahead of the upgrade if
-downtime is required, so that you can plan accordingly. However, in some cases,
-we might not be able to do so. It is important that you schedule your
-maintenance window to minimize the disruption that a short downtime might have
-on your workloads.
+If you do not [manually upgrade $TIMESCALE_DB][minor-manual-upgrade] for non-critical upgrades,
+$CLOUD_LONG performs upgrades automatically in the next available maintenance window. 
 
-To track the status of maintenance events, see the Timescale
-[status page][status-page].
+Most upgrades that occur during your maintenance windows do not require any downtime. This means that there is no 
+$SERVICE_SHORT outage during the upgrade. However, all connections and transactions in progress during the upgrade are 
+reset. Usually, the $SERVICE_SHORT connection is automatically restored after the reset.
 
-<Highlight type="note">
-To apply changes manually instead of waiting for the maintenance window,
-`Pause` then `Resume` your service. Maintenance changes are automatically
-applied when your service is resumed.
-</Highlight>
+Some minor upgrades do require some downtime. This is usually between 30 seconds and 5 minutes. If downtime is required 
+for an upgrade, $COMPANY endeavors to notify you by email ahead of the upgrade. However, in some cases, we might not be 
+able to do so. Best practice is to [schedule your maintenance window][define-maintenence-window] so that any downtime 
+disrupts your workloads as little as possible and [minimize downtime with replicas][minimize-downtime]. If there are no 
+pending upgrades available during a regular maintenance window, no changes are performed.
 
-## Replicas and maintenance
+To track the status of maintenance events, see the Timescale [status page][status-page].
 
-Services with replicas require minimal write downtime during maintenance,
-while read-only queries keep working through the maintenance. The maintenance
-requires up to two failovers, performed automatically, taking less than a few
-seconds each.
+### Minimize downtime with replicas
 
-During a maintenance event, services with replicas perform maintenance on each
-node independently. When maintenance goes on with the primary node, the primary
-node needs to be restarted. If the restart takes more than a minute, the replica
-node is promoted to the primary, given that the replica has no replication lag.
-If the maintenance on the primary node is completed within a minute and it comes
-back online, the replica remains as a replica.
+Maintenance upgrades require up to two automatic failovers. Each failover takes less than a few seconds.
+$SERVICE_LONGs with [$HA_REPLICAs and $READ_REPLICAs][replicas-docs] require minimal write downtime during maintenance, 
+read-only queries keep working throughout. 
 
-When maintenance starts on the primary and results in the promotion of the replica
-node, the maintenance proceeds then with the newly promoted replica, following the same
-sequence. If the newly promoted replica takes more than a minute to restart, the former
-primary is promoted back. In total, the process may result in up to two minutes of write
-downtime and two failover events.
+During a maintenance event, services with replicas perform maintenance on each node independently. When maintenance is 
+complete on the primary node, it is restarted: 
+- If the restart takes more than a minute, a replica node is promoted to primary, given that the replica has no 
+  replication lag. Maintenance now proceeds on the newly promoted replica, following the same
+  sequence. If the newly promoted replica takes more than a minute to restart, the former
+  primary is promoted back. In total, the process may result in up to two minutes of write
+  downtime and two failover events. 
+- If the maintenance on the primary node is completed within a minute and it comes back online, the replica remains
+  the replica.
 
-For more information about replicas, see the
-[replicas section][replicas-docs].
 
-## Non-critical maintenance updates
+### Manually upgrade $TIMESCALE_DB for non-critical upgrades
 
-Non-critical upgrades are available before the upgrade is performed
-automatically by $CLOUD_LONG. To upgrade $TIMESCALE_DB manually, run `ALTER
-EXTENSION timescaledb UPDATE` in your $SERVICE_LONG, or `Pause` and `Resume`.
-If no action is taken by the user, the upgrade is triggered in the next
-available maintenance window. You can configure the maintenance window so that
-these upgrades are started at a particular time, on a set day of the week. 
-
-If there are no pending upgrades available during a regular maintenance window,
-no changes are performed.
-
-When you are considering your maintenance window schedule, you might prefer to
-choose a day and time that usually has very low activity, such as during the
-early hours of the morning, or over the weekend. This can help minimize the
-impact of a short service interruption. Alternatively, you might prefer to have
-your maintenance window occur during office hours, so that you can monitor your
-system during the upgrade.
+Non-critical upgrades are available before the upgrade is performed automatically by $CLOUD_LONG. To upgrade 
+$TIMESCALE_DB manually: 
 
 <Procedure>
 
-### Adjusting your maintenance window
+1. **Connect to your service**
 
-1.  [Log in to your Timescale account][cloud-login]. Click the name of the
-    service that you want to manage the maintenance window for.
-2.  In the `Operations` tab, navigate to the `Environment` > `Maintenance` and click `Change maintenance window`.
-3.  Select the day of the week, the time, and the
-    timezone that you want the maintenance window to start. Maintenance windows
-    can run for up to four hours.
+   In [$CONSOLE][cloud-login], select the $SERVICE_SHORT you want to upgrade.
 
-    ![Maintenance and upgrades](https://assets.timescale.com/docs/images/timescale-maintenance-upgrades.png)
+1. **Upgrade $TIMESCALE_DB**
 
-
-4.  Check `Apply new maintenance window to all services` if you want to use the
-    same maintenance window settings for all of your Timescale services.
-5.  Click `Apply`.
+   Either:
+   - Click `SQL Editor`, then run `ALTEREXTENSION timescaledb UPDATE`. 
+   - Click `⋮`, then `Pause` and `Resume` the service.
 
 </Procedure>
 
-## Critical updates
+## Deprecations
 
-Critical upgrades and security fixes are installed outside normal maintenance
-windows when necessary, and sometimes require a short outage. In this case, the
-downtime is usually between 30&nbsp;seconds and 5&nbsp;minutes. We endeavor to
-notify you on email ahead of the upgrade if downtime is required, so that you
-can plan accordingly. However, in some cases, we might not be able to do so.
+To ensure you benefit from the latest features, optimal performance, enhanced security, and full compatibility 
+with $TIMESCALE_DB, $CLOUD_LONG supports a defined set of $PG major versions. To reduce the maintenance burden and 
+continue providing a high-quality managed experience, as $PG and $TIMESCALE_DB evolve, $COMPANY periodically deprecates 
+older $PG versions.
 
-## Upgrade to a new PostgreSQL version
+$COMPANY provides advance notification to allow you ample time to plan and perform your upgrade. The timeline 
+deprecation is as follows:
+- **Deprecation notice period begins**: you receive email notification of the deprecation and the timeline for the 
+  upgrade.
+- **Customer self-service upgrade window**: best practice is to [manually upgrade to a new $PG version][manual-upgrade] in
+  this time.
+- **Automatic upgrade deadline**: $CLOUD_LONG performs an [automatic upgrade][automatic-upgrade] of your $SERVICE_SHORT.
 
-You can also manually upgrade to the newest supported PostgreSQL version from the service 
-overview page.
 
-Upgrading to a newer version of PostgreSQL allows you to take advantage of new
-features, enhancements, and security fixes. It also ensures that you are using a
-version of PostgreSQL that's compatible with the newest version of Timescale,
-allowing you to take advantage of everything Timescale has to offer. 
+## Manually upgrade PostgreSQL for a $SERVICE_SHORT
+
+Upgrading to a newer version of $PG enables you to take advantage of new features, enhancements, and security fixes. 
+It also ensures that you are using a version of $PG that's compatible with the newest version of $TIMESCALE_DB. 
+
+For a smooth upgrade experience, make sure you:
+
+*  **Plan ahead**: upgrades cause downtime, so ideally perform an upgrade during a low traffic time.
+*  **Run a test upgrade**: [fork your $SERVICE_SHORT][operations-forking], then try out the upgrade on the fork before 
+   running it on your production system. This gives you a good idea of what happens during the upgrade, and how long it 
+   might take. 
+*  **Keep a copy of your $SERVICE_SHORT**: if you're worried about losing your data, 
+   [fork your $SERVICE_SHORT][operations-forking] without upgrading, and keep this duplicate of your $SERVICE_SHORT. 
+   To reduce cost, you can immediately pause this fork and only pay for storage until you are comfortable deleting it 
+   after the upgrade is complete.
+
+<Highlight type="important">
+
+$SERVICE_LONGs with replicas cannot be upgraded. To upgrade a service
+with a replica, you must first delete the replica and then upgrade the service.
+
+</Highlight>
 
 The following table shows you the compatible versions of $PG and $TIMESCALE_DB. 
 
@@ -136,62 +135,96 @@ The following table shows you the compatible versions of $PG and $TIMESCALE_DB.
 
 For more information about feature changes between versions, see the
 [PostgreSQL release notes][postgres-relnotes] and
-[Timescale release notes][timescale-relnotes].
-
-
+[$TIMESCALE_DB release notes][timescale-relnotes].
 
 <Highlight type="warning">
 
-Your Timescale service is unavailable until the upgrade is complete. This
-can take up to 20 minutes. It is recommended to test on a fork first for a 
-better estimate.
+Your $SERVICE_LONG is unavailable until the upgrade is complete. This can take up to 20 minutes. Best practice is to 
+test on a fork first, so you can estimate how long the upgrade will take. 
 
 </Highlight>
 
-### Recommended practices for upgrading
-
-For a smooth upgrade experience, make sure you:
-
-*   Plan ahead. Upgrades cause downtime, so ideally perform an upgrade
-    during a low traffic time.
-*   Fork your database, and try out the upgrade on the fork before running it on
-    your production system. This gives you a good idea of what happens during
-    the upgrade, and how long it might take. For more information about forking,
-    see the section on [forking][operations-forking].
-*   Keep a copy of your database with your old version and data, if you're
-    worried about losing it. You can fork your database without upgrading the
-    fork to keep a duplicate Timescale service. You can immediately pause
-    this fork to only pay for storage until you are comfortable deleting it.
-
-<Highlight type="important">
-
-Timescale services with replicas cannot be upgraded. To upgrade a service
-with a replica,  you must first delete the replica and then upgrade the service.
-</Highlight>
+To upgrade your $SERVICE_SHORT to a newer version of $PG:
 
 <Procedure>
 
-### Upgrade to a new PostgreSQL version
+1. **Connect to your service**
 
-1.  In the Timescale console, navigate to `Services` and click the service
-    you want to upgrade.
-1.  Navigate to `Operations` > `Service Upgrades`.
-1.  If a new PostgreSQL version is available, click `Upgrade service` and
-    confirm that you are ready to start the upgrade. Your Timescale
-    service is unavailable for use until the upgrade is complete.
-1.  When the upgrade is finished, your service automatically resumes normal
-    operations. If the upgrade is unsuccessful, the service returns to the state
-    it was in before you started the upgrade.
+   In [$CONSOLE][cloud-login], select the $SERVICE_SHORT you want to upgrade.
+1. **Disable $HA_REPLICAs**
+
+   1. Click `Operations` > `High Availability`, then click `Change configuaration`.
+   1. Select `Non-production  (No replica)`, then click `Change configuration`.
+
+1. **Disable $READ_REPLICAs**
+
+   1. Click `Operations` > `Read scaling`, then click the trash icon next to all replica sets.
+
+1. **Upgrade $PG**
+   1. Click `Operations` > `Service Upgrades`.
+   1. Click `Upgrade service`, then confirm that you are ready to start the upgrade. 
+
+   Your $SERVICE_LONG is unavailable until the upgrade is complete. This normally takes up to 20 minutes. 
+   However, it can take longer if you have a large or complex $SERVICE_SHORT.
+
+   When the upgrade is finished, your service automatically resumes normal
+   operations. If the upgrade is unsuccessful, the service returns to the state
+   it was in before you started the upgrade.
+
+1. **Enable $HA_REPLICAs and replace your $READ_REPLICAs**
+
 
 </Procedure>
 
-<Highlight type="cloud" header="Sign up for Timescale" button="Try for free">
+## Automatic PostgreSQL upgrades for a $SERVICE_SHORT
 
-</Highlight>
+If you do not manually upgrade your $SERVICE_SHORTs within the [customer self-service upgrade window][deprecation-window], 
+$CLOUD_LONG performs an automatic upgrade. Automatic upgrades can result in downtime, best practice is to 
+[manually upgrade your $SERVICE_SHORTs][manual-upgrade] during a low-traffic period for your application.
 
-[cloud-login]: https://cloud.timescale.com
+During an automatic upgrade:
+1. Any configured [$HA_REPLICAs][hareplica] or [$READ_REPLICAs][readreplica] are temporarily removed.
+1. The primary $SERVICE_SHORT is upgraded.
+1. $HA_REPLICA_CAPs and $READ_REPLICAs are added back to the $SERVICE_SHORT.
+
+
+## Define your maintenance window
+
+When you are considering your maintenance window schedule, best practice is to choose a day and time that usually
+has very low activity, such as during the early hours of the morning, or over the weekend. This helps minimize the
+impact of a short service interruption. Alternatively, you might prefer to have your maintenance window occur during
+office hours, so that you can monitor your system during the upgrade.
+
+To change your maintenance window:
+
+<Procedure>
+
+1. **Connect to your service**
+
+   In [$CONSOLE][cloud-login], select the $SERVICE_SHORT you want to manage.
+1. **Set your maintenance window**
+   1. Click `Operations` > `Environment`, then click  `Change maintenance window`.
+       ![Maintenance and upgrades](https://assets.timescale.com/docs/images/timescale-maintenance-upgrades.png)
+   1. Select the maintence window start time, then click `Apply`.
+
+   Maintenance windows can run for up to four hours.
+
+</Procedure>
+
+
+
+[cloud-login]: https://www.timescale.com/cloud
+[cloud-login]: https://console.cloud.timescale.com/dashboard/services
 [operations-forking]: /use-timescale/:currentVersion:/services/service-management/#fork-a-service
 [postgres-relnotes]: https://www.postgresql.org/docs/release/
 [replicas-docs]: /use-timescale/:currentVersion:/ha-replicas/high-availability/
 [status-page]: https://status.timescale.com/
-[timescale-relnotes]: /about/latest/release-notes/
+[timescale-relnotes]: https://github.com/timescale/timescaledb/releases
+[deprecation-window]: /use-timescale/:currentVersion:/upgrades/#deprecations
+[minimize-downtime]: /use-timescale/:currentVersion:/upgrades/#minimize-downtime-with-replicas
+[minor-manual-upgrade]: /use-timescale/:currentVersion:/upgrades/#manually-upgrade-timescaledb-for-non-critical-updates
+[manual-upgrade]: /use-timescale/:currentVersion:/upgrades/#manually-upgrade-postgresql-for-a-service
+[automatic-upgrade]: /use-timescale/:currentVersion:/upgrades/#automatic-postgresql-upgrades-for-a-service
+[define-maintenence-window]: /use-timescale/:currentVersion:/upgrades/#define-your-maintenance-window
+[hareplica]: /use-timescale/:currentVersion:/ha-replicas/high-availability/
+[readreplica]: /use-timescale/:currentVersion:/ha-replicas/read-scaling/

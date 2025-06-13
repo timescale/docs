@@ -30,5 +30,5 @@ Service logs included on the normal service price are stored only for a few
 days. Unless you are using logs integration to another service, older logs are
 not accessible.
 
-[REST API]: https://kb.timescale.cloud/en/articles/2949775-rest-api
+[REST API]: https://docs.timescale.com/mst/latest/
 [command-line-client]: https://github.com/aiven/aiven-client
