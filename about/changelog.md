@@ -14,10 +14,10 @@ All the latest features and updates to Timescale products.
 
 ### Terraform support for Exporters and AWS Transit Gateway
 
-The latest version of the Timescale Terraform (2.3.0) adds support for:
+The latest version of Timescale Terraform (2.3.0) adds support for:
 - Creating and attaching observability exporters to your services.
-- Securing the connections to your Timescale services with AWS Transit Gateway
-- Configuring CIDRs for VPC and AWS Transit Gateway connections
+- Securing the connections to your Timescale Cloud services with AWS Transit Gateway.
+- Configuring CIDRs for VPC and AWS Transit Gateway connections.
 
 Check the [Timescale Terraform provider documentation](https://registry.terraform.io/providers/timescale/timescale/latest/docs) for more details.
 
@@ -29,7 +29,7 @@ Notable bug fixes include:
 - A fix for issues encountered during dump and restore operations when chunk skipping is enabled.
 - Resolution of a bug related to dropped "quals" (qualifications/conditions) in SkipScan.
 
-For a comprehensive list of changes, please refer to the [TimescaleDB 2.20.3 release notes](https://github.com/timescale/timescaledb/releases/tag/2.20.3).
+For a comprehensive list of changes, refer to the [TimescaleDB 2.20.3 release notes](https://github.com/timescale/timescaledb/releases/tag/2.20.3).
 
 ## 🧘 Read replica sets, faster tables, new anthropic models, and VPC support in data mode
 <Label type="date">June 6, 2025</Label>
