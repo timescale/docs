@@ -20,7 +20,7 @@ To follow the steps on this page:
   - [Install PostgreSQL Exporter][install-exporter].
   To reduce latency and potential data transfer costs, install Prometheus and PostgreSQL Exporter on a machine in the same AWS region as your $SERVICE_LONG.
 
-## Export Tiger Cloud service telemetry to Prometheus
+## Export $SERVICE_LONG telemetry to Prometheus
 
 To export your data, do the following:
 

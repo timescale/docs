@@ -4,7 +4,7 @@ import SetupSourceTarget from "versionContent/_partials/_migrate_set_up_source_a
 
 <Highlight type="important">
 
-Do not use a Tiger Cloud connection pooler connection for live migration. There
+Do not use a $CLOUD_LONG connection pooler connection for live migration. There
 are a number of issues which can arise when using a connection pooler, and no
 advantage. Very small instances may not have enough connections configured by
 default, in which case you should modify the value of `max_connections`, in

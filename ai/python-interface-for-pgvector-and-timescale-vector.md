@@ -8,7 +8,7 @@ tags: [ai, vector, python]
 
 # Python interface for pgvector and pgvectorscale
 
-You use pgai on $CLOUD_LONG to power production grade AI applications. `timescale_vector` is the
+You use pgai to power production grade AI applications. `timescale_vector` is the
  Python interface you use to interact with a pgai on $SERVICE_LONG programmatically.
 
 Before you get started with `timescale_vector`:

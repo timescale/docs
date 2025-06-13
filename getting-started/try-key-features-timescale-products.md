@@ -77,7 +77,7 @@ relational and time-series data from external files.
     
        <Tabs label="Upload data">
 
-       <Tab title="Tiger Cloud console">
+       <Tab title="Tiger Cloud Console">
        
           The $CONSOLE data upload creates $HYPERTABLEs and relational tables from the data you are uploading:
           1. In [$CONSOLE][portal-ops-mode], select the $SERVICE_SHORT to add data to, then click `Actions` > `Upload CSV`.

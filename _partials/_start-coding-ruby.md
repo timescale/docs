@@ -65,7 +65,7 @@ from a standard Rails app configured for PostgreSQL.
 
    1. Create the database:
       - **$CLOUD_LONG**: nothing to do. The database is part of your $SERVICE_LONG.  
-      - **$SELF_LONG**, create the database for the project:
+      - **$SELF_LONG_CAP**, create the database for the project:
 
           ```bash
           rails db:create
@@ -326,7 +326,7 @@ The $TIMESCALE_DB gem provides several convenient scopes for querying your time-
     puts "Standard Deviation: #{stats.stddev}"
     ```
 
-### TimescaleDB features
+### $TIMESCALE_DB features
 
 The $TIMESCALE_DB gem provides utility methods to access hypertable and chunk information. Every model that uses 
 the `acts_as_hypertable` method has access to these methods. 

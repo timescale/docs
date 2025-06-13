@@ -8,7 +8,7 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 - Install [Go][golang-install].
 - Install the [PGX driver for Go][pgx-driver-github].
 
-## Connect to your Tiger Cloud service 
+## Connect to your $SERVICE_LONG
 
 In this section, you create a connection to $CLOUD_LONG using the PGX driver.
 PGX is a toolkit designed to help Go developers work directly with PostgreSQL.

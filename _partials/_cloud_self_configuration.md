@@ -17,7 +17,7 @@ The default value for `hypercore_use_access_method` for functions that have this
 
 <Deprecated2210 /> This feature is sunsetted in TimescaleDB v2.22.0.
 
-## Tiger Cloud service tuning
+## $SERVICE_LONG tuning
 
 ### `timescaledb.disable_load (bool)`
 

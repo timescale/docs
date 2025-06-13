@@ -1,6 +1,6 @@
 What next? [Try the key features offered by $COMPANY][try-timescale-features], see the [tutorials][tutorials],
 interact with the data in your $SERVICE_LONG using [your favorite programming language][connect-with-code], integrate
-your $SERVICE_LONG with a range of [third-party tools][integrations], plain old [Use $CLOUD_LONG][use-timescale], or dive
+your $SERVICE_LONG with a range of [third-party tools][integrations], plain old [Use $COMPANY products][use-timescale], or dive
 into the [API reference][use-the-api].
 
 [tutorials]: /tutorials/:currentVersion:/

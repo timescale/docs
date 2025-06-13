@@ -1,6 +1,6 @@
 <Procedure>
 
-### Create a Tiger Cloud service
+### Create a $SERVICE_LONG
 
 <ol>
   <li>

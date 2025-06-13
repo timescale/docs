@@ -36,7 +36,7 @@ import MigrationSetupDBConnectionPostgresql from "versionContent/_partials/_migr
 
 </Procedure>
 
-## Migrate roles from RDS to your Tiger Cloud service
+## Migrate roles from RDS to your $SERVICE_LONG
 
 Roles manage database access permissions. To migrate your role-based security hierarchy to your $SERVICE_LONG:
 
@@ -97,7 +97,7 @@ Roles manage database access permissions. To migrate your role-based security hi
 
 </Procedure> 
 
-## Migrate data from your RDS instance to your Tiger Cloud service
+## Migrate data from your RDS instance to your $SERVICE_LONG
 
 <Procedure>
 

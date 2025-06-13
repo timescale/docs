@@ -60,7 +60,7 @@ from initial development through to mission-critical enterprise applications.
    or egress. There are no per-query fees, nor additional costs to read or write data. It's all completely 
    transparent, easily understood, and up to you.
   
-### Tiger Cloud free trial for the different price plans
+### $CLOUD_LONG free trial for the different price plans
 
 We offer new users a free, 30-day trial period of our $PERFORMANCE plan with no credit card required.  
 During your trial, you can contact $CONTACT_SALES to request information about, and access
@@ -87,7 +87,7 @@ $SERVICE_SHORTs’ performance, and any need to scale your $SERVICE_SHORTs or up
 $CONSOLE_SHORT also shows your month-to-date accrued charges, as well as a forecast of your expected 
 month-end bill. Your previous invoices are also available as PDFs for download.
 
-### TigerData support 
+### $COMPANY support 
 
 $COMPANY runs a global support organization with Customer Satisfaction (CSAT) scores above 99%.
 Support covers all timezones, and is fully staffed at weekend hours. 
@@ -205,7 +205,7 @@ $SERVICE_LONG has been running compute for 500 hours total:
 Some add-ons such as Elastic storage, Tiered storage, and Connection pooling may incur 
 additional charges. These charges are clearly marked in your billing snapshot in $CONSOLE.
 
-## Manage your TigerData pricing plan
+## Manage your $COMPANY $PRICING_PLAN
 
 You handle all details about your $COMPANY project including updates to your $PRICING_PLAN, 
 payment methods, and add-ons in the [billing section in $CONSOLE][cloud-billing]:

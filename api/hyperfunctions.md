@@ -1,6 +1,6 @@
 ---
 title: Hyperfunctions
-excerpt: The full list of hyperfunctions available in TimescaleDB, with required arguments, returns, and complete use examples
+excerpt: The full list of hyperfunctions available in TimescaleDB and Timescale Toolkit, with required arguments, returns, and complete use examples
 keywords: [hyperfunctions, Toolkit]
 products: [cloud, mst, self_hosted]
 ---

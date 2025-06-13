@@ -59,7 +59,7 @@ The `<user>` in the `SOURCE` connection must have the replication role granted i
 </Tab>
 </Tabs>
 
-## Migrate the table schema to the Tiger Cloud service
+## Migrate the table schema to the $SERVICE_LONG
 
 Use `pg_dump` to:
 
@@ -127,7 +127,7 @@ events data, and tables that are already partitioned using PostgreSQL declarativ
 </Procedure>
 
 
-## Synchronize data to your Tiger Cloud service
+## Synchronize data to your $SERVICE_LONG
 
 You use the $LIVESYNC docker image to synchronize changes in real-time from a PostgreSQL database
 instance to a $SERVICE_LONG:

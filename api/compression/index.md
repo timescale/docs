@@ -1,6 +1,6 @@
 ---
 title: Compression
-excerpt: Tiger CloudAPI reference for compressing your data. Includes SQL functions for compressing and decompressing chunks, managing compression policies, and getting compression stats
+excerpt: TimescaleDB API reference for compressing your data. Includes SQL functions for compressing and decompressing chunks, managing compression policies, and getting compression stats
 keywords: [compression]
 tags: [hypertables]
 products: [cloud, mst, self_hosted]
@@ -55,10 +55,10 @@ In $TIMESCALE_DB 2.1&nbsp;and later, you can modify the schema of hypertables th
 have compressed chunks. Specifically, you can add columns to and rename existing
 columns of compressed hypertables.
 
-In $TIMESCALE_DBDB&nbsp;2.3 and later, you can insert data into compressed chunks
+In $TIMESCALE_DB v2.3 and later, you can insert data into compressed chunks
 and to enable compression policies on distributed hypertables.
 
-In $TIMESCALE_DBDB&nbsp;2.11 and later, you can update and delete compressed data.
+In $TIMESCALE_DB v2.11 and later, you can update and delete compressed data.
 You can also use advanced insert statements like `ON CONFLICT` and `RETURNING`.
 
 [add_compression_policy]: /api/:currentVersion:/compression/add_compression_policy/

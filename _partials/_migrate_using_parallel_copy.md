@@ -1,6 +1,6 @@
 <Procedure>
 
-### Restoring data into a Tiger Cloud service with timescaledb-parallel-copy
+### Restoring data into a $SERVICE_LONG with timescaledb-parallel-copy
 
 1.  At the command prompt, install `timescaledb-parallel-copy`:
 

@@ -23,7 +23,7 @@ module.exports = [
         excerpt: "Create a Tiger Cloud service and connect to it",
       },
       {
-        title: "Run your queries from Tiger Cloud console",
+        title: "Run your queries from Tiger Cloud Console",
         href: "run-queries-from-console",
         excerpt: "Run your queries securely from inside Tiger Cloud Console",
       },

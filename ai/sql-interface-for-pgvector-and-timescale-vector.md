@@ -10,7 +10,7 @@ tags: [ai, vector, sql]
 
 ## Installing the pgvector and pgvectorscale extensions
 
-If not already installed, install the `vector` and `vectorscale` extensions on your TigerData database.
+If not already installed, install the `vector` and `vectorscale` extensions on your $COMPANY database.
 
 ```sql
 CREATE EXTENSION IF NOT EXISTS vector;

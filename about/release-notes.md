@@ -17,7 +17,7 @@ notes about our downloadable products, see:
 * [$PGAI_SHORT](https://github.com/timescale/pgai/releases) - brings AI workflows to your $PG database.
 * [$PGVECTORSCALE](https://github.com/timescale/pgvectorscale/releases/tag/0.2.0) -  higher performance embedding search and cost-efficient storage for AI applications on $PG.
 * [$PG_SPOT](https://github.com/timescale/pgspot/releases) - spot vulnerabilities in $PG extension scripts.
-* [live-migration](https://hub.docker.com/r/timescale/live-migration/tags) - a Docker image to migrate data to a $SERVICE_LONGs.
+* [live-migration](https://hub.docker.com/r/timescale/live-migration/tags) - a Docker image to migrate data to a $SERVICE_LONG.
 
 <Highlight type="note">
 

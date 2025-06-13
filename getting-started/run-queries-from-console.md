@@ -1,5 +1,5 @@
 ---
-title: Run your queries from Tiger Cloud console
+title: Run your queries from Tiger Cloud Console
 excerpt: Choose the right tool to manage your data. Tiger Cloud offers the data mode, the SQL editor, and the SQL Assistant to better address your needs
 products: [cloud]
 content_group: Getting started
@@ -7,7 +7,7 @@ content_group: Getting started
 
 import WhereNext from "versionContent/_partials/_where-to-next.mdx";
 
-# Run your queries from console
+# Run your queries from $CONSOLE
 
 As $CLOUD_LONG is based on $PG, you can use lots of [different tools][integrations] to
 connect to your $SERVICE_SHORT and interact with your data.

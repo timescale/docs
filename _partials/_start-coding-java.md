@@ -10,7 +10,7 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 All code in this quick start is for Java 16 and later. If you are working
 with older JDK versions, use legacy coding techniques.
 
-## Connect to your Tiger Cloud service
+## Connect to your $SERVICE_LONG
 
 In this section, you create a connection to your $SERVICE_SHORT using an application in
 a single file. You can use any of your favorite build tools, including `gradle`

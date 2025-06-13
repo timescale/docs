@@ -10,13 +10,13 @@ pg_dumpall -d "$SOURCE" \
 
 AWS RDS does not permit dumping of roles with passwords, which
 is why the above command is executed with the `--no-role-passwords`. However,
-when the migration of roles to your Tiger Cloud service is complete, you
+when the migration of roles to your $SERVICE_LONG is complete, you
 need to manually assign passwords to the necessary roles using the following
 command:`ALTER ROLE name WITH PASSWORD 'password';`
 
 </Highlight>
 
-Tiger Cloud services do not support roles with superuser access. If your SQL
+$SERVICE_LONGs do not support roles with superuser access. If your SQL
 dump includes roles that have such permissions, you'll need to modify the file
 to be compliant with the security model.
 

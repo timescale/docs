@@ -1,6 +1,6 @@
 <Procedure>
 
-### Restoring data into a Tiger Cloud service with COPY
+### Restoring data into a $SERVICE_LONG with COPY
 
 1.  Connect to your $SERVICE_LONG:
 

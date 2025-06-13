@@ -7,7 +7,7 @@ a table, index, view, or materialized view. When you see you this error:
 
 - Do not perform any explicit DDL operation on the source database during the course of migration.
 
-- If you are migrating from $SELF_LONG or MST, disable the chunk retention policy on your source database 
+- If you are migrating from $SELF_LONG or $MST_SHORT, disable the chunk retention policy on your source database 
   until you have finished migration. 
 
 ### FATAL: remaining connection slots are reserved for non-replication superuser connections
@@ -100,13 +100,13 @@ Live-migration does not migrate table privileges. After completing Live-migratio
    psql -d $TARGET -f /tmp/grants.psql
    ```
 
-### Postgres to Tiger Cloud: “live-replay not keeping up with source load”
+### Postgres to $CLOUD_LONG: “live-replay not keeping up with source load”
 
-1. Go to the $CONSOLE -> Insights tab and find the query which takes significant time
+1. Go to $CONSOLE -> `Monitoring` -> `Insights` tab and find the query which takes significant time
 2. If the query is either UPDATE/DELETE, make sure the columns used on the WHERE clause have necessary indexes.
 3. If the query is either UPDATE/DELETE on the tables which are converted as hypertables, make sure the REPLIDA IDENTITY(defaults to primary key) on the source is compatible with the target primary key. If not, create an UNIQUE index source database by including the hypertable partition column and make it as a REPLICA IDENTITY. Also, create the same UNIQUE index on target.
 
-### ERROR: out of memory (or) Failed on request of size xxx in memory context "yyy" on a Tiger Cloud service
+### ERROR: out of memory (or) Failed on request of size xxx in memory context "yyy" on a $SERVICE_LONG
 
 This error occurs when the Out of Memory (OOM) guard is triggered due to memory allocations exceeding safe limits. It typically happens when multiple concurrent connections to the $TIMESCALE_DB instance are performing memory-intensive operations. For example, during live migrations, this error can occur when large indexes are being created simultaneously.
 

@@ -4,14 +4,14 @@ import MigrationValidateRestartApp from "versionContent/_partials/_migrate_valid
 
 <MigrateAWSRDSConnectIntermediary />
 
-## Migrate your data to your Tiger Cloud service
+## Migrate your data to your $SERVICE_LONG
 
 To securely migrate data from your RDS instance:
 <Procedure>
 
 <MigrateAWSRDSMigrateData />
 
-## Validate your Tiger Cloud service and restart your app
+## Validate your $SERVICE_LONG and restart your app
 
 <MigrationValidateRestartApp />
 

@@ -7,13 +7,13 @@ tags: [ai, vector]
 ---
 
 
-# Power your AI apps with pgai on Tiger Cloud
+# Power your AI apps with pgai on $CLOUD_LONG
 
 Pgai on $CLOUD_LONG is a cloud solution for building search, RAG, and AI agents with PostgreSQL. This suite of tools empowers you to deploy production AI applications with PostgreSQL as your vector database, storing both vector embeddings, relational data (for example, related metadata), and time-based data in the same database.
 
 <Highlight type="cloud" header="Start building today" button="Try for free">
 
-Pgai on Tiger Cloud is comprised of three extensions: pgvector, pgvectorscale and pgai. pgvector provides the vector data type and HNSW search index. Pgvectorscale provides the StreamingDiskANN index to superpower embedding search and make vector queries performant.  Pgai allows you to easily call AI embedding and generation models from inside the database. All three extensions are installed in your $CLOUD_LONG instance by default.
+Pgai on $CLOUD_LONG is comprised of three extensions: pgvector, pgvectorscale and pgai. pgvector provides the vector data type and HNSW search index. Pgvectorscale provides the StreamingDiskANN index to superpower embedding search and make vector queries performant.  Pgai allows you to easily call AI embedding and generation models from inside the database. All three extensions are installed in your $CLOUD_LONG instance by default.
 
 </Highlight>
 
