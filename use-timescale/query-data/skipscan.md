@@ -96,4 +96,4 @@ ANALYZE` output shows one or more `Custom Scan (SkipScan)` nodes, like this:
          Index Cond: (tags_id > NULL::integer)
 ```
 
-[blog-skipscan]: https://www.timescale.com/blog/how-we-made-distinct-queries-up-to-8000x-faster-on-postgresql/
+[blog-skipscan]: https://www.timescale.com/blog/how-we-made-distinct-queries-up-to-8000x-faster-on-postgresql

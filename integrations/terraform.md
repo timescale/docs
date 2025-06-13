@@ -144,7 +144,7 @@ You can now manage your database with Terraform.
 </Tabs>
 
 [terraform-install]: https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli
-[terraform]: https://www.terraform.io/
+[terraform]: https://developer.hashicorp.com/terraform
 [console]: https://console.cloud.timescale.com/dashboard/services
 [terraform-provider]: https://registry.terraform.io/providers/timescale/timescale/latest/docs
 [connection-info]: /integrations/:currentVersion:/find-connection-details/

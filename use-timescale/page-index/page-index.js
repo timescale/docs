@@ -52,6 +52,11 @@ module.exports = [
             excerpt: "Automate",
           },
           {
+            title: "Compression methods in hypercore",
+            href: "compression-methods",
+            excerpt: "Learn about the different compression methods",
+          },
+          {
             title: "Troubleshooting",
             href: "troubleshooting",
             type: "placeholder",
@@ -573,19 +578,9 @@ module.exports = [
         excerpt: "Timescale metrics and logging",
         children: [
           {
-            title: "Service metrics",
-            href: "service-metrics",
-            excerpt: "Timescale services metrics",
-          },
-          {
-            title: "Service logs",
-            href: "service-logs",
-            excerpt: "Timescale services logs",
-          },
-          {
-            title: "Insights",
-            href: "insights",
-            excerpt: "Query-level performance insights",
+            title: "Monitor Cloud services",
+            href: "monitoring",
+            excerpt: "Timescale service monitoring",
           },
           {
             title: "Export to Amazon Cloudwatch",
@@ -776,11 +771,6 @@ module.exports = [
             title: "Compression design",
             href: "compression-design",
             excerpt: "The design of TimescaleDB compression",
-          },
-          {
-            title: "About compression methods",
-            href: "compression-methods",
-            excerpt: "Learn about the different compression methods",
           },
           {
             title: "Enable a compression policy",

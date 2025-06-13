@@ -56,10 +56,10 @@ replicating partition root tables, which are
 
 PostgreSQL achieves streaming replication by having replicas continuously stream
 the WAL from the primary database. See the official
-[replication documentation](https://www.postgresql.org/docs/current/static/warm-standby.html#STREAMING-REPLICATION)
+[replication documentation](https://www.postgresql.org/docs/current/warm-standby.html#STREAMING-REPLICATION)
 for details. For more information about how PostgreSQL implements Write-Ahead
 Logging, see their
-[WAL Documentation](https://www.postgresql.org/docs/current/static/wal-intro.html).
+[WAL Documentation](https://www.postgresql.org/docs/current/wal-intro.html).
 
 ## Failover
 
@@ -71,9 +71,9 @@ out-of-the-box support for automatic failover. Read more in the PostgreSQL
 configurable high availability solution with automatic failover functionality.
 
 [db-backup]: /self-hosted/:currentVersion:/backup-and-restore/
-[failover-docs]: https://www.postgresql.org/docs/current/static/warm-standby-failover.html
+[failover-docs]: https://www.postgresql.org/docs/current/warm-standby-failover.html
 [patroni-github]: https://github.com/zalando/patroni
-[pgctl-docs]: https://www.postgresql.org/docs/current/static/app-pg-ctl.html
-[postgres-logrep-docs]: https://www.postgresql.org/docs/current/static/logical-replication.html
-[postgres-partition-limitations]: https://www.postgresql.org/docs/current/static/logical-replication-restrictions.html
-[postgres-streaming-replication-docs]: https://www.postgresql.org/docs/current/static/warm-standby.html#STREAMING-REPLICATION
+[pgctl-docs]: https://www.postgresql.org/docs/current/app-pg-ctl.html
+[postgres-logrep-docs]: https://www.postgresql.org/docs/current/logical-replication.html
+[postgres-partition-limitations]: https://www.postgresql.org/docs/current/logical-replication-restrictions.html
+[postgres-streaming-replication-docs]: https://www.postgresql.org/docs/current/warm-standby.html#STREAMING-REPLICATION

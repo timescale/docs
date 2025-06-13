@@ -144,7 +144,7 @@ In the satellite example, the time of adding data to a database inevitably follo
 Sequential IDs and the creation timestamp for both entities also increase synchronously. This means those two 
 columns are correlated. 
 
-For a more in-depth look on chunk skipping, see [our blog post](https://www.timescale.com/blog/boost-postgres-performance-by-7x-with-chunk-skipping-indexes/).
+For a more in-depth look on chunk skipping, see [our blog post](https://www.timescale.com/blog/boost-postgres-performance-by-7x-with-chunk-skipping-indexes).
 
 ### Enable chunk skipping
 

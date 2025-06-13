@@ -67,7 +67,7 @@ pgai on $CLOUD_LONG works with the most popular embedding models that have outpu
 And here are some popular choices for image embeddings:
 
 - [OpenAI CLIP](https://github.com/openai/CLIP): Useful for applications involving text and images.
-- [VGG](https://pytorch.org/vision/stable/models/vgg.html)
+- [VGG](https://docs.pytorch.org/vision/stable/models/vgg.html)
 - [Vision Transformer (ViT)](https://github.com/lukemelas/PyTorch-Pretrained-ViT)
 
 [vector-search-indexing]: /ai/:currentVersion:/key-vector-database-concepts-for-understanding-pgvector/#vector-search-indexing-approximate-nearest-neighbor-search

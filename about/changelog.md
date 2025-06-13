@@ -9,6 +9,52 @@ products: [cloud, self_hosted]
 
 All the latest features and updates to $COMPANY products.
 
+## 🧘 Read replica sets, faster tables, new anthropic models, and VPC support in data mode
+<Label type="date">June 6, 2025</Label>
+
+### Horizontal read scaling with read replica sets
+
+[Read replica sets](https://docs.timescale.com/use-timescale/latest/ha-replicas/read-scaling/) are an improved version of read replicas. They let you scale reads horizontally by creating up to 10 replica nodes behind a single read endpoint. Just point your read queries to the endpoint and configure the number of replicas you need without changing your application logic. You can increase or decrease the number of replicas in the set dynamically, with no impact on the endpoint.
+
+Read replica sets are used to:
+
+- Scale reads for read-heavy workloads and dashboards.
+- Isolate internal analytics and reporting from customer-facing applications.
+- Provide high availability and fault tolerance for read traffic.
+
+All existing read replicas have been automatically upgraded to a replica set with one node—no action required. Billing remains the same.
+
+Read replica sets are available for all Scale and Enterprise customers.
+
+![Create a read replica set in Timescale Console](https://assets.timescale.com/docs/images/create-read-replica-set-timescale-console.png)
+
+### Faster, smarter results tables in data mode
+
+We've completely rebuilt how query results are displayed in the data mode to give you a faster, more powerful way to work with your data. The new results table can handle millions of rows with smooth scrolling and instant responses when you sort, filter, or format your data. You'll find it today in notebooks and presentation pages, with more areas coming soon.
+
+What's new:
+
+- **Your settings stick around**: when you customize how your table looks—applying filters, sorting columns, or formatting data—those settings are automatically saved. Switch to another tab and come back, and everything stays exactly how you left it.
+- **Better ways to find what you need**: filter your results by any column value, with search terms highlighted so you can quickly spot what you're looking for. The search box is now available everywhere you work with data.
+- **Export exactly what you want**: download your entire table or just select the specific rows and columns you need. Both CSV and Excel formats are supported.
+- **See patterns in your data**: highlight cells based on their values to quickly spot trends, outliers, or important thresholds in your results.
+- **Smoother navigation**: click any row number to see the full details in an expanded view. Columns automatically resize to show your data clearly, and web links in your results are now clickable.
+
+As a result, working with large datasets is now faster and more intuitive. Whether you're exploring millions of rows or sharing results with your team, the new table keeps up with how you actually work with data.
+
+### Latest anthropic models added to SQL assistant
+
+Data mode's [SQL assistant](https://docs.timescale.com/getting-started/latest/run-queries-from-console/#sql-assistant) now supports Anthropic's latest models:
+
+- Sonnet 4
+- Sonnet 4 (extended thinking)
+- Opus 4
+- Opus 4 (extended thinking)
+
+### VPC support for passwordless data mode connections
+
+We previously made it much easier to connect newly created services to Timescale’s [data mode](https://docs.timescale.com/getting-started/latest/run-queries-from-console/#data-mode). We have now expanded this functionality to services using a VPC.
+
 ## 🕵🏻️ Enhanced service monitoring, TimescaleDB v2.20, and livesync for PostgreSQL
 <Label type="date">May 30, 2025</Label>
 
@@ -45,7 +91,24 @@ Highlighted features in TimescaleDB v2.20 include:
 * Enhanced developer flexibility with continuous aggregates now supporting window and mutable functions, plus 
   customizable refresh orders.
 
-This release deprecates support for Postgres 14.
+### PostgreSQL 13 and 14 deprecated on Timescale Cloud
+
+[TimescaleDB version 2.20][timescale220] is not compatible with PostgreSQL versions v14 and below. 
+TimescaleDB 2.19.3 is the last bug-fix release for PostgreSQL 14. Future fixes are for 
+PostgreSQL 15+ only. To continue receiving critical fixes and security patches, and to take 
+advantage of the latest TimescaleDB features, you must upgrade to PostgreSQL 15 or newer.
+This deprecation affects all Timescale Cloud services currently running PostgreSQL 13 or 
+PostgreSQL 14.
+ 
+The timeline for the PostgreSQL 13 and 14 deprecation is as follows:
+
+- **Deprecation notice period begins**: starting in early June 2025, you will receive email communication.
+- **Customer self-service upgrade window**: June 2025 through September 14, 2025. We strongly encourage you to
+  [manually upgrade PostgreSQL](https://docs.timescale.com/use-timescale/latest/upgrades/#manually-upgrade-postgresql-for-a-service)
+  during this period.
+- **Automatic upgrade deadline**: your service will be
+  [automatically upgraded](https://docs.timescale.com/use-timescale/latest/upgrades/#automatic-postgresql-upgrades-for-a-service)
+  from September 15, 2025.
 
 ### Enhancements to livesync for PostgreSQL
 
@@ -536,7 +599,7 @@ SQL Assistant uses AI to help you write SQL faster and more accurately.
 
    ![AI generated query title](https://assets.timescale.com/docs/images/ai-generate-title.png)
 
-See our [blog post](https://www.timescale.com/blog/postgres-gui-sql-assistant/) or [docs](https://docs.timescale.com/getting-started/latest/run-queries-from-console/#sql-assistant) for full details!
+See our [blog post](https://www.timescale.com/blog/postgres-gui-sql-assistant) or [docs](https://docs.timescale.com/getting-started/latest/run-queries-from-console/#sql-assistant) for full details!
 
 ### 🏄 TimescaleDB v2.17 - performance improvements for analytical queries and continuous aggregate refreshes
 
@@ -611,7 +674,7 @@ This release adds support for runtime chunk exclusion for queries that need to a
 SELECT * FROM  hypertable WHERE timestamp_col > now() - '100 days'::interval
 ```
 
-For more info on queries with immutable/stable/volatile filters, check our blog post on [Implementing constraint exclusion for faster query performance](https://www.timescale.com/blog/implementing-constraint-exclusion-for-faster-query-performance/).
+For more info on queries with immutable/stable/volatile filters, check our blog post on [Implementing constraint exclusion for faster query performance](https://www.timescale.com/blog/implementing-constraint-exclusion-for-faster-query-performance).
 
 If you no longer want to use tiered storage for a particular hypertable, you can now disable tiering and drop the associated tiering metadata on the hypertable with a call to [disable_tiering function](https://docs.timescale.com/use-timescale/latest/data-tiering/enabling-data-tiering/#disable-tiering). 
 
@@ -828,7 +891,7 @@ We’ve added a 2FA status column to the Members page, allowing customers to eas
 ![2FA status](https://s3.amazonaws.com/assets.timescale.com/docs/images/2FA-status-indicator.png)
 
 ### Anthropic and Cohere integrations in pgai
-The pgai extension v0.3.0 now supports embedding creation and LLM reasoning using models from Anthropic and Cohere. For details and examples, see [this post for pgai and Cohere](https://www.timescale.com/blog/build-search-and-rag-systems-on-postgresql-using-cohere-and-pgai/), and [this post for pgai and Anthropic](https://www.timescale.com/blog/use-anthropic-claude-sonnet-3-5-in-postgresql-with-pgai/).
+The pgai extension v0.3.0 now supports embedding creation and LLM reasoning using models from Anthropic and Cohere. For details and examples, see [this post for pgai and Cohere](https://www.timescale.com/blog/build-search-and-rag-systems-on-postgresql-using-cohere-and-pgai), and [this post for pgai and Anthropic](https://www.timescale.com/blog/use-anthropic-claude-sonnet-3-5-in-postgresql-with-pgai).
 
 ### pgvectorscale extension: ARM builds and improved recall for low dimensional vectors
 pgvectorscale extension [v0.3.0](https://github.com/timescale/pgvectorscale/releases/tag/0.3.0) adds support for ARM processors and improves recall when using StreamingDiskANN indexes with low dimensionality vectors. We recommend updating to this version if you are self-hosting.
@@ -1096,6 +1159,7 @@ To learn more, see the [postgresql-unit documentation](https://github.com/df7cb/
 [sql-editor]: /getting-started/:currentVersion:/run-queries-from-console/#sql-editor
 [aws-timescale]: https://aws.amazon.com/marketplace/seller-profile?id=seller-wbtecrjp3kxpm
 [ops-mode-allow-list]: /about/:currentVersion:/changelog/#-ip-allow-lists
+[timescale220]: /about/:currentVersion:/changelog/#timescaledb-v220---query-performance-and-faster-data-updates
 [popsql-web]: https://app.popsql.com/login
 [popsql-desktop]: https://popsql.com/download
 [console]: https://console.cloud.timescale.com/dashboard/services

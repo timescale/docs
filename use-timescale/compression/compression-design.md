@@ -130,4 +130,4 @@ device IDs or timestamps does not require decompression. This means the
 query executor only decompresses the timestamp and temperature columns
 corresponding to those selected rows.
 
-[compression-methods]: /use-timescale/:currentVersion:/compression/compression-methods/
+[compression-methods]: /use-timescale/:currentVersion:/hypercore/compression-methods/

@@ -488,4 +488,4 @@ Before you begin, make sure you have:
 [api-key]:https://platform.openai.com/account/api-keys
 <!-- markdown-link-check-enable-->
 [timescale-pgvector]: https://github.com/timescale/vector-cookbook/tree/main/openai_pgvector_helloworld
-[developer-qa]: https://www.timescale.com/blog/tag/dev-q-a/
+[developer-qa]: https://www.timescale.com/blog/tag/dev-q-a

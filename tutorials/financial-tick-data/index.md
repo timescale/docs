@@ -63,6 +63,6 @@ To create candlestick views, query the aggregated data, and visualize the data i
 [financial-tick-query]: /tutorials/:currentVersion:/financial-tick-data/financial-tick-query/
 [financial-tick-compress]: /tutorials/:currentVersion:/financial-tick-data/financial-tick-compress/
 [twelve-data]: https://twelvedata.com/
-[trading-strategy]: https://www.timescale.com/blog/how-trading-strategy-built-a-data-stack-for-crypto-quant-trading/
-[messari]: https://www.timescale.com/blog/how-messari-uses-data-to-open-the-cryptoeconomy-to-everyone/
-[bot]: https://www.timescale.com/blog/how-i-power-a-successful-crypto-trading-bot-with-timescaledb/
+[trading-strategy]: https://www.timescale.com/blog/how-trading-strategy-built-a-data-stack-for-crypto-quant-trading
+[messari]: https://www.timescale.com/blog/how-messari-uses-data-to-open-the-cryptoeconomy-to-everyone
+[bot]: https://www.timescale.com/blog/how-i-power-a-successful-crypto-trading-bot-with-timescaledb

@@ -173,8 +173,8 @@ and privilege grants. You restore the PostgreSQL instance using `psql`. For more
 
 
 [parallel importer]: https://github.com/timescale/timescaledb-parallel-copy
-[pg_dump]: https://www.postgresql.org/docs/current/static/app-pgdump.html
-[pg_restore]: https://www.postgresql.org/docs/current/static/app-pgrestore.html
+[pg_dump]: https://www.postgresql.org/docs/current/app-pgdump.html
+[pg_restore]: https://www.postgresql.org/docs/current/app-pgrestore.html
 [timescaledb_pre_restore]: /api/:currentVersion:/administration/#timescaledb_pre_restore
 [timescaledb_post_restore]: /api/:currentVersion:/administration/#timescaledb_post_restore
 [timescaledb-upgrade]: /self-hosted/:currentVersion:/upgrades/

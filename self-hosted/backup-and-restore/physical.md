@@ -21,7 +21,7 @@ incremental backups and other automation options.
 <ConsiderCloud />
 
 [pg-backrest]: https://pgbackrest.org/
-[pg-barman]: https://www.pgbarman.org/
+[pg-barman]: https://pgbarman.org/
 [postgres-pg_basebackup]: https://www.postgresql.org/docs/current/app-pgbasebackup.html
 [replication-tutorial]: /self-hosted/:currentVersion:/replication-and-ha/
 [wale]: /self-hosted/:currentVersion:/backup-and-restore/docker-and-wale/

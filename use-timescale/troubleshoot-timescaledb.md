@@ -280,8 +280,8 @@ behaviour][log_min_messages].
 [downloaded separately]: https://raw.githubusercontent.com/timescale/timescaledb/master/scripts/dump_meta_data.sql
 [github]: https://github.com/timescale/timescaledb/issues
 [slack]: https://slack.timescale.com/
-[track_io_timing]: https://www.postgresql.org/docs/current/static/runtime-config-statistics.html#GUC-TRACK-IO-TIMING
+[track_io_timing]: https://www.postgresql.org/docs/current/runtime-config-statistics.html#GUC-TRACK-IO-TIMING
 [update-db]: /self-hosted/:currentVersion:/upgrades/
-[using explain]: https://www.postgresql.org/docs/current/static/using-explain.html
+[using explain]: https://www.postgresql.org/docs/current/using-explain.html
 [worker-config]: /self-hosted/latest/configuration/about-configuration/#workers
 [log_min_messages]: https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-MIN-MESSAGES

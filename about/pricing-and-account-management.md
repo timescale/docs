@@ -180,7 +180,7 @@ The features included in each [$PRICING_PLAN][pricing-plans] are:
 | JOIN services (Jumpstart Onboarding and INtegration)          |                                   | Available at minimum spend                     | ✓                                              | 
 
 If you want to estimate your costs ahead of the billing cycle, you can use the
-[pricing calculator](http://timescale.com/pricing/calculator).
+[pricing calculator](https://www.timescale.com/pricing/calculator).
 However, the pricing calculator does not include volume discounts. For a personalized quote, [get in touch with $COMPANY][get-in-touch].
 
 

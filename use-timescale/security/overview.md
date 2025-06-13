@@ -95,7 +95,7 @@ meet regulatory requirements while building compliant applications.
 [tsc-data-processor-addendum]: https://www.timescale.com/legal/timescale-cloud-data-processing-addendum
 [aws-kms]: https://aws.amazon.com/kms/
 [ec2-security]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/data-protection.html
-[ebs-security]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html
+[ebs-security]: https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html
 [vpc-peering]: /use-timescale/:currentVersion:/security/vpc
 [security-at-timescale]: https://www.timescale.com/security
 [ip-allowlist]: /use-timescale/:currentVersion:/security/ip-allow-list/

@@ -169,7 +169,7 @@ module.exports = [
   },
   {
     from: "/cloud/latest/service-logs",
-    to: "https://docs.timescale.com/use-timescale/latest/metrics-logging/service-logs/",
+    to: "https://docs.timescale.com/use-timescale/latest/metrics-logging/monitoring/#logs/",
   },
   {
     from: "/cloud/latest/service-metrics",
@@ -922,6 +922,10 @@ module.exports = [
     to: "https://github.com/timescale/timescaledb-extras/blob/master/backfill.sql",
   },
   {
+    from: "/use-timescale/latest/compression/compression-methods",
+    to: 'https://docs.timescale.com/use-timescale/latest/hypercore/compression-methods/',
+  },
+  {
     from: '/use-timescale/latest/integrations/observability-alerting/grafana/installation/',
     to: 'https://docs.timescale.com/integrations/latest/grafana/',
   },
@@ -1037,4 +1041,16 @@ module.exports = [
     from: '/quick-start/latest/',
     to: 'https://docs.timescale.com/getting-started/latest/start-coding-with-timescale/',
   },
+  {
+    from: '/use-timescale/latest/metrics-logging/service-metrics/',
+    to: 'https://docs.timescale.com/use-timescale/latest/metrics-logging/monitoring/#metrics',
+  },
+  {
+    from: '/use-timescale/latest/metrics-logging/service-logs/',
+    to: 'https://docs.timescale.com/use-timescale/latest/metrics-logging/monitoring/#logs',
+  },
+  {
+    from: '/use-timescale/latest/metrics-logging/insights/',
+    to: 'https://docs.timescale.com/use-timescale/latest/metrics-logging/monitoring/#insights',
+  }
 ];
