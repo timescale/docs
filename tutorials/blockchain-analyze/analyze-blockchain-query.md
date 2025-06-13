@@ -1,6 +1,6 @@
 ---
 title: Analyze the Bitcoin blockchain - query the data
-excerpt: Use Tiger Cloud hyperfunctions to construct advanced analytical queries and run them on blockchain transaction data
+excerpt: Use TimescaleDB hyperfunctions to construct advanced analytical queries and run them on blockchain transaction data
 products: [cloud, self_hosted, mst]
 keywords: [intermediate, crypto, blockchain, Bitcoin, finance, analytics]
 layout_components: [next_prev_large]
