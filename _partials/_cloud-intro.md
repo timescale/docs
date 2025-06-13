@@ -34,7 +34,7 @@ and [insights][insights],&nbsp;[streamlined maintenance][maintain-upgrade],&nbsp
 [data-tiering]: /use-timescale/:currentVersion:/data-tiering/
 [how-plans-work]: /about/:currentVersion:/pricing-and-account-management/#how-plans-work
 [in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
-[metrics]: /use-timescale/:currentVersion:/metrics-logging/service-metrics/
-[insights]: /use-timescale/:currentVersion:/monitoring/#insights/
+[metrics]: /use-timescale/:currentVersion:/metrics-logging/monitoring/#metrics
+[insights]: /use-timescale/:currentVersion:/metrics-logging/monitoring/#insights
 [maintain-upgrade]: /use-timescale/:currentVersion:/upgrades/
 
