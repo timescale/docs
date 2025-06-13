@@ -91,7 +91,24 @@ Highlighted features in TimescaleDB v2.20 include:
 * Enhanced developer flexibility with continuous aggregates now supporting window and mutable functions, plus 
   customizable refresh orders.
 
-This release deprecates support for Postgres 14.
+### PostgreSQL 13 and 14 deprecated on Timescale Cloud
+
+[TimescaleDB version 2.20][timescale220] is not compatible with PostgreSQL versions v14 and below. 
+TimescaleDB 2.19.3 is the last bug-fix release for PostgreSQL 14. Future fixes are for 
+PostgreSQL 15+ only. To continue receiving critical fixes and security patches, and to take 
+advantage of the latest TimescaleDB features, you must upgrade to PostgreSQL 15 or newer.
+This deprecation affects all Timescale Cloud services currently running PostgreSQL 13 or 
+PostgreSQL 14.
+ 
+The timeline for the PostgreSQL 13 and 14 deprecation is as follows:
+
+- **Deprecation notice period begins**: starting in early June 2025, you will receive email communication.
+- **Customer self-service upgrade window**: June 2025 through September 14, 2025. We strongly encourage you to
+  [manually upgrade PostgreSQL](https://docs.timescale.com/use-timescale/latest/upgrades/#manually-upgrade-postgresql-for-a-service)
+  during this period.
+- **Automatic upgrade deadline**: your service will be
+  [automatically upgraded](https://docs.timescale.com/use-timescale/latest/upgrades/#automatic-postgresql-upgrades-for-a-service)
+  from September 15, 2025.
 
 ### Enhancements to livesync for PostgreSQL
 
@@ -578,7 +595,7 @@ SQL Assistant uses AI to help you write SQL faster and more accurately.
 
    ![AI generated query title](https://assets.timescale.com/docs/images/ai-generate-title.png)
 
-See our [blog post](https://www.timescale.com/blog/postgres-gui-sql-assistant/) or [docs](https://docs.timescale.com/getting-started/latest/run-queries-from-console/#sql-assistant) for full details!
+See our [blog post](https://www.timescale.com/blog/postgres-gui-sql-assistant) or [docs](https://docs.timescale.com/getting-started/latest/run-queries-from-console/#sql-assistant) for full details!
 
 ### 🏄 TimescaleDB v2.17 - performance improvements for analytical queries and continuous aggregate refreshes
 
@@ -653,7 +670,7 @@ This release adds support for runtime chunk exclusion for queries that need to a
 SELECT * FROM  hypertable WHERE timestamp_col > now() - '100 days'::interval
 ```
 
-For more info on queries with immutable/stable/volatile filters, check our blog post on [Implementing constraint exclusion for faster query performance](https://www.timescale.com/blog/implementing-constraint-exclusion-for-faster-query-performance/).
+For more info on queries with immutable/stable/volatile filters, check our blog post on [Implementing constraint exclusion for faster query performance](https://www.timescale.com/blog/implementing-constraint-exclusion-for-faster-query-performance).
 
 If you no longer want to use tiered storage for a particular hypertable, you can now disable tiering and drop the associated tiering metadata on the hypertable with a call to [disable_tiering function](https://docs.timescale.com/use-timescale/latest/data-tiering/enabling-data-tiering/#disable-tiering). 
 
@@ -870,7 +887,7 @@ We’ve added a 2FA status column to the Members page, allowing customers to eas
 ![2FA status](https://s3.amazonaws.com/assets.timescale.com/docs/images/2FA-status-indicator.png)
 
 ### Anthropic and Cohere integrations in pgai
-The pgai extension v0.3.0 now supports embedding creation and LLM reasoning using models from Anthropic and Cohere. For details and examples, see [this post for pgai and Cohere](https://www.timescale.com/blog/build-search-and-rag-systems-on-postgresql-using-cohere-and-pgai/), and [this post for pgai and Anthropic](https://www.timescale.com/blog/use-anthropic-claude-sonnet-3-5-in-postgresql-with-pgai/).
+The pgai extension v0.3.0 now supports embedding creation and LLM reasoning using models from Anthropic and Cohere. For details and examples, see [this post for pgai and Cohere](https://www.timescale.com/blog/build-search-and-rag-systems-on-postgresql-using-cohere-and-pgai), and [this post for pgai and Anthropic](https://www.timescale.com/blog/use-anthropic-claude-sonnet-3-5-in-postgresql-with-pgai).
 
 ### pgvectorscale extension: ARM builds and improved recall for low dimensional vectors
 pgvectorscale extension [v0.3.0](https://github.com/timescale/pgvectorscale/releases/tag/0.3.0) adds support for ARM processors and improves recall when using StreamingDiskANN indexes with low dimensionality vectors. We recommend updating to this version if you are self-hosting.
@@ -1138,6 +1155,7 @@ To learn more, see the [postgresql-unit documentation](https://github.com/df7cb/
 [sql-editor]: /getting-started/:currentVersion:/run-queries-from-console/#sql-editor
 [aws-timescale]: https://aws.amazon.com/marketplace/seller-profile?id=seller-wbtecrjp3kxpm
 [ops-mode-allow-list]: /about/:currentVersion:/changelog/#-ip-allow-lists
+[timescale220]: /about/:currentVersion:/changelog/#timescaledb-v220---query-performance-and-faster-data-updates
 [popsql-web]: https://app.popsql.com/login
 [popsql-desktop]: https://popsql.com/download
 [console]: https://console.cloud.timescale.com/dashboard/services

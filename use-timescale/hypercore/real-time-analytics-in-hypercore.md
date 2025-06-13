@@ -64,16 +64,16 @@ repeated values, [XOR-based][xor] and [dictionary compression][dictionary] is us
 
 [create-hypertable]: /use-timescale/:currentVersion:/compression/
 [add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/
-[delta]: /use-timescale/:currentVersion:/compression/compression-methods/#delta-encoding
-[delta-delta]: /use-timescale/:currentVersion:/compression/compression-methods/#delta-of-delta-encoding
-[simple-8b]: /use-timescale/:currentVersion:/compression/compression-methods/#simple-8b
-[run-length]: /use-timescale/:currentVersion:/compression/compression-methods/#run-length-encoding
-[xor]: /use-timescale/:currentVersion:/compression/compression-methods/#xor-based-encoding
-[dictionary]: /use-timescale/:currentVersion:/compression/compression-methods/#dictionary-compression
+[delta]: /use-timescale/:currentVersion:/hypercore/compression-methods/#delta-encoding
+[delta-delta]: /use-timescale/:currentVersion:/hypercore/compression-methods/#delta-of-delta-encoding
+[simple-8b]: /use-timescale/:currentVersion:/hypercore/compression-methods/#simple-8b
+[run-length]: /use-timescale/:currentVersion:/hypercore/compression-methods/#run-length-encoding
+[xor]: /use-timescale/:currentVersion:/hypercore/compression-methods/#xor-based-encoding
+[dictionary]: /use-timescale/:currentVersion:/hypercore/compression-methods/#dictionary-compression
 [ingest-data]: /getting-started/:currentVersion:/try-key-features-timescale-products/#optimize-time-series-data-in-hypertables
 [add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/
-[run-job]: /api/:currentVersion:/actions/run_job/
-[alter_job]: /api/:currentVersion:/actions/alter_job/
+[run-job]: /api/:currentVersion:/jobs-automation/run_job/
+[alter_job]: /api/:currentVersion:/jobs-automation/alter_job/
 [informational-views]: /api/:currentVersion:/informational-views/jobs/
 [insert]: /use-timescale/:currentVersion:/write-data/insert/
 [modify-data-in-hypercore]: /use-timescale/:currentVersion:/hypercore/modify-data-in-hypercore/

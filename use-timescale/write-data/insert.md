@@ -65,4 +65,4 @@ time                          | location | temperature | humidity
 (1 row)
 ```
 
-[postgres-insert]: https://www.postgresql.org/docs/current/static/sql-insert.html
+[postgres-insert]: https://www.postgresql.org/docs/current/sql-insert.html

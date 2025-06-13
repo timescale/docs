@@ -155,7 +155,7 @@ see the [PostgreQL output plugin][output-plugin].
 
 
 [output-plugin]: https://github.com/influxdata/telegraf/blob/release-1.24/plugins/outputs/postgresql/README.md
-[install-telegraf]: https://docs.influxdata.com/telegraf/v1.21/introduction/installation/
+[install-telegraf]: https://docs.influxdata.com/telegraf/v1/introduction/installation/
 [create-service]: /getting-started/latest/
 [connect-timescaledb]: /integrations/:currentVersion:/find-connection-details/
 [grafana]: /integrations/:currentVersion:/grafana/

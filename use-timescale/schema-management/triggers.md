@@ -58,4 +58,4 @@ $TIMESCALE_DB supports the full range of triggers, including `BEFORE INSERT`,
 `AFTER DELETE`. For more information, see the
 [PostgreSQL docs][postgres-createtrigger].
 
-[postgres-createtrigger]: https://www.postgresql.org/docs/current/static/sql-createtrigger.html
+[postgres-createtrigger]: https://www.postgresql.org/docs/current/sql-createtrigger.html

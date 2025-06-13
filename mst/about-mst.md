@@ -285,7 +285,7 @@ SET statement_timeout = <milliseconds>
 [mst-install]: /mst/:currentVersion:/installation-mst/
 [sign-up]: https://www.timescale.com/cloud-signup
 [aiven-sla]: https://aiven.io/sla
-[pg-keepalive]: http://www.postgresql.org/docs/9.5/static/libpq-connect.html#LIBPQ-KEEPALIVES
+[pg-keepalive]: https://www.postgresql.org/docs/9.5/libpq-connect.html#LIBPQ-KEEPALIVES
 [connection-pooling]: /mst/:currentVersion:/connection-pools/
 [mst-billing]: /mst/:currentVersion:/billing/
 [mst-signup]: https://www.timescale.com/mst-signup

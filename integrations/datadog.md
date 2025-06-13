@@ -138,13 +138,13 @@ comprehensive list of [metrics][datadog-postgres-metrics] collected.
 [datadog-postgres-metrics]:https://docs.datadoghq.com/integrations/postgres/?tab=host#metrics
 [datadog-postgres-setup]: https://docs.datadoghq.com/integrations/postgres/?tab=host#configuration
 [datadog-signup]: https://www.datadoghq.com/
-[datadog-monitor-cloud]: /use-timescale/:currentVersion:/integrations/datadog/#monitor-timescale-cloud-service-metrics-with-datadog
-[datadog-agent]: /use-timescale/:currentVersion:/integrations/datadog/#configure-datadog-agent-to-collect-metrics-for-your-timescale-cloud-services
+[datadog-monitor-cloud]: /integrations/:currentVersion:/datadog/#monitor-timescale-cloud-service-metrics-with-datadog
+[datadog-agent]: /integrations/:currentVersion:/datadog/#configure-datadog-agent-to-collect-metrics-for-your-timescale-cloud-services
 [datadog-agent-restart]: https://docs.datadoghq.com/agent/configuration/agent-commands/#start-stop-and-restart-the-agent
 [projects]: /use-timescale/:currentVersion:/members/
 [datadog-api-key]: https://docs.datadoghq.com/account_management/api-app-keys/#add-an-api-key-or-client-token
 [pricing-plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-plan
 [run-queries]: /getting-started/:currentVersion:/run-queries-from-console/
 [open-console]: https://console.cloud.timescale.com/dashboard/services
-[psql]: /use-timescale/:currentVersion:/integrations/psql/
-[connection-info]: /use-timescale/:currentVersion:/integrations/find-connection-details/
+[psql]: /integrations/:currentVersion:/psql/
+[connection-info]: /integrations/:currentVersion:/find-connection-details/

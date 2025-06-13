@@ -104,8 +104,7 @@ You can see the details of each index below.
 
 The StreamingDiskANN index is a graph-based algorithm that was inspired by the [DiskANN](https://github.com/microsoft/DiskANN) algorithm. 
 You can read more about it in 
-[How We Made PostgreSQL as Fast as Pinecone for Vector Data](https://www.timescale.com/blog/how-we-made-postgresql-as-fast-as-pinecone-for-vector-data/).
-
+[How We Made PostgreSQL as Fast as Pinecone for Vector Data](https://www.timescale.com/blog/how-we-made-postgresql-as-fast-as-pinecone-for-vector-data).
 
 To create an index named `document_embedding_idx` on table `document_embedding` having a vector column named `embedding`, with cosine distance metric, run:
 ```sql
@@ -251,7 +250,7 @@ LIMIT 10
 
 ### pgvector ivfflat
 
-Pgvector provides a clustering-based indexing algorithm. The [blog post](https://www.timescale.com/blog/nearest-neighbor-indexes-what-are-ivfflat-indexes-in-pgvector-and-how-do-they-work/) describes how it works in detail. It provides the fastest index-build speed but the slowest query speeds of any indexing algorithm.
+Pgvector provides a clustering-based indexing algorithm. The [blog post](https://www.timescale.com/blog/nearest-neighbor-indexes-what-are-ivfflat-indexes-in-pgvector-and-how-do-they-work) describes how it works in detail. It provides the fastest index-build speed but the slowest query speeds of any indexing algorithm.
 
 To create an index named `document_embedding_idx` on table `document_embedding` having a vector column named `embedding`, run:
 ```sql
@@ -267,7 +266,7 @@ This command creates an index for cosine-distance queries because of `vector_cos
 | Euclidean / L2         | `<->`            | `vector_ip_ops`     |
 | Negative inner product | `<#>`            | `vector_l2_ops`     |
 
-Note: *ivfflat should never be created on empty tables* because it needs to cluster data, and that only happens when an index is first created, not when new rows are inserted or modified. Also, if your table undergoes a lot of modifications, you need to rebuild this index occasionally to maintain good accuracy. See the [blog post](https://www.timescale.com/blog/nearest-neighbor-indexes-what-are-ivfflat-indexes-in-pgvector-and-how-do-they-work/) for details.
+Note: *ivfflat should never be created on empty tables* because it needs to cluster data, and that only happens when an index is first created, not when new rows are inserted or modified. Also, if your table undergoes a lot of modifications, you need to rebuild this index occasionally to maintain good accuracy. See the [blog post](https://www.timescale.com/blog/nearest-neighbor-indexes-what-are-ivfflat-indexes-in-pgvector-and-how-do-they-work) for details.
 
 Pgvector ivfflat has a `lists` index parameter that should be set. See the next section.
 

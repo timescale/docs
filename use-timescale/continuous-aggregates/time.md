@@ -157,5 +157,5 @@ continuous aggregate.
 </Procedure>
 
 [api-set-integer-now-func]: /api/:currentVersion:/hypertable/set_integer_now_func
-[pg-func-stable]: https://www.postgresql.org/docs/current/static/sql-createfunction.html
+[pg-func-stable]: https://www.postgresql.org/docs/current/sql-createfunction.html
 [postgres-date-time]: https://www.postgresql.org/docs/current/datatype-datetime.html

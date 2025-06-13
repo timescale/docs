@@ -133,10 +133,10 @@ You can adjust these settings in the `postgresql.conf` configuration
 file.
 </Highlight>
 
-[async-commit]: https://www.postgresql.org/docs/current/static/wal-async-commit.html
+[async-commit]: https://www.postgresql.org/docs/current/wal-async-commit.html
 [timescaledb_information-hypertables]: /api/:currentVersion:/informational-views/hypertables
 [docker-conf]: /self-hosted/:currentVersion:/configuration/docker-config
-[lock-management]: https://www.postgresql.org/docs/current/static/runtime-config-locks.html
-[pgtune]: http://pgtune.leopard.in.ua/
+[lock-management]: https://www.postgresql.org/docs/current/runtime-config-locks.html
+[pgtune]: https://pgtune.leopard.in.ua/
 [postgresql-conf]: /self-hosted/:currentVersion:/configuration/postgres-config
 [tstune-conf]: /self-hosted/:currentVersion:/configuration/timescaledb-tune

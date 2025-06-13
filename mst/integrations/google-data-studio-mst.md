@@ -35,4 +35,4 @@ AdWords, and others.
 
 </Procedure>
 
-[google-data-studio]: https://datastudio.google.com/
+[google-data-studio]: https://lookerstudio.google.com/overview

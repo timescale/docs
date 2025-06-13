@@ -25,7 +25,7 @@ DELETE FROM conditions WHERE temperature < 35 OR humidity < 60;
 <Highlight type="important">
 
 If you delete a lot of data, run
-[`VACUUM`](https://www.postgresql.org/docs/current/static/sql-vacuum.html) or
+[`VACUUM`](https://www.postgresql.org/docs/current/sql-vacuum.html) or
 `VACUUM FULL` to reclaim storage from the deleted or obsolete rows.
 
 </Highlight>
@@ -38,4 +38,4 @@ hypertable. You can do so either manually or by data retention policy.
 To learn more, see the [data retention section][data-retention].
 
 [data-retention]: /use-timescale/:currentVersion:/data-retention/
-[postgres-delete]: https://www.postgresql.org/docs/current/static/sql-delete.html
+[postgres-delete]: https://www.postgresql.org/docs/current/sql-delete.html

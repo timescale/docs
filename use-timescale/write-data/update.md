@@ -37,4 +37,4 @@ UPDATE conditions
     AND time < '2017-07-28 11:50';
 ```
 
-[postgres-update]: https://www.postgresql.org/docs/current/static/sql-update.html
+[postgres-update]: https://www.postgresql.org/docs/current/sql-update.html

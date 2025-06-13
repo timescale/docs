@@ -25,5 +25,5 @@ the returned rows are in chronological order, and contiguous.
 *   For more information about gapfilling and interpolation API calls, see the
     [hyperfunction API documentation][hyperfunctions-api-gapfilling].
 
-[blog-gapfilling]: https://blog.timescale.com/blog/sql-functions-for-time-series-analysis/
+[blog-gapfilling]: https://www.timescale.com/blog/sql-functions-for-time-series-analysis
 [hyperfunctions-api-gapfilling]: /api/:currentVersion:/hyperfunctions/gapfilling/time_bucket_gapfill/

@@ -46,4 +46,4 @@ not require a table rewrite.
 For more information, see the
 [PostgreSQL ALTER TABLE documentation][postgres-alter-table].
 
-[postgres-alter-table]: https://www.postgresql.org/docs/current/static/sql-altertable.html
+[postgres-alter-table]: https://www.postgresql.org/docs/current/sql-altertable.html

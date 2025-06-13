@@ -64,7 +64,7 @@ SELECT COUNT(DISTINCT location) FROM conditions
     AND time > NOW() - INTERVAL '1 day';
 ```
 
-[postgres-select]: https://www.postgresql.org/docs/current/static/sql-select.html
+[postgres-select]: https://www.postgresql.org/docs/current/sql-select.html
 [time_bucket]: /use-timescale/:currentVersion:/time-buckets/
 [popsql]: /getting-started/:currentVersion:/run-queries-from-console/#data-mode
 

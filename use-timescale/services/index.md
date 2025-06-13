@@ -1,6 +1,6 @@
 ---
-title: About Tiger Cloud services
-excerpt: A Tiger Cloud service is a 100% PostgreSQL database instance that you use as is, or extend with capabilities specific to your business needs. Learn more about services and available features
+title: About Timescale Cloud services
+excerpt: A Timescale Cloud service is a 100% PostgreSQL database instance that you use as is, or extend with capabilities specific to your business needs. Learn more about services and available features
 products: [cloud]
 keywords: [services]
 cloud_ui:
@@ -10,24 +10,24 @@ cloud_ui:
 
 import CloudIntro from "versionContent/_partials/_cloud-intro.mdx";
 
-# About $SERVICE_LONGs
+# About Timescale Cloud services
 
 <CloudIntro />
 
-## Learn more about $CLOUD_LONG
+## Learn more about Timescale
 
-Read about $CLOUD_LONG features:
+Read about Timescale features in the documentation:
 
 *   Create your first [hypertable][hypertable-info].
 *   Run your first query using [time_bucket()][time-bucket-info].
-*   Try more advanced time-series functions, starting with
+*   Trying more advanced time-series functions, starting with
     [gap filling][gap-filling-info] or [real-time aggregates][aggregates-info].
 
 ## Keep testing during your free trial
 
-You're now on your way to a great start with $CLOUD_LONG.
+You're now on your way to a great start with Timescale.
 
-You have an unthrottled, 30-day free trial with $CLOUD_LONG to continue to
+You have an unthrottled, 30-day free trial with Timescale to continue to
 test your use case. Before the end of your trial, make sure you add your credit
 card information. This ensures a smooth transition after your trial period
 concludes.
@@ -38,11 +38,11 @@ or [contact us][contact-timescale] directly.
 
 ## Advanced configuration
 
-$CLOUD_LONG is a versatile PostgreSQL database platform that provides a growing list of
-advanced features for your time-series, events, and AI workloads.
+Timescale is a versatile hosting service that provides a growing list of
+advanced features for your PostgreSQL and time-series data workloads.
 
-For more information about customizing your database configuration, see 
-[Configuration][configuration].
+For more information about customizing your database configuration, see the
+[Configuration section][configuration].
 
 <Highlight type="note">
 
