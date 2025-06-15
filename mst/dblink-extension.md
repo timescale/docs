@@ -71,7 +71,7 @@ To enable the `dblink` extension on an $MST_SHORT PostgreSQL $MST_SERVICE_SHORT:
    ```
 
 1.  Create a remote server definition named `mst_remote`, using `dblink_fdw` and
-    the connection details of the $MST_SHORT $MST_SERVICE_SHORT.
+    the connection details of the $MST_SERVICE_LONG.
 
     ```sql
 
