@@ -149,7 +149,7 @@ using the VPC on Azure.
     include. Save the id  field from the output - this is referred to as
     `$aiven_role_id`.
 
-1.  Assign the custom role to the $MST_LONG service principal to peer with your
+1.  Assign the custom role to the $MST_SERVICE_LONG principal to peer with your
     VNet, assign the role that you created in the previous step to the $MST_LONG
     service principal with the scope of your VNet:
 
