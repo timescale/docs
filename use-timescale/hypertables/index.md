@@ -1,6 +1,6 @@
 ---
 title: Hypertables
-excerpt: Hypertables are PostgreSQL tables with special features that power real-time analytics on time-series and event data. Learn to use hypertabes in your database
+excerpt: Hypertables are PostgreSQL tables with special features that power real-time analytics on time-series and event data
 products: [cloud, mst, self_hosted]
 keywords: [hypertables]
 ---
