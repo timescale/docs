@@ -17,7 +17,7 @@ compatible database.
 Before you begin, make sure you have:
 
 *   Created a $MST_SERVICE_LONG
-*   Created a $MST_SERVICE_SHORT for Grafana
+*   Created a Grafana service
 
 ## Configure $MST_LONG as a data source
 
