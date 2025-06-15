@@ -84,7 +84,7 @@ has mandatory recurring training regarding the applicable policies.
 
 ## HIPAA compliance
 
-$CLOUD_LONG [Enterprise plan][pricing-plan-features] is Health Insurance Portability and Accountability Act 
+The $CLOUD_LONG [Enterprise plan][pricing-plan-features] is Health Insurance Portability and Accountability Act 
 (HIPAA) compliant. This allows organizations to securely manage and analyze sensitive healthcare data, ensuring they 
 meet regulatory requirements while building compliant applications.
 
