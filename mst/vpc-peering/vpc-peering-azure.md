@@ -113,7 +113,7 @@ using the VPC on Azure.
     application object
 
     The $MST_LONG AD tenant contains an application object
-    similar to the one you created and $MST_LONG platform uses to
+    similar to the one you created, and $MST_LONG uses it to
     create a peering from the Project VPC VNet in the $MST_LONG subscription to the
     VNet in your Azure subscription. For this the $MST_LONG app object needs a
     service principal in your subscription:
