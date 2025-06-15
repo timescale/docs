@@ -54,7 +54,7 @@ This is the user that you use to connect to your new service.
 The `tsdbadmin` user is the owner of the database, but is not a superuser. To
 access features requiring a superuser, log in as the `postgres` user instead.
 
-On $MST_LONG services, the `tsdbadmin` user can:
+The `tsdbadmin` user for $MST_LONGs can:
 
 *   Create a database
 *   Create a role
