@@ -61,7 +61,7 @@ instructions in the invitation email to join the $PROJECT_SHORT:
      $CONSOLE_LONG opens and you are added to the $PROJECT_SHORT.
 
 - **[Enterprise plan][pricing-plans] and SAML user**:
-  1. Log in to the $CONSOLE_SHORT using your company's identity provider.
+  1. Log in to $CONSOLE_SHORT using your company's identity provider.
   2. Click `Notifications`, then accept the invitation. 
 
      $CLOUD_LONG opens, and you are added to the $PROJECT_SHORT. As you are now 
