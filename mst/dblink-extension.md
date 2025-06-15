@@ -117,7 +117,7 @@ permissions on the remote server.
 
 <Procedure>
 
-1.  Connect to the $MST_SHORT $MST_SERVICE_SHORT as `user1` with necessary grants to the remote server.
+1.  Connect to the $MST_SERVICE_LONG as `user1` with necessary grants to the remote server.
 
 1.  Establish the `dblink` connection to the remote target server:
 
