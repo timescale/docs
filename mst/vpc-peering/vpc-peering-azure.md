@@ -257,7 +257,7 @@ using the VPC on Azure.
     avn vpc peering-connection get -v --project-vpc-id $aiven_project_vpc_id --peer-cl
     ```
 
-    The $MST_LONG platform polls peering connections in state `PENDING_PEER`
+   $MST_LONG polls peering connections in state `PENDING_PEER`
     regularly to see if your subscription has created a peering connection to
     the $MST_LONG Project VPC's VNet. After this is detected, the state changes from
     `PENDING_PEER`  to `ACTIVE`. After this services in the Project VPC can be
