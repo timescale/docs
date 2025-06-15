@@ -9,7 +9,7 @@ tags: [saml, sso]
 
 # SAML authentication
 
-$CLOUD_LONG offers SAML authentication as part of its [Enterprise][enterprise-tier] offering. SAML (Security Assertion Markup Language) is an open standard for exchanging authentication and authorization data between parties. With SAML enabled $CLOUD_LONG customers will be able to log into their $ACCOUNT_LONG using their existing SSO service provider credentials. 
+$CLOUD_LONG offers SAML authentication as part of its [Enterprise][enterprise-tier] offering. SAML (Security Assertion Markup Language) is an open standard for exchanging authentication and authorization data between parties. With SAML enabled $CLOUD_LONG customers can log into their $ACCOUNT_LONG using their existing SSO service provider credentials. 
 
 <Highlight type="note">
 
