@@ -9,7 +9,7 @@ tags: [manage]
 # User management
 
 You can add new users, and manage existing users, in $MST_CONSOLE_LONG. New users can be added to an entire project, or a single
-service.
+$MST_SERVICE_SHORT.
 
 ## Project members
 
