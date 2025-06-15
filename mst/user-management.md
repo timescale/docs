@@ -73,7 +73,7 @@ Your service must be running before you can manage users.
 
 ### Adding service users
 
-1.  [Sign in][mst-login] to your $MST_CONSOLE_LONG. By
+1.  [Sign in][mst-login] to $MST_CONSOLE_LONG. By
     default, you start in the `Services` view, showing any services you
     currently have in your project.
 1.  Click the name of the service that you want to add users to.
