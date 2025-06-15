@@ -86,7 +86,7 @@ digest algorithm 5) are cryptographic authentication mechanisms. $CONSOLE_LONG
 uses SCRAM by default. It is more secure and strongly recommended. The MD5
 option is provided for compatibility with older clients.
 
-### Pause $SERVICE_SHORT
+### Pause a $SERVICE_SHORT
 
 You can pause a $SERVICE_SHORT if you want to stop it running temporarily. When you
 pause a $SERVICE_SHORT, you are no longer billed for compute resources. However, you do
