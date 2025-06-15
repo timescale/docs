@@ -174,7 +174,7 @@ using the VPC on Azure.
     `$aiven_project_vpc_id` is the ID of the $MST_LONG project VPC, and can be
     found using the `avn vpc list` command.
 
-    The $MST_LONG platform creates a peering from the VNet in the $MST_LONG
+   $MST_LONG creates a peering from the VNet in the $MST_LONG
     Project VPC to the VNet in your subscription. In addition, it creates a
     service principal for the application object in your tenant
     `--peer-azure-app-id $user_app_id`, giving it permission to target the
