@@ -17,7 +17,7 @@ hostnames are kept in a single place, and you only need to create a
 
 ## Prerequisites
 
-Before you begin, sign in to your $MST_CONSOLE_LONG,
+Before you begin, sign in to your $MST_SERVICE_LONG,
 navigate to the `Overview` tab, and take a note of these parameters for the
 PostgreSQL remote server. Alternatively, you can use the `avn service get`
 command in the Aiven client:
