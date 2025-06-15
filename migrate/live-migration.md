@@ -91,7 +91,7 @@ live migration from Terminal.
 To migrate your data from an Amazon RDS/Aurora PostgreSQL instance to a $SERVICE_LONG, you extract the data to an intermediary
 EC2 Ubuntu instance in the same AWS region as your RDS/Aurora instance. You then upload your data to a $SERVICE_LONG.
 To make this process as painless as possible, ensure that the intermediary machine has enough CPU and disk space to
-rapidLy extract and store your data before uploading to $CLOUD_LONG.
+rapidly extract and store your data before uploading to $CLOUD_LONG.
 
 Migration from RDS/Aurora gives you the opportunity to create [hypertables][about-hypertables] before copying the data. Once the migration is complete, you can manually enable $CLOUD_LONG features like [data compression][data-compression] or [data retention][data-retention].
 
