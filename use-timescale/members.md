@@ -86,7 +86,7 @@ To change the $PROJECT_SHORT you are currently working in:
 
 <Procedure>
 
-1. In the [$CONSOLE][cloud-login], click `Tiger Cloud Project`, then `Current project`.
+1. In [$CONSOLE][cloud-login], click `Tiger Cloud Project`, then `Current project`.
    ![Change project in $CONSOLE](https://assets.timescale.com/docs/images/console-change-project.png)
 2. Select the $PROJECT_SHORT you want to use.
 
