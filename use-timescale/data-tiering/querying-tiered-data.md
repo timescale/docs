@@ -160,7 +160,7 @@ time zone)
 
 Queries over tiered data are expected to be slower than over local data. However, in a limited number of scenarios tiered reads can impact query planning time over local data as well. In order to prevent any unexpected performance degradation for application queries, we keep the GUC `timescaledb.enable_tiered_reads` set to `false`.
 
-* Queries without time boundaries specified are expected to perform slower when querying tiered data, both during query planning and during query execution. $CLOUD_LONG chunk exclusion algorithms cannot be applied for this case.
+* Queries without time boundaries specified are expected to perform slower when querying tiered data, both during query planning and during query execution. $TIMESCALE_DBs chunk exclusion algorithms cannot be applied for this case.
 
   ```sql
   SELECT * FROM device_readings WHERE id = 10;
