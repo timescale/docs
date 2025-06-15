@@ -5,7 +5,7 @@ products: [mst]
 keywords: [REST API, API, integration]
 ---
 
-# Using REST API in $MST_LONG
+# Using the REST API in $MST_LONG
 
 $MST_LONG has an API for integration and automation tasks.
 For information about using the endpoints, see the [API Documentation][aiven-api].

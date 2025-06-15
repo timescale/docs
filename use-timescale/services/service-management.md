@@ -77,7 +77,7 @@ alt="Fork a Tiger Cloud service"
 You can reset your $SERVICE_SHORT password from the `Operations` dashboard. This is the
 password you use to connect to your $SERVICE_SHORT, not the password to your $ACCOUNT_LONG. To reset your $ACCOUNT_SHORT password, navigate to the `Account` page.
 
-When you reset your $SERVICE_SHORT password, you are prompted for your $ACCOUNT_SHORT password. When you have authenticated, you can create a new $SERVICE_SHORT password,
+When you reset your $SERVICE_SHORT password, you are prompted for your $CONSOLE_SHORT password. When you have authenticated, you can create a new $SERVICE_SHORT password,
 ask $CONSOLE_SHORT to auto-generate a password, or switch your authentication
 type between SCRAM and MD5.
 
@@ -86,7 +86,7 @@ digest algorithm 5) are cryptographic authentication mechanisms. $CONSOLE_LONG
 uses SCRAM by default. It is more secure and strongly recommended. The MD5
 option is provided for compatibility with older clients.
 
-### Pause $SERVICE_SHORT
+### Pause a $SERVICE_SHORT
 
 You can pause a $SERVICE_SHORT if you want to stop it running temporarily. When you
 pause a $SERVICE_SHORT, you are no longer billed for compute resources. However, you do

@@ -1,6 +1,6 @@
 ---
 title: About TimescaleDB hyperfunctions
-excerpt: TimescaleDB hyperfunctions enable you to run complex real-time analysis on your time-series and other data. Learn what hyperfunctions are and how to use them in your database
+excerpt: TimescaleDB hyperfunctions enable you to run complex real-time analysis on your time-series and other data. Learn what hyperfunctions are and how to use them
 products: [cloud, mst, self_hosted]
 keywords: [hyperfunctions, Toolkit, analytics]
 ---

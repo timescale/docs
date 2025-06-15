@@ -33,7 +33,7 @@ again.
 
 ### Troubleshooting $TOOLKIT_LONG setup
 
-1.  If you're installing Toolkit from a package, check your package manager's
+1.  If you're installing $TOOLKIT_SHORT from a package, check your package manager's
     local repository list. Make sure the $TIMESCALE_DB repository is available and
     contains Toolkit. For instructions on adding the $TIMESCALE_DB repository, see
     the installation guides:

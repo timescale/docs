@@ -13,7 +13,7 @@ using the VPC on Azure.
 ## Before you begin
 
 *   Installed [Aiven Client][aiven-client-install].
-*   Signed in to your $MST_LONG dashboard.
+*   Signed in to $MST_CONSOLE_LONG.
 *   Set up a VPC peering for your project in $MST_SHORT.
 
 ## Configuring a VPC peering on Azure
@@ -113,9 +113,9 @@ using the VPC on Azure.
     application object
 
     The $MST_LONG AD tenant contains an application object
-    similar to the one you created and $MST_LONG platform uses to
-    create a peering from the Project VPC VNet in the $MST_LONG subscription to the
-    VNet in your Azure subscription. For this the $MST_LONG app object needs a
+    similar to the one you created, and $MST_LONG uses it to
+    create a peering from the Project VPC VNet in $MST_LONG to the
+    VNet in Azure. For this, the $MST_LONG app object needs a
     service principal in your subscription:
 
     ```bash
@@ -149,8 +149,8 @@ using the VPC on Azure.
     include. Save the id  field from the output - this is referred to as
     `$aiven_role_id`.
 
-1.  Assign the custom role to the $MST_LONG service principal to peer with your
-    VNet, assign the role that you created in the previous step to the $MST_LONG
+1.  Assign the custom role to the $MST_SERVICE_LONG principal to peer with your
+    VNet. Assign the role that you created in the previous step to the $MST_LONG
     service principal with the scope of your VNet:
 
     ```bash
@@ -174,7 +174,7 @@ using the VPC on Azure.
     `$aiven_project_vpc_id` is the ID of the $MST_LONG project VPC, and can be
     found using the `avn vpc list` command.
 
-    The $MST_LONG platform creates a peering from the VNet in the $MST_LONG
+   $MST_LONG creates a peering from the VNet in the $MST_LONG
     Project VPC to the VNet in your subscription. In addition, it creates a
     service principal for the application object in your tenant
     `--peer-azure-app-id $user_app_id`, giving it permission to target the
@@ -186,7 +186,7 @@ using the VPC on Azure.
     Ensure that the arguments starting with `$user_` are in lower case. Azure
     resource names are case-agnostic, but the Aiven API currently only accepts
     names in lower case. If no error is shown, the peering connection is being set
-    up by the $MST_LONG platform.
+    up by $MST_LONG.
 
 1.  Run the following command until the state is no longer `APPROVED` , but
     `PENDING_PEER`:
@@ -201,7 +201,7 @@ using the VPC on Azure.
     and then recreate the peering connection. If everything went as expected,
     the state changes to `PENDING_PEER`  within a couple of minutes showing
     details to set up the peering connection from your VNet to the Project VPC's
-    VNet in the $MST_LONG subscription.
+    VNet in $MST_LONG.
 
     Save the `to-tenant-id` field in the output. It is referred to as the
     `aiven_tenant_id`. The `to-network-id`  field from the output is referred to
@@ -235,7 +235,7 @@ using the VPC on Azure.
     ```
 
     If you do not specify `--allow-vnet-access` no traffic is allowed to flow
-    from the peered VNet and $MST_LONG services cannot be reached through the
+    from the peered VNet and $MST_SERVICE_LONGs cannot be reached through the
     peering. After the peering has been created, the peering should be in the state
     `connected`.
 
@@ -257,7 +257,7 @@ using the VPC on Azure.
     avn vpc peering-connection get -v --project-vpc-id $aiven_project_vpc_id --peer-cl
     ```
 
-    The $MST_LONG platform polls peering connections in state `PENDING_PEER`
+   $MST_LONG polls peering connections in state `PENDING_PEER`
     regularly to see if your subscription has created a peering connection to
     the $MST_LONG Project VPC's VNet. After this is detected, the state changes from
     `PENDING_PEER`  to `ACTIVE`. After this services in the Project VPC can be

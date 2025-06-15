@@ -9,7 +9,7 @@ tags: [manage]
 # User management
 
 You can add new users, and manage existing users, in $MST_CONSOLE_LONG. New users can be added to an entire project, or a single
-service.
+$MST_SERVICE_SHORT.
 
 ## Project members
 
@@ -54,7 +54,7 @@ This is the user that you use to connect to your new service.
 The `tsdbadmin` user is the owner of the database, but is not a superuser. To
 access features requiring a superuser, log in as the `postgres` user instead.
 
-On $MST_LONG services, the `tsdbadmin` user can:
+The `tsdbadmin` user for $MST_LONGs can:
 
 *   Create a database
 *   Create a role
@@ -75,7 +75,7 @@ Your service must be running before you can manage users.
 
 ### Adding service users
 
-1.  [Sign in][mst-login] to your $MST_CONSOLE_LONG. By
+1.  [Sign in][mst-login] to $MST_CONSOLE_LONG. By
     default, you start in the `Services` view, showing any services you
     currently have in your project.
 1.  Click the name of the service that you want to add users to.
@@ -99,7 +99,7 @@ Your service must be running before you can manage users.
 
 ## Multi-factor user authentication
 
-You can use multi-factor authentication (MFA) to log in to your $MST_LONG account. This requires an authentication code, provided by the
+You can use multi-factor authentication (MFA) to log in to $MST_CONSOLE_LONG. This requires an authentication code, provided by the
 Google Authenticator app on your mobile device.
 
 You can see which authentication method is in use by each member of your $MST_LONG project. From the dashboard, navigate to the `Members`
@@ -114,7 +114,7 @@ For more information, and installation instructions, see
 
 ### Configuring multi-factor authentication
 
-1.  [Sign in][mst-login] to your $MST_CONSOLE_LONG.
+1.  [Sign in][mst-login] to $MST_CONSOLE_LONG.
 1.  Click the `User information` icon in the top-right of the dashboard to go to
     the `User profile` section.
 1.  In the `Authentication` tab, toggle `Two-factor authentication` to

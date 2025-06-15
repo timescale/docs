@@ -16,8 +16,8 @@ compatible database.
 
 Before you begin, make sure you have:
 
-*   Created a $MST_SERVICE_SHORT in your $MST_LONG account
-*   Created a $MST_SERVICE_SHORT for Grafana
+*   Created a $MST_SERVICE_LONG
+*   Created a Grafana service
 
 ## Configure $MST_LONG as a data source
 

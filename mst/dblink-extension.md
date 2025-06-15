@@ -17,7 +17,7 @@ hostnames are kept in a single place, and you only need to create a
 
 ## Prerequisites
 
-Before you begin, sign in to your $MST_CONSOLE_LONG,
+Before you begin, sign in to your $MST_SERVICE_LONG,
 navigate to the `Overview` tab, and take a note of these parameters for the
 PostgreSQL remote server. Alternatively, you can use the `avn service get`
 command in the Aiven client:
@@ -71,7 +71,7 @@ To enable the `dblink` extension on an $MST_SHORT PostgreSQL $MST_SERVICE_SHORT:
    ```
 
 1.  Create a remote server definition named `mst_remote`, using `dblink_fdw` and
-    the connection details of the $MST_SHORT $MST_SERVICE_SHORT.
+    the connection details of the $MST_SERVICE_LONG.
 
     ```sql
 
@@ -117,7 +117,7 @@ permissions on the remote server.
 
 <Procedure>
 
-1.  Connect to the $MST_SHORT $MST_SERVICE_SHORT as `user1` with necessary grants to the remote server.
+1.  Connect to the $MST_SERVICE_LONG as `user1` with necessary grants to the remote server.
 
 1.  Establish the `dblink` connection to the remote target server:
 

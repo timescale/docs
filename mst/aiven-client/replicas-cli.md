@@ -16,7 +16,7 @@ even different cloud providers.
 
 Before you begin, make sure you have:
 
-*   Created a $MST_SERVICE_SHORT in your $MST_LONG.
+*   Created a $MST_SERVICE_LONG.
 *   Installed [Aiven Client][aiven-client-install].
 
 <Procedure>
