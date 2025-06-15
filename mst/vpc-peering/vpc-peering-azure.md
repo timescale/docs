@@ -201,7 +201,7 @@ using the VPC on Azure.
     and then recreate the peering connection. If everything went as expected,
     the state changes to `PENDING_PEER`  within a couple of minutes showing
     details to set up the peering connection from your VNet to the Project VPC's
-    VNet in the $MST_LONG subscription.
+    VNet in $MST_LONG.
 
     Save the `to-tenant-id` field in the output. It is referred to as the
     `aiven_tenant_id`. The `to-network-id`  field from the output is referred to
