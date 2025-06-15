@@ -150,7 +150,7 @@ using the VPC on Azure.
     `$aiven_role_id`.
 
 1.  Assign the custom role to the $MST_SERVICE_LONG principal to peer with your
-    VNet, assign the role that you created in the previous step to the $MST_LONG
+    VNet. Assign the role that you created in the previous step to the $MST_LONG
     service principal with the scope of your VNet:
 
     ```bash
