@@ -21,7 +21,7 @@ AdWords, and others.
 
 <Procedure>
 
-### Connecting to $MST_LONG data source from Data Studio
+### Connecting to a $MST_LONG data source from Data Studio
 
 1.  Log in to Google and open [Google Data Studio][google-data-studio].
 1.  Click the `Create +` button and choose `Data source`.
