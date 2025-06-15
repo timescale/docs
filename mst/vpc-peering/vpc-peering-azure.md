@@ -186,7 +186,7 @@ using the VPC on Azure.
     Ensure that the arguments starting with `$user_` are in lower case. Azure
     resource names are case-agnostic, but the Aiven API currently only accepts
     names in lower case. If no error is shown, the peering connection is being set
-    up by the $MST_LONG platform.
+    up by $MST_LONG.
 
 1.  Run the following command until the state is no longer `APPROVED` , but
     `PENDING_PEER`:
