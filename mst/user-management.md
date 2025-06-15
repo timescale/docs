@@ -112,7 +112,7 @@ For more information, and installation instructions, see
 
 ### Configuring multi-factor authentication
 
-1.  [Sign in][mst-login] to your $MST_CONSOLE_LONG.
+1.  [Sign in][mst-login] to $MST_CONSOLE_LONG.
 1.  Click the `User information` icon in the top-right of the dashboard to go to
     the `User profile` section.
 1.  In the `Authentication` tab, toggle `Two-factor authentication` to
