@@ -14,7 +14,7 @@ All the latest features and updates to Timescale products.
 
 ### Terraform support for Exporters and AWS Transit Gateway
 
-The latest version of Timescale Terraform (2.3.0) adds support for:
+The latest version of the Timescale Terraform provider (2.3.0) adds support for:
 - Creating and attaching observability exporters to your services.
 - Securing the connections to your Timescale Cloud services with AWS Transit Gateway.
 - Configuring CIDRs for VPC and AWS Transit Gateway connections.
