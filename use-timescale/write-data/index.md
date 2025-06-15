@@ -1,6 +1,6 @@
 ---
 title: Write data
-excerpt: Learn to write data in your TimescaleDB database with SQL
+excerpt: Learn to write data in a TimescaleDB database with SQL
 products: [cloud, mst, self_hosted]
 keywords: [ingest]
 tags: [write]
