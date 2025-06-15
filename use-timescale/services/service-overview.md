@@ -14,7 +14,7 @@ import ServiceOverview from "versionContent/_partials/_service-overview.mdx";
 
 <ServiceOverview />
 
-When you log into your [$ACCOUNT_LONG][cloud-login], you see the
+When you log into [$CONSOLE][cloud-login], you see the
 $PROJECT_SHORT overview. Click a $SERVICE_SHORT to view run-time data and connection information. 
 Click `Operations` to configure your $SERVICE_SHORT. 
 
