@@ -72,7 +72,7 @@ alt="Fork a Tiger Cloud service"
 
 </Procedure>
 
-### Reset $SERVICE_SHORT password
+### Reset your $SERVICE_SHORT password
 
 You can reset your $SERVICE_SHORT password from the `Operations` dashboard. This is the
 password you use to connect to your $SERVICE_SHORT, not the password to your $ACCOUNT_LONG. To reset your $ACCOUNT_SHORT password, navigate to the `Account` page.
