@@ -97,7 +97,7 @@ Your service must be running before you can manage users.
 
 ## Multi-factor user authentication
 
-You can use multi-factor authentication (MFA) to log in to your $MST_LONG account. This requires an authentication code, provided by the
+You can use multi-factor authentication (MFA) to log in to $MST_CONSOLE_LONG. This requires an authentication code, provided by the
 Google Authenticator app on your mobile device.
 
 You can see which authentication method is in use by each member of your $MST_LONG project. From the dashboard, navigate to the `Members`
