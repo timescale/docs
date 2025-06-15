@@ -773,11 +773,6 @@ module.exports = [
             excerpt: "The design of TimescaleDB compression",
           },
           {
-            title: "About compression methods",
-            href: "compression-methods",
-            excerpt: "Learn about the different compression methods",
-          },
-          {
             title: "Enable a compression policy",
             href: "compression-policy",
             excerpt: "Create a compression policy on a hypertable",
