@@ -13,7 +13,7 @@ using the VPC on Azure.
 ## Before you begin
 
 *   Installed [Aiven Client][aiven-client-install].
-*   Signed in to your $MST_LONG dashboard.
+*   Signed in to $MST_CONSOLE_LONG.
 *   Set up a VPC peering for your project in $MST_SHORT.
 
 ## Configuring a VPC peering on Azure
