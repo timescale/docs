@@ -9,8 +9,7 @@ $TIMESCALE_DB to deliver the best of both worlds, solving the key challenges in 
 - Efficient handling of data updates and late-arriving data
 - Streamlined data management
 
-$HYPERCORE_CAP’s hybrid approach combines the benefits of row-oriented and column-oriented formats
-in each $TIMESCALE_DB database:
+$HYPERCORE_CAP’s hybrid approach combines the benefits of row-oriented and column-oriented formats:
 
 - **Fast ingest with $ROWSTORE**: new data is initially written to the $ROWSTORE, which is optimized for
   high-speed inserts and updates. This process ensures that real-time applications easily handle

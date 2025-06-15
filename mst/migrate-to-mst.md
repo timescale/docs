@@ -21,6 +21,7 @@ you to limit the downtime during the migration process and have a sufficiently
 powerful plan.
 
 <Highlight type="warning">
+
 Depending on your database size and network speed, migration can take a very
 long time. During this time, any new writes that happen during the dumping
 process are not included. To prevent data loss, turn off all the
@@ -29,6 +30,7 @@ migrate as a cold run without turning off writes on your previous server and
 running the dump concurrently. This gives you an estimate of the time the dump
 process takes. It also helps you in practicing the actual operation when it's
 not causing downtime to your customers.
+
 </Highlight>
 
 ## Before you begin

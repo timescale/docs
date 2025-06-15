@@ -281,9 +281,9 @@ not using a dictionary in that scenario.
 
 [decompress-chunks]: /use-timescale/:currentVersion:/compression/decompress-chunks
 [manual-compression]: /use-timescale/:currentVersion:/compression/manual-compression/
-[delta]: /use-timescale/:currentVersion:/compression/compression-methods/#delta-encoding
-[delta-delta]: /use-timescale/:currentVersion:/compression/compression-methods/#delta-of-delta-encoding
-[simple-8b]: /use-timescale/:currentVersion:/compression/compression-methods/#simple-8b
-[run-length]: /use-timescale/:currentVersion:/compression/compression-methods/#run-length-encoding
-[xor]: /use-timescale/:currentVersion:/compression/compression-methods/#xor-based-encoding
-[dictionary]: /use-timescale/:currentVersion:/compression/compression-methods/#dictionary-compression
+[delta]: /use-timescale/:currentVersion:/hypercore/compression-methods/#delta-encoding
+[delta-delta]: /use-timescale/:currentVersion:/hypercore/compression-methods/#delta-of-delta-encoding
+[simple-8b]: /use-timescale/:currentVersion:/hypercore/compression-methods/#simple-8b
+[run-length]: /use-timescale/:currentVersion:/hypercore/compression-methods/#run-length-encoding
+[xor]: /use-timescale/:currentVersion:/hypercore/compression-methods/#xor-based-encoding
+[dictionary]: /use-timescale/:currentVersion:/hypercore/compression-methods/#dictionary-compression

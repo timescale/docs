@@ -24,7 +24,7 @@ from the $ROWSTORE to the $COLUMNSTORE.
 
 <PrereqCloud />
 
-The code samples in this page use the <Tag type="download">[crypto_sample.zip](https://assets.timescale.com/docs/downloads/candlestick/crypto_sample.zip)</Tag> data from [this tutorial][ingest-data].   
+The code samples in this page use the <Tag type="download">[crypto_sample.zip](https://assets.timescale.com/docs/downloads/candlestick/crypto_sample.zip)</Tag> data from [this key features tutorial][ingest-data].   
 
 ## Optimize your data with $COLUMNSTORE policies 
 

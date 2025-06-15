@@ -66,7 +66,9 @@ other roles. For a complete list of roles available, see the
 [PostgreSQL role attributes documentation][pg-roles-doc].
 
 <Highlight type="important">
+
 Your service must be running before you can manage users.
+
 </Highlight>
 
 <Procedure>
