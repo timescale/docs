@@ -235,7 +235,7 @@ using the VPC on Azure.
     ```
 
     If you do not specify `--allow-vnet-access` no traffic is allowed to flow
-    from the peered VNet and $MST_LONG services cannot be reached through the
+    from the peered VNet and $MST_SERVICE_LONGs cannot be reached through the
     peering. After the peering has been created, the peering should be in the state
     `connected`.
 
