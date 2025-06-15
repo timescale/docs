@@ -67,7 +67,7 @@ Ensure that you have:
     ```
 
 1.  At the command prompt, restore the dumped data from the `dump.bak` file into
-    your $MST_LONG database, using your $MST_SHORT connection details. To migrate from multiple databases you
+    your $MST_SERVICE_LONG, using your $MST_SHORT connection details. To migrate from multiple databases you
     repeat the process of dumping or loading one database after another. The
     `--jobs`  option specifies the number of CPUs to use to dump and restore the
     database concurrently.
