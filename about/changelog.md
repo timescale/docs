@@ -113,7 +113,24 @@ Highlighted features in TimescaleDB v2.20 include:
 * Enhanced developer flexibility with continuous aggregates now supporting window and mutable functions, plus 
   customizable refresh orders.
 
-This release deprecates support for Postgres 14.
+### PostgreSQL 13 and 14 deprecated on Tiger Cloud
+
+[TimescaleDB version 2.20][timescale220] is not compatible with PostgreSQL versions v14 and below.
+TimescaleDB 2.19.3 is the last bug-fix release for PostgreSQL 14. Future fixes are for
+PostgreSQL 15+ only. To continue receiving critical fixes and security patches, and to take
+advantage of the latest TimescaleDB features, you must upgrade to PostgreSQL 15 or newer.
+This deprecation affects all Tiger Cloud services currently running PostgreSQL 13 or
+PostgreSQL 14.
+
+The timeline for the PostgreSQL 13 and 14 deprecation is as follows:
+
+- **Deprecation notice period begins**: starting in early June 2025, you will receive email communication.
+- **Customer self-service upgrade window**: June 2025 through September 14, 2025. We strongly encourage you to
+  [manually upgrade PostgreSQL](https://docs.tigerdata.com/use-timescale/latest/upgrades/#manually-upgrade-postgresql-for-a-service)
+  during this period.
+- **Automatic upgrade deadline**: your service will be
+  [automatically upgraded](https://docs.timescale.com/use-timescale/latest/upgrades/#automatic-postgresql-upgrades-for-a-service)
+  from September 15, 2025.
 
 ### Enhancements to livesync for PostgreSQL
 
