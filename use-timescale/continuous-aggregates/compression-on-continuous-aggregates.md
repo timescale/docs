@@ -19,7 +19,7 @@ $COLUMNSTORE with no other options, your data is [segmented by][alter_materializ
 in the $CAGG, and [ordered by][alter_materialized_view_arguments] the time column. [Real-time aggregation][real-time-aggregates]
 is disabled by default.
 
-<Since2200 /> For the old API, see <a href="https://docs.timescale.com/use-timescale/latest/compression/compression-on-continuous-aggregates/">Compress continuous aggregates</a>.
+<Since2200 /> For the old API, see <a href="https://docs.tigerdata.com/use-timescale/latest/compression/compression-on-continuous-aggregates/">Compress continuous aggregates</a>.
 
 ## Configure $COLUMNSTORE on $CAGGs
 

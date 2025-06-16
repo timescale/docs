@@ -546,4 +546,4 @@ increase the time range.
 </Procedure>
 
 [docs-cagg]: /use-timescale/:currentVersion:/continuous-aggregates/
-[about-hyperfunctions]: https://docs.timescale.com/use-timescale/latest/hyperfunctions/about-hyperfunctions/
+[about-hyperfunctions]: https://docs.tigerdata.com/use-timescale/latest/hyperfunctions/about-hyperfunctions/

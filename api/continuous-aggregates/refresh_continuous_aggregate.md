@@ -108,5 +108,5 @@ Force the  `conditions` continuous aggregate to refresh between `2020-01-01` and
 CALL refresh_continuous_aggregate('conditions', '2020-01-01', '2020-02-01', force => TRUE);
 ```
 
-[modify-parameters]: /use-timescale/:currentVersion/configuration/customize-configuration/
+[modify-parameters]: /use-timescale/:currentVersion:/configuration/customize-configuration/
 [create_materialized_view]: /api/:currentVersion:/continuous-aggregates/create_materialized_view/

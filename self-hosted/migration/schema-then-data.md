@@ -196,7 +196,7 @@ database is now stored uncompressed in your `.csv` files. If you
 provisioned your Timescale storage for your compressed data, the
 uncompressed data may take too much storage. To avoid this problem, periodically
 recompress your data as you copy it in. For more information on compression, see
-the [compression section](https://docs.timescale.com/use-timescale/latest/compression/).
+the [compression section](https://docs.tigerdata.com/use-timescale/latest/compression/).
 </Highlight>
 
 <UsingParallelCopy />

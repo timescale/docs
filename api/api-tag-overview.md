@@ -56,4 +56,3 @@ information, [see the TimescaleDB Toolkit docs][toolkit-docs].
 [tsl-comparison]: /about/:currentVersion:/timescaledb-editions/
 [toolkit-install]: /self-hosted/:currentVersion:/tooling/install-toolkit/
 [toolkit-docs]: https://github.com/timescale/timescaledb-toolkit/tree/main/docs#a-note-on-tags-
-[experimental-blog]: https://www.timescale.com/blog

@@ -333,7 +333,7 @@ You can access a hosted version of $TDB_COMMUNITY through
     <td>✅</td>
   </tr>
   <tr>
-    <td><a href="https://docs.timescale.com/api/latest/hyperfunctions/gapfilling/time_bucket_gapfill/#locf">locf</a></td>
+    <td><a href="https://docs.tigerdata.com/api/latest/hyperfunctions/gapfilling/time_bucket_gapfill#locf">locf</a></td>
     <td>❌</td>
     <td>✅</td>
   </tr>
@@ -403,7 +403,7 @@ You can access a hosted version of $TDB_COMMUNITY through
     <td>✅</td>
   </tr>
    <tr>
-    <td><a href="https://docs.timescale.com/api/latest/hyperfunctions/time-weighted-calculations/time_weight/#rollup">rollup</a></td>
+    <td><a href="https://docs.tigerdata.com/api/latest/hyperfunctions/time-weighted-calculations/time_weight#rollup">rollup</a></td>
     <td>❌</td>
     <td>✅</td>
   </tr>
@@ -520,8 +520,8 @@ You can access a hosted version of $TDB_COMMUNITY through
 
 <!-- vale Google.Units = NO -->
 
-[license-blog]: https://www.timescale.com/blog/how-we-are-building-a-self-sustaining-open-source-business-in-the-cloud-era
+[license-blog]: https://www.tigerdata.com/blog/how-we-are-building-a-self-sustaining-open-source-business-in-the-cloud-era
 [mst]: /mst/:currentVersion:
 [timescale-cloud]: /use-timescale/:currentVersion:/services/
-[timescale-license]: https://github.com/timescale/timescaledb/blob/main/tsl/LICENSE-TIMESCALE
-[apache-license]: https://github.com/timescale/timescaledb/blob/main/LICENSE-APACHE
+[timescale-license]: https://github.com/timescale/timescaledb/blob/master/tsl/LICENSE-TIMESCALE
+[apache-license]: https://github.com/timescale/timescaledb/blob/master/LICENSE-APACHE

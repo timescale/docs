@@ -24,5 +24,5 @@ For more information, read the [hyperfunctions blog post][hyperfunctions-blog].
 ## Browse hyperfunctions and $TOOLKIT_LONG features by category
 
 [about-hyperfunctions]: /use-timescale/:currentVersion:/hyperfunctions/about-hyperfunctions
-[hyperfunctions-blog]: https://blog.timescale.com/blog/time-series-analytics-for-postgresql-introducing-the-timescale-analytics-project
+[hyperfunctions-blog]: https://www.tigerdata.com/blog/time-series-analytics-for-postgresql-introducing-the-timescale-analytics-project
 [install-toolkit]: /self-hosted/:currentVersion:/tooling/install-toolkit/
