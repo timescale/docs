@@ -1,6 +1,6 @@
 ---
 title: Read scaling
-excerpt: For read-intensive apps, Tiger Cloud enables you to create read-only replica sets that take over read queries. Create read-only replica sets with automated load balancing in Tiger Cloud Console
+excerpt: For read-intensive apps, Timescale Cloud enables you to create read-only replica sets that take over read queries. Create read-only replica sets with automated load balancing in Timescale Console
 products: [cloud]
 price_plans: [scale, enterprise]
 keywords: [replicas, scaling]
@@ -50,7 +50,7 @@ To create a secure $READ_REPLICA set for your read-intensive apps:
 
     Configure the number of nodes, compute size, connection pooling, and the name for your replica, then click `Create read replica set`.
 
-   ![Create a read replica set in Tiger Cloud Console](https://assets.timescale.com/docs/images/create-read-replica-set-timescale-console.png)
+   ![Create a read replica set in Tiger Cloud Console](https://assets.timescale.com/docs/images/tiger-cloud-console/create-read-replica-set-tiger-cloud-console.png)
 
 1. **Save the connection information**
 
@@ -78,11 +78,11 @@ To change the compute and storage configuration of your $READ_REPLICA set:
 
 1. **In [$CONSOLE][timescale-console-services], expand and click the $READ_REPLICA set under your primary $SERVICE_SHORT**
 
-   ![Read replicas in Tiger Cloud Console](https://assets.timescale.com/docs/images/read-replica-sets-timescale-console.png)
+   ![Read replicas in Tiger Cloud Console](https://assets.timescale.com/docs/images/tiger-cloud-console/read-replica-sets-tiger-cloud-console.png)
 
 1. **Click `Operations` > `Compute and storage`**
 
-   ![Read replica compute and storage in Tiger Cloud Console](https://assets.timescale.com/docs/images/read-replica-set-configs.png)
+   ![Read replica compute and storage in Tiger Cloud Console](https://assets.timescale.com/docs/images/tiger-cloud-console/read-replica-set-config.png)
 
 1. **Change the replica configuration and click `Apply`**
 

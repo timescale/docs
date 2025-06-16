@@ -69,11 +69,11 @@ between $CLOUD_LONG and your Customer $VPC in a logically isolated virtual netwo
 
 1.  **In [$CONSOLE > Security > VPC][console-vpc], click `Create a VPC`**
 
-    ![$CLOUD_LONG new $VPC](https://assets.timescale.com/docs/images/add-peering-vpc.png)
+    ![$CLOUD_LONG new $VPC](https://assets.timescale.com/docs/images/tiger-cloud-console/add-peering-vpc-tiger-cloud.png)
 
 1.  **Choose your region and IP range, name your $VPC, then click `Create VPC`**
 
-    ![Create a new VPC in $CLOUD_LONG](https://assets.timescale.com/docs/images/configure-peering-vpc.png)
+    ![Create a new VPC in $CLOUD_LONG](https://assets.timescale.com/docs/images/tiger-cloud-console/configure-peering-vpc-tiger-cloud.png)
 
     The IP ranges of the Peering $VPC and Customer VPC should not overlap. 
 
@@ -82,7 +82,7 @@ between $CLOUD_LONG and your Customer $VPC in a logically isolated virtual netwo
     1. In the `VPC Peering` column, click `Add`.
     2. Enter information about your existing Customer VPC, then click `Add Connection`.
 
-       ![Add peering](https://assets.timescale.com/docs/images/add-peering.png)
+       ![Add peering](https://assets.timescale.com/docs/images/tiger-cloud-console/add-peering-tiger-cloud.png)
 
     <VpcLimitations />
 
