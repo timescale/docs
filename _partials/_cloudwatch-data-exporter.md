@@ -4,7 +4,7 @@
 1.  **Click `New exporter`**
 1.  **Select the data type and specify `AWS CloudWatch` for provider**
 
-    ![Add CloudWatch data exporter](https://assets.timescale.com/docs/images/tsc-integrations-cloudwatch.png)
+    ![Add CloudWatch data exporter](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-integrations-cloudwatch.png)
 
 1.  **Provide your AWS CloudWatch configuration**
 
@@ -15,6 +15,8 @@
       the default values. For more information, see [Working with log groups and log streams][cloudwatch-log-naming].
 
 1.  **Choose the authentication method to use for the exporter**
+
+    ![Add CloudWatch authentication](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-integrations-cloudwatch-authentication.png)
 
     <Tabs label="Authentication methods">
 

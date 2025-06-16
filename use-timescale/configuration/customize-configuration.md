@@ -31,7 +31,7 @@ modify. This displays the `service details`, with these tabs across the top:
 Overview, Explorer, Operations, Metrics, and Logs. Select `Operations`, then
 `Database parameters`.
 
-![Database configuration parameters](https://assets.timescale.com/docs/images/database-configuration-parameters.png)
+![Database configuration parameters](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-service-configuration-parameters.png)
 
 ### Modify basic parameters
 

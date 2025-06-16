@@ -204,7 +204,7 @@ To change your maintenance window:
    In [$CONSOLE][cloud-login], select the $SERVICE_SHORT you want to manage.
 1. **Set your maintenance window**
    1. Click `Operations` > `Environment`, then click  `Change maintenance window`.
-       ![Maintenance and upgrades](https://assets.timescale.com/docs/images/timescale-maintenance-upgrades.png)
+       ![Maintenance and upgrades](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-maintenance-upgrades.png)
    1. Select the maintence window start time, then click `Apply`.
 
    Maintenance windows can run for up to four hours.

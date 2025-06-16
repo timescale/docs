@@ -17,7 +17,7 @@ add and delete other users, and edit project settings. Users that you add to the
 assigned the `Member` role. Members have rights to collaborate with you on your project, and help 
 create and administer the services running in the project. 
 
-![Project users in $CONSOLE](https://assets.timescale.com/docs/images/console-users-overview.png)
+![Project users in $CONSOLE](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-users-overview.png)
 
 If you have the [Enterprise pricing plan][pricing-plans], you can use your company [SAML][saml] 
 identity provider to log in to $CONSOLE.
@@ -33,7 +33,7 @@ To add a user to a project:
 <Procedure>
 
 1.  In [$CONSOLE][cloud-login], click `Invite users`, then click `Add new user`.
-    ![Send a user invitation in $CONSOLE](https://assets.timescale.com/docs/images/console-add-users.png)
+    ![Send a user invitation in $CONSOLE](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-add-users.png)
 
 1.  Type the email address of the person that you want to add, and click `Add
     user`.
@@ -75,7 +75,7 @@ Project invitations are valid for 7 days. To resend a project invitation:
 <Procedure>
 
 1.  In [$CONSOLE][cloud-login], click `Invite users`.
-    ![Resend a user invitation $CONSOLE](https://assets.timescale.com/docs/images/console-resend-invitations.png)
+    ![Resend a user invitation $CONSOLE](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-users-overview.png)
 1.  Next to the person you want to invite to your project, click `Resend invitation`.
 
 </Procedure>
@@ -87,7 +87,7 @@ To change the project you are currently working in:
 <Procedure>
 
 1. In [$CONSOLE][cloud-login], click `Timescale Project`, then `Current project`.
-   ![Change project in $CONSOLE](https://assets.timescale.com/docs/images/console-change-project.png)
+   ![Change project in $CONSOLE](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-change-project.png)
 2. Select the project you want to use.
 
 You can now manage the users and services in this project
@@ -105,8 +105,7 @@ To transfer project ownership:
 <Procedure>
 
 1.  In [$CONSOLE][cloud-login], click `Invite users`.
-2.  Next to the person you want to transfer project ownership to, click `⋮`.
-    ![Transfer project ownership in $CONSOLE](https://assets.timescale.com/docs/images/console-transfer-owner.png)
+2.  Next to the person you want to transfer project ownership to, click `⋮` > `Transfer project ownership`.
     If you are unable to transfer ownership, hover over the greyed out button to see details.
 3.  Enter your password, and click `Verify`.
 4.  Complete the two-factor authentication challenge and click `Confirm`.
@@ -125,8 +124,7 @@ To stop working in a project:
 <Procedure>
 
 1. In [$CONSOLE][cloud-login], click `Invite users`.
-1. Click `Leave project`, then click `Leave`.
-   ![Leave project in $CONSOLE](https://assets.timescale.com/docs/images/console-leave-projects.png)
+1. Click `⋮` > `Leave project`, then click `Leave`.
 
 Your account is removed from the project immediately, you can no longer access this project.
 
@@ -140,8 +138,7 @@ To remove a user's access to a project:
 <Procedure>
 
 1.  In [$CONSOLE][cloud-login], click `Invite users`.
-1.  Next to the person you want to remove, click `⋮`, then click the trash can icon.
-    ![Remove a user in $CONSOLE](https://assets.timescale.com/docs/images/console-remove-users.png)
+1.  Next to the person you want to remove, click `⋮` > `Remove`.
 1.  In `Remove user`, click `Remove`.
 
 The user is deleted immediately, they can no longer access your project.
