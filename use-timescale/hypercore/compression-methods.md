@@ -279,8 +279,8 @@ have a lot of repeated values, then the dictionary is the same size as the
 original data. TimescaleDB automatically detects this case, and falls back to
 not using a dictionary in that scenario.
 
-[decompress-chunks]: /use-timescale/:currentVersion:/hypercore/decompress-chunks
-[manual-compression]: /use-timescale/:currentVersion:/hypercore/manual-compression/
+[decompress-chunks]: /use-timescale/:currentVersion:/compression/decompress-chunks
+[manual-compression]: /use-timescale/:currentVersion:/compression/manual-compression/
 [delta]: /use-timescale/:currentVersion:/hypercore/compression-methods/#delta-encoding
 [delta-delta]: /use-timescale/:currentVersion:/hypercore/compression-methods/#delta-of-delta-encoding
 [simple-8b]: /use-timescale/:currentVersion:/hypercore/compression-methods/#simple-8b
