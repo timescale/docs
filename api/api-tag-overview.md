@@ -1,6 +1,6 @@
 ---
 title: API reference tag overview
-excerpt: The Timescale Cloud API reference includes tags to categorize the available SQL functions and views. See what tags are used and what they mean
+excerpt: The TimescaleDB API reference includes tags to categorize the available SQL functions and views. See what tags are used and what they mean
 tags: [licenses, toolkit, experimental]
 products: [cloud, mst, self_hosted]
 ---
@@ -19,7 +19,7 @@ This tag indicates that the function is available under TimescaleDB Community
 Edition, and are not available under the Apache 2 Edition. For more information,
 visit our [TimescaleDB License comparison sheet][tsl-comparison].
 
-## Experimental (TimescaleDB Experimental Schema) <Tag type="experimental">Experimental</Tag>
+## Experimental ($TIMESCALE_DB Experimental Schema) <Tag type="experimental">Experimental</Tag>
 
 This tag indicates that the function is included in the TimescaleDB experimental
 schema. Do not use experimental functions in production. Experimental features

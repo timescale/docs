@@ -68,7 +68,9 @@ Before you start [live migration][live migration]:
                ```
 
            <Highlight type="note">
-           You may need to reconnect to your Timescale Service using `psql -X` when you're creating the TimescaleDB extension.
+           
+           You may need to reconnect to your Timescale Service using `psql -X` when you're creating the $TIMESCALE_DB extension.
+      
            </Highlight>
 
     - **Upgrade**: for self-hosted databases,

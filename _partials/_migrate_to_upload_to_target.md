@@ -7,26 +7,26 @@
 
 1. **Set your connection strings**
 
-   These variables hold the connection information for the source database and target Timescale Cloud service:
+   These variables hold the connection information for the source database and target $SERVICE_LONG:
 
    ```bash
    export SOURCE="postgres://<user>:<password>@<source host>:<source port>/<db_name>"
    export TARGET="postgres://tsdbadmin:<PASSWORD>@<HOST>:<PORT>/tsdb?sslmode=require"
    ```
-   You find the connection information for your Timescale Cloud Service in the configuration file you
+   You find the connection information for your $SERVICE_LONG in the configuration file you
    downloaded when you created the service.
 
 1. **Ensure that the source and target databases are running the same version of TimescaleDB**
 
-    1. Check the version of TimescaleDB running on your Timescale Cloud service:
+    1. Check the version of $TIMESCALE_DB running on your $SERVICE_LONG:
 
        ```bash
        psql $TARGET -c "SELECT extversion FROM pg_extension WHERE extname = 'timescaledb';"
        ```
 
-    1. Update the TimescaleDB extension in your source database to match the target source:
+    1. Update the $TIMESCALE_DB extension in your source database to match the target source:
 
-       If the timescaleDB extension is the same version on the source database and target service,
+       If the $TIMESCALE_DB extension is the same version on the source database and target service,
        you do not need to do this.
 
        ```bash
@@ -35,13 +35,13 @@
 
        For more information and guidance, see [Upgrade TimescaleDB].
 
-1. **Ensure that the Timescale Cloud service is running the PostgreSQL extensions used in your source database**
+1. **Ensure that the $SERVICE_LONG is running the PostgreSQL extensions used in your source database**
 
     1. Check the extensions on the source database:
        ```bash
        psql $SOURCE  -c "SELECT * FROM pg_extension;"
        ```
-    1. For each extension, enable it on your target Timescale Cloud service:
+    1. For each extension, enable it on your target $SERVICE_LONG:
        ```bash
        psql $TARGET  -c "CREATE EXTENSION IF NOT EXISTS <extension name> CASCADE;"
        ```
@@ -60,7 +60,7 @@
 
 1. **Remove roles with superuser access**
 
-   Timescale Cloud services do not support roles with superuser access. Run the following script
+   $SERVICE_LONGs do not support roles with superuser access. Run the following script
    to remove statements, permissions and clauses that require superuser permissions from `roles.sql`:
 
    ```bash

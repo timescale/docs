@@ -5,7 +5,7 @@ products: [cloud, mst, self_hosted]
 keywords: [jobs, data retention]
 ---
 
-# Use a $JOB to create a generic retention policy
+# Use a job to create a generic retention policy
 
 Timescale natively supports adding a
 [data retention policy][data-retention-policy] to a $HYPERTABLE. If you want to

@@ -29,7 +29,7 @@ SQL command, but it is helpful if you've seen SQL before.
 
 ### Accessing Timescale
 
-There are multiple options for using Timescale to follow along with this tutorial. **All connection information
+There are multiple options for using $CLOUD_LONG to follow along with this tutorial. **All connection information
 and database naming** throughout this tutorial assumes you are connected to **Timescale**, our hosted,
 fully managed database-as-a-service. [Sign up for a free, 30-day demo account][cloud-signup], no credit-card
 required. Once you confirm the account and get logged in, proceed to the **Background** section below.
@@ -168,7 +168,7 @@ automatically configures your TimescaleDB instance with the appropriate
 
 In the command below, be sure to substitute the items in the curly braces with
 information from your TimescaleDB instance, as you did earlier. Also take
-note that this command includes the Timescale database that is automatically created
+note that this command includes the $SERVICE_LONG that is automatically created
 for you. If you are running the database locally, replace the database name as needed.
 
 ```bash
@@ -268,7 +268,7 @@ inserts into multiple transactions. With nearly 11 million rows of data this imp
 \COPY rides FROM nyc_data_rides.csv CSV;
 ```
 
-A faster alternative is the [Parallel COPY command][parallel-copy], written in GoLang, that Timescale makes
+A faster alternative is the [Parallel COPY command][parallel-copy], written in GoLang, that $COMPANY makes
 available to the community. Once installed, issuing the following command imports the CSV file
 in multiple threads, 5,000 rows at a time, significantly improving import speed. Set `--workers` <= CPUs (or CPUs x 2)
 if they support Hyperthreading. **Be sure to replace your connection string, database name, and file location appropriately.**

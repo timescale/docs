@@ -1,13 +1,13 @@
 
 Best practice is to use an [Ubuntu EC2 instance][create-ec2-instance] hosted in the same region as your
-Timescale Cloud service to move data. That is, the machine you run the commands on to move your 
-data from your source database to your target Timescale Cloud service. 
+$SERVICE_LONG to move data. That is, the machine you run the commands on to move your 
+data from your source database to your target $SERVICE_LONG. 
 
 Before you move your data:
 
 - Create a target [$SERVICE_LONG][created-a-database-service-in-timescale].
 
-  Each Timescale Cloud service has a single database that supports the
+  Each $SERVICE_LONG has a single $PG instance that supports the
   [most popular extensions][all-available-extensions]. $SERVICE_LONGs do not support tablespaces,
   and there is no superuser associated with a $SERVICE_SHORT.
   Best practice is to create a $SERVICE_LONG with at least 8 CPUs for a smoother experience. A higher-spec instance

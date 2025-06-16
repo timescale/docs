@@ -1,6 +1,6 @@
 ---
 title: Continuous aggregates
-excerpt: Timescale Cloud API reference for calculating continuous aggregates on your data. Includes SQL functions and views related to creating, altering, and dropping continuous aggregates
+excerpt: TimescaleDB reference for calculating continuous aggregates on your data. Includes SQL functions and views related to creating, altering, and dropping continuous aggregates
 keywords: [hypertables, chunks]
 products: [cloud, self_hosted, mst]
 ---

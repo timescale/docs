@@ -9,55 +9,53 @@ tags: [learn, contribute]
 import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 import Since2180 from "versionContent/_partials/_since_2_18_0.mdx";
 
-# TimescaleDB Apache 2 and TimescaleDB Community Edition
+# $TIMESCALE_DB editions
 
-There are two versions of TimescaleDB available:
+The following versions of $TIMESCALE_DB are available:
 
-*   TimescaleDB Apache 2 Edition
-*   TimescaleDB Community Edition
+*   $TDB_APACHE
+*   $TDB_COMMUNITY
 
-The TimescaleDB Apache 2 Edition is the version of TimescaleDB that is available
-under the [Apache 2.0 license][apache-license]. This is a classic open source license,
-meaning that it is completely unrestricted - anyone can take this code and offer it
-as a service.
+## $TDB_APACHE
 
-## TimescaleDB Apache 2 Edition
+$TDB_APACHE is available under the [Apache 2.0 license][apache-license]. This is a classic open source license,
+meaning that it is completely unrestricted - anyone can take this code and offer it as a service.
 
-You can install TimescaleDB Apache 2 Edition on your own on-premises or cloud
+You can install $TDB_APACHE on your own on-premises or cloud
 infrastructure and run it for free.
 
-You can sell TimescaleDB Apache 2 Edition as a service, even if you're not the
+You can sell $TDB_APACHE as a service, even if you're not the
 main contributor.
 
-You can modify the TimescaleDB Apache 2 Edition source code and run it for
+You can modify the $TDB_APACHE source code and run it for
 production use.
 
-## TimescaleDB Community Edition
+## 	$TDB_COMMUNITY
 
-TimescaleDB Community Edition is the advanced, best, and most feature complete 
-version of TimescaleDB, available under the terms of the
+$TDB_COMMUNITY is the advanced, best, and most feature complete 
+version of $TIMESCALE_DB, available under the terms of the
 [Timescale License (TSL)][timescale-license].
 
 For more information about the Timescale license, see [this blog post][license-blog].
 
-Many of the most recent features of TimescaleDB are only available in
-TimescaleDB Community Edition.
+Many of the most recent features of $TIMESCALE_DB are only available in
+$TDB_COMMUNITY.
 
-You can install TimescaleDB Community Edition in your own on-premises or cloud
-infrastructure and run it for free. TimescaleDB Community Edition is completely
+You can install $TDB_COMMUNITY in your own on-premises or cloud
+infrastructure and run it for free. $TDB_COMMUNITY is completely
 free if you manage your own service.
 
-You cannot sell TimescaleDB Community Edition as a service, even if you are the
+You cannot sell $TDB_COMMUNITY as a service, even if you are the
 main contributor.
 
-You can modify the TimescaleDB Community Edition source code and run it for
-production use. Developers using TimescaleDB Community Edition have the "right
+You can modify the $TDB_COMMUNITY source code and run it for
+production use. Developers using $TDB_COMMUNITY have the "right
 to repair" and make modifications to the source code and run it in their own
 on-premises or cloud infrastructure. However, you cannot make modifications to
-the TimescaleDB Community Edition source code and offer it as a service.
+the $TDB_COMMUNITY source code and offer it as a service.
 
-You can access a hosted version of TimescaleDB Community Edition through
-[Timescale][timescale-cloud], which is a cloud-native platform for time-series.
+You can access a hosted version of $TDB_COMMUNITY through
+[$CLOUD_LONG][timescale-cloud], a cloud-native platform for time-series and real-time analytics.
 
 ## Feature comparison
 
@@ -65,7 +63,7 @@ You can access a hosted version of TimescaleDB Community Edition through
   <tr>
     <th>Features</th>
     <th>TimescaleDB Apache 2 Edition</th>
-    <th>TimescaleDB Community Edition</th>
+    <th>$TDB_COMMUNITY</th>
   </tr>
   <tr>
     <td><strong>Hypertables and chunks</strong></td>

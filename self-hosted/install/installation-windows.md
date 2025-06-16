@@ -11,7 +11,7 @@ import TestingEnv from "versionContent/_partials/_selfhosted_production_alert.md
 import SelfHostedWindowsBased from "versionContent/_partials/_install-self-hosted-windows-based.mdx";
 import AddTimescaleDBToDB from "versionContent/_partials/_add-timescaledb-to-a-database.mdx";
 
-# Install TimescaleDB on Windows
+# Install $TIMESCALE_DB on Windows
 
 TimescaleDB is a [PostgreSQL extension](https://www.postgresql.org/docs/current/external-extensions.html) for
 time series and demanding workloads that ingest and query high volumes of data.
@@ -34,7 +34,7 @@ To install TimescaleDB on your Windows device, you need:
   For TimescaleDB v2.14.1 only, you need to install OpenSSL v1.1.1.
 * [Visual C++ Redistributable for Visual Studio 2015][ms-download]
 
-## Install and configure TimescaleDB on PostgreSQL
+## Install and configure $TIMESCALE_DB on $PG
 
 This section shows you how to install the latest version of PostgreSQL and
 TimescaleDB on a [supported platform][supported-platforms] using the packages supplied by Timescale.
@@ -53,7 +53,7 @@ To keep your current PostgreSQL installation, [Install from source][install-from
 <SelfHostedWindowsBased />
 
 
-## Add the TimescaleDB extension to your database
+## Add the $TIMESCALE_DB extension to your database
 
 For improved performance, you enable TimescaleDB on each database on your self-hosted PostgreSQL instance.
 This section shows you how to enable TimescaleDB for a new database in PostgreSQL using `psql` from the command line.

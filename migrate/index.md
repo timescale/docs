@@ -8,7 +8,7 @@ tags: [ingest, migrate, RDS]
 
 import OpenSupportRequest from "versionContent/_partials/_migrate_open_support_request.mdx"
 
-# Migrate and sync data to Timescale Cloud
+# Migrate and sync data to Tiger Cloud
 
 You have chosen to migrate or sync your data to $CLOUD_LONG, thank you. 
 

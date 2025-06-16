@@ -53,10 +53,12 @@ relational schema that you are using in the source database to the target
 database.
 
 <Highlight type="important">
+
 The PostgresSQL versions of the source and target databases can be of different
 versions, as long as the target version is greater than that of the source.
 
-The version of TimescaleDB used in both databases must be exactly the same.
+The version of $TIMESCALE_DB used in both databases must be exactly the same.
+
 </Highlight>
 
 <SetupSourceTarget />

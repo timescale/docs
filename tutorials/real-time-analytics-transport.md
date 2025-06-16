@@ -1,6 +1,6 @@
 ---
 title: Analytics on transport and geospatial data
-excerpt: Simulate and analyze a transport dataset in your Timescale Cloud service
+excerpt: Simulate and analyze a transport dataset in your Tiger Cloud service
 products: [cloud, mst, self_hosted]
 keywords: [IoT, simulate]
 ---
@@ -33,7 +33,7 @@ of data optimized for size and speed in the columnstore.
 
 ## Optimize your data for real-time analytics
 
-When $CLOUD_LONG converts a chunk to the columnstore, TimescaleDB automatically creates a different schema for your
+When $CLOUD_LONG converts a chunk to the columnstore, $TIMESCALE_DB automatically creates a different schema for your
 data. $TIMESCALE_DB creates and uses custom indexes to incorporate the `segmentby` and `orderby` parameters when
 you write to and read from the columstore.
 
@@ -45,7 +45,7 @@ to the columnstore:
 1. **Connect to your $SERVICE_LONG**
 
    In [$CONSOLE][services-portal] open an [SQL editor][in-console-editors]. The in-Console editors display the query speed.
-   You can also connect to your service using [psql][connect-using-psql].
+   You can also connect to your $SERVICE_SHORTusing [psql][connect-using-psql].
 
 1. **Add a policy to convert chunks to the columnstore at a specific time interval**
 
@@ -56,7 +56,7 @@ to the columnstore:
    See [add_columnstore_policy][add_columnstore_policy].
 
    The data you imported for this tutorial is from 2016, it was already added to the $COLUMNSTORE by default. However, 
-   you get the idea. To see the space savings in action, follow [Try the key Timescale features][try-timescale-features].
+   you get the idea. To see the space savings in action, follow [Try the key $COMPANY features][try-timescale-features].
 
 </Procedure>
 

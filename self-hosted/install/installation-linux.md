@@ -13,25 +13,25 @@ import SelfHostedArchLinuxBased from "versionContent/_partials/_install-self-hos
 import AddTimescaleDBToDB from "versionContent/_partials/_add-timescaledb-to-a-database.mdx";
 
 
-# Install TimescaleDB on Linux
+# Install $TIMESCALE_DB on Linux
 
 TimescaleDB is a [PostgreSQL extension](https://www.postgresql.org/docs/current/external-extensions.html) for 
 time series and demanding workloads that ingest and query high volumes of data.
 
 This section shows you how to:
 
-* [Install and configure TimescaleDB on PostgreSQL](#install-and-configure-timescaledb-on-postgresql) - set up
+* [Install and configure $TIMESCALE_DB on PostgreSQL](#install-and-configure-timescaledb-on-postgresql) - set up
   a self-hosted PostgreSQL instance to efficiently run TimescaleDB.
-* [Add the TimescaleDB extension to your database](#add-the-timescaledb-extension-to-your-database) - enable TimescaleDB features and 
-  performance improvements on a database. 
+* [Add the $TIMESCALE_DB extension to your database](#add-the-timescaledb-extension-to-your-database) - enable $TIMESCALE_DB
+  features and performance improvements on a database. 
 
 
 < TestingEnv/>
 
-## Install and configure TimescaleDB on PostgreSQL 
+## Install and configure $TIMESCALE_DB on PostgreSQL 
 
-This section shows you how to install the latest version of PostgreSQL and 
-TimescaleDB on a [supported platform](#supported-platforms) using the packages supplied by Timescale. 
+This section shows you how to install the latest version of PostgreSQL and
+$TIMESCALE_DB on a [supported platform](#supported-platforms) using the packages supplied by Timescale. 
 
 <Highlight type="warning">
 
@@ -40,6 +40,7 @@ following these install instructions. Best practice is to fully remove any exist
 installations before you begin.
 
 To keep your current PostgreSQL installation, [Install from source][install-from-source].
+
 </Highlight>
 
 <Tabs label="Install TimescaleDB">
@@ -66,7 +67,7 @@ To keep your current PostgreSQL installation, [Install from source][install-from
 
 Job jobbed, you have installed PostgreSQL and TimescaleDB.
 
-## Add the TimescaleDB extension to your database
+## Add the $TIMESCALE_DB extension to your database
 
 For improved performance, you enable TimescaleDB on each database on your self-hosted PostgreSQL instance.
 This section shows you how to enable TimescaleDB for a new database in PostgreSQL using `psql` from the command line.
