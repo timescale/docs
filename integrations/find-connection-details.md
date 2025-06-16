@@ -7,7 +7,7 @@ keywords: [connect, Managed Service for TimescaleDB, Timescale]
 
 # Find your connection details 
 
-To connect to your $SERVICE_SHORT or $SELF_LONG, you need at least the following:
+To connect to your $SERVICE_LONG or $SELF_LONG, you need at least the following:
 
 - Hostname
 - Port

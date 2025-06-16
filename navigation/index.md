@@ -3,7 +3,7 @@
 Looking for information on something specific? There are several ways to find
 it:
 
-1.  For help with the [$CONSOLE][cloud-console], try the [$CONSOLE  index][cloud-console-index].
+1.  For help with the [$CONSOLE][cloud-console], try the [$CONSOLE index][cloud-console-index].
 1.  For help on a specific topic, try browsing by [keyword][keywords].
 1.  Or try the [full search][search], which also returns results from the
     $COMPANY blog and forum.

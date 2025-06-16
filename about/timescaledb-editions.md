@@ -63,7 +63,7 @@ You can access a hosted version of $TDB_COMMUNITY through
   <tr>
     <th>Features</th>
     <th>TimescaleDB Apache 2 Edition</th>
-    <th>$TDB_COMMUNITY</th>
+    <th>TimescaleDB Community Edition</th>
   </tr>
   <tr>
     <td><strong>Hypertables and chunks</strong></td>

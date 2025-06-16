@@ -76,7 +76,7 @@ After you become a paying user, we can enable some features in the higher $PRICI
 You can easily upgrade or downgrade between the $PERFORMANCE and $SCALE plans 
 whenever you want using [$CONSOLE][cloud-login]. If you switch your $PRICING_PLAN mid-month, 
 your prices are prorated to when you switch. Your $SERVICE_SHORTs are not interrupted when you switch, so 
-you can keep working without any hassle. To move to $ENTERPRISE, [get in touch with $COMPANY].
+you can keep working without any hassle. To move to $ENTERPRISE, [get in touch with $COMPANY][contact-company].
 
 ### Monitor usage and costs
 
@@ -177,12 +177,9 @@ The features included in each [$PRICING_PLAN][pricing-plans] are:
 | Email support                                                 | ✓                                 | ✓                                              | ✓                                              |
 | Production support                                            | 	Add-on                           | 	Add-on                                        | ✓                                              |
 | Named account manager                                         |                                   |                                                | ✓                                              |
-| JOIN services (Jumpstart Onboarding and INtegration)          |                                   | Available at minimum spend                     | ✓                                              | 
+| JOIN services (Jumpstart Onboarding and INtegration)          |                                   | Available at minimum spend                     | ✓                                              |
 
-If you want to estimate your costs ahead of the billing cycle, you can use the
-[pricing calculator](https://www.timescale.com/pricing/calculator).
-However, the pricing calculator does not include volume discounts. For a personalized quote, [get in touch with $COMPANY][get-in-touch].
-
+For a personalized quote, [get in touch with $COMPANY][contact-company].
 
 ## Example billing calculation
 
