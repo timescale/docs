@@ -1,5 +1,4 @@
-On $CLOUD_LONG and $MST_LONG, restart background
-workers by doing one of the following:
+On $CLOUD_LONG and $MST_LONG, restart background workers by doing one of the following:
 
 *   Run `SELECT timescaledb_pre_restore()`, followed by `SELECT
     timescaledb_post_restore()`.

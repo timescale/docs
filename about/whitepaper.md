@@ -1,23 +1,27 @@
 ---
-title: Timescale architecture for real-time analytics
-excerpt: A whitepaper detailing the architectural choices and optimizations for real-time analytics that power Timescale
+title: TigerData architecture for real-time analytics
+excerpt: A whitepaper detailing the architectural choices and optimizations for real-time analytics that power TimescaleDB and Tiger Cloud
 products: [cloud, mst, self_hosted]
-keywords: [real-time analytics, timescale cloud, timescaledb, time-series, whitepaper]
+keywords: [real-time analytics, tiger cloud, timescaledb, time-series, whitepaper]
 ---
-# Timescale architecture for real-time analytics
+# $COMPANY architecture for real-time analytics
 
-Timescale provides a powerful application database for real-time analytics on time-series data. It integrates seamlessly with the PostgreSQL ecosystem and enhances it with automatic time-based partitioning, hybrid row-columnar storage, and vectorized execution—enabling high-ingest performance, sub-second queries, and full SQL support at scale.
+$COMPANY has created a powerful application database for real-time analytics on time-series data. It integrates seamlessly 
+with the $PG ecosystem and enhances it with automatic time-based partitioning, hybrid row-columnar storage, and vectorized execution—enabling high-ingest performance, sub-second queries, and full SQL support at scale.
 
-By making use of incrementally updated materialized views and advanced analytical functions, Timescale reduces compute overhead and improves query efficiency. Developers can continue using familiar SQL workflows and tools, while benefiting from a database purpose-built for fast, scalable analytics.
+$CLOUD_LONG offers managed database services that provide a stable and reliable environment for your
+applications. Each $SERVICE_SHORT is based on a $PG database instance and the $TIMESCALE_DB extension.
 
-Timescale combines TimescaleDB, an open-source PostgreSQL extension, and Timescale Cloud, a cloud-native database service.
+By making use of incrementally updated materialized views and advanced analytical functions, $TIMESCALE_DB reduces compute overhead and improves query efficiency. Developers can continue using familiar SQL workflows and tools, while benefiting from a database purpose-built for fast, scalable analytics.
 
-This document outlines the architectural choices and optimizations that power Timescale’s performance and scalability while preserving PostgreSQL’s reliability and transactional guarantees.
+This document outlines the architectural choices and optimizations that power $TIMESCALE_DB and $CLOUD_LONG’s performance and 
+scalability while preserving $PG’s reliability and transactional guarantees.
 
 Want to read this whitepaper from the comfort of your own computer?
 
 <center>
-   <Tag type="download">[Timescale architecture for real-time analytics (PDF)](https://assets.timescale.com/docs/downloads/Timescale_Architecture_for_Real-time_Analytics.pdf)</Tag>
+   <Tag type="download">[TigerData architecture for real-time analytics (PDF)](https://assets.timescale.
+com/docs/downloads/Timescale_Architecture_for_Real-time_Analytics.pdf)</Tag>
 </center>
 
 
@@ -47,13 +51,12 @@ To achieve this, real-time analytics systems must meet several key requirements:
 * **Query flexibility** provides full SQL support, allowing for complex queries with joins, filters, aggregations, and analytical functions.
 
 
-### Timescale: real-time analytics from PostgreSQL
+### $CLOUD_LONG: real-time analytics from PostgreSQL
 
-Timescale is a high-performance database that brings real-time analytics to applications. It combines fast queries, high ingest performance, and full SQL support—all while ensuring scalability and reliability. Timescale extends PostgreSQL with the TimescaleDB extension. It enables sub-second queries on vast amounts of incoming data while providing optimizations designed for continuously updating datasets.
+$CLOUD_LONG is a high-performance database that brings real-time analytics to applications. It combines fast queries,
+high ingest performance, and full SQL support—all while ensuring scalability and reliability. $CLOUD_LONG extends $PG with the $TIMESCALE_DB extension. It enables sub-second queries on vast amounts of incoming data while providing optimizations designed for continuously updating datasets.
 
-Timescale achieves this through the following optimizations:
-
-
+$CLOUD_LONG achieves this through the following optimizations:
 
 * **Efficient data partitioning:** automatically and transparently partitioning data into chunks, ensuring fast queries, minimal indexing overhead, and seamless scalability
 * **Row-columnar storage:** providing the flexibility of a row store for transactions and the performance of a column store for analytics
@@ -62,19 +65,19 @@ Timescale achieves this through the following optimizations:
 * **Cloud-native operation: **compute/compute separation, elastic usage-based storage, horizontal scale out, data tiering to object storage
 * **Operational simplicity: **offering high availability, connection pooling, and automated backups for reliable and scalable real-time applications
 
-With Timescale, developers can build low-latency, high-concurrency applications that seamlessly handle streaming data, historical queries, and real-time analytics while leveraging the familiarity and power of PostgreSQL.
+With $CLOUD_LONG, developers can build low-latency, high-concurrency applications that seamlessly handle streaming data, historical queries, and real-time analytics while leveraging the familiarity and power of $PG.
 
 
 ## Data model
 
-Today's applications demand a database that can handle real-time analytics and transactional queries without sacrificing speed, flexibility, or SQL compatibility (including joins between tables). Timescale achieves this with **hypertables**, which provide an automatic partitioning engine, and **hypercore**, a hybrid row-columnar storage engine designed to deliver high-performance queries and efficient compression (up to 95 %) within PostgreSQL.
+Today's applications demand a database that can handle real-time analytics and transactional queries without sacrificing speed, flexibility, or SQL compatibility (including joins between tables). $TIMESCALE_DB achieves this with **hypertables**, which provide an automatic partitioning engine, and **hypercore**, a hybrid row-columnar storage engine designed to deliver high-performance queries and efficient compression (up to 95%) within $PG.
 
 
 ### Efficient data partitioning 
 
-Timescale provides hypertables, a table abstraction that automatically partitions data into chunks in real time (using time stamps or incrementing IDs) to ensure fast queries and predictable performance as datasets grow. Unlike traditional relational databases that require manual partitioning, hypertables automate all aspects of partition management, keeping locking minimal even under high ingest load.
+$TIMESCALE_DB provides hypertables, a table abstraction that automatically partitions data into chunks in real time (using time stamps or incrementing IDs) to ensure fast queries and predictable performance as datasets grow. Unlike traditional relational databases that require manual partitioning, hypertables automate all aspects of partition management, keeping locking minimal even under high ingest load.
 
-At ingest time, hypertables ensure that PostgreSQL can deal with a constant stream of data without suffering from table bloat and index degradation by automatically partitioning data across time. Because each chunk is ordered by time and has its own indexes and storage, writes are usually isolated to small, recent chunks—keeping index sizes small, improving cache locality, and reducing the overhead of vacuum and background maintenance operations. This localized write pattern minimizes write amplification and ensures consistently high ingest performance, even as total data volume grows.
+At ingest time, hypertables ensure that $PG can deal with a constant stream of data without suffering from table bloat and index degradation by automatically partitioning data across time. Because each chunk is ordered by time and has its own indexes and storage, writes are usually isolated to small, recent chunks—keeping index sizes small, improving cache locality, and reducing the overhead of vacuum and background maintenance operations. This localized write pattern minimizes write amplification and ensures consistently high ingest performance, even as total data volume grows.
 
 At query time, hypertables efficiently exclude irrelevant chunks from the execution plan when the partitioning column is used in a `WHERE` clause. This architecture ensures fast query execution, avoiding the gradual slowdowns that affect non-partitioned tables as they accumulate millions of rows. Chunk-local indexes keep indexing overhead minimal, ensuring index operations scans remain efficient regardless of dataset size.
 
@@ -87,7 +90,7 @@ At query time, hypertables efficiently exclude irrelevant chunks from the execut
 />
 </center>
 
-Hypertables are the foundation for all of TimescaleDB’s real-time analytics capabilities. They enable seamless data ingestion, high-throughput writes, optimized query execution, and chunk-based lifecycle management—including automated data retention (drop a chunk) and data tiering (move a chunk to object storage).
+Hypertables are the foundation for all of $TIMESCALE_DB’s real-time analytics capabilities. They enable seamless data ingestion, high-throughput writes, optimized query execution, and chunk-based lifecycle management—including automated data retention (drop a chunk) and data tiering (move a chunk to object storage).
 
 
 
@@ -107,7 +110,7 @@ Unlike traditional columnar databases, hypercore allows data to be inserted or m
 
 ### Columnar storage layout
 
-TimescaleDB’s columnar storage layout optimizes analytical query performance by structuring data efficiently on disk, reducing scan times, and maximizing compression rates. Unlike traditional row-based storage, where data is stored sequentially by row, columnar storage organizes and compresses data by column, allowing queries to retrieve only the necessary fields in batches rather than scanning entire rows. But unlike many column store implementations, Timescale’s columnstore supports full mutability—inserts, upserts, updates, and deletes, even at the individual record level—with transactional guarantees. Data is also immediately visible to queries as soon as it is written.
+$TIMESCALE_DB’s columnar storage layout optimizes analytical query performance by structuring data efficiently on disk, reducing scan times, and maximizing compression rates. Unlike traditional row-based storage, where data is stored sequentially by row, columnar storage organizes and compresses data by column, allowing queries to retrieve only the necessary fields in batches rather than scanning entire rows. But unlike many column store implementations, $TIMESCALE_DB’s columnstore supports full mutability—inserts, upserts, updates, and deletes, even at the individual record level—with transactional guarantees. Data is also immediately visible to queries as soon as it is written.
 
 
 <center>
@@ -122,7 +125,7 @@ TimescaleDB’s columnar storage layout optimizes analytical query performance b
 
 #### Columnar batches
 
-TimescaleDB uses columnar collocation and columnar compression within row-based storage to optimize analytical query performance while maintaining full PostgreSQL compatibility. This approach ensures efficient storage, high compression ratios, and rapid query execution.
+$TIMESCALE_DB uses columnar collocation and columnar compression within row-based storage to optimize analytical query performance while maintaining full $PG compatibility. This approach ensures efficient storage, high compression ratios, and rapid query execution.
 
 
 <center>
@@ -142,14 +145,14 @@ Each compressed batch does the following:
 * Uses a column-major format within the batch, enabling efficient scans by co-locating values of the same column and allowing the selection of individual columns without reading the entire batch
 * Applies advanced compression techniques at the column level, including run-length encoding, delta encoding, and Gorilla compression, to significantly reduce storage footprint (by up to 95%) and improve I/O performance.
 
-While the chunk interval of rowstore and columnstore batches usually remains the same, Timescale can also combine columnstore batches so they use a different chunk interval.
+While the chunk interval of rowstore and columnstore batches usually remains the same, $TIMESCALE_DB can also combine columnstore batches so they use a different chunk interval.
 
-This architecture provides the benefits of columnar storage—optimized scans, reduced disk I/O, and improved analytical performance—while seamlessly integrating with PostgreSQL’s row-based execution model.
+This architecture provides the benefits of columnar storage—optimized scans, reduced disk I/O, and improved analytical performance—while seamlessly integrating with $PG’s row-based execution model.
 
 
 #### Segmenting and ordering data
 
-To optimize query performance, TimescaleDB allows explicit control over how data is physically organized within columnar storage. By structuring data effectively, queries can minimize disk reads and execute more efficiently, using vectorized execution for parallel batch processing where possible.
+To optimize query performance, $TIMESCALE_DB allows explicit control over how data is physically organized within columnar storage. By structuring data effectively, queries can minimize disk reads and execute more efficiently, using vectorized execution for parallel batch processing where possible.
 
 
 <center>
@@ -167,7 +170,7 @@ To optimize query performance, TimescaleDB allows explicit control over how data
 * **Sort data within segments to accelerate range queries**: defining a consistent order reduces the need for post-query sorting, making time-based queries and range scans more efficient. *(Implemented with <code>ORDERBY</code>.)*
 * **Reduce disk reads and maximize vectorized execution**: a well-structured storage layout enables efficient batch processing (Single Instruction, Multiple Data, or SIMD vectorization) and parallel execution, optimizing query performance.
 
-By combining segmentation and ordering, Timescale ensures that columnar queries are not only fast but also resource-efficient, enabling high-performance real-time analytics.
+By combining segmentation and ordering, $TIMESCALE_DB ensures that columnar queries are not only fast but also resource-efficient, enabling high-performance real-time analytics.
 
 
 ### Data mutability
@@ -209,12 +212,12 @@ These modified batches remain in row storage until they are recompressed and rei
 
 ## Query optimizations
 
-Real-time analytics isn’t just about raw speed—it’s about executing queries efficiently, reducing unnecessary work, and maximizing performance. Timescale optimizes every step of the query lifecycle to ensure that queries scan only what’s necessary, make use of data locality, and execute in parallel for sub-second response times over large datasets.
+Real-time analytics isn’t just about raw speed—it’s about executing queries efficiently, reducing unnecessary work, and maximizing performance. $TIMESCALE_DB optimizes every step of the query lifecycle to ensure that queries scan only what’s necessary, make use of data locality, and execute in parallel for sub-second response times over large datasets.
 
 
 ### Skip unnecessary data
 
-Timescale minimizes the amount of data a query touches, reducing I/O and improving execution speed:
+$TIMESCALE_DB minimizes the amount of data a query touches, reducing I/O and improving execution speed:
 
 
 #### Primary partition exclusion (row and columnar)
@@ -249,7 +252,7 @@ Min/max metadata allows queries filtering on correlated dimensions (e.g., `order
 
 #### PostgreSQL indexes (row and columnar)
 
-Unlike many databases, Timescale supports standard PostgreSQL indexes on columnstore data (B-tree and hash currently, when using the hypercore table access method), allowing queries to efficiently locate specific values within both row-based and compressed columnar storage. These indexes enable fast lookups, range queries, and filtering operations that further reduce unnecessary data scans.
+Unlike many databases, $TIMESCALE_DB supports standard $PG indexes on columnstore data (B-tree and hash currently, when using the hypercore table access method), allowing queries to efficiently locate specific values within both row-based and compressed columnar storage. These indexes enable fast lookups, range queries, and filtering operations that further reduce unnecessary data scans.
 
 
 <center>
@@ -300,7 +303,7 @@ Organizing data for efficient access ensures queries are read in the most optima
 
 ### Parallelize execution
 
-Once a query is scanning only the required columnar data in the optimal order, Timescale is able to maximize performance through parallel execution. As well as using multiple workers, Timescale accelerates columnstore query execution by using Single Instruction, Multiple Data (SIMD) vectorization, allowing modern CPUs to process multiple data points in parallel.
+Once a query is scanning only the required columnar data in the optimal order, $TIMESCALE_DB is able to maximize performance through parallel execution. As well as using multiple workers, $TIMESCALE_DB accelerates columnstore query execution by using Single Instruction, Multiple Data (SIMD) vectorization, allowing modern CPUs to process multiple data points in parallel.
 
 
 
@@ -313,7 +316,7 @@ Once a query is scanning only the required columnar data in the optimal order, T
 />
 </center>
 
-The Timescale implementation of SIMD vectorization currently allows:
+The $TIMESCALE_DB implementation of SIMD vectorization currently allows:
 
 
 
@@ -326,7 +329,8 @@ The Timescale implementation of SIMD vectorization currently allows:
 
 Aggregating large datasets in real time can be expensive, requiring repeated scans and calculations that strain CPU and I/O. While some databases attempt to brute-force these queries at runtime, compute and I/O are always finite resources—leading to high latency, unpredictable performance, and growing infrastructure costs as data volume increases.
 
-**Continuous aggregates**, Timescale’s implementation of incrementally updated materialized views, solve this by shifting computation from every query run to a single, asynchronous step after data is ingested. Only the time buckets that receive new or modified data are updated, and queries read precomputed results instead of scanning raw data—dramatically improving performance and efficiency.
+**Continuous aggregates**, the $TIMESCALE_DB implementation of incrementally updated materialized views, solve this 
+by shifting computation from every query run to a single, asynchronous step after data is ingested. Only the time buckets that receive new or modified data are updated, and queries read precomputed results instead of scanning raw data—dramatically improving performance and efficiency.
 
 
 <center>
@@ -340,7 +344,7 @@ Aggregating large datasets in real time can be expensive, requiring repeated sca
 
 When you know the types of queries you'll need ahead of time, continuous aggregates allow you to pre-aggregate data along meaningful time intervals—such as per-minute, hourly, or daily summaries—delivering instant results without on-the-fly computation.
 
-Continuous aggregates also avoid the time-consuming and error-prone process of maintaining manual rollups, while continuing to offer data mutability to support efficient updates, corrections, and backfills.  Whenever new data is inserted or modified in chunks which have been materialized, Timescale stores invalidation records reflecting that these results are stale and need to be recomputed.  Then, an asynchronous process re-computes regions that include invalidated data, and updates the materialized results.  Timescale tracks the lineage and dependencies between continuous aggregates and their underlying data, to ensure the continuous aggregates are regularly kept up-to-date. This happens in a resource-efficient manner, and where multiple invalidations can be coalesced into a single refresh (as opposed to refreshing any dependencies at write time, such as via a trigger-based approach).
+Continuous aggregates also avoid the time-consuming and error-prone process of maintaining manual rollups, while continuing to offer data mutability to support efficient updates, corrections, and backfills.  Whenever new data is inserted or modified in chunks which have been materialized, $TIMESCALE_DB stores invalidation records reflecting that these results are stale and need to be recomputed.  Then, an asynchronous process re-computes regions that include invalidated data, and updates the materialized results.  $TIMESCALE_DB tracks the lineage and dependencies between continuous aggregates and their underlying data, to ensure the continuous aggregates are regularly kept up-to-date. This happens in a resource-efficient manner, and where multiple invalidations can be coalesced into a single refresh (as opposed to refreshing any dependencies at write time, such as via a trigger-based approach).
 
 Continuous aggregates themselves are stored in hypertables, and they can be converted to columnar storage for compression, and raw data can be dropped, reducing storage footprint and processing cost. Continuous aggregates also support hierarchical rollups (e.g., hourly to daily to monthly) and real-time mode, which merges precomputed results with the latest ingested data to ensure accurate, up-to-date analytics.
 
@@ -351,23 +355,23 @@ This architecture enables scalable, low-latency analytics while keeping resource
 
 Real-time analytics requires more than basic SQL functions—efficient computation is essential as datasets grow in size and complexity. Hyperfunctions, available through the `timescaledb_toolkit` extension, provide high-performance, SQL-native functions tailored for time-series analysis. These include advanced tools for gap-filling, percentile estimation, time-weighted averages, counter correction, and state tracking, among others.
 
-A key innovation of hyperfunctions is their support for partial aggregation, which allows Timescale to store intermediate computational states rather than just final results. These partials can later be merged to compute rollups efficiently, avoiding expensive reprocessing of raw data and reducing compute overhead. This is especially effective when combined with continuous aggregates.
+A key innovation of hyperfunctions is their support for partial aggregation, which allows $TIMESCALE_DB to store intermediate computational states rather than just final results. These partials can later be merged to compute rollups efficiently, avoiding expensive reprocessing of raw data and reducing compute overhead. This is especially effective when combined with continuous aggregates.
 
 Consider a real-world example: monitoring request latencies across thousands of application instances. You might want to compute p95 latency per minute, then roll that up into hourly and daily percentiles for dashboards or alerts. With traditional SQL, calculating percentiles requires a full scan and sort of all underlying data—making multi-level rollups computationally expensive.
 
-With Timescale, you can use the `percentile_agg` hyperfunction in a continuous aggregate to compute and store a partial aggregation state for each minute. This state efficiently summarizes the distribution of latencies for that time bucket, without storing or sorting all individual values. Later, to produce an hourly or daily percentile, you simply combine the stored partials—no need to reprocess the raw latency values.
+With $TIMESCALE_DB, you can use the `percentile_agg` hyperfunction in a continuous aggregate to compute and store a partial aggregation state for each minute. This state efficiently summarizes the distribution of latencies for that time bucket, without storing or sorting all individual values. Later, to produce an hourly or daily percentile, you simply combine the stored partials—no need to reprocess the raw latency values.
 
-This approach provides a scalable, efficient solution for percentile-based analytics. By combining hyperfunctions with continuous aggregates, Timescale enables real-time systems to deliver fast, resource-efficient insights across high-ingest, high-resolution datasets—without sacrificing accuracy or flexibility.
+This approach provides a scalable, efficient solution for percentile-based analytics. By combining hyperfunctions with continuous aggregates, $TIMESCALE_DB enables real-time systems to deliver fast, resource-efficient insights across high-ingest, high-resolution datasets—without sacrificing accuracy or flexibility.
 
 
 ## Cloud-native architecture
 
-Real-time analytics requires a scalable, high-performance, and cost-efficient database that can handle high-ingest rates and low-latency queries without overprovisioning. Timescale Cloud is designed for elasticity, enabling independent scaling of storage and compute, workload isolation, and intelligent data tiering.
+Real-time analytics requires a scalable, high-performance, and cost-efficient database that can handle high-ingest rates and low-latency queries without overprovisioning. $CLOUD_LONG is designed for elasticity, enabling independent scaling of storage and compute, workload isolation, and intelligent data tiering.
 
 
 ### Independent storage and compute scaling
 
-Real-time applications generate continuous data streams while requiring instant querying of both fresh and historical data. Traditional databases force users to pre-provision fixed storage, leading to unnecessary costs or unexpected limits. Timescale Cloud eliminates this constraint by dynamically scaling storage based on actual usage:
+Real-time applications generate continuous data streams while requiring instant querying of both fresh and historical data. Traditional databases force users to pre-provision fixed storage, leading to unnecessary costs or unexpected limits. $CLOUD_LONG eliminates this constraint by dynamically scaling storage based on actual usage:
 
 
 
@@ -380,7 +384,7 @@ With this architecture, databases grow alongside data streams, enabling seamless
 
 ### Workload isolation for real-time performance
 
-Balancing high-ingest rates and low-latency analytical queries on the same system can create contention, slowing down performance. Timescale Cloud mitigates this by allowing read and write workloads to scale independently:
+Balancing high-ingest rates and low-latency analytical queries on the same system can create contention, slowing down performance. $CLOUD_LONG mitigates this by allowing read and write workloads to scale independently:
 
 
 
@@ -402,7 +406,7 @@ This separation ensures that frequent queries on fresh data don’t interfere wi
 
 ### Intelligent data tiering for cost-efficient real-time analytics
 
-Not all real-time data is equally valuable—recent data is queried constantly, while older data is accessed less frequently. Timescale Cloud can be configured to automatically tier data to cheaper bottomless object storage, ensuring that hot data remains instantly accessible, while historical data is still available.
+Not all real-time data is equally valuable—recent data is queried constantly, while older data is accessed less frequently. $CLOUD_LONG can be configured to automatically tier data to cheaper bottomless object storage, ensuring that hot data remains instantly accessible, while historical data is still available.
 
 
 <center>
@@ -419,14 +423,16 @@ Not all real-time data is equally valuable—recent data is queried constantly, 
 * **Recent, high-velocity data** stays in high-performance storage for ultra-fast queries.
 * **Older, less frequently accessed data** is automatically moved to cost-efficient object storage but remains queryable and available for building continuous aggregates.
 
-While many systems support this concept of data cooling, Timescale ensures that the data can still be queried from the same hypertable regardless of its current location. For real-time analytics, this means applications can analyze live data streams without worrying about storage constraints, while still maintaining access to long-term trends when needed.
+While many systems support this concept of data cooling, $TIMESCALE_DB ensures that the data can still be queried from the same hypertable regardless of its current location. For real-time analytics, this means applications can analyze live data streams without worrying about storage constraints, while still maintaining access to long-term trends when needed.
 
 
 ### Cloud-native database observability
 
-Real-time analytics doesn’t just require fast queries—it requires the ability to understand why queries are fast or slow, where resources are being used, and how performance changes over time. That’s why Timescale is built with deep observability features, giving developers and operators full visibility into their database workloads.
+Real-time analytics doesn’t just require fast queries—it requires the ability to understand why queries are fast or slow, where resources are being used, and how performance changes over time. That’s why $CLOUD_LONG is built with deep observability features, giving developers and operators full visibility into their database workloads.
 
-At the core of this observability is Insights, Timescale’s built-in query monitoring tool. Insights captures per-query statistics from our whole fleet in real time, showing you exactly how your database is behaving under load. It tracks key metrics like execution time, planning time, number of rows read and returned, I/O usage, and buffer cache hit rates—not just for the database as a whole, but for each individual query.
+At the core of this observability is Insights, $CLOUD_LONG’s built-in query monitoring tool. Insights captures 
+per-query 
+statistics from our whole fleet in real time, showing you exactly how your database is behaving under load. It tracks key metrics like execution time, planning time, number of rows read and returned, I/O usage, and buffer cache hit rates—not just for the database as a whole, but for each individual query.
 
 Insights lets you do the following:
 
@@ -438,31 +444,32 @@ Insights lets you do the following:
 * See the impact of schema changes, indexes, or continuous aggregates on workload performance
 * Monitor and compare different versions of the same query to optimize execution
 
-All this is surfaced through an intuitive interface, available directly in Timescale Cloud, with no instrumentation or external monitoring infrastructure required.
+All this is surfaced through an intuitive interface, available directly in $CLOUD_LONG, with no instrumentation or external monitoring infrastructure required.
 
-Beyond query-level visibility, Timescale also exposes metrics around service resource consumption, compression, continuous aggregates, and data tiering, allowing you to track how data moves through the system—and how those background processes impact storage and query performance.
+Beyond query-level visibility, $CLOUD_LONG also exposes metrics around service resource consumption, compression, continuous aggregates, and data tiering, allowing you to track how data moves through the system—and how those background processes impact storage and query performance.
 
 Together, these observability features give you the insight and control needed to operate a real-time analytics database at scale, with confidence, clarity, and performance you can trust**.**
 
 
 ## Ensuring reliability and scalability
 
-Maintaining high availability, efficient resource utilization, and data durability is essential for real-time applications. Timescale provides robust operational features to ensure seamless performance under varying workloads.
+Maintaining high availability, efficient resource utilization, and data durability is essential for real-time applications. $CLOUD_LONG provides robust operational features to ensure seamless performance under varying workloads.
 
 * **High-availability (HA) replicas**: deploy multi-AZ HA replicas to provide fault tolerance and ensure minimal downtime. In the event of a primary node failure, replicas are automatically promoted to maintain service continuity.
 * **Connection pooling**: optimize database connections by efficiently managing and reusing them, reducing overhead and improving performance for high-concurrency applications.
 * **Backup and recovery**: leverage continuous backups, Point-in-Time Recovery (PITR), and automated snapshotting to protect against data loss. Restore data efficiently to minimize downtime in case of failures or accidental deletions.
 
-These operational capabilities ensure Timescale remains reliable, scalable, and resilient, even under demanding real-time workloads.
+These operational capabilities ensure $CLOUD_LONG remains reliable, scalable, and resilient, even under demanding real-time workloads.
 
 
 ## Conclusion
 
-Real-time analytics is critical for modern applications, but traditional databases struggle to balance high-ingest performance, low-latency queries, and flexible data mutability. Timescale extends PostgreSQL to solve this challenge, combining automatic partitioning, hybrid row-columnar storage, and intelligent compression to optimize both transactional and analytical workloads.
+Real-time analytics is critical for modern applications, but traditional databases struggle to balance high-ingest performance, low-latency queries, and flexible data mutability. $CLOUD_LONG extends $PG to solve this challenge, combining automatic partitioning, hybrid row-columnar storage, and intelligent compression to optimize both transactional and analytical workloads.
 
-With continuous aggregates, hyperfunctions, and advanced query optimizations, Timescale ensures sub-second queries even on massive datasets that combine current and historic data. Its cloud-native architecture further enhances scalability with independent compute and storage scaling, workload isolation, and cost-efficient data tiering—allowing applications to handle real-time and historical queries seamlessly.
+With continuous aggregates, hyperfunctions, and advanced query optimizations, $CLOUD_LONG ensures sub-second queries 
+even on massive datasets that combine current and historic data. Its cloud-native architecture further enhances scalability with independent compute and storage scaling, workload isolation, and cost-efficient data tiering—allowing applications to handle real-time and historical queries seamlessly.
 
 For developers, this means building high-performance, real-time analytics applications without sacrificing SQL compatibility, transactional guarantees, or operational simplicity.
 
-Timescale delivers the best of PostgreSQL, optimized for real-time analytics.
+$CLOUD_LONG delivers the best of $PG, optimized for real-time analytics.
 

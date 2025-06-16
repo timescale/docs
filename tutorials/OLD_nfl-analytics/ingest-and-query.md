@@ -222,7 +222,7 @@ contains multiple rows per player for each play (because the data is sampled
 multiple times per second during each play)
 
 <Highlight type="important">
-These queries are examples of hyperfunctions. To access hyperfunctions, you need to have installed the  [Timescale toolkit](https://docs.timescale.com/use-timescale/latest/install-timescaledb-toolkit/) before you begin.
+These queries are examples of hyperfunctions. To access hyperfunctions, you need to have installed the  [$TOOLKIT_LONG](https://docs.timescale.com/use-timescale/latest/install-timescaledb-toolkit/) before you begin.
 </Highlight>
 
 ### Number of yards run in game for passing plays, by player and game
@@ -259,7 +259,7 @@ often takes 25-30 seconds to run.
 
 Most of the data we were interested in are based on this aggregation of the
 `tracking` data. We wanted to know how far a player traveled on each play
-or throughout each game. Rather than asking TimescaleDB to query and aggregate
+or throughout each game. Rather than asking $TIMESCALE_DB to query and aggregate
 that raw data every time, we created a [continuous aggregate][cagg] out of this base query
 to significantly improve the speed of queries and analysis.
 
@@ -290,7 +290,7 @@ ORDER BY pyg.gameid ASC, yards DESC;
 
 We'll use this continuous aggregate in most of the queries in the
 next section. Feel free to play with other variations of this materialized data
-as you try to answer even more questions with TimescaleDB.
+as you try to answer even more questions with $TIMESCALE_DB.
 
 [cagg]: /use-timescale/:currentVersion:/continuous-aggregates/
 [extra-download]: https://assets.timescale.com/docs/downloads/nfl_2018.zip

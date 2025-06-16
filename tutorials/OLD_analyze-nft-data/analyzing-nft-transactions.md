@@ -25,7 +25,7 @@ All the queries in this section, plus some additional ones, are in our
 in the [`queries.sql` file][queries].
 
 We divide our analysis into two parts: simple queries and complex queries. But
-first we create something to speed up our queries: TimescaleDB continuous
+first we create something to speed up our queries: $TIMESCALE_DB continuous
 aggregates.
 
 <Highlight type="note">
@@ -35,7 +35,7 @@ OpenSea API.
 
 ## Speeding up queries with continuous aggregates
 
-TimescaleDB continuous aggregates speed up workloads that need to process large
+$TIMESCALE_DB continuous aggregates speed up workloads that need to process large
 amounts of data. They look like PostgreSQL materialized views, but have a
 built-in refresh policy that makes sure that the data is up to date as new
 data comes in. Additionally, the refresh procedure is careful to only refresh
@@ -414,7 +414,7 @@ bucket             |slug         |mean_price          |median_price         |
 
 Since calculating the mean and median are computationally expensive for large
 datasets, we use the [`percentile_agg` hyperfunction][percentile-agg], a SQL
-function that is part of the Timescale Toolkit extension. It accurately
+function that is part of the $TOOLKIT_LONG extension. It accurately
 approximates both statistics, as shown in the definition of `mean_price` and
 `median_price` in the continuous aggregate we created earlier in the tutorial:
 
@@ -534,7 +534,7 @@ bucket             |asset_id|open_price|close_price|low_price  |high_price|volum
 2021-02-26 01:00:00|18198072|       0.1|        0.1|        0.1|       0.1|   154|
 2021-02-26 01:00:00|18198081|      0.25|       0.25|       0.25|      0.25|   155|
 
-In this query, you used the TimescaleDB hyperfunctions [`first()`][first-docs] and
+In this query, you used the $TIMESCALE_DB hyperfunctions [`first()`][first-docs] and
 [`last()`][last-docs] to find the open and close prices respectively. These
 hyperfunctions allow you to find the value of one column as ordered by another,
 by performing a sequential scan through their groups. In this case, you get the
@@ -612,28 +612,28 @@ You can see all NFTs in the Time Travel Tigers collection live on [OpenSea][eon-
 
 ### Build on the NFT Starter Kit
 
-Congratulations! You're now up and running with NFT data and TimescaleDB. Check out
+Congratulations! You're now up and running with NFT data and $TIMESCALE_DB. Check out
 our [NFT Starter Kit][nft-starter-kit] to use as your starting point to
 build your own, more complex NFT analysis projects.
 
 The Starter Kit contains:
 
-*   A data ingestion script, which collects real-time data from OpenSea and ingests it into TimescaleDB
+*   A data ingestion script, which collects real-time data from OpenSea and ingests it into $TIMESCALE_DB
 *   A sample dataset, to get started quickly, if you don't want to ingest real-time data
 *   A schema for storing NFT sales, assets, collections, and owners
-*   A local TimescaleDB database, pre-loaded with sample NFT data
+*   A local $TIMESCALE_DB database, pre-loaded with sample NFT data
 *   Pre-built dashboards and charts in [Apache Superset][superset] and [Grafana][grafana]
 for visualizing your data analysis
 *   Queries to use as a starting point for your own analysis
 
 ### Learn more about how to use TimescaleDB to store and analyze crypto data
 
-Check out these resources for more about using TimescaleDB with crypto data:
+Check out these resources for more about using $TIMESCALE_DB with crypto data:
 
 *   [Analyze cryptocurrency market data][analyze-cryptocurrency]
-*   [Analyzing Analyzing Bitcoin, Ethereum, and 4100+ other cryptocurrencies using PostgreSQL and TimescaleDB][analyze-bitcoin]
-*   [Learn how TimescaleDB user Messari uses data to open the crypto economy to everyone][messari]
-*   [How one TimescaleDB user built a successful crypto trading bot][trading-bot]
+*   [Analyzing Analyzing Bitcoin, Ethereum, and 4100+ other cryptocurrencies using PostgreSQL and $TIMESCALE_DB][analyze-bitcoin]
+*   [Learn how $TIMESCALE_DB user Messari uses data to open the crypto economy to everyone][messari]
+*   [How one $TIMESCALE_DB user built a successful crypto trading bot][trading-bot]
 
 [analyze-bitcoin]: https://blog.timescale.com/blog/analyzing-bitcoin-ethereum-and-4100-other-cryptocurrencies-using-postgresql-and-timescaledb/
 [analyze-cryptocurrency]: /tutorials/:currentVersion:/blockchain-analyze/

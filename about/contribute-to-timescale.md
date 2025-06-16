@@ -1,6 +1,6 @@
 ---
-title: Contribute to Timescale
-excerpt: We welcome all contributions! Learn to contribute to the TimescaleDB code base and documentation
+title: Contribute to TigerData
+excerpt: We welcome all contributions! Learn to contribute to the TimescaleDB code base and the documentation
 products: [self_hosted]
 keywords: [contribute]
 tags: [github]

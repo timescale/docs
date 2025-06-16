@@ -66,11 +66,12 @@ Before you start [live migration][live migration]:
                ```
 
            <Highlight type="note">
+
            You may need to reconnect to your $SERVICE_LONG using `psql -X` when you're creating the $TIMESCALE_DB extension.
+
            </Highlight>
 
-    - **Upgrade**: for self-hosted databases,
-      [upgrade $TIMESCALE_DB][self hosted upgrade] to match your $SERVICE_LONG.
+    - **Upgrade**: for self-hosted databases, [upgrade $TIMESCALE_DB][self hosted upgrade] to match your $SERVICE_LONG.
 
 [live migration]: /migrate/:currentVersion:/live-migration/
 [self hosted]: /self-hosted/:currentVersion:/

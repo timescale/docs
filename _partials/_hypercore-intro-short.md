@@ -1,4 +1,5 @@
-[$HYPERCORE_CAP][hypercore] is a hybrid row-columnar storage engine used by $HYPERTABLEs in $TIMESCALE_DB. Traditional 
+
+[$HYPERCORE_CAP][hypercore] is the hybrid row-columnar storage engine in $TIMESCALE_DB used by $HYPERTABLEs. Traditional 
 databases force a trade-off between fast inserts (row-based storage) and efficient analytics 
 (columnar storage). $HYPERCORE_CAP eliminates this trade-off, allowing real-time analytics without sacrificing 
 transactional capabilities.
@@ -13,7 +14,6 @@ $HYPERCORE_CAP dynamically stores data in the most efficient format for its life
 
 Unlike traditional columnar databases, $HYPERCORE allows data to be inserted or modified at any stage, making it a 
 flexible solution for both high-ingest transactional workloads and real-time analytics—within a single database.
-
 
 
 [hypercore]: /use-timescale/:currentVersion:/hypercore/

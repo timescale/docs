@@ -11,7 +11,7 @@ So far in this tutorial, you have ingested the data and run an aggregate query.
 Then you improved the performance of your analysis with continuous aggregates.
 
 Now, let's go over some ideas on analyzing the data using PostgreSQL and
-TimescaleDB, to help you understand more about player activity during the NFL
+$TIMESCALE_DB, to help you understand more about player activity during the NFL
 season.
 
 <Highlight type="tip">
@@ -54,7 +54,7 @@ football.
 
 ### Average and median yards run per game by type of player
 
-For this query, you use another one of the TimescaleDB percentile functions
+For this query, you use another one of the $TIMESCALE_DB percentile functions
 called `percentile_agg`. You can use the `percentile_agg` function to find the
 fiftieth percentile, which is the approximate median.
 

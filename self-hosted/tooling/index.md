@@ -11,7 +11,7 @@ common tasks.
 
 *   Automatically configure your TimescaleDB instance with
     [`timescaledb-tune`][tstune]
-*   Install [TimescaleDB Toolkit][tstoolkit] to access more hyperfunctions and
+*   Install [$TOOLKIT_LONG][tstoolkit] to access more hyperfunctions and
     function pipelines
 
 [tscopy]: /use-timescale/:currentVersion:/ingest-data/about-timescaledb-parallel-copy

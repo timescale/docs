@@ -1,6 +1,6 @@
 ---
 title: Administrative functions
-excerpt: The full list of administration functions available in Timescale Cloud. Administration functions help you manage your service before and after recovery, as well as keeping track of your data
+excerpt: The full list of administration functions available in TimescaleDB. Administration functions help you manage your service before and after recovery, as well as keeping track of your data
 keywords: [administration]
 tags: [backup, restore, set up]
 products: [cloud, mst, self_hosted]

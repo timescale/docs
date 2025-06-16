@@ -174,9 +174,9 @@ module.exports = [
             href: "about-timescaledb-tune",
           },
           {
-            title: "Install and update Timescale Toolkit",
+            title: "Install and update TimescaleDB Toolkit",
             href: "install-toolkit",
-            excerpt: "Install and update the Timescale Toolkit",
+            excerpt: "Install and update the TimescaleDB Toolkit",
           },
         ],
       },

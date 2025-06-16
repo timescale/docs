@@ -29,8 +29,8 @@ This tutorial uses Python and the API
 
 Before you begin, make sure you have:
 
-*   Signed up for a [free Timescale account][cloud-install].
-*   Downloaded the file that contains your Timescale service credentials such as
+*   Signed up for a [free $ACCOUNT_LONG][cloud-install].
+*   Downloaded the file that contains your $SERVICE_LONG credentials such as
     `<HOST>`, `<PORT>`, and `<PASSWORD>`. Alternatively, you can find these
     details in the `Connection Info` section for your service.
 *   Installed Python 3
@@ -179,12 +179,12 @@ two arguments to create a websocket object and establish connection.
 
 <Collapsible heading="The real-time dataset" headingLevel={2} defaultExpanded={false}>
     
-To ingest the data into your Timescale service, you need to implement the
+To ingest the data into your $SERVICE_LONG, you need to implement the
 `on_event` function.
     
 After the websocket connection is set up, you can use the `on_event` function
 to ingest data into the database. This is a data pipeline that ingests real-time 
-financial data into your Timescale service.
+financial data into your $SERVICE_LONG.
 
 Stock trades are ingested in real-time Monday through Friday, typically during
 normal trading hours of the New York Stock Exchange (9:30&nbsp;AM to 
@@ -195,7 +195,7 @@ normal trading hours of the New York Stock Exchange (9:30&nbsp;AM to
 When you ingest data into a transactional database like Timescale, it is more
 efficient to insert data in batches rather than inserting data row-by-row. Using
 one transaction to insert multiple rows can significantly increase the overall
-ingest capacity and speed of your Timescale database.
+ingest capacity and speed of your $SERVICE_LONG.
 
 ## Batching in memory
 
@@ -225,7 +225,7 @@ This function needs to:
 
 1.  Update the Python script that prints out the current batch size, so you can
     follow when data gets ingested from memory into your database. Use
-    the `<HOST>`, `<PASSWORD>`, and `<PORT>` details for the Timescale service
+    the `<HOST>`, `<PASSWORD>`, and `<PORT>` details for the $SERVICE_LONG
     where you want to ingest the data and your API key from Twelve Data:
 
     ```python
@@ -348,7 +348,7 @@ the last two hours' worth of data.
 
 ### Creating a continuous aggregate
 
-1.  Connect to the Timescale database `tsdb` that contains the Twelve Data
+1.  Connect to the $SERVICE_LONG `tsdb` that contains the Twelve Data
     stocks dataset.
 
 1.  At the psql prompt, create the continuous aggregate to aggregate data every
@@ -392,7 +392,7 @@ OHLCV values.
 
 ### Querying the continuous aggregate
 
-1.  Connect to the Timescale database that contains the Twelve Data
+1.  Connect to the $SERVICE_LONG that contains the Twelve Data
     stocks dataset.
 
 1.  At the psql prompt, use this query to select all `AAPL` OHLCV data for the
