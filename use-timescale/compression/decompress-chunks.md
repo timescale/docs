@@ -1,6 +1,6 @@
 ---
 title: Decompression
-excerpt: While Timescale Cloud supports modifying compressed data, for bulk operations you need to decompress it first. Learn to decompress data manually
+excerpt: While TimescaleDB supports modifying compressed data, for bulk operations you need to decompress it first. Learn to decompress data manually
 products: [cloud, mst, self_hosted]
 keywords: [compression, hypertables, backfilling]
 tags: [decompression]
@@ -12,16 +12,15 @@ import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 
 <Deprecated2180 /> This function has been replaced by [`convert_to_rowstore`](https://docs.timescale.com/api/latest/hypercore/convert_to_rowstore/).
 
-Timescale automatically supports `INSERT`s into compressed chunks. But if you
-need to insert a lot of data, for example as part of a bulk backfilling
+$TIMESCALE_DB automatically supports `INSERT`s into compressed chunks. But if you
+need to insert a lot of data, for example, as part of a bulk backfilling
 operation, you should first decompress the chunk. Inserting data into a
 compressed chunk is more computationally expensive than inserting data into an
 uncompressed chunk. This adds up over a lot of rows.
 
 <Highlight type="important">
 
-When compressing your data, you can reduce the amount of storage space for your
-Timescale instance. But you should always leave some additional storage
+When compressing your data, you can reduce the amount of storage space used. But you should always leave some additional storage
 capacity. This gives you the flexibility to decompress chunks when necessary,
 for actions such as bulk inserts.
 

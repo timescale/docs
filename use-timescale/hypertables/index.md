@@ -1,6 +1,6 @@
 ---
 title: Hypertables
-excerpt: Hypertables are PostgreSQL tables with special features that power real-time analytics on time-series and event data. Learn to use hypertabes in your Timescale Cloud service
+excerpt: Hypertables are PostgreSQL tables with special features that power real-time analytics on time-series and event data
 products: [cloud, mst, self_hosted]
 keywords: [hypertables]
 ---
@@ -84,7 +84,7 @@ The default indexes are:
 *   On $HYPERTABLEs with space partitions, an index on the space parameter and
     time
 
-$HYPERTABLEs have some restrictions on unique constraints and indexes. If you
+$HYPERTABLE_CAPs have some restrictions on unique constraints and indexes. If you
 want a unique index on a $HYPERTABLE, it must include all the partitioning
 columns for the table. To learn more, see 
 [Enforce constraints with unique indexes on $HYPERTABLEs][hypertables-and-unique-indexes].

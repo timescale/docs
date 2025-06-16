@@ -1,6 +1,6 @@
 ---
 title: Update data
-excerpt: Update single and multiple rows in a hypertable in your Timescale Cloud service with SQL
+excerpt: Update single and multiple rows in a hypertable in your TimescaleDB database with SQL
 products: [cloud, mst, self_hosted]
 keywords: [updates, hypertables]
 ---

@@ -7,14 +7,14 @@ keywords: [vpc, peer, azure]
 
 # Configure VPC peering on Azure
 
-You can Configure VPC peering for your Managed Service for TimescaleDB project,
+You can Configure VPC peering for your $MST_LONG project,
 using the VPC on Azure.
 
 ## Before you begin
 
 *   Installed [Aiven Client][aiven-client-install].
-*   Signed in to your Managed Service for TimescaleDB dashboard.
-*   Set up a VPC peering for your project in MST.
+*   Signed in to $MST_CONSOLE_LONG.
+*   Set up a VPC peering for your project in $MST_SHORT.
 
 ## Configuring a VPC peering on Azure
 
@@ -37,7 +37,7 @@ using the VPC on Azure.
     az account set --subscription <subscription name or id>
     ```
 
-1.  Create application object in your AD tenant, using the Azure CLI:
+1.  Create an application object in your AD tenant, using the Azure CLI:
 
     ```bash
     az ad app create --display-name "<NAME>" --sign-in-audience AzureADMultipleOrgs --key-type Password
@@ -67,7 +67,7 @@ using the VPC on Azure.
         az ad app credential reset --id $user_app_id
     ```
 
-    Save the password  field from the output - this is referred to as `$user_app_secret`.
+    Save the password field from the output - this is referred to as `$user_app_secret`.
 
 1.  Find the ID properties of your virtual network:
 
@@ -109,13 +109,13 @@ using the VPC on Azure.
     allow create other peerings later without assigning the role again for each
     VNet separately.
 
-1.  Create a service principal for the Managed Service for TimescaleDB
+1.  Create a service principal for the $MST_LONG
     application object
 
-    The Managed Service for TimescaleDB AD tenant contains an application object
-    similar to the one you created and Timescale platform uses to
-    create a peering from the Project VPC VNet in the Timescale subscription to the
-    VNet in your Azure subscription. For this the Timescale app object needs a
+    The $MST_LONG AD tenant contains an application object
+    similar to the one you created, and $MST_LONG uses it to
+    create a peering from the Project VPC VNet in $MST_LONG to the
+    VNet in Azure. For this, the $MST_LONG app object needs a
     service principal in your subscription:
 
     ```bash
@@ -129,11 +129,11 @@ using the VPC on Azure.
     then your account does not have the correct permissions. Use an account
     with at least the Application administrator role assigned.
 
-1.  Create a custom role for the Managed Service for TimescaleDB application object
+1.  Create a custom role for the $MST_LONG application object
 
-    The Timescale application now has a service principal that can be given
+    The $MST_LONG application now has a service principal that can be given
     permissions. In order to target a network in your subscription with a peering
-    and nothing else, you can create a this a custom role definition, with only a
+    and nothing else, you can create a custom role definition, with only a
     single action allowing to do that and only that:
 
     ```bash
@@ -149,8 +149,8 @@ using the VPC on Azure.
     include. Save the id  field from the output - this is referred to as
     `$aiven_role_id`.
 
-1.  Assign the custom role to the Timescale service principal to peer with your
-    VNet, assign the role that you created in the previous step to the Timescale
+1.  Assign the custom role to the $MST_SERVICE_LONG principal to peer with your
+    VNet. Assign the role that you created in the previous step to the $MST_LONG
     service principal with the scope of your VNet:
 
     ```bash
@@ -165,28 +165,28 @@ using the VPC on Azure.
 
    Make note of the `tenantId` field from the output. It is referred to as `$user_tenant_id`.
 
-1.  Create a peering connection from the Timescale Project VPC using Aiven CLI:
+1.  Create a peering connection from the $MST_LONG Project VPC using Aiven CLI:
 
     ```bash
     avn vpc peering-connection create --project-vpc-id $aiven_project_vpc_id --peer-cloud-account $user_subscription_id --peer-resource-group $user_resource_group --peer-vpc $user_vnet_name --peer-azure-app-id $user_app_id --peer-azure-tenant-id $user_tenant_id
     ```
 
-    `$aiven_project_vpc_id` is the ID of the TimescaleProject VPC, and can be
+    `$aiven_project_vpc_id` is the ID of the $MST_LONG project VPC, and can be
     found using the `avn vpc list` command.
 
-    The Timescale platform creates a peering from the VNet in the Timescale
+   $MST_LONG creates a peering from the VNet in the $MST_LONG
     Project VPC to the VNet in your subscription. In addition, it creates a
     service principal for the application object in your tenant
     `--peer-azure-app-id $user_app_id`, giving it permission to target the
-    Timescale subscription VNet with a peering. Your AD tenant ID is also needed
-    in order for the Timescale application object to authenticate with your
+    $MST_LONG subscription VNet with a peering. Your AD tenant ID is also needed
+    in order for the $MST_LONG application object to authenticate with your
     tenant to give it access to the service principal that you created
     `--peer-azure-tenant-id $user_tenant_id`.
 
     Ensure that the arguments starting with `$user_` are in lower case. Azure
     resource names are case-agnostic, but the Aiven API currently only accepts
     names in lower case. If no error is shown, the peering connection is being set
-    up by the Timescale platform.
+    up by $MST_LONG.
 
 1.  Run the following command until the state is no longer `APPROVED` , but
     `PENDING_PEER`:
@@ -196,12 +196,12 @@ using the VPC on Azure.
     ```
 
     A state such as `INVALID_SPECIFICATION`  or `REJECTED_BY_PEER`  may be shown
-    if the VNet specified did not exist, or the Timescale app object wasn't
+    if the VNet specified did not exist, or the $MST_LONG app object wasn't
     given permissions to peer with it. If that occurs, check your configuration
     and then recreate the peering connection. If everything went as expected,
     the state changes to `PENDING_PEER`  within a couple of minutes showing
     details to set up the peering connection from your VNet to the Project VPC's
-    VNet in the Timescale subscription.
+    VNet in $MST_LONG.
 
     Save the `to-tenant-id` field in the output. It is referred to as the
     `aiven_tenant_id`. The `to-network-id`  field from the output is referred to
@@ -219,7 +219,7 @@ using the VPC on Azure.
     az login --service-principal -u $user_app_id -p $user_app_secret --tenant $user_tenant_id
     ```
 
-1.  Log in the same application object to the Timescale AD tenant:
+1.  Log in the same application object to the $MST_LONG AD tenant:
 
     ```bash
     az login --service-principal -u $user_app_id -p $user_app_secret --tenant
@@ -228,14 +228,14 @@ using the VPC on Azure.
 
     Now your application object has a session with both AD tenants
 
-1.  Create a peering from your VNet to the VNet in the Timescale subscription:
+1.  Create a peering from your VNet to the VNet in the $MST_LONG subscription:
 
     ```bash
     az network vnet peering create --name <peering name of your choosing> --remote-vnet $aiven_vnet_id --vnet-name $user_vnet_name --resource-group $user_resource_group --subscription $user_subscription_id --allow-vnet-access
     ```
 
     If you do not specify `--allow-vnet-access` no traffic is allowed to flow
-    from the peered VNet and Timescale services cannot be reached through the
+    from the peered VNet and $MST_SERVICE_LONGs cannot be reached through the
     peering. After the peering has been created, the peering should be in the state
     `connected`.
 
@@ -257,9 +257,9 @@ using the VPC on Azure.
     avn vpc peering-connection get -v --project-vpc-id $aiven_project_vpc_id --peer-cl
     ```
 
-    The Timescale platform polls peering connections in state `PENDING_PEER`
-    regularly to see if the your subscription has created a peering connection to
-    the Timescale Project VPC's VNet. After this is detected, the state changes from
+   $MST_LONG polls peering connections in state `PENDING_PEER`
+    regularly to see if your subscription has created a peering connection to
+    the $MST_LONG Project VPC's VNet. After this is detected, the state changes from
     `PENDING_PEER`  to `ACTIVE`. After this services in the Project VPC can be
     reached through the peering.
 

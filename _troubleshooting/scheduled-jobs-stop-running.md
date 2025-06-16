@@ -29,7 +29,7 @@ import CloudMSTRestartWorkers from 'versionContent/_partials/_cloud-mst-restart-
 -->
 
 Your scheduled jobs might stop running for various reasons. On self-hosted
-TimescaleDB, you can fix this by restarting background workers:
+$TIMESCALE_DB, you can fix this by restarting background workers:
 
 <Tabs title="Restart Background Workers">
 <Tab title="TimescaleDB >= 2.12">

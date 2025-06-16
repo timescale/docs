@@ -1,6 +1,6 @@
 ---
 title: Multi-factor user authentication
-excerpt: Multi-factor authentication enhances security by requiring users to verify their identity using multiple authentication factors. Enable MFA for your Timescale Cloud account
+excerpt: Multi-factor authentication enhances security by requiring users to verify their identity using multiple authentication factors. Enable MFA for your Tiger Cloud account
 products: [cloud]
 keywords: [mfa, accounts, admin]
 tags: [two-factor user authentication]
@@ -8,11 +8,11 @@ tags: [two-factor user authentication]
 
 # Multi-factor user authentication
 
-You can use two-factor authentication to log in to your $COMPANY account. Two-factor authentication, also known as two-step verification or 2FA, enables
+You can use two-factor authentication to log in to your $ACCOUNT_LONG. Two-factor authentication, also known as two-step verification or 2FA, enables
 secure logins that require an authentication code in addition to your user
 password. The code is provided by an authenticator app on your mobile device. There are multiple authenticator apps available. 
 
-![Timescale Console 2FA](https://assets.timescale.com/docs/images/timescale-console-2fa.png)
+![Tiger Cloud Console 2FA](https://assets.timescale.com/docs/images/timescale-console-2fa.png)
 
 This page describes how to configure two-factor authentication with Google Authenticator.
 
@@ -38,7 +38,7 @@ Take the following steps to configure two-factor authentication:
 1.  In $CONSOLE, enter the verification code provided by Google Authenticator, and click `Next`.
 1.  In `Save your recovery codes`, copy, download, or print the
     recovery codes. These are used to recover
-    your account if you lose your device.
+    your $ACCOUNT_SHORT if you lose your device.
 1.  Verify that you have saved your recovery codes, by clicking `OK, I saved my
     recovery codes`.
 1.  If two-factor authentication is enabled correctly, an email notification is
@@ -49,7 +49,7 @@ Take the following steps to configure two-factor authentication:
 <Highlight type="info">
 If you lose access to the mobile device you use for multi-factor authentication,
 and you do not have access to your recovery codes, you cannot sign in to your
-$COMPANY account. To regain access to your account,
+$ACCOUNT_LONG. To regain access to your $ACCOUNT_SHORT,
 contact [support@timescale.com](mailto:support@timescale.com).
 </Highlight>
 
@@ -72,7 +72,7 @@ recovery codes, or lost access to them, you can generate another list. Generatin
 1.  Click `Next`.
 1.  In `Save your recovery codes`, copy, download, or print the
     recovery codes. These are used to recover
-    your account if you lose your device.
+    your $ACCOUNT_SHORT if you lose your device.
 1.  Verify that you have saved your recovery codes, by clicking `OK, I saved my recovery codes`.
 
 </Procedure>
@@ -80,7 +80,7 @@ recovery codes, or lost access to them, you can generate another list. Generatin
 ## Remove two-factor authentication
 
 If you need to enroll a new device for two-factor authentication, you can
-remove two-factor authentication from your account and then add it
+remove two-factor authentication from your $ACCOUNT_SHORT and then add it
 again with your new device.
 
 <Procedure>

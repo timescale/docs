@@ -1,6 +1,6 @@
 ---
 title: Read-only role
-excerpt: Timescale Cloud includes different levels of access to your services for enhanced security. Learn how to grant read-only access to your data in Timescale Console
+excerpt: Tiger Cloud includes different levels of access to your services and data for enhanced security. Learn how to grant read-only access to your data
 products: [cloud]
 keywords: [client credentials, accounts, users, members, read-only, security]
 tags: [authentication, credentials, members, security]
@@ -11,10 +11,11 @@ tags: [authentication, credentials, members, security]
 You can create a role that provides read-only access to your database.
 
 <Highlight type="important">
+
 Adding a read-only user role to your database does not provide resource
 isolation. If you want to restrict the access of a read-only user, as well as isolate resources, you can create a read replica instead. For more information, see the
-[read scaling](/use-timescale/latest/ha-replicas/read-scaling/)
-section.
+[read scaling](/use-timescale/latest/ha-replicas/read-scaling/) section.
+
 </Highlight>
 
 ## Create a read-only user

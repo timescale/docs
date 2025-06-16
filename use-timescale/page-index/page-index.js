@@ -51,13 +51,13 @@ module.exports = [
             href: "secondary-indexes",
             excerpt: "Automate",
           },
+           {
+             title: "Compression methods in hypercore",
+             href: "compression-methods",
+             excerpt: "Learn about the different compression methods",
+           },
           {
-            title: "Compression methods in hypercore",
-            href: "compression-methods",
-            excerpt: "Learn about the different compression methods",
-          },
-          {
-            title: "Troubleshooting",
+            title: "Troubleshoot hypercore",
             href: "troubleshooting",
             type: "placeholder",
           },

@@ -1,12 +1,11 @@
 ---
 title: Manual compression
-excerpt: Timescale Cloud provides automated and manual data compression. Learn to manually compress specific chunks of a hypertable for a more granular control
+excerpt: TimescaleDB provides automated and manual data compression. Learn to manually compress specific chunks of a hypertable for a more granular control
 products: [cloud, mst, self_hosted]
 keywords: [compression, hypertables]
 ---
 
 # Manually compress chunks
-
 
 In most cases, an [automated compression policy][add_compression_policy] is sufficient to automatically compress your 
 chunks. However, if you want more control over compression, you can also manually compress specific chunks.
@@ -86,7 +85,7 @@ SELECT compress_chunk(i, if_not_compressed => true)
 
 ## Roll up uncompressed chunks when compressing
 
-In Timescale&nbsp;2.9 and later, you can roll up multiple uncompressed chunks into
+In $TIMESCALE_DB v2.9 and later, you can roll up multiple uncompressed chunks into
 a previously compressed chunk as part of your compression procedure. This allows
 you to have much smaller uncompressed chunk intervals, which reduces the disk
 space used for uncompressed data. For example, if you have multiple smaller
@@ -98,9 +97,11 @@ settings to set the compress chunk time interval and run compression operations
 to roll up the chunks while compressing.
 
 <Highlight type="note">
+
 The default setting of `compress_orderby` is `'time DESC'` (the descending or DESC command is used to sort the data returned in ascending order), which causes chunks to be re-compressed
 many times during the rollup, possibly leading to a steep performance penalty. 
 Set `timescaledb.compress_orderby = 'time ASC'` to avoid this penalty.
+
 </Highlight>
 
 

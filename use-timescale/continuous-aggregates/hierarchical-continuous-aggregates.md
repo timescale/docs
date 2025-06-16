@@ -9,7 +9,7 @@ import RealTimeAgg from 'versionContent/_partials/_real-time-aggregates.mdx';
 
 # Hierarchical continuous aggregates
 
-The more data you have, the more likely you are to run a more sophisticated analysis on it. When a simple one-level aggregation is not enough, $CLOUD_LONG lets you create continuous aggregates on top of other continuous aggregates. This way, you summarize data at different levels of granularity, while still saving resources with precomputing. 
+The more data you have, the more likely you are to run a more sophisticated analysis on it. When a simple one-level aggregation is not enough, $TIMESCALE_DB lets you create continuous aggregates on top of other continuous aggregates. This way, you summarize data at different levels of granularity, while still saving resources with precomputing. 
 
 For example, you might have an hourly continuous aggregate that summarizes minute-by-minute
 data. To get a daily summary, you can create a new continuous aggregate on top
@@ -17,7 +17,7 @@ of your hourly aggregate. This is more efficient than creating the daily
 aggregate on top of the original hypertable, because you can reuse the
 calculations from the hourly aggregate.
 
-This feature is available in Timescale&nbsp;2.9 and later.
+This feature is available in $TIMESCALE_DB v2.9 and later.
 
 ## Create a continuous aggregate on top of another continuous aggregate
 
@@ -149,7 +149,7 @@ ensure valid time-bucketing:
 
 *   You can only create a continuous aggregate on top of a finalized continuous
     aggregate. This new finalized format is the default for all continuous
-    aggregates created since Timescale&nbsp;2.7. If you need to create a continuous
+    aggregates created since $TIMESCALE_DB 2.7. If you need to create a continuous
     aggregate on top of a continuous aggregate in the old format, you need to
     [migrate your continuous aggregate][migrate-cagg] to the new format first.
 
