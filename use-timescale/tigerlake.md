@@ -80,7 +80,7 @@ aws cloudformation create-stack \
         {
             "Effect": "Allow",
             "Principal": {
-                "AWS": "arn:aws:iam::142548018081442426855243142548018081:root"
+                "AWS": "arn:aws:iam::142548018081:root"
             },
             "Action": "sts:AssumeRole",
             "Condition": {
@@ -125,6 +125,11 @@ aws cloudformation create-stack \
 8. Click Next, then give the inline policy a name and click Create policy
 9. Provide Timescale with the ARN of this role, the ARN of the S3 table bucket, and your Timescale Cloud Project and Service IDs.
 10. We’ll spin up the services with the configurations and let you know when it’s completed.
+
+## Provisioning
+
+- takes about 10-15 minutes
+- service will be restarted
 
 ## Start streaming to Iceberg
 
