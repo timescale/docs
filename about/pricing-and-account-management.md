@@ -76,7 +76,7 @@ After you become a paying user, we can enable some features in the higher $PRICI
 You can easily upgrade or downgrade between the $PERFORMANCE and $SCALE plans 
 whenever you want using [$CONSOLE][cloud-login]. If you switch your $PRICING_PLAN mid-month, 
 your prices are prorated to when you switch. Your $SERVICE_SHORTs are not interrupted when you switch, so 
-you can keep working without any hassle. To move to $ENTERPRISE, [get in touch with $COMPANY]($CONTACT_COMPANY).
+you can keep working without any hassle. To move to $ENTERPRISE, [get in touch with $COMPANY].
 
 ### Monitor usage and costs
 
@@ -216,7 +216,7 @@ alt="Adding a payment method in Timescale"/>
 
 - **Details**: an overview of your $PRICING_PLAN, usage, and payment details. You can add up 
   to three credit cards to your `Wallet`. If you prefer to pay by invoice, 
-  [contact $COMPANY]($CONTACT_COMPANY) and ask to change to corporate billing.
+  [contact $COMPANY][contact-company] and ask to change to corporate billing.
 
 - **History**: the list of your downloadable $COMPANY invoices.
 - **Emails**: the addresses $COMPANY uses to communicate with you. Payment 
@@ -244,4 +244,4 @@ When you get $CLOUD_LONG at AWS Marketplace, the following pricing options are a
 [production-support]: https://www.timescale.com/support
 [hipaa-compliance]: https://www.hhs.gov/hipaa/for-professionals/index.html
 [aws-pricing]: /about/:currentVersion:/pricing-and-account-management/#aws-marketplace-pricing
-
+[contact-company]: https://www.tigerdata.com/contact/

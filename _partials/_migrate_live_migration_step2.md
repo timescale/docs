@@ -8,7 +8,7 @@ Do not use a $CLOUD_LONG connection pooler connection for live migration. There
 are a number of issues which can arise when using a connection pooler, and no
 advantage. Very small instances may not have enough connections configured by
 default, in which case you should modify the value of `max_connections`, in
-your instance, as shown on [Configure database parameters](/use-timescale/:currentVersion/configuration/customize-configuration/#configure-database-parameters).
+your instance, as shown on [Configure database parameters][configure-instance-parameters].
 
 </Highlight>
 
@@ -56,3 +56,5 @@ configuration mechanism to set `wal_level` to `logical`.
 
 Restart your database for the changes to take effect, and verify that the
 settings are reflected in your database.
+
+[configure-instance-parameters]: /use-timescale/:currentVersion:/configuration/customize-configuration/#configure-database-parameters
