@@ -1,6 +1,6 @@
 ---
-title: Jobs in Timescale Cloud
-excerpt: Increase efficiency and reduce overhead by automating routine tasks. Set up custom jobs on top of Timescale Cloud policies. Learn how to create them in your service
+title: Jobs in TimescaleDB
+excerpt: Increase efficiency and reduce overhead by automating routine tasks. Set up custom jobs on top of TimescaleDB policies
 products: [cloud, mst, self_hosted]
 keywords: [jobs]
 tags: [jobs, scheduled jobs, background jobs, automation framework]
@@ -8,7 +8,7 @@ tags: [jobs, scheduled jobs, background jobs, automation framework]
 
 # $JOB_CAPs
 
-Timescale products natively include $JOB-scheduling policies, such as:
+$TIMESCALE_DB natively includes some $JOB-scheduling policies, such as:
 
 *   [$CAGG_CAP policies][caggs] to automatically refresh $CAGGs
 *   [$HYPERCORE_CAP policies][setup-hypercore] to optimize and compress historical data
@@ -16,9 +16,9 @@ Timescale products natively include $JOB-scheduling policies, such as:
 *   [Reordering policies][reordering] to reorder data within $CHUNKs
 
 If these don't cover your use case, you can create and schedule custom-defined $JOBs to run within
-your $SERVICE_LONG. They help you automate periodic tasks that aren't covered by the native policies.
+your database. They help you automate periodic tasks that aren't covered by the native policies.
 
-In this section you see how to:
+In this section, you see how to:
 
 *   [Create and manage $JOBs][create-jobs]
 *   Set up a [generic data retention][generic-retention] policy that applies across all $HYPERTABLEs

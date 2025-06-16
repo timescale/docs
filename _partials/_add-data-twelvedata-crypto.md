@@ -26,7 +26,7 @@ download the dataset, then upload the data to your $SERVICE_LONG.
    The connection information for a $SERVICE_SHORT is available in the file you downloaded when you created it.
 
 1.  At the `psql` prompt, use the `COPY` command to transfer data into your
-    Timescale instance. If the `.csv` files aren't in your current directory,
+    $SERVICE_LONG. If the `.csv` files aren't in your current directory,
     specify the file paths in these commands:
 
     ```sql

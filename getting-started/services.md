@@ -1,6 +1,6 @@
 ---
-title: Create your first Timescale service
-excerpt: Timescale Cloud offers a range of capabilities to accommodate your real-time analytics and AI and vector workloads. Learn more about each of them and create your first service in Timescale Console
+title: Create your first Tiger Cloud service
+excerpt: Tiger Cloud offers a range of capabilities to accommodate your real-time analytics and AI and vector workloads. Learn more about each of them and create your first service in Tiger Cloud Console
 products: [cloud]
 content_group: Getting started
 ---
@@ -19,7 +19,7 @@ import WhereNext from "versionContent/_partials/_where-to-next.mdx";
 
 To start using $CLOUD_LONG for your data:
 
-1. [Create a $COMPANY account][create-an-account]: register to get access to $CONSOLE as a centralized point to administer and interact with your data.
+1. [Create a $ACCOUNT_LONG][create-an-account]: register to get access to $CONSOLE as a centralized point to administer and interact with your data.
 1. [Create a $SERVICE_LONG][create-a-service]: that is, a $PG database instance, powered by [$TIMESCALE_DB][timescaledb], built for production, and extended with cloud features like transparent data tiering to object storage.
 1. [Connect to your $SERVICE_LONG][connect-to-your-service]: to run queries, add and migrate your data from other sources.
 
@@ -27,7 +27,7 @@ To start using $CLOUD_LONG for your data:
 
 ## Create a $SERVICE_LONG
 
-Now that you have an active $CLOUD_LONG account, you create and manage your $SERVICE_SHORTs in $CONSOLE. When you create a $SERVICE_SHORT, you effectively create a blank $PG database with additional $CLOUD_LONG features available under your $PRICING_PLAN. You then add or migrate your data into this database. 
+Now that you have an active $ACCOUNT_LONG, you create and manage your $SERVICE_SHORTs in $CONSOLE. When you create a $SERVICE_SHORT, you effectively create a blank $PG database with additional $CLOUD_LONG features available under your $PRICING_PLAN. You then add or migrate your data into this database. 
 
 <Procedure>
 

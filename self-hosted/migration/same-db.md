@@ -78,6 +78,8 @@ Migrate your data into $TIMESCALE_DB from within the same database.
 
 </Procedure>
 
+
+
 [create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
 [install]: /self-hosted/:currentVersion:/install/
 [hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/

@@ -9,7 +9,7 @@
 1.  **Provide your AWS CloudWatch configuration**
 
     - The AWS region must be the same for your $CLOUD_LONG exporter and AWS CloudWatch Log group.
-    - The exporter name appears in Cloud console, best practice is to make this name easily understandable.
+    - The exporter name appears in $CONSOLE, best practice is to make this name easily understandable.
     - For CloudWatch credentials, either use an [existing CloudWatch Log group][console-cloudwatch-configuration]
       or [create a new one][console-cloudwatch-create-group]. If you're uncertain, use
       the default values. For more information, see [Working with log groups and log streams][cloudwatch-log-naming].

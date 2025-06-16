@@ -1,6 +1,6 @@
 ---
 title: Integrations
-excerpt: Built on PostgreSQL, Timescale Cloud can integrate with the same array of third-party solutions. See integration procedures for the most popular and requested third-party services
+excerpt: Built on PostgreSQL, Tiger Cloud can integrate with the same array of third-party solutions. See integration procedures for the most popular and requested third-party services
 products: [cloud, self_hosted]
 keywords: [integrations]
 tags: [integrations]

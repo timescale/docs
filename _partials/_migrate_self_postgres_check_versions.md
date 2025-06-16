@@ -1,6 +1,6 @@
 <Procedure>
 
-To see the versions of PostgreSQL and TimescaleDB running in a self-hosted database instance: 
+To see the versions of PostgreSQL and $TIMESCALE_DB running in a self-hosted database instance: 
 
 1. **Set your connection string**
 
@@ -21,7 +21,7 @@ To see the versions of PostgreSQL and TimescaleDB running in a self-hosted datab
     (1 row)
     ```
 
-1. **Retrieve the version of TimescaleDB that you are running**
+1. **Retrieve the version of $TIMESCALE_DB that you are running**
     ```sql
     psql -X -d $SOURCE -c "\dx timescaledb;"
     ```

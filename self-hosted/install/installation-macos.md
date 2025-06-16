@@ -11,7 +11,7 @@ import SelfHostedHomebrew from "versionContent/_partials/_install-self-hosted-ho
 import SelfHostedMacports from "versionContent/_partials/_install-self-hosted-macports-based.mdx";
 import AddTimescaleDBToDB from "versionContent/_partials/_add-timescaledb-to-a-database.mdx";
 
-# Install self-hosted TimescaleDB on macOS
+# Install self-hosted $TIMESCALE_DB on macOS
 
 TimescaleDB is a [PostgreSQL extension](https://www.postgresql.org/docs/current/external-extensions.html) for
 time series and demanding workloads that ingest and query high volumes of data. You can host TimescaleDB on 
@@ -19,10 +19,10 @@ macOS device.
 
 This section shows you how to:
 
-* [Install and configure TimescaleDB on PostgreSQL](#install-and-configure-timescaledb-on-postgresql) - set up
+* [Install and configure $TIMESCALE_DB on $PG](#install-and-configure-timescaledb-on-postgresql) - set up
   a self-hosted PostgreSQL instance to efficiently run TimescaleDB.
-* [Add the TimescaleDB extension to your database](#add-the-timescaledb-extension-to-your-database) - enable TimescaleDB features and
-  performance improvements on a database.
+* [Add the $TIMESCALE_DB extension to your database](#add-the-timescaledb-extension-to-your-database) - enable $TIMESCALE_DB
+  features and performance improvements on a database.
 
 < TestingEnv />
 
@@ -33,17 +33,19 @@ To install TimescaleDB on your MacOS device, you need:
 * [PostgreSQL][install-postgresql]: for the latest functionality, install PostgreSQL v16
 
 <Highlight type="warning">
+
 If you have already installed PostgreSQL using a method other than Homebrew or MacPorts, you may encounter errors
 following these install instructions. Best practice is to full remove any existing PostgreSQL
 installations before you begin.
 
 To keep your current PostgreSQL installation, [Install from source][install-from-source].
+
 </Highlight>
 
-## Install and configure TimescaleDB on PostgreSQL
+## Install and configure $TIMESCALE_DB on $PG
 
 This section shows you how to install the latest version of PostgreSQL and
-TimescaleDB on a [supported platform](#supported-platforms) using the packages supplied by Timescale.
+$TIMESCALE_DB on a [supported platform](#supported-platforms) using the packages supplied by Timescale.
 
 <Tabs label="Install TimescaleDB">
 
@@ -60,7 +62,7 @@ TimescaleDB on a [supported platform](#supported-platforms) using the packages s
 </Tab>
 </Tabs>
 
-## Add the TimescaleDB extension to your database
+## Add the $TIMESCALE_DB extension to your database
 
 For improved performance, you enable TimescaleDB on each database on your self-hosted PostgreSQL instance.
 This section shows you how to enable TimescaleDB for a new database in PostgreSQL using `psql` from the command line.

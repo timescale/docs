@@ -1,6 +1,6 @@
 ---
 title: Configure database parameters
-excerpt: Customize standard PostgreSQL configuration and specific Timescale Cloud options for each service individually
+excerpt: Customize standard PostgreSQL configuration and specific Tiger Cloud options for each service individually
 products: [cloud]
 keywords: [configure, services, settings]
 cloud_ui:
@@ -10,33 +10,34 @@ cloud_ui:
 
 # Configure database parameters
 
-Timescale allows you to customize many Timescale and PostgreSQL
-configuration options for each Service individually. Most configuration values
-for a service are initially set in accordance with best practices given the
-compute and storage settings of the service. Any time you increase or decrease
-the compute for a service, the most essential values are set to reflect the size
-of the new service.
+$CLOUD_LONG allows you to customize many $CLOUD_LONG-specific and PostgreSQL
+configuration options for each $SERVICE_SHORT individually. Most configuration values
+for a $SERVICE_SHORT are initially set in accordance with best practices given the
+compute and storage settings of the $SERVICE_SHORT. Any time you increase or decrease
+the compute for a $SERVICE_SHORT, the most essential values are set to reflect the size
+of the new $SERVICE_SHORT.
 
 <Highlight type="warning">
-You can modify most parameters without restarting the Timescale service.
+
+You can modify most parameters without restarting the $SERVICE_SHORT.
 However, some changes do require a restart, resulting in some brief downtime
 that is usually about 30&nbsp;seconds. An example of a change that needs a
-restart is modifying the compute resources of a running service.
+restart is modifying the compute resources of a running $SERVICE_SHORT.
+
 </Highlight>
 
-## View service operation details
+## View $SERVICE_SHORT operation details
 
-To modify configuration parameters, first select the Service that you want to
-modify. This displays the `service details`, with these tabs across the top:
-Overview, Explorer, Operations, Metrics, and Logs. Select `Operations`, then
-`Database parameters`.
+To modify configuration parameters, first select the $SERVICE_SHORT that you want to
+modify. This displays the $SERVICE_SHORT details, with these tabs across the top:
+`Overview`, `Actions`, `Explorer`, `Monitoring`, `SQL Editor`, `Operations`, and `AI`. Select `Operations`, then `Database parameters`.
 
 ![Database configuration parameters](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-service-configuration-parameters.png)
 
 ### Modify basic parameters
 
 Under the `Common parameters` tab, you can modify a limited set of the
-parameters that are most often modified in a Timescale or PostgreSQL instance.
+parameters that are most often modified in a $CLOUD_LONG or PostgreSQL instance.
 To modify a configured value, hover over the value and click the revealed pencil
 icon. This reveals an editable field to apply your change. Clicking anywhere
 outside of that field saves the value to be applied.
@@ -52,13 +53,13 @@ ranges from 25 to 500 in higher compute plans.
 <img class="main-content__illustration"
 width={1375} height={944}
 src="https://assets.timescale.com/docs/images/tsc-settings-change.webp"
-alt="Change Timescale configuration parameters"/>
+alt="Change Tiger Cloud configuration parameters"/>
 
 ### Apply configuration changes
 
 When you have modified the configuration parameters that you would like to
 change, click `Apply changes`. For some changes, such as
-`timescaledb.max_background_workers`, the service needs to be restarted. In this
+`timescaledb.max_background_workers`, the $SERVICE_SHORT needs to be restarted. In this
 case, the button reads `Apply changes and restart`.
 
 A confirmation dialog is displayed which indicates whether a restart is
@@ -67,6 +68,6 @@ required. Click `Confirm` to apply the changes, and restart if necessary.
 <img class="main-content__illustration"
 width={1375} height={944}
 src="https://assets.timescale.com/docs/images/tsc-settings-confirm.webp"
-alt="Confirm Timescale configuration changes"/>
+alt="Confirm Tiger Cloud configuration changes"/>
 
 [plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-plan

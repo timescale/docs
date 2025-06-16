@@ -1,6 +1,6 @@
 ---
 title: User management
-excerpt: Manage your projects in Timescale Console. Add and delete users, join and leave projects, transfer project ownership, and configure authentication
+excerpt: Manage your projects in Tiger Cloud Console. Add and delete users, join and leave projects, transfer project ownership, and configure authentication
 products: [cloud]
 keywords: [members, projects, admin, roles]
 tags: [users]
@@ -9,26 +9,26 @@ cloud_ui:
         - [members]
 ---
 
-# Control user access to $CLOUD_LONG projects
+# Control user access to $PROJECT_LONGs
 
-When you sign up for a [30-day free trial][sign-up], $CLOUD_LONG creates a project for you, and
-you are assigned the `Owner` role for the project. As the project owner, you have rights to
-add and delete other users, and edit project settings. Users that you add to the project are 
-assigned the `Member` role. Members have rights to collaborate with you on your project, and help 
-create and administer the services running in the project. 
+When you sign up for a [30-day free trial][sign-up], $CLOUD_LONG creates a $PROJECT_SHORT for you, and
+you are assigned the `Owner` role for the $PROJECT_SHORT. As the $PROJECT_SHORT owner, you have rights to
+add and delete other users, and edit $PROJECT_SHORT settings. Users that you add to the $PROJECT_SHORT are 
+assigned the `Member` role. Members have rights to collaborate with you on your $PROJECT_SHORT, and help 
+create and administer the $SERVICE_SHORTs running in the $PROJECT_SHORT. 
 
 ![Project users in $CONSOLE](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-users-overview.png)
 
 If you have the [Enterprise pricing plan][pricing-plans], you can use your company [SAML][saml] 
 identity provider to log in to $CONSOLE.
 
-## Add a user to your project
+## Add a user to your $PROJECT_SHORT
 
-New users do not need to have a $CONSOLE account before you add them, they are
+New users do not need to have a $ACCOUNT_LONG before you add them, they are
 prompted to create one when they respond to the confirmation email. Existing users
-join a project in addition to the other projects they are already members of.
+join a $PROJECT_SHORT in addition to the other $PROJECT_SHORTS they are already members of.
 
-To add a user to a project:
+To add a user to a $PROJECT_SHORT:
 
 <Procedure>
 
@@ -39,38 +39,38 @@ To add a user to a project:
     user`.
 
     [Enterprise plan][pricing-plans] and SAML users receive a notification in $CONSOLE. Users in the 
-    other pricing plans receive a confirmation email. The new user then [joins the project][join-a-project].
+    other pricing plans receive a confirmation email. The new user then [joins the $PROJECT_SHORT][join-a-project].
 
 </Procedure>
 
-## Join a project
+## Join a $PROJECT_SHORT
 
-When you are asked to join a $CLOUD_LONG project, $CONSOLE sends you an invitation email. Follow the
-instructions in the invitation email to join the project:
+When you are asked to join a $PROJECT_SHORT, the $CONSOLE sends you an invitation email. Follow the
+instructions in the invitation email to join the $PROJECT_SHORT:
 
 - **New $CLOUD_LONG user**:
   1. In the invitation email, click **Accept Invite**.
      $CLOUD_LONG opens.
-  2. Follow the setup wizard and create a new $CLOUD_LONG account.
+  2. Follow the setup wizard and create a new $ACCOUNT_SHORT.
 
-     You are added to the project you were invited to.
+     You are added to the $PROJECT_SHORT you were invited to.
 
 - **Existing $CLOUD_LONG user**:
   1. In the invitation email, click **Accept Invite**.
 
-     $CLOUD_LONG opens and you are added to the project.
+     $CONSOLE_LONG opens and you are added to the $PROJECT_SHORT.
 
 - **[Enterprise plan][pricing-plans] and SAML user**:
-  1. Log in to $CONSOLE using your company's identity provider.
+  1. Log in to $CONSOLE_SHORT using your company's identity provider.
   2. Click `Notifications`, then accept the invitation. 
 
-     $CLOUD_LONG opens and you are added to the project. As you are now 
-     included in more than one project, you easily [change project][change-project].
+     $CONSOLE_LONG opens, and you are added to the $PROJECT_SHORT. As you are now 
+     included in more than one $PROJECT_SHORT, you can easily [change $PROJECT_SHORTs][change-project].
 
 
-## Resend a project invitation
+## Resend a $PROJECT_SHORT invitation
 
-Project invitations are valid for 7 days. To resend a project invitation:
+$PROJECT_SHORT_CAP invitations are valid for 7 days. To resend a $PROJECT_SHORT invitation:
 
 <Procedure>
 
@@ -80,27 +80,27 @@ Project invitations are valid for 7 days. To resend a project invitation:
 
 </Procedure>
 
-## Change the current project
+## Change the current $PROJECT_SHORT
 
-To change the project you are currently working in:
+To change the $PROJECT_SHORT you are currently working in:
 
 <Procedure>
 
-1. In [$CONSOLE][cloud-login], click `Timescale Project`, then `Current project`.
+1. In [$CONSOLE][cloud-login], click `Tiger Cloud Project`, then `Current project`.
    ![Change project in $CONSOLE](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-change-project.png)
-2. Select the project you want to use.
+2. Select the $PROJECT_SHORT you want to use.
 
-You can now manage the users and services in this project
+You can now manage the users and $SERVICE_SHORTs in this $PROJECT_SHORT.
 
 </Procedure>
 
-## Transfer project ownership
+## Transfer $PROJECT_SHORT ownership
 
-Each project in $CONSOLE has one `owner`. As the project owner, you have rights to
-add and delete users, edit project settings, and transfer the owner role to another user. When you transfer
-ownership to another user, you lose ownerships rights.
+Each $PROJECT_SHORT in $CONSOLE has one `owner`. As the $PROJECT_SHORT owner, you have rights to
+add and delete users, edit $PROJECT_SHORT settings, and transfer the owner role to another user. When you transfer
+ownership to another user, you lose your ownership rights.
 
-To transfer project ownership:
+To transfer $PROJECT_SHORT ownership:
 
 <Procedure>
 
@@ -112,28 +112,27 @@ To transfer project ownership:
 
 </Procedure>
 
-If you have the [Enterprise pricing plan][pricing-plans], and log in to Timescale using [SAML authentication][saml]
+If you have the [Enterprise pricing plan][pricing-plans], and log in to $CLOUD_LONG using [SAML authentication][saml]
 or have not enabled [two-factor authentication][2fa], [contact support](https://www.timescale.com/contact) to transfer
-project ownership.
+$PROJECT_SHORT ownership.
 
 
-## Leave a project
+## Leave a $PROJECT_SHORT
 
-To stop working in a project:
+To stop working in a $PROJECT_SHORT:
 
 <Procedure>
 
 1. In [$CONSOLE][cloud-login], click `Invite users`.
 1. Click `⋮` > `Leave project`, then click `Leave`.
 
-Your account is removed from the project immediately, you can no longer access this project.
+Your $ACCOUNT_SHORT is removed from the $PROJECT_SHORT immediately, you can no longer access this $PROJECT_SHORT.
 
 </Procedure>
 
+## Remove users from a $PROJECT_SHORT
 
-## Remove users from a project
-
-To remove a user's access to a project:
+To remove a user's access to a $PROJECT_SHORT:
 
 <Procedure>
 
@@ -141,7 +140,7 @@ To remove a user's access to a project:
 1.  Next to the person you want to remove, click `⋮` > `Remove`.
 1.  In `Remove user`, click `Remove`.
 
-The user is deleted immediately, they can no longer access your project.
+The user is deleted immediately, they can no longer access your $PROJECT_SHORT.
 
 </Procedure>
 

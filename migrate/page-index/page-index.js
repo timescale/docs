@@ -1,8 +1,8 @@
 module.exports = [
   {
-    title: "Migrate and sync data to Timescale Cloud",
+    title: "Migrate and sync data to Tiger Cloud",
     href: "migrate",
-    excerpt: "Migrating your data to Timescale",
+    excerpt: "Migrating your data to Tiger Cloud",
     children: [
       {
         title: "Migrate with downtime",

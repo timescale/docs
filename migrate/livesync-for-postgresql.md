@@ -1,6 +1,6 @@
 ---
-title: Livesync from Postgres to Timescale Cloud
-excerpt: Synchronize updates to your primary PostgreSQL database with the corresponding Timescale Cloud service in real time
+title: Livesync from Postgres to Tiger Cloud
+excerpt: Synchronize updates to your primary PostgreSQL database with the corresponding Tiger Cloud service in real time
 products: [cloud]
 keywords: [migration, low-downtime, backup]
 tags: [recovery, logical backup, replication]
@@ -12,7 +12,7 @@ import LivesyncConsole from "versionContent/_partials/_livesync-console.mdx"
 import LivesyncTerminal from "versionContent/_partials/_livesync-terminal.mdx"
 import EarlyAccessNoRelease from "versionContent/_partials/_early_access.mdx";
 
-# Livesync from PostgreSQL to Timescale Cloud
+# Livesync from PostgreSQL to $CLOUD_LONG
 
 You use $LIVESYNC to synchronize all the data, or specific tables, from a PostgreSQL database instance to your 
 $SERVICE_LONG in real time. You run $LIVESYNC continuously, turning PostgreSQL into a primary database with your 
@@ -47,11 +47,11 @@ You use $LIVESYNC for data synchronization, rather than migration:
 * Enable features such as [hypertables][about-hypertables], [columnstore][compression], and 
    [continuous aggregates][caggs] on your logical replica.  
 
-<EarlyAccessNoRelease />: livesync is not supported for production use. If you have any questions or feedback, talk to us in <a href="https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88">#livesync in Timescale Community</a>. 
+<EarlyAccessNoRelease />: livesync is not supported for production use. If you have any questions or feedback, talk to us in <a href="https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88">#livesync in TigerData Community</a>. 
 
 <Tabs label="Livesync">
 
-<Tab title="Timescale Console">
+<Tab title="Tiger Cloud Console">
 
 <LivesyncConsole />
 

@@ -1,6 +1,6 @@
 ---
 title: Indexing data
-excerpt: Adding an index can significantly speed up queries on your service. Learn which database indexes are created by default in Timescale Cloud, and best practice for creating them manually
+excerpt: Adding an index can significantly speed up queries on your service. Learn which database indexes are created by default in TimescaleDB, and best practice for creating them manually
 products: [cloud, mst, self_hosted]
 keywords: [hypertables, indexes]
 ---
@@ -8,7 +8,7 @@ keywords: [hypertables, indexes]
 # Indexing data
 
 You can use an index on your database to speed up read operations. You can
-create an index on any combination of columns. Timescale supports all table objects supported
+create an index on any combination of columns. $TIMESCALE_DB supports all table objects supported
 within PostgreSQL, including data types, indexes, and triggers.
 
 You can create an index using the `CREATE INDEX` command. For example, to create

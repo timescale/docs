@@ -1,6 +1,6 @@
 ---
 title: Tiered Storage
-excerpt: Save on storage costs by tiering older data to a low-cost bottomless object storage tier. Timescale Cloud tiered storage makes sure you cut costs while having data available for analytical queries
+excerpt: Save on storage costs by tiering older data to a low-cost bottomless object storage tier. Tiger Cloud tiered storage makes sure you cut costs while having data available for analytical queries
 products: [cloud]
 price_plans: [scale, enterprise]
 keywords: [tiered storage]
@@ -10,7 +10,7 @@ tags: [storage, data management]
 # Tiered storage
 
 Tiered storage is a [hierarchical storage management architecture][hierarchical-storage] for 
-[time series and analytics][create-service] services you create in [$CLOUD_LONG](https://console.cloud.timescale.com/).
+[time series and analytics][create-service] $SERVICE_SHORT you create in [$CLOUD_LONG](https://console.cloud.timescale.com/).
 
 Engineered for infinite low-cost scalability, tiered storage consists of the following:
 

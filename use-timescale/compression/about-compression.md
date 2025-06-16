@@ -1,6 +1,6 @@
 ---
 title: About compression
-excerpt: When you compress data in a hypertable, multiple records are grouped into a single row, into an array-like structure. Learn other key aspects of how data compression works in Timescale Cloud
+excerpt: When you compress data in a hypertable, multiple records are grouped into a single row, into an array-like structure. Learn other key aspects of how data compression works in TimescaleDB
 products: [cloud, mst, self_hosted]
 keywords: [compression, hypertables]
 ---
@@ -45,15 +45,17 @@ WHERE device_type = ‘SSD’
 AND time >= now() - ‘1 day’::interval;
 `} />
 
-When chunks are compressed in a hypertable, data stored in them is reorganized and stored in column-order rather than row-order. As a result, it is not possible to use the same uncompressed schema version of the chunk and a different schema must be created. This is automatically handled by TimescaleDB, but it has a few implications:
+When chunks are compressed in a hypertable, data stored in them is reorganized and stored in column-order rather than row-order. As a result, it is not possible to use the same uncompressed schema version of the chunk and a different schema must be created. This is automatically handled by $TIMESCALE_DB, but it has a few implications:
 The compression ratio and query performance is very dependent on the order and structure of the compressed data, so some considerations are needed when setting up compression.
 Indexes on the hypertable cannot always be used in the same manner for the compressed data.
 
 <Highlight type="note">
+
 Indexes set on the hypertable are used only on chunks containing uncompressed
-data. Timescale creates and uses custom indexes to incorporate the `segmentby` 
+data. $TIMESCALE_DB creates and uses custom indexes to incorporate the `segmentby` 
 and `orderby` parameters during compression which are used when reading compressed data.
 More on this in the next section.
+
 </Highlight>
 
 Based on the previous schema, filtering of data should happen over a certain time period and analytics are done on device granularity. This pattern of data access lends itself to organizing the data layout suitable for compression.
@@ -186,9 +188,11 @@ Time: 42,139 ms
 `} />
 
 <Highlight type="note">
+
 Number of rows that are compressed together in a single batch (like the ones we see above) is 1000.
 If your chunk does not contain enough data to create big enough batches, your compression ratio will be reduced.
 This needs to be taken into account when defining your compression settings.
+
 </Highlight> 
 
 

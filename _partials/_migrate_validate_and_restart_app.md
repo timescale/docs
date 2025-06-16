@@ -4,13 +4,13 @@
     psql $TARGET -c "ANALYZE;"
     ```
 
-1. Verify the data in the target Timescale Cloud service.
+1. Verify the data in the target $SERVICE_LONG.
 
    Check that your data is correct, and returns the results that you expect,
 
-1. Enable any Timescale Cloud features you want to use.
+1. Enable any $CLOUD_LONG features you want to use.
 
-   Migration from PostgreSQL moves the data only. Now manually enable Timescale Cloud features like
+   Migration from PostgreSQL moves the data only. Now manually enable $CLOUD_LONG features like
    [hypertables][about-hypertables], [hypercore][data-compression] or [data retention][data-retention]
    while your database is offline.
 

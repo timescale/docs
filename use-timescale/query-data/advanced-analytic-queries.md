@@ -1,17 +1,16 @@
 ---
 title: Perform advanced analytic queries
-excerpt: Perform real-time data analysis using native PostgreSQL queries and Timescale Cloud hyperfunctions
+excerpt: Perform real-time data analysis using native PostgreSQL queries and TimescaleDB hyperfunctions
 products: [cloud, mst, self_hosted]
 keywords: [queries, hyperfunctions, analytics]
 ---
 
 import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
 
-# Perform advanced analytic queries
+# Perform advanced analytical queries
 
-You can use Timescale for a variety of analytical queries. Some of these
-queries are native PostgreSQL, and some are additional functions provided by
-Timescale. This section contains the most common and useful analytic queries.
+You can use $TIMESCALE_DB for a variety of analytical queries. Some of these
+queries are native PostgreSQL, and some are additional functions provided by $TIMESCALE_DB and $TOOLKIT_LONG. This section contains the most common and useful analytic queries.
 
 ## Calculate the median and percentile
 
@@ -25,7 +24,7 @@ SELECT percentile_cont(0.5)
   FROM conditions;
 ```
 
-You can also use Timescale Toolkit to find the
+You can also use $TOOLKIT_LONG to find the
 [approximate percentile][toolkit-approx-percentile].
 
 ## Calculate the cumulative sum
@@ -81,7 +80,7 @@ SELECT
 
 Like [increase](#calculate-the-increase-in-a-value), rate applies to a situation
 with monotonically increasing counters. If your sample interval is variable or
-you use different sampling intervals between different series it is helpful to
+you use different sampling intervals between different series, it is helpful to
 normalize the values to a common time interval to make the calculated values
 comparable. This example finds bytes per second sent, and takes counter resets
 into account:
@@ -143,7 +142,7 @@ ORDER BY bucket;
 
 ## Group data into time buckets
 
-The Timescale [`time_bucket`][time_bucket] function extends the PostgreSQL
+The [`time_bucket`][time_bucket] function in $TIMESCALE_DB extends the PostgreSQL
 [`date_bin`][date_bin] function. Time bucket accepts arbitrary time intervals,
 as well as optional offsets, and returns the bucket start time. For example:
 
@@ -156,7 +155,7 @@ SELECT time_bucket('5 minutes', time) AS five_min, avg(cpu)
 
 ## Get the first or last value in a column
 
-The Timescale [`first`][first] and [`last`][last] functions allow you to get
+The [`first`][first] and [`last`][last] functions allow you to get
 the value of one column as ordered by another. This is commonly used in an
 aggregation. These examples find the last element of a group:
 
@@ -175,7 +174,7 @@ SELECT time_bucket('5 minutes', time) five_min, location, last(temperature, time
 
 ## Generate a histogram
 
-The Timescale [`histogram`][histogram] function allows you to generate a
+The [`histogram`][histogram] function allows you to generate a
 histogram of your data. This example defines a histogram with five buckets
 defined over the range 60 to 85. The generated histogram has seven bins; the
 first is for values below the minimum threshold of 60, the middle five bins are
@@ -238,7 +237,7 @@ This query outputs data like this:
 
 You can see from the output that no records are included for 09-23, 09-24, or
 09-30, because no trade data was recorded for those days. To include time
-records for each missing day, you can use the TimescaleDB `time_bucket_gapfill`
+records for each missing day, you can use the `time_bucket_gapfill`
 function, which generates a series of time buckets according to a given interval
 across a time range. In this example, the interval is one day, across the month
 of September:
@@ -270,7 +269,7 @@ This query outputs data like this:
  2021-09-22 00:00:00+00 |   9855
 ```
 
-You can also use the Timescale `time_bucket_gapfill` function to generate data
+You can also use the `time_bucket_gapfill` function to generate data
 points that also include timestamps. This can be useful for graphic libraries
 that require even null values to have a timestamp so that they can accurately
 draw gaps in a graph. In this example, you generate 1080 data points across the
@@ -408,7 +407,7 @@ CREATE TRIGGER create_vehicle_trigger
 You could also implement this functionality without a separate metadata table by
 performing a [loose index scan][loose-index-scan] over the `location`
 hypertable, although this requires more compute resources. Alternatively, you
-speed up your `SELECT DISTINCT` queries by structuring them so that TimescaleDB can
+speed up your `SELECT DISTINCT` queries by structuring them so that $TIMESCALE_DB can
 use its [SkipScan][skipscan] feature.
 
 [date_bin]: https://www.postgresql.org/docs/current/functions-datetime.html#FUNCTIONS-DATETIME-BIN

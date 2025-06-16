@@ -25,8 +25,10 @@ REINDEX INDEX <index-name>;
 ```
 
 <Highlight type="note">
+
 When you use `REINDEX`, the tables are locked and you may not be able to use the
 database, until the operation is complete.
+
 </Highlight>
 
 In some cases, you might need to manually build a second index concurrently

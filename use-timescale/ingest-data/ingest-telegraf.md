@@ -1,6 +1,6 @@
 ---
 title: Ingest data using Telegraf
-excerpt: Ingest data into a Timescale Cloud service using using the Telegraf plugin
+excerpt: Ingest data into a Tiger Cloud service using using the Telegraf plugin
 products: [cloud, self_hosted]
 keywords: [ingest, Telegraf]
 tags: [insert]
@@ -29,7 +29,7 @@ $SERVICE_LONG.
 - [Install Telegraf][install-telegraf]
 
 
-## Link Telegraf to your service
+## Link Telegraf to your $SERVICE_SHORT
 
 <Procedure>
 

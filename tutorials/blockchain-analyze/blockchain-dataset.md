@@ -1,6 +1,6 @@
 ---
 title: Analyze the Bitcoin blockchain - set up dataset
-excerpt: Ingest and set up a sample dataset to run analytical queries on Bitcoin blockchain transactions with Timescale Cloud
+excerpt: Ingest and set up a sample dataset to run analytical queries on Bitcoin blockchain transactions with Tiger Cloud
 products: [cloud, self_hosted, mst]
 keywords: [intermediate, crypto, blockchain, Bitcoin, finance, analytics]
 layout_components: [next_prev_large]

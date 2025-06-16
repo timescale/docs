@@ -1,6 +1,6 @@
 ---
 title: Optimize your data for real-time analytics
-excerpt: Reduce your chunk size by more than 90% and speed up your queries by automatically converting data between the rowstore and columnstore.
+excerpt: Reduce your chunk size by more than 90% and speed up your queries by automatically converting data between the rowstore and columnstore
 products: [cloud, self_hosted]
 keywords: [hyperscore, hypertable, compression, row-columnar storage, hypercore]
 ---
@@ -8,7 +8,6 @@ keywords: [hyperscore, hypertable, compression, row-columnar storage, hypercore]
 import PrereqCloud from "versionContent/_partials/_prereqs-cloud-only.mdx";
 import HCConversionOverview from "versionContent/_partials/_hypercore-conversion-overview.mdx";
 import HCPolicyWorkflow from "versionContent/_partials/_hypercore_policy_workflow.mdx";
-import UsageBasedStorage from "versionContent/_partials/_usage-based-storage-intro.mdx";
 import EarlyAccess from "versionContent/_partials/_early_access_2_18_0.mdx";
 import HypercoreIntroShort from "versionContent/_partials/_hypercore-intro-short.mdx";
 
@@ -25,7 +24,7 @@ from the $ROWSTORE to the $COLUMNSTORE.
 
 <PrereqCloud />
 
-The code samples in this page use the <Tag type="download">[crypto_sample.zip](https://assets.timescale.com/docs/downloads/candlestick/crypto_sample.zip)</Tag> data from [Try the key Timescale features][ingest-data].   
+The code samples in this page use the <Tag type="download">[crypto_sample.zip](https://assets.timescale.com/docs/downloads/candlestick/crypto_sample.zip)</Tag> data from [this key features tutorial][ingest-data].   
 
 ## Optimize your data with $COLUMNSTORE policies 
 
@@ -46,15 +45,13 @@ single device, you `segmentby` the `Device ID` column. This enables you to run m
 data in the $COLUMNSTORE. 
 - The compression rate you want to achieve. The [lower the cardinality][cardinality-blog] of the `segmentby` column, the better compression results you get.
 
-When $CLOUD_LONG converts a $CHUNK to the $COLUMNSTORE, TimescaleDB automatically creates a different schema for your 
-data. $TIMESCALE_DB creates and uses custom indexes to incorporate the `segmentby` and `orderby` parameters when 
+When $TIMESCALE_DB converts a $CHUNK to the $COLUMNSTORE, it automatically creates a different schema for your 
+data. It also creates and uses custom indexes to incorporate the `segmentby` and `orderby` parameters when 
 you write to and read from the $COLUMNSTORE.
 
 To set up your $HYPERCORE automation:
 
 <HCPolicyWorkflow />
-
-<UsageBasedStorage />
 
 ## Reference
 

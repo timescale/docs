@@ -1,6 +1,6 @@
 ---
-title: Start coding with Timescale
-excerpt: Integrate Timescale Cloud with your app using your preferred programming language. Connect to a service, 
+title: Start coding with TigerData
+excerpt: Integrate Tiger Cloud with your app using your preferred programming language. Connect to a service, 
   create and manage hypertables, then and ingest and query data
 products: [cloud, self_hosted, mst]
 content_group: Getting started
@@ -12,12 +12,12 @@ import StartCodingNode from "versionContent/_partials/_start-coding-node.mdx";
 import StartCodingGoLang from "versionContent/_partials/_start-coding-golang.mdx";
 import StartCodingJava from "versionContent/_partials/_start-coding-java.mdx";
 
-# Start coding with Timescale
+# Start coding with $COMPANY
 
-Easily integrate your app with $CLOUD_LONG. Use your favorite programming language to connect to your
+Easily integrate your app with $CLOUD_LONG or $SELF_LONG. Use your favorite programming language to connect to your
 $SERVICE_LONG, create and manage hypertables, then ingest and query data.
 
-<Tabs label="Start coding with Timescale">
+<Tabs label="Start coding with TigerData">
 
 <Tab title="Ruby">
 

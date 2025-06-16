@@ -41,7 +41,7 @@ Before you begin, check that you have:
 *   Checked that you're running the same major version of PostgreSQL on both
     your target and source databases. For information about upgrading
     PostgreSQL on your source database, see the
-    [upgrade instructions for self-hosted TimescaleDB][upgrading-postgresql-self-hosted].
+    [upgrade instructions for $SELF_LONG][upgrading-postgresql-self-hosted].
 *   Checked that you're running the same major version of Timescale on both
     your target and source databases. For more information, see the
     [upgrading Timescale section][upgrading-timescaledb].

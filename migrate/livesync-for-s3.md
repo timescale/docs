@@ -1,6 +1,6 @@
 ---
-title: Livesync S3 to Timescale Cloud
-excerpt: Synchronize data from S3 to Timescale Cloud service in real time
+title: Livesync S3 to Tiger Cloud
+excerpt: Synchronize data from S3 to Tiger Cloud service in real time
 products: [cloud]
 keywords: [migration, low-downtime, backup]
 tags: [recovery, logical backup, replication]
@@ -9,7 +9,7 @@ tags: [recovery, logical backup, replication]
 import PrereqCloud from "versionContent/_partials/_prereqs-cloud-only.mdx";
 import EarlyAccessNoRelease from "versionContent/_partials/_early_access.mdx";
 
-# $LIVESYNC_CAP from S3 to Timescale Cloud
+# $LIVESYNC_CAP from S3 to $CLOUD_LONG
 
 You use $LIVESYNC to synchronize CSV and Parquet files from an S3 bucket to your $SERVICE_LONG in real time. Livesync runs continuously, enabling you to leverage $CLOUD_LONG as your analytics database with data constantly synced from S3. This lets you take full advantage of $CLOUD_LONG's real-time analytics capabilities without having to develop or manage custom ETL solutions between S3 and $CLOUD_LONG.
 
@@ -91,7 +91,7 @@ To sync data from your S3 bucket to your $SERVICE_LONG using $CONSOLE:
 
 1. **Connect to your $SERVICE_LONG**
 
-   In [$CONSOLE][portal-ops-mode], select the service to sync live data to.
+   In [$CONSOLE][portal-ops-mode], select the $SERVICE_SHORT to sync live data to.
 1. **Start $LIVESYNC**
    1. Click `Actions` > `Livesync for S3`.
    2. Click `New livesync for S3`.

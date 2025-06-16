@@ -1,6 +1,6 @@
 ---
 title: Service explorer
-excerpt: Timescale Service Explorer provides a rich administrative dashboard for understanding the state of your services. Get insight into the performance and structure of your service
+excerpt: Service explorer in Tiger Cloud provides a rich administrative dashboard for understanding the state of your services. Get insight into the performance and structure of your service
 products: [cloud]
 keywords: [services, hypertables, schemas, indexes, policies]
 cloud_ui:
@@ -8,27 +8,25 @@ cloud_ui:
         - [services, :serviceId, explorer]
 ---
 
-# Service explorer
+# $SERVICE_LONG explorer
 
-Timescale Service Explorer provides a rich administrative dashboard for
-understanding the state of your database instance. The Explorer gives you
+$SERVICE_SHORT_CAP explorer in $CONSOLE provides a rich administrative dashboard for
+understanding the state of your database instance. The explorer gives you
 insight into the performance of your database, giving you greater confidence and
 control over your data.
 
-The Explorer works like an operations center as you develop and run your
-applications on Timescale. It gives you quick access to the key properties of
+The explorer works like an operations center as you develop and run your
+applications with $CLOUD_LONG. It gives you quick access to the key properties of
 your database, like table sizes, schema definitions, and foreign key references,
-as well as Timescale specific information, like information on your hypertables
+as well as information specific to $CLOUD_LONG, like information on your hypertables
 and continuous aggregates.
 
-You can see the Explorer in your Timescale account by navigating to
-the `Services` section, clicking the service you want to explore, and selecting
-the `Explorer` tab.
+To see the explorer, select your $SERVICE_SHORT in $CONSOLE_SHORT and click `Explorer`.
 
 ## General information
 
-In the `General information` section of the Explorer, you can see a high-level
-summary of your Timescale database, including all your hypertables and
+In the `General information` section, you can see a high-level
+summary of your $SERVICE_SHORT, including all your hypertables and
 relational tables. It summarizes your overall compression ratios, and other
 policy and continuous aggregate data. And, if you aren't already using key features like continuous aggregates, columnstore compression, or other automation policies and actions, it provides pointers to tutorials and documentation to help you get started.
 

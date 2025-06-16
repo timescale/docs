@@ -1,6 +1,6 @@
 ---
 title: IP allow list
-excerpt: You can grant selective access to your service administration and data. See how to create IP whitelists for the different modes available in Timescale Console
+excerpt: You can grant selective access to your service administration and data. See how to create IP whitelists for the different modes available in Tiger Cloud Console
 products: [cloud]
 keywords: [ip allow list, security]
 tags: [ip allow list]
@@ -14,7 +14,7 @@ For a more fine-grained control, you create separate IP allow lists for [the ops
 
 ## Create and attach an IP allow list in the ops mode
 
-You create an IP allow list at the [project level][members], then attach your $SERVICE_SHORT to it. 
+You create an IP allow list at the [$PROJECT_SHORT level][members], then attach your $SERVICE_SHORT to it. 
 
 <Highlight type="important">
 You attach a $SERVICE_SHORT to either one $VPC, or one IP allow list. You cannot attach a $SERVICE_SHORT to a $VPC and an IP allow list at the same time.
@@ -56,7 +56,7 @@ You create an IP allow list in the data mode settings.
 
 1. **In [$CONSOLE][console], toggle `Data`**
 
-1. **Click the project name in the upper left corner, then select `Settings`** 
+1. **Click the $PROJECT_SHORT name in the upper left corner, then select `Settings`** 
 
 1. **Scroll down and toggle `IP Allowlist`**
 

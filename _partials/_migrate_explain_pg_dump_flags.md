@@ -1,7 +1,7 @@
-- `--no-tablespaces` is required because Timescale does not support
+- `--no-tablespaces` is required because $CLOUD_LONG does not support
   tablespaces other than the default. This is a known limitation.
 
-- `--no-owner` is required because Timescale's `tsdbadmin` user is not a
+- `--no-owner` is required because $CLOUD_LONG's `tsdbadmin` user is not a
   superuser and cannot assign ownership in all cases. This flag means that
   everything is owned by the user used to connect to the target, regardless of
   ownership in the source. This is a known limitation.

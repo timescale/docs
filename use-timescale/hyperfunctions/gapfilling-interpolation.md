@@ -1,6 +1,6 @@
 ---
 title: Gapfilling and interpolation
-excerpt: To make sure your queries run smoothly, last observation carried forward (LOCF) takes the last known value and uses it as a replacement for missing data. Learn more about LOCF in Timescale Cloud
+excerpt: To make sure your queries run smoothly, last observation carried forward (LOCF) takes the last known value and uses it as a replacement for missing data. Learn more about LOCF in TimescaleDB
 products: [cloud, mst, self_hosted]
 keywords: [hyperfunctions, Toolkit, gapfilling, interpolate]
 ---
@@ -11,7 +11,7 @@ Most time-series data analysis techniques aggregate data into fixed time
 intervals, which smooths the data and makes it easier to interpret and analyze.
 When you write queries for data in this form, you need an efficient way to
 aggregate raw observations, which are often noisy and irregular, in to fixed
-time intervals. Timescale does this using time bucketing, which gives a clear
+time intervals. $TIMESCALE_DB does this using time bucketing, which gives a clear
 picture of the important data trends using a concise, declarative SQL query.
 
 Sorting data into time buckets works well in most cases, but problems can arise

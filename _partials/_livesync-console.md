@@ -65,7 +65,7 @@ requires a direct connection to the database to function properly.
 </Tab>
 </Tabs>
 
-## Synchronize data to your $SERVICE_LONG
+## Synchronize data to your Tiger Cloud service
 
 To sync data from your PostgreSQL database to your $SERVICE_LONG using $CONSOLE:
 
@@ -73,7 +73,7 @@ To sync data from your PostgreSQL database to your $SERVICE_LONG using $CONSOLE:
 
 1. **Connect to your $SERVICE_LONG**
 
-   In [$CONSOLE][portal-ops-mode], select the service to sync live data to. 
+   In [$CONSOLE][portal-ops-mode], select the $SERVICE_SHORT to sync live data to. 
 1. **Start $LIVESYNC**
    1. Click `Actions` > `Livesync for PostgreSQL`.
 
