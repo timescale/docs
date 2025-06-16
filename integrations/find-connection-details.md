@@ -43,7 +43,7 @@ To retrieve the connection details for your $CLOUD_LONG project and $SERVICE_LON
 
 1. **Retreive your project ID**:
 
-   In [$CONSOLE][console-services], click `Timescale Project`, then click `Copy` next to the project ID.
+   In [$CONSOLE][console-services], click `Projects`, then click `Copy` next to the project ID.
    ![Retrive the project id in $CONSOLE](https://assets.timescale.com/docs/images/console-project-id.png)
 
 1. **Retrieve your service ID**:

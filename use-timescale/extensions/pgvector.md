@@ -27,10 +27,10 @@ information needed to give a good answer, because that information was not in th
 dataset used to train the model. This can happen if the information is stored in
 private documents or only became available recently.
 
-In this example, you create embeddings, insert the embeddings into Timescale and
+In this example, you create embeddings, insert the embeddings into $TIMESCALE_DB and
 query the embeddings using `pgvector`. The content for the
-embeddings is from the Timescale blog, specifically from the
-[Developer Q&A][developer-qa] section, which features posts by Timescale users talking
+embeddings is from the $COMPANY blog, specifically from the
+[Developer Q&A][developer-qa] section, which features posts by $COMPANY users talking
 about their real-world use cases.
 
 ### Prerequisites
@@ -41,7 +41,7 @@ Before you begin, make sure you have:
 *   Created a [Timescale][cloud-login] service.
 *   Downloaded the cheatsheet when you created the service. This sheet contains
     the connection details for the database you want to use as a vector database.
-*   Cloned the [Timescale pgvector repository][timescale-pgvector].
+*   Cloned the [pgvector repository][timescale-pgvector].
 *   Signed up for an [OpenAI developer account][openai-signup].
 *   Created an API key and made a note of your OpenAI [API key][api-key].
     <Highlight type="note">
@@ -226,7 +226,7 @@ Before you begin, make sure you have:
     Done! Check the file blog_data_and_embeddings.csv for your results.
     ```
 
-1.  To insert these embeddings into Timescale using the `pgvector` extension,
+1.  To insert these embeddings into $TIMESCALE_DB using the `pgvector` extension,
     open an editor of your choice and create the `insert_embeddings.py` file.
 
     ```python
@@ -249,10 +249,10 @@ Before you begin, make sure you have:
     ###############################################################################
     # Setup your database to insert embeddings
     ###############################################################################
-    # Get Timescale / PostgreSQL database connection string by reading local .env file
+    # Get a Tiger Cloud / PostgreSQL database connection string by reading local .env file
     connection_string  = os.environ['TIMESCALE_CONNECTION_STRING']
 
-    # Connect to PostgreSQL database in Timescale using connection string
+    # Connect to PostgreSQL database in Tiger Cloud using connection string
     conn = psycopg2.connect(connection_string)
     cur = conn.cursor()
 
@@ -353,9 +353,9 @@ Before you begin, make sure you have:
     Index created on embeddings table
     ```
 
-1.  To query the embeddings that you inserted in Timescale, open an editor of
+1.  To query the embeddings that you inserted in $TIMESCALE_DB, open an editor of
     your choice and create the `query_embeddings.py` file. Here, the query is
-    `How does Density use Timescale?`.
+    `How does Density use $TIMESCALE_DB?`.
 
     ```python
     ###############################################################################
@@ -382,10 +382,10 @@ Before you begin, make sure you have:
     _ = load_dotenv(find_dotenv())
     openai.api_key  = os.environ['OPENAI_API_KEY']
 
-    # Get Timescale / PostgreSQL database connection string by reading local .env file
+    # Get Tiger Cloud / PostgreSQL database connection string by reading local .env file
     connection_string  = os.environ['TIMESCALE_CONNECTION_STRING']
 
-    # Connect to PostgreSQL database in Timescale using connection string
+    # Connect to PostgreSQL Tiger Cloud service using connection string
     conn = psycopg2.connect(connection_string)
 
     ###############################################################################
@@ -448,15 +448,15 @@ Before you begin, make sure you have:
         messages = [
             {"role": "system", "content": system_message},
             {"role": "user", "content": f"{delimiter}{user_input}{delimiter}"},
-            {"role": "assistant", "content": f"Relevant Timescale case studies information: \n {related_docs[0] [0]} \n {related_docs[1][0]} {related_docs[2][0]}"}
+            {"role": "assistant", "content": f"Relevant TigerData case studies information: \n {related_docs[0] [0]} \n {related_docs[1][0]} {related_docs[2][0]}"}
         ]
 
         final_response = get_completion_from_messages(messages)
         return final_response
     ###############################################################################
 
-    # Question about a Timescale blog post we want the model to answer
-    input = "How does Density use Timescale?"
+    # Question about a TigerData blog post we want the model to answer
+    input = "How does Density use TimescaleDB?"
     # Get a response from the model using most reelvant documents from the database
     response = process_input_with_retrieval(input)
     print(input)
@@ -467,7 +467,7 @@ Before you begin, make sure you have:
     You should see an output that looks a bit like this:
 
     ```bash
-    How does Density use Timescale?
+    How does Density use TimescaleDB?
     Density uses TimescaleDB as the main database in their smart city system.
     They store counts of people in spaces over time and derive metrics such as dwell time and space usage.
     TimescaleDB's flexibility and ability to handle time-series data efficiently allows Density to slice, dice, and compose queries in various ways.

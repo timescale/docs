@@ -34,9 +34,9 @@ production use.
 
 $TDB_COMMUNITY is the advanced, best, and most feature complete 
 version of $TIMESCALE_DB, available under the terms of the
-[Timescale License (TSL)][timescale-license].
+[$COMPANY License (TSL)][timescale-license].
 
-For more information about the Timescale license, see [this blog post][license-blog].
+For more information about the $COMPANY license, see [this blog post][license-blog].
 
 Many of the most recent features of $TIMESCALE_DB are only available in
 $TDB_COMMUNITY.

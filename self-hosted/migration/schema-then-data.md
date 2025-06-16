@@ -67,20 +67,20 @@ Before you begin, check that you have:
     utilities.
 *   Installed a client for connecting to PostgreSQL. These instructions use
     [`psql`][psql], but any client works.
-*   Created a new empty database in Timescale. For more information, see
-    the [Install Timescale section][install-selfhosted]. Provision
+*   Created a new empty database in a $SELF_LONG instance. For more information, see
+    the [Install $TIMESCALE_DB][install-selfhosted]. Provision
     your database with enough space for all your data.
 *   Checked that any other PostgreSQL extensions you use are compatible with
-    Timescale. For more information, see the [list of compatible
+    $TIMESCALE_DB. For more information, see the [list of compatible
     extensions][extensions]. Install your other PostgreSQL extensions.
-*   Checked that you're running the same major version of PostgreSQL on both
-    Timescale and your source database. For information about upgrading
+*   Checked that you're running the same major version of PostgreSQL on both your
+    $SELF_LONG instance and your source database. For information about upgrading
     PostgreSQL on your source database, see the [upgrade instructions for
     $SELF_LONG][upgrading-postgresql-self-hosted] and [Managed
     Service for TimescaleDB][upgrading-postgresql].
-*   Checked that you're running the same major version of Timescale on both
-    your target and source database. For more information, see the
-    [upgrading Timescale section][upgrading-timescaledb].
+*   Checked that you're running the same major version of $TIMESCALE_DB on both
+    your target and source database. For more information, see 
+    [upgrading $TIMESCALE_DB][upgrading-timescaledb].
 
 ## Migrate schema pre-data
 
@@ -104,7 +104,7 @@ owners, and settings. This doesn't include Timescale-specific schemas.
     ```
 
 1.  Restore the dumped data from the `dump_pre_data.bak` file into your Timescale
-    database, using your Timescale connection details. To avoid
+    database, using your $SELF_LONG connection details. To avoid
     permissions errors, include the `--no-owner` flag:
 
     ```bash
@@ -115,20 +115,20 @@ owners, and settings. This doesn't include Timescale-specific schemas.
 
 </Procedure>
 
-## Restore hypertables in Timescale
+## Restore hypertables in your $SELF_LONG instance
 
 After pre-data migration, your hypertables from your source database become
-regular PostgreSQL tables in Timescale. Recreate your hypertables in Timescale to
+regular PostgreSQL tables in Timescale. Recreate your hypertables in in your $SELF_LONG instance to
 restore them.
 
 <Procedure>
 
-### Restoring hypertables in Timescale
+### Restoring hypertables in your $SELF_LONG instance
 
-1.  Connect to your Timescale database:
+1.  Connect to your $SELF_LONG instance:
 
     ```sql
-    psql "postgres://tsdbadmin:<PASSWORD>@<HOST>:<PORT>/tsdb?sslmode=require"
+    psql "postgres://<USERNAME>:<PASSWORD>@<HOST>:<PORT>/<DATABSE>?sslmode=require"
     ```
 
 1.  Restore the hypertable:
@@ -184,19 +184,21 @@ Split each table by time range, and copy each range individually. For example:
 ## Restore data into Timescale
 
 When you have copied your data into `.csv` files, you can restore it to
-Timescale by copying from the `.csv` files. There are two methods: using
+$SELF_LONG by copying from the `.csv` files. There are two methods: using
 regular PostgreSQL [`COPY`][copy], or using the TimescaleDB
 [`timescaledb-parallel-copy`][timescaledb-parallel-copy] function. In tests,
 `timescaledb-parallel-copy` is 16% faster. The `timescaledb-parallel-copy` tool
 is not included by default. You must install the function.
 
 <Highlight type="important">
+
 Because `COPY` decompresses data, any compressed data in your source
 database is now stored uncompressed in your `.csv` files. If you
-provisioned your Timescale storage for your compressed data, the
+provisioned your $SELF_LONG storage for your compressed data, the
 uncompressed data may take too much storage. To avoid this problem, periodically
 recompress your data as you copy it in. For more information on compression, see
 the [compression section](https://docs.tigerdata.com/use-timescale/latest/compression/).
+
 </Highlight>
 
 <UsingParallelCopy />

@@ -167,7 +167,7 @@ hypertables.
 
 ## Using continuous aggregates in a multi-node environment
 
-If you are using Timescale in a multi-node environment, there are some
+If you are using $SELF_LONG in a multi-node environment, there are some
 additional considerations for continuous aggregates.
 
 When you create a continuous aggregate within a multi-node environment, the

@@ -11,6 +11,6 @@ import CaggsIntro from "versionContent/_partials/_caggs-intro.mdx";
 
 <CaggsIntro />
 
-For more information about using continuous aggregates, see the documentation in [Use Timescale][cagg-docs].
+For more information about using continuous aggregates, see the documentation in [Use $COMPANY products][cagg-docs].
 
 [cagg-docs]: /use-timescale/:currentVersion:/continuous-aggregates/

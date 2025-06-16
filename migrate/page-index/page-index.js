@@ -18,12 +18,12 @@ module.exports = [
       {
         title: "Livesync from PostgreSQL",
         href: "livesync-for-postgresql",
-        excerpt: "Synchronize updates to a primary postgres database instance to Timescale Cloud service in real-time",
+        excerpt: "Synchronize updates to a primary postgres database instance to Tiger Cloud service in real-time",
       },
       {
         title: "Livesync from S3",
         href: "livesync-for-s3",
-        excerpt: "Synchronize data from S3 to Timescale Cloud service in real time",
+        excerpt: "Synchronize data from S3 to a Tiger Cloud service in real time",
       },
       {
         title: "Dual-write and backfill",

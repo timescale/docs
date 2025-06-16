@@ -1,8 +1,8 @@
 
 import SupportMatrix from "versionContent/_partials/_migrate_self_postgres_timescaledb_compatibility.mdx";
 
-Best practice is to always use the latest version of TimescaleDB. Subscribe to our releases on GitHub or use Timescale
-Cloud and always get latest update without any hassle. 
+Best practice is to always use the latest version of TimescaleDB. Subscribe to our releases on GitHub or use $CLOUD_LONG 
+and always run the latest update without any hassle. 
 
 Check the following support matrix against the versions of $TIMESCALE_DB and PostgreSQL that you are running currently 
 and the versions you want to update to, then choose your upgrade path.

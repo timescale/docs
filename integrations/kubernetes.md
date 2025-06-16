@@ -20,7 +20,7 @@ To follow the steps on this page:
 
 <KubernetesPrereqs />
 
-## Integrate Timescale in a Kubernetes cluster 
+## Integrate $TIMESCALE_DB in a Kubernetes cluster 
 
 <Tabs>
 
@@ -32,7 +32,7 @@ To connect your Kubernetes cluster to your $SERVICE_LONG:
 
 1. **Create a default namespace for your $CLOUD_LONG components**
 
-   1. Create the Timescale namespace:
+   1. Create a namespace:
 
       ```shell
       kubectl create namespace timescale

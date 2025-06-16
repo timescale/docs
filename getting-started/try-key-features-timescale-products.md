@@ -396,7 +396,7 @@ For more information, see [High availability][high-availability].
 
 What next? See the [use case tutorials][tutorials], interact with the data in your $SERVICE_LONG using
 [your favorite programming language][connect-with-code], integrate your $SERVICE_LONG with a range of
-[third-party tools][integrations], plain old [Use Timescale][use-timescale], or dive into [the API][use-the-api].
+[third-party tools][integrations], plain old [Use $COMPANY products][use-timescale], or dive into [the API][use-the-api].
 
 [tutorials]: /tutorials/:currentVersion:/
 [connect-with-code]: /getting-started/:currentVersion:/start-coding-with-timescale/
