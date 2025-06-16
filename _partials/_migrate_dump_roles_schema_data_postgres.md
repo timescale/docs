@@ -16,7 +16,7 @@
 
 1. **Remove roles with superuser access**
 
-   Timescale Cloud services do not support roles with superuser access. Run the following script
+   $SERVICE_LONG do not support roles with superuser access. Run the following script
    to remove statements, permissions and clauses that require superuser permissions from `roles.sql`:
 
    ```bash

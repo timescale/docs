@@ -1,6 +1,6 @@
 ---
-title: Migrate your data to Timescale Cloud
-excerpt: Migrate your existing database to Timescale Cloud - with downtime, live, or using dual-write and backfill
+title: Migrate your data to Tiger Cloud
+excerpt: Migrate your existing database to Tiger Cloud - with downtime, live, with dual-write and backfill, or with livesync
 products: [cloud]
 keywords: [data migration, postgresql, RDS]
 tags: [ingest, migrate, RDS]
@@ -8,7 +8,8 @@ tags: [ingest, migrate, RDS]
 
 import OpenSupportRequest from "versionContent/_partials/_migrate_open_support_request.mdx"
 
-# Migrate and sync data to Timescale Cloud
+
+# Migrate and sync data to $CLOUD_LONG
 
 You have chosen to migrate or sync your data to $CLOUD_LONG, thank you. 
 
@@ -23,15 +24,15 @@ the following ways to migrate your data:
 | [Live migration][live-migration]           | Simplified end-to-end migration with almost zero downtime.                                                                  | Minimal downtime      |
 | [Dual-write and backfill][dual-write]      | Append-only data, heavy insert workload (~20,000 inserts per second) when modifying your ingestion pipeline is not an issue. | Minimal downtime      |
 
-All strategies work to migrate from PostgreSQL, TimescaleDB, AWS RDS, and Managed Service for Timescale. Migration 
-assistance is included with Timescale support. If you encounter any difficulties while migrating your data,
+All strategies work to migrate from PostgreSQL, $TIMESCALE_DB, AWS RDS, and $MST_LONG. Migration 
+assistance is included with $CLOUD_LONG support. If you encounter any difficulties while migrating your data,
 consult the [troubleshooting] page, open a support request, or take your issue to the `#migration` channel
 in the [community slack](https://timescaledb.slack.com/signup#/domain-signup), the developers of this migration method are there to help.
 
 <OpenSupportRequest />
 
 If you're migrating your data from another source database type, best practice is export the data from your source database as 
-a `.csv` file, then import to your Timescale Cloud Service using [timescaledb-parallel-copy][parallel-copy]. For other ingestion methods, 
+a `.csv` file, then import to your $SERVICE_LONG using [timescaledb-parallel-copy][parallel-copy]. For other ingestion methods, 
 see [Ingest data from other sources][data-ingest].
 
 ## Livesync your data

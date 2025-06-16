@@ -1,6 +1,6 @@
 ---
 title: pgvector PostgreSQL extension
-excerpt: pgvector is an open-source extension for PostgreSQL that enables efficient vector similarity search and can be used with Timescale CLoud. Learn to use pgvector to create a chatbot
+excerpt: pgvector is an open-source extension for PostgreSQL that enables efficient vector similarity search and can be used with Tiger CLoud. Learn to use pgvector to create a chatbot
 products: [cloud, mst, self_hosted]
 keywords: [services, settings, extensions, pgvector]
 tags: [extensions, pgvector]
@@ -66,8 +66,7 @@ Before you begin, make sure you have:
 1.  Set the environment variables for `OPENAI_API_KEY` and
     `TIMESCALE_CONNECTION_STRING`. In this example, to set the environment
     variables in macOS, open the `zshrc` profile. Replace
-    `<OPENAI_API>`, and `<SERVICE_URL>` with your OpenAI API key and the service
-    URL of your Timescale service:
+    `<OPENAI_API>`, and `<SERVICE_URL>` with your OpenAI API key and the URL of your $SERVICE_LONG:
 
     ```bash
     nano ~/.zshrc

@@ -138,7 +138,7 @@ data.
     ALTER EXTENSION timescaledb UPDATE;
     ```
 
-1.  Update the [TimescaleDB Toolkit][toolkit] extension. Toolkit is packaged
+1.  Update the [$TOOLKIT_LONG][toolkit] extension. $TOOLKIT_SHORT is packaged
     with TimescaleDB's HA Docker image, and includes additional hyperfunctions
     to help you with queries and data analysis:
 

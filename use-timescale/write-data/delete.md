@@ -1,6 +1,6 @@
 ---
 title: Delete data
-excerpt: Delete data with DELETE or by dropping chunks from a hypertable in your Timescale Cloud service using SQL
+excerpt: Delete data with DELETE or by dropping chunks from a hypertable in your database using SQL
 products: [cloud, mst, self_hosted]
 keywords: [delete, hypertables]
 ---
@@ -23,14 +23,16 @@ DELETE FROM conditions WHERE temperature < 35 OR humidity < 60;
 ```
 
 <Highlight type="important">
+
 If you delete a lot of data, run
 [`VACUUM`](https://www.postgresql.org/docs/current/sql-vacuum.html) or
 `VACUUM FULL` to reclaim storage from the deleted or obsolete rows.
+
 </Highlight>
 
 ## Delete data by dropping chunks
 
-Timescale allows you to delete data by age, by dropping chunks from a
+$TIMESCALE_DB allows you to delete data by age, by dropping chunks from a
 hypertable. You can do so either manually or by data retention policy.
 
 To learn more, see the [data retention section][data-retention].

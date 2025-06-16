@@ -16,7 +16,7 @@ certain amount.
 
 Working with narrow table data structures presents a few challenges. In the IoT world one concern is that
 many data analysis approaches - including machine learning as well as more traditional data analysis -
-require that your data is resampled and synchronized to a common time basis. Fortunately, TimescaleDB provides
+require that your data is resampled and synchronized to a common time basis. Fortunately, $TIMESCALE_DB provides
 you with [hyperfunctions][hyperfunctions] and other tools to help you work with this data. 
 
 An example of a narrow table format is:

@@ -1,6 +1,6 @@
 ---
 title: Explore stock market data
-excerpt: Explore a stock market dataset using TimescaleDB with Plotly, Pandas, and psycopg2
+excerpt: Explore a stock market dataset using $TIMESCALE_DB with Plotly, Pandas, and psycopg2
 products: [cloud, mst, self_hosted]
 keywords: [finance, analytics, psycopg2, pandas, plotly]
 tags: [candlestick]
@@ -11,7 +11,7 @@ tags: [candlestick]
 When you've successfully collected 1-min intraday stock data, it's time to have some fun and explore the
 data.
 
-Because of the high granularity of the dataset, there are numerous ways to explore it. For example, you could analyze stock prices and volumes on a minute-by-minute basis. With TimescaleDB, you could also bucket records into custom intervals (for example, 2 min or 15 min) using TimescaleDB aggregate functions.
+Because of the high granularity of the dataset, there are numerous ways to explore it. For example, you could analyze stock prices and volumes on a minute-by-minute basis. With $TIMESCALE_DB, you could also bucket records into custom intervals (for example, 2 min or 15 min) using $TIMESCALE_DB aggregate functions.
 
 Let's see how it's done!
 

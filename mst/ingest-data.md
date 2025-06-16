@@ -8,8 +8,7 @@ tags: [JDB, ODBC, client driver, Kafka, csv]
 
 # Ingest data
 
-There are several different ways of ingesting your data into Managed Service for
-TimescaleDB. This section contains instructions to:
+There are several different ways of ingesting your data into $MST_LONG. This section contains instructions to:
 
 *   Bulk upload [from a `.csv` file](#bulk-upload-from-csv-files)
 *   Insert data
@@ -20,21 +19,21 @@ TimescaleDB. This section contains instructions to:
     such as Kafka
 
 Before you begin, make sure you have
-[created your Managed Service for TimescaleDB service][create-managed-service],
+[created your $MST_SERVICE_LONG][create-managed-service],
 and can connect to it using `psql`.
 
 <Procedure>
 
 ## Preparing your new database
 
-1.  Use `psql` to connect to your service. 
+1.  Use `psql` to connect to your $MST_SERVICE_SHORT. 
 
     ```sql
     psql -h <HOSTNAME> -p <PORT> -U <USERNAME> -W -d <DATABASE_NAME>
     ```
 
-    You retrieve the service URL,
-    port, and login credentials from the service overview in the [MST dashboard][mst-login].
+    You retrieve the $MST_SERVICE_SHORT URL,
+    port, and login credentials from the $MST_SERVICE_SHORT overview in the [$MST_SHORT dashboard][mst-login].
 
 1.  Create a new database for your data. In this example, the new database is
     called `new_db`:
@@ -71,7 +70,7 @@ and can connect to it using `psql`.
     ```
 
 	<Highlight type="note">
-	The `by_range` dimension builder is an addition to TimescaleDB 2.13.
+	The `by_range` dimension builder is an addition to $TIMESCALE_DB 2.13.
 	</Highlight>
 
 </Procedure>
@@ -134,11 +133,11 @@ See the [Code Quick Starts][code-qs] for using various languages, including Pyth
 ## Insert data directly using a message queue
 
 If you have data stored in a message queue, you can import it into your
-Timescale database. This section provides instructions on using the Kafka
+$MST_SERVICE_SHORT. This section provides instructions on using the Kafka
 Connect PostgreSQL connector.
 
 This connector deploys PostgreSQL change events from Kafka Connect to a runtime
-service. It monitors one or more schemas in a Timescale server, and writes all
+service. It monitors one or more schemas in a $MST_SERVICE_LONG, and writes all
 change events to Kafka topics, which can then be independently consumed by one
 or more clients. Kafka Connect can be distributed to provide fault tolerance,
 which ensures the connectors are running and continually keeping up with changes
@@ -146,7 +145,7 @@ in the database.
 
 You can also use the PostgreSQL connector as a library without Kafka or Kafka
 Connect. This allows applications and services to directly connect to
-Timescale and obtain the ordered change events. In this environment, the
+$MST_SHORT and obtain the ordered change events. In this environment, the
 application must record the progress of the connector so that when it is
 restarted, the connect can continue where it left off. This approach can be
 useful for less critical use cases. However, for production use cases, we

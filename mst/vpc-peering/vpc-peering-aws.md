@@ -7,12 +7,12 @@ keywords: [vpc, peer, aws]
 
 # Configure VPC peering on AWS
 
-You can Configure VPC peering for your Managed Service for TimescaleDB project,
+You can configure VPC peering for your $MST_LONG project,
 using the VPC on AWS.
 
 ## Before you begin
 
-*   Set up a VPC peering for your project in MST.
+*   Set up a VPC peering for your project in $MST_SHORT.
 *   In your AWS console, go to `My Account` and make a note of your `account ID`.
 *   In your AWS console, go to `Peering connections`, find the VPC that you want to
     connect, and make a note of the ID for that VPC.
@@ -23,7 +23,7 @@ using the VPC on AWS.
 
 To set up VPC peering for your project:
 
-1.  In [MST Portal][mst-login], click `VPC` and select the VPC connection that you
+1.  In [$MST_CONSOLE_SHORT][mst-login], click `VPC` and select the VPC connection that you
     created.
 
 1.  Type the account ID of your AWS account in `AWS Account ID`.
@@ -33,8 +33,7 @@ To set up VPC peering for your project:
 1.  Click `Add peering connection`.
 
     A new connection with a status of `Pending Acceptance` is listed in your
-    AWS console. Verify that the account ID and VPC ID match those listed in the
-    MST portal.
+    AWS console. Verify that the account ID and VPC ID match those listed in $MST_CONSOLE_SHORT.
 
 1.  In the AWS console, go to `Actions` and select `Accept Request`. Update your
     AWS route tables to match your Aiven CIDR settings.

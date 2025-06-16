@@ -45,11 +45,13 @@ For more information about customizing your database configuration, see the
 [Configuration section][configuration].
 
 <Highlight type="note">
-The [Timescale Terraform provider](https://registry.terraform.io/providers/timescale/timescale/latest)
-provides configuration management resources for Timescale. You can use it to
-create, rename, resize, delete, and import service. For more information about
-the supported service configurations and operations, see the
-[Timescale Terraform provider documentation](https://registry.terraform.io/providers/timescale/timescale/latest/docs).
+
+The [$TIMESCALE_DB Terraform provider](https://registry.terraform.io/providers/timescale/timescale/latest/)
+provides configuration management resources for $CLOUD_LONG. You can use it to
+create, rename, resize, delete, and import $SERVICE_SHORTs. For more information about
+the supported $SERVICE_SHORT configurations and operations, see the
+[Terraform provider documentation](https://registry.terraform.io/providers/timescale/timescale/latest/docs).
+
 </Highlight>
 
 [aggregates-info]: /use-timescale/:currentVersion:/continuous-aggregates/
@@ -60,4 +62,4 @@ the supported service configurations and operations, see the
 [slack-info]: https://slack-login.timescale.com
 [time-bucket-info]: /use-timescale/:currentVersion:/query-data/advanced-analytic-queries#time-bucket
 [terraform-provider-docs]: https://registry.terraform.io/providers/timescale/timescale/latest/docs
-[terraform-provider]: https://registry.terraform.io/providers/timescale/timescale/latest
+[terraform-provider]: https://registry.terraform.io/providers/timescale/timescale/latest/

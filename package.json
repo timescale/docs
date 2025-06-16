@@ -4,5 +4,8 @@
   "description": "Documentation for Timescale and related products",
   "scripts": {
     "template:hyperfunction": "node ./.helper-scripts/mkdir-hyperfn.mjs"
+  },
+  "dependencies": {
+    "markdown-link-check": "^3.13.7"
   }
 }

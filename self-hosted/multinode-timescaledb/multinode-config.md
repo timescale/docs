@@ -13,7 +13,7 @@ import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecati
 # Multi-node configuration
 
 In addition to the
-[regular TimescaleDB configuration][timescaledb-configuration], it is recommended
+[regular $TIMESCALE_DB configuration][timescaledb-configuration], it is recommended
 that you also configure additional settings specific to multi-node operation.
 
 ## Update settings

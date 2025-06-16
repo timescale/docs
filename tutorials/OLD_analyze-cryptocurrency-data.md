@@ -42,7 +42,7 @@ To start, [install TimescaleDB][install-timescale]. When your installation is
 complete, you can start ingesting or creating sample data.
 
 This tutorial leads directly into a second tutorial that covers
-how Timescale can be used with Tableau to visualize
+how you can use Tableau with $PRODUCTS_ALL to visualize
 time-series data.
 
 ## Design the database schema
@@ -147,7 +147,7 @@ CREATE TABLE "eth_prices"(
    currency_code   VARCHAR (10)
 );
 
---Timescale specific statements to create hypertables for better performance
+--TimescaleDB specific statements to create hypertables for better performance
 SELECT create_hypertable('btc_prices', 'time');
 SELECT create_hypertable('eth_prices', 'time');
 SELECT create_hypertable('crypto_prices', 'time');
@@ -156,7 +156,7 @@ SELECT create_hypertable('crypto_prices', 'time');
 Note that there are three `create_hypertable` statements which are
 TimescaleDB-specific statements. A hypertable is an abstraction of a single
 continuous table across time intervals, so that you can query it using standard
-SQL. For more on hypertables, see the [Timescale docs][hypertable-docs] and this
+SQL. For more on hypertables, see the [$COMPANY docs][hypertable-docs] and this
 [blog post][hypertable-blog].
 
 ## Create a dataset to analyze

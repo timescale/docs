@@ -2,7 +2,7 @@
 title: Embed your PostgreSQL data with PgVectorizer
 excerpt: Create and sync vector embeddings from data in PostgreSQL with PgVectorizer
 products: [cloud]
-keywords: [ai, vector, pgvector, timescale vector, pgvectorizer]
+keywords: [ai, vector, pgvector, TigerData vector, pgvectorizer]
 tags: [ai, vector, pgvectorizer]
 ---
 
@@ -58,7 +58,7 @@ with psycopg2.connect(service_url) as conn:
 
 Now, say you want to embed these blogs and store the embeddings in PostgreSQL. First, you
 need to define an `embed_and_write` function that takes a set of blog
-posts, creates the embeddings, and writes them into TimescaleVector. For
+posts, creates the embeddings, and writes them into TigerData Vector. For
 example, if using LangChain, it could look something like the following.
 
 ``` python

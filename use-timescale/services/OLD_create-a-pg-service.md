@@ -1,6 +1,6 @@
 ---
 title: Create a PostgreSQL service
-excerpt: Create a PostgreSQL service in Timescale
+excerpt: Create a PostgreSQL service in Tiger Cloud
 products: [cloud]
 keywords: [services, PostgreSQL, create, install]
 ---

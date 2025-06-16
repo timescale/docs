@@ -1,6 +1,6 @@
 ---
 title: SELECT data
-excerpt: Query data from a hypertable in Timescale Cloud using the standard SELECT command
+excerpt: Query data from a hypertable in TimescaleDB using the standard SELECT command
 products: [cloud, mst, self_hosted]
 keywords: [queries]
 ---
@@ -8,7 +8,7 @@ keywords: [queries]
 # SELECT data
 
 You can query data from a hypertable using a standard
-[`SELECT`][postgres-select] command. All SQL clauses and features are supported. Use [PopSQL][popsql] to work on data with centralized SQL queries, interactive visuals and real-time collaboration
+[`SELECT`][postgres-select] command. All SQL clauses and features are supported. 
 
 ## Basic query examples
 

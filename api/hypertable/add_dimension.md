@@ -22,14 +22,14 @@ The column you select as the dimension can use either:
 - [Interval partitions][range-partition]: for example, for a second range partition.
 - [hash partitions][hash-partition]: to enable parallelization across multiple disks.
 
-<Highlight type="cloud" header="These instructions are for self-hosted TimescaleDB deployments" button="Try Timescale Cloud">
+<Highlight type="cloud" header="These instructions are for self-hosted TimescaleDB deployments" button="Try Tiger Cloud">
 
-Best practice is to not use additional dimensions. However, Timescale Cloud transparently provides seamless storage
+Best practice is to not use additional dimensions. However, $CLOUD_LONG transparently provides seamless storage
 scaling, both in terms of storage capacity and available storage IOPS/bandwidth.
 
 </Highlight>
 
-This page describes the generalized hypertable API introduced in [TimescaleDB v2.13.0][rn-2130].
+This page describes the generalized hypertable API introduced in [$TIMESCALE_DB v2.13.0][rn-2130].
 For information about the deprecated interface, see [add_dimension(), deprecated interface][add-dimension-old].
 
 ## Samples
@@ -44,7 +44,9 @@ SELECT add_dimension('conditions', by_hash('location', 4));
 ```
 
 <Highlight type="note">
-The `by_range` and `by_hash` dimension builders are an addition to TimescaleDB 2.13.
+
+The `by_range` and `by_hash` dimension builders are an addition to $TIMESCALE_DB 2.13.
+
 </Highlight>
 
 Convert table `conditions` to hypertable with range partitioning on

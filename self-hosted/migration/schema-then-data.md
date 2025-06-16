@@ -76,7 +76,7 @@ Before you begin, check that you have:
 *   Checked that you're running the same major version of PostgreSQL on both
     Timescale and your source database. For information about upgrading
     PostgreSQL on your source database, see the [upgrade instructions for
-    self-hosted TimescaleDB][upgrading-postgresql-self-hosted] and [Managed
+    $SELF_LONG][upgrading-postgresql-self-hosted] and [Managed
     Service for TimescaleDB][upgrading-postgresql].
 *   Checked that you're running the same major version of Timescale on both
     your target and source database. For more information, see the
@@ -84,7 +84,7 @@ Before you begin, check that you have:
 
 ## Migrate schema pre-data
 
-Migrate your pre-data from your source database to self-hosted TimescaleDB. This
+Migrate your pre-data from your source database to $SELF_LONG. This
 includes table and schema definitions, as well as information on sequences,
 owners, and settings. This doesn't include Timescale-specific schemas.
 

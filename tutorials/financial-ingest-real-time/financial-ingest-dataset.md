@@ -1,6 +1,6 @@
 ---
 title: Ingest real-time financial websocket data - Set up the dataset
-excerpt: Ingest and set up a sample dataset in Timescale Cloud to run real-time analysis of financial data
+excerpt: Ingest and set up a sample dataset in Tiger Cloud to run real-time analysis of financial data
 products: [cloud, self_hosted, mst]
 keywords: [finance, analytics, websockets, data pipeline]
 tags: [tutorials, intermediate]
@@ -55,7 +55,7 @@ the packages you need to complete for this tutorial are installed in this enviro
     ```
 
 1.  Install [Psycopg2][psycopg2] so that you can connect the
-    TimescaleDB from your Python script:
+    $TIMESCALE_DB from your Python script:
 
     ```bash
     pip install psycopg2-binary
@@ -165,7 +165,7 @@ two arguments to create a websocket object and establish connection.
 When you ingest data into a transactional database like Timescale, it is more
 efficient to insert data in batches rather than inserting data row-by-row. Using
 one transaction to insert multiple rows can significantly increase the overall
-ingest capacity and speed of your Timescale database.
+ingest capacity and speed of your $SERVICE_LONG.
 
 ## Batching in memory
 
@@ -174,15 +174,15 @@ first, then after the batch reaches a certain size, insert all the records
 from memory into the database in one transaction. The perfect batch size isn't
 universal, but you can experiment with different batch sizes
 (for example, 100, 1000, 10000, and so on) and see which one fits your use case better.
-Using batching is a fairly common pattern when ingesting data into TimescaleDB
+Using batching is a fairly common pattern when ingesting data into $TIMESCALE_DB
 from Kafka, Kinesis, or websocket connections.
 
-To ingest the data into your Timescale service, you need to implement the
+To ingest the data into your $SERVICE_LONG, you need to implement the
 `on_event` function.
 
 After the websocket connection is set up, you can use the `on_event` function
 to ingest data into the database. This is a data pipeline that ingests real-time
-financial data into your Timescale service.
+financial data into your $SERVICE_LONG.
 
 You can implement a batching solution in Python with Psycopg2.
 You can implement the ingestion logic within the `on_event` function that
@@ -202,7 +202,7 @@ This function needs to:
 
 1.  Update the Python script that prints out the current batch size, so you can
     follow when data gets ingested from memory into your database. Use
-    the `<HOST>`, `<PASSWORD>`, and `<PORT>` details for the Timescale service
+    the `<HOST>`, `<PASSWORD>`, and `<PORT>` details for the $SERVICE_LONG
     where you want to ingest the data and your API key from Twelve Data:
 
     ```python
