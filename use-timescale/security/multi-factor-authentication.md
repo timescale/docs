@@ -50,7 +50,7 @@ Take the following steps to configure two-factor authentication:
 If you lose access to the mobile device you use for multi-factor authentication,
 and you do not have access to your recovery codes, you cannot sign in to your
 $ACCOUNT_LONG. To regain access to your $ACCOUNT_SHORT,
-contact [support@timescale.com](mailto:support@timescale.com).
+contact [support@tigerdata.com](mailto:support@tigerdata.com).
 </Highlight>
 
 ## Regenerate recovery codes
