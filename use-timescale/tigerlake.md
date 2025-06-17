@@ -131,12 +131,18 @@ aws cloudformation create-stack \
 - takes about 10-15 minutes
 - service will be restarted
 
-## Start streaming to Iceberg
+## API
 
-To stream a Postgres table or hypertable from a Timescale Cloud service to Iceberg, run the following statement:
+To stream a Postgres table or hypertable from a Tiger Cloud service to Iceberg, run the following statement:
 ```sql
-SELECT create_iceberg_sync('<TABLE_NAME>'::regclass);
+ALTER TABLE <table_name> SET (
+   tigerlake.iceberg_sync = true | false,
+   tigerlake.iceberg_partitionby = '<partition_specification>'
+)
 ```
+
+* `tigerlake.iceberg_sync`: `boolean`, set to `true` to start streaming and to `false` to stop the stream. Please be aware that a stream can not be resumed after being stopped. 
+* `tigerlake.iceberg_partitionby`: optional field to define a partition specification in Iceberg. By default the partitioning specification of the hypertable is used. Streamed Postgres tables can have a partition specification for the Iceberg table, if intentially defined.
 
 When a stream is started, the full table is synchronized to Iceberg, this means that all prior records are imported first.
 The write throughput is ranging at approximately 40.000 records / second, for larger tables a full import can take some time.
@@ -145,15 +151,6 @@ The partition interval of for an Iceberg table is by default the same as the one
 
 Only tables or hypertables with primary keys are supported, this includes composite primary keys as well. 
 A primary key is necessary for Iceberg to perform update or delete statements.
-
-## Stop streaming to Iceberg
-
-If you want to stop a stream from Timescale to Iceberg, run the following statement:
-```sql
-SELECT drop_iceberg_sync('<TABLE_NAME>'::regclass);
-```
-
-Please be aware that a stream can not be resumed after being stopped. 
 
 ## Query your data
 
