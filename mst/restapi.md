@@ -16,9 +16,7 @@ the token in the header to use the API endpoints.
 
 <Procedure>
 
-## Creating an authentication token in $MST_LONG
-
-1.  In [$MST_CONSOLE_SHORT][mst-login], click `User Information` in the top right corner.
+1.  In [$MST_LONG][mst-login], click `User Information` in the top right corner.
 1.  In the `User Profile` page, navigate to the `Authentication`tab.
 1.  Click `Generate Token`.
 1.  In the `Generate access token` dialog, type a descriptive name for the

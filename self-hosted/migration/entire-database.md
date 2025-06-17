@@ -44,7 +44,7 @@ Before you begin, check that you have:
     [upgrade instructions for $SELF_LONG][upgrading-postgresql-self-hosted].
 *   Checked that you're running the same major version of $TIMESCALE_DB on both
     your target and source databases. For more information, see
-    [upgrade $SELF)LONG][upgrading-timescaledb].
+    [upgrade $SELF_LONG][upgrading-timescaledb].
 
 <Highlight type="note">
 

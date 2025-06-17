@@ -1,12 +1,12 @@
 ---
-title: pgvector PostgreSQL extension
+title: Create a chatbot using pgvector
 excerpt: pgvector is an open-source extension for PostgreSQL that enables efficient vector similarity search and can be used with Tiger CLoud. Learn to use pgvector to create a chatbot
 products: [cloud, mst, self_hosted]
 keywords: [services, settings, extensions, pgvector]
 tags: [extensions, pgvector]
 ---
 
-# The `pgvector` extension
+# Create a chatbot using pgvector
 
 The `pgvector` PostgreSQL extension helps you to store and search over machine
 learning-generated embeddings. It provides different capabilities that allows
@@ -19,15 +19,15 @@ For more information about these functions and the options available, see the
 ## Use the `pgvector` extension to create a `chatbot`
 
 The `pgvector` PostgreSQL extension allows you to create, store, and query
-OpenAI [vector embeddings][vector-embeddings] in Timescale. Learn how to use
-[retrieval augmented generation (RAG)][rag-docs] to create a chatbot that combines
+OpenAI [vector embeddings][vector-embeddings] in $TIGER_POSTGRES. This page shows you how to 
+use [retrieval augmented generation (RAG)][rag-docs] to create a chatbot that combines
 your data with ChatGPT using OpenAI and `pgvector`. RAG provides a solution to the
 problem that a foundational model such as GPT-3 or GPT-4 could be missing some
 information needed to give a good answer, because that information was not in the
 dataset used to train the model. This can happen if the information is stored in
 private documents or only became available recently.
 
-In this example, you create embeddings, insert the embeddings into $TIMESCALE_DB and
+In this example, you create embeddings, insert the embeddings into a $SERVICE_LONG and
 query the embeddings using `pgvector`. The content for the
 embeddings is from the $COMPANY blog, specifically from the
 [Developer Q&A][developer-qa] section, which features posts by $COMPANY users talking
@@ -38,15 +38,17 @@ about their real-world use cases.
 Before you begin, make sure you have:
 
 *   Installed Python.
-*   Created a [Timescale][cloud-login] service.
+*   Created a [$SERVICE_LONG][cloud-login].
 *   Downloaded the cheatsheet when you created the service. This sheet contains
     the connection details for the database you want to use as a vector database.
 *   Cloned the [pgvector repository][timescale-pgvector].
 *   Signed up for an [OpenAI developer account][openai-signup].
 *   Created an API key and made a note of your OpenAI [API key][api-key].
     <Highlight type="note">
+
     If you are on a free plan there may be rate limiting for
     your API requests.
+
     </Highlight>
 
 <Procedure>
@@ -226,7 +228,7 @@ Before you begin, make sure you have:
     Done! Check the file blog_data_and_embeddings.csv for your results.
     ```
 
-1.  To insert these embeddings into $TIMESCALE_DB using the `pgvector` extension,
+1.  To insert these embeddings into your $SERVICE_LONG using the `pgvector` extension,
     open an editor of your choice and create the `insert_embeddings.py` file.
 
     ```python
@@ -353,7 +355,7 @@ Before you begin, make sure you have:
     Index created on embeddings table
     ```
 
-1.  To query the embeddings that you inserted in $TIMESCALE_DB, open an editor of
+1.  To query the embeddings that you inserted in to your $SERVICE_LONG, open an editor of
     your choice and create the `query_embeddings.py` file. Here, the query is
     `How does Density use $TIMESCALE_DB?`.
 

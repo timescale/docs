@@ -6,10 +6,9 @@ keywords: [services, settings, extensions]
 tags: [extensions]
 ---
 
-# PostgreSQL extensions
+# $CLOUD_LONG PostgreSQL extensions 
 
-You can use PostgreSQL extensions with $CLOUD_LONG. These are the currently
-supported extensions:
+The following PostgreSQL extensions are installed with each $SERVICE_LONG:
 
 - [$COMPANY extensions][timescale-extensions]
 - [PostgreSQL built-in extensions][built-ins]

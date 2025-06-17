@@ -338,9 +338,8 @@ operations and mitigate before migrating.
 
 ## Migrate partial continuous aggregates
 
-In order to improve the performance and compatibility of continuous aggregates,
-$TIMESCALE_DB v2.7 replaces _partial_ continuous aggregates with 
-_finalized_ continuous aggregates.
+In order to improve the performance and compatibility of continuous aggregates, TimescaleDB  
+v2.7 replaces _partial_ continuous aggregates with _finalized_ continuous aggregates.
 
 To test your database for partial continuous aggregates, run the following query:
 

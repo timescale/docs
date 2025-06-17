@@ -46,7 +46,7 @@ HA][single-ha].
 ## Native replication
 
 Native replication is a set of capabilities and APIs that allow you to
-build a highly available multi-node $TIMESCALE_DB installation. At the
+build a highly available multi-node TimescaleDB installation. At the
 core of native replication is the ability to write copies of a chunk
 to multiple data nodes in order to have alternative _chunk replicas_
 in case of a data node failure. If one data node fails, its chunks

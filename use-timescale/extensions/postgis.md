@@ -1,5 +1,5 @@
 ---
-title: postgis PostgreSQL extension
+title: Analyse geospatial data with postgis
 excerpt: PostGIS enables you to store, query, and manipulate geographic and spatial data directly within PostgreSQL. Learn to use PostGIS to analyze geospatial data 
 products: [cloud, mst, self_hosted]
 keywords: [services, settings, extensions, postgis]
@@ -8,7 +8,7 @@ tags: [extensions, postgis]
 
 import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
 
-# The `postgis` extension
+# Analyse geospatial data using postgis
 
 The `postgis` PostgreSQL extension provides storing, indexing, and querying
 geographic data. It helps in spatial data analysis, the study of patterns,

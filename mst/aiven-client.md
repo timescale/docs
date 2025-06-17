@@ -18,7 +18,7 @@ You can use the Aiven Client tool to:
 Instructions: 
 
 - [Install and configure the Aiven client]
-- [Fork $MST_SERVICE_SHORTs with Aiven client]
+- [Fork services with Aiven client]
 - [Configure Grafana authentication plugins]
 - [Send Grafana emails]
 - [Create a read-only replica with the Aiven client]
@@ -33,9 +33,7 @@ To connect to $MST_LONG using Aiven Client, create an authentication token.
 
 <Procedure>
 
-#### Creating an authentication token in $MST_LONG
-
-1.  In [$MST CONSOLE_SHORT][mst-login], click `User Information` in the top right corner.
+1.  In [$MST_LONG][mst-login], click `User Information` in the top right corner.
 1.  In the `User Profile` page, navigate to the `Authentication`tab.
 1.  Click `Generate Token`.
 2.  In the `Generate access token` dialog, type a descriptive name for the token. Leave the rest of the fields blank.
@@ -97,7 +95,7 @@ To access $MST_LONG with the Aiven Client, you need an authentication token. Aiv
 
 </Procedure>
 
-## Fork $MST_SERVICE_SHORTs with Aiven client
+## Fork services with Aiven client
 
 When you a fork a $MST_SERVICE_SHORT, you create an exact copy of the $MST_SERVICE_SHORT, including
 the underlying database. You can use a fork of your $MST_SERVICE_SHORT to:

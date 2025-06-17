@@ -622,22 +622,22 @@ module.exports = [
         excerpt: "Keep your Tiger Cloud service up-to-date",
       },
       {
-        title: "PostgreSQL extensions",
+        title: "Tiger Cloud PostgreSQL extensions",
         href: "extensions",
         excerpt: "The PostgreSQL extensions installed in each Tiger Cloud service",
         children: [
           {
-            title: "pgvector extension",
+            title: "Create a chatbot using pgvector",
             href: "pgvector",
             excerpt: "Using the pgvector PostgreSQL extension",
           },
           {
-            title: "pgcrypto extension",
+            title: "Encrypt data using pgcrypto",
             href: "pgcrypto",
             excerpt: "Using the pgcrypto PostgreSQL extension",
           },
           {
-            title: "postgis extension",
+            title: "Analyse geospatial data using postgis",
             href: "postgis",
             excerpt: "Using the postgis PostgreSQL extension",
           },

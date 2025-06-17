@@ -1,7 +1,7 @@
 
 1. **Dump the roles from your source database**
 
-   Export your role-based security hierarchy.  &lt;db_name&gt; has the same value as &lt;db_name&gt; in $SOURCE.
+   Export your role-based security hierarchy. `<db_name>` has the same value as `<db_name>` in `$SOURCE`.
    I know, it confuses me as well.
 
    ```bash

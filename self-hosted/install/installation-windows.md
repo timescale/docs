@@ -73,13 +73,13 @@ And that is it! You have $TIMESCALE_DB running on a database on a self-hosted in
 * The latest $TIMESCALE_DB releases for PostgreSQL are:
 
     *   <Tag type="download">
-        [PostgreSQL 17: $TIMESCALE_DB release](https://github.com/timescale/timescaledb/releases/latest/download/timescaledb-postgresql-17-windows-amd64.zip)
+        [PostgreSQL 17: TimescaleDB release](https://github.com/timescale/timescaledb/releases/latest/download/timescaledb-postgresql-17-windows-amd64.zip)
         </Tag>
     *   <Tag type="download">
-        [PostgreSQL 16: $TIMESCALE_DB release](https://github.com/timescale/timescaledb/releases/latest/download/timescaledb-postgresql-16-windows-amd64.zip)
+        [PostgreSQL 16: TimescaleDB release](https://github.com/timescale/timescaledb/releases/latest/download/timescaledb-postgresql-16-windows-amd64.zip)
         </Tag>
     *   <Tag type="download">
-        [PostgreSQL 15: $TIMESCALE_DB release](https://github.com/timescale/timescaledb/releases/latest/download/timescaledb-postgresql-15-windows-amd64.zip)
+        [PostgreSQL 15: TimescaleDB release](https://github.com/timescale/timescaledb/releases/latest/download/timescaledb-postgresql-15-windows-amd64.zip)
         </Tag>
 
 * $TIMESCALE_DB is supported on the following platforms:

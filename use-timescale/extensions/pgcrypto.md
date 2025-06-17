@@ -1,12 +1,12 @@
 ---
-title: pgcrypto PostgreSQL extension
+title: Encrypt data using pgcrypto
 excerpt: pgcrypto is a PostgreSQL extension that secures sensitive data within the database. See how to use pgcrypto to encrypt the data in your service
 products: [cloud, mst, self_hosted]
 keywords: [services, settings, extensions, pgcrypto]
 tags: [extensions, pgcrypto]
 ---
 
-# The `pgcrypto` extension
+# Encrypt data using pgcrypto
 
 The `pgcrypto` PostgreSQL extension provides cryptographic functions such as:
 
