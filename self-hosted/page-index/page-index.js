@@ -125,22 +125,22 @@ module.exports = [
           {
             title: "Migrate entire database",
             href: "entire-database",
-            excerpt: "Migrate an entire Timescale database to self-hosted Timescale in one go",
+            excerpt: "Migrate an entire database to self-hosted TimescaleDB in one go",
           },
           {
             title: "Migrate schema then data",
             href: "schema-then-data",
-            excerpt: "Migrate your Timescale data and schema to self-hosted TimescaleDB",
+            excerpt: "Migrate your schema and data to self-hosted TimescaleDB",
           },
           {
             title: "Migrate tables from the same database",
             href: "same-db",
-            excerpt: "Migrate data into a Timescale hypertable from a regular PostgreSQL table",
+            excerpt: "Migrate data into a TimescaleDB hypertable from a regular PostgreSQL table",
           },
           {
-            title: "Migrate data to Timescale from InfluxDB",
+            title: "Migrate data to TimescaleDB from InfluxDB",
             href: "migrate-influxdb",
-            excerpt: "Migrate data into Timescale using the Outflux tool",
+            excerpt: "Migrate data into TimescaleDB using the Outflux tool",
           },
         ],
       },

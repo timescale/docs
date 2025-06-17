@@ -1,6 +1,6 @@
 ---
 title: Alerting
-excerpt: Setting up database alerting can help monitor performance, data integrity, resource usage, and more. Timescale Cloud integrates with a variety of alerting tools within the PostgreSQL ecosystem
+excerpt: Setting up database alerting can help monitor performance, data integrity, resource usage, and more. Tiger Cloud integrates with a variety of alerting tools within the PostgreSQL ecosystem
 products: [cloud, self_hosted]
 keywords: [alert, integration, Grafana, Datadog, Nagios, Zabbix]
 ---
@@ -10,7 +10,7 @@ keywords: [alert, integration, Grafana, Datadog, Nagios, Zabbix]
 Early issue detecting and prevention, ensuring high availability, and performance optimization are only a few of the reasons why alerting plays a major role for modern applications, databases, and services.
 
 There are a variety of different alerting solutions you can use in conjunction
-with Timescale that are part of the PostgreSQL ecosystem. Regardless of
+with $CLOUD_LONG that are part of the PostgreSQL ecosystem. Regardless of
 whether you are creating custom alerts embedded in your applications, or using
 third-party alerting tools to monitor event data across your organization, there
 are a wide selection of tools available.
@@ -30,7 +30,7 @@ including Slack and PagerDuty.
 
 To get started, first download and install [Grafana][Grafana-install]. Next, add
 a new [PostgreSQL data source][PostgreSQL datasource] that points to your
-Timescale instance. This data source was built by Timescale engineers, and
+$SERVICE_LONG. This data source was built by $COMPANY engineers, and
 it is designed to take advantage of the database's time-series capabilities.
 From there, proceed to your dashboard and set up alert rules as described above.
 
@@ -42,11 +42,11 @@ Alerting is only available in Grafana v4.0 and later.
 
 ## Other alerting tools
 
-Timescale works with a variety of alerting tools within the PostgreSQL
+$CLOUD_LONG works with a variety of alerting tools within the PostgreSQL
 ecosystem. Users can use these tools to set up notifications about meaningful
 events that signify notable changes to the system.
 
-Some popular alerting tools that work with Timescale include:
+Some popular alerting tools that work with $CLOUD_LONG include:
 
 *   [DataDog][datadog-install]
 *   [Nagios][nagios-install]

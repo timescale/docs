@@ -13,9 +13,10 @@ import HypercoreIntroShort from "versionContent/_partials/_hypercore-intro-short
 # Try the key features in $COMPANY products
 
 $CLOUD_LONG offers managed database services that provide a stable and reliable environment for your
-applications. Each $SERVICE_SHORT is based on a $PG database instance and the $TIMESCALE_DB extension.
+applications. Each $SERVICE_SHORT is an instance of $TIGER_POSTGRES, a radically faster $PG for
+transactional, analytical and agentic workloads at scale.
 
-$CLOUD_LONG scales $PG to ingest and query vast amounts of live data. $CLOUD_LONG 
+$CLOUD_LONG scales $TIGER_POSTGRES to ingest and query vast amounts of live data. $CLOUD_LONG 
 provides a range of features and optimizations that supercharge your queries while keeping the 
 costs down. For example: 
 * The $HYPERCORE row-columnar engine in $TIMESCALE_DB makes queries up to 350x faster, ingests 44% faster, and reduces 
@@ -396,7 +397,7 @@ For more information, see [High availability][high-availability].
 
 What next? See the [use case tutorials][tutorials], interact with the data in your $SERVICE_LONG using
 [your favorite programming language][connect-with-code], integrate your $SERVICE_LONG with a range of
-[third-party tools][integrations], plain old [Use Timescale][use-timescale], or dive into [the API][use-the-api].
+[third-party tools][integrations], plain old [Use $COMPANY products][use-timescale], or dive into [the API][use-the-api].
 
 [tutorials]: /tutorials/:currentVersion:/
 [connect-with-code]: /getting-started/:currentVersion:/start-coding-with-timescale/

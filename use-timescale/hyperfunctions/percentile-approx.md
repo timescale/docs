@@ -45,5 +45,5 @@ word for this type of function.
     [hyperfunction API documentation][hyperfunctions-api-approx-percentile].
 
 [advanced-agg]: /use-timescale/:currentVersion:/hyperfunctions/percentile-approx/advanced-agg/
-[blog-percentile-approx]: https://www.timescale.com/blog/how-percentiles-work-and-why-theyre-better-than-averages
+[blog-percentile-approx]: https://tigerdata.com/blog/how-percentile-approximation-works-and-why-its-more-useful-than-averages/
 [hyperfunctions-api-approx-percentile]: /api/:currentVersion:/hyperfunctions/percentile-approximation/uddsketch/

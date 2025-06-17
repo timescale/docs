@@ -9,7 +9,7 @@ import ExperimentalUpgrade from "versionContent/_partials/_experimental-schema-u
 
 # API Reference tag overview
 
-The Timescale API Reference uses tags to categorize functions. The tags are
+The $TIMESCALE_DB API Reference uses tags to categorize functions. The tags are
 `Community`, `Experimental`, `Toolkit`, and `Experimental (Toolkit)`. This
 section explains each tag.
 
@@ -24,19 +24,19 @@ visit our [TimescaleDB License comparison sheet][tsl-comparison].
 This tag indicates that the function is included in the TimescaleDB experimental
 schema. Do not use experimental functions in production. Experimental features
 could include bugs, and are likely to change in future versions. The
-experimental schema is used by Timescale to develop new features more quickly.
+experimental schema is used by $TIMESCALE_DB to develop new features more quickly.
 If experimental functions are successful, they can move out of the experimental
 schema and go into production use.
 
 <ExperimentalUpgrade />
 
 For more information about the experimental
-schema, [read the Timescale blog post][experimental-blog].
+schema, [read the $COMPANY blog post][experimental-blog].
 
 ## Toolkit <Tag type="toolkit">Toolkit</Tag>
 
-This tag indicates that the function is included in the TimescaleDB Toolkit extension.
-Toolkit functions are available under Timescale Community Edition.
+This tag indicates that the function is included in the $TOOLKIT_LONG extension.
+Toolkit functions are available under $TDB_COMMUNITY.
 For installation instructions, [see the installation guide][toolkit-install].
 
 ## Experimental (TimescaleDB Toolkit) <Tag type="experimental-toolkit">Experimental</Tag>
@@ -56,4 +56,3 @@ information, [see the TimescaleDB Toolkit docs][toolkit-docs].
 [tsl-comparison]: /about/:currentVersion:/timescaledb-editions/
 [toolkit-install]: /self-hosted/:currentVersion:/tooling/install-toolkit/
 [toolkit-docs]: https://github.com/timescale/timescaledb-toolkit/tree/main/docs#a-note-on-tags-
-[experimental-blog]: https://www.timescale.com/blog

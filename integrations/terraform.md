@@ -34,7 +34,7 @@ You use the [$COMPANY Terraform provider][terraform-provider] to manage $SERVICE
 
 1. **Generate client credentials for programmatic use**
 
-   1. In [$CONSOLE][console], click `Timescale project` and save your `Project ID`, then click `Project settings`.
+   1. In [$CONSOLE][console], click `Projects` and save your `Project ID`, then click `Project settings`.
    
    1. Click `Create credentials`, then save `Public key` and `Secret key`.
 

@@ -7,7 +7,7 @@ keywords: [connect, Managed Service for TimescaleDB, Timescale]
 
 # Find your connection details 
 
-To connect to your $SERVICE_SHORT or $SELF_LONG, you need at least the following:
+To connect to your $SERVICE_LONG or $SELF_LONG, you need at least the following:
 
 - Hostname
 - Port
@@ -43,7 +43,7 @@ To retrieve the connection details for your $CLOUD_LONG project and $SERVICE_LON
 
 1. **Retreive your project ID**:
 
-   In [$CONSOLE][console-services], click `Timescale Project`, then click `Copy` next to the project ID.
+   In [$CONSOLE][console-services], click your project name in the upper left corner, then click `Copy` next to the project ID.
    ![Retrive the project id in $CONSOLE](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-project-id.png)
 
 1. **Retrieve your service ID**:

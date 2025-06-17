@@ -429,4 +429,4 @@ Compared with using a sparse min/max index in $COLUMNSTORE, $COMPANY benchmarks 
 [segmenting-and-ordering]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/#segmenting-and-ordering-data
 [b-tree-and-hash-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/#b-tree-and-hash-indexes-early-access
 [about-index]: /use-timescale/:currentVersion:/schema-management/about-indexing/
-[create-index]: https://docs.timescale.com/api/latest/hypertable/create_index/
+[create-index]: https://docs.tigerdata.com/api/latest/hypertable/create_index/

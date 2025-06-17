@@ -24,7 +24,7 @@ Inspect `dumpfile.txt` before sending it together with a bug report or support q
 
 ## get_telemetry_report()
 
-Returns the background [telemetry][telemetry] string sent to Timescale servers. 
+Returns the background [telemetry][telemetry] string sent to $COMPANY. 
 
 If telemetry is turned off, it sends the string that would be sent if telemetry were enabled.
 

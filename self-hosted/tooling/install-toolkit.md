@@ -5,7 +5,7 @@ products: [self_hosted]
 keywords: [Toolkit, installation, hyperfunctions, function pipelines]
 ---
 
-# Install and update TimescaleDB Toolkit
+# Install and update $TIMESCALE_DB Toolkit
 
 Some hyperfunctions are included by default in $TIMESCALE_DB. For additional
 hyperfunctions, you need to install the $TOOLKIT_LONG PostgreSQL
@@ -126,8 +126,8 @@ installing or using Homebrew, see [the `brew` homepage][brew-install].
 
 #### Installing Toolkit on macOS
 
-1.  Tap the Timescale formula repository, which also contains formulae for
-    TimescaleDB and `timescaledb-tune`.
+1.  Tap the $COMPANY formula repository, which also contains formulae for
+    $TIMESCALE_DB and `timescaledb-tune`.
 
     ```bash
     brew tap timescale/tap

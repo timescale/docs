@@ -650,9 +650,9 @@ GROUP BY
    time
 ```
 
-[crypto-blog]: https://blog.timescale.com/blog/analyzing-bitcoin-ethereum-and-4100-other-cryptocurrencies-using-postgresql-and-timescaledb/
+[crypto-blog]: https://www.tigerdata.com/blog/analyzing-bitcoin-ethereum-and-4100-other-cryptocurrencies-using-postgresql-and-timescaledb
 [cryptocompare-apikey]: https://min-api.cryptocompare.com
 [cryptocompare]: https://www.cryptocompare.com
-[hypertable-blog]: https://blog.timescale.com/blog/when-boring-is-awesome-building-a-scalable-time-series-database-on-postgresql-2900ea453ee2/
+[hypertable-blog]: https://www.tigerdata.com/blog/when-boring-is-awesome-building-a-scalable-time-series-database-on-postgresql-2900ea453ee2
 [hypertable-docs]: /use-timescale/:currentVersion:/hypertables
 [install-timescale]: /getting-started/latest/

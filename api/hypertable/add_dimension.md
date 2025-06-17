@@ -14,7 +14,7 @@ import DimensionInfo from "versionContent/_partials/_dimension_info.mdx";
 
 # add_dimension()
 
-Add an additional partitioning dimension to a Timescale hypertable. You can only execute this `add_dimension` command 
+Add an additional partitioning dimension to a $TIMESCALE_DB hypertable. You can only execute this `add_dimension` command 
 on an empty hypertable. To convert a normal table to a hypertable, call [create hypertable][create_hypertable].
 
 The column you select as the dimension can use either:
