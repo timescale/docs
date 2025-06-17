@@ -38,7 +38,7 @@ To export metrics from a $SERVICE_LONG, you create a dedicated Prometheus export
 
    1. Select `Metrics` for data type and `Prometheus` for provider.
 
-      ![Create a Prometheus exporter in $CLOUD_LONG](https://assets.timescale.com/docs/images/timescale-create-prometheus-exporter.png)
+      ![Create a Prometheus exporter in Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-create-prometheus-exporter.png)
 
    1. Choose the region for the exporter. Only $SERVICE_SHORTs in the same project and region can be attached to this exporter.
    
@@ -46,7 +46,7 @@ To export metrics from a $SERVICE_LONG, you create a dedicated Prometheus export
 
    1. Change the auto-generated Prometheus credentials, if needed. See [official documentation][prometheus-authentication] on basic authentication in Prometheus. 
 
-      ![Prometheus exporter credentials](https://assets.timescale.com/docs/images/prometheus-basic-authentication.png)
+      ![Prometheus exporter credentials](https://assets.timescale.com/docs/images/tiger-cloud-console/prometheus-exporter-basic-authentication.png)
 
 1. **Attach the exporter to a $SERVICE_SHORT**
 
@@ -54,17 +54,17 @@ To export metrics from a $SERVICE_LONG, you create a dedicated Prometheus export
 
    1. Select the exporter in the drop-down, then click `Attach exporter`.
 
-      ![Attach a Prometheus exporter to a Tiger Cloud service](https://assets.timescale.com/docs/images/attach-prometheus-exporter-timescale-cloud.png)
+      ![Attach a Prometheus exporter to a Tiger Cloud service](https://assets.timescale.com/docs/images/tiger-cloud-console/attach-prometheus-exporter-tiger-cloud.png)
 
    The exporter is now attached to your $SERVICE_SHORT. To unattach it, click the trash icon in the exporter list. 
 
-      ![Unattach a Prometheus exporter from a Tiger Cloud service](https://assets.timescale.com/docs/images/unattach-prometheus-exporter-timescale-service.png)
+      ![Unattach a Prometheus exporter from a Tiger Cloud service](https://assets.timescale.com/docs/images/tiger-cloud-console/unattach-prometheus-exporter-tiger-cloud-service.png)
 
 1. **Configure the Prometheus scrape target**
 
    1. Select your service, then click `Operations` > `Exporters` and click the information icon next to the exporter. You see the exporter details. 
 
-      ![Prometheus exporter details in Tiger Cloud](https://assets.timescale.com/docs/images/prometheus-exporter-details-timescale-cloud.png)
+      ![Prometheus exporter details in Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/prometheus-exporter-details-tiger-cloud.png)
 
    1. Copy the exporter URL. 
 
