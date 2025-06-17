@@ -35,7 +35,7 @@ $LIVESYNC_CAP for S3 continuously imports data from an Amazon S3 bucket into you
 
 **Note**: $LIVESYNC for S3 currently only syncs existing and new files—it does not support updating or deleting records based on updates and deletes from S3 to tables in a $SERVICE_LONG.
 
-<EarlyAccessNoRelease />: livesync is not supported for production use. If you have any questions or feedback, talk to us in <a href="https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88">#livesync in the TimescaleDB Community</a>.
+<EarlyAccessNoRelease />: livesync is not supported for production use. If you have any questions or feedback, talk to us in <a href="https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88">#livesync in the TigerData Community</a>.
 
 ## Prerequisites
 
@@ -67,7 +67,7 @@ $LIVESYNC_CAP for S3 continuously imports data from an Amazon S3 bucket into you
 - **CSV**:
    - Maximum file size: 1 GB 
   
-      To increase this limit, contact sales@timescale.com
+      To increase this limit, contact sales@tigerdata.com
    - Maximum row size: 2 MB
    - Supported compressed formats:
       - `.gz`

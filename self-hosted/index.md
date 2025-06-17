@@ -13,7 +13,7 @@ import TimescaleDB from "versionContent/_partials/_timescaledb.mdx";
 <TimescaleDB /> 
 <CTA /> 
 
-$SELF_LONG is community supported. For additional help 
+$SELF_LONG_CAP is community supported. For additional help 
 check out the friendly [$COMPANY community][community].
 
 If you'd prefer to pay for support then check out our [self-managed support][support].

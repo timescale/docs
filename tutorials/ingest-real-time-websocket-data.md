@@ -20,7 +20,7 @@ websockets, you need to connect to the server, subscribe to symbols, and you can
 start receiving data in real-time during market hours.
 
 When you complete this tutorial, you'll have a data pipeline set
-up that ingests real-time financial data into your Timescale.
+up that ingests real-time financial data into your $CLOUD_LONG.
 
 This tutorial uses Python and the API
 [wrapper library][twelve-wrapper] provided by Twelve Data.

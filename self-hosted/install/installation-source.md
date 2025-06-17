@@ -55,7 +55,7 @@ To install TimescaleDB from source, you need the following on your developer env
 ## Install and configure $TIMESCALE_DB on $PG
 
 This section shows you how to install the latest version of PostgreSQL and
-TimescaleDB on a supported platform using source supplied by Timescale.
+TimescaleDB on a supported platform using source supplied by $COMPANY.
 
 <SelfHostedSource />
 

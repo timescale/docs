@@ -8,8 +8,7 @@ tags: [ingest, migrate, RDS]
 
 # Migrate your PostgreSQL database to self-hosted TimescaleDB
 
-You can migrate your existing PostgreSQL database to your self-hosted Timescale
-installation.
+You can migrate your existing PostgreSQL database to $SELF_LONG.
 
 There are several methods for migrating your data:
 

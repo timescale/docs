@@ -25,7 +25,7 @@ websockets, you need to connect to the server, subscribe to symbols, and you can
 start receiving data in real-time during market hours.
 
 When you complete this tutorial, you'll have a data pipeline set
-up that ingests real-time financial data into your Timescale.
+up that ingests real-time financial data into your $CLOUD_LONG.
 
 This tutorial uses Python and the API
 [wrapper library][twelve-wrapper] provided by Twelve Data.
@@ -49,8 +49,7 @@ This tutorial covers:
 1.  [Querying your dataset][financial-ingest-query]: Create candlestick views, query
     the aggregated data, and visualize the data in Grafana.
 
-    This tutorial shows you how to ingest real-time time-series data into a Timescale
-    database using a websocket connection. To create candlestick views, query the
+    This tutorial shows you how to ingest real-time time-series data into a $SERVICE_LONG using a websocket connection. To create candlestick views, query the
     aggregated data, and visualize the data in Grafana.
 
 ## About OHLCV data and candlestick charts

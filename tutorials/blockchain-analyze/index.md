@@ -35,7 +35,7 @@ This tutorial covers:
 1.  [Setting up your dataset][blockchain-dataset]
 1.  [Querying your dataset][blockchain-analyze]
 
-## About analyzing the Bitcoin blockchain with Timescale
+## About analyzing the Bitcoin blockchain with $CLOUD_LONG
 
 This tutorial uses a sample Bitcoin dataset to show you how to aggregate
 blockchain transaction data, and construct queries to analyze information from

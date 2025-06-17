@@ -91,8 +91,7 @@ argument.
 
 <Highlight type="note">
 
-This example uses the `postgres` user and database to connect to the Timescale
-database. For other connection options and configuration, see the [Outflux
+This example uses the `postgres` user and database to connect to the $SELF_LONG instance. For other connection options and configuration, see the [Outflux
 Github repo][outflux-gitbuh].
 
 </Highlight>
@@ -120,7 +119,7 @@ By default, each tag and field in InfluxDB is treated as a separate column in
 your $TIMESCALE_DB tables. To transfer tags and fields as a single JSONB column,
 use the flag `--tags-as-json`.
 
-## Migrate data to Timescale
+## Migrate data to $TIMESCALE_DB
 
 Transfer your schema and migrate your data all at once with the `migrate`
 command.

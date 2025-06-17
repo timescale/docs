@@ -42,15 +42,14 @@ these stories from some $COMPANYcommunity members:
 
 ## Steps in this tutorial
 
-This tutorial shows you how to ingest real-time time-series data into a Timescale
-database:
+This tutorial shows you how to ingest real-time time-series data into a $SERVICE_LONG:
 
 1.  [Ingest data into a $SERVICE_SHORT][financial-tick-dataset]: load data from
     [Twelve Data][twelve-data] into your $TIMESCALE_DB database.
 1.  [Query your dataset][financial-tick-query]: create candlestick views, query
     the aggregated data, and visualize the data in Grafana.
 1.  [Compress your data using hypercore][financial-tick-compress]: learn how to store and query
-your financial tick data more efficiently using compression feature of Timescale.
+your financial tick data more efficiently using compression feature of $TIMESCALE_DB.
 
 
 To create candlestick views, query the aggregated data, and visualize the data in Grafana, see the

@@ -45,7 +45,7 @@ To keep your current PostgreSQL installation, [Install from source][install-from
 ## Install and configure $TIMESCALE_DB on $PG
 
 This section shows you how to install the latest version of PostgreSQL and
-$TIMESCALE_DB on a [supported platform](#supported-platforms) using the packages supplied by Timescale.
+$TIMESCALE_DB on a [supported platform](#supported-platforms) using the packages supplied by $COMPANY.
 
 <Tabs label="Install TimescaleDB">
 

@@ -31,7 +31,7 @@ This section shows you how to:
 ## Install and configure $TIMESCALE_DB on PostgreSQL 
 
 This section shows you how to install the latest version of PostgreSQL and
-$TIMESCALE_DB on a [supported platform](#supported-platforms) using the packages supplied by Timescale. 
+$TIMESCALE_DB on a [supported platform](#supported-platforms) using the packages supplied by $COMPANY. 
 
 <Highlight type="warning">
 

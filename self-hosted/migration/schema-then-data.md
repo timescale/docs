@@ -103,9 +103,7 @@ owners, and settings. This doesn't include Timescale-specific schemas.
     -f dump_pre_data.bak <DATABASE_NAME>
     ```
 
-1.  Restore the dumped data from the `dump_pre_data.bak` file into your Timescale
-    database, using your $SELF_LONG connection details. To avoid
-    permissions errors, include the `--no-owner` flag:
+1.  Restore the dumped data from the `dump_pre_data.bak` file into your $SELF_LONG instance, using your $SELF_LONG connection details. To avoid permissions errors, include the `--no-owner` flag:
 
     ```bash
     pg_restore -U tsdbadmin -W \
@@ -118,7 +116,7 @@ owners, and settings. This doesn't include Timescale-specific schemas.
 ## Restore hypertables in your $SELF_LONG instance
 
 After pre-data migration, your hypertables from your source database become
-regular PostgreSQL tables in Timescale. Recreate your hypertables in in your $SELF_LONG instance to
+regular PostgreSQL tables in Timescale. Recreate your hypertables in your $SELF_LONG instance to
 restore them.
 
 <Procedure>

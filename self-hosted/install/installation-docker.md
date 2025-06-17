@@ -32,7 +32,7 @@ To run, and connect to a PostgreSQL installation on Docker, you need to install:
 ## Install and configure $TIMESCALE_DB on $PG
 
 This section shows you how to install the latest version of PostgreSQL and
-$TIMESCALE_DB on a [supported platform](#supported-platforms) using containers supplied by Timescale.
+$TIMESCALE_DB on a [supported platform](#supported-platforms) using containers supplied by $COMPANY.
 
 <SelfHostedDocker />
 
