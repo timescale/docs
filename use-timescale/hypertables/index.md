@@ -91,11 +91,12 @@ columns for the table. To learn more, see
 
 You can prevent index creation by setting the `create_default_indexes` option to `false`.
 
-This section shows you how to:
+This section shows you:
 
 * [Optimize time-series data in hypertables][create-hypertables]
 * [Improve hypertable and query performance][change-chunk-intervals]
 * [Enforce constraints with unique indexes][hypertables-and-unique-indexes]
+* [Troubleshooting][troubleshooting]
 
 [about-distributed-hypertables]: /self-hosted/:currentVersion:/distributed-hypertables/about-distributed-hypertables/
 [best-practices-space]: #best-practices-for-space-partitioning
@@ -107,3 +108,4 @@ This section shows you how to:
 [pg-analyze]: https://www.postgresql.org/docs/current/sql-analyze.html
 [chunks_detailed_size]: /api/:currentVersion:/hypertable/chunks_detailed_size
 
+[troubleshooting]: /use-timescale/:currentVersion:/hypertable/troubleshooting/
