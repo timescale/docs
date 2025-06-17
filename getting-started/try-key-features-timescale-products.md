@@ -289,7 +289,7 @@ $CONSOLE. You can also do this using psql.
 
 1. **In [$CONSOLE][portal-ops-mode], select the $SERVICE_SHORT you uploaded data to**
 1. **Click `Explorer` > `Continuous Aggregates` > `Create a Continuous Aggregate`** next to the `crypto_ticks` hypertable. 
-   ![$CAGG wizard](https://assets.timescale.com/docs/images/tiger-cloud-console/continuous-aggregate-wizard-tiger-cloud.png.png )
+   ![$CAGG wizard](https://assets.timescale.com/docs/images/tiger-cloud-console/continuous-aggregate-wizard-tiger-cloud.png )
 1. **Create a view called `assets_candlestick_daily` on the `time` column with an interval of `1 day`, then click `Next step`**
 1. **Update the view SQL with the following functions, then click `Run`**
    ```sql

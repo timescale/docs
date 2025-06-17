@@ -30,7 +30,7 @@ summary of your $SERVICE_SHORT, including all your hypertables and
 relational tables. It summarizes your overall compression ratios, and other
 policy and continuous aggregate data. And, if you aren't already using key features like continuous aggregates, columnstore compression, or other automation policies and actions, it provides pointers to tutorials and documentation to help you get started.
 
-![Service explorer](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-service-explorer..png)
+![Service explorer](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-service-explorer.png)
 
 ## Tables
 
