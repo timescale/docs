@@ -1,6 +1,6 @@
 ---
 title: BaseLake
-excerpt: Unifies the Timescale Cloud operational architecture with datalake architectures. This enables real-time application building alongside efficient data pipeline management within a single system.
+excerpt: Unifies the Tiger Cloud operational architecture with datalake architectures. This enables real-time application building alongside efficient data pipeline management within a single system.
 products: [cloud]
 keywords: [data lake, lakehouse, s3, iceberg]
 ---
@@ -11,11 +11,11 @@ BaseLake unifies operational architecture with datalake architectures of S3 and 
 This enables real-time application building alongside efficient data pipeline management within a single system.
 
 This experimental release is a native integration enabling continuous replication between AWS [S3 Tables](s3-tables) (managed Iceberg and catalog) running in your AWS account and
-relational tables and hypertables in Timescale Cloud. 
+relational tables and hypertables in Tiger Cloud. 
 
 ## Getting started
 
-To connect Timescale with AWS S3 Tables, the ARN of a table bucket and a ARN of role with permission to write to the table bucket, are required.
+To connect TigerData with AWS S3 Tables, the ARN of a table bucket and a ARN of role with permission to write to the table bucket, are required.
 Three options are available to curate these ARNs:
 * [Using the AWS CouldFormation Console](#setup-baselake-using-aws-management-console)
 * [Through the AWS CLI with a CloudFormation template](#setup-baselake-using-the-aws-cloudformation-cli)
@@ -26,7 +26,7 @@ Three options are available to curate these ARNs:
 1. Sign in to the AWS Management Console and open  [CloudFormation console][cmc].
 2. In the navigation bar on the top of the page:
    1. Choose the name of the currently displayed AWS Region
-   2. Set it to the Region in which you want to create your table bucket. **This must match the region your Timescale service** is running in. If the regions do not match AWS charges you for cross-region data transfer.
+   2. Set it to the Region in which you want to create your table bucket. **This must match the region your Tiger Cloud service** is running in. If the regions do not match AWS charges you for cross-region data transfer.
 3. Click **Create stack**. If prompted choose **With new resources**. This is the standard option.
 4. Under **Specify Template**, copy the following URL into the Amazon S3 URL box and Click **Next**.
    ```
@@ -35,7 +35,7 @@ Three options are available to curate these ARNs:
 5. Enter the following details, then click `Next`:
    * `Stack Name`: the name for this CloudFormation stack
    * `BucketName`: The name of the S3 table bucket which will be created
-   * `ProjectID` and `ServiceID`: Your Timescale Cloud service details, see [these instructions](get-project-id)
+   * `ProjectID` and `ServiceID`: Your Tiger Cloud service details, see [these instructions](get-project-id)
 6. Check `I acknowledge that AWS CloudFormation might create IAM resources`, then click `Next`.
 7. On the review page, click `Submit` and wait for the deployment to complete. 
 8. Click `Outputs`, then copy all four outputs. 
@@ -46,7 +46,7 @@ Three options are available to curate these ARNs:
 Replace the following values in the command, then run it from the terminal:
 * `Stack Name`: the name for this CloudFormation stack
 * `BucketName`: The name of the S3 table bucket which will be created
-* `ProjectID` and `ServiceID`: Your Timescale Cloud service details, see [these instructions](get-project-id)
+* `ProjectID` and `ServiceID`: Your Tiger Cloud service details, see [these instructions](get-project-id)
 
 ```shell
 aws cloudformation create-stack \
@@ -64,14 +64,14 @@ aws cloudformation create-stack \
 #### Create an S3 Bucket 
 1. Log in to the [AWS Management Console](aws-console).
 2. Open the [Amazon S3 console](s3-console).
-3. In the navigation bar on the top of the page, choose the name of the currently displayed AWS Region. Next, choose the region in which you want to create your table bucket. **This should match the region your Timescale service** will be in, or AWS will charge you for cross-region data transfer.
+3. In the navigation bar on the top of the page, choose the name of the currently displayed AWS Region. Next, choose the region in which you want to create your table bucket. **This should match the region your Tiger Cloud service** will be in, or AWS will charge you for cross-region data transfer.
 4. In the left navigation pane, choose Table buckets
 5. Click Create table bucket then enter a name for your bucket, and create it. Note down the bucket’s Amazon Resource Name (ARN) that is displayed.
 
 #### Create ARN role
 1. Open [IAM Dashboard](iam-dashboard), to create a new Role.
 2. In the left navigation pane click Roles, then click Create role and select Custom trust policy
-3. Replace the entire **Custom trust policy** code block with the following, substituting `{PROJECT_ID}` and `{SERVICE_ID}` with the appropriate values for the Timescale Cloud project and the service you intend to use with TigerLake. To locate your Project ID and Service ID, [follow these steps](get-project-id).
+3. Replace the entire **Custom trust policy** code block with the following, substituting `{PROJECT_ID}` and `{SERVICE_ID}` with the appropriate values for the Tiger Cloud project and the service you intend to use with TigerLake. To locate your Project ID and Service ID, [follow these steps](get-project-id).
 
 ```json
 {
@@ -123,7 +123,7 @@ aws cloudformation create-stack \
 ```
 
 8. Click Next, then give the inline policy a name and click Create policy
-9. Provide Timescale with the ARN of this role, the ARN of the S3 table bucket, and your Timescale Cloud Project and Service IDs.
+9. Provide TigerData with the ARN of this role, the ARN of the S3 table bucket, and your Tiger Cloud Project and Service IDs.
 10. We’ll spin up the services with the configurations and let you know when it’s completed.
 
 ## Provisioning
@@ -142,7 +142,7 @@ ALTER TABLE <table_name> SET (
 ```
 
 * `tigerlake.iceberg_sync`: `boolean`, set to `true` to start streaming and to `false` to stop the stream. Please be aware that a stream can not be resumed after being stopped. 
-* `tigerlake.iceberg_partitionby`: optional field to define a partition specification in Iceberg. By default the partitioning specification of the hypertable is used. Streamed Postgres tables can have a partition specification for the Iceberg table, if intentially defined.
+* `tigerlake.iceberg_partitionby`: optional field to define a partition specification in Iceberg. By default the partitioning specification of the hypertable is used. Streamed Postgres tables can have a partition specification for the Iceberg table, if intentially defined. Please refer to the [Iceberg partition specification](iceberg-partition-spec).
 
 When a stream is started, the full table is synchronized to Iceberg, this means that all prior records are imported first.
 The write throughput is ranging at approximately 40.000 records / second, for larger tables a full import can take some time.
@@ -160,9 +160,9 @@ To execute queries against Iceberg, best practice is to use the following produc
 * [Apache Spark][apache-spark]
 
 ## Limitations
-- Only Postgres 17 is supported.
-- Only the S3 Tables REST Iceberg catalog is supported.
-- Certain columnstore optimizations must be disabled in hypertables in order to collect correlating WAL events.
+* Only Postgres 17 is supported.
+* Only the S3 Tables REST Iceberg catalog is supported.
+* Certain columnstore optimizations must be disabled in hypertables in order to collect correlating WAL events.
 
 [cmc]: https://console.aws.amazon.com/cloudformation/
 [aws-athena]: https://aws.amazon.com/athena/
@@ -172,4 +172,5 @@ To execute queries against Iceberg, best practice is to use the following produc
 [aws-console]: https://console.aws.amazon.com/
 [s3-console]: https://console.aws.amazon.com/s3/
 [iam-dashboard]: https://console.aws.amazon.com/iamv2/home
-[get-project-id]: https://docs.timescale.com/integrations/latest/find-connection-details/#find-your-project-and-service-id
+[get-project-id]: https://docs.tigerdata.com/integrations/latest/find-connection-details/#find-your-project-and-service-id
+[iceberg-partition-spec]: https://iceberg.apache.org/spec/#partition-transforms
