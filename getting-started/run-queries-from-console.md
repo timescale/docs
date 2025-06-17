@@ -54,7 +54,7 @@ To connect to a $SERVICE_SHORT:
 
    In [$CONSOLE][services-portal], check that your $SERVICE_SHORT is marked as `Running`:
 
-   ![Check $SERVICE_LONG is running](https://assets.timescale.com/docs/images/timescale-console-services-view.png)
+   ![Check $SERVICE_LONG is running](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-services-view.png)
 
 1. **Connect to your $SERVICE_SHORT**
 
@@ -66,7 +66,7 @@ To connect to a $SERVICE_SHORT:
 
    Type `SELECT CURRENT_DATE;` in `Scratchpad` and click `Run`:
 
-   ![Run a simple query](https://assets.timescale.com/docs/images/run-query-in-scratchpad.png)
+   ![Run a simple query](https://assets.timescale.com/docs/images/tiger-cloud-console/run-query-in-scratchpad-tiger-cloud.png)
 
 Quick recap. You:
 - Manage your $SERVICE_SHORTs in the [$OPS_MODE in $CONSOLE][portal-ops-mode]
@@ -191,7 +191,9 @@ For best results with $SQL_ASSISTANT_SHORT:
 Security and privacy is prioritized in $CONSOLE. In [$DATA_MODE][portal-data-mode], $PROJECT_SHORT members
 manage $SQL_ASSISTANT_SHORT settings under [`User name` > `Settings` > `SQL Assistant`][sql-editor-settings].
 
-![SQL assistant settings](https://assets.timescale.com/docs/images/sql-editor-preferences.png)
+![SQL assistant settings](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-sql-editor-preferences-1.png)
+
+![SQL assistant settings](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-sql-editor-preferences-2.png)
 
 $SQL_ASSISTANT_SHORT settings are:
 
@@ -206,7 +208,7 @@ $SQL_ASSISTANT_SHORT settings are:
 $SQL_EDITOR is an integrated secure UI that you use to run queries and see the results
 for a $SERVICE_LONG.
 
-![$CONSOLE $SQL_EDITOR](https://assets.timescale.com/docs/images/sqleditor-ui.png)
+![$CONSOLE $SQL_EDITOR](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-sqleditor-ui.png)
 
 To enable or disable $SQL_EDITOR in your $SERVICE_SHORT, click `Operations` > `Service management`, then
 update the setting for $SQL_EDITOR.
@@ -219,13 +221,13 @@ To use $SQL_EDITOR:
 
     In the [$OPS_MODE][portal-ops-mode] in $CONSOLE, select a $SERVICE_SHORT, then click `SQL editor`.
 
-    ![Check $SERVICE_SHORT is running](https://assets.timescale.com/docs/images/ops-mode-sql-editor.png)
+    ![Check $SERVICE_SHORT is running](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-ops-mode-sql-editor.png)
 
 1. **Run a test query**
 
     Type `SELECT CURRENT_DATE;` in the UI and click `Run`. The results appear in the lower window:
 
-    ![Run a simple query](https://assets.timescale.com/docs/images/run-query-in-ops-mode-sql-editor.png)
+    ![Run a simple query](https://assets.timescale.com/docs/images/tiger-cloud-console/run-a-query-in-ops-mode-sql-editor.png)
 
 </Procedure>
 
