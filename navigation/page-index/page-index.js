@@ -19,7 +19,7 @@ module.exports = [
       },
       {
         title: "Full search",
-        overrideHref: "/search/?query=timescale",
+        overrideHref: "/search/?query=Tiger",
         excerpt: "Search TigerData docs, blog, and forum.",
         type: "placeholder",
       },

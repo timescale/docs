@@ -26,7 +26,7 @@ identity provider to log in to $CONSOLE.
 
 New users do not need to have a $ACCOUNT_LONG before you add them, they are
 prompted to create one when they respond to the confirmation email. Existing users
-join a $PROJECT_SHORT in addition to the other $PROJECT_SHORTS they are already members of.
+join a $PROJECT_SHORT in addition to the other $PROJECT_SHORTs they are already members of.
 
 To add a user to a $PROJECT_SHORT:
 

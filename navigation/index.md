@@ -11,4 +11,4 @@ it:
 [cloud-console]: https://console.cloud.timescale.com/
 [cloud-console-index]: /console/
 [keywords]: /keywords/
-[search]: /search/
+[search]: /search/?query=Tiger
