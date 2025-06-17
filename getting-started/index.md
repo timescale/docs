@@ -5,13 +5,13 @@ products: [cloud]
 content_group: Getting started
 ---
 
-import CloudIntro from "versionContent/_partials/_cloud-intro.mdx";
+import CloudIntroShort from "versionContent/_partials/_cloud-intro-short.mdx";
 import TimescaleIntro from "versionContent/_partials/_timescale-intro.mdx";
 import WhereNext from "versionContent/_partials/_where-to-next.mdx";
 
 # Get started with $COMPANY
 
-<CloudIntro />
+<CloudIntroShort />
 
 This section shows you how to:
 

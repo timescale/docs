@@ -635,7 +635,7 @@ Check out these resources for more about using $TIMESCALE_DB with crypto data:
 *   [Learn how $TIMESCALE_DB user Messari uses data to open the crypto economy to everyone][messari]
 *   [How one $TIMESCALE_DB user built a successful crypto trading bot][trading-bot]
 
-[analyze-bitcoin]: https://blog.timescale.com/blog/analyzing-bitcoin-ethereum-and-4100-other-cryptocurrencies-using-postgresql-and-timescaledb/
+[analyze-bitcoin]: https://www.tigerdata.com/blog/analyzing-bitcoin-ethereum-and-4100-other-cryptocurrencies-using-postgresql-and-timescaledb
 [analyze-cryptocurrency]: /tutorials/:currentVersion:/blockchain-analyze/
 [cont-agg]: /use-timescale/:currentVersion:/continuous-aggregates
 [daliso-opensea]: https://opensea.io/daliso
@@ -643,11 +643,11 @@ Check out these resources for more about using $TIMESCALE_DB with crypto data:
 [first-docs]: /api/:currentVersion:/hyperfunctions/first/
 [grafana]: https://grafana.com
 [last-docs]: /api/:currentVersion:/hyperfunctions/last
-[messari]: https://blog.timescale.com/blog/how-messari-uses-data-to-open-the-cryptoeconomy-to-everyone/
+[messari]: https://www.tigerdata.com/blog/how-messari-uses-data-to-open-the-cryptoeconomy-to-everyone
 [nft-form]: https://docs.google.com/forms/d/e/1FAIpQLSdZMzES-vK8K_pJl1n7HWWe5-v6D9A03QV6rys18woGTZr0Yw/viewform?usp=sf_link
 [nft-starter-kit]: https://github.com/timescale/nft-starter-kit
 [percentile-agg]: /api/:currentVersion:/hyperfunctions/percentile-approximation/uddsketch/#percentile_agg
 [queries]: https://github.com/timescale/nft-starter-kit/blob/master/queries.sql
 [snoop-dogg-opensea]: https://opensea.io/Cozomo_de_Medici
 [superset]: https://superset.apache.org
-[trading-bot]: https://blog.timescale.com/blog/how-i-power-a-successful-crypto-trading-bot-with-timescaledb/
+[trading-bot]: https://www.tigerdata.com/blog/how-i-power-a-successful-crypto-trading-bot-with-timescaledb

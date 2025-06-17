@@ -76,7 +76,7 @@ After you become a paying user, we can enable some features in the higher $PRICI
 You can easily upgrade or downgrade between the $PERFORMANCE and $SCALE plans 
 whenever you want using [$CONSOLE][cloud-login]. If you switch your $PRICING_PLAN mid-month, 
 your prices are prorated to when you switch. Your $SERVICE_SHORTs are not interrupted when you switch, so 
-you can keep working without any hassle. To move to $ENTERPRISE, [get in touch with $COMPANY]($CONTACT_COMPANY).
+you can keep working without any hassle. To move to $ENTERPRISE, [get in touch with $COMPANY][contact-company].
 
 ### Monitor usage and costs
 
@@ -177,12 +177,9 @@ The features included in each [$PRICING_PLAN][pricing-plans] are:
 | Email support                                                 | ✓                                 | ✓                                              | ✓                                              |
 | Production support                                            | 	Add-on                           | 	Add-on                                        | ✓                                              |
 | Named account manager                                         |                                   |                                                | ✓                                              |
-| JOIN services (Jumpstart Onboarding and INtegration)          |                                   | Available at minimum spend                     | ✓                                              | 
+| JOIN services (Jumpstart Onboarding and INtegration)          |                                   | Available at minimum spend                     | ✓                                              |
 
-If you want to estimate your costs ahead of the billing cycle, you can use the
-[pricing calculator](https://www.timescale.com/pricing/calculator).
-However, the pricing calculator does not include volume discounts. For a personalized quote, [get in touch with $COMPANY][get-in-touch].
-
+For a personalized quote, [get in touch with $COMPANY][contact-company].
 
 ## Example billing calculation
 
@@ -216,7 +213,7 @@ alt="Adding a payment method in Timescale"/>
 
 - **Details**: an overview of your $PRICING_PLAN, usage, and payment details. You can add up 
   to three credit cards to your `Wallet`. If you prefer to pay by invoice, 
-  [contact $COMPANY]($CONTACT_COMPANY) and ask to change to corporate billing.
+  [contact $COMPANY][contact-company] and ask to change to corporate billing.
 
 - **History**: the list of your downloadable $COMPANY invoices.
 - **Emails**: the addresses $COMPANY uses to communicate with you. Payment 
@@ -244,4 +241,4 @@ When you get $CLOUD_LONG at AWS Marketplace, the following pricing options are a
 [production-support]: https://www.timescale.com/support
 [hipaa-compliance]: https://www.hhs.gov/hipaa/for-professionals/index.html
 [aws-pricing]: /about/:currentVersion:/pricing-and-account-management/#aws-marketplace-pricing
-
+[contact-company]: https://www.tigerdata.com/contact/

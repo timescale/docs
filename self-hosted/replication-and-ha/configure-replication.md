@@ -18,7 +18,7 @@ Before you begin, make sure you have at least two separate instances of
 $TIMESCALE_DB running. If you installed TimescaleDB using a Docker container, use
 a [PostgreSQL entry point script][docker-postgres-scripts] to run the
 configuration. For more advanced examples, see the
-[Timescale Helm Charts repository][timescale-streamrep-helm].
+[$TIMESCALE_DB Helm Charts repository][timescale-streamrep-helm].
 
 To configure replication on $SELF_LONG, you need to perform these
 procedures:

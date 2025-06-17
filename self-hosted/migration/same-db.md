@@ -1,5 +1,5 @@
 ---
-title: Migrate data to Timescale from the same PostgreSQL instance
+title: Migrate data to self-hosted TimescaleDB from the same PostgreSQL instance
 excerpt: Migrate data into a TimescaleDB hypertable from a regular PostgreSQL table
 products: [self_hosted]
 keywords: [data migration, PostgreSQL]

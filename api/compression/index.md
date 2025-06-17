@@ -21,9 +21,9 @@ Before you set up compression, you need to
 <Highlight type="note">
 Before you set up compression for the first time, read
 the compression
-[blog post](https://www.timescale.com/blog/building-columnar-compression-in-a-row-oriented-database)
+[blog post](https://www.tigerdata.com/blog/building-columnar-compression-in-a-row-oriented-database)
 and
-[documentation](https://docs.timescale.com/use-timescale/latest/compression/).
+[documentation](https://docs.tigerdata.com/use-timescale/latest/compression/).
 </Highlight>
 
 You can also [compress chunks manually][compress_chunk], instead of using an

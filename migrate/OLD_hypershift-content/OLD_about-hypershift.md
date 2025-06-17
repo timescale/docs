@@ -1,6 +1,6 @@
 ---
-title: About migrating to Timescale with hypershift
-excerpt: Migrate an existing PostgreSQL database to Timescale in a single step
+title: About migrating to TimescaleDB with hypershift
+excerpt: Migrate an existing PostgreSQL database to TimescaleDB in a single step
 products: [cloud]
 keywords: [data migration, Hypershift]
 tags: [ingest, Hypershift, postgresql]
@@ -39,6 +39,7 @@ performance could be slower. If you write to tables in your source database
 during the migration, the new writes are not transferred to Timescale.
 
 <Highlight type="important">
+
 If you have a large database, and hypershift is going to have to run for a very
 long time to migrate it, for example, a day or more, ensure that you have a
 stable network connection. Hypershift is not able to recover if the network
@@ -46,6 +47,7 @@ connection is interrupted. Additionally, when Hypershift is running, it holds a
 single transaction open for the entire duration of the migration. This prevents
 any automated vacuum tasks from running, which can cause a range of different
 problems on a busy source database.
+
 </Highlight>
 
 ## The hypershift command line tool

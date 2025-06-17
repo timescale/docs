@@ -8,7 +8,7 @@ module.exports = [
       {
         title: "Find by Console location",
         overrideHref: "/console",
-        excerpt: "Browse topics by Timescale console location.",
+        excerpt: "Browse topics by Tiger Cloud Console location.",
         type: "placeholder",
       },
       {
@@ -20,7 +20,7 @@ module.exports = [
       {
         title: "Full search",
         overrideHref: "/search/?query=timescale",
-        excerpt: "Search Timescale docs, blog, and forum.",
+        excerpt: "Search TigerData docs, blog, and forum.",
         type: "placeholder",
       },
     ],

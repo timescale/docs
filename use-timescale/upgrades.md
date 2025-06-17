@@ -1,6 +1,6 @@
 ---
 title: Maintenance and upgrades
-excerpt: Keep your Timescale Cloud service up to date. Learn about minor and major migrations, maintenance windows, and updating your version of PostgreSQL
+excerpt: Keep your Tiger Cloud service up to date. Learn about minor and major migrations, maintenance windows, and updating your version of PostgreSQL
 products: [cloud]
 keywords: [updates, upgrades, maintenance]
 cloud_ui:
@@ -52,7 +52,7 @@ able to do so. Best practice is to [schedule your maintenance window][define-mai
 disrupts your workloads as little as possible and [minimize downtime with replicas][minimize-downtime]. If there are no 
 pending upgrades available during a regular maintenance window, no changes are performed.
 
-To track the status of maintenance events, see the Timescale [status page][status-page].
+To track the status of maintenance events, see the $CLOUD_LONG [status page][status-page].
 
 ### Minimize downtime with replicas
 

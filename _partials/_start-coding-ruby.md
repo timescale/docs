@@ -1,5 +1,5 @@
 ---
-title: "Quick Start: Ruby and Timescale"
+title: "Quick Start: Ruby and TimescaleDB"
 excerpt: Get started with Tiger Cloud or TimescaleDB using Ruby
 keywords: [Ruby]
 ---

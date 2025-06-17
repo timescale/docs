@@ -34,9 +34,9 @@ production use.
 
 $TDB_COMMUNITY is the advanced, best, and most feature complete 
 version of $TIMESCALE_DB, available under the terms of the
-[Timescale License (TSL)][timescale-license].
+[$COMPANY License (TSL)][timescale-license].
 
-For more information about the Timescale license, see [this blog post][license-blog].
+For more information about the $COMPANY license, see [this blog post][license-blog].
 
 Many of the most recent features of $TIMESCALE_DB are only available in
 $TDB_COMMUNITY.
@@ -63,7 +63,7 @@ You can access a hosted version of $TDB_COMMUNITY through
   <tr>
     <th>Features</th>
     <th>TimescaleDB Apache 2 Edition</th>
-    <th>$TDB_COMMUNITY</th>
+    <th>TimescaleDB Community Edition</th>
   </tr>
   <tr>
     <td><strong>Hypertables and chunks</strong></td>
@@ -333,7 +333,7 @@ You can access a hosted version of $TDB_COMMUNITY through
     <td>✅</td>
   </tr>
   <tr>
-    <td><a href="https://docs.timescale.com/api/latest/hyperfunctions/gapfilling/time_bucket_gapfill/#locf">locf</a></td>
+    <td><a href="https://docs.tigerdata.com/api/latest/hyperfunctions/gapfilling/time_bucket_gapfill#locf">locf</a></td>
     <td>❌</td>
     <td>✅</td>
   </tr>
@@ -403,7 +403,7 @@ You can access a hosted version of $TDB_COMMUNITY through
     <td>✅</td>
   </tr>
    <tr>
-    <td><a href="https://docs.timescale.com/api/latest/hyperfunctions/time-weighted-calculations/time_weight/#rollup">rollup</a></td>
+    <td><a href="https://docs.tigerdata.com/api/latest/hyperfunctions/time-weighted-calculations/time_weight#rollup">rollup</a></td>
     <td>❌</td>
     <td>✅</td>
   </tr>
@@ -520,8 +520,8 @@ You can access a hosted version of $TDB_COMMUNITY through
 
 <!-- vale Google.Units = NO -->
 
-[license-blog]: https://www.timescale.com/blog/how-we-are-building-a-self-sustaining-open-source-business-in-the-cloud-era
+[license-blog]: https://www.tigerdata.com/blog/how-we-are-building-a-self-sustaining-open-source-business-in-the-cloud-era
 [mst]: /mst/:currentVersion:
 [timescale-cloud]: /use-timescale/:currentVersion:/services/
-[timescale-license]: https://github.com/timescale/timescaledb/blob/main/tsl/LICENSE-TIMESCALE
-[apache-license]: https://github.com/timescale/timescaledb/blob/main/LICENSE-APACHE
+[timescale-license]: https://github.com/timescale/timescaledb/blob/master/tsl/LICENSE-TIMESCALE
+[apache-license]: https://github.com/timescale/timescaledb/blob/master/LICENSE-APACHE
