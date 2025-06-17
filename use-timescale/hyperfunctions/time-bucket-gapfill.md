@@ -1,6 +1,6 @@
 ---
 title: Time bucket gapfill
-excerpt: If you have missing data, sorting it into time buckets might be problematic. To solve this, you can use the gapfilling function in Timescale Cloud to create rows, then add data using interpolation or LOCF
+excerpt: If you have missing data, sorting it into time buckets might be problematic. To solve this, you can use the gapfilling function in TimescaleDB to create rows, then add data using interpolation or LOCF
 products: [cloud, mst, self_hosted]
 keywords: [hyperfunctions, Toolkit, gapfilling, interpolate]
 ---

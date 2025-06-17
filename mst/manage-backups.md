@@ -8,21 +8,19 @@ tags: [backup, manage, restore, timescaledb-backup, pg_dump]
 
 # Backups
 
-Managed Service for TimescaleDB databases are automatically backed up, with full
+$MST_SERVICE_LONGs are automatically backed up, with full
 backups daily, and write-ahead log (WAL) continuously recorded. All backups are
 [encrypted][aiven-encrypt].
 
-Managed Service for TimescaleDB uses [`pghoard`][pghoard], a PostgreSQL backup
+$MST_LONG uses [`pghoard`][pghoard], a PostgreSQL backup
 daemon and restore tool, to store backup data in cloud object stores. The number
 of backups stored and the retention time of the backup depend on the service
 plan.
 
 <Highlight type="important">
 
-The size of logical backups can be different from the size of the Managed
-Service for TimescaleDB backup that appears on the web console. In some cases,
-the difference is significant. Backup sizes that appear in the Managed Service
-for TimescaleDB web console are for daily backups, before encryption and
+The size of logical backups can be different from the size of the $MST_LONG backup that appears on the web console. In some cases,
+the difference is significant. Backup sizes that appear in the $MST_CONSOLE_SHORT are for daily backups, before encryption and
 compression. To view the size of each database, including space consumed by
 indexes, you can use the `\l+` command at the psql prompt.
 
@@ -46,10 +44,9 @@ up indexes, transactions, and data:
 
 ## Restore a service
 
-Managed Service for TimescaleDB provides a point-in-time recovery (PITR). To
+$MST_LONG provides a point-in-time recovery (PITR). To
 restore your service from a backup, click the `Restore` button in the `Backups`
-tab for your service. The backups are taken automatically by Managed Service for
-TimescaleDB and retained for a few days depending on your plan type.
+tab for your service. The backups are taken automatically by $MST_LONG and retained for a few days depending on your plan type.
 
 |Plan type|Backup retention period|
 |-|-|

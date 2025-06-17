@@ -6,9 +6,9 @@ keywords: [configuration]
 tags: [settings]
 ---
 
-# Configuring TimescaleDB
+# Configuring $TIMESCALE_DB
 
-TimescaleDB works with the default PostgreSQL server configuration settings.
+$TIMESCALE_DB works with the default PostgreSQL server configuration settings.
 However, we find that these settings are typically too conservative and
 can be limiting when using larger servers with more resources (CPU, memory,
 disk, etc). Adjusting these settings, either

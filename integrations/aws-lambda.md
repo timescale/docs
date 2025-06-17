@@ -1,6 +1,6 @@
 ---
-title: Integrate AWS Lambda with Timescale Cloud
-excerpt: With AWS Lambda, you can run code without provisioning or managing servers, and scale automatically. Integrate AWS Lambda with Timescale Cloud and inject data into your service
+title: Integrate AWS Lambda with Tiger Cloud
+excerpt: With AWS Lambda, you can run code without provisioning or managing servers, and scale automatically. Integrate AWS Lambda with Tiger Cloud and inject data into your service
 products: [cloud, self_hosted]
 keywords: [connect, integrate, aws, lambda]
 ---
@@ -8,7 +8,7 @@ keywords: [connect, integrate, aws, lambda]
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
 import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
 
-# Integrate AWS Lambda with Timescale Cloud
+# Integrate AWS Lambda with Tiger Cloud
 
 [AWS Lambda][AWS-Lambda] is a serverless computing service provided by Amazon Web Services (AWS) that allows you to run 
 code without provisioning or managing servers, scaling automatically as needed.
@@ -32,7 +32,7 @@ Create a table in $SERVICE_LONG to store time-series data.
 
 1. **Connect to your $SERVICE_LONG**
 
-      For $CLOUD_LONG, open an [SQL editor][run-queries] in [$CONSOLE][open-console]. For self-hosted, use [`psql`][psql].
+      For $CLOUD_LONG, open an [SQL editor][run-queries] in [$CONSOLE][open-console]. For $SELF_LONG, use [`psql`][psql].
 
 1. **Create a hypertable to store sensor data**
 

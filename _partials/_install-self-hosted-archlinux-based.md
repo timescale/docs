@@ -1,7 +1,7 @@
 <Procedure>
 
 
-1.  **Install the latest PostgreSQL and TimescaleDB packages**
+1.  **Install the latest PostgreSQL and $TIMESCALE_DB packages**
 
     ```bash
     sudo pacman -Syu timescaledb timescaledb-tune postgresql-libs

@@ -7,12 +7,12 @@ keywords: [vpc, peer, gcp]
 
 # Configure VPC peering on GCP
 
-You can configure VPC peering for your Managed Service for TimescaleDB project,
+You can configure VPC peering for your $MST_LONG project,
 using VPC provided by GCP.
 
 ## Before you begin
 
-*   Set up a VPC peering for your project in MST.
+*   Set up a VPC peering for your project in $MST_SHORT.
 *   In your GCP console, click the project name and make a note of the `Project ID`.
 *   In your GCP console, go to `VPC Networks`, find the VPC that you want to
     connect, and make a note of the network name for that VPC.
@@ -23,7 +23,7 @@ using VPC provided by GCP.
 
 To set up VPC peering for your project:
 
-1.  In [MST Portal][mst-login], click `VPC` and select the VPC connection that you
+1.  In [$MST_CONSOLE_SHORT][mst-login], click `VPC` and select the VPC connection that you
     created.
 
 1.  Type the project ID of your GCP project in `GCP Project ID`.
@@ -41,7 +41,7 @@ To set up VPC peering for your project:
     name that you made a note of.
 1.  Click `Create`.
 
-After the peering is successful, it is active in both the MST portal and your
+After the peering is successful, it is active in both MST_CONSOLE_SHORT and your
 GCP console.
 
 </Procedure>

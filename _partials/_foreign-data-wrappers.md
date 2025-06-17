@@ -19,7 +19,7 @@ To query another data source:
 
 <Tabs label="Query another data source">
 
-<Tab title="Timescale Cloud">
+<Tab title="Tiger Cloud">
 
 You create PostgreSQL FDWs with the `postgres_fdw` extension, which is enabled by default in $CLOUD_LONG.
 

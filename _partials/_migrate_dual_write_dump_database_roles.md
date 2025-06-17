@@ -6,7 +6,7 @@ pg_dumpall -d "$SOURCE" \
   --file=roles.sql
 ```
 
-Timescale services do not support roles with superuser access. If your SQL
+$SERVICE_LONGs do not support roles with superuser access. If your SQL
 dump includes roles that have such permissions, you'll need to modify the file
 to be compliant with the security model.
 
@@ -27,6 +27,7 @@ roles.sql
 ```
 
 <Highlight type="note">
+
 This command works only with the GNU implementation of sed (sometimes referred
 to as gsed). For the BSD implementation (the default on macOS), you need to
 add an extra argument to change the `-i` flag to `-i ''`.
@@ -35,6 +36,7 @@ To check the sed version, you can use the command `sed --version`. While the
 GNU version explicitly identifies itself as GNU, the BSD version of sed
 generally doesn't provide a straightforward --version flag and simply outputs
 an "illegal option" error.
+
 </Highlight>
 
 A brief explanation of this script is:
@@ -47,7 +49,7 @@ A brief explanation of this script is:
   that require superuser access.
 
 - `GRANTED BY role_specification`: The GRANTED BY clause can also have permissions that
-  require superuser access and should therefore be removed. Note: Per the
-  TimescaleDB documentation, the GRANTOR in the GRANTED BY clause must be the
+  require superuser access and should therefore be removed. Note: according to the
+  $TIMESCALE_DB documentation, the GRANTOR in the GRANTED BY clause must be the
   current user, and this clause mainly serves the purpose of SQL compatibility.
   Therefore, it's safe to remove it.

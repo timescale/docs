@@ -34,7 +34,7 @@ to develop an even more insightful forecast into how your data
 This time-series forecasting example demonstrates how to integrate
 TimescaleDB with R, Apache MADlib, and Python to perform various time-series
 forecasting methods. It uses New York City taxicab data that is also
-used in the Hello Timescale Tutorial. The dataset contains
+used in the Hello $COMPANY Tutorial. The dataset contains
 information about all yellow cab trips in New York City in January 2016,
 including pickup and dropoff times, GPS coordinates, and total price of a trip.
 You can extract some interesting insights from this rich dataset, build a
@@ -46,7 +46,7 @@ and machine learning tools.
 Prerequisites:
 
 *   [Installed TimescaleDB][install]
-*   Downloaded and loaded dataset from Hello Timescale Tutorial
+*   Downloaded and loaded dataset from Hello $COMPANY Tutorial
 *   Installed and set up PostGIS in database
 *   [Installed R][install_r]
 *   [Installed Python][install_python]

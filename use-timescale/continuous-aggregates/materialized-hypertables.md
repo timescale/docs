@@ -1,6 +1,6 @@
 ---
 title: Materialized hypertables
-excerpt: Continuous aggregates summarize raw data for your analytical queries and store it in materialized hypertables. Learn how to manage those materialized hypertables in Timescale Cloud
+excerpt: Continuous aggregates summarize raw data for your analytical queries and store it in materialized hypertables. Learn how to manage those materialized hypertables
 products: [cloud, mst, self_hosted]
 keywords: [continuous aggregates]
 tags: [materialized views]

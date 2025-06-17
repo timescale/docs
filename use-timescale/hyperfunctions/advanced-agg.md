@@ -1,15 +1,15 @@
 ---
 title: Percentile approximation advanced aggregation methods
-excerpt: Timescale Cloud uses uddsketch and tdigest to approximate percentiles on large datasets. Learn the difference between the two, to make the right choice for your analytical queries
+excerpt: TimescaleDB uses uddsketch and tdigest to approximate percentiles on large datasets. Learn the difference between the two, to make the right choice for your analytical queries
 products: [cloud, mst, self_hosted]
 keywords: [hyperfunctions, Toolkit, percentiles, uddsketch, tdigest]
 ---
 
 # Percentile approximation advanced aggregation methods
 
-Timescale uses approximation algorithms to calculate a percentile without
+$TIMESCALE_DB uses approximation algorithms to calculate a percentile without
 requiring all of the data. This also makes them more compatible with continuous
-aggregates. By default, Timescale uses `uddsketch`, but you can also choose to
+aggregates. By default, $TIMESCALE_DB uses `uddsketch`, but you can also choose to
 use `tdigest`. This section describes the different methods, and helps you to
 decide which one you should use.
 

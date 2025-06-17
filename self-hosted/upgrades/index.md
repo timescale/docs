@@ -7,21 +7,21 @@ keywords: [upgrades]
 
 import ConsiderCloud from "versionContent/_partials/_consider-cloud.mdx";
 
-# Upgrade TimescaleDB
+# Upgrade $TIMESCALE_DB
 
 A major upgrade is when you update from TimescaleDB `X.<minor version>` to `Y.<minor version>`.
 A minor upgrade is when you update from TimescaleDB `<major version>.x`, to TimescaleDB `<major version>.y`.
-You upgrade your self-hosted TimescaleDB installation in-place.
+You upgrade your $SELF_LONG installation in-place.
 
 <ConsiderCloud />
 
 This section shows you how to:
 
-* Upgrade self-hosted TimescaleDB to a new [minor version][upgrade-minor].
-* Upgrade self-hosted TimescaleDB to a new [major version][upgrade-major].
-* Upgrade self-hosted TimescaleDB running in a [Docker container][upgrade-docker] to a new minor version.
+* Upgrade $SELF_LONG to a new [minor version][upgrade-minor].
+* Upgrade $SELF_LONG to a new [major version][upgrade-major].
+* Upgrade $SELF_LONG running in a [Docker container][upgrade-docker] to a new minor version.
 * Upgrade [PostgreSQL][upgrade-pg] to a new version.
-* Downgrade self-hosted TimescaleDB to the [previous minor version][downgrade].
+* Downgrade $SELF_LONG to the [previous minor version][downgrade].
 
 [downgrade]: /self-hosted/:currentVersion:/upgrades/downgrade/
 [upgrade-docker]: /self-hosted/:currentVersion:/upgrades/upgrade-docker/

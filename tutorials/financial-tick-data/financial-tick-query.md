@@ -1,6 +1,6 @@
 ---
 title: Analyze financial tick data - Query the data
-excerpt: Create candlestick views and query financial tick data to perform real-time analysis of price changes in Timescale Cloud
+excerpt: Create candlestick views and query financial tick data to perform real-time analysis of price changes in Tiger Cloud
 products: [cloud, self_hosted, mst]
 keywords: [tutorials, finance, learn]
 tags: [tutorials, beginner]
@@ -13,10 +13,10 @@ import GraphOhlcv from "versionContent/_partials/_graphing-ohlcv-data.mdx";
 # Query the data
 
 Turning raw, real-time tick data into aggregated candlestick views is a common
-task for users who work with financial data. TimescaleDB includes
+task for users who work with financial data. $TIMESCALE_DB includes
 [hyperfunctions][hyperfunctions]
 that you can use to store and query your financial data more easily.
-Hyperfunctions are SQL functions within TimescaleDB that make it easier to
+Hyperfunctions are SQL functions within $TIMESCALE_DB that make it easier to
 manipulate and analyze time-series data in PostgreSQL with fewer lines of code.
 
 There are three hyperfunctions that are essential for calculating candlestick
@@ -27,7 +27,7 @@ help you calculate the opening and closing prices. To calculate highest and
 lowest prices, you can use the standard PostgreSQL aggregate functions `MIN` and
 `MAX`.
 
-In TimescaleDB, the most efficient way to create candlestick views is to use
+In $TIMESCALE_DB, the most efficient way to create candlestick views is to use
 [continuous aggregates][caggs].
 In this tutorial, you create a continuous aggregate for a candlestick time
 bucket, and then query the aggregate with different refresh policies. Finally,
@@ -44,7 +44,7 @@ the last two days' worth of data.
 
 ### Creating a continuous aggregate
 
-1.  Connect to the Timescale database that contains the Twelve Data
+1.  Connect to the $SERVICE_LONG that contains the Twelve Data
     cryptocurrency dataset.
 
 1.  At the psql prompt, create the continuous aggregate to aggregate data every
@@ -88,7 +88,7 @@ OHLCV values.
 
 ### Querying the continuous aggregate
 
-1.  Connect to the Timescale database that contains the Twelve Data
+1.  Connect to the $SERVICE_LONG that contains the Twelve Data
     cryptocurrency dataset.
 
 1.  At the psql prompt, use this query to select all Bitcoin OHLCV data for the
