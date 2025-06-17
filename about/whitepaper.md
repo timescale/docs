@@ -20,8 +20,7 @@ scalability while preserving $PG’s reliability and transactional guarantees.
 Want to read this whitepaper from the comfort of your own computer?
 
 <center>
-   <Tag type="download">[TigerData architecture for real-time analytics (PDF)](https://assets.timescale.
-com/docs/downloads/Timescale_Architecture_for_Real-time_Analytics.pdf)</Tag>
+   <Tag type="download">[TigerData architecture for real-time analytics (PDF)](https://assets.timescale.com/docs/downloads/tigerdata-whitepaper.pdf)</Tag>
 </center>
 
 
