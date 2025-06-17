@@ -18,7 +18,7 @@ are a wide selection of tools available.
 ## Grafana
 
 Grafana is a great way to visualize your analytical queries, and it has a
-first-class integration with Timescale. Beyond data visualization, Grafana
+first-class integration with $COMPANY products. Beyond data visualization, Grafana
 also provides alerting functionality to keep you notified of anomalies.
 
 Within Grafana, you can [define alert rules][define alert rules] which are

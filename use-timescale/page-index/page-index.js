@@ -749,17 +749,17 @@ module.exports = [
         ],
       },
       {
-        title: "Tiger Cloud limitations",
+        title: "Limitations",
         href: "limitations",
-        excerpt: "Current limitations of Tiger Cloud features",
+        excerpt: "Current limitations of TigerData product features",
       },
       {
-        title: "Troubleshoot Tiger Cloud",
+        title: "Troubleshoot TigerData products",
         href: "troubleshoot-timescaledb",
-        excerpt: "Troubleshooting Tiger Cloud",
+        excerpt: "Troubleshooting Tiger Cloud and TimescaleDB",
       },
       {
-        title: "Compression (Old API, replaced by Hypercore)",
+        title: "Compression (Old API, replaced by hypercore)",
         href: "compression",
         children: [
           {

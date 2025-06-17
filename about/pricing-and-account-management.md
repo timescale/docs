@@ -202,9 +202,9 @@ $SERVICE_LONG has been running compute for 500 hours total:
 Some add-ons such as Elastic storage, Tiered storage, and Connection pooling may incur 
 additional charges. These charges are clearly marked in your billing snapshot in $CONSOLE.
 
-## Manage your $COMPANY $PRICING_PLAN
+## Manage your $CLOUD_LONG $PRICING_PLAN
 
-You handle all details about your $COMPANY project including updates to your $PRICING_PLAN, 
+You handle all details about your $CLOUD_LONG project including updates to your $PRICING_PLAN, 
 payment methods, and add-ons in the [billing section in $CONSOLE][cloud-billing]:
 
 <img class="main-content__illustration"
@@ -215,7 +215,7 @@ alt="Adding a payment method in Timescale"/>
   to three credit cards to your `Wallet`. If you prefer to pay by invoice, 
   [contact $COMPANY][contact-company] and ask to change to corporate billing.
 
-- **History**: the list of your downloadable $COMPANY invoices.
+- **History**: the list of your downloadable $CLOUD_LONG invoices.
 - **Emails**: the addresses $COMPANY uses to communicate with you. Payment 
   confirmations and alerts are sent to the email address you signed up with.
   Add another address to send details to other departments in your organization. 
