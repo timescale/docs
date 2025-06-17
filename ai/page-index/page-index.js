@@ -1,6 +1,6 @@
 module.exports = [
   {
-    title: "AI  and Vector: pgai on TigerData",
+    title: "AI  and Vector: pgai on Tiger Cloud",
     href: "ai",
     filePath: "index.md",
     pageComponents: ["featured-cards"],
