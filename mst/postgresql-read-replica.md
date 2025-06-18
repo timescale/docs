@@ -4,7 +4,7 @@ excerpt: Create and use a read-only replica for your services in Managed Service
 products: [mst]
 ---
 
-# Create a read-only replica of PostgreSQL service
+# Create a read-only replica of $PG service
 
 PostgreSQL read-only replicas allow you to perform read-only queries against
 the replica and reduce the load on the primary server. You can optimize query

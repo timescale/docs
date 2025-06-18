@@ -523,12 +523,12 @@ Timescale Cloud services can now be upgraded directly to PostgreSQL 17 from vers
 ### Timescale Cloud available on AWS Marketplace
 Timescale Cloud is now available in the [AWS Marketplace][aws-timescale]. This allows you to keep billing centralized on your AWS account, use your already committed AWS Enterprise Discount Program spend to pay your Timescale Cloud bill and simplify procurement and vendor management.
 
-## 🎅 Postgres 17, feature requests, and Postgres Livesync
+## 🎅 $PG 17, feature requests, and $PG Livesync
 <Label type="date">December 20, 2024</Label>
 
-### Postgres 17
-All new Timescale Cloud services now come with Postgres 17.2, the latest version. Upgrades to Postgres 17 for services running on prior versions will be available in January.
-Postgres 17 adds new capabilities and improvements to Timescale like:
+### $PG 17
+All new Timescale Cloud services now come with $PG 17.2, the latest version. Upgrades to $PG 17 for services running on prior versions will be available in January.
+$PG 17 adds new capabilities and improvements to Timescale like:
 * **System-wide Performance Improvements**. Significant performance boosts, particularly in high-concurrency workloads. Enhancements in the I/O layer, including improved Write-Ahead Log (WAL) processing, can result in up to a 2x increase in write throughput under heavy loads.
 * **Enhanced JSON Support**. The new JSON_TABLE allows developers to convert JSON data directly into relational tables, simplifying the integration of JSON and SQL. The release also adds new SQL/JSON constructors and query functions, offering powerful tools to manipulate and query JSON data within a traditional relational schema. 
 * **More Flexible MERGE Operations**. The MERGE command now includes a RETURNING clause, making it easier to track and work with modified data. You can now also update views using MERGE, unlocking new use cases for complex queries and data manipulation.
@@ -539,10 +539,10 @@ All feature requests are automatically published to the [Timescale Forum](https:
 
 ![Submit a feature request in Timescale Console](https://assets.timescale.com/docs/images/submit-feature-request.png)
 
-### Postgres Livesync (Alpha release)
-We have built a new solution that helps you continuously replicate all or some of your Postgres tables directly into Timescale Cloud.
+### $PG Livesync (Alpha release)
+We have built a new solution that helps you continuously replicate all or some of your $PG tables directly into Timescale Cloud.
 
-[Livesync](https://docs.timescale.com/migrate/latest/livesync-for-postgresql/) allows you to keep a current Postgres instance such as RDS as your primary database, and easily offload your real-time analytical queries to Timescale Cloud to boost their performance. If you have any questions or feedback, talk to us in [#livesync in Timescale Community](https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88).
+[Livesync](https://docs.timescale.com/migrate/latest/livesync-for-postgresql/) allows you to keep a current $PG instance such as RDS as your primary database, and easily offload your real-time analytical queries to Timescale Cloud to boost their performance. If you have any questions or feedback, talk to us in [#livesync in Timescale Community](https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88).
 
 This is just the beginning—you'll see more from livesync in 2025!
 
@@ -864,9 +864,9 @@ We've added a new tab to the service screen that allows users to query their dat
 ![SQL Editor](https://s3.amazonaws.com/assets.timescale.com/docs/images/sql-editor-query.png)
 
 ### Enhanced Data Import Options for Quick Evaluation
-After service creation, we now offer a dedicated section for data import, including options to import from Postgres as a source or from CSV files.
+After service creation, we now offer a dedicated section for data import, including options to import from $PG as a source or from CSV files.
 
-The enhanced Postgres import instructions now offer several options: single table import, schema-only import, partial data import (allowing selection of a specific time range), and complete database import. Users can execute any of these data imports with just one or two simple commands provided in the data import section.
+The enhanced $PG import instructions now offer several options: single table import, schema-only import, partial data import (allowing selection of a specific time range), and complete database import. Users can execute any of these data imports with just one or two simple commands provided in the data import section.
 
 ![Data import screen](https://s3.amazonaws.com/assets.timescale.com/docs/images/data-import-screen.png)
 

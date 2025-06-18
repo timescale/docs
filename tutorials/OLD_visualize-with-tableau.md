@@ -39,7 +39,7 @@ Cryptocurrency tutorial.
 Locate the `host`, `port`, and `password` of your TimescaleDB instance.
 
 Connecting your TimescaleDB instance to Tableau takes just a few clicks, thanks
-to Tableau's  built-in Postgres connector. To connect to your database add a new
+to Tableau's  built-in $PG connector. To connect to your database add a new
 connection and under the  'to a server' section, select PostgreSQL as the
 connection type. Then enter your database  credentials.
 

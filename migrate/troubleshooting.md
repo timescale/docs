@@ -105,7 +105,7 @@ provide a connection string that points directly to your source database for
 live migration.
 
 
-## Can I use live migration with a Postgres connection pooler like PgBouncer?
+## Can I use live migration with a $PG connection pooler like PgBouncer?
 
 Live migration does not support connection poolers. You must provide a
 connection string that points directly to your source and target databases

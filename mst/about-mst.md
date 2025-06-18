@@ -163,7 +163,7 @@ Typically this time window is limited to either five minutes, or one WAL file.
 
 ### Highly available nodes
 
-In Pro plans, if a PostgreSQL standby fails, the master node keeps running
+In Pro plans, if a $PG standby fails, the master node keeps running
 normally and provides normal service level to the client applications. When the
 new replacement standby node is ready and synchronized with the master, it
 starts replicating the master in real time and normal operation resumes.

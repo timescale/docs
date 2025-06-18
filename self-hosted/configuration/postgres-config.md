@@ -23,7 +23,7 @@ For more information about the PostgreSQL configuration page, see the
 The location of the PostgreSQL configuration file depends on your operating
 system and installation. 
 
-1. **Find the location of the config file for your Postgres instance**
+1. **Find the location of the config file for your $PG instance**
    1. Connect to your database:
       ```shell
       psql -d "postgres://<username>:<password>@<host>:<port>/<database-name>"
@@ -32,14 +32,14 @@ system and installation.
       ```sql
       SHOW config_file;
       ```
-      Postgres returns the path to your configuration file. For example:
+      $PG returns the path to your configuration file. For example:
       ```sql
       --------------------------------------------
       /home/postgres/pgdata/data/postgresql.conf
       (1 row)
       ```
 
-1. **Open the config file, then [edit your postgres configuration][pg-config]** 
+1. **Open the config file, then [edit your $PG configuration][pg-config]** 
    ```shell
    vi /home/postgres/pgdata/data/postgresql.conf
    ```

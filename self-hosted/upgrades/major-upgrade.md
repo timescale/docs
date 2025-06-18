@@ -145,7 +145,7 @@ section.
     SELECT * FROM timescaledb_information.jobs
       WHERE application_name LIKE 'Refresh Continuous%';
     ```
-    Postgres returns something like:
+    $PG returns something like:
     ```shell
     -[ RECORD 1 ]-----+--------------------------------------------------
     job_id            | 1001
@@ -176,7 +176,7 @@ section.
     SELECT * FROM timescaledb_information.job_stats
       WHERE job_id = 1001;
     ```
-    Postgres returns something like:
+    $PG returns something like:
     ```sql
     -[ RECORD 1 ]----------+------------------------------
     hypertable_schema      | _timescaledb_internal

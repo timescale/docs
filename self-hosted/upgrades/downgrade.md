@@ -93,7 +93,7 @@ upgrading and downgrading.
     ```sql
     \dx timescaledb;
     ```
-   Postgres returns something like:
+   $PG returns something like:
     ```shell
     Name     | Version | Schema |                                      Description                                      
     -------------+---------+--------+---------------------------------------------------------------------------------------

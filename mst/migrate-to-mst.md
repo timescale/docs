@@ -37,9 +37,9 @@ not causing downtime to your customers.
 
 Ensure that you have:
 
-*   Installed the PostgreSQL [`pg_dump`][pg_dump] and [`pg_restore`][pg_restore]
+*   Installed the $PG [`pg_dump`][pg_dump] and [`pg_restore`][pg_restore]
     utilities.
-*   Installed a client for connecting to PostgreSQL. These instructions use
+*   Installed a client for connecting to $PG. These instructions use
     [`psql`][psql], but any client works.
 *   Created a new empty database in $MST_LONG. For more
     information, see the [Install $MST_LONG][install-mst].

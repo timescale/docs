@@ -10,7 +10,7 @@ keywords: [alert, integration, Grafana, Datadog, Nagios, Zabbix]
 Early issue detecting and prevention, ensuring high availability, and performance optimization are only a few of the reasons why alerting plays a major role for modern applications, databases, and services.
 
 There are a variety of different alerting solutions you can use in conjunction
-with $CLOUD_LONG that are part of the PostgreSQL ecosystem. Regardless of
+with $CLOUD_LONG that are part of the $PG ecosystem. Regardless of
 whether you are creating custom alerts embedded in your applications, or using
 third-party alerting tools to monitor event data across your organization, there
 are a wide selection of tools available.
@@ -29,7 +29,7 @@ integration with webhooks, email and more than a dozen external services
 including Slack and PagerDuty.
 
 To get started, first download and install [Grafana][Grafana-install]. Next, add
-a new [PostgreSQL data source][PostgreSQL datasource] that points to your
+a new [$PG data source][PostgreSQL datasource] that points to your
 $SERVICE_LONG. This data source was built by $COMPANY engineers, and
 it is designed to take advantage of the database's time-series capabilities.
 From there, proceed to your dashboard and set up alert rules as described above.
@@ -42,7 +42,7 @@ Alerting is only available in Grafana v4.0 and later.
 
 ## Other alerting tools
 
-$CLOUD_LONG works with a variety of alerting tools within the PostgreSQL
+$CLOUD_LONG works with a variety of alerting tools within the $PG
 ecosystem. Users can use these tools to set up notifications about meaningful
 events that signify notable changes to the system.
 

@@ -19,7 +19,7 @@ CREATE EXTENSION IF NOT EXISTS vectorscale;
 
 ## Creating the table for storing embeddings using pgvector
 
-Vectors inside of the database are stored in regular PostgreSQL tables using `vector` columns. The `vector` column type is provided by the pgvector extension. A common way to store vectors is alongside the data they are embedding. For example, to store embeddings for documents, a common table structure is:
+Vectors inside of the database are stored in regular $PG tables using `vector` columns. The `vector` column type is provided by the pgvector extension. A common way to store vectors is alongside the data they are embedding. For example, to store embeddings for documents, a common table structure is:
 
 ```sql
 CREATE TABLE IF NOT EXISTS document_embedding  (

@@ -159,8 +159,8 @@ They collect the following data about each ride:
 To efficiently store that data, we're going to need three tables:
 
 1.  A [hypertable][hypertables] called `rides`, which stores all of the above data for each ride taken.
-2.  A regular Postgres table called `payment_types`, which maps the payment types to their English description.
-3.  A regular Postgres table called `rates`, which maps the numeric rate codes to their English description.
+2.  A regular $PG table called `payment_types`, which maps the payment types to their English description.
+3.  A regular $PG table called `rates`, which maps the numeric rate codes to their English description.
 
 The `nyc_data.sql` script defines the schema for our three tables. The script
 automatically configures your TimescaleDB instance with the appropriate

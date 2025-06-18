@@ -31,7 +31,7 @@ the latest size in a matter of minutes. Also, due to the backend
 caching, any long running session will only fetch latest data for new
 or modified chunks and can use the cached data (which is calculated
 afresh the first time around) effectively for older chunks. Thus it
-is recommended to use a single connected postgres backend session to
+is recommended to use a single connected $PG backend session to
 compute the approximate sizes of hypertables to get faster results.
 </Highlight>
 

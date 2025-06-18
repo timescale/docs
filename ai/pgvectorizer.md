@@ -6,10 +6,10 @@ keywords: [ai, vector, pgvector, TigerData vector, pgvectorizer]
 tags: [ai, vector, pgvectorizer]
 ---
 
-## Embed PostgreSQL data with PgVectorizer
+## Embed $PG data with PgVectorizer
 
 PgVectorizer enables you to create vector embeddings from any data that
-you already have stored in PostgreSQL. You can get more background
+you already have stored in $PG. You can get more background
 information in the [blog
 post](https://www.timescale.com/blog/a-complete-guide-to-creating-and-storing-embeddings-for-postgresql-data/)
 announcing this feature, as well as the ["how we built

@@ -49,11 +49,11 @@ CREATE INDEX idxgin ON metrics USING GIN (data);
 ```
 
 For more information about GIN indexes, see the
-[PostgreSQL documentation][json-indexing].
+[$PG documentation][json-indexing].
 
 This index only optimizes queries where the `WHERE` clause uses the `?`, `?&`,
 `?|`, or `@>` operator. For more information about these operators, see the
-[PostgreSQL documentation][json-operators].
+[$PG documentation][json-operators].
 
 ## Index individual fields
 

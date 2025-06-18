@@ -10,7 +10,7 @@ cloud_ui:
 
 # Configure database parameters
 
-$CLOUD_LONG allows you to customize many $CLOUD_LONG-specific and PostgreSQL
+$CLOUD_LONG allows you to customize many $CLOUD_LONG-specific and $PG
 configuration options for each $SERVICE_SHORT individually. Most configuration values
 for a $SERVICE_SHORT are initially set in accordance with best practices given the
 compute and storage settings of the $SERVICE_SHORT. Any time you increase or decrease
@@ -37,7 +37,7 @@ modify. This displays the $SERVICE_SHORT details, with these tabs across the top
 ### Modify basic parameters
 
 Under the `Common parameters` tab, you can modify a limited set of the
-parameters that are most often modified in a $CLOUD_LONG or PostgreSQL instance.
+parameters that are most often modified in a $CLOUD_LONG or $PG instance.
 To modify a configured value, hover over the value and click the revealed pencil
 icon. This reveals an editable field to apply your change. Clicking anywhere
 outside of that field saves the value to be applied.

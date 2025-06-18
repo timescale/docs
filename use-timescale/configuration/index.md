@@ -7,7 +7,7 @@ keywords: [configuration, settings]
 
 # Configuration
 
-By default, $CLOUD_LONG uses the standard PostgreSQL server configuration
+By default, $CLOUD_LONG uses the standard $PG server configuration
 settings. However, in some cases, these settings are not appropriate, especially
 if you have larger servers that use more hardware resources such as CPU, memory,
 and storage.

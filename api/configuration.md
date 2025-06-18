@@ -7,8 +7,8 @@ products: [self_hosted]
 
 # Configuration
 
-By default, TimescaleDB uses the default PostgreSQL server configuration
-settings. You can also change both PostgreSQL and TimescaleDB configuration
+By default, $TIMESCALE_DB uses the default $PG server configuration
+settings. You can also change both $PG and $TIMESCALE_DB configuration
 settings yourself. For a list of settings, see the
 [configuration how-to guide][configuration-how-to].
 

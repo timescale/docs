@@ -32,7 +32,7 @@ You can also use PostgreSQL Kubernetes operators to simplify installation, confi
 told us work well are:
 
 - [StackGres][stackgres] (includes TimescaleDB images)
-- [Postgres Operator (Patroni)][patroni] 
+- [$PG Operator (Patroni)][patroni] 
 - [PGO][pgo]
 - [CloudNativePG][cnpg]
 

@@ -6,7 +6,7 @@ keywords: [ingest, Kafka]
 tags: [insert]
 ---
 
-# PostgreSQL Kafka connector
+# $PG Kafka connector
 
 You can ingest data into a $SERVICE_LONG using the Kafka Connect
 [JDBC sink connector with a JDBC driver][postgresql-connector-kafka]. 

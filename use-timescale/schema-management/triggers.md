@@ -7,7 +7,7 @@ keywords: [hypertables, triggers]
 
 # Triggers
 
-$TIMESCALE_DB supports the full range of PostgreSQL triggers. Creating, altering,
+$TIMESCALE_DB supports the full range of $PG triggers. Creating, altering,
 or dropping triggers on a hypertable propagates the changes to all of the
 underlying chunks.
 
@@ -56,6 +56,6 @@ reading with a value that is greater than or equal to 1000.
 $TIMESCALE_DB supports the full range of triggers, including `BEFORE INSERT`,
 `AFTER INSERT`, `BEFORE UPDATE`, `AFTER UPDATE`, `BEFORE DELETE`, and
 `AFTER DELETE`. For more information, see the
-[PostgreSQL docs][postgres-createtrigger].
+[$PG docs][postgres-createtrigger].
 
 [postgres-createtrigger]: https://www.postgresql.org/docs/current/sql-createtrigger.html

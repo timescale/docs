@@ -5,7 +5,7 @@ This section contains recipes for IoT issues:
 ### Work with columnar IoT data
 
 Narrow and medium width tables are a great way to store IoT data. A lot of reasons are outlined in
-[Designing Your Database Schema: Wide vs. Narrow Postgres Tables][blog-wide-vs-narrow].
+[Designing Your Database Schema: Wide vs. Narrow $PG Tables][blog-wide-vs-narrow].
 
 One of the key advantages of narrow tables is that the schema does not have to change when you add new
 sensors. Another big advantage is that each sensor can sample at different rates and times. This helps
