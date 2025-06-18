@@ -28,7 +28,7 @@ If you prefer the command line to the $OPS_MODE $SQL_EDITOR in $CONSOLE, use [ps
 
 You use the $DATA_MODE in $CONSOLE to write queries, visualize data, and share your results.
 
-![$CONSOLE $DATA_MODE](https://assets.timescale.com/docs/images/tiger-data-console/tiger-cloud-data-mode-schema-chart.png)
+![$CONSOLE $DATA_MODE](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-data-mode-schema-chart.png)
 
 Available features are:
 
