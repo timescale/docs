@@ -61,7 +61,7 @@ same way. You use regular $PG tables for relational data.
 
 </Procedure>
 
-## Create standard $PG tables for relational data
+## Create standard PostgreSQL tables for relational data
 
 When you have other relational data that enhances your time-series data, you can
 create standard $PG tables just as you would normally. For this dataset,

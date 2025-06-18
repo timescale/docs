@@ -1,13 +1,13 @@
 ---
-title: Integrate Grafana and Timescale Cloud
-excerpt: Grafana enables you to query, visualize, alert on, and explore your metrics, logs, and traces wherever they’re stored. Integrate Grafana with Timescale Cloud
+title: Integrate Grafana and Tiger Cloud
+excerpt: Grafana enables you to query, visualize, alert on, and explore your metrics, logs, and traces wherever they’re stored. Integrate Grafana with Tiger Cloud
 products: [cloud, self_hosted]
 keywords: [Grafana, visualizations, analytics, monitoring]
 ---
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
 import GrafanaConnect from "versionContent/_partials/_grafana-connect.mdx";
 
-# Integrate Grafana and Timescale Cloud
+# Integrate Grafana and $CLOUD_LONG
 
 [Grafana](https://grafana.com/docs/) enables you to query, visualize, alert on, and explore your metrics, logs, and traces wherever they’re stored.
 
@@ -94,7 +94,7 @@ Grafana time-series panels include a time filter:
 
     When you visualize this query in Grafana, you see this:
 
-    ![Timescale and Grafana query results](https://assets.timescale.com/docs/images/grafana_query_results.png)
+    ![Tiger Cloud service and Grafana query results](https://assets.timescale.com/docs/images/grafana_query_results.png)
 
     You can adjust the `time_bucket` function and compare the graphs:
     
@@ -112,7 +112,7 @@ Grafana time-series panels include a time filter:
     
     When you visualize this query, it looks like this:
 
-   ![Timescale and Grafana query results in time buckets](https://assets.timescale.com/docs/images/grafana_query_results_5m.png)
+   ![Tiger Cloud service and Grafana query results in time buckets](https://assets.timescale.com/docs/images/grafana_query_results_5m.png)
 
 </Procedure>
 
@@ -175,7 +175,7 @@ tutorial as a starting point.
     
     You now have a visualization that looks like this: 
 
-    ![Timescale and Grafana integration](https://assets.timescale.com/docs/images/timescale-grafana-integration.png)
+    ![Tiger Cloud service and Grafana integration](https://assets.timescale.com/docs/images/timescale-grafana-integration.png)
        
 
 </Procedure>

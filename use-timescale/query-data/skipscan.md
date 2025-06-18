@@ -7,14 +7,8 @@ keywords: [queries, DISTINCT, SkipScan]
 
 # Get faster `DISTINCT` queries with `SkipScan`
 
-SkipScan improves query times for `DISTINCT` queries. It works on PostgreSQL
-tables, Timescale hypertables, and Timescale distributed hypertables.
-SkipScan is included in TimescaleDB&nbsp;2.2.1 and later.
-
-<Highlight type="note">
-This page discusses the Timescale Skipscan feature. SkipScan is not currently
-available in standard PostgreSQL.
-</Highlight>
+SkipScan improves query times for `DISTINCT` queries. It works on both regular PostgreSQL
+tables and hypertables. SkipScan is included in $TIMESCALE_DB v2.2.1 and later.
 
 ## Speed up `DISTINCT` queries
 
@@ -57,7 +51,7 @@ Skip scan cost is based on the ratio of distinct tuples to total tuples. If the 
 
 ## Use SkipScan queries
 
-SkipScan is included in TimescaleDB&nbsp;2.2.1 and later. This section describes
+SkipScan is included in $TIMESCALE_DB v2.2.1 and later. This section describes
 how to set up your database index and query to use a SkipScan node.
 
 Your index must:

@@ -18,7 +18,7 @@ import EarlyAccess from "versionContent/_partials/_early_access_2_18_0.mdx";
 1. **Update the data in the $CHUNK you added to the $ROWSTORE**
 
    Best practice is to structure your [INSERT][insert] statement to include appropriate
-   partition key values, such as the timestamp. TimescaleDB adds the data to the correct $CHUNK:
+   partition key values, such as the timestamp. $TIMESCALE_DB adds the data to the correct $CHUNK:
 
    ``` sql
    INSERT INTO metrics (time, value)

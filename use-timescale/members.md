@@ -125,8 +125,8 @@ To stop working in a project:
 <Procedure>
 
 1. In [$CONSOLE][cloud-login], click `Invite users`.
-1. Click `Leave project`, then click `Leave`.
-   ![Leave project in $CONSOLE](https://assets.timescale.com/docs/images/console-leave-projects.png)
+1. Click `⋮` > `Leave project`, then click `Leave`.
+   ![Leave a project in $CONSOLE](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-leave-project.png)
 
 Your account is removed from the project immediately, you can no longer access this project.
 
@@ -140,8 +140,8 @@ To remove a user's access to a project:
 <Procedure>
 
 1.  In [$CONSOLE][cloud-login], click `Invite users`.
-1.  Next to the person you want to remove, click `⋮`, then click the trash can icon.
-    ![Remove a user in $CONSOLE](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-leave-project.png)
+1.  Next to the person you want to remove, click `⋮` > `Remove`.
+    ![Remove user in $CONSOLE](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-transfer-project-ownership.png)
 1.  In `Remove user`, click `Remove`.
 
 The user is deleted immediately, they can no longer access your project.

@@ -1,7 +1,7 @@
 <Highlight type="deprecation">
 
-This section describes a feature that is deprecated on Timescale. We strongly
+This section describes a feature that is deprecated. We strongly
 recommend that you do not use this feature in a production environment. If you
-need more information, [contact us](https://www.timescale.com/contact/).
+need more information, [contact us](https://www.tigerdata.com/contact/).
 
 </Highlight>

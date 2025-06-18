@@ -12,7 +12,7 @@
    sudo docker run --rm -it -e PGCOPYDB_SOURCE_PGURI=$SOURCE  timescale/live-migration:latest migrate --help
    ```
  
-1. **Create a snapshot image of your source database in your Timescale Cloud service**
+1. **Create a snapshot image of your source database in your $SERVICE_LONG**
 
    This process checks that you have tuned your source database and target service correctly for replication, 
    then creates a snapshot of your data on the migration machine:
@@ -36,9 +36,9 @@
 
    If you have warnings, stop live-migration, make the suggested changes and start again.
 
-1. **Synchronize data between your source database and your Timescale Cloud service**
+1. **Synchronize data between your source database and your $SERVICE_LONG**
 
-    This command migrates data from the snapshot to your Timescale Cloud service, then streams 
+    This command migrates data from the snapshot to your $SERVICE_LONG, then streams 
     transactions from the source to the target. 
 
    ```shell
@@ -51,8 +51,10 @@
    ```
 
    <Highlight type="important">
-   If the source PostgreSQL version is 17 or later, you need to pass additional
+   
+   If the source $PG version is 17 or later, you need to pass additional
    flag `-e PGVERSION=17` to the `migrate` command.
+   
    </Highlight>
 
    During this process, you see the migration process:
@@ -63,7 +65,7 @@
 
    If `migrate` stops add `--resume` to start from where it left off. 
 
-   Once the data in your target Timescale Cloud service has almost caught up with the source database, 
+   Once the data in your target $SERVICE_LONG has almost caught up with the source database, 
    you see the following message:
 
    ```shell
@@ -87,7 +89,7 @@
       ```
 
       Live-migration continues the remaining work. This includes copying
-      TimescaleDB metadata, sequences, and run policies. When the migration completes,
+      $TIMESCALE_DB metadata, sequences, and run policies. When the migration completes,
       you see the following message:
    
       ```sh

@@ -9,13 +9,13 @@
    psql -d "postgres://<username>:<password>@<host>:<port>/<database-name>"
    ```
 
-1.  **Add TimescaleDB to the database**
+1.  **Add $TIMESCALE_DB to the database**
 
     ```sql
     CREATE EXTENSION IF NOT EXISTS timescaledb;
     ```
 
-1.  **Check that TimescaleDB is installed**
+1.  **Check that $TIMESCALE_DB is installed**
     
     ```sql
     \dx

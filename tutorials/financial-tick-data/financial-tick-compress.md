@@ -1,6 +1,6 @@
 ---
 title: Compress your data using hypercore
-excerpt: Compress a sample dataset with Timescale Cloud to store the financial data more efficiently
+excerpt: Compress a sample dataset with Tiger Cloud to store the financial data more efficiently
 products: [cloud, self_hosted, mst]
 keywords: [tutorials, finance, learn]
 tags: [tutorials, beginner]
@@ -23,7 +23,7 @@ To compress the data in the `crypto_ticks` table, do the following:
 1. Connect to your $SERVICE_LONG
 
    In [$CONSOLE][services-portal] open an [SQL editor][in-console-editors]. The in-Console editors display the query speed.
-   You can also connect to your service using [psql][connect-using-psql].
+   You can also connect to your $SERVICE_SHORT using [psql][connect-using-psql].
 
 1. Convert data to the $COLUMNSTORE:
 

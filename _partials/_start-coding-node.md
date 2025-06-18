@@ -7,9 +7,9 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 *   Install [Node.js][node-install].
 *   Install the Node.js package manager [npm][npm-install].
 
-## Connect to TimescaleDB
+## Connect to $TIMESCALE_DB
 
-In this section, you create a connection to TimescaleDB with a common Node.js
+In this section, you create a connection to $TIMESCALE_DB  with a common Node.js
 ORM (object relational mapper) called [Sequelize][sequelize-info].
 
 <procedure>
@@ -72,7 +72,7 @@ ORM (object relational mapper) called [Sequelize][sequelize-info].
     npm install sequelize sequelize-cli pg pg-hstore
     ```
 
-1.  Locate your TimescaleDB credentials and use them to compose a connection
+1.  Locate your $TIMESCALE_DB  credentials and use them to compose a connection
    string for Sequelize.
 
     You'll need:
@@ -108,7 +108,7 @@ ORM (object relational mapper) called [Sequelize][sequelize-info].
     ```
 
     Make sure you add the SSL settings in the `dialectOptions` sections. You
-    can't connect to TimescaleDB using SSL without them.
+    can't connect to $TIMESCALE_DB  using SSL without them.
 
 1.  You can test the connection by adding these lines to `index.js` after the
     `app.get` statement:
@@ -254,7 +254,9 @@ and most other tasks are executed on the hypertable.
     ```
 
 	<Highlight type="note">
-	The `by_range` dimension builder is an addition to TimescaleDB 2.13.
+    
+	The `by_range` dimension builder is an addition to $TIMESCALE_DB  2.13.
+
 	</Highlight>
 
 1.  At the command prompt, run the migration command:

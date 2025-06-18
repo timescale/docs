@@ -1,6 +1,6 @@
 ---
 title: Billing and account management
-excerpt: Manage billing and account information for your Timescale account
+excerpt: Manage billing and account information for your TigerData account
 products: [cloud]
 keywords: [billing, accounts, admin]
 tags: [payment, billing, costs]
@@ -11,7 +11,7 @@ cloud_ui:
 
 import TieredStorageBilling from "versionContent/_partials/_tiered-storage-billing.mdx";
 
-# $PRICING_PLAN_CAPs and account management
+# Pricing plans and account management
 
 As we enhance our offerings and align them with your evolving needs,
 $PRICING_PLANs provide more value, flexibility, and efficiency for your business.
@@ -35,12 +35,11 @@ $PRICING_PLAN_CAPs give you:
 
 Using $SELF_LONG and our open-source products is still free. 
 
-If you create a $COMPANY account from AWS Marketplace, the pricing options are pay-as-you-go and annual commit. See [AWS pricing][aws-pricing] for details. 
+If you create a $ACCOUNT_LONG from AWS Marketplace, the pricing options are pay-as-you-go and annual commit. See [AWS pricing][aws-pricing] for details. 
 
-This page explains pricing plans for $CLOUD_LONG, and how to easily manage your
-$COMPANY account.
+This page explains pricing plans for $CLOUD_LONG, and how to easily manage your $ACCOUNT_LONG.
 
-## How $PRICING_PLANs work
+## How pricing plans work
 
 $PRICING_PLAN_CAPs are designed to give you the best value as your project moves 
 from initial development through to mission-critical enterprise applications. 
@@ -61,10 +60,10 @@ from initial development through to mission-critical enterprise applications.
    or egress. There are no per-query fees, nor additional costs to read or write data. It's all completely 
    transparent, easily understood, and up to you.
   
-### $CLOUD_LONG free trial for the different $PRICING_PLANs
+### $CLOUD_LONG free trial for the different price plans
 
 We offer new users a free, 30-day trial period of our $PERFORMANCE plan with no credit card required.  
-During your trial, you can contact sales@timescale.com to request information about, and access
+During your trial, you can contact $CONTACT_SALES to request information about, and access
 to, our $SCALE plan to determine how it fits your needs. During your trial, if a $SERVICE_SHORT doesn’t receive any queries for 7 days, it is paused to conserve resources. Your data remains intact during the trial, and you can easily resume your $SERVICE_SHORT in $CONSOLE. After your trial ends, we may remove your data unless you’ve added a payment method.
 
 After you have completed your 30-day trial period on the $PERFORMANCE plan, choose the 
@@ -72,12 +71,12 @@ After you have completed your 30-day trial period on the $PERFORMANCE plan, choo
 
 After you become a paying user, we can enable some features in the higher $PRICING_PLANs so you can test them before upgrading. 
 
-### Upgrade or downgrade your $PRICING_PLAN at any time
+### Upgrade or downgrade your pricing plans at any time
 
 You can easily upgrade or downgrade between the $PERFORMANCE and $SCALE plans 
 whenever you want using [$CONSOLE][cloud-login]. If you switch your $PRICING_PLAN mid-month, 
 your prices are prorated to when you switch. Your $SERVICE_SHORTs are not interrupted when you switch, so 
-you can keep working without any hassle. To move to $ENTERPRISE, [get in touch with $COMPANY][get-in-touch].
+you can keep working without any hassle. To move to $ENTERPRISE, [get in touch with $COMPANY][contact-company].
 
 ### Monitor usage and costs
 
@@ -111,7 +110,7 @@ $CLOUD_LONG is very efficient and generally needs less compute than other databa
 the same performance. The best way to size your needs is to sign up for a free trial and test
 with a realistic workload.
 
-### Charging for HA and $READ_REPLICAs
+### Charging for HA and read replicas
 
 HA and $READ_REPLICAs are both charged at the same rate as your primary $SERVICE_SHORTs, based on the 
 compute and primary storage consumed by your replicas. Data tiered to our bottomless storage 
@@ -123,7 +122,7 @@ bill.
 Storage is priced the same across all regions. However, compute prices vary depending on the 
 region. This is because our cloud provider (AWS) prices infrastructure differently based on region.
 
-## Features included in each $PRICING_PLAN
+## Features included in each pricing plan
 
 The available $PRICING_PLANs are:
 
@@ -178,12 +177,9 @@ The features included in each [$PRICING_PLAN][pricing-plans] are:
 | Email support                                                 | ✓                                 | ✓                                              | ✓                                              |
 | Production support                                            | 	Add-on                           | 	Add-on                                        | ✓                                              |
 | Named account manager                                         |                                   |                                                | ✓                                              |
-| JOIN services (Jumpstart Onboarding and INtegration)          |                                   | Available at minimum spend                     | ✓                                              | 
+| JOIN services (Jumpstart Onboarding and INtegration)          |                                   | Available at minimum spend                     | ✓                                              |
 
-If you want to estimate your costs ahead of the billing cycle, you can use the
-[pricing calculator](https://www.timescale.com/pricing/calculator).
-However, the pricing calculator does not include volume discounts. For a personalized quote, [get in touch with $COMPANY][get-in-touch].
-
+For a personalized quote, [get in touch with $COMPANY][contact-company].
 
 ## Example billing calculation
 
@@ -206,20 +202,20 @@ $SERVICE_LONG has been running compute for 500 hours total:
 Some add-ons such as Elastic storage, Tiered storage, and Connection pooling may incur 
 additional charges. These charges are clearly marked in your billing snapshot in $CONSOLE.
 
-## Manage your $COMPANY $PRICING_PLAN
+## Manage your $CLOUD_LONG $PRICING_PLAN
 
-You handle all details about your $COMPANY project including updates to your $PRICING_PLAN, 
+You handle all details about your $CLOUD_LONG project including updates to your $PRICING_PLAN, 
 payment methods, and add-ons in the [billing section in $CONSOLE][cloud-billing]:
 
 <img class="main-content__illustration"
-src="https://assets.timescale.com/docs/images/timescale-console-billing.png"
+src="https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-billing.png"
 alt="Adding a payment method in Timescale"/>
 
 - **Details**: an overview of your $PRICING_PLAN, usage, and payment details. You can add up 
   to three credit cards to your `Wallet`. If you prefer to pay by invoice, 
-  [contact $COMPANY](https://www.timescale.com/contact) and ask to change to corporate billing.
+  [contact $COMPANY][contact-company] and ask to change to corporate billing.
 
-- **History**: the list of your downloadable $COMPANY invoices.
+- **History**: the list of your downloadable $CLOUD_LONG invoices.
 - **Emails**: the addresses $COMPANY uses to communicate with you. Payment 
   confirmations and alerts are sent to the email address you signed up with.
   Add another address to send details to other departments in your organization. 
@@ -243,6 +239,6 @@ When you get $CLOUD_LONG at AWS Marketplace, the following pricing options are a
 [pricing-plans]: https://www.timescale.com/pricing
 [plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-plan
 [production-support]: https://www.timescale.com/support
-[get-in-touch]: https://www.timescale.com/contact
 [hipaa-compliance]: https://www.hhs.gov/hipaa/for-professionals/index.html
 [aws-pricing]: /about/:currentVersion:/pricing-and-account-management/#aws-marketplace-pricing
+[contact-company]: https://www.tigerdata.com/contact/

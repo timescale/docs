@@ -1,6 +1,6 @@
 ---
-title: Connect to a Timescale Cloud service with psql 
-excerpt: psql enables you to type in queries interactively, issue them to Postgres, and see the query results. Connect to your Timescale Cloud service using psql
+title: Connect to a Tiger Cloud service with psql 
+excerpt: psql enables you to type in queries interactively, issue them to Postgres, and see the query results. Connect to your Tiger Cloud service using psql
 products: [cloud, self_hosted]
 keywords: [connect, psql]
 ---
@@ -218,7 +218,7 @@ For more on `psql` commands, see the [$COMPANY psql cheat sheet][psql-cheat-shee
 
 ## Save query results to a file
 
-When you run queries in `psql`, the results are shown in the console by default.
+When you run queries in `psql`, the results are shown in the terminal by default.
 If you are running queries that have a lot of results, you might like to save
 the results into a comma-separated `.csv` file instead. You can do this using
 the `COPY` command. For example:

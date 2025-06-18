@@ -10,17 +10,17 @@ content_group: Analyze the Bitcoin blockchain
 # Analyze the Bitcoin blockchain
 
 Blockchain data is time-series data. You can use
-TimescaleDB to ingest, store, and
+$TIMESCALE_DB to ingest, store, and
 analyze data on blockchain transactions. This tutorial focuses
 on Bitcoin analysis, but you can
-apply the same principles and TimescaleDB features on
+apply the same principles and $TIMESCALE_DB features on
 any blockchain data. This includes Etheruem, Solana, and others.
 
 <Highlight type="note">
 This tutorial shows you one approach to Doing Your Own Research in
 the blockchain space. Any
 conclusions made from the data are illustrative examples only. They're meant to help
-you learn about TimescaleDB features, and to inspire your own
+you learn about $TIMESCALE_DB features, and to inspire your own
 data analysis and conclusions. To read about the
 conclusions we made from
 analyzing 5 years' worth of Bitcoin transactions,
@@ -30,19 +30,19 @@ analyzing 5 years' worth of Bitcoin transactions,
 ## What you'll learn
 
 This tutorial teaches you to ingest and analyze blockchain data
-in TimescaleDB.
+in $TIMESCALE_DB.
 
 ## Prerequisites
 
 Before you begin, make sure you have:
 
-*   A TimescaleDB instance running locally or on the cloud. For more information, see [installation options][install-timescale]
+*   A $TIMESCALE_DB instance running locally or on the cloud. For more information, see [installation options][install-timescale]
 *   [`psql`][psql-install], DBeaver, or any other PostgreSQL client
 
 <Highlight type="note">
-The easiest way to get a new TimescaleDB instance up and running and complete
+The easiest way to get a new $TIMESCALE_DB instance up and running and complete
 this tutorial is to
-[sign up for a free Timescale account](http://console.cloud.timescale.com/signup)
+[sign up for a free $ACCOUNT_LONG](http://console.cloud.timescale.com/signup)
 (no credit card required).
 </Highlight>
 

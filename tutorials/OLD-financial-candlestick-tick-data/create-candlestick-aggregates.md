@@ -15,9 +15,9 @@ additional aggregates of your data into larger buckets, such as 1-hour or 1-day
 buckets. If you want to work with pre-aggregated stock and crypto data, see the
 [Analyzing Intraday Stock Data][intraday-tutorial] tutorial for more examples.
 
-TimescaleDB includes [hyperfunctions][hyperfunctions] that you can use to
+$TIMESCALE_DB includes [hyperfunctions][hyperfunctions] that you can use to
 store and query your financial data more
-easily. Hyperfunctions are SQL functions within TimescaleDB that make it
+easily. Hyperfunctions are SQL functions within $TIMESCALE_DB that make it
 easier to manipulate and analyze time-series data in PostgreSQL with fewer
 lines of code. There are three
 hyperfunctions that are essential for calculating candlestick values:
@@ -72,7 +72,7 @@ in the bucket to get the correct result.
 
 ## Create continuous aggregates for candlestick data
 
-In TimescaleDB, the most efficient way to create candlestick views is to
+In $TIMESCALE_DB, the most efficient way to create candlestick views is to
 use [continuous aggregates][caggs]. Continuous aggregates are very similar
 to PostgreSQL materialized views but with three major advantages.
 
@@ -122,7 +122,7 @@ WITH (timescaledb.continuous) AS
     GROUP BY bucket, symbol
 ```
 
-When you run this query, TimescaleDB queries 1-minute aggregate values of all
+When you run this query, $TIMESCALE_DB queries 1-minute aggregate values of all
 your tick data, creating the continuous aggregate and materializing the
 results. But your candlestick data has only been materialized up to the
 last data point. If you want the continuous aggregate to stay up to date

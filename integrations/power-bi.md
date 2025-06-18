@@ -1,6 +1,6 @@
 ---
-title: Integrate Power BI with Timescale Cloud
-excerpt: Integrate Timescale Cloud with Power BI for advanced data visualization.
+title: Integrate Power BI with Tiger Cloud
+excerpt: Integrate Tiger Cloud with Power BI for advanced data visualization.
 products: [cloud, self_hosted]
 keywords: [Power BI, visualizations, analysis, real-time]
 ---
@@ -66,7 +66,7 @@ Establish a connection and import data from your $SERVICE_LONG into Power BI:
 
 You have successfully integrated Power BI with $CLOUD_LONG.
 
-[timescale-on-windows]: https://docs.timescale.com/self-hosted/latest/install/installation-windows/
+[timescale-on-windows]: https://docs.tigerdata.com/self-hosted/latest/install/installation-windows/
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
 [power-bi]: https://www.microsoft.com/en-us/power-platform/products/power-bi/
 [power-bi-install]: https://www.microsoft.com/en-us/power-platform/products/power-bi/downloads

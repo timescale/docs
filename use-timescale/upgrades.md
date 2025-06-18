@@ -1,6 +1,6 @@
 ---
 title: Maintenance and upgrades
-excerpt: Keep your Timescale Cloud service up to date. Learn about minor and major migrations, maintenance windows, and updating your version of PostgreSQL
+excerpt: Keep your Tiger Cloud service up to date. Learn about minor and major migrations, maintenance windows, and updating your version of PostgreSQL
 products: [cloud]
 keywords: [updates, upgrades, maintenance]
 cloud_ui:
@@ -52,7 +52,7 @@ able to do so. Best practice is to [schedule your maintenance window][define-mai
 disrupts your workloads as little as possible and [minimize downtime with replicas][minimize-downtime]. If there are no 
 pending upgrades available during a regular maintenance window, no changes are performed.
 
-To track the status of maintenance events, see the Timescale [status page][status-page].
+To track the status of maintenance events, see the $CLOUD_LONG [status page][status-page].
 
 ### Minimize downtime with replicas
 
@@ -204,7 +204,7 @@ To change your maintenance window:
    In [$CONSOLE][cloud-login], select the $SERVICE_SHORT you want to manage.
 1. **Set your maintenance window**
    1. Click `Operations` > `Environment`, then click  `Change maintenance window`.
-       ![Maintenance and upgrades](https://assets.timescale.com/docs/images/timescale-maintenance-upgrades.png)
+       ![Maintenance and upgrades](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-maintenance-upgrades.png)
    1. Select the maintence window start time, then click `Apply`.
 
    Maintenance windows can run for up to four hours.

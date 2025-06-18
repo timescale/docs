@@ -65,7 +65,7 @@ requires a direct connection to the database to function properly.
 </Tab>
 </Tabs>
 
-## Synchronize data to your $SERVICE_LONG
+## Synchronize data to your Tiger Cloud service
 
 To sync data from your PostgreSQL database to your $SERVICE_LONG using $CONSOLE:
 
@@ -73,13 +73,13 @@ To sync data from your PostgreSQL database to your $SERVICE_LONG using $CONSOLE:
 
 1. **Connect to your $SERVICE_LONG**
 
-   In [$CONSOLE][portal-ops-mode], select the service to sync live data to. 
+   In [$CONSOLE][portal-ops-mode], select the $SERVICE_SHORT to sync live data to. 
 1. **Start $LIVESYNC**
    1. Click `Actions` > `Livesync for PostgreSQL`.
 
 1. **Connect the source database and target $SERVICE_SHORT**
 
-   ![Livesync wizard](https://assets.timescale.com/docs/images/pg-livesync-wizard.png)
+   ![Livesync wizard](https://assets.timescale.com/docs/images/tiger-cloud-console/pg-livesync-wizard-tiger-cloud.png)
 
    In `Livesync for Postgres`:
    1. Set the `Livesync Name`.
@@ -89,7 +89,7 @@ To sync data from your PostgreSQL database to your $SERVICE_LONG using $CONSOLE:
 
 1. **Optimize the data to synchronize in hypertables**
 
-   ![livesync start](https://assets.timescale.com/docs/images/pg-livesync-start.png)
+   ![livesync start](https://assets.timescale.com/docs/images/tiger-cloud-console/pg-livesync-start-tiger-cloud.png)
    1. Select the table to sync and click `+`.
    
       $CONSOLE checks the table schema and, if possible, suggests the column to use as the time dimension in a hypertable. 
@@ -100,9 +100,9 @@ To sync data from your PostgreSQL database to your $SERVICE_LONG using $CONSOLE:
 
 1. **Monitor syncronization**
    1. To view the progress of the $LIVESYNC, click the name of the $LIVESYNC process:
-      ![livesync view status](https://assets.timescale.com/docs/images/pg-livesync-view-status.png)
+      ![livesync view status](https://assets.timescale.com/docs/images/tiger-cloud-console/pg-livesync-view-status-tiger-cloud.png)
    1. To pause and restart $LIVESYNC, click the buttons on the right of the $LIVESYNC process and select an action:
-      ![livesync start stop](https://assets.timescale.com/docs/images/pg-livesync-start-stop.png)
+      ![livesync start stop](https://assets.timescale.com/docs/images/tiger-cloud-console/pg-livesync-start-stop-tiger-cloud.png)
 
 </Procedure>
 

@@ -1,6 +1,6 @@
 ---
 title: About constraints
-excerpt: Constraints are rules that apply to your table columns, preventing you from entering invalid data. Learn how constraints work for hypertables in Timescale Cloud
+excerpt: Constraints are rules that apply to your table columns, preventing you from entering invalid data. Learn how constraints work for hypertables in TimescaleDB
 products: [cloud, mst, self_hosted]
 keywords: [schemas, constraints]
 ---

@@ -1,6 +1,6 @@
 ---
-title: Integrate your data center with Timescale Cloud 
-excerpt: Integrate your on-premise data center with Timescale Cloud using AWS Transit Gateway
+title: Integrate your data center with Tiger Cloud 
+excerpt: Integrate your on-premise data center with Tiger Cloud using AWS Transit Gateway
 products: [cloud]
 price_plans: [scale, enterprise]
 keywords: [on-premise, integrations]

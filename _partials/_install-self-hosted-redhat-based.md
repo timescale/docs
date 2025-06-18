@@ -21,7 +21,7 @@
     </tab>
     </Terminal>
 
-1.  **Add the TimescaleDB repository**
+1.  **Add the $TIMESCALE_DB repository**
 
     <Terminal>
 
