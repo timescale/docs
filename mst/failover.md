@@ -7,10 +7,9 @@ tags: [failover window]
 ---
 
 
-# Failover in Managed Service for TimescaleDB
+# Failover in $MST_LONG
 
-One standby read-only replica server is configured, for each Managed Service for
-TimescaleDB on a Pro plan. You can query a read-only replica server, but cannot
+One standby read-only replica server is configured, for each $MST_SERVICE_LONG on a Pro plan. You can query a read-only replica server, but cannot
 write to a read-only replica server. When a master server fails, the standby replica
 server is automatically promoted as master. If you manually created a read-only
 replica service, then if a master server fails, the read-only replica services
@@ -28,7 +27,7 @@ When a replica server fails unexpectedly, there is no way to know
 whether the server really failed, or whether there is a temporary network
 glitch with the cloud provider's network.
 
-There is a 300 seconds timeout before Managed Service for TimescaleDB
+There is a 300 second timeout before $MST_LONG
 automatically decides the server is gone and spins up a new replica server.
 During these 300 seconds, `replica.servicename.timescaledb.io` points to a
 server that may not serve queries anymore. The DNS record pointing to the master

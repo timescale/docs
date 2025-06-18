@@ -37,27 +37,27 @@ dataset and run queries locally.
 
 ### Setting up multi-node
 
-1.  [Log in to your Timescale account][cloud-login] and click
+1.  [Log in to your $CLOUD_LONG account][cloud-login] and click
     `Create Service`.
 1.  Click `Advanced configuration`.
 1.  Under `Choose your architecture`, click `Multi-node`.
 1.  The customer support team contacts you. When your request is approved,
-    return to the screen for creating a multi-node service.
+    return to the screen for creating a multi-node $SERVICE_SHORT.
 1.  Choose your preferred region, or accept the default region of `us-east-1`.
 1.  Accept the default for the data nodes, or click `Edit` to choose the number
     of data nodes, and their compute and disk size.
 1.  Accept the default for the access node, or click `Edit` to choose the
     compute and disk size.
-1.  Click `Create service`. Take a note of the service information, you need
-    these details to connect to your multi-node cluster. The service takes a few
+1.  Click `Create service`. Take a note of the $SERVICE_SHORT information, you need
+    these details to connect to your multi-node cluster. The $SERVICE_SHORT takes a few
     minutes to start up.
-1.  When the service is ready, you can see the service in the Service Overview
-    page. Click on the name of your new multi-node service to see more
+1.  When the $SERVICE_SHORT is ready, you can see the $SERVICE_SHORT in the Service Overview
+    page. Click on the name of your new multi-node $SERVICE_SHORT to see more
     information, and to make changes.
 
 <img class="main-content__illustration"
 src="https://assets.timescale.com/docs/images/tsc-running-service-multinode.png"
-alt="Timescale running multi-node service"/>
+alt="TimescaleDB running multi-node $SERVICE_SHORT"/>
 
 </Procedure>
 

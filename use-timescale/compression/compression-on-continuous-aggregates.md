@@ -1,6 +1,6 @@
 ---
 title: Convert continuous aggregates to the columnstore
-excerpt: Compressing a continuous aggregate can save you storage space while making sure the data is still available for your analytical workloads. Learn to compress continuous aggregates in Timescale Cloud
+excerpt: Compressing a continuous aggregate can save you storage space while making sure the data is still available for your analytical workloads. Learn to compress continuous aggregates in TimescaleDB
 products: [cloud, mst, self_hosted]
 keywords: [continuous aggregates, compression]
 ---
@@ -12,7 +12,7 @@ import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 Continuous aggregates are often used to downsample historical data. If the data is only used for analytical queries 
 and never modified, you can compress the aggregate to save on storage.
 
-<Deprecated2180 /> Replaced by <a href="https://docs.timescale.com/use-timescale/latest/continuous-aggregates/compression-on-continuous-aggregates/">Convert continuous aggregates to the columnstore</a>.
+<Deprecated2180 /> Replaced by <a href="https://docs.tigerdata.com/use-timescale/latest/continuous-aggregates/compression-on-continuous-aggregates/">Convert continuous aggregates to the columnstore</a>.
 
 <Highlight type="warning">
 Before version

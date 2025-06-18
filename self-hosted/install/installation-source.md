@@ -10,7 +10,7 @@ import TestingEnv from "versionContent/_partials/_selfhosted_production_alert.md
 import SelfHostedSource from "versionContent/_partials/_install-self-hosted-source-based.mdx";
 import AddTimescaleDBToDB from "versionContent/_partials/_add-timescaledb-to-a-database.mdx";
 
-# Install self-hosted TimescaleDB from source
+# Install self-hosted $TIMESCALE_DB from source
 
 TimescaleDB is a [PostgreSQL extension](https://www.postgresql.org/docs/current/external-extensions.html) for
 time series and demanding workloads that ingest and query high volumes of data. You can install a TimescaleDB
@@ -18,9 +18,9 @@ instance on any local system, from source.
 
 This section shows you how to:
 
-* [Install and configure TimescaleDB on PostgreSQL](#install-and-configure-timescaledb-on-postgresql) - set up
+* [Install and configure $TIMESCALE_DB on $PG](#install-and-configure-timescaledb-on-postgresql) - set up
   a self-hosted PostgreSQL instance to efficiently run TimescaleDB1.
-* [Add the TimescaleDB extension to your database](#add-the-timescaledb-extension-to-your-database) - enable TimescaleDB features and
+* [Add the $TIMESCALE_DB extension to your database](#add-the-timescaledb-extension-to-your-database) - enable TimescaleDB features and
   performance improvements on a database.
 
 < TestingEnv/>
@@ -37,8 +37,8 @@ To install TimescaleDB from source, you need the following on your developer env
     These minor versions [introduced a breaking binary interface change][postgres-breaking-change] that,
     once identified, was reverted in subsequent minor PostgreSQL versions 17.2, 16.6, 15.10, 14.15, 13.18, and 12.22.
     When you build from source, best practice is to build with PostgreSQL 17.2, 16.6, etc and higher.
-    Users of [Timescale Cloud](https://console.cloud.timescale.com/) and Platform packages built and
-    distributed by Timescale are unaffected.
+    Users of [$CLOUD_LONG](https://console.cloud.timescale.com/) and Platform packages built and
+    distributed by $COMPANY are unaffected.
 
 
 * **Build tools**:
@@ -52,15 +52,15 @@ To install TimescaleDB from source, you need the following on your developer env
     
 
 
-## Install and configure TimescaleDB on PostgreSQL
+## Install and configure $TIMESCALE_DB on $PG
 
 This section shows you how to install the latest version of PostgreSQL and
-TimescaleDB on a supported platform using source supplied by Timescale.
+TimescaleDB on a supported platform using source supplied by $COMPANY.
 
 <SelfHostedSource />
 
 
-## Add the TimescaleDB extension to your database
+## Add the $TIMESCALE_DB extension to your database
 
 For improved performance, you enable TimescaleDB on each database on your self-hosted PostgreSQL instance.
 This section shows you how to enable TimescaleDB for a new database in PostgreSQL using `psql` from the command line.

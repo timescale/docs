@@ -55,7 +55,7 @@ there is one other table of data called `company`.
 
 </Procedure>
 
-You now have two tables in your Timescale database. One hypertable
+You now have two tables in your $SERVICE_LONG. One hypertable
 named `stocks_real_time`, and one regular PostgreSQL table named `company`.
 
 [hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/

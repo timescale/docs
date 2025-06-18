@@ -1,13 +1,149 @@
 ---
 title: Changelog
-excerpt: Get a weekly summary of the latest changes to Timescale products with links to detailed documentation
+excerpt: Get a weekly summary of the latest changes to TigerData products with links to detailed documentation
 keywords: [changelog, upgrades, updates, releases]
 products: [cloud, self_hosted]
 ---
 
 # Changelog
 
-All the latest features and updates to Timescale products.
+All the latest features and updates to $COMPANY products.
+
+## ⚙️ Improved Terraform support and TimescaleDB v2.20.3
+<Label type="date">June 13, 2025</Label>
+
+### Terraform support for Exporters and AWS Transit Gateway
+
+The latest version of the Timescale Terraform provider (2.3.0) adds support for:
+- Creating and attaching observability exporters to your services.
+- Securing the connections to your Timescale Cloud services with AWS Transit Gateway.
+- Configuring CIDRs for VPC and AWS Transit Gateway connections.
+
+Check the [Timescale Terraform provider documentation](https://registry.terraform.io/providers/timescale/timescale/latest/docs) for more details.
+
+### TimescaleDB v2.20.3
+
+This patch release for TimescaleDB v2.20 includes several bug fixes and minor improvements. 
+Notable bug fixes include:
+- Adjustments to SkipScan costing for queries that require a full scan of indexed data.
+- A fix for issues encountered during dump and restore operations when chunk skipping is enabled.
+- Resolution of a bug related to dropped "quals" (qualifications/conditions) in SkipScan.
+
+For a comprehensive list of changes, refer to the [TimescaleDB 2.20.3 release notes](https://github.com/timescale/timescaledb/releases/tag/2.20.3).
+
+## 🧘 Read replica sets, faster tables, new anthropic models, and VPC support in data mode
+<Label type="date">June 6, 2025</Label>
+
+### Horizontal read scaling with read replica sets
+
+[Read replica sets](https://docs.timescale.com/use-timescale/latest/ha-replicas/read-scaling/) are an improved version of read replicas. They let you scale reads horizontally by creating up to 10 replica nodes behind a single read endpoint. Just point your read queries to the endpoint and configure the number of replicas you need without changing your application logic. You can increase or decrease the number of replicas in the set dynamically, with no impact on the endpoint.
+
+Read replica sets are used to:
+
+- Scale reads for read-heavy workloads and dashboards.
+- Isolate internal analytics and reporting from customer-facing applications.
+- Provide high availability and fault tolerance for read traffic.
+
+All existing read replicas have been automatically upgraded to a replica set with one node—no action required. Billing remains the same.
+
+Read replica sets are available for all Scale and Enterprise customers.
+
+![Create a read replica set in Timescale Console](https://assets.timescale.com/docs/images/create-read-replica-set-timescale-console.png)
+
+### Faster, smarter results tables in data mode
+
+We've completely rebuilt how query results are displayed in the data mode to give you a faster, more powerful way to work with your data. The new results table can handle millions of rows with smooth scrolling and instant responses when you sort, filter, or format your data. You'll find it today in notebooks and presentation pages, with more areas coming soon.
+
+What's new:
+
+- **Your settings stick around**: when you customize how your table looks—applying filters, sorting columns, or formatting data—those settings are automatically saved. Switch to another tab and come back, and everything stays exactly how you left it.
+- **Better ways to find what you need**: filter your results by any column value, with search terms highlighted so you can quickly spot what you're looking for. The search box is now available everywhere you work with data.
+- **Export exactly what you want**: download your entire table or just select the specific rows and columns you need. Both CSV and Excel formats are supported.
+- **See patterns in your data**: highlight cells based on their values to quickly spot trends, outliers, or important thresholds in your results.
+- **Smoother navigation**: click any row number to see the full details in an expanded view. Columns automatically resize to show your data clearly, and web links in your results are now clickable.
+
+As a result, working with large datasets is now faster and more intuitive. Whether you're exploring millions of rows or sharing results with your team, the new table keeps up with how you actually work with data.
+
+### Latest anthropic models added to SQL assistant
+
+Data mode's [SQL assistant](https://docs.timescale.com/getting-started/latest/run-queries-from-console/#sql-assistant) now supports Anthropic's latest models:
+
+- Sonnet 4
+- Sonnet 4 (extended thinking)
+- Opus 4
+- Opus 4 (extended thinking)
+
+### VPC support for passwordless data mode connections
+
+We previously made it much easier to connect newly created services to Timescale’s [data mode](https://docs.timescale.com/getting-started/latest/run-queries-from-console/#data-mode). We have now expanded this functionality to services using a VPC.
+
+## 🕵🏻️ Enhanced service monitoring, TimescaleDB v2.20, and livesync for PostgreSQL
+<Label type="date">May 30, 2025</Label>
+
+### Updated top-level navigation - Monitoring tab
+
+In Timescale Console, we have consolidated multiple top-level service information tabs into the single Monitoring tab. 
+This tab houses information previously displayed in the Recommendations, Jobs, Connections, Metrics, Logs, 
+and `Insights` tabs.
+
+![Insights](https://assets.timescale.com/docs/images/insights_overview_timescale.png)
+
+### Monitor active connections
+
+In the `Connections` section under `Monitoring`, you can now see information like the query being run, the application
+name, and duration for all current connections to a service.
+
+![Connections](https://assets.timescale.com/docs/images/console-monitoring-connections.png)
+
+The information in `Connections` enables you to debug misconfigured applications, or 
+cancel problematic queries to free up other connections to your database.
+
+### TimescaleDB v2.20 - query performance and faster data updates
+
+All new services created on Timescale Cloud are created using 
+[TimescaleDB v2.20](https://github.com/timescale/timescaledb/releases/tag/2.20.0). Existing services will be 
+automatically upgraded during their maintenance window.
+
+Highlighted features in TimescaleDB v2.20 include:
+* Efficiently handle data updates and upserts (including backfills, that are now up to 10x faster).
+* Up to 6x faster point queries on high-cardinality columns using new bloom filters.
+* Up to 2500x faster DISTINCT operations with SkipScan, perfect for quickly getting a unique list or the latest reading 
+  from any device, event, or transaction.
+* 8x more efficient Boolean column storage with vectorized processing, resulting in 30-45% faster queries.
+* Enhanced developer flexibility with continuous aggregates now supporting window and mutable functions, plus 
+  customizable refresh orders.
+
+### PostgreSQL 13 and 14 deprecated on Tiger Cloud
+
+[TimescaleDB version 2.20][timescale220] is not compatible with PostgreSQL versions v14 and below.
+TimescaleDB 2.19.3 is the last bug-fix release for PostgreSQL 14. Future fixes are for
+PostgreSQL 15+ only. To continue receiving critical fixes and security patches, and to take
+advantage of the latest TimescaleDB features, you must upgrade to PostgreSQL 15 or newer.
+This deprecation affects all Tiger Cloud services currently running PostgreSQL 13 or
+PostgreSQL 14.
+
+The timeline for the PostgreSQL 13 and 14 deprecation is as follows:
+
+- **Deprecation notice period begins**: starting in early June 2025, you will receive email communication.
+- **Customer self-service upgrade window**: June 2025 through September 14, 2025. We strongly encourage you to
+  [manually upgrade PostgreSQL](https://docs.tigerdata.com/use-timescale/latest/upgrades/#manually-upgrade-postgresql-for-a-service)
+  during this period.
+- **Automatic upgrade deadline**: your service will be
+  [automatically upgraded](https://docs.timescale.com/use-timescale/latest/upgrades/#automatic-postgresql-upgrades-for-a-service)
+  from September 15, 2025.
+
+### Enhancements to livesync for PostgreSQL
+
+You now can: 
+* Edit a running livesync to add and drop tables from an existing configuration:
+  - For existing tables, Timescale Console stops the livesync while keeping the target table intact.
+  - Newly added tables sync their existing data and transition into the Change Data Capture (CDC) state.
+* Create multiple livesync instances for PostgreSQL per service. This is an upgrade from our initial launch which 
+  limited users to one LiveSync per service.
+
+  This enables you to sync data from multiple PostgreSQL source databases into a single Timescale Cloud service.
+* No more hassle looking up schema and table names for livesync configuration from the source. Starting today, all 
+  schema and table names are available in a dropdown menu for seamless source table selection.
 
 ## ➕ More storage types and IOPS
 <Label type="date">May 22, 2025</Label>
@@ -171,10 +307,10 @@ For more information, see the [pgvectorscale release notes][log-28032025-pgvecto
 
 ### Job errors and individual job pages
 
-Each job now has an individual page in $CONSOLE, and displays additional details about job errors. You use 
+Each job now has an individual page in Timescale Console, and displays additional details about job errors. You use 
 this information to debug failing jobs. 
 
-To see the job information page, in [$CONSOLE][console], select the $SERVICE_SHORT to check, then click `Jobs` > job ID to investigate.
+To see the job information page, in [Timescale Console][console], select the service to check, then click `Jobs` > job ID to investigate.
 
 - Successful jobs: 
 
@@ -213,7 +349,7 @@ Access embedding models from popular cloud model hubs like AWS Bedrock, Azure AI
 
 ### Agent Mode for PopSQL 
 
-Introducing Agent Mode, a new feature in $CONSOLE SQL Assistant. SQL Assistant lets you query your database using natural language. However, if you ran into errors, you have to approve the implementation of the Assistant's suggestions. 
+Introducing Agent Mode, a new feature in Timescale Console SQL Assistant. SQL Assistant lets you query your database using natural language. However, if you ran into errors, you have to approve the implementation of the Assistant's suggestions. 
 
 With Agent Mode on, SQL Assistant automatically adjusts and executes your query without intervention. It runs, diagnoses, and fixes any errors that it runs into until you get your desired results.
 
@@ -225,13 +361,17 @@ To use Agent Mode, make sure you have SQL Assistant enabled, then click on the m
 
 ### Improved AWS Marketplace integration for a smoother experience
 
-We've enhanced the AWS Marketplace workflow to make your experience even better! Now, everything is fully automated, ensuring a seamless process from setup to billing. If you're using the AWS Marketplace integration, you'll notice a smoother transition and clearer billing visibility—your $CLOUD_LONG subscription will be reflected directly in AWS Marketplace!
+We've enhanced the AWS Marketplace workflow to make your experience even better! Now, everything is fully automated, 
+ensuring a seamless process from setup to billing. If you're using the AWS Marketplace integration, you'll notice a 
+smoother transition and clearer billing visibility—your Timescale Cloud subscription will be reflected directly in AWS 
+Marketplace!
 
-### $CONSOLE recommendations
+### Timescale Console recommendations
 
-Sometimes it can be hard to know if you are getting the best use out of your service. To help with this, $CLOUD_LONG now provides recommendations based on your service's context, assisting with onboarding or notifying if there is a configuration concern with your service, such as consistently failing jobs. 
+Sometimes it can be hard to know if you are getting the best use out of your service. To help with this, Timescale 
+Cloud now provides recommendations based on your service's context, assisting with onboarding or notifying if there is a configuration concern with your service, such as consistently failing jobs. 
 
-To start, recommendations are focused primarily on onboarding or service health, though we will regularly add new ones. You can see if you have any existing recommendations for your service by going to the `Actions` tab in $CONSOLE.
+To start, recommendations are focused primarily on onboarding or service health, though we will regularly add new ones. You can see if you have any existing recommendations for your service by going to the `Actions` tab in Timescale Console.
 
 ![Timescale Console recommendations](https://assets.timescale.com/docs/images/timescale-console-recommendations.png)
 
@@ -344,15 +484,15 @@ We’ve added support for OpenAI’s latest `o3-mini` model, bringing faster res
 
 <Label type="date">January 31, 2025</Label>
 
-For enhanced network security, you can now also create IP allowlists in the $CONSOLE data mode and PopSQL. Similarly to the [ops mode IP allowlists][ops-mode-allow-list], this feature grants access to your data only to certain IP addresses. For example, you might require your employees to use a VPN and add your VPN static egress IP to the allowlist.
+For enhanced network security, you can now also create IP allowlists in the Timescale Console data mode and PopSQL. Similarly to the [ops mode IP allowlists][ops-mode-allow-list], this feature grants access to your data only to certain IP addresses. For example, you might require your employees to use a VPN and add your VPN static egress IP to the allowlist.
 
 This feature is available in:
 
-- [$CONSOLE][console] data mode, for all pricing tiers
+- [Timescale Console][console] data mode, for all pricing tiers
 - [PopSQL web][popsql-web]
 - [PopSQL desktop][popsql-desktop]
 
-Enable this feature in PopSQL/$CONSOLE data mode > `Project` > `Settings` > `IP Allowlist`:
+Enable this feature in PopSQL/Timescale Console data mode > `Project` > `Settings` > `IP Allowlist`:
 
 ![Timescale Console data mode IP allowlist](https://assets.timescale.com/docs/images/timescale-data-mode-ip-allowlist.png)
 
@@ -481,7 +621,7 @@ SQL Assistant uses AI to help you write SQL faster and more accurately.
 
    ![AI generated query title](https://assets.timescale.com/docs/images/ai-generate-title.png)
 
-See our [blog post](https://www.timescale.com/blog/postgres-gui-sql-assistant/) or [docs](https://docs.timescale.com/getting-started/latest/run-queries-from-console/#sql-assistant) for full details!
+See our [blog post](https://www.tigerdata.com/blog/postgres-gui-sql-assistant/) or [docs](https://docs.tigerdata.com/getting-started/latest/run-queries-from-console/#sql-assistant) for full details!
 
 ### 🏄 TimescaleDB v2.17 - performance improvements for analytical queries and continuous aggregate refreshes
 

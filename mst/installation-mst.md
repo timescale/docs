@@ -19,14 +19,14 @@ import CloudMSTComparison from "versionContent/_partials/_cloud-mst-comparison.m
 
 ## Create your first service
 
-A service in Managed Service for TimescaleDB is a cloud instance on your chosen
+A $MST_SERVICE_SHORT in $MST_LONG is a cloud instance on your chosen
 cloud provider, which you can install your database on.
 
 <Procedure>
 
-### Creating your first service
+### Creating your first $MST_SERVICE_SHORT
 
-1.  [Sign in][mst-login] to your Managed Service for TimescaleDB portal.
+1.  [Sign in][mst-login] to your $MST_CONSOLE_LONG.
 1.  Click `Create service` and choose `TimescaleDB`, and update your preferences:
 
     <img class="main-content__illustration"
@@ -40,33 +40,33 @@ cloud provider, which you can install your database on.
         to you.
     *   In the `Select Your Service Plan` field, click your preferred plan,
         based on the hardware configuration you require. If you are in your
-        trial period, and just want to try the service out, or develop a proof
+        trial period, and just want to try the $MST_SERVICE_SHORT out, or develop a proof
         of concept, we recommend the `Dev` plan, because it is the most
         cost-effective during your trial period.
 1.  In the information bar on the right of the screen, review the settings you
-    have selected for your service, and click `Create Service`. The service
+    have selected for your $MST_SERVICE_SHORT, and click `Create Service`. The $MST_SERVICE_SHORT
     takes a few minutes to provision.
 
 </Procedure>
 
-## Connect to your service from the command prompt
+## Connect to your $MST_SERVICE_SHORT from the command prompt
 
-When you have a service up and running, you can connect to it from your local
+When you have a $MST_SERVICE_SHORT up and running, you can connect to it from your local
 system using the `psql` command-line utility. This is the same tool you might
 have used to connect to PostgreSQL before, but if you haven't installed it yet,
 check out the [installing psql][install-psql] section.
 
 <Procedure>
 
-### Connecting to your service from the command prompt
+### Connecting to your $MST_SERVICE_SHORT from the command prompt
 
-1.  [Sign in][mst-login]  to your Managed Service for TimescaleDB portal.
-1.  In the `Services` tab, find the service you want to connect to, and check
+1.  [Sign in][mst-login] to your $MST_CONSOLE_SHORT.
+1.  In the `Services` tab, find the $MST_SERVICE_SHORT you want to connect to, and check
     it is marked as `Running`.
-1.  Click the name of the service you want to connect to see the connection
+1.  Click the name of the $MST_SERVICE_SHORT you want to connect to see the connection
     information. Take a note of the `host`, `port`, and `password`.
-1.  On your local system, at the command prompt, connect to the service, using
-    your own service details:
+1.  On your local system, at the command prompt, connect to the $MST_SERVICE_SHORT, using
+    your own $MST_SERVICE_SHORT details:
 
     ```bash
     psql -x "postgres://tsdbadmin:<PASSWORD>@<HOSTNAME>:<PORT>/defaultdb?sslmode=require"
@@ -84,11 +84,10 @@ check out the [installing psql][install-psql] section.
 
 </Procedure>
 
-## Check that you have the TimescaleDB extension
+## Check that you have the $TIMESCALE_DB extension
 
-TimescaleDB is provided as an extension to your PostgreSQL database, and it is
-enabled by default when you create a new service on Managed Service for
-TimescaleDB. You can check that the TimescaleDB extension is installed by using
+$TIMESCALE_DB is provided as an extension to your PostgreSQL database, and it is
+enabled by default when you create a new service on $MST_LONG You can check that the $TIMESCALE_DB extension is installed by using
 the `\dx` command at the `psql` prompt. It looks like this:
 
 ```sql
@@ -112,11 +111,11 @@ defaultdb=>
 ## Where to next
 
 Now that you have your first service up and running, you can check out the
-[Managed Service for TimescaleDB][mst-docs] section in the documentation, and
+[$MST_LONG][mst-docs] section in the documentation, and
 find out what you can do with it.
 
 If you want to work through some tutorials to help you get up and running with
-TimescaleDB and time-series data, check out the [tutorials][tutorials] section.
+$TIMESCALE_DB and time-series data, check out the [tutorials][tutorials] section.
 
 You can always [contact us][contact] if you need help working something out, or
 if you want to have a chat.

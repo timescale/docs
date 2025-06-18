@@ -1,6 +1,6 @@
 ---
 title: About time buckets
-excerpt: Learn how time buckets help you aggregate data by time interval for efficient and simple real-time analytics in Timescale Cloud
+excerpt: Learn how time buckets help you aggregate data by time interval for efficient and simple real-time analytics in TimescaleDB
 products: [cloud, mst, self_hosted]
 keywords: [time buckets]
 ---

@@ -25,12 +25,12 @@ To complete this tutorial, you need a cursory knowledge of the Structured Query
 Language (SQL). The tutorial walks you through each SQL command, but it is
 helpful if you've seen SQL before.
 
-*   To start, [install TimescaleDB][install-timescale].
+*   To start, [install $TIMESCALE_DB][install-timescale].
 *   Next setup Grafana.
 
-Once your installation of TimescaleDB and Grafana are complete, configure
+Once your installation of $TIMESCALE_DB and Grafana are complete, configure
 Grafana to connect to that database. Be sure to follow the full tutorial if
-you're interested in background on how to use TimescaleDB.
+you're interested in background on how to use $TIMESCALE_DB.
 
 For this tutorial, you need to first create various Grafana visualizations before
 setting up alerts. Use our full set of Grafana tutorials to
@@ -236,7 +236,7 @@ ORDER BY 1
 #### Step 1: Configure PagerDuty for Grafana alerts
 
 To connect PagerDuty to Grafana, you'll need an [integration key][pagerduty-integration-key]
-for the service that you're monitoring. Note this is different from what PagerDuty
+for the $SERVICE_SHORT that you're monitoring. Note this is different from what PagerDuty
 refers to as the PagerDuty API key.
 
 Once again, go to your main dashboard and select the 'Bell' icon and select

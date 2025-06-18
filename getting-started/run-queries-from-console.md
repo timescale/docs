@@ -1,6 +1,6 @@
 ---
-title: Run your queries from Timescale Console
-excerpt: Choose the right tool to manage your data. Timescale Cloud offers the data mode, the SQL editor, and the SQL Assistant to better address your needs
+title: Run your queries from Tiger Cloud Console
+excerpt: Choose the right tool to manage your data. Tiger Cloud offers the data mode, the SQL editor, and the SQL Assistant to better address your needs
 products: [cloud]
 content_group: Getting started
 ---
@@ -24,7 +24,7 @@ In $CONSOLE you can use the following ways to run SQL queries against your $SERV
 
 If you prefer the command line to the $OPS_MODE $SQL_EDITOR in $CONSOLE, use [psql][install-psql].
 
-## $DATA_MODE_CAP 
+## 	Data mode 
 
 You use the $DATA_MODE in $CONSOLE to write queries, visualize data, and share your results.
 
@@ -44,7 +44,7 @@ Available features are:
 - **Cross-platform support**: work from [$CONSOLE][portal-data-mode] or download the [desktop app][popsql-desktop] for macOS, Windows, and Linux.
 - **Easy connection**: connect to $CLOUD_LONG, $PG, Redshift, Snowflake, BigQuery, MySQL, SQL Server, [and more][popsql-connections].
 
-### Connect to your $SERVICE_LONG in the $DATA_MODE
+### Connect to your $SERVICE_LONG in the data mode
 
 <Procedure>
 
@@ -54,7 +54,7 @@ To connect to a $SERVICE_SHORT:
 
    In [$CONSOLE][services-portal], check that your $SERVICE_SHORT is marked as `Running`:
 
-   ![Check $SERVICE_LONG is running](https://assets.timescale.com/docs/images/timescale-console-services-view.png)
+   ![Check $SERVICE_LONG is running](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-services-view.png)
 
 1. **Connect to your $SERVICE_SHORT**
 
@@ -66,7 +66,7 @@ To connect to a $SERVICE_SHORT:
 
    Type `SELECT CURRENT_DATE;` in `Scratchpad` and click `Run`:
 
-   ![Run a simple query](https://assets.timescale.com/docs/images/run-query-in-scratchpad.png)
+   ![Run a simple query](https://assets.timescale.com/docs/images/tiger-cloud-console/run-query-in-scratchpad-tiger-cloud.png)
 
 Quick recap. You:
 - Manage your $SERVICE_SHORTs in the [$OPS_MODE in $CONSOLE][portal-ops-mode]
@@ -83,9 +83,9 @@ Now you have used the $DATA_MODE in $CONSOLE, see how to easily do the following
 - [Create a dashboard of multiple query results][create-dashboard]
 - [Create schedules for your queries][create-schedule]
 
-### $DATA_MODE_CAP FAQ
+### Data mode FAQ
 
-#### What if my $SERVICE_SHORT is within a $VPC?
+#### What if my service is within a vpc?
 
 If your $SERVICE_LONG runs inside a $VPC, do one of the following to enable access for the $POPSQL desktop app:
 
@@ -93,7 +93,7 @@ If your $SERVICE_LONG runs inside a $VPC, do one of the following to enable acce
 - Use an SSH tunnel: when you configure the connection in $POPSQL, under `Advanced Options` enable `Connect over SSH`.
 - Add $POPSQL's static IPs (`23.20.131.72, 54.211.234.135`) to your allowlist.
 
-#### What happens if another member of my $COMPANY project uses the $DATA_MODE?
+#### What happens if another member of my $PROJECT_LONG uses the $DATA_MODE?
 
 The number of $DATA_MODE seats you are allocated depends on your [$PRICING_PLAN][pricing-plan-features].
 
@@ -117,13 +117,15 @@ use that in the $DATA_MODE.
 
 ## $SQL_ASSISTANT_SHORT
 
-$SQL_ASSISTANT_SHORT in [$CONSOLE][portal-data-mode] is a chat-like interface that harnesses the power of AI to help you write, fix, and organize SQL faster and more accurately. Ask $SQL_ASSISTANT_SHORT to change existing queries, write new ones from scratch, debug error messages, optimize for query performance, add comments, improve readability—and really, get answers to any questions you can think of. 
+$SQL_ASSISTANT_SHORT in [$CONSOLE][portal-data-mode] is a chat-like interface that harnesses the power of AI to help you write, fix, and organize SQL faster and more accurately. Ask $SQL_ASSISTANT_SHORT to change existing queries, write new ones from scratch, debug error messages, optimize for query performance, add comments, improve readability—and really, get answers to any questions you can think of.
 
+<!--
 <div class="relative w-fit mx-auto">
 
 <iframe width="1120" height="630" style="max-width:100%"  src="https://www.youtube.com/embed/3Droej_E0cQ?si=C4RoL_PFpr8E5QtC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 </div>
+-->
 
 ### Key capabilities
 
@@ -170,6 +172,10 @@ $SQL_ASSISTANT_SHORT supports a large number of LLMs, including:
 - DeepSeek R1 Distill - Llama 3.3. 70B
 - DeepSeek R1
 - Gemini 2.0 Flash
+- Sonnet 4
+- Sonnet 4 (extended thinking)
+- Opus 4
+- Opus 4 (extended thinking)
 
 Choose the LLM based on the particular task at hand. For simpler tasks, try the smaller and faster models like Gemini Flash, Haiku, or o4-mini. For more complex tasks, try the larger reasoning models like Claude Sonnet, Gemini Pro, or o3. We provide a description of each model to help you decide.
 
@@ -184,16 +190,16 @@ For best results with $SQL_ASSISTANT_SHORT:
 
 ### Security, privacy, and data usage
 
-Security and privacy is prioritized in $CONSOLE. In [$DATA_MODE][portal-data-mode], project members
+Security and privacy is prioritized in $CONSOLE. In [$DATA_MODE][portal-data-mode], $PROJECT_SHORT members
 manage $SQL_ASSISTANT_SHORT settings under [`User name` > `Settings` > `SQL Assistant`][sql-editor-settings].
 
 ![SQL assistant settings](https://assets.timescale.com/docs/images/sql-editor-preferences.png)
 
 $SQL_ASSISTANT_SHORT settings are:
 
-* **Opt-in features**: all AI features are off by default. Only [members][project-members] of your $CLOUD_LONG project
+* **Opt-in features**: all AI features are off by default. Only [members][project-members] of your $PROJECT_LONG
   can enable them.
-* **Data protection**: your data remains private as $SQL_ASSISTANT_SHORT operates with strict security protocols. To provide AI support, $COMPANY may share your currently open SQL document, some basic metadata about your database, and portions of your database schema. By default, $COMPANY **does not include** any data from query results, but you can opt in to include this context to improve the results.
+* **Data protection**: your data remains private as $SQL_ASSISTANT_SHORT operates with strict security protocols. To provide AI support, $CONSOLE_LONG may share your currently open SQL document, some basic metadata about your database, and portions of your database schema. By default, $CONSOLE_LONG **does not include** any data from query results, but you can opt in to include this context to improve the results.
 * **Sample data**: to give the LLM more context so you have better SQL suggestions, enable sample data sharing in the $SQL_ASSISTANT_SHORT preferences.
 * **Telemetry**: to improve $SQL_ASSISTANT_SHORT, $COMPANY collects telemetry and usage data, including prompts, responses, and query metadata.
 
@@ -202,35 +208,34 @@ $SQL_ASSISTANT_SHORT settings are:
 $SQL_EDITOR is an integrated secure UI that you use to run queries and see the results
 for a $SERVICE_LONG.
 
-![$CONSOLE $SQL_EDITOR](https://assets.timescale.com/docs/images/sqleditor.png)
+![$CONSOLE $SQL_EDITOR](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-sqleditor.png)
 
 To enable or disable $SQL_EDITOR in your $SERVICE_SHORT, click `Operations` > `Service management`, then
 update the setting for $SQL_EDITOR.
 
-### Run queries from the $OPS_MODE in $CONSOLE
+To use $SQL_EDITOR:
 
 <Procedure>
-
-To use $SQL_EDITOR:
 
 1.  **Open $SQL_EDITOR from $CONSOLE**
 
     In the [$OPS_MODE][portal-ops-mode] in $CONSOLE, select a $SERVICE_SHORT, then click `SQL editor`.
 
-    ![Check $SERVICE_SHORT is running](https://assets.timescale.com/docs/images/ops-view-sql-editor.png)
+    ![Check $SERVICE_SHORT is running](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-ops-mode-sql-editor.png)
 
 1. **Run a test query**
 
     Type `SELECT CURRENT_DATE;` in the UI and click `Run`. The results appear in the lower window:
 
-    ![Run a simple query](https://assets.timescale.com/docs/images/run-query-in-sql-editor.png)
+    ![Run a simple query](https://assets.timescale.com/docs/images/tiger-cloud-console/run-a-query-in-ops-mode-sql-editor.png)
 
 </Procedure>
 
 ## Cloud $SQL_EDITOR licenses
 
-* **$SQL_EDITOR in the $OPS_MODE**: free for anyone with a [$CLOUD_LONG account][create-cloud-account].
+* **$SQL_EDITOR in the $OPS_MODE**: free for anyone with a [$ACCOUNT_LONG][create-cloud-account].
 * **Data mode**: the number of seats you are allocated depends on your [$PRICING_PLAN][pricing-plan-features].
+
   [$SQL_ASSISTANT_SHORT][sql-assistant] is currently free for all users. In the future, limits or paid options may be
   introduced as we work to build the best experience.
 * **$POPSQL standalone**: there is a free plan available to everyone, as well as paid plans. See  [$POPSQL Pricing][popsql-pricing] for full details.

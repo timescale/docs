@@ -54,23 +54,6 @@ To enable the $COLUMNSTORE:
       ALTER TABLE metrics SET (timescaledb.compress_chunk_time_interval = '0');
       ```
 
-- **Enable secondary indexing on all data you add to the $COLUMNSTORE** <EarlyAccess />
- 
-   ```sql
-   alter table metrics
-      set access method hypercore,
-      set (timescaledb.compress_orderby = 'created_at',
-   	       timescaledb.compress_segmentby = 'location_id');
-   ```
-
-- **Enable secondary indexing on a chunk you are adding to the $COLUMNSTORE** <EarlyAccess />
-  
-   ```sql
-   alter table _timescaledb_internal._hyper_1_21_chunk
-   set access method hypercore;
-   ```
-   
-
 ## Arguments
 
 The syntax is:
@@ -95,7 +78,6 @@ ALTER TABLE <table_name> SET (timescaledb.enable_columnstore,
 | `column_name`                              |TEXT| -                                                    | ✖ | The name of the column to `orderby` or `segmentby`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | `timescaledb.compress_chunk_time_interval` |TEXT| -                                                    | ✖ | EXPERIMENTAL: reduce the total number of chunks in the $COLUMNSTORE for `table`. If you set `compress_chunk_time_interval`, chunks added to the $COLUMNSTORE are merged with the previous adjacent chunk within `chunk_time_interval` whenever possible. These chunks are irreversibly merged. If you call [convert_to_rowstore][convert_to_rowstore], merged chunks are not split up. You can call `compress_chunk_time_interval` independently of other compression settings; `timescaledb.enable_columnstore` is not required. |
 | `interval`                                 |TEXT| -                                                    | ✖ | Set to a multiple of the [chunk_time_interval][chunk_time_interval] for `table`.                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| `SET ACCESS METHOD`                        |TEXT| DEFAULT ([heap][default_table_access_method])| ✖| To enable indexing on the $COLUMNSTORE, set to `hypercore` after you [create a hypertable][create-hypertable].    <EarlyAccess />                                                                                                                                                                                                                                                                                                                                                                                                 |
 | `ALTER`                                    |TEXT| | ✖| Set a specific column in the columnstore to be NOT NULL.                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | `ADD CONSTRAINT`                           |TEXT| | ✖| Add UNIQUE constraints to data in the columnstore. |
 

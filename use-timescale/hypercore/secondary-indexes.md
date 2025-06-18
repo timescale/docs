@@ -1,10 +1,11 @@
 ---
 title: Improve query and upsert performance
-excerpt: Using secondary indexes on data in the columnstore make lookup queries 1,185x and upserts 224x faster
+excerpt: Use secondary indexes on data in the columnstore to make lookup queries 1,185x and upserts 224x faster
 products: [cloud, self_hosted]
 keywords: [hypertable, compression, row-columnar storage, hypercore]
 ---
 
+import Deprecated2210 from "versionContent/_partials/_deprecated_2_21_0.mdx";
 import EarlyAccess from "versionContent/_partials/_early_access.mdx";
 
 # Improve query and upsert performance
@@ -13,8 +14,9 @@ Real-time analytics applications require more than fast inserts and analytical q
 when retrieving individual records, enforcing constraints, or performing upserts, something that OLAP/columnar databases
 lack.
 
-* [Segmenting and ordering data][segmenting-and-ordering] - improve performance by controlling the way data is physically stored. 
-* [B-tree and hash indexes][b-tree-and-hash-indexes] - **experimental**: use secondary indexes to improve point query performance.   
+* [Segmenting and ordering data][segmenting-and-ordering] - improve performance by controlling the way data is physically stored.  
+
+To improve query performance using indexes for a production environment, see [About indexes][about-index] and [Indexing data][create-index].
 
 ## Segmenting and ordering data
 
@@ -132,23 +134,13 @@ This needs to be taken into account when you define your $COLUMNSTORE settings.
 
 ## B-tree and hash indexes: **experimental support**
 
+<Deprecated2210 /> This feature is sunsetted in TimescaleDB v2.22.0.
+
 $TIMESCALE_DB supports and accelerates real-time analytics using [$HYPERCORE][hypercore] without missing out on important  
 PostgreSQL features, including support for standard PostgreSQL indexes. $HYPERCORE_CAP is a hybrid storage engine 
 because it supports deep analytics while staying true to PostgreSQL. Full support for B-tree and hash indexes
 on $COLUMNSTORE data enables you to perform point lookups 1,185x faster, enforce unique constraints, and execute
 upserts 224x faster—all while maintaining $COLUMNSTORE compression and analytics performance.
-
-<Highlight type="Info">
-
-<EarlyAccess />
-
-This feature is experimental, it is not ready for production use. 
-
-To improve query performance using indexes for a production 
-environment, see [About indexes][about-index] and [Indexing data][create-index].
-
-</Highlight>
-
 
 ### Choose the best indexing method
 
@@ -430,11 +422,11 @@ Compared with using a sparse min/max index in $COLUMNSTORE, $COMPANY benchmarks 
 [b-tree-overview]: https://www.timescale.com/learn/postgresql-performance-tuning-optimizing-database-indexes#:~:text=a%20quick%20summary%3A-,B%2DTree%20indexes%20(default%20index%20type%20in%20PostgreSQL),-CREATE%20INDEX%20index_product_id
 [hash-overview]: https://www.timescale.com/learn/postgresql-performance-tuning-optimizing-database-indexes#:~:text=in%20ascending%20order.-,Hash%20indexes,-CREATE%20INDEX%20index_product_id
 [storage-toast]: https://www.postgresql.org/docs/current/storage-toast.html
-[postgres-index-types]: https://www.timescale.com/learn/database-indexes-in-postgres
+[postgres-index-types]: https://www.timescale.com/learn/postgresql-performance-tuning-optimizing-database-indexes
 [postgres-tam-methods]: https://www.postgresql.org/docs/current/tableam.html
 [convert-to-hypertable]: /use-timescale/:currentVersion:/hypertables/hypertable-crud/#create-a-hypertable
 [iops]: https://en.wikipedia.org/wiki/IOPS
 [segmenting-and-ordering]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/#segmenting-and-ordering-data
 [b-tree-and-hash-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/#b-tree-and-hash-indexes-early-access
 [about-index]: /use-timescale/:currentVersion:/schema-management/about-indexing/
-[create-index]: https://docs.timescale.com/api/latest/hypertable/create_index/
+[create-index]: https://docs.tigerdata.com/api/latest/hypertable/create_index/

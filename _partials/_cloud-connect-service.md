@@ -5,13 +5,13 @@
 
    In [$CONSOLE][services-portal], check that your $SERVICE_SHORT is marked as `Running`.
 
-   ![Check $SERVICE_SHORT is running](https://assets.timescale.com/docs/images/console-services-view.png)
+   ![Check $SERVICE_SHORT is running](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-services-view.png)
 
 1. **Connect to your $SERVICE_SHORT**
 
    Connect using data mode or SQL editor in $CONSOLE, or psql in the command line:
 
-   <Tabs label="Connect to your Timescale Cloud service">
+   <Tabs label="Connect to your Tiger Cloud service">
 
    <Tab title="Data mode in Console">
 
@@ -45,7 +45,7 @@
    
    1. Click `SQL editor`. 
 
-      ![SQL editor](https://assets.timescale.com/docs/images/ops-view-sql-editor.png)
+      ![Check a $SERVICE_SHORT is running](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-ops-mode-sql-editor.png)
 
    1. Run a test query:
 
