@@ -141,7 +141,7 @@ To remove a user's access to a project:
 
 1.  In [$CONSOLE][cloud-login], click `Invite users`.
 1.  Next to the person you want to remove, click `⋮`, then click the trash can icon.
-    ![Remove a user in $CONSOLE](https://assets.timescale.com/docs/images/console-remove-users.png)
+    ![Remove a user in $CONSOLE](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-leave-project.png)
 1.  In `Remove user`, click `Remove`.
 
 The user is deleted immediately, they can no longer access your project.
