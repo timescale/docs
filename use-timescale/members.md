@@ -126,7 +126,7 @@ To stop working in a project:
 
 1. In [$CONSOLE][cloud-login], click `Invite users`.
 1. Click `⋮` > `Leave project`, then click `Leave`.
-   ![Leave a project in $CONSOLE](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-leave-project.png)
+   ![Leave a project in $CONSOLE](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-leave-a-project.png)
 
 Your account is removed from the project immediately, you can no longer access this project.
 
