@@ -1,6 +1,6 @@
 ---
 title: Create and manage jobs
-excerpt: Jobs are custom PostgreSQL functions and procedures that you set up to run on a schedule. Create, register, test, alter, and delete jobs in Timescale Cloud
+excerpt: Jobs are custom PostgreSQL functions and procedures that you set up to run on a schedule. Create, register, test, alter, and delete jobs in TimescaleDB
 products: [cloud, mst, self_hosted]
 keywords: [jobs]
 tags: [scheduled jobs, background jobs, automation framework]
@@ -10,7 +10,7 @@ import Prerequisites from "versionContent/_partials/_prereqs-cloud-and-self.mdx"
 
 # Create and manage $JOBs
 
-$JOB_CAPs in Timescale are custom functions or procedures that run on a schedule that you define. This page explains how to create, test, alter, and delete a $JOB.
+$JOB_CAPs in $TIMESCALE_DB are custom functions or procedures that run on a schedule that you define. This page explains how to create, test, alter, and delete a $JOB.
 
 ## Prerequisites
 
@@ -18,7 +18,7 @@ $JOB_CAPs in Timescale are custom functions or procedures that run on a schedule
 
 ## Create a $JOB
 
-To create a $JOB, create a [function][postgres-createfunction] or [procedure][postgres-createprocedure] that you want your $SERVICE_SHORT to execute, then set it up to run on a schedule. 
+To create a $JOB, create a [function][postgres-createfunction] or [procedure][postgres-createprocedure] that you want your database to execute, then set it up to run on a schedule. 
 
 <Procedure>
 
@@ -37,7 +37,7 @@ To create a $JOB, create a [function][postgres-createfunction] or [procedure][po
 	$<variable_name>$ LANGUAGE <language>;
     ```
 
-    For example, to create a function that reindexes a table within a $SERVICE_SHORT:
+    For example, to create a function that reindexes a table within your database:
 
     ```sql
     CREATE FUNCTION reindex_mytable(job_id INT DEFAULT NULL, config JSONB DEFAULT NULL)
@@ -76,7 +76,7 @@ To create a $JOB, create a [function][postgres-createfunction] or [procedure][po
     SELECT add_job('reindex_mytable', '1h', config => NULL);
     ```
     
-    The call returns a `job_id` and stores it along with `config` in the Timescale catalog.
+    The call returns a `job_id` and stores it along with `config` in the $TIMESCALE_DB catalog.
 
     The $JOB runs on the schedule you set. You can also run it manually with [`run_job`][api-run_job] passing `job_id`. When the $JOB runs, `job_id` and `config` are passed as arguments.
 

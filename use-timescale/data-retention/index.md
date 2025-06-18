@@ -1,6 +1,6 @@
 ---
 title: Data retention
-excerpt: Timescale Cloud enables you to save on storage space with data retention policies. Learn how to use, set up, and troubleshoot data retention in your Timescale Cloud service
+excerpt: TimescaleDB enables you to save on storage space with data retention policies. Learn how to use, set up, and troubleshoot data retention in your database
 products: [cloud, mst, self_hosted]
 keywords: [continuous aggregates, data retention, downsample]
 ---

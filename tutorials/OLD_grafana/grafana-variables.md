@@ -15,13 +15,13 @@ To complete this tutorial, you need a cursory knowledge of the Structured Query
 Language (SQL). The tutorial walks you through each SQL command, but it is
 helpful if you've seen SQL before.
 
-*   To start, [install TimescaleDB][install-timescale].
+*   To start, [install $TIMESCALE_DB][install-timescale].
 *   Next setup Grafana.
 
-Once your installation of TimescaleDB and Grafana are complete, ingest the data found
+Once your installation of $TIMESCALE_DB and Grafana are complete, ingest the data found
 in the NYC Taxi Cab tutorial and configure Grafana to connect
 to that database. Be sure to follow the full tutorial if you're interested in background
-on how to use TimescaleDB.
+on how to use $TIMESCALE_DB.
 
 ### Creating a variable
 

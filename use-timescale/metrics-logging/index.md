@@ -1,6 +1,6 @@
 ---
 title: Metrics and logging
-excerpt: Timescale Cloud enables you to monitor your services using the built-in metrics or by integrating third-party services. See the options available in Timescale Console
+excerpt: Tiger Cloud enables you to monitor your services using the built-in metrics or by integrating third-party services. See the options available in Tiger Cloud Console
 products: [cloud]
 keywords: [metrics, logs, admin]
 tags: [payment]
@@ -12,19 +12,14 @@ cloud_ui:
 
 # Metrics and logging
 
-You can see metrics and logs for your Timescale services in the dashboard. You
-can also integrate with third-party logging services.
+Find metrics and logs for your $SERVICE_SHORTs in $CONSOLE, or integrate with third-party monitoring services:
 
-*   View [service metrics][metrics] in the dashboard.
-*   View [service logs][logs] in the dashboard.
-*   View [query level Insights][insights] in the dashboard.
+*   [Monitor][monitor] your $SERVICE_SHORTs in $CONSOLE.
 *   Export metrics to [Datadog][datadog].
 *   Export metrics to [Amazon Cloudwatch][cloudwatch].
 *   Export metrics to [Prometheus][prometheus].
 
-[metrics]: /use-timescale/:currentVersion:/metrics-logging/service-metrics/
-[insights]: /use-timescale/:currentVersion:/metrics-logging/insights/
-[logs]: /use-timescale/:currentVersion:/metrics-logging/service-logs/
 [prometheus]: /use-timescale/:currentVersion:/metrics-logging/metrics-to-prometheus/
 [datadog]: /use-timescale/:currentVersion:/metrics-logging/datadog/
 [cloudwatch]: /use-timescale/:currentVersion:/metrics-logging/aws-cloudwatch/
+[monitor]: /use-timescale/:currentVersion:/metrics-logging/monitoring/

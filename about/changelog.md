@@ -1,13 +1,35 @@
 ---
 title: Changelog
-excerpt: Get a weekly summary of the latest changes to Timescale products with links to detailed documentation
+excerpt: Get a weekly summary of the latest changes to TigerData products with links to detailed documentation
 keywords: [changelog, upgrades, updates, releases]
 products: [cloud, self_hosted]
 ---
 
 # Changelog
 
-All the latest features and updates to Timescale products.
+All the latest features and updates to $COMPANY products.
+
+## ⚙️ Improved Terraform support and TimescaleDB v2.20.3
+<Label type="date">June 13, 2025</Label>
+
+### Terraform support for Exporters and AWS Transit Gateway
+
+The latest version of the Timescale Terraform provider (2.3.0) adds support for:
+- Creating and attaching observability exporters to your services.
+- Securing the connections to your Timescale Cloud services with AWS Transit Gateway.
+- Configuring CIDRs for VPC and AWS Transit Gateway connections.
+
+Check the [Timescale Terraform provider documentation](https://registry.terraform.io/providers/timescale/timescale/latest/docs) for more details.
+
+### TimescaleDB v2.20.3
+
+This patch release for TimescaleDB v2.20 includes several bug fixes and minor improvements. 
+Notable bug fixes include:
+- Adjustments to SkipScan costing for queries that require a full scan of indexed data.
+- A fix for issues encountered during dump and restore operations when chunk skipping is enabled.
+- Resolution of a bug related to dropped "quals" (qualifications/conditions) in SkipScan.
+
+For a comprehensive list of changes, refer to the [TimescaleDB 2.20.3 release notes](https://github.com/timescale/timescaledb/releases/tag/2.20.3).
 
 ## 🧘 Read replica sets, faster tables, new anthropic models, and VPC support in data mode
 <Label type="date">June 6, 2025</Label>
@@ -91,7 +113,24 @@ Highlighted features in TimescaleDB v2.20 include:
 * Enhanced developer flexibility with continuous aggregates now supporting window and mutable functions, plus 
   customizable refresh orders.
 
-This release deprecates support for Postgres 14.
+### PostgreSQL 13 and 14 deprecated on Tiger Cloud
+
+[TimescaleDB version 2.20][timescale220] is not compatible with PostgreSQL versions v14 and below.
+TimescaleDB 2.19.3 is the last bug-fix release for PostgreSQL 14. Future fixes are for
+PostgreSQL 15+ only. To continue receiving critical fixes and security patches, and to take
+advantage of the latest TimescaleDB features, you must upgrade to PostgreSQL 15 or newer.
+This deprecation affects all Tiger Cloud services currently running PostgreSQL 13 or
+PostgreSQL 14.
+
+The timeline for the PostgreSQL 13 and 14 deprecation is as follows:
+
+- **Deprecation notice period begins**: starting in early June 2025, you will receive email communication.
+- **Customer self-service upgrade window**: June 2025 through September 14, 2025. We strongly encourage you to
+  [manually upgrade PostgreSQL](https://docs.tigerdata.com/use-timescale/latest/upgrades/#manually-upgrade-postgresql-for-a-service)
+  during this period.
+- **Automatic upgrade deadline**: your service will be
+  [automatically upgraded](https://docs.timescale.com/use-timescale/latest/upgrades/#automatic-postgresql-upgrades-for-a-service)
+  from September 15, 2025.
 
 ### Enhancements to livesync for PostgreSQL
 
@@ -268,10 +307,10 @@ For more information, see the [pgvectorscale release notes][log-28032025-pgvecto
 
 ### Job errors and individual job pages
 
-Each job now has an individual page in $CONSOLE, and displays additional details about job errors. You use 
+Each job now has an individual page in Timescale Console, and displays additional details about job errors. You use 
 this information to debug failing jobs. 
 
-To see the job information page, in [$CONSOLE][console], select the $SERVICE_SHORT to check, then click `Jobs` > job ID to investigate.
+To see the job information page, in [Timescale Console][console], select the service to check, then click `Jobs` > job ID to investigate.
 
 - Successful jobs: 
 
@@ -310,7 +349,7 @@ Access embedding models from popular cloud model hubs like AWS Bedrock, Azure AI
 
 ### Agent Mode for PopSQL 
 
-Introducing Agent Mode, a new feature in $CONSOLE SQL Assistant. SQL Assistant lets you query your database using natural language. However, if you ran into errors, you have to approve the implementation of the Assistant's suggestions. 
+Introducing Agent Mode, a new feature in Timescale Console SQL Assistant. SQL Assistant lets you query your database using natural language. However, if you ran into errors, you have to approve the implementation of the Assistant's suggestions. 
 
 With Agent Mode on, SQL Assistant automatically adjusts and executes your query without intervention. It runs, diagnoses, and fixes any errors that it runs into until you get your desired results.
 
@@ -322,13 +361,17 @@ To use Agent Mode, make sure you have SQL Assistant enabled, then click on the m
 
 ### Improved AWS Marketplace integration for a smoother experience
 
-We've enhanced the AWS Marketplace workflow to make your experience even better! Now, everything is fully automated, ensuring a seamless process from setup to billing. If you're using the AWS Marketplace integration, you'll notice a smoother transition and clearer billing visibility—your $CLOUD_LONG subscription will be reflected directly in AWS Marketplace!
+We've enhanced the AWS Marketplace workflow to make your experience even better! Now, everything is fully automated, 
+ensuring a seamless process from setup to billing. If you're using the AWS Marketplace integration, you'll notice a 
+smoother transition and clearer billing visibility—your Timescale Cloud subscription will be reflected directly in AWS 
+Marketplace!
 
-### $CONSOLE recommendations
+### Timescale Console recommendations
 
-Sometimes it can be hard to know if you are getting the best use out of your service. To help with this, $CLOUD_LONG now provides recommendations based on your service's context, assisting with onboarding or notifying if there is a configuration concern with your service, such as consistently failing jobs. 
+Sometimes it can be hard to know if you are getting the best use out of your service. To help with this, Timescale 
+Cloud now provides recommendations based on your service's context, assisting with onboarding or notifying if there is a configuration concern with your service, such as consistently failing jobs. 
 
-To start, recommendations are focused primarily on onboarding or service health, though we will regularly add new ones. You can see if you have any existing recommendations for your service by going to the `Actions` tab in $CONSOLE.
+To start, recommendations are focused primarily on onboarding or service health, though we will regularly add new ones. You can see if you have any existing recommendations for your service by going to the `Actions` tab in Timescale Console.
 
 ![Timescale Console recommendations](https://assets.timescale.com/docs/images/timescale-console-recommendations.png)
 
@@ -441,15 +484,15 @@ We’ve added support for OpenAI’s latest `o3-mini` model, bringing faster res
 
 <Label type="date">January 31, 2025</Label>
 
-For enhanced network security, you can now also create IP allowlists in the $CONSOLE data mode and PopSQL. Similarly to the [ops mode IP allowlists][ops-mode-allow-list], this feature grants access to your data only to certain IP addresses. For example, you might require your employees to use a VPN and add your VPN static egress IP to the allowlist.
+For enhanced network security, you can now also create IP allowlists in the Timescale Console data mode and PopSQL. Similarly to the [ops mode IP allowlists][ops-mode-allow-list], this feature grants access to your data only to certain IP addresses. For example, you might require your employees to use a VPN and add your VPN static egress IP to the allowlist.
 
 This feature is available in:
 
-- [$CONSOLE][console] data mode, for all pricing tiers
+- [Timescale Console][console] data mode, for all pricing tiers
 - [PopSQL web][popsql-web]
 - [PopSQL desktop][popsql-desktop]
 
-Enable this feature in PopSQL/$CONSOLE data mode > `Project` > `Settings` > `IP Allowlist`:
+Enable this feature in PopSQL/Timescale Console data mode > `Project` > `Settings` > `IP Allowlist`:
 
 ![Timescale Console data mode IP allowlist](https://assets.timescale.com/docs/images/timescale-data-mode-ip-allowlist.png)
 
@@ -578,7 +621,7 @@ SQL Assistant uses AI to help you write SQL faster and more accurately.
 
    ![AI generated query title](https://assets.timescale.com/docs/images/ai-generate-title.png)
 
-See our [blog post](https://www.timescale.com/blog/postgres-gui-sql-assistant/) or [docs](https://docs.timescale.com/getting-started/latest/run-queries-from-console/#sql-assistant) for full details!
+See our [blog post](https://www.tigerdata.com/blog/postgres-gui-sql-assistant/) or [docs](https://docs.tigerdata.com/getting-started/latest/run-queries-from-console/#sql-assistant) for full details!
 
 ### 🏄 TimescaleDB v2.17 - performance improvements for analytical queries and continuous aggregate refreshes
 

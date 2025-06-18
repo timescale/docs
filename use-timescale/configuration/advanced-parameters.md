@@ -1,6 +1,6 @@
 ---
 title: Advanced parameters
-excerpt: Configure advanced parameters for your Timescale Cloud service in Timescale Console
+excerpt: Configure advanced parameters for your Tiger Cloud service in Tiger Cloud console
 products: [cloud]
 keywords: [services, settings]
 tags: [configuration, schemas]
@@ -13,7 +13,7 @@ import ConfigCloudSelf from "versionContent/_partials/_cloud_self_configuration.
 
 # Advanced parameters
 
-It is possible to configure a wide variety of service database parameters by
+It is possible to configure a wide variety of $SERVICE_LONG database parameters by
 navigating to the `Advanced parameters` tab under the `Database
 configuration` heading. The advanced parameters are displayed in a scrollable and searchable list.
 
@@ -21,13 +21,13 @@ configuration` heading. The advanced parameters are displayed in a scrollable an
 
 As with the basic database configuration parameters, any changes are highlighted
 and the `Apply changes`, or `Apply changes and restart`, button is available,
-prompting you to confirm changes before the service is modified.
+prompting you to confirm changes before the $SERVICE_SHORT is modified.
 
 ## Multiple databases
 
 To create more than one database, you need to create a new
 $SERVICE_SHORT for each database. $CLOUD_LONG does not support multiple
-databases within the same service. Having a separate $SERVICE_SHORT for each database
+databases within the same $SERVICE_SHORT. Having a separate $SERVICE_SHORT for each database
 affords each database its own isolated resources.
 
 You can also use [schemas][schemas] to organize tables into logical groups. A

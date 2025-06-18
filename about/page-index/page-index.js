@@ -1,28 +1,28 @@
 module.exports = [
   {
-    title: "About Timescale products",
+    title: "About TigerData products",
     href: "about",
     defaultOpen: true,
     filePath: "index.md",
     pageComponents: ["featured-cards"],
     excerpt:
-      "Additional information about Timescale, including how to contribute, and release notes",
+      "Additional information about TigerData, including how to contribute, and release notes",
     children: [
       {
-        title: "Timescale architecture for real-time analytics",
+        title: "TigerData architecture for real-time analytics",
         href: "whitepaper",
         excerpt:
-          "A whitepaper detailing the architectural choices and optimizations for real-time analytics that power Timescale",
+          "A whitepaper detailing the architectural choices and optimizations for real-time analytics that power TigerData products",
       },
       {
         title: "Pricing plans and account management",
         href: "pricing-and-account-management",
-        excerpt: "Pricing plans for Timescale Cloud services",
+        excerpt: "Pricing plans for Tiger Cloud services",
       },
       {
         title: "Changelog",
         href: "changelog",
-        excerpt: "A summary of the latest changes to all Timescale products.",
+        excerpt: "A summary of the latest changes to all TigerData products.",
       },
       {
         title: "TimescaleDB editions",
@@ -30,9 +30,9 @@ module.exports = [
         excerpt: "Discover the different TimescaleDB editions and licences",
       },
       {
-        title: "Contribute to Timescale",
+        title: "Contribute to TigerData",
         href: "contribute-to-timescale",
-        excerpt: "Contribute to the Timescale codebase",
+        excerpt: "Contribute to the codebase and documentation of TigerData products",
       },
       {
         title: "Release notes",

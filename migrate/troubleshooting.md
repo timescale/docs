@@ -17,8 +17,7 @@ Live migration tooling is currently experimental. You may run into the following
 - Live migration does not yet support mutable columnstore compression (`INSERT`, `UPDATE`,
   `DELETE` on data in the columnstore).
 - By default, numeric fields containing `NaN`/`+Inf`/`-Inf` values are not
-  correctly replicated, and will be converted to `NULL`. A workaround is
-  available, but is not enabled by default.
+  correctly replicated, and will be converted to `NULL`. A workaround is available, but is not enabled by default.
 
 Should you run into any problems, please open a support request before losing
 any time debugging issues.
@@ -31,48 +30,48 @@ the migration. The logs of these processes can be helpful for troubleshooting
 unexpected behavior. You can find these logs in the `<volume_mount>/logs` directory.
 
 
-## Source and target databases have different TimescaleDB versions
+## Source and target databases have different $TIMESCALE_DB versions
 
-When you migrate a [self-hosted][self hosted] or [Managed Service for TimescaleDB (MST)][mst]
-database to Timescale, the source database and the destination
-[Timescale Service][timescale-service] must run the same version of TimescaleDB.
+When you migrate a [self-hosted][self hosted] or [$MST_LONG ($MST_SHORT)][mst]
+database to $CLOUD_LONG, the source database and the destination
+[$SERVICE_LONG][timescale-service] must run the same version of $TIMESCALE_DB.
 
 Before you start [live migration][live migration]:
 
 
-1. Check the version of TimescaleDB running on the source database and the
-   target Timescale Service:
+1. Check the version of $TIMESCALE_DB running on the source database and the
+   target $SERVICE_LONG:
     ```sql
     select extversion from pg_extension where extname = 'timescaledb';
     ```
 
-1. If the version of TimescaleDB on the source database is lower than your Timescale Service, either:
-    - **Downgrade**: reinstall an older version of TimescaleDB on your Timescale
-      Service that matches the source database:
+1. If the version of $TIMESCALE_DB on the source database is lower than your $SERVICE_LONG, either:
+    - **Downgrade**: reinstall an older version of $TIMESCALE_DB on your $SERVICE_LONG that matches the source database:
 
-        1. Connect to your Timescale Service and check the versions of TimescaleDB available:
+        1. Connect to your $SERVICE_LONG and check the versions of $TIMESCALE_DB available:
            ```sql
            SELECT version FROM pg_available_extension_versions WHERE name = 'timescaledb' ORDER BY 1 DESC;
            ```
 
-        2. If an available TimescaleDB release matches your source database:
+        2. If an available $TIMESCALE_DB release matches your source database:
 
-            1. Uninstall TimescaleDB from your Timescale Service:
+            1. Uninstall $TIMESCALE_DB from your $SERVICE_LONG:
                ```sql
                DROP EXTENSION timescaledb;
                ```
 
-            1. Reinstall the correct version of TimescaleDB:
+            1. Reinstall the correct version of $TIMESCALE_DB:
                ```sql
                CREATE EXTENSION timescaledb VERSION '<version>';
                ```
 
            <Highlight type="note">
-           You may need to reconnect to your Timescale Service using `psql -X` when you're creating the TimescaleDB extension.
+
+           You may need to reconnect to your $SERVICE_LONG using `psql -X` when you're creating the $TIMESCALE_DB extension.
+
            </Highlight>
 
-    - **Upgrade**: for self-hosted databases,
-      [upgrade TimescaleDB][self hosted upgrade] to match your Timescale Service.
+    - **Upgrade**: for self-hosted databases, [upgrade $TIMESCALE_DB][self hosted upgrade] to match your $SERVICE_LONG.
 
 [live migration]: /migrate/:currentVersion:/live-migration/
 [self hosted]: /self-hosted/:currentVersion:/
@@ -113,9 +112,9 @@ connection string that points directly to your source and target databases
 for live migration to work smoothly.
 
 
-## Can I use Timescale Cloud instance as source for live migration?
+## Can I use $CLOUD_LONG instance as source for live migration?
 
-No, Timescale Cloud cannot be used as a source database for live migration.
+No, $CLOUD_LONG cannot be used as a source database for live migration.
 
 
 ## How can I exclude a schema/table from being replicated in live migration?
@@ -127,15 +126,15 @@ For more information, please refer to the help text under the `migrate` subcomma
 
 ## Large migrations blocked
 
-Timescale's platform automatically manages the underlying disk volume. Due to
+$CLOUD_LONG automatically manages the underlying disk volume. Due to
 platform limitations, it is only possible to resize the disk once every six
 hours. Depending on the rate at which you're able to copy data, you may be
 affected by this restriction. Affected instances are unable to accept new data
 and error with: `FATAL: terminating connection due to administrator command`.
 
-If you intend on migrating more than 400&nbspGB of data to Timescale, open a
+If you intend on migrating more than 400&nbspGB of data to $CLOUD_LONG, open a
 support request requesting the required storage to be pre-allocated in your
-Timescale instance.
+$SERVICE_LONG.
 
 <OpenSupportRequest />
 
@@ -146,7 +145,7 @@ dumps. This ensures that tables aren't dropped before `pg_dump` is able to drop
 them. A side effect of this is that any query which tries to take an
 `ACCESS EXCLUSIVE` lock on a table is be blocked by the `ACCESS SHARE` lock.
 
-A number of timescale-internal processes require taking `ACCESS EXCLUSIVE`
+A number of $CLOUD_LONG-internal processes require taking `ACCESS EXCLUSIVE`
 locks to ensure consistency of the data. The following is a non-exhaustive list
 of potentially affected operations:
 
@@ -236,7 +235,7 @@ pg_restore -d "$TARGET" \
 
 The `_timescaledb_config.bgw_jobs` table is used to manage background jobs.
 This includes custom $JOBs, columnstore compression policies, retention
-policies, and continuous aggregate refresh policies. On Timescale, this table
+policies, and continuous aggregate refresh policies. On $CLOUD_LONG, this table
 has a trigger which ensures that no database user can create or modify jobs
 owned by another database user. This trigger can provide an obstacle for migrations.
 
@@ -303,45 +302,44 @@ functions as you wish.
 
 ## Extension availability
 
-There are a vast number of PostgreSQL extensions available in the wild. 
-Timescale supports many of the most popular extensions, but not all extensions.
+There are a vast number of PostgreSQL extensions available in the wild.
+$CLOUD_LONG supports many of the most popular extensions, but not all extensions.
 Before migrating, check that the extensions you are using are supported on
-Timescale. Consult the [list of supported extensions].
+$CLOUD_LONG. Consult the [list of supported extensions].
 
 [list of supported extensions]: /use-timescale/:currentVersion:/extensions/
 
-## Timescaledb extension in the public schema
+## $TIMESCALE_DB extension in the public schema
 
-When self-hosting, the timescaledb extension may be installed in an arbitrary
-schema. Timescale only supports installing the timescaledb extension in the
+When self-hosting, the $TIMESCALE_DB extension may be installed in an arbitrary
+schema. $CLOUD_LONG only supports installing the $TIMESCALE_DB extension in the
 `public` schema. How to go about resolving this depends heavily on the 
 particular details of the source schema and the migration approach chosen.
 
 ## Tablespaces
 
-Timescale does not support using custom tablespaces. Providing the
+$CLOUD_LONG does not support using custom tablespaces. Providing the
 `--no-tablespaces` flag to `pg_dump` and `pg_restore` when
 dumping/restoring the schema results in all objects being in the
 default tablespace as desired.
 
 ## Only one database per instance
 
-While PostgreSQL clusters can contain many databases, Timescale instances are 
+While PostgreSQL clusters can contain many databases, $SERVICE_LONGs are 
 limited to a single database. When migrating a cluster with multiple databases
-to Timescale, one can either migrate each source database to a separate 
-Timescale instance or "merge" source databases to target schemas.
+to $CLOUD_LONG, one can either migrate each source database to a separate 
+$SERVICE_LONG or "merge" source databases to target schemas.
 
 ## Superuser privileges
 
-The `tsdbadmin` database user is the most powerful available on Timescale, but it
+The `tsdbadmin` database user is the most powerful available on $CLOUD_LONG, but it
 is not a true superuser. Review your application for use of superuser privileged
 operations and mitigate before migrating.
 
 ## Migrate partial continuous aggregates
 
-In order to improve the performance and compatibility of continuous aggregates, 
-TimescaleDB v2.7 replaces _partial_ continuous aggregates with 
-_finalized_ continuous aggregates.
+In order to improve the performance and compatibility of continuous aggregates, TimescaleDB  
+v2.7 replaces _partial_ continuous aggregates with _finalized_ continuous aggregates.
 
 To test your database for partial continuous aggregates, run the following query:
 

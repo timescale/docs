@@ -5,7 +5,7 @@ products: [cloud, mst, self_hosted]
 keywords: [analytics, psycopg2]
 ---
 
-# Win your NFL fantasy league with TimescaleDB
+# Win your NFL fantasy league with $TIMESCALE_DB
 
 This tutorial is a step-by-step guide on how to ingest and analyze American football data with TimescaleDB.
 

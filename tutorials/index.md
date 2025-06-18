@@ -1,13 +1,12 @@
 ---
 title: Tutorials
-excerpt: Timescale Cloud can be used in various sectors, and for various purposes. Follow our tutorials to see it used for real-time data analysis in the energy, finance, IoT, and other sectors
+excerpt: Tiger Cloud can be used in various sectors, and for various purposes. Follow our tutorials to see it used for real-time data analysis in the energy, finance, IoT, and other sectors
 products: [cloud, mst, self_hosted]
 ---
 
 # Tutorials
 
-Timescale tutorials are designed to help you get up and running with Timescale
-fast. They walk you through a variety of scenarios using example datasets, to
+$COMPANY tutorials are designed to help you get up and running with $PRODUCTS_ALL. They walk you through a variety of scenarios using example datasets, to
 teach you how to construct interesting queries, find out what information your
 database has hidden in it, and even give you options for visualizing and
 graphing your results.
@@ -24,7 +23,7 @@ graphing your results.
 - **IoT**
   - [Simulate an IoT sensor dataset][iot]: simulate an IoT sensor dataset and run simple queries on it.
 - **Cookbooks**
-  - [Timescale community cookbook][cookbooks]: get suggestions from the TimescaleDB Community about how to resolve common issues.
+  - [$COMPANY community cookbook][cookbooks]: get suggestions from the $TIMESCALE_DB community about how to resolve common issues.
 
 
 [rta-energy]: /tutorials/:currentVersion:/real-time-analytics-energy-consumption

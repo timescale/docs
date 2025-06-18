@@ -1,6 +1,6 @@
 ---
 title: Statistical aggregation
-excerpt: Timescale Cloud provides common statistical aggregates in a proprietary form, to make it easier to work with them. See how they work and how to use them in your service
+excerpt: TimescaleDB provides common statistical aggregates in a proprietary form, to make it easier to work with them. See how they work and how to use them in your service
 products: [cloud, mst, self_hosted]
 keywords: [hyperfunctions, Toolkit, statistics]
 ---
@@ -8,7 +8,7 @@ keywords: [hyperfunctions, Toolkit, statistics]
 # Statistical aggregation
 
 To make common statistical aggregates easier to work with in window functions
-and continuous aggregates, Timescale provides common statistical aggregates in
+and continuous aggregates, $TIMESCALE_DB provides common statistical aggregates in
 a slightly different form than otherwise available in PostgreSQL.
 
 This example calculates the average, standard deviation, and kurtosis of
@@ -30,8 +30,7 @@ The available accessors are `average`, `stddev`, and `kurtosis`. The accessors
 run final calculations and output the calculated value in a human-readable way.
 This makes it easier to construct your queries, because it distinguishes the
 parameters, and makes it clear which aggregates are being re-aggregated or
-rolled up. Additionally, because this query syntax is used in all Timescale
-Toolkit queries, when you are used to it, you can use it to construct more and
+rolled up. Additionally, because this query syntax is used in all $TOOLKIT_LONG queries, when you are used to it, you can use it to construct more and
 more complicated queries.
 
 A more complex example uses window functions to calculate tumbling window
@@ -81,6 +80,6 @@ FROM measurements_multival;
 For more information about statistical aggregation API calls, see the
 [hyperfunction API documentation][hyperfunctions-api-stats-agg].
 
-[blog-aggregates]: https://blog.timescale.com/blog/how-postgresql-aggregation-works-and-how-it-inspired-our-hyperfunctions-design-2/
+[blog-aggregates]: https://www.tigerdata.com/blog/how-postgresql-aggregation-works-and-how-it-inspired-our-hyperfunctions-design
 [gh-two-step-agg]: https://github.com/timescale/timescaledb-toolkit/blob/main/docs/two-step_aggregation.md
 [hyperfunctions-api-stats-agg]: /api/:currentVersion:/hyperfunctions/statistical-and-regression-analysis/stats_agg-one-variable/

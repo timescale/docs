@@ -1,6 +1,6 @@
 ---
-title: "Quick Start: Ruby and Timescale"
-excerpt: Get started with Timescale Cloud or TimescaleDB using Ruby
+title: "Quick Start: Ruby and TimescaleDB"
+excerpt: Get started with Tiger Cloud or TimescaleDB using Ruby
 keywords: [Ruby]
 ---
 
@@ -13,7 +13,7 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 
 *   Install [Rails][rails-guide].
 
-## Connect a Rails app to your $SERVICE_SHORT 
+## Connect a Rails app to your service 
 
 Every $SERVICE_LONG is a 100% PostgreSQL database hosted in $CLOUD_LONG with
 $COMPANY extensions such as $TIMESCALE_DB. You connect to your $SERVICE_LONG
@@ -30,7 +30,7 @@ from a standard Rails app configured for PostgreSQL.
     cd my_app
     ```
 
-1. **Install the TimescaleDB gem**
+1. **Install the $TIMESCALE_DB gem**
 
    1.  Open `Gemfile`, add the following line, then save your changes:
 
@@ -65,7 +65,7 @@ from a standard Rails app configured for PostgreSQL.
 
    1. Create the database:
       - **$CLOUD_LONG**: nothing to do. The database is part of your $SERVICE_LONG.  
-      - **self-hosted TimescaleDB**, create the database for the project:
+      - **$SELF_LONG_CAP**, create the database for the project:
 
           ```bash
           rails db:create
@@ -101,7 +101,7 @@ from a standard Rails app configured for PostgreSQL.
 Hypertables are PostgreSQL tables designed to simplify and accelerate data analysis. Anything 
 you can do with regular PostgreSQL tables, you can do with hypertables - but much faster and more conveniently.
 
-In this section, you use the helpers in the timescaledb gem to create and manage a [hypertable][about-hypertables].
+In this section, you use the helpers in the $TIMESCALE_DB gem to create and manage a [hypertable][about-hypertables].
 
 <Procedure>
 
@@ -204,9 +204,9 @@ In this section, you use the helpers in the timescaledb gem to create and manage
 
 </Procedure>
 
-## Insert data your $SERVICE_SHORT
+## Insert data your service
 
-The timescaledb gem provides efficient ways to insert data into hypertables. This section 
+The $TIMESCALE_DB gem provides efficient ways to insert data into hypertables. This section 
 shows you how to ingest test data into your hypertable.
 
 <Procedure>
@@ -281,11 +281,11 @@ shows you how to ingest test data into your hypertable.
 
 ## Reference
 
-This section lists the most common tasks you might perform with the timescaledb gem.
+This section lists the most common tasks you might perform with the $TIMESCALE_DB gem.
 
 ### Query scopes
 
-The timescaledb gem provides several convenient scopes for querying your time-series data.
+The $TIMESCALE_DB gem provides several convenient scopes for querying your time-series data.
 
 
 - Built-in time-based scopes:
@@ -326,9 +326,9 @@ The timescaledb gem provides several convenient scopes for querying your time-se
     puts "Standard Deviation: #{stats.stddev}"
     ```
 
-### Timescaledb features
+### $TIMESCALE_DB features
 
-The timescaledb gem provides utility methods to access hypertable and chunk information. Every model that uses 
+The $TIMESCALE_DB gem provides utility methods to access hypertable and chunk information. Every model that uses 
 the `acts_as_hypertable` method has access to these methods. 
 
 
@@ -407,7 +407,7 @@ The `continuous_aggregates` method generates a class for each continuous aggrega
 
 Now that you have integrated the ruby gem into your app:
 
-* Learn more about the [timescaledb gem](https://github.com/timescale/timescaledb-ruby).
+* Learn more about the [$TIMESCALE_DB gem](https://github.com/timescale/timescaledb-ruby).
 * Check out the [official docs](https://timescale.github.io/timescaledb-ruby/).
 * Follow the [LTTB][LTTB], [Open AI long-term storage][open-ai-tutorial], and [candlesticks][candlesticks] tutorials.
 
