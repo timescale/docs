@@ -28,7 +28,7 @@ If you prefer the command line to the $OPS_MODE $SQL_EDITOR in $CONSOLE, use [ps
 
 You use the $DATA_MODE in $CONSOLE to write queries, visualize data, and share your results.
 
-![$CONSOLE $DATA_MODE](https://assets.timescale.com/docs/images/data-mode-schema-chart.png)
+![$CONSOLE $DATA_MODE](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-data-mode-schema-chart.png)
 
 Available features are:
 
@@ -60,7 +60,7 @@ To connect to a $SERVICE_SHORT:
 
    In the [$DATA_MODE][portal-data-mode] in $CONSOLE, select a $SERVICE_SHORT in the connection drop-down:
 
-   ![Select a connection](https://assets.timescale.com/docs/images/data-mode-connection-dropdown.png)
+   ![Select a connection](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-data-mode-connection-dropdown.png)
 
 1. **Run a test query**
 
