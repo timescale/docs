@@ -43,7 +43,7 @@ $ pg_config --bindir
 ```
 
 If either of those steps is not the version you are expecting, you need
-to either (a) uninstall the incorrect version of PostgreSQL if you can or
+to either (a) uninstall the incorrect version of $PG if you can or
 (b) update your `PATH` environmental variable to have the correct
 path of `pg_config` listed first, that is, by prepending the full path:
 

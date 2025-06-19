@@ -77,7 +77,7 @@ Data mode's [SQL assistant](https://docs.timescale.com/getting-started/latest/ru
 
 We previously made it much easier to connect newly created services to Timescale’s [data mode](https://docs.timescale.com/getting-started/latest/run-queries-from-console/#data-mode). We have now expanded this functionality to services using a VPC.
 
-## 🕵🏻️ Enhanced service monitoring, TimescaleDB v2.20, and livesync for PostgreSQL
+## 🕵🏻️ Enhanced service monitoring, TimescaleDB v2.20, and livesync for $PG
 <Label type="date">May 30, 2025</Label>
 
 ### Updated top-level navigation - Monitoring tab
@@ -132,7 +132,7 @@ The timeline for the $PG 13 and 14 deprecation is as follows:
   [automatically upgraded](https://docs.timescale.com/use-timescale/latest/upgrades/#automatic-postgresql-upgrades-for-a-service)
   from September 15, 2025.
 
-### Enhancements to livesync for PostgreSQL
+### Enhancements to livesync for $PG
 
 You now can: 
 * Edit a running livesync to add and drop tables from an existing configuration:
@@ -204,7 +204,7 @@ You can now import a dataset directly from Hugging Face using Timescale Console.
 ### Livesync for S3 (beta)
 
 [Livesync for S3](https://docs.timescale.com/migrate/latest/livesync-for-s3/) is our second livesync offering in 
-Timescale Console, following livesync for PostgreSQL. This feature helps users sync data in their S3 buckets to a
+Timescale Console, following livesync for $PG. This feature helps users sync data in their S3 buckets to a
 Timescale Cloud service, and simplifies data importing. Livesync handles both existing and new data in real time, 
 automatically syncing everything into a Timescale Cloud service. Users can integrate Timescale Cloud alongside S3, where 
 S3 stores data in raw form as the source for multiple destinations.
@@ -216,14 +216,14 @@ an ingestion layer.
 
 ![Timescale Console livesync view status](https://assets.timescale.com/docs/images/livesync-s3-view-status.png)
 
-### UX improvements to livesync for PostgreSQL
+### UX improvements to livesync for $PG
 
-In [livesync for PostgreSQL](https://docs.timescale.com/migrate/latest/livesync-for-postgresql/), getting started 
+In [livesync for $PG](https://docs.timescale.com/migrate/latest/livesync-for-postgresql/), getting started 
 requires setting the `WAL_LEVEL` to `logical`, and granting specific permissions to start a publication 
 on the source database. To simplify this setup process, we have added a detailed two-step checklist with comprehensive 
 configuration instructions to Timescale Console.
 
-![Timescale Console livesync PostgreSQL instructions](https://assets.timescale.com/docs/images/livesync-postgres-console-config-instuctions.png)
+![Timescale Console livesync $PG instructions](https://assets.timescale.com/docs/images/livesync-postgres-console-config-instuctions.png)
 
 ### Passwordless data mode connections
 
@@ -320,10 +320,10 @@ To see the job information page, in [Timescale Console][console], select the ser
 
   ![Log errors in Timescale Console](https://assets.timescale.com/docs/images/changelog-job-error-page.png)
 
-## 🤩 In-Console Livesync for PostgreSQL
+## 🤩 In-Console Livesync for $PG
 <Label type="date">March 21, 2025</Label>
 
-You can now set up an active data ingestion pipeline with livesync for PostgreSQL in Timescale Console. This tool enables you to replicate your source database tables into Timescale's hypertables indefinitely. Yes, you heard that right—keep livesync running for as long as you need, ensuring that your existing source $PG tables stay in sync with Timescale Cloud. Read more about setting up and using [Livesync for PostgreSQL](https://docs.timescale.com/migrate/latest/livesync-for-postgresql/). 
+You can now set up an active data ingestion pipeline with livesync for $PG in Timescale Console. This tool enables you to replicate your source database tables into Timescale's hypertables indefinitely. Yes, you heard that right—keep livesync running for as long as you need, ensuring that your existing source $PG tables stay in sync with Timescale Cloud. Read more about setting up and using [Livesync for $PG](https://docs.timescale.com/migrate/latest/livesync-for-postgresql/). 
 
 ![Livesync in Timescale Console](https://assets.timescale.com/docs/images/timescale-cloud-livesync-tile.png)
 
