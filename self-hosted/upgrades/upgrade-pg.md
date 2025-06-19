@@ -1,8 +1,8 @@
 ---
-title: Upgrade PostgreSQL
-excerpt: Upgrade PostgreSQL to a new version compatible with your self-hosted TimescaleDB installation
+title: Upgrade Postgres
+excerpt: Upgrade Postgres to a new version compatible with your self-hosted TimescaleDB installation
 products: [self_hosted]
-keywords: [upgrades, PostgreSQL, versions, compatibility]
+keywords: [upgrades, Postgres, versions, compatibility]
 ---
 
 import PlanUpgrade from "versionContent/_partials/_plan_upgrade.mdx";

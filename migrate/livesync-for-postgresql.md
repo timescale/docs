@@ -1,6 +1,6 @@
 ---
 title: Livesync from Postgres to Tiger Cloud
-excerpt: Synchronize updates to your primary PostgreSQL database with the corresponding Tiger Cloud service in real time
+excerpt: Synchronize updates to your primary Postgres database with the corresponding Tiger Cloud service in real time
 products: [cloud]
 keywords: [migration, low-downtime, backup]
 tags: [recovery, logical backup, replication]

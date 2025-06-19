@@ -1,6 +1,6 @@
 ---
-title: Migrate from PostgreSQL using dual-write and backfill
-excerpt: Migrate from a PostgreSQL database to Tiger Cloud using the low-downtime dual-write and backfill method
+title: Migrate from Postgres using dual-write and backfill
+excerpt: Migrate from a Postgres database to Tiger Cloud using the low-downtime dual-write and backfill method
 products: [cloud]
 keywords: [migration, low-downtime]
 tags: [migration, logical backup]

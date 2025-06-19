@@ -1,6 +1,6 @@
 ---
-title: Embed your PostgreSQL data with PgVectorizer
-excerpt: Create and sync vector embeddings from data in PostgreSQL with PgVectorizer
+title: Embed your Postgres data with PgVectorizer
+excerpt: Create and sync vector embeddings from data in Postgres with PgVectorizer
 products: [cloud]
 keywords: [ai, vector, pgvector, TigerData vector, pgvectorizer]
 tags: [ai, vector, pgvectorizer]

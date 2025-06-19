@@ -1,6 +1,6 @@
 ---
-title: PostgreSQL extensions
-excerpt: Tiger Cloud comes with a number of TigerData and PostgreSQL extensions enabled by default. See all the extensions you can enable for your service
+title: Postgres extensions
+excerpt: Tiger Cloud comes with a number of TigerData and Postgres extensions enabled by default. See all the extensions you can enable for your service
 products: [cloud]
 keywords: [services, settings, extensions]
 tags: [extensions]

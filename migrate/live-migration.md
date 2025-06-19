@@ -74,7 +74,7 @@ using live migration from Terminal.
 <ValidateDataInCloud />
 
 </Tab>
-<Tab title="From PostgreSQL">
+<Tab title="From Postgres">
 
 This section shows you how to move your data from self-hosted $PG to a $SERVICE_LONG using 
 live migration from Terminal.

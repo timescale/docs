@@ -1,6 +1,6 @@
 ---
-title: Manual PostgreSQL configuration and tuning
-excerpt: Manually configure your self-hosted database using the PostgreSQL configuration file
+title: Manual Postgres configuration and tuning
+excerpt: Manually configure your self-hosted database using the Postgres configuration file
 products: [self_hosted]
 keywords: [configuration, settings]
 tags: [tune]

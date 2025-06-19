@@ -1,5 +1,5 @@
 ---
-title: Supported PostgreSQL extensions in Managed Service for TimescaleDB
+title: Supported Postgres extensions in Managed Service for TimescaleDB
 excerpt: Add an extension and see a list of available extensions in Managed Service for TimescaleDB
 products: [mst]
 tags: [extensions]

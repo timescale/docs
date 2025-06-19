@@ -74,8 +74,8 @@ logical progression through the procedures, and that they go from simpler to mor
 complex (as much as is possible). If you find you have a procedure that only has
 one step, write out the single step without a procedure tag and the L3 heading.
 Try to avoid documenting anything that is thoroughly documented elsewhere (for
-example, in the PostgreSQL docs), instead, use the form "For more information
+example, in the $PG docs), instead, use the form "For more information
 about adjective nouns, see the
-[adjective noun PostgreSQL documentation[noun-pg-docs]."
+[adjective noun $PG documentation[noun-pg-docs]."
 
 Include any reference-style links at the bottom of the page.

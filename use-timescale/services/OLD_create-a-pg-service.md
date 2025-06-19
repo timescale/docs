@@ -1,8 +1,8 @@
 ---
-title: Create a PostgreSQL service
-excerpt: Create a PostgreSQL service in Tiger Cloud
+title: Create a Postgres service
+excerpt: Create a Postgres service in Tiger Cloud
 products: [cloud]
-keywords: [services, PostgreSQL, create, install]
+keywords: [services, Postgres, create, install]
 ---
 
 import EarlyAccess from "versionContent/_partials/_early_access_2_18_0.mdx";
@@ -36,7 +36,7 @@ running, see the [Getting Started section][cloud-install].
     <img
         class="main-content__illustration"
         src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-create-pgservice.png"
-        alt="Create a new PostgreSQL service in the Tiger Cloud"
+        alt="Create a new Postgres service in the Tiger Cloud"
     />
 
 </Procedure>
@@ -48,7 +48,7 @@ time-series services:
 <img
     class="main-content__illustration"
     src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-view-pgservice.png"
-    alt="A running PostgreSQL service with a running Tiger Cloud service in the Tiger Cloud Console"
+    alt="A running Postgres service with a running Tiger Cloud service in the Tiger Cloud Console"
 />
 
 [cloud-install]: /getting-started/latest/

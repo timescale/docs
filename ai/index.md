@@ -1,6 +1,6 @@
 ---
-title: Power your AI apps with PostgreSQL
-excerpt: TigerData pgai is a solution for building search, RAG, and AI agents with PostgreSQL. Learn more about pgai and how to use it
+title: Power your AI apps with Postgres
+excerpt: TigerData pgai is a solution for building search, RAG, and AI agents with Postgres. Learn more about pgai and how to use it
 products: [cloud, mst, self_hosted]
 keywords: [ai, vector, pgvector, pgvectorscale, pgai]
 tags: [ai, vector]

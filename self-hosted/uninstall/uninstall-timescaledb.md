@@ -1,6 +1,6 @@
 ---
 title: Uninstall TimescaleDB
-excerpt: Uninstall TimescaleDB installed with Homebrew or MacPorts without having to uninstall PostgreSQL
+excerpt: Uninstall TimescaleDB installed with Homebrew or MacPorts without having to uninstall Postgres
 products: [self_hosted]
 keywords: [uninstall]
 ---

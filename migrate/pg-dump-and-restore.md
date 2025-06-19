@@ -1,6 +1,6 @@
 ---
 title: Migrate with downtime
-excerpt: Migrate a hypertable or an entire database to Tiger Cloud with native PostgreSQL commands. Use `pg_dump` and `pg_restore` to move less than 100GB of data
+excerpt: Migrate a hypertable or an entire database to Tiger Cloud with native Postgres commands. Use `pg_dump` and `pg_restore` to move less than 100GB of data
 products: [cloud]
 keywords: [backups, restore]
 tags: [recovery, logical backup, pg_dump, pg_restore]
@@ -69,7 +69,7 @@ using `pg_dump` and `psql` from Terminal.
 And that is it, you have migrated your data from a self-hosted instance running $TIMESCALE_DB to a $SERVICE_LONG. 
 
 </Tab>
-<Tab title="From PostgreSQL">
+<Tab title="From Postgres">
 
 This section shows you how to move your data from self-hosted $PG to a $SERVICE_LONG
 using `pg_dump` and `psql` from Terminal.

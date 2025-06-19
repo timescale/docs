@@ -1,6 +1,6 @@
 ---
 title: About writing data
-excerpt: Writing data in TimescaleDB works the same way as writing data to regular PostgreSQL tables. Learn the basics of inserting, updating, upserting, and deleting data in your database using SQL
+excerpt: Writing data in TimescaleDB works the same way as writing data to regular Postgres tables. Learn the basics of inserting, updating, upserting, and deleting data in your database using SQL
 products: [cloud, mst, self_hosted]
 keywords: [ingest]
 tags: [write]

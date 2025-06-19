@@ -48,7 +48,7 @@
 
    <img class="main-content__illustration"
    src="https://assets.timescale.com/docs/images/migrate/rds-add-security-rule-to-ec2-instance.svg"
-   alt="Create security group rule to enable RDS/Aurora PostgreSQL EC2 connection"/>
+   alt="Create security group rule to enable RDS/Aurora Postgres EC2 connection"/>
 
 1. On your intermediary EC2 instance, get your local IP address:
    ```sh
@@ -60,7 +60,7 @@
 
    <img class="main-content__illustration"
    src="https://assets.timescale.com/docs/images/migrate/rds-add-inbound-rule-for-ec2-instance.png"
-   alt="Create security rule to enable RDS/Aurora PostgreSQL EC2 connection"/>
+   alt="Create security rule to enable RDS/Aurora Postgres EC2 connection"/>
 
 </Procedure>
 

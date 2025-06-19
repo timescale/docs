@@ -1,6 +1,6 @@
 ---
 title: Analyse geospatial data with postgis
-excerpt: PostGIS enables you to store, query, and manipulate geographic and spatial data directly within PostgreSQL. Learn to use PostGIS to analyze geospatial data 
+excerpt: PostGIS enables you to store, query, and manipulate geographic and spatial data directly within Postgres. Learn to use PostGIS to analyze geospatial data 
 products: [cloud, mst, self_hosted]
 keywords: [services, settings, extensions, postgis]
 tags: [extensions, postgis]

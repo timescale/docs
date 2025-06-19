@@ -5,7 +5,7 @@ subsection: uddsketch()
 
 Estimate the value at a given percentile, or the percentile rank of a given
 value, using the UddSketch algorithm. This estimation is more memory- and
-CPU-efficient than an exact calculation using PostgreSQL's `percentile_cont` and
+CPU-efficient than an exact calculation using $PG' `percentile_cont` and
 `percentile_disc` functions.
 
 `uddsketch` is one of two advanced percentile approximation aggregates provided

@@ -1,6 +1,6 @@
 ---
 title: Create a chatbot using pgvector
-excerpt: pgvector is an open-source extension for PostgreSQL that enables efficient vector similarity search and can be used with Tiger CLoud. Learn to use pgvector to create a chatbot
+excerpt: pgvector is an open-source extension for Postgres that enables efficient vector similarity search and can be used with Tiger CLoud. Learn to use pgvector to create a chatbot
 products: [cloud, mst, self_hosted]
 keywords: [services, settings, extensions, pgvector]
 tags: [extensions, pgvector]
@@ -234,8 +234,8 @@ Before you begin, make sure you have:
     ```python
     ###############################################################################
     # insert_embeddings.py
-    # This script inserts OpenAI embedding vectors into a PostgreSQL database
-    # using pgvector, a PostgreSQL extension for vector similarity search
+    # This script inserts OpenAI embedding vectors into a Postgres database
+    # using pgvector, a Postgres extension for vector similarity search
     ###############################################################################
     import openai
     import os
@@ -251,10 +251,10 @@ Before you begin, make sure you have:
     ###############################################################################
     # Setup your database to insert embeddings
     ###############################################################################
-    # Get a Tiger Cloud / PostgreSQL database connection string by reading local .env file
+    # Get a Tiger Cloud / Postgres database connection string by reading local .env file
     connection_string  = os.environ['TIMESCALE_CONNECTION_STRING']
 
-    # Connect to PostgreSQL database in Tiger Cloud using connection string
+    # Connect to Postgres database in Tiger Cloud using connection string
     conn = psycopg2.connect(connection_string)
     cur = conn.cursor()
 
@@ -344,7 +344,7 @@ Before you begin, make sure you have:
     0  How to Build a Weather Station With Elixir, Ne...  ...  [0.021399984136223793, 0.021850213408470154, -...
     1  How to Build a Weather Station With Elixir, Ne...  ...  [0.01620873250067234, 0.011362895369529724, 0....
     2  How to Build a Weather Station With Elixir, Ne...  ...  [0.022517921403050423, -0.0019158280920237303,...
-    3  CloudQuery on Using PostgreSQL for Cloud Asset...  ...  [0.008915113285183907, -0.004873732570558786, ...
+    3  CloudQuery on Using Postgres for Cloud Asset...  ...  [0.008915113285183907, -0.004873732570558786, ...
     4  CloudQuery on Using PostgreSQL for Cloud Asset...  ...  [0.0204352755099535, 0.010087345726788044, 0.0...
 
     [5 rows x 5 columns]

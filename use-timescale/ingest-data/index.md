@@ -1,6 +1,6 @@
 ---
 title: Import and ingest data
-excerpt: Any tool that can read or write to PostgreSQL works with Tiger Cloud. Learn to ingest data into your Tiger Cloud service from CSV, Parquet, MySQL, Kafka, and Telegraf
+excerpt: Any tool that can read or write to Postgres works with Tiger Cloud. Learn to ingest data into your Tiger Cloud service from CSV, Parquet, MySQL, Kafka, and Telegraf
 products: [cloud, self_hosted]
 keywords: [ingest, pipelines, Prometheus, Kafka, Telegraf, timescaledb-parallel-copy, csv]
 ---

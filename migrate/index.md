@@ -2,7 +2,7 @@
 title: Migrate your data to Tiger Cloud
 excerpt: Migrate your existing database to Tiger Cloud - with downtime, live, with dual-write and backfill, or with livesync
 products: [cloud]
-keywords: [data migration, postgresql, RDS]
+keywords: [data migration, Postgres, RDS]
 tags: [ingest, migrate, RDS]
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: Alerting
-excerpt: Setting up database alerting can help monitor performance, data integrity, resource usage, and more. Tiger Cloud integrates with a variety of alerting tools within the PostgreSQL ecosystem
+excerpt: Setting up database alerting can help monitor performance, data integrity, resource usage, and more. Tiger Cloud integrates with a variety of alerting tools within the Postgres ecosystem
 products: [cloud, self_hosted]
 keywords: [alert, integration, Grafana, Datadog, Nagios, Zabbix]
 ---

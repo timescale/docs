@@ -1,6 +1,6 @@
 ---
 title: Using the `dblink` extension in Managed Service for TimescaleDB
-excerpt: Use the dblink extension and connect to other PostgreSQL databases
+excerpt: Use the dblink extension and connect to other Postgres databases
 products: [mst]
 tags: [extension]
 ---

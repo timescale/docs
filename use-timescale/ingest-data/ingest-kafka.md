@@ -1,6 +1,6 @@
 ---
 title: Ingest data using Kafka
-excerpt: Ingest data into your Tiger Cloud service using the PostgreSQL Kafka connector
+excerpt: Ingest data into your Tiger Cloud service using the Postgres Kafka connector
 products: [cloud, self_hosted]
 keywords: [ingest, Kafka]
 tags: [insert]

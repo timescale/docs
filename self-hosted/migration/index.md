@@ -1,6 +1,6 @@
 ---
-title: Migrate your PostgreSQL database to self-hosted TimescaleDB
-excerpt: Choose how to migrate your existing PostgreSQL database to your self-hosted TimescaleDB installation - all at once, by separating data and schema, within the same database, or using Outflux
+title: Migrate your Postgres database to self-hosted TimescaleDB
+excerpt: Choose how to migrate your existing Postgres database to your self-hosted TimescaleDB installation - all at once, by separating data and schema, within the same database, or using Outflux
 products: [self_hosted]
 keywords: [data migration, self_hosted, postgresql, RDS]
 tags: [ingest, migrate, RDS]

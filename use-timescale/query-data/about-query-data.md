@@ -1,6 +1,6 @@
 ---
 title: About querying data
-excerpt: Querying data in TimescaleDB works just like querying data in PostgreSQL, which means you can reuse your existing queries from another PostgreSQL database
+excerpt: Querying data in TimescaleDB works just like querying data in Postgres, which means you can reuse your existing queries from another Postgres database
 products: [cloud, mst, self_hosted]
 keywords: [queries]
 ---

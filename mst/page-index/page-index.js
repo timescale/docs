@@ -94,7 +94,7 @@ module.exports = [
         href: "extensions",
       },
       {
-        title: "Use PostgreSQL dblink extension",
+        title: "Use Postgres dblink extension",
         href: "dblink-extension",
       },
       {
@@ -102,7 +102,7 @@ module.exports = [
         href: "security",
       },
       {
-        title: "Create a replica for PostgreSQL service",
+        title: "Create a replica for Postgres service",
         href: "postgresql-read-replica",
       },
       {

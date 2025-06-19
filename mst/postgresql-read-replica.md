@@ -1,5 +1,5 @@
 ---
-title: Create a read-only replica of PostgreSQL
+title: Create a read-only replica of Postgres
 excerpt: Create and use a read-only replica for your services in Managed Service for TimescaleDB
 products: [mst]
 ---

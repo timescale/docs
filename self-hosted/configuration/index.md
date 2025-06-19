@@ -1,6 +1,6 @@
 ---
 title: Configuration
-excerpt: Learn how to configure your TimescaleDB instance on top of the default PostgreSQL server configuration settings
+excerpt: Learn how to configure your TimescaleDB instance on top of the default Postgres server configuration settings
 products: [self_hosted]
 keywords: [configuration, settings]
 ---

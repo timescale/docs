@@ -556,7 +556,7 @@ module.exports = [
       },
       {
         href: "configuration",
-        excerpt: "Configure PostgreSQL and TimescaleDB",
+        excerpt: "Configure Postgres and TimescaleDB",
       },
       {
         title: "Administration Functions",
