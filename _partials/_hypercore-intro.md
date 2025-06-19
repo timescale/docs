@@ -33,4 +33,8 @@ $HYPERCORE_CAP’s hybrid approach combines the benefits of row-oriented and col
 
 ![Hypercore workflow](https://assets.timescale.com/docs/images/hypercore-overview.png)
 
+For an in-depth explanation of how $HYPERTABLEs and $HYPERCORE work, see the [Data model][data-model].
+
+
 [chunk-skipping]: /use-timescale/:currentVersion:/hypertables/improve-query-performance/
+[data-model]: /about/:currentVersion:/whitepaper/#data-model
