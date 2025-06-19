@@ -71,5 +71,5 @@ In the `Services` page of the $MST_CONSOLE_LONG, click the service you want to c
 
 </Tabs>
 
-[console-services]: https://console.cloud.timescale.com/dashboard/services
+[console-services]: https://console.cloud.tigerdata.com/dashboard/services
 [postgres-config]: https://www.postgresql.org/docs/current/runtime-config-file-locations.html

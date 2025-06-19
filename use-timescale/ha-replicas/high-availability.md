@@ -149,7 +149,7 @@ primary is not in a state to safely switch.
 
 </Procedure>
 
-[cloud-login]: https://console.cloud.timescale.com
+[cloud-login]: https://console.cloud.tigerdata.com
 [upgrade]: /use-timescale/:currentVersion:/upgrades/
 [pricing-plans]: /about/:currentVersion:/pricing-and-account-management/
 [rapid-recovery]: /use-timescale/:currentVersion:/ha-replicas/#rapid-recovery

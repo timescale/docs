@@ -80,7 +80,7 @@ And that is it,  you have configured Debezium to interact with $COMPANY products
 [debezium]: https://debezium.io/
 [java-installers]: https://www.oracle.com/java/technologies/downloads/
 [debezium-install]: https://debezium.io/documentation/reference/stable/operations/debezium-server.html#_installation
-[console]: https://console.cloud.timescale.com/dashboard/services
+[console]: https://console.cloud.tigerdata.com/dashboard/services
 [redis-local]: https://redis.io/docs/getting-started/
 [redis-cloud]: https://redis.com/try-free/
 [connect]: /getting-started/:currentVersion:/run-queries-from-console/

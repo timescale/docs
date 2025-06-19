@@ -56,7 +56,7 @@ You now have two tables within your $SERVICE_LONG. A hypertable named `crypto_ti
 PostgreSQL table named `crypto_assets`.
 
 [in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[services-portal]: https://console.cloud.tigerdata.com/dashboard/services
 [connect-using-psql]: /integrations/:currentVersion:/psql
 [hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
 [hypertables-section]: /use-timescale/:currentVersion:/hypertables/

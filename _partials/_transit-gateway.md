@@ -38,6 +38,6 @@
 
    You cannot attach a $SERVICE_LONG to multiple $CLOUD_LONG $VPCs at the same time.
 
-[console-login]: https://console.cloud.timescale.com/
-[console-services]: https://console.cloud.timescale.com/dashboard/services
+[console-login]: https://console.cloud.tigerdata.com/
+[console-services]: https://console.cloud.tigerdata.com/dashboard/services
 [pricing-plans]: /about/:currentVersion:/pricing-and-account-management/

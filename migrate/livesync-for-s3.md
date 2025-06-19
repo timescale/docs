@@ -157,7 +157,7 @@ $SERVICE_LONG in real time.
 [lex-order]:https://en.wikipedia.org/wiki/Lexicographic_order
 [credentials-iam]: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html#roles-creatingrole-user-console
 [credentials-public]: https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html#example-bucket-policies-anonymous-user
-[portal-ops-mode]: https://console.cloud.timescale.com/dashboard/services
+[portal-ops-mode]: https://console.cloud.tigerdata.com/dashboard/services
 [hypertable-docs]: /use-timescale/:currentVersion:/hypertables/
 [cron-expression]: https://en.wikipedia.org/wiki/Cron#Cron_expression
 [confused-deputy-problem]: https://docs.aws.amazon.com/IAM/latest/UserGuide/confused-deputy.html

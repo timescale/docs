@@ -70,5 +70,5 @@ When you have configured $TIMESCALE_DB as a data source in Grafana, you can crea
 panels that are populated with data using SQL.
 
 [grafana-homepage]: https://grafana.com/
-[tsc-portal]: https://console.cloud.timescale.com/
+[tsc-portal]: https://console.cloud.tigerdata.com/
 [grafana-install]: https://grafana.com/docs/grafana/latest/installation/

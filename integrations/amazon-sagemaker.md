@@ -136,11 +136,11 @@ machine learning models. You can also untegrate visualization tools like [Grafan
 [install-aws-cli]: https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html
 [install-python]: https://www.python.org/downloads/
 [install-postgresql]: https://www.postgresql.org/download/
-[console]: https://console.cloud.timescale.com/
+[console]: https://console.cloud.tigerdata.com/
 [grafana-integration]: /integrations/:currentVersion:/grafana/
 [tableau-integration]: /integrations/:currentVersion:/tableau/
 [run-queries]: /getting-started/:currentVersion:/run-queries-from-console/
-[open-console]: https://console.cloud.timescale.com/dashboard/services
+[open-console]: https://console.cloud.tigerdata.com/dashboard/services
 [psql]: /integrations/:currentVersion:/psql/
 [about-hypertables]: /use-timescale/:currentVersion:/hypertables/
 [aws-notebooks-git-repos]:https://console.aws.amazon.com/sagemaker/home#/notebooks-and-git-repos

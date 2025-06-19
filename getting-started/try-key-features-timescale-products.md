@@ -408,8 +408,8 @@ What next? See the [use case tutorials][tutorials], interact with the data in yo
 [create-a-service]: /getting-started/:currentVersion:/services/
 [deploy-self-hosted]: /self-hosted/:currentVersion:/install/
 [connect-to-your-service]: /getting-started/:currentVersion:/run-queries-from-console/
-[portal-ops-mode]: https://console.cloud.timescale.com/dashboard/services
-[portal-data-mode]: https://console.cloud.timescale.com/dashboard/services?popsql
+[portal-ops-mode]: https://console.cloud.tigerdata.com/dashboard/services
+[portal-data-mode]: https://console.cloud.tigerdata.com/dashboard/services?popsql
 [migrate-with-downtime]: /migrate/:currentVersion:/pg-dump-and-restore/
 [migrate-live]: /migrate/:currentVersion:/live-migration/
 [data-ingest]: /use-timescale/:currentVersion:/ingest-data/
@@ -426,7 +426,7 @@ What next? See the [use case tutorials][tutorials], interact with the data in yo
 [pricing-plans]: /about/:currentVersion:/pricing-and-account-management
 [querying-tiered-data]: /use-timescale/:currentVersion:/data-tiering/querying-tiered-data/
 [high-availability]: /use-timescale/:currentVersion:/ha-replicas/high-availability/
-[sign-up]: https://console.cloud.timescale.com/signup
+[sign-up]: https://console.cloud.tigerdata.com/signup
 [job]: /api/:currentVersion:/actions/add_job/
 [alter-table-arguments]: /api/:currentVersion:/hypercore/alter_table/#arguments
 [add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/

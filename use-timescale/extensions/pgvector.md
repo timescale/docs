@@ -482,7 +482,7 @@ Before you begin, make sure you have:
 
 [pgvector-repo]: https://github.com/pgvector/pgvector/blob/master/README.md
 [rag-docs]: https://www.promptingguide.ai/techniques/rag
-[cloud-login]: https://console.cloud.timescale.com/
+[cloud-login]: https://console.cloud.tigerdata.com/
 <!-- markdown-link-check-disable -->
 [vector-embeddings]: https://platform.openai.com/docs/guides/embeddings/what-are-embeddings
 [openai-signup]: https://platform.openai.com/overview

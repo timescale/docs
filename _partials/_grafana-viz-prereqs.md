@@ -17,4 +17,4 @@ The examples in this section use these variables and Grafana functions:
 
 [install-grafana]: https://grafana.com/get/
 [gsg-data]: /getting-started/:currentVersion:/
-[cloud-login]: https://console.cloud.timescale.com/
+[cloud-login]: https://console.cloud.tigerdata.com/

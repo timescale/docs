@@ -287,7 +287,7 @@ If you no longer want to use tiered storage for a particular hypertable, drop th
 </Procedure>
 
 [data-retention]: /use-timescale/:currentVersion:/data-retention/
-[console]: https://console.cloud.timescale.com/dashboard/services
+[console]: https://console.cloud.tigerdata.com/dashboard/services
 [hypertable]: /use-timescale/:currentVersion:/hypertables/
 [connect-to-service]: /getting-started/:currentVersion:/run-queries-from-console/
 [caggs]: /use-timescale/:currentVersion:/continuous-aggregates/

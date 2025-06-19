@@ -71,6 +71,6 @@
       
 [caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
 [run-queries]: /getting-started/:currentVersion:/run-queries-from-console/
-[open-console]: https://console.cloud.timescale.com/dashboard/services
+[open-console]: https://console.cloud.tigerdata.com/dashboard/services
 [psql-connect]: /integrations/:currentVersion:/psql/#connect-to-your-service
 [debezium-replication-permissions]: https://debezium.io/documentation/reference/3.1/connectors/postgresql.html#postgresql-host-replication-permissions

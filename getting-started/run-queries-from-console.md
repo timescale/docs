@@ -245,7 +245,7 @@ To use $SQL_EDITOR:
 [bridge-connector]: https://docs.popsql.com/docs/bridge-connector
 [charts]: https://docs.popsql.com/docs/creating-charts
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
-[console]: https://console.cloud.timescale.com
+[console]: https://console.cloud.tigerdata.com
 [create-chart]: https://docs.popsql.com/docs/creating-charts
 [create-cloud-account]: /getting-started/:currentVersion:/services/#create-a-timescale-cloud-account
 [create-dashboard]: https://docs.popsql.com/docs/creating-dashboards
@@ -255,8 +255,8 @@ To use $SQL_EDITOR:
 [popsql-connections]: https://popsql.com/connections
 [popsql-desktop]: https://popsql.com/download
 [popsql-pricing]: https://popsql.com/pricing
-[portal-data-mode]: https://console.cloud.timescale.com/dashboard/services?popsql
-[portal-ops-mode]: https://console.cloud.timescale.com/dashboard/services
+[portal-data-mode]: https://console.cloud.tigerdata.com/dashboard/services?popsql
+[portal-ops-mode]: https://console.cloud.tigerdata.com/dashboard/services
 [pricing-plan-features]: https://www.timescale.com/pricing#features
 [project-members]: /use-timescale/:currentVersion:/members/
 [query-variables]: https://docs.popsql.com/docs/query-variables
@@ -265,10 +265,10 @@ To use $SQL_EDITOR:
 [run-sqleditor]: /getting-started/:currentVersion:/run-queries-from-console/#ops-mode-sql-editor
 [schedules]: https://docs.popsql.com/docs/scheduled-queries
 [schema-browser]: https://docs.popsql.com/docs/schema
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[services-portal]: https://console.cloud.tigerdata.com/dashboard/services
 [share-query]: https://docs.popsql.com/docs/sharing-a-link-to-your-query-and-results
 [sql-assistant]: /getting-started/:currentVersion:/run-queries-from-console/#sql-assistant
-[sql-editor-settings]: https://console.cloud.timescale.com/dashboard/settings?popsql=%2Fpreferences%2Fai
-[timescale-console]: https://console.cloud.timescale.com/
+[sql-editor-settings]: https://console.cloud.tigerdata.com/dashboard/settings?popsql=%2Fpreferences%2Fai
+[timescale-console]: https://console.cloud.tigerdata.com/
 [version-history]: https://docs.popsql.com/docs/version-history
 [write-query]: https://docs.popsql.com/docs/writing-a-query  

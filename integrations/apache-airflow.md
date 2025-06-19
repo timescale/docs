@@ -141,7 +141,7 @@ You have successfully integrated Apache Airflow with $CLOUD_LONG and created a d
 [create-a-table-in-timescale]: /getting-started/:currentVersion:/try-key-features-timescale-products/#optimize-time-series-data-in-hypertables
 [install-apache-airflow]: https://airflow.apache.org/docs/apache-airflow/stable/start.html
 [install-python-pip]: https://docs.python.org/3/using/index.html
-[console]: https://console.cloud.timescale.com/
+[console]: https://console.cloud.tigerdata.com/
 [create-service]: /getting-started/:currentVersion:/services/
 [enable-timescaledb]: /self-hosted/:currentVersion:/install/
 [connection-info]: /integrations/:currentVersion:/find-connection-details/

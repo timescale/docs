@@ -232,9 +232,9 @@ When you get $CLOUD_LONG at AWS Marketplace, the following pricing options are a
 - **Pay-as-you-go**: your consumption is calculated at the end of the month and included in your AWS invoice. No upfront costs, standard $CLOUD_LONG rates apply. 
 - **Annual commit**: your consumption is calculated at the end of the month ensuring predictable pricing and seamless billing through your AWS account. We confirm the contract terms with you before finalizing the commitment.
 
-[cloud-login]: https://console.cloud.timescale.com/
+[cloud-login]: https://console.cloud.tigerdata.com/
 [data-tiering]: /use-timescale/:currentVersion:/data-tiering/
-[cloud-billing]: https://console.cloud.timescale.com/dashboard/billing/details
+[cloud-billing]: https://console.cloud.tigerdata.com/dashboard/billing/details
 [commercial-sla]: https://www.timescale.com/legal/timescale-cloud-terms-of-service
 [pricing-plans]: https://www.timescale.com/pricing
 [plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-plan

@@ -83,7 +83,7 @@ which try to order data in the same way, you see performance benefits.
 
 [hypercore]: /use-timescale/:currentVersion:/hypercore/
 [in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[services-portal]: https://console.cloud.tigerdata.com/dashboard/services
 [connect-using-psql]: /integrations/:currentVersion:/psql#connect-to-your-service
 [add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/
 [convert_to_columnstore]: /api/:currentVersion:/hypercore/convert_to_columnstore/

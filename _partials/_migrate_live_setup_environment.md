@@ -23,5 +23,5 @@ import TuneSourceDatabase from "versionContent/_partials/_migrate_live_tune_sour
 
 [modify-parameters]: /use-timescale/:currentVersion:/configuration/customize-configuration/#modify-basic-parameters
 [mst-portal]: https://portal.managed.timescale.com/login
-[tsc-portal]: https://console.cloud.timescale.com/
+[tsc-portal]: https://console.cloud.tigerdata.com/
 [configure-instance-parameters]: /use-timescale/:currentVersion:/configuration/customize-configuration/#configure-database-parameters

@@ -110,6 +110,6 @@ And that is it, you are using $LIVESYNC to synchronize all the data, or specific
 instance to your $SERVICE_LONG in real time.
 
 [install-psql]: /integrations/:currentVersion:/psql/
-[portal-ops-mode]: https://console.cloud.timescale.com/dashboard/services
+[portal-ops-mode]: https://console.cloud.tigerdata.com/dashboard/services
 [livesync-tune-source-db]: /migrate/:currentVersion:/livesync-for-postgresql/#tune-your-source-database
 

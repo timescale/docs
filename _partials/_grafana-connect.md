@@ -28,6 +28,6 @@ To visualize the results of your queries, enable Grafana to read the data in you
 
 [grafana-self-managed]: https://grafana.com/get/?tab=self-managed
 [grafana-cloud]: https://grafana.com/get/
-[cloud-login]: https://console.cloud.timescale.com/
+[cloud-login]: https://console.cloud.tigerdata.com/
 [create-service]: /getting-started/:currentVersion:/services/
 [connection-info]: /integrations/:currentVersion:/find-connection-details/

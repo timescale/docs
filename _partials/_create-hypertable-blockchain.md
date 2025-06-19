@@ -70,7 +70,7 @@ import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intr
 [hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
 [indexing]: /use-timescale/:currentVersion:/schema-management/indexing/
 [in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[services-portal]: https://console.cloud.tigerdata.com/dashboard/services
 [connect-using-psql]: /integrations/:currentVersion:/psql#connect-to-your-service
 [hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
 [indexing]: /use-timescale/:currentVersion:/schema-management/indexing/

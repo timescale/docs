@@ -591,7 +591,7 @@ IP Allow Lists let you specify a list of IP addresses that have access to your T
 lightweight but effective solution for customers concerned with security and compliance. They enable 
 you to prevent unauthorized connections without the need for a [Virtual Private Cloud (VPC)](https://docs.timescale.com/use-timescale/latest/security/vpc/). 
 
-To get started, in [Timescale Console](https://console.cloud.timescale.com/), select a service, then click
+To get started, in [Timescale Console](https://console.cloud.tigerdata.com/), select a service, then click
 **Operations** > **Security** >  **IP Allow List**, then create an IP Allow List.
 
 ![IP Allow lists](https://assets.timescale.com/docs/images/IP-Allow-lists.png)
@@ -1177,13 +1177,13 @@ To learn more, see the [postgresql-unit documentation](https://github.com/df7cb/
 [timescaledb-releases]: https://github.com/timescale/timescaledb/releases/
 [pgai]: https://github.com/timescale/pgai
 [pgvectorscale]: https://github.com/timescale/pgvectorscale/
-[signup]: https://console.cloud.timescale.com/signup
+[signup]: https://console.cloud.tigerdata.com/signup
 [sql-editor]: /getting-started/:currentVersion:/run-queries-from-console/#sql-editor
 [aws-timescale]: https://aws.amazon.com/marketplace/seller-profile?id=seller-wbtecrjp3kxpm
 [ops-mode-allow-list]: /about/:currentVersion:/changelog/#-ip-allow-lists
 [popsql-web]: https://app.popsql.com/login
 [popsql-desktop]: https://popsql.com/download
-[console]: https://console.cloud.timescale.com/dashboard/services
+[console]: https://console.cloud.tigerdata.com/dashboard/services
 [integrations]: /integrations/:currentVersion:/
 [log-28032025-pgvectorscale-rn]: https://github.com/timescale/pgvectorscale/releases/tag/0.7.0
 [log-28032025-pgvectorscale-example]: https://github.com/timescale/pgvectorscale?tab=readme-ov-file#label-based-filtering-with-diskann

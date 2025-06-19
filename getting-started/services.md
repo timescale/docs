@@ -58,14 +58,14 @@ To run queries and perform other operations, connect to your $SERVICE_SHORT:
 <WhereNext />
 
 
-[tsc-portal]: https://console.cloud.timescale.com/
+[tsc-portal]: https://console.cloud.tigerdata.com/
 [services-how-to]: /use-timescale/:currentVersion:/services/
 [install-psql]: /integrations/:currentVersion:/psql/
 [create-an-account]: /getting-started/:currentVersion:/services/#create-a-timescale-cloud-account
 [create-a-service]: /getting-started/:currentVersion:/services/#create-a-timescale-cloud-service
 [connect-to-your-service]: /getting-started/:currentVersion:/services/#connect-to-your-service
 [create-a-hypertable]: /getting-started/:currentVersion:/services/#create-a-hypertable
-[create-service]: https://console.cloud.timescale.com/dashboard/create_services
+[create-service]: https://console.cloud.tigerdata.com/dashboard/create_services
 [what-is-time-series]: https://www.timescale.com/blog/what-is-a-time-series-database/#what-is-a-time-series-database
 [what-is-dynamic-postgres]: https://www.timescale.com/dynamic-postgresql
 [hypertables]: /use-timescale/:currentVersion:/hypertables/#hypertable-partitioning

@@ -14,4 +14,4 @@
 
 </Procedure>
 
-[console-integrations]: https://console.cloud.timescale.com/dashboard/integrations
+[console-integrations]: https://console.cloud.tigerdata.com/dashboard/integrations

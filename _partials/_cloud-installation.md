@@ -65,9 +65,9 @@ To set up $CLOUD_LONG via AWS:
 
 </Tabs>
 
-[tsc-portal]: https://console.cloud.timescale.com/
+[tsc-portal]: https://console.cloud.tigerdata.com/
 [timescale-website]: https://www.timescale.com/
 [aws-marketplace]: https://aws.amazon.com/marketplace
 [aws-paygo]: https://aws.amazon.com/marketplace/pp/prodview-iestawpo5ihca?applicationId=AWSMPContessa&ref_=beagle&sr=0-1
 [aws-annual-commit]: https://aws.amazon.com/marketplace/pp/prodview-ezxwlmjyr6x4u?applicationId=AWSMPContessa&ref_=beagle&sr=0-2
-[timescale-signup]: https://console.cloud.timescale.com/signup
+[timescale-signup]: https://console.cloud.tigerdata.com/signup

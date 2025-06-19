@@ -131,7 +131,7 @@
 
 </Procedure>
 
-[console-integrations]: https://console.cloud.timescale.com/dashboard/integrations
+[console-integrations]: https://console.cloud.tigerdata.com/dashboard/integrations
 [console-cloudwatch-configuration]: https://console.aws.amazon.com/cloudwatch/home#logsV2:log-groups
 [console-cloudwatch-create-group]: https://console.aws.amazon.com/cloudwatch/home#logsV2:log-groups/create-log-group
 [cloudwatch-log-naming]: https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html

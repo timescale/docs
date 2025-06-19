@@ -215,6 +215,6 @@ VPCs are supported with connection pooling. It does not matter the order you
 add the pooler or connect to a VPC. Your connection strings will automatically 
 be updated to use the VPC connection string.
 
-[cloud-login]: https://console.cloud.timescale.com
+[cloud-login]: https://console.cloud.tigerdata.com
 [about-connection-pooling-types]: /use-timescale/:currentVersion:/services/connection-pooling#pool-types
 [pgbouncer]: https://www.pgbouncer.org/usage.html

@@ -145,6 +145,6 @@ comprehensive list of [metrics][datadog-postgres-metrics] collected.
 [datadog-api-key]: https://docs.datadoghq.com/account_management/api-app-keys/#add-an-api-key-or-client-token
 [pricing-plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-plan
 [run-queries]: /getting-started/:currentVersion:/run-queries-from-console/
-[open-console]: https://console.cloud.timescale.com/dashboard/services
+[open-console]: https://console.cloud.tigerdata.com/dashboard/services
 [psql]: /integrations/:currentVersion:/psql/
 [connection-info]: /integrations/:currentVersion:/find-connection-details/

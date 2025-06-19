@@ -41,7 +41,7 @@ with any other role. For a complete list of roles available, see the
 
 You cannot create multiple databases in a single $SERVICE_SHORT. If you need data isolation, use schemas or create additional $SERVICE_SHORTs.
 
-[cloud-login]: https://console.cloud.timescale.com/
+[cloud-login]: https://console.cloud.tigerdata.com/
 [pg-roles-doc]: https://www.postgresql.org/docs/current/role-attributes.html
 [create-service]: /getting-started/:currentVersion:/services/#create-a-timescale-cloud-service
 

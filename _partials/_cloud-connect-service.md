@@ -98,10 +98,10 @@ Quick recap. You:
   autocomplete, save them in folders, share them, create charts/dashboards, and much more.
 - Store configuration and security information in your config file.
 
-[portal-ops-mode]: https://console.cloud.timescale.com/dashboard/services
-[portal-data-mode]: https://console.cloud.timescale.com/dashboard/services?popsql
-[account-portal]: https://console.cloud.timescale.com/dashboard/account
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[portal-ops-mode]: https://console.cloud.tigerdata.com/dashboard/services
+[portal-data-mode]: https://console.cloud.tigerdata.com/dashboard/services?popsql
+[account-portal]: https://console.cloud.tigerdata.com/dashboard/account
+[services-portal]: https://console.cloud.tigerdata.com/dashboard/services
 [install-psql]: /integrations/:currentVersion:/psql/
 [popsql]: /getting-started/:currentVersion:/run-queries-from-console/#data-mode
 [run-sqleditor]: /getting-started/:currentVersion:/run-queries-from-console/#sql-editor

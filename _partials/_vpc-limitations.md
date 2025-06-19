@@ -8,5 +8,5 @@
   The number of Peering $VPCs you can create in your project depends on your [$PRICING_PLAN][pricing-plans].
   If you need another Peering $VPC, either contact [support@tigerdata.com](mailto:support@tigerdata.com) or change your $PRICING_PLAN in [$CONSOLE][console-login].
 
-[console-login]: https://console.cloud.timescale.com/
+[console-login]: https://console.cloud.tigerdata.com/
 [pricing-plans]: /about/:currentVersion:/pricing-and-account-management/

@@ -36,5 +36,5 @@ command-line utility. If you've used PostgreSQL before, you might already have
 
 </Procedure>
 
-[timescale-portal]: https://console.cloud.timescale.com/
+[timescale-portal]: https://console.cloud.tigerdata.com/
 [install-psql]: /integrations/:currentVersion:/psql/

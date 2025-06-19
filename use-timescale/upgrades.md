@@ -214,7 +214,7 @@ To change your maintenance window:
 
 
 [cloud-login]: https://www.timescale.com/cloud
-[cloud-login]: https://console.cloud.timescale.com/dashboard/services
+[cloud-login]: https://console.cloud.tigerdata.com/dashboard/services
 [operations-forking]: /use-timescale/:currentVersion:/services/service-management/#fork-a-service
 [postgres-relnotes]: https://www.postgresql.org/docs/release/
 [replicas-docs]: /use-timescale/:currentVersion:/ha-replicas/high-availability/

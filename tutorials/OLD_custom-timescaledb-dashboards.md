@@ -420,5 +420,5 @@ this tutorial, drop us a line on our [community Slack channel][timescale-slack].
 [hypertables]: /use-timescale/:currentVersion:/hypertables/
 [repo-example]: https://github.com/timescale/examples/tree/master/compression-preview
 [timescale-install]: /getting-started/latest/
-[timescale-signup]: http://console.cloud.timescale.com/signup
+[timescale-signup]: http://console.cloud.tigerdata.com/signup
 [timescale-slack]: https://slack.timescale.com

@@ -37,8 +37,8 @@ This section shows you how to attach, monitor, edit, and delete a data exporter.
 
 [cloudwatch]: https://aws.amazon.com/cloudwatch/
 [cloudwatch-docs]: https://docs.aws.amazon.com/cloudwatch/index.html
-[console-integrations]: https://console.cloud.timescale.com/dashboard/integrations
-[console-services]: https://console.cloud.timescale.com/dashboard/services
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[console-integrations]: https://console.cloud.tigerdata.com/dashboard/integrations
+[console-services]: https://console.cloud.tigerdata.com/dashboard/services
+[services-portal]: https://console.cloud.tigerdata.com/dashboard/services
 [pricing-plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-plan
 [projects]: /use-timescale/:currentVersion:/members/

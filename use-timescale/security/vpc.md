@@ -217,9 +217,9 @@ some time for DNS propagation.
 
 [aws-dashboard]: https://console.aws.amazon.com/vpc/home#PeeringConnections:
 [aws-security-groups]: https://console.aws.amazon.com/vpcconsole/home#securityGroups:
-[console-login]: https://console.cloud.timescale.com/
-[console-vpc]: https://console.cloud.timescale.com/dashboard/vpc
-[console-services]: https://console.cloud.timescale.com/dashboard/services
+[console-login]: https://console.cloud.tigerdata.com/
+[console-vpc]: https://console.cloud.tigerdata.com/dashboard/vpc
+[console-services]: https://console.cloud.tigerdata.com/dashboard/services
 [timescale-support]: https://www.timescale.com/contact/
 [tsc-regions]: /use-timescale/:currentVersion:/regions/
 [aws-vpc-setup-vpc]: /use-timescale/:currentVersion:/security/vpc/#create-a-peering-vpc-in-timescale-console

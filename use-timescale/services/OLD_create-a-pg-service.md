@@ -52,5 +52,5 @@ time-series services:
 />
 
 [cloud-install]: /getting-started/latest/
-[sign-up]: http://console.cloud.timescale.com/signup
-[cloud-console]: https://console.cloud.timescale.com/
+[sign-up]: http://console.cloud.tigerdata.com/signup
+[cloud-console]: https://console.cloud.tigerdata.com/

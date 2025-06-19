@@ -70,6 +70,6 @@ You have successfully integrated Decodable with $CLOUD_LONG.
 [decodable-quickstart]: https://docs.decodable.co/get-started/quickstart.html
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
 [run-queries]: /getting-started/:currentVersion:/run-queries-from-console/
-[open-console]: https://console.cloud.timescale.com/dashboard/services
+[open-console]: https://console.cloud.tigerdata.com/dashboard/services
 [psql]: /integrations/:currentVersion:/psql/
 [about-hypertables]: /use-timescale/:currentVersion:/hypertables/

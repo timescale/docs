@@ -148,11 +148,11 @@ The user is deleted immediately, they can no longer access your $PROJECT_SHORT.
 </Procedure>
 
 
-[cloud-login]: https://console.cloud.timescale.com/
+[cloud-login]: https://console.cloud.tigerdata.com/
 [saml]: /use-timescale/:currentVersion:/security/saml/
 [2fa]: /use-timescale/:currentVersion:/security/multi-factor-authentication/
-[cloud-login]: https://console.cloud.timescale.com/
-[sign-up]: https://console.cloud.timescale.com/
+[cloud-login]: https://console.cloud.tigerdata.com/
+[sign-up]: https://console.cloud.tigerdata.com/
 [pricing-plans]: /about/:currentVersion:/pricing-and-account-management/
 [join-a-project]: /use-timescale/:currentVersion:/members/#join-a-project
 [change-project]: /use-timescale/:currentVersion:/members/#change-the-current-project

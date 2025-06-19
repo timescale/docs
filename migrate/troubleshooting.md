@@ -77,7 +77,7 @@ Before you start [live migration][live migration]:
 [self hosted]: /self-hosted/:currentVersion:/
 [self hosted upgrade]: /self-hosted/:currentVersion:/upgrades/
 [mst]: /mst/:currentVersion:/
-[timescale-service]: https://console.cloud.timescale.com/dashboard/services
+[timescale-service]: https://console.cloud.tigerdata.com/dashboard/services
 
 
 ## Why does live migration log "no tuple identifier" warning?

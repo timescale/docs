@@ -132,7 +132,7 @@ To delete a replica set:
 </Procedure> 
 
 
-[cloud-login]: https://console.cloud.timescale.com
+[cloud-login]: https://console.cloud.tigerdata.com
 [ha]: /use-timescale/:currentVersion:/ha-replicas/high-availability/
 [read-only-role]: /use-timescale/:currentVersion:/security/read-only-role/#create-a-read-only-user
-[timescale-console-services]: https://console.cloud.timescale.com/dashboard/services
+[timescale-console-services]: https://console.cloud.tigerdata.com/dashboard/services

@@ -10,4 +10,4 @@
 
 </Procedure>
 
-[cloud-login]: https://console.cloud.timescale.com
+[cloud-login]: https://console.cloud.tigerdata.com

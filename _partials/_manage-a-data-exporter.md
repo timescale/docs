@@ -102,11 +102,11 @@ It must be one of the following:
 [datadog-api-key]: https://docs.datadoghq.com/account_management/api-app-keys/#add-an-api-key-or-client-token
 [datadog-docs]: https://docs.datadoghq.com/
 [datadog-metrics-explorer]: https://app.datadoghq.com/metric/explorer
-[console-integrations]: https://console.cloud.timescale.com/dashboard/integrations
-[console-services]: https://console.cloud.timescale.com/dashboard/services
+[console-integrations]: https://console.cloud.tigerdata.com/dashboard/integrations
+[console-services]: https://console.cloud.tigerdata.com/dashboard/services
 [list-iam-users]: https://console.aws.amazon.com/iam/home#/users
 [create-an-iam-user]: https://console.aws.amazon.com/iam/home#/users/create
 [console-cloudwatch-configuration]: https://console.aws.amazon.com/cloudwatch/home#logsV2:log-groups
 [console-cloudwatch-create-group]: https://console.aws.amazon.com/cloudwatch/home#logsV2:log-groups/create-log-group
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[services-portal]: https://console.cloud.tigerdata.com/dashboard/services
 [pricing-plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-plan

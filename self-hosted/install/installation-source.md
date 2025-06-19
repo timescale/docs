@@ -37,7 +37,7 @@ To install TimescaleDB from source, you need the following on your developer env
     These minor versions [introduced a breaking binary interface change][postgres-breaking-change] that,
     once identified, was reverted in subsequent minor PostgreSQL versions 17.2, 16.6, 15.10, 14.15, 13.18, and 12.22.
     When you build from source, best practice is to build with PostgreSQL 17.2, 16.6, etc and higher.
-    Users of [$CLOUD_LONG](https://console.cloud.timescale.com/) and Platform packages built and
+    Users of [$CLOUD_LONG](https://console.cloud.tigerdata.com/) and Platform packages built and
     distributed by $COMPANY are unaffected.
 
 

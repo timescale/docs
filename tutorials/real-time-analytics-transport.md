@@ -136,7 +136,7 @@ your data.
 [alter_job]: /api/:currentVersion:/actions/alter_job/
 [remove_columnstore_policy]: /api/:currentVersion:/hypercore/remove_columnstore_policy/
 [in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[services-portal]: https://console.cloud.tigerdata.com/dashboard/services
 [connect-using-psql]: /integrations/:currentVersion:/psql#connect-to-your-service
 [insert]: /use-timescale/:currentVersion:/write-data/insert/
 [hypercore]: /use-timescale/:currentVersion:/hypercore/

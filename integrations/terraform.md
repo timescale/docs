@@ -145,7 +145,7 @@ You can now manage your database with Terraform.
 
 [terraform-install]: https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli
 [terraform]: https://developer.hashicorp.com/terraform
-[console]: https://console.cloud.timescale.com/dashboard/services
+[console]: https://console.cloud.tigerdata.com/dashboard/services
 [terraform-provider]: https://registry.terraform.io/providers/timescale/timescale/latest/docs
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
 [terraform-resources]: https://registry.terraform.io/providers/timescale/timescale/latest/docs/resources/peering_connection

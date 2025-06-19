@@ -821,7 +821,7 @@ as how TimescaleDB is compatible with other extensions like *PostGIS*, for fast
 querying by time and location.
 
 [NYCTLC]: https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page
-[cloud-signup]: https://console.cloud.timescale.com/signup
+[cloud-signup]: https://console.cloud.tigerdata.com/signup
 [continuous-aggregates]: /getting-started/:currentVersion:/create-cagg/
 [hypertables]: /use-timescale/:currentVersion:/hypertables
 [install-timescale]: /getting-started/latest/
