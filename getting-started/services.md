@@ -33,7 +33,7 @@ Now that you have an active $ACCOUNT_LONG, you create and manage your $SERVICE_S
 
 1. In the [$SERVICE_SHORT creation page][create-service], choose the $PG capability or add `Time-series and analytics` and `AI and Vector` capabilities. Click `Save and continue`.
 
-   ![Create a $SERVICE_LONG](https://assets.timescale.com/docs/images/tiger-cloud-console/create-tiger-cloud-service.png)
+   ![Create a $SERVICE_LONG](https://assets.timescale.com/docs/images/tiger-cloud-console/2025-6-20-create-tiger-cloud-service-type.png)
 
 1. Follow the next steps in `Create a service` to configure the region, compute size, environment, availability, connectivity, and $SERVICE_SHORT name. Then click `Create service`.
 
